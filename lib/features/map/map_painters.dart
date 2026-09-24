@@ -531,7 +531,7 @@ final class MapTextCache {
   /// Applies the context's text settings: the text scale, the direction and
   /// the typeface of [ambient], the surrounding text style. Clears the cache
   /// if they changed.
-  void configure(
+  bool configure(
     TextScaler scaler,
     TextDirection direction,
     TextStyle ambient,
@@ -541,12 +541,13 @@ final class MapTextCache {
       fontFamilyFallback: ambient.fontFamilyFallback,
     );
     if (scaler == _scaler && direction == _direction && typeface == _typeface) {
-      return;
+      return false;
     }
     clear();
     _scaler = scaler;
     _direction = direction;
     _typeface = typeface;
+    return true;
   }
 
   (TextPainter, TextPainter) _labelPainters(
