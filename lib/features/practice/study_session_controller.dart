@@ -9,6 +9,7 @@ import '../../core/study/review_service.dart';
 import '../../core/study/study_planner.dart';
 import '../../core/study/study_providers.dart';
 import '../../core/study/study_session.dart';
+import '../../core/time/time_providers.dart';
 import '../../core/time/utc_clock.dart';
 
 /// Draws question formats and presentation seeds. Tests fix it.

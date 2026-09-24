@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../database/database_providers.dart';
-import '../time/utc_clock.dart';
+import '../time/time_providers.dart';
 import 'curriculum_catalog.dart';
 import 'curriculum_dataset.dart';
 import 'curriculum_ingestion.dart';

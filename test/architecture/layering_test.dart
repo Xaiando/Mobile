@@ -48,16 +48,26 @@ void main() {
     expect(offending, isEmpty);
   });
 
-  test('the geometry core is pure Dart', () {
-    // Geography §8: TopoJSON, projection and hit-testing run without
-    // Flutter, so tools and isolates can use them as they are.
-    final flutter = RegExp(r"import 'package:flutter/|import 'dart:ui'");
+  test('lib/core is plain Dart outside its providers', () {
+    // The curriculum tools run lib/core with `dart run`, without Flutter, and
+    // geography §8 keeps the geometry core pure. Only the Riverpod providers
+    // (*_providers.dart) and the on-device database connection need Flutter.
+    final flutter = RegExp(
+      r"import 'package:(flutter|flutter_riverpod|drift_flutter)/|"
+      r"import 'dart:ui'",
+    );
+    bool mayUseFlutter(String path) {
+      final name = path.replaceAll(r'\', '/').split('/').last;
+      return name.endsWith('_providers.dart') ||
+          name == 'database_connection.dart';
+    }
+
     final offending = [
-      for (final (path, line, text) in linesOf('lib/core/geography'))
-        if (flutter.hasMatch(text)) '$path:$line: ${text.trim()}',
+      for (final (path, line, text) in linesOf('lib/core'))
+        if (!mayUseFlutter(path) && flutter.hasMatch(text))
+          '$path:$line: ${text.trim()}',
     ];
     expect(offending, isEmpty);
-    expect(Directory('lib/core/geography').existsSync(), isTrue);
   });
 
   test('the check sees a query when there is one', () {

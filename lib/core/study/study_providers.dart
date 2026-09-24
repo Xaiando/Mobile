@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../database/database_providers.dart';
-import '../time/utc_clock.dart';
+import '../time/time_providers.dart';
 import 'learner_profile.dart';
 import 'review_service.dart';
 import 'study_planner.dart';

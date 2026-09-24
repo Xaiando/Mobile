@@ -6,7 +6,7 @@ import 'package:sommelier/core/curriculum/curriculum_ingestion.dart';
 import 'package:sommelier/core/database/app_database.dart';
 import 'package:sommelier/core/database/database_providers.dart';
 import 'package:sommelier/core/study/learner_profile.dart';
-import 'package:sommelier/core/time/utc_clock.dart';
+import 'package:sommelier/core/time/time_providers.dart';
 import 'package:sommelier/features/practice/study_session_controller.dart';
 
 import '../support/curriculum_fixture.dart';

@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:sommelier/core/database/app_database.dart';
-import 'package:sommelier/core/time/utc_clock.dart';
+import 'package:sommelier/core/time/time_providers.dart';
 import 'package:sommelier/features/practice/practice_screen.dart';
 import 'package:sommelier/features/practice/study_session_controller.dart';
 
