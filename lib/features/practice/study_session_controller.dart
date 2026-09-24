@@ -72,12 +72,13 @@ class StudySessionController extends AsyncNotifier<StudySessionState?> {
   /// Plans a session for the active track and shows its first card.
   Future<void> start() async {
     state = const AsyncLoading();
-    state = await AsyncValue.guard(() async {
+    final started = await AsyncValue.guard(() async {
       final plan = await ref.read(studyPlannerProvider).plan();
       if (plan == null) return null;
       final session = StudySession(plan);
       return StudySessionState(session: session, turn: await _turn(session));
     });
+    if (ref.mounted) state = started;
   }
 
   /// Answers the current MCQ with [option] (FS-6).
@@ -127,16 +128,22 @@ class StudySessionController extends AsyncNotifier<StudySessionState?> {
     if (state.hasError) return;
     final current = state.value;
     if (current == null || !(current.turn?.isAnswered ?? true)) return;
-    state = await AsyncValue.guard(
+    final moved = await AsyncValue.guard(
       () async => StudySessionState(
         session: current.session,
         turn: await _turn(current.session),
       ),
     );
+    if (_isCurrent(current.session)) state = moved;
   }
 
   /// Leaves the session. Answers already given are saved.
   void end() => state = const AsyncData(null);
+
+  /// Whether [session] is still on screen after an await: the learner may
+  /// have ended it meanwhile, and it must not come back.
+  bool _isCurrent(StudySession session) =>
+      ref.mounted && identical(state.value?.session, session);
 
   Future<void> _answer(
     Future<ReviewResult> Function(SessionTurn turn, Duration responseTime)
@@ -155,6 +162,7 @@ class StudySessionController extends AsyncNotifier<StudySessionState?> {
         responseTime.isNegative ? Duration.zero : responseTime,
       );
       current.session.complete(result);
+      if (!_isCurrent(current.session)) return;
       state = AsyncData(
         StudySessionState(
           session: current.session,
@@ -169,7 +177,7 @@ class StudySessionController extends AsyncNotifier<StudySessionState?> {
         ),
       );
     } catch (error, stackTrace) {
-      state = AsyncError(error, stackTrace);
+      if (_isCurrent(current.session)) state = AsyncError(error, stackTrace);
     } finally {
       _busy = false;
     }

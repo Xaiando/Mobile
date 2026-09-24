@@ -110,10 +110,8 @@ String memoryLabel(StudyCard card, DateTime now) {
   final recall = 'recall ${(card.retrievability * 100).round()} %';
   if (card.isOnLearningStep) return '$importance · Learning';
   if (card.isDue(now)) return '$importance · Due now · $recall';
-  final days = state.due.difference(now).inHours / 24;
-  final when = days < 1
-      ? 'tomorrow'
-      : 'in ${days.ceil()} day${days.ceil() == 1 ? '' : 's'}';
+  final days = (state.due.difference(now).inHours / 24).ceil();
+  final when = days <= 1 ? 'within a day' : 'in $days days';
   return '$importance · Next review $when · $recall';
 }
 
