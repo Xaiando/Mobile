@@ -60,6 +60,30 @@ void main() {
       expect(await db.select(db.knowledgeItems).get(), hasLength(3));
     });
 
+    test('a relation must connect existing nodes (§S.1)', () async {
+      await expectLater(
+        db.writeCurriculum(
+          () => db.customStatement(
+            'INSERT INTO knowledge_relations VALUES '
+            "('n_geo_chablis', 'LOCATED_IN', 'n_geo_nowhere', '1900-01-01', NULL)",
+          ),
+        ),
+        rejected,
+      );
+    });
+
+    test('an item cannot be its own prerequisite (§S.2)', () async {
+      await expectLater(
+        db.writeCurriculum(
+          () => db.customStatement(
+            'INSERT INTO knowledge_item_prerequisites VALUES '
+            "('ki_chablis_grape', 'ki_chablis_grape')",
+          ),
+        ),
+        rejected,
+      );
+    });
+
     test('an item must assert an existing relation', () async {
       await expectLater(
         db.writeCurriculum(

@@ -52,6 +52,17 @@ The canonical model is in docs/domain-model.md.
 - **FSRS** uses the `fsrs` package (FSRS-6). Never hand-code the product specification's §F formulas; they are wrong (audit §4).
 - **Web:** keep `package:drift/wasm.dart` out of code that also compiles for native platforms.
 
+## Curriculum dataset
+
+`assets/curriculum/curriculum.yaml` is the curriculum, in the format of docs/domain-model.md §7: each section is a table, each key a column. Startup ingests it (`CurriculumIngester`).
+
+- **Any change needs a new `dataset_version`.** Ingestion refuses a release that drops an authored row; retire rows with `valid_until` or `superseded_by_item_id`.
+- `validateDataset` must report no errors; `test/core/curriculum/curriculum_validator_test.dart` runs it on the bundle.
+- Every item cites a primary legal text (`knowledge_item_citations`) and maps to at least one track. Wine-law relation types need a `legislation` or `regulator_register` citation (`regulatoryRelationTypes`).
+- When a legal text lists grape varieties, link every listed variety that exists as a node, or it can be offered as a wrong answer.
+- Set `mcq_disabled: true` when a wrong answer could be defensible, e.g. overlapping climate types.
+- `valid_from: 1900-01-01` means the effective date is not curated yet.
+
 ## Content and legal
 
 These rules come from decisions D3, D8 and D10 in docs/architecture-audit.md §11.

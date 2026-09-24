@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-import '../core/database/database_providers.dart';
 import '../core/database/storage_durability.dart';
 import 'router.dart';
+import 'startup.dart';
 
 /// The Material 3 scaffold around every module: the navigation bar, plus a
 /// notice when the database failed to open or cannot keep data safely.

@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_riverpod/misc.dart' show Override;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:sommelier/app/app.dart';
+import 'package:sommelier/app/startup.dart';
 import 'package:sommelier/core/database/app_database.dart';
 import 'package:sommelier/core/database/database_providers.dart';
 import 'package:sommelier/core/database/storage_durability.dart';
@@ -53,6 +54,20 @@ void main() {
     await tester.tap(find.widgetWithText(NavigationDestination, 'Cellar'));
     await tester.pumpAndSettle();
     expect(find.textContaining('wine journal'), findsOneWidget);
+  });
+
+  testWidgets('hydrates the bundled curriculum on first launch', (
+    tester,
+  ) async {
+    await pumpApp(tester);
+    final release = await tester.runAsync(
+      () => db.select(db.curriculumReleases).getSingle(),
+    );
+    final nodes = await tester.runAsync(
+      () => db.select(db.knowledgeNodes).get(),
+    );
+    expect(release!.version, '0.1.0');
+    expect(nodes!.length, greaterThanOrEqualTo(50));
   });
 
   testWidgets('no notice when the database is durable', (tester) async {

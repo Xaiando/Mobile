@@ -20,3 +20,16 @@ DateTime toStorageInstant(DateTime instant) =>
       instant.millisecondsSinceEpoch,
       isUtc: true,
     );
+
+/// Today's date on the device as `YYYY-MM-DD`.
+///
+/// Legal validity dates are calendar dates, compared with the device's local
+/// date (architecture audit V-2).
+String localToday([Clock? source]) =>
+    isoDate((source ?? clock).now().toLocal());
+
+/// The calendar date of [date] as `YYYY-MM-DD`, as date-only columns store it.
+String isoDate(DateTime date) =>
+    '${date.year.toString().padLeft(4, '0')}-'
+    '${date.month.toString().padLeft(2, '0')}-'
+    '${date.day.toString().padLeft(2, '0')}';

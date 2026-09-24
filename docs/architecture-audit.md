@@ -169,6 +169,20 @@ The reason: §N defers cloud sync, and UUIDs let sync arrive later without re-ke
 
 The content itself, including who writes it and who verifies it, remains **D3**.
 
+**Dataset v0.1.0 (Phase 1).** [`assets/curriculum/curriculum.yaml`](../assets/curriculum/curriculum.yaml) meets the Phase 1 gate. Every validator rule passes.
+
+- **Volume:** 65 nodes, 87 relations and 46 items across 14 appellations in France and Italy, all eight certification rows, and a 10-edge prerequisite DAG.
+- **Sources:** every item cites one of 14 primary legal texts: INAO cahiers des charges and MASAF disciplinari.
+- **Spec examples covered:** Chablis, Barolo/Nebbiolo with its 38-month minimum, the northern Rhône's Syrah, Châteauneuf-du-Pape's galets roulés, and the §R distractors.
+- **Still open for V0.1:** the service, business and tasting domains, and the 150 verified items of P-6. Both are content work under D3.
+
+Reading the legal texts corrected the spec's seed in two places:
+
+| ID | The spec says | The primary source says | Decision |
+|---|---|---|---|
+| SD-1 | Chablis has a "Cool Continental" climate (§Q) | The Chablis cahier des charges describes an oceanic climate modified by continental influences | The dataset follows the legal text. Climate items with overlapping categories are flashcard-only (`mcq_disabled`). |
+| SD-2 | Kimmeridgian soils identify Chablis (§R Q4) | The Pouilly-Fumé cahier des charges lists Kimmeridgian marls too | Both relations are in the dataset, which confirms QG-11: no reverse question on that soil. |
+
 ---
 
 ## 5. FSRS representation
@@ -241,6 +255,8 @@ The content itself, including who writes it and who verifies it, remains **D3**.
 | PR-5 | Provenance is recorded per item. Structural relations that back no item (e.g. `LOCATED_IN`, used only for traversal) are listed in the build report for curator review rather than each carrying a citation. |
 | PR-6 | Citations with an attribution licence (CC-BY, ODbL) feed a generated attributions screen. ODbL sources are kept out of the canonical curriculum, because of share-alike (audit LEGAL-3). |
 | PR-7 | The spec's *works cited* list is not usable as provenance: many entries are re-hosted copies, forum or blog posts, or document-sharing uploads (audit LEGAL-6). |
+| PR-8 | The regulatory relation types, which need a `legislation` or `regulator_register` citation, are `PERMITS_PRINCIPAL_GRAPE`, `PERMITS_ACCESSORY_GRAPE`, `MIN_AGEING`, `MIN_WOOD_AGEING` and `REQUIRES_METHOD`. The list lives in the validator (`regulatoryRelationTypes`). |
+| PR-9 | A French citation's URL is the appellation's page at INAO, which publishes its cahier des charges and every regulatory text; `document_identifier` names the homologating act. Italian citations point to the MASAF page of the disciplinare. Where the homologated PDF could not be downloaded, the facts were read in the version INAO published for the national opposition procedure, and the expert reviewer confirms them (D3). |
 
 ---
 
@@ -264,6 +280,8 @@ The spec provides three things, and none of them explains how the rules behave t
 | V-8 | Over-the-air updates remain deferred (§T). When they arrive, ship **signed full snapshots** through the same upsert path. Deltas are unnecessary at this data size. **Provisional.** | One ingestion path, simpler than deltas. |
 | V-9 | Much wine law applies by vintage rather than calendar date. Effective dates approximate this, and the assertion text states any vintage conditions. A vintage-aware model is deferred. | Not needed for V0.1 accuracy. Recorded so it is not forgotten. |
 | V-10 | Exam syllabi can lag behind current law, so what is legally current may differ from what is examined. Flagged for the content owner (D3). | Out of scope for V0.1. |
+| V-11 | A relation whose effective date is not curated yet records `valid_from: 1900-01-01` and is treated as in force. The validator counts these in its report. | `valid_from` is required (V-1), and inventing a date would be worse than a documented placeholder. |
+| V-12 | Ingestion policy, Phase 1: <ul><li>no release installed, or the bundle is newer: ingest</li><li>same version, different checksum: re-ingest, which is safe because ingestion only upserts</li><li>installed release newer than the bundle (an app downgrade): keep it</li><li>a release that drops an authored row already in the database: refuse it, and write nothing</li></ul> Foreign keys are deferred to commit inside the transaction, so rows may reference rows later in the same release. | Implements V-7. The removal check runs against the database, so it also covers releases the build never saw. |
 
 ---
 

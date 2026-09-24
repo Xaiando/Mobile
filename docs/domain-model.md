@@ -666,6 +666,13 @@ Every table has a primary key: natural keys where they are stable (junction tabl
 
 The authored tables *are* the dataset format. Each YAML section is named after its table, and each key is a column name, so there is no mapping layer. Generated tables, user tables and `name_norm` never appear in the dataset; the tooling produces them.
 
+**In the app (Phase 1):** [`assets/curriculum/curriculum.yaml`](../assets/curriculum/curriculum.yaml) is release 0.1.0 in this format.
+
+- Two top-level keys fill `curriculum_releases`: `dataset_version` and `published_at`. Ingestion adds the SHA-256 checksum and `ingested_at`.
+- Every section must be present; an empty one is written `[]`.
+- A column with a schema default, such as `revision` or `verification_status`, may be omitted.
+- Unknown sections and columns are rejected, which catches typos.
+
 How the spec's §Q seed maps onto the canonical format:
 
 | §Q seed | Canonical dataset |

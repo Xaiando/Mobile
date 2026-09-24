@@ -20,6 +20,9 @@ const types = {
 
 const expected = {
   foreignKeys: 1,
+  curriculum: 'installed',
+  release: '0.1.0',
+  chablisAncestors: 'Burgundy > France',
   curriculumWriteOutsideLock: 'rejected',
   curriculumWriteInsideLock: 'accepted',
   utcTimestamp: 'accepted',
@@ -71,6 +74,10 @@ for (const [port, isolated] of [[8631, false], [8632, true]]) {
     if (result.error) problems.push(`error: ${result.error}`);
     for (const [key, value] of Object.entries(expected)) {
       if (result[key] !== value) problems.push(`${key}: expected ${value}, got ${result[key]}`);
+    }
+    // Spec TASK-002: at least 50 nodes and 50 edges after initialization.
+    for (const key of ['nodes', 'relations']) {
+      if (!(result[key] >= 50)) problems.push(`${key}: expected at least 50, got ${result[key]}`);
     }
   }
   console.log(`${problems.length ? 'FAIL' : 'ok  '} ${label}: ${JSON.stringify(result)}`);

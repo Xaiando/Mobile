@@ -13,12 +13,3 @@ final appDatabaseProvider = Provider<AppDatabase>(
 
 /// Where the web storage choice is recorded when the database opens.
 final storageReportProvider = Provider<StorageReport>((ref) => StorageReport());
-
-/// Opens the database (running migrations) and reports how durable it is.
-///
-/// Drift connects lazily, so this is also what triggers the web storage choice.
-final appStartupProvider = FutureProvider<StorageDurability>((ref) async {
-  final database = ref.watch(appDatabaseProvider);
-  await database.customSelect('SELECT 1').get();
-  return ref.watch(storageReportProvider).durability;
-});
