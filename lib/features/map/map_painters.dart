@@ -7,9 +7,13 @@ import '../../core/geography/geo_layer.dart';
 import '../../core/geography/hit_test.dart';
 import '../../core/geography/level_of_detail.dart';
 import '../../core/geography/map_view.dart';
+import '../../core/geography/planar.dart';
 import '../../core/geography/web_mercator.dart';
 import 'map_presentation.dart';
 import 'map_style.dart';
+
+/// What the features drawn with one path share: their pass and paint.
+typedef _BatchStyle = ({int pass, Color? fill, Color stroke, double width});
 
 /// One configuration of the map: its layers, how each feature looks, the
 /// names and the style. [revision] changes whenever what is drawn changes;
@@ -172,47 +176,74 @@ final class MapGeometryPainter extends CustomPainter {
 
   /// Draws [layer] at the level of detail of [bucket]: context first, then
   /// the base map, the parent, the candidates and the highlights on top.
+  ///
+  /// Features that look alike share one path, so a layer costs a few draw
+  /// calls however many features it has. Exteriors are wound clockwise and
+  /// holes the other way, so the non-zero fill rule leaves holes open and
+  /// fills where features overlap (GEO-16), and all outlines are stroked
+  /// over all fills.
   ui.Picture _record(MapLayer layer, int bucket) {
-    final recorder = ui.PictureRecorder();
-    final canvas = Canvas(recorder);
     // Sheet units per logical pixel at the bucket's smallest scale. Within
     // the bucket, lines grow by at most 2^¼ before the next picture.
     final unit = scene.base.scale / LevelOfDetail.scaleOf(bucket);
-    final shapes = layer.geometry.shapes;
-    for (final pass in _passes) {
-      for (final shape in shapes) {
-        final look = scene.lookOf(layer, shape);
-        if (!look.drawn || _passOf(look) != pass) continue;
-        switch (shape.kind) {
-          case GeometryKind.area:
-            final polygons = shape.polygonsAt(bucket);
-            if (polygons.isEmpty) continue;
-            final path = Path()..fillType = PathFillType.evenOdd;
-            for (final polygon in polygons) {
-              for (final ring in polygon) {
-                _trace(path, ring, close: true);
-              }
+    final batches = <_BatchStyle, Path>{};
+    for (final shape in layer.geometry.shapes) {
+      final look = scene.lookOf(layer, shape);
+      if (!look.drawn) continue;
+      switch (shape.kind) {
+        case GeometryKind.area:
+          final polygons = shape.polygonsAt(bucket);
+          if (polygons.isEmpty) continue;
+          final (fill, stroke, width) = _areaPaint(look);
+          final path = batches.putIfAbsent((
+            pass: _passOf(look),
+            fill: fill,
+            stroke: stroke,
+            width: width,
+          ), Path.new);
+          for (final polygon in polygons) {
+            for (var i = 0; i < polygon.length; i++) {
+              path.addPolygon(_ring(polygon[i], clockwise: i == 0), true);
             }
-            final (fill, stroke, width) = _areaPaint(look);
-            if (fill != null) canvas.drawPath(path, Paint()..color = fill);
-            canvas.drawPath(path, _stroke(stroke, width * unit));
-          case GeometryKind.line:
-            final path = Path();
-            for (final line in shape.linesAt(bucket)) {
-              _trace(path, line, close: false);
-            }
-            final (color, width) = _linePaint(look);
-            canvas.drawPath(path, _stroke(color, width * unit));
-          case GeometryKind.point:
-            // Points are markers, drawn by the overlay at a fixed size.
-            break;
-        }
+          }
+        case GeometryKind.line:
+          final lines = shape.linesAt(bucket);
+          if (lines.isEmpty) continue;
+          final (color, width) = _linePaint(look);
+          final path = batches.putIfAbsent((
+            pass: _passOf(look),
+            fill: null,
+            stroke: color,
+            width: width,
+          ), Path.new);
+          for (final line in lines) {
+            path.addPolygon(_line(line), false);
+          }
+        case GeometryKind.point:
+          // Points are markers, drawn by the overlay at a fixed size.
+          break;
       }
+    }
+
+    final recorder = ui.PictureRecorder();
+    final canvas = Canvas(recorder);
+    final styles = batches.keys.toList();
+    final order = List.generate(styles.length, (i) => i)
+      ..sort(
+        (a, b) => styles[a].pass != styles[b].pass
+            ? styles[a].pass.compareTo(styles[b].pass)
+            : a.compareTo(b),
+      );
+    for (final i in order) {
+      final style = styles[i];
+      final path = batches[style]!;
+      if (style.fill case final fill?) {
+        canvas.drawPath(path, Paint()..color = fill);
+      }
+      canvas.drawPath(path, _stroke(style.stroke, style.width * unit));
     }
     return recorder.endRecording();
   }
-
-  static const _passes = [0, 1, 2, 3, 4];
 
   static int _passOf(FeatureLook look) {
     if (look.highlight != null) return 4;
@@ -268,13 +299,28 @@ final class MapGeometryPainter extends CustomPainter {
     ..strokeJoin = StrokeJoin.round
     ..strokeCap = StrokeCap.round;
 
-  void _trace(Path path, Float64List points, {required bool close}) {
+  /// A closed ring on the sheet, without its repeated last point, wound
+  /// clockwise on screen or the other way.
+  List<Offset> _ring(Float64List ring, {required bool clockwise}) {
     final base = scene.base;
-    path.moveTo(base.screenX(points[0]), base.screenY(points[1]));
-    for (var i = 2; i + 1 < points.length; i += 2) {
-      path.lineTo(base.screenX(points[i]), base.screenY(points[i + 1]));
+    final n = ring.length ~/ 2 - 1;
+    final reverse = (ringArea(ring) > 0) != clockwise;
+    final points = <Offset>[];
+    for (var k = 0; k < n; k++) {
+      final j = reverse ? n - 1 - k : k;
+      points.add(
+        Offset(base.screenX(ring[2 * j]), base.screenY(ring[2 * j + 1])),
+      );
     }
-    if (close) path.close();
+    return points;
+  }
+
+  List<Offset> _line(Float64List line) {
+    final base = scene.base;
+    return [
+      for (var i = 0; i + 1 < line.length; i += 2)
+        Offset(base.screenX(line[i]), base.screenY(line[i + 1])),
+    ];
   }
 
   @override

@@ -1,13 +1,16 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:sommelier/core/geography/coordinates.dart';
 import 'package:sommelier/core/geography/geo_layer.dart';
 import 'package:sommelier/core/geography/hit_test.dart';
+import 'package:sommelier/core/geography/topojson.dart';
 import 'package:sommelier/core/geography/web_mercator.dart';
 import 'package:sommelier/features/map/map_canvas.dart';
 import 'package:sommelier/features/map/map_painters.dart';
 import 'package:sommelier/features/map/map_presentation.dart';
+import 'package:sommelier/features/map/map_style.dart';
 
 import '../../support/geography_fixture.dart';
 
@@ -531,6 +534,125 @@ void main() {
         expect(state.debugPictureRecordings, zoomed);
       },
     );
+  });
+
+  testWidgets('holes stay open and overlapping candidates stay filled', (
+    tester,
+  ) async {
+    // Features that look alike are drawn as one path. A hole wound like its
+    // exterior, and two overlapping squares wound opposite ways, must still
+    // come out right: the renderer normalises the winding.
+    final shapes = GeoLayer.fromTopology(
+      Topology.fromJson({
+        'type': 'Topology',
+        'arcs': [
+          [
+            [3, 47],
+            [4, 47],
+            [4, 48],
+            [3, 48],
+            [3, 47],
+          ],
+          [
+            [3.4, 47.4],
+            [3.6, 47.4],
+            [3.6, 47.6],
+            [3.4, 47.6],
+            [3.4, 47.4],
+          ],
+          [
+            [5, 47],
+            [6, 47],
+            [6, 48],
+            [5, 48],
+            [5, 47],
+          ],
+          [
+            [5.5, 47.5],
+            [5.5, 48.5],
+            [6.5, 48.5],
+            [6.5, 47.5],
+            [5.5, 47.5],
+          ],
+        ],
+        'objects': {
+          'areas': {
+            'type': 'GeometryCollection',
+            'geometries': [
+              {
+                'type': 'Polygon',
+                'id': 'holed',
+                'arcs': [
+                  [0],
+                  [1],
+                ],
+              },
+              {
+                'type': 'Polygon',
+                'id': 'a',
+                'arcs': [
+                  [2],
+                ],
+              },
+              {
+                'type': 'Polygon',
+                'id': 'b',
+                'arcs': [
+                  [3],
+                ],
+              },
+            ],
+          },
+        },
+      }),
+      id: 'shapes',
+    );
+    const key = ValueKey('map');
+    await tester.pumpWidget(
+      MaterialApp(
+        home: Scaffold(
+          body: RepaintBoundary(
+            key: key,
+            child: MapCanvas(
+              layers: [MapLayer(shapes)],
+              candidates: const {'holed', 'a', 'b'},
+            ),
+          ),
+        ),
+      ),
+    );
+    final view = tester.state<MapCanvasState>(find.byType(MapCanvas)).debugView;
+    final boundary = tester.renderObject<RenderRepaintBoundary>(
+      find.byKey(key),
+    );
+    final pixels = (await tester.runAsync(() async {
+      final image = await boundary.toImage();
+      final bytes = await image.toByteData();
+      final width = image.width;
+      image.dispose();
+      return (bytes!, width);
+    }))!;
+    Color at(double lon, double lat) {
+      final p = WebMercator.project(LonLat(lon, lat));
+      final x = view.screenX(p.x).round(), y = view.screenY(p.y).round();
+      final i = (y * pixels.$2 + x) * 4;
+      final b = pixels.$1;
+      return Color.fromARGB(
+        b.getUint8(i + 3),
+        b.getUint8(i),
+        b.getUint8(i + 1),
+        b.getUint8(i + 2),
+      );
+    }
+
+    const fill = Color(0xFFFFFFFF);
+    final water = MapStyle.light.water;
+    expect(at(3.2, 47.2), fill);
+    expect(at(3.5, 47.5), water, reason: 'the hole is open');
+    expect(at(5.25, 47.25), fill);
+    expect(at(5.75, 47.75), fill, reason: 'the overlap is filled');
+    expect(at(6.25, 48.25), fill);
+    expect(at(4.5, 47.2), water, reason: 'between the squares');
   });
 
   testWidgets('the information button lists the attributions', (tester) async {
