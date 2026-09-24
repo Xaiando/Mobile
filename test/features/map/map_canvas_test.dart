@@ -2,6 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:sommelier/core/geography/coordinates.dart';
+import 'package:sommelier/core/geography/geo_layer.dart';
 import 'package:sommelier/core/geography/hit_test.dart';
 import 'package:sommelier/core/geography/web_mercator.dart';
 import 'package:sommelier/features/map/map_canvas.dart';
@@ -35,14 +36,22 @@ void main() {
     Map<String, MapHighlight> highlights = const {},
     bool revealed = false,
     GeoBounds? frame,
+    List<MapLayer>? mapLayers,
+    Set<String> mapCandidates = fixtureCandidates,
+    TextScaler textScaler = TextScaler.noScaling,
+    TextDirection textDirection = TextDirection.ltr,
   }) async {
     await tester.pumpWidget(
       MaterialApp(
+        builder: (context, child) => MediaQuery(
+          data: MediaQuery.of(context).copyWith(textScaler: textScaler),
+          child: Directionality(textDirection: textDirection, child: child!),
+        ),
         home: Scaffold(
           body: MapCanvas(
-            layers: layers,
+            layers: mapLayers ?? layers,
             mode: mode,
-            candidates: fixtureCandidates,
+            candidates: mapCandidates,
             parent: 'n_fx_region',
             highlights: highlights,
             revealed: revealed,
@@ -123,6 +132,22 @@ void main() {
       expect((await tap(tester, const LonLat(3.5, 48))).hit, isNull);
       // East Slope is drawn, but it is not a candidate.
       expect((await tap(tester, const LonLat(5.4, 48.4))).hit, isNull);
+    });
+
+    testWidgets('ignores candidates on zoom-hidden layers', (tester) async {
+      final hiddenAreas = GeoLayer.fromTopology(
+        fixture.topology,
+        id: 'ml_fx_hidden_areas',
+        object: 'areas',
+        maxZoom: 0,
+      );
+      final state = await pumpMap(
+        tester,
+        mapLayers: [MapLayer.base(fixture.country), MapLayer(hiddenAreas)],
+        mapCandidates: const {'n_fx_north'},
+      );
+      expect(hiddenAreas.isVisibleAt(state.debugView.zoom), isFalse);
+      expect((await tap(tester, const LonLat(3.2, 48.3))).hit, isNull);
     });
 
     testWidgets('an exact hit wins over a near one', (tester) async {
@@ -251,6 +276,28 @@ void main() {
       expect(state.debugLookOf('n_fx_north').drawn, isTrue);
       expect(state.debugLookOf('n_fx_east').drawn, isTrue);
       expect(state.debugLookOf('n_fx_east').isDimmed, isTrue);
+    });
+
+    testWidgets('repaints labels when inherited text settings change', (
+      tester,
+    ) async {
+      final state = await pumpMap(tester);
+      final beforeOverlay = state.debugOverlay;
+      final before = state.debugOverlay!.labels
+          .singleWhere((label) => label.text == 'North Hills')
+          .rect;
+
+      final scaled = await pumpMap(
+        tester,
+        textScaler: TextScaler.linear(1.5),
+        textDirection: TextDirection.rtl,
+      );
+      final after = scaled.debugOverlay!.labels
+          .singleWhere((label) => label.text == 'North Hills')
+          .rect;
+
+      expect(scaled.debugOverlay, isNot(same(beforeOverlay)));
+      expect(after.height, greaterThan(before.height));
     });
 
     testWidgets(
