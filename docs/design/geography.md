@@ -238,6 +238,18 @@ The Copernicus DEM is an alternative to SRTM, with a mandatory "all rights reser
 - A map shows an information button that lists the attributions of its visible layers.
 - *Settings → About → Data sources* lists every dataset citation, with its licence and attribution text.
 
+**As built (G3).** The renderer takes a decoded layer per asset and a question's settings:
+
+- `Topology.parse` reads an asset. A feature's `id` is its `feature_key`, and a `name` property labels context features such as rivers. Open rings, missing arcs, unknown types and empty multi-geometries are refused with a `FormatException`.
+- `GeoLayer.fromTopology` gives the layer its `map_layers` zoom range (minimum inclusive, maximum exclusive), its attribution and the manifest's label points. Two features with one key are refused. An area without a label point uses its centroid when that falls inside it, and otherwise its pole of inaccessibility.
+- `MapCanvas` takes the layers (`MapLayer.base` for coastlines, borders and major rivers), the mode, the candidates' keys, the parent's key, highlights, the reveal flag, names, the frame and the frame one level up. A tap returns a `MapTap`: the coordinate, the view and every hit ranked, best first.
+- Simplification ranks each shared arc once, so neighbours stay joined at every zoom. Hit tests use the full geometry.
+- These cases were not specified above, so the renderer settles them:
+  - When a tap is inside several candidates, where registers overlap (GEO-16) or a marker lies over a neighbour, the smallest wins.
+  - A line has no inside, so a tap on a river counts as near it.
+  - In the minimal and blank modes, markers stay hidden with the candidates until the answer is revealed. Taps are then graded against the shapes themselves.
+  - Revealing shows the map as labelled mode does.
+
 ---
 
 ## 9. Worked examples
