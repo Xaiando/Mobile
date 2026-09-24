@@ -1,0 +1,541 @@
+# France: Burgundy, the Rhône Valley, the Loire Valley and Champagne.
+# Part of the curriculum release in ../curriculum.yaml, in the
+# format of docs/domain-model.md §7.
+
+knowledge_nodes:
+  # Geography
+  - { id: n_geo_france, node_type: country, name: France }
+  - { id: n_geo_burgundy, node_type: region, name: Burgundy }
+  - { id: n_geo_rhone_valley, node_type: region, name: Rhône Valley }
+  - { id: n_geo_loire_valley, node_type: region, name: Loire Valley }
+  - { id: n_geo_champagne_region, node_type: region, name: Champagne }
+  - { id: n_geo_cote_de_beaune, node_type: subregion, name: Côte de Beaune }
+  - { id: n_geo_northern_rhone, node_type: subregion, name: Northern Rhône }
+  - { id: n_geo_southern_rhone, node_type: subregion, name: Southern Rhône }
+  - { id: n_geo_touraine, node_type: subregion, name: Touraine }
+  - { id: n_geo_chablis, node_type: appellation, name: Chablis }
+  - { id: n_geo_volnay, node_type: appellation, name: Volnay }
+  - { id: n_geo_cornas, node_type: appellation, name: Cornas }
+  - { id: n_geo_crozes_hermitage, node_type: appellation, name: Crozes-Hermitage }
+  - { id: n_geo_condrieu, node_type: appellation, name: Condrieu }
+  - { id: n_geo_chateauneuf_du_pape, node_type: appellation, name: Châteauneuf-du-Pape }
+  - { id: n_geo_pouilly_fume, node_type: appellation, name: Pouilly-Fumé }
+  - { id: n_geo_vouvray, node_type: appellation, name: Vouvray }
+  - { id: n_geo_muscadet_sevre_et_maine, node_type: appellation, name: Muscadet Sèvre et Maine }
+  - { id: n_geo_champagne, node_type: appellation, name: Champagne }
+  # Quantities: the values are in quantity_values
+  - { id: n_qty_15_months, node_type: quantity, name: 15 months }
+
+quantity_values:
+  - { knowledge_node_id: n_qty_15_months, minimum: 15, unit: month }
+
+node_alternative_names:
+  - { knowledge_node_id: n_geo_burgundy, name: Bourgogne, kind: synonym }
+  - { knowledge_node_id: n_geo_rhone_valley, name: Vallée du Rhône, kind: synonym }
+  - { knowledge_node_id: n_geo_loire_valley, name: Val de Loire, kind: synonym }
+  - { knowledge_node_id: n_geo_crozes_hermitage, name: Crozes-Ermitage, kind: spelling_variant }
+  - { knowledge_node_id: n_geo_pouilly_fume, name: Blanc Fumé de Pouilly, kind: synonym }
+
+knowledge_relations:
+  # Geography. Relations without an item are structural: they drive
+  # traversal and distractor scopes.
+  - { subject_id: n_geo_burgundy, relation_type: LOCATED_IN, object_id: n_geo_france, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_rhone_valley, relation_type: LOCATED_IN, object_id: n_geo_france, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_loire_valley, relation_type: LOCATED_IN, object_id: n_geo_france, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_champagne_region, relation_type: LOCATED_IN, object_id: n_geo_france, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_cote_de_beaune, relation_type: LOCATED_IN, object_id: n_geo_burgundy, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_northern_rhone, relation_type: LOCATED_IN, object_id: n_geo_rhone_valley, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_southern_rhone, relation_type: LOCATED_IN, object_id: n_geo_rhone_valley, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_touraine, relation_type: LOCATED_IN, object_id: n_geo_loire_valley, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_chablis, relation_type: LOCATED_IN, object_id: n_geo_burgundy, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_volnay, relation_type: LOCATED_IN, object_id: n_geo_cote_de_beaune, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_cornas, relation_type: LOCATED_IN, object_id: n_geo_northern_rhone, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_crozes_hermitage, relation_type: LOCATED_IN, object_id: n_geo_northern_rhone, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_condrieu, relation_type: LOCATED_IN, object_id: n_geo_northern_rhone, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_chateauneuf_du_pape, relation_type: LOCATED_IN, object_id: n_geo_southern_rhone, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_pouilly_fume, relation_type: LOCATED_IN, object_id: n_geo_loire_valley, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_vouvray, relation_type: LOCATED_IN, object_id: n_geo_touraine, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_muscadet_sevre_et_maine, relation_type: LOCATED_IN, object_id: n_geo_loire_valley, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_champagne, relation_type: LOCATED_IN, object_id: n_geo_champagne_region, valid_from: "1900-01-01" }
+  # Principal grape varieties. Where a legal text lists varieties without
+  # classifying them, every listed variety is principal. Every listed variety
+  # that exists as a node is linked, so none is offered as a wrong answer.
+  - { subject_id: n_geo_chablis, relation_type: PERMITS_PRINCIPAL_GRAPE, object_id: n_grape_chardonnay, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_volnay, relation_type: PERMITS_PRINCIPAL_GRAPE, object_id: n_grape_pinot_noir, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_cornas, relation_type: PERMITS_PRINCIPAL_GRAPE, object_id: n_grape_syrah, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_crozes_hermitage, relation_type: PERMITS_PRINCIPAL_GRAPE, object_id: n_grape_syrah, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_condrieu, relation_type: PERMITS_PRINCIPAL_GRAPE, object_id: n_grape_viognier, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_chateauneuf_du_pape, relation_type: PERMITS_PRINCIPAL_GRAPE, object_id: n_grape_grenache, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_chateauneuf_du_pape, relation_type: PERMITS_PRINCIPAL_GRAPE, object_id: n_grape_syrah, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_chateauneuf_du_pape, relation_type: PERMITS_PRINCIPAL_GRAPE, object_id: n_grape_mourvedre, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_chateauneuf_du_pape, relation_type: PERMITS_PRINCIPAL_GRAPE, object_id: n_grape_roussanne, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_pouilly_fume, relation_type: PERMITS_PRINCIPAL_GRAPE, object_id: n_grape_sauvignon_blanc, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_vouvray, relation_type: PERMITS_PRINCIPAL_GRAPE, object_id: n_grape_chenin_blanc, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_muscadet_sevre_et_maine, relation_type: PERMITS_PRINCIPAL_GRAPE, object_id: n_grape_melon, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_champagne, relation_type: PERMITS_PRINCIPAL_GRAPE, object_id: n_grape_chardonnay, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_champagne, relation_type: PERMITS_PRINCIPAL_GRAPE, object_id: n_grape_pinot_noir, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_champagne, relation_type: PERMITS_PRINCIPAL_GRAPE, object_id: n_grape_meunier, valid_from: "1900-01-01" }
+  # Accessory grape varieties
+  - { subject_id: n_geo_volnay, relation_type: PERMITS_ACCESSORY_GRAPE, object_id: n_grape_chardonnay, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_crozes_hermitage, relation_type: PERMITS_ACCESSORY_GRAPE, object_id: n_grape_marsanne, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_crozes_hermitage, relation_type: PERMITS_ACCESSORY_GRAPE, object_id: n_grape_roussanne, valid_from: "1900-01-01" }
+  # Soils, climates and hazards
+  - { subject_id: n_geo_chablis, relation_type: HAS_SOIL, object_id: n_soil_kimmeridgian_marl, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_pouilly_fume, relation_type: HAS_SOIL, object_id: n_soil_kimmeridgian_marl, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_pouilly_fume, relation_type: HAS_SOIL, object_id: n_soil_flint, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_cornas, relation_type: HAS_SOIL, object_id: n_soil_granite, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_condrieu, relation_type: HAS_SOIL, object_id: n_soil_granite, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_chateauneuf_du_pape, relation_type: HAS_SOIL, object_id: n_soil_galets_roules, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_champagne, relation_type: HAS_SOIL, object_id: n_soil_chalk, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_chablis, relation_type: HAS_CLIMATE, object_id: n_clim_oceanic_continental, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_volnay, relation_type: HAS_CLIMATE, object_id: n_clim_oceanic_continental, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_pouilly_fume, relation_type: HAS_CLIMATE, object_id: n_clim_oceanic_continental, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_vouvray, relation_type: HAS_CLIMATE, object_id: n_clim_oceanic_continental, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_champagne, relation_type: HAS_CLIMATE, object_id: n_clim_oceanic_continental, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_muscadet_sevre_et_maine, relation_type: HAS_CLIMATE, object_id: n_clim_oceanic, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_chateauneuf_du_pape, relation_type: HAS_CLIMATE, object_id: n_clim_mediterranean, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_chablis, relation_type: SUSCEPTIBLE_TO, object_id: n_hazard_spring_frost, valid_from: "1900-01-01" }
+  # Ageing and production rules
+  - { subject_id: n_geo_champagne, relation_type: MIN_AGEING, object_id: n_qty_15_months, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_champagne, relation_type: REQUIRES_METHOD, object_id: n_method_traditional, valid_from: "1900-01-01" }
+
+knowledge_items:
+  # Burgundy
+  - id: ki_chablis_location
+    subject_id: n_geo_chablis
+    relation_type: LOCATED_IN
+    object_id: n_geo_burgundy
+    domain_id: geography
+    assertion_text: "Chablis is a Burgundy appellation on the slopes of the Serein valley, in the Yonne department."
+    last_verified_at: "2026-09-24T12:00:00.000Z"
+  - id: ki_chablis_grape
+    subject_id: n_geo_chablis
+    relation_type: PERMITS_PRINCIPAL_GRAPE
+    object_id: n_grape_chardonnay
+    domain_id: geography
+    assertion_text: "Chablis is made exclusively from Chardonnay."
+    last_verified_at: "2026-09-24T12:00:00.000Z"
+  - id: ki_chablis_soil
+    subject_id: n_geo_chablis
+    relation_type: HAS_SOIL
+    object_id: n_soil_kimmeridgian_marl
+    domain_id: viticulture
+    assertion_text: "The Chablis vineyards lie on Kimmeridgian marls, rich in fossil oysters (Exogyra virgula)."
+    last_verified_at: "2026-09-24T12:00:00.000Z"
+  - id: ki_chablis_climate
+    subject_id: n_geo_chablis
+    relation_type: HAS_CLIMATE
+    object_id: n_clim_oceanic_continental
+    domain_id: viticulture
+    assertion_text: "Chablis has an oceanic climate modified by continental influences, with moderate rainfall and cool temperatures."
+    last_verified_at: "2026-09-24T12:00:00.000Z"
+    mcq_disabled: true
+  - id: ki_chablis_frost
+    subject_id: n_geo_chablis
+    relation_type: SUSCEPTIBLE_TO
+    object_id: n_hazard_spring_frost
+    domain_id: viticulture
+    assertion_text: "Chablis has a high risk of winter and spring frost; growers protect the vines with water sprinklers and heaters."
+    last_verified_at: "2026-09-24T12:00:00.000Z"
+    mcq_disabled: true
+  - id: ki_volnay_location
+    subject_id: n_geo_volnay
+    relation_type: LOCATED_IN
+    object_id: n_geo_cote_de_beaune
+    domain_id: geography
+    assertion_text: "Volnay is a red-wine appellation of the Côte de Beaune in Burgundy."
+    last_verified_at: "2026-09-24T12:00:00.000Z"
+  - id: ki_volnay_grape
+    subject_id: n_geo_volnay
+    relation_type: PERMITS_PRINCIPAL_GRAPE
+    object_id: n_grape_pinot_noir
+    domain_id: geography
+    assertion_text: "Pinot Noir is the principal grape variety of Volnay."
+    last_verified_at: "2026-09-24T12:00:00.000Z"
+  - id: ki_volnay_accessory_chardonnay
+    subject_id: n_geo_volnay
+    relation_type: PERMITS_ACCESSORY_GRAPE
+    object_id: n_grape_chardonnay
+    domain_id: geography
+    assertion_text: "Chardonnay is an accessory variety in Volnay: accessory varieties may only be interplanted, at most 15% of each plot."
+    last_verified_at: "2026-09-24T12:00:00.000Z"
+  # Rhône Valley
+  - id: ki_cornas_location
+    subject_id: n_geo_cornas
+    relation_type: LOCATED_IN
+    object_id: n_geo_northern_rhone
+    domain_id: geography
+    assertion_text: "Cornas lies in the northern part of the Rhône Valley, in the Ardèche department."
+    last_verified_at: "2026-09-24T12:00:00.000Z"
+  - id: ki_cornas_grape
+    subject_id: n_geo_cornas
+    relation_type: PERMITS_PRINCIPAL_GRAPE
+    object_id: n_grape_syrah
+    domain_id: geography
+    assertion_text: "Cornas is made from Syrah alone."
+    last_verified_at: "2026-09-24T12:00:00.000Z"
+  - id: ki_cornas_soil
+    subject_id: n_geo_cornas
+    relation_type: HAS_SOIL
+    object_id: n_soil_granite
+    domain_id: viticulture
+    assertion_text: "Most of the Cornas vineyard grows on soils weathered from granite, on steep terraced slopes."
+    last_verified_at: "2026-09-24T12:00:00.000Z"
+  - id: ki_crozes_hermitage_grape
+    subject_id: n_geo_crozes_hermitage
+    relation_type: PERMITS_PRINCIPAL_GRAPE
+    object_id: n_grape_syrah
+    domain_id: geography
+    assertion_text: "Syrah is the principal grape of red Crozes-Hermitage and at least 85% of a grower's vines for red wine."
+    last_verified_at: "2026-09-24T12:00:00.000Z"
+  - id: ki_crozes_hermitage_accessory_marsanne
+    subject_id: n_geo_crozes_hermitage
+    relation_type: PERMITS_ACCESSORY_GRAPE
+    object_id: n_grape_marsanne
+    domain_id: geography
+    assertion_text: "Marsanne and Roussanne are the accessory varieties of red Crozes-Hermitage, interplanted with Syrah up to 15% of the vines."
+    last_verified_at: "2026-09-24T12:00:00.000Z"
+  - id: ki_condrieu_grape
+    subject_id: n_geo_condrieu
+    relation_type: PERMITS_PRINCIPAL_GRAPE
+    object_id: n_grape_viognier
+    domain_id: geography
+    assertion_text: "Condrieu is made exclusively from Viognier."
+    last_verified_at: "2026-09-24T12:00:00.000Z"
+  - id: ki_condrieu_soil
+    subject_id: n_geo_condrieu
+    relation_type: HAS_SOIL
+    object_id: n_soil_granite
+    domain_id: viticulture
+    assertion_text: "Condrieu's steep terraces lie on soils weathered mainly from granite."
+    last_verified_at: "2026-09-24T12:00:00.000Z"
+  - id: ki_chateauneuf_du_pape_grenache
+    subject_id: n_geo_chateauneuf_du_pape
+    relation_type: PERMITS_PRINCIPAL_GRAPE
+    object_id: n_grape_grenache
+    domain_id: geography
+    assertion_text: "Grenache is one of the 18 grape varieties permitted in Châteauneuf-du-Pape."
+    last_verified_at: "2026-09-24T12:00:00.000Z"
+  - id: ki_chateauneuf_du_pape_soil
+    subject_id: n_geo_chateauneuf_du_pape
+    relation_type: HAS_SOIL
+    object_id: n_soil_galets_roules
+    domain_id: viticulture
+    assertion_text: "Many Châteauneuf-du-Pape vineyards lie on terraces of large rounded pebbles (galets roulés) in red clay."
+    last_verified_at: "2026-09-24T12:00:00.000Z"
+  - id: ki_chateauneuf_du_pape_climate
+    subject_id: n_geo_chateauneuf_du_pape
+    relation_type: HAS_CLIMATE
+    object_id: n_clim_mediterranean
+    domain_id: viticulture
+    assertion_text: "Châteauneuf-du-Pape has a Mediterranean climate, hot and dry in summer and swept by the Mistral."
+    last_verified_at: "2026-09-24T12:00:00.000Z"
+  # Loire Valley
+  - id: ki_pouilly_fume_grape
+    subject_id: n_geo_pouilly_fume
+    relation_type: PERMITS_PRINCIPAL_GRAPE
+    object_id: n_grape_sauvignon_blanc
+    domain_id: geography
+    assertion_text: "Pouilly-Fumé is made from Sauvignon Blanc alone."
+    last_verified_at: "2026-09-24T12:00:00.000Z"
+  - id: ki_pouilly_fume_soil_kimmeridgian
+    subject_id: n_geo_pouilly_fume
+    relation_type: HAS_SOIL
+    object_id: n_soil_kimmeridgian_marl
+    domain_id: viticulture
+    assertion_text: "Kimmeridgian marls, locally called terres blanches, are among the soils of Pouilly-Fumé."
+    last_verified_at: "2026-09-24T12:00:00.000Z"
+  - id: ki_pouilly_fume_soil_flint
+    subject_id: n_geo_pouilly_fume
+    relation_type: HAS_SOIL
+    object_id: n_soil_flint
+    domain_id: viticulture
+    assertion_text: "Flint-bearing clays (silex) are among the soils of Pouilly-Fumé."
+    last_verified_at: "2026-09-24T12:00:00.000Z"
+  - id: ki_vouvray_location
+    subject_id: n_geo_vouvray
+    relation_type: LOCATED_IN
+    object_id: n_geo_touraine
+    domain_id: geography
+    assertion_text: "Vouvray is a Touraine appellation on the right bank of the Loire."
+    last_verified_at: "2026-09-24T12:00:00.000Z"
+  - id: ki_vouvray_grape
+    subject_id: n_geo_vouvray
+    relation_type: PERMITS_PRINCIPAL_GRAPE
+    object_id: n_grape_chenin_blanc
+    domain_id: geography
+    assertion_text: "Chenin Blanc is the principal grape of Vouvray; the accessory variety Orbois may make up at most 5% of plantings."
+    last_verified_at: "2026-09-24T12:00:00.000Z"
+  - id: ki_muscadet_sevre_et_maine_grape
+    subject_id: n_geo_muscadet_sevre_et_maine
+    relation_type: PERMITS_PRINCIPAL_GRAPE
+    object_id: n_grape_melon
+    domain_id: geography
+    assertion_text: "Muscadet Sèvre et Maine is made solely from the Melon grape."
+    last_verified_at: "2026-09-24T12:00:00.000Z"
+  - id: ki_muscadet_sevre_et_maine_climate
+    subject_id: n_geo_muscadet_sevre_et_maine
+    relation_type: HAS_CLIMATE
+    object_id: n_clim_oceanic
+    domain_id: viticulture
+    assertion_text: "The Muscadet Sèvre et Maine climate is strongly influenced by the nearby Atlantic Ocean, with generally very mild winters."
+    last_verified_at: "2026-09-24T12:00:00.000Z"
+    mcq_disabled: true
+  # Champagne
+  - id: ki_champagne_chardonnay
+    subject_id: n_geo_champagne
+    relation_type: PERMITS_PRINCIPAL_GRAPE
+    object_id: n_grape_chardonnay
+    domain_id: geography
+    assertion_text: "Chardonnay is one of the principal grape varieties of Champagne."
+    last_verified_at: "2026-09-24T12:00:00.000Z"
+  - id: ki_champagne_pinot_noir
+    subject_id: n_geo_champagne
+    relation_type: PERMITS_PRINCIPAL_GRAPE
+    object_id: n_grape_pinot_noir
+    domain_id: geography
+    assertion_text: "Pinot Noir is one of the principal grape varieties of Champagne."
+    last_verified_at: "2026-09-24T12:00:00.000Z"
+  - id: ki_champagne_meunier
+    subject_id: n_geo_champagne
+    relation_type: PERMITS_PRINCIPAL_GRAPE
+    object_id: n_grape_meunier
+    domain_id: geography
+    assertion_text: "Meunier is one of the principal grape varieties of Champagne."
+    last_verified_at: "2026-09-24T12:00:00.000Z"
+  - id: ki_champagne_soil
+    subject_id: n_geo_champagne
+    relation_type: HAS_SOIL
+    object_id: n_soil_chalk
+    domain_id: viticulture
+    assertion_text: "Chalk, porous and water-regulating, characterizes the hillside vineyards of Champagne."
+    last_verified_at: "2026-09-24T12:00:00.000Z"
+    # Kimmeridgian marls also occur in the Côte des Bar, so that soil must
+    # not be offered as a wrong answer.
+    mcq_disabled: true
+  - id: ki_champagne_method
+    subject_id: n_geo_champagne
+    relation_type: REQUIRES_METHOD
+    object_id: n_method_traditional
+    domain_id: winemaking
+    assertion_text: "Champagne must undergo its second fermentation in the bottle (the traditional method), and may not be disgorged until 12 months after tirage."
+    last_verified_at: "2026-09-24T12:00:00.000Z"
+  - id: ki_champagne_min_ageing
+    subject_id: n_geo_champagne
+    relation_type: MIN_AGEING
+    object_id: n_qty_15_months
+    domain_id: winemaking
+    assertion_text: "Champagne may be sold only after at least 15 months of ageing from tirage, or 36 months for vintage Champagne."
+    last_verified_at: "2026-09-24T12:00:00.000Z"
+
+# Learn the basic fact before the one that builds on it (§G's prerequisite
+# factor, used by the study queue in Phase 3).
+knowledge_item_prerequisites:
+  - { knowledge_item_id: ki_chablis_grape, prerequisite_item_id: ki_chablis_location }
+  - { knowledge_item_id: ki_chablis_soil, prerequisite_item_id: ki_chablis_grape }
+  - { knowledge_item_id: ki_chablis_frost, prerequisite_item_id: ki_chablis_climate }
+  - { knowledge_item_id: ki_volnay_accessory_chardonnay, prerequisite_item_id: ki_volnay_grape }
+  - { knowledge_item_id: ki_crozes_hermitage_accessory_marsanne, prerequisite_item_id: ki_crozes_hermitage_grape }
+  - { knowledge_item_id: ki_champagne_min_ageing, prerequisite_item_id: ki_champagne_method }
+
+# Editorial study-planning judgements (see the header). minimum_depth follows
+# CM-6: 1 recognize (MCQ), 2 also forward recall, 3 also reverse recall.
+certification_knowledge_mappings:
+  # Foundations, visible to every higher level through the track chains
+  - { certification_id: WSET_L2, knowledge_item_id: ki_chablis_grape, importance: core, minimum_depth: 1 }
+  - { certification_id: WSET_L2, knowledge_item_id: ki_champagne_chardonnay, importance: core, minimum_depth: 1 }
+  - { certification_id: WSET_L2, knowledge_item_id: ki_champagne_pinot_noir, importance: core, minimum_depth: 1 }
+  - { certification_id: WSET_L2, knowledge_item_id: ki_champagne_method, importance: core, minimum_depth: 1 }
+  - { certification_id: CMS_INTRODUCTORY, knowledge_item_id: ki_chablis_grape, importance: core, minimum_depth: 1 }
+  - { certification_id: CMS_INTRODUCTORY, knowledge_item_id: ki_champagne_method, importance: core, minimum_depth: 1 }
+  # WSET Level 3
+  - { certification_id: WSET_L3, knowledge_item_id: ki_chablis_location, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_chablis_grape, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_chablis_soil, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_chablis_climate, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_chablis_frost, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_volnay_location, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_volnay_grape, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_volnay_accessory_chardonnay, importance: tertiary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_cornas_location, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_cornas_grape, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_cornas_soil, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_crozes_hermitage_grape, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_crozes_hermitage_accessory_marsanne, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_condrieu_grape, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_condrieu_soil, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_chateauneuf_du_pape_grenache, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_chateauneuf_du_pape_soil, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_chateauneuf_du_pape_climate, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_pouilly_fume_grape, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_pouilly_fume_soil_kimmeridgian, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_pouilly_fume_soil_flint, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_vouvray_location, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_vouvray_grape, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_muscadet_sevre_et_maine_grape, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_muscadet_sevre_et_maine_climate, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_champagne_chardonnay, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_champagne_pinot_noir, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_champagne_meunier, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_champagne_soil, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_champagne_method, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_champagne_min_ageing, importance: core, minimum_depth: 2 }
+  # CMS Certified
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_chablis_location, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_chablis_grape, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_chablis_soil, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_chablis_climate, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_chablis_frost, importance: tertiary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_volnay_location, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_volnay_grape, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_volnay_accessory_chardonnay, importance: tertiary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cornas_location, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cornas_grape, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cornas_soil, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_crozes_hermitage_grape, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_crozes_hermitage_accessory_marsanne, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_condrieu_grape, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_condrieu_soil, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_chateauneuf_du_pape_grenache, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_chateauneuf_du_pape_soil, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_chateauneuf_du_pape_climate, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_pouilly_fume_grape, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_pouilly_fume_soil_kimmeridgian, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_pouilly_fume_soil_flint, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_vouvray_location, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_vouvray_grape, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_muscadet_sevre_et_maine_grape, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_muscadet_sevre_et_maine_climate, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_champagne_chardonnay, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_champagne_pinot_noir, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_champagne_meunier, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_champagne_soil, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_champagne_method, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_champagne_min_ageing, importance: core, minimum_depth: 2 }
+
+# Primary legal texts. For French appellations the URL is INAO's product
+# page, which publishes the cahier des charges and every regulatory text.
+source_citations:
+  - id: src_inao_cdc_chablis
+    kind: legislation
+    title: "Cahier des charges de l'appellation d'origine contrôlée « Chablis »"
+    publisher: "Institut national de l'origine et de la qualité (INAO)"
+    jurisdiction: FR
+    document_identifier: "Homologated by arrêté of 10 September 2025 (JORF no. 0212, 12 September 2025, text 26)"
+    url: "https://www.inao.gouv.fr/produit/chablis-23041"
+    published_on: "2025-09-12"
+    accessed_on: "2026-09-24"
+  - id: src_inao_cdc_volnay
+    kind: legislation
+    title: "Cahier des charges de l'appellation d'origine protégée « Volnay »"
+    publisher: "Institut national de l'origine et de la qualité (INAO)"
+    jurisdiction: FR
+    document_identifier: "Homologated by arrêté of 20 February 2026 (JORF no. 0048, 25 February 2026, text 34)"
+    url: "https://www.inao.gouv.fr/produit/volnay-24736"
+    published_on: "2026-02-25"
+    accessed_on: "2026-09-24"
+  - id: src_inao_cdc_cornas
+    kind: legislation
+    title: "Cahier des charges de l'appellation d'origine contrôlée « Cornas »"
+    publisher: "Institut national de l'origine et de la qualité (INAO)"
+    jurisdiction: FR
+    document_identifier: "Homologated by arrêté of 4 July 2024 (JORF no. 0162, 9 July 2024, text 64)"
+    url: "https://www.inao.gouv.fr/produit/cornas-20167"
+    published_on: "2024-07-09"
+    accessed_on: "2026-09-24"
+  - id: src_inao_cdc_crozes_hermitage
+    kind: legislation
+    title: "Cahier des charges de l'appellation d'origine contrôlée « Crozes-Hermitage »"
+    publisher: "Institut national de l'origine et de la qualité (INAO)"
+    jurisdiction: FR
+    document_identifier: "Homologated by arrêté of 10 December 2024 (JORF no. 0293, 12 December 2024, text 43)"
+    url: "https://www.inao.gouv.fr/produit/crozes-hermitage-ou-crozes-ermitage-rouge-20968"
+    published_on: "2024-12-12"
+    accessed_on: "2026-09-24"
+  - id: src_inao_cdc_condrieu
+    kind: legislation
+    title: "Cahier des charges de l'appellation d'origine contrôlée « Condrieu »"
+    publisher: "Institut national de l'origine et de la qualité (INAO)"
+    jurisdiction: FR
+    document_identifier: "Homologated by arrêté of 4 July 2024 (JORF no. 0160, 7 July 2024, text 58)"
+    url: "https://www.inao.gouv.fr/produit/condrieu-20101"
+    published_on: "2024-07-07"
+    accessed_on: "2026-09-24"
+  - id: src_inao_cdc_chateauneuf_du_pape
+    kind: legislation
+    title: "Cahier des charges de l'appellation d'origine contrôlée « Châteauneuf-du-Pape »"
+    publisher: "Institut national de l'origine et de la qualité (INAO)"
+    jurisdiction: FR
+    document_identifier: "Décret no. 2011-1567 of 16 November 2011 (JORF no. 0268, 19 November 2011, text 51)"
+    url: "https://www.inao.gouv.fr/produit/chateauneuf-du-pape-rouge-8937"
+    published_on: "2011-11-19"
+    accessed_on: "2026-09-24"
+  - id: src_inao_cdc_pouilly_fume
+    kind: legislation
+    title: "Cahier des charges des appellations d'origine contrôlées « Pouilly-Fumé » ou « Blanc Fumé de Pouilly » et « Pouilly-sur-Loire »"
+    publisher: "Institut national de l'origine et de la qualité (INAO)"
+    jurisdiction: FR
+    document_identifier: "Homologated by arrêté of 13 December 2024 (JORF no. 0298, 18 December 2024)"
+    url: "https://www.inao.gouv.fr/produit/pouilly-fume-ou-blanc-fume-de-pouilly-21971"
+    published_on: "2024-12-18"
+    accessed_on: "2026-09-24"
+  - id: src_inao_cdc_vouvray
+    kind: legislation
+    title: "Cahier des charges de l'appellation d'origine contrôlée « Vouvray »"
+    publisher: "Institut national de l'origine et de la qualité (INAO)"
+    jurisdiction: FR
+    document_identifier: "Homologated by arrêté of 29 November 2023 (JORF no. 0282, 6 December 2023, text 23)"
+    url: "https://www.inao.gouv.fr/produit/vouvray-16401"
+    published_on: "2023-12-06"
+    accessed_on: "2026-09-24"
+  - id: src_inao_cdc_muscadet_sevre_et_maine
+    kind: legislation
+    title: "Cahier des charges de l'appellation d'origine contrôlée « Muscadet Sèvre et Maine »"
+    publisher: "Institut national de l'origine et de la qualité (INAO)"
+    jurisdiction: FR
+    document_identifier: "Homologated by arrêté of 26 November 2025 (JORF no. 0280, 29 November 2025, text 43)"
+    url: "https://www.inao.gouv.fr/produit/muscadet-sevre-et-maine-23091"
+    published_on: "2025-11-29"
+    accessed_on: "2026-09-24"
+  - id: src_inao_cdc_champagne
+    kind: legislation
+    title: "Cahier des charges de l'appellation d'origine contrôlée « Champagne »"
+    publisher: "Institut national de l'origine et de la qualité (INAO)"
+    jurisdiction: FR
+    document_identifier: "Homologated by arrêté of 31 July 2025 (JORF no. 0180, 5 August 2025, text 44)"
+    url: "https://www.inao.gouv.fr/produit/champagne-21054"
+    published_on: "2025-08-05"
+    accessed_on: "2026-09-24"
+
+knowledge_item_citations:
+  - { knowledge_item_id: ki_chablis_location, source_citation_id: src_inao_cdc_chablis, locator: "X. Lien avec la zone géographique" }
+  - { knowledge_item_id: ki_chablis_grape, source_citation_id: src_inao_cdc_chablis, locator: "V. Encépagement" }
+  - { knowledge_item_id: ki_chablis_soil, source_citation_id: src_inao_cdc_chablis, locator: "X. Lien avec la zone géographique" }
+  - { knowledge_item_id: ki_chablis_climate, source_citation_id: src_inao_cdc_chablis, locator: "X. Lien avec la zone géographique" }
+  - { knowledge_item_id: ki_chablis_frost, source_citation_id: src_inao_cdc_chablis, locator: "X. Lien avec la zone géographique" }
+  - { knowledge_item_id: ki_volnay_location, source_citation_id: src_inao_cdc_volnay, locator: "X. Lien avec la zone géographique" }
+  - { knowledge_item_id: ki_volnay_grape, source_citation_id: src_inao_cdc_volnay, locator: "V. Encépagement" }
+  - { knowledge_item_id: ki_volnay_accessory_chardonnay, source_citation_id: src_inao_cdc_volnay, locator: "V. Encépagement" }
+  - { knowledge_item_id: ki_cornas_location, source_citation_id: src_inao_cdc_cornas, locator: "X. Lien avec la zone géographique" }
+  - { knowledge_item_id: ki_cornas_grape, source_citation_id: src_inao_cdc_cornas, locator: "V. Encépagement" }
+  - { knowledge_item_id: ki_cornas_soil, source_citation_id: src_inao_cdc_cornas, locator: "X. Lien avec la zone géographique" }
+  - { knowledge_item_id: ki_crozes_hermitage_grape, source_citation_id: src_inao_cdc_crozes_hermitage, locator: "V. Encépagement" }
+  - { knowledge_item_id: ki_crozes_hermitage_accessory_marsanne, source_citation_id: src_inao_cdc_crozes_hermitage, locator: "V. Encépagement" }
+  - { knowledge_item_id: ki_condrieu_grape, source_citation_id: src_inao_cdc_condrieu, locator: "V. Encépagement" }
+  - { knowledge_item_id: ki_condrieu_soil, source_citation_id: src_inao_cdc_condrieu, locator: "X. Lien avec la zone géographique" }
+  - { knowledge_item_id: ki_chateauneuf_du_pape_grenache, source_citation_id: src_inao_cdc_chateauneuf_du_pape, locator: "V. Encépagement" }
+  - { knowledge_item_id: ki_chateauneuf_du_pape_soil, source_citation_id: src_inao_cdc_chateauneuf_du_pape, locator: "X. Lien avec la zone géographique" }
+  - { knowledge_item_id: ki_chateauneuf_du_pape_climate, source_citation_id: src_inao_cdc_chateauneuf_du_pape, locator: "X. Lien avec la zone géographique" }
+  - { knowledge_item_id: ki_pouilly_fume_grape, source_citation_id: src_inao_cdc_pouilly_fume, locator: "V. Encépagement" }
+  - { knowledge_item_id: ki_pouilly_fume_soil_kimmeridgian, source_citation_id: src_inao_cdc_pouilly_fume, locator: "X. Lien avec la zone géographique" }
+  - { knowledge_item_id: ki_pouilly_fume_soil_flint, source_citation_id: src_inao_cdc_pouilly_fume, locator: "X. Lien avec la zone géographique" }
+  - { knowledge_item_id: ki_vouvray_location, source_citation_id: src_inao_cdc_vouvray, locator: "X. Lien avec la zone géographique" }
+  - { knowledge_item_id: ki_vouvray_grape, source_citation_id: src_inao_cdc_vouvray, locator: "V. Encépagement" }
+  - { knowledge_item_id: ki_muscadet_sevre_et_maine_grape, source_citation_id: src_inao_cdc_muscadet_sevre_et_maine, locator: "V. Encépagement" }
+  - { knowledge_item_id: ki_muscadet_sevre_et_maine_climate, source_citation_id: src_inao_cdc_muscadet_sevre_et_maine, locator: "X. Lien avec la zone géographique" }
+  - { knowledge_item_id: ki_champagne_chardonnay, source_citation_id: src_inao_cdc_champagne, locator: "V. Encépagement" }
+  - { knowledge_item_id: ki_champagne_pinot_noir, source_citation_id: src_inao_cdc_champagne, locator: "V. Encépagement" }
+  - { knowledge_item_id: ki_champagne_meunier, source_citation_id: src_inao_cdc_champagne, locator: "V. Encépagement" }
+  - { knowledge_item_id: ki_champagne_soil, source_citation_id: src_inao_cdc_champagne, locator: "X. Lien avec la zone géographique" }
+  - { knowledge_item_id: ki_champagne_method, source_citation_id: src_inao_cdc_champagne, locator: "IX. Transformation, élaboration, élevage" }
+  - { knowledge_item_id: ki_champagne_min_ageing, source_citation_id: src_inao_cdc_champagne, locator: "IX. Transformation, élaboration, élevage (mise en marché)" }

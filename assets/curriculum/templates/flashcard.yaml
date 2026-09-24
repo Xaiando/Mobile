@@ -1,0 +1,18 @@
+# Question templates for flashcards (recall).
+# Part of the curriculum release in ../curriculum.yaml, in the
+# format of docs/domain-model.md §7.
+
+# Phrasing for generated questions. Placeholders: {subject.name},
+# {object.name} and {object.type_label} (QG-2). Reverse templates exist only
+# where an item is distinctive (QG-3).
+question_templates:
+  - { id: qt_located_in_fwd_flashcard, relation_type: LOCATED_IN, direction: forward, mode: flashcard, prompt_template: "In which {object.type_label} is {subject.name} located?" }
+  - { id: qt_principal_grape_fwd_flashcard, relation_type: PERMITS_PRINCIPAL_GRAPE, direction: forward, mode: flashcard, prompt_template: "Name a principal grape variety of {subject.name}." }
+  - { id: qt_accessory_grape_fwd_flashcard, relation_type: PERMITS_ACCESSORY_GRAPE, direction: forward, mode: flashcard, prompt_template: "Name an accessory grape variety of {subject.name}." }
+  - { id: qt_soil_fwd_flashcard, relation_type: HAS_SOIL, direction: forward, mode: flashcard, prompt_template: "Name a characteristic soil of {subject.name}." }
+  - { id: qt_climate_fwd_flashcard, relation_type: HAS_CLIMATE, direction: forward, mode: flashcard, prompt_template: "Which type of climate does {subject.name} have?" }
+  - { id: qt_hazard_fwd_flashcard, relation_type: SUSCEPTIBLE_TO, direction: forward, mode: flashcard, prompt_template: "Which {object.type_label} is a notable risk in {subject.name}?" }
+  - { id: qt_min_ageing_fwd_flashcard, relation_type: MIN_AGEING, direction: forward, mode: flashcard, prompt_template: "What is the minimum ageing period for {subject.name}?" }
+  - { id: qt_min_ageing_rev_flashcard, relation_type: MIN_AGEING, direction: reverse, mode: flashcard, prompt_template: "Which appellation requires a minimum ageing period of {object.name}?" }
+  - { id: qt_min_wood_ageing_fwd_flashcard, relation_type: MIN_WOOD_AGEING, direction: forward, mode: flashcard, prompt_template: "What is the minimum time in wood for {subject.name}?" }
+  - { id: qt_method_fwd_flashcard, relation_type: REQUIRES_METHOD, direction: forward, mode: flashcard, prompt_template: "Which sparkling-wine method must {subject.name} use?" }

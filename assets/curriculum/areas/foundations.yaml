@@ -1,0 +1,116 @@
+# Foundations: the curriculum domains, the certification tracks, the node
+# and relation types every area uses, and the tasting grids.
+# Part of the curriculum release in ../curriculum.yaml, in the
+# format of docs/domain-model.md §7.
+
+curriculum_domains:
+  - { id: geography, display_name: Geography, position: 1 }
+  - { id: viticulture, display_name: Viticulture, position: 2 }
+  - { id: winemaking, display_name: Winemaking, position: 3 }
+  - { id: tasting, display_name: Tasting, position: 4 }
+  - { id: service, display_name: Service, position: 5 }
+  - { id: business, display_name: Business, position: 6 }
+
+# Tracks are cumulative: each includes the level below (CM-2). Only WSET_L3
+# and CMS_CERTIFIED are offered in V0.1 (CM-1).
+certifications:
+  - { id: WSET_L1, organization: WSET, level: 1, display_name: WSET Level 1 }
+  - { id: WSET_L2, organization: WSET, level: 2, display_name: WSET Level 2, includes_certification_id: WSET_L1 }
+  - { id: WSET_L3, organization: WSET, level: 3, display_name: WSET Level 3, includes_certification_id: WSET_L2, is_selectable: true }
+  - { id: WSET_L4, organization: WSET, level: 4, display_name: WSET Level 4 Diploma, includes_certification_id: WSET_L3 }
+  - { id: CMS_INTRODUCTORY, organization: CMS, level: 1, display_name: CMS Introductory Sommelier }
+  - { id: CMS_CERTIFIED, organization: CMS, level: 2, display_name: CMS Certified Sommelier, includes_certification_id: CMS_INTRODUCTORY, is_selectable: true }
+  - { id: CMS_ADVANCED, organization: CMS, level: 3, display_name: CMS Advanced Sommelier, includes_certification_id: CMS_CERTIFIED }
+  - { id: CMS_MASTER, organization: CMS, level: 4, display_name: CMS Master Sommelier, includes_certification_id: CMS_ADVANCED }
+
+node_types:
+  - { id: country, label: country }
+  - { id: region, label: region }
+  - { id: subregion, label: sub-region }
+  - { id: appellation, label: appellation }
+  - { id: grape, label: grape variety }
+  - { id: berry_colour, label: berry colour }
+  - { id: soil, label: soil }
+  - { id: climate, label: climate }
+  - { id: hazard, label: vineyard hazard }
+  - { id: quantity, label: quantity }
+  - { id: winemaking_method, label: winemaking method }
+
+relation_types:
+  - id: LOCATED_IN
+    label: is located in
+    reverse_label: contains
+    cardinality: many
+    is_transitive: true
+    default_domain_id: geography
+  - id: HAS_BERRY_COLOUR
+    label: has berry colour
+    reverse_label: is the berry colour of
+    cardinality: one
+    default_domain_id: viticulture
+  - id: PERMITS_PRINCIPAL_GRAPE
+    label: permits the principal grape
+    reverse_label: is a principal grape of
+    cardinality: many
+    default_domain_id: geography
+    distractor_match_relation_type: HAS_BERRY_COLOUR
+  - id: PERMITS_ACCESSORY_GRAPE
+    label: permits the accessory grape
+    reverse_label: is an accessory grape of
+    cardinality: many
+    default_domain_id: geography
+    distractor_match_relation_type: HAS_BERRY_COLOUR
+  - id: HAS_SOIL
+    label: has soil
+    reverse_label: is a soil of
+    cardinality: many
+    default_domain_id: viticulture
+  - id: HAS_CLIMATE
+    label: has climate
+    reverse_label: is the climate of
+    cardinality: one
+    default_domain_id: viticulture
+  - id: SUSCEPTIBLE_TO
+    label: is susceptible to
+    reverse_label: threatens
+    cardinality: many
+    default_domain_id: viticulture
+  - id: MIN_AGEING
+    label: requires a minimum ageing period of
+    reverse_label: is the minimum ageing period of
+    cardinality: one
+    default_domain_id: winemaking
+  - id: MIN_WOOD_AGEING
+    label: requires a minimum time in wood of
+    reverse_label: is the minimum time in wood of
+    cardinality: one
+    default_domain_id: winemaking
+  - id: REQUIRES_METHOD
+    label: requires the method
+    reverse_label: is required by
+    cardinality: one
+    default_domain_id: winemaking
+
+relation_type_signatures:
+  - { relation_type: LOCATED_IN, subject_node_type: appellation, object_node_type: subregion }
+  - { relation_type: LOCATED_IN, subject_node_type: appellation, object_node_type: region }
+  - { relation_type: LOCATED_IN, subject_node_type: subregion, object_node_type: region }
+  - { relation_type: LOCATED_IN, subject_node_type: region, object_node_type: country }
+  - { relation_type: HAS_BERRY_COLOUR, subject_node_type: grape, object_node_type: berry_colour }
+  - { relation_type: PERMITS_PRINCIPAL_GRAPE, subject_node_type: appellation, object_node_type: grape }
+  - { relation_type: PERMITS_ACCESSORY_GRAPE, subject_node_type: appellation, object_node_type: grape }
+  - { relation_type: HAS_SOIL, subject_node_type: appellation, object_node_type: soil }
+  - { relation_type: HAS_CLIMATE, subject_node_type: appellation, object_node_type: climate }
+  - { relation_type: SUSCEPTIBLE_TO, subject_node_type: appellation, object_node_type: hazard }
+  - { relation_type: SUSCEPTIBLE_TO, subject_node_type: climate, object_node_type: hazard }
+  - { relation_type: MIN_AGEING, subject_node_type: appellation, object_node_type: quantity }
+  - { relation_type: MIN_WOOD_AGEING, subject_node_type: appellation, object_node_type: quantity }
+  - { relation_type: REQUIRES_METHOD, subject_node_type: appellation, object_node_type: winemaking_method }
+
+# Tasting grids arrive in Phase 4, after the legal review of the tasting
+# vocabularies (docs/legal-review.md L-2).
+tasting_grids: []
+
+tasting_grid_attributes: []
+
+tasting_grid_values: []

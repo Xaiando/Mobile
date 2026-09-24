@@ -1,0 +1,53 @@
+# Grape varieties and their berry colours.
+# Part of the curriculum release in ../curriculum.yaml, in the
+# format of docs/domain-model.md §7.
+
+knowledge_nodes:
+  # Grape varieties. Berry colours follow the variety codes in the legal
+  # texts: B for white, N for black.
+  - { id: n_grape_chardonnay, node_type: grape, name: Chardonnay }
+  - { id: n_grape_pinot_noir, node_type: grape, name: Pinot Noir }
+  - { id: n_grape_meunier, node_type: grape, name: Meunier }
+  - { id: n_grape_syrah, node_type: grape, name: Syrah }
+  - { id: n_grape_viognier, node_type: grape, name: Viognier }
+  - { id: n_grape_marsanne, node_type: grape, name: Marsanne }
+  - { id: n_grape_roussanne, node_type: grape, name: Roussanne }
+  - { id: n_grape_grenache, node_type: grape, name: Grenache }
+  - { id: n_grape_mourvedre, node_type: grape, name: Mourvèdre }
+  - { id: n_grape_sauvignon_blanc, node_type: grape, name: Sauvignon Blanc }
+  - { id: n_grape_chenin_blanc, node_type: grape, name: Chenin Blanc }
+  - { id: n_grape_melon, node_type: grape, name: Melon }
+  - { id: n_grape_nebbiolo, node_type: grape, name: Nebbiolo }
+  - { id: n_grape_sangiovese, node_type: grape, name: Sangiovese }
+  - { id: n_colour_white, node_type: berry_colour, name: White }
+  - { id: n_colour_black, node_type: berry_colour, name: Black }
+
+node_alternative_names:
+  - { knowledge_node_id: n_grape_syrah, name: Shiraz, kind: synonym }
+  - { knowledge_node_id: n_grape_syrah, name: Serine, kind: synonym }
+  - { knowledge_node_id: n_grape_meunier, name: Pinot Meunier, kind: synonym }
+  - { knowledge_node_id: n_grape_pinot_noir, name: Pinot Nero, kind: synonym }
+  - { knowledge_node_id: n_grape_grenache, name: Garnacha, kind: synonym }
+  - { knowledge_node_id: n_grape_mourvedre, name: Monastrell, kind: synonym }
+  - { knowledge_node_id: n_grape_sauvignon_blanc, name: Sauvignon, kind: synonym }
+  - { knowledge_node_id: n_grape_chenin_blanc, name: Chenin, kind: synonym }
+  - { knowledge_node_id: n_grape_chenin_blanc, name: Pineau de la Loire, kind: synonym }
+  - { knowledge_node_id: n_grape_melon, name: Melon de Bourgogne, kind: synonym }
+  - { knowledge_node_id: n_grape_nebbiolo, name: Spanna, kind: synonym }
+
+knowledge_relations:
+  # Berry colours (structural: they filter grape distractors by colour)
+  - { subject_id: n_grape_chardonnay, relation_type: HAS_BERRY_COLOUR, object_id: n_colour_white, valid_from: "1900-01-01" }
+  - { subject_id: n_grape_pinot_noir, relation_type: HAS_BERRY_COLOUR, object_id: n_colour_black, valid_from: "1900-01-01" }
+  - { subject_id: n_grape_meunier, relation_type: HAS_BERRY_COLOUR, object_id: n_colour_black, valid_from: "1900-01-01" }
+  - { subject_id: n_grape_syrah, relation_type: HAS_BERRY_COLOUR, object_id: n_colour_black, valid_from: "1900-01-01" }
+  - { subject_id: n_grape_viognier, relation_type: HAS_BERRY_COLOUR, object_id: n_colour_white, valid_from: "1900-01-01" }
+  - { subject_id: n_grape_marsanne, relation_type: HAS_BERRY_COLOUR, object_id: n_colour_white, valid_from: "1900-01-01" }
+  - { subject_id: n_grape_roussanne, relation_type: HAS_BERRY_COLOUR, object_id: n_colour_white, valid_from: "1900-01-01" }
+  - { subject_id: n_grape_grenache, relation_type: HAS_BERRY_COLOUR, object_id: n_colour_black, valid_from: "1900-01-01" }
+  - { subject_id: n_grape_mourvedre, relation_type: HAS_BERRY_COLOUR, object_id: n_colour_black, valid_from: "1900-01-01" }
+  - { subject_id: n_grape_sauvignon_blanc, relation_type: HAS_BERRY_COLOUR, object_id: n_colour_white, valid_from: "1900-01-01" }
+  - { subject_id: n_grape_chenin_blanc, relation_type: HAS_BERRY_COLOUR, object_id: n_colour_white, valid_from: "1900-01-01" }
+  - { subject_id: n_grape_melon, relation_type: HAS_BERRY_COLOUR, object_id: n_colour_white, valid_from: "1900-01-01" }
+  - { subject_id: n_grape_nebbiolo, relation_type: HAS_BERRY_COLOUR, object_id: n_colour_black, valid_from: "1900-01-01" }
+  - { subject_id: n_grape_sangiovese, relation_type: HAS_BERRY_COLOUR, object_id: n_colour_black, valid_from: "1900-01-01" }

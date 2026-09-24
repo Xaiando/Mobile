@@ -18,10 +18,18 @@ const types = {
   '.otf': 'font/otf', '.ttf': 'font/ttf',
 };
 
+// The release the manifest declares. It installs only if every file the
+// manifest includes was bundled.
+const manifest = fs.readFileSync(
+  new URL('../../assets/curriculum/curriculum.yaml', import.meta.url),
+  'utf8',
+);
+const release = /^dataset_version:\s*"([^"]+)"/m.exec(manifest)?.[1];
+
 const expected = {
   foreignKeys: 1,
   curriculum: 'installed',
-  release: '0.1.0',
+  release,
   chablisAncestors: 'Burgundy > France',
   mcqOptions: 4,
   mcqAnswerShown: true,

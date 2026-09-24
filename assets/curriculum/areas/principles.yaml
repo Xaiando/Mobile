@@ -1,0 +1,32 @@
+# Principles: soils, climates, vineyard hazards and winemaking methods,
+# shared by every area.
+# Part of the curriculum release in ../curriculum.yaml, in the
+# format of docs/domain-model.md §7.
+
+knowledge_nodes:
+  # Soils
+  - { id: n_soil_kimmeridgian_marl, node_type: soil, name: Kimmeridgian marl }
+  - { id: n_soil_flint, node_type: soil, name: Flint }
+  - { id: n_soil_granite, node_type: soil, name: Granite }
+  - { id: n_soil_galets_roules, node_type: soil, name: Galets roulés }
+  - { id: n_soil_chalk, node_type: soil, name: Chalk }
+  - { id: n_soil_tortonian_marl, node_type: soil, name: Tortonian marl }
+  - { id: n_soil_galestro, node_type: soil, name: Galestro }
+  # Climates and hazards
+  - { id: n_clim_oceanic, node_type: climate, name: Oceanic }
+  - { id: n_clim_oceanic_continental, node_type: climate, name: Oceanic with continental influences }
+  - { id: n_clim_continental, node_type: climate, name: Continental }
+  - { id: n_clim_mediterranean, node_type: climate, name: Mediterranean }
+  - { id: n_hazard_spring_frost, node_type: hazard, name: Spring frost }
+  # Winemaking methods
+  - { id: n_method_traditional, node_type: winemaking_method, name: Traditional method }
+  - { id: n_method_tank, node_type: winemaking_method, name: Tank method }
+  - { id: n_method_ancestral, node_type: winemaking_method, name: Ancestral method }
+  - { id: n_method_carbonation, node_type: winemaking_method, name: Carbonation }
+
+node_alternative_names:
+  - { knowledge_node_id: n_soil_flint, name: Silex, kind: synonym }
+  - { knowledge_node_id: n_soil_chalk, name: Craie, kind: synonym }
+  - { knowledge_node_id: n_clim_oceanic_continental, name: Degraded oceanic, kind: synonym }
+  - { knowledge_node_id: n_method_traditional, name: Méthode traditionnelle, kind: synonym }
+  - { knowledge_node_id: n_method_tank, name: Charmat method, kind: synonym }

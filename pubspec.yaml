@@ -33,4 +33,9 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
+    # The curriculum's manifest and the folders of the files it includes.
+    # New area and template files need no entry here. The review ledger
+    # (reviews/) is authoring data and is not bundled.
     - assets/curriculum/curriculum.yaml
+    - assets/curriculum/areas/
+    - assets/curriculum/templates/
