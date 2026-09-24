@@ -58,14 +58,23 @@ The canonical model is in docs/domain-model.md.
 - **FSRS** uses the `fsrs` package (FSRS-6). Never hand-code the product specification's §F formulas; they are wrong (audit §4).
 - **Web:** keep `package:drift/wasm.dart` out of code that also compiles for native platforms.
 - **Only `lib/core` queries the database.** Screens and providers go through its repositories; `test/architecture/layering_test.dart` enforces this (audit DL-1).
+- **`lib/core` is plain Dart**, so the tools run it with `dart run`. Only its `*_providers.dart` files and `database_connection.dart` may import Flutter, `flutter_riverpod`, `drift_flutter` or `dart:ui`; the layering test enforces this.
 - **The first schema change** also keeps the migration test that `make-migrations` generates, showing user tables survive the upgrade (audit DL-2).
 
 ## Curriculum dataset
 
-`assets/curriculum/curriculum.yaml` is the curriculum, in the format of docs/domain-model.md §7: each section is a table, each key a column. Startup ingests it (`CurriculumIngester`).
+The curriculum is one release in the format of docs/domain-model.md §7: each section is a table, each key a column. `assets/curriculum/curriculum.yaml` is its manifest: `dataset_version`, `published_at` and `includes`, the list of the other files. Content goes in `areas/<area>.yaml`, question templates in `templates/<format>.yaml`. Startup ingests the release (`CurriculumIngester`).
 
-- **Any change needs a new `dataset_version`.** Ingestion refuses a release that drops an authored row; retire rows with `valid_until` or `superseded_by_item_id`.
-- `validateDataset` must report no errors; `test/core/curriculum/curriculum_validator_test.dart` runs it on the bundle.
+```sh
+dart run tool/curriculum/lint.dart     # every problem, with file and line
+dart run tool/curriculum/report.dart   # the generation report
+dart run tool/curriculum/verify.dart <item> --reviewer <name> --outcome verified|disputed [--notes <text>]
+```
+
+- **Any change to any file needs a new `dataset_version`** in the manifest. Ingestion refuses a release that drops an authored row; retire rows with `valid_until` or `superseded_by_item_id`.
+- A new file needs an `includes` line; its folder is already bundled. A row's key is unique across all files.
+- `lint` must report no errors. `test/core/curriculum/curriculum_validator_test.dart` also runs `validateDataset` on the bundle.
+- **Record expert reviews only with `verify`** (D3). It appends to the ledger in `assets/curriculum/reviews/` and sets the item's `verification_status`. Never set `verified` by hand; `lint` rejects a verified item that the ledger does not back.
 - Every item cites a primary legal text (`knowledge_item_citations`) and maps to at least one track. Wine-law relation types need a `legislation` or `regulator_register` citation (`regulatoryRelationTypes`).
 - When a legal text lists grape varieties, link every listed variety that exists as a node, or it can be offered as a wrong answer.
 - Set `mcq_disabled: true` when a wrong answer could be defensible, e.g. overlapping climate types.
@@ -77,7 +86,7 @@ Ingestion regenerates `questions` and `question_distractors` (`QuestionGenerator
 
 - Templates use only `{subject.name}`, `{object.name}` and `{object.type_label}`. A relation type that carries items needs a forward template.
 - An MCQ exists only with at least 3 valid distractors (architecture audit QG-12). Reverse questions need a reverse-safe relation type or `is_distinctive: true`.
-- The test suite fails if an item has neither an MCQ nor `mcq_disabled: true` (§S.3), so after adding items, run the tests and read the generation report.
+- The test suite fails if an item has neither an MCQ nor `mcq_disabled: true` (§S.3), so after adding items, run the tests and read the generation report (`tool/curriculum/report.dart`).
 - Present questions through `QuestionPresenter.present(seed:)`, and log the seed and the options shown with the review (QG-7).
 
 ## Study engine

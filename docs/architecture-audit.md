@@ -176,6 +176,8 @@ The content itself, including who writes it and who verifies it, remains **D3**.
 - **Spec examples covered:** Chablis, Barolo/Nebbiolo with its 38-month minimum, the northern Rhône's Syrah, Châteauneuf-du-Pape's galets roulés, and the §R distractors.
 - **Still open for V0.1:** the service, business and tasting domains, and the 150 verified items of P-6. Both are content work under D3.
 
+**Release 0.1.1 (backlog C1)** holds exactly the rows of 0.1.0, split into one file per area and per template format (DL-4). It ingests to identical rows and questions.
+
 Reading the legal texts corrected the spec's seed in two places:
 
 | ID | The spec says | The primary source says | Decision |
@@ -273,6 +275,7 @@ The adaptive score's form is A-1 to A-6 of the [architecture validation](archite
 | PR-7 | The spec's *works cited* list is not usable as provenance: many entries are re-hosted copies, forum or blog posts, or document-sharing uploads (audit LEGAL-6). |
 | PR-8 | The regulatory relation types, which need a `legislation` or `regulator_register` citation, are `PERMITS_PRINCIPAL_GRAPE`, `PERMITS_ACCESSORY_GRAPE`, `MIN_AGEING`, `MIN_WOOD_AGEING` and `REQUIRES_METHOD`. The list lives in the validator (`regulatoryRelationTypes`). |
 | PR-9 | A French citation's URL is the appellation's page at INAO, which publishes its cahier des charges and every regulatory text; `document_identifier` names the homologating act. Italian citations point to the MASAF page of the disciplinare. Where the homologated PDF could not be downloaded, the facts were read in the version INAO published for the national opposition procedure, and the expert reviewer confirms them (D3). |
+| PR-10 | **Expert reviews are kept in a ledger** (backlog C1, [domain-model §7](domain-model.md#7-dataset-format)). `tool/curriculum/verify.dart` appends each review (reviewer, instant, outcome, notes) to `assets/curriculum/reviews/<area>.yaml` and sets the item's `verification_status` in the same change. The ledger is append-only and not bundled in the app. A `verified` review also sets `last_verified_at`. A dispute makes the item `unverified` but leaves `last_verified_at` at the last check that confirmed it. `lint` rejects a `verified` item that the ledger does not back. Verification is then auditable under D3: who confirmed what, and when. The history stays out of the curriculum tables, and a status still changes only through a reviewed content change with a new `dataset_version`. |
 
 ---
 

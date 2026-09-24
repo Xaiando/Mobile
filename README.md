@@ -2,7 +2,7 @@
 
 A Flutter study app for wine certification candidates on the WSET and Court of Master Sommeliers tracks. It combines spaced repetition over a canonical wine knowledge graph with structured tasting practice and a personal wine journal. It works fully offline.
 
-**Status: Phase 3 (FSRS and study engine) complete.** The bundled curriculum dataset (release 0.1.0: 65 nodes, 87 relations, 46 cited items) loads on first launch and generates 91 questions (43 multiple-choice, 48 flashcards), with distractors chosen by walking the knowledge graph. A learner picks WSET Level 3 or CMS Certified on Home. Practice then runs adaptive sessions: FSRS-6 schedules every item, and a priority score picks what to study. Study lists the track's items with their memory state and sources. Tasting and journal screens arrive in later phases; [docs/phase-status.md](docs/phase-status.md) tracks every phase's acceptance criteria.
+**Status: Phase 3 (FSRS and study engine) complete.** The bundled curriculum dataset (release 0.1.1: 65 nodes, 87 relations, 46 cited items) loads on first launch and generates 91 questions (43 multiple-choice, 48 flashcards), with distractors chosen by walking the knowledge graph. A learner picks WSET Level 3 or CMS Certified on Home. Practice then runs adaptive sessions: FSRS-6 schedules every item, and a priority score picks what to study. Study lists the track's items with their memory state and sources. Tasting and journal screens arrive in later phases; [docs/phase-status.md](docs/phase-status.md) tracks every phase's acceptance criteria.
 
 ## Getting started
 
@@ -51,11 +51,11 @@ Android and iOS are the primary targets. The web gets basic support. Nothing in 
 | `lib/core/curriculum/` | Dataset parser, validator, ingestion and graph traversal queries |
 | `lib/core/questions/` | Question generation (templates, eligibility, distractors) and seeded presentation |
 | `lib/core/study/` | FSRS reviews, the learner's track, the priority score and session planning |
-| `assets/curriculum/` | The curriculum dataset, one YAML section per authored table |
+| `assets/curriculum/` | The curriculum release: a manifest that includes one YAML file per area and per question format, and the expert-review ledger |
 | `lib/core/time/` | The UTC millisecond clock used for every stored timestamp |
 | `lib/features/` | Home (dashboard and track picker), Study (curriculum browser), Practice (sessions), Tasting and Cellar |
 | `test/` | Schema, CRUD, write-lock, curriculum, question, study engine, clock and widget tests |
-| `tool/` | Web asset pinning, the web smoke test and the Android 16 KB alignment check |
+| `tool/` | The curriculum tools (`lint`, `report`, `verify`), web asset pinning, the web smoke test and the Android 16 KB alignment check |
 | `drift_schemas/` | Schema snapshots for migration tests |
 | `docs/` | Audit, architecture validation, decision register and domain model |
 
