@@ -5,13 +5,15 @@
 | **Date** | 2026-09-24 |
 | **Baseline** | Phases 0–3 complete on `claude/charming-ramanujan-8w1v2r` ([Xaiando/Mobile#1](https://github.com/Xaiando/Mobile/pull/1)): 241 tests, CI green on Android, iOS and web |
 | **Design** | [Question system and coverage](design/question-system.md) · [Geography and maps](design/geography.md) · [Study packs](design/study-packs.md) |
+| **Content plans** | [Spätburgunder study tree](content/spaetburgunder-study-tree.md) · [Sub-region atlas](content/subregion-atlas.md) |
 | **Decisions** | [architecture-audit.md](architecture-audit.md) §12–§16 (DL, QF, COV, GEO and PK rows) |
 
-The product specification's backlog (§P) has ten large tasks, seven of which are done. This backlog decomposes the rest of the product into **40 tasks**, each sized for one Claude Code cloud session and one pull request. It widens the study experience in three ways:
+The product specification's backlog (§P) has ten large tasks, seven of which are done. This backlog decomposes the rest of the product into **45 tasks**, each sized for one Claude Code cloud session and one pull request. It widens the study experience in four ways:
 
-- geography becomes a first-class, map-based study domain;
+- geography becomes a first-class, map-based study domain, and the famous regions become sub-region study maps (the atlas, G10–G13);
 - the question system grows from three formats to the sixteen study modes requested, plus short written answers (spec §T) and episodic recall;
-- a coverage checker makes sure that no important knowledge can only ever be practised as a flashcard.
+- a coverage checker makes sure that no important knowledge can only ever be practised as a flashcard;
+- a Spätburgunder pack gives one grape and one country full depth, and has a fast track (§4).
 
 ---
 
@@ -65,6 +67,7 @@ TASK-008 (tasting grids) and TASK-009 (journal integration) remain; they are T1�
 | C3 | Content: Italy, Spain, Portugal and fortified wines | C1, F2 | 3 | ☐ |
 | C4 | Content: the New World | C1, F2 | 3 | ☐ |
 | C5 | Content: principles | C1 | 2 | ☐ |
+| C6 | Content: Germany, Austria and the rest of Europe | C1 | 2 | ☐ |
 | **G** | **Geography and maps** | | | |
 | G1 | Geodata pipeline, sources and licences | — | 1 | ☐ |
 | G2 | Geometry ingestion and validation | F2, G1 | 3 | ☐ |
@@ -75,6 +78,10 @@ TASK-008 (tasting grids) and TASK-009 (journal integration) remain; they are T1�
 | G7 | Topography and geology | G4 | 5 | ☐ |
 | G8 | Neighbours and grape–region drills | G4, Q2, Q3 | 5 | ☐ |
 | G9 | Map-based deduction | Q6, G6, G7 | 6 | ☐ |
+| G10 | Sub-region atlas: France | C2, G5, G8 | 6 | ☐ |
+| G11 | Sub-region atlas: Italy, Spain and Portugal | C3, G5, G8 | 6 | ☐ |
+| G12 | Sub-region atlas: Germany, Austria and Switzerland | C6, G4 | 5 | ☐ |
+| G13 | Sub-region atlas: the United States and the Southern Hemisphere | C4, G5, G8 | 6 | ☐ |
 | **Q** | **Question formats** | | | |
 | Q1 | Typed recall and short written answers | F3 | 4 | ☐ |
 | Q2 | Multiple response and completeness assertions | F3 | 4 | ☐ |
@@ -94,8 +101,8 @@ TASK-008 (tasting grids) and TASK-009 (journal integration) remain; they are T1�
 | J3 | Episodic questions from the journal | J2, F3 | 4 | ☐ |
 | **P** | **Study packs** | | | |
 | P1 | Study packs as tracks | F2 | 3 | ☐ |
-| P2 | Germany core and Spätburgunder pack I | P1, G2 | 5 | ☐ |
-| P3 | Spätburgunder pack II and competition drills | P2, Q6, Q8, S1 | 6 | ☐ |
+| P2 | Spätburgunder pack I: the pack and its text content | P1, C6 | 4 | ☐ |
+| P3 | Spätburgunder pack II: tasting, comparisons and competition drills | P2, G12, Q6, Q8, S1 | 6 | ☐ |
 | **S** | **Study experience and analytics (spec Phase 6)** | | | |
 | S1 | Study browser v2: atlas, search, focused and timed sessions | F3, G3 | 5 | ☐ |
 | S2 | Learner analytics | F1, F3 | 4 | ☐ |
@@ -115,14 +122,23 @@ Tasks in the same wave can run in separate cloud sessions at the same time, beca
 | Wave | Can run in parallel | Why they do not collide |
 |---|---|---|
 | **1** | F1, C1, G1, G3, J1 | F1 adds `lib/core/coverage/`, C1 the dataset loader and tools, G1 `tool/geography/`, G3 `lib/core/geography/` and `lib/features/map/`, J1 journal screens. |
-| **2** | F2, C5, T1, J2 | F2 exclusively owns the schema and the dataset section list. C5 and T1 add new dataset files only. J2 edits the priority score before F3 touches the planner. |
+| **2** | F2, C5, C6, T1, J2 | F2 exclusively owns the schema and the dataset section list. C5, C6 and T1 add new dataset files only. J2 edits the priority score before F3 touches the planner. |
 | **3** | F3, G2, P1, C2, C3, C4, T2, R1 | F3 exclusively owns the question engine and the practice screen core. G2 owns geometry ingestion. P1 owns the track model. Content tasks write their own files. R1 adds settings screens. |
-| **4** | F4, Q1–Q6, G4, J3, S2 | Each format lives in its own folder under `formats/` and adds one registry line. F4 owns the format chooser. |
-| **5** | Q7, Q8, G5, G6, G7, G8, S1, P2 | Each adds formats, content files or layers of its own. S1 owns the Study tab and the router. |
-| **6** | Q9, G9, P3, R2 | These build on waves 4–5. |
+| **4** | F4, Q1–Q6, G4, J3, S2, P2 | Each format lives in its own folder under `formats/` and adds one registry line. F4 owns the format chooser. P2 writes pack files only. |
+| **5** | Q7, Q8, G5, G6, G7, G8, S1, G12 | Each adds formats, content files or layers of its own. S1 owns the Study tab and the router. G12 owns the German, Austrian and Swiss layers. |
+| **6** | Q9, G9, P3, R2, G10, G11, G13 | These build on waves 4–5. Each atlas task owns its country group's files and layers (GEO-18). |
 | **7** | R3 | The release gate. |
 
-With five to eight sessions per wave, the backlog runs in seven waves rather than forty sequential sessions.
+With five to eleven sessions per wave, the backlog runs in seven waves rather than forty-five sequential sessions.
+
+### Spätburgunder fast track
+
+For a learner preparing now, the [study tree](content/spaetburgunder-study-tree.md) is the study guide until the pack ships. Its §0 is a session plan for a blind tasting. In the app, the pack arrives as early as the dependencies allow, and the maps follow:
+
+1. **C1 → C6 (waves 1–2).** The German certification core lands in the WSET and CMS tracks, where today's formats already serve it: the regions, law and labels, and the main Spätburgunder facts.
+2. **F2 → P1 → P2 (waves 2–4).** The pack becomes a selectable track with its text content: identity, numbers, law, sites, viticulture and winemaking. It is served by MCQ, flashcards and whichever formats of wave 4 have merged.
+3. **G12 (wave 5).** Maps of the German regions, Bereiche and pack sites. Because a map question grades the same item as its text form (GEO-1), the pack gains spatial practice without new cards.
+4. **P3 (wave 6).** Tasting profiles, world comparisons, blind deduction series and timed drills.
 
 ### Hot spots
 
@@ -136,6 +152,8 @@ With five to eight sessions per wave, the backlog runs in seven waves rather tha
 | `review_service.dart` | F3 | Formats grade through the runtime and never write reviews themselves. |
 | `coverage_policy.yaml`, `coverage_baseline.json` | append and raise only | After rebasing, re-run the checker and regenerate the baseline. |
 | `tool/geography/layers.yaml`, `assets/geography/manifest.yaml` | one entry per layer | Rebuild only your own layer's asset. |
+| Country layers and sub-region data | G1 for the first French layers, then the atlas task of each country group (G10–G13, GEO-18) | Content tasks write facts, and the nodes they need with their location items. They add no layers, `BORDERS` or sub-region completeness assertions. |
+| Node and relation type rows | shared, one row per type | The first task that needs a type declares it; later tasks reuse it and never redeclare it. On a conflict, rebase and keep one row. |
 | Router and app shell | R1 (wave 3), S1 (wave 5) | Other tasks add screens only under their feature folder. |
 | Question templates | one file per format, `assets/curriculum/templates/<format>.yaml` | A format task writes only its own template file. |
 | `pubspec.yaml` | C1 declares the curriculum asset folders; G2 declares `assets/geography/` | Folders are declared once, so new files need no edit. A new dependency needs a compatibility note in the architecture validation first. |
@@ -291,10 +309,12 @@ With five to eight sessions per wave, the backlog runs in seven waves rather tha
 - **Objective.** Author the WSET Level 3 and CMS Certified core for France, geography-ready for maps:
   - Bordeaux, Burgundy, Beaujolais, Champagne, Loire, Rhône, Alsace, Provence, Languedoc-Roussillon, South West, Jura and Savoie;
   - their rivers (Gironde, Garonne, Dordogne, Loire, Rhône, Saône, Marne, Serein), barriers (Vosges, Massif Central) and influences (Atlantic, Mistral);
-  - key neighbour sets (Médoc communes, Côte de Nuits villages);
+  - the appellations these need, such as the Médoc communes and the Côte de Nuits villages, each with its location item;
   - completeness assertions for the principal-grape sets.
-- **Depends on.** C1 and F2. Geometry layers arrive through G1 and G2, and items can land before the layers do.
-- **Modules.** `assets/curriculum/areas/france_*.yaml`, `tool/geography/layers.yaml` (the French layers), `coverage_policy.yaml`.
+
+  The sub-region atlas (G10) later completes the sub-region sets, neighbours and French layers (GEO-18).
+- **Depends on.** C1 and F2. Geometry layers arrive through G1 and G10, and items can land before the layers do.
+- **Modules.** `assets/curriculum/areas/france_*.yaml`, `coverage_policy.yaml`.
 - **Acceptance criteria.**
   - At least 60 new cited items. Wine-law relations cite the cahier des charges; physical and climate facts cite public sources.
   - Every node that can be asked on a map has a location item (GEO-6).
@@ -315,10 +335,8 @@ With five to eight sessions per wave, the backlog runs in seven waves rather tha
   - **Portugal:** Douro and Port, Vinho Verde, Madeira;
   - **fortified production:** as principles for production reasoning.
 - **Depends on.** C1 and F2.
-- **Modules.** `assets/curriculum/areas/italy_*.yaml`, `spain_*.yaml`, `portugal_*.yaml`; the geography layers (ISTAT; Spanish and Portuguese boundary sources); `docs/legal-review.md`.
-- **Acceptance criteria.** As C2, with at least 50 new items. It also:
-  - researches and records open-licensed boundary sources for Spain and Portugal in `tool/geography/sources.yaml`, or documents the point fallback (GEO-9);
-  - cites the MASAF disciplinari, Spain's *pliegos de condiciones* and Portugal's IVV and IVDP rules.
+- **Modules.** `assets/curriculum/areas/italy_*.yaml`, `spain_*.yaml`, `portugal_*.yaml`; `docs/legal-review.md`. The layers belong to G11.
+- **Acceptance criteria.** As C2, with at least 50 new items. It cites the MASAF disciplinari, Spain's *pliegos de condiciones* and Portugal's IVV and IVDP rules.
 - **Required automated tests.** As C2.
 - **Parallel.** Yes.
 
@@ -326,8 +344,8 @@ With five to eight sessions per wave, the backlog runs in seven waves rather tha
 
 - **Objective.** Author the core for the USA (AVAs), Canada, Chile, Argentina, Australia, New Zealand and South Africa.
 - **Depends on.** C1 and F2.
-- **Modules.** `assets/curriculum/areas/<country>.yaml`, the geography layers (the UC Davis AVA dataset, CC0; other sources as researched), `docs/legal-review.md`.
-- **Acceptance criteria.** As C2, with at least 50 new items. It cites 27 CFR part 9 and each country's GI register. Every geometry source is recorded with its licence, or the point fallback is used.
+- **Modules.** `assets/curriculum/areas/<country>.yaml`, `docs/legal-review.md`. The layers belong to G13.
+- **Acceptance criteria.** As C2, with at least 50 new items. It cites 27 CFR part 9 and each country's GI register.
 - **Required automated tests.** As C2.
 - **Parallel.** Yes.
 
@@ -350,6 +368,22 @@ With five to eight sessions per wave, the backlog runs in seven waves rather tha
   - The domains `viticulture`, `winemaking`, `service` and `business` each have core items for both tracks.
 - **Required automated tests.** Validator, generation report, and the coverage baseline raised.
 - **Parallel.** Yes from wave 2. It writes only its own files.
+
+#### C6 · Content: Germany, Austria and the rest of Europe
+
+- **Objective.** Author the WSET Level 3 and CMS Certified core for the European countries that no other content task covers:
+  - **Germany** first, since it heads the Spätburgunder fast track (§4). This is the certification level of the [study tree](content/spaetburgunder-study-tree.md): §3.1–§3.3 and §3.6 of the law, the regions of §4 at region level, and the key numbers of §2.
+  - **Austria, Switzerland, Hungary and Greece**, then any other country the tracks' editorial mappings name (L-14).
+- **Depends on.** C1 only. It needs no schema change, so the German core reaches today's formats early. Completeness assertions wait for F2, and are added by P2 and G12.
+- **Modules.** `assets/curriculum/areas/germany_*.yaml`, `austria.yaml`, `switzerland.yaml`, `hungary.yaml`, `greece.yaml`; `coverage_policy.yaml`; `docs/legal-review.md`.
+- **Acceptance criteria.**
+  - At least 60 new cited items.
+  - German facts cite the *Weingesetz* and the *Weinverordnung* in their current versions, including the amendment of 24 August 2026, which put the rules for Erstes and Großes Gewächs into §30. Other countries cite their wine laws and GI registers (RIS for Austria, for example).
+  - *Erstes Gewächs* and *Großes Gewächs* appear as legal quality marks with their 2030 transition. VDP terms appear only as a private classification (L-19).
+  - Every node that can be asked on a map has a location item (GEO-6). The atlas task G12 draws them.
+  - No new core item is flashcard-only. Every item is `unverified` (D3).
+- **Required automated tests.** As C2: the validator and §S.3 gate, the generation report, updated ingestion counts and a raised coverage baseline.
+- **Parallel.** Yes in wave 2. It writes only its own files.
 
 ### Group G: Geography and maps
 
@@ -486,7 +520,7 @@ With five to eight sessions per wave, the backlog runs in seven waves rather tha
   - region → grapes (map-prompted multiple response);
   - statistic nodes for planted areas, with orderings.
 - **Depends on.** G4, Q2 and Q3.
-- **Modules.** `formats/map_multi_locate/`, `templates/` files, its own dataset files `areas/neighbours.yaml` and `areas/plantings.yaml` (relations and statistic nodes).
+- **Modules.** `formats/map_multi_locate/`, `templates/` files, its own dataset files `areas/neighbours.yaml` and `areas/plantings.yaml` (relations and statistic nodes). Its `BORDERS` cover the nodes that exist when it runs. The sub-region neighbours of each country group belong to G10–G13 (GEO-18), which skip pairs G8 already wrote.
 - **Acceptance criteria.**
   - Authored `BORDERS` match the pipeline's adjacency; any difference is reviewed in the PR.
   - A multi-answer question is generated only for an asserted complete set (QF-8).
@@ -505,6 +539,45 @@ With five to eight sessions per wave, the backlog runs in seven waves rather tha
   - Map deduction is served at depth 4 or 5 only.
 - **Required automated tests.** Chain enumeration on fixtures; distractor validity; grading attribution.
 - **Parallel.** Yes in wave 6.
+
+#### G10–G13 · Sub-region atlases
+
+Four tasks share one pattern. Each turns the famous regions of one country group into map-based study units, following the region sheets of the [sub-region atlas](content/subregion-atlas.md).
+
+| Task | Country group | Atlas sheets | Depends on | Wave |
+|---|---|---|---|---|
+| G10 | France | §3.1: Bordeaux, Burgundy and Beaujolais, Champagne, Loire, Rhône, Alsace | C2, G5, G8 | 6 |
+| G11 | Italy, Spain and Portugal | §3.2–§3.3: Piedmont, Tuscany, Veneto; Rioja, Ribera, Priorat, Rías Baixas, Jerez, Cava; Douro, Vinho Verde, Alentejo | C3, G5, G8 | 6 |
+| G12 | Germany, Austria and Switzerland | §3.4, plus the Spätburgunder pack's sites (study tree §4) | C6, G4 | 5 |
+| G13 | The United States and the Southern Hemisphere | §3.5–§3.6: Napa, Sonoma, Willamette, Central Coast, Washington; Australia, New Zealand, South Africa, Argentina, Chile | C4, G5, G8 | 6 |
+
+- **Objective.** Complete each sheet's sub-region tree for the tracks, and make it drillable (GEO-15 to GEO-18):
+  - author the missing sub-region nodes and every `informal_area`, each with its location items;
+  - add `BORDERS` and sub-region-scale `LIES_ALONG` and `ON_LANDFORM` items;
+  - write completeness assertions for the sets the drills treat as complete, e.g. the six communal AOCs of the Haut-Médoc, the ten Beaujolais crus, the 17 Napa Valley AVAs;
+  - map the levels per track (`minimum_depth`, importance), editorially (L-14);
+  - build the country group's geometry layers.
+- **Depends on.** The content task of the same countries, so each node is created once (GEO-18). G10, G11 and G13 also need G5 and G8, so their hierarchy, neighbour and complete-the-set drills can be tested end to end. G12 needs only G4, so the Spätburgunder fast track gets maps a wave earlier; the drills of G5 and G8 reach its data as they land.
+- **Modules.**
+  - `assets/curriculum/areas/atlas_<country>.yaml`;
+  - the country group's entries in `tool/geography/sources.yaml` and `layers.yaml`;
+  - the group's assets under `assets/geography/`;
+  - `coverage_policy.yaml`;
+  - `docs/legal-review.md` (L-25);
+  - the sheet in `docs/content/subregion-atlas.md`: each *to verify* resolved, or kept with a reason.
+- **Acceptance criteria.**
+  - Every unit in the sheet's tree exists with a location item, a register citation and `valid_from`. Informal areas are `informal_area` nodes and never appear as options for appellation questions (GEO-15).
+  - Units with two parents have one location item per parent. Map frames grade the item of the parent shown (GEO-16).
+  - Every drill named in the sheet generates: locate, identify, hierarchy, ordering, neighbours and complete-the-set, as the formats built at merge time allow.
+  - Every geometry source is recorded with its licence and attribution, or the point fallback is used (GEO-9, L-25). The legend discloses commune-based approximations (GEO-10).
+  - No core atlas item is flashcard-only, and the coverage baseline is raised.
+  - G12 also draws the pack's German sites: from the RLP Einzellagen data for the RLP regions, and from other states' open data or the point fallback elsewhere (study tree §4).
+- **Required automated tests.**
+  - Validator rules: no `informal_area` among the answers or distractors of an appellation question; every map-enabled atlas node has a location item per parent.
+  - Generation: each signature drill of the sheet exists, and a closed-world drill is refused without its assertion (QF-8).
+  - The GEO-1 same-item test on one unit per country group, e.g. Pauillac, Barolo, the Assmannshäuser Höllenberg, Oakville.
+  - Pipeline checks for the new layers: byte-identical rebuild, budgets, containment.
+- **Parallel.** Yes. Each task writes its own atlas files and layers. G12 runs in wave 5, the others in wave 6.
 
 ### Group Q: Question formats
 
@@ -709,34 +782,47 @@ With five to eight sessions per wave, the backlog runs in seven waves rather tha
 - **Required automated tests.** Profile and picker tests with a pack; coverage per pack; the no-special-case test.
 - **Parallel.** Yes in wave 3.
 
-#### P2 · Germany core and Spätburgunder pack I
+#### P2 · Spätburgunder pack I: the pack and its text content
 
-- **Objective.** Author the German core for WSET Level 3 and CMS Certified. Then build the first half of the pack:
-  - the regions and their hierarchy, down to flagship Einzellagen;
-  - rivers, ranges and landforms;
-  - climate and soils;
-  - label law.
+- **Objective.** Make the pack a selectable track, and author its text content from the [study tree](content/spaetburgunder-study-tree.md) §1–§6:
+  - identity and the Burgunder family;
+  - the numbers, as `statistic` nodes with survey dates;
+  - law and labels in full: the 2026 quality marks, VDP terms described as private, wine types, and the oak, slope and sweetness terms;
+  - regions and sites as text facts;
+  - viticulture, including clone types;
+  - winemaking and styles.
 
-  This includes the German geography layers: BKG VG250, and the Einzellagen register of the Landwirtschaftskammer RLP, both dl-de/by-2-0.
-- **Depends on.** P1 and G2. Full spatial coverage needs G4 and G6–G8.
-- **Modules.** `assets/curriculum/areas/germany_*.yaml` and `packs/spaetburgunder.yaml`, the German entries in `tool/geography/layers.yaml`, `docs/legal-review.md` (L-19, L-21).
+  It follows the node and relation types of the tree's §11.2, and the importance and depths of §11.3. This is step 2 of the fast track (§4).
+- **Depends on.** P1 and C6. Maps of its sites come with G12 and need nothing from P2 beyond its nodes and location items (GEO-1).
+- **Modules.** `assets/curriculum/packs/spaetburgunder*.yaml`, the pack's section of `coverage_policy.yaml`, `docs/legal-review.md` (L-19, L-21, L-26).
 - **Acceptance criteria.**
-  - Every fact is cited to German wine law, a state vineyard register, Destatis or another public source, and stays `unverified`.
-  - VDP terms are described as a private classification, never as law (L-19).
+  - Every fact is cited to German wine law, a state vineyard register, Destatis, a state research institute or another public source, and stays `unverified`.
+  - *To verify* items of the tree are resolved or left out.
+  - Heuristics (H) are not authored as facts; they wait for P3's sourced profiles.
+  - VDP terms are described as a private classification, never as law (L-19). The legal quality marks of WeinV §30 cite the ordinance and its transition to the 2030 vintage.
+  - Statistics carry their survey and date (L-21).
   - The pack's coverage policy passes for the formats built at merge time.
-- **Required automated tests.** Validator; the generation report; coverage for the pack; the map GEO-1 test on a German site.
-- **Parallel.** Yes in wave 5.
+- **Required automated tests.**
+  - The validator and the generation report.
+  - Pack coverage.
+  - The pack is planned through the unchanged planner (P1's no-special-case test still passes).
+  - A test that the pack's statistic items order correctly by area.
+- **Parallel.** Yes in wave 4. It writes pack files only.
 
-#### P3 · Spätburgunder pack II and competition drills
+#### P3 · Spätburgunder pack II: tasting, comparisons and competition drills
 
-- **Objective.** Complete the pack:
-  - viticulture, winemaking and tasting profiles;
+- **Objective.** Complete the pack from the study tree §7–§10:
+  - tasting profiles as sourced `style_trait` relations in the app's lexicon (T1);
   - comparisons with the world's other Pinot Noir regions;
-  - blind deduction series;
-  - timed map and label drills, through S1's generic modes.
-- **Depends on.** P2, Q6, Q8 and S1. Label drills need Q5.
+  - blind deduction series, including the look-alikes of §10.2;
+  - timed map and label drills through S1's generic modes;
+  - vintage items only if the product owner accepts vintage content (backlog §7 defers it), each citing the DWI vintage report.
+- **Depends on.** P2, G12, Q6, Q8 and S1. Label drills need Q5.
 - **Modules.** Pack content files, the pack's coverage policy section.
-- **Acceptance criteria.** [study-packs §3](design/study-packs.md#3-acceptance-for-the-pack-as-a-whole) in full, including that no line of code names the pack.
+- **Acceptance criteria.**
+  - [study-packs §3](design/study-packs.md#3-acceptance-for-the-pack-as-a-whole) in full, including that no line of code names the pack.
+  - Every tasting profile cites a published source (L-18).
+  - Distractor profiles in deduction series differ from the answer on at least one stated marker.
 - **Required automated tests.** Pack coverage at full policy; a timed drill and a deduction series running on pack content.
 - **Parallel.** Yes in wave 6.
 
@@ -849,9 +935,11 @@ Every mode requested for this backlog maps to tasks:
 | Slope, aspect, elevation; soils and geology | G7 |
 | Map-based deduction | G9 |
 | Blank-map and minimal-label progression; zooming by relevance | G4 modes, F4 ladder, G3 semantic zoom, S1 atlas |
-| One memory for map and text | GEO-1, tested in G4, G6 and P2 |
+| One memory for map and text | GEO-1, tested in G4, G6 and G10–G13 |
+| Sub-region study maps for the famous regions | G10–G13, with the [sub-region atlas](content/subregion-atlas.md) |
 | Coverage matrix and checker, enforceable | F1 (report and ratchet); every Q and G task (capabilities); R3 (release gate) |
-| Spätburgunder mastery and competition pack | P1–P3, built only from generic features |
+| Spätburgunder mastery and competition pack | C6, P1–P3 and G12, built only from generic features, planned by the [study tree](content/spaetburgunder-study-tree.md), with a fast track (§4) |
+| Blind-tasting preparation | The study tree's §0 and §10 now; tasting deduction (Q8) and the pack's deduction series (P3) in the app |
 
 ---
 
@@ -871,6 +959,10 @@ The backlog was reviewed against the specification (§A–§T), the decision reg
 | Verification workflow | P-6 needs 150 verified items, but no process existed | C1, R3 |
 | Parallel content authoring | One YAML file would serialize every content task | C1 (DL-4) |
 | Subtree study ("practise Burgundy") | The audit decided it; nothing built it | S1 |
+| Austria, Switzerland, Hungary, Greece | No content task covered them, and Germany sat inside a pack task | C6 |
+| Sub-regions of the famous regions | Scattered across content tasks, with no complete sets, neighbours or drills | G10–G13 (GEO-15 to GEO-18) |
+| Informal areas (Left Bank, Côte des Blancs, Central Otago's Gibbston) | Could be mistaken for appellations | GEO-15 |
+| Recent legal changes (the 2026 German quality marks, new AVAs, UGAs and *Pievi*) | Facts change, and learners need the current rule and its date | GEO-17, C6, P2 |
 | Exam and competition practice | Timed and exam-style modes | S1, P3 |
 | Short written answers | WSET Level 3 includes them; spec §T plans self-evaluation against a rubric | Q1 |
 | SQL performance on 16 KB page devices | Spec §T asks for profiling before V1.0 | R2 |

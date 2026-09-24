@@ -31,7 +31,11 @@ A new pack is a data change plus tests, never a new screen.
 
 **Goal:** deep command of German Pinot Noir (Spätburgunder), for competitions and for advanced certification candidates. It covers geography, climate, soils, viticulture, winemaking, tasting, comparison with the world's other Pinot Noir regions, labels and deductive tasting.
 
-The outline below is a **scope list, not content.** Every fact is authored in the pack tasks (P2, P3), with citations to primary sources. It stays `unverified` until an expert reviews it (D3).
+The outline below is a **scope list, not content.** The content plan is the [Spätburgunder study tree](../content/spaetburgunder-study-tree.md): cited facts, marked heuristics and *to verify* items, with the mapping to items, formats and depths in its §11.
+
+- **Who authors what.** Facts are authored in C6 (the German certification core), P2 and P3 (pack depth) and G12 (maps), with citations to primary sources (PK-6).
+- **Status.** Every fact stays `unverified` until an expert reviews it (D3).
+- **Heuristics** become content only as sourced style profiles (PK-7).
 
 | Area | Scope | Formats | Primary sources to use |
 |---|---|---|---|
@@ -48,7 +52,10 @@ The outline below is a **scope list, not content.** Every fact is authored in th
 
 ### Legal notes for this pack
 
-- **Private classifications.** Terms such as VDP.GROSSE LAGE and GROSSES GEWÄCHS are trademarks of a private association. They are explained descriptively as a private classification, never used as the app's own labels, and never presented as law (L-19).
+- **Private classifications and legal quality marks.** VDP.GROSSE LAGE®, VDP.ERSTE LAGE® and VDP.GROSSES GEWÄCHS® are trademarks of a private association. They are explained descriptively as a private classification, never used as the app's own labels, and never presented as law (L-19).
+  - Since the amendment of 24 August 2026, the Weinverordnung (§30) makes *Erstes Gewächs* and *Großes Gewächs* quality marks of the Komitee – Klassifikation Erster und Großer Lagen in Deutschland e. V.
+  - The transition runs to the 2030 vintage.
+  - They are taught as law, with that source and date, and kept distinct from the VDP's marks.
 - **Competitions.** The pack names no competition and implies no affiliation (L-22).
 - **Statistics.** Planted areas are cited to Destatis (dl-de/by-2-0, to confirm) and restated, not copied as tables (L-21).
 - **Labels.** Synthetic labels use invented producer names only (L-20).

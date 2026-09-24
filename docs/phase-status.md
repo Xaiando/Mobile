@@ -97,4 +97,4 @@ Spec §O: *"ReviewState, ReviewEvent. Integrate fsrs package. Build the Score_pr
 
 ## After Phase 3
 
-The spec's Phases 4–6, the question formats beyond recall and MCQ, geography as a map-based study domain, the coverage checker and study packs are planned as 40 tasks in [backlog.md](backlog.md). Each task records its acceptance evidence in the backlog's status column.
+The spec's Phases 4–6, the question formats beyond recall and MCQ, geography as a map-based study domain, the coverage checker and study packs are planned as 45 tasks in [backlog.md](backlog.md). Each task records its acceptance evidence in the backlog's status column.

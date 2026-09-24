@@ -378,7 +378,7 @@ The design is [design/question-system.md](design/question-system.md); the tasks 
 
 ## 15. Geography
 
-The design is [design/geography.md](design/geography.md); the tasks are [backlog.md](backlog.md) group G. Licensing questions are [legal-review.md](legal-review.md) L-15 to L-23.
+The design is [design/geography.md](design/geography.md); the tasks are [backlog.md](backlog.md) group G. The sub-region content plan is [content/subregion-atlas.md](content/subregion-atlas.md) (GEO-15 to GEO-18, tasks G10–G13). Licensing questions are [legal-review.md](legal-review.md) L-15 to L-23 and L-25.
 
 | ID | Decision | Reason |
 |---|---|---|
@@ -396,12 +396,16 @@ The design is [design/geography.md](design/geography.md); the tasks are [backlog
 | GEO-12 | **Custom renderer:** `CustomPainter` in an `InteractiveViewer`, with the geometry core in pure Dart. `flutter_map` 8.3.2 (BSD-3-Clause) is the fallback. | Quiz maps need exact control of what is drawn and named, and deterministic hit tests. They need none of `flutter_map`'s tile and network dependencies. |
 | GEO-13 | Every map question has a non-visual answer mode (a list of names). Colours are safe for colour-vision deficiency, and outcomes are marked by icon. | Accessibility. |
 | GEO-14 | Every map shows the attributions of its visible layers. *Settings → About → Data sources* lists every dataset with its licence. | Licence Ouverte, dl-de/by and CC BY require attribution. |
+| GEO-15 | **Informal areas are their own node type.** Traditional areas without a legal definition have the node type `informal_area` (e.g. the Left Bank, the Côte des Blancs, Central Otago's Gibbston). They are drawn only from a cited public definition, such as a commune list, and otherwise as a labelled point. The legend says "traditional area, not a legal unit", and the validator keeps them out of the answers and distractors of appellation questions. | Learners need these areas, but an app must never present them as appellations. |
+| GEO-16 | **Nesting follows the register, and a unit may have two parents.** `LOCATED_IN` mirrors the legal nesting (AVA within AVA, ward within district). A unit inside two parents (Los Carneros in Napa and Sonoma; Walla Walla Valley in Washington and Oregon) has one location item per parent. A map question grades the item whose parent frames it. This extends GEO-6. | Real registers overlap. One location item per node cannot state both facts. |
+| GEO-17 | **Registers change, so sub-region facts are dated.** Every unit cites its register with a date and carries `valid_from`. A change retires rows with `valid_until` (V-2) and never deletes them. Examples: Rioja Oriental (formerly Rioja Baja), Crystal Springs of Napa Valley (2024), Bannockburn (2022), the Chianti Classico UGAs (2023), the Vino Nobile *Pievi* (2025) and the German quality marks of 2026. | Current rules matter in an exam, and so does knowing what changed. |
+| GEO-18 | **Content tasks and atlas tasks split ownership.** The task that creates a node also writes its location item. Content tasks (C2–C4, C6, P2) write facts and the nodes they need. The atlas task of each country group (G10–G13) writes the missing sub-region nodes, informal areas, `BORDERS`, sub-region-scale `LIES_ALONG` and `ON_LANDFORM`, the completeness assertions of its sets, and the country's layers. It runs after its content task and never edits another task's file. | Parallel sessions must not define the same node twice. Geometry for a country is built by one task. |
 
 ---
 
 ## 16. Study packs
 
-The design is [design/study-packs.md](design/study-packs.md); the tasks are [backlog.md](backlog.md) group P.
+The design is [design/study-packs.md](design/study-packs.md); the tasks are [backlog.md](backlog.md) group P. The first pack's content plan is [content/spaetburgunder-study-tree.md](content/spaetburgunder-study-tree.md).
 
 | ID | Decision | Reason |
 |---|---|---|
@@ -410,3 +414,5 @@ The design is [design/study-packs.md](design/study-packs.md); the tasks are [bac
 | PK-3 | **One active track at a time.** Switching keeps memory (FS-12). Studying several tracks at once, with a merged queue, is a later extension. | Simple now, and pack study still strengthens the shared certification items. |
 | PK-4 | Each pack has its own section in the coverage policy, stricter than a certification's. | Deep verticals must not be flashcard decks. |
 | PK-5 | **Competition training is generic session modes over pack content.** The modes are focused, timed drill and exam-style (task S1). | No competition-specific code. |
+| PK-6 | **A pack's certification core lands first.** Facts that certifications also need go into a content task mapped to the certification tracks (C6 for Germany), which needs no schema change. The pack task (P2) adds pack depth and the pack track. Maps (G12) and deduction (P3) follow. | The Spätburgunder fast track: learners get the German core in waves 1–2 and the pack in wave 4, rather than waiting for maps. |
+| PK-7 | **Pack content plans separate facts from heuristics.** A plan marks tasting and deduction rules of thumb as heuristics. They are authored only as sourced style profiles (P3, L-18), never as cited facts. *To verify* statements are checked against their primary source before they become items. | Blind-tasting cues are useful but general. D3 forbids treating them as authoritative without sources. |

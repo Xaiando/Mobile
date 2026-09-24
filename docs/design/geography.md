@@ -2,7 +2,8 @@
 
 | | |
 |---|---|
-| **Status** | Design for backlog group G ([backlog.md](../backlog.md)). Decisions are registered in [architecture-audit.md](../architecture-audit.md) §15; licensing questions in [legal-review.md](../legal-review.md) L-15 to L-23. |
+| **Status** | Design for backlog group G ([backlog.md](../backlog.md)). Decisions are registered in [architecture-audit.md](../architecture-audit.md) §15; licensing questions in [legal-review.md](../legal-review.md) L-15 to L-23 and L-25. |
+| **Content plan** | [content/subregion-atlas.md](../content/subregion-atlas.md): the sub-regions of the famous regions, their drills and registers (GEO-15 to GEO-18, tasks G10–G13) |
 | **Builds on** | The knowledge graph (domain model §3.2), FS-2 (one memory state per item), V-2 (validity by date), the question system ([question-system.md](question-system.md)) |
 
 Geography is a first-class study domain, not an illustration. A candidate must know:
@@ -44,6 +45,7 @@ The existing types are `country`, `region`, `subregion`, `appellation`, `soil` a
 | `climate_influence` | Mistral, Humboldt Current, Foehn | Winds and currents |
 | `aspect` | south-facing, south-east-facing | Eight compass categories |
 | `statistic` | Spätburgunder in Baden | A reified statistic for ranked facts, e.g. planted area in a survey year (question-system §6) |
+| `informal_area` | Left Bank, Côte des Blancs, Gibbston | A traditional area with no legal definition (GEO-15). It is drawn from a cited commune list or as a labelled point, and never offered as an appellation. |
 
 ### Relation types
 
@@ -68,6 +70,8 @@ The existing types are `country`, `region`, `subregion`, `appellation`, `soil` a
 ### The location item rule (GEO-6)
 
 Every node that can appear as the answer of a map question has one **location item**. For an area, site, landform, mountain range or body of water, that is its `LOCATED_IN` item towards its direct parent; for a river, its principal `FLOWS_THROUGH` item. All locate and identify questions about the node update that item. The validator rejects map-enabled nodes without one.
+
+**Units with two parents (GEO-16).** Some registers overlap: Los Carneros lies in both Napa and Sonoma, and Walla Walla Valley in Washington and Oregon. Such a unit has one location item per parent, and a map question grades the item whose parent frames the map.
 
 ---
 
@@ -179,7 +183,7 @@ Layers are built only from sources that allow commercial redistribution. Finding
 
 The Copernicus DEM is an alternative to SRTM, with a mandatory "all rights reserved" notice, so SRTM is preferred (L-23).
 
-**Countries not yet covered.** Spain, Portugal, Austria, Australia, New Zealand, South Africa, Chile and Argentina are researched in their content tasks (C3, C4). Each needs an open-licensed boundary source, or it falls back as below.
+**Countries not yet covered.** Spain, Portugal, Austria, Switzerland, Australia, New Zealand, South Africa, Chile and Argentina are researched in their atlas tasks (G11–G13), and so are the German states outside Rhineland-Palatinate (G12) (L-25). Each needs an open-licensed boundary source, or it falls back as below.
 
 **Fallback (GEO-9).** Where no open shape exists, the node is drawn as a *point* at a label point taken from an open municipal boundary or a public-domain gazetteer. It still supports locate questions at a coarser frame. Nobody draws boundaries by hand from copyrighted maps.
 
