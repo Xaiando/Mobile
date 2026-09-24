@@ -247,6 +247,7 @@ The Copernicus DEM is an alternative to SRTM, with a mandatory "all rights reser
 - These cases were not specified above, so the renderer settles them:
   - When a tap is inside several candidates, where registers overlap (GEO-16) or a marker lies over a neighbour, the smallest wins.
   - A line has no inside, so a tap on a river counts as near it.
+  - A tap hits only candidates whose layer is within its zoom range, so a layer the zoom hides can be neither seen nor tapped.
   - In the minimal and blank modes, markers stay hidden with the candidates until the answer is revealed. Taps are then graded against the shapes themselves.
   - Revealing shows the map as labelled mode does.
 

@@ -25,8 +25,9 @@ import 'map_style.dart';
 ///   [revealed] shows what it hid once the question is answered.
 /// - A candidate smaller than 24 logical pixels is drawn as a marker, so
 ///   every target stays tappable (geography §5).
-/// - A tap is hit-tested against the [candidates] by the inside and near
-///   rules of geography §4, and reported to [onTap].
+/// - A tap is hit-tested against the [candidates] on the layers visible at
+///   the current zoom, by the inside and near rules of geography §4, and
+///   reported to [onTap].
 /// - An information button lists the attributions of the visible layers
 ///   (GEO-14).
 class MapCanvas extends StatefulWidget {
@@ -56,7 +57,8 @@ class MapCanvas extends StatefulWidget {
 
   /// The feature keys of the possible answers: the same-type siblings in
   /// the frame (geography §5). They are drawn in full, named as [mode]
-  /// allows, and they are the only features a tap can hit.
+  /// allows, and they are the only features a tap can hit, while their
+  /// layer is within its zoom range.
   final Set<String> candidates;
 
   /// The feature key of the area the frame shows, named in the outline mode.
