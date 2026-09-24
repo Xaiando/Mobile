@@ -292,7 +292,10 @@ class MapCanvasState extends State<MapCanvas> {
       details.localPosition.dx,
       details.localPosition.dy,
     );
-    final layerOf = {for (final (layer, shape) in _candidates) shape: layer};
+    final layerOf = {
+      for (final (layer, shape) in _candidates)
+        if (layer.geometry.isVisibleAt(view.zoom)) shape: layer,
+    };
     final hits = widget.hitTester.hitTest(
       layerOf.keys,
       world,
@@ -332,11 +335,13 @@ class MapCanvasState extends State<MapCanvas> {
       _style = style;
       _revision++;
     }
-    _text.configure(
+    if (_text.configure(
       MediaQuery.textScalerOf(context),
       Directionality.of(context),
       DefaultTextStyle.of(context).style,
-    );
+    )) {
+      _revision++;
+    }
     final attributed = widget.layers.any((l) => l.geometry.attribution != null);
 
     return Semantics(
