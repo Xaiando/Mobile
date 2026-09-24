@@ -275,9 +275,16 @@ final class _GeometryDecoder {
     for (final ref in ring) {
       points += arcs[arcIndexOf(ref)].length ~/ 2 - 1;
     }
-    final (x0, y0) = _end(ring.first, start: true);
-    final (x1, y1) = _end(ring.last, start: false);
-    if (points < 4 || x0 != x1 || y0 != y1) {
+    var joins = true;
+    for (var i = 0; i < ring.length; i++) {
+      final (x0, y0) = _end(ring[i], start: false);
+      final (x1, y1) = _end(ring[(i + 1) % ring.length], start: true);
+      if (x0 != x1 || y0 != y1) {
+        joins = false;
+        break;
+      }
+    }
+    if (points < 4 || !joins) {
       throw FormatException('A ring of $name is not a closed ring: $ring');
     }
     return ring;
