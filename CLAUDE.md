@@ -72,6 +72,16 @@ Ingestion regenerates `questions` and `question_distractors` (`QuestionGenerator
 - The test suite fails if an item has neither an MCQ nor `mcq_disabled: true` (§S.3), so after adding items, run the tests and read the generation report.
 - Present questions through `QuestionPresenter.present(seed:)`, and log the seed and the options shown with the review (QG-7).
 
+## Study engine
+
+`lib/core/study/` holds the FSRS reviews (`ReviewService`), the learner's track (`LearnerProfiles`) and session planning (`StudyPlanner`, `StudySession`). The decisions are FS-1 to FS-16, CM-3 to CM-6 and A-1 to A-10.
+
+- Record reviews only through `ReviewService`. It writes the event, the options shown and the projected `review_states` row in one transaction, and counts `reps` and `lapses`.
+- When upserting a data class, pass `toCompanion(false)`. The default drops NULL columns from the update, so a stale `step` would survive graduation.
+- Retrievability comes from the package (`retrievabilityOf`); never recompute it in SQL or by hand. It counts whole days, so R is 1 on the day of a review.
+- Scheduling tests disable fuzzing with `unfuzzedScheduler` and move time with `TestClock` (`test/support/study_fixture.dart`).
+- Screens follow the database through Drift stream queries. Write app widget tests with `testApp` (`test/support/app_fixture.dart`), which unmounts the app so Drift's stream-closing timers run before the test ends.
+
 ## Content and legal
 
 These rules come from decisions D3, D8 and D10 in docs/architecture-audit.md §11.

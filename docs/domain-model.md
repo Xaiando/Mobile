@@ -378,6 +378,8 @@ erDiagram
     ReviewEvent }o..o| ReviewState : "projected into, no FK"
 ```
 
+**In the app (Phase 3):** `ReviewService` (`lib/core/study/review_service.dart`) is the only writer of these tables. It writes each review's event, the options it showed, and the item's new `ReviewState` in one transaction. Startup seeds `SchedulerConfig` version 1 (audit FS-8). The learner's track picker writes the single `UserProfile` row. `StudyPlanner` reads all of them to build sessions (audit FS-15, A-7 to A-10).
+
 ### 3.7 User data: tasting practice and wine journal
 
 ```mermaid

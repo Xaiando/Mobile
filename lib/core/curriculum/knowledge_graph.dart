@@ -46,6 +46,22 @@ class NodeRelation {
   String toString() => '$subjectName $label $objectName';
 }
 
+/// Months after its last verification that an item counts as possibly out
+/// of date (audit V-4, decision P-1).
+const stalenessMonths = 24;
+
+/// Items last verified before this instant are stale at [now].
+DateTime staleBefore(DateTime now, {int months = stalenessMonths}) =>
+    DateTime.utc(
+      now.year,
+      now.month - months,
+      now.day,
+      now.hour,
+      now.minute,
+      now.second,
+      now.millisecond,
+    );
+
 /// An item whose fact no longer holds (spec §S.4): its relation has ended,
 /// or a newer item supersedes it.
 class ExpiredItem {
@@ -75,10 +91,10 @@ class KnowledgeGraph {
   /// cycle slipped past the validator.
   static const maxDepth = 32;
 
-  /// SQL for "relation [alias] is in force on the date bound to `?2`".
-  static String _current(String alias) =>
-      '$alias.valid_from <= ?2 '
-      'AND ($alias.valid_until IS NULL OR $alias.valid_until > ?2)';
+  /// SQL for "relation [alias] is in force on the date bound to [date]".
+  static String _current(String alias, {String date = '?2'}) =>
+      '$alias.valid_from <= $date '
+      'AND ($alias.valid_until IS NULL OR $alias.valid_until > $date)';
 
   String _date(String? on) => on ?? localToday(_clock);
 
@@ -207,6 +223,83 @@ class KnowledgeGraph {
     ];
   }
 
+  /// The items that build on [itemId], directly or transitively, nearest
+  /// first: the items whose weak recall points back to it (audit A-4).
+  Future<List<(String itemId, int depth)>> dependentsOf(String itemId) async {
+    final rows = await db
+        .customSelect(
+          '''
+      WITH RECURSIVE builds(id, depth) AS (
+        SELECT knowledge_item_id, 1 FROM knowledge_item_prerequisites
+        WHERE prerequisite_item_id = ?1
+        UNION
+        SELECT p.knowledge_item_id, builds.depth + 1
+        FROM knowledge_item_prerequisites p JOIN builds
+          ON p.prerequisite_item_id = builds.id
+        WHERE builds.depth < $maxDepth
+      )
+      SELECT id, min(depth) AS depth FROM builds
+      GROUP BY id ORDER BY depth, id''',
+          variables: [Variable(itemId)],
+          readsFrom: {db.knowledgeItemPrerequisites},
+        )
+        .get();
+    return [
+      for (final row in rows) (row.read<String>('id'), row.read<int>('depth')),
+    ];
+  }
+
+  /// Every (prerequisite, dependent) pair of the prerequisite graph's
+  /// transitive closure, with the shortest distance between them.
+  ///
+  /// The study planner scores every candidate at once from this, instead of
+  /// walking the graph once per item.
+  Future<List<({String prerequisite, String dependent, int depth})>>
+  prerequisiteClosure() async {
+    final rows = await db
+        .customSelect(
+          '''
+      WITH RECURSIVE builds(prerequisite, dependent, depth) AS (
+        SELECT prerequisite_item_id, knowledge_item_id, 1
+        FROM knowledge_item_prerequisites
+        UNION
+        SELECT builds.prerequisite, p.knowledge_item_id, builds.depth + 1
+        FROM builds JOIN knowledge_item_prerequisites p
+          ON p.prerequisite_item_id = builds.dependent
+        WHERE builds.depth < $maxDepth
+      )
+      SELECT prerequisite, dependent, min(depth) AS depth FROM builds
+      GROUP BY prerequisite, dependent
+      ORDER BY prerequisite, depth, dependent''',
+          readsFrom: {db.knowledgeItemPrerequisites},
+        )
+        .get();
+    return [
+      for (final row in rows)
+        (
+          prerequisite: row.read<String>('prerequisite'),
+          dependent: row.read<String>('dependent'),
+          depth: row.read<int>('depth'),
+        ),
+    ];
+  }
+
+  /// The items that can be studied on [on]: their relation is in force and
+  /// no newer item supersedes them (audit FS-13, V-2).
+  Future<List<KnowledgeItem>> currentItems({String? on}) => db
+      .customSelect(
+        '''
+    SELECT i.* FROM knowledge_items i
+    JOIN knowledge_relations r ON r.subject_id = i.subject_id
+      AND r.relation_type = i.relation_type AND r.object_id = i.object_id
+    WHERE i.superseded_by_item_id IS NULL AND ${_current('r', date: '?1')}
+    ORDER BY i.id''',
+        variables: [Variable(_date(on))],
+        readsFrom: {db.knowledgeItems, db.knowledgeRelations},
+      )
+      .map((row) => db.knowledgeItems.map(row.data))
+      .get();
+
   /// Items that are their own prerequisite through a chain of any length
   /// (spec §S.2). Empty for a valid curriculum.
   Future<List<String>> prerequisiteCycles() async {
@@ -258,17 +351,8 @@ class KnowledgeGraph {
 
   /// Items not re-verified for [months] months: shown as "may be out of
   /// date" (audit V-4; 24 months per decision P-1).
-  Future<List<KnowledgeItem>> staleItems({int months = 24}) {
-    final now = utcNow(_clock);
-    final cutoff = DateTime.utc(
-      now.year,
-      now.month - months,
-      now.day,
-      now.hour,
-      now.minute,
-      now.second,
-      now.millisecond,
-    );
+  Future<List<KnowledgeItem>> staleItems({int months = stalenessMonths}) {
+    final cutoff = staleBefore(utcNow(_clock), months: months);
     return (db.select(db.knowledgeItems)
           ..where((i) => i.lastVerifiedAt.isSmallerThanValue(cutoff))
           ..orderBy([(i) => OrderingTerm(expression: i.lastVerifiedAt)]))

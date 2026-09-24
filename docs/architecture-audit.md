@@ -203,6 +203,19 @@ Reading the legal texts corrected the spec's seed in two places:
 | FS-12 | Switching certification profile neither resets nor forks memory state. | Memory belongs to the fact, not the track. |
 | FS-13 | Superseded or expired items keep their state and leave the queue (§9). | Keeps history intact without studying invalid law. |
 | FS-14 | A session holds up to 15 items (TASK-005), with at most **5 new** among them (**P-4, adopted**). | Prevents new items crowding out reviews (validation A-2). |
+| FS-15 | **Session composition (Phase 3).** Due items fill the session first. New items take only the room left, up to the budget. A new item never comes before a new prerequisite of its own; among the items ready, core items come first, then by ID. The first presentation of a new item uses its easiest format (forward MCQ, then forward flashcard, then reverse). Later presentations draw a served format at random, since every format updates the same state (FS-2). | Reviews are not crowded out (A-2), and foundations come before what builds on them. |
+| FS-16 | **Retention (Phase 3).** The Home dashboard's retention is the share of recall attempts on items in Review state rated Hard or better over the last 30 days. It is computed from the log with SQL `lag()`, because the log stores only after-states. Learning-step answers are excluded. | This is FSRS's "true retention". It is comparable with the 0.9 desired retention, which a raw share of correct answers is not. |
+
+### Adaptive study engine (Phase 3)
+
+The adaptive score's form is A-1 to A-6 of the [architecture validation](architecture/architecture-validation.md) (§3.6). Phase 3 adds these decisions.
+
+| ID | Decision | Reason |
+|---|---|---|
+| A-7 | **Provisional weights**: αU = αC = αL = αP = 1; λ = 0.2, so five lapses double an item's priority; β = 2 and γ = 0.5, so a forgotten direct dependent doubles its prerequisite's priority and a dependent two steps away adds half as much. The journal factor J (A-5) arrives in Phase 5. | §G gives no values. These are round numbers to fit against the logged reviews once real data exists (FS-8). A test proves each exponent can change the ranking. |
+| A-8 | In the prerequisite factor P, a dependent **on a relearning step** counts as fully forgotten (1 − R = 1) until it graduates again. Other reviewed dependents count 1 − R; new dependents do not count. | The package counts elapsed time in whole days, so R = 1 on the day of a review, and a lapse would boost nothing until the next day. A lapse is §G's clearest sign of a foundation gap. Failing a *new* item is not. |
+| A-9 | **Due order**: items on a learning or relearning step come first, oldest due first. Review-state items follow, by descending score. | On the day of a review R = 1, so U = 0 would rank every step item last. Steps last minutes, so they must be shown promptly (FS-11). |
+| A-10 | **Formats served** follow `minimum_depth` (CM-6): forward MCQ from 1, forward flashcard from 2, reverse formats from 3. If none of an item's questions reaches its depth (an MCQ-only depth on a flashcard-only item), the easiest question is served, so a mapped item is never unreachable. | CM-6 defines the depths. The fallback covers `mcq_disabled` items mapped at depth 1. |
 
 ---
 

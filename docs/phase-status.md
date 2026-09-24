@@ -68,24 +68,27 @@ Spec §O: *"QuestionTemplate, QuestionGenerator. String templating and distracto
 
 ---
 
-## Phase 3: FSRS and study engine (progress audit)
+## Phase 3: FSRS and study engine
 
-Spec §O: *"ReviewState, ReviewEvent. Integrate fsrs package. Build the Score_priority algorithm."* Acceptance: *"Flashcard answers correctly update DSR variables and reorder the study queue."* The backlog adds TASK-003 (a spaced-repetition service), TASK-005 (an adaptive queue of the top 15 items) and TASK-007 (the flashcard and MCQ widget).
+Spec §O: *"ReviewState, ReviewEvent. Integrate fsrs package. Build the Score_priority algorithm."* Acceptance: *"Flashcard answers correctly update DSR variables and reorder the study queue."* The backlog adds TASK-003 (a spaced-repetition service), TASK-005 (an adaptive queue of the top 15 items), TASK-006 (the Home dashboard) and TASK-007 (the flashcard and MCQ widget). **Status at audit** is the state after Phase 2 (commit `214009a`).
 
-| ID | Criterion | Source | Status now |
-|---|---|---|---|
-| P3-1 | `ReviewState`, `ReviewEvent`, `ReviewEventOption` and `SchedulerConfig` tables with their invariants | §D, FS-4, FS-8 | ✅ Phase 0 schema: append-only log, step coupling, `lapses < reps`, 21-weight check (tested) |
-| P3-2 | FSRS-6 via the `fsrs` package; a stored state round-trips exactly; the projection equals a replay of the log | FS-1, FS-4 | ◐ Proven by a test only. `fsrs` is still a dev dependency. |
-| P3-3 | Scheduler configuration version 1 seeded on first launch (weights, 0.9 retention, steps, fuzzing) | FS-8 | ❌ Only a test fixture seeds it |
-| P3-4 | Certification profile: the one-row `user_profiles`, with `WSET_L3` or `CMS_CERTIFIED` chosen by the learner | §N, CM-1, CM-9 | ❌ No profile row or picker. The 8 tracks and their chains exist (Phase 1). |
-| P3-5 | Spaced-repetition service (TASK-003): grade an item 1–4, write the event and the projected state in one transaction, count lapses | TASK-003, FS-3, FS-6, FS-7 | ❌ |
-| P3-6 | MCQ grading (wrong 1, right 3) and self-graded flashcards; each review logs its seed and the options shown | FS-6, QG-7 | ◐ The presenter produces the seed and options (Phase 2); nothing logs them yet |
-| P3-7 | The effective mapping per track: the nearest mapping along the chain; unmapped items excluded; `minimum_depth` picks the formats | CM-3, CM-4, CM-6 | ◐ Mappings and chains are ingested (Phase 1); no query resolves them yet |
-| P3-8 | Priority score `U^α·C^α·L^α·P^α`: R from the package, SQL to select candidates, scoring in Dart | §G, A-1, A-3, A-6 | ❌ |
-| P3-9 | Prerequisite factor P from reviewed dependents | A-4 | ◐ Prerequisite chains are traversable upward (`KnowledgeGraph.prerequisitesOf`, Phase 1); the walk to dependents and the scoring are not built |
-| P3-10 | Session of 15 items: due reviews by score, then at most 5 new items, core items and prerequisites first; learning steps re-queued | TASK-005, A-2, FS-11, FS-14, P-4 | ❌ |
-| P3-11 | Expired and superseded items leave the queue; stale items get a badge | FS-13, V-3, V-4 | ◐ The queries exist (`expiredItems`, `staleItems`); no queue yet |
-| P3-12 | Study UI: flashcard and MCQ widgets whose answers grade the item and advance the queue | TASK-007 | ❌ Placeholder screens |
-| P3-13 | Acceptance: a flashcard answer updates D, S and R and reorders the queue | §O | ❌ |
+| ID | Criterion | Source | Status at audit | Status now |
+|---|---|---|---|---|
+| P3-1 | `ReviewState`, `ReviewEvent`, `ReviewEventOption` and `SchedulerConfig` tables with their invariants | §D, FS-4, FS-8 | ✅ Phase 0 schema: append-only log, step coupling, `lapses < reps`, 21-weight check (tested) | ✅ The step-coupling CHECK caught a real bug during Phase 3: an upsert that dropped NULL columns |
+| P3-2 | FSRS-6 via the `fsrs` package; a stored state round-trips exactly; the projection equals a replay of the log | FS-1, FS-4 | ◐ Proven by a test only; `fsrs` was a dev dependency | ✅ `fsrs` is an app dependency. Tests: *stores exactly the D, S and due date the package computes* and *review_states equals a replay of review_events* |
+| P3-3 | Scheduler configuration version 1 seeded on first launch (weights, 0.9 retention, steps, fuzzing) | FS-8 | ❌ Only a test fixture seeds it | ✅ `appStartupProvider` seeds version 1, and the review service ensures it too; every event records its version |
+| P3-4 | Certification profile: the one-row `user_profiles`, with `WSET_L3` or `CMS_CERTIFIED` chosen by the learner | §N, CM-1, CM-9 | ❌ No profile row or picker | ✅ `LearnerProfiles` plus a track picker on Home, Practice and Study; other tracks are refused; switching keeps memory state (FS-12, tested) |
+| P3-5 | Spaced-repetition service (TASK-003): grade an item 1–4, write the event and the projected state in one transaction, count lapses | TASK-003, FS-3, FS-6, FS-7 | ❌ | ✅ `ReviewService`: one transaction per review; a failed write leaves nothing; `reps` and `lapses` counted as FS-7 defines them (tested) |
+| P3-6 | MCQ grading (wrong 1, right 3) and self-graded flashcards; each review logs its seed and the options shown | FS-6, QG-7 | ◐ The presenter produces the seed and options; nothing logged them | ✅ `answerMultipleChoice` and `gradeFlashcard`; seed, options in display order, the choice and the response time are logged (tested) |
+| P3-7 | The effective mapping per track: the nearest mapping along the chain; unmapped items excluded; `minimum_depth` picks the formats | CM-3, CM-4, CM-6 | ◐ Mappings and chains ingested; nothing resolved them | ✅ `StudyPlanner.effectiveMappings` (recursive CTE over the chain) and `servedFormats` (A-10); tests cover the chain, the exclusion and the depths |
+| P3-8 | Priority score `U^α·C^α·L^α·P^α`: R from the package, SQL to select candidates, scoring in Dart | §G, A-1, A-3, A-6 | ❌ | ✅ `Priority.of` with the provisional weights of A-7; R from `getCardRetrievability`; a test proves every exponent can change the ranking |
+| P3-9 | Prerequisite factor P from reviewed dependents | A-4 | ◐ Chains traversable upward only | ✅ `KnowledgeGraph.dependentsOf` and `prerequisiteClosure`; P from the weakest reviewed dependent, with a lapse counting as forgotten (A-8) |
+| P3-10 | Session of 15 items: due reviews by score, then at most 5 new items, core items and prerequisites first; learning steps re-queued | TASK-005, A-2, FS-11, FS-14, FS-15, P-4 | ❌ | ✅ `StudyPlanner.plan` and `StudySession`: learning steps first (A-9), then reviews by score; new items fill only the room left, never before their prerequisites; a card on a step comes back in the same session (tested) |
+| P3-11 | Expired and superseded items leave the queue; stale and unverified items get a badge | FS-13, V-3, V-4, P-5 | ◐ The queries existed; no queue | ✅ The queue uses items current on today's date; an expired item keeps its state and is listed on Home as "the rules changed". Practice and Study show *Unverified* and *May be out of date* badges |
+| P3-12 | Study UI: flashcard and MCQ widgets whose answers grade the item and advance the queue | TASK-007 | ❌ Placeholder screens | ✅ Practice: MCQ options marked right and wrong by icon as well as colour, explanations, flashcard reveal and Again, Hard, Good or Easy. Study lists the track by topic with each item's state and sources |
+| P3-13 | Home dashboard: due reviews, retention, and a button that starts a session | TASK-006 | ❌ Placeholder screen | ✅ Track picker, due and new counts, 30-day retention (FS-16), items studied, and a *Start session* button; a non-affiliation disclaimer (L-1) |
+| P3-14 | Acceptance: a flashcard answer updates D, S and R and reorders the queue | §O | ❌ | ✅ *flashcard answers update D, S and R and reorder the study queue* (see below) |
+| P3-15 | Works on the web as well as native | D5 | ❌ | ✅ The web smoke test picks a track, plans a session and answers a card in Chromium; the memory state round-trips exactly |
+| P3-16 | CI green | Phase 0 practice | | ⏳ Pending the push of this phase |
 
-**Progress: 1 of 13 criteria met, 5 partly.** In place: the schema, a proven FSRS round trip, the prerequisite traversal and seeded question presentation. Missing: the spaced-repetition service, the scorer, the queue, the profile and the study UI.
+**Result:** the spec's acceptance criterion holds. In the test *flashcard answers update D, S and R and reorder the study queue*, a learner studies five WSET Level 3 items and forgets *Barolo requires 38 months of ageing* (Again) thirty days later. The stored difficulty, stability and due date equal what FSRS-6 computes for that answer. R, recomputed by the package, is 1 just after the answer and fades faster than before. And the queue reorders. The forgotten item waits for its 10-minute relearning step. Its prerequisites, Barolo's grape and location, overtake the item that led the queue. When the step is due, the item leads the queue, and a Good answer raises stability and takes an item out of it. 56 tests were added (233 in total), including five widget tests of the Home, Practice and Study flow.

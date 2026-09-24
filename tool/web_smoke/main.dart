@@ -1,10 +1,13 @@
 // Web smoke test for the app database, built and run by tool/web_smoke/run.mjs.
 //
 // Opens the real database through Drift's WASM backend, ingests the bundled
-// curriculum and prints one `SMOKE_RESULT {json}` line to the browser console.
+// curriculum, studies one card and prints one `SMOKE_RESULT {json}` line to
+// the browser console.
 import 'dart:convert';
+import 'dart:math';
 
 import 'package:flutter/widgets.dart';
+import 'package:fsrs/fsrs.dart' as fsrs;
 import 'package:sommelier/core/curriculum/curriculum_ingestion.dart';
 import 'package:sommelier/core/curriculum/curriculum_providers.dart';
 import 'package:sommelier/core/curriculum/knowledge_graph.dart';
@@ -12,6 +15,10 @@ import 'package:sommelier/core/database/app_database.dart';
 import 'package:sommelier/core/database/curriculum_writes.dart';
 import 'package:sommelier/core/database/storage_durability.dart';
 import 'package:sommelier/core/questions/question_presenter.dart';
+import 'package:sommelier/core/study/learner_profile.dart';
+import 'package:sommelier/core/study/review_service.dart';
+import 'package:sommelier/core/study/scheduler_config.dart';
+import 'package:sommelier/core/study/study_planner.dart';
 import 'package:sommelier/core/time/utc_clock.dart';
 
 Future<void> main() async {
@@ -64,6 +71,34 @@ Future<void> main() async {
       for (final option in question.options) option.nodeId,
     }.length;
     result['mcqAnswerShown'] = question.options.contains(question.answer);
+    // Phase 3: a learner picks a track, plans a session and answers a card.
+    // The memory state must round-trip exactly: doubles and UTC instants.
+    await ensureSchedulerConfig(db);
+    await LearnerProfiles(db).selectTrack('WSET_L3');
+    final planner = StudyPlanner(db);
+    final plan = (await planner.plan())!;
+    result['sessionCards'] = plan.cards.length;
+    final card = plan.cards.first;
+    final shown = await QuestionPresenter(db).present(
+      card.itemId,
+      card.chooseFormat(Random(1)).questionTemplateId,
+      seed: 11,
+    );
+    final reviews = ReviewService(db);
+    final review = shown.isMultipleChoice
+        ? await reviews.answerMultipleChoice(shown, shown.answer)
+        : await reviews.gradeFlashcard(shown, fsrs.Rating.good);
+    result['reviewRating'] = review.event.rating;
+    result['reviewState'] = review.after.state;
+    result['reviewStored'] =
+        await (db.select(
+          db.reviewStates,
+        )..where((s) => s.knowledgeItemId.equals(card.itemId))).getSingle() ==
+        review.after;
+    result['reviewEventId'] = RegExp(
+      r'^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$',
+    ).hasMatch(review.event.id);
+    result['studied'] = (await planner.overview())!.studied;
     result['chablisAncestors'] = [
       for (final node in await KnowledgeGraph(db).ancestors('n_geo_chablis'))
         node.name,

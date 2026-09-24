@@ -94,6 +94,62 @@ void main() {
     ]);
   });
 
+  test('dependents are followed transitively, nearest first (A-4)', () async {
+    expect(await graph.dependentsOf('ki_barolo_grape'), [
+      ('ki_barolo_min_ageing', 1),
+      ('ki_barbaresco_min_ageing', 2),
+      ('ki_barolo_min_wood_ageing', 2),
+    ]);
+    expect(await graph.dependentsOf('ki_barolo_min_wood_ageing'), isEmpty);
+  });
+
+  test(
+    'the closure holds every prerequisite pair at its shortest distance',
+    () async {
+      final closure = await graph.prerequisiteClosure();
+      for (final itemId in [
+        'ki_barolo_location',
+        'ki_chablis_location',
+        'ki_champagne_method',
+      ]) {
+        expect(
+          [
+            for (final pair in closure)
+              if (pair.prerequisite == itemId) (pair.dependent, pair.depth),
+          ]..sort((a, b) => a.$2 != b.$2 ? a.$2 - b.$2 : a.$1.compareTo(b.$1)),
+          await graph.dependentsOf(itemId),
+          reason: itemId,
+        );
+      }
+      expect(
+        closure.where((p) => p.dependent == 'ki_barolo_min_wood_ageing'),
+        hasLength(3),
+      );
+    },
+  );
+
+  test('current items exclude ended and superseded facts (FS-13)', () async {
+    final all = await db.select(db.knowledgeItems).get();
+    expect(await graph.currentItems(), hasLength(all.length));
+    await db.writeCurriculum(() async {
+      await db.customStatement(
+        "UPDATE knowledge_relations SET valid_until = '2026-06-01' "
+        "WHERE subject_id = 'n_geo_barolo' AND relation_type = 'MIN_AGEING'",
+      );
+      await db.customStatement(
+        "UPDATE knowledge_items SET superseded_by_item_id = 'ki_cornas_grape' "
+        "WHERE id = 'ki_crozes_hermitage_grape'",
+      );
+    });
+    final current = [for (final i in await graph.currentItems()) i.id];
+    expect(current, hasLength(all.length - 2));
+    expect(current, isNot(contains('ki_barolo_min_ageing')));
+    expect(current, isNot(contains('ki_crozes_hermitage_grape')));
+    expect([
+      for (final i in await graph.currentItems(on: '2026-05-31')) i.id,
+    ], contains('ki_barolo_min_ageing'));
+  });
+
   group('§S.2 DAG integrity', () {
     test('the bundled prerequisites have no cycle', () async {
       expect(await graph.prerequisiteCycles(), isEmpty);
