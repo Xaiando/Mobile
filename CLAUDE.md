@@ -63,6 +63,15 @@ The canonical model is in docs/domain-model.md.
 - Set `mcq_disabled: true` when a wrong answer could be defensible, e.g. overlapping climate types.
 - `valid_from: 1900-01-01` means the effective date is not curated yet.
 
+## Question engine
+
+Ingestion regenerates `questions` and `question_distractors` (`QuestionGenerator`); nothing else writes them.
+
+- Templates use only `{subject.name}`, `{object.name}` and `{object.type_label}`. A relation type that carries items needs a forward template.
+- An MCQ exists only with at least 3 valid distractors (architecture audit QG-12). Reverse questions need a reverse-safe relation type or `is_distinctive: true`.
+- The test suite fails if an item has neither an MCQ nor `mcq_disabled: true` (§S.3), so after adding items, run the tests and read the generation report.
+- Present questions through `QuestionPresenter.present(seed:)`, and log the seed and the options shown with the review (QG-7).
+
 ## Content and legal
 
 These rules come from decisions D3, D8 and D10 in docs/architecture-audit.md §11.

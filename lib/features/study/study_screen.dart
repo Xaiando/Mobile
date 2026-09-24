@@ -10,6 +10,6 @@ class StudyScreen extends StatelessWidget {
     icon: Icons.account_tree_outlined,
     title: 'Study',
     description: 'Browse the curriculum by region, grape and topic.',
-    plannedPhase: 'Phases 1 and 2',
+    plannedPhase: 'Phase 3',
   );
 }

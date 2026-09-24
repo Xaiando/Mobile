@@ -41,7 +41,7 @@ Spec §O: *"Build YAML/JSON parser to ingest the seed dataset. Implement relatio
 | P1-15 | Seed content requirements: all 8 certification rows with their chains, a citation per item from a primary source, the spec's example appellations, a prerequisite DAG, quantity nodes, templates for every relation that carries an item | Register §4, D3 | ❌ | ✅ Every requirement in register §4 except the V0.1 content volume (see P1-16) |
 | P1-16 | Content drafted from public primary sources, marked `unverified` | D3, D10 | ❌ | ✅ 46 items drafted from 14 INAO and MASAF legal texts, all `unverified` until expert review (the review and the 150-item V0.1 volume of P-6 are content work, not Phase 1 criteria) |
 | P1-17 | Ingestion works on the web as well as native | Register §10, D5 | ❌ The web smoke test covers the database only | ✅ The web smoke test ingests the bundle in Chromium, with and without COOP/COEP |
-| P1-18 | CI green | Phase 0 practice | ✅ | |
+| P1-18 | CI green | Phase 0 practice | ✅ | ✅ [CI run for `db25d15`](https://github.com/Xaiando/Mobile/actions/runs/36002138687): Android, iOS, web and tests |
 
 **Result:** every Phase 1 criterion is met. The bundled dataset hydrates the database on first launch, on native platforms and in Chromium, and the validator, ingestion and traversal queries are tested (68 new tests).
 
@@ -54,15 +54,17 @@ Spec §O: *"QuestionTemplate, QuestionGenerator. String templating and distracto
 | ID | Criterion | Source | Status at audit | Status now |
 |---|---|---|---|---|
 | P2-1 | `QuestionTemplate`, `Question` and `QuestionDistractor` tables; the template must match the item's relation type | §D, QG-9 | ✅ Phase 0 schema (tested) | ✅ |
-| P2-2 | String templating with `{subject.name}`, `{object.name}` and `{object.type_label}` | §H, QG-2 | ❌ | |
-| P2-3 | Distractors from graph traversal: the subject's geographic scope first, widened step by step; same node type; matching berry colour | §H, TASK-004, QG-4 | ❌ | |
-| P2-4 | No distractor is a correct answer in any validity period, and none repeats a correct answer's name | QG-4, QG-5 | ❌ | |
-| P2-5 | Exactly 4 options, or fall back to a flashcard | QG-6, §O acceptance | ❌ | |
-| P2-6 | Formats: forward and reverse × flashcard and MCQ; reverse only when the relation is reverse-safe or the item distinctive | §N, QG-1, QG-3 | ❌ | |
-| P2-7 | Questions generated during ingestion as read-only curriculum, with rebuilds never touching user history | QG-9 | ◐ The rebuild is tested against the fixture; no generator | |
-| P2-8 | A fresh seed per presentation, with deterministic results for a given seed | QG-7 | ❌ | |
-| P2-9 | Distractor viability (§S.3): every MCQ question has at least 3 valid distractors; every item has an MCQ question or is marked `mcq_disabled` | §S.3, TASK-010, register §4 | ❌ | |
-| P2-10 | CI green | | | |
+| P2-2 | String templating with `{subject.name}`, `{object.name}` and `{object.type_label}` | §H, QG-2 | ❌ | ✅ `renderPrompt` (`lib/core/questions/template_renderer.dart`); 20 templates in the dataset |
+| P2-3 | Distractors from graph traversal: the subject's geographic scope first, widened step by step; same node type; matching berry colour | §H, TASK-004, QG-4 | ❌ | ✅ `QuestionGenerator.distractorPool`: Drift queries over the subject's scopes, then the relation, then the type (QG-12); colour and unit filters. Tests replay §R Q1 and §H |
+| P2-4 | No distractor is a correct answer in any validity period, and none repeats a correct answer's name | QG-4, QG-5 | ❌ | ✅ Every correct answer in any period is excluded, and so is any name that normalizes to one; tested on every generated distractor |
+| P2-5 | Exactly 4 options, or fall back to a flashcard | QG-6, §O acceptance | ❌ | ✅ MCQ only with at least 3 distractors, else a flashcard; the presenter always shows 4 options |
+| P2-6 | Formats: forward and reverse × flashcard and MCQ; reverse only when the relation is reverse-safe or the item distinctive | §N, QG-1, QG-3 | ❌ | ✅ Forward and reverse × flashcard and MCQ; reverse for the distinctive Barolo and Barbaresco ageing items only |
+| P2-7 | Questions generated during ingestion as read-only curriculum, with rebuilds never touching user history | QG-9 | ◐ The rebuild is tested against the fixture; no generator | ✅ Generated inside the ingestion transaction; regeneration is idempotent and leaves review history intact (tested) |
+| P2-8 | A fresh seed per presentation, with deterministic results for a given seed | QG-7 | ❌ | ✅ `QuestionPresenter.present(seed:)`: the same seed gives the same options and order; fresh seeds vary them (QG-13) |
+| P2-9 | Distractor viability (§S.3): every MCQ question has at least 3 valid distractors; every item has an MCQ question or is marked `mcq_disabled` | §S.3, TASK-010, register §4 | ❌ | ✅ 91 questions (43 MCQ, 48 flashcards); the §S.3 gate test passes: every item has an MCQ or is `mcq_disabled` (QG-14) |
+| P2-10 | CI green | Phase 0 practice | | |
+
+**Result:** the spec's acceptance criterion holds. The test *Phase 2 acceptance* presents each of the 43 generated MCQs with 25 seeds. Every presentation has 4 options: the answer and 3 distractors, with no duplicate node or name among them. In Chromium the web smoke test generates the same 91 questions and presents one MCQ.
 
 ---
 

@@ -3,6 +3,7 @@ import 'package:drift/drift.dart';
 
 import '../database/app_database.dart';
 import '../database/curriculum_writes.dart';
+import '../questions/question_generator.dart';
 import '../time/utc_clock.dart';
 import 'curriculum_dataset.dart';
 import 'curriculum_validator.dart';
@@ -72,8 +73,9 @@ class CurriculumIngester {
     return releases.last;
   }
 
-  /// Validates [dataset] and writes it in a single transaction.
-  Future<void> ingest(CurriculumDataset dataset) async {
+  /// Validates [dataset] and writes it in a single transaction, then
+  /// regenerates the questions from it. Returns the generation report.
+  Future<GenerationReport> ingest(CurriculumDataset dataset) async {
     final report = validateDataset(dataset);
     if (!report.isValid) {
       throw CurriculumIngestionException(
@@ -81,13 +83,18 @@ class CurriculumIngester {
         '${report.errors.join('\n')}',
       );
     }
-    await db.writeCurriculum(() async {
+    return db.writeCurriculum(() async {
       // Rows may reference rows later in the same release (a track's
       // included track, a superseding item), so check keys at commit.
       await db.customStatement('PRAGMA defer_foreign_keys = ON');
       await _refuseRemovals(dataset);
       await _upsertAuthored(dataset);
-      await _rebuildGenerated();
+      // Generated tables are derived from the authored rows and nothing
+      // references them, so they are rebuilt wholesale (domain model §2).
+      final generated = await QuestionGenerator(
+        db,
+        today: localToday(_clock),
+      ).generate();
       await db
           .into(db.curriculumReleases)
           .insertOnConflictUpdate(
@@ -98,6 +105,7 @@ class CurriculumIngester {
               ingestedAt: utcNow(_clock),
             ),
           );
+      return generated;
     }, clock: _clock);
   }
 
@@ -140,13 +148,6 @@ class CurriculumIngester {
       );
       b.insertAllOnConflictUpdate(db.tastingGridValues, d.tastingGridValues);
     });
-  }
-
-  /// Generated tables are derived from the authored rows, and nothing
-  /// references them, so they are rebuilt wholesale (domain model §2).
-  Future<void> _rebuildGenerated() async {
-    // Deleting a question cascades to its distractors.
-    await db.delete(db.questions).go();
   }
 
   /// Authored rows are never deleted (architecture audit V-7), so a release

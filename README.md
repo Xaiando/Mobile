@@ -2,7 +2,7 @@
 
 A Flutter study app for wine certification candidates on the WSET and Court of Master Sommeliers tracks. It combines spaced repetition over a canonical wine knowledge graph with structured tasting practice and a personal wine journal. It works fully offline.
 
-**Status: Phase 1 (curriculum ingestion) complete.** The app shell, the database built from the canonical domain model, and CI are in place. The bundled curriculum dataset (release 0.1.0: 65 nodes, 87 relations, 46 cited items) loads into the database on first launch. Study, practice, tasting and journal features arrive in later phases; [docs/phase-status.md](docs/phase-status.md) tracks every phase's acceptance criteria.
+**Status: Phase 2 (question engine) complete.** The app shell, the database built from the canonical domain model, and CI are in place. The bundled curriculum dataset (release 0.1.0: 65 nodes, 87 relations, 46 cited items) loads into the database on first launch. Ingestion also generates 91 questions (43 multiple-choice, 48 flashcards), with distractors chosen by walking the knowledge graph. Study, practice, tasting and journal screens arrive in later phases; [docs/phase-status.md](docs/phase-status.md) tracks every phase's acceptance criteria.
 
 ## Getting started
 
@@ -49,10 +49,11 @@ Android and iOS are the primary targets. The web gets basic support. Nothing in 
 | `lib/app/` | App widget, theme, router and the five-tab shell |
 | `lib/core/database/` | `schema.drift` (the canonical schema), `AppDatabase`, the curriculum write lock |
 | `lib/core/curriculum/` | Dataset parser, validator, ingestion and graph traversal queries |
+| `lib/core/questions/` | Question generation (templates, eligibility, distractors) and seeded presentation |
 | `assets/curriculum/` | The curriculum dataset, one YAML section per authored table |
 | `lib/core/time/` | The UTC millisecond clock used for every stored timestamp |
 | `lib/features/` | Home, Study, Practice, Tasting and Cellar |
-| `test/` | Schema, CRUD, write-lock, curriculum, clock and widget tests |
+| `test/` | Schema, CRUD, write-lock, curriculum, question, clock and widget tests |
 | `tool/` | Web asset pinning, the web smoke test and the Android 16 KB alignment check |
 | `drift_schemas/` | Schema snapshots for migration tests |
 | `docs/` | Audit, architecture validation, decision register and domain model |

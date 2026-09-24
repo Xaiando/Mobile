@@ -11,6 +11,7 @@ import 'package:sommelier/core/curriculum/knowledge_graph.dart';
 import 'package:sommelier/core/database/app_database.dart';
 import 'package:sommelier/core/database/curriculum_writes.dart';
 import 'package:sommelier/core/database/storage_durability.dart';
+import 'package:sommelier/core/questions/question_presenter.dart';
 import 'package:sommelier/core/time/utc_clock.dart';
 
 Future<void> main() async {
@@ -54,6 +55,15 @@ Future<void> main() async {
     result['release'] = (await ingester.installedRelease())?.version;
     result['nodes'] = await count(db, 'knowledge_nodes');
     result['relations'] = await count(db, 'knowledge_relations');
+    // Phase 2: questions are generated during ingestion and presented with
+    // a seed: four distinct options.
+    result['questions'] = await count(db, 'questions');
+    final question = await QuestionPresenter(db)
+        .present('ki_chablis_grape', 'qt_principal_grape_fwd_mcq', seed: 7);
+    result['mcqOptions'] = {
+      for (final option in question.options) option.nodeId,
+    }.length;
+    result['mcqAnswerShown'] = question.options.contains(question.answer);
     result['chablisAncestors'] = [
       for (final node in await KnowledgeGraph(db).ancestors('n_geo_chablis'))
         node.name,

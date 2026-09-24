@@ -10,6 +10,6 @@ class PracticeScreen extends StatelessWidget {
     icon: Icons.quiz_outlined,
     title: 'Practice',
     description: 'Adaptive question sessions scheduled by spaced repetition.',
-    plannedPhase: 'Phases 2 and 3',
+    plannedPhase: 'Phase 3',
   );
 }

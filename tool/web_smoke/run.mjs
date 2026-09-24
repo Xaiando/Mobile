@@ -23,6 +23,8 @@ const expected = {
   curriculum: 'installed',
   release: '0.1.0',
   chablisAncestors: 'Burgundy > France',
+  mcqOptions: 4,
+  mcqAnswerShown: true,
   curriculumWriteOutsideLock: 'rejected',
   curriculumWriteInsideLock: 'accepted',
   utcTimestamp: 'accepted',
@@ -79,6 +81,7 @@ for (const [port, isolated] of [[8631, false], [8632, true]]) {
     for (const key of ['nodes', 'relations']) {
       if (!(result[key] >= 50)) problems.push(`${key}: expected at least 50, got ${result[key]}`);
     }
+    if (!(result.questions > 0)) problems.push(`questions: expected some, got ${result.questions}`);
   }
   console.log(`${problems.length ? 'FAIL' : 'ok  '} ${label}: ${JSON.stringify(result)}`);
   for (const problem of problems) console.log(`     ${problem}`);
