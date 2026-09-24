@@ -149,7 +149,7 @@ class _ItemDetails extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
     final state = card.state;
-    final citations = ref.watch(itemCitationsProvider(card.itemId));
+    final sources = ref.watch(itemSourcesProvider(card.itemId));
     return SafeArea(
       child: ListView(
         shrinkWrap: true,
@@ -182,13 +182,15 @@ class _ItemDetails extends ConsumerWidget {
             ),
           const SizedBox(height: 16),
           Text('Sources', style: theme.textTheme.titleSmall),
-          ...switch (citations) {
+          ...switch (sources) {
             AsyncData(value: final sources) => [
-              for (final (source, locator) in sources)
+              for (final source in sources)
                 ListTile(
                   contentPadding: EdgeInsets.zero,
-                  title: Text(source.title),
-                  subtitle: Text([source.publisher, ?locator].join(' · ')),
+                  title: Text(source.citation.title),
+                  subtitle: Text(
+                    [source.citation.publisher, ?source.locator].join(' · '),
+                  ),
                 ),
             ],
             _ => [const LinearProgressIndicator()],

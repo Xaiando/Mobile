@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../database/database_providers.dart';
 import '../time/utc_clock.dart';
+import 'curriculum_catalog.dart';
 import 'curriculum_dataset.dart';
 import 'curriculum_ingestion.dart';
 import 'knowledge_graph.dart';
@@ -38,4 +39,8 @@ final knowledgeGraphProvider = Provider<KnowledgeGraph>(
     ref.watch(appDatabaseProvider),
     clock: ref.watch(clockProvider),
   ),
+);
+
+final curriculumCatalogProvider = Provider<CurriculumCatalog>(
+  (ref) => CurriculumCatalog(ref.watch(appDatabaseProvider)),
 );

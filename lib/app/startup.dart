@@ -13,7 +13,7 @@ import '../core/time/utc_clock.dart';
 /// Drift connects lazily, so this is also what triggers the web storage choice.
 final appStartupProvider = FutureProvider<StorageDurability>((ref) async {
   final database = ref.watch(appDatabaseProvider);
-  await database.customSelect('SELECT 1').get();
+  await database.ensureOpen();
   final source = await ref.watch(curriculumSourceProvider)();
   await ref.watch(curriculumIngesterProvider).ensureCurrent(source);
   await ensureSchedulerConfig(database, clock: ref.watch(clockProvider));

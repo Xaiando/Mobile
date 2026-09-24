@@ -36,6 +36,10 @@ class AppDatabase extends _$AppDatabase {
     );
   }
 
+  /// Opens the connection, running any migration. Drift connects lazily, so
+  /// startup calls this to surface a failure at once.
+  Future<void> ensureOpen() => customSelect('SELECT 1').get();
+
   @override
   int get schemaVersion => 1;
 

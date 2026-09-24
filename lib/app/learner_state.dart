@@ -1,8 +1,8 @@
-import 'package:drift/drift.dart' show OrderingTerm, Variable;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../core/curriculum/curriculum_catalog.dart';
+import '../core/curriculum/curriculum_providers.dart';
 import '../core/database/app_database.dart';
-import '../core/database/database_providers.dart';
 import '../core/study/study_planner.dart';
 import '../core/study/study_providers.dart';
 import 'startup.dart';
@@ -51,32 +51,11 @@ final curriculumDomainsProvider = FutureProvider<List<CurriculumDomain>>((
   ref,
 ) async {
   await ref.watch(appStartupProvider.future);
-  final db = ref.watch(appDatabaseProvider);
-  return (db.select(
-    db.curriculumDomains,
-  )..orderBy([(d) => OrderingTerm(expression: d.position)])).get();
+  return ref.watch(curriculumCatalogProvider).domains();
 });
 
 /// The sources that support an item, with the locator within each.
-final itemCitationsProvider = FutureProvider.autoDispose
-    .family<List<(SourceCitation, String?)>, String>((ref, itemId) async {
-      final db = ref.watch(appDatabaseProvider);
-      final rows = await db
-          .customSelect(
-            '''
-      SELECT s.*, c.locator FROM knowledge_item_citations c
-      JOIN source_citations s ON s.id = c.source_citation_id
-      WHERE c.knowledge_item_id = ?1
-      ORDER BY s.title''',
-            variables: [Variable(itemId)],
-            readsFrom: {db.knowledgeItemCitations, db.sourceCitations},
-          )
-          .get();
-      return [
-        for (final row in rows)
-          (
-            db.sourceCitations.map(row.data),
-            row.readNullable<String>('locator'),
-          ),
-      ];
-    });
+final itemSourcesProvider = FutureProvider.autoDispose
+    .family<List<ItemSource>, String>(
+      (ref, itemId) => ref.watch(curriculumCatalogProvider).sourcesOf(itemId),
+    );

@@ -51,6 +51,8 @@ The canonical model is in docs/domain-model.md.
 - `review_events` is append-only. `review_states` is its projection, written in the same transaction.
 - **FSRS** uses the `fsrs` package (FSRS-6). Never hand-code the product specification's §F formulas; they are wrong (audit §4).
 - **Web:** keep `package:drift/wasm.dart` out of code that also compiles for native platforms.
+- **Only `lib/core` queries the database.** Screens and providers go through its repositories; `test/architecture/layering_test.dart` enforces this (audit DL-1).
+- **The first schema change** also keeps the migration test that `make-migrations` generates, showing user tables survive the upgrade (audit DL-2).
 
 ## Curriculum dataset
 

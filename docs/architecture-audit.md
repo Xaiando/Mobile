@@ -334,3 +334,12 @@ Decided by the user on 2026-09-24. These rows are no longer provisional.
 | D8 | No open-source license. The project is proprietary despite the public repository, and the product specification PDF stays out of the repository. |
 | D10 | Development does not wait for legal review. Proprietary WSET/CMS questions, copyrighted syllabus text and tasting-grid artwork are never reproduced. Legal and licensing uncertainties are tracked in [legal-review.md](legal-review.md) for review before public release. |
 | P-1 to P-6 | The recommended defaults are adopted: a 24-month staleness threshold; `minimum_depth` controls which formats are served (CM-6); a 1–5 journal rating; 15-item sessions with at most 5 new items; unverified content shown with a badge; at least 150 verified items for V0.1. |
+
+---
+
+## 12. Code structure
+
+| ID | Decision | Reason |
+|---|---|---|
+| DL-1 | **Data access.** Repositories are concrete classes in `lib/core` over `AppDatabase`, one per concern: `CurriculumIngester`, `KnowledgeGraph`, `CurriculumCatalog`, `QuestionPresenter`, `ReviewService`, `LearnerProfiles` and `StudyPlanner`. Riverpod providers expose them. Screens, notifiers and app providers never query the database, and a layering test fails the build if they do. `lib/core` imports no widgets. There are no repository interfaces: tests run the real SQL on an in-memory database instead of mocks. An interface is added when a second implementation exists, e.g. sync. | The engineering audit asked for a repository layer (§13 item 4). Tests against real SQLite also exercise the constraints and triggers that a mock would skip. |
+| DL-2 | **Migrations.** Schema version 1 is snapshotted in `drift_schemas/`, and CI fails when the snapshot or the generated code is stale. The first schema change bumps `schemaVersion`, runs `drift_dev make-migrations`, and writes the upgrade with the generated step-by-step helpers. It keeps the generated migration test, which must show that user tables survive the upgrade. | Drift generates migration tests once two versions exist (validation D-5). |
