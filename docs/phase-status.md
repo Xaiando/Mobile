@@ -92,3 +92,9 @@ Spec §O: *"ReviewState, ReviewEvent. Integrate fsrs package. Build the Score_pr
 | P3-16 | CI green | Phase 0 practice | | ✅ [CI run for `b90fb51`](https://github.com/Xaiando/Mobile/actions/runs/36011387862): Android, iOS, web and tests |
 
 **Result:** the spec's acceptance criterion holds. In the test *flashcard answers update D, S and R and reorder the study queue*, a learner studies five WSET Level 3 items and forgets *Barolo requires 38 months of ageing* (Again) thirty days later. The stored difficulty, stability and due date equal what FSRS-6 computes for that answer. R, recomputed by the package, is 1 just after the answer and fades faster than before. And the queue reorders. The forgotten item waits for its 10-minute relearning step. Its prerequisites, Barolo's grape and location, overtake the item that led the queue. When the step is due, the item leads the queue, and a Good answer raises stability and takes an item out of it. 61 tests were added (238 in total), including five widget tests of the Home, Practice and Study flow and a test that ending a session while an answer saves does not bring it back.
+
+---
+
+## After Phase 3
+
+The spec's Phases 4–6, the question formats beyond recall and MCQ, geography as a map-based study domain, the coverage checker and study packs are planned as 40 tasks in [backlog.md](backlog.md). Each task records its acceptance evidence in the backlog's status column.

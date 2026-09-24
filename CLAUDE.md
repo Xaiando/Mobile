@@ -39,6 +39,10 @@ flutter build web -t tool/web_smoke/main.dart -o build/web_smoke --no-web-resour
 node tool/web_smoke/run.mjs build/web_smoke   # after npm ci in tool/web_smoke
 ```
 
+## Planning
+
+Work is planned in docs/backlog.md: one task per session, each naming its design note in docs/design/. Respect the backlog's hot-spot rules (§4) so parallel sessions do not collide. The first schema change belongs to task F2 only (audit DL-3).
+
 ## Data rules
 
 The canonical model is in docs/domain-model.md.

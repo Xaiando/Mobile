@@ -67,6 +67,8 @@ Android and iOS are the primary targets. The web gets basic support. Nothing in 
 - [Phase 0 engineering audit](docs/audit/phase-0-engineering-audit.md): the review of the product specification.
 - [Legal review register](docs/legal-review.md): items to clear before any public release.
 - [Phase status](docs/phase-status.md): each phase's acceptance criteria and where they stand.
+- [Implementation backlog](docs/backlog.md): the remaining work as 40 session-sized tasks, with dependencies and a parallel plan.
+- Design notes: [question system and coverage](docs/design/question-system.md), [geography and maps](docs/design/geography.md), [study packs](docs/design/study-packs.md).
 
 ## License
 

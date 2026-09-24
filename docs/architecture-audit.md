@@ -3,7 +3,7 @@
 | | |
 |---|---|
 | **Date** | 2026-09-24 |
-| **Scope** | Schema and naming consistency, foreign keys, uniqueness and indexes, seed data, FSRS representation, question generation, certification mapping, provenance, versioning of wine-law facts, and Web vs native SQLite |
+| **Scope** | Schema and naming consistency, foreign keys, uniqueness and indexes, seed data, FSRS representation, question generation, certification mapping, provenance, versioning of wine-law facts, Web vs native SQLite, code structure (§12), and the planned question system, coverage, geography and study packs (§13–§16) |
 | **Companion documents** | [Phase 0 engineering audit](audit/phase-0-engineering-audit.md) covers the spec as a whole. [Architecture validation](architecture/architecture-validation.md) holds the spike evidence. [Domain model](domain-model.md) is the canonical schema. **This document is the decision register** that Phase 0 onward implements. |
 
 Every entry names the conflicting passages of the spec (§A–§T), the problem, and a decision. Decisions come in two kinds:
@@ -203,7 +203,7 @@ Reading the legal texts corrected the spec's seed in two places:
 | FS-12 | Switching certification profile neither resets nor forks memory state. | Memory belongs to the fact, not the track. |
 | FS-13 | Superseded or expired items keep their state and leave the queue (§9). | Keeps history intact without studying invalid law. |
 | FS-14 | A session holds up to 15 items (TASK-005), with at most **5 new** among them (**P-4, adopted**). | Prevents new items crowding out reviews (validation A-2). |
-| FS-15 | **Session composition (Phase 3).** Due items fill the session first. New items take only the room left, up to the budget. A new item never comes before a new prerequisite of its own; among the items ready, core items come first, then by ID. The first presentation of a new item uses its easiest format (forward MCQ, then forward flashcard, then reverse). Later presentations draw a served format at random, since every format updates the same state (FS-2). | Reviews are not crowded out (A-2), and foundations come before what builds on them. |
+| FS-15 | **Session composition (Phase 3).** Due items fill the session first. New items take only the room left, up to the budget. A new item never comes before a new prerequisite of its own; among the items ready, core items come first, then by ID. The first presentation of a new item uses its easiest format (forward MCQ, then forward flashcard, then reverse). Later presentations draw a served format at random, since every format updates the same state (FS-2). *The random draw is superseded by the difficulty ladder of QF-7 once backlog task F4 lands.* | Reviews are not crowded out (A-2), and foundations come before what builds on them. |
 | FS-16 | **Retention (Phase 3).** The Home dashboard's retention is the share of recall attempts on items in Review state rated Hard or better over the last 30 days. It is computed from the log with SQL `lag()`, because the log stores only after-states. Learning-step answers are excluded. | This is FSRS's "true retention". It is comparable with the 0.9 desired retention, which a raw share of correct answers is not. |
 
 ### Adaptive study engine (Phase 3)
@@ -232,7 +232,7 @@ The adaptive score's form is A-1 to A-6 of the [architecture validation](archite
 | QG-7 | A fresh seed per presentation draws 3 distractors from the pool. The seed is logged in `review_events` and the options shown in `review_event_options`. Tests pass explicit seeds. | Deterministic for tests, varied for users (proven). |
 | QG-8 | Flashcards are revealed and self-graded. There are no typed answers in V0.1. | Typed answers would need fuzzy matching and alias handling in V0.1 for little gain. |
 | QG-9 | Questions are stored as generated, read-only curriculum and rebuilt on every ingestion (SI-9, revised). | §D defines Question as materialized. It turns §S.3 into a query and keeps recursive traversal out of runtime queries. No user row references a question, so rebuilding never touches history (proven). |
-| QG-10 | Ordering, matching, reasoning, scenario and episodic questions are post-V0.1. | §N scope. |
+| QG-10 | Ordering, matching, reasoning, scenario and episodic questions are post-V0.1. *Superseded by QF-1 (2026-09-24): these formats are planned in [backlog.md](backlog.md); R3 fixes which of them ship in V0.1.* | §N scope. |
 | QG-11 | **Closed-world risk.** A missing relation does not make a statement false; see sample Q4, where Kimmeridgian soils also occur in Sancerre and the Aube. The mitigations are reverse safety (QG-3), curated `distinctive` flags, and expert review. | This is a content matter, recorded here so it is not treated as an engine bug. |
 | QG-12 | **Search levels (Phase 2), refining QG-4.** Each level is a Drift query; the search stops at the first level that brings the pool to 3. <ol><li>Each geographic scope containing the subject, nearest first: the relation's objects held by other subjects inside that scope.</li><li>The relation anywhere in the curriculum.</li><li>Every current node of the answer's type.</li></ol> Levels 2 and 3 widen QG-4's last step: a real answer to the same relation elsewhere is more plausible than an arbitrary node. **Quantities must also share the answer's unit**, so an ageing question never offers a service temperature. For a transitive relation (`LOCATED_IN`), every ancestor is a correct answer and is excluded. A reverse question searches the answer's own geographic peers first, then the relation's subjects, then its node type. | Found while generating the dataset's questions: without the unit rule, the whole-type step mixes units; without the relation step, rare relations fall straight to arbitrary nodes. |
 | QG-13 | **Presentation (Phase 2).** The pool keeps each candidate's `scope_rank`. A presentation shuffles each rank with the seed and takes the nearest first, then shuffles the 4 options with the same seed. Seeds are below 2^31, so they round-trip exactly on the web. | The nearest distractors are the most plausible, so they are always shown; the seed varies the rest and the answer's position (QG-7). |
@@ -249,7 +249,7 @@ The adaptive score's form is A-1 to A-6 of the [architecture validation](archite
 | CM-3 | An item's effective mapping for the active track is the **nearest** mapping along that track's chain, the track itself first. The nearest mapping's importance and depth apply. | This rule is deterministic and lets a higher level override a lower one. |
 | CM-4 | Items with no effective mapping are excluded from that track's queue and coverage metrics. | Replaces "C = 0", which would wipe out the priority score (audit ENG-4). |
 | CM-5 | Importance maps to the relevance factor C as core 1.0 / secondary 0.5 / tertiary 0.25. **Provisional** tuning. | §G gives no values. |
-| CM-6 | `minimum_depth` (1–5) is stored as specified. Its V0.1 meaning (**P-2, adopted**): it sets which formats that track serves. <ul><li>1 = recognize (MCQ)</li><li>2 = also forward recall (flashcard)</li><li>3 = also reverse recall</li><li>4–5 = reserved for reasoning formats</li></ul> | §E requires the field but never defines it. An undefined column would drift out of use. |
+| CM-6 | `minimum_depth` (1–5) is stored as specified. Its V0.1 meaning (**P-2, adopted**): it sets which formats that track serves. <ul><li>1 = recognize (MCQ)</li><li>2 = also forward recall (flashcard)</li><li>3 = also reverse recall</li><li>4–5 = reserved for reasoning formats</li></ul> *QF-6 refines every level for the new formats.* | §E requires the field but never defines it. An undefined column would drift out of use. |
 | CM-7 | `certification_knowledge_mappings.syllabus_ref` optionally holds a section identifier. It **never** holds syllabus text. | §L: syllabi are structural blueprints only. |
 | CM-8 | Exam formats and pass marks from §B are not stored in V0.1. Track names are descriptive and never imply affiliation. | Exam simulators are deferred (§N). The §B figures need verification (audit LEGAL-7). Trademarks: audit LEGAL-1. |
 | CM-9 | The active track lives in `user_profiles` (a single row). Switching it updates the queue and coverage immediately, through Drift streams. | Reactive wiring was proven in the spike. |
@@ -343,3 +343,70 @@ Decided by the user on 2026-09-24. These rows are no longer provisional.
 |---|---|---|
 | DL-1 | **Data access.** Repositories are concrete classes in `lib/core` over `AppDatabase`, one per concern: `CurriculumIngester`, `KnowledgeGraph`, `CurriculumCatalog`, `QuestionPresenter`, `ReviewService`, `LearnerProfiles` and `StudyPlanner`. Riverpod providers expose them. Screens, notifiers and app providers never query the database, and a layering test fails the build if they do. `lib/core` imports no widgets. There are no repository interfaces: tests run the real SQL on an in-memory database instead of mocks. An interface is added when a second implementation exists, e.g. sync. | The engineering audit asked for a repository layer (§13 item 4). Tests against real SQLite also exercise the constraints and triggers that a mock would skip. |
 | DL-2 | **Migrations.** Schema version 1 is snapshotted in `drift_schemas/`, and CI fails when the snapshot or the generated code is stale. The first schema change bumps `schemaVersion`, runs `drift_dev make-migrations`, and writes the upgrade with the generated step-by-step helpers. It keeps the generated migration test, which must show that user tables survive the upgrade. | Drift generates migration tests once two versions exist (validation D-5). |
+| DL-3 | **Schema changes are batched.** All schema changes planned in the backlog land together in task F2 (schema v2). No other task edits `schema.drift` while F2 runs, and later schema changes are scheduled as their own tasks. | Parallel cloud sessions editing one schema file and migration would collide. One reviewed migration is also easier to test (DL-2). |
+| DL-4 | **The curriculum is split into files.** A manifest (`curriculum.yaml`) includes one file per area, pack or topic. All files form one release with one version and one checksum (V-7). | Content tasks can then run in parallel. Each touches its own file, and a version bump is a one-line change. |
+
+---
+
+## 13. Question system
+
+The design is [design/question-system.md](design/question-system.md); the tasks are [backlog.md](backlog.md) groups F and Q.
+
+| ID | Decision | Reason |
+|---|---|---|
+| QF-1 | **A broad catalogue, one memory.** The question system grows from recall, reverse recall and MCQ to the catalogue of question-system §2:<ul><li>typed recall, short written answers self-checked against key points (spec §T), multiple response, matching, ordering, numeric and range, label interpretation;</li><li>map and geography formats;</li><li>climate, viticulture and production reasoning; service and food-pairing scenarios;</li><li>tasting deduction, cross-domain reasoning, episodic recall.</li></ul>Every format practises canonical items and updates their FSRS state. No format has memory of its own (extends FS-2). | A curriculum whose knowledge can only be practised as flashcards does not train a candidate. One memory per fact keeps the scheduler honest across formats. |
+| QF-2 | **Formats are registered in code, not in a CHECK list.** Schema v2 checks `question_templates.mode` only as an identifier. The format registry validates membership. | Adding a format needs no migration, so format tasks run in parallel (DL-3). |
+| QF-3 | **One review event per graded item.** The events of a composite exercise share an `exercise_id`. Each event stores the learner's answer in `answer_payload` (JSON). | Keeps the log replayable per item (FS-4), and makes composite exercises analysable. |
+| QF-4 | **Grading per format** (question-system §4):<ul><li>typed: an exact or alternative name is Good, one edit away is Hard;</li><li>numeric: exact, tolerance and outside bands;</li><li>multiple response: per item of the set;</li><li>matching: per pair;</li><li>ordering: per element, by the longest correctly ordered subsequence;</li><li>drills: per level, stopping at the first wrong level.</li></ul> | Each item gets the grade its own recall earned, not the whole exercise's. |
+| QF-5 | **Reasoning chains: credit the chain, blame the target.** A right answer is Good for the primary item and for every supporting item. A wrong answer is Again for the primary item only. | The app cannot tell which link of a failed chain broke. A right answer is evidence for every link. |
+| QF-6 | **Depths for the new formats** (refines CM-6):<ul><li>1: recognition (MCQ, labelled map);</li><li>2: recall and structured formats;</li><li>3: reverse recall, blank maps, drills, labels;</li><li>4: reasoning and scenarios;</li><li>5: tasting deduction and cross-domain reasoning.</li></ul> | Gives CM-6's reserved depths 4–5 their meaning. WSET Level 3 core items that need application are mapped at depth 4. |
+| QF-7 | **Presentation difficulty ladder** (question-system §5). The format follows the item's stability: recognition while it is new, then recall and structured formats, then spatial and reverse, then reasoning and the hardest map modes. It never repeats the last format when another is served, and one presentation in five is a random draw. Thresholds are provisional. | Desirable difficulty: harder formats as memory strengthens. Supersedes FS-15's random draw. |
+| QF-8 | **Closed-world safeguards.**<ul><li>Formats that assert absence (multiple response, "tap all", odd one out) need a `relation_set_assertions` row citing a complete list.</li><li>Rankings use reified statistic nodes from a dated survey.</li><li>Single-answer questions accept any node correct in any period.</li><li>Reasoning distractors must violate a stated principle.</li></ul> | A missing relation is not a false statement (QG-11). |
+
+---
+
+## 14. Coverage
+
+| ID | Decision | Reason |
+|---|---|---|
+| COV-1 | **Coverage model.** For each track, domain and area, the checker compares:<ul><li>*capability*: the format families each relation type should support, declared in `coverage_policy.yaml`;</li><li>*availability*: the questions and pools generated, filtered by `minimum_depth`.</li></ul>It reports testable, flashcard-only and useful-practice items, family counts and gaps (question-system §8). | Answers which items are testable, by which formats, and where core areas lack practice, per domain and certification profile. |
+| COV-2 | **Useful practice** is at least one objective format and at least two families. **Flashcard-only** means the self-graded flashcard is the only served format. | Makes "no boring or missing practice" measurable. |
+| COV-3 | **Staged enforcement.**<ol><li>F1: a committed baseline and a ratchet. No metric may fall, and no new core item may be flashcard-only.</li><li>Each format task adds its capabilities and raises the baseline.</li><li>R3: the policy thresholds become a release gate.</li></ol> | Enforceable from now, without blocking today's dataset, and strict by release. |
+| COV-4 | The policy and baseline files are authored with the dataset and versioned with it. The first thresholds are provisional. | Coverage is a property of content, so it is reviewed with content. |
+
+---
+
+## 15. Geography
+
+The design is [design/geography.md](design/geography.md); the tasks are [backlog.md](backlog.md) group G. Licensing questions are [legal-review.md](legal-review.md) L-15 to L-23.
+
+| ID | Decision | Reason |
+|---|---|---|
+| GEO-1 | **Map questions are formats of canonical items.** Tapping Chablis, identifying it when highlighted, and answering "In which region is Chablis?" all update `ki_chablis_location`. | One fact, one memory (FS-2). The user asked for this explicitly. |
+| GEO-2 | **Geometry attaches to nodes.** `map_layers` and `node_geometries` (schema v2) reference `knowledge_nodes`. There is no separate geography database. | Keeps geography inside the knowledge graph, with its validity and provenance. |
+| GEO-3 | **Offline vector maps.** Geometry ships as TopoJSON assets in the app bundle. There are no tile servers, and no Google Maps or other paid or online service. | Offline-first (spec §M). No running costs or third-party terms. |
+| GEO-4 | **Depth follows relevance.** A node is askable, and drawn in full, only if the active track maps items about it. Finer layers appear on zoom. Vineyard-level shapes exist only where a track or pack maps them. | Avoids mapping every vineyard, and keeps each track's maps focused. |
+| GEO-5 | **Open-licensed sources only.** Public domain, CC0, CC BY, Licence Ouverte and dl-de/by. Excluded: non-commercial data (Eurostat GISCO), share-alike data (OpenStreetMap), and map artwork. | A proprietary app may redistribute these, with attribution where required. |
+| GEO-6 | **The location item rule.** Every map-enabled node has one location item: `LOCATED_IN` to its parent, or `FLOWS_THROUGH` for a river. The validator enforces it. | Map questions need an item to grade. |
+| GEO-7 | **Coordinates stay in the assets.** The database holds only bounding boxes, label points and feature keys, verified against the asset's SHA-256 at ingestion. | SQL needs frames and orderings, not megabytes of coordinates. |
+| GEO-8 | **Four difficulty modes**: labelled, outline, minimal, and blank zoomed out. The ladder (QF-7) chooses among them within the served depths. | Progressive blank-map practice, as requested. |
+| GEO-9 | **Point fallback.** Without an open shape, a node is drawn as a point from an open gazetteer or municipal boundary. Nothing is drawn by hand from copyrighted maps. | Lets geography grow where open shapes do not exist yet. |
+| GEO-10 | Appellation areas built from communes are the legal geographical areas, larger than the delimited vineyards, and the map legend says so. | An honest approximation. |
+| GEO-11 | **Budgets:**<ul><li>geography assets at most 8 MB in V0.1, and at most 1.5 MB per layer;</li><li>a layer parses in at most 100 ms on a mid-range phone;</li><li>a frame paints in at most 8 ms after warm-up.</li></ul> | App size and smoothness (spec Phase 6). |
+| GEO-12 | **Custom renderer:** `CustomPainter` in an `InteractiveViewer`, with the geometry core in pure Dart. `flutter_map` 8.3.2 (BSD-3-Clause) is the fallback. | Quiz maps need exact control of what is drawn and named, and deterministic hit tests. They need none of `flutter_map`'s tile and network dependencies. |
+| GEO-13 | Every map question has a non-visual answer mode (a list of names). Colours are safe for colour-vision deficiency, and outcomes are marked by icon. | Accessibility. |
+| GEO-14 | Every map shows the attributions of its visible layers. *Settings → About → Data sources* lists every dataset with its licence. | Licence Ouverte, dl-de/by and CC BY require attribution. |
+
+---
+
+## 16. Study packs
+
+The design is [design/study-packs.md](design/study-packs.md); the tasks are [backlog.md](backlog.md) group P.
+
+| ID | Decision | Reason |
+|---|---|---|
+| PK-1 | **No code specific to one pack.** A pack is data (items, mappings, coverage policy) plus tests. A test fails if a pack ID appears in `lib/`. | A pack is a vertical built on the generic system, as requested. |
+| PK-2 | **A pack is a track.** `certifications.kind` is `certification` or `pack` (schema v2). Packs use the same mappings, importance and `minimum_depth`, up to 5. | Reuses the planner, effective mappings and coverage by profile unchanged. |
+| PK-3 | **One active track at a time.** Switching keeps memory (FS-12). Studying several tracks at once, with a merged queue, is a later extension. | Simple now, and pack study still strengthens the shared certification items. |
+| PK-4 | Each pack has its own section in the coverage policy, stricter than a certification's. | Deep verticals must not be flashcard decks. |
+| PK-5 | **Competition training is generic session modes over pack content.** The modes are focused, timed drill and exam-style (task S1). | No competition-specific code. |
