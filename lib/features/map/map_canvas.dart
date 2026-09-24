@@ -234,6 +234,9 @@ class MapCanvasState extends State<MapCanvas> {
             height: size.height,
             padding: widget.padding,
           ).scale;
+    // The cached pictures are drawn on the sheet, so a new sheet needs new
+    // pictures.
+    if (base != _base) _revision++;
     _base = base;
     _limits = MapViewLimits(
       bounds: base.visibleRect(size.width, size.height),

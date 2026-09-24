@@ -540,9 +540,7 @@ final class MapTextCache {
       fontFamily: ambient.fontFamily,
       fontFamilyFallback: ambient.fontFamilyFallback,
     );
-    if (scaler == _scaler &&
-        direction == _direction &&
-        typeface == _typeface) {
+    if (scaler == _scaler && direction == _direction && typeface == _typeface) {
       return;
     }
     clear();

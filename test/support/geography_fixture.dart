@@ -195,6 +195,9 @@ String stressTopoJson({
     }
   }
 
+  // Arc i reversed is ~i, which is -i - 1. Written out, because on the web
+  // `~` gives an unsigned 32-bit result instead.
+  int reversed(int arc) => -arc - 1;
   final geometries = [
     for (var j = 0; j < rows; j++)
       for (var i = 0; i < columns; i++)
@@ -205,8 +208,8 @@ String stressTopoJson({
             [
               horizontal(i, j),
               vertical(i + 1, j),
-              ~horizontal(i, j + 1),
-              ~vertical(i, j),
+              reversed(horizontal(i, j + 1)),
+              reversed(vertical(i, j)),
             ],
           ],
         },

@@ -118,7 +118,7 @@ void main() {
       final north = feature('areas', 'n_fx_north').geometry as TopoPolygons;
       final south = feature('areas', 'n_fx_south').geometry as TopoPolygons;
       expect(north.polygons.single.first, contains(0));
-      expect(south.polygons.single.first, contains(~0));
+      expect(south.polygons.single.first, contains(-1), reason: '~0');
     });
   });
 
@@ -235,7 +235,7 @@ void main() {
             objects: {
               'a': {
                 'type': 'LineString',
-                'arcs': [~3],
+                'arcs': [-4], // ~3: arc 3 reversed
               },
             },
           ),

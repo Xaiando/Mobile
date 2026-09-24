@@ -412,6 +412,30 @@ void main() {
       );
     });
 
+    testWidgets('a resize keeps the centre and scale, and redraws', (
+      tester,
+    ) async {
+      final state = await pumpMap(tester, frame: northBox);
+      final before = state.debugView;
+      final centre = before.toWorld(400, 300);
+      final recorded = state.debugPictureRecordings;
+
+      // Portrait, 400 × 800 logical pixels.
+      tester.view.physicalSize = const Size(1200, 2400);
+      addTearDown(tester.view.reset);
+      await tester.pump();
+
+      final after = state.debugView;
+      expect(after.scale, before.scale);
+      expect(after.toWorld(200, 400).x, closeTo(centre.x, 1e-12));
+      expect(after.toWorld(200, 400).y, closeTo(centre.y, 1e-12));
+      expect(state.debugLimits.allows(after, width: 400, height: 800), isTrue);
+      // The pictures are drawn on the sheet, which the resize changed.
+      expect(state.debugPictureRecordings, greaterThan(recorded));
+      final tapped = await tap(tester, const LonLat(3.2, 48.3));
+      expect(tapped.hit?.key, 'n_fx_north');
+    });
+
     testWidgets('pinching zooms within the limits too', (tester) async {
       final state = await pumpMap(tester, frame: northBox);
       final centre = tester.getCenter(find.byType(MapCanvas));
