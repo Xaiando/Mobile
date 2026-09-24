@@ -2,12 +2,42 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:sommelier/core/curriculum/curriculum_dataset.dart';
+import 'package:yaml/yaml.dart';
 
-/// The dataset bundled with the app.
-String bundledDataset() => File(curriculumAssetPath).readAsStringSync();
+/// The dataset bundled with the app, read from its files.
+CurriculumDataset bundledDataset() => CurriculumDataset.loadSync(
+  curriculumAssetPath,
+  (path) => File(path).readAsStringSync(),
+);
 
 /// A copy of [dataset] as dataset text. YAML is a superset of JSON.
 String datasetText(Map<String, dynamic> dataset) => jsonEncode(dataset);
+
+/// [dataset] parsed as a dataset in one file.
+CurriculumDataset datasetOf(Map<String, dynamic> dataset) =>
+    CurriculumDataset.parse(datasetText(dataset));
+
+/// The dataset whose manifest is at [manifestPath] as plain maps and lists,
+/// merged into the shape of a dataset in one file: the manifest's keys, and
+/// each section's rows from every file, in order.
+Map<String, dynamic> flattenDataset(String manifestPath) {
+  Map<String, dynamic> read(String path) =>
+      jsonDecode(jsonEncode(loadYaml(File(path).readAsStringSync())))
+          as Map<String, dynamic>;
+
+  final merged = read(manifestPath)..remove('includes');
+  final includes = datasetIncludes(
+    manifestPath,
+    File(manifestPath).readAsStringSync(),
+  );
+  for (final path in includes) {
+    for (final MapEntry(:key, :value) in read(path).entries) {
+      final rows = merged[key] as List<dynamic>? ?? [];
+      merged[key] = [...rows, ...value as List<dynamic>];
+    }
+  }
+  return merged;
+}
 
 /// A deep copy, for tests that break one rule at a time.
 Map<String, dynamic> copyOf(Map<String, dynamic> dataset) =>

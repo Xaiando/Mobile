@@ -1,6 +1,7 @@
 import 'package:drift/drift.dart' show Variable;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:fsrs/fsrs.dart' as fsrs;
+import 'package:sommelier/core/curriculum/curriculum_dataset.dart';
 import 'package:sommelier/core/curriculum/curriculum_ingestion.dart';
 import 'package:sommelier/core/database/app_database.dart';
 import 'package:sommelier/core/questions/question_presenter.dart';
@@ -19,7 +20,7 @@ void main() {
   late ReviewService reviews;
   late QuestionPresenter presenter;
 
-  Future<void> open([String? dataset]) async {
+  Future<void> open([CurriculumDataset? dataset]) async {
     db = openTestDatabase();
     await CurriculumIngester(
       db,
@@ -86,7 +87,7 @@ void main() {
               (m['certification_id'] == 'WSET_L3' ||
                   m['certification_id'] == 'CMS_CERTIFIED'),
         );
-        await open(datasetText(dataset));
+        await open(datasetOf(dataset));
 
         final wset = (await planner.effectiveMappings(
           'WSET_L3',
@@ -110,7 +111,7 @@ void main() {
               m['knowledge_item_id'] == 'ki_champagne_meunier' &&
               m['certification_id'] == 'CMS_CERTIFIED',
         );
-        await open(datasetText(dataset));
+        await open(datasetOf(dataset));
 
         final cms = await planner.cards('CMS_CERTIFIED');
         expect(
@@ -357,7 +358,7 @@ void main() {
                   r['relation_type'] == 'PERMITS_PRINCIPAL_GRAPE',
             );
         relation['valid_until'] = '2027-01-01';
-        await open(datasetText(dataset));
+        await open(datasetOf(dataset));
         await LearnerProfiles(db, clock: time.clock).selectTrack('WSET_L3');
 
         await review('ki_chablis_grape', fsrs.Rating.easy);

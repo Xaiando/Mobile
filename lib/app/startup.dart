@@ -14,8 +14,8 @@ import '../core/time/time_providers.dart';
 final appStartupProvider = FutureProvider<StorageDurability>((ref) async {
   final database = ref.watch(appDatabaseProvider);
   await database.ensureOpen();
-  final source = await ref.watch(curriculumSourceProvider)();
-  await ref.watch(curriculumIngesterProvider).ensureCurrent(source);
+  final dataset = await ref.watch(curriculumSourceProvider)();
+  await ref.watch(curriculumIngesterProvider).ensureCurrent(dataset);
   await ensureSchedulerConfig(database, clock: ref.watch(clockProvider));
   return ref.watch(storageReportProvider).durability;
 });

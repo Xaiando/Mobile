@@ -30,8 +30,7 @@ void main() {
 
     setUp(() async {
       db = openTestDatabase();
-      report = await CurriculumIngester(db)
-          .ingest(CurriculumDataset.parse(bundledDataset()));
+      report = await CurriculumIngester(db).ingest(bundledDataset());
     });
     tearDown(() => db.close());
 
@@ -244,8 +243,7 @@ void main() {
           .map((row) => row.read<String>('q'))
           .get();
       final before = await snapshot();
-      await CurriculumIngester(db)
-          .ingest(CurriculumDataset.parse(bundledDataset()));
+      await CurriculumIngester(db).ingest(bundledDataset());
       expect(await snapshot(), before);
     });
   });

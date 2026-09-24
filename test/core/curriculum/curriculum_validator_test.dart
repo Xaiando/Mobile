@@ -14,7 +14,7 @@ Set<String> brokenRules(Map<String, dynamic> data) => {
 
 void main() {
   test('the bundled dataset passes every rule (TASK-010)', () {
-    final report = validateDataset(CurriculumDataset.parse(bundledDataset()));
+    final report = validateDataset(bundledDataset());
     expect(report.errors, isEmpty, reason: report.errors.join('\n'));
     expect(
       report.warnings.map((w) => w.rule),
@@ -159,13 +159,15 @@ void main() {
       expect(brokenRules(data), contains('template-coverage'));
     });
 
-    test('duplicate keys, bad ID prefixes and unknown references', () {
+    test('duplicate values, bad ID prefixes and unknown references', () {
       final data = minimalDataset();
       rowsOf(data, 'knowledge_nodes').add(_node('geo_x', 'region', 'X'));
+      // A key written twice fails parsing; other unique columns are the
+      // validator's.
       rowsOf(
         data,
         'curriculum_domains',
-      ).add({'id': 'geography', 'display_name': 'Again', 'position': 9});
+      ).add({'id': 'history', 'display_name': 'History', 'position': 1});
       rowOf(data, 'knowledge_items', 'id', 'ki_volnay_grape')['domain_id'] =
           'oenology';
       expect(

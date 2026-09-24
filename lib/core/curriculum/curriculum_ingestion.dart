@@ -48,9 +48,8 @@ class CurriculumIngester {
   final AppDatabase db;
   final Clock _clock;
 
-  /// Brings the database up to the bundled dataset [source].
-  Future<IngestionOutcome> ensureCurrent(String source) async {
-    final dataset = CurriculumDataset.parse(source);
+  /// Brings the database up to the bundled [dataset].
+  Future<IngestionOutcome> ensureCurrent(CurriculumDataset dataset) async {
     final installed = await installedRelease();
     if (installed == null) {
       await ingest(dataset);

@@ -10,20 +10,22 @@ import 'curriculum_dataset.dart';
 import 'curriculum_ingestion.dart';
 import 'knowledge_graph.dart';
 
-/// Reads the bundled curriculum dataset.
+/// Reads and parses the bundled curriculum dataset: its manifest, then each
+/// file the manifest includes.
 ///
 /// `rootBundle.loadString` would decode a file this size in a background
 /// isolate; decoding a few dozen kilobytes directly is faster and behaves the
 /// same on every platform.
-Future<String> loadBundledCurriculum() async {
-  final data = await rootBundle.load(curriculumAssetPath);
-  return utf8.decode(
-    data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes),
-  );
-}
+Future<CurriculumDataset> loadBundledCurriculum() =>
+    CurriculumDataset.load(curriculumAssetPath, (path) async {
+      final data = await rootBundle.load(path);
+      return utf8.decode(
+        data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes),
+      );
+    });
 
 /// The dataset startup ingests. Tests override it.
-final curriculumSourceProvider = Provider<Future<String> Function()>(
+final curriculumSourceProvider = Provider<Future<CurriculumDataset> Function()>(
   (ref) => loadBundledCurriculum,
 );
 

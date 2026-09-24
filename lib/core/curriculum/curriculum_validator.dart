@@ -1,3 +1,5 @@
+import 'package:drift/drift.dart' show DataClass;
+
 import '../database/app_database.dart';
 import 'curriculum_dataset.dart';
 
@@ -24,7 +26,12 @@ const templatePlaceholders = {
 
 /// A broken dataset rule.
 class ValidationIssue {
-  const ValidationIssue(this.rule, this.message, {this.isError = true});
+  const ValidationIssue(
+    this.rule,
+    this.message, {
+    this.isError = true,
+    this.row,
+  });
 
   /// A short rule name, e.g. `dangling-relation`.
   final String rule;
@@ -32,6 +39,10 @@ class ValidationIssue {
 
   /// Errors block ingestion; warnings go to the build report.
   final bool isError;
+
+  /// The row the issue is about, when it is about one. The dataset locates
+  /// it in its files ([CurriculumDataset.locate]).
+  final DatasetRowRef? row;
 
   @override
   String toString() => '$rule: $message';
@@ -81,11 +92,14 @@ class _Validator {
   static String _triple(KnowledgeRelation r) =>
       '${r.subjectId} ${r.relationType} ${r.objectId}';
 
-  void error(String rule, String message) =>
-      issues.add(ValidationIssue(rule, message));
+  void error(String rule, String message, {DatasetRowRef? row}) =>
+      issues.add(ValidationIssue(rule, message, row: row));
 
-  void warning(String rule, String message) =>
-      issues.add(ValidationIssue(rule, message, isError: false));
+  void warning(String rule, String message, {DatasetRowRef? row}) =>
+      issues.add(ValidationIssue(rule, message, isError: false, row: row));
+
+  static DatasetRowRef _ref(String section, DataClass row) =>
+      (section: section, key: rowKey(section, row));
 
   List<ValidationIssue> run() {
     _uniqueKeys();
@@ -102,11 +116,21 @@ class _Validator {
     return issues;
   }
 
-  void _unique<R>(String table, Iterable<R> rows, Object Function(R) key) {
+  void _unique<R extends DataClass>(
+    String table,
+    Iterable<R> rows,
+    Object Function(R) key,
+  ) {
     final seen = <Object>{};
     for (final row in rows) {
       final k = key(row);
-      if (!seen.add(k)) error('duplicate-key', '$table: $k appears twice');
+      if (!seen.add(k)) {
+        error(
+          'duplicate-key',
+          '$table: $k appears twice',
+          row: _ref(table, row),
+        );
+      }
     }
   }
 
@@ -177,6 +201,7 @@ class _Validator {
           'name-norm',
           '${node.id} and $other are both ${node.nodeType} '
               '"${node.nameNorm}"',
+          row: _ref('knowledge_nodes', node),
         );
       }
       names['${node.nodeType} ${node.nameNorm}'] = node.id;
@@ -184,68 +209,127 @@ class _Validator {
   }
 
   void _identifiers() {
-    void check(String table, Iterable<String> ids, RegExp pattern) {
-      for (final id in ids) {
-        if (!pattern.hasMatch(id)) {
-          error('id-format', '$table: "$id" does not match ${pattern.pattern}');
+    void check<R extends DataClass>(
+      String table,
+      Iterable<R> rows,
+      String Function(R) id,
+      RegExp pattern,
+    ) {
+      for (final row in rows) {
+        if (!pattern.hasMatch(id(row))) {
+          error(
+            'id-format',
+            '$table: "${id(row)}" does not match ${pattern.pattern}',
+            row: _ref(table, row),
+          );
         }
       }
     }
 
-    check('curriculum_domains', domains, RegExp(r'^[a-z_]+$'));
-    check('tasting_grids', grids, RegExp(r'^tg_[a-z0-9_]+$'));
-    check('certifications', certifications.keys, RegExp(r'^[A-Z0-9_]+$'));
-    check('node_types', nodeTypes, RegExp(r'^[a-z_]+$'));
-    check('relation_types', relationTypes.keys, RegExp(r'^[A-Z_]+$'));
-    check('knowledge_nodes', nodes.keys, RegExp(r'^n_[a-z0-9_]+$'));
-    check('knowledge_items', items.keys, RegExp(r'^ki_[a-z0-9_]+$'));
-    check('source_citations', citations.keys, RegExp(r'^src_[a-z0-9_]+$'));
-    check('question_templates', [
-      for (final t in d.questionTemplates) t.id,
-    ], RegExp(r'^qt_[a-z0-9_]+$'));
+    check(
+      'curriculum_domains',
+      d.curriculumDomains,
+      (r) => r.id,
+      RegExp(r'^[a-z_]+$'),
+    );
+    check(
+      'tasting_grids',
+      d.tastingGrids,
+      (r) => r.id,
+      RegExp(r'^tg_[a-z0-9_]+$'),
+    );
+    check(
+      'certifications',
+      d.certifications,
+      (r) => r.id,
+      RegExp(r'^[A-Z0-9_]+$'),
+    );
+    check('node_types', d.nodeTypes, (r) => r.id, RegExp(r'^[a-z_]+$'));
+    check('relation_types', d.relationTypes, (r) => r.id, RegExp(r'^[A-Z_]+$'));
+    check(
+      'knowledge_nodes',
+      d.knowledgeNodes,
+      (r) => r.id,
+      RegExp(r'^n_[a-z0-9_]+$'),
+    );
+    check(
+      'knowledge_items',
+      d.knowledgeItems,
+      (r) => r.id,
+      RegExp(r'^ki_[a-z0-9_]+$'),
+    );
+    check(
+      'source_citations',
+      d.sourceCitations,
+      (r) => r.id,
+      RegExp(r'^src_[a-z0-9_]+$'),
+    );
+    check(
+      'question_templates',
+      d.questionTemplates,
+      (r) => r.id,
+      RegExp(r'^qt_[a-z0-9_]+$'),
+    );
   }
 
   void _references() {
-    void refer(String where, String? id, Iterable<String> targets, String to) {
+    void refer(
+      String where,
+      String? id,
+      Iterable<String> targets,
+      String to,
+      DatasetRowRef row,
+    ) {
       if (id != null && !targets.contains(id)) {
-        error('unknown-reference', '$where refers to unknown $to "$id"');
+        error(
+          'unknown-reference',
+          '$where refers to unknown $to "$id"',
+          row: row,
+        );
       }
     }
 
     for (final c in d.certifications) {
+      final row = _ref('certifications', c);
       refer(
         'certification ${c.id}',
         c.includesCertificationId,
         certifications.keys,
         'certification',
+        row,
       );
       refer(
         'certification ${c.id}',
         c.defaultTastingGridId,
         grids,
         'tasting grid',
+        row,
       );
     }
     for (final t in d.relationTypes) {
-      refer('relation type ${t.id}', t.defaultDomainId, domains, 'domain');
+      final row = _ref('relation_types', t);
+      refer('relation type ${t.id}', t.defaultDomainId, domains, 'domain', row);
       refer(
         'relation type ${t.id}',
         t.distractorMatchRelationType,
         relationTypes.keys,
         'relation type',
+        row,
       );
     }
     for (final s in d.relationTypeSignatures) {
       final where = 'signature ${s.relationType}';
-      refer(where, s.relationType, relationTypes.keys, 'relation type');
-      refer(where, s.subjectNodeType, nodeTypes, 'node type');
-      refer(where, s.objectNodeType, nodeTypes, 'node type');
+      final row = _ref('relation_type_signatures', s);
+      refer(where, s.relationType, relationTypes.keys, 'relation type', row);
+      refer(where, s.subjectNodeType, nodeTypes, 'node type', row);
+      refer(where, s.objectNodeType, nodeTypes, 'node type', row);
     }
     for (final n in d.knowledgeNodes) {
-      refer('node ${n.id}', n.nodeType, nodeTypes, 'node type');
+      final row = _ref('knowledge_nodes', n);
+      refer('node ${n.id}', n.nodeType, nodeTypes, 'node type', row);
       final from = n.validFrom, until = n.validUntil;
       if (from != null && until != null && until.compareTo(from) <= 0) {
-        error('validity', 'node ${n.id} ends before it starts');
+        error('validity', 'node ${n.id} ends before it starts', row: row);
       }
     }
     for (final a in d.nodeAlternativeNames) {
@@ -254,53 +338,73 @@ class _Validator {
         a.knowledgeNodeId,
         nodes.keys,
         'node',
+        _ref('node_alternative_names', a),
       );
     }
 
     // §S.1: every relation must connect existing nodes.
     for (final r in d.knowledgeRelations) {
       final where = 'relation ${_triple(r)}';
+      final row = _ref('knowledge_relations', r);
       for (final end in [r.subjectId, r.objectId]) {
         if (!nodes.containsKey(end)) {
-          error('dangling-relation', '$where refers to unknown node "$end"');
+          error(
+            'dangling-relation',
+            '$where refers to unknown node "$end"',
+            row: row,
+          );
         }
       }
-      refer(where, r.relationType, relationTypes.keys, 'relation type');
+      refer(where, r.relationType, relationTypes.keys, 'relation type', row);
       if (r.subjectId == r.objectId) {
-        error('self-reference', '$where relates a node to itself');
+        error('self-reference', '$where relates a node to itself', row: row);
       }
       final until = r.validUntil;
       if (until != null && until.compareTo(r.validFrom) <= 0) {
-        error('validity', '$where ends before it starts');
+        error('validity', '$where ends before it starts', row: row);
       }
     }
 
     for (final i in d.knowledgeItems) {
       final where = 'item ${i.id}';
+      final row = _ref('knowledge_items', i);
       final triple = '${i.subjectId} ${i.relationType} ${i.objectId}';
       if (!relations.containsKey(triple)) {
-        error('item-relation', '$where asserts $triple, which is no relation');
+        error(
+          'item-relation',
+          '$where asserts $triple, which is no relation',
+          row: row,
+        );
       }
-      refer(where, i.domainId, domains, 'domain');
-      refer(where, i.supersededByItemId, items.keys, 'item');
+      refer(where, i.domainId, domains, 'domain', row);
+      refer(where, i.supersededByItemId, items.keys, 'item', row);
       if (i.supersededByItemId == i.id) {
-        error('self-reference', '$where supersedes itself');
+        error('self-reference', '$where supersedes itself', row: row);
       }
     }
     for (final p in d.knowledgeItemPrerequisites) {
       final where = 'prerequisite of ${p.knowledgeItemId}';
-      refer(where, p.knowledgeItemId, items.keys, 'item');
-      refer(where, p.prerequisiteItemId, items.keys, 'item');
+      final row = _ref('knowledge_item_prerequisites', p);
+      refer(where, p.knowledgeItemId, items.keys, 'item', row);
+      refer(where, p.prerequisiteItemId, items.keys, 'item', row);
     }
     for (final m in d.certificationKnowledgeMappings) {
       final where = 'mapping ${m.certificationId} ${m.knowledgeItemId}';
-      refer(where, m.certificationId, certifications.keys, 'certification');
-      refer(where, m.knowledgeItemId, items.keys, 'item');
+      final row = _ref('certification_knowledge_mappings', m);
+      refer(
+        where,
+        m.certificationId,
+        certifications.keys,
+        'certification',
+        row,
+      );
+      refer(where, m.knowledgeItemId, items.keys, 'item', row);
     }
     for (final c in d.knowledgeItemCitations) {
       final where = 'citation of ${c.knowledgeItemId}';
-      refer(where, c.knowledgeItemId, items.keys, 'item');
-      refer(where, c.sourceCitationId, citations.keys, 'source citation');
+      final row = _ref('knowledge_item_citations', c);
+      refer(where, c.knowledgeItemId, items.keys, 'item', row);
+      refer(where, c.sourceCitationId, citations.keys, 'source citation', row);
     }
     for (final t in d.questionTemplates) {
       refer(
@@ -308,6 +412,7 @@ class _Validator {
         t.relationType,
         relationTypes.keys,
         'relation type',
+        _ref('question_templates', t),
       );
     }
     final attributes = {
@@ -315,17 +420,25 @@ class _Validator {
         '${a.tastingGridId} ${a.attributeKey}',
     };
     for (final a in d.tastingGridAttributes) {
-      refer('grid attribute ${a.attributeKey}', a.tastingGridId, grids, 'grid');
+      refer(
+        'grid attribute ${a.attributeKey}',
+        a.tastingGridId,
+        grids,
+        'grid',
+        _ref('tasting_grid_attributes', a),
+      );
     }
     for (final v in d.tastingGridValues) {
       final where = 'grid value ${v.valueKey}';
+      final row = _ref('tasting_grid_values', v);
       refer(
         where,
         '${v.tastingGridId} ${v.attributeKey}',
         attributes,
         'attribute',
+        row,
       );
-      refer(where, v.knowledgeNodeId, nodes.keys, 'node');
+      refer(where, v.knowledgeNodeId, nodes.keys, 'node', row);
     }
   }
 
@@ -344,6 +457,7 @@ class _Validator {
           'relation-signature',
           '${_triple(r)}: ${r.relationType} does not allow '
               '${subject.nodeType} -> ${object.nodeType}',
+          row: _ref('knowledge_relations', r),
         );
       }
     }
@@ -359,7 +473,11 @@ class _Validator {
     final prerequisites = <String, List<String>>{};
     for (final p in d.knowledgeItemPrerequisites) {
       if (p.knowledgeItemId == p.prerequisiteItemId) {
-        error('self-reference', '${p.knowledgeItemId} requires itself');
+        error(
+          'self-reference',
+          '${p.knowledgeItemId} requires itself',
+          row: _ref('knowledge_item_prerequisites', p),
+        );
       }
       prerequisites
           .putIfAbsent(p.knowledgeItemId, () => [])
@@ -390,12 +508,14 @@ class _Validator {
         error(
           'certification-chain',
           '${c.id} includes ${included.id} from another organization',
+          row: _ref('certifications', c),
         );
       }
       if (included.level >= c.level) {
         error(
           'certification-chain',
           '${c.id} includes ${included.id}, which is not a lower level',
+          row: _ref('certifications', c),
         );
       }
     }
@@ -420,6 +540,7 @@ class _Validator {
               '${group[i].subjectId} has two ${group[i].relationType} '
                   'relations in force at once: ${group[i].objectId} and '
                   '${group[j].objectId}',
+              row: _ref('knowledge_relations', group[j]),
             );
           }
         }
@@ -439,21 +560,31 @@ class _Validator {
     final values = {for (final q in d.quantityValues) q.knowledgeNodeId: q};
     for (final node in d.knowledgeNodes) {
       if (node.nodeType == 'quantity' && !values.containsKey(node.id)) {
-        error('quantity', 'quantity node ${node.id} has no quantity value');
+        error(
+          'quantity',
+          'quantity node ${node.id} has no quantity value',
+          row: _ref('knowledge_nodes', node),
+        );
       }
     }
     for (final q in d.quantityValues) {
+      final row = _ref('quantity_values', q);
       final node = nodes[q.knowledgeNodeId];
       if (node != null && node.nodeType != 'quantity') {
         error(
           'quantity',
           '${q.knowledgeNodeId} has a quantity value but is a '
               '${node.nodeType}',
+          row: row,
         );
       }
       final maximum = q.maximum;
       if (maximum != null && maximum < q.minimum) {
-        error('quantity', '${q.knowledgeNodeId}: maximum below minimum');
+        error(
+          'quantity',
+          '${q.knowledgeNodeId}: maximum below minimum',
+          row: row,
+        );
       }
     }
   }
@@ -471,9 +602,10 @@ class _Validator {
       for (final m in d.certificationKnowledgeMappings) m.knowledgeItemId,
     };
     for (final item in d.knowledgeItems) {
+      final row = _ref('knowledge_items', item);
       final sources = cited[item.id] ?? const [];
       if (sources.isEmpty) {
-        error('item-citation', '${item.id} cites no source');
+        error('item-citation', '${item.id} cites no source', row: row);
       } else if (regulatoryRelationTypes.contains(item.relationType) &&
           !sources.any(
             (s) => s.kind == 'legislation' || s.kind == 'regulator_register',
@@ -482,10 +614,15 @@ class _Validator {
           'regulatory-citation',
           '${item.id} states wine law but cites no legislation or '
               'regulator register',
+          row: row,
         );
       }
       if (!mapped.contains(item.id)) {
-        error('item-mapping', '${item.id} is mapped to no certification');
+        error(
+          'item-mapping',
+          '${item.id} is mapped to no certification',
+          row: row,
+        );
       }
     }
   }
@@ -499,6 +636,7 @@ class _Validator {
           error(
             'template-placeholder',
             '${t.id} uses unknown placeholder ${match[0]}',
+            row: _ref('question_templates', t),
           );
         }
       }
