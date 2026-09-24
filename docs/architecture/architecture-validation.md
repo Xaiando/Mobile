@@ -6,6 +6,8 @@
 | **Inputs** | *Sommelier App Product Specification*; [Phase 0 engineering audit](../audit/phase-0-engineering-audit.md) |
 | **Rule applied** | Keep the product design unless there is a concrete technical reason to change it. Every change below cites its reason and the evidence for it. |
 
+> **Note (2026-09-24):** entity names and schema details in this document predate the [canonical domain model](../domain-model.md), which wins where they differ (for example `knowledge_edges` became `knowledge_relations`).
+
 ## Method
 
 Package compatibility was **tested, not inferred**. A throwaway spike project was built on the current stable toolchain:
