@@ -32,7 +32,7 @@ Spec §O: *"Build YAML/JSON parser to ingest the seed dataset. Implement relatio
 | P1-6 | The dataset hydrates the local database on initial launch | §O acceptance, TASK-002 | ❌ Startup opens the database only | ✅ `appStartupProvider` ingests the bundle before the app is ready; shell test *hydrates the bundled curriculum on first launch* |
 | P1-7 | At least 50 nodes and 50 relations after initialization | TASK-002 acceptance, register §4 | ❌ | ✅ 65 nodes, 87 relations and 46 items; asserted by the ingestion test and the web smoke test |
 | P1-8 | Re-ingestion when the bundled version is newer: authored rows upserted, never deleted; generated tables rebuilt; user data untouched | V-7, domain model §2 | ◐ Upsert proven in the spike; the app has no ingestion service | ✅ `CurriculumIngester`: install, upgrade, refresh on a changed checksum, keep a newer release, refuse removals; user history kept (tested) |
-| P1-9 | A validator for the dataset (§3.3 rules): relation signatures, acyclic prerequisites, `LOCATED_IN` and certification chains, `cardinality = one`, citations and mappings on every item, regulatory citations, no authored row removed between releases, `name_norm` | Register §3.3, TASK-010 | ❌ | ✅ `validateDataset`: every §3.3 rule except the question rules, which Phase 2 adds; one negative test per rule |
+| P1-9 | A validator for the dataset (§3.3 rules): relation signatures, acyclic prerequisites, `LOCATED_IN` and certification chains, `cardinality = one`, citations and mappings on every item, regulatory citations, no authored row removed between releases, `name_norm` | Register §3.3, TASK-010 | ❌ | ✅ `validateDataset` checks the rules that need only the dataset, with one negative test per rule. The ingester refuses removed rows by comparing against the database, and Phase 2 adds the question rules |
 | P1-10 | `name_norm` computed in Dart: lower case, no diacritics, no appellation suffix | Register §10 | ❌ | ✅ `normalizeName`, identical on native and web (tested) |
 | P1-11 | Dangling-edge detection (§S.1): relations must reference existing nodes | §S.1, TASK-010 | ◐ Enforced by FKs in the schema; no test in the app suite; no build-time check on the dataset | ✅ Validator rule `dangling-relation`, plus a database test that the FK rejects a dangling relation |
 | P1-12 | DAG integrity (§S.2): no item is its own prerequisite, directly or through a cycle | §S.2, TASK-010 | ◐ Self-reference blocked by a CHECK (untested in the app); no recursive cycle query | ✅ Validator rule `cycle`, the recursive query `prerequisiteCycles()` (finds a 3-item cycle in its test), and a test of the self-reference CHECK |
@@ -62,12 +62,30 @@ Spec §O: *"QuestionTemplate, QuestionGenerator. String templating and distracto
 | P2-7 | Questions generated during ingestion as read-only curriculum, with rebuilds never touching user history | QG-9 | ◐ The rebuild is tested against the fixture; no generator | ✅ Generated inside the ingestion transaction; regeneration is idempotent and leaves review history intact (tested) |
 | P2-8 | A fresh seed per presentation, with deterministic results for a given seed | QG-7 | ❌ | ✅ `QuestionPresenter.present(seed:)`: the same seed gives the same options and order; fresh seeds vary them (QG-13) |
 | P2-9 | Distractor viability (§S.3): every MCQ question has at least 3 valid distractors; every item has an MCQ question or is marked `mcq_disabled` | §S.3, TASK-010, register §4 | ❌ | ✅ 91 questions (43 MCQ, 48 flashcards); the §S.3 gate test passes: every item has an MCQ or is `mcq_disabled` (QG-14) |
-| P2-10 | CI green | Phase 0 practice | | |
+| P2-10 | CI green | Phase 0 practice | | ✅ [CI run for `429dea7`](https://github.com/Xaiando/Mobile/actions/runs/36003105676): Android, iOS, web and tests |
 
 **Result:** the spec's acceptance criterion holds. The test *Phase 2 acceptance* presents each of the 43 generated MCQs with 25 seeds. Every presentation has 4 options: the answer and 3 distractors, with no duplicate node or name among them. In Chromium the web smoke test generates the same 91 questions and presents one MCQ.
 
 ---
 
-## Phase 3: FSRS and study engine
+## Phase 3: FSRS and study engine (progress audit)
 
-Audited after Phase 2.
+Spec §O: *"ReviewState, ReviewEvent. Integrate fsrs package. Build the Score_priority algorithm."* Acceptance: *"Flashcard answers correctly update DSR variables and reorder the study queue."* The backlog adds TASK-003 (a spaced-repetition service), TASK-005 (an adaptive queue of the top 15 items) and TASK-007 (the flashcard and MCQ widget).
+
+| ID | Criterion | Source | Status now |
+|---|---|---|---|
+| P3-1 | `ReviewState`, `ReviewEvent`, `ReviewEventOption` and `SchedulerConfig` tables with their invariants | §D, FS-4, FS-8 | ✅ Phase 0 schema: append-only log, step coupling, `lapses < reps`, 21-weight check (tested) |
+| P3-2 | FSRS-6 via the `fsrs` package; a stored state round-trips exactly; the projection equals a replay of the log | FS-1, FS-4 | ◐ Proven by a test only. `fsrs` is still a dev dependency. |
+| P3-3 | Scheduler configuration version 1 seeded on first launch (weights, 0.9 retention, steps, fuzzing) | FS-8 | ❌ Only a test fixture seeds it |
+| P3-4 | Certification profile: the one-row `user_profiles`, with `WSET_L3` or `CMS_CERTIFIED` chosen by the learner | §N, CM-1, CM-9 | ❌ No profile row or picker. The 8 tracks and their chains exist (Phase 1). |
+| P3-5 | Spaced-repetition service (TASK-003): grade an item 1–4, write the event and the projected state in one transaction, count lapses | TASK-003, FS-3, FS-6, FS-7 | ❌ |
+| P3-6 | MCQ grading (wrong 1, right 3) and self-graded flashcards; each review logs its seed and the options shown | FS-6, QG-7 | ◐ The presenter produces the seed and options (Phase 2); nothing logs them yet |
+| P3-7 | The effective mapping per track: the nearest mapping along the chain; unmapped items excluded; `minimum_depth` picks the formats | CM-3, CM-4, CM-6 | ◐ Mappings and chains are ingested (Phase 1); no query resolves them yet |
+| P3-8 | Priority score `U^α·C^α·L^α·P^α`: R from the package, SQL to select candidates, scoring in Dart | §G, A-1, A-3, A-6 | ❌ |
+| P3-9 | Prerequisite factor P from reviewed dependents | A-4 | ◐ Prerequisite chains are traversable upward (`KnowledgeGraph.prerequisitesOf`, Phase 1); the walk to dependents and the scoring are not built |
+| P3-10 | Session of 15 items: due reviews by score, then at most 5 new items, core items and prerequisites first; learning steps re-queued | TASK-005, A-2, FS-11, FS-14, P-4 | ❌ |
+| P3-11 | Expired and superseded items leave the queue; stale items get a badge | FS-13, V-3, V-4 | ◐ The queries exist (`expiredItems`, `staleItems`); no queue yet |
+| P3-12 | Study UI: flashcard and MCQ widgets whose answers grade the item and advance the queue | TASK-007 | ❌ Placeholder screens |
+| P3-13 | Acceptance: a flashcard answer updates D, S and R and reorders the queue | §O | ❌ |
+
+**Progress: 1 of 13 criteria met, 5 partly.** In place: the schema, a proven FSRS round trip, the prerequisite traversal and seeded question presentation. Missing: the spaced-repetition service, the scorer, the queue, the profile and the study UI.
