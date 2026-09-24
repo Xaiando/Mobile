@@ -4,7 +4,7 @@
 |---|---|
 | **Date** | 2026-09-24 |
 | **Status** | **Canonical.** Where earlier documents name or shape an entity differently, this document wins. [architecture-audit.md](architecture-audit.md) has been aligned with it. |
-| **Executable form** | [`domain-model.sql`](domain-model.sql): 31 tables, 57 indexes, 68 triggers. The same file is valid plain SQLite **and** a Drift `.drift` file (§9). |
+| **Executable form** | [`lib/core/database/schema.drift`](../lib/core/database/schema.drift): 31 tables, 57 indexes, 68 triggers. The app compiles it with Drift, and it is also valid plain SQLite (§9). |
 | **Scope** | Every entity V0.1 needs, including the 14 required ones: Certification, CurriculumDomain, KnowledgeNode, KnowledgeRelation, KnowledgeItem, CertificationKnowledgeMapping, SourceCitation, QuestionTemplate, Question, ReviewState, ReviewEvent, TastingSession, TastingDescriptor, WineJournalEntry |
 
 ## 1. How to read this document
@@ -429,7 +429,7 @@ erDiagram
 
 ## 4. Entity catalogue
 
-Column-level definitions are in [`domain-model.sql`](domain-model.sql). This section explains each entity: why it exists, its key, and the rules that are not obvious from its columns.
+Column-level definitions are in [`schema.drift`](../lib/core/database/schema.drift). This section explains each entity: why it exists, its key, and the rules that are not obvious from its columns.
 
 ### 4.1 Required entities
 
@@ -487,7 +487,7 @@ The atomic unit of study: the testable assertion of **exactly one** relation.
 Which items a track examines, how important each is, and to what depth. This normalizes §E's nested `certifications[]` array.
 
 - **Key:** (`certification_id`, `knowledge_item_id`).
-- `importance` (core, secondary or tertiary) drives the relevance factor. `minimum_depth` (1–5) has provisional semantics (architecture audit P-2).
+- `importance` (core, secondary or tertiary) drives the relevance factor. `minimum_depth` (1–5) controls which question formats the track serves (architecture audit P-2, adopted).
 - `syllabus_ref` holds a structural identifier only, **never syllabus text** (§L).
 
 #### SourceCitation (`source_citations`), curriculum
@@ -566,7 +566,7 @@ A logged bottle (§D, §J).
 - **Key:** `id` (UUID).
 - The raw text the user typed (`appellation_text`, `grapes_text`) is kept. Links to canonical nodes are stored separately in `WineJournalEntryNode`, and their role (appellation, grape…) is derived from the node's type.
 - `photo_ref` is an opaque key for a future photo store, not a file path. There is no capture UI in V0.1 (D6).
-- **Database-enforced:** non-vintage excludes a vintage; ranges for vintage, ABV and rating (rating 1–5, provisional P-3).
+- **Database-enforced:** non-vintage excludes a vintage; ranges for vintage, ABV and rating (rating 1–5, P-3).
 
 ### 4.2 Supporting entities
 
@@ -761,7 +761,7 @@ Normalizing the model revised the following. [architecture-audit.md](architectur
 
 Everything below was run on 2026-09-24 against Flutter 3.47.5 / Dart 3.13.4.
 
-- **Plain SQLite:** `domain-model.sql` loads as-is: 31 tables, 57 indexes, 68 triggers (63 curriculum guards, 4 append-only, 1 single-selection).
+- **Plain SQLite:** `schema.drift` loads as-is: 31 tables, 57 indexes, 68 triggers (63 curriculum guards, 4 append-only, 1 single-selection).
 - **Drift:** the same file compiles as a `.drift` file with drift_dev 2.35.0 and **zero warnings**, using `sql: {dialect: sqlite, options: {version: "3.45", modules: [json1]}}` and `store_date_time_values_as_text: true`. The 31 generated row classes carry exactly the entity names of this document.
 - **Native behaviour** (SQLite 3.53.4 through Drift), 18 tests, all passing:
   - the curriculum rejects writes outside ingestion
@@ -791,4 +791,4 @@ Everything below was run on 2026-09-24 against Flutter 3.47.5 / Dart 3.13.4.
 
 - **Diagrams:** all seven render with Mermaid 11.17.2 (light and dark themes) and Mermaid 10.9.8.
 
-**For Phase 0:** use `domain-model.sql` directly as the app's `schema.drift` (SQL-first). The documented schema and the code are then one file. CI can diff the copy or replace this file with a pointer.
+**In the app:** Phase 0 moved this schema to `lib/core/database/schema.drift` unchanged, and the app's `AppDatabase` is generated from it (SQL-first). The documented schema and the code are one file. The Phase 0 test suite re-runs the behaviour tests above against the app database, plus a CRUD test for every table.

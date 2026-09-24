@@ -1,0 +1,8 @@
+# The canonical schema is SQL (a Drift .drift file).
+*.drift linguist-language=SQL
+
+# Generated and vendored files: collapsed in diffs, excluded from language stats.
+*.g.dart linguist-generated=true
+drift_schemas/** linguist-generated=true
+web/drift_worker.js linguist-vendored=true
+web/sqlite3.wasm binary linguist-vendored=true

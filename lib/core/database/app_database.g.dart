@@ -1,0 +1,27885 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+part of 'app_database.dart';
+
+// ignore_for_file: type=lint
+class CurriculumIngestions extends Table
+    with TableInfo<CurriculumIngestions, CurriculumIngestion> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  CurriculumIngestions(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  late final GeneratedColumn<int> id = GeneratedColumn<int>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    $customConstraints: 'NOT NULL PRIMARY KEY CHECK (id = 1)',
+  );
+  static const VerificationMeta _startedAtMeta = const VerificationMeta(
+    'startedAt',
+  );
+  late final GeneratedColumn<DateTime> startedAt = GeneratedColumn<DateTime>(
+    'started_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL CHECK (strftime(\'%Y-%m-%dT%H:%M:%fZ\', started_at) IS started_at)',
+  );
+  @override
+  List<GeneratedColumn> get $columns => [id, startedAt];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'curriculum_ingestions';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<CurriculumIngestion> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    }
+    if (data.containsKey('started_at')) {
+      context.handle(
+        _startedAtMeta,
+        startedAt.isAcceptableOrUnknown(data['started_at']!, _startedAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_startedAtMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  CurriculumIngestion map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return CurriculumIngestion(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}id'],
+      )!,
+      startedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}started_at'],
+      )!,
+    );
+  }
+
+  @override
+  CurriculumIngestions createAlias(String alias) {
+    return CurriculumIngestions(attachedDatabase, alias);
+  }
+
+  @override
+  bool get dontWriteConstraints => true;
+}
+
+class CurriculumIngestion extends DataClass
+    implements Insertable<CurriculumIngestion> {
+  final int id;
+  final DateTime startedAt;
+  const CurriculumIngestion({required this.id, required this.startedAt});
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<int>(id);
+    map['started_at'] = Variable<DateTime>(startedAt);
+    return map;
+  }
+
+  CurriculumIngestionsCompanion toCompanion(bool nullToAbsent) {
+    return CurriculumIngestionsCompanion(
+      id: Value(id),
+      startedAt: Value(startedAt),
+    );
+  }
+
+  factory CurriculumIngestion.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return CurriculumIngestion(
+      id: serializer.fromJson<int>(json['id']),
+      startedAt: serializer.fromJson<DateTime>(json['started_at']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<int>(id),
+      'started_at': serializer.toJson<DateTime>(startedAt),
+    };
+  }
+
+  CurriculumIngestion copyWith({int? id, DateTime? startedAt}) =>
+      CurriculumIngestion(
+        id: id ?? this.id,
+        startedAt: startedAt ?? this.startedAt,
+      );
+  CurriculumIngestion copyWithCompanion(CurriculumIngestionsCompanion data) {
+    return CurriculumIngestion(
+      id: data.id.present ? data.id.value : this.id,
+      startedAt: data.startedAt.present ? data.startedAt.value : this.startedAt,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('CurriculumIngestion(')
+          ..write('id: $id, ')
+          ..write('startedAt: $startedAt')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(id, startedAt);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is CurriculumIngestion &&
+          other.id == this.id &&
+          other.startedAt == this.startedAt);
+}
+
+class CurriculumIngestionsCompanion
+    extends UpdateCompanion<CurriculumIngestion> {
+  final Value<int> id;
+  final Value<DateTime> startedAt;
+  const CurriculumIngestionsCompanion({
+    this.id = const Value.absent(),
+    this.startedAt = const Value.absent(),
+  });
+  CurriculumIngestionsCompanion.insert({
+    this.id = const Value.absent(),
+    required DateTime startedAt,
+  }) : startedAt = Value(startedAt);
+  static Insertable<CurriculumIngestion> custom({
+    Expression<int>? id,
+    Expression<DateTime>? startedAt,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (startedAt != null) 'started_at': startedAt,
+    });
+  }
+
+  CurriculumIngestionsCompanion copyWith({
+    Value<int>? id,
+    Value<DateTime>? startedAt,
+  }) {
+    return CurriculumIngestionsCompanion(
+      id: id ?? this.id,
+      startedAt: startedAt ?? this.startedAt,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<int>(id.value);
+    }
+    if (startedAt.present) {
+      map['started_at'] = Variable<DateTime>(startedAt.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('CurriculumIngestionsCompanion(')
+          ..write('id: $id, ')
+          ..write('startedAt: $startedAt')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class CurriculumReleases extends Table
+    with TableInfo<CurriculumReleases, CurriculumRelease> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  CurriculumReleases(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _versionMeta = const VerificationMeta(
+    'version',
+  );
+  late final GeneratedColumn<String> version = GeneratedColumn<String>(
+    'version',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL PRIMARY KEY',
+  );
+  static const VerificationMeta _checksumMeta = const VerificationMeta(
+    'checksum',
+  );
+  late final GeneratedColumn<String> checksum = GeneratedColumn<String>(
+    'checksum',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL',
+  );
+  static const VerificationMeta _publishedAtMeta = const VerificationMeta(
+    'publishedAt',
+  );
+  late final GeneratedColumn<DateTime> publishedAt = GeneratedColumn<DateTime>(
+    'published_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL CHECK (strftime(\'%Y-%m-%dT%H:%M:%fZ\', published_at) IS published_at)',
+  );
+  static const VerificationMeta _ingestedAtMeta = const VerificationMeta(
+    'ingestedAt',
+  );
+  late final GeneratedColumn<DateTime> ingestedAt = GeneratedColumn<DateTime>(
+    'ingested_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL CHECK (strftime(\'%Y-%m-%dT%H:%M:%fZ\', ingested_at) IS ingested_at)',
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    version,
+    checksum,
+    publishedAt,
+    ingestedAt,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'curriculum_releases';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<CurriculumRelease> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('version')) {
+      context.handle(
+        _versionMeta,
+        version.isAcceptableOrUnknown(data['version']!, _versionMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_versionMeta);
+    }
+    if (data.containsKey('checksum')) {
+      context.handle(
+        _checksumMeta,
+        checksum.isAcceptableOrUnknown(data['checksum']!, _checksumMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_checksumMeta);
+    }
+    if (data.containsKey('published_at')) {
+      context.handle(
+        _publishedAtMeta,
+        publishedAt.isAcceptableOrUnknown(
+          data['published_at']!,
+          _publishedAtMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_publishedAtMeta);
+    }
+    if (data.containsKey('ingested_at')) {
+      context.handle(
+        _ingestedAtMeta,
+        ingestedAt.isAcceptableOrUnknown(data['ingested_at']!, _ingestedAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_ingestedAtMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {version};
+  @override
+  CurriculumRelease map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return CurriculumRelease(
+      version: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}version'],
+      )!,
+      checksum: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}checksum'],
+      )!,
+      publishedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}published_at'],
+      )!,
+      ingestedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}ingested_at'],
+      )!,
+    );
+  }
+
+  @override
+  CurriculumReleases createAlias(String alias) {
+    return CurriculumReleases(attachedDatabase, alias);
+  }
+
+  @override
+  bool get dontWriteConstraints => true;
+}
+
+class CurriculumRelease extends DataClass
+    implements Insertable<CurriculumRelease> {
+  final String version;
+  final String checksum;
+  final DateTime publishedAt;
+  final DateTime ingestedAt;
+  const CurriculumRelease({
+    required this.version,
+    required this.checksum,
+    required this.publishedAt,
+    required this.ingestedAt,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['version'] = Variable<String>(version);
+    map['checksum'] = Variable<String>(checksum);
+    map['published_at'] = Variable<DateTime>(publishedAt);
+    map['ingested_at'] = Variable<DateTime>(ingestedAt);
+    return map;
+  }
+
+  CurriculumReleasesCompanion toCompanion(bool nullToAbsent) {
+    return CurriculumReleasesCompanion(
+      version: Value(version),
+      checksum: Value(checksum),
+      publishedAt: Value(publishedAt),
+      ingestedAt: Value(ingestedAt),
+    );
+  }
+
+  factory CurriculumRelease.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return CurriculumRelease(
+      version: serializer.fromJson<String>(json['version']),
+      checksum: serializer.fromJson<String>(json['checksum']),
+      publishedAt: serializer.fromJson<DateTime>(json['published_at']),
+      ingestedAt: serializer.fromJson<DateTime>(json['ingested_at']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'version': serializer.toJson<String>(version),
+      'checksum': serializer.toJson<String>(checksum),
+      'published_at': serializer.toJson<DateTime>(publishedAt),
+      'ingested_at': serializer.toJson<DateTime>(ingestedAt),
+    };
+  }
+
+  CurriculumRelease copyWith({
+    String? version,
+    String? checksum,
+    DateTime? publishedAt,
+    DateTime? ingestedAt,
+  }) => CurriculumRelease(
+    version: version ?? this.version,
+    checksum: checksum ?? this.checksum,
+    publishedAt: publishedAt ?? this.publishedAt,
+    ingestedAt: ingestedAt ?? this.ingestedAt,
+  );
+  CurriculumRelease copyWithCompanion(CurriculumReleasesCompanion data) {
+    return CurriculumRelease(
+      version: data.version.present ? data.version.value : this.version,
+      checksum: data.checksum.present ? data.checksum.value : this.checksum,
+      publishedAt: data.publishedAt.present
+          ? data.publishedAt.value
+          : this.publishedAt,
+      ingestedAt: data.ingestedAt.present
+          ? data.ingestedAt.value
+          : this.ingestedAt,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('CurriculumRelease(')
+          ..write('version: $version, ')
+          ..write('checksum: $checksum, ')
+          ..write('publishedAt: $publishedAt, ')
+          ..write('ingestedAt: $ingestedAt')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(version, checksum, publishedAt, ingestedAt);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is CurriculumRelease &&
+          other.version == this.version &&
+          other.checksum == this.checksum &&
+          other.publishedAt == this.publishedAt &&
+          other.ingestedAt == this.ingestedAt);
+}
+
+class CurriculumReleasesCompanion extends UpdateCompanion<CurriculumRelease> {
+  final Value<String> version;
+  final Value<String> checksum;
+  final Value<DateTime> publishedAt;
+  final Value<DateTime> ingestedAt;
+  final Value<int> rowid;
+  const CurriculumReleasesCompanion({
+    this.version = const Value.absent(),
+    this.checksum = const Value.absent(),
+    this.publishedAt = const Value.absent(),
+    this.ingestedAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  CurriculumReleasesCompanion.insert({
+    required String version,
+    required String checksum,
+    required DateTime publishedAt,
+    required DateTime ingestedAt,
+    this.rowid = const Value.absent(),
+  }) : version = Value(version),
+       checksum = Value(checksum),
+       publishedAt = Value(publishedAt),
+       ingestedAt = Value(ingestedAt);
+  static Insertable<CurriculumRelease> custom({
+    Expression<String>? version,
+    Expression<String>? checksum,
+    Expression<DateTime>? publishedAt,
+    Expression<DateTime>? ingestedAt,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (version != null) 'version': version,
+      if (checksum != null) 'checksum': checksum,
+      if (publishedAt != null) 'published_at': publishedAt,
+      if (ingestedAt != null) 'ingested_at': ingestedAt,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  CurriculumReleasesCompanion copyWith({
+    Value<String>? version,
+    Value<String>? checksum,
+    Value<DateTime>? publishedAt,
+    Value<DateTime>? ingestedAt,
+    Value<int>? rowid,
+  }) {
+    return CurriculumReleasesCompanion(
+      version: version ?? this.version,
+      checksum: checksum ?? this.checksum,
+      publishedAt: publishedAt ?? this.publishedAt,
+      ingestedAt: ingestedAt ?? this.ingestedAt,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (version.present) {
+      map['version'] = Variable<String>(version.value);
+    }
+    if (checksum.present) {
+      map['checksum'] = Variable<String>(checksum.value);
+    }
+    if (publishedAt.present) {
+      map['published_at'] = Variable<DateTime>(publishedAt.value);
+    }
+    if (ingestedAt.present) {
+      map['ingested_at'] = Variable<DateTime>(ingestedAt.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('CurriculumReleasesCompanion(')
+          ..write('version: $version, ')
+          ..write('checksum: $checksum, ')
+          ..write('publishedAt: $publishedAt, ')
+          ..write('ingestedAt: $ingestedAt, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class CurriculumDomains extends Table
+    with TableInfo<CurriculumDomains, CurriculumDomain> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  CurriculumDomains(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints:
+        'NOT NULL PRIMARY KEY CHECK (id NOT GLOB \'*[^a-z_]*\')',
+  );
+  static const VerificationMeta _displayNameMeta = const VerificationMeta(
+    'displayName',
+  );
+  late final GeneratedColumn<String> displayName = GeneratedColumn<String>(
+    'display_name',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL',
+  );
+  static const VerificationMeta _positionMeta = const VerificationMeta(
+    'position',
+  );
+  late final GeneratedColumn<int> position = GeneratedColumn<int>(
+    'position',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL UNIQUE',
+  );
+  @override
+  List<GeneratedColumn> get $columns => [id, displayName, position];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'curriculum_domains';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<CurriculumDomain> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('display_name')) {
+      context.handle(
+        _displayNameMeta,
+        displayName.isAcceptableOrUnknown(
+          data['display_name']!,
+          _displayNameMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_displayNameMeta);
+    }
+    if (data.containsKey('position')) {
+      context.handle(
+        _positionMeta,
+        position.isAcceptableOrUnknown(data['position']!, _positionMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_positionMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  CurriculumDomain map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return CurriculumDomain(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      displayName: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}display_name'],
+      )!,
+      position: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}position'],
+      )!,
+    );
+  }
+
+  @override
+  CurriculumDomains createAlias(String alias) {
+    return CurriculumDomains(attachedDatabase, alias);
+  }
+
+  @override
+  bool get dontWriteConstraints => true;
+}
+
+class CurriculumDomain extends DataClass
+    implements Insertable<CurriculumDomain> {
+  final String id;
+  final String displayName;
+  final int position;
+  const CurriculumDomain({
+    required this.id,
+    required this.displayName,
+    required this.position,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    map['display_name'] = Variable<String>(displayName);
+    map['position'] = Variable<int>(position);
+    return map;
+  }
+
+  CurriculumDomainsCompanion toCompanion(bool nullToAbsent) {
+    return CurriculumDomainsCompanion(
+      id: Value(id),
+      displayName: Value(displayName),
+      position: Value(position),
+    );
+  }
+
+  factory CurriculumDomain.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return CurriculumDomain(
+      id: serializer.fromJson<String>(json['id']),
+      displayName: serializer.fromJson<String>(json['display_name']),
+      position: serializer.fromJson<int>(json['position']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'display_name': serializer.toJson<String>(displayName),
+      'position': serializer.toJson<int>(position),
+    };
+  }
+
+  CurriculumDomain copyWith({String? id, String? displayName, int? position}) =>
+      CurriculumDomain(
+        id: id ?? this.id,
+        displayName: displayName ?? this.displayName,
+        position: position ?? this.position,
+      );
+  CurriculumDomain copyWithCompanion(CurriculumDomainsCompanion data) {
+    return CurriculumDomain(
+      id: data.id.present ? data.id.value : this.id,
+      displayName: data.displayName.present
+          ? data.displayName.value
+          : this.displayName,
+      position: data.position.present ? data.position.value : this.position,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('CurriculumDomain(')
+          ..write('id: $id, ')
+          ..write('displayName: $displayName, ')
+          ..write('position: $position')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(id, displayName, position);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is CurriculumDomain &&
+          other.id == this.id &&
+          other.displayName == this.displayName &&
+          other.position == this.position);
+}
+
+class CurriculumDomainsCompanion extends UpdateCompanion<CurriculumDomain> {
+  final Value<String> id;
+  final Value<String> displayName;
+  final Value<int> position;
+  final Value<int> rowid;
+  const CurriculumDomainsCompanion({
+    this.id = const Value.absent(),
+    this.displayName = const Value.absent(),
+    this.position = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  CurriculumDomainsCompanion.insert({
+    required String id,
+    required String displayName,
+    required int position,
+    this.rowid = const Value.absent(),
+  }) : id = Value(id),
+       displayName = Value(displayName),
+       position = Value(position);
+  static Insertable<CurriculumDomain> custom({
+    Expression<String>? id,
+    Expression<String>? displayName,
+    Expression<int>? position,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (displayName != null) 'display_name': displayName,
+      if (position != null) 'position': position,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  CurriculumDomainsCompanion copyWith({
+    Value<String>? id,
+    Value<String>? displayName,
+    Value<int>? position,
+    Value<int>? rowid,
+  }) {
+    return CurriculumDomainsCompanion(
+      id: id ?? this.id,
+      displayName: displayName ?? this.displayName,
+      position: position ?? this.position,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (displayName.present) {
+      map['display_name'] = Variable<String>(displayName.value);
+    }
+    if (position.present) {
+      map['position'] = Variable<int>(position.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('CurriculumDomainsCompanion(')
+          ..write('id: $id, ')
+          ..write('displayName: $displayName, ')
+          ..write('position: $position, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class TastingGrids extends Table with TableInfo<TastingGrids, TastingGrid> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  TastingGrids(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL PRIMARY KEY CHECK (id GLOB \'tg_?*\' AND id NOT GLOB \'*[^a-z0-9_]*\')',
+  );
+  static const VerificationMeta _frameworkMeta = const VerificationMeta(
+    'framework',
+  );
+  late final GeneratedColumn<String> framework = GeneratedColumn<String>(
+    'framework',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints:
+        'NOT NULL CHECK (framework IN (\'WSET_SAT\', \'CMS_DTM\'))',
+  );
+  static const VerificationMeta _versionMeta = const VerificationMeta(
+    'version',
+  );
+  late final GeneratedColumn<String> version = GeneratedColumn<String>(
+    'version',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL',
+  );
+  static const VerificationMeta _displayNameMeta = const VerificationMeta(
+    'displayName',
+  );
+  late final GeneratedColumn<String> displayName = GeneratedColumn<String>(
+    'display_name',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL',
+  );
+  @override
+  List<GeneratedColumn> get $columns => [id, framework, version, displayName];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'tasting_grids';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<TastingGrid> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('framework')) {
+      context.handle(
+        _frameworkMeta,
+        framework.isAcceptableOrUnknown(data['framework']!, _frameworkMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_frameworkMeta);
+    }
+    if (data.containsKey('version')) {
+      context.handle(
+        _versionMeta,
+        version.isAcceptableOrUnknown(data['version']!, _versionMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_versionMeta);
+    }
+    if (data.containsKey('display_name')) {
+      context.handle(
+        _displayNameMeta,
+        displayName.isAcceptableOrUnknown(
+          data['display_name']!,
+          _displayNameMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_displayNameMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  List<Set<GeneratedColumn>> get uniqueKeys => [
+    {framework, version},
+  ];
+  @override
+  TastingGrid map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return TastingGrid(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      framework: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}framework'],
+      )!,
+      version: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}version'],
+      )!,
+      displayName: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}display_name'],
+      )!,
+    );
+  }
+
+  @override
+  TastingGrids createAlias(String alias) {
+    return TastingGrids(attachedDatabase, alias);
+  }
+
+  @override
+  List<String> get customConstraints => const ['UNIQUE(framework, version)'];
+  @override
+  bool get dontWriteConstraints => true;
+}
+
+class TastingGrid extends DataClass implements Insertable<TastingGrid> {
+  final String id;
+  final String framework;
+  final String version;
+  final String displayName;
+  const TastingGrid({
+    required this.id,
+    required this.framework,
+    required this.version,
+    required this.displayName,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    map['framework'] = Variable<String>(framework);
+    map['version'] = Variable<String>(version);
+    map['display_name'] = Variable<String>(displayName);
+    return map;
+  }
+
+  TastingGridsCompanion toCompanion(bool nullToAbsent) {
+    return TastingGridsCompanion(
+      id: Value(id),
+      framework: Value(framework),
+      version: Value(version),
+      displayName: Value(displayName),
+    );
+  }
+
+  factory TastingGrid.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return TastingGrid(
+      id: serializer.fromJson<String>(json['id']),
+      framework: serializer.fromJson<String>(json['framework']),
+      version: serializer.fromJson<String>(json['version']),
+      displayName: serializer.fromJson<String>(json['display_name']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'framework': serializer.toJson<String>(framework),
+      'version': serializer.toJson<String>(version),
+      'display_name': serializer.toJson<String>(displayName),
+    };
+  }
+
+  TastingGrid copyWith({
+    String? id,
+    String? framework,
+    String? version,
+    String? displayName,
+  }) => TastingGrid(
+    id: id ?? this.id,
+    framework: framework ?? this.framework,
+    version: version ?? this.version,
+    displayName: displayName ?? this.displayName,
+  );
+  TastingGrid copyWithCompanion(TastingGridsCompanion data) {
+    return TastingGrid(
+      id: data.id.present ? data.id.value : this.id,
+      framework: data.framework.present ? data.framework.value : this.framework,
+      version: data.version.present ? data.version.value : this.version,
+      displayName: data.displayName.present
+          ? data.displayName.value
+          : this.displayName,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('TastingGrid(')
+          ..write('id: $id, ')
+          ..write('framework: $framework, ')
+          ..write('version: $version, ')
+          ..write('displayName: $displayName')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(id, framework, version, displayName);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is TastingGrid &&
+          other.id == this.id &&
+          other.framework == this.framework &&
+          other.version == this.version &&
+          other.displayName == this.displayName);
+}
+
+class TastingGridsCompanion extends UpdateCompanion<TastingGrid> {
+  final Value<String> id;
+  final Value<String> framework;
+  final Value<String> version;
+  final Value<String> displayName;
+  final Value<int> rowid;
+  const TastingGridsCompanion({
+    this.id = const Value.absent(),
+    this.framework = const Value.absent(),
+    this.version = const Value.absent(),
+    this.displayName = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  TastingGridsCompanion.insert({
+    required String id,
+    required String framework,
+    required String version,
+    required String displayName,
+    this.rowid = const Value.absent(),
+  }) : id = Value(id),
+       framework = Value(framework),
+       version = Value(version),
+       displayName = Value(displayName);
+  static Insertable<TastingGrid> custom({
+    Expression<String>? id,
+    Expression<String>? framework,
+    Expression<String>? version,
+    Expression<String>? displayName,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (framework != null) 'framework': framework,
+      if (version != null) 'version': version,
+      if (displayName != null) 'display_name': displayName,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  TastingGridsCompanion copyWith({
+    Value<String>? id,
+    Value<String>? framework,
+    Value<String>? version,
+    Value<String>? displayName,
+    Value<int>? rowid,
+  }) {
+    return TastingGridsCompanion(
+      id: id ?? this.id,
+      framework: framework ?? this.framework,
+      version: version ?? this.version,
+      displayName: displayName ?? this.displayName,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (framework.present) {
+      map['framework'] = Variable<String>(framework.value);
+    }
+    if (version.present) {
+      map['version'] = Variable<String>(version.value);
+    }
+    if (displayName.present) {
+      map['display_name'] = Variable<String>(displayName.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('TastingGridsCompanion(')
+          ..write('id: $id, ')
+          ..write('framework: $framework, ')
+          ..write('version: $version, ')
+          ..write('displayName: $displayName, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class Certifications extends Table
+    with TableInfo<Certifications, Certification> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  Certifications(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints:
+        'NOT NULL PRIMARY KEY CHECK (id NOT GLOB \'*[^A-Z0-9_]*\')',
+  );
+  static const VerificationMeta _organizationMeta = const VerificationMeta(
+    'organization',
+  );
+  late final GeneratedColumn<String> organization = GeneratedColumn<String>(
+    'organization',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL CHECK (organization IN (\'WSET\', \'CMS\'))',
+  );
+  static const VerificationMeta _levelMeta = const VerificationMeta('level');
+  late final GeneratedColumn<int> level = GeneratedColumn<int>(
+    'level',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL CHECK (level >= 1)',
+  );
+  static const VerificationMeta _displayNameMeta = const VerificationMeta(
+    'displayName',
+  );
+  late final GeneratedColumn<String> displayName = GeneratedColumn<String>(
+    'display_name',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL',
+  );
+  static const VerificationMeta _includesCertificationIdMeta =
+      const VerificationMeta('includesCertificationId');
+  late final GeneratedColumn<String> includesCertificationId =
+      GeneratedColumn<String>(
+        'includes_certification_id',
+        aliasedName,
+        true,
+        type: DriftSqlType.string,
+        requiredDuringInsert: false,
+        $customConstraints: 'REFERENCES certifications(id)',
+      );
+  static const VerificationMeta _defaultTastingGridIdMeta =
+      const VerificationMeta('defaultTastingGridId');
+  late final GeneratedColumn<String> defaultTastingGridId =
+      GeneratedColumn<String>(
+        'default_tasting_grid_id',
+        aliasedName,
+        true,
+        type: DriftSqlType.string,
+        requiredDuringInsert: false,
+        $customConstraints: 'REFERENCES tasting_grids(id)',
+      );
+  static const VerificationMeta _isSelectableMeta = const VerificationMeta(
+    'isSelectable',
+  );
+  late final GeneratedColumn<bool> isSelectable = GeneratedColumn<bool>(
+    'is_selectable',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    $customConstraints: 'NOT NULL DEFAULT 0 CHECK (is_selectable IN (0, 1))',
+    defaultValue: const CustomExpression('0'),
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    organization,
+    level,
+    displayName,
+    includesCertificationId,
+    defaultTastingGridId,
+    isSelectable,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'certifications';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<Certification> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('organization')) {
+      context.handle(
+        _organizationMeta,
+        organization.isAcceptableOrUnknown(
+          data['organization']!,
+          _organizationMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_organizationMeta);
+    }
+    if (data.containsKey('level')) {
+      context.handle(
+        _levelMeta,
+        level.isAcceptableOrUnknown(data['level']!, _levelMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_levelMeta);
+    }
+    if (data.containsKey('display_name')) {
+      context.handle(
+        _displayNameMeta,
+        displayName.isAcceptableOrUnknown(
+          data['display_name']!,
+          _displayNameMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_displayNameMeta);
+    }
+    if (data.containsKey('includes_certification_id')) {
+      context.handle(
+        _includesCertificationIdMeta,
+        includesCertificationId.isAcceptableOrUnknown(
+          data['includes_certification_id']!,
+          _includesCertificationIdMeta,
+        ),
+      );
+    }
+    if (data.containsKey('default_tasting_grid_id')) {
+      context.handle(
+        _defaultTastingGridIdMeta,
+        defaultTastingGridId.isAcceptableOrUnknown(
+          data['default_tasting_grid_id']!,
+          _defaultTastingGridIdMeta,
+        ),
+      );
+    }
+    if (data.containsKey('is_selectable')) {
+      context.handle(
+        _isSelectableMeta,
+        isSelectable.isAcceptableOrUnknown(
+          data['is_selectable']!,
+          _isSelectableMeta,
+        ),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  List<Set<GeneratedColumn>> get uniqueKeys => [
+    {organization, level},
+  ];
+  @override
+  Certification map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return Certification(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      organization: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}organization'],
+      )!,
+      level: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}level'],
+      )!,
+      displayName: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}display_name'],
+      )!,
+      includesCertificationId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}includes_certification_id'],
+      ),
+      defaultTastingGridId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}default_tasting_grid_id'],
+      ),
+      isSelectable: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}is_selectable'],
+      )!,
+    );
+  }
+
+  @override
+  Certifications createAlias(String alias) {
+    return Certifications(attachedDatabase, alias);
+  }
+
+  @override
+  List<String> get customConstraints => const [
+    'UNIQUE(organization, level)',
+    'CHECK(includes_certification_id IS NOT id)',
+  ];
+  @override
+  bool get dontWriteConstraints => true;
+}
+
+class Certification extends DataClass implements Insertable<Certification> {
+  final String id;
+  final String organization;
+  final int level;
+  final String displayName;
+  final String? includesCertificationId;
+  final String? defaultTastingGridId;
+  final bool isSelectable;
+  const Certification({
+    required this.id,
+    required this.organization,
+    required this.level,
+    required this.displayName,
+    this.includesCertificationId,
+    this.defaultTastingGridId,
+    required this.isSelectable,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    map['organization'] = Variable<String>(organization);
+    map['level'] = Variable<int>(level);
+    map['display_name'] = Variable<String>(displayName);
+    if (!nullToAbsent || includesCertificationId != null) {
+      map['includes_certification_id'] = Variable<String>(
+        includesCertificationId,
+      );
+    }
+    if (!nullToAbsent || defaultTastingGridId != null) {
+      map['default_tasting_grid_id'] = Variable<String>(defaultTastingGridId);
+    }
+    map['is_selectable'] = Variable<bool>(isSelectable);
+    return map;
+  }
+
+  CertificationsCompanion toCompanion(bool nullToAbsent) {
+    return CertificationsCompanion(
+      id: Value(id),
+      organization: Value(organization),
+      level: Value(level),
+      displayName: Value(displayName),
+      includesCertificationId: includesCertificationId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(includesCertificationId),
+      defaultTastingGridId: defaultTastingGridId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(defaultTastingGridId),
+      isSelectable: Value(isSelectable),
+    );
+  }
+
+  factory Certification.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return Certification(
+      id: serializer.fromJson<String>(json['id']),
+      organization: serializer.fromJson<String>(json['organization']),
+      level: serializer.fromJson<int>(json['level']),
+      displayName: serializer.fromJson<String>(json['display_name']),
+      includesCertificationId: serializer.fromJson<String?>(
+        json['includes_certification_id'],
+      ),
+      defaultTastingGridId: serializer.fromJson<String?>(
+        json['default_tasting_grid_id'],
+      ),
+      isSelectable: serializer.fromJson<bool>(json['is_selectable']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'organization': serializer.toJson<String>(organization),
+      'level': serializer.toJson<int>(level),
+      'display_name': serializer.toJson<String>(displayName),
+      'includes_certification_id': serializer.toJson<String?>(
+        includesCertificationId,
+      ),
+      'default_tasting_grid_id': serializer.toJson<String?>(
+        defaultTastingGridId,
+      ),
+      'is_selectable': serializer.toJson<bool>(isSelectable),
+    };
+  }
+
+  Certification copyWith({
+    String? id,
+    String? organization,
+    int? level,
+    String? displayName,
+    Value<String?> includesCertificationId = const Value.absent(),
+    Value<String?> defaultTastingGridId = const Value.absent(),
+    bool? isSelectable,
+  }) => Certification(
+    id: id ?? this.id,
+    organization: organization ?? this.organization,
+    level: level ?? this.level,
+    displayName: displayName ?? this.displayName,
+    includesCertificationId: includesCertificationId.present
+        ? includesCertificationId.value
+        : this.includesCertificationId,
+    defaultTastingGridId: defaultTastingGridId.present
+        ? defaultTastingGridId.value
+        : this.defaultTastingGridId,
+    isSelectable: isSelectable ?? this.isSelectable,
+  );
+  Certification copyWithCompanion(CertificationsCompanion data) {
+    return Certification(
+      id: data.id.present ? data.id.value : this.id,
+      organization: data.organization.present
+          ? data.organization.value
+          : this.organization,
+      level: data.level.present ? data.level.value : this.level,
+      displayName: data.displayName.present
+          ? data.displayName.value
+          : this.displayName,
+      includesCertificationId: data.includesCertificationId.present
+          ? data.includesCertificationId.value
+          : this.includesCertificationId,
+      defaultTastingGridId: data.defaultTastingGridId.present
+          ? data.defaultTastingGridId.value
+          : this.defaultTastingGridId,
+      isSelectable: data.isSelectable.present
+          ? data.isSelectable.value
+          : this.isSelectable,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('Certification(')
+          ..write('id: $id, ')
+          ..write('organization: $organization, ')
+          ..write('level: $level, ')
+          ..write('displayName: $displayName, ')
+          ..write('includesCertificationId: $includesCertificationId, ')
+          ..write('defaultTastingGridId: $defaultTastingGridId, ')
+          ..write('isSelectable: $isSelectable')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    organization,
+    level,
+    displayName,
+    includesCertificationId,
+    defaultTastingGridId,
+    isSelectable,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is Certification &&
+          other.id == this.id &&
+          other.organization == this.organization &&
+          other.level == this.level &&
+          other.displayName == this.displayName &&
+          other.includesCertificationId == this.includesCertificationId &&
+          other.defaultTastingGridId == this.defaultTastingGridId &&
+          other.isSelectable == this.isSelectable);
+}
+
+class CertificationsCompanion extends UpdateCompanion<Certification> {
+  final Value<String> id;
+  final Value<String> organization;
+  final Value<int> level;
+  final Value<String> displayName;
+  final Value<String?> includesCertificationId;
+  final Value<String?> defaultTastingGridId;
+  final Value<bool> isSelectable;
+  final Value<int> rowid;
+  const CertificationsCompanion({
+    this.id = const Value.absent(),
+    this.organization = const Value.absent(),
+    this.level = const Value.absent(),
+    this.displayName = const Value.absent(),
+    this.includesCertificationId = const Value.absent(),
+    this.defaultTastingGridId = const Value.absent(),
+    this.isSelectable = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  CertificationsCompanion.insert({
+    required String id,
+    required String organization,
+    required int level,
+    required String displayName,
+    this.includesCertificationId = const Value.absent(),
+    this.defaultTastingGridId = const Value.absent(),
+    this.isSelectable = const Value.absent(),
+    this.rowid = const Value.absent(),
+  }) : id = Value(id),
+       organization = Value(organization),
+       level = Value(level),
+       displayName = Value(displayName);
+  static Insertable<Certification> custom({
+    Expression<String>? id,
+    Expression<String>? organization,
+    Expression<int>? level,
+    Expression<String>? displayName,
+    Expression<String>? includesCertificationId,
+    Expression<String>? defaultTastingGridId,
+    Expression<bool>? isSelectable,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (organization != null) 'organization': organization,
+      if (level != null) 'level': level,
+      if (displayName != null) 'display_name': displayName,
+      if (includesCertificationId != null)
+        'includes_certification_id': includesCertificationId,
+      if (defaultTastingGridId != null)
+        'default_tasting_grid_id': defaultTastingGridId,
+      if (isSelectable != null) 'is_selectable': isSelectable,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  CertificationsCompanion copyWith({
+    Value<String>? id,
+    Value<String>? organization,
+    Value<int>? level,
+    Value<String>? displayName,
+    Value<String?>? includesCertificationId,
+    Value<String?>? defaultTastingGridId,
+    Value<bool>? isSelectable,
+    Value<int>? rowid,
+  }) {
+    return CertificationsCompanion(
+      id: id ?? this.id,
+      organization: organization ?? this.organization,
+      level: level ?? this.level,
+      displayName: displayName ?? this.displayName,
+      includesCertificationId:
+          includesCertificationId ?? this.includesCertificationId,
+      defaultTastingGridId: defaultTastingGridId ?? this.defaultTastingGridId,
+      isSelectable: isSelectable ?? this.isSelectable,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (organization.present) {
+      map['organization'] = Variable<String>(organization.value);
+    }
+    if (level.present) {
+      map['level'] = Variable<int>(level.value);
+    }
+    if (displayName.present) {
+      map['display_name'] = Variable<String>(displayName.value);
+    }
+    if (includesCertificationId.present) {
+      map['includes_certification_id'] = Variable<String>(
+        includesCertificationId.value,
+      );
+    }
+    if (defaultTastingGridId.present) {
+      map['default_tasting_grid_id'] = Variable<String>(
+        defaultTastingGridId.value,
+      );
+    }
+    if (isSelectable.present) {
+      map['is_selectable'] = Variable<bool>(isSelectable.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('CertificationsCompanion(')
+          ..write('id: $id, ')
+          ..write('organization: $organization, ')
+          ..write('level: $level, ')
+          ..write('displayName: $displayName, ')
+          ..write('includesCertificationId: $includesCertificationId, ')
+          ..write('defaultTastingGridId: $defaultTastingGridId, ')
+          ..write('isSelectable: $isSelectable, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class NodeTypes extends Table with TableInfo<NodeTypes, NodeType> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  NodeTypes(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints:
+        'NOT NULL PRIMARY KEY CHECK (id NOT GLOB \'*[^a-z_]*\')',
+  );
+  static const VerificationMeta _labelMeta = const VerificationMeta('label');
+  late final GeneratedColumn<String> label = GeneratedColumn<String>(
+    'label',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL',
+  );
+  @override
+  List<GeneratedColumn> get $columns => [id, label];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'node_types';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<NodeType> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('label')) {
+      context.handle(
+        _labelMeta,
+        label.isAcceptableOrUnknown(data['label']!, _labelMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_labelMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  NodeType map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return NodeType(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      label: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}label'],
+      )!,
+    );
+  }
+
+  @override
+  NodeTypes createAlias(String alias) {
+    return NodeTypes(attachedDatabase, alias);
+  }
+
+  @override
+  bool get dontWriteConstraints => true;
+}
+
+class NodeType extends DataClass implements Insertable<NodeType> {
+  final String id;
+  final String label;
+  const NodeType({required this.id, required this.label});
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    map['label'] = Variable<String>(label);
+    return map;
+  }
+
+  NodeTypesCompanion toCompanion(bool nullToAbsent) {
+    return NodeTypesCompanion(id: Value(id), label: Value(label));
+  }
+
+  factory NodeType.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return NodeType(
+      id: serializer.fromJson<String>(json['id']),
+      label: serializer.fromJson<String>(json['label']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'label': serializer.toJson<String>(label),
+    };
+  }
+
+  NodeType copyWith({String? id, String? label}) =>
+      NodeType(id: id ?? this.id, label: label ?? this.label);
+  NodeType copyWithCompanion(NodeTypesCompanion data) {
+    return NodeType(
+      id: data.id.present ? data.id.value : this.id,
+      label: data.label.present ? data.label.value : this.label,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('NodeType(')
+          ..write('id: $id, ')
+          ..write('label: $label')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(id, label);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is NodeType && other.id == this.id && other.label == this.label);
+}
+
+class NodeTypesCompanion extends UpdateCompanion<NodeType> {
+  final Value<String> id;
+  final Value<String> label;
+  final Value<int> rowid;
+  const NodeTypesCompanion({
+    this.id = const Value.absent(),
+    this.label = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  NodeTypesCompanion.insert({
+    required String id,
+    required String label,
+    this.rowid = const Value.absent(),
+  }) : id = Value(id),
+       label = Value(label);
+  static Insertable<NodeType> custom({
+    Expression<String>? id,
+    Expression<String>? label,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (label != null) 'label': label,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  NodeTypesCompanion copyWith({
+    Value<String>? id,
+    Value<String>? label,
+    Value<int>? rowid,
+  }) {
+    return NodeTypesCompanion(
+      id: id ?? this.id,
+      label: label ?? this.label,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (label.present) {
+      map['label'] = Variable<String>(label.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('NodeTypesCompanion(')
+          ..write('id: $id, ')
+          ..write('label: $label, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class RelationTypes extends Table with TableInfo<RelationTypes, RelationType> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  RelationTypes(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints:
+        'NOT NULL PRIMARY KEY CHECK (id NOT GLOB \'*[^A-Z_]*\')',
+  );
+  static const VerificationMeta _labelMeta = const VerificationMeta('label');
+  late final GeneratedColumn<String> label = GeneratedColumn<String>(
+    'label',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL',
+  );
+  static const VerificationMeta _reverseLabelMeta = const VerificationMeta(
+    'reverseLabel',
+  );
+  late final GeneratedColumn<String> reverseLabel = GeneratedColumn<String>(
+    'reverse_label',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL',
+  );
+  static const VerificationMeta _cardinalityMeta = const VerificationMeta(
+    'cardinality',
+  );
+  late final GeneratedColumn<String> cardinality = GeneratedColumn<String>(
+    'cardinality',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL CHECK (cardinality IN (\'one\', \'many\'))',
+  );
+  static const VerificationMeta _isTransitiveMeta = const VerificationMeta(
+    'isTransitive',
+  );
+  late final GeneratedColumn<bool> isTransitive = GeneratedColumn<bool>(
+    'is_transitive',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    $customConstraints: 'NOT NULL DEFAULT 0 CHECK (is_transitive IN (0, 1))',
+    defaultValue: const CustomExpression('0'),
+  );
+  static const VerificationMeta _isReverseSafeMeta = const VerificationMeta(
+    'isReverseSafe',
+  );
+  late final GeneratedColumn<bool> isReverseSafe = GeneratedColumn<bool>(
+    'is_reverse_safe',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    $customConstraints: 'NOT NULL DEFAULT 0 CHECK (is_reverse_safe IN (0, 1))',
+    defaultValue: const CustomExpression('0'),
+  );
+  static const VerificationMeta _defaultDomainIdMeta = const VerificationMeta(
+    'defaultDomainId',
+  );
+  late final GeneratedColumn<String> defaultDomainId = GeneratedColumn<String>(
+    'default_domain_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL REFERENCES curriculum_domains(id)',
+  );
+  static const VerificationMeta _distractorMatchRelationTypeMeta =
+      const VerificationMeta('distractorMatchRelationType');
+  late final GeneratedColumn<String> distractorMatchRelationType =
+      GeneratedColumn<String>(
+        'distractor_match_relation_type',
+        aliasedName,
+        true,
+        type: DriftSqlType.string,
+        requiredDuringInsert: false,
+        $customConstraints: 'REFERENCES relation_types(id)',
+      );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    label,
+    reverseLabel,
+    cardinality,
+    isTransitive,
+    isReverseSafe,
+    defaultDomainId,
+    distractorMatchRelationType,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'relation_types';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<RelationType> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('label')) {
+      context.handle(
+        _labelMeta,
+        label.isAcceptableOrUnknown(data['label']!, _labelMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_labelMeta);
+    }
+    if (data.containsKey('reverse_label')) {
+      context.handle(
+        _reverseLabelMeta,
+        reverseLabel.isAcceptableOrUnknown(
+          data['reverse_label']!,
+          _reverseLabelMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_reverseLabelMeta);
+    }
+    if (data.containsKey('cardinality')) {
+      context.handle(
+        _cardinalityMeta,
+        cardinality.isAcceptableOrUnknown(
+          data['cardinality']!,
+          _cardinalityMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_cardinalityMeta);
+    }
+    if (data.containsKey('is_transitive')) {
+      context.handle(
+        _isTransitiveMeta,
+        isTransitive.isAcceptableOrUnknown(
+          data['is_transitive']!,
+          _isTransitiveMeta,
+        ),
+      );
+    }
+    if (data.containsKey('is_reverse_safe')) {
+      context.handle(
+        _isReverseSafeMeta,
+        isReverseSafe.isAcceptableOrUnknown(
+          data['is_reverse_safe']!,
+          _isReverseSafeMeta,
+        ),
+      );
+    }
+    if (data.containsKey('default_domain_id')) {
+      context.handle(
+        _defaultDomainIdMeta,
+        defaultDomainId.isAcceptableOrUnknown(
+          data['default_domain_id']!,
+          _defaultDomainIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_defaultDomainIdMeta);
+    }
+    if (data.containsKey('distractor_match_relation_type')) {
+      context.handle(
+        _distractorMatchRelationTypeMeta,
+        distractorMatchRelationType.isAcceptableOrUnknown(
+          data['distractor_match_relation_type']!,
+          _distractorMatchRelationTypeMeta,
+        ),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  RelationType map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return RelationType(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      label: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}label'],
+      )!,
+      reverseLabel: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}reverse_label'],
+      )!,
+      cardinality: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}cardinality'],
+      )!,
+      isTransitive: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}is_transitive'],
+      )!,
+      isReverseSafe: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}is_reverse_safe'],
+      )!,
+      defaultDomainId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}default_domain_id'],
+      )!,
+      distractorMatchRelationType: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}distractor_match_relation_type'],
+      ),
+    );
+  }
+
+  @override
+  RelationTypes createAlias(String alias) {
+    return RelationTypes(attachedDatabase, alias);
+  }
+
+  @override
+  bool get dontWriteConstraints => true;
+}
+
+class RelationType extends DataClass implements Insertable<RelationType> {
+  final String id;
+  final String label;
+  final String reverseLabel;
+  final String cardinality;
+  final bool isTransitive;
+  final bool isReverseSafe;
+  final String defaultDomainId;
+  final String? distractorMatchRelationType;
+  const RelationType({
+    required this.id,
+    required this.label,
+    required this.reverseLabel,
+    required this.cardinality,
+    required this.isTransitive,
+    required this.isReverseSafe,
+    required this.defaultDomainId,
+    this.distractorMatchRelationType,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    map['label'] = Variable<String>(label);
+    map['reverse_label'] = Variable<String>(reverseLabel);
+    map['cardinality'] = Variable<String>(cardinality);
+    map['is_transitive'] = Variable<bool>(isTransitive);
+    map['is_reverse_safe'] = Variable<bool>(isReverseSafe);
+    map['default_domain_id'] = Variable<String>(defaultDomainId);
+    if (!nullToAbsent || distractorMatchRelationType != null) {
+      map['distractor_match_relation_type'] = Variable<String>(
+        distractorMatchRelationType,
+      );
+    }
+    return map;
+  }
+
+  RelationTypesCompanion toCompanion(bool nullToAbsent) {
+    return RelationTypesCompanion(
+      id: Value(id),
+      label: Value(label),
+      reverseLabel: Value(reverseLabel),
+      cardinality: Value(cardinality),
+      isTransitive: Value(isTransitive),
+      isReverseSafe: Value(isReverseSafe),
+      defaultDomainId: Value(defaultDomainId),
+      distractorMatchRelationType:
+          distractorMatchRelationType == null && nullToAbsent
+          ? const Value.absent()
+          : Value(distractorMatchRelationType),
+    );
+  }
+
+  factory RelationType.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return RelationType(
+      id: serializer.fromJson<String>(json['id']),
+      label: serializer.fromJson<String>(json['label']),
+      reverseLabel: serializer.fromJson<String>(json['reverse_label']),
+      cardinality: serializer.fromJson<String>(json['cardinality']),
+      isTransitive: serializer.fromJson<bool>(json['is_transitive']),
+      isReverseSafe: serializer.fromJson<bool>(json['is_reverse_safe']),
+      defaultDomainId: serializer.fromJson<String>(json['default_domain_id']),
+      distractorMatchRelationType: serializer.fromJson<String?>(
+        json['distractor_match_relation_type'],
+      ),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'label': serializer.toJson<String>(label),
+      'reverse_label': serializer.toJson<String>(reverseLabel),
+      'cardinality': serializer.toJson<String>(cardinality),
+      'is_transitive': serializer.toJson<bool>(isTransitive),
+      'is_reverse_safe': serializer.toJson<bool>(isReverseSafe),
+      'default_domain_id': serializer.toJson<String>(defaultDomainId),
+      'distractor_match_relation_type': serializer.toJson<String?>(
+        distractorMatchRelationType,
+      ),
+    };
+  }
+
+  RelationType copyWith({
+    String? id,
+    String? label,
+    String? reverseLabel,
+    String? cardinality,
+    bool? isTransitive,
+    bool? isReverseSafe,
+    String? defaultDomainId,
+    Value<String?> distractorMatchRelationType = const Value.absent(),
+  }) => RelationType(
+    id: id ?? this.id,
+    label: label ?? this.label,
+    reverseLabel: reverseLabel ?? this.reverseLabel,
+    cardinality: cardinality ?? this.cardinality,
+    isTransitive: isTransitive ?? this.isTransitive,
+    isReverseSafe: isReverseSafe ?? this.isReverseSafe,
+    defaultDomainId: defaultDomainId ?? this.defaultDomainId,
+    distractorMatchRelationType: distractorMatchRelationType.present
+        ? distractorMatchRelationType.value
+        : this.distractorMatchRelationType,
+  );
+  RelationType copyWithCompanion(RelationTypesCompanion data) {
+    return RelationType(
+      id: data.id.present ? data.id.value : this.id,
+      label: data.label.present ? data.label.value : this.label,
+      reverseLabel: data.reverseLabel.present
+          ? data.reverseLabel.value
+          : this.reverseLabel,
+      cardinality: data.cardinality.present
+          ? data.cardinality.value
+          : this.cardinality,
+      isTransitive: data.isTransitive.present
+          ? data.isTransitive.value
+          : this.isTransitive,
+      isReverseSafe: data.isReverseSafe.present
+          ? data.isReverseSafe.value
+          : this.isReverseSafe,
+      defaultDomainId: data.defaultDomainId.present
+          ? data.defaultDomainId.value
+          : this.defaultDomainId,
+      distractorMatchRelationType: data.distractorMatchRelationType.present
+          ? data.distractorMatchRelationType.value
+          : this.distractorMatchRelationType,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('RelationType(')
+          ..write('id: $id, ')
+          ..write('label: $label, ')
+          ..write('reverseLabel: $reverseLabel, ')
+          ..write('cardinality: $cardinality, ')
+          ..write('isTransitive: $isTransitive, ')
+          ..write('isReverseSafe: $isReverseSafe, ')
+          ..write('defaultDomainId: $defaultDomainId, ')
+          ..write('distractorMatchRelationType: $distractorMatchRelationType')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    label,
+    reverseLabel,
+    cardinality,
+    isTransitive,
+    isReverseSafe,
+    defaultDomainId,
+    distractorMatchRelationType,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is RelationType &&
+          other.id == this.id &&
+          other.label == this.label &&
+          other.reverseLabel == this.reverseLabel &&
+          other.cardinality == this.cardinality &&
+          other.isTransitive == this.isTransitive &&
+          other.isReverseSafe == this.isReverseSafe &&
+          other.defaultDomainId == this.defaultDomainId &&
+          other.distractorMatchRelationType ==
+              this.distractorMatchRelationType);
+}
+
+class RelationTypesCompanion extends UpdateCompanion<RelationType> {
+  final Value<String> id;
+  final Value<String> label;
+  final Value<String> reverseLabel;
+  final Value<String> cardinality;
+  final Value<bool> isTransitive;
+  final Value<bool> isReverseSafe;
+  final Value<String> defaultDomainId;
+  final Value<String?> distractorMatchRelationType;
+  final Value<int> rowid;
+  const RelationTypesCompanion({
+    this.id = const Value.absent(),
+    this.label = const Value.absent(),
+    this.reverseLabel = const Value.absent(),
+    this.cardinality = const Value.absent(),
+    this.isTransitive = const Value.absent(),
+    this.isReverseSafe = const Value.absent(),
+    this.defaultDomainId = const Value.absent(),
+    this.distractorMatchRelationType = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  RelationTypesCompanion.insert({
+    required String id,
+    required String label,
+    required String reverseLabel,
+    required String cardinality,
+    this.isTransitive = const Value.absent(),
+    this.isReverseSafe = const Value.absent(),
+    required String defaultDomainId,
+    this.distractorMatchRelationType = const Value.absent(),
+    this.rowid = const Value.absent(),
+  }) : id = Value(id),
+       label = Value(label),
+       reverseLabel = Value(reverseLabel),
+       cardinality = Value(cardinality),
+       defaultDomainId = Value(defaultDomainId);
+  static Insertable<RelationType> custom({
+    Expression<String>? id,
+    Expression<String>? label,
+    Expression<String>? reverseLabel,
+    Expression<String>? cardinality,
+    Expression<bool>? isTransitive,
+    Expression<bool>? isReverseSafe,
+    Expression<String>? defaultDomainId,
+    Expression<String>? distractorMatchRelationType,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (label != null) 'label': label,
+      if (reverseLabel != null) 'reverse_label': reverseLabel,
+      if (cardinality != null) 'cardinality': cardinality,
+      if (isTransitive != null) 'is_transitive': isTransitive,
+      if (isReverseSafe != null) 'is_reverse_safe': isReverseSafe,
+      if (defaultDomainId != null) 'default_domain_id': defaultDomainId,
+      if (distractorMatchRelationType != null)
+        'distractor_match_relation_type': distractorMatchRelationType,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  RelationTypesCompanion copyWith({
+    Value<String>? id,
+    Value<String>? label,
+    Value<String>? reverseLabel,
+    Value<String>? cardinality,
+    Value<bool>? isTransitive,
+    Value<bool>? isReverseSafe,
+    Value<String>? defaultDomainId,
+    Value<String?>? distractorMatchRelationType,
+    Value<int>? rowid,
+  }) {
+    return RelationTypesCompanion(
+      id: id ?? this.id,
+      label: label ?? this.label,
+      reverseLabel: reverseLabel ?? this.reverseLabel,
+      cardinality: cardinality ?? this.cardinality,
+      isTransitive: isTransitive ?? this.isTransitive,
+      isReverseSafe: isReverseSafe ?? this.isReverseSafe,
+      defaultDomainId: defaultDomainId ?? this.defaultDomainId,
+      distractorMatchRelationType:
+          distractorMatchRelationType ?? this.distractorMatchRelationType,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (label.present) {
+      map['label'] = Variable<String>(label.value);
+    }
+    if (reverseLabel.present) {
+      map['reverse_label'] = Variable<String>(reverseLabel.value);
+    }
+    if (cardinality.present) {
+      map['cardinality'] = Variable<String>(cardinality.value);
+    }
+    if (isTransitive.present) {
+      map['is_transitive'] = Variable<bool>(isTransitive.value);
+    }
+    if (isReverseSafe.present) {
+      map['is_reverse_safe'] = Variable<bool>(isReverseSafe.value);
+    }
+    if (defaultDomainId.present) {
+      map['default_domain_id'] = Variable<String>(defaultDomainId.value);
+    }
+    if (distractorMatchRelationType.present) {
+      map['distractor_match_relation_type'] = Variable<String>(
+        distractorMatchRelationType.value,
+      );
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('RelationTypesCompanion(')
+          ..write('id: $id, ')
+          ..write('label: $label, ')
+          ..write('reverseLabel: $reverseLabel, ')
+          ..write('cardinality: $cardinality, ')
+          ..write('isTransitive: $isTransitive, ')
+          ..write('isReverseSafe: $isReverseSafe, ')
+          ..write('defaultDomainId: $defaultDomainId, ')
+          ..write('distractorMatchRelationType: $distractorMatchRelationType, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class RelationTypeSignatures extends Table
+    with TableInfo<RelationTypeSignatures, RelationTypeSignature> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  RelationTypeSignatures(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _relationTypeMeta = const VerificationMeta(
+    'relationType',
+  );
+  late final GeneratedColumn<String> relationType = GeneratedColumn<String>(
+    'relation_type',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL REFERENCES relation_types(id)',
+  );
+  static const VerificationMeta _subjectNodeTypeMeta = const VerificationMeta(
+    'subjectNodeType',
+  );
+  late final GeneratedColumn<String> subjectNodeType = GeneratedColumn<String>(
+    'subject_node_type',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL REFERENCES node_types(id)',
+  );
+  static const VerificationMeta _objectNodeTypeMeta = const VerificationMeta(
+    'objectNodeType',
+  );
+  late final GeneratedColumn<String> objectNodeType = GeneratedColumn<String>(
+    'object_node_type',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL REFERENCES node_types(id)',
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    relationType,
+    subjectNodeType,
+    objectNodeType,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'relation_type_signatures';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<RelationTypeSignature> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('relation_type')) {
+      context.handle(
+        _relationTypeMeta,
+        relationType.isAcceptableOrUnknown(
+          data['relation_type']!,
+          _relationTypeMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_relationTypeMeta);
+    }
+    if (data.containsKey('subject_node_type')) {
+      context.handle(
+        _subjectNodeTypeMeta,
+        subjectNodeType.isAcceptableOrUnknown(
+          data['subject_node_type']!,
+          _subjectNodeTypeMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_subjectNodeTypeMeta);
+    }
+    if (data.containsKey('object_node_type')) {
+      context.handle(
+        _objectNodeTypeMeta,
+        objectNodeType.isAcceptableOrUnknown(
+          data['object_node_type']!,
+          _objectNodeTypeMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_objectNodeTypeMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {
+    relationType,
+    subjectNodeType,
+    objectNodeType,
+  };
+  @override
+  RelationTypeSignature map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return RelationTypeSignature(
+      relationType: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}relation_type'],
+      )!,
+      subjectNodeType: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}subject_node_type'],
+      )!,
+      objectNodeType: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}object_node_type'],
+      )!,
+    );
+  }
+
+  @override
+  RelationTypeSignatures createAlias(String alias) {
+    return RelationTypeSignatures(attachedDatabase, alias);
+  }
+
+  @override
+  List<String> get customConstraints => const [
+    'PRIMARY KEY(relation_type, subject_node_type, object_node_type)',
+  ];
+  @override
+  bool get dontWriteConstraints => true;
+}
+
+class RelationTypeSignature extends DataClass
+    implements Insertable<RelationTypeSignature> {
+  final String relationType;
+  final String subjectNodeType;
+  final String objectNodeType;
+  const RelationTypeSignature({
+    required this.relationType,
+    required this.subjectNodeType,
+    required this.objectNodeType,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['relation_type'] = Variable<String>(relationType);
+    map['subject_node_type'] = Variable<String>(subjectNodeType);
+    map['object_node_type'] = Variable<String>(objectNodeType);
+    return map;
+  }
+
+  RelationTypeSignaturesCompanion toCompanion(bool nullToAbsent) {
+    return RelationTypeSignaturesCompanion(
+      relationType: Value(relationType),
+      subjectNodeType: Value(subjectNodeType),
+      objectNodeType: Value(objectNodeType),
+    );
+  }
+
+  factory RelationTypeSignature.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return RelationTypeSignature(
+      relationType: serializer.fromJson<String>(json['relation_type']),
+      subjectNodeType: serializer.fromJson<String>(json['subject_node_type']),
+      objectNodeType: serializer.fromJson<String>(json['object_node_type']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'relation_type': serializer.toJson<String>(relationType),
+      'subject_node_type': serializer.toJson<String>(subjectNodeType),
+      'object_node_type': serializer.toJson<String>(objectNodeType),
+    };
+  }
+
+  RelationTypeSignature copyWith({
+    String? relationType,
+    String? subjectNodeType,
+    String? objectNodeType,
+  }) => RelationTypeSignature(
+    relationType: relationType ?? this.relationType,
+    subjectNodeType: subjectNodeType ?? this.subjectNodeType,
+    objectNodeType: objectNodeType ?? this.objectNodeType,
+  );
+  RelationTypeSignature copyWithCompanion(
+    RelationTypeSignaturesCompanion data,
+  ) {
+    return RelationTypeSignature(
+      relationType: data.relationType.present
+          ? data.relationType.value
+          : this.relationType,
+      subjectNodeType: data.subjectNodeType.present
+          ? data.subjectNodeType.value
+          : this.subjectNodeType,
+      objectNodeType: data.objectNodeType.present
+          ? data.objectNodeType.value
+          : this.objectNodeType,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('RelationTypeSignature(')
+          ..write('relationType: $relationType, ')
+          ..write('subjectNodeType: $subjectNodeType, ')
+          ..write('objectNodeType: $objectNodeType')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(relationType, subjectNodeType, objectNodeType);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is RelationTypeSignature &&
+          other.relationType == this.relationType &&
+          other.subjectNodeType == this.subjectNodeType &&
+          other.objectNodeType == this.objectNodeType);
+}
+
+class RelationTypeSignaturesCompanion
+    extends UpdateCompanion<RelationTypeSignature> {
+  final Value<String> relationType;
+  final Value<String> subjectNodeType;
+  final Value<String> objectNodeType;
+  final Value<int> rowid;
+  const RelationTypeSignaturesCompanion({
+    this.relationType = const Value.absent(),
+    this.subjectNodeType = const Value.absent(),
+    this.objectNodeType = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  RelationTypeSignaturesCompanion.insert({
+    required String relationType,
+    required String subjectNodeType,
+    required String objectNodeType,
+    this.rowid = const Value.absent(),
+  }) : relationType = Value(relationType),
+       subjectNodeType = Value(subjectNodeType),
+       objectNodeType = Value(objectNodeType);
+  static Insertable<RelationTypeSignature> custom({
+    Expression<String>? relationType,
+    Expression<String>? subjectNodeType,
+    Expression<String>? objectNodeType,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (relationType != null) 'relation_type': relationType,
+      if (subjectNodeType != null) 'subject_node_type': subjectNodeType,
+      if (objectNodeType != null) 'object_node_type': objectNodeType,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  RelationTypeSignaturesCompanion copyWith({
+    Value<String>? relationType,
+    Value<String>? subjectNodeType,
+    Value<String>? objectNodeType,
+    Value<int>? rowid,
+  }) {
+    return RelationTypeSignaturesCompanion(
+      relationType: relationType ?? this.relationType,
+      subjectNodeType: subjectNodeType ?? this.subjectNodeType,
+      objectNodeType: objectNodeType ?? this.objectNodeType,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (relationType.present) {
+      map['relation_type'] = Variable<String>(relationType.value);
+    }
+    if (subjectNodeType.present) {
+      map['subject_node_type'] = Variable<String>(subjectNodeType.value);
+    }
+    if (objectNodeType.present) {
+      map['object_node_type'] = Variable<String>(objectNodeType.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('RelationTypeSignaturesCompanion(')
+          ..write('relationType: $relationType, ')
+          ..write('subjectNodeType: $subjectNodeType, ')
+          ..write('objectNodeType: $objectNodeType, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class KnowledgeNodes extends Table
+    with TableInfo<KnowledgeNodes, KnowledgeNode> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  KnowledgeNodes(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL PRIMARY KEY CHECK (id GLOB \'n_?*\' AND id NOT GLOB \'*[^a-z0-9_]*\')',
+  );
+  static const VerificationMeta _nodeTypeMeta = const VerificationMeta(
+    'nodeType',
+  );
+  late final GeneratedColumn<String> nodeType = GeneratedColumn<String>(
+    'node_type',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL REFERENCES node_types(id)',
+  );
+  static const VerificationMeta _nameMeta = const VerificationMeta('name');
+  late final GeneratedColumn<String> name = GeneratedColumn<String>(
+    'name',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL',
+  );
+  static const VerificationMeta _nameNormMeta = const VerificationMeta(
+    'nameNorm',
+  );
+  late final GeneratedColumn<String> nameNorm = GeneratedColumn<String>(
+    'name_norm',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL CHECK (name_norm NOT GLOB \'*[A-Z]*\')',
+  );
+  static const VerificationMeta _validFromMeta = const VerificationMeta(
+    'validFrom',
+  );
+  late final GeneratedColumn<String> validFrom = GeneratedColumn<String>(
+    'valid_from',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    $customConstraints:
+        'CHECK (valid_from IS NULL OR date(valid_from) IS valid_from)',
+  );
+  static const VerificationMeta _validUntilMeta = const VerificationMeta(
+    'validUntil',
+  );
+  late final GeneratedColumn<String> validUntil = GeneratedColumn<String>(
+    'valid_until',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    $customConstraints:
+        'CHECK (valid_until IS NULL OR date(valid_until) IS valid_until)',
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    nodeType,
+    name,
+    nameNorm,
+    validFrom,
+    validUntil,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'knowledge_nodes';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<KnowledgeNode> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('node_type')) {
+      context.handle(
+        _nodeTypeMeta,
+        nodeType.isAcceptableOrUnknown(data['node_type']!, _nodeTypeMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_nodeTypeMeta);
+    }
+    if (data.containsKey('name')) {
+      context.handle(
+        _nameMeta,
+        name.isAcceptableOrUnknown(data['name']!, _nameMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_nameMeta);
+    }
+    if (data.containsKey('name_norm')) {
+      context.handle(
+        _nameNormMeta,
+        nameNorm.isAcceptableOrUnknown(data['name_norm']!, _nameNormMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_nameNormMeta);
+    }
+    if (data.containsKey('valid_from')) {
+      context.handle(
+        _validFromMeta,
+        validFrom.isAcceptableOrUnknown(data['valid_from']!, _validFromMeta),
+      );
+    }
+    if (data.containsKey('valid_until')) {
+      context.handle(
+        _validUntilMeta,
+        validUntil.isAcceptableOrUnknown(data['valid_until']!, _validUntilMeta),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  List<Set<GeneratedColumn>> get uniqueKeys => [
+    {nodeType, nameNorm},
+    {id, nodeType},
+  ];
+  @override
+  KnowledgeNode map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return KnowledgeNode(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      nodeType: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}node_type'],
+      )!,
+      name: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}name'],
+      )!,
+      nameNorm: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}name_norm'],
+      )!,
+      validFrom: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}valid_from'],
+      ),
+      validUntil: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}valid_until'],
+      ),
+    );
+  }
+
+  @override
+  KnowledgeNodes createAlias(String alias) {
+    return KnowledgeNodes(attachedDatabase, alias);
+  }
+
+  @override
+  List<String> get customConstraints => const [
+    'UNIQUE(node_type, name_norm)',
+    'UNIQUE(id, node_type)',
+    'CHECK(valid_until IS NULL OR valid_from IS NULL OR valid_until > valid_from)',
+  ];
+  @override
+  bool get dontWriteConstraints => true;
+}
+
+class KnowledgeNode extends DataClass implements Insertable<KnowledgeNode> {
+  final String id;
+  final String nodeType;
+  final String name;
+  final String nameNorm;
+  final String? validFrom;
+  final String? validUntil;
+  const KnowledgeNode({
+    required this.id,
+    required this.nodeType,
+    required this.name,
+    required this.nameNorm,
+    this.validFrom,
+    this.validUntil,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    map['node_type'] = Variable<String>(nodeType);
+    map['name'] = Variable<String>(name);
+    map['name_norm'] = Variable<String>(nameNorm);
+    if (!nullToAbsent || validFrom != null) {
+      map['valid_from'] = Variable<String>(validFrom);
+    }
+    if (!nullToAbsent || validUntil != null) {
+      map['valid_until'] = Variable<String>(validUntil);
+    }
+    return map;
+  }
+
+  KnowledgeNodesCompanion toCompanion(bool nullToAbsent) {
+    return KnowledgeNodesCompanion(
+      id: Value(id),
+      nodeType: Value(nodeType),
+      name: Value(name),
+      nameNorm: Value(nameNorm),
+      validFrom: validFrom == null && nullToAbsent
+          ? const Value.absent()
+          : Value(validFrom),
+      validUntil: validUntil == null && nullToAbsent
+          ? const Value.absent()
+          : Value(validUntil),
+    );
+  }
+
+  factory KnowledgeNode.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return KnowledgeNode(
+      id: serializer.fromJson<String>(json['id']),
+      nodeType: serializer.fromJson<String>(json['node_type']),
+      name: serializer.fromJson<String>(json['name']),
+      nameNorm: serializer.fromJson<String>(json['name_norm']),
+      validFrom: serializer.fromJson<String?>(json['valid_from']),
+      validUntil: serializer.fromJson<String?>(json['valid_until']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'node_type': serializer.toJson<String>(nodeType),
+      'name': serializer.toJson<String>(name),
+      'name_norm': serializer.toJson<String>(nameNorm),
+      'valid_from': serializer.toJson<String?>(validFrom),
+      'valid_until': serializer.toJson<String?>(validUntil),
+    };
+  }
+
+  KnowledgeNode copyWith({
+    String? id,
+    String? nodeType,
+    String? name,
+    String? nameNorm,
+    Value<String?> validFrom = const Value.absent(),
+    Value<String?> validUntil = const Value.absent(),
+  }) => KnowledgeNode(
+    id: id ?? this.id,
+    nodeType: nodeType ?? this.nodeType,
+    name: name ?? this.name,
+    nameNorm: nameNorm ?? this.nameNorm,
+    validFrom: validFrom.present ? validFrom.value : this.validFrom,
+    validUntil: validUntil.present ? validUntil.value : this.validUntil,
+  );
+  KnowledgeNode copyWithCompanion(KnowledgeNodesCompanion data) {
+    return KnowledgeNode(
+      id: data.id.present ? data.id.value : this.id,
+      nodeType: data.nodeType.present ? data.nodeType.value : this.nodeType,
+      name: data.name.present ? data.name.value : this.name,
+      nameNorm: data.nameNorm.present ? data.nameNorm.value : this.nameNorm,
+      validFrom: data.validFrom.present ? data.validFrom.value : this.validFrom,
+      validUntil: data.validUntil.present
+          ? data.validUntil.value
+          : this.validUntil,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('KnowledgeNode(')
+          ..write('id: $id, ')
+          ..write('nodeType: $nodeType, ')
+          ..write('name: $name, ')
+          ..write('nameNorm: $nameNorm, ')
+          ..write('validFrom: $validFrom, ')
+          ..write('validUntil: $validUntil')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(id, nodeType, name, nameNorm, validFrom, validUntil);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is KnowledgeNode &&
+          other.id == this.id &&
+          other.nodeType == this.nodeType &&
+          other.name == this.name &&
+          other.nameNorm == this.nameNorm &&
+          other.validFrom == this.validFrom &&
+          other.validUntil == this.validUntil);
+}
+
+class KnowledgeNodesCompanion extends UpdateCompanion<KnowledgeNode> {
+  final Value<String> id;
+  final Value<String> nodeType;
+  final Value<String> name;
+  final Value<String> nameNorm;
+  final Value<String?> validFrom;
+  final Value<String?> validUntil;
+  final Value<int> rowid;
+  const KnowledgeNodesCompanion({
+    this.id = const Value.absent(),
+    this.nodeType = const Value.absent(),
+    this.name = const Value.absent(),
+    this.nameNorm = const Value.absent(),
+    this.validFrom = const Value.absent(),
+    this.validUntil = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  KnowledgeNodesCompanion.insert({
+    required String id,
+    required String nodeType,
+    required String name,
+    required String nameNorm,
+    this.validFrom = const Value.absent(),
+    this.validUntil = const Value.absent(),
+    this.rowid = const Value.absent(),
+  }) : id = Value(id),
+       nodeType = Value(nodeType),
+       name = Value(name),
+       nameNorm = Value(nameNorm);
+  static Insertable<KnowledgeNode> custom({
+    Expression<String>? id,
+    Expression<String>? nodeType,
+    Expression<String>? name,
+    Expression<String>? nameNorm,
+    Expression<String>? validFrom,
+    Expression<String>? validUntil,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (nodeType != null) 'node_type': nodeType,
+      if (name != null) 'name': name,
+      if (nameNorm != null) 'name_norm': nameNorm,
+      if (validFrom != null) 'valid_from': validFrom,
+      if (validUntil != null) 'valid_until': validUntil,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  KnowledgeNodesCompanion copyWith({
+    Value<String>? id,
+    Value<String>? nodeType,
+    Value<String>? name,
+    Value<String>? nameNorm,
+    Value<String?>? validFrom,
+    Value<String?>? validUntil,
+    Value<int>? rowid,
+  }) {
+    return KnowledgeNodesCompanion(
+      id: id ?? this.id,
+      nodeType: nodeType ?? this.nodeType,
+      name: name ?? this.name,
+      nameNorm: nameNorm ?? this.nameNorm,
+      validFrom: validFrom ?? this.validFrom,
+      validUntil: validUntil ?? this.validUntil,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (nodeType.present) {
+      map['node_type'] = Variable<String>(nodeType.value);
+    }
+    if (name.present) {
+      map['name'] = Variable<String>(name.value);
+    }
+    if (nameNorm.present) {
+      map['name_norm'] = Variable<String>(nameNorm.value);
+    }
+    if (validFrom.present) {
+      map['valid_from'] = Variable<String>(validFrom.value);
+    }
+    if (validUntil.present) {
+      map['valid_until'] = Variable<String>(validUntil.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('KnowledgeNodesCompanion(')
+          ..write('id: $id, ')
+          ..write('nodeType: $nodeType, ')
+          ..write('name: $name, ')
+          ..write('nameNorm: $nameNorm, ')
+          ..write('validFrom: $validFrom, ')
+          ..write('validUntil: $validUntil, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class QuantityValues extends Table
+    with TableInfo<QuantityValues, QuantityValue> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  QuantityValues(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _knowledgeNodeIdMeta = const VerificationMeta(
+    'knowledgeNodeId',
+  );
+  late final GeneratedColumn<String> knowledgeNodeId = GeneratedColumn<String>(
+    'knowledge_node_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL PRIMARY KEY',
+  );
+  static const VerificationMeta _nodeTypeMeta = const VerificationMeta(
+    'nodeType',
+  );
+  late final GeneratedColumn<String> nodeType = GeneratedColumn<String>(
+    'node_type',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    $customConstraints:
+        'NOT NULL DEFAULT \'quantity\' CHECK (node_type = \'quantity\')',
+    defaultValue: const CustomExpression('\'quantity\''),
+  );
+  static const VerificationMeta _minimumMeta = const VerificationMeta(
+    'minimum',
+  );
+  late final GeneratedColumn<double> minimum = GeneratedColumn<double>(
+    'minimum',
+    aliasedName,
+    false,
+    type: DriftSqlType.double,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL',
+  );
+  static const VerificationMeta _maximumMeta = const VerificationMeta(
+    'maximum',
+  );
+  late final GeneratedColumn<double> maximum = GeneratedColumn<double>(
+    'maximum',
+    aliasedName,
+    true,
+    type: DriftSqlType.double,
+    requiredDuringInsert: false,
+    $customConstraints: '',
+  );
+  static const VerificationMeta _unitMeta = const VerificationMeta('unit');
+  late final GeneratedColumn<String> unit = GeneratedColumn<String>(
+    'unit',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL',
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    knowledgeNodeId,
+    nodeType,
+    minimum,
+    maximum,
+    unit,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'quantity_values';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<QuantityValue> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('knowledge_node_id')) {
+      context.handle(
+        _knowledgeNodeIdMeta,
+        knowledgeNodeId.isAcceptableOrUnknown(
+          data['knowledge_node_id']!,
+          _knowledgeNodeIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_knowledgeNodeIdMeta);
+    }
+    if (data.containsKey('node_type')) {
+      context.handle(
+        _nodeTypeMeta,
+        nodeType.isAcceptableOrUnknown(data['node_type']!, _nodeTypeMeta),
+      );
+    }
+    if (data.containsKey('minimum')) {
+      context.handle(
+        _minimumMeta,
+        minimum.isAcceptableOrUnknown(data['minimum']!, _minimumMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_minimumMeta);
+    }
+    if (data.containsKey('maximum')) {
+      context.handle(
+        _maximumMeta,
+        maximum.isAcceptableOrUnknown(data['maximum']!, _maximumMeta),
+      );
+    }
+    if (data.containsKey('unit')) {
+      context.handle(
+        _unitMeta,
+        unit.isAcceptableOrUnknown(data['unit']!, _unitMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_unitMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {knowledgeNodeId};
+  @override
+  QuantityValue map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return QuantityValue(
+      knowledgeNodeId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}knowledge_node_id'],
+      )!,
+      nodeType: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}node_type'],
+      )!,
+      minimum: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}minimum'],
+      )!,
+      maximum: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}maximum'],
+      ),
+      unit: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}unit'],
+      )!,
+    );
+  }
+
+  @override
+  QuantityValues createAlias(String alias) {
+    return QuantityValues(attachedDatabase, alias);
+  }
+
+  @override
+  List<String> get customConstraints => const [
+    'FOREIGN KEY(knowledge_node_id, node_type)REFERENCES knowledge_nodes(id, node_type)',
+    'CHECK(maximum IS NULL OR maximum >= minimum)',
+  ];
+  @override
+  bool get dontWriteConstraints => true;
+}
+
+class QuantityValue extends DataClass implements Insertable<QuantityValue> {
+  final String knowledgeNodeId;
+  final String nodeType;
+  final double minimum;
+  final double? maximum;
+  final String unit;
+  const QuantityValue({
+    required this.knowledgeNodeId,
+    required this.nodeType,
+    required this.minimum,
+    this.maximum,
+    required this.unit,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['knowledge_node_id'] = Variable<String>(knowledgeNodeId);
+    map['node_type'] = Variable<String>(nodeType);
+    map['minimum'] = Variable<double>(minimum);
+    if (!nullToAbsent || maximum != null) {
+      map['maximum'] = Variable<double>(maximum);
+    }
+    map['unit'] = Variable<String>(unit);
+    return map;
+  }
+
+  QuantityValuesCompanion toCompanion(bool nullToAbsent) {
+    return QuantityValuesCompanion(
+      knowledgeNodeId: Value(knowledgeNodeId),
+      nodeType: Value(nodeType),
+      minimum: Value(minimum),
+      maximum: maximum == null && nullToAbsent
+          ? const Value.absent()
+          : Value(maximum),
+      unit: Value(unit),
+    );
+  }
+
+  factory QuantityValue.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return QuantityValue(
+      knowledgeNodeId: serializer.fromJson<String>(json['knowledge_node_id']),
+      nodeType: serializer.fromJson<String>(json['node_type']),
+      minimum: serializer.fromJson<double>(json['minimum']),
+      maximum: serializer.fromJson<double?>(json['maximum']),
+      unit: serializer.fromJson<String>(json['unit']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'knowledge_node_id': serializer.toJson<String>(knowledgeNodeId),
+      'node_type': serializer.toJson<String>(nodeType),
+      'minimum': serializer.toJson<double>(minimum),
+      'maximum': serializer.toJson<double?>(maximum),
+      'unit': serializer.toJson<String>(unit),
+    };
+  }
+
+  QuantityValue copyWith({
+    String? knowledgeNodeId,
+    String? nodeType,
+    double? minimum,
+    Value<double?> maximum = const Value.absent(),
+    String? unit,
+  }) => QuantityValue(
+    knowledgeNodeId: knowledgeNodeId ?? this.knowledgeNodeId,
+    nodeType: nodeType ?? this.nodeType,
+    minimum: minimum ?? this.minimum,
+    maximum: maximum.present ? maximum.value : this.maximum,
+    unit: unit ?? this.unit,
+  );
+  QuantityValue copyWithCompanion(QuantityValuesCompanion data) {
+    return QuantityValue(
+      knowledgeNodeId: data.knowledgeNodeId.present
+          ? data.knowledgeNodeId.value
+          : this.knowledgeNodeId,
+      nodeType: data.nodeType.present ? data.nodeType.value : this.nodeType,
+      minimum: data.minimum.present ? data.minimum.value : this.minimum,
+      maximum: data.maximum.present ? data.maximum.value : this.maximum,
+      unit: data.unit.present ? data.unit.value : this.unit,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('QuantityValue(')
+          ..write('knowledgeNodeId: $knowledgeNodeId, ')
+          ..write('nodeType: $nodeType, ')
+          ..write('minimum: $minimum, ')
+          ..write('maximum: $maximum, ')
+          ..write('unit: $unit')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(knowledgeNodeId, nodeType, minimum, maximum, unit);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is QuantityValue &&
+          other.knowledgeNodeId == this.knowledgeNodeId &&
+          other.nodeType == this.nodeType &&
+          other.minimum == this.minimum &&
+          other.maximum == this.maximum &&
+          other.unit == this.unit);
+}
+
+class QuantityValuesCompanion extends UpdateCompanion<QuantityValue> {
+  final Value<String> knowledgeNodeId;
+  final Value<String> nodeType;
+  final Value<double> minimum;
+  final Value<double?> maximum;
+  final Value<String> unit;
+  final Value<int> rowid;
+  const QuantityValuesCompanion({
+    this.knowledgeNodeId = const Value.absent(),
+    this.nodeType = const Value.absent(),
+    this.minimum = const Value.absent(),
+    this.maximum = const Value.absent(),
+    this.unit = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  QuantityValuesCompanion.insert({
+    required String knowledgeNodeId,
+    this.nodeType = const Value.absent(),
+    required double minimum,
+    this.maximum = const Value.absent(),
+    required String unit,
+    this.rowid = const Value.absent(),
+  }) : knowledgeNodeId = Value(knowledgeNodeId),
+       minimum = Value(minimum),
+       unit = Value(unit);
+  static Insertable<QuantityValue> custom({
+    Expression<String>? knowledgeNodeId,
+    Expression<String>? nodeType,
+    Expression<double>? minimum,
+    Expression<double>? maximum,
+    Expression<String>? unit,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (knowledgeNodeId != null) 'knowledge_node_id': knowledgeNodeId,
+      if (nodeType != null) 'node_type': nodeType,
+      if (minimum != null) 'minimum': minimum,
+      if (maximum != null) 'maximum': maximum,
+      if (unit != null) 'unit': unit,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  QuantityValuesCompanion copyWith({
+    Value<String>? knowledgeNodeId,
+    Value<String>? nodeType,
+    Value<double>? minimum,
+    Value<double?>? maximum,
+    Value<String>? unit,
+    Value<int>? rowid,
+  }) {
+    return QuantityValuesCompanion(
+      knowledgeNodeId: knowledgeNodeId ?? this.knowledgeNodeId,
+      nodeType: nodeType ?? this.nodeType,
+      minimum: minimum ?? this.minimum,
+      maximum: maximum ?? this.maximum,
+      unit: unit ?? this.unit,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (knowledgeNodeId.present) {
+      map['knowledge_node_id'] = Variable<String>(knowledgeNodeId.value);
+    }
+    if (nodeType.present) {
+      map['node_type'] = Variable<String>(nodeType.value);
+    }
+    if (minimum.present) {
+      map['minimum'] = Variable<double>(minimum.value);
+    }
+    if (maximum.present) {
+      map['maximum'] = Variable<double>(maximum.value);
+    }
+    if (unit.present) {
+      map['unit'] = Variable<String>(unit.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('QuantityValuesCompanion(')
+          ..write('knowledgeNodeId: $knowledgeNodeId, ')
+          ..write('nodeType: $nodeType, ')
+          ..write('minimum: $minimum, ')
+          ..write('maximum: $maximum, ')
+          ..write('unit: $unit, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class NodeAlternativeNames extends Table
+    with TableInfo<NodeAlternativeNames, NodeAlternativeName> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  NodeAlternativeNames(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _knowledgeNodeIdMeta = const VerificationMeta(
+    'knowledgeNodeId',
+  );
+  late final GeneratedColumn<String> knowledgeNodeId = GeneratedColumn<String>(
+    'knowledge_node_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL REFERENCES knowledge_nodes(id)',
+  );
+  static const VerificationMeta _nameMeta = const VerificationMeta('name');
+  late final GeneratedColumn<String> name = GeneratedColumn<String>(
+    'name',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL',
+  );
+  static const VerificationMeta _nameNormMeta = const VerificationMeta(
+    'nameNorm',
+  );
+  late final GeneratedColumn<String> nameNorm = GeneratedColumn<String>(
+    'name_norm',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL CHECK (name_norm NOT GLOB \'*[A-Z]*\')',
+  );
+  static const VerificationMeta _kindMeta = const VerificationMeta('kind');
+  late final GeneratedColumn<String> kind = GeneratedColumn<String>(
+    'kind',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL CHECK (kind IN (\'synonym\', \'former_name\', \'abbreviation\', \'spelling_variant\'))',
+  );
+  @override
+  List<GeneratedColumn> get $columns => [knowledgeNodeId, name, nameNorm, kind];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'node_alternative_names';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<NodeAlternativeName> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('knowledge_node_id')) {
+      context.handle(
+        _knowledgeNodeIdMeta,
+        knowledgeNodeId.isAcceptableOrUnknown(
+          data['knowledge_node_id']!,
+          _knowledgeNodeIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_knowledgeNodeIdMeta);
+    }
+    if (data.containsKey('name')) {
+      context.handle(
+        _nameMeta,
+        name.isAcceptableOrUnknown(data['name']!, _nameMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_nameMeta);
+    }
+    if (data.containsKey('name_norm')) {
+      context.handle(
+        _nameNormMeta,
+        nameNorm.isAcceptableOrUnknown(data['name_norm']!, _nameNormMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_nameNormMeta);
+    }
+    if (data.containsKey('kind')) {
+      context.handle(
+        _kindMeta,
+        kind.isAcceptableOrUnknown(data['kind']!, _kindMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_kindMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {knowledgeNodeId, nameNorm};
+  @override
+  NodeAlternativeName map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return NodeAlternativeName(
+      knowledgeNodeId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}knowledge_node_id'],
+      )!,
+      name: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}name'],
+      )!,
+      nameNorm: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}name_norm'],
+      )!,
+      kind: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}kind'],
+      )!,
+    );
+  }
+
+  @override
+  NodeAlternativeNames createAlias(String alias) {
+    return NodeAlternativeNames(attachedDatabase, alias);
+  }
+
+  @override
+  List<String> get customConstraints => const [
+    'PRIMARY KEY(knowledge_node_id, name_norm)',
+  ];
+  @override
+  bool get dontWriteConstraints => true;
+}
+
+class NodeAlternativeName extends DataClass
+    implements Insertable<NodeAlternativeName> {
+  final String knowledgeNodeId;
+  final String name;
+  final String nameNorm;
+  final String kind;
+  const NodeAlternativeName({
+    required this.knowledgeNodeId,
+    required this.name,
+    required this.nameNorm,
+    required this.kind,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['knowledge_node_id'] = Variable<String>(knowledgeNodeId);
+    map['name'] = Variable<String>(name);
+    map['name_norm'] = Variable<String>(nameNorm);
+    map['kind'] = Variable<String>(kind);
+    return map;
+  }
+
+  NodeAlternativeNamesCompanion toCompanion(bool nullToAbsent) {
+    return NodeAlternativeNamesCompanion(
+      knowledgeNodeId: Value(knowledgeNodeId),
+      name: Value(name),
+      nameNorm: Value(nameNorm),
+      kind: Value(kind),
+    );
+  }
+
+  factory NodeAlternativeName.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return NodeAlternativeName(
+      knowledgeNodeId: serializer.fromJson<String>(json['knowledge_node_id']),
+      name: serializer.fromJson<String>(json['name']),
+      nameNorm: serializer.fromJson<String>(json['name_norm']),
+      kind: serializer.fromJson<String>(json['kind']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'knowledge_node_id': serializer.toJson<String>(knowledgeNodeId),
+      'name': serializer.toJson<String>(name),
+      'name_norm': serializer.toJson<String>(nameNorm),
+      'kind': serializer.toJson<String>(kind),
+    };
+  }
+
+  NodeAlternativeName copyWith({
+    String? knowledgeNodeId,
+    String? name,
+    String? nameNorm,
+    String? kind,
+  }) => NodeAlternativeName(
+    knowledgeNodeId: knowledgeNodeId ?? this.knowledgeNodeId,
+    name: name ?? this.name,
+    nameNorm: nameNorm ?? this.nameNorm,
+    kind: kind ?? this.kind,
+  );
+  NodeAlternativeName copyWithCompanion(NodeAlternativeNamesCompanion data) {
+    return NodeAlternativeName(
+      knowledgeNodeId: data.knowledgeNodeId.present
+          ? data.knowledgeNodeId.value
+          : this.knowledgeNodeId,
+      name: data.name.present ? data.name.value : this.name,
+      nameNorm: data.nameNorm.present ? data.nameNorm.value : this.nameNorm,
+      kind: data.kind.present ? data.kind.value : this.kind,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('NodeAlternativeName(')
+          ..write('knowledgeNodeId: $knowledgeNodeId, ')
+          ..write('name: $name, ')
+          ..write('nameNorm: $nameNorm, ')
+          ..write('kind: $kind')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(knowledgeNodeId, name, nameNorm, kind);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is NodeAlternativeName &&
+          other.knowledgeNodeId == this.knowledgeNodeId &&
+          other.name == this.name &&
+          other.nameNorm == this.nameNorm &&
+          other.kind == this.kind);
+}
+
+class NodeAlternativeNamesCompanion
+    extends UpdateCompanion<NodeAlternativeName> {
+  final Value<String> knowledgeNodeId;
+  final Value<String> name;
+  final Value<String> nameNorm;
+  final Value<String> kind;
+  final Value<int> rowid;
+  const NodeAlternativeNamesCompanion({
+    this.knowledgeNodeId = const Value.absent(),
+    this.name = const Value.absent(),
+    this.nameNorm = const Value.absent(),
+    this.kind = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  NodeAlternativeNamesCompanion.insert({
+    required String knowledgeNodeId,
+    required String name,
+    required String nameNorm,
+    required String kind,
+    this.rowid = const Value.absent(),
+  }) : knowledgeNodeId = Value(knowledgeNodeId),
+       name = Value(name),
+       nameNorm = Value(nameNorm),
+       kind = Value(kind);
+  static Insertable<NodeAlternativeName> custom({
+    Expression<String>? knowledgeNodeId,
+    Expression<String>? name,
+    Expression<String>? nameNorm,
+    Expression<String>? kind,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (knowledgeNodeId != null) 'knowledge_node_id': knowledgeNodeId,
+      if (name != null) 'name': name,
+      if (nameNorm != null) 'name_norm': nameNorm,
+      if (kind != null) 'kind': kind,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  NodeAlternativeNamesCompanion copyWith({
+    Value<String>? knowledgeNodeId,
+    Value<String>? name,
+    Value<String>? nameNorm,
+    Value<String>? kind,
+    Value<int>? rowid,
+  }) {
+    return NodeAlternativeNamesCompanion(
+      knowledgeNodeId: knowledgeNodeId ?? this.knowledgeNodeId,
+      name: name ?? this.name,
+      nameNorm: nameNorm ?? this.nameNorm,
+      kind: kind ?? this.kind,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (knowledgeNodeId.present) {
+      map['knowledge_node_id'] = Variable<String>(knowledgeNodeId.value);
+    }
+    if (name.present) {
+      map['name'] = Variable<String>(name.value);
+    }
+    if (nameNorm.present) {
+      map['name_norm'] = Variable<String>(nameNorm.value);
+    }
+    if (kind.present) {
+      map['kind'] = Variable<String>(kind.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('NodeAlternativeNamesCompanion(')
+          ..write('knowledgeNodeId: $knowledgeNodeId, ')
+          ..write('name: $name, ')
+          ..write('nameNorm: $nameNorm, ')
+          ..write('kind: $kind, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class KnowledgeRelations extends Table
+    with TableInfo<KnowledgeRelations, KnowledgeRelation> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  KnowledgeRelations(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _subjectIdMeta = const VerificationMeta(
+    'subjectId',
+  );
+  late final GeneratedColumn<String> subjectId = GeneratedColumn<String>(
+    'subject_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL REFERENCES knowledge_nodes(id)',
+  );
+  static const VerificationMeta _relationTypeMeta = const VerificationMeta(
+    'relationType',
+  );
+  late final GeneratedColumn<String> relationType = GeneratedColumn<String>(
+    'relation_type',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL REFERENCES relation_types(id)',
+  );
+  static const VerificationMeta _objectIdMeta = const VerificationMeta(
+    'objectId',
+  );
+  late final GeneratedColumn<String> objectId = GeneratedColumn<String>(
+    'object_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL REFERENCES knowledge_nodes(id)',
+  );
+  static const VerificationMeta _validFromMeta = const VerificationMeta(
+    'validFrom',
+  );
+  late final GeneratedColumn<String> validFrom = GeneratedColumn<String>(
+    'valid_from',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL CHECK (date(valid_from) IS valid_from)',
+  );
+  static const VerificationMeta _validUntilMeta = const VerificationMeta(
+    'validUntil',
+  );
+  late final GeneratedColumn<String> validUntil = GeneratedColumn<String>(
+    'valid_until',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    $customConstraints:
+        'CHECK (valid_until IS NULL OR date(valid_until) IS valid_until)',
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    subjectId,
+    relationType,
+    objectId,
+    validFrom,
+    validUntil,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'knowledge_relations';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<KnowledgeRelation> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('subject_id')) {
+      context.handle(
+        _subjectIdMeta,
+        subjectId.isAcceptableOrUnknown(data['subject_id']!, _subjectIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_subjectIdMeta);
+    }
+    if (data.containsKey('relation_type')) {
+      context.handle(
+        _relationTypeMeta,
+        relationType.isAcceptableOrUnknown(
+          data['relation_type']!,
+          _relationTypeMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_relationTypeMeta);
+    }
+    if (data.containsKey('object_id')) {
+      context.handle(
+        _objectIdMeta,
+        objectId.isAcceptableOrUnknown(data['object_id']!, _objectIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_objectIdMeta);
+    }
+    if (data.containsKey('valid_from')) {
+      context.handle(
+        _validFromMeta,
+        validFrom.isAcceptableOrUnknown(data['valid_from']!, _validFromMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_validFromMeta);
+    }
+    if (data.containsKey('valid_until')) {
+      context.handle(
+        _validUntilMeta,
+        validUntil.isAcceptableOrUnknown(data['valid_until']!, _validUntilMeta),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {subjectId, relationType, objectId};
+  @override
+  KnowledgeRelation map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return KnowledgeRelation(
+      subjectId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}subject_id'],
+      )!,
+      relationType: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}relation_type'],
+      )!,
+      objectId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}object_id'],
+      )!,
+      validFrom: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}valid_from'],
+      )!,
+      validUntil: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}valid_until'],
+      ),
+    );
+  }
+
+  @override
+  KnowledgeRelations createAlias(String alias) {
+    return KnowledgeRelations(attachedDatabase, alias);
+  }
+
+  @override
+  List<String> get customConstraints => const [
+    'PRIMARY KEY(subject_id, relation_type, object_id)',
+    'CHECK(subject_id <> object_id)',
+    'CHECK(valid_until IS NULL OR valid_until > valid_from)',
+  ];
+  @override
+  bool get dontWriteConstraints => true;
+}
+
+class KnowledgeRelation extends DataClass
+    implements Insertable<KnowledgeRelation> {
+  final String subjectId;
+  final String relationType;
+  final String objectId;
+  final String validFrom;
+  final String? validUntil;
+  const KnowledgeRelation({
+    required this.subjectId,
+    required this.relationType,
+    required this.objectId,
+    required this.validFrom,
+    this.validUntil,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['subject_id'] = Variable<String>(subjectId);
+    map['relation_type'] = Variable<String>(relationType);
+    map['object_id'] = Variable<String>(objectId);
+    map['valid_from'] = Variable<String>(validFrom);
+    if (!nullToAbsent || validUntil != null) {
+      map['valid_until'] = Variable<String>(validUntil);
+    }
+    return map;
+  }
+
+  KnowledgeRelationsCompanion toCompanion(bool nullToAbsent) {
+    return KnowledgeRelationsCompanion(
+      subjectId: Value(subjectId),
+      relationType: Value(relationType),
+      objectId: Value(objectId),
+      validFrom: Value(validFrom),
+      validUntil: validUntil == null && nullToAbsent
+          ? const Value.absent()
+          : Value(validUntil),
+    );
+  }
+
+  factory KnowledgeRelation.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return KnowledgeRelation(
+      subjectId: serializer.fromJson<String>(json['subject_id']),
+      relationType: serializer.fromJson<String>(json['relation_type']),
+      objectId: serializer.fromJson<String>(json['object_id']),
+      validFrom: serializer.fromJson<String>(json['valid_from']),
+      validUntil: serializer.fromJson<String?>(json['valid_until']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'subject_id': serializer.toJson<String>(subjectId),
+      'relation_type': serializer.toJson<String>(relationType),
+      'object_id': serializer.toJson<String>(objectId),
+      'valid_from': serializer.toJson<String>(validFrom),
+      'valid_until': serializer.toJson<String?>(validUntil),
+    };
+  }
+
+  KnowledgeRelation copyWith({
+    String? subjectId,
+    String? relationType,
+    String? objectId,
+    String? validFrom,
+    Value<String?> validUntil = const Value.absent(),
+  }) => KnowledgeRelation(
+    subjectId: subjectId ?? this.subjectId,
+    relationType: relationType ?? this.relationType,
+    objectId: objectId ?? this.objectId,
+    validFrom: validFrom ?? this.validFrom,
+    validUntil: validUntil.present ? validUntil.value : this.validUntil,
+  );
+  KnowledgeRelation copyWithCompanion(KnowledgeRelationsCompanion data) {
+    return KnowledgeRelation(
+      subjectId: data.subjectId.present ? data.subjectId.value : this.subjectId,
+      relationType: data.relationType.present
+          ? data.relationType.value
+          : this.relationType,
+      objectId: data.objectId.present ? data.objectId.value : this.objectId,
+      validFrom: data.validFrom.present ? data.validFrom.value : this.validFrom,
+      validUntil: data.validUntil.present
+          ? data.validUntil.value
+          : this.validUntil,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('KnowledgeRelation(')
+          ..write('subjectId: $subjectId, ')
+          ..write('relationType: $relationType, ')
+          ..write('objectId: $objectId, ')
+          ..write('validFrom: $validFrom, ')
+          ..write('validUntil: $validUntil')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(subjectId, relationType, objectId, validFrom, validUntil);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is KnowledgeRelation &&
+          other.subjectId == this.subjectId &&
+          other.relationType == this.relationType &&
+          other.objectId == this.objectId &&
+          other.validFrom == this.validFrom &&
+          other.validUntil == this.validUntil);
+}
+
+class KnowledgeRelationsCompanion extends UpdateCompanion<KnowledgeRelation> {
+  final Value<String> subjectId;
+  final Value<String> relationType;
+  final Value<String> objectId;
+  final Value<String> validFrom;
+  final Value<String?> validUntil;
+  final Value<int> rowid;
+  const KnowledgeRelationsCompanion({
+    this.subjectId = const Value.absent(),
+    this.relationType = const Value.absent(),
+    this.objectId = const Value.absent(),
+    this.validFrom = const Value.absent(),
+    this.validUntil = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  KnowledgeRelationsCompanion.insert({
+    required String subjectId,
+    required String relationType,
+    required String objectId,
+    required String validFrom,
+    this.validUntil = const Value.absent(),
+    this.rowid = const Value.absent(),
+  }) : subjectId = Value(subjectId),
+       relationType = Value(relationType),
+       objectId = Value(objectId),
+       validFrom = Value(validFrom);
+  static Insertable<KnowledgeRelation> custom({
+    Expression<String>? subjectId,
+    Expression<String>? relationType,
+    Expression<String>? objectId,
+    Expression<String>? validFrom,
+    Expression<String>? validUntil,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (subjectId != null) 'subject_id': subjectId,
+      if (relationType != null) 'relation_type': relationType,
+      if (objectId != null) 'object_id': objectId,
+      if (validFrom != null) 'valid_from': validFrom,
+      if (validUntil != null) 'valid_until': validUntil,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  KnowledgeRelationsCompanion copyWith({
+    Value<String>? subjectId,
+    Value<String>? relationType,
+    Value<String>? objectId,
+    Value<String>? validFrom,
+    Value<String?>? validUntil,
+    Value<int>? rowid,
+  }) {
+    return KnowledgeRelationsCompanion(
+      subjectId: subjectId ?? this.subjectId,
+      relationType: relationType ?? this.relationType,
+      objectId: objectId ?? this.objectId,
+      validFrom: validFrom ?? this.validFrom,
+      validUntil: validUntil ?? this.validUntil,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (subjectId.present) {
+      map['subject_id'] = Variable<String>(subjectId.value);
+    }
+    if (relationType.present) {
+      map['relation_type'] = Variable<String>(relationType.value);
+    }
+    if (objectId.present) {
+      map['object_id'] = Variable<String>(objectId.value);
+    }
+    if (validFrom.present) {
+      map['valid_from'] = Variable<String>(validFrom.value);
+    }
+    if (validUntil.present) {
+      map['valid_until'] = Variable<String>(validUntil.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('KnowledgeRelationsCompanion(')
+          ..write('subjectId: $subjectId, ')
+          ..write('relationType: $relationType, ')
+          ..write('objectId: $objectId, ')
+          ..write('validFrom: $validFrom, ')
+          ..write('validUntil: $validUntil, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class KnowledgeItems extends Table
+    with TableInfo<KnowledgeItems, KnowledgeItem> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  KnowledgeItems(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL PRIMARY KEY CHECK (id GLOB \'ki_?*\' AND id NOT GLOB \'*[^a-z0-9_]*\')',
+  );
+  static const VerificationMeta _subjectIdMeta = const VerificationMeta(
+    'subjectId',
+  );
+  late final GeneratedColumn<String> subjectId = GeneratedColumn<String>(
+    'subject_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL',
+  );
+  static const VerificationMeta _relationTypeMeta = const VerificationMeta(
+    'relationType',
+  );
+  late final GeneratedColumn<String> relationType = GeneratedColumn<String>(
+    'relation_type',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL',
+  );
+  static const VerificationMeta _objectIdMeta = const VerificationMeta(
+    'objectId',
+  );
+  late final GeneratedColumn<String> objectId = GeneratedColumn<String>(
+    'object_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL',
+  );
+  static const VerificationMeta _domainIdMeta = const VerificationMeta(
+    'domainId',
+  );
+  late final GeneratedColumn<String> domainId = GeneratedColumn<String>(
+    'domain_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL REFERENCES curriculum_domains(id)',
+  );
+  static const VerificationMeta _assertionTextMeta = const VerificationMeta(
+    'assertionText',
+  );
+  late final GeneratedColumn<String> assertionText = GeneratedColumn<String>(
+    'assertion_text',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL',
+  );
+  static const VerificationMeta _revisionMeta = const VerificationMeta(
+    'revision',
+  );
+  late final GeneratedColumn<int> revision = GeneratedColumn<int>(
+    'revision',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    $customConstraints: 'NOT NULL DEFAULT 1 CHECK (revision >= 1)',
+    defaultValue: const CustomExpression('1'),
+  );
+  static const VerificationMeta _lastVerifiedAtMeta = const VerificationMeta(
+    'lastVerifiedAt',
+  );
+  late final GeneratedColumn<DateTime> lastVerifiedAt =
+      GeneratedColumn<DateTime>(
+        'last_verified_at',
+        aliasedName,
+        false,
+        type: DriftSqlType.dateTime,
+        requiredDuringInsert: true,
+        $customConstraints: 'NOT NULL CHECK (strftime(\'%Y-%m-%dT%H:%M:%fZ\', last_verified_at) IS last_verified_at)',
+      );
+  static const VerificationMeta _verificationStatusMeta =
+      const VerificationMeta('verificationStatus');
+  late final GeneratedColumn<String> verificationStatus =
+      GeneratedColumn<String>(
+        'verification_status',
+        aliasedName,
+        false,
+        type: DriftSqlType.string,
+        requiredDuringInsert: false,
+        $customConstraints: 'NOT NULL DEFAULT \'unverified\' CHECK (verification_status IN (\'unverified\', \'verified\'))',
+        defaultValue: const CustomExpression('\'unverified\''),
+      );
+  static const VerificationMeta _supersededByItemIdMeta =
+      const VerificationMeta('supersededByItemId');
+  late final GeneratedColumn<String> supersededByItemId =
+      GeneratedColumn<String>(
+        'superseded_by_item_id',
+        aliasedName,
+        true,
+        type: DriftSqlType.string,
+        requiredDuringInsert: false,
+        $customConstraints: 'REFERENCES knowledge_items(id)',
+      );
+  static const VerificationMeta _isDistinctiveMeta = const VerificationMeta(
+    'isDistinctive',
+  );
+  late final GeneratedColumn<bool> isDistinctive = GeneratedColumn<bool>(
+    'is_distinctive',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    $customConstraints: 'NOT NULL DEFAULT 0 CHECK (is_distinctive IN (0, 1))',
+    defaultValue: const CustomExpression('0'),
+  );
+  static const VerificationMeta _mcqDisabledMeta = const VerificationMeta(
+    'mcqDisabled',
+  );
+  late final GeneratedColumn<bool> mcqDisabled = GeneratedColumn<bool>(
+    'mcq_disabled',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    $customConstraints: 'NOT NULL DEFAULT 0 CHECK (mcq_disabled IN (0, 1))',
+    defaultValue: const CustomExpression('0'),
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    subjectId,
+    relationType,
+    objectId,
+    domainId,
+    assertionText,
+    revision,
+    lastVerifiedAt,
+    verificationStatus,
+    supersededByItemId,
+    isDistinctive,
+    mcqDisabled,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'knowledge_items';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<KnowledgeItem> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('subject_id')) {
+      context.handle(
+        _subjectIdMeta,
+        subjectId.isAcceptableOrUnknown(data['subject_id']!, _subjectIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_subjectIdMeta);
+    }
+    if (data.containsKey('relation_type')) {
+      context.handle(
+        _relationTypeMeta,
+        relationType.isAcceptableOrUnknown(
+          data['relation_type']!,
+          _relationTypeMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_relationTypeMeta);
+    }
+    if (data.containsKey('object_id')) {
+      context.handle(
+        _objectIdMeta,
+        objectId.isAcceptableOrUnknown(data['object_id']!, _objectIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_objectIdMeta);
+    }
+    if (data.containsKey('domain_id')) {
+      context.handle(
+        _domainIdMeta,
+        domainId.isAcceptableOrUnknown(data['domain_id']!, _domainIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_domainIdMeta);
+    }
+    if (data.containsKey('assertion_text')) {
+      context.handle(
+        _assertionTextMeta,
+        assertionText.isAcceptableOrUnknown(
+          data['assertion_text']!,
+          _assertionTextMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_assertionTextMeta);
+    }
+    if (data.containsKey('revision')) {
+      context.handle(
+        _revisionMeta,
+        revision.isAcceptableOrUnknown(data['revision']!, _revisionMeta),
+      );
+    }
+    if (data.containsKey('last_verified_at')) {
+      context.handle(
+        _lastVerifiedAtMeta,
+        lastVerifiedAt.isAcceptableOrUnknown(
+          data['last_verified_at']!,
+          _lastVerifiedAtMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_lastVerifiedAtMeta);
+    }
+    if (data.containsKey('verification_status')) {
+      context.handle(
+        _verificationStatusMeta,
+        verificationStatus.isAcceptableOrUnknown(
+          data['verification_status']!,
+          _verificationStatusMeta,
+        ),
+      );
+    }
+    if (data.containsKey('superseded_by_item_id')) {
+      context.handle(
+        _supersededByItemIdMeta,
+        supersededByItemId.isAcceptableOrUnknown(
+          data['superseded_by_item_id']!,
+          _supersededByItemIdMeta,
+        ),
+      );
+    }
+    if (data.containsKey('is_distinctive')) {
+      context.handle(
+        _isDistinctiveMeta,
+        isDistinctive.isAcceptableOrUnknown(
+          data['is_distinctive']!,
+          _isDistinctiveMeta,
+        ),
+      );
+    }
+    if (data.containsKey('mcq_disabled')) {
+      context.handle(
+        _mcqDisabledMeta,
+        mcqDisabled.isAcceptableOrUnknown(
+          data['mcq_disabled']!,
+          _mcqDisabledMeta,
+        ),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  List<Set<GeneratedColumn>> get uniqueKeys => [
+    {subjectId, relationType, objectId},
+    {id, relationType},
+  ];
+  @override
+  KnowledgeItem map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return KnowledgeItem(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      subjectId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}subject_id'],
+      )!,
+      relationType: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}relation_type'],
+      )!,
+      objectId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}object_id'],
+      )!,
+      domainId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}domain_id'],
+      )!,
+      assertionText: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}assertion_text'],
+      )!,
+      revision: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}revision'],
+      )!,
+      lastVerifiedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}last_verified_at'],
+      )!,
+      verificationStatus: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}verification_status'],
+      )!,
+      supersededByItemId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}superseded_by_item_id'],
+      ),
+      isDistinctive: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}is_distinctive'],
+      )!,
+      mcqDisabled: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}mcq_disabled'],
+      )!,
+    );
+  }
+
+  @override
+  KnowledgeItems createAlias(String alias) {
+    return KnowledgeItems(attachedDatabase, alias);
+  }
+
+  @override
+  List<String> get customConstraints => const [
+    'UNIQUE(subject_id, relation_type, object_id)',
+    'UNIQUE(id, relation_type)',
+    'FOREIGN KEY(subject_id, relation_type, object_id)REFERENCES knowledge_relations(subject_id, relation_type, object_id)',
+    'CHECK(superseded_by_item_id IS NOT id)',
+  ];
+  @override
+  bool get dontWriteConstraints => true;
+}
+
+class KnowledgeItem extends DataClass implements Insertable<KnowledgeItem> {
+  final String id;
+  final String subjectId;
+  final String relationType;
+  final String objectId;
+  final String domainId;
+  final String assertionText;
+  final int revision;
+  final DateTime lastVerifiedAt;
+  final String verificationStatus;
+  final String? supersededByItemId;
+  final bool isDistinctive;
+  final bool mcqDisabled;
+  const KnowledgeItem({
+    required this.id,
+    required this.subjectId,
+    required this.relationType,
+    required this.objectId,
+    required this.domainId,
+    required this.assertionText,
+    required this.revision,
+    required this.lastVerifiedAt,
+    required this.verificationStatus,
+    this.supersededByItemId,
+    required this.isDistinctive,
+    required this.mcqDisabled,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    map['subject_id'] = Variable<String>(subjectId);
+    map['relation_type'] = Variable<String>(relationType);
+    map['object_id'] = Variable<String>(objectId);
+    map['domain_id'] = Variable<String>(domainId);
+    map['assertion_text'] = Variable<String>(assertionText);
+    map['revision'] = Variable<int>(revision);
+    map['last_verified_at'] = Variable<DateTime>(lastVerifiedAt);
+    map['verification_status'] = Variable<String>(verificationStatus);
+    if (!nullToAbsent || supersededByItemId != null) {
+      map['superseded_by_item_id'] = Variable<String>(supersededByItemId);
+    }
+    map['is_distinctive'] = Variable<bool>(isDistinctive);
+    map['mcq_disabled'] = Variable<bool>(mcqDisabled);
+    return map;
+  }
+
+  KnowledgeItemsCompanion toCompanion(bool nullToAbsent) {
+    return KnowledgeItemsCompanion(
+      id: Value(id),
+      subjectId: Value(subjectId),
+      relationType: Value(relationType),
+      objectId: Value(objectId),
+      domainId: Value(domainId),
+      assertionText: Value(assertionText),
+      revision: Value(revision),
+      lastVerifiedAt: Value(lastVerifiedAt),
+      verificationStatus: Value(verificationStatus),
+      supersededByItemId: supersededByItemId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(supersededByItemId),
+      isDistinctive: Value(isDistinctive),
+      mcqDisabled: Value(mcqDisabled),
+    );
+  }
+
+  factory KnowledgeItem.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return KnowledgeItem(
+      id: serializer.fromJson<String>(json['id']),
+      subjectId: serializer.fromJson<String>(json['subject_id']),
+      relationType: serializer.fromJson<String>(json['relation_type']),
+      objectId: serializer.fromJson<String>(json['object_id']),
+      domainId: serializer.fromJson<String>(json['domain_id']),
+      assertionText: serializer.fromJson<String>(json['assertion_text']),
+      revision: serializer.fromJson<int>(json['revision']),
+      lastVerifiedAt: serializer.fromJson<DateTime>(json['last_verified_at']),
+      verificationStatus: serializer.fromJson<String>(
+        json['verification_status'],
+      ),
+      supersededByItemId: serializer.fromJson<String?>(
+        json['superseded_by_item_id'],
+      ),
+      isDistinctive: serializer.fromJson<bool>(json['is_distinctive']),
+      mcqDisabled: serializer.fromJson<bool>(json['mcq_disabled']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'subject_id': serializer.toJson<String>(subjectId),
+      'relation_type': serializer.toJson<String>(relationType),
+      'object_id': serializer.toJson<String>(objectId),
+      'domain_id': serializer.toJson<String>(domainId),
+      'assertion_text': serializer.toJson<String>(assertionText),
+      'revision': serializer.toJson<int>(revision),
+      'last_verified_at': serializer.toJson<DateTime>(lastVerifiedAt),
+      'verification_status': serializer.toJson<String>(verificationStatus),
+      'superseded_by_item_id': serializer.toJson<String?>(supersededByItemId),
+      'is_distinctive': serializer.toJson<bool>(isDistinctive),
+      'mcq_disabled': serializer.toJson<bool>(mcqDisabled),
+    };
+  }
+
+  KnowledgeItem copyWith({
+    String? id,
+    String? subjectId,
+    String? relationType,
+    String? objectId,
+    String? domainId,
+    String? assertionText,
+    int? revision,
+    DateTime? lastVerifiedAt,
+    String? verificationStatus,
+    Value<String?> supersededByItemId = const Value.absent(),
+    bool? isDistinctive,
+    bool? mcqDisabled,
+  }) => KnowledgeItem(
+    id: id ?? this.id,
+    subjectId: subjectId ?? this.subjectId,
+    relationType: relationType ?? this.relationType,
+    objectId: objectId ?? this.objectId,
+    domainId: domainId ?? this.domainId,
+    assertionText: assertionText ?? this.assertionText,
+    revision: revision ?? this.revision,
+    lastVerifiedAt: lastVerifiedAt ?? this.lastVerifiedAt,
+    verificationStatus: verificationStatus ?? this.verificationStatus,
+    supersededByItemId: supersededByItemId.present
+        ? supersededByItemId.value
+        : this.supersededByItemId,
+    isDistinctive: isDistinctive ?? this.isDistinctive,
+    mcqDisabled: mcqDisabled ?? this.mcqDisabled,
+  );
+  KnowledgeItem copyWithCompanion(KnowledgeItemsCompanion data) {
+    return KnowledgeItem(
+      id: data.id.present ? data.id.value : this.id,
+      subjectId: data.subjectId.present ? data.subjectId.value : this.subjectId,
+      relationType: data.relationType.present
+          ? data.relationType.value
+          : this.relationType,
+      objectId: data.objectId.present ? data.objectId.value : this.objectId,
+      domainId: data.domainId.present ? data.domainId.value : this.domainId,
+      assertionText: data.assertionText.present
+          ? data.assertionText.value
+          : this.assertionText,
+      revision: data.revision.present ? data.revision.value : this.revision,
+      lastVerifiedAt: data.lastVerifiedAt.present
+          ? data.lastVerifiedAt.value
+          : this.lastVerifiedAt,
+      verificationStatus: data.verificationStatus.present
+          ? data.verificationStatus.value
+          : this.verificationStatus,
+      supersededByItemId: data.supersededByItemId.present
+          ? data.supersededByItemId.value
+          : this.supersededByItemId,
+      isDistinctive: data.isDistinctive.present
+          ? data.isDistinctive.value
+          : this.isDistinctive,
+      mcqDisabled: data.mcqDisabled.present
+          ? data.mcqDisabled.value
+          : this.mcqDisabled,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('KnowledgeItem(')
+          ..write('id: $id, ')
+          ..write('subjectId: $subjectId, ')
+          ..write('relationType: $relationType, ')
+          ..write('objectId: $objectId, ')
+          ..write('domainId: $domainId, ')
+          ..write('assertionText: $assertionText, ')
+          ..write('revision: $revision, ')
+          ..write('lastVerifiedAt: $lastVerifiedAt, ')
+          ..write('verificationStatus: $verificationStatus, ')
+          ..write('supersededByItemId: $supersededByItemId, ')
+          ..write('isDistinctive: $isDistinctive, ')
+          ..write('mcqDisabled: $mcqDisabled')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    subjectId,
+    relationType,
+    objectId,
+    domainId,
+    assertionText,
+    revision,
+    lastVerifiedAt,
+    verificationStatus,
+    supersededByItemId,
+    isDistinctive,
+    mcqDisabled,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is KnowledgeItem &&
+          other.id == this.id &&
+          other.subjectId == this.subjectId &&
+          other.relationType == this.relationType &&
+          other.objectId == this.objectId &&
+          other.domainId == this.domainId &&
+          other.assertionText == this.assertionText &&
+          other.revision == this.revision &&
+          other.lastVerifiedAt == this.lastVerifiedAt &&
+          other.verificationStatus == this.verificationStatus &&
+          other.supersededByItemId == this.supersededByItemId &&
+          other.isDistinctive == this.isDistinctive &&
+          other.mcqDisabled == this.mcqDisabled);
+}
+
+class KnowledgeItemsCompanion extends UpdateCompanion<KnowledgeItem> {
+  final Value<String> id;
+  final Value<String> subjectId;
+  final Value<String> relationType;
+  final Value<String> objectId;
+  final Value<String> domainId;
+  final Value<String> assertionText;
+  final Value<int> revision;
+  final Value<DateTime> lastVerifiedAt;
+  final Value<String> verificationStatus;
+  final Value<String?> supersededByItemId;
+  final Value<bool> isDistinctive;
+  final Value<bool> mcqDisabled;
+  final Value<int> rowid;
+  const KnowledgeItemsCompanion({
+    this.id = const Value.absent(),
+    this.subjectId = const Value.absent(),
+    this.relationType = const Value.absent(),
+    this.objectId = const Value.absent(),
+    this.domainId = const Value.absent(),
+    this.assertionText = const Value.absent(),
+    this.revision = const Value.absent(),
+    this.lastVerifiedAt = const Value.absent(),
+    this.verificationStatus = const Value.absent(),
+    this.supersededByItemId = const Value.absent(),
+    this.isDistinctive = const Value.absent(),
+    this.mcqDisabled = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  KnowledgeItemsCompanion.insert({
+    required String id,
+    required String subjectId,
+    required String relationType,
+    required String objectId,
+    required String domainId,
+    required String assertionText,
+    this.revision = const Value.absent(),
+    required DateTime lastVerifiedAt,
+    this.verificationStatus = const Value.absent(),
+    this.supersededByItemId = const Value.absent(),
+    this.isDistinctive = const Value.absent(),
+    this.mcqDisabled = const Value.absent(),
+    this.rowid = const Value.absent(),
+  }) : id = Value(id),
+       subjectId = Value(subjectId),
+       relationType = Value(relationType),
+       objectId = Value(objectId),
+       domainId = Value(domainId),
+       assertionText = Value(assertionText),
+       lastVerifiedAt = Value(lastVerifiedAt);
+  static Insertable<KnowledgeItem> custom({
+    Expression<String>? id,
+    Expression<String>? subjectId,
+    Expression<String>? relationType,
+    Expression<String>? objectId,
+    Expression<String>? domainId,
+    Expression<String>? assertionText,
+    Expression<int>? revision,
+    Expression<DateTime>? lastVerifiedAt,
+    Expression<String>? verificationStatus,
+    Expression<String>? supersededByItemId,
+    Expression<bool>? isDistinctive,
+    Expression<bool>? mcqDisabled,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (subjectId != null) 'subject_id': subjectId,
+      if (relationType != null) 'relation_type': relationType,
+      if (objectId != null) 'object_id': objectId,
+      if (domainId != null) 'domain_id': domainId,
+      if (assertionText != null) 'assertion_text': assertionText,
+      if (revision != null) 'revision': revision,
+      if (lastVerifiedAt != null) 'last_verified_at': lastVerifiedAt,
+      if (verificationStatus != null) 'verification_status': verificationStatus,
+      if (supersededByItemId != null)
+        'superseded_by_item_id': supersededByItemId,
+      if (isDistinctive != null) 'is_distinctive': isDistinctive,
+      if (mcqDisabled != null) 'mcq_disabled': mcqDisabled,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  KnowledgeItemsCompanion copyWith({
+    Value<String>? id,
+    Value<String>? subjectId,
+    Value<String>? relationType,
+    Value<String>? objectId,
+    Value<String>? domainId,
+    Value<String>? assertionText,
+    Value<int>? revision,
+    Value<DateTime>? lastVerifiedAt,
+    Value<String>? verificationStatus,
+    Value<String?>? supersededByItemId,
+    Value<bool>? isDistinctive,
+    Value<bool>? mcqDisabled,
+    Value<int>? rowid,
+  }) {
+    return KnowledgeItemsCompanion(
+      id: id ?? this.id,
+      subjectId: subjectId ?? this.subjectId,
+      relationType: relationType ?? this.relationType,
+      objectId: objectId ?? this.objectId,
+      domainId: domainId ?? this.domainId,
+      assertionText: assertionText ?? this.assertionText,
+      revision: revision ?? this.revision,
+      lastVerifiedAt: lastVerifiedAt ?? this.lastVerifiedAt,
+      verificationStatus: verificationStatus ?? this.verificationStatus,
+      supersededByItemId: supersededByItemId ?? this.supersededByItemId,
+      isDistinctive: isDistinctive ?? this.isDistinctive,
+      mcqDisabled: mcqDisabled ?? this.mcqDisabled,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (subjectId.present) {
+      map['subject_id'] = Variable<String>(subjectId.value);
+    }
+    if (relationType.present) {
+      map['relation_type'] = Variable<String>(relationType.value);
+    }
+    if (objectId.present) {
+      map['object_id'] = Variable<String>(objectId.value);
+    }
+    if (domainId.present) {
+      map['domain_id'] = Variable<String>(domainId.value);
+    }
+    if (assertionText.present) {
+      map['assertion_text'] = Variable<String>(assertionText.value);
+    }
+    if (revision.present) {
+      map['revision'] = Variable<int>(revision.value);
+    }
+    if (lastVerifiedAt.present) {
+      map['last_verified_at'] = Variable<DateTime>(lastVerifiedAt.value);
+    }
+    if (verificationStatus.present) {
+      map['verification_status'] = Variable<String>(verificationStatus.value);
+    }
+    if (supersededByItemId.present) {
+      map['superseded_by_item_id'] = Variable<String>(supersededByItemId.value);
+    }
+    if (isDistinctive.present) {
+      map['is_distinctive'] = Variable<bool>(isDistinctive.value);
+    }
+    if (mcqDisabled.present) {
+      map['mcq_disabled'] = Variable<bool>(mcqDisabled.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('KnowledgeItemsCompanion(')
+          ..write('id: $id, ')
+          ..write('subjectId: $subjectId, ')
+          ..write('relationType: $relationType, ')
+          ..write('objectId: $objectId, ')
+          ..write('domainId: $domainId, ')
+          ..write('assertionText: $assertionText, ')
+          ..write('revision: $revision, ')
+          ..write('lastVerifiedAt: $lastVerifiedAt, ')
+          ..write('verificationStatus: $verificationStatus, ')
+          ..write('supersededByItemId: $supersededByItemId, ')
+          ..write('isDistinctive: $isDistinctive, ')
+          ..write('mcqDisabled: $mcqDisabled, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class KnowledgeItemPrerequisites extends Table
+    with TableInfo<KnowledgeItemPrerequisites, KnowledgeItemPrerequisite> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  KnowledgeItemPrerequisites(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _knowledgeItemIdMeta = const VerificationMeta(
+    'knowledgeItemId',
+  );
+  late final GeneratedColumn<String> knowledgeItemId = GeneratedColumn<String>(
+    'knowledge_item_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL REFERENCES knowledge_items(id)',
+  );
+  static const VerificationMeta _prerequisiteItemIdMeta =
+      const VerificationMeta('prerequisiteItemId');
+  late final GeneratedColumn<String> prerequisiteItemId =
+      GeneratedColumn<String>(
+        'prerequisite_item_id',
+        aliasedName,
+        false,
+        type: DriftSqlType.string,
+        requiredDuringInsert: true,
+        $customConstraints: 'NOT NULL REFERENCES knowledge_items(id)',
+      );
+  @override
+  List<GeneratedColumn> get $columns => [knowledgeItemId, prerequisiteItemId];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'knowledge_item_prerequisites';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<KnowledgeItemPrerequisite> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('knowledge_item_id')) {
+      context.handle(
+        _knowledgeItemIdMeta,
+        knowledgeItemId.isAcceptableOrUnknown(
+          data['knowledge_item_id']!,
+          _knowledgeItemIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_knowledgeItemIdMeta);
+    }
+    if (data.containsKey('prerequisite_item_id')) {
+      context.handle(
+        _prerequisiteItemIdMeta,
+        prerequisiteItemId.isAcceptableOrUnknown(
+          data['prerequisite_item_id']!,
+          _prerequisiteItemIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_prerequisiteItemIdMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {knowledgeItemId, prerequisiteItemId};
+  @override
+  KnowledgeItemPrerequisite map(
+    Map<String, dynamic> data, {
+    String? tablePrefix,
+  }) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return KnowledgeItemPrerequisite(
+      knowledgeItemId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}knowledge_item_id'],
+      )!,
+      prerequisiteItemId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}prerequisite_item_id'],
+      )!,
+    );
+  }
+
+  @override
+  KnowledgeItemPrerequisites createAlias(String alias) {
+    return KnowledgeItemPrerequisites(attachedDatabase, alias);
+  }
+
+  @override
+  List<String> get customConstraints => const [
+    'PRIMARY KEY(knowledge_item_id, prerequisite_item_id)',
+    'CHECK(knowledge_item_id <> prerequisite_item_id)',
+  ];
+  @override
+  bool get dontWriteConstraints => true;
+}
+
+class KnowledgeItemPrerequisite extends DataClass
+    implements Insertable<KnowledgeItemPrerequisite> {
+  final String knowledgeItemId;
+  final String prerequisiteItemId;
+  const KnowledgeItemPrerequisite({
+    required this.knowledgeItemId,
+    required this.prerequisiteItemId,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['knowledge_item_id'] = Variable<String>(knowledgeItemId);
+    map['prerequisite_item_id'] = Variable<String>(prerequisiteItemId);
+    return map;
+  }
+
+  KnowledgeItemPrerequisitesCompanion toCompanion(bool nullToAbsent) {
+    return KnowledgeItemPrerequisitesCompanion(
+      knowledgeItemId: Value(knowledgeItemId),
+      prerequisiteItemId: Value(prerequisiteItemId),
+    );
+  }
+
+  factory KnowledgeItemPrerequisite.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return KnowledgeItemPrerequisite(
+      knowledgeItemId: serializer.fromJson<String>(json['knowledge_item_id']),
+      prerequisiteItemId: serializer.fromJson<String>(
+        json['prerequisite_item_id'],
+      ),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'knowledge_item_id': serializer.toJson<String>(knowledgeItemId),
+      'prerequisite_item_id': serializer.toJson<String>(prerequisiteItemId),
+    };
+  }
+
+  KnowledgeItemPrerequisite copyWith({
+    String? knowledgeItemId,
+    String? prerequisiteItemId,
+  }) => KnowledgeItemPrerequisite(
+    knowledgeItemId: knowledgeItemId ?? this.knowledgeItemId,
+    prerequisiteItemId: prerequisiteItemId ?? this.prerequisiteItemId,
+  );
+  KnowledgeItemPrerequisite copyWithCompanion(
+    KnowledgeItemPrerequisitesCompanion data,
+  ) {
+    return KnowledgeItemPrerequisite(
+      knowledgeItemId: data.knowledgeItemId.present
+          ? data.knowledgeItemId.value
+          : this.knowledgeItemId,
+      prerequisiteItemId: data.prerequisiteItemId.present
+          ? data.prerequisiteItemId.value
+          : this.prerequisiteItemId,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('KnowledgeItemPrerequisite(')
+          ..write('knowledgeItemId: $knowledgeItemId, ')
+          ..write('prerequisiteItemId: $prerequisiteItemId')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(knowledgeItemId, prerequisiteItemId);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is KnowledgeItemPrerequisite &&
+          other.knowledgeItemId == this.knowledgeItemId &&
+          other.prerequisiteItemId == this.prerequisiteItemId);
+}
+
+class KnowledgeItemPrerequisitesCompanion
+    extends UpdateCompanion<KnowledgeItemPrerequisite> {
+  final Value<String> knowledgeItemId;
+  final Value<String> prerequisiteItemId;
+  final Value<int> rowid;
+  const KnowledgeItemPrerequisitesCompanion({
+    this.knowledgeItemId = const Value.absent(),
+    this.prerequisiteItemId = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  KnowledgeItemPrerequisitesCompanion.insert({
+    required String knowledgeItemId,
+    required String prerequisiteItemId,
+    this.rowid = const Value.absent(),
+  }) : knowledgeItemId = Value(knowledgeItemId),
+       prerequisiteItemId = Value(prerequisiteItemId);
+  static Insertable<KnowledgeItemPrerequisite> custom({
+    Expression<String>? knowledgeItemId,
+    Expression<String>? prerequisiteItemId,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (knowledgeItemId != null) 'knowledge_item_id': knowledgeItemId,
+      if (prerequisiteItemId != null)
+        'prerequisite_item_id': prerequisiteItemId,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  KnowledgeItemPrerequisitesCompanion copyWith({
+    Value<String>? knowledgeItemId,
+    Value<String>? prerequisiteItemId,
+    Value<int>? rowid,
+  }) {
+    return KnowledgeItemPrerequisitesCompanion(
+      knowledgeItemId: knowledgeItemId ?? this.knowledgeItemId,
+      prerequisiteItemId: prerequisiteItemId ?? this.prerequisiteItemId,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (knowledgeItemId.present) {
+      map['knowledge_item_id'] = Variable<String>(knowledgeItemId.value);
+    }
+    if (prerequisiteItemId.present) {
+      map['prerequisite_item_id'] = Variable<String>(prerequisiteItemId.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('KnowledgeItemPrerequisitesCompanion(')
+          ..write('knowledgeItemId: $knowledgeItemId, ')
+          ..write('prerequisiteItemId: $prerequisiteItemId, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class CertificationKnowledgeMappings extends Table
+    with
+        TableInfo<
+          CertificationKnowledgeMappings,
+          CertificationKnowledgeMapping
+        > {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  CertificationKnowledgeMappings(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _certificationIdMeta = const VerificationMeta(
+    'certificationId',
+  );
+  late final GeneratedColumn<String> certificationId = GeneratedColumn<String>(
+    'certification_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL REFERENCES certifications(id)',
+  );
+  static const VerificationMeta _knowledgeItemIdMeta = const VerificationMeta(
+    'knowledgeItemId',
+  );
+  late final GeneratedColumn<String> knowledgeItemId = GeneratedColumn<String>(
+    'knowledge_item_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL REFERENCES knowledge_items(id)',
+  );
+  static const VerificationMeta _importanceMeta = const VerificationMeta(
+    'importance',
+  );
+  late final GeneratedColumn<String> importance = GeneratedColumn<String>(
+    'importance',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL CHECK (importance IN (\'core\', \'secondary\', \'tertiary\'))',
+  );
+  static const VerificationMeta _minimumDepthMeta = const VerificationMeta(
+    'minimumDepth',
+  );
+  late final GeneratedColumn<int> minimumDepth = GeneratedColumn<int>(
+    'minimum_depth',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL CHECK (minimum_depth BETWEEN 1 AND 5)',
+  );
+  static const VerificationMeta _syllabusRefMeta = const VerificationMeta(
+    'syllabusRef',
+  );
+  late final GeneratedColumn<String> syllabusRef = GeneratedColumn<String>(
+    'syllabus_ref',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    $customConstraints: '',
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    certificationId,
+    knowledgeItemId,
+    importance,
+    minimumDepth,
+    syllabusRef,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'certification_knowledge_mappings';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<CertificationKnowledgeMapping> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('certification_id')) {
+      context.handle(
+        _certificationIdMeta,
+        certificationId.isAcceptableOrUnknown(
+          data['certification_id']!,
+          _certificationIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_certificationIdMeta);
+    }
+    if (data.containsKey('knowledge_item_id')) {
+      context.handle(
+        _knowledgeItemIdMeta,
+        knowledgeItemId.isAcceptableOrUnknown(
+          data['knowledge_item_id']!,
+          _knowledgeItemIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_knowledgeItemIdMeta);
+    }
+    if (data.containsKey('importance')) {
+      context.handle(
+        _importanceMeta,
+        importance.isAcceptableOrUnknown(data['importance']!, _importanceMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_importanceMeta);
+    }
+    if (data.containsKey('minimum_depth')) {
+      context.handle(
+        _minimumDepthMeta,
+        minimumDepth.isAcceptableOrUnknown(
+          data['minimum_depth']!,
+          _minimumDepthMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_minimumDepthMeta);
+    }
+    if (data.containsKey('syllabus_ref')) {
+      context.handle(
+        _syllabusRefMeta,
+        syllabusRef.isAcceptableOrUnknown(
+          data['syllabus_ref']!,
+          _syllabusRefMeta,
+        ),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {certificationId, knowledgeItemId};
+  @override
+  CertificationKnowledgeMapping map(
+    Map<String, dynamic> data, {
+    String? tablePrefix,
+  }) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return CertificationKnowledgeMapping(
+      certificationId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}certification_id'],
+      )!,
+      knowledgeItemId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}knowledge_item_id'],
+      )!,
+      importance: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}importance'],
+      )!,
+      minimumDepth: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}minimum_depth'],
+      )!,
+      syllabusRef: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}syllabus_ref'],
+      ),
+    );
+  }
+
+  @override
+  CertificationKnowledgeMappings createAlias(String alias) {
+    return CertificationKnowledgeMappings(attachedDatabase, alias);
+  }
+
+  @override
+  List<String> get customConstraints => const [
+    'PRIMARY KEY(certification_id, knowledge_item_id)',
+  ];
+  @override
+  bool get dontWriteConstraints => true;
+}
+
+class CertificationKnowledgeMapping extends DataClass
+    implements Insertable<CertificationKnowledgeMapping> {
+  final String certificationId;
+  final String knowledgeItemId;
+  final String importance;
+  final int minimumDepth;
+  final String? syllabusRef;
+  const CertificationKnowledgeMapping({
+    required this.certificationId,
+    required this.knowledgeItemId,
+    required this.importance,
+    required this.minimumDepth,
+    this.syllabusRef,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['certification_id'] = Variable<String>(certificationId);
+    map['knowledge_item_id'] = Variable<String>(knowledgeItemId);
+    map['importance'] = Variable<String>(importance);
+    map['minimum_depth'] = Variable<int>(minimumDepth);
+    if (!nullToAbsent || syllabusRef != null) {
+      map['syllabus_ref'] = Variable<String>(syllabusRef);
+    }
+    return map;
+  }
+
+  CertificationKnowledgeMappingsCompanion toCompanion(bool nullToAbsent) {
+    return CertificationKnowledgeMappingsCompanion(
+      certificationId: Value(certificationId),
+      knowledgeItemId: Value(knowledgeItemId),
+      importance: Value(importance),
+      minimumDepth: Value(minimumDepth),
+      syllabusRef: syllabusRef == null && nullToAbsent
+          ? const Value.absent()
+          : Value(syllabusRef),
+    );
+  }
+
+  factory CertificationKnowledgeMapping.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return CertificationKnowledgeMapping(
+      certificationId: serializer.fromJson<String>(json['certification_id']),
+      knowledgeItemId: serializer.fromJson<String>(json['knowledge_item_id']),
+      importance: serializer.fromJson<String>(json['importance']),
+      minimumDepth: serializer.fromJson<int>(json['minimum_depth']),
+      syllabusRef: serializer.fromJson<String?>(json['syllabus_ref']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'certification_id': serializer.toJson<String>(certificationId),
+      'knowledge_item_id': serializer.toJson<String>(knowledgeItemId),
+      'importance': serializer.toJson<String>(importance),
+      'minimum_depth': serializer.toJson<int>(minimumDepth),
+      'syllabus_ref': serializer.toJson<String?>(syllabusRef),
+    };
+  }
+
+  CertificationKnowledgeMapping copyWith({
+    String? certificationId,
+    String? knowledgeItemId,
+    String? importance,
+    int? minimumDepth,
+    Value<String?> syllabusRef = const Value.absent(),
+  }) => CertificationKnowledgeMapping(
+    certificationId: certificationId ?? this.certificationId,
+    knowledgeItemId: knowledgeItemId ?? this.knowledgeItemId,
+    importance: importance ?? this.importance,
+    minimumDepth: minimumDepth ?? this.minimumDepth,
+    syllabusRef: syllabusRef.present ? syllabusRef.value : this.syllabusRef,
+  );
+  CertificationKnowledgeMapping copyWithCompanion(
+    CertificationKnowledgeMappingsCompanion data,
+  ) {
+    return CertificationKnowledgeMapping(
+      certificationId: data.certificationId.present
+          ? data.certificationId.value
+          : this.certificationId,
+      knowledgeItemId: data.knowledgeItemId.present
+          ? data.knowledgeItemId.value
+          : this.knowledgeItemId,
+      importance: data.importance.present
+          ? data.importance.value
+          : this.importance,
+      minimumDepth: data.minimumDepth.present
+          ? data.minimumDepth.value
+          : this.minimumDepth,
+      syllabusRef: data.syllabusRef.present
+          ? data.syllabusRef.value
+          : this.syllabusRef,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('CertificationKnowledgeMapping(')
+          ..write('certificationId: $certificationId, ')
+          ..write('knowledgeItemId: $knowledgeItemId, ')
+          ..write('importance: $importance, ')
+          ..write('minimumDepth: $minimumDepth, ')
+          ..write('syllabusRef: $syllabusRef')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    certificationId,
+    knowledgeItemId,
+    importance,
+    minimumDepth,
+    syllabusRef,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is CertificationKnowledgeMapping &&
+          other.certificationId == this.certificationId &&
+          other.knowledgeItemId == this.knowledgeItemId &&
+          other.importance == this.importance &&
+          other.minimumDepth == this.minimumDepth &&
+          other.syllabusRef == this.syllabusRef);
+}
+
+class CertificationKnowledgeMappingsCompanion
+    extends UpdateCompanion<CertificationKnowledgeMapping> {
+  final Value<String> certificationId;
+  final Value<String> knowledgeItemId;
+  final Value<String> importance;
+  final Value<int> minimumDepth;
+  final Value<String?> syllabusRef;
+  final Value<int> rowid;
+  const CertificationKnowledgeMappingsCompanion({
+    this.certificationId = const Value.absent(),
+    this.knowledgeItemId = const Value.absent(),
+    this.importance = const Value.absent(),
+    this.minimumDepth = const Value.absent(),
+    this.syllabusRef = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  CertificationKnowledgeMappingsCompanion.insert({
+    required String certificationId,
+    required String knowledgeItemId,
+    required String importance,
+    required int minimumDepth,
+    this.syllabusRef = const Value.absent(),
+    this.rowid = const Value.absent(),
+  }) : certificationId = Value(certificationId),
+       knowledgeItemId = Value(knowledgeItemId),
+       importance = Value(importance),
+       minimumDepth = Value(minimumDepth);
+  static Insertable<CertificationKnowledgeMapping> custom({
+    Expression<String>? certificationId,
+    Expression<String>? knowledgeItemId,
+    Expression<String>? importance,
+    Expression<int>? minimumDepth,
+    Expression<String>? syllabusRef,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (certificationId != null) 'certification_id': certificationId,
+      if (knowledgeItemId != null) 'knowledge_item_id': knowledgeItemId,
+      if (importance != null) 'importance': importance,
+      if (minimumDepth != null) 'minimum_depth': minimumDepth,
+      if (syllabusRef != null) 'syllabus_ref': syllabusRef,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  CertificationKnowledgeMappingsCompanion copyWith({
+    Value<String>? certificationId,
+    Value<String>? knowledgeItemId,
+    Value<String>? importance,
+    Value<int>? minimumDepth,
+    Value<String?>? syllabusRef,
+    Value<int>? rowid,
+  }) {
+    return CertificationKnowledgeMappingsCompanion(
+      certificationId: certificationId ?? this.certificationId,
+      knowledgeItemId: knowledgeItemId ?? this.knowledgeItemId,
+      importance: importance ?? this.importance,
+      minimumDepth: minimumDepth ?? this.minimumDepth,
+      syllabusRef: syllabusRef ?? this.syllabusRef,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (certificationId.present) {
+      map['certification_id'] = Variable<String>(certificationId.value);
+    }
+    if (knowledgeItemId.present) {
+      map['knowledge_item_id'] = Variable<String>(knowledgeItemId.value);
+    }
+    if (importance.present) {
+      map['importance'] = Variable<String>(importance.value);
+    }
+    if (minimumDepth.present) {
+      map['minimum_depth'] = Variable<int>(minimumDepth.value);
+    }
+    if (syllabusRef.present) {
+      map['syllabus_ref'] = Variable<String>(syllabusRef.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('CertificationKnowledgeMappingsCompanion(')
+          ..write('certificationId: $certificationId, ')
+          ..write('knowledgeItemId: $knowledgeItemId, ')
+          ..write('importance: $importance, ')
+          ..write('minimumDepth: $minimumDepth, ')
+          ..write('syllabusRef: $syllabusRef, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class SourceCitations extends Table
+    with TableInfo<SourceCitations, SourceCitation> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  SourceCitations(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL PRIMARY KEY CHECK (id GLOB \'src_?*\' AND id NOT GLOB \'*[^a-z0-9_]*\')',
+  );
+  static const VerificationMeta _kindMeta = const VerificationMeta('kind');
+  late final GeneratedColumn<String> kind = GeneratedColumn<String>(
+    'kind',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL CHECK (kind IN (\'legislation\', \'regulator_register\', \'government_publication\', \'academic\', \'reference_work\', \'dataset\'))',
+  );
+  static const VerificationMeta _titleMeta = const VerificationMeta('title');
+  late final GeneratedColumn<String> title = GeneratedColumn<String>(
+    'title',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL',
+  );
+  static const VerificationMeta _publisherMeta = const VerificationMeta(
+    'publisher',
+  );
+  late final GeneratedColumn<String> publisher = GeneratedColumn<String>(
+    'publisher',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL',
+  );
+  static const VerificationMeta _jurisdictionMeta = const VerificationMeta(
+    'jurisdiction',
+  );
+  late final GeneratedColumn<String> jurisdiction = GeneratedColumn<String>(
+    'jurisdiction',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    $customConstraints: '',
+  );
+  static const VerificationMeta _documentIdentifierMeta =
+      const VerificationMeta('documentIdentifier');
+  late final GeneratedColumn<String> documentIdentifier =
+      GeneratedColumn<String>(
+        'document_identifier',
+        aliasedName,
+        true,
+        type: DriftSqlType.string,
+        requiredDuringInsert: false,
+        $customConstraints: '',
+      );
+  static const VerificationMeta _urlMeta = const VerificationMeta('url');
+  late final GeneratedColumn<String> url = GeneratedColumn<String>(
+    'url',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    $customConstraints: 'UNIQUE',
+  );
+  static const VerificationMeta _publishedOnMeta = const VerificationMeta(
+    'publishedOn',
+  );
+  late final GeneratedColumn<String> publishedOn = GeneratedColumn<String>(
+    'published_on',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    $customConstraints:
+        'CHECK (published_on IS NULL OR date(published_on) IS published_on)',
+  );
+  static const VerificationMeta _accessedOnMeta = const VerificationMeta(
+    'accessedOn',
+  );
+  late final GeneratedColumn<String> accessedOn = GeneratedColumn<String>(
+    'accessed_on',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL CHECK (date(accessed_on) IS accessed_on)',
+  );
+  static const VerificationMeta _licenseMeta = const VerificationMeta(
+    'license',
+  );
+  late final GeneratedColumn<String> license = GeneratedColumn<String>(
+    'license',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    $customConstraints: '',
+  );
+  static const VerificationMeta _attributionTextMeta = const VerificationMeta(
+    'attributionText',
+  );
+  late final GeneratedColumn<String> attributionText = GeneratedColumn<String>(
+    'attribution_text',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    $customConstraints: '',
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    kind,
+    title,
+    publisher,
+    jurisdiction,
+    documentIdentifier,
+    url,
+    publishedOn,
+    accessedOn,
+    license,
+    attributionText,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'source_citations';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<SourceCitation> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('kind')) {
+      context.handle(
+        _kindMeta,
+        kind.isAcceptableOrUnknown(data['kind']!, _kindMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_kindMeta);
+    }
+    if (data.containsKey('title')) {
+      context.handle(
+        _titleMeta,
+        title.isAcceptableOrUnknown(data['title']!, _titleMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_titleMeta);
+    }
+    if (data.containsKey('publisher')) {
+      context.handle(
+        _publisherMeta,
+        publisher.isAcceptableOrUnknown(data['publisher']!, _publisherMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_publisherMeta);
+    }
+    if (data.containsKey('jurisdiction')) {
+      context.handle(
+        _jurisdictionMeta,
+        jurisdiction.isAcceptableOrUnknown(
+          data['jurisdiction']!,
+          _jurisdictionMeta,
+        ),
+      );
+    }
+    if (data.containsKey('document_identifier')) {
+      context.handle(
+        _documentIdentifierMeta,
+        documentIdentifier.isAcceptableOrUnknown(
+          data['document_identifier']!,
+          _documentIdentifierMeta,
+        ),
+      );
+    }
+    if (data.containsKey('url')) {
+      context.handle(
+        _urlMeta,
+        url.isAcceptableOrUnknown(data['url']!, _urlMeta),
+      );
+    }
+    if (data.containsKey('published_on')) {
+      context.handle(
+        _publishedOnMeta,
+        publishedOn.isAcceptableOrUnknown(
+          data['published_on']!,
+          _publishedOnMeta,
+        ),
+      );
+    }
+    if (data.containsKey('accessed_on')) {
+      context.handle(
+        _accessedOnMeta,
+        accessedOn.isAcceptableOrUnknown(data['accessed_on']!, _accessedOnMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_accessedOnMeta);
+    }
+    if (data.containsKey('license')) {
+      context.handle(
+        _licenseMeta,
+        license.isAcceptableOrUnknown(data['license']!, _licenseMeta),
+      );
+    }
+    if (data.containsKey('attribution_text')) {
+      context.handle(
+        _attributionTextMeta,
+        attributionText.isAcceptableOrUnknown(
+          data['attribution_text']!,
+          _attributionTextMeta,
+        ),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  SourceCitation map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return SourceCitation(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      kind: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}kind'],
+      )!,
+      title: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}title'],
+      )!,
+      publisher: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}publisher'],
+      )!,
+      jurisdiction: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}jurisdiction'],
+      ),
+      documentIdentifier: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}document_identifier'],
+      ),
+      url: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}url'],
+      ),
+      publishedOn: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}published_on'],
+      ),
+      accessedOn: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}accessed_on'],
+      )!,
+      license: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}license'],
+      ),
+      attributionText: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}attribution_text'],
+      ),
+    );
+  }
+
+  @override
+  SourceCitations createAlias(String alias) {
+    return SourceCitations(attachedDatabase, alias);
+  }
+
+  @override
+  bool get dontWriteConstraints => true;
+}
+
+class SourceCitation extends DataClass implements Insertable<SourceCitation> {
+  final String id;
+  final String kind;
+  final String title;
+  final String publisher;
+  final String? jurisdiction;
+  final String? documentIdentifier;
+  final String? url;
+  final String? publishedOn;
+  final String accessedOn;
+  final String? license;
+  final String? attributionText;
+  const SourceCitation({
+    required this.id,
+    required this.kind,
+    required this.title,
+    required this.publisher,
+    this.jurisdiction,
+    this.documentIdentifier,
+    this.url,
+    this.publishedOn,
+    required this.accessedOn,
+    this.license,
+    this.attributionText,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    map['kind'] = Variable<String>(kind);
+    map['title'] = Variable<String>(title);
+    map['publisher'] = Variable<String>(publisher);
+    if (!nullToAbsent || jurisdiction != null) {
+      map['jurisdiction'] = Variable<String>(jurisdiction);
+    }
+    if (!nullToAbsent || documentIdentifier != null) {
+      map['document_identifier'] = Variable<String>(documentIdentifier);
+    }
+    if (!nullToAbsent || url != null) {
+      map['url'] = Variable<String>(url);
+    }
+    if (!nullToAbsent || publishedOn != null) {
+      map['published_on'] = Variable<String>(publishedOn);
+    }
+    map['accessed_on'] = Variable<String>(accessedOn);
+    if (!nullToAbsent || license != null) {
+      map['license'] = Variable<String>(license);
+    }
+    if (!nullToAbsent || attributionText != null) {
+      map['attribution_text'] = Variable<String>(attributionText);
+    }
+    return map;
+  }
+
+  SourceCitationsCompanion toCompanion(bool nullToAbsent) {
+    return SourceCitationsCompanion(
+      id: Value(id),
+      kind: Value(kind),
+      title: Value(title),
+      publisher: Value(publisher),
+      jurisdiction: jurisdiction == null && nullToAbsent
+          ? const Value.absent()
+          : Value(jurisdiction),
+      documentIdentifier: documentIdentifier == null && nullToAbsent
+          ? const Value.absent()
+          : Value(documentIdentifier),
+      url: url == null && nullToAbsent ? const Value.absent() : Value(url),
+      publishedOn: publishedOn == null && nullToAbsent
+          ? const Value.absent()
+          : Value(publishedOn),
+      accessedOn: Value(accessedOn),
+      license: license == null && nullToAbsent
+          ? const Value.absent()
+          : Value(license),
+      attributionText: attributionText == null && nullToAbsent
+          ? const Value.absent()
+          : Value(attributionText),
+    );
+  }
+
+  factory SourceCitation.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return SourceCitation(
+      id: serializer.fromJson<String>(json['id']),
+      kind: serializer.fromJson<String>(json['kind']),
+      title: serializer.fromJson<String>(json['title']),
+      publisher: serializer.fromJson<String>(json['publisher']),
+      jurisdiction: serializer.fromJson<String?>(json['jurisdiction']),
+      documentIdentifier: serializer.fromJson<String?>(
+        json['document_identifier'],
+      ),
+      url: serializer.fromJson<String?>(json['url']),
+      publishedOn: serializer.fromJson<String?>(json['published_on']),
+      accessedOn: serializer.fromJson<String>(json['accessed_on']),
+      license: serializer.fromJson<String?>(json['license']),
+      attributionText: serializer.fromJson<String?>(json['attribution_text']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'kind': serializer.toJson<String>(kind),
+      'title': serializer.toJson<String>(title),
+      'publisher': serializer.toJson<String>(publisher),
+      'jurisdiction': serializer.toJson<String?>(jurisdiction),
+      'document_identifier': serializer.toJson<String?>(documentIdentifier),
+      'url': serializer.toJson<String?>(url),
+      'published_on': serializer.toJson<String?>(publishedOn),
+      'accessed_on': serializer.toJson<String>(accessedOn),
+      'license': serializer.toJson<String?>(license),
+      'attribution_text': serializer.toJson<String?>(attributionText),
+    };
+  }
+
+  SourceCitation copyWith({
+    String? id,
+    String? kind,
+    String? title,
+    String? publisher,
+    Value<String?> jurisdiction = const Value.absent(),
+    Value<String?> documentIdentifier = const Value.absent(),
+    Value<String?> url = const Value.absent(),
+    Value<String?> publishedOn = const Value.absent(),
+    String? accessedOn,
+    Value<String?> license = const Value.absent(),
+    Value<String?> attributionText = const Value.absent(),
+  }) => SourceCitation(
+    id: id ?? this.id,
+    kind: kind ?? this.kind,
+    title: title ?? this.title,
+    publisher: publisher ?? this.publisher,
+    jurisdiction: jurisdiction.present ? jurisdiction.value : this.jurisdiction,
+    documentIdentifier: documentIdentifier.present
+        ? documentIdentifier.value
+        : this.documentIdentifier,
+    url: url.present ? url.value : this.url,
+    publishedOn: publishedOn.present ? publishedOn.value : this.publishedOn,
+    accessedOn: accessedOn ?? this.accessedOn,
+    license: license.present ? license.value : this.license,
+    attributionText: attributionText.present
+        ? attributionText.value
+        : this.attributionText,
+  );
+  SourceCitation copyWithCompanion(SourceCitationsCompanion data) {
+    return SourceCitation(
+      id: data.id.present ? data.id.value : this.id,
+      kind: data.kind.present ? data.kind.value : this.kind,
+      title: data.title.present ? data.title.value : this.title,
+      publisher: data.publisher.present ? data.publisher.value : this.publisher,
+      jurisdiction: data.jurisdiction.present
+          ? data.jurisdiction.value
+          : this.jurisdiction,
+      documentIdentifier: data.documentIdentifier.present
+          ? data.documentIdentifier.value
+          : this.documentIdentifier,
+      url: data.url.present ? data.url.value : this.url,
+      publishedOn: data.publishedOn.present
+          ? data.publishedOn.value
+          : this.publishedOn,
+      accessedOn: data.accessedOn.present
+          ? data.accessedOn.value
+          : this.accessedOn,
+      license: data.license.present ? data.license.value : this.license,
+      attributionText: data.attributionText.present
+          ? data.attributionText.value
+          : this.attributionText,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('SourceCitation(')
+          ..write('id: $id, ')
+          ..write('kind: $kind, ')
+          ..write('title: $title, ')
+          ..write('publisher: $publisher, ')
+          ..write('jurisdiction: $jurisdiction, ')
+          ..write('documentIdentifier: $documentIdentifier, ')
+          ..write('url: $url, ')
+          ..write('publishedOn: $publishedOn, ')
+          ..write('accessedOn: $accessedOn, ')
+          ..write('license: $license, ')
+          ..write('attributionText: $attributionText')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    kind,
+    title,
+    publisher,
+    jurisdiction,
+    documentIdentifier,
+    url,
+    publishedOn,
+    accessedOn,
+    license,
+    attributionText,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is SourceCitation &&
+          other.id == this.id &&
+          other.kind == this.kind &&
+          other.title == this.title &&
+          other.publisher == this.publisher &&
+          other.jurisdiction == this.jurisdiction &&
+          other.documentIdentifier == this.documentIdentifier &&
+          other.url == this.url &&
+          other.publishedOn == this.publishedOn &&
+          other.accessedOn == this.accessedOn &&
+          other.license == this.license &&
+          other.attributionText == this.attributionText);
+}
+
+class SourceCitationsCompanion extends UpdateCompanion<SourceCitation> {
+  final Value<String> id;
+  final Value<String> kind;
+  final Value<String> title;
+  final Value<String> publisher;
+  final Value<String?> jurisdiction;
+  final Value<String?> documentIdentifier;
+  final Value<String?> url;
+  final Value<String?> publishedOn;
+  final Value<String> accessedOn;
+  final Value<String?> license;
+  final Value<String?> attributionText;
+  final Value<int> rowid;
+  const SourceCitationsCompanion({
+    this.id = const Value.absent(),
+    this.kind = const Value.absent(),
+    this.title = const Value.absent(),
+    this.publisher = const Value.absent(),
+    this.jurisdiction = const Value.absent(),
+    this.documentIdentifier = const Value.absent(),
+    this.url = const Value.absent(),
+    this.publishedOn = const Value.absent(),
+    this.accessedOn = const Value.absent(),
+    this.license = const Value.absent(),
+    this.attributionText = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  SourceCitationsCompanion.insert({
+    required String id,
+    required String kind,
+    required String title,
+    required String publisher,
+    this.jurisdiction = const Value.absent(),
+    this.documentIdentifier = const Value.absent(),
+    this.url = const Value.absent(),
+    this.publishedOn = const Value.absent(),
+    required String accessedOn,
+    this.license = const Value.absent(),
+    this.attributionText = const Value.absent(),
+    this.rowid = const Value.absent(),
+  }) : id = Value(id),
+       kind = Value(kind),
+       title = Value(title),
+       publisher = Value(publisher),
+       accessedOn = Value(accessedOn);
+  static Insertable<SourceCitation> custom({
+    Expression<String>? id,
+    Expression<String>? kind,
+    Expression<String>? title,
+    Expression<String>? publisher,
+    Expression<String>? jurisdiction,
+    Expression<String>? documentIdentifier,
+    Expression<String>? url,
+    Expression<String>? publishedOn,
+    Expression<String>? accessedOn,
+    Expression<String>? license,
+    Expression<String>? attributionText,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (kind != null) 'kind': kind,
+      if (title != null) 'title': title,
+      if (publisher != null) 'publisher': publisher,
+      if (jurisdiction != null) 'jurisdiction': jurisdiction,
+      if (documentIdentifier != null) 'document_identifier': documentIdentifier,
+      if (url != null) 'url': url,
+      if (publishedOn != null) 'published_on': publishedOn,
+      if (accessedOn != null) 'accessed_on': accessedOn,
+      if (license != null) 'license': license,
+      if (attributionText != null) 'attribution_text': attributionText,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  SourceCitationsCompanion copyWith({
+    Value<String>? id,
+    Value<String>? kind,
+    Value<String>? title,
+    Value<String>? publisher,
+    Value<String?>? jurisdiction,
+    Value<String?>? documentIdentifier,
+    Value<String?>? url,
+    Value<String?>? publishedOn,
+    Value<String>? accessedOn,
+    Value<String?>? license,
+    Value<String?>? attributionText,
+    Value<int>? rowid,
+  }) {
+    return SourceCitationsCompanion(
+      id: id ?? this.id,
+      kind: kind ?? this.kind,
+      title: title ?? this.title,
+      publisher: publisher ?? this.publisher,
+      jurisdiction: jurisdiction ?? this.jurisdiction,
+      documentIdentifier: documentIdentifier ?? this.documentIdentifier,
+      url: url ?? this.url,
+      publishedOn: publishedOn ?? this.publishedOn,
+      accessedOn: accessedOn ?? this.accessedOn,
+      license: license ?? this.license,
+      attributionText: attributionText ?? this.attributionText,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (kind.present) {
+      map['kind'] = Variable<String>(kind.value);
+    }
+    if (title.present) {
+      map['title'] = Variable<String>(title.value);
+    }
+    if (publisher.present) {
+      map['publisher'] = Variable<String>(publisher.value);
+    }
+    if (jurisdiction.present) {
+      map['jurisdiction'] = Variable<String>(jurisdiction.value);
+    }
+    if (documentIdentifier.present) {
+      map['document_identifier'] = Variable<String>(documentIdentifier.value);
+    }
+    if (url.present) {
+      map['url'] = Variable<String>(url.value);
+    }
+    if (publishedOn.present) {
+      map['published_on'] = Variable<String>(publishedOn.value);
+    }
+    if (accessedOn.present) {
+      map['accessed_on'] = Variable<String>(accessedOn.value);
+    }
+    if (license.present) {
+      map['license'] = Variable<String>(license.value);
+    }
+    if (attributionText.present) {
+      map['attribution_text'] = Variable<String>(attributionText.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('SourceCitationsCompanion(')
+          ..write('id: $id, ')
+          ..write('kind: $kind, ')
+          ..write('title: $title, ')
+          ..write('publisher: $publisher, ')
+          ..write('jurisdiction: $jurisdiction, ')
+          ..write('documentIdentifier: $documentIdentifier, ')
+          ..write('url: $url, ')
+          ..write('publishedOn: $publishedOn, ')
+          ..write('accessedOn: $accessedOn, ')
+          ..write('license: $license, ')
+          ..write('attributionText: $attributionText, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class KnowledgeItemCitations extends Table
+    with TableInfo<KnowledgeItemCitations, KnowledgeItemCitation> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  KnowledgeItemCitations(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _knowledgeItemIdMeta = const VerificationMeta(
+    'knowledgeItemId',
+  );
+  late final GeneratedColumn<String> knowledgeItemId = GeneratedColumn<String>(
+    'knowledge_item_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL REFERENCES knowledge_items(id)',
+  );
+  static const VerificationMeta _sourceCitationIdMeta = const VerificationMeta(
+    'sourceCitationId',
+  );
+  late final GeneratedColumn<String> sourceCitationId = GeneratedColumn<String>(
+    'source_citation_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL REFERENCES source_citations(id)',
+  );
+  static const VerificationMeta _locatorMeta = const VerificationMeta(
+    'locator',
+  );
+  late final GeneratedColumn<String> locator = GeneratedColumn<String>(
+    'locator',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    $customConstraints: '',
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    knowledgeItemId,
+    sourceCitationId,
+    locator,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'knowledge_item_citations';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<KnowledgeItemCitation> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('knowledge_item_id')) {
+      context.handle(
+        _knowledgeItemIdMeta,
+        knowledgeItemId.isAcceptableOrUnknown(
+          data['knowledge_item_id']!,
+          _knowledgeItemIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_knowledgeItemIdMeta);
+    }
+    if (data.containsKey('source_citation_id')) {
+      context.handle(
+        _sourceCitationIdMeta,
+        sourceCitationId.isAcceptableOrUnknown(
+          data['source_citation_id']!,
+          _sourceCitationIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_sourceCitationIdMeta);
+    }
+    if (data.containsKey('locator')) {
+      context.handle(
+        _locatorMeta,
+        locator.isAcceptableOrUnknown(data['locator']!, _locatorMeta),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {knowledgeItemId, sourceCitationId};
+  @override
+  KnowledgeItemCitation map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return KnowledgeItemCitation(
+      knowledgeItemId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}knowledge_item_id'],
+      )!,
+      sourceCitationId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}source_citation_id'],
+      )!,
+      locator: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}locator'],
+      ),
+    );
+  }
+
+  @override
+  KnowledgeItemCitations createAlias(String alias) {
+    return KnowledgeItemCitations(attachedDatabase, alias);
+  }
+
+  @override
+  List<String> get customConstraints => const [
+    'PRIMARY KEY(knowledge_item_id, source_citation_id)',
+  ];
+  @override
+  bool get dontWriteConstraints => true;
+}
+
+class KnowledgeItemCitation extends DataClass
+    implements Insertable<KnowledgeItemCitation> {
+  final String knowledgeItemId;
+  final String sourceCitationId;
+  final String? locator;
+  const KnowledgeItemCitation({
+    required this.knowledgeItemId,
+    required this.sourceCitationId,
+    this.locator,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['knowledge_item_id'] = Variable<String>(knowledgeItemId);
+    map['source_citation_id'] = Variable<String>(sourceCitationId);
+    if (!nullToAbsent || locator != null) {
+      map['locator'] = Variable<String>(locator);
+    }
+    return map;
+  }
+
+  KnowledgeItemCitationsCompanion toCompanion(bool nullToAbsent) {
+    return KnowledgeItemCitationsCompanion(
+      knowledgeItemId: Value(knowledgeItemId),
+      sourceCitationId: Value(sourceCitationId),
+      locator: locator == null && nullToAbsent
+          ? const Value.absent()
+          : Value(locator),
+    );
+  }
+
+  factory KnowledgeItemCitation.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return KnowledgeItemCitation(
+      knowledgeItemId: serializer.fromJson<String>(json['knowledge_item_id']),
+      sourceCitationId: serializer.fromJson<String>(json['source_citation_id']),
+      locator: serializer.fromJson<String?>(json['locator']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'knowledge_item_id': serializer.toJson<String>(knowledgeItemId),
+      'source_citation_id': serializer.toJson<String>(sourceCitationId),
+      'locator': serializer.toJson<String?>(locator),
+    };
+  }
+
+  KnowledgeItemCitation copyWith({
+    String? knowledgeItemId,
+    String? sourceCitationId,
+    Value<String?> locator = const Value.absent(),
+  }) => KnowledgeItemCitation(
+    knowledgeItemId: knowledgeItemId ?? this.knowledgeItemId,
+    sourceCitationId: sourceCitationId ?? this.sourceCitationId,
+    locator: locator.present ? locator.value : this.locator,
+  );
+  KnowledgeItemCitation copyWithCompanion(
+    KnowledgeItemCitationsCompanion data,
+  ) {
+    return KnowledgeItemCitation(
+      knowledgeItemId: data.knowledgeItemId.present
+          ? data.knowledgeItemId.value
+          : this.knowledgeItemId,
+      sourceCitationId: data.sourceCitationId.present
+          ? data.sourceCitationId.value
+          : this.sourceCitationId,
+      locator: data.locator.present ? data.locator.value : this.locator,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('KnowledgeItemCitation(')
+          ..write('knowledgeItemId: $knowledgeItemId, ')
+          ..write('sourceCitationId: $sourceCitationId, ')
+          ..write('locator: $locator')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(knowledgeItemId, sourceCitationId, locator);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is KnowledgeItemCitation &&
+          other.knowledgeItemId == this.knowledgeItemId &&
+          other.sourceCitationId == this.sourceCitationId &&
+          other.locator == this.locator);
+}
+
+class KnowledgeItemCitationsCompanion
+    extends UpdateCompanion<KnowledgeItemCitation> {
+  final Value<String> knowledgeItemId;
+  final Value<String> sourceCitationId;
+  final Value<String?> locator;
+  final Value<int> rowid;
+  const KnowledgeItemCitationsCompanion({
+    this.knowledgeItemId = const Value.absent(),
+    this.sourceCitationId = const Value.absent(),
+    this.locator = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  KnowledgeItemCitationsCompanion.insert({
+    required String knowledgeItemId,
+    required String sourceCitationId,
+    this.locator = const Value.absent(),
+    this.rowid = const Value.absent(),
+  }) : knowledgeItemId = Value(knowledgeItemId),
+       sourceCitationId = Value(sourceCitationId);
+  static Insertable<KnowledgeItemCitation> custom({
+    Expression<String>? knowledgeItemId,
+    Expression<String>? sourceCitationId,
+    Expression<String>? locator,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (knowledgeItemId != null) 'knowledge_item_id': knowledgeItemId,
+      if (sourceCitationId != null) 'source_citation_id': sourceCitationId,
+      if (locator != null) 'locator': locator,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  KnowledgeItemCitationsCompanion copyWith({
+    Value<String>? knowledgeItemId,
+    Value<String>? sourceCitationId,
+    Value<String?>? locator,
+    Value<int>? rowid,
+  }) {
+    return KnowledgeItemCitationsCompanion(
+      knowledgeItemId: knowledgeItemId ?? this.knowledgeItemId,
+      sourceCitationId: sourceCitationId ?? this.sourceCitationId,
+      locator: locator ?? this.locator,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (knowledgeItemId.present) {
+      map['knowledge_item_id'] = Variable<String>(knowledgeItemId.value);
+    }
+    if (sourceCitationId.present) {
+      map['source_citation_id'] = Variable<String>(sourceCitationId.value);
+    }
+    if (locator.present) {
+      map['locator'] = Variable<String>(locator.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('KnowledgeItemCitationsCompanion(')
+          ..write('knowledgeItemId: $knowledgeItemId, ')
+          ..write('sourceCitationId: $sourceCitationId, ')
+          ..write('locator: $locator, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class QuestionTemplates extends Table
+    with TableInfo<QuestionTemplates, QuestionTemplate> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  QuestionTemplates(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL PRIMARY KEY CHECK (id GLOB \'qt_?*\' AND id NOT GLOB \'*[^a-z0-9_]*\')',
+  );
+  static const VerificationMeta _relationTypeMeta = const VerificationMeta(
+    'relationType',
+  );
+  late final GeneratedColumn<String> relationType = GeneratedColumn<String>(
+    'relation_type',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL REFERENCES relation_types(id)',
+  );
+  static const VerificationMeta _directionMeta = const VerificationMeta(
+    'direction',
+  );
+  late final GeneratedColumn<String> direction = GeneratedColumn<String>(
+    'direction',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints:
+        'NOT NULL CHECK (direction IN (\'forward\', \'reverse\'))',
+  );
+  static const VerificationMeta _modeMeta = const VerificationMeta('mode');
+  late final GeneratedColumn<String> mode = GeneratedColumn<String>(
+    'mode',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL CHECK (mode IN (\'flashcard\', \'mcq\'))',
+  );
+  static const VerificationMeta _localeMeta = const VerificationMeta('locale');
+  late final GeneratedColumn<String> locale = GeneratedColumn<String>(
+    'locale',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    $customConstraints: 'NOT NULL DEFAULT \'en\'',
+    defaultValue: const CustomExpression('\'en\''),
+  );
+  static const VerificationMeta _promptTemplateMeta = const VerificationMeta(
+    'promptTemplate',
+  );
+  late final GeneratedColumn<String> promptTemplate = GeneratedColumn<String>(
+    'prompt_template',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL',
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    relationType,
+    direction,
+    mode,
+    locale,
+    promptTemplate,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'question_templates';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<QuestionTemplate> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('relation_type')) {
+      context.handle(
+        _relationTypeMeta,
+        relationType.isAcceptableOrUnknown(
+          data['relation_type']!,
+          _relationTypeMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_relationTypeMeta);
+    }
+    if (data.containsKey('direction')) {
+      context.handle(
+        _directionMeta,
+        direction.isAcceptableOrUnknown(data['direction']!, _directionMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_directionMeta);
+    }
+    if (data.containsKey('mode')) {
+      context.handle(
+        _modeMeta,
+        mode.isAcceptableOrUnknown(data['mode']!, _modeMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_modeMeta);
+    }
+    if (data.containsKey('locale')) {
+      context.handle(
+        _localeMeta,
+        locale.isAcceptableOrUnknown(data['locale']!, _localeMeta),
+      );
+    }
+    if (data.containsKey('prompt_template')) {
+      context.handle(
+        _promptTemplateMeta,
+        promptTemplate.isAcceptableOrUnknown(
+          data['prompt_template']!,
+          _promptTemplateMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_promptTemplateMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  List<Set<GeneratedColumn>> get uniqueKeys => [
+    {relationType, direction, mode, locale},
+    {id, relationType},
+  ];
+  @override
+  QuestionTemplate map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return QuestionTemplate(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      relationType: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}relation_type'],
+      )!,
+      direction: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}direction'],
+      )!,
+      mode: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}mode'],
+      )!,
+      locale: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}locale'],
+      )!,
+      promptTemplate: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}prompt_template'],
+      )!,
+    );
+  }
+
+  @override
+  QuestionTemplates createAlias(String alias) {
+    return QuestionTemplates(attachedDatabase, alias);
+  }
+
+  @override
+  List<String> get customConstraints => const [
+    'UNIQUE(relation_type, direction, mode, locale)',
+    'UNIQUE(id, relation_type)',
+  ];
+  @override
+  bool get dontWriteConstraints => true;
+}
+
+class QuestionTemplate extends DataClass
+    implements Insertable<QuestionTemplate> {
+  final String id;
+  final String relationType;
+  final String direction;
+  final String mode;
+  final String locale;
+  final String promptTemplate;
+  const QuestionTemplate({
+    required this.id,
+    required this.relationType,
+    required this.direction,
+    required this.mode,
+    required this.locale,
+    required this.promptTemplate,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    map['relation_type'] = Variable<String>(relationType);
+    map['direction'] = Variable<String>(direction);
+    map['mode'] = Variable<String>(mode);
+    map['locale'] = Variable<String>(locale);
+    map['prompt_template'] = Variable<String>(promptTemplate);
+    return map;
+  }
+
+  QuestionTemplatesCompanion toCompanion(bool nullToAbsent) {
+    return QuestionTemplatesCompanion(
+      id: Value(id),
+      relationType: Value(relationType),
+      direction: Value(direction),
+      mode: Value(mode),
+      locale: Value(locale),
+      promptTemplate: Value(promptTemplate),
+    );
+  }
+
+  factory QuestionTemplate.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return QuestionTemplate(
+      id: serializer.fromJson<String>(json['id']),
+      relationType: serializer.fromJson<String>(json['relation_type']),
+      direction: serializer.fromJson<String>(json['direction']),
+      mode: serializer.fromJson<String>(json['mode']),
+      locale: serializer.fromJson<String>(json['locale']),
+      promptTemplate: serializer.fromJson<String>(json['prompt_template']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'relation_type': serializer.toJson<String>(relationType),
+      'direction': serializer.toJson<String>(direction),
+      'mode': serializer.toJson<String>(mode),
+      'locale': serializer.toJson<String>(locale),
+      'prompt_template': serializer.toJson<String>(promptTemplate),
+    };
+  }
+
+  QuestionTemplate copyWith({
+    String? id,
+    String? relationType,
+    String? direction,
+    String? mode,
+    String? locale,
+    String? promptTemplate,
+  }) => QuestionTemplate(
+    id: id ?? this.id,
+    relationType: relationType ?? this.relationType,
+    direction: direction ?? this.direction,
+    mode: mode ?? this.mode,
+    locale: locale ?? this.locale,
+    promptTemplate: promptTemplate ?? this.promptTemplate,
+  );
+  QuestionTemplate copyWithCompanion(QuestionTemplatesCompanion data) {
+    return QuestionTemplate(
+      id: data.id.present ? data.id.value : this.id,
+      relationType: data.relationType.present
+          ? data.relationType.value
+          : this.relationType,
+      direction: data.direction.present ? data.direction.value : this.direction,
+      mode: data.mode.present ? data.mode.value : this.mode,
+      locale: data.locale.present ? data.locale.value : this.locale,
+      promptTemplate: data.promptTemplate.present
+          ? data.promptTemplate.value
+          : this.promptTemplate,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('QuestionTemplate(')
+          ..write('id: $id, ')
+          ..write('relationType: $relationType, ')
+          ..write('direction: $direction, ')
+          ..write('mode: $mode, ')
+          ..write('locale: $locale, ')
+          ..write('promptTemplate: $promptTemplate')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(id, relationType, direction, mode, locale, promptTemplate);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is QuestionTemplate &&
+          other.id == this.id &&
+          other.relationType == this.relationType &&
+          other.direction == this.direction &&
+          other.mode == this.mode &&
+          other.locale == this.locale &&
+          other.promptTemplate == this.promptTemplate);
+}
+
+class QuestionTemplatesCompanion extends UpdateCompanion<QuestionTemplate> {
+  final Value<String> id;
+  final Value<String> relationType;
+  final Value<String> direction;
+  final Value<String> mode;
+  final Value<String> locale;
+  final Value<String> promptTemplate;
+  final Value<int> rowid;
+  const QuestionTemplatesCompanion({
+    this.id = const Value.absent(),
+    this.relationType = const Value.absent(),
+    this.direction = const Value.absent(),
+    this.mode = const Value.absent(),
+    this.locale = const Value.absent(),
+    this.promptTemplate = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  QuestionTemplatesCompanion.insert({
+    required String id,
+    required String relationType,
+    required String direction,
+    required String mode,
+    this.locale = const Value.absent(),
+    required String promptTemplate,
+    this.rowid = const Value.absent(),
+  }) : id = Value(id),
+       relationType = Value(relationType),
+       direction = Value(direction),
+       mode = Value(mode),
+       promptTemplate = Value(promptTemplate);
+  static Insertable<QuestionTemplate> custom({
+    Expression<String>? id,
+    Expression<String>? relationType,
+    Expression<String>? direction,
+    Expression<String>? mode,
+    Expression<String>? locale,
+    Expression<String>? promptTemplate,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (relationType != null) 'relation_type': relationType,
+      if (direction != null) 'direction': direction,
+      if (mode != null) 'mode': mode,
+      if (locale != null) 'locale': locale,
+      if (promptTemplate != null) 'prompt_template': promptTemplate,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  QuestionTemplatesCompanion copyWith({
+    Value<String>? id,
+    Value<String>? relationType,
+    Value<String>? direction,
+    Value<String>? mode,
+    Value<String>? locale,
+    Value<String>? promptTemplate,
+    Value<int>? rowid,
+  }) {
+    return QuestionTemplatesCompanion(
+      id: id ?? this.id,
+      relationType: relationType ?? this.relationType,
+      direction: direction ?? this.direction,
+      mode: mode ?? this.mode,
+      locale: locale ?? this.locale,
+      promptTemplate: promptTemplate ?? this.promptTemplate,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (relationType.present) {
+      map['relation_type'] = Variable<String>(relationType.value);
+    }
+    if (direction.present) {
+      map['direction'] = Variable<String>(direction.value);
+    }
+    if (mode.present) {
+      map['mode'] = Variable<String>(mode.value);
+    }
+    if (locale.present) {
+      map['locale'] = Variable<String>(locale.value);
+    }
+    if (promptTemplate.present) {
+      map['prompt_template'] = Variable<String>(promptTemplate.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('QuestionTemplatesCompanion(')
+          ..write('id: $id, ')
+          ..write('relationType: $relationType, ')
+          ..write('direction: $direction, ')
+          ..write('mode: $mode, ')
+          ..write('locale: $locale, ')
+          ..write('promptTemplate: $promptTemplate, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class TastingGridAttributes extends Table
+    with TableInfo<TastingGridAttributes, TastingGridAttribute> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  TastingGridAttributes(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _tastingGridIdMeta = const VerificationMeta(
+    'tastingGridId',
+  );
+  late final GeneratedColumn<String> tastingGridId = GeneratedColumn<String>(
+    'tasting_grid_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL REFERENCES tasting_grids(id)',
+  );
+  static const VerificationMeta _attributeKeyMeta = const VerificationMeta(
+    'attributeKey',
+  );
+  late final GeneratedColumn<String> attributeKey = GeneratedColumn<String>(
+    'attribute_key',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints:
+        'NOT NULL CHECK (attribute_key NOT GLOB \'*[^a-z0-9_]*\')',
+  );
+  static const VerificationMeta _sectionMeta = const VerificationMeta(
+    'section',
+  );
+  late final GeneratedColumn<String> section = GeneratedColumn<String>(
+    'section',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL',
+  );
+  static const VerificationMeta _labelMeta = const VerificationMeta('label');
+  late final GeneratedColumn<String> label = GeneratedColumn<String>(
+    'label',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL',
+  );
+  static const VerificationMeta _positionMeta = const VerificationMeta(
+    'position',
+  );
+  late final GeneratedColumn<int> position = GeneratedColumn<int>(
+    'position',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL',
+  );
+  static const VerificationMeta _selectionMeta = const VerificationMeta(
+    'selection',
+  );
+  late final GeneratedColumn<String> selection = GeneratedColumn<String>(
+    'selection',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL CHECK (selection IN (\'single\', \'multi\'))',
+  );
+  static const VerificationMeta _isRequiredMeta = const VerificationMeta(
+    'isRequired',
+  );
+  late final GeneratedColumn<bool> isRequired = GeneratedColumn<bool>(
+    'is_required',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    $customConstraints: 'NOT NULL DEFAULT 1 CHECK (is_required IN (0, 1))',
+    defaultValue: const CustomExpression('1'),
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    tastingGridId,
+    attributeKey,
+    section,
+    label,
+    position,
+    selection,
+    isRequired,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'tasting_grid_attributes';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<TastingGridAttribute> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('tasting_grid_id')) {
+      context.handle(
+        _tastingGridIdMeta,
+        tastingGridId.isAcceptableOrUnknown(
+          data['tasting_grid_id']!,
+          _tastingGridIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_tastingGridIdMeta);
+    }
+    if (data.containsKey('attribute_key')) {
+      context.handle(
+        _attributeKeyMeta,
+        attributeKey.isAcceptableOrUnknown(
+          data['attribute_key']!,
+          _attributeKeyMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_attributeKeyMeta);
+    }
+    if (data.containsKey('section')) {
+      context.handle(
+        _sectionMeta,
+        section.isAcceptableOrUnknown(data['section']!, _sectionMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_sectionMeta);
+    }
+    if (data.containsKey('label')) {
+      context.handle(
+        _labelMeta,
+        label.isAcceptableOrUnknown(data['label']!, _labelMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_labelMeta);
+    }
+    if (data.containsKey('position')) {
+      context.handle(
+        _positionMeta,
+        position.isAcceptableOrUnknown(data['position']!, _positionMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_positionMeta);
+    }
+    if (data.containsKey('selection')) {
+      context.handle(
+        _selectionMeta,
+        selection.isAcceptableOrUnknown(data['selection']!, _selectionMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_selectionMeta);
+    }
+    if (data.containsKey('is_required')) {
+      context.handle(
+        _isRequiredMeta,
+        isRequired.isAcceptableOrUnknown(data['is_required']!, _isRequiredMeta),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {tastingGridId, attributeKey};
+  @override
+  List<Set<GeneratedColumn>> get uniqueKeys => [
+    {tastingGridId, position},
+  ];
+  @override
+  TastingGridAttribute map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return TastingGridAttribute(
+      tastingGridId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}tasting_grid_id'],
+      )!,
+      attributeKey: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}attribute_key'],
+      )!,
+      section: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}section'],
+      )!,
+      label: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}label'],
+      )!,
+      position: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}position'],
+      )!,
+      selection: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}selection'],
+      )!,
+      isRequired: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}is_required'],
+      )!,
+    );
+  }
+
+  @override
+  TastingGridAttributes createAlias(String alias) {
+    return TastingGridAttributes(attachedDatabase, alias);
+  }
+
+  @override
+  List<String> get customConstraints => const [
+    'PRIMARY KEY(tasting_grid_id, attribute_key)',
+    'UNIQUE(tasting_grid_id, position)',
+  ];
+  @override
+  bool get dontWriteConstraints => true;
+}
+
+class TastingGridAttribute extends DataClass
+    implements Insertable<TastingGridAttribute> {
+  final String tastingGridId;
+  final String attributeKey;
+  final String section;
+  final String label;
+  final int position;
+  final String selection;
+  final bool isRequired;
+  const TastingGridAttribute({
+    required this.tastingGridId,
+    required this.attributeKey,
+    required this.section,
+    required this.label,
+    required this.position,
+    required this.selection,
+    required this.isRequired,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['tasting_grid_id'] = Variable<String>(tastingGridId);
+    map['attribute_key'] = Variable<String>(attributeKey);
+    map['section'] = Variable<String>(section);
+    map['label'] = Variable<String>(label);
+    map['position'] = Variable<int>(position);
+    map['selection'] = Variable<String>(selection);
+    map['is_required'] = Variable<bool>(isRequired);
+    return map;
+  }
+
+  TastingGridAttributesCompanion toCompanion(bool nullToAbsent) {
+    return TastingGridAttributesCompanion(
+      tastingGridId: Value(tastingGridId),
+      attributeKey: Value(attributeKey),
+      section: Value(section),
+      label: Value(label),
+      position: Value(position),
+      selection: Value(selection),
+      isRequired: Value(isRequired),
+    );
+  }
+
+  factory TastingGridAttribute.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return TastingGridAttribute(
+      tastingGridId: serializer.fromJson<String>(json['tasting_grid_id']),
+      attributeKey: serializer.fromJson<String>(json['attribute_key']),
+      section: serializer.fromJson<String>(json['section']),
+      label: serializer.fromJson<String>(json['label']),
+      position: serializer.fromJson<int>(json['position']),
+      selection: serializer.fromJson<String>(json['selection']),
+      isRequired: serializer.fromJson<bool>(json['is_required']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'tasting_grid_id': serializer.toJson<String>(tastingGridId),
+      'attribute_key': serializer.toJson<String>(attributeKey),
+      'section': serializer.toJson<String>(section),
+      'label': serializer.toJson<String>(label),
+      'position': serializer.toJson<int>(position),
+      'selection': serializer.toJson<String>(selection),
+      'is_required': serializer.toJson<bool>(isRequired),
+    };
+  }
+
+  TastingGridAttribute copyWith({
+    String? tastingGridId,
+    String? attributeKey,
+    String? section,
+    String? label,
+    int? position,
+    String? selection,
+    bool? isRequired,
+  }) => TastingGridAttribute(
+    tastingGridId: tastingGridId ?? this.tastingGridId,
+    attributeKey: attributeKey ?? this.attributeKey,
+    section: section ?? this.section,
+    label: label ?? this.label,
+    position: position ?? this.position,
+    selection: selection ?? this.selection,
+    isRequired: isRequired ?? this.isRequired,
+  );
+  TastingGridAttribute copyWithCompanion(TastingGridAttributesCompanion data) {
+    return TastingGridAttribute(
+      tastingGridId: data.tastingGridId.present
+          ? data.tastingGridId.value
+          : this.tastingGridId,
+      attributeKey: data.attributeKey.present
+          ? data.attributeKey.value
+          : this.attributeKey,
+      section: data.section.present ? data.section.value : this.section,
+      label: data.label.present ? data.label.value : this.label,
+      position: data.position.present ? data.position.value : this.position,
+      selection: data.selection.present ? data.selection.value : this.selection,
+      isRequired: data.isRequired.present
+          ? data.isRequired.value
+          : this.isRequired,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('TastingGridAttribute(')
+          ..write('tastingGridId: $tastingGridId, ')
+          ..write('attributeKey: $attributeKey, ')
+          ..write('section: $section, ')
+          ..write('label: $label, ')
+          ..write('position: $position, ')
+          ..write('selection: $selection, ')
+          ..write('isRequired: $isRequired')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    tastingGridId,
+    attributeKey,
+    section,
+    label,
+    position,
+    selection,
+    isRequired,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is TastingGridAttribute &&
+          other.tastingGridId == this.tastingGridId &&
+          other.attributeKey == this.attributeKey &&
+          other.section == this.section &&
+          other.label == this.label &&
+          other.position == this.position &&
+          other.selection == this.selection &&
+          other.isRequired == this.isRequired);
+}
+
+class TastingGridAttributesCompanion
+    extends UpdateCompanion<TastingGridAttribute> {
+  final Value<String> tastingGridId;
+  final Value<String> attributeKey;
+  final Value<String> section;
+  final Value<String> label;
+  final Value<int> position;
+  final Value<String> selection;
+  final Value<bool> isRequired;
+  final Value<int> rowid;
+  const TastingGridAttributesCompanion({
+    this.tastingGridId = const Value.absent(),
+    this.attributeKey = const Value.absent(),
+    this.section = const Value.absent(),
+    this.label = const Value.absent(),
+    this.position = const Value.absent(),
+    this.selection = const Value.absent(),
+    this.isRequired = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  TastingGridAttributesCompanion.insert({
+    required String tastingGridId,
+    required String attributeKey,
+    required String section,
+    required String label,
+    required int position,
+    required String selection,
+    this.isRequired = const Value.absent(),
+    this.rowid = const Value.absent(),
+  }) : tastingGridId = Value(tastingGridId),
+       attributeKey = Value(attributeKey),
+       section = Value(section),
+       label = Value(label),
+       position = Value(position),
+       selection = Value(selection);
+  static Insertable<TastingGridAttribute> custom({
+    Expression<String>? tastingGridId,
+    Expression<String>? attributeKey,
+    Expression<String>? section,
+    Expression<String>? label,
+    Expression<int>? position,
+    Expression<String>? selection,
+    Expression<bool>? isRequired,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (tastingGridId != null) 'tasting_grid_id': tastingGridId,
+      if (attributeKey != null) 'attribute_key': attributeKey,
+      if (section != null) 'section': section,
+      if (label != null) 'label': label,
+      if (position != null) 'position': position,
+      if (selection != null) 'selection': selection,
+      if (isRequired != null) 'is_required': isRequired,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  TastingGridAttributesCompanion copyWith({
+    Value<String>? tastingGridId,
+    Value<String>? attributeKey,
+    Value<String>? section,
+    Value<String>? label,
+    Value<int>? position,
+    Value<String>? selection,
+    Value<bool>? isRequired,
+    Value<int>? rowid,
+  }) {
+    return TastingGridAttributesCompanion(
+      tastingGridId: tastingGridId ?? this.tastingGridId,
+      attributeKey: attributeKey ?? this.attributeKey,
+      section: section ?? this.section,
+      label: label ?? this.label,
+      position: position ?? this.position,
+      selection: selection ?? this.selection,
+      isRequired: isRequired ?? this.isRequired,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (tastingGridId.present) {
+      map['tasting_grid_id'] = Variable<String>(tastingGridId.value);
+    }
+    if (attributeKey.present) {
+      map['attribute_key'] = Variable<String>(attributeKey.value);
+    }
+    if (section.present) {
+      map['section'] = Variable<String>(section.value);
+    }
+    if (label.present) {
+      map['label'] = Variable<String>(label.value);
+    }
+    if (position.present) {
+      map['position'] = Variable<int>(position.value);
+    }
+    if (selection.present) {
+      map['selection'] = Variable<String>(selection.value);
+    }
+    if (isRequired.present) {
+      map['is_required'] = Variable<bool>(isRequired.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('TastingGridAttributesCompanion(')
+          ..write('tastingGridId: $tastingGridId, ')
+          ..write('attributeKey: $attributeKey, ')
+          ..write('section: $section, ')
+          ..write('label: $label, ')
+          ..write('position: $position, ')
+          ..write('selection: $selection, ')
+          ..write('isRequired: $isRequired, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class TastingGridValues extends Table
+    with TableInfo<TastingGridValues, TastingGridValue> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  TastingGridValues(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _tastingGridIdMeta = const VerificationMeta(
+    'tastingGridId',
+  );
+  late final GeneratedColumn<String> tastingGridId = GeneratedColumn<String>(
+    'tasting_grid_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL',
+  );
+  static const VerificationMeta _attributeKeyMeta = const VerificationMeta(
+    'attributeKey',
+  );
+  late final GeneratedColumn<String> attributeKey = GeneratedColumn<String>(
+    'attribute_key',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL',
+  );
+  static const VerificationMeta _valueKeyMeta = const VerificationMeta(
+    'valueKey',
+  );
+  late final GeneratedColumn<String> valueKey = GeneratedColumn<String>(
+    'value_key',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL CHECK (value_key NOT GLOB \'*[^a-z0-9_]*\')',
+  );
+  static const VerificationMeta _labelMeta = const VerificationMeta('label');
+  late final GeneratedColumn<String> label = GeneratedColumn<String>(
+    'label',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL',
+  );
+  static const VerificationMeta _positionMeta = const VerificationMeta(
+    'position',
+  );
+  late final GeneratedColumn<int> position = GeneratedColumn<int>(
+    'position',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL',
+  );
+  static const VerificationMeta _knowledgeNodeIdMeta = const VerificationMeta(
+    'knowledgeNodeId',
+  );
+  late final GeneratedColumn<String> knowledgeNodeId = GeneratedColumn<String>(
+    'knowledge_node_id',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    $customConstraints: 'REFERENCES knowledge_nodes(id)',
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    tastingGridId,
+    attributeKey,
+    valueKey,
+    label,
+    position,
+    knowledgeNodeId,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'tasting_grid_values';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<TastingGridValue> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('tasting_grid_id')) {
+      context.handle(
+        _tastingGridIdMeta,
+        tastingGridId.isAcceptableOrUnknown(
+          data['tasting_grid_id']!,
+          _tastingGridIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_tastingGridIdMeta);
+    }
+    if (data.containsKey('attribute_key')) {
+      context.handle(
+        _attributeKeyMeta,
+        attributeKey.isAcceptableOrUnknown(
+          data['attribute_key']!,
+          _attributeKeyMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_attributeKeyMeta);
+    }
+    if (data.containsKey('value_key')) {
+      context.handle(
+        _valueKeyMeta,
+        valueKey.isAcceptableOrUnknown(data['value_key']!, _valueKeyMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_valueKeyMeta);
+    }
+    if (data.containsKey('label')) {
+      context.handle(
+        _labelMeta,
+        label.isAcceptableOrUnknown(data['label']!, _labelMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_labelMeta);
+    }
+    if (data.containsKey('position')) {
+      context.handle(
+        _positionMeta,
+        position.isAcceptableOrUnknown(data['position']!, _positionMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_positionMeta);
+    }
+    if (data.containsKey('knowledge_node_id')) {
+      context.handle(
+        _knowledgeNodeIdMeta,
+        knowledgeNodeId.isAcceptableOrUnknown(
+          data['knowledge_node_id']!,
+          _knowledgeNodeIdMeta,
+        ),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {
+    tastingGridId,
+    attributeKey,
+    valueKey,
+  };
+  @override
+  List<Set<GeneratedColumn>> get uniqueKeys => [
+    {tastingGridId, attributeKey, position},
+  ];
+  @override
+  TastingGridValue map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return TastingGridValue(
+      tastingGridId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}tasting_grid_id'],
+      )!,
+      attributeKey: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}attribute_key'],
+      )!,
+      valueKey: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}value_key'],
+      )!,
+      label: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}label'],
+      )!,
+      position: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}position'],
+      )!,
+      knowledgeNodeId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}knowledge_node_id'],
+      ),
+    );
+  }
+
+  @override
+  TastingGridValues createAlias(String alias) {
+    return TastingGridValues(attachedDatabase, alias);
+  }
+
+  @override
+  List<String> get customConstraints => const [
+    'PRIMARY KEY(tasting_grid_id, attribute_key, value_key)',
+    'UNIQUE(tasting_grid_id, attribute_key, position)',
+    'FOREIGN KEY(tasting_grid_id, attribute_key)REFERENCES tasting_grid_attributes(tasting_grid_id, attribute_key)',
+  ];
+  @override
+  bool get dontWriteConstraints => true;
+}
+
+class TastingGridValue extends DataClass
+    implements Insertable<TastingGridValue> {
+  final String tastingGridId;
+  final String attributeKey;
+  final String valueKey;
+  final String label;
+  final int position;
+  final String? knowledgeNodeId;
+  const TastingGridValue({
+    required this.tastingGridId,
+    required this.attributeKey,
+    required this.valueKey,
+    required this.label,
+    required this.position,
+    this.knowledgeNodeId,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['tasting_grid_id'] = Variable<String>(tastingGridId);
+    map['attribute_key'] = Variable<String>(attributeKey);
+    map['value_key'] = Variable<String>(valueKey);
+    map['label'] = Variable<String>(label);
+    map['position'] = Variable<int>(position);
+    if (!nullToAbsent || knowledgeNodeId != null) {
+      map['knowledge_node_id'] = Variable<String>(knowledgeNodeId);
+    }
+    return map;
+  }
+
+  TastingGridValuesCompanion toCompanion(bool nullToAbsent) {
+    return TastingGridValuesCompanion(
+      tastingGridId: Value(tastingGridId),
+      attributeKey: Value(attributeKey),
+      valueKey: Value(valueKey),
+      label: Value(label),
+      position: Value(position),
+      knowledgeNodeId: knowledgeNodeId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(knowledgeNodeId),
+    );
+  }
+
+  factory TastingGridValue.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return TastingGridValue(
+      tastingGridId: serializer.fromJson<String>(json['tasting_grid_id']),
+      attributeKey: serializer.fromJson<String>(json['attribute_key']),
+      valueKey: serializer.fromJson<String>(json['value_key']),
+      label: serializer.fromJson<String>(json['label']),
+      position: serializer.fromJson<int>(json['position']),
+      knowledgeNodeId: serializer.fromJson<String?>(json['knowledge_node_id']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'tasting_grid_id': serializer.toJson<String>(tastingGridId),
+      'attribute_key': serializer.toJson<String>(attributeKey),
+      'value_key': serializer.toJson<String>(valueKey),
+      'label': serializer.toJson<String>(label),
+      'position': serializer.toJson<int>(position),
+      'knowledge_node_id': serializer.toJson<String?>(knowledgeNodeId),
+    };
+  }
+
+  TastingGridValue copyWith({
+    String? tastingGridId,
+    String? attributeKey,
+    String? valueKey,
+    String? label,
+    int? position,
+    Value<String?> knowledgeNodeId = const Value.absent(),
+  }) => TastingGridValue(
+    tastingGridId: tastingGridId ?? this.tastingGridId,
+    attributeKey: attributeKey ?? this.attributeKey,
+    valueKey: valueKey ?? this.valueKey,
+    label: label ?? this.label,
+    position: position ?? this.position,
+    knowledgeNodeId: knowledgeNodeId.present
+        ? knowledgeNodeId.value
+        : this.knowledgeNodeId,
+  );
+  TastingGridValue copyWithCompanion(TastingGridValuesCompanion data) {
+    return TastingGridValue(
+      tastingGridId: data.tastingGridId.present
+          ? data.tastingGridId.value
+          : this.tastingGridId,
+      attributeKey: data.attributeKey.present
+          ? data.attributeKey.value
+          : this.attributeKey,
+      valueKey: data.valueKey.present ? data.valueKey.value : this.valueKey,
+      label: data.label.present ? data.label.value : this.label,
+      position: data.position.present ? data.position.value : this.position,
+      knowledgeNodeId: data.knowledgeNodeId.present
+          ? data.knowledgeNodeId.value
+          : this.knowledgeNodeId,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('TastingGridValue(')
+          ..write('tastingGridId: $tastingGridId, ')
+          ..write('attributeKey: $attributeKey, ')
+          ..write('valueKey: $valueKey, ')
+          ..write('label: $label, ')
+          ..write('position: $position, ')
+          ..write('knowledgeNodeId: $knowledgeNodeId')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    tastingGridId,
+    attributeKey,
+    valueKey,
+    label,
+    position,
+    knowledgeNodeId,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is TastingGridValue &&
+          other.tastingGridId == this.tastingGridId &&
+          other.attributeKey == this.attributeKey &&
+          other.valueKey == this.valueKey &&
+          other.label == this.label &&
+          other.position == this.position &&
+          other.knowledgeNodeId == this.knowledgeNodeId);
+}
+
+class TastingGridValuesCompanion extends UpdateCompanion<TastingGridValue> {
+  final Value<String> tastingGridId;
+  final Value<String> attributeKey;
+  final Value<String> valueKey;
+  final Value<String> label;
+  final Value<int> position;
+  final Value<String?> knowledgeNodeId;
+  final Value<int> rowid;
+  const TastingGridValuesCompanion({
+    this.tastingGridId = const Value.absent(),
+    this.attributeKey = const Value.absent(),
+    this.valueKey = const Value.absent(),
+    this.label = const Value.absent(),
+    this.position = const Value.absent(),
+    this.knowledgeNodeId = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  TastingGridValuesCompanion.insert({
+    required String tastingGridId,
+    required String attributeKey,
+    required String valueKey,
+    required String label,
+    required int position,
+    this.knowledgeNodeId = const Value.absent(),
+    this.rowid = const Value.absent(),
+  }) : tastingGridId = Value(tastingGridId),
+       attributeKey = Value(attributeKey),
+       valueKey = Value(valueKey),
+       label = Value(label),
+       position = Value(position);
+  static Insertable<TastingGridValue> custom({
+    Expression<String>? tastingGridId,
+    Expression<String>? attributeKey,
+    Expression<String>? valueKey,
+    Expression<String>? label,
+    Expression<int>? position,
+    Expression<String>? knowledgeNodeId,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (tastingGridId != null) 'tasting_grid_id': tastingGridId,
+      if (attributeKey != null) 'attribute_key': attributeKey,
+      if (valueKey != null) 'value_key': valueKey,
+      if (label != null) 'label': label,
+      if (position != null) 'position': position,
+      if (knowledgeNodeId != null) 'knowledge_node_id': knowledgeNodeId,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  TastingGridValuesCompanion copyWith({
+    Value<String>? tastingGridId,
+    Value<String>? attributeKey,
+    Value<String>? valueKey,
+    Value<String>? label,
+    Value<int>? position,
+    Value<String?>? knowledgeNodeId,
+    Value<int>? rowid,
+  }) {
+    return TastingGridValuesCompanion(
+      tastingGridId: tastingGridId ?? this.tastingGridId,
+      attributeKey: attributeKey ?? this.attributeKey,
+      valueKey: valueKey ?? this.valueKey,
+      label: label ?? this.label,
+      position: position ?? this.position,
+      knowledgeNodeId: knowledgeNodeId ?? this.knowledgeNodeId,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (tastingGridId.present) {
+      map['tasting_grid_id'] = Variable<String>(tastingGridId.value);
+    }
+    if (attributeKey.present) {
+      map['attribute_key'] = Variable<String>(attributeKey.value);
+    }
+    if (valueKey.present) {
+      map['value_key'] = Variable<String>(valueKey.value);
+    }
+    if (label.present) {
+      map['label'] = Variable<String>(label.value);
+    }
+    if (position.present) {
+      map['position'] = Variable<int>(position.value);
+    }
+    if (knowledgeNodeId.present) {
+      map['knowledge_node_id'] = Variable<String>(knowledgeNodeId.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('TastingGridValuesCompanion(')
+          ..write('tastingGridId: $tastingGridId, ')
+          ..write('attributeKey: $attributeKey, ')
+          ..write('valueKey: $valueKey, ')
+          ..write('label: $label, ')
+          ..write('position: $position, ')
+          ..write('knowledgeNodeId: $knowledgeNodeId, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class Questions extends Table with TableInfo<Questions, Question> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  Questions(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _knowledgeItemIdMeta = const VerificationMeta(
+    'knowledgeItemId',
+  );
+  late final GeneratedColumn<String> knowledgeItemId = GeneratedColumn<String>(
+    'knowledge_item_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL',
+  );
+  static const VerificationMeta _questionTemplateIdMeta =
+      const VerificationMeta('questionTemplateId');
+  late final GeneratedColumn<String> questionTemplateId =
+      GeneratedColumn<String>(
+        'question_template_id',
+        aliasedName,
+        false,
+        type: DriftSqlType.string,
+        requiredDuringInsert: true,
+        $customConstraints: 'NOT NULL',
+      );
+  static const VerificationMeta _relationTypeMeta = const VerificationMeta(
+    'relationType',
+  );
+  late final GeneratedColumn<String> relationType = GeneratedColumn<String>(
+    'relation_type',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL',
+  );
+  static const VerificationMeta _promptTextMeta = const VerificationMeta(
+    'promptText',
+  );
+  late final GeneratedColumn<String> promptText = GeneratedColumn<String>(
+    'prompt_text',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL',
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    knowledgeItemId,
+    questionTemplateId,
+    relationType,
+    promptText,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'questions';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<Question> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('knowledge_item_id')) {
+      context.handle(
+        _knowledgeItemIdMeta,
+        knowledgeItemId.isAcceptableOrUnknown(
+          data['knowledge_item_id']!,
+          _knowledgeItemIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_knowledgeItemIdMeta);
+    }
+    if (data.containsKey('question_template_id')) {
+      context.handle(
+        _questionTemplateIdMeta,
+        questionTemplateId.isAcceptableOrUnknown(
+          data['question_template_id']!,
+          _questionTemplateIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_questionTemplateIdMeta);
+    }
+    if (data.containsKey('relation_type')) {
+      context.handle(
+        _relationTypeMeta,
+        relationType.isAcceptableOrUnknown(
+          data['relation_type']!,
+          _relationTypeMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_relationTypeMeta);
+    }
+    if (data.containsKey('prompt_text')) {
+      context.handle(
+        _promptTextMeta,
+        promptText.isAcceptableOrUnknown(data['prompt_text']!, _promptTextMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_promptTextMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {knowledgeItemId, questionTemplateId};
+  @override
+  Question map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return Question(
+      knowledgeItemId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}knowledge_item_id'],
+      )!,
+      questionTemplateId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}question_template_id'],
+      )!,
+      relationType: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}relation_type'],
+      )!,
+      promptText: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}prompt_text'],
+      )!,
+    );
+  }
+
+  @override
+  Questions createAlias(String alias) {
+    return Questions(attachedDatabase, alias);
+  }
+
+  @override
+  List<String> get customConstraints => const [
+    'PRIMARY KEY(knowledge_item_id, question_template_id)',
+    'FOREIGN KEY(knowledge_item_id, relation_type)REFERENCES knowledge_items(id, relation_type)',
+    'FOREIGN KEY(question_template_id, relation_type)REFERENCES question_templates(id, relation_type)',
+  ];
+  @override
+  bool get dontWriteConstraints => true;
+}
+
+class Question extends DataClass implements Insertable<Question> {
+  final String knowledgeItemId;
+  final String questionTemplateId;
+  final String relationType;
+  final String promptText;
+  const Question({
+    required this.knowledgeItemId,
+    required this.questionTemplateId,
+    required this.relationType,
+    required this.promptText,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['knowledge_item_id'] = Variable<String>(knowledgeItemId);
+    map['question_template_id'] = Variable<String>(questionTemplateId);
+    map['relation_type'] = Variable<String>(relationType);
+    map['prompt_text'] = Variable<String>(promptText);
+    return map;
+  }
+
+  QuestionsCompanion toCompanion(bool nullToAbsent) {
+    return QuestionsCompanion(
+      knowledgeItemId: Value(knowledgeItemId),
+      questionTemplateId: Value(questionTemplateId),
+      relationType: Value(relationType),
+      promptText: Value(promptText),
+    );
+  }
+
+  factory Question.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return Question(
+      knowledgeItemId: serializer.fromJson<String>(json['knowledge_item_id']),
+      questionTemplateId: serializer.fromJson<String>(
+        json['question_template_id'],
+      ),
+      relationType: serializer.fromJson<String>(json['relation_type']),
+      promptText: serializer.fromJson<String>(json['prompt_text']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'knowledge_item_id': serializer.toJson<String>(knowledgeItemId),
+      'question_template_id': serializer.toJson<String>(questionTemplateId),
+      'relation_type': serializer.toJson<String>(relationType),
+      'prompt_text': serializer.toJson<String>(promptText),
+    };
+  }
+
+  Question copyWith({
+    String? knowledgeItemId,
+    String? questionTemplateId,
+    String? relationType,
+    String? promptText,
+  }) => Question(
+    knowledgeItemId: knowledgeItemId ?? this.knowledgeItemId,
+    questionTemplateId: questionTemplateId ?? this.questionTemplateId,
+    relationType: relationType ?? this.relationType,
+    promptText: promptText ?? this.promptText,
+  );
+  Question copyWithCompanion(QuestionsCompanion data) {
+    return Question(
+      knowledgeItemId: data.knowledgeItemId.present
+          ? data.knowledgeItemId.value
+          : this.knowledgeItemId,
+      questionTemplateId: data.questionTemplateId.present
+          ? data.questionTemplateId.value
+          : this.questionTemplateId,
+      relationType: data.relationType.present
+          ? data.relationType.value
+          : this.relationType,
+      promptText: data.promptText.present
+          ? data.promptText.value
+          : this.promptText,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('Question(')
+          ..write('knowledgeItemId: $knowledgeItemId, ')
+          ..write('questionTemplateId: $questionTemplateId, ')
+          ..write('relationType: $relationType, ')
+          ..write('promptText: $promptText')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    knowledgeItemId,
+    questionTemplateId,
+    relationType,
+    promptText,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is Question &&
+          other.knowledgeItemId == this.knowledgeItemId &&
+          other.questionTemplateId == this.questionTemplateId &&
+          other.relationType == this.relationType &&
+          other.promptText == this.promptText);
+}
+
+class QuestionsCompanion extends UpdateCompanion<Question> {
+  final Value<String> knowledgeItemId;
+  final Value<String> questionTemplateId;
+  final Value<String> relationType;
+  final Value<String> promptText;
+  final Value<int> rowid;
+  const QuestionsCompanion({
+    this.knowledgeItemId = const Value.absent(),
+    this.questionTemplateId = const Value.absent(),
+    this.relationType = const Value.absent(),
+    this.promptText = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  QuestionsCompanion.insert({
+    required String knowledgeItemId,
+    required String questionTemplateId,
+    required String relationType,
+    required String promptText,
+    this.rowid = const Value.absent(),
+  }) : knowledgeItemId = Value(knowledgeItemId),
+       questionTemplateId = Value(questionTemplateId),
+       relationType = Value(relationType),
+       promptText = Value(promptText);
+  static Insertable<Question> custom({
+    Expression<String>? knowledgeItemId,
+    Expression<String>? questionTemplateId,
+    Expression<String>? relationType,
+    Expression<String>? promptText,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (knowledgeItemId != null) 'knowledge_item_id': knowledgeItemId,
+      if (questionTemplateId != null)
+        'question_template_id': questionTemplateId,
+      if (relationType != null) 'relation_type': relationType,
+      if (promptText != null) 'prompt_text': promptText,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  QuestionsCompanion copyWith({
+    Value<String>? knowledgeItemId,
+    Value<String>? questionTemplateId,
+    Value<String>? relationType,
+    Value<String>? promptText,
+    Value<int>? rowid,
+  }) {
+    return QuestionsCompanion(
+      knowledgeItemId: knowledgeItemId ?? this.knowledgeItemId,
+      questionTemplateId: questionTemplateId ?? this.questionTemplateId,
+      relationType: relationType ?? this.relationType,
+      promptText: promptText ?? this.promptText,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (knowledgeItemId.present) {
+      map['knowledge_item_id'] = Variable<String>(knowledgeItemId.value);
+    }
+    if (questionTemplateId.present) {
+      map['question_template_id'] = Variable<String>(questionTemplateId.value);
+    }
+    if (relationType.present) {
+      map['relation_type'] = Variable<String>(relationType.value);
+    }
+    if (promptText.present) {
+      map['prompt_text'] = Variable<String>(promptText.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('QuestionsCompanion(')
+          ..write('knowledgeItemId: $knowledgeItemId, ')
+          ..write('questionTemplateId: $questionTemplateId, ')
+          ..write('relationType: $relationType, ')
+          ..write('promptText: $promptText, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class QuestionDistractors extends Table
+    with TableInfo<QuestionDistractors, QuestionDistractor> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  QuestionDistractors(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _knowledgeItemIdMeta = const VerificationMeta(
+    'knowledgeItemId',
+  );
+  late final GeneratedColumn<String> knowledgeItemId = GeneratedColumn<String>(
+    'knowledge_item_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL',
+  );
+  static const VerificationMeta _questionTemplateIdMeta =
+      const VerificationMeta('questionTemplateId');
+  late final GeneratedColumn<String> questionTemplateId =
+      GeneratedColumn<String>(
+        'question_template_id',
+        aliasedName,
+        false,
+        type: DriftSqlType.string,
+        requiredDuringInsert: true,
+        $customConstraints: 'NOT NULL',
+      );
+  static const VerificationMeta _knowledgeNodeIdMeta = const VerificationMeta(
+    'knowledgeNodeId',
+  );
+  late final GeneratedColumn<String> knowledgeNodeId = GeneratedColumn<String>(
+    'knowledge_node_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL REFERENCES knowledge_nodes(id)',
+  );
+  static const VerificationMeta _scopeRankMeta = const VerificationMeta(
+    'scopeRank',
+  );
+  late final GeneratedColumn<int> scopeRank = GeneratedColumn<int>(
+    'scope_rank',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL CHECK (scope_rank >= 0)',
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    knowledgeItemId,
+    questionTemplateId,
+    knowledgeNodeId,
+    scopeRank,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'question_distractors';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<QuestionDistractor> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('knowledge_item_id')) {
+      context.handle(
+        _knowledgeItemIdMeta,
+        knowledgeItemId.isAcceptableOrUnknown(
+          data['knowledge_item_id']!,
+          _knowledgeItemIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_knowledgeItemIdMeta);
+    }
+    if (data.containsKey('question_template_id')) {
+      context.handle(
+        _questionTemplateIdMeta,
+        questionTemplateId.isAcceptableOrUnknown(
+          data['question_template_id']!,
+          _questionTemplateIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_questionTemplateIdMeta);
+    }
+    if (data.containsKey('knowledge_node_id')) {
+      context.handle(
+        _knowledgeNodeIdMeta,
+        knowledgeNodeId.isAcceptableOrUnknown(
+          data['knowledge_node_id']!,
+          _knowledgeNodeIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_knowledgeNodeIdMeta);
+    }
+    if (data.containsKey('scope_rank')) {
+      context.handle(
+        _scopeRankMeta,
+        scopeRank.isAcceptableOrUnknown(data['scope_rank']!, _scopeRankMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_scopeRankMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {
+    knowledgeItemId,
+    questionTemplateId,
+    knowledgeNodeId,
+  };
+  @override
+  QuestionDistractor map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return QuestionDistractor(
+      knowledgeItemId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}knowledge_item_id'],
+      )!,
+      questionTemplateId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}question_template_id'],
+      )!,
+      knowledgeNodeId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}knowledge_node_id'],
+      )!,
+      scopeRank: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}scope_rank'],
+      )!,
+    );
+  }
+
+  @override
+  QuestionDistractors createAlias(String alias) {
+    return QuestionDistractors(attachedDatabase, alias);
+  }
+
+  @override
+  List<String> get customConstraints => const [
+    'PRIMARY KEY(knowledge_item_id, question_template_id, knowledge_node_id)',
+    'FOREIGN KEY(knowledge_item_id, question_template_id)REFERENCES questions(knowledge_item_id, question_template_id)ON DELETE CASCADE',
+  ];
+  @override
+  bool get dontWriteConstraints => true;
+}
+
+class QuestionDistractor extends DataClass
+    implements Insertable<QuestionDistractor> {
+  final String knowledgeItemId;
+  final String questionTemplateId;
+  final String knowledgeNodeId;
+  final int scopeRank;
+  const QuestionDistractor({
+    required this.knowledgeItemId,
+    required this.questionTemplateId,
+    required this.knowledgeNodeId,
+    required this.scopeRank,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['knowledge_item_id'] = Variable<String>(knowledgeItemId);
+    map['question_template_id'] = Variable<String>(questionTemplateId);
+    map['knowledge_node_id'] = Variable<String>(knowledgeNodeId);
+    map['scope_rank'] = Variable<int>(scopeRank);
+    return map;
+  }
+
+  QuestionDistractorsCompanion toCompanion(bool nullToAbsent) {
+    return QuestionDistractorsCompanion(
+      knowledgeItemId: Value(knowledgeItemId),
+      questionTemplateId: Value(questionTemplateId),
+      knowledgeNodeId: Value(knowledgeNodeId),
+      scopeRank: Value(scopeRank),
+    );
+  }
+
+  factory QuestionDistractor.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return QuestionDistractor(
+      knowledgeItemId: serializer.fromJson<String>(json['knowledge_item_id']),
+      questionTemplateId: serializer.fromJson<String>(
+        json['question_template_id'],
+      ),
+      knowledgeNodeId: serializer.fromJson<String>(json['knowledge_node_id']),
+      scopeRank: serializer.fromJson<int>(json['scope_rank']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'knowledge_item_id': serializer.toJson<String>(knowledgeItemId),
+      'question_template_id': serializer.toJson<String>(questionTemplateId),
+      'knowledge_node_id': serializer.toJson<String>(knowledgeNodeId),
+      'scope_rank': serializer.toJson<int>(scopeRank),
+    };
+  }
+
+  QuestionDistractor copyWith({
+    String? knowledgeItemId,
+    String? questionTemplateId,
+    String? knowledgeNodeId,
+    int? scopeRank,
+  }) => QuestionDistractor(
+    knowledgeItemId: knowledgeItemId ?? this.knowledgeItemId,
+    questionTemplateId: questionTemplateId ?? this.questionTemplateId,
+    knowledgeNodeId: knowledgeNodeId ?? this.knowledgeNodeId,
+    scopeRank: scopeRank ?? this.scopeRank,
+  );
+  QuestionDistractor copyWithCompanion(QuestionDistractorsCompanion data) {
+    return QuestionDistractor(
+      knowledgeItemId: data.knowledgeItemId.present
+          ? data.knowledgeItemId.value
+          : this.knowledgeItemId,
+      questionTemplateId: data.questionTemplateId.present
+          ? data.questionTemplateId.value
+          : this.questionTemplateId,
+      knowledgeNodeId: data.knowledgeNodeId.present
+          ? data.knowledgeNodeId.value
+          : this.knowledgeNodeId,
+      scopeRank: data.scopeRank.present ? data.scopeRank.value : this.scopeRank,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('QuestionDistractor(')
+          ..write('knowledgeItemId: $knowledgeItemId, ')
+          ..write('questionTemplateId: $questionTemplateId, ')
+          ..write('knowledgeNodeId: $knowledgeNodeId, ')
+          ..write('scopeRank: $scopeRank')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    knowledgeItemId,
+    questionTemplateId,
+    knowledgeNodeId,
+    scopeRank,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is QuestionDistractor &&
+          other.knowledgeItemId == this.knowledgeItemId &&
+          other.questionTemplateId == this.questionTemplateId &&
+          other.knowledgeNodeId == this.knowledgeNodeId &&
+          other.scopeRank == this.scopeRank);
+}
+
+class QuestionDistractorsCompanion extends UpdateCompanion<QuestionDistractor> {
+  final Value<String> knowledgeItemId;
+  final Value<String> questionTemplateId;
+  final Value<String> knowledgeNodeId;
+  final Value<int> scopeRank;
+  final Value<int> rowid;
+  const QuestionDistractorsCompanion({
+    this.knowledgeItemId = const Value.absent(),
+    this.questionTemplateId = const Value.absent(),
+    this.knowledgeNodeId = const Value.absent(),
+    this.scopeRank = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  QuestionDistractorsCompanion.insert({
+    required String knowledgeItemId,
+    required String questionTemplateId,
+    required String knowledgeNodeId,
+    required int scopeRank,
+    this.rowid = const Value.absent(),
+  }) : knowledgeItemId = Value(knowledgeItemId),
+       questionTemplateId = Value(questionTemplateId),
+       knowledgeNodeId = Value(knowledgeNodeId),
+       scopeRank = Value(scopeRank);
+  static Insertable<QuestionDistractor> custom({
+    Expression<String>? knowledgeItemId,
+    Expression<String>? questionTemplateId,
+    Expression<String>? knowledgeNodeId,
+    Expression<int>? scopeRank,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (knowledgeItemId != null) 'knowledge_item_id': knowledgeItemId,
+      if (questionTemplateId != null)
+        'question_template_id': questionTemplateId,
+      if (knowledgeNodeId != null) 'knowledge_node_id': knowledgeNodeId,
+      if (scopeRank != null) 'scope_rank': scopeRank,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  QuestionDistractorsCompanion copyWith({
+    Value<String>? knowledgeItemId,
+    Value<String>? questionTemplateId,
+    Value<String>? knowledgeNodeId,
+    Value<int>? scopeRank,
+    Value<int>? rowid,
+  }) {
+    return QuestionDistractorsCompanion(
+      knowledgeItemId: knowledgeItemId ?? this.knowledgeItemId,
+      questionTemplateId: questionTemplateId ?? this.questionTemplateId,
+      knowledgeNodeId: knowledgeNodeId ?? this.knowledgeNodeId,
+      scopeRank: scopeRank ?? this.scopeRank,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (knowledgeItemId.present) {
+      map['knowledge_item_id'] = Variable<String>(knowledgeItemId.value);
+    }
+    if (questionTemplateId.present) {
+      map['question_template_id'] = Variable<String>(questionTemplateId.value);
+    }
+    if (knowledgeNodeId.present) {
+      map['knowledge_node_id'] = Variable<String>(knowledgeNodeId.value);
+    }
+    if (scopeRank.present) {
+      map['scope_rank'] = Variable<int>(scopeRank.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('QuestionDistractorsCompanion(')
+          ..write('knowledgeItemId: $knowledgeItemId, ')
+          ..write('questionTemplateId: $questionTemplateId, ')
+          ..write('knowledgeNodeId: $knowledgeNodeId, ')
+          ..write('scopeRank: $scopeRank, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class UserProfiles extends Table with TableInfo<UserProfiles, UserProfile> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  UserProfiles(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  late final GeneratedColumn<int> id = GeneratedColumn<int>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    $customConstraints: 'NOT NULL PRIMARY KEY CHECK (id = 1)',
+  );
+  static const VerificationMeta _activeCertificationIdMeta =
+      const VerificationMeta('activeCertificationId');
+  late final GeneratedColumn<String> activeCertificationId =
+      GeneratedColumn<String>(
+        'active_certification_id',
+        aliasedName,
+        false,
+        type: DriftSqlType.string,
+        requiredDuringInsert: true,
+        $customConstraints: 'NOT NULL REFERENCES certifications(id)',
+      );
+  static const VerificationMeta _sessionSizeMeta = const VerificationMeta(
+    'sessionSize',
+  );
+  late final GeneratedColumn<int> sessionSize = GeneratedColumn<int>(
+    'session_size',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    $customConstraints:
+        'NOT NULL DEFAULT 15 CHECK (session_size BETWEEN 1 AND 100)',
+    defaultValue: const CustomExpression('15'),
+  );
+  static const VerificationMeta _newItemsPerSessionMeta =
+      const VerificationMeta('newItemsPerSession');
+  late final GeneratedColumn<int> newItemsPerSession = GeneratedColumn<int>(
+    'new_items_per_session',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    $customConstraints: 'NOT NULL DEFAULT 5 CHECK (new_items_per_session >= 0)',
+    defaultValue: const CustomExpression('5'),
+  );
+  static const VerificationMeta _createdAtMeta = const VerificationMeta(
+    'createdAt',
+  );
+  late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL CHECK (strftime(\'%Y-%m-%dT%H:%M:%fZ\', created_at) IS created_at)',
+  );
+  static const VerificationMeta _updatedAtMeta = const VerificationMeta(
+    'updatedAt',
+  );
+  late final GeneratedColumn<DateTime> updatedAt = GeneratedColumn<DateTime>(
+    'updated_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL CHECK (strftime(\'%Y-%m-%dT%H:%M:%fZ\', updated_at) IS updated_at)',
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    activeCertificationId,
+    sessionSize,
+    newItemsPerSession,
+    createdAt,
+    updatedAt,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'user_profiles';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<UserProfile> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    }
+    if (data.containsKey('active_certification_id')) {
+      context.handle(
+        _activeCertificationIdMeta,
+        activeCertificationId.isAcceptableOrUnknown(
+          data['active_certification_id']!,
+          _activeCertificationIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_activeCertificationIdMeta);
+    }
+    if (data.containsKey('session_size')) {
+      context.handle(
+        _sessionSizeMeta,
+        sessionSize.isAcceptableOrUnknown(
+          data['session_size']!,
+          _sessionSizeMeta,
+        ),
+      );
+    }
+    if (data.containsKey('new_items_per_session')) {
+      context.handle(
+        _newItemsPerSessionMeta,
+        newItemsPerSession.isAcceptableOrUnknown(
+          data['new_items_per_session']!,
+          _newItemsPerSessionMeta,
+        ),
+      );
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(
+        _createdAtMeta,
+        createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_createdAtMeta);
+    }
+    if (data.containsKey('updated_at')) {
+      context.handle(
+        _updatedAtMeta,
+        updatedAt.isAcceptableOrUnknown(data['updated_at']!, _updatedAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_updatedAtMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  UserProfile map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return UserProfile(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}id'],
+      )!,
+      activeCertificationId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}active_certification_id'],
+      )!,
+      sessionSize: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}session_size'],
+      )!,
+      newItemsPerSession: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}new_items_per_session'],
+      )!,
+      createdAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}created_at'],
+      )!,
+      updatedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}updated_at'],
+      )!,
+    );
+  }
+
+  @override
+  UserProfiles createAlias(String alias) {
+    return UserProfiles(attachedDatabase, alias);
+  }
+
+  @override
+  List<String> get customConstraints => const [
+    'CHECK(new_items_per_session <= session_size)',
+    'CHECK(unixepoch(updated_at, \'subsec\') >= unixepoch(created_at, \'subsec\'))',
+  ];
+  @override
+  bool get dontWriteConstraints => true;
+}
+
+class UserProfile extends DataClass implements Insertable<UserProfile> {
+  final int id;
+  final String activeCertificationId;
+  final int sessionSize;
+  final int newItemsPerSession;
+  final DateTime createdAt;
+  final DateTime updatedAt;
+  const UserProfile({
+    required this.id,
+    required this.activeCertificationId,
+    required this.sessionSize,
+    required this.newItemsPerSession,
+    required this.createdAt,
+    required this.updatedAt,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<int>(id);
+    map['active_certification_id'] = Variable<String>(activeCertificationId);
+    map['session_size'] = Variable<int>(sessionSize);
+    map['new_items_per_session'] = Variable<int>(newItemsPerSession);
+    map['created_at'] = Variable<DateTime>(createdAt);
+    map['updated_at'] = Variable<DateTime>(updatedAt);
+    return map;
+  }
+
+  UserProfilesCompanion toCompanion(bool nullToAbsent) {
+    return UserProfilesCompanion(
+      id: Value(id),
+      activeCertificationId: Value(activeCertificationId),
+      sessionSize: Value(sessionSize),
+      newItemsPerSession: Value(newItemsPerSession),
+      createdAt: Value(createdAt),
+      updatedAt: Value(updatedAt),
+    );
+  }
+
+  factory UserProfile.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return UserProfile(
+      id: serializer.fromJson<int>(json['id']),
+      activeCertificationId: serializer.fromJson<String>(
+        json['active_certification_id'],
+      ),
+      sessionSize: serializer.fromJson<int>(json['session_size']),
+      newItemsPerSession: serializer.fromJson<int>(
+        json['new_items_per_session'],
+      ),
+      createdAt: serializer.fromJson<DateTime>(json['created_at']),
+      updatedAt: serializer.fromJson<DateTime>(json['updated_at']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<int>(id),
+      'active_certification_id': serializer.toJson<String>(
+        activeCertificationId,
+      ),
+      'session_size': serializer.toJson<int>(sessionSize),
+      'new_items_per_session': serializer.toJson<int>(newItemsPerSession),
+      'created_at': serializer.toJson<DateTime>(createdAt),
+      'updated_at': serializer.toJson<DateTime>(updatedAt),
+    };
+  }
+
+  UserProfile copyWith({
+    int? id,
+    String? activeCertificationId,
+    int? sessionSize,
+    int? newItemsPerSession,
+    DateTime? createdAt,
+    DateTime? updatedAt,
+  }) => UserProfile(
+    id: id ?? this.id,
+    activeCertificationId: activeCertificationId ?? this.activeCertificationId,
+    sessionSize: sessionSize ?? this.sessionSize,
+    newItemsPerSession: newItemsPerSession ?? this.newItemsPerSession,
+    createdAt: createdAt ?? this.createdAt,
+    updatedAt: updatedAt ?? this.updatedAt,
+  );
+  UserProfile copyWithCompanion(UserProfilesCompanion data) {
+    return UserProfile(
+      id: data.id.present ? data.id.value : this.id,
+      activeCertificationId: data.activeCertificationId.present
+          ? data.activeCertificationId.value
+          : this.activeCertificationId,
+      sessionSize: data.sessionSize.present
+          ? data.sessionSize.value
+          : this.sessionSize,
+      newItemsPerSession: data.newItemsPerSession.present
+          ? data.newItemsPerSession.value
+          : this.newItemsPerSession,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+      updatedAt: data.updatedAt.present ? data.updatedAt.value : this.updatedAt,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('UserProfile(')
+          ..write('id: $id, ')
+          ..write('activeCertificationId: $activeCertificationId, ')
+          ..write('sessionSize: $sessionSize, ')
+          ..write('newItemsPerSession: $newItemsPerSession, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    activeCertificationId,
+    sessionSize,
+    newItemsPerSession,
+    createdAt,
+    updatedAt,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is UserProfile &&
+          other.id == this.id &&
+          other.activeCertificationId == this.activeCertificationId &&
+          other.sessionSize == this.sessionSize &&
+          other.newItemsPerSession == this.newItemsPerSession &&
+          other.createdAt == this.createdAt &&
+          other.updatedAt == this.updatedAt);
+}
+
+class UserProfilesCompanion extends UpdateCompanion<UserProfile> {
+  final Value<int> id;
+  final Value<String> activeCertificationId;
+  final Value<int> sessionSize;
+  final Value<int> newItemsPerSession;
+  final Value<DateTime> createdAt;
+  final Value<DateTime> updatedAt;
+  const UserProfilesCompanion({
+    this.id = const Value.absent(),
+    this.activeCertificationId = const Value.absent(),
+    this.sessionSize = const Value.absent(),
+    this.newItemsPerSession = const Value.absent(),
+    this.createdAt = const Value.absent(),
+    this.updatedAt = const Value.absent(),
+  });
+  UserProfilesCompanion.insert({
+    this.id = const Value.absent(),
+    required String activeCertificationId,
+    this.sessionSize = const Value.absent(),
+    this.newItemsPerSession = const Value.absent(),
+    required DateTime createdAt,
+    required DateTime updatedAt,
+  }) : activeCertificationId = Value(activeCertificationId),
+       createdAt = Value(createdAt),
+       updatedAt = Value(updatedAt);
+  static Insertable<UserProfile> custom({
+    Expression<int>? id,
+    Expression<String>? activeCertificationId,
+    Expression<int>? sessionSize,
+    Expression<int>? newItemsPerSession,
+    Expression<DateTime>? createdAt,
+    Expression<DateTime>? updatedAt,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (activeCertificationId != null)
+        'active_certification_id': activeCertificationId,
+      if (sessionSize != null) 'session_size': sessionSize,
+      if (newItemsPerSession != null)
+        'new_items_per_session': newItemsPerSession,
+      if (createdAt != null) 'created_at': createdAt,
+      if (updatedAt != null) 'updated_at': updatedAt,
+    });
+  }
+
+  UserProfilesCompanion copyWith({
+    Value<int>? id,
+    Value<String>? activeCertificationId,
+    Value<int>? sessionSize,
+    Value<int>? newItemsPerSession,
+    Value<DateTime>? createdAt,
+    Value<DateTime>? updatedAt,
+  }) {
+    return UserProfilesCompanion(
+      id: id ?? this.id,
+      activeCertificationId:
+          activeCertificationId ?? this.activeCertificationId,
+      sessionSize: sessionSize ?? this.sessionSize,
+      newItemsPerSession: newItemsPerSession ?? this.newItemsPerSession,
+      createdAt: createdAt ?? this.createdAt,
+      updatedAt: updatedAt ?? this.updatedAt,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<int>(id.value);
+    }
+    if (activeCertificationId.present) {
+      map['active_certification_id'] = Variable<String>(
+        activeCertificationId.value,
+      );
+    }
+    if (sessionSize.present) {
+      map['session_size'] = Variable<int>(sessionSize.value);
+    }
+    if (newItemsPerSession.present) {
+      map['new_items_per_session'] = Variable<int>(newItemsPerSession.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<DateTime>(createdAt.value);
+    }
+    if (updatedAt.present) {
+      map['updated_at'] = Variable<DateTime>(updatedAt.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('UserProfilesCompanion(')
+          ..write('id: $id, ')
+          ..write('activeCertificationId: $activeCertificationId, ')
+          ..write('sessionSize: $sessionSize, ')
+          ..write('newItemsPerSession: $newItemsPerSession, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class SchedulerConfigs extends Table
+    with TableInfo<SchedulerConfigs, SchedulerConfig> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  SchedulerConfigs(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _versionMeta = const VerificationMeta(
+    'version',
+  );
+  late final GeneratedColumn<int> version = GeneratedColumn<int>(
+    'version',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    $customConstraints: 'NOT NULL PRIMARY KEY CHECK (version >= 1)',
+  );
+  static const VerificationMeta _weightsMeta = const VerificationMeta(
+    'weights',
+  );
+  late final GeneratedColumn<String> weights = GeneratedColumn<String>(
+    'weights',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL CHECK (json_valid(weights) AND json_type(weights) = \'array\' AND json_array_length(weights) = 21)',
+  );
+  static const VerificationMeta _desiredRetentionMeta = const VerificationMeta(
+    'desiredRetention',
+  );
+  late final GeneratedColumn<double> desiredRetention = GeneratedColumn<double>(
+    'desired_retention',
+    aliasedName,
+    false,
+    type: DriftSqlType.double,
+    requiredDuringInsert: true,
+    $customConstraints:
+        'NOT NULL CHECK (desired_retention > 0 AND desired_retention < 1)',
+  );
+  static const VerificationMeta _learningStepsSecondsMeta =
+      const VerificationMeta('learningStepsSeconds');
+  late final GeneratedColumn<String> learningStepsSeconds =
+      GeneratedColumn<String>(
+        'learning_steps_seconds',
+        aliasedName,
+        false,
+        type: DriftSqlType.string,
+        requiredDuringInsert: true,
+        $customConstraints: 'NOT NULL CHECK (json_valid(learning_steps_seconds) AND json_type(learning_steps_seconds) = \'array\')',
+      );
+  static const VerificationMeta _relearningStepsSecondsMeta =
+      const VerificationMeta('relearningStepsSeconds');
+  late final GeneratedColumn<String> relearningStepsSeconds =
+      GeneratedColumn<String>(
+        'relearning_steps_seconds',
+        aliasedName,
+        false,
+        type: DriftSqlType.string,
+        requiredDuringInsert: true,
+        $customConstraints: 'NOT NULL CHECK (json_valid(relearning_steps_seconds) AND json_type(relearning_steps_seconds) = \'array\')',
+      );
+  static const VerificationMeta _maximumIntervalDaysMeta =
+      const VerificationMeta('maximumIntervalDays');
+  late final GeneratedColumn<int> maximumIntervalDays = GeneratedColumn<int>(
+    'maximum_interval_days',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL CHECK (maximum_interval_days >= 1)',
+  );
+  static const VerificationMeta _enableFuzzingMeta = const VerificationMeta(
+    'enableFuzzing',
+  );
+  late final GeneratedColumn<bool> enableFuzzing = GeneratedColumn<bool>(
+    'enable_fuzzing',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL CHECK (enable_fuzzing IN (0, 1))',
+  );
+  static const VerificationMeta _createdAtMeta = const VerificationMeta(
+    'createdAt',
+  );
+  late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL CHECK (strftime(\'%Y-%m-%dT%H:%M:%fZ\', created_at) IS created_at)',
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    version,
+    weights,
+    desiredRetention,
+    learningStepsSeconds,
+    relearningStepsSeconds,
+    maximumIntervalDays,
+    enableFuzzing,
+    createdAt,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'scheduler_configs';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<SchedulerConfig> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('version')) {
+      context.handle(
+        _versionMeta,
+        version.isAcceptableOrUnknown(data['version']!, _versionMeta),
+      );
+    }
+    if (data.containsKey('weights')) {
+      context.handle(
+        _weightsMeta,
+        weights.isAcceptableOrUnknown(data['weights']!, _weightsMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_weightsMeta);
+    }
+    if (data.containsKey('desired_retention')) {
+      context.handle(
+        _desiredRetentionMeta,
+        desiredRetention.isAcceptableOrUnknown(
+          data['desired_retention']!,
+          _desiredRetentionMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_desiredRetentionMeta);
+    }
+    if (data.containsKey('learning_steps_seconds')) {
+      context.handle(
+        _learningStepsSecondsMeta,
+        learningStepsSeconds.isAcceptableOrUnknown(
+          data['learning_steps_seconds']!,
+          _learningStepsSecondsMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_learningStepsSecondsMeta);
+    }
+    if (data.containsKey('relearning_steps_seconds')) {
+      context.handle(
+        _relearningStepsSecondsMeta,
+        relearningStepsSeconds.isAcceptableOrUnknown(
+          data['relearning_steps_seconds']!,
+          _relearningStepsSecondsMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_relearningStepsSecondsMeta);
+    }
+    if (data.containsKey('maximum_interval_days')) {
+      context.handle(
+        _maximumIntervalDaysMeta,
+        maximumIntervalDays.isAcceptableOrUnknown(
+          data['maximum_interval_days']!,
+          _maximumIntervalDaysMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_maximumIntervalDaysMeta);
+    }
+    if (data.containsKey('enable_fuzzing')) {
+      context.handle(
+        _enableFuzzingMeta,
+        enableFuzzing.isAcceptableOrUnknown(
+          data['enable_fuzzing']!,
+          _enableFuzzingMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_enableFuzzingMeta);
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(
+        _createdAtMeta,
+        createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_createdAtMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {version};
+  @override
+  SchedulerConfig map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return SchedulerConfig(
+      version: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}version'],
+      )!,
+      weights: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}weights'],
+      )!,
+      desiredRetention: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}desired_retention'],
+      )!,
+      learningStepsSeconds: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}learning_steps_seconds'],
+      )!,
+      relearningStepsSeconds: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}relearning_steps_seconds'],
+      )!,
+      maximumIntervalDays: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}maximum_interval_days'],
+      )!,
+      enableFuzzing: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}enable_fuzzing'],
+      )!,
+      createdAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}created_at'],
+      )!,
+    );
+  }
+
+  @override
+  SchedulerConfigs createAlias(String alias) {
+    return SchedulerConfigs(attachedDatabase, alias);
+  }
+
+  @override
+  bool get dontWriteConstraints => true;
+}
+
+class SchedulerConfig extends DataClass implements Insertable<SchedulerConfig> {
+  final int version;
+  final String weights;
+  final double desiredRetention;
+  final String learningStepsSeconds;
+  final String relearningStepsSeconds;
+  final int maximumIntervalDays;
+  final bool enableFuzzing;
+  final DateTime createdAt;
+  const SchedulerConfig({
+    required this.version,
+    required this.weights,
+    required this.desiredRetention,
+    required this.learningStepsSeconds,
+    required this.relearningStepsSeconds,
+    required this.maximumIntervalDays,
+    required this.enableFuzzing,
+    required this.createdAt,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['version'] = Variable<int>(version);
+    map['weights'] = Variable<String>(weights);
+    map['desired_retention'] = Variable<double>(desiredRetention);
+    map['learning_steps_seconds'] = Variable<String>(learningStepsSeconds);
+    map['relearning_steps_seconds'] = Variable<String>(relearningStepsSeconds);
+    map['maximum_interval_days'] = Variable<int>(maximumIntervalDays);
+    map['enable_fuzzing'] = Variable<bool>(enableFuzzing);
+    map['created_at'] = Variable<DateTime>(createdAt);
+    return map;
+  }
+
+  SchedulerConfigsCompanion toCompanion(bool nullToAbsent) {
+    return SchedulerConfigsCompanion(
+      version: Value(version),
+      weights: Value(weights),
+      desiredRetention: Value(desiredRetention),
+      learningStepsSeconds: Value(learningStepsSeconds),
+      relearningStepsSeconds: Value(relearningStepsSeconds),
+      maximumIntervalDays: Value(maximumIntervalDays),
+      enableFuzzing: Value(enableFuzzing),
+      createdAt: Value(createdAt),
+    );
+  }
+
+  factory SchedulerConfig.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return SchedulerConfig(
+      version: serializer.fromJson<int>(json['version']),
+      weights: serializer.fromJson<String>(json['weights']),
+      desiredRetention: serializer.fromJson<double>(json['desired_retention']),
+      learningStepsSeconds: serializer.fromJson<String>(
+        json['learning_steps_seconds'],
+      ),
+      relearningStepsSeconds: serializer.fromJson<String>(
+        json['relearning_steps_seconds'],
+      ),
+      maximumIntervalDays: serializer.fromJson<int>(
+        json['maximum_interval_days'],
+      ),
+      enableFuzzing: serializer.fromJson<bool>(json['enable_fuzzing']),
+      createdAt: serializer.fromJson<DateTime>(json['created_at']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'version': serializer.toJson<int>(version),
+      'weights': serializer.toJson<String>(weights),
+      'desired_retention': serializer.toJson<double>(desiredRetention),
+      'learning_steps_seconds': serializer.toJson<String>(learningStepsSeconds),
+      'relearning_steps_seconds': serializer.toJson<String>(
+        relearningStepsSeconds,
+      ),
+      'maximum_interval_days': serializer.toJson<int>(maximumIntervalDays),
+      'enable_fuzzing': serializer.toJson<bool>(enableFuzzing),
+      'created_at': serializer.toJson<DateTime>(createdAt),
+    };
+  }
+
+  SchedulerConfig copyWith({
+    int? version,
+    String? weights,
+    double? desiredRetention,
+    String? learningStepsSeconds,
+    String? relearningStepsSeconds,
+    int? maximumIntervalDays,
+    bool? enableFuzzing,
+    DateTime? createdAt,
+  }) => SchedulerConfig(
+    version: version ?? this.version,
+    weights: weights ?? this.weights,
+    desiredRetention: desiredRetention ?? this.desiredRetention,
+    learningStepsSeconds: learningStepsSeconds ?? this.learningStepsSeconds,
+    relearningStepsSeconds:
+        relearningStepsSeconds ?? this.relearningStepsSeconds,
+    maximumIntervalDays: maximumIntervalDays ?? this.maximumIntervalDays,
+    enableFuzzing: enableFuzzing ?? this.enableFuzzing,
+    createdAt: createdAt ?? this.createdAt,
+  );
+  SchedulerConfig copyWithCompanion(SchedulerConfigsCompanion data) {
+    return SchedulerConfig(
+      version: data.version.present ? data.version.value : this.version,
+      weights: data.weights.present ? data.weights.value : this.weights,
+      desiredRetention: data.desiredRetention.present
+          ? data.desiredRetention.value
+          : this.desiredRetention,
+      learningStepsSeconds: data.learningStepsSeconds.present
+          ? data.learningStepsSeconds.value
+          : this.learningStepsSeconds,
+      relearningStepsSeconds: data.relearningStepsSeconds.present
+          ? data.relearningStepsSeconds.value
+          : this.relearningStepsSeconds,
+      maximumIntervalDays: data.maximumIntervalDays.present
+          ? data.maximumIntervalDays.value
+          : this.maximumIntervalDays,
+      enableFuzzing: data.enableFuzzing.present
+          ? data.enableFuzzing.value
+          : this.enableFuzzing,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('SchedulerConfig(')
+          ..write('version: $version, ')
+          ..write('weights: $weights, ')
+          ..write('desiredRetention: $desiredRetention, ')
+          ..write('learningStepsSeconds: $learningStepsSeconds, ')
+          ..write('relearningStepsSeconds: $relearningStepsSeconds, ')
+          ..write('maximumIntervalDays: $maximumIntervalDays, ')
+          ..write('enableFuzzing: $enableFuzzing, ')
+          ..write('createdAt: $createdAt')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    version,
+    weights,
+    desiredRetention,
+    learningStepsSeconds,
+    relearningStepsSeconds,
+    maximumIntervalDays,
+    enableFuzzing,
+    createdAt,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is SchedulerConfig &&
+          other.version == this.version &&
+          other.weights == this.weights &&
+          other.desiredRetention == this.desiredRetention &&
+          other.learningStepsSeconds == this.learningStepsSeconds &&
+          other.relearningStepsSeconds == this.relearningStepsSeconds &&
+          other.maximumIntervalDays == this.maximumIntervalDays &&
+          other.enableFuzzing == this.enableFuzzing &&
+          other.createdAt == this.createdAt);
+}
+
+class SchedulerConfigsCompanion extends UpdateCompanion<SchedulerConfig> {
+  final Value<int> version;
+  final Value<String> weights;
+  final Value<double> desiredRetention;
+  final Value<String> learningStepsSeconds;
+  final Value<String> relearningStepsSeconds;
+  final Value<int> maximumIntervalDays;
+  final Value<bool> enableFuzzing;
+  final Value<DateTime> createdAt;
+  const SchedulerConfigsCompanion({
+    this.version = const Value.absent(),
+    this.weights = const Value.absent(),
+    this.desiredRetention = const Value.absent(),
+    this.learningStepsSeconds = const Value.absent(),
+    this.relearningStepsSeconds = const Value.absent(),
+    this.maximumIntervalDays = const Value.absent(),
+    this.enableFuzzing = const Value.absent(),
+    this.createdAt = const Value.absent(),
+  });
+  SchedulerConfigsCompanion.insert({
+    this.version = const Value.absent(),
+    required String weights,
+    required double desiredRetention,
+    required String learningStepsSeconds,
+    required String relearningStepsSeconds,
+    required int maximumIntervalDays,
+    required bool enableFuzzing,
+    required DateTime createdAt,
+  }) : weights = Value(weights),
+       desiredRetention = Value(desiredRetention),
+       learningStepsSeconds = Value(learningStepsSeconds),
+       relearningStepsSeconds = Value(relearningStepsSeconds),
+       maximumIntervalDays = Value(maximumIntervalDays),
+       enableFuzzing = Value(enableFuzzing),
+       createdAt = Value(createdAt);
+  static Insertable<SchedulerConfig> custom({
+    Expression<int>? version,
+    Expression<String>? weights,
+    Expression<double>? desiredRetention,
+    Expression<String>? learningStepsSeconds,
+    Expression<String>? relearningStepsSeconds,
+    Expression<int>? maximumIntervalDays,
+    Expression<bool>? enableFuzzing,
+    Expression<DateTime>? createdAt,
+  }) {
+    return RawValuesInsertable({
+      if (version != null) 'version': version,
+      if (weights != null) 'weights': weights,
+      if (desiredRetention != null) 'desired_retention': desiredRetention,
+      if (learningStepsSeconds != null)
+        'learning_steps_seconds': learningStepsSeconds,
+      if (relearningStepsSeconds != null)
+        'relearning_steps_seconds': relearningStepsSeconds,
+      if (maximumIntervalDays != null)
+        'maximum_interval_days': maximumIntervalDays,
+      if (enableFuzzing != null) 'enable_fuzzing': enableFuzzing,
+      if (createdAt != null) 'created_at': createdAt,
+    });
+  }
+
+  SchedulerConfigsCompanion copyWith({
+    Value<int>? version,
+    Value<String>? weights,
+    Value<double>? desiredRetention,
+    Value<String>? learningStepsSeconds,
+    Value<String>? relearningStepsSeconds,
+    Value<int>? maximumIntervalDays,
+    Value<bool>? enableFuzzing,
+    Value<DateTime>? createdAt,
+  }) {
+    return SchedulerConfigsCompanion(
+      version: version ?? this.version,
+      weights: weights ?? this.weights,
+      desiredRetention: desiredRetention ?? this.desiredRetention,
+      learningStepsSeconds: learningStepsSeconds ?? this.learningStepsSeconds,
+      relearningStepsSeconds:
+          relearningStepsSeconds ?? this.relearningStepsSeconds,
+      maximumIntervalDays: maximumIntervalDays ?? this.maximumIntervalDays,
+      enableFuzzing: enableFuzzing ?? this.enableFuzzing,
+      createdAt: createdAt ?? this.createdAt,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (version.present) {
+      map['version'] = Variable<int>(version.value);
+    }
+    if (weights.present) {
+      map['weights'] = Variable<String>(weights.value);
+    }
+    if (desiredRetention.present) {
+      map['desired_retention'] = Variable<double>(desiredRetention.value);
+    }
+    if (learningStepsSeconds.present) {
+      map['learning_steps_seconds'] = Variable<String>(
+        learningStepsSeconds.value,
+      );
+    }
+    if (relearningStepsSeconds.present) {
+      map['relearning_steps_seconds'] = Variable<String>(
+        relearningStepsSeconds.value,
+      );
+    }
+    if (maximumIntervalDays.present) {
+      map['maximum_interval_days'] = Variable<int>(maximumIntervalDays.value);
+    }
+    if (enableFuzzing.present) {
+      map['enable_fuzzing'] = Variable<bool>(enableFuzzing.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<DateTime>(createdAt.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('SchedulerConfigsCompanion(')
+          ..write('version: $version, ')
+          ..write('weights: $weights, ')
+          ..write('desiredRetention: $desiredRetention, ')
+          ..write('learningStepsSeconds: $learningStepsSeconds, ')
+          ..write('relearningStepsSeconds: $relearningStepsSeconds, ')
+          ..write('maximumIntervalDays: $maximumIntervalDays, ')
+          ..write('enableFuzzing: $enableFuzzing, ')
+          ..write('createdAt: $createdAt')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class ReviewStates extends Table with TableInfo<ReviewStates, ReviewState> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  ReviewStates(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _knowledgeItemIdMeta = const VerificationMeta(
+    'knowledgeItemId',
+  );
+  late final GeneratedColumn<String> knowledgeItemId = GeneratedColumn<String>(
+    'knowledge_item_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL PRIMARY KEY REFERENCES knowledge_items(id)',
+  );
+  static const VerificationMeta _stateMeta = const VerificationMeta('state');
+  late final GeneratedColumn<int> state = GeneratedColumn<int>(
+    'state',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL CHECK (state BETWEEN 1 AND 3)',
+  );
+  static const VerificationMeta _stepMeta = const VerificationMeta('step');
+  late final GeneratedColumn<int> step = GeneratedColumn<int>(
+    'step',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    $customConstraints: 'CHECK (step IS NULL OR step >= 0)',
+  );
+  static const VerificationMeta _stabilityMeta = const VerificationMeta(
+    'stability',
+  );
+  late final GeneratedColumn<double> stability = GeneratedColumn<double>(
+    'stability',
+    aliasedName,
+    false,
+    type: DriftSqlType.double,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL CHECK (stability > 0)',
+  );
+  static const VerificationMeta _difficultyMeta = const VerificationMeta(
+    'difficulty',
+  );
+  late final GeneratedColumn<double> difficulty = GeneratedColumn<double>(
+    'difficulty',
+    aliasedName,
+    false,
+    type: DriftSqlType.double,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL CHECK (difficulty BETWEEN 1 AND 10)',
+  );
+  static const VerificationMeta _dueMeta = const VerificationMeta('due');
+  late final GeneratedColumn<DateTime> due = GeneratedColumn<DateTime>(
+    'due',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+    $customConstraints:
+        'NOT NULL CHECK (strftime(\'%Y-%m-%dT%H:%M:%fZ\', due) IS due)',
+  );
+  static const VerificationMeta _lastReviewMeta = const VerificationMeta(
+    'lastReview',
+  );
+  late final GeneratedColumn<DateTime> lastReview = GeneratedColumn<DateTime>(
+    'last_review',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL CHECK (strftime(\'%Y-%m-%dT%H:%M:%fZ\', last_review) IS last_review)',
+  );
+  static const VerificationMeta _repsMeta = const VerificationMeta('reps');
+  late final GeneratedColumn<int> reps = GeneratedColumn<int>(
+    'reps',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL CHECK (reps >= 1)',
+  );
+  static const VerificationMeta _lapsesMeta = const VerificationMeta('lapses');
+  late final GeneratedColumn<int> lapses = GeneratedColumn<int>(
+    'lapses',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    $customConstraints: 'NOT NULL DEFAULT 0 CHECK (lapses >= 0)',
+    defaultValue: const CustomExpression('0'),
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    knowledgeItemId,
+    state,
+    step,
+    stability,
+    difficulty,
+    due,
+    lastReview,
+    reps,
+    lapses,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'review_states';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<ReviewState> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('knowledge_item_id')) {
+      context.handle(
+        _knowledgeItemIdMeta,
+        knowledgeItemId.isAcceptableOrUnknown(
+          data['knowledge_item_id']!,
+          _knowledgeItemIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_knowledgeItemIdMeta);
+    }
+    if (data.containsKey('state')) {
+      context.handle(
+        _stateMeta,
+        state.isAcceptableOrUnknown(data['state']!, _stateMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_stateMeta);
+    }
+    if (data.containsKey('step')) {
+      context.handle(
+        _stepMeta,
+        step.isAcceptableOrUnknown(data['step']!, _stepMeta),
+      );
+    }
+    if (data.containsKey('stability')) {
+      context.handle(
+        _stabilityMeta,
+        stability.isAcceptableOrUnknown(data['stability']!, _stabilityMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_stabilityMeta);
+    }
+    if (data.containsKey('difficulty')) {
+      context.handle(
+        _difficultyMeta,
+        difficulty.isAcceptableOrUnknown(data['difficulty']!, _difficultyMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_difficultyMeta);
+    }
+    if (data.containsKey('due')) {
+      context.handle(
+        _dueMeta,
+        due.isAcceptableOrUnknown(data['due']!, _dueMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_dueMeta);
+    }
+    if (data.containsKey('last_review')) {
+      context.handle(
+        _lastReviewMeta,
+        lastReview.isAcceptableOrUnknown(data['last_review']!, _lastReviewMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_lastReviewMeta);
+    }
+    if (data.containsKey('reps')) {
+      context.handle(
+        _repsMeta,
+        reps.isAcceptableOrUnknown(data['reps']!, _repsMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_repsMeta);
+    }
+    if (data.containsKey('lapses')) {
+      context.handle(
+        _lapsesMeta,
+        lapses.isAcceptableOrUnknown(data['lapses']!, _lapsesMeta),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {knowledgeItemId};
+  @override
+  ReviewState map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return ReviewState(
+      knowledgeItemId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}knowledge_item_id'],
+      )!,
+      state: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}state'],
+      )!,
+      step: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}step'],
+      ),
+      stability: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}stability'],
+      )!,
+      difficulty: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}difficulty'],
+      )!,
+      due: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}due'],
+      )!,
+      lastReview: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}last_review'],
+      )!,
+      reps: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}reps'],
+      )!,
+      lapses: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}lapses'],
+      )!,
+    );
+  }
+
+  @override
+  ReviewStates createAlias(String alias) {
+    return ReviewStates(attachedDatabase, alias);
+  }
+
+  @override
+  List<String> get customConstraints => const [
+    'CHECK((state = 2)=(step IS NULL))',
+    'CHECK(lapses < reps)',
+    'CHECK(unixepoch(due, \'subsec\') > unixepoch(last_review, \'subsec\'))',
+  ];
+  @override
+  bool get dontWriteConstraints => true;
+}
+
+class ReviewState extends DataClass implements Insertable<ReviewState> {
+  final String knowledgeItemId;
+  final int state;
+  final int? step;
+  final double stability;
+  final double difficulty;
+  final DateTime due;
+  final DateTime lastReview;
+  final int reps;
+  final int lapses;
+  const ReviewState({
+    required this.knowledgeItemId,
+    required this.state,
+    this.step,
+    required this.stability,
+    required this.difficulty,
+    required this.due,
+    required this.lastReview,
+    required this.reps,
+    required this.lapses,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['knowledge_item_id'] = Variable<String>(knowledgeItemId);
+    map['state'] = Variable<int>(state);
+    if (!nullToAbsent || step != null) {
+      map['step'] = Variable<int>(step);
+    }
+    map['stability'] = Variable<double>(stability);
+    map['difficulty'] = Variable<double>(difficulty);
+    map['due'] = Variable<DateTime>(due);
+    map['last_review'] = Variable<DateTime>(lastReview);
+    map['reps'] = Variable<int>(reps);
+    map['lapses'] = Variable<int>(lapses);
+    return map;
+  }
+
+  ReviewStatesCompanion toCompanion(bool nullToAbsent) {
+    return ReviewStatesCompanion(
+      knowledgeItemId: Value(knowledgeItemId),
+      state: Value(state),
+      step: step == null && nullToAbsent ? const Value.absent() : Value(step),
+      stability: Value(stability),
+      difficulty: Value(difficulty),
+      due: Value(due),
+      lastReview: Value(lastReview),
+      reps: Value(reps),
+      lapses: Value(lapses),
+    );
+  }
+
+  factory ReviewState.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return ReviewState(
+      knowledgeItemId: serializer.fromJson<String>(json['knowledge_item_id']),
+      state: serializer.fromJson<int>(json['state']),
+      step: serializer.fromJson<int?>(json['step']),
+      stability: serializer.fromJson<double>(json['stability']),
+      difficulty: serializer.fromJson<double>(json['difficulty']),
+      due: serializer.fromJson<DateTime>(json['due']),
+      lastReview: serializer.fromJson<DateTime>(json['last_review']),
+      reps: serializer.fromJson<int>(json['reps']),
+      lapses: serializer.fromJson<int>(json['lapses']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'knowledge_item_id': serializer.toJson<String>(knowledgeItemId),
+      'state': serializer.toJson<int>(state),
+      'step': serializer.toJson<int?>(step),
+      'stability': serializer.toJson<double>(stability),
+      'difficulty': serializer.toJson<double>(difficulty),
+      'due': serializer.toJson<DateTime>(due),
+      'last_review': serializer.toJson<DateTime>(lastReview),
+      'reps': serializer.toJson<int>(reps),
+      'lapses': serializer.toJson<int>(lapses),
+    };
+  }
+
+  ReviewState copyWith({
+    String? knowledgeItemId,
+    int? state,
+    Value<int?> step = const Value.absent(),
+    double? stability,
+    double? difficulty,
+    DateTime? due,
+    DateTime? lastReview,
+    int? reps,
+    int? lapses,
+  }) => ReviewState(
+    knowledgeItemId: knowledgeItemId ?? this.knowledgeItemId,
+    state: state ?? this.state,
+    step: step.present ? step.value : this.step,
+    stability: stability ?? this.stability,
+    difficulty: difficulty ?? this.difficulty,
+    due: due ?? this.due,
+    lastReview: lastReview ?? this.lastReview,
+    reps: reps ?? this.reps,
+    lapses: lapses ?? this.lapses,
+  );
+  ReviewState copyWithCompanion(ReviewStatesCompanion data) {
+    return ReviewState(
+      knowledgeItemId: data.knowledgeItemId.present
+          ? data.knowledgeItemId.value
+          : this.knowledgeItemId,
+      state: data.state.present ? data.state.value : this.state,
+      step: data.step.present ? data.step.value : this.step,
+      stability: data.stability.present ? data.stability.value : this.stability,
+      difficulty: data.difficulty.present
+          ? data.difficulty.value
+          : this.difficulty,
+      due: data.due.present ? data.due.value : this.due,
+      lastReview: data.lastReview.present
+          ? data.lastReview.value
+          : this.lastReview,
+      reps: data.reps.present ? data.reps.value : this.reps,
+      lapses: data.lapses.present ? data.lapses.value : this.lapses,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('ReviewState(')
+          ..write('knowledgeItemId: $knowledgeItemId, ')
+          ..write('state: $state, ')
+          ..write('step: $step, ')
+          ..write('stability: $stability, ')
+          ..write('difficulty: $difficulty, ')
+          ..write('due: $due, ')
+          ..write('lastReview: $lastReview, ')
+          ..write('reps: $reps, ')
+          ..write('lapses: $lapses')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    knowledgeItemId,
+    state,
+    step,
+    stability,
+    difficulty,
+    due,
+    lastReview,
+    reps,
+    lapses,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is ReviewState &&
+          other.knowledgeItemId == this.knowledgeItemId &&
+          other.state == this.state &&
+          other.step == this.step &&
+          other.stability == this.stability &&
+          other.difficulty == this.difficulty &&
+          other.due == this.due &&
+          other.lastReview == this.lastReview &&
+          other.reps == this.reps &&
+          other.lapses == this.lapses);
+}
+
+class ReviewStatesCompanion extends UpdateCompanion<ReviewState> {
+  final Value<String> knowledgeItemId;
+  final Value<int> state;
+  final Value<int?> step;
+  final Value<double> stability;
+  final Value<double> difficulty;
+  final Value<DateTime> due;
+  final Value<DateTime> lastReview;
+  final Value<int> reps;
+  final Value<int> lapses;
+  final Value<int> rowid;
+  const ReviewStatesCompanion({
+    this.knowledgeItemId = const Value.absent(),
+    this.state = const Value.absent(),
+    this.step = const Value.absent(),
+    this.stability = const Value.absent(),
+    this.difficulty = const Value.absent(),
+    this.due = const Value.absent(),
+    this.lastReview = const Value.absent(),
+    this.reps = const Value.absent(),
+    this.lapses = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  ReviewStatesCompanion.insert({
+    required String knowledgeItemId,
+    required int state,
+    this.step = const Value.absent(),
+    required double stability,
+    required double difficulty,
+    required DateTime due,
+    required DateTime lastReview,
+    required int reps,
+    this.lapses = const Value.absent(),
+    this.rowid = const Value.absent(),
+  }) : knowledgeItemId = Value(knowledgeItemId),
+       state = Value(state),
+       stability = Value(stability),
+       difficulty = Value(difficulty),
+       due = Value(due),
+       lastReview = Value(lastReview),
+       reps = Value(reps);
+  static Insertable<ReviewState> custom({
+    Expression<String>? knowledgeItemId,
+    Expression<int>? state,
+    Expression<int>? step,
+    Expression<double>? stability,
+    Expression<double>? difficulty,
+    Expression<DateTime>? due,
+    Expression<DateTime>? lastReview,
+    Expression<int>? reps,
+    Expression<int>? lapses,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (knowledgeItemId != null) 'knowledge_item_id': knowledgeItemId,
+      if (state != null) 'state': state,
+      if (step != null) 'step': step,
+      if (stability != null) 'stability': stability,
+      if (difficulty != null) 'difficulty': difficulty,
+      if (due != null) 'due': due,
+      if (lastReview != null) 'last_review': lastReview,
+      if (reps != null) 'reps': reps,
+      if (lapses != null) 'lapses': lapses,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  ReviewStatesCompanion copyWith({
+    Value<String>? knowledgeItemId,
+    Value<int>? state,
+    Value<int?>? step,
+    Value<double>? stability,
+    Value<double>? difficulty,
+    Value<DateTime>? due,
+    Value<DateTime>? lastReview,
+    Value<int>? reps,
+    Value<int>? lapses,
+    Value<int>? rowid,
+  }) {
+    return ReviewStatesCompanion(
+      knowledgeItemId: knowledgeItemId ?? this.knowledgeItemId,
+      state: state ?? this.state,
+      step: step ?? this.step,
+      stability: stability ?? this.stability,
+      difficulty: difficulty ?? this.difficulty,
+      due: due ?? this.due,
+      lastReview: lastReview ?? this.lastReview,
+      reps: reps ?? this.reps,
+      lapses: lapses ?? this.lapses,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (knowledgeItemId.present) {
+      map['knowledge_item_id'] = Variable<String>(knowledgeItemId.value);
+    }
+    if (state.present) {
+      map['state'] = Variable<int>(state.value);
+    }
+    if (step.present) {
+      map['step'] = Variable<int>(step.value);
+    }
+    if (stability.present) {
+      map['stability'] = Variable<double>(stability.value);
+    }
+    if (difficulty.present) {
+      map['difficulty'] = Variable<double>(difficulty.value);
+    }
+    if (due.present) {
+      map['due'] = Variable<DateTime>(due.value);
+    }
+    if (lastReview.present) {
+      map['last_review'] = Variable<DateTime>(lastReview.value);
+    }
+    if (reps.present) {
+      map['reps'] = Variable<int>(reps.value);
+    }
+    if (lapses.present) {
+      map['lapses'] = Variable<int>(lapses.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('ReviewStatesCompanion(')
+          ..write('knowledgeItemId: $knowledgeItemId, ')
+          ..write('state: $state, ')
+          ..write('step: $step, ')
+          ..write('stability: $stability, ')
+          ..write('difficulty: $difficulty, ')
+          ..write('due: $due, ')
+          ..write('lastReview: $lastReview, ')
+          ..write('reps: $reps, ')
+          ..write('lapses: $lapses, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class ReviewEvents extends Table with TableInfo<ReviewEvents, ReviewEvent> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  ReviewEvents(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL PRIMARY KEY CHECK (length(id) = 36 AND id NOT GLOB \'*[^0-9a-f-]*\')',
+  );
+  static const VerificationMeta _knowledgeItemIdMeta = const VerificationMeta(
+    'knowledgeItemId',
+  );
+  late final GeneratedColumn<String> knowledgeItemId = GeneratedColumn<String>(
+    'knowledge_item_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL REFERENCES knowledge_items(id)',
+  );
+  static const VerificationMeta _questionTemplateIdMeta =
+      const VerificationMeta('questionTemplateId');
+  late final GeneratedColumn<String> questionTemplateId =
+      GeneratedColumn<String>(
+        'question_template_id',
+        aliasedName,
+        false,
+        type: DriftSqlType.string,
+        requiredDuringInsert: true,
+        $customConstraints: 'NOT NULL REFERENCES question_templates(id)',
+      );
+  static const VerificationMeta _reviewedAtMeta = const VerificationMeta(
+    'reviewedAt',
+  );
+  late final GeneratedColumn<DateTime> reviewedAt = GeneratedColumn<DateTime>(
+    'reviewed_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL CHECK (strftime(\'%Y-%m-%dT%H:%M:%fZ\', reviewed_at) IS reviewed_at)',
+  );
+  static const VerificationMeta _ratingMeta = const VerificationMeta('rating');
+  late final GeneratedColumn<int> rating = GeneratedColumn<int>(
+    'rating',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL CHECK (rating BETWEEN 1 AND 4)',
+  );
+  static const VerificationMeta _responseMsMeta = const VerificationMeta(
+    'responseMs',
+  );
+  late final GeneratedColumn<int> responseMs = GeneratedColumn<int>(
+    'response_ms',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    $customConstraints: 'CHECK (response_ms IS NULL OR response_ms >= 0)',
+  );
+  static const VerificationMeta _seedMeta = const VerificationMeta('seed');
+  late final GeneratedColumn<int> seed = GeneratedColumn<int>(
+    'seed',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    $customConstraints: '',
+  );
+  static const VerificationMeta _selectedNodeIdMeta = const VerificationMeta(
+    'selectedNodeId',
+  );
+  late final GeneratedColumn<String> selectedNodeId = GeneratedColumn<String>(
+    'selected_node_id',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    $customConstraints: 'REFERENCES knowledge_nodes(id)',
+  );
+  static const VerificationMeta _schedulerConfigVersionMeta =
+      const VerificationMeta('schedulerConfigVersion');
+  late final GeneratedColumn<int> schedulerConfigVersion = GeneratedColumn<int>(
+    'scheduler_config_version',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL REFERENCES scheduler_configs(version)',
+  );
+  static const VerificationMeta _stateAfterMeta = const VerificationMeta(
+    'stateAfter',
+  );
+  late final GeneratedColumn<int> stateAfter = GeneratedColumn<int>(
+    'state_after',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL CHECK (state_after BETWEEN 1 AND 3)',
+  );
+  static const VerificationMeta _stepAfterMeta = const VerificationMeta(
+    'stepAfter',
+  );
+  late final GeneratedColumn<int> stepAfter = GeneratedColumn<int>(
+    'step_after',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    $customConstraints: 'CHECK (step_after IS NULL OR step_after >= 0)',
+  );
+  static const VerificationMeta _stabilityAfterMeta = const VerificationMeta(
+    'stabilityAfter',
+  );
+  late final GeneratedColumn<double> stabilityAfter = GeneratedColumn<double>(
+    'stability_after',
+    aliasedName,
+    false,
+    type: DriftSqlType.double,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL CHECK (stability_after > 0)',
+  );
+  static const VerificationMeta _difficultyAfterMeta = const VerificationMeta(
+    'difficultyAfter',
+  );
+  late final GeneratedColumn<double> difficultyAfter = GeneratedColumn<double>(
+    'difficulty_after',
+    aliasedName,
+    false,
+    type: DriftSqlType.double,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL CHECK (difficulty_after BETWEEN 1 AND 10)',
+  );
+  static const VerificationMeta _dueAfterMeta = const VerificationMeta(
+    'dueAfter',
+  );
+  late final GeneratedColumn<DateTime> dueAfter = GeneratedColumn<DateTime>(
+    'due_after',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL CHECK (strftime(\'%Y-%m-%dT%H:%M:%fZ\', due_after) IS due_after)',
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    knowledgeItemId,
+    questionTemplateId,
+    reviewedAt,
+    rating,
+    responseMs,
+    seed,
+    selectedNodeId,
+    schedulerConfigVersion,
+    stateAfter,
+    stepAfter,
+    stabilityAfter,
+    difficultyAfter,
+    dueAfter,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'review_events';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<ReviewEvent> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('knowledge_item_id')) {
+      context.handle(
+        _knowledgeItemIdMeta,
+        knowledgeItemId.isAcceptableOrUnknown(
+          data['knowledge_item_id']!,
+          _knowledgeItemIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_knowledgeItemIdMeta);
+    }
+    if (data.containsKey('question_template_id')) {
+      context.handle(
+        _questionTemplateIdMeta,
+        questionTemplateId.isAcceptableOrUnknown(
+          data['question_template_id']!,
+          _questionTemplateIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_questionTemplateIdMeta);
+    }
+    if (data.containsKey('reviewed_at')) {
+      context.handle(
+        _reviewedAtMeta,
+        reviewedAt.isAcceptableOrUnknown(data['reviewed_at']!, _reviewedAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_reviewedAtMeta);
+    }
+    if (data.containsKey('rating')) {
+      context.handle(
+        _ratingMeta,
+        rating.isAcceptableOrUnknown(data['rating']!, _ratingMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_ratingMeta);
+    }
+    if (data.containsKey('response_ms')) {
+      context.handle(
+        _responseMsMeta,
+        responseMs.isAcceptableOrUnknown(data['response_ms']!, _responseMsMeta),
+      );
+    }
+    if (data.containsKey('seed')) {
+      context.handle(
+        _seedMeta,
+        seed.isAcceptableOrUnknown(data['seed']!, _seedMeta),
+      );
+    }
+    if (data.containsKey('selected_node_id')) {
+      context.handle(
+        _selectedNodeIdMeta,
+        selectedNodeId.isAcceptableOrUnknown(
+          data['selected_node_id']!,
+          _selectedNodeIdMeta,
+        ),
+      );
+    }
+    if (data.containsKey('scheduler_config_version')) {
+      context.handle(
+        _schedulerConfigVersionMeta,
+        schedulerConfigVersion.isAcceptableOrUnknown(
+          data['scheduler_config_version']!,
+          _schedulerConfigVersionMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_schedulerConfigVersionMeta);
+    }
+    if (data.containsKey('state_after')) {
+      context.handle(
+        _stateAfterMeta,
+        stateAfter.isAcceptableOrUnknown(data['state_after']!, _stateAfterMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_stateAfterMeta);
+    }
+    if (data.containsKey('step_after')) {
+      context.handle(
+        _stepAfterMeta,
+        stepAfter.isAcceptableOrUnknown(data['step_after']!, _stepAfterMeta),
+      );
+    }
+    if (data.containsKey('stability_after')) {
+      context.handle(
+        _stabilityAfterMeta,
+        stabilityAfter.isAcceptableOrUnknown(
+          data['stability_after']!,
+          _stabilityAfterMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_stabilityAfterMeta);
+    }
+    if (data.containsKey('difficulty_after')) {
+      context.handle(
+        _difficultyAfterMeta,
+        difficultyAfter.isAcceptableOrUnknown(
+          data['difficulty_after']!,
+          _difficultyAfterMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_difficultyAfterMeta);
+    }
+    if (data.containsKey('due_after')) {
+      context.handle(
+        _dueAfterMeta,
+        dueAfter.isAcceptableOrUnknown(data['due_after']!, _dueAfterMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_dueAfterMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  ReviewEvent map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return ReviewEvent(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      knowledgeItemId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}knowledge_item_id'],
+      )!,
+      questionTemplateId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}question_template_id'],
+      )!,
+      reviewedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}reviewed_at'],
+      )!,
+      rating: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}rating'],
+      )!,
+      responseMs: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}response_ms'],
+      ),
+      seed: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}seed'],
+      ),
+      selectedNodeId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}selected_node_id'],
+      ),
+      schedulerConfigVersion: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}scheduler_config_version'],
+      )!,
+      stateAfter: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}state_after'],
+      )!,
+      stepAfter: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}step_after'],
+      ),
+      stabilityAfter: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}stability_after'],
+      )!,
+      difficultyAfter: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}difficulty_after'],
+      )!,
+      dueAfter: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}due_after'],
+      )!,
+    );
+  }
+
+  @override
+  ReviewEvents createAlias(String alias) {
+    return ReviewEvents(attachedDatabase, alias);
+  }
+
+  @override
+  List<String> get customConstraints => const [
+    'CHECK((state_after = 2)=(step_after IS NULL))',
+    'CHECK(unixepoch(due_after, \'subsec\') > unixepoch(reviewed_at, \'subsec\'))',
+  ];
+  @override
+  bool get dontWriteConstraints => true;
+}
+
+class ReviewEvent extends DataClass implements Insertable<ReviewEvent> {
+  final String id;
+  final String knowledgeItemId;
+  final String questionTemplateId;
+  final DateTime reviewedAt;
+  final int rating;
+  final int? responseMs;
+  final int? seed;
+  final String? selectedNodeId;
+  final int schedulerConfigVersion;
+  final int stateAfter;
+  final int? stepAfter;
+  final double stabilityAfter;
+  final double difficultyAfter;
+  final DateTime dueAfter;
+  const ReviewEvent({
+    required this.id,
+    required this.knowledgeItemId,
+    required this.questionTemplateId,
+    required this.reviewedAt,
+    required this.rating,
+    this.responseMs,
+    this.seed,
+    this.selectedNodeId,
+    required this.schedulerConfigVersion,
+    required this.stateAfter,
+    this.stepAfter,
+    required this.stabilityAfter,
+    required this.difficultyAfter,
+    required this.dueAfter,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    map['knowledge_item_id'] = Variable<String>(knowledgeItemId);
+    map['question_template_id'] = Variable<String>(questionTemplateId);
+    map['reviewed_at'] = Variable<DateTime>(reviewedAt);
+    map['rating'] = Variable<int>(rating);
+    if (!nullToAbsent || responseMs != null) {
+      map['response_ms'] = Variable<int>(responseMs);
+    }
+    if (!nullToAbsent || seed != null) {
+      map['seed'] = Variable<int>(seed);
+    }
+    if (!nullToAbsent || selectedNodeId != null) {
+      map['selected_node_id'] = Variable<String>(selectedNodeId);
+    }
+    map['scheduler_config_version'] = Variable<int>(schedulerConfigVersion);
+    map['state_after'] = Variable<int>(stateAfter);
+    if (!nullToAbsent || stepAfter != null) {
+      map['step_after'] = Variable<int>(stepAfter);
+    }
+    map['stability_after'] = Variable<double>(stabilityAfter);
+    map['difficulty_after'] = Variable<double>(difficultyAfter);
+    map['due_after'] = Variable<DateTime>(dueAfter);
+    return map;
+  }
+
+  ReviewEventsCompanion toCompanion(bool nullToAbsent) {
+    return ReviewEventsCompanion(
+      id: Value(id),
+      knowledgeItemId: Value(knowledgeItemId),
+      questionTemplateId: Value(questionTemplateId),
+      reviewedAt: Value(reviewedAt),
+      rating: Value(rating),
+      responseMs: responseMs == null && nullToAbsent
+          ? const Value.absent()
+          : Value(responseMs),
+      seed: seed == null && nullToAbsent ? const Value.absent() : Value(seed),
+      selectedNodeId: selectedNodeId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(selectedNodeId),
+      schedulerConfigVersion: Value(schedulerConfigVersion),
+      stateAfter: Value(stateAfter),
+      stepAfter: stepAfter == null && nullToAbsent
+          ? const Value.absent()
+          : Value(stepAfter),
+      stabilityAfter: Value(stabilityAfter),
+      difficultyAfter: Value(difficultyAfter),
+      dueAfter: Value(dueAfter),
+    );
+  }
+
+  factory ReviewEvent.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return ReviewEvent(
+      id: serializer.fromJson<String>(json['id']),
+      knowledgeItemId: serializer.fromJson<String>(json['knowledge_item_id']),
+      questionTemplateId: serializer.fromJson<String>(
+        json['question_template_id'],
+      ),
+      reviewedAt: serializer.fromJson<DateTime>(json['reviewed_at']),
+      rating: serializer.fromJson<int>(json['rating']),
+      responseMs: serializer.fromJson<int?>(json['response_ms']),
+      seed: serializer.fromJson<int?>(json['seed']),
+      selectedNodeId: serializer.fromJson<String?>(json['selected_node_id']),
+      schedulerConfigVersion: serializer.fromJson<int>(
+        json['scheduler_config_version'],
+      ),
+      stateAfter: serializer.fromJson<int>(json['state_after']),
+      stepAfter: serializer.fromJson<int?>(json['step_after']),
+      stabilityAfter: serializer.fromJson<double>(json['stability_after']),
+      difficultyAfter: serializer.fromJson<double>(json['difficulty_after']),
+      dueAfter: serializer.fromJson<DateTime>(json['due_after']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'knowledge_item_id': serializer.toJson<String>(knowledgeItemId),
+      'question_template_id': serializer.toJson<String>(questionTemplateId),
+      'reviewed_at': serializer.toJson<DateTime>(reviewedAt),
+      'rating': serializer.toJson<int>(rating),
+      'response_ms': serializer.toJson<int?>(responseMs),
+      'seed': serializer.toJson<int?>(seed),
+      'selected_node_id': serializer.toJson<String?>(selectedNodeId),
+      'scheduler_config_version': serializer.toJson<int>(
+        schedulerConfigVersion,
+      ),
+      'state_after': serializer.toJson<int>(stateAfter),
+      'step_after': serializer.toJson<int?>(stepAfter),
+      'stability_after': serializer.toJson<double>(stabilityAfter),
+      'difficulty_after': serializer.toJson<double>(difficultyAfter),
+      'due_after': serializer.toJson<DateTime>(dueAfter),
+    };
+  }
+
+  ReviewEvent copyWith({
+    String? id,
+    String? knowledgeItemId,
+    String? questionTemplateId,
+    DateTime? reviewedAt,
+    int? rating,
+    Value<int?> responseMs = const Value.absent(),
+    Value<int?> seed = const Value.absent(),
+    Value<String?> selectedNodeId = const Value.absent(),
+    int? schedulerConfigVersion,
+    int? stateAfter,
+    Value<int?> stepAfter = const Value.absent(),
+    double? stabilityAfter,
+    double? difficultyAfter,
+    DateTime? dueAfter,
+  }) => ReviewEvent(
+    id: id ?? this.id,
+    knowledgeItemId: knowledgeItemId ?? this.knowledgeItemId,
+    questionTemplateId: questionTemplateId ?? this.questionTemplateId,
+    reviewedAt: reviewedAt ?? this.reviewedAt,
+    rating: rating ?? this.rating,
+    responseMs: responseMs.present ? responseMs.value : this.responseMs,
+    seed: seed.present ? seed.value : this.seed,
+    selectedNodeId: selectedNodeId.present
+        ? selectedNodeId.value
+        : this.selectedNodeId,
+    schedulerConfigVersion:
+        schedulerConfigVersion ?? this.schedulerConfigVersion,
+    stateAfter: stateAfter ?? this.stateAfter,
+    stepAfter: stepAfter.present ? stepAfter.value : this.stepAfter,
+    stabilityAfter: stabilityAfter ?? this.stabilityAfter,
+    difficultyAfter: difficultyAfter ?? this.difficultyAfter,
+    dueAfter: dueAfter ?? this.dueAfter,
+  );
+  ReviewEvent copyWithCompanion(ReviewEventsCompanion data) {
+    return ReviewEvent(
+      id: data.id.present ? data.id.value : this.id,
+      knowledgeItemId: data.knowledgeItemId.present
+          ? data.knowledgeItemId.value
+          : this.knowledgeItemId,
+      questionTemplateId: data.questionTemplateId.present
+          ? data.questionTemplateId.value
+          : this.questionTemplateId,
+      reviewedAt: data.reviewedAt.present
+          ? data.reviewedAt.value
+          : this.reviewedAt,
+      rating: data.rating.present ? data.rating.value : this.rating,
+      responseMs: data.responseMs.present
+          ? data.responseMs.value
+          : this.responseMs,
+      seed: data.seed.present ? data.seed.value : this.seed,
+      selectedNodeId: data.selectedNodeId.present
+          ? data.selectedNodeId.value
+          : this.selectedNodeId,
+      schedulerConfigVersion: data.schedulerConfigVersion.present
+          ? data.schedulerConfigVersion.value
+          : this.schedulerConfigVersion,
+      stateAfter: data.stateAfter.present
+          ? data.stateAfter.value
+          : this.stateAfter,
+      stepAfter: data.stepAfter.present ? data.stepAfter.value : this.stepAfter,
+      stabilityAfter: data.stabilityAfter.present
+          ? data.stabilityAfter.value
+          : this.stabilityAfter,
+      difficultyAfter: data.difficultyAfter.present
+          ? data.difficultyAfter.value
+          : this.difficultyAfter,
+      dueAfter: data.dueAfter.present ? data.dueAfter.value : this.dueAfter,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('ReviewEvent(')
+          ..write('id: $id, ')
+          ..write('knowledgeItemId: $knowledgeItemId, ')
+          ..write('questionTemplateId: $questionTemplateId, ')
+          ..write('reviewedAt: $reviewedAt, ')
+          ..write('rating: $rating, ')
+          ..write('responseMs: $responseMs, ')
+          ..write('seed: $seed, ')
+          ..write('selectedNodeId: $selectedNodeId, ')
+          ..write('schedulerConfigVersion: $schedulerConfigVersion, ')
+          ..write('stateAfter: $stateAfter, ')
+          ..write('stepAfter: $stepAfter, ')
+          ..write('stabilityAfter: $stabilityAfter, ')
+          ..write('difficultyAfter: $difficultyAfter, ')
+          ..write('dueAfter: $dueAfter')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    knowledgeItemId,
+    questionTemplateId,
+    reviewedAt,
+    rating,
+    responseMs,
+    seed,
+    selectedNodeId,
+    schedulerConfigVersion,
+    stateAfter,
+    stepAfter,
+    stabilityAfter,
+    difficultyAfter,
+    dueAfter,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is ReviewEvent &&
+          other.id == this.id &&
+          other.knowledgeItemId == this.knowledgeItemId &&
+          other.questionTemplateId == this.questionTemplateId &&
+          other.reviewedAt == this.reviewedAt &&
+          other.rating == this.rating &&
+          other.responseMs == this.responseMs &&
+          other.seed == this.seed &&
+          other.selectedNodeId == this.selectedNodeId &&
+          other.schedulerConfigVersion == this.schedulerConfigVersion &&
+          other.stateAfter == this.stateAfter &&
+          other.stepAfter == this.stepAfter &&
+          other.stabilityAfter == this.stabilityAfter &&
+          other.difficultyAfter == this.difficultyAfter &&
+          other.dueAfter == this.dueAfter);
+}
+
+class ReviewEventsCompanion extends UpdateCompanion<ReviewEvent> {
+  final Value<String> id;
+  final Value<String> knowledgeItemId;
+  final Value<String> questionTemplateId;
+  final Value<DateTime> reviewedAt;
+  final Value<int> rating;
+  final Value<int?> responseMs;
+  final Value<int?> seed;
+  final Value<String?> selectedNodeId;
+  final Value<int> schedulerConfigVersion;
+  final Value<int> stateAfter;
+  final Value<int?> stepAfter;
+  final Value<double> stabilityAfter;
+  final Value<double> difficultyAfter;
+  final Value<DateTime> dueAfter;
+  final Value<int> rowid;
+  const ReviewEventsCompanion({
+    this.id = const Value.absent(),
+    this.knowledgeItemId = const Value.absent(),
+    this.questionTemplateId = const Value.absent(),
+    this.reviewedAt = const Value.absent(),
+    this.rating = const Value.absent(),
+    this.responseMs = const Value.absent(),
+    this.seed = const Value.absent(),
+    this.selectedNodeId = const Value.absent(),
+    this.schedulerConfigVersion = const Value.absent(),
+    this.stateAfter = const Value.absent(),
+    this.stepAfter = const Value.absent(),
+    this.stabilityAfter = const Value.absent(),
+    this.difficultyAfter = const Value.absent(),
+    this.dueAfter = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  ReviewEventsCompanion.insert({
+    required String id,
+    required String knowledgeItemId,
+    required String questionTemplateId,
+    required DateTime reviewedAt,
+    required int rating,
+    this.responseMs = const Value.absent(),
+    this.seed = const Value.absent(),
+    this.selectedNodeId = const Value.absent(),
+    required int schedulerConfigVersion,
+    required int stateAfter,
+    this.stepAfter = const Value.absent(),
+    required double stabilityAfter,
+    required double difficultyAfter,
+    required DateTime dueAfter,
+    this.rowid = const Value.absent(),
+  }) : id = Value(id),
+       knowledgeItemId = Value(knowledgeItemId),
+       questionTemplateId = Value(questionTemplateId),
+       reviewedAt = Value(reviewedAt),
+       rating = Value(rating),
+       schedulerConfigVersion = Value(schedulerConfigVersion),
+       stateAfter = Value(stateAfter),
+       stabilityAfter = Value(stabilityAfter),
+       difficultyAfter = Value(difficultyAfter),
+       dueAfter = Value(dueAfter);
+  static Insertable<ReviewEvent> custom({
+    Expression<String>? id,
+    Expression<String>? knowledgeItemId,
+    Expression<String>? questionTemplateId,
+    Expression<DateTime>? reviewedAt,
+    Expression<int>? rating,
+    Expression<int>? responseMs,
+    Expression<int>? seed,
+    Expression<String>? selectedNodeId,
+    Expression<int>? schedulerConfigVersion,
+    Expression<int>? stateAfter,
+    Expression<int>? stepAfter,
+    Expression<double>? stabilityAfter,
+    Expression<double>? difficultyAfter,
+    Expression<DateTime>? dueAfter,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (knowledgeItemId != null) 'knowledge_item_id': knowledgeItemId,
+      if (questionTemplateId != null)
+        'question_template_id': questionTemplateId,
+      if (reviewedAt != null) 'reviewed_at': reviewedAt,
+      if (rating != null) 'rating': rating,
+      if (responseMs != null) 'response_ms': responseMs,
+      if (seed != null) 'seed': seed,
+      if (selectedNodeId != null) 'selected_node_id': selectedNodeId,
+      if (schedulerConfigVersion != null)
+        'scheduler_config_version': schedulerConfigVersion,
+      if (stateAfter != null) 'state_after': stateAfter,
+      if (stepAfter != null) 'step_after': stepAfter,
+      if (stabilityAfter != null) 'stability_after': stabilityAfter,
+      if (difficultyAfter != null) 'difficulty_after': difficultyAfter,
+      if (dueAfter != null) 'due_after': dueAfter,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  ReviewEventsCompanion copyWith({
+    Value<String>? id,
+    Value<String>? knowledgeItemId,
+    Value<String>? questionTemplateId,
+    Value<DateTime>? reviewedAt,
+    Value<int>? rating,
+    Value<int?>? responseMs,
+    Value<int?>? seed,
+    Value<String?>? selectedNodeId,
+    Value<int>? schedulerConfigVersion,
+    Value<int>? stateAfter,
+    Value<int?>? stepAfter,
+    Value<double>? stabilityAfter,
+    Value<double>? difficultyAfter,
+    Value<DateTime>? dueAfter,
+    Value<int>? rowid,
+  }) {
+    return ReviewEventsCompanion(
+      id: id ?? this.id,
+      knowledgeItemId: knowledgeItemId ?? this.knowledgeItemId,
+      questionTemplateId: questionTemplateId ?? this.questionTemplateId,
+      reviewedAt: reviewedAt ?? this.reviewedAt,
+      rating: rating ?? this.rating,
+      responseMs: responseMs ?? this.responseMs,
+      seed: seed ?? this.seed,
+      selectedNodeId: selectedNodeId ?? this.selectedNodeId,
+      schedulerConfigVersion:
+          schedulerConfigVersion ?? this.schedulerConfigVersion,
+      stateAfter: stateAfter ?? this.stateAfter,
+      stepAfter: stepAfter ?? this.stepAfter,
+      stabilityAfter: stabilityAfter ?? this.stabilityAfter,
+      difficultyAfter: difficultyAfter ?? this.difficultyAfter,
+      dueAfter: dueAfter ?? this.dueAfter,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (knowledgeItemId.present) {
+      map['knowledge_item_id'] = Variable<String>(knowledgeItemId.value);
+    }
+    if (questionTemplateId.present) {
+      map['question_template_id'] = Variable<String>(questionTemplateId.value);
+    }
+    if (reviewedAt.present) {
+      map['reviewed_at'] = Variable<DateTime>(reviewedAt.value);
+    }
+    if (rating.present) {
+      map['rating'] = Variable<int>(rating.value);
+    }
+    if (responseMs.present) {
+      map['response_ms'] = Variable<int>(responseMs.value);
+    }
+    if (seed.present) {
+      map['seed'] = Variable<int>(seed.value);
+    }
+    if (selectedNodeId.present) {
+      map['selected_node_id'] = Variable<String>(selectedNodeId.value);
+    }
+    if (schedulerConfigVersion.present) {
+      map['scheduler_config_version'] = Variable<int>(
+        schedulerConfigVersion.value,
+      );
+    }
+    if (stateAfter.present) {
+      map['state_after'] = Variable<int>(stateAfter.value);
+    }
+    if (stepAfter.present) {
+      map['step_after'] = Variable<int>(stepAfter.value);
+    }
+    if (stabilityAfter.present) {
+      map['stability_after'] = Variable<double>(stabilityAfter.value);
+    }
+    if (difficultyAfter.present) {
+      map['difficulty_after'] = Variable<double>(difficultyAfter.value);
+    }
+    if (dueAfter.present) {
+      map['due_after'] = Variable<DateTime>(dueAfter.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('ReviewEventsCompanion(')
+          ..write('id: $id, ')
+          ..write('knowledgeItemId: $knowledgeItemId, ')
+          ..write('questionTemplateId: $questionTemplateId, ')
+          ..write('reviewedAt: $reviewedAt, ')
+          ..write('rating: $rating, ')
+          ..write('responseMs: $responseMs, ')
+          ..write('seed: $seed, ')
+          ..write('selectedNodeId: $selectedNodeId, ')
+          ..write('schedulerConfigVersion: $schedulerConfigVersion, ')
+          ..write('stateAfter: $stateAfter, ')
+          ..write('stepAfter: $stepAfter, ')
+          ..write('stabilityAfter: $stabilityAfter, ')
+          ..write('difficultyAfter: $difficultyAfter, ')
+          ..write('dueAfter: $dueAfter, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class ReviewEventOptions extends Table
+    with TableInfo<ReviewEventOptions, ReviewEventOption> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  ReviewEventOptions(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _reviewEventIdMeta = const VerificationMeta(
+    'reviewEventId',
+  );
+  late final GeneratedColumn<String> reviewEventId = GeneratedColumn<String>(
+    'review_event_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL REFERENCES review_events(id)',
+  );
+  static const VerificationMeta _positionMeta = const VerificationMeta(
+    'position',
+  );
+  late final GeneratedColumn<int> position = GeneratedColumn<int>(
+    'position',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL CHECK (position BETWEEN 1 AND 4)',
+  );
+  static const VerificationMeta _knowledgeNodeIdMeta = const VerificationMeta(
+    'knowledgeNodeId',
+  );
+  late final GeneratedColumn<String> knowledgeNodeId = GeneratedColumn<String>(
+    'knowledge_node_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL REFERENCES knowledge_nodes(id)',
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    reviewEventId,
+    position,
+    knowledgeNodeId,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'review_event_options';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<ReviewEventOption> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('review_event_id')) {
+      context.handle(
+        _reviewEventIdMeta,
+        reviewEventId.isAcceptableOrUnknown(
+          data['review_event_id']!,
+          _reviewEventIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_reviewEventIdMeta);
+    }
+    if (data.containsKey('position')) {
+      context.handle(
+        _positionMeta,
+        position.isAcceptableOrUnknown(data['position']!, _positionMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_positionMeta);
+    }
+    if (data.containsKey('knowledge_node_id')) {
+      context.handle(
+        _knowledgeNodeIdMeta,
+        knowledgeNodeId.isAcceptableOrUnknown(
+          data['knowledge_node_id']!,
+          _knowledgeNodeIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_knowledgeNodeIdMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {reviewEventId, position};
+  @override
+  List<Set<GeneratedColumn>> get uniqueKeys => [
+    {reviewEventId, knowledgeNodeId},
+  ];
+  @override
+  ReviewEventOption map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return ReviewEventOption(
+      reviewEventId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}review_event_id'],
+      )!,
+      position: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}position'],
+      )!,
+      knowledgeNodeId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}knowledge_node_id'],
+      )!,
+    );
+  }
+
+  @override
+  ReviewEventOptions createAlias(String alias) {
+    return ReviewEventOptions(attachedDatabase, alias);
+  }
+
+  @override
+  List<String> get customConstraints => const [
+    'PRIMARY KEY(review_event_id, position)',
+    'UNIQUE(review_event_id, knowledge_node_id)',
+  ];
+  @override
+  bool get dontWriteConstraints => true;
+}
+
+class ReviewEventOption extends DataClass
+    implements Insertable<ReviewEventOption> {
+  final String reviewEventId;
+  final int position;
+  final String knowledgeNodeId;
+  const ReviewEventOption({
+    required this.reviewEventId,
+    required this.position,
+    required this.knowledgeNodeId,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['review_event_id'] = Variable<String>(reviewEventId);
+    map['position'] = Variable<int>(position);
+    map['knowledge_node_id'] = Variable<String>(knowledgeNodeId);
+    return map;
+  }
+
+  ReviewEventOptionsCompanion toCompanion(bool nullToAbsent) {
+    return ReviewEventOptionsCompanion(
+      reviewEventId: Value(reviewEventId),
+      position: Value(position),
+      knowledgeNodeId: Value(knowledgeNodeId),
+    );
+  }
+
+  factory ReviewEventOption.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return ReviewEventOption(
+      reviewEventId: serializer.fromJson<String>(json['review_event_id']),
+      position: serializer.fromJson<int>(json['position']),
+      knowledgeNodeId: serializer.fromJson<String>(json['knowledge_node_id']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'review_event_id': serializer.toJson<String>(reviewEventId),
+      'position': serializer.toJson<int>(position),
+      'knowledge_node_id': serializer.toJson<String>(knowledgeNodeId),
+    };
+  }
+
+  ReviewEventOption copyWith({
+    String? reviewEventId,
+    int? position,
+    String? knowledgeNodeId,
+  }) => ReviewEventOption(
+    reviewEventId: reviewEventId ?? this.reviewEventId,
+    position: position ?? this.position,
+    knowledgeNodeId: knowledgeNodeId ?? this.knowledgeNodeId,
+  );
+  ReviewEventOption copyWithCompanion(ReviewEventOptionsCompanion data) {
+    return ReviewEventOption(
+      reviewEventId: data.reviewEventId.present
+          ? data.reviewEventId.value
+          : this.reviewEventId,
+      position: data.position.present ? data.position.value : this.position,
+      knowledgeNodeId: data.knowledgeNodeId.present
+          ? data.knowledgeNodeId.value
+          : this.knowledgeNodeId,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('ReviewEventOption(')
+          ..write('reviewEventId: $reviewEventId, ')
+          ..write('position: $position, ')
+          ..write('knowledgeNodeId: $knowledgeNodeId')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(reviewEventId, position, knowledgeNodeId);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is ReviewEventOption &&
+          other.reviewEventId == this.reviewEventId &&
+          other.position == this.position &&
+          other.knowledgeNodeId == this.knowledgeNodeId);
+}
+
+class ReviewEventOptionsCompanion extends UpdateCompanion<ReviewEventOption> {
+  final Value<String> reviewEventId;
+  final Value<int> position;
+  final Value<String> knowledgeNodeId;
+  final Value<int> rowid;
+  const ReviewEventOptionsCompanion({
+    this.reviewEventId = const Value.absent(),
+    this.position = const Value.absent(),
+    this.knowledgeNodeId = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  ReviewEventOptionsCompanion.insert({
+    required String reviewEventId,
+    required int position,
+    required String knowledgeNodeId,
+    this.rowid = const Value.absent(),
+  }) : reviewEventId = Value(reviewEventId),
+       position = Value(position),
+       knowledgeNodeId = Value(knowledgeNodeId);
+  static Insertable<ReviewEventOption> custom({
+    Expression<String>? reviewEventId,
+    Expression<int>? position,
+    Expression<String>? knowledgeNodeId,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (reviewEventId != null) 'review_event_id': reviewEventId,
+      if (position != null) 'position': position,
+      if (knowledgeNodeId != null) 'knowledge_node_id': knowledgeNodeId,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  ReviewEventOptionsCompanion copyWith({
+    Value<String>? reviewEventId,
+    Value<int>? position,
+    Value<String>? knowledgeNodeId,
+    Value<int>? rowid,
+  }) {
+    return ReviewEventOptionsCompanion(
+      reviewEventId: reviewEventId ?? this.reviewEventId,
+      position: position ?? this.position,
+      knowledgeNodeId: knowledgeNodeId ?? this.knowledgeNodeId,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (reviewEventId.present) {
+      map['review_event_id'] = Variable<String>(reviewEventId.value);
+    }
+    if (position.present) {
+      map['position'] = Variable<int>(position.value);
+    }
+    if (knowledgeNodeId.present) {
+      map['knowledge_node_id'] = Variable<String>(knowledgeNodeId.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('ReviewEventOptionsCompanion(')
+          ..write('reviewEventId: $reviewEventId, ')
+          ..write('position: $position, ')
+          ..write('knowledgeNodeId: $knowledgeNodeId, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class WineJournalEntries extends Table
+    with TableInfo<WineJournalEntries, WineJournalEntry> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  WineJournalEntries(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL PRIMARY KEY CHECK (length(id) = 36 AND id NOT GLOB \'*[^0-9a-f-]*\')',
+  );
+  static const VerificationMeta _tastedOnMeta = const VerificationMeta(
+    'tastedOn',
+  );
+  late final GeneratedColumn<String> tastedOn = GeneratedColumn<String>(
+    'tasted_on',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    $customConstraints:
+        'CHECK (tasted_on IS NULL OR date(tasted_on) IS tasted_on)',
+  );
+  static const VerificationMeta _producerNameMeta = const VerificationMeta(
+    'producerName',
+  );
+  late final GeneratedColumn<String> producerName = GeneratedColumn<String>(
+    'producer_name',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    $customConstraints: '',
+  );
+  static const VerificationMeta _cuveeNameMeta = const VerificationMeta(
+    'cuveeName',
+  );
+  late final GeneratedColumn<String> cuveeName = GeneratedColumn<String>(
+    'cuvee_name',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    $customConstraints: '',
+  );
+  static const VerificationMeta _vintageMeta = const VerificationMeta(
+    'vintage',
+  );
+  late final GeneratedColumn<int> vintage = GeneratedColumn<int>(
+    'vintage',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    $customConstraints:
+        'CHECK (vintage IS NULL OR vintage BETWEEN 1800 AND 2100)',
+  );
+  static const VerificationMeta _isNonVintageMeta = const VerificationMeta(
+    'isNonVintage',
+  );
+  late final GeneratedColumn<bool> isNonVintage = GeneratedColumn<bool>(
+    'is_non_vintage',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    $customConstraints: 'NOT NULL DEFAULT 0 CHECK (is_non_vintage IN (0, 1))',
+    defaultValue: const CustomExpression('0'),
+  );
+  static const VerificationMeta _appellationTextMeta = const VerificationMeta(
+    'appellationText',
+  );
+  late final GeneratedColumn<String> appellationText = GeneratedColumn<String>(
+    'appellation_text',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    $customConstraints: '',
+  );
+  static const VerificationMeta _grapesTextMeta = const VerificationMeta(
+    'grapesText',
+  );
+  late final GeneratedColumn<String> grapesText = GeneratedColumn<String>(
+    'grapes_text',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    $customConstraints: '',
+  );
+  static const VerificationMeta _abvPercentMeta = const VerificationMeta(
+    'abvPercent',
+  );
+  late final GeneratedColumn<double> abvPercent = GeneratedColumn<double>(
+    'abv_percent',
+    aliasedName,
+    true,
+    type: DriftSqlType.double,
+    requiredDuringInsert: false,
+    $customConstraints:
+        'CHECK (abv_percent IS NULL OR(abv_percent > 0 AND abv_percent < 100))',
+  );
+  static const VerificationMeta _ratingMeta = const VerificationMeta('rating');
+  late final GeneratedColumn<int> rating = GeneratedColumn<int>(
+    'rating',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    $customConstraints: 'CHECK (rating IS NULL OR rating BETWEEN 1 AND 5)',
+  );
+  static const VerificationMeta _tastingNotesMeta = const VerificationMeta(
+    'tastingNotes',
+  );
+  late final GeneratedColumn<String> tastingNotes = GeneratedColumn<String>(
+    'tasting_notes',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    $customConstraints: '',
+  );
+  static const VerificationMeta _photoRefMeta = const VerificationMeta(
+    'photoRef',
+  );
+  late final GeneratedColumn<String> photoRef = GeneratedColumn<String>(
+    'photo_ref',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    $customConstraints: '',
+  );
+  static const VerificationMeta _createdAtMeta = const VerificationMeta(
+    'createdAt',
+  );
+  late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL CHECK (strftime(\'%Y-%m-%dT%H:%M:%fZ\', created_at) IS created_at)',
+  );
+  static const VerificationMeta _updatedAtMeta = const VerificationMeta(
+    'updatedAt',
+  );
+  late final GeneratedColumn<DateTime> updatedAt = GeneratedColumn<DateTime>(
+    'updated_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL CHECK (strftime(\'%Y-%m-%dT%H:%M:%fZ\', updated_at) IS updated_at)',
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    tastedOn,
+    producerName,
+    cuveeName,
+    vintage,
+    isNonVintage,
+    appellationText,
+    grapesText,
+    abvPercent,
+    rating,
+    tastingNotes,
+    photoRef,
+    createdAt,
+    updatedAt,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'wine_journal_entries';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<WineJournalEntry> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('tasted_on')) {
+      context.handle(
+        _tastedOnMeta,
+        tastedOn.isAcceptableOrUnknown(data['tasted_on']!, _tastedOnMeta),
+      );
+    }
+    if (data.containsKey('producer_name')) {
+      context.handle(
+        _producerNameMeta,
+        producerName.isAcceptableOrUnknown(
+          data['producer_name']!,
+          _producerNameMeta,
+        ),
+      );
+    }
+    if (data.containsKey('cuvee_name')) {
+      context.handle(
+        _cuveeNameMeta,
+        cuveeName.isAcceptableOrUnknown(data['cuvee_name']!, _cuveeNameMeta),
+      );
+    }
+    if (data.containsKey('vintage')) {
+      context.handle(
+        _vintageMeta,
+        vintage.isAcceptableOrUnknown(data['vintage']!, _vintageMeta),
+      );
+    }
+    if (data.containsKey('is_non_vintage')) {
+      context.handle(
+        _isNonVintageMeta,
+        isNonVintage.isAcceptableOrUnknown(
+          data['is_non_vintage']!,
+          _isNonVintageMeta,
+        ),
+      );
+    }
+    if (data.containsKey('appellation_text')) {
+      context.handle(
+        _appellationTextMeta,
+        appellationText.isAcceptableOrUnknown(
+          data['appellation_text']!,
+          _appellationTextMeta,
+        ),
+      );
+    }
+    if (data.containsKey('grapes_text')) {
+      context.handle(
+        _grapesTextMeta,
+        grapesText.isAcceptableOrUnknown(data['grapes_text']!, _grapesTextMeta),
+      );
+    }
+    if (data.containsKey('abv_percent')) {
+      context.handle(
+        _abvPercentMeta,
+        abvPercent.isAcceptableOrUnknown(data['abv_percent']!, _abvPercentMeta),
+      );
+    }
+    if (data.containsKey('rating')) {
+      context.handle(
+        _ratingMeta,
+        rating.isAcceptableOrUnknown(data['rating']!, _ratingMeta),
+      );
+    }
+    if (data.containsKey('tasting_notes')) {
+      context.handle(
+        _tastingNotesMeta,
+        tastingNotes.isAcceptableOrUnknown(
+          data['tasting_notes']!,
+          _tastingNotesMeta,
+        ),
+      );
+    }
+    if (data.containsKey('photo_ref')) {
+      context.handle(
+        _photoRefMeta,
+        photoRef.isAcceptableOrUnknown(data['photo_ref']!, _photoRefMeta),
+      );
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(
+        _createdAtMeta,
+        createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_createdAtMeta);
+    }
+    if (data.containsKey('updated_at')) {
+      context.handle(
+        _updatedAtMeta,
+        updatedAt.isAcceptableOrUnknown(data['updated_at']!, _updatedAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_updatedAtMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  WineJournalEntry map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return WineJournalEntry(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      tastedOn: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}tasted_on'],
+      ),
+      producerName: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}producer_name'],
+      ),
+      cuveeName: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}cuvee_name'],
+      ),
+      vintage: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}vintage'],
+      ),
+      isNonVintage: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}is_non_vintage'],
+      )!,
+      appellationText: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}appellation_text'],
+      ),
+      grapesText: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}grapes_text'],
+      ),
+      abvPercent: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}abv_percent'],
+      ),
+      rating: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}rating'],
+      ),
+      tastingNotes: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}tasting_notes'],
+      ),
+      photoRef: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}photo_ref'],
+      ),
+      createdAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}created_at'],
+      )!,
+      updatedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}updated_at'],
+      )!,
+    );
+  }
+
+  @override
+  WineJournalEntries createAlias(String alias) {
+    return WineJournalEntries(attachedDatabase, alias);
+  }
+
+  @override
+  List<String> get customConstraints => const [
+    'CHECK(NOT(is_non_vintage = 1 AND vintage IS NOT NULL))',
+    'CHECK(unixepoch(updated_at, \'subsec\') >= unixepoch(created_at, \'subsec\'))',
+  ];
+  @override
+  bool get dontWriteConstraints => true;
+}
+
+class WineJournalEntry extends DataClass
+    implements Insertable<WineJournalEntry> {
+  final String id;
+  final String? tastedOn;
+  final String? producerName;
+  final String? cuveeName;
+  final int? vintage;
+  final bool isNonVintage;
+  final String? appellationText;
+  final String? grapesText;
+  final double? abvPercent;
+  final int? rating;
+  final String? tastingNotes;
+  final String? photoRef;
+  final DateTime createdAt;
+  final DateTime updatedAt;
+  const WineJournalEntry({
+    required this.id,
+    this.tastedOn,
+    this.producerName,
+    this.cuveeName,
+    this.vintage,
+    required this.isNonVintage,
+    this.appellationText,
+    this.grapesText,
+    this.abvPercent,
+    this.rating,
+    this.tastingNotes,
+    this.photoRef,
+    required this.createdAt,
+    required this.updatedAt,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    if (!nullToAbsent || tastedOn != null) {
+      map['tasted_on'] = Variable<String>(tastedOn);
+    }
+    if (!nullToAbsent || producerName != null) {
+      map['producer_name'] = Variable<String>(producerName);
+    }
+    if (!nullToAbsent || cuveeName != null) {
+      map['cuvee_name'] = Variable<String>(cuveeName);
+    }
+    if (!nullToAbsent || vintage != null) {
+      map['vintage'] = Variable<int>(vintage);
+    }
+    map['is_non_vintage'] = Variable<bool>(isNonVintage);
+    if (!nullToAbsent || appellationText != null) {
+      map['appellation_text'] = Variable<String>(appellationText);
+    }
+    if (!nullToAbsent || grapesText != null) {
+      map['grapes_text'] = Variable<String>(grapesText);
+    }
+    if (!nullToAbsent || abvPercent != null) {
+      map['abv_percent'] = Variable<double>(abvPercent);
+    }
+    if (!nullToAbsent || rating != null) {
+      map['rating'] = Variable<int>(rating);
+    }
+    if (!nullToAbsent || tastingNotes != null) {
+      map['tasting_notes'] = Variable<String>(tastingNotes);
+    }
+    if (!nullToAbsent || photoRef != null) {
+      map['photo_ref'] = Variable<String>(photoRef);
+    }
+    map['created_at'] = Variable<DateTime>(createdAt);
+    map['updated_at'] = Variable<DateTime>(updatedAt);
+    return map;
+  }
+
+  WineJournalEntriesCompanion toCompanion(bool nullToAbsent) {
+    return WineJournalEntriesCompanion(
+      id: Value(id),
+      tastedOn: tastedOn == null && nullToAbsent
+          ? const Value.absent()
+          : Value(tastedOn),
+      producerName: producerName == null && nullToAbsent
+          ? const Value.absent()
+          : Value(producerName),
+      cuveeName: cuveeName == null && nullToAbsent
+          ? const Value.absent()
+          : Value(cuveeName),
+      vintage: vintage == null && nullToAbsent
+          ? const Value.absent()
+          : Value(vintage),
+      isNonVintage: Value(isNonVintage),
+      appellationText: appellationText == null && nullToAbsent
+          ? const Value.absent()
+          : Value(appellationText),
+      grapesText: grapesText == null && nullToAbsent
+          ? const Value.absent()
+          : Value(grapesText),
+      abvPercent: abvPercent == null && nullToAbsent
+          ? const Value.absent()
+          : Value(abvPercent),
+      rating: rating == null && nullToAbsent
+          ? const Value.absent()
+          : Value(rating),
+      tastingNotes: tastingNotes == null && nullToAbsent
+          ? const Value.absent()
+          : Value(tastingNotes),
+      photoRef: photoRef == null && nullToAbsent
+          ? const Value.absent()
+          : Value(photoRef),
+      createdAt: Value(createdAt),
+      updatedAt: Value(updatedAt),
+    );
+  }
+
+  factory WineJournalEntry.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return WineJournalEntry(
+      id: serializer.fromJson<String>(json['id']),
+      tastedOn: serializer.fromJson<String?>(json['tasted_on']),
+      producerName: serializer.fromJson<String?>(json['producer_name']),
+      cuveeName: serializer.fromJson<String?>(json['cuvee_name']),
+      vintage: serializer.fromJson<int?>(json['vintage']),
+      isNonVintage: serializer.fromJson<bool>(json['is_non_vintage']),
+      appellationText: serializer.fromJson<String?>(json['appellation_text']),
+      grapesText: serializer.fromJson<String?>(json['grapes_text']),
+      abvPercent: serializer.fromJson<double?>(json['abv_percent']),
+      rating: serializer.fromJson<int?>(json['rating']),
+      tastingNotes: serializer.fromJson<String?>(json['tasting_notes']),
+      photoRef: serializer.fromJson<String?>(json['photo_ref']),
+      createdAt: serializer.fromJson<DateTime>(json['created_at']),
+      updatedAt: serializer.fromJson<DateTime>(json['updated_at']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'tasted_on': serializer.toJson<String?>(tastedOn),
+      'producer_name': serializer.toJson<String?>(producerName),
+      'cuvee_name': serializer.toJson<String?>(cuveeName),
+      'vintage': serializer.toJson<int?>(vintage),
+      'is_non_vintage': serializer.toJson<bool>(isNonVintage),
+      'appellation_text': serializer.toJson<String?>(appellationText),
+      'grapes_text': serializer.toJson<String?>(grapesText),
+      'abv_percent': serializer.toJson<double?>(abvPercent),
+      'rating': serializer.toJson<int?>(rating),
+      'tasting_notes': serializer.toJson<String?>(tastingNotes),
+      'photo_ref': serializer.toJson<String?>(photoRef),
+      'created_at': serializer.toJson<DateTime>(createdAt),
+      'updated_at': serializer.toJson<DateTime>(updatedAt),
+    };
+  }
+
+  WineJournalEntry copyWith({
+    String? id,
+    Value<String?> tastedOn = const Value.absent(),
+    Value<String?> producerName = const Value.absent(),
+    Value<String?> cuveeName = const Value.absent(),
+    Value<int?> vintage = const Value.absent(),
+    bool? isNonVintage,
+    Value<String?> appellationText = const Value.absent(),
+    Value<String?> grapesText = const Value.absent(),
+    Value<double?> abvPercent = const Value.absent(),
+    Value<int?> rating = const Value.absent(),
+    Value<String?> tastingNotes = const Value.absent(),
+    Value<String?> photoRef = const Value.absent(),
+    DateTime? createdAt,
+    DateTime? updatedAt,
+  }) => WineJournalEntry(
+    id: id ?? this.id,
+    tastedOn: tastedOn.present ? tastedOn.value : this.tastedOn,
+    producerName: producerName.present ? producerName.value : this.producerName,
+    cuveeName: cuveeName.present ? cuveeName.value : this.cuveeName,
+    vintage: vintage.present ? vintage.value : this.vintage,
+    isNonVintage: isNonVintage ?? this.isNonVintage,
+    appellationText: appellationText.present
+        ? appellationText.value
+        : this.appellationText,
+    grapesText: grapesText.present ? grapesText.value : this.grapesText,
+    abvPercent: abvPercent.present ? abvPercent.value : this.abvPercent,
+    rating: rating.present ? rating.value : this.rating,
+    tastingNotes: tastingNotes.present ? tastingNotes.value : this.tastingNotes,
+    photoRef: photoRef.present ? photoRef.value : this.photoRef,
+    createdAt: createdAt ?? this.createdAt,
+    updatedAt: updatedAt ?? this.updatedAt,
+  );
+  WineJournalEntry copyWithCompanion(WineJournalEntriesCompanion data) {
+    return WineJournalEntry(
+      id: data.id.present ? data.id.value : this.id,
+      tastedOn: data.tastedOn.present ? data.tastedOn.value : this.tastedOn,
+      producerName: data.producerName.present
+          ? data.producerName.value
+          : this.producerName,
+      cuveeName: data.cuveeName.present ? data.cuveeName.value : this.cuveeName,
+      vintage: data.vintage.present ? data.vintage.value : this.vintage,
+      isNonVintage: data.isNonVintage.present
+          ? data.isNonVintage.value
+          : this.isNonVintage,
+      appellationText: data.appellationText.present
+          ? data.appellationText.value
+          : this.appellationText,
+      grapesText: data.grapesText.present
+          ? data.grapesText.value
+          : this.grapesText,
+      abvPercent: data.abvPercent.present
+          ? data.abvPercent.value
+          : this.abvPercent,
+      rating: data.rating.present ? data.rating.value : this.rating,
+      tastingNotes: data.tastingNotes.present
+          ? data.tastingNotes.value
+          : this.tastingNotes,
+      photoRef: data.photoRef.present ? data.photoRef.value : this.photoRef,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+      updatedAt: data.updatedAt.present ? data.updatedAt.value : this.updatedAt,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('WineJournalEntry(')
+          ..write('id: $id, ')
+          ..write('tastedOn: $tastedOn, ')
+          ..write('producerName: $producerName, ')
+          ..write('cuveeName: $cuveeName, ')
+          ..write('vintage: $vintage, ')
+          ..write('isNonVintage: $isNonVintage, ')
+          ..write('appellationText: $appellationText, ')
+          ..write('grapesText: $grapesText, ')
+          ..write('abvPercent: $abvPercent, ')
+          ..write('rating: $rating, ')
+          ..write('tastingNotes: $tastingNotes, ')
+          ..write('photoRef: $photoRef, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    tastedOn,
+    producerName,
+    cuveeName,
+    vintage,
+    isNonVintage,
+    appellationText,
+    grapesText,
+    abvPercent,
+    rating,
+    tastingNotes,
+    photoRef,
+    createdAt,
+    updatedAt,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is WineJournalEntry &&
+          other.id == this.id &&
+          other.tastedOn == this.tastedOn &&
+          other.producerName == this.producerName &&
+          other.cuveeName == this.cuveeName &&
+          other.vintage == this.vintage &&
+          other.isNonVintage == this.isNonVintage &&
+          other.appellationText == this.appellationText &&
+          other.grapesText == this.grapesText &&
+          other.abvPercent == this.abvPercent &&
+          other.rating == this.rating &&
+          other.tastingNotes == this.tastingNotes &&
+          other.photoRef == this.photoRef &&
+          other.createdAt == this.createdAt &&
+          other.updatedAt == this.updatedAt);
+}
+
+class WineJournalEntriesCompanion extends UpdateCompanion<WineJournalEntry> {
+  final Value<String> id;
+  final Value<String?> tastedOn;
+  final Value<String?> producerName;
+  final Value<String?> cuveeName;
+  final Value<int?> vintage;
+  final Value<bool> isNonVintage;
+  final Value<String?> appellationText;
+  final Value<String?> grapesText;
+  final Value<double?> abvPercent;
+  final Value<int?> rating;
+  final Value<String?> tastingNotes;
+  final Value<String?> photoRef;
+  final Value<DateTime> createdAt;
+  final Value<DateTime> updatedAt;
+  final Value<int> rowid;
+  const WineJournalEntriesCompanion({
+    this.id = const Value.absent(),
+    this.tastedOn = const Value.absent(),
+    this.producerName = const Value.absent(),
+    this.cuveeName = const Value.absent(),
+    this.vintage = const Value.absent(),
+    this.isNonVintage = const Value.absent(),
+    this.appellationText = const Value.absent(),
+    this.grapesText = const Value.absent(),
+    this.abvPercent = const Value.absent(),
+    this.rating = const Value.absent(),
+    this.tastingNotes = const Value.absent(),
+    this.photoRef = const Value.absent(),
+    this.createdAt = const Value.absent(),
+    this.updatedAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  WineJournalEntriesCompanion.insert({
+    required String id,
+    this.tastedOn = const Value.absent(),
+    this.producerName = const Value.absent(),
+    this.cuveeName = const Value.absent(),
+    this.vintage = const Value.absent(),
+    this.isNonVintage = const Value.absent(),
+    this.appellationText = const Value.absent(),
+    this.grapesText = const Value.absent(),
+    this.abvPercent = const Value.absent(),
+    this.rating = const Value.absent(),
+    this.tastingNotes = const Value.absent(),
+    this.photoRef = const Value.absent(),
+    required DateTime createdAt,
+    required DateTime updatedAt,
+    this.rowid = const Value.absent(),
+  }) : id = Value(id),
+       createdAt = Value(createdAt),
+       updatedAt = Value(updatedAt);
+  static Insertable<WineJournalEntry> custom({
+    Expression<String>? id,
+    Expression<String>? tastedOn,
+    Expression<String>? producerName,
+    Expression<String>? cuveeName,
+    Expression<int>? vintage,
+    Expression<bool>? isNonVintage,
+    Expression<String>? appellationText,
+    Expression<String>? grapesText,
+    Expression<double>? abvPercent,
+    Expression<int>? rating,
+    Expression<String>? tastingNotes,
+    Expression<String>? photoRef,
+    Expression<DateTime>? createdAt,
+    Expression<DateTime>? updatedAt,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (tastedOn != null) 'tasted_on': tastedOn,
+      if (producerName != null) 'producer_name': producerName,
+      if (cuveeName != null) 'cuvee_name': cuveeName,
+      if (vintage != null) 'vintage': vintage,
+      if (isNonVintage != null) 'is_non_vintage': isNonVintage,
+      if (appellationText != null) 'appellation_text': appellationText,
+      if (grapesText != null) 'grapes_text': grapesText,
+      if (abvPercent != null) 'abv_percent': abvPercent,
+      if (rating != null) 'rating': rating,
+      if (tastingNotes != null) 'tasting_notes': tastingNotes,
+      if (photoRef != null) 'photo_ref': photoRef,
+      if (createdAt != null) 'created_at': createdAt,
+      if (updatedAt != null) 'updated_at': updatedAt,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  WineJournalEntriesCompanion copyWith({
+    Value<String>? id,
+    Value<String?>? tastedOn,
+    Value<String?>? producerName,
+    Value<String?>? cuveeName,
+    Value<int?>? vintage,
+    Value<bool>? isNonVintage,
+    Value<String?>? appellationText,
+    Value<String?>? grapesText,
+    Value<double?>? abvPercent,
+    Value<int?>? rating,
+    Value<String?>? tastingNotes,
+    Value<String?>? photoRef,
+    Value<DateTime>? createdAt,
+    Value<DateTime>? updatedAt,
+    Value<int>? rowid,
+  }) {
+    return WineJournalEntriesCompanion(
+      id: id ?? this.id,
+      tastedOn: tastedOn ?? this.tastedOn,
+      producerName: producerName ?? this.producerName,
+      cuveeName: cuveeName ?? this.cuveeName,
+      vintage: vintage ?? this.vintage,
+      isNonVintage: isNonVintage ?? this.isNonVintage,
+      appellationText: appellationText ?? this.appellationText,
+      grapesText: grapesText ?? this.grapesText,
+      abvPercent: abvPercent ?? this.abvPercent,
+      rating: rating ?? this.rating,
+      tastingNotes: tastingNotes ?? this.tastingNotes,
+      photoRef: photoRef ?? this.photoRef,
+      createdAt: createdAt ?? this.createdAt,
+      updatedAt: updatedAt ?? this.updatedAt,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (tastedOn.present) {
+      map['tasted_on'] = Variable<String>(tastedOn.value);
+    }
+    if (producerName.present) {
+      map['producer_name'] = Variable<String>(producerName.value);
+    }
+    if (cuveeName.present) {
+      map['cuvee_name'] = Variable<String>(cuveeName.value);
+    }
+    if (vintage.present) {
+      map['vintage'] = Variable<int>(vintage.value);
+    }
+    if (isNonVintage.present) {
+      map['is_non_vintage'] = Variable<bool>(isNonVintage.value);
+    }
+    if (appellationText.present) {
+      map['appellation_text'] = Variable<String>(appellationText.value);
+    }
+    if (grapesText.present) {
+      map['grapes_text'] = Variable<String>(grapesText.value);
+    }
+    if (abvPercent.present) {
+      map['abv_percent'] = Variable<double>(abvPercent.value);
+    }
+    if (rating.present) {
+      map['rating'] = Variable<int>(rating.value);
+    }
+    if (tastingNotes.present) {
+      map['tasting_notes'] = Variable<String>(tastingNotes.value);
+    }
+    if (photoRef.present) {
+      map['photo_ref'] = Variable<String>(photoRef.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<DateTime>(createdAt.value);
+    }
+    if (updatedAt.present) {
+      map['updated_at'] = Variable<DateTime>(updatedAt.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('WineJournalEntriesCompanion(')
+          ..write('id: $id, ')
+          ..write('tastedOn: $tastedOn, ')
+          ..write('producerName: $producerName, ')
+          ..write('cuveeName: $cuveeName, ')
+          ..write('vintage: $vintage, ')
+          ..write('isNonVintage: $isNonVintage, ')
+          ..write('appellationText: $appellationText, ')
+          ..write('grapesText: $grapesText, ')
+          ..write('abvPercent: $abvPercent, ')
+          ..write('rating: $rating, ')
+          ..write('tastingNotes: $tastingNotes, ')
+          ..write('photoRef: $photoRef, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class WineJournalEntryNodes extends Table
+    with TableInfo<WineJournalEntryNodes, WineJournalEntryNode> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  WineJournalEntryNodes(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _wineJournalEntryIdMeta =
+      const VerificationMeta('wineJournalEntryId');
+  late final GeneratedColumn<String> wineJournalEntryId =
+      GeneratedColumn<String>(
+        'wine_journal_entry_id',
+        aliasedName,
+        false,
+        type: DriftSqlType.string,
+        requiredDuringInsert: true,
+        $customConstraints:
+            'NOT NULL REFERENCES wine_journal_entries(id)ON DELETE CASCADE',
+      );
+  static const VerificationMeta _knowledgeNodeIdMeta = const VerificationMeta(
+    'knowledgeNodeId',
+  );
+  late final GeneratedColumn<String> knowledgeNodeId = GeneratedColumn<String>(
+    'knowledge_node_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL REFERENCES knowledge_nodes(id)',
+  );
+  @override
+  List<GeneratedColumn> get $columns => [wineJournalEntryId, knowledgeNodeId];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'wine_journal_entry_nodes';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<WineJournalEntryNode> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('wine_journal_entry_id')) {
+      context.handle(
+        _wineJournalEntryIdMeta,
+        wineJournalEntryId.isAcceptableOrUnknown(
+          data['wine_journal_entry_id']!,
+          _wineJournalEntryIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_wineJournalEntryIdMeta);
+    }
+    if (data.containsKey('knowledge_node_id')) {
+      context.handle(
+        _knowledgeNodeIdMeta,
+        knowledgeNodeId.isAcceptableOrUnknown(
+          data['knowledge_node_id']!,
+          _knowledgeNodeIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_knowledgeNodeIdMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {wineJournalEntryId, knowledgeNodeId};
+  @override
+  WineJournalEntryNode map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return WineJournalEntryNode(
+      wineJournalEntryId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}wine_journal_entry_id'],
+      )!,
+      knowledgeNodeId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}knowledge_node_id'],
+      )!,
+    );
+  }
+
+  @override
+  WineJournalEntryNodes createAlias(String alias) {
+    return WineJournalEntryNodes(attachedDatabase, alias);
+  }
+
+  @override
+  List<String> get customConstraints => const [
+    'PRIMARY KEY(wine_journal_entry_id, knowledge_node_id)',
+  ];
+  @override
+  bool get dontWriteConstraints => true;
+}
+
+class WineJournalEntryNode extends DataClass
+    implements Insertable<WineJournalEntryNode> {
+  final String wineJournalEntryId;
+  final String knowledgeNodeId;
+  const WineJournalEntryNode({
+    required this.wineJournalEntryId,
+    required this.knowledgeNodeId,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['wine_journal_entry_id'] = Variable<String>(wineJournalEntryId);
+    map['knowledge_node_id'] = Variable<String>(knowledgeNodeId);
+    return map;
+  }
+
+  WineJournalEntryNodesCompanion toCompanion(bool nullToAbsent) {
+    return WineJournalEntryNodesCompanion(
+      wineJournalEntryId: Value(wineJournalEntryId),
+      knowledgeNodeId: Value(knowledgeNodeId),
+    );
+  }
+
+  factory WineJournalEntryNode.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return WineJournalEntryNode(
+      wineJournalEntryId: serializer.fromJson<String>(
+        json['wine_journal_entry_id'],
+      ),
+      knowledgeNodeId: serializer.fromJson<String>(json['knowledge_node_id']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'wine_journal_entry_id': serializer.toJson<String>(wineJournalEntryId),
+      'knowledge_node_id': serializer.toJson<String>(knowledgeNodeId),
+    };
+  }
+
+  WineJournalEntryNode copyWith({
+    String? wineJournalEntryId,
+    String? knowledgeNodeId,
+  }) => WineJournalEntryNode(
+    wineJournalEntryId: wineJournalEntryId ?? this.wineJournalEntryId,
+    knowledgeNodeId: knowledgeNodeId ?? this.knowledgeNodeId,
+  );
+  WineJournalEntryNode copyWithCompanion(WineJournalEntryNodesCompanion data) {
+    return WineJournalEntryNode(
+      wineJournalEntryId: data.wineJournalEntryId.present
+          ? data.wineJournalEntryId.value
+          : this.wineJournalEntryId,
+      knowledgeNodeId: data.knowledgeNodeId.present
+          ? data.knowledgeNodeId.value
+          : this.knowledgeNodeId,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('WineJournalEntryNode(')
+          ..write('wineJournalEntryId: $wineJournalEntryId, ')
+          ..write('knowledgeNodeId: $knowledgeNodeId')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(wineJournalEntryId, knowledgeNodeId);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is WineJournalEntryNode &&
+          other.wineJournalEntryId == this.wineJournalEntryId &&
+          other.knowledgeNodeId == this.knowledgeNodeId);
+}
+
+class WineJournalEntryNodesCompanion
+    extends UpdateCompanion<WineJournalEntryNode> {
+  final Value<String> wineJournalEntryId;
+  final Value<String> knowledgeNodeId;
+  final Value<int> rowid;
+  const WineJournalEntryNodesCompanion({
+    this.wineJournalEntryId = const Value.absent(),
+    this.knowledgeNodeId = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  WineJournalEntryNodesCompanion.insert({
+    required String wineJournalEntryId,
+    required String knowledgeNodeId,
+    this.rowid = const Value.absent(),
+  }) : wineJournalEntryId = Value(wineJournalEntryId),
+       knowledgeNodeId = Value(knowledgeNodeId);
+  static Insertable<WineJournalEntryNode> custom({
+    Expression<String>? wineJournalEntryId,
+    Expression<String>? knowledgeNodeId,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (wineJournalEntryId != null)
+        'wine_journal_entry_id': wineJournalEntryId,
+      if (knowledgeNodeId != null) 'knowledge_node_id': knowledgeNodeId,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  WineJournalEntryNodesCompanion copyWith({
+    Value<String>? wineJournalEntryId,
+    Value<String>? knowledgeNodeId,
+    Value<int>? rowid,
+  }) {
+    return WineJournalEntryNodesCompanion(
+      wineJournalEntryId: wineJournalEntryId ?? this.wineJournalEntryId,
+      knowledgeNodeId: knowledgeNodeId ?? this.knowledgeNodeId,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (wineJournalEntryId.present) {
+      map['wine_journal_entry_id'] = Variable<String>(wineJournalEntryId.value);
+    }
+    if (knowledgeNodeId.present) {
+      map['knowledge_node_id'] = Variable<String>(knowledgeNodeId.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('WineJournalEntryNodesCompanion(')
+          ..write('wineJournalEntryId: $wineJournalEntryId, ')
+          ..write('knowledgeNodeId: $knowledgeNodeId, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class TastingSessions extends Table
+    with TableInfo<TastingSessions, TastingSession> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  TastingSessions(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL PRIMARY KEY CHECK (length(id) = 36 AND id NOT GLOB \'*[^0-9a-f-]*\')',
+  );
+  static const VerificationMeta _tastingGridIdMeta = const VerificationMeta(
+    'tastingGridId',
+  );
+  late final GeneratedColumn<String> tastingGridId = GeneratedColumn<String>(
+    'tasting_grid_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL REFERENCES tasting_grids(id)',
+  );
+  static const VerificationMeta _wineJournalEntryIdMeta =
+      const VerificationMeta('wineJournalEntryId');
+  late final GeneratedColumn<String> wineJournalEntryId =
+      GeneratedColumn<String>(
+        'wine_journal_entry_id',
+        aliasedName,
+        true,
+        type: DriftSqlType.string,
+        requiredDuringInsert: false,
+        $customConstraints:
+            'REFERENCES wine_journal_entries(id)ON DELETE SET NULL',
+      );
+  static const VerificationMeta _isBlindMeta = const VerificationMeta(
+    'isBlind',
+  );
+  late final GeneratedColumn<bool> isBlind = GeneratedColumn<bool>(
+    'is_blind',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    $customConstraints: 'NOT NULL DEFAULT 1 CHECK (is_blind IN (0, 1))',
+    defaultValue: const CustomExpression('1'),
+  );
+  static const VerificationMeta _startedAtMeta = const VerificationMeta(
+    'startedAt',
+  );
+  late final GeneratedColumn<DateTime> startedAt = GeneratedColumn<DateTime>(
+    'started_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL CHECK (strftime(\'%Y-%m-%dT%H:%M:%fZ\', started_at) IS started_at)',
+  );
+  static const VerificationMeta _completedAtMeta = const VerificationMeta(
+    'completedAt',
+  );
+  late final GeneratedColumn<DateTime> completedAt = GeneratedColumn<DateTime>(
+    'completed_at',
+    aliasedName,
+    true,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+    $customConstraints: 'CHECK (completed_at IS NULL OR strftime(\'%Y-%m-%dT%H:%M:%fZ\', completed_at) IS completed_at)',
+  );
+  static const VerificationMeta _notesMeta = const VerificationMeta('notes');
+  late final GeneratedColumn<String> notes = GeneratedColumn<String>(
+    'notes',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    $customConstraints: '',
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    tastingGridId,
+    wineJournalEntryId,
+    isBlind,
+    startedAt,
+    completedAt,
+    notes,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'tasting_sessions';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<TastingSession> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('tasting_grid_id')) {
+      context.handle(
+        _tastingGridIdMeta,
+        tastingGridId.isAcceptableOrUnknown(
+          data['tasting_grid_id']!,
+          _tastingGridIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_tastingGridIdMeta);
+    }
+    if (data.containsKey('wine_journal_entry_id')) {
+      context.handle(
+        _wineJournalEntryIdMeta,
+        wineJournalEntryId.isAcceptableOrUnknown(
+          data['wine_journal_entry_id']!,
+          _wineJournalEntryIdMeta,
+        ),
+      );
+    }
+    if (data.containsKey('is_blind')) {
+      context.handle(
+        _isBlindMeta,
+        isBlind.isAcceptableOrUnknown(data['is_blind']!, _isBlindMeta),
+      );
+    }
+    if (data.containsKey('started_at')) {
+      context.handle(
+        _startedAtMeta,
+        startedAt.isAcceptableOrUnknown(data['started_at']!, _startedAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_startedAtMeta);
+    }
+    if (data.containsKey('completed_at')) {
+      context.handle(
+        _completedAtMeta,
+        completedAt.isAcceptableOrUnknown(
+          data['completed_at']!,
+          _completedAtMeta,
+        ),
+      );
+    }
+    if (data.containsKey('notes')) {
+      context.handle(
+        _notesMeta,
+        notes.isAcceptableOrUnknown(data['notes']!, _notesMeta),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  List<Set<GeneratedColumn>> get uniqueKeys => [
+    {id, tastingGridId},
+  ];
+  @override
+  TastingSession map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return TastingSession(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      tastingGridId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}tasting_grid_id'],
+      )!,
+      wineJournalEntryId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}wine_journal_entry_id'],
+      ),
+      isBlind: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}is_blind'],
+      )!,
+      startedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}started_at'],
+      )!,
+      completedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}completed_at'],
+      ),
+      notes: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}notes'],
+      ),
+    );
+  }
+
+  @override
+  TastingSessions createAlias(String alias) {
+    return TastingSessions(attachedDatabase, alias);
+  }
+
+  @override
+  List<String> get customConstraints => const [
+    'UNIQUE(id, tasting_grid_id)',
+    'CHECK(completed_at IS NULL OR unixepoch(completed_at, \'subsec\') >= unixepoch(started_at, \'subsec\'))',
+  ];
+  @override
+  bool get dontWriteConstraints => true;
+}
+
+class TastingSession extends DataClass implements Insertable<TastingSession> {
+  final String id;
+  final String tastingGridId;
+  final String? wineJournalEntryId;
+  final bool isBlind;
+  final DateTime startedAt;
+  final DateTime? completedAt;
+  final String? notes;
+  const TastingSession({
+    required this.id,
+    required this.tastingGridId,
+    this.wineJournalEntryId,
+    required this.isBlind,
+    required this.startedAt,
+    this.completedAt,
+    this.notes,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    map['tasting_grid_id'] = Variable<String>(tastingGridId);
+    if (!nullToAbsent || wineJournalEntryId != null) {
+      map['wine_journal_entry_id'] = Variable<String>(wineJournalEntryId);
+    }
+    map['is_blind'] = Variable<bool>(isBlind);
+    map['started_at'] = Variable<DateTime>(startedAt);
+    if (!nullToAbsent || completedAt != null) {
+      map['completed_at'] = Variable<DateTime>(completedAt);
+    }
+    if (!nullToAbsent || notes != null) {
+      map['notes'] = Variable<String>(notes);
+    }
+    return map;
+  }
+
+  TastingSessionsCompanion toCompanion(bool nullToAbsent) {
+    return TastingSessionsCompanion(
+      id: Value(id),
+      tastingGridId: Value(tastingGridId),
+      wineJournalEntryId: wineJournalEntryId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(wineJournalEntryId),
+      isBlind: Value(isBlind),
+      startedAt: Value(startedAt),
+      completedAt: completedAt == null && nullToAbsent
+          ? const Value.absent()
+          : Value(completedAt),
+      notes: notes == null && nullToAbsent
+          ? const Value.absent()
+          : Value(notes),
+    );
+  }
+
+  factory TastingSession.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return TastingSession(
+      id: serializer.fromJson<String>(json['id']),
+      tastingGridId: serializer.fromJson<String>(json['tasting_grid_id']),
+      wineJournalEntryId: serializer.fromJson<String?>(
+        json['wine_journal_entry_id'],
+      ),
+      isBlind: serializer.fromJson<bool>(json['is_blind']),
+      startedAt: serializer.fromJson<DateTime>(json['started_at']),
+      completedAt: serializer.fromJson<DateTime?>(json['completed_at']),
+      notes: serializer.fromJson<String?>(json['notes']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'tasting_grid_id': serializer.toJson<String>(tastingGridId),
+      'wine_journal_entry_id': serializer.toJson<String?>(wineJournalEntryId),
+      'is_blind': serializer.toJson<bool>(isBlind),
+      'started_at': serializer.toJson<DateTime>(startedAt),
+      'completed_at': serializer.toJson<DateTime?>(completedAt),
+      'notes': serializer.toJson<String?>(notes),
+    };
+  }
+
+  TastingSession copyWith({
+    String? id,
+    String? tastingGridId,
+    Value<String?> wineJournalEntryId = const Value.absent(),
+    bool? isBlind,
+    DateTime? startedAt,
+    Value<DateTime?> completedAt = const Value.absent(),
+    Value<String?> notes = const Value.absent(),
+  }) => TastingSession(
+    id: id ?? this.id,
+    tastingGridId: tastingGridId ?? this.tastingGridId,
+    wineJournalEntryId: wineJournalEntryId.present
+        ? wineJournalEntryId.value
+        : this.wineJournalEntryId,
+    isBlind: isBlind ?? this.isBlind,
+    startedAt: startedAt ?? this.startedAt,
+    completedAt: completedAt.present ? completedAt.value : this.completedAt,
+    notes: notes.present ? notes.value : this.notes,
+  );
+  TastingSession copyWithCompanion(TastingSessionsCompanion data) {
+    return TastingSession(
+      id: data.id.present ? data.id.value : this.id,
+      tastingGridId: data.tastingGridId.present
+          ? data.tastingGridId.value
+          : this.tastingGridId,
+      wineJournalEntryId: data.wineJournalEntryId.present
+          ? data.wineJournalEntryId.value
+          : this.wineJournalEntryId,
+      isBlind: data.isBlind.present ? data.isBlind.value : this.isBlind,
+      startedAt: data.startedAt.present ? data.startedAt.value : this.startedAt,
+      completedAt: data.completedAt.present
+          ? data.completedAt.value
+          : this.completedAt,
+      notes: data.notes.present ? data.notes.value : this.notes,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('TastingSession(')
+          ..write('id: $id, ')
+          ..write('tastingGridId: $tastingGridId, ')
+          ..write('wineJournalEntryId: $wineJournalEntryId, ')
+          ..write('isBlind: $isBlind, ')
+          ..write('startedAt: $startedAt, ')
+          ..write('completedAt: $completedAt, ')
+          ..write('notes: $notes')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    tastingGridId,
+    wineJournalEntryId,
+    isBlind,
+    startedAt,
+    completedAt,
+    notes,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is TastingSession &&
+          other.id == this.id &&
+          other.tastingGridId == this.tastingGridId &&
+          other.wineJournalEntryId == this.wineJournalEntryId &&
+          other.isBlind == this.isBlind &&
+          other.startedAt == this.startedAt &&
+          other.completedAt == this.completedAt &&
+          other.notes == this.notes);
+}
+
+class TastingSessionsCompanion extends UpdateCompanion<TastingSession> {
+  final Value<String> id;
+  final Value<String> tastingGridId;
+  final Value<String?> wineJournalEntryId;
+  final Value<bool> isBlind;
+  final Value<DateTime> startedAt;
+  final Value<DateTime?> completedAt;
+  final Value<String?> notes;
+  final Value<int> rowid;
+  const TastingSessionsCompanion({
+    this.id = const Value.absent(),
+    this.tastingGridId = const Value.absent(),
+    this.wineJournalEntryId = const Value.absent(),
+    this.isBlind = const Value.absent(),
+    this.startedAt = const Value.absent(),
+    this.completedAt = const Value.absent(),
+    this.notes = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  TastingSessionsCompanion.insert({
+    required String id,
+    required String tastingGridId,
+    this.wineJournalEntryId = const Value.absent(),
+    this.isBlind = const Value.absent(),
+    required DateTime startedAt,
+    this.completedAt = const Value.absent(),
+    this.notes = const Value.absent(),
+    this.rowid = const Value.absent(),
+  }) : id = Value(id),
+       tastingGridId = Value(tastingGridId),
+       startedAt = Value(startedAt);
+  static Insertable<TastingSession> custom({
+    Expression<String>? id,
+    Expression<String>? tastingGridId,
+    Expression<String>? wineJournalEntryId,
+    Expression<bool>? isBlind,
+    Expression<DateTime>? startedAt,
+    Expression<DateTime>? completedAt,
+    Expression<String>? notes,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (tastingGridId != null) 'tasting_grid_id': tastingGridId,
+      if (wineJournalEntryId != null)
+        'wine_journal_entry_id': wineJournalEntryId,
+      if (isBlind != null) 'is_blind': isBlind,
+      if (startedAt != null) 'started_at': startedAt,
+      if (completedAt != null) 'completed_at': completedAt,
+      if (notes != null) 'notes': notes,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  TastingSessionsCompanion copyWith({
+    Value<String>? id,
+    Value<String>? tastingGridId,
+    Value<String?>? wineJournalEntryId,
+    Value<bool>? isBlind,
+    Value<DateTime>? startedAt,
+    Value<DateTime?>? completedAt,
+    Value<String?>? notes,
+    Value<int>? rowid,
+  }) {
+    return TastingSessionsCompanion(
+      id: id ?? this.id,
+      tastingGridId: tastingGridId ?? this.tastingGridId,
+      wineJournalEntryId: wineJournalEntryId ?? this.wineJournalEntryId,
+      isBlind: isBlind ?? this.isBlind,
+      startedAt: startedAt ?? this.startedAt,
+      completedAt: completedAt ?? this.completedAt,
+      notes: notes ?? this.notes,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (tastingGridId.present) {
+      map['tasting_grid_id'] = Variable<String>(tastingGridId.value);
+    }
+    if (wineJournalEntryId.present) {
+      map['wine_journal_entry_id'] = Variable<String>(wineJournalEntryId.value);
+    }
+    if (isBlind.present) {
+      map['is_blind'] = Variable<bool>(isBlind.value);
+    }
+    if (startedAt.present) {
+      map['started_at'] = Variable<DateTime>(startedAt.value);
+    }
+    if (completedAt.present) {
+      map['completed_at'] = Variable<DateTime>(completedAt.value);
+    }
+    if (notes.present) {
+      map['notes'] = Variable<String>(notes.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('TastingSessionsCompanion(')
+          ..write('id: $id, ')
+          ..write('tastingGridId: $tastingGridId, ')
+          ..write('wineJournalEntryId: $wineJournalEntryId, ')
+          ..write('isBlind: $isBlind, ')
+          ..write('startedAt: $startedAt, ')
+          ..write('completedAt: $completedAt, ')
+          ..write('notes: $notes, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class TastingDescriptors extends Table
+    with TableInfo<TastingDescriptors, TastingDescriptor> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  TastingDescriptors(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _tastingSessionIdMeta = const VerificationMeta(
+    'tastingSessionId',
+  );
+  late final GeneratedColumn<String> tastingSessionId = GeneratedColumn<String>(
+    'tasting_session_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL',
+  );
+  static const VerificationMeta _tastingGridIdMeta = const VerificationMeta(
+    'tastingGridId',
+  );
+  late final GeneratedColumn<String> tastingGridId = GeneratedColumn<String>(
+    'tasting_grid_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL',
+  );
+  static const VerificationMeta _attributeKeyMeta = const VerificationMeta(
+    'attributeKey',
+  );
+  late final GeneratedColumn<String> attributeKey = GeneratedColumn<String>(
+    'attribute_key',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL',
+  );
+  static const VerificationMeta _valueKeyMeta = const VerificationMeta(
+    'valueKey',
+  );
+  late final GeneratedColumn<String> valueKey = GeneratedColumn<String>(
+    'value_key',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL',
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    tastingSessionId,
+    tastingGridId,
+    attributeKey,
+    valueKey,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'tasting_descriptors';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<TastingDescriptor> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('tasting_session_id')) {
+      context.handle(
+        _tastingSessionIdMeta,
+        tastingSessionId.isAcceptableOrUnknown(
+          data['tasting_session_id']!,
+          _tastingSessionIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_tastingSessionIdMeta);
+    }
+    if (data.containsKey('tasting_grid_id')) {
+      context.handle(
+        _tastingGridIdMeta,
+        tastingGridId.isAcceptableOrUnknown(
+          data['tasting_grid_id']!,
+          _tastingGridIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_tastingGridIdMeta);
+    }
+    if (data.containsKey('attribute_key')) {
+      context.handle(
+        _attributeKeyMeta,
+        attributeKey.isAcceptableOrUnknown(
+          data['attribute_key']!,
+          _attributeKeyMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_attributeKeyMeta);
+    }
+    if (data.containsKey('value_key')) {
+      context.handle(
+        _valueKeyMeta,
+        valueKey.isAcceptableOrUnknown(data['value_key']!, _valueKeyMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_valueKeyMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {
+    tastingSessionId,
+    attributeKey,
+    valueKey,
+  };
+  @override
+  TastingDescriptor map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return TastingDescriptor(
+      tastingSessionId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}tasting_session_id'],
+      )!,
+      tastingGridId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}tasting_grid_id'],
+      )!,
+      attributeKey: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}attribute_key'],
+      )!,
+      valueKey: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}value_key'],
+      )!,
+    );
+  }
+
+  @override
+  TastingDescriptors createAlias(String alias) {
+    return TastingDescriptors(attachedDatabase, alias);
+  }
+
+  @override
+  List<String> get customConstraints => const [
+    'PRIMARY KEY(tasting_session_id, attribute_key, value_key)',
+    'FOREIGN KEY(tasting_session_id, tasting_grid_id)REFERENCES tasting_sessions(id, tasting_grid_id)ON DELETE CASCADE',
+    'FOREIGN KEY(tasting_grid_id, attribute_key, value_key)REFERENCES tasting_grid_values(tasting_grid_id, attribute_key, value_key)',
+  ];
+  @override
+  bool get dontWriteConstraints => true;
+}
+
+class TastingDescriptor extends DataClass
+    implements Insertable<TastingDescriptor> {
+  final String tastingSessionId;
+  final String tastingGridId;
+  final String attributeKey;
+  final String valueKey;
+  const TastingDescriptor({
+    required this.tastingSessionId,
+    required this.tastingGridId,
+    required this.attributeKey,
+    required this.valueKey,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['tasting_session_id'] = Variable<String>(tastingSessionId);
+    map['tasting_grid_id'] = Variable<String>(tastingGridId);
+    map['attribute_key'] = Variable<String>(attributeKey);
+    map['value_key'] = Variable<String>(valueKey);
+    return map;
+  }
+
+  TastingDescriptorsCompanion toCompanion(bool nullToAbsent) {
+    return TastingDescriptorsCompanion(
+      tastingSessionId: Value(tastingSessionId),
+      tastingGridId: Value(tastingGridId),
+      attributeKey: Value(attributeKey),
+      valueKey: Value(valueKey),
+    );
+  }
+
+  factory TastingDescriptor.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return TastingDescriptor(
+      tastingSessionId: serializer.fromJson<String>(json['tasting_session_id']),
+      tastingGridId: serializer.fromJson<String>(json['tasting_grid_id']),
+      attributeKey: serializer.fromJson<String>(json['attribute_key']),
+      valueKey: serializer.fromJson<String>(json['value_key']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'tasting_session_id': serializer.toJson<String>(tastingSessionId),
+      'tasting_grid_id': serializer.toJson<String>(tastingGridId),
+      'attribute_key': serializer.toJson<String>(attributeKey),
+      'value_key': serializer.toJson<String>(valueKey),
+    };
+  }
+
+  TastingDescriptor copyWith({
+    String? tastingSessionId,
+    String? tastingGridId,
+    String? attributeKey,
+    String? valueKey,
+  }) => TastingDescriptor(
+    tastingSessionId: tastingSessionId ?? this.tastingSessionId,
+    tastingGridId: tastingGridId ?? this.tastingGridId,
+    attributeKey: attributeKey ?? this.attributeKey,
+    valueKey: valueKey ?? this.valueKey,
+  );
+  TastingDescriptor copyWithCompanion(TastingDescriptorsCompanion data) {
+    return TastingDescriptor(
+      tastingSessionId: data.tastingSessionId.present
+          ? data.tastingSessionId.value
+          : this.tastingSessionId,
+      tastingGridId: data.tastingGridId.present
+          ? data.tastingGridId.value
+          : this.tastingGridId,
+      attributeKey: data.attributeKey.present
+          ? data.attributeKey.value
+          : this.attributeKey,
+      valueKey: data.valueKey.present ? data.valueKey.value : this.valueKey,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('TastingDescriptor(')
+          ..write('tastingSessionId: $tastingSessionId, ')
+          ..write('tastingGridId: $tastingGridId, ')
+          ..write('attributeKey: $attributeKey, ')
+          ..write('valueKey: $valueKey')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(tastingSessionId, tastingGridId, attributeKey, valueKey);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is TastingDescriptor &&
+          other.tastingSessionId == this.tastingSessionId &&
+          other.tastingGridId == this.tastingGridId &&
+          other.attributeKey == this.attributeKey &&
+          other.valueKey == this.valueKey);
+}
+
+class TastingDescriptorsCompanion extends UpdateCompanion<TastingDescriptor> {
+  final Value<String> tastingSessionId;
+  final Value<String> tastingGridId;
+  final Value<String> attributeKey;
+  final Value<String> valueKey;
+  final Value<int> rowid;
+  const TastingDescriptorsCompanion({
+    this.tastingSessionId = const Value.absent(),
+    this.tastingGridId = const Value.absent(),
+    this.attributeKey = const Value.absent(),
+    this.valueKey = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  TastingDescriptorsCompanion.insert({
+    required String tastingSessionId,
+    required String tastingGridId,
+    required String attributeKey,
+    required String valueKey,
+    this.rowid = const Value.absent(),
+  }) : tastingSessionId = Value(tastingSessionId),
+       tastingGridId = Value(tastingGridId),
+       attributeKey = Value(attributeKey),
+       valueKey = Value(valueKey);
+  static Insertable<TastingDescriptor> custom({
+    Expression<String>? tastingSessionId,
+    Expression<String>? tastingGridId,
+    Expression<String>? attributeKey,
+    Expression<String>? valueKey,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (tastingSessionId != null) 'tasting_session_id': tastingSessionId,
+      if (tastingGridId != null) 'tasting_grid_id': tastingGridId,
+      if (attributeKey != null) 'attribute_key': attributeKey,
+      if (valueKey != null) 'value_key': valueKey,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  TastingDescriptorsCompanion copyWith({
+    Value<String>? tastingSessionId,
+    Value<String>? tastingGridId,
+    Value<String>? attributeKey,
+    Value<String>? valueKey,
+    Value<int>? rowid,
+  }) {
+    return TastingDescriptorsCompanion(
+      tastingSessionId: tastingSessionId ?? this.tastingSessionId,
+      tastingGridId: tastingGridId ?? this.tastingGridId,
+      attributeKey: attributeKey ?? this.attributeKey,
+      valueKey: valueKey ?? this.valueKey,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (tastingSessionId.present) {
+      map['tasting_session_id'] = Variable<String>(tastingSessionId.value);
+    }
+    if (tastingGridId.present) {
+      map['tasting_grid_id'] = Variable<String>(tastingGridId.value);
+    }
+    if (attributeKey.present) {
+      map['attribute_key'] = Variable<String>(attributeKey.value);
+    }
+    if (valueKey.present) {
+      map['value_key'] = Variable<String>(valueKey.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('TastingDescriptorsCompanion(')
+          ..write('tastingSessionId: $tastingSessionId, ')
+          ..write('tastingGridId: $tastingGridId, ')
+          ..write('attributeKey: $attributeKey, ')
+          ..write('valueKey: $valueKey, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+abstract class _$AppDatabase extends GeneratedDatabase {
+  _$AppDatabase(QueryExecutor e) : super(e);
+  $AppDatabaseManager get managers => $AppDatabaseManager(this);
+  late final CurriculumIngestions curriculumIngestions = CurriculumIngestions(
+    this,
+  );
+  late final CurriculumReleases curriculumReleases = CurriculumReleases(this);
+  late final CurriculumDomains curriculumDomains = CurriculumDomains(this);
+  late final TastingGrids tastingGrids = TastingGrids(this);
+  late final Certifications certifications = Certifications(this);
+  late final NodeTypes nodeTypes = NodeTypes(this);
+  late final RelationTypes relationTypes = RelationTypes(this);
+  late final RelationTypeSignatures relationTypeSignatures =
+      RelationTypeSignatures(this);
+  late final KnowledgeNodes knowledgeNodes = KnowledgeNodes(this);
+  late final Index knowledgeNodesByNameNorm = Index(
+    'knowledge_nodes_by_name_norm',
+    'CREATE INDEX knowledge_nodes_by_name_norm ON knowledge_nodes (name_norm)',
+  );
+  late final QuantityValues quantityValues = QuantityValues(this);
+  late final NodeAlternativeNames nodeAlternativeNames = NodeAlternativeNames(
+    this,
+  );
+  late final Index nodeAlternativeNamesByNorm = Index(
+    'node_alternative_names_by_norm',
+    'CREATE INDEX node_alternative_names_by_norm ON node_alternative_names (name_norm)',
+  );
+  late final KnowledgeRelations knowledgeRelations = KnowledgeRelations(this);
+  late final Index knowledgeRelationsByObject = Index(
+    'knowledge_relations_by_object',
+    'CREATE INDEX knowledge_relations_by_object ON knowledge_relations (object_id, relation_type)',
+  );
+  late final KnowledgeItems knowledgeItems = KnowledgeItems(this);
+  late final Index knowledgeItemsByObject = Index(
+    'knowledge_items_by_object',
+    'CREATE INDEX knowledge_items_by_object ON knowledge_items (object_id)',
+  );
+  late final Index knowledgeItemsByDomain = Index(
+    'knowledge_items_by_domain',
+    'CREATE INDEX knowledge_items_by_domain ON knowledge_items (domain_id)',
+  );
+  late final KnowledgeItemPrerequisites knowledgeItemPrerequisites =
+      KnowledgeItemPrerequisites(this);
+  late final Index knowledgeItemPrerequisitesByPrerequisite = Index(
+    'knowledge_item_prerequisites_by_prerequisite',
+    'CREATE INDEX knowledge_item_prerequisites_by_prerequisite ON knowledge_item_prerequisites (prerequisite_item_id)',
+  );
+  late final CertificationKnowledgeMappings certificationKnowledgeMappings =
+      CertificationKnowledgeMappings(this);
+  late final Index certificationKnowledgeMappingsByItem = Index(
+    'certification_knowledge_mappings_by_item',
+    'CREATE INDEX certification_knowledge_mappings_by_item ON certification_knowledge_mappings (knowledge_item_id)',
+  );
+  late final SourceCitations sourceCitations = SourceCitations(this);
+  late final KnowledgeItemCitations knowledgeItemCitations =
+      KnowledgeItemCitations(this);
+  late final Index knowledgeItemCitationsBySource = Index(
+    'knowledge_item_citations_by_source',
+    'CREATE INDEX knowledge_item_citations_by_source ON knowledge_item_citations (source_citation_id)',
+  );
+  late final QuestionTemplates questionTemplates = QuestionTemplates(this);
+  late final TastingGridAttributes tastingGridAttributes =
+      TastingGridAttributes(this);
+  late final TastingGridValues tastingGridValues = TastingGridValues(this);
+  late final Questions questions = Questions(this);
+  late final QuestionDistractors questionDistractors = QuestionDistractors(
+    this,
+  );
+  late final UserProfiles userProfiles = UserProfiles(this);
+  late final SchedulerConfigs schedulerConfigs = SchedulerConfigs(this);
+  late final ReviewStates reviewStates = ReviewStates(this);
+  late final Index reviewStatesByDue = Index(
+    'review_states_by_due',
+    'CREATE INDEX review_states_by_due ON review_states (due)',
+  );
+  late final ReviewEvents reviewEvents = ReviewEvents(this);
+  late final Index reviewEventsByItem = Index(
+    'review_events_by_item',
+    'CREATE INDEX review_events_by_item ON review_events (knowledge_item_id, reviewed_at)',
+  );
+  late final Index reviewEventsByTime = Index(
+    'review_events_by_time',
+    'CREATE INDEX review_events_by_time ON review_events (reviewed_at)',
+  );
+  late final ReviewEventOptions reviewEventOptions = ReviewEventOptions(this);
+  late final Trigger reviewEventsAppendOnlyUpdate = Trigger(
+    'CREATE TRIGGER review_events_append_only_update BEFORE UPDATE ON review_events BEGIN SELECT RAISE (ABORT, \'review_events is append-only\');END',
+    'review_events_append_only_update',
+  );
+  late final Trigger reviewEventsAppendOnlyDelete = Trigger(
+    'CREATE TRIGGER review_events_append_only_delete BEFORE DELETE ON review_events BEGIN SELECT RAISE (ABORT, \'review_events is append-only\');END',
+    'review_events_append_only_delete',
+  );
+  late final Trigger reviewEventOptionsAppendOnlyUpdate = Trigger(
+    'CREATE TRIGGER review_event_options_append_only_update BEFORE UPDATE ON review_event_options BEGIN SELECT RAISE (ABORT, \'review_event_options is append-only\');END',
+    'review_event_options_append_only_update',
+  );
+  late final Trigger reviewEventOptionsAppendOnlyDelete = Trigger(
+    'CREATE TRIGGER review_event_options_append_only_delete BEFORE DELETE ON review_event_options BEGIN SELECT RAISE (ABORT, \'review_event_options is append-only\');END',
+    'review_event_options_append_only_delete',
+  );
+  late final WineJournalEntries wineJournalEntries = WineJournalEntries(this);
+  late final Index wineJournalEntriesByTastedOn = Index(
+    'wine_journal_entries_by_tasted_on',
+    'CREATE INDEX wine_journal_entries_by_tasted_on ON wine_journal_entries (tasted_on)',
+  );
+  late final WineJournalEntryNodes wineJournalEntryNodes =
+      WineJournalEntryNodes(this);
+  late final Index wineJournalEntryNodesByNode = Index(
+    'wine_journal_entry_nodes_by_node',
+    'CREATE INDEX wine_journal_entry_nodes_by_node ON wine_journal_entry_nodes (knowledge_node_id)',
+  );
+  late final TastingSessions tastingSessions = TastingSessions(this);
+  late final Index tastingSessionsByStartedAt = Index(
+    'tasting_sessions_by_started_at',
+    'CREATE INDEX tasting_sessions_by_started_at ON tasting_sessions (started_at)',
+  );
+  late final Index tastingSessionsByJournalEntry = Index(
+    'tasting_sessions_by_journal_entry',
+    'CREATE INDEX tasting_sessions_by_journal_entry ON tasting_sessions (wine_journal_entry_id)',
+  );
+  late final TastingDescriptors tastingDescriptors = TastingDescriptors(this);
+  late final Trigger tastingDescriptorsSingleSelection = Trigger(
+    'CREATE TRIGGER tasting_descriptors_single_selection BEFORE INSERT ON tasting_descriptors WHEN (SELECT selection FROM tasting_grid_attributes WHERE tasting_grid_id = NEW.tasting_grid_id AND attribute_key = NEW.attribute_key) = \'single\' AND EXISTS (SELECT 1 FROM tasting_descriptors WHERE tasting_session_id = NEW.tasting_session_id AND attribute_key = NEW.attribute_key) BEGIN SELECT RAISE (ABORT, \'attribute accepts a single value\');END',
+    'tasting_descriptors_single_selection',
+  );
+  late final Trigger curriculumReleasesReadOnlyInsert = Trigger(
+    'CREATE TRIGGER curriculum_releases_read_only_insert BEFORE INSERT ON curriculum_releases WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'curriculum_releases_read_only_insert',
+  );
+  late final Trigger curriculumReleasesReadOnlyUpdate = Trigger(
+    'CREATE TRIGGER curriculum_releases_read_only_update BEFORE UPDATE ON curriculum_releases WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'curriculum_releases_read_only_update',
+  );
+  late final Trigger curriculumReleasesReadOnlyDelete = Trigger(
+    'CREATE TRIGGER curriculum_releases_read_only_delete BEFORE DELETE ON curriculum_releases WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'curriculum_releases_read_only_delete',
+  );
+  late final Trigger curriculumDomainsReadOnlyInsert = Trigger(
+    'CREATE TRIGGER curriculum_domains_read_only_insert BEFORE INSERT ON curriculum_domains WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'curriculum_domains_read_only_insert',
+  );
+  late final Trigger curriculumDomainsReadOnlyUpdate = Trigger(
+    'CREATE TRIGGER curriculum_domains_read_only_update BEFORE UPDATE ON curriculum_domains WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'curriculum_domains_read_only_update',
+  );
+  late final Trigger curriculumDomainsReadOnlyDelete = Trigger(
+    'CREATE TRIGGER curriculum_domains_read_only_delete BEFORE DELETE ON curriculum_domains WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'curriculum_domains_read_only_delete',
+  );
+  late final Trigger tastingGridsReadOnlyInsert = Trigger(
+    'CREATE TRIGGER tasting_grids_read_only_insert BEFORE INSERT ON tasting_grids WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'tasting_grids_read_only_insert',
+  );
+  late final Trigger tastingGridsReadOnlyUpdate = Trigger(
+    'CREATE TRIGGER tasting_grids_read_only_update BEFORE UPDATE ON tasting_grids WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'tasting_grids_read_only_update',
+  );
+  late final Trigger tastingGridsReadOnlyDelete = Trigger(
+    'CREATE TRIGGER tasting_grids_read_only_delete BEFORE DELETE ON tasting_grids WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'tasting_grids_read_only_delete',
+  );
+  late final Trigger certificationsReadOnlyInsert = Trigger(
+    'CREATE TRIGGER certifications_read_only_insert BEFORE INSERT ON certifications WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'certifications_read_only_insert',
+  );
+  late final Trigger certificationsReadOnlyUpdate = Trigger(
+    'CREATE TRIGGER certifications_read_only_update BEFORE UPDATE ON certifications WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'certifications_read_only_update',
+  );
+  late final Trigger certificationsReadOnlyDelete = Trigger(
+    'CREATE TRIGGER certifications_read_only_delete BEFORE DELETE ON certifications WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'certifications_read_only_delete',
+  );
+  late final Trigger nodeTypesReadOnlyInsert = Trigger(
+    'CREATE TRIGGER node_types_read_only_insert BEFORE INSERT ON node_types WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'node_types_read_only_insert',
+  );
+  late final Trigger nodeTypesReadOnlyUpdate = Trigger(
+    'CREATE TRIGGER node_types_read_only_update BEFORE UPDATE ON node_types WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'node_types_read_only_update',
+  );
+  late final Trigger nodeTypesReadOnlyDelete = Trigger(
+    'CREATE TRIGGER node_types_read_only_delete BEFORE DELETE ON node_types WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'node_types_read_only_delete',
+  );
+  late final Trigger relationTypesReadOnlyInsert = Trigger(
+    'CREATE TRIGGER relation_types_read_only_insert BEFORE INSERT ON relation_types WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'relation_types_read_only_insert',
+  );
+  late final Trigger relationTypesReadOnlyUpdate = Trigger(
+    'CREATE TRIGGER relation_types_read_only_update BEFORE UPDATE ON relation_types WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'relation_types_read_only_update',
+  );
+  late final Trigger relationTypesReadOnlyDelete = Trigger(
+    'CREATE TRIGGER relation_types_read_only_delete BEFORE DELETE ON relation_types WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'relation_types_read_only_delete',
+  );
+  late final Trigger relationTypeSignaturesReadOnlyInsert = Trigger(
+    'CREATE TRIGGER relation_type_signatures_read_only_insert BEFORE INSERT ON relation_type_signatures WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'relation_type_signatures_read_only_insert',
+  );
+  late final Trigger relationTypeSignaturesReadOnlyUpdate = Trigger(
+    'CREATE TRIGGER relation_type_signatures_read_only_update BEFORE UPDATE ON relation_type_signatures WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'relation_type_signatures_read_only_update',
+  );
+  late final Trigger relationTypeSignaturesReadOnlyDelete = Trigger(
+    'CREATE TRIGGER relation_type_signatures_read_only_delete BEFORE DELETE ON relation_type_signatures WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'relation_type_signatures_read_only_delete',
+  );
+  late final Trigger knowledgeNodesReadOnlyInsert = Trigger(
+    'CREATE TRIGGER knowledge_nodes_read_only_insert BEFORE INSERT ON knowledge_nodes WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'knowledge_nodes_read_only_insert',
+  );
+  late final Trigger knowledgeNodesReadOnlyUpdate = Trigger(
+    'CREATE TRIGGER knowledge_nodes_read_only_update BEFORE UPDATE ON knowledge_nodes WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'knowledge_nodes_read_only_update',
+  );
+  late final Trigger knowledgeNodesReadOnlyDelete = Trigger(
+    'CREATE TRIGGER knowledge_nodes_read_only_delete BEFORE DELETE ON knowledge_nodes WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'knowledge_nodes_read_only_delete',
+  );
+  late final Trigger quantityValuesReadOnlyInsert = Trigger(
+    'CREATE TRIGGER quantity_values_read_only_insert BEFORE INSERT ON quantity_values WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'quantity_values_read_only_insert',
+  );
+  late final Trigger quantityValuesReadOnlyUpdate = Trigger(
+    'CREATE TRIGGER quantity_values_read_only_update BEFORE UPDATE ON quantity_values WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'quantity_values_read_only_update',
+  );
+  late final Trigger quantityValuesReadOnlyDelete = Trigger(
+    'CREATE TRIGGER quantity_values_read_only_delete BEFORE DELETE ON quantity_values WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'quantity_values_read_only_delete',
+  );
+  late final Trigger nodeAlternativeNamesReadOnlyInsert = Trigger(
+    'CREATE TRIGGER node_alternative_names_read_only_insert BEFORE INSERT ON node_alternative_names WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'node_alternative_names_read_only_insert',
+  );
+  late final Trigger nodeAlternativeNamesReadOnlyUpdate = Trigger(
+    'CREATE TRIGGER node_alternative_names_read_only_update BEFORE UPDATE ON node_alternative_names WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'node_alternative_names_read_only_update',
+  );
+  late final Trigger nodeAlternativeNamesReadOnlyDelete = Trigger(
+    'CREATE TRIGGER node_alternative_names_read_only_delete BEFORE DELETE ON node_alternative_names WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'node_alternative_names_read_only_delete',
+  );
+  late final Trigger knowledgeRelationsReadOnlyInsert = Trigger(
+    'CREATE TRIGGER knowledge_relations_read_only_insert BEFORE INSERT ON knowledge_relations WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'knowledge_relations_read_only_insert',
+  );
+  late final Trigger knowledgeRelationsReadOnlyUpdate = Trigger(
+    'CREATE TRIGGER knowledge_relations_read_only_update BEFORE UPDATE ON knowledge_relations WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'knowledge_relations_read_only_update',
+  );
+  late final Trigger knowledgeRelationsReadOnlyDelete = Trigger(
+    'CREATE TRIGGER knowledge_relations_read_only_delete BEFORE DELETE ON knowledge_relations WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'knowledge_relations_read_only_delete',
+  );
+  late final Trigger knowledgeItemsReadOnlyInsert = Trigger(
+    'CREATE TRIGGER knowledge_items_read_only_insert BEFORE INSERT ON knowledge_items WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'knowledge_items_read_only_insert',
+  );
+  late final Trigger knowledgeItemsReadOnlyUpdate = Trigger(
+    'CREATE TRIGGER knowledge_items_read_only_update BEFORE UPDATE ON knowledge_items WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'knowledge_items_read_only_update',
+  );
+  late final Trigger knowledgeItemsReadOnlyDelete = Trigger(
+    'CREATE TRIGGER knowledge_items_read_only_delete BEFORE DELETE ON knowledge_items WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'knowledge_items_read_only_delete',
+  );
+  late final Trigger knowledgeItemPrerequisitesReadOnlyInsert = Trigger(
+    'CREATE TRIGGER knowledge_item_prerequisites_read_only_insert BEFORE INSERT ON knowledge_item_prerequisites WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'knowledge_item_prerequisites_read_only_insert',
+  );
+  late final Trigger knowledgeItemPrerequisitesReadOnlyUpdate = Trigger(
+    'CREATE TRIGGER knowledge_item_prerequisites_read_only_update BEFORE UPDATE ON knowledge_item_prerequisites WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'knowledge_item_prerequisites_read_only_update',
+  );
+  late final Trigger knowledgeItemPrerequisitesReadOnlyDelete = Trigger(
+    'CREATE TRIGGER knowledge_item_prerequisites_read_only_delete BEFORE DELETE ON knowledge_item_prerequisites WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'knowledge_item_prerequisites_read_only_delete',
+  );
+  late final Trigger certificationKnowledgeMappingsReadOnlyInsert = Trigger(
+    'CREATE TRIGGER certification_knowledge_mappings_read_only_insert BEFORE INSERT ON certification_knowledge_mappings WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'certification_knowledge_mappings_read_only_insert',
+  );
+  late final Trigger certificationKnowledgeMappingsReadOnlyUpdate = Trigger(
+    'CREATE TRIGGER certification_knowledge_mappings_read_only_update BEFORE UPDATE ON certification_knowledge_mappings WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'certification_knowledge_mappings_read_only_update',
+  );
+  late final Trigger certificationKnowledgeMappingsReadOnlyDelete = Trigger(
+    'CREATE TRIGGER certification_knowledge_mappings_read_only_delete BEFORE DELETE ON certification_knowledge_mappings WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'certification_knowledge_mappings_read_only_delete',
+  );
+  late final Trigger sourceCitationsReadOnlyInsert = Trigger(
+    'CREATE TRIGGER source_citations_read_only_insert BEFORE INSERT ON source_citations WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'source_citations_read_only_insert',
+  );
+  late final Trigger sourceCitationsReadOnlyUpdate = Trigger(
+    'CREATE TRIGGER source_citations_read_only_update BEFORE UPDATE ON source_citations WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'source_citations_read_only_update',
+  );
+  late final Trigger sourceCitationsReadOnlyDelete = Trigger(
+    'CREATE TRIGGER source_citations_read_only_delete BEFORE DELETE ON source_citations WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'source_citations_read_only_delete',
+  );
+  late final Trigger knowledgeItemCitationsReadOnlyInsert = Trigger(
+    'CREATE TRIGGER knowledge_item_citations_read_only_insert BEFORE INSERT ON knowledge_item_citations WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'knowledge_item_citations_read_only_insert',
+  );
+  late final Trigger knowledgeItemCitationsReadOnlyUpdate = Trigger(
+    'CREATE TRIGGER knowledge_item_citations_read_only_update BEFORE UPDATE ON knowledge_item_citations WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'knowledge_item_citations_read_only_update',
+  );
+  late final Trigger knowledgeItemCitationsReadOnlyDelete = Trigger(
+    'CREATE TRIGGER knowledge_item_citations_read_only_delete BEFORE DELETE ON knowledge_item_citations WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'knowledge_item_citations_read_only_delete',
+  );
+  late final Trigger questionTemplatesReadOnlyInsert = Trigger(
+    'CREATE TRIGGER question_templates_read_only_insert BEFORE INSERT ON question_templates WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'question_templates_read_only_insert',
+  );
+  late final Trigger questionTemplatesReadOnlyUpdate = Trigger(
+    'CREATE TRIGGER question_templates_read_only_update BEFORE UPDATE ON question_templates WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'question_templates_read_only_update',
+  );
+  late final Trigger questionTemplatesReadOnlyDelete = Trigger(
+    'CREATE TRIGGER question_templates_read_only_delete BEFORE DELETE ON question_templates WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'question_templates_read_only_delete',
+  );
+  late final Trigger tastingGridAttributesReadOnlyInsert = Trigger(
+    'CREATE TRIGGER tasting_grid_attributes_read_only_insert BEFORE INSERT ON tasting_grid_attributes WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'tasting_grid_attributes_read_only_insert',
+  );
+  late final Trigger tastingGridAttributesReadOnlyUpdate = Trigger(
+    'CREATE TRIGGER tasting_grid_attributes_read_only_update BEFORE UPDATE ON tasting_grid_attributes WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'tasting_grid_attributes_read_only_update',
+  );
+  late final Trigger tastingGridAttributesReadOnlyDelete = Trigger(
+    'CREATE TRIGGER tasting_grid_attributes_read_only_delete BEFORE DELETE ON tasting_grid_attributes WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'tasting_grid_attributes_read_only_delete',
+  );
+  late final Trigger tastingGridValuesReadOnlyInsert = Trigger(
+    'CREATE TRIGGER tasting_grid_values_read_only_insert BEFORE INSERT ON tasting_grid_values WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'tasting_grid_values_read_only_insert',
+  );
+  late final Trigger tastingGridValuesReadOnlyUpdate = Trigger(
+    'CREATE TRIGGER tasting_grid_values_read_only_update BEFORE UPDATE ON tasting_grid_values WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'tasting_grid_values_read_only_update',
+  );
+  late final Trigger tastingGridValuesReadOnlyDelete = Trigger(
+    'CREATE TRIGGER tasting_grid_values_read_only_delete BEFORE DELETE ON tasting_grid_values WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'tasting_grid_values_read_only_delete',
+  );
+  late final Trigger questionsReadOnlyInsert = Trigger(
+    'CREATE TRIGGER questions_read_only_insert BEFORE INSERT ON questions WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'questions_read_only_insert',
+  );
+  late final Trigger questionsReadOnlyUpdate = Trigger(
+    'CREATE TRIGGER questions_read_only_update BEFORE UPDATE ON questions WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'questions_read_only_update',
+  );
+  late final Trigger questionsReadOnlyDelete = Trigger(
+    'CREATE TRIGGER questions_read_only_delete BEFORE DELETE ON questions WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'questions_read_only_delete',
+  );
+  late final Trigger questionDistractorsReadOnlyInsert = Trigger(
+    'CREATE TRIGGER question_distractors_read_only_insert BEFORE INSERT ON question_distractors WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'question_distractors_read_only_insert',
+  );
+  late final Trigger questionDistractorsReadOnlyUpdate = Trigger(
+    'CREATE TRIGGER question_distractors_read_only_update BEFORE UPDATE ON question_distractors WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'question_distractors_read_only_update',
+  );
+  late final Trigger questionDistractorsReadOnlyDelete = Trigger(
+    'CREATE TRIGGER question_distractors_read_only_delete BEFORE DELETE ON question_distractors WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'question_distractors_read_only_delete',
+  );
+  @override
+  Iterable<TableInfo<Table, Object?>> get allTables =>
+      allSchemaEntities.whereType<TableInfo<Table, Object?>>();
+  @override
+  List<DatabaseSchemaEntity> get allSchemaEntities => [
+    curriculumIngestions,
+    curriculumReleases,
+    curriculumDomains,
+    tastingGrids,
+    certifications,
+    nodeTypes,
+    relationTypes,
+    relationTypeSignatures,
+    knowledgeNodes,
+    knowledgeNodesByNameNorm,
+    quantityValues,
+    nodeAlternativeNames,
+    nodeAlternativeNamesByNorm,
+    knowledgeRelations,
+    knowledgeRelationsByObject,
+    knowledgeItems,
+    knowledgeItemsByObject,
+    knowledgeItemsByDomain,
+    knowledgeItemPrerequisites,
+    knowledgeItemPrerequisitesByPrerequisite,
+    certificationKnowledgeMappings,
+    certificationKnowledgeMappingsByItem,
+    sourceCitations,
+    knowledgeItemCitations,
+    knowledgeItemCitationsBySource,
+    questionTemplates,
+    tastingGridAttributes,
+    tastingGridValues,
+    questions,
+    questionDistractors,
+    userProfiles,
+    schedulerConfigs,
+    reviewStates,
+    reviewStatesByDue,
+    reviewEvents,
+    reviewEventsByItem,
+    reviewEventsByTime,
+    reviewEventOptions,
+    reviewEventsAppendOnlyUpdate,
+    reviewEventsAppendOnlyDelete,
+    reviewEventOptionsAppendOnlyUpdate,
+    reviewEventOptionsAppendOnlyDelete,
+    wineJournalEntries,
+    wineJournalEntriesByTastedOn,
+    wineJournalEntryNodes,
+    wineJournalEntryNodesByNode,
+    tastingSessions,
+    tastingSessionsByStartedAt,
+    tastingSessionsByJournalEntry,
+    tastingDescriptors,
+    tastingDescriptorsSingleSelection,
+    curriculumReleasesReadOnlyInsert,
+    curriculumReleasesReadOnlyUpdate,
+    curriculumReleasesReadOnlyDelete,
+    curriculumDomainsReadOnlyInsert,
+    curriculumDomainsReadOnlyUpdate,
+    curriculumDomainsReadOnlyDelete,
+    tastingGridsReadOnlyInsert,
+    tastingGridsReadOnlyUpdate,
+    tastingGridsReadOnlyDelete,
+    certificationsReadOnlyInsert,
+    certificationsReadOnlyUpdate,
+    certificationsReadOnlyDelete,
+    nodeTypesReadOnlyInsert,
+    nodeTypesReadOnlyUpdate,
+    nodeTypesReadOnlyDelete,
+    relationTypesReadOnlyInsert,
+    relationTypesReadOnlyUpdate,
+    relationTypesReadOnlyDelete,
+    relationTypeSignaturesReadOnlyInsert,
+    relationTypeSignaturesReadOnlyUpdate,
+    relationTypeSignaturesReadOnlyDelete,
+    knowledgeNodesReadOnlyInsert,
+    knowledgeNodesReadOnlyUpdate,
+    knowledgeNodesReadOnlyDelete,
+    quantityValuesReadOnlyInsert,
+    quantityValuesReadOnlyUpdate,
+    quantityValuesReadOnlyDelete,
+    nodeAlternativeNamesReadOnlyInsert,
+    nodeAlternativeNamesReadOnlyUpdate,
+    nodeAlternativeNamesReadOnlyDelete,
+    knowledgeRelationsReadOnlyInsert,
+    knowledgeRelationsReadOnlyUpdate,
+    knowledgeRelationsReadOnlyDelete,
+    knowledgeItemsReadOnlyInsert,
+    knowledgeItemsReadOnlyUpdate,
+    knowledgeItemsReadOnlyDelete,
+    knowledgeItemPrerequisitesReadOnlyInsert,
+    knowledgeItemPrerequisitesReadOnlyUpdate,
+    knowledgeItemPrerequisitesReadOnlyDelete,
+    certificationKnowledgeMappingsReadOnlyInsert,
+    certificationKnowledgeMappingsReadOnlyUpdate,
+    certificationKnowledgeMappingsReadOnlyDelete,
+    sourceCitationsReadOnlyInsert,
+    sourceCitationsReadOnlyUpdate,
+    sourceCitationsReadOnlyDelete,
+    knowledgeItemCitationsReadOnlyInsert,
+    knowledgeItemCitationsReadOnlyUpdate,
+    knowledgeItemCitationsReadOnlyDelete,
+    questionTemplatesReadOnlyInsert,
+    questionTemplatesReadOnlyUpdate,
+    questionTemplatesReadOnlyDelete,
+    tastingGridAttributesReadOnlyInsert,
+    tastingGridAttributesReadOnlyUpdate,
+    tastingGridAttributesReadOnlyDelete,
+    tastingGridValuesReadOnlyInsert,
+    tastingGridValuesReadOnlyUpdate,
+    tastingGridValuesReadOnlyDelete,
+    questionsReadOnlyInsert,
+    questionsReadOnlyUpdate,
+    questionsReadOnlyDelete,
+    questionDistractorsReadOnlyInsert,
+    questionDistractorsReadOnlyUpdate,
+    questionDistractorsReadOnlyDelete,
+  ];
+  @override
+  StreamQueryUpdateRules get streamUpdateRules => const StreamQueryUpdateRules([
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'questions',
+        limitUpdateKind: UpdateKind.delete,
+      ),
+      result: [TableUpdate('question_distractors', kind: UpdateKind.delete)],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'review_events',
+        limitUpdateKind: UpdateKind.update,
+      ),
+      result: [],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'review_events',
+        limitUpdateKind: UpdateKind.delete,
+      ),
+      result: [],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'review_event_options',
+        limitUpdateKind: UpdateKind.update,
+      ),
+      result: [],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'review_event_options',
+        limitUpdateKind: UpdateKind.delete,
+      ),
+      result: [],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'wine_journal_entries',
+        limitUpdateKind: UpdateKind.delete,
+      ),
+      result: [
+        TableUpdate('wine_journal_entry_nodes', kind: UpdateKind.delete),
+      ],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'wine_journal_entries',
+        limitUpdateKind: UpdateKind.delete,
+      ),
+      result: [TableUpdate('tasting_sessions', kind: UpdateKind.update)],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'tasting_sessions',
+        limitUpdateKind: UpdateKind.delete,
+      ),
+      result: [TableUpdate('tasting_descriptors', kind: UpdateKind.delete)],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'tasting_descriptors',
+        limitUpdateKind: UpdateKind.insert,
+      ),
+      result: [],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'curriculum_releases',
+        limitUpdateKind: UpdateKind.insert,
+      ),
+      result: [],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'curriculum_releases',
+        limitUpdateKind: UpdateKind.update,
+      ),
+      result: [],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'curriculum_releases',
+        limitUpdateKind: UpdateKind.delete,
+      ),
+      result: [],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'curriculum_domains',
+        limitUpdateKind: UpdateKind.insert,
+      ),
+      result: [],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'curriculum_domains',
+        limitUpdateKind: UpdateKind.update,
+      ),
+      result: [],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'curriculum_domains',
+        limitUpdateKind: UpdateKind.delete,
+      ),
+      result: [],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'tasting_grids',
+        limitUpdateKind: UpdateKind.insert,
+      ),
+      result: [],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'tasting_grids',
+        limitUpdateKind: UpdateKind.update,
+      ),
+      result: [],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'tasting_grids',
+        limitUpdateKind: UpdateKind.delete,
+      ),
+      result: [],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'certifications',
+        limitUpdateKind: UpdateKind.insert,
+      ),
+      result: [],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'certifications',
+        limitUpdateKind: UpdateKind.update,
+      ),
+      result: [],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'certifications',
+        limitUpdateKind: UpdateKind.delete,
+      ),
+      result: [],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'node_types',
+        limitUpdateKind: UpdateKind.insert,
+      ),
+      result: [],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'node_types',
+        limitUpdateKind: UpdateKind.update,
+      ),
+      result: [],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'node_types',
+        limitUpdateKind: UpdateKind.delete,
+      ),
+      result: [],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'relation_types',
+        limitUpdateKind: UpdateKind.insert,
+      ),
+      result: [],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'relation_types',
+        limitUpdateKind: UpdateKind.update,
+      ),
+      result: [],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'relation_types',
+        limitUpdateKind: UpdateKind.delete,
+      ),
+      result: [],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'relation_type_signatures',
+        limitUpdateKind: UpdateKind.insert,
+      ),
+      result: [],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'relation_type_signatures',
+        limitUpdateKind: UpdateKind.update,
+      ),
+      result: [],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'relation_type_signatures',
+        limitUpdateKind: UpdateKind.delete,
+      ),
+      result: [],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'knowledge_nodes',
+        limitUpdateKind: UpdateKind.insert,
+      ),
+      result: [],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'knowledge_nodes',
+        limitUpdateKind: UpdateKind.update,
+      ),
+      result: [],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'knowledge_nodes',
+        limitUpdateKind: UpdateKind.delete,
+      ),
+      result: [],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'quantity_values',
+        limitUpdateKind: UpdateKind.insert,
+      ),
+      result: [],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'quantity_values',
+        limitUpdateKind: UpdateKind.update,
+      ),
+      result: [],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'quantity_values',
+        limitUpdateKind: UpdateKind.delete,
+      ),
+      result: [],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'node_alternative_names',
+        limitUpdateKind: UpdateKind.insert,
+      ),
+      result: [],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'node_alternative_names',
+        limitUpdateKind: UpdateKind.update,
+      ),
+      result: [],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'node_alternative_names',
+        limitUpdateKind: UpdateKind.delete,
+      ),
+      result: [],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'knowledge_relations',
+        limitUpdateKind: UpdateKind.insert,
+      ),
+      result: [],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'knowledge_relations',
+        limitUpdateKind: UpdateKind.update,
+      ),
+      result: [],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'knowledge_relations',
+        limitUpdateKind: UpdateKind.delete,
+      ),
+      result: [],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'knowledge_items',
+        limitUpdateKind: UpdateKind.insert,
+      ),
+      result: [],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'knowledge_items',
+        limitUpdateKind: UpdateKind.update,
+      ),
+      result: [],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'knowledge_items',
+        limitUpdateKind: UpdateKind.delete,
+      ),
+      result: [],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'knowledge_item_prerequisites',
+        limitUpdateKind: UpdateKind.insert,
+      ),
+      result: [],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'knowledge_item_prerequisites',
+        limitUpdateKind: UpdateKind.update,
+      ),
+      result: [],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'knowledge_item_prerequisites',
+        limitUpdateKind: UpdateKind.delete,
+      ),
+      result: [],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'certification_knowledge_mappings',
+        limitUpdateKind: UpdateKind.insert,
+      ),
+      result: [],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'certification_knowledge_mappings',
+        limitUpdateKind: UpdateKind.update,
+      ),
+      result: [],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'certification_knowledge_mappings',
+        limitUpdateKind: UpdateKind.delete,
+      ),
+      result: [],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'source_citations',
+        limitUpdateKind: UpdateKind.insert,
+      ),
+      result: [],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'source_citations',
+        limitUpdateKind: UpdateKind.update,
+      ),
+      result: [],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'source_citations',
+        limitUpdateKind: UpdateKind.delete,
+      ),
+      result: [],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'knowledge_item_citations',
+        limitUpdateKind: UpdateKind.insert,
+      ),
+      result: [],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'knowledge_item_citations',
+        limitUpdateKind: UpdateKind.update,
+      ),
+      result: [],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'knowledge_item_citations',
+        limitUpdateKind: UpdateKind.delete,
+      ),
+      result: [],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'question_templates',
+        limitUpdateKind: UpdateKind.insert,
+      ),
+      result: [],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'question_templates',
+        limitUpdateKind: UpdateKind.update,
+      ),
+      result: [],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'question_templates',
+        limitUpdateKind: UpdateKind.delete,
+      ),
+      result: [],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'tasting_grid_attributes',
+        limitUpdateKind: UpdateKind.insert,
+      ),
+      result: [],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'tasting_grid_attributes',
+        limitUpdateKind: UpdateKind.update,
+      ),
+      result: [],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'tasting_grid_attributes',
+        limitUpdateKind: UpdateKind.delete,
+      ),
+      result: [],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'tasting_grid_values',
+        limitUpdateKind: UpdateKind.insert,
+      ),
+      result: [],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'tasting_grid_values',
+        limitUpdateKind: UpdateKind.update,
+      ),
+      result: [],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'tasting_grid_values',
+        limitUpdateKind: UpdateKind.delete,
+      ),
+      result: [],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'questions',
+        limitUpdateKind: UpdateKind.insert,
+      ),
+      result: [],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'questions',
+        limitUpdateKind: UpdateKind.update,
+      ),
+      result: [],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'questions',
+        limitUpdateKind: UpdateKind.delete,
+      ),
+      result: [],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'question_distractors',
+        limitUpdateKind: UpdateKind.insert,
+      ),
+      result: [],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'question_distractors',
+        limitUpdateKind: UpdateKind.update,
+      ),
+      result: [],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'question_distractors',
+        limitUpdateKind: UpdateKind.delete,
+      ),
+      result: [],
+    ),
+  ]);
+  @override
+  DriftDatabaseOptions get options =>
+      const DriftDatabaseOptions(storeDateTimeAsText: true);
+}
+
+typedef $CurriculumIngestionsCreateCompanionBuilder =
+    CurriculumIngestionsCompanion Function({
+      Value<int> id,
+      required DateTime startedAt,
+    });
+typedef $CurriculumIngestionsUpdateCompanionBuilder =
+    CurriculumIngestionsCompanion Function({
+      Value<int> id,
+      Value<DateTime> startedAt,
+    });
+
+class $CurriculumIngestionsFilterComposer
+    extends Composer<_$AppDatabase, CurriculumIngestions> {
+  $CurriculumIngestionsFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get startedAt => $composableBuilder(
+    column: $table.startedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $CurriculumIngestionsOrderingComposer
+    extends Composer<_$AppDatabase, CurriculumIngestions> {
+  $CurriculumIngestionsOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get startedAt => $composableBuilder(
+    column: $table.startedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $CurriculumIngestionsAnnotationComposer
+    extends Composer<_$AppDatabase, CurriculumIngestions> {
+  $CurriculumIngestionsAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get startedAt =>
+      $composableBuilder(column: $table.startedAt, builder: (column) => column);
+}
+
+class $CurriculumIngestionsTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          CurriculumIngestions,
+          CurriculumIngestion,
+          $CurriculumIngestionsFilterComposer,
+          $CurriculumIngestionsOrderingComposer,
+          $CurriculumIngestionsAnnotationComposer,
+          $CurriculumIngestionsCreateCompanionBuilder,
+          $CurriculumIngestionsUpdateCompanionBuilder,
+          (
+            CurriculumIngestion,
+            BaseReferences<
+              _$AppDatabase,
+              CurriculumIngestions,
+              CurriculumIngestion
+            >,
+          ),
+          CurriculumIngestion,
+          PrefetchHooks Function()
+        > {
+  $CurriculumIngestionsTableManager(
+    _$AppDatabase db,
+    CurriculumIngestions table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $CurriculumIngestionsFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $CurriculumIngestionsOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $CurriculumIngestionsAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<int> id = const Value.absent(),
+            Value<DateTime> startedAt = const Value.absent(),
+          }) => CurriculumIngestionsCompanion(id: id, startedAt: startedAt),
+          createCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                required DateTime startedAt,
+              }) => CurriculumIngestionsCompanion.insert(
+                id: id,
+                startedAt: startedAt,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<CurriculumIngestions, CurriculumIngestion>(table),
+                  BaseReferences<
+                    _$AppDatabase,
+                    CurriculumIngestions,
+                    CurriculumIngestion
+                  >(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $CurriculumIngestionsProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      CurriculumIngestions,
+      CurriculumIngestion,
+      $CurriculumIngestionsFilterComposer,
+      $CurriculumIngestionsOrderingComposer,
+      $CurriculumIngestionsAnnotationComposer,
+      $CurriculumIngestionsCreateCompanionBuilder,
+      $CurriculumIngestionsUpdateCompanionBuilder,
+      (
+        CurriculumIngestion,
+        BaseReferences<
+          _$AppDatabase,
+          CurriculumIngestions,
+          CurriculumIngestion
+        >,
+      ),
+      CurriculumIngestion,
+      PrefetchHooks Function()
+    >;
+typedef $CurriculumReleasesCreateCompanionBuilder =
+    CurriculumReleasesCompanion Function({
+      required String version,
+      required String checksum,
+      required DateTime publishedAt,
+      required DateTime ingestedAt,
+      Value<int> rowid,
+    });
+typedef $CurriculumReleasesUpdateCompanionBuilder =
+    CurriculumReleasesCompanion Function({
+      Value<String> version,
+      Value<String> checksum,
+      Value<DateTime> publishedAt,
+      Value<DateTime> ingestedAt,
+      Value<int> rowid,
+    });
+
+class $CurriculumReleasesFilterComposer
+    extends Composer<_$AppDatabase, CurriculumReleases> {
+  $CurriculumReleasesFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get version => $composableBuilder(
+    column: $table.version,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get checksum => $composableBuilder(
+    column: $table.checksum,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get publishedAt => $composableBuilder(
+    column: $table.publishedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get ingestedAt => $composableBuilder(
+    column: $table.ingestedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $CurriculumReleasesOrderingComposer
+    extends Composer<_$AppDatabase, CurriculumReleases> {
+  $CurriculumReleasesOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get version => $composableBuilder(
+    column: $table.version,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get checksum => $composableBuilder(
+    column: $table.checksum,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get publishedAt => $composableBuilder(
+    column: $table.publishedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get ingestedAt => $composableBuilder(
+    column: $table.ingestedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $CurriculumReleasesAnnotationComposer
+    extends Composer<_$AppDatabase, CurriculumReleases> {
+  $CurriculumReleasesAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get version =>
+      $composableBuilder(column: $table.version, builder: (column) => column);
+
+  GeneratedColumn<String> get checksum =>
+      $composableBuilder(column: $table.checksum, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get publishedAt => $composableBuilder(
+    column: $table.publishedAt,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<DateTime> get ingestedAt => $composableBuilder(
+    column: $table.ingestedAt,
+    builder: (column) => column,
+  );
+}
+
+class $CurriculumReleasesTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          CurriculumReleases,
+          CurriculumRelease,
+          $CurriculumReleasesFilterComposer,
+          $CurriculumReleasesOrderingComposer,
+          $CurriculumReleasesAnnotationComposer,
+          $CurriculumReleasesCreateCompanionBuilder,
+          $CurriculumReleasesUpdateCompanionBuilder,
+          (
+            CurriculumRelease,
+            BaseReferences<
+              _$AppDatabase,
+              CurriculumReleases,
+              CurriculumRelease
+            >,
+          ),
+          CurriculumRelease,
+          PrefetchHooks Function()
+        > {
+  $CurriculumReleasesTableManager(_$AppDatabase db, CurriculumReleases table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $CurriculumReleasesFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $CurriculumReleasesOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $CurriculumReleasesAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> version = const Value.absent(),
+                Value<String> checksum = const Value.absent(),
+                Value<DateTime> publishedAt = const Value.absent(),
+                Value<DateTime> ingestedAt = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => CurriculumReleasesCompanion(
+                version: version,
+                checksum: checksum,
+                publishedAt: publishedAt,
+                ingestedAt: ingestedAt,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String version,
+                required String checksum,
+                required DateTime publishedAt,
+                required DateTime ingestedAt,
+                Value<int> rowid = const Value.absent(),
+              }) => CurriculumReleasesCompanion.insert(
+                version: version,
+                checksum: checksum,
+                publishedAt: publishedAt,
+                ingestedAt: ingestedAt,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<CurriculumReleases, CurriculumRelease>(table),
+                  BaseReferences<
+                    _$AppDatabase,
+                    CurriculumReleases,
+                    CurriculumRelease
+                  >(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $CurriculumReleasesProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      CurriculumReleases,
+      CurriculumRelease,
+      $CurriculumReleasesFilterComposer,
+      $CurriculumReleasesOrderingComposer,
+      $CurriculumReleasesAnnotationComposer,
+      $CurriculumReleasesCreateCompanionBuilder,
+      $CurriculumReleasesUpdateCompanionBuilder,
+      (
+        CurriculumRelease,
+        BaseReferences<_$AppDatabase, CurriculumReleases, CurriculumRelease>,
+      ),
+      CurriculumRelease,
+      PrefetchHooks Function()
+    >;
+typedef $CurriculumDomainsCreateCompanionBuilder =
+    CurriculumDomainsCompanion Function({
+      required String id,
+      required String displayName,
+      required int position,
+      Value<int> rowid,
+    });
+typedef $CurriculumDomainsUpdateCompanionBuilder =
+    CurriculumDomainsCompanion Function({
+      Value<String> id,
+      Value<String> displayName,
+      Value<int> position,
+      Value<int> rowid,
+    });
+
+final class $CurriculumDomainsReferences
+    extends BaseReferences<_$AppDatabase, CurriculumDomains, CurriculumDomain> {
+  $CurriculumDomainsReferences(super.$_db, super.$_table, super.$_typedResult);
+
+  static MultiTypedResultKey<RelationTypes, List<RelationType>>
+  _relationTypesRefsTable(_$AppDatabase db) => MultiTypedResultKey.fromTable(
+    db.relationTypes,
+    aliasName: 'curriculum_domains__id__relation_types__default_domain_id',
+  );
+
+  $RelationTypesProcessedTableManager get relationTypesRefs {
+    final manager = $RelationTypesTableManager($_db, $_db.relationTypes).filter(
+      (f) => f.defaultDomainId.id.sqlEquals($_itemColumn<String>('id')!),
+    );
+
+    final cache = $_typedResult.readTableOrNull(_relationTypesRefsTable($_db));
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: cache),
+    );
+  }
+
+  static MultiTypedResultKey<KnowledgeItems, List<KnowledgeItem>>
+  _knowledgeItemsRefsTable(_$AppDatabase db) => MultiTypedResultKey.fromTable(
+    db.knowledgeItems,
+    aliasName: 'curriculum_domains__id__knowledge_items__domain_id',
+  );
+
+  $KnowledgeItemsProcessedTableManager get knowledgeItemsRefs {
+    final manager = $KnowledgeItemsTableManager(
+      $_db,
+      $_db.knowledgeItems,
+    ).filter((f) => f.domainId.id.sqlEquals($_itemColumn<String>('id')!));
+
+    final cache = $_typedResult.readTableOrNull(_knowledgeItemsRefsTable($_db));
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: cache),
+    );
+  }
+}
+
+class $CurriculumDomainsFilterComposer
+    extends Composer<_$AppDatabase, CurriculumDomains> {
+  $CurriculumDomainsFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get displayName => $composableBuilder(
+    column: $table.displayName,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get position => $composableBuilder(
+    column: $table.position,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  Expression<bool> relationTypesRefs(
+    Expression<bool> Function($RelationTypesFilterComposer f) f,
+  ) {
+    final $RelationTypesFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.relationTypes,
+      getReferencedColumn: (t) => t.defaultDomainId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $RelationTypesFilterComposer(
+            $db: $db,
+            $table: $db.relationTypes,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+
+  Expression<bool> knowledgeItemsRefs(
+    Expression<bool> Function($KnowledgeItemsFilterComposer f) f,
+  ) {
+    final $KnowledgeItemsFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.knowledgeItems,
+      getReferencedColumn: (t) => t.domainId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $KnowledgeItemsFilterComposer(
+            $db: $db,
+            $table: $db.knowledgeItems,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+}
+
+class $CurriculumDomainsOrderingComposer
+    extends Composer<_$AppDatabase, CurriculumDomains> {
+  $CurriculumDomainsOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get displayName => $composableBuilder(
+    column: $table.displayName,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get position => $composableBuilder(
+    column: $table.position,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $CurriculumDomainsAnnotationComposer
+    extends Composer<_$AppDatabase, CurriculumDomains> {
+  $CurriculumDomainsAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get displayName => $composableBuilder(
+    column: $table.displayName,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get position =>
+      $composableBuilder(column: $table.position, builder: (column) => column);
+
+  Expression<T> relationTypesRefs<T extends Object>(
+    Expression<T> Function($RelationTypesAnnotationComposer a) f,
+  ) {
+    final $RelationTypesAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.relationTypes,
+      getReferencedColumn: (t) => t.defaultDomainId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $RelationTypesAnnotationComposer(
+            $db: $db,
+            $table: $db.relationTypes,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+
+  Expression<T> knowledgeItemsRefs<T extends Object>(
+    Expression<T> Function($KnowledgeItemsAnnotationComposer a) f,
+  ) {
+    final $KnowledgeItemsAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.knowledgeItems,
+      getReferencedColumn: (t) => t.domainId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $KnowledgeItemsAnnotationComposer(
+            $db: $db,
+            $table: $db.knowledgeItems,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+}
+
+class $CurriculumDomainsTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          CurriculumDomains,
+          CurriculumDomain,
+          $CurriculumDomainsFilterComposer,
+          $CurriculumDomainsOrderingComposer,
+          $CurriculumDomainsAnnotationComposer,
+          $CurriculumDomainsCreateCompanionBuilder,
+          $CurriculumDomainsUpdateCompanionBuilder,
+          (CurriculumDomain, $CurriculumDomainsReferences),
+          CurriculumDomain,
+          PrefetchHooks Function({
+            bool relationTypesRefs,
+            bool knowledgeItemsRefs,
+          })
+        > {
+  $CurriculumDomainsTableManager(_$AppDatabase db, CurriculumDomains table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $CurriculumDomainsFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $CurriculumDomainsOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $CurriculumDomainsAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> id = const Value.absent(),
+                Value<String> displayName = const Value.absent(),
+                Value<int> position = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => CurriculumDomainsCompanion(
+                id: id,
+                displayName: displayName,
+                position: position,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String id,
+                required String displayName,
+                required int position,
+                Value<int> rowid = const Value.absent(),
+              }) => CurriculumDomainsCompanion.insert(
+                id: id,
+                displayName: displayName,
+                position: position,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<CurriculumDomains, CurriculumDomain>(table),
+                  $CurriculumDomainsReferences(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback:
+              ({relationTypesRefs = false, knowledgeItemsRefs = false}) {
+                return PrefetchHooks(
+                  db: db,
+                  explicitlyWatchedTables: [
+                    if (relationTypesRefs) db.relationTypes,
+                    if (knowledgeItemsRefs) db.knowledgeItems,
+                  ],
+                  addJoins: null,
+                  getPrefetchedDataCallback: (items) async {
+                    return [
+                      if (relationTypesRefs)
+                        await $_getPrefetchedData<
+                          CurriculumDomain,
+                          CurriculumDomains,
+                          RelationType
+                        >(
+                          currentTable: table,
+                          referencedTable: $CurriculumDomainsReferences
+                              ._relationTypesRefsTable(db),
+                          managerFromTypedResult: (p0) =>
+                              $CurriculumDomainsReferences(
+                                db,
+                                table,
+                                p0,
+                              ).relationTypesRefs,
+                          referencedItemsForCurrentItem:
+                              (item, referencedItems) => referencedItems.where(
+                                (e) => e.defaultDomainId == item.id,
+                              ),
+                          typedResults: items,
+                        ),
+                      if (knowledgeItemsRefs)
+                        await $_getPrefetchedData<
+                          CurriculumDomain,
+                          CurriculumDomains,
+                          KnowledgeItem
+                        >(
+                          currentTable: table,
+                          referencedTable: $CurriculumDomainsReferences
+                              ._knowledgeItemsRefsTable(db),
+                          managerFromTypedResult: (p0) =>
+                              $CurriculumDomainsReferences(
+                                db,
+                                table,
+                                p0,
+                              ).knowledgeItemsRefs,
+                          referencedItemsForCurrentItem:
+                              (item, referencedItems) => referencedItems.where(
+                                (e) => e.domainId == item.id,
+                              ),
+                          typedResults: items,
+                        ),
+                    ];
+                  },
+                );
+              },
+        ),
+      );
+}
+
+typedef $CurriculumDomainsProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      CurriculumDomains,
+      CurriculumDomain,
+      $CurriculumDomainsFilterComposer,
+      $CurriculumDomainsOrderingComposer,
+      $CurriculumDomainsAnnotationComposer,
+      $CurriculumDomainsCreateCompanionBuilder,
+      $CurriculumDomainsUpdateCompanionBuilder,
+      (CurriculumDomain, $CurriculumDomainsReferences),
+      CurriculumDomain,
+      PrefetchHooks Function({bool relationTypesRefs, bool knowledgeItemsRefs})
+    >;
+typedef $TastingGridsCreateCompanionBuilder = TastingGridsCompanion Function({
+  required String id,
+  required String framework,
+  required String version,
+  required String displayName,
+  Value<int> rowid,
+});
+typedef $TastingGridsUpdateCompanionBuilder = TastingGridsCompanion Function({
+  Value<String> id,
+  Value<String> framework,
+  Value<String> version,
+  Value<String> displayName,
+  Value<int> rowid,
+});
+
+final class $TastingGridsReferences
+    extends BaseReferences<_$AppDatabase, TastingGrids, TastingGrid> {
+  $TastingGridsReferences(super.$_db, super.$_table, super.$_typedResult);
+
+  static MultiTypedResultKey<Certifications, List<Certification>>
+  _certificationsRefsTable(_$AppDatabase db) => MultiTypedResultKey.fromTable(
+    db.certifications,
+    aliasName: 'tasting_grids__id__certifications__default_tasting_grid_id',
+  );
+
+  $CertificationsProcessedTableManager get certificationsRefs {
+    final manager = $CertificationsTableManager($_db, $_db.certifications)
+        .filter(
+          (f) =>
+              f.defaultTastingGridId.id.sqlEquals($_itemColumn<String>('id')!),
+        );
+
+    final cache = $_typedResult.readTableOrNull(_certificationsRefsTable($_db));
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: cache),
+    );
+  }
+
+  static MultiTypedResultKey<TastingGridAttributes, List<TastingGridAttribute>>
+  _tastingGridAttributesRefsTable(_$AppDatabase db) =>
+      MultiTypedResultKey.fromTable(
+        db.tastingGridAttributes,
+        aliasName:
+            'tasting_grids__id__tasting_grid_attributes__tasting_grid_id',
+      );
+
+  $TastingGridAttributesProcessedTableManager get tastingGridAttributesRefs {
+    final manager = $TastingGridAttributesTableManager(
+      $_db,
+      $_db.tastingGridAttributes,
+    ).filter((f) => f.tastingGridId.id.sqlEquals($_itemColumn<String>('id')!));
+
+    final cache = $_typedResult.readTableOrNull(
+      _tastingGridAttributesRefsTable($_db),
+    );
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: cache),
+    );
+  }
+
+  static MultiTypedResultKey<TastingSessions, List<TastingSession>>
+  _tastingSessionsRefsTable(_$AppDatabase db) => MultiTypedResultKey.fromTable(
+    db.tastingSessions,
+    aliasName: 'tasting_grids__id__tasting_sessions__tasting_grid_id',
+  );
+
+  $TastingSessionsProcessedTableManager get tastingSessionsRefs {
+    final manager = $TastingSessionsTableManager(
+      $_db,
+      $_db.tastingSessions,
+    ).filter((f) => f.tastingGridId.id.sqlEquals($_itemColumn<String>('id')!));
+
+    final cache = $_typedResult.readTableOrNull(
+      _tastingSessionsRefsTable($_db),
+    );
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: cache),
+    );
+  }
+}
+
+class $TastingGridsFilterComposer
+    extends Composer<_$AppDatabase, TastingGrids> {
+  $TastingGridsFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get framework => $composableBuilder(
+    column: $table.framework,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get version => $composableBuilder(
+    column: $table.version,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get displayName => $composableBuilder(
+    column: $table.displayName,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  Expression<bool> certificationsRefs(
+    Expression<bool> Function($CertificationsFilterComposer f) f,
+  ) {
+    final $CertificationsFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.certifications,
+      getReferencedColumn: (t) => t.defaultTastingGridId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $CertificationsFilterComposer(
+            $db: $db,
+            $table: $db.certifications,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+
+  Expression<bool> tastingGridAttributesRefs(
+    Expression<bool> Function($TastingGridAttributesFilterComposer f) f,
+  ) {
+    final $TastingGridAttributesFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.tastingGridAttributes,
+      getReferencedColumn: (t) => t.tastingGridId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $TastingGridAttributesFilterComposer(
+            $db: $db,
+            $table: $db.tastingGridAttributes,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+
+  Expression<bool> tastingSessionsRefs(
+    Expression<bool> Function($TastingSessionsFilterComposer f) f,
+  ) {
+    final $TastingSessionsFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.tastingSessions,
+      getReferencedColumn: (t) => t.tastingGridId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $TastingSessionsFilterComposer(
+            $db: $db,
+            $table: $db.tastingSessions,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+}
+
+class $TastingGridsOrderingComposer
+    extends Composer<_$AppDatabase, TastingGrids> {
+  $TastingGridsOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get framework => $composableBuilder(
+    column: $table.framework,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get version => $composableBuilder(
+    column: $table.version,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get displayName => $composableBuilder(
+    column: $table.displayName,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $TastingGridsAnnotationComposer
+    extends Composer<_$AppDatabase, TastingGrids> {
+  $TastingGridsAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get framework =>
+      $composableBuilder(column: $table.framework, builder: (column) => column);
+
+  GeneratedColumn<String> get version =>
+      $composableBuilder(column: $table.version, builder: (column) => column);
+
+  GeneratedColumn<String> get displayName => $composableBuilder(
+    column: $table.displayName,
+    builder: (column) => column,
+  );
+
+  Expression<T> certificationsRefs<T extends Object>(
+    Expression<T> Function($CertificationsAnnotationComposer a) f,
+  ) {
+    final $CertificationsAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.certifications,
+      getReferencedColumn: (t) => t.defaultTastingGridId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $CertificationsAnnotationComposer(
+            $db: $db,
+            $table: $db.certifications,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+
+  Expression<T> tastingGridAttributesRefs<T extends Object>(
+    Expression<T> Function($TastingGridAttributesAnnotationComposer a) f,
+  ) {
+    final $TastingGridAttributesAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.tastingGridAttributes,
+      getReferencedColumn: (t) => t.tastingGridId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $TastingGridAttributesAnnotationComposer(
+            $db: $db,
+            $table: $db.tastingGridAttributes,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+
+  Expression<T> tastingSessionsRefs<T extends Object>(
+    Expression<T> Function($TastingSessionsAnnotationComposer a) f,
+  ) {
+    final $TastingSessionsAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.tastingSessions,
+      getReferencedColumn: (t) => t.tastingGridId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $TastingSessionsAnnotationComposer(
+            $db: $db,
+            $table: $db.tastingSessions,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+}
+
+class $TastingGridsTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          TastingGrids,
+          TastingGrid,
+          $TastingGridsFilterComposer,
+          $TastingGridsOrderingComposer,
+          $TastingGridsAnnotationComposer,
+          $TastingGridsCreateCompanionBuilder,
+          $TastingGridsUpdateCompanionBuilder,
+          (TastingGrid, $TastingGridsReferences),
+          TastingGrid,
+          PrefetchHooks Function({
+            bool certificationsRefs,
+            bool tastingGridAttributesRefs,
+            bool tastingSessionsRefs,
+          })
+        > {
+  $TastingGridsTableManager(_$AppDatabase db, TastingGrids table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $TastingGridsFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $TastingGridsOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $TastingGridsAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> id = const Value.absent(),
+                Value<String> framework = const Value.absent(),
+                Value<String> version = const Value.absent(),
+                Value<String> displayName = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => TastingGridsCompanion(
+                id: id,
+                framework: framework,
+                version: version,
+                displayName: displayName,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String id,
+                required String framework,
+                required String version,
+                required String displayName,
+                Value<int> rowid = const Value.absent(),
+              }) => TastingGridsCompanion.insert(
+                id: id,
+                framework: framework,
+                version: version,
+                displayName: displayName,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<TastingGrids, TastingGrid>(table),
+                  $TastingGridsReferences(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback:
+              ({
+                certificationsRefs = false,
+                tastingGridAttributesRefs = false,
+                tastingSessionsRefs = false,
+              }) {
+                return PrefetchHooks(
+                  db: db,
+                  explicitlyWatchedTables: [
+                    if (certificationsRefs) db.certifications,
+                    if (tastingGridAttributesRefs) db.tastingGridAttributes,
+                    if (tastingSessionsRefs) db.tastingSessions,
+                  ],
+                  addJoins: null,
+                  getPrefetchedDataCallback: (items) async {
+                    return [
+                      if (certificationsRefs)
+                        await $_getPrefetchedData<
+                          TastingGrid,
+                          TastingGrids,
+                          Certification
+                        >(
+                          currentTable: table,
+                          referencedTable: $TastingGridsReferences
+                              ._certificationsRefsTable(db),
+                          managerFromTypedResult: (p0) =>
+                              $TastingGridsReferences(
+                                db,
+                                table,
+                                p0,
+                              ).certificationsRefs,
+                          referencedItemsForCurrentItem:
+                              (item, referencedItems) => referencedItems.where(
+                                (e) => e.defaultTastingGridId == item.id,
+                              ),
+                          typedResults: items,
+                        ),
+                      if (tastingGridAttributesRefs)
+                        await $_getPrefetchedData<
+                          TastingGrid,
+                          TastingGrids,
+                          TastingGridAttribute
+                        >(
+                          currentTable: table,
+                          referencedTable: $TastingGridsReferences
+                              ._tastingGridAttributesRefsTable(db),
+                          managerFromTypedResult: (p0) =>
+                              $TastingGridsReferences(
+                                db,
+                                table,
+                                p0,
+                              ).tastingGridAttributesRefs,
+                          referencedItemsForCurrentItem:
+                              (item, referencedItems) => referencedItems.where(
+                                (e) => e.tastingGridId == item.id,
+                              ),
+                          typedResults: items,
+                        ),
+                      if (tastingSessionsRefs)
+                        await $_getPrefetchedData<
+                          TastingGrid,
+                          TastingGrids,
+                          TastingSession
+                        >(
+                          currentTable: table,
+                          referencedTable: $TastingGridsReferences
+                              ._tastingSessionsRefsTable(db),
+                          managerFromTypedResult: (p0) =>
+                              $TastingGridsReferences(
+                                db,
+                                table,
+                                p0,
+                              ).tastingSessionsRefs,
+                          referencedItemsForCurrentItem:
+                              (item, referencedItems) => referencedItems.where(
+                                (e) => e.tastingGridId == item.id,
+                              ),
+                          typedResults: items,
+                        ),
+                    ];
+                  },
+                );
+              },
+        ),
+      );
+}
+
+typedef $TastingGridsProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      TastingGrids,
+      TastingGrid,
+      $TastingGridsFilterComposer,
+      $TastingGridsOrderingComposer,
+      $TastingGridsAnnotationComposer,
+      $TastingGridsCreateCompanionBuilder,
+      $TastingGridsUpdateCompanionBuilder,
+      (TastingGrid, $TastingGridsReferences),
+      TastingGrid,
+      PrefetchHooks Function({
+        bool certificationsRefs,
+        bool tastingGridAttributesRefs,
+        bool tastingSessionsRefs,
+      })
+    >;
+typedef $CertificationsCreateCompanionBuilder =
+    CertificationsCompanion Function({
+      required String id,
+      required String organization,
+      required int level,
+      required String displayName,
+      Value<String?> includesCertificationId,
+      Value<String?> defaultTastingGridId,
+      Value<bool> isSelectable,
+      Value<int> rowid,
+    });
+typedef $CertificationsUpdateCompanionBuilder =
+    CertificationsCompanion Function({
+      Value<String> id,
+      Value<String> organization,
+      Value<int> level,
+      Value<String> displayName,
+      Value<String?> includesCertificationId,
+      Value<String?> defaultTastingGridId,
+      Value<bool> isSelectable,
+      Value<int> rowid,
+    });
+
+final class $CertificationsReferences
+    extends BaseReferences<_$AppDatabase, Certifications, Certification> {
+  $CertificationsReferences(super.$_db, super.$_table, super.$_typedResult);
+
+  static Certifications _includesCertificationIdTable(_$AppDatabase db) =>
+      db.certifications.createAlias(
+        'certifications__includes_certification_id__certifications__id',
+      );
+
+  $CertificationsProcessedTableManager? get includesCertificationId {
+    final $_column = $_itemColumn<String>('includes_certification_id');
+    if ($_column == null) return null;
+    final manager = $CertificationsTableManager(
+      $_db,
+      $_db.certifications,
+    ).filter((f) => f.id.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(
+      _includesCertificationIdTable($_db),
+    );
+    if (item == null) return manager;
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
+  }
+
+  static TastingGrids _defaultTastingGridIdTable(_$AppDatabase db) =>
+      db.tastingGrids.createAlias(
+        'certifications__default_tasting_grid_id__tasting_grids__id',
+      );
+
+  $TastingGridsProcessedTableManager? get defaultTastingGridId {
+    final $_column = $_itemColumn<String>('default_tasting_grid_id');
+    if ($_column == null) return null;
+    final manager = $TastingGridsTableManager(
+      $_db,
+      $_db.tastingGrids,
+    ).filter((f) => f.id.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(
+      _defaultTastingGridIdTable($_db),
+    );
+    if (item == null) return manager;
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
+  }
+
+  static MultiTypedResultKey<
+    CertificationKnowledgeMappings,
+    List<CertificationKnowledgeMapping>
+  >
+  _certificationKnowledgeMappingsRefsTable(_$AppDatabase db) =>
+      MultiTypedResultKey.fromTable(
+        db.certificationKnowledgeMappings,
+        aliasName: 'certifications__id__certification_knowledge_mappings__certification_id',
+      );
+
+  $CertificationKnowledgeMappingsProcessedTableManager
+  get certificationKnowledgeMappingsRefs {
+    final manager =
+        $CertificationKnowledgeMappingsTableManager(
+          $_db,
+          $_db.certificationKnowledgeMappings,
+        ).filter(
+          (f) => f.certificationId.id.sqlEquals($_itemColumn<String>('id')!),
+        );
+
+    final cache = $_typedResult.readTableOrNull(
+      _certificationKnowledgeMappingsRefsTable($_db),
+    );
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: cache),
+    );
+  }
+
+  static MultiTypedResultKey<UserProfiles, List<UserProfile>>
+  _userProfilesRefsTable(_$AppDatabase db) => MultiTypedResultKey.fromTable(
+    db.userProfiles,
+    aliasName: 'certifications__id__user_profiles__active_certification_id',
+  );
+
+  $UserProfilesProcessedTableManager get userProfilesRefs {
+    final manager = $UserProfilesTableManager($_db, $_db.userProfiles).filter(
+      (f) => f.activeCertificationId.id.sqlEquals($_itemColumn<String>('id')!),
+    );
+
+    final cache = $_typedResult.readTableOrNull(_userProfilesRefsTable($_db));
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: cache),
+    );
+  }
+}
+
+class $CertificationsFilterComposer
+    extends Composer<_$AppDatabase, Certifications> {
+  $CertificationsFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get organization => $composableBuilder(
+    column: $table.organization,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get level => $composableBuilder(
+    column: $table.level,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get displayName => $composableBuilder(
+    column: $table.displayName,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<bool> get isSelectable => $composableBuilder(
+    column: $table.isSelectable,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  $CertificationsFilterComposer get includesCertificationId {
+    final $CertificationsFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.includesCertificationId,
+      referencedTable: $db.certifications,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $CertificationsFilterComposer(
+            $db: $db,
+            $table: $db.certifications,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  $TastingGridsFilterComposer get defaultTastingGridId {
+    final $TastingGridsFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.defaultTastingGridId,
+      referencedTable: $db.tastingGrids,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $TastingGridsFilterComposer(
+            $db: $db,
+            $table: $db.tastingGrids,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  Expression<bool> certificationKnowledgeMappingsRefs(
+    Expression<bool> Function($CertificationKnowledgeMappingsFilterComposer f)
+    f,
+  ) {
+    final $CertificationKnowledgeMappingsFilterComposer composer =
+        $composerBuilder(
+          composer: this,
+          getCurrentColumn: (t) => t.id,
+          referencedTable: $db.certificationKnowledgeMappings,
+          getReferencedColumn: (t) => t.certificationId,
+          builder:
+              (
+                joinBuilder, {
+                $addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer,
+              }) => $CertificationKnowledgeMappingsFilterComposer(
+                $db: $db,
+                $table: $db.certificationKnowledgeMappings,
+                $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+                joinBuilder: joinBuilder,
+                $removeJoinBuilderFromRootComposer:
+                    $removeJoinBuilderFromRootComposer,
+              ),
+        );
+    return f(composer);
+  }
+
+  Expression<bool> userProfilesRefs(
+    Expression<bool> Function($UserProfilesFilterComposer f) f,
+  ) {
+    final $UserProfilesFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.userProfiles,
+      getReferencedColumn: (t) => t.activeCertificationId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $UserProfilesFilterComposer(
+            $db: $db,
+            $table: $db.userProfiles,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+}
+
+class $CertificationsOrderingComposer
+    extends Composer<_$AppDatabase, Certifications> {
+  $CertificationsOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get organization => $composableBuilder(
+    column: $table.organization,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get level => $composableBuilder(
+    column: $table.level,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get displayName => $composableBuilder(
+    column: $table.displayName,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<bool> get isSelectable => $composableBuilder(
+    column: $table.isSelectable,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  $CertificationsOrderingComposer get includesCertificationId {
+    final $CertificationsOrderingComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.includesCertificationId,
+      referencedTable: $db.certifications,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $CertificationsOrderingComposer(
+            $db: $db,
+            $table: $db.certifications,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  $TastingGridsOrderingComposer get defaultTastingGridId {
+    final $TastingGridsOrderingComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.defaultTastingGridId,
+      referencedTable: $db.tastingGrids,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $TastingGridsOrderingComposer(
+            $db: $db,
+            $table: $db.tastingGrids,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $CertificationsAnnotationComposer
+    extends Composer<_$AppDatabase, Certifications> {
+  $CertificationsAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get organization => $composableBuilder(
+    column: $table.organization,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get level =>
+      $composableBuilder(column: $table.level, builder: (column) => column);
+
+  GeneratedColumn<String> get displayName => $composableBuilder(
+    column: $table.displayName,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<bool> get isSelectable => $composableBuilder(
+    column: $table.isSelectable,
+    builder: (column) => column,
+  );
+
+  $CertificationsAnnotationComposer get includesCertificationId {
+    final $CertificationsAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.includesCertificationId,
+      referencedTable: $db.certifications,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $CertificationsAnnotationComposer(
+            $db: $db,
+            $table: $db.certifications,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  $TastingGridsAnnotationComposer get defaultTastingGridId {
+    final $TastingGridsAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.defaultTastingGridId,
+      referencedTable: $db.tastingGrids,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $TastingGridsAnnotationComposer(
+            $db: $db,
+            $table: $db.tastingGrids,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  Expression<T> certificationKnowledgeMappingsRefs<T extends Object>(
+    Expression<T> Function($CertificationKnowledgeMappingsAnnotationComposer a)
+    f,
+  ) {
+    final $CertificationKnowledgeMappingsAnnotationComposer composer =
+        $composerBuilder(
+          composer: this,
+          getCurrentColumn: (t) => t.id,
+          referencedTable: $db.certificationKnowledgeMappings,
+          getReferencedColumn: (t) => t.certificationId,
+          builder:
+              (
+                joinBuilder, {
+                $addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer,
+              }) => $CertificationKnowledgeMappingsAnnotationComposer(
+                $db: $db,
+                $table: $db.certificationKnowledgeMappings,
+                $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+                joinBuilder: joinBuilder,
+                $removeJoinBuilderFromRootComposer:
+                    $removeJoinBuilderFromRootComposer,
+              ),
+        );
+    return f(composer);
+  }
+
+  Expression<T> userProfilesRefs<T extends Object>(
+    Expression<T> Function($UserProfilesAnnotationComposer a) f,
+  ) {
+    final $UserProfilesAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.userProfiles,
+      getReferencedColumn: (t) => t.activeCertificationId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $UserProfilesAnnotationComposer(
+            $db: $db,
+            $table: $db.userProfiles,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+}
+
+class $CertificationsTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          Certifications,
+          Certification,
+          $CertificationsFilterComposer,
+          $CertificationsOrderingComposer,
+          $CertificationsAnnotationComposer,
+          $CertificationsCreateCompanionBuilder,
+          $CertificationsUpdateCompanionBuilder,
+          (Certification, $CertificationsReferences),
+          Certification,
+          PrefetchHooks Function({
+            bool includesCertificationId,
+            bool defaultTastingGridId,
+            bool certificationKnowledgeMappingsRefs,
+            bool userProfilesRefs,
+          })
+        > {
+  $CertificationsTableManager(_$AppDatabase db, Certifications table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $CertificationsFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $CertificationsOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $CertificationsAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> id = const Value.absent(),
+                Value<String> organization = const Value.absent(),
+                Value<int> level = const Value.absent(),
+                Value<String> displayName = const Value.absent(),
+                Value<String?> includesCertificationId = const Value.absent(),
+                Value<String?> defaultTastingGridId = const Value.absent(),
+                Value<bool> isSelectable = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => CertificationsCompanion(
+                id: id,
+                organization: organization,
+                level: level,
+                displayName: displayName,
+                includesCertificationId: includesCertificationId,
+                defaultTastingGridId: defaultTastingGridId,
+                isSelectable: isSelectable,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String id,
+                required String organization,
+                required int level,
+                required String displayName,
+                Value<String?> includesCertificationId = const Value.absent(),
+                Value<String?> defaultTastingGridId = const Value.absent(),
+                Value<bool> isSelectable = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => CertificationsCompanion.insert(
+                id: id,
+                organization: organization,
+                level: level,
+                displayName: displayName,
+                includesCertificationId: includesCertificationId,
+                defaultTastingGridId: defaultTastingGridId,
+                isSelectable: isSelectable,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<Certifications, Certification>(table),
+                  $CertificationsReferences(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback:
+              ({
+                includesCertificationId = false,
+                defaultTastingGridId = false,
+                certificationKnowledgeMappingsRefs = false,
+                userProfilesRefs = false,
+              }) {
+                return PrefetchHooks(
+                  db: db,
+                  explicitlyWatchedTables: [
+                    if (certificationKnowledgeMappingsRefs)
+                      db.certificationKnowledgeMappings,
+                    if (userProfilesRefs) db.userProfiles,
+                  ],
+                  addJoins:
+                      <
+                        T extends TableManagerState<
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic
+                        >
+                      >(state) {
+                        if (includesCertificationId) {
+                          state = state.withJoin(
+                            currentTable: table,
+                            currentColumn: table.includesCertificationId,
+                            referencedTable: $CertificationsReferences
+                                ._includesCertificationIdTable(db),
+                            referencedColumn: $CertificationsReferences
+                                ._includesCertificationIdTable(db)
+                                .id,
+                          ) as T;
+                        }
+                        if (defaultTastingGridId) {
+                          state = state.withJoin(
+                            currentTable: table,
+                            currentColumn: table.defaultTastingGridId,
+                            referencedTable: $CertificationsReferences
+                                ._defaultTastingGridIdTable(db),
+                            referencedColumn: $CertificationsReferences
+                                ._defaultTastingGridIdTable(db)
+                                .id,
+                          ) as T;
+                        }
+
+                        return state;
+                      },
+                  getPrefetchedDataCallback: (items) async {
+                    return [
+                      if (certificationKnowledgeMappingsRefs)
+                        await $_getPrefetchedData<
+                          Certification,
+                          Certifications,
+                          CertificationKnowledgeMapping
+                        >(
+                          currentTable: table,
+                          referencedTable: $CertificationsReferences
+                              ._certificationKnowledgeMappingsRefsTable(db),
+                          managerFromTypedResult: (p0) =>
+                              $CertificationsReferences(
+                                db,
+                                table,
+                                p0,
+                              ).certificationKnowledgeMappingsRefs,
+                          referencedItemsForCurrentItem:
+                              (item, referencedItems) => referencedItems.where(
+                                (e) => e.certificationId == item.id,
+                              ),
+                          typedResults: items,
+                        ),
+                      if (userProfilesRefs)
+                        await $_getPrefetchedData<
+                          Certification,
+                          Certifications,
+                          UserProfile
+                        >(
+                          currentTable: table,
+                          referencedTable: $CertificationsReferences
+                              ._userProfilesRefsTable(db),
+                          managerFromTypedResult: (p0) =>
+                              $CertificationsReferences(
+                                db,
+                                table,
+                                p0,
+                              ).userProfilesRefs,
+                          referencedItemsForCurrentItem:
+                              (item, referencedItems) => referencedItems.where(
+                                (e) => e.activeCertificationId == item.id,
+                              ),
+                          typedResults: items,
+                        ),
+                    ];
+                  },
+                );
+              },
+        ),
+      );
+}
+
+typedef $CertificationsProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      Certifications,
+      Certification,
+      $CertificationsFilterComposer,
+      $CertificationsOrderingComposer,
+      $CertificationsAnnotationComposer,
+      $CertificationsCreateCompanionBuilder,
+      $CertificationsUpdateCompanionBuilder,
+      (Certification, $CertificationsReferences),
+      Certification,
+      PrefetchHooks Function({
+        bool includesCertificationId,
+        bool defaultTastingGridId,
+        bool certificationKnowledgeMappingsRefs,
+        bool userProfilesRefs,
+      })
+    >;
+typedef $NodeTypesCreateCompanionBuilder = NodeTypesCompanion Function({
+  required String id,
+  required String label,
+  Value<int> rowid,
+});
+typedef $NodeTypesUpdateCompanionBuilder = NodeTypesCompanion Function({
+  Value<String> id,
+  Value<String> label,
+  Value<int> rowid,
+});
+
+final class $NodeTypesReferences
+    extends BaseReferences<_$AppDatabase, NodeTypes, NodeType> {
+  $NodeTypesReferences(super.$_db, super.$_table, super.$_typedResult);
+
+  static MultiTypedResultKey<KnowledgeNodes, List<KnowledgeNode>>
+  _knowledgeNodesRefsTable(_$AppDatabase db) => MultiTypedResultKey.fromTable(
+    db.knowledgeNodes,
+    aliasName: 'node_types__id__knowledge_nodes__node_type',
+  );
+
+  $KnowledgeNodesProcessedTableManager get knowledgeNodesRefs {
+    final manager = $KnowledgeNodesTableManager(
+      $_db,
+      $_db.knowledgeNodes,
+    ).filter((f) => f.nodeType.id.sqlEquals($_itemColumn<String>('id')!));
+
+    final cache = $_typedResult.readTableOrNull(_knowledgeNodesRefsTable($_db));
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: cache),
+    );
+  }
+}
+
+class $NodeTypesFilterComposer extends Composer<_$AppDatabase, NodeTypes> {
+  $NodeTypesFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get label => $composableBuilder(
+    column: $table.label,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  Expression<bool> knowledgeNodesRefs(
+    Expression<bool> Function($KnowledgeNodesFilterComposer f) f,
+  ) {
+    final $KnowledgeNodesFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.knowledgeNodes,
+      getReferencedColumn: (t) => t.nodeType,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $KnowledgeNodesFilterComposer(
+            $db: $db,
+            $table: $db.knowledgeNodes,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+}
+
+class $NodeTypesOrderingComposer extends Composer<_$AppDatabase, NodeTypes> {
+  $NodeTypesOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get label => $composableBuilder(
+    column: $table.label,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $NodeTypesAnnotationComposer extends Composer<_$AppDatabase, NodeTypes> {
+  $NodeTypesAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get label =>
+      $composableBuilder(column: $table.label, builder: (column) => column);
+
+  Expression<T> knowledgeNodesRefs<T extends Object>(
+    Expression<T> Function($KnowledgeNodesAnnotationComposer a) f,
+  ) {
+    final $KnowledgeNodesAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.knowledgeNodes,
+      getReferencedColumn: (t) => t.nodeType,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $KnowledgeNodesAnnotationComposer(
+            $db: $db,
+            $table: $db.knowledgeNodes,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+}
+
+class $NodeTypesTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          NodeTypes,
+          NodeType,
+          $NodeTypesFilterComposer,
+          $NodeTypesOrderingComposer,
+          $NodeTypesAnnotationComposer,
+          $NodeTypesCreateCompanionBuilder,
+          $NodeTypesUpdateCompanionBuilder,
+          (NodeType, $NodeTypesReferences),
+          NodeType,
+          PrefetchHooks Function({bool knowledgeNodesRefs})
+        > {
+  $NodeTypesTableManager(_$AppDatabase db, NodeTypes table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $NodeTypesFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $NodeTypesOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $NodeTypesAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<String> id = const Value.absent(),
+            Value<String> label = const Value.absent(),
+            Value<int> rowid = const Value.absent(),
+          }) => NodeTypesCompanion(id: id, label: label, rowid: rowid),
+          createCompanionCallback: ({
+            required String id,
+            required String label,
+            Value<int> rowid = const Value.absent(),
+          }) => NodeTypesCompanion.insert(id: id, label: label, rowid: rowid),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<NodeTypes, NodeType>(table),
+                  $NodeTypesReferences(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: ({knowledgeNodesRefs = false}) {
+            return PrefetchHooks(
+              db: db,
+              explicitlyWatchedTables: [
+                if (knowledgeNodesRefs) db.knowledgeNodes,
+              ],
+              addJoins: null,
+              getPrefetchedDataCallback: (items) async {
+                return [
+                  if (knowledgeNodesRefs)
+                    await $_getPrefetchedData<
+                      NodeType,
+                      NodeTypes,
+                      KnowledgeNode
+                    >(
+                      currentTable: table,
+                      referencedTable: $NodeTypesReferences
+                          ._knowledgeNodesRefsTable(db),
+                      managerFromTypedResult: (p0) => $NodeTypesReferences(
+                        db,
+                        table,
+                        p0,
+                      ).knowledgeNodesRefs,
+                      referencedItemsForCurrentItem: (item, referencedItems) =>
+                          referencedItems.where((e) => e.nodeType == item.id),
+                      typedResults: items,
+                    ),
+                ];
+              },
+            );
+          },
+        ),
+      );
+}
+
+typedef $NodeTypesProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      NodeTypes,
+      NodeType,
+      $NodeTypesFilterComposer,
+      $NodeTypesOrderingComposer,
+      $NodeTypesAnnotationComposer,
+      $NodeTypesCreateCompanionBuilder,
+      $NodeTypesUpdateCompanionBuilder,
+      (NodeType, $NodeTypesReferences),
+      NodeType,
+      PrefetchHooks Function({bool knowledgeNodesRefs})
+    >;
+typedef $RelationTypesCreateCompanionBuilder = RelationTypesCompanion Function({
+  required String id,
+  required String label,
+  required String reverseLabel,
+  required String cardinality,
+  Value<bool> isTransitive,
+  Value<bool> isReverseSafe,
+  required String defaultDomainId,
+  Value<String?> distractorMatchRelationType,
+  Value<int> rowid,
+});
+typedef $RelationTypesUpdateCompanionBuilder = RelationTypesCompanion Function({
+  Value<String> id,
+  Value<String> label,
+  Value<String> reverseLabel,
+  Value<String> cardinality,
+  Value<bool> isTransitive,
+  Value<bool> isReverseSafe,
+  Value<String> defaultDomainId,
+  Value<String?> distractorMatchRelationType,
+  Value<int> rowid,
+});
+
+final class $RelationTypesReferences
+    extends BaseReferences<_$AppDatabase, RelationTypes, RelationType> {
+  $RelationTypesReferences(super.$_db, super.$_table, super.$_typedResult);
+
+  static CurriculumDomains _defaultDomainIdTable(_$AppDatabase db) => db
+      .curriculumDomains
+      .createAlias('relation_types__default_domain_id__curriculum_domains__id');
+
+  $CurriculumDomainsProcessedTableManager get defaultDomainId {
+    final $_column = $_itemColumn<String>('default_domain_id')!;
+
+    final manager = $CurriculumDomainsTableManager(
+      $_db,
+      $_db.curriculumDomains,
+    ).filter((f) => f.id.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_defaultDomainIdTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
+  }
+
+  static RelationTypes _distractorMatchRelationTypeTable(_$AppDatabase db) =>
+      db.relationTypes.createAlias(
+        'relation_types__distractor_match_relation_type__relation_types__id',
+      );
+
+  $RelationTypesProcessedTableManager? get distractorMatchRelationType {
+    final $_column = $_itemColumn<String>('distractor_match_relation_type');
+    if ($_column == null) return null;
+    final manager = $RelationTypesTableManager(
+      $_db,
+      $_db.relationTypes,
+    ).filter((f) => f.id.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(
+      _distractorMatchRelationTypeTable($_db),
+    );
+    if (item == null) return manager;
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
+  }
+
+  static MultiTypedResultKey<
+    RelationTypeSignatures,
+    List<RelationTypeSignature>
+  >
+  _relationTypeSignaturesRefsTable(_$AppDatabase db) =>
+      MultiTypedResultKey.fromTable(
+        db.relationTypeSignatures,
+        aliasName:
+            'relation_types__id__relation_type_signatures__relation_type',
+      );
+
+  $RelationTypeSignaturesProcessedTableManager get relationTypeSignaturesRefs {
+    final manager = $RelationTypeSignaturesTableManager(
+      $_db,
+      $_db.relationTypeSignatures,
+    ).filter((f) => f.relationType.id.sqlEquals($_itemColumn<String>('id')!));
+
+    final cache = $_typedResult.readTableOrNull(
+      _relationTypeSignaturesRefsTable($_db),
+    );
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: cache),
+    );
+  }
+
+  static MultiTypedResultKey<KnowledgeRelations, List<KnowledgeRelation>>
+  _knowledgeRelationsRefsTable(_$AppDatabase db) =>
+      MultiTypedResultKey.fromTable(
+        db.knowledgeRelations,
+        aliasName: 'relation_types__id__knowledge_relations__relation_type',
+      );
+
+  $KnowledgeRelationsProcessedTableManager get knowledgeRelationsRefs {
+    final manager = $KnowledgeRelationsTableManager(
+      $_db,
+      $_db.knowledgeRelations,
+    ).filter((f) => f.relationType.id.sqlEquals($_itemColumn<String>('id')!));
+
+    final cache = $_typedResult.readTableOrNull(
+      _knowledgeRelationsRefsTable($_db),
+    );
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: cache),
+    );
+  }
+
+  static MultiTypedResultKey<QuestionTemplates, List<QuestionTemplate>>
+  _questionTemplatesRefsTable(_$AppDatabase db) =>
+      MultiTypedResultKey.fromTable(
+        db.questionTemplates,
+        aliasName: 'relation_types__id__question_templates__relation_type',
+      );
+
+  $QuestionTemplatesProcessedTableManager get questionTemplatesRefs {
+    final manager = $QuestionTemplatesTableManager(
+      $_db,
+      $_db.questionTemplates,
+    ).filter((f) => f.relationType.id.sqlEquals($_itemColumn<String>('id')!));
+
+    final cache = $_typedResult.readTableOrNull(
+      _questionTemplatesRefsTable($_db),
+    );
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: cache),
+    );
+  }
+}
+
+class $RelationTypesFilterComposer
+    extends Composer<_$AppDatabase, RelationTypes> {
+  $RelationTypesFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get label => $composableBuilder(
+    column: $table.label,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get reverseLabel => $composableBuilder(
+    column: $table.reverseLabel,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get cardinality => $composableBuilder(
+    column: $table.cardinality,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<bool> get isTransitive => $composableBuilder(
+    column: $table.isTransitive,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<bool> get isReverseSafe => $composableBuilder(
+    column: $table.isReverseSafe,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  $CurriculumDomainsFilterComposer get defaultDomainId {
+    final $CurriculumDomainsFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.defaultDomainId,
+      referencedTable: $db.curriculumDomains,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $CurriculumDomainsFilterComposer(
+            $db: $db,
+            $table: $db.curriculumDomains,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  $RelationTypesFilterComposer get distractorMatchRelationType {
+    final $RelationTypesFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.distractorMatchRelationType,
+      referencedTable: $db.relationTypes,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $RelationTypesFilterComposer(
+            $db: $db,
+            $table: $db.relationTypes,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  Expression<bool> relationTypeSignaturesRefs(
+    Expression<bool> Function($RelationTypeSignaturesFilterComposer f) f,
+  ) {
+    final $RelationTypeSignaturesFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.relationTypeSignatures,
+      getReferencedColumn: (t) => t.relationType,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $RelationTypeSignaturesFilterComposer(
+            $db: $db,
+            $table: $db.relationTypeSignatures,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+
+  Expression<bool> knowledgeRelationsRefs(
+    Expression<bool> Function($KnowledgeRelationsFilterComposer f) f,
+  ) {
+    final $KnowledgeRelationsFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.knowledgeRelations,
+      getReferencedColumn: (t) => t.relationType,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $KnowledgeRelationsFilterComposer(
+            $db: $db,
+            $table: $db.knowledgeRelations,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+
+  Expression<bool> questionTemplatesRefs(
+    Expression<bool> Function($QuestionTemplatesFilterComposer f) f,
+  ) {
+    final $QuestionTemplatesFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.questionTemplates,
+      getReferencedColumn: (t) => t.relationType,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $QuestionTemplatesFilterComposer(
+            $db: $db,
+            $table: $db.questionTemplates,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+}
+
+class $RelationTypesOrderingComposer
+    extends Composer<_$AppDatabase, RelationTypes> {
+  $RelationTypesOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get label => $composableBuilder(
+    column: $table.label,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get reverseLabel => $composableBuilder(
+    column: $table.reverseLabel,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get cardinality => $composableBuilder(
+    column: $table.cardinality,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<bool> get isTransitive => $composableBuilder(
+    column: $table.isTransitive,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<bool> get isReverseSafe => $composableBuilder(
+    column: $table.isReverseSafe,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  $CurriculumDomainsOrderingComposer get defaultDomainId {
+    final $CurriculumDomainsOrderingComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.defaultDomainId,
+      referencedTable: $db.curriculumDomains,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $CurriculumDomainsOrderingComposer(
+            $db: $db,
+            $table: $db.curriculumDomains,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  $RelationTypesOrderingComposer get distractorMatchRelationType {
+    final $RelationTypesOrderingComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.distractorMatchRelationType,
+      referencedTable: $db.relationTypes,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $RelationTypesOrderingComposer(
+            $db: $db,
+            $table: $db.relationTypes,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $RelationTypesAnnotationComposer
+    extends Composer<_$AppDatabase, RelationTypes> {
+  $RelationTypesAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get label =>
+      $composableBuilder(column: $table.label, builder: (column) => column);
+
+  GeneratedColumn<String> get reverseLabel => $composableBuilder(
+    column: $table.reverseLabel,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get cardinality => $composableBuilder(
+    column: $table.cardinality,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<bool> get isTransitive => $composableBuilder(
+    column: $table.isTransitive,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<bool> get isReverseSafe => $composableBuilder(
+    column: $table.isReverseSafe,
+    builder: (column) => column,
+  );
+
+  $CurriculumDomainsAnnotationComposer get defaultDomainId {
+    final $CurriculumDomainsAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.defaultDomainId,
+      referencedTable: $db.curriculumDomains,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $CurriculumDomainsAnnotationComposer(
+            $db: $db,
+            $table: $db.curriculumDomains,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  $RelationTypesAnnotationComposer get distractorMatchRelationType {
+    final $RelationTypesAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.distractorMatchRelationType,
+      referencedTable: $db.relationTypes,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $RelationTypesAnnotationComposer(
+            $db: $db,
+            $table: $db.relationTypes,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  Expression<T> relationTypeSignaturesRefs<T extends Object>(
+    Expression<T> Function($RelationTypeSignaturesAnnotationComposer a) f,
+  ) {
+    final $RelationTypeSignaturesAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.relationTypeSignatures,
+      getReferencedColumn: (t) => t.relationType,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $RelationTypeSignaturesAnnotationComposer(
+            $db: $db,
+            $table: $db.relationTypeSignatures,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+
+  Expression<T> knowledgeRelationsRefs<T extends Object>(
+    Expression<T> Function($KnowledgeRelationsAnnotationComposer a) f,
+  ) {
+    final $KnowledgeRelationsAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.knowledgeRelations,
+      getReferencedColumn: (t) => t.relationType,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $KnowledgeRelationsAnnotationComposer(
+            $db: $db,
+            $table: $db.knowledgeRelations,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+
+  Expression<T> questionTemplatesRefs<T extends Object>(
+    Expression<T> Function($QuestionTemplatesAnnotationComposer a) f,
+  ) {
+    final $QuestionTemplatesAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.questionTemplates,
+      getReferencedColumn: (t) => t.relationType,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $QuestionTemplatesAnnotationComposer(
+            $db: $db,
+            $table: $db.questionTemplates,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+}
+
+class $RelationTypesTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          RelationTypes,
+          RelationType,
+          $RelationTypesFilterComposer,
+          $RelationTypesOrderingComposer,
+          $RelationTypesAnnotationComposer,
+          $RelationTypesCreateCompanionBuilder,
+          $RelationTypesUpdateCompanionBuilder,
+          (RelationType, $RelationTypesReferences),
+          RelationType,
+          PrefetchHooks Function({
+            bool defaultDomainId,
+            bool distractorMatchRelationType,
+            bool relationTypeSignaturesRefs,
+            bool knowledgeRelationsRefs,
+            bool questionTemplatesRefs,
+          })
+        > {
+  $RelationTypesTableManager(_$AppDatabase db, RelationTypes table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $RelationTypesFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $RelationTypesOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $RelationTypesAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> id = const Value.absent(),
+                Value<String> label = const Value.absent(),
+                Value<String> reverseLabel = const Value.absent(),
+                Value<String> cardinality = const Value.absent(),
+                Value<bool> isTransitive = const Value.absent(),
+                Value<bool> isReverseSafe = const Value.absent(),
+                Value<String> defaultDomainId = const Value.absent(),
+                Value<String?> distractorMatchRelationType =
+                    const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => RelationTypesCompanion(
+                id: id,
+                label: label,
+                reverseLabel: reverseLabel,
+                cardinality: cardinality,
+                isTransitive: isTransitive,
+                isReverseSafe: isReverseSafe,
+                defaultDomainId: defaultDomainId,
+                distractorMatchRelationType: distractorMatchRelationType,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String id,
+                required String label,
+                required String reverseLabel,
+                required String cardinality,
+                Value<bool> isTransitive = const Value.absent(),
+                Value<bool> isReverseSafe = const Value.absent(),
+                required String defaultDomainId,
+                Value<String?> distractorMatchRelationType =
+                    const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => RelationTypesCompanion.insert(
+                id: id,
+                label: label,
+                reverseLabel: reverseLabel,
+                cardinality: cardinality,
+                isTransitive: isTransitive,
+                isReverseSafe: isReverseSafe,
+                defaultDomainId: defaultDomainId,
+                distractorMatchRelationType: distractorMatchRelationType,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<RelationTypes, RelationType>(table),
+                  $RelationTypesReferences(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback:
+              ({
+                defaultDomainId = false,
+                distractorMatchRelationType = false,
+                relationTypeSignaturesRefs = false,
+                knowledgeRelationsRefs = false,
+                questionTemplatesRefs = false,
+              }) {
+                return PrefetchHooks(
+                  db: db,
+                  explicitlyWatchedTables: [
+                    if (relationTypeSignaturesRefs) db.relationTypeSignatures,
+                    if (knowledgeRelationsRefs) db.knowledgeRelations,
+                    if (questionTemplatesRefs) db.questionTemplates,
+                  ],
+                  addJoins:
+                      <
+                        T extends TableManagerState<
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic
+                        >
+                      >(state) {
+                        if (defaultDomainId) {
+                          state = state.withJoin(
+                            currentTable: table,
+                            currentColumn: table.defaultDomainId,
+                            referencedTable: $RelationTypesReferences
+                                ._defaultDomainIdTable(db),
+                            referencedColumn: $RelationTypesReferences
+                                ._defaultDomainIdTable(db)
+                                .id,
+                          ) as T;
+                        }
+                        if (distractorMatchRelationType) {
+                          state = state.withJoin(
+                            currentTable: table,
+                            currentColumn: table.distractorMatchRelationType,
+                            referencedTable: $RelationTypesReferences
+                                ._distractorMatchRelationTypeTable(db),
+                            referencedColumn: $RelationTypesReferences
+                                ._distractorMatchRelationTypeTable(db)
+                                .id,
+                          ) as T;
+                        }
+
+                        return state;
+                      },
+                  getPrefetchedDataCallback: (items) async {
+                    return [
+                      if (relationTypeSignaturesRefs)
+                        await $_getPrefetchedData<
+                          RelationType,
+                          RelationTypes,
+                          RelationTypeSignature
+                        >(
+                          currentTable: table,
+                          referencedTable: $RelationTypesReferences
+                              ._relationTypeSignaturesRefsTable(db),
+                          managerFromTypedResult: (p0) =>
+                              $RelationTypesReferences(
+                                db,
+                                table,
+                                p0,
+                              ).relationTypeSignaturesRefs,
+                          referencedItemsForCurrentItem:
+                              (item, referencedItems) => referencedItems.where(
+                                (e) => e.relationType == item.id,
+                              ),
+                          typedResults: items,
+                        ),
+                      if (knowledgeRelationsRefs)
+                        await $_getPrefetchedData<
+                          RelationType,
+                          RelationTypes,
+                          KnowledgeRelation
+                        >(
+                          currentTable: table,
+                          referencedTable: $RelationTypesReferences
+                              ._knowledgeRelationsRefsTable(db),
+                          managerFromTypedResult: (p0) =>
+                              $RelationTypesReferences(
+                                db,
+                                table,
+                                p0,
+                              ).knowledgeRelationsRefs,
+                          referencedItemsForCurrentItem:
+                              (item, referencedItems) => referencedItems.where(
+                                (e) => e.relationType == item.id,
+                              ),
+                          typedResults: items,
+                        ),
+                      if (questionTemplatesRefs)
+                        await $_getPrefetchedData<
+                          RelationType,
+                          RelationTypes,
+                          QuestionTemplate
+                        >(
+                          currentTable: table,
+                          referencedTable: $RelationTypesReferences
+                              ._questionTemplatesRefsTable(db),
+                          managerFromTypedResult: (p0) =>
+                              $RelationTypesReferences(
+                                db,
+                                table,
+                                p0,
+                              ).questionTemplatesRefs,
+                          referencedItemsForCurrentItem:
+                              (item, referencedItems) => referencedItems.where(
+                                (e) => e.relationType == item.id,
+                              ),
+                          typedResults: items,
+                        ),
+                    ];
+                  },
+                );
+              },
+        ),
+      );
+}
+
+typedef $RelationTypesProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      RelationTypes,
+      RelationType,
+      $RelationTypesFilterComposer,
+      $RelationTypesOrderingComposer,
+      $RelationTypesAnnotationComposer,
+      $RelationTypesCreateCompanionBuilder,
+      $RelationTypesUpdateCompanionBuilder,
+      (RelationType, $RelationTypesReferences),
+      RelationType,
+      PrefetchHooks Function({
+        bool defaultDomainId,
+        bool distractorMatchRelationType,
+        bool relationTypeSignaturesRefs,
+        bool knowledgeRelationsRefs,
+        bool questionTemplatesRefs,
+      })
+    >;
+typedef $RelationTypeSignaturesCreateCompanionBuilder =
+    RelationTypeSignaturesCompanion Function({
+      required String relationType,
+      required String subjectNodeType,
+      required String objectNodeType,
+      Value<int> rowid,
+    });
+typedef $RelationTypeSignaturesUpdateCompanionBuilder =
+    RelationTypeSignaturesCompanion Function({
+      Value<String> relationType,
+      Value<String> subjectNodeType,
+      Value<String> objectNodeType,
+      Value<int> rowid,
+    });
+
+final class $RelationTypeSignaturesReferences
+    extends
+        BaseReferences<
+          _$AppDatabase,
+          RelationTypeSignatures,
+          RelationTypeSignature
+        > {
+  $RelationTypeSignaturesReferences(
+    super.$_db,
+    super.$_table,
+    super.$_typedResult,
+  );
+
+  static RelationTypes _relationTypeTable(_$AppDatabase db) =>
+      db.relationTypes.createAlias(
+        'relation_type_signatures__relation_type__relation_types__id',
+      );
+
+  $RelationTypesProcessedTableManager get relationType {
+    final $_column = $_itemColumn<String>('relation_type')!;
+
+    final manager = $RelationTypesTableManager(
+      $_db,
+      $_db.relationTypes,
+    ).filter((f) => f.id.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_relationTypeTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
+  }
+
+  static NodeTypes _subjectNodeTypeTable(_$AppDatabase db) =>
+      db.nodeTypes.createAlias(
+        'relation_type_signatures__subject_node_type__node_types__id',
+      );
+
+  $NodeTypesProcessedTableManager get subjectNodeType {
+    final $_column = $_itemColumn<String>('subject_node_type')!;
+
+    final manager = $NodeTypesTableManager(
+      $_db,
+      $_db.nodeTypes,
+    ).filter((f) => f.id.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_subjectNodeTypeTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
+  }
+
+  static NodeTypes _objectNodeTypeTable(_$AppDatabase db) =>
+      db.nodeTypes.createAlias(
+        'relation_type_signatures__object_node_type__node_types__id',
+      );
+
+  $NodeTypesProcessedTableManager get objectNodeType {
+    final $_column = $_itemColumn<String>('object_node_type')!;
+
+    final manager = $NodeTypesTableManager(
+      $_db,
+      $_db.nodeTypes,
+    ).filter((f) => f.id.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_objectNodeTypeTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
+  }
+}
+
+class $RelationTypeSignaturesFilterComposer
+    extends Composer<_$AppDatabase, RelationTypeSignatures> {
+  $RelationTypeSignaturesFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  $RelationTypesFilterComposer get relationType {
+    final $RelationTypesFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.relationType,
+      referencedTable: $db.relationTypes,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $RelationTypesFilterComposer(
+            $db: $db,
+            $table: $db.relationTypes,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  $NodeTypesFilterComposer get subjectNodeType {
+    final $NodeTypesFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.subjectNodeType,
+      referencedTable: $db.nodeTypes,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $NodeTypesFilterComposer(
+            $db: $db,
+            $table: $db.nodeTypes,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  $NodeTypesFilterComposer get objectNodeType {
+    final $NodeTypesFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.objectNodeType,
+      referencedTable: $db.nodeTypes,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $NodeTypesFilterComposer(
+            $db: $db,
+            $table: $db.nodeTypes,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $RelationTypeSignaturesOrderingComposer
+    extends Composer<_$AppDatabase, RelationTypeSignatures> {
+  $RelationTypeSignaturesOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  $RelationTypesOrderingComposer get relationType {
+    final $RelationTypesOrderingComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.relationType,
+      referencedTable: $db.relationTypes,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $RelationTypesOrderingComposer(
+            $db: $db,
+            $table: $db.relationTypes,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  $NodeTypesOrderingComposer get subjectNodeType {
+    final $NodeTypesOrderingComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.subjectNodeType,
+      referencedTable: $db.nodeTypes,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $NodeTypesOrderingComposer(
+            $db: $db,
+            $table: $db.nodeTypes,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  $NodeTypesOrderingComposer get objectNodeType {
+    final $NodeTypesOrderingComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.objectNodeType,
+      referencedTable: $db.nodeTypes,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $NodeTypesOrderingComposer(
+            $db: $db,
+            $table: $db.nodeTypes,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $RelationTypeSignaturesAnnotationComposer
+    extends Composer<_$AppDatabase, RelationTypeSignatures> {
+  $RelationTypeSignaturesAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  $RelationTypesAnnotationComposer get relationType {
+    final $RelationTypesAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.relationType,
+      referencedTable: $db.relationTypes,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $RelationTypesAnnotationComposer(
+            $db: $db,
+            $table: $db.relationTypes,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  $NodeTypesAnnotationComposer get subjectNodeType {
+    final $NodeTypesAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.subjectNodeType,
+      referencedTable: $db.nodeTypes,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $NodeTypesAnnotationComposer(
+            $db: $db,
+            $table: $db.nodeTypes,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  $NodeTypesAnnotationComposer get objectNodeType {
+    final $NodeTypesAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.objectNodeType,
+      referencedTable: $db.nodeTypes,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $NodeTypesAnnotationComposer(
+            $db: $db,
+            $table: $db.nodeTypes,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $RelationTypeSignaturesTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          RelationTypeSignatures,
+          RelationTypeSignature,
+          $RelationTypeSignaturesFilterComposer,
+          $RelationTypeSignaturesOrderingComposer,
+          $RelationTypeSignaturesAnnotationComposer,
+          $RelationTypeSignaturesCreateCompanionBuilder,
+          $RelationTypeSignaturesUpdateCompanionBuilder,
+          (RelationTypeSignature, $RelationTypeSignaturesReferences),
+          RelationTypeSignature,
+          PrefetchHooks Function({
+            bool relationType,
+            bool subjectNodeType,
+            bool objectNodeType,
+          })
+        > {
+  $RelationTypeSignaturesTableManager(
+    _$AppDatabase db,
+    RelationTypeSignatures table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $RelationTypeSignaturesFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $RelationTypeSignaturesOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $RelationTypeSignaturesAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> relationType = const Value.absent(),
+                Value<String> subjectNodeType = const Value.absent(),
+                Value<String> objectNodeType = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => RelationTypeSignaturesCompanion(
+                relationType: relationType,
+                subjectNodeType: subjectNodeType,
+                objectNodeType: objectNodeType,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String relationType,
+                required String subjectNodeType,
+                required String objectNodeType,
+                Value<int> rowid = const Value.absent(),
+              }) => RelationTypeSignaturesCompanion.insert(
+                relationType: relationType,
+                subjectNodeType: subjectNodeType,
+                objectNodeType: objectNodeType,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<RelationTypeSignatures, RelationTypeSignature>(
+                    table,
+                  ),
+                  $RelationTypeSignaturesReferences(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback:
+              ({
+                relationType = false,
+                subjectNodeType = false,
+                objectNodeType = false,
+              }) {
+                return PrefetchHooks(
+                  db: db,
+                  explicitlyWatchedTables: [],
+                  addJoins:
+                      <
+                        T extends TableManagerState<
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic
+                        >
+                      >(state) {
+                        if (relationType) {
+                          state = state.withJoin(
+                            currentTable: table,
+                            currentColumn: table.relationType,
+                            referencedTable: $RelationTypeSignaturesReferences
+                                ._relationTypeTable(db),
+                            referencedColumn: $RelationTypeSignaturesReferences
+                                ._relationTypeTable(db)
+                                .id,
+                          ) as T;
+                        }
+                        if (subjectNodeType) {
+                          state = state.withJoin(
+                            currentTable: table,
+                            currentColumn: table.subjectNodeType,
+                            referencedTable: $RelationTypeSignaturesReferences
+                                ._subjectNodeTypeTable(db),
+                            referencedColumn: $RelationTypeSignaturesReferences
+                                ._subjectNodeTypeTable(db)
+                                .id,
+                          ) as T;
+                        }
+                        if (objectNodeType) {
+                          state = state.withJoin(
+                            currentTable: table,
+                            currentColumn: table.objectNodeType,
+                            referencedTable: $RelationTypeSignaturesReferences
+                                ._objectNodeTypeTable(db),
+                            referencedColumn: $RelationTypeSignaturesReferences
+                                ._objectNodeTypeTable(db)
+                                .id,
+                          ) as T;
+                        }
+
+                        return state;
+                      },
+                  getPrefetchedDataCallback: (items) async {
+                    return [];
+                  },
+                );
+              },
+        ),
+      );
+}
+
+typedef $RelationTypeSignaturesProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      RelationTypeSignatures,
+      RelationTypeSignature,
+      $RelationTypeSignaturesFilterComposer,
+      $RelationTypeSignaturesOrderingComposer,
+      $RelationTypeSignaturesAnnotationComposer,
+      $RelationTypeSignaturesCreateCompanionBuilder,
+      $RelationTypeSignaturesUpdateCompanionBuilder,
+      (RelationTypeSignature, $RelationTypeSignaturesReferences),
+      RelationTypeSignature,
+      PrefetchHooks Function({
+        bool relationType,
+        bool subjectNodeType,
+        bool objectNodeType,
+      })
+    >;
+typedef $KnowledgeNodesCreateCompanionBuilder =
+    KnowledgeNodesCompanion Function({
+      required String id,
+      required String nodeType,
+      required String name,
+      required String nameNorm,
+      Value<String?> validFrom,
+      Value<String?> validUntil,
+      Value<int> rowid,
+    });
+typedef $KnowledgeNodesUpdateCompanionBuilder =
+    KnowledgeNodesCompanion Function({
+      Value<String> id,
+      Value<String> nodeType,
+      Value<String> name,
+      Value<String> nameNorm,
+      Value<String?> validFrom,
+      Value<String?> validUntil,
+      Value<int> rowid,
+    });
+
+final class $KnowledgeNodesReferences
+    extends BaseReferences<_$AppDatabase, KnowledgeNodes, KnowledgeNode> {
+  $KnowledgeNodesReferences(super.$_db, super.$_table, super.$_typedResult);
+
+  static NodeTypes _nodeTypeTable(_$AppDatabase db) =>
+      db.nodeTypes.createAlias('knowledge_nodes__node_type__node_types__id');
+
+  $NodeTypesProcessedTableManager get nodeType {
+    final $_column = $_itemColumn<String>('node_type')!;
+
+    final manager = $NodeTypesTableManager(
+      $_db,
+      $_db.nodeTypes,
+    ).filter((f) => f.id.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_nodeTypeTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
+  }
+
+  static MultiTypedResultKey<NodeAlternativeNames, List<NodeAlternativeName>>
+  _nodeAlternativeNamesRefsTable(_$AppDatabase db) =>
+      MultiTypedResultKey.fromTable(
+        db.nodeAlternativeNames,
+        aliasName:
+            'knowledge_nodes__id__node_alternative_names__knowledge_node_id',
+      );
+
+  $NodeAlternativeNamesProcessedTableManager get nodeAlternativeNamesRefs {
+    final manager =
+        $NodeAlternativeNamesTableManager(
+          $_db,
+          $_db.nodeAlternativeNames,
+        ).filter(
+          (f) => f.knowledgeNodeId.id.sqlEquals($_itemColumn<String>('id')!),
+        );
+
+    final cache = $_typedResult.readTableOrNull(
+      _nodeAlternativeNamesRefsTable($_db),
+    );
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: cache),
+    );
+  }
+
+  static MultiTypedResultKey<TastingGridValues, List<TastingGridValue>>
+  _tastingGridValuesRefsTable(_$AppDatabase db) =>
+      MultiTypedResultKey.fromTable(
+        db.tastingGridValues,
+        aliasName:
+            'knowledge_nodes__id__tasting_grid_values__knowledge_node_id',
+      );
+
+  $TastingGridValuesProcessedTableManager get tastingGridValuesRefs {
+    final manager = $TastingGridValuesTableManager($_db, $_db.tastingGridValues)
+        .filter(
+          (f) => f.knowledgeNodeId.id.sqlEquals($_itemColumn<String>('id')!),
+        );
+
+    final cache = $_typedResult.readTableOrNull(
+      _tastingGridValuesRefsTable($_db),
+    );
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: cache),
+    );
+  }
+
+  static MultiTypedResultKey<QuestionDistractors, List<QuestionDistractor>>
+  _questionDistractorsRefsTable(_$AppDatabase db) =>
+      MultiTypedResultKey.fromTable(
+        db.questionDistractors,
+        aliasName:
+            'knowledge_nodes__id__question_distractors__knowledge_node_id',
+      );
+
+  $QuestionDistractorsProcessedTableManager get questionDistractorsRefs {
+    final manager =
+        $QuestionDistractorsTableManager($_db, $_db.questionDistractors).filter(
+          (f) => f.knowledgeNodeId.id.sqlEquals($_itemColumn<String>('id')!),
+        );
+
+    final cache = $_typedResult.readTableOrNull(
+      _questionDistractorsRefsTable($_db),
+    );
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: cache),
+    );
+  }
+
+  static MultiTypedResultKey<ReviewEvents, List<ReviewEvent>>
+  _reviewEventsRefsTable(_$AppDatabase db) => MultiTypedResultKey.fromTable(
+    db.reviewEvents,
+    aliasName: 'knowledge_nodes__id__review_events__selected_node_id',
+  );
+
+  $ReviewEventsProcessedTableManager get reviewEventsRefs {
+    final manager = $ReviewEventsTableManager(
+      $_db,
+      $_db.reviewEvents,
+    ).filter((f) => f.selectedNodeId.id.sqlEquals($_itemColumn<String>('id')!));
+
+    final cache = $_typedResult.readTableOrNull(_reviewEventsRefsTable($_db));
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: cache),
+    );
+  }
+
+  static MultiTypedResultKey<ReviewEventOptions, List<ReviewEventOption>>
+  _reviewEventOptionsRefsTable(_$AppDatabase db) =>
+      MultiTypedResultKey.fromTable(
+        db.reviewEventOptions,
+        aliasName:
+            'knowledge_nodes__id__review_event_options__knowledge_node_id',
+      );
+
+  $ReviewEventOptionsProcessedTableManager get reviewEventOptionsRefs {
+    final manager =
+        $ReviewEventOptionsTableManager($_db, $_db.reviewEventOptions).filter(
+          (f) => f.knowledgeNodeId.id.sqlEquals($_itemColumn<String>('id')!),
+        );
+
+    final cache = $_typedResult.readTableOrNull(
+      _reviewEventOptionsRefsTable($_db),
+    );
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: cache),
+    );
+  }
+
+  static MultiTypedResultKey<WineJournalEntryNodes, List<WineJournalEntryNode>>
+  _wineJournalEntryNodesRefsTable(_$AppDatabase db) =>
+      MultiTypedResultKey.fromTable(
+        db.wineJournalEntryNodes,
+        aliasName:
+            'knowledge_nodes__id__wine_journal_entry_nodes__knowledge_node_id',
+      );
+
+  $WineJournalEntryNodesProcessedTableManager get wineJournalEntryNodesRefs {
+    final manager =
+        $WineJournalEntryNodesTableManager(
+          $_db,
+          $_db.wineJournalEntryNodes,
+        ).filter(
+          (f) => f.knowledgeNodeId.id.sqlEquals($_itemColumn<String>('id')!),
+        );
+
+    final cache = $_typedResult.readTableOrNull(
+      _wineJournalEntryNodesRefsTable($_db),
+    );
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: cache),
+    );
+  }
+}
+
+class $KnowledgeNodesFilterComposer
+    extends Composer<_$AppDatabase, KnowledgeNodes> {
+  $KnowledgeNodesFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get name => $composableBuilder(
+    column: $table.name,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get nameNorm => $composableBuilder(
+    column: $table.nameNorm,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get validFrom => $composableBuilder(
+    column: $table.validFrom,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get validUntil => $composableBuilder(
+    column: $table.validUntil,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  $NodeTypesFilterComposer get nodeType {
+    final $NodeTypesFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.nodeType,
+      referencedTable: $db.nodeTypes,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $NodeTypesFilterComposer(
+            $db: $db,
+            $table: $db.nodeTypes,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  Expression<bool> nodeAlternativeNamesRefs(
+    Expression<bool> Function($NodeAlternativeNamesFilterComposer f) f,
+  ) {
+    final $NodeAlternativeNamesFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.nodeAlternativeNames,
+      getReferencedColumn: (t) => t.knowledgeNodeId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $NodeAlternativeNamesFilterComposer(
+            $db: $db,
+            $table: $db.nodeAlternativeNames,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+
+  Expression<bool> tastingGridValuesRefs(
+    Expression<bool> Function($TastingGridValuesFilterComposer f) f,
+  ) {
+    final $TastingGridValuesFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.tastingGridValues,
+      getReferencedColumn: (t) => t.knowledgeNodeId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $TastingGridValuesFilterComposer(
+            $db: $db,
+            $table: $db.tastingGridValues,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+
+  Expression<bool> questionDistractorsRefs(
+    Expression<bool> Function($QuestionDistractorsFilterComposer f) f,
+  ) {
+    final $QuestionDistractorsFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.questionDistractors,
+      getReferencedColumn: (t) => t.knowledgeNodeId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $QuestionDistractorsFilterComposer(
+            $db: $db,
+            $table: $db.questionDistractors,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+
+  Expression<bool> reviewEventsRefs(
+    Expression<bool> Function($ReviewEventsFilterComposer f) f,
+  ) {
+    final $ReviewEventsFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.reviewEvents,
+      getReferencedColumn: (t) => t.selectedNodeId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $ReviewEventsFilterComposer(
+            $db: $db,
+            $table: $db.reviewEvents,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+
+  Expression<bool> reviewEventOptionsRefs(
+    Expression<bool> Function($ReviewEventOptionsFilterComposer f) f,
+  ) {
+    final $ReviewEventOptionsFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.reviewEventOptions,
+      getReferencedColumn: (t) => t.knowledgeNodeId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $ReviewEventOptionsFilterComposer(
+            $db: $db,
+            $table: $db.reviewEventOptions,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+
+  Expression<bool> wineJournalEntryNodesRefs(
+    Expression<bool> Function($WineJournalEntryNodesFilterComposer f) f,
+  ) {
+    final $WineJournalEntryNodesFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.wineJournalEntryNodes,
+      getReferencedColumn: (t) => t.knowledgeNodeId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $WineJournalEntryNodesFilterComposer(
+            $db: $db,
+            $table: $db.wineJournalEntryNodes,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+}
+
+class $KnowledgeNodesOrderingComposer
+    extends Composer<_$AppDatabase, KnowledgeNodes> {
+  $KnowledgeNodesOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get name => $composableBuilder(
+    column: $table.name,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get nameNorm => $composableBuilder(
+    column: $table.nameNorm,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get validFrom => $composableBuilder(
+    column: $table.validFrom,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get validUntil => $composableBuilder(
+    column: $table.validUntil,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  $NodeTypesOrderingComposer get nodeType {
+    final $NodeTypesOrderingComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.nodeType,
+      referencedTable: $db.nodeTypes,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $NodeTypesOrderingComposer(
+            $db: $db,
+            $table: $db.nodeTypes,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $KnowledgeNodesAnnotationComposer
+    extends Composer<_$AppDatabase, KnowledgeNodes> {
+  $KnowledgeNodesAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get name =>
+      $composableBuilder(column: $table.name, builder: (column) => column);
+
+  GeneratedColumn<String> get nameNorm =>
+      $composableBuilder(column: $table.nameNorm, builder: (column) => column);
+
+  GeneratedColumn<String> get validFrom =>
+      $composableBuilder(column: $table.validFrom, builder: (column) => column);
+
+  GeneratedColumn<String> get validUntil => $composableBuilder(
+    column: $table.validUntil,
+    builder: (column) => column,
+  );
+
+  $NodeTypesAnnotationComposer get nodeType {
+    final $NodeTypesAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.nodeType,
+      referencedTable: $db.nodeTypes,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $NodeTypesAnnotationComposer(
+            $db: $db,
+            $table: $db.nodeTypes,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  Expression<T> nodeAlternativeNamesRefs<T extends Object>(
+    Expression<T> Function($NodeAlternativeNamesAnnotationComposer a) f,
+  ) {
+    final $NodeAlternativeNamesAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.nodeAlternativeNames,
+      getReferencedColumn: (t) => t.knowledgeNodeId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $NodeAlternativeNamesAnnotationComposer(
+            $db: $db,
+            $table: $db.nodeAlternativeNames,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+
+  Expression<T> tastingGridValuesRefs<T extends Object>(
+    Expression<T> Function($TastingGridValuesAnnotationComposer a) f,
+  ) {
+    final $TastingGridValuesAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.tastingGridValues,
+      getReferencedColumn: (t) => t.knowledgeNodeId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $TastingGridValuesAnnotationComposer(
+            $db: $db,
+            $table: $db.tastingGridValues,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+
+  Expression<T> questionDistractorsRefs<T extends Object>(
+    Expression<T> Function($QuestionDistractorsAnnotationComposer a) f,
+  ) {
+    final $QuestionDistractorsAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.questionDistractors,
+      getReferencedColumn: (t) => t.knowledgeNodeId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $QuestionDistractorsAnnotationComposer(
+            $db: $db,
+            $table: $db.questionDistractors,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+
+  Expression<T> reviewEventsRefs<T extends Object>(
+    Expression<T> Function($ReviewEventsAnnotationComposer a) f,
+  ) {
+    final $ReviewEventsAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.reviewEvents,
+      getReferencedColumn: (t) => t.selectedNodeId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $ReviewEventsAnnotationComposer(
+            $db: $db,
+            $table: $db.reviewEvents,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+
+  Expression<T> reviewEventOptionsRefs<T extends Object>(
+    Expression<T> Function($ReviewEventOptionsAnnotationComposer a) f,
+  ) {
+    final $ReviewEventOptionsAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.reviewEventOptions,
+      getReferencedColumn: (t) => t.knowledgeNodeId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $ReviewEventOptionsAnnotationComposer(
+            $db: $db,
+            $table: $db.reviewEventOptions,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+
+  Expression<T> wineJournalEntryNodesRefs<T extends Object>(
+    Expression<T> Function($WineJournalEntryNodesAnnotationComposer a) f,
+  ) {
+    final $WineJournalEntryNodesAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.wineJournalEntryNodes,
+      getReferencedColumn: (t) => t.knowledgeNodeId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $WineJournalEntryNodesAnnotationComposer(
+            $db: $db,
+            $table: $db.wineJournalEntryNodes,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+}
+
+class $KnowledgeNodesTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          KnowledgeNodes,
+          KnowledgeNode,
+          $KnowledgeNodesFilterComposer,
+          $KnowledgeNodesOrderingComposer,
+          $KnowledgeNodesAnnotationComposer,
+          $KnowledgeNodesCreateCompanionBuilder,
+          $KnowledgeNodesUpdateCompanionBuilder,
+          (KnowledgeNode, $KnowledgeNodesReferences),
+          KnowledgeNode,
+          PrefetchHooks Function({
+            bool nodeType,
+            bool nodeAlternativeNamesRefs,
+            bool tastingGridValuesRefs,
+            bool questionDistractorsRefs,
+            bool reviewEventsRefs,
+            bool reviewEventOptionsRefs,
+            bool wineJournalEntryNodesRefs,
+          })
+        > {
+  $KnowledgeNodesTableManager(_$AppDatabase db, KnowledgeNodes table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $KnowledgeNodesFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $KnowledgeNodesOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $KnowledgeNodesAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> id = const Value.absent(),
+                Value<String> nodeType = const Value.absent(),
+                Value<String> name = const Value.absent(),
+                Value<String> nameNorm = const Value.absent(),
+                Value<String?> validFrom = const Value.absent(),
+                Value<String?> validUntil = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => KnowledgeNodesCompanion(
+                id: id,
+                nodeType: nodeType,
+                name: name,
+                nameNorm: nameNorm,
+                validFrom: validFrom,
+                validUntil: validUntil,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String id,
+                required String nodeType,
+                required String name,
+                required String nameNorm,
+                Value<String?> validFrom = const Value.absent(),
+                Value<String?> validUntil = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => KnowledgeNodesCompanion.insert(
+                id: id,
+                nodeType: nodeType,
+                name: name,
+                nameNorm: nameNorm,
+                validFrom: validFrom,
+                validUntil: validUntil,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<KnowledgeNodes, KnowledgeNode>(table),
+                  $KnowledgeNodesReferences(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback:
+              ({
+                nodeType = false,
+                nodeAlternativeNamesRefs = false,
+                tastingGridValuesRefs = false,
+                questionDistractorsRefs = false,
+                reviewEventsRefs = false,
+                reviewEventOptionsRefs = false,
+                wineJournalEntryNodesRefs = false,
+              }) {
+                return PrefetchHooks(
+                  db: db,
+                  explicitlyWatchedTables: [
+                    if (nodeAlternativeNamesRefs) db.nodeAlternativeNames,
+                    if (tastingGridValuesRefs) db.tastingGridValues,
+                    if (questionDistractorsRefs) db.questionDistractors,
+                    if (reviewEventsRefs) db.reviewEvents,
+                    if (reviewEventOptionsRefs) db.reviewEventOptions,
+                    if (wineJournalEntryNodesRefs) db.wineJournalEntryNodes,
+                  ],
+                  addJoins:
+                      <
+                        T extends TableManagerState<
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic
+                        >
+                      >(state) {
+                        if (nodeType) {
+                          state = state.withJoin(
+                            currentTable: table,
+                            currentColumn: table.nodeType,
+                            referencedTable: $KnowledgeNodesReferences
+                                ._nodeTypeTable(db),
+                            referencedColumn: $KnowledgeNodesReferences
+                                ._nodeTypeTable(db)
+                                .id,
+                          ) as T;
+                        }
+
+                        return state;
+                      },
+                  getPrefetchedDataCallback: (items) async {
+                    return [
+                      if (nodeAlternativeNamesRefs)
+                        await $_getPrefetchedData<
+                          KnowledgeNode,
+                          KnowledgeNodes,
+                          NodeAlternativeName
+                        >(
+                          currentTable: table,
+                          referencedTable: $KnowledgeNodesReferences
+                              ._nodeAlternativeNamesRefsTable(db),
+                          managerFromTypedResult: (p0) =>
+                              $KnowledgeNodesReferences(
+                                db,
+                                table,
+                                p0,
+                              ).nodeAlternativeNamesRefs,
+                          referencedItemsForCurrentItem:
+                              (item, referencedItems) => referencedItems.where(
+                                (e) => e.knowledgeNodeId == item.id,
+                              ),
+                          typedResults: items,
+                        ),
+                      if (tastingGridValuesRefs)
+                        await $_getPrefetchedData<
+                          KnowledgeNode,
+                          KnowledgeNodes,
+                          TastingGridValue
+                        >(
+                          currentTable: table,
+                          referencedTable: $KnowledgeNodesReferences
+                              ._tastingGridValuesRefsTable(db),
+                          managerFromTypedResult: (p0) =>
+                              $KnowledgeNodesReferences(
+                                db,
+                                table,
+                                p0,
+                              ).tastingGridValuesRefs,
+                          referencedItemsForCurrentItem:
+                              (item, referencedItems) => referencedItems.where(
+                                (e) => e.knowledgeNodeId == item.id,
+                              ),
+                          typedResults: items,
+                        ),
+                      if (questionDistractorsRefs)
+                        await $_getPrefetchedData<
+                          KnowledgeNode,
+                          KnowledgeNodes,
+                          QuestionDistractor
+                        >(
+                          currentTable: table,
+                          referencedTable: $KnowledgeNodesReferences
+                              ._questionDistractorsRefsTable(db),
+                          managerFromTypedResult: (p0) =>
+                              $KnowledgeNodesReferences(
+                                db,
+                                table,
+                                p0,
+                              ).questionDistractorsRefs,
+                          referencedItemsForCurrentItem:
+                              (item, referencedItems) => referencedItems.where(
+                                (e) => e.knowledgeNodeId == item.id,
+                              ),
+                          typedResults: items,
+                        ),
+                      if (reviewEventsRefs)
+                        await $_getPrefetchedData<
+                          KnowledgeNode,
+                          KnowledgeNodes,
+                          ReviewEvent
+                        >(
+                          currentTable: table,
+                          referencedTable: $KnowledgeNodesReferences
+                              ._reviewEventsRefsTable(db),
+                          managerFromTypedResult: (p0) =>
+                              $KnowledgeNodesReferences(
+                                db,
+                                table,
+                                p0,
+                              ).reviewEventsRefs,
+                          referencedItemsForCurrentItem:
+                              (item, referencedItems) => referencedItems.where(
+                                (e) => e.selectedNodeId == item.id,
+                              ),
+                          typedResults: items,
+                        ),
+                      if (reviewEventOptionsRefs)
+                        await $_getPrefetchedData<
+                          KnowledgeNode,
+                          KnowledgeNodes,
+                          ReviewEventOption
+                        >(
+                          currentTable: table,
+                          referencedTable: $KnowledgeNodesReferences
+                              ._reviewEventOptionsRefsTable(db),
+                          managerFromTypedResult: (p0) =>
+                              $KnowledgeNodesReferences(
+                                db,
+                                table,
+                                p0,
+                              ).reviewEventOptionsRefs,
+                          referencedItemsForCurrentItem:
+                              (item, referencedItems) => referencedItems.where(
+                                (e) => e.knowledgeNodeId == item.id,
+                              ),
+                          typedResults: items,
+                        ),
+                      if (wineJournalEntryNodesRefs)
+                        await $_getPrefetchedData<
+                          KnowledgeNode,
+                          KnowledgeNodes,
+                          WineJournalEntryNode
+                        >(
+                          currentTable: table,
+                          referencedTable: $KnowledgeNodesReferences
+                              ._wineJournalEntryNodesRefsTable(db),
+                          managerFromTypedResult: (p0) =>
+                              $KnowledgeNodesReferences(
+                                db,
+                                table,
+                                p0,
+                              ).wineJournalEntryNodesRefs,
+                          referencedItemsForCurrentItem:
+                              (item, referencedItems) => referencedItems.where(
+                                (e) => e.knowledgeNodeId == item.id,
+                              ),
+                          typedResults: items,
+                        ),
+                    ];
+                  },
+                );
+              },
+        ),
+      );
+}
+
+typedef $KnowledgeNodesProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      KnowledgeNodes,
+      KnowledgeNode,
+      $KnowledgeNodesFilterComposer,
+      $KnowledgeNodesOrderingComposer,
+      $KnowledgeNodesAnnotationComposer,
+      $KnowledgeNodesCreateCompanionBuilder,
+      $KnowledgeNodesUpdateCompanionBuilder,
+      (KnowledgeNode, $KnowledgeNodesReferences),
+      KnowledgeNode,
+      PrefetchHooks Function({
+        bool nodeType,
+        bool nodeAlternativeNamesRefs,
+        bool tastingGridValuesRefs,
+        bool questionDistractorsRefs,
+        bool reviewEventsRefs,
+        bool reviewEventOptionsRefs,
+        bool wineJournalEntryNodesRefs,
+      })
+    >;
+typedef $QuantityValuesCreateCompanionBuilder =
+    QuantityValuesCompanion Function({
+      required String knowledgeNodeId,
+      Value<String> nodeType,
+      required double minimum,
+      Value<double?> maximum,
+      required String unit,
+      Value<int> rowid,
+    });
+typedef $QuantityValuesUpdateCompanionBuilder =
+    QuantityValuesCompanion Function({
+      Value<String> knowledgeNodeId,
+      Value<String> nodeType,
+      Value<double> minimum,
+      Value<double?> maximum,
+      Value<String> unit,
+      Value<int> rowid,
+    });
+
+class $QuantityValuesFilterComposer
+    extends Composer<_$AppDatabase, QuantityValues> {
+  $QuantityValuesFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get knowledgeNodeId => $composableBuilder(
+    column: $table.knowledgeNodeId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get nodeType => $composableBuilder(
+    column: $table.nodeType,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get minimum => $composableBuilder(
+    column: $table.minimum,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get maximum => $composableBuilder(
+    column: $table.maximum,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get unit => $composableBuilder(
+    column: $table.unit,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $QuantityValuesOrderingComposer
+    extends Composer<_$AppDatabase, QuantityValues> {
+  $QuantityValuesOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get knowledgeNodeId => $composableBuilder(
+    column: $table.knowledgeNodeId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get nodeType => $composableBuilder(
+    column: $table.nodeType,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get minimum => $composableBuilder(
+    column: $table.minimum,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get maximum => $composableBuilder(
+    column: $table.maximum,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get unit => $composableBuilder(
+    column: $table.unit,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $QuantityValuesAnnotationComposer
+    extends Composer<_$AppDatabase, QuantityValues> {
+  $QuantityValuesAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get knowledgeNodeId => $composableBuilder(
+    column: $table.knowledgeNodeId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get nodeType =>
+      $composableBuilder(column: $table.nodeType, builder: (column) => column);
+
+  GeneratedColumn<double> get minimum =>
+      $composableBuilder(column: $table.minimum, builder: (column) => column);
+
+  GeneratedColumn<double> get maximum =>
+      $composableBuilder(column: $table.maximum, builder: (column) => column);
+
+  GeneratedColumn<String> get unit =>
+      $composableBuilder(column: $table.unit, builder: (column) => column);
+}
+
+class $QuantityValuesTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          QuantityValues,
+          QuantityValue,
+          $QuantityValuesFilterComposer,
+          $QuantityValuesOrderingComposer,
+          $QuantityValuesAnnotationComposer,
+          $QuantityValuesCreateCompanionBuilder,
+          $QuantityValuesUpdateCompanionBuilder,
+          (
+            QuantityValue,
+            BaseReferences<_$AppDatabase, QuantityValues, QuantityValue>,
+          ),
+          QuantityValue,
+          PrefetchHooks Function()
+        > {
+  $QuantityValuesTableManager(_$AppDatabase db, QuantityValues table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $QuantityValuesFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $QuantityValuesOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $QuantityValuesAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> knowledgeNodeId = const Value.absent(),
+                Value<String> nodeType = const Value.absent(),
+                Value<double> minimum = const Value.absent(),
+                Value<double?> maximum = const Value.absent(),
+                Value<String> unit = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => QuantityValuesCompanion(
+                knowledgeNodeId: knowledgeNodeId,
+                nodeType: nodeType,
+                minimum: minimum,
+                maximum: maximum,
+                unit: unit,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String knowledgeNodeId,
+                Value<String> nodeType = const Value.absent(),
+                required double minimum,
+                Value<double?> maximum = const Value.absent(),
+                required String unit,
+                Value<int> rowid = const Value.absent(),
+              }) => QuantityValuesCompanion.insert(
+                knowledgeNodeId: knowledgeNodeId,
+                nodeType: nodeType,
+                minimum: minimum,
+                maximum: maximum,
+                unit: unit,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<QuantityValues, QuantityValue>(table),
+                  BaseReferences<_$AppDatabase, QuantityValues, QuantityValue>(
+                    db,
+                    table,
+                    e,
+                  ),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $QuantityValuesProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      QuantityValues,
+      QuantityValue,
+      $QuantityValuesFilterComposer,
+      $QuantityValuesOrderingComposer,
+      $QuantityValuesAnnotationComposer,
+      $QuantityValuesCreateCompanionBuilder,
+      $QuantityValuesUpdateCompanionBuilder,
+      (
+        QuantityValue,
+        BaseReferences<_$AppDatabase, QuantityValues, QuantityValue>,
+      ),
+      QuantityValue,
+      PrefetchHooks Function()
+    >;
+typedef $NodeAlternativeNamesCreateCompanionBuilder =
+    NodeAlternativeNamesCompanion Function({
+      required String knowledgeNodeId,
+      required String name,
+      required String nameNorm,
+      required String kind,
+      Value<int> rowid,
+    });
+typedef $NodeAlternativeNamesUpdateCompanionBuilder =
+    NodeAlternativeNamesCompanion Function({
+      Value<String> knowledgeNodeId,
+      Value<String> name,
+      Value<String> nameNorm,
+      Value<String> kind,
+      Value<int> rowid,
+    });
+
+final class $NodeAlternativeNamesReferences
+    extends
+        BaseReferences<
+          _$AppDatabase,
+          NodeAlternativeNames,
+          NodeAlternativeName
+        > {
+  $NodeAlternativeNamesReferences(
+    super.$_db,
+    super.$_table,
+    super.$_typedResult,
+  );
+
+  static KnowledgeNodes _knowledgeNodeIdTable(_$AppDatabase db) =>
+      db.knowledgeNodes.createAlias(
+        'node_alternative_names__knowledge_node_id__knowledge_nodes__id',
+      );
+
+  $KnowledgeNodesProcessedTableManager get knowledgeNodeId {
+    final $_column = $_itemColumn<String>('knowledge_node_id')!;
+
+    final manager = $KnowledgeNodesTableManager(
+      $_db,
+      $_db.knowledgeNodes,
+    ).filter((f) => f.id.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_knowledgeNodeIdTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
+  }
+}
+
+class $NodeAlternativeNamesFilterComposer
+    extends Composer<_$AppDatabase, NodeAlternativeNames> {
+  $NodeAlternativeNamesFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get name => $composableBuilder(
+    column: $table.name,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get nameNorm => $composableBuilder(
+    column: $table.nameNorm,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get kind => $composableBuilder(
+    column: $table.kind,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  $KnowledgeNodesFilterComposer get knowledgeNodeId {
+    final $KnowledgeNodesFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.knowledgeNodeId,
+      referencedTable: $db.knowledgeNodes,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $KnowledgeNodesFilterComposer(
+            $db: $db,
+            $table: $db.knowledgeNodes,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $NodeAlternativeNamesOrderingComposer
+    extends Composer<_$AppDatabase, NodeAlternativeNames> {
+  $NodeAlternativeNamesOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get name => $composableBuilder(
+    column: $table.name,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get nameNorm => $composableBuilder(
+    column: $table.nameNorm,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get kind => $composableBuilder(
+    column: $table.kind,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  $KnowledgeNodesOrderingComposer get knowledgeNodeId {
+    final $KnowledgeNodesOrderingComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.knowledgeNodeId,
+      referencedTable: $db.knowledgeNodes,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $KnowledgeNodesOrderingComposer(
+            $db: $db,
+            $table: $db.knowledgeNodes,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $NodeAlternativeNamesAnnotationComposer
+    extends Composer<_$AppDatabase, NodeAlternativeNames> {
+  $NodeAlternativeNamesAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get name =>
+      $composableBuilder(column: $table.name, builder: (column) => column);
+
+  GeneratedColumn<String> get nameNorm =>
+      $composableBuilder(column: $table.nameNorm, builder: (column) => column);
+
+  GeneratedColumn<String> get kind =>
+      $composableBuilder(column: $table.kind, builder: (column) => column);
+
+  $KnowledgeNodesAnnotationComposer get knowledgeNodeId {
+    final $KnowledgeNodesAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.knowledgeNodeId,
+      referencedTable: $db.knowledgeNodes,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $KnowledgeNodesAnnotationComposer(
+            $db: $db,
+            $table: $db.knowledgeNodes,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $NodeAlternativeNamesTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          NodeAlternativeNames,
+          NodeAlternativeName,
+          $NodeAlternativeNamesFilterComposer,
+          $NodeAlternativeNamesOrderingComposer,
+          $NodeAlternativeNamesAnnotationComposer,
+          $NodeAlternativeNamesCreateCompanionBuilder,
+          $NodeAlternativeNamesUpdateCompanionBuilder,
+          (NodeAlternativeName, $NodeAlternativeNamesReferences),
+          NodeAlternativeName,
+          PrefetchHooks Function({bool knowledgeNodeId})
+        > {
+  $NodeAlternativeNamesTableManager(
+    _$AppDatabase db,
+    NodeAlternativeNames table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $NodeAlternativeNamesFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $NodeAlternativeNamesOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $NodeAlternativeNamesAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> knowledgeNodeId = const Value.absent(),
+                Value<String> name = const Value.absent(),
+                Value<String> nameNorm = const Value.absent(),
+                Value<String> kind = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => NodeAlternativeNamesCompanion(
+                knowledgeNodeId: knowledgeNodeId,
+                name: name,
+                nameNorm: nameNorm,
+                kind: kind,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String knowledgeNodeId,
+                required String name,
+                required String nameNorm,
+                required String kind,
+                Value<int> rowid = const Value.absent(),
+              }) => NodeAlternativeNamesCompanion.insert(
+                knowledgeNodeId: knowledgeNodeId,
+                name: name,
+                nameNorm: nameNorm,
+                kind: kind,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<NodeAlternativeNames, NodeAlternativeName>(table),
+                  $NodeAlternativeNamesReferences(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: ({knowledgeNodeId = false}) {
+            return PrefetchHooks(
+              db: db,
+              explicitlyWatchedTables: [],
+              addJoins:
+                  <
+                    T extends TableManagerState<
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic
+                    >
+                  >(state) {
+                    if (knowledgeNodeId) {
+                      state = state.withJoin(
+                        currentTable: table,
+                        currentColumn: table.knowledgeNodeId,
+                        referencedTable: $NodeAlternativeNamesReferences
+                            ._knowledgeNodeIdTable(db),
+                        referencedColumn: $NodeAlternativeNamesReferences
+                            ._knowledgeNodeIdTable(db)
+                            .id,
+                      ) as T;
+                    }
+
+                    return state;
+                  },
+              getPrefetchedDataCallback: (items) async {
+                return [];
+              },
+            );
+          },
+        ),
+      );
+}
+
+typedef $NodeAlternativeNamesProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      NodeAlternativeNames,
+      NodeAlternativeName,
+      $NodeAlternativeNamesFilterComposer,
+      $NodeAlternativeNamesOrderingComposer,
+      $NodeAlternativeNamesAnnotationComposer,
+      $NodeAlternativeNamesCreateCompanionBuilder,
+      $NodeAlternativeNamesUpdateCompanionBuilder,
+      (NodeAlternativeName, $NodeAlternativeNamesReferences),
+      NodeAlternativeName,
+      PrefetchHooks Function({bool knowledgeNodeId})
+    >;
+typedef $KnowledgeRelationsCreateCompanionBuilder =
+    KnowledgeRelationsCompanion Function({
+      required String subjectId,
+      required String relationType,
+      required String objectId,
+      required String validFrom,
+      Value<String?> validUntil,
+      Value<int> rowid,
+    });
+typedef $KnowledgeRelationsUpdateCompanionBuilder =
+    KnowledgeRelationsCompanion Function({
+      Value<String> subjectId,
+      Value<String> relationType,
+      Value<String> objectId,
+      Value<String> validFrom,
+      Value<String?> validUntil,
+      Value<int> rowid,
+    });
+
+final class $KnowledgeRelationsReferences
+    extends
+        BaseReferences<_$AppDatabase, KnowledgeRelations, KnowledgeRelation> {
+  $KnowledgeRelationsReferences(super.$_db, super.$_table, super.$_typedResult);
+
+  static KnowledgeNodes _subjectIdTable(_$AppDatabase db) => db.knowledgeNodes
+      .createAlias('knowledge_relations__subject_id__knowledge_nodes__id');
+
+  $KnowledgeNodesProcessedTableManager get subjectId {
+    final $_column = $_itemColumn<String>('subject_id')!;
+
+    final manager = $KnowledgeNodesTableManager(
+      $_db,
+      $_db.knowledgeNodes,
+    ).filter((f) => f.id.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_subjectIdTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
+  }
+
+  static RelationTypes _relationTypeTable(_$AppDatabase db) => db.relationTypes
+      .createAlias('knowledge_relations__relation_type__relation_types__id');
+
+  $RelationTypesProcessedTableManager get relationType {
+    final $_column = $_itemColumn<String>('relation_type')!;
+
+    final manager = $RelationTypesTableManager(
+      $_db,
+      $_db.relationTypes,
+    ).filter((f) => f.id.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_relationTypeTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
+  }
+
+  static KnowledgeNodes _objectIdTable(_$AppDatabase db) => db.knowledgeNodes
+      .createAlias('knowledge_relations__object_id__knowledge_nodes__id');
+
+  $KnowledgeNodesProcessedTableManager get objectId {
+    final $_column = $_itemColumn<String>('object_id')!;
+
+    final manager = $KnowledgeNodesTableManager(
+      $_db,
+      $_db.knowledgeNodes,
+    ).filter((f) => f.id.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_objectIdTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
+  }
+}
+
+class $KnowledgeRelationsFilterComposer
+    extends Composer<_$AppDatabase, KnowledgeRelations> {
+  $KnowledgeRelationsFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get validFrom => $composableBuilder(
+    column: $table.validFrom,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get validUntil => $composableBuilder(
+    column: $table.validUntil,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  $KnowledgeNodesFilterComposer get subjectId {
+    final $KnowledgeNodesFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.subjectId,
+      referencedTable: $db.knowledgeNodes,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $KnowledgeNodesFilterComposer(
+            $db: $db,
+            $table: $db.knowledgeNodes,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  $RelationTypesFilterComposer get relationType {
+    final $RelationTypesFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.relationType,
+      referencedTable: $db.relationTypes,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $RelationTypesFilterComposer(
+            $db: $db,
+            $table: $db.relationTypes,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  $KnowledgeNodesFilterComposer get objectId {
+    final $KnowledgeNodesFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.objectId,
+      referencedTable: $db.knowledgeNodes,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $KnowledgeNodesFilterComposer(
+            $db: $db,
+            $table: $db.knowledgeNodes,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $KnowledgeRelationsOrderingComposer
+    extends Composer<_$AppDatabase, KnowledgeRelations> {
+  $KnowledgeRelationsOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get validFrom => $composableBuilder(
+    column: $table.validFrom,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get validUntil => $composableBuilder(
+    column: $table.validUntil,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  $KnowledgeNodesOrderingComposer get subjectId {
+    final $KnowledgeNodesOrderingComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.subjectId,
+      referencedTable: $db.knowledgeNodes,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $KnowledgeNodesOrderingComposer(
+            $db: $db,
+            $table: $db.knowledgeNodes,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  $RelationTypesOrderingComposer get relationType {
+    final $RelationTypesOrderingComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.relationType,
+      referencedTable: $db.relationTypes,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $RelationTypesOrderingComposer(
+            $db: $db,
+            $table: $db.relationTypes,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  $KnowledgeNodesOrderingComposer get objectId {
+    final $KnowledgeNodesOrderingComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.objectId,
+      referencedTable: $db.knowledgeNodes,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $KnowledgeNodesOrderingComposer(
+            $db: $db,
+            $table: $db.knowledgeNodes,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $KnowledgeRelationsAnnotationComposer
+    extends Composer<_$AppDatabase, KnowledgeRelations> {
+  $KnowledgeRelationsAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get validFrom =>
+      $composableBuilder(column: $table.validFrom, builder: (column) => column);
+
+  GeneratedColumn<String> get validUntil => $composableBuilder(
+    column: $table.validUntil,
+    builder: (column) => column,
+  );
+
+  $KnowledgeNodesAnnotationComposer get subjectId {
+    final $KnowledgeNodesAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.subjectId,
+      referencedTable: $db.knowledgeNodes,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $KnowledgeNodesAnnotationComposer(
+            $db: $db,
+            $table: $db.knowledgeNodes,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  $RelationTypesAnnotationComposer get relationType {
+    final $RelationTypesAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.relationType,
+      referencedTable: $db.relationTypes,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $RelationTypesAnnotationComposer(
+            $db: $db,
+            $table: $db.relationTypes,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  $KnowledgeNodesAnnotationComposer get objectId {
+    final $KnowledgeNodesAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.objectId,
+      referencedTable: $db.knowledgeNodes,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $KnowledgeNodesAnnotationComposer(
+            $db: $db,
+            $table: $db.knowledgeNodes,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $KnowledgeRelationsTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          KnowledgeRelations,
+          KnowledgeRelation,
+          $KnowledgeRelationsFilterComposer,
+          $KnowledgeRelationsOrderingComposer,
+          $KnowledgeRelationsAnnotationComposer,
+          $KnowledgeRelationsCreateCompanionBuilder,
+          $KnowledgeRelationsUpdateCompanionBuilder,
+          (KnowledgeRelation, $KnowledgeRelationsReferences),
+          KnowledgeRelation,
+          PrefetchHooks Function({
+            bool subjectId,
+            bool relationType,
+            bool objectId,
+          })
+        > {
+  $KnowledgeRelationsTableManager(_$AppDatabase db, KnowledgeRelations table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $KnowledgeRelationsFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $KnowledgeRelationsOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $KnowledgeRelationsAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> subjectId = const Value.absent(),
+                Value<String> relationType = const Value.absent(),
+                Value<String> objectId = const Value.absent(),
+                Value<String> validFrom = const Value.absent(),
+                Value<String?> validUntil = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => KnowledgeRelationsCompanion(
+                subjectId: subjectId,
+                relationType: relationType,
+                objectId: objectId,
+                validFrom: validFrom,
+                validUntil: validUntil,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String subjectId,
+                required String relationType,
+                required String objectId,
+                required String validFrom,
+                Value<String?> validUntil = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => KnowledgeRelationsCompanion.insert(
+                subjectId: subjectId,
+                relationType: relationType,
+                objectId: objectId,
+                validFrom: validFrom,
+                validUntil: validUntil,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<KnowledgeRelations, KnowledgeRelation>(table),
+                  $KnowledgeRelationsReferences(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback:
+              ({subjectId = false, relationType = false, objectId = false}) {
+                return PrefetchHooks(
+                  db: db,
+                  explicitlyWatchedTables: [],
+                  addJoins:
+                      <
+                        T extends TableManagerState<
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic
+                        >
+                      >(state) {
+                        if (subjectId) {
+                          state = state.withJoin(
+                            currentTable: table,
+                            currentColumn: table.subjectId,
+                            referencedTable: $KnowledgeRelationsReferences
+                                ._subjectIdTable(db),
+                            referencedColumn: $KnowledgeRelationsReferences
+                                ._subjectIdTable(db)
+                                .id,
+                          ) as T;
+                        }
+                        if (relationType) {
+                          state = state.withJoin(
+                            currentTable: table,
+                            currentColumn: table.relationType,
+                            referencedTable: $KnowledgeRelationsReferences
+                                ._relationTypeTable(db),
+                            referencedColumn: $KnowledgeRelationsReferences
+                                ._relationTypeTable(db)
+                                .id,
+                          ) as T;
+                        }
+                        if (objectId) {
+                          state = state.withJoin(
+                            currentTable: table,
+                            currentColumn: table.objectId,
+                            referencedTable: $KnowledgeRelationsReferences
+                                ._objectIdTable(db),
+                            referencedColumn: $KnowledgeRelationsReferences
+                                ._objectIdTable(db)
+                                .id,
+                          ) as T;
+                        }
+
+                        return state;
+                      },
+                  getPrefetchedDataCallback: (items) async {
+                    return [];
+                  },
+                );
+              },
+        ),
+      );
+}
+
+typedef $KnowledgeRelationsProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      KnowledgeRelations,
+      KnowledgeRelation,
+      $KnowledgeRelationsFilterComposer,
+      $KnowledgeRelationsOrderingComposer,
+      $KnowledgeRelationsAnnotationComposer,
+      $KnowledgeRelationsCreateCompanionBuilder,
+      $KnowledgeRelationsUpdateCompanionBuilder,
+      (KnowledgeRelation, $KnowledgeRelationsReferences),
+      KnowledgeRelation,
+      PrefetchHooks Function({bool subjectId, bool relationType, bool objectId})
+    >;
+typedef $KnowledgeItemsCreateCompanionBuilder =
+    KnowledgeItemsCompanion Function({
+      required String id,
+      required String subjectId,
+      required String relationType,
+      required String objectId,
+      required String domainId,
+      required String assertionText,
+      Value<int> revision,
+      required DateTime lastVerifiedAt,
+      Value<String> verificationStatus,
+      Value<String?> supersededByItemId,
+      Value<bool> isDistinctive,
+      Value<bool> mcqDisabled,
+      Value<int> rowid,
+    });
+typedef $KnowledgeItemsUpdateCompanionBuilder =
+    KnowledgeItemsCompanion Function({
+      Value<String> id,
+      Value<String> subjectId,
+      Value<String> relationType,
+      Value<String> objectId,
+      Value<String> domainId,
+      Value<String> assertionText,
+      Value<int> revision,
+      Value<DateTime> lastVerifiedAt,
+      Value<String> verificationStatus,
+      Value<String?> supersededByItemId,
+      Value<bool> isDistinctive,
+      Value<bool> mcqDisabled,
+      Value<int> rowid,
+    });
+
+final class $KnowledgeItemsReferences
+    extends BaseReferences<_$AppDatabase, KnowledgeItems, KnowledgeItem> {
+  $KnowledgeItemsReferences(super.$_db, super.$_table, super.$_typedResult);
+
+  static CurriculumDomains _domainIdTable(_$AppDatabase db) => db
+      .curriculumDomains
+      .createAlias('knowledge_items__domain_id__curriculum_domains__id');
+
+  $CurriculumDomainsProcessedTableManager get domainId {
+    final $_column = $_itemColumn<String>('domain_id')!;
+
+    final manager = $CurriculumDomainsTableManager(
+      $_db,
+      $_db.curriculumDomains,
+    ).filter((f) => f.id.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_domainIdTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
+  }
+
+  static KnowledgeItems _supersededByItemIdTable(_$AppDatabase db) =>
+      db.knowledgeItems.createAlias(
+        'knowledge_items__superseded_by_item_id__knowledge_items__id',
+      );
+
+  $KnowledgeItemsProcessedTableManager? get supersededByItemId {
+    final $_column = $_itemColumn<String>('superseded_by_item_id');
+    if ($_column == null) return null;
+    final manager = $KnowledgeItemsTableManager(
+      $_db,
+      $_db.knowledgeItems,
+    ).filter((f) => f.id.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_supersededByItemIdTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
+  }
+
+  static MultiTypedResultKey<
+    CertificationKnowledgeMappings,
+    List<CertificationKnowledgeMapping>
+  >
+  _certificationKnowledgeMappingsRefsTable(_$AppDatabase db) =>
+      MultiTypedResultKey.fromTable(
+        db.certificationKnowledgeMappings,
+        aliasName: 'knowledge_items__id__certification_knowledge_mappings__knowledge_item_id',
+      );
+
+  $CertificationKnowledgeMappingsProcessedTableManager
+  get certificationKnowledgeMappingsRefs {
+    final manager =
+        $CertificationKnowledgeMappingsTableManager(
+          $_db,
+          $_db.certificationKnowledgeMappings,
+        ).filter(
+          (f) => f.knowledgeItemId.id.sqlEquals($_itemColumn<String>('id')!),
+        );
+
+    final cache = $_typedResult.readTableOrNull(
+      _certificationKnowledgeMappingsRefsTable($_db),
+    );
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: cache),
+    );
+  }
+
+  static MultiTypedResultKey<
+    KnowledgeItemCitations,
+    List<KnowledgeItemCitation>
+  >
+  _knowledgeItemCitationsRefsTable(_$AppDatabase db) =>
+      MultiTypedResultKey.fromTable(
+        db.knowledgeItemCitations,
+        aliasName:
+            'knowledge_items__id__knowledge_item_citations__knowledge_item_id',
+      );
+
+  $KnowledgeItemCitationsProcessedTableManager get knowledgeItemCitationsRefs {
+    final manager =
+        $KnowledgeItemCitationsTableManager(
+          $_db,
+          $_db.knowledgeItemCitations,
+        ).filter(
+          (f) => f.knowledgeItemId.id.sqlEquals($_itemColumn<String>('id')!),
+        );
+
+    final cache = $_typedResult.readTableOrNull(
+      _knowledgeItemCitationsRefsTable($_db),
+    );
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: cache),
+    );
+  }
+
+  static MultiTypedResultKey<ReviewStates, List<ReviewState>>
+  _reviewStatesRefsTable(_$AppDatabase db) => MultiTypedResultKey.fromTable(
+    db.reviewStates,
+    aliasName: 'knowledge_items__id__review_states__knowledge_item_id',
+  );
+
+  $ReviewStatesProcessedTableManager get reviewStatesRefs {
+    final manager = $ReviewStatesTableManager($_db, $_db.reviewStates).filter(
+      (f) => f.knowledgeItemId.id.sqlEquals($_itemColumn<String>('id')!),
+    );
+
+    final cache = $_typedResult.readTableOrNull(_reviewStatesRefsTable($_db));
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: cache),
+    );
+  }
+
+  static MultiTypedResultKey<ReviewEvents, List<ReviewEvent>>
+  _reviewEventsRefsTable(_$AppDatabase db) => MultiTypedResultKey.fromTable(
+    db.reviewEvents,
+    aliasName: 'knowledge_items__id__review_events__knowledge_item_id',
+  );
+
+  $ReviewEventsProcessedTableManager get reviewEventsRefs {
+    final manager = $ReviewEventsTableManager($_db, $_db.reviewEvents).filter(
+      (f) => f.knowledgeItemId.id.sqlEquals($_itemColumn<String>('id')!),
+    );
+
+    final cache = $_typedResult.readTableOrNull(_reviewEventsRefsTable($_db));
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: cache),
+    );
+  }
+}
+
+class $KnowledgeItemsFilterComposer
+    extends Composer<_$AppDatabase, KnowledgeItems> {
+  $KnowledgeItemsFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get subjectId => $composableBuilder(
+    column: $table.subjectId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get relationType => $composableBuilder(
+    column: $table.relationType,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get objectId => $composableBuilder(
+    column: $table.objectId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get assertionText => $composableBuilder(
+    column: $table.assertionText,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get revision => $composableBuilder(
+    column: $table.revision,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get lastVerifiedAt => $composableBuilder(
+    column: $table.lastVerifiedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get verificationStatus => $composableBuilder(
+    column: $table.verificationStatus,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<bool> get isDistinctive => $composableBuilder(
+    column: $table.isDistinctive,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<bool> get mcqDisabled => $composableBuilder(
+    column: $table.mcqDisabled,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  $CurriculumDomainsFilterComposer get domainId {
+    final $CurriculumDomainsFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.domainId,
+      referencedTable: $db.curriculumDomains,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $CurriculumDomainsFilterComposer(
+            $db: $db,
+            $table: $db.curriculumDomains,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  $KnowledgeItemsFilterComposer get supersededByItemId {
+    final $KnowledgeItemsFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.supersededByItemId,
+      referencedTable: $db.knowledgeItems,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $KnowledgeItemsFilterComposer(
+            $db: $db,
+            $table: $db.knowledgeItems,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  Expression<bool> certificationKnowledgeMappingsRefs(
+    Expression<bool> Function($CertificationKnowledgeMappingsFilterComposer f)
+    f,
+  ) {
+    final $CertificationKnowledgeMappingsFilterComposer composer =
+        $composerBuilder(
+          composer: this,
+          getCurrentColumn: (t) => t.id,
+          referencedTable: $db.certificationKnowledgeMappings,
+          getReferencedColumn: (t) => t.knowledgeItemId,
+          builder:
+              (
+                joinBuilder, {
+                $addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer,
+              }) => $CertificationKnowledgeMappingsFilterComposer(
+                $db: $db,
+                $table: $db.certificationKnowledgeMappings,
+                $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+                joinBuilder: joinBuilder,
+                $removeJoinBuilderFromRootComposer:
+                    $removeJoinBuilderFromRootComposer,
+              ),
+        );
+    return f(composer);
+  }
+
+  Expression<bool> knowledgeItemCitationsRefs(
+    Expression<bool> Function($KnowledgeItemCitationsFilterComposer f) f,
+  ) {
+    final $KnowledgeItemCitationsFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.knowledgeItemCitations,
+      getReferencedColumn: (t) => t.knowledgeItemId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $KnowledgeItemCitationsFilterComposer(
+            $db: $db,
+            $table: $db.knowledgeItemCitations,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+
+  Expression<bool> reviewStatesRefs(
+    Expression<bool> Function($ReviewStatesFilterComposer f) f,
+  ) {
+    final $ReviewStatesFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.reviewStates,
+      getReferencedColumn: (t) => t.knowledgeItemId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $ReviewStatesFilterComposer(
+            $db: $db,
+            $table: $db.reviewStates,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+
+  Expression<bool> reviewEventsRefs(
+    Expression<bool> Function($ReviewEventsFilterComposer f) f,
+  ) {
+    final $ReviewEventsFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.reviewEvents,
+      getReferencedColumn: (t) => t.knowledgeItemId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $ReviewEventsFilterComposer(
+            $db: $db,
+            $table: $db.reviewEvents,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+}
+
+class $KnowledgeItemsOrderingComposer
+    extends Composer<_$AppDatabase, KnowledgeItems> {
+  $KnowledgeItemsOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get subjectId => $composableBuilder(
+    column: $table.subjectId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get relationType => $composableBuilder(
+    column: $table.relationType,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get objectId => $composableBuilder(
+    column: $table.objectId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get assertionText => $composableBuilder(
+    column: $table.assertionText,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get revision => $composableBuilder(
+    column: $table.revision,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get lastVerifiedAt => $composableBuilder(
+    column: $table.lastVerifiedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get verificationStatus => $composableBuilder(
+    column: $table.verificationStatus,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<bool> get isDistinctive => $composableBuilder(
+    column: $table.isDistinctive,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<bool> get mcqDisabled => $composableBuilder(
+    column: $table.mcqDisabled,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  $CurriculumDomainsOrderingComposer get domainId {
+    final $CurriculumDomainsOrderingComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.domainId,
+      referencedTable: $db.curriculumDomains,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $CurriculumDomainsOrderingComposer(
+            $db: $db,
+            $table: $db.curriculumDomains,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  $KnowledgeItemsOrderingComposer get supersededByItemId {
+    final $KnowledgeItemsOrderingComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.supersededByItemId,
+      referencedTable: $db.knowledgeItems,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $KnowledgeItemsOrderingComposer(
+            $db: $db,
+            $table: $db.knowledgeItems,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $KnowledgeItemsAnnotationComposer
+    extends Composer<_$AppDatabase, KnowledgeItems> {
+  $KnowledgeItemsAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get subjectId =>
+      $composableBuilder(column: $table.subjectId, builder: (column) => column);
+
+  GeneratedColumn<String> get relationType => $composableBuilder(
+    column: $table.relationType,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get objectId =>
+      $composableBuilder(column: $table.objectId, builder: (column) => column);
+
+  GeneratedColumn<String> get assertionText => $composableBuilder(
+    column: $table.assertionText,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get revision =>
+      $composableBuilder(column: $table.revision, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get lastVerifiedAt => $composableBuilder(
+    column: $table.lastVerifiedAt,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get verificationStatus => $composableBuilder(
+    column: $table.verificationStatus,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<bool> get isDistinctive => $composableBuilder(
+    column: $table.isDistinctive,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<bool> get mcqDisabled => $composableBuilder(
+    column: $table.mcqDisabled,
+    builder: (column) => column,
+  );
+
+  $CurriculumDomainsAnnotationComposer get domainId {
+    final $CurriculumDomainsAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.domainId,
+      referencedTable: $db.curriculumDomains,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $CurriculumDomainsAnnotationComposer(
+            $db: $db,
+            $table: $db.curriculumDomains,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  $KnowledgeItemsAnnotationComposer get supersededByItemId {
+    final $KnowledgeItemsAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.supersededByItemId,
+      referencedTable: $db.knowledgeItems,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $KnowledgeItemsAnnotationComposer(
+            $db: $db,
+            $table: $db.knowledgeItems,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  Expression<T> certificationKnowledgeMappingsRefs<T extends Object>(
+    Expression<T> Function($CertificationKnowledgeMappingsAnnotationComposer a)
+    f,
+  ) {
+    final $CertificationKnowledgeMappingsAnnotationComposer composer =
+        $composerBuilder(
+          composer: this,
+          getCurrentColumn: (t) => t.id,
+          referencedTable: $db.certificationKnowledgeMappings,
+          getReferencedColumn: (t) => t.knowledgeItemId,
+          builder:
+              (
+                joinBuilder, {
+                $addJoinBuilderToRootComposer,
+                $removeJoinBuilderFromRootComposer,
+              }) => $CertificationKnowledgeMappingsAnnotationComposer(
+                $db: $db,
+                $table: $db.certificationKnowledgeMappings,
+                $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+                joinBuilder: joinBuilder,
+                $removeJoinBuilderFromRootComposer:
+                    $removeJoinBuilderFromRootComposer,
+              ),
+        );
+    return f(composer);
+  }
+
+  Expression<T> knowledgeItemCitationsRefs<T extends Object>(
+    Expression<T> Function($KnowledgeItemCitationsAnnotationComposer a) f,
+  ) {
+    final $KnowledgeItemCitationsAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.knowledgeItemCitations,
+      getReferencedColumn: (t) => t.knowledgeItemId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $KnowledgeItemCitationsAnnotationComposer(
+            $db: $db,
+            $table: $db.knowledgeItemCitations,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+
+  Expression<T> reviewStatesRefs<T extends Object>(
+    Expression<T> Function($ReviewStatesAnnotationComposer a) f,
+  ) {
+    final $ReviewStatesAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.reviewStates,
+      getReferencedColumn: (t) => t.knowledgeItemId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $ReviewStatesAnnotationComposer(
+            $db: $db,
+            $table: $db.reviewStates,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+
+  Expression<T> reviewEventsRefs<T extends Object>(
+    Expression<T> Function($ReviewEventsAnnotationComposer a) f,
+  ) {
+    final $ReviewEventsAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.reviewEvents,
+      getReferencedColumn: (t) => t.knowledgeItemId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $ReviewEventsAnnotationComposer(
+            $db: $db,
+            $table: $db.reviewEvents,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+}
+
+class $KnowledgeItemsTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          KnowledgeItems,
+          KnowledgeItem,
+          $KnowledgeItemsFilterComposer,
+          $KnowledgeItemsOrderingComposer,
+          $KnowledgeItemsAnnotationComposer,
+          $KnowledgeItemsCreateCompanionBuilder,
+          $KnowledgeItemsUpdateCompanionBuilder,
+          (KnowledgeItem, $KnowledgeItemsReferences),
+          KnowledgeItem,
+          PrefetchHooks Function({
+            bool domainId,
+            bool supersededByItemId,
+            bool certificationKnowledgeMappingsRefs,
+            bool knowledgeItemCitationsRefs,
+            bool reviewStatesRefs,
+            bool reviewEventsRefs,
+          })
+        > {
+  $KnowledgeItemsTableManager(_$AppDatabase db, KnowledgeItems table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $KnowledgeItemsFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $KnowledgeItemsOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $KnowledgeItemsAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> id = const Value.absent(),
+                Value<String> subjectId = const Value.absent(),
+                Value<String> relationType = const Value.absent(),
+                Value<String> objectId = const Value.absent(),
+                Value<String> domainId = const Value.absent(),
+                Value<String> assertionText = const Value.absent(),
+                Value<int> revision = const Value.absent(),
+                Value<DateTime> lastVerifiedAt = const Value.absent(),
+                Value<String> verificationStatus = const Value.absent(),
+                Value<String?> supersededByItemId = const Value.absent(),
+                Value<bool> isDistinctive = const Value.absent(),
+                Value<bool> mcqDisabled = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => KnowledgeItemsCompanion(
+                id: id,
+                subjectId: subjectId,
+                relationType: relationType,
+                objectId: objectId,
+                domainId: domainId,
+                assertionText: assertionText,
+                revision: revision,
+                lastVerifiedAt: lastVerifiedAt,
+                verificationStatus: verificationStatus,
+                supersededByItemId: supersededByItemId,
+                isDistinctive: isDistinctive,
+                mcqDisabled: mcqDisabled,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String id,
+                required String subjectId,
+                required String relationType,
+                required String objectId,
+                required String domainId,
+                required String assertionText,
+                Value<int> revision = const Value.absent(),
+                required DateTime lastVerifiedAt,
+                Value<String> verificationStatus = const Value.absent(),
+                Value<String?> supersededByItemId = const Value.absent(),
+                Value<bool> isDistinctive = const Value.absent(),
+                Value<bool> mcqDisabled = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => KnowledgeItemsCompanion.insert(
+                id: id,
+                subjectId: subjectId,
+                relationType: relationType,
+                objectId: objectId,
+                domainId: domainId,
+                assertionText: assertionText,
+                revision: revision,
+                lastVerifiedAt: lastVerifiedAt,
+                verificationStatus: verificationStatus,
+                supersededByItemId: supersededByItemId,
+                isDistinctive: isDistinctive,
+                mcqDisabled: mcqDisabled,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<KnowledgeItems, KnowledgeItem>(table),
+                  $KnowledgeItemsReferences(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback:
+              ({
+                domainId = false,
+                supersededByItemId = false,
+                certificationKnowledgeMappingsRefs = false,
+                knowledgeItemCitationsRefs = false,
+                reviewStatesRefs = false,
+                reviewEventsRefs = false,
+              }) {
+                return PrefetchHooks(
+                  db: db,
+                  explicitlyWatchedTables: [
+                    if (certificationKnowledgeMappingsRefs)
+                      db.certificationKnowledgeMappings,
+                    if (knowledgeItemCitationsRefs) db.knowledgeItemCitations,
+                    if (reviewStatesRefs) db.reviewStates,
+                    if (reviewEventsRefs) db.reviewEvents,
+                  ],
+                  addJoins:
+                      <
+                        T extends TableManagerState<
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic
+                        >
+                      >(state) {
+                        if (domainId) {
+                          state = state.withJoin(
+                            currentTable: table,
+                            currentColumn: table.domainId,
+                            referencedTable: $KnowledgeItemsReferences
+                                ._domainIdTable(db),
+                            referencedColumn: $KnowledgeItemsReferences
+                                ._domainIdTable(db)
+                                .id,
+                          ) as T;
+                        }
+                        if (supersededByItemId) {
+                          state = state.withJoin(
+                            currentTable: table,
+                            currentColumn: table.supersededByItemId,
+                            referencedTable: $KnowledgeItemsReferences
+                                ._supersededByItemIdTable(db),
+                            referencedColumn: $KnowledgeItemsReferences
+                                ._supersededByItemIdTable(db)
+                                .id,
+                          ) as T;
+                        }
+
+                        return state;
+                      },
+                  getPrefetchedDataCallback: (items) async {
+                    return [
+                      if (certificationKnowledgeMappingsRefs)
+                        await $_getPrefetchedData<
+                          KnowledgeItem,
+                          KnowledgeItems,
+                          CertificationKnowledgeMapping
+                        >(
+                          currentTable: table,
+                          referencedTable: $KnowledgeItemsReferences
+                              ._certificationKnowledgeMappingsRefsTable(db),
+                          managerFromTypedResult: (p0) =>
+                              $KnowledgeItemsReferences(
+                                db,
+                                table,
+                                p0,
+                              ).certificationKnowledgeMappingsRefs,
+                          referencedItemsForCurrentItem:
+                              (item, referencedItems) => referencedItems.where(
+                                (e) => e.knowledgeItemId == item.id,
+                              ),
+                          typedResults: items,
+                        ),
+                      if (knowledgeItemCitationsRefs)
+                        await $_getPrefetchedData<
+                          KnowledgeItem,
+                          KnowledgeItems,
+                          KnowledgeItemCitation
+                        >(
+                          currentTable: table,
+                          referencedTable: $KnowledgeItemsReferences
+                              ._knowledgeItemCitationsRefsTable(db),
+                          managerFromTypedResult: (p0) =>
+                              $KnowledgeItemsReferences(
+                                db,
+                                table,
+                                p0,
+                              ).knowledgeItemCitationsRefs,
+                          referencedItemsForCurrentItem:
+                              (item, referencedItems) => referencedItems.where(
+                                (e) => e.knowledgeItemId == item.id,
+                              ),
+                          typedResults: items,
+                        ),
+                      if (reviewStatesRefs)
+                        await $_getPrefetchedData<
+                          KnowledgeItem,
+                          KnowledgeItems,
+                          ReviewState
+                        >(
+                          currentTable: table,
+                          referencedTable: $KnowledgeItemsReferences
+                              ._reviewStatesRefsTable(db),
+                          managerFromTypedResult: (p0) =>
+                              $KnowledgeItemsReferences(
+                                db,
+                                table,
+                                p0,
+                              ).reviewStatesRefs,
+                          referencedItemsForCurrentItem:
+                              (item, referencedItems) => referencedItems.where(
+                                (e) => e.knowledgeItemId == item.id,
+                              ),
+                          typedResults: items,
+                        ),
+                      if (reviewEventsRefs)
+                        await $_getPrefetchedData<
+                          KnowledgeItem,
+                          KnowledgeItems,
+                          ReviewEvent
+                        >(
+                          currentTable: table,
+                          referencedTable: $KnowledgeItemsReferences
+                              ._reviewEventsRefsTable(db),
+                          managerFromTypedResult: (p0) =>
+                              $KnowledgeItemsReferences(
+                                db,
+                                table,
+                                p0,
+                              ).reviewEventsRefs,
+                          referencedItemsForCurrentItem:
+                              (item, referencedItems) => referencedItems.where(
+                                (e) => e.knowledgeItemId == item.id,
+                              ),
+                          typedResults: items,
+                        ),
+                    ];
+                  },
+                );
+              },
+        ),
+      );
+}
+
+typedef $KnowledgeItemsProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      KnowledgeItems,
+      KnowledgeItem,
+      $KnowledgeItemsFilterComposer,
+      $KnowledgeItemsOrderingComposer,
+      $KnowledgeItemsAnnotationComposer,
+      $KnowledgeItemsCreateCompanionBuilder,
+      $KnowledgeItemsUpdateCompanionBuilder,
+      (KnowledgeItem, $KnowledgeItemsReferences),
+      KnowledgeItem,
+      PrefetchHooks Function({
+        bool domainId,
+        bool supersededByItemId,
+        bool certificationKnowledgeMappingsRefs,
+        bool knowledgeItemCitationsRefs,
+        bool reviewStatesRefs,
+        bool reviewEventsRefs,
+      })
+    >;
+typedef $KnowledgeItemPrerequisitesCreateCompanionBuilder =
+    KnowledgeItemPrerequisitesCompanion Function({
+      required String knowledgeItemId,
+      required String prerequisiteItemId,
+      Value<int> rowid,
+    });
+typedef $KnowledgeItemPrerequisitesUpdateCompanionBuilder =
+    KnowledgeItemPrerequisitesCompanion Function({
+      Value<String> knowledgeItemId,
+      Value<String> prerequisiteItemId,
+      Value<int> rowid,
+    });
+
+final class $KnowledgeItemPrerequisitesReferences
+    extends
+        BaseReferences<
+          _$AppDatabase,
+          KnowledgeItemPrerequisites,
+          KnowledgeItemPrerequisite
+        > {
+  $KnowledgeItemPrerequisitesReferences(
+    super.$_db,
+    super.$_table,
+    super.$_typedResult,
+  );
+
+  static KnowledgeItems _knowledgeItemIdTable(_$AppDatabase db) =>
+      db.knowledgeItems.createAlias(
+        'knowledge_item_prerequisites__knowledge_item_id__knowledge_items__id',
+      );
+
+  $KnowledgeItemsProcessedTableManager get knowledgeItemId {
+    final $_column = $_itemColumn<String>('knowledge_item_id')!;
+
+    final manager = $KnowledgeItemsTableManager(
+      $_db,
+      $_db.knowledgeItems,
+    ).filter((f) => f.id.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_knowledgeItemIdTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
+  }
+
+  static KnowledgeItems _prerequisiteItemIdTable(
+    _$AppDatabase db,
+  ) => db.knowledgeItems.createAlias(
+    'knowledge_item_prerequisites__prerequisite_item_id__knowledge_items__id',
+  );
+
+  $KnowledgeItemsProcessedTableManager get prerequisiteItemId {
+    final $_column = $_itemColumn<String>('prerequisite_item_id')!;
+
+    final manager = $KnowledgeItemsTableManager(
+      $_db,
+      $_db.knowledgeItems,
+    ).filter((f) => f.id.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_prerequisiteItemIdTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
+  }
+}
+
+class $KnowledgeItemPrerequisitesFilterComposer
+    extends Composer<_$AppDatabase, KnowledgeItemPrerequisites> {
+  $KnowledgeItemPrerequisitesFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  $KnowledgeItemsFilterComposer get knowledgeItemId {
+    final $KnowledgeItemsFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.knowledgeItemId,
+      referencedTable: $db.knowledgeItems,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $KnowledgeItemsFilterComposer(
+            $db: $db,
+            $table: $db.knowledgeItems,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  $KnowledgeItemsFilterComposer get prerequisiteItemId {
+    final $KnowledgeItemsFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.prerequisiteItemId,
+      referencedTable: $db.knowledgeItems,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $KnowledgeItemsFilterComposer(
+            $db: $db,
+            $table: $db.knowledgeItems,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $KnowledgeItemPrerequisitesOrderingComposer
+    extends Composer<_$AppDatabase, KnowledgeItemPrerequisites> {
+  $KnowledgeItemPrerequisitesOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  $KnowledgeItemsOrderingComposer get knowledgeItemId {
+    final $KnowledgeItemsOrderingComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.knowledgeItemId,
+      referencedTable: $db.knowledgeItems,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $KnowledgeItemsOrderingComposer(
+            $db: $db,
+            $table: $db.knowledgeItems,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  $KnowledgeItemsOrderingComposer get prerequisiteItemId {
+    final $KnowledgeItemsOrderingComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.prerequisiteItemId,
+      referencedTable: $db.knowledgeItems,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $KnowledgeItemsOrderingComposer(
+            $db: $db,
+            $table: $db.knowledgeItems,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $KnowledgeItemPrerequisitesAnnotationComposer
+    extends Composer<_$AppDatabase, KnowledgeItemPrerequisites> {
+  $KnowledgeItemPrerequisitesAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  $KnowledgeItemsAnnotationComposer get knowledgeItemId {
+    final $KnowledgeItemsAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.knowledgeItemId,
+      referencedTable: $db.knowledgeItems,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $KnowledgeItemsAnnotationComposer(
+            $db: $db,
+            $table: $db.knowledgeItems,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  $KnowledgeItemsAnnotationComposer get prerequisiteItemId {
+    final $KnowledgeItemsAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.prerequisiteItemId,
+      referencedTable: $db.knowledgeItems,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $KnowledgeItemsAnnotationComposer(
+            $db: $db,
+            $table: $db.knowledgeItems,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $KnowledgeItemPrerequisitesTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          KnowledgeItemPrerequisites,
+          KnowledgeItemPrerequisite,
+          $KnowledgeItemPrerequisitesFilterComposer,
+          $KnowledgeItemPrerequisitesOrderingComposer,
+          $KnowledgeItemPrerequisitesAnnotationComposer,
+          $KnowledgeItemPrerequisitesCreateCompanionBuilder,
+          $KnowledgeItemPrerequisitesUpdateCompanionBuilder,
+          (KnowledgeItemPrerequisite, $KnowledgeItemPrerequisitesReferences),
+          KnowledgeItemPrerequisite,
+          PrefetchHooks Function({
+            bool knowledgeItemId,
+            bool prerequisiteItemId,
+          })
+        > {
+  $KnowledgeItemPrerequisitesTableManager(
+    _$AppDatabase db,
+    KnowledgeItemPrerequisites table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $KnowledgeItemPrerequisitesFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $KnowledgeItemPrerequisitesOrderingComposer(
+                $db: db,
+                $table: table,
+              ),
+          createComputedFieldComposer: () =>
+              $KnowledgeItemPrerequisitesAnnotationComposer(
+                $db: db,
+                $table: table,
+              ),
+          updateCompanionCallback:
+              ({
+                Value<String> knowledgeItemId = const Value.absent(),
+                Value<String> prerequisiteItemId = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => KnowledgeItemPrerequisitesCompanion(
+                knowledgeItemId: knowledgeItemId,
+                prerequisiteItemId: prerequisiteItemId,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String knowledgeItemId,
+                required String prerequisiteItemId,
+                Value<int> rowid = const Value.absent(),
+              }) => KnowledgeItemPrerequisitesCompanion.insert(
+                knowledgeItemId: knowledgeItemId,
+                prerequisiteItemId: prerequisiteItemId,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<
+                    KnowledgeItemPrerequisites,
+                    KnowledgeItemPrerequisite
+                  >(table),
+                  $KnowledgeItemPrerequisitesReferences(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback:
+              ({knowledgeItemId = false, prerequisiteItemId = false}) {
+                return PrefetchHooks(
+                  db: db,
+                  explicitlyWatchedTables: [],
+                  addJoins:
+                      <
+                        T extends TableManagerState<
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic
+                        >
+                      >(state) {
+                        if (knowledgeItemId) {
+                          state = state.withJoin(
+                            currentTable: table,
+                            currentColumn: table.knowledgeItemId,
+                            referencedTable:
+                                $KnowledgeItemPrerequisitesReferences
+                                    ._knowledgeItemIdTable(db),
+                            referencedColumn:
+                                $KnowledgeItemPrerequisitesReferences
+                                    ._knowledgeItemIdTable(db)
+                                    .id,
+                          ) as T;
+                        }
+                        if (prerequisiteItemId) {
+                          state = state.withJoin(
+                            currentTable: table,
+                            currentColumn: table.prerequisiteItemId,
+                            referencedTable:
+                                $KnowledgeItemPrerequisitesReferences
+                                    ._prerequisiteItemIdTable(db),
+                            referencedColumn:
+                                $KnowledgeItemPrerequisitesReferences
+                                    ._prerequisiteItemIdTable(db)
+                                    .id,
+                          ) as T;
+                        }
+
+                        return state;
+                      },
+                  getPrefetchedDataCallback: (items) async {
+                    return [];
+                  },
+                );
+              },
+        ),
+      );
+}
+
+typedef $KnowledgeItemPrerequisitesProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      KnowledgeItemPrerequisites,
+      KnowledgeItemPrerequisite,
+      $KnowledgeItemPrerequisitesFilterComposer,
+      $KnowledgeItemPrerequisitesOrderingComposer,
+      $KnowledgeItemPrerequisitesAnnotationComposer,
+      $KnowledgeItemPrerequisitesCreateCompanionBuilder,
+      $KnowledgeItemPrerequisitesUpdateCompanionBuilder,
+      (KnowledgeItemPrerequisite, $KnowledgeItemPrerequisitesReferences),
+      KnowledgeItemPrerequisite,
+      PrefetchHooks Function({bool knowledgeItemId, bool prerequisiteItemId})
+    >;
+typedef $CertificationKnowledgeMappingsCreateCompanionBuilder =
+    CertificationKnowledgeMappingsCompanion Function({
+      required String certificationId,
+      required String knowledgeItemId,
+      required String importance,
+      required int minimumDepth,
+      Value<String?> syllabusRef,
+      Value<int> rowid,
+    });
+typedef $CertificationKnowledgeMappingsUpdateCompanionBuilder =
+    CertificationKnowledgeMappingsCompanion Function({
+      Value<String> certificationId,
+      Value<String> knowledgeItemId,
+      Value<String> importance,
+      Value<int> minimumDepth,
+      Value<String?> syllabusRef,
+      Value<int> rowid,
+    });
+
+final class $CertificationKnowledgeMappingsReferences
+    extends
+        BaseReferences<
+          _$AppDatabase,
+          CertificationKnowledgeMappings,
+          CertificationKnowledgeMapping
+        > {
+  $CertificationKnowledgeMappingsReferences(
+    super.$_db,
+    super.$_table,
+    super.$_typedResult,
+  );
+
+  static Certifications _certificationIdTable(
+    _$AppDatabase db,
+  ) => db.certifications.createAlias(
+    'certification_knowledge_mappings__certification_id__certifications__id',
+  );
+
+  $CertificationsProcessedTableManager get certificationId {
+    final $_column = $_itemColumn<String>('certification_id')!;
+
+    final manager = $CertificationsTableManager(
+      $_db,
+      $_db.certifications,
+    ).filter((f) => f.id.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_certificationIdTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
+  }
+
+  static KnowledgeItems _knowledgeItemIdTable(
+    _$AppDatabase db,
+  ) => db.knowledgeItems.createAlias(
+    'certification_knowledge_mappings__knowledge_item_id__knowledge_items__id',
+  );
+
+  $KnowledgeItemsProcessedTableManager get knowledgeItemId {
+    final $_column = $_itemColumn<String>('knowledge_item_id')!;
+
+    final manager = $KnowledgeItemsTableManager(
+      $_db,
+      $_db.knowledgeItems,
+    ).filter((f) => f.id.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_knowledgeItemIdTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
+  }
+}
+
+class $CertificationKnowledgeMappingsFilterComposer
+    extends Composer<_$AppDatabase, CertificationKnowledgeMappings> {
+  $CertificationKnowledgeMappingsFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get importance => $composableBuilder(
+    column: $table.importance,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get minimumDepth => $composableBuilder(
+    column: $table.minimumDepth,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get syllabusRef => $composableBuilder(
+    column: $table.syllabusRef,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  $CertificationsFilterComposer get certificationId {
+    final $CertificationsFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.certificationId,
+      referencedTable: $db.certifications,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $CertificationsFilterComposer(
+            $db: $db,
+            $table: $db.certifications,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  $KnowledgeItemsFilterComposer get knowledgeItemId {
+    final $KnowledgeItemsFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.knowledgeItemId,
+      referencedTable: $db.knowledgeItems,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $KnowledgeItemsFilterComposer(
+            $db: $db,
+            $table: $db.knowledgeItems,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $CertificationKnowledgeMappingsOrderingComposer
+    extends Composer<_$AppDatabase, CertificationKnowledgeMappings> {
+  $CertificationKnowledgeMappingsOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get importance => $composableBuilder(
+    column: $table.importance,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get minimumDepth => $composableBuilder(
+    column: $table.minimumDepth,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get syllabusRef => $composableBuilder(
+    column: $table.syllabusRef,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  $CertificationsOrderingComposer get certificationId {
+    final $CertificationsOrderingComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.certificationId,
+      referencedTable: $db.certifications,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $CertificationsOrderingComposer(
+            $db: $db,
+            $table: $db.certifications,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  $KnowledgeItemsOrderingComposer get knowledgeItemId {
+    final $KnowledgeItemsOrderingComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.knowledgeItemId,
+      referencedTable: $db.knowledgeItems,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $KnowledgeItemsOrderingComposer(
+            $db: $db,
+            $table: $db.knowledgeItems,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $CertificationKnowledgeMappingsAnnotationComposer
+    extends Composer<_$AppDatabase, CertificationKnowledgeMappings> {
+  $CertificationKnowledgeMappingsAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get importance => $composableBuilder(
+    column: $table.importance,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get minimumDepth => $composableBuilder(
+    column: $table.minimumDepth,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get syllabusRef => $composableBuilder(
+    column: $table.syllabusRef,
+    builder: (column) => column,
+  );
+
+  $CertificationsAnnotationComposer get certificationId {
+    final $CertificationsAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.certificationId,
+      referencedTable: $db.certifications,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $CertificationsAnnotationComposer(
+            $db: $db,
+            $table: $db.certifications,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  $KnowledgeItemsAnnotationComposer get knowledgeItemId {
+    final $KnowledgeItemsAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.knowledgeItemId,
+      referencedTable: $db.knowledgeItems,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $KnowledgeItemsAnnotationComposer(
+            $db: $db,
+            $table: $db.knowledgeItems,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $CertificationKnowledgeMappingsTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          CertificationKnowledgeMappings,
+          CertificationKnowledgeMapping,
+          $CertificationKnowledgeMappingsFilterComposer,
+          $CertificationKnowledgeMappingsOrderingComposer,
+          $CertificationKnowledgeMappingsAnnotationComposer,
+          $CertificationKnowledgeMappingsCreateCompanionBuilder,
+          $CertificationKnowledgeMappingsUpdateCompanionBuilder,
+          (
+            CertificationKnowledgeMapping,
+            $CertificationKnowledgeMappingsReferences,
+          ),
+          CertificationKnowledgeMapping,
+          PrefetchHooks Function({bool certificationId, bool knowledgeItemId})
+        > {
+  $CertificationKnowledgeMappingsTableManager(
+    _$AppDatabase db,
+    CertificationKnowledgeMappings table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $CertificationKnowledgeMappingsFilterComposer(
+                $db: db,
+                $table: table,
+              ),
+          createOrderingComposer: () =>
+              $CertificationKnowledgeMappingsOrderingComposer(
+                $db: db,
+                $table: table,
+              ),
+          createComputedFieldComposer: () =>
+              $CertificationKnowledgeMappingsAnnotationComposer(
+                $db: db,
+                $table: table,
+              ),
+          updateCompanionCallback:
+              ({
+                Value<String> certificationId = const Value.absent(),
+                Value<String> knowledgeItemId = const Value.absent(),
+                Value<String> importance = const Value.absent(),
+                Value<int> minimumDepth = const Value.absent(),
+                Value<String?> syllabusRef = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => CertificationKnowledgeMappingsCompanion(
+                certificationId: certificationId,
+                knowledgeItemId: knowledgeItemId,
+                importance: importance,
+                minimumDepth: minimumDepth,
+                syllabusRef: syllabusRef,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String certificationId,
+                required String knowledgeItemId,
+                required String importance,
+                required int minimumDepth,
+                Value<String?> syllabusRef = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => CertificationKnowledgeMappingsCompanion.insert(
+                certificationId: certificationId,
+                knowledgeItemId: knowledgeItemId,
+                importance: importance,
+                minimumDepth: minimumDepth,
+                syllabusRef: syllabusRef,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<
+                    CertificationKnowledgeMappings,
+                    CertificationKnowledgeMapping
+                  >(table),
+                  $CertificationKnowledgeMappingsReferences(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback:
+              ({certificationId = false, knowledgeItemId = false}) {
+                return PrefetchHooks(
+                  db: db,
+                  explicitlyWatchedTables: [],
+                  addJoins:
+                      <
+                        T extends TableManagerState<
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic
+                        >
+                      >(state) {
+                        if (certificationId) {
+                          state = state.withJoin(
+                            currentTable: table,
+                            currentColumn: table.certificationId,
+                            referencedTable:
+                                $CertificationKnowledgeMappingsReferences
+                                    ._certificationIdTable(db),
+                            referencedColumn:
+                                $CertificationKnowledgeMappingsReferences
+                                    ._certificationIdTable(db)
+                                    .id,
+                          ) as T;
+                        }
+                        if (knowledgeItemId) {
+                          state = state.withJoin(
+                            currentTable: table,
+                            currentColumn: table.knowledgeItemId,
+                            referencedTable:
+                                $CertificationKnowledgeMappingsReferences
+                                    ._knowledgeItemIdTable(db),
+                            referencedColumn:
+                                $CertificationKnowledgeMappingsReferences
+                                    ._knowledgeItemIdTable(db)
+                                    .id,
+                          ) as T;
+                        }
+
+                        return state;
+                      },
+                  getPrefetchedDataCallback: (items) async {
+                    return [];
+                  },
+                );
+              },
+        ),
+      );
+}
+
+typedef $CertificationKnowledgeMappingsProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      CertificationKnowledgeMappings,
+      CertificationKnowledgeMapping,
+      $CertificationKnowledgeMappingsFilterComposer,
+      $CertificationKnowledgeMappingsOrderingComposer,
+      $CertificationKnowledgeMappingsAnnotationComposer,
+      $CertificationKnowledgeMappingsCreateCompanionBuilder,
+      $CertificationKnowledgeMappingsUpdateCompanionBuilder,
+      (
+        CertificationKnowledgeMapping,
+        $CertificationKnowledgeMappingsReferences,
+      ),
+      CertificationKnowledgeMapping,
+      PrefetchHooks Function({bool certificationId, bool knowledgeItemId})
+    >;
+typedef $SourceCitationsCreateCompanionBuilder =
+    SourceCitationsCompanion Function({
+      required String id,
+      required String kind,
+      required String title,
+      required String publisher,
+      Value<String?> jurisdiction,
+      Value<String?> documentIdentifier,
+      Value<String?> url,
+      Value<String?> publishedOn,
+      required String accessedOn,
+      Value<String?> license,
+      Value<String?> attributionText,
+      Value<int> rowid,
+    });
+typedef $SourceCitationsUpdateCompanionBuilder =
+    SourceCitationsCompanion Function({
+      Value<String> id,
+      Value<String> kind,
+      Value<String> title,
+      Value<String> publisher,
+      Value<String?> jurisdiction,
+      Value<String?> documentIdentifier,
+      Value<String?> url,
+      Value<String?> publishedOn,
+      Value<String> accessedOn,
+      Value<String?> license,
+      Value<String?> attributionText,
+      Value<int> rowid,
+    });
+
+final class $SourceCitationsReferences
+    extends BaseReferences<_$AppDatabase, SourceCitations, SourceCitation> {
+  $SourceCitationsReferences(super.$_db, super.$_table, super.$_typedResult);
+
+  static MultiTypedResultKey<
+    KnowledgeItemCitations,
+    List<KnowledgeItemCitation>
+  >
+  _knowledgeItemCitationsRefsTable(
+    _$AppDatabase db,
+  ) => MultiTypedResultKey.fromTable(
+    db.knowledgeItemCitations,
+    aliasName:
+        'source_citations__id__knowledge_item_citations__source_citation_id',
+  );
+
+  $KnowledgeItemCitationsProcessedTableManager get knowledgeItemCitationsRefs {
+    final manager =
+        $KnowledgeItemCitationsTableManager(
+          $_db,
+          $_db.knowledgeItemCitations,
+        ).filter(
+          (f) => f.sourceCitationId.id.sqlEquals($_itemColumn<String>('id')!),
+        );
+
+    final cache = $_typedResult.readTableOrNull(
+      _knowledgeItemCitationsRefsTable($_db),
+    );
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: cache),
+    );
+  }
+}
+
+class $SourceCitationsFilterComposer
+    extends Composer<_$AppDatabase, SourceCitations> {
+  $SourceCitationsFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get kind => $composableBuilder(
+    column: $table.kind,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get title => $composableBuilder(
+    column: $table.title,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get publisher => $composableBuilder(
+    column: $table.publisher,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get jurisdiction => $composableBuilder(
+    column: $table.jurisdiction,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get documentIdentifier => $composableBuilder(
+    column: $table.documentIdentifier,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get url => $composableBuilder(
+    column: $table.url,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get publishedOn => $composableBuilder(
+    column: $table.publishedOn,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get accessedOn => $composableBuilder(
+    column: $table.accessedOn,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get license => $composableBuilder(
+    column: $table.license,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get attributionText => $composableBuilder(
+    column: $table.attributionText,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  Expression<bool> knowledgeItemCitationsRefs(
+    Expression<bool> Function($KnowledgeItemCitationsFilterComposer f) f,
+  ) {
+    final $KnowledgeItemCitationsFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.knowledgeItemCitations,
+      getReferencedColumn: (t) => t.sourceCitationId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $KnowledgeItemCitationsFilterComposer(
+            $db: $db,
+            $table: $db.knowledgeItemCitations,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+}
+
+class $SourceCitationsOrderingComposer
+    extends Composer<_$AppDatabase, SourceCitations> {
+  $SourceCitationsOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get kind => $composableBuilder(
+    column: $table.kind,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get title => $composableBuilder(
+    column: $table.title,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get publisher => $composableBuilder(
+    column: $table.publisher,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get jurisdiction => $composableBuilder(
+    column: $table.jurisdiction,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get documentIdentifier => $composableBuilder(
+    column: $table.documentIdentifier,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get url => $composableBuilder(
+    column: $table.url,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get publishedOn => $composableBuilder(
+    column: $table.publishedOn,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get accessedOn => $composableBuilder(
+    column: $table.accessedOn,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get license => $composableBuilder(
+    column: $table.license,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get attributionText => $composableBuilder(
+    column: $table.attributionText,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $SourceCitationsAnnotationComposer
+    extends Composer<_$AppDatabase, SourceCitations> {
+  $SourceCitationsAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get kind =>
+      $composableBuilder(column: $table.kind, builder: (column) => column);
+
+  GeneratedColumn<String> get title =>
+      $composableBuilder(column: $table.title, builder: (column) => column);
+
+  GeneratedColumn<String> get publisher =>
+      $composableBuilder(column: $table.publisher, builder: (column) => column);
+
+  GeneratedColumn<String> get jurisdiction => $composableBuilder(
+    column: $table.jurisdiction,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get documentIdentifier => $composableBuilder(
+    column: $table.documentIdentifier,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get url =>
+      $composableBuilder(column: $table.url, builder: (column) => column);
+
+  GeneratedColumn<String> get publishedOn => $composableBuilder(
+    column: $table.publishedOn,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get accessedOn => $composableBuilder(
+    column: $table.accessedOn,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get license =>
+      $composableBuilder(column: $table.license, builder: (column) => column);
+
+  GeneratedColumn<String> get attributionText => $composableBuilder(
+    column: $table.attributionText,
+    builder: (column) => column,
+  );
+
+  Expression<T> knowledgeItemCitationsRefs<T extends Object>(
+    Expression<T> Function($KnowledgeItemCitationsAnnotationComposer a) f,
+  ) {
+    final $KnowledgeItemCitationsAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.knowledgeItemCitations,
+      getReferencedColumn: (t) => t.sourceCitationId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $KnowledgeItemCitationsAnnotationComposer(
+            $db: $db,
+            $table: $db.knowledgeItemCitations,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+}
+
+class $SourceCitationsTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          SourceCitations,
+          SourceCitation,
+          $SourceCitationsFilterComposer,
+          $SourceCitationsOrderingComposer,
+          $SourceCitationsAnnotationComposer,
+          $SourceCitationsCreateCompanionBuilder,
+          $SourceCitationsUpdateCompanionBuilder,
+          (SourceCitation, $SourceCitationsReferences),
+          SourceCitation,
+          PrefetchHooks Function({bool knowledgeItemCitationsRefs})
+        > {
+  $SourceCitationsTableManager(_$AppDatabase db, SourceCitations table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $SourceCitationsFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $SourceCitationsOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $SourceCitationsAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> id = const Value.absent(),
+                Value<String> kind = const Value.absent(),
+                Value<String> title = const Value.absent(),
+                Value<String> publisher = const Value.absent(),
+                Value<String?> jurisdiction = const Value.absent(),
+                Value<String?> documentIdentifier = const Value.absent(),
+                Value<String?> url = const Value.absent(),
+                Value<String?> publishedOn = const Value.absent(),
+                Value<String> accessedOn = const Value.absent(),
+                Value<String?> license = const Value.absent(),
+                Value<String?> attributionText = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => SourceCitationsCompanion(
+                id: id,
+                kind: kind,
+                title: title,
+                publisher: publisher,
+                jurisdiction: jurisdiction,
+                documentIdentifier: documentIdentifier,
+                url: url,
+                publishedOn: publishedOn,
+                accessedOn: accessedOn,
+                license: license,
+                attributionText: attributionText,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String id,
+                required String kind,
+                required String title,
+                required String publisher,
+                Value<String?> jurisdiction = const Value.absent(),
+                Value<String?> documentIdentifier = const Value.absent(),
+                Value<String?> url = const Value.absent(),
+                Value<String?> publishedOn = const Value.absent(),
+                required String accessedOn,
+                Value<String?> license = const Value.absent(),
+                Value<String?> attributionText = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => SourceCitationsCompanion.insert(
+                id: id,
+                kind: kind,
+                title: title,
+                publisher: publisher,
+                jurisdiction: jurisdiction,
+                documentIdentifier: documentIdentifier,
+                url: url,
+                publishedOn: publishedOn,
+                accessedOn: accessedOn,
+                license: license,
+                attributionText: attributionText,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<SourceCitations, SourceCitation>(table),
+                  $SourceCitationsReferences(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: ({knowledgeItemCitationsRefs = false}) {
+            return PrefetchHooks(
+              db: db,
+              explicitlyWatchedTables: [
+                if (knowledgeItemCitationsRefs) db.knowledgeItemCitations,
+              ],
+              addJoins: null,
+              getPrefetchedDataCallback: (items) async {
+                return [
+                  if (knowledgeItemCitationsRefs)
+                    await $_getPrefetchedData<
+                      SourceCitation,
+                      SourceCitations,
+                      KnowledgeItemCitation
+                    >(
+                      currentTable: table,
+                      referencedTable: $SourceCitationsReferences
+                          ._knowledgeItemCitationsRefsTable(db),
+                      managerFromTypedResult: (p0) =>
+                          $SourceCitationsReferences(
+                            db,
+                            table,
+                            p0,
+                          ).knowledgeItemCitationsRefs,
+                      referencedItemsForCurrentItem: (item, referencedItems) =>
+                          referencedItems.where(
+                            (e) => e.sourceCitationId == item.id,
+                          ),
+                      typedResults: items,
+                    ),
+                ];
+              },
+            );
+          },
+        ),
+      );
+}
+
+typedef $SourceCitationsProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      SourceCitations,
+      SourceCitation,
+      $SourceCitationsFilterComposer,
+      $SourceCitationsOrderingComposer,
+      $SourceCitationsAnnotationComposer,
+      $SourceCitationsCreateCompanionBuilder,
+      $SourceCitationsUpdateCompanionBuilder,
+      (SourceCitation, $SourceCitationsReferences),
+      SourceCitation,
+      PrefetchHooks Function({bool knowledgeItemCitationsRefs})
+    >;
+typedef $KnowledgeItemCitationsCreateCompanionBuilder =
+    KnowledgeItemCitationsCompanion Function({
+      required String knowledgeItemId,
+      required String sourceCitationId,
+      Value<String?> locator,
+      Value<int> rowid,
+    });
+typedef $KnowledgeItemCitationsUpdateCompanionBuilder =
+    KnowledgeItemCitationsCompanion Function({
+      Value<String> knowledgeItemId,
+      Value<String> sourceCitationId,
+      Value<String?> locator,
+      Value<int> rowid,
+    });
+
+final class $KnowledgeItemCitationsReferences
+    extends
+        BaseReferences<
+          _$AppDatabase,
+          KnowledgeItemCitations,
+          KnowledgeItemCitation
+        > {
+  $KnowledgeItemCitationsReferences(
+    super.$_db,
+    super.$_table,
+    super.$_typedResult,
+  );
+
+  static KnowledgeItems _knowledgeItemIdTable(_$AppDatabase db) =>
+      db.knowledgeItems.createAlias(
+        'knowledge_item_citations__knowledge_item_id__knowledge_items__id',
+      );
+
+  $KnowledgeItemsProcessedTableManager get knowledgeItemId {
+    final $_column = $_itemColumn<String>('knowledge_item_id')!;
+
+    final manager = $KnowledgeItemsTableManager(
+      $_db,
+      $_db.knowledgeItems,
+    ).filter((f) => f.id.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_knowledgeItemIdTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
+  }
+
+  static SourceCitations _sourceCitationIdTable(_$AppDatabase db) =>
+      db.sourceCitations.createAlias(
+        'knowledge_item_citations__source_citation_id__source_citations__id',
+      );
+
+  $SourceCitationsProcessedTableManager get sourceCitationId {
+    final $_column = $_itemColumn<String>('source_citation_id')!;
+
+    final manager = $SourceCitationsTableManager(
+      $_db,
+      $_db.sourceCitations,
+    ).filter((f) => f.id.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_sourceCitationIdTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
+  }
+}
+
+class $KnowledgeItemCitationsFilterComposer
+    extends Composer<_$AppDatabase, KnowledgeItemCitations> {
+  $KnowledgeItemCitationsFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get locator => $composableBuilder(
+    column: $table.locator,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  $KnowledgeItemsFilterComposer get knowledgeItemId {
+    final $KnowledgeItemsFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.knowledgeItemId,
+      referencedTable: $db.knowledgeItems,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $KnowledgeItemsFilterComposer(
+            $db: $db,
+            $table: $db.knowledgeItems,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  $SourceCitationsFilterComposer get sourceCitationId {
+    final $SourceCitationsFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.sourceCitationId,
+      referencedTable: $db.sourceCitations,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $SourceCitationsFilterComposer(
+            $db: $db,
+            $table: $db.sourceCitations,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $KnowledgeItemCitationsOrderingComposer
+    extends Composer<_$AppDatabase, KnowledgeItemCitations> {
+  $KnowledgeItemCitationsOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get locator => $composableBuilder(
+    column: $table.locator,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  $KnowledgeItemsOrderingComposer get knowledgeItemId {
+    final $KnowledgeItemsOrderingComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.knowledgeItemId,
+      referencedTable: $db.knowledgeItems,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $KnowledgeItemsOrderingComposer(
+            $db: $db,
+            $table: $db.knowledgeItems,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  $SourceCitationsOrderingComposer get sourceCitationId {
+    final $SourceCitationsOrderingComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.sourceCitationId,
+      referencedTable: $db.sourceCitations,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $SourceCitationsOrderingComposer(
+            $db: $db,
+            $table: $db.sourceCitations,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $KnowledgeItemCitationsAnnotationComposer
+    extends Composer<_$AppDatabase, KnowledgeItemCitations> {
+  $KnowledgeItemCitationsAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get locator =>
+      $composableBuilder(column: $table.locator, builder: (column) => column);
+
+  $KnowledgeItemsAnnotationComposer get knowledgeItemId {
+    final $KnowledgeItemsAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.knowledgeItemId,
+      referencedTable: $db.knowledgeItems,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $KnowledgeItemsAnnotationComposer(
+            $db: $db,
+            $table: $db.knowledgeItems,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  $SourceCitationsAnnotationComposer get sourceCitationId {
+    final $SourceCitationsAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.sourceCitationId,
+      referencedTable: $db.sourceCitations,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $SourceCitationsAnnotationComposer(
+            $db: $db,
+            $table: $db.sourceCitations,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $KnowledgeItemCitationsTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          KnowledgeItemCitations,
+          KnowledgeItemCitation,
+          $KnowledgeItemCitationsFilterComposer,
+          $KnowledgeItemCitationsOrderingComposer,
+          $KnowledgeItemCitationsAnnotationComposer,
+          $KnowledgeItemCitationsCreateCompanionBuilder,
+          $KnowledgeItemCitationsUpdateCompanionBuilder,
+          (KnowledgeItemCitation, $KnowledgeItemCitationsReferences),
+          KnowledgeItemCitation,
+          PrefetchHooks Function({bool knowledgeItemId, bool sourceCitationId})
+        > {
+  $KnowledgeItemCitationsTableManager(
+    _$AppDatabase db,
+    KnowledgeItemCitations table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $KnowledgeItemCitationsFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $KnowledgeItemCitationsOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $KnowledgeItemCitationsAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> knowledgeItemId = const Value.absent(),
+                Value<String> sourceCitationId = const Value.absent(),
+                Value<String?> locator = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => KnowledgeItemCitationsCompanion(
+                knowledgeItemId: knowledgeItemId,
+                sourceCitationId: sourceCitationId,
+                locator: locator,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String knowledgeItemId,
+                required String sourceCitationId,
+                Value<String?> locator = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => KnowledgeItemCitationsCompanion.insert(
+                knowledgeItemId: knowledgeItemId,
+                sourceCitationId: sourceCitationId,
+                locator: locator,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<KnowledgeItemCitations, KnowledgeItemCitation>(
+                    table,
+                  ),
+                  $KnowledgeItemCitationsReferences(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback:
+              ({knowledgeItemId = false, sourceCitationId = false}) {
+                return PrefetchHooks(
+                  db: db,
+                  explicitlyWatchedTables: [],
+                  addJoins:
+                      <
+                        T extends TableManagerState<
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic
+                        >
+                      >(state) {
+                        if (knowledgeItemId) {
+                          state = state.withJoin(
+                            currentTable: table,
+                            currentColumn: table.knowledgeItemId,
+                            referencedTable: $KnowledgeItemCitationsReferences
+                                ._knowledgeItemIdTable(db),
+                            referencedColumn: $KnowledgeItemCitationsReferences
+                                ._knowledgeItemIdTable(db)
+                                .id,
+                          ) as T;
+                        }
+                        if (sourceCitationId) {
+                          state = state.withJoin(
+                            currentTable: table,
+                            currentColumn: table.sourceCitationId,
+                            referencedTable: $KnowledgeItemCitationsReferences
+                                ._sourceCitationIdTable(db),
+                            referencedColumn: $KnowledgeItemCitationsReferences
+                                ._sourceCitationIdTable(db)
+                                .id,
+                          ) as T;
+                        }
+
+                        return state;
+                      },
+                  getPrefetchedDataCallback: (items) async {
+                    return [];
+                  },
+                );
+              },
+        ),
+      );
+}
+
+typedef $KnowledgeItemCitationsProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      KnowledgeItemCitations,
+      KnowledgeItemCitation,
+      $KnowledgeItemCitationsFilterComposer,
+      $KnowledgeItemCitationsOrderingComposer,
+      $KnowledgeItemCitationsAnnotationComposer,
+      $KnowledgeItemCitationsCreateCompanionBuilder,
+      $KnowledgeItemCitationsUpdateCompanionBuilder,
+      (KnowledgeItemCitation, $KnowledgeItemCitationsReferences),
+      KnowledgeItemCitation,
+      PrefetchHooks Function({bool knowledgeItemId, bool sourceCitationId})
+    >;
+typedef $QuestionTemplatesCreateCompanionBuilder =
+    QuestionTemplatesCompanion Function({
+      required String id,
+      required String relationType,
+      required String direction,
+      required String mode,
+      Value<String> locale,
+      required String promptTemplate,
+      Value<int> rowid,
+    });
+typedef $QuestionTemplatesUpdateCompanionBuilder =
+    QuestionTemplatesCompanion Function({
+      Value<String> id,
+      Value<String> relationType,
+      Value<String> direction,
+      Value<String> mode,
+      Value<String> locale,
+      Value<String> promptTemplate,
+      Value<int> rowid,
+    });
+
+final class $QuestionTemplatesReferences
+    extends BaseReferences<_$AppDatabase, QuestionTemplates, QuestionTemplate> {
+  $QuestionTemplatesReferences(super.$_db, super.$_table, super.$_typedResult);
+
+  static RelationTypes _relationTypeTable(_$AppDatabase db) => db.relationTypes
+      .createAlias('question_templates__relation_type__relation_types__id');
+
+  $RelationTypesProcessedTableManager get relationType {
+    final $_column = $_itemColumn<String>('relation_type')!;
+
+    final manager = $RelationTypesTableManager(
+      $_db,
+      $_db.relationTypes,
+    ).filter((f) => f.id.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_relationTypeTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
+  }
+
+  static MultiTypedResultKey<ReviewEvents, List<ReviewEvent>>
+  _reviewEventsRefsTable(_$AppDatabase db) => MultiTypedResultKey.fromTable(
+    db.reviewEvents,
+    aliasName: 'question_templates__id__review_events__question_template_id',
+  );
+
+  $ReviewEventsProcessedTableManager get reviewEventsRefs {
+    final manager = $ReviewEventsTableManager($_db, $_db.reviewEvents).filter(
+      (f) => f.questionTemplateId.id.sqlEquals($_itemColumn<String>('id')!),
+    );
+
+    final cache = $_typedResult.readTableOrNull(_reviewEventsRefsTable($_db));
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: cache),
+    );
+  }
+}
+
+class $QuestionTemplatesFilterComposer
+    extends Composer<_$AppDatabase, QuestionTemplates> {
+  $QuestionTemplatesFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get direction => $composableBuilder(
+    column: $table.direction,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get mode => $composableBuilder(
+    column: $table.mode,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get locale => $composableBuilder(
+    column: $table.locale,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get promptTemplate => $composableBuilder(
+    column: $table.promptTemplate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  $RelationTypesFilterComposer get relationType {
+    final $RelationTypesFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.relationType,
+      referencedTable: $db.relationTypes,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $RelationTypesFilterComposer(
+            $db: $db,
+            $table: $db.relationTypes,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  Expression<bool> reviewEventsRefs(
+    Expression<bool> Function($ReviewEventsFilterComposer f) f,
+  ) {
+    final $ReviewEventsFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.reviewEvents,
+      getReferencedColumn: (t) => t.questionTemplateId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $ReviewEventsFilterComposer(
+            $db: $db,
+            $table: $db.reviewEvents,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+}
+
+class $QuestionTemplatesOrderingComposer
+    extends Composer<_$AppDatabase, QuestionTemplates> {
+  $QuestionTemplatesOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get direction => $composableBuilder(
+    column: $table.direction,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get mode => $composableBuilder(
+    column: $table.mode,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get locale => $composableBuilder(
+    column: $table.locale,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get promptTemplate => $composableBuilder(
+    column: $table.promptTemplate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  $RelationTypesOrderingComposer get relationType {
+    final $RelationTypesOrderingComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.relationType,
+      referencedTable: $db.relationTypes,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $RelationTypesOrderingComposer(
+            $db: $db,
+            $table: $db.relationTypes,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $QuestionTemplatesAnnotationComposer
+    extends Composer<_$AppDatabase, QuestionTemplates> {
+  $QuestionTemplatesAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get direction =>
+      $composableBuilder(column: $table.direction, builder: (column) => column);
+
+  GeneratedColumn<String> get mode =>
+      $composableBuilder(column: $table.mode, builder: (column) => column);
+
+  GeneratedColumn<String> get locale =>
+      $composableBuilder(column: $table.locale, builder: (column) => column);
+
+  GeneratedColumn<String> get promptTemplate => $composableBuilder(
+    column: $table.promptTemplate,
+    builder: (column) => column,
+  );
+
+  $RelationTypesAnnotationComposer get relationType {
+    final $RelationTypesAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.relationType,
+      referencedTable: $db.relationTypes,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $RelationTypesAnnotationComposer(
+            $db: $db,
+            $table: $db.relationTypes,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  Expression<T> reviewEventsRefs<T extends Object>(
+    Expression<T> Function($ReviewEventsAnnotationComposer a) f,
+  ) {
+    final $ReviewEventsAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.reviewEvents,
+      getReferencedColumn: (t) => t.questionTemplateId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $ReviewEventsAnnotationComposer(
+            $db: $db,
+            $table: $db.reviewEvents,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+}
+
+class $QuestionTemplatesTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          QuestionTemplates,
+          QuestionTemplate,
+          $QuestionTemplatesFilterComposer,
+          $QuestionTemplatesOrderingComposer,
+          $QuestionTemplatesAnnotationComposer,
+          $QuestionTemplatesCreateCompanionBuilder,
+          $QuestionTemplatesUpdateCompanionBuilder,
+          (QuestionTemplate, $QuestionTemplatesReferences),
+          QuestionTemplate,
+          PrefetchHooks Function({bool relationType, bool reviewEventsRefs})
+        > {
+  $QuestionTemplatesTableManager(_$AppDatabase db, QuestionTemplates table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $QuestionTemplatesFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $QuestionTemplatesOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $QuestionTemplatesAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> id = const Value.absent(),
+                Value<String> relationType = const Value.absent(),
+                Value<String> direction = const Value.absent(),
+                Value<String> mode = const Value.absent(),
+                Value<String> locale = const Value.absent(),
+                Value<String> promptTemplate = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => QuestionTemplatesCompanion(
+                id: id,
+                relationType: relationType,
+                direction: direction,
+                mode: mode,
+                locale: locale,
+                promptTemplate: promptTemplate,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String id,
+                required String relationType,
+                required String direction,
+                required String mode,
+                Value<String> locale = const Value.absent(),
+                required String promptTemplate,
+                Value<int> rowid = const Value.absent(),
+              }) => QuestionTemplatesCompanion.insert(
+                id: id,
+                relationType: relationType,
+                direction: direction,
+                mode: mode,
+                locale: locale,
+                promptTemplate: promptTemplate,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<QuestionTemplates, QuestionTemplate>(table),
+                  $QuestionTemplatesReferences(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback:
+              ({relationType = false, reviewEventsRefs = false}) {
+                return PrefetchHooks(
+                  db: db,
+                  explicitlyWatchedTables: [
+                    if (reviewEventsRefs) db.reviewEvents,
+                  ],
+                  addJoins:
+                      <
+                        T extends TableManagerState<
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic
+                        >
+                      >(state) {
+                        if (relationType) {
+                          state = state.withJoin(
+                            currentTable: table,
+                            currentColumn: table.relationType,
+                            referencedTable: $QuestionTemplatesReferences
+                                ._relationTypeTable(db),
+                            referencedColumn: $QuestionTemplatesReferences
+                                ._relationTypeTable(db)
+                                .id,
+                          ) as T;
+                        }
+
+                        return state;
+                      },
+                  getPrefetchedDataCallback: (items) async {
+                    return [
+                      if (reviewEventsRefs)
+                        await $_getPrefetchedData<
+                          QuestionTemplate,
+                          QuestionTemplates,
+                          ReviewEvent
+                        >(
+                          currentTable: table,
+                          referencedTable: $QuestionTemplatesReferences
+                              ._reviewEventsRefsTable(db),
+                          managerFromTypedResult: (p0) =>
+                              $QuestionTemplatesReferences(
+                                db,
+                                table,
+                                p0,
+                              ).reviewEventsRefs,
+                          referencedItemsForCurrentItem:
+                              (item, referencedItems) => referencedItems.where(
+                                (e) => e.questionTemplateId == item.id,
+                              ),
+                          typedResults: items,
+                        ),
+                    ];
+                  },
+                );
+              },
+        ),
+      );
+}
+
+typedef $QuestionTemplatesProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      QuestionTemplates,
+      QuestionTemplate,
+      $QuestionTemplatesFilterComposer,
+      $QuestionTemplatesOrderingComposer,
+      $QuestionTemplatesAnnotationComposer,
+      $QuestionTemplatesCreateCompanionBuilder,
+      $QuestionTemplatesUpdateCompanionBuilder,
+      (QuestionTemplate, $QuestionTemplatesReferences),
+      QuestionTemplate,
+      PrefetchHooks Function({bool relationType, bool reviewEventsRefs})
+    >;
+typedef $TastingGridAttributesCreateCompanionBuilder =
+    TastingGridAttributesCompanion Function({
+      required String tastingGridId,
+      required String attributeKey,
+      required String section,
+      required String label,
+      required int position,
+      required String selection,
+      Value<bool> isRequired,
+      Value<int> rowid,
+    });
+typedef $TastingGridAttributesUpdateCompanionBuilder =
+    TastingGridAttributesCompanion Function({
+      Value<String> tastingGridId,
+      Value<String> attributeKey,
+      Value<String> section,
+      Value<String> label,
+      Value<int> position,
+      Value<String> selection,
+      Value<bool> isRequired,
+      Value<int> rowid,
+    });
+
+final class $TastingGridAttributesReferences
+    extends
+        BaseReferences<
+          _$AppDatabase,
+          TastingGridAttributes,
+          TastingGridAttribute
+        > {
+  $TastingGridAttributesReferences(
+    super.$_db,
+    super.$_table,
+    super.$_typedResult,
+  );
+
+  static TastingGrids _tastingGridIdTable(_$AppDatabase db) =>
+      db.tastingGrids.createAlias(
+        'tasting_grid_attributes__tasting_grid_id__tasting_grids__id',
+      );
+
+  $TastingGridsProcessedTableManager get tastingGridId {
+    final $_column = $_itemColumn<String>('tasting_grid_id')!;
+
+    final manager = $TastingGridsTableManager(
+      $_db,
+      $_db.tastingGrids,
+    ).filter((f) => f.id.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_tastingGridIdTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
+  }
+}
+
+class $TastingGridAttributesFilterComposer
+    extends Composer<_$AppDatabase, TastingGridAttributes> {
+  $TastingGridAttributesFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get attributeKey => $composableBuilder(
+    column: $table.attributeKey,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get section => $composableBuilder(
+    column: $table.section,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get label => $composableBuilder(
+    column: $table.label,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get position => $composableBuilder(
+    column: $table.position,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get selection => $composableBuilder(
+    column: $table.selection,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<bool> get isRequired => $composableBuilder(
+    column: $table.isRequired,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  $TastingGridsFilterComposer get tastingGridId {
+    final $TastingGridsFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.tastingGridId,
+      referencedTable: $db.tastingGrids,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $TastingGridsFilterComposer(
+            $db: $db,
+            $table: $db.tastingGrids,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $TastingGridAttributesOrderingComposer
+    extends Composer<_$AppDatabase, TastingGridAttributes> {
+  $TastingGridAttributesOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get attributeKey => $composableBuilder(
+    column: $table.attributeKey,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get section => $composableBuilder(
+    column: $table.section,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get label => $composableBuilder(
+    column: $table.label,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get position => $composableBuilder(
+    column: $table.position,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get selection => $composableBuilder(
+    column: $table.selection,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<bool> get isRequired => $composableBuilder(
+    column: $table.isRequired,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  $TastingGridsOrderingComposer get tastingGridId {
+    final $TastingGridsOrderingComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.tastingGridId,
+      referencedTable: $db.tastingGrids,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $TastingGridsOrderingComposer(
+            $db: $db,
+            $table: $db.tastingGrids,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $TastingGridAttributesAnnotationComposer
+    extends Composer<_$AppDatabase, TastingGridAttributes> {
+  $TastingGridAttributesAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get attributeKey => $composableBuilder(
+    column: $table.attributeKey,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get section =>
+      $composableBuilder(column: $table.section, builder: (column) => column);
+
+  GeneratedColumn<String> get label =>
+      $composableBuilder(column: $table.label, builder: (column) => column);
+
+  GeneratedColumn<int> get position =>
+      $composableBuilder(column: $table.position, builder: (column) => column);
+
+  GeneratedColumn<String> get selection =>
+      $composableBuilder(column: $table.selection, builder: (column) => column);
+
+  GeneratedColumn<bool> get isRequired => $composableBuilder(
+    column: $table.isRequired,
+    builder: (column) => column,
+  );
+
+  $TastingGridsAnnotationComposer get tastingGridId {
+    final $TastingGridsAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.tastingGridId,
+      referencedTable: $db.tastingGrids,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $TastingGridsAnnotationComposer(
+            $db: $db,
+            $table: $db.tastingGrids,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $TastingGridAttributesTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          TastingGridAttributes,
+          TastingGridAttribute,
+          $TastingGridAttributesFilterComposer,
+          $TastingGridAttributesOrderingComposer,
+          $TastingGridAttributesAnnotationComposer,
+          $TastingGridAttributesCreateCompanionBuilder,
+          $TastingGridAttributesUpdateCompanionBuilder,
+          (TastingGridAttribute, $TastingGridAttributesReferences),
+          TastingGridAttribute,
+          PrefetchHooks Function({bool tastingGridId})
+        > {
+  $TastingGridAttributesTableManager(
+    _$AppDatabase db,
+    TastingGridAttributes table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $TastingGridAttributesFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $TastingGridAttributesOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $TastingGridAttributesAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> tastingGridId = const Value.absent(),
+                Value<String> attributeKey = const Value.absent(),
+                Value<String> section = const Value.absent(),
+                Value<String> label = const Value.absent(),
+                Value<int> position = const Value.absent(),
+                Value<String> selection = const Value.absent(),
+                Value<bool> isRequired = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => TastingGridAttributesCompanion(
+                tastingGridId: tastingGridId,
+                attributeKey: attributeKey,
+                section: section,
+                label: label,
+                position: position,
+                selection: selection,
+                isRequired: isRequired,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String tastingGridId,
+                required String attributeKey,
+                required String section,
+                required String label,
+                required int position,
+                required String selection,
+                Value<bool> isRequired = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => TastingGridAttributesCompanion.insert(
+                tastingGridId: tastingGridId,
+                attributeKey: attributeKey,
+                section: section,
+                label: label,
+                position: position,
+                selection: selection,
+                isRequired: isRequired,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<TastingGridAttributes, TastingGridAttribute>(
+                    table,
+                  ),
+                  $TastingGridAttributesReferences(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: ({tastingGridId = false}) {
+            return PrefetchHooks(
+              db: db,
+              explicitlyWatchedTables: [],
+              addJoins:
+                  <
+                    T extends TableManagerState<
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic
+                    >
+                  >(state) {
+                    if (tastingGridId) {
+                      state = state.withJoin(
+                        currentTable: table,
+                        currentColumn: table.tastingGridId,
+                        referencedTable: $TastingGridAttributesReferences
+                            ._tastingGridIdTable(db),
+                        referencedColumn: $TastingGridAttributesReferences
+                            ._tastingGridIdTable(db)
+                            .id,
+                      ) as T;
+                    }
+
+                    return state;
+                  },
+              getPrefetchedDataCallback: (items) async {
+                return [];
+              },
+            );
+          },
+        ),
+      );
+}
+
+typedef $TastingGridAttributesProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      TastingGridAttributes,
+      TastingGridAttribute,
+      $TastingGridAttributesFilterComposer,
+      $TastingGridAttributesOrderingComposer,
+      $TastingGridAttributesAnnotationComposer,
+      $TastingGridAttributesCreateCompanionBuilder,
+      $TastingGridAttributesUpdateCompanionBuilder,
+      (TastingGridAttribute, $TastingGridAttributesReferences),
+      TastingGridAttribute,
+      PrefetchHooks Function({bool tastingGridId})
+    >;
+typedef $TastingGridValuesCreateCompanionBuilder =
+    TastingGridValuesCompanion Function({
+      required String tastingGridId,
+      required String attributeKey,
+      required String valueKey,
+      required String label,
+      required int position,
+      Value<String?> knowledgeNodeId,
+      Value<int> rowid,
+    });
+typedef $TastingGridValuesUpdateCompanionBuilder =
+    TastingGridValuesCompanion Function({
+      Value<String> tastingGridId,
+      Value<String> attributeKey,
+      Value<String> valueKey,
+      Value<String> label,
+      Value<int> position,
+      Value<String?> knowledgeNodeId,
+      Value<int> rowid,
+    });
+
+final class $TastingGridValuesReferences
+    extends BaseReferences<_$AppDatabase, TastingGridValues, TastingGridValue> {
+  $TastingGridValuesReferences(super.$_db, super.$_table, super.$_typedResult);
+
+  static KnowledgeNodes _knowledgeNodeIdTable(_$AppDatabase db) =>
+      db.knowledgeNodes.createAlias(
+        'tasting_grid_values__knowledge_node_id__knowledge_nodes__id',
+      );
+
+  $KnowledgeNodesProcessedTableManager? get knowledgeNodeId {
+    final $_column = $_itemColumn<String>('knowledge_node_id');
+    if ($_column == null) return null;
+    final manager = $KnowledgeNodesTableManager(
+      $_db,
+      $_db.knowledgeNodes,
+    ).filter((f) => f.id.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_knowledgeNodeIdTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
+  }
+}
+
+class $TastingGridValuesFilterComposer
+    extends Composer<_$AppDatabase, TastingGridValues> {
+  $TastingGridValuesFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get tastingGridId => $composableBuilder(
+    column: $table.tastingGridId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get attributeKey => $composableBuilder(
+    column: $table.attributeKey,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get valueKey => $composableBuilder(
+    column: $table.valueKey,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get label => $composableBuilder(
+    column: $table.label,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get position => $composableBuilder(
+    column: $table.position,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  $KnowledgeNodesFilterComposer get knowledgeNodeId {
+    final $KnowledgeNodesFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.knowledgeNodeId,
+      referencedTable: $db.knowledgeNodes,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $KnowledgeNodesFilterComposer(
+            $db: $db,
+            $table: $db.knowledgeNodes,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $TastingGridValuesOrderingComposer
+    extends Composer<_$AppDatabase, TastingGridValues> {
+  $TastingGridValuesOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get tastingGridId => $composableBuilder(
+    column: $table.tastingGridId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get attributeKey => $composableBuilder(
+    column: $table.attributeKey,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get valueKey => $composableBuilder(
+    column: $table.valueKey,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get label => $composableBuilder(
+    column: $table.label,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get position => $composableBuilder(
+    column: $table.position,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  $KnowledgeNodesOrderingComposer get knowledgeNodeId {
+    final $KnowledgeNodesOrderingComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.knowledgeNodeId,
+      referencedTable: $db.knowledgeNodes,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $KnowledgeNodesOrderingComposer(
+            $db: $db,
+            $table: $db.knowledgeNodes,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $TastingGridValuesAnnotationComposer
+    extends Composer<_$AppDatabase, TastingGridValues> {
+  $TastingGridValuesAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get tastingGridId => $composableBuilder(
+    column: $table.tastingGridId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get attributeKey => $composableBuilder(
+    column: $table.attributeKey,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get valueKey =>
+      $composableBuilder(column: $table.valueKey, builder: (column) => column);
+
+  GeneratedColumn<String> get label =>
+      $composableBuilder(column: $table.label, builder: (column) => column);
+
+  GeneratedColumn<int> get position =>
+      $composableBuilder(column: $table.position, builder: (column) => column);
+
+  $KnowledgeNodesAnnotationComposer get knowledgeNodeId {
+    final $KnowledgeNodesAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.knowledgeNodeId,
+      referencedTable: $db.knowledgeNodes,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $KnowledgeNodesAnnotationComposer(
+            $db: $db,
+            $table: $db.knowledgeNodes,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $TastingGridValuesTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          TastingGridValues,
+          TastingGridValue,
+          $TastingGridValuesFilterComposer,
+          $TastingGridValuesOrderingComposer,
+          $TastingGridValuesAnnotationComposer,
+          $TastingGridValuesCreateCompanionBuilder,
+          $TastingGridValuesUpdateCompanionBuilder,
+          (TastingGridValue, $TastingGridValuesReferences),
+          TastingGridValue,
+          PrefetchHooks Function({bool knowledgeNodeId})
+        > {
+  $TastingGridValuesTableManager(_$AppDatabase db, TastingGridValues table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $TastingGridValuesFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $TastingGridValuesOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $TastingGridValuesAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> tastingGridId = const Value.absent(),
+                Value<String> attributeKey = const Value.absent(),
+                Value<String> valueKey = const Value.absent(),
+                Value<String> label = const Value.absent(),
+                Value<int> position = const Value.absent(),
+                Value<String?> knowledgeNodeId = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => TastingGridValuesCompanion(
+                tastingGridId: tastingGridId,
+                attributeKey: attributeKey,
+                valueKey: valueKey,
+                label: label,
+                position: position,
+                knowledgeNodeId: knowledgeNodeId,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String tastingGridId,
+                required String attributeKey,
+                required String valueKey,
+                required String label,
+                required int position,
+                Value<String?> knowledgeNodeId = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => TastingGridValuesCompanion.insert(
+                tastingGridId: tastingGridId,
+                attributeKey: attributeKey,
+                valueKey: valueKey,
+                label: label,
+                position: position,
+                knowledgeNodeId: knowledgeNodeId,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<TastingGridValues, TastingGridValue>(table),
+                  $TastingGridValuesReferences(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: ({knowledgeNodeId = false}) {
+            return PrefetchHooks(
+              db: db,
+              explicitlyWatchedTables: [],
+              addJoins:
+                  <
+                    T extends TableManagerState<
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic
+                    >
+                  >(state) {
+                    if (knowledgeNodeId) {
+                      state = state.withJoin(
+                        currentTable: table,
+                        currentColumn: table.knowledgeNodeId,
+                        referencedTable: $TastingGridValuesReferences
+                            ._knowledgeNodeIdTable(db),
+                        referencedColumn: $TastingGridValuesReferences
+                            ._knowledgeNodeIdTable(db)
+                            .id,
+                      ) as T;
+                    }
+
+                    return state;
+                  },
+              getPrefetchedDataCallback: (items) async {
+                return [];
+              },
+            );
+          },
+        ),
+      );
+}
+
+typedef $TastingGridValuesProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      TastingGridValues,
+      TastingGridValue,
+      $TastingGridValuesFilterComposer,
+      $TastingGridValuesOrderingComposer,
+      $TastingGridValuesAnnotationComposer,
+      $TastingGridValuesCreateCompanionBuilder,
+      $TastingGridValuesUpdateCompanionBuilder,
+      (TastingGridValue, $TastingGridValuesReferences),
+      TastingGridValue,
+      PrefetchHooks Function({bool knowledgeNodeId})
+    >;
+typedef $QuestionsCreateCompanionBuilder = QuestionsCompanion Function({
+  required String knowledgeItemId,
+  required String questionTemplateId,
+  required String relationType,
+  required String promptText,
+  Value<int> rowid,
+});
+typedef $QuestionsUpdateCompanionBuilder = QuestionsCompanion Function({
+  Value<String> knowledgeItemId,
+  Value<String> questionTemplateId,
+  Value<String> relationType,
+  Value<String> promptText,
+  Value<int> rowid,
+});
+
+class $QuestionsFilterComposer extends Composer<_$AppDatabase, Questions> {
+  $QuestionsFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get knowledgeItemId => $composableBuilder(
+    column: $table.knowledgeItemId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get questionTemplateId => $composableBuilder(
+    column: $table.questionTemplateId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get relationType => $composableBuilder(
+    column: $table.relationType,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get promptText => $composableBuilder(
+    column: $table.promptText,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $QuestionsOrderingComposer extends Composer<_$AppDatabase, Questions> {
+  $QuestionsOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get knowledgeItemId => $composableBuilder(
+    column: $table.knowledgeItemId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get questionTemplateId => $composableBuilder(
+    column: $table.questionTemplateId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get relationType => $composableBuilder(
+    column: $table.relationType,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get promptText => $composableBuilder(
+    column: $table.promptText,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $QuestionsAnnotationComposer extends Composer<_$AppDatabase, Questions> {
+  $QuestionsAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get knowledgeItemId => $composableBuilder(
+    column: $table.knowledgeItemId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get questionTemplateId => $composableBuilder(
+    column: $table.questionTemplateId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get relationType => $composableBuilder(
+    column: $table.relationType,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get promptText => $composableBuilder(
+    column: $table.promptText,
+    builder: (column) => column,
+  );
+}
+
+class $QuestionsTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          Questions,
+          Question,
+          $QuestionsFilterComposer,
+          $QuestionsOrderingComposer,
+          $QuestionsAnnotationComposer,
+          $QuestionsCreateCompanionBuilder,
+          $QuestionsUpdateCompanionBuilder,
+          (Question, BaseReferences<_$AppDatabase, Questions, Question>),
+          Question,
+          PrefetchHooks Function()
+        > {
+  $QuestionsTableManager(_$AppDatabase db, Questions table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $QuestionsFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $QuestionsOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $QuestionsAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> knowledgeItemId = const Value.absent(),
+                Value<String> questionTemplateId = const Value.absent(),
+                Value<String> relationType = const Value.absent(),
+                Value<String> promptText = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => QuestionsCompanion(
+                knowledgeItemId: knowledgeItemId,
+                questionTemplateId: questionTemplateId,
+                relationType: relationType,
+                promptText: promptText,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String knowledgeItemId,
+                required String questionTemplateId,
+                required String relationType,
+                required String promptText,
+                Value<int> rowid = const Value.absent(),
+              }) => QuestionsCompanion.insert(
+                knowledgeItemId: knowledgeItemId,
+                questionTemplateId: questionTemplateId,
+                relationType: relationType,
+                promptText: promptText,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<Questions, Question>(table),
+                  BaseReferences<_$AppDatabase, Questions, Question>(
+                    db,
+                    table,
+                    e,
+                  ),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $QuestionsProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      Questions,
+      Question,
+      $QuestionsFilterComposer,
+      $QuestionsOrderingComposer,
+      $QuestionsAnnotationComposer,
+      $QuestionsCreateCompanionBuilder,
+      $QuestionsUpdateCompanionBuilder,
+      (Question, BaseReferences<_$AppDatabase, Questions, Question>),
+      Question,
+      PrefetchHooks Function()
+    >;
+typedef $QuestionDistractorsCreateCompanionBuilder =
+    QuestionDistractorsCompanion Function({
+      required String knowledgeItemId,
+      required String questionTemplateId,
+      required String knowledgeNodeId,
+      required int scopeRank,
+      Value<int> rowid,
+    });
+typedef $QuestionDistractorsUpdateCompanionBuilder =
+    QuestionDistractorsCompanion Function({
+      Value<String> knowledgeItemId,
+      Value<String> questionTemplateId,
+      Value<String> knowledgeNodeId,
+      Value<int> scopeRank,
+      Value<int> rowid,
+    });
+
+final class $QuestionDistractorsReferences
+    extends
+        BaseReferences<_$AppDatabase, QuestionDistractors, QuestionDistractor> {
+  $QuestionDistractorsReferences(
+    super.$_db,
+    super.$_table,
+    super.$_typedResult,
+  );
+
+  static KnowledgeNodes _knowledgeNodeIdTable(_$AppDatabase db) =>
+      db.knowledgeNodes.createAlias(
+        'question_distractors__knowledge_node_id__knowledge_nodes__id',
+      );
+
+  $KnowledgeNodesProcessedTableManager get knowledgeNodeId {
+    final $_column = $_itemColumn<String>('knowledge_node_id')!;
+
+    final manager = $KnowledgeNodesTableManager(
+      $_db,
+      $_db.knowledgeNodes,
+    ).filter((f) => f.id.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_knowledgeNodeIdTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
+  }
+}
+
+class $QuestionDistractorsFilterComposer
+    extends Composer<_$AppDatabase, QuestionDistractors> {
+  $QuestionDistractorsFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get knowledgeItemId => $composableBuilder(
+    column: $table.knowledgeItemId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get questionTemplateId => $composableBuilder(
+    column: $table.questionTemplateId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get scopeRank => $composableBuilder(
+    column: $table.scopeRank,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  $KnowledgeNodesFilterComposer get knowledgeNodeId {
+    final $KnowledgeNodesFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.knowledgeNodeId,
+      referencedTable: $db.knowledgeNodes,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $KnowledgeNodesFilterComposer(
+            $db: $db,
+            $table: $db.knowledgeNodes,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $QuestionDistractorsOrderingComposer
+    extends Composer<_$AppDatabase, QuestionDistractors> {
+  $QuestionDistractorsOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get knowledgeItemId => $composableBuilder(
+    column: $table.knowledgeItemId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get questionTemplateId => $composableBuilder(
+    column: $table.questionTemplateId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get scopeRank => $composableBuilder(
+    column: $table.scopeRank,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  $KnowledgeNodesOrderingComposer get knowledgeNodeId {
+    final $KnowledgeNodesOrderingComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.knowledgeNodeId,
+      referencedTable: $db.knowledgeNodes,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $KnowledgeNodesOrderingComposer(
+            $db: $db,
+            $table: $db.knowledgeNodes,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $QuestionDistractorsAnnotationComposer
+    extends Composer<_$AppDatabase, QuestionDistractors> {
+  $QuestionDistractorsAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get knowledgeItemId => $composableBuilder(
+    column: $table.knowledgeItemId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get questionTemplateId => $composableBuilder(
+    column: $table.questionTemplateId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get scopeRank =>
+      $composableBuilder(column: $table.scopeRank, builder: (column) => column);
+
+  $KnowledgeNodesAnnotationComposer get knowledgeNodeId {
+    final $KnowledgeNodesAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.knowledgeNodeId,
+      referencedTable: $db.knowledgeNodes,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $KnowledgeNodesAnnotationComposer(
+            $db: $db,
+            $table: $db.knowledgeNodes,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $QuestionDistractorsTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          QuestionDistractors,
+          QuestionDistractor,
+          $QuestionDistractorsFilterComposer,
+          $QuestionDistractorsOrderingComposer,
+          $QuestionDistractorsAnnotationComposer,
+          $QuestionDistractorsCreateCompanionBuilder,
+          $QuestionDistractorsUpdateCompanionBuilder,
+          (QuestionDistractor, $QuestionDistractorsReferences),
+          QuestionDistractor,
+          PrefetchHooks Function({bool knowledgeNodeId})
+        > {
+  $QuestionDistractorsTableManager(_$AppDatabase db, QuestionDistractors table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $QuestionDistractorsFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $QuestionDistractorsOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $QuestionDistractorsAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> knowledgeItemId = const Value.absent(),
+                Value<String> questionTemplateId = const Value.absent(),
+                Value<String> knowledgeNodeId = const Value.absent(),
+                Value<int> scopeRank = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => QuestionDistractorsCompanion(
+                knowledgeItemId: knowledgeItemId,
+                questionTemplateId: questionTemplateId,
+                knowledgeNodeId: knowledgeNodeId,
+                scopeRank: scopeRank,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String knowledgeItemId,
+                required String questionTemplateId,
+                required String knowledgeNodeId,
+                required int scopeRank,
+                Value<int> rowid = const Value.absent(),
+              }) => QuestionDistractorsCompanion.insert(
+                knowledgeItemId: knowledgeItemId,
+                questionTemplateId: questionTemplateId,
+                knowledgeNodeId: knowledgeNodeId,
+                scopeRank: scopeRank,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<QuestionDistractors, QuestionDistractor>(table),
+                  $QuestionDistractorsReferences(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: ({knowledgeNodeId = false}) {
+            return PrefetchHooks(
+              db: db,
+              explicitlyWatchedTables: [],
+              addJoins:
+                  <
+                    T extends TableManagerState<
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic
+                    >
+                  >(state) {
+                    if (knowledgeNodeId) {
+                      state = state.withJoin(
+                        currentTable: table,
+                        currentColumn: table.knowledgeNodeId,
+                        referencedTable: $QuestionDistractorsReferences
+                            ._knowledgeNodeIdTable(db),
+                        referencedColumn: $QuestionDistractorsReferences
+                            ._knowledgeNodeIdTable(db)
+                            .id,
+                      ) as T;
+                    }
+
+                    return state;
+                  },
+              getPrefetchedDataCallback: (items) async {
+                return [];
+              },
+            );
+          },
+        ),
+      );
+}
+
+typedef $QuestionDistractorsProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      QuestionDistractors,
+      QuestionDistractor,
+      $QuestionDistractorsFilterComposer,
+      $QuestionDistractorsOrderingComposer,
+      $QuestionDistractorsAnnotationComposer,
+      $QuestionDistractorsCreateCompanionBuilder,
+      $QuestionDistractorsUpdateCompanionBuilder,
+      (QuestionDistractor, $QuestionDistractorsReferences),
+      QuestionDistractor,
+      PrefetchHooks Function({bool knowledgeNodeId})
+    >;
+typedef $UserProfilesCreateCompanionBuilder = UserProfilesCompanion Function({
+  Value<int> id,
+  required String activeCertificationId,
+  Value<int> sessionSize,
+  Value<int> newItemsPerSession,
+  required DateTime createdAt,
+  required DateTime updatedAt,
+});
+typedef $UserProfilesUpdateCompanionBuilder = UserProfilesCompanion Function({
+  Value<int> id,
+  Value<String> activeCertificationId,
+  Value<int> sessionSize,
+  Value<int> newItemsPerSession,
+  Value<DateTime> createdAt,
+  Value<DateTime> updatedAt,
+});
+
+final class $UserProfilesReferences
+    extends BaseReferences<_$AppDatabase, UserProfiles, UserProfile> {
+  $UserProfilesReferences(super.$_db, super.$_table, super.$_typedResult);
+
+  static Certifications _activeCertificationIdTable(_$AppDatabase db) =>
+      db.certifications.createAlias(
+        'user_profiles__active_certification_id__certifications__id',
+      );
+
+  $CertificationsProcessedTableManager get activeCertificationId {
+    final $_column = $_itemColumn<String>('active_certification_id')!;
+
+    final manager = $CertificationsTableManager(
+      $_db,
+      $_db.certifications,
+    ).filter((f) => f.id.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(
+      _activeCertificationIdTable($_db),
+    );
+    if (item == null) return manager;
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
+  }
+}
+
+class $UserProfilesFilterComposer
+    extends Composer<_$AppDatabase, UserProfiles> {
+  $UserProfilesFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get sessionSize => $composableBuilder(
+    column: $table.sessionSize,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get newItemsPerSession => $composableBuilder(
+    column: $table.newItemsPerSession,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  $CertificationsFilterComposer get activeCertificationId {
+    final $CertificationsFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.activeCertificationId,
+      referencedTable: $db.certifications,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $CertificationsFilterComposer(
+            $db: $db,
+            $table: $db.certifications,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $UserProfilesOrderingComposer
+    extends Composer<_$AppDatabase, UserProfiles> {
+  $UserProfilesOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get sessionSize => $composableBuilder(
+    column: $table.sessionSize,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get newItemsPerSession => $composableBuilder(
+    column: $table.newItemsPerSession,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  $CertificationsOrderingComposer get activeCertificationId {
+    final $CertificationsOrderingComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.activeCertificationId,
+      referencedTable: $db.certifications,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $CertificationsOrderingComposer(
+            $db: $db,
+            $table: $db.certifications,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $UserProfilesAnnotationComposer
+    extends Composer<_$AppDatabase, UserProfiles> {
+  $UserProfilesAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<int> get sessionSize => $composableBuilder(
+    column: $table.sessionSize,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get newItemsPerSession => $composableBuilder(
+    column: $table.newItemsPerSession,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<DateTime> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get updatedAt =>
+      $composableBuilder(column: $table.updatedAt, builder: (column) => column);
+
+  $CertificationsAnnotationComposer get activeCertificationId {
+    final $CertificationsAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.activeCertificationId,
+      referencedTable: $db.certifications,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $CertificationsAnnotationComposer(
+            $db: $db,
+            $table: $db.certifications,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $UserProfilesTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          UserProfiles,
+          UserProfile,
+          $UserProfilesFilterComposer,
+          $UserProfilesOrderingComposer,
+          $UserProfilesAnnotationComposer,
+          $UserProfilesCreateCompanionBuilder,
+          $UserProfilesUpdateCompanionBuilder,
+          (UserProfile, $UserProfilesReferences),
+          UserProfile,
+          PrefetchHooks Function({bool activeCertificationId})
+        > {
+  $UserProfilesTableManager(_$AppDatabase db, UserProfiles table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $UserProfilesFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $UserProfilesOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $UserProfilesAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                Value<String> activeCertificationId = const Value.absent(),
+                Value<int> sessionSize = const Value.absent(),
+                Value<int> newItemsPerSession = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+              }) => UserProfilesCompanion(
+                id: id,
+                activeCertificationId: activeCertificationId,
+                sessionSize: sessionSize,
+                newItemsPerSession: newItemsPerSession,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> id = const Value.absent(),
+                required String activeCertificationId,
+                Value<int> sessionSize = const Value.absent(),
+                Value<int> newItemsPerSession = const Value.absent(),
+                required DateTime createdAt,
+                required DateTime updatedAt,
+              }) => UserProfilesCompanion.insert(
+                id: id,
+                activeCertificationId: activeCertificationId,
+                sessionSize: sessionSize,
+                newItemsPerSession: newItemsPerSession,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<UserProfiles, UserProfile>(table),
+                  $UserProfilesReferences(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: ({activeCertificationId = false}) {
+            return PrefetchHooks(
+              db: db,
+              explicitlyWatchedTables: [],
+              addJoins:
+                  <
+                    T extends TableManagerState<
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic
+                    >
+                  >(state) {
+                    if (activeCertificationId) {
+                      state = state.withJoin(
+                        currentTable: table,
+                        currentColumn: table.activeCertificationId,
+                        referencedTable: $UserProfilesReferences
+                            ._activeCertificationIdTable(db),
+                        referencedColumn: $UserProfilesReferences
+                            ._activeCertificationIdTable(db)
+                            .id,
+                      ) as T;
+                    }
+
+                    return state;
+                  },
+              getPrefetchedDataCallback: (items) async {
+                return [];
+              },
+            );
+          },
+        ),
+      );
+}
+
+typedef $UserProfilesProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      UserProfiles,
+      UserProfile,
+      $UserProfilesFilterComposer,
+      $UserProfilesOrderingComposer,
+      $UserProfilesAnnotationComposer,
+      $UserProfilesCreateCompanionBuilder,
+      $UserProfilesUpdateCompanionBuilder,
+      (UserProfile, $UserProfilesReferences),
+      UserProfile,
+      PrefetchHooks Function({bool activeCertificationId})
+    >;
+typedef $SchedulerConfigsCreateCompanionBuilder =
+    SchedulerConfigsCompanion Function({
+      Value<int> version,
+      required String weights,
+      required double desiredRetention,
+      required String learningStepsSeconds,
+      required String relearningStepsSeconds,
+      required int maximumIntervalDays,
+      required bool enableFuzzing,
+      required DateTime createdAt,
+    });
+typedef $SchedulerConfigsUpdateCompanionBuilder =
+    SchedulerConfigsCompanion Function({
+      Value<int> version,
+      Value<String> weights,
+      Value<double> desiredRetention,
+      Value<String> learningStepsSeconds,
+      Value<String> relearningStepsSeconds,
+      Value<int> maximumIntervalDays,
+      Value<bool> enableFuzzing,
+      Value<DateTime> createdAt,
+    });
+
+final class $SchedulerConfigsReferences
+    extends BaseReferences<_$AppDatabase, SchedulerConfigs, SchedulerConfig> {
+  $SchedulerConfigsReferences(super.$_db, super.$_table, super.$_typedResult);
+
+  static MultiTypedResultKey<ReviewEvents, List<ReviewEvent>>
+  _reviewEventsRefsTable(_$AppDatabase db) => MultiTypedResultKey.fromTable(
+    db.reviewEvents,
+    aliasName:
+        'scheduler_configs__version__review_events__scheduler_config_version',
+  );
+
+  $ReviewEventsProcessedTableManager get reviewEventsRefs {
+    final manager = $ReviewEventsTableManager($_db, $_db.reviewEvents).filter(
+      (f) => f.schedulerConfigVersion.version.sqlEquals(
+        $_itemColumn<int>('version')!,
+      ),
+    );
+
+    final cache = $_typedResult.readTableOrNull(_reviewEventsRefsTable($_db));
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: cache),
+    );
+  }
+}
+
+class $SchedulerConfigsFilterComposer
+    extends Composer<_$AppDatabase, SchedulerConfigs> {
+  $SchedulerConfigsFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get version => $composableBuilder(
+    column: $table.version,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get weights => $composableBuilder(
+    column: $table.weights,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get desiredRetention => $composableBuilder(
+    column: $table.desiredRetention,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get learningStepsSeconds => $composableBuilder(
+    column: $table.learningStepsSeconds,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get relearningStepsSeconds => $composableBuilder(
+    column: $table.relearningStepsSeconds,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get maximumIntervalDays => $composableBuilder(
+    column: $table.maximumIntervalDays,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<bool> get enableFuzzing => $composableBuilder(
+    column: $table.enableFuzzing,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  Expression<bool> reviewEventsRefs(
+    Expression<bool> Function($ReviewEventsFilterComposer f) f,
+  ) {
+    final $ReviewEventsFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.version,
+      referencedTable: $db.reviewEvents,
+      getReferencedColumn: (t) => t.schedulerConfigVersion,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $ReviewEventsFilterComposer(
+            $db: $db,
+            $table: $db.reviewEvents,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+}
+
+class $SchedulerConfigsOrderingComposer
+    extends Composer<_$AppDatabase, SchedulerConfigs> {
+  $SchedulerConfigsOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get version => $composableBuilder(
+    column: $table.version,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get weights => $composableBuilder(
+    column: $table.weights,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get desiredRetention => $composableBuilder(
+    column: $table.desiredRetention,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get learningStepsSeconds => $composableBuilder(
+    column: $table.learningStepsSeconds,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get relearningStepsSeconds => $composableBuilder(
+    column: $table.relearningStepsSeconds,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get maximumIntervalDays => $composableBuilder(
+    column: $table.maximumIntervalDays,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<bool> get enableFuzzing => $composableBuilder(
+    column: $table.enableFuzzing,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $SchedulerConfigsAnnotationComposer
+    extends Composer<_$AppDatabase, SchedulerConfigs> {
+  $SchedulerConfigsAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get version =>
+      $composableBuilder(column: $table.version, builder: (column) => column);
+
+  GeneratedColumn<String> get weights =>
+      $composableBuilder(column: $table.weights, builder: (column) => column);
+
+  GeneratedColumn<double> get desiredRetention => $composableBuilder(
+    column: $table.desiredRetention,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get learningStepsSeconds => $composableBuilder(
+    column: $table.learningStepsSeconds,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get relearningStepsSeconds => $composableBuilder(
+    column: $table.relearningStepsSeconds,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get maximumIntervalDays => $composableBuilder(
+    column: $table.maximumIntervalDays,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<bool> get enableFuzzing => $composableBuilder(
+    column: $table.enableFuzzing,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<DateTime> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+
+  Expression<T> reviewEventsRefs<T extends Object>(
+    Expression<T> Function($ReviewEventsAnnotationComposer a) f,
+  ) {
+    final $ReviewEventsAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.version,
+      referencedTable: $db.reviewEvents,
+      getReferencedColumn: (t) => t.schedulerConfigVersion,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $ReviewEventsAnnotationComposer(
+            $db: $db,
+            $table: $db.reviewEvents,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+}
+
+class $SchedulerConfigsTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          SchedulerConfigs,
+          SchedulerConfig,
+          $SchedulerConfigsFilterComposer,
+          $SchedulerConfigsOrderingComposer,
+          $SchedulerConfigsAnnotationComposer,
+          $SchedulerConfigsCreateCompanionBuilder,
+          $SchedulerConfigsUpdateCompanionBuilder,
+          (SchedulerConfig, $SchedulerConfigsReferences),
+          SchedulerConfig,
+          PrefetchHooks Function({bool reviewEventsRefs})
+        > {
+  $SchedulerConfigsTableManager(_$AppDatabase db, SchedulerConfigs table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $SchedulerConfigsFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $SchedulerConfigsOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $SchedulerConfigsAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<int> version = const Value.absent(),
+                Value<String> weights = const Value.absent(),
+                Value<double> desiredRetention = const Value.absent(),
+                Value<String> learningStepsSeconds = const Value.absent(),
+                Value<String> relearningStepsSeconds = const Value.absent(),
+                Value<int> maximumIntervalDays = const Value.absent(),
+                Value<bool> enableFuzzing = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+              }) => SchedulerConfigsCompanion(
+                version: version,
+                weights: weights,
+                desiredRetention: desiredRetention,
+                learningStepsSeconds: learningStepsSeconds,
+                relearningStepsSeconds: relearningStepsSeconds,
+                maximumIntervalDays: maximumIntervalDays,
+                enableFuzzing: enableFuzzing,
+                createdAt: createdAt,
+              ),
+          createCompanionCallback:
+              ({
+                Value<int> version = const Value.absent(),
+                required String weights,
+                required double desiredRetention,
+                required String learningStepsSeconds,
+                required String relearningStepsSeconds,
+                required int maximumIntervalDays,
+                required bool enableFuzzing,
+                required DateTime createdAt,
+              }) => SchedulerConfigsCompanion.insert(
+                version: version,
+                weights: weights,
+                desiredRetention: desiredRetention,
+                learningStepsSeconds: learningStepsSeconds,
+                relearningStepsSeconds: relearningStepsSeconds,
+                maximumIntervalDays: maximumIntervalDays,
+                enableFuzzing: enableFuzzing,
+                createdAt: createdAt,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<SchedulerConfigs, SchedulerConfig>(table),
+                  $SchedulerConfigsReferences(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: ({reviewEventsRefs = false}) {
+            return PrefetchHooks(
+              db: db,
+              explicitlyWatchedTables: [if (reviewEventsRefs) db.reviewEvents],
+              addJoins: null,
+              getPrefetchedDataCallback: (items) async {
+                return [
+                  if (reviewEventsRefs)
+                    await $_getPrefetchedData<
+                      SchedulerConfig,
+                      SchedulerConfigs,
+                      ReviewEvent
+                    >(
+                      currentTable: table,
+                      referencedTable: $SchedulerConfigsReferences
+                          ._reviewEventsRefsTable(db),
+                      managerFromTypedResult: (p0) =>
+                          $SchedulerConfigsReferences(
+                            db,
+                            table,
+                            p0,
+                          ).reviewEventsRefs,
+                      referencedItemsForCurrentItem: (item, referencedItems) =>
+                          referencedItems.where(
+                            (e) => e.schedulerConfigVersion == item.version,
+                          ),
+                      typedResults: items,
+                    ),
+                ];
+              },
+            );
+          },
+        ),
+      );
+}
+
+typedef $SchedulerConfigsProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      SchedulerConfigs,
+      SchedulerConfig,
+      $SchedulerConfigsFilterComposer,
+      $SchedulerConfigsOrderingComposer,
+      $SchedulerConfigsAnnotationComposer,
+      $SchedulerConfigsCreateCompanionBuilder,
+      $SchedulerConfigsUpdateCompanionBuilder,
+      (SchedulerConfig, $SchedulerConfigsReferences),
+      SchedulerConfig,
+      PrefetchHooks Function({bool reviewEventsRefs})
+    >;
+typedef $ReviewStatesCreateCompanionBuilder = ReviewStatesCompanion Function({
+  required String knowledgeItemId,
+  required int state,
+  Value<int?> step,
+  required double stability,
+  required double difficulty,
+  required DateTime due,
+  required DateTime lastReview,
+  required int reps,
+  Value<int> lapses,
+  Value<int> rowid,
+});
+typedef $ReviewStatesUpdateCompanionBuilder = ReviewStatesCompanion Function({
+  Value<String> knowledgeItemId,
+  Value<int> state,
+  Value<int?> step,
+  Value<double> stability,
+  Value<double> difficulty,
+  Value<DateTime> due,
+  Value<DateTime> lastReview,
+  Value<int> reps,
+  Value<int> lapses,
+  Value<int> rowid,
+});
+
+final class $ReviewStatesReferences
+    extends BaseReferences<_$AppDatabase, ReviewStates, ReviewState> {
+  $ReviewStatesReferences(super.$_db, super.$_table, super.$_typedResult);
+
+  static KnowledgeItems _knowledgeItemIdTable(_$AppDatabase db) => db
+      .knowledgeItems
+      .createAlias('review_states__knowledge_item_id__knowledge_items__id');
+
+  $KnowledgeItemsProcessedTableManager get knowledgeItemId {
+    final $_column = $_itemColumn<String>('knowledge_item_id')!;
+
+    final manager = $KnowledgeItemsTableManager(
+      $_db,
+      $_db.knowledgeItems,
+    ).filter((f) => f.id.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_knowledgeItemIdTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
+  }
+}
+
+class $ReviewStatesFilterComposer
+    extends Composer<_$AppDatabase, ReviewStates> {
+  $ReviewStatesFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get state => $composableBuilder(
+    column: $table.state,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get step => $composableBuilder(
+    column: $table.step,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get stability => $composableBuilder(
+    column: $table.stability,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get difficulty => $composableBuilder(
+    column: $table.difficulty,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get due => $composableBuilder(
+    column: $table.due,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get lastReview => $composableBuilder(
+    column: $table.lastReview,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get reps => $composableBuilder(
+    column: $table.reps,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get lapses => $composableBuilder(
+    column: $table.lapses,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  $KnowledgeItemsFilterComposer get knowledgeItemId {
+    final $KnowledgeItemsFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.knowledgeItemId,
+      referencedTable: $db.knowledgeItems,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $KnowledgeItemsFilterComposer(
+            $db: $db,
+            $table: $db.knowledgeItems,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $ReviewStatesOrderingComposer
+    extends Composer<_$AppDatabase, ReviewStates> {
+  $ReviewStatesOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get state => $composableBuilder(
+    column: $table.state,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get step => $composableBuilder(
+    column: $table.step,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get stability => $composableBuilder(
+    column: $table.stability,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get difficulty => $composableBuilder(
+    column: $table.difficulty,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get due => $composableBuilder(
+    column: $table.due,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get lastReview => $composableBuilder(
+    column: $table.lastReview,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get reps => $composableBuilder(
+    column: $table.reps,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get lapses => $composableBuilder(
+    column: $table.lapses,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  $KnowledgeItemsOrderingComposer get knowledgeItemId {
+    final $KnowledgeItemsOrderingComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.knowledgeItemId,
+      referencedTable: $db.knowledgeItems,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $KnowledgeItemsOrderingComposer(
+            $db: $db,
+            $table: $db.knowledgeItems,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $ReviewStatesAnnotationComposer
+    extends Composer<_$AppDatabase, ReviewStates> {
+  $ReviewStatesAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get state =>
+      $composableBuilder(column: $table.state, builder: (column) => column);
+
+  GeneratedColumn<int> get step =>
+      $composableBuilder(column: $table.step, builder: (column) => column);
+
+  GeneratedColumn<double> get stability =>
+      $composableBuilder(column: $table.stability, builder: (column) => column);
+
+  GeneratedColumn<double> get difficulty => $composableBuilder(
+    column: $table.difficulty,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<DateTime> get due =>
+      $composableBuilder(column: $table.due, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get lastReview => $composableBuilder(
+    column: $table.lastReview,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get reps =>
+      $composableBuilder(column: $table.reps, builder: (column) => column);
+
+  GeneratedColumn<int> get lapses =>
+      $composableBuilder(column: $table.lapses, builder: (column) => column);
+
+  $KnowledgeItemsAnnotationComposer get knowledgeItemId {
+    final $KnowledgeItemsAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.knowledgeItemId,
+      referencedTable: $db.knowledgeItems,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $KnowledgeItemsAnnotationComposer(
+            $db: $db,
+            $table: $db.knowledgeItems,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $ReviewStatesTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          ReviewStates,
+          ReviewState,
+          $ReviewStatesFilterComposer,
+          $ReviewStatesOrderingComposer,
+          $ReviewStatesAnnotationComposer,
+          $ReviewStatesCreateCompanionBuilder,
+          $ReviewStatesUpdateCompanionBuilder,
+          (ReviewState, $ReviewStatesReferences),
+          ReviewState,
+          PrefetchHooks Function({bool knowledgeItemId})
+        > {
+  $ReviewStatesTableManager(_$AppDatabase db, ReviewStates table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $ReviewStatesFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $ReviewStatesOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $ReviewStatesAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> knowledgeItemId = const Value.absent(),
+                Value<int> state = const Value.absent(),
+                Value<int?> step = const Value.absent(),
+                Value<double> stability = const Value.absent(),
+                Value<double> difficulty = const Value.absent(),
+                Value<DateTime> due = const Value.absent(),
+                Value<DateTime> lastReview = const Value.absent(),
+                Value<int> reps = const Value.absent(),
+                Value<int> lapses = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => ReviewStatesCompanion(
+                knowledgeItemId: knowledgeItemId,
+                state: state,
+                step: step,
+                stability: stability,
+                difficulty: difficulty,
+                due: due,
+                lastReview: lastReview,
+                reps: reps,
+                lapses: lapses,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String knowledgeItemId,
+                required int state,
+                Value<int?> step = const Value.absent(),
+                required double stability,
+                required double difficulty,
+                required DateTime due,
+                required DateTime lastReview,
+                required int reps,
+                Value<int> lapses = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => ReviewStatesCompanion.insert(
+                knowledgeItemId: knowledgeItemId,
+                state: state,
+                step: step,
+                stability: stability,
+                difficulty: difficulty,
+                due: due,
+                lastReview: lastReview,
+                reps: reps,
+                lapses: lapses,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<ReviewStates, ReviewState>(table),
+                  $ReviewStatesReferences(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: ({knowledgeItemId = false}) {
+            return PrefetchHooks(
+              db: db,
+              explicitlyWatchedTables: [],
+              addJoins:
+                  <
+                    T extends TableManagerState<
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic
+                    >
+                  >(state) {
+                    if (knowledgeItemId) {
+                      state = state.withJoin(
+                        currentTable: table,
+                        currentColumn: table.knowledgeItemId,
+                        referencedTable: $ReviewStatesReferences
+                            ._knowledgeItemIdTable(db),
+                        referencedColumn: $ReviewStatesReferences
+                            ._knowledgeItemIdTable(db)
+                            .id,
+                      ) as T;
+                    }
+
+                    return state;
+                  },
+              getPrefetchedDataCallback: (items) async {
+                return [];
+              },
+            );
+          },
+        ),
+      );
+}
+
+typedef $ReviewStatesProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      ReviewStates,
+      ReviewState,
+      $ReviewStatesFilterComposer,
+      $ReviewStatesOrderingComposer,
+      $ReviewStatesAnnotationComposer,
+      $ReviewStatesCreateCompanionBuilder,
+      $ReviewStatesUpdateCompanionBuilder,
+      (ReviewState, $ReviewStatesReferences),
+      ReviewState,
+      PrefetchHooks Function({bool knowledgeItemId})
+    >;
+typedef $ReviewEventsCreateCompanionBuilder = ReviewEventsCompanion Function({
+  required String id,
+  required String knowledgeItemId,
+  required String questionTemplateId,
+  required DateTime reviewedAt,
+  required int rating,
+  Value<int?> responseMs,
+  Value<int?> seed,
+  Value<String?> selectedNodeId,
+  required int schedulerConfigVersion,
+  required int stateAfter,
+  Value<int?> stepAfter,
+  required double stabilityAfter,
+  required double difficultyAfter,
+  required DateTime dueAfter,
+  Value<int> rowid,
+});
+typedef $ReviewEventsUpdateCompanionBuilder = ReviewEventsCompanion Function({
+  Value<String> id,
+  Value<String> knowledgeItemId,
+  Value<String> questionTemplateId,
+  Value<DateTime> reviewedAt,
+  Value<int> rating,
+  Value<int?> responseMs,
+  Value<int?> seed,
+  Value<String?> selectedNodeId,
+  Value<int> schedulerConfigVersion,
+  Value<int> stateAfter,
+  Value<int?> stepAfter,
+  Value<double> stabilityAfter,
+  Value<double> difficultyAfter,
+  Value<DateTime> dueAfter,
+  Value<int> rowid,
+});
+
+final class $ReviewEventsReferences
+    extends BaseReferences<_$AppDatabase, ReviewEvents, ReviewEvent> {
+  $ReviewEventsReferences(super.$_db, super.$_table, super.$_typedResult);
+
+  static KnowledgeItems _knowledgeItemIdTable(_$AppDatabase db) => db
+      .knowledgeItems
+      .createAlias('review_events__knowledge_item_id__knowledge_items__id');
+
+  $KnowledgeItemsProcessedTableManager get knowledgeItemId {
+    final $_column = $_itemColumn<String>('knowledge_item_id')!;
+
+    final manager = $KnowledgeItemsTableManager(
+      $_db,
+      $_db.knowledgeItems,
+    ).filter((f) => f.id.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_knowledgeItemIdTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
+  }
+
+  static QuestionTemplates _questionTemplateIdTable(_$AppDatabase db) =>
+      db.questionTemplates.createAlias(
+        'review_events__question_template_id__question_templates__id',
+      );
+
+  $QuestionTemplatesProcessedTableManager get questionTemplateId {
+    final $_column = $_itemColumn<String>('question_template_id')!;
+
+    final manager = $QuestionTemplatesTableManager(
+      $_db,
+      $_db.questionTemplates,
+    ).filter((f) => f.id.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_questionTemplateIdTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
+  }
+
+  static KnowledgeNodes _selectedNodeIdTable(_$AppDatabase db) => db
+      .knowledgeNodes
+      .createAlias('review_events__selected_node_id__knowledge_nodes__id');
+
+  $KnowledgeNodesProcessedTableManager? get selectedNodeId {
+    final $_column = $_itemColumn<String>('selected_node_id');
+    if ($_column == null) return null;
+    final manager = $KnowledgeNodesTableManager(
+      $_db,
+      $_db.knowledgeNodes,
+    ).filter((f) => f.id.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_selectedNodeIdTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
+  }
+
+  static SchedulerConfigs _schedulerConfigVersionTable(_$AppDatabase db) =>
+      db.schedulerConfigs.createAlias(
+        'review_events__scheduler_config_version__scheduler_configs__version',
+      );
+
+  $SchedulerConfigsProcessedTableManager get schedulerConfigVersion {
+    final $_column = $_itemColumn<int>('scheduler_config_version')!;
+
+    final manager = $SchedulerConfigsTableManager(
+      $_db,
+      $_db.schedulerConfigs,
+    ).filter((f) => f.version.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(
+      _schedulerConfigVersionTable($_db),
+    );
+    if (item == null) return manager;
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
+  }
+
+  static MultiTypedResultKey<ReviewEventOptions, List<ReviewEventOption>>
+  _reviewEventOptionsRefsTable(_$AppDatabase db) =>
+      MultiTypedResultKey.fromTable(
+        db.reviewEventOptions,
+        aliasName: 'review_events__id__review_event_options__review_event_id',
+      );
+
+  $ReviewEventOptionsProcessedTableManager get reviewEventOptionsRefs {
+    final manager = $ReviewEventOptionsTableManager(
+      $_db,
+      $_db.reviewEventOptions,
+    ).filter((f) => f.reviewEventId.id.sqlEquals($_itemColumn<String>('id')!));
+
+    final cache = $_typedResult.readTableOrNull(
+      _reviewEventOptionsRefsTable($_db),
+    );
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: cache),
+    );
+  }
+}
+
+class $ReviewEventsFilterComposer
+    extends Composer<_$AppDatabase, ReviewEvents> {
+  $ReviewEventsFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get reviewedAt => $composableBuilder(
+    column: $table.reviewedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get rating => $composableBuilder(
+    column: $table.rating,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get responseMs => $composableBuilder(
+    column: $table.responseMs,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get seed => $composableBuilder(
+    column: $table.seed,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get stateAfter => $composableBuilder(
+    column: $table.stateAfter,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get stepAfter => $composableBuilder(
+    column: $table.stepAfter,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get stabilityAfter => $composableBuilder(
+    column: $table.stabilityAfter,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get difficultyAfter => $composableBuilder(
+    column: $table.difficultyAfter,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get dueAfter => $composableBuilder(
+    column: $table.dueAfter,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  $KnowledgeItemsFilterComposer get knowledgeItemId {
+    final $KnowledgeItemsFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.knowledgeItemId,
+      referencedTable: $db.knowledgeItems,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $KnowledgeItemsFilterComposer(
+            $db: $db,
+            $table: $db.knowledgeItems,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  $QuestionTemplatesFilterComposer get questionTemplateId {
+    final $QuestionTemplatesFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.questionTemplateId,
+      referencedTable: $db.questionTemplates,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $QuestionTemplatesFilterComposer(
+            $db: $db,
+            $table: $db.questionTemplates,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  $KnowledgeNodesFilterComposer get selectedNodeId {
+    final $KnowledgeNodesFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.selectedNodeId,
+      referencedTable: $db.knowledgeNodes,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $KnowledgeNodesFilterComposer(
+            $db: $db,
+            $table: $db.knowledgeNodes,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  $SchedulerConfigsFilterComposer get schedulerConfigVersion {
+    final $SchedulerConfigsFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.schedulerConfigVersion,
+      referencedTable: $db.schedulerConfigs,
+      getReferencedColumn: (t) => t.version,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $SchedulerConfigsFilterComposer(
+            $db: $db,
+            $table: $db.schedulerConfigs,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  Expression<bool> reviewEventOptionsRefs(
+    Expression<bool> Function($ReviewEventOptionsFilterComposer f) f,
+  ) {
+    final $ReviewEventOptionsFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.reviewEventOptions,
+      getReferencedColumn: (t) => t.reviewEventId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $ReviewEventOptionsFilterComposer(
+            $db: $db,
+            $table: $db.reviewEventOptions,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+}
+
+class $ReviewEventsOrderingComposer
+    extends Composer<_$AppDatabase, ReviewEvents> {
+  $ReviewEventsOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get reviewedAt => $composableBuilder(
+    column: $table.reviewedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get rating => $composableBuilder(
+    column: $table.rating,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get responseMs => $composableBuilder(
+    column: $table.responseMs,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get seed => $composableBuilder(
+    column: $table.seed,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get stateAfter => $composableBuilder(
+    column: $table.stateAfter,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get stepAfter => $composableBuilder(
+    column: $table.stepAfter,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get stabilityAfter => $composableBuilder(
+    column: $table.stabilityAfter,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get difficultyAfter => $composableBuilder(
+    column: $table.difficultyAfter,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get dueAfter => $composableBuilder(
+    column: $table.dueAfter,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  $KnowledgeItemsOrderingComposer get knowledgeItemId {
+    final $KnowledgeItemsOrderingComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.knowledgeItemId,
+      referencedTable: $db.knowledgeItems,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $KnowledgeItemsOrderingComposer(
+            $db: $db,
+            $table: $db.knowledgeItems,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  $QuestionTemplatesOrderingComposer get questionTemplateId {
+    final $QuestionTemplatesOrderingComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.questionTemplateId,
+      referencedTable: $db.questionTemplates,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $QuestionTemplatesOrderingComposer(
+            $db: $db,
+            $table: $db.questionTemplates,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  $KnowledgeNodesOrderingComposer get selectedNodeId {
+    final $KnowledgeNodesOrderingComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.selectedNodeId,
+      referencedTable: $db.knowledgeNodes,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $KnowledgeNodesOrderingComposer(
+            $db: $db,
+            $table: $db.knowledgeNodes,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  $SchedulerConfigsOrderingComposer get schedulerConfigVersion {
+    final $SchedulerConfigsOrderingComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.schedulerConfigVersion,
+      referencedTable: $db.schedulerConfigs,
+      getReferencedColumn: (t) => t.version,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $SchedulerConfigsOrderingComposer(
+            $db: $db,
+            $table: $db.schedulerConfigs,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $ReviewEventsAnnotationComposer
+    extends Composer<_$AppDatabase, ReviewEvents> {
+  $ReviewEventsAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get reviewedAt => $composableBuilder(
+    column: $table.reviewedAt,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get rating =>
+      $composableBuilder(column: $table.rating, builder: (column) => column);
+
+  GeneratedColumn<int> get responseMs => $composableBuilder(
+    column: $table.responseMs,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get seed =>
+      $composableBuilder(column: $table.seed, builder: (column) => column);
+
+  GeneratedColumn<int> get stateAfter => $composableBuilder(
+    column: $table.stateAfter,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get stepAfter =>
+      $composableBuilder(column: $table.stepAfter, builder: (column) => column);
+
+  GeneratedColumn<double> get stabilityAfter => $composableBuilder(
+    column: $table.stabilityAfter,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<double> get difficultyAfter => $composableBuilder(
+    column: $table.difficultyAfter,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<DateTime> get dueAfter =>
+      $composableBuilder(column: $table.dueAfter, builder: (column) => column);
+
+  $KnowledgeItemsAnnotationComposer get knowledgeItemId {
+    final $KnowledgeItemsAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.knowledgeItemId,
+      referencedTable: $db.knowledgeItems,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $KnowledgeItemsAnnotationComposer(
+            $db: $db,
+            $table: $db.knowledgeItems,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  $QuestionTemplatesAnnotationComposer get questionTemplateId {
+    final $QuestionTemplatesAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.questionTemplateId,
+      referencedTable: $db.questionTemplates,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $QuestionTemplatesAnnotationComposer(
+            $db: $db,
+            $table: $db.questionTemplates,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  $KnowledgeNodesAnnotationComposer get selectedNodeId {
+    final $KnowledgeNodesAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.selectedNodeId,
+      referencedTable: $db.knowledgeNodes,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $KnowledgeNodesAnnotationComposer(
+            $db: $db,
+            $table: $db.knowledgeNodes,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  $SchedulerConfigsAnnotationComposer get schedulerConfigVersion {
+    final $SchedulerConfigsAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.schedulerConfigVersion,
+      referencedTable: $db.schedulerConfigs,
+      getReferencedColumn: (t) => t.version,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $SchedulerConfigsAnnotationComposer(
+            $db: $db,
+            $table: $db.schedulerConfigs,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  Expression<T> reviewEventOptionsRefs<T extends Object>(
+    Expression<T> Function($ReviewEventOptionsAnnotationComposer a) f,
+  ) {
+    final $ReviewEventOptionsAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.reviewEventOptions,
+      getReferencedColumn: (t) => t.reviewEventId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $ReviewEventOptionsAnnotationComposer(
+            $db: $db,
+            $table: $db.reviewEventOptions,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+}
+
+class $ReviewEventsTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          ReviewEvents,
+          ReviewEvent,
+          $ReviewEventsFilterComposer,
+          $ReviewEventsOrderingComposer,
+          $ReviewEventsAnnotationComposer,
+          $ReviewEventsCreateCompanionBuilder,
+          $ReviewEventsUpdateCompanionBuilder,
+          (ReviewEvent, $ReviewEventsReferences),
+          ReviewEvent,
+          PrefetchHooks Function({
+            bool knowledgeItemId,
+            bool questionTemplateId,
+            bool selectedNodeId,
+            bool schedulerConfigVersion,
+            bool reviewEventOptionsRefs,
+          })
+        > {
+  $ReviewEventsTableManager(_$AppDatabase db, ReviewEvents table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $ReviewEventsFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $ReviewEventsOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $ReviewEventsAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> id = const Value.absent(),
+                Value<String> knowledgeItemId = const Value.absent(),
+                Value<String> questionTemplateId = const Value.absent(),
+                Value<DateTime> reviewedAt = const Value.absent(),
+                Value<int> rating = const Value.absent(),
+                Value<int?> responseMs = const Value.absent(),
+                Value<int?> seed = const Value.absent(),
+                Value<String?> selectedNodeId = const Value.absent(),
+                Value<int> schedulerConfigVersion = const Value.absent(),
+                Value<int> stateAfter = const Value.absent(),
+                Value<int?> stepAfter = const Value.absent(),
+                Value<double> stabilityAfter = const Value.absent(),
+                Value<double> difficultyAfter = const Value.absent(),
+                Value<DateTime> dueAfter = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => ReviewEventsCompanion(
+                id: id,
+                knowledgeItemId: knowledgeItemId,
+                questionTemplateId: questionTemplateId,
+                reviewedAt: reviewedAt,
+                rating: rating,
+                responseMs: responseMs,
+                seed: seed,
+                selectedNodeId: selectedNodeId,
+                schedulerConfigVersion: schedulerConfigVersion,
+                stateAfter: stateAfter,
+                stepAfter: stepAfter,
+                stabilityAfter: stabilityAfter,
+                difficultyAfter: difficultyAfter,
+                dueAfter: dueAfter,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String id,
+                required String knowledgeItemId,
+                required String questionTemplateId,
+                required DateTime reviewedAt,
+                required int rating,
+                Value<int?> responseMs = const Value.absent(),
+                Value<int?> seed = const Value.absent(),
+                Value<String?> selectedNodeId = const Value.absent(),
+                required int schedulerConfigVersion,
+                required int stateAfter,
+                Value<int?> stepAfter = const Value.absent(),
+                required double stabilityAfter,
+                required double difficultyAfter,
+                required DateTime dueAfter,
+                Value<int> rowid = const Value.absent(),
+              }) => ReviewEventsCompanion.insert(
+                id: id,
+                knowledgeItemId: knowledgeItemId,
+                questionTemplateId: questionTemplateId,
+                reviewedAt: reviewedAt,
+                rating: rating,
+                responseMs: responseMs,
+                seed: seed,
+                selectedNodeId: selectedNodeId,
+                schedulerConfigVersion: schedulerConfigVersion,
+                stateAfter: stateAfter,
+                stepAfter: stepAfter,
+                stabilityAfter: stabilityAfter,
+                difficultyAfter: difficultyAfter,
+                dueAfter: dueAfter,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<ReviewEvents, ReviewEvent>(table),
+                  $ReviewEventsReferences(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback:
+              ({
+                knowledgeItemId = false,
+                questionTemplateId = false,
+                selectedNodeId = false,
+                schedulerConfigVersion = false,
+                reviewEventOptionsRefs = false,
+              }) {
+                return PrefetchHooks(
+                  db: db,
+                  explicitlyWatchedTables: [
+                    if (reviewEventOptionsRefs) db.reviewEventOptions,
+                  ],
+                  addJoins:
+                      <
+                        T extends TableManagerState<
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic
+                        >
+                      >(state) {
+                        if (knowledgeItemId) {
+                          state = state.withJoin(
+                            currentTable: table,
+                            currentColumn: table.knowledgeItemId,
+                            referencedTable: $ReviewEventsReferences
+                                ._knowledgeItemIdTable(db),
+                            referencedColumn: $ReviewEventsReferences
+                                ._knowledgeItemIdTable(db)
+                                .id,
+                          ) as T;
+                        }
+                        if (questionTemplateId) {
+                          state = state.withJoin(
+                            currentTable: table,
+                            currentColumn: table.questionTemplateId,
+                            referencedTable: $ReviewEventsReferences
+                                ._questionTemplateIdTable(db),
+                            referencedColumn: $ReviewEventsReferences
+                                ._questionTemplateIdTable(db)
+                                .id,
+                          ) as T;
+                        }
+                        if (selectedNodeId) {
+                          state = state.withJoin(
+                            currentTable: table,
+                            currentColumn: table.selectedNodeId,
+                            referencedTable: $ReviewEventsReferences
+                                ._selectedNodeIdTable(db),
+                            referencedColumn: $ReviewEventsReferences
+                                ._selectedNodeIdTable(db)
+                                .id,
+                          ) as T;
+                        }
+                        if (schedulerConfigVersion) {
+                          state = state.withJoin(
+                            currentTable: table,
+                            currentColumn: table.schedulerConfigVersion,
+                            referencedTable: $ReviewEventsReferences
+                                ._schedulerConfigVersionTable(db),
+                            referencedColumn: $ReviewEventsReferences
+                                ._schedulerConfigVersionTable(db)
+                                .version,
+                          ) as T;
+                        }
+
+                        return state;
+                      },
+                  getPrefetchedDataCallback: (items) async {
+                    return [
+                      if (reviewEventOptionsRefs)
+                        await $_getPrefetchedData<
+                          ReviewEvent,
+                          ReviewEvents,
+                          ReviewEventOption
+                        >(
+                          currentTable: table,
+                          referencedTable: $ReviewEventsReferences
+                              ._reviewEventOptionsRefsTable(db),
+                          managerFromTypedResult: (p0) =>
+                              $ReviewEventsReferences(
+                                db,
+                                table,
+                                p0,
+                              ).reviewEventOptionsRefs,
+                          referencedItemsForCurrentItem:
+                              (item, referencedItems) => referencedItems.where(
+                                (e) => e.reviewEventId == item.id,
+                              ),
+                          typedResults: items,
+                        ),
+                    ];
+                  },
+                );
+              },
+        ),
+      );
+}
+
+typedef $ReviewEventsProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      ReviewEvents,
+      ReviewEvent,
+      $ReviewEventsFilterComposer,
+      $ReviewEventsOrderingComposer,
+      $ReviewEventsAnnotationComposer,
+      $ReviewEventsCreateCompanionBuilder,
+      $ReviewEventsUpdateCompanionBuilder,
+      (ReviewEvent, $ReviewEventsReferences),
+      ReviewEvent,
+      PrefetchHooks Function({
+        bool knowledgeItemId,
+        bool questionTemplateId,
+        bool selectedNodeId,
+        bool schedulerConfigVersion,
+        bool reviewEventOptionsRefs,
+      })
+    >;
+typedef $ReviewEventOptionsCreateCompanionBuilder =
+    ReviewEventOptionsCompanion Function({
+      required String reviewEventId,
+      required int position,
+      required String knowledgeNodeId,
+      Value<int> rowid,
+    });
+typedef $ReviewEventOptionsUpdateCompanionBuilder =
+    ReviewEventOptionsCompanion Function({
+      Value<String> reviewEventId,
+      Value<int> position,
+      Value<String> knowledgeNodeId,
+      Value<int> rowid,
+    });
+
+final class $ReviewEventOptionsReferences
+    extends
+        BaseReferences<_$AppDatabase, ReviewEventOptions, ReviewEventOption> {
+  $ReviewEventOptionsReferences(super.$_db, super.$_table, super.$_typedResult);
+
+  static ReviewEvents _reviewEventIdTable(_$AppDatabase db) => db.reviewEvents
+      .createAlias('review_event_options__review_event_id__review_events__id');
+
+  $ReviewEventsProcessedTableManager get reviewEventId {
+    final $_column = $_itemColumn<String>('review_event_id')!;
+
+    final manager = $ReviewEventsTableManager(
+      $_db,
+      $_db.reviewEvents,
+    ).filter((f) => f.id.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_reviewEventIdTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
+  }
+
+  static KnowledgeNodes _knowledgeNodeIdTable(_$AppDatabase db) =>
+      db.knowledgeNodes.createAlias(
+        'review_event_options__knowledge_node_id__knowledge_nodes__id',
+      );
+
+  $KnowledgeNodesProcessedTableManager get knowledgeNodeId {
+    final $_column = $_itemColumn<String>('knowledge_node_id')!;
+
+    final manager = $KnowledgeNodesTableManager(
+      $_db,
+      $_db.knowledgeNodes,
+    ).filter((f) => f.id.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_knowledgeNodeIdTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
+  }
+}
+
+class $ReviewEventOptionsFilterComposer
+    extends Composer<_$AppDatabase, ReviewEventOptions> {
+  $ReviewEventOptionsFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get position => $composableBuilder(
+    column: $table.position,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  $ReviewEventsFilterComposer get reviewEventId {
+    final $ReviewEventsFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.reviewEventId,
+      referencedTable: $db.reviewEvents,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $ReviewEventsFilterComposer(
+            $db: $db,
+            $table: $db.reviewEvents,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  $KnowledgeNodesFilterComposer get knowledgeNodeId {
+    final $KnowledgeNodesFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.knowledgeNodeId,
+      referencedTable: $db.knowledgeNodes,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $KnowledgeNodesFilterComposer(
+            $db: $db,
+            $table: $db.knowledgeNodes,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $ReviewEventOptionsOrderingComposer
+    extends Composer<_$AppDatabase, ReviewEventOptions> {
+  $ReviewEventOptionsOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get position => $composableBuilder(
+    column: $table.position,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  $ReviewEventsOrderingComposer get reviewEventId {
+    final $ReviewEventsOrderingComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.reviewEventId,
+      referencedTable: $db.reviewEvents,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $ReviewEventsOrderingComposer(
+            $db: $db,
+            $table: $db.reviewEvents,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  $KnowledgeNodesOrderingComposer get knowledgeNodeId {
+    final $KnowledgeNodesOrderingComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.knowledgeNodeId,
+      referencedTable: $db.knowledgeNodes,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $KnowledgeNodesOrderingComposer(
+            $db: $db,
+            $table: $db.knowledgeNodes,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $ReviewEventOptionsAnnotationComposer
+    extends Composer<_$AppDatabase, ReviewEventOptions> {
+  $ReviewEventOptionsAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get position =>
+      $composableBuilder(column: $table.position, builder: (column) => column);
+
+  $ReviewEventsAnnotationComposer get reviewEventId {
+    final $ReviewEventsAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.reviewEventId,
+      referencedTable: $db.reviewEvents,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $ReviewEventsAnnotationComposer(
+            $db: $db,
+            $table: $db.reviewEvents,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  $KnowledgeNodesAnnotationComposer get knowledgeNodeId {
+    final $KnowledgeNodesAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.knowledgeNodeId,
+      referencedTable: $db.knowledgeNodes,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $KnowledgeNodesAnnotationComposer(
+            $db: $db,
+            $table: $db.knowledgeNodes,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $ReviewEventOptionsTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          ReviewEventOptions,
+          ReviewEventOption,
+          $ReviewEventOptionsFilterComposer,
+          $ReviewEventOptionsOrderingComposer,
+          $ReviewEventOptionsAnnotationComposer,
+          $ReviewEventOptionsCreateCompanionBuilder,
+          $ReviewEventOptionsUpdateCompanionBuilder,
+          (ReviewEventOption, $ReviewEventOptionsReferences),
+          ReviewEventOption,
+          PrefetchHooks Function({bool reviewEventId, bool knowledgeNodeId})
+        > {
+  $ReviewEventOptionsTableManager(_$AppDatabase db, ReviewEventOptions table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $ReviewEventOptionsFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $ReviewEventOptionsOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $ReviewEventOptionsAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> reviewEventId = const Value.absent(),
+                Value<int> position = const Value.absent(),
+                Value<String> knowledgeNodeId = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => ReviewEventOptionsCompanion(
+                reviewEventId: reviewEventId,
+                position: position,
+                knowledgeNodeId: knowledgeNodeId,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String reviewEventId,
+                required int position,
+                required String knowledgeNodeId,
+                Value<int> rowid = const Value.absent(),
+              }) => ReviewEventOptionsCompanion.insert(
+                reviewEventId: reviewEventId,
+                position: position,
+                knowledgeNodeId: knowledgeNodeId,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<ReviewEventOptions, ReviewEventOption>(table),
+                  $ReviewEventOptionsReferences(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback:
+              ({reviewEventId = false, knowledgeNodeId = false}) {
+                return PrefetchHooks(
+                  db: db,
+                  explicitlyWatchedTables: [],
+                  addJoins:
+                      <
+                        T extends TableManagerState<
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic
+                        >
+                      >(state) {
+                        if (reviewEventId) {
+                          state = state.withJoin(
+                            currentTable: table,
+                            currentColumn: table.reviewEventId,
+                            referencedTable: $ReviewEventOptionsReferences
+                                ._reviewEventIdTable(db),
+                            referencedColumn: $ReviewEventOptionsReferences
+                                ._reviewEventIdTable(db)
+                                .id,
+                          ) as T;
+                        }
+                        if (knowledgeNodeId) {
+                          state = state.withJoin(
+                            currentTable: table,
+                            currentColumn: table.knowledgeNodeId,
+                            referencedTable: $ReviewEventOptionsReferences
+                                ._knowledgeNodeIdTable(db),
+                            referencedColumn: $ReviewEventOptionsReferences
+                                ._knowledgeNodeIdTable(db)
+                                .id,
+                          ) as T;
+                        }
+
+                        return state;
+                      },
+                  getPrefetchedDataCallback: (items) async {
+                    return [];
+                  },
+                );
+              },
+        ),
+      );
+}
+
+typedef $ReviewEventOptionsProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      ReviewEventOptions,
+      ReviewEventOption,
+      $ReviewEventOptionsFilterComposer,
+      $ReviewEventOptionsOrderingComposer,
+      $ReviewEventOptionsAnnotationComposer,
+      $ReviewEventOptionsCreateCompanionBuilder,
+      $ReviewEventOptionsUpdateCompanionBuilder,
+      (ReviewEventOption, $ReviewEventOptionsReferences),
+      ReviewEventOption,
+      PrefetchHooks Function({bool reviewEventId, bool knowledgeNodeId})
+    >;
+typedef $WineJournalEntriesCreateCompanionBuilder =
+    WineJournalEntriesCompanion Function({
+      required String id,
+      Value<String?> tastedOn,
+      Value<String?> producerName,
+      Value<String?> cuveeName,
+      Value<int?> vintage,
+      Value<bool> isNonVintage,
+      Value<String?> appellationText,
+      Value<String?> grapesText,
+      Value<double?> abvPercent,
+      Value<int?> rating,
+      Value<String?> tastingNotes,
+      Value<String?> photoRef,
+      required DateTime createdAt,
+      required DateTime updatedAt,
+      Value<int> rowid,
+    });
+typedef $WineJournalEntriesUpdateCompanionBuilder =
+    WineJournalEntriesCompanion Function({
+      Value<String> id,
+      Value<String?> tastedOn,
+      Value<String?> producerName,
+      Value<String?> cuveeName,
+      Value<int?> vintage,
+      Value<bool> isNonVintage,
+      Value<String?> appellationText,
+      Value<String?> grapesText,
+      Value<double?> abvPercent,
+      Value<int?> rating,
+      Value<String?> tastingNotes,
+      Value<String?> photoRef,
+      Value<DateTime> createdAt,
+      Value<DateTime> updatedAt,
+      Value<int> rowid,
+    });
+
+final class $WineJournalEntriesReferences
+    extends
+        BaseReferences<_$AppDatabase, WineJournalEntries, WineJournalEntry> {
+  $WineJournalEntriesReferences(super.$_db, super.$_table, super.$_typedResult);
+
+  static MultiTypedResultKey<WineJournalEntryNodes, List<WineJournalEntryNode>>
+  _wineJournalEntryNodesRefsTable(_$AppDatabase db) =>
+      MultiTypedResultKey.fromTable(
+        db.wineJournalEntryNodes,
+        aliasName: 'wine_journal_entries__id__wine_journal_entry_nodes__wine_journal_entry_id',
+      );
+
+  $WineJournalEntryNodesProcessedTableManager get wineJournalEntryNodesRefs {
+    final manager =
+        $WineJournalEntryNodesTableManager(
+          $_db,
+          $_db.wineJournalEntryNodes,
+        ).filter(
+          (f) => f.wineJournalEntryId.id.sqlEquals($_itemColumn<String>('id')!),
+        );
+
+    final cache = $_typedResult.readTableOrNull(
+      _wineJournalEntryNodesRefsTable($_db),
+    );
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: cache),
+    );
+  }
+
+  static MultiTypedResultKey<TastingSessions, List<TastingSession>>
+  _tastingSessionsRefsTable(_$AppDatabase db) => MultiTypedResultKey.fromTable(
+    db.tastingSessions,
+    aliasName:
+        'wine_journal_entries__id__tasting_sessions__wine_journal_entry_id',
+  );
+
+  $TastingSessionsProcessedTableManager get tastingSessionsRefs {
+    final manager = $TastingSessionsTableManager($_db, $_db.tastingSessions)
+        .filter(
+          (f) => f.wineJournalEntryId.id.sqlEquals($_itemColumn<String>('id')!),
+        );
+
+    final cache = $_typedResult.readTableOrNull(
+      _tastingSessionsRefsTable($_db),
+    );
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: cache),
+    );
+  }
+}
+
+class $WineJournalEntriesFilterComposer
+    extends Composer<_$AppDatabase, WineJournalEntries> {
+  $WineJournalEntriesFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get tastedOn => $composableBuilder(
+    column: $table.tastedOn,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get producerName => $composableBuilder(
+    column: $table.producerName,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get cuveeName => $composableBuilder(
+    column: $table.cuveeName,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get vintage => $composableBuilder(
+    column: $table.vintage,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<bool> get isNonVintage => $composableBuilder(
+    column: $table.isNonVintage,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get appellationText => $composableBuilder(
+    column: $table.appellationText,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get grapesText => $composableBuilder(
+    column: $table.grapesText,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get abvPercent => $composableBuilder(
+    column: $table.abvPercent,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get rating => $composableBuilder(
+    column: $table.rating,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get tastingNotes => $composableBuilder(
+    column: $table.tastingNotes,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get photoRef => $composableBuilder(
+    column: $table.photoRef,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  Expression<bool> wineJournalEntryNodesRefs(
+    Expression<bool> Function($WineJournalEntryNodesFilterComposer f) f,
+  ) {
+    final $WineJournalEntryNodesFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.wineJournalEntryNodes,
+      getReferencedColumn: (t) => t.wineJournalEntryId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $WineJournalEntryNodesFilterComposer(
+            $db: $db,
+            $table: $db.wineJournalEntryNodes,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+
+  Expression<bool> tastingSessionsRefs(
+    Expression<bool> Function($TastingSessionsFilterComposer f) f,
+  ) {
+    final $TastingSessionsFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.tastingSessions,
+      getReferencedColumn: (t) => t.wineJournalEntryId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $TastingSessionsFilterComposer(
+            $db: $db,
+            $table: $db.tastingSessions,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+}
+
+class $WineJournalEntriesOrderingComposer
+    extends Composer<_$AppDatabase, WineJournalEntries> {
+  $WineJournalEntriesOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get tastedOn => $composableBuilder(
+    column: $table.tastedOn,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get producerName => $composableBuilder(
+    column: $table.producerName,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get cuveeName => $composableBuilder(
+    column: $table.cuveeName,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get vintage => $composableBuilder(
+    column: $table.vintage,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<bool> get isNonVintage => $composableBuilder(
+    column: $table.isNonVintage,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get appellationText => $composableBuilder(
+    column: $table.appellationText,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get grapesText => $composableBuilder(
+    column: $table.grapesText,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get abvPercent => $composableBuilder(
+    column: $table.abvPercent,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get rating => $composableBuilder(
+    column: $table.rating,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get tastingNotes => $composableBuilder(
+    column: $table.tastingNotes,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get photoRef => $composableBuilder(
+    column: $table.photoRef,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $WineJournalEntriesAnnotationComposer
+    extends Composer<_$AppDatabase, WineJournalEntries> {
+  $WineJournalEntriesAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get tastedOn =>
+      $composableBuilder(column: $table.tastedOn, builder: (column) => column);
+
+  GeneratedColumn<String> get producerName => $composableBuilder(
+    column: $table.producerName,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get cuveeName =>
+      $composableBuilder(column: $table.cuveeName, builder: (column) => column);
+
+  GeneratedColumn<int> get vintage =>
+      $composableBuilder(column: $table.vintage, builder: (column) => column);
+
+  GeneratedColumn<bool> get isNonVintage => $composableBuilder(
+    column: $table.isNonVintage,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get appellationText => $composableBuilder(
+    column: $table.appellationText,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get grapesText => $composableBuilder(
+    column: $table.grapesText,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<double> get abvPercent => $composableBuilder(
+    column: $table.abvPercent,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get rating =>
+      $composableBuilder(column: $table.rating, builder: (column) => column);
+
+  GeneratedColumn<String> get tastingNotes => $composableBuilder(
+    column: $table.tastingNotes,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get photoRef =>
+      $composableBuilder(column: $table.photoRef, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get updatedAt =>
+      $composableBuilder(column: $table.updatedAt, builder: (column) => column);
+
+  Expression<T> wineJournalEntryNodesRefs<T extends Object>(
+    Expression<T> Function($WineJournalEntryNodesAnnotationComposer a) f,
+  ) {
+    final $WineJournalEntryNodesAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.wineJournalEntryNodes,
+      getReferencedColumn: (t) => t.wineJournalEntryId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $WineJournalEntryNodesAnnotationComposer(
+            $db: $db,
+            $table: $db.wineJournalEntryNodes,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+
+  Expression<T> tastingSessionsRefs<T extends Object>(
+    Expression<T> Function($TastingSessionsAnnotationComposer a) f,
+  ) {
+    final $TastingSessionsAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.tastingSessions,
+      getReferencedColumn: (t) => t.wineJournalEntryId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $TastingSessionsAnnotationComposer(
+            $db: $db,
+            $table: $db.tastingSessions,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+}
+
+class $WineJournalEntriesTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          WineJournalEntries,
+          WineJournalEntry,
+          $WineJournalEntriesFilterComposer,
+          $WineJournalEntriesOrderingComposer,
+          $WineJournalEntriesAnnotationComposer,
+          $WineJournalEntriesCreateCompanionBuilder,
+          $WineJournalEntriesUpdateCompanionBuilder,
+          (WineJournalEntry, $WineJournalEntriesReferences),
+          WineJournalEntry,
+          PrefetchHooks Function({
+            bool wineJournalEntryNodesRefs,
+            bool tastingSessionsRefs,
+          })
+        > {
+  $WineJournalEntriesTableManager(_$AppDatabase db, WineJournalEntries table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $WineJournalEntriesFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $WineJournalEntriesOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $WineJournalEntriesAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> id = const Value.absent(),
+                Value<String?> tastedOn = const Value.absent(),
+                Value<String?> producerName = const Value.absent(),
+                Value<String?> cuveeName = const Value.absent(),
+                Value<int?> vintage = const Value.absent(),
+                Value<bool> isNonVintage = const Value.absent(),
+                Value<String?> appellationText = const Value.absent(),
+                Value<String?> grapesText = const Value.absent(),
+                Value<double?> abvPercent = const Value.absent(),
+                Value<int?> rating = const Value.absent(),
+                Value<String?> tastingNotes = const Value.absent(),
+                Value<String?> photoRef = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => WineJournalEntriesCompanion(
+                id: id,
+                tastedOn: tastedOn,
+                producerName: producerName,
+                cuveeName: cuveeName,
+                vintage: vintage,
+                isNonVintage: isNonVintage,
+                appellationText: appellationText,
+                grapesText: grapesText,
+                abvPercent: abvPercent,
+                rating: rating,
+                tastingNotes: tastingNotes,
+                photoRef: photoRef,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String id,
+                Value<String?> tastedOn = const Value.absent(),
+                Value<String?> producerName = const Value.absent(),
+                Value<String?> cuveeName = const Value.absent(),
+                Value<int?> vintage = const Value.absent(),
+                Value<bool> isNonVintage = const Value.absent(),
+                Value<String?> appellationText = const Value.absent(),
+                Value<String?> grapesText = const Value.absent(),
+                Value<double?> abvPercent = const Value.absent(),
+                Value<int?> rating = const Value.absent(),
+                Value<String?> tastingNotes = const Value.absent(),
+                Value<String?> photoRef = const Value.absent(),
+                required DateTime createdAt,
+                required DateTime updatedAt,
+                Value<int> rowid = const Value.absent(),
+              }) => WineJournalEntriesCompanion.insert(
+                id: id,
+                tastedOn: tastedOn,
+                producerName: producerName,
+                cuveeName: cuveeName,
+                vintage: vintage,
+                isNonVintage: isNonVintage,
+                appellationText: appellationText,
+                grapesText: grapesText,
+                abvPercent: abvPercent,
+                rating: rating,
+                tastingNotes: tastingNotes,
+                photoRef: photoRef,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<WineJournalEntries, WineJournalEntry>(table),
+                  $WineJournalEntriesReferences(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback:
+              ({
+                wineJournalEntryNodesRefs = false,
+                tastingSessionsRefs = false,
+              }) {
+                return PrefetchHooks(
+                  db: db,
+                  explicitlyWatchedTables: [
+                    if (wineJournalEntryNodesRefs) db.wineJournalEntryNodes,
+                    if (tastingSessionsRefs) db.tastingSessions,
+                  ],
+                  addJoins: null,
+                  getPrefetchedDataCallback: (items) async {
+                    return [
+                      if (wineJournalEntryNodesRefs)
+                        await $_getPrefetchedData<
+                          WineJournalEntry,
+                          WineJournalEntries,
+                          WineJournalEntryNode
+                        >(
+                          currentTable: table,
+                          referencedTable: $WineJournalEntriesReferences
+                              ._wineJournalEntryNodesRefsTable(db),
+                          managerFromTypedResult: (p0) =>
+                              $WineJournalEntriesReferences(
+                                db,
+                                table,
+                                p0,
+                              ).wineJournalEntryNodesRefs,
+                          referencedItemsForCurrentItem:
+                              (item, referencedItems) => referencedItems.where(
+                                (e) => e.wineJournalEntryId == item.id,
+                              ),
+                          typedResults: items,
+                        ),
+                      if (tastingSessionsRefs)
+                        await $_getPrefetchedData<
+                          WineJournalEntry,
+                          WineJournalEntries,
+                          TastingSession
+                        >(
+                          currentTable: table,
+                          referencedTable: $WineJournalEntriesReferences
+                              ._tastingSessionsRefsTable(db),
+                          managerFromTypedResult: (p0) =>
+                              $WineJournalEntriesReferences(
+                                db,
+                                table,
+                                p0,
+                              ).tastingSessionsRefs,
+                          referencedItemsForCurrentItem:
+                              (item, referencedItems) => referencedItems.where(
+                                (e) => e.wineJournalEntryId == item.id,
+                              ),
+                          typedResults: items,
+                        ),
+                    ];
+                  },
+                );
+              },
+        ),
+      );
+}
+
+typedef $WineJournalEntriesProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      WineJournalEntries,
+      WineJournalEntry,
+      $WineJournalEntriesFilterComposer,
+      $WineJournalEntriesOrderingComposer,
+      $WineJournalEntriesAnnotationComposer,
+      $WineJournalEntriesCreateCompanionBuilder,
+      $WineJournalEntriesUpdateCompanionBuilder,
+      (WineJournalEntry, $WineJournalEntriesReferences),
+      WineJournalEntry,
+      PrefetchHooks Function({
+        bool wineJournalEntryNodesRefs,
+        bool tastingSessionsRefs,
+      })
+    >;
+typedef $WineJournalEntryNodesCreateCompanionBuilder =
+    WineJournalEntryNodesCompanion Function({
+      required String wineJournalEntryId,
+      required String knowledgeNodeId,
+      Value<int> rowid,
+    });
+typedef $WineJournalEntryNodesUpdateCompanionBuilder =
+    WineJournalEntryNodesCompanion Function({
+      Value<String> wineJournalEntryId,
+      Value<String> knowledgeNodeId,
+      Value<int> rowid,
+    });
+
+final class $WineJournalEntryNodesReferences
+    extends
+        BaseReferences<
+          _$AppDatabase,
+          WineJournalEntryNodes,
+          WineJournalEntryNode
+        > {
+  $WineJournalEntryNodesReferences(
+    super.$_db,
+    super.$_table,
+    super.$_typedResult,
+  );
+
+  static WineJournalEntries _wineJournalEntryIdTable(
+    _$AppDatabase db,
+  ) => db.wineJournalEntries.createAlias(
+    'wine_journal_entry_nodes__wine_journal_entry_id__wine_journal_entries__id',
+  );
+
+  $WineJournalEntriesProcessedTableManager get wineJournalEntryId {
+    final $_column = $_itemColumn<String>('wine_journal_entry_id')!;
+
+    final manager = $WineJournalEntriesTableManager(
+      $_db,
+      $_db.wineJournalEntries,
+    ).filter((f) => f.id.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_wineJournalEntryIdTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
+  }
+
+  static KnowledgeNodes _knowledgeNodeIdTable(_$AppDatabase db) =>
+      db.knowledgeNodes.createAlias(
+        'wine_journal_entry_nodes__knowledge_node_id__knowledge_nodes__id',
+      );
+
+  $KnowledgeNodesProcessedTableManager get knowledgeNodeId {
+    final $_column = $_itemColumn<String>('knowledge_node_id')!;
+
+    final manager = $KnowledgeNodesTableManager(
+      $_db,
+      $_db.knowledgeNodes,
+    ).filter((f) => f.id.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_knowledgeNodeIdTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
+  }
+}
+
+class $WineJournalEntryNodesFilterComposer
+    extends Composer<_$AppDatabase, WineJournalEntryNodes> {
+  $WineJournalEntryNodesFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  $WineJournalEntriesFilterComposer get wineJournalEntryId {
+    final $WineJournalEntriesFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.wineJournalEntryId,
+      referencedTable: $db.wineJournalEntries,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $WineJournalEntriesFilterComposer(
+            $db: $db,
+            $table: $db.wineJournalEntries,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  $KnowledgeNodesFilterComposer get knowledgeNodeId {
+    final $KnowledgeNodesFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.knowledgeNodeId,
+      referencedTable: $db.knowledgeNodes,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $KnowledgeNodesFilterComposer(
+            $db: $db,
+            $table: $db.knowledgeNodes,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $WineJournalEntryNodesOrderingComposer
+    extends Composer<_$AppDatabase, WineJournalEntryNodes> {
+  $WineJournalEntryNodesOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  $WineJournalEntriesOrderingComposer get wineJournalEntryId {
+    final $WineJournalEntriesOrderingComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.wineJournalEntryId,
+      referencedTable: $db.wineJournalEntries,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $WineJournalEntriesOrderingComposer(
+            $db: $db,
+            $table: $db.wineJournalEntries,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  $KnowledgeNodesOrderingComposer get knowledgeNodeId {
+    final $KnowledgeNodesOrderingComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.knowledgeNodeId,
+      referencedTable: $db.knowledgeNodes,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $KnowledgeNodesOrderingComposer(
+            $db: $db,
+            $table: $db.knowledgeNodes,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $WineJournalEntryNodesAnnotationComposer
+    extends Composer<_$AppDatabase, WineJournalEntryNodes> {
+  $WineJournalEntryNodesAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  $WineJournalEntriesAnnotationComposer get wineJournalEntryId {
+    final $WineJournalEntriesAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.wineJournalEntryId,
+      referencedTable: $db.wineJournalEntries,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $WineJournalEntriesAnnotationComposer(
+            $db: $db,
+            $table: $db.wineJournalEntries,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  $KnowledgeNodesAnnotationComposer get knowledgeNodeId {
+    final $KnowledgeNodesAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.knowledgeNodeId,
+      referencedTable: $db.knowledgeNodes,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $KnowledgeNodesAnnotationComposer(
+            $db: $db,
+            $table: $db.knowledgeNodes,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $WineJournalEntryNodesTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          WineJournalEntryNodes,
+          WineJournalEntryNode,
+          $WineJournalEntryNodesFilterComposer,
+          $WineJournalEntryNodesOrderingComposer,
+          $WineJournalEntryNodesAnnotationComposer,
+          $WineJournalEntryNodesCreateCompanionBuilder,
+          $WineJournalEntryNodesUpdateCompanionBuilder,
+          (WineJournalEntryNode, $WineJournalEntryNodesReferences),
+          WineJournalEntryNode,
+          PrefetchHooks Function({
+            bool wineJournalEntryId,
+            bool knowledgeNodeId,
+          })
+        > {
+  $WineJournalEntryNodesTableManager(
+    _$AppDatabase db,
+    WineJournalEntryNodes table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $WineJournalEntryNodesFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $WineJournalEntryNodesOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $WineJournalEntryNodesAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> wineJournalEntryId = const Value.absent(),
+                Value<String> knowledgeNodeId = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => WineJournalEntryNodesCompanion(
+                wineJournalEntryId: wineJournalEntryId,
+                knowledgeNodeId: knowledgeNodeId,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String wineJournalEntryId,
+                required String knowledgeNodeId,
+                Value<int> rowid = const Value.absent(),
+              }) => WineJournalEntryNodesCompanion.insert(
+                wineJournalEntryId: wineJournalEntryId,
+                knowledgeNodeId: knowledgeNodeId,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<WineJournalEntryNodes, WineJournalEntryNode>(
+                    table,
+                  ),
+                  $WineJournalEntryNodesReferences(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback:
+              ({wineJournalEntryId = false, knowledgeNodeId = false}) {
+                return PrefetchHooks(
+                  db: db,
+                  explicitlyWatchedTables: [],
+                  addJoins:
+                      <
+                        T extends TableManagerState<
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic
+                        >
+                      >(state) {
+                        if (wineJournalEntryId) {
+                          state = state.withJoin(
+                            currentTable: table,
+                            currentColumn: table.wineJournalEntryId,
+                            referencedTable: $WineJournalEntryNodesReferences
+                                ._wineJournalEntryIdTable(db),
+                            referencedColumn: $WineJournalEntryNodesReferences
+                                ._wineJournalEntryIdTable(db)
+                                .id,
+                          ) as T;
+                        }
+                        if (knowledgeNodeId) {
+                          state = state.withJoin(
+                            currentTable: table,
+                            currentColumn: table.knowledgeNodeId,
+                            referencedTable: $WineJournalEntryNodesReferences
+                                ._knowledgeNodeIdTable(db),
+                            referencedColumn: $WineJournalEntryNodesReferences
+                                ._knowledgeNodeIdTable(db)
+                                .id,
+                          ) as T;
+                        }
+
+                        return state;
+                      },
+                  getPrefetchedDataCallback: (items) async {
+                    return [];
+                  },
+                );
+              },
+        ),
+      );
+}
+
+typedef $WineJournalEntryNodesProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      WineJournalEntryNodes,
+      WineJournalEntryNode,
+      $WineJournalEntryNodesFilterComposer,
+      $WineJournalEntryNodesOrderingComposer,
+      $WineJournalEntryNodesAnnotationComposer,
+      $WineJournalEntryNodesCreateCompanionBuilder,
+      $WineJournalEntryNodesUpdateCompanionBuilder,
+      (WineJournalEntryNode, $WineJournalEntryNodesReferences),
+      WineJournalEntryNode,
+      PrefetchHooks Function({bool wineJournalEntryId, bool knowledgeNodeId})
+    >;
+typedef $TastingSessionsCreateCompanionBuilder =
+    TastingSessionsCompanion Function({
+      required String id,
+      required String tastingGridId,
+      Value<String?> wineJournalEntryId,
+      Value<bool> isBlind,
+      required DateTime startedAt,
+      Value<DateTime?> completedAt,
+      Value<String?> notes,
+      Value<int> rowid,
+    });
+typedef $TastingSessionsUpdateCompanionBuilder =
+    TastingSessionsCompanion Function({
+      Value<String> id,
+      Value<String> tastingGridId,
+      Value<String?> wineJournalEntryId,
+      Value<bool> isBlind,
+      Value<DateTime> startedAt,
+      Value<DateTime?> completedAt,
+      Value<String?> notes,
+      Value<int> rowid,
+    });
+
+final class $TastingSessionsReferences
+    extends BaseReferences<_$AppDatabase, TastingSessions, TastingSession> {
+  $TastingSessionsReferences(super.$_db, super.$_table, super.$_typedResult);
+
+  static TastingGrids _tastingGridIdTable(_$AppDatabase db) => db.tastingGrids
+      .createAlias('tasting_sessions__tasting_grid_id__tasting_grids__id');
+
+  $TastingGridsProcessedTableManager get tastingGridId {
+    final $_column = $_itemColumn<String>('tasting_grid_id')!;
+
+    final manager = $TastingGridsTableManager(
+      $_db,
+      $_db.tastingGrids,
+    ).filter((f) => f.id.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_tastingGridIdTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
+  }
+
+  static WineJournalEntries _wineJournalEntryIdTable(_$AppDatabase db) =>
+      db.wineJournalEntries.createAlias(
+        'tasting_sessions__wine_journal_entry_id__wine_journal_entries__id',
+      );
+
+  $WineJournalEntriesProcessedTableManager? get wineJournalEntryId {
+    final $_column = $_itemColumn<String>('wine_journal_entry_id');
+    if ($_column == null) return null;
+    final manager = $WineJournalEntriesTableManager(
+      $_db,
+      $_db.wineJournalEntries,
+    ).filter((f) => f.id.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_wineJournalEntryIdTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
+  }
+}
+
+class $TastingSessionsFilterComposer
+    extends Composer<_$AppDatabase, TastingSessions> {
+  $TastingSessionsFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<bool> get isBlind => $composableBuilder(
+    column: $table.isBlind,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get startedAt => $composableBuilder(
+    column: $table.startedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get completedAt => $composableBuilder(
+    column: $table.completedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get notes => $composableBuilder(
+    column: $table.notes,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  $TastingGridsFilterComposer get tastingGridId {
+    final $TastingGridsFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.tastingGridId,
+      referencedTable: $db.tastingGrids,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $TastingGridsFilterComposer(
+            $db: $db,
+            $table: $db.tastingGrids,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  $WineJournalEntriesFilterComposer get wineJournalEntryId {
+    final $WineJournalEntriesFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.wineJournalEntryId,
+      referencedTable: $db.wineJournalEntries,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $WineJournalEntriesFilterComposer(
+            $db: $db,
+            $table: $db.wineJournalEntries,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $TastingSessionsOrderingComposer
+    extends Composer<_$AppDatabase, TastingSessions> {
+  $TastingSessionsOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<bool> get isBlind => $composableBuilder(
+    column: $table.isBlind,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get startedAt => $composableBuilder(
+    column: $table.startedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get completedAt => $composableBuilder(
+    column: $table.completedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get notes => $composableBuilder(
+    column: $table.notes,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  $TastingGridsOrderingComposer get tastingGridId {
+    final $TastingGridsOrderingComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.tastingGridId,
+      referencedTable: $db.tastingGrids,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $TastingGridsOrderingComposer(
+            $db: $db,
+            $table: $db.tastingGrids,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  $WineJournalEntriesOrderingComposer get wineJournalEntryId {
+    final $WineJournalEntriesOrderingComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.wineJournalEntryId,
+      referencedTable: $db.wineJournalEntries,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $WineJournalEntriesOrderingComposer(
+            $db: $db,
+            $table: $db.wineJournalEntries,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $TastingSessionsAnnotationComposer
+    extends Composer<_$AppDatabase, TastingSessions> {
+  $TastingSessionsAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<bool> get isBlind =>
+      $composableBuilder(column: $table.isBlind, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get startedAt =>
+      $composableBuilder(column: $table.startedAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get completedAt => $composableBuilder(
+    column: $table.completedAt,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get notes =>
+      $composableBuilder(column: $table.notes, builder: (column) => column);
+
+  $TastingGridsAnnotationComposer get tastingGridId {
+    final $TastingGridsAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.tastingGridId,
+      referencedTable: $db.tastingGrids,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $TastingGridsAnnotationComposer(
+            $db: $db,
+            $table: $db.tastingGrids,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  $WineJournalEntriesAnnotationComposer get wineJournalEntryId {
+    final $WineJournalEntriesAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.wineJournalEntryId,
+      referencedTable: $db.wineJournalEntries,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $WineJournalEntriesAnnotationComposer(
+            $db: $db,
+            $table: $db.wineJournalEntries,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $TastingSessionsTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          TastingSessions,
+          TastingSession,
+          $TastingSessionsFilterComposer,
+          $TastingSessionsOrderingComposer,
+          $TastingSessionsAnnotationComposer,
+          $TastingSessionsCreateCompanionBuilder,
+          $TastingSessionsUpdateCompanionBuilder,
+          (TastingSession, $TastingSessionsReferences),
+          TastingSession,
+          PrefetchHooks Function({bool tastingGridId, bool wineJournalEntryId})
+        > {
+  $TastingSessionsTableManager(_$AppDatabase db, TastingSessions table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $TastingSessionsFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $TastingSessionsOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $TastingSessionsAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> id = const Value.absent(),
+                Value<String> tastingGridId = const Value.absent(),
+                Value<String?> wineJournalEntryId = const Value.absent(),
+                Value<bool> isBlind = const Value.absent(),
+                Value<DateTime> startedAt = const Value.absent(),
+                Value<DateTime?> completedAt = const Value.absent(),
+                Value<String?> notes = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => TastingSessionsCompanion(
+                id: id,
+                tastingGridId: tastingGridId,
+                wineJournalEntryId: wineJournalEntryId,
+                isBlind: isBlind,
+                startedAt: startedAt,
+                completedAt: completedAt,
+                notes: notes,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String id,
+                required String tastingGridId,
+                Value<String?> wineJournalEntryId = const Value.absent(),
+                Value<bool> isBlind = const Value.absent(),
+                required DateTime startedAt,
+                Value<DateTime?> completedAt = const Value.absent(),
+                Value<String?> notes = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => TastingSessionsCompanion.insert(
+                id: id,
+                tastingGridId: tastingGridId,
+                wineJournalEntryId: wineJournalEntryId,
+                isBlind: isBlind,
+                startedAt: startedAt,
+                completedAt: completedAt,
+                notes: notes,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<TastingSessions, TastingSession>(table),
+                  $TastingSessionsReferences(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback:
+              ({tastingGridId = false, wineJournalEntryId = false}) {
+                return PrefetchHooks(
+                  db: db,
+                  explicitlyWatchedTables: [],
+                  addJoins:
+                      <
+                        T extends TableManagerState<
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic
+                        >
+                      >(state) {
+                        if (tastingGridId) {
+                          state = state.withJoin(
+                            currentTable: table,
+                            currentColumn: table.tastingGridId,
+                            referencedTable: $TastingSessionsReferences
+                                ._tastingGridIdTable(db),
+                            referencedColumn: $TastingSessionsReferences
+                                ._tastingGridIdTable(db)
+                                .id,
+                          ) as T;
+                        }
+                        if (wineJournalEntryId) {
+                          state = state.withJoin(
+                            currentTable: table,
+                            currentColumn: table.wineJournalEntryId,
+                            referencedTable: $TastingSessionsReferences
+                                ._wineJournalEntryIdTable(db),
+                            referencedColumn: $TastingSessionsReferences
+                                ._wineJournalEntryIdTable(db)
+                                .id,
+                          ) as T;
+                        }
+
+                        return state;
+                      },
+                  getPrefetchedDataCallback: (items) async {
+                    return [];
+                  },
+                );
+              },
+        ),
+      );
+}
+
+typedef $TastingSessionsProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      TastingSessions,
+      TastingSession,
+      $TastingSessionsFilterComposer,
+      $TastingSessionsOrderingComposer,
+      $TastingSessionsAnnotationComposer,
+      $TastingSessionsCreateCompanionBuilder,
+      $TastingSessionsUpdateCompanionBuilder,
+      (TastingSession, $TastingSessionsReferences),
+      TastingSession,
+      PrefetchHooks Function({bool tastingGridId, bool wineJournalEntryId})
+    >;
+typedef $TastingDescriptorsCreateCompanionBuilder =
+    TastingDescriptorsCompanion Function({
+      required String tastingSessionId,
+      required String tastingGridId,
+      required String attributeKey,
+      required String valueKey,
+      Value<int> rowid,
+    });
+typedef $TastingDescriptorsUpdateCompanionBuilder =
+    TastingDescriptorsCompanion Function({
+      Value<String> tastingSessionId,
+      Value<String> tastingGridId,
+      Value<String> attributeKey,
+      Value<String> valueKey,
+      Value<int> rowid,
+    });
+
+class $TastingDescriptorsFilterComposer
+    extends Composer<_$AppDatabase, TastingDescriptors> {
+  $TastingDescriptorsFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get tastingSessionId => $composableBuilder(
+    column: $table.tastingSessionId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get tastingGridId => $composableBuilder(
+    column: $table.tastingGridId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get attributeKey => $composableBuilder(
+    column: $table.attributeKey,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get valueKey => $composableBuilder(
+    column: $table.valueKey,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $TastingDescriptorsOrderingComposer
+    extends Composer<_$AppDatabase, TastingDescriptors> {
+  $TastingDescriptorsOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get tastingSessionId => $composableBuilder(
+    column: $table.tastingSessionId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get tastingGridId => $composableBuilder(
+    column: $table.tastingGridId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get attributeKey => $composableBuilder(
+    column: $table.attributeKey,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get valueKey => $composableBuilder(
+    column: $table.valueKey,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $TastingDescriptorsAnnotationComposer
+    extends Composer<_$AppDatabase, TastingDescriptors> {
+  $TastingDescriptorsAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get tastingSessionId => $composableBuilder(
+    column: $table.tastingSessionId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get tastingGridId => $composableBuilder(
+    column: $table.tastingGridId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get attributeKey => $composableBuilder(
+    column: $table.attributeKey,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get valueKey =>
+      $composableBuilder(column: $table.valueKey, builder: (column) => column);
+}
+
+class $TastingDescriptorsTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          TastingDescriptors,
+          TastingDescriptor,
+          $TastingDescriptorsFilterComposer,
+          $TastingDescriptorsOrderingComposer,
+          $TastingDescriptorsAnnotationComposer,
+          $TastingDescriptorsCreateCompanionBuilder,
+          $TastingDescriptorsUpdateCompanionBuilder,
+          (
+            TastingDescriptor,
+            BaseReferences<
+              _$AppDatabase,
+              TastingDescriptors,
+              TastingDescriptor
+            >,
+          ),
+          TastingDescriptor,
+          PrefetchHooks Function()
+        > {
+  $TastingDescriptorsTableManager(_$AppDatabase db, TastingDescriptors table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $TastingDescriptorsFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $TastingDescriptorsOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $TastingDescriptorsAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> tastingSessionId = const Value.absent(),
+                Value<String> tastingGridId = const Value.absent(),
+                Value<String> attributeKey = const Value.absent(),
+                Value<String> valueKey = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => TastingDescriptorsCompanion(
+                tastingSessionId: tastingSessionId,
+                tastingGridId: tastingGridId,
+                attributeKey: attributeKey,
+                valueKey: valueKey,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String tastingSessionId,
+                required String tastingGridId,
+                required String attributeKey,
+                required String valueKey,
+                Value<int> rowid = const Value.absent(),
+              }) => TastingDescriptorsCompanion.insert(
+                tastingSessionId: tastingSessionId,
+                tastingGridId: tastingGridId,
+                attributeKey: attributeKey,
+                valueKey: valueKey,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<TastingDescriptors, TastingDescriptor>(table),
+                  BaseReferences<
+                    _$AppDatabase,
+                    TastingDescriptors,
+                    TastingDescriptor
+                  >(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $TastingDescriptorsProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      TastingDescriptors,
+      TastingDescriptor,
+      $TastingDescriptorsFilterComposer,
+      $TastingDescriptorsOrderingComposer,
+      $TastingDescriptorsAnnotationComposer,
+      $TastingDescriptorsCreateCompanionBuilder,
+      $TastingDescriptorsUpdateCompanionBuilder,
+      (
+        TastingDescriptor,
+        BaseReferences<_$AppDatabase, TastingDescriptors, TastingDescriptor>,
+      ),
+      TastingDescriptor,
+      PrefetchHooks Function()
+    >;
+
+class $AppDatabaseManager {
+  final _$AppDatabase _db;
+  $AppDatabaseManager(this._db);
+  $CurriculumIngestionsTableManager get curriculumIngestions =>
+      $CurriculumIngestionsTableManager(_db, _db.curriculumIngestions);
+  $CurriculumReleasesTableManager get curriculumReleases =>
+      $CurriculumReleasesTableManager(_db, _db.curriculumReleases);
+  $CurriculumDomainsTableManager get curriculumDomains =>
+      $CurriculumDomainsTableManager(_db, _db.curriculumDomains);
+  $TastingGridsTableManager get tastingGrids =>
+      $TastingGridsTableManager(_db, _db.tastingGrids);
+  $CertificationsTableManager get certifications =>
+      $CertificationsTableManager(_db, _db.certifications);
+  $NodeTypesTableManager get nodeTypes =>
+      $NodeTypesTableManager(_db, _db.nodeTypes);
+  $RelationTypesTableManager get relationTypes =>
+      $RelationTypesTableManager(_db, _db.relationTypes);
+  $RelationTypeSignaturesTableManager get relationTypeSignatures =>
+      $RelationTypeSignaturesTableManager(_db, _db.relationTypeSignatures);
+  $KnowledgeNodesTableManager get knowledgeNodes =>
+      $KnowledgeNodesTableManager(_db, _db.knowledgeNodes);
+  $QuantityValuesTableManager get quantityValues =>
+      $QuantityValuesTableManager(_db, _db.quantityValues);
+  $NodeAlternativeNamesTableManager get nodeAlternativeNames =>
+      $NodeAlternativeNamesTableManager(_db, _db.nodeAlternativeNames);
+  $KnowledgeRelationsTableManager get knowledgeRelations =>
+      $KnowledgeRelationsTableManager(_db, _db.knowledgeRelations);
+  $KnowledgeItemsTableManager get knowledgeItems =>
+      $KnowledgeItemsTableManager(_db, _db.knowledgeItems);
+  $KnowledgeItemPrerequisitesTableManager get knowledgeItemPrerequisites =>
+      $KnowledgeItemPrerequisitesTableManager(
+        _db,
+        _db.knowledgeItemPrerequisites,
+      );
+  $CertificationKnowledgeMappingsTableManager
+  get certificationKnowledgeMappings =>
+      $CertificationKnowledgeMappingsTableManager(
+        _db,
+        _db.certificationKnowledgeMappings,
+      );
+  $SourceCitationsTableManager get sourceCitations =>
+      $SourceCitationsTableManager(_db, _db.sourceCitations);
+  $KnowledgeItemCitationsTableManager get knowledgeItemCitations =>
+      $KnowledgeItemCitationsTableManager(_db, _db.knowledgeItemCitations);
+  $QuestionTemplatesTableManager get questionTemplates =>
+      $QuestionTemplatesTableManager(_db, _db.questionTemplates);
+  $TastingGridAttributesTableManager get tastingGridAttributes =>
+      $TastingGridAttributesTableManager(_db, _db.tastingGridAttributes);
+  $TastingGridValuesTableManager get tastingGridValues =>
+      $TastingGridValuesTableManager(_db, _db.tastingGridValues);
+  $QuestionsTableManager get questions =>
+      $QuestionsTableManager(_db, _db.questions);
+  $QuestionDistractorsTableManager get questionDistractors =>
+      $QuestionDistractorsTableManager(_db, _db.questionDistractors);
+  $UserProfilesTableManager get userProfiles =>
+      $UserProfilesTableManager(_db, _db.userProfiles);
+  $SchedulerConfigsTableManager get schedulerConfigs =>
+      $SchedulerConfigsTableManager(_db, _db.schedulerConfigs);
+  $ReviewStatesTableManager get reviewStates =>
+      $ReviewStatesTableManager(_db, _db.reviewStates);
+  $ReviewEventsTableManager get reviewEvents =>
+      $ReviewEventsTableManager(_db, _db.reviewEvents);
+  $ReviewEventOptionsTableManager get reviewEventOptions =>
+      $ReviewEventOptionsTableManager(_db, _db.reviewEventOptions);
+  $WineJournalEntriesTableManager get wineJournalEntries =>
+      $WineJournalEntriesTableManager(_db, _db.wineJournalEntries);
+  $WineJournalEntryNodesTableManager get wineJournalEntryNodes =>
+      $WineJournalEntryNodesTableManager(_db, _db.wineJournalEntryNodes);
+  $TastingSessionsTableManager get tastingSessions =>
+      $TastingSessionsTableManager(_db, _db.tastingSessions);
+  $TastingDescriptorsTableManager get tastingDescriptors =>
+      $TastingDescriptorsTableManager(_db, _db.tastingDescriptors);
+}

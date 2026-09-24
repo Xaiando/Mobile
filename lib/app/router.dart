@@ -1,0 +1,93 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
+
+import '../features/cellar/cellar_screen.dart';
+import '../features/home/home_screen.dart';
+import '../features/practice/practice_screen.dart';
+import '../features/study/study_screen.dart';
+import '../features/tasting/tasting_screen.dart';
+import 'app_shell.dart';
+
+/// One tab of the bottom navigation bar.
+class AppDestination {
+  const AppDestination({
+    required this.label,
+    required this.path,
+    required this.icon,
+    required this.selectedIcon,
+    required this.screen,
+  });
+
+  final String label;
+  final String path;
+  final IconData icon;
+  final IconData selectedIcon;
+  final Widget screen;
+}
+
+/// The five core modules (§M of the product specification).
+const appDestinations = <AppDestination>[
+  AppDestination(
+    label: 'Home',
+    path: '/home',
+    icon: Icons.home_outlined,
+    selectedIcon: Icons.home,
+    screen: HomeScreen(),
+  ),
+  AppDestination(
+    label: 'Study',
+    path: '/study',
+    icon: Icons.account_tree_outlined,
+    selectedIcon: Icons.account_tree,
+    screen: StudyScreen(),
+  ),
+  AppDestination(
+    label: 'Practice',
+    path: '/practice',
+    icon: Icons.quiz_outlined,
+    selectedIcon: Icons.quiz,
+    screen: PracticeScreen(),
+  ),
+  AppDestination(
+    label: 'Tasting',
+    path: '/tasting',
+    icon: Icons.wine_bar_outlined,
+    selectedIcon: Icons.wine_bar,
+    screen: TastingScreen(),
+  ),
+  AppDestination(
+    label: 'Cellar',
+    path: '/cellar',
+    icon: Icons.inventory_2_outlined,
+    selectedIcon: Icons.inventory_2,
+    screen: CellarScreen(),
+  ),
+];
+
+/// Each tab is a branch of an indexed-stack shell, so every module keeps its
+/// own navigation state while the user switches tabs.
+final routerProvider = Provider<GoRouter>((ref) {
+  final router = GoRouter(
+    initialLocation: appDestinations.first.path,
+    routes: [
+      StatefulShellRoute.indexedStack(
+        builder: (context, state, navigationShell) =>
+            AppShell(navigationShell: navigationShell),
+        branches: [
+          for (final destination in appDestinations)
+            StatefulShellBranch(
+              routes: [
+                GoRoute(
+                  path: destination.path,
+                  builder: (context, state) => destination.screen,
+                ),
+              ],
+            ),
+        ],
+      ),
+    ],
+  );
+  ref.onDispose(router.dispose);
+  return router;
+});

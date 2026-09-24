@@ -9,7 +9,7 @@
 Every entry names the conflicting passages of the spec (§A–§T), the problem, and a decision. Decisions come in two kinds:
 
 - **Decided**: settled on technical grounds. This is the default for every row not marked otherwise.
-- **Provisional**: a working default that stands until the named user decision is made. These are listed in §11.
+- **Provisional**: a working default that awaited a user decision. §11 records the decisions the user has since made; the P-items are adopted.
 
 Wherever this document says a constraint is enforced by the database, that was tested on the Flutter 3.47.5 spike, on native SQLite 3.53.4 **and** in Chromium through Drift's WASM backend (§10).
 
@@ -79,14 +79,14 @@ Wherever this document says a constraint is enforced by the database, that was t
 | SI-8 | §D | TastingSession, TastingDescriptor, WineJournalEntry, QuestionTemplate, Question, SourceCitation and the Certification exam configuration have no schema. | Defined in the [domain model](domain-model.md). Exam configuration is deferred along with exam simulators (§N). |
 | SI-9 | §D vs §H | `Question` is described as a materialized instance, which implies storage. | **Revised:** stored as *generated* curriculum. `Question` and `QuestionDistractor` are rebuilt on every ingestion and are read-only at runtime. What was shown is logged on `review_events` and `review_event_options` (domain model §4.1). |
 | SI-10 | §Q vs §R | Seed item `ki_chablis_grape` is domain `viticulture`; sample Q1 labels the same fact "Geography". | Each relation type has a default domain (`relation_types.default_domain_id`), which an item may override. `PERMITS_*` (appellation law) is geography; `HAS_SOIL`, `HAS_CLIMATE` and `SUSCEPTIBLE_TO` are viticulture. |
-| SI-11 | §O vs TASK-001 | Phase 0 lists three tables; TASK-001 lists five. | Phase 0 builds the schema in [domain-model.sql](domain-model.sql). |
+| SI-11 | §O vs TASK-001 | Phase 0 lists three tables; TASK-001 lists five. | Phase 0 builds the schema in [schema.drift](../lib/core/database/schema.drift). |
 | SI-12 | §Q | The top-level `version: "1.0"` is undefined. | `dataset_version` (semver), recorded in `curriculum_releases` (§9). |
 
 ---
 
 ## 3. Target schema v1: foreign keys, uniqueness and indexes
 
-**The canonical, column-level schema is the [domain model](domain-model.md), with its executable form [domain-model.sql](domain-model.sql).** This section records what the spec lacked and the rules the schema follows.
+**The canonical, column-level schema is the [domain model](domain-model.md), with its executable form [schema.drift](../lib/core/database/schema.drift).** This section records what the spec lacked and the rules the schema follows.
 
 The spec defines exactly one relationship, relation → node (§S.1). Everything else was missing, and two SQLite behaviours matter:
 
@@ -165,7 +165,7 @@ The reason: §N defers cloud sync, and UUIDs let sync arrive later without re-ke
 | **Facts with literal values**: "the required aging duration for Barolo" (§J), service temperatures (§B, §R) | Cannot be represented; relations link node to node only | **Quantity nodes**: a node of type `quantity` with a `QuantityValue` row (e.g. minimum 38, unit month). Distractors then come naturally from the same relation on sibling subjects, e.g. Barbaresco's or Brunello's ageing rules. No special case is needed in the schema or the engine. |
 | Service, business and tasting domains (§C) | None | Items in each domain the V0.1 tracks examine. |
 | Question templates (§H) | None | At least one forward template per relation used. Reverse templates only for reverse-safe relations (§6). |
-| V0.1 release volume | — | **Provisional (P-6, needs D3):** at least 150 verified items. |
+| V0.1 release volume | — | **Adopted (P-6):** at least 150 verified items. |
 
 The content itself, including who writes it and who verifies it, remains **D3**.
 
@@ -188,7 +188,7 @@ The content itself, including who writes it and who verifies it, remains **D3**.
 | FS-11 | An item on a learning step (due within minutes) is re-queued within the current session. | §F and §G say nothing about sessions. The package defaults to 1 min and 10 min learning steps. |
 | FS-12 | Switching certification profile neither resets nor forks memory state. | Memory belongs to the fact, not the track. |
 | FS-13 | Superseded or expired items keep their state and leave the queue (§9). | Keeps history intact without studying invalid law. |
-| FS-14 | A session holds up to 15 items (TASK-005), with at most **5 new** among them (**provisional, P-4**). | Prevents new items crowding out reviews (validation A-2). |
+| FS-14 | A session holds up to 15 items (TASK-005), with at most **5 new** among them (**P-4, adopted**). | Prevents new items crowding out reviews (validation A-2). |
 
 ---
 
@@ -219,7 +219,7 @@ The content itself, including who writes it and who verifies it, remains **D3**.
 | CM-3 | An item's effective mapping for the active track is the **nearest** mapping along that track's chain, the track itself first. The nearest mapping's importance and depth apply. | This rule is deterministic and lets a higher level override a lower one. |
 | CM-4 | Items with no effective mapping are excluded from that track's queue and coverage metrics. | Replaces "C = 0", which would wipe out the priority score (audit ENG-4). |
 | CM-5 | Importance maps to the relevance factor C as core 1.0 / secondary 0.5 / tertiary 0.25. **Provisional** tuning. | §G gives no values. |
-| CM-6 | `minimum_depth` (1–5) is stored as specified. Its V0.1 meaning is **provisional (P-2)**: it sets which formats that track serves. <ul><li>1 = recognize (MCQ)</li><li>2 = also forward recall (flashcard)</li><li>3 = also reverse recall</li><li>4–5 = reserved for reasoning formats</li></ul> | §E requires the field but never defines it. An undefined column would drift out of use. |
+| CM-6 | `minimum_depth` (1–5) is stored as specified. Its V0.1 meaning (**P-2, adopted**): it sets which formats that track serves. <ul><li>1 = recognize (MCQ)</li><li>2 = also forward recall (flashcard)</li><li>3 = also reverse recall</li><li>4–5 = reserved for reasoning formats</li></ul> | §E requires the field but never defines it. An undefined column would drift out of use. |
 | CM-7 | `certification_knowledge_mappings.syllabus_ref` optionally holds a section identifier. It **never** holds syllabus text. | §L: syllabi are structural blueprints only. |
 | CM-8 | Exam formats and pass marks from §B are not stored in V0.1. Track names are descriptive and never imply affiliation. | Exam simulators are deferred (§N). The §B figures need verification (audit LEGAL-7). Trademarks: audit LEGAL-1. |
 | CM-9 | The active track lives in `user_profiles` (a single row). Switching it updates the queue and coverage immediately, through Drift streams. | Reactive wiring was proven in the spike. |
@@ -237,7 +237,7 @@ The content itself, including who writes it and who verifies it, remains **D3**.
 | PR-1 | `source_citations` columns: `id`, `kind`, `title`, `publisher`, `jurisdiction`, `document_identifier` (e.g. a decree number or CFR section), `url`, `published_on`, `accessed_on`, `license`, `attribution_text`. `kind` is one of `legislation`, `regulator_register`, `government_publication`, `academic`, `reference_work`, `dataset`. |
 | PR-2 | `knowledge_item_citations(knowledge_item_id, source_citation_id, locator)`, where `locator` is the article, section or page. |
 | PR-3 | Every item needs at least one citation (validator). Regulatory relations (`PERMITS_*`, minimum ageing, yields…) need at least one `legislation` or `regulator_register` citation. Examples: an INAO *cahier des charges*, the EU eAmbrosia register, the US TTB. |
-| PR-4 | Items carry `last_verified_at` and a `verification_status` (unverified or verified). **Provisional (P-5):** unverified items appear with an "unverified" badge; whether a public release may contain them depends on D3/D8. |
+| PR-4 | Items carry `last_verified_at` and a `verification_status` (unverified or verified). **Adopted (P-5):** unverified items appear with an "unverified" badge. Under D3, content needs expert review before any public release. |
 | PR-5 | Provenance is recorded per item. Structural relations that back no item (e.g. `LOCATED_IN`, used only for traversal) are listed in the build report for curator review rather than each carrying a citation. |
 | PR-6 | Citations with an attribution licence (CC-BY, ODbL) feed a generated attributions screen. ODbL sources are kept out of the canonical curriculum, because of share-alike (audit LEGAL-3). |
 | PR-7 | The spec's *works cited* list is not usable as provenance: many entries are re-hosted copies, forum or blog posts, or document-sharing uploads (audit LEGAL-6). |
@@ -257,7 +257,7 @@ The spec provides three things, and none of them explains how the rules behave t
 | V-1 | **Legal validity lives on `knowledge_relations`** (`valid_from` required, `valid_until` nullable) and on `knowledge_nodes`. Items carry `revision`, `last_verified_at`, `verification_status` and `superseded_by_item_id`. | Correct-answer sets, distractor pools and traversal all operate on *relations*. An expired fact must stop affecting them, including structural relations that back no item. This changes §E's shape for that concrete reason; §E must be rewritten anyway (SI-3). |
 | V-2 | *Current* means `valid_from ≤ today < valid_until` (the end date is exclusive), using the device's local date. The queue and the sets of correct answers use current relations only. Distractor *exclusion* conservatively considers every period (QG-4). | Validity dates are legal dates, not instants. |
 | V-3 | **A change in meaning is a supersession.** Add a new relation and a new item, end the old relation with `valid_until`, and set the old item's `superseded_by`. The FSRS state stays with the old item; the new item starts New. Users who studied the old item see a "the rules changed" notice linking both. | This keeps review history intact, never shows invalid law, and fulfils §S.4's intent of telling the user. |
-| V-4 | **Staleness is separate from expiry.** Items whose `last_verified_at` is older than a threshold (**provisional P-1: 24 months**) get a "may be out of date" badge. | A known `valid_until` means the successor is already known. The real risk is a fact nobody has re-checked, which is what §S.4 tries to catch. |
+| V-4 | **Staleness is separate from expiry.** Items whose `last_verified_at` is older than a threshold (**P-1, adopted: 24 months**) get a "may be out of date" badge. | A known `valid_until` means the successor is already known. The real risk is a fact nobody has re-checked, which is what §S.4 tries to catch. |
 | V-5 | Editing wording without changing meaning keeps the same ID, increments `revision`, and keeps the FSRS state. Curators decide which case applies; the build report lists every revision. | Typo fixes must not reset what the user has learned. |
 | V-6 | **Node renames** keep the node ID and change `name`; the old name becomes a `node_alternative_names` row of kind `former_name`. Example: Bourgogne Grand Ordinaire was renamed Coteaux Bourguignons in 2011. An abolished node gets a `valid_until`. | Journal entries for older bottles still match, and history keeps its references. |
 | V-7 | The dataset carries a semver `dataset_version` and a checksum, recorded in `curriculum_releases`, and is bundled with the app. It is ingested on first launch and whenever the bundled version is newer, in a single transaction: authored rows by upsert, generated tables rebuilt. **Authored rows are never deleted.** The validator fails the build if an authored row disappears between versions. Retirement is always done with `valid_until`. | An upsert that preserves user state was proven. Hard deletes would orphan history. |
@@ -288,20 +288,15 @@ Everything here is measured, from the spike's native tests and from a release We
 
 ---
 
-## 11. Items needing the user's decision
+## 11. User decisions
 
-The defaults below apply until the user decides otherwise.
+Decided by the user on 2026-09-24. These rows are no longer provisional.
 
-| ID | Decision | Default |
-|---|---|---|
-| D3 | Who authors and verifies content | I draft from primary public sources, marked `unverified` |
-| D5 | Platforms verified in V0.1 | Android + iOS, plus a Web smoke test |
-| D6 | Journal photos in V0.1 | `photo_ref` column only; no capture UI |
-| D8 | Licensing (public repository) | To be chosen before content is pushed |
-| D10 | Legal review of the SAT/DTM vocabulary and trademarks | Before Phase 4 or any public release |
-| P-1 | Staleness threshold | 24 months since `last_verified_at` |
-| P-2 | Meaning of `minimum_depth` | Controls which formats are served (CM-6) |
-| P-3 | Journal rating scale | 1–5 (the spec says only "user ratings") |
-| P-4 | Session size and new-item budget | 15 items, at most 5 new |
-| P-5 | Unverified content | Shown with a badge |
-| P-6 | V0.1 content volume | At least 150 verified items |
+| ID | Decision |
+|---|---|
+| D3 | Curriculum content may be drafted from authoritative, public sources, with provenance recorded (`source_citations`). It stays `unverified` until reviewed, and generated content is never treated as authoritative without sources. |
+| D5 | Android and iOS are the primary V0.1 targets, with basic web compatibility. The architecture stays compatible with Windows and macOS for later; their platform folders are not created yet. |
+| D6 | The schema supports journal photos (`wine_journal_entries.photo_ref`). Camera and photo UI, and label scanning, are deferred. |
+| D8 | No open-source license. The project is proprietary despite the public repository, and the product specification PDF stays out of the repository. |
+| D10 | Development does not wait for legal review. Proprietary WSET/CMS questions, copyrighted syllabus text and tasting-grid artwork are never reproduced. Legal and licensing uncertainties are tracked in [legal-review.md](legal-review.md) for review before public release. |
+| P-1 to P-6 | The recommended defaults are adopted: a 24-month staleness threshold; `minimum_depth` controls which formats are served (CM-6); a 1–5 journal rating; 15-item sessions with at most 5 new items; unverified content shown with a badge; at least 150 verified items for V0.1. |

@@ -1,0 +1,19 @@
+targets:
+  $default:
+    builders:
+      drift_dev:
+        options:
+          # Timestamps are stored as UTC ISO-8601 text; the schema enforces the
+          # exact form (docs/domain-model.md §6).
+          store_date_time_values_as_text: true
+          sql:
+            dialect: sqlite
+            options:
+              version: "3.45"
+              modules:
+                - json1
+          # Schema snapshots for migration tests (dart run drift_dev make-migrations).
+          databases:
+            app_database: lib/core/database/app_database.dart
+          schema_dir: drift_schemas/
+          test_dir: test/drift/
