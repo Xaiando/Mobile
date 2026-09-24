@@ -262,6 +262,38 @@ void main() {
       );
     });
 
+    test('rejects disconnected joins even when ring endpoints close', () {
+      expect(
+        () => Topology.fromJson(
+          topology(
+            arcs: [
+              [
+                [0, 0],
+                [1, 0],
+              ],
+              [
+                [2, 0],
+                [2, 1],
+              ],
+              [
+                [2, 1],
+                [0, 0],
+              ],
+            ],
+            objects: {
+              'a': {
+                'type': 'Polygon',
+                'arcs': [
+                  [0, 1, 2],
+                ],
+              },
+            },
+          ),
+        ),
+        throwsFormatException,
+      );
+    });
+
     test('rejects unknown geometry types and malformed arcs', () {
       expect(
         () => Topology.fromJson(
