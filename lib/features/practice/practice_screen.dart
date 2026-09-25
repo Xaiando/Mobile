@@ -3,6 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fsrs/fsrs.dart' as fsrs;
 
 import '../../app/learner_state.dart';
+import '../../core/feedback/feedback_providers.dart';
+import '../../core/feedback/question_feedback.dart';
 import '../../core/questions/question_presenter.dart';
 import '../../core/study/study_planner.dart';
 import '../home/track_picker.dart';
@@ -17,10 +19,17 @@ class PracticeScreen extends ConsumerWidget {
     final session = ref.watch(studySessionProvider);
     final controller = ref.read(studySessionProvider.notifier);
     final running = session.value != null;
+    final question = session.value?.turn?.question;
     return Scaffold(
       appBar: AppBar(
         title: const Text('Practice'),
         actions: [
+          if (question != null)
+            IconButton(
+              tooltip: 'Flag this question',
+              icon: const Icon(Icons.flag_outlined),
+              onPressed: () => flagQuestion(context, ref, question),
+            ),
           if (running)
             IconButton(
               tooltip: 'End session',
@@ -400,6 +409,109 @@ class _Message extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+/// Asks why [question] is off and records the flag on the device (backlog
+/// R1). Curators receive it only if the learner exports their data.
+Future<void> flagQuestion(
+  BuildContext context,
+  WidgetRef ref,
+  PresentedQuestion question,
+) async {
+  final flag = await showDialog<(FlagReason, String)>(
+    context: context,
+    builder: (context) => _FlagDialog(question),
+  );
+  if (flag == null) return;
+  final (reason, note) = flag;
+  await ref
+      .read(questionFeedbackProvider)
+      .flag(
+        itemId: question.knowledgeItemId,
+        templateId: question.questionTemplateId,
+        reason: reason,
+        note: note,
+      );
+  if (!context.mounted) return;
+  ScaffoldMessenger.of(context).showSnackBar(
+    const SnackBar(
+      content: Text(
+        'Thank you. The flag is kept on this device and goes out only in '
+        'your data export.',
+      ),
+    ),
+  );
+}
+
+class _FlagDialog extends StatefulWidget {
+  const _FlagDialog(this.question);
+
+  final PresentedQuestion question;
+
+  @override
+  State<_FlagDialog> createState() => _FlagDialogState();
+}
+
+class _FlagDialogState extends State<_FlagDialog> {
+  FlagReason _reason = FlagReason.wrong;
+  final _note = TextEditingController();
+
+  @override
+  void dispose() {
+    _note.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return AlertDialog(
+      title: const Text('Flag this question'),
+      scrollable: true,
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Text(widget.question.prompt, style: theme.textTheme.bodyMedium),
+          const SizedBox(height: 8),
+          RadioGroup<FlagReason>(
+            groupValue: _reason,
+            onChanged: (reason) => setState(() => _reason = reason!),
+            child: Column(
+              children: [
+                for (final reason in FlagReason.values)
+                  RadioListTile<FlagReason>(
+                    value: reason,
+                    title: Text(reason.label),
+                    contentPadding: EdgeInsets.zero,
+                  ),
+              ],
+            ),
+          ),
+          TextField(
+            controller: _note,
+            minLines: 2,
+            maxLines: 4,
+            textCapitalization: TextCapitalization.sentences,
+            decoration: const InputDecoration(
+              labelText: 'What is off? (optional)',
+              border: OutlineInputBorder(),
+            ),
+          ),
+        ],
+      ),
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.pop(context),
+          child: const Text('Cancel'),
+        ),
+        FilledButton(
+          onPressed: () => Navigator.pop(context, (_reason, _note.text)),
+          child: const Text('Flag'),
+        ),
+      ],
     );
   }
 }

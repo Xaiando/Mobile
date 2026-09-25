@@ -110,7 +110,7 @@ TASK-008 (tasting grids) and TASK-009 (journal integration) remain; they are T1�
 | S2 | Learner analytics | F1, F3 | 4 | ☐ |
 | S3 | Certification rehearsal presets | S1, Q1, Q7, Q8, T2, SCOPE-1 | 6 | ☐ |
 | **R** | **Quality and release** | | | |
-| R1 | Onboarding, settings, attributions, accessibility | — | 3 | ◐ |
+| R1 | Onboarding, settings, attributions, accessibility | — | 3 | ☑ |
 | R2 | Performance and scale | F3, G3 | 6 | ☐ |
 | R3 | Release readiness and gates | all V0.1 tasks | 7 | ☐ |
 | R4 | Installable Windows and Android builds | — | 3 | ☑ |
@@ -887,7 +887,16 @@ Four tasks share one pattern. Each turns the famous regions of one country group
   - Accessibility checks pass: `meetsGuideline` tests for tap-target size, contrast and labels.
 - **Required automated tests.** Export and import round trip; widget tests with accessibility guidelines; onboarding shown once.
 - **Parallel.** Yes in wave 3. It owns the router in that wave.
-- **Status.** Landed: onboarding with the age confirmation, settings (session limits, appearance, °C or °F), About with every source's licence and attribution, the accessibility guideline tests, a navigation rail for wide windows, and schema v3 (`user_settings`, `question_flags`; DL-6). Still open: data export and import, the progress reset, the *flag this question* action, and the daily reminder.
+- **Status.** Done:
+  - onboarding with the age confirmation;
+  - settings: session limits, appearance, °C or °F;
+  - About, with every source's licence and attribution;
+  - the accessibility guideline tests, and a navigation rail for wide windows;
+  - schema v3 (`user_settings`, `question_flags`; DL-6);
+  - data export and import, the progress reset and erasing everything, on schema v4 (DL-7, UD-1 to UD-3);
+  - the *flag this question* action (UD-4).
+
+  The daily reminder is deferred to R3 (UD-5).
 
 #### R2 · Performance and scale
 

@@ -43,6 +43,15 @@ CREATE TABLE curriculum_ingestions (
     CHECK (strftime('%Y-%m-%dT%H:%M:%fZ', started_at) IS started_at)
 );
 
+-- A row exists only while the learner resets their progress or imports a
+-- backup (backlog R1, audit DL-7). The review log accepts deletions only
+-- then; it never accepts updates.
+CREATE TABLE user_data_rewrites (
+  id          INTEGER  NOT NULL PRIMARY KEY CHECK (id = 1),
+  started_at  DATETIME NOT NULL
+    CHECK (strftime('%Y-%m-%dT%H:%M:%fZ', started_at) IS started_at)
+);
+
 
 -- -----------------------------------------------------------------------------
 -- CURRICULUM, AUTHORED
@@ -512,10 +521,12 @@ CREATE TABLE review_event_options (
 CREATE TRIGGER review_events_append_only_update BEFORE UPDATE ON review_events
 BEGIN SELECT RAISE(ABORT, 'review_events is append-only'); END;
 CREATE TRIGGER review_events_append_only_delete BEFORE DELETE ON review_events
+WHEN NOT EXISTS (SELECT 1 FROM user_data_rewrites)
 BEGIN SELECT RAISE(ABORT, 'review_events is append-only'); END;
 CREATE TRIGGER review_event_options_append_only_update BEFORE UPDATE ON review_event_options
 BEGIN SELECT RAISE(ABORT, 'review_event_options is append-only'); END;
 CREATE TRIGGER review_event_options_append_only_delete BEFORE DELETE ON review_event_options
+WHEN NOT EXISTS (SELECT 1 FROM user_data_rewrites)
 BEGIN SELECT RAISE(ABORT, 'review_event_options is append-only'); END;
 
 -- The learner's preferences and one-time confirmations, one row per name

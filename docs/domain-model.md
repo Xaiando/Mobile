@@ -1,10 +1,10 @@
-# Canonical Domain Model — Sommelier Study App (schema v3)
+# Canonical Domain Model — Sommelier Study App (schema v4)
 
 | | |
 |---|---|
-| **Date** | 2026-09-24; schema v2 on 2026-09-25 (backlog F2); schema v3 (R1) |
+| **Date** | 2026-09-24; schema v2 on 2026-09-25 (backlog F2); schemas v3 and v4 (R1) |
 | **Status** | **Canonical.** Where earlier documents name or shape an entity differently, this document wins. [architecture-audit.md](architecture-audit.md) has been aligned with it. |
-| **Executable form** | [`lib/core/database/schema.drift`](../lib/core/database/schema.drift): 39 tables, 72 indexes, 86 triggers. The app compiles it with Drift, and it is also valid plain SQLite (§9). |
+| **Executable form** | [`lib/core/database/schema.drift`](../lib/core/database/schema.drift): 40 tables, 72 indexes, 86 triggers. The app compiles it with Drift, and it is also valid plain SQLite (§9). |
 | **Scope** | Every entity V0.1 needs, including the 14 required ones: Certification, CurriculumDomain, KnowledgeNode, KnowledgeRelation, KnowledgeItem, CertificationKnowledgeMapping, SourceCitation, QuestionTemplate, Question, ReviewState, ReviewEvent, TastingSession, TastingDescriptor, WineJournalEntry |
 
 ## 1. How to read this document
@@ -35,7 +35,7 @@ Every table belongs to exactly one class.
 | **Origin** | Written by curators; shipped in the dataset | Derived from authored rows by the question generator | Created by the learner on the device | Written by the ingestion service |
 | **When written** | Only inside an ingestion transaction | Only inside an ingestion transaction | Any time | During ingestion only |
 | **At runtime** | **Read-only** | **Read-only** | Read-write | — |
-| **Deletion** | **Never.** Retired with `valid_until` or `superseded_by_item_id` | Rebuilt wholesale on every ingestion | By the user (journal, tasting). The review log is append-only | Row removed when ingestion ends |
+| **Deletion** | **Never.** Retired with `valid_until` or `superseded_by_item_id` | Rebuilt wholesale on every ingestion | By the user (journal, tasting). The review log is append-only, except for the learner's own reset, import or erase (DL-7) | Row removed when the ingestion or the learner's rewrite ends |
 | **May reference** | Curriculum only | Authored curriculum | Curriculum and user data | — |
 | **Referenced by** | Everything | Nothing outside the generated tables | User data only | — |
 | **Backup and future sync** | No; reinstalled from the app bundle | No; regenerated | **Yes**, together with the release version | No |
@@ -630,7 +630,7 @@ The log of §D: "the user's grade, the elapsed time, and the resulting changes t
 - Records what was asked (`knowledge_item_id`, `question_template_id`), how it was answered (`rating`, `response_ms`, `selected_node_id`), the `seed`, the `scheduler_config_version`, and the **after-state**.
 - The after-state is stored because, with fuzzing, `due_after` is random. It cannot be recomputed by replay, so it is information rather than derived data.
 - **Derived, not stored:** direction and mode (from the template); the before-state (the previous event, via a window function); elapsed days; correctness (the selected option vs the answer).
-- **Append-only:** `UPDATE` and `DELETE` abort, on both `review_events` and `review_event_options`. A future "reset progress" feature would need an explicit, audited mechanism.
+- **Append-only:** `UPDATE` always aborts, on both `review_events` and `review_event_options`. `DELETE` aborts too, unless a `user_data_rewrites` row exists: only the learner's own reset, import or erase inserts one, inside `rewriteUserData` (schema v4, audit DL-7).
 - **Composite exercises** (schema v2): the events of one exercise share an `exercise_id` (a UUID), and each keeps the format's record of the answer in `answer_payload`, as JSON (audit QF-3).
 
 #### TastingSession (`tasting_sessions`), user
@@ -687,6 +687,7 @@ A logged bottle (§D, §J).
 | UserSetting (`user_settings`) | user | One setting per name: the appearance, the temperature unit, when the learner confirmed their age and finished onboarding (schema v3, DL-6) |
 | QuestionFlag (`question_flags`) | user | A question the learner flagged as wrong, unclear or outdated, with a note; kept on the device and exported, never sent (schema v3) |
 | CurriculumIngestion (`curriculum_ingestions`) | system | The curriculum write lock (§2, rule 1) |
+| UserDataRewrite (`user_data_rewrites`) | system | The review log's delete lock, open only during the learner's reset, import or erase (schema v4, DL-7) |
 
 ---
 
@@ -910,7 +911,7 @@ Normalizing the model revised the following. [architecture-audit.md](architectur
 
 Everything below was run on 2026-09-24 against Flutter 3.47.5 / Dart 3.13.4, and again for schema v2 on 2026-09-25.
 
-- **Plain SQLite:** `schema.drift` loads as-is: 37 tables, 69 indexes, 86 triggers (81 curriculum guards, 4 append-only, 1 single-selection). Schema v1 had 31 tables, 57 indexes and 68 triggers.
+- **Plain SQLite:** `schema.drift` (v4) loads as-is: 40 tables, 72 indexes, 86 triggers (81 curriculum guards, 4 append-only, 1 single-selection). Schema v1 had 31 tables, 57 indexes and 68 triggers.
 - **Drift:** the same file compiles as a `.drift` file with drift_dev 2.35.0 and **zero warnings**, using `sql: {dialect: sqlite, options: {version: "3.45", modules: [json1]}}` and `store_date_time_values_as_text: true`. The 37 generated row classes carry exactly the entity names of this document.
 - **Native behaviour** (SQLite 3.53.4 through Drift), 18 tests, all passing:
   - the curriculum rejects writes outside ingestion

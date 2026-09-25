@@ -207,6 +207,207 @@ class CurriculumIngestionsCompanion
   }
 }
 
+class UserDataRewrites extends Table
+    with TableInfo<UserDataRewrites, UserDataRewrite> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  UserDataRewrites(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  late final GeneratedColumn<int> id = GeneratedColumn<int>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    $customConstraints: 'NOT NULL PRIMARY KEY CHECK (id = 1)',
+  );
+  static const VerificationMeta _startedAtMeta = const VerificationMeta(
+    'startedAt',
+  );
+  late final GeneratedColumn<DateTime> startedAt = GeneratedColumn<DateTime>(
+    'started_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL CHECK (strftime(\'%Y-%m-%dT%H:%M:%fZ\', started_at) IS started_at)',
+  );
+  @override
+  List<GeneratedColumn> get $columns => [id, startedAt];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'user_data_rewrites';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<UserDataRewrite> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    }
+    if (data.containsKey('started_at')) {
+      context.handle(
+        _startedAtMeta,
+        startedAt.isAcceptableOrUnknown(data['started_at']!, _startedAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_startedAtMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  UserDataRewrite map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return UserDataRewrite(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}id'],
+      )!,
+      startedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}started_at'],
+      )!,
+    );
+  }
+
+  @override
+  UserDataRewrites createAlias(String alias) {
+    return UserDataRewrites(attachedDatabase, alias);
+  }
+
+  @override
+  bool get dontWriteConstraints => true;
+}
+
+class UserDataRewrite extends DataClass implements Insertable<UserDataRewrite> {
+  final int id;
+  final DateTime startedAt;
+  const UserDataRewrite({required this.id, required this.startedAt});
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<int>(id);
+    map['started_at'] = Variable<DateTime>(startedAt);
+    return map;
+  }
+
+  UserDataRewritesCompanion toCompanion(bool nullToAbsent) {
+    return UserDataRewritesCompanion(
+      id: Value(id),
+      startedAt: Value(startedAt),
+    );
+  }
+
+  factory UserDataRewrite.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return UserDataRewrite(
+      id: serializer.fromJson<int>(json['id']),
+      startedAt: serializer.fromJson<DateTime>(json['started_at']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<int>(id),
+      'started_at': serializer.toJson<DateTime>(startedAt),
+    };
+  }
+
+  UserDataRewrite copyWith({int? id, DateTime? startedAt}) => UserDataRewrite(
+    id: id ?? this.id,
+    startedAt: startedAt ?? this.startedAt,
+  );
+  UserDataRewrite copyWithCompanion(UserDataRewritesCompanion data) {
+    return UserDataRewrite(
+      id: data.id.present ? data.id.value : this.id,
+      startedAt: data.startedAt.present ? data.startedAt.value : this.startedAt,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('UserDataRewrite(')
+          ..write('id: $id, ')
+          ..write('startedAt: $startedAt')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(id, startedAt);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is UserDataRewrite &&
+          other.id == this.id &&
+          other.startedAt == this.startedAt);
+}
+
+class UserDataRewritesCompanion extends UpdateCompanion<UserDataRewrite> {
+  final Value<int> id;
+  final Value<DateTime> startedAt;
+  const UserDataRewritesCompanion({
+    this.id = const Value.absent(),
+    this.startedAt = const Value.absent(),
+  });
+  UserDataRewritesCompanion.insert({
+    this.id = const Value.absent(),
+    required DateTime startedAt,
+  }) : startedAt = Value(startedAt);
+  static Insertable<UserDataRewrite> custom({
+    Expression<int>? id,
+    Expression<DateTime>? startedAt,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (startedAt != null) 'started_at': startedAt,
+    });
+  }
+
+  UserDataRewritesCompanion copyWith({
+    Value<int>? id,
+    Value<DateTime>? startedAt,
+  }) {
+    return UserDataRewritesCompanion(
+      id: id ?? this.id,
+      startedAt: startedAt ?? this.startedAt,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<int>(id.value);
+    }
+    if (startedAt.present) {
+      map['started_at'] = Variable<DateTime>(startedAt.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('UserDataRewritesCompanion(')
+          ..write('id: $id, ')
+          ..write('startedAt: $startedAt')
+          ..write(')'))
+        .toString();
+  }
+}
+
 class CurriculumReleases extends Table
     with TableInfo<CurriculumReleases, CurriculumRelease> {
   @override
@@ -17014,6 +17215,7 @@ abstract class _$AppDatabase extends GeneratedDatabase {
   late final CurriculumIngestions curriculumIngestions = CurriculumIngestions(
     this,
   );
+  late final UserDataRewrites userDataRewrites = UserDataRewrites(this);
   late final CurriculumReleases curriculumReleases = CurriculumReleases(this);
   late final CurriculumDomains curriculumDomains = CurriculumDomains(this);
   late final TastingGrids tastingGrids = TastingGrids(this);
@@ -17117,7 +17319,7 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     'review_events_append_only_update',
   );
   late final Trigger reviewEventsAppendOnlyDelete = Trigger(
-    'CREATE TRIGGER review_events_append_only_delete BEFORE DELETE ON review_events BEGIN SELECT RAISE (ABORT, \'review_events is append-only\');END',
+    'CREATE TRIGGER review_events_append_only_delete BEFORE DELETE ON review_events WHEN NOT EXISTS (SELECT 1 FROM user_data_rewrites) BEGIN SELECT RAISE (ABORT, \'review_events is append-only\');END',
     'review_events_append_only_delete',
   );
   late final Trigger reviewEventOptionsAppendOnlyUpdate = Trigger(
@@ -17125,7 +17327,7 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     'review_event_options_append_only_update',
   );
   late final Trigger reviewEventOptionsAppendOnlyDelete = Trigger(
-    'CREATE TRIGGER review_event_options_append_only_delete BEFORE DELETE ON review_event_options BEGIN SELECT RAISE (ABORT, \'review_event_options is append-only\');END',
+    'CREATE TRIGGER review_event_options_append_only_delete BEFORE DELETE ON review_event_options WHEN NOT EXISTS (SELECT 1 FROM user_data_rewrites) BEGIN SELECT RAISE (ABORT, \'review_event_options is append-only\');END',
     'review_event_options_append_only_delete',
   );
   late final UserSettings userSettings = UserSettings(this);
@@ -17489,6 +17691,7 @@ abstract class _$AppDatabase extends GeneratedDatabase {
   @override
   List<DatabaseSchemaEntity> get allSchemaEntities => [
     curriculumIngestions,
+    userDataRewrites,
     curriculumReleases,
     curriculumDomains,
     tastingGrids,
@@ -18430,6 +18633,144 @@ typedef $CurriculumIngestionsProcessedTableManager =
         >,
       ),
       CurriculumIngestion,
+      PrefetchHooks Function()
+    >;
+typedef $UserDataRewritesCreateCompanionBuilder =
+    UserDataRewritesCompanion Function({
+      Value<int> id,
+      required DateTime startedAt,
+    });
+typedef $UserDataRewritesUpdateCompanionBuilder =
+    UserDataRewritesCompanion Function({
+      Value<int> id,
+      Value<DateTime> startedAt,
+    });
+
+class $UserDataRewritesFilterComposer
+    extends Composer<_$AppDatabase, UserDataRewrites> {
+  $UserDataRewritesFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<int> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get startedAt => $composableBuilder(
+    column: $table.startedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $UserDataRewritesOrderingComposer
+    extends Composer<_$AppDatabase, UserDataRewrites> {
+  $UserDataRewritesOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<int> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get startedAt => $composableBuilder(
+    column: $table.startedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $UserDataRewritesAnnotationComposer
+    extends Composer<_$AppDatabase, UserDataRewrites> {
+  $UserDataRewritesAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<int> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get startedAt =>
+      $composableBuilder(column: $table.startedAt, builder: (column) => column);
+}
+
+class $UserDataRewritesTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          UserDataRewrites,
+          UserDataRewrite,
+          $UserDataRewritesFilterComposer,
+          $UserDataRewritesOrderingComposer,
+          $UserDataRewritesAnnotationComposer,
+          $UserDataRewritesCreateCompanionBuilder,
+          $UserDataRewritesUpdateCompanionBuilder,
+          (
+            UserDataRewrite,
+            BaseReferences<_$AppDatabase, UserDataRewrites, UserDataRewrite>,
+          ),
+          UserDataRewrite,
+          PrefetchHooks Function()
+        > {
+  $UserDataRewritesTableManager(_$AppDatabase db, UserDataRewrites table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $UserDataRewritesFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $UserDataRewritesOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $UserDataRewritesAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback: ({
+            Value<int> id = const Value.absent(),
+            Value<DateTime> startedAt = const Value.absent(),
+          }) => UserDataRewritesCompanion(id: id, startedAt: startedAt),
+          createCompanionCallback: ({
+            Value<int> id = const Value.absent(),
+            required DateTime startedAt,
+          }) => UserDataRewritesCompanion.insert(id: id, startedAt: startedAt),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<UserDataRewrites, UserDataRewrite>(table),
+                  BaseReferences<
+                    _$AppDatabase,
+                    UserDataRewrites,
+                    UserDataRewrite
+                  >(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $UserDataRewritesProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      UserDataRewrites,
+      UserDataRewrite,
+      $UserDataRewritesFilterComposer,
+      $UserDataRewritesOrderingComposer,
+      $UserDataRewritesAnnotationComposer,
+      $UserDataRewritesCreateCompanionBuilder,
+      $UserDataRewritesUpdateCompanionBuilder,
+      (
+        UserDataRewrite,
+        BaseReferences<_$AppDatabase, UserDataRewrites, UserDataRewrite>,
+      ),
+      UserDataRewrite,
       PrefetchHooks Function()
     >;
 typedef $CurriculumReleasesCreateCompanionBuilder =
@@ -36445,6 +36786,8 @@ class $AppDatabaseManager {
   $AppDatabaseManager(this._db);
   $CurriculumIngestionsTableManager get curriculumIngestions =>
       $CurriculumIngestionsTableManager(_db, _db.curriculumIngestions);
+  $UserDataRewritesTableManager get userDataRewrites =>
+      $UserDataRewritesTableManager(_db, _db.userDataRewrites);
   $CurriculumReleasesTableManager get curriculumReleases =>
       $CurriculumReleasesTableManager(_db, _db.curriculumReleases);
   $CurriculumDomainsTableManager get curriculumDomains =>

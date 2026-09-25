@@ -170,4 +170,54 @@ void main() {
       expect(version.read<int>('user_version'), 2);
     });
   });
+
+  group('to 4 (R1): a reset or import may clear the review log', () {
+    late AppDatabase db;
+
+    setUp(() async {
+      final schema = await verifier.schemaAt(1);
+      final raw = schema.rawDatabase;
+      raw.execute(
+        "INSERT INTO curriculum_ingestions VALUES (1, '2026-09-24T00:00:00.000Z')",
+      );
+      _v1Curriculum.forEach(raw.execute);
+      raw.execute('DELETE FROM curriculum_ingestions');
+      _v1UserData.forEach(raw.execute);
+      db = AppDatabase(schema.newConnection());
+      await verifier.migrateAndValidate(db, 4);
+    });
+    tearDown(() => db.close());
+
+    Future<int> count(String table) async =>
+        (await db.customSelect('SELECT count(*) AS n FROM $table').getSingle())
+            .read<int>('n');
+
+    test('keeps the log append-only outside a reset or import', () async {
+      for (final statement in [
+        'UPDATE review_events SET rating = 1',
+        'DELETE FROM review_event_options',
+        'DELETE FROM review_events',
+      ]) {
+        await expectLater(
+          db.customStatement(statement),
+          throwsA(isA<SqliteException>()),
+          reason: statement,
+        );
+      }
+      expect(await count('review_events'), 1);
+    });
+
+    test('lets a reset or import delete it, never update it', () async {
+      await db.customStatement(
+        "INSERT INTO user_data_rewrites VALUES (1, '2026-09-25T00:00:00.000Z')",
+      );
+      await expectLater(
+        db.customStatement('UPDATE review_events SET rating = 1'),
+        throwsA(isA<SqliteException>()),
+      );
+      await db.customStatement('DELETE FROM review_event_options');
+      await db.customStatement('DELETE FROM review_events');
+      expect(await count('review_events'), 0);
+    });
+  });
 }

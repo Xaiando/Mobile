@@ -69,7 +69,8 @@ The canonical model is in docs/domain-model.md.
 - **Authored curriculum rows are never deleted.** Retire them with `valid_until` or `superseded_by_item_id`. The generated tables (`questions`, `question_distractors`) are rebuilt on every ingestion.
 - **Timestamps** are UTC with whole milliseconds. Use `utcNow()` or `toStorageInstant()`; the schema rejects any other form.
 - **IDs:** curriculum text IDs have a prefix (`n_`, `ki_`, `src_`, `qt_`, `tg_`); user rows use UUIDs.
-- `review_events` is append-only. `review_states` is its projection, written in the same transaction.
+- `review_events` is append-only. `review_states` is its projection, written in the same transaction. Only the learner's own reset, import or erase deletes from the log, inside `db.rewriteUserData(...)` (DL-7).
+- A new user table joins `UserDataBackup.tables` (`lib/core/backup/`), parents first, or the export loses it (UD-1).
 - **FSRS** uses the `fsrs` package (FSRS-6). Never hand-code the product specification's §F formulas; they are wrong (audit §4).
 - **Web:** keep `package:drift/wasm.dart` out of code that also compiles for native platforms.
 - **Only `lib/core` queries the database.** Screens and providers go through its repositories; `test/architecture/layering_test.dart` enforces this (audit DL-1).

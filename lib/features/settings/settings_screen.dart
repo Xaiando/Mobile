@@ -7,6 +7,7 @@ import '../../core/database/app_database.dart';
 import '../../core/settings/settings_providers.dart';
 import '../../core/settings/user_settings.dart';
 import '../../core/study/study_providers.dart';
+import 'your_data.dart';
 
 /// Settings (backlog R1): session sizes, appearance, units, and About.
 class SettingsScreen extends ConsumerWidget {
@@ -86,6 +87,8 @@ class SettingsScreen extends ConsumerWidget {
                   learner.setTemperatureUnit(selection.single),
             ),
           ),
+          heading('Your data'),
+          const YourDataSection(),
           heading('About'),
           ListTile(
             leading: const Icon(Icons.info_outline),
