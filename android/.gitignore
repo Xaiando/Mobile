@@ -12,3 +12,5 @@ GeneratedPluginRegistrant.java
 key.properties
 **/*.keystore
 **/*.jks
+# Except the sideload key, which is not secret (see app/build.gradle.kts).
+!app/sideload.keystore

@@ -29,11 +29,24 @@ android {
         versionName = flutter.versionName
     }
 
+    signingConfigs {
+        // Release builds are sideloaded, so every build must carry the same
+        // signature, or Android refuses to install one over another. Like
+        // Android's debug key, this key and its password are deliberately
+        // not secret. A Play Store release would sign with a private upload
+        // key instead (docs/legal-review.md L-28).
+        create("sideload") {
+            storeFile = file("sideload.keystore")
+            storeType = "PKCS12"
+            storePassword = "android"
+            keyAlias = "sideload"
+            keyPassword = "android"
+        }
+    }
+
     buildTypes {
         release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
-            signingConfig = signingConfigs.getByName("debug")
+            signingConfig = signingConfigs.getByName("sideload")
         }
     }
 }
