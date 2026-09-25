@@ -56,10 +56,11 @@ Future<void> main() async {
     result['durability'] = durability.name;
 
     // Phase 1: the bundled dataset hydrates the database on first launch.
+    // Loading it reads the manifest and every file it includes.
     final ingester = CurriculumIngester(db);
-    result['curriculum'] = (await ingester.ensureCurrent(
-      await loadBundledCurriculum(),
-    )).name;
+    final bundle = await loadBundledCurriculum();
+    result['bundle'] = bundle.version;
+    result['curriculum'] = (await ingester.ensureCurrent(bundle)).name;
     result['release'] = (await ingester.installedRelease())?.version;
     result['nodes'] = await count(db, 'knowledge_nodes');
     result['relations'] = await count(db, 'knowledge_relations');

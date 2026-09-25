@@ -18,18 +18,9 @@ const types = {
   '.otf': 'font/otf', '.ttf': 'font/ttf',
 };
 
-// The release the manifest declares. It installs only if every file the
-// manifest includes was bundled.
-const manifest = fs.readFileSync(
-  new URL('../../assets/curriculum/curriculum.yaml', import.meta.url),
-  'utf8',
-);
-const release = /^dataset_version:\s*"([^"]+)"/m.exec(manifest)?.[1];
-
 const expected = {
   foreignKeys: 1,
   curriculum: 'installed',
-  release,
   chablisAncestors: 'Burgundy > France',
   mcqOptions: 4,
   mcqAnswerShown: true,
@@ -90,6 +81,13 @@ for (const [port, isolated] of [[8631, false], [8632, true]]) {
     if (result.error) problems.push(`error: ${result.error}`);
     for (const [key, value] of Object.entries(expected)) {
       if (result[key] !== value) problems.push(`${key}: expected ${value}, got ${result[key]}`);
+    }
+    // The bundle loads only if every file its manifest includes was bundled,
+    // and the release installed must be the one bundled.
+    if (!/^\d+\.\d+\.\d+$/.test(result.bundle ?? '')) {
+      problems.push(`bundle: expected a release version, got ${result.bundle}`);
+    } else if (result.release !== result.bundle) {
+      problems.push(`release: expected ${result.bundle}, got ${result.release}`);
     }
     // Spec TASK-002: at least 50 nodes and 50 edges after initialization.
     for (const key of ['nodes', 'relations']) {
