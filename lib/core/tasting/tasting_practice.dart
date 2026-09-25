@@ -157,28 +157,101 @@ class TastingPractice {
   /// a single-choice attribute.
   Future<void> choose(String id, String attributeKey, Set<String> values) =>
       db.transaction(() async {
-        final session = await (db.select(
-          db.tastingSessions,
-        )..where((s) => s.id.equals(id))).getSingle();
-        await (db.delete(db.tastingDescriptors)..where(
+        final session = await _session(id);
+        await _clear(id, attributeKey);
+        for (final value in values) {
+          await _add(session, attributeKey, value);
+        }
+        await _reopenIfUnanswered(session, attributeKey);
+      });
+
+  /// Chooses [valueKey] of [attributeKey] in session [id], or clears it.
+  /// Choosing a single choice's value replaces the one before; a multiple
+  /// choice adds or removes this value only, so quick taps on several values
+  /// never undo one another.
+  Future<void> select(
+    String id,
+    String attributeKey,
+    String valueKey, {
+    required bool selected,
+  }) => db.transaction(() async {
+    final session = await _session(id);
+    if (!selected) {
+      await (db.delete(db.tastingDescriptors)..where(
+            (d) =>
+                d.tastingSessionId.equals(id) &
+                d.attributeKey.equals(attributeKey) &
+                d.valueKey.equals(valueKey),
+          ))
+          .go();
+      await _reopenIfUnanswered(session, attributeKey);
+      return;
+    }
+    final attribute = await _attribute(session, attributeKey);
+    if (attribute.selection == 'single') await _clear(id, attributeKey);
+    await _add(session, attributeKey, valueKey, orIgnore: true);
+  });
+
+  Future<TastingSession> _session(String id) => (db.select(
+    db.tastingSessions,
+  )..where((s) => s.id.equals(id))).getSingle();
+
+  Future<TastingGridAttribute> _attribute(
+    TastingSession session,
+    String attributeKey,
+  ) =>
+      (db.select(db.tastingGridAttributes)..where(
+            (a) =>
+                a.tastingGridId.equals(session.tastingGridId) &
+                a.attributeKey.equals(attributeKey),
+          ))
+          .getSingle();
+
+  Future<void> _clear(String id, String attributeKey) =>
+      (db.delete(db.tastingDescriptors)..where(
+            (d) =>
+                d.tastingSessionId.equals(id) &
+                d.attributeKey.equals(attributeKey),
+          ))
+          .go();
+
+  Future<void> _add(
+    TastingSession session,
+    String attributeKey,
+    String valueKey, {
+    bool orIgnore = false,
+  }) => db
+      .into(db.tastingDescriptors)
+      .insert(
+        TastingDescriptorsCompanion.insert(
+          tastingSessionId: session.id,
+          tastingGridId: session.tastingGridId,
+          attributeKey: attributeKey,
+          valueKey: valueKey,
+        ),
+        mode: orIgnore ? InsertMode.insertOrIgnore : InsertMode.insert,
+      );
+
+  /// A finished tasting whose required [attributeKey] lost its last value
+  /// is open again, until the learner finishes it anew.
+  Future<void> _reopenIfUnanswered(
+    TastingSession session,
+    String attributeKey,
+  ) async {
+    if (session.completedAt == null) return;
+    final attribute = await _attribute(session, attributeKey);
+    if (!attribute.isRequired) return;
+    final left =
+        await (db.select(db.tastingDescriptors)..where(
               (d) =>
-                  d.tastingSessionId.equals(id) &
+                  d.tastingSessionId.equals(session.id) &
                   d.attributeKey.equals(attributeKey),
             ))
-            .go();
-        for (final value in values) {
-          await db
-              .into(db.tastingDescriptors)
-              .insert(
-                TastingDescriptorsCompanion.insert(
-                  tastingSessionId: id,
-                  tastingGridId: session.tastingGridId,
-                  attributeKey: attributeKey,
-                  valueKey: value,
-                ),
-              );
-        }
-      });
+            .get();
+    if (left.isNotEmpty) return;
+    await (db.update(db.tastingSessions)..where((s) => s.id.equals(session.id)))
+        .write(const TastingSessionsCompanion(completedAt: Value(null)));
+  }
 
   Future<void> setNotes(String id, String? notes) =>
       (db.update(db.tastingSessions)..where((s) => s.id.equals(id))).write(

@@ -107,9 +107,18 @@ class _SessionViewState extends ConsumerState<_SessionView> {
     }
   }
 
-  Future<void> _choose(GridAttribute attribute, Set<String> values) async {
+  Future<void> _select(
+    GridAttribute attribute,
+    String valueKey,
+    bool selected,
+  ) async {
     try {
-      await _practice.choose(session.id, attribute.key, values);
+      await _practice.select(
+        session.id,
+        attribute.key,
+        valueKey,
+        selected: selected,
+      );
     } catch (error) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
@@ -339,7 +348,8 @@ class _SessionViewState extends ConsumerState<_SessionView> {
               attribute,
               chosen: answers[attribute.key] ?? const {},
               isMissing: _showMissing && missing.contains(attribute),
-              onChanged: (values) => _choose(attribute, values),
+              onSelected: (value, selected) =>
+                  _select(attribute, value, selected),
             ),
         ],
       ),
@@ -353,13 +363,15 @@ class _AttributeField extends StatelessWidget {
     this.attribute, {
     required this.chosen,
     required this.isMissing,
-    required this.onChanged,
+    required this.onSelected,
   });
 
   final GridAttribute attribute;
   final Set<String> chosen;
   final bool isMissing;
-  final ValueChanged<Set<String>> onChanged;
+
+  /// Called with a value and whether it is now chosen.
+  final void Function(String valueKey, bool selected) onSelected;
 
   @override
   Widget build(BuildContext context) {
@@ -394,17 +406,14 @@ class _AttributeField extends StatelessWidget {
                     label: Text(value.label),
                     selected: chosen.contains(value.valueKey),
                     onSelected: (selected) =>
-                        onChanged(selected ? {value.valueKey} : const {}),
+                        onSelected(value.valueKey, selected),
                   )
                 else
                   FilterChip(
                     label: Text(value.label),
                     selected: chosen.contains(value.valueKey),
-                    onSelected: (selected) => onChanged(
-                      selected
-                          ? {...chosen, value.valueKey}
-                          : chosen.difference({value.valueKey}),
-                    ),
+                    onSelected: (selected) =>
+                        onSelected(value.valueKey, selected),
                   ),
             ],
           ),

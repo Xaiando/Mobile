@@ -85,6 +85,64 @@ void main() {
     });
   });
 
+  test(
+    'selects value by value, so quick taps never undo one another',
+    () async {
+      final session = await tasting.start('tg_structured');
+      // Two taps whose saves overlap: both values stay.
+      await Future.wait([
+        tasting.select(session.id, 'aromas', 'citrus', selected: true),
+        tasting.select(session.id, 'aromas', 'floral', selected: true),
+        tasting.select(session.id, 'acidity', 'high', selected: true),
+      ]);
+      await tasting.select(session.id, 'acidity', 'low', selected: true);
+      await tasting.select(session.id, 'aromas', 'citrus', selected: true);
+      expect(await tasting.answers(session.id), {
+        'aromas': {'citrus', 'floral'},
+        'acidity': {'low'},
+      }, reason: 'a single choice keeps only its latest value');
+
+      await tasting.select(session.id, 'aromas', 'citrus', selected: false);
+      await tasting.select(session.id, 'acidity', 'low', selected: false);
+      expect(await tasting.answers(session.id), {
+        'aromas': {'floral'},
+      });
+      await expectLater(
+        tasting.select(session.id, 'fruit_state', 'ripe', selected: true),
+        throwsA(anything),
+        reason: 'the other grid',
+      );
+    },
+  );
+
+  test(
+    'a finished tasting that loses a required answer is open again',
+    () async {
+      final session = await tasting.start('tg_structured');
+      await answerRequired(session);
+      await tasting.select(session.id, 'aromas', 'citrus', selected: true);
+      expect(await tasting.complete(session.id), isEmpty);
+      Future<DateTime?> completedAt() async =>
+          (await tasting.watchSession(session.id).first)!.completedAt;
+
+      await tasting.select(session.id, 'aromas', 'citrus', selected: false);
+      expect(await completedAt(), isNotNull, reason: 'aromas are optional');
+      await tasting.select(session.id, 'acidity', 'very_high', selected: true);
+      expect(await completedAt(), isNotNull, reason: 'still answered');
+
+      await tasting.select(session.id, 'acidity', 'very_high', selected: false);
+      expect(await completedAt(), isNull);
+      expect(await tasting.complete(session.id), [
+        isA<GridAttribute>().having((a) => a.key, 'key', 'acidity'),
+      ]);
+
+      await answerRequired(session);
+      expect(await tasting.complete(session.id), isEmpty);
+      await tasting.choose(session.id, 'clarity', {});
+      expect(await completedAt(), isNull, reason: 'choose reopens it too');
+    },
+  );
+
   test('refuses a second value for a single choice, and keeps the first', () {
     return expectLater(() async {
       final session = await tasting.start('tg_structured');
