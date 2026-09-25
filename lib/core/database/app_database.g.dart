@@ -14379,6 +14379,699 @@ class ReviewEventOptionsCompanion extends UpdateCompanion<ReviewEventOption> {
   }
 }
 
+class UserSettings extends Table with TableInfo<UserSettings, UserSetting> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  UserSettings(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _nameMeta = const VerificationMeta('name');
+  late final GeneratedColumn<String> name = GeneratedColumn<String>(
+    'name',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL PRIMARY KEY CHECK (name GLOB \'[a-z]*\' AND name NOT GLOB \'*[^a-z0-9_]*\')',
+  );
+  static const VerificationMeta _valueMeta = const VerificationMeta('value');
+  late final GeneratedColumn<String> value = GeneratedColumn<String>(
+    'value',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL',
+  );
+  static const VerificationMeta _updatedAtMeta = const VerificationMeta(
+    'updatedAt',
+  );
+  late final GeneratedColumn<DateTime> updatedAt = GeneratedColumn<DateTime>(
+    'updated_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL CHECK (strftime(\'%Y-%m-%dT%H:%M:%fZ\', updated_at) IS updated_at)',
+  );
+  @override
+  List<GeneratedColumn> get $columns => [name, value, updatedAt];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'user_settings';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<UserSetting> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('name')) {
+      context.handle(
+        _nameMeta,
+        name.isAcceptableOrUnknown(data['name']!, _nameMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_nameMeta);
+    }
+    if (data.containsKey('value')) {
+      context.handle(
+        _valueMeta,
+        value.isAcceptableOrUnknown(data['value']!, _valueMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_valueMeta);
+    }
+    if (data.containsKey('updated_at')) {
+      context.handle(
+        _updatedAtMeta,
+        updatedAt.isAcceptableOrUnknown(data['updated_at']!, _updatedAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_updatedAtMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {name};
+  @override
+  UserSetting map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return UserSetting(
+      name: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}name'],
+      )!,
+      value: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}value'],
+      )!,
+      updatedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}updated_at'],
+      )!,
+    );
+  }
+
+  @override
+  UserSettings createAlias(String alias) {
+    return UserSettings(attachedDatabase, alias);
+  }
+
+  @override
+  bool get dontWriteConstraints => true;
+}
+
+class UserSetting extends DataClass implements Insertable<UserSetting> {
+  final String name;
+  final String value;
+  final DateTime updatedAt;
+  const UserSetting({
+    required this.name,
+    required this.value,
+    required this.updatedAt,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['name'] = Variable<String>(name);
+    map['value'] = Variable<String>(value);
+    map['updated_at'] = Variable<DateTime>(updatedAt);
+    return map;
+  }
+
+  UserSettingsCompanion toCompanion(bool nullToAbsent) {
+    return UserSettingsCompanion(
+      name: Value(name),
+      value: Value(value),
+      updatedAt: Value(updatedAt),
+    );
+  }
+
+  factory UserSetting.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return UserSetting(
+      name: serializer.fromJson<String>(json['name']),
+      value: serializer.fromJson<String>(json['value']),
+      updatedAt: serializer.fromJson<DateTime>(json['updated_at']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'name': serializer.toJson<String>(name),
+      'value': serializer.toJson<String>(value),
+      'updated_at': serializer.toJson<DateTime>(updatedAt),
+    };
+  }
+
+  UserSetting copyWith({String? name, String? value, DateTime? updatedAt}) =>
+      UserSetting(
+        name: name ?? this.name,
+        value: value ?? this.value,
+        updatedAt: updatedAt ?? this.updatedAt,
+      );
+  UserSetting copyWithCompanion(UserSettingsCompanion data) {
+    return UserSetting(
+      name: data.name.present ? data.name.value : this.name,
+      value: data.value.present ? data.value.value : this.value,
+      updatedAt: data.updatedAt.present ? data.updatedAt.value : this.updatedAt,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('UserSetting(')
+          ..write('name: $name, ')
+          ..write('value: $value, ')
+          ..write('updatedAt: $updatedAt')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(name, value, updatedAt);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is UserSetting &&
+          other.name == this.name &&
+          other.value == this.value &&
+          other.updatedAt == this.updatedAt);
+}
+
+class UserSettingsCompanion extends UpdateCompanion<UserSetting> {
+  final Value<String> name;
+  final Value<String> value;
+  final Value<DateTime> updatedAt;
+  final Value<int> rowid;
+  const UserSettingsCompanion({
+    this.name = const Value.absent(),
+    this.value = const Value.absent(),
+    this.updatedAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  UserSettingsCompanion.insert({
+    required String name,
+    required String value,
+    required DateTime updatedAt,
+    this.rowid = const Value.absent(),
+  }) : name = Value(name),
+       value = Value(value),
+       updatedAt = Value(updatedAt);
+  static Insertable<UserSetting> custom({
+    Expression<String>? name,
+    Expression<String>? value,
+    Expression<DateTime>? updatedAt,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (name != null) 'name': name,
+      if (value != null) 'value': value,
+      if (updatedAt != null) 'updated_at': updatedAt,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  UserSettingsCompanion copyWith({
+    Value<String>? name,
+    Value<String>? value,
+    Value<DateTime>? updatedAt,
+    Value<int>? rowid,
+  }) {
+    return UserSettingsCompanion(
+      name: name ?? this.name,
+      value: value ?? this.value,
+      updatedAt: updatedAt ?? this.updatedAt,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (name.present) {
+      map['name'] = Variable<String>(name.value);
+    }
+    if (value.present) {
+      map['value'] = Variable<String>(value.value);
+    }
+    if (updatedAt.present) {
+      map['updated_at'] = Variable<DateTime>(updatedAt.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('UserSettingsCompanion(')
+          ..write('name: $name, ')
+          ..write('value: $value, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class QuestionFlags extends Table with TableInfo<QuestionFlags, QuestionFlag> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  QuestionFlags(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL PRIMARY KEY CHECK (length(id) = 36 AND id NOT GLOB \'*[^0-9a-f-]*\')',
+  );
+  static const VerificationMeta _knowledgeItemIdMeta = const VerificationMeta(
+    'knowledgeItemId',
+  );
+  late final GeneratedColumn<String> knowledgeItemId = GeneratedColumn<String>(
+    'knowledge_item_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL REFERENCES knowledge_items(id)',
+  );
+  static const VerificationMeta _questionTemplateIdMeta =
+      const VerificationMeta('questionTemplateId');
+  late final GeneratedColumn<String> questionTemplateId =
+      GeneratedColumn<String>(
+        'question_template_id',
+        aliasedName,
+        true,
+        type: DriftSqlType.string,
+        requiredDuringInsert: false,
+        $customConstraints: 'REFERENCES question_templates(id)',
+      );
+  static const VerificationMeta _reasonMeta = const VerificationMeta('reason');
+  late final GeneratedColumn<String> reason = GeneratedColumn<String>(
+    'reason',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL CHECK (reason IN (\'wrong\', \'unclear\', \'outdated\', \'other\'))',
+  );
+  static const VerificationMeta _noteMeta = const VerificationMeta('note');
+  late final GeneratedColumn<String> note = GeneratedColumn<String>(
+    'note',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    $customConstraints: '',
+  );
+  static const VerificationMeta _createdAtMeta = const VerificationMeta(
+    'createdAt',
+  );
+  late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL CHECK (strftime(\'%Y-%m-%dT%H:%M:%fZ\', created_at) IS created_at)',
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    knowledgeItemId,
+    questionTemplateId,
+    reason,
+    note,
+    createdAt,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'question_flags';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<QuestionFlag> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('knowledge_item_id')) {
+      context.handle(
+        _knowledgeItemIdMeta,
+        knowledgeItemId.isAcceptableOrUnknown(
+          data['knowledge_item_id']!,
+          _knowledgeItemIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_knowledgeItemIdMeta);
+    }
+    if (data.containsKey('question_template_id')) {
+      context.handle(
+        _questionTemplateIdMeta,
+        questionTemplateId.isAcceptableOrUnknown(
+          data['question_template_id']!,
+          _questionTemplateIdMeta,
+        ),
+      );
+    }
+    if (data.containsKey('reason')) {
+      context.handle(
+        _reasonMeta,
+        reason.isAcceptableOrUnknown(data['reason']!, _reasonMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_reasonMeta);
+    }
+    if (data.containsKey('note')) {
+      context.handle(
+        _noteMeta,
+        note.isAcceptableOrUnknown(data['note']!, _noteMeta),
+      );
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(
+        _createdAtMeta,
+        createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_createdAtMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  QuestionFlag map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return QuestionFlag(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      knowledgeItemId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}knowledge_item_id'],
+      )!,
+      questionTemplateId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}question_template_id'],
+      ),
+      reason: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}reason'],
+      )!,
+      note: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}note'],
+      ),
+      createdAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}created_at'],
+      )!,
+    );
+  }
+
+  @override
+  QuestionFlags createAlias(String alias) {
+    return QuestionFlags(attachedDatabase, alias);
+  }
+
+  @override
+  bool get dontWriteConstraints => true;
+}
+
+class QuestionFlag extends DataClass implements Insertable<QuestionFlag> {
+  final String id;
+  final String knowledgeItemId;
+  final String? questionTemplateId;
+  final String reason;
+  final String? note;
+  final DateTime createdAt;
+  const QuestionFlag({
+    required this.id,
+    required this.knowledgeItemId,
+    this.questionTemplateId,
+    required this.reason,
+    this.note,
+    required this.createdAt,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    map['knowledge_item_id'] = Variable<String>(knowledgeItemId);
+    if (!nullToAbsent || questionTemplateId != null) {
+      map['question_template_id'] = Variable<String>(questionTemplateId);
+    }
+    map['reason'] = Variable<String>(reason);
+    if (!nullToAbsent || note != null) {
+      map['note'] = Variable<String>(note);
+    }
+    map['created_at'] = Variable<DateTime>(createdAt);
+    return map;
+  }
+
+  QuestionFlagsCompanion toCompanion(bool nullToAbsent) {
+    return QuestionFlagsCompanion(
+      id: Value(id),
+      knowledgeItemId: Value(knowledgeItemId),
+      questionTemplateId: questionTemplateId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(questionTemplateId),
+      reason: Value(reason),
+      note: note == null && nullToAbsent ? const Value.absent() : Value(note),
+      createdAt: Value(createdAt),
+    );
+  }
+
+  factory QuestionFlag.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return QuestionFlag(
+      id: serializer.fromJson<String>(json['id']),
+      knowledgeItemId: serializer.fromJson<String>(json['knowledge_item_id']),
+      questionTemplateId: serializer.fromJson<String?>(
+        json['question_template_id'],
+      ),
+      reason: serializer.fromJson<String>(json['reason']),
+      note: serializer.fromJson<String?>(json['note']),
+      createdAt: serializer.fromJson<DateTime>(json['created_at']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'knowledge_item_id': serializer.toJson<String>(knowledgeItemId),
+      'question_template_id': serializer.toJson<String?>(questionTemplateId),
+      'reason': serializer.toJson<String>(reason),
+      'note': serializer.toJson<String?>(note),
+      'created_at': serializer.toJson<DateTime>(createdAt),
+    };
+  }
+
+  QuestionFlag copyWith({
+    String? id,
+    String? knowledgeItemId,
+    Value<String?> questionTemplateId = const Value.absent(),
+    String? reason,
+    Value<String?> note = const Value.absent(),
+    DateTime? createdAt,
+  }) => QuestionFlag(
+    id: id ?? this.id,
+    knowledgeItemId: knowledgeItemId ?? this.knowledgeItemId,
+    questionTemplateId: questionTemplateId.present
+        ? questionTemplateId.value
+        : this.questionTemplateId,
+    reason: reason ?? this.reason,
+    note: note.present ? note.value : this.note,
+    createdAt: createdAt ?? this.createdAt,
+  );
+  QuestionFlag copyWithCompanion(QuestionFlagsCompanion data) {
+    return QuestionFlag(
+      id: data.id.present ? data.id.value : this.id,
+      knowledgeItemId: data.knowledgeItemId.present
+          ? data.knowledgeItemId.value
+          : this.knowledgeItemId,
+      questionTemplateId: data.questionTemplateId.present
+          ? data.questionTemplateId.value
+          : this.questionTemplateId,
+      reason: data.reason.present ? data.reason.value : this.reason,
+      note: data.note.present ? data.note.value : this.note,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('QuestionFlag(')
+          ..write('id: $id, ')
+          ..write('knowledgeItemId: $knowledgeItemId, ')
+          ..write('questionTemplateId: $questionTemplateId, ')
+          ..write('reason: $reason, ')
+          ..write('note: $note, ')
+          ..write('createdAt: $createdAt')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    knowledgeItemId,
+    questionTemplateId,
+    reason,
+    note,
+    createdAt,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is QuestionFlag &&
+          other.id == this.id &&
+          other.knowledgeItemId == this.knowledgeItemId &&
+          other.questionTemplateId == this.questionTemplateId &&
+          other.reason == this.reason &&
+          other.note == this.note &&
+          other.createdAt == this.createdAt);
+}
+
+class QuestionFlagsCompanion extends UpdateCompanion<QuestionFlag> {
+  final Value<String> id;
+  final Value<String> knowledgeItemId;
+  final Value<String?> questionTemplateId;
+  final Value<String> reason;
+  final Value<String?> note;
+  final Value<DateTime> createdAt;
+  final Value<int> rowid;
+  const QuestionFlagsCompanion({
+    this.id = const Value.absent(),
+    this.knowledgeItemId = const Value.absent(),
+    this.questionTemplateId = const Value.absent(),
+    this.reason = const Value.absent(),
+    this.note = const Value.absent(),
+    this.createdAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  QuestionFlagsCompanion.insert({
+    required String id,
+    required String knowledgeItemId,
+    this.questionTemplateId = const Value.absent(),
+    required String reason,
+    this.note = const Value.absent(),
+    required DateTime createdAt,
+    this.rowid = const Value.absent(),
+  }) : id = Value(id),
+       knowledgeItemId = Value(knowledgeItemId),
+       reason = Value(reason),
+       createdAt = Value(createdAt);
+  static Insertable<QuestionFlag> custom({
+    Expression<String>? id,
+    Expression<String>? knowledgeItemId,
+    Expression<String>? questionTemplateId,
+    Expression<String>? reason,
+    Expression<String>? note,
+    Expression<DateTime>? createdAt,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (knowledgeItemId != null) 'knowledge_item_id': knowledgeItemId,
+      if (questionTemplateId != null)
+        'question_template_id': questionTemplateId,
+      if (reason != null) 'reason': reason,
+      if (note != null) 'note': note,
+      if (createdAt != null) 'created_at': createdAt,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  QuestionFlagsCompanion copyWith({
+    Value<String>? id,
+    Value<String>? knowledgeItemId,
+    Value<String?>? questionTemplateId,
+    Value<String>? reason,
+    Value<String?>? note,
+    Value<DateTime>? createdAt,
+    Value<int>? rowid,
+  }) {
+    return QuestionFlagsCompanion(
+      id: id ?? this.id,
+      knowledgeItemId: knowledgeItemId ?? this.knowledgeItemId,
+      questionTemplateId: questionTemplateId ?? this.questionTemplateId,
+      reason: reason ?? this.reason,
+      note: note ?? this.note,
+      createdAt: createdAt ?? this.createdAt,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (knowledgeItemId.present) {
+      map['knowledge_item_id'] = Variable<String>(knowledgeItemId.value);
+    }
+    if (questionTemplateId.present) {
+      map['question_template_id'] = Variable<String>(questionTemplateId.value);
+    }
+    if (reason.present) {
+      map['reason'] = Variable<String>(reason.value);
+    }
+    if (note.present) {
+      map['note'] = Variable<String>(note.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<DateTime>(createdAt.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('QuestionFlagsCompanion(')
+          ..write('id: $id, ')
+          ..write('knowledgeItemId: $knowledgeItemId, ')
+          ..write('questionTemplateId: $questionTemplateId, ')
+          ..write('reason: $reason, ')
+          ..write('note: $note, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
 class WineJournalEntries extends Table
     with TableInfo<WineJournalEntries, WineJournalEntry> {
   @override
@@ -16435,6 +17128,12 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     'CREATE TRIGGER review_event_options_append_only_delete BEFORE DELETE ON review_event_options BEGIN SELECT RAISE (ABORT, \'review_event_options is append-only\');END',
     'review_event_options_append_only_delete',
   );
+  late final UserSettings userSettings = UserSettings(this);
+  late final QuestionFlags questionFlags = QuestionFlags(this);
+  late final Index questionFlagsByItem = Index(
+    'question_flags_by_item',
+    'CREATE INDEX question_flags_by_item ON question_flags (knowledge_item_id)',
+  );
   late final WineJournalEntries wineJournalEntries = WineJournalEntries(this);
   late final Index wineJournalEntriesByTastedOn = Index(
     'wine_journal_entries_by_tasted_on',
@@ -16840,6 +17539,9 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     reviewEventsAppendOnlyDelete,
     reviewEventOptionsAppendOnlyUpdate,
     reviewEventOptionsAppendOnlyDelete,
+    userSettings,
+    questionFlags,
+    questionFlagsByItem,
     wineJournalEntries,
     wineJournalEntriesByTastedOn,
     wineJournalEntryNodes,
@@ -23587,6 +24289,23 @@ final class $KnowledgeItemsReferences
       manager.$state.copyWith(prefetchedData: cache),
     );
   }
+
+  static MultiTypedResultKey<QuestionFlags, List<QuestionFlag>>
+  _questionFlagsRefsTable(_$AppDatabase db) => MultiTypedResultKey.fromTable(
+    db.questionFlags,
+    aliasName: 'knowledge_items__id__question_flags__knowledge_item_id',
+  );
+
+  $QuestionFlagsProcessedTableManager get questionFlagsRefs {
+    final manager = $QuestionFlagsTableManager($_db, $_db.questionFlags).filter(
+      (f) => f.knowledgeItemId.id.sqlEquals($_itemColumn<String>('id')!),
+    );
+
+    final cache = $_typedResult.readTableOrNull(_questionFlagsRefsTable($_db));
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: cache),
+    );
+  }
 }
 
 class $KnowledgeItemsFilterComposer
@@ -23812,6 +24531,31 @@ class $KnowledgeItemsFilterComposer
           }) => $ReviewEventsFilterComposer(
             $db: $db,
             $table: $db.reviewEvents,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+
+  Expression<bool> questionFlagsRefs(
+    Expression<bool> Function($QuestionFlagsFilterComposer f) f,
+  ) {
+    final $QuestionFlagsFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.questionFlags,
+      getReferencedColumn: (t) => t.knowledgeItemId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $QuestionFlagsFilterComposer(
+            $db: $db,
+            $table: $db.questionFlags,
             $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
             joinBuilder: joinBuilder,
             $removeJoinBuilderFromRootComposer:
@@ -24151,6 +24895,31 @@ class $KnowledgeItemsAnnotationComposer
     );
     return f(composer);
   }
+
+  Expression<T> questionFlagsRefs<T extends Object>(
+    Expression<T> Function($QuestionFlagsAnnotationComposer a) f,
+  ) {
+    final $QuestionFlagsAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.questionFlags,
+      getReferencedColumn: (t) => t.knowledgeItemId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $QuestionFlagsAnnotationComposer(
+            $db: $db,
+            $table: $db.questionFlags,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
 }
 
 class $KnowledgeItemsTableManager
@@ -24174,6 +24943,7 @@ class $KnowledgeItemsTableManager
             bool exercisePoolItemsRefs,
             bool reviewStatesRefs,
             bool reviewEventsRefs,
+            bool questionFlagsRefs,
           })
         > {
   $KnowledgeItemsTableManager(_$AppDatabase db, KnowledgeItems table)
@@ -24264,6 +25034,7 @@ class $KnowledgeItemsTableManager
                 exercisePoolItemsRefs = false,
                 reviewStatesRefs = false,
                 reviewEventsRefs = false,
+                questionFlagsRefs = false,
               }) {
                 return PrefetchHooks(
                   db: db,
@@ -24274,6 +25045,7 @@ class $KnowledgeItemsTableManager
                     if (exercisePoolItemsRefs) db.exercisePoolItems,
                     if (reviewStatesRefs) db.reviewStates,
                     if (reviewEventsRefs) db.reviewEvents,
+                    if (questionFlagsRefs) db.questionFlags,
                   ],
                   addJoins:
                       <
@@ -24423,6 +25195,27 @@ class $KnowledgeItemsTableManager
                               ),
                           typedResults: items,
                         ),
+                      if (questionFlagsRefs)
+                        await $_getPrefetchedData<
+                          KnowledgeItem,
+                          KnowledgeItems,
+                          QuestionFlag
+                        >(
+                          currentTable: table,
+                          referencedTable: $KnowledgeItemsReferences
+                              ._questionFlagsRefsTable(db),
+                          managerFromTypedResult: (p0) =>
+                              $KnowledgeItemsReferences(
+                                db,
+                                table,
+                                p0,
+                              ).questionFlagsRefs,
+                          referencedItemsForCurrentItem:
+                              (item, referencedItems) => referencedItems.where(
+                                (e) => e.knowledgeItemId == item.id,
+                              ),
+                          typedResults: items,
+                        ),
                     ];
                   },
                 );
@@ -24451,6 +25244,7 @@ typedef $KnowledgeItemsProcessedTableManager =
         bool exercisePoolItemsRefs,
         bool reviewStatesRefs,
         bool reviewEventsRefs,
+        bool questionFlagsRefs,
       })
     >;
 typedef $KnowledgeItemPrerequisitesCreateCompanionBuilder =
@@ -26375,6 +27169,23 @@ final class $QuestionTemplatesReferences
       manager.$state.copyWith(prefetchedData: cache),
     );
   }
+
+  static MultiTypedResultKey<QuestionFlags, List<QuestionFlag>>
+  _questionFlagsRefsTable(_$AppDatabase db) => MultiTypedResultKey.fromTable(
+    db.questionFlags,
+    aliasName: 'question_templates__id__question_flags__question_template_id',
+  );
+
+  $QuestionFlagsProcessedTableManager get questionFlagsRefs {
+    final manager = $QuestionFlagsTableManager($_db, $_db.questionFlags).filter(
+      (f) => f.questionTemplateId.id.sqlEquals($_itemColumn<String>('id')!),
+    );
+
+    final cache = $_typedResult.readTableOrNull(_questionFlagsRefsTable($_db));
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: cache),
+    );
+  }
 }
 
 class $QuestionTemplatesFilterComposer
@@ -26485,6 +27296,31 @@ class $QuestionTemplatesFilterComposer
           }) => $ReviewEventsFilterComposer(
             $db: $db,
             $table: $db.reviewEvents,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+
+  Expression<bool> questionFlagsRefs(
+    Expression<bool> Function($QuestionFlagsFilterComposer f) f,
+  ) {
+    final $QuestionFlagsFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.questionFlags,
+      getReferencedColumn: (t) => t.questionTemplateId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $QuestionFlagsFilterComposer(
+            $db: $db,
+            $table: $db.questionFlags,
             $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
             joinBuilder: joinBuilder,
             $removeJoinBuilderFromRootComposer:
@@ -26669,6 +27505,31 @@ class $QuestionTemplatesAnnotationComposer
     );
     return f(composer);
   }
+
+  Expression<T> questionFlagsRefs<T extends Object>(
+    Expression<T> Function($QuestionFlagsAnnotationComposer a) f,
+  ) {
+    final $QuestionFlagsAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.questionFlags,
+      getReferencedColumn: (t) => t.questionTemplateId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $QuestionFlagsAnnotationComposer(
+            $db: $db,
+            $table: $db.questionFlags,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
 }
 
 class $QuestionTemplatesTableManager
@@ -26688,6 +27549,7 @@ class $QuestionTemplatesTableManager
             bool relationType,
             bool exercisePoolsRefs,
             bool reviewEventsRefs,
+            bool questionFlagsRefs,
           })
         > {
   $QuestionTemplatesTableManager(_$AppDatabase db, QuestionTemplates table)
@@ -26758,12 +27620,14 @@ class $QuestionTemplatesTableManager
                 relationType = false,
                 exercisePoolsRefs = false,
                 reviewEventsRefs = false,
+                questionFlagsRefs = false,
               }) {
                 return PrefetchHooks(
                   db: db,
                   explicitlyWatchedTables: [
                     if (exercisePoolsRefs) db.exercisePools,
                     if (reviewEventsRefs) db.reviewEvents,
+                    if (questionFlagsRefs) db.questionFlags,
                   ],
                   addJoins:
                       <
@@ -26839,6 +27703,27 @@ class $QuestionTemplatesTableManager
                               ),
                           typedResults: items,
                         ),
+                      if (questionFlagsRefs)
+                        await $_getPrefetchedData<
+                          QuestionTemplate,
+                          QuestionTemplates,
+                          QuestionFlag
+                        >(
+                          currentTable: table,
+                          referencedTable: $QuestionTemplatesReferences
+                              ._questionFlagsRefsTable(db),
+                          managerFromTypedResult: (p0) =>
+                              $QuestionTemplatesReferences(
+                                db,
+                                table,
+                                p0,
+                              ).questionFlagsRefs,
+                          referencedItemsForCurrentItem:
+                              (item, referencedItems) => referencedItems.where(
+                                (e) => e.questionTemplateId == item.id,
+                              ),
+                          typedResults: items,
+                        ),
                     ];
                   },
                 );
@@ -26863,6 +27748,7 @@ typedef $QuestionTemplatesProcessedTableManager =
         bool relationType,
         bool exercisePoolsRefs,
         bool reviewEventsRefs,
+        bool questionFlagsRefs,
       })
     >;
 typedef $TastingGridAttributesCreateCompanionBuilder =
@@ -33360,6 +34246,595 @@ typedef $ReviewEventOptionsProcessedTableManager =
       ReviewEventOption,
       PrefetchHooks Function({bool reviewEventId, bool knowledgeNodeId})
     >;
+typedef $UserSettingsCreateCompanionBuilder = UserSettingsCompanion Function({
+  required String name,
+  required String value,
+  required DateTime updatedAt,
+  Value<int> rowid,
+});
+typedef $UserSettingsUpdateCompanionBuilder = UserSettingsCompanion Function({
+  Value<String> name,
+  Value<String> value,
+  Value<DateTime> updatedAt,
+  Value<int> rowid,
+});
+
+class $UserSettingsFilterComposer
+    extends Composer<_$AppDatabase, UserSettings> {
+  $UserSettingsFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get name => $composableBuilder(
+    column: $table.name,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get value => $composableBuilder(
+    column: $table.value,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $UserSettingsOrderingComposer
+    extends Composer<_$AppDatabase, UserSettings> {
+  $UserSettingsOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get name => $composableBuilder(
+    column: $table.name,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get value => $composableBuilder(
+    column: $table.value,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $UserSettingsAnnotationComposer
+    extends Composer<_$AppDatabase, UserSettings> {
+  $UserSettingsAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get name =>
+      $composableBuilder(column: $table.name, builder: (column) => column);
+
+  GeneratedColumn<String> get value =>
+      $composableBuilder(column: $table.value, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get updatedAt =>
+      $composableBuilder(column: $table.updatedAt, builder: (column) => column);
+}
+
+class $UserSettingsTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          UserSettings,
+          UserSetting,
+          $UserSettingsFilterComposer,
+          $UserSettingsOrderingComposer,
+          $UserSettingsAnnotationComposer,
+          $UserSettingsCreateCompanionBuilder,
+          $UserSettingsUpdateCompanionBuilder,
+          (
+            UserSetting,
+            BaseReferences<_$AppDatabase, UserSettings, UserSetting>,
+          ),
+          UserSetting,
+          PrefetchHooks Function()
+        > {
+  $UserSettingsTableManager(_$AppDatabase db, UserSettings table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $UserSettingsFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $UserSettingsOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $UserSettingsAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> name = const Value.absent(),
+                Value<String> value = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => UserSettingsCompanion(
+                name: name,
+                value: value,
+                updatedAt: updatedAt,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String name,
+                required String value,
+                required DateTime updatedAt,
+                Value<int> rowid = const Value.absent(),
+              }) => UserSettingsCompanion.insert(
+                name: name,
+                value: value,
+                updatedAt: updatedAt,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<UserSettings, UserSetting>(table),
+                  BaseReferences<_$AppDatabase, UserSettings, UserSetting>(
+                    db,
+                    table,
+                    e,
+                  ),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $UserSettingsProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      UserSettings,
+      UserSetting,
+      $UserSettingsFilterComposer,
+      $UserSettingsOrderingComposer,
+      $UserSettingsAnnotationComposer,
+      $UserSettingsCreateCompanionBuilder,
+      $UserSettingsUpdateCompanionBuilder,
+      (UserSetting, BaseReferences<_$AppDatabase, UserSettings, UserSetting>),
+      UserSetting,
+      PrefetchHooks Function()
+    >;
+typedef $QuestionFlagsCreateCompanionBuilder = QuestionFlagsCompanion Function({
+  required String id,
+  required String knowledgeItemId,
+  Value<String?> questionTemplateId,
+  required String reason,
+  Value<String?> note,
+  required DateTime createdAt,
+  Value<int> rowid,
+});
+typedef $QuestionFlagsUpdateCompanionBuilder = QuestionFlagsCompanion Function({
+  Value<String> id,
+  Value<String> knowledgeItemId,
+  Value<String?> questionTemplateId,
+  Value<String> reason,
+  Value<String?> note,
+  Value<DateTime> createdAt,
+  Value<int> rowid,
+});
+
+final class $QuestionFlagsReferences
+    extends BaseReferences<_$AppDatabase, QuestionFlags, QuestionFlag> {
+  $QuestionFlagsReferences(super.$_db, super.$_table, super.$_typedResult);
+
+  static KnowledgeItems _knowledgeItemIdTable(_$AppDatabase db) => db
+      .knowledgeItems
+      .createAlias('question_flags__knowledge_item_id__knowledge_items__id');
+
+  $KnowledgeItemsProcessedTableManager get knowledgeItemId {
+    final $_column = $_itemColumn<String>('knowledge_item_id')!;
+
+    final manager = $KnowledgeItemsTableManager(
+      $_db,
+      $_db.knowledgeItems,
+    ).filter((f) => f.id.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_knowledgeItemIdTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
+  }
+
+  static QuestionTemplates _questionTemplateIdTable(_$AppDatabase db) =>
+      db.questionTemplates.createAlias(
+        'question_flags__question_template_id__question_templates__id',
+      );
+
+  $QuestionTemplatesProcessedTableManager? get questionTemplateId {
+    final $_column = $_itemColumn<String>('question_template_id');
+    if ($_column == null) return null;
+    final manager = $QuestionTemplatesTableManager(
+      $_db,
+      $_db.questionTemplates,
+    ).filter((f) => f.id.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_questionTemplateIdTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
+  }
+}
+
+class $QuestionFlagsFilterComposer
+    extends Composer<_$AppDatabase, QuestionFlags> {
+  $QuestionFlagsFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get reason => $composableBuilder(
+    column: $table.reason,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get note => $composableBuilder(
+    column: $table.note,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  $KnowledgeItemsFilterComposer get knowledgeItemId {
+    final $KnowledgeItemsFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.knowledgeItemId,
+      referencedTable: $db.knowledgeItems,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $KnowledgeItemsFilterComposer(
+            $db: $db,
+            $table: $db.knowledgeItems,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  $QuestionTemplatesFilterComposer get questionTemplateId {
+    final $QuestionTemplatesFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.questionTemplateId,
+      referencedTable: $db.questionTemplates,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $QuestionTemplatesFilterComposer(
+            $db: $db,
+            $table: $db.questionTemplates,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $QuestionFlagsOrderingComposer
+    extends Composer<_$AppDatabase, QuestionFlags> {
+  $QuestionFlagsOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get reason => $composableBuilder(
+    column: $table.reason,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get note => $composableBuilder(
+    column: $table.note,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  $KnowledgeItemsOrderingComposer get knowledgeItemId {
+    final $KnowledgeItemsOrderingComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.knowledgeItemId,
+      referencedTable: $db.knowledgeItems,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $KnowledgeItemsOrderingComposer(
+            $db: $db,
+            $table: $db.knowledgeItems,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  $QuestionTemplatesOrderingComposer get questionTemplateId {
+    final $QuestionTemplatesOrderingComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.questionTemplateId,
+      referencedTable: $db.questionTemplates,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $QuestionTemplatesOrderingComposer(
+            $db: $db,
+            $table: $db.questionTemplates,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $QuestionFlagsAnnotationComposer
+    extends Composer<_$AppDatabase, QuestionFlags> {
+  $QuestionFlagsAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get reason =>
+      $composableBuilder(column: $table.reason, builder: (column) => column);
+
+  GeneratedColumn<String> get note =>
+      $composableBuilder(column: $table.note, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+
+  $KnowledgeItemsAnnotationComposer get knowledgeItemId {
+    final $KnowledgeItemsAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.knowledgeItemId,
+      referencedTable: $db.knowledgeItems,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $KnowledgeItemsAnnotationComposer(
+            $db: $db,
+            $table: $db.knowledgeItems,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+
+  $QuestionTemplatesAnnotationComposer get questionTemplateId {
+    final $QuestionTemplatesAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.questionTemplateId,
+      referencedTable: $db.questionTemplates,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $QuestionTemplatesAnnotationComposer(
+            $db: $db,
+            $table: $db.questionTemplates,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $QuestionFlagsTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          QuestionFlags,
+          QuestionFlag,
+          $QuestionFlagsFilterComposer,
+          $QuestionFlagsOrderingComposer,
+          $QuestionFlagsAnnotationComposer,
+          $QuestionFlagsCreateCompanionBuilder,
+          $QuestionFlagsUpdateCompanionBuilder,
+          (QuestionFlag, $QuestionFlagsReferences),
+          QuestionFlag,
+          PrefetchHooks Function({
+            bool knowledgeItemId,
+            bool questionTemplateId,
+          })
+        > {
+  $QuestionFlagsTableManager(_$AppDatabase db, QuestionFlags table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $QuestionFlagsFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $QuestionFlagsOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $QuestionFlagsAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> id = const Value.absent(),
+                Value<String> knowledgeItemId = const Value.absent(),
+                Value<String?> questionTemplateId = const Value.absent(),
+                Value<String> reason = const Value.absent(),
+                Value<String?> note = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => QuestionFlagsCompanion(
+                id: id,
+                knowledgeItemId: knowledgeItemId,
+                questionTemplateId: questionTemplateId,
+                reason: reason,
+                note: note,
+                createdAt: createdAt,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String id,
+                required String knowledgeItemId,
+                Value<String?> questionTemplateId = const Value.absent(),
+                required String reason,
+                Value<String?> note = const Value.absent(),
+                required DateTime createdAt,
+                Value<int> rowid = const Value.absent(),
+              }) => QuestionFlagsCompanion.insert(
+                id: id,
+                knowledgeItemId: knowledgeItemId,
+                questionTemplateId: questionTemplateId,
+                reason: reason,
+                note: note,
+                createdAt: createdAt,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<QuestionFlags, QuestionFlag>(table),
+                  $QuestionFlagsReferences(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback:
+              ({knowledgeItemId = false, questionTemplateId = false}) {
+                return PrefetchHooks(
+                  db: db,
+                  explicitlyWatchedTables: [],
+                  addJoins:
+                      <
+                        T extends TableManagerState<
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic,
+                          dynamic
+                        >
+                      >(state) {
+                        if (knowledgeItemId) {
+                          state = state.withJoin(
+                            currentTable: table,
+                            currentColumn: table.knowledgeItemId,
+                            referencedTable: $QuestionFlagsReferences
+                                ._knowledgeItemIdTable(db),
+                            referencedColumn: $QuestionFlagsReferences
+                                ._knowledgeItemIdTable(db)
+                                .id,
+                          ) as T;
+                        }
+                        if (questionTemplateId) {
+                          state = state.withJoin(
+                            currentTable: table,
+                            currentColumn: table.questionTemplateId,
+                            referencedTable: $QuestionFlagsReferences
+                                ._questionTemplateIdTable(db),
+                            referencedColumn: $QuestionFlagsReferences
+                                ._questionTemplateIdTable(db)
+                                .id,
+                          ) as T;
+                        }
+
+                        return state;
+                      },
+                  getPrefetchedDataCallback: (items) async {
+                    return [];
+                  },
+                );
+              },
+        ),
+      );
+}
+
+typedef $QuestionFlagsProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      QuestionFlags,
+      QuestionFlag,
+      $QuestionFlagsFilterComposer,
+      $QuestionFlagsOrderingComposer,
+      $QuestionFlagsAnnotationComposer,
+      $QuestionFlagsCreateCompanionBuilder,
+      $QuestionFlagsUpdateCompanionBuilder,
+      (QuestionFlag, $QuestionFlagsReferences),
+      QuestionFlag,
+      PrefetchHooks Function({bool knowledgeItemId, bool questionTemplateId})
+    >;
 typedef $WineJournalEntriesCreateCompanionBuilder =
     WineJournalEntriesCompanion Function({
       required String id,
@@ -35041,6 +36516,10 @@ class $AppDatabaseManager {
       $ReviewEventsTableManager(_db, _db.reviewEvents);
   $ReviewEventOptionsTableManager get reviewEventOptions =>
       $ReviewEventOptionsTableManager(_db, _db.reviewEventOptions);
+  $UserSettingsTableManager get userSettings =>
+      $UserSettingsTableManager(_db, _db.userSettings);
+  $QuestionFlagsTableManager get questionFlags =>
+      $QuestionFlagsTableManager(_db, _db.questionFlags);
   $WineJournalEntriesTableManager get wineJournalEntries =>
       $WineJournalEntriesTableManager(_db, _db.wineJournalEntries);
   $WineJournalEntryNodesTableManager get wineJournalEntryNodes =>

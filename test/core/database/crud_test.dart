@@ -470,6 +470,28 @@ final cases = <CrudCase>[
       'DELETE FROM review_event_options WHERE review_event_id = ${_uuid(2)}',
     ],
   ),
+  const CrudCase(
+    'user_settings',
+    scope: Scope.user,
+    create: ["INSERT INTO user_settings VALUES ('appearance', 'dark', $_ts)"],
+    where: "name = 'appearance'",
+    update:
+        "UPDATE user_settings SET value = 'light' WHERE name = 'appearance'",
+    whereUpdated: "name = 'appearance' AND value = 'light'",
+    delete: ["DELETE FROM user_settings WHERE name = 'appearance'"],
+  ),
+  CrudCase(
+    'question_flags',
+    scope: Scope.user,
+    create: [
+      "INSERT INTO question_flags VALUES (${_uuid(30)}, 'ki_chablis_grape', 'qt_ppg_fwd_mcq', 'unclear', 'Two answers fit.', $_ts)",
+    ],
+    where: 'id = ${_uuid(30)}',
+    update:
+        "UPDATE question_flags SET reason = 'wrong' WHERE id = ${_uuid(30)}",
+    whereUpdated: "id = ${_uuid(30)} AND reason = 'wrong'",
+    delete: ['DELETE FROM question_flags WHERE id = ${_uuid(30)}'],
+  ),
   CrudCase(
     'wine_journal_entries',
     scope: Scope.user,
@@ -554,7 +576,7 @@ void main() {
         .map((row) => row.read<String>('name'))
         .get();
     expect(cases.map((c) => c.table).toSet(), tables.toSet());
-    expect(tables, hasLength(37));
+    expect(tables, hasLength(39));
   });
 
   for (final c in cases) {

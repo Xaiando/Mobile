@@ -60,9 +60,9 @@ void main() {
   Future<void> curriculum(String statement) =>
       db.writeCurriculum(() => db.customStatement(statement));
 
-  test('a new database is at schema version 2', () async {
+  test('a new database is at the current schema version', () async {
     final version = await db.customSelect('PRAGMA user_version').getSingle();
-    expect(version.read<int>('user_version'), 2);
+    expect(version.read<int>('user_version'), db.schemaVersion);
   });
 
   test('a pack has neither an examining body nor a level (PK-2)', () async {
