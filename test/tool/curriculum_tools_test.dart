@@ -58,10 +58,12 @@ void main() {
 
     test('names the file and line of a broken row', () async {
       final france = File(pathOf('areas/france.yaml'));
+      // The first block row naming Burgundy, whatever the line endings of
+      // the checkout.
       france.writeAsStringSync(
         france.readAsStringSync().replaceFirst(
-          'object_id: n_geo_burgundy\n',
-          'object_id: n_geo_nowhere\n',
+          RegExp(r'object_id: n_geo_burgundy(?=\r?\n)'),
+          'object_id: n_geo_nowhere',
         ),
       );
       final (code, out) = await run(lint, []);
