@@ -8,7 +8,7 @@
 | **Content plans** | [Spätburgunder study tree](content/spaetburgunder-study-tree.md) · [Sub-region atlas](content/subregion-atlas.md) |
 | **Decisions** | [architecture-audit.md](architecture-audit.md) §12–§16 (DL, QF, COV, GEO and PK rows) |
 
-The product specification's backlog (§P) has ten large tasks, seven of which are done. This backlog decomposes the rest of the product into **45 tasks**, each sized for one Claude Code cloud session and one pull request. It widens the study experience in four ways:
+The product specification's backlog (§P) has ten large tasks, seven of which are done. This backlog decomposes the rest of the product into **48 tasks**, each sized for one Claude Code cloud session and one pull request. It widens the study experience in four ways:
 
 - geography becomes a first-class, map-based study domain, and the famous regions become sub-region study maps (the atlas, G10–G13);
 - the question system grows from three formats to the sixteen study modes requested, plus short written answers (spec §T) and episodic recall;
@@ -57,6 +57,7 @@ TASK-008 (tasting grids) and TASK-009 (journal integration) remain; they are T1�
 | ID | Task | Depends on | Wave | Status |
 |---|---|---|---|---|
 | **F** | **Foundations** | | | |
+| SCOPE-1 | Certification scope manifests: WSET L3 + CMS Europe Certified | — | 1 | ☑ |
 | F1 | Question-coverage checker: report and ratchet | — | 1 | ☑ |
 | F2 | Schema v2: question system, geography, packs | C1 | 2 | ☐ |
 | F3 | Format registry and exercise runtime | F2 | 3 | ☐ |
@@ -68,6 +69,7 @@ TASK-008 (tasting grids) and TASK-009 (journal integration) remain; they are T1�
 | C4 | Content: the New World | C1, F2 | 3 | ☐ |
 | C5 | Content: principles | C1 | 2 | ☐ |
 | C6 | Content: Germany, Austria and the rest of Europe | C1 | 2 | ☐ |
+| C7 | Content: CMS Europe beverages, service and business core | C1 | 2 | ☐ |
 | **G** | **Geography and maps** | | | |
 | G1 | Geodata pipeline, sources and licences | — | 1 | ☐ |
 | G2 | Geometry ingestion and validation | F2, G1 | 3 | ☐ |
@@ -106,6 +108,7 @@ TASK-008 (tasting grids) and TASK-009 (journal integration) remain; they are T1�
 | **S** | **Study experience and analytics (spec Phase 6)** | | | |
 | S1 | Study browser v2: atlas, search, focused and timed sessions | F3, G3 | 5 | ☐ |
 | S2 | Learner analytics | F1, F3 | 4 | ☐ |
+| S3 | Certification rehearsal presets | S1, Q1, Q7, T2 | 6 | ☐ |
 | **R** | **Quality and release** | | | |
 | R1 | Onboarding, settings, attributions, accessibility | — | 3 | ☐ |
 | R2 | Performance and scale | F3, G3 | 6 | ☐ |
@@ -121,8 +124,8 @@ Tasks in the same wave can run in separate cloud sessions at the same time, beca
 
 | Wave | Can run in parallel | Why they do not collide |
 |---|---|---|
-| **1** | F1, C1, G1, G3, J1 | F1 adds `lib/core/coverage/`, C1 the dataset loader and tools, G1 `tool/geography/`, G3 `lib/core/geography/` and `lib/features/map/`, J1 journal screens. |
-| **2** | F2, C5, C6, T1, J2 | F2 exclusively owns the schema and the dataset section list. C5, C6 and T1 add new dataset files only. J2 edits the priority score before F3 touches the planner. |
+| **1** | SCOPE-1, F1, C1, G1, G3, J1 | F1 adds `lib/core/coverage/`, C1 the dataset loader and tools, G1 `tool/geography/`, G3 `lib/core/geography/` and `lib/features/map/`, J1 journal screens. |
+| **2** | F2, C5, C6, C7, T1, J2 | F2 exclusively owns the schema and the dataset section list. C5, C6 and T1 add new dataset files only. J2 edits the priority score before F3 touches the planner. |
 | **3** | F3, G2, P1, C2, C3, C4, T2, R1 | F3 exclusively owns the question engine and the practice screen core. G2 owns geometry ingestion. P1 owns the track model. Content tasks write their own files. R1 adds settings screens. |
 | **4** | F4, Q1–Q6, G4, J3, S2, P2 | Each format lives in its own folder under `formats/` and adds one registry line. F4 owns the format chooser. P2 writes pack files only. |
 | **5** | Q7, Q8, G5, G6, G7, G8, S1, G12 | Each adds formats, content files or layers of its own. S1 owns the Study tab and the router. G12 owns the German, Austrian and Swiss layers. |
@@ -359,7 +362,9 @@ For a learner preparing now, the [study tree](content/spaetburgunder-study-tree.
   - service: temperatures, glassware, decanting, storage;
   - food-pairing principles;
   - the **business** domain (wine lists, pricing, cellar management), which is empty today;
-  - spirits, beer and sake basics for the CMS tracks.
+  - wine-focused service and pairing principles shared by both tracks.
+
+  CMS Europe-specific non-wine beverages, cocktails and business arithmetic belong to C7, not C5.
 - **Depends on.** C1. It needs no schema change, since node types and relation types are data.
 - **Modules.** `assets/curriculum/areas/principles_*.yaml`, `coverage_policy.yaml`.
 - **Acceptance criteria.**
@@ -989,3 +994,73 @@ The backlog was reviewed against the specification (§A–§T), the decision reg
 | Images of grapes and leaves | No licensed images |
 
 **Open product question.** The business model (free, paid or subscription) is not in the specification. It affects R3 (store listing, in-app purchases) and should be decided before release.
+
+
+---
+
+## 8. Deep-research curriculum amendments (2026-09-24)
+
+Research basis: [curriculum gap audit](research/curriculum-gap-audit.md) and [certification matrix](research/certification-matrix.md). These additions refine the backlog; they do not replace the canonical domain model or completed architecture.
+
+### SCOPE-1 · Certification scope manifests
+
+- **Objective.** Add a versioned structural scope manifest for **WSET Level 3** and **CMS Europe Certified (2026/27)**. Use stable editorial IDs and paraphrased topic labels; do not copy syllabus prose. Every required objective maps to one or more curriculum areas/tasks or an explicit documented exclusion.
+- **Depends on.** Nothing.
+- **Modules.** `assets/curriculum/track_scope.yaml`, a scope checker under `tool/curriculum/`, F1 integration, research/source docs.
+- **Acceptance criteria.**
+  - Both V0.1 tracks have pinned source/version metadata.
+  - 100% of required structural objectives are mapped or explicitly excluded with rationale.
+  - `CMS_CERTIFIED` is treated editorially as CMS Europe Certified; no CMS Americas material is silently mixed in.
+  - Syllabus scope is never used as evidence that a current legal fact is true.
+- **Required automated tests.** Manifest schema; unknown task/area; duplicate IDs; orphan required objective; stale source-version warning fixture.
+- **Parallel.** Yes, wave 1. F1 may initially consume it after merge.
+
+### C7 · Content: CMS Europe beverages, service and business core
+
+- **Objective.** Author the CMS Europe Certified non-wine/service/business curriculum that C5 previously described too broadly:
+  - major spirit families and core production/service knowledge;
+  - beer and **cider/perry**;
+  - sake production, classifications/labels, service and pairing;
+  - aperitif wines, liqueurs and bitters;
+  - classic cocktails and recommendations;
+  - bottle sizes, event-quantity arithmetic, markup/gross-profit calculations;
+  - beverage-list, cellar and service scenarios.
+- **Depends on.** C1. F2 only if a genuinely necessary schema feature cannot be represented by data-only node/relation additions.
+- **Modules.** `assets/curriculum/areas/cms_beverages_*.yaml`, `cms_business.yaml`, coverage policy, source/verification ledger.
+- **Acceptance criteria.**
+  - Every C7 item maps to CMS Europe Certified scope and has authoritative provenance.
+  - Content is deep enough for Q3/Q4/Q5/Q7, not only flashcards.
+  - Cider/perry, aperitif/liqueur/bitter knowledge and classic cocktails are explicit; they are not hidden inside “other beverages”.
+  - Business arithmetic has quantity/unit data suitable for deterministic numeric grading.
+  - No proprietary CMS question, grid artwork or syllabus prose is reproduced.
+- **Required automated tests.** Dataset validator; SCOPE-1 parity; F1 coverage; numeric-unit fixtures; closed-world fixtures where “all” is asked.
+- **Parallel.** Yes, wave 2 after C1.
+
+### S3 · Certification rehearsal presets
+
+- **Objective.** Build examination-shaped practice presets for WSET L3 and CMS Europe Certified using original generated/authored exercises. This is rehearsal, not reproduction of proprietary exams.
+- **Depends on.** S1, Q1, Q7 and T2; richer formats are used when available.
+- **Modules.** study-session configuration, track metadata, learner-facing preset picker.
+- **Acceptance criteria.**
+  - WSET L3 preset exercises theory/short-written work and structured tasting practice.
+  - CMS Europe Certified preset exercises theory, two-wine deduction practice and service/recommendation scenarios.
+  - Presets are pinned to track-scope metadata and can be updated without changing canonical memory items.
+  - UI clearly labels them as practice, not official examinations.
+- **Required automated tests.** Preset composition; track isolation; seeded reproducibility; pause/resume; delayed-feedback mode; scope-version mismatch warning.
+- **Parallel.** Wave 6.
+
+### Release-gate amendments
+
+R3 additionally requires:
+
+- 100% of required WSET L3/CMS-EU scope objectives represented or explicitly excluded;
+- 100% of **core** certification items qualified-reviewer verified before a public parity claim;
+- no core item flashcard-only and the existing useful-practice thresholds passing;
+- regulatory assertions obey the source hierarchy in the audit;
+- shipping geography has source/date/hash/licence/attribution metadata;
+- no unresolved current-law conflict;
+- certification rehearsal presets match their pinned scope metadata.
+
+### Product claim
+
+Until these gates pass, describe the app as a developing sommelier study companion. Do not claim official affiliation, accreditation, guaranteed exam readiness, or validation of physical table-service technique.

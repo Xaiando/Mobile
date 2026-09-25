@@ -139,6 +139,9 @@ final class ItemCoverage {
     required this.served,
     required this.expected,
     required this.missing,
+    this.subjectType = '',
+    this.objectType = '',
+    this.places = const {},
   });
 
   final KnowledgeItem item;
@@ -146,6 +149,13 @@ final class ItemCoverage {
   /// The track's effective mapping of the item (CM-3).
   final EffectiveMapping mapping;
   final CoverageArea area;
+
+  /// The node types of the item's subject and object.
+  final String subjectType;
+  final String objectType;
+
+  /// The item's subject and every place that contains it.
+  final Set<String> places;
 
   /// One format per question ingestion generated for the item.
   final List<QuestionFormat> generated;

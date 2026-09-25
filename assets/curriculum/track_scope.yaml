@@ -1,0 +1,309 @@
+# Certification scope manifests (backlog SCOPE-1). For each certification
+# track, the objectives of its official scope, pinned to one version of the
+# body's own document. The app does not bundle this file; lint checks it and
+# tool/coverage_report.dart reports how the release represents each
+# objective.
+#
+# Rules:
+# - Objectives are editorial: a stable ID and a label in our own words.
+#   Never syllabus text, numbering or wording (D10, legal review L-27).
+# - A track follows one body's document only. CMS_CERTIFIED is the Court of
+#   Master Sommeliers Europe's Certified Sommelier, which includes its
+#   Introductory level; nothing from CMS Americas is mixed in.
+# - A syllabus says what a track examines, never that a legal fact is true.
+#   Facts cite legislation (PR-3), and lint rejects a curriculum citation of
+#   a scope document.
+# - Each required objective is accounted for, by one or more of:
+#   - covers: the items that practise it, selected by domain, place
+#     (within), relation type or node type. Only authored items make an
+#     objective represented;
+#   - tasks: the backlog tasks that author it;
+#   - excluded: why the app leaves it out.
+# - The task that adds a region's node also adds the `covers` of that
+#   region's objectives.
+# - Re-check an objective list against its document at least once a year;
+#   lint warns when checked_on is older.
+
+tracks:
+  WSET_L3:
+    name: WSET Level 3 Award in Wines
+    body: Wine & Spirit Education Trust
+    source:
+      title: WSET Level 3 Award in Wines, Specification
+      url: https://www.wsetglobal.com/media/11731/wset_l3wines_specification_en_highres_may2022_issue2.pdf
+      version: "2022, Issue 2"
+      checked_on: "2026-09-25"
+    objectives:
+      # Unit 1: the factors behind a wine's style, quality and price.
+      - id: wset_l3.vine_and_climate
+        label: The vine and its growth cycle, and how climate, weather and soil shape the grape
+        covers: {relation_types: [HAS_CLIMATE, HAS_SOIL]}
+        tasks: [C5]
+      - id: wset_l3.vineyard_practice
+        label: Vineyard management, from training and pruning to hazards, pests and diseases
+        covers: {relation_types: [SUSCEPTIBLE_TO]}
+        tasks: [C5]
+      - id: wset_l3.winemaking
+        label: Fermentation and the making of white, red, rosé and sweet wines
+        tasks: [C5]
+      - id: wset_l3.maturation_and_finishing
+        label: Maturation, blending, clarification, stabilisation, packaging and closures
+        covers: {relation_types: [MIN_AGEING, MIN_WOOD_AGEING]}
+        tasks: [C5]
+
+      # The still wines of the principal regions.
+      - id: wset_l3.still.bordeaux
+        label: The still wines of Bordeaux
+        tasks: [C2]
+      - id: wset_l3.still.south_west_france
+        label: The still wines of the Dordogne and South West France
+        tasks: [C2]
+      - id: wset_l3.still.burgundy
+        label: The still wines of Burgundy
+        covers: {within: [n_geo_burgundy]}
+        tasks: [C2]
+      - id: wset_l3.still.beaujolais
+        label: The wines of Beaujolais
+        tasks: [C2]
+      - id: wset_l3.still.alsace
+        label: The wines of Alsace
+        tasks: [C2]
+      - id: wset_l3.still.loire
+        label: The still wines of the Loire Valley
+        covers: {within: [n_geo_loire_valley]}
+        tasks: [C2]
+      - id: wset_l3.still.rhone
+        label: The wines of the Rhône Valley
+        covers: {within: [n_geo_rhone_valley]}
+        tasks: [C2]
+      - id: wset_l3.still.southern_france
+        label: The wines of Languedoc, Roussillon and Provence
+        tasks: [C2]
+      - id: wset_l3.still.germany
+        label: The wines of Germany
+        tasks: [C6]
+      - id: wset_l3.still.austria
+        label: The wines of Austria
+        tasks: [C6]
+      - id: wset_l3.still.hungary
+        label: The sweet wines of Tokaj
+        tasks: [C6]
+      - id: wset_l3.still.greece
+        label: The wines of Greece
+        tasks: [C6]
+      - id: wset_l3.still.italy_north
+        label: The wines of northern Italy, from Alto Adige and Friuli to Veneto and Piedmont
+        covers: {within: [n_geo_piedmont]}
+        tasks: [C3]
+      - id: wset_l3.still.italy_centre
+        label: The wines of central Italy, from Tuscany to Abruzzo
+        covers: {within: [n_geo_tuscany]}
+        tasks: [C3]
+      - id: wset_l3.still.italy_south
+        label: The wines of southern Italy and Sicily
+        tasks: [C3]
+      - id: wset_l3.still.spain
+        label: The still wines of Spain
+        tasks: [C3]
+      - id: wset_l3.still.portugal
+        label: The still wines of Portugal
+        tasks: [C3]
+      - id: wset_l3.still.usa
+        label: The wines of the United States
+        tasks: [C4]
+      - id: wset_l3.still.canada
+        label: The wines of Canada
+        tasks: [C4]
+      - id: wset_l3.still.chile
+        label: The wines of Chile
+        tasks: [C4]
+      - id: wset_l3.still.argentina
+        label: The wines of Argentina
+        tasks: [C4]
+      - id: wset_l3.still.south_africa
+        label: The wines of South Africa
+        tasks: [C4]
+      - id: wset_l3.still.australia
+        label: The wines of Australia
+        tasks: [C4]
+      - id: wset_l3.still.new_zealand
+        label: The wines of New Zealand
+        tasks: [C4]
+      - id: wset_l3.law_and_labels
+        label: The wine laws and label terms of the principal regions
+        covers:
+          relation_types:
+            - PERMITS_PRINCIPAL_GRAPE
+            - PERMITS_ACCESSORY_GRAPE
+            - MIN_AGEING
+            - MIN_WOOD_AGEING
+            - REQUIRES_METHOD
+        tasks: [C2, C3, C4, C6, Q5]
+      - id: wset_l3.commerce
+        label: How costs and market forces shape a wine's price
+        tasks: [C5]
+
+      # Sparkling and fortified wines.
+      - id: wset_l3.sparkling.methods
+        label: The ways sparkling wine is made, from the traditional method to carbonation
+        covers: {relation_types: [REQUIRES_METHOD]}
+        tasks: [C5]
+      - id: wset_l3.sparkling.champagne
+        label: Champagne
+        covers: {within: [n_geo_champagne_region]}
+        tasks: [C2]
+      - id: wset_l3.sparkling.others
+        label: The other principal sparkling wines of Europe and the New World
+        tasks: [C2, C3, C4, C6]
+      - id: wset_l3.fortified.sherry
+        label: Sherry
+        tasks: [C3]
+      - id: wset_l3.fortified.port
+        label: Port
+        tasks: [C3]
+      - id: wset_l3.fortified.muscat
+        label: Fortified Muscats
+        tasks: [C3]
+
+      # Advice to customers and staff.
+      - id: wset_l3.advice.recommendations
+        label: Recommending wines, and explaining the choice
+        tasks: [C5, Q7]
+      - id: wset_l3.advice.storage_and_service
+        label: Storing and serving wine
+        covers: {domains: [service]}
+        tasks: [C5]
+      - id: wset_l3.advice.faults
+        label: Common wine faults
+        tasks: [C5]
+      - id: wset_l3.advice.food_pairing
+        label: The principles of pairing food and wine
+        tasks: [C5, Q7]
+      - id: wset_l3.advice.social_and_health
+        label: The social and health effects of drinking too much
+        tasks: [C5]
+
+      # Unit 2: tasting.
+      - id: wset_l3.tasting
+        label: Describing a still wine, and judging its quality and readiness to drink, with the SAT
+        covers: {domains: [tasting]}
+        tasks: [T1, T2]
+
+  CMS_CERTIFIED:
+    name: Certified Sommelier
+    body: Court of Master Sommeliers Europe
+    source:
+      title: Court of Master Sommeliers Europe, Examination Syllabus
+      url: https://courtofmastersommeliers.org/wp-content/uploads/2026/02/Syllabus-202627-1.pdf
+      version: "2026/2027"
+      checked_on: "2026-09-25"
+    # The Introductory and Certified levels of each topic of the syllabus.
+    objectives:
+      # Wine regions.
+      - id: cms_certified.alsace
+        label: Alsace
+        tasks: [C2]
+      - id: cms_certified.bordeaux
+        label: Bordeaux and its classifications
+        tasks: [C2]
+      - id: cms_certified.burgundy
+        label: Burgundy, from Chablis to the Mâconnais, and Beaujolais
+        covers: {within: [n_geo_burgundy]}
+        tasks: [C2]
+      - id: cms_certified.champagne
+        label: Champagne
+        covers: {within: [n_geo_champagne_region]}
+        tasks: [C2]
+      - id: cms_certified.sparkling
+        label: How sparkling wines are made, and the principal sparkling wines of other countries
+        covers: {relation_types: [REQUIRES_METHOD]}
+        tasks: [C2, C3, C4, C5, C6]
+      - id: cms_certified.loire
+        label: The Loire Valley
+        covers: {within: [n_geo_loire_valley]}
+        tasks: [C2]
+      - id: cms_certified.rhone
+        label: The Rhône Valley
+        covers: {within: [n_geo_rhone_valley]}
+        tasks: [C2]
+      - id: cms_certified.south_of_france
+        label: Provence, Languedoc, Roussillon and South West France
+        tasks: [C2]
+      - id: cms_certified.spain
+        label: Spain
+        tasks: [C3]
+      - id: cms_certified.portugal
+        label: Portugal
+        tasks: [C3]
+      - id: cms_certified.italy
+        label: Italy
+        covers: {within: [n_geo_italy]}
+        tasks: [C3]
+      - id: cms_certified.germany
+        label: Germany
+        tasks: [C6]
+      - id: cms_certified.austria
+        label: Austria
+        tasks: [C6]
+      - id: cms_certified.greece
+        label: Greece
+        tasks: [C6]
+      - id: cms_certified.eastern_europe
+        label: Tokaji, and the wine regions and grapes of Eastern Europe
+        tasks: [C6]
+      - id: cms_certified.australia
+        label: Australia
+        tasks: [C4]
+      - id: cms_certified.new_zealand
+        label: New Zealand
+        tasks: [C4]
+      - id: cms_certified.north_america
+        label: The United States and Canada
+        tasks: [C4]
+      - id: cms_certified.south_america
+        label: Chile and Argentina
+        tasks: [C4]
+      - id: cms_certified.south_africa
+        label: South Africa
+        tasks: [C4]
+
+      # Other beverages.
+      - id: cms_certified.fortified
+        label: Sherry, Port and Madeira
+        tasks: [C3]
+      - id: cms_certified.spirits
+        label: Distillation and the principal spirits
+        tasks: [C7]
+      - id: cms_certified.liqueurs_and_aperitifs
+        label: Liqueurs, aperitif wines and bitters
+        tasks: [C7]
+      - id: cms_certified.beer_and_cider
+        label: Beer and cider
+        tasks: [C7]
+      - id: cms_certified.sake
+        label: Sake, its production, types and label terms
+        tasks: [C7]
+
+      # Principles, service and business.
+      - id: cms_certified.vineyard_and_winery
+        label: Viticulture and winemaking, with their French terms
+        covers: {domains: [viticulture, winemaking]}
+        tasks: [C5]
+      - id: cms_certified.food_pairing
+        label: Pairing food with wine and other drinks
+        tasks: [C5, C7, Q7]
+      - id: cms_certified.business
+        label: Bottle sizes, calculations, pricing, inventory and wine lists
+        covers: {domains: [business]}
+        tasks: [C7, Q4, Q5, Q7]
+      - id: cms_certified.service_knowledge
+        label: Recommending and serving wines, spirits, liqueurs and classic cocktails
+        covers: {domains: [service]}
+        tasks: [C5, C7, Q7]
+      - id: cms_certified.service_technique
+        label: Service performed at the table
+        excluded: The practical examination assesses how a candidate opens, pours and carries. The app teaches the knowledge and the sequence of service, but cannot judge the technique.
+      - id: cms_certified.deductive_tasting
+        label: Deductive tasting of two wines
+        covers: {domains: [tasting]}
+        tasks: [T1, T2, Q8]

@@ -43,6 +43,8 @@ node tool/web_smoke/run.mjs build/web_smoke   # after npm ci in tool/web_smoke
 
 Work is planned in docs/backlog.md: one task per session, each naming its design note in docs/design/. Respect the backlog's hot-spot rules (§4) so parallel sessions do not collide. The first schema change belongs to task F2 only (audit DL-3).
 
+Research handoff: read `docs/research/claude-handoff.md` before curriculum, coverage, certification-scope, geography-data, or release-gate work. The supporting audit is `docs/research/curriculum-gap-audit.md` and the track matrix is `docs/research/certification-matrix.md`. The research adds SCOPE-1, C7 and S3; it does **not** supersede the canonical domain model or completed G3 renderer.
+
 Content plans live in docs/content/: the Spätburgunder study tree and the sub-region atlas. Author only their cited facts. Resolve each *to verify* item against its primary source first. Never author a heuristic marked **(H)** as a fact (audit PK-7). The task that creates a node also writes its location item (GEO-18).
 
 ## Data rules
@@ -104,6 +106,11 @@ dart run tool/coverage_report.dart --update-baseline  # after a change that move
   - an item that is untestable or flashcard-only, unless `known_gaps` lists it with a reason and the task that closes it (COV-6).
 - **After a content change**, read the report, run `--update-baseline`, and commit the baseline with the change.
 - **A new format** adds itself to `builtFormats` (`lib/core/coverage/coverage_formats.dart`) and to every relation type in the policy.
+- **Scope objectives** (`assets/curriculum/track_scope.yaml`, SCOPE-1) pin each track to one body's official document. CMS_CERTIFIED means CMS Europe (CM-10).
+  - Objectives are labels in our own words, never syllabus text (L-27).
+  - A task that adds a region's node, or the content of a planned objective, adds that objective's `covers`. Only authored items make an objective represented (COV-7).
+  - Never cite a syllabus as a fact's source; `lint` rejects it.
+  - Re-check the pinned documents yearly; `lint` warns when they are stale.
 
 ## Study engine
 

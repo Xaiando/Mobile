@@ -6,6 +6,7 @@ import 'package:sommelier/core/coverage/coverage_baseline.dart';
 import 'package:sommelier/core/coverage/coverage_checker.dart';
 import 'package:sommelier/core/coverage/coverage_model.dart';
 import 'package:sommelier/core/coverage/coverage_policy.dart';
+import 'package:sommelier/core/coverage/track_scope.dart';
 import 'package:sommelier/core/curriculum/curriculum_dataset.dart';
 import 'package:sommelier/core/curriculum/curriculum_ingestion.dart';
 import 'package:sommelier/core/curriculum/curriculum_validator.dart';
@@ -93,6 +94,55 @@ List<String> coveragePolicyProblems(
   nodes: {for (final node in dataset.knowledgeNodes) node.id},
 );
 
+/// The scope manifest next to [manifest] (backlog SCOPE-1).
+String trackScopePath(String manifest) =>
+    besideManifest(manifest, 'track_scope.yaml');
+
+/// The scope manifest at [path]. Without a file it is empty, so every
+/// selectable track lacks a scope, which [trackScopeProblems] reports.
+TrackScopeManifest readTrackScope(String path) {
+  final file = File(path);
+  return file.existsSync()
+      ? TrackScopeManifest.parse(file.readAsStringSync(), path: path)
+      : TrackScopeManifest(const {}, path: path);
+}
+
+/// The task IDs of the backlog at [path], from its task index, or null if
+/// there is no backlog there.
+Set<String>? backlogTasks(String path) {
+  final file = File(path);
+  if (!file.existsSync()) return null;
+  final row = RegExp(
+    r'^\|\s*([A-Z][A-Z0-9]*(?:-[0-9]+)?)\s*\|',
+    multiLine: true,
+  );
+  return {
+    for (final match in row.allMatches(file.readAsStringSync())) match[1]!,
+  };
+}
+
+/// Where the [scope] manifest does not fit [dataset], and the backlog's
+/// [tasks] when they are known ([TrackScopeManifest.problemsWith]).
+List<ScopeIssue> trackScopeProblems(
+  TrackScopeManifest scope,
+  CurriculumDataset dataset, {
+  Set<String>? tasks,
+}) => scope.problemsWith(
+  tracks: {for (final track in dataset.certifications) track.id},
+  selectableTracks: {
+    for (final track in dataset.certifications)
+      if (track.isSelectable) track.id,
+  },
+  domains: {for (final domain in dataset.curriculumDomains) domain.id},
+  nodes: {for (final node in dataset.knowledgeNodes) node.id},
+  relationTypes: {for (final type in dataset.relationTypes) type.id},
+  nodeTypes: {for (final type in dataset.nodeTypes) type.id},
+  tasks: tasks,
+  citedUrls: {
+    for (final source in dataset.sourceCitations) source.id: ?source.url,
+  },
+);
+
 /// Why [dataset] cannot be ingested into a new database, or null if it can.
 ///
 /// Ingestion also enforces the schema's own constraints, which the validator
@@ -112,14 +162,23 @@ Future<String?> ingestionProblem(CurriculumDataset dataset) async {
 
 /// `lint`: prints every problem of the dataset as `file:line: kind: message
 /// [rule]`: format errors, the validator's errors and warnings, ledger
-/// errors, and a coverage policy that does not fit the release. A release
-/// without them must also ingest, so that the schema's constraints hold.
-/// Fails if there is any error.
-Future<int> lint(List<String> args, StringSink out) async {
-  const usage = 'dart run tool/curriculum/lint.dart [--dataset <manifest>]';
-  final options = ToolOptions.parse(args, named: {'dataset'});
+/// errors, a coverage policy that does not fit the release, and the scope
+/// manifest's problems (a selectable track without a scope, even when the
+/// manifest is missing) and stale sources. A release without them must also
+/// ingest, so that the schema's constraints hold. Fails if there is any
+/// error.
+Future<int> lint(
+  List<String> args,
+  StringSink out, {
+  Clock clock = const Clock(),
+}) async {
+  const usage =
+      'dart run tool/curriculum/lint.dart [--dataset <manifest>] '
+      '[--backlog <file>]';
+  final options = ToolOptions.parse(args, named: {'dataset', 'backlog'});
   if (options == null) return printUsage(out, usage, args);
   final manifest = options['dataset'] ?? curriculumAssetPath;
+  final backlog = options['backlog'] ?? 'docs/backlog.md';
 
   final CurriculumDataset dataset;
   try {
@@ -165,6 +224,37 @@ Future<int> lint(List<String> args, StringSink out) async {
   } on CoveragePolicyException catch (error) {
     for (final problem in error.problems) {
       out.writeln('error: $problem [coverage-policy]');
+      errors++;
+    }
+  }
+  final scopePath = trackScopePath(manifest);
+  try {
+    final scope = readTrackScope(scopePath);
+    final tasks = backlogTasks(backlog);
+    if (tasks == null) {
+      out.writeln(
+        '$scopePath: warning: no backlog at $backlog, so tasks are not '
+        'checked [scope]',
+      );
+      warnings++;
+    }
+    for (final (:at, :message) in trackScopeProblems(
+      scope,
+      dataset,
+      tasks: tasks,
+    )) {
+      out.writeln('$at: error: $message [scope]');
+      errors++;
+    }
+    for (final (:at, :message) in scope.staleSources(
+      today: localToday(clock),
+    )) {
+      out.writeln('$at: warning: $message [scope]');
+      warnings++;
+    }
+  } on TrackScopeException catch (error) {
+    for (final (:at, :message) in error.problems) {
+      out.writeln('$at: error: $message [scope]');
       errors++;
     }
   }

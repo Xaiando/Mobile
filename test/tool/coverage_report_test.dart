@@ -41,6 +41,7 @@ void main() {
       ...bundledDataset().files,
       '${prefix}coverage_policy.yaml',
       '${prefix}coverage_baseline.json',
+      '${prefix}track_scope.yaml',
     ]) {
       final copy = File(pathOf(path.substring(prefix.length)));
       copy.parent.createSync(recursive: true);
@@ -66,6 +67,7 @@ void main() {
     );
     expect(out, contains('Known until Q1'));
     expect(out, contains('**passes**'));
+    expect(out, contains('(question-system §3, audit COV-2).'));
   });
 
   test('prints one track as JSON', () async {
@@ -144,6 +146,147 @@ void main() {
     final (code, out) = await run(['--track', 'WSET_L9']);
     expect(code, exitFailed);
     expect(out, contains('WSET_L9 is not a track'));
+  });
+
+  group('scope objectives (SCOPE-1)', () {
+    test('are reported for each track, as Markdown and JSON', () async {
+      final (code, out) = await run([]);
+      expect(code, exitOk, reason: out);
+      expect(out, contains('**Scope objectives** (SCOPE-1). '));
+      expect(
+        out,
+        contains(RegExp(r'\d+ required objectives: \d+ represented, ')),
+      );
+      expect(
+        out,
+        contains(
+          RegExp(
+            r'\| `wset_l3\.still\.burgundy` [^|]+\| \d+ \| \d+ \| \d+ '
+            r'\| represented \|',
+          ),
+        ),
+      );
+      expect(out, contains('| planned: C7 |'));
+      expect(out, contains('excluded: The practical examination'));
+
+      final (_, json) = await run(['--format', 'json', '--track', 'WSET_L3']);
+      final track = ((jsonDecode(json) as Map)['tracks'] as List).single as Map;
+      final scope = track['scope'] as Map;
+      expect((scope['source'] as Map)['version'], '2022, Issue 2');
+      final objectives = scope['objectives'] as List;
+      expect(
+        objectives.map((o) => (o as Map)['status']).toSet(),
+        containsAll(['represented', 'planned']),
+      );
+    });
+
+    test(
+      'lint checks the manifest against the release and the backlog',
+      () async {
+        final scope = File(pathOf('track_scope.yaml'));
+        scope.writeAsStringSync(
+          scope
+              .readAsStringSync()
+              .replaceFirst('tasks: [C7]', 'tasks: [Z9]')
+              .replaceFirst(
+                'checked_on: "2026-09-25"',
+                'checked_on: "2020-01-01"',
+              ),
+        );
+        final out = StringBuffer();
+        expect(await lint(['--dataset', manifest], out), exitFailed);
+        expect(
+          '$out',
+          contains(
+            RegExp(
+              r'track_scope\.yaml:\d+: error: cms_certified\.spirits: '
+              r'unknown task "Z9" \[scope\]',
+            ),
+          ),
+        );
+        expect(
+          '$out',
+          contains(
+            RegExp(
+              r'track_scope\.yaml:\d+: warning: WSET_L3: its 2022, '
+              r'Issue 2 document was last checked on 2020-01-01',
+            ),
+          ),
+        );
+      },
+    );
+
+    test('lint refuses a syllabus cited as a fact\'s source', () async {
+      final france = File(pathOf('areas/france.yaml'));
+      france.writeAsStringSync(
+        france.readAsStringSync().replaceFirst(
+          RegExp(r'url: "?https://www\.inao\.gouv\.fr[^\s",}]*"?'),
+          'url: "https://courtofmastersommeliers.org/wp-content/uploads/2026/'
+          '02/Syllabus-202627-1.pdf"',
+        ),
+      );
+      final out = StringBuffer();
+      expect(await lint(['--dataset', manifest], out), exitFailed);
+      expect(
+        '$out',
+        contains(
+          'cites the CMS_CERTIFIED scope document: a syllabus says '
+          'what to study, never that a fact is true [scope]',
+        ),
+      );
+    });
+
+    test('lint fails when the manifest is missing', () async {
+      File(pathOf('track_scope.yaml')).deleteSync();
+      final out = StringBuffer();
+      expect(await lint(['--dataset', manifest], out), exitFailed);
+      for (final track in ['CMS_CERTIFIED', 'WSET_L3']) {
+        expect(
+          '$out',
+          contains(
+            '${pathOf('track_scope.yaml')}: error: $track is selectable, but '
+            'has no scope: pin its official document and list its '
+            'objectives [scope]',
+          ),
+        );
+      }
+    });
+
+    test('the report refuses a scope that does not fit the release', () async {
+      final scope = File(pathOf('track_scope.yaml'));
+      scope.writeAsStringSync(
+        scope.readAsStringSync().replaceFirst(
+          'within: [n_geo_burgundy]',
+          'within: [n_geo_nowhere]',
+        ),
+      );
+      final (code, out) = await run([]);
+      expect(code, exitFailed);
+      expect(
+        out,
+        contains('error: the scope manifest does not fit the release:'),
+      );
+      expect(
+        out,
+        contains(
+          RegExp(
+            r'track_scope\.yaml:\d+: wset_l3\.[a-z_.]+: unknown node '
+            r'"n_geo_nowhere"',
+          ),
+        ),
+      );
+    });
+
+    test('the report needs a scope manifest', () async {
+      File(pathOf('track_scope.yaml')).deleteSync();
+      final (code, out) = await run([]);
+      expect(code, exitFailed);
+      expect(out, contains('error: cannot read ${pathOf('track_scope.yaml')}'));
+
+      final (other, otherOut) = await run(['--scope', pathOf('none.yaml')]);
+      expect(other, exitFailed);
+      expect(otherOut, contains('error: cannot read ${pathOf('none.yaml')}'));
+    });
   });
 
   group('the curriculum tools', () {

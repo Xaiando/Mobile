@@ -34,7 +34,11 @@ void main() {
   setUp(() {
     temp = Directory.systemTemp.createTempSync('curriculum');
     const prefix = 'assets/curriculum/';
-    for (final path in bundledDataset().files) {
+    // The scope manifest too: lint requires one for the selectable tracks.
+    for (final path in [
+      ...bundledDataset().files,
+      '${prefix}track_scope.yaml',
+    ]) {
       final copy = File(pathOf(path.substring(prefix.length)));
       copy.parent.createSync(recursive: true);
       copy.writeAsStringSync(File(path).readAsStringSync());
