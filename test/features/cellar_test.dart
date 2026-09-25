@@ -38,8 +38,26 @@ void main() {
     await tester.pumpAndSettle();
   }
 
+  /// Scrolls the journal editor's form until [finder] is built: down, or
+  /// up with a negative [delta].
+  Future<void> reveal(
+    WidgetTester tester,
+    Finder finder, {
+    double delta = 200,
+  }) => tester.scrollUntilVisible(
+    finder,
+    delta,
+    scrollable: find
+        .descendant(
+          of: find.byType(ListView),
+          matching: find.byType(Scrollable),
+        )
+        .first,
+  );
+
   Future<void> type(WidgetTester tester, String label, String text) async {
     final field = find.widgetWithText(TextField, label);
+    if (field.evaluate().isEmpty) await reveal(tester, field, delta: -200);
     await tester.ensureVisible(field);
     await tester.enterText(field, text);
     await tester.pumpAndSettle();
@@ -58,6 +76,7 @@ void main() {
 
     final barolo = find.widgetWithText(FilterChip, 'Barolo · appellation');
     final nebbiolo = find.widgetWithText(FilterChip, 'Nebbiolo · grape');
+    await reveal(tester, nebbiolo);
     expect(tester.widget<FilterChip>(barolo).selected, isTrue);
     expect(tester.widget<FilterChip>(nebbiolo).selected, isTrue);
     await tap(tester, nebbiolo);
@@ -72,6 +91,38 @@ void main() {
 
     await tap(tester, find.text('Cellar'));
     expect(find.widgetWithText(ListTile, 'Example Producer'), findsOneWidget);
+  });
+
+  testApp('drops a link whose name leaves the text, and saves an undated '
+      'entry', (tester) async {
+    await launch(tester);
+    await tap(tester, find.text('Log a wine'));
+    await type(tester, 'Appellation or region', 'Barolo');
+    await reveal(
+      tester,
+      find.widgetWithText(FilterChip, 'Barolo · appellation'),
+    );
+    await type(tester, 'Appellation or region', 'Chablis');
+    await reveal(
+      tester,
+      find.widgetWithText(FilterChip, 'Chablis · appellation'),
+    );
+    expect(
+      find.widgetWithText(FilterChip, 'Barolo · appellation'),
+      findsNothing,
+    );
+    await tap(tester, find.text('Clear'));
+    expect(find.text('No tasting date'), findsOneWidget);
+    await tap(tester, find.widgetWithText(TextButton, 'Save'));
+
+    final entry = (await tester.runAsync(
+      () => WineJournal(db).watchAll().first,
+    ))!.single;
+    expect(entry.tastedOn, isNull);
+    final links = await tester.runAsync(
+      () => WineJournal(db).linkedNodeIds(entry.id),
+    );
+    expect(links, {'n_geo_chablis'});
   });
 
   testApp('says why an entry cannot be saved', (tester) async {

@@ -50,6 +50,11 @@ class _JournalEditorState extends ConsumerState<JournalEditor> {
   /// Linked nodes that are no longer suggested by the text, kept on show.
   final _kept = <String, KnowledgeNode>{};
 
+  /// Nodes selected only because the text named them exactly. If the text
+  /// stops naming one, it is unselected again: a link the learner cannot
+  /// see is never saved.
+  final _auto = <String>{};
+
   bool _loaded = false;
   bool _saving = false;
   List<String> _problems = const [];
@@ -147,10 +152,20 @@ class _JournalEditorState extends ConsumerState<JournalEditor> {
     }
     setState(() => _saving = true);
     final journal = ref.read(wineJournalProvider);
+    // Only the links on show: those the text suggests, and those kept.
+    final shown = {
+      ...?ref
+          .read(_matcherProvider)
+          .value
+          ?.suggest(draft)
+          .map((suggestion) => suggestion.node.id),
+      ..._kept.keys,
+    };
+    final links = _linked.intersection(shown);
     try {
       final entry = _isNew
-          ? await journal.create(draft, nodeIds: _linked)
-          : await journal.update(widget.id!, draft, nodeIds: _linked);
+          ? await journal.create(draft, nodeIds: links)
+          : await journal.update(widget.id!, draft, nodeIds: links);
       if (mounted) context.go('/cellar/${entry.id}');
     } on JournalDraftException catch (error) {
       setState(() {
@@ -178,12 +193,19 @@ class _JournalEditorState extends ConsumerState<JournalEditor> {
     final theme = Theme.of(context);
     final matcher = ref.watch(_matcherProvider).value;
     final suggestions = matcher?.suggest(_draft()) ?? const [];
+    final suggested = {for (final s in suggestions) s.node.id};
+    // An exact name the text no longer holds loses its automatic link.
+    for (final id in _auto.difference(suggested).toList()) {
+      _auto.remove(id);
+      _decided.remove(id);
+      _linked.remove(id);
+    }
     for (final suggestion in suggestions) {
       if (suggestion.isLikely && _decided.add(suggestion.node.id)) {
         _linked.add(suggestion.node.id);
+        _auto.add(suggestion.node.id);
       }
     }
-    final suggested = {for (final s in suggestions) s.node.id};
     final kept = [
       for (final node in _kept.values)
         if (!suggested.contains(node.id)) node,
@@ -301,7 +323,20 @@ class _JournalEditorState extends ConsumerState<JournalEditor> {
         title: Text(
           _tastedOn == null ? 'No tasting date' : 'Tasted $_tastedOn',
         ),
-        trailing: TextButton(onPressed: _pickDate, child: const Text('Change')),
+        trailing: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            if (_tastedOn != null)
+              TextButton(
+                onPressed: () => setState(() => _tastedOn = null),
+                child: const Text('Clear'),
+              ),
+            TextButton(
+              onPressed: _pickDate,
+              child: Text(_tastedOn == null ? 'Set' : 'Change'),
+            ),
+          ],
+        ),
       ),
       Wrap(
         crossAxisAlignment: WrapCrossAlignment.center,
@@ -348,6 +383,7 @@ class _JournalEditorState extends ConsumerState<JournalEditor> {
               selected: _linked.contains(suggestion.node.id),
               onSelected: (on) => setState(() {
                 _decided.add(suggestion.node.id);
+                _auto.remove(suggestion.node.id);
                 on
                     ? _linked.add(suggestion.node.id)
                     : _linked.remove(suggestion.node.id);
