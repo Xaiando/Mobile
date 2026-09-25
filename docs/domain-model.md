@@ -1,10 +1,10 @@
-# Canonical Domain Model — Sommelier Study App (schema v2)
+# Canonical Domain Model — Sommelier Study App (schema v3)
 
 | | |
 |---|---|
-| **Date** | 2026-09-24; schema v2 on 2026-09-25 (backlog F2) |
+| **Date** | 2026-09-24; schema v2 on 2026-09-25 (backlog F2); schema v3 (R1) |
 | **Status** | **Canonical.** Where earlier documents name or shape an entity differently, this document wins. [architecture-audit.md](architecture-audit.md) has been aligned with it. |
-| **Executable form** | [`lib/core/database/schema.drift`](../lib/core/database/schema.drift): 37 tables, 69 indexes, 86 triggers. The app compiles it with Drift, and it is also valid plain SQLite (§9). |
+| **Executable form** | [`lib/core/database/schema.drift`](../lib/core/database/schema.drift): 39 tables, 72 indexes, 86 triggers. The app compiles it with Drift, and it is also valid plain SQLite (§9). |
 | **Scope** | Every entity V0.1 needs, including the 14 required ones: Certification, CurriculumDomain, KnowledgeNode, KnowledgeRelation, KnowledgeItem, CertificationKnowledgeMapping, SourceCitation, QuestionTemplate, Question, ReviewState, ReviewEvent, TastingSession, TastingDescriptor, WineJournalEntry |
 
 ## 1. How to read this document
@@ -31,7 +31,7 @@ Every table belongs to exactly one class.
 
 | | **Curriculum, authored** | **Curriculum, generated** | **User data** | **System** |
 |---|---|---|---|---|
-| **Entities** | Certification, CurriculumDomain, KnowledgeNode, KnowledgeRelation, KnowledgeItem, CertificationKnowledgeMapping, SourceCitation, QuestionTemplate, plus the 15 supporting entities in §4.2 | Question, QuestionDistractor, ExercisePool, ExercisePoolItem | ReviewState, ReviewEvent, TastingSession, TastingDescriptor, WineJournalEntry, UserProfile, SchedulerConfig, ReviewEventOption, WineJournalEntryNode | CurriculumIngestion |
+| **Entities** | Certification, CurriculumDomain, KnowledgeNode, KnowledgeRelation, KnowledgeItem, CertificationKnowledgeMapping, SourceCitation, QuestionTemplate, plus the 15 supporting entities in §4.2 | Question, QuestionDistractor, ExercisePool, ExercisePoolItem | ReviewState, ReviewEvent, TastingSession, TastingDescriptor, WineJournalEntry, UserProfile, SchedulerConfig, ReviewEventOption, WineJournalEntryNode, UserSetting, QuestionFlag | CurriculumIngestion |
 | **Origin** | Written by curators; shipped in the dataset | Derived from authored rows by the question generator | Created by the learner on the device | Written by the ingestion service |
 | **When written** | Only inside an ingestion transaction | Only inside an ingestion transaction | Any time | During ingestion only |
 | **At runtime** | **Read-only** | **Read-only** | Read-write | — |
@@ -682,6 +682,8 @@ A logged bottle (§D, §J).
 | SchedulerConfig (`scheduler_configs`) | user | Versioned FSRS parameters. Exactly 21 weights, checked by JSON CHECKs |
 | ReviewEventOption (`review_event_options`) | user, append-only | The options shown in a presentation, in display order |
 | WineJournalEntryNode (`wine_journal_entry_nodes`) | user | Links a journal entry to its matched nodes; deleted with the entry |
+| UserSetting (`user_settings`) | user | One setting per name: the appearance, the temperature unit, when the learner confirmed their age and finished onboarding (schema v3, DL-6) |
+| QuestionFlag (`question_flags`) | user | A question the learner flagged as wrong, unclear or outdated, with a note; kept on the device and exported, never sent (schema v3) |
 | CurriculumIngestion (`curriculum_ingestions`) | system | The curriculum write lock (§2, rule 1) |
 
 ---

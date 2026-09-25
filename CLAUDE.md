@@ -156,6 +156,7 @@ npm run check   # CI runs this; with every source cached it also rebuilds and co
 - Retrievability comes from the package (`retrievabilityOf`); never recompute it in SQL or by hand. It counts whole days, so R is 1 on the day of a review.
 - The wine journal (`lib/core/journal/`, backlog J1–J2) links entries to knowledge nodes, and the journal factor J lifts the items about them (A-5, A-11). The learner confirms every link; never link a node silently.
 - Scheduling tests disable fuzzing with `unfuzzedScheduler` and move time with `TestClock` (`test/support/study_fixture.dart`).
+- First launch shows onboarding until the learner confirms their age and picks a track (`LearnerSettings`, backlog R1). App tests start past it: `pumpApp(tester, db)` records it, and `pumpApp(tester, db, onboarded: false)` shows it. In a widget test, await a Drift stream only inside `tester.runAsync`, or it waits forever.
 - Screens follow the database through Drift stream queries. Write app widget tests with `testApp` (`test/support/app_fixture.dart`), which unmounts the app so Drift's stream-closing timers run before the test ends.
 
 ## Content and legal
