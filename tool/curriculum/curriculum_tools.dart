@@ -98,12 +98,13 @@ List<String> coveragePolicyProblems(
 String trackScopePath(String manifest) =>
     besideManifest(manifest, 'track_scope.yaml');
 
-/// The scope manifest at [path], or null if there is none.
-TrackScopeManifest? readTrackScope(String path) {
+/// The scope manifest at [path]. Without a file it is empty, so every
+/// selectable track lacks a scope, which [trackScopeProblems] reports.
+TrackScopeManifest readTrackScope(String path) {
   final file = File(path);
   return file.existsSync()
       ? TrackScopeManifest.parse(file.readAsStringSync(), path: path)
-      : null;
+      : TrackScopeManifest(const {}, path: path);
 }
 
 /// The task IDs of the backlog at [path], from its task index, or null if
@@ -162,7 +163,8 @@ Future<String?> ingestionProblem(CurriculumDataset dataset) async {
 /// `lint`: prints every problem of the dataset as `file:line: kind: message
 /// [rule]`: format errors, the validator's errors and warnings, ledger
 /// errors, a coverage policy that does not fit the release, and the scope
-/// manifest's problems and stale sources. A release without them must also
+/// manifest's problems (a selectable track without a scope, even when the
+/// manifest is missing) and stale sources. A release without them must also
 /// ingest, so that the schema's constraints hold. Fails if there is any
 /// error.
 Future<int> lint(
@@ -227,29 +229,28 @@ Future<int> lint(
   }
   final scopePath = trackScopePath(manifest);
   try {
-    if (readTrackScope(scopePath) case final scope?) {
-      final tasks = backlogTasks(backlog);
-      if (tasks == null) {
-        out.writeln(
-          '$scopePath: warning: no backlog at $backlog, so tasks are not '
-          'checked [scope]',
-        );
-        warnings++;
-      }
-      for (final (:at, :message) in trackScopeProblems(
-        scope,
-        dataset,
-        tasks: tasks,
-      )) {
-        out.writeln('$at: error: $message [scope]');
-        errors++;
-      }
-      for (final (:at, :message) in scope.staleSources(
-        today: localToday(clock),
-      )) {
-        out.writeln('$at: warning: $message [scope]');
-        warnings++;
-      }
+    final scope = readTrackScope(scopePath);
+    final tasks = backlogTasks(backlog);
+    if (tasks == null) {
+      out.writeln(
+        '$scopePath: warning: no backlog at $backlog, so tasks are not '
+        'checked [scope]',
+      );
+      warnings++;
+    }
+    for (final (:at, :message) in trackScopeProblems(
+      scope,
+      dataset,
+      tasks: tasks,
+    )) {
+      out.writeln('$at: error: $message [scope]');
+      errors++;
+    }
+    for (final (:at, :message) in scope.staleSources(
+      today: localToday(clock),
+    )) {
+      out.writeln('$at: warning: $message [scope]');
+      warnings++;
     }
   } on TrackScopeException catch (error) {
     for (final (:at, :message) in error.problems) {

@@ -67,6 +67,7 @@ void main() {
     );
     expect(out, contains('Known until Q1'));
     expect(out, contains('**passes**'));
+    expect(out, contains('(question-system §3, audit COV-2).'));
   });
 
   test('prints one track as JSON', () async {
@@ -233,6 +234,58 @@ void main() {
           'what to study, never that a fact is true [scope]',
         ),
       );
+    });
+
+    test('lint fails when the manifest is missing', () async {
+      File(pathOf('track_scope.yaml')).deleteSync();
+      final out = StringBuffer();
+      expect(await lint(['--dataset', manifest], out), exitFailed);
+      for (final track in ['CMS_CERTIFIED', 'WSET_L3']) {
+        expect(
+          '$out',
+          contains(
+            '${pathOf('track_scope.yaml')}: error: $track is selectable, but '
+            'has no scope: pin its official document and list its '
+            'objectives [scope]',
+          ),
+        );
+      }
+    });
+
+    test('the report refuses a scope that does not fit the release', () async {
+      final scope = File(pathOf('track_scope.yaml'));
+      scope.writeAsStringSync(
+        scope.readAsStringSync().replaceFirst(
+          'within: [n_geo_burgundy]',
+          'within: [n_geo_nowhere]',
+        ),
+      );
+      final (code, out) = await run([]);
+      expect(code, exitFailed);
+      expect(
+        out,
+        contains('error: the scope manifest does not fit the release:'),
+      );
+      expect(
+        out,
+        contains(
+          RegExp(
+            r'track_scope\.yaml:\d+: wset_l3\.[a-z_.]+: unknown node '
+            r'"n_geo_nowhere"',
+          ),
+        ),
+      );
+    });
+
+    test('the report needs a scope manifest', () async {
+      File(pathOf('track_scope.yaml')).deleteSync();
+      final (code, out) = await run([]);
+      expect(code, exitFailed);
+      expect(out, contains('error: cannot read ${pathOf('track_scope.yaml')}'));
+
+      final (other, otherOut) = await run(['--scope', pathOf('none.yaml')]);
+      expect(other, exitFailed);
+      expect(otherOut, contains('error: cannot read ${pathOf('none.yaml')}'));
     });
   });
 

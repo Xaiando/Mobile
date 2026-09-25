@@ -16,7 +16,7 @@ import 'package:sommelier/core/database/app_database.dart';
 import 'curriculum_tools.dart';
 
 // The question coverage report and its ratchet (backlog F1,
-// docs/design/question-system.md Â§8):
+// docs/design/question-system.md §8):
 //
 //   dart run tool/coverage_report.dart [--track <id>] [--format md|json]
 //       [--update-baseline] [--on <YYYY-MM-DD>] [--dataset <manifest>]
@@ -81,14 +81,17 @@ Future<int> coverageReport(List<String> args, StringSink out) async {
 
   final CurriculumDataset dataset;
   final CoveragePolicy policy;
-  final TrackScopeManifest? scope;
+  final TrackScopeManifest scope;
   try {
     dataset = readDataset(manifest);
     policy = CoveragePolicy.parse(
       File(policyPath).readAsStringSync(),
       path: policyPath,
     );
-    scope = readTrackScope(scopePath);
+    scope = TrackScopeManifest.parse(
+      File(scopePath).readAsStringSync(),
+      path: scopePath,
+    );
   } on DatasetFormatException catch (error) {
     out.writeln('error: ${error.message}');
     return exitFailed;
@@ -109,6 +112,16 @@ Future<int> coverageReport(List<String> args, StringSink out) async {
     );
     for (final issue in validation.errors) {
       out.writeln('  $issue');
+    }
+    return exitFailed;
+  }
+  // A scope that does not fit the release would be measured wrongly. Its
+  // backlog tasks do not change what is measured; lint checks them.
+  final scopeProblems = trackScopeProblems(scope, dataset);
+  if (scopeProblems.isNotEmpty) {
+    out.writeln('error: the scope manifest does not fit the release:');
+    for (final (:at, :message) in scopeProblems) {
+      out.writeln('  $at: $message');
     }
     return exitFailed;
   }
@@ -261,7 +274,7 @@ String coverageMarkdown(
       'An item is testable when its track serves it a question. It has '
       'useful practice with an objective format and two families; it is '
       'flashcard-only when the flashcard is all it is served '
-      '(question-system Â§3, audit COV-2).',
+      '(question-system §3, audit COV-2).',
     );
 
   String row(String domain, String area, Map<CoverageMetric, int> counts) =>
