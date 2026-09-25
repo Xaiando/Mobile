@@ -106,6 +106,7 @@ jobs:
         working-directory: tool/geography
         run: |
           npm ci
+          npm test
           npm run check
       - name: Install Playwright
         working-directory: tool/web_smoke

@@ -120,6 +120,7 @@ dart run tool/coverage_report.dart --update-baseline  # after a change that move
 cd tool/geography && npm ci
 npm run fetch   # once, online: downloads and verifies the sources into ~/.cache/sommelier-geography
 npm run build   # the layers, assets/geography/manifest.yaml and tool/geography/report.md
+npm test        # the pipeline's unit tests
 npm run check   # CI runs this; with every source cached it also rebuilds and compares
 ```
 

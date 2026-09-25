@@ -5,7 +5,6 @@
 //   npm run fetch              download what is missing, then verify all
 //   npm run fetch -- --record  record the SHA-256 of sources marked PENDING
 import { execFileSync } from 'node:child_process';
-import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import { Readable } from 'node:stream';
@@ -14,6 +13,7 @@ import sevenBin from '7zip-bin';
 import {
   cacheDir,
   downloadPath,
+  hashOf,
   isArchive,
   loadConfig,
   toolDir,
@@ -49,12 +49,6 @@ async function download(url, file) {
     }
   }
   throw new Error(`could not download ${url}`);
-}
-
-async function hashOf(file) {
-  const hash = crypto.createHash('sha256');
-  await pipeline(fs.createReadStream(file), hash);
-  return hash.digest('hex');
 }
 
 /** Unpacks [source]'s archive once per SHA-256. */

@@ -226,6 +226,7 @@ The Copernicus DEM is an alternative to SRTM, with a mandatory "all rights reser
   - It refuses any file whose SHA-256 differs from `sources.yaml`.
   - The pinned `7zip-bin` unpacks ADMIN EXPRESS, a 64 MB archive.
 - **`build`** runs mapshaper 0.7.67 through its JavaScript API. It reads the GeoPackage with Node's built-in `node:sqlite`, so it needs Node 22.13 or later.
+  - It refuses to run unless every cached source is the edition `sources.yaml` records. For an archive, that is the edition its files were unpacked from. Otherwise, layers built from an older edition would cite the new one.
   - A node's feature carries the node ID as its TopoJSON `id`. A context feature carries only its `name`.
   - Each asset holds one object, named after the asset.
   - Quantization can shrink a thin context feature to nothing, and such a feature is dropped. A node's feature is never dropped: the build fails instead.
@@ -234,11 +235,12 @@ The Copernicus DEM is an alternative to SRTM, with a mandatory "all rights reser
 - **Several sources per layer.** Each manifest layer lists its sources in `source_citation_ids`, because a French layer draws INAO's lists on IGN's shapes. §3 sketched a single `source_citation_id` (GEO-21).
 - **`check`** validates:
   - both YAML files;
-  - each source's URL, retrieval date, SHA-256, licence and attribution, which is the licence and attribution gate the research asks for;
+  - each source's URL, retrieval date, SHA-256, licence and attribution, which is the licence and attribution gate the research asks for. The licence must be one of those GEO-5 allows, spelled out in full, so that CC BY-NC or dl-de's non-commercial variant cannot pass;
   - each asset's hash, size and budget;
+  - each layer's manifest entry, including the attribution the app shows, against `layers.yaml` and `sources.yaml`;
   - the manifest rows against the curriculum.
 
-  When every source is cached, `check` also rebuilds the layers in a temporary directory and compares them with the committed files. CI runs it offline, in the web job.
+  When every source is cached, `check` also rebuilds the layers in a temporary directory and compares them with the committed files. It fails when a cached source is another edition. CI runs it offline, in the web job, after `npm test`, which runs the pipeline's own unit tests.
 - **The tool test** (`test/tool/geography_manifest_test.dart`) loads every asset with the G3 decoder. It checks that each node's label point lies inside the node's shape.
 - **The research's provisional budgets** are looser than GEO-11: at most 30 MB for the certification core, at most 2 MB per frequently loaded layer, and three levels of detail for dense layers. GEO-11 stays. At 1.4 MB, no layer needs its own levels of detail yet: G3 already simplifies each shared arc per zoom level. The atlas tasks revisit this when dense layers arrive.
 

@@ -11,9 +11,11 @@ import mapshaper from 'mapshaper';
 import YAML from 'yaml';
 import {
   budgets,
+  cacheState,
   downloadPath,
   forward,
   isArchive,
+  layerAttribution,
   loadConfig,
   readCurriculum,
   repoDir,
@@ -344,8 +346,16 @@ const kb = (bytes) => `${(bytes / 1024).toFixed(1)} KB`;
 export async function build(outDir) {
   const config = loadConfig();
   const curriculum = readCurriculum();
+  // Layers built from another edition would carry this one's citation.
   for (const source of config.sources.values()) {
     if (source.sha256 === 'PENDING') throw new Error(`${source.id}: record its SHA-256 first`);
+    const state = await cacheState(source);
+    if (state !== 'ok') {
+      throw new Error(
+        `${source.id}: ${state === 'missing' ? 'not in the cache' : 'the cache holds another edition than sources.yaml records'}; ` +
+          'run npm run fetch',
+      );
+    }
   }
 
   // The communes every French layer needs, read once.
@@ -379,9 +389,7 @@ export async function build(outDir) {
   const geometries = [];
   for (const { layer, asset, table } of built) {
     fs.writeFileSync(path.join(assets, layer.asset), asset);
-    const attribution = [
-      ...new Set(layer.sources.map((id) => config.sources.get(id).attribution)),
-    ].join(' ');
+    const attribution = layerAttribution(config, layer);
     layers.push({
       id: layer.id,
       display_name: layer.display_name,

@@ -9,7 +9,8 @@
   "scripts": {
     "fetch": "node fetch.mjs",
     "build": "node build.mjs",
-    "check": "node check.mjs"
+    "check": "node check.mjs",
+    "test": "node --test"
   },
   "devDependencies": {
     "7zip-bin": "5.2.0",

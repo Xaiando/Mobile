@@ -11,14 +11,13 @@ import YAML from 'yaml';
 import {
   assetsDir,
   budgets,
-  downloadPath,
-  isArchive,
+  cacheState,
+  layerAttribution,
   loadConfig,
   readCurriculum,
   repoDir,
   sha256,
   toolDir,
-  unpackedDir,
 } from './lib.mjs';
 
 const problems = [];
@@ -57,7 +56,10 @@ for (const layer of layers) {
   if (!spec) continue;
   const same = (field, value) => {
     if (JSON.stringify(layer[field]) !== JSON.stringify(value)) {
-      fail(`${layer.id}: manifest ${field} ${JSON.stringify(layer[field])} differs from layers.yaml ${JSON.stringify(value)}`);
+      fail(
+        `${layer.id}: manifest ${field} is ${JSON.stringify(layer[field])}, but layers.yaml ` +
+          `and sources.yaml give ${JSON.stringify(value)}; run npm run build`,
+      );
     }
   };
   same('display_name', spec.display_name);
@@ -67,6 +69,7 @@ for (const layer of layers) {
   same('max_zoom', spec.zoom[1]);
   same('parent_layer_id', spec.parent ?? null);
   same('source_citation_ids', spec.sources);
+  same('attribution', layerAttribution(config, spec));
 
   const file = path.join(repoDir, layer.asset_path);
   if (!fs.existsSync(file)) {
@@ -115,13 +118,13 @@ for (const g of geometries) {
 for (const missing of expectedNodes) fail(`node_geometries lacks ${missing}`);
 
 // With every source cached, the committed files are what the sources give.
-const cached = [...config.sources.values()].every((source) => {
-  const file = downloadPath(source);
-  if (!fs.existsSync(file)) return false;
-  if (!isArchive(source)) return true;
-  const stamp = path.join(unpackedDir(source), '.sha256');
-  return fs.existsSync(stamp) && fs.readFileSync(stamp, 'utf8') === source.sha256;
-});
+// A cached copy of another edition would give other files, so it fails.
+const states = new Map();
+for (const source of config.sources.values()) states.set(source.id, await cacheState(source));
+for (const [id, state] of states) {
+  if (state === 'stale') fail(`${id}: the cache holds another edition than sources.yaml records; run npm run fetch`);
+}
+const cached = [...states.values()].every((state) => state === 'ok');
 if (cached && problems.length === 0) {
   const { build } = await import('./build.mjs');
   const out = fs.mkdtempSync(path.join(os.tmpdir(), 'geography-'));

@@ -3,6 +3,7 @@ import crypto from 'node:crypto';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
+import { pipeline } from 'node:stream/promises';
 import { fileURLToPath } from 'node:url';
 import YAML from 'yaml';
 
@@ -26,6 +27,13 @@ export const forward = (file) => file.replaceAll('\\', '/');
 export const sha256 = (data) =>
   crypto.createHash('sha256').update(data).digest('hex');
 
+/** The SHA-256 of [file], read as a stream. */
+export async function hashOf(file) {
+  const hash = crypto.createHash('sha256');
+  await pipeline(fs.createReadStream(file), hash);
+  return hash.digest('hex');
+}
+
 export const readYaml = (file) => YAML.parse(fs.readFileSync(file, 'utf8'));
 
 /** The cached download of [source]. */
@@ -36,13 +44,41 @@ export const unpackedDir = (source) => path.join(cacheDir, source.id);
 
 export const isArchive = (source) => /\.(zip|7z)$/.test(source.file);
 
+/**
+ * Whether [source]'s cached copy is the edition sources.yaml records:
+ * `ok`, `missing` (not fetched, or an archive not unpacked yet) or `stale`
+ * (another edition). The build reads an archive's unpacked files, so an
+ * archive is judged by the SHA-256 they were unpacked from.
+ */
+export async function cacheState(source) {
+  if (isArchive(source)) {
+    const stamp = path.join(unpackedDir(source), '.sha256');
+    if (!fs.existsSync(stamp)) return 'missing';
+    return fs.readFileSync(stamp, 'utf8') === source.sha256 ? 'ok' : 'stale';
+  }
+  const file = downloadPath(source);
+  if (!fs.existsSync(file)) return 'missing';
+  return (await hashOf(file)) === source.sha256 ? 'ok' : 'stale';
+}
+
+/**
+ * The licences GEO-5 allows, each spelled out: a pattern like `^CC BY`
+ * would also admit CC BY-NC, and dl-de has a non-commercial variant too.
+ */
 const licences = [
   /^Public domain$/,
-  /^CC0/,
-  /^CC BY/,
-  /^Licence Ouverte/,
-  /^Datenlizenz Deutschland – Namensnennung/,
+  /^CC0 1\.0( Universal)?$/,
+  /^CC BY [1-4]\.0( International)?$/,
+  /^Licence Ouverte( \/ Open Licence)? [12]\.0( \(Etalab\))?$/,
+  /^Datenlizenz Deutschland – (Namensnennung|Zero) – Version 2\.0$/,
 ];
+
+/** Whether [licence] allows bundling derived data in a proprietary app. */
+export const isOpenLicence = (licence) => licences.some((l) => l.test(licence));
+
+/** The attribution a layer shows: its sources' texts, each once, in order. */
+export const layerAttribution = (config, layer) =>
+  [...new Set(layer.sources.map((id) => config.sources.get(id).attribution))].join(' ');
 
 /**
  * sources.yaml and layers.yaml, checked. Throws an Error listing every
@@ -72,7 +108,7 @@ export function loadConfig() {
     if (typeof s?.sha256 === 'string' && !/^([0-9a-f]{64}|PENDING)$/.test(s.sha256)) {
       problems.push(`${where}: sha256 is neither a SHA-256 nor PENDING`);
     }
-    if (typeof s?.license === 'string' && !licences.some((l) => l.test(s.license))) {
+    if (typeof s?.license === 'string' && !isOpenLicence(s.license)) {
       problems.push(`${where}: "${s.license}" is not an open licence GEO-5 allows`);
     }
   }
