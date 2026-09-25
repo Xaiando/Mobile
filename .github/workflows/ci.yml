@@ -65,6 +65,51 @@ jobs:
       - run: flutter build apk --release
       - name: Native libraries are 16 KB aligned
         run: tool/check_16kb_alignment.sh build/app/outputs/flutter-apk/app-release.apk
+      - name: Keep the APK to install
+        uses: actions/upload-artifact@v5
+        with:
+          name: sommelier-android-apk
+          path: build/app/outputs/flutter-apk/app-release.apk
+
+  windows:
+    name: Windows build and installer
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Read the pinned Flutter version
+        id: flutter
+        shell: bash
+        run: echo "version=$(jq -r .flutter .fvmrc)" >> "$GITHUB_OUTPUT"
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ steps.flutter.outputs.version }}
+          channel: stable
+          cache: true
+      - name: The app starts, installs the curriculum and studies a card
+        run: flutter test integration_test -d windows --dart-define=SOMMELIER_DATABASE=integration
+      - run: flutter build windows --release
+      - name: Bundle the Visual C++ runtime next to the app
+        shell: pwsh
+        run: |
+          foreach ($dll in 'msvcp140.dll', 'vcruntime140.dll', 'vcruntime140_1.dll') {
+            Copy-Item "$env:SystemRoot/System32/$dll" build/windows/x64/runner/Release/
+          }
+      - name: Build the installer
+        shell: pwsh
+        run: |
+          $version = (Select-String -Path pubspec.yaml -Pattern '^version: (\d+\.\d+\.\d+)').Matches[0].Groups[1].Value
+          choco install innosetup --no-progress -y
+          & "${env:ProgramFiles(x86)}\Inno Setup 6\ISCC.exe" "/DAppVersion=$version" windows\installer\sommelier.iss
+      - name: Keep the installer
+        uses: actions/upload-artifact@v5
+        with:
+          name: sommelier-windows-installer
+          path: build/installer/*.exe
+      - name: Keep the portable app
+        uses: actions/upload-artifact@v5
+        with:
+          name: sommelier-windows-portable
+          path: build/windows/x64/runner/Release/
 
   ios:
     name: iOS build
