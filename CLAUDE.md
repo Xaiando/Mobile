@@ -106,6 +106,11 @@ dart run tool/coverage_report.dart --update-baseline  # after a change that move
   - an item that is untestable or flashcard-only, unless `known_gaps` lists it with a reason and the task that closes it (COV-6).
 - **After a content change**, read the report, run `--update-baseline`, and commit the baseline with the change.
 - **A new format** adds itself to `builtFormats` (`lib/core/coverage/coverage_formats.dart`) and to every relation type in the policy.
+- **Scope objectives** (`assets/curriculum/track_scope.yaml`, SCOPE-1) pin each track to one body's official document. CMS_CERTIFIED means CMS Europe (CM-10).
+  - Objectives are labels in our own words, never syllabus text (L-27).
+  - A task that adds a region's node, or the content of a planned objective, adds that objective's `covers`. Only authored items make an objective represented (COV-7).
+  - Never cite a syllabus as a fact's source; `lint` rejects it.
+  - Re-check the pinned documents yearly; `lint` warns when they are stale.
 
 ## Study engine
 

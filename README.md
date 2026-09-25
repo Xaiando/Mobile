@@ -52,7 +52,7 @@ Android and iOS are the primary targets. The web gets basic support. Nothing in 
 | `lib/core/questions/` | Question generation (templates, eligibility, distractors) and seeded presentation |
 | `lib/core/study/` | FSRS reviews, the learner's track, the priority score and session planning |
 | `lib/core/coverage/` | The question coverage checker: which items each track can practise, and how; the policy and the baseline ratchet |
-| `assets/curriculum/` | The curriculum release: a manifest that includes one YAML file per area and per question format; beside it, the expert-review ledger and the coverage policy and baseline |
+| `assets/curriculum/` | The curriculum release: a manifest that includes one YAML file per area and per question format; beside it, the expert-review ledger, the coverage policy and baseline, and the certification scope manifest |
 | `lib/core/time/` | The UTC millisecond clock used for every stored timestamp |
 | `lib/features/` | Home (dashboard and track picker), Study (curriculum browser), Practice (sessions), Tasting and Cellar |
 | `test/` | Schema, CRUD, write-lock, curriculum, question, study engine, clock and widget tests |

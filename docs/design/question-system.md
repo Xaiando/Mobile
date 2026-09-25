@@ -240,6 +240,25 @@ The spatial coverage of items with geometry waits for G2.
 
 **Thresholds.** They are parsed and measured on every track and domain, and shown in the report. R3 makes them a gate.
 
+### Scope objectives (SCOPE-1)
+
+The coverage report also measures each track against its official scope, as the research audit asks. `assets/curriculum/track_scope.yaml` pins each track to one body's document and version (CM-10). It lists the scope's objectives as editorial IDs with labels in our own words (L-27): 42 for WSET Level 3 and 31 for CMS Europe Certified.
+
+An objective is accounted for by `covers`, which selects items by domain, place, relation type or node type; by `tasks`, which plan it; or by `excluded`, with a reason (COV-7). The report gives each objective its matched items, core items and items with useful practice, and a status:
+- *represented*: the objective has items;
+- *planned*: it has none yet, but its tasks will author it;
+- *excluded*;
+- *missing*: required, but nothing accounts for it.
+
+Release 0.1.1 represents 11 of WSET Level 3's objectives and 7 of CMS Europe Certified's. The rest are planned by C2–C7, C5, Q-tasks and T-tasks. For CMS, the physical service technique is excluded, because the app cannot judge it.
+
+`lint` checks the manifest:
+- against the release (every selectable track has a scope; every place and type named exists);
+- against the backlog (every task exists);
+- against the curriculum's citations: a scope document is never a fact's source.
+
+It also warns when a document was compared more than a year ago. The task that adds a region's node also adds that region's `covers`, so its objectives become represented as the content lands.
+
 ---
 
 ## 9. Generation and runtime architecture
