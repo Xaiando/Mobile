@@ -182,6 +182,64 @@ For each track (certification or pack) and each curriculum domain:
 
 A learner-facing *curriculum coverage* metric (spec §N, "how much of the track have I studied") is a separate Phase 6 analytics view (task S2). It reuses the checker's grouping.
 
+### As built (F1)
+
+**Code layout.**
+
+- `lib/core/coverage/`:
+  - `coverage_formats.dart`: the catalogue of built formats, with family and objectivity. F3 moves it into the format registry.
+  - `coverage_policy.dart`: the policy.
+  - `coverage_checker.dart`: the checker.
+  - `coverage_model.dart`: the metrics and gaps.
+  - `coverage_baseline.dart`: the ratchet.
+- `tool/coverage_report.dart` prints the report.
+- `assets/curriculum/coverage_policy.yaml` and `coverage_baseline.json` sit beside the manifest and are not bundled.
+
+**Served formats.** The checker reads an ingested database and serves formats exactly as the study planner does:
+
+- effective mappings (CM-3);
+- `StudyPlanner.servedFormats`, which applies the depths of CM-6 and the fallback of A-10.
+
+Only items in force that the track maps are counted (CM-4). A reverse question counts in its format's family.
+
+**Capabilities are declared per format, not per family.** For each relation type, every built format is either under `supports` or under `excludes` with a reason. A format task therefore adds one line per relation type, as stage 2 above says. An expected format that produced no question is listed with the generator's reason: `mcq_disabled`, too few distractors, not reverse-safe, or no template.
+
+**Areas.**
+
+- The policy's `regional_countries` (France and Italy) are split by region. Every other country is one area.
+- A place that should lie inside another but reaches no country is *unplaced*.
+- An item whose subject is not a place is counted under the subject's node type, until the principle kinds of §7 exist.
+
+**Metrics.** They are counts of items, taken for the whole track, each domain and each area:
+
+- `items`, `core`, `testable`;
+- `flashcard_only`, `useful_practice`;
+- one metric per family;
+- `core_flashcard_only`, `core_useful_practice`, `core_reasoning`.
+
+The spatial coverage of items with geometry waits for G2.
+
+**Gaps.**
+
+- *Blocking gaps*, which fail the build unless the baseline lists them:
+  - an untestable item;
+  - a flashcard-only item, at any importance (COV-6).
+- *Reported gaps*:
+  - a core item without useful practice;
+  - an expected format that produced no question.
+
+**Ratchet.** The ratchet (COV-3) compares every metric where more is better, at every level. A fall fails the build; a rise passes and suggests raising the baseline. `--update-baseline` rewrites the metrics and keeps the known gaps that are still open.
+
+**Measurement date.** Coverage is measured on the release's publication date, with the questions generated for that date (COV-5).
+
+**Where the policy is enforced.**
+
+- The checker refuses a policy that leaves out a relation type the release has, or names one it lacks.
+- `tool/curriculum/lint.dart` reports the same mismatch.
+- `tool/curriculum/report.dart` ends with each track's coverage summary.
+
+**Thresholds.** They are parsed and measured on every track and domain, and shown in the report. R3 makes them a gate.
+
 ---
 
 ## 9. Generation and runtime architecture

@@ -2,6 +2,10 @@ import 'dart:io';
 
 import 'package:clock/clock.dart';
 import 'package:drift/native.dart';
+import 'package:sommelier/core/coverage/coverage_baseline.dart';
+import 'package:sommelier/core/coverage/coverage_checker.dart';
+import 'package:sommelier/core/coverage/coverage_model.dart';
+import 'package:sommelier/core/coverage/coverage_policy.dart';
 import 'package:sommelier/core/curriculum/curriculum_dataset.dart';
 import 'package:sommelier/core/curriculum/curriculum_ingestion.dart';
 import 'package:sommelier/core/curriculum/curriculum_validator.dart';
@@ -18,6 +22,8 @@ import 'review_ledger.dart';
 //   dart run tool/curriculum/lint.dart     every problem, with file and line
 //   dart run tool/curriculum/report.dart   what ingestion generates
 //   dart run tool/curriculum/verify.dart   record an expert's review
+//
+// tool/coverage_report.dart reports question coverage (backlog F1).
 
 /// Exit codes: success, problems found, and a usage error.
 const exitOk = 0, exitFailed = 1, exitUsage = 64;
@@ -28,12 +34,64 @@ CurriculumDataset readDataset(String manifest) => CurriculumDataset.loadSync(
   (path) => File(path).readAsStringSync(),
 );
 
-/// The review ledger's folder: `reviews/` next to [manifest].
-String ledgerFolder(String manifest) {
+/// The path of [name] in [manifest]'s folder.
+String besideManifest(String manifest, String name) {
   final path = manifest.replaceAll(r'\', '/');
   final slash = path.lastIndexOf('/');
-  return slash < 0 ? 'reviews' : '${path.substring(0, slash)}/reviews';
+  return slash < 0 ? name : '${path.substring(0, slash)}/$name';
 }
+
+/// The date a release is measured on unless told otherwise: the UTC date
+/// it was published. What `report` and `coverage_report` measure then
+/// depends on the release alone, not on the day they run (audit COV-5).
+String releaseDate(CurriculumDataset dataset) =>
+    isoDate(dataset.publishedAt.toUtc());
+
+/// Whether [text] is a date, `YYYY-MM-DD`, that the calendar has.
+bool isCalendarDate(String text) {
+  final parsed = RegExp(r'^\d{4}-\d{2}-\d{2}$').hasMatch(text)
+      ? DateTime.tryParse('${text}T12:00:00Z')
+      : null;
+  return parsed != null && isoDate(parsed) == text;
+}
+
+/// A clock stopped at local noon on [date], `YYYY-MM-DD`, so that
+/// ingestion generates the questions for that date in any time zone.
+Clock clockOn(String date) {
+  final day = DateTime.parse(date);
+  return Clock.fixed(DateTime(day.year, day.month, day.day, 12));
+}
+
+/// The review ledger's folder: `reviews/` next to [manifest].
+String ledgerFolder(String manifest) => besideManifest(manifest, 'reviews');
+
+/// The coverage policy next to [manifest].
+String coveragePolicyPath(String manifest) =>
+    besideManifest(manifest, 'coverage_policy.yaml');
+
+/// The coverage baseline next to [manifest].
+String coverageBaselinePath(String manifest) =>
+    besideManifest(manifest, 'coverage_baseline.json');
+
+/// The coverage policy at [path], or null if there is none.
+CoveragePolicy? readCoveragePolicy(String path) {
+  final file = File(path);
+  return file.existsSync()
+      ? CoveragePolicy.parse(file.readAsStringSync(), path: path)
+      : null;
+}
+
+/// Where the coverage [policy] does not fit [dataset]
+/// ([CoveragePolicy.problemsWith]).
+List<String> coveragePolicyProblems(
+  CoveragePolicy policy,
+  CurriculumDataset dataset,
+) => policy.problemsWith(
+  relationTypes: {for (final type in dataset.relationTypes) type.id},
+  domains: {for (final domain in dataset.curriculumDomains) domain.id},
+  tracks: {for (final track in dataset.certifications) track.id},
+  nodes: {for (final node in dataset.knowledgeNodes) node.id},
+);
 
 /// Why [dataset] cannot be ingested into a new database, or null if it can.
 ///
@@ -53,13 +111,14 @@ Future<String?> ingestionProblem(CurriculumDataset dataset) async {
 }
 
 /// `lint`: prints every problem of the dataset as `file:line: kind: message
-/// [rule]`: format errors, the validator's errors and warnings, and ledger
-/// errors. A release without them must also ingest, so that the schema's
-/// constraints hold. Fails if there is any error.
+/// [rule]`: format errors, the validator's errors and warnings, ledger
+/// errors, and a coverage policy that does not fit the release. A release
+/// without them must also ingest, so that the schema's constraints hold.
+/// Fails if there is any error.
 Future<int> lint(List<String> args, StringSink out) async {
   const usage = 'dart run tool/curriculum/lint.dart [--dataset <manifest>]';
-  final options = _Options.parse(args, named: {'dataset'});
-  if (options == null) return _usage(out, usage, args);
+  final options = ToolOptions.parse(args, named: {'dataset'});
+  if (options == null) return printUsage(out, usage, args);
   final manifest = options['dataset'] ?? curriculumAssetPath;
 
   final CurriculumDataset dataset;
@@ -93,6 +152,21 @@ Future<int> lint(List<String> args, StringSink out) async {
   } on LedgerFormatException catch (error) {
     out.writeln('error: ${error.message}');
     errors++;
+  }
+  // The design's dataset validation: every relation type is in the policy.
+  final policyPath = coveragePolicyPath(manifest);
+  try {
+    if (readCoveragePolicy(policyPath) case final policy?) {
+      for (final problem in coveragePolicyProblems(policy, dataset)) {
+        out.writeln('$policyPath: error: $problem [coverage-policy]');
+        errors++;
+      }
+    }
+  } on CoveragePolicyException catch (error) {
+    for (final problem in error.problems) {
+      out.writeln('error: $problem [coverage-policy]');
+      errors++;
+    }
   }
   if (errors == 0) {
     if (await ingestionProblem(dataset) case final problem?) {
@@ -142,17 +216,13 @@ Iterable<String> ledgerProblems(
 }
 
 /// `report`: ingests the dataset into an in-memory database and prints what
-/// the release holds, file by file, and what ingestion generated: the
-/// questions by format, the pairs skipped and why, and the items no
-/// multiple-choice question tests.
-Future<int> report(
-  List<String> args,
-  StringSink out, {
-  Clock clock = const Clock(),
-}) async {
+/// the release holds, file by file, and what ingestion generated for the
+/// release date: the questions by format, the pairs skipped and why, the
+/// items no multiple-choice question tests, and each track's coverage.
+Future<int> report(List<String> args, StringSink out) async {
   const usage = 'dart run tool/curriculum/report.dart [--dataset <manifest>]';
-  final options = _Options.parse(args, named: {'dataset'});
-  if (options == null) return _usage(out, usage, args);
+  final options = ToolOptions.parse(args, named: {'dataset'});
+  if (options == null) return printUsage(out, usage, args);
   final manifest = options['dataset'] ?? curriculumAssetPath;
 
   final CurriculumDataset dataset;
@@ -173,9 +243,13 @@ Future<int> report(
     return exitFailed;
   }
 
+  final on = releaseDate(dataset);
   out
     ..writeln('Curriculum release ${dataset.version}')
-    ..writeln('  published ${dataset.publishedAt.toIso8601String()}')
+    ..writeln(
+      '  published ${dataset.publishedAt.toIso8601String()}; questions and '
+      'coverage below are for $on (COV-5)',
+    )
     ..writeln('  ${dataset.checksum}')
     ..writeln()
     ..writeln('Files');
@@ -200,7 +274,10 @@ Future<int> report(
   try {
     final GenerationReport generated;
     try {
-      generated = await CurriculumIngester(db, clock: clock).ingest(dataset);
+      generated = await CurriculumIngester(
+        db,
+        clock: clockOn(on),
+      ).ingest(dataset);
     } on Exception catch (error) {
       out.writeln('error: the release does not ingest: $error');
       return exitFailed;
@@ -237,6 +314,13 @@ Future<int> report(
         '${row.read<bool>('mcq_disabled') ? ' (mcq_disabled)' : ''}',
       );
     }
+    await _coverageSummary(
+      out,
+      db,
+      manifest,
+      on: on,
+      skipped: generated.skipped,
+    );
   } finally {
     await db.close();
   }
@@ -248,6 +332,64 @@ Future<int> report(
     out.writeln('  $warning');
   }
   return exitOk;
+}
+
+/// The coverage section of `report`: each selectable track's main metrics
+/// and blocking gaps, from the ingested [db], when the release has a
+/// coverage policy.
+Future<void> _coverageSummary(
+  StringSink out,
+  AppDatabase db,
+  String manifest, {
+  required String on,
+  required List<SkippedQuestion> skipped,
+}) async {
+  final policyPath = coveragePolicyPath(manifest);
+  out.writeln();
+  try {
+    final policy = readCoveragePolicy(policyPath);
+    if (policy == null) {
+      out.writeln('Coverage: no policy at $policyPath');
+      return;
+    }
+    final baselinePath = coverageBaselinePath(manifest);
+    final baselineFile = File(baselinePath);
+    final baseline = baselineFile.existsSync()
+        ? CoverageBaseline.parse(
+            baselineFile.readAsStringSync(),
+            path: baselinePath,
+          )
+        : null;
+    out.writeln(
+      'Coverage on $on (dart run tool/coverage_report.dart for the matrix)',
+    );
+    final checker = CoverageChecker(db, policy);
+    for (final track in await checker.selectableTracks()) {
+      final coverage = await checker.check(track.id, on: on, skipped: skipped);
+      int count(CoverageMetric metric) => coverage.counts[metric];
+      final blocking = coverage.blockingGaps.toList();
+      final known = blocking
+          .where(
+            (gap) => baseline?.knownGaps.any((k) => k.matches(gap)) ?? false,
+          )
+          .length;
+      out.writeln(
+        '  ${track.id}: ${count(CoverageMetric.items)} items '
+        '(${count(CoverageMetric.core)} core), '
+        '${count(CoverageMetric.testable)} testable, '
+        '${count(CoverageMetric.flashcardOnly)} flashcard-only, '
+        '${count(CoverageMetric.usefulPractice)} with useful practice; '
+        '${blocking.length} blocking gaps, $known known',
+      );
+    }
+  } on CoveragePolicyException catch (error) {
+    out.writeln('Coverage: the policy does not fit the release:');
+    for (final problem in error.problems) {
+      out.writeln('  $problem');
+    }
+  } on CoverageBaselineException catch (error) {
+    out.writeln('Coverage: ${error.message}');
+  }
 }
 
 /// `verify`: records an expert's review of an item. It appends the review
@@ -266,7 +408,7 @@ Future<int> verify(
       '--outcome verified|disputed [--notes <text>] [--at <UTC instant>] '
       '[--dataset <manifest>]\n'
       '  A disputed review needs --notes saying what is wrong.';
-  final options = _Options.parse(
+  final options = ToolOptions.parse(
     args,
     named: {'dataset', 'reviewer', 'outcome', 'notes', 'at'},
     positional: 1,
@@ -278,7 +420,7 @@ Future<int> verify(
       outcome == null ||
       reviewer.isEmpty ||
       (outcome == ReviewOutcome.disputed && (notes == null || notes.isEmpty))) {
-    return _usage(out, usage, args);
+    return printUsage(out, usage, args);
   }
   final manifest = options['dataset'] ?? curriculumAssetPath;
   final itemId = options.positional.single;
@@ -492,7 +634,7 @@ String appendReview(
 
 /// Prints [usage]: success when it was asked for with `--help`, a usage
 /// error otherwise.
-int _usage(StringSink out, String usage, List<String> args) {
+int printUsage(StringSink out, String usage, List<String> args) {
   out.writeln('usage: $usage');
   return args.contains('--help') || args.contains('-h') ? exitOk : exitUsage;
 }
@@ -519,19 +661,22 @@ const _labels = {
   'tasting_grid_values': ('grid value', 'grid values'),
 };
 
-/// Command-line options: `--name value` or `--name=value`, and positional
-/// arguments.
-final class _Options {
-  _Options(this.named, this.positional);
+/// Command-line options: `--name value` or `--name=value`, `--flag`, and
+/// positional arguments.
+final class ToolOptions {
+  ToolOptions(this.named, this.flags, this.positional);
 
   /// The options in [args], or null when they do not fit: an unknown name, a
   /// missing value, the wrong number of positional arguments, or `--help`.
-  static _Options? parse(
+  /// [flags] take no value.
+  static ToolOptions? parse(
     List<String> args, {
     required Set<String> named,
+    Set<String> flags = const {},
     int positional = 0,
   }) {
     final values = <String, String>{};
+    final set = <String>{};
     final rest = <String>[];
     for (var i = 0; i < args.length; i++) {
       final arg = args[i];
@@ -542,8 +687,11 @@ final class _Options {
       }
       final equals = arg.indexOf('=');
       final name = arg.substring(2, equals < 0 ? arg.length : equals);
-      if (!named.contains(name)) return null;
-      if (equals >= 0) {
+      if (flags.contains(name) && equals < 0) {
+        set.add(name);
+      } else if (!named.contains(name)) {
+        return null;
+      } else if (equals >= 0) {
         values[name] = arg.substring(equals + 1);
       } else if (i + 1 < args.length) {
         values[name] = args[++i];
@@ -552,11 +700,14 @@ final class _Options {
       }
     }
     if (rest.length != positional) return null;
-    return _Options(values, rest);
+    return ToolOptions(values, set, rest);
   }
 
   final Map<String, String> named;
+  final Set<String> flags;
   final List<String> positional;
 
   String? operator [](String name) => named[name];
+
+  bool has(String flag) => flags.contains(flag);
 }

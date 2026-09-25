@@ -89,6 +89,22 @@ Ingestion regenerates `questions` and `question_distractors` (`QuestionGenerator
 - The test suite fails if an item has neither an MCQ nor `mcq_disabled: true` (§S.3), so after adding items, run the tests and read the generation report (`tool/curriculum/report.dart`).
 - Present questions through `QuestionPresenter.present(seed:)`, and log the seed and the options shown with the review (QG-7).
 
+## Question coverage
+
+`tool/coverage_report.dart` measures, for each selectable track, which items can be practised and with which formats (backlog F1, question-system §8). `assets/curriculum/coverage_policy.yaml` holds the policy and `coverage_baseline.json` the ratchet. The app bundles neither.
+
+```sh
+dart run tool/coverage_report.dart                    # Markdown; --format json, --track WSET_L3
+dart run tool/coverage_report.dart --update-baseline  # after a change that moves coverage
+```
+
+- **A new relation type** needs a `capabilities` entry. It lists every built format under `supports`, or under `excludes` with a reason; otherwise `lint` and the checker fail.
+- **What fails the build:**
+  - a metric that falls below the baseline;
+  - an item that is untestable or flashcard-only, unless `known_gaps` lists it with a reason and the task that closes it (COV-6).
+- **After a content change**, read the report, run `--update-baseline`, and commit the baseline with the change.
+- **A new format** adds itself to `builtFormats` (`lib/core/coverage/coverage_formats.dart`) and to every relation type in the policy.
+
 ## Study engine
 
 `lib/core/study/` holds the FSRS reviews (`ReviewService`), the learner's track (`LearnerProfiles`) and session planning (`StudyPlanner`, `StudySession`). The decisions are FS-1 to FS-16, CM-3 to CM-6 and A-1 to A-10.

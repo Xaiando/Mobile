@@ -1,0 +1,56 @@
+# Question coverage policy (docs/design/question-system.md §8, audit COV-1
+# to COV-4). It is authored and versioned with the curriculum, and the app
+# does not bundle it. tool/coverage_report.dart and the coverage tests read
+# it; coverage_baseline.json holds the ratchet.
+
+# Items are counted by the country of their subject. In these countries,
+# each region is an area of its own.
+regional_countries: [n_geo_france, n_geo_italy]
+
+# For every relation type in the release: the built formats that should
+# test its items (supports), and why any other built format should not
+# (excludes). A relation type missing here fails the checker. A format
+# task adds its format to every relation type (COV-3, stage 2). An item
+# whose relation type supports a format it has no question of is listed as
+# a gap, with the reason.
+capabilities:
+  LOCATED_IN:
+    supports: [flashcard, mcq]
+  HAS_BERRY_COLOUR:
+    supports: [flashcard]
+    excludes:
+      mcq: The release has two berry colours, too few for three wrong options.
+  PERMITS_PRINCIPAL_GRAPE:
+    supports: [flashcard, mcq]
+  PERMITS_ACCESSORY_GRAPE:
+    supports: [flashcard, mcq]
+  HAS_SOIL:
+    supports: [flashcard, mcq]
+  HAS_CLIMATE:
+    supports: [flashcard, mcq]
+  SUSCEPTIBLE_TO:
+    supports: [flashcard, mcq]
+  MIN_AGEING:
+    supports: [flashcard, mcq]
+  MIN_WOOD_AGEING:
+    supports: [flashcard, mcq]
+  REQUIRES_METHOD:
+    supports: [flashcard, mcq]
+
+# Thresholds for each track and domain, as a count or a share of the
+# metric's base (the items, or the core items for a core_ metric). The
+# report shows them now; the release gate (R3) enforces them (COV-3,
+# stage 3). The numbers are provisional (COV-4).
+thresholds:
+  all:
+    core_flashcard_only: {max: 0}
+    core_useful_practice: {min: 90%}
+  domains:
+    viticulture:
+      core_reasoning: {min: 50%}
+    winemaking:
+      core_reasoning: {min: 50%}
+    service:
+      core_reasoning: {min: 50%}
+    tasting:
+      core_reasoning: {min: 50%}
