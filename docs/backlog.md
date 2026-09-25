@@ -59,7 +59,7 @@ TASK-008 (tasting grids) and TASK-009 (journal integration) remain; they are T1�
 | **F** | **Foundations** | | | |
 | SCOPE-1 | Certification scope manifests: WSET L3 + CMS Europe Certified | — | 1 | ☑ |
 | F1 | Question-coverage checker: report and ratchet | — | 1 | ☑ |
-| F2 | Schema v2: question system, geography, packs | C1 | 2 | ☐ |
+| F2 | Schema v2: question system, geography, packs | C1 | 2 | ☑ |
 | F3 | Format registry and exercise runtime | F2 | 3 | ☐ |
 | F4 | Presentation difficulty ladder | F3 | 4 | ☐ |
 | **C** | **Curriculum content and tooling** | | | |
