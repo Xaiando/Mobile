@@ -94,7 +94,7 @@ class SettingsScreen extends ConsumerWidget {
             leading: const Icon(Icons.info_outline),
             title: const Text('About, sources and licences'),
             trailing: const Icon(Icons.chevron_right),
-            onTap: () => context.go('/settings/about'),
+            onTap: () => context.push('/settings/about'),
           ),
         ],
       ),
