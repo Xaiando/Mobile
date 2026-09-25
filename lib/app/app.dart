@@ -18,7 +18,7 @@ class SommelierApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return MaterialApp.router(
-      title: 'Sommelier',
+      title: 'Sommelier Study Companion',
       theme: ThemeData(
         colorSchemeSeed: _seedColor,
         brightness: Brightness.light,
