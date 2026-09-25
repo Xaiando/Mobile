@@ -119,13 +119,14 @@ class JournalDraftException implements Exception {
 /// The wine journal (spec §J, backlog J1): the learner's own entries, and
 /// the knowledge nodes each one is linked to (J2).
 class WineJournal {
-  WineJournal(this.db, {Clock? clock, Random? random})
-    : _clock = clock ?? const Clock(),
-      _random = random;
+  WineJournal(this.db, {Clock? clock, this.random})
+    : _clock = clock ?? const Clock();
 
   final AppDatabase db;
   final Clock _clock;
-  final Random? _random;
+
+  /// Makes entry IDs reproducible in tests; secure by default.
+  final Random? random;
 
   /// Every entry, the most recently tasted first; entries without a date
   /// come after dated ones, newest first.
@@ -150,9 +151,9 @@ class WineJournal {
   Future<WineJournalEntry> create(
     JournalDraft draft, {
     Set<String> nodeIds = const {},
-  }) {
+  }) async {
     _check(draft);
-    final id = newUuid(_random);
+    final id = newUuid(random);
     final now = utcNow(_clock);
     return db.transaction(() async {
       await db
@@ -175,7 +176,7 @@ class WineJournal {
     String id,
     JournalDraft draft, {
     Set<String>? nodeIds,
-  }) {
+  }) async {
     _check(draft);
     return db.transaction(() async {
       final existing = await entry(id);
@@ -208,7 +209,13 @@ class WineJournal {
   });
 
   /// The knowledge nodes entry [id] is linked to, by name.
-  Stream<List<KnowledgeNode>> watchLinkedNodes(String id) {
+  Stream<List<KnowledgeNode>> watchLinkedNodes(String id) =>
+      _linkedNodes(id).watch();
+
+  /// The knowledge nodes entry [id] is linked to now, by name.
+  Future<List<KnowledgeNode>> linkedNodes(String id) => _linkedNodes(id).get();
+
+  Selectable<KnowledgeNode> _linkedNodes(String id) {
     final query =
         db.select(db.knowledgeNodes).join([
             innerJoin(
@@ -220,7 +227,7 @@ class WineJournal {
           ])
           ..where(db.wineJournalEntryNodes.wineJournalEntryId.equals(id))
           ..orderBy([OrderingTerm(expression: db.knowledgeNodes.name)]);
-    return query.map((row) => row.readTable(db.knowledgeNodes)).watch();
+    return query.map((row) => row.readTable(db.knowledgeNodes));
   }
 
   /// The IDs of the nodes entry [id] is linked to.

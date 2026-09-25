@@ -1,7 +1,5 @@
 import 'dart:math';
 
-import 'package:drift/drift.dart';
-
 import '../curriculum/name_normalizer.dart';
 import '../database/app_database.dart';
 import 'wine_journal.dart';
