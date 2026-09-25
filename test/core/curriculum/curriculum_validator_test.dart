@@ -218,6 +218,45 @@ void main() {
       expect(brokenRules(data), containsAll(['assertion-members']));
     });
 
+    test('rejects a complete set without a member on some date it '
+        'covers', () {
+      Map<String, dynamic> chardonnay(Map<String, dynamic> data) =>
+          rowOf(data, 'knowledge_relations', 'object_id', 'n_grape_chardonnay');
+
+      final lapsing = v2Dataset();
+      chardonnay(lapsing)['valid_until'] = '2000-01-01';
+      final lapsed = validateDataset(datasetOf(lapsing)).errors.single;
+      expect(lapsed.rule, 'assertion-members');
+      expect(lapsed.message, endsWith('is in force on 2000-01-01'));
+
+      final expired = v2Dataset();
+      chardonnay(expired)['valid_until'] = '1930-01-01';
+      expect(
+        validateDataset(datasetOf(expired)).errors.single.message,
+        endsWith('is in force on 1938-01-13'),
+        reason: 'the assertion starts after its only member ended',
+      );
+    });
+
+    test('firstGap finds the first date no period covers', () {
+      expect(firstGap('2000-01-01', null, [('1990-01-01', null)]), isNull);
+      expect(
+        firstGap('2000-01-01', '2010-01-01', [
+          ('1999-01-01', '2005-01-01'),
+          ('2005-01-01', '2010-01-01'),
+        ]),
+        isNull,
+      );
+      expect(
+        firstGap('2000-01-01', null, [
+          ('2000-01-01', '2005-01-01'),
+          ('2006-01-01', null),
+        ]),
+        '2005-01-01',
+      );
+      expect(firstGap('2000-01-01', null, const []), '2000-01-01');
+    });
+
     test('rejects a completeness assertion its relation type does not '
         'allow', () {
       final data = v2Dataset();

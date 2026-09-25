@@ -806,21 +806,28 @@ class _Validator {
         }
       }
       bool isMember(String? id) => nodes[id]?.nodeType == a.memberNodeType;
-      final hasMembers = d.knowledgeRelations.any(
-        (r) =>
-            r.relationType == a.relationType &&
-            ((forward || symmetric) &&
-                    r.subjectId == a.nodeId &&
-                    isMember(r.objectId) ||
-                (!forward || symmetric) &&
-                    r.objectId == a.nodeId &&
-                    isMember(r.subjectId)),
-      );
-      if (!hasMembers) {
+      final members = [
+        for (final r in d.knowledgeRelations)
+          if (r.relationType == a.relationType &&
+              ((forward || symmetric) &&
+                      r.subjectId == a.nodeId &&
+                      isMember(r.objectId) ||
+                  (!forward || symmetric) &&
+                      r.objectId == a.nodeId &&
+                      isMember(r.subjectId)))
+            (r.validFrom, r.validUntil),
+      ];
+      // A set asserted complete must have a member on every date the
+      // assertion covers, or a format would ask for an empty set.
+      final gap = firstGap(a.validFrom, a.validUntil, members);
+      if (gap != null) {
         error(
           'assertion-members',
-          '$where asserts a complete set, but the curriculum holds none of '
-              'its members',
+          members.isEmpty
+              ? '$where asserts a complete set, but the curriculum holds '
+                    'none of its members'
+              : '$where asserts a complete set, but none of its members is '
+                    'in force on $gap',
           row: row,
         );
       }
@@ -938,6 +945,27 @@ class _Validator {
       );
     }
   }
+}
+
+/// The first date of [from, until) on which none of [periods] is in force,
+/// or `null` when they cover it all. Every period is [from, until) of
+/// `YYYY-MM-DD` dates, and a null end is open.
+String? firstGap(
+  String from,
+  String? until,
+  Iterable<(String, String?)> periods,
+) {
+  bool reached(String date) => until != null && date.compareTo(until) >= 0;
+  var covered = from;
+  for (final (start, end)
+      in periods.toList()..sort((a, b) => a.$1.compareTo(b.$1))) {
+    if (end != null && end.compareTo(covered) <= 0) continue;
+    if (start.compareTo(covered) > 0) break;
+    if (end == null) return null;
+    covered = end;
+    if (reached(covered)) return null;
+  }
+  return reached(covered) ? null : covered;
 }
 
 /// A cycle in a directed graph given as adjacency lists, or `null`.

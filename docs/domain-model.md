@@ -745,7 +745,7 @@ Every table has a primary key: natural keys where they are stable (junction tabl
 - Relation subject and object types match a `RelationTypeSignature`.
 - Prerequisites, `LOCATED_IN`, certification chains and map layer parents are acyclic. Certification chains stay within one organization and never include a pack.
 - A symmetric relation is stored once, with subject ID < object ID, and its type's signatures go both ways.
-- A completeness assertion names a set its relation type's signatures allow, has members, and cites legislation or a register when the relation states wine law. A symmetric set is asserted forward.
+- A completeness assertion names a set its relation type's signatures allow, has a member in force on every date it covers, and cites legislation or a register when the relation states wine law. A symmetric set is asserted forward.
 - Every map layer cites at least one `dataset` source with a licence and an attribution text.
 - A template's mode is a format the app has built (QF-2).
 - `cardinality = one` relations have no overlapping validity for the same subject.
