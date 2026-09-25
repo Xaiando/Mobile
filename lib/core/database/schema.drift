@@ -1,5 +1,10 @@
 -- =============================================================================
--- Sommelier Study App: canonical domain model, schema v1
+-- Sommelier Study App: canonical domain model, schema v2
+--
+-- v2 (backlog F2, audit DL-3) adds composite exercises, completeness
+-- assertions, symmetric relations, study packs and map geometry. Columns
+-- that v2 adds to a v1 table come last, where the upgrade's ADD COLUMN
+-- puts them, so a new and an upgraded database have the same schema.
 --
 -- Human-readable model and diagrams: docs/domain-model.md
 -- Targets SQLite 3.53.4 (bundled on native and in sqlite3.wasm on Web).
@@ -67,17 +72,25 @@ CREATE TABLE tasting_grids (
   UNIQUE (framework, version)
 );
 
+-- A track a learner studies: an examining body's certification level, or a
+-- study pack (PK-2), which has neither an examining body nor a level and
+-- may include a base track.
 CREATE TABLE certifications (
   id                         TEXT    NOT NULL PRIMARY KEY
     CHECK (id NOT GLOB '*[^A-Z0-9_]*'),
-  organization               TEXT    NOT NULL CHECK (organization IN ('WSET', 'CMS')),
-  level                      INTEGER NOT NULL CHECK (level >= 1),
+  organization               TEXT    CHECK (organization IN ('WSET', 'CMS')),
+  level                      INTEGER CHECK (level >= 1),
   display_name               TEXT    NOT NULL,
   includes_certification_id  TEXT    REFERENCES certifications (id),
   default_tasting_grid_id    TEXT    REFERENCES tasting_grids (id),
   is_selectable              BOOLEAN NOT NULL DEFAULT 0 CHECK (is_selectable IN (0, 1)),
+  kind                       TEXT    NOT NULL DEFAULT 'certification'
+    CHECK (kind IN ('certification', 'pack')),
+  description                TEXT,
   UNIQUE (organization, level),
-  CHECK (includes_certification_id IS NOT id)
+  CHECK (includes_certification_id IS NOT id),
+  CHECK (kind = 'certification' AND organization IS NOT NULL AND level IS NOT NULL
+         OR kind = 'pack' AND organization IS NULL AND level IS NULL)
 );
 
 CREATE TABLE node_types (
@@ -94,7 +107,10 @@ CREATE TABLE relation_types (
   is_transitive                   BOOLEAN NOT NULL DEFAULT 0 CHECK (is_transitive IN (0, 1)),
   is_reverse_safe                 BOOLEAN NOT NULL DEFAULT 0 CHECK (is_reverse_safe IN (0, 1)),
   default_domain_id               TEXT    NOT NULL REFERENCES curriculum_domains (id),
-  distractor_match_relation_type  TEXT    REFERENCES relation_types (id)
+  distractor_match_relation_type  TEXT    REFERENCES relation_types (id),
+  -- Holds in both directions (BORDERS), so each pair is stored once, with
+  -- subject ID < object ID, and read both ways.
+  is_symmetric                    BOOLEAN NOT NULL DEFAULT 0 CHECK (is_symmetric IN (0, 1))
 );
 
 CREATE TABLE relation_type_signatures (
@@ -230,15 +246,22 @@ CREATE TABLE knowledge_item_citations (
 );
 CREATE INDEX knowledge_item_citations_by_source ON knowledge_item_citations (source_citation_id);
 
+-- mode is a format ID. The schema checks only its form; the format registry
+-- decides which formats exist, so a new format needs no migration (QF-2).
+-- variant tells apart templates of one format for one relation type, e.g.
+-- two orderings; parameters holds the format's settings as a JSON object.
 CREATE TABLE question_templates (
   id               TEXT NOT NULL PRIMARY KEY
     CHECK (id GLOB 'qt_?*' AND id NOT GLOB '*[^a-z0-9_]*'),
   relation_type    TEXT NOT NULL REFERENCES relation_types (id),
   direction        TEXT NOT NULL CHECK (direction IN ('forward', 'reverse')),
-  mode             TEXT NOT NULL CHECK (mode IN ('flashcard', 'mcq')),
+  mode             TEXT NOT NULL CHECK (mode GLOB '[a-z]*' AND mode NOT GLOB '*[^a-z0-9_]*'),
   locale           TEXT NOT NULL DEFAULT 'en',
   prompt_template  TEXT NOT NULL,
-  UNIQUE (relation_type, direction, mode, locale),
+  variant          TEXT NOT NULL DEFAULT '' CHECK (variant NOT GLOB '*[^a-z0-9_]*'),
+  parameters       TEXT CHECK (parameters IS NULL
+                     OR (json_valid(parameters) AND json_type(parameters) = 'object')),
+  UNIQUE (relation_type, direction, mode, variant, locale),
   UNIQUE (id, relation_type)
 );
 
@@ -265,6 +288,72 @@ CREATE TABLE tasting_grid_values (
   UNIQUE (tasting_grid_id, attribute_key, position),
   FOREIGN KEY (tasting_grid_id, attribute_key)
     REFERENCES tasting_grid_attributes (tasting_grid_id, attribute_key)
+);
+
+-- A completeness assertion (QF-8): while it is valid, the curriculum holds
+-- every member of one set, as the cited source lists them. The set is the
+-- member_node_type nodes that node_id relates to by relation_type: its
+-- objects (forward, e.g. the grapes Champagne permits) or its subjects
+-- (reverse, e.g. the crus located in Beaujolais). Formats that assert
+-- absence (multiple response, "tap all", odd one out) need one.
+CREATE TABLE relation_set_assertions (
+  node_id             TEXT NOT NULL REFERENCES knowledge_nodes (id),
+  relation_type       TEXT NOT NULL REFERENCES relation_types (id),
+  direction           TEXT NOT NULL CHECK (direction IN ('forward', 'reverse')),
+  member_node_type    TEXT NOT NULL REFERENCES node_types (id),
+  valid_from          TEXT NOT NULL CHECK (date(valid_from) IS valid_from),
+  valid_until         TEXT CHECK (valid_until IS NULL OR date(valid_until) IS valid_until),
+  source_citation_id  TEXT NOT NULL REFERENCES source_citations (id),
+  locator             TEXT,
+  PRIMARY KEY (node_id, relation_type, direction, member_node_type, valid_from),
+  CHECK (valid_until IS NULL OR valid_until > valid_from)
+);
+
+-- A layer of map geometry (geography §3). Its coordinates stay in its
+-- TopoJSON asset, whose SHA-256 ingestion verifies (GEO-7). The zoom range
+-- is [min_zoom, max_zoom), in Web Mercator zoom levels.
+CREATE TABLE map_layers (
+  id               TEXT NOT NULL PRIMARY KEY
+    CHECK (id GLOB 'ml_?*' AND id NOT GLOB '*[^a-z0-9_]*'),
+  display_name     TEXT NOT NULL,
+  geometry_kind    TEXT NOT NULL CHECK (geometry_kind IN ('area', 'line', 'point')),
+  asset_path       TEXT NOT NULL UNIQUE,
+  asset_sha256     TEXT NOT NULL
+    CHECK (length(asset_sha256) = 64 AND asset_sha256 NOT GLOB '*[^0-9a-f]*'),
+  min_zoom         REAL NOT NULL CHECK (min_zoom >= 0),
+  max_zoom         REAL NOT NULL,
+  parent_layer_id  TEXT REFERENCES map_layers (id),
+  CHECK (max_zoom > min_zoom),
+  CHECK (parent_layer_id IS NOT id)
+);
+
+-- The sources a layer is drawn from, in the order its attribution names them
+-- (GEO-14, GEO-21): a French layer draws INAO's lists on IGN's shapes.
+CREATE TABLE map_layer_citations (
+  map_layer_id        TEXT    NOT NULL REFERENCES map_layers (id),
+  source_citation_id  TEXT    NOT NULL REFERENCES source_citations (id),
+  position            INTEGER NOT NULL CHECK (position >= 1),
+  PRIMARY KEY (map_layer_id, source_citation_id),
+  UNIQUE (map_layer_id, position)
+);
+
+-- A node's feature in a layer, with what SQL needs (GEO-7): the feature's
+-- key in the asset, its bounding box, and a label point inside it, in
+-- degrees of longitude and latitude.
+CREATE TABLE node_geometries (
+  knowledge_node_id  TEXT NOT NULL REFERENCES knowledge_nodes (id),
+  map_layer_id       TEXT NOT NULL REFERENCES map_layers (id),
+  feature_key        TEXT NOT NULL,
+  min_lon            REAL NOT NULL CHECK (min_lon BETWEEN -180 AND 180),
+  min_lat            REAL NOT NULL CHECK (min_lat BETWEEN -90 AND 90),
+  max_lon            REAL NOT NULL CHECK (max_lon BETWEEN -180 AND 180),
+  max_lat            REAL NOT NULL CHECK (max_lat BETWEEN -90 AND 90),
+  label_lon          REAL NOT NULL,
+  label_lat          REAL NOT NULL,
+  PRIMARY KEY (knowledge_node_id, map_layer_id),
+  UNIQUE (map_layer_id, feature_key),
+  CHECK (min_lon <= max_lon AND min_lat <= max_lat),
+  CHECK (label_lon BETWEEN min_lon AND max_lon AND label_lat BETWEEN min_lat AND max_lat)
 );
 
 
@@ -298,6 +387,29 @@ CREATE TABLE question_distractors (
   FOREIGN KEY (knowledge_item_id, question_template_id)
     REFERENCES questions (knowledge_item_id, question_template_id) ON DELETE CASCADE
 );
+
+-- A pool for a composite format (question-system §9): the items one
+-- exercise may combine, e.g. the principal-grape items of one region's
+-- appellations for matching. An exercise draws its items from a pool,
+-- preferring due ones. scope_node_id is the place or set the pool spans.
+CREATE TABLE exercise_pools (
+  id                    INTEGER NOT NULL PRIMARY KEY,
+  question_template_id  TEXT    NOT NULL REFERENCES question_templates (id),
+  scope_node_id         TEXT    REFERENCES knowledge_nodes (id),
+  prompt_text           TEXT    NOT NULL
+);
+CREATE INDEX exercise_pools_by_template ON exercise_pools (question_template_id);
+
+-- A pool's items. rank is an item's place in an ordering pool's correct
+-- order, 1 first; other pools leave it NULL.
+CREATE TABLE exercise_pool_items (
+  exercise_pool_id   INTEGER NOT NULL REFERENCES exercise_pools (id) ON DELETE CASCADE,
+  knowledge_item_id  TEXT    NOT NULL REFERENCES knowledge_items (id),
+  rank               INTEGER CHECK (rank IS NULL OR rank >= 1),
+  PRIMARY KEY (exercise_pool_id, knowledge_item_id),
+  UNIQUE (exercise_pool_id, rank)
+);
+CREATE INDEX exercise_pool_items_by_item ON exercise_pool_items (knowledge_item_id);
 
 
 -- -----------------------------------------------------------------------------
@@ -371,16 +483,26 @@ CREATE TABLE review_events (
   difficulty_after          REAL     NOT NULL CHECK (difficulty_after BETWEEN 1 AND 10),
   due_after                 DATETIME NOT NULL
     CHECK (strftime('%Y-%m-%dT%H:%M:%fZ', due_after) IS due_after),
+  -- One exercise can grade several items, one event each; their events
+  -- share this UUID (QF-3). NULL for a single-item question.
+  exercise_id               TEXT
+    CHECK (exercise_id IS NULL OR (length(exercise_id) = 36 AND exercise_id NOT GLOB '*[^0-9a-f-]*')),
+  -- The learner's answer as the format records it, in JSON: the options
+  -- chosen, the order given, the number typed or the coordinate tapped.
+  answer_payload            TEXT CHECK (answer_payload IS NULL OR json_valid(answer_payload)),
   CHECK ((state_after = 2) = (step_after IS NULL)),
   CHECK (unixepoch(due_after, 'subsec') > unixepoch(reviewed_at, 'subsec'))
 );
 CREATE INDEX review_events_by_item ON review_events (knowledge_item_id, reviewed_at);
 CREATE INDEX review_events_by_time ON review_events (reviewed_at);
+CREATE INDEX review_events_by_exercise ON review_events (exercise_id)
+  WHERE exercise_id IS NOT NULL;
 
--- The options shown for an MCQ presentation, in display order.
+-- The options shown for a presentation, in display order: four for an MCQ,
+-- more for formats such as multiple response.
 CREATE TABLE review_event_options (
   review_event_id    TEXT    NOT NULL REFERENCES review_events (id),
-  position           INTEGER NOT NULL CHECK (position BETWEEN 1 AND 4),
+  position           INTEGER NOT NULL CHECK (position >= 1),
   knowledge_node_id  TEXT    NOT NULL REFERENCES knowledge_nodes (id),
   PRIMARY KEY (review_event_id, position),
   UNIQUE (review_event_id, knowledge_node_id)
@@ -659,5 +781,59 @@ CREATE TRIGGER question_distractors_read_only_update BEFORE UPDATE ON question_d
 WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)
 BEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;
 CREATE TRIGGER question_distractors_read_only_delete BEFORE DELETE ON question_distractors
+WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)
+BEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;
+CREATE TRIGGER relation_set_assertions_read_only_insert BEFORE INSERT ON relation_set_assertions
+WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)
+BEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;
+CREATE TRIGGER relation_set_assertions_read_only_update BEFORE UPDATE ON relation_set_assertions
+WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)
+BEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;
+CREATE TRIGGER relation_set_assertions_read_only_delete BEFORE DELETE ON relation_set_assertions
+WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)
+BEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;
+CREATE TRIGGER map_layers_read_only_insert BEFORE INSERT ON map_layers
+WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)
+BEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;
+CREATE TRIGGER map_layers_read_only_update BEFORE UPDATE ON map_layers
+WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)
+BEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;
+CREATE TRIGGER map_layers_read_only_delete BEFORE DELETE ON map_layers
+WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)
+BEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;
+CREATE TRIGGER map_layer_citations_read_only_insert BEFORE INSERT ON map_layer_citations
+WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)
+BEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;
+CREATE TRIGGER map_layer_citations_read_only_update BEFORE UPDATE ON map_layer_citations
+WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)
+BEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;
+CREATE TRIGGER map_layer_citations_read_only_delete BEFORE DELETE ON map_layer_citations
+WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)
+BEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;
+CREATE TRIGGER node_geometries_read_only_insert BEFORE INSERT ON node_geometries
+WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)
+BEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;
+CREATE TRIGGER node_geometries_read_only_update BEFORE UPDATE ON node_geometries
+WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)
+BEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;
+CREATE TRIGGER node_geometries_read_only_delete BEFORE DELETE ON node_geometries
+WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)
+BEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;
+CREATE TRIGGER exercise_pools_read_only_insert BEFORE INSERT ON exercise_pools
+WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)
+BEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;
+CREATE TRIGGER exercise_pools_read_only_update BEFORE UPDATE ON exercise_pools
+WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)
+BEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;
+CREATE TRIGGER exercise_pools_read_only_delete BEFORE DELETE ON exercise_pools
+WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)
+BEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;
+CREATE TRIGGER exercise_pool_items_read_only_insert BEFORE INSERT ON exercise_pool_items
+WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)
+BEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;
+CREATE TRIGGER exercise_pool_items_read_only_update BEFORE UPDATE ON exercise_pool_items
+WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)
+BEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;
+CREATE TRIGGER exercise_pool_items_read_only_delete BEFORE DELETE ON exercise_pool_items
 WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)
 BEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;

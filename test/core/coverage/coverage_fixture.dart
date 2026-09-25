@@ -245,6 +245,10 @@ Map<String, dynamic> coverageDataset() => {
   'tasting_grids': <dynamic>[],
   'tasting_grid_attributes': <dynamic>[],
   'tasting_grid_values': <dynamic>[],
+  'relation_set_assertions': <dynamic>[],
+  'map_layers': <dynamic>[],
+  'map_layer_citations': <dynamic>[],
+  'node_geometries': <dynamic>[],
 };
 
 /// Ingests [dataset] for [coverageDate] and measures [track] under [policy].

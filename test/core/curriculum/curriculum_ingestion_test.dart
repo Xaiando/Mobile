@@ -188,6 +188,61 @@ void main() {
     expect(prompts, isNot(contains('Stale?')));
   });
 
+  group('schema v2 sections (F2)', () {
+    test('are ingested', () async {
+      await ingestion.ensureCurrent(datasetOf(v2Dataset()));
+      expect(await count(db, 'relation_set_assertions'), 1);
+      expect(await count(db, 'map_layers'), 1);
+      expect(await count(db, 'map_layer_citations'), 1);
+      expect(await count(db, 'node_geometries'), 1);
+      final pack = await (db.select(
+        db.certifications,
+      )..where((c) => c.kind.equals('pack'))).getSingle();
+      expect(pack.id, 'BURGUNDY_PACK');
+      final template =
+          await (db.select(db.questionTemplates)
+                ..where((t) => t.id.equals('qt_principal_grape_fwd_flashcard')))
+              .getSingle();
+      expect(template.parameters, '{"hint":false}');
+    });
+
+    test('are refused when a release drops a map layer (V-7)', () async {
+      await ingestion.ensureCurrent(datasetOf(v2Dataset()));
+      final next = v2Dataset();
+      next['dataset_version'] = '1.1.0';
+      rowsOf(next, 'map_layers').clear();
+      rowsOf(next, 'map_layer_citations').clear();
+      rowsOf(next, 'node_geometries').clear();
+      await expectLater(
+        ingestion.ensureCurrent(datasetOf(next)),
+        throwsA(
+          isA<CurriculumIngestionException>().having(
+            (e) => e.message,
+            'message',
+            contains('removes 3 authored rows'),
+          ),
+        ),
+      );
+    });
+
+    test('rebuild the exercise pools on every ingestion', () async {
+      await ingestion.ensureCurrent(datasetOf(minimalDataset()));
+      await db.writeCurriculum(
+        () => runSql(db, [
+          "INSERT INTO exercise_pools VALUES (1, 'qt_principal_grape_fwd_mcq', "
+              "'n_geo_burgundy', 'A stale pool.')",
+          "INSERT INTO exercise_pool_items VALUES (1, 'ki_chablis_grape', "
+              'NULL)',
+        ]),
+      );
+      await ingestion.ensureCurrent(
+        datasetOf(minimalDataset(version: '1.0.1')),
+      );
+      expect(await count(db, 'exercise_pools'), 0);
+      expect(await count(db, 'exercise_pool_items'), 0);
+    });
+  });
+
   test('the same text installs identically into another database', () async {
     final other = AppDatabase(NativeDatabase.memory());
     addTearDown(other.close);

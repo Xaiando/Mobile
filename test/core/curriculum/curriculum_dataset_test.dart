@@ -45,6 +45,19 @@ void main() {
         dataset.quantityValues.map((q) => q.nodeType),
         everyElement('quantity'),
       );
+      // The defaults of schema v2's new columns.
+      expect(
+        dataset.certifications.map((c) => c.kind),
+        everyElement('certification'),
+      );
+      expect(
+        dataset.relationTypes.map((t) => t.isSymmetric),
+        everyElement(isFalse),
+      );
+      expect(
+        dataset.questionTemplates.map((t) => (t.variant, t.parameters)),
+        everyElement(('', null)),
+      );
     });
 
     test('keeps every item unverified until expert review (D3)', () {
@@ -170,6 +183,20 @@ void main() {
       );
     });
 
+    test('template parameters that are not a mapping', () {
+      final data = v2Dataset();
+      rowOf(
+        data,
+        'question_templates',
+        'id',
+        'qt_principal_grape_fwd_flashcard',
+      )['parameters'] = 'hint';
+      expect(
+        () => CurriculumDataset.parse(datasetText(data)),
+        formatError('parameters must be a mapping'),
+      );
+    });
+
     test('a value of the wrong type', () {
       final data = minimalDataset();
       rowOf(data, 'curriculum_domains', 'id', 'geography')['position'] =
@@ -179,6 +206,31 @@ void main() {
         formatError('wrong type'),
       );
     });
+  });
+
+  test('reads the v2 sections, and stores template parameters as JSON', () {
+    final data = v2Dataset();
+    rowOf(
+      data,
+      'question_templates',
+      'id',
+      'qt_principal_grape_fwd_flashcard',
+    )['parameters'] = {
+      'hint': false,
+      'order': ['north', 'south'],
+    };
+    final dataset = datasetOf(data);
+    final template = dataset.questionTemplates.firstWhere(
+      (t) => t.id == 'qt_principal_grape_fwd_flashcard',
+    );
+    expect(template.variant, 'short');
+    expect(template.parameters, '{"hint":false,"order":["north","south"]}');
+    final pack = dataset.certifications.firstWhere((c) => c.kind == 'pack');
+    expect((pack.organization, pack.level), (null, null));
+    expect(dataset.relationSetAssertions.single.memberNodeType, 'grape');
+    expect(dataset.mapLayers.single.minZoom, 7.0);
+    expect(dataset.mapLayerCitations.single.position, 1);
+    expect(dataset.nodeGeometries.single.labelLat, 47.8);
   });
 
   test('the checksum identifies the exact content', () {

@@ -29,8 +29,14 @@ const curriculumTables = [
   'question_templates',
   'tasting_grid_attributes',
   'tasting_grid_values',
+  'relation_set_assertions',
+  'map_layers',
+  'map_layer_citations',
+  'node_geometries',
   'questions',
   'question_distractors',
+  'exercise_pools',
+  'exercise_pool_items',
 ];
 
 /// Each curriculum table of [db] as sorted JSON rows.
