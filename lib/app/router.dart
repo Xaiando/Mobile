@@ -3,6 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../features/cellar/cellar_screen.dart';
+import '../features/cellar/journal_editor.dart';
+import '../features/cellar/journal_entry_screen.dart';
 import '../features/home/home_screen.dart';
 import '../features/practice/practice_screen.dart';
 import '../features/study/study_screen.dart';
@@ -65,6 +67,25 @@ const appDestinations = <AppDestination>[
   ),
 ];
 
+/// The pages inside a tab, which keep the tab's navigation bar.
+final _tabPages = <String, List<RouteBase>>{
+  '/cellar': [
+    GoRoute(path: 'new', builder: (context, state) => const JournalEditor()),
+    GoRoute(
+      path: ':id',
+      builder: (context, state) =>
+          JournalEntryScreen(id: state.pathParameters['id']!),
+      routes: [
+        GoRoute(
+          path: 'edit',
+          builder: (context, state) =>
+              JournalEditor(id: state.pathParameters['id']),
+        ),
+      ],
+    ),
+  ],
+};
+
 /// Each tab is a branch of an indexed-stack shell, so every module keeps its
 /// own navigation state while the user switches tabs.
 final routerProvider = Provider<GoRouter>((ref) {
@@ -81,6 +102,7 @@ final routerProvider = Provider<GoRouter>((ref) {
                 GoRoute(
                   path: destination.path,
                   builder: (context, state) => destination.screen,
+                  routes: _tabPages[destination.path] ?? const [],
                 ),
               ],
             ),
