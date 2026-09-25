@@ -6,6 +6,7 @@ import 'package:sommelier/core/coverage/coverage_baseline.dart';
 import 'package:sommelier/core/coverage/coverage_checker.dart';
 import 'package:sommelier/core/coverage/coverage_model.dart';
 import 'package:sommelier/core/coverage/coverage_policy.dart';
+import 'package:sommelier/core/coverage/track_scope.dart';
 import 'package:sommelier/core/curriculum/curriculum_ingestion.dart';
 import 'package:sommelier/core/time/utc_clock.dart';
 
@@ -14,6 +15,7 @@ import '../../support/fixture.dart';
 
 const policyPath = 'assets/curriculum/coverage_policy.yaml';
 const baselinePath = 'assets/curriculum/coverage_baseline.json';
+const scopePath = 'assets/curriculum/track_scope.yaml';
 
 void main() {
   late List<TrackCoverage> tracks;
@@ -53,6 +55,33 @@ void main() {
         reason: 'every item has a flashcard (§S.3), so each is testable',
       );
       expect(track.domains, isNotEmpty);
+    }
+  });
+
+  test('the scope manifest accounts for every objective of both tracks '
+      '(SCOPE-1)', () {
+    final scope = TrackScopeManifest.parse(
+      File(scopePath).readAsStringSync(),
+      path: scopePath,
+    );
+    for (final track in tracks) {
+      final trackScope = scope.tracks[track.trackId];
+      expect(trackScope, isNotNull, reason: '${track.trackId} has a scope');
+      final objectives = objectiveCoverage(trackScope!, track);
+      expect(
+        objectives.where((o) => o.status == ObjectiveStatus.represented),
+        isNotEmpty,
+        reason: 'the release represents some of ${track.trackId}',
+      );
+      expect(
+        [
+          for (final o in objectives)
+            if (o.objective.isRequired && o.status == ObjectiveStatus.missing)
+              o.objective.id,
+        ],
+        isEmpty,
+        reason: 'each required objective is covered, planned or excluded',
+      );
     }
   });
 

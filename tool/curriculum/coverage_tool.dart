@@ -7,6 +7,7 @@ import 'package:sommelier/core/coverage/coverage_checker.dart';
 import 'package:sommelier/core/coverage/coverage_formats.dart';
 import 'package:sommelier/core/coverage/coverage_model.dart';
 import 'package:sommelier/core/coverage/coverage_policy.dart';
+import 'package:sommelier/core/coverage/track_scope.dart';
 import 'package:sommelier/core/curriculum/curriculum_dataset.dart';
 import 'package:sommelier/core/curriculum/curriculum_ingestion.dart';
 import 'package:sommelier/core/curriculum/curriculum_validator.dart';
@@ -15,7 +16,7 @@ import 'package:sommelier/core/database/app_database.dart';
 import 'curriculum_tools.dart';
 
 // The question coverage report and its ratchet (backlog F1,
-// docs/design/question-system.md §8):
+// docs/design/question-system.md Â§8):
 //
 //   dart run tool/coverage_report.dart [--track <id>] [--format md|json]
 //       [--update-baseline] [--on <YYYY-MM-DD>] [--dataset <manifest>]
@@ -57,12 +58,12 @@ Future<int> coverageReport(List<String> args, StringSink out) async {
   const usage =
       'dart run tool/coverage_report.dart [--track <id>] [--format md|json] '
       '[--update-baseline] [--on <YYYY-MM-DD>] [--dataset <manifest>] '
-      '[--policy <file>] [--baseline <file>]\n'
+      '[--policy <file>] [--baseline <file>] [--scope <file>]\n'
       '  --update-baseline measures every selectable track, so it takes no '
       '--track.';
   final options = ToolOptions.parse(
     args,
-    named: {'track', 'format', 'on', 'dataset', 'policy', 'baseline'},
+    named: {'track', 'format', 'on', 'dataset', 'policy', 'baseline', 'scope'},
     flags: {'update-baseline'},
   );
   final format = options?['format'] ?? 'md';
@@ -76,19 +77,25 @@ Future<int> coverageReport(List<String> args, StringSink out) async {
   final manifest = options['dataset'] ?? curriculumAssetPath;
   final policyPath = options['policy'] ?? coveragePolicyPath(manifest);
   final baselinePath = options['baseline'] ?? coverageBaselinePath(manifest);
+  final scopePath = options['scope'] ?? trackScopePath(manifest);
 
   final CurriculumDataset dataset;
   final CoveragePolicy policy;
+  final TrackScopeManifest? scope;
   try {
     dataset = readDataset(manifest);
     policy = CoveragePolicy.parse(
       File(policyPath).readAsStringSync(),
       path: policyPath,
     );
+    scope = readTrackScope(scopePath);
   } on DatasetFormatException catch (error) {
     out.writeln('error: ${error.message}');
     return exitFailed;
   } on CoveragePolicyException catch (error) {
+    out.writeln('error: ${error.message}');
+    return exitFailed;
+  } on TrackScopeException catch (error) {
     out.writeln('error: ${error.message}');
     return exitFailed;
   } on FileSystemException catch (error) {
@@ -180,6 +187,7 @@ Future<int> coverageReport(List<String> args, StringSink out) async {
           baseline: baseline,
           ratchet: ratchet,
           baselinePath: baselinePath,
+          scope: scope,
         ),
       ),
     );
@@ -192,6 +200,7 @@ Future<int> coverageReport(List<String> args, StringSink out) async {
         baseline: baseline,
         ratchet: ratchet,
         baselinePath: baselinePath,
+        scope: scope,
       ),
     );
   }
@@ -220,8 +229,17 @@ const _columns = [
   CoverageMetric.reasoning,
 ];
 
+/// What an objective's status says in a report.
+String _status(ObjectiveCoverage coverage) => switch (coverage.status) {
+  ObjectiveStatus.represented => 'represented',
+  ObjectiveStatus.planned => 'planned: ${coverage.objective.tasks.join(', ')}',
+  ObjectiveStatus.excluded => 'excluded: ${coverage.objective.excluded}',
+  ObjectiveStatus.missing => '**missing**',
+};
+
 /// The report as Markdown: per track, the metrics by domain and area, the
-/// policy thresholds and the gaps; then the comparison with the baseline.
+/// policy thresholds, the gaps and the scope objectives; then the
+/// comparison with the baseline.
 String coverageMarkdown(
   CurriculumDataset dataset,
   String on,
@@ -229,6 +247,7 @@ String coverageMarkdown(
   required CoverageBaseline? baseline,
   required RatchetResult ratchet,
   required String baselinePath,
+  TrackScopeManifest? scope,
 }) {
   final out = StringBuffer()
     ..writeln('# Question coverage')
@@ -242,7 +261,7 @@ String coverageMarkdown(
       'An item is testable when its track serves it a question. It has '
       'useful practice with an objective format and two families; it is '
       'flashcard-only when the flashcard is all it is served '
-      '(question-system §3, audit COV-2).',
+      '(question-system Â§3, audit COV-2).',
     );
 
   String row(String domain, String area, Map<CoverageMetric, int> counts) =>
@@ -337,6 +356,41 @@ String coverageMarkdown(
           '- `${gap.itemId}` (${areaOf[gap.itemId]}): ${gap.format}: '
           '${gap.detail}',
     );
+
+    if (scope?.tracks[track.trackId] case final trackScope?) {
+      final objectives = objectiveCoverage(trackScope, track);
+      final required = objectives.where((o) => o.objective.isRequired);
+      int count(ObjectiveStatus status) =>
+          required.where((o) => o.status == status).length;
+      final source = trackScope.source;
+      out
+        ..writeln()
+        ..writeln(
+          '**Scope objectives** (SCOPE-1). ${trackScope.body}: '
+          '[${source.title}](${source.url}), ${source.version}; compared on '
+          '${source.checkedOn}. Only authored items represent an objective; '
+          'a task that plans one is not coverage.',
+        )
+        ..writeln()
+        ..writeln(
+          '${required.length} required objectives: '
+          '${count(ObjectiveStatus.represented)} represented, '
+          '${count(ObjectiveStatus.planned)} planned, '
+          '${count(ObjectiveStatus.excluded)} excluded, '
+          '${count(ObjectiveStatus.missing)} missing.',
+        )
+        ..writeln()
+        ..writeln('| Objective | Items | Core | Useful practice | Status |')
+        ..writeln('|---|--:|--:|--:|---|');
+      for (final coverage in objectives) {
+        final o = coverage.objective;
+        out.writeln(
+          '| `${o.id}` ${o.label}${o.isRequired ? '' : ' (supporting)'} '
+          '| ${coverage.items} | ${coverage.core} '
+          '| ${coverage.usefulPractice} | ${_status(coverage)} |',
+        );
+      }
+    }
   }
 
   out
@@ -363,7 +417,8 @@ String coverageMarkdown(
   return '$out';
 }
 
-/// The report as JSON, for tools: every metric, threshold, gap and item.
+/// The report as JSON, for tools: every metric, threshold, gap, item and
+/// scope objective.
 Map<String, Object?> coverageJson(
   CurriculumDataset dataset,
   String on,
@@ -371,6 +426,7 @@ Map<String, Object?> coverageJson(
   required CoverageBaseline? baseline,
   required RatchetResult ratchet,
   required String baselinePath,
+  TrackScopeManifest? scope,
 }) {
   Map<String, int> counts(CoverageCounts counts) => {
     for (final MapEntry(key: metric, value: count) in counts.toMap().entries)
@@ -453,6 +509,30 @@ Map<String, Object?> coverageJson(
                 'missing': item.missing,
               },
           ],
+          if (scope?.tracks[track.trackId] case final trackScope?)
+            'scope': {
+              'body': trackScope.body,
+              'source': {
+                'title': trackScope.source.title,
+                'url': trackScope.source.url,
+                'version': trackScope.source.version,
+                'checked_on': trackScope.source.checkedOn,
+              },
+              'objectives': [
+                for (final coverage in objectiveCoverage(trackScope, track))
+                  {
+                    'id': coverage.objective.id,
+                    'label': coverage.objective.label,
+                    'required': coverage.objective.isRequired,
+                    'status': coverage.status.name,
+                    'items': coverage.items,
+                    'core': coverage.core,
+                    'useful_practice': coverage.usefulPractice,
+                    'tasks': coverage.objective.tasks,
+                    'excluded': ?coverage.objective.excluded,
+                  },
+              ],
+            },
         },
     ],
     'baseline': {
