@@ -18,9 +18,15 @@ const types = {
   '.otf': 'font/otf', '.ttf': 'font/ttf',
 };
 
+// The schema version the app declares, so a schema change needs no edit here.
+const declared = fs
+  .readFileSync(new URL('../../lib/core/database/app_database.dart', import.meta.url), 'utf8')
+  .match(/int get schemaVersion => (\d+);/);
+if (!declared) throw new Error('No schemaVersion in lib/core/database/app_database.dart');
+
 const expected = {
   foreignKeys: 1,
-  schemaVersion: 2,
+  schemaVersion: Number(declared[1]),
   json: 1,
   curriculum: 'installed',
   chablisAncestors: 'Burgundy > France',

@@ -88,6 +88,13 @@ void main() {
       expect(find.text(source.title), findsOneWidget, reason: source.id);
     }
     expect(find.text('Open-source licences'), findsOneWidget);
+
+    // Back goes to Settings, then to where Settings was opened from.
+    await tap(tester, find.byType(BackButton));
+    expect(find.text('About, sources and licences'), findsOneWidget);
+    await tap(tester, find.byType(BackButton));
+    expect(find.byType(NavigationBar), findsOneWidget);
+    expect(find.text('Settings'), findsNothing);
   });
 
   testApp('a wide window puts the modules beside a navigation rail', (
