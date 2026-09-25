@@ -154,6 +154,7 @@ npm run check   # CI runs this; with every source cached it also rebuilds and co
 - Record reviews only through `ReviewService`. It writes the event, the options shown and the projected `review_states` row in one transaction, and counts `reps` and `lapses`.
 - When upserting a data class, pass `toCompanion(false)`. The default drops NULL columns from the update, so a stale `step` would survive graduation.
 - Retrievability comes from the package (`retrievabilityOf`); never recompute it in SQL or by hand. It counts whole days, so R is 1 on the day of a review.
+- The wine journal (`lib/core/journal/`, backlog J1–J2) links entries to knowledge nodes, and the journal factor J lifts the items about them (A-5, A-11). The learner confirms every link; never link a node silently.
 - Scheduling tests disable fuzzing with `unfuzzedScheduler` and move time with `TestClock` (`test/support/study_fixture.dart`).
 - Screens follow the database through Drift stream queries. Write app widget tests with `testApp` (`test/support/app_fixture.dart`), which unmounts the app so Drift's stream-closing timers run before the test ends.
 
