@@ -113,6 +113,31 @@ void main() {
         ),
       );
     });
+
+    test(
+      'rejects what the schema rejects, though the validator does not',
+      () async {
+        final france = File(pathOf('areas/france.yaml'));
+        france.writeAsStringSync(
+          france.readAsStringSync().replaceFirst(
+            'importance: core',
+            'importance: critical',
+          ),
+        );
+        final (code, out) = await run(lint, []);
+        expect(code, exitFailed);
+        expect(
+          out,
+          contains('$manifest: error: the release does not ingest: '),
+        );
+        expect(out, contains('CHECK constraint failed'));
+        expect(out, contains('[schema]'));
+
+        final (reportCode, reportOut) = await run(report, []);
+        expect(reportCode, exitFailed);
+        expect(reportOut, contains('error: the release does not ingest: '));
+      },
+    );
   });
 
   test('report prints what the release holds and generates', () async {

@@ -693,7 +693,7 @@ The authored tables *are* the dataset format. Each YAML section is named after i
 
 | Command | What it does |
 |---|---|
-| `lint.dart` | Prints every format error, validator issue and ledger problem as `file:line: error: message [rule]`, and exits 1 on any error |
+| `lint.dart` | Prints every format error, validator issue and ledger problem as `file:line: error: message [rule]`. A release with none must also ingest into an empty database, which applies the schema's own constraints. Exits 1 on any error |
 | `report.dart` | Prints the rows of each file and the generation report: questions by format, skipped pairs by reason, and items with no multiple-choice question |
 | `verify.dart <item> --reviewer <name> --outcome verified\|disputed [--notes <text>] [--at <instant>]` | Records an expert's review (D3) |
 
