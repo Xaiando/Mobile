@@ -1297,7 +1297,7 @@
       "data": {
         "on": 18,
         "name": "knowledge_item_prerequisites_by_prerequisite",
-        "sql": "CREATE INDEX knowledge_item_prerequisites_by_prerequisite\r\n  ON knowledge_item_prerequisites (prerequisite_item_id);",
+        "sql": "CREATE INDEX knowledge_item_prerequisites_by_prerequisite\n  ON knowledge_item_prerequisites (prerequisite_item_id);",
         "unique": false,
         "columns": []
       }
@@ -1408,7 +1408,7 @@
       "data": {
         "on": 20,
         "name": "certification_knowledge_mappings_by_item",
-        "sql": "CREATE INDEX certification_knowledge_mappings_by_item\r\n  ON certification_knowledge_mappings (knowledge_item_id);",
+        "sql": "CREATE INDEX certification_knowledge_mappings_by_item\n  ON certification_knowledge_mappings (knowledge_item_id);",
         "unique": false,
         "columns": []
       }
@@ -3406,7 +3406,7 @@
       "data": {
         "on": 42,
         "name": "review_events_by_exercise",
-        "sql": "CREATE INDEX review_events_by_exercise ON review_events (exercise_id)\r\n  WHERE exercise_id IS NOT NULL;",
+        "sql": "CREATE INDEX review_events_by_exercise ON review_events (exercise_id)\n  WHERE exercise_id IS NOT NULL;",
         "unique": false,
         "columns": []
       }
@@ -3507,7 +3507,7 @@
           42
         ],
         "name": "review_events_append_only_update",
-        "sql": "CREATE TRIGGER review_events_append_only_update BEFORE UPDATE ON review_events\r\nBEGIN SELECT RAISE(ABORT, 'review_events is append-only'); END;"
+        "sql": "CREATE TRIGGER review_events_append_only_update BEFORE UPDATE ON review_events\nBEGIN SELECT RAISE(ABORT, 'review_events is append-only'); END;"
       }
     },
     {
@@ -3522,7 +3522,7 @@
           42
         ],
         "name": "review_events_append_only_delete",
-        "sql": "CREATE TRIGGER review_events_append_only_delete BEFORE DELETE ON review_events\r\nBEGIN SELECT RAISE(ABORT, 'review_events is append-only'); END;"
+        "sql": "CREATE TRIGGER review_events_append_only_delete BEFORE DELETE ON review_events\nBEGIN SELECT RAISE(ABORT, 'review_events is append-only'); END;"
       }
     },
     {
@@ -3537,7 +3537,7 @@
           46
         ],
         "name": "review_event_options_append_only_update",
-        "sql": "CREATE TRIGGER review_event_options_append_only_update BEFORE UPDATE ON review_event_options\r\nBEGIN SELECT RAISE(ABORT, 'review_event_options is append-only'); END;"
+        "sql": "CREATE TRIGGER review_event_options_append_only_update BEFORE UPDATE ON review_event_options\nBEGIN SELECT RAISE(ABORT, 'review_event_options is append-only'); END;"
       }
     },
     {
@@ -3552,7 +3552,7 @@
           46
         ],
         "name": "review_event_options_append_only_delete",
-        "sql": "CREATE TRIGGER review_event_options_append_only_delete BEFORE DELETE ON review_event_options\r\nBEGIN SELECT RAISE(ABORT, 'review_event_options is append-only'); END;"
+        "sql": "CREATE TRIGGER review_event_options_append_only_delete BEFORE DELETE ON review_event_options\nBEGIN SELECT RAISE(ABORT, 'review_event_options is append-only'); END;"
       }
     },
     {
@@ -4039,7 +4039,7 @@
           26
         ],
         "name": "tasting_descriptors_single_selection",
-        "sql": "CREATE TRIGGER tasting_descriptors_single_selection BEFORE INSERT ON tasting_descriptors\r\nWHEN (SELECT selection FROM tasting_grid_attributes\r\n       WHERE tasting_grid_id = NEW.tasting_grid_id AND attribute_key = NEW.attribute_key) = 'single'\r\n  AND EXISTS (SELECT 1 FROM tasting_descriptors\r\n               WHERE tasting_session_id = NEW.tasting_session_id\r\n                 AND attribute_key = NEW.attribute_key)\r\nBEGIN SELECT RAISE(ABORT, 'attribute accepts a single value'); END;"
+        "sql": "CREATE TRIGGER tasting_descriptors_single_selection BEFORE INSERT ON tasting_descriptors\nWHEN (SELECT selection FROM tasting_grid_attributes\n       WHERE tasting_grid_id = NEW.tasting_grid_id AND attribute_key = NEW.attribute_key) = 'single'\n  AND EXISTS (SELECT 1 FROM tasting_descriptors\n               WHERE tasting_session_id = NEW.tasting_session_id\n                 AND attribute_key = NEW.attribute_key)\nBEGIN SELECT RAISE(ABORT, 'attribute accepts a single value'); END;"
       }
     },
     {
@@ -4056,7 +4056,7 @@
           0
         ],
         "name": "curriculum_releases_read_only_insert",
-        "sql": "CREATE TRIGGER curriculum_releases_read_only_insert BEFORE INSERT ON curriculum_releases\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER curriculum_releases_read_only_insert BEFORE INSERT ON curriculum_releases\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -4073,7 +4073,7 @@
           0
         ],
         "name": "curriculum_releases_read_only_update",
-        "sql": "CREATE TRIGGER curriculum_releases_read_only_update BEFORE UPDATE ON curriculum_releases\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER curriculum_releases_read_only_update BEFORE UPDATE ON curriculum_releases\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -4090,7 +4090,7 @@
           0
         ],
         "name": "curriculum_releases_read_only_delete",
-        "sql": "CREATE TRIGGER curriculum_releases_read_only_delete BEFORE DELETE ON curriculum_releases\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER curriculum_releases_read_only_delete BEFORE DELETE ON curriculum_releases\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -4107,7 +4107,7 @@
           0
         ],
         "name": "curriculum_domains_read_only_insert",
-        "sql": "CREATE TRIGGER curriculum_domains_read_only_insert BEFORE INSERT ON curriculum_domains\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER curriculum_domains_read_only_insert BEFORE INSERT ON curriculum_domains\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -4124,7 +4124,7 @@
           0
         ],
         "name": "curriculum_domains_read_only_update",
-        "sql": "CREATE TRIGGER curriculum_domains_read_only_update BEFORE UPDATE ON curriculum_domains\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER curriculum_domains_read_only_update BEFORE UPDATE ON curriculum_domains\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -4141,7 +4141,7 @@
           0
         ],
         "name": "curriculum_domains_read_only_delete",
-        "sql": "CREATE TRIGGER curriculum_domains_read_only_delete BEFORE DELETE ON curriculum_domains\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER curriculum_domains_read_only_delete BEFORE DELETE ON curriculum_domains\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -4158,7 +4158,7 @@
           0
         ],
         "name": "tasting_grids_read_only_insert",
-        "sql": "CREATE TRIGGER tasting_grids_read_only_insert BEFORE INSERT ON tasting_grids\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER tasting_grids_read_only_insert BEFORE INSERT ON tasting_grids\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -4175,7 +4175,7 @@
           0
         ],
         "name": "tasting_grids_read_only_update",
-        "sql": "CREATE TRIGGER tasting_grids_read_only_update BEFORE UPDATE ON tasting_grids\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER tasting_grids_read_only_update BEFORE UPDATE ON tasting_grids\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -4192,7 +4192,7 @@
           0
         ],
         "name": "tasting_grids_read_only_delete",
-        "sql": "CREATE TRIGGER tasting_grids_read_only_delete BEFORE DELETE ON tasting_grids\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER tasting_grids_read_only_delete BEFORE DELETE ON tasting_grids\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -4209,7 +4209,7 @@
           0
         ],
         "name": "certifications_read_only_insert",
-        "sql": "CREATE TRIGGER certifications_read_only_insert BEFORE INSERT ON certifications\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER certifications_read_only_insert BEFORE INSERT ON certifications\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -4226,7 +4226,7 @@
           0
         ],
         "name": "certifications_read_only_update",
-        "sql": "CREATE TRIGGER certifications_read_only_update BEFORE UPDATE ON certifications\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER certifications_read_only_update BEFORE UPDATE ON certifications\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -4243,7 +4243,7 @@
           0
         ],
         "name": "certifications_read_only_delete",
-        "sql": "CREATE TRIGGER certifications_read_only_delete BEFORE DELETE ON certifications\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER certifications_read_only_delete BEFORE DELETE ON certifications\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -4260,7 +4260,7 @@
           0
         ],
         "name": "node_types_read_only_insert",
-        "sql": "CREATE TRIGGER node_types_read_only_insert BEFORE INSERT ON node_types\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER node_types_read_only_insert BEFORE INSERT ON node_types\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -4277,7 +4277,7 @@
           0
         ],
         "name": "node_types_read_only_update",
-        "sql": "CREATE TRIGGER node_types_read_only_update BEFORE UPDATE ON node_types\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER node_types_read_only_update BEFORE UPDATE ON node_types\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -4294,7 +4294,7 @@
           0
         ],
         "name": "node_types_read_only_delete",
-        "sql": "CREATE TRIGGER node_types_read_only_delete BEFORE DELETE ON node_types\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER node_types_read_only_delete BEFORE DELETE ON node_types\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -4311,7 +4311,7 @@
           0
         ],
         "name": "relation_types_read_only_insert",
-        "sql": "CREATE TRIGGER relation_types_read_only_insert BEFORE INSERT ON relation_types\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER relation_types_read_only_insert BEFORE INSERT ON relation_types\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -4328,7 +4328,7 @@
           0
         ],
         "name": "relation_types_read_only_update",
-        "sql": "CREATE TRIGGER relation_types_read_only_update BEFORE UPDATE ON relation_types\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER relation_types_read_only_update BEFORE UPDATE ON relation_types\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -4345,7 +4345,7 @@
           0
         ],
         "name": "relation_types_read_only_delete",
-        "sql": "CREATE TRIGGER relation_types_read_only_delete BEFORE DELETE ON relation_types\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER relation_types_read_only_delete BEFORE DELETE ON relation_types\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -4362,7 +4362,7 @@
           0
         ],
         "name": "relation_type_signatures_read_only_insert",
-        "sql": "CREATE TRIGGER relation_type_signatures_read_only_insert BEFORE INSERT ON relation_type_signatures\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER relation_type_signatures_read_only_insert BEFORE INSERT ON relation_type_signatures\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -4379,7 +4379,7 @@
           0
         ],
         "name": "relation_type_signatures_read_only_update",
-        "sql": "CREATE TRIGGER relation_type_signatures_read_only_update BEFORE UPDATE ON relation_type_signatures\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER relation_type_signatures_read_only_update BEFORE UPDATE ON relation_type_signatures\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -4396,7 +4396,7 @@
           0
         ],
         "name": "relation_type_signatures_read_only_delete",
-        "sql": "CREATE TRIGGER relation_type_signatures_read_only_delete BEFORE DELETE ON relation_type_signatures\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER relation_type_signatures_read_only_delete BEFORE DELETE ON relation_type_signatures\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -4413,7 +4413,7 @@
           0
         ],
         "name": "knowledge_nodes_read_only_insert",
-        "sql": "CREATE TRIGGER knowledge_nodes_read_only_insert BEFORE INSERT ON knowledge_nodes\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER knowledge_nodes_read_only_insert BEFORE INSERT ON knowledge_nodes\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -4430,7 +4430,7 @@
           0
         ],
         "name": "knowledge_nodes_read_only_update",
-        "sql": "CREATE TRIGGER knowledge_nodes_read_only_update BEFORE UPDATE ON knowledge_nodes\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER knowledge_nodes_read_only_update BEFORE UPDATE ON knowledge_nodes\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -4447,7 +4447,7 @@
           0
         ],
         "name": "knowledge_nodes_read_only_delete",
-        "sql": "CREATE TRIGGER knowledge_nodes_read_only_delete BEFORE DELETE ON knowledge_nodes\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER knowledge_nodes_read_only_delete BEFORE DELETE ON knowledge_nodes\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -4464,7 +4464,7 @@
           0
         ],
         "name": "quantity_values_read_only_insert",
-        "sql": "CREATE TRIGGER quantity_values_read_only_insert BEFORE INSERT ON quantity_values\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER quantity_values_read_only_insert BEFORE INSERT ON quantity_values\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -4481,7 +4481,7 @@
           0
         ],
         "name": "quantity_values_read_only_update",
-        "sql": "CREATE TRIGGER quantity_values_read_only_update BEFORE UPDATE ON quantity_values\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER quantity_values_read_only_update BEFORE UPDATE ON quantity_values\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -4498,7 +4498,7 @@
           0
         ],
         "name": "quantity_values_read_only_delete",
-        "sql": "CREATE TRIGGER quantity_values_read_only_delete BEFORE DELETE ON quantity_values\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER quantity_values_read_only_delete BEFORE DELETE ON quantity_values\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -4515,7 +4515,7 @@
           0
         ],
         "name": "node_alternative_names_read_only_insert",
-        "sql": "CREATE TRIGGER node_alternative_names_read_only_insert BEFORE INSERT ON node_alternative_names\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER node_alternative_names_read_only_insert BEFORE INSERT ON node_alternative_names\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -4532,7 +4532,7 @@
           0
         ],
         "name": "node_alternative_names_read_only_update",
-        "sql": "CREATE TRIGGER node_alternative_names_read_only_update BEFORE UPDATE ON node_alternative_names\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER node_alternative_names_read_only_update BEFORE UPDATE ON node_alternative_names\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -4549,7 +4549,7 @@
           0
         ],
         "name": "node_alternative_names_read_only_delete",
-        "sql": "CREATE TRIGGER node_alternative_names_read_only_delete BEFORE DELETE ON node_alternative_names\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER node_alternative_names_read_only_delete BEFORE DELETE ON node_alternative_names\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -4566,7 +4566,7 @@
           0
         ],
         "name": "knowledge_relations_read_only_insert",
-        "sql": "CREATE TRIGGER knowledge_relations_read_only_insert BEFORE INSERT ON knowledge_relations\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER knowledge_relations_read_only_insert BEFORE INSERT ON knowledge_relations\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -4583,7 +4583,7 @@
           0
         ],
         "name": "knowledge_relations_read_only_update",
-        "sql": "CREATE TRIGGER knowledge_relations_read_only_update BEFORE UPDATE ON knowledge_relations\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER knowledge_relations_read_only_update BEFORE UPDATE ON knowledge_relations\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -4600,7 +4600,7 @@
           0
         ],
         "name": "knowledge_relations_read_only_delete",
-        "sql": "CREATE TRIGGER knowledge_relations_read_only_delete BEFORE DELETE ON knowledge_relations\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER knowledge_relations_read_only_delete BEFORE DELETE ON knowledge_relations\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -4617,7 +4617,7 @@
           0
         ],
         "name": "knowledge_items_read_only_insert",
-        "sql": "CREATE TRIGGER knowledge_items_read_only_insert BEFORE INSERT ON knowledge_items\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER knowledge_items_read_only_insert BEFORE INSERT ON knowledge_items\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -4634,7 +4634,7 @@
           0
         ],
         "name": "knowledge_items_read_only_update",
-        "sql": "CREATE TRIGGER knowledge_items_read_only_update BEFORE UPDATE ON knowledge_items\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER knowledge_items_read_only_update BEFORE UPDATE ON knowledge_items\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -4651,7 +4651,7 @@
           0
         ],
         "name": "knowledge_items_read_only_delete",
-        "sql": "CREATE TRIGGER knowledge_items_read_only_delete BEFORE DELETE ON knowledge_items\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER knowledge_items_read_only_delete BEFORE DELETE ON knowledge_items\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -4668,7 +4668,7 @@
           0
         ],
         "name": "knowledge_item_prerequisites_read_only_insert",
-        "sql": "CREATE TRIGGER knowledge_item_prerequisites_read_only_insert BEFORE INSERT ON knowledge_item_prerequisites\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER knowledge_item_prerequisites_read_only_insert BEFORE INSERT ON knowledge_item_prerequisites\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -4685,7 +4685,7 @@
           0
         ],
         "name": "knowledge_item_prerequisites_read_only_update",
-        "sql": "CREATE TRIGGER knowledge_item_prerequisites_read_only_update BEFORE UPDATE ON knowledge_item_prerequisites\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER knowledge_item_prerequisites_read_only_update BEFORE UPDATE ON knowledge_item_prerequisites\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -4702,7 +4702,7 @@
           0
         ],
         "name": "knowledge_item_prerequisites_read_only_delete",
-        "sql": "CREATE TRIGGER knowledge_item_prerequisites_read_only_delete BEFORE DELETE ON knowledge_item_prerequisites\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER knowledge_item_prerequisites_read_only_delete BEFORE DELETE ON knowledge_item_prerequisites\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -4719,7 +4719,7 @@
           0
         ],
         "name": "certification_knowledge_mappings_read_only_insert",
-        "sql": "CREATE TRIGGER certification_knowledge_mappings_read_only_insert BEFORE INSERT ON certification_knowledge_mappings\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER certification_knowledge_mappings_read_only_insert BEFORE INSERT ON certification_knowledge_mappings\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -4736,7 +4736,7 @@
           0
         ],
         "name": "certification_knowledge_mappings_read_only_update",
-        "sql": "CREATE TRIGGER certification_knowledge_mappings_read_only_update BEFORE UPDATE ON certification_knowledge_mappings\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER certification_knowledge_mappings_read_only_update BEFORE UPDATE ON certification_knowledge_mappings\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -4753,7 +4753,7 @@
           0
         ],
         "name": "certification_knowledge_mappings_read_only_delete",
-        "sql": "CREATE TRIGGER certification_knowledge_mappings_read_only_delete BEFORE DELETE ON certification_knowledge_mappings\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER certification_knowledge_mappings_read_only_delete BEFORE DELETE ON certification_knowledge_mappings\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -4770,7 +4770,7 @@
           0
         ],
         "name": "source_citations_read_only_insert",
-        "sql": "CREATE TRIGGER source_citations_read_only_insert BEFORE INSERT ON source_citations\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER source_citations_read_only_insert BEFORE INSERT ON source_citations\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -4787,7 +4787,7 @@
           0
         ],
         "name": "source_citations_read_only_update",
-        "sql": "CREATE TRIGGER source_citations_read_only_update BEFORE UPDATE ON source_citations\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER source_citations_read_only_update BEFORE UPDATE ON source_citations\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -4804,7 +4804,7 @@
           0
         ],
         "name": "source_citations_read_only_delete",
-        "sql": "CREATE TRIGGER source_citations_read_only_delete BEFORE DELETE ON source_citations\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER source_citations_read_only_delete BEFORE DELETE ON source_citations\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -4821,7 +4821,7 @@
           0
         ],
         "name": "knowledge_item_citations_read_only_insert",
-        "sql": "CREATE TRIGGER knowledge_item_citations_read_only_insert BEFORE INSERT ON knowledge_item_citations\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER knowledge_item_citations_read_only_insert BEFORE INSERT ON knowledge_item_citations\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -4838,7 +4838,7 @@
           0
         ],
         "name": "knowledge_item_citations_read_only_update",
-        "sql": "CREATE TRIGGER knowledge_item_citations_read_only_update BEFORE UPDATE ON knowledge_item_citations\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER knowledge_item_citations_read_only_update BEFORE UPDATE ON knowledge_item_citations\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -4855,7 +4855,7 @@
           0
         ],
         "name": "knowledge_item_citations_read_only_delete",
-        "sql": "CREATE TRIGGER knowledge_item_citations_read_only_delete BEFORE DELETE ON knowledge_item_citations\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER knowledge_item_citations_read_only_delete BEFORE DELETE ON knowledge_item_citations\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -4872,7 +4872,7 @@
           0
         ],
         "name": "question_templates_read_only_insert",
-        "sql": "CREATE TRIGGER question_templates_read_only_insert BEFORE INSERT ON question_templates\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER question_templates_read_only_insert BEFORE INSERT ON question_templates\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -4889,7 +4889,7 @@
           0
         ],
         "name": "question_templates_read_only_update",
-        "sql": "CREATE TRIGGER question_templates_read_only_update BEFORE UPDATE ON question_templates\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER question_templates_read_only_update BEFORE UPDATE ON question_templates\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -4906,7 +4906,7 @@
           0
         ],
         "name": "question_templates_read_only_delete",
-        "sql": "CREATE TRIGGER question_templates_read_only_delete BEFORE DELETE ON question_templates\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER question_templates_read_only_delete BEFORE DELETE ON question_templates\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -4923,7 +4923,7 @@
           0
         ],
         "name": "tasting_grid_attributes_read_only_insert",
-        "sql": "CREATE TRIGGER tasting_grid_attributes_read_only_insert BEFORE INSERT ON tasting_grid_attributes\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER tasting_grid_attributes_read_only_insert BEFORE INSERT ON tasting_grid_attributes\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -4940,7 +4940,7 @@
           0
         ],
         "name": "tasting_grid_attributes_read_only_update",
-        "sql": "CREATE TRIGGER tasting_grid_attributes_read_only_update BEFORE UPDATE ON tasting_grid_attributes\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER tasting_grid_attributes_read_only_update BEFORE UPDATE ON tasting_grid_attributes\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -4957,7 +4957,7 @@
           0
         ],
         "name": "tasting_grid_attributes_read_only_delete",
-        "sql": "CREATE TRIGGER tasting_grid_attributes_read_only_delete BEFORE DELETE ON tasting_grid_attributes\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER tasting_grid_attributes_read_only_delete BEFORE DELETE ON tasting_grid_attributes\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -4974,7 +4974,7 @@
           0
         ],
         "name": "tasting_grid_values_read_only_insert",
-        "sql": "CREATE TRIGGER tasting_grid_values_read_only_insert BEFORE INSERT ON tasting_grid_values\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER tasting_grid_values_read_only_insert BEFORE INSERT ON tasting_grid_values\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -4991,7 +4991,7 @@
           0
         ],
         "name": "tasting_grid_values_read_only_update",
-        "sql": "CREATE TRIGGER tasting_grid_values_read_only_update BEFORE UPDATE ON tasting_grid_values\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER tasting_grid_values_read_only_update BEFORE UPDATE ON tasting_grid_values\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -5008,7 +5008,7 @@
           0
         ],
         "name": "tasting_grid_values_read_only_delete",
-        "sql": "CREATE TRIGGER tasting_grid_values_read_only_delete BEFORE DELETE ON tasting_grid_values\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER tasting_grid_values_read_only_delete BEFORE DELETE ON tasting_grid_values\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -5025,7 +5025,7 @@
           0
         ],
         "name": "questions_read_only_insert",
-        "sql": "CREATE TRIGGER questions_read_only_insert BEFORE INSERT ON questions\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER questions_read_only_insert BEFORE INSERT ON questions\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -5042,7 +5042,7 @@
           0
         ],
         "name": "questions_read_only_update",
-        "sql": "CREATE TRIGGER questions_read_only_update BEFORE UPDATE ON questions\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER questions_read_only_update BEFORE UPDATE ON questions\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -5059,7 +5059,7 @@
           0
         ],
         "name": "questions_read_only_delete",
-        "sql": "CREATE TRIGGER questions_read_only_delete BEFORE DELETE ON questions\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER questions_read_only_delete BEFORE DELETE ON questions\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -5076,7 +5076,7 @@
           0
         ],
         "name": "question_distractors_read_only_insert",
-        "sql": "CREATE TRIGGER question_distractors_read_only_insert BEFORE INSERT ON question_distractors\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER question_distractors_read_only_insert BEFORE INSERT ON question_distractors\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -5093,7 +5093,7 @@
           0
         ],
         "name": "question_distractors_read_only_update",
-        "sql": "CREATE TRIGGER question_distractors_read_only_update BEFORE UPDATE ON question_distractors\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER question_distractors_read_only_update BEFORE UPDATE ON question_distractors\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -5110,7 +5110,7 @@
           0
         ],
         "name": "question_distractors_read_only_delete",
-        "sql": "CREATE TRIGGER question_distractors_read_only_delete BEFORE DELETE ON question_distractors\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER question_distractors_read_only_delete BEFORE DELETE ON question_distractors\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -5127,7 +5127,7 @@
           0
         ],
         "name": "relation_set_assertions_read_only_insert",
-        "sql": "CREATE TRIGGER relation_set_assertions_read_only_insert BEFORE INSERT ON relation_set_assertions\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER relation_set_assertions_read_only_insert BEFORE INSERT ON relation_set_assertions\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -5144,7 +5144,7 @@
           0
         ],
         "name": "relation_set_assertions_read_only_update",
-        "sql": "CREATE TRIGGER relation_set_assertions_read_only_update BEFORE UPDATE ON relation_set_assertions\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER relation_set_assertions_read_only_update BEFORE UPDATE ON relation_set_assertions\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -5161,7 +5161,7 @@
           0
         ],
         "name": "relation_set_assertions_read_only_delete",
-        "sql": "CREATE TRIGGER relation_set_assertions_read_only_delete BEFORE DELETE ON relation_set_assertions\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER relation_set_assertions_read_only_delete BEFORE DELETE ON relation_set_assertions\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -5178,7 +5178,7 @@
           0
         ],
         "name": "map_layers_read_only_insert",
-        "sql": "CREATE TRIGGER map_layers_read_only_insert BEFORE INSERT ON map_layers\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER map_layers_read_only_insert BEFORE INSERT ON map_layers\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -5195,7 +5195,7 @@
           0
         ],
         "name": "map_layers_read_only_update",
-        "sql": "CREATE TRIGGER map_layers_read_only_update BEFORE UPDATE ON map_layers\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER map_layers_read_only_update BEFORE UPDATE ON map_layers\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -5212,7 +5212,7 @@
           0
         ],
         "name": "map_layers_read_only_delete",
-        "sql": "CREATE TRIGGER map_layers_read_only_delete BEFORE DELETE ON map_layers\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER map_layers_read_only_delete BEFORE DELETE ON map_layers\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -5229,7 +5229,7 @@
           0
         ],
         "name": "map_layer_citations_read_only_insert",
-        "sql": "CREATE TRIGGER map_layer_citations_read_only_insert BEFORE INSERT ON map_layer_citations\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER map_layer_citations_read_only_insert BEFORE INSERT ON map_layer_citations\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -5246,7 +5246,7 @@
           0
         ],
         "name": "map_layer_citations_read_only_update",
-        "sql": "CREATE TRIGGER map_layer_citations_read_only_update BEFORE UPDATE ON map_layer_citations\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER map_layer_citations_read_only_update BEFORE UPDATE ON map_layer_citations\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -5263,7 +5263,7 @@
           0
         ],
         "name": "map_layer_citations_read_only_delete",
-        "sql": "CREATE TRIGGER map_layer_citations_read_only_delete BEFORE DELETE ON map_layer_citations\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER map_layer_citations_read_only_delete BEFORE DELETE ON map_layer_citations\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -5280,7 +5280,7 @@
           0
         ],
         "name": "node_geometries_read_only_insert",
-        "sql": "CREATE TRIGGER node_geometries_read_only_insert BEFORE INSERT ON node_geometries\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER node_geometries_read_only_insert BEFORE INSERT ON node_geometries\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -5297,7 +5297,7 @@
           0
         ],
         "name": "node_geometries_read_only_update",
-        "sql": "CREATE TRIGGER node_geometries_read_only_update BEFORE UPDATE ON node_geometries\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER node_geometries_read_only_update BEFORE UPDATE ON node_geometries\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -5314,7 +5314,7 @@
           0
         ],
         "name": "node_geometries_read_only_delete",
-        "sql": "CREATE TRIGGER node_geometries_read_only_delete BEFORE DELETE ON node_geometries\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER node_geometries_read_only_delete BEFORE DELETE ON node_geometries\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -5331,7 +5331,7 @@
           0
         ],
         "name": "exercise_pools_read_only_insert",
-        "sql": "CREATE TRIGGER exercise_pools_read_only_insert BEFORE INSERT ON exercise_pools\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER exercise_pools_read_only_insert BEFORE INSERT ON exercise_pools\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -5348,7 +5348,7 @@
           0
         ],
         "name": "exercise_pools_read_only_update",
-        "sql": "CREATE TRIGGER exercise_pools_read_only_update BEFORE UPDATE ON exercise_pools\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER exercise_pools_read_only_update BEFORE UPDATE ON exercise_pools\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -5365,7 +5365,7 @@
           0
         ],
         "name": "exercise_pools_read_only_delete",
-        "sql": "CREATE TRIGGER exercise_pools_read_only_delete BEFORE DELETE ON exercise_pools\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER exercise_pools_read_only_delete BEFORE DELETE ON exercise_pools\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -5382,7 +5382,7 @@
           0
         ],
         "name": "exercise_pool_items_read_only_insert",
-        "sql": "CREATE TRIGGER exercise_pool_items_read_only_insert BEFORE INSERT ON exercise_pool_items\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER exercise_pool_items_read_only_insert BEFORE INSERT ON exercise_pool_items\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -5399,7 +5399,7 @@
           0
         ],
         "name": "exercise_pool_items_read_only_update",
-        "sql": "CREATE TRIGGER exercise_pool_items_read_only_update BEFORE UPDATE ON exercise_pool_items\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER exercise_pool_items_read_only_update BEFORE UPDATE ON exercise_pool_items\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     },
     {
@@ -5416,7 +5416,7 @@
           0
         ],
         "name": "exercise_pool_items_read_only_delete",
-        "sql": "CREATE TRIGGER exercise_pool_items_read_only_delete BEFORE DELETE ON exercise_pool_items\r\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\r\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
+        "sql": "CREATE TRIGGER exercise_pool_items_read_only_delete BEFORE DELETE ON exercise_pool_items\nWHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions)\nBEGIN SELECT RAISE(ABORT, 'curriculum is read-only outside ingestion'); END;"
       }
     }
   ],
