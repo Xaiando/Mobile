@@ -4651,9 +4651,1284 @@ i1.GeneratedColumn<String> _column_181(String aliasedName) =>
       type: i1.DriftSqlType.string,
       $customConstraints: '',
     );
+
+final class Schema4 extends i0.VersionedSchema {
+  Schema4({required super.database}) : super(version: 4);
+  @override
+  late final List<i1.DatabaseSchemaEntity> entities = [
+    curriculumIngestions,
+    userDataRewrites,
+    curriculumReleases,
+    curriculumDomains,
+    tastingGrids,
+    certifications,
+    nodeTypes,
+    relationTypes,
+    relationTypeSignatures,
+    knowledgeNodes,
+    knowledgeNodesByNameNorm,
+    quantityValues,
+    nodeAlternativeNames,
+    nodeAlternativeNamesByNorm,
+    knowledgeRelations,
+    knowledgeRelationsByObject,
+    knowledgeItems,
+    knowledgeItemsByObject,
+    knowledgeItemsByDomain,
+    knowledgeItemPrerequisites,
+    knowledgeItemPrerequisitesByPrerequisite,
+    certificationKnowledgeMappings,
+    certificationKnowledgeMappingsByItem,
+    sourceCitations,
+    knowledgeItemCitations,
+    knowledgeItemCitationsBySource,
+    questionTemplates,
+    tastingGridAttributes,
+    tastingGridValues,
+    relationSetAssertions,
+    mapLayers,
+    mapLayerCitations,
+    nodeGeometries,
+    questions,
+    questionDistractors,
+    exercisePools,
+    exercisePoolsByTemplate,
+    exercisePoolItems,
+    exercisePoolItemsByItem,
+    userProfiles,
+    schedulerConfigs,
+    reviewStates,
+    reviewStatesByDue,
+    reviewEvents,
+    reviewEventsByItem,
+    reviewEventsByTime,
+    reviewEventsByExercise,
+    reviewEventOptions,
+    reviewEventsAppendOnlyUpdate,
+    reviewEventsAppendOnlyDelete,
+    reviewEventOptionsAppendOnlyUpdate,
+    reviewEventOptionsAppendOnlyDelete,
+    userSettings,
+    questionFlags,
+    questionFlagsByItem,
+    wineJournalEntries,
+    wineJournalEntriesByTastedOn,
+    wineJournalEntryNodes,
+    wineJournalEntryNodesByNode,
+    tastingSessions,
+    tastingSessionsByStartedAt,
+    tastingSessionsByJournalEntry,
+    tastingDescriptors,
+    tastingDescriptorsSingleSelection,
+    curriculumReleasesReadOnlyInsert,
+    curriculumReleasesReadOnlyUpdate,
+    curriculumReleasesReadOnlyDelete,
+    curriculumDomainsReadOnlyInsert,
+    curriculumDomainsReadOnlyUpdate,
+    curriculumDomainsReadOnlyDelete,
+    tastingGridsReadOnlyInsert,
+    tastingGridsReadOnlyUpdate,
+    tastingGridsReadOnlyDelete,
+    certificationsReadOnlyInsert,
+    certificationsReadOnlyUpdate,
+    certificationsReadOnlyDelete,
+    nodeTypesReadOnlyInsert,
+    nodeTypesReadOnlyUpdate,
+    nodeTypesReadOnlyDelete,
+    relationTypesReadOnlyInsert,
+    relationTypesReadOnlyUpdate,
+    relationTypesReadOnlyDelete,
+    relationTypeSignaturesReadOnlyInsert,
+    relationTypeSignaturesReadOnlyUpdate,
+    relationTypeSignaturesReadOnlyDelete,
+    knowledgeNodesReadOnlyInsert,
+    knowledgeNodesReadOnlyUpdate,
+    knowledgeNodesReadOnlyDelete,
+    quantityValuesReadOnlyInsert,
+    quantityValuesReadOnlyUpdate,
+    quantityValuesReadOnlyDelete,
+    nodeAlternativeNamesReadOnlyInsert,
+    nodeAlternativeNamesReadOnlyUpdate,
+    nodeAlternativeNamesReadOnlyDelete,
+    knowledgeRelationsReadOnlyInsert,
+    knowledgeRelationsReadOnlyUpdate,
+    knowledgeRelationsReadOnlyDelete,
+    knowledgeItemsReadOnlyInsert,
+    knowledgeItemsReadOnlyUpdate,
+    knowledgeItemsReadOnlyDelete,
+    knowledgeItemPrerequisitesReadOnlyInsert,
+    knowledgeItemPrerequisitesReadOnlyUpdate,
+    knowledgeItemPrerequisitesReadOnlyDelete,
+    certificationKnowledgeMappingsReadOnlyInsert,
+    certificationKnowledgeMappingsReadOnlyUpdate,
+    certificationKnowledgeMappingsReadOnlyDelete,
+    sourceCitationsReadOnlyInsert,
+    sourceCitationsReadOnlyUpdate,
+    sourceCitationsReadOnlyDelete,
+    knowledgeItemCitationsReadOnlyInsert,
+    knowledgeItemCitationsReadOnlyUpdate,
+    knowledgeItemCitationsReadOnlyDelete,
+    questionTemplatesReadOnlyInsert,
+    questionTemplatesReadOnlyUpdate,
+    questionTemplatesReadOnlyDelete,
+    tastingGridAttributesReadOnlyInsert,
+    tastingGridAttributesReadOnlyUpdate,
+    tastingGridAttributesReadOnlyDelete,
+    tastingGridValuesReadOnlyInsert,
+    tastingGridValuesReadOnlyUpdate,
+    tastingGridValuesReadOnlyDelete,
+    questionsReadOnlyInsert,
+    questionsReadOnlyUpdate,
+    questionsReadOnlyDelete,
+    questionDistractorsReadOnlyInsert,
+    questionDistractorsReadOnlyUpdate,
+    questionDistractorsReadOnlyDelete,
+    relationSetAssertionsReadOnlyInsert,
+    relationSetAssertionsReadOnlyUpdate,
+    relationSetAssertionsReadOnlyDelete,
+    mapLayersReadOnlyInsert,
+    mapLayersReadOnlyUpdate,
+    mapLayersReadOnlyDelete,
+    mapLayerCitationsReadOnlyInsert,
+    mapLayerCitationsReadOnlyUpdate,
+    mapLayerCitationsReadOnlyDelete,
+    nodeGeometriesReadOnlyInsert,
+    nodeGeometriesReadOnlyUpdate,
+    nodeGeometriesReadOnlyDelete,
+    exercisePoolsReadOnlyInsert,
+    exercisePoolsReadOnlyUpdate,
+    exercisePoolsReadOnlyDelete,
+    exercisePoolItemsReadOnlyInsert,
+    exercisePoolItemsReadOnlyUpdate,
+    exercisePoolItemsReadOnlyDelete,
+  ];
+  late final Shape0 curriculumIngestions = Shape0(
+    source: i0.VersionedTable(
+      entityName: 'curriculum_ingestions',
+      withoutRowId: false,
+      isStrict: false,
+      tableConstraints: [],
+      columns: [_column_0, _column_1],
+      attachedDatabase: database,
+    ),
+    alias: null,
+  );
+  late final Shape0 userDataRewrites = Shape0(
+    source: i0.VersionedTable(
+      entityName: 'user_data_rewrites',
+      withoutRowId: false,
+      isStrict: false,
+      tableConstraints: [],
+      columns: [_column_0, _column_1],
+      attachedDatabase: database,
+    ),
+    alias: null,
+  );
+  late final Shape1 curriculumReleases = Shape1(
+    source: i0.VersionedTable(
+      entityName: 'curriculum_releases',
+      withoutRowId: false,
+      isStrict: false,
+      tableConstraints: [],
+      columns: [_column_2, _column_3, _column_4, _column_5],
+      attachedDatabase: database,
+    ),
+    alias: null,
+  );
+  late final Shape2 curriculumDomains = Shape2(
+    source: i0.VersionedTable(
+      entityName: 'curriculum_domains',
+      withoutRowId: false,
+      isStrict: false,
+      tableConstraints: [],
+      columns: [_column_6, _column_7, _column_8],
+      attachedDatabase: database,
+    ),
+    alias: null,
+  );
+  late final Shape3 tastingGrids = Shape3(
+    source: i0.VersionedTable(
+      entityName: 'tasting_grids',
+      withoutRowId: false,
+      isStrict: false,
+      tableConstraints: ['UNIQUE(framework, version)'],
+      columns: [_column_9, _column_10, _column_11, _column_7],
+      attachedDatabase: database,
+    ),
+    alias: null,
+  );
+  late final Shape4 certifications = Shape4(
+    source: i0.VersionedTable(
+      entityName: 'certifications',
+      withoutRowId: false,
+      isStrict: false,
+      tableConstraints: [
+        'UNIQUE(organization, level)',
+        'CHECK(includes_certification_id IS NOT id)',
+        'CHECK(kind = \'certification\' AND organization IS NOT NULL AND level IS NOT NULL OR kind = \'pack\' AND organization IS NULL AND level IS NULL)',
+      ],
+      columns: [
+        _column_12,
+        _column_13,
+        _column_14,
+        _column_7,
+        _column_15,
+        _column_16,
+        _column_17,
+        _column_18,
+        _column_19,
+      ],
+      attachedDatabase: database,
+    ),
+    alias: null,
+  );
+  late final Shape5 nodeTypes = Shape5(
+    source: i0.VersionedTable(
+      entityName: 'node_types',
+      withoutRowId: false,
+      isStrict: false,
+      tableConstraints: [],
+      columns: [_column_6, _column_20],
+      attachedDatabase: database,
+    ),
+    alias: null,
+  );
+  late final Shape6 relationTypes = Shape6(
+    source: i0.VersionedTable(
+      entityName: 'relation_types',
+      withoutRowId: false,
+      isStrict: false,
+      tableConstraints: [],
+      columns: [
+        _column_21,
+        _column_20,
+        _column_22,
+        _column_23,
+        _column_24,
+        _column_25,
+        _column_26,
+        _column_27,
+        _column_28,
+      ],
+      attachedDatabase: database,
+    ),
+    alias: null,
+  );
+  late final Shape7 relationTypeSignatures = Shape7(
+    source: i0.VersionedTable(
+      entityName: 'relation_type_signatures',
+      withoutRowId: false,
+      isStrict: false,
+      tableConstraints: [
+        'PRIMARY KEY(relation_type, subject_node_type, object_node_type)',
+      ],
+      columns: [_column_29, _column_30, _column_31],
+      attachedDatabase: database,
+    ),
+    alias: null,
+  );
+  late final Shape8 knowledgeNodes = Shape8(
+    source: i0.VersionedTable(
+      entityName: 'knowledge_nodes',
+      withoutRowId: false,
+      isStrict: false,
+      tableConstraints: [
+        'UNIQUE(node_type, name_norm)',
+        'UNIQUE(id, node_type)',
+        'CHECK(valid_until IS NULL OR valid_from IS NULL OR valid_until > valid_from)',
+      ],
+      columns: [
+        _column_32,
+        _column_33,
+        _column_34,
+        _column_35,
+        _column_36,
+        _column_37,
+      ],
+      attachedDatabase: database,
+    ),
+    alias: null,
+  );
+  final i1.Index knowledgeNodesByNameNorm = i1.Index(
+    'knowledge_nodes_by_name_norm',
+    'CREATE INDEX knowledge_nodes_by_name_norm ON knowledge_nodes (name_norm)',
+  );
+  late final Shape9 quantityValues = Shape9(
+    source: i0.VersionedTable(
+      entityName: 'quantity_values',
+      withoutRowId: false,
+      isStrict: false,
+      tableConstraints: [
+        'FOREIGN KEY(knowledge_node_id, node_type)REFERENCES knowledge_nodes(id, node_type)',
+        'CHECK(maximum IS NULL OR maximum >= minimum)',
+      ],
+      columns: [_column_38, _column_39, _column_40, _column_41, _column_42],
+      attachedDatabase: database,
+    ),
+    alias: null,
+  );
+  late final Shape10 nodeAlternativeNames = Shape10(
+    source: i0.VersionedTable(
+      entityName: 'node_alternative_names',
+      withoutRowId: false,
+      isStrict: false,
+      tableConstraints: ['PRIMARY KEY(knowledge_node_id, name_norm)'],
+      columns: [_column_43, _column_34, _column_35, _column_44],
+      attachedDatabase: database,
+    ),
+    alias: null,
+  );
+  final i1.Index nodeAlternativeNamesByNorm = i1.Index(
+    'node_alternative_names_by_norm',
+    'CREATE INDEX node_alternative_names_by_norm ON node_alternative_names (name_norm)',
+  );
+  late final Shape11 knowledgeRelations = Shape11(
+    source: i0.VersionedTable(
+      entityName: 'knowledge_relations',
+      withoutRowId: false,
+      isStrict: false,
+      tableConstraints: [
+        'PRIMARY KEY(subject_id, relation_type, object_id)',
+        'CHECK(subject_id <> object_id)',
+        'CHECK(valid_until IS NULL OR valid_until > valid_from)',
+      ],
+      columns: [_column_45, _column_29, _column_46, _column_47, _column_37],
+      attachedDatabase: database,
+    ),
+    alias: null,
+  );
+  final i1.Index knowledgeRelationsByObject = i1.Index(
+    'knowledge_relations_by_object',
+    'CREATE INDEX knowledge_relations_by_object ON knowledge_relations (object_id, relation_type)',
+  );
+  late final Shape12 knowledgeItems = Shape12(
+    source: i0.VersionedTable(
+      entityName: 'knowledge_items',
+      withoutRowId: false,
+      isStrict: false,
+      tableConstraints: [
+        'UNIQUE(subject_id, relation_type, object_id)',
+        'UNIQUE(id, relation_type)',
+        'FOREIGN KEY(subject_id, relation_type, object_id)REFERENCES knowledge_relations(subject_id, relation_type, object_id)',
+        'CHECK(superseded_by_item_id IS NOT id)',
+      ],
+      columns: [
+        _column_48,
+        _column_49,
+        _column_50,
+        _column_51,
+        _column_52,
+        _column_53,
+        _column_54,
+        _column_55,
+        _column_56,
+        _column_57,
+        _column_58,
+        _column_59,
+      ],
+      attachedDatabase: database,
+    ),
+    alias: null,
+  );
+  final i1.Index knowledgeItemsByObject = i1.Index(
+    'knowledge_items_by_object',
+    'CREATE INDEX knowledge_items_by_object ON knowledge_items (object_id)',
+  );
+  final i1.Index knowledgeItemsByDomain = i1.Index(
+    'knowledge_items_by_domain',
+    'CREATE INDEX knowledge_items_by_domain ON knowledge_items (domain_id)',
+  );
+  late final Shape13 knowledgeItemPrerequisites = Shape13(
+    source: i0.VersionedTable(
+      entityName: 'knowledge_item_prerequisites',
+      withoutRowId: false,
+      isStrict: false,
+      tableConstraints: [
+        'PRIMARY KEY(knowledge_item_id, prerequisite_item_id)',
+        'CHECK(knowledge_item_id <> prerequisite_item_id)',
+      ],
+      columns: [_column_60, _column_61],
+      attachedDatabase: database,
+    ),
+    alias: null,
+  );
+  final i1.Index knowledgeItemPrerequisitesByPrerequisite = i1.Index(
+    'knowledge_item_prerequisites_by_prerequisite',
+    'CREATE INDEX knowledge_item_prerequisites_by_prerequisite ON knowledge_item_prerequisites (prerequisite_item_id)',
+  );
+  late final Shape14 certificationKnowledgeMappings = Shape14(
+    source: i0.VersionedTable(
+      entityName: 'certification_knowledge_mappings',
+      withoutRowId: false,
+      isStrict: false,
+      tableConstraints: ['PRIMARY KEY(certification_id, knowledge_item_id)'],
+      columns: [_column_62, _column_60, _column_63, _column_64, _column_65],
+      attachedDatabase: database,
+    ),
+    alias: null,
+  );
+  final i1.Index certificationKnowledgeMappingsByItem = i1.Index(
+    'certification_knowledge_mappings_by_item',
+    'CREATE INDEX certification_knowledge_mappings_by_item ON certification_knowledge_mappings (knowledge_item_id)',
+  );
+  late final Shape15 sourceCitations = Shape15(
+    source: i0.VersionedTable(
+      entityName: 'source_citations',
+      withoutRowId: false,
+      isStrict: false,
+      tableConstraints: [],
+      columns: [
+        _column_66,
+        _column_67,
+        _column_68,
+        _column_69,
+        _column_70,
+        _column_71,
+        _column_72,
+        _column_73,
+        _column_74,
+        _column_75,
+        _column_76,
+      ],
+      attachedDatabase: database,
+    ),
+    alias: null,
+  );
+  late final Shape16 knowledgeItemCitations = Shape16(
+    source: i0.VersionedTable(
+      entityName: 'knowledge_item_citations',
+      withoutRowId: false,
+      isStrict: false,
+      tableConstraints: ['PRIMARY KEY(knowledge_item_id, source_citation_id)'],
+      columns: [_column_60, _column_77, _column_78],
+      attachedDatabase: database,
+    ),
+    alias: null,
+  );
+  final i1.Index knowledgeItemCitationsBySource = i1.Index(
+    'knowledge_item_citations_by_source',
+    'CREATE INDEX knowledge_item_citations_by_source ON knowledge_item_citations (source_citation_id)',
+  );
+  late final Shape17 questionTemplates = Shape17(
+    source: i0.VersionedTable(
+      entityName: 'question_templates',
+      withoutRowId: false,
+      isStrict: false,
+      tableConstraints: [
+        'UNIQUE(relation_type, direction, mode, variant, locale)',
+        'UNIQUE(id, relation_type)',
+      ],
+      columns: [
+        _column_79,
+        _column_29,
+        _column_80,
+        _column_81,
+        _column_82,
+        _column_83,
+        _column_84,
+        _column_85,
+      ],
+      attachedDatabase: database,
+    ),
+    alias: null,
+  );
+  late final Shape18 tastingGridAttributes = Shape18(
+    source: i0.VersionedTable(
+      entityName: 'tasting_grid_attributes',
+      withoutRowId: false,
+      isStrict: false,
+      tableConstraints: [
+        'PRIMARY KEY(tasting_grid_id, attribute_key)',
+        'UNIQUE(tasting_grid_id, position)',
+      ],
+      columns: [
+        _column_86,
+        _column_87,
+        _column_88,
+        _column_20,
+        _column_89,
+        _column_90,
+        _column_91,
+      ],
+      attachedDatabase: database,
+    ),
+    alias: null,
+  );
+  late final Shape19 tastingGridValues = Shape19(
+    source: i0.VersionedTable(
+      entityName: 'tasting_grid_values',
+      withoutRowId: false,
+      isStrict: false,
+      tableConstraints: [
+        'PRIMARY KEY(tasting_grid_id, attribute_key, value_key)',
+        'UNIQUE(tasting_grid_id, attribute_key, position)',
+        'FOREIGN KEY(tasting_grid_id, attribute_key)REFERENCES tasting_grid_attributes(tasting_grid_id, attribute_key)',
+      ],
+      columns: [
+        _column_92,
+        _column_93,
+        _column_94,
+        _column_20,
+        _column_89,
+        _column_95,
+      ],
+      attachedDatabase: database,
+    ),
+    alias: null,
+  );
+  late final Shape20 relationSetAssertions = Shape20(
+    source: i0.VersionedTable(
+      entityName: 'relation_set_assertions',
+      withoutRowId: false,
+      isStrict: false,
+      tableConstraints: [
+        'PRIMARY KEY(node_id, relation_type, direction, member_node_type, valid_from)',
+        'CHECK(valid_until IS NULL OR valid_until > valid_from)',
+      ],
+      columns: [
+        _column_96,
+        _column_29,
+        _column_80,
+        _column_97,
+        _column_47,
+        _column_37,
+        _column_77,
+        _column_78,
+      ],
+      attachedDatabase: database,
+    ),
+    alias: null,
+  );
+  late final Shape21 mapLayers = Shape21(
+    source: i0.VersionedTable(
+      entityName: 'map_layers',
+      withoutRowId: false,
+      isStrict: false,
+      tableConstraints: [
+        'CHECK(max_zoom > min_zoom)',
+        'CHECK(parent_layer_id IS NOT id)',
+      ],
+      columns: [
+        _column_98,
+        _column_7,
+        _column_99,
+        _column_100,
+        _column_101,
+        _column_102,
+        _column_103,
+        _column_104,
+      ],
+      attachedDatabase: database,
+    ),
+    alias: null,
+  );
+  late final Shape22 mapLayerCitations = Shape22(
+    source: i0.VersionedTable(
+      entityName: 'map_layer_citations',
+      withoutRowId: false,
+      isStrict: false,
+      tableConstraints: [
+        'PRIMARY KEY(map_layer_id, source_citation_id)',
+        'UNIQUE(map_layer_id, position)',
+      ],
+      columns: [_column_105, _column_77, _column_106],
+      attachedDatabase: database,
+    ),
+    alias: null,
+  );
+  late final Shape23 nodeGeometries = Shape23(
+    source: i0.VersionedTable(
+      entityName: 'node_geometries',
+      withoutRowId: false,
+      isStrict: false,
+      tableConstraints: [
+        'PRIMARY KEY(knowledge_node_id, map_layer_id)',
+        'UNIQUE(map_layer_id, feature_key)',
+        'CHECK(min_lon <= max_lon AND min_lat <= max_lat)',
+        'CHECK(label_lon BETWEEN min_lon AND max_lon AND label_lat BETWEEN min_lat AND max_lat)',
+      ],
+      columns: [
+        _column_43,
+        _column_105,
+        _column_107,
+        _column_108,
+        _column_109,
+        _column_110,
+        _column_111,
+        _column_112,
+        _column_113,
+      ],
+      attachedDatabase: database,
+    ),
+    alias: null,
+  );
+  late final Shape24 questions = Shape24(
+    source: i0.VersionedTable(
+      entityName: 'questions',
+      withoutRowId: false,
+      isStrict: false,
+      tableConstraints: [
+        'PRIMARY KEY(knowledge_item_id, question_template_id)',
+        'FOREIGN KEY(knowledge_item_id, relation_type)REFERENCES knowledge_items(id, relation_type)',
+        'FOREIGN KEY(question_template_id, relation_type)REFERENCES question_templates(id, relation_type)',
+      ],
+      columns: [_column_114, _column_115, _column_50, _column_116],
+      attachedDatabase: database,
+    ),
+    alias: null,
+  );
+  late final Shape25 questionDistractors = Shape25(
+    source: i0.VersionedTable(
+      entityName: 'question_distractors',
+      withoutRowId: false,
+      isStrict: false,
+      tableConstraints: [
+        'PRIMARY KEY(knowledge_item_id, question_template_id, knowledge_node_id)',
+        'FOREIGN KEY(knowledge_item_id, question_template_id)REFERENCES questions(knowledge_item_id, question_template_id)ON DELETE CASCADE',
+      ],
+      columns: [_column_114, _column_115, _column_43, _column_117],
+      attachedDatabase: database,
+    ),
+    alias: null,
+  );
+  late final Shape26 exercisePools = Shape26(
+    source: i0.VersionedTable(
+      entityName: 'exercise_pools',
+      withoutRowId: false,
+      isStrict: false,
+      tableConstraints: [],
+      columns: [_column_118, _column_119, _column_120, _column_116],
+      attachedDatabase: database,
+    ),
+    alias: null,
+  );
+  final i1.Index exercisePoolsByTemplate = i1.Index(
+    'exercise_pools_by_template',
+    'CREATE INDEX exercise_pools_by_template ON exercise_pools (question_template_id)',
+  );
+  late final Shape27 exercisePoolItems = Shape27(
+    source: i0.VersionedTable(
+      entityName: 'exercise_pool_items',
+      withoutRowId: false,
+      isStrict: false,
+      tableConstraints: [
+        'PRIMARY KEY(exercise_pool_id, knowledge_item_id)',
+        'UNIQUE(exercise_pool_id, rank)',
+      ],
+      columns: [_column_121, _column_60, _column_122],
+      attachedDatabase: database,
+    ),
+    alias: null,
+  );
+  final i1.Index exercisePoolItemsByItem = i1.Index(
+    'exercise_pool_items_by_item',
+    'CREATE INDEX exercise_pool_items_by_item ON exercise_pool_items (knowledge_item_id)',
+  );
+  late final Shape28 userProfiles = Shape28(
+    source: i0.VersionedTable(
+      entityName: 'user_profiles',
+      withoutRowId: false,
+      isStrict: false,
+      tableConstraints: [
+        'CHECK(new_items_per_session <= session_size)',
+        'CHECK(unixepoch(updated_at, \'subsec\') >= unixepoch(created_at, \'subsec\'))',
+      ],
+      columns: [
+        _column_0,
+        _column_123,
+        _column_124,
+        _column_125,
+        _column_126,
+        _column_127,
+      ],
+      attachedDatabase: database,
+    ),
+    alias: null,
+  );
+  late final Shape29 schedulerConfigs = Shape29(
+    source: i0.VersionedTable(
+      entityName: 'scheduler_configs',
+      withoutRowId: false,
+      isStrict: false,
+      tableConstraints: [],
+      columns: [
+        _column_128,
+        _column_129,
+        _column_130,
+        _column_131,
+        _column_132,
+        _column_133,
+        _column_134,
+        _column_126,
+      ],
+      attachedDatabase: database,
+    ),
+    alias: null,
+  );
+  late final Shape30 reviewStates = Shape30(
+    source: i0.VersionedTable(
+      entityName: 'review_states',
+      withoutRowId: false,
+      isStrict: false,
+      tableConstraints: [
+        'CHECK((state = 2)=(step IS NULL))',
+        'CHECK(lapses < reps)',
+        'CHECK(unixepoch(due, \'subsec\') > unixepoch(last_review, \'subsec\'))',
+      ],
+      columns: [
+        _column_135,
+        _column_136,
+        _column_137,
+        _column_138,
+        _column_139,
+        _column_140,
+        _column_141,
+        _column_142,
+        _column_143,
+      ],
+      attachedDatabase: database,
+    ),
+    alias: null,
+  );
+  final i1.Index reviewStatesByDue = i1.Index(
+    'review_states_by_due',
+    'CREATE INDEX review_states_by_due ON review_states (due)',
+  );
+  late final Shape31 reviewEvents = Shape31(
+    source: i0.VersionedTable(
+      entityName: 'review_events',
+      withoutRowId: false,
+      isStrict: false,
+      tableConstraints: [
+        'CHECK((state_after = 2)=(step_after IS NULL))',
+        'CHECK(unixepoch(due_after, \'subsec\') > unixepoch(reviewed_at, \'subsec\'))',
+      ],
+      columns: [
+        _column_144,
+        _column_60,
+        _column_119,
+        _column_145,
+        _column_146,
+        _column_147,
+        _column_148,
+        _column_149,
+        _column_150,
+        _column_151,
+        _column_152,
+        _column_153,
+        _column_154,
+        _column_155,
+        _column_156,
+        _column_157,
+      ],
+      attachedDatabase: database,
+    ),
+    alias: null,
+  );
+  final i1.Index reviewEventsByItem = i1.Index(
+    'review_events_by_item',
+    'CREATE INDEX review_events_by_item ON review_events (knowledge_item_id, reviewed_at)',
+  );
+  final i1.Index reviewEventsByTime = i1.Index(
+    'review_events_by_time',
+    'CREATE INDEX review_events_by_time ON review_events (reviewed_at)',
+  );
+  final i1.Index reviewEventsByExercise = i1.Index(
+    'review_events_by_exercise',
+    'CREATE INDEX review_events_by_exercise ON review_events (exercise_id) WHERE exercise_id IS NOT NULL',
+  );
+  late final Shape32 reviewEventOptions = Shape32(
+    source: i0.VersionedTable(
+      entityName: 'review_event_options',
+      withoutRowId: false,
+      isStrict: false,
+      tableConstraints: [
+        'PRIMARY KEY(review_event_id, position)',
+        'UNIQUE(review_event_id, knowledge_node_id)',
+      ],
+      columns: [_column_158, _column_106, _column_43],
+      attachedDatabase: database,
+    ),
+    alias: null,
+  );
+  final i1.Trigger reviewEventsAppendOnlyUpdate = i1.Trigger(
+    'CREATE TRIGGER review_events_append_only_update BEFORE UPDATE ON review_events BEGIN SELECT RAISE (ABORT, \'review_events is append-only\');END',
+    'review_events_append_only_update',
+  );
+  final i1.Trigger reviewEventsAppendOnlyDelete = i1.Trigger(
+    'CREATE TRIGGER review_events_append_only_delete BEFORE DELETE ON review_events WHEN NOT EXISTS (SELECT 1 FROM user_data_rewrites) BEGIN SELECT RAISE (ABORT, \'review_events is append-only\');END',
+    'review_events_append_only_delete',
+  );
+  final i1.Trigger reviewEventOptionsAppendOnlyUpdate = i1.Trigger(
+    'CREATE TRIGGER review_event_options_append_only_update BEFORE UPDATE ON review_event_options BEGIN SELECT RAISE (ABORT, \'review_event_options is append-only\');END',
+    'review_event_options_append_only_update',
+  );
+  final i1.Trigger reviewEventOptionsAppendOnlyDelete = i1.Trigger(
+    'CREATE TRIGGER review_event_options_append_only_delete BEFORE DELETE ON review_event_options WHEN NOT EXISTS (SELECT 1 FROM user_data_rewrites) BEGIN SELECT RAISE (ABORT, \'review_event_options is append-only\');END',
+    'review_event_options_append_only_delete',
+  );
+  late final Shape37 userSettings = Shape37(
+    source: i0.VersionedTable(
+      entityName: 'user_settings',
+      withoutRowId: false,
+      isStrict: false,
+      tableConstraints: [],
+      columns: [_column_177, _column_178, _column_127],
+      attachedDatabase: database,
+    ),
+    alias: null,
+  );
+  late final Shape38 questionFlags = Shape38(
+    source: i0.VersionedTable(
+      entityName: 'question_flags',
+      withoutRowId: false,
+      isStrict: false,
+      tableConstraints: [],
+      columns: [
+        _column_144,
+        _column_60,
+        _column_179,
+        _column_180,
+        _column_181,
+        _column_126,
+      ],
+      attachedDatabase: database,
+    ),
+    alias: null,
+  );
+  final i1.Index questionFlagsByItem = i1.Index(
+    'question_flags_by_item',
+    'CREATE INDEX question_flags_by_item ON question_flags (knowledge_item_id)',
+  );
+  late final Shape33 wineJournalEntries = Shape33(
+    source: i0.VersionedTable(
+      entityName: 'wine_journal_entries',
+      withoutRowId: false,
+      isStrict: false,
+      tableConstraints: [
+        'CHECK(NOT(is_non_vintage = 1 AND vintage IS NOT NULL))',
+        'CHECK(unixepoch(updated_at, \'subsec\') >= unixepoch(created_at, \'subsec\'))',
+      ],
+      columns: [
+        _column_144,
+        _column_159,
+        _column_160,
+        _column_161,
+        _column_162,
+        _column_163,
+        _column_164,
+        _column_165,
+        _column_166,
+        _column_167,
+        _column_168,
+        _column_169,
+        _column_126,
+        _column_127,
+      ],
+      attachedDatabase: database,
+    ),
+    alias: null,
+  );
+  final i1.Index wineJournalEntriesByTastedOn = i1.Index(
+    'wine_journal_entries_by_tasted_on',
+    'CREATE INDEX wine_journal_entries_by_tasted_on ON wine_journal_entries (tasted_on)',
+  );
+  late final Shape34 wineJournalEntryNodes = Shape34(
+    source: i0.VersionedTable(
+      entityName: 'wine_journal_entry_nodes',
+      withoutRowId: false,
+      isStrict: false,
+      tableConstraints: [
+        'PRIMARY KEY(wine_journal_entry_id, knowledge_node_id)',
+      ],
+      columns: [_column_170, _column_43],
+      attachedDatabase: database,
+    ),
+    alias: null,
+  );
+  final i1.Index wineJournalEntryNodesByNode = i1.Index(
+    'wine_journal_entry_nodes_by_node',
+    'CREATE INDEX wine_journal_entry_nodes_by_node ON wine_journal_entry_nodes (knowledge_node_id)',
+  );
+  late final Shape35 tastingSessions = Shape35(
+    source: i0.VersionedTable(
+      entityName: 'tasting_sessions',
+      withoutRowId: false,
+      isStrict: false,
+      tableConstraints: [
+        'UNIQUE(id, tasting_grid_id)',
+        'CHECK(completed_at IS NULL OR unixepoch(completed_at, \'subsec\') >= unixepoch(started_at, \'subsec\'))',
+      ],
+      columns: [
+        _column_144,
+        _column_86,
+        _column_171,
+        _column_172,
+        _column_1,
+        _column_173,
+        _column_174,
+      ],
+      attachedDatabase: database,
+    ),
+    alias: null,
+  );
+  final i1.Index tastingSessionsByStartedAt = i1.Index(
+    'tasting_sessions_by_started_at',
+    'CREATE INDEX tasting_sessions_by_started_at ON tasting_sessions (started_at)',
+  );
+  final i1.Index tastingSessionsByJournalEntry = i1.Index(
+    'tasting_sessions_by_journal_entry',
+    'CREATE INDEX tasting_sessions_by_journal_entry ON tasting_sessions (wine_journal_entry_id)',
+  );
+  late final Shape36 tastingDescriptors = Shape36(
+    source: i0.VersionedTable(
+      entityName: 'tasting_descriptors',
+      withoutRowId: false,
+      isStrict: false,
+      tableConstraints: [
+        'PRIMARY KEY(tasting_session_id, attribute_key, value_key)',
+        'FOREIGN KEY(tasting_session_id, tasting_grid_id)REFERENCES tasting_sessions(id, tasting_grid_id)ON DELETE CASCADE',
+        'FOREIGN KEY(tasting_grid_id, attribute_key, value_key)REFERENCES tasting_grid_values(tasting_grid_id, attribute_key, value_key)',
+      ],
+      columns: [_column_175, _column_92, _column_93, _column_176],
+      attachedDatabase: database,
+    ),
+    alias: null,
+  );
+  final i1.Trigger tastingDescriptorsSingleSelection = i1.Trigger(
+    'CREATE TRIGGER tasting_descriptors_single_selection BEFORE INSERT ON tasting_descriptors WHEN (SELECT selection FROM tasting_grid_attributes WHERE tasting_grid_id = NEW.tasting_grid_id AND attribute_key = NEW.attribute_key) = \'single\' AND EXISTS (SELECT 1 FROM tasting_descriptors WHERE tasting_session_id = NEW.tasting_session_id AND attribute_key = NEW.attribute_key) BEGIN SELECT RAISE (ABORT, \'attribute accepts a single value\');END',
+    'tasting_descriptors_single_selection',
+  );
+  final i1.Trigger curriculumReleasesReadOnlyInsert = i1.Trigger(
+    'CREATE TRIGGER curriculum_releases_read_only_insert BEFORE INSERT ON curriculum_releases WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'curriculum_releases_read_only_insert',
+  );
+  final i1.Trigger curriculumReleasesReadOnlyUpdate = i1.Trigger(
+    'CREATE TRIGGER curriculum_releases_read_only_update BEFORE UPDATE ON curriculum_releases WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'curriculum_releases_read_only_update',
+  );
+  final i1.Trigger curriculumReleasesReadOnlyDelete = i1.Trigger(
+    'CREATE TRIGGER curriculum_releases_read_only_delete BEFORE DELETE ON curriculum_releases WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'curriculum_releases_read_only_delete',
+  );
+  final i1.Trigger curriculumDomainsReadOnlyInsert = i1.Trigger(
+    'CREATE TRIGGER curriculum_domains_read_only_insert BEFORE INSERT ON curriculum_domains WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'curriculum_domains_read_only_insert',
+  );
+  final i1.Trigger curriculumDomainsReadOnlyUpdate = i1.Trigger(
+    'CREATE TRIGGER curriculum_domains_read_only_update BEFORE UPDATE ON curriculum_domains WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'curriculum_domains_read_only_update',
+  );
+  final i1.Trigger curriculumDomainsReadOnlyDelete = i1.Trigger(
+    'CREATE TRIGGER curriculum_domains_read_only_delete BEFORE DELETE ON curriculum_domains WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'curriculum_domains_read_only_delete',
+  );
+  final i1.Trigger tastingGridsReadOnlyInsert = i1.Trigger(
+    'CREATE TRIGGER tasting_grids_read_only_insert BEFORE INSERT ON tasting_grids WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'tasting_grids_read_only_insert',
+  );
+  final i1.Trigger tastingGridsReadOnlyUpdate = i1.Trigger(
+    'CREATE TRIGGER tasting_grids_read_only_update BEFORE UPDATE ON tasting_grids WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'tasting_grids_read_only_update',
+  );
+  final i1.Trigger tastingGridsReadOnlyDelete = i1.Trigger(
+    'CREATE TRIGGER tasting_grids_read_only_delete BEFORE DELETE ON tasting_grids WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'tasting_grids_read_only_delete',
+  );
+  final i1.Trigger certificationsReadOnlyInsert = i1.Trigger(
+    'CREATE TRIGGER certifications_read_only_insert BEFORE INSERT ON certifications WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'certifications_read_only_insert',
+  );
+  final i1.Trigger certificationsReadOnlyUpdate = i1.Trigger(
+    'CREATE TRIGGER certifications_read_only_update BEFORE UPDATE ON certifications WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'certifications_read_only_update',
+  );
+  final i1.Trigger certificationsReadOnlyDelete = i1.Trigger(
+    'CREATE TRIGGER certifications_read_only_delete BEFORE DELETE ON certifications WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'certifications_read_only_delete',
+  );
+  final i1.Trigger nodeTypesReadOnlyInsert = i1.Trigger(
+    'CREATE TRIGGER node_types_read_only_insert BEFORE INSERT ON node_types WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'node_types_read_only_insert',
+  );
+  final i1.Trigger nodeTypesReadOnlyUpdate = i1.Trigger(
+    'CREATE TRIGGER node_types_read_only_update BEFORE UPDATE ON node_types WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'node_types_read_only_update',
+  );
+  final i1.Trigger nodeTypesReadOnlyDelete = i1.Trigger(
+    'CREATE TRIGGER node_types_read_only_delete BEFORE DELETE ON node_types WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'node_types_read_only_delete',
+  );
+  final i1.Trigger relationTypesReadOnlyInsert = i1.Trigger(
+    'CREATE TRIGGER relation_types_read_only_insert BEFORE INSERT ON relation_types WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'relation_types_read_only_insert',
+  );
+  final i1.Trigger relationTypesReadOnlyUpdate = i1.Trigger(
+    'CREATE TRIGGER relation_types_read_only_update BEFORE UPDATE ON relation_types WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'relation_types_read_only_update',
+  );
+  final i1.Trigger relationTypesReadOnlyDelete = i1.Trigger(
+    'CREATE TRIGGER relation_types_read_only_delete BEFORE DELETE ON relation_types WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'relation_types_read_only_delete',
+  );
+  final i1.Trigger relationTypeSignaturesReadOnlyInsert = i1.Trigger(
+    'CREATE TRIGGER relation_type_signatures_read_only_insert BEFORE INSERT ON relation_type_signatures WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'relation_type_signatures_read_only_insert',
+  );
+  final i1.Trigger relationTypeSignaturesReadOnlyUpdate = i1.Trigger(
+    'CREATE TRIGGER relation_type_signatures_read_only_update BEFORE UPDATE ON relation_type_signatures WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'relation_type_signatures_read_only_update',
+  );
+  final i1.Trigger relationTypeSignaturesReadOnlyDelete = i1.Trigger(
+    'CREATE TRIGGER relation_type_signatures_read_only_delete BEFORE DELETE ON relation_type_signatures WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'relation_type_signatures_read_only_delete',
+  );
+  final i1.Trigger knowledgeNodesReadOnlyInsert = i1.Trigger(
+    'CREATE TRIGGER knowledge_nodes_read_only_insert BEFORE INSERT ON knowledge_nodes WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'knowledge_nodes_read_only_insert',
+  );
+  final i1.Trigger knowledgeNodesReadOnlyUpdate = i1.Trigger(
+    'CREATE TRIGGER knowledge_nodes_read_only_update BEFORE UPDATE ON knowledge_nodes WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'knowledge_nodes_read_only_update',
+  );
+  final i1.Trigger knowledgeNodesReadOnlyDelete = i1.Trigger(
+    'CREATE TRIGGER knowledge_nodes_read_only_delete BEFORE DELETE ON knowledge_nodes WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'knowledge_nodes_read_only_delete',
+  );
+  final i1.Trigger quantityValuesReadOnlyInsert = i1.Trigger(
+    'CREATE TRIGGER quantity_values_read_only_insert BEFORE INSERT ON quantity_values WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'quantity_values_read_only_insert',
+  );
+  final i1.Trigger quantityValuesReadOnlyUpdate = i1.Trigger(
+    'CREATE TRIGGER quantity_values_read_only_update BEFORE UPDATE ON quantity_values WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'quantity_values_read_only_update',
+  );
+  final i1.Trigger quantityValuesReadOnlyDelete = i1.Trigger(
+    'CREATE TRIGGER quantity_values_read_only_delete BEFORE DELETE ON quantity_values WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'quantity_values_read_only_delete',
+  );
+  final i1.Trigger nodeAlternativeNamesReadOnlyInsert = i1.Trigger(
+    'CREATE TRIGGER node_alternative_names_read_only_insert BEFORE INSERT ON node_alternative_names WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'node_alternative_names_read_only_insert',
+  );
+  final i1.Trigger nodeAlternativeNamesReadOnlyUpdate = i1.Trigger(
+    'CREATE TRIGGER node_alternative_names_read_only_update BEFORE UPDATE ON node_alternative_names WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'node_alternative_names_read_only_update',
+  );
+  final i1.Trigger nodeAlternativeNamesReadOnlyDelete = i1.Trigger(
+    'CREATE TRIGGER node_alternative_names_read_only_delete BEFORE DELETE ON node_alternative_names WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'node_alternative_names_read_only_delete',
+  );
+  final i1.Trigger knowledgeRelationsReadOnlyInsert = i1.Trigger(
+    'CREATE TRIGGER knowledge_relations_read_only_insert BEFORE INSERT ON knowledge_relations WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'knowledge_relations_read_only_insert',
+  );
+  final i1.Trigger knowledgeRelationsReadOnlyUpdate = i1.Trigger(
+    'CREATE TRIGGER knowledge_relations_read_only_update BEFORE UPDATE ON knowledge_relations WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'knowledge_relations_read_only_update',
+  );
+  final i1.Trigger knowledgeRelationsReadOnlyDelete = i1.Trigger(
+    'CREATE TRIGGER knowledge_relations_read_only_delete BEFORE DELETE ON knowledge_relations WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'knowledge_relations_read_only_delete',
+  );
+  final i1.Trigger knowledgeItemsReadOnlyInsert = i1.Trigger(
+    'CREATE TRIGGER knowledge_items_read_only_insert BEFORE INSERT ON knowledge_items WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'knowledge_items_read_only_insert',
+  );
+  final i1.Trigger knowledgeItemsReadOnlyUpdate = i1.Trigger(
+    'CREATE TRIGGER knowledge_items_read_only_update BEFORE UPDATE ON knowledge_items WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'knowledge_items_read_only_update',
+  );
+  final i1.Trigger knowledgeItemsReadOnlyDelete = i1.Trigger(
+    'CREATE TRIGGER knowledge_items_read_only_delete BEFORE DELETE ON knowledge_items WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'knowledge_items_read_only_delete',
+  );
+  final i1.Trigger knowledgeItemPrerequisitesReadOnlyInsert = i1.Trigger(
+    'CREATE TRIGGER knowledge_item_prerequisites_read_only_insert BEFORE INSERT ON knowledge_item_prerequisites WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'knowledge_item_prerequisites_read_only_insert',
+  );
+  final i1.Trigger knowledgeItemPrerequisitesReadOnlyUpdate = i1.Trigger(
+    'CREATE TRIGGER knowledge_item_prerequisites_read_only_update BEFORE UPDATE ON knowledge_item_prerequisites WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'knowledge_item_prerequisites_read_only_update',
+  );
+  final i1.Trigger knowledgeItemPrerequisitesReadOnlyDelete = i1.Trigger(
+    'CREATE TRIGGER knowledge_item_prerequisites_read_only_delete BEFORE DELETE ON knowledge_item_prerequisites WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'knowledge_item_prerequisites_read_only_delete',
+  );
+  final i1.Trigger certificationKnowledgeMappingsReadOnlyInsert = i1.Trigger(
+    'CREATE TRIGGER certification_knowledge_mappings_read_only_insert BEFORE INSERT ON certification_knowledge_mappings WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'certification_knowledge_mappings_read_only_insert',
+  );
+  final i1.Trigger certificationKnowledgeMappingsReadOnlyUpdate = i1.Trigger(
+    'CREATE TRIGGER certification_knowledge_mappings_read_only_update BEFORE UPDATE ON certification_knowledge_mappings WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'certification_knowledge_mappings_read_only_update',
+  );
+  final i1.Trigger certificationKnowledgeMappingsReadOnlyDelete = i1.Trigger(
+    'CREATE TRIGGER certification_knowledge_mappings_read_only_delete BEFORE DELETE ON certification_knowledge_mappings WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'certification_knowledge_mappings_read_only_delete',
+  );
+  final i1.Trigger sourceCitationsReadOnlyInsert = i1.Trigger(
+    'CREATE TRIGGER source_citations_read_only_insert BEFORE INSERT ON source_citations WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'source_citations_read_only_insert',
+  );
+  final i1.Trigger sourceCitationsReadOnlyUpdate = i1.Trigger(
+    'CREATE TRIGGER source_citations_read_only_update BEFORE UPDATE ON source_citations WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'source_citations_read_only_update',
+  );
+  final i1.Trigger sourceCitationsReadOnlyDelete = i1.Trigger(
+    'CREATE TRIGGER source_citations_read_only_delete BEFORE DELETE ON source_citations WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'source_citations_read_only_delete',
+  );
+  final i1.Trigger knowledgeItemCitationsReadOnlyInsert = i1.Trigger(
+    'CREATE TRIGGER knowledge_item_citations_read_only_insert BEFORE INSERT ON knowledge_item_citations WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'knowledge_item_citations_read_only_insert',
+  );
+  final i1.Trigger knowledgeItemCitationsReadOnlyUpdate = i1.Trigger(
+    'CREATE TRIGGER knowledge_item_citations_read_only_update BEFORE UPDATE ON knowledge_item_citations WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'knowledge_item_citations_read_only_update',
+  );
+  final i1.Trigger knowledgeItemCitationsReadOnlyDelete = i1.Trigger(
+    'CREATE TRIGGER knowledge_item_citations_read_only_delete BEFORE DELETE ON knowledge_item_citations WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'knowledge_item_citations_read_only_delete',
+  );
+  final i1.Trigger questionTemplatesReadOnlyInsert = i1.Trigger(
+    'CREATE TRIGGER question_templates_read_only_insert BEFORE INSERT ON question_templates WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'question_templates_read_only_insert',
+  );
+  final i1.Trigger questionTemplatesReadOnlyUpdate = i1.Trigger(
+    'CREATE TRIGGER question_templates_read_only_update BEFORE UPDATE ON question_templates WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'question_templates_read_only_update',
+  );
+  final i1.Trigger questionTemplatesReadOnlyDelete = i1.Trigger(
+    'CREATE TRIGGER question_templates_read_only_delete BEFORE DELETE ON question_templates WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'question_templates_read_only_delete',
+  );
+  final i1.Trigger tastingGridAttributesReadOnlyInsert = i1.Trigger(
+    'CREATE TRIGGER tasting_grid_attributes_read_only_insert BEFORE INSERT ON tasting_grid_attributes WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'tasting_grid_attributes_read_only_insert',
+  );
+  final i1.Trigger tastingGridAttributesReadOnlyUpdate = i1.Trigger(
+    'CREATE TRIGGER tasting_grid_attributes_read_only_update BEFORE UPDATE ON tasting_grid_attributes WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'tasting_grid_attributes_read_only_update',
+  );
+  final i1.Trigger tastingGridAttributesReadOnlyDelete = i1.Trigger(
+    'CREATE TRIGGER tasting_grid_attributes_read_only_delete BEFORE DELETE ON tasting_grid_attributes WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'tasting_grid_attributes_read_only_delete',
+  );
+  final i1.Trigger tastingGridValuesReadOnlyInsert = i1.Trigger(
+    'CREATE TRIGGER tasting_grid_values_read_only_insert BEFORE INSERT ON tasting_grid_values WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'tasting_grid_values_read_only_insert',
+  );
+  final i1.Trigger tastingGridValuesReadOnlyUpdate = i1.Trigger(
+    'CREATE TRIGGER tasting_grid_values_read_only_update BEFORE UPDATE ON tasting_grid_values WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'tasting_grid_values_read_only_update',
+  );
+  final i1.Trigger tastingGridValuesReadOnlyDelete = i1.Trigger(
+    'CREATE TRIGGER tasting_grid_values_read_only_delete BEFORE DELETE ON tasting_grid_values WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'tasting_grid_values_read_only_delete',
+  );
+  final i1.Trigger questionsReadOnlyInsert = i1.Trigger(
+    'CREATE TRIGGER questions_read_only_insert BEFORE INSERT ON questions WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'questions_read_only_insert',
+  );
+  final i1.Trigger questionsReadOnlyUpdate = i1.Trigger(
+    'CREATE TRIGGER questions_read_only_update BEFORE UPDATE ON questions WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'questions_read_only_update',
+  );
+  final i1.Trigger questionsReadOnlyDelete = i1.Trigger(
+    'CREATE TRIGGER questions_read_only_delete BEFORE DELETE ON questions WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'questions_read_only_delete',
+  );
+  final i1.Trigger questionDistractorsReadOnlyInsert = i1.Trigger(
+    'CREATE TRIGGER question_distractors_read_only_insert BEFORE INSERT ON question_distractors WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'question_distractors_read_only_insert',
+  );
+  final i1.Trigger questionDistractorsReadOnlyUpdate = i1.Trigger(
+    'CREATE TRIGGER question_distractors_read_only_update BEFORE UPDATE ON question_distractors WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'question_distractors_read_only_update',
+  );
+  final i1.Trigger questionDistractorsReadOnlyDelete = i1.Trigger(
+    'CREATE TRIGGER question_distractors_read_only_delete BEFORE DELETE ON question_distractors WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'question_distractors_read_only_delete',
+  );
+  final i1.Trigger relationSetAssertionsReadOnlyInsert = i1.Trigger(
+    'CREATE TRIGGER relation_set_assertions_read_only_insert BEFORE INSERT ON relation_set_assertions WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'relation_set_assertions_read_only_insert',
+  );
+  final i1.Trigger relationSetAssertionsReadOnlyUpdate = i1.Trigger(
+    'CREATE TRIGGER relation_set_assertions_read_only_update BEFORE UPDATE ON relation_set_assertions WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'relation_set_assertions_read_only_update',
+  );
+  final i1.Trigger relationSetAssertionsReadOnlyDelete = i1.Trigger(
+    'CREATE TRIGGER relation_set_assertions_read_only_delete BEFORE DELETE ON relation_set_assertions WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'relation_set_assertions_read_only_delete',
+  );
+  final i1.Trigger mapLayersReadOnlyInsert = i1.Trigger(
+    'CREATE TRIGGER map_layers_read_only_insert BEFORE INSERT ON map_layers WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'map_layers_read_only_insert',
+  );
+  final i1.Trigger mapLayersReadOnlyUpdate = i1.Trigger(
+    'CREATE TRIGGER map_layers_read_only_update BEFORE UPDATE ON map_layers WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'map_layers_read_only_update',
+  );
+  final i1.Trigger mapLayersReadOnlyDelete = i1.Trigger(
+    'CREATE TRIGGER map_layers_read_only_delete BEFORE DELETE ON map_layers WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'map_layers_read_only_delete',
+  );
+  final i1.Trigger mapLayerCitationsReadOnlyInsert = i1.Trigger(
+    'CREATE TRIGGER map_layer_citations_read_only_insert BEFORE INSERT ON map_layer_citations WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'map_layer_citations_read_only_insert',
+  );
+  final i1.Trigger mapLayerCitationsReadOnlyUpdate = i1.Trigger(
+    'CREATE TRIGGER map_layer_citations_read_only_update BEFORE UPDATE ON map_layer_citations WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'map_layer_citations_read_only_update',
+  );
+  final i1.Trigger mapLayerCitationsReadOnlyDelete = i1.Trigger(
+    'CREATE TRIGGER map_layer_citations_read_only_delete BEFORE DELETE ON map_layer_citations WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'map_layer_citations_read_only_delete',
+  );
+  final i1.Trigger nodeGeometriesReadOnlyInsert = i1.Trigger(
+    'CREATE TRIGGER node_geometries_read_only_insert BEFORE INSERT ON node_geometries WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'node_geometries_read_only_insert',
+  );
+  final i1.Trigger nodeGeometriesReadOnlyUpdate = i1.Trigger(
+    'CREATE TRIGGER node_geometries_read_only_update BEFORE UPDATE ON node_geometries WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'node_geometries_read_only_update',
+  );
+  final i1.Trigger nodeGeometriesReadOnlyDelete = i1.Trigger(
+    'CREATE TRIGGER node_geometries_read_only_delete BEFORE DELETE ON node_geometries WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'node_geometries_read_only_delete',
+  );
+  final i1.Trigger exercisePoolsReadOnlyInsert = i1.Trigger(
+    'CREATE TRIGGER exercise_pools_read_only_insert BEFORE INSERT ON exercise_pools WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'exercise_pools_read_only_insert',
+  );
+  final i1.Trigger exercisePoolsReadOnlyUpdate = i1.Trigger(
+    'CREATE TRIGGER exercise_pools_read_only_update BEFORE UPDATE ON exercise_pools WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'exercise_pools_read_only_update',
+  );
+  final i1.Trigger exercisePoolsReadOnlyDelete = i1.Trigger(
+    'CREATE TRIGGER exercise_pools_read_only_delete BEFORE DELETE ON exercise_pools WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'exercise_pools_read_only_delete',
+  );
+  final i1.Trigger exercisePoolItemsReadOnlyInsert = i1.Trigger(
+    'CREATE TRIGGER exercise_pool_items_read_only_insert BEFORE INSERT ON exercise_pool_items WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'exercise_pool_items_read_only_insert',
+  );
+  final i1.Trigger exercisePoolItemsReadOnlyUpdate = i1.Trigger(
+    'CREATE TRIGGER exercise_pool_items_read_only_update BEFORE UPDATE ON exercise_pool_items WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'exercise_pool_items_read_only_update',
+  );
+  final i1.Trigger exercisePoolItemsReadOnlyDelete = i1.Trigger(
+    'CREATE TRIGGER exercise_pool_items_read_only_delete BEFORE DELETE ON exercise_pool_items WHEN NOT EXISTS (SELECT 1 FROM curriculum_ingestions) BEGIN SELECT RAISE (ABORT, \'curriculum is read-only outside ingestion\');END',
+    'exercise_pool_items_read_only_delete',
+  );
+}
+
 i0.MigrationStepWithVersion migrationSteps({
   required Future<void> Function(i1.Migrator m, Schema2 schema) from1To2,
   required Future<void> Function(i1.Migrator m, Schema3 schema) from2To3,
+  required Future<void> Function(i1.Migrator m, Schema4 schema) from3To4,
 }) {
   return (currentVersion, database) async {
     switch (currentVersion) {
@@ -4667,6 +5942,11 @@ i0.MigrationStepWithVersion migrationSteps({
         final migrator = i1.Migrator(database, schema);
         await from2To3(migrator, schema);
         return 3;
+      case 3:
+        final schema = Schema4(database: database);
+        final migrator = i1.Migrator(database, schema);
+        await from3To4(migrator, schema);
+        return 4;
       default:
         throw ArgumentError.value('Unknown migration from $currentVersion');
     }
@@ -4676,6 +5956,11 @@ i0.MigrationStepWithVersion migrationSteps({
 i1.OnUpgrade stepByStep({
   required Future<void> Function(i1.Migrator m, Schema2 schema) from1To2,
   required Future<void> Function(i1.Migrator m, Schema3 schema) from2To3,
+  required Future<void> Function(i1.Migrator m, Schema4 schema) from3To4,
 }) => i0.VersionedSchema.stepByStepHelper(
-  step: migrationSteps(from1To2: from1To2, from2To3: from2To3),
+  step: migrationSteps(
+    from1To2: from1To2,
+    from2To3: from2To3,
+    from3To4: from3To4,
+  ),
 );

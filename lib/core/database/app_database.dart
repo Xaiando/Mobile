@@ -22,13 +22,17 @@ class AppDatabase extends _$AppDatabase {
   Future<void> ensureOpen() => customSelect('SELECT 1').get();
 
   @override
-  int get schemaVersion => 3;
+  int get schemaVersion => 4;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
     // Each step builds on the schema snapshot of its version in
     // drift_schemas/, never on the current schema (audit DL-2).
-    onUpgrade: stepByStep(from1To2: _from1To2, from2To3: _from2To3),
+    onUpgrade: stepByStep(
+      from1To2: _from1To2,
+      from2To3: _from2To3,
+      from3To4: _from3To4,
+    ),
     beforeOpen: (details) async {
       // SQLite enforces foreign keys only when asked, per connection. They
       // stay off while a migration runs, so tables can be rebuilt.
@@ -105,4 +109,17 @@ Future<void> _from2To3(Migrator m, Schema3 schema) async {
   await m.createTable(schema.userSettings);
   await m.createTable(schema.questionFlags);
   await m.create(schema.questionFlagsByItem);
+}
+
+/// Schema v4 (backlog R1): the review log accepts deletions while the
+/// learner resets their progress or imports a backup (audit DL-7).
+Future<void> _from3To4(Migrator m, Schema4 schema) async {
+  await m.createTable(schema.userDataRewrites);
+  for (final trigger in [
+    schema.reviewEventsAppendOnlyDelete,
+    schema.reviewEventOptionsAppendOnlyDelete,
+  ]) {
+    await m.drop(trigger);
+    await m.create(trigger);
+  }
 }

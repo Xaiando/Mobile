@@ -2,6 +2,7 @@ import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:sommelier/core/database/app_database.dart';
 import 'package:sommelier/core/database/curriculum_writes.dart';
+import 'package:sommelier/core/database/user_data_rewrites.dart';
 
 import '../../support/fixture.dart';
 
@@ -408,6 +409,15 @@ final cases = <CrudCase>[
     whereUpdated: "started_at = '2026-01-01T09:00:01.000Z'",
     delete: ['DELETE FROM curriculum_ingestions WHERE id = 1'],
   ),
+  const CrudCase(
+    'user_data_rewrites',
+    scope: Scope.system,
+    create: ['INSERT INTO user_data_rewrites VALUES (1, $_ts)'],
+    where: 'id = 1',
+    update: "UPDATE user_data_rewrites SET started_at = '2026-01-01T09:00:01.000Z' WHERE id = 1",
+    whereUpdated: "started_at = '2026-01-01T09:00:01.000Z'",
+    delete: ['DELETE FROM user_data_rewrites WHERE id = 1'],
+  ),
   // ---- User data ----------------------------------------------------------------
   const CrudCase(
     'user_profiles',
@@ -576,7 +586,36 @@ void main() {
         .map((row) => row.read<String>('name'))
         .get();
     expect(cases.map((c) => c.table).toSet(), tables.toSet());
-    expect(tables, hasLength(39));
+    expect(tables, hasLength(40));
+  });
+
+  test('a reset or import may delete the review log, never update it '
+      '(DL-7)', () async {
+    await runSql(db, [
+      _event(9),
+      "INSERT INTO review_event_options VALUES (${_uuid(9)}, 1, 'n_grape_chardonnay')",
+    ]);
+    await db.rewriteUserData(() async {
+      await expectLater(
+        db.customStatement(
+          'UPDATE review_events SET rating = 4 WHERE id = ${_uuid(9)}',
+        ),
+        throwsA(isA<SqliteException>()),
+      );
+      await db.customStatement(
+        'DELETE FROM review_event_options WHERE review_event_id = ${_uuid(9)}',
+      );
+      await db.customStatement(
+        'DELETE FROM review_events WHERE id = ${_uuid(9)}',
+      );
+    });
+    expect(await count('review_events', 'id = ${_uuid(9)}'), 0);
+    expect(await count('user_data_rewrites', '1'), 0, reason: 'locked again');
+    await runSql(db, [_event(10)]);
+    await expectLater(
+      db.customStatement('DELETE FROM review_events WHERE id = ${_uuid(10)}'),
+      throwsA(isA<SqliteException>()),
+    );
   });
 
   for (final c in cases) {
