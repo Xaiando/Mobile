@@ -16,7 +16,7 @@ A new pack is a data change plus tests, never a new screen.
 
 ## 1. Model
 
-- **A pack is a track** (PK-2). `certifications` gains a `kind` column, `certification` or `pack` (schema v2, F2). A pack has no examining body (`organization` is null), is selectable, and may include a base track through `includes_certification_id`.
+- **A pack is a track** (PK-2). `certifications` gains a `kind` column, `certification` or `pack` (schema v2, F2). A pack has no examining body and no level (`organization` and `level` are null, PK-8), is selectable, and may include a base track through `includes_certification_id`.
 - **Mappings work as they do for certifications.** `certification_knowledge_mappings` states each item's importance (C = 1.0, 0.5 or 0.25) and its `minimum_depth`. Packs use depths 4 and 5 widely, since reasoning and deduction are their point.
 - **One active track** (PK-3). The learner studies a certification or a pack. Switching keeps every memory state (FS-12), so pack study also strengthens the certification items it shares. Studying several tracks at once, with a merged queue, is a later extension.
 - **Coverage policy per pack** (PK-4). `coverage_policy.yaml` has a section for each pack, stricter than for certifications:

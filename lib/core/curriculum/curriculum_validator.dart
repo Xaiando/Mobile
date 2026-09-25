@@ -1,5 +1,6 @@
 import 'package:drift/drift.dart' show DataClass;
 
+import '../coverage/coverage_formats.dart';
 import '../database/app_database.dart';
 import 'curriculum_dataset.dart';
 
@@ -88,6 +89,7 @@ class _Validator {
   late final items = {for (final r in d.knowledgeItems) r.id: r};
   late final citations = {for (final r in d.sourceCitations) r.id: r};
   late final relations = {for (final r in d.knowledgeRelations) _triple(r): r};
+  late final layers = {for (final r in d.mapLayers) r.id: r};
 
   static String _triple(KnowledgeRelation r) =>
       '${r.subjectId} ${r.relationType} ${r.objectId}';
@@ -109,8 +111,11 @@ class _Validator {
     _cycles();
     _certificationChains();
     _cardinality();
+    _symmetry();
     _quantities();
     _provenance();
+    _completeness();
+    _mapLayers();
     _templates();
     _report();
     return issues;
@@ -141,7 +146,7 @@ class _Validator {
     _unique('certifications', d.certifications, (r) => r.id);
     _unique(
       'certifications',
-      d.certifications,
+      d.certifications.where((r) => r.organization != null),
       (r) => '${r.organization} level ${r.level}',
     );
     _unique('node_types', d.nodeTypes, (r) => r.id);
@@ -189,7 +194,38 @@ class _Validator {
     _unique(
       'question_templates',
       d.questionTemplates,
-      (r) => '${r.relationType} ${r.direction} ${r.mode} ${r.locale}',
+      (r) =>
+          '${r.relationType} ${r.direction} ${r.mode}'
+          '${r.variant.isEmpty ? '' : ' (${r.variant})'} ${r.locale}',
+    );
+    _unique(
+      'relation_set_assertions',
+      d.relationSetAssertions,
+      (r) =>
+          '${r.nodeId} ${r.relationType} ${r.direction} '
+          '${r.memberNodeType} from ${r.validFrom}',
+    );
+    _unique('map_layers', d.mapLayers, (r) => r.id);
+    _unique('map_layers', d.mapLayers, (r) => r.assetPath);
+    _unique(
+      'map_layer_citations',
+      d.mapLayerCitations,
+      (r) => '${r.mapLayerId} ${r.sourceCitationId}',
+    );
+    _unique(
+      'map_layer_citations',
+      d.mapLayerCitations,
+      (r) => '${r.mapLayerId} position ${r.position}',
+    );
+    _unique(
+      'node_geometries',
+      d.nodeGeometries,
+      (r) => '${r.knowledgeNodeId} in ${r.mapLayerId}',
+    );
+    _unique(
+      'node_geometries',
+      d.nodeGeometries,
+      (r) => '${r.mapLayerId} feature ${r.featureKey}',
     );
 
     // Normalized names are the matching key: near-duplicates are errors.
@@ -270,6 +306,13 @@ class _Validator {
       (r) => r.id,
       RegExp(r'^qt_[a-z0-9_]+$'),
     );
+    check(
+      'question_templates',
+      d.questionTemplates,
+      (r) => r.variant,
+      RegExp(r'^[a-z0-9_]*$'),
+    );
+    check('map_layers', d.mapLayers, (r) => r.id, RegExp(r'^ml_[a-z0-9_]+$'));
   }
 
   void _references() {
@@ -415,6 +458,39 @@ class _Validator {
         _ref('question_templates', t),
       );
     }
+    for (final a in d.relationSetAssertions) {
+      final where = 'completeness assertion ${_set(a)}';
+      final row = _ref('relation_set_assertions', a);
+      refer(where, a.nodeId, nodes.keys, 'node', row);
+      refer(where, a.relationType, relationTypes.keys, 'relation type', row);
+      refer(where, a.memberNodeType, nodeTypes, 'node type', row);
+      refer(where, a.sourceCitationId, citations.keys, 'source citation', row);
+      final until = a.validUntil;
+      if (until != null && until.compareTo(a.validFrom) <= 0) {
+        error('validity', '$where ends before it starts', row: row);
+      }
+    }
+    for (final l in d.mapLayers) {
+      refer(
+        'map layer ${l.id}',
+        l.parentLayerId,
+        layers.keys,
+        'map layer',
+        _ref('map_layers', l),
+      );
+    }
+    for (final c in d.mapLayerCitations) {
+      final where = 'citation of map layer ${c.mapLayerId}';
+      final row = _ref('map_layer_citations', c);
+      refer(where, c.mapLayerId, layers.keys, 'map layer', row);
+      refer(where, c.sourceCitationId, citations.keys, 'source citation', row);
+    }
+    for (final g in d.nodeGeometries) {
+      final where = 'geometry of ${g.knowledgeNodeId} in ${g.mapLayerId}';
+      final row = _ref('node_geometries', g);
+      refer(where, g.knowledgeNodeId, nodes.keys, 'node', row);
+      refer(where, g.mapLayerId, layers.keys, 'map layer', row);
+    }
     final attributes = {
       for (final a in d.tastingGridAttributes)
         '${a.tastingGridId} ${a.attributeKey}',
@@ -498,24 +574,52 @@ class _Validator {
         if (c.includesCertificationId != null)
           c.id: [c.includesCertificationId!],
     });
+    check('map layer cycle', {
+      for (final l in d.mapLayers)
+        if (l.parentLayerId != null) l.id: [l.parentLayerId!],
+    });
   }
 
+  /// A certification has an examining body and a level, and includes only a
+  /// lower level of its own body. A study pack has neither, and may include
+  /// any track (PK-2).
   void _certificationChains() {
     for (final c in d.certifications) {
+      final row = _ref('certifications', c);
+      final isPack = c.kind == 'pack';
+      if (isPack != (c.organization == null) || isPack != (c.level == null)) {
+        error(
+          'track-kind',
+          isPack
+              ? 'pack ${c.id} has an organization or a level; a pack has '
+                    'neither'
+              : 'certification ${c.id} needs an organization and a level',
+          row: row,
+        );
+      }
       final included = certifications[c.includesCertificationId];
-      if (included == null) continue;
+      if (included == null || isPack) continue;
+      if (included.kind == 'pack') {
+        error(
+          'certification-chain',
+          '${c.id} includes the pack ${included.id}',
+          row: row,
+        );
+        continue;
+      }
       if (included.organization != c.organization) {
         error(
           'certification-chain',
           '${c.id} includes ${included.id} from another organization',
-          row: _ref('certifications', c),
+          row: row,
         );
       }
-      if (included.level >= c.level) {
+      final (level, lower) = (c.level, included.level);
+      if (level != null && lower != null && lower >= level) {
         error(
           'certification-chain',
           '${c.id} includes ${included.id}, which is not a lower level',
-          row: _ref('certifications', c),
+          row: row,
         );
       }
     }
@@ -544,6 +648,41 @@ class _Validator {
             );
           }
         }
+      }
+    }
+  }
+
+  /// A symmetric relation holds both ways, so each pair is stored once, with
+  /// the smaller node ID as its subject, and its type's signatures allow
+  /// both directions.
+  void _symmetry() {
+    final allowed = {
+      for (final s in d.relationTypeSignatures)
+        '${s.relationType} ${s.subjectNodeType} ${s.objectNodeType}',
+    };
+    for (final s in d.relationTypeSignatures) {
+      if (relationTypes[s.relationType]?.isSymmetric != true) continue;
+      if (!allowed.contains(
+        '${s.relationType} ${s.objectNodeType} ${s.subjectNodeType}',
+      )) {
+        error(
+          'symmetric-relation',
+          '${s.relationType} is symmetric, but allows ${s.subjectNodeType} '
+              '-> ${s.objectNodeType} and not ${s.objectNodeType} -> '
+              '${s.subjectNodeType}',
+          row: _ref('relation_type_signatures', s),
+        );
+      }
+    }
+    for (final r in d.knowledgeRelations) {
+      if (relationTypes[r.relationType]?.isSymmetric != true) continue;
+      if (r.subjectId.compareTo(r.objectId) > 0) {
+        error(
+          'symmetric-relation',
+          '${_triple(r)}: ${r.relationType} is symmetric, so the pair is '
+              'stored once, as ${r.objectId} ${r.relationType} ${r.subjectId}',
+          row: _ref('knowledge_relations', r),
+        );
       }
     }
   }
@@ -627,10 +766,133 @@ class _Validator {
     }
   }
 
+  static String _set(RelationSetAssertion a) =>
+      '${a.nodeId} ${a.relationType} (${a.direction}, ${a.memberNodeType})';
+
+  /// A completeness assertion (QF-8) names a set its relation type's
+  /// signatures allow, has members, and cites legislation or a register
+  /// when the relation states wine law. A symmetric relation type's set is
+  /// read both ways, so its assertions are forward.
+  void _completeness() {
+    final allowed = {
+      for (final s in d.relationTypeSignatures)
+        '${s.relationType} ${s.subjectNodeType} ${s.objectNodeType}',
+    };
+    for (final a in d.relationSetAssertions) {
+      final where = 'completeness assertion ${_set(a)}';
+      final row = _ref('relation_set_assertions', a);
+      final type = relationTypes[a.relationType];
+      final symmetric = type?.isSymmetric ?? false;
+      final forward = a.direction == 'forward';
+      if (symmetric && !forward) {
+        error(
+          'assertion-direction',
+          '$where: ${a.relationType} is symmetric, so its sets are read both '
+              'ways and asserted forward',
+          row: row,
+        );
+      }
+      final node = nodes[a.nodeId];
+      if (node != null) {
+        final (subject, object) = forward
+            ? (node.nodeType, a.memberNodeType)
+            : (a.memberNodeType, node.nodeType);
+        if (!allowed.contains('${a.relationType} $subject $object')) {
+          error(
+            'assertion-signature',
+            '$where: ${a.relationType} does not allow $subject -> $object',
+            row: row,
+          );
+        }
+      }
+      bool isMember(String? id) => nodes[id]?.nodeType == a.memberNodeType;
+      final members = [
+        for (final r in d.knowledgeRelations)
+          if (r.relationType == a.relationType &&
+              ((forward || symmetric) &&
+                      r.subjectId == a.nodeId &&
+                      isMember(r.objectId) ||
+                  (!forward || symmetric) &&
+                      r.objectId == a.nodeId &&
+                      isMember(r.subjectId)))
+            (r.validFrom, r.validUntil),
+      ];
+      // A set asserted complete must have a member on every date the
+      // assertion covers, or a format would ask for an empty set.
+      final gap = firstGap(a.validFrom, a.validUntil, members);
+      if (gap != null) {
+        error(
+          'assertion-members',
+          members.isEmpty
+              ? '$where asserts a complete set, but the curriculum holds '
+                    'none of its members'
+              : '$where asserts a complete set, but none of its members is '
+                    'in force on $gap',
+          row: row,
+        );
+      }
+      final source = citations[a.sourceCitationId];
+      if (source != null &&
+          regulatoryRelationTypes.contains(a.relationType) &&
+          source.kind != 'legislation' &&
+          source.kind != 'regulator_register') {
+        error(
+          'regulatory-citation',
+          '$where states wine law but cites no legislation or regulator '
+              'register',
+          row: row,
+        );
+      }
+    }
+  }
+
+  /// Every map layer cites its sources, each a dataset with the licence and
+  /// the attribution the map shows (GEO-5, GEO-14).
+  void _mapLayers() {
+    final cited = <String>{};
+    for (final c in d.mapLayerCitations) {
+      cited.add(c.mapLayerId);
+      final source = citations[c.sourceCitationId];
+      if (source == null) continue;
+      final lacks = [
+        if (source.kind != 'dataset') 'is a ${source.kind}, not a dataset',
+        if ((source.license ?? '').trim().isEmpty) 'has no licence',
+        if ((source.attributionText ?? '').trim().isEmpty)
+          'has no attribution text',
+      ];
+      if (lacks.isNotEmpty) {
+        error(
+          'layer-citation',
+          'map layer ${c.mapLayerId} cites ${source.id}, which '
+              '${lacks.join(' and ')}',
+          row: _ref('map_layer_citations', c),
+        );
+      }
+    }
+    for (final l in d.mapLayers) {
+      if (!cited.contains(l.id)) {
+        error(
+          'layer-citation',
+          'map layer ${l.id} cites no source',
+          row: _ref('map_layers', l),
+        );
+      }
+    }
+  }
+
   void _templates() {
     final placeholder = RegExp(r'\{[^}]*\}');
     final forward = <String>{};
     for (final t in d.questionTemplates) {
+      // The schema checks only a mode's form; the formats decide (QF-2).
+      if (!builtFormats.containsKey(t.mode)) {
+        error(
+          'template-format',
+          '${t.id} has mode "${t.mode}", which is no format; the formats '
+              'are ${builtFormats.keys.join(', ')}',
+          row: _ref('question_templates', t),
+        );
+      }
       for (final match in placeholder.allMatches(t.promptTemplate)) {
         if (!templatePlaceholders.contains(match[0])) {
           error(
@@ -683,6 +945,27 @@ class _Validator {
       );
     }
   }
+}
+
+/// The first date of [from, until) on which none of [periods] is in force,
+/// or `null` when they cover it all. Every period is [from, until) of
+/// `YYYY-MM-DD` dates, and a null end is open.
+String? firstGap(
+  String from,
+  String? until,
+  Iterable<(String, String?)> periods,
+) {
+  bool reached(String date) => until != null && date.compareTo(until) >= 0;
+  var covered = from;
+  for (final (start, end)
+      in periods.toList()..sort((a, b) => a.$1.compareTo(b.$1))) {
+    if (end != null && end.compareTo(covered) <= 0) continue;
+    if (start.compareTo(covered) > 0) break;
+    if (end == null) return null;
+    covered = end;
+    if (reached(covered)) return null;
+  }
+  return reached(covered) ? null : covered;
 }
 
 /// A cycle in a directed graph given as adjacency lists, or `null`.

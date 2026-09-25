@@ -90,6 +90,10 @@ class CurriculumIngester {
       await _upsertAuthored(dataset);
       // Generated tables are derived from the authored rows and nothing
       // references them, so they are rebuilt wholesale (domain model §2).
+      // Composite formats will generate their pools (task F3); until then
+      // there are none.
+      await db.delete(db.exercisePoolItems).go();
+      await db.delete(db.exercisePools).go();
       final generated = await QuestionGenerator(
         db,
         today: localToday(_clock),
@@ -146,6 +150,13 @@ class CurriculumIngester {
         d.tastingGridAttributes,
       );
       b.insertAllOnConflictUpdate(db.tastingGridValues, d.tastingGridValues);
+      b.insertAllOnConflictUpdate(
+        db.relationSetAssertions,
+        d.relationSetAssertions,
+      );
+      b.insertAllOnConflictUpdate(db.mapLayers, d.mapLayers);
+      b.insertAllOnConflictUpdate(db.mapLayerCitations, d.mapLayerCitations);
+      b.insertAllOnConflictUpdate(db.nodeGeometries, d.nodeGeometries);
     });
   }
 
@@ -215,6 +226,24 @@ class CurriculumIngester {
       db.tastingGridValues,
       d.tastingGridValues,
       (r) => '${r.tastingGridId} ${r.attributeKey} ${r.valueKey}',
+    );
+    await keep(
+      db.relationSetAssertions,
+      d.relationSetAssertions,
+      (r) =>
+          '${r.nodeId} ${r.relationType} ${r.direction} '
+          '${r.memberNodeType} ${r.validFrom}',
+    );
+    await keep(db.mapLayers, d.mapLayers, (r) => r.id);
+    await keep(
+      db.mapLayerCitations,
+      d.mapLayerCitations,
+      (r) => '${r.mapLayerId} ${r.sourceCitationId}',
+    );
+    await keep(
+      db.nodeGeometries,
+      d.nodeGeometries,
+      (r) => '${r.knowledgeNodeId} ${r.mapLayerId}',
     );
 
     if (removed.isNotEmpty) {

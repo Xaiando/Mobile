@@ -114,7 +114,7 @@ Two variety rules apply: never repeat the item's last format when another is ser
 
 A missing relation does not make a statement false (QG-11). Formats that assert *absence* need explicit support (QF-8):
 
-- **Completeness assertions.** Multiple response, "tap all" maps and odd-one-out need a `relation_set_assertions` row. It states that the objects recorded for (subject, relation type) are the complete set on that date, and cites the source. Example: the Champagne cahier des charges lists seven permitted varieties, so a multiple-response question may ask for all seven.
+- **Completeness assertions.** Multiple response, "tap all" maps and odd-one-out need a `relation_set_assertions` row. It states that the members recorded for a node, a relation type, a direction and a member node type are the complete set from a date, and cites the source (QF-9). A forward set is the node's objects; a reverse set, its subjects, such as the crus located in Beaujolais. Example: the Champagne cahier des charges lists seven permitted varieties, so a multiple-response question may ask for all seven.
 - **Ranked statistics.** Questions such as "the most important regions for Spätburgunder" use reified statistic nodes (`n_stat_*`) holding a planted area or a share, from a cited survey with a survey date. They never rely on a missing relation.
 - **Any correct answer counts.** A single-answer question accepts every node that satisfies the relation in any validity period. The same rule excludes such nodes as distractors (QG-4).
 - **Reasoning distractors violate a stated principle.** Absence from the graph alone never qualifies a wrong answer.
@@ -271,5 +271,6 @@ It also warns when a document was compared more than a year ago. The task that a
 
   Registering a format is one line in each registry, so format tasks can run in parallel (backlog wave plan).
 - **Generated tables.** `questions` and `question_distractors` keep serving single-item formats. `exercise_pools` and `exercise_pool_items` hold composite pools. All are rebuilt on every ingestion and read-only at runtime (QG-9).
+- **As built (F2).** A pool belongs to one template, may be scoped to a node, and carries its rendered prompt. Its items carry a `rank` when it is an ordering. Review events group a composite exercise by `exercise_id`, a UUID rather than a reference to a pool, and keep the answer in `answer_payload` (QF-10). The schema checks `question_templates.mode` only as an identifier, and `variant` and `parameters` let a format have several templates per relation type. Pools stay empty until F3 registers their generators.
 - **Session integration.** The planner still selects items (A-2). For each selected item, the ladder (§5) picks a format. A composite format draws its co-items from the item's pool, preferring due items. Graded co-items count as bonus reviews and do not use a session slot.
 - **Accessibility.** Every format has a screen-reader-usable answer mode. Map formats fall back to a list of candidate names, and ordering falls back to move-up and move-down buttons (R1).

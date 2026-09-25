@@ -33,6 +33,7 @@ class DatasetSection {
     this.defaults = const {},
     this.dates = const {},
     this.instants = const {},
+    this.json = const {},
     this.computed = const {},
   });
 
@@ -53,6 +54,9 @@ class DatasetSection {
 
   /// UTC instants, `YYYY-MM-DDTHH:MM:SS.sssZ`.
   final Set<String> instants;
+
+  /// JSON object columns: a mapping in the dataset, stored as JSON text.
+  final Set<String> json;
 
   /// Columns ingestion fills in, with their fixed value or `null` when the
   /// value is derived (`name_norm`). The dataset must not set them.
@@ -79,11 +83,18 @@ const datasetSections = <String, DatasetSection>{
     key: ['id'],
     required: {'id', 'framework', 'version', 'display_name'},
   ),
+  // A certification has an organization and a level; a pack has neither.
   'certifications': DatasetSection(
     key: ['id'],
-    required: {'id', 'organization', 'level', 'display_name'},
-    optional: {'includes_certification_id', 'default_tasting_grid_id'},
-    defaults: {'is_selectable': false},
+    required: {'id', 'display_name'},
+    optional: {
+      'organization',
+      'level',
+      'description',
+      'includes_certification_id',
+      'default_tasting_grid_id',
+    },
+    defaults: {'is_selectable': false, 'kind': 'certification'},
   ),
   'node_types': DatasetSection(key: ['id'], required: {'id', 'label'}),
   'relation_types': DatasetSection(
@@ -96,7 +107,11 @@ const datasetSections = <String, DatasetSection>{
       'default_domain_id',
     },
     optional: {'distractor_match_relation_type'},
-    defaults: {'is_transitive': false, 'is_reverse_safe': false},
+    defaults: {
+      'is_transitive': false,
+      'is_reverse_safe': false,
+      'is_symmetric': false,
+    },
   ),
   'relation_type_signatures': DatasetSection(
     key: ['relation_type', 'subject_node_type', 'object_node_type'],
@@ -181,7 +196,9 @@ const datasetSections = <String, DatasetSection>{
   'question_templates': DatasetSection(
     key: ['id'],
     required: {'id', 'relation_type', 'direction', 'mode', 'prompt_template'},
-    defaults: {'locale': 'en'},
+    optional: {'parameters'},
+    defaults: {'locale': 'en', 'variant': ''},
+    json: {'parameters'},
   ),
   'tasting_grid_attributes': DatasetSection(
     key: ['tasting_grid_id', 'attribute_key'],
@@ -205,6 +222,56 @@ const datasetSections = <String, DatasetSection>{
       'position',
     },
     optional: {'knowledge_node_id'},
+  ),
+  'relation_set_assertions': DatasetSection(
+    key: [
+      'node_id',
+      'relation_type',
+      'direction',
+      'member_node_type',
+      'valid_from',
+    ],
+    required: {
+      'node_id',
+      'relation_type',
+      'direction',
+      'member_node_type',
+      'valid_from',
+      'source_citation_id',
+    },
+    optional: {'valid_until', 'locator'},
+    dates: {'valid_from', 'valid_until'},
+  ),
+  'map_layers': DatasetSection(
+    key: ['id'],
+    required: {
+      'id',
+      'display_name',
+      'geometry_kind',
+      'asset_path',
+      'asset_sha256',
+      'min_zoom',
+      'max_zoom',
+    },
+    optional: {'parent_layer_id'},
+  ),
+  'map_layer_citations': DatasetSection(
+    key: ['map_layer_id', 'source_citation_id'],
+    required: {'map_layer_id', 'source_citation_id', 'position'},
+  ),
+  'node_geometries': DatasetSection(
+    key: ['knowledge_node_id', 'map_layer_id'],
+    required: {
+      'knowledge_node_id',
+      'map_layer_id',
+      'feature_key',
+      'min_lon',
+      'min_lat',
+      'max_lon',
+      'max_lat',
+      'label_lon',
+      'label_lat',
+    },
   ),
 };
 
@@ -302,6 +369,10 @@ class CurriculumDataset {
     required this.questionTemplates,
     required this.tastingGridAttributes,
     required this.tastingGridValues,
+    required this.relationSetAssertions,
+    required this.mapLayers,
+    required this.mapLayerCitations,
+    required this.nodeGeometries,
     this.files = const [],
     this.locations = const {},
   });
@@ -390,6 +461,10 @@ class CurriculumDataset {
   final List<QuestionTemplate> questionTemplates;
   final List<TastingGridAttribute> tastingGridAttributes;
   final List<TastingGridValue> tastingGridValues;
+  final List<RelationSetAssertion> relationSetAssertions;
+  final List<MapLayer> mapLayers;
+  final List<MapLayerCitation> mapLayerCitations;
+  final List<NodeGeometry> nodeGeometries;
 
   /// The paths of the files the dataset was parsed from, the manifest first.
   final List<String> files;
@@ -560,6 +635,16 @@ class _Parser {
         'tasting_grid_values',
         TastingGridValue.fromJson,
       ),
+      relationSetAssertions: _convert(
+        'relation_set_assertions',
+        RelationSetAssertion.fromJson,
+      ),
+      mapLayers: _convert('map_layers', MapLayer.fromJson),
+      mapLayerCitations: _convert(
+        'map_layer_citations',
+        MapLayerCitation.fromJson,
+      ),
+      nodeGeometries: _convert('node_geometries', NodeGeometry.fromJson),
     );
   }
 
@@ -641,6 +726,14 @@ class _Parser {
         );
       }
     }
+    for (final column in section.json) {
+      final value = row[column];
+      if (value == null) continue;
+      if (value is! YamlMap) {
+        throw DatasetFormatException('$where: $column must be a mapping');
+      }
+      row[column] = jsonEncode(_plain(value));
+    }
 
     for (final MapEntry(:key, :value) in section.defaults.entries) {
       row[key] ??= value;
@@ -716,6 +809,15 @@ class _Parser {
     }
     return 'sha256:${sha256.convert(bytes.takeBytes())}';
   }
+
+  /// [value] without its YAML wrappers, as `jsonEncode` takes it.
+  static Object? _plain(Object? value) => switch (value) {
+    YamlMap() => {
+      for (final MapEntry(:key, :value) in value.entries) '$key': _plain(value),
+    },
+    YamlList() => [for (final element in value) _plain(element)],
+    _ => value,
+  };
 
   static bool _isIsoDate(Object value) {
     if (value is! String || !_isoDate.hasMatch(value)) return false;

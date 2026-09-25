@@ -1,5 +1,9 @@
-# The canonical schema is SQL (a Drift .drift file).
-*.drift linguist-language=SQL
+# The canonical schema is SQL (a Drift .drift file). drift_dev copies its SQL
+# into the schema snapshots, and make-migrations compares the current
+# version's snapshot byte for byte, as CI does on Linux. So both keep LF
+# line endings in every checkout.
+*.drift linguist-language=SQL text eol=lf
+drift_schemas/** text eol=lf
 
 # Generated and vendored files: collapsed in diffs, excluded from language stats.
 *.g.dart linguist-generated=true

@@ -41,7 +41,7 @@ node tool/web_smoke/run.mjs build/web_smoke   # after npm ci in tool/web_smoke
 
 ## Planning
 
-Work is planned in docs/backlog.md: one task per session, each naming its design note in docs/design/. Respect the backlog's hot-spot rules (§4) so parallel sessions do not collide. The first schema change belongs to task F2 only (audit DL-3).
+Work is planned in docs/backlog.md: one task per session, each naming its design note in docs/design/. Respect the backlog's hot-spot rules (§4) so parallel sessions do not collide. Schema v2 (task F2) holds every schema change the backlog planned; a later change needs its own scheduled task (audit DL-3).
 
 Research handoff: read `docs/research/claude-handoff.md` before curriculum, coverage, certification-scope, geography-data, or release-gate work. The supporting audit is `docs/research/curriculum-gap-audit.md` and the track matrix is `docs/research/certification-matrix.md`. The research adds SCOPE-1, C7 and S3; it does **not** supersede the canonical domain model or completed G3 renderer.
 
@@ -61,7 +61,7 @@ The canonical model is in docs/domain-model.md.
 - **Web:** keep `package:drift/wasm.dart` out of code that also compiles for native platforms.
 - **Only `lib/core` queries the database.** Screens and providers go through its repositories; `test/architecture/layering_test.dart` enforces this (audit DL-1).
 - **`lib/core` is plain Dart**, so the tools run it with `dart run`. Only its `*_providers.dart` files and `database_connection.dart` may import Flutter, `flutter_riverpod`, `drift_flutter` or `dart:ui`; the layering test enforces this.
-- **The first schema change** also keeps the migration test that `make-migrations` generates, showing user tables survive the upgrade (audit DL-2).
+- **A schema change** bumps `schemaVersion`, runs `make-migrations`, writes the new step in `app_database.dart` against its versioned snapshot, and extends `test/drift/app_database/migration_test.dart` to show user rows and guards survive (audit DL-2, DL-5). A column added to an existing table goes last in `schema.drift`, where `ADD COLUMN` puts it.
 
 ## Curriculum dataset
 
@@ -80,6 +80,10 @@ dart run tool/curriculum/verify.dart <item> --reviewer <name> --outcome verified
 - Every item cites a primary legal text (`knowledge_item_citations`) and maps to at least one track. Wine-law relation types need a `legislation` or `regulator_register` citation (`regulatoryRelationTypes`).
 - When a legal text lists grape varieties, link every listed variety that exists as a node, or it can be offered as a wrong answer.
 - Set `mcq_disabled: true` when a wrong answer could be defensible, e.g. overlapping climate types.
+- A symmetric relation type (`is_symmetric: true`, e.g. `BORDERS`) stores each pair once, with the smaller node ID as subject.
+- A format that asserts absence (multiple response, "tap all") needs a `relation_set_assertions` row citing the complete list (QF-8, QF-9).
+- A study pack is a `certifications` row with `kind: pack` and no `organization` or `level` (PK-8).
+- A template's `mode` must be a built format (`builtFormats`). `variant` tells two templates of one format apart, and `parameters` is a mapping.
 - `valid_from: 1900-01-01` means the effective date is not curated yet.
 
 ## Question engine

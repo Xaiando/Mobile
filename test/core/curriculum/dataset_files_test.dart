@@ -19,6 +19,10 @@ const _areas = {
     'tasting_grids',
     'tasting_grid_attributes',
     'tasting_grid_values',
+    'relation_set_assertions',
+    'map_layers',
+    'map_layer_citations',
+    'node_geometries',
   ],
   'areas/burgundy.yaml': [
     'knowledge_nodes',
@@ -101,6 +105,10 @@ Map<String, List<DataClass>> rowsIn(CurriculumDataset d) =>
       'tasting_grids': d.tastingGrids,
       'tasting_grid_attributes': d.tastingGridAttributes,
       'tasting_grid_values': d.tastingGridValues,
+      'relation_set_assertions': d.relationSetAssertions,
+      'map_layers': d.mapLayers,
+      'map_layer_citations': d.mapLayerCitations,
+      'node_geometries': d.nodeGeometries,
     };
 
 void main() {

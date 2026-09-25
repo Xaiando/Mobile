@@ -1,10 +1,10 @@
-# Canonical Domain Model — Sommelier Study App (schema v1)
+# Canonical Domain Model — Sommelier Study App (schema v2)
 
 | | |
 |---|---|
-| **Date** | 2026-09-24 |
+| **Date** | 2026-09-24; schema v2 on 2026-09-25 (backlog F2) |
 | **Status** | **Canonical.** Where earlier documents name or shape an entity differently, this document wins. [architecture-audit.md](architecture-audit.md) has been aligned with it. |
-| **Executable form** | [`lib/core/database/schema.drift`](../lib/core/database/schema.drift): 31 tables, 57 indexes, 68 triggers. The app compiles it with Drift, and it is also valid plain SQLite (§9). |
+| **Executable form** | [`lib/core/database/schema.drift`](../lib/core/database/schema.drift): 37 tables, 69 indexes, 86 triggers. The app compiles it with Drift, and it is also valid plain SQLite (§9). |
 | **Scope** | Every entity V0.1 needs, including the 14 required ones: Certification, CurriculumDomain, KnowledgeNode, KnowledgeRelation, KnowledgeItem, CertificationKnowledgeMapping, SourceCitation, QuestionTemplate, Question, ReviewState, ReviewEvent, TastingSession, TastingDescriptor, WineJournalEntry |
 
 ## 1. How to read this document
@@ -18,10 +18,10 @@
   | `bool` | 0 or 1 |
   | `date` | `YYYY-MM-DD` text |
   | `datetime` | a UTC instant as ISO-8601 text with milliseconds (`2026-03-04T05:06:07.890Z`) |
-  | `json` | a JSON array, used only for FSRS parameter vectors |
+  | `json` | JSON text: FSRS parameter vectors (arrays), template parameters (objects) and answer payloads |
 
 - **Keys.** `PK` primary key, `FK` foreign key, `UK` unique. A composite key marks each of its columns.
-- **IDs.** Curriculum IDs are stable and opaque, with a prefix per entity: `n_` nodes, `ki_` items, `src_` citations, `qt_` templates, `tg_` tasting grids. Certification IDs are track codes such as `WSET_L3`. Rows created on the device use UUIDs.
+- **IDs.** Curriculum IDs are stable and opaque, with a prefix per entity: `n_` nodes, `ki_` items, `src_` citations, `qt_` templates, `tg_` tasting grids, `ml_` map layers. Certification IDs are track codes such as `WSET_L3`. Rows created on the device use UUIDs.
 
 ---
 
@@ -31,7 +31,7 @@ Every table belongs to exactly one class.
 
 | | **Curriculum, authored** | **Curriculum, generated** | **User data** | **System** |
 |---|---|---|---|---|
-| **Entities** | Certification, CurriculumDomain, KnowledgeNode, KnowledgeRelation, KnowledgeItem, CertificationKnowledgeMapping, SourceCitation, QuestionTemplate, plus the 11 supporting entities in §4.2 | Question, QuestionDistractor | ReviewState, ReviewEvent, TastingSession, TastingDescriptor, WineJournalEntry, UserProfile, SchedulerConfig, ReviewEventOption, WineJournalEntryNode | CurriculumIngestion |
+| **Entities** | Certification, CurriculumDomain, KnowledgeNode, KnowledgeRelation, KnowledgeItem, CertificationKnowledgeMapping, SourceCitation, QuestionTemplate, plus the 15 supporting entities in §4.2 | Question, QuestionDistractor, ExercisePool, ExercisePoolItem | ReviewState, ReviewEvent, TastingSession, TastingDescriptor, WineJournalEntry, UserProfile, SchedulerConfig, ReviewEventOption, WineJournalEntryNode | CurriculumIngestion |
 | **Origin** | Written by curators; shipped in the dataset | Derived from authored rows by the question generator | Created by the learner on the device | Written by the ingestion service |
 | **When written** | Only inside an ingestion transaction | Only inside an ingestion transaction | Any time | During ingestion only |
 | **At runtime** | **Read-only** | **Read-only** | Read-write | — |
@@ -69,13 +69,14 @@ flowchart TB
         U_TASTE["<b>Tasting practice</b><br/>TastingSession<br/>TastingDescriptor"]
         U_JOURNAL["<b>Wine journal</b><br/>WineJournalEntry<br/>WineJournalEntryNode"]
     end
-    G_Q["<b>CURRICULUM, generated</b><br/><i>rebuilt on every ingestion</i><br/>Question<br/>QuestionDistractor"]
+    G_Q["<b>CURRICULUM, generated</b><br/><i>rebuilt on every ingestion</i><br/>Question<br/>QuestionDistractor<br/>ExercisePool<br/>ExercisePoolItem"]
     SYS["<b>SYSTEM</b><br/>CurriculumIngestion<br/><i>row exists only during ingestion</i>"]
     subgraph AUTH["CURRICULUM, authored: shipped in the dataset, read-only at runtime, never deleted"]
         direction LR
         A_CERT["<b>Certification and provenance</b><br/>Certification<br/>CertificationKnowledgeMapping<br/>SourceCitation<br/>KnowledgeItemCitation<br/>CurriculumRelease"]
-        A_GRAPH["<b>Knowledge graph</b><br/>KnowledgeNode<br/>KnowledgeRelation<br/>KnowledgeItem<br/>KnowledgeItemPrerequisite<br/>NodeType<br/>RelationType<br/>RelationTypeSignature<br/>QuantityValue<br/>NodeAlternativeName<br/>CurriculumDomain"]
+        A_GRAPH["<b>Knowledge graph</b><br/>KnowledgeNode<br/>KnowledgeRelation<br/>KnowledgeItem<br/>KnowledgeItemPrerequisite<br/>NodeType<br/>RelationType<br/>RelationTypeSignature<br/>QuantityValue<br/>NodeAlternativeName<br/>RelationSetAssertion<br/>CurriculumDomain"]
         A_DEFS["<b>Question and tasting definitions</b><br/>QuestionTemplate<br/>TastingGrid<br/>TastingGridAttribute<br/>TastingGridValue"]
+        A_MAP["<b>Map geometry</b><br/>MapLayer<br/>MapLayerCitation<br/>NodeGeometry"]
     end
 
     U_STUDY -->|knowledge_item_id| A_GRAPH
@@ -89,6 +90,9 @@ flowchart TB
     A_CERT -->|knowledge_item_id| A_GRAPH
     A_CERT -->|default_tasting_grid_id| A_DEFS
     A_DEFS -->|relation types, nodes| A_GRAPH
+    A_GRAPH -->|completeness sources| A_CERT
+    A_MAP -->|knowledge_node_id| A_GRAPH
+    A_MAP -->|source_citation_id| A_CERT
     SYS -.->|unlocks writes| AUTH
     SYS -.->|unlocks writes| G_Q
 
@@ -96,7 +100,7 @@ flowchart TB
     classDef generated fill:#ede9fe,stroke:#6d28d9,color:#2e1065,stroke-dasharray:5 3
     classDef user fill:#fef3c7,stroke:#b45309,color:#3b2400
     classDef system fill:#f1f5f9,stroke:#475569,color:#0f172a,stroke-dasharray:2 2
-    class A_CERT,A_GRAPH,A_DEFS curriculum
+    class A_CERT,A_GRAPH,A_DEFS,A_MAP curriculum
     class G_Q generated
     class U_STUDY,U_TASTE,U_JOURNAL user
     class SYS system
@@ -126,6 +130,7 @@ erDiagram
         bool is_reverse_safe
         text default_domain_id FK
         text distractor_match_relation_type FK
+        bool is_symmetric "stored once, read both ways"
     }
     RelationTypeSignature {
         text relation_type PK,FK
@@ -178,6 +183,16 @@ erDiagram
         text knowledge_item_id PK,FK
         text prerequisite_item_id PK,FK
     }
+    RelationSetAssertion {
+        text node_id PK,FK
+        text relation_type PK,FK
+        text direction PK "forward or reverse"
+        text member_node_type PK,FK
+        date valid_from PK
+        date valid_until
+        text source_citation_id FK
+        text locator
+    }
     NodeType ||--o{ KnowledgeNode : "types"
     KnowledgeNode ||--o| QuantityValue : "quantity subtype"
     KnowledgeNode ||--o{ NodeAlternativeName : "also known as"
@@ -194,6 +209,9 @@ erDiagram
     KnowledgeItem ||--o{ KnowledgeItemPrerequisite : "requires"
     KnowledgeItem ||--o{ KnowledgeItemPrerequisite : "is required by"
     KnowledgeItem |o--o| KnowledgeItem : "superseded by"
+    KnowledgeNode ||--o{ RelationSetAssertion : "has a complete set"
+    RelationType ||--o{ RelationSetAssertion : "over"
+    NodeType ||--o{ RelationSetAssertion : "member type"
 ```
 
 ### 3.3 Curriculum (authored): certification and provenance
@@ -220,12 +238,14 @@ erDiagram
     }
     Certification {
         text id PK
-        text organization "WSET or CMS"
-        int level
+        text organization "WSET or CMS; none for a pack"
+        int level "none for a pack"
         text display_name
         text includes_certification_id FK
         text default_tasting_grid_id FK
         bool is_selectable
+        text kind "certification or pack"
+        text description
     }
     CertificationKnowledgeMapping {
         text certification_id PK,FK
@@ -246,11 +266,12 @@ erDiagram
     Certification ||--o{ CertificationKnowledgeMapping : "maps"
     Certification |o--o{ Certification : "includes"
     TastingGrid |o--o{ Certification : "default grid of"
+    SourceCitation ||--o{ RelationSetAssertion : "lists the set of"
 ```
 
-### 3.4 Curriculum: question templates (authored) and questions (generated)
+### 3.4 Curriculum: question templates (authored), questions and exercise pools (generated)
 
-`Question` and `QuestionDistractor` are generated. The other boxes are authored.
+`Question`, `QuestionDistractor`, `ExercisePool` and `ExercisePoolItem` are generated. The other boxes are authored.
 
 ```mermaid
 erDiagram
@@ -258,9 +279,11 @@ erDiagram
         text id PK
         text relation_type FK
         text direction "forward or reverse"
-        text mode "flashcard or mcq"
+        text mode "a format ID"
         text locale
         text prompt_template
+        text variant "empty for the only one"
+        json parameters "the format's settings"
     }
     Question {
         text knowledge_item_id PK,FK "generated"
@@ -274,11 +297,26 @@ erDiagram
         text knowledge_node_id PK,FK
         int scope_rank "0 is the nearest scope"
     }
+    ExercisePool {
+        int id PK "generated"
+        text question_template_id FK
+        text scope_node_id FK
+        text prompt_text
+    }
+    ExercisePoolItem {
+        int exercise_pool_id PK,FK "generated"
+        text knowledge_item_id PK,FK
+        int rank "place in an ordering pool"
+    }
     RelationType ||--o{ QuestionTemplate : "phrased by"
     KnowledgeItem ||--o{ Question : "asked as"
     QuestionTemplate ||--o{ Question : "instantiated as"
     Question ||--o{ QuestionDistractor : "draws from"
     KnowledgeNode ||--o{ QuestionDistractor : "offered as"
+    QuestionTemplate ||--o{ ExercisePool : "pooled for"
+    KnowledgeNode |o--o{ ExercisePool : "scopes"
+    ExercisePool ||--|{ ExercisePoolItem : "holds"
+    KnowledgeItem ||--o{ ExercisePoolItem : "pooled in"
 ```
 
 ### 3.5 Curriculum (authored): tasting grids
@@ -361,10 +399,12 @@ erDiagram
         real stability_after
         real difficulty_after
         datetime due_after
+        text exercise_id "UUID shared by one exercise"
+        json answer_payload
     }
     ReviewEventOption {
         text review_event_id PK,FK
-        int position PK "1 to 4"
+        int position PK "from 1"
         text knowledge_node_id FK
     }
     Certification ||--o{ UserProfile : "active track of"
@@ -378,7 +418,7 @@ erDiagram
     ReviewEvent }o..o| ReviewState : "projected into, no FK"
 ```
 
-**Planned (schema v2, backlog task F2):** composite exercises (`exercise_pools`, `review_events.exercise_id` and `answer_payload`), completeness assertions, symmetric relations, study packs as tracks, and map geometry (`map_layers`, `node_geometries`). See [design/question-system.md](design/question-system.md) §9 and [design/geography.md](design/geography.md) §3. This model and `schema.drift` change together when F2 lands.
+**Schema v2 (backlog F2):** a composite exercise grades several items, one `ReviewEvent` each. Its events share an `exercise_id`, and each keeps the learner's answer in `answer_payload` (audit QF-3). A presentation may show more than four options, e.g. for multiple response. Task F3 writes both columns; until then they are NULL. See [design/question-system.md](design/question-system.md) §4 and §9.
 
 **In the app (Phase 3):** `ReviewService` (`lib/core/study/review_service.dart`) is the only writer of these tables. It writes each review's event, the options it showed, and the item's new `ReviewState` in one transaction. Startup seeds `SchedulerConfig` version 1 (audit FS-8). The learner's track picker writes the single `UserProfile` row. `StudyPlanner` reads all of them to build sessions (audit FS-15, A-7 to A-10).
 
@@ -429,6 +469,45 @@ erDiagram
     TastingGridValue ||--o{ TastingDescriptor : "allowed value of"
 ```
 
+### 3.8 Curriculum (authored): map geometry
+
+Coordinates stay in the TopoJSON assets ([design/geography.md](design/geography.md) §3, audit GEO-7). The database holds each layer, the sources it cites, and each node's feature key, bounding box and label point.
+
+```mermaid
+erDiagram
+    MapLayer {
+        text id PK
+        text display_name
+        text geometry_kind "area, line or point"
+        text asset_path UK
+        text asset_sha256
+        real min_zoom
+        real max_zoom
+        text parent_layer_id FK
+    }
+    MapLayerCitation {
+        text map_layer_id PK,FK
+        text source_citation_id PK,FK
+        int position "order in the attribution"
+    }
+    NodeGeometry {
+        text knowledge_node_id PK,FK
+        text map_layer_id PK,FK
+        text feature_key "unique per layer"
+        real min_lon
+        real min_lat
+        real max_lon
+        real max_lat
+        real label_lon
+        real label_lat
+    }
+    MapLayer |o--o{ MapLayer : "parent of"
+    MapLayer ||--|{ MapLayerCitation : "cites"
+    SourceCitation ||--o{ MapLayerCitation : "attributed in"
+    MapLayer ||--o{ NodeGeometry : "draws"
+    KnowledgeNode ||--o{ NodeGeometry : "drawn as"
+```
+
 ---
 
 ## 4. Entity catalogue
@@ -442,11 +521,12 @@ Column-level definitions are in [`schema.drift`](../lib/core/database/schema.dri
 A study track, the "lens" of §C through which the one canonical graph is studied.
 
 - **Key:** `id` (a track code, e.g. `WSET_L3`); `UNIQUE(organization, level)`.
+- `kind` is `certification` or `pack` (audit PK-2). A study pack is a track with neither an `organization` nor a `level`; a CHECK couples the three columns. `description` introduces the track in the picker.
 - `includes_certification_id` makes tracks **cumulative**: L3 → L2 → L1, and Certified → Introductory. The nearest mapping along the chain applies (architecture audit CM-3).
 - `default_tasting_grid_id` selects the tasting engine for the track, SAT or DTM. This is §I's "the interface reconfigures based on the active certification profile", expressed as data.
 - `is_selectable` limits the V0.1 profile picker to `WSET_L3` and `CMS_CERTIFIED`.
 - **Database-enforced:** a track cannot include itself.
-- **Validator:** chains are acyclic and stay within one organization.
+- **Validator:** chains are acyclic. A certification includes only a lower level of its own organization, never a pack; a pack may include any track.
 - Exam-simulator configuration (§D) is not modelled; simulators are deferred (§N).
 
 #### CurriculumDomain (`curriculum_domains`), curriculum
@@ -473,6 +553,7 @@ The graph edge of §C and §D: *subject* `relation_type` *object*, for example C
 - An index on (`object_id`, `relation_type`) serves reverse traversal.
 - **Database-enforced:** subject ≠ object; `valid_until > valid_from`.
 - **Validator:** subject and object types match a `RelationTypeSignature`; a `cardinality = one` relation has no overlapping validity for the same subject; `LOCATED_IN` is acyclic.
+- **Symmetric relation types** (`is_symmetric`, e.g. `BORDERS`) hold both ways. Each pair is stored once, with the smaller node ID as subject, and read in both directions; the validator enforces the order and that the type's signatures go both ways.
 
 #### KnowledgeItem (`knowledge_items`), curriculum
 
@@ -505,8 +586,10 @@ Evidence for facts, from public primary sources: legislation, regulator register
 
 A deterministic structure for generating practice material (§D, §H).
 
-- **Key:** `id` (`qt_…`); `UNIQUE(relation_type, direction, mode, locale)`.
-- `direction` (forward or reverse) and `mode` (flashcard or MCQ) are independent axes. Placeholders are `{subject.name}`, `{object.name}` and `{object.type_label}`. The locale is English only in V0.1.
+- **Key:** `id` (`qt_…`); `UNIQUE(relation_type, direction, mode, variant, locale)`.
+- `direction` (forward or reverse) and `mode` are independent axes. Placeholders are `{subject.name}`, `{object.name}` and `{object.type_label}`. The locale is English only in V0.1.
+- `mode` is a format ID, e.g. `flashcard` or `mcq`. The schema checks only its form, and the format registry decides which formats exist, so a new format needs no migration (audit QF-2). Until task F3 builds the registry, the validator checks membership against the built formats.
+- `variant` tells apart templates of one format for one relation type, e.g. two orderings, and is empty for the only one. `parameters` holds the format's settings as a JSON object.
 
 #### Question (`questions`), curriculum, generated
 
@@ -546,6 +629,7 @@ The log of §D: "the user's grade, the elapsed time, and the resulting changes t
 - The after-state is stored because, with fuzzing, `due_after` is random. It cannot be recomputed by replay, so it is information rather than derived data.
 - **Derived, not stored:** direction and mode (from the template); the before-state (the previous event, via a window function); elapsed days; correctness (the selected option vs the answer).
 - **Append-only:** `UPDATE` and `DELETE` abort, on both `review_events` and `review_event_options`. A future "reset progress" feature would need an explicit, audited mechanism.
+- **Composite exercises** (schema v2): the events of one exercise share an `exercise_id` (a UUID), and each keeps the format's record of the answer in `answer_payload`, as JSON (audit QF-3).
 
 #### TastingSession (`tasting_sessions`), user
 
@@ -578,7 +662,7 @@ A logged bottle (§D, §J).
 |---|---|---|
 | CurriculumRelease (`curriculum_releases`) | curriculum, written by ingestion | Dataset version (semver), checksum, and publish and ingest times per release |
 | NodeType (`node_types`) | curriculum | Closed vocabulary of node types; `label` feeds `{object.type_label}` |
-| RelationType (`relation_types`) | curriculum | The relation vocabulary: cardinality, transitivity, reverse safety, default domain, and the relation used to filter distractors (e.g. berry colour) |
+| RelationType (`relation_types`) | curriculum | The relation vocabulary: cardinality, transitivity, reverse safety, symmetry, default domain, and the relation used to filter distractors (e.g. berry colour) |
 | RelationTypeSignature (`relation_type_signatures`) | curriculum | The allowed subject and object node types per relation (checked by the validator) |
 | QuantityValue (`quantity_values`) | curriculum | Subtype of KnowledgeNode for literal facts: `minimum`, `maximum` and `unit`. A composite FK admits only nodes of type `quantity` (proven) |
 | NodeAlternativeName (`node_alternative_names`) | curriculum | Synonyms (Shiraz/Syrah), former names, abbreviations and spelling variants, for matching journal text |
@@ -587,10 +671,16 @@ A logged bottle (§D, §J).
 | TastingGrid (`tasting_grids`) | curriculum | A versioned tasting framework (`WSET_SAT` or `CMS_DTM`) |
 | TastingGridAttribute (`tasting_grid_attributes`) | curriculum | One field of a grid: section, order, and single or multiple selection |
 | TastingGridValue (`tasting_grid_values`) | curriculum | One allowed value, with an optional link to an aroma or structure node |
+| RelationSetAssertion (`relation_set_assertions`) | curriculum | A completeness assertion (audit QF-8): while it is valid, a node's objects (forward) or subjects (reverse) of one member type for one relation type are the complete set, as the cited source lists them. Formats that assert absence need one |
+| MapLayer (`map_layers`) | curriculum | A layer of map geometry: its TopoJSON asset and SHA-256, its zoom range and its parent layer (geography §3) |
+| MapLayerCitation (`map_layer_citations`) | curriculum | The sources a layer is drawn from, in the order its attribution names them (GEO-14, GEO-21) |
+| NodeGeometry (`node_geometries`) | curriculum | A node's feature in a layer, with its bounding box and a label point inside it (GEO-7) |
 | QuestionDistractor (`question_distractors`) | curriculum, generated | The pool of valid wrong answers for an MCQ question |
+| ExercisePool (`exercise_pools`) | curriculum, generated | The items one composite exercise may combine, for one template and scope (question-system §9) |
+| ExercisePoolItem (`exercise_pool_items`) | curriculum, generated | An item of a pool; `rank` orders an ordering pool |
 | UserProfile (`user_profiles`) | user | A single row (`id = 1`): the active track and session settings (P-4) |
 | SchedulerConfig (`scheduler_configs`) | user | Versioned FSRS parameters. Exactly 21 weights, checked by JSON CHECKs |
-| ReviewEventOption (`review_event_options`) | user, append-only | The options shown in an MCQ presentation, in display order |
+| ReviewEventOption (`review_event_options`) | user, append-only | The options shown in a presentation, in display order |
 | WineJournalEntryNode (`wine_journal_entry_nodes`) | user | Links a journal entry to its matched nodes; deleted with the entry |
 | CurriculumIngestion (`curriculum_ingestions`) | system | The curriculum write lock (§2, rule 1) |
 
@@ -598,7 +688,7 @@ A logged bottle (§D, §J).
 
 ## 5. Normalization
 
-Every table has a primary key: natural keys where they are stable (junction tables, the relation triple), opaque stable IDs for curriculum entities, and UUIDs for user rows. Non-key columns depend on the whole key and nothing else, **with six deliberate exceptions**. Each has a stated reason and an invariant that keeps it consistent:
+Every table has a primary key: natural keys where they are stable (junction tables, the relation triple), opaque stable IDs for curriculum entities, and UUIDs for user rows. Non-key columns depend on the whole key and nothing else, **with seven deliberate exceptions**. Each has a stated reason and an invariant that keeps it consistent:
 
 | Exception | Reason | Invariant and how it is kept |
 |---|---|---|
@@ -607,6 +697,7 @@ Every table has a primary key: natural keys where they are stable (junction tabl
 | `Question.relation_type` and `TastingDescriptor.tasting_grid_id` repeat a parent's key | They let composite FKs enforce rules that span tables (template matches item; value from the session's grid) | The composite FKs themselves reject any inconsistent value |
 | `name_norm` on nodes and alternative names | A search key derived from `name`. It cannot be a SQL expression, because SQLite case folding is ASCII-only | Computed by the ingestion tooling; the validator recomputes and compares |
 | JSON arrays in `SchedulerConfig` | An opaque parameter vector that the FSRS package consumes as a whole; no query ever reads a single weight | `CHECK`: valid JSON array, exactly 21 weights |
+| JSON in `QuestionTemplate.parameters` and `ReviewEvent.answer_payload` | A format's settings and a learner's answer, each read as a whole by its format | `CHECK`: valid JSON; parameters are an object |
 | Raw text in `WineJournalEntry` | The user's original input. The node links are an interpretation of it, not a copy | Not derived, so nothing to keep in sync |
 
 **What earlier drafts had and this model removes, to reach normal form:**
@@ -633,7 +724,9 @@ Every table has a primary key: natural keys where they are stable (junction tabl
   - a normalized name within a node type
   - the relation triple
   - one item per relation
-  - one template per relation, direction, mode and locale
+  - one template per relation, direction, mode, variant and locale
+  - one geometry per node and layer, and one feature key per layer
+  - one rank per exercise pool
   - grid positions
 - Formats:
   - `date` columns (`date(x) IS x`)
@@ -643,12 +736,18 @@ Every table has a primary key: natural keys where they are stable (junction tabl
 - The review-state invariants (step coupling, `lapses < reps`, `due > last_review`).
 - The review log is append-only.
 - Single-selection tasting attributes.
-- The shape of the FSRS parameter vector.
+- The shape of the FSRS parameter vector, and JSON in template parameters and answer payloads.
+- A track's kind matches its organization and level.
+- Map layers: `ml_` IDs, SHA-256 hashes and non-empty zoom ranges. Geometries: longitudes and latitudes in range, and the label point inside the bounding box.
 
 **Ingestion validator** (build time and at ingestion), for rules that span rows or releases:
 
 - Relation subject and object types match a `RelationTypeSignature`.
-- Prerequisites, `LOCATED_IN` and certification chains are acyclic, and certification chains stay within one organization.
+- Prerequisites, `LOCATED_IN`, certification chains and map layer parents are acyclic. Certification chains stay within one organization and never include a pack.
+- A symmetric relation is stored once, with subject ID < object ID, and its type's signatures go both ways.
+- A completeness assertion names a set its relation type's signatures allow, has a member in force on every date it covers, and cites legislation or a register when the relation states wine law. A symmetric set is asserted forward.
+- Every map layer cites at least one `dataset` source with a licence and an attribution text.
+- A template's mode is a format the app has built (QF-2).
 - `cardinality = one` relations have no overlapping validity for the same subject.
 - Every item has at least one citation and at least one track mapping. Regulatory relations have a legislation or register citation.
 - Every MCQ question has at least 3 distractors, and no distractor is a correct answer in any validity period.
@@ -670,7 +769,7 @@ Every table has a primary key: natural keys where they are stable (junction tabl
 
 The authored tables *are* the dataset format. Each YAML section is named after its table, and each key is a column name, so there is no mapping layer. Generated tables, user tables and `name_norm` never appear in the dataset; the tooling produces them.
 
-**In the app:** [`assets/curriculum/curriculum.yaml`](../assets/curriculum/curriculum.yaml) is the manifest of release 0.1.1. The release is split into files so that content tasks edit different files (DL-4, backlog C1). Release 0.1.1 holds exactly the rows of 0.1.0, which was one file, and ingests to identical rows and questions.
+**In the app:** [`assets/curriculum/curriculum.yaml`](../assets/curriculum/curriculum.yaml) is the manifest of release 0.2.0. The release is split into files so that content tasks edit different files (DL-4, backlog C1). Release 0.1.1 held exactly the rows of 0.1.0, which was one file, and ingested to identical rows and questions. Release 0.2.0 adds schema v2's sections, still empty.
 
 | File | Holds |
 |---|---|
@@ -684,7 +783,10 @@ The authored tables *are* the dataset format. Each YAML section is named after i
 - **Sections across files.** A section may be spread over several files, and its rows are read in include order.
 - **Unique keys.** A row's primary key appears once in the whole release. A duplicate is reported with both files and lines.
 - **Missing sections.** Every section is written in at least one file; an empty one is written `[]`.
-- **Defaults.** A column with a schema default, such as `revision` or `verification_status`, may be omitted.
+- **Defaults.** A column with a schema default, such as `revision`, `verification_status`, a track's `kind` or a template's `variant`, may be omitted.
+- **Packs.** A `certifications` row with `kind: pack` omits `organization` and `level`.
+- **JSON columns.** `question_templates.parameters` is written as a mapping, and stored as its JSON text.
+- **Schema v2 sections.** `relation_set_assertions`, `map_layers`, `map_layer_citations` and `node_geometries` follow the same rules. Task Q2 writes the first completeness assertions, and task G2 brings in the map layers that `tool/geography` builds.
 - **Unknown names.** Unknown sections and columns are rejected, which catches typos.
 - **The checksum covers the whole release.** It is the SHA-256 of the manifest's text followed, for each include, by a NUL, the include's path, a NUL and the file's text. Editing, renaming or reordering any file therefore changes it. A dataset written as one file, as tests write it, has the SHA-256 of its text.
 - **Error positions.** Every row keeps its file and line. Format errors and validator issues are reported there.
@@ -794,15 +896,18 @@ Normalizing the model revised the following. [architecture-audit.md](architectur
 | Timestamps "UTC ISO text" | A **fixed millisecond UTC format**, enforced by CHECK | Text order must equal time order; native and Web precision differ |
 | — | Distractor exclusion ignores validity dates | Never offer a past or future correct answer as a wrong one |
 | `user_profile`, `curriculum_ingestion` (singular) | `user_profiles`, `curriculum_ingestions` | Consistently plural tables. Drift then generates `UserProfile` and `CurriculumIngestion` without Drift-only syntax |
+| `question_templates.mode` limited to `flashcard` and `mcq` by a CHECK | Any format ID; the format registry decides (v2, QF-2) | New formats need no migration (DL-3) |
+| `certifications.organization` and `level` required | Null for a study pack, coupled to `kind` (v2, PK-2) | A pack is a track without an examining body |
+| `review_event_options.position` from 1 to 4 | From 1 (v2) | Formats such as multiple response show more than four options |
 
 ---
 
 ## 9. Verification
 
-Everything below was run on 2026-09-24 against Flutter 3.47.5 / Dart 3.13.4.
+Everything below was run on 2026-09-24 against Flutter 3.47.5 / Dart 3.13.4, and again for schema v2 on 2026-09-25.
 
-- **Plain SQLite:** `schema.drift` loads as-is: 31 tables, 57 indexes, 68 triggers (63 curriculum guards, 4 append-only, 1 single-selection).
-- **Drift:** the same file compiles as a `.drift` file with drift_dev 2.35.0 and **zero warnings**, using `sql: {dialect: sqlite, options: {version: "3.45", modules: [json1]}}` and `store_date_time_values_as_text: true`. The 31 generated row classes carry exactly the entity names of this document.
+- **Plain SQLite:** `schema.drift` loads as-is: 37 tables, 69 indexes, 86 triggers (81 curriculum guards, 4 append-only, 1 single-selection). Schema v1 had 31 tables, 57 indexes and 68 triggers.
+- **Drift:** the same file compiles as a `.drift` file with drift_dev 2.35.0 and **zero warnings**, using `sql: {dialect: sqlite, options: {version: "3.45", modules: [json1]}}` and `store_date_time_values_as_text: true`. The 37 generated row classes carry exactly the entity names of this document.
 - **Native behaviour** (SQLite 3.53.4 through Drift), 18 tests, all passing:
   - the curriculum rejects writes outside ingestion
   - control: the same writes succeed inside ingestion
@@ -829,6 +934,7 @@ Everything below was run on 2026-09-24 against Flutter 3.47.5 / Dart 3.13.4.
   | Rejected | writes outside ingestion; quantity on a grape; malformed date; template mismatch; local-time timestamp; `due` not after `last_review`; second value for a single attribute; DTM term in a SAT session; 20 weights; deleting an event; updating an event |
   | Accepted | seeded ingestion; UTC timestamp; a SAT term in a SAT session |
 
-- **Diagrams:** all seven render with Mermaid 11.17.2 (light and dark themes) and Mermaid 10.9.8.
+- **Diagrams:** the seven of schema v1 render with Mermaid 11.17.2 (light and dark themes) and Mermaid 10.9.8. All eight of schema v2, with the map geometry of §3.8, render with Mermaid 11.17.2.
+- **Schema v2 upgrade** (backlog F2): `drift_dev make-migrations` snapshots v2 in `drift_schemas/` and writes the step helpers. The generated test in `test/drift/` checks that an upgraded v1 database has exactly the v2 schema. It also upgrades a v1 database holding a curriculum, a profile, reviews with their options and a journal, and checks that every user row is intact, that the guards of the rebuilt tables still fire, and that `PRAGMA foreign_key_check` finds nothing. The web smoke test opens v2 in Chromium.
 
 **In the app:** Phase 0 moved this schema to `lib/core/database/schema.drift` unchanged, and the app's `AppDatabase` is generated from it (SQL-first). The documented schema and the code are one file. The Phase 0 test suite re-runs the behaviour tests above against the app database, plus a CRUD test for every table.

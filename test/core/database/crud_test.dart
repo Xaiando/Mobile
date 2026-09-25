@@ -54,6 +54,11 @@ String _session(int n) =>
     'INSERT INTO tasting_sessions (id, tasting_grid_id, started_at) '
     "VALUES (${_uuid(n)}, 'tg_wset_sat_l3', $_ts)";
 
+/// A map layer [id], drawn from a placeholder asset.
+String _layer(String id) =>
+    "INSERT INTO map_layers VALUES ('$id', 'Test layer', 'area', "
+    "'assets/geography/$id.topo.json', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', 4, 10, NULL)";
+
 final cases = <CrudCase>[
   // ---- Curriculum, authored ------------------------------------------------
   const CrudCase(
@@ -93,7 +98,7 @@ final cases = <CrudCase>[
     'certifications',
     scope: Scope.curriculum,
     create: [
-      "INSERT INTO certifications VALUES ('WSET_L4', 'WSET', 4, 'WSET Level 4', 'WSET_L3', NULL, 0)",
+      "INSERT INTO certifications VALUES ('WSET_L4', 'WSET', 4, 'WSET Level 4', 'WSET_L3', NULL, 0, 'certification', NULL)",
     ],
     where: "id = 'WSET_L4'",
     update: "UPDATE certifications SET display_name = 'WSET Level 4, renamed' WHERE id = 'WSET_L4'",
@@ -114,7 +119,7 @@ final cases = <CrudCase>[
     'relation_types',
     scope: Scope.curriculum,
     create: [
-      "INSERT INTO relation_types VALUES ('SUSCEPTIBLE_TO', 'is susceptible to', 'threatens', 'many', 0, 0, 'viticulture', NULL)",
+      "INSERT INTO relation_types VALUES ('SUSCEPTIBLE_TO', 'is susceptible to', 'threatens', 'many', 0, 0, 'viticulture', NULL, 0)",
     ],
     where: "id = 'SUSCEPTIBLE_TO'",
     update: "UPDATE relation_types SET label = 'is prone to' WHERE id = 'SUSCEPTIBLE_TO'",
@@ -254,7 +259,7 @@ final cases = <CrudCase>[
     'question_templates',
     scope: Scope.curriculum,
     create: [
-      "INSERT INTO question_templates VALUES ('qt_ppg_rev_mcq', 'PERMITS_PRINCIPAL_GRAPE', 'reverse', 'mcq', 'en', 'Which appellation has {object.name} as its principal grape?')",
+      "INSERT INTO question_templates VALUES ('qt_ppg_rev_mcq', 'PERMITS_PRINCIPAL_GRAPE', 'reverse', 'mcq', 'en', 'Which appellation has {object.name} as its principal grape?', '', NULL)",
     ],
     where: "id = 'qt_ppg_rev_mcq'",
     update: "UPDATE question_templates SET prompt_template = 'Reworded: {object.name}?' WHERE id = 'qt_ppg_rev_mcq'",
@@ -285,12 +290,64 @@ final cases = <CrudCase>[
     whereUpdated: "value_key = 'peach' AND label = 'white peach'",
     delete: ["DELETE FROM tasting_grid_values WHERE value_key = 'peach'"],
   ),
+  const CrudCase(
+    'relation_set_assertions',
+    scope: Scope.curriculum,
+    create: [
+      "INSERT INTO relation_set_assertions VALUES ('n_geo_chablis', 'PERMITS_PRINCIPAL_GRAPE', 'forward', 'grape', '1938-01-13', NULL, 'src_inao_chablis', 'Article II')",
+    ],
+    where: "node_id = 'n_geo_chablis'",
+    update: "UPDATE relation_set_assertions SET valid_until = '2030-01-01' WHERE node_id = 'n_geo_chablis'",
+    whereUpdated: "node_id = 'n_geo_chablis' AND valid_until = '2030-01-01'",
+    delete: [
+      "DELETE FROM relation_set_assertions WHERE node_id = 'n_geo_chablis'",
+    ],
+  ),
+  CrudCase(
+    'map_layers',
+    scope: Scope.curriculum,
+    create: [_layer('ml_crud')],
+    where: "id = 'ml_crud'",
+    update: "UPDATE map_layers SET display_name = 'Renamed layer' WHERE id = 'ml_crud'",
+    whereUpdated: "display_name = 'Renamed layer'",
+    delete: ["DELETE FROM map_layers WHERE id = 'ml_crud'"],
+  ),
+  CrudCase(
+    'map_layer_citations',
+    scope: Scope.curriculum,
+    create: [
+      _layer('ml_cited'),
+      "INSERT INTO map_layer_citations VALUES ('ml_cited', 'src_inao_chablis', 1)",
+    ],
+    where: "map_layer_id = 'ml_cited'",
+    update: "UPDATE map_layer_citations SET position = 2 WHERE map_layer_id = 'ml_cited'",
+    whereUpdated: "map_layer_id = 'ml_cited' AND position = 2",
+    delete: [
+      "DELETE FROM map_layer_citations WHERE map_layer_id = 'ml_cited'",
+      "DELETE FROM map_layers WHERE id = 'ml_cited'",
+    ],
+  ),
+  CrudCase(
+    'node_geometries',
+    scope: Scope.curriculum,
+    create: [
+      _layer('ml_drawn'),
+      "INSERT INTO node_geometries VALUES ('n_geo_chablis', 'ml_drawn', 'n_geo_chablis', 3.6, 47.7, 4.0, 47.9, 3.8, 47.8)",
+    ],
+    where: "map_layer_id = 'ml_drawn'",
+    update: "UPDATE node_geometries SET label_lon = 3.7 WHERE map_layer_id = 'ml_drawn'",
+    whereUpdated: "map_layer_id = 'ml_drawn' AND label_lon = 3.7",
+    delete: [
+      "DELETE FROM node_geometries WHERE map_layer_id = 'ml_drawn'",
+      "DELETE FROM map_layers WHERE id = 'ml_drawn'",
+    ],
+  ),
   // ---- Curriculum, generated -----------------------------------------------
   const CrudCase(
     'questions',
     scope: Scope.curriculum,
     create: [
-      "INSERT INTO question_templates VALUES ('qt_ageing_fwd_flashcard', 'MIN_AGEING', 'forward', 'flashcard', 'en', 'What is the minimum ageing of {subject.name}?')",
+      "INSERT INTO question_templates VALUES ('qt_ageing_fwd_flashcard', 'MIN_AGEING', 'forward', 'flashcard', 'en', 'What is the minimum ageing of {subject.name}?', '', NULL)",
       "INSERT INTO questions VALUES ('ki_barolo_min_ageing', 'qt_ageing_fwd_flashcard', 'MIN_AGEING', 'What is the minimum ageing of Barolo?')",
     ],
     where: "knowledge_item_id = 'ki_barolo_min_ageing'",
@@ -312,6 +369,33 @@ final cases = <CrudCase>[
     whereUpdated: "knowledge_node_id = 'n_grape_nebbiolo' AND scope_rank = 3",
     delete: [
       "DELETE FROM question_distractors WHERE knowledge_node_id = 'n_grape_nebbiolo'",
+    ],
+  ),
+  const CrudCase(
+    'exercise_pools',
+    scope: Scope.curriculum,
+    create: [
+      "INSERT INTO exercise_pools VALUES (1, 'qt_ppg_fwd_mcq', 'n_geo_burgundy', 'Match each appellation with its principal grape.')",
+    ],
+    where: 'id = 1',
+    update: "UPDATE exercise_pools SET prompt_text = 'Reworded.' WHERE id = 1",
+    whereUpdated: "id = 1 AND prompt_text = 'Reworded.'",
+    delete: ['DELETE FROM exercise_pools WHERE id = 1'],
+  ),
+  const CrudCase(
+    'exercise_pool_items',
+    scope: Scope.curriculum,
+    create: [
+      "INSERT INTO exercise_pools VALUES (2, 'qt_ppg_fwd_mcq', NULL, 'Order these.')",
+      "INSERT INTO exercise_pool_items VALUES (2, 'ki_chablis_grape', NULL)",
+    ],
+    where: 'exercise_pool_id = 2',
+    update:
+        'UPDATE exercise_pool_items SET rank = 1 WHERE exercise_pool_id = 2',
+    whereUpdated: 'exercise_pool_id = 2 AND rank = 1',
+    delete: [
+      'DELETE FROM exercise_pool_items WHERE exercise_pool_id = 2',
+      'DELETE FROM exercise_pools WHERE id = 2',
     ],
   ),
   // ---- System -----------------------------------------------------------------
@@ -470,7 +554,7 @@ void main() {
         .map((row) => row.read<String>('name'))
         .get();
     expect(cases.map((c) => c.table).toSet(), tables.toSet());
-    expect(tables, hasLength(31));
+    expect(tables, hasLength(37));
   });
 
   for (final c in cases) {

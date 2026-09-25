@@ -184,6 +184,191 @@ void main() {
     });
   });
 
+  group('schema v2 (F2)', () {
+    test('the fixture with one row of each v2 kind is valid', () {
+      expect(brokenRules(v2Dataset()), isEmpty);
+    });
+
+    test('rejects a symmetric pair stored the wrong way round', () {
+      final data = v2Dataset();
+      rowOf(data, 'knowledge_relations', 'relation_type', 'BORDERS')
+        ..['subject_id'] = 'n_geo_volnay'
+        ..['object_id'] = 'n_geo_pommard';
+      expect(brokenRules(data), {'symmetric-relation'});
+    });
+
+    test('rejects a symmetric relation type allowed one way only', () {
+      final data = v2Dataset();
+      rowsOf(data, 'relation_type_signatures').add({
+        'relation_type': 'BORDERS',
+        'subject_node_type': 'appellation',
+        'object_node_type': 'region',
+      });
+      expect(brokenRules(data), {'symmetric-relation'});
+    });
+
+    test('rejects a completeness assertion with no members', () {
+      final data = v2Dataset();
+      rowOf(
+        data,
+        'relation_set_assertions',
+        'node_id',
+        'n_geo_chablis',
+      )['node_id'] = 'n_geo_burgundy';
+      expect(brokenRules(data), containsAll(['assertion-members']));
+    });
+
+    test('rejects a complete set without a member on some date it '
+        'covers', () {
+      Map<String, dynamic> chardonnay(Map<String, dynamic> data) =>
+          rowOf(data, 'knowledge_relations', 'object_id', 'n_grape_chardonnay');
+
+      final lapsing = v2Dataset();
+      chardonnay(lapsing)['valid_until'] = '2000-01-01';
+      final lapsed = validateDataset(datasetOf(lapsing)).errors.single;
+      expect(lapsed.rule, 'assertion-members');
+      expect(lapsed.message, endsWith('is in force on 2000-01-01'));
+
+      final expired = v2Dataset();
+      chardonnay(expired)['valid_until'] = '1930-01-01';
+      expect(
+        validateDataset(datasetOf(expired)).errors.single.message,
+        endsWith('is in force on 1938-01-13'),
+        reason: 'the assertion starts after its only member ended',
+      );
+    });
+
+    test('firstGap finds the first date no period covers', () {
+      expect(firstGap('2000-01-01', null, [('1990-01-01', null)]), isNull);
+      expect(
+        firstGap('2000-01-01', '2010-01-01', [
+          ('1999-01-01', '2005-01-01'),
+          ('2005-01-01', '2010-01-01'),
+        ]),
+        isNull,
+      );
+      expect(
+        firstGap('2000-01-01', null, [
+          ('2000-01-01', '2005-01-01'),
+          ('2006-01-01', null),
+        ]),
+        '2005-01-01',
+      );
+      expect(firstGap('2000-01-01', null, const []), '2000-01-01');
+    });
+
+    test('rejects a completeness assertion its relation type does not '
+        'allow', () {
+      final data = v2Dataset();
+      rowOf(
+        data,
+        'relation_set_assertions',
+        'node_id',
+        'n_geo_chablis',
+      )['member_node_type'] = 'berry_colour';
+      expect(
+        brokenRules(data),
+        containsAll(['assertion-signature', 'assertion-members']),
+      );
+    });
+
+    test('rejects a reverse assertion of a symmetric set', () {
+      final data = v2Dataset();
+      rowsOf(data, 'relation_set_assertions').add({
+        'node_id': 'n_geo_volnay',
+        'relation_type': 'BORDERS',
+        'direction': 'reverse',
+        'member_node_type': 'appellation',
+        'valid_from': '1937-01-01',
+        'source_citation_id': 'src_test_law',
+      });
+      expect(brokenRules(data), {'assertion-direction'});
+    });
+
+    test('rejects a complete set of wine law cited from a reference work', () {
+      final data = v2Dataset();
+      rowsOf(data, 'source_citations').add({
+        'id': 'src_test_atlas',
+        'kind': 'reference_work',
+        'title': 'A test atlas',
+        'publisher': 'Test publisher',
+        'accessed_on': '2026-01-01',
+      });
+      rowOf(
+        data,
+        'relation_set_assertions',
+        'node_id',
+        'n_geo_chablis',
+      )['source_citation_id'] = 'src_test_atlas';
+      expect(brokenRules(data), {'regulatory-citation'});
+    });
+
+    test('rejects a map layer that cites no licensed dataset', () {
+      final uncited = v2Dataset();
+      rowsOf(uncited, 'map_layer_citations').clear();
+      expect(brokenRules(uncited), {'layer-citation'});
+
+      final unlicensed = v2Dataset();
+      rowOf(unlicensed, 'source_citations', 'id', 'src_test_boundaries')
+        ..remove('license')
+        ..['kind'] = 'reference_work';
+      expect(brokenRules(unlicensed), {'layer-citation'});
+    });
+
+    test('rejects unknown references and cycles in the map data', () {
+      final data = v2Dataset();
+      rowOf(
+        data,
+        'map_layers',
+        'id',
+        'ml_test_appellations',
+      )['parent_layer_id'] = 'ml_test_appellations';
+      rowOf(
+        data,
+        'node_geometries',
+        'map_layer_id',
+        'ml_test_appellations',
+      )['knowledge_node_id'] = 'n_geo_nowhere';
+      expect(brokenRules(data), containsAll(['cycle', 'unknown-reference']));
+    });
+
+    test('rejects a template of a format that does not exist (QF-2)', () {
+      final data = v2Dataset();
+      rowOf(
+        data,
+        'question_templates',
+        'id',
+        'qt_principal_grape_fwd_flashcard',
+      )['mode'] = 'multiple_response';
+      expect(brokenRules(data), {'template-format'});
+    });
+
+    test('rejects a pack with an examining body, and a certification '
+        'without a level or including a pack', () {
+      final data = v2Dataset();
+      rowOf(data, 'certifications', 'id', 'BURGUNDY_PACK')
+        ..['level'] = 1
+        ..['includes_certification_id'] = 'WSET_L1';
+      rowOf(data, 'certifications', 'id', 'WSET_L1').remove('level');
+      rowOf(
+        data,
+        'certifications',
+        'id',
+        'WSET_L2',
+      )['includes_certification_id'] = 'BURGUNDY_PACK';
+      final broken = validateDataset(datasetOf(data)).errors;
+      expect(
+        broken.map((e) => e.message),
+        unorderedEquals([
+          'pack BURGUNDY_PACK has an organization or a level; a pack has '
+              'neither',
+          'certification WSET_L1 needs an organization and a level',
+          'WSET_L2 includes the pack BURGUNDY_PACK',
+        ]),
+      );
+    });
+  });
+
   test('allows a fact that changes over time without overlap', () {
     final data = minimalDataset();
     rowOf(

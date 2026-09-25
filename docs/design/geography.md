@@ -65,7 +65,7 @@ The existing types are `country`, `region`, `subregion`, `appellation`, `soil` a
 | `KNOWN_FOR_GRAPE` | area → grape | Ahr known for Spätburgunder | grape ↔ region drills (cited editorial fact, with a completeness assertion per area) |
 | `HAS_SOIL`, `HAS_CLIMATE`, `PERMITS_PRINCIPAL_GRAPE` | as today | | soils and grapes on maps |
 
-`BORDERS` is stored once, subject ID < object ID, and read in both directions. That needs `relation_types.is_symmetric` (schema v2, F2).
+`BORDERS` is stored once, subject ID < object ID, and read in both directions. That needs `relation_types.is_symmetric` (schema v2, F2), and the validator enforces the order.
 
 ### The location item rule (GEO-6)
 
@@ -87,8 +87,15 @@ CREATE TABLE map_layers (
   asset_sha256        TEXT NOT NULL,      -- verified at ingestion
   min_zoom            REAL NOT NULL,      -- display range, Web Mercator zoom
   max_zoom            REAL NOT NULL,
-  parent_layer_id     TEXT REFERENCES map_layers (id),
-  source_citation_id  TEXT NOT NULL REFERENCES source_citations (id)  -- licence and attribution
+  parent_layer_id     TEXT REFERENCES map_layers (id)
+);
+
+-- The sources a layer is drawn from, in attribution order (GEO-21, GEO-22).
+CREATE TABLE map_layer_citations (
+  map_layer_id        TEXT NOT NULL REFERENCES map_layers (id),
+  source_citation_id  TEXT NOT NULL REFERENCES source_citations (id),  -- licence and attribution
+  position            INTEGER NOT NULL,
+  PRIMARY KEY (map_layer_id, source_citation_id)
 );
 
 CREATE TABLE node_geometries (
@@ -104,7 +111,7 @@ CREATE TABLE node_geometries (
 ```
 
 - **Coordinates stay in the assets.** The database holds only what SQL needs: which node has which feature, bounding boxes, and label points for frames and for north-to-south orderings. The renderer reads the asset. This keeps one database and one ingestion path (V-7) without storing megabytes of coordinates in SQLite (GEO-7).
-- **Provenance.** `source_citations` already has `kind = 'dataset'`, `license` and `attribution_text` columns, so geometry provenance fits the existing model (§8). A layer can draw on several sources: a French layer draws INAO's commune lists on IGN's shapes. So the manifest lists them in `source_citation_ids`, and F2 stores that list instead of the single column above (GEO-21).
+- **Provenance.** `source_citations` already has `kind = 'dataset'`, `license` and `attribution_text` columns, so geometry provenance fits the existing model (§8). A layer can draw on several sources: a French layer draws INAO's commune lists on IGN's shapes. So the manifest lists them in `source_citation_ids`, and F2 stores that list in `map_layer_citations` (GEO-21, GEO-22). `schema.drift` has the full constraints.
 - **Ingestion.** The dataset manifest lists the layers. Ingestion checks each asset's SHA-256, loads `node_geometries`, and rejects any feature key missing from its asset, so the build fails before a map can be broken.
 - **No derived facts in the database.** Adjacency, containment and orientation are computed by the build pipeline (§7). They are proposed as authored relations in its report, never inserted silently. The validator compares authored `BORDERS` with the computed adjacency and warns on any difference.
 

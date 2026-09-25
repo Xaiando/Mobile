@@ -203,7 +203,110 @@ Map<String, dynamic> minimalDataset({String version = '1.0.0'}) => {
   'tasting_grids': <dynamic>[],
   'tasting_grid_attributes': <dynamic>[],
   'tasting_grid_values': <dynamic>[],
+  'relation_set_assertions': <dynamic>[],
+  'map_layers': <dynamic>[],
+  'map_layer_citations': <dynamic>[],
+  'node_geometries': <dynamic>[],
 };
+
+/// [minimalDataset] with one valid row of each kind schema v2 adds: a pack,
+/// a symmetric relation, a completeness assertion, a template variant with
+/// parameters, and a map layer with its citation and a geometry.
+Map<String, dynamic> v2Dataset() {
+  // A JSON copy, so that its lists take rows of any shape.
+  final data = copyOf(minimalDataset());
+  rowsOf(data, 'certifications').add({
+    'id': 'BURGUNDY_PACK',
+    'kind': 'pack',
+    'display_name': 'Burgundy in depth',
+    'description': 'A test pack.',
+    'includes_certification_id': 'WSET_L2',
+    'is_selectable': true,
+  });
+  rowsOf(data, 'relation_types').add({
+    'id': 'BORDERS',
+    'label': 'borders',
+    'reverse_label': 'borders',
+    'cardinality': 'many',
+    'default_domain_id': 'geography',
+    'is_symmetric': true,
+  });
+  rowsOf(data, 'relation_type_signatures').add({
+    'relation_type': 'BORDERS',
+    'subject_node_type': 'appellation',
+    'object_node_type': 'appellation',
+  });
+  rowsOf(
+    data,
+    'knowledge_nodes',
+  ).add({'id': 'n_geo_pommard', 'node_type': 'appellation', 'name': 'Pommard'});
+  rowsOf(data, 'knowledge_relations')
+    ..add({
+      'subject_id': 'n_geo_pommard',
+      'relation_type': 'LOCATED_IN',
+      'object_id': 'n_geo_burgundy',
+      'valid_from': '1900-01-01',
+    })
+    ..add({
+      'subject_id': 'n_geo_pommard',
+      'relation_type': 'BORDERS',
+      'object_id': 'n_geo_volnay',
+      'valid_from': '1900-01-01',
+    });
+  rowsOf(data, 'relation_set_assertions').add({
+    'node_id': 'n_geo_chablis',
+    'relation_type': 'PERMITS_PRINCIPAL_GRAPE',
+    'direction': 'forward',
+    'member_node_type': 'grape',
+    'valid_from': '1938-01-13',
+    'source_citation_id': 'src_test_law',
+    'locator': 'Article V',
+  });
+  rowsOf(data, 'question_templates').add({
+    'id': 'qt_principal_grape_fwd_flashcard',
+    'relation_type': 'PERMITS_PRINCIPAL_GRAPE',
+    'direction': 'forward',
+    'mode': 'flashcard',
+    'variant': 'short',
+    'parameters': {'hint': false},
+    'prompt_template': 'The principal grape of {subject.name}?',
+  });
+  rowsOf(data, 'source_citations').add({
+    'id': 'src_test_boundaries',
+    'kind': 'dataset',
+    'title': 'Test boundaries',
+    'publisher': 'Test publisher',
+    'accessed_on': '2026-01-01',
+    'license': 'Licence Ouverte 2.0',
+    'attribution_text': 'Test publisher, 2026.',
+  });
+  rowsOf(data, 'map_layers').add({
+    'id': 'ml_test_appellations',
+    'display_name': 'Appellations',
+    'geometry_kind': 'area',
+    'asset_path': 'assets/geography/test_appellations.topo.json',
+    'asset_sha256': 'a' * 64,
+    'min_zoom': 7,
+    'max_zoom': 14,
+  });
+  rowsOf(data, 'map_layer_citations').add({
+    'map_layer_id': 'ml_test_appellations',
+    'source_citation_id': 'src_test_boundaries',
+    'position': 1,
+  });
+  rowsOf(data, 'node_geometries').add({
+    'knowledge_node_id': 'n_geo_chablis',
+    'map_layer_id': 'ml_test_appellations',
+    'feature_key': 'n_geo_chablis',
+    'min_lon': 3.6,
+    'min_lat': 47.7,
+    'max_lon': 4.0,
+    'max_lat': 47.9,
+    'label_lon': 3.8,
+    'label_lat': 47.8,
+  });
+  return data;
+}
 
 Map<String, dynamic> _signature(String type, String subject, String object) => {
   'relation_type': type,
