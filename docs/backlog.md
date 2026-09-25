@@ -71,7 +71,7 @@ TASK-008 (tasting grids) and TASK-009 (journal integration) remain; they are T1�
 | C6 | Content: Germany, Austria and the rest of Europe | C1 | 2 | ☐ |
 | C7 | Content: CMS Europe beverages, service and business core | C1 | 2 | ☐ |
 | **G** | **Geography and maps** | | | |
-| G1 | Geodata pipeline, sources and licences | — | 1 | ☐ |
+| G1 | Geodata pipeline, sources and licences | — | 1 | ☑ |
 | G2 | Geometry ingestion and validation | F2, G1 | 3 | ☐ |
 | G3 | Offline map renderer | — | 1 | ☑ |
 | G4 | Map locate and identify, with difficulty modes | F3, G2, G3 | 4 | ☐ |
@@ -561,7 +561,7 @@ Four tasks share one pattern. Each turns the famous regions of one country group
   - add `BORDERS` and sub-region-scale `LIES_ALONG` and `ON_LANDFORM` items;
   - write completeness assertions for the sets the drills treat as complete, e.g. the six communal AOCs of the Haut-Médoc, the ten Beaujolais crus, the 17 Napa Valley AVAs;
   - map the levels per track (`minimum_depth`, importance), editorially (L-14);
-  - build the country group's geometry layers.
+  - build the country group's geometry layers. G10 also checks G1's provisional compositions of the French regions and subregions against the registers (GEO-19).
 - **Depends on.** The content task of the same countries, so each node is created once (GEO-18). G10, G11 and G13 also need G5 and G8, so their hierarchy, neighbour and complete-the-set drills can be tested end to end. G12 needs only G4, so the Spätburgunder fast track gets maps a wave earlier; the drills of G5 and G8 reach its data as they land.
 - **Modules.**
   - `assets/curriculum/areas/atlas_<country>.yaml`;

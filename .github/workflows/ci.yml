@@ -102,6 +102,12 @@ jobs:
       - uses: actions/setup-node@v5
         with:
           node-version: '22'
+      - name: Map layers match their manifest
+        working-directory: tool/geography
+        run: |
+          npm ci
+          npm test
+          npm run check
       - name: Install Playwright
         working-directory: tool/web_smoke
         run: |

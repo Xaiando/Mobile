@@ -1,0 +1,20 @@
+{
+  "name": "sommelier-geography",
+  "private": true,
+  "type": "module",
+  "description": "Builds the offline map layers from open-licensed sources (docs/design/geography.md §7).",
+  "engines": {
+    "node": ">=22.13"
+  },
+  "scripts": {
+    "fetch": "node fetch.mjs",
+    "build": "node build.mjs",
+    "check": "node check.mjs",
+    "test": "node --test"
+  },
+  "devDependencies": {
+    "7zip-bin": "5.2.0",
+    "mapshaper": "0.7.67",
+    "yaml": "2.9.1"
+  }
+}

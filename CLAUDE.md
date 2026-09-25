@@ -112,6 +112,24 @@ dart run tool/coverage_report.dart --update-baseline  # after a change that move
   - Never cite a syllabus as a fact's source; `lint` rejects it.
   - Re-check the pinned documents yearly; `lint` warns when they are stale.
 
+## Map layers
+
+`tool/geography/` builds the offline map layers in `assets/geography/` from open-licensed sources (backlog G1, geography §7). It needs Node 22.13 or later.
+
+```sh
+cd tool/geography && npm ci
+npm run fetch   # once, online: downloads and verifies the sources into ~/.cache/sommelier-geography
+npm run build   # the layers, assets/geography/manifest.yaml and tool/geography/report.md
+npm test        # the pipeline's unit tests
+npm run check   # CI runs this; with every source cached it also rebuilds and compares
+```
+
+- **Never edit the assets or the manifest by hand.** Change `layers.yaml` or `sources.yaml`, rebuild, read `report.md`, and commit them all together.
+- **A source needs a licence that allows bundling in a proprietary app** (GEO-5, legal review L-15). Record its URL, retrieval date, SHA-256, licence and attribution. `npm run fetch -- --record` fills in a `PENDING` hash. A new edition is a new entry.
+- **Never trace or invent a boundary.** Where no open shape exists, draw a point (GEO-9).
+- **French areas are unions of communes**, taken from INAO's lists. A region without a legal area is a union of appellation areas, and its composition stays provisional until G10 (GEO-19).
+- Each task adds only its own entries to `layers.yaml` (backlog §4). The build is deterministic, so other layers come out unchanged. The budgets are 1.5 MB per layer and 8 MB in all (GEO-11).
+
 ## Study engine
 
 `lib/core/study/` holds the FSRS reviews (`ReviewService`), the learner's track (`LearnerProfiles`) and session planning (`StudyPlanner`, `StudySession`). The decisions are FS-1 to FS-16, CM-3 to CM-6 and A-1 to A-10.

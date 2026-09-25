@@ -104,7 +104,7 @@ CREATE TABLE node_geometries (
 ```
 
 - **Coordinates stay in the assets.** The database holds only what SQL needs: which node has which feature, bounding boxes, and label points for frames and for north-to-south orderings. The renderer reads the asset. This keeps one database and one ingestion path (V-7) without storing megabytes of coordinates in SQLite (GEO-7).
-- **Provenance.** `source_citations` already has `kind = 'dataset'`, `license` and `attribution_text` columns, so geometry provenance fits the existing model (§8).
+- **Provenance.** `source_citations` already has `kind = 'dataset'`, `license` and `attribution_text` columns, so geometry provenance fits the existing model (§8). A layer can draw on several sources: a French layer draws INAO's commune lists on IGN's shapes. So the manifest lists them in `source_citation_ids`, and F2 stores that list instead of the single column above (GEO-21).
 - **Ingestion.** The dataset manifest lists the layers. Ingestion checks each asset's SHA-256, loads `node_geometries`, and rejects any feature key missing from its asset, so the build fails before a map can be broken.
 - **No derived facts in the database.** Adjacency, containment and orientation are computed by the build pipeline (§7). They are proposed as authored relations in its report, never inserted silently. The validator compares authored `BORDERS` with the computed adjacency and warns on any difference.
 
@@ -212,6 +212,37 @@ The Copernicus DEM is an alternative to SRTM, with a mandatory "all rights reser
 - geography assets at most 8 MB in V0.1, and at most 1.5 MB per layer;
 - a layer parses in at most 100 ms on a mid-range phone;
 - a frame renders in at most 8 ms after warm-up.
+
+**As built (G1).** `tool/geography/` builds ten layers, 1.4 MB in all (`report.md` lists them):
+
+- **World context** comes from Natural Earth 5.1.1 at 1:50m: continents, countries, coastlines, seas and oceans, lakes, major rivers, and physical regions (ranges, plateaus, plains, valleys and basins). France comes from Natural Earth's map units, so metropolitan France is the node `n_geo_france` and each overseas department is a context feature of its own.
+- **France** has three layers: wine regions, subregions and appellations. Each feature is the union of the communes of INAO geographical areas (INAO's list of 9 October 2025). The commune shapes come from IGN ADMIN EXPRESS COG CARTO 2026, reprojected from Lambert-93.
+  - Regions and subregions have no legal area of their own, so `layers.yaml` composes each from named appellation areas. For example, Burgundy is the regional AOC Bourgogne without its communes in the Rhône department, which belong to Beaujolais. These compositions are provisional until G10 checks them (GEO-19).
+  - INAO still names a few merged communes by their old INSEE codes. See GEO-20 for how the build draws them.
+  - INAO lists whole communes. Where a specification includes only part of a commune, the map draws the whole commune. This is part of the approximation that GEO-10 discloses.
+  - The areas follow INAO's commune lists, not INAO's SIQO area polygons. The research handoff treats the lists as authoritative wherever the two differ.
+- **`fetch`** downloads each source into `~/.cache/sommelier-geography`, or into `$SOMMELIER_GEO_CACHE`.
+  - It resumes interrupted downloads.
+  - It refuses any file whose SHA-256 differs from `sources.yaml`.
+  - The pinned `7zip-bin` unpacks ADMIN EXPRESS, a 64 MB archive.
+- **`build`** runs mapshaper 0.7.67 through its JavaScript API. It reads the GeoPackage with Node's built-in `node:sqlite`, so it needs Node 22.13 or later.
+  - It refuses to run unless every cached source is the edition `sources.yaml` records. For an archive, that is the edition its files were unpacked from. Otherwise, layers built from an older edition would cite the new one.
+  - A node's feature carries the node ID as its TopoJSON `id`. A context feature carries only its `name`.
+  - Each asset holds one object, named after the asset.
+  - Quantization can shrink a thin context feature to nothing, and such a feature is dropped. A node's feature is never dropped: the build fails instead.
+- **Containment** is checked on commune sets, not on shapes: a node lies inside its parent when all its communes belong to the parent. There are no failures.
+- **Proposed `BORDERS` pairs.** The report proposes three: France–Italy, Burgundy–Champagne and Cornas–Crozes-Hermitage.
+- **Several sources per layer.** Each manifest layer lists its sources in `source_citation_ids`, because a French layer draws INAO's lists on IGN's shapes. §3 sketched a single `source_citation_id` (GEO-21).
+- **`check`** validates:
+  - both YAML files;
+  - each source's URL, retrieval date, SHA-256, licence and attribution, which is the licence and attribution gate the research asks for. The licence must be one of those GEO-5 allows, spelled out in full, so that CC BY-NC or dl-de's non-commercial variant cannot pass;
+  - each asset's hash, size and budget;
+  - each layer's manifest entry, including the attribution the app shows, against `layers.yaml` and `sources.yaml`;
+  - the manifest rows against the curriculum.
+
+  When every source is cached, `check` also rebuilds the layers in a temporary directory and compares them with the committed files. It fails when a cached source is another edition. CI runs it offline, in the web job, after `npm test`, which runs the pipeline's own unit tests.
+- **The tool test** (`test/tool/geography_manifest_test.dart`) loads every asset with the G3 decoder. It checks that each node's label point lies inside the node's shape.
+- **The research's provisional budgets** are looser than GEO-11: at most 30 MB for the certification core, at most 2 MB per frequently loaded layer, and three levels of detail for dense layers. GEO-11 stays. At 1.4 MB, no layer needs its own levels of detail yet: G3 already simplifies each shared arc per zoom level. The atlas tasks revisit this when dense layers arrive.
 
 ---
 
