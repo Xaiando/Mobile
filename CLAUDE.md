@@ -43,6 +43,8 @@ node tool/web_smoke/run.mjs build/web_smoke   # after npm ci in tool/web_smoke
 
 Work is planned in docs/backlog.md: one task per session, each naming its design note in docs/design/. Respect the backlog's hot-spot rules (§4) so parallel sessions do not collide. The first schema change belongs to task F2 only (audit DL-3).
 
+Research handoff: read `docs/research/claude-handoff.md` before curriculum, coverage, certification-scope, geography-data, or release-gate work. The supporting audit is `docs/research/curriculum-gap-audit.md` and the track matrix is `docs/research/certification-matrix.md`. The research adds SCOPE-1, C7 and S3; it does **not** supersede the canonical domain model or completed G3 renderer.
+
 Content plans live in docs/content/: the Spätburgunder study tree and the sub-region atlas. Author only their cited facts. Resolve each *to verify* item against its primary source first. Never author a heuristic marked **(H)** as a fact (audit PK-7). The task that creates a node also writes its location item (GEO-18).
 
 ## Data rules
