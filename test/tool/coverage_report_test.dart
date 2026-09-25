@@ -133,7 +133,9 @@ void main() {
 
   test('refuses what it cannot do', () async {
     expect((await run(['--format', 'xml'])).$1, exitUsage);
-    expect((await run(['--on', '2026-9-1'])).$1, exitUsage);
+    for (final date in ['2026-9-1', '2026-02-31', '2026-99-99']) {
+      expect((await run(['--on', date])).$1, exitUsage, reason: date);
+    }
     expect(
       (await run(['--update-baseline', '--track', 'WSET_L3'])).$1,
       exitUsage,
@@ -162,7 +164,11 @@ void main() {
     test('report ends with the coverage of each track', () async {
       final out = StringBuffer();
       expect(await report(['--dataset', manifest], out), exitOk);
-      expect('$out', contains('Coverage on '));
+      expect(
+        '$out',
+        contains('Coverage on ${releaseDate(bundledDataset())} '),
+        reason: 'coverage is measured on the release date (COV-5)',
+      );
       for (final track in ['CMS_CERTIFIED', 'WSET_L3']) {
         expect(
           '$out',

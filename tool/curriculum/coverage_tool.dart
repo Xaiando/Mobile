@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:clock/clock.dart';
 import 'package:drift/native.dart';
 import 'package:sommelier/core/coverage/coverage_baseline.dart';
 import 'package:sommelier/core/coverage/coverage_checker.dart';
@@ -12,7 +11,6 @@ import 'package:sommelier/core/curriculum/curriculum_dataset.dart';
 import 'package:sommelier/core/curriculum/curriculum_ingestion.dart';
 import 'package:sommelier/core/curriculum/curriculum_validator.dart';
 import 'package:sommelier/core/database/app_database.dart';
-import 'package:sommelier/core/time/utc_clock.dart';
 
 import 'curriculum_tools.dart';
 
@@ -22,12 +20,6 @@ import 'curriculum_tools.dart';
 //   dart run tool/coverage_report.dart [--track <id>] [--format md|json]
 //       [--update-baseline] [--on <YYYY-MM-DD>] [--dataset <manifest>]
 //       [--policy <file>] [--baseline <file>]
-
-/// The date a release is measured on unless told otherwise: the UTC date
-/// it was published. The measure then depends on the release alone, not on
-/// the day it is taken (audit COV-5).
-String releaseDate(CurriculumDataset dataset) =>
-    isoDate(dataset.publishedAt.toUtc());
 
 /// Ingests [dataset] into an in-memory database, generating its questions
 /// for [on], and measures [tracks], or every selectable track.
@@ -39,11 +31,9 @@ Future<List<TrackCoverage>> measureCoverage(
 }) async {
   final db = AppDatabase(NativeDatabase.memory());
   try {
-    final date = DateTime.parse(on);
-    // Local noon, so that ingestion's local date is [on] in any time zone.
     final generation = await CurriculumIngester(
       db,
-      clock: Clock.fixed(DateTime(date.year, date.month, date.day, 12)),
+      clock: clockOn(on),
     ).ingest(dataset);
     final checker = CoverageChecker(db, policy);
     return [
@@ -79,7 +69,7 @@ Future<int> coverageReport(List<String> args, StringSink out) async {
   final on = options?['on'];
   if (options == null ||
       !const {'md', 'json'}.contains(format) ||
-      (on != null && !_isoDate.hasMatch(on)) ||
+      (on != null && !isCalendarDate(on)) ||
       (options.has('update-baseline') && options['track'] != null)) {
     return printUsage(out, usage, args);
   }
@@ -207,8 +197,6 @@ Future<int> coverageReport(List<String> args, StringSink out) async {
   }
   return ratchet.passes ? exitOk : exitFailed;
 }
-
-final _isoDate = RegExp(r'^\d{4}-\d{2}-\d{2}$');
 
 /// The known gap that accepts [gap], if the baseline has one.
 KnownGap? _knownGap(CoverageBaseline? baseline, CoverageGap gap) {

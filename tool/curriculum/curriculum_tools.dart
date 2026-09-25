@@ -41,6 +41,27 @@ String besideManifest(String manifest, String name) {
   return slash < 0 ? name : '${path.substring(0, slash)}/$name';
 }
 
+/// The date a release is measured on unless told otherwise: the UTC date
+/// it was published. What `report` and `coverage_report` measure then
+/// depends on the release alone, not on the day they run (audit COV-5).
+String releaseDate(CurriculumDataset dataset) =>
+    isoDate(dataset.publishedAt.toUtc());
+
+/// Whether [text] is a date, `YYYY-MM-DD`, that the calendar has.
+bool isCalendarDate(String text) {
+  final parsed = RegExp(r'^\d{4}-\d{2}-\d{2}$').hasMatch(text)
+      ? DateTime.tryParse('${text}T12:00:00Z')
+      : null;
+  return parsed != null && isoDate(parsed) == text;
+}
+
+/// A clock stopped at local noon on [date], `YYYY-MM-DD`, so that
+/// ingestion generates the questions for that date in any time zone.
+Clock clockOn(String date) {
+  final day = DateTime.parse(date);
+  return Clock.fixed(DateTime(day.year, day.month, day.day, 12));
+}
+
 /// The review ledger's folder: `reviews/` next to [manifest].
 String ledgerFolder(String manifest) => besideManifest(manifest, 'reviews');
 
@@ -195,14 +216,10 @@ Iterable<String> ledgerProblems(
 }
 
 /// `report`: ingests the dataset into an in-memory database and prints what
-/// the release holds, file by file, and what ingestion generated: the
-/// questions by format, the pairs skipped and why, and the items no
-/// multiple-choice question tests.
-Future<int> report(
-  List<String> args,
-  StringSink out, {
-  Clock clock = const Clock(),
-}) async {
+/// the release holds, file by file, and what ingestion generated for the
+/// release date: the questions by format, the pairs skipped and why, the
+/// items no multiple-choice question tests, and each track's coverage.
+Future<int> report(List<String> args, StringSink out) async {
   const usage = 'dart run tool/curriculum/report.dart [--dataset <manifest>]';
   final options = ToolOptions.parse(args, named: {'dataset'});
   if (options == null) return printUsage(out, usage, args);
@@ -226,9 +243,13 @@ Future<int> report(
     return exitFailed;
   }
 
+  final on = releaseDate(dataset);
   out
     ..writeln('Curriculum release ${dataset.version}')
-    ..writeln('  published ${dataset.publishedAt.toIso8601String()}')
+    ..writeln(
+      '  published ${dataset.publishedAt.toIso8601String()}; questions and '
+      'coverage below are for $on (COV-5)',
+    )
     ..writeln('  ${dataset.checksum}')
     ..writeln()
     ..writeln('Files');
@@ -253,7 +274,10 @@ Future<int> report(
   try {
     final GenerationReport generated;
     try {
-      generated = await CurriculumIngester(db, clock: clock).ingest(dataset);
+      generated = await CurriculumIngester(
+        db,
+        clock: clockOn(on),
+      ).ingest(dataset);
     } on Exception catch (error) {
       out.writeln('error: the release does not ingest: $error');
       return exitFailed;
@@ -294,7 +318,7 @@ Future<int> report(
       out,
       db,
       manifest,
-      on: localToday(clock),
+      on: on,
       skipped: generated.skipped,
     );
   } finally {
