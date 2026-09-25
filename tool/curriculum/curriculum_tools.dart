@@ -35,9 +35,27 @@ String ledgerFolder(String manifest) {
   return slash < 0 ? 'reviews' : '${path.substring(0, slash)}/reviews';
 }
 
+/// Why [dataset] cannot be ingested into a new database, or null if it can.
+///
+/// Ingestion also enforces the schema's own constraints, which the validator
+/// does not repeat: the allowed values of `importance` or
+/// `verification_status`, the range of `minimum_depth`, and so on.
+Future<String?> ingestionProblem(CurriculumDataset dataset) async {
+  final db = AppDatabase(NativeDatabase.memory());
+  try {
+    await CurriculumIngester(db).ingest(dataset);
+    return null;
+  } on Exception catch (error) {
+    return 'the release does not ingest: $error';
+  } finally {
+    await db.close();
+  }
+}
+
 /// `lint`: prints every problem of the dataset as `file:line: kind: message
 /// [rule]`: format errors, the validator's errors and warnings, and ledger
-/// errors. Fails if there is any error.
+/// errors. A release without them must also ingest, so that the schema's
+/// constraints hold. Fails if there is any error.
 Future<int> lint(List<String> args, StringSink out) async {
   const usage = 'dart run tool/curriculum/lint.dart [--dataset <manifest>]';
   final options = _Options.parse(args, named: {'dataset'});
@@ -75,6 +93,12 @@ Future<int> lint(List<String> args, StringSink out) async {
   } on LedgerFormatException catch (error) {
     out.writeln('error: ${error.message}');
     errors++;
+  }
+  if (errors == 0) {
+    if (await ingestionProblem(dataset) case final problem?) {
+      out.writeln('$manifest: error: $problem [schema]');
+      errors++;
+    }
   }
   out.writeln(
     '${dataset.files.length} files, release ${dataset.version}: '
@@ -174,10 +198,13 @@ Future<int> report(
 
   final db = AppDatabase(NativeDatabase.memory());
   try {
-    final generated = await CurriculumIngester(
-      db,
-      clock: clock,
-    ).ingest(dataset);
+    final GenerationReport generated;
+    try {
+      generated = await CurriculumIngester(db, clock: clock).ingest(dataset);
+    } on Exception catch (error) {
+      out.writeln('error: the release does not ingest: $error');
+      return exitFailed;
+    }
     out
       ..writeln()
       ..writeln(
