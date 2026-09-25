@@ -58,6 +58,15 @@ void main() {
         await tab(tester, label);
         await meetsGuidelines(tester, label);
       }
+      await tab(tester, 'Practice');
+      await tester.tap(find.widgetWithText(FilledButton, 'Start session'));
+      await tester.pumpAndSettle();
+      await meetsGuidelines(tester, 'a practice card');
+      await tester.tap(find.byTooltip('Flag this question'));
+      await tester.pumpAndSettle();
+      await meetsGuidelines(tester, 'the flag dialog');
+      await tester.tap(find.text('Cancel'));
+      await tester.pumpAndSettle();
       await tab(tester, 'Tasting');
       await tester.tap(find.text('New tasting'));
       await tester.pumpAndSettle();
@@ -95,6 +104,9 @@ void main() {
     await tester.tap(find.byTooltip('Settings'));
     await tester.pumpAndSettle();
     await meetsGuidelines(tester, 'settings');
+    await tester.scrollUntilVisible(find.text('Erase all data'), 300);
+    await tester.pumpAndSettle();
+    await meetsGuidelines(tester, 'settings: your data');
     semantics.dispose();
   });
 }
