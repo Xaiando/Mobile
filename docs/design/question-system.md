@@ -187,7 +187,7 @@ A learner-facing *curriculum coverage* metric (spec §N, "how much of the track 
 **Code layout.**
 
 - `lib/core/coverage/`:
-  - `coverage_formats.dart`: the catalogue of built formats, with family and objectivity. F3 moves it into the format registry.
+  - `coverage_formats.dart`: the catalogue of built formats, with family and objectivity. Since F3 it follows the format registry.
   - `coverage_policy.dart`: the policy.
   - `coverage_checker.dart`: the checker.
   - `coverage_model.dart`: the metrics and gaps.
@@ -273,4 +273,5 @@ It also warns when a document was compared more than a year ago. The task that a
 - **Generated tables.** `questions` and `question_distractors` keep serving single-item formats. `exercise_pools` and `exercise_pool_items` hold composite pools. All are rebuilt on every ingestion and read-only at runtime (QG-9).
 - **As built (F2).** A pool belongs to one template, may be scoped to a node, and carries its rendered prompt. Its items carry a `rank` when it is an ordering. Review events group a composite exercise by `exercise_id`, a UUID rather than a reference to a pool, and keep the answer in `answer_payload` (QF-10). The schema checks `question_templates.mode` only as an identifier, and `variant` and `parameters` let a format have several templates per relation type. Pools stay empty until F3 registers their generators.
 - **Session integration.** The planner still selects items (A-2). For each selected item, the ladder (§5) picks a format. A composite format draws its co-items from the item's pool, preferring due items. Graded co-items count as bonus reviews and do not use a session slot.
+- **As built (F3).** `ExerciseFormat` is the plug-in: family, objectivity, depth and difficulty rank per direction, generation (single rows or pools), presentation and grading. `appFormats` registers the flashcard and the MCQ; a duplicate ID is refused. `ExercisePresenter` presents any template through its format, and `ReviewService.recordExercise` writes one event per graded item in one transaction. Several grades share an `exercise_id`, and each carries its `answer_payload`. The planner serves pool templates alongside generated questions. `StudySession.completeExercise` counts co-items as bonus reviews: a reviewed co-item leaves the queue unless it is on a learning step. The practice screen looks a format's view up in `formatViewsProvider`. A test-only two-item format proves the path end to end (`test/support/pair_format.dart`).
 - **Accessibility.** Every format has a screen-reader-usable answer mode. Map formats fall back to a list of candidate names, and ordering falls back to move-up and move-down buttons (R1).

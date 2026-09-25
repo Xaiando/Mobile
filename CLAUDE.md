@@ -97,17 +97,25 @@ dart run tool/curriculum/verify.dart <item> --reviewer <name> --outcome verified
 - A symmetric relation type (`is_symmetric: true`, e.g. `BORDERS`) stores each pair once, with the smaller node ID as subject.
 - A format that asserts absence (multiple response, "tap all") needs a `relation_set_assertions` row citing the complete list (QF-8, QF-9).
 - A study pack is a `certifications` row with `kind: pack` and no `organization` or `level` (PK-8).
-- A template's `mode` must be a built format (`builtFormats`). `variant` tells two templates of one format apart, and `parameters` is a mapping.
+- A template's `mode` must be a registered format (`appFormats`). `variant` tells two templates of one format apart, and `parameters` is a mapping.
 - `valid_from: 1900-01-01` means the effective date is not curated yet.
 
 ## Question engine
 
-Ingestion regenerates `questions` and `question_distractors` (`QuestionGenerator`); nothing else writes them.
+Ingestion regenerates `questions`, `question_distractors` and the exercise pools (`QuestionGenerator`); nothing else writes them.
 
 - Templates use only `{subject.name}`, `{object.name}` and `{object.type_label}`. A relation type that carries items needs a forward template.
 - An MCQ exists only with at least 3 valid distractors (architecture audit QG-12). Reverse questions need a reverse-safe relation type or `is_distinctive: true`.
 - The test suite fails if an item has neither an MCQ nor `mcq_disabled: true` (§S.3), so after adding items, run the tests and read the generation report (`tool/curriculum/report.dart`).
-- Present questions through `QuestionPresenter.present(seed:)`, and log the seed and the options shown with the review (QG-7).
+- Present exercises through `ExercisePresenter.present(seed:)` and grade them with their format. `ReviewService.recordExercise` logs the seed, the options shown and the answer (QG-7, QF-3).
+
+**Adding a format** (backlog F3, audit QF-11) takes one file per layer and one registry line per layer:
+
+1. `lib/core/questions/formats/<id>/<id>_format.dart`: an `ExerciseFormat` with its family, depths and difficulty ranks, generation (`single` rows in `questions`, or `pooled` exercise pools it writes in `generatePools`), presentation and grading. Register it in `appFormats` (`format_registry.dart`).
+2. `lib/features/practice/formats/<id>_view.dart`: its practice view. Register it in `formatViewsProvider` (`format_views.dart`); the view answers through `StudySessionController.submit`.
+3. Add it to every relation type in `coverage_policy.yaml`, and give it templates.
+
+A composite format grades several items: one `ItemGrade` each, always including the exercise's primary item. They share an `exercise_id`. Co-items count as bonus reviews and take no session slot. `test/support/pair_format.dart` is a worked example.
 
 ## Question coverage
 
@@ -123,7 +131,7 @@ dart run tool/coverage_report.dart --update-baseline  # after a change that move
   - a metric that falls below the baseline;
   - an item that is untestable or flashcard-only, unless `known_gaps` lists it with a reason and the task that closes it (COV-6).
 - **After a content change**, read the report, run `--update-baseline`, and commit the baseline with the change.
-- **A new format** adds itself to `builtFormats` (`lib/core/coverage/coverage_formats.dart`) and to every relation type in the policy.
+- **A new format** registers in `appFormats`, which `builtFormats` follows, and adds itself to every relation type in the policy.
 - **Scope objectives** (`assets/curriculum/track_scope.yaml`, SCOPE-1) pin each track to one body's official document. CMS_CERTIFIED means CMS Europe (CM-10).
   - Objectives are labels in our own words, never syllabus text (L-27).
   - A task that adds a region's node, or the content of a planned objective, adds that objective's `covers`. Only authored items make an objective represented (COV-7).
@@ -150,7 +158,7 @@ npm run check   # CI runs this; with every source cached it also rebuilds and co
 
 ## Study engine
 
-`lib/core/study/` holds the FSRS reviews (`ReviewService`), the learner's track (`LearnerProfiles`) and session planning (`StudyPlanner`, `StudySession`). The decisions are FS-1 to FS-16, CM-3 to CM-6 and A-1 to A-11.
+`lib/core/study/` holds the FSRS reviews (`ReviewService`), the learner's track (`LearnerProfiles`) and session planning (`StudyPlanner`, `StudySession`). The decisions are FS-1 to FS-16, CM-3 to CM-6, A-1 to A-11 and QF-11 to QF-12.
 
 - Record reviews only through `ReviewService`. It writes the event, the options shown and the projected `review_states` row in one transaction, and counts `reps` and `lapses`.
 - When upserting a data class, pass `toCompanion(false)`. The default drops NULL columns from the update, so a stale `step` would survive graduation.
