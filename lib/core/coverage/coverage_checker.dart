@@ -114,6 +114,9 @@ final class CoverageChecker {
                   whySkipped[item.id]?[format],
                 ),
           },
+          subjectType: areas.typeOf(item.subjectId),
+          objectType: areas.typeOf(item.objectId),
+          places: await areas.placesOf(item.subjectId),
         ),
       );
     }
@@ -347,9 +350,22 @@ final class _Areas {
   final Set<String> _placed;
 
   final _cache = <String, CoverageArea>{};
+  final _ancestors = <String, List<GraphNode>>{};
 
   Future<CoverageArea> of(String nodeId) async =>
       _cache[nodeId] ??= await _find(nodeId);
+
+  /// The node type of [nodeId].
+  String typeOf(String nodeId) => _nodes[nodeId]!.nodeType;
+
+  /// [nodeId] and every place that contains it.
+  Future<Set<String>> placesOf(String nodeId) async => {
+    nodeId,
+    for (final ancestor in await _ancestorsOf(nodeId)) ancestor.id,
+  };
+
+  Future<List<GraphNode>> _ancestorsOf(String nodeId) async =>
+      _ancestors[nodeId] ??= await _graph.ancestors(nodeId, on: _on);
 
   /// A place's country, or its region in a regional country. A place that
   /// should lie in another but reaches no top-level place is unplaced. A
@@ -362,7 +378,7 @@ final class _Areas {
         _typeLabels[node.nodeType] ?? node.nodeType,
       );
     }
-    final ancestors = await _graph.ancestors(nodeId, on: _on);
+    final ancestors = await _ancestorsOf(nodeId);
     if (ancestors.isEmpty) {
       return _placed.contains(node.nodeType)
           ? CoverageArea.unplaced
