@@ -1,7 +1,7 @@
 name: sommelier
 description: "Sommelier study app: spaced repetition, tasting practice and a wine journal."
 publish_to: 'none'
-version: 0.1.0+1
+version: 0.2.0+2
 
 environment:
   sdk: ^3.13.0
@@ -28,6 +28,9 @@ dev_dependencies:
   drift_dev: ^2.35.0
   flutter_lints: ^6.0.0
   flutter_test:
+    sdk: flutter
+  # Runs the real app on a device (integration_test/, Windows in CI).
+  integration_test:
     sdk: flutter
 
 flutter:
