@@ -6,6 +6,8 @@ import 'package:fsrs/fsrs.dart' as fsrs;
 
 import '../curriculum/knowledge_graph.dart';
 import '../database/app_database.dart';
+import '../questions/exercise_format.dart';
+import '../questions/format_registry.dart';
 import '../time/utc_clock.dart';
 import 'memory_state.dart';
 import '../journal/wine_journal.dart';
@@ -41,12 +43,14 @@ class EffectiveMapping {
   double get relevance => relevanceOf(importance);
 }
 
-/// A question format: a template's direction and mode (audit QG-1).
+/// A template an item can be asked with: its direction and its format's
+/// mode (audit QG-1).
 class QuestionFormat {
   const QuestionFormat({
     required this.questionTemplateId,
     required this.direction,
     required this.mode,
+    this.format,
   });
 
   final String questionTemplateId;
@@ -54,17 +58,22 @@ class QuestionFormat {
   /// `forward` or `reverse`.
   final String direction;
 
-  /// `mcq` or `flashcard`.
+  /// The format's ID, e.g. `mcq` or `flashcard`.
   final String mode;
+
+  /// The registered format; the app's own when not given.
+  final ExerciseFormat? format;
+
+  ExerciseFormat get _format => format ?? appFormats.require(mode);
 
   bool get isReverse => direction == 'reverse';
   bool get isMultipleChoice => mode == 'mcq';
 
-  /// The `minimum_depth` at which a track serves this format (CM-6).
-  int get requiredDepth => isReverse ? 3 : (isMultipleChoice ? 1 : 2);
+  /// The `minimum_depth` at which a track serves this format (CM-6, QF-6).
+  int get requiredDepth => _format.requiredDepth(direction);
 
   /// Easiest first: recognition before recall, forward before reverse.
-  int get difficultyRank => (isReverse ? 2 : 0) + (isMultipleChoice ? 0 : 1);
+  int get difficultyRank => _format.difficultyRank(direction);
 
   @override
   String toString() => questionTemplateId;
@@ -190,12 +199,20 @@ class StudyOverview {
 /// SQL selects the candidates; retrievability comes from the `fsrs`
 /// package and the score is computed in Dart (A-6).
 class StudyPlanner {
-  StudyPlanner(this.db, {Clock? clock, this.weights = const PriorityWeights()})
-    : _clock = clock ?? const Clock(),
-      _graph = KnowledgeGraph(db, clock: clock);
+  StudyPlanner(
+    this.db, {
+    Clock? clock,
+    this.weights = const PriorityWeights(),
+    FormatRegistry? formats,
+  }) : _clock = clock ?? const Clock(),
+       _graph = KnowledgeGraph(db, clock: clock),
+       formats = formats ?? appFormats;
 
   final AppDatabase db;
   final PriorityWeights weights;
+
+  /// The formats sessions may present.
+  final FormatRegistry formats;
   final Clock _clock;
   final KnowledgeGraph _graph;
 
@@ -544,6 +561,8 @@ class StudyPlanner {
     return config == null ? fsrs.Scheduler() : schedulerFor(config);
   }
 
+  /// Every template that serves each item: its generated questions, and
+  /// the templates of the exercise pools that hold it.
   Future<Map<String, List<QuestionFormat>>> _formatsByItem() async {
     final rows = await db
         .customSelect(
@@ -551,22 +570,35 @@ class StudyPlanner {
       SELECT q.knowledge_item_id, q.question_template_id, t.direction, t.mode
       FROM questions q
       JOIN question_templates t ON t.id = q.question_template_id
-      ORDER BY q.knowledge_item_id, q.question_template_id''',
-          readsFrom: {db.questions, db.questionTemplates},
+      UNION
+      SELECT i.knowledge_item_id, p.question_template_id, t.direction, t.mode
+      FROM exercise_pool_items i
+      JOIN exercise_pools p ON p.id = i.exercise_pool_id
+      JOIN question_templates t ON t.id = p.question_template_id
+      ORDER BY 1, 2''',
+          readsFrom: {
+            db.questions,
+            db.questionTemplates,
+            db.exercisePools,
+            db.exercisePoolItems,
+          },
         )
         .get();
-    final formats = <String, List<QuestionFormat>>{};
+    final byItem = <String, List<QuestionFormat>>{};
     for (final row in rows) {
-      formats
+      final format = formats[row.read<String>('mode')];
+      if (format == null) continue;
+      byItem
           .putIfAbsent(row.read<String>('knowledge_item_id'), () => [])
           .add(
             QuestionFormat(
               questionTemplateId: row.read<String>('question_template_id'),
               direction: row.read<String>('direction'),
-              mode: row.read<String>('mode'),
+              mode: format.id,
+              format: format,
             ),
           );
     }
-    return formats;
+    return byItem;
   }
 }

@@ -3,6 +3,7 @@ import 'package:drift/drift.dart';
 
 import '../database/app_database.dart';
 import '../database/curriculum_writes.dart';
+import '../questions/format_registry.dart';
 import '../questions/question_generator.dart';
 import '../time/utc_clock.dart';
 import 'curriculum_dataset.dart';
@@ -43,10 +44,15 @@ enum IngestionOutcome {
 /// curriculum write lock: authored rows are upserted and never deleted, the
 /// generated tables are rebuilt, and user tables are not touched.
 class CurriculumIngester {
-  CurriculumIngester(this.db, {Clock? clock}) : _clock = clock ?? const Clock();
+  CurriculumIngester(this.db, {Clock? clock, FormatRegistry? formats})
+    : _clock = clock ?? const Clock(),
+      formats = formats ?? appFormats;
 
   final AppDatabase db;
   final Clock _clock;
+
+  /// The formats whose questions the release is generated for.
+  final FormatRegistry formats;
 
   /// Brings the database up to the bundled [dataset].
   Future<IngestionOutcome> ensureCurrent(CurriculumDataset dataset) async {
@@ -75,7 +81,7 @@ class CurriculumIngester {
   /// Validates [dataset] and writes it in a single transaction, then
   /// regenerates the questions from it. Returns the generation report.
   Future<GenerationReport> ingest(CurriculumDataset dataset) async {
-    final report = validateDataset(dataset);
+    final report = validateDataset(dataset, formats: formats);
     if (!report.isValid) {
       throw CurriculumIngestionException(
         'release ${dataset.version} fails validation:\n'
@@ -90,13 +96,10 @@ class CurriculumIngester {
       await _upsertAuthored(dataset);
       // Generated tables are derived from the authored rows and nothing
       // references them, so they are rebuilt wholesale (domain model §2).
-      // Composite formats will generate their pools (task F3); until then
-      // there are none.
-      await db.delete(db.exercisePoolItems).go();
-      await db.delete(db.exercisePools).go();
       final generated = await QuestionGenerator(
         db,
         today: localToday(_clock),
+        formats: formats,
       ).generate();
       await db
           .into(db.curriculumReleases)

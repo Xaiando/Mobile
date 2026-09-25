@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:math';
 
 import 'package:clock/clock.dart';
@@ -6,6 +7,7 @@ import 'package:fsrs/fsrs.dart' as fsrs;
 
 import '../database/app_database.dart';
 import '../database/uuid.dart';
+import '../questions/exercise.dart';
 import '../questions/question_presenter.dart';
 import '../time/utc_clock.dart';
 import 'memory_state.dart';
@@ -122,6 +124,51 @@ class ReviewService {
     );
   }
 
+  /// Records every grade of [exercise] in one transaction (QF-3): one
+  /// review event per graded item, sharing an `exercise_id` when there are
+  /// several, each with the format's record of the answer. A failure writes
+  /// nothing. The results follow [grades]' order.
+  Future<List<ReviewResult>> recordExercise(
+    Exercise exercise,
+    List<ItemGrade> grades, {
+    Duration? responseTime,
+  }) async {
+    if (grades.isEmpty) {
+      throw ArgumentError.value(grades, 'grades', 'grade nothing');
+    }
+    final graded = [for (final grade in grades) grade.itemId];
+    if (graded.toSet().length != graded.length) {
+      throw ArgumentError.value(graded, 'grades', 'grade an item twice');
+    }
+    if (!graded.every(exercise.itemIds.contains)) {
+      throw ArgumentError.value(
+        graded,
+        'grades',
+        'grade an item ${exercise.formatId} does not practise',
+      );
+    }
+    _checkResponseTime(responseTime);
+    final exerciseId = grades.length > 1 ? newUuid(random) : null;
+    return db.transaction(() async {
+      return [
+        for (final grade in grades)
+          await _apply(
+            knowledgeItemId: grade.itemId,
+            questionTemplateId: exercise.questionTemplateId,
+            rating: grade.rating,
+            seed: exercise.seed,
+            optionNodeIds: grade.optionNodeIds,
+            selectedNodeId: grade.selectedNodeId,
+            responseTime: responseTime,
+            exerciseId: exerciseId,
+            answerPayload: grade.payload == null
+                ? null
+                : jsonEncode(grade.payload),
+          ),
+      ];
+    });
+  }
+
   /// Applies [rating] to the item at the current time.
   ///
   /// [optionNodeIds] are the MCQ options in display order, empty for a
@@ -135,84 +182,126 @@ class ReviewService {
     String? selectedNodeId,
     Duration? responseTime,
   }) async {
+    _checkResponseTime(responseTime);
+    return db.transaction(
+      () => _apply(
+        knowledgeItemId: knowledgeItemId,
+        questionTemplateId: questionTemplateId,
+        rating: rating,
+        seed: seed,
+        optionNodeIds: optionNodeIds,
+        selectedNodeId: selectedNodeId,
+        responseTime: responseTime,
+      ),
+    );
+  }
+
+  static void _checkResponseTime(Duration? responseTime) {
     if (responseTime != null && responseTime.isNegative) {
       throw ArgumentError.value(responseTime, 'responseTime', 'is negative');
     }
-    return db.transaction(() async {
-      final served =
-          await (db.select(db.questions)..where(
-                (q) =>
-                    q.knowledgeItemId.equals(knowledgeItemId) &
-                    q.questionTemplateId.equals(questionTemplateId),
-              ))
-              .getSingleOrNull();
-      if (served == null) {
-        throw ArgumentError(
-          'No question $questionTemplateId for item $knowledgeItemId',
-        );
-      }
+  }
 
-      final now = utcNow(_clock);
-      final config = await ensureSchedulerConfig(db, clock: _clock);
-      final before =
-          await (db.select(db.reviewStates)
-                ..where((s) => s.knowledgeItemId.equals(knowledgeItemId)))
-              .getSingleOrNull();
-      final card = before == null
-          ? fsrs.Card(cardId: 0, due: now)
-          : cardOf(before);
-      final reviewed = schedulerFactory(config)
-          .reviewCard(card, rating, reviewDateTime: now)
-          .card;
+  /// Whether [questionTemplateId] serves [knowledgeItemId]: a generated
+  /// question, or a pool of the template that holds the item.
+  Future<bool> _serves(
+    String knowledgeItemId,
+    String questionTemplateId,
+  ) async {
+    final row = await db
+        .customSelect(
+          '''
+      SELECT 1 FROM questions
+      WHERE knowledge_item_id = ?1 AND question_template_id = ?2
+      UNION ALL
+      SELECT 1 FROM exercise_pool_items i
+      JOIN exercise_pools p ON p.id = i.exercise_pool_id
+      WHERE i.knowledge_item_id = ?1 AND p.question_template_id = ?2
+      LIMIT 1''',
+          variables: [Variable(knowledgeItemId), Variable(questionTemplateId)],
+        )
+        .getSingleOrNull();
+    return row != null;
+  }
 
-      final isLapse =
-          before?.state == fsrs.State.review.value &&
-          rating == fsrs.Rating.again;
-      final after = ReviewState(
-        knowledgeItemId: knowledgeItemId,
-        state: reviewed.state.value,
-        step: reviewed.step,
-        stability: reviewed.stability!,
-        difficulty: reviewed.difficulty!,
-        due: toStorageInstant(reviewed.due),
-        lastReview: now,
-        reps: (before?.reps ?? 0) + 1,
-        lapses: (before?.lapses ?? 0) + (isLapse ? 1 : 0),
+  Future<ReviewResult> _apply({
+    required String knowledgeItemId,
+    required String questionTemplateId,
+    required fsrs.Rating rating,
+    int? seed,
+    List<String> optionNodeIds = const [],
+    String? selectedNodeId,
+    Duration? responseTime,
+    String? exerciseId,
+    String? answerPayload,
+  }) async {
+    if (!await _serves(knowledgeItemId, questionTemplateId)) {
+      throw ArgumentError(
+        'No question $questionTemplateId for item $knowledgeItemId',
       );
-      final event = ReviewEvent(
-        id: newUuid(random),
-        knowledgeItemId: knowledgeItemId,
-        questionTemplateId: questionTemplateId,
-        reviewedAt: now,
-        rating: rating.value,
-        responseMs: responseTime?.inMilliseconds,
-        seed: seed,
-        selectedNodeId: selectedNodeId,
-        schedulerConfigVersion: config.version,
-        stateAfter: after.state,
-        stepAfter: after.step,
-        stabilityAfter: after.stability,
-        difficultyAfter: after.difficulty,
-        dueAfter: after.due,
-      );
+    }
 
-      // Companions built with nullToAbsent: false write NULLs too: an upsert
-      // must clear `step` when the item graduates to Review.
-      await db.into(db.reviewEvents).insert(event.toCompanion(false));
-      await db.batch(
-        (batch) => batch.insertAll(db.reviewEventOptions, [
-          for (var i = 0; i < optionNodeIds.length; i++)
-            ReviewEventOptionsCompanion.insert(
-              reviewEventId: event.id,
-              position: i + 1,
-              knowledgeNodeId: optionNodeIds[i],
-            ),
-        ]),
-      );
-      await db
-          .into(db.reviewStates)
-          .insertOnConflictUpdate(after.toCompanion(false));
-      return ReviewResult(event: event, before: before, after: after);
-    });
+    final now = utcNow(_clock);
+    final config = await ensureSchedulerConfig(db, clock: _clock);
+    final before =
+        await (db.select(db.reviewStates)
+              ..where((s) => s.knowledgeItemId.equals(knowledgeItemId)))
+            .getSingleOrNull();
+    final card = before == null
+        ? fsrs.Card(cardId: 0, due: now)
+        : cardOf(before);
+    final reviewed = schedulerFactory(config)
+        .reviewCard(card, rating, reviewDateTime: now)
+        .card;
+
+    final isLapse =
+        before?.state == fsrs.State.review.value && rating == fsrs.Rating.again;
+    final after = ReviewState(
+      knowledgeItemId: knowledgeItemId,
+      state: reviewed.state.value,
+      step: reviewed.step,
+      stability: reviewed.stability!,
+      difficulty: reviewed.difficulty!,
+      due: toStorageInstant(reviewed.due),
+      lastReview: now,
+      reps: (before?.reps ?? 0) + 1,
+      lapses: (before?.lapses ?? 0) + (isLapse ? 1 : 0),
+    );
+    final event = ReviewEvent(
+      id: newUuid(random),
+      knowledgeItemId: knowledgeItemId,
+      questionTemplateId: questionTemplateId,
+      reviewedAt: now,
+      rating: rating.value,
+      responseMs: responseTime?.inMilliseconds,
+      seed: seed,
+      selectedNodeId: selectedNodeId,
+      schedulerConfigVersion: config.version,
+      stateAfter: after.state,
+      stepAfter: after.step,
+      stabilityAfter: after.stability,
+      difficultyAfter: after.difficulty,
+      dueAfter: after.due,
+      exerciseId: exerciseId,
+      answerPayload: answerPayload,
+    );
+
+    // Companions built with nullToAbsent: false write NULLs too: an upsert
+    // must clear `step` when the item graduates to Review.
+    await db.into(db.reviewEvents).insert(event.toCompanion(false));
+    await db.batch(
+      (batch) => batch.insertAll(db.reviewEventOptions, [
+        for (var i = 0; i < optionNodeIds.length; i++)
+          ReviewEventOptionsCompanion.insert(
+            reviewEventId: event.id,
+            position: i + 1,
+            knowledgeNodeId: optionNodeIds[i],
+          ),
+      ]),
+    );
+    await db
+        .into(db.reviewStates)
+        .insertOnConflictUpdate(after.toCompanion(false));
+    return ReviewResult(event: event, before: before, after: after);
   }
 }

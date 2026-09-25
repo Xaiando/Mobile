@@ -2,6 +2,8 @@ import 'package:drift/drift.dart';
 
 import '../curriculum/knowledge_graph.dart';
 import '../database/app_database.dart';
+import 'exercise_format.dart';
+import 'format_registry.dart';
 import 'template_renderer.dart';
 
 /// Wrong options shown with every multiple-choice question: always four
@@ -33,11 +35,17 @@ class SkippedQuestion {
 
 /// What a generation run produced: the build report of QG-3.
 class GenerationReport {
-  int flashcards = 0;
-  int multipleChoice = 0;
+  /// Single-item questions, by format.
+  final byFormat = <String, int>{};
+
+  /// Exercise pools of the composite formats (QF-10).
+  int pools = 0;
+
   final skipped = <SkippedQuestion>[];
 
-  int get questions => flashcards + multipleChoice;
+  int get flashcards => byFormat['flashcard'] ?? 0;
+  int get multipleChoice => byFormat['mcq'] ?? 0;
+  int get questions => byFormat.values.fold(0, (sum, n) => sum + n);
 }
 
 /// A valid wrong answer and how far from the subject it was found:
@@ -55,23 +63,30 @@ class Distractor {
 /// Generates the servable questions from the curriculum (spec §H, TASK-004).
 ///
 /// Each current item is phrased by every template of its relation type that
-/// it is eligible for (QG-3). A multiple-choice question stores its pool of
-/// distractors, found by walking up the subject's geographic scopes and
-/// widening until [distractorsPerQuestion] exist (QG-4, QG-5).
+/// it is eligible for (QG-3). A question whose format needs wrong answers
+/// (an MCQ) stores its pool of distractors, found by walking up the
+/// subject's geographic scopes and widening until [distractorsPerQuestion]
+/// exist (QG-4, QG-5). A composite format generates its own exercise pools
+/// (QF-10).
 class QuestionGenerator {
-  QuestionGenerator(this.db, {required this.today});
+  QuestionGenerator(this.db, {required this.today, FormatRegistry? formats})
+    : formats = formats ?? appFormats;
 
   final AppDatabase db;
 
   /// The date, `YYYY-MM-DD`, on which relations must be in force.
   final String today;
 
-  /// Rebuilds `questions` and `question_distractors`. Runs inside the
-  /// ingestion transaction, which holds the curriculum write lock.
+  final FormatRegistry formats;
+
+  /// Rebuilds `questions`, `question_distractors` and the exercise pools.
+  /// Runs inside the ingestion transaction, which holds the curriculum
+  /// write lock.
   Future<GenerationReport> generate() async {
     final report = GenerationReport();
-    // Deleting a question cascades to its distractors.
+    // Deleting a question cascades to its distractors, a pool to its items.
     await db.delete(db.questions).go();
+    await db.delete(db.exercisePools).go();
 
     final nodes = {
       for (final node in await db.select(db.knowledgeNodes).get())
@@ -93,10 +108,15 @@ class QuestionGenerator {
 
     final questions = <Question>[];
     final pools = <QuestionDistractor>[];
-    for (final item in await _currentItems()) {
+    final items = await _currentItems();
+    for (final item in items) {
       final relationType = relationTypes[item.relationType]!;
       for (final template
           in templates[item.relationType] ?? const <QuestionTemplate>[]) {
+        final format = formats[template.mode];
+        if (format == null || format.generation != FormatGeneration.single) {
+          continue;
+        }
         final reverse = template.direction == 'reverse';
         if (reverse && !relationType.isReverseSafe && !item.isDistinctive) {
           report.skipped.add(
@@ -105,7 +125,7 @@ class QuestionGenerator {
           continue;
         }
         var pool = const <Distractor>[];
-        if (template.mode == 'mcq') {
+        if (format.needsDistractors) {
           if (item.mcqDisabled) {
             report.skipped.add(
               SkippedQuestion(item.id, template.id, SkipReason.mcqDisabled),
@@ -123,10 +143,8 @@ class QuestionGenerator {
             );
             continue;
           }
-          report.multipleChoice++;
-        } else {
-          report.flashcards++;
         }
+        report.byFormat.update(format.id, (n) => n + 1, ifAbsent: () => 1);
         final object = nodes[item.objectId]!;
         questions.add(
           Question(
@@ -156,6 +174,14 @@ class QuestionGenerator {
       b.insertAll(db.questions, questions);
       b.insertAll(db.questionDistractors, pools);
     });
+
+    final context = PoolContext(db, today: today, items: items);
+    for (final template in [for (final list in templates.values) ...list]) {
+      final format = formats[template.mode];
+      if (format?.generation == FormatGeneration.pooled) {
+        report.pools += await format!.generatePools(context, template);
+      }
+    }
     return report;
   }
 

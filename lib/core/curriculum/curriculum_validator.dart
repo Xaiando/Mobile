@@ -1,6 +1,6 @@
 import 'package:drift/drift.dart' show DataClass;
 
-import '../coverage/coverage_formats.dart';
+import '../questions/format_registry.dart';
 import '../database/app_database.dart';
 import 'curriculum_dataset.dart';
 
@@ -71,13 +71,18 @@ class ValidationReport {
 ///
 /// The database enforces single-row rules as constraints; checking them here
 /// too gives one readable report before anything is written.
-ValidationReport validateDataset(CurriculumDataset dataset) =>
-    ValidationReport(_Validator(dataset).run());
+///
+/// A template's mode must be a format of [formats], the app's by default.
+ValidationReport validateDataset(
+  CurriculumDataset dataset, {
+  FormatRegistry? formats,
+}) => ValidationReport(_Validator(dataset, formats ?? appFormats).run());
 
 class _Validator {
-  _Validator(this.d);
+  _Validator(this.d, this.formats);
 
   final CurriculumDataset d;
+  final FormatRegistry formats;
   final issues = <ValidationIssue>[];
 
   late final domains = {for (final r in d.curriculumDomains) r.id};
@@ -920,11 +925,11 @@ class _Validator {
     final forward = <String>{};
     for (final t in d.questionTemplates) {
       // The schema checks only a mode's form; the formats decide (QF-2).
-      if (!builtFormats.containsKey(t.mode)) {
+      if (!formats.contains(t.mode)) {
         error(
           'template-format',
           '${t.id} has mode "${t.mode}", which is no format; the formats '
-              'are ${builtFormats.keys.join(', ')}',
+              'are ${formats.ids.join(', ')}',
           row: _ref('question_templates', t),
         );
       }
