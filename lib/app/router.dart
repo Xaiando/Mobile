@@ -9,7 +9,11 @@ import '../features/home/home_screen.dart';
 import '../features/practice/practice_screen.dart';
 import '../features/study/study_screen.dart';
 import '../features/tasting/tasting_screen.dart';
+import '../features/onboarding/onboarding_screen.dart';
+import '../features/settings/about_screen.dart';
+import '../features/settings/settings_screen.dart';
 import 'app_shell.dart';
+import 'learner_state.dart';
 
 /// One tab of the bottom navigation bar.
 class AppDestination {
@@ -89,9 +93,37 @@ final _tabPages = <String, List<RouteBase>>{
 /// Each tab is a branch of an indexed-stack shell, so every module keeps its
 /// own navigation state while the user switches tabs.
 final routerProvider = Provider<GoRouter>((ref) {
+  // Onboarding comes first, once (backlog R1). Until startup has read the
+  // settings, the app stays where it is.
+  final settingsChanged = ValueNotifier(0);
+  ref.listen(settingsProvider, (_, _) => settingsChanged.value++);
+  ref.onDispose(settingsChanged.dispose);
+
   final router = GoRouter(
     initialLocation: appDestinations.first.path,
+    refreshListenable: settingsChanged,
+    redirect: (context, state) {
+      final settings = ref.read(settingsProvider).value;
+      if (settings == null) return null;
+      final onboarding = state.matchedLocation == '/onboarding';
+      if (!settings.isOnboarded) return onboarding ? null : '/onboarding';
+      return onboarding ? appDestinations.first.path : null;
+    },
     routes: [
+      GoRoute(
+        path: '/onboarding',
+        builder: (context, state) => const OnboardingScreen(),
+      ),
+      GoRoute(
+        path: '/settings',
+        builder: (context, state) => const SettingsScreen(),
+        routes: [
+          GoRoute(
+            path: 'about',
+            builder: (context, state) => const AboutScreen(),
+          ),
+        ],
+      ),
       StatefulShellRoute.indexedStack(
         builder: (context, state, navigationShell) =>
             AppShell(navigationShell: navigationShell),

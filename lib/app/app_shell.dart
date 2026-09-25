@@ -6,6 +6,12 @@ import '../core/database/storage_durability.dart';
 import 'router.dart';
 import 'startup.dart';
 
+/// From this window width on, the modules sit beside a navigation rail.
+const wideLayoutWidth = 840.0;
+
+/// The widest a module grows in a wide window, so lines stay readable.
+const readableWidth = 960.0;
+
 /// The Material 3 scaffold around every module: the navigation bar, plus a
 /// notice when the database failed to open or cannot keep data safely.
 class AppShell extends ConsumerWidget {
@@ -32,6 +38,71 @@ class AppShell extends ConsumerWidget {
       _ => null,
     };
 
+    void select(int index) => navigationShell.goBranch(
+      index,
+      initialLocation: index == navigationShell.currentIndex,
+    );
+
+    // A window as wide as a tablet in landscape, or a PC, gets a rail at
+    // its side, and the modules a readable width; a phone gets the bar.
+    final wide = MediaQuery.sizeOf(context).width >= wideLayoutWidth;
+    if (wide) {
+      return Scaffold(
+        body: Row(
+          children: [
+            NavigationRail(
+              selectedIndex: navigationShell.currentIndex,
+              onDestinationSelected: select,
+              labelType: NavigationRailLabelType.all,
+              leading: const Padding(
+                padding: EdgeInsets.symmetric(vertical: 8),
+                child: Icon(Icons.wine_bar, size: 32),
+              ),
+              trailing: Expanded(
+                child: Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Padding(
+                    padding: const EdgeInsets.only(bottom: 16),
+                    child: IconButton(
+                      tooltip: 'Settings',
+                      icon: const Icon(Icons.settings_outlined),
+                      onPressed: () => context.push('/settings'),
+                    ),
+                  ),
+                ),
+              ),
+              destinations: [
+                for (final destination in appDestinations)
+                  NavigationRailDestination(
+                    icon: Icon(destination.icon),
+                    selectedIcon: Icon(destination.selectedIcon),
+                    label: Text(destination.label),
+                  ),
+              ],
+            ),
+            const VerticalDivider(width: 1),
+            Expanded(
+              child: Column(
+                children: [
+                  Expanded(
+                    child: Center(
+                      child: ConstrainedBox(
+                        constraints: const BoxConstraints(
+                          maxWidth: readableWidth,
+                        ),
+                        child: navigationShell,
+                      ),
+                    ),
+                  ),
+                  ?notice,
+                ],
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+
     return Scaffold(
       body: navigationShell,
       bottomNavigationBar: Column(
@@ -40,10 +111,7 @@ class AppShell extends ConsumerWidget {
           ?notice,
           NavigationBar(
             selectedIndex: navigationShell.currentIndex,
-            onDestinationSelected: (index) => navigationShell.goBranch(
-              index,
-              initialLocation: index == navigationShell.currentIndex,
-            ),
+            onDestinationSelected: select,
             destinations: [
               for (final destination in appDestinations)
                 NavigationDestination(

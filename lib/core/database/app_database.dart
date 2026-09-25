@@ -22,13 +22,13 @@ class AppDatabase extends _$AppDatabase {
   Future<void> ensureOpen() => customSelect('SELECT 1').get();
 
   @override
-  int get schemaVersion => 2;
+  int get schemaVersion => 3;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
     // Each step builds on the schema snapshot of its version in
     // drift_schemas/, never on the current schema (audit DL-2).
-    onUpgrade: stepByStep(from1To2: _from1To2),
+    onUpgrade: stepByStep(from1To2: _from1To2, from2To3: _from2To3),
     beforeOpen: (details) async {
       // SQLite enforces foreign keys only when asked, per connection. They
       // stay off while a migration runs, so tables can be rebuilt.
@@ -98,4 +98,11 @@ Future<void> _from1To2(Migrator m, Schema2 schema) async {
   ]) {
     await m.create(entity);
   }
+}
+
+/// Schema v3 (backlog R1): the learner's settings and question flags.
+Future<void> _from2To3(Migrator m, Schema3 schema) async {
+  await m.createTable(schema.userSettings);
+  await m.createTable(schema.questionFlags);
+  await m.create(schema.questionFlagsByItem);
 }

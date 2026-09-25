@@ -1,10 +1,11 @@
 -- =============================================================================
--- Sommelier Study App: canonical domain model, schema v2
+-- Sommelier Study App: canonical domain model, schema v3
 --
 -- v2 (backlog F2, audit DL-3) adds composite exercises, completeness
 -- assertions, symmetric relations, study packs and map geometry. Columns
 -- that v2 adds to a v1 table come last, where the upgrade's ADD COLUMN
 -- puts them, so a new and an upgraded database have the same schema.
+-- v3 (backlog R1) adds the learner's settings and question flags.
 --
 -- Human-readable model and diagrams: docs/domain-model.md
 -- Targets SQLite 3.53.4 (bundled on native and in sqlite3.wasm on Web).
@@ -516,6 +517,32 @@ CREATE TRIGGER review_event_options_append_only_update BEFORE UPDATE ON review_e
 BEGIN SELECT RAISE(ABORT, 'review_event_options is append-only'); END;
 CREATE TRIGGER review_event_options_append_only_delete BEFORE DELETE ON review_event_options
 BEGIN SELECT RAISE(ABORT, 'review_event_options is append-only'); END;
+
+-- The learner's preferences and one-time confirmations, one row per name
+-- (backlog R1): the theme, the temperature unit, the age confirmation.
+CREATE TABLE user_settings (
+  name        TEXT     NOT NULL PRIMARY KEY
+    CHECK (name GLOB '[a-z]*' AND name NOT GLOB '*[^a-z0-9_]*'),
+  value       TEXT     NOT NULL,
+  updated_at  DATETIME NOT NULL
+    CHECK (strftime('%Y-%m-%dT%H:%M:%fZ', updated_at) IS updated_at)
+);
+
+-- A question the learner flagged (backlog R1). Flags stay on the device and
+-- travel in the data export, so curators hear of problems without
+-- telemetry.
+CREATE TABLE question_flags (
+  id                    TEXT     NOT NULL PRIMARY KEY
+    CHECK (length(id) = 36 AND id NOT GLOB '*[^0-9a-f-]*'),
+  knowledge_item_id     TEXT     NOT NULL REFERENCES knowledge_items (id),
+  question_template_id  TEXT     REFERENCES question_templates (id),
+  reason                TEXT     NOT NULL
+    CHECK (reason IN ('wrong', 'unclear', 'outdated', 'other')),
+  note                  TEXT,
+  created_at            DATETIME NOT NULL
+    CHECK (strftime('%Y-%m-%dT%H:%M:%fZ', created_at) IS created_at)
+);
+CREATE INDEX question_flags_by_item ON question_flags (knowledge_item_id);
 
 CREATE TABLE wine_journal_entries (
   id                TEXT     NOT NULL PRIMARY KEY
