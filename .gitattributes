@@ -6,3 +6,7 @@
 drift_schemas/** linguist-generated=true
 web/drift_worker.js linguist-vendored=true
 web/sqlite3.wasm binary linguist-vendored=true
+
+# Map layers built by tool/geography: single-line TopoJSON whose SHA-256 the
+# manifest records, so never convert line endings; collapsed in diffs.
+assets/geography/*.topo.json -text linguist-generated=true
