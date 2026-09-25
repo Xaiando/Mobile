@@ -51,11 +51,12 @@ Android and iOS are the primary targets. The web gets basic support. Nothing in 
 | `lib/core/curriculum/` | Dataset parser, validator, ingestion and graph traversal queries |
 | `lib/core/questions/` | Question generation (templates, eligibility, distractors) and seeded presentation |
 | `lib/core/study/` | FSRS reviews, the learner's track, the priority score and session planning |
-| `assets/curriculum/` | The curriculum release: a manifest that includes one YAML file per area and per question format, and the expert-review ledger |
+| `lib/core/coverage/` | The question coverage checker: which items each track can practise, and how; the policy and the baseline ratchet |
+| `assets/curriculum/` | The curriculum release: a manifest that includes one YAML file per area and per question format; beside it, the expert-review ledger and the coverage policy and baseline |
 | `lib/core/time/` | The UTC millisecond clock used for every stored timestamp |
 | `lib/features/` | Home (dashboard and track picker), Study (curriculum browser), Practice (sessions), Tasting and Cellar |
 | `test/` | Schema, CRUD, write-lock, curriculum, question, study engine, clock and widget tests |
-| `tool/` | The curriculum tools (`lint`, `report`, `verify`), web asset pinning, the web smoke test and the Android 16 KB alignment check |
+| `tool/` | The curriculum tools (`lint`, `report`, `verify`), the question coverage report, web asset pinning, the web smoke test and the Android 16 KB alignment check |
 | `drift_schemas/` | Schema snapshots for migration tests |
 | `docs/` | Audit, architecture validation, decision register and domain model |
 
