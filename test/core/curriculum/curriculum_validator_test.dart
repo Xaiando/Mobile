@@ -369,6 +369,32 @@ void main() {
     });
   });
 
+  test('rejects a tasting grid without a real choice (T1)', () {
+    final data = copyOf(minimalDataset());
+    rowsOf(data, 'tasting_grids').add({
+      'id': 'tg_test',
+      'framework': 'WSET_SAT',
+      'version': '1.0',
+      'display_name': 'A test grid',
+    });
+    rowsOf(data, 'tasting_grid_attributes').add({
+      'tasting_grid_id': 'tg_test',
+      'attribute_key': 'acidity',
+      'section': 'Taste',
+      'label': 'Acidity',
+      'position': 1,
+      'selection': 'single',
+    });
+    rowsOf(data, 'tasting_grid_values').add({
+      'tasting_grid_id': 'tg_test',
+      'attribute_key': 'acidity',
+      'value_key': 'high',
+      'label': 'High',
+      'position': 1,
+    });
+    expect(brokenRules(data), {'tasting-grid'});
+  });
+
   test('allows a fact that changes over time without overlap', () {
     final data = minimalDataset();
     rowOf(

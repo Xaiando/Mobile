@@ -435,3 +435,16 @@ The design is [design/study-packs.md](design/study-packs.md); the tasks are [bac
 | PK-6 | **A pack's certification core lands first.** Facts that certifications also need go into a content task mapped to the certification tracks (C6 for Germany), which needs no schema change. The pack task (P2) adds pack depth and the pack track. Maps (G12) and deduction (P3) follow. | The Spätburgunder fast track: learners get the German core in waves 1–2 and the pack in wave 4, rather than waiting for maps. |
 | PK-7 | **Pack content plans separate facts from heuristics.** A plan marks tasting and deduction rules of thumb as heuristics. They are authored only as sourced style profiles (P3, L-18), never as cited facts. *To verify* statements are checked against their primary source before they become items. | Blind-tasting cues are useful but general. D3 forbids treating them as authoritative without sources. |
 | PK-8 | **A pack has neither an examining body nor a level** (F2). `certifications.kind` is `certification` or `pack`, and a CHECK couples it with `organization` and `level`: both set for a certification, both NULL for a pack. A pack may include any track; a certification includes only a lower level of its own organization, never a pack. | The backlog made `organization` null for packs; a level has no meaning for them either, and a pack that includes a certification reuses its mappings (PK-2). |
+
+---
+
+## 17. Tasting
+
+The tasks are [backlog.md](backlog.md) group T. The schema is T-1 of the [architecture validation](architecture/architecture-validation.md) and §3.5 of the [domain model](domain-model.md).
+
+| ID | Decision | Reason |
+|---|---|---|
+| TG-1 | **The app's own two grids** (T1): *Structured tasting* for the WSET tracks and *Deductive tasting* for the CMS tracks, in `areas/tasting.yaml`. Their names, sections, attributes and scale words are the app's own; the `framework` code only names the track a grid serves. Each certification's `default_tasting_grid_id` points at its grid. | LEGAL-2 and L-2: no examining body's grid text or artwork is copied, yet each track practises the kind of tasting its exam asks for. |
+| TG-2 | **Single choices are required, multiple choices optional.** A single choice offers at least two values, a multiple choice at least one, and every grid has attributes: the validator's `tasting-grid` rule. | A scale with one step is no choice. Aromas and flavours vary too much to demand one. |
+| TG-3 | **A tasting is saved answer by answer** (T2). `TastingPractice.choose` replaces an attribute's values in one transaction; the schema refuses another grid's value and a second value for a single choice (TASK-008). A tasting is finished only when every required attribute has a value, and `complete` names what is missing. A resumed tasting opens at its first unfinished section. | Spec Phase 4: a full grid is completed and saved locally. Nothing is lost when the learner leaves halfway. |
+| TG-4 | **A blind tasting hides its wine until it is finished.** The wine may be chosen beforehand (from its journal entry) or at the end; until the learner finishes, neither the list nor the tasting names it. A known wine is tasted sighted unless the learner says otherwise. | A blind tasting that shows the wine is not blind. |

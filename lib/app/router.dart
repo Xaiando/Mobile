@@ -8,7 +8,9 @@ import '../features/cellar/journal_entry_screen.dart';
 import '../features/home/home_screen.dart';
 import '../features/practice/practice_screen.dart';
 import '../features/study/study_screen.dart';
+import '../features/tasting/new_tasting_screen.dart';
 import '../features/tasting/tasting_screen.dart';
+import '../features/tasting/tasting_session_screen.dart';
 import '../features/onboarding/onboarding_screen.dart';
 import '../features/settings/about_screen.dart';
 import '../features/settings/settings_screen.dart';
@@ -73,6 +75,18 @@ const appDestinations = <AppDestination>[
 
 /// The pages inside a tab, which keep the tab's navigation bar.
 final _tabPages = <String, List<RouteBase>>{
+  '/tasting': [
+    GoRoute(
+      path: 'new',
+      builder: (context, state) =>
+          NewTastingScreen(wineId: state.uri.queryParameters['wine']),
+    ),
+    GoRoute(
+      path: ':id',
+      builder: (context, state) =>
+          TastingSessionScreen(id: state.pathParameters['id']!),
+    ),
+  ],
   '/cellar': [
     GoRoute(path: 'new', builder: (context, state) => const JournalEditor()),
     GoRoute(

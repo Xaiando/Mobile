@@ -14,14 +14,14 @@ curriculum_domains:
 # Tracks are cumulative: each includes the level below (CM-2). Only WSET_L3
 # and CMS_CERTIFIED are offered in V0.1 (CM-1).
 certifications:
-  - { id: WSET_L1, organization: WSET, level: 1, display_name: WSET Level 1 }
-  - { id: WSET_L2, organization: WSET, level: 2, display_name: WSET Level 2, includes_certification_id: WSET_L1 }
-  - { id: WSET_L3, organization: WSET, level: 3, display_name: WSET Level 3, includes_certification_id: WSET_L2, is_selectable: true }
-  - { id: WSET_L4, organization: WSET, level: 4, display_name: WSET Level 4 Diploma, includes_certification_id: WSET_L3 }
-  - { id: CMS_INTRODUCTORY, organization: CMS, level: 1, display_name: CMS Introductory Sommelier }
-  - { id: CMS_CERTIFIED, organization: CMS, level: 2, display_name: CMS Certified Sommelier, includes_certification_id: CMS_INTRODUCTORY, is_selectable: true }
-  - { id: CMS_ADVANCED, organization: CMS, level: 3, display_name: CMS Advanced Sommelier, includes_certification_id: CMS_CERTIFIED }
-  - { id: CMS_MASTER, organization: CMS, level: 4, display_name: CMS Master Sommelier, includes_certification_id: CMS_ADVANCED }
+  - { id: WSET_L1, organization: WSET, level: 1, display_name: WSET Level 1, default_tasting_grid_id: tg_structured }
+  - { id: WSET_L2, organization: WSET, level: 2, display_name: WSET Level 2, includes_certification_id: WSET_L1, default_tasting_grid_id: tg_structured }
+  - { id: WSET_L3, organization: WSET, level: 3, display_name: WSET Level 3, includes_certification_id: WSET_L2, is_selectable: true, default_tasting_grid_id: tg_structured }
+  - { id: WSET_L4, organization: WSET, level: 4, display_name: WSET Level 4 Diploma, includes_certification_id: WSET_L3, default_tasting_grid_id: tg_structured }
+  - { id: CMS_INTRODUCTORY, organization: CMS, level: 1, display_name: CMS Introductory Sommelier, default_tasting_grid_id: tg_deductive }
+  - { id: CMS_CERTIFIED, organization: CMS, level: 2, display_name: CMS Certified Sommelier, includes_certification_id: CMS_INTRODUCTORY, is_selectable: true, default_tasting_grid_id: tg_deductive }
+  - { id: CMS_ADVANCED, organization: CMS, level: 3, display_name: CMS Advanced Sommelier, includes_certification_id: CMS_CERTIFIED, default_tasting_grid_id: tg_deductive }
+  - { id: CMS_MASTER, organization: CMS, level: 4, display_name: CMS Master Sommelier, includes_certification_id: CMS_ADVANCED, default_tasting_grid_id: tg_deductive }
 
 node_types:
   - { id: country, label: country }
@@ -107,13 +107,7 @@ relation_type_signatures:
   - { relation_type: MIN_WOOD_AGEING, subject_node_type: appellation, object_node_type: quantity }
   - { relation_type: REQUIRES_METHOD, subject_node_type: appellation, object_node_type: winemaking_method }
 
-# Tasting grids arrive in Phase 4, after the legal review of the tasting
-# vocabularies (docs/legal-review.md L-2).
-tasting_grids: []
-
-tasting_grid_attributes: []
-
-tasting_grid_values: []
+# The tasting grids are in tasting.yaml (backlog T1).
 
 # Completeness assertions (audit QF-8): none yet. Formats that assert
 # absence, such as multiple response, need one per set (task Q2).

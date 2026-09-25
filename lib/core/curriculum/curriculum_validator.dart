@@ -116,6 +116,7 @@ class _Validator {
     _provenance();
     _completeness();
     _mapLayers();
+    _tastingGrids();
     _templates();
     _report();
     return issues;
@@ -875,6 +876,40 @@ class _Validator {
           'layer-citation',
           'map layer ${l.id} cites no source',
           row: _ref('map_layers', l),
+        );
+      }
+    }
+  }
+
+  /// A tasting grid offers a choice for each of its attributes: at least two
+  /// values for a single choice, one for a multiple choice (backlog T1).
+  void _tastingGrids() {
+    final valuesOf = <String, int>{};
+    for (final v in d.tastingGridValues) {
+      final key = '${v.tastingGridId} ${v.attributeKey}';
+      valuesOf[key] = (valuesOf[key] ?? 0) + 1;
+    }
+    final gridsWithAttributes = {
+      for (final a in d.tastingGridAttributes) a.tastingGridId,
+    };
+    for (final grid in d.tastingGrids) {
+      if (!gridsWithAttributes.contains(grid.id)) {
+        error(
+          'tasting-grid',
+          'tasting grid ${grid.id} has no attributes',
+          row: _ref('tasting_grids', grid),
+        );
+      }
+    }
+    for (final a in d.tastingGridAttributes) {
+      final count = valuesOf['${a.tastingGridId} ${a.attributeKey}'] ?? 0;
+      final needed = a.selection == 'single' ? 2 : 1;
+      if (count < needed) {
+        error(
+          'tasting-grid',
+          '${a.tastingGridId} ${a.attributeKey} is a ${a.selection} choice '
+              'with $count values; it needs at least $needed',
+          row: _ref('tasting_grid_attributes', a),
         );
       }
     }

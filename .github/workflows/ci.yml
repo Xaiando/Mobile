@@ -105,7 +105,7 @@ jobs:
           flutter-version: ${{ steps.flutter.outputs.version }}
           channel: stable
           cache: true
-      - name: The app starts, installs the curriculum and studies a card
+      - name: The app starts, installs the curriculum, studies a card and starts a tasting
         run: flutter test integration_test -d windows --dart-define=SOMMELIER_DATABASE=integration
       - run: flutter build windows --release
       - name: Bundle the Visual C++ runtime next to the app

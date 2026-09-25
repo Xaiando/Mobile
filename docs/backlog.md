@@ -95,8 +95,8 @@ TASK-008 (tasting grids) and TASK-009 (journal integration) remain; they are T1�
 | Q8 | Tasting deduction | Q6, T1 | 5 | ☐ |
 | Q9 | Cross-domain reasoning | Q6, G6 | 6 | ☐ |
 | **T** | **Tasting (spec Phase 4)** | | | |
-| T1 | Tasting grids and lexicon | C1 | 2 | ☐ |
-| T2 | Tasting session UI and persistence | T1 | 3 | ☐ |
+| T1 | Tasting grids and lexicon | C1 | 2 | ☑ |
+| T2 | Tasting session UI and persistence | T1 | 3 | ☑ |
 | **J** | **Wine journal (spec Phase 5)** | | | |
 | J1 | Journal entries: create, edit, list | — | 1 | ☑ |
 | J2 | Journal-to-graph matching and the journal priority factor | J1 | 2 | ☑ |
@@ -723,7 +723,7 @@ Four tasks share one pattern. Each turns the famous regions of one country group
 
   Each value can link to a `style_trait` node, so tasting deduction (Q8) can use it.
 - **Depends on.** C1.
-- **Modules.** `assets/curriculum/areas/tasting_*.yaml` (the tasting grid sections), `docs/legal-review.md` (D10 lexicon review).
+- **Modules.** `assets/curriculum/areas/tasting.yaml` (the tasting grid sections), `docs/legal-review.md` (D10 lexicon review).
 - **Acceptance criteria.**
   - The framework names, attribute layout and wording are the app's own. No proprietary grid text or artwork is used, and a review checklist is attached to the PR.
   - The validator checks single and multiple selection rules.

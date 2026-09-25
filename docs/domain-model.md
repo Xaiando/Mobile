@@ -351,6 +351,8 @@ erDiagram
     KnowledgeNode |o--o{ TastingGridValue : "describes"
 ```
 
+The release ships the app's own two grids (backlog T1, audit TG-1): `tg_structured` for the WSET tracks and `tg_deductive` for the CMS tracks.
+
 ### 3.6 User data: study progress
 
 ```mermaid

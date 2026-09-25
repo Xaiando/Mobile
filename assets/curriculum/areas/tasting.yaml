@@ -1,0 +1,251 @@
+# The app's own tasting frameworks (backlog T1, legal review L-2).
+# Their names, sections, attributes and scale words are written for this app
+# and copy no examining body's grid: a structured grid for the WSET track
+# and a deductive one for the CMS track. The framework column names only
+# which track a grid serves.
+
+tasting_grids:
+  - { id: tg_structured, framework: WSET_SAT, version: "1.0", display_name: "Structured tasting" }
+  - { id: tg_deductive, framework: CMS_DTM, version: "1.0", display_name: "Deductive tasting" }
+
+tasting_grid_attributes:
+  - { tasting_grid_id: tg_structured, attribute_key: clarity, section: "Look", label: "Clarity", position: 1, selection: single, is_required: true }
+  - { tasting_grid_id: tg_structured, attribute_key: depth, section: "Look", label: "Depth of colour", position: 2, selection: single, is_required: true }
+  - { tasting_grid_id: tg_structured, attribute_key: hue, section: "Look", label: "Hue", position: 3, selection: single, is_required: true }
+  - { tasting_grid_id: tg_structured, attribute_key: soundness, section: "Smell", label: "Soundness", position: 4, selection: single, is_required: true }
+  - { tasting_grid_id: tg_structured, attribute_key: aroma_strength, section: "Smell", label: "Aroma strength", position: 5, selection: single, is_required: true }
+  - { tasting_grid_id: tg_structured, attribute_key: aromas, section: "Smell", label: "Aromas", position: 6, selection: multi, is_required: false }
+  - { tasting_grid_id: tg_structured, attribute_key: evolution, section: "Smell", label: "Evolution", position: 7, selection: single, is_required: true }
+  - { tasting_grid_id: tg_structured, attribute_key: sweetness, section: "Taste", label: "Sweetness", position: 8, selection: single, is_required: true }
+  - { tasting_grid_id: tg_structured, attribute_key: acidity, section: "Taste", label: "Acidity", position: 9, selection: single, is_required: true }
+  - { tasting_grid_id: tg_structured, attribute_key: tannin, section: "Taste", label: "Tannin", position: 10, selection: single, is_required: true }
+  - { tasting_grid_id: tg_structured, attribute_key: alcohol, section: "Taste", label: "Alcohol", position: 11, selection: single, is_required: true }
+  - { tasting_grid_id: tg_structured, attribute_key: weight, section: "Taste", label: "Weight", position: 12, selection: single, is_required: true }
+  - { tasting_grid_id: tg_structured, attribute_key: flavour_strength, section: "Taste", label: "Flavour strength", position: 13, selection: single, is_required: true }
+  - { tasting_grid_id: tg_structured, attribute_key: flavours, section: "Taste", label: "Flavours", position: 14, selection: multi, is_required: false }
+  - { tasting_grid_id: tg_structured, attribute_key: length, section: "Taste", label: "Length", position: 15, selection: single, is_required: true }
+  - { tasting_grid_id: tg_structured, attribute_key: balance, section: "Judge", label: "Balance", position: 16, selection: single, is_required: true }
+  - { tasting_grid_id: tg_structured, attribute_key: quality, section: "Judge", label: "Quality", position: 17, selection: single, is_required: true }
+  - { tasting_grid_id: tg_structured, attribute_key: window, section: "Judge", label: "Drinking window", position: 18, selection: single, is_required: true }
+  - { tasting_grid_id: tg_deductive, attribute_key: clarity, section: "Sight", label: "Clarity", position: 1, selection: single, is_required: true }
+  - { tasting_grid_id: tg_deductive, attribute_key: brightness, section: "Sight", label: "Brightness", position: 2, selection: single, is_required: true }
+  - { tasting_grid_id: tg_deductive, attribute_key: hue, section: "Sight", label: "Hue", position: 3, selection: single, is_required: true }
+  - { tasting_grid_id: tg_deductive, attribute_key: concentration, section: "Sight", label: "Concentration", position: 4, selection: single, is_required: true }
+  - { tasting_grid_id: tg_deductive, attribute_key: rim, section: "Sight", label: "Rim fading", position: 5, selection: single, is_required: true }
+  - { tasting_grid_id: tg_deductive, attribute_key: fruit_state, section: "Nose", label: "State of the fruit", position: 6, selection: single, is_required: true }
+  - { tasting_grid_id: tg_deductive, attribute_key: fruit, section: "Nose", label: "Fruit", position: 7, selection: multi, is_required: false }
+  - { tasting_grid_id: tg_deductive, attribute_key: non_fruit, section: "Nose", label: "Beyond fruit", position: 8, selection: multi, is_required: false }
+  - { tasting_grid_id: tg_deductive, attribute_key: wood, section: "Nose", label: "Wood", position: 9, selection: single, is_required: true }
+  - { tasting_grid_id: tg_deductive, attribute_key: intensity, section: "Nose", label: "Intensity", position: 10, selection: single, is_required: true }
+  - { tasting_grid_id: tg_deductive, attribute_key: dryness, section: "Palate", label: "Dryness", position: 11, selection: single, is_required: true }
+  - { tasting_grid_id: tg_deductive, attribute_key: body, section: "Palate", label: "Body", position: 12, selection: single, is_required: true }
+  - { tasting_grid_id: tg_deductive, attribute_key: acid, section: "Palate", label: "Acid", position: 13, selection: single, is_required: true }
+  - { tasting_grid_id: tg_deductive, attribute_key: alcohol, section: "Palate", label: "Alcohol", position: 14, selection: single, is_required: true }
+  - { tasting_grid_id: tg_deductive, attribute_key: tannin, section: "Palate", label: "Tannin", position: 15, selection: single, is_required: true }
+  - { tasting_grid_id: tg_deductive, attribute_key: complexity, section: "Palate", label: "Complexity", position: 16, selection: single, is_required: true }
+  - { tasting_grid_id: tg_deductive, attribute_key: finish, section: "Palate", label: "Finish", position: 17, selection: single, is_required: true }
+  - { tasting_grid_id: tg_deductive, attribute_key: climate, section: "Conclusions", label: "Climate", position: 18, selection: single, is_required: true }
+  - { tasting_grid_id: tg_deductive, attribute_key: style, section: "Conclusions", label: "Style", position: 19, selection: single, is_required: true }
+  - { tasting_grid_id: tg_deductive, attribute_key: age, section: "Conclusions", label: "Age", position: 20, selection: single, is_required: true }
+
+tasting_grid_values:
+  - { tasting_grid_id: tg_structured, attribute_key: clarity, value_key: bright, label: "Bright", position: 1 }
+  - { tasting_grid_id: tg_structured, attribute_key: clarity, value_key: clear, label: "Clear", position: 2 }
+  - { tasting_grid_id: tg_structured, attribute_key: clarity, value_key: cloudy, label: "Cloudy", position: 3 }
+  - { tasting_grid_id: tg_structured, attribute_key: depth, value_key: faint, label: "Faint", position: 1 }
+  - { tasting_grid_id: tg_structured, attribute_key: depth, value_key: light, label: "Light", position: 2 }
+  - { tasting_grid_id: tg_structured, attribute_key: depth, value_key: moderate, label: "Moderate", position: 3 }
+  - { tasting_grid_id: tg_structured, attribute_key: depth, value_key: dark, label: "Dark", position: 4 }
+  - { tasting_grid_id: tg_structured, attribute_key: depth, value_key: opaque, label: "Opaque", position: 5 }
+  - { tasting_grid_id: tg_structured, attribute_key: hue, value_key: water_white, label: "Almost colourless", position: 1 }
+  - { tasting_grid_id: tg_structured, attribute_key: hue, value_key: straw, label: "Straw", position: 2 }
+  - { tasting_grid_id: tg_structured, attribute_key: hue, value_key: yellow, label: "Yellow", position: 3 }
+  - { tasting_grid_id: tg_structured, attribute_key: hue, value_key: gold, label: "Gold", position: 4 }
+  - { tasting_grid_id: tg_structured, attribute_key: hue, value_key: amber, label: "Amber", position: 5 }
+  - { tasting_grid_id: tg_structured, attribute_key: hue, value_key: pink, label: "Pink", position: 6 }
+  - { tasting_grid_id: tg_structured, attribute_key: hue, value_key: copper, label: "Copper", position: 7 }
+  - { tasting_grid_id: tg_structured, attribute_key: hue, value_key: violet, label: "Violet", position: 8 }
+  - { tasting_grid_id: tg_structured, attribute_key: hue, value_key: crimson, label: "Crimson", position: 9 }
+  - { tasting_grid_id: tg_structured, attribute_key: hue, value_key: brick, label: "Brick", position: 10 }
+  - { tasting_grid_id: tg_structured, attribute_key: hue, value_key: tawny_brown, label: "Tawny brown", position: 11 }
+  - { tasting_grid_id: tg_structured, attribute_key: soundness, value_key: sound, label: "Sound", position: 1 }
+  - { tasting_grid_id: tg_structured, attribute_key: soundness, value_key: faulty, label: "Faulty", position: 2 }
+  - { tasting_grid_id: tg_structured, attribute_key: aroma_strength, value_key: very_low, label: "Very faint", position: 1 }
+  - { tasting_grid_id: tg_structured, attribute_key: aroma_strength, value_key: low, label: "Faint", position: 2 }
+  - { tasting_grid_id: tg_structured, attribute_key: aroma_strength, value_key: moderate, label: "Moderate", position: 3 }
+  - { tasting_grid_id: tg_structured, attribute_key: aroma_strength, value_key: high, label: "Strong", position: 4 }
+  - { tasting_grid_id: tg_structured, attribute_key: aroma_strength, value_key: very_high, label: "Very strong", position: 5 }
+  - { tasting_grid_id: tg_structured, attribute_key: aromas, value_key: citrus, label: "Citrus fruit", position: 1 }
+  - { tasting_grid_id: tg_structured, attribute_key: aromas, value_key: orchard, label: "Apple and pear", position: 2 }
+  - { tasting_grid_id: tg_structured, attribute_key: aromas, value_key: stone, label: "Stone fruit", position: 3 }
+  - { tasting_grid_id: tg_structured, attribute_key: aromas, value_key: tropical, label: "Tropical fruit", position: 4 }
+  - { tasting_grid_id: tg_structured, attribute_key: aromas, value_key: red_fruit, label: "Red berries and cherries", position: 5 }
+  - { tasting_grid_id: tg_structured, attribute_key: aromas, value_key: black_fruit, label: "Black berries and plums", position: 6 }
+  - { tasting_grid_id: tg_structured, attribute_key: aromas, value_key: dried_fruit, label: "Dried and cooked fruit", position: 7 }
+  - { tasting_grid_id: tg_structured, attribute_key: aromas, value_key: floral, label: "Flowers", position: 8 }
+  - { tasting_grid_id: tg_structured, attribute_key: aromas, value_key: green, label: "Green and leafy", position: 9 }
+  - { tasting_grid_id: tg_structured, attribute_key: aromas, value_key: herbal, label: "Herbs", position: 10 }
+  - { tasting_grid_id: tg_structured, attribute_key: aromas, value_key: pepper, label: "Pepper and savoury spice", position: 11 }
+  - { tasting_grid_id: tg_structured, attribute_key: aromas, value_key: sweet_spice, label: "Sweet spice", position: 12 }
+  - { tasting_grid_id: tg_structured, attribute_key: aromas, value_key: oak, label: "Vanilla, toast and smoke", position: 13 }
+  - { tasting_grid_id: tg_structured, attribute_key: aromas, value_key: nutty, label: "Nuts", position: 14 }
+  - { tasting_grid_id: tg_structured, attribute_key: aromas, value_key: honey, label: "Honey and wax", position: 15 }
+  - { tasting_grid_id: tg_structured, attribute_key: aromas, value_key: creamy, label: "Butter and cream", position: 16 }
+  - { tasting_grid_id: tg_structured, attribute_key: aromas, value_key: bready, label: "Bread and biscuit", position: 17 }
+  - { tasting_grid_id: tg_structured, attribute_key: aromas, value_key: earthy, label: "Earth and mushroom", position: 18 }
+  - { tasting_grid_id: tg_structured, attribute_key: aromas, value_key: mineral, label: "Stone and chalk", position: 19 }
+  - { tasting_grid_id: tg_structured, attribute_key: aromas, value_key: savoury, label: "Leather, meat and game", position: 20 }
+  - { tasting_grid_id: tg_structured, attribute_key: evolution, value_key: primary, label: "Fresh fruit leads", position: 1 }
+  - { tasting_grid_id: tg_structured, attribute_key: evolution, value_key: evolving, label: "Some development", position: 2 }
+  - { tasting_grid_id: tg_structured, attribute_key: evolution, value_key: evolved, label: "Mostly developed", position: 3 }
+  - { tasting_grid_id: tg_structured, attribute_key: evolution, value_key: tired, label: "Tired", position: 4 }
+  - { tasting_grid_id: tg_structured, attribute_key: sweetness, value_key: bone_dry, label: "Bone dry", position: 1 }
+  - { tasting_grid_id: tg_structured, attribute_key: sweetness, value_key: dry, label: "Dry", position: 2 }
+  - { tasting_grid_id: tg_structured, attribute_key: sweetness, value_key: off_dry, label: "Off-dry", position: 3 }
+  - { tasting_grid_id: tg_structured, attribute_key: sweetness, value_key: semi_sweet, label: "Semi-sweet", position: 4 }
+  - { tasting_grid_id: tg_structured, attribute_key: sweetness, value_key: sweet, label: "Sweet", position: 5 }
+  - { tasting_grid_id: tg_structured, attribute_key: sweetness, value_key: very_sweet, label: "Very sweet", position: 6 }
+  - { tasting_grid_id: tg_structured, attribute_key: acidity, value_key: very_low, label: "Very low", position: 1 }
+  - { tasting_grid_id: tg_structured, attribute_key: acidity, value_key: low, label: "Low", position: 2 }
+  - { tasting_grid_id: tg_structured, attribute_key: acidity, value_key: moderate, label: "Moderate", position: 3 }
+  - { tasting_grid_id: tg_structured, attribute_key: acidity, value_key: high, label: "High", position: 4 }
+  - { tasting_grid_id: tg_structured, attribute_key: acidity, value_key: very_high, label: "Very high", position: 5 }
+  - { tasting_grid_id: tg_structured, attribute_key: tannin, value_key: none, label: "None", position: 1 }
+  - { tasting_grid_id: tg_structured, attribute_key: tannin, value_key: soft, label: "Soft", position: 2 }
+  - { tasting_grid_id: tg_structured, attribute_key: tannin, value_key: moderate, label: "Moderate", position: 3 }
+  - { tasting_grid_id: tg_structured, attribute_key: tannin, value_key: firm, label: "Firm", position: 4 }
+  - { tasting_grid_id: tg_structured, attribute_key: tannin, value_key: gripping, label: "Gripping", position: 5 }
+  - { tasting_grid_id: tg_structured, attribute_key: alcohol, value_key: light, label: "Light", position: 1 }
+  - { tasting_grid_id: tg_structured, attribute_key: alcohol, value_key: moderate, label: "Moderate", position: 2 }
+  - { tasting_grid_id: tg_structured, attribute_key: alcohol, value_key: warm, label: "Warm", position: 3 }
+  - { tasting_grid_id: tg_structured, attribute_key: alcohol, value_key: hot, label: "Hot", position: 4 }
+  - { tasting_grid_id: tg_structured, attribute_key: weight, value_key: light, label: "Light", position: 1 }
+  - { tasting_grid_id: tg_structured, attribute_key: weight, value_key: light_medium, label: "Light to medium", position: 2 }
+  - { tasting_grid_id: tg_structured, attribute_key: weight, value_key: medium, label: "Medium", position: 3 }
+  - { tasting_grid_id: tg_structured, attribute_key: weight, value_key: medium_full, label: "Medium to full", position: 4 }
+  - { tasting_grid_id: tg_structured, attribute_key: weight, value_key: full, label: "Full", position: 5 }
+  - { tasting_grid_id: tg_structured, attribute_key: flavour_strength, value_key: very_low, label: "Very faint", position: 1 }
+  - { tasting_grid_id: tg_structured, attribute_key: flavour_strength, value_key: low, label: "Faint", position: 2 }
+  - { tasting_grid_id: tg_structured, attribute_key: flavour_strength, value_key: moderate, label: "Moderate", position: 3 }
+  - { tasting_grid_id: tg_structured, attribute_key: flavour_strength, value_key: high, label: "Strong", position: 4 }
+  - { tasting_grid_id: tg_structured, attribute_key: flavour_strength, value_key: very_high, label: "Very strong", position: 5 }
+  - { tasting_grid_id: tg_structured, attribute_key: flavours, value_key: citrus, label: "Citrus fruit", position: 1 }
+  - { tasting_grid_id: tg_structured, attribute_key: flavours, value_key: orchard, label: "Apple and pear", position: 2 }
+  - { tasting_grid_id: tg_structured, attribute_key: flavours, value_key: stone, label: "Stone fruit", position: 3 }
+  - { tasting_grid_id: tg_structured, attribute_key: flavours, value_key: tropical, label: "Tropical fruit", position: 4 }
+  - { tasting_grid_id: tg_structured, attribute_key: flavours, value_key: red_fruit, label: "Red berries and cherries", position: 5 }
+  - { tasting_grid_id: tg_structured, attribute_key: flavours, value_key: black_fruit, label: "Black berries and plums", position: 6 }
+  - { tasting_grid_id: tg_structured, attribute_key: flavours, value_key: dried_fruit, label: "Dried and cooked fruit", position: 7 }
+  - { tasting_grid_id: tg_structured, attribute_key: flavours, value_key: floral, label: "Flowers", position: 8 }
+  - { tasting_grid_id: tg_structured, attribute_key: flavours, value_key: green, label: "Green and leafy", position: 9 }
+  - { tasting_grid_id: tg_structured, attribute_key: flavours, value_key: herbal, label: "Herbs", position: 10 }
+  - { tasting_grid_id: tg_structured, attribute_key: flavours, value_key: pepper, label: "Pepper and savoury spice", position: 11 }
+  - { tasting_grid_id: tg_structured, attribute_key: flavours, value_key: sweet_spice, label: "Sweet spice", position: 12 }
+  - { tasting_grid_id: tg_structured, attribute_key: flavours, value_key: oak, label: "Vanilla, toast and smoke", position: 13 }
+  - { tasting_grid_id: tg_structured, attribute_key: flavours, value_key: nutty, label: "Nuts", position: 14 }
+  - { tasting_grid_id: tg_structured, attribute_key: flavours, value_key: honey, label: "Honey and wax", position: 15 }
+  - { tasting_grid_id: tg_structured, attribute_key: flavours, value_key: creamy, label: "Butter and cream", position: 16 }
+  - { tasting_grid_id: tg_structured, attribute_key: flavours, value_key: bready, label: "Bread and biscuit", position: 17 }
+  - { tasting_grid_id: tg_structured, attribute_key: flavours, value_key: earthy, label: "Earth and mushroom", position: 18 }
+  - { tasting_grid_id: tg_structured, attribute_key: flavours, value_key: mineral, label: "Stone and chalk", position: 19 }
+  - { tasting_grid_id: tg_structured, attribute_key: flavours, value_key: savoury, label: "Leather, meat and game", position: 20 }
+  - { tasting_grid_id: tg_structured, attribute_key: length, value_key: short, label: "Short", position: 1 }
+  - { tasting_grid_id: tg_structured, attribute_key: length, value_key: moderate, label: "Moderate", position: 2 }
+  - { tasting_grid_id: tg_structured, attribute_key: length, value_key: long, label: "Long", position: 3 }
+  - { tasting_grid_id: tg_structured, attribute_key: length, value_key: very_long, label: "Very long", position: 4 }
+  - { tasting_grid_id: tg_structured, attribute_key: balance, value_key: balanced, label: "Balanced", position: 1 }
+  - { tasting_grid_id: tg_structured, attribute_key: balance, value_key: unbalanced, label: "Out of balance", position: 2 }
+  - { tasting_grid_id: tg_structured, attribute_key: quality, value_key: flawed, label: "Flawed", position: 1 }
+  - { tasting_grid_id: tg_structured, attribute_key: quality, value_key: simple, label: "Simple", position: 2 }
+  - { tasting_grid_id: tg_structured, attribute_key: quality, value_key: pleasant, label: "Pleasant", position: 3 }
+  - { tasting_grid_id: tg_structured, attribute_key: quality, value_key: good, label: "Good", position: 4 }
+  - { tasting_grid_id: tg_structured, attribute_key: quality, value_key: very_good, label: "Very good", position: 5 }
+  - { tasting_grid_id: tg_structured, attribute_key: quality, value_key: exceptional, label: "Exceptional", position: 6 }
+  - { tasting_grid_id: tg_structured, attribute_key: window, value_key: hold, label: "Hold", position: 1 }
+  - { tasting_grid_id: tg_structured, attribute_key: window, value_key: drink_or_hold, label: "Drink or hold", position: 2 }
+  - { tasting_grid_id: tg_structured, attribute_key: window, value_key: drink_now, label: "Drink now", position: 3 }
+  - { tasting_grid_id: tg_structured, attribute_key: window, value_key: past_best, label: "Past its best", position: 4 }
+  - { tasting_grid_id: tg_deductive, attribute_key: clarity, value_key: clear, label: "Clear", position: 1 }
+  - { tasting_grid_id: tg_deductive, attribute_key: clarity, value_key: slight_haze, label: "Slight haze", position: 2 }
+  - { tasting_grid_id: tg_deductive, attribute_key: clarity, value_key: cloudy, label: "Cloudy", position: 3 }
+  - { tasting_grid_id: tg_deductive, attribute_key: brightness, value_key: dull, label: "Dull", position: 1 }
+  - { tasting_grid_id: tg_deductive, attribute_key: brightness, value_key: bright, label: "Bright", position: 2 }
+  - { tasting_grid_id: tg_deductive, attribute_key: brightness, value_key: brilliant, label: "Brilliant", position: 3 }
+  - { tasting_grid_id: tg_deductive, attribute_key: hue, value_key: water_white, label: "Almost colourless", position: 1 }
+  - { tasting_grid_id: tg_deductive, attribute_key: hue, value_key: straw, label: "Straw", position: 2 }
+  - { tasting_grid_id: tg_deductive, attribute_key: hue, value_key: yellow, label: "Yellow", position: 3 }
+  - { tasting_grid_id: tg_deductive, attribute_key: hue, value_key: gold, label: "Gold", position: 4 }
+  - { tasting_grid_id: tg_deductive, attribute_key: hue, value_key: amber, label: "Amber", position: 5 }
+  - { tasting_grid_id: tg_deductive, attribute_key: hue, value_key: pink, label: "Pink", position: 6 }
+  - { tasting_grid_id: tg_deductive, attribute_key: hue, value_key: copper, label: "Copper", position: 7 }
+  - { tasting_grid_id: tg_deductive, attribute_key: hue, value_key: violet, label: "Violet", position: 8 }
+  - { tasting_grid_id: tg_deductive, attribute_key: hue, value_key: crimson, label: "Crimson", position: 9 }
+  - { tasting_grid_id: tg_deductive, attribute_key: hue, value_key: brick, label: "Brick", position: 10 }
+  - { tasting_grid_id: tg_deductive, attribute_key: hue, value_key: tawny_brown, label: "Tawny brown", position: 11 }
+  - { tasting_grid_id: tg_deductive, attribute_key: concentration, value_key: pale, label: "Pale", position: 1 }
+  - { tasting_grid_id: tg_deductive, attribute_key: concentration, value_key: medium, label: "Medium", position: 2 }
+  - { tasting_grid_id: tg_deductive, attribute_key: concentration, value_key: deep, label: "Deep", position: 3 }
+  - { tasting_grid_id: tg_deductive, attribute_key: rim, value_key: none, label: "None", position: 1 }
+  - { tasting_grid_id: tg_deductive, attribute_key: rim, value_key: slight, label: "Slight", position: 2 }
+  - { tasting_grid_id: tg_deductive, attribute_key: rim, value_key: marked, label: "Marked", position: 3 }
+  - { tasting_grid_id: tg_deductive, attribute_key: fruit_state, value_key: tart, label: "Tart", position: 1 }
+  - { tasting_grid_id: tg_deductive, attribute_key: fruit_state, value_key: ripe, label: "Ripe", position: 2 }
+  - { tasting_grid_id: tg_deductive, attribute_key: fruit_state, value_key: jammy, label: "Jammy", position: 3 }
+  - { tasting_grid_id: tg_deductive, attribute_key: fruit_state, value_key: dried, label: "Dried", position: 4 }
+  - { tasting_grid_id: tg_deductive, attribute_key: fruit, value_key: citrus, label: "Citrus fruit", position: 1 }
+  - { tasting_grid_id: tg_deductive, attribute_key: fruit, value_key: orchard, label: "Apple and pear", position: 2 }
+  - { tasting_grid_id: tg_deductive, attribute_key: fruit, value_key: stone, label: "Stone fruit", position: 3 }
+  - { tasting_grid_id: tg_deductive, attribute_key: fruit, value_key: tropical, label: "Tropical fruit", position: 4 }
+  - { tasting_grid_id: tg_deductive, attribute_key: fruit, value_key: red_fruit, label: "Red berries and cherries", position: 5 }
+  - { tasting_grid_id: tg_deductive, attribute_key: fruit, value_key: black_fruit, label: "Black berries and plums", position: 6 }
+  - { tasting_grid_id: tg_deductive, attribute_key: fruit, value_key: dried_fruit, label: "Dried and cooked fruit", position: 7 }
+  - { tasting_grid_id: tg_deductive, attribute_key: non_fruit, value_key: floral, label: "Flowers", position: 1 }
+  - { tasting_grid_id: tg_deductive, attribute_key: non_fruit, value_key: green, label: "Green and leafy", position: 2 }
+  - { tasting_grid_id: tg_deductive, attribute_key: non_fruit, value_key: herbal, label: "Herbs", position: 3 }
+  - { tasting_grid_id: tg_deductive, attribute_key: non_fruit, value_key: pepper, label: "Pepper and savoury spice", position: 4 }
+  - { tasting_grid_id: tg_deductive, attribute_key: non_fruit, value_key: sweet_spice, label: "Sweet spice", position: 5 }
+  - { tasting_grid_id: tg_deductive, attribute_key: non_fruit, value_key: oak, label: "Vanilla, toast and smoke", position: 6 }
+  - { tasting_grid_id: tg_deductive, attribute_key: non_fruit, value_key: nutty, label: "Nuts", position: 7 }
+  - { tasting_grid_id: tg_deductive, attribute_key: non_fruit, value_key: honey, label: "Honey and wax", position: 8 }
+  - { tasting_grid_id: tg_deductive, attribute_key: non_fruit, value_key: creamy, label: "Butter and cream", position: 9 }
+  - { tasting_grid_id: tg_deductive, attribute_key: non_fruit, value_key: bready, label: "Bread and biscuit", position: 10 }
+  - { tasting_grid_id: tg_deductive, attribute_key: non_fruit, value_key: earthy, label: "Earth and mushroom", position: 11 }
+  - { tasting_grid_id: tg_deductive, attribute_key: non_fruit, value_key: mineral, label: "Stone and chalk", position: 12 }
+  - { tasting_grid_id: tg_deductive, attribute_key: non_fruit, value_key: savoury, label: "Leather, meat and game", position: 13 }
+  - { tasting_grid_id: tg_deductive, attribute_key: wood, value_key: none, label: "No wood", position: 1 }
+  - { tasting_grid_id: tg_deductive, attribute_key: wood, value_key: old, label: "Old wood", position: 2 }
+  - { tasting_grid_id: tg_deductive, attribute_key: wood, value_key: new, label: "New wood", position: 3 }
+  - { tasting_grid_id: tg_deductive, attribute_key: intensity, value_key: low, label: "Low", position: 1 }
+  - { tasting_grid_id: tg_deductive, attribute_key: intensity, value_key: moderate, label: "Moderate", position: 2 }
+  - { tasting_grid_id: tg_deductive, attribute_key: intensity, value_key: high, label: "High", position: 3 }
+  - { tasting_grid_id: tg_deductive, attribute_key: dryness, value_key: dry, label: "Dry", position: 1 }
+  - { tasting_grid_id: tg_deductive, attribute_key: dryness, value_key: off_dry, label: "Off-dry", position: 2 }
+  - { tasting_grid_id: tg_deductive, attribute_key: dryness, value_key: sweet, label: "Sweet", position: 3 }
+  - { tasting_grid_id: tg_deductive, attribute_key: body, value_key: light, label: "Light", position: 1 }
+  - { tasting_grid_id: tg_deductive, attribute_key: body, value_key: medium, label: "Medium", position: 2 }
+  - { tasting_grid_id: tg_deductive, attribute_key: body, value_key: full, label: "Full", position: 3 }
+  - { tasting_grid_id: tg_deductive, attribute_key: acid, value_key: low, label: "Low", position: 1 }
+  - { tasting_grid_id: tg_deductive, attribute_key: acid, value_key: moderate, label: "Moderate", position: 2 }
+  - { tasting_grid_id: tg_deductive, attribute_key: acid, value_key: high, label: "High", position: 3 }
+  - { tasting_grid_id: tg_deductive, attribute_key: alcohol, value_key: low, label: "Low", position: 1 }
+  - { tasting_grid_id: tg_deductive, attribute_key: alcohol, value_key: moderate, label: "Moderate", position: 2 }
+  - { tasting_grid_id: tg_deductive, attribute_key: alcohol, value_key: high, label: "High", position: 3 }
+  - { tasting_grid_id: tg_deductive, attribute_key: tannin, value_key: none, label: "None", position: 1 }
+  - { tasting_grid_id: tg_deductive, attribute_key: tannin, value_key: low, label: "Low", position: 2 }
+  - { tasting_grid_id: tg_deductive, attribute_key: tannin, value_key: moderate, label: "Moderate", position: 3 }
+  - { tasting_grid_id: tg_deductive, attribute_key: tannin, value_key: high, label: "High", position: 4 }
+  - { tasting_grid_id: tg_deductive, attribute_key: complexity, value_key: simple, label: "Simple", position: 1 }
+  - { tasting_grid_id: tg_deductive, attribute_key: complexity, value_key: some, label: "Some complexity", position: 2 }
+  - { tasting_grid_id: tg_deductive, attribute_key: complexity, value_key: complex, label: "Complex", position: 3 }
+  - { tasting_grid_id: tg_deductive, attribute_key: finish, value_key: short, label: "Short", position: 1 }
+  - { tasting_grid_id: tg_deductive, attribute_key: finish, value_key: moderate, label: "Moderate", position: 2 }
+  - { tasting_grid_id: tg_deductive, attribute_key: finish, value_key: long, label: "Long", position: 3 }
+  - { tasting_grid_id: tg_deductive, attribute_key: climate, value_key: cool, label: "Cool", position: 1 }
+  - { tasting_grid_id: tg_deductive, attribute_key: climate, value_key: moderate, label: "Moderate", position: 2 }
+  - { tasting_grid_id: tg_deductive, attribute_key: climate, value_key: warm, label: "Warm", position: 3 }
+  - { tasting_grid_id: tg_deductive, attribute_key: style, value_key: old_world, label: "Old World: earth and restraint", position: 1 }
+  - { tasting_grid_id: tg_deductive, attribute_key: style, value_key: new_world, label: "New World: fruit forward", position: 2 }
+  - { tasting_grid_id: tg_deductive, attribute_key: age, value_key: one_to_three, label: "1 to 3 years", position: 1 }
+  - { tasting_grid_id: tg_deductive, attribute_key: age, value_key: three_to_five, label: "3 to 5 years", position: 2 }
+  - { tasting_grid_id: tg_deductive, attribute_key: age, value_key: five_to_ten, label: "5 to 10 years", position: 3 }
+  - { tasting_grid_id: tg_deductive, attribute_key: age, value_key: over_ten, label: "Over 10 years", position: 4 }

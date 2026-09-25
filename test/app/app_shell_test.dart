@@ -34,7 +34,7 @@ void main() {
 
     await tester.tap(find.widgetWithText(NavigationDestination, 'Tasting'));
     await tester.pumpAndSettle();
-    expect(find.textContaining('tasting practice'), findsOneWidget);
+    expect(find.text('Practise tasting'), findsOneWidget);
 
     await tester.tap(find.widgetWithText(NavigationDestination, 'Cellar'));
     await tester.pumpAndSettle();
