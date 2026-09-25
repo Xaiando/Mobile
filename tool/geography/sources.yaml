@@ -1,0 +1,121 @@
+# The open-licensed sources of the map layers (docs/design/geography.md §6,
+# GEO-5, legal review L-15). `npm run fetch` downloads each into the cache
+# (~/.cache/sommelier-geography, or $SOMMELIER_GEO_CACHE) and refuses a file
+# whose SHA-256 differs from the one recorded here. A new edition is a new
+# entry: its URL, version, retrieval date and SHA-256 change together.
+#
+# Each layer names its sources in layers.yaml. Their attributions are shown
+# with the layer (GEO-14).
+
+sources:
+  - id: src_ne_countries
+    title: Natural Earth 1:50m, Admin 0 – Countries
+    publisher: Natural Earth
+    url: https://naciscdn.org/naturalearth/50m/cultural/ne_50m_admin_0_countries.zip
+    file: ne_50m_admin_0_countries.zip
+    version: "5.1.1"
+    retrieved: "2026-09-25"
+    sha256: 5fed433373581fa648920435f937d95f2d3c0200e067409c6478dcdf1b853139
+    license: Public domain
+    attribution: Made with Natural Earth.
+
+  - id: src_ne_map_units
+    title: Natural Earth 1:50m, Admin 0 – Map Units
+    publisher: Natural Earth
+    url: https://naciscdn.org/naturalearth/50m/cultural/ne_50m_admin_0_map_units.zip
+    file: ne_50m_admin_0_map_units.zip
+    version: "5.1.1"
+    retrieved: "2026-09-25"
+    sha256: f449ec126985e5aab30aea4b439c2d9eb0c5d40bd722fc1036ad3b6477e25cdd
+    license: Public domain
+    attribution: Made with Natural Earth.
+
+  - id: src_ne_coastline
+    title: Natural Earth 1:50m, Coastline
+    publisher: Natural Earth
+    url: https://naciscdn.org/naturalearth/50m/physical/ne_50m_coastline.zip
+    file: ne_50m_coastline.zip
+    version: "5.1.1"
+    retrieved: "2026-09-25"
+    sha256: 640f805509b822f57f4840a2e18d9ff2412cf1cf6976124701c2789436166fde
+    license: Public domain
+    attribution: Made with Natural Earth.
+
+  - id: src_ne_rivers
+    title: Natural Earth 1:50m, Rivers and Lake Centerlines
+    publisher: Natural Earth
+    url: https://naciscdn.org/naturalearth/50m/physical/ne_50m_rivers_lake_centerlines.zip
+    file: ne_50m_rivers_lake_centerlines.zip
+    version: "5.1.1"
+    retrieved: "2026-09-25"
+    sha256: c607d9d7e7702827a7996fff6dc17b87a338c5ed3b52d12c402e0c9669cc7b56
+    license: Public domain
+    attribution: Made with Natural Earth.
+
+  - id: src_ne_lakes
+    title: Natural Earth 1:50m, Lakes and Reservoirs
+    publisher: Natural Earth
+    url: https://naciscdn.org/naturalearth/50m/physical/ne_50m_lakes.zip
+    file: ne_50m_lakes.zip
+    version: "5.1.1"
+    retrieved: "2026-09-25"
+    sha256: f28d42c286d96b57a17aac2cbeb432f8c65532c20063495711fbc64e24666df3
+    license: Public domain
+    attribution: Made with Natural Earth.
+
+  - id: src_ne_marine
+    title: Natural Earth 1:50m, Marine Areas
+    publisher: Natural Earth
+    url: https://naciscdn.org/naturalearth/50m/physical/ne_50m_geography_marine_polys.zip
+    file: ne_50m_geography_marine_polys.zip
+    version: "5.1.1"
+    retrieved: "2026-09-25"
+    sha256: 9e460b9fe2566d3f466d69096348953f5348bab63ce1328c94c3072b9f48eef1
+    license: Public domain
+    attribution: Made with Natural Earth.
+
+  - id: src_ne_regions
+    title: Natural Earth 1:50m, Physical Labels (regions)
+    publisher: Natural Earth
+    url: https://naciscdn.org/naturalearth/50m/physical/ne_50m_geography_regions_polys.zip
+    file: ne_50m_geography_regions_polys.zip
+    version: "5.1.1"
+    retrieved: "2026-09-25"
+    sha256: a6e7ac257f6f0847ed80e6dc6e776441456652c093cfe90c7bf26dc8069f0d03
+    license: Public domain
+    attribution: Made with Natural Earth.
+
+  - id: src_ign_admin_express
+    title: ADMIN EXPRESS COG CARTO, 2026 edition, metropolitan France (GeoPackage, Lambert-93)
+    publisher: IGN
+    url: https://data.geopf.fr/telechargement/download/ADMIN-EXPRESS-COG-CARTO/ADMIN-EXPRESS-COG-CARTO_4-0__GPKG_LAMB93_FXX_2026-01-01/ADMIN-EXPRESS-COG-CARTO_4-0__GPKG_LAMB93_FXX_2026-01-01.7z
+    file: ADMIN-EXPRESS-COG-CARTO_4-0__GPKG_LAMB93_FXX_2026-01-01.7z
+    version: "4.0, 2026-01-01"
+    retrieved: "2026-09-25"
+    sha256: b5dc8d8dbdc37228b7840f8fd18e793634f1036e1cc22ebcafe9b9e0f0b17fd6
+    license: Licence Ouverte / Open Licence 2.0 (Etalab)
+    attribution: IGN – ADMIN EXPRESS COG CARTO, edition of 1 January 2026.
+
+  - id: src_inao_areas
+    title: Aires géographiques des AOC/AOP (the communes of each appellation's geographical area)
+    publisher: INAO
+    url: https://static.data.gouv.fr/resources/aires-geographiques-des-aoc-aop/20251009-122320/2025-10-09-comagri-communes-aires-ao.csv
+    file: inao_communes_aires_ao_2025-10-09.csv
+    version: "2025-10-09"
+    retrieved: "2026-09-25"
+    sha256: 7e2472ab7550d8cc3426816040310952365148b5483d0b6cb9a7e70c33fa9cbe
+    license: Licence Ouverte / Open Licence 2.0 (Etalab)
+    attribution: INAO – aires géographiques des AOC/AOP, 9 October 2025.
+
+# Considered and not used (GEO-5, legal review L-16).
+excluded:
+  - name: Eurostat GISCO / EuroGeographics administrative boundaries
+    reason: Non-commercial use only.
+  - name: OpenStreetMap
+    reason: ODbL share-alike could extend to a bundled derived database.
+  - name: data.gouv.fr "Contours administratifs" (Etalab)
+    reason: Published under ODbL, being derived in part from OpenStreetMap.
+  - name: Map artwork of trade bodies, publishers and wine atlases
+    reason: Copyrighted artwork; nothing is traced from it.
+  - name: Google Maps, Mapbox and other online tile services
+    reason: Online and paid, and the app studies offline (GEO-3).

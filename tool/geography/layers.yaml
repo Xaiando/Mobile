@@ -1,0 +1,192 @@
+# The map layers (docs/design/geography.md §7). `npm run build` turns each
+# into assets/geography/<asset>, records it in assets/geography/manifest.yaml
+# and writes the build report, report.md.
+#
+# A feature keyed by a node ID draws that knowledge node (node_geometries).
+# Other features are context: named, drawn, never askable.
+#
+# zoom: the Web Mercator zoom range the layer is drawn in, [min, max).
+# simplify: the share of vertices kept (Visvalingam, shapes kept).
+# quantization: the TopoJSON grid, per axis of the layer's bounding box.
+
+# Communes that INAO's list still names by a code that ADMIN EXPRESS no
+# longer has, even as a delegated commune: each merged into a commune
+# nouvelle, whose own area includes it. The build draws the successor only
+# where INAO lists it for the same area, so no area grows.
+commune_successors:
+  "21658": "21195" # Vauchignon, now part of Cormot-Vauchignon
+  "37120": "37232" # Ingrandes-de-Touraine, now part of Coteaux-sur-Loire
+  "37227": "37232" # Saint-Michel-sur-Loire, now part of Coteaux-sur-Loire
+  "44160": "44003" # Saint-Géréon, now part of Ancenis-Saint-Géréon
+
+layers:
+  # World context, from Natural Earth 1:50m.
+  - id: ml_world_continents
+    asset: world_continents.topo.json
+    display_name: Continents
+    geometry: area
+    zoom: [0, 3]
+    sources: [src_ne_regions]
+    natural_earth:
+      input: ne_50m_geography_regions_polys
+      where: FEATURECLA == 'Continent'
+      name: NAME
+    simplify: 8%
+    quantization: 20000
+
+  - id: ml_world_countries
+    asset: world_countries.topo.json
+    display_name: Countries
+    geometry: area
+    zoom: [0, 10]
+    sources: [src_ne_countries, src_ne_map_units]
+    natural_earth:
+      input: ne_50m_admin_0_countries
+      name: NAME_EN
+      key: ADM0_A3
+      # France's map units, so that metropolitan France (FXX) is the node's
+      # feature and each overseas department is context of its own.
+      replace:
+        input: ne_50m_admin_0_map_units
+        where: ADM0_A3 == 'FRA'
+        key: GU_A3
+      nodes:
+        FXX: n_geo_france
+        ITA: n_geo_italy
+    simplify: 40%
+    quantization: 100000
+
+  - id: ml_world_coastline
+    asset: world_coastline.topo.json
+    display_name: Coastlines
+    geometry: line
+    zoom: [0, 10]
+    sources: [src_ne_coastline]
+    natural_earth:
+      input: ne_50m_coastline
+    simplify: 40%
+    quantization: 100000
+
+  - id: ml_world_marine
+    asset: world_marine.topo.json
+    display_name: Seas and oceans
+    geometry: area
+    zoom: [0, 8]
+    sources: [src_ne_marine]
+    natural_earth:
+      input: ne_50m_geography_marine_polys
+      name: name
+    simplify: 25%
+    quantization: 50000
+
+  - id: ml_world_lakes
+    asset: world_lakes.topo.json
+    display_name: Lakes
+    geometry: area
+    zoom: [2, 10]
+    sources: [src_ne_lakes]
+    natural_earth:
+      input: ne_50m_lakes
+      name: name
+    simplify: 40%
+    quantization: 100000
+
+  - id: ml_world_rivers
+    asset: world_rivers.topo.json
+    display_name: Major rivers
+    geometry: line
+    zoom: [3, 10]
+    sources: [src_ne_rivers]
+    natural_earth:
+      input: ne_50m_rivers_lake_centerlines
+      where: featurecla == 'River'
+      name: name_en
+    simplify: 40%
+    quantization: 100000
+
+  - id: ml_world_physical
+    asset: world_physical.topo.json
+    display_name: Mountain ranges, plateaus and plains
+    geometry: area
+    zoom: [2, 7]
+    sources: [src_ne_regions]
+    natural_earth:
+      input: ne_50m_geography_regions_polys
+      where: "['Range/mtn', 'Plateau', 'Plain', 'Valley', 'Basin', 'Foothills', 'Lowland'].includes(FEATURECLA)"
+      name: NAME
+    simplify: 15%
+    quantization: 50000
+
+  # France: each feature is the union of the communes of INAO geographical
+  # areas (aoc, by INAO appellation ID), optionally only those of some
+  # departments. The legal geographical area is larger than the delimited
+  # vineyards, and the legend says so (GEO-10). Regions and subregions have
+  # no legal area of their own; their composition below is provisional until
+  # the atlas task G10 checks it against the register (GEO-18).
+  - id: ml_fr_regions
+    asset: fr_regions.topo.json
+    display_name: French wine regions
+    geometry: area
+    zoom: [4, 10]
+    parent: ml_world_countries
+    sources: [src_inao_areas, src_ign_admin_express]
+    appellation_areas:
+      n_geo_burgundy:
+        aoc: [2184]
+        departments: ["21", "71", "89"]
+        note: The regional AOC Bourgogne, without its communes in the Rhône department (Beaujolais).
+      n_geo_champagne_region:
+        aoc: [54]
+        note: The AOC Champagne.
+      n_geo_rhone_valley:
+        aoc: [1286, 1284, 1282, 1278, 1310, 1308, 1306, 1283, 1311, 1279]
+        note: The regional AOC Côtes du Rhône with the northern crus and Châteauneuf-du-Pape.
+      n_geo_loire_valley:
+        aoc: [2341, 195, 158, 203, 209, 214, 202, 196]
+        note: The principal AOCs of the Pays Nantais (Muscadet), Anjou, Saumur, Touraine and the Centre (Sancerre, Pouilly-Fumé).
+    simplify: 30%
+    quantization: 100000
+
+  - id: ml_fr_subregions
+    asset: fr_subregions.topo.json
+    display_name: French wine subregions
+    geometry: area
+    zoom: [6, 12]
+    parent: ml_fr_regions
+    sources: [src_inao_areas, src_ign_admin_express]
+    appellation_areas:
+      n_geo_cote_de_beaune:
+        aoc: [511, 610, 969, 220, 502, 1122, 282, 510, 977, 1169, 866, 238, 1106, 796, 327, 1010, 437, 1074, 1108, 749]
+        note: Côte de Beaune-Villages and the village AOCs of the Côte de Beaune.
+      n_geo_northern_rhone:
+        aoc: [1284, 1282, 1278, 1310, 1308, 1306, 1283, 1311]
+        note: The northern crus, from Côte Rôtie to Saint-Péray.
+      n_geo_southern_rhone:
+        aoc: [1287, 1279, 1307, 1313, 1302, 1341, 1822, 1309, 1312, 1288]
+        note: Côtes du Rhône Villages and the southern crus.
+      n_geo_touraine:
+        aoc: [209, 214]
+        note: The AOC Touraine, with Vouvray.
+    simplify: 30%
+    quantization: 100000
+
+  - id: ml_fr_appellations
+    asset: fr_appellations.topo.json
+    display_name: French appellations
+    geometry: area
+    zoom: [7, 14]
+    parent: ml_fr_regions
+    sources: [src_inao_areas, src_ign_admin_express]
+    appellation_areas:
+      n_geo_chablis: {aoc: [356]}
+      n_geo_volnay: {aoc: [1169]}
+      n_geo_cornas: {aoc: [1283]}
+      n_geo_crozes_hermitage: {aoc: [1306]}
+      n_geo_condrieu: {aoc: [1282]}
+      n_geo_chateauneuf_du_pape: {aoc: [1279]}
+      n_geo_pouilly_fume: {aoc: [196]}
+      n_geo_vouvray: {aoc: [214]}
+      n_geo_muscadet_sevre_et_maine: {aoc: [195]}
+      n_geo_champagne: {aoc: [54]}
+    simplify: 40%
+    quantization: 100000
