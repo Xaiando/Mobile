@@ -98,8 +98,8 @@ TASK-008 (tasting grids) and TASK-009 (journal integration) remain; they are T1�
 | T1 | Tasting grids and lexicon | C1 | 2 | ☐ |
 | T2 | Tasting session UI and persistence | T1 | 3 | ☐ |
 | **J** | **Wine journal (spec Phase 5)** | | | |
-| J1 | Journal entries: create, edit, list | — | 1 | ☐ |
-| J2 | Journal-to-graph matching and the journal priority factor | J1 | 2 | ☐ |
+| J1 | Journal entries: create, edit, list | — | 1 | ☑ |
+| J2 | Journal-to-graph matching and the journal priority factor | J1 | 2 | ☑ |
 | J3 | Episodic questions from the journal | J2, F3 | 4 | ☐ |
 | **P** | **Study packs** | | | |
 | P1 | Study packs as tracks | F2 | 3 | ☐ |

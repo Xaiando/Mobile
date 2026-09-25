@@ -8,6 +8,7 @@ import '../curriculum/knowledge_graph.dart';
 import '../database/app_database.dart';
 import '../time/utc_clock.dart';
 import 'memory_state.dart';
+import '../journal/wine_journal.dart';
 import 'priority.dart';
 import 'scheduler_config.dart';
 
@@ -80,6 +81,7 @@ class StudyCard {
     required this.retrievability,
     required this.priority,
     required this.isStale,
+    this.journalFactor = 1,
   });
 
   final KnowledgeItem item;
@@ -100,6 +102,10 @@ class StudyCard {
   /// Not verified for [stalenessMonths] months: "may be out of date" (V-4).
   final bool isStale;
 
+  /// J (A-5): above 1 when the journal holds a wine the item is about. It
+  /// is part of [priority], and it also orders new items.
+  final double journalFactor;
+
   String get itemId => item.id;
   bool get isNew => state == null;
   bool get isUnverified => item.verificationStatus == 'unverified';
@@ -116,6 +122,7 @@ class StudyCard {
     retrievability: 1,
     priority: priority,
     isStale: isStale,
+    journalFactor: journalFactor,
   );
 
   /// The format to present: a new item starts with its easiest format;
@@ -253,6 +260,21 @@ class StudyPlanner {
     };
     final scheduler = await _scheduler();
     final staleCutoff = staleBefore(now);
+    final lastMet = await WineJournal(db).lastMetByNode();
+    final todayUtc = DateTime.parse('${today}T00:00:00Z');
+
+    /// J for [item]: from the most recent wine about its subject or object.
+    double journal(KnowledgeItem item) {
+      final days = [
+        for (final node in [item.subjectId, item.objectId])
+          if (lastMet[node] case final day?)
+            todayUtc.difference(DateTime.parse('${day}T00:00:00Z')).inDays,
+      ];
+      return journalFactor(
+        days.isEmpty ? null : days.reduce(min),
+        weights: weights,
+      );
+    }
 
     double retrievability(ReviewState? state) =>
         state == null ? 0 : retrievabilityOf(state, scheduler, now);
@@ -282,6 +304,7 @@ class StudyPlanner {
       if (mapping == null || available == null) continue;
       final state = states[item.id];
       final r = retrievability(state);
+      final j = journal(item);
       cards.add(
         StudyCard(
           item: item,
@@ -299,9 +322,11 @@ class StudyPlanner {
                     dependents[item.id] ?? const [],
                     weights: weights,
                   ),
+                  journalFactor: j,
                   weights: weights,
                 ),
           isStale: item.lastVerifiedAt.isBefore(staleCutoff),
+          journalFactor: j,
         ),
       );
     }
@@ -373,9 +398,10 @@ class StudyPlanner {
   }
 
   /// New items in the order to introduce them: an item never comes before a
-  /// new prerequisite of its own; among the items ready, core first, then by
-  /// ID (A-2). [prerequisites] maps an item to its direct prerequisites.
-  /// Stops after [limit] items when given.
+  /// new prerequisite of its own; among the items ready, by relevance times
+  /// the journal factor (core first, and a wine just logged lifts its
+  /// items), then by ID (A-2, A-5). [prerequisites] maps an item to its
+  /// direct prerequisites. Stops after [limit] items when given.
   static List<StudyCard> orderNew(
     List<StudyCard> fresh,
     Map<String, List<String>> prerequisites, {
@@ -383,7 +409,9 @@ class StudyPlanner {
   }) {
     final byId = {for (final card in fresh) card.itemId: card};
     int priorityOrder(StudyCard a, StudyCard b) {
-      final order = b.mapping.relevance.compareTo(a.mapping.relevance);
+      final order = (b.mapping.relevance * b.journalFactor).compareTo(
+        a.mapping.relevance * a.journalFactor,
+      );
       return order != 0 ? order : a.itemId.compareTo(b.itemId);
     }
 
