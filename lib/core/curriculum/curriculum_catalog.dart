@@ -24,6 +24,25 @@ class CurriculumCatalog {
     db.curriculumDomains,
   )..orderBy([(d) => OrderingTerm(expression: d.position)])).get();
 
+  /// Every source of the curriculum, by kind and title: the About screen
+  /// credits each one (GEO-14, backlog R1).
+  Future<List<SourceCitation>> allSources() =>
+      (db.select(db.sourceCitations)..orderBy([
+            (s) => OrderingTerm(expression: s.kind),
+            (s) => OrderingTerm(expression: s.title),
+          ]))
+          .get();
+
+  /// The installed curriculum release, or null before the first ingestion.
+  Future<CurriculumRelease?> installedRelease() async {
+    final releases =
+        await (db.select(db.curriculumReleases)
+              ..orderBy([(r) => OrderingTerm.desc(r.ingestedAt)])
+              ..limit(1))
+            .get();
+    return releases.firstOrNull;
+  }
+
   /// The sources cited for [itemId], by title.
   Future<List<ItemSource>> sourcesOf(String itemId) async {
     final rows = await db

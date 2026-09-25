@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:clock/clock.dart';
 import 'package:drift/drift.dart';
 
@@ -31,6 +33,30 @@ class LearnerProfiles {
               (c) => OrderingTerm(expression: c.level),
             ]))
           .get();
+
+  /// Sets how many items a session holds, and how many of them may be new
+  /// (spec §N, P-4). The schema requires a size from 1 to 100 and no more
+  /// new items than that; the learner must have picked a track.
+  Future<UserProfile> setSessionLimits({
+    required int sessionSize,
+    required int newItems,
+  }) => db.transaction(() async {
+    final existing = await current();
+    if (existing == null) {
+      throw StateError('Pick a track before changing session limits.');
+    }
+    final now = utcNow(_clock);
+    await (db.update(db.userProfiles)..where((p) => p.id.equals(1))).write(
+      UserProfilesCompanion(
+        sessionSize: Value(sessionSize),
+        newItemsPerSession: Value(min(newItems, sessionSize)),
+        updatedAt: Value(
+          now.isBefore(existing.createdAt) ? existing.createdAt : now,
+        ),
+      ),
+    );
+    return (await current())!;
+  });
 
   /// Makes [certificationId] the active track, creating the profile on first
   /// use.

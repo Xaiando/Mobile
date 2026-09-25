@@ -5,6 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:sommelier/app/app.dart';
 import 'package:sommelier/core/database/app_database.dart';
 import 'package:sommelier/core/database/database_providers.dart';
+import 'package:sommelier/core/settings/user_settings.dart';
 
 /// A widget test of the whole app.
 ///
@@ -26,12 +27,21 @@ void testApp(
   });
 }
 
-/// Pumps the app on [db] and waits until it settles.
+/// Pumps the app on [db] and waits until it settles. Unless [onboarded] is
+/// false, the learner has already been through onboarding (backlog R1).
 Future<void> pumpApp(
   WidgetTester tester,
   AppDatabase db, {
   List<Override> overrides = const [],
+  bool onboarded = true,
 }) async {
+  if (onboarded) {
+    await tester.runAsync(() async {
+      final settings = LearnerSettings(db);
+      await settings.confirmAge();
+      await settings.completeOnboarding();
+    });
+  }
   await tester.pumpWidget(
     ProviderScope(
       retry: noProviderRetry,

@@ -33,6 +33,21 @@ void main() {
   ) async {
     app.main();
 
+    // A fresh database starts with onboarding: the age confirmation, how
+    // the app works, then the track (backlog R1).
+    final ofAge = find.text('I am of legal drinking age where I live.');
+    await pumpUntil(
+      tester,
+      () => ofAge.evaluate().isNotEmpty,
+      what: 'onboarding',
+    );
+    await tester.tap(ofAge);
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Continue'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Continue'));
+    await tester.pumpAndSettle();
+
     final track = find.text('WSET Level 3');
     await pumpUntil(
       tester,
@@ -40,6 +55,8 @@ void main() {
       what: 'the track picker',
     );
     await tester.tap(track);
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Start studying'));
     await tester.pumpAndSettle();
 
     await tester.tap(find.text('Practice'));

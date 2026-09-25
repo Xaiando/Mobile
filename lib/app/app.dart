@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../core/settings/user_settings.dart';
+import 'learner_state.dart';
 import 'router.dart';
 
 /// Disables Riverpod's automatic retry for the whole app.
@@ -17,8 +19,15 @@ class SommelierApp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final appearance =
+        ref.watch(settingsProvider).value?.appearance ?? AppearanceMode.system;
     return MaterialApp.router(
       title: 'Sommelier Study Companion',
+      themeMode: switch (appearance) {
+        AppearanceMode.system => ThemeMode.system,
+        AppearanceMode.light => ThemeMode.light,
+        AppearanceMode.dark => ThemeMode.dark,
+      },
       theme: ThemeData(
         colorSchemeSeed: _seedColor,
         brightness: Brightness.light,

@@ -3,6 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../core/curriculum/curriculum_catalog.dart';
 import '../core/curriculum/curriculum_providers.dart';
 import '../core/database/app_database.dart';
+import '../core/settings/settings_providers.dart';
+import '../core/settings/user_settings.dart';
 import '../core/study/study_planner.dart';
 import '../core/study/study_providers.dart';
 import 'startup.dart';
@@ -44,6 +46,26 @@ final trackCardsProvider = StreamProvider<List<StudyCard>?>((ref) async* {
         ? null
         : planner.cards(profile.activeCertificationId);
   });
+});
+
+/// The learner's settings; loading until startup has finished.
+final settingsProvider = StreamProvider<SettingsSnapshot>((ref) async* {
+  await ref.watch(appStartupProvider.future);
+  yield* ref.watch(learnerSettingsProvider).watch();
+});
+
+/// Every source of the curriculum, for the About screen.
+final allSourcesProvider = FutureProvider<List<SourceCitation>>((ref) async {
+  await ref.watch(appStartupProvider.future);
+  return ref.watch(curriculumCatalogProvider).allSources();
+});
+
+/// The installed curriculum release.
+final installedReleaseProvider = FutureProvider<CurriculumRelease?>((
+  ref,
+) async {
+  await ref.watch(appStartupProvider.future);
+  return ref.watch(curriculumCatalogProvider).installedRelease();
 });
 
 /// The curriculum domains, in display order.

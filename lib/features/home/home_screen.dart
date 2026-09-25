@@ -17,7 +17,16 @@ class HomeScreen extends ConsumerWidget {
     final value = overview.value;
     final canStudy = value != null && value.dueCount + value.newAvailable > 0;
     return Scaffold(
-      appBar: AppBar(title: const Text('Home')),
+      appBar: AppBar(
+        title: const Text('Home'),
+        actions: [
+          IconButton(
+            tooltip: 'Settings',
+            icon: const Icon(Icons.settings_outlined),
+            onPressed: () => context.push('/settings'),
+          ),
+        ],
+      ),
       floatingActionButton: canStudy
           ? FloatingActionButton.extended(
               onPressed: () {
