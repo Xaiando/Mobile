@@ -14,7 +14,9 @@ Every CI run on `main` builds the app for Windows and Android. Open the latest r
 | `sommelier-windows-portable` | Unzip it anywhere and run `sommelier.exe`. |
 | `sommelier-android-apk` | Unzip it, copy `app-release.apk` to the phone, and open it. Android asks you to allow installing apps from that source once. |
 
-Everything runs offline. Your progress is stored on the device: on Windows in `%APPDATA%\Xaiando\Sommelier Study Companion`, which uninstalling and upgrading keep. A newer APK installs over an older one and keeps your progress, because every build is signed with the same sideload key.
+Everything runs offline. Your progress is stored on the device: on Windows in `%APPDATA%\Xaiando\Sommelier Study Companion`, which uninstalling and upgrading keep.
+
+**Android updates** install over the previous version and keep your progress only if every APK carries the same signature. APKs from `main` are signed with the repository's private release key, once it exists. Create it once, on a PC with a JDK and the GitHub CLI signed in: `powershell -ExecutionPolicy Bypass -File tool\android\make_release_key.ps1`. It stores the key as the repository's Actions secrets and keeps a copy in `%USERPROFILE%\.sommelier`; back that folder up. Until then, and on pull requests, APKs are signed with a throwaway debug key: they install fresh, but cannot update one another.
 
 ### Building the installable apps yourself
 

@@ -922,10 +922,10 @@ Four tasks share one pattern. Each turns the famous regions of one country group
 
 - **Objective.** Make the app installable and runnable locally on a Windows PC and on Android phones, from every CI run.
 - **Depends on.** Nothing.
-- **Modules.** `windows/` (the desktop runner and `installer/sommelier.iss`), `android/app/build.gradle.kts` (a fixed sideload signing key), the app icon (`tool/icons/`), `integration_test/`, the CI workflow, README.
+- **Modules.** `windows/` (the desktop runner and `installer/sommelier.iss`), `android/app/build.gradle.kts` (signing with a private release key from CI secrets, created by `tool/android/make_release_key.ps1`), the app icon (`tool/icons/`), `integration_test/`, the CI workflow, README.
 - **Acceptance criteria.**
   - CI builds a Windows installer, a portable Windows folder and a release APK, and keeps each as a downloadable artifact.
-  - Every release APK carries the same signature, so a newer build installs over an older one and keeps the learner's data.
+  - Every APK built on `main` carries the same signature, from a private key in the repository's secrets, so a newer build installs over an older one and keeps the learner's data. Pull requests never see the key.
   - The installer needs no administrator rights, and the learner's data survives uninstalling and upgrading.
   - The app shows its own name and icon on Windows, Android and the web.
 - **Required automated tests.** An integration test runs the real app on the Windows desktop in CI: it opens the database, installs the curriculum, picks a track and studies a card.

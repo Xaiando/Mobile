@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     id("com.android.application")
     // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
@@ -29,24 +31,35 @@ android {
         versionName = flutter.versionName
     }
 
+    // The release key is private: CI writes android/key.properties and the
+    // keystore from the repository's secrets on main (tool/android/
+    // make_release_key.ps1 creates them). Every APK built from main then
+    // carries the same signature, so each installs over the one before.
+    // Without the key, as on pull requests and locally, release builds
+    // are signed with the debug key and cannot replace an installed build.
+    val keyProperties = Properties()
+    val keyPropertiesFile = rootProject.file("key.properties")
+    if (keyPropertiesFile.exists()) {
+        keyPropertiesFile.inputStream().use { keyProperties.load(it) }
+    }
+
     signingConfigs {
-        // Release builds are sideloaded, so every build must carry the same
-        // signature, or Android refuses to install one over another. Like
-        // Android's debug key, this key and its password are deliberately
-        // not secret. A Play Store release would sign with a private upload
-        // key instead (docs/legal-review.md L-28).
-        create("sideload") {
-            storeFile = file("sideload.keystore")
-            storeType = "PKCS12"
-            storePassword = "android"
-            keyAlias = "sideload"
-            keyPassword = "android"
+        create("release") {
+            if (keyPropertiesFile.exists()) {
+                storeFile = file(keyProperties.getProperty("storeFile"))
+                storeType = "PKCS12"
+                storePassword = keyProperties.getProperty("storePassword")
+                keyAlias = keyProperties.getProperty("keyAlias")
+                keyPassword = keyProperties.getProperty("keyPassword")
+            }
         }
     }
 
     buildTypes {
         release {
-            signingConfig = signingConfigs.getByName("sideload")
+            signingConfig = signingConfigs.getByName(
+                if (keyPropertiesFile.exists()) "release" else "debug",
+            )
         }
     }
 }

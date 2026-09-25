@@ -41,7 +41,7 @@ flutter test integration_test -d windows --dart-define=SOMMELIER_DATABASE=integr
 python tool/icons/make_icons.py         # after changing the icon; commit its outputs
 ```
 
-- Release APKs are signed with `android/app/sideload.keystore`, a committed key whose password is deliberately not secret. Never replace it: a new key stops updates from installing over older builds. A store release needs a private upload key (L-28).
+- The release key is private. CI signs APKs on pushes to `main` with the `ANDROID_KEYSTORE_*` secrets that `tool/android/make_release_key.ps1` creates; the user runs that script, never an agent. Never commit a keystore or `key.properties`, and never make a second key: updates install only over an app signed with the same one (L-28).
 - Bump `version` in `pubspec.yaml` for each build you hand out; Windows and Android read it.
 - Integration tests pass `SOMMELIER_DATABASE`, so they never open a learner's database.
 
