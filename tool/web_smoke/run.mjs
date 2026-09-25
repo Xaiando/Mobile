@@ -20,6 +20,8 @@ const types = {
 
 const expected = {
   foreignKeys: 1,
+  schemaVersion: 2,
+  json: 1,
   curriculum: 'installed',
   chablisAncestors: 'Burgundy > France',
   mcqOptions: 4,

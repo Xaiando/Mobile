@@ -54,6 +54,17 @@ Future<void> main() async {
     result['sqlite'] = version.read<String>('v');
     result['foreignKeys'] = foreignKeys.data.values.single;
     result['durability'] = durability.name;
+    // Schema v2 (F2), whose CHECKs on parameters and answer payloads need
+    // SQLite's JSON functions.
+    result['schemaVersion'] =
+        (await db.customSelect('PRAGMA user_version').getSingle()).read<int>(
+          'user_version',
+        );
+    result['json'] =
+        (await db
+                .customSelect("SELECT json_valid('{\"order\": [2, 1]}') AS ok")
+                .getSingle())
+            .read<int>('ok');
 
     // Phase 1: the bundled dataset hydrates the database on first launch.
     // Loading it reads the manifest and every file it includes.
