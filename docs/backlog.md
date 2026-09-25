@@ -62,7 +62,7 @@ TASK-008 (tasting grids) and TASK-009 (journal integration) remain; they are T1�
 | F3 | Format registry and exercise runtime | F2 | 3 | ☐ |
 | F4 | Presentation difficulty ladder | F3 | 4 | ☐ |
 | **C** | **Curriculum content and tooling** | | | |
-| C1 | Dataset modularization, authoring and verification tools | — | 1 | ☐ |
+| C1 | Dataset modularization, authoring and verification tools | — | 1 | ☑ |
 | C2 | Content: France | C1, F2 | 3 | ☐ |
 | C3 | Content: Italy, Spain, Portugal and fortified wines | C1, F2 | 3 | ☐ |
 | C4 | Content: the New World | C1, F2 | 3 | ☐ |

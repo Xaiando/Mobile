@@ -13,6 +13,7 @@ import 'package:sommelier/core/curriculum/curriculum_providers.dart';
 import 'package:sommelier/core/curriculum/knowledge_graph.dart';
 import 'package:sommelier/core/database/app_database.dart';
 import 'package:sommelier/core/database/curriculum_writes.dart';
+import 'package:sommelier/core/database/database_connection.dart';
 import 'package:sommelier/core/database/storage_durability.dart';
 import 'package:sommelier/core/questions/question_presenter.dart';
 import 'package:sommelier/core/study/learner_profile.dart';
@@ -43,7 +44,7 @@ Future<void> main() async {
       WineJournalEntriesCompanion.insert(id: id, createdAt: at, updatedAt: at);
 
   try {
-    final db = AppDatabase.open(onWebStorage: (d) => durability = d);
+    final db = openAppDatabase(onWebStorage: (d) => durability = d);
     final version = await db
         .customSelect('SELECT sqlite_version() AS v')
         .getSingle();
@@ -55,10 +56,11 @@ Future<void> main() async {
     result['durability'] = durability.name;
 
     // Phase 1: the bundled dataset hydrates the database on first launch.
+    // Loading it reads the manifest and every file it includes.
     final ingester = CurriculumIngester(db);
-    result['curriculum'] = (await ingester.ensureCurrent(
-      await loadBundledCurriculum(),
-    )).name;
+    final bundle = await loadBundledCurriculum();
+    result['bundle'] = bundle.version;
+    result['curriculum'] = (await ingester.ensureCurrent(bundle)).name;
     result['release'] = (await ingester.installedRelease())?.version;
     result['nodes'] = await count(db, 'knowledge_nodes');
     result['relations'] = await count(db, 'knowledge_relations');

@@ -1,0 +1,274 @@
+# Italy: Piedmont and Tuscany.
+# Part of the curriculum release in ../curriculum.yaml, in the
+# format of docs/domain-model.md §7.
+
+knowledge_nodes:
+  # Geography
+  - { id: n_geo_italy, node_type: country, name: Italy }
+  - { id: n_geo_piedmont, node_type: region, name: Piedmont }
+  - { id: n_geo_tuscany, node_type: region, name: Tuscany }
+  - { id: n_geo_langhe, node_type: subregion, name: Langhe }
+  - { id: n_geo_barolo, node_type: appellation, name: Barolo }
+  - { id: n_geo_barbaresco, node_type: appellation, name: Barbaresco }
+  - { id: n_geo_brunello_di_montalcino, node_type: appellation, name: Brunello di Montalcino }
+  - { id: n_geo_chianti_classico, node_type: appellation, name: Chianti Classico }
+  # Quantities: the values are in quantity_values
+  - { id: n_qty_9_months, node_type: quantity, name: 9 months }
+  - { id: n_qty_18_months, node_type: quantity, name: 18 months }
+  - { id: n_qty_24_months, node_type: quantity, name: 24 months }
+  - { id: n_qty_26_months, node_type: quantity, name: 26 months }
+  - { id: n_qty_38_months, node_type: quantity, name: 38 months }
+
+quantity_values:
+  - { knowledge_node_id: n_qty_9_months, minimum: 9, unit: month }
+  - { knowledge_node_id: n_qty_18_months, minimum: 18, unit: month }
+  - { knowledge_node_id: n_qty_24_months, minimum: 24, unit: month }
+  - { knowledge_node_id: n_qty_26_months, minimum: 26, unit: month }
+  - { knowledge_node_id: n_qty_38_months, minimum: 38, unit: month }
+
+node_alternative_names:
+  - { knowledge_node_id: n_geo_piedmont, name: Piemonte, kind: synonym }
+  - { knowledge_node_id: n_geo_tuscany, name: Toscana, kind: synonym }
+
+knowledge_relations:
+  # Geography. Relations without an item are structural: they drive
+  # traversal and distractor scopes.
+  - { subject_id: n_geo_piedmont, relation_type: LOCATED_IN, object_id: n_geo_italy, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_tuscany, relation_type: LOCATED_IN, object_id: n_geo_italy, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_langhe, relation_type: LOCATED_IN, object_id: n_geo_piedmont, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_barolo, relation_type: LOCATED_IN, object_id: n_geo_langhe, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_barbaresco, relation_type: LOCATED_IN, object_id: n_geo_langhe, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_brunello_di_montalcino, relation_type: LOCATED_IN, object_id: n_geo_tuscany, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_chianti_classico, relation_type: LOCATED_IN, object_id: n_geo_tuscany, valid_from: "1900-01-01" }
+  # Principal grape varieties. Where a legal text lists varieties without
+  # classifying them, every listed variety is principal. Every listed variety
+  # that exists as a node is linked, so none is offered as a wrong answer.
+  - { subject_id: n_geo_barolo, relation_type: PERMITS_PRINCIPAL_GRAPE, object_id: n_grape_nebbiolo, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_barbaresco, relation_type: PERMITS_PRINCIPAL_GRAPE, object_id: n_grape_nebbiolo, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_brunello_di_montalcino, relation_type: PERMITS_PRINCIPAL_GRAPE, object_id: n_grape_sangiovese, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_chianti_classico, relation_type: PERMITS_PRINCIPAL_GRAPE, object_id: n_grape_sangiovese, valid_from: "1900-01-01" }
+  # Soils, climates and hazards
+  - { subject_id: n_geo_barolo, relation_type: HAS_SOIL, object_id: n_soil_tortonian_marl, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_barbaresco, relation_type: HAS_SOIL, object_id: n_soil_tortonian_marl, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_chianti_classico, relation_type: HAS_SOIL, object_id: n_soil_galestro, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_chianti_classico, relation_type: HAS_CLIMATE, object_id: n_clim_continental, valid_from: "1900-01-01" }
+  # Ageing and production rules
+  - { subject_id: n_geo_barolo, relation_type: MIN_AGEING, object_id: n_qty_38_months, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_barbaresco, relation_type: MIN_AGEING, object_id: n_qty_26_months, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_barolo, relation_type: MIN_WOOD_AGEING, object_id: n_qty_18_months, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_barbaresco, relation_type: MIN_WOOD_AGEING, object_id: n_qty_9_months, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_brunello_di_montalcino, relation_type: MIN_WOOD_AGEING, object_id: n_qty_24_months, valid_from: "1900-01-01" }
+
+knowledge_items:
+  # Piedmont
+  - id: ki_barolo_location
+    subject_id: n_geo_barolo
+    relation_type: LOCATED_IN
+    object_id: n_geo_langhe
+    domain_id: geography
+    assertion_text: "Barolo is produced in the Langhe hills of Piedmont, a few kilometres south of Alba."
+    last_verified_at: "2026-09-24T12:00:00.000Z"
+  - id: ki_barolo_grape
+    subject_id: n_geo_barolo
+    relation_type: PERMITS_PRINCIPAL_GRAPE
+    object_id: n_grape_nebbiolo
+    domain_id: geography
+    assertion_text: "Barolo is made exclusively from Nebbiolo."
+    last_verified_at: "2026-09-24T12:00:00.000Z"
+  - id: ki_barolo_soil
+    subject_id: n_geo_barolo
+    relation_type: HAS_SOIL
+    object_id: n_soil_tortonian_marl
+    domain_id: viticulture
+    assertion_text: "Most of the Barolo zone lies on Tortonian marls and sands."
+    last_verified_at: "2026-09-24T12:00:00.000Z"
+  - id: ki_barolo_min_ageing
+    subject_id: n_geo_barolo
+    relation_type: MIN_AGEING
+    object_id: n_qty_38_months
+    domain_id: winemaking
+    assertion_text: "Barolo must age at least 38 months from 1 November of the harvest year, 18 of them in wood; Barolo Riserva needs 62 months."
+    last_verified_at: "2026-09-24T12:00:00.000Z"
+    is_distinctive: true
+  - id: ki_barolo_min_wood_ageing
+    subject_id: n_geo_barolo
+    relation_type: MIN_WOOD_AGEING
+    object_id: n_qty_18_months
+    domain_id: winemaking
+    assertion_text: "At least 18 of Barolo's 38 months of minimum ageing must be spent in wood."
+    last_verified_at: "2026-09-24T12:00:00.000Z"
+  - id: ki_barbaresco_grape
+    subject_id: n_geo_barbaresco
+    relation_type: PERMITS_PRINCIPAL_GRAPE
+    object_id: n_grape_nebbiolo
+    domain_id: geography
+    assertion_text: "Barbaresco is made exclusively from Nebbiolo."
+    last_verified_at: "2026-09-24T12:00:00.000Z"
+  - id: ki_barbaresco_soil
+    subject_id: n_geo_barbaresco
+    relation_type: HAS_SOIL
+    object_id: n_soil_tortonian_marl
+    domain_id: viticulture
+    assertion_text: "Most of the Barbaresco zone lies on Tortonian marls and sands."
+    last_verified_at: "2026-09-24T12:00:00.000Z"
+  - id: ki_barbaresco_min_ageing
+    subject_id: n_geo_barbaresco
+    relation_type: MIN_AGEING
+    object_id: n_qty_26_months
+    domain_id: winemaking
+    assertion_text: "Barbaresco must age at least 26 months from 1 November of the harvest year, 9 of them in wood; Barbaresco Riserva needs 50 months."
+    last_verified_at: "2026-09-24T12:00:00.000Z"
+    is_distinctive: true
+  - id: ki_barbaresco_min_wood_ageing
+    subject_id: n_geo_barbaresco
+    relation_type: MIN_WOOD_AGEING
+    object_id: n_qty_9_months
+    domain_id: winemaking
+    assertion_text: "At least 9 of Barbaresco's 26 months of minimum ageing must be spent in wood."
+    last_verified_at: "2026-09-24T12:00:00.000Z"
+  # Tuscany
+  - id: ki_brunello_di_montalcino_grape
+    subject_id: n_geo_brunello_di_montalcino
+    relation_type: PERMITS_PRINCIPAL_GRAPE
+    object_id: n_grape_sangiovese
+    domain_id: geography
+    assertion_text: "Brunello di Montalcino is made exclusively from Sangiovese, known in Montalcino as Brunello."
+    last_verified_at: "2026-09-24T12:00:00.000Z"
+  - id: ki_brunello_di_montalcino_min_wood_ageing
+    subject_id: n_geo_brunello_di_montalcino
+    relation_type: MIN_WOOD_AGEING
+    object_id: n_qty_24_months
+    domain_id: winemaking
+    assertion_text: "Brunello di Montalcino must spend at least two years in oak."
+    last_verified_at: "2026-09-24T12:00:00.000Z"
+  - id: ki_chianti_classico_location
+    subject_id: n_geo_chianti_classico
+    relation_type: LOCATED_IN
+    object_id: n_geo_tuscany
+    domain_id: geography
+    assertion_text: "The Chianti Classico zone lies in the centre of Tuscany, in the provinces of Florence and Siena."
+    last_verified_at: "2026-09-24T12:00:00.000Z"
+  - id: ki_chianti_classico_grape
+    subject_id: n_geo_chianti_classico
+    relation_type: PERMITS_PRINCIPAL_GRAPE
+    object_id: n_grape_sangiovese
+    domain_id: geography
+    assertion_text: "Chianti Classico must contain 80–100% Sangiovese, and Chianti Classico Gran Selezione at least 90%."
+    last_verified_at: "2026-09-24T12:00:00.000Z"
+  - id: ki_chianti_classico_soil
+    subject_id: n_geo_chianti_classico
+    relation_type: HAS_SOIL
+    object_id: n_soil_galestro
+    domain_id: viticulture
+    assertion_text: "The Chianti Classico hills are built largely of galestro, a friable clay schist, alternating with alberese limestone."
+    last_verified_at: "2026-09-24T12:00:00.000Z"
+  - id: ki_chianti_classico_climate
+    subject_id: n_geo_chianti_classico
+    relation_type: HAS_CLIMATE
+    object_id: n_clim_continental
+    domain_id: viticulture
+    assertion_text: "The Chianti Classico production rules describe a continental climate, with very cold winters and hot, dry summers."
+    last_verified_at: "2026-09-24T12:00:00.000Z"
+    # Tuscany is also often called Mediterranean.
+    mcq_disabled: true
+
+# Learn the basic fact before the one that builds on it (§G's prerequisite
+# factor, used by the study queue in Phase 3).
+knowledge_item_prerequisites:
+  - { knowledge_item_id: ki_barolo_grape, prerequisite_item_id: ki_barolo_location }
+  - { knowledge_item_id: ki_barolo_min_ageing, prerequisite_item_id: ki_barolo_grape }
+  - { knowledge_item_id: ki_barolo_min_wood_ageing, prerequisite_item_id: ki_barolo_min_ageing }
+  - { knowledge_item_id: ki_barbaresco_min_ageing, prerequisite_item_id: ki_barolo_min_ageing }
+
+# Editorial study-planning judgements (see the header). minimum_depth follows
+# CM-6: 1 recognize (MCQ), 2 also forward recall, 3 also reverse recall.
+certification_knowledge_mappings:
+  # Foundations, visible to every higher level through the track chains
+  - { certification_id: WSET_L2, knowledge_item_id: ki_barolo_grape, importance: core, minimum_depth: 1 }
+  - { certification_id: WSET_L2, knowledge_item_id: ki_chianti_classico_grape, importance: core, minimum_depth: 1 }
+  - { certification_id: CMS_INTRODUCTORY, knowledge_item_id: ki_barolo_grape, importance: core, minimum_depth: 1 }
+  # WSET Level 3
+  - { certification_id: WSET_L3, knowledge_item_id: ki_barolo_location, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_barolo_grape, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_barolo_soil, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_barolo_min_ageing, importance: core, minimum_depth: 3 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_barolo_min_wood_ageing, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_barbaresco_grape, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_barbaresco_soil, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_barbaresco_min_ageing, importance: core, minimum_depth: 3 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_barbaresco_min_wood_ageing, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_brunello_di_montalcino_grape, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_brunello_di_montalcino_min_wood_ageing, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_chianti_classico_location, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_chianti_classico_grape, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_chianti_classico_soil, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_chianti_classico_climate, importance: secondary, minimum_depth: 2 }
+  # CMS Certified
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_barolo_location, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_barolo_grape, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_barolo_soil, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_barolo_min_ageing, importance: core, minimum_depth: 3 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_barolo_min_wood_ageing, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_barbaresco_grape, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_barbaresco_soil, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_barbaresco_min_ageing, importance: core, minimum_depth: 3 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_barbaresco_min_wood_ageing, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_brunello_di_montalcino_grape, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_brunello_di_montalcino_min_wood_ageing, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_chianti_classico_location, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_chianti_classico_grape, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_chianti_classico_soil, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_chianti_classico_climate, importance: secondary, minimum_depth: 2 }
+
+# Primary legal texts, as the Italian Ministry of Agriculture (MASAF)
+# publishes them.
+source_citations:
+  - id: src_masaf_disciplinare_barolo
+    kind: legislation
+    title: "Disciplinare di produzione dei vini a denominazione di origine controllata e garantita «Barolo»"
+    publisher: "Ministero dell'agricoltura, della sovranità alimentare e delle foreste (MASAF)"
+    jurisdiction: IT
+    document_identifier: "Consolidated text annexed to the provvedimento of 4 March 2026"
+    url: "https://www.masaf.gov.it/flex/cm/pages/ServeBLOB.php/L/IT/IDPagina/24322"
+    accessed_on: "2026-09-24"
+  - id: src_masaf_disciplinare_barbaresco
+    kind: legislation
+    title: "Disciplinare di produzione dei vini a denominazione di origine controllata e garantita «Barbaresco»"
+    publisher: "Ministero dell'agricoltura, della sovranità alimentare e delle foreste (MASAF)"
+    jurisdiction: IT
+    document_identifier: "Consolidated text annexed to the D.M. of 13 July 2021"
+    url: "https://www.masaf.gov.it/flex/cm/pages/ServeBLOB.php/L/IT/IDPagina/17249"
+    accessed_on: "2026-09-24"
+  - id: src_masaf_disciplinare_chianti_classico
+    kind: legislation
+    title: "Disciplinare di produzione della denominazione di origine controllata e garantita dei vini «Chianti Classico»"
+    publisher: "Ministero dell'agricoltura, della sovranità alimentare e delle foreste (MASAF)"
+    jurisdiction: IT
+    document_identifier: "Text as amended by ordinary amendment (modifica ordinaria)"
+    url: "https://www.masaf.gov.it/flex/cm/pages/ServeBLOB.php/L/IT/IDPagina/20089"
+    accessed_on: "2026-09-24"
+  - id: src_masaf_disciplinare_brunello_di_montalcino
+    kind: legislation
+    title: "Disciplinare di produzione della denominazione di origine controllata e garantita del vino «Brunello di Montalcino»"
+    publisher: "Ministero dell'agricoltura, della sovranità alimentare e delle foreste (national catalogue of vine varieties)"
+    jurisdiction: IT
+    document_identifier: "Text as amended by D.M. of 7 March 2014"
+    url: "http://catalogoviti.politicheagricole.it/scheda_denom.php?t=dsc&q=1013"
+    accessed_on: "2026-09-24"
+
+knowledge_item_citations:
+  - { knowledge_item_id: ki_barolo_location, source_citation_id: src_masaf_disciplinare_barolo, locator: "Art. 10 (legame con l'ambiente geografico)" }
+  - { knowledge_item_id: ki_barolo_grape, source_citation_id: src_masaf_disciplinare_barolo, locator: "Art. 2" }
+  - { knowledge_item_id: ki_barolo_soil, source_citation_id: src_masaf_disciplinare_barolo, locator: "Art. 10 (legame con l'ambiente geografico)" }
+  - { knowledge_item_id: ki_barolo_min_ageing, source_citation_id: src_masaf_disciplinare_barolo, locator: "Art. 5(7)" }
+  - { knowledge_item_id: ki_barolo_min_wood_ageing, source_citation_id: src_masaf_disciplinare_barolo, locator: "Art. 5(7)" }
+  - { knowledge_item_id: ki_barbaresco_grape, source_citation_id: src_masaf_disciplinare_barbaresco, locator: "Art. 2" }
+  - { knowledge_item_id: ki_barbaresco_soil, source_citation_id: src_masaf_disciplinare_barbaresco, locator: "Art. 9 (legame con l'ambiente geografico)" }
+  - { knowledge_item_id: ki_barbaresco_min_ageing, source_citation_id: src_masaf_disciplinare_barbaresco, locator: "Art. 5(6)" }
+  - { knowledge_item_id: ki_barbaresco_min_wood_ageing, source_citation_id: src_masaf_disciplinare_barbaresco, locator: "Art. 5(6)" }
+  - { knowledge_item_id: ki_brunello_di_montalcino_grape, source_citation_id: src_masaf_disciplinare_brunello_di_montalcino, locator: "Art. 2" }
+  - { knowledge_item_id: ki_brunello_di_montalcino_min_wood_ageing, source_citation_id: src_masaf_disciplinare_brunello_di_montalcino, locator: "Art. 5" }
+  - { knowledge_item_id: ki_chianti_classico_location, source_citation_id: src_masaf_disciplinare_chianti_classico, locator: "Art. 9 (legame con il territorio)" }
+  - { knowledge_item_id: ki_chianti_classico_grape, source_citation_id: src_masaf_disciplinare_chianti_classico, locator: "Art. 2" }
+  - { knowledge_item_id: ki_chianti_classico_soil, source_citation_id: src_masaf_disciplinare_chianti_classico, locator: "Art. 9 (legame con il territorio)" }
+  - { knowledge_item_id: ki_chianti_classico_climate, source_citation_id: src_masaf_disciplinare_chianti_classico, locator: "Art. 9 (legame con il territorio)" }

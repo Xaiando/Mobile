@@ -15,10 +15,11 @@ void main() {
   group('the bundled dataset', () {
     late CurriculumDataset dataset;
 
-    setUpAll(() => dataset = CurriculumDataset.parse(bundledDataset()));
+    setUpAll(() => dataset = bundledDataset());
 
     test('parses into every authored table', () {
-      expect(dataset.version, '0.1.0');
+      // Every content change bumps the version, so only its form is pinned.
+      expect(dataset.version, matches(RegExp(r'^\d+\.\d+\.\d+$')));
       expect(dataset.checksum, matches(RegExp(r'^sha256:[0-9a-f]{64}$')));
       expect(dataset.certifications, hasLength(8));
       expect(dataset.curriculumDomains, hasLength(6));
@@ -74,7 +75,27 @@ void main() {
       final data = minimalDataset()..remove('question_templates');
       expect(
         () => CurriculumDataset.parse(datasetText(data)),
+        formatError('sections in no file: question_templates'),
+      );
+    });
+
+    test('a section that is not a list', () {
+      final data = minimalDataset()..['question_templates'] = 'none';
+      expect(
+        () => CurriculumDataset.parse(datasetText(data)),
         formatError('"question_templates" must be a list'),
+      );
+    });
+
+    test('a key written twice', () {
+      final data = minimalDataset();
+      rowsOf(
+        data,
+        'curriculum_domains',
+      ).add({'id': 'geography', 'display_name': 'Again', 'position': 9});
+      expect(
+        () => CurriculumDataset.parse(datasetText(data)),
+        formatError('curriculum_domains "geography" is written twice'),
       );
     });
 

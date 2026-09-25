@@ -670,12 +670,41 @@ Every table has a primary key: natural keys where they are stable (junction tabl
 
 The authored tables *are* the dataset format. Each YAML section is named after its table, and each key is a column name, so there is no mapping layer. Generated tables, user tables and `name_norm` never appear in the dataset; the tooling produces them.
 
-**In the app (Phase 1):** [`assets/curriculum/curriculum.yaml`](../assets/curriculum/curriculum.yaml) is release 0.1.0 in this format.
+**In the app:** [`assets/curriculum/curriculum.yaml`](../assets/curriculum/curriculum.yaml) is the manifest of release 0.1.1. The release is split into files so that content tasks edit different files (DL-4, backlog C1). Release 0.1.1 holds exactly the rows of 0.1.0, which was one file, and ingests to identical rows and questions.
 
-- Two top-level keys fill `curriculum_releases`: `dataset_version` and `published_at`. Ingestion adds the SHA-256 checksum and `ingested_at`.
-- Every section must be present; an empty one is written `[]`.
-- A column with a schema default, such as `revision` or `verification_status`, may be omitted.
-- Unknown sections and columns are rejected, which catches typos.
+| File | Holds |
+|---|---|
+| `curriculum.yaml` | The manifest: the release keys and `includes`, the list of the other files |
+| `areas/<area>.yaml` | The rows of one area, e.g. `areas/france.yaml`, or the shared vocabulary in `areas/foundations.yaml` |
+| `templates/<format>.yaml` | The question templates of one format |
+| `reviews/<area>.yaml` | The review ledger for the items of `areas/<area>.yaml`. It is not part of the release, and the app does not bundle it. |
+
+- **Release keys.** Only the manifest writes them. `dataset_version` and `published_at` fill `curriculum_releases`, and ingestion adds the SHA-256 checksum and `ingested_at`.
+- **Includes.** `includes` lists the other files, in order, as paths relative to the manifest's folder. An include cannot leave the folder or be listed twice.
+- **Sections across files.** A section may be spread over several files, and its rows are read in include order.
+- **Unique keys.** A row's primary key appears once in the whole release. A duplicate is reported with both files and lines.
+- **Missing sections.** Every section is written in at least one file; an empty one is written `[]`.
+- **Defaults.** A column with a schema default, such as `revision` or `verification_status`, may be omitted.
+- **Unknown names.** Unknown sections and columns are rejected, which catches typos.
+- **The checksum covers the whole release.** It is the SHA-256 of the manifest's text followed, for each include, by a NUL, the include's path, a NUL and the file's text. Editing, renaming or reordering any file therefore changes it. A dataset written as one file, as tests write it, has the SHA-256 of its text.
+- **Error positions.** Every row keeps its file and line. Format errors and validator issues are reported there.
+
+**Authoring tools** (`tool/curriculum/`). They run with `dart run` from the repository root. Each takes `--dataset <manifest>` and defaults to the bundled manifest.
+
+| Command | What it does |
+|---|---|
+| `lint.dart` | Prints every format error, validator issue and ledger problem as `file:line: error: message [rule]`. A release with none must also ingest into an empty database, which applies the schema's own constraints. Exits 1 on any error |
+| `report.dart` | Prints the rows of each file and the generation report: questions by format, skipped pairs by reason, and items with no multiple-choice question |
+| `verify.dart <item> --reviewer <name> --outcome verified\|disputed [--notes <text>] [--at <instant>]` | Records an expert's review (D3) |
+
+**The review ledger.** Each ledger file is a `reviews` list. Entries give `knowledge_item_id`, `reviewer`, `reviewed_at` (UTC, whole milliseconds), `outcome` (`verified` or `disputed`) and `notes`, which a dispute requires. Entries are appended in time order and never edited.
+
+`verify` appends an entry and sets the item's status in its area file:
+
+- A `verified` review sets `verification_status: verified` and `last_verified_at` to the review's instant.
+- A dispute sets `verification_status: unverified` and leaves `last_verified_at` at the last check that confirmed the item.
+
+Either way the review ships as an ordinary content change with a new `dataset_version`, so every status change is reviewed and auditable. `lint` keeps the two in step: a `verified` item needs a latest review that verified it at its `last_verified_at`, and every review must name an existing item.
 
 How the spec's §Q seed maps onto the canonical format:
 

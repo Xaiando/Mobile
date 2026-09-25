@@ -6,6 +6,7 @@ import 'package:sommelier/core/database/database_providers.dart';
 import 'package:sommelier/core/database/storage_durability.dart';
 
 import '../support/app_fixture.dart';
+import '../support/curriculum_fixture.dart';
 import '../support/fixture.dart';
 
 class _OpenFailure implements Exception {
@@ -48,7 +49,10 @@ void main() {
     final nodes = await tester.runAsync(
       () => db.select(db.knowledgeNodes).get(),
     );
-    expect(release!.version, '0.1.0');
+    final bundled = bundledDataset();
+    expect(release!.version, bundled.version);
+    // The checksum covers every file, so each include reached the app bundle.
+    expect(release.checksum, bundled.checksum);
     expect(nodes!.length, greaterThanOrEqualTo(50));
   });
 

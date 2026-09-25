@@ -4,7 +4,7 @@ import '../core/curriculum/curriculum_providers.dart';
 import '../core/database/database_providers.dart';
 import '../core/database/storage_durability.dart';
 import '../core/study/scheduler_config.dart';
-import '../core/time/utc_clock.dart';
+import '../core/time/time_providers.dart';
 
 /// Opens the database (running migrations), brings the bundled curriculum
 /// into it (spec §O, Phase 1), seeds the FSRS scheduler configuration
@@ -14,8 +14,8 @@ import '../core/time/utc_clock.dart';
 final appStartupProvider = FutureProvider<StorageDurability>((ref) async {
   final database = ref.watch(appDatabaseProvider);
   await database.ensureOpen();
-  final source = await ref.watch(curriculumSourceProvider)();
-  await ref.watch(curriculumIngesterProvider).ensureCurrent(source);
+  final dataset = await ref.watch(curriculumSourceProvider)();
+  await ref.watch(curriculumIngesterProvider).ensureCurrent(dataset);
   await ensureSchedulerConfig(database, clock: ref.watch(clockProvider));
   return ref.watch(storageReportProvider).durability;
 });

@@ -39,7 +39,7 @@ void main() {
       expect(await count(db, 'certifications'), 8);
 
       final release = await ingestion.installedRelease();
-      expect(release!.version, '0.1.0');
+      expect(release!.version, bundledDataset().version);
       expect(release.checksum, startsWith('sha256:'));
       expect(release.ingestedAt, ingestedAt);
     });
@@ -67,7 +67,7 @@ void main() {
 
   group('a newer release', () {
     test('upserts authored rows and keeps user history', () async {
-      await ingestion.ensureCurrent(datasetText(minimalDataset()));
+      await ingestion.ensureCurrent(datasetOf(minimalDataset()));
       await seedSchedulerConfig(db);
       await db
           .into(db.reviewStates)
@@ -94,7 +94,7 @@ void main() {
       });
 
       expect(
-        await ingestion.ensureCurrent(datasetText(next)),
+        await ingestion.ensureCurrent(datasetOf(next)),
         IngestionOutcome.upgraded,
       );
       final item = await (db.select(
@@ -108,12 +108,12 @@ void main() {
     });
 
     test('is refused when it removes an authored row (V-7)', () async {
-      await ingestion.ensureCurrent(datasetText(minimalDataset()));
+      await ingestion.ensureCurrent(datasetOf(minimalDataset()));
       final next = minimalDataset(version: '1.1.0');
       rowsOf(next, 'node_alternative_names').clear();
 
       await expectLater(
-        ingestion.ensureCurrent(datasetText(next)),
+        ingestion.ensureCurrent(datasetOf(next)),
         throwsA(
           isA<CurriculumIngestionException>().having(
             (e) => e.message,
@@ -128,22 +128,20 @@ void main() {
   });
 
   test('the same version with new content is re-ingested', () async {
-    await ingestion.ensureCurrent(datasetText(minimalDataset()));
+    await ingestion.ensureCurrent(datasetOf(minimalDataset()));
     final edited = minimalDataset();
     rowOf(edited, 'knowledge_nodes', 'id', 'n_geo_volnay')['name'] = 'Volnay!';
     expect(
-      await ingestion.ensureCurrent(datasetText(edited)),
+      await ingestion.ensureCurrent(datasetOf(edited)),
       IngestionOutcome.refreshed,
     );
     expect(await count(db, 'curriculum_releases'), 1);
   });
 
   test('an older bundle never downgrades the curriculum', () async {
-    await ingestion.ensureCurrent(
-      datasetText(minimalDataset(version: '2.0.0')),
-    );
+    await ingestion.ensureCurrent(datasetOf(minimalDataset(version: '2.0.0')));
     expect(
-      await ingestion.ensureCurrent(datasetText(minimalDataset())),
+      await ingestion.ensureCurrent(datasetOf(minimalDataset())),
       IngestionOutcome.newerInstalled,
     );
     expect((await ingestion.installedRelease())!.version, '2.0.0');
@@ -153,7 +151,7 @@ void main() {
     final broken = minimalDataset();
     rowsOf(broken, 'knowledge_item_citations').clear();
     await expectLater(
-      ingestion.ensureCurrent(datasetText(broken)),
+      ingestion.ensureCurrent(datasetOf(broken)),
       throwsA(isA<CurriculumIngestionException>()),
     );
     expect(await count(db, 'knowledge_nodes'), 0);
@@ -167,7 +165,7 @@ void main() {
             as Map)['importance'] =
         'critical';
     await expectLater(
-      ingestion.ensureCurrent(datasetText(broken)),
+      ingestion.ensureCurrent(datasetOf(broken)),
       throwsA(isA<SqliteException>()),
     );
     expect(await count(db, 'knowledge_nodes'), 0);
@@ -175,16 +173,14 @@ void main() {
   });
 
   test('generated tables are rebuilt on every ingestion', () async {
-    await ingestion.ensureCurrent(datasetText(minimalDataset()));
+    await ingestion.ensureCurrent(datasetOf(minimalDataset()));
     await db.writeCurriculum(
       () => db.customStatement(
         "INSERT INTO questions VALUES ('ki_chablis_grape', "
         "'qt_principal_grape_fwd_mcq', 'PERMITS_PRINCIPAL_GRAPE', 'Stale?')",
       ),
     );
-    await ingestion.ensureCurrent(
-      datasetText(minimalDataset(version: '1.0.1')),
-    );
+    await ingestion.ensureCurrent(datasetOf(minimalDataset(version: '1.0.1')));
     final prompts = await db
         .customSelect('SELECT prompt_text FROM questions')
         .map((row) => row.read<String>('prompt_text'))
