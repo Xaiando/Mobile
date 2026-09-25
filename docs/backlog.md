@@ -69,7 +69,7 @@ TASK-008 (tasting grids) and TASK-009 (journal integration) remain; they are T1�
 | C4 | Content: the New World | C1, F2 | 3 | ☐ |
 | C5 | Content: principles | C1 | 2 | ☐ |
 | C6 | Content: Germany, Austria and the rest of Europe | C1 | 2 | ☐ |
-| C7 | Content: CMS Europe beverages, service and business core | C1 | 2 | ☐ |
+| C7 | Content: CMS Europe beverages, service and business core | C1, F2, SCOPE-1 | 3 | ☐ |
 | **G** | **Geography and maps** | | | |
 | G1 | Geodata pipeline, sources and licences | — | 1 | ☑ |
 | G2 | Geometry ingestion and validation | F2, G1 | 3 | ☐ |
@@ -108,11 +108,12 @@ TASK-008 (tasting grids) and TASK-009 (journal integration) remain; they are T1�
 | **S** | **Study experience and analytics (spec Phase 6)** | | | |
 | S1 | Study browser v2: atlas, search, focused and timed sessions | F3, G3 | 5 | ☐ |
 | S2 | Learner analytics | F1, F3 | 4 | ☐ |
-| S3 | Certification rehearsal presets | S1, Q1, Q7, T2 | 6 | ☐ |
+| S3 | Certification rehearsal presets | S1, Q1, Q7, Q8, T2, SCOPE-1 | 6 | ☐ |
 | **R** | **Quality and release** | | | |
 | R1 | Onboarding, settings, attributions, accessibility | — | 3 | ☐ |
 | R2 | Performance and scale | F3, G3 | 6 | ☐ |
 | R3 | Release readiness and gates | all V0.1 tasks | 7 | ☐ |
+| R4 | Installable Windows and Android builds | — | 3 | ☑ |
 
 ---
 
@@ -129,7 +130,7 @@ Tasks in the same wave can run in separate cloud sessions at the same time, beca
 | **3** | F3, G2, P1, C2, C3, C4, T2, R1 | F3 exclusively owns the question engine and the practice screen core. G2 owns geometry ingestion. P1 owns the track model. Content tasks write their own files. R1 adds settings screens. |
 | **4** | F4, Q1–Q6, G4, J3, S2, P2 | Each format lives in its own folder under `formats/` and adds one registry line. F4 owns the format chooser. P2 writes pack files only. |
 | **5** | Q7, Q8, G5, G6, G7, G8, S1, G12 | Each adds formats, content files or layers of its own. S1 owns the Study tab and the router. G12 owns the German, Austrian and Swiss layers. |
-| **6** | Q9, G9, P3, R2, G10, G11, G13 | These build on waves 4–5. Each atlas task owns its country group's files and layers (GEO-18). |
+| **6** | Q9, G9, P3, R2, G10, G11, G13, S3 | These build on waves 4–5. Each atlas task owns its country group's files and layers (GEO-18). S3 adds presets over the formats already built and touches none of their folders. |
 | **7** | R3 | The release gate. |
 
 With five to eleven sessions per wave, the backlog runs in seven waves rather than forty-five sequential sessions.
@@ -917,6 +918,19 @@ Four tasks share one pattern. Each turns the famous regions of one country group
 - **Required automated tests.** The coverage gate at full thresholds; a test counting verified items; the release build job.
 - **Parallel.** No. It runs last.
 
+#### R4 · Installable Windows and Android builds
+
+- **Objective.** Make the app installable and runnable locally on a Windows PC and on Android phones, from every CI run.
+- **Depends on.** Nothing.
+- **Modules.** `windows/` (the desktop runner and `installer/sommelier.iss`), `android/app/build.gradle.kts` (a fixed sideload signing key), the app icon (`tool/icons/`), `integration_test/`, the CI workflow, README.
+- **Acceptance criteria.**
+  - CI builds a Windows installer, a portable Windows folder and a release APK, and keeps each as a downloadable artifact.
+  - Every release APK carries the same signature, so a newer build installs over an older one and keeps the learner's data.
+  - The installer needs no administrator rights, and the learner's data survives uninstalling and upgrading.
+  - The app shows its own name and icon on Windows, Android and the web.
+- **Required automated tests.** An integration test runs the real app on the Windows desktop in CI: it opens the database, installs the curriculum, picks a track and studies a card.
+- **Parallel.** Yes. It touches only the platform folders, CI and the README.
+
 ---
 
 ## 6. Coverage of the requested study modes
@@ -1025,7 +1039,7 @@ Research basis: [curriculum gap audit](research/curriculum-gap-audit.md) and [ce
   - classic cocktails and recommendations;
   - bottle sizes, event-quantity arithmetic, markup/gross-profit calculations;
   - beverage-list, cellar and service scenarios.
-- **Depends on.** C1. F2 only if a genuinely necessary schema feature cannot be represented by data-only node/relation additions.
+- **Depends on.** C1, F2 and SCOPE-1: its closed-world fixtures need `relation_set_assertions` (F2), and its parity test reads the scope manifest (SCOPE-1). New node and relation types stay data-only.
 - **Modules.** `assets/curriculum/areas/cms_beverages_*.yaml`, `cms_business.yaml`, coverage policy, source/verification ledger.
 - **Acceptance criteria.**
   - Every C7 item maps to CMS Europe Certified scope and has authoritative provenance.
@@ -1039,7 +1053,7 @@ Research basis: [curriculum gap audit](research/curriculum-gap-audit.md) and [ce
 ### S3 · Certification rehearsal presets
 
 - **Objective.** Build examination-shaped practice presets for WSET L3 and CMS Europe Certified using original generated/authored exercises. This is rehearsal, not reproduction of proprietary exams.
-- **Depends on.** S1, Q1, Q7 and T2; richer formats are used when available.
+- **Depends on.** S1, Q1, Q7, Q8 (the CMS preset's two-wine deduction), T2, and SCOPE-1 (the pinned scope metadata); richer formats are used when available.
 - **Modules.** study-session configuration, track metadata, learner-facing preset picker.
 - **Acceptance criteria.**
   - WSET L3 preset exercises theory/short-written work and structured tasting practice.

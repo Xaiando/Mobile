@@ -60,6 +60,7 @@ Nothing in the product design is dropped. The changes fall into three groups:
 | `go_router` | 18.0.1 | Navigation | Needs Flutter ≥ 3.44. |
 | `yaml` | 3.1.4 | Seed parsing (Phase 1) | |
 | `clock` | 1.1.3 | Injectable time for tests | |
+| `integration_test` | SDK | Runs the real app on a device (backlog R4) | Part of the Flutter SDK, so it resolves with it. CI runs it on the Windows desktop. |
 | `riverpod_generator` | 4.0.9 *(dry run)* | Optional code generation | Resolves alongside `drift_dev`, but pulls in a pre-release dependency, `riverpod_analyzer_utils 1.0.0-dev.12` (R-1). |
 | `fl_chart` | 1.2.0 *(dry run)* | Analytics charts (Phase 6) | Resolves. |
 | `image_picker` | 1.2.3 *(dry run)* | Journal photos (if D6 changes) | Resolves on all five platforms. |

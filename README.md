@@ -1,8 +1,25 @@
-# Sommelier
+# Sommelier Study Companion
 
 A Flutter study app for wine certification candidates on the WSET and Court of Master Sommeliers tracks. It combines spaced repetition over a canonical wine knowledge graph with structured tasting practice and a personal wine journal. It works fully offline.
 
-**Status: Phase 3 (FSRS and study engine) complete.** The bundled curriculum dataset (release 0.1.1: 65 nodes, 87 relations, 46 cited items) loads on first launch and generates 91 questions (43 multiple-choice, 48 flashcards), with distractors chosen by walking the knowledge graph. A learner picks WSET Level 3 or CMS Certified on Home. Practice then runs adaptive sessions: FSRS-6 schedules every item, and a priority score picks what to study. Study lists the track's items with their memory state and sources. Tasting and journal screens arrive in later phases; [docs/phase-status.md](docs/phase-status.md) tracks every phase's acceptance criteria.
+**Status: Phase 3 (FSRS and study engine) complete.** The bundled curriculum dataset (release 0.2.0: 65 nodes, 87 relations, 46 cited items) loads on first launch and generates 91 questions (43 multiple-choice, 48 flashcards), with distractors chosen by walking the knowledge graph. A learner picks WSET Level 3 or CMS Certified on Home. Practice then runs adaptive sessions: FSRS-6 schedules every item, and a priority score picks what to study. Study lists the track's items with their memory state and sources. Tasting and journal screens arrive in later phases; [docs/phase-status.md](docs/phase-status.md) tracks every phase's acceptance criteria.
+
+## Install
+
+Every CI run on `main` builds the app for Windows and Android. Open the latest run of the **CI** workflow under the repository's *Actions* tab, and download its artifacts:
+
+| Artifact | What to do |
+|---|---|
+| `sommelier-windows-installer` | Unzip it and run `SommelierStudyCompanion-<version>-setup.exe`. It installs for your user, with no administrator rights, and adds a Start menu entry. Windows SmartScreen may warn about an unsigned installer: choose *More info → Run anyway*. |
+| `sommelier-windows-portable` | Unzip it anywhere and run `sommelier.exe`. |
+| `sommelier-android-apk` | Unzip it, copy `app-release.apk` to the phone, and open it. Android asks you to allow installing apps from that source once. |
+
+Everything runs offline. Your progress is stored on the device: on Windows in `%APPDATA%\Xaiando\Sommelier Study Companion`, which uninstalling and upgrading keep. A newer APK installs over an older one and keeps your progress, because every build is signed with the same sideload key.
+
+### Building the installable apps yourself
+
+- **Windows** needs Visual Studio's *Desktop development with C++* tools, and Windows *Developer Mode* (Settings → System → For developers), because Flutter links its plugins with symbolic links. Then run `flutter build windows --release`. The installer needs [Inno Setup 6](https://jrsoftware.org/isinfo.php): `iscc /DAppVersion=<version> windows\installer\sommelier.iss`.
+- **Android** needs the Android SDK and a JDK 17 or later: `flutter build apk --release`.
 
 ## Getting started
 

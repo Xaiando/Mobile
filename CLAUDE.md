@@ -32,6 +32,19 @@ tool/check_16kb_alignment.sh build/app/outputs/flutter-apk/app-release.apk   # n
 
 `build_runner` 2.16 ignores `--delete-conflicting-outputs`.
 
+Installable builds (backlog R4). CI keeps a Windows installer, a portable Windows folder and a release APK as artifacts of every run:
+
+```sh
+flutter build windows --release         # needs Windows Developer Mode for plugin symlinks
+iscc /DAppVersion=<version> windows\installer\sommelier.iss   # Inno Setup 6
+flutter test integration_test -d windows --dart-define=SOMMELIER_DATABASE=integration
+python tool/icons/make_icons.py         # after changing the icon; commit its outputs
+```
+
+- Release APKs are signed with `android/app/sideload.keystore`, a committed key whose password is deliberately not secret. Never replace it: a new key stops updates from installing over older builds. A store release needs a private upload key (L-28).
+- Bump `version` in `pubspec.yaml` for each build you hand out; Windows and Android read it.
+- Integration tests pass `SOMMELIER_DATABASE`, so they never open a learner's database.
+
 To run the web smoke test:
 
 ```sh
