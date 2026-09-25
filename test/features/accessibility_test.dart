@@ -58,6 +58,13 @@ void main() {
         await tab(tester, label);
         await meetsGuidelines(tester, label);
       }
+      await tab(tester, 'Tasting');
+      await tester.tap(find.text('New tasting'));
+      await tester.pumpAndSettle();
+      await meetsGuidelines(tester, 'a new tasting');
+      await tester.tap(find.text('Start tasting'));
+      await tester.pumpAndSettle();
+      await meetsGuidelines(tester, 'a tasting');
       await tab(tester, 'Cellar');
       await tester.tap(find.text('Log a wine'));
       await tester.pumpAndSettle();

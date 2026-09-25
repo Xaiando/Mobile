@@ -4,6 +4,8 @@ import 'package:go_router/go_router.dart';
 
 import '../../core/database/app_database.dart';
 import '../../core/journal/journal_providers.dart';
+import '../../core/tasting/tasting_providers.dart';
+import '../tasting/tasting_screen.dart';
 import 'cellar_screen.dart';
 
 /// One journal entry: what was written, and the knowledge it is linked to.
@@ -65,6 +67,8 @@ class _EntryView extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
     final links = ref.watch(journalLinksProvider(entry.id)).value ?? const [];
+    final tastings =
+        ref.watch(wineTastingsProvider(entry.id)).value ?? const [];
     final subtitle = journalSubtitle(entry);
     Widget fact(String label, String? value) => value == null
         ? const SizedBox.shrink()
@@ -83,6 +87,11 @@ class _EntryView extends ConsumerWidget {
       appBar: AppBar(
         title: Text(journalTitle(entry)),
         actions: [
+          IconButton(
+            tooltip: 'Taste this wine',
+            icon: const Icon(Icons.wine_bar_outlined),
+            onPressed: () => context.go('/tasting/new?wine=${entry.id}'),
+          ),
           IconButton(
             tooltip: 'Edit',
             icon: const Icon(Icons.edit_outlined),
@@ -141,6 +150,12 @@ class _EntryView extends ConsumerWidget {
                   ),
               ],
             ),
+          if (tastings.isNotEmpty) ...[
+            const Divider(height: 32),
+            Text('Tastings', style: theme.textTheme.titleSmall),
+            for (final session in tastings)
+              TastingSessionTile(session, showWine: false),
+          ],
         ],
       ),
     );

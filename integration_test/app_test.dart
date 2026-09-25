@@ -1,6 +1,6 @@
 // Runs the real app on a device, with its on-device database: it opens,
-// installs the bundled curriculum, and a learner picks a track and studies
-// a card. CI runs it on the Windows desktop:
+// installs the bundled curriculum, and a learner picks a track, studies
+// a card and starts a tasting. CI runs it on the Windows desktop:
 //
 //   flutter test integration_test -d windows --dart-define=SOMMELIER_DATABASE=integration
 //
@@ -28,7 +28,7 @@ void main() {
     }
   }
 
-  testWidgets('starts, installs the curriculum and studies a card', (
+  testWidgets('starts, installs the curriculum, studies and tastes', (
     tester,
   ) async {
     app.main();
@@ -84,6 +84,32 @@ void main() {
       await tester.tap(options.first);
     }
     await tester.pumpAndSettle();
+
+    // A tasting on the track's grid saves each answer as it is chosen
+    // (backlog T2).
+    await tester.tap(find.text('Tasting').first);
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('New tasting'));
+    await tester.pumpAndSettle();
+    final begin = find.text('Start tasting');
+    await pumpUntil(
+      tester,
+      () => begin.evaluate().isNotEmpty,
+      what: 'the tasting grids',
+    );
+    await tester.tap(begin);
+    final bright = find.widgetWithText(ChoiceChip, 'Bright');
+    await pumpUntil(
+      tester,
+      () => bright.evaluate().isNotEmpty,
+      what: 'the tasting grid',
+    );
+    await tester.tap(bright);
+    await pumpUntil(
+      tester,
+      () => tester.widget<ChoiceChip>(bright).selected,
+      what: 'the saved answer',
+    );
     expect(tester.takeException(), isNull);
   });
 }
