@@ -19,7 +19,10 @@ class TrackPicker extends ConsumerWidget {
       showSelectedIcon: false,
       segments: [
         for (final track in tracks)
-          ButtonSegment(value: track.id, label: Text(track.displayName)),
+          ButtonSegment(
+            value: track.id,
+            label: Text(track.displayName, textAlign: TextAlign.center),
+          ),
       ],
       selected: {?active?.activeCertificationId},
       onSelectionChanged: (selection) {
