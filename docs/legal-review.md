@@ -17,7 +17,7 @@
 | ID | Topic | Question for review | Current handling | Origin |
 |---|---|---|---|---|
 | L-1 | Trademarks of the examining bodies | Is using "WSET", "Court of Master Sommeliers" and "CMS" to name study tracks acceptable descriptive use? | Names are used descriptively only, with no logos. Since Phase 3, Home shows a non-affiliation disclaimer; its wording needs review before release. | Audit LEGAL-1 |
-| L-2 | Tasting vocabularies | May the tasting grids' structure and terms be represented as data (TASK-008)? | Grids are data in our own wording, built from public descriptions; no artwork. Review before Phase 4 content ships. | Audit LEGAL-2 |
+| L-2 | Tasting vocabularies | May the tasting grids' structure and terms be represented as data (TASK-008)? | Grids are data in our own wording, with no artwork. T1 authored the app's own two grids, *Structured tasting* and *Deductive tasting*: their names, sections, attributes and scale words are the app's own, and the `framework` code only names the track a grid serves (audit TG-1). The T1 pull request carries the review checklist. Review before release. | Audit LEGAL-2 |
 | L-3 | ODbL datasets | Would a share-alike licence (e.g. Open Food Facts) extend to the curriculum database? | Not used for the canonical curriculum. | Audit LEGAL-3 |
 | L-4 | LWIN | What are the terms of Liv-ex's LWIN licence? | Not used; the label scanner is deferred. | Audit LEGAL-4 |
 | L-5 | EU database right | Does authoring facts risk substantial extraction from compiled databases? | Facts are authored from primary legal sources, not copied from compilations. | Audit LEGAL-5 |
