@@ -145,6 +145,12 @@ void main() {
     expect(layer.isVisibleAt(10.99), isTrue);
     expect(layer.isVisibleAt(11), isFalse);
     expect(fixture.areas.isVisibleAt(22), isTrue);
+
+    // A map question's candidates, at any zoom (GEO-28).
+    final candidates = layer.drawnAtEveryZoom();
+    expect(candidates.isVisibleAt(0), isTrue);
+    expect(candidates.isVisibleAt(16), isTrue);
+    expect(candidates.shapes, same(layer.shapes));
   });
 
   test('choosing the object', () {

@@ -134,11 +134,23 @@ void main() {
   testApp('finds an area by tapping it on the map', (tester) async {
     final exercise = await mapCard(tester, locateFirst);
     expect(find.text('Find it on the map'), findsOneWidget, reason: 'badge');
+    final canvas = tester.widget<MapCanvas>(find.byType(MapCanvas));
     expect(
-      tester.widget<MapCanvas>(find.byType(MapCanvas)).mode,
+      canvas.mode,
       MapLabelMode.labelled,
       reason: 'a new item is asked on a labelled map',
     );
+    final layerId = exercise.frame.candidates.first.geometry.mapLayerId;
+    final candidates = canvas.layers.singleWhere(
+      (l) => l.geometry.id == layerId,
+    );
+    for (final zoom in [0.0, canvas.maxZoom]) {
+      expect(
+        candidates.geometry.isVisibleAt(zoom),
+        isTrue,
+        reason: 'the answers are drawn at zoom $zoom (GEO-29)',
+      );
+    }
 
     await tester.tapAt(areaOnScreen(tester, exercise));
     await tester.pumpAndSettle();
