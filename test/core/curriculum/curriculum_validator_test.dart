@@ -369,6 +369,85 @@ void main() {
     });
   });
 
+  group('map geometry (G2)', () {
+    /// [v2Dataset] with Burgundy drawn as well as Chablis.
+    Map<String, dynamic> drawn() {
+      final data = v2Dataset();
+      rowsOf(data, 'node_geometries').add({
+        'knowledge_node_id': 'n_geo_burgundy',
+        'map_layer_id': 'ml_test_appellations',
+        'feature_key': 'n_geo_burgundy',
+        'min_lon': 3.2,
+        'min_lat': 46.2,
+        'max_lon': 5.1,
+        'max_lat': 48.1,
+        'label_lon': 4.8,
+        'label_lat': 46.6,
+      });
+      return data;
+    }
+
+    test('a node drawn on the map of its parent needs its location item '
+        '(GEO-6)', () {
+      final data = drawn();
+      expect(brokenRules(data), {'location-item'});
+      rowsOf(data, 'knowledge_items').add({
+        'id': 'ki_chablis_location',
+        'subject_id': 'n_geo_chablis',
+        'relation_type': 'LOCATED_IN',
+        'object_id': 'n_geo_burgundy',
+        'domain_id': 'geography',
+        'assertion_text': 'Chablis is in Burgundy.',
+        'last_verified_at': '2026-01-01T00:00:00.000Z',
+      });
+      rowsOf(data, 'knowledge_item_citations').add({
+        'knowledge_item_id': 'ki_chablis_location',
+        'source_citation_id': 'src_test_law',
+      });
+      rowsOf(data, 'certification_knowledge_mappings').add({
+        'certification_id': 'WSET_L2',
+        'knowledge_item_id': 'ki_chablis_location',
+        'importance': 'core',
+        'minimum_depth': 1,
+      });
+      rowsOf(data, 'question_templates').add({
+        'id': 'qt_located_in_fwd_flashcard',
+        'relation_type': 'LOCATED_IN',
+        'direction': 'forward',
+        'mode': 'flashcard',
+        'prompt_template': 'Where is {subject.name}?',
+      });
+      expect(brokenRules(data), isEmpty);
+    });
+
+    test("a geometry's box lies on the globe and holds its label point", () {
+      final data = v2Dataset();
+      final chablis = rowOf(
+        data,
+        'node_geometries',
+        'knowledge_node_id',
+        'n_geo_chablis',
+      );
+      chablis['label_lon'] = 5.5;
+      expect(brokenRules(data), {'geometry-bounds'});
+      chablis
+        ..['label_lon'] = 3.8
+        ..['max_lat'] = 47.0;
+      expect(brokenRules(data), {'geometry-bounds'});
+    });
+
+    test('a layer has the SHA-256 of its asset and a zoom range', () {
+      final data = v2Dataset();
+      final layer = rowOf(data, 'map_layers', 'id', 'ml_test_appellations');
+      layer['asset_sha256'] = 'not a hash';
+      expect(brokenRules(data), {'layer-asset'});
+      layer
+        ..['asset_sha256'] = 'b' * 64
+        ..['min_zoom'] = 14;
+      expect(brokenRules(data), {'layer-asset'});
+    });
+  });
+
   test('rejects a tasting grid without a real choice (T1)', () {
     final data = copyOf(minimalDataset());
     rowsOf(data, 'tasting_grids').add({

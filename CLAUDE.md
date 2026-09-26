@@ -155,6 +155,9 @@ npm run check   # CI runs this; with every source cached it also rebuilds and co
 - **Never trace or invent a boundary.** Where no open shape exists, draw a point (GEO-9).
 - **French areas are unions of communes**, taken from INAO's lists. A region without a legal area is a union of appellation areas, and its composition stays provisional until G10 (GEO-19).
 - Each task adds only its own entries to `layers.yaml` (backlog §4). The build is deterministic, so other layers come out unchanged. The budgets are 1.5 MB per layer and 8 MB in all (GEO-11).
+- **The release includes the manifest** (`geography:` in `curriculum.yaml`, GEO-23). Rebuilding the layers changes the release, so bump `dataset_version`. Ingestion and `lint` refuse an asset whose SHA-256 or features do not match (GEO-24).
+- **A node drawn on its parent's map needs its location item**, citing a primary legal text; `lint` reports it otherwise (GEO-25). A new layer source is a `dataset` citation in `areas/geography.yaml`.
+- Map formats frame questions with `GeometryRepository` (`lib/core/geography/`, GEO-26).
 
 ## Study engine
 

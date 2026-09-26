@@ -202,6 +202,14 @@ Future<int> lint(
       warnings++;
     }
   }
+  // The map assets match their manifest (backlog G2), as ingestion checks.
+  for (final problem in await mapAssetProblems(
+    dataset,
+    (path) async => File(path).readAsBytesSync(),
+  )) {
+    out.writeln('$manifest: error: $problem [map-asset]');
+    errors++;
+  }
   try {
     final ledger = ReviewLedger.read(ledgerFolder(manifest));
     for (final problem in ledgerProblems(dataset, ledger)) {
@@ -749,6 +757,13 @@ const _labels = {
   'question_templates': ('question template', 'question templates'),
   'tasting_grid_attributes': ('grid attribute', 'grid attributes'),
   'tasting_grid_values': ('grid value', 'grid values'),
+  'relation_set_assertions': (
+    'completeness assertion',
+    'completeness assertions',
+  ),
+  'map_layers': ('map layer', 'map layers'),
+  'map_layer_citations': ('layer source', 'layer sources'),
+  'node_geometries': ('node geometry', 'node geometries'),
 };
 
 /// Command-line options: `--name value` or `--name=value`, `--flag`, and

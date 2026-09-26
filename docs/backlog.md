@@ -72,7 +72,7 @@ TASK-008 (tasting grids) and TASK-009 (journal integration) remain; they are T1�
 | C7 | Content: CMS Europe beverages, service and business core | C1, F2, SCOPE-1 | 3 | ☐ |
 | **G** | **Geography and maps** | | | |
 | G1 | Geodata pipeline, sources and licences | — | 1 | ☑ |
-| G2 | Geometry ingestion and validation | F2, G1 | 3 | ☐ |
+| G2 | Geometry ingestion and validation | F2, G1 | 3 | ☑ |
 | G3 | Offline map renderer | — | 1 | ☑ |
 | G4 | Map locate and identify, with difficulty modes | F3, G2, G3 | 4 | ☐ |
 | G5 | Hierarchy drills and map orderings | G4, Q3 | 5 | ☐ |

@@ -15,6 +15,8 @@ import 'package:sommelier/core/database/app_database.dart';
 import 'package:sommelier/core/database/curriculum_writes.dart';
 import 'package:sommelier/core/database/database_connection.dart';
 import 'package:sommelier/core/database/storage_durability.dart';
+import 'package:sommelier/core/geography/geometry_repository.dart';
+import 'package:sommelier/core/geography/topojson.dart';
 import 'package:sommelier/core/questions/question_presenter.dart';
 import 'package:sommelier/core/study/learner_profile.dart';
 import 'package:sommelier/core/study/review_service.dart';
@@ -67,13 +69,28 @@ Future<void> main() async {
             .read<int>('ok');
 
     // Phase 1: the bundled dataset hydrates the database on first launch.
-    // Loading it reads the manifest and every file it includes.
-    final ingester = CurriculumIngester(db);
+    // Loading it reads the manifest and every file it includes; ingesting
+    // it checks every map layer's asset against its SHA-256 (G2).
+    final ingester = CurriculumIngester(db, assets: readBundledAsset);
     final bundle = await loadBundledCurriculum();
     result['bundle'] = bundle.version;
     result['curriculum'] = (await ingester.ensureCurrent(bundle)).name;
     result['release'] = (await ingester.installedRelease())?.version;
     result['nodes'] = await count(db, 'knowledge_nodes');
+    // The map layers came in with the release: a layer asset parses, and a
+    // map question about Chablis is framed (geography §5).
+    result['mapLayers'] = await count(db, 'map_layers');
+    final appellations = Topology.parse(
+      utf8.decode(
+        await readBundledAsset('assets/geography/fr_appellations.topo.json'),
+      ),
+    );
+    result['chablisFeature'] = appellations.objects.values.any(
+      (features) => features.any((f) => f.id == 'n_geo_chablis'),
+    );
+    result['chablisFrame'] = (await GeometryRepository(
+      db,
+    ).frameOf('n_geo_chablis'))?.parent.id;
     result['relations'] = await count(db, 'knowledge_relations');
     // Phase 2: questions are generated during ingestion and presented with
     // a seed: four distinct options.

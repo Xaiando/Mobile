@@ -121,6 +121,8 @@ class _Validator {
     _provenance();
     _completeness();
     _mapLayers();
+    _geometries();
+    _locationItems();
     _tastingGrids();
     _templates();
     _report();
@@ -881,6 +883,74 @@ class _Validator {
           'layer-citation',
           'map layer ${l.id} cites no source',
           row: _ref('map_layers', l),
+        );
+      }
+    }
+  }
+
+  /// A layer's asset has a SHA-256 and a zoom range; a geometry's bounding
+  /// box lies on the globe and holds its label point (geography §3). The
+  /// schema refuses these too; the validator says where.
+  void _geometries() {
+    final hash = RegExp(r'^[0-9a-f]{64}$');
+    for (final l in d.mapLayers) {
+      final lacks = [
+        if (!hash.hasMatch(l.assetSha256)) 'no SHA-256 of its asset',
+        if (!(l.minZoom < l.maxZoom)) 'an empty zoom range',
+      ];
+      if (lacks.isNotEmpty) {
+        error(
+          'layer-asset',
+          'map layer ${l.id} has ${lacks.join(' and ')}',
+          row: _ref('map_layers', l),
+        );
+      }
+    }
+    for (final g in d.nodeGeometries) {
+      final problems = [
+        if (!(g.minLon < g.maxLon && g.minLat < g.maxLat))
+          'its bounding box is empty',
+        if (g.minLon < -180 ||
+            g.maxLon > 180 ||
+            g.minLat < -90 ||
+            g.maxLat > 90)
+          'its bounding box leaves the globe',
+        if (g.labelLon < g.minLon ||
+            g.labelLon > g.maxLon ||
+            g.labelLat < g.minLat ||
+            g.labelLat > g.maxLat)
+          'its label point lies outside its bounding box',
+      ];
+      if (problems.isNotEmpty) {
+        error(
+          'geometry-bounds',
+          'the geometry of ${g.knowledgeNodeId} in ${g.mapLayerId}: '
+              '${problems.join('; ')}',
+          row: _ref('node_geometries', g),
+        );
+      }
+    }
+  }
+
+  /// A node drawn on the map of its parent can be asked there, so it has
+  /// its location item: an item of its `LOCATED_IN` relation (GEO-6).
+  void _locationItems() {
+    final drawn = {for (final g in d.nodeGeometries) g.knowledgeNodeId};
+    final located = {
+      for (final i in d.knowledgeItems)
+        if (i.relationType == 'LOCATED_IN') '${i.subjectId} ${i.objectId}',
+    };
+    for (final r in d.knowledgeRelations) {
+      if (r.relationType != 'LOCATED_IN' || r.validUntil != null) continue;
+      if (!drawn.contains(r.subjectId) || !drawn.contains(r.objectId)) {
+        continue;
+      }
+      if (!located.contains('${r.subjectId} ${r.objectId}')) {
+        error(
+          'location-item',
+          '${r.subjectId} is drawn on the map of ${r.objectId} but has no '
+              'location item: an item of that LOCATED_IN relation',
+          row: _ref('knowledge_relations', r),
         );
       }
     }

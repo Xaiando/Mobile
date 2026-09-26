@@ -1,0 +1,92 @@
+# The open datasets the map layers are drawn from (backlog G2, geography §6,
+# legal review L-15). tool/geography/sources.yaml records each download with
+# its SHA-256; the geography manifest names each layer's sources, and About
+# shows every licence and attribution (GEO-14). These are datasets, never
+# the source of a fact: facts cite primary legal texts.
+
+source_citations:
+  - id: src_ne_countries
+    kind: dataset
+    title: "Natural Earth 1:50m, Admin 0 – Countries"
+    publisher: "Natural Earth"
+    document_identifier: "5.1.1"
+    url: "https://naciscdn.org/naturalearth/50m/cultural/ne_50m_admin_0_countries.zip"
+    accessed_on: "2026-09-25"
+    license: "Public domain"
+    attribution_text: "Made with Natural Earth."
+  - id: src_ne_map_units
+    kind: dataset
+    title: "Natural Earth 1:50m, Admin 0 – Map Units"
+    publisher: "Natural Earth"
+    document_identifier: "5.1.1"
+    url: "https://naciscdn.org/naturalearth/50m/cultural/ne_50m_admin_0_map_units.zip"
+    accessed_on: "2026-09-25"
+    license: "Public domain"
+    attribution_text: "Made with Natural Earth."
+  - id: src_ne_coastline
+    kind: dataset
+    title: "Natural Earth 1:50m, Coastline"
+    publisher: "Natural Earth"
+    document_identifier: "5.1.1"
+    url: "https://naciscdn.org/naturalearth/50m/physical/ne_50m_coastline.zip"
+    accessed_on: "2026-09-25"
+    license: "Public domain"
+    attribution_text: "Made with Natural Earth."
+  - id: src_ne_rivers
+    kind: dataset
+    title: "Natural Earth 1:50m, Rivers and Lake Centerlines"
+    publisher: "Natural Earth"
+    document_identifier: "5.1.1"
+    url: "https://naciscdn.org/naturalearth/50m/physical/ne_50m_rivers_lake_centerlines.zip"
+    accessed_on: "2026-09-25"
+    license: "Public domain"
+    attribution_text: "Made with Natural Earth."
+  - id: src_ne_lakes
+    kind: dataset
+    title: "Natural Earth 1:50m, Lakes and Reservoirs"
+    publisher: "Natural Earth"
+    document_identifier: "5.1.1"
+    url: "https://naciscdn.org/naturalearth/50m/physical/ne_50m_lakes.zip"
+    accessed_on: "2026-09-25"
+    license: "Public domain"
+    attribution_text: "Made with Natural Earth."
+  - id: src_ne_marine
+    kind: dataset
+    title: "Natural Earth 1:50m, Marine Areas"
+    publisher: "Natural Earth"
+    document_identifier: "5.1.1"
+    url: "https://naciscdn.org/naturalearth/50m/physical/ne_50m_geography_marine_polys.zip"
+    accessed_on: "2026-09-25"
+    license: "Public domain"
+    attribution_text: "Made with Natural Earth."
+  - id: src_ne_regions
+    kind: dataset
+    title: "Natural Earth 1:50m, Physical Labels (regions)"
+    publisher: "Natural Earth"
+    document_identifier: "5.1.1"
+    url: "https://naciscdn.org/naturalearth/50m/physical/ne_50m_geography_regions_polys.zip"
+    accessed_on: "2026-09-25"
+    license: "Public domain"
+    attribution_text: "Made with Natural Earth."
+  - id: src_ign_admin_express
+    kind: dataset
+    title: "ADMIN EXPRESS COG CARTO, 2026 edition, metropolitan France"
+    publisher: "IGN"
+    jurisdiction: FR
+    document_identifier: "4.0, 2026-01-01"
+    url: "https://data.geopf.fr/telechargement/download/ADMIN-EXPRESS-COG-CARTO/ADMIN-EXPRESS-COG-CARTO_4-0__GPKG_LAMB93_FXX_2026-01-01/ADMIN-EXPRESS-COG-CARTO_4-0__GPKG_LAMB93_FXX_2026-01-01.7z"
+    published_on: "2026-01-01"
+    accessed_on: "2026-09-25"
+    license: "Licence Ouverte / Open Licence 2.0 (Etalab)"
+    attribution_text: "IGN – ADMIN EXPRESS COG CARTO, edition of 1 January 2026."
+  - id: src_inao_areas
+    kind: dataset
+    title: "Aires géographiques des AOC/AOP (the communes of each appellation's geographical area)"
+    publisher: "Institut national de l'origine et de la qualité (INAO)"
+    jurisdiction: FR
+    document_identifier: "2025-10-09"
+    url: "https://static.data.gouv.fr/resources/aires-geographiques-des-aoc-aop/20251009-122320/2025-10-09-comagri-communes-aires-ao.csv"
+    published_on: "2025-10-09"
+    accessed_on: "2026-09-25"
+    license: "Licence Ouverte / Open Licence 2.0 (Etalab)"
+    attribution_text: "INAO – aires géographiques des AOC/AOP, 9 October 2025."

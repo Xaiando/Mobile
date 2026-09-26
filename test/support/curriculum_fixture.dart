@@ -25,16 +25,39 @@ Map<String, dynamic> flattenDataset(String manifestPath) {
       jsonDecode(jsonEncode(loadYaml(File(path).readAsStringSync())))
           as Map<String, dynamic>;
 
-  final merged = read(manifestPath)..remove('includes');
-  final includes = datasetIncludes(
-    manifestPath,
-    File(manifestPath).readAsStringSync(),
-  );
-  for (final path in includes) {
+  final merged = read(manifestPath)
+    ..remove('includes')
+    ..remove('geography');
+  final manifest = File(manifestPath).readAsStringSync();
+  for (final path in datasetIncludes(manifestPath, manifest)) {
     for (final MapEntry(:key, :value) in read(path).entries) {
       final rows = merged[key] as List<dynamic>? ?? [];
       merged[key] = [...rows, ...value as List<dynamic>];
     }
+  }
+  // The geography manifest's layers name their sources, which become
+  // citations; the pipeline's own keys are not columns (backlog G2).
+  final geography = datasetGeography(manifestPath, manifest);
+  if (geography != null) {
+    final maps = read(geography);
+    for (final layer
+        in (maps['map_layers'] as List<dynamic>).cast<Map<String, dynamic>>()) {
+      final sources = layer.remove('source_citation_ids') as List<dynamic>;
+      layer
+        ..remove('asset_bytes')
+        ..remove('attribution');
+      (merged['map_layers'] as List<dynamic>).add(layer);
+      for (final (i, source) in sources.indexed) {
+        (merged['map_layer_citations'] as List<dynamic>).add({
+          'map_layer_id': layer['id'],
+          'source_citation_id': source,
+          'position': i + 1,
+        });
+      }
+    }
+    (merged['node_geometries'] as List<dynamic>).addAll(
+      maps['node_geometries'] as List<dynamic>,
+    );
   }
   return merged;
 }
