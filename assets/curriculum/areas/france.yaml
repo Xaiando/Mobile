@@ -328,6 +328,112 @@ knowledge_items:
     assertion_text: "Champagne may be sold only after at least 15 months of ageing from tirage, or 36 months for vintage Champagne."
     last_verified_at: "2026-09-24T12:00:00.000Z"
 
+  # Location items (GEO-6, backlog G2): every area drawn on the map of its
+  # parent can be asked there. A region's item has no MCQ while France and
+  # Italy are the only countries: map formats practise it (task G4).
+  - id: ki_burgundy_location
+    subject_id: n_geo_burgundy
+    relation_type: LOCATED_IN
+    object_id: n_geo_france
+    domain_id: geography
+    assertion_text: "Burgundy is a French wine region: its vineyards lie in the Yonne, Côte-d'Or and Saône-et-Loire departments."
+    mcq_disabled: true
+    last_verified_at: "2026-09-26T12:00:00.000Z"
+  - id: ki_rhone_valley_location
+    subject_id: n_geo_rhone_valley
+    relation_type: LOCATED_IN
+    object_id: n_geo_france
+    domain_id: geography
+    assertion_text: "The Rhône Valley wine region runs along both banks of the Rhône between Vienne and Avignon, across six French departments."
+    mcq_disabled: true
+    last_verified_at: "2026-09-26T12:00:00.000Z"
+  - id: ki_loire_valley_location
+    subject_id: n_geo_loire_valley
+    relation_type: LOCATED_IN
+    object_id: n_geo_france
+    domain_id: geography
+    assertion_text: "The Loire Valley wine region follows the Loire, France's longest river, from the Massif Central to its estuary in the Pays Nantais."
+    mcq_disabled: true
+    last_verified_at: "2026-09-26T12:00:00.000Z"
+  - id: ki_champagne_region_location
+    subject_id: n_geo_champagne_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_france
+    domain_id: geography
+    assertion_text: "The Champagne region lies in north-eastern France, across the Aisne, Aube, Haute-Marne, Marne and Seine-et-Marne departments."
+    mcq_disabled: true
+    last_verified_at: "2026-09-26T12:00:00.000Z"
+  - id: ki_cote_de_beaune_location
+    subject_id: n_geo_cote_de_beaune
+    relation_type: LOCATED_IN
+    object_id: n_geo_burgundy
+    domain_id: geography
+    assertion_text: "The Côte de Beaune is a straight escarpment of vineyards about 25 kilometres long in the Côte-d'Or, in Burgundy."
+    last_verified_at: "2026-09-26T12:00:00.000Z"
+  - id: ki_northern_rhone_location
+    subject_id: n_geo_northern_rhone
+    relation_type: LOCATED_IN
+    object_id: n_geo_rhone_valley
+    domain_id: geography
+    assertion_text: "The northern Rhône is the northern part of the Rhône Valley wine region, where the climate is temperate continental."
+    last_verified_at: "2026-09-26T12:00:00.000Z"
+  - id: ki_southern_rhone_location
+    subject_id: n_geo_southern_rhone
+    relation_type: LOCATED_IN
+    object_id: n_geo_rhone_valley
+    domain_id: geography
+    assertion_text: "The southern Rhône is the southern part of the Rhône Valley wine region, where the climate is Mediterranean, with hot, dry summers."
+    last_verified_at: "2026-09-26T12:00:00.000Z"
+  - id: ki_touraine_location
+    subject_id: n_geo_touraine
+    relation_type: LOCATED_IN
+    object_id: n_geo_loire_valley
+    domain_id: geography
+    assertion_text: "Touraine lies where the Cher, the Indre and the Vienne flow into the Loire; its vineyards follow the valleys for about a hundred kilometres."
+    last_verified_at: "2026-09-26T12:00:00.000Z"
+  - id: ki_crozes_hermitage_location
+    subject_id: n_geo_crozes_hermitage
+    relation_type: LOCATED_IN
+    object_id: n_geo_northern_rhone
+    domain_id: geography
+    assertion_text: "Crozes-Hermitage lies north of Valence on the left bank of the Rhône, among the southernmost vineyards of the northern Rhône."
+    last_verified_at: "2026-09-26T12:00:00.000Z"
+  - id: ki_condrieu_location
+    subject_id: n_geo_condrieu
+    relation_type: LOCATED_IN
+    object_id: n_geo_northern_rhone
+    domain_id: geography
+    assertion_text: "Condrieu lies some forty kilometres south of Lyon on the steep slopes of the Rhône's right bank, between Côte-Rôtie to the north and Saint-Joseph to the south."
+    last_verified_at: "2026-09-26T12:00:00.000Z"
+  - id: ki_chateauneuf_du_pape_location
+    subject_id: n_geo_chateauneuf_du_pape
+    relation_type: LOCATED_IN
+    object_id: n_geo_southern_rhone
+    domain_id: geography
+    assertion_text: "Châteauneuf-du-Pape lies on the left bank of the Rhône, some fifteen kilometres north of Avignon, in five communes of the Vaucluse."
+    last_verified_at: "2026-09-26T12:00:00.000Z"
+  - id: ki_pouilly_fume_location
+    subject_id: n_geo_pouilly_fume
+    relation_type: LOCATED_IN
+    object_id: n_geo_loire_valley
+    domain_id: geography
+    assertion_text: "Pouilly-Fumé stretches for some twenty kilometres along the right bank of the Loire, around the hill of Saint-Andelain."
+    last_verified_at: "2026-09-26T12:00:00.000Z"
+  - id: ki_muscadet_sevre_et_maine_location
+    subject_id: n_geo_muscadet_sevre_et_maine
+    relation_type: LOCATED_IN
+    object_id: n_geo_loire_valley
+    domain_id: geography
+    assertion_text: "Muscadet Sèvre et Maine lies east of Nantes, on slopes above the Loire and along the Sèvre and the Maine."
+    last_verified_at: "2026-09-26T12:00:00.000Z"
+  - id: ki_champagne_location
+    subject_id: n_geo_champagne
+    relation_type: LOCATED_IN
+    object_id: n_geo_champagne_region
+    domain_id: geography
+    assertion_text: "The Champagne appellation's vineyards lie on the hillsides of the cuestas of the eastern Paris Basin, in the Champagne region."
+    last_verified_at: "2026-09-26T12:00:00.000Z"
+
 # Learn the basic fact before the one that builds on it (§G's prerequisite
 # factor, used by the study queue in Phase 3).
 knowledge_item_prerequisites:
@@ -412,6 +518,36 @@ certification_knowledge_mappings:
   - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_champagne_soil, importance: secondary, minimum_depth: 2 }
   - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_champagne_method, importance: core, minimum_depth: 2 }
   - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_champagne_min_ageing, importance: core, minimum_depth: 2 }
+
+  # Location items (GEO-6)
+  - { certification_id: WSET_L3, knowledge_item_id: ki_burgundy_location, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_burgundy_location, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_rhone_valley_location, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_rhone_valley_location, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_loire_valley_location, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_loire_valley_location, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_champagne_region_location, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_champagne_region_location, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_cote_de_beaune_location, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cote_de_beaune_location, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_northern_rhone_location, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_northern_rhone_location, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_southern_rhone_location, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_southern_rhone_location, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_touraine_location, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_touraine_location, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_crozes_hermitage_location, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_crozes_hermitage_location, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_condrieu_location, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_condrieu_location, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_chateauneuf_du_pape_location, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_chateauneuf_du_pape_location, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_pouilly_fume_location, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_pouilly_fume_location, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_muscadet_sevre_et_maine_location, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_muscadet_sevre_et_maine_location, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_champagne_location, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_champagne_location, importance: core, minimum_depth: 2 }
 
 # Primary legal texts. For French appellations the URL is INAO's product
 # page, which publishes the cahier des charges and every regulatory text.
@@ -507,6 +643,39 @@ source_citations:
     published_on: "2025-08-05"
     accessed_on: "2026-09-24"
 
+  - id: src_inao_cdc_cotes_du_rhone
+    kind: legislation
+    title: "Cahier des charges de l'appellation d'origine contrôlée « Côtes du Rhône »"
+    publisher: "Institut national de l'origine et de la qualité (INAO)"
+    jurisdiction: FR
+    document_identifier: "Version approved by the national committee on 30 November 2023, as published for the national opposition procedure"
+    url: "https://www.inao.gouv.fr/produit/cotes-du-rhone-rouge-20958"
+    accessed_on: "2026-09-26"
+  - id: src_inao_cdc_touraine
+    kind: legislation
+    title: "Cahier des charges de l'appellation d'origine protégée « Touraine »"
+    publisher: "Institut national de l'origine et de la qualité (INAO)"
+    jurisdiction: FR
+    document_identifier: "Modification adopted by the national committee on 18 June 2026"
+    url: "https://www.inao.gouv.fr/produit/touraine-blanc-23360"
+    accessed_on: "2026-09-26"
+  - id: src_inao_cdc_bourgogne
+    kind: legislation
+    title: "Cahier des charges de l'appellation d'origine contrôlée « Bourgogne »"
+    publisher: "Institut national de l'origine et de la qualité (INAO)"
+    jurisdiction: FR
+    document_identifier: "Version published for the national opposition procedure after the national committee of 18 June 2026"
+    url: "https://www.inao.gouv.fr/produit/bourgogne-blanc-24525"
+    accessed_on: "2026-09-26"
+  - id: src_inao_cdc_igp_val_de_loire
+    kind: legislation
+    title: "Cahier des charges de l'indication géographique protégée « Val de Loire »"
+    publisher: "Institut national de l'origine et de la qualité (INAO)"
+    jurisdiction: FR
+    document_identifier: "Version published for the national opposition procedure after the national committee of 18 March 2025"
+    url: "https://www.inao.gouv.fr/produit/val-de-loire-allier-blanc-22471"
+    accessed_on: "2026-09-26"
+
 knowledge_item_citations:
   - { knowledge_item_id: ki_chablis_location, source_citation_id: src_inao_cdc_chablis, locator: "X. Lien avec la zone géographique" }
   - { knowledge_item_id: ki_chablis_grape, source_citation_id: src_inao_cdc_chablis, locator: "V. Encépagement" }
@@ -539,3 +708,18 @@ knowledge_item_citations:
   - { knowledge_item_id: ki_champagne_soil, source_citation_id: src_inao_cdc_champagne, locator: "X. Lien avec la zone géographique" }
   - { knowledge_item_id: ki_champagne_method, source_citation_id: src_inao_cdc_champagne, locator: "IX. Transformation, élaboration, élevage" }
   - { knowledge_item_id: ki_champagne_min_ageing, source_citation_id: src_inao_cdc_champagne, locator: "IX. Transformation, élaboration, élevage (mise en marché)" }
+  # Location items (GEO-6)
+  - { knowledge_item_id: ki_burgundy_location, source_citation_id: src_inao_cdc_bourgogne, locator: "X. Lien avec la zone géographique" }
+  - { knowledge_item_id: ki_rhone_valley_location, source_citation_id: src_inao_cdc_cotes_du_rhone, locator: "X. Lien avec la zone géographique" }
+  - { knowledge_item_id: ki_loire_valley_location, source_citation_id: src_inao_cdc_igp_val_de_loire, locator: "8.1 Spécificité de la zone géographique" }
+  - { knowledge_item_id: ki_champagne_region_location, source_citation_id: src_inao_cdc_champagne, locator: "X. Lien avec la zone géographique" }
+  - { knowledge_item_id: ki_cote_de_beaune_location, source_citation_id: src_inao_cdc_volnay, locator: "X. Lien avec la zone géographique" }
+  - { knowledge_item_id: ki_northern_rhone_location, source_citation_id: src_inao_cdc_cotes_du_rhone, locator: "X. Lien avec la zone géographique" }
+  - { knowledge_item_id: ki_southern_rhone_location, source_citation_id: src_inao_cdc_cotes_du_rhone, locator: "X. Lien avec la zone géographique" }
+  - { knowledge_item_id: ki_touraine_location, source_citation_id: src_inao_cdc_touraine, locator: "X. Lien avec la zone géographique" }
+  - { knowledge_item_id: ki_crozes_hermitage_location, source_citation_id: src_inao_cdc_crozes_hermitage, locator: "X. Lien avec la zone géographique" }
+  - { knowledge_item_id: ki_condrieu_location, source_citation_id: src_inao_cdc_condrieu, locator: "X. Lien avec la zone géographique" }
+  - { knowledge_item_id: ki_chateauneuf_du_pape_location, source_citation_id: src_inao_cdc_chateauneuf_du_pape, locator: "X. Lien avec la zone géographique" }
+  - { knowledge_item_id: ki_pouilly_fume_location, source_citation_id: src_inao_cdc_pouilly_fume, locator: "X. Lien avec la zone géographique" }
+  - { knowledge_item_id: ki_muscadet_sevre_et_maine_location, source_citation_id: src_inao_cdc_muscadet_sevre_et_maine, locator: "X. Lien avec la zone géographique" }
+  - { knowledge_item_id: ki_champagne_location, source_citation_id: src_inao_cdc_champagne, locator: "X. Lien avec la zone géographique" }

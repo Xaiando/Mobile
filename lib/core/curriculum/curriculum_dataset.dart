@@ -276,7 +276,12 @@ const datasetSections = <String, DatasetSection>{
 };
 
 /// The manifest's own keys; every other top-level key is a section.
-const _manifestKeys = {'dataset_version', 'published_at', 'includes'};
+const _manifestKeys = {
+  'dataset_version',
+  'published_at',
+  'includes',
+  'geography',
+};
 
 final _semanticVersion = RegExp(r'^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)$');
 final _isoDate = RegExp(r'^\d{4}-\d{2}-\d{2}$');
@@ -343,6 +348,16 @@ List<String> datasetIncludes(String path, String manifest) {
   ];
 }
 
+/// The path of the geography manifest that the manifest [path] names under
+/// `geography:`, resolved against the manifest's folder, or null when it
+/// names none.
+///
+/// tool/geography generates the map layers and their node geometries into
+/// that manifest (geography §7); the release includes it, after the files
+/// under `includes:`.
+String? datasetGeography(String path, String manifest) =>
+    _geography(path, _loadYaml(DatasetFile(path, manifest)));
+
 /// One curriculum release: a row list per authored table.
 ///
 /// Generated tables (questions) and user data are never part of a dataset.
@@ -400,7 +415,10 @@ class CurriculumDataset {
     final path = _slashes(manifestPath);
     final manifest = DatasetFile(path, await read(path));
     final files = [manifest];
-    for (final include in datasetIncludes(path, manifest.text)) {
+    for (final include in [
+      ...datasetIncludes(path, manifest.text),
+      ?datasetGeography(path, manifest.text),
+    ]) {
       files.add(DatasetFile(include, await _readIncluded(include, read)));
     }
     return CurriculumDataset.fromFiles(files);
@@ -413,7 +431,10 @@ class CurriculumDataset {
   ) {
     final path = _slashes(manifestPath);
     final files = [DatasetFile(path, read(path))];
-    for (final include in datasetIncludes(path, files.first.text)) {
+    for (final include in [
+      ...datasetIncludes(path, files.first.text),
+      ?datasetGeography(path, files.first.text),
+    ]) {
       try {
         files.add(DatasetFile(include, read(include)));
       } on Object catch (error) {
@@ -530,10 +551,14 @@ class _Parser {
 
     final includes = _includes(manifestFile.path, manifest);
     final folder = _folderOf(manifestFile.path);
-    for (var i = 0; i < includes.length || i < files.length - 1; i++) {
-      final expected = i < includes.length
-          ? (folder.isEmpty ? includes[i] : '$folder/${includes[i]}')
-          : null;
+    final geography = _geography(manifestFile.path, manifest);
+    final expectedFiles = [
+      for (final include in includes)
+        folder.isEmpty ? include : '$folder/$include',
+      ?geography,
+    ];
+    for (var i = 0; i < expectedFiles.length || i < files.length - 1; i++) {
+      final expected = i < expectedFiles.length ? expectedFiles[i] : null;
       final given = i + 1 < files.length ? files[i + 1].path : null;
       if (expected != given) {
         throw DatasetFormatException(
@@ -548,6 +573,10 @@ class _Parser {
     _collect(manifestFile, manifest);
     for (final file in files.skip(1)) {
       final document = _loadYaml(file);
+      if (file.path == geography) {
+        _collectGeography(file, document);
+        continue;
+      }
       final misplaced = [
         for (final key in document.keys)
           if (_manifestKeys.contains(key)) '$key',
@@ -584,7 +613,7 @@ class _Parser {
     return CurriculumDataset(
       version: version,
       publishedAt: DateTime.parse(publishedAt),
-      checksum: _checksum(includes),
+      checksum: _checksum([...includes, ?geography]),
       files: [for (final file in files) file.path],
       locations: locations,
       curriculumDomains: _convert(
@@ -681,6 +710,70 @@ class _Parser {
     }
   }
 
+  /// The geography manifest's map layers and node geometries.
+  ///
+  /// A layer names its sources in `source_citation_ids`, in the order its
+  /// attribution names them; they become `map_layer_citations` rows (GEO-21,
+  /// GEO-22). `asset_bytes` and `attribution` are the pipeline's own records,
+  /// which `npm run check` verifies: the size is the asset's, and the
+  /// attribution is composed from the citations, so neither is stored.
+  void _collectGeography(DatasetFile file, YamlMap document) {
+    const sections = {'map_layers', 'node_geometries'};
+    final unknown = [
+      for (final key in document.keys)
+        if (!sections.contains(key)) '$key',
+    ];
+    if (unknown.isNotEmpty) {
+      throw DatasetFormatException(
+        '${file.path}: unknown sections: ${unknown.join(', ')}',
+      );
+    }
+    for (final MapEntry(:key, :value) in document.nodes.entries) {
+      final table = '${(key as YamlNode).value}';
+      if (value is! YamlList) {
+        throw DatasetFormatException(
+          '${_at(file, value)}: section "$table" must be a list',
+        );
+      }
+      for (final entry in value.nodes) {
+        final at = _at(file, entry);
+        final row = _mapping(table, entry, at);
+        if (table == 'map_layers') {
+          row.remove('asset_bytes');
+          row.remove('attribution');
+          final sources = row.remove('source_citation_ids');
+          if (sources is! YamlList ||
+              sources.isEmpty ||
+              sources.any((s) => s is! String)) {
+            throw DatasetFormatException(
+              '$at: map_layers (${row['id']}): source_citation_ids must list '
+              'the sources of the layer',
+            );
+          }
+          for (final (i, source) in sources.indexed) {
+            _rows.putIfAbsent('map_layer_citations', () => []).add((
+              row: _checkRow(
+                'map_layer_citations',
+                datasetSections['map_layer_citations']!,
+                {
+                  'map_layer_id': row['id'],
+                  'source_citation_id': source,
+                  'position': i + 1,
+                },
+                at,
+              ),
+              at: at,
+            ));
+          }
+        }
+        _rows.putIfAbsent(table, () => []).add((
+          row: _checkRow(table, datasetSections[table]!, row, at),
+          at: at,
+        ));
+      }
+    }
+  }
+
   static DatasetLocation _at(DatasetFile file, YamlNode node) =>
       DatasetLocation(file.path, node.span.start.line + 1);
 
@@ -690,13 +783,28 @@ class _Parser {
     DatasetSection section,
     YamlNode entry,
     DatasetLocation at,
+  ) => _checkRow(table, section, _mapping(table, entry, at), at);
+
+  static Map<String, dynamic> _mapping(
+    String table,
+    YamlNode entry,
+    DatasetLocation at,
   ) {
     if (entry is! YamlMap) {
       throw DatasetFormatException('$at: a row of $table must be a mapping');
     }
-    final row = <String, dynamic>{
+    return <String, dynamic>{
       for (final MapEntry(:key, :value) in entry.entries) '$key': value,
     };
+  }
+
+  /// [row] with its defaults and computed columns filled in.
+  Map<String, dynamic> _checkRow(
+    String table,
+    DatasetSection section,
+    Map<String, dynamic> row,
+    DatasetLocation at,
+  ) {
     final id = row['id'];
     final where = '$at: $table${id == null ? '' : ' ($id)'}';
 
@@ -873,6 +981,40 @@ List<String> _includes(String path, YamlMap manifest) {
     includes.add(include);
   }
   return includes;
+}
+
+/// The manifest's `geography`: the relative path of a `.yaml` file, which
+/// may lead out of the manifest's folder with `..`, resolved against it.
+String? _geography(String path, YamlMap manifest) {
+  final value = manifest['geography'];
+  if (value == null) return null;
+  final parts = [
+    for (final part in _folderOf(path).split('/'))
+      if (part.isNotEmpty) part,
+  ];
+  var valid =
+      value is String &&
+      value.endsWith('.yaml') &&
+      !value.startsWith('/') &&
+      !value.contains(r'\');
+  if (valid) {
+    for (final part in value.split('/')) {
+      if (part == '..' && parts.isNotEmpty) {
+        parts.removeLast();
+      } else if (part.isEmpty || part.startsWith('.')) {
+        valid = false;
+        break;
+      } else {
+        parts.add(part);
+      }
+    }
+  }
+  if (!valid) {
+    throw DatasetFormatException(
+      '$path: geography "$value" is not the relative path of a .yaml file',
+    );
+  }
+  return parts.join('/');
 }
 
 String _slashes(String path) => path.replaceAll(r'\', '/');

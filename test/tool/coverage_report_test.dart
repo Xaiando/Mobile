@@ -12,7 +12,7 @@ void main() {
   late String manifest;
 
   String pathOf(String relative) =>
-      '${temp.path}/$relative'.replaceAll(r'\', '/');
+      '${temp.path}/assets/curriculum/$relative'.replaceAll(r'\', '/');
 
   Future<(int, String)> run(List<String> args) async {
     final out = StringBuffer();
@@ -43,7 +43,13 @@ void main() {
       '${prefix}coverage_baseline.json',
       '${prefix}track_scope.yaml',
     ]) {
-      final copy = File(pathOf(path.substring(prefix.length)));
+      // The copy mirrors the repository, so the manifest's geography path
+      // resolves in it.
+      final copy = File(
+        path.startsWith(prefix)
+            ? pathOf(path.substring(prefix.length))
+            : '${temp.path}/$path',
+      );
       copy.parent.createSync(recursive: true);
       copy.writeAsStringSync(File(path).readAsStringSync());
     }
@@ -114,7 +120,7 @@ void main() {
       );
       final (code, out) = await run(['--update-baseline']);
       expect(code, exitOk, reason: out);
-      expect(out, contains('5 known gaps'));
+      expect(out, contains('9 known gaps'));
       expect(baseline.readAsStringSync(), committed);
       expect((await run([])).$1, exitOk);
     },

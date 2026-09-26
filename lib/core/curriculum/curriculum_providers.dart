@@ -25,6 +25,12 @@ Future<CurriculumDataset> loadBundledCurriculum() =>
       );
     });
 
+/// The bytes of a bundled asset, such as a map layer.
+Future<List<int>> readBundledAsset(String path) async {
+  final data = await rootBundle.load(path);
+  return data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
+}
+
 /// The dataset startup ingests. Tests override it.
 final curriculumSourceProvider = Provider<Future<CurriculumDataset> Function()>(
   (ref) => loadBundledCurriculum,
@@ -35,6 +41,7 @@ final curriculumIngesterProvider = Provider<CurriculumIngester>(
     ref.watch(appDatabaseProvider),
     clock: ref.watch(clockProvider),
     formats: ref.watch(formatRegistryProvider),
+    assets: readBundledAsset,
   ),
 );
 

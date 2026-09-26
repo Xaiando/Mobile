@@ -78,7 +78,12 @@ void main() {
   test('the bundle keeps a folder per kind of file', () {
     final files = bundledDataset().files;
     expect(files.first, curriculumAssetPath);
-    for (final file in files.skip(1)) {
+    expect(
+      files.last,
+      'assets/geography/manifest.yaml',
+      reason: 'the map layers of tool/geography come last (G2)',
+    );
+    for (final file in files.skip(1).take(files.length - 2)) {
       expect(
         file,
         matches(r'^assets/curriculum/(areas|templates)/[a-z0-9_]+\.yaml$'),

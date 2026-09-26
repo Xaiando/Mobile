@@ -13,7 +13,7 @@ void main() {
 
   /// The path of a dataset file in the temporary copy, e.g. `areas/x.yaml`.
   String pathOf(String relative) =>
-      '${temp.path}/$relative'.replaceAll(r'\', '/');
+      '${temp.path}/assets/curriculum/$relative'.replaceAll(r'\', '/');
 
   /// The 1-based line of the first line of [relative] containing [text].
   int lineOf(String relative, String text) =>
@@ -39,7 +39,13 @@ void main() {
       ...bundledDataset().files,
       '${prefix}track_scope.yaml',
     ]) {
-      final copy = File(pathOf(path.substring(prefix.length)));
+      // The copy mirrors the repository, so the manifest's geography path
+      // resolves in it.
+      final copy = File(
+        path.startsWith(prefix)
+            ? pathOf(path.substring(prefix.length))
+            : '${temp.path}/$path',
+      );
       copy.parent.createSync(recursive: true);
       copy.writeAsStringSync(File(path).readAsStringSync());
     }

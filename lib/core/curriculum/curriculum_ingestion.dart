@@ -1,8 +1,12 @@
+import 'dart:convert';
+
 import 'package:clock/clock.dart';
+import 'package:crypto/crypto.dart';
 import 'package:drift/drift.dart';
 
 import '../database/app_database.dart';
 import '../database/curriculum_writes.dart';
+import '../geography/topojson.dart';
 import '../questions/format_registry.dart';
 import '../questions/question_generator.dart';
 import '../time/utc_clock.dart';
@@ -38,21 +42,80 @@ enum IngestionOutcome {
   newerInstalled,
 }
 
+/// Reads the bytes of a bundled asset, such as a map layer.
+typedef AssetReader = Future<List<int>> Function(String path);
+
+/// What is wrong with [dataset]'s map assets (geography §3): an asset that
+/// cannot be read, that does not match its SHA-256, that is not a
+/// topology, or that lacks the feature of one of its geometries.
+Future<List<String>> mapAssetProblems(
+  CurriculumDataset dataset,
+  AssetReader read,
+) async {
+  final problems = <String>[];
+  for (final layer in dataset.mapLayers) {
+    final where = 'map layer ${layer.id}: ${layer.assetPath}';
+    final List<int> bytes;
+    try {
+      bytes = await read(layer.assetPath);
+    } on Object catch (error) {
+      problems.add('$where cannot be read: $error');
+      continue;
+    }
+    if ('${sha256.convert(bytes)}' != layer.assetSha256) {
+      problems.add('$where does not match its SHA-256');
+      continue;
+    }
+    final Set<String?> keys;
+    try {
+      keys = {
+        for (final features in Topology.parse(
+          utf8.decode(bytes),
+        ).objects.values)
+          for (final feature in features) feature.id,
+      };
+    } on FormatException catch (error) {
+      problems.add('$where is not a TopoJSON topology: ${error.message}');
+      continue;
+    }
+    for (final geometry in dataset.nodeGeometries) {
+      if (geometry.mapLayerId == layer.id &&
+          !keys.contains(geometry.featureKey)) {
+        problems.add(
+          '$where has no feature ${geometry.featureKey} for '
+          '${geometry.knowledgeNodeId}',
+        );
+      }
+    }
+  }
+  return problems;
+}
+
 /// Loads the bundled curriculum into the database (architecture audit V-7).
 ///
-/// A release is validated first, then written in one transaction under the
-/// curriculum write lock: authored rows are upserted and never deleted, the
-/// generated tables are rebuilt, and user tables are not touched.
+/// A release is validated first, and its map assets checked, then written in
+/// one transaction under the curriculum write lock: authored rows are
+/// upserted and never deleted, the generated tables are rebuilt, and user
+/// tables are not touched.
 class CurriculumIngester {
-  CurriculumIngester(this.db, {Clock? clock, FormatRegistry? formats})
-    : _clock = clock ?? const Clock(),
-      formats = formats ?? appFormats;
+  CurriculumIngester(
+    this.db, {
+    Clock? clock,
+    FormatRegistry? formats,
+    this.assets,
+  }) : _clock = clock ?? const Clock(),
+       formats = formats ?? appFormats;
 
   final AppDatabase db;
   final Clock _clock;
 
   /// The formats whose questions the release is generated for.
   final FormatRegistry formats;
+
+  /// Reads the map layers' assets, so that each is checked before anything
+  /// is written (backlog G2). The app and the tools always pass it; without
+  /// it, ingestion trusts the assets.
+  final AssetReader? assets;
 
   /// Brings the database up to the bundled [dataset].
   Future<IngestionOutcome> ensureCurrent(CurriculumDataset dataset) async {
@@ -86,6 +149,16 @@ class CurriculumIngester {
       throw CurriculumIngestionException(
         'release ${dataset.version} fails validation:\n'
         '${report.errors.join('\n')}',
+      );
+    }
+    final read = assets;
+    final broken = read == null
+        ? const <String>[]
+        : await mapAssetProblems(dataset, read);
+    if (broken.isNotEmpty) {
+      throw CurriculumIngestionException(
+        'release ${dataset.version} has broken map assets:\n'
+        '${broken.join('\n')}',
       );
     }
     return db.writeCurriculum(() async {
