@@ -112,7 +112,7 @@ CREATE TABLE node_geometries (
 
 - **Coordinates stay in the assets.** The database holds only what SQL needs: which node has which feature, bounding boxes, and label points for frames and for north-to-south orderings. The renderer reads the asset. This keeps one database and one ingestion path (V-7) without storing megabytes of coordinates in SQLite (GEO-7).
 - **Provenance.** `source_citations` already has `kind = 'dataset'`, `license` and `attribution_text` columns, so geometry provenance fits the existing model (§8). A layer can draw on several sources: a French layer draws INAO's commune lists on IGN's shapes. So the manifest lists them in `source_citation_ids`, and F2 stores that list in `map_layer_citations` (GEO-21, GEO-22). `schema.drift` has the full constraints.
-- **Ingestion.** The dataset manifest lists the layers. Ingestion checks each asset's SHA-256, loads `node_geometries`, and rejects any feature key missing from its asset, so the build fails before a map can be broken.
+- **Ingestion.** The dataset manifest lists the layers. Ingestion checks each asset's SHA-256, loads `node_geometries`, and rejects any feature key missing from its asset, so the build fails before a map can be broken. *As built (G2):* `curriculum.yaml` names the geography manifest under `geography:`, and `lint` runs the same asset checks (GEO-23, GEO-24).
 - **No derived facts in the database.** Adjacency, containment and orientation are computed by the build pipeline (§7). They are proposed as authored relations in its report, never inserted silently. The validator compares authored `BORDERS` with the computed adjacency and warns on any difference.
 
 ---
