@@ -1,0 +1,106 @@
+import '../database/app_database.dart';
+import 'exercise.dart';
+
+/// The skills a question format trains (question-system §3).
+enum FormatFamily {
+  /// Producing an answer from memory.
+  recall,
+
+  /// Choosing among plausible answers.
+  recognition,
+
+  /// Knowing where things are and how places relate.
+  spatial,
+
+  /// Relations among several facts, quantities and terms.
+  structured,
+
+  /// Applying principles to reach a conclusion.
+  reasoning,
+}
+
+/// How ingestion generates a format's questions.
+enum FormatGeneration {
+  /// One `questions` row per eligible item and template.
+  single,
+
+  /// Exercise pools, which the format generates itself (QF-10).
+  pooled,
+}
+
+/// What a format presents from: the curriculum, and the time, so that a
+/// composite format can prefer due co-items.
+class PresentationContext {
+  const PresentationContext(this.db, {required this.now});
+
+  final AppDatabase db;
+  final DateTime now;
+}
+
+/// What a pooled format generates from, inside the ingestion transaction.
+class PoolContext {
+  const PoolContext(this.db, {required this.today, required this.items});
+
+  final AppDatabase db;
+
+  /// The date, `YYYY-MM-DD`, on which relations must be in force.
+  final String today;
+
+  /// The items in force, the only ones a pool may hold (FS-13).
+  final List<KnowledgeItem> items;
+}
+
+/// A question format, plugged in (question-system §9): how its questions
+/// are generated, presented and graded, and what they practise.
+///
+/// A format is one file per layer: its [ExerciseFormat] in
+/// `lib/core/questions/formats/<id>/`, and its practice view in
+/// `lib/features/practice/formats/`. Each registers with one line.
+abstract class ExerciseFormat {
+  const ExerciseFormat();
+
+  /// The `question_templates.mode` of its templates.
+  String get id;
+
+  /// What the learner sees it called, e.g. "Multiple choice".
+  String get label;
+
+  FormatFamily get family;
+
+  /// Graded by the app rather than by the learner (§3).
+  bool get isObjective;
+
+  FormatGeneration get generation => FormatGeneration.single;
+
+  /// Whether a single-item question needs wrong answers to show: an MCQ
+  /// exists only with enough of them (QG-12).
+  bool get needsDistractors => false;
+
+  /// The `minimum_depth` at which a track serves this format in
+  /// [direction], `forward` or `reverse` (CM-6, QF-6).
+  int requiredDepth(String direction);
+
+  /// Orders a new item's formats, easiest first (FS-15).
+  int difficultyRank(String direction);
+
+  /// Writes the pools of [template] and returns how many; only a pooled
+  /// format has any.
+  Future<int> generatePools(PoolContext context, QuestionTemplate template) =>
+      Future.value(0);
+
+  /// Presents [itemId] with [questionTemplateId], fixed by [seed].
+  Future<Exercise> present(
+    PresentationContext context, {
+    required String itemId,
+    required String questionTemplateId,
+    required int seed,
+  });
+
+  /// The grades [answer] earns in [exercise], one per item it settles
+  /// (question-system §4). Throws an [ArgumentError] for an answer the
+  /// exercise cannot take.
+  List<ItemGrade> grade(Exercise exercise, Object answer);
+
+  @override
+  String toString() => id;
+}

@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:drift/drift.dart';
 
 import '../database/app_database.dart';
+import 'exercise.dart';
 import 'question_generator.dart';
 
 /// One answer option: a node, shown by its name.
@@ -23,8 +24,8 @@ class QuestionOption {
   String toString() => name;
 }
 
-/// A question as shown to the learner.
-class PresentedQuestion {
+/// A single-item question as shown to the learner: a flashcard or an MCQ.
+class PresentedQuestion implements Exercise {
   const PresentedQuestion({
     required this.knowledgeItemId,
     required this.questionTemplateId,
@@ -38,6 +39,7 @@ class PresentedQuestion {
   });
 
   final String knowledgeItemId;
+  @override
   final String questionTemplateId;
 
   /// `forward` or `reverse`.
@@ -45,6 +47,7 @@ class PresentedQuestion {
 
   /// `mcq` or `flashcard`.
   final String mode;
+  @override
   final String prompt;
   final QuestionOption answer;
 
@@ -56,7 +59,17 @@ class PresentedQuestion {
 
   /// The seed that fixed the options and their order (QG-7). A review event
   /// logs it, together with the options shown.
+  @override
   final int seed;
+
+  @override
+  String get formatId => mode;
+
+  @override
+  String get primaryItemId => knowledgeItemId;
+
+  @override
+  List<String> get itemIds => [knowledgeItemId];
 
   bool get isMultipleChoice => mode == 'mcq';
 

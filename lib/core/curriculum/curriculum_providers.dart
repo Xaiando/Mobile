@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../database/database_providers.dart';
+import '../questions/question_providers.dart';
 import '../time/time_providers.dart';
 import 'curriculum_catalog.dart';
 import 'curriculum_dataset.dart';
@@ -33,6 +34,7 @@ final curriculumIngesterProvider = Provider<CurriculumIngester>(
   (ref) => CurriculumIngester(
     ref.watch(appDatabaseProvider),
     clock: ref.watch(clockProvider),
+    formats: ref.watch(formatRegistryProvider),
   ),
 );
 

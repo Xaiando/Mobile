@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../database/database_providers.dart';
+import '../questions/question_providers.dart';
 import '../time/time_providers.dart';
 import 'learner_profile.dart';
 import 'review_service.dart';
@@ -24,5 +25,6 @@ final studyPlannerProvider = Provider<StudyPlanner>(
   (ref) => StudyPlanner(
     ref.watch(appDatabaseProvider),
     clock: ref.watch(clockProvider),
+    formats: ref.watch(formatRegistryProvider),
   ),
 );
