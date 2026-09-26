@@ -49,6 +49,24 @@ void main() {
       await presenter.present(itemId, profile, seed: seed)
           as ShortAnswerExercise;
 
+  /// Reviews each of [items], a pair of the item and a template, once.
+  Future<void> study(List<(String, String)> items) async {
+    for (final (item, template) in items) {
+      await reviews.record(
+        knowledgeItemId: item,
+        questionTemplateId: template,
+        rating: fsrs.Rating.good,
+      );
+    }
+  }
+
+  /// Chablis's key points other than its soil, studied.
+  Future<void> studyChablis() => study([
+    ('ki_chablis_grape', 'qt_principal_grape_fwd_flashcard'),
+    ('ki_chablis_climate', 'qt_climate_fwd_flashcard'),
+    ('ki_chablis_frost', 'qt_hazard_fwd_flashcard'),
+  ]);
+
   test('one pool per appellation with two key points or more', () async {
     expect(generated.pools, 13);
     final pools = await db.select(db.exercisePools).get();
@@ -80,6 +98,7 @@ void main() {
 
   test('checks the planned item with its key points, in the template '
       'order', () async {
+    await studyChablis();
     final exercise = await present('ki_chablis_soil');
     expect(exercise.primaryItemId, 'ki_chablis_soil');
     expect(exercise.itemIds.first, 'ki_chablis_soil');
@@ -97,19 +116,18 @@ void main() {
     expect(exercise.itemIds.toSet(), hasLength(4));
   });
 
-  test('checks four key points at most, due ones first', () async {
-    // Two of Champagne's six points were studied yesterday, and are due.
-    for (final (item, template) in [
+  test('checks four studied key points at most, due ones first', () async {
+    // Of Champagne's six points: two studied yesterday and due, two studied
+    // just now, one new, and the soil planned.
+    await study([
       ('ki_champagne_method', 'qt_method_fwd_flashcard'),
       ('ki_champagne_min_ageing', 'qt_min_ageing_fwd_flashcard'),
-    ]) {
-      await reviews.record(
-        knowledgeItemId: item,
-        questionTemplateId: template,
-        rating: fsrs.Rating.good,
-      );
-    }
+    ]);
     time.advance(const Duration(days: 1));
+    await study([
+      ('ki_champagne_chardonnay', 'qt_principal_grape_fwd_flashcard'),
+      ('ki_champagne_pinot_noir', 'qt_principal_grape_fwd_flashcard'),
+    ]);
     final seen = <String>{};
     for (var seed = 0; seed < 8; seed++) {
       final exercise = await present('ki_champagne_soil', seed: seed);
@@ -124,10 +142,27 @@ void main() {
       );
       seen.addAll(exercise.itemIds);
     }
-    expect(seen, hasLength(6), reason: 'the seed draws among the new ones');
+    expect(seen, {
+      'ki_champagne_soil',
+      'ki_champagne_method',
+      'ki_champagne_min_ageing',
+      'ki_champagne_chardonnay',
+      'ki_champagne_pinot_noir',
+    }, reason: 'the seed draws among the studied; Meunier is new');
+  });
+
+  test('a new key point joins only when none has been studied (A-2)', () async {
+    final seen = <String>{};
+    for (var seed = 0; seed < 30; seed++) {
+      final exercise = await present('ki_chablis_soil', seed: seed);
+      expect(exercise.keyPoints, hasLength(2));
+      seen.addAll(exercise.itemIds);
+    }
+    expect(seen, hasLength(4), reason: 'the seed draws the new one');
   });
 
   test('a ticked point is Good, the others Again; the text is kept', () async {
+    await studyChablis();
     final exercise = await present('ki_chablis_soil');
     const text = 'Kimmeridgian marl with fossil oysters; a cool climate.';
     final grades = format.grade(
@@ -159,7 +194,10 @@ void main() {
     );
 
     await reviews.recordExercise(exercise, grades);
-    final events = await db.select(db.reviewEvents).get();
+    final events = [
+      for (final event in await db.select(db.reviewEvents).get())
+        if (event.questionTemplateId == profile) event,
+    ];
     expect(events, hasLength(4));
     expect(
       {for (final event in events) event.exerciseId},
