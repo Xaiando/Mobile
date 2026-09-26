@@ -20,6 +20,10 @@ enum SkipReason {
 
   /// Fewer than [distractorsPerQuestion] valid wrong answers exist.
   tooFewDistractors,
+
+  /// The format cannot ask the item, e.g. a map format for an area that is
+  /// not drawn ([ExerciseFormat.isEligible]).
+  notEligible,
 }
 
 class SkippedQuestion {
@@ -109,6 +113,7 @@ class QuestionGenerator {
     final questions = <Question>[];
     final pools = <QuestionDistractor>[];
     final items = await _currentItems();
+    final context = GeneratorContext(db, today: today, items: items);
     for (final item in items) {
       final relationType = relationTypes[item.relationType]!;
       for (final template
@@ -121,6 +126,12 @@ class QuestionGenerator {
         if (reverse && !relationType.isReverseSafe && !item.isDistinctive) {
           report.skipped.add(
             SkippedQuestion(item.id, template.id, SkipReason.notReverseSafe),
+          );
+          continue;
+        }
+        if (!await format.isEligible(context, item, template)) {
+          report.skipped.add(
+            SkippedQuestion(item.id, template.id, SkipReason.notEligible),
           );
           continue;
         }
@@ -175,7 +186,6 @@ class QuestionGenerator {
       b.insertAll(db.questionDistractors, pools);
     });
 
-    final context = PoolContext(db, today: today, items: items);
     for (final template in [for (final list in templates.values) ...list]) {
       final format = formats[template.mode];
       if (format?.generation == FormatGeneration.pooled) {

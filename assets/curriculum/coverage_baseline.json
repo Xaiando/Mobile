@@ -1,19 +1,19 @@
 {
   "about": "Question coverage baseline (backlog F1, audit COV-3). The build fails when a metric falls below it or a blocking gap is not in known_gaps. Regenerate the metrics with dart run tool/coverage_report.dart --update-baseline; edit known_gaps by hand.",
-  "release": "0.4.0",
+  "release": "0.5.0",
   "on": "2026-09-26",
   "tracks": {
     "CMS_CERTIFIED": {
-      "total": {"items": 60, "core": 36, "testable": 60, "flashcard_only": 9, "useful_practice": 51, "recall": 60, "recognition": 51, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 36, "core_reasoning": 0},
+      "total": {"items": 60, "core": 36, "testable": 60, "flashcard_only": 5, "useful_practice": 55, "recall": 60, "recognition": 51, "spatial": 18, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 36, "core_reasoning": 0},
       "domains": {
         "geography": {
-          "total": {"items": 38, "core": 32, "testable": 38, "flashcard_only": 4, "useful_practice": 34, "recall": 38, "recognition": 34, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 32, "core_reasoning": 0},
+          "total": {"items": 38, "core": 32, "testable": 38, "flashcard_only": 0, "useful_practice": 38, "recall": 38, "recognition": 34, "spatial": 18, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 32, "core_reasoning": 0},
           "areas": {
-            "n_geo_burgundy": {"items": 7, "core": 5, "testable": 7, "flashcard_only": 1, "useful_practice": 6, "recall": 7, "recognition": 6, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 5, "core_reasoning": 0},
-            "n_geo_champagne_region": {"items": 5, "core": 4, "testable": 5, "flashcard_only": 1, "useful_practice": 4, "recall": 5, "recognition": 4, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 4, "core_reasoning": 0},
-            "n_geo_loire_valley": {"items": 8, "core": 7, "testable": 8, "flashcard_only": 1, "useful_practice": 7, "recall": 8, "recognition": 7, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 7, "core_reasoning": 0},
+            "n_geo_burgundy": {"items": 7, "core": 5, "testable": 7, "flashcard_only": 0, "useful_practice": 7, "recall": 7, "recognition": 6, "spatial": 4, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 5, "core_reasoning": 0},
+            "n_geo_champagne_region": {"items": 5, "core": 4, "testable": 5, "flashcard_only": 0, "useful_practice": 5, "recall": 5, "recognition": 4, "spatial": 2, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 4, "core_reasoning": 0},
+            "n_geo_loire_valley": {"items": 8, "core": 7, "testable": 8, "flashcard_only": 0, "useful_practice": 8, "recall": 8, "recognition": 7, "spatial": 5, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 7, "core_reasoning": 0},
             "n_geo_piedmont": {"items": 3, "core": 3, "testable": 3, "flashcard_only": 0, "useful_practice": 3, "recall": 3, "recognition": 3, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 3, "core_reasoning": 0},
-            "n_geo_rhone_valley": {"items": 12, "core": 10, "testable": 12, "flashcard_only": 1, "useful_practice": 11, "recall": 12, "recognition": 11, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 10, "core_reasoning": 0},
+            "n_geo_rhone_valley": {"items": 12, "core": 10, "testable": 12, "flashcard_only": 0, "useful_practice": 12, "recall": 12, "recognition": 11, "spatial": 7, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 10, "core_reasoning": 0},
             "n_geo_tuscany": {"items": 3, "core": 3, "testable": 3, "flashcard_only": 0, "useful_practice": 3, "recall": 3, "recognition": 3, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 3, "core_reasoning": 0}
           }
         },
@@ -39,16 +39,16 @@
       }
     },
     "WSET_L3": {
-      "total": {"items": 60, "core": 36, "testable": 60, "flashcard_only": 9, "useful_practice": 51, "recall": 60, "recognition": 51, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 36, "core_reasoning": 0},
+      "total": {"items": 60, "core": 36, "testable": 60, "flashcard_only": 5, "useful_practice": 55, "recall": 60, "recognition": 51, "spatial": 18, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 36, "core_reasoning": 0},
       "domains": {
         "geography": {
-          "total": {"items": 38, "core": 32, "testable": 38, "flashcard_only": 4, "useful_practice": 34, "recall": 38, "recognition": 34, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 32, "core_reasoning": 0},
+          "total": {"items": 38, "core": 32, "testable": 38, "flashcard_only": 0, "useful_practice": 38, "recall": 38, "recognition": 34, "spatial": 18, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 32, "core_reasoning": 0},
           "areas": {
-            "n_geo_burgundy": {"items": 7, "core": 5, "testable": 7, "flashcard_only": 1, "useful_practice": 6, "recall": 7, "recognition": 6, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 5, "core_reasoning": 0},
-            "n_geo_champagne_region": {"items": 5, "core": 4, "testable": 5, "flashcard_only": 1, "useful_practice": 4, "recall": 5, "recognition": 4, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 4, "core_reasoning": 0},
-            "n_geo_loire_valley": {"items": 8, "core": 7, "testable": 8, "flashcard_only": 1, "useful_practice": 7, "recall": 8, "recognition": 7, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 7, "core_reasoning": 0},
+            "n_geo_burgundy": {"items": 7, "core": 5, "testable": 7, "flashcard_only": 0, "useful_practice": 7, "recall": 7, "recognition": 6, "spatial": 4, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 5, "core_reasoning": 0},
+            "n_geo_champagne_region": {"items": 5, "core": 4, "testable": 5, "flashcard_only": 0, "useful_practice": 5, "recall": 5, "recognition": 4, "spatial": 2, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 4, "core_reasoning": 0},
+            "n_geo_loire_valley": {"items": 8, "core": 7, "testable": 8, "flashcard_only": 0, "useful_practice": 8, "recall": 8, "recognition": 7, "spatial": 5, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 7, "core_reasoning": 0},
             "n_geo_piedmont": {"items": 3, "core": 3, "testable": 3, "flashcard_only": 0, "useful_practice": 3, "recall": 3, "recognition": 3, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 3, "core_reasoning": 0},
-            "n_geo_rhone_valley": {"items": 12, "core": 10, "testable": 12, "flashcard_only": 1, "useful_practice": 11, "recall": 12, "recognition": 11, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 10, "core_reasoning": 0},
+            "n_geo_rhone_valley": {"items": 12, "core": 10, "testable": 12, "flashcard_only": 0, "useful_practice": 12, "recall": 12, "recognition": 11, "spatial": 7, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 10, "core_reasoning": 0},
             "n_geo_tuscany": {"items": 3, "core": 3, "testable": 3, "flashcard_only": 0, "useful_practice": 3, "recall": 3, "recognition": 3, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 3, "core_reasoning": 0}
           }
         },
@@ -76,12 +76,6 @@
   },
   "known_gaps": [
     {
-      "item": "ki_burgundy_location",
-      "gap": "flashcard_only",
-      "reason": "France and Italy are the only countries in the curriculum, so a country question has too few wrong answers and the item is mcq_disabled. The map formats practise it: locating the region on the map of France.",
-      "closed_by": "G4"
-    },
-    {
       "item": "ki_chablis_climate",
       "gap": "flashcard_only",
       "reason": "The Chablis climate is oceanic with continental influences (audit SD-1), so another climate type could be a defensible answer and the item is mcq_disabled. Typed recall gives it an objective format.",
@@ -92,12 +86,6 @@
       "gap": "flashcard_only",
       "reason": "Chablis faces other vineyard hazards too, so a wrong option could be defensible and the item is mcq_disabled. Typed recall gives it an objective format.",
       "closed_by": "Q1"
-    },
-    {
-      "item": "ki_champagne_region_location",
-      "gap": "flashcard_only",
-      "reason": "France and Italy are the only countries in the curriculum, so a country question has too few wrong answers and the item is mcq_disabled. The map formats practise it: locating the region on the map of France.",
-      "closed_by": "G4"
     },
     {
       "item": "ki_champagne_soil",
@@ -112,22 +100,10 @@
       "closed_by": "Q1"
     },
     {
-      "item": "ki_loire_valley_location",
-      "gap": "flashcard_only",
-      "reason": "France and Italy are the only countries in the curriculum, so a country question has too few wrong answers and the item is mcq_disabled. The map formats practise it: locating the region on the map of France.",
-      "closed_by": "G4"
-    },
-    {
       "item": "ki_muscadet_sevre_et_maine_climate",
       "gap": "flashcard_only",
       "reason": "The oceanic climate types overlap, so another could be a defensible answer and the item is mcq_disabled. Typed recall gives it an objective format.",
       "closed_by": "Q1"
-    },
-    {
-      "item": "ki_rhone_valley_location",
-      "gap": "flashcard_only",
-      "reason": "France and Italy are the only countries in the curriculum, so a country question has too few wrong answers and the item is mcq_disabled. The map formats practise it: locating the region on the map of France.",
-      "closed_by": "G4"
     }
   ]
 }

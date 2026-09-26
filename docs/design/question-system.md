@@ -39,7 +39,7 @@ The **depth** column refines CM-6, and audit QF-6 records it. A track serves a f
 | `ordering` | Ordering | structured | list → order | 3–6 | an order key: tier chain, process chain, quantity or latitude | 2 | Q3 |
 | `numeric` | Numeric or range answer | structured | text → number and unit | 1 | a quantity object with a unit and tolerance | 2 | Q4 |
 | `label` | Label interpretation, wine-list error spotting | structured | synthetic label or list → MCQ, typed or tap | 1–3 | label-term items and a label layout | 3 | Q5 |
-| `map_*` | Map and geography formats | spatial | see [geography.md](geography.md) §4 | 1–n | geometry for the answer or prompt node | 1–3 | G4–G9 |
+| `map_*` | Map and geography formats | spatial | see [geography.md](geography.md) §4 | 1–n | geometry for the answer or prompt node | 1–3 | `map_locate` and `map_identify` built (G4); the rest G5–G9 |
 | `reasoning` | Climate, viticulture and production reasoning | reasoning | premise → most plausible consequence | chain of 2–3 | principle relations reachable from the item (§7) | 4 | Q6 |
 | `scenario` | Service and food-pairing scenarios | reasoning | situation → best action or wine | chain of 1–3 | service or pairing principles (§7) | 4 | Q7 |
 | `tasting_deduction` | Tasting deduction | reasoning | structured tasting note → grape, region, climate, age | 2–5 | style-profile relations for the candidates | 5 | Q8 |

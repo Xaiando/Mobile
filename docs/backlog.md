@@ -74,7 +74,7 @@ TASK-008 (tasting grids) and TASK-009 (journal integration) remain; they are T1�
 | G1 | Geodata pipeline, sources and licences | — | 1 | ☑ |
 | G2 | Geometry ingestion and validation | F2, G1 | 3 | ☑ |
 | G3 | Offline map renderer | — | 1 | ☑ |
-| G4 | Map locate and identify, with difficulty modes | F3, G2, G3 | 4 | ☐ |
+| G4 | Map locate and identify, with difficulty modes | F3, G2, G3 | 4 | ☑ |
 | G5 | Hierarchy drills and map orderings | G4, Q3 | 5 | ☐ |
 | G6 | Physical geography and climate influences | G4 | 5 | ☐ |
 | G7 | Topography and geology | G4 | 5 | ☐ |

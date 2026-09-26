@@ -15,27 +15,53 @@ regional_countries: [n_geo_france, n_geo_italy]
 # a gap, with the reason.
 capabilities:
   LOCATED_IN:
-    supports: [flashcard, mcq]
+    supports: [flashcard, mcq, map_locate, map_identify]
   HAS_BERRY_COLOUR:
     supports: [flashcard]
     excludes:
       mcq: The release has two berry colours, too few for three wrong options.
+      map_locate: Only location items are asked on the map for now (GEO-6); maps for this relation come with G6 to G8.
+      map_identify: Only location items are asked on the map for now (GEO-6); maps for this relation come with G6 to G8.
   PERMITS_PRINCIPAL_GRAPE:
     supports: [flashcard, mcq]
+    excludes:
+      map_locate: Only location items are asked on the map for now (GEO-6); maps for this relation come with G6 to G8.
+      map_identify: Only location items are asked on the map for now (GEO-6); maps for this relation come with G6 to G8.
   PERMITS_ACCESSORY_GRAPE:
     supports: [flashcard, mcq]
+    excludes:
+      map_locate: Only location items are asked on the map for now (GEO-6); maps for this relation come with G6 to G8.
+      map_identify: Only location items are asked on the map for now (GEO-6); maps for this relation come with G6 to G8.
   HAS_SOIL:
     supports: [flashcard, mcq]
+    excludes:
+      map_locate: Only location items are asked on the map for now (GEO-6); maps for this relation come with G6 to G8.
+      map_identify: Only location items are asked on the map for now (GEO-6); maps for this relation come with G6 to G8.
   HAS_CLIMATE:
     supports: [flashcard, mcq]
+    excludes:
+      map_locate: Only location items are asked on the map for now (GEO-6); maps for this relation come with G6 to G8.
+      map_identify: Only location items are asked on the map for now (GEO-6); maps for this relation come with G6 to G8.
   SUSCEPTIBLE_TO:
     supports: [flashcard, mcq]
+    excludes:
+      map_locate: Only location items are asked on the map for now (GEO-6); maps for this relation come with G6 to G8.
+      map_identify: Only location items are asked on the map for now (GEO-6); maps for this relation come with G6 to G8.
   MIN_AGEING:
     supports: [flashcard, mcq]
+    excludes:
+      map_locate: Only location items are asked on the map for now (GEO-6); maps for this relation come with G6 to G8.
+      map_identify: Only location items are asked on the map for now (GEO-6); maps for this relation come with G6 to G8.
   MIN_WOOD_AGEING:
     supports: [flashcard, mcq]
+    excludes:
+      map_locate: Only location items are asked on the map for now (GEO-6); maps for this relation come with G6 to G8.
+      map_identify: Only location items are asked on the map for now (GEO-6); maps for this relation come with G6 to G8.
   REQUIRES_METHOD:
     supports: [flashcard, mcq]
+    excludes:
+      map_locate: Only location items are asked on the map for now (GEO-6); maps for this relation come with G6 to G8.
+      map_identify: Only location items are asked on the map for now (GEO-6); maps for this relation come with G6 to G8.
 
 # Thresholds for each track and domain, as a count or a share of the
 # metric's base (the items, or the core items for a core_ metric). The

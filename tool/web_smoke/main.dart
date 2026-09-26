@@ -15,8 +15,12 @@ import 'package:sommelier/core/database/app_database.dart';
 import 'package:sommelier/core/database/curriculum_writes.dart';
 import 'package:sommelier/core/database/database_connection.dart';
 import 'package:sommelier/core/database/storage_durability.dart';
+import 'package:sommelier/core/geography/coordinates.dart';
+import 'package:sommelier/core/geography/geo_layer.dart';
 import 'package:sommelier/core/geography/geometry_repository.dart';
+import 'package:sommelier/core/geography/hit_test.dart';
 import 'package:sommelier/core/geography/topojson.dart';
+import 'package:sommelier/core/geography/web_mercator.dart';
 import 'package:sommelier/core/questions/question_presenter.dart';
 import 'package:sommelier/core/study/learner_profile.dart';
 import 'package:sommelier/core/study/review_service.dart';
@@ -91,6 +95,22 @@ Future<void> main() async {
     result['chablisFrame'] = (await GeometryRepository(
       db,
     ).frameOf('n_geo_chablis'))?.parent.id;
+    // A tap on Chablis's label point hits Chablis (G4): the map question's
+    // hit test, in the browser.
+    final label = (await GeometryRepository(db)
+        .labelPointsIn('ml_fr_appellations'))['n_geo_chablis']!;
+    final shapes = GeoLayer.fromTopology(
+      appellations,
+      id: 'ml_fr_appellations',
+    ).shapes;
+    result['chablisTap'] = const MapHitTester()
+        .hitTest(
+          shapes,
+          WebMercator.project(LonLat(label.lon, label.lat)),
+          20000,
+        )
+        .firstOrNull
+        ?.key;
     result['relations'] = await count(db, 'knowledge_relations');
     // Phase 2: questions are generated during ingestion and presented with
     // a seed: four distinct options.

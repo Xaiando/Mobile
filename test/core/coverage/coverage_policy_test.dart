@@ -19,7 +19,7 @@ String withThresholds(String thresholds) =>
 
 void main() {
   test('parses capabilities, areas and thresholds', () {
-    final policy = CoveragePolicy.parse(coveragePolicyText);
+    final policy = fixturePolicy(coveragePolicyText);
     expect(policy.regionalCountries, {'n_geo_france'});
     expect(policy.capabilities.keys, [
       'LOCATED_IN',
@@ -59,7 +59,7 @@ void main() {
   });
 
   test('a domain, then a track, replace the thresholds before them', () {
-    final policy = CoveragePolicy.parse(
+    final policy = fixturePolicy(
       withThresholds('''
   all:
     core_useful_practice: {min: 90%}
@@ -87,7 +87,7 @@ void main() {
   group('rejects', () {
     test('a relation type that does not say how each format serves it', () {
       expect(
-        () => CoveragePolicy.parse(
+        () => fixturePolicy(
           coveragePolicyText.replaceFirst(
             'SUSCEPTIBLE_TO:\n    supports: [flashcard, mcq]',
             'SUSCEPTIBLE_TO:\n    supports: [flashcard]',
@@ -103,7 +103,7 @@ void main() {
 
     test('an unknown format, one named twice, or one both ways', () {
       expect(
-        () => CoveragePolicy.parse(
+        () => fixturePolicy(
           coveragePolicyText.replaceFirst(
             'supports: [flashcard, mcq]',
             'supports: [flashcard, mcq, typed]',
@@ -115,7 +115,7 @@ void main() {
         ),
       );
       expect(
-        () => CoveragePolicy.parse(
+        () => fixturePolicy(
           coveragePolicyText.replaceFirst(
             'supports: [flashcard, mcq]',
             'supports: [flashcard, mcq, mcq]',
@@ -124,7 +124,7 @@ void main() {
         rejects('coverage_policy.yaml:4: LOCATED_IN supports mcq twice'),
       );
       expect(
-        () => CoveragePolicy.parse(
+        () => fixturePolicy(
           coveragePolicyText.replaceFirst(
             'supports: [flashcard, mcq]',
             'supports: [flashcard, mcq]\n    excludes: {mcq: Too hard.}',
@@ -139,7 +139,7 @@ void main() {
 
     test('an exclusion without a reason', () {
       expect(
-        () => CoveragePolicy.parse(
+        () => fixturePolicy(
           coveragePolicyText.replaceFirst(
             'mcq: Structural in this fixture.',
             'mcq: ""',
@@ -201,7 +201,7 @@ void main() {
         ),
       ]) {
         expect(
-          () => CoveragePolicy.parse(withThresholds(threshold)),
+          () => fixturePolicy(withThresholds(threshold)),
           rejects(problem),
           reason: threshold,
         );
@@ -210,11 +210,11 @@ void main() {
 
     test('an unknown key, or text that is not YAML', () {
       expect(
-        () => CoveragePolicy.parse('$coveragePolicyText\nformats: []\n'),
+        () => fixturePolicy('$coveragePolicyText\nformats: []\n'),
         rejects('coverage_policy.yaml:21: unknown key "formats"'),
       );
       expect(
-        () => CoveragePolicy.parse('capabilities: [', path: 'p.yaml'),
+        () => fixturePolicy('capabilities: [', path: 'p.yaml'),
         throwsA(
           isA<CoveragePolicyException>().having(
             (e) => e.message,
@@ -227,7 +227,7 @@ void main() {
   });
 
   test('says where it does not fit a curriculum', () {
-    final policy = CoveragePolicy.parse(coveragePolicyText);
+    final policy = fixturePolicy(coveragePolicyText);
     expect(
       policy.problemsWith(
         relationTypes: {

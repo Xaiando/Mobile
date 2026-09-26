@@ -178,14 +178,17 @@ class GeometryRepository {
   /// is drawn and whose area, grown by [frameMargin], holds at least
   /// [minimum] candidates of the node's type, the node among them. Null when
   /// the node is not drawn, or no ancestor frames it (geography §5).
+  ///
+  /// Containment is read on the date [on], `YYYY-MM-DD`, today by default.
   Future<MapFrame?> frameOf(
     String nodeId, {
     int minimum = minimumCandidates,
+    String? on,
   }) async {
     final drawn = await geometriesOf(nodeId);
     if (drawn.isEmpty) return null;
     final nodeType = drawn.first.node.nodeType;
-    for (final ancestor in await _graph.ancestors(nodeId)) {
+    for (final ancestor in await _graph.ancestors(nodeId, on: on)) {
       final framing = await geometriesOf(ancestor.id);
       if (framing.isEmpty) continue;
       final box = GeoBox.of(framing.first.geometry).expand(frameMargin);
@@ -201,6 +204,17 @@ class GeometryRepository {
     }
     return null;
   }
+
+  /// The label point of each node [layerId] draws, by feature key: the
+  /// renderer places names and markers there (geography §3).
+  Future<Map<String, ({double lon, double lat})>> labelPointsIn(
+    String layerId,
+  ) async => {
+    for (final g in await (db.select(
+      db.nodeGeometries,
+    )..where((g) => g.mapLayerId.equals(layerId))).get())
+      g.featureKey: (lon: g.labelLon, lat: g.labelLat),
+  };
 
   Future<List<MappedNode>> _mapped(
     String where,

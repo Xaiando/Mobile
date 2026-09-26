@@ -27,10 +27,7 @@ void main() {
       policy
           .readAsStringSync()
           .replaceAll('\r\n', '\n')
-          .replaceFirst(
-            RegExp('  $relationType:\n    supports: \\[flashcard, mcq\\]\n'),
-            '',
-          ),
+          .replaceFirst(RegExp('  $relationType:\n(    .*\n)*'), ''),
     );
   }
 
@@ -120,7 +117,7 @@ void main() {
       );
       final (code, out) = await run(['--update-baseline']);
       expect(code, exitOk, reason: out);
-      expect(out, contains('9 known gaps'));
+      expect(out, contains('5 known gaps'));
       expect(baseline.readAsStringSync(), committed);
       expect((await run([])).$1, exitOk);
     },

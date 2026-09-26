@@ -44,10 +44,14 @@ final class CoveragePolicy {
 
   /// Parses a policy. Every relation type must say, for each built format,
   /// whether it supports it or why not.
+  ///
+  /// Every relation type must say how each of [formats] serves it: the
+  /// built formats, unless a test gives its own.
   factory CoveragePolicy.parse(
     String text, {
     String path = 'coverage_policy.yaml',
-  }) => _PolicyParser(path).parse(text);
+    Iterable<String>? formats,
+  }) => _PolicyParser(path, [...formats ?? builtFormats.keys]).parse(text);
 
   /// By relation type.
   final Map<String, RelationCapability> capabilities;
@@ -108,9 +112,12 @@ final class CoveragePolicy {
 }
 
 class _PolicyParser {
-  _PolicyParser(this.path);
+  _PolicyParser(this.path, this.formats);
 
   final String path;
+
+  /// The formats the policy must cover.
+  final List<String> formats;
   final problems = <String>[];
 
   static const _topLevel = {'regional_countries', 'capabilities', 'thresholds'};
@@ -214,7 +221,7 @@ class _PolicyParser {
         }
       }
     }
-    for (final id in builtFormats.keys) {
+    for (final id in formats) {
       if (!supports.contains(id) && !excludes.containsKey(id)) {
         _problem(
           node,
@@ -229,11 +236,10 @@ class _PolicyParser {
   /// The built format [node] names, or null after reporting it.
   String? _format(String relationType, YamlNode node) {
     final id = node.value;
-    if (id is String && builtFormats.containsKey(id)) return id;
+    if (id is String && formats.contains(id)) return id;
     _problem(
       node,
-      '$relationType: "$id" is not a built format '
-      '(${builtFormats.keys.join(', ')})',
+      '$relationType: "$id" is not a built format (${formats.join(', ')})',
     );
     return null;
   }

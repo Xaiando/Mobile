@@ -95,6 +95,17 @@ final class GeoLayer {
 
   bool isVisibleAt(double zoom) => zoom >= minZoom && zoom < maxZoom;
 
+  /// This layer drawn from [minZoom] instead. The shapes are shared, not
+  /// copied. A map question draws its candidates' layer at any zoom, small
+  /// ones as markers, so every answer can be tapped (geography §5).
+  GeoLayer drawnFrom(double minZoom) => GeoLayer._(
+    id: id,
+    shapes: shapes,
+    minZoom: minZoom,
+    maxZoom: maxZoom,
+    attribution: attribution,
+  );
+
   static String _onlyObject(Topology topology) {
     if (topology.objects.length == 1) return topology.objects.keys.single;
     throw ArgumentError(

@@ -227,7 +227,8 @@ void main() {
       final prompts = await db
           .customSelect(
             'SELECT prompt_text FROM questions '
-            "WHERE knowledge_item_id = 'ki_volnay_location'",
+            "WHERE knowledge_item_id = 'ki_volnay_location' "
+            "AND question_template_id NOT LIKE '%_map_%'",
           )
           .map((row) => row.read<String>('prompt_text'))
           .get();
