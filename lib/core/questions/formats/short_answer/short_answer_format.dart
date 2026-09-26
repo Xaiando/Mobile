@@ -87,9 +87,10 @@ final class ShortAnswerResponse {
 /// ```
 ///
 /// Ingestion writes one pool per subject with at least two key points. An
-/// exercise checks the planned item and up to three more; the learner
-/// ticks the points the answer covered: ticked is Good, not ticked Again
-/// (question-system §4). The text is kept, never machine-graded.
+/// exercise checks the planned item and up to three more the learner has
+/// studied; the learner ticks the points the answer covered: ticked is
+/// Good, not ticked Again (question-system §4). The text is kept, never
+/// machine-graded.
 class ShortAnswerFormat extends ExerciseFormat {
   const ShortAnswerFormat();
 
@@ -262,8 +263,10 @@ class ShortAnswerFormat extends ExerciseFormat {
         if (row.read<int>('pool') == pool) row,
     ];
 
-    // The planned item, and up to three others: due ones first, then any
-    // studied, then new ones, each group in the seed's order.
+    // The planned item, and up to three others the learner has studied, due
+    // ones first, each group in the seed's order. A new item joins only when
+    // none has been studied, so that two points are checked: a short answer
+    // does not introduce items past the session's budget (A-2).
     final random = Random(seed);
     int group(QueryRow row) {
       if (row.readNullable<DateTime>('due') case final due?
@@ -273,16 +276,16 @@ class ShortAnswerFormat extends ExerciseFormat {
       return row.read<bool>('studied') ? 1 : 2;
     }
 
-    final others = [
-      for (final g in [0, 1, 2])
-        ...[
-          for (final row in points)
-            if (row.read<String>('item') != itemId && group(row) == g) row,
-        ]..shuffle(random),
-    ];
+    List<QueryRow> othersIn(int g) => [
+      for (final row in points)
+        if (row.read<String>('item') != itemId && group(row) == g) row,
+    ]..shuffle(random);
+    final studied = [...othersIn(0), ...othersIn(1)];
     final chosen = [
       points.firstWhere((row) => row.read<String>('item') == itemId),
-      ...others.take(maxKeyPoints - 1),
+      ...studied.isNotEmpty
+          ? studied.take(maxKeyPoints - 1)
+          : othersIn(2).take(1),
     ];
     final order = labels.keys.toList();
     KeyPoint pointOf(QueryRow row) => KeyPoint(
