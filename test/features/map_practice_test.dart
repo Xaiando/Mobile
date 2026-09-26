@@ -3,7 +3,9 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:drift/drift.dart' show Value;
 import 'package:sommelier/core/database/app_database.dart';
+import 'package:sommelier/core/database/curriculum_writes.dart';
 import 'package:sommelier/core/geography/coordinates.dart';
 import 'package:sommelier/core/geography/web_mercator.dart';
 import 'package:sommelier/core/questions/format_registry.dart';
@@ -63,8 +65,9 @@ void main() {
   /// text cards until a map card is shown.
   Future<MapExercise> mapCard(
     WidgetTester tester,
-    FormatRegistry formats,
-  ) async {
+    FormatRegistry formats, {
+    Future<void> Function()? beforeStart,
+  }) async {
     tester.view.physicalSize = const Size(1080, 2340);
     tester.view.devicePixelRatio = 3;
     addTearDown(tester.view.reset);
@@ -79,6 +82,7 @@ void main() {
       () =>
           LearnerProfiles(db).setSessionLimits(sessionSize: 100, newItems: 60),
     );
+    if (beforeStart != null) await tester.runAsync(beforeStart);
     await tap(tester, find.widgetWithText(NavigationDestination, 'Practice'));
     await tap(tester, find.widgetWithText(FilledButton, 'Start session'));
     for (var i = 0; turn(tester).exercise is! MapExercise; i++) {
@@ -95,8 +99,13 @@ void main() {
         await tap(tester, find.widgetWithText(FilledButton, 'Good'));
       }
     }
-    // The layers load in the background: wait for the map.
-    for (var i = 0; find.byType(MapCanvas).evaluate().isEmpty; i++) {
+    // The layers load in the background: wait for the map, or its notice.
+    for (
+      var i = 0;
+      find.byType(MapCanvas).evaluate().isEmpty &&
+          find.textContaining('cannot draw').evaluate().isEmpty;
+      i++
+    ) {
       expect(i, lessThan(50), reason: 'the map loads');
       await tester.runAsync(() => Future<void>.delayed(Duration.zero));
       await tester.pumpAndSettle();
@@ -184,6 +193,26 @@ void main() {
       );
     }
     semantics.dispose();
+  });
+
+  testApp('answers from the list when this app cannot draw the map '
+      '(GEO-30)', (tester) async {
+    // As after a downgrade: the database holds a newer appellation layer.
+    final exercise = await mapCard(
+      tester,
+      locateFirst,
+      beforeStart: () => db.writeCurriculum(
+        () =>
+            (db.update(db.mapLayers)
+                  ..where((l) => l.id.equals('ml_fr_appellations')))
+                .write(MapLayersCompanion(assetSha256: Value('0' * 64))),
+      ),
+    );
+    expect(find.textContaining('cannot draw this map'), findsOneWidget);
+    expect(find.byType(MapCanvas), findsNothing);
+    await tap(tester, find.text('Answer from a list'));
+    await tap(tester, find.widgetWithText(OutlinedButton, exercise.nodeName));
+    expect(find.text('Correct: ${exercise.nodeName}'), findsOneWidget);
   });
 
   testApp('names a highlighted area', (tester) async {

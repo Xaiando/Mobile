@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:crypto/crypto.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -24,18 +25,31 @@ const baseLayerIds = {
 };
 
 /// Every map layer, read from the bundle and decoded once, bottom first
-/// (geography §8). Startup has checked each asset against its SHA-256.
+/// (geography §8).
+///
+/// A layer whose asset is missing, or does not match the SHA-256 the
+/// database holds, is left off the map. That happens after an app
+/// downgrade, which keeps the newer curriculum it finds (GEO-30).
 final mapLayersProvider = FutureProvider<List<MapLayer>>((ref) async {
   await ref.watch(appStartupProvider.future);
   final maps = ref.watch(geometryRepositoryProvider);
-  return [for (final entry in await maps.layers()) await _load(maps, entry)];
+  final layers = <MapLayer>[];
+  for (final entry in await maps.layers()) {
+    if (await _load(maps, entry) case final layer?) layers.add(layer);
+  }
+  return layers;
 });
 
-Future<MapLayer> _load(GeometryRepository maps, LayerWithSources entry) async {
+Future<MapLayer?> _load(GeometryRepository maps, LayerWithSources entry) async {
   final layer = entry.layer;
-  final topology = Topology.parse(
-    utf8.decode(await readBundledAsset(layer.assetPath)),
-  );
+  final Topology topology;
+  try {
+    final bytes = await readBundledAsset(layer.assetPath);
+    if ('${sha256.convert(bytes)}' != layer.assetSha256) return null;
+    topology = Topology.parse(utf8.decode(bytes));
+  } on Object {
+    return null;
+  }
   final labels = await maps.labelPointsIn(layer.id);
   final geometry = GeoLayer.fromTopology(
     topology,
@@ -102,6 +116,10 @@ class MapQuestionMap extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
     final zoomedOut = exercise.zoomedOut;
+    final candidateLayer = exercise.frame.candidates.first.geometry.mapLayerId;
+    final layers = ref.watch(questionLayersProvider(candidateLayer));
+    final missing =
+        layers.value?.every((l) => l.geometry.id != candidateLayer) ?? false;
     return DecoratedBox(
       decoration: BoxDecoration(
         border: Border.all(color: theme.colorScheme.outlineVariant),
@@ -109,11 +127,18 @@ class MapQuestionMap extends ConsumerWidget {
       ),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(12),
-        child: switch (ref.watch(
-          questionLayersProvider(
-            exercise.frame.candidates.first.geometry.mapLayerId,
+        child: switch (layers) {
+          AsyncData() when missing => Center(
+            child: Padding(
+              padding: const EdgeInsets.all(16),
+              child: Text(
+                'This version of the app cannot draw this map. Answer from '
+                'the list instead.',
+                textAlign: TextAlign.center,
+                style: theme.textTheme.bodyLarge,
+              ),
+            ),
           ),
-        )) {
           AsyncData(value: final layers) => MapCanvas(
             layers: layers,
             mode: labelModeOf(exercise.mode),
