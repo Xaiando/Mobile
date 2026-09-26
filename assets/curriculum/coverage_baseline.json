@@ -1,10 +1,10 @@
 {
   "about": "Question coverage baseline (backlog F1, audit COV-3). The build fails when a metric falls below it or a blocking gap is not in known_gaps. Regenerate the metrics with dart run tool/coverage_report.dart --update-baseline; edit known_gaps by hand.",
-  "release": "0.5.0",
+  "release": "0.7.0",
   "on": "2026-09-26",
   "tracks": {
     "CMS_CERTIFIED": {
-      "total": {"items": 60, "core": 36, "testable": 60, "flashcard_only": 5, "useful_practice": 55, "recall": 60, "recognition": 51, "spatial": 18, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 36, "core_reasoning": 0},
+      "total": {"items": 60, "core": 36, "testable": 60, "flashcard_only": 0, "useful_practice": 55, "recall": 60, "recognition": 51, "spatial": 18, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 36, "core_reasoning": 0},
       "domains": {
         "geography": {
           "total": {"items": 38, "core": 32, "testable": 38, "flashcard_only": 0, "useful_practice": 38, "recall": 38, "recognition": 34, "spatial": 18, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 32, "core_reasoning": 0},
@@ -18,14 +18,14 @@
           }
         },
         "viticulture": {
-          "total": {"items": 15, "core": 0, "testable": 15, "flashcard_only": 5, "useful_practice": 10, "recall": 15, "recognition": 10, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 0, "core_reasoning": 0},
+          "total": {"items": 15, "core": 0, "testable": 15, "flashcard_only": 0, "useful_practice": 10, "recall": 15, "recognition": 10, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 0, "core_reasoning": 0},
           "areas": {
-            "n_geo_burgundy": {"items": 3, "core": 0, "testable": 3, "flashcard_only": 2, "useful_practice": 1, "recall": 3, "recognition": 1, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 0, "core_reasoning": 0},
-            "n_geo_champagne_region": {"items": 1, "core": 0, "testable": 1, "flashcard_only": 1, "useful_practice": 0, "recall": 1, "recognition": 0, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 0, "core_reasoning": 0},
-            "n_geo_loire_valley": {"items": 3, "core": 0, "testable": 3, "flashcard_only": 1, "useful_practice": 2, "recall": 3, "recognition": 2, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 0, "core_reasoning": 0},
+            "n_geo_burgundy": {"items": 3, "core": 0, "testable": 3, "flashcard_only": 0, "useful_practice": 1, "recall": 3, "recognition": 1, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 0, "core_reasoning": 0},
+            "n_geo_champagne_region": {"items": 1, "core": 0, "testable": 1, "flashcard_only": 0, "useful_practice": 0, "recall": 1, "recognition": 0, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 0, "core_reasoning": 0},
+            "n_geo_loire_valley": {"items": 3, "core": 0, "testable": 3, "flashcard_only": 0, "useful_practice": 2, "recall": 3, "recognition": 2, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 0, "core_reasoning": 0},
             "n_geo_piedmont": {"items": 2, "core": 0, "testable": 2, "flashcard_only": 0, "useful_practice": 2, "recall": 2, "recognition": 2, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 0, "core_reasoning": 0},
             "n_geo_rhone_valley": {"items": 4, "core": 0, "testable": 4, "flashcard_only": 0, "useful_practice": 4, "recall": 4, "recognition": 4, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 0, "core_reasoning": 0},
-            "n_geo_tuscany": {"items": 2, "core": 0, "testable": 2, "flashcard_only": 1, "useful_practice": 1, "recall": 2, "recognition": 1, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 0, "core_reasoning": 0}
+            "n_geo_tuscany": {"items": 2, "core": 0, "testable": 2, "flashcard_only": 0, "useful_practice": 1, "recall": 2, "recognition": 1, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 0, "core_reasoning": 0}
           }
         },
         "winemaking": {
@@ -39,7 +39,7 @@
       }
     },
     "WSET_L3": {
-      "total": {"items": 60, "core": 36, "testable": 60, "flashcard_only": 5, "useful_practice": 55, "recall": 60, "recognition": 51, "spatial": 18, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 36, "core_reasoning": 0},
+      "total": {"items": 60, "core": 36, "testable": 60, "flashcard_only": 0, "useful_practice": 55, "recall": 60, "recognition": 51, "spatial": 18, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 36, "core_reasoning": 0},
       "domains": {
         "geography": {
           "total": {"items": 38, "core": 32, "testable": 38, "flashcard_only": 0, "useful_practice": 38, "recall": 38, "recognition": 34, "spatial": 18, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 32, "core_reasoning": 0},
@@ -53,14 +53,14 @@
           }
         },
         "viticulture": {
-          "total": {"items": 15, "core": 0, "testable": 15, "flashcard_only": 5, "useful_practice": 10, "recall": 15, "recognition": 10, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 0, "core_reasoning": 0},
+          "total": {"items": 15, "core": 0, "testable": 15, "flashcard_only": 0, "useful_practice": 10, "recall": 15, "recognition": 10, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 0, "core_reasoning": 0},
           "areas": {
-            "n_geo_burgundy": {"items": 3, "core": 0, "testable": 3, "flashcard_only": 2, "useful_practice": 1, "recall": 3, "recognition": 1, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 0, "core_reasoning": 0},
-            "n_geo_champagne_region": {"items": 1, "core": 0, "testable": 1, "flashcard_only": 1, "useful_practice": 0, "recall": 1, "recognition": 0, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 0, "core_reasoning": 0},
-            "n_geo_loire_valley": {"items": 3, "core": 0, "testable": 3, "flashcard_only": 1, "useful_practice": 2, "recall": 3, "recognition": 2, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 0, "core_reasoning": 0},
+            "n_geo_burgundy": {"items": 3, "core": 0, "testable": 3, "flashcard_only": 0, "useful_practice": 1, "recall": 3, "recognition": 1, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 0, "core_reasoning": 0},
+            "n_geo_champagne_region": {"items": 1, "core": 0, "testable": 1, "flashcard_only": 0, "useful_practice": 0, "recall": 1, "recognition": 0, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 0, "core_reasoning": 0},
+            "n_geo_loire_valley": {"items": 3, "core": 0, "testable": 3, "flashcard_only": 0, "useful_practice": 2, "recall": 3, "recognition": 2, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 0, "core_reasoning": 0},
             "n_geo_piedmont": {"items": 2, "core": 0, "testable": 2, "flashcard_only": 0, "useful_practice": 2, "recall": 2, "recognition": 2, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 0, "core_reasoning": 0},
             "n_geo_rhone_valley": {"items": 4, "core": 0, "testable": 4, "flashcard_only": 0, "useful_practice": 4, "recall": 4, "recognition": 4, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 0, "core_reasoning": 0},
-            "n_geo_tuscany": {"items": 2, "core": 0, "testable": 2, "flashcard_only": 1, "useful_practice": 1, "recall": 2, "recognition": 1, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 0, "core_reasoning": 0}
+            "n_geo_tuscany": {"items": 2, "core": 0, "testable": 2, "flashcard_only": 0, "useful_practice": 1, "recall": 2, "recognition": 1, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 0, "core_reasoning": 0}
           }
         },
         "winemaking": {
@@ -74,36 +74,5 @@
       }
     }
   },
-  "known_gaps": [
-    {
-      "item": "ki_chablis_climate",
-      "gap": "flashcard_only",
-      "reason": "The Chablis climate is oceanic with continental influences (audit SD-1), so another climate type could be a defensible answer and the item is mcq_disabled. Typed recall gives it an objective format.",
-      "closed_by": "Q1"
-    },
-    {
-      "item": "ki_chablis_frost",
-      "gap": "flashcard_only",
-      "reason": "Chablis faces other vineyard hazards too, so a wrong option could be defensible and the item is mcq_disabled. Typed recall gives it an objective format.",
-      "closed_by": "Q1"
-    },
-    {
-      "item": "ki_champagne_soil",
-      "gap": "flashcard_only",
-      "reason": "Kimmeridgian marls also occur in the Côte des Bar, so that soil cannot be a wrong option and the item is mcq_disabled. Typed recall gives it an objective format.",
-      "closed_by": "Q1"
-    },
-    {
-      "item": "ki_chianti_classico_climate",
-      "gap": "flashcard_only",
-      "reason": "Tuscany is also often called Mediterranean, so another climate type could be a defensible answer and the item is mcq_disabled. Typed recall gives it an objective format.",
-      "closed_by": "Q1"
-    },
-    {
-      "item": "ki_muscadet_sevre_et_maine_climate",
-      "gap": "flashcard_only",
-      "reason": "The oceanic climate types overlap, so another could be a defensible answer and the item is mcq_disabled. Typed recall gives it an objective format.",
-      "closed_by": "Q1"
-    }
-  ]
+  "known_gaps": []
 }

@@ -15,50 +15,56 @@ regional_countries: [n_geo_france, n_geo_italy]
 # a gap, with the reason.
 capabilities:
   LOCATED_IN:
-    supports: [flashcard, mcq, map_locate, map_identify]
+    supports: [flashcard, mcq, map_locate, map_identify, typed]
+    excludes:
+      short_answer: Where a place lies is asked on the map and in typed recall; a profile checks its grapes, environment and rules.
   HAS_BERRY_COLOUR:
     supports: [flashcard]
     excludes:
+      short_answer: A berry colour describes a grape, not an appellation, so it is no key point of a profile.
+      typed: With two berry colours, the flashcard is enough until the matching formats (Q3).
       mcq: The release has two berry colours, too few for three wrong options.
       map_locate: Only location items are asked on the map for now (GEO-6); maps for this relation come with G6 to G8.
       map_identify: Only location items are asked on the map for now (GEO-6); maps for this relation come with G6 to G8.
   PERMITS_PRINCIPAL_GRAPE:
-    supports: [flashcard, mcq]
+    supports: [flashcard, mcq, typed, short_answer]
     excludes:
       map_locate: Only location items are asked on the map for now (GEO-6); maps for this relation come with G6 to G8.
       map_identify: Only location items are asked on the map for now (GEO-6); maps for this relation come with G6 to G8.
   PERMITS_ACCESSORY_GRAPE:
-    supports: [flashcard, mcq]
+    supports: [flashcard, mcq, typed, short_answer]
     excludes:
       map_locate: Only location items are asked on the map for now (GEO-6); maps for this relation come with G6 to G8.
       map_identify: Only location items are asked on the map for now (GEO-6); maps for this relation come with G6 to G8.
   HAS_SOIL:
-    supports: [flashcard, mcq]
+    supports: [flashcard, mcq, typed, short_answer]
     excludes:
       map_locate: Only location items are asked on the map for now (GEO-6); maps for this relation come with G6 to G8.
       map_identify: Only location items are asked on the map for now (GEO-6); maps for this relation come with G6 to G8.
   HAS_CLIMATE:
-    supports: [flashcard, mcq]
+    supports: [flashcard, mcq, typed, short_answer]
     excludes:
       map_locate: Only location items are asked on the map for now (GEO-6); maps for this relation come with G6 to G8.
       map_identify: Only location items are asked on the map for now (GEO-6); maps for this relation come with G6 to G8.
   SUSCEPTIBLE_TO:
-    supports: [flashcard, mcq]
+    supports: [flashcard, mcq, typed, short_answer]
     excludes:
       map_locate: Only location items are asked on the map for now (GEO-6); maps for this relation come with G6 to G8.
       map_identify: Only location items are asked on the map for now (GEO-6); maps for this relation come with G6 to G8.
   MIN_AGEING:
-    supports: [flashcard, mcq]
+    supports: [flashcard, mcq, short_answer]
     excludes:
+      typed: Ageing periods are numbers, asked by the numeric format (Q4).
       map_locate: Only location items are asked on the map for now (GEO-6); maps for this relation come with G6 to G8.
       map_identify: Only location items are asked on the map for now (GEO-6); maps for this relation come with G6 to G8.
   MIN_WOOD_AGEING:
-    supports: [flashcard, mcq]
+    supports: [flashcard, mcq, short_answer]
     excludes:
+      typed: Ageing periods are numbers, asked by the numeric format (Q4).
       map_locate: Only location items are asked on the map for now (GEO-6); maps for this relation come with G6 to G8.
       map_identify: Only location items are asked on the map for now (GEO-6); maps for this relation come with G6 to G8.
   REQUIRES_METHOD:
-    supports: [flashcard, mcq]
+    supports: [flashcard, mcq, typed, short_answer]
     excludes:
       map_locate: Only location items are asked on the map for now (GEO-6); maps for this relation come with G6 to G8.
       map_identify: Only location items are asked on the map for now (GEO-6); maps for this relation come with G6 to G8.

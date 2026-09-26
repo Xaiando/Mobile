@@ -995,13 +995,25 @@ class _Validator {
     final forward = <String>{};
     for (final t in d.questionTemplates) {
       // The schema checks only a mode's form; the formats decide (QF-2).
-      if (!formats.contains(t.mode)) {
+      final format = formats[t.mode];
+      if (format == null) {
         error(
           'template-format',
           '${t.id} has mode "${t.mode}", which is no format; the formats '
               'are ${formats.ids.join(', ')}',
           row: _ref('question_templates', t),
         );
+      } else {
+        for (final problem in format.templateProblems(
+          t,
+          relationTypes: relationTypes.keys.toSet(),
+        )) {
+          error(
+            'template-parameters',
+            '${t.id}: $problem',
+            row: _ref('question_templates', t),
+          );
+        }
       }
       for (final match in placeholder.allMatches(t.promptTemplate)) {
         if (!templatePlaceholders.contains(match[0])) {

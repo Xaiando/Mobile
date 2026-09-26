@@ -158,7 +158,7 @@ void main() {
     expect(
       out,
       contains(
-        RegExp(r'Questions: \d+ \(\d+ flashcards, \d+ multiple choice\)'),
+        RegExp(r'Questions: \d+ \(\d+ flashcard, \d+ mcq, [^)]*typed[^)]*\)'),
       ),
     );
     expect(out, contains('mcqDisabled'));

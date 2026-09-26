@@ -383,9 +383,8 @@ Future<int> report(List<String> args, StringSink out) async {
     out
       ..writeln()
       ..writeln(
-        'Questions: ${generated.questions} '
-        '(${generated.flashcards} flashcards, '
-        '${generated.multipleChoice} multiple choice)',
+        'Questions: ${generated.questions} (${[for (final MapEntry(key: format, value: n) in generated.byFormat.entries) '$n $format'].join(', ')})'
+        '${generated.pools == 0 ? '' : ', and ${generated.pools} exercise pools'}',
       );
     final byReason = <SkipReason, List<SkippedQuestion>>{};
     for (final skip in generated.skipped) {

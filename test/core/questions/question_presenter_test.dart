@@ -153,6 +153,7 @@ void main() {
     expect(questions.map((q) => q.questionTemplateId), [
       'qt_principal_grape_fwd_flashcard',
       'qt_principal_grape_fwd_mcq',
+      'qt_principal_grape_fwd_typed',
     ]);
   });
 

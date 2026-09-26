@@ -78,8 +78,12 @@ final class CoverageChecker {
     final generated = await _formatsByItem();
     final templates = await db.select(db.questionTemplates).get();
     final modesOf = <String, Set<String>>{};
+    final pooledModes = <String>{};
     for (final template in templates) {
       modesOf.putIfAbsent(template.relationType, () => {}).add(template.mode);
+      if (builtFormats[template.mode]?.isPooled ?? false) {
+        pooledModes.add(template.mode);
+      }
     }
     final whySkipped = _skipReasons(skipped, {
       for (final template in templates) template.id: template.mode,
@@ -112,6 +116,7 @@ final class CoverageChecker {
                   format,
                   modesOf[item.relationType] ?? const {},
                   whySkipped[item.id]?[format],
+                  pooledModes: pooledModes,
                 ),
           },
           subjectType: areas.typeOf(item.subjectId),
@@ -232,13 +237,17 @@ final class CoverageChecker {
   }
 
   /// Why [item] has no question in [format], a format its relation type's
-  /// policy expects. [modes] are the formats of the type's templates.
+  /// policy expects. [modes] are the formats of the type's templates. A
+  /// pooled format's template gathers items of several relation types, so
+  /// for the formats in [pooledModes] the item is simply in no pool.
   static String _whyMissing(
     KnowledgeItem item,
     String format,
     Set<String> modes,
-    SkipReason? skip,
-  ) {
+    SkipReason? skip, {
+    Set<String> pooledModes = const {},
+  }) {
+    if (pooledModes.contains(format)) return 'in no $format pool';
     if (!modes.contains(format)) {
       return 'no $format template for ${item.relationType}';
     }
@@ -271,7 +280,8 @@ final class CoverageChecker {
     return reasons;
   }
 
-  /// Every question's format, by item.
+  /// Every question's format, by item, and every pooled format an item's
+  /// pools give it, as the planner serves them.
   Future<Map<String, List<QuestionFormat>>> _formatsByItem() async {
     final rows = await db
         .customSelect(
@@ -279,8 +289,18 @@ final class CoverageChecker {
       SELECT q.knowledge_item_id, q.question_template_id, t.direction, t.mode
       FROM questions q
       JOIN question_templates t ON t.id = q.question_template_id
-      ORDER BY q.knowledge_item_id, q.question_template_id''',
-          readsFrom: {db.questions, db.questionTemplates},
+      UNION
+      SELECT i.knowledge_item_id, p.question_template_id, t.direction, t.mode
+      FROM exercise_pool_items i
+      JOIN exercise_pools p ON p.id = i.exercise_pool_id
+      JOIN question_templates t ON t.id = p.question_template_id
+      ORDER BY 1, 2''',
+          readsFrom: {
+            db.questions,
+            db.questionTemplates,
+            db.exercisePools,
+            db.exercisePoolItems,
+          },
         )
         .get();
     final formats = <String, List<QuestionFormat>>{};

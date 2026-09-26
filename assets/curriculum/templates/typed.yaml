@@ -1,0 +1,15 @@
+# Question templates for typed recall (backlog Q1).
+# Part of the curriculum release in ../curriculum.yaml, in the format of
+# docs/domain-model.md §7.
+
+# The learner types the answer; any name of any correct node counts, and
+# one slip of a letter is Hard (QF-4). Quantities are left to the numeric
+# format (Q4).
+question_templates:
+  - { id: qt_located_in_fwd_typed, relation_type: LOCATED_IN, direction: forward, mode: typed, prompt_template: "In which {object.type_label} is {subject.name} located?" }
+  - { id: qt_principal_grape_fwd_typed, relation_type: PERMITS_PRINCIPAL_GRAPE, direction: forward, mode: typed, prompt_template: "Type a principal grape variety of {subject.name}." }
+  - { id: qt_accessory_grape_fwd_typed, relation_type: PERMITS_ACCESSORY_GRAPE, direction: forward, mode: typed, prompt_template: "Type an accessory grape variety of {subject.name}." }
+  - { id: qt_soil_fwd_typed, relation_type: HAS_SOIL, direction: forward, mode: typed, prompt_template: "Type a characteristic soil of {subject.name}." }
+  - { id: qt_climate_fwd_typed, relation_type: HAS_CLIMATE, direction: forward, mode: typed, prompt_template: "Which type of climate does {subject.name} have?" }
+  - { id: qt_hazard_fwd_typed, relation_type: SUSCEPTIBLE_TO, direction: forward, mode: typed, prompt_template: "Which {object.type_label} is a notable risk in {subject.name}?" }
+  - { id: qt_method_fwd_typed, relation_type: REQUIRES_METHOD, direction: forward, mode: typed, prompt_template: "Which sparkling-wine method must {subject.name} use?" }

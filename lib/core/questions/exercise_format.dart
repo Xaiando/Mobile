@@ -101,6 +101,14 @@ abstract class ExerciseFormat {
     QuestionTemplate template,
   ) => Future.value(true);
 
+  /// What is wrong with [template] for this format, beyond the checks every
+  /// template gets: its `parameters`, for instance. [relationTypes] are the
+  /// release's relation type IDs. The validator reports each problem.
+  List<String> templateProblems(
+    QuestionTemplate template, {
+    required Set<String> relationTypes,
+  }) => const [];
+
   /// Presents [itemId] with [questionTemplateId], fixed by [seed].
   Future<Exercise> present(
     PresentationContext context, {

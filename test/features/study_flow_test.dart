@@ -5,6 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:sommelier/core/database/app_database.dart';
+import 'package:sommelier/core/questions/exercise_format.dart';
+import 'package:sommelier/core/questions/format_registry.dart';
+import 'package:sommelier/core/questions/formats/typed/typed_format.dart';
 import 'package:sommelier/core/time/time_providers.dart';
 import 'package:sommelier/features/practice/practice_screen.dart';
 import 'package:sommelier/features/practice/study_session_controller.dart';
@@ -30,6 +33,14 @@ void main() {
           Clock.fixed(DateTime.utc(2026, 10, 1, 9)),
         ),
         studyRandomProvider.overrideWithValue(Random(1)),
+        // Each answer settles one item, so the counts below hold; composite
+        // exercises have tests of their own.
+        ...servingOnly(
+          FormatRegistry([
+            for (final format in appFormats.formats)
+              if (format.generation == FormatGeneration.single) format,
+          ]),
+        ),
       ],
     );
   }
@@ -49,8 +60,17 @@ void main() {
     final container = ProviderScope.containerOf(
       tester.element(find.byType(PracticeScreen)),
     );
-    final question = container.read(studySessionProvider).value!.turn!.question;
-    if (question.isMultipleChoice) {
+    final turn = container.read(studySessionProvider).value!.turn!;
+    final question = turn.question;
+    if (turn.exercise is TypedQuestion) {
+      await tester.enterText(
+        find.widgetWithText(TextField, 'Your answer'),
+        question.answer.name,
+      );
+      await tap(tester, find.widgetWithText(FilledButton, 'Check'));
+      expect(find.text('Correct: ${question.answer.name}'), findsOneWidget);
+      await tap(tester, find.widgetWithText(FilledButton, 'Continue'));
+    } else if (question.isMultipleChoice) {
       await tap(
         tester,
         find.widgetWithText(OutlinedButton, question.answer.name),

@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:sommelier/core/curriculum/curriculum_dataset.dart';
 
@@ -54,9 +56,18 @@ void main() {
         dataset.relationTypes.map((t) => t.isSymmetric),
         everyElement(isFalse),
       );
+      expect([
+        for (final t in dataset.questionTemplates)
+          if (t.mode != 'short_answer') (t.variant, t.parameters),
+      ], everyElement(('', null)));
+      // A mapping of parameters is stored as JSON (QF-14).
+      final profile = dataset.questionTemplates.singleWhere(
+        (t) => t.id == 'qt_profile_short_answer',
+      );
+      expect(profile.variant, 'profile');
       expect(
-        dataset.questionTemplates.map((t) => (t.variant, t.parameters)),
-        everyElement(('', null)),
+        jsonDecode(profile.parameters!),
+        containsPair('key_points', containsPair('HAS_SOIL', 'Soil')),
       );
     });
 
