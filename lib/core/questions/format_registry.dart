@@ -3,6 +3,7 @@ import 'formats/flashcard/flashcard_format.dart';
 import 'formats/map_identify/map_identify_format.dart';
 import 'formats/map_locate/map_locate_format.dart';
 import 'formats/mcq/mcq_format.dart';
+import 'formats/short_answer/short_answer_format.dart';
 import 'formats/typed/typed_format.dart';
 
 /// The question formats, by ID (question-system §9). The validator, the
@@ -47,4 +48,5 @@ final appFormats = FormatRegistry(const [
   MapLocateFormat(),
   MapIdentifyFormat(),
   TypedFormat(),
+  ShortAnswerFormat(),
 ]);

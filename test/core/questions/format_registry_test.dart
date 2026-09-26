@@ -33,6 +33,7 @@ void main() {
       'map_locate',
       'map_identify',
       'typed',
+      'short_answer',
     ]);
     final mcq = appFormats.require('mcq');
     final card = appFormats.require('flashcard');

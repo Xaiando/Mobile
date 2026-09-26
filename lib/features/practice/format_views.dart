@@ -5,6 +5,7 @@ import 'formats/flashcard_view.dart';
 import 'formats/map_identify_view.dart';
 import 'formats/map_locate_view.dart';
 import 'formats/mcq_view.dart';
+import 'formats/short_answer_view.dart';
 import 'formats/typed_view.dart';
 import 'study_session_controller.dart';
 
@@ -47,5 +48,9 @@ final formatViewsProvider = Provider<Map<String, FormatView>>(
       expands: true,
     ),
     'typed': FormatView(icon: Icons.keyboard_outlined, builder: TypedView.new),
+    'short_answer': FormatView(
+      icon: Icons.edit_note,
+      builder: ShortAnswerView.new,
+    ),
   },
 );

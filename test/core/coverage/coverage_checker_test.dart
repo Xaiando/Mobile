@@ -190,6 +190,58 @@ void main() {
     expect(item.isFlashcardOnly, isTrue);
   });
 
+  test('an item served only self-graded formats is flashcard-only '
+      '(COV-2, QF-14)', () async {
+    final data = coverageDataset();
+    // Red Meursault is Pinot Noir: a second key point of Meursault, which
+    // has only flashcards like the first.
+    rowsOf(data, 'knowledge_relations').add({
+      'subject_id': 'n_geo_meursault',
+      'relation_type': 'PERMITS_PRINCIPAL_GRAPE',
+      'object_id': 'n_grape_pinot_noir',
+      'valid_from': '1900-01-01',
+    });
+    rowsOf(data, 'knowledge_items').add({
+      ...(rowsOf(data, 'knowledge_items').firstWhere(
+        (i) => (i as Map)['id'] == 'ki_meursault_grape',
+      ) as Map<String, dynamic>),
+      'id': 'ki_meursault_pinot_noir',
+      'object_id': 'n_grape_pinot_noir',
+    });
+    rowsOf(data, 'knowledge_item_citations').add({
+      'knowledge_item_id': 'ki_meursault_pinot_noir',
+      'source_citation_id': 'src_test_law',
+    });
+    rowsOf(data, 'certification_knowledge_mappings').add({
+      ...mappingOf(data, 'WSET_L2', 'ki_meursault_grape'),
+      'knowledge_item_id': 'ki_meursault_pinot_noir',
+    });
+    rowsOf(data, 'question_templates').add({
+      'id': 'qt_profile_short_answer',
+      'relation_type': 'PERMITS_PRINCIPAL_GRAPE',
+      'direction': 'forward',
+      'mode': 'short_answer',
+      'prompt_template': 'Write about {subject.name}.',
+      'parameters': {
+        'key_points': {'PERMITS_PRINCIPAL_GRAPE': 'Principal grape'},
+      },
+    });
+
+    final coverage = await coverageOf(data);
+    final meursault = coverage.items.firstWhere(
+      (i) => i.id == 'ki_meursault_grape',
+    );
+    expect(meursault.servedFormats, {'flashcard', 'short_answer'});
+    expect(meursault.isFlashcardOnly, isTrue, reason: 'nothing objective');
+    final chablis = coverage.items.firstWhere(
+      (i) => i.id == 'ki_chablis_grape',
+    );
+    expect(chablis.servedFormats, {
+      'flashcard',
+      'mcq',
+    }, reason: 'Chablis has one key point, too few for a pool');
+  });
+
   group('areas', () {
     Future<Map<String, String>> areasOf(
       Map<String, dynamic> data, {

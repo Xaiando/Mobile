@@ -111,13 +111,13 @@ Ingestion regenerates `questions`, `question_distractors` and the exercise pools
 
 **Adding a format** (backlog F3, audit QF-11) takes one file per layer and one registry line per layer:
 
-1. `lib/core/questions/formats/<id>/<id>_format.dart`: an `ExerciseFormat` with its family, depths and difficulty ranks, generation (`single` rows in `questions`, or `pooled` exercise pools it writes in `generatePools`), presentation and grading. Register it in `appFormats` (`format_registry.dart`).
+1. `lib/core/questions/formats/<id>/<id>_format.dart`: an `ExerciseFormat` with its family, depths and difficulty ranks, generation (`single` rows in `questions`, or `pooled` exercise pools it writes in `generatePools`), presentation and grading. A format whose templates take `parameters` checks them in `templateProblems`, which `lint` reports. Register it in `appFormats` (`format_registry.dart`).
 2. `lib/features/practice/formats/<id>_view.dart`: its practice view. Register it in `formatViewsProvider` (`format_views.dart`); the view answers through `StudySessionController.submit`.
 3. Add it to every relation type in `coverage_policy.yaml`, and give it templates.
 
 A format can decline an item with `isEligible`: the map formats (`map_locate`, `map_identify`) ask only location items whose area is drawn and framed (GEO-27). A composite format grades several items: one `ItemGrade` each, always including the exercise's primary item. They share an `exercise_id`. Co-items count as bonus reviews and take no session slot. `test/support/pair_format.dart` is a worked example.
 
-Typed recall (`typed`, QF-13) accepts every correct node's name and its `node_alternative_names`. When a correct answer is refused, add the missing synonym to the dataset; do not loosen the grader. An app test that serves only some formats passes `overrides: servingOnly(registry)`, so the release still ingests with every format.
+A short answer (`short_answer`, QF-14) is pooled: its template's `parameters.key_points` maps each relation type whose items are key points to their label, and a subject needs two key points for a pool. Typed recall (`typed`, QF-13) accepts every correct node's name and its `node_alternative_names`. When a correct answer is refused, add the missing synonym to the dataset; do not loosen the grader. An app test that serves only some formats passes `overrides: servingOnly(registry)`, so the release still ingests with every format.
 
 ## Question coverage
 

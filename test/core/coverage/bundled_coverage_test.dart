@@ -58,6 +58,18 @@ void main() {
     }
   });
 
+  test('pooled formats count as the planner serves them (QF-14)', () {
+    final wset = tracks.firstWhere((t) => t.trackId == 'WSET_L3');
+    ItemCoverage item(String id) => wset.items.firstWhere((i) => i.id == id);
+    expect([
+      for (final format in item('ki_chablis_soil').generated) format.mode,
+    ], contains('short_answer'));
+    expect(item('ki_chablis_soil').servedFormats, contains('short_answer'));
+    expect(item('ki_vouvray_grape').missing, {
+      'short_answer': 'in no short_answer pool',
+    }, reason: 'Vouvray has one key point');
+  });
+
   test('the scope manifest accounts for every objective of both tracks '
       '(SCOPE-1)', () {
     final scope = TrackScopeManifest.parse(

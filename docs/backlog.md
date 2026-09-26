@@ -85,7 +85,7 @@ TASK-008 (tasting grids) and TASK-009 (journal integration) remain; they are T1�
 | G12 | Sub-region atlas: Germany, Austria and Switzerland | C6, G4 | 5 | ☐ |
 | G13 | Sub-region atlas: the United States and the Southern Hemisphere | C4, G5, G8 | 6 | ☐ |
 | **Q** | **Question formats** | | | |
-| Q1 | Typed recall and short written answers | F3 | 4 | ◐ |
+| Q1 | Typed recall and short written answers | F3 | 4 | ☑ |
 | Q2 | Multiple response and completeness assertions | F3 | 4 | ☐ |
 | Q3 | Matching and ordering | F3 | 4 | ☐ |
 | Q4 | Numeric and range answers | F3 | 4 | ☐ |
@@ -608,12 +608,12 @@ Four tasks share one pattern. Each turns the famous regions of one country group
   - Widget tests.
   - The coverage change.
 - **Parallel.** Yes in wave 4.
-- **Status.** Typed recall is done (QF-13):
-  - `formats/typed/`, its view and forward templates for seven relation types, in release 0.6.0;
-  - the grader accepts every correct node and its alternative names, and lets an answer add or drop its type's words; a slip of one letter, or part of the name that names nothing else, is Hard;
-  - the five former known gaps have typed recall, and the baseline lists none.
+- **Status.** Done:
+  - typed recall (QF-13): `formats/typed/`, its view and forward templates for seven relation types, in release 0.6.0. The grader accepts every correct node and its alternative names, and lets an answer add or drop its type's words; a slip of one letter, or part of the name that names nothing else, is Hard. The five former known gaps have typed recall, and the baseline lists none;
+  - short written answers (QF-14): `formats/short_answer/`, its view, and an appellation profile template whose key points are the facts of eight relation types, in release 0.7.0. Thirteen appellations have a pool; each exercise checks up to four points;
+  - the coverage checker counts pooled formats, and an item served only self-graded formats is flashcard-only.
 
-  Reverse typed recall accepts only the subjects the dataset lists, so it waits for Q2's completeness assertions (QF-8). Short written answers remain.
+  Reverse typed recall accepts only the subjects the dataset lists, so it waits for Q2's completeness assertions (QF-8).
 
 #### Q2 · Multiple response and completeness assertions
 
@@ -956,7 +956,7 @@ Every mode requested for this backlog maps to tasks:
 
 | Requested | Tasks |
 |---|---|
-| Simple recall; reverse recall; multiple choice | built (Phases 2–3); typed recall built forward (Q1); short written answers (Q1) and reverse typed recall (Q2) remain |
+| Simple recall; reverse recall; multiple choice | built (Phases 2–3); typed recall (forward) and short written answers built (Q1); reverse typed recall comes with Q2 |
 | Multiple response; matching; ordering; numeric and range | Q2; Q3; Q3; Q4 |
 | Label interpretation | Q5 |
 | Map and geography | G1–G9 |

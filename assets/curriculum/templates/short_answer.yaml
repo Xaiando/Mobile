@@ -1,0 +1,27 @@
+# Question templates for short written answers (backlog Q1, spec §T).
+# Part of the curriculum release in ../curriculum.yaml, in the format of
+# docs/domain-model.md §7.
+
+# The learner writes about one appellation in their own words, then ticks
+# the key points the answer covered. Each key point is an item: ticked is
+# Good, not ticked Again (question-system §4, QF-14). key_points names the
+# relation types whose items are key points, and the label of each, in the
+# order they are listed. A subject with at least two key points gets a pool;
+# an exercise checks at most four of them.
+question_templates:
+  - id: qt_profile_short_answer
+    relation_type: PERMITS_PRINCIPAL_GRAPE
+    direction: forward
+    mode: short_answer
+    variant: profile
+    prompt_template: "Write a short profile of {subject.name}: its grapes, growing environment and rules."
+    parameters:
+      key_points:
+        PERMITS_PRINCIPAL_GRAPE: Principal grape
+        PERMITS_ACCESSORY_GRAPE: Accessory grape
+        HAS_CLIMATE: Climate
+        HAS_SOIL: Soil
+        SUSCEPTIBLE_TO: Vineyard hazard
+        REQUIRES_METHOD: Sparkling method
+        MIN_AGEING: Minimum ageing
+        MIN_WOOD_AGEING: Minimum time in wood

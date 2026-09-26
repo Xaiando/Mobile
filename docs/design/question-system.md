@@ -33,7 +33,7 @@ The **depth** column refines CM-6, and audit QF-6 records it. A track serves a f
 | `mcq` | Multiple choice | recognition | text → 1 of 4 options | 1 | ≥ 3 valid distractors (QG-12) | 1 | built |
 | *reverse* | Reverse recall | recall / recognition | the object asks for the subject | 1 | reverse-safe or distinctive (QG-3) | 3 | built for flashcard and MCQ |
 | `typed` | Typed recall | recall | text → typed answer, graded by name matching | 1 | answer names and alternative names | 2 | built, forward (Q1) |
-| `short_answer` | Short written answer (spec §T) | recall | an "explain" prompt → free text, then a self-check against key points | 2–4, one per key point | key points that are items (principles, facts) | 4 | Q1 |
+| `short_answer` | Short written answer (spec §T) | recall | an "explain" prompt → free text, then a self-check against key points | 2–4, one per key point | key points that are items (principles, facts) | 2 (QF-14) | built: appellation profiles (Q1) |
 | `multiple_response` | Select all that apply | recognition | text → any number of options | all items of one complete set | a completeness assertion (§6) | 2 | Q2 |
 | `matching` | Matching | structured | two columns → pairs | 3–5 | a pool of items sharing a relation type in a scope | 2 | Q3 |
 | `ordering` | Ordering | structured | list → order | 3–6 | an order key: tier chain, process chain, quantity or latitude | 2 | Q3 |
@@ -66,7 +66,7 @@ The **depth** column refines CM-6, and audit QF-6 records it. A track serves a f
 
 A format is **objective** when the app grades it; only the flashcard and the short written answer are self-graded.
 
-**Useful practice** for an item means at least one objective format *and* at least two families. The coverage checker (§8) measures both. An item whose only served format is the flashcard is **flashcard-only**, the state this design exists to prevent.
+**Useful practice** for an item means at least one objective format *and* at least two families. The coverage checker (§8) measures both. An item served only self-graded formats (the flashcard, alone or with the short answer) is **flashcard-only**, the state this design exists to prevent (QF-14).
 
 ---
 

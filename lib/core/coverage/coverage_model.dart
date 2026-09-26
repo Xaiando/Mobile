@@ -2,10 +2,6 @@ import '../database/app_database.dart';
 import '../study/study_planner.dart';
 import 'coverage_formats.dart';
 
-/// The one self-graded format built today: an item served nothing else is
-/// flashcard-only (audit COV-2).
-const _flashcard = 'flashcard';
-
 /// A coverage metric: how many of the items of a track, a domain or an area
 /// have some property (question-system §8, audit COV-1).
 enum CoverageMetric {
@@ -184,9 +180,9 @@ final class ItemCoverage {
   /// The track serves at least one format for the item.
   bool get isTestable => served.isNotEmpty;
 
-  /// The self-graded flashcard is the only format served (COV-2).
-  bool get isFlashcardOnly =>
-      servedFormats.length == 1 && servedFormats.single == _flashcard;
+  /// Only self-graded formats are served, such as the flashcard, alone or
+  /// with the short answer: nothing the app grades (COV-2, QF-14).
+  bool get isFlashcardOnly => isTestable && !hasObjectiveFormat;
 
   bool get hasObjectiveFormat =>
       servedFormats.any((id) => builtFormats[id]?.isObjective ?? false);

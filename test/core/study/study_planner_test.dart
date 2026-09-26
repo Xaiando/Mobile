@@ -172,7 +172,11 @@ void main() {
       final grape = await cardOf('ki_barolo_grape');
       expect(grape.formats.map((f) => f.direction), everyElement('forward'));
       final climate = await cardOf('ki_chablis_climate');
-      expect(climate.formats.map((f) => f.mode), ['flashcard', 'typed']);
+      expect(climate.formats.map((f) => f.mode), [
+        'flashcard',
+        'typed',
+        'short_answer',
+      ]);
     });
   });
 
