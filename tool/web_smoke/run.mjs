@@ -32,6 +32,7 @@ const expected = {
   mapLayers: 10,
   chablisFeature: true,
   chablisFrame: 'n_geo_france',
+  chablisTap: 'n_geo_chablis',
   chablisAncestors: 'Burgundy > France',
   mcqOptions: 4,
   mcqAnswerShown: true,

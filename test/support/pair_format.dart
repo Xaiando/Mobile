@@ -8,10 +8,10 @@ import 'package:sommelier/core/database/app_database.dart';
 import 'package:sommelier/core/questions/exercise.dart';
 import 'package:sommelier/core/questions/exercise_format.dart';
 import 'package:sommelier/core/questions/format_registry.dart';
-import 'package:sommelier/core/questions/formats/flashcard/flashcard_format.dart';
-import 'package:sommelier/core/questions/formats/mcq/mcq_format.dart';
 import 'package:sommelier/features/practice/format_views.dart';
 import 'package:sommelier/features/practice/formats/flashcard_view.dart';
+import 'package:sommelier/features/practice/formats/map_identify_view.dart';
+import 'package:sommelier/features/practice/formats/map_locate_view.dart';
 import 'package:sommelier/features/practice/formats/mcq_view.dart';
 import 'package:sommelier/features/practice/study_session_controller.dart';
 
@@ -52,7 +52,7 @@ class PairFormat extends ExerciseFormat {
   /// One pool per template: every item in force of its relation type.
   @override
   Future<int> generatePools(
-    PoolContext context,
+    GeneratorContext context,
     QuestionTemplate template,
   ) async {
     final items = [
@@ -181,11 +181,7 @@ class PairExercise implements Exercise {
 }
 
 /// The app's formats and the pair format.
-final pairFormats = FormatRegistry(const [
-  FlashcardFormat(),
-  McqFormat(),
-  PairFormat(),
-]);
+final pairFormats = FormatRegistry([...appFormats.formats, const PairFormat()]);
 
 /// The bundled release with a pair template for every relation type that
 /// has a forward template.
@@ -258,6 +254,16 @@ final pairViews = <String, FormatView>{
   'flashcard': FormatView(
     icon: Icons.style_outlined,
     builder: FlashcardView.new,
+  ),
+  'map_locate': FormatView(
+    icon: Icons.ads_click,
+    builder: MapLocateView.new,
+    expands: true,
+  ),
+  'map_identify': FormatView(
+    icon: Icons.map_outlined,
+    builder: MapIdentifyView.new,
+    expands: true,
   ),
   PairFormat.formatId: FormatView(
     icon: Icons.join_inner,

@@ -7,6 +7,18 @@ import 'package:sommelier/core/curriculum/curriculum_ingestion.dart';
 import '../../support/curriculum_fixture.dart';
 import '../../support/fixture.dart';
 
+/// The formats the fixture's policies are written for: the checker's rules
+/// do not depend on which formats exist.
+const fixtureFormats = ['flashcard', 'mcq'];
+
+/// [text] parsed as a policy for [fixtureFormats].
+CoveragePolicy fixturePolicy(String text, {String? path}) =>
+    CoveragePolicy.parse(
+      text,
+      path: path ?? 'coverage_policy.yaml',
+      formats: fixtureFormats,
+    );
+
 /// The date the coverage fixture is measured on: its release date.
 const coverageDate = '2026-01-01';
 
@@ -272,7 +284,7 @@ Future<List<TrackCoverage>> coverageOfTracks(
       db,
       clock: Clock.fixed(DateTime(2026, 1, 1, 12)),
     ).ingest(datasetOf(dataset));
-    final checker = CoverageChecker(db, CoveragePolicy.parse(policy));
+    final checker = CoverageChecker(db, fixturePolicy(policy));
     return [
       for (final track
           in tracks ?? [for (final t in await checker.selectableTracks()) t.id])

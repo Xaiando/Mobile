@@ -105,6 +105,24 @@ class _TurnView extends ConsumerWidget {
     final turn = state.turn!;
     final theme = Theme.of(context);
     final view = ref.watch(formatViewsProvider)[turn.exercise.formatId];
+    if (view != null && view.expands) {
+      // A map fills the height left, and pans instead of scrolling.
+      return Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            LinearProgressIndicator(value: state.progress),
+            const SizedBox(height: 12),
+            _Badges(turn: turn, icon: view.icon),
+            const SizedBox(height: 12),
+            Text(turn.exercise.prompt, style: theme.textTheme.titleLarge),
+            const SizedBox(height: 12),
+            Expanded(child: view.builder(turn)),
+          ],
+        ),
+      );
+    }
     return ListView(
       padding: const EdgeInsets.all(16),
       children: [

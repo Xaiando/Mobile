@@ -460,7 +460,6 @@ class _AttributionButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return IconButton.filledTonal(
       tooltip: 'Map data sources',
-      visualDensity: VisualDensity.compact,
       icon: const Icon(Icons.info_outline),
       onPressed: () {
         final sources = attributions();

@@ -95,6 +95,18 @@ final class GeoLayer {
 
   bool isVisibleAt(double zoom) => zoom >= minZoom && zoom < maxZoom;
 
+  /// This layer drawn at every zoom. The shapes are shared, not copied. A
+  /// map question draws its candidates' layer at any zoom, small ones as
+  /// markers, so every answer can be seen and tapped however far the
+  /// learner zooms in or out (geography §5).
+  GeoLayer drawnAtEveryZoom() => GeoLayer._(
+    id: id,
+    shapes: shapes,
+    minZoom: 0,
+    maxZoom: double.infinity,
+    attribution: attribution,
+  );
+
   static String _onlyObject(Topology topology) {
     if (topology.objects.length == 1) return topology.objects.keys.single;
     throw ArgumentError(

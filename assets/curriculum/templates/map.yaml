@@ -1,0 +1,10 @@
+# Question templates for the map formats (backlog G4, geography §4).
+# Part of the curriculum release in ../curriculum.yaml, in the format of
+# docs/domain-model.md §7.
+
+# A location item is asked on the map of its area's frame (geography §5):
+# found by a tap, or named when highlighted. Both practise the same item as
+# its text questions (GEO-1). Only areas drawn on the map are asked.
+question_templates:
+  - { id: qt_located_in_fwd_map_locate, relation_type: LOCATED_IN, direction: forward, mode: map_locate, prompt_template: "Find {subject.name} on the map." }
+  - { id: qt_located_in_fwd_map_identify, relation_type: LOCATED_IN, direction: forward, mode: map_identify, prompt_template: "Name the highlighted area." }

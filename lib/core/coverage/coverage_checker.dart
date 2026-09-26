@@ -246,6 +246,7 @@ final class CoverageChecker {
       SkipReason.mcqDisabled => 'mcq_disabled',
       SkipReason.tooFewDistractors => 'too few distractors',
       SkipReason.notReverseSafe => 'not reverse-safe',
+      SkipReason.notEligible => 'the format cannot ask it',
       null => 'not generated',
     };
   }

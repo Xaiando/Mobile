@@ -1,5 +1,7 @@
 import 'exercise_format.dart';
 import 'formats/flashcard/flashcard_format.dart';
+import 'formats/map_identify/map_identify_format.dart';
+import 'formats/map_locate/map_locate_format.dart';
 import 'formats/mcq/mcq_format.dart';
 
 /// The question formats, by ID (question-system §9). The validator, the
@@ -38,4 +40,9 @@ class FormatRegistry {
 
 /// The formats the app ships. A new format adds one line here, and its
 /// view one line in `lib/features/practice/format_views.dart`.
-final appFormats = FormatRegistry(const [FlashcardFormat(), McqFormat()]);
+final appFormats = FormatRegistry(const [
+  FlashcardFormat(),
+  McqFormat(),
+  MapLocateFormat(),
+  MapIdentifyFormat(),
+]);

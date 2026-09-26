@@ -37,9 +37,10 @@ class PresentationContext {
   final DateTime now;
 }
 
-/// What a pooled format generates from, inside the ingestion transaction.
-class PoolContext {
-  const PoolContext(this.db, {required this.today, required this.items});
+/// What a format generates from, inside the ingestion transaction: its
+/// pools, or which items it can ask.
+class GeneratorContext {
+  const GeneratorContext(this.db, {required this.today, required this.items});
 
   final AppDatabase db;
 
@@ -85,8 +86,20 @@ abstract class ExerciseFormat {
 
   /// Writes the pools of [template] and returns how many; only a pooled
   /// format has any.
-  Future<int> generatePools(PoolContext context, QuestionTemplate template) =>
-      Future.value(0);
+  Future<int> generatePools(
+    GeneratorContext context,
+    QuestionTemplate template,
+  ) => Future.value(0);
+
+  /// Whether this format can ask [item] with [template]: a single-item
+  /// format generates its question only then. A map format, for instance,
+  /// needs the item's area drawn and framed. Every item is eligible by
+  /// default.
+  Future<bool> isEligible(
+    GeneratorContext context,
+    KnowledgeItem item,
+    QuestionTemplate template,
+  ) => Future.value(true);
 
   /// Presents [itemId] with [questionTemplateId], fixed by [seed].
   Future<Exercise> present(
