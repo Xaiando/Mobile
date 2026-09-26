@@ -148,30 +148,44 @@ class GeometryRepository {
   Future<List<MappedNode>> geometriesOf(String nodeId) =>
       _mapped('g.knowledge_node_id = ?1', [Variable(nodeId)]);
 
-  /// The nodes of [nodeType] whose label point lies in [box], by name.
+  /// The nodes of [nodeType] whose label point lies in [box], by name, each
+  /// once: a node drawn in several layers counts in its coarsest.
   Future<List<MappedNode>> candidatesIn(
     GeoBox box, {
     required String nodeType,
-  }) => _mapped(
-    'n.node_type = ?1 AND g.label_lon BETWEEN ?2 AND ?3 '
-    'AND g.label_lat BETWEEN ?4 AND ?5',
-    [
-      Variable(nodeType),
-      Variable(box.minLon),
-      Variable(box.maxLon),
-      Variable(box.minLat),
-      Variable(box.maxLat),
-    ],
+  }) async => _once(
+    await _mapped(
+      'n.node_type = ?1 AND g.label_lon BETWEEN ?2 AND ?3 '
+      'AND g.label_lat BETWEEN ?4 AND ?5',
+      [
+        Variable(nodeType),
+        Variable(box.minLon),
+        Variable(box.maxLon),
+        Variable(box.minLat),
+        Variable(box.maxLat),
+      ],
+    ),
   );
+
+  /// [mapped] with each node once, in its first, coarsest, layer.
+  static List<MappedNode> _once(List<MappedNode> mapped) {
+    final seen = <String>{};
+    return [
+      for (final node in mapped)
+        if (seen.add(node.id)) node,
+    ];
+  }
 
   /// The drawn nodes of [nodeId]'s type that share one of its parents.
   Future<List<MappedNode>> siblingsOf(String nodeId) async {
     final siblings = {for (final s in await _graph.siblings(nodeId)) s.id};
     if (siblings.isEmpty) return const [];
     final ids = siblings.toList();
-    return _mapped('g.knowledge_node_id IN (${_marks(ids.length)})', [
-      for (final id in ids) Variable(id),
-    ]);
+    return _once(
+      await _mapped('g.knowledge_node_id IN (${_marks(ids.length)})', [
+        for (final id in ids) Variable(id),
+      ]),
+    );
   }
 
   /// The frame of a map question about [nodeId]: its nearest ancestor that

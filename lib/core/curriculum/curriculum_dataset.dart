@@ -613,7 +613,10 @@ class _Parser {
     return CurriculumDataset(
       version: version,
       publishedAt: DateTime.parse(publishedAt),
-      checksum: _checksum([...includes, ?geography]),
+      checksum: _checksum([
+        ...includes,
+        if (geography != null) '${manifest['geography']}',
+      ]),
       files: [for (final file in files) file.path],
       locations: locations,
       curriculumDomains: _convert(
@@ -988,8 +991,9 @@ List<String> _includes(String path, YamlMap manifest) {
 String? _geography(String path, YamlMap manifest) {
   final value = manifest['geography'];
   if (value == null) return null;
+  final folder = _folderOf(path);
   final parts = [
-    for (final part in _folderOf(path).split('/'))
+    for (final part in folder.split('/'))
       if (part.isNotEmpty) part,
   ];
   var valid =
@@ -1014,7 +1018,8 @@ String? _geography(String path, YamlMap manifest) {
       '$path: geography "$value" is not the relative path of a .yaml file',
     );
   }
-  return parts.join('/');
+  // A folder from the root, such as /tmp/x on Linux, stays one.
+  return '${folder.startsWith('/') ? '/' : ''}${parts.join('/')}';
 }
 
 String _slashes(String path) => path.replaceAll(r'\', '/');

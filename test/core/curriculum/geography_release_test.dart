@@ -108,6 +108,30 @@ void main() {
         datasetGeography(curriculumAssetPath, 'geography: ../geography/a.yaml'),
         'assets/geography/a.yaml',
       );
+      expect(
+        datasetGeography(
+          '/tmp/x/assets/curriculum/curriculum.yaml',
+          'geography: ../geography/a.yaml',
+        ),
+        '/tmp/x/assets/geography/a.yaml',
+        reason: 'a folder from the root stays one',
+      );
+    });
+
+    test('has the same checksum wherever the release is read', () {
+      final temp = Directory.systemTemp.createTempSync('release');
+      addTearDown(() => temp.deleteSync(recursive: true));
+      for (final path in bundledDataset().files) {
+        File('${temp.path}/$path')
+          ..parent.createSync(recursive: true)
+          ..writeAsStringSync(File(path).readAsStringSync());
+      }
+      final elsewhere = CurriculumDataset.loadSync(
+        '${temp.path}/$curriculumAssetPath'.replaceAll(r'\', '/'),
+        (path) => File(path).readAsStringSync(),
+      );
+      expect(elsewhere.mapLayers, hasLength(10));
+      expect(elsewhere.checksum, bundledDataset().checksum);
     });
   });
 
