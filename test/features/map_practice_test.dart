@@ -14,7 +14,6 @@ import 'package:sommelier/core/questions/formats/map/map_exercise.dart';
 import 'package:sommelier/core/questions/formats/map_identify/map_identify_format.dart';
 import 'package:sommelier/core/questions/formats/map_locate/map_locate_format.dart';
 import 'package:sommelier/core/questions/formats/mcq/mcq_format.dart';
-import 'package:sommelier/core/questions/question_providers.dart';
 import 'package:sommelier/core/study/learner_profile.dart';
 import 'package:sommelier/features/map/map_canvas.dart';
 import 'package:sommelier/features/map/map_presentation.dart';
@@ -71,11 +70,7 @@ void main() {
     tester.view.physicalSize = const Size(1080, 2340);
     tester.view.devicePixelRatio = 3;
     addTearDown(tester.view.reset);
-    await pumpApp(
-      tester,
-      db,
-      overrides: [formatRegistryProvider.overrideWithValue(formats)],
-    );
+    await pumpApp(tester, db, overrides: servingOnly(formats));
     await tap(tester, find.text('WSET Level 3'));
     // Every item in one session, so the drawn areas come up.
     await tester.runAsync(

@@ -23,11 +23,17 @@ void main() {
         ),
       ),
     );
-    expect(() => appFormats.require('typed'), throwsArgumentError);
+    expect(() => appFormats.require('matching'), throwsArgumentError);
   });
 
   test('the app ships flashcard and MCQ at the depths and ranks of CM-6', () {
-    expect(appFormats.ids, ['flashcard', 'mcq', 'map_locate', 'map_identify']);
+    expect(appFormats.ids, [
+      'flashcard',
+      'mcq',
+      'map_locate',
+      'map_identify',
+      'typed',
+    ]);
     final mcq = appFormats.require('mcq');
     final card = appFormats.require('flashcard');
     int depth(String id, String direction) =>

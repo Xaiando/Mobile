@@ -211,8 +211,12 @@ void main() {
       ]);
     });
 
-    test('a curator-disabled MCQ leaves the flashcard (QG-6)', () async {
-      expect(await templatesOf('ki_champagne_soil'), ['qt_soil_fwd_flashcard']);
+    test('a curator-disabled MCQ leaves the flashcard and typed recall '
+        '(QG-6)', () async {
+      expect(await templatesOf('ki_champagne_soil'), [
+        'qt_soil_fwd_flashcard',
+        'qt_soil_fwd_typed',
+      ]);
     });
 
     test('quantities draw other durations, nearest first', () async {

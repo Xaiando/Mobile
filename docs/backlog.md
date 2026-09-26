@@ -85,7 +85,7 @@ TASK-008 (tasting grids) and TASK-009 (journal integration) remain; they are T1�
 | G12 | Sub-region atlas: Germany, Austria and Switzerland | C6, G4 | 5 | ☐ |
 | G13 | Sub-region atlas: the United States and the Southern Hemisphere | C4, G5, G8 | 6 | ☐ |
 | **Q** | **Question formats** | | | |
-| Q1 | Typed recall and short written answers | F3 | 4 | ☐ |
+| Q1 | Typed recall and short written answers | F3 | 4 | ◐ |
 | Q2 | Multiple response and completeness assertions | F3 | 4 | ☐ |
 | Q3 | Matching and ordering | F3 | 4 | ☐ |
 | Q4 | Numeric and range answers | F3 | 4 | ☐ |
@@ -186,7 +186,7 @@ For a learner preparing now, the [study tree](content/spaetburgunder-study-tree.
   - The policy declares format capabilities for every relation type in the dataset. The checker fails if a relation type is missing from the policy.
   - `dart run tool/coverage_report.dart --track WSET_L3 --format md|json` runs offline.
   - `coverage_baseline.json` is committed. The build fails if a metric drops below it, or if a *new* core item is flashcard-only.
-  - Known gaps are allowed only when listed in the baseline, each with a reason and the task that will close it. The five `mcq_disabled` items that are flashcard-only today are the first entries; Q1 closes them.
+  - Known gaps are allowed only when listed in the baseline, each with a reason and the task that will close it. The five `mcq_disabled` items that are flashcard-only today are the first entries; Q1 closes them (typed recall, release 0.6.0).
   - The PR attaches the report for the current dataset.
 - **Required automated tests.**
   - Fixture datasets for each metric and each gap rule.
@@ -608,6 +608,12 @@ Four tasks share one pattern. Each turns the famous regions of one country group
   - Widget tests.
   - The coverage change.
 - **Parallel.** Yes in wave 4.
+- **Status.** Typed recall is done (QF-13):
+  - `formats/typed/`, its view and forward templates for seven relation types, in release 0.6.0;
+  - the grader accepts every correct node and its alternative names, and lets an answer add or drop its type's words; a slip of one letter, or part of the name that names nothing else, is Hard;
+  - the five former known gaps have typed recall, and the baseline lists none.
+
+  Reverse typed recall accepts only the subjects the dataset lists, so it waits for Q2's completeness assertions (QF-8). Short written answers remain.
 
 #### Q2 · Multiple response and completeness assertions
 
@@ -618,6 +624,7 @@ Four tasks share one pattern. Each turns the famous regions of one country group
   - Questions are generated only for asserted sets (QF-8).
   - Grading is per item (QF-4).
   - Distractors follow QG-4.
+  - Reverse typed recall (QF-13) is generated for each asserted reverse set.
 - **Required automated tests.** Refusal for a set without an assertion; per-item grading with false positives and misses.
 - **Parallel.** Yes in wave 4.
 
@@ -949,7 +956,7 @@ Every mode requested for this backlog maps to tasks:
 
 | Requested | Tasks |
 |---|---|
-| Simple recall; reverse recall; multiple choice | built (Phases 2–3); Q1 adds typed recall in both directions and short written answers |
+| Simple recall; reverse recall; multiple choice | built (Phases 2–3); typed recall built forward (Q1); short written answers (Q1) and reverse typed recall (Q2) remain |
 | Multiple response; matching; ordering; numeric and range | Q2; Q3; Q3; Q4 |
 | Label interpretation | Q5 |
 | Map and geography | G1–G9 |

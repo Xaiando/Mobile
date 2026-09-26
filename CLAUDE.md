@@ -117,6 +117,8 @@ Ingestion regenerates `questions`, `question_distractors` and the exercise pools
 
 A format can decline an item with `isEligible`: the map formats (`map_locate`, `map_identify`) ask only location items whose area is drawn and framed (GEO-27). A composite format grades several items: one `ItemGrade` each, always including the exercise's primary item. They share an `exercise_id`. Co-items count as bonus reviews and take no session slot. `test/support/pair_format.dart` is a worked example.
 
+Typed recall (`typed`, QF-13) accepts every correct node's name and its `node_alternative_names`. When a correct answer is refused, add the missing synonym to the dataset; do not loosen the grader. An app test that serves only some formats passes `overrides: servingOnly(registry)`, so the release still ingests with every format.
+
 ## Question coverage
 
 `tool/coverage_report.dart` measures, for each selectable track, which items can be practised and with which formats (backlog F1, question-system §8). `assets/curriculum/coverage_policy.yaml` holds the policy and `coverage_baseline.json` the ratchet. The app bundles neither.

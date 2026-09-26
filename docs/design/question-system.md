@@ -32,7 +32,7 @@ The **depth** column refines CM-6, and audit QF-6 records it. A track serves a f
 | `flashcard` | Simple recall | recall | text → self-graded reveal | 1 | a template | 2 | built |
 | `mcq` | Multiple choice | recognition | text → 1 of 4 options | 1 | ≥ 3 valid distractors (QG-12) | 1 | built |
 | *reverse* | Reverse recall | recall / recognition | the object asks for the subject | 1 | reverse-safe or distinctive (QG-3) | 3 | built for flashcard and MCQ |
-| `typed` | Typed recall | recall | text → typed answer, graded by name matching | 1 | answer names and alternative names | 2 | Q1 |
+| `typed` | Typed recall | recall | text → typed answer, graded by name matching | 1 | answer names and alternative names | 2 | built, forward (Q1) |
 | `short_answer` | Short written answer (spec §T) | recall | an "explain" prompt → free text, then a self-check against key points | 2–4, one per key point | key points that are items (principles, facts) | 4 | Q1 |
 | `multiple_response` | Select all that apply | recognition | text → any number of options | all items of one complete set | a completeness assertion (§6) | 2 | Q2 |
 | `matching` | Matching | structured | two columns → pairs | 3–5 | a pool of items sharing a relation type in a scope | 2 | Q3 |
@@ -79,7 +79,7 @@ Every graded item gets exactly one `review_events` row, whichever format produce
 | flashcard | item | The learner grades 1–4 (FS-6). |
 | short answer | each key point's item | After writing, the learner ticks the key points the answer covered. Ticked is Good; not ticked is Again. The text is stored in `answer_payload` and is never machine-graded in V0.1 (spec §T). |
 | MCQ, map identify, map locate | item | Right is Good; wrong is Again (FS-6). |
-| typed | item | An exact match after `normalizeName`, or an alternative name, is Good. One edit away on the normalized form is Hard. Anything else is Again. |
+| typed | item | An exact match after `normalizeName`, or an alternative name, is Good. One edit away on the normalized form is Hard. Anything else is Again. As built (QF-13): the answer type's words may be added or left out ("oceanic climate"); whole words of the answer that name nothing else ("frost" for *Spring frost*) are Hard; the name of any other node is Again. |
 | numeric | item | Within the template's exact band is Good, within the tolerance band is Hard, outside is Again. Legal minima are exact. A range answer is right when it falls inside the stated range. |
 | multiple response | each item of the set | A correct option selected is Good, or Hard if the learner also selected a wrong option. A correct option missed is Again. |
 | matching | each pair's item | A right pair is Good; a wrong pair is Again. |

@@ -68,7 +68,13 @@ void main() {
         'Reasoning |',
       ),
     );
-    expect(out, contains('Known until Q1'));
+    expect(
+      out,
+      contains(
+        '**Blocking gaps.** The build fails on any that is not a known gap '
+        'in the baseline.\n\nNone.',
+      ),
+    );
     expect(out, contains('**passes**'));
     expect(out, contains('(question-system §3, audit COV-2).'));
   });
@@ -107,21 +113,59 @@ void main() {
     expect(out, contains('there is no baseline at'));
   });
 
-  test(
-    '--update-baseline records the coverage and keeps the known gaps',
-    () async {
-      final baseline = File(pathOf('coverage_baseline.json'));
-      final committed = baseline.readAsStringSync().replaceAll('\r\n', '\n');
-      baseline.writeAsStringSync(
-        committed.replaceFirst(RegExp(r'"testable": \d+'), '"testable": 999'),
-      );
-      final (code, out) = await run(['--update-baseline']);
-      expect(code, exitOk, reason: out);
-      expect(out, contains('5 known gaps'));
-      expect(baseline.readAsStringSync(), committed);
-      expect((await run([])).$1, exitOk);
-    },
-  );
+  test('--update-baseline records the coverage', () async {
+    final baseline = File(pathOf('coverage_baseline.json'));
+    final committed = baseline.readAsStringSync().replaceAll('\r\n', '\n');
+    baseline.writeAsStringSync(
+      committed.replaceFirst(RegExp(r'"testable": \d+'), '"testable": 999'),
+    );
+    final (code, out) = await run(['--update-baseline']);
+    expect(code, exitOk, reason: out);
+    expect(out, contains('0 known gaps'));
+    expect(baseline.readAsStringSync(), committed);
+    expect((await run([])).$1, exitOk);
+  });
+
+  test('--update-baseline keeps the known gaps still open', () async {
+    // Without typed recall of climates, three items are flashcard-only.
+    final typed = File(pathOf('templates/typed.yaml'));
+    typed.writeAsStringSync(
+      typed
+          .readAsStringSync()
+          .replaceAll('\r\n', '\n')
+          .replaceFirst(RegExp(r'  - \{ id: qt_climate_fwd_typed.*\n'), ''),
+    );
+    String gap(String item) =>
+        '{"item": "$item", "gap": "flashcard_only", '
+        '"reason": "A test gap.", "closed_by": "Q1"}';
+    final gaps = [
+      'ki_chablis_climate',
+      'ki_chablis_frost', // typed recall closes it
+      'ki_chianti_classico_climate',
+      'ki_muscadet_sevre_et_maine_climate',
+    ].map(gap).join(', ');
+    final baseline = File(pathOf('coverage_baseline.json'));
+    baseline.writeAsStringSync(
+      baseline.readAsStringSync().replaceFirst(
+        '"known_gaps": []',
+        '"known_gaps": [$gaps]',
+      ),
+    );
+
+    final (code, out) = await run(['--update-baseline']);
+    expect(code, exitOk, reason: out);
+    expect(out, contains('3 known gaps, 1 closed ones removed'));
+    final (_, report) = await run([]);
+    expect(
+      report,
+      contains(
+        '- `ki_chablis_climate` (Burgundy): flashcard-only; mcq: '
+        'mcq_disabled; typed: no typed template for HAS_CLIMATE. Known until '
+        'Q1: A test gap.',
+      ),
+    );
+    expect(report, isNot(contains('`ki_chablis_frost` (Burgundy): flashcard')));
+  });
 
   test('refuses a policy that leaves out a relation type', () async {
     dropFromPolicy('LOCATED_IN');
