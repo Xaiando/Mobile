@@ -9,6 +9,7 @@ import '../database/app_database.dart';
 import '../questions/exercise_format.dart';
 import '../questions/format_registry.dart';
 import '../time/utc_clock.dart';
+import 'format_ladder.dart';
 import 'memory_state.dart';
 import '../journal/wine_journal.dart';
 import 'priority.dart';
@@ -75,6 +76,9 @@ class QuestionFormat {
   /// Easiest first: recognition before recall, forward before reverse.
   int get difficultyRank => _format.difficultyRank(direction);
 
+  /// The memory bands in which the ladder prefers it (F4, QF-7).
+  Set<MemoryBand> get preferredBands => _format.preferredBands(direction);
+
   @override
   String toString() => questionTemplateId;
 }
@@ -91,6 +95,7 @@ class StudyCard {
     required this.priority,
     required this.isStale,
     this.journalFactor = 1,
+    this.lastTemplateId,
   });
 
   final KnowledgeItem item;
@@ -115,6 +120,10 @@ class StudyCard {
   /// is part of [priority], and it also orders new items.
   final double journalFactor;
 
+  /// The template of the item's last review, which the ladder does not
+  /// repeat while it can serve another format (QF-7); null while new.
+  final String? lastTemplateId;
+
   String get itemId => item.id;
   bool get isNew => state == null;
   bool get isUnverified => item.verificationStatus == 'unverified';
@@ -122,8 +131,8 @@ class StudyCard {
 
   bool isDue(DateTime now) => state != null && !state!.due.isAfter(now);
 
-  /// This card after a review in the current session.
-  StudyCard reviewed(ReviewState after) => StudyCard(
+  /// This card after a review in the current session with [templateId].
+  StudyCard reviewed(ReviewState after, {String? templateId}) => StudyCard(
     item: item,
     mapping: mapping,
     formats: formats,
@@ -132,13 +141,15 @@ class StudyCard {
     priority: priority,
     isStale: isStale,
     journalFactor: journalFactor,
+    lastTemplateId: templateId ?? lastTemplateId,
   );
 
-  /// The format to present: a new item starts with its easiest format;
-  /// later presentations vary it, since every format updates the same
-  /// memory state (FS-2).
-  QuestionFormat chooseFormat(Random random) =>
-      isNew ? formats.first : formats[random.nextInt(formats.length)];
+  /// The format to present, on the presentation [ladder] (F4). Every
+  /// format updates the same memory state (FS-2).
+  QuestionFormat chooseFormat(
+    Random random, {
+    FormatLadder ladder = const FormatLadder(),
+  }) => ladder.choose(this, random);
 
   @override
   String toString() => '$itemId ${priority ?? '(new)'}';
@@ -275,6 +286,7 @@ class StudyPlanner {
       for (final state in await db.select(db.reviewStates).get())
         state.knowledgeItemId: state,
     };
+    final lastTemplates = await _lastTemplates();
     final scheduler = await _scheduler();
     final staleCutoff = staleBefore(now);
     final lastMet = await WineJournal(db).lastMetByNode();
@@ -344,6 +356,7 @@ class StudyPlanner {
                 ),
           isStale: item.lastVerifiedAt.isBefore(staleCutoff),
           journalFactor: j,
+          lastTemplateId: lastTemplates[item.id],
         ),
       );
     }
@@ -560,6 +573,23 @@ class StudyPlanner {
     // Before startup seeds version 1, its values are the package defaults.
     return config == null ? fsrs.Scheduler() : schedulerFor(config);
   }
+
+  /// The template of each item's latest review. SQLite takes the other
+  /// columns of an aggregate query from the row that has the maximum.
+  Future<Map<String, String>> _lastTemplates() async => {
+    for (final row
+        in await db
+            .customSelect(
+              '''
+      SELECT knowledge_item_id, question_template_id, MAX(reviewed_at)
+      FROM review_events GROUP BY knowledge_item_id''',
+              readsFrom: {db.reviewEvents},
+            )
+            .get())
+      row.read<String>('knowledge_item_id'): row.read<String>(
+        'question_template_id',
+      ),
+  };
 
   /// Every template that serves each item: its generated questions, and
   /// the templates of the exercise pools that hold it.

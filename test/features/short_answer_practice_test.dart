@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:sommelier/core/database/app_database.dart';
+import 'package:sommelier/core/questions/exercise_format.dart';
 import 'package:sommelier/core/questions/format_registry.dart';
 import 'package:sommelier/core/questions/formats/flashcard/flashcard_format.dart';
 import 'package:sommelier/core/questions/formats/mcq/mcq_format.dart';
@@ -15,8 +16,8 @@ import 'package:sommelier/features/practice/study_session_controller.dart';
 import '../support/app_fixture.dart';
 import '../support/fixture.dart';
 
-/// Short answers at every depth, ahead of the other formats, so a new item
-/// in a pool starts with one.
+/// Short answers at every depth and in every band, ahead of the other
+/// formats, so a new item in a pool starts with one.
 class _ShortAnswerFirst extends ShortAnswerFormat {
   const _ShortAnswerFirst();
 
@@ -25,6 +26,9 @@ class _ShortAnswerFirst extends ShortAnswerFormat {
 
   @override
   int difficultyRank(String direction) => -3;
+
+  @override
+  Set<MemoryBand> preferredBands(String direction) => MemoryBand.values.toSet();
 }
 
 /// Backlog Q1: short written answers in a practice session (QF-14).

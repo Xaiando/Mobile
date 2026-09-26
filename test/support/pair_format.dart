@@ -45,9 +45,13 @@ class PairFormat extends ExerciseFormat {
   @override
   int requiredDepth(String direction) => 1;
 
-  /// Easiest of all, so a new item's session presents it.
+  /// Easiest of all, and preferred in every band, so a new item's session
+  /// presents it.
   @override
   int difficultyRank(String direction) => -1;
+
+  @override
+  Set<MemoryBand> preferredBands(String direction) => MemoryBand.values.toSet();
 
   /// One pool per template: every item in force of its relation type.
   @override

@@ -108,6 +108,8 @@ FS-15 lets later presentations draw a served format at random. The ladder (QF-7)
 
 Two variety rules apply: never repeat the item's last format when another is served, and once in five presentations pick at random from the served formats so the ladder does not overfit. The thresholds are provisional, like the weights of A-7.
 
+**As built (F4, QF-15).** `FormatLadder` (`lib/core/study/format_ladder.dart`) chooses; each format declares the bands it is preferred in, by default from its family, and the short answer waits until an item is maturing. Within the item's band, or the nearest band that has a preferred format, the format is drawn at random, so no preferred format starves. A new item still starts with its easiest format.
+
 ---
 
 ## 6. Closed-world safeguards

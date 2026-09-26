@@ -5,8 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:sommelier/core/database/app_database.dart';
-import 'package:sommelier/core/questions/exercise_format.dart';
 import 'package:sommelier/core/questions/format_registry.dart';
+import 'package:sommelier/core/questions/formats/flashcard/flashcard_format.dart';
+import 'package:sommelier/core/questions/formats/mcq/mcq_format.dart';
 import 'package:sommelier/core/questions/formats/typed/typed_format.dart';
 import 'package:sommelier/core/time/time_providers.dart';
 import 'package:sommelier/features/practice/practice_screen.dart';
@@ -33,13 +34,10 @@ void main() {
           Clock.fixed(DateTime.utc(2026, 10, 1, 9)),
         ),
         studyRandomProvider.overrideWithValue(Random(1)),
-        // Each answer settles one item, so the counts below hold; composite
-        // exercises have tests of their own.
+        // Text formats that settle one item each, so the counts below hold;
+        // maps and composite exercises have tests of their own.
         ...servingOnly(
-          FormatRegistry([
-            for (final format in appFormats.formats)
-              if (format.generation == FormatGeneration.single) format,
-          ]),
+          FormatRegistry(const [FlashcardFormat(), McqFormat(), TypedFormat()]),
         ),
       ],
     );
