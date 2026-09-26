@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:sommelier/core/database/app_database.dart';
+import 'package:sommelier/core/questions/exercise_format.dart';
 import 'package:sommelier/core/questions/format_registry.dart';
 import 'package:sommelier/core/questions/formats/flashcard/flashcard_format.dart';
 import 'package:sommelier/core/questions/formats/mcq/mcq_format.dart';
@@ -17,8 +18,8 @@ import 'package:sommelier/features/practice/study_session_controller.dart';
 import '../support/app_fixture.dart';
 import '../support/fixture.dart';
 
-/// Typed recall at every depth, ahead of the other formats, so a new item
-/// starts with it.
+/// Typed recall at every depth and in every band, ahead of the other
+/// formats, so a new item starts with it.
 class _TypedFirst extends TypedFormat {
   const _TypedFirst();
 
@@ -27,6 +28,9 @@ class _TypedFirst extends TypedFormat {
 
   @override
   int difficultyRank(String direction) => -2;
+
+  @override
+  Set<MemoryBand> preferredBands(String direction) => MemoryBand.values.toSet();
 }
 
 /// Backlog Q1: typed recall in a practice session.

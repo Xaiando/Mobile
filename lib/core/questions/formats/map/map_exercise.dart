@@ -26,16 +26,15 @@ enum MapMode {
   blank,
 }
 
-/// The mode for an item's memory, until the presentation ladder (F4)
-/// chooses: labelled while the item is new or on a step, then outline,
-/// minimal and blank as its stability passes 7 and 30 days (GEO-8, the
-/// bands of question-system §5).
-MapMode mapModeFor(ReviewState? state) {
-  if (state == null || state.step != null) return MapMode.labelled;
-  if (state.stability < 7) return MapMode.outline;
-  if (state.stability < 30) return MapMode.minimal;
-  return MapMode.blank;
-}
+/// The mode for an item's memory, on the ladder's bands (F4, GEO-8): labelled
+/// while the item is new or on a step, then outline, minimal and blank as
+/// its stability passes 7 and 30 days.
+MapMode mapModeFor(ReviewState? state) => switch (MemoryBand.of(state)) {
+  MemoryBand.learning => MapMode.labelled,
+  MemoryBand.young => MapMode.outline,
+  MemoryBand.maturing => MapMode.minimal,
+  MemoryBand.mature => MapMode.blank,
+};
 
 /// A map question (backlog G4): an area to find or to name, on the frame of
 /// geography §5. It practises the area's location item (GEO-1, GEO-6).

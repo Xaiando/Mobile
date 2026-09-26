@@ -122,6 +122,13 @@ class ShortAnswerFormat extends ExerciseFormat {
   @override
   int difficultyRank(String direction) => 8;
 
+  /// Several facts at once, so the ladder waits until they are maturing.
+  @override
+  Set<MemoryBand> preferredBands(String direction) => const {
+    MemoryBand.maturing,
+    MemoryBand.mature,
+  };
+
   /// Each key point's label, by relation type, in the template's order; null
   /// when the parameters do not name them.
   static Map<String, String>? keyPointsOf(QuestionTemplate template) {
