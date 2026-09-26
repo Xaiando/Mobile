@@ -113,7 +113,8 @@ void main() {
     expect(await db.select(db.reviewStates).get(), isEmpty);
   });
 
-  test('refuses to grade an item twice, or one it does not practise', () async {
+  test('refuses to grade an item twice, one it does not practise, or '
+      'without the primary item', () async {
     final exercise = await pair('ki_chablis_grape');
     await expectLater(
       reviews.recordExercise(exercise, [
@@ -125,6 +126,13 @@ void main() {
     await expectLater(
       reviews.recordExercise(exercise, [
         ItemGrade('ki_barolo_grape', fsrs.Rating.good),
+      ]),
+      throwsArgumentError,
+    );
+    // A co-item alone: the session would have no result for its card.
+    await expectLater(
+      reviews.recordExercise(exercise, [
+        ItemGrade(exercise.coItemId, fsrs.Rating.good),
       ]),
       throwsArgumentError,
     );

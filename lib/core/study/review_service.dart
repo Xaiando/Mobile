@@ -147,6 +147,15 @@ class ReviewService {
         'grade an item ${exercise.formatId} does not practise',
       );
     }
+    // A format may leave co-items ungraded, as a drill stops at its first
+    // wrong level, but it always grades the item the session planned.
+    if (!graded.contains(exercise.primaryItemId)) {
+      throw ArgumentError.value(
+        graded,
+        'grades',
+        'leave out the primary item ${exercise.primaryItemId}',
+      );
+    }
     _checkResponseTime(responseTime);
     final exerciseId = grades.length > 1 ? newUuid(random) : null;
     return db.transaction(() async {
