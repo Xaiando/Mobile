@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:sommelier/core/curriculum/curriculum_ingestion.dart';
 import 'package:sommelier/core/database/app_database.dart';
+import 'package:sommelier/core/database/curriculum_writes.dart';
 import 'package:sommelier/core/geography/geometry_repository.dart';
 
 import '../../support/curriculum_fixture.dart';
@@ -76,6 +77,38 @@ void main() {
     );
     expect(ids(inBurgundy), containsAll(['n_geo_chablis', 'n_geo_volnay']));
     expect(ids(inBurgundy), isNot(contains('n_geo_condrieu')));
+  });
+
+  test('counts a node drawn in two layers once', () async {
+    await db.writeCurriculum(
+      () => db
+          .into(db.nodeGeometries)
+          .insert(
+            NodeGeometriesCompanion.insert(
+              knowledgeNodeId: 'n_geo_condrieu',
+              mapLayerId: 'ml_fr_subregions',
+              featureKey: 'n_geo_condrieu',
+              minLon: 4.7,
+              minLat: 45.3,
+              maxLon: 4.8,
+              maxLat: 45.5,
+              labelLon: 4.75,
+              labelLat: 45.4,
+            ),
+          ),
+    );
+    expect(await maps.geometriesOf('n_geo_condrieu'), hasLength(2));
+    final france = (await maps.geometriesOf('n_geo_france')).single;
+    final inFrance = ids(
+      await maps.candidatesIn(
+        GeoBox.of(france.geometry),
+        nodeType: 'appellation',
+      ),
+    );
+    expect(inFrance.where((id) => id == 'n_geo_condrieu'), hasLength(1));
+    // Condrieu and Cornas share the northern Rhône.
+    final siblings = ids(await maps.siblingsOf('n_geo_cornas'));
+    expect(siblings.where((id) => id == 'n_geo_condrieu'), hasLength(1));
   });
 
   test('frames a question on the parent, or a level up for four '
