@@ -78,7 +78,7 @@ final questionLayersProvider = FutureProvider.family<List<MapLayer>, String>((
   return [
     for (final layer in layers)
       layer.geometry.id == candidateLayerId
-          ? MapLayer(layer.geometry.drawnFrom(0))
+          ? MapLayer(layer.geometry.drawnAtEveryZoom())
           : layer,
   ];
 });
