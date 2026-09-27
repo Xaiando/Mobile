@@ -17,7 +17,7 @@ The product specification's backlog (§P) has ten large tasks, seven of which ar
 
 **Historical atlas validation, release 0.9.0 (26 September 2026).** Release 0.9.0 retains the C6 core and maps 613 noncountry places across 18 countries, supported by 614 cited `LOCATED_IN` items. A unit with two parents has more than one location fact; these are not 614 distinct places. The atlas now includes major world wine areas, seven Chablis Grand Cru climats, ten selected Chablis Premier Cru climats and all 32 Côte d'Or Grand Cru appellations. `map_pair` asks for two to four named places and grades each location item; `map_grape` asks for one legally permitted area and uses only cited complete grape lists. These changes advance G8 and G10–G13, but do not complete their hierarchy, ordering, neighbour or complete-the-set objectives. Point markers are reference locations, and full Master-level or worldwide legal-appellation coverage remains open. See [geography coverage](research/geography-coverage.md). Local validation passes: 695 full-suite Flutter tests plus two additional French grape-grading tests, clean analysis, zero curriculum-lint errors, the coverage baseline, seven geography pipeline tests and reproducibility/containment checks. The earlier C6 validation remains recorded in its handoff; remote CI and expert review remain open.
 
-**Current local atlas progress, release 0.11.0.** The companion targets WSET Level 4 Diploma and now maps 1,423 noncountry places plus 20 country frames, with 1,424 cited location facts. This continuation adds 361 New World places, six dated NZ planting-rank maps and cumulative learner progress for Levels 1–4. Australia, Ontario/BC and California/Oregon/Washington have explicit closed name inventories; South Africa covers all districts and 101 of 102 wards, retaining Paardeberg South as an explicit missing licensed-reference target. Named-place and grape-combination maps share each fact’s review history. The full Diploma curriculum and other fine-region registers remain incomplete; exact sources and final validation are in the [geography inventory](research/geography-coverage.md) and [learner progress notes](wset-learner-progress.md).
+**Historical atlas progress, release 0.11.0.** The companion targets WSET Level 4 Diploma and now maps 1,423 noncountry places plus 20 country frames, with 1,424 cited location facts. This continuation adds 361 New World places, six dated NZ planting-rank maps and cumulative learner progress for Levels 1–4. Australia, Ontario/BC and California/Oregon/Washington have explicit closed name inventories; South Africa covers all districts and 101 of 102 wards, retaining Paardeberg South as an explicit missing licensed-reference target. Named-place and grape-combination maps share each fact’s review history. The full Diploma curriculum and other fine-region registers remain incomplete; exact sources and final validation are in the [geography inventory](research/geography-coverage.md) and [learner progress notes](wset-learner-progress.md).
 
 ---
 
@@ -1002,7 +1002,7 @@ The backlog was reviewed against the specification (§A–§T), the decision reg
 
 | Area | Found | Now in |
 |---|---|---|
-| Business domain (wine lists, pricing, cellar management) | 38 business points, including pricing, cash-flow and currency cases; wider commercial analysis remains open | C5, DIP-2 |
+| Business domain (wine lists, pricing, cellar management) | 70 foundation/case points, including pricing, cash-flow, currency, producer-model and routes-to-market cases; wider commercial analysis remains open | C5, DIP-2 |
 | Wine faults | Absent, but essential for service and tasting | C5, Q7 |
 | Spirits, beer and sake basics | Needed for the CMS tracks' breadth | C5 |
 | Age gate and age rating | Alcohol-related apps need a store age rating | R1, R3, L-24 |
@@ -1120,7 +1120,7 @@ The user confirmed **Level 4 Diploma as the target for the whole study companion
 | Task | Status | Required result |
 |---|---|---|
 | DIP-1 | In progress; vineyard/winery foundations, fault/control cases and eight causal-reasoning chains | Explain and evaluate vineyard and winery decisions, including their effect on style, quality and costs |
-| DIP-2 | In progress; 26 commercial principles and three conditional cases | Wine supply, demand, costs, business structures, distribution, markets and marketing |
+| DIP-2 | In progress; 42 commercial principles and seven conditional cases | Wine supply, demand, costs, business structures, distribution, markets and marketing |
 | DIP-3 | In progress; substantial atlas, regional comparisons/cases and diagnostic tasting foundations | Regional wine knowledge with linked geography, grapes, environment, production, law, business and analytical tasting |
 | DIP-4 | In progress; 38 method/style principles and five conditional cases | Sparkling-wine methods, styles, regions, labelling, business and tasting |
 | DIP-5 | In progress; 37 production/style principles and five conditional cases | Fortified-wine production, maturation, styles, regions, law, business and tasting |
@@ -1142,9 +1142,11 @@ Build on C5 with cited vine physiology, climate and site, propagation and rootst
 
 ### DIP-2 · Wine business
 
+**0.20.5 continuation:** 16 producer-model/channel principles and four original four-point cases add 32 Diploma-only points. These compare ownership and outsourced production, cooperative resources, fulfilment and intermediary reach under explicit conditions. Current law, supply/demand evidence, numerical practice and wider marketing/commercial analysis remain unfinished. [Evidence and checks](research/diploma-business-channels-continuation.md).
+
 **0.12.0 continuation:** 26 business principles and three original four-point cases now cover selected costing/pricing, cash/inventory and exchange-rate decisions. Fictional arithmetic illustrates assumptions; numeric grading, fuller market/distribution/producer structures, law and comparative marketing are still open. All facts await qualified review.
 
-Author a business graph and original scenarios covering supply and demand, production and sales costs, pricing, currency risk, producer structures, intermediaries, retail and hospitality channels, market systems and marketing decisions. Use dated primary sources for current laws and costs, and explicitly hypothetical figures for arithmetic. Test unit handling, margin versus markup, stated assumptions, track isolation and source dates. No business-complete claim is allowed while the domain has no authored practice.
+Author a business graph and original scenarios covering supply and demand, production and sales costs, pricing, currency risk, producer structures, intermediaries, retail and hospitality channels, market systems and marketing decisions. Use dated primary sources for current laws and costs, and explicitly hypothetical figures for arithmetic. Test unit handling, margin versus markup, stated assumptions, track isolation and source dates. No business-complete claim is allowed while wider commercial scope and qualified review remain unfinished.
 
 ### DIP-3 · Regional analysis and tasting
 

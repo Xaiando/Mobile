@@ -1,6 +1,6 @@
 {
   "about": "Question coverage baseline (backlog F1, audit COV-3). The build fails when a metric falls below it or a blocking gap is not in known_gaps. Regenerate the metrics with dart run tool/coverage_report.dart --update-baseline; edit known_gaps by hand.",
-  "release": "0.20.4",
+  "release": "0.20.5",
   "on": "2026-09-27",
   "tracks": {
     "CMS_CERTIFIED": {
@@ -233,13 +233,13 @@
       }
     },
     "WSET_L4": {
-      "total": {"items": 2853, "core": 1677, "testable": 2853, "flashcard_only": 0, "useful_practice": 1695, "recall": 2796, "recognition": 1674, "spatial": 1608, "structured": 0, "reasoning": 8, "core_flashcard_only": 0, "core_useful_practice": 605, "core_reasoning": 8},
+      "total": {"items": 2885, "core": 1709, "testable": 2885, "flashcard_only": 0, "useful_practice": 1695, "recall": 2828, "recognition": 1674, "spatial": 1608, "structured": 0, "reasoning": 8, "core_flashcard_only": 0, "core_useful_practice": 605, "core_reasoning": 8},
       "domains": {
         "business": {
-          "total": {"items": 134, "core": 134, "testable": 134, "flashcard_only": 0, "useful_practice": 0, "recall": 134, "recognition": 0, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 0, "core_reasoning": 0},
+          "total": {"items": 166, "core": 166, "testable": 166, "flashcard_only": 0, "useful_practice": 0, "recall": 166, "recognition": 0, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 0, "core_reasoning": 0},
           "areas": {
-            "type:production_case": {"items": 93, "core": 93, "testable": 93, "flashcard_only": 0, "useful_practice": 0, "recall": 93, "recognition": 0, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 0, "core_reasoning": 0},
-            "type:production_principle": {"items": 41, "core": 41, "testable": 41, "flashcard_only": 0, "useful_practice": 0, "recall": 41, "recognition": 0, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 0, "core_reasoning": 0}
+            "type:production_case": {"items": 109, "core": 109, "testable": 109, "flashcard_only": 0, "useful_practice": 0, "recall": 109, "recognition": 0, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 0, "core_reasoning": 0},
+            "type:production_principle": {"items": 57, "core": 57, "testable": 57, "flashcard_only": 0, "useful_practice": 0, "recall": 57, "recognition": 0, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 0, "core_reasoning": 0}
           }
         },
         "geography": {

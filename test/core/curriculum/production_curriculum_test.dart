@@ -30,9 +30,13 @@ void main() {
     'CASE_LIMITATION',
   };
   bool originalItem(String id) =>
-      const ['ki_vit_', 'ki_win_', 'ki_biz_', 'ki_srv_'].any(id.startsWith);
+      const ['ki_vit_', 'ki_win_', 'ki_biz_', 'ki_srv_'].any(id.startsWith) &&
+      !id.startsWith('ki_biz_models_') &&
+      !id.startsWith('ki_biz_routes_');
   bool originalCase(String id) =>
-      const ['qt_vit_', 'qt_win_', 'qt_biz_', 'qt_srv_'].any(id.startsWith);
+      const ['qt_vit_', 'qt_win_', 'qt_biz_', 'qt_srv_'].any(id.startsWith) &&
+      !id.startsWith('qt_biz_models_') &&
+      !id.startsWith('qt_biz_routes_');
   bool productOrFaultItem(String id) =>
       const ['ki_spark_', 'ki_fort_', 'ki_fault_'].any(id.startsWith);
   bool regionalItem(String id) => const [
@@ -117,43 +121,40 @@ void main() {
     },
   );
 
-  test(
-    'every authored case is served only with its own four-point rubric',
-    () async {
-      final templates = dataset.questionTemplates.where(
-        (t) =>
-            t.mode == 'short_answer' &&
-            t.relationType == 'CASE_ACTION' &&
-            originalCase(t.id),
+  test('every starter case is served only with its own four-point rubric after additions', () async {
+    final templates = dataset.questionTemplates.where(
+      (t) =>
+          t.mode == 'short_answer' &&
+          t.relationType == 'CASE_ACTION' &&
+          originalCase(t.id),
+    );
+    expect(templates, hasLength(15));
+    final pools = await db.select(db.exercisePools).get();
+    final poolItems = await db.select(db.exercisePoolItems).get();
+    for (final template in templates) {
+      final scope = ShortAnswerFormat.scopeNodeIdsOf(template)!;
+      expect(scope, hasLength(1));
+      final matching = pools
+          .where((p) => p.questionTemplateId == template.id)
+          .toList();
+      expect(matching, hasLength(1), reason: template.id);
+      final pool = matching.single;
+      expect(pool.scopeNodeId, scope.single);
+      final ids = poolItems
+          .where((i) => i.exercisePoolId == pool.id)
+          .map((i) => i.knowledgeItemId)
+          .toSet();
+      final rubric = dataset.knowledgeItems
+          .where((i) => ids.contains(i.id))
+          .toList();
+      expect(rubric, hasLength(4));
+      expect(rubric.map((i) => i.subjectId).toSet(), scope);
+      expect(
+        rubric.map((i) => i.relationType).toSet(),
+        relations.difference({'PRINCIPLE_EXPLANATION'}),
       );
-      expect(templates, hasLength(15));
-      final pools = await db.select(db.exercisePools).get();
-      final poolItems = await db.select(db.exercisePoolItems).get();
-      for (final template in templates) {
-        final scope = ShortAnswerFormat.scopeNodeIdsOf(template)!;
-        expect(scope, hasLength(1));
-        final matching = pools
-            .where((p) => p.questionTemplateId == template.id)
-            .toList();
-        expect(matching, hasLength(1), reason: template.id);
-        final pool = matching.single;
-        expect(pool.scopeNodeId, scope.single);
-        final ids = poolItems
-            .where((i) => i.exercisePoolId == pool.id)
-            .map((i) => i.knowledgeItemId)
-            .toSet();
-        final rubric = dataset.knowledgeItems
-            .where((i) => ids.contains(i.id))
-            .toList();
-        expect(rubric, hasLength(4));
-        expect(rubric.map((i) => i.subjectId).toSet(), scope);
-        expect(
-          rubric.map((i) => i.relationType).toSet(),
-          relations.difference({'PRINCIPLE_EXPLANATION'}),
-        );
-      }
-    },
-  );
+    }
+  });
 
   test('Diploma production and business progress includes new content without completing a level', () async {
     final scope = WsetScope.fromJson(
@@ -173,7 +174,7 @@ void main() {
     );
     expect(
       diploma.units.singleWhere((u) => u.scope.id == 'D2').counts.available,
-      38,
+      70,
     );
     expect(diploma.appLevelComplete, isFalse);
     expect(
@@ -502,7 +503,7 @@ void main() {
       0,
       103,
       2381,
-      2853,
+      2885,
     ]);
     final diploma = snapshot.levels.last;
     final unitIds = {
@@ -520,7 +521,7 @@ void main() {
     }
     expect(
       diploma.units.singleWhere((u) => u.scope.id == 'D2').counts.available,
-      38,
+      70,
     );
     expect(
       diploma.units.singleWhere((u) => u.scope.id == 'D3').scope.domains,

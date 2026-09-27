@@ -58,6 +58,7 @@ void main() {
         'ml_france_atlas_completion_markers',
         'ml_france_atlas_completion_cadastre_markers',
         'ml_france_atlas_completion_reference_markers',
+        'ml_vino_nobile_pievi_markers',
         'ml_europe_atlas_completion_markers',
         'ml_new_world_atlas_completion_markers',
         'ml_new_world_atlas_completion_gazetteer_markers',

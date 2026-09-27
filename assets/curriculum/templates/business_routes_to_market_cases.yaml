@@ -1,0 +1,46 @@
+# Original learner-checked cases; four own scoped roles, with more than one defensible approach.
+question_templates:
+  - id: qt_biz_routes_dtc_capacity_case
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: biz_routes_dtc_capacity
+    prompt_template: "Hypothetical winery: an existing mailing list generates repeat website orders beyond
+      cellar-door visitors, but packing and customer-support delays exceed its small team's capacity. It
+      can retain DTC and buy quoted outsourced packing and delivery, with customer support still its
+      responsibility, or supply an independent retailer at a negotiated trade price. The retailer would
+      handle its own consumer orders through its stores and website without sharing individual customer
+      contacts. All routes are assumed available; wine quality and available stock are unchanged, and no
+      demand, margin or net-profit estimate is supplied. Explain a defensible route or trial, why the
+      responsibilities matter, a customer-access/control trade-off and a limitation. More than one
+      approach may be justified."
+    parameters:
+      scope_node_ids:
+        - n_biz_routes_case_dtc_capacity
+      key_points:
+        CASE_ACTION: Decision
+        CASE_REASON: Reason
+        CASE_TRADEOFF: Trade-off
+        CASE_LIMITATION: Limit or condition
+  - id: qt_biz_routes_downstream_review_case
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: biz_routes_downstream_review
+    prompt_template: "Hypothetical winery: a distribution partner has placed wine in several independent
+      retail shops, but the winery receives only its own shipments-to-partner data and no outlet reorders
+      or consumer-sales reports. The partner represents competing brands and offers access to restaurants
+      as well as retail. A restaurant buyer says the wine might fit its menu if reliable replenishment
+      and a concise staff tasting can be arranged. The winery has a limited promotional budget and wants
+      sustained consumer demand rather than initial listings alone. All routes are assumed available, and
+      no sales guarantee, exclusivity rule or current law is specified. Explain a defensible review or
+      channel trial, the sales-flow reason, a resource trade-off and a limitation. More than one approach
+      may be justified."
+    parameters:
+      scope_node_ids:
+        - n_biz_routes_case_downstream_review
+      key_points:
+        CASE_ACTION: Decision
+        CASE_REASON: Reason
+        CASE_TRADEOFF: Trade-off
+        CASE_LIMITATION: Limit or condition
