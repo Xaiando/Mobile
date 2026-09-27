@@ -8,7 +8,8 @@ drift_schemas/** text eol=lf
 # Generated and vendored files: collapsed in diffs, excluded from language stats.
 *.g.dart linguist-generated=true
 drift_schemas/** linguist-generated=true
-web/drift_worker.js linguist-vendored=true
+# Keep the upstream bytes required by tool/web_assets.lock on Windows too.
+web/drift_worker.js -text linguist-vendored=true
 web/sqlite3.wasm binary linguist-vendored=true
 
 # Map layers built by tool/geography: single-line TopoJSON whose SHA-256 the

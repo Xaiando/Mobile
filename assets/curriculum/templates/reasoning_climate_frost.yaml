@@ -1,0 +1,65 @@
+# Two original two-hop frost exercises; three current direct cited contradictions per target.
+question_templates:
+  - id: qt_climate_frost_wind_chain
+    relation_type: LEADS_TO
+    direction: forward
+    mode: reasoning
+    variant: climate_frost_wind_chain
+    prompt_template: "{subject.name} Which canopy-air conclusion follows through the stated warm-air mixing mechanism?"
+    parameters:
+      path_relation_types:
+        - CAUSES_STATE
+        - LEADS_TO
+      scope_node_ids:
+        - n_climate_frost_wind_premise
+      contrasts:
+        ki_climate_frost_wind_warming:
+          n_climate_frost_wind_premise:
+            - option_node_id: n_climate_frost_wind_wrong_new_heat
+              evidence_item_ids:
+                - ki_climate_frost_wind_contra_new_heat
+              explanation: The fan redistributes heat from the measured warmer air. Mixing is not a supplemental
+                heater, and this scenario excludes heaters.
+            - option_node_id: n_climate_frost_wind_wrong_cooling
+              evidence_item_ids:
+                - ki_climate_frost_wind_contra_cooling
+              explanation: The supplied source air is warmer than the canopy air. Its mixing raises temperature
+                relative to the matched unmixed comparison; other heat losses are controlled.
+            - option_node_id: n_climate_frost_wind_wrong_strength_independent
+              evidence_item_ids:
+                - ki_climate_frost_wind_contra_strength_independent
+              explanation: The available warm-air contrast affects attainable warming. Correct siting and operation do
+                not make this inversion-mixing gain independent of inversion strength or guarantee
+                complete injury prevention.
+  - id: qt_climate_frost_sprinkler_chain
+    relation_type: LEADS_TO
+    direction: forward
+    mode: reasoning
+    variant: climate_frost_sprinkler_chain
+    prompt_template: "{subject.name} Which tissue-temperature conclusion follows through the stated freezing
+      and heat-balance mechanism?"
+    parameters:
+      path_relation_types:
+        - CAUSES_STATE
+        - LEADS_TO
+      scope_node_ids:
+        - n_climate_frost_sprinkler_premise
+      contrasts:
+        ki_climate_frost_sprinkler_temperature:
+          n_climate_frost_sprinkler_premise:
+            - option_node_id: n_climate_frost_sprinkler_wrong_melting_only
+              evidence_item_ids:
+                - ki_climate_frost_sprinkler_contra_melting_only
+              explanation: The protective phase change here is water freezing and releasing heat. Melting requires heat
+                input; it is not the only time protection operates.
+            - option_node_id: n_climate_frost_sprinkler_wrong_stopped_supply
+              evidence_item_ids:
+                - ki_climate_frost_sprinkler_contra_stopped_supply
+              explanation: Continued water freezing supplies heat to offset losses. Once supply stops, a static ice
+                coat cannot provide the same ongoing freezing heat; evaporation or sublimation and
+                radiation can cool tissue.
+            - option_node_id: n_climate_frost_sprinkler_wrong_dry_bulb_stop
+              evidence_item_ids:
+                - ki_climate_frost_sprinkler_contra_dry_bulb_stop
+              explanation: Wet tissue can cool below dry-bulb air temperature toward the wet-bulb temperature. A warmer
+                air reading alone cannot establish safe stopping while wet-bulb conditions remain unsafe.

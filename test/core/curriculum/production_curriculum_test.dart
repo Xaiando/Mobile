@@ -502,7 +502,7 @@ void main() {
       0,
       103,
       2372,
-      2824,
+      2844,
     ]);
     final diploma = snapshot.levels.last;
     final unitIds = {

@@ -1,0 +1,66 @@
+# Original forward two-edge exercises; every wrong choice has direct cited CONTRADICTS evidence.
+question_templates:
+  - id: "qt_climate_ripen_malate_chain"
+    relation_type: "LEADS_TO"
+    direction: "forward"
+    mode: "reasoning"
+    variant: "climate_ripen_malate_chain"
+    prompt_template: "{subject.name} Which malate conclusion follows through the isolated respiratory pathway?"
+    parameters:
+      path_relation_types:
+        - "CAUSES_STATE"
+        - "LEADS_TO"
+      scope_node_ids:
+        - "n_climate_ripen_malate_premise"
+      contrasts:
+        ki_climate_ripen_malate_remaining:
+          n_climate_ripen_malate_premise:
+            - option_node_id: "n_climate_ripen_malate_wrong_more"
+              evidence_item_ids:
+                - "ki_climate_ripen_malate_contra_more"
+              explanation: "The supplied greater consumption uses malate rather than creating it. Starting amount and
+                replenishment are matched, so a larger remaining pool cannot follow from that respiratory
+                difference."
+            - option_node_id: "n_climate_ripen_malate_wrong_unchanged"
+              evidence_item_ids:
+                - "ki_climate_ripen_malate_contra_unchanged"
+              explanation: "An unchanged pool would require compensation that this comparison excludes. Increased
+                substrate use leaves less malate when the other balance terms are matched."
+            - option_node_id: "n_climate_ripen_malate_wrong_tartrate"
+              evidence_item_ids:
+                - "ki_climate_ripen_malate_contra_tartrate"
+              explanation: "Malate and tartrate are different organic acids. The primary microvine study found unchanged
+                tartrate per berry while malate responded; depletion of tartrate is not a necessary
+                consequence of the isolated malate pathway."
+  - id: "qt_climate_ripen_botrytis_chain"
+    relation_type: "LEADS_TO"
+    direction: "forward"
+    mode: "reasoning"
+    variant: "climate_ripen_botrytis_chain"
+    prompt_template: "{subject.name} Which risk conclusion follows through the wet-surface germination and
+      infection pathway?"
+    parameters:
+      path_relation_types:
+        - "CAUSES_STATE"
+        - "LEADS_TO"
+      scope_node_ids:
+        - "n_climate_ripen_botrytis_premise"
+      contrasts:
+        ki_climate_ripen_botrytis_risk:
+          n_climate_ripen_botrytis_premise:
+            - option_node_id: "n_climate_ripen_botrytis_wrong_less"
+              evidence_item_ids:
+                - "ki_climate_ripen_botrytis_contra_less"
+              explanation: "Within the supplied conducive range, longer wetness acts toward infection rather than reducing
+                that risk. Host susceptibility, inoculum and disease controls are matched."
+            - option_node_id: "n_climate_ripen_botrytis_wrong_blocked"
+              evidence_item_ids:
+                - "ki_climate_ripen_botrytis_contra_blocked"
+              explanation: "The cited grape-isolate experiment showed germination with free water at suitable
+                temperatures. The premise expressly supplies surface water, not high humidity alone."
+            - option_node_id: "n_climate_ripen_botrytis_wrong_guaranteed"
+              evidence_item_ids:
+                - "ki_climate_ripen_botrytis_contra_guaranteed"
+              explanation: "A favorable opportunity changes risk, not certainty. The mature-berry study did not infect
+                every berry under its favorable long-wet treatment, and the supplied scenario has no
+                observed disease outcome."
