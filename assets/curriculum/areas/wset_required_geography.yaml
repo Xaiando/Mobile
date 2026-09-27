@@ -1,0 +1,1971 @@
+# Original geographical identities and exact required-level mappings. All new assertions await expert review.
+knowledge_nodes:
+  - id: n_geo_napa_county
+    name: Napa County
+    node_type: region
+  - id: n_geo_sonoma_county
+    name: Sonoma County
+    node_type: region
+  - id: n_geo_mendocino_county
+    name: Mendocino County
+    node_type: region
+  - id: n_geo_san_luis_obispo_county
+    name: San Luis Obispo County
+    node_type: region
+  - id: n_geo_santa_barbara_county
+    name: Santa Barbara County
+    node_type: region
+  - id: n_geo_bourgogne_aoc
+    name: Bourgogne (AOC)
+    node_type: appellation
+  - id: n_geo_bourgogne_cote_d_or
+    name: Bourgogne Côte d’Or
+    node_type: appellation
+  - id: n_geo_bourgogne_hautes_cotes_de_nuits
+    name: Bourgogne Hautes Côtes de Nuits
+    node_type: appellation
+  - id: n_geo_bourgogne_hautes_cotes_de_beaune
+    name: Bourgogne Hautes Côtes de Beaune
+    node_type: appellation
+  - id: n_geo_bourgogne_cote_chalonnaise
+    name: Bourgogne Côte Chalonnaise
+    node_type: appellation
+  - id: n_geo_bordeaux_superieur
+    name: Bordeaux Supérieur
+    node_type: appellation
+  - id: n_geo_rose_d_anjou
+    name: Rosé d’Anjou
+    node_type: appellation
+  - id: n_geo_cabernet_d_anjou
+    name: Cabernet d’Anjou
+    node_type: appellation
+  - id: n_geo_rose_de_loire
+    name: Rosé de Loire
+    node_type: appellation
+  - id: n_geo_cotes_de_gascogne
+    name: Côtes de Gascogne (IGP)
+    node_type: appellation
+  - id: n_geo_pays_doc
+    name: Pays d’Oc (IGP)
+    node_type: appellation
+  - id: n_geo_delle_venezie
+    name: Delle Venezie (DOC)
+    node_type: appellation
+  - id: n_geo_dolcetto_d_alba
+    name: Dolcetto d’Alba (DOC)
+    node_type: appellation
+  - id: n_geo_toscana_igt
+    name: Toscana (IGT)
+    node_type: appellation
+  - id: n_geo_sicilia_doc
+    name: Sicilia (DOC)
+    node_type: appellation
+  - id: n_geo_terre_siciliane_igt
+    name: Terre Siciliane (IGT)
+    node_type: appellation
+  - id: n_geo_navarra_do
+    name: Navarra (DO)
+    node_type: appellation
+  - id: n_geo_calatayud
+    name: Calatayud (DO)
+    node_type: appellation
+  - id: n_geo_catalunya_do
+    name: Catalunya (DO)
+    node_type: appellation
+  - id: n_geo_penedes
+    name: Penedès (DO)
+    node_type: appellation
+  - id: n_geo_valencia_do
+    name: Valencia (DO)
+    node_type: appellation
+  - id: n_geo_yecla
+    name: Yecla (DO)
+    node_type: appellation
+  - id: n_geo_la_mancha_do
+    name: La Mancha (DO)
+    node_type: appellation
+  - id: n_geo_valdepenas
+    name: Valdepeñas (DO)
+    node_type: appellation
+  - id: n_geo_castilla_y_leon_igp
+    name: Castilla y León (IGP)
+    node_type: appellation
+  - id: n_geo_alentejano_igp
+    name: Alentejano (IGP)
+    node_type: appellation
+  - id: n_geo_schlossbockelheim
+    name: Schlossböckelheim
+    node_type: village
+  - id: n_geo_nierstein
+    name: Nierstein
+    node_type: village
+  - id: n_geo_forst_pfalz
+    name: Forst an der Weinstraße
+    node_type: village
+  - id: n_geo_deidesheim
+    name: Deidesheim
+    node_type: village
+  - id: n_geo_cote_de_sezanne
+    name: Côte de Sézanne
+    node_type: subregion
+  - id: n_geo_cremant_de_bourgogne
+    name: Crémant de Bourgogne
+    node_type: appellation
+  - id: n_geo_cremant_de_loire
+    name: Crémant de Loire
+    node_type: appellation
+  - id: n_geo_muscat_de_beaumes_de_venise
+    name: Muscat de Beaumes-de-Venise
+    node_type: appellation
+  - id: n_wine_type_wset_geo_alsace_grand_cru
+    name: Alsace Grand Cru (named-site AOCs)
+    node_type: wine_type
+  - id: n_wine_type_wset_geo_amarone_della_valpolicella
+    name: Amarone della Valpolicella (DOCG)
+    node_type: wine_type
+  - id: n_wine_type_wset_geo_recioto_della_valpolicella
+    name: Recioto della Valpolicella (DOCG)
+    node_type: wine_type
+  - id: n_wine_type_wset_geo_valpolicella_ripasso
+    name: Valpolicella Ripasso (DOC)
+    node_type: wine_type
+  - id: n_wine_type_wset_geo_recioto_di_soave
+    name: Recioto di Soave (DOCG)
+    node_type: wine_type
+  - id: n_wine_type_wset_geo_porto
+    name: Port / Porto (PDO)
+    node_type: wine_type
+  - id: n_geo_world
+    name: World
+    node_type: informal_area
+node_alternative_names: []
+relation_type_signatures:
+  - relation_type: RESERVED_FOR_REGION
+    subject_node_type: wine_type
+    object_node_type: appellation
+  - relation_type: LOCATED_IN
+    subject_node_type: country
+    object_node_type: informal_area
+knowledge_relations:
+  - subject_id: n_geo_napa_county
+    relation_type: LOCATED_IN
+    object_id: n_geo_california
+    valid_from: 2026-09-27
+  - subject_id: n_geo_sonoma_county
+    relation_type: LOCATED_IN
+    object_id: n_geo_california
+    valid_from: 2026-09-27
+  - subject_id: n_geo_mendocino_county
+    relation_type: LOCATED_IN
+    object_id: n_geo_california
+    valid_from: 2026-09-27
+  - subject_id: n_geo_san_luis_obispo_county
+    relation_type: LOCATED_IN
+    object_id: n_geo_california
+    valid_from: 2026-09-27
+  - subject_id: n_geo_santa_barbara_county
+    relation_type: LOCATED_IN
+    object_id: n_geo_california
+    valid_from: 2026-09-27
+  - subject_id: n_geo_bourgogne_aoc
+    relation_type: LOCATED_IN
+    object_id: n_geo_france
+    valid_from: 2026-09-27
+  - subject_id: n_geo_bourgogne_cote_d_or
+    relation_type: LOCATED_IN
+    object_id: n_geo_burgundy
+    valid_from: 2026-09-27
+  - subject_id: n_geo_bourgogne_hautes_cotes_de_nuits
+    relation_type: LOCATED_IN
+    object_id: n_geo_burgundy
+    valid_from: 2026-09-27
+  - subject_id: n_geo_bourgogne_hautes_cotes_de_beaune
+    relation_type: LOCATED_IN
+    object_id: n_geo_burgundy
+    valid_from: 2026-09-27
+  - subject_id: n_geo_bourgogne_cote_chalonnaise
+    relation_type: LOCATED_IN
+    object_id: n_geo_burgundy
+    valid_from: 2026-09-27
+  - subject_id: n_geo_bordeaux_superieur
+    relation_type: LOCATED_IN
+    object_id: n_geo_bordeaux
+    valid_from: 2026-09-27
+  - subject_id: n_geo_rose_d_anjou
+    relation_type: LOCATED_IN
+    object_id: n_geo_anjou_saumur
+    valid_from: 2026-09-27
+  - subject_id: n_geo_cabernet_d_anjou
+    relation_type: LOCATED_IN
+    object_id: n_geo_anjou_saumur
+    valid_from: 2026-09-27
+  - subject_id: n_geo_rose_de_loire
+    relation_type: LOCATED_IN
+    object_id: n_geo_loire_valley
+    valid_from: 2026-09-27
+  - subject_id: n_geo_cotes_de_gascogne
+    relation_type: LOCATED_IN
+    object_id: n_geo_southwest_france
+    valid_from: 2026-09-27
+  - subject_id: n_geo_pays_doc
+    relation_type: LOCATED_IN
+    object_id: n_geo_france
+    valid_from: 2026-09-27
+  - subject_id: n_geo_delle_venezie
+    relation_type: LOCATED_IN
+    object_id: n_geo_italy
+    valid_from: 2026-09-27
+  - subject_id: n_geo_dolcetto_d_alba
+    relation_type: LOCATED_IN
+    object_id: n_geo_piedmont
+    valid_from: 2026-09-27
+  - subject_id: n_geo_toscana_igt
+    relation_type: LOCATED_IN
+    object_id: n_geo_tuscany
+    valid_from: 2026-09-27
+  - subject_id: n_geo_sicilia_doc
+    relation_type: LOCATED_IN
+    object_id: n_geo_sicily
+    valid_from: 2026-09-27
+  - subject_id: n_geo_terre_siciliane_igt
+    relation_type: LOCATED_IN
+    object_id: n_geo_sicily
+    valid_from: 2026-09-27
+  - subject_id: n_geo_navarra_do
+    relation_type: LOCATED_IN
+    object_id: n_geo_navarra_region
+    valid_from: 2026-09-27
+  - subject_id: n_geo_calatayud
+    relation_type: LOCATED_IN
+    object_id: n_geo_spain
+    valid_from: 2026-09-27
+  - subject_id: n_geo_catalunya_do
+    relation_type: LOCATED_IN
+    object_id: n_geo_spain
+    valid_from: 2026-09-27
+  - subject_id: n_geo_penedes
+    relation_type: LOCATED_IN
+    object_id: n_geo_spain
+    valid_from: 2026-09-27
+  - subject_id: n_geo_valencia_do
+    relation_type: LOCATED_IN
+    object_id: n_geo_valencian_community
+    valid_from: 2026-09-27
+  - subject_id: n_geo_yecla
+    relation_type: LOCATED_IN
+    object_id: n_geo_spain
+    valid_from: 2026-09-27
+  - subject_id: n_geo_la_mancha_do
+    relation_type: LOCATED_IN
+    object_id: n_geo_castilla_la_mancha
+    valid_from: 2026-09-27
+  - subject_id: n_geo_valdepenas
+    relation_type: LOCATED_IN
+    object_id: n_geo_castilla_la_mancha
+    valid_from: 2026-09-27
+  - subject_id: n_geo_castilla_y_leon_igp
+    relation_type: LOCATED_IN
+    object_id: n_geo_castilla_y_leon
+    valid_from: 2026-09-27
+  - subject_id: n_geo_alentejano_igp
+    relation_type: LOCATED_IN
+    object_id: n_geo_portugal
+    valid_from: 2026-09-27
+  - subject_id: n_geo_schlossbockelheim
+    relation_type: LOCATED_IN
+    object_id: n_geo_nahe
+    valid_from: 2026-09-27
+  - subject_id: n_geo_nierstein
+    relation_type: LOCATED_IN
+    object_id: n_geo_rheinhessen
+    valid_from: 2026-09-27
+  - subject_id: n_geo_forst_pfalz
+    relation_type: LOCATED_IN
+    object_id: n_geo_pfalz
+    valid_from: 2026-09-27
+  - subject_id: n_geo_deidesheim
+    relation_type: LOCATED_IN
+    object_id: n_geo_pfalz
+    valid_from: 2026-09-27
+  - subject_id: n_geo_cote_de_sezanne
+    relation_type: LOCATED_IN
+    object_id: n_geo_champagne
+    valid_from: 2026-09-27
+  - subject_id: n_geo_cremant_de_bourgogne
+    relation_type: LOCATED_IN
+    object_id: n_geo_france
+    valid_from: 2026-09-27
+  - subject_id: n_geo_cremant_de_loire
+    relation_type: LOCATED_IN
+    object_id: n_geo_france
+    valid_from: 2026-09-27
+  - subject_id: n_geo_muscat_de_beaumes_de_venise
+    relation_type: LOCATED_IN
+    object_id: n_geo_france
+    valid_from: 2026-09-27
+  - subject_id: n_wine_type_wset_geo_alsace_grand_cru
+    relation_type: RESERVED_FOR_REGION
+    object_id: n_geo_alsace_region
+    valid_from: 2026-09-27
+  - subject_id: n_wine_type_wset_geo_amarone_della_valpolicella
+    relation_type: RESERVED_FOR_REGION
+    object_id: n_geo_valpolicella
+    valid_from: 2026-09-27
+  - subject_id: n_wine_type_wset_geo_recioto_della_valpolicella
+    relation_type: RESERVED_FOR_REGION
+    object_id: n_geo_valpolicella
+    valid_from: 2026-09-27
+  - subject_id: n_wine_type_wset_geo_valpolicella_ripasso
+    relation_type: RESERVED_FOR_REGION
+    object_id: n_geo_valpolicella
+    valid_from: 2026-09-27
+  - subject_id: n_wine_type_wset_geo_recioto_di_soave
+    relation_type: RESERVED_FOR_REGION
+    object_id: n_geo_soave
+    valid_from: 2026-09-27
+  - subject_id: n_wine_type_wset_geo_porto
+    relation_type: RESERVED_FOR_REGION
+    object_id: n_geo_douro
+    valid_from: 2026-09-27
+  - subject_id: n_geo_france
+    relation_type: LOCATED_IN
+    object_id: n_geo_world
+    valid_from: 2026-09-27
+  - subject_id: n_geo_italy
+    relation_type: LOCATED_IN
+    object_id: n_geo_world
+    valid_from: 2026-09-27
+  - subject_id: n_geo_spain
+    relation_type: LOCATED_IN
+    object_id: n_geo_world
+    valid_from: 2026-09-27
+  - subject_id: n_geo_portugal
+    relation_type: LOCATED_IN
+    object_id: n_geo_world
+    valid_from: 2026-09-27
+  - subject_id: n_geo_germany
+    relation_type: LOCATED_IN
+    object_id: n_geo_world
+    valid_from: 2026-09-27
+  - subject_id: n_geo_united_states
+    relation_type: LOCATED_IN
+    object_id: n_geo_world
+    valid_from: 2026-09-27
+  - subject_id: n_geo_canada
+    relation_type: LOCATED_IN
+    object_id: n_geo_world
+    valid_from: 2026-09-27
+  - subject_id: n_geo_chile
+    relation_type: LOCATED_IN
+    object_id: n_geo_world
+    valid_from: 2026-09-27
+  - subject_id: n_geo_argentina
+    relation_type: LOCATED_IN
+    object_id: n_geo_world
+    valid_from: 2026-09-27
+  - subject_id: n_geo_south_africa
+    relation_type: LOCATED_IN
+    object_id: n_geo_world
+    valid_from: 2026-09-27
+  - subject_id: n_geo_australia
+    relation_type: LOCATED_IN
+    object_id: n_geo_world
+    valid_from: 2026-09-27
+  - subject_id: n_geo_new_zealand
+    relation_type: LOCATED_IN
+    object_id: n_geo_world
+    valid_from: 2026-09-27
+  - subject_id: n_geo_austria
+    relation_type: LOCATED_IN
+    object_id: n_geo_world
+    valid_from: 2026-09-27
+  - subject_id: n_geo_hungary
+    relation_type: LOCATED_IN
+    object_id: n_geo_world
+    valid_from: 2026-09-27
+  - subject_id: n_geo_greece
+    relation_type: LOCATED_IN
+    object_id: n_geo_world
+    valid_from: 2026-09-27
+knowledge_items:
+  - id: ki_wset_geo_napa_county_location
+    subject_id: n_geo_napa_county
+    relation_type: LOCATED_IN
+    object_id: n_geo_california
+    domain_id: geography
+    assertion_text: Napa County is a California county; a county appellation of origin is a different
+      geographical unit from a named AVA.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_geo_sonoma_county_location
+    subject_id: n_geo_sonoma_county
+    relation_type: LOCATED_IN
+    object_id: n_geo_california
+    domain_id: geography
+    assertion_text: Sonoma County is a California county; a county appellation of origin is a different
+      geographical unit from a named AVA.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_geo_mendocino_county_location
+    subject_id: n_geo_mendocino_county
+    relation_type: LOCATED_IN
+    object_id: n_geo_california
+    domain_id: geography
+    assertion_text: Mendocino County is a California county; a county appellation of origin is a
+      different geographical unit from a named AVA.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_geo_san_luis_obispo_county_location
+    subject_id: n_geo_san_luis_obispo_county
+    relation_type: LOCATED_IN
+    object_id: n_geo_california
+    domain_id: geography
+    assertion_text: San Luis Obispo County is a California county; a county appellation of origin is a
+      different geographical unit from a named AVA.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_geo_santa_barbara_county_location
+    subject_id: n_geo_santa_barbara_county
+    relation_type: LOCATED_IN
+    object_id: n_geo_california
+    domain_id: geography
+    assertion_text: Santa Barbara County is a California county; a county appellation of origin is a
+      different geographical unit from a named AVA.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_geo_bourgogne_aoc_location
+    subject_id: n_geo_bourgogne_aoc
+    relation_type: LOCATED_IN
+    object_id: n_geo_france
+    domain_id: geography
+    assertion_text: Bourgogne is a protected regional appellation in France; its delimited geographical
+      area includes Rhône département communes as well as the core Burgundy districts.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_geo_bourgogne_cote_d_or_location
+    subject_id: n_geo_bourgogne_cote_d_or
+    relation_type: LOCATED_IN
+    object_id: n_geo_burgundy
+    domain_id: geography
+    assertion_text: Bourgogne Côte d’Or is a geographical denomination of the regional Bourgogne
+      appellation in the Burgundy wine region; the broad region and the protected label identity are
+      distinct.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_geo_bourgogne_hautes_cotes_de_nuits_location
+    subject_id: n_geo_bourgogne_hautes_cotes_de_nuits
+    relation_type: LOCATED_IN
+    object_id: n_geo_burgundy
+    domain_id: geography
+    assertion_text: Bourgogne Hautes Côtes de Nuits is a geographical denomination of the regional
+      Bourgogne appellation in the Burgundy wine region; the broad region and the protected label
+      identity are distinct.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_geo_bourgogne_hautes_cotes_de_beaune_location
+    subject_id: n_geo_bourgogne_hautes_cotes_de_beaune
+    relation_type: LOCATED_IN
+    object_id: n_geo_burgundy
+    domain_id: geography
+    assertion_text: Bourgogne Hautes Côtes de Beaune is a geographical denomination of the regional
+      Bourgogne appellation in the Burgundy wine region; the broad region and the protected label
+      identity are distinct.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_geo_bourgogne_cote_chalonnaise_location
+    subject_id: n_geo_bourgogne_cote_chalonnaise
+    relation_type: LOCATED_IN
+    object_id: n_geo_burgundy
+    domain_id: geography
+    assertion_text: Bourgogne Côte Chalonnaise is a geographical denomination of the regional Bourgogne
+      appellation in the Burgundy wine region; the broad region and the protected label identity are
+      distinct.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_geo_bordeaux_superieur_location
+    subject_id: n_geo_bordeaux_superieur
+    relation_type: LOCATED_IN
+    object_id: n_geo_bordeaux
+    domain_id: geography
+    assertion_text: Bordeaux Supérieur is located in Bordeaux.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_geo_rose_d_anjou_location
+    subject_id: n_geo_rose_d_anjou
+    relation_type: LOCATED_IN
+    object_id: n_geo_anjou_saumur
+    domain_id: geography
+    assertion_text: Rosé d’Anjou is located in Anjou-Saumur.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_geo_cabernet_d_anjou_location
+    subject_id: n_geo_cabernet_d_anjou
+    relation_type: LOCATED_IN
+    object_id: n_geo_anjou_saumur
+    domain_id: geography
+    assertion_text: Cabernet d’Anjou is located in Anjou-Saumur.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_geo_rose_de_loire_location
+    subject_id: n_geo_rose_de_loire
+    relation_type: LOCATED_IN
+    object_id: n_geo_loire_valley
+    domain_id: geography
+    assertion_text: Rosé de Loire is located in Loire Valley.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_geo_cotes_de_gascogne_location
+    subject_id: n_geo_cotes_de_gascogne
+    relation_type: LOCATED_IN
+    object_id: n_geo_southwest_france
+    domain_id: geography
+    assertion_text: Côtes de Gascogne (IGP) is located in Southwest France.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_geo_pays_doc_location
+    subject_id: n_geo_pays_doc
+    relation_type: LOCATED_IN
+    object_id: n_geo_france
+    domain_id: geography
+    assertion_text: Pays d’Oc (IGP) is located in France.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_geo_delle_venezie_location
+    subject_id: n_geo_delle_venezie
+    relation_type: LOCATED_IN
+    object_id: n_geo_italy
+    domain_id: geography
+    assertion_text: Delle Venezie (DOC) is located in Italy.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_geo_dolcetto_d_alba_location
+    subject_id: n_geo_dolcetto_d_alba
+    relation_type: LOCATED_IN
+    object_id: n_geo_piedmont
+    domain_id: geography
+    assertion_text: Dolcetto d’Alba (DOC) is located in Piedmont.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_geo_toscana_igt_location
+    subject_id: n_geo_toscana_igt
+    relation_type: LOCATED_IN
+    object_id: n_geo_tuscany
+    domain_id: geography
+    assertion_text: Toscana (IGT) is located in Tuscany.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_geo_sicilia_doc_location
+    subject_id: n_geo_sicilia_doc
+    relation_type: LOCATED_IN
+    object_id: n_geo_sicily
+    domain_id: geography
+    assertion_text: Sicilia (DOC) is located in Sicily.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_geo_terre_siciliane_igt_location
+    subject_id: n_geo_terre_siciliane_igt
+    relation_type: LOCATED_IN
+    object_id: n_geo_sicily
+    domain_id: geography
+    assertion_text: Terre Siciliane (IGT) is located in Sicily.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_geo_navarra_do_location
+    subject_id: n_geo_navarra_do
+    relation_type: LOCATED_IN
+    object_id: n_geo_navarra_region
+    domain_id: geography
+    assertion_text: Navarra (DO) is located in Navarra (autonomous community).
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_geo_calatayud_location
+    subject_id: n_geo_calatayud
+    relation_type: LOCATED_IN
+    object_id: n_geo_spain
+    domain_id: geography
+    assertion_text: Calatayud (DO) is located in Spain.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_geo_catalunya_do_location
+    subject_id: n_geo_catalunya_do
+    relation_type: LOCATED_IN
+    object_id: n_geo_spain
+    domain_id: geography
+    assertion_text: Catalunya (DO) is located in Spain.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_geo_penedes_location
+    subject_id: n_geo_penedes
+    relation_type: LOCATED_IN
+    object_id: n_geo_spain
+    domain_id: geography
+    assertion_text: Penedès (DO) is located in Spain.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_geo_valencia_do_location
+    subject_id: n_geo_valencia_do
+    relation_type: LOCATED_IN
+    object_id: n_geo_valencian_community
+    domain_id: geography
+    assertion_text: Valencia (DO) is located in Valencia (autonomous community).
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_geo_yecla_location
+    subject_id: n_geo_yecla
+    relation_type: LOCATED_IN
+    object_id: n_geo_spain
+    domain_id: geography
+    assertion_text: Yecla (DO) is located in Spain.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_geo_la_mancha_do_location
+    subject_id: n_geo_la_mancha_do
+    relation_type: LOCATED_IN
+    object_id: n_geo_castilla_la_mancha
+    domain_id: geography
+    assertion_text: La Mancha (DO) is located in Castilla-La Mancha.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_geo_valdepenas_location
+    subject_id: n_geo_valdepenas
+    relation_type: LOCATED_IN
+    object_id: n_geo_castilla_la_mancha
+    domain_id: geography
+    assertion_text: Valdepeñas (DO) is located in Castilla-La Mancha.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_geo_castilla_y_leon_igp_location
+    subject_id: n_geo_castilla_y_leon_igp
+    relation_type: LOCATED_IN
+    object_id: n_geo_castilla_y_leon
+    domain_id: geography
+    assertion_text: Castilla y León (IGP) is located in Castilla y León.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_geo_alentejano_igp_location
+    subject_id: n_geo_alentejano_igp
+    relation_type: LOCATED_IN
+    object_id: n_geo_portugal
+    domain_id: geography
+    assertion_text: Alentejano (IGP) is located in Portugal.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_geo_schlossbockelheim_location
+    subject_id: n_geo_schlossbockelheim
+    relation_type: LOCATED_IN
+    object_id: n_geo_nahe
+    domain_id: geography
+    assertion_text: Schlossböckelheim is a wine village in Nahe; this is a named place reference rather
+      than a vineyard boundary.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_geo_nierstein_location
+    subject_id: n_geo_nierstein
+    relation_type: LOCATED_IN
+    object_id: n_geo_rheinhessen
+    domain_id: geography
+    assertion_text: Nierstein is a wine village in Rheinhessen; this is a named place reference rather
+      than a vineyard boundary.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_geo_forst_pfalz_location
+    subject_id: n_geo_forst_pfalz
+    relation_type: LOCATED_IN
+    object_id: n_geo_pfalz
+    domain_id: geography
+    assertion_text: Forst an der Weinstraße is a wine village in Pfalz; this is a named place reference
+      rather than a vineyard boundary.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_geo_deidesheim_location
+    subject_id: n_geo_deidesheim
+    relation_type: LOCATED_IN
+    object_id: n_geo_pfalz
+    domain_id: geography
+    assertion_text: Deidesheim is a wine village in Pfalz; this is a named place reference rather than a
+      vineyard boundary.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_geo_cote_de_sezanne_location
+    subject_id: n_geo_cote_de_sezanne
+    relation_type: LOCATED_IN
+    object_id: n_geo_champagne
+    domain_id: geography
+    assertion_text: Côte de Sézanne is located in Champagne.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_geo_cremant_de_bourgogne_location
+    subject_id: n_geo_cremant_de_bourgogne
+    relation_type: LOCATED_IN
+    object_id: n_geo_france
+    domain_id: geography
+    assertion_text: Crémant de Bourgogne is a protected sparkling-wine appellation in France, with a
+      geographical area across Yonne, Côte-d’Or, Saône-et-Loire and Rhône départements.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_geo_cremant_de_loire_location
+    subject_id: n_geo_cremant_de_loire
+    relation_type: LOCATED_IN
+    object_id: n_geo_france
+    domain_id: geography
+    assertion_text: Crémant de Loire is a protected sparkling-wine appellation in France; its origin
+      area includes communes across the Anjou-Saumur and Touraine wine context.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_geo_muscat_de_beaumes_de_venise_location
+    subject_id: n_geo_muscat_de_beaumes_de_venise
+    relation_type: LOCATED_IN
+    object_id: n_geo_france
+    domain_id: geography
+    assertion_text: Muscat de Beaumes-de-Venise is a protected fortified Muscat appellation in France,
+      in the southern Rhône wine context; it is distinct from the dry red Beaumes-de-Venise
+      appellation.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_geo_alsace_grand_cru_origin
+    subject_id: n_wine_type_wset_geo_alsace_grand_cru
+    relation_type: RESERVED_FOR_REGION
+    object_id: n_geo_alsace_region
+    domain_id: geography
+    assertion_text: Alsace Grand Cru labels identify separately named protected sites; the category is
+      not one single Grand Cru polygon.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_geo_amarone_della_valpolicella_origin
+    subject_id: n_wine_type_wset_geo_amarone_della_valpolicella
+    relation_type: RESERVED_FOR_REGION
+    object_id: n_geo_valpolicella
+    domain_id: geography
+    assertion_text: Amarone della Valpolicella is a protected dried-grape wine origin in the
+      Valpolicella area of Veneto; its wine designation is distinct from the broader Valpolicella
+      map reference.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_geo_recioto_della_valpolicella_origin
+    subject_id: n_wine_type_wset_geo_recioto_della_valpolicella
+    relation_type: RESERVED_FOR_REGION
+    object_id: n_geo_valpolicella
+    domain_id: geography
+    assertion_text: Recioto della Valpolicella is a protected sweet dried-grape wine origin in the
+      Valpolicella area of Veneto; overlapping wine styles do not imply separate towns.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_geo_valpolicella_ripasso_origin
+    subject_id: n_wine_type_wset_geo_valpolicella_ripasso
+    relation_type: RESERVED_FOR_REGION
+    object_id: n_geo_valpolicella
+    domain_id: geography
+    assertion_text: Valpolicella Ripasso is a protected wine designation from the Valpolicella area of
+      Veneto; the production designation does not define a separate map town.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_geo_recioto_di_soave_origin
+    subject_id: n_wine_type_wset_geo_recioto_di_soave
+    relation_type: RESERVED_FOR_REGION
+    object_id: n_geo_soave
+    domain_id: geography
+    assertion_text: Recioto di Soave is a protected sweet wine origin in the Soave area of Veneto; use
+      the Soave reference for broad geographical orientation.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_geo_porto_origin
+    subject_id: n_wine_type_wset_geo_porto
+    relation_type: RESERVED_FOR_REGION
+    object_id: n_geo_douro
+    domain_id: geography
+    assertion_text: Port / Porto is a protected fortified-wine origin from the demarcated Douro region
+      in Portugal; the wine origin differs from Porto city.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_geo_france_world_location
+    subject_id: n_geo_france
+    relation_type: LOCATED_IN
+    object_id: n_geo_world
+    domain_id: geography
+    assertion_text: France is a country on the world map; its country outline provides the broad frame
+      for locating its wine regions.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_geo_italy_world_location
+    subject_id: n_geo_italy
+    relation_type: LOCATED_IN
+    object_id: n_geo_world
+    domain_id: geography
+    assertion_text: Italy is a country on the world map; its country outline provides the broad frame
+      for locating its wine regions.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_geo_spain_world_location
+    subject_id: n_geo_spain
+    relation_type: LOCATED_IN
+    object_id: n_geo_world
+    domain_id: geography
+    assertion_text: Spain is a country on the world map; its country outline provides the broad frame
+      for locating its wine regions.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_geo_portugal_world_location
+    subject_id: n_geo_portugal
+    relation_type: LOCATED_IN
+    object_id: n_geo_world
+    domain_id: geography
+    assertion_text: Portugal is a country on the world map; its country outline provides the broad frame
+      for locating its wine regions.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_geo_germany_world_location
+    subject_id: n_geo_germany
+    relation_type: LOCATED_IN
+    object_id: n_geo_world
+    domain_id: geography
+    assertion_text: Germany is a country on the world map; its country outline provides the broad frame
+      for locating its wine regions.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_geo_united_states_world_location
+    subject_id: n_geo_united_states
+    relation_type: LOCATED_IN
+    object_id: n_geo_world
+    domain_id: geography
+    assertion_text: United States is a country on the world map; its country outline provides the broad
+      frame for locating its wine regions.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_geo_canada_world_location
+    subject_id: n_geo_canada
+    relation_type: LOCATED_IN
+    object_id: n_geo_world
+    domain_id: geography
+    assertion_text: Canada is a country on the world map; its country outline provides the broad frame
+      for locating its wine regions.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_geo_chile_world_location
+    subject_id: n_geo_chile
+    relation_type: LOCATED_IN
+    object_id: n_geo_world
+    domain_id: geography
+    assertion_text: Chile is a country on the world map; its country outline provides the broad frame
+      for locating its wine regions.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_geo_argentina_world_location
+    subject_id: n_geo_argentina
+    relation_type: LOCATED_IN
+    object_id: n_geo_world
+    domain_id: geography
+    assertion_text: Argentina is a country on the world map; its country outline provides the broad
+      frame for locating its wine regions.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_geo_south_africa_world_location
+    subject_id: n_geo_south_africa
+    relation_type: LOCATED_IN
+    object_id: n_geo_world
+    domain_id: geography
+    assertion_text: South Africa is a country on the world map; its country outline provides the broad
+      frame for locating its wine regions.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_geo_australia_world_location
+    subject_id: n_geo_australia
+    relation_type: LOCATED_IN
+    object_id: n_geo_world
+    domain_id: geography
+    assertion_text: Australia is a country on the world map; its country outline provides the broad
+      frame for locating its wine regions.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_geo_new_zealand_world_location
+    subject_id: n_geo_new_zealand
+    relation_type: LOCATED_IN
+    object_id: n_geo_world
+    domain_id: geography
+    assertion_text: New Zealand is a country on the world map; its country outline provides the broad
+      frame for locating its wine regions.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_geo_austria_world_location
+    subject_id: n_geo_austria
+    relation_type: LOCATED_IN
+    object_id: n_geo_world
+    domain_id: geography
+    assertion_text: Austria is a country on the world map; its country outline provides the broad frame
+      for locating its wine regions.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_geo_hungary_world_location
+    subject_id: n_geo_hungary
+    relation_type: LOCATED_IN
+    object_id: n_geo_world
+    domain_id: geography
+    assertion_text: Hungary is a country on the world map; its country outline provides the broad frame
+      for locating its wine regions.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_geo_greece_world_location
+    subject_id: n_geo_greece
+    relation_type: LOCATED_IN
+    object_id: n_geo_world
+    domain_id: geography
+    assertion_text: Greece is a country on the world map; its country outline provides the broad frame
+      for locating its wine regions.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+certification_knowledge_mappings:
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_geo_napa_county_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_geo_sonoma_county_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_geo_mendocino_county_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_geo_san_luis_obispo_county_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_geo_santa_barbara_county_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_geo_bourgogne_aoc_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_geo_bourgogne_cote_d_or_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_geo_bourgogne_hautes_cotes_de_nuits_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_geo_bourgogne_hautes_cotes_de_beaune_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_geo_bourgogne_cote_chalonnaise_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_geo_bordeaux_superieur_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_geo_rose_d_anjou_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_geo_cabernet_d_anjou_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_geo_rose_de_loire_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_geo_cotes_de_gascogne_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_geo_pays_doc_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_geo_delle_venezie_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_geo_dolcetto_d_alba_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_geo_toscana_igt_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_geo_sicilia_doc_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_geo_terre_siciliane_igt_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_geo_navarra_do_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_geo_calatayud_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_geo_catalunya_do_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_geo_penedes_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_geo_valencia_do_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_geo_yecla_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_geo_la_mancha_do_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_geo_valdepenas_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_geo_castilla_y_leon_igp_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_geo_alentejano_igp_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_geo_schlossbockelheim_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_geo_nierstein_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_geo_forst_pfalz_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_geo_deidesheim_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_geo_cote_de_sezanne_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_geo_cremant_de_bourgogne_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_geo_cremant_de_loire_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_geo_muscat_de_beaumes_de_venise_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_geo_alsace_grand_cru_origin
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_geo_amarone_della_valpolicella_origin
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_geo_recioto_della_valpolicella_origin
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_geo_valpolicella_ripasso_origin
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_geo_recioto_di_soave_origin
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_geo_porto_origin
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_geo_france_world_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_geo_italy_world_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_geo_spain_world_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_geo_portugal_world_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_geo_germany_world_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_geo_united_states_world_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_geo_canada_world_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_geo_chile_world_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_geo_argentina_world_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_geo_south_africa_world_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_geo_australia_world_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_geo_new_zealand_world_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_geo_austria_world_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_geo_hungary_world_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_geo_greece_world_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_fr_atlas_bordeaux_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_fr_atlas_saint_emilion_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_fr_atlas_pomerol_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_fr_atlas_haut_medoc_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_fr_atlas_pauillac_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_fr_atlas_margaux_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_fr_atlas_graves_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_fr_atlas_pessac_leognan_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_crozes_hermitage_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_fr_atlas_hermitage_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_fr_atlas_cote_rotie_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_fr_atlas_minervois_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_burgundy_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_fr_atlas_gevrey_chambertin_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_fr_atlas_nuits_saint_georges_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_fr_atlas_beaune_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_fr_atlas_pommard_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_chablis_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_fr_atlas_chablis_location_wine_area
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_fr_atlas_puligny_montrachet_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_fr_atlas_meursault_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_fr_atlas_macon_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_fr_atlas_pouilly_fuisse_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_fr_atlas_alsace_aoc_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_mosel_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_rheingau_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_pfalz_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_fr_atlas_sancerre_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_pouilly_fume_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_touraine_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_atlas_veneto_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_atlas_friuli_venezia_giulia_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_fr_atlas_beaujolais_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_fr_atlas_beaujolais_villages_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_fr_atlas_fleurie_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_fr_atlas_cotes_du_rhone_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_fr_atlas_cotes_du_rhone_villages_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_chateauneuf_du_pape_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_fr_atlas_cotes_de_provence_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_atlas_rioja_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_atlas_priorat_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_atlas_ribera_del_duero_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_barolo_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_atlas_barbaresco_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_atlas_barbera_d_asti_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_atlas_chianti_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_chianti_classico_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_atlas_brunello_di_montalcino_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_atlas_valpolicella_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_eac_montepulciano_abruzzo_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_eac_puglia_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_vouvray_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_fr_atlas_sauternes_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_condrieu_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_fr_atlas_alsace_region_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_atlas_verdicchio_castelli_jesi_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_atlas_gavi_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_atlas_soave_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_eac_fiano_avellino_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_atlas_rias_baixas_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_hu_tokaj_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_atlas_california_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_atlas_napa_valley_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_atlas_rutherford_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_atlas_oakville_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_atlas_calistoga_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_atlas_los_carneros_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_geo_santa_barbara_county_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_atlas_oregon_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_geo_united_states_world_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_geo_canada_world_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_atlas_central_valley_chile_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_atlas_maipo_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_atlas_colchagua_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_atlas_casablanca_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_geo_chile_world_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_atlas_mendoza_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_geo_argentina_world_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_atlas_western_cape_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_atlas_stellenbosch_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_atlas_constantia_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_atlas_elgin_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_atlas_walker_bay_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_geo_south_africa_world_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_geo_australia_world_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_diploma_south_eastern_australia_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_atlas_barossa_valley_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_atlas_eden_valley_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_atlas_clare_valley_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_atlas_coonawarra_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_atlas_margaret_river_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_atlas_yarra_valley_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_atlas_mornington_peninsula_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_atlas_adelaide_hills_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_nwc_hunter_valley_zone_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_atlas_mclaren_vale_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_geo_new_zealand_world_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_atlas_marlborough_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_atlas_hawkes_bay_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_atlas_martinborough_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_atlas_central_otago_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_geo_pays_doc_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_geo_delle_venezie_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_geo_navarra_do_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_geo_catalunya_do_location
+    importance: core
+    minimum_depth: 1
+source_citations:
+  - id: src_wset_geo_rose_anjou
+    kind: regulator_register
+    title: "Rosé d’Anjou AOP: geographical area"
+    publisher: Institut national de l’origine et de la qualité
+    url: https://inao.gouv.fr/produit/rose-danjou-24325
+    accessed_on: 2026-09-27
+  - id: src_wset_geo_rose_loire
+    kind: government_publication
+    title: "Rosé de Loire: specification, geographical area"
+    publisher: Institut national de l’origine et de la qualité
+    url: https://extranet.inao.gouv.fr/fichier/3.12-CDC-Ros%C3%A9-de-Loire-modifi%C3%A9.pdf
+    accessed_on: 2026-09-27
+  - id: src_wset_geo_gascogne
+    kind: government_publication
+    title: "Côtes de Gascogne PGI specification: geographical area"
+    publisher: Institut national de l’origine et de la qualité
+    url: https://extranet.inao.gouv.fr/fichier/3-CdC-Cotes-de-Gascogne.pdf
+    accessed_on: 2026-09-27
+  - id: src_wset_geo_pays_doc
+    kind: legislation
+    title: "Pays d’Oc PGI: 2026 standard specification amendment"
+    publisher: European Commission
+    url: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:52026XC01735
+    accessed_on: 2026-09-27
+  - id: src_wset_geo_dolcetto_alba
+    kind: reference_work
+    title: "Dolcetto d’Alba DOC: production area"
+    publisher: Consorzio di Tutela Barolo Barbaresco Alba Langhe e Dogliani
+    url: https://www.langhevini.it/en/le-denominazioni-tutelate-dal-consorzio/dolcetto-dalba-doc/
+    accessed_on: 2026-09-27
+  - id: src_wset_geo_toscana
+    kind: government_publication
+    title: "Toscana, terra di vini: protected geographical indications"
+    publisher: Regione Toscana
+    url: https://prodtrad.regione.toscana.it/spaw2/uploads/files/TOSCANA%20TERRA%20DI%20VINI%20WEB.pdf
+    accessed_on: 2026-09-27
+  - id: src_wset_geo_forst
+    kind: government_publication
+    title: "Forst an der Weinstraße: wine village in the Pfalz"
+    publisher: Gemeinde Forst an der Weinstraße
+    url: https://www.forst-pfalz.de/
+    accessed_on: 2026-09-27
+  - id: src_wset_geo_st_helena
+    kind: legislation
+    title: "St. Helena AVA establishment: Napa Valley and Napa County"
+    publisher: Alcohol and Tobacco Tax and Trade Bureau, United States Department of the Treasury
+    url: https://www.ttb.gov/system/files/images/pdfs/St_Helena_final_rule.pdf
+    accessed_on: 2026-09-27
+  - id: src_wset_geo_cremant_bourgogne
+    kind: regulator_register
+    title: "Crémant de Bourgogne AOP: geographical area"
+    publisher: Institut national de l’origine et de la qualité
+    url: https://inao.gouv.fr/node/5926/printable/print
+    accessed_on: 2026-09-27
+  - id: src_wset_geo_cremant_loire
+    kind: reference_work
+    title: "Crémant de Loire: appellation area"
+    publisher: InterLoire
+    url: https://www.vinsdeloire.fr/de/die-weine-der-loire/cremant-loire/alles-ueber-den-cremant-loire
+    accessed_on: 2026-09-27
+  - id: src_wset_required_gazetteer_markers
+    kind: dataset
+    title: "WSET required wine origins: qualified GeoNames orientation references"
+    publisher: GeoNames
+    url: https://download.geonames.org/export/dump/readme.txt
+    accessed_on: 2026-09-27
+    license: CC BY 4.0
+    attribution_text: Contains GeoNames data, licensed CC BY 4.0. Named orientation references do not
+      represent official wine centroids or wine boundaries.
+  - id: src_wset_required_ava_markers
+    kind: dataset
+    title: WSET required St. Helena AVA polygon interior reference
+    publisher: UC Davis Library and DataLab American Viticultural Areas Project
+    url: https://raw.githubusercontent.com/UCDavisLibrary/ava/7af5b29d45aee5e6c6ce3889e9b1de19085d7107/avas/st__helena.geojson
+    accessed_on: 2026-09-27
+    license: CC0 1.0
+    attribution_text: UC Davis Library and DataLab American Viticultural Areas Project, with UCSB
+      Library and Virginia Tech contributors. Source-polygon interior reference, not a legal border.
+  - id: src_wset_geo_amarone_spec_2023
+    kind: legislation
+    title: "Amarone della Valpolicella DOCG: consolidated production specification published with DM 3
+      August 2023"
+    publisher: MASAF
+    jurisdiction: IT
+    document_identifier: DM 3 August 2023
+    url: https://www.masaf.gov.it/flex/cm/pages/ServeAttachment.php/L/IT/D/1%252Ff%252F6%252FD.507dfbac5b16903e5472/P/BLOB%3AID%3D20309/E/pdf?mode=download
+    accessed_on: 2026-09-27
+  - id: src_wset_geo_recioto_valpo_spec_2023
+    kind: legislation
+    title: "Recioto della Valpolicella DOCG: consolidated production specification published with DM 3
+      August 2023"
+    publisher: MASAF
+    jurisdiction: IT
+    document_identifier: DM 3 August 2023
+    url: https://www.masaf.gov.it/flex/cm/pages/ServeAttachment.php/L/IT/D/1%252F6%252F7%252FD.7050e55d15a797063de6/P/BLOB%3AID%3D20310/E/pdf?mode=download
+    accessed_on: 2026-09-27
+  - id: src_wset_geo_ripasso_spec_2023
+    kind: legislation
+    title: "Valpolicella Ripasso DOC: consolidated production specification published with DM 3 August
+      2023"
+    publisher: MASAF
+    jurisdiction: IT
+    document_identifier: DM 3 August 2023
+    url: https://www.masaf.gov.it/flex/cm/pages/ServeAttachment.php/L/IT/D/1%252F1%252F1%252FD.2c3f3b1ac162d9139ba1/P/BLOB%3AID%3D20313/E/pdf?mode=download
+    accessed_on: 2026-09-27
+  - id: src_wset_geo_recioto_soave_spec_2019
+    kind: legislation
+    title: "Recioto di Soave DOCG: DM 24 October 2019 and consolidated production specification"
+    publisher: MASAF
+    jurisdiction: IT
+    document_identifier: DM 24 October 2019; GURI 257, 4 November 2019
+    url: https://www.masaf.gov.it/flex/cm/pages/ServeAttachment.php/L/IT/D/1%252F8%252F4%252FD.ca54a9f97e70edc022ed/P/BLOB%3AID%3D14702/E/pdf?mode=download
+    accessed_on: 2026-09-27
+  - id: src_wset_geo_douro_statute_2020
+    kind: legislation
+    title: "Decreto-Lei 97/2020: republished statute of Douro protected origins, including Porto"
+    publisher: Diário da República; Presidência do Conselho de Ministros
+    jurisdiction: PT
+    document_identifier: Decreto-Lei 97/2020, 16 November 2020
+    url: https://diariodarepublica.pt/dr/detalhe/decreto-lei/97-2020-148599584
+    accessed_on: 2026-09-27
+knowledge_item_citations:
+  - knowledge_item_id: ki_wset_geo_napa_county_location
+    source_citation_id: src_atlas_us_avas
+    locator: Napa County; geographical area or listed regional context
+  - knowledge_item_id: ki_wset_geo_sonoma_county_location
+    source_citation_id: src_atlas_us_avas
+    locator: Sonoma County; geographical area or listed regional context
+  - knowledge_item_id: ki_wset_geo_mendocino_county_location
+    source_citation_id: src_atlas_us_avas
+    locator: Mendocino County; geographical area or listed regional context
+  - knowledge_item_id: ki_wset_geo_san_luis_obispo_county_location
+    source_citation_id: src_atlas_us_avas
+    locator: San Luis Obispo County; geographical area or listed regional context
+  - knowledge_item_id: ki_wset_geo_santa_barbara_county_location
+    source_citation_id: src_atlas_us_avas
+    locator: Santa Barbara County; geographical area or listed regional context
+  - knowledge_item_id: ki_wset_geo_bourgogne_aoc_location
+    source_citation_id: src_inao_cdc_bourgogne
+    locator: Bourgogne (AOC); geographical area or listed regional context
+  - knowledge_item_id: ki_wset_geo_bourgogne_cote_d_or_location
+    source_citation_id: src_inao_cdc_bourgogne
+    locator: Bourgogne Côte d’Or; geographical area or listed regional context
+  - knowledge_item_id: ki_wset_geo_bourgogne_hautes_cotes_de_nuits_location
+    source_citation_id: src_inao_cdc_bourgogne
+    locator: Bourgogne Hautes Côtes de Nuits; geographical area or listed regional context
+  - knowledge_item_id: ki_wset_geo_bourgogne_hautes_cotes_de_beaune_location
+    source_citation_id: src_inao_cdc_bourgogne
+    locator: Bourgogne Hautes Côtes de Beaune; geographical area or listed regional context
+  - knowledge_item_id: ki_wset_geo_bourgogne_cote_chalonnaise_location
+    source_citation_id: src_inao_cdc_bourgogne
+    locator: Bourgogne Côte Chalonnaise; geographical area or listed regional context
+  - knowledge_item_id: ki_wset_geo_bordeaux_superieur_location
+    source_citation_id: src_wset_eu_bdx_superieur
+    locator: Bordeaux Supérieur; geographical area or listed regional context
+  - knowledge_item_id: ki_wset_geo_rose_d_anjou_location
+    source_citation_id: src_wset_geo_rose_anjou
+    locator: Rosé d’Anjou; geographical area or listed regional context
+  - knowledge_item_id: ki_wset_geo_cabernet_d_anjou_location
+    source_citation_id: src_wset_eu_cabernet_anjou
+    locator: Cabernet d’Anjou; geographical area or listed regional context
+  - knowledge_item_id: ki_wset_geo_rose_de_loire_location
+    source_citation_id: src_wset_geo_rose_loire
+    locator: Rosé de Loire; geographical area or listed regional context
+  - knowledge_item_id: ki_wset_geo_cotes_de_gascogne_location
+    source_citation_id: src_wset_geo_gascogne
+    locator: Côtes de Gascogne (IGP); geographical area or listed regional context
+  - knowledge_item_id: ki_wset_geo_pays_doc_location
+    source_citation_id: src_wset_geo_pays_doc
+    locator: Pays d’Oc (IGP); geographical area or listed regional context
+  - knowledge_item_id: ki_wset_geo_delle_venezie_location
+    source_citation_id: src_wset_grape_venezie_style
+    locator: Delle Venezie (DOC); geographical area or listed regional context
+  - knowledge_item_id: ki_wset_geo_dolcetto_d_alba_location
+    source_citation_id: src_wset_geo_dolcetto_alba
+    locator: Dolcetto d’Alba (DOC); geographical area or listed regional context
+  - knowledge_item_id: ki_wset_geo_toscana_igt_location
+    source_citation_id: src_wset_geo_toscana
+    locator: Toscana (IGT); geographical area or listed regional context
+  - knowledge_item_id: ki_wset_geo_sicilia_doc_location
+    source_citation_id: src_wset_eu_sicilia_register
+    locator: Sicilia (DOC); geographical area or listed regional context
+  - knowledge_item_id: ki_wset_geo_terre_siciliane_igt_location
+    source_citation_id: src_wset_eu_terre_siciliane
+    locator: Terre Siciliane (IGT); geographical area or listed regional context
+  - knowledge_item_id: ki_wset_geo_navarra_do_location
+    source_citation_id: src_wset_eu_es_register
+    locator: Navarra (DO); geographical area or listed regional context
+  - knowledge_item_id: ki_wset_geo_calatayud_location
+    source_citation_id: src_wset_eu_es_register
+    locator: Calatayud (DO); geographical area or listed regional context
+  - knowledge_item_id: ki_wset_geo_catalunya_do_location
+    source_citation_id: src_wset_eu_es_register
+    locator: Catalunya (DO); geographical area or listed regional context
+  - knowledge_item_id: ki_wset_geo_penedes_location
+    source_citation_id: src_wset_eu_es_register
+    locator: Penedès (DO); geographical area or listed regional context
+  - knowledge_item_id: ki_wset_geo_valencia_do_location
+    source_citation_id: src_wset_eu_es_register
+    locator: Valencia (DO); geographical area or listed regional context
+  - knowledge_item_id: ki_wset_geo_yecla_location
+    source_citation_id: src_wset_eu_es_register
+    locator: Yecla (DO); geographical area or listed regional context
+  - knowledge_item_id: ki_wset_geo_la_mancha_do_location
+    source_citation_id: src_wset_eu_es_register
+    locator: La Mancha (DO); geographical area or listed regional context
+  - knowledge_item_id: ki_wset_geo_valdepenas_location
+    source_citation_id: src_wset_eu_es_register
+    locator: Valdepeñas (DO); geographical area or listed regional context
+  - knowledge_item_id: ki_wset_geo_castilla_y_leon_igp_location
+    source_citation_id: src_wset_eu_es_register
+    locator: Castilla y León (IGP); geographical area or listed regional context
+  - knowledge_item_id: ki_wset_geo_alentejano_igp_location
+    source_citation_id: src_atlas_pt_alentejo_subregions
+    locator: Alentejano (IGP); geographical area or listed regional context
+  - knowledge_item_id: ki_wset_geo_schlossbockelheim_location
+    source_citation_id: src_reg_de_nahe
+    locator: Schlossböckelheim; geographical area or listed regional context
+  - knowledge_item_id: ki_wset_geo_nierstein_location
+    source_citation_id: src_reg_de_rheinhessen
+    locator: Nierstein; geographical area or listed regional context
+  - knowledge_item_id: ki_wset_geo_forst_pfalz_location
+    source_citation_id: src_wset_geo_forst
+    locator: Forst an der Weinstraße; geographical area or listed regional context
+  - knowledge_item_id: ki_wset_geo_deidesheim_location
+    source_citation_id: src_reg_de_pfalz
+    locator: Deidesheim; geographical area or listed regional context
+  - knowledge_item_id: ki_wset_geo_cote_de_sezanne_location
+    source_citation_id: src_fr_atlas_champagne_areas
+    locator: Côte de Sézanne; geographical area or listed regional context
+  - knowledge_item_id: ki_wset_geo_cremant_de_bourgogne_location
+    source_citation_id: src_wset_geo_cremant_bourgogne
+    locator: Crémant de Bourgogne; geographical area or listed regional context
+  - knowledge_item_id: ki_wset_geo_cremant_de_loire_location
+    source_citation_id: src_wset_geo_cremant_loire
+    locator: Crémant de Loire; geographical area or listed regional context
+  - knowledge_item_id: ki_wset_geo_muscat_de_beaumes_de_venise_location
+    source_citation_id: src_wset_sf_beaumes
+    locator: Muscat de Beaumes-de-Venise; geographical area or listed regional context
+  - knowledge_item_id: ki_wset_geo_alsace_grand_cru_origin
+    source_citation_id: src_wset_eu_alsace_gc
+    locator: Protected wine identity and origin area
+  - knowledge_item_id: ki_wset_geo_amarone_della_valpolicella_origin
+    source_citation_id: src_reg_inc_amarone
+    locator: Protected wine identity and origin area
+  - knowledge_item_id: ki_wset_geo_recioto_della_valpolicella_origin
+    source_citation_id: src_wset_eu_recioto_valpolicella
+    locator: Protected wine identity and origin area
+  - knowledge_item_id: ki_wset_geo_valpolicella_ripasso_origin
+    source_citation_id: src_reg_inc_ripasso
+    locator: Protected wine identity and origin area
+  - knowledge_item_id: ki_wset_geo_recioto_di_soave_origin
+    source_citation_id: src_wset_grape_soave_recioto
+    locator: Protected wine identity and origin area
+  - knowledge_item_id: ki_wset_geo_porto_origin
+    source_citation_id: src_fort_port_intro
+    locator: Protected wine identity and origin area
+  - knowledge_item_id: ki_wset_geo_france_world_location
+    source_citation_id: src_ne_countries
+    locator: Natural Earth Admin 0 countries, exact country feature
+  - knowledge_item_id: ki_wset_geo_italy_world_location
+    source_citation_id: src_ne_countries
+    locator: Natural Earth Admin 0 countries, exact country feature
+  - knowledge_item_id: ki_wset_geo_spain_world_location
+    source_citation_id: src_ne_countries
+    locator: Natural Earth Admin 0 countries, exact country feature
+  - knowledge_item_id: ki_wset_geo_portugal_world_location
+    source_citation_id: src_ne_countries
+    locator: Natural Earth Admin 0 countries, exact country feature
+  - knowledge_item_id: ki_wset_geo_germany_world_location
+    source_citation_id: src_ne_countries
+    locator: Natural Earth Admin 0 countries, exact country feature
+  - knowledge_item_id: ki_wset_geo_united_states_world_location
+    source_citation_id: src_ne_countries
+    locator: Natural Earth Admin 0 countries, exact country feature
+  - knowledge_item_id: ki_wset_geo_canada_world_location
+    source_citation_id: src_ne_countries
+    locator: Natural Earth Admin 0 countries, exact country feature
+  - knowledge_item_id: ki_wset_geo_chile_world_location
+    source_citation_id: src_ne_countries
+    locator: Natural Earth Admin 0 countries, exact country feature
+  - knowledge_item_id: ki_wset_geo_argentina_world_location
+    source_citation_id: src_ne_countries
+    locator: Natural Earth Admin 0 countries, exact country feature
+  - knowledge_item_id: ki_wset_geo_south_africa_world_location
+    source_citation_id: src_ne_countries
+    locator: Natural Earth Admin 0 countries, exact country feature
+  - knowledge_item_id: ki_wset_geo_australia_world_location
+    source_citation_id: src_ne_countries
+    locator: Natural Earth Admin 0 countries, exact country feature
+  - knowledge_item_id: ki_wset_geo_new_zealand_world_location
+    source_citation_id: src_ne_countries
+    locator: Natural Earth Admin 0 countries, exact country feature
+  - knowledge_item_id: ki_wset_geo_austria_world_location
+    source_citation_id: src_ne_countries
+    locator: Natural Earth Admin 0 countries, exact country feature
+  - knowledge_item_id: ki_wset_geo_hungary_world_location
+    source_citation_id: src_ne_countries
+    locator: Natural Earth Admin 0 countries, exact country feature
+  - knowledge_item_id: ki_wset_geo_greece_world_location
+    source_citation_id: src_ne_countries
+    locator: Natural Earth Admin 0 countries, exact country feature
+  - knowledge_item_id: ki_wset_geo_bourgogne_aoc_location
+    source_citation_id: src_inao_areas
+    locator: "Licensed INAO 2025-10-09 geographical-area commune register: IDA 2184; parent country France."
+  - knowledge_item_id: ki_wset_geo_cremant_de_bourgogne_location
+    source_citation_id: src_inao_areas
+    locator: "Licensed INAO 2025-10-09 geographical-area commune register: IDA 2399; parent country France."
+  - knowledge_item_id: ki_wset_geo_cremant_de_loire_location
+    source_citation_id: src_inao_areas
+    locator: "Licensed INAO 2025-10-09 geographical-area commune register: IDA 178; parent country France."
+  - knowledge_item_id: ki_wset_geo_muscat_de_beaumes_de_venise_location
+    source_citation_id: src_inao_areas
+    locator: "Licensed INAO 2025-10-09 geographical-area commune register: IDA 1336; parent country France."
+  - knowledge_item_id: ki_wset_geo_alsace_grand_cru_origin
+    source_citation_id: src_fr_completion_alsace_spec_2025
+    locator: "Chapter I, sections I and IV: the 51 protected Alsace Grand Cru names and their
+      geographical areas"
+  - knowledge_item_id: ki_wset_geo_amarone_della_valpolicella_origin
+    source_citation_id: src_wset_geo_amarone_spec_2023
+    locator: "Articles 1 and 3: protected denomination and delimited Valpolicella grape-production area"
+  - knowledge_item_id: ki_wset_geo_recioto_della_valpolicella_origin
+    source_citation_id: src_wset_geo_recioto_valpo_spec_2023
+    locator: "Articles 1 and 3: protected denomination and delimited Valpolicella grape-production area"
+  - knowledge_item_id: ki_wset_geo_valpolicella_ripasso_origin
+    source_citation_id: src_wset_geo_ripasso_spec_2023
+    locator: "Articles 1 and 3: protected denomination and delimited Valpolicella grape-production area"
+  - knowledge_item_id: ki_wset_geo_recioto_di_soave_origin
+    source_citation_id: src_wset_geo_recioto_soave_spec_2019
+    locator: "Annex production specification, Articles 1 and 3: protected denomination and Soave
+      grape-production area"
+  - knowledge_item_id: ki_wset_geo_porto_origin
+    source_citation_id: src_wset_geo_douro_statute_2020
+    locator: "Republished Annex I, Articles 1(1)-(2) and 3: Porto names reserved to qualifying wines
+      from the demarcated Douro region"

@@ -1,0 +1,1849 @@
+# Original conditional grape lessons; all assertions await expert review.
+knowledge_nodes:
+  - id: n_wset_structure_principle_chardonnay_structure
+    node_type: production_principle
+    name: "Chardonnay: White colour and a wide sugar–acid range?"
+  - id: n_wset_structure_point_chardonnay_structure
+    node_type: learning_point
+    name: White colour and a wide sugar–acid range
+  - id: n_wset_structure_principle_sauvignon_blanc_structure
+    node_type: production_principle
+    name: "Sauvignon Blanc: Pale white styles with ripeness-dependent warmth?"
+  - id: n_wset_structure_point_sauvignon_blanc_structure
+    node_type: learning_point
+    name: Pale white styles with ripeness-dependent warmth
+  - id: n_wset_structure_principle_pinot_gris_structure
+    node_type: production_principle
+    name: "Pinot Gris / Pinot Grigio: Yellow-gold richness versus a fresher early style?"
+  - id: n_wset_structure_point_pinot_gris_structure
+    node_type: learning_point
+    name: Yellow-gold richness versus a fresher early style
+  - id: n_wset_structure_principle_riesling_structure
+    node_type: production_principle
+    name: "Riesling: High acidity with variable alcohol and white colour?"
+  - id: n_wset_structure_point_riesling_structure
+    node_type: learning_point
+    name: High acidity with variable alcohol and white colour
+  - id: n_wset_structure_principle_cabernet_sauvignon_structure
+    node_type: production_principle
+    name: "Cabernet Sauvignon: Deep colour, firm tannin and notable acidity?"
+  - id: n_wset_structure_point_cabernet_sauvignon_structure
+    node_type: learning_point
+    name: Deep colour, firm tannin and notable acidity
+  - id: n_wset_structure_principle_merlot_structure
+    node_type: production_principle
+    name: "Merlot: Rich colour and comparatively supple structure?"
+  - id: n_wset_structure_point_merlot_structure
+    node_type: learning_point
+    name: Rich colour and comparatively supple structure
+  - id: n_wset_structure_principle_pinot_noir_structure
+    node_type: production_principle
+    name: "Pinot Noir: Often lighter colour and gentler tannin than Cabernet?"
+  - id: n_wset_structure_point_pinot_noir_structure
+    node_type: learning_point
+    name: Often lighter colour and gentler tannin than Cabernet
+  - id: n_wset_structure_principle_syrah_structure
+    node_type: production_principle
+    name: "Syrah / Shiraz: Deep colour and tannin with a variable acid balance?"
+  - id: n_wset_structure_point_syrah_structure
+    node_type: learning_point
+    name: Deep colour and tannin with a variable acid balance
+  - id: n_wset_structure_principle_gamay_structure
+    node_type: production_principle
+    name: "Gamay: Moderate colour and relatively gentle tannin?"
+  - id: n_wset_structure_point_gamay_structure
+    node_type: learning_point
+    name: Moderate colour and relatively gentle tannin
+  - id: n_wset_structure_principle_grenache_structure
+    node_type: production_principle
+    name: "Grenache / Garnacha: Ripe sugar, lower acidity and often lighter colour?"
+  - id: n_wset_structure_point_grenache_structure
+    node_type: learning_point
+    name: Ripe sugar, lower acidity and often lighter colour
+  - id: n_wset_structure_principle_tempranillo_structure
+    node_type: production_principle
+    name: "Tempranillo: Coloured structured reds with heat-sensitive acidity?"
+  - id: n_wset_structure_point_tempranillo_structure
+    node_type: learning_point
+    name: Coloured structured reds with heat-sensitive acidity
+  - id: n_wset_structure_principle_nebbiolo_structure
+    node_type: production_principle
+    name: "Nebbiolo: Modest colour can accompany firm tannin and acidity?"
+  - id: n_wset_structure_point_nebbiolo_structure
+    node_type: learning_point
+    name: Modest colour can accompany firm tannin and acidity
+  - id: n_wset_structure_principle_barbera_structure
+    node_type: production_principle
+    name: "Barbera: Deep colour and high acidity with relatively little tannin?"
+  - id: n_wset_structure_point_barbera_structure
+    node_type: learning_point
+    name: Deep colour and high acidity with relatively little tannin
+  - id: n_wset_structure_principle_sangiovese_structure
+    node_type: production_principle
+    name: "Sangiovese: Ruby reds with acidity and defined tannin?"
+  - id: n_wset_structure_point_sangiovese_structure
+    node_type: learning_point
+    name: Ruby reds with acidity and defined tannin
+  - id: n_wset_structure_principle_corvina_structure
+    node_type: production_principle
+    name: "Corvina: Fresh acidity and modest pigment in young Valpolicella?"
+  - id: n_wset_structure_point_corvina_structure
+    node_type: learning_point
+    name: Fresh acidity and modest pigment in young Valpolicella
+  - id: n_wset_structure_principle_montepulciano_structure
+    node_type: production_principle
+    name: "Montepulciano: Intense ruby and a full red structure?"
+  - id: n_wset_structure_point_montepulciano_structure
+    node_type: learning_point
+    name: Intense ruby and a full red structure
+  - id: n_wset_structure_principle_zinfandel_structure
+    node_type: production_principle
+    name: "Zinfandel / Primitivo: Red extraction and ripeness create different structures?"
+  - id: n_wset_structure_point_zinfandel_structure
+    node_type: learning_point
+    name: Red extraction and ripeness create different structures
+  - id: n_wset_structure_principle_pinotage_structure
+    node_type: production_principle
+    name: "Pinotage: Substantial extraction potential with variable freshness?"
+  - id: n_wset_structure_point_pinotage_structure
+    node_type: learning_point
+    name: Substantial extraction potential with variable freshness
+  - id: n_wset_structure_principle_carmenere_structure
+    node_type: production_principle
+    name: "Carménère: Rich colour with ripe tannin and variable acidity?"
+  - id: n_wset_structure_point_carmenere_structure
+    node_type: learning_point
+    name: Rich colour with ripe tannin and variable acidity
+  - id: n_wset_structure_principle_malbec_structure
+    node_type: production_principle
+    name: "Malbec / Côt: Deep pigment and site-dependent tannin and freshness?"
+  - id: n_wset_structure_point_malbec_structure
+    node_type: learning_point
+    name: Deep pigment and site-dependent tannin and freshness
+  - id: n_wset_structure_principle_chenin_blanc_structure
+    node_type: production_principle
+    name: "Chenin Blanc: High acidity and contrasting dry or concentrated styles?"
+  - id: n_wset_structure_point_chenin_blanc_structure
+    node_type: learning_point
+    name: High acidity and contrasting dry or concentrated styles
+  - id: n_wset_structure_principle_semillon_structure
+    node_type: production_principle
+    name: "Sémillon: Ripe breadth differs from early-picked Hunter freshness?"
+  - id: n_wset_structure_point_semillon_structure
+    node_type: learning_point
+    name: Ripe breadth differs from early-picked Hunter freshness
+  - id: n_wset_structure_principle_viognier_structure
+    node_type: production_principle
+    name: "Viognier: Sugar-rich, often low-acid white wine?"
+  - id: n_wset_structure_point_viognier_structure
+    node_type: learning_point
+    name: Sugar-rich, often low-acid white wine
+  - id: n_wset_structure_principle_gewurztraminer_structure
+    node_type: production_principle
+    name: "Gewurztraminer: Rich sugar potential with comparatively moderate acidity?"
+  - id: n_wset_structure_point_gewurztraminer_structure
+    node_type: learning_point
+    name: Rich sugar potential with comparatively moderate acidity
+  - id: n_wset_structure_principle_verdicchio_structure
+    node_type: production_principle
+    name: "Verdicchio: Straw-yellow wine with explicit acidic freshness?"
+  - id: n_wset_structure_point_verdicchio_structure
+    node_type: learning_point
+    name: Straw-yellow wine with explicit acidic freshness
+  - id: n_wset_structure_principle_cortese_structure
+    node_type: production_principle
+    name: "Cortese: Pale straw and an acid-led fresh Gavi style?"
+  - id: n_wset_structure_point_cortese_structure
+    node_type: learning_point
+    name: Pale straw and an acid-led fresh Gavi style
+  - id: n_wset_structure_principle_garganega_structure
+    node_type: production_principle
+    name: "Garganega: Balanced dry Soave differs from concentrated Recioto?"
+  - id: n_wset_structure_point_garganega_structure
+    node_type: learning_point
+    name: Balanced dry Soave differs from concentrated Recioto
+  - id: n_wset_structure_principle_fiano_structure
+    node_type: production_principle
+    name: "Fiano: Straw white with marked acidity and variable breadth?"
+  - id: n_wset_structure_point_fiano_structure
+    node_type: learning_point
+    name: Straw white with marked acidity and variable breadth
+  - id: n_wset_structure_principle_albarino_structure
+    node_type: production_principle
+    name: "Albariño / Alvarinho: Acidic white freshness with measured sugar potential?"
+  - id: n_wset_structure_point_albarino_structure
+    node_type: learning_point
+    name: Acidic white freshness with measured sugar potential
+  - id: n_wset_structure_principle_furmint_structure
+    node_type: production_principle
+    name: "Furmint: High acidity across dry and concentrated white styles?"
+  - id: n_wset_structure_point_furmint_structure
+    node_type: learning_point
+    name: High acidity across dry and concentrated white styles
+  - id: n_wset_structure_principle_chardonnay_vineyard
+    node_type: production_principle
+    name: "Chardonnay: Chardonnay vineyard and harvest comparison?"
+  - id: n_wset_structure_point_chardonnay_vineyard
+    node_type: learning_point
+    name: Chardonnay vineyard and harvest comparison
+  - id: n_wset_structure_principle_sauvignon_blanc_vineyard
+    node_type: production_principle
+    name: "Sauvignon Blanc: Sauvignon vineyard and ripeness choices?"
+  - id: n_wset_structure_point_sauvignon_blanc_vineyard
+    node_type: learning_point
+    name: Sauvignon vineyard and ripeness choices
+  - id: n_wset_structure_principle_pinot_gris_vineyard
+    node_type: production_principle
+    name: "Pinot Gris / Pinot Grigio: Pinot Gris harvest and concentration choices?"
+  - id: n_wset_structure_point_pinot_gris_vineyard
+    node_type: learning_point
+    name: Pinot Gris harvest and concentration choices
+  - id: n_wset_structure_principle_riesling_vineyard
+    node_type: production_principle
+    name: "Riesling: Riesling ripeness and retained acidity?"
+  - id: n_wset_structure_point_riesling_vineyard
+    node_type: learning_point
+    name: Riesling ripeness and retained acidity
+  - id: n_wset_structure_principle_cabernet_sauvignon_vineyard
+    node_type: production_principle
+    name: "Cabernet Sauvignon: Cabernet needs enough season to mature?"
+  - id: n_wset_structure_point_cabernet_sauvignon_vineyard
+    node_type: learning_point
+    name: Cabernet needs enough season to mature
+  - id: n_wset_structure_principle_merlot_vineyard
+    node_type: production_principle
+    name: "Merlot: Merlot offers an earlier ripening comparison?"
+  - id: n_wset_structure_point_merlot_vineyard
+    node_type: learning_point
+    name: Merlot offers an earlier ripening comparison
+  - id: n_wset_structure_principle_pinot_noir_vineyard
+    node_type: production_principle
+    name: "Pinot Noir: Pinot ripens quickly in hot conditions?"
+  - id: n_wset_structure_point_pinot_noir_vineyard
+    node_type: learning_point
+    name: Pinot ripens quickly in hot conditions
+  - id: n_wset_structure_principle_syrah_vineyard
+    node_type: production_principle
+    name: "Syrah / Shiraz: Syrah site and timely harvest choices?"
+  - id: n_wset_structure_point_syrah_vineyard
+    node_type: learning_point
+    name: Syrah site and timely harvest choices
+  - id: n_wset_structure_principle_chardonnay_ageing
+    node_type: production_principle
+    name: "Chardonnay: Fruit, wood and bottle notes are different stages?"
+  - id: n_wset_structure_point_chardonnay_ageing
+    node_type: learning_point
+    name: Fruit, wood and bottle notes are different stages
+  - id: n_wset_structure_principle_sauvignon_blanc_ageing
+    node_type: production_principle
+    name: "Sauvignon Blanc: Fresh Sauvignon versus a style for keeping?"
+  - id: n_wset_structure_point_sauvignon_blanc_ageing
+    node_type: learning_point
+    name: Fresh Sauvignon versus a style for keeping
+  - id: n_wset_structure_principle_pinot_gris_ageing
+    node_type: production_principle
+    name: "Pinot Gris / Pinot Grigio: Compare an early-drinking Pinot with one for keeping?"
+  - id: n_wset_structure_point_pinot_gris_ageing
+    node_type: learning_point
+    name: Compare an early-drinking Pinot with one for keeping
+  - id: n_wset_structure_principle_cabernet_sauvignon_ageing
+    node_type: production_principle
+    name: "Cabernet Sauvignon: Cabernet can soften and develop beyond fresh fruit?"
+  - id: n_wset_structure_point_cabernet_sauvignon_ageing
+    node_type: learning_point
+    name: Cabernet can soften and develop beyond fresh fruit
+  - id: n_wset_structure_principle_merlot_ageing
+    node_type: production_principle
+    name: "Merlot: Merlot includes early-drinking and ageworthy wines?"
+  - id: n_wset_structure_point_merlot_ageing
+    node_type: learning_point
+    name: Merlot includes early-drinking and ageworthy wines
+knowledge_relations:
+  - subject_id: n_wset_structure_principle_chardonnay_structure
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_chardonnay_structure
+    valid_from: 1900-01-01
+  - subject_id: n_wset_structure_principle_sauvignon_blanc_structure
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_sauvignon_blanc_structure
+    valid_from: 1900-01-01
+  - subject_id: n_wset_structure_principle_pinot_gris_structure
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_pinot_gris_structure
+    valid_from: 1900-01-01
+  - subject_id: n_wset_structure_principle_riesling_structure
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_riesling_structure
+    valid_from: 1900-01-01
+  - subject_id: n_wset_structure_principle_cabernet_sauvignon_structure
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_cabernet_sauvignon_structure
+    valid_from: 1900-01-01
+  - subject_id: n_wset_structure_principle_merlot_structure
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_merlot_structure
+    valid_from: 1900-01-01
+  - subject_id: n_wset_structure_principle_pinot_noir_structure
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_pinot_noir_structure
+    valid_from: 1900-01-01
+  - subject_id: n_wset_structure_principle_syrah_structure
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_syrah_structure
+    valid_from: 1900-01-01
+  - subject_id: n_wset_structure_principle_gamay_structure
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_gamay_structure
+    valid_from: 1900-01-01
+  - subject_id: n_wset_structure_principle_grenache_structure
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_grenache_structure
+    valid_from: 1900-01-01
+  - subject_id: n_wset_structure_principle_tempranillo_structure
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_tempranillo_structure
+    valid_from: 1900-01-01
+  - subject_id: n_wset_structure_principle_nebbiolo_structure
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_nebbiolo_structure
+    valid_from: 1900-01-01
+  - subject_id: n_wset_structure_principle_barbera_structure
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_barbera_structure
+    valid_from: 1900-01-01
+  - subject_id: n_wset_structure_principle_sangiovese_structure
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_sangiovese_structure
+    valid_from: 1900-01-01
+  - subject_id: n_wset_structure_principle_corvina_structure
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_corvina_structure
+    valid_from: 1900-01-01
+  - subject_id: n_wset_structure_principle_montepulciano_structure
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_montepulciano_structure
+    valid_from: 1900-01-01
+  - subject_id: n_wset_structure_principle_zinfandel_structure
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_zinfandel_structure
+    valid_from: 1900-01-01
+  - subject_id: n_wset_structure_principle_pinotage_structure
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_pinotage_structure
+    valid_from: 1900-01-01
+  - subject_id: n_wset_structure_principle_carmenere_structure
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_carmenere_structure
+    valid_from: 1900-01-01
+  - subject_id: n_wset_structure_principle_malbec_structure
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_malbec_structure
+    valid_from: 1900-01-01
+  - subject_id: n_wset_structure_principle_chenin_blanc_structure
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_chenin_blanc_structure
+    valid_from: 1900-01-01
+  - subject_id: n_wset_structure_principle_semillon_structure
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_semillon_structure
+    valid_from: 1900-01-01
+  - subject_id: n_wset_structure_principle_viognier_structure
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_viognier_structure
+    valid_from: 1900-01-01
+  - subject_id: n_wset_structure_principle_gewurztraminer_structure
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_gewurztraminer_structure
+    valid_from: 1900-01-01
+  - subject_id: n_wset_structure_principle_verdicchio_structure
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_verdicchio_structure
+    valid_from: 1900-01-01
+  - subject_id: n_wset_structure_principle_cortese_structure
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_cortese_structure
+    valid_from: 1900-01-01
+  - subject_id: n_wset_structure_principle_garganega_structure
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_garganega_structure
+    valid_from: 1900-01-01
+  - subject_id: n_wset_structure_principle_fiano_structure
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_fiano_structure
+    valid_from: 1900-01-01
+  - subject_id: n_wset_structure_principle_albarino_structure
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_albarino_structure
+    valid_from: 1900-01-01
+  - subject_id: n_wset_structure_principle_furmint_structure
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_furmint_structure
+    valid_from: 1900-01-01
+  - subject_id: n_wset_structure_principle_chardonnay_vineyard
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_chardonnay_vineyard
+    valid_from: 1900-01-01
+  - subject_id: n_wset_structure_principle_sauvignon_blanc_vineyard
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_sauvignon_blanc_vineyard
+    valid_from: 1900-01-01
+  - subject_id: n_wset_structure_principle_pinot_gris_vineyard
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_pinot_gris_vineyard
+    valid_from: 1900-01-01
+  - subject_id: n_wset_structure_principle_riesling_vineyard
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_riesling_vineyard
+    valid_from: 1900-01-01
+  - subject_id: n_wset_structure_principle_cabernet_sauvignon_vineyard
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_cabernet_sauvignon_vineyard
+    valid_from: 1900-01-01
+  - subject_id: n_wset_structure_principle_merlot_vineyard
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_merlot_vineyard
+    valid_from: 1900-01-01
+  - subject_id: n_wset_structure_principle_pinot_noir_vineyard
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_pinot_noir_vineyard
+    valid_from: 1900-01-01
+  - subject_id: n_wset_structure_principle_syrah_vineyard
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_syrah_vineyard
+    valid_from: 1900-01-01
+  - subject_id: n_wset_structure_principle_chardonnay_ageing
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_chardonnay_ageing
+    valid_from: 1900-01-01
+  - subject_id: n_wset_structure_principle_sauvignon_blanc_ageing
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_sauvignon_blanc_ageing
+    valid_from: 1900-01-01
+  - subject_id: n_wset_structure_principle_pinot_gris_ageing
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_pinot_gris_ageing
+    valid_from: 1900-01-01
+  - subject_id: n_wset_structure_principle_cabernet_sauvignon_ageing
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_cabernet_sauvignon_ageing
+    valid_from: 1900-01-01
+  - subject_id: n_wset_structure_principle_merlot_ageing
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_merlot_ageing
+    valid_from: 1900-01-01
+knowledge_items:
+  - id: ki_wset_structure_chardonnay_structure
+    subject_id: n_wset_structure_principle_chardonnay_structure
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_chardonnay_structure
+    domain_id: tasting
+    assertion_text: Chardonnay white wine can be pale yellow or deeper gold, depending on style and development.
+      The grape can accumulate substantial sugar while retaining acidity; cooler or earlier-picked lots
+      often have less potential alcohol and more acidity than riper comparable lots. Colour and body do not
+      establish whether oak was used.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_structure_sauvignon_blanc_structure
+    subject_id: n_wset_structure_principle_sauvignon_blanc_structure
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_sauvignon_blanc_structure
+    domain_id: tasting
+    assertion_text: A young Sauvignon Blanc white can be pale yellow and mouthwatering. In a suitable site, an
+      earlier-picked lot usually retains more acidity and less sugar than a riper comparable lot, which can
+      yield more alcohol if fermented dry. Its herbaceous or ripe-fruit aroma is a separate observation from
+      sweetness, alcohol and colour.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_structure_pinot_gris_structure
+    subject_id: n_wset_structure_principle_pinot_gris_structure
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_pinot_gris_structure
+    domain_id: tasting
+    assertion_text: Ripe Pinot Gris can accumulate much sugar with low to moderate acidity, supporting a
+      powerful dry wine if fermented. Alsace examples can be yellow-gold and broad, yet retain balancing
+      acidity; fresher Italian Pinot Grigio need not have the same weight. Short skin contact gives a
+      different colour result from copper-coloured ramato.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_structure_riesling_structure
+    subject_id: n_wset_structure_principle_riesling_structure
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_riesling_structure
+    domain_id: tasting
+    assertion_text: A youthful Riesling white may be pale yellow and become more golden with development. High
+      acidity is a useful grape tendency. An earlier, lower-sugar harvest or fermentation stopped with sugar
+      remaining can give lower alcohol than a ripe dry version; very concentrated fruit does not prescribe
+      one finished sweetness or alcohol level.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_structure_cabernet_sauvignon_structure
+    subject_id: n_wset_structure_principle_cabernet_sauvignon_structure
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_cabernet_sauvignon_structure
+    domain_id: tasting
+    assertion_text: At suitable maturity, Cabernet Sauvignon can give deeply coloured red wine with substantial
+      tannin and naturally high acidity. Cooler or less ripe examples may retain greener aromas; riper
+      suitable sites can supply more sugar and potential alcohol. Extraction, blending with softer Merlot
+      and maturation alter the finished structure; no bottle is guaranteed a fixed level.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_structure_merlot_structure
+    subject_id: n_wset_structure_principle_merlot_structure
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_merlot_structure
+    domain_id: tasting
+    assertion_text: Merlot can give richly coloured reds with supple tannin and lower acidity than a comparable
+      Cabernet Sauvignon. Ripe fruit can contain substantial sugar and yield a fuller, higher-alcohol dry
+      style. Cooler sites, harvest timing, extraction and blends can make lighter or firmer wines, so supple
+      does not mean tannin-free.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_structure_pinot_noir_structure
+    subject_id: n_wset_structure_principle_pinot_noir_structure
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_pinot_noir_structure
+    domain_id: tasting
+    assertion_text: A cool-site Pinot Noir red often has lighter ruby colour, fresh acidity and less tannin than
+      Cabernet Sauvignon. Very ripe Pinot Noir can accumulate high sugar while losing acidity; warm or more
+      extracted wines may be fuller and firmer. Thin skins and lighter colour do not prevent complexity, nor
+      prove a wine is ready to drink.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_structure_syrah_structure
+    subject_id: n_wset_structure_principle_syrah_structure
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_syrah_structure
+    domain_id: tasting
+    assertion_text: Syrah can make intensely coloured reds with substantial tannin. Cooler Northern Rhône
+      expressions can have fresher acidity and less alcohol than ripe warm-site Shiraz; the cultivar can
+      also give relatively low acidity at maturity. Sugar, harvest choice, extraction and blending change
+      the balance, so deep colour does not guarantee high acidity.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_structure_gamay_structure
+    subject_id: n_wset_structure_principle_gamay_structure
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_gamay_structure
+    domain_id: tasting
+    assertion_text: Gamay reds often combine moderate red colour, fresh acidity and relatively gentle tannin,
+      particularly with whole-berry or whole-bunch maceration. A riper lot has more potential alcohol than a
+      lower-sugar comparable lot; extraction and blending can change the structure. Fresh strawberry or
+      cherry aromas do not establish residual sugar.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_structure_grenache_structure
+    subject_id: n_wset_structure_principle_grenache_structure
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_grenache_structure
+    domain_id: tasting
+    assertion_text: Grenache can accumulate much sugar, supporting high alcohol in ripe dry wines, and often has
+      relatively low acidity. It commonly gives lighter red colour and supple tannin; clone, yield and
+      extraction can make more structured examples. Warm-site ripe fruit and blends explain why a
+      Grenache-led wine need not be light-bodied.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_structure_tempranillo_structure
+    subject_id: n_wset_structure_principle_tempranillo_structure
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_tempranillo_structure
+    domain_id: tasting
+    assertion_text: Tempranillo can give deeply coloured, tannic reds when suitably ripe and extracted. In hot
+      sites it may lack acidity, while cooler elevated conditions can preserve more freshness. Fruit with
+      more fermentable sugar has more potential alcohol; neither oak-age labels nor the grape name establish
+      the actual alcohol or acid level.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_structure_nebbiolo_structure
+    subject_id: n_wset_structure_principle_nebbiolo_structure
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_nebbiolo_structure
+    domain_id: tasting
+    assertion_text: Nebbiolo can have comparatively modest ruby colour yet substantial tannin and acidity. A
+      suitable long ripening season allows sugar accumulation and can give substantial alcohol in a dry
+      wine. Extraction and development change texture and hue; pale-looking Nebbiolo is not evidence of weak
+      structure or inferior quality.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_structure_barbera_structure
+    subject_id: n_wset_structure_principle_barbera_structure
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_barbera_structure
+    domain_id: tasting
+    assertion_text: Barbera can give deeply coloured reds with marked acidity but relatively little grape
+      tannin. Its colour-rich anthocyanins do not imply Nebbiolo-like tannin. Riper fruit can support a
+      fuller, higher-alcohol dry style than a lower-sugar comparable lot; extraction, oak and blending can
+      add or change the finished tannin.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_structure_sangiovese_structure
+    subject_id: n_wset_structure_principle_sangiovese_structure
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_sangiovese_structure
+    domain_id: tasting
+    assertion_text: Sangiovese-led Chianti Classico has ruby-red colour, sometimes more garnet with development,
+      and pronounced acidity with drying tannin. Comparable fruit harvested at higher sugar has greater
+      potential alcohol if fermented dry. Site, blend, extraction and age change its cherry-led profile and
+      texture; colour intensity is not a quality grade.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_structure_corvina_structure
+    subject_id: n_wset_structure_principle_corvina_structure
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_corvina_structure
+    domain_id: tasting
+    assertion_text: Corvina has relatively limited red pigment and moderate skin tannin, with fresh acidity.
+      Young Corvina-led Valpolicella can therefore be lighter red and cherry-scented. Drying grapes
+      concentrates sugar and other components, supporting a fuller, higher-alcohol dry Amarone route;
+      fermentation stopped with sugar remaining instead gives a sweet target.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_structure_montepulciano_structure
+    subject_id: n_wset_structure_principle_montepulciano_structure
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_montepulciano_structure
+    domain_id: tasting
+    assertion_text: Montepulciano d’Abruzzo is typically an intensely ruby-coloured red with fruit, spice and
+      noticeable tannin, becoming more garnet with development. Masciarelli’s Linea Classica is a named
+      example with a taut palate and pleasant acidity supporting freshness; not every Montepulciano has the
+      same acid balance. Higher-sugar fruit raises potential alcohol and can yield more actual alcohol when
+      fermented dry than a comparable lower-sugar lot.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_structure_zinfandel_structure
+    subject_id: n_wset_structure_principle_zinfandel_structure
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_zinfandel_structure
+    domain_id: tasting
+    assertion_text: For red Zinfandel, skin contact supplies colour and tannin. Its unevenly ripening bunches
+      can include less ripe berries that supply bright acidity beside ripe or raisined fruit. Riper
+      high-sugar fruit supports greater potential alcohol, while soft or strongly extracted styles have
+      different acid and tannin balances. An earlier rosé or sweet blush has a different colour and
+      structure.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_structure_pinotage_structure
+    subject_id: n_wset_structure_principle_pinotage_structure
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_pinotage_structure
+    domain_id: tasting
+    assertion_text: Pinotage can give deeply coloured reds with substantial tannin, but extraction can produce a
+      softer early-release style. Ripe high-sugar fruit supports greater potential alcohol; acid and pH need
+      checking rather than assuming one level. Southern Right’s 2020 Pinotage is a documented medium-bodied,
+      bright-acid, lightly chewy example, illustrating variation rather than a universal recipe.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_structure_carmenere_structure
+    subject_id: n_wset_structure_principle_carmenere_structure
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_carmenere_structure
+    domain_id: tasting
+    assertion_text: Carménère can produce richly coloured reds with substantial grape tannin and relatively low
+      acidity at good maturity. Finished examples can have more moderate tannin after extraction and
+      maturation choices. Inadequate ripening can retain green flavours; suitable warm-site sugar
+      accumulation can support a fuller, higher-alcohol dry wine, without fixing every Chilean bottle’s
+      levels.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_structure_malbec_structure
+    subject_id: n_wset_structure_principle_malbec_structure
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_malbec_structure
+    domain_id: tasting
+    assertion_text: Malbec can give intensely coloured red wine with substantial tannin. Argentine higher or
+      cooler sites can retain more acidity and floral freshness than warmer comparable sites; texture also
+      depends on extraction. A ripe high-sugar lot has more potential alcohol than a comparable lower-sugar
+      lot, but elevation alone does not establish alcohol or quality.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_structure_chenin_blanc_structure
+    subject_id: n_wset_structure_principle_chenin_blanc_structure
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_chenin_blanc_structure
+    domain_id: tasting
+    assertion_text: Chenin Blanc can make pale-yellow dry whites or more golden developed and concentrated
+      styles. Marked acidity is a useful tendency. Ripe or concentrated grapes contain more sugar than less
+      ripe comparable fruit, but fermentation can leave part as residual sugar; a sweet Chenin is not
+      automatically a higher-alcohol wine than a dry one.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_structure_semillon_structure
+    subject_id: n_wset_structure_principle_semillon_structure
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_semillon_structure
+    domain_id: tasting
+    assertion_text: Sémillon can give pale-yellow young whites and more golden developed or concentrated wines.
+      Ripe Sémillon can accumulate substantial sugar with relatively modest acidity, supporting broad dry or
+      sweet styles. Early-picked Hunter Sémillon instead can have ripe flavour at lower sugar, high acidity
+      and lower alcohol; ripeness and fermentation determine the actual balance.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_structure_viognier_structure
+    subject_id: n_wset_structure_principle_viognier_structure
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_viognier_structure
+    domain_id: tasting
+    assertion_text: Ripe Viognier can accumulate much sugar and often has relatively low acidity, giving a
+      broad, higher-alcohol dry white. Its white colour can range from pale yellow to richer gold with style
+      and development. Picking earlier may preserve freshness but flavour maturity still matters; peach or
+      apricot aromas do not prove sweetness.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_structure_gewurztraminer_structure
+    subject_id: n_wset_structure_principle_gewurztraminer_structure
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_gewurztraminer_structure
+    domain_id: tasting
+    assertion_text: Gewurztraminer can make yellow to golden whites with pronounced aroma and broad body. It can
+      accumulate substantial sugar while acidity is often moderate, making ripe dry examples comparatively
+      rich. Concentrated late or botrytis-affected fruit can also make sweet wine; fermentation determines
+      how much sugar becomes alcohol and how much remains.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_structure_verdicchio_structure
+    subject_id: n_wset_structure_principle_verdicchio_structure
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_verdicchio_structure
+    domain_id: tasting
+    assertion_text: Verdicchio dei Castelli di Jesi can be straw-yellow with green reflections and an explicitly
+      acidic, fresh palate. Earlier picking can give a lighter, citrus-led expression; suitably riper fruit
+      offers more sugar and therefore greater potential alcohol if fermented dry. Fuller or developed
+      versions need not have the same colour intensity or body.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_structure_cortese_structure
+    subject_id: n_wset_structure_principle_cortese_structure
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_cortese_structure
+    domain_id: tasting
+    assertion_text: Cortese in Gavi gives a pale straw-yellow, often green-tinged, dry white with fresh acidity
+      and delicate fruit or flowers. Its ripeness and sugar determine potential alcohol rather than a fixed
+      grape-name level. Compare a fresher lower-sugar lot with a riper lot; greater ripeness may add weight
+      without guaranteeing better balance.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_structure_garganega_structure
+    subject_id: n_wset_structure_principle_garganega_structure
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_garganega_structure
+    domain_id: tasting
+    assertion_text: Garganega-led dry Soave is a straw-yellow white with freshness; the grape’s acidity is
+      generally balanced rather than exceptionally marked. A suitably riper lot can have greater sugar and
+      potential alcohol than an earlier comparable lot. Drying healthy grapes concentrates sugar for richer
+      Recioto, whose retained sweetness also depends on fermentation.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_structure_fiano_structure
+    subject_id: n_wset_structure_principle_fiano_structure
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_fiano_structure
+    domain_id: tasting
+    assertion_text: Fiano di Avellino can be straw-yellow with marked acidity and medium structure, with white
+      fruit, flowers and hazelnut. If comparable fruit reaches higher sugar before harvest, its potential
+      alcohol rises when fermented dry; finished weight also depends on cellar choices. Wood and bottle
+      development can broaden aroma without proving a higher-quality wine.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_structure_albarino_structure
+    subject_id: n_wset_structure_principle_albarino_structure
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_albarino_structure
+    domain_id: tasting
+    assertion_text: "Albariño whites can be pale straw-yellow and fresh, with good natural acidity and citrus or
+      stone-fruit aromas. The cultivar’s moderate sugar-accumulation tendency does not fix bottle alcohol:
+      site, harvest and dry fermentation matter. More mature comparable fruit has greater potential alcohol;
+      lees, malolactic and wood choices can alter texture and acid impression."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_structure_furmint_structure
+    subject_id: n_wset_structure_principle_furmint_structure
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_furmint_structure
+    domain_id: tasting
+    assertion_text: "Furmint has marked acidity with moderate ordinary sugar-accumulation potential; raisining
+      or noble rot can concentrate sugar for sweet styles. Its dry whites can be straw-yellow or golden:
+      Grand Tokaj’s 2024 Terroir Selection is a documented bright-gold, tight-acid example. More
+      concentrated fruit does not prescribe alcohol, because fermentation may retain sugar."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_structure_chardonnay_vineyard
+    subject_id: n_wset_structure_principle_chardonnay_vineyard
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_chardonnay_vineyard
+    domain_id: viticulture
+    assertion_text: "Chardonnay adapts to cool and warmer suitable sites. Compare an earlier harvest intended
+      for fresh acidity with riper fruit intended for a fuller dry wine: flavour, sugar and acid must be
+      evaluated together. It can accumulate sugar while retaining useful acidity, but extreme drought or
+      unsuitable conditions can impair the crop."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_structure_sauvignon_blanc_vineyard
+    subject_id: n_wset_structure_principle_sauvignon_blanc_vineyard
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_sauvignon_blanc_vineyard
+    domain_id: viticulture
+    assertion_text: Vigorous Sauvignon Blanc needs canopy and crop management that gives the bunches an
+      appropriate microclimate. In cool or moderate suitable conditions it can retain herbaceous character
+      and acidity; riper fruit can shift towards stone or tropical fruit. Later or noble-rot fruit may suit
+      sweet wine, rather than the same early-release dry target.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_structure_pinot_gris_vineyard
+    subject_id: n_wset_structure_principle_pinot_gris_vineyard
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_pinot_gris_vineyard
+    domain_id: viticulture
+    assertion_text: Pinot Gris can accumulate high sugar; earlier picking can support a fresher style, while
+      riper fruit can support a richer dry or sweet target. Compact bunches need attention to rot risk.
+      Selected late or noble-rot fruit is a concentration route in Alsace; grey-pink skin alone does not
+      prescribe sweetness or copper-coloured wine.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_structure_riesling_vineyard
+    subject_id: n_wset_structure_principle_riesling_vineyard
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_riesling_vineyard
+    domain_id: viticulture
+    assertion_text: Riesling’s high acidity permits contrasting dry and sweet targets as sugar accumulates.
+      Appropriate cooler sites and exposures can support a long ripening period; earlier picking, ripe dry
+      fermentation and selected overripe or noble-rot fruit create different balances. Healthy fruit,
+      flavour and sugar must be assessed together rather than using the variety name as a harvest date.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_structure_cabernet_sauvignon_vineyard
+    subject_id: n_wset_structure_principle_cabernet_sauvignon_vineyard
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_cabernet_sauvignon_vineyard
+    domain_id: viticulture
+    assertion_text: "Cabernet Sauvignon ripens relatively late and needs suitable warmth and a long enough
+      growing season. Insufficient maturity can leave green flavours with firm tannin; adequately ripe fruit
+      gives deeper colour and a more mature flavour balance. Compare sugar, acid and tannin maturity before
+      picking: greater heat or later harvest is not automatically better."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_structure_merlot_vineyard
+    subject_id: n_wset_structure_principle_merlot_vineyard
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_merlot_vineyard
+    domain_id: viticulture
+    assertion_text: Merlot generally ripens earlier than Cabernet Sauvignon, helping explain its use in suitable
+      Bordeaux sites where a later grape may struggle to mature. Its early budbreak can expose growth to
+      spring frost, and severe drought is a risk. Picking time still changes sugar, acidity and flavour;
+      earlier-ripening does not mean every wine is light.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_structure_pinot_noir_vineyard
+    subject_id: n_wset_structure_principle_pinot_noir_vineyard
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_pinot_noir_vineyard
+    domain_id: viticulture
+    assertion_text: Pinot Noir is suited to temperate growing conditions; in hot weather it can ripen rapidly,
+      lose acidity or suffer berry sunburn and shrivelling. Comparing suitable cooler and warmer sites
+      explains fresh red fruit versus greater ripeness and alcohol potential. Flavour, acid and sugar checks
+      matter especially when the intended red wine relies on finesse.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_structure_syrah_vineyard
+    subject_id: n_wset_structure_principle_syrah_vineyard
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_syrah_vineyard
+    domain_id: viticulture
+    assertion_text: Syrah’s shoots benefit from careful support, and its interval from veraison to maturity can
+      be short. In a suitable moderate or warm site, monitor flavour, sugar, acidity and berry condition as
+      harvest approaches. Riper fruit can favour fuller dry wine with lower acidity; cooler sites can retain
+      a different pepper, freshness and alcohol balance.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_structure_chardonnay_ageing
+    subject_id: n_wset_structure_principle_chardonnay_ageing
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_chardonnay_ageing
+    domain_id: tasting
+    assertion_text: Some balanced, concentrated Chardonnay can develop nutty or honeyed complexity as fresh
+      fruit recedes and white colour deepens during bottle age. Oak can add toast earlier in production, so
+      toast alone does not identify bottle age. A straightforward fruit-led Chardonnay may be better enjoyed
+      young; storage and the actual cuvée matter.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_structure_sauvignon_blanc_ageing
+    subject_id: n_wset_structure_principle_sauvignon_blanc_ageing
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_sauvignon_blanc_ageing
+    domain_id: tasting
+    assertion_text: Many fresh Sauvignon Blanc wines are intended for youth, while some concentrated or
+      oak-influenced styles and Sémillon blends can develop honeyed or nutty character with age. The
+      original herbaceous or fruit profile may recede. Oak spice is a cellar contribution and does not by
+      itself prove that the bottle has aged well.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_structure_pinot_gris_ageing
+    subject_id: n_wset_structure_principle_pinot_gris_ageing
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_pinot_gris_ageing
+    domain_id: tasting
+    assertion_text: "A fresh, light Pinot Grigio may suit early drinking, whereas a balanced, concentrated
+      Alsace Pinot Gris can be suitable for keeping. For a supplied Alsace lot with sufficient flavour and
+      acid balance, apply the white-wine ageing comparison: fresh fruit may recede, colour may deepen and
+      developed aromas may emerge. A grape name alone cannot guarantee improvement."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_structure_cabernet_sauvignon_ageing
+    subject_id: n_wset_structure_principle_cabernet_sauvignon_ageing
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_cabernet_sauvignon_ageing
+    domain_id: tasting
+    assertion_text: A balanced, concentrated Cabernet Sauvignon with sufficient structure can develop beyond
+      fresh black fruit towards dried-fruit, earthy or tobacco-like complexity while tannin texture softens.
+      Barrel-derived vanilla or cedar may already be present before bottle age. Deep colour and strong
+      tannin alone do not establish that keeping this bottle will improve it.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_structure_merlot_ageing
+    subject_id: n_wset_structure_principle_merlot_ageing
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_structure_point_merlot_ageing
+    domain_id: tasting
+    assertion_text: A light, fruit-led Merlot may suit early drinking; a suitably concentrated and balanced
+      structured wine can develop dried-fruit or tobacco-like complexity with softer tannin during ageing.
+      Oak can add separate wood-derived aromas. Neither supple texture nor the Merlot name tells you that
+      every bottle should be kept, and poor storage can spoil development.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+certification_knowledge_mappings:
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_structure_chardonnay_structure
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_structure_sauvignon_blanc_structure
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_structure_pinot_gris_structure
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_structure_riesling_structure
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_structure_cabernet_sauvignon_structure
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_structure_merlot_structure
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_structure_pinot_noir_structure
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_structure_syrah_structure
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_structure_gamay_structure
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_structure_grenache_structure
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_structure_tempranillo_structure
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_structure_nebbiolo_structure
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_structure_barbera_structure
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_structure_sangiovese_structure
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_structure_corvina_structure
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_structure_montepulciano_structure
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_structure_zinfandel_structure
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_structure_pinotage_structure
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_structure_carmenere_structure
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_structure_malbec_structure
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_structure_chenin_blanc_structure
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_structure_semillon_structure
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_structure_viognier_structure
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_structure_gewurztraminer_structure
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_structure_verdicchio_structure
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_structure_cortese_structure
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_structure_garganega_structure
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_structure_fiano_structure
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_structure_albarino_structure
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_structure_furmint_structure
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_structure_chardonnay_vineyard
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_structure_sauvignon_blanc_vineyard
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_structure_pinot_gris_vineyard
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_structure_riesling_vineyard
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_structure_cabernet_sauvignon_vineyard
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_structure_merlot_vineyard
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_structure_pinot_noir_vineyard
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_structure_syrah_vineyard
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_structure_chardonnay_ageing
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_structure_sauvignon_blanc_ageing
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_structure_pinot_gris_ageing
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_structure_cabernet_sauvignon_ageing
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_structure_merlot_ageing
+    importance: core
+    minimum_depth: 2
+source_citations:
+  - id: src_wset_structure_plantgrape_sauvignon_blanc
+    kind: reference_work
+    title: "Plantgrape: Sauvignon B"
+    publisher: IFV – INRAE – Institut Agro Montpellier / UMT Géno-Vigne
+    url: https://www.plantgrape.fr/fr/varietes/varietes-a-fruits/251
+    document_identifier: Living cultivar catalogue; Potentialités technologiques and Aptitudes culturales et
+      agronomiques; qualitative cultivar observations, not global numerical bottle guarantees
+    accessed_on: 2026-09-27
+    jurisdiction: FR
+  - id: src_wset_structure_plantgrape_cabernet_sauvignon
+    kind: reference_work
+    title: "Plantgrape: Cabernet-Sauvignon N"
+    publisher: IFV – INRAE – Institut Agro Montpellier / UMT Géno-Vigne
+    url: https://www.plantgrape.fr/fr/varietes/varietes-a-fruits/43
+    document_identifier: Living cultivar catalogue; Potentialités technologiques and Aptitudes culturales et
+      agronomiques; qualitative cultivar observations, not global numerical bottle guarantees
+    accessed_on: 2026-09-27
+    jurisdiction: FR
+  - id: src_wset_structure_plantgrape_pinot_gris
+    kind: reference_work
+    title: "Plantgrape: Pinot gris G"
+    publisher: IFV – INRAE – Institut Agro Montpellier / UMT Géno-Vigne
+    url: https://www.plantgrape.fr/fr/varietes/varietes-a-fruits/217
+    document_identifier: Living cultivar catalogue; Potentialités technologiques and Aptitudes culturales et
+      agronomiques; qualitative cultivar observations, not global numerical bottle guarantees
+    accessed_on: 2026-09-27
+    jurisdiction: FR
+  - id: src_wset_structure_plantgrape_chardonnay
+    kind: reference_work
+    title: "Plantgrape: Chardonnay B"
+    publisher: IFV – INRAE – Institut Agro Montpellier / UMT Géno-Vigne
+    url: https://www.plantgrape.fr/fr/varietes/varietes-a-fruits/60
+    document_identifier: Living cultivar catalogue; Potentialités technologiques and Aptitudes culturales et
+      agronomiques; qualitative cultivar observations, not global numerical bottle guarantees
+    accessed_on: 2026-09-27
+    jurisdiction: FR
+  - id: src_wset_structure_plantgrape_riesling
+    kind: reference_work
+    title: "Plantgrape: Riesling B"
+    publisher: IFV – INRAE – Institut Agro Montpellier / UMT Géno-Vigne
+    url: https://www.plantgrape.fr/fr/varietes/varietes-a-fruits/236
+    document_identifier: Living cultivar catalogue; Potentialités technologiques and Aptitudes culturales et
+      agronomiques; qualitative cultivar observations, not global numerical bottle guarantees
+    accessed_on: 2026-09-27
+    jurisdiction: FR
+  - id: src_wset_structure_plantgrape_merlot
+    kind: reference_work
+    title: "Plantgrape: Merlot N"
+    publisher: IFV – INRAE – Institut Agro Montpellier / UMT Géno-Vigne
+    url: https://www.plantgrape.fr/fr/varietes/varietes-a-fruits/164
+    document_identifier: Living cultivar catalogue; Potentialités technologiques and Aptitudes culturales et
+      agronomiques; qualitative cultivar observations, not global numerical bottle guarantees
+    accessed_on: 2026-09-27
+    jurisdiction: FR
+  - id: src_wset_structure_plantgrape_grenache
+    kind: reference_work
+    title: "Plantgrape: Grenache N"
+    publisher: IFV – INRAE – Institut Agro Montpellier / UMT Géno-Vigne
+    url: https://www.plantgrape.fr/fr/varietes/varietes-a-fruits/120
+    document_identifier: Living cultivar catalogue; Potentialités technologiques and Aptitudes culturales et
+      agronomiques; qualitative cultivar observations, not global numerical bottle guarantees
+    accessed_on: 2026-09-27
+    jurisdiction: FR
+  - id: src_wset_structure_plantgrape_pinot_noir
+    kind: reference_work
+    title: "Plantgrape: Pinot noir N"
+    publisher: IFV – INRAE – Institut Agro Montpellier / UMT Géno-Vigne
+    url: https://www.plantgrape.fr/fr/varietes/varietes-a-fruits/218
+    document_identifier: Living cultivar catalogue; Potentialités technologiques and Aptitudes culturales et
+      agronomiques; qualitative cultivar observations, not global numerical bottle guarantees
+    accessed_on: 2026-09-27
+    jurisdiction: FR
+  - id: src_wset_structure_plantgrape_syrah
+    kind: reference_work
+    title: "Plantgrape: Syrah N"
+    publisher: IFV – INRAE – Institut Agro Montpellier / UMT Géno-Vigne
+    url: https://www.plantgrape.fr/fr/varietes/varietes-a-fruits/267
+    document_identifier: Living cultivar catalogue; Potentialités technologiques and Aptitudes culturales et
+      agronomiques; qualitative cultivar observations, not global numerical bottle guarantees
+    accessed_on: 2026-09-27
+    jurisdiction: FR
+  - id: src_wset_structure_plantgrape_gamay
+    kind: reference_work
+    title: "Plantgrape: Gamay N"
+    publisher: IFV – INRAE – Institut Agro Montpellier / UMT Géno-Vigne
+    url: https://www.plantgrape.fr/fr/varietes/varietes-a-fruits/104
+    document_identifier: Living cultivar catalogue; Potentialités technologiques and Aptitudes culturales et
+      agronomiques; qualitative cultivar observations, not global numerical bottle guarantees
+    accessed_on: 2026-09-27
+    jurisdiction: FR
+  - id: src_wset_structure_plantgrape_tempranillo
+    kind: reference_work
+    title: "Plantgrape: Tempranillo N"
+    publisher: IFV – INRAE – Institut Agro Montpellier / UMT Géno-Vigne
+    url: https://www.plantgrape.fr/fr/varietes/varietes-a-fruits/269
+    document_identifier: Living cultivar catalogue; Potentialités technologiques and Aptitudes culturales et
+      agronomiques; qualitative cultivar observations, not global numerical bottle guarantees
+    accessed_on: 2026-09-27
+    jurisdiction: FR
+  - id: src_wset_structure_plantgrape_barbera
+    kind: reference_work
+    title: "Plantgrape: Barbera N"
+    publisher: IFV – INRAE – Institut Agro Montpellier / UMT Géno-Vigne
+    url: https://www.plantgrape.fr/fr/varietes/varietes-a-fruits/337
+    document_identifier: Living cultivar catalogue; Potentialités technologiques and Aptitudes culturales et
+      agronomiques; qualitative cultivar observations, not global numerical bottle guarantees
+    accessed_on: 2026-09-27
+    jurisdiction: FR
+  - id: src_wset_structure_plantgrape_carmenere
+    kind: reference_work
+    title: "Plantgrape: Carmenère N"
+    publisher: IFV – INRAE – Institut Agro Montpellier / UMT Géno-Vigne
+    url: https://www.plantgrape.fr/fr/varietes/varietes-a-fruits/55
+    document_identifier: Living cultivar catalogue; Potentialités technologiques and Aptitudes culturales et
+      agronomiques; qualitative cultivar observations, not global numerical bottle guarantees
+    accessed_on: 2026-09-27
+    jurisdiction: FR
+  - id: src_wset_structure_plantgrape_malbec
+    kind: reference_work
+    title: "Plantgrape: Cot N"
+    publisher: IFV – INRAE – Institut Agro Montpellier / UMT Géno-Vigne
+    url: https://www.plantgrape.fr/fr/varietes/varietes-a-fruits/78
+    document_identifier: Living cultivar catalogue; Potentialités technologiques and Aptitudes culturales et
+      agronomiques; qualitative cultivar observations, not global numerical bottle guarantees
+    accessed_on: 2026-09-27
+    jurisdiction: FR
+  - id: src_wset_structure_plantgrape_semillon
+    kind: reference_work
+    title: "Plantgrape: Semillon B"
+    publisher: IFV – INRAE – Institut Agro Montpellier / UMT Géno-Vigne
+    url: https://www.plantgrape.fr/fr/varietes/varietes-a-fruits/260
+    document_identifier: Living cultivar catalogue; Potentialités technologiques and Aptitudes culturales et
+      agronomiques; qualitative cultivar observations, not global numerical bottle guarantees
+    accessed_on: 2026-09-27
+    jurisdiction: FR
+  - id: src_wset_structure_plantgrape_chenin_blanc
+    kind: reference_work
+    title: "Plantgrape: Chenin B"
+    publisher: IFV – INRAE – Institut Agro Montpellier / UMT Géno-Vigne
+    url: https://www.plantgrape.fr/fr/varietes/varietes-a-fruits/68
+    document_identifier: Living cultivar catalogue; Potentialités technologiques and Aptitudes culturales et
+      agronomiques; qualitative cultivar observations, not global numerical bottle guarantees
+    accessed_on: 2026-09-27
+    jurisdiction: FR
+  - id: src_wset_structure_plantgrape_gewurztraminer
+    kind: reference_work
+    title: "Plantgrape: Gewurztraminer Rs"
+    publisher: IFV – INRAE – Institut Agro Montpellier / UMT Géno-Vigne
+    url: https://www.plantgrape.fr/fr/varietes/varietes-a-fruits/112
+    document_identifier: Living cultivar catalogue; Potentialités technologiques and Aptitudes culturales et
+      agronomiques; qualitative cultivar observations, not global numerical bottle guarantees
+    accessed_on: 2026-09-27
+    jurisdiction: FR
+  - id: src_wset_structure_plantgrape_viognier
+    kind: reference_work
+    title: "Plantgrape: Viognier B"
+    publisher: IFV – INRAE – Institut Agro Montpellier / UMT Géno-Vigne
+    url: https://www.plantgrape.fr/fr/varietes/varietes-a-fruits/288
+    document_identifier: Living cultivar catalogue; Potentialités technologiques and Aptitudes culturales et
+      agronomiques; qualitative cultivar observations, not global numerical bottle guarantees
+    accessed_on: 2026-09-27
+    jurisdiction: FR
+  - id: src_wset_structure_plantgrape_furmint
+    kind: reference_work
+    title: "Plantgrape: Furmint B"
+    publisher: IFV – INRAE – Institut Agro Montpellier / UMT Géno-Vigne
+    url: https://www.plantgrape.fr/fr/varietes/varietes-a-fruits/142
+    document_identifier: Living cultivar catalogue; Potentialités technologiques and Aptitudes culturales et
+      agronomiques; qualitative cultivar observations, not global numerical bottle guarantees
+    accessed_on: 2026-09-27
+    jurisdiction: FR
+  - id: src_wset_structure_plantgrape_albarino
+    kind: reference_work
+    title: "Plantgrape: Alvarinho B"
+    publisher: IFV – INRAE – Institut Agro Montpellier / UMT Géno-Vigne
+    url: https://www.plantgrape.fr/fr/varietes/varietes-a-fruits/300
+    document_identifier: Living cultivar catalogue; Potentialités technologiques and Aptitudes culturales et
+      agronomiques; qualitative cultivar observations, not global numerical bottle guarantees
+    accessed_on: 2026-09-27
+    jurisdiction: FR
+  - id: src_wset_structure_barbera_astimonferrato
+    kind: reference_work
+    title: Barbera d’Asti and Monferrato press kit 2019
+    publisher: Consorzio Barbera d’Asti e Vini del Monferrato
+    url: https://www.viniastimonferrato.it/wp-content/uploads/Press-Kit-2019.pdf
+    document_identifier: "2019; printed pages 5–6: acidity, anthocyanins, relatively few tannins and steel/wood
+      styles. Historical statistics and questionable pest-resistance prose unused"
+    accessed_on: 2026-09-27
+    jurisdiction: IT
+  - id: src_wset_structure_verdicchio_castelli_jesi
+    kind: reference_work
+    title: "Verdicchio dei Castelli di Jesi: sensory profiles"
+    publisher: Istituto Marchigiano di Tutela Vini
+    url: https://imtdoc.it/vino/verdicchio-dei-castelli-jesi/
+    document_identifier: Living primary origin page; still-wine sensory profile and earlier/later harvest
+      comparison. Statistics, legends and legal numerical parameters unused
+    accessed_on: 2026-09-27
+    jurisdiction: IT
+  - id: src_wset_structure_soave_qualitative
+    kind: reference_work
+    title: "Soave consolidated specification: qualitative grape and sensory context"
+    publisher: MIPAAF; qualitative specification text hosted by Consorzio Tutela Vini Soave e Recioto di Soave
+    url: https://www.ilsoave.com/wp-content/uploads/2020/11/Soave-DOC-consolidato-definitivo.pdf
+    document_identifier: "Consolidation through 2019/2020; Article 8(b), PDF page 10: qualitative Garganega
+      balance and Article 6 straw-yellow wine colour only. Not relied on as current numerical legislation"
+    accessed_on: 2026-09-27
+    jurisdiction: IT
+  - id: src_wset_structure_corvina_research
+    kind: reference_work
+    title: Corvina grapes composition and wine sensory profile as affected by different dehydration conditions
+    publisher: Diego Tomasi and co-authors; primary research conference paper hosted by IVES Open Science
+    url: https://ives-openscience.eu/wp-content/uploads/2023/08/TOMASI-et-al.pdf
+    document_identifier: "GiESCO 2019 primary research paper; Introduction: fresh acidity, limited anthocyanins
+      and moderate skin tannins; specific dehydration trials are not universal thresholds"
+    accessed_on: 2026-09-27
+    jurisdiction: IT
+  - id: src_wset_structure_pinotage_vinification
+    kind: reference_work
+    title: "Pinotage Association: Vinification"
+    publisher: Pinotage Association of South Africa
+    url: https://pinotage.co.za/about/vinification/
+    document_identifier: Living primary practical guidance for South African conditions; harvest analysis, acid
+      adjustments, extraction and full-bodied/early-release targets. Recommendations are not legal rules
+    accessed_on: 2026-09-27
+    jurisdiction: ZA
+  - id: src_wset_structure_pinotage_southern_right_2020
+    kind: reference_work
+    title: "Southern Right Pinotage 2020: producer technical and sensory profile"
+    publisher: Southern Right
+    url: https://southernright.co.za/home/our-wines/pinotage/pinotage-2020/
+    document_identifier: 2020 single documented producer example; bright acidity, lightly chewy tannins and
+      medium body are not a national cultivar guarantee
+    accessed_on: 2026-09-27
+    jurisdiction: ZA
+  - id: src_wset_structure_wa_aged
+    kind: reference_work
+    title: "Australian Wine Discovered: Aged Australian Wine, educator guide"
+    publisher: Wine Australia
+    url: https://www.wineaustralia.com/getmedia/b2057e63-f877-48ed-9453-88540f955a4a/AusWine_AGEDAUSWINE_Educators_Guide_FA2.pdf?ext=.pdf
+    document_identifier: 2018 educator guide; Chardonnay, Cabernet Sauvignon and Pinot Noir youthful/developed
+      character sections. Short original qualitative contrasts only; no numeric style grid reproduced
+    accessed_on: 2026-09-27
+    jurisdiction: AU
+  - id: src_wset_structure_pinot_gris_scherb
+    kind: reference_work
+    title: "Domaine Scherb: Pinot Gris"
+    publisher: Domaine Scherb
+    url: https://www.scherb.fr/en/nos-cepages/pinot-gris/
+    document_identifier: Producer educational description; a balanced rich Alsace example suitable for keeping.
+      No universal eight-year optimum inferred
+    accessed_on: 2026-09-27
+    jurisdiction: FR
+  - id: src_wset_structure_furmint_grand_tokaj_2024
+    kind: reference_work
+    title: Grand Tokaj Terroir Selection Furmint 2024
+    publisher: Hungarian Wine Marketing Agency / Grand Tokaj
+    url: https://summit2025.bor.hu/wines/grand-tokaj-terroir-selection-furmint/
+    document_identifier: "BOR Wine Summit 2025 producer submission, 2024 named wine: bright gold, tight acidity,
+      steel and oak. Does not establish universal Furmint colour or alcohol"
+    accessed_on: 2026-09-27
+    jurisdiction: HU
+  - id: src_wset_structure_montepulciano_masciarelli
+    kind: reference_work
+    title: Masciarelli Montepulciano d’Abruzzo DOC, Linea Classica
+    publisher: Masciarelli
+    url: https://www.masciarelli.it/en/i-vini/montepulciano-dabruzzo-linea-classica/
+    document_identifier: Living producer description of a named 100% Montepulciano cuvée; pleasant acidity, taut
+      palate and medium/full body. No vintage or national average invented
+    accessed_on: 2026-09-27
+    jurisdiction: IT
+  - id: src_wset_structure_zinfandel_uneven_ripening
+    kind: reference_work
+    title: "Zinfandel Advocates & Producers: Growing Differences"
+    publisher: Zinfandel Advocates & Producers
+    url: https://zinfandel.org/resources/growing-differences/
+    document_identifier: Living primary grape-grower educational reference; uneven berry ripening and bright
+      acidity from less ripe berries. Historical, absolute and promotional claims unused
+    accessed_on: 2026-09-27
+    jurisdiction: US
+knowledge_item_citations:
+  - knowledge_item_id: ki_wset_structure_chardonnay_structure
+    source_citation_id: src_wset_structure_plantgrape_chardonnay
+    locator: "Potentialités technologiques: cultivar sugar/acid/colour/structure observations; qualifications
+      remain site, maturity and cellar dependent"
+  - knowledge_item_id: ki_wset_structure_chardonnay_structure
+    source_citation_id: src_wset_found_wa_intro
+    locator: White-wine appearance and grape/winemaking introduction; pale-yellow to gold are wine-colour
+      observations, not berry-skin classifications
+  - knowledge_item_id: ki_wset_structure_chardonnay_structure
+    source_citation_id: src_wset_found_ucd_pulp
+    locator: "Assessments of Ripeness: sugar and acid evaluation; potential alcohol derives from fermentable
+      sugar, not a fixed grape-name score"
+  - knowledge_item_id: ki_wset_structure_sauvignon_blanc_structure
+    source_citation_id: src_wset_grape_wset_sauvignon
+    locator: Growing conditions, ripeness, dry styles and Sauvignon aromas
+  - knowledge_item_id: ki_wset_structure_sauvignon_blanc_structure
+    source_citation_id: src_wset_structure_plantgrape_sauvignon_blanc
+    locator: "Potentialités technologiques: cultivar sugar/acid/colour/structure observations; qualifications
+      remain site, maturity and cellar dependent"
+  - knowledge_item_id: ki_wset_structure_sauvignon_blanc_structure
+    source_citation_id: src_wset_found_wa_intro
+    locator: White-wine appearance and grape/winemaking introduction; pale-yellow to gold are wine-colour
+      observations, not berry-skin classifications
+  - knowledge_item_id: ki_wset_structure_sauvignon_blanc_structure
+    source_citation_id: src_wset_found_ucd_pulp
+    locator: "Assessments of Ripeness: sugar and acid evaluation; potential alcohol derives from fermentable
+      sugar, not a fixed grape-name score"
+  - knowledge_item_id: ki_wset_structure_pinot_gris_structure
+    source_citation_id: src_wset_structure_plantgrape_pinot_gris
+    locator: "Potentialités technologiques: cultivar sugar/acid/colour/structure observations; qualifications
+      remain site, maturity and cellar dependent"
+  - knowledge_item_id: ki_wset_structure_pinot_gris_structure
+    source_citation_id: src_wset_grape_civa_pinot_gris
+    locator: "Tasting it: yellow-gold colour, full body and structuring acidity"
+  - knowledge_item_id: ki_wset_structure_pinot_gris_structure
+    source_citation_id: src_wset_role_friuli_wines
+    locator: "Pinot Grigio: white and copper-toned ramato expressions; colour depends on vinification"
+  - knowledge_item_id: ki_wset_structure_riesling_structure
+    source_citation_id: src_wset_structure_plantgrape_riesling
+    locator: "Potentialités technologiques: cultivar sugar/acid/colour/structure observations; qualifications
+      remain site, maturity and cellar dependent"
+  - knowledge_item_id: ki_wset_structure_riesling_structure
+    source_citation_id: src_wset_found_wa_intro
+    locator: White-wine appearance and grape/winemaking introduction; pale-yellow to gold are wine-colour
+      observations, not berry-skin classifications
+  - knowledge_item_id: ki_wset_structure_riesling_structure
+    source_citation_id: src_wset_found_ucd_pulp
+    locator: "Assessments of Ripeness: sugar and acid evaluation; potential alcohol derives from fermentable
+      sugar, not a fixed grape-name score"
+  - knowledge_item_id: ki_wset_structure_riesling_structure
+    source_citation_id: src_wset_grape_wa_riesling
+    locator: Dry and other Riesling styles, citrus, acidity and bottle development
+  - knowledge_item_id: ki_wset_structure_cabernet_sauvignon_structure
+    source_citation_id: src_wset_structure_plantgrape_cabernet_sauvignon
+    locator: "Potentialités technologiques: cultivar sugar/acid/colour/structure observations; qualifications
+      remain site, maturity and cellar dependent"
+  - knowledge_item_id: ki_wset_structure_cabernet_sauvignon_structure
+    source_citation_id: src_wset_close_l2_session
+    locator: "Printed pages 46–47: natural acidity/tannin, adequate ripening and Merlot blending"
+  - knowledge_item_id: ki_wset_structure_cabernet_sauvignon_structure
+    source_citation_id: src_wset_found_ucd_pulp
+    locator: "Assessments of Ripeness: sugar and acid evaluation; potential alcohol derives from fermentable
+      sugar, not a fixed grape-name score"
+  - knowledge_item_id: ki_wset_structure_merlot_structure
+    source_citation_id: src_wset_structure_plantgrape_merlot
+    locator: "Potentialités technologiques: cultivar sugar/acid/colour/structure observations; qualifications
+      remain site, maturity and cellar dependent"
+  - knowledge_item_id: ki_wset_structure_merlot_structure
+    source_citation_id: src_reg_fr_merlot
+    locator: "Merlot: moderate acidity, earlier ripening, fleshy fruit and style variation"
+  - knowledge_item_id: ki_wset_structure_merlot_structure
+    source_citation_id: src_wset_found_ucd_pulp
+    locator: "Assessments of Ripeness: sugar and acid evaluation; potential alcohol derives from fermentable
+      sugar, not a fixed grape-name score"
+  - knowledge_item_id: ki_wset_structure_pinot_noir_structure
+    source_citation_id: src_wset_structure_plantgrape_pinot_noir
+    locator: "Potentialités technologiques: cultivar sugar/acid/colour/structure observations; qualifications
+      remain site, maturity and cellar dependent"
+  - knowledge_item_id: ki_wset_structure_pinot_noir_structure
+    source_citation_id: src_wset_grape_cms_markers
+    locator: "Pinot Noir Burgundy and New World sections only: lighter ruby, lower tannin and cooler-site
+      acidity; erroneous Corvina section excluded"
+  - knowledge_item_id: ki_wset_structure_pinot_noir_structure
+    source_citation_id: src_wset_found_ucd_pulp
+    locator: "Assessments of Ripeness: sugar and acid evaluation; potential alcohol derives from fermentable
+      sugar, not a fixed grape-name score"
+  - knowledge_item_id: ki_wset_structure_syrah_structure
+    source_citation_id: src_wset_structure_plantgrape_syrah
+    locator: "Potentialités technologiques: cultivar sugar/acid/colour/structure observations; qualifications
+      remain site, maturity and cellar dependent"
+  - knowledge_item_id: ki_wset_structure_syrah_structure
+    source_citation_id: src_wset_grape_cms_markers
+    locator: "Northern Rhône Syrah and South Australia Shiraz sections only: comparative acidity/alcohol;
+      erroneous Corvina section excluded"
+  - knowledge_item_id: ki_wset_structure_syrah_structure
+    source_citation_id: src_wset_found_ucd_pulp
+    locator: "Assessments of Ripeness: sugar and acid evaluation; potential alcohol derives from fermentable
+      sugar, not a fixed grape-name score"
+  - knowledge_item_id: ki_wset_structure_gamay_structure
+    source_citation_id: src_wset_structure_plantgrape_gamay
+    locator: "Potentialités technologiques: cultivar sugar/acid/colour/structure observations; qualifications
+      remain site, maturity and cellar dependent"
+  - knowledge_item_id: ki_wset_structure_gamay_structure
+    source_citation_id: src_reg_fe_gamay
+    locator: "Gamay: early ripening, youthful fruit and Beaujolais style"
+  - knowledge_item_id: ki_wset_structure_gamay_structure
+    source_citation_id: src_wset_found_ucd_pulp
+    locator: "Assessments of Ripeness: sugar and acid evaluation; potential alcohol derives from fermentable
+      sugar, not a fixed grape-name score"
+  - knowledge_item_id: ki_wset_structure_grenache_structure
+    source_citation_id: src_wset_structure_plantgrape_grenache
+    locator: "Potentialités technologiques: cultivar sugar/acid/colour/structure observations; qualifications
+      remain site, maturity and cellar dependent"
+  - knowledge_item_id: ki_wset_structure_grenache_structure
+    source_citation_id: src_wset_grape_ir_grenache
+    locator: "Grenache Noir: alcohol potential, fruit, roundness and blending"
+  - knowledge_item_id: ki_wset_structure_grenache_structure
+    source_citation_id: src_wset_grape_cms_markers
+    locator: "Southern Rhône Grenache-based dry-red profile only: lighter colour and soft structure; erroneous
+      Corvina section excluded"
+  - knowledge_item_id: ki_wset_structure_tempranillo_structure
+    source_citation_id: src_wset_structure_plantgrape_tempranillo
+    locator: "Potentialités technologiques: cultivar sugar/acid/colour/structure observations; qualifications
+      remain site, maturity and cellar dependent"
+  - knowledge_item_id: ki_wset_structure_tempranillo_structure
+    source_citation_id: src_wset_found_ucd_pulp
+    locator: "Assessments of Ripeness: sugar and acid evaluation; potential alcohol derives from fermentable
+      sugar, not a fixed grape-name score"
+  - knowledge_item_id: ki_wset_structure_nebbiolo_structure
+    source_citation_id: src_reg_inc_nebbiolo
+    locator: "Nebbiolo: ripening cycle, site and red-wine structure"
+  - knowledge_item_id: ki_wset_structure_nebbiolo_structure
+    source_citation_id: src_wset_grape_cms_markers
+    locator: "Nebbiolo section only: colour, acidity and tannin; erroneous Corvina section excluded"
+  - knowledge_item_id: ki_wset_structure_nebbiolo_structure
+    source_citation_id: src_wset_found_ucd_pulp
+    locator: "Assessments of Ripeness: sugar and acid evaluation; potential alcohol derives from fermentable
+      sugar, not a fixed grape-name score"
+  - knowledge_item_id: ki_wset_structure_barbera_structure
+    source_citation_id: src_wset_structure_plantgrape_barbera
+    locator: "Potentialités technologiques: cultivar sugar/acid/colour/structure observations; qualifications
+      remain site, maturity and cellar dependent"
+  - knowledge_item_id: ki_wset_structure_barbera_structure
+    source_citation_id: src_wset_structure_barbera_astimonferrato
+    locator: "Printed page 5: high fixed acidity, anthocyanins and few tannins; page 6: steel and wood
+      interpretations"
+  - knowledge_item_id: ki_wset_structure_barbera_structure
+    source_citation_id: src_wset_found_ucd_pulp
+    locator: "Assessments of Ripeness: sugar and acid evaluation; potential alcohol derives from fermentable
+      sugar, not a fixed grape-name score"
+  - knowledge_item_id: ki_wset_structure_sangiovese_structure
+    source_citation_id: src_reg_inc_classico_research
+    locator: "Characteristics: ruby colour, acidity, tannin and Sangiovese basis"
+  - knowledge_item_id: ki_wset_structure_sangiovese_structure
+    source_citation_id: src_wset_grape_chianti_sangiovese
+    locator: "Sangiovese: fruit maturity and aroma character"
+  - knowledge_item_id: ki_wset_structure_sangiovese_structure
+    source_citation_id: src_wset_found_ucd_pulp
+    locator: "Assessments of Ripeness: sugar and acid evaluation; potential alcohol derives from fermentable
+      sugar, not a fixed grape-name score"
+  - knowledge_item_id: ki_wset_structure_corvina_structure
+    source_citation_id: src_wset_structure_corvina_research
+    locator: "Introduction: fresh acidity, limited anthocyanins and moderate skin tannins; dehydration changes
+      composition"
+  - knowledge_item_id: ki_wset_structure_corvina_structure
+    source_citation_id: src_reg_inc_valpolicella
+    locator: Young Valpolicella red style
+  - knowledge_item_id: ki_wset_structure_corvina_structure
+    source_citation_id: src_reg_inc_amarone
+    locator: Drying and fermentation for Amarone
+  - knowledge_item_id: ki_wset_structure_montepulciano_structure
+    source_citation_id: src_wset_grape_abruzzo_montepulciano
+    locator: "Article 6 sensory descriptions: ruby/violet, full palate, slightly tannic and garnet with age;
+      numerical legal minima are not typical means"
+  - knowledge_item_id: ki_wset_structure_montepulciano_structure
+    source_citation_id: src_wset_structure_montepulciano_masciarelli
+    locator: "Named 100% Montepulciano cuvée: taut palate, pleasant acidity and medium/full body; producer
+      example not universal cultivar acidity"
+  - knowledge_item_id: ki_wset_structure_montepulciano_structure
+    source_citation_id: src_wset_found_ucd_pulp
+    locator: "Assessments of Ripeness: sugar and acid evaluation; potential alcohol derives from fermentable
+      sugar, not a fixed grape-name score"
+  - knowledge_item_id: ki_wset_structure_zinfandel_structure
+    source_citation_id: src_wset_found_zap_styles
+    locator: Rosé, table, big-style and late-harvest contrasts; broad acid/tannin range, numerical bands unused
+  - knowledge_item_id: ki_wset_structure_zinfandel_structure
+    source_citation_id: src_wset_structure_zinfandel_uneven_ripening
+    locator: "Uneven berry ripening: less ripe areas supply bright acidity; ripeness and cellar choices create
+      different balances"
+  - knowledge_item_id: ki_wset_structure_pinotage_structure
+    source_citation_id: src_wset_grape_wosa_pinotage
+    locator: "Pinotage chapter: lighter/full styles and risk of excessive tannin extraction"
+  - knowledge_item_id: ki_wset_structure_pinotage_structure
+    source_citation_id: src_wset_structure_pinotage_vinification
+    locator: "South African guidelines: colour extraction, ripe sugar, separate acid/pH assessment and
+      style-dependent maceration"
+  - knowledge_item_id: ki_wset_structure_pinotage_structure
+    source_citation_id: src_wset_structure_pinotage_southern_right_2020
+    locator: "2020 producer profile: bright acidity, lightly chewy tannins and medium body"
+  - knowledge_item_id: ki_wset_structure_carmenere_structure
+    source_citation_id: src_wset_structure_plantgrape_carmenere
+    locator: "Potentialités technologiques: cultivar sugar/acid/colour/structure observations; qualifications
+      remain site, maturity and cellar dependent"
+  - knowledge_item_id: ki_wset_structure_carmenere_structure
+    source_citation_id: src_wset_found_ucd_pulp
+    locator: "Assessments of Ripeness: sugar and acid evaluation; potential alcohol derives from fermentable
+      sugar, not a fixed grape-name score"
+  - knowledge_item_id: ki_wset_structure_malbec_structure
+    source_citation_id: src_wset_structure_plantgrape_malbec
+    locator: "Potentialités technologiques: cultivar sugar/acid/colour/structure observations; qualifications
+      remain site, maturity and cellar dependent"
+  - knowledge_item_id: ki_wset_structure_malbec_structure
+    source_citation_id: src_wset_grape_woa_malbec
+    locator: "Modern Argentine styles: colour, fruit/floral expression and different tannin/freshness profiles"
+  - knowledge_item_id: ki_wset_structure_malbec_structure
+    source_citation_id: src_wset_found_ucd_pulp
+    locator: "Assessments of Ripeness: sugar and acid evaluation; potential alcohol derives from fermentable
+      sugar, not a fixed grape-name score"
+  - knowledge_item_id: ki_wset_structure_chenin_blanc_structure
+    source_citation_id: src_wset_structure_plantgrape_chenin_blanc
+    locator: "Potentialités technologiques: cultivar sugar/acid/colour/structure observations; qualifications
+      remain site, maturity and cellar dependent"
+  - knowledge_item_id: ki_wset_structure_chenin_blanc_structure
+    source_citation_id: src_wset_found_wa_intro
+    locator: White-wine appearance and grape/winemaking introduction; pale-yellow to gold are wine-colour
+      observations, not berry-skin classifications
+  - knowledge_item_id: ki_wset_structure_chenin_blanc_structure
+    source_citation_id: src_wset_grape_wosa_pinotage
+    locator: "Printed Chenin Blanc chapter: high acidity and broad dry/sweet, still/sparkling range"
+  - knowledge_item_id: ki_wset_structure_chenin_blanc_structure
+    source_citation_id: src_wset_found_ucd_pulp
+    locator: "Assessments of Ripeness: sugar and acid evaluation; potential alcohol derives from fermentable
+      sugar, not a fixed grape-name score"
+  - knowledge_item_id: ki_wset_structure_semillon_structure
+    source_citation_id: src_wset_structure_plantgrape_semillon
+    locator: "Potentialités technologiques: cultivar sugar/acid/colour/structure observations; qualifications
+      remain site, maturity and cellar dependent"
+  - knowledge_item_id: ki_wset_structure_semillon_structure
+    source_citation_id: src_wset_found_wa_intro
+    locator: White-wine appearance and grape/winemaking introduction; pale-yellow to gold are wine-colour
+      observations, not berry-skin classifications
+  - knowledge_item_id: ki_wset_structure_semillon_structure
+    source_citation_id: src_wset_grape_wa_semillon
+    locator: Hunter early-picked high-acid, low-alcohol style and other dry/sweet Semillon contexts
+  - knowledge_item_id: ki_wset_structure_semillon_structure
+    source_citation_id: src_wset_found_ucd_pulp
+    locator: "Assessments of Ripeness: sugar and acid evaluation; potential alcohol derives from fermentable
+      sugar, not a fixed grape-name score"
+  - knowledge_item_id: ki_wset_structure_viognier_structure
+    source_citation_id: src_wset_structure_plantgrape_viognier
+    locator: "Potentialités technologiques: cultivar sugar/acid/colour/structure observations; qualifications
+      remain site, maturity and cellar dependent"
+  - knowledge_item_id: ki_wset_structure_viognier_structure
+    source_citation_id: src_wset_found_wa_intro
+    locator: White-wine appearance and grape/winemaking introduction; pale-yellow to gold are wine-colour
+      observations, not berry-skin classifications
+  - knowledge_item_id: ki_wset_structure_viognier_structure
+    source_citation_id: src_wset_found_ucd_pulp
+    locator: "Assessments of Ripeness: sugar and acid evaluation; potential alcohol derives from fermentable
+      sugar, not a fixed grape-name score"
+  - knowledge_item_id: ki_wset_structure_gewurztraminer_structure
+    source_citation_id: src_wset_structure_plantgrape_gewurztraminer
+    locator: "Potentialités technologiques: cultivar sugar/acid/colour/structure observations; qualifications
+      remain site, maturity and cellar dependent"
+  - knowledge_item_id: ki_wset_structure_gewurztraminer_structure
+    source_citation_id: src_wset_found_wa_intro
+    locator: White-wine appearance and grape/winemaking introduction; pale-yellow to gold are wine-colour
+      observations, not berry-skin classifications
+  - knowledge_item_id: ki_wset_structure_gewurztraminer_structure
+    source_citation_id: src_wset_found_ucd_pulp
+    locator: "Assessments of Ripeness: sugar and acid evaluation; potential alcohol derives from fermentable
+      sugar, not a fixed grape-name score"
+  - knowledge_item_id: ki_wset_structure_gewurztraminer_structure
+    source_citation_id: src_wset_grape_civa_sgn_tasting
+    locator: Concentrated sweet Gewurztraminer context; honey/candied-fruit character is not a universal dry style
+  - knowledge_item_id: ki_wset_structure_verdicchio_structure
+    source_citation_id: src_wset_structure_verdicchio_castelli_jesi
+    locator: "Still Verdicchio sensory analysis: straw-yellow/green and acidic palate; early-harvest versus
+      riper expressions"
+  - knowledge_item_id: ki_wset_structure_verdicchio_structure
+    source_citation_id: src_wset_found_ucd_pulp
+    locator: "Assessments of Ripeness: sugar and acid evaluation; potential alcohol derives from fermentable
+      sugar, not a fixed grape-name score"
+  - knowledge_item_id: ki_wset_structure_cortese_structure
+    source_citation_id: src_wset_grape_gavi_cortese
+    locator: "Gavi styles: pale straw/green appearance, fresh dry palate and Riserva variation"
+  - knowledge_item_id: ki_wset_structure_cortese_structure
+    source_citation_id: src_wset_found_ucd_pulp
+    locator: "Assessments of Ripeness: sugar and acid evaluation; potential alcohol derives from fermentable
+      sugar, not a fixed grape-name score"
+  - knowledge_item_id: ki_wset_structure_garganega_structure
+    source_citation_id: src_wset_structure_soave_qualitative
+    locator: "Article 8(b), PDF page 10: qualitative Garganega: acidity not exceptionally marked, balanced
+      extracts/sugar; Article 6: straw-yellow sensory colour; current numerical laws unused"
+  - knowledge_item_id: ki_wset_structure_garganega_structure
+    source_citation_id: src_reg_inc_soave
+    locator: Healthy acid-retaining fruit and appassimento; Garganega and Trebbiano freshness roles
+  - knowledge_item_id: ki_wset_structure_garganega_structure
+    source_citation_id: src_wset_found_ucd_pulp
+    locator: "Assessments of Ripeness: sugar and acid evaluation; potential alcohol derives from fermentable
+      sugar, not a fixed grape-name score"
+  - knowledge_item_id: ki_wset_structure_fiano_structure
+    source_citation_id: src_reg_isi_fiano
+    locator: "Sensory profile: straw appearance, marked acidity, medium structure, fruit/flowers/hazelnut and
+      steel/wood variation"
+  - knowledge_item_id: ki_wset_structure_fiano_structure
+    source_citation_id: src_wset_found_ucd_pulp
+    locator: "Assessments of Ripeness: sugar and acid evaluation; potential alcohol derives from fermentable
+      sugar, not a fixed grape-name score"
+  - knowledge_item_id: ki_wset_structure_albarino_structure
+    source_citation_id: src_wset_structure_plantgrape_albarino
+    locator: "Potentialités technologiques: cultivar sugar/acid/colour/structure observations; qualifications
+      remain site, maturity and cellar dependent"
+  - knowledge_item_id: ki_wset_structure_albarino_structure
+    source_citation_id: src_wset_grape_rias_albarino
+    locator: "Albariño: straw-yellow appearance, natural acidity and citrus/stone-fruit style"
+  - knowledge_item_id: ki_wset_structure_albarino_structure
+    source_citation_id: src_wset_found_ucd_pulp
+    locator: "Assessments of Ripeness: sugar and acid evaluation; potential alcohol derives from fermentable
+      sugar, not a fixed grape-name score"
+  - knowledge_item_id: ki_wset_structure_furmint_structure
+    source_citation_id: src_wset_structure_plantgrape_furmint
+    locator: "Potentialités technologiques: cultivar sugar/acid/colour/structure observations; qualifications
+      remain site, maturity and cellar dependent"
+  - knowledge_item_id: ki_wset_structure_furmint_structure
+    source_citation_id: src_wset_structure_furmint_grand_tokaj_2024
+    locator: "2024 named producer wine: gold colour, tight acidity and dry style; numeric analysis is a single
+      bottle example, not a cultivar mean"
+  - knowledge_item_id: ki_wset_structure_furmint_structure
+    source_citation_id: src_wset_found_ucd_pulp
+    locator: "Assessments of Ripeness: sugar and acid evaluation; potential alcohol derives from fermentable
+      sugar, not a fixed grape-name score"
+  - knowledge_item_id: ki_wset_structure_chardonnay_vineyard
+    source_citation_id: src_wset_structure_plantgrape_chardonnay
+    locator: "Potentialités technologiques: cultivar sugar/acid/colour/structure observations; qualifications
+      remain site, maturity and cellar dependent; Aptitudes culturales: drought sensitivity and site suitability"
+  - knowledge_item_id: ki_wset_structure_chardonnay_vineyard
+    source_citation_id: src_wset_found_ucd_pulp
+    locator: "Assessments of Ripeness: sugar and acid evaluation; potential alcohol derives from fermentable
+      sugar, not a fixed grape-name score"
+  - knowledge_item_id: ki_wset_structure_sauvignon_blanc_vineyard
+    source_citation_id: src_wset_structure_plantgrape_sauvignon_blanc
+    locator: "Potentialités technologiques: cultivar sugar/acid/colour/structure observations; qualifications
+      remain site, maturity and cellar dependent; Aptitudes culturales: vigour, training and bunch microclimate"
+  - knowledge_item_id: ki_wset_structure_sauvignon_blanc_vineyard
+    source_citation_id: src_wset_grape_wset_sauvignon
+    locator: Cool/moderate suitability, ripeness and dry/sweet production contexts
+  - knowledge_item_id: ki_wset_structure_pinot_gris_vineyard
+    source_citation_id: src_wset_structure_plantgrape_pinot_gris
+    locator: "Potentialités technologiques: cultivar sugar/acid/colour/structure observations; qualifications
+      remain site, maturity and cellar dependent; Aptitudes culturales and disease sensitivity: compact fruit and grey-rot risk"
+  - knowledge_item_id: ki_wset_structure_pinot_gris_vineyard
+    source_citation_id: src_wset_grape_civa_sgn
+    locator: Pinot Gris among concentrated late/noble-rot Alsace contexts
+  - knowledge_item_id: ki_wset_structure_riesling_vineyard
+    source_citation_id: src_wset_structure_plantgrape_riesling
+    locator: "Potentialités technologiques: cultivar sugar/acid/colour/structure observations; qualifications
+      remain site, maturity and cellar dependent"
+  - knowledge_item_id: ki_wset_structure_riesling_vineyard
+    source_citation_id: src_ce_rheingau
+    locator: Rheingau aspect and long Riesling ripening context
+  - knowledge_item_id: ki_wset_structure_riesling_vineyard
+    source_citation_id: src_wset_found_ucd_pulp
+    locator: "Assessments of Ripeness: sugar and acid evaluation; potential alcohol derives from fermentable
+      sugar, not a fixed grape-name score"
+  - knowledge_item_id: ki_wset_structure_cabernet_sauvignon_vineyard
+    source_citation_id: src_wset_structure_plantgrape_cabernet_sauvignon
+    locator: "Potentialités technologiques: cultivar sugar/acid/colour/structure observations; qualifications
+      remain site, maturity and cellar dependent"
+  - knowledge_item_id: ki_wset_structure_cabernet_sauvignon_vineyard
+    source_citation_id: src_wset_close_l2_session
+    locator: "Printed page 46: moderate/warm long season, Cabernet maturity and natural acid/tannin"
+  - knowledge_item_id: ki_wset_structure_cabernet_sauvignon_vineyard
+    source_citation_id: src_wset_found_ucd_pulp
+    locator: "Assessments of Ripeness: sugar and acid evaluation; potential alcohol derives from fermentable
+      sugar, not a fixed grape-name score"
+  - knowledge_item_id: ki_wset_structure_merlot_vineyard
+    source_citation_id: src_reg_fr_merlot
+    locator: Earlier ripening than Cabernet Sauvignon and Bordeaux styles
+  - knowledge_item_id: ki_wset_structure_merlot_vineyard
+    source_citation_id: src_wset_structure_plantgrape_merlot
+    locator: "Aptitudes culturales: early budbreak, spring frost and drought sensitivity"
+  - knowledge_item_id: ki_wset_structure_merlot_vineyard
+    source_citation_id: src_wset_found_ucd_pulp
+    locator: "Assessments of Ripeness: sugar and acid evaluation; potential alcohol derives from fermentable
+      sugar, not a fixed grape-name score"
+  - knowledge_item_id: ki_wset_structure_pinot_noir_vineyard
+    source_citation_id: src_wset_structure_plantgrape_pinot_noir
+    locator: "Potentialités technologiques: cultivar sugar/acid/colour/structure observations; qualifications
+      remain site, maturity and cellar dependent; Aptitudes culturales: temperate suitability, rapid hot-weather development, sunburn and shrivelling"
+  - knowledge_item_id: ki_wset_structure_pinot_noir_vineyard
+    source_citation_id: src_wset_found_ucd_pulp
+    locator: "Assessments of Ripeness: sugar and acid evaluation; potential alcohol derives from fermentable
+      sugar, not a fixed grape-name score"
+  - knowledge_item_id: ki_wset_structure_syrah_vineyard
+    source_citation_id: src_wset_structure_plantgrape_syrah
+    locator: "Potentialités technologiques: cultivar sugar/acid/colour/structure observations; qualifications
+      remain site, maturity and cellar dependent; Aptitudes culturales: fragile shoots, trellising and short ripening interval"
+  - knowledge_item_id: ki_wset_structure_syrah_vineyard
+    source_citation_id: src_wset_found_ucd_pulp
+    locator: "Assessments of Ripeness: sugar and acid evaluation; potential alcohol derives from fermentable
+      sugar, not a fixed grape-name score"
+  - knowledge_item_id: ki_wset_structure_chardonnay_ageing
+    source_citation_id: src_wset_structure_wa_aged
+    locator: "Chardonnay youthful and bottle-aged contrasts: developed nut/honey character; original qualitative
+      summary"
+  - knowledge_item_id: ki_wset_structure_chardonnay_ageing
+    source_citation_id: src_wset_taste_ageing
+    locator: Ageability, development and storage
+  - knowledge_item_id: ki_wset_structure_sauvignon_blanc_ageing
+    source_citation_id: src_wset_grape_wset_sauvignon
+    locator: "Winemaking and ageing: neutral/oak styles, Sémillon blends and honey/nut development"
+  - knowledge_item_id: ki_wset_structure_sauvignon_blanc_ageing
+    source_citation_id: src_wset_taste_ageing
+    locator: Not every wine improves; development and storage
+  - knowledge_item_id: ki_wset_structure_pinot_gris_ageing
+    source_citation_id: src_wset_structure_pinot_gris_scherb
+    locator: "Producer example: rich Pinot Gris, balanced acidity and suitability for keeping; fixed cellaring
+      years unused"
+  - knowledge_item_id: ki_wset_structure_pinot_gris_ageing
+    source_citation_id: src_wset_grape_civa_pinot_gris
+    locator: Rich fruit/honey/wax profile and balancing acid, not a universal time-of-development claim
+  - knowledge_item_id: ki_wset_structure_pinot_gris_ageing
+    source_citation_id: src_wset_taste_ageing
+    locator: General bottle-development mechanism and limits
+  - knowledge_item_id: ki_wset_structure_cabernet_sauvignon_ageing
+    source_citation_id: src_wset_structure_plantgrape_cabernet_sauvignon
+    locator: "Potentialités technologiques: cultivar sugar/acid/colour/structure observations; qualifications
+      remain site, maturity and cellar dependent"
+  - knowledge_item_id: ki_wset_structure_cabernet_sauvignon_ageing
+    source_citation_id: src_wset_close_l2_session
+    locator: "Printed pages 46–47: ageworthy Cabernet, dried fruit/earth and tannin change"
+  - knowledge_item_id: ki_wset_structure_cabernet_sauvignon_ageing
+    source_citation_id: src_wset_taste_ageing
+    locator: Development and limitations
+  - knowledge_item_id: ki_wset_structure_merlot_ageing
+    source_citation_id: src_wset_close_l2_session
+    locator: "Printed page 47: light youthful and concentrated wood-aged Merlot; dried fruit/tobacco with
+      development"
+  - knowledge_item_id: ki_wset_structure_merlot_ageing
+    source_citation_id: src_wset_taste_ageing
+    locator: Development, storage and no universal improvement

@@ -1,0 +1,34 @@
+{
+  "reviewedOn": "2026-09-27",
+  "pack": "assets/curriculum/areas/wset_service_sequence.yaml",
+  "lowestLevel": 3,
+  "semanticCompletionClaim": false,
+  "sourceScopeUrl": "https://www.wsetglobal.com/media/11731/wset_l3wines_specification_en_highres_may2022_issue2.pdf",
+  "sourceScopeLocator": "Unit 1 LO5 Range1 sequence of service, printed19/PDF20",
+  "requirementRepairs": [
+    {
+      "id": "wine_service_sequence",
+      "dimension": "service",
+      "certificationId": "WSET_L3",
+      "addItemIds": [
+        "ki_wset_sseq_lineup",
+        "ki_wset_sseq_table"
+      ],
+      "supportItemIds": [
+        "ki_wset_srv_glass_clean",
+        "ki_wset_srv_foil",
+        "ki_wset_srv_spark_control"
+      ]
+    }
+  ],
+  "newItemIds": [
+    "ki_wset_sseq_lineup",
+    "ki_wset_sseq_table"
+  ],
+  "sourceDependency": "src_wset_sfault_common_faults in companion fault closure",
+  "reviewCaveats": [
+    "Venue guest pouring conventions vary; gender/host ordering is not imposed.",
+    "Order by intensity/texture, not universal colour or age ranking.",
+    "Tasting pour checks condition and ordered identity, with appropriate support if a fault is suspected."
+  ]
+}

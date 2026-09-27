@@ -1,0 +1,2147 @@
+{
+  "schema_version": 1,
+  "authored_on": "2026-09-27",
+  "base_evidence": "docs/research/wset-regional-new-world-evidence.json",
+  "scope_sources": [
+    {
+      "level": "WSET_L2",
+      "version": "2026 Issue 2.1",
+      "url": "https://www.wsetglobal.com/media/19132/wset_l2wines_specification_en_april2026_issue21.pdf",
+      "outcomes": [
+        "LO3 principal grapes and GIs",
+        "LO4 regionally important grapes and terms"
+      ]
+    },
+    {
+      "level": "WSET_L3",
+      "version": "May 2022 issue 2",
+      "url": "https://www.wsetglobal.com/media/11731/wset_l3wines_specification_en_highres_may2022_issue2.pdf",
+      "outcome": "Unit 1 LO2, still wine regional contexts and labelling"
+    }
+  ],
+  "coverage_claim": "Original named study applications supplement specific regional dimensions. Supplied lot/site conditions remain givens; cost is not a quality or price guarantee. Country label mechanisms are cross-referenced, not duplicated by town. No claim of official assessment, expert verification, qualification completion or universal local practice.",
+  "group_augmentation": [
+    {
+      "base_group_id": "us_california",
+      "dimensions": {
+        "quality_price": [
+          "ki_wset_nwa_california_cost"
+        ]
+      },
+      "regional_prerequisite_item_ids": [
+        "ki_wset_nw_california_variation",
+        "ki_wset_nw_california_zinfandel_range"
+      ],
+      "location_only_is_explanatory_evidence": false,
+      "quality_price_semantics": "Original comparison with explicit supplied conditions; does not claim a regional cost/quality/price ladder.",
+      "country_label_crossreference_semantics": "L3 origin explanations are shared across same-country groups and are not themselves L2 required-grape completion evidence."
+    },
+    {
+      "base_group_id": "us_napa",
+      "dimensions": {
+        "quality_price": [
+          "ki_wset_nwa_napa_cost"
+        ]
+      },
+      "regional_prerequisite_item_ids": [
+        "ki_wset_nw_napa_cabernet",
+        "ki_wset_nw_napa_merlot",
+        "ki_wset_nw_napa_chardonnay",
+        "ki_wset_nw_napa_sauvignon",
+        "ki_reg_am_carneros_cooling",
+        "ki_wset_nw_oakville_setting",
+        "ki_wset_nw_rutherford_setting",
+        "ki_wset_nw_calistoga_setting",
+        "ki_reg_am_upper_napa_warmth"
+      ],
+      "location_only_is_explanatory_evidence": false,
+      "quality_price_semantics": "Original comparison with explicit supplied conditions; does not claim a regional cost/quality/price ladder.",
+      "country_label_crossreference_semantics": "L3 origin explanations are shared across same-country groups and are not themselves L2 required-grape completion evidence."
+    },
+    {
+      "base_group_id": "us_napa_subavas",
+      "dimensions": {
+        "quality_price": [
+          "ki_wset_nwa_napa_cost"
+        ]
+      },
+      "regional_prerequisite_item_ids": [
+        "ki_wset_nw_stags_leap_setting",
+        "ki_wset_nw_howell_setting",
+        "ki_wset_nw_veeder_setting",
+        "ki_wset_nw_saint_helena_setting",
+        "ki_wset_nw_napa_cabernet",
+        "ki_wset_nw_napa_merlot"
+      ],
+      "location_only_is_explanatory_evidence": false,
+      "quality_price_semantics": "Original comparison with explicit supplied conditions; does not claim a regional cost/quality/price ladder.",
+      "country_label_crossreference_semantics": "L3 origin explanations are shared across same-country groups and are not themselves L2 required-grape completion evidence."
+    },
+    {
+      "base_group_id": "us_sonoma",
+      "dimensions": {
+        "quality_price": [
+          "ki_wset_nwa_sonoma_cost"
+        ]
+      },
+      "regional_prerequisite_item_ids": [
+        "ki_reg_am_russian_river_pinot",
+        "ki_reg_am_alexander_cabernet",
+        "ki_wset_nw_sonoma_grape_sites",
+        "ki_wset_nw_dry_creek_zinfandel",
+        "ki_wset_nw_sonoma_coast_setting",
+        "ki_wset_grape_merlot_profile",
+        "ki_wset_grape_pinot_noir_profile",
+        "ki_wset_grape_chardonnay_variation"
+      ],
+      "location_only_is_explanatory_evidence": false,
+      "quality_price_semantics": "Original comparison with explicit supplied conditions; does not claim a regional cost/quality/price ladder.",
+      "country_label_crossreference_semantics": "L3 origin explanations are shared across same-country groups and are not themselves L2 required-grape completion evidence."
+    },
+    {
+      "base_group_id": "us_central_coast",
+      "dimensions": {
+        "quality_price": [
+          "ki_wset_nwa_coast_cost"
+        ]
+      },
+      "regional_prerequisite_item_ids": [
+        "ki_reg_na_sta_rita_grapes",
+        "ki_reg_na_happy_later_grapes",
+        "ki_wset_nw_santa_maria_grapes",
+        "ki_wset_grape_pinot_noir_profile",
+        "ki_wset_grape_chardonnay_variation"
+      ],
+      "location_only_is_explanatory_evidence": false,
+      "quality_price_semantics": "Original comparison with explicit supplied conditions; does not claim a regional cost/quality/price ladder.",
+      "country_label_crossreference_semantics": "L3 origin explanations are shared across same-country groups and are not themselves L2 required-grape completion evidence."
+    },
+    {
+      "base_group_id": "us_coast_depth",
+      "dimensions": {
+        "production": [
+          "ki_wset_nwa_mendocino_chardonnay",
+          "ki_wset_nwa_monterey_chardonnay",
+          "ki_wset_nwa_santa_cruz_pinot",
+          "ki_wset_nwa_paso_santa_maria_routes"
+        ],
+        "style": [
+          "ki_wset_nwa_mendocino_chardonnay",
+          "ki_wset_nwa_monterey_chardonnay",
+          "ki_wset_nwa_santa_cruz_pinot",
+          "ki_wset_nwa_paso_santa_maria_routes"
+        ],
+        "quality_price": [
+          "ki_wset_nwa_coast_cost"
+        ]
+      },
+      "regional_prerequisite_item_ids": [
+        "ki_wset_nw_mendocino_diversity",
+        "ki_wset_nw_san_luis_grapes",
+        "ki_reg_na_santa_cruz_east",
+        "ki_reg_na_santa_cruz_coastal",
+        "ki_reg_am_templeton_ripening",
+        "ki_wset_nw_santa_maria_grapes",
+        "ki_reg_na_slh_morning_aspect",
+        "ki_reg_am_templeton_air",
+        "ki_reg_na_slh_chardonnay_range"
+      ],
+      "location_only_is_explanatory_evidence": false,
+      "quality_price_semantics": "Original comparison with explicit supplied conditions; does not claim a regional cost/quality/price ladder.",
+      "country_label_crossreference_semantics": "L3 origin explanations are shared across same-country groups and are not themselves L2 required-grape completion evidence."
+    },
+    {
+      "base_group_id": "us_lodi",
+      "dimensions": {
+        "quality_price": [
+          "ki_wset_nwa_lodi_cost"
+        ]
+      },
+      "regional_prerequisite_item_ids": [
+        "ki_wset_nw_lodi_style_choices",
+        "ki_reg_na_lodi_canopy_air"
+      ],
+      "location_only_is_explanatory_evidence": false,
+      "quality_price_semantics": "Original comparison with explicit supplied conditions; does not claim a regional cost/quality/price ladder.",
+      "country_label_crossreference_semantics": "L3 origin explanations are shared across same-country groups and are not themselves L2 required-grape completion evidence."
+    },
+    {
+      "base_group_id": "us_oregon",
+      "dimensions": {
+        "quality_price": [
+          "ki_wset_nwa_oregon_cost"
+        ]
+      },
+      "regional_prerequisite_item_ids": [
+        "ki_reg_am_willamette_pinot",
+        "ki_wset_nw_oregon_chardonnay_range",
+        "ki_reg_am_rogue_diversity",
+        "ki_wset_grape_pinot_noir_profile"
+      ],
+      "location_only_is_explanatory_evidence": false,
+      "quality_price_semantics": "Original comparison with explicit supplied conditions; does not claim a regional cost/quality/price ladder.",
+      "country_label_crossreference_semantics": "L3 origin explanations are shared across same-country groups and are not themselves L2 required-grape completion evidence."
+    },
+    {
+      "base_group_id": "us_washington",
+      "dimensions": {
+        "quality_price": [
+          "ki_wset_nwa_washington_cost"
+        ]
+      },
+      "regional_prerequisite_item_ids": [
+        "ki_wset_nw_yakima_sites",
+        "ki_reg_am_washington_irrigation",
+        "ki_reg_am_washington_diurnal",
+        "ki_wset_grape_cabernet_sauvignon_profile",
+        "ki_wset_grape_merlot_profile",
+        "ki_wset_grape_riesling_variation"
+      ],
+      "location_only_is_explanatory_evidence": false,
+      "quality_price_semantics": "Original comparison with explicit supplied conditions; does not claim a regional cost/quality/price ladder.",
+      "country_label_crossreference_semantics": "L3 origin explanations are shared across same-country groups and are not themselves L2 required-grape completion evidence."
+    },
+    {
+      "base_group_id": "us_new_york",
+      "dimensions": {
+        "production": [
+          "ki_wset_nwa_finger_lakes_riesling"
+        ],
+        "style": [
+          "ki_wset_nwa_finger_lakes_riesling"
+        ],
+        "quality_price": [
+          "ki_wset_nwa_finger_lakes_cost"
+        ]
+      },
+      "regional_prerequisite_item_ids": [
+        "ki_wset_nw_finger_lakes_riesling",
+        "ki_reg_am_finger_spring",
+        "ki_reg_am_finger_autumn"
+      ],
+      "location_only_is_explanatory_evidence": false,
+      "quality_price_semantics": "Original comparison with explicit supplied conditions; does not claim a regional cost/quality/price ladder.",
+      "country_label_crossreference_semantics": "L3 origin explanations are shared across same-country groups and are not themselves L2 required-grape completion evidence."
+    },
+    {
+      "base_group_id": "ca_ontario",
+      "dimensions": {
+        "quality_price": [
+          "ki_wset_nwa_niagara_cost"
+        ]
+      },
+      "regional_prerequisite_item_ids": [
+        "ki_wset_nw_ontario_icewine_selection",
+        "ki_wset_nw_ontario_icewine_style",
+        "ki_reg_am_niagara_water",
+        "ki_reg_na_niagara_slope_air"
+      ],
+      "location_only_is_explanatory_evidence": false,
+      "quality_price_semantics": "Original comparison with explicit supplied conditions; does not claim a regional cost/quality/price ladder.",
+      "country_label_crossreference_semantics": "L3 origin explanations are shared across same-country groups and are not themselves L2 required-grape completion evidence."
+    },
+    {
+      "base_group_id": "ca_bc",
+      "dimensions": {
+        "quality_price": [
+          "ki_wset_nwa_okanagan_cost"
+        ]
+      },
+      "regional_prerequisite_item_ids": [
+        "ki_reg_na_okanagan_north_aromatic",
+        "ki_reg_na_okanagan_warm_cabernet",
+        "ki_reg_am_okanagan_variation",
+        "ki_wset_grape_riesling_profile",
+        "ki_wset_grape_cabernet_sauvignon_variation"
+      ],
+      "location_only_is_explanatory_evidence": false,
+      "quality_price_semantics": "Original comparison with explicit supplied conditions; does not claim a regional cost/quality/price ladder.",
+      "country_label_crossreference_semantics": "L3 origin explanations are shared across same-country groups and are not themselves L2 required-grape completion evidence."
+    },
+    {
+      "base_group_id": "cl_central",
+      "dimensions": {
+        "quality_price": [
+          "ki_wset_nwa_chile_central_cost"
+        ]
+      },
+      "regional_prerequisite_item_ids": [
+        "ki_reg_am_maipo_cabernet",
+        "ki_reg_am_colchagua_reds",
+        "ki_wset_nw_central_valley_reds",
+        "ki_wset_nw_central_valley_whites",
+        "ki_wset_grape_carmenere_profile",
+        "ki_wset_grape_cabernet_sauvignon_profile",
+        "ki_wset_grape_merlot_profile",
+        "ki_wset_grape_chardonnay_variation",
+        "ki_wset_grape_sauvignon_blanc_variation"
+      ],
+      "location_only_is_explanatory_evidence": false,
+      "quality_price_semantics": "Original comparison with explicit supplied conditions; does not claim a regional cost/quality/price ladder.",
+      "country_label_crossreference_semantics": "L3 origin explanations are shared across same-country groups and are not themselves L2 required-grape completion evidence."
+    },
+    {
+      "base_group_id": "cl_coastal",
+      "dimensions": {
+        "quality_price": [
+          "ki_wset_nwa_chile_coastal_cost"
+        ]
+      },
+      "regional_prerequisite_item_ids": [
+        "ki_reg_am_casablanca_low",
+        "ki_wset_nw_casablanca_grapes",
+        "ki_reg_am_casablanca_high",
+        "ki_wset_grape_sauvignon_blanc_profile",
+        "ki_wset_grape_chardonnay_variation",
+        "ki_wset_grape_pinot_noir_profile"
+      ],
+      "location_only_is_explanatory_evidence": false,
+      "quality_price_semantics": "Original comparison with explicit supplied conditions; does not claim a regional cost/quality/price ladder.",
+      "country_label_crossreference_semantics": "L3 origin explanations are shared across same-country groups and are not themselves L2 required-grape completion evidence."
+    },
+    {
+      "base_group_id": "cl_north",
+      "dimensions": {
+        "production": [
+          "ki_wset_nwa_elqui_syrah",
+          "ki_wset_nwa_limari_chardonnay"
+        ],
+        "style": [
+          "ki_wset_nwa_elqui_syrah",
+          "ki_wset_nwa_limari_chardonnay"
+        ],
+        "quality_price": [
+          "ki_wset_nwa_chile_north_cost"
+        ]
+      },
+      "regional_prerequisite_item_ids": [
+        "ki_reg_am_limari_chardonnay",
+        "ki_wset_nw_elqui_aridity"
+      ],
+      "location_only_is_explanatory_evidence": false,
+      "quality_price_semantics": "Original comparison with explicit supplied conditions; does not claim a regional cost/quality/price ladder.",
+      "country_label_crossreference_semantics": "L3 origin explanations are shared across same-country groups and are not themselves L2 required-grape completion evidence."
+    },
+    {
+      "base_group_id": "cl_aconcagua",
+      "dimensions": {
+        "production": [
+          "ki_wset_nwa_aconcagua_red",
+          "ki_wset_nwa_leyda_san_antonio_white"
+        ],
+        "style": [
+          "ki_wset_nwa_aconcagua_red",
+          "ki_wset_nwa_leyda_san_antonio_white"
+        ],
+        "quality_price": [
+          "ki_wset_nwa_chile_aconcagua_cost"
+        ]
+      },
+      "regional_prerequisite_item_ids": [
+        "ki_reg_am_aconcagua_coast",
+        "ki_wset_nw_leyda_coastal"
+      ],
+      "location_only_is_explanatory_evidence": false,
+      "quality_price_semantics": "Original comparison with explicit supplied conditions; does not claim a regional cost/quality/price ladder.",
+      "country_label_crossreference_semantics": "L3 origin explanations are shared across same-country groups and are not themselves L2 required-grape completion evidence."
+    },
+    {
+      "base_group_id": "cl_south_central",
+      "dimensions": {
+        "production": [
+          "ki_wset_nwa_cachapoal_carmenere",
+          "ki_wset_nwa_curico_maule_white",
+          "ki_wset_nwa_maule_southern_red"
+        ],
+        "style": [
+          "ki_wset_nwa_cachapoal_carmenere",
+          "ki_wset_nwa_curico_maule_white",
+          "ki_wset_nwa_maule_southern_red"
+        ],
+        "quality_price": [
+          "ki_wset_nwa_chile_south_cost"
+        ]
+      },
+      "regional_prerequisite_item_ids": [
+        "ki_reg_sa_biobio_grapes",
+        "ki_wset_nw_curico_maule_diversity",
+        "ki_reg_sa_biobio_weather"
+      ],
+      "location_only_is_explanatory_evidence": false,
+      "quality_price_semantics": "Original comparison with explicit supplied conditions; does not claim a regional cost/quality/price ladder.",
+      "country_label_crossreference_semantics": "L3 origin explanations are shared across same-country groups and are not themselves L2 required-grape completion evidence."
+    },
+    {
+      "base_group_id": "ar_mendoza",
+      "dimensions": {
+        "quality_price": [
+          "ki_wset_nwa_mendoza_cost"
+        ],
+        "labels": [
+          "ki_wset_nwa_argentina_origin_terms",
+          "ki_wset_nwa_argentina_ig_examples",
+          "ki_wset_nwa_lujan_doc_distinction"
+        ]
+      },
+      "regional_prerequisite_item_ids": [
+        "ki_wset_grape_malbec_profile",
+        "ki_wset_nw_mendoza_malbec_range",
+        "ki_reg_am_mendoza_temperature",
+        "ki_reg_am_andes_irrigation"
+      ],
+      "location_only_is_explanatory_evidence": false,
+      "quality_price_semantics": "Original comparison with explicit supplied conditions; does not claim a regional cost/quality/price ladder.",
+      "country_label_crossreference_semantics": "L3 origin explanations are shared across same-country groups and are not themselves L2 required-grape completion evidence."
+    },
+    {
+      "base_group_id": "ar_north_south",
+      "dimensions": {
+        "quality_price": [
+          "ki_wset_nwa_argentina_diverse_cost"
+        ],
+        "labels": [
+          "ki_wset_nwa_argentina_origin_terms",
+          "ki_wset_nwa_argentina_ig_examples"
+        ]
+      },
+      "regional_prerequisite_item_ids": [
+        "ki_reg_sa_salta_grapes",
+        "ki_reg_sa_torrontes_identity",
+        "ki_reg_sa_torrontes_riojano",
+        "ki_reg_sa_sanjuan_valleys",
+        "ki_reg_sa_rionegro_profiles",
+        "ki_reg_sa_neuquen_grapes",
+        "ki_wset_nw_argentina_malbec_contrasts",
+        "ki_reg_sa_salta_canopy",
+        "ki_reg_sa_pedernal_exposure",
+        "ki_reg_am_patagonia_latitude",
+        "ki_reg_am_patagonia_evaporation"
+      ],
+      "location_only_is_explanatory_evidence": false,
+      "quality_price_semantics": "Original comparison with explicit supplied conditions; does not claim a regional cost/quality/price ladder.",
+      "country_label_crossreference_semantics": "L3 origin explanations are shared across same-country groups and are not themselves L2 required-grape completion evidence."
+    },
+    {
+      "base_group_id": "za_western_cape",
+      "dimensions": {
+        "environment": [
+          "ki_wset_nwa_western_cape_environment"
+        ],
+        "quality_price": [
+          "ki_wset_nwa_western_cape_cost"
+        ]
+      },
+      "regional_prerequisite_item_ids": [
+        "ki_reg_sh_chenin_fresh",
+        "ki_wset_grape_pinotage_profile",
+        "ki_wset_nw_cape_blend_meaning",
+        "ki_reg_sh_chenin_oak",
+        "ki_wset_grape_chardonnay_variation"
+      ],
+      "location_only_is_explanatory_evidence": false,
+      "quality_price_semantics": "Original comparison with explicit supplied conditions; does not claim a regional cost/quality/price ladder.",
+      "country_label_crossreference_semantics": "L3 origin explanations are shared across same-country groups and are not themselves L2 required-grape completion evidence."
+    },
+    {
+      "base_group_id": "za_stellenbosch",
+      "dimensions": {
+        "quality_price": [
+          "ki_wset_nwa_stellenbosch_cost"
+        ]
+      },
+      "regional_prerequisite_item_ids": [
+        "ki_reg_sh_stellenbosch_heat",
+        "ki_reg_sh_stellenbosch_aspect",
+        "ki_wset_grape_cabernet_sauvignon_profile",
+        "ki_wset_grape_merlot_profile"
+      ],
+      "location_only_is_explanatory_evidence": false,
+      "quality_price_semantics": "Original comparison with explicit supplied conditions; does not claim a regional cost/quality/price ladder.",
+      "country_label_crossreference_semantics": "L3 origin explanations are shared across same-country groups and are not themselves L2 required-grape completion evidence."
+    },
+    {
+      "base_group_id": "za_coastal",
+      "dimensions": {
+        "quality_price": [
+          "ki_wset_nwa_cape_cool_cost"
+        ]
+      },
+      "regional_prerequisite_item_ids": [
+        "ki_reg_oa_constantia_aspects",
+        "ki_reg_sh_elgin_ripening",
+        "ki_reg_sh_hemel_maritime",
+        "ki_wset_nw_elgin_sauvignon",
+        "ki_wset_grape_sauvignon_blanc_profile",
+        "ki_wset_grape_chardonnay_variation",
+        "ki_wset_grape_pinot_noir_profile"
+      ],
+      "location_only_is_explanatory_evidence": false,
+      "quality_price_semantics": "Original comparison with explicit supplied conditions; does not claim a regional cost/quality/price ladder.",
+      "country_label_crossreference_semantics": "L3 origin explanations are shared across same-country groups and are not themselves L2 required-grape completion evidence."
+    },
+    {
+      "base_group_id": "za_coastal_depth",
+      "dimensions": {
+        "quality_price": [
+          "ki_wset_nwa_coastal_region_cost"
+        ]
+      },
+      "regional_prerequisite_item_ids": [
+        "ki_wset_nw_durbanville_setting",
+        "ki_wset_nw_swartland_grapes",
+        "ki_reg_oa_paarl_water_sites",
+        "ki_reg_sh_swartland_variation",
+        "ki_reg_sh_swartland_shade"
+      ],
+      "location_only_is_explanatory_evidence": false,
+      "quality_price_semantics": "Original comparison with explicit supplied conditions; does not claim a regional cost/quality/price ladder.",
+      "country_label_crossreference_semantics": "L3 origin explanations are shared across same-country groups and are not themselves L2 required-grape completion evidence."
+    },
+    {
+      "base_group_id": "za_breede",
+      "dimensions": {
+        "quality_price": [
+          "ki_wset_nwa_breede_cost"
+        ]
+      },
+      "regional_prerequisite_item_ids": [
+        "ki_reg_oa_robertson_unwooded",
+        "ki_wset_nw_worcester_wine_context",
+        "ki_reg_oa_robertson_water",
+        "ki_reg_sh_chenin_fresh"
+      ],
+      "location_only_is_explanatory_evidence": false,
+      "quality_price_semantics": "Original comparison with explicit supplied conditions; does not claim a regional cost/quality/price ladder.",
+      "country_label_crossreference_semantics": "L3 origin explanations are shared across same-country groups and are not themselves L2 required-grape completion evidence."
+    },
+    {
+      "base_group_id": "za_south_coast",
+      "dimensions": {
+        "production": [
+          "ki_wset_nwa_south_coast_chardonnay",
+          "ki_wset_nwa_elim_sauvignon"
+        ],
+        "style": [
+          "ki_wset_nwa_south_coast_chardonnay",
+          "ki_wset_nwa_elim_sauvignon"
+        ],
+        "quality_price": [
+          "ki_wset_nwa_cape_cool_cost"
+        ]
+      },
+      "regional_prerequisite_item_ids": [
+        "ki_reg_sh_hemel_maritime",
+        "ki_reg_sh_elgin_ripening",
+        "ki_wset_nw_elim_cooling"
+      ],
+      "location_only_is_explanatory_evidence": false,
+      "quality_price_semantics": "Original comparison with explicit supplied conditions; does not claim a regional cost/quality/price ladder.",
+      "country_label_crossreference_semantics": "L3 origin explanations are shared across same-country groups and are not themselves L2 required-grape completion evidence."
+    },
+    {
+      "base_group_id": "au_riesling",
+      "dimensions": {
+        "production": [
+          "ki_wset_nwa_clare_eden_riesling"
+        ],
+        "style": [
+          "ki_wset_nwa_clare_eden_riesling"
+        ]
+      },
+      "regional_prerequisite_item_ids": [
+        "ki_reg_sh_eden_riesling",
+        "ki_wset_nw_clare_riesling_style",
+        "ki_wset_nw_eden_riesling_setting",
+        "ki_reg_sh_clare_cooling"
+      ],
+      "location_only_is_explanatory_evidence": false,
+      "quality_price_semantics": "Original comparison with explicit supplied conditions; does not claim a regional cost/quality/price ladder.",
+      "country_label_crossreference_semantics": "L3 origin explanations are shared across same-country groups and are not themselves L2 required-grape completion evidence."
+    },
+    {
+      "base_group_id": "au_great_southern",
+      "dimensions": {
+        "production": [
+          "ki_wset_nwa_great_southern_riesling",
+          "ki_wset_nwa_great_southern_red"
+        ],
+        "style": [
+          "ki_wset_nwa_great_southern_riesling",
+          "ki_wset_nwa_great_southern_red"
+        ]
+      },
+      "regional_prerequisite_item_ids": [
+        "ki_wset_nw_great_southern_sites",
+        "ki_wset_nw_great_southern_styles"
+      ],
+      "location_only_is_explanatory_evidence": false,
+      "quality_price_semantics": "Original comparison with explicit supplied conditions; does not claim a regional cost/quality/price ladder.",
+      "country_label_crossreference_semantics": "L3 origin explanations are shared across same-country groups and are not themselves L2 required-grape completion evidence."
+    },
+    {
+      "base_group_id": "nz_marlborough",
+      "dimensions": {
+        "quality_price": [
+          "ki_wset_nwa_marlborough_cost"
+        ],
+        "labels": [
+          "ki_wset_nwa_nz_enduring_origins",
+          "ki_wset_nwa_nz_origin_label"
+        ]
+      },
+      "regional_prerequisite_item_ids": [
+        "ki_wset_nw_marlborough_sauvignon_style",
+        "ki_wset_nw_marlborough_chardonnay_range",
+        "ki_wset_nw_marlborough_pinot_style",
+        "ki_wset_nw_marlborough_aromatics",
+        "ki_reg_sh_marlborough_wairau",
+        "ki_reg_sh_marlborough_awatere"
+      ],
+      "location_only_is_explanatory_evidence": false,
+      "quality_price_semantics": "Original comparison with explicit supplied conditions; does not claim a regional cost/quality/price ladder.",
+      "country_label_crossreference_semantics": "L3 origin explanations are shared across same-country groups and are not themselves L2 required-grape completion evidence."
+    },
+    {
+      "base_group_id": "nz_hawkes",
+      "dimensions": {
+        "quality_price": [
+          "ki_wset_nwa_hawkes_cost"
+        ],
+        "labels": [
+          "ki_wset_nwa_nz_enduring_origins",
+          "ki_wset_nwa_nz_origin_label"
+        ]
+      },
+      "regional_prerequisite_item_ids": [
+        "ki_reg_sh_hawkes_reds",
+        "ki_wset_nw_hawkes_cab_merlot",
+        "ki_wset_nw_hawkes_chardonnay",
+        "ki_wset_nw_hawkes_syrah_pinot_gris",
+        "ki_reg_sh_hawkes_cool"
+      ],
+      "location_only_is_explanatory_evidence": false,
+      "quality_price_semantics": "Original comparison with explicit supplied conditions; does not claim a regional cost/quality/price ladder.",
+      "country_label_crossreference_semantics": "L3 origin explanations are shared across same-country groups and are not themselves L2 required-grape completion evidence."
+    },
+    {
+      "base_group_id": "nz_martinborough",
+      "dimensions": {
+        "production": [
+          "ki_wset_nwa_martinborough_pinot"
+        ],
+        "style": [
+          "ki_wset_nwa_martinborough_pinot"
+        ],
+        "quality_price": [
+          "ki_wset_nwa_martinborough_cost"
+        ],
+        "labels": [
+          "ki_wset_nwa_nz_enduring_origins",
+          "ki_wset_nwa_nz_origin_label"
+        ]
+      },
+      "regional_prerequisite_item_ids": [
+        "ki_reg_sh_martinborough_setting",
+        "ki_wset_nw_martinborough_pinot_style",
+        "ki_reg_sh_wairarapa_variation"
+      ],
+      "location_only_is_explanatory_evidence": false,
+      "quality_price_semantics": "Original comparison with explicit supplied conditions; does not claim a regional cost/quality/price ladder.",
+      "country_label_crossreference_semantics": "L3 origin explanations are shared across same-country groups and are not themselves L2 required-grape completion evidence."
+    },
+    {
+      "base_group_id": "nz_otago",
+      "dimensions": {
+        "production": [
+          "ki_wset_nwa_otago_pinot"
+        ],
+        "style": [
+          "ki_wset_nwa_otago_pinot"
+        ],
+        "quality_price": [
+          "ki_wset_nwa_otago_cost"
+        ],
+        "labels": [
+          "ki_wset_nwa_nz_enduring_origins",
+          "ki_wset_nwa_nz_origin_label"
+        ]
+      },
+      "regional_prerequisite_item_ids": [
+        "ki_wset_nw_otago_pinot_style",
+        "ki_wset_nw_otago_aromatics",
+        "ki_reg_sh_otago_gibbston",
+        "ki_reg_sh_otago_bannockburn"
+      ],
+      "location_only_is_explanatory_evidence": false,
+      "quality_price_semantics": "Original comparison with explicit supplied conditions; does not claim a regional cost/quality/price ladder.",
+      "country_label_crossreference_semantics": "L3 origin explanations are shared across same-country groups and are not themselves L2 required-grape completion evidence."
+    },
+    {
+      "base_group_id": "nz_nelson",
+      "dimensions": {
+        "production": [
+          "ki_wset_nwa_nelson_aromatics"
+        ],
+        "style": [
+          "ki_wset_nwa_nelson_aromatics"
+        ],
+        "quality_price": [
+          "ki_wset_nwa_nelson_cost"
+        ],
+        "labels": [
+          "ki_wset_nwa_nz_enduring_origins",
+          "ki_wset_nwa_nz_origin_label"
+        ]
+      },
+      "regional_prerequisite_item_ids": [
+        "ki_reg_oa_nelson_moutere",
+        "ki_reg_oa_nelson_waimea",
+        "ki_wset_nw_nelson_wine_styles"
+      ],
+      "location_only_is_explanatory_evidence": false,
+      "quality_price_semantics": "Original comparison with explicit supplied conditions; does not claim a regional cost/quality/price ladder.",
+      "country_label_crossreference_semantics": "L3 origin explanations are shared across same-country groups and are not themselves L2 required-grape completion evidence."
+    },
+    {
+      "base_group_id": "nz_gisborne",
+      "dimensions": {
+        "production": [
+          "ki_wset_nwa_gisborne_chardonnay"
+        ],
+        "style": [
+          "ki_wset_nwa_gisborne_chardonnay"
+        ],
+        "quality_price": [
+          "ki_wset_nwa_gisborne_cost"
+        ],
+        "labels": [
+          "ki_wset_nwa_nz_enduring_origins",
+          "ki_wset_nwa_nz_origin_label"
+        ]
+      },
+      "regional_prerequisite_item_ids": [
+        "ki_reg_oa_gisborne_patutahi",
+        "ki_reg_oa_gisborne_manutuke",
+        "ki_wset_nw_gisborne_wine_styles"
+      ],
+      "location_only_is_explanatory_evidence": false,
+      "quality_price_semantics": "Original comparison with explicit supplied conditions; does not claim a regional cost/quality/price ladder.",
+      "country_label_crossreference_semantics": "L3 origin explanations are shared across same-country groups and are not themselves L2 required-grape completion evidence."
+    },
+    {
+      "base_group_id": "nz_canterbury",
+      "dimensions": {
+        "production": [
+          "ki_wset_nwa_canterbury_riesling"
+        ],
+        "style": [
+          "ki_wset_nwa_canterbury_riesling"
+        ],
+        "quality_price": [
+          "ki_wset_nwa_canterbury_cost"
+        ],
+        "labels": [
+          "ki_wset_nwa_nz_enduring_origins",
+          "ki_wset_nwa_nz_origin_label"
+        ]
+      },
+      "regional_prerequisite_item_ids": [
+        "ki_reg_oa_canterbury_riesling",
+        "ki_reg_oa_canterbury_pinot",
+        "ki_wset_nw_canterbury_style_range",
+        "ki_reg_oa_canterbury_waipara",
+        "ki_reg_oa_canterbury_plains"
+      ],
+      "location_only_is_explanatory_evidence": false,
+      "quality_price_semantics": "Original comparison with explicit supplied conditions; does not claim a regional cost/quality/price ladder.",
+      "country_label_crossreference_semantics": "L3 origin explanations are shared across same-country groups and are not themselves L2 required-grape completion evidence."
+    }
+  ],
+  "lessons": [
+    {
+      "knowledge_item_id": "ki_wset_nwa_mendocino_chardonnay",
+      "level": "WSET_L3",
+      "domain": "winemaking",
+      "kind": "original_conditional_application",
+      "group_ids": [
+        "us_coast_depth"
+      ],
+      "dimensions": [
+        "production",
+        "style"
+      ],
+      "supplied_assumptions": [
+        "Sound Chardonnay fruit; fruit-led and fuller targets are supplied alternatives."
+      ],
+      "regional_or_label_source_ids": [
+        "src_wset_nw_mendocino"
+      ],
+      "mechanism_source_ids": [
+        "src_win_lees",
+        "src_win_oak"
+      ],
+      "review_status": "unverified",
+      "scope_note": "Level 3 addition; contextual place names are not grounds to lower advanced existing facts."
+    },
+    {
+      "knowledge_item_id": "ki_wset_nwa_monterey_chardonnay",
+      "level": "WSET_L3",
+      "domain": "winemaking",
+      "kind": "original_conditional_application",
+      "group_ids": [
+        "us_coast_depth"
+      ],
+      "dimensions": [
+        "production",
+        "style"
+      ],
+      "supplied_assumptions": [
+        "Lot has brisk acidity; no uniform county acidity is claimed."
+      ],
+      "regional_or_label_source_ids": [
+        "src_reg_na_slh_climate",
+        "src_reg_na_slh_glass"
+      ],
+      "mechanism_source_ids": [
+        "src_win_white_temperature",
+        "src_win_white_mlf"
+      ],
+      "review_status": "unverified",
+      "scope_note": "Level 3 addition; contextual place names are not grounds to lower advanced existing facts."
+    },
+    {
+      "knowledge_item_id": "ki_wset_nwa_santa_cruz_pinot",
+      "level": "WSET_L3",
+      "domain": "winemaking",
+      "kind": "original_conditional_application",
+      "group_ids": [
+        "us_coast_depth"
+      ],
+      "dimensions": [
+        "production",
+        "style"
+      ],
+      "supplied_assumptions": [
+        "Ripe Pinot Noir and a red-fruit-led target are supplied."
+      ],
+      "regional_or_label_source_ids": [
+        "src_reg_na_santa_cruz"
+      ],
+      "mechanism_source_ids": [
+        "src_win_temperature"
+      ],
+      "review_status": "unverified",
+      "scope_note": "Level 3 addition; contextual place names are not grounds to lower advanced existing facts."
+    },
+    {
+      "knowledge_item_id": "ki_wset_nwa_paso_santa_maria_routes",
+      "level": "WSET_L3",
+      "domain": "winemaking",
+      "kind": "original_conditional_application",
+      "group_ids": [
+        "us_coast_depth"
+      ],
+      "dimensions": [
+        "production",
+        "style"
+      ],
+      "supplied_assumptions": [
+        "Two sound lots and contrasting grape colours are supplied."
+      ],
+      "regional_or_label_source_ids": [
+        "src_wset_nw_slo",
+        "src_wset_nw_santa_maria"
+      ],
+      "mechanism_source_ids": [
+        "src_win_temperature",
+        "src_win_skin_contact"
+      ],
+      "review_status": "unverified",
+      "scope_note": "Level 3 addition; contextual place names are not grounds to lower advanced existing facts."
+    },
+    {
+      "knowledge_item_id": "ki_wset_nwa_finger_lakes_riesling",
+      "level": "WSET_L3",
+      "domain": "winemaking",
+      "kind": "regional_or_origin_explanation",
+      "group_ids": [
+        "us_new_york"
+      ],
+      "dimensions": [
+        "production",
+        "style"
+      ],
+      "supplied_assumptions": [],
+      "regional_or_label_source_ids": [
+        "src_reg_na_ny_grapes",
+        "src_wset_nw_finger_riesling"
+      ],
+      "mechanism_source_ids": [
+        "src_win_white_temperature",
+        "src_win_packaging"
+      ],
+      "review_status": "unverified",
+      "scope_note": "Level 3 addition; contextual place names are not grounds to lower advanced existing facts."
+    },
+    {
+      "knowledge_item_id": "ki_wset_nwa_elqui_syrah",
+      "level": "WSET_L3",
+      "domain": "winemaking",
+      "kind": "original_conditional_application",
+      "group_ids": [
+        "cl_north"
+      ],
+      "dimensions": [
+        "production",
+        "style"
+      ],
+      "supplied_assumptions": [
+        "Ripe Syrah and a dry red target are supplied."
+      ],
+      "regional_or_label_source_ids": [
+        "src_reg_am_chile"
+      ],
+      "mechanism_source_ids": [
+        "src_win_temperature",
+        "src_win_oak"
+      ],
+      "review_status": "unverified",
+      "scope_note": "Level 3 addition; contextual place names are not grounds to lower advanced existing facts."
+    },
+    {
+      "knowledge_item_id": "ki_wset_nwa_limari_chardonnay",
+      "level": "WSET_L3",
+      "domain": "winemaking",
+      "kind": "original_conditional_application",
+      "group_ids": [
+        "cl_north"
+      ],
+      "dimensions": [
+        "production",
+        "style"
+      ],
+      "supplied_assumptions": [
+        "Fresh Chardonnay lot, not a compulsory regional practice."
+      ],
+      "regional_or_label_source_ids": [
+        "src_reg_am_chile"
+      ],
+      "mechanism_source_ids": [
+        "src_win_lees",
+        "src_win_white_mlf",
+        "src_win_oak"
+      ],
+      "review_status": "unverified",
+      "scope_note": "Level 3 addition; contextual place names are not grounds to lower advanced existing facts."
+    },
+    {
+      "knowledge_item_id": "ki_wset_nwa_aconcagua_red",
+      "level": "WSET_L3",
+      "domain": "winemaking",
+      "kind": "original_conditional_application",
+      "group_ids": [
+        "cl_aconcagua"
+      ],
+      "dimensions": [
+        "production",
+        "style"
+      ],
+      "supplied_assumptions": [
+        "Ripe Cabernet and alternative maturation briefs are supplied."
+      ],
+      "regional_or_label_source_ids": [
+        "src_reg_am_chile"
+      ],
+      "mechanism_source_ids": [
+        "src_win_temperature",
+        "src_win_oak"
+      ],
+      "review_status": "unverified",
+      "scope_note": "Level 3 addition; contextual place names are not grounds to lower advanced existing facts."
+    },
+    {
+      "knowledge_item_id": "ki_wset_nwa_leyda_san_antonio_white",
+      "level": "WSET_L3",
+      "domain": "winemaking",
+      "kind": "original_conditional_application",
+      "group_ids": [
+        "cl_aconcagua"
+      ],
+      "dimensions": [
+        "production",
+        "style"
+      ],
+      "supplied_assumptions": [
+        "Sound Sauvignon lots with a fresh target; producer record is an example only."
+      ],
+      "regional_or_label_source_ids": [
+        "src_reg_am_chile",
+        "src_reg_sa_leyda_2023"
+      ],
+      "mechanism_source_ids": [
+        "src_win_white_temperature",
+        "src_win_oxygen",
+        "src_win_lees"
+      ],
+      "review_status": "unverified",
+      "scope_note": "Level 3 addition; contextual place names are not grounds to lower advanced existing facts."
+    },
+    {
+      "knowledge_item_id": "ki_wset_nwa_cachapoal_carmenere",
+      "level": "WSET_L3",
+      "domain": "winemaking",
+      "kind": "original_conditional_application",
+      "group_ids": [
+        "cl_south_central"
+      ],
+      "dimensions": [
+        "production",
+        "style"
+      ],
+      "supplied_assumptions": [
+        "Ripe Carmenère; Peumo record is a particular producer/vintage basis."
+      ],
+      "regional_or_label_source_ids": [
+        "src_reg_sa_peumo",
+        "src_reg_sa_peumo_2024"
+      ],
+      "mechanism_source_ids": [
+        "src_win_temperature",
+        "src_win_oak"
+      ],
+      "review_status": "unverified",
+      "scope_note": "Level 3 addition; contextual place names are not grounds to lower advanced existing facts."
+    },
+    {
+      "knowledge_item_id": "ki_wset_nwa_curico_maule_white",
+      "level": "WSET_L3",
+      "domain": "winemaking",
+      "kind": "original_conditional_application",
+      "group_ids": [
+        "cl_south_central"
+      ],
+      "dimensions": [
+        "production",
+        "style"
+      ],
+      "supplied_assumptions": [
+        "Two sound white lots with a fresh brief are supplied."
+      ],
+      "regional_or_label_source_ids": [
+        "src_reg_am_chile"
+      ],
+      "mechanism_source_ids": [
+        "src_win_skin_contact",
+        "src_win_white_temperature",
+        "src_win_oxygen"
+      ],
+      "review_status": "unverified",
+      "scope_note": "Level 3 addition; contextual place names are not grounds to lower advanced existing facts."
+    },
+    {
+      "knowledge_item_id": "ki_wset_nwa_maule_southern_red",
+      "level": "WSET_L3",
+      "domain": "winemaking",
+      "kind": "original_conditional_application",
+      "group_ids": [
+        "cl_south_central"
+      ],
+      "dimensions": [
+        "production",
+        "style"
+      ],
+      "supplied_assumptions": [
+        "Cabernet red and Riesling white lots are supplied; no exclusive grape claim."
+      ],
+      "regional_or_label_source_ids": [
+        "src_reg_am_chile"
+      ],
+      "mechanism_source_ids": [
+        "src_win_temperature",
+        "src_win_skin_contact",
+        "src_win_white_temperature"
+      ],
+      "review_status": "unverified",
+      "scope_note": "Level 3 addition; contextual place names are not grounds to lower advanced existing facts."
+    },
+    {
+      "knowledge_item_id": "ki_wset_nwa_western_cape_environment",
+      "level": "WSET_L2",
+      "domain": "viticulture",
+      "kind": "regional_or_origin_explanation",
+      "group_ids": [
+        "za_western_cape"
+      ],
+      "dimensions": [
+        "environment"
+      ],
+      "supplied_assumptions": [],
+      "regional_or_label_source_ids": [
+        "src_wset_nwa_za_climate"
+      ],
+      "mechanism_source_ids": [],
+      "review_status": "unverified",
+      "scope_note": "Introductory lot-level interpretation, inherited by higher tracks."
+    },
+    {
+      "knowledge_item_id": "ki_wset_nwa_south_coast_chardonnay",
+      "level": "WSET_L3",
+      "domain": "winemaking",
+      "kind": "original_conditional_application",
+      "group_ids": [
+        "za_south_coast"
+      ],
+      "dimensions": [
+        "production",
+        "style"
+      ],
+      "supplied_assumptions": [
+        "Two sound Chardonnay lots and alternative stylistic targets are supplied."
+      ],
+      "regional_or_label_source_ids": [
+        "src_reg_sh_elgin",
+        "src_reg_sh_hemel"
+      ],
+      "mechanism_source_ids": [
+        "src_win_lees",
+        "src_win_white_mlf",
+        "src_win_oak"
+      ],
+      "review_status": "unverified",
+      "scope_note": "Level 3 addition; contextual place names are not grounds to lower advanced existing facts."
+    },
+    {
+      "knowledge_item_id": "ki_wset_nwa_elim_sauvignon",
+      "level": "WSET_L3",
+      "domain": "winemaking",
+      "kind": "original_conditional_application",
+      "group_ids": [
+        "za_south_coast"
+      ],
+      "dimensions": [
+        "production",
+        "style"
+      ],
+      "supplied_assumptions": [
+        "Sound Sauvignon Blanc and fresh target are supplied."
+      ],
+      "regional_or_label_source_ids": [
+        "src_diploma_za_olifants"
+      ],
+      "mechanism_source_ids": [
+        "src_win_white_temperature",
+        "src_win_oxygen",
+        "src_win_lees"
+      ],
+      "review_status": "unverified",
+      "scope_note": "Level 3 addition; contextual place names are not grounds to lower advanced existing facts."
+    },
+    {
+      "knowledge_item_id": "ki_wset_nwa_clare_eden_riesling",
+      "level": "WSET_L2",
+      "domain": "winemaking",
+      "kind": "original_conditional_application",
+      "group_ids": [
+        "au_riesling"
+      ],
+      "dimensions": [
+        "production",
+        "style"
+      ],
+      "supplied_assumptions": [
+        "Fresh citrus and dry/off-dry alternatives are supplied targets."
+      ],
+      "regional_or_label_source_ids": [
+        "src_reg_sh_clare",
+        "src_reg_sh_eden",
+        "src_wset_grape_wa_riesling"
+      ],
+      "mechanism_source_ids": [
+        "src_win_white_temperature",
+        "src_win_packaging"
+      ],
+      "review_status": "unverified",
+      "scope_note": "Introductory lot-level interpretation, inherited by higher tracks."
+    },
+    {
+      "knowledge_item_id": "ki_wset_nwa_great_southern_riesling",
+      "level": "WSET_L3",
+      "domain": "winemaking",
+      "kind": "original_conditional_application",
+      "group_ids": [
+        "au_great_southern"
+      ],
+      "dimensions": [
+        "production",
+        "style"
+      ],
+      "supplied_assumptions": [
+        "Sound Riesling and contrasting stylistic briefs are supplied."
+      ],
+      "regional_or_label_source_ids": [
+        "src_wset_nw_great_southern",
+        "src_wset_grape_wa_riesling"
+      ],
+      "mechanism_source_ids": [
+        "src_win_white_temperature",
+        "src_win_lees"
+      ],
+      "review_status": "unverified",
+      "scope_note": "Level 3 addition; contextual place names are not grounds to lower advanced existing facts."
+    },
+    {
+      "knowledge_item_id": "ki_wset_nwa_great_southern_red",
+      "level": "WSET_L3",
+      "domain": "winemaking",
+      "kind": "original_conditional_application",
+      "group_ids": [
+        "au_great_southern"
+      ],
+      "dimensions": [
+        "production",
+        "style"
+      ],
+      "supplied_assumptions": [
+        "Sound red-grape lots and the intended balance must be specified."
+      ],
+      "regional_or_label_source_ids": [
+        "src_wset_nw_great_southern"
+      ],
+      "mechanism_source_ids": [
+        "src_win_temperature",
+        "src_win_oak"
+      ],
+      "review_status": "unverified",
+      "scope_note": "Level 3 addition; contextual place names are not grounds to lower advanced existing facts."
+    },
+    {
+      "knowledge_item_id": "ki_wset_nwa_martinborough_pinot",
+      "level": "WSET_L2",
+      "domain": "winemaking",
+      "kind": "original_conditional_application",
+      "group_ids": [
+        "nz_martinborough"
+      ],
+      "dimensions": [
+        "production",
+        "style"
+      ],
+      "supplied_assumptions": [
+        "Ripe Pinot and fruit-led versus firmer briefs are supplied."
+      ],
+      "regional_or_label_source_ids": [
+        "src_reg_sh_wairarapa"
+      ],
+      "mechanism_source_ids": [
+        "src_win_temperature",
+        "src_win_oak"
+      ],
+      "review_status": "unverified",
+      "scope_note": "Introductory lot-level interpretation, inherited by higher tracks."
+    },
+    {
+      "knowledge_item_id": "ki_wset_nwa_otago_pinot",
+      "level": "WSET_L2",
+      "domain": "winemaking",
+      "kind": "original_conditional_application",
+      "group_ids": [
+        "nz_otago"
+      ],
+      "dimensions": [
+        "production",
+        "style"
+      ],
+      "supplied_assumptions": [
+        "A ripe lot is supplied; subregional differences are context, not a fixed recipe."
+      ],
+      "regional_or_label_source_ids": [
+        "src_nwc_nz_otago"
+      ],
+      "mechanism_source_ids": [
+        "src_win_temperature",
+        "src_win_oak"
+      ],
+      "review_status": "unverified",
+      "scope_note": "Introductory lot-level interpretation, inherited by higher tracks."
+    },
+    {
+      "knowledge_item_id": "ki_wset_nwa_nelson_aromatics",
+      "level": "WSET_L3",
+      "domain": "winemaking",
+      "kind": "original_conditional_application",
+      "group_ids": [
+        "nz_nelson"
+      ],
+      "dimensions": [
+        "production",
+        "style"
+      ],
+      "supplied_assumptions": [
+        "Sound white lot and fruit-led target are supplied."
+      ],
+      "regional_or_label_source_ids": [
+        "src_reg_oa_nelson"
+      ],
+      "mechanism_source_ids": [
+        "src_win_white_temperature",
+        "src_win_oxygen",
+        "src_win_lees"
+      ],
+      "review_status": "unverified",
+      "scope_note": "Level 3 addition; contextual place names are not grounds to lower advanced existing facts."
+    },
+    {
+      "knowledge_item_id": "ki_wset_nwa_gisborne_chardonnay",
+      "level": "WSET_L3",
+      "domain": "winemaking",
+      "kind": "original_conditional_application",
+      "group_ids": [
+        "nz_gisborne"
+      ],
+      "dimensions": [
+        "production",
+        "style"
+      ],
+      "supplied_assumptions": [
+        "Ripe Chardonnay and alternative targets are supplied."
+      ],
+      "regional_or_label_source_ids": [
+        "src_reg_oa_gisborne"
+      ],
+      "mechanism_source_ids": [
+        "src_win_lees",
+        "src_win_oak",
+        "src_win_white_mlf"
+      ],
+      "review_status": "unverified",
+      "scope_note": "Level 3 addition; contextual place names are not grounds to lower advanced existing facts."
+    },
+    {
+      "knowledge_item_id": "ki_wset_nwa_canterbury_riesling",
+      "level": "WSET_L3",
+      "domain": "winemaking",
+      "kind": "original_conditional_application",
+      "group_ids": [
+        "nz_canterbury"
+      ],
+      "dimensions": [
+        "production",
+        "style"
+      ],
+      "supplied_assumptions": [
+        "Sound Riesling and dry/off-dry alternatives are supplied."
+      ],
+      "regional_or_label_source_ids": [
+        "src_reg_oa_canterbury"
+      ],
+      "mechanism_source_ids": [
+        "src_win_white_temperature",
+        "src_win_packaging"
+      ],
+      "review_status": "unverified",
+      "scope_note": "Level 3 addition; contextual place names are not grounds to lower advanced existing facts."
+    },
+    {
+      "knowledge_item_id": "ki_wset_nwa_california_cost",
+      "level": "WSET_L2",
+      "domain": "business",
+      "kind": "original_conditional_application",
+      "group_ids": [
+        "us_california"
+      ],
+      "dimensions": [
+        "quality_price"
+      ],
+      "supplied_assumptions": [
+        "The cost difference in the assertion is supplied for comparison; local practice, yield and premium price are not inferred."
+      ],
+      "regional_or_label_source_ids": [
+        "src_wset_nw_napa_wine"
+      ],
+      "mechanism_source_ids": [
+        "src_biz_models_psu_business"
+      ],
+      "review_status": "unverified",
+      "scope_note": "Introductory lot-level interpretation, inherited by higher tracks."
+    },
+    {
+      "knowledge_item_id": "ki_wset_nwa_napa_cost",
+      "level": "WSET_L2",
+      "domain": "business",
+      "kind": "original_conditional_application",
+      "group_ids": [
+        "us_napa",
+        "us_napa_subavas"
+      ],
+      "dimensions": [
+        "quality_price"
+      ],
+      "supplied_assumptions": [
+        "The cost difference in the assertion is supplied for comparison; local practice, yield and premium price are not inferred."
+      ],
+      "regional_or_label_source_ids": [
+        "src_wset_nw_napa_wine"
+      ],
+      "mechanism_source_ids": [
+        "src_biz_models_psu_business"
+      ],
+      "review_status": "unverified",
+      "scope_note": "Introductory lot-level interpretation, inherited by higher tracks."
+    },
+    {
+      "knowledge_item_id": "ki_wset_nwa_sonoma_cost",
+      "level": "WSET_L2",
+      "domain": "business",
+      "kind": "original_conditional_application",
+      "group_ids": [
+        "us_sonoma"
+      ],
+      "dimensions": [
+        "quality_price"
+      ],
+      "supplied_assumptions": [
+        "The cost difference in the assertion is supplied for comparison; local practice, yield and premium price are not inferred."
+      ],
+      "regional_or_label_source_ids": [
+        "src_reg_am_sonoma"
+      ],
+      "mechanism_source_ids": [
+        "src_biz_models_psu_business"
+      ],
+      "review_status": "unverified",
+      "scope_note": "Introductory lot-level interpretation, inherited by higher tracks."
+    },
+    {
+      "knowledge_item_id": "ki_wset_nwa_coast_cost",
+      "level": "WSET_L3",
+      "domain": "business",
+      "kind": "original_conditional_application",
+      "group_ids": [
+        "us_central_coast",
+        "us_coast_depth"
+      ],
+      "dimensions": [
+        "quality_price"
+      ],
+      "supplied_assumptions": [
+        "The cost difference in the assertion is supplied for comparison; local practice, yield and premium price are not inferred."
+      ],
+      "regional_or_label_source_ids": [
+        "src_wset_nw_santa_maria",
+        "src_reg_na_slh_glass"
+      ],
+      "mechanism_source_ids": [
+        "src_biz_models_psu_business"
+      ],
+      "review_status": "unverified",
+      "scope_note": "Level 3 addition; contextual place names are not grounds to lower advanced existing facts."
+    },
+    {
+      "knowledge_item_id": "ki_wset_nwa_lodi_cost",
+      "level": "WSET_L3",
+      "domain": "business",
+      "kind": "original_conditional_application",
+      "group_ids": [
+        "us_lodi"
+      ],
+      "dimensions": [
+        "quality_price"
+      ],
+      "supplied_assumptions": [
+        "The cost difference in the assertion is supplied for comparison; local practice, yield and premium price are not inferred."
+      ],
+      "regional_or_label_source_ids": [
+        "src_wset_nw_lodi_style",
+        "src_reg_na_lodi_canopy"
+      ],
+      "mechanism_source_ids": [
+        "src_biz_models_psu_business"
+      ],
+      "review_status": "unverified",
+      "scope_note": "Level 3 addition; contextual place names are not grounds to lower advanced existing facts."
+    },
+    {
+      "knowledge_item_id": "ki_wset_nwa_oregon_cost",
+      "level": "WSET_L2",
+      "domain": "business",
+      "kind": "original_conditional_application",
+      "group_ids": [
+        "us_oregon"
+      ],
+      "dimensions": [
+        "quality_price"
+      ],
+      "supplied_assumptions": [
+        "The cost difference in the assertion is supplied for comparison; local practice, yield and premium price are not inferred."
+      ],
+      "regional_or_label_source_ids": [
+        "src_reg_am_willamette",
+        "src_wset_nw_oregon_grapes"
+      ],
+      "mechanism_source_ids": [
+        "src_biz_models_psu_business"
+      ],
+      "review_status": "unverified",
+      "scope_note": "Introductory lot-level interpretation, inherited by higher tracks."
+    },
+    {
+      "knowledge_item_id": "ki_wset_nwa_washington_cost",
+      "level": "WSET_L3",
+      "domain": "business",
+      "kind": "original_conditional_application",
+      "group_ids": [
+        "us_washington"
+      ],
+      "dimensions": [
+        "quality_price"
+      ],
+      "supplied_assumptions": [
+        "The cost difference in the assertion is supplied for comparison; local practice, yield and premium price are not inferred."
+      ],
+      "regional_or_label_source_ids": [
+        "src_reg_am_washington",
+        "src_wset_nw_yakima"
+      ],
+      "mechanism_source_ids": [
+        "src_wset_prod_planning"
+      ],
+      "review_status": "unverified",
+      "scope_note": "Level 3 addition; contextual place names are not grounds to lower advanced existing facts."
+    },
+    {
+      "knowledge_item_id": "ki_wset_nwa_finger_lakes_cost",
+      "level": "WSET_L3",
+      "domain": "business",
+      "kind": "original_conditional_application",
+      "group_ids": [
+        "us_new_york"
+      ],
+      "dimensions": [
+        "quality_price"
+      ],
+      "supplied_assumptions": [
+        "The cost difference in the assertion is supplied for comparison; local practice, yield and premium price are not inferred."
+      ],
+      "regional_or_label_source_ids": [
+        "src_reg_na_ny_grapes",
+        "src_wset_nw_finger_riesling"
+      ],
+      "mechanism_source_ids": [
+        "src_biz_models_psu_business"
+      ],
+      "review_status": "unverified",
+      "scope_note": "Level 3 addition; contextual place names are not grounds to lower advanced existing facts."
+    },
+    {
+      "knowledge_item_id": "ki_wset_nwa_niagara_cost",
+      "level": "WSET_L3",
+      "domain": "business",
+      "kind": "original_conditional_application",
+      "group_ids": [
+        "ca_ontario"
+      ],
+      "dimensions": [
+        "quality_price"
+      ],
+      "supplied_assumptions": [
+        "The cost difference in the assertion is supplied for comparison; local practice, yield and premium price are not inferred."
+      ],
+      "regional_or_label_source_ids": [
+        "src_wset_nw_ontario_icewine"
+      ],
+      "mechanism_source_ids": [
+        "src_wset_prod_planning"
+      ],
+      "review_status": "unverified",
+      "scope_note": "Level 3 addition; contextual place names are not grounds to lower advanced existing facts."
+    },
+    {
+      "knowledge_item_id": "ki_wset_nwa_okanagan_cost",
+      "level": "WSET_L3",
+      "domain": "business",
+      "kind": "original_conditional_application",
+      "group_ids": [
+        "ca_bc"
+      ],
+      "dimensions": [
+        "quality_price"
+      ],
+      "supplied_assumptions": [
+        "The cost difference in the assertion is supplied for comparison; local practice, yield and premium price are not inferred."
+      ],
+      "regional_or_label_source_ids": [
+        "src_reg_am_okanagan",
+        "src_reg_na_bc_varietals"
+      ],
+      "mechanism_source_ids": [
+        "src_biz_models_psu_business"
+      ],
+      "review_status": "unverified",
+      "scope_note": "Level 3 addition; contextual place names are not grounds to lower advanced existing facts."
+    },
+    {
+      "knowledge_item_id": "ki_wset_nwa_chile_central_cost",
+      "level": "WSET_L2",
+      "domain": "business",
+      "kind": "original_conditional_application",
+      "group_ids": [
+        "cl_central"
+      ],
+      "dimensions": [
+        "quality_price"
+      ],
+      "supplied_assumptions": [
+        "The cost difference in the assertion is supplied for comparison; local practice, yield and premium price are not inferred."
+      ],
+      "regional_or_label_source_ids": [
+        "src_reg_am_chile"
+      ],
+      "mechanism_source_ids": [
+        "src_wset_prod_planning"
+      ],
+      "review_status": "unverified",
+      "scope_note": "Introductory lot-level interpretation, inherited by higher tracks."
+    },
+    {
+      "knowledge_item_id": "ki_wset_nwa_chile_coastal_cost",
+      "level": "WSET_L2",
+      "domain": "business",
+      "kind": "original_conditional_application",
+      "group_ids": [
+        "cl_coastal"
+      ],
+      "dimensions": [
+        "quality_price"
+      ],
+      "supplied_assumptions": [
+        "The cost difference in the assertion is supplied for comparison; local practice, yield and premium price are not inferred."
+      ],
+      "regional_or_label_source_ids": [
+        "src_reg_am_chile"
+      ],
+      "mechanism_source_ids": [
+        "src_biz_models_psu_business"
+      ],
+      "review_status": "unverified",
+      "scope_note": "Introductory lot-level interpretation, inherited by higher tracks."
+    },
+    {
+      "knowledge_item_id": "ki_wset_nwa_chile_north_cost",
+      "level": "WSET_L3",
+      "domain": "business",
+      "kind": "original_conditional_application",
+      "group_ids": [
+        "cl_north"
+      ],
+      "dimensions": [
+        "quality_price"
+      ],
+      "supplied_assumptions": [
+        "The cost difference in the assertion is supplied for comparison; local practice, yield and premium price are not inferred."
+      ],
+      "regional_or_label_source_ids": [
+        "src_reg_am_chile"
+      ],
+      "mechanism_source_ids": [
+        "src_wset_prod_planning"
+      ],
+      "review_status": "unverified",
+      "scope_note": "Level 3 addition; contextual place names are not grounds to lower advanced existing facts."
+    },
+    {
+      "knowledge_item_id": "ki_wset_nwa_chile_aconcagua_cost",
+      "level": "WSET_L3",
+      "domain": "business",
+      "kind": "original_conditional_application",
+      "group_ids": [
+        "cl_aconcagua"
+      ],
+      "dimensions": [
+        "quality_price"
+      ],
+      "supplied_assumptions": [
+        "The cost difference in the assertion is supplied for comparison; local practice, yield and premium price are not inferred."
+      ],
+      "regional_or_label_source_ids": [
+        "src_reg_am_chile",
+        "src_reg_sa_leyda_2023"
+      ],
+      "mechanism_source_ids": [
+        "src_biz_models_psu_business"
+      ],
+      "review_status": "unverified",
+      "scope_note": "Level 3 addition; contextual place names are not grounds to lower advanced existing facts."
+    },
+    {
+      "knowledge_item_id": "ki_wset_nwa_chile_south_cost",
+      "level": "WSET_L3",
+      "domain": "business",
+      "kind": "original_conditional_application",
+      "group_ids": [
+        "cl_south_central"
+      ],
+      "dimensions": [
+        "quality_price"
+      ],
+      "supplied_assumptions": [
+        "The cost difference in the assertion is supplied for comparison; local practice, yield and premium price are not inferred."
+      ],
+      "regional_or_label_source_ids": [
+        "src_reg_am_chile",
+        "src_reg_sa_peumo"
+      ],
+      "mechanism_source_ids": [
+        "src_biz_models_psu_business"
+      ],
+      "review_status": "unverified",
+      "scope_note": "Level 3 addition; contextual place names are not grounds to lower advanced existing facts."
+    },
+    {
+      "knowledge_item_id": "ki_wset_nwa_mendoza_cost",
+      "level": "WSET_L2",
+      "domain": "business",
+      "kind": "original_conditional_application",
+      "group_ids": [
+        "ar_mendoza"
+      ],
+      "dimensions": [
+        "quality_price"
+      ],
+      "supplied_assumptions": [
+        "The cost difference in the assertion is supplied for comparison; local practice, yield and premium price are not inferred."
+      ],
+      "regional_or_label_source_ids": [
+        "src_wset_nw_malbec_regions"
+      ],
+      "mechanism_source_ids": [
+        "src_biz_models_psu_business"
+      ],
+      "review_status": "unverified",
+      "scope_note": "Introductory lot-level interpretation, inherited by higher tracks."
+    },
+    {
+      "knowledge_item_id": "ki_wset_nwa_argentina_diverse_cost",
+      "level": "WSET_L3",
+      "domain": "business",
+      "kind": "original_conditional_application",
+      "group_ids": [
+        "ar_north_south"
+      ],
+      "dimensions": [
+        "quality_price"
+      ],
+      "supplied_assumptions": [
+        "The cost difference in the assertion is supplied for comparison; local practice, yield and premium price are not inferred."
+      ],
+      "regional_or_label_source_ids": [
+        "src_reg_sa_salta",
+        "src_reg_sa_sanjuan",
+        "src_reg_sa_patagonia"
+      ],
+      "mechanism_source_ids": [
+        "src_biz_models_psu_business"
+      ],
+      "review_status": "unverified",
+      "scope_note": "Level 3 addition; contextual place names are not grounds to lower advanced existing facts."
+    },
+    {
+      "knowledge_item_id": "ki_wset_nwa_western_cape_cost",
+      "level": "WSET_L2",
+      "domain": "business",
+      "kind": "original_conditional_application",
+      "group_ids": [
+        "za_western_cape"
+      ],
+      "dimensions": [
+        "quality_price"
+      ],
+      "supplied_assumptions": [
+        "The cost difference in the assertion is supplied for comparison; local practice, yield and premium price are not inferred."
+      ],
+      "regional_or_label_source_ids": [
+        "src_reg_sh_chenin"
+      ],
+      "mechanism_source_ids": [
+        "src_biz_models_psu_business"
+      ],
+      "review_status": "unverified",
+      "scope_note": "Introductory lot-level interpretation, inherited by higher tracks."
+    },
+    {
+      "knowledge_item_id": "ki_wset_nwa_stellenbosch_cost",
+      "level": "WSET_L2",
+      "domain": "business",
+      "kind": "original_conditional_application",
+      "group_ids": [
+        "za_stellenbosch"
+      ],
+      "dimensions": [
+        "quality_price"
+      ],
+      "supplied_assumptions": [
+        "The cost difference in the assertion is supplied for comparison; local practice, yield and premium price are not inferred."
+      ],
+      "regional_or_label_source_ids": [
+        "src_reg_sh_stellenbosch"
+      ],
+      "mechanism_source_ids": [
+        "src_biz_models_psu_business"
+      ],
+      "review_status": "unverified",
+      "scope_note": "Introductory lot-level interpretation, inherited by higher tracks."
+    },
+    {
+      "knowledge_item_id": "ki_wset_nwa_cape_cool_cost",
+      "level": "WSET_L2",
+      "domain": "business",
+      "kind": "original_conditional_application",
+      "group_ids": [
+        "za_coastal",
+        "za_south_coast"
+      ],
+      "dimensions": [
+        "quality_price"
+      ],
+      "supplied_assumptions": [
+        "The cost difference in the assertion is supplied for comparison; local practice, yield and premium price are not inferred."
+      ],
+      "regional_or_label_source_ids": [
+        "src_reg_oa_constantia",
+        "src_reg_sh_elgin",
+        "src_reg_sh_hemel"
+      ],
+      "mechanism_source_ids": [
+        "src_biz_models_psu_business"
+      ],
+      "review_status": "unverified",
+      "scope_note": "Introductory lot-level interpretation, inherited by higher tracks."
+    },
+    {
+      "knowledge_item_id": "ki_wset_nwa_coastal_region_cost",
+      "level": "WSET_L3",
+      "domain": "business",
+      "kind": "original_conditional_application",
+      "group_ids": [
+        "za_coastal_depth"
+      ],
+      "dimensions": [
+        "quality_price"
+      ],
+      "supplied_assumptions": [
+        "The cost difference in the assertion is supplied for comparison; local practice, yield and premium price are not inferred."
+      ],
+      "regional_or_label_source_ids": [
+        "src_reg_oa_fairview_sites",
+        "src_wset_nw_za_wo",
+        "src_reg_sh_swartland"
+      ],
+      "mechanism_source_ids": [
+        "src_biz_models_psu_business"
+      ],
+      "review_status": "unverified",
+      "scope_note": "Level 3 addition; contextual place names are not grounds to lower advanced existing facts."
+    },
+    {
+      "knowledge_item_id": "ki_wset_nwa_breede_cost",
+      "level": "WSET_L3",
+      "domain": "business",
+      "kind": "original_conditional_application",
+      "group_ids": [
+        "za_breede"
+      ],
+      "dimensions": [
+        "quality_price"
+      ],
+      "supplied_assumptions": [
+        "The cost difference in the assertion is supplied for comparison; local practice, yield and premium price are not inferred."
+      ],
+      "regional_or_label_source_ids": [
+        "src_reg_oa_limestone25",
+        "src_reg_sh_chenin"
+      ],
+      "mechanism_source_ids": [
+        "src_wset_prod_planning"
+      ],
+      "review_status": "unverified",
+      "scope_note": "Level 3 addition; contextual place names are not grounds to lower advanced existing facts."
+    },
+    {
+      "knowledge_item_id": "ki_wset_nwa_marlborough_cost",
+      "level": "WSET_L2",
+      "domain": "business",
+      "kind": "original_conditional_application",
+      "group_ids": [
+        "nz_marlborough"
+      ],
+      "dimensions": [
+        "quality_price"
+      ],
+      "supplied_assumptions": [
+        "The cost difference in the assertion is supplied for comparison; local practice, yield and premium price are not inferred."
+      ],
+      "regional_or_label_source_ids": [
+        "src_nwc_nz_marlborough"
+      ],
+      "mechanism_source_ids": [
+        "src_biz_models_psu_business"
+      ],
+      "review_status": "unverified",
+      "scope_note": "Introductory lot-level interpretation, inherited by higher tracks."
+    },
+    {
+      "knowledge_item_id": "ki_wset_nwa_hawkes_cost",
+      "level": "WSET_L2",
+      "domain": "business",
+      "kind": "original_conditional_application",
+      "group_ids": [
+        "nz_hawkes"
+      ],
+      "dimensions": [
+        "quality_price"
+      ],
+      "supplied_assumptions": [
+        "The cost difference in the assertion is supplied for comparison; local practice, yield and premium price are not inferred."
+      ],
+      "regional_or_label_source_ids": [
+        "src_reg_sh_hawkes"
+      ],
+      "mechanism_source_ids": [
+        "src_biz_models_psu_business"
+      ],
+      "review_status": "unverified",
+      "scope_note": "Introductory lot-level interpretation, inherited by higher tracks."
+    },
+    {
+      "knowledge_item_id": "ki_wset_nwa_martinborough_cost",
+      "level": "WSET_L2",
+      "domain": "business",
+      "kind": "original_conditional_application",
+      "group_ids": [
+        "nz_martinborough"
+      ],
+      "dimensions": [
+        "quality_price"
+      ],
+      "supplied_assumptions": [
+        "The cost difference in the assertion is supplied for comparison; local practice, yield and premium price are not inferred."
+      ],
+      "regional_or_label_source_ids": [
+        "src_reg_sh_wairarapa"
+      ],
+      "mechanism_source_ids": [
+        "src_biz_models_psu_business"
+      ],
+      "review_status": "unverified",
+      "scope_note": "Introductory lot-level interpretation, inherited by higher tracks."
+    },
+    {
+      "knowledge_item_id": "ki_wset_nwa_otago_cost",
+      "level": "WSET_L2",
+      "domain": "business",
+      "kind": "original_conditional_application",
+      "group_ids": [
+        "nz_otago"
+      ],
+      "dimensions": [
+        "quality_price"
+      ],
+      "supplied_assumptions": [
+        "The cost difference in the assertion is supplied for comparison; local practice, yield and premium price are not inferred."
+      ],
+      "regional_or_label_source_ids": [
+        "src_nwc_nz_otago"
+      ],
+      "mechanism_source_ids": [
+        "src_biz_models_psu_vineyard"
+      ],
+      "review_status": "unverified",
+      "scope_note": "Introductory lot-level interpretation, inherited by higher tracks."
+    },
+    {
+      "knowledge_item_id": "ki_wset_nwa_nelson_cost",
+      "level": "WSET_L3",
+      "domain": "business",
+      "kind": "original_conditional_application",
+      "group_ids": [
+        "nz_nelson"
+      ],
+      "dimensions": [
+        "quality_price"
+      ],
+      "supplied_assumptions": [
+        "The cost difference in the assertion is supplied for comparison; local practice, yield and premium price are not inferred."
+      ],
+      "regional_or_label_source_ids": [
+        "src_reg_oa_nelson"
+      ],
+      "mechanism_source_ids": [
+        "src_biz_models_psu_business"
+      ],
+      "review_status": "unverified",
+      "scope_note": "Level 3 addition; contextual place names are not grounds to lower advanced existing facts."
+    },
+    {
+      "knowledge_item_id": "ki_wset_nwa_gisborne_cost",
+      "level": "WSET_L3",
+      "domain": "business",
+      "kind": "original_conditional_application",
+      "group_ids": [
+        "nz_gisborne"
+      ],
+      "dimensions": [
+        "quality_price"
+      ],
+      "supplied_assumptions": [
+        "The cost difference in the assertion is supplied for comparison; local practice, yield and premium price are not inferred."
+      ],
+      "regional_or_label_source_ids": [
+        "src_reg_oa_gisborne"
+      ],
+      "mechanism_source_ids": [
+        "src_biz_models_psu_business"
+      ],
+      "review_status": "unverified",
+      "scope_note": "Level 3 addition; contextual place names are not grounds to lower advanced existing facts."
+    },
+    {
+      "knowledge_item_id": "ki_wset_nwa_canterbury_cost",
+      "level": "WSET_L3",
+      "domain": "business",
+      "kind": "original_conditional_application",
+      "group_ids": [
+        "nz_canterbury"
+      ],
+      "dimensions": [
+        "quality_price"
+      ],
+      "supplied_assumptions": [
+        "The cost difference in the assertion is supplied for comparison; local practice, yield and premium price are not inferred."
+      ],
+      "regional_or_label_source_ids": [
+        "src_reg_oa_canterbury"
+      ],
+      "mechanism_source_ids": [
+        "src_biz_models_psu_business"
+      ],
+      "review_status": "unverified",
+      "scope_note": "Level 3 addition; contextual place names are not grounds to lower advanced existing facts."
+    },
+    {
+      "knowledge_item_id": "ki_wset_nwa_argentina_origin_terms",
+      "level": "WSET_L3",
+      "domain": "geography",
+      "kind": "regional_or_origin_explanation",
+      "group_ids": [
+        "ar_mendoza",
+        "ar_north_south"
+      ],
+      "dimensions": [
+        "labels"
+      ],
+      "supplied_assumptions": [],
+      "regional_or_label_source_ids": [
+        "src_wset_nwa_ar_origin_law",
+        "src_wset_nwa_ar_origin_department"
+      ],
+      "mechanism_source_ids": [],
+      "review_status": "unverified",
+      "scope_note": "Level 3 addition; contextual place names are not grounds to lower advanced existing facts."
+    },
+    {
+      "knowledge_item_id": "ki_wset_nwa_argentina_ig_examples",
+      "level": "WSET_L3",
+      "domain": "geography",
+      "kind": "regional_or_origin_explanation",
+      "group_ids": [
+        "ar_mendoza",
+        "ar_north_south"
+      ],
+      "dimensions": [
+        "labels"
+      ],
+      "supplied_assumptions": [],
+      "regional_or_label_source_ids": [
+        "src_wset_nwa_ar_origin_register"
+      ],
+      "mechanism_source_ids": [],
+      "review_status": "unverified",
+      "scope_note": "Level 3 addition; contextual place names are not grounds to lower advanced existing facts."
+    },
+    {
+      "knowledge_item_id": "ki_wset_nwa_lujan_doc_distinction",
+      "level": "WSET_L3",
+      "domain": "geography",
+      "kind": "regional_or_origin_explanation",
+      "group_ids": [
+        "ar_mendoza"
+      ],
+      "dimensions": [
+        "labels"
+      ],
+      "supplied_assumptions": [],
+      "regional_or_label_source_ids": [
+        "src_wset_nwa_ar_origin_register",
+        "src_wset_nwa_ar_origin_law"
+      ],
+      "mechanism_source_ids": [],
+      "review_status": "unverified",
+      "scope_note": "Level 3 addition; contextual place names are not grounds to lower advanced existing facts."
+    },
+    {
+      "knowledge_item_id": "ki_wset_nwa_nz_enduring_origins",
+      "level": "WSET_L3",
+      "domain": "geography",
+      "kind": "regional_or_origin_explanation",
+      "group_ids": [
+        "nz_marlborough",
+        "nz_hawkes",
+        "nz_martinborough",
+        "nz_otago",
+        "nz_nelson",
+        "nz_gisborne",
+        "nz_canterbury"
+      ],
+      "dimensions": [
+        "labels"
+      ],
+      "supplied_assumptions": [],
+      "regional_or_label_source_ids": [
+        "src_wset_nwa_nz_gi_guide",
+        "src_wset_nwa_nz_marlborough_gi",
+        "src_wset_nwa_nz_martinborough_gi"
+      ],
+      "mechanism_source_ids": [],
+      "review_status": "unverified",
+      "scope_note": "Level 3 addition; contextual place names are not grounds to lower advanced existing facts."
+    },
+    {
+      "knowledge_item_id": "ki_wset_nwa_nz_origin_label",
+      "level": "WSET_L3",
+      "domain": "geography",
+      "kind": "regional_or_origin_explanation",
+      "group_ids": [
+        "nz_marlborough",
+        "nz_hawkes",
+        "nz_martinborough",
+        "nz_otago",
+        "nz_nelson",
+        "nz_gisborne",
+        "nz_canterbury"
+      ],
+      "dimensions": [
+        "labels"
+      ],
+      "supplied_assumptions": [],
+      "regional_or_label_source_ids": [
+        "src_wset_nwa_nz_label_rules",
+        "src_wset_nwa_nz_marlborough_gi"
+      ],
+      "mechanism_source_ids": [],
+      "review_status": "unverified",
+      "scope_note": "Level 3 addition; contextual place names are not grounds to lower advanced existing facts."
+    }
+  ],
+  "unused_registered_source_ids": [
+    "src_wset_nwa_nz_gi_register"
+  ]
+}

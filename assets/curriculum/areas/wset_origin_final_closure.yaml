@@ -1,0 +1,42 @@
+# Original named Corvina/Recioto association; current rules allow a blend, not one compulsory pure-variety recipe.
+knowledge_nodes:
+  - id: n_wset_ofinal_principle_recioto_corvina
+    node_type: production_principle
+    name: How is Corvina associated with Recioto della Valpolicella?
+  - id: n_wset_ofinal_point_recioto_corvina
+    node_type: learning_point
+    name: Recioto is the sweet dried-grape red in the Valpolicella blend family
+knowledge_relations:
+  - subject_id: n_wset_ofinal_principle_recioto_corvina
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_ofinal_point_recioto_corvina
+    valid_from: 2026-09-27
+knowledge_items:
+  - id: ki_wset_ofinal_recioto_corvina
+    subject_id: n_wset_ofinal_principle_recioto_corvina
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_ofinal_point_recioto_corvina
+    domain_id: geography
+    assertion_text: Recioto della Valpolicella is a sweet red dried-grape wine in the Corvina-associated Valpolicella family. The current blend rules allow Corvina and/or Corvinone with Rondinella and limited other varieties, so the name does not mean pure Corvina or establish the exact proportion in a bottle. Drying concentrates the grapes and the finished wine retains grape sugar; this sweet result contrasts with dry Amarone and fresh young Valpolicella.
+    last_verified_at: 2026-09-27T00:00:00.000Z
+    verification_status: unverified
+    mcq_disabled: true
+certification_knowledge_mappings:
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_ofinal_recioto_corvina
+    importance: core
+    minimum_depth: 2
+    syllabus_ref: LO4 Corvina - Recioto della Valpolicella named grape/style association
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_ofinal_recioto_corvina
+    importance: core
+    minimum_depth: 2
+    syllabus_ref: Unit 1 LO2 Veneto - Recioto della Valpolicella identity and style
+knowledge_item_citations:
+  - knowledge_item_id: ki_wset_ofinal_recioto_corvina
+    source_citation_id: src_wset_geo_recioto_valpo_spec_2023
+    locator: Articles 2, 5-6 and geographical link - Corvina and/or Corvinone, Rondinella, dried-grape production and sweet finished wine
+  - knowledge_item_id: ki_wset_ofinal_recioto_corvina
+    source_citation_id: src_wset_eu_recioto_valpolicella
+    locator: Sweet Recioto production/style, contrasted with Amarone; existing primary board reference
+

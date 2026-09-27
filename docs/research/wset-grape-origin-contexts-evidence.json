@@ -1,0 +1,395 @@
+{
+  "authoredOn": "2026-09-27",
+  "scopeSource": {
+    "version": "WSET Level 2 2026 Issue 2.1",
+    "url": "https://www.wsetglobal.com/media/19132/wset_l2wines_specification_en_april2026_issue21.pdf",
+    "locator": "LO3 and LO4 named grape/GI lists; LO5 sparkling styles"
+  },
+  "semanticCompletionClaim": false,
+  "notes": [
+    "Profile, location and named local context remain separate evidence. Permission alone does not prove planting or local style.",
+    "New producer examples explicitly retain producer/vintage limits.",
+    "Reused Level 1 lessons remain suitable cumulative basic study; parent integration determines served depth and required progress.",
+    "This closes cited explanation mismatches, not the pending whole-app delivery/regression gate."
+  ],
+  "counts": {
+    "newLessons": 17,
+    "newSources": 15,
+    "reusedL2Mappings": 7
+  },
+  "pairRepairs": [
+    {
+      "id": "l2_syrah_minervois",
+      "lowestLevel": 2,
+      "dimension": "style",
+      "regionalContextItemIds": [
+        "ki_wset_eu_languedoc_red_blends",
+        "ki_wset_eu_minervois_corbieres_colours"
+      ],
+      "action": "Replace mismatched context, retaining generic profile and location evidence separately."
+    },
+    {
+      "id": "l2_grenache_minervois",
+      "lowestLevel": 2,
+      "dimension": "style",
+      "regionalContextItemIds": [
+        "ki_wset_eu_languedoc_red_blends",
+        "ki_wset_eu_minervois_corbieres_colours"
+      ],
+      "action": "Replace mismatched context, retaining generic profile and location evidence separately."
+    },
+    {
+      "id": "l2_viognier_condrieu",
+      "lowestLevel": 2,
+      "dimension": "style",
+      "regionalContextItemIds": [
+        "ki_wset_origin_condrieu_viognier"
+      ],
+      "action": "Replace mismatched context, retaining generic profile and location evidence separately."
+    },
+    {
+      "id": "l2_sauvignon_blanc_touraine",
+      "lowestLevel": 2,
+      "dimension": "style",
+      "regionalContextItemIds": [
+        "ki_wset_origin_touraine_sauvignon"
+      ],
+      "action": "Replace mismatched context, retaining generic profile and location evidence separately."
+    },
+    {
+      "id": "l2_grenache_cotesdeprovence",
+      "lowestLevel": 2,
+      "dimension": "style",
+      "regionalContextItemIds": [
+        "ki_wset_origin_provence_grenache",
+        "ki_reg_fm_rose_direct",
+        "ki_reg_fm_rose_maceration"
+      ],
+      "action": "Replace mismatched context, retaining generic profile and location evidence separately."
+    },
+    {
+      "id": "l2_grenache_rioja",
+      "lowestLevel": 2,
+      "dimension": "style",
+      "regionalContextItemIds": [
+        "ki_wset_origin_rioja_garnacha",
+        "ki_reg_ib_rioja_gradient"
+      ],
+      "action": "Replace mismatched context, retaining generic profile and location evidence separately."
+    },
+    {
+      "id": "l2_grenache_priorat",
+      "lowestLevel": 2,
+      "dimension": "style",
+      "regionalContextItemIds": [
+        "ki_wset_origin_priorat_grenache",
+        "ki_reg_ib_priorat_access"
+      ],
+      "action": "Replace mismatched context, retaining generic profile and location evidence separately."
+    },
+    {
+      "id": "l2_tempranillo_riberadelduero",
+      "lowestLevel": 2,
+      "dimension": "style",
+      "regionalContextItemIds": [
+        "ki_wset_origin_ribera_tempranillo",
+        "ki_reg_ib_ribera_season"
+      ],
+      "action": "Replace mismatched context, retaining generic profile and location evidence separately."
+    },
+    {
+      "id": "l2_merlot_stellenbosch",
+      "lowestLevel": 2,
+      "dimension": "style",
+      "regionalContextItemIds": [
+        "ki_wset_origin_stellenbosch_merlot"
+      ],
+      "action": "Replace mismatched context, retaining generic profile and location evidence separately."
+    },
+    {
+      "id": "l2_merlot_california",
+      "lowestLevel": 2,
+      "dimension": "style",
+      "regionalContextItemIds": [
+        "ki_wset_nw_napa_merlot",
+        "ki_wset_nw_sonoma_grape_sites",
+        "ki_wset_nw_california_variation"
+      ],
+      "action": "Replace mismatched context, retaining generic profile and location evidence separately."
+    },
+    {
+      "id": "l2_chardonnay_western_cape",
+      "lowestLevel": 2,
+      "dimension": "style",
+      "regionalContextItemIds": [
+        "ki_wset_origin_western_cape_chardonnay",
+        "ki_reg_oa_robertson_unwooded"
+      ],
+      "action": "Replace mismatched context, retaining generic profile and location evidence separately."
+    },
+    {
+      "id": "l2_pinot_noir_gevreychambertin",
+      "lowestLevel": 2,
+      "dimension": "style",
+      "regionalContextItemIds": [
+        "ki_wset_origin_gevrey_pinot"
+      ],
+      "action": "Replace mismatched context, retaining generic profile and location evidence separately."
+    },
+    {
+      "id": "l2_pinot_noir_nuitssaintgeorges",
+      "lowestLevel": 2,
+      "dimension": "style",
+      "regionalContextItemIds": [
+        "ki_wset_origin_nuits_pinot"
+      ],
+      "action": "Replace mismatched context, retaining generic profile and location evidence separately."
+    },
+    {
+      "id": "l2_pinot_noir_beaune",
+      "lowestLevel": 2,
+      "dimension": "style",
+      "regionalContextItemIds": [
+        "ki_wset_origin_beaune_pinot"
+      ],
+      "action": "Replace mismatched context, retaining generic profile and location evidence separately."
+    },
+    {
+      "id": "l2_pinot_noir_pommard",
+      "lowestLevel": 2,
+      "dimension": "style",
+      "regionalContextItemIds": [
+        "ki_wset_origin_pommard_pinot"
+      ],
+      "action": "Replace mismatched context, retaining generic profile and location evidence separately."
+    },
+    {
+      "id": "l2_chardonnay_meursault",
+      "lowestLevel": 2,
+      "dimension": "style",
+      "regionalContextItemIds": [
+        "ki_wset_origin_meursault_chardonnay"
+      ],
+      "action": "Replace mismatched context, retaining generic profile and location evidence separately."
+    },
+    {
+      "id": "l2_chardonnay_pulignymontrachet",
+      "lowestLevel": 2,
+      "dimension": "style",
+      "regionalContextItemIds": [
+        "ki_wset_origin_puligny_chardonnay"
+      ],
+      "action": "Replace mismatched context, retaining generic profile and location evidence separately."
+    },
+    {
+      "id": "l2_chardonnay_macon",
+      "lowestLevel": 2,
+      "dimension": "style",
+      "regionalContextItemIds": [
+        "ki_wset_eu_maconnais_white_names",
+        "ki_reg_fr_macon_warm"
+      ],
+      "action": "Replace mismatched context, retaining generic profile and location evidence separately."
+    },
+    {
+      "id": "l2_chardonnay_pouillyfuisse",
+      "lowestLevel": 2,
+      "dimension": "style",
+      "regionalContextItemIds": [
+        "ki_wset_eu_maconnais_white_names",
+        "ki_reg_fr_macon_warm"
+      ],
+      "action": "Replace mismatched context, retaining generic profile and location evidence separately."
+    },
+    {
+      "id": "l2_pinot_noir_los_carneros",
+      "lowestLevel": 2,
+      "dimension": "style",
+      "regionalContextItemIds": [
+        "ki_wset_origin_carneros_pinot",
+        "ki_reg_am_carneros_cooling"
+      ],
+      "action": "Replace mismatched context, retaining generic profile and location evidence separately."
+    },
+    {
+      "id": "l2_barbera_barberadasti",
+      "lowestLevel": 2,
+      "dimension": "style",
+      "regionalContextItemIds": [
+        "ki_wset_origin_barbera_asti"
+      ],
+      "action": "Replace mismatched context, retaining generic profile and location evidence separately."
+    },
+    {
+      "id": "l2_nebbiolo_barolo",
+      "lowestLevel": 2,
+      "dimension": "style",
+      "regionalContextItemIds": [
+        "ki_barolo_grape",
+        "ki_reg_inc_nebbiolo_cycle",
+        "ki_reg_inc_nebbiolo_site"
+      ],
+      "action": "Replace mismatched context, retaining generic profile and location evidence separately."
+    },
+    {
+      "id": "l2_nebbiolo_barbaresco",
+      "lowestLevel": 2,
+      "dimension": "style",
+      "regionalContextItemIds": [
+        "ki_barbaresco_grape",
+        "ki_reg_inc_nebbiolo_cycle",
+        "ki_reg_inc_nebbiolo_site"
+      ],
+      "action": "Replace mismatched context, retaining generic profile and location evidence separately."
+    },
+    {
+      "id": "l2_sangiovese_brunellodimontalcino",
+      "lowestLevel": 2,
+      "dimension": "style",
+      "regionalContextItemIds": [
+        "ki_brunello_di_montalcino_grape",
+        "ki_reg_inc_brunello_maturation"
+      ],
+      "action": "Replace mismatched context, retaining generic profile and location evidence separately."
+    },
+    {
+      "id": "l2_sangiovese_chianticlassico",
+      "lowestLevel": 2,
+      "dimension": "style",
+      "regionalContextItemIds": [
+        "ki_chianti_classico_grape",
+        "ki_reg_inc_classico_altitude"
+      ],
+      "action": "Replace mismatched context, retaining generic profile and location evidence separately."
+    },
+    {
+      "id": "l2_sangiovese_chianti",
+      "lowestLevel": 2,
+      "dimension": "style",
+      "regionalContextItemIds": [
+        "ki_wset_found_familiar_chianti",
+        "ki_wset_l1_chianti_style"
+      ],
+      "action": "Replace mismatched context, retaining generic profile and location evidence separately."
+    },
+    {
+      "id": "l2_grenache_cotesdurhone",
+      "lowestLevel": 2,
+      "dimension": "style",
+      "regionalContextItemIds": [
+        "ki_wset_found_familiar_cotes_rhone",
+        "ki_wset_l1_cotes_rhone_style"
+      ],
+      "action": "Replace mismatched context, retaining generic profile and location evidence separately."
+    },
+    {
+      "id": "l2_grenache_chateauneufdupape",
+      "lowestLevel": 2,
+      "dimension": "style",
+      "regionalContextItemIds": [
+        "ki_wset_found_familiar_chateauneuf",
+        "ki_wset_l1_chateauneuf_style",
+        "ki_reg_fs_chateauneuf_variation"
+      ],
+      "action": "Replace mismatched context, retaining generic profile and location evidence separately."
+    }
+  ],
+  "sparklingRepairs": [
+    {
+      "id": "extended_sparkling_fortified_l2_cava",
+      "dimension": "style",
+      "itemIds": [
+        "ki_wset_origin_cava_basic_style"
+      ]
+    },
+    {
+      "id": "extended_sparkling_fortified_l2_cap_classique",
+      "dimension": "style",
+      "itemIds": [
+        "ki_wset_sf_cap_style"
+      ]
+    }
+  ],
+  "sourceRefs": {
+    "condrieu": {
+      "id": "src_wset_grape_ir_viognier",
+      "locator": "In the cellars; single-varietal Condrieu and Château-Grillet"
+    },
+    "touraine": {
+      "id": "src_wset_origin_touraine",
+      "locator": "Sauvignon; Vins blancs: fresh, dry, citrus, exotic fruit and flowers"
+    },
+    "provence": {
+      "id": "src_wset_origin_provence",
+      "locator": "Rosés / Grenache: body and red fruit; Cinsault contribution"
+    },
+    "rose": {
+      "id": "src_wset_origin_provence_taste",
+      "locator": "Dry fruit-led rosé; direct press and skin maceration"
+    },
+    "rioja": {
+      "id": "src_wset_origin_rioja",
+      "locator": "Red fruit, ripe plum, round texture and environmental variation"
+    },
+    "priorat": {
+      "id": "src_wset_origin_priorat",
+      "locator": "Most planted native varieties; ripe fruit and skin maceration"
+    },
+    "ribera": {
+      "id": "src_wset_origin_ribera",
+      "locator": "Tempranillo / Tinta del País / Tinto Fino: black fruit and structured tannin"
+    },
+    "stellenbosch": {
+      "id": "src_wset_origin_stellenbosch",
+      "locator": "2022 one-page technical sheet; 100% Merlot, dry/full, plum/cherry, separate parcels and wood maturation"
+    },
+    "western_cape": {
+      "id": "src_wset_grape_wosa_pinotage",
+      "locator": "Chardonnay / South Africa, printed page 68: regional examples and unoaked/oaked spectrum"
+    },
+    "robertson": {
+      "id": "src_reg_oa_limestone25",
+      "locator": "Origin / vinification: Wine of Origin Robertson, steel fermentation and lees stirring"
+    },
+    "gevrey": {
+      "id": "src_wset_origin_gevrey",
+      "locator": "Colour; Côte de Nuits origin; village/Premier Cru identity"
+    },
+    "nuits": {
+      "id": "src_wset_origin_nuits",
+      "locator": "Couleur/cépage; Caractères des vins: Pinot Noir reds, young fruit and developed aromas"
+    },
+    "beaune": {
+      "id": "src_wset_origin_beaune",
+      "locator": "Couleur/cépage; Caractères des vins: Pinot Noir red / Chardonnay white"
+    },
+    "pommard": {
+      "id": "src_wset_origin_pommard",
+      "locator": "Colour; Wine Characteristics: berry/plum, firm structure, bottle development"
+    },
+    "meursault": {
+      "id": "src_wset_origin_meursault",
+      "locator": "Colour; Wine Characteristics: Chardonnay-dominated whites, richness/freshness and nut/citrus aromas"
+    },
+    "puligny": {
+      "id": "src_wset_origin_puligny",
+      "locator": "Colour / grape varieties; Tasting notes: dominant Chardonnay whites, green apple, floral and hazelnut notes"
+    },
+    "carneros": {
+      "id": "src_wset_origin_carneros",
+      "locator": "Varietal composition: 100% Carneros Pinot Noir; tasting/wood maturation as one producer example"
+    },
+    "barbera": {
+      "id": "src_wset_origin_barbera",
+      "locator": "Barbera in the named Barbera d’Asti production area"
+    },
+    "barbera_profile": {
+      "id": "src_reg_inc_barbera",
+      "locator": "Barbera characteristics and regional harvest context"
+    },
+    "cava": {
+      "id": "src_wset_sf_cava_grapes",
+      "locator": "Macabeo, Xarel·lo, Parellada: fruit, body and freshness"
+    }
+  }
+}

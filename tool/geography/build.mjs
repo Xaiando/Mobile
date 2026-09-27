@@ -131,6 +131,11 @@ export async function buildNaturalEarth(config, layer) {
       `-merge-layers target=layer,country_supplement name=layer force ` +
       `-dissolve key copy-fields=name,node allow-overlaps `;
   }
+  // A constant-key recipe can frame country questions with the union of
+  // licensed land polygons. It preserves islands and coastline holes.
+  if (recipe.dissolve === true) {
+    commands += '-dissolve key copy-fields=name,node allow-overlaps ';
+  }
   const built = await run(commands + finish(layer));
   const missing = Object.entries(nodes).filter(
     ([, node]) => !built.table.some((row) => row.node === node),

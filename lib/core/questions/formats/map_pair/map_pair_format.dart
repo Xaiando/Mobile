@@ -143,6 +143,79 @@ class MapPairFormat extends MapFormat {
     ];
   }
 
+  static List<KnowledgeItem> _mappedLocations(
+    List<KnowledgeItem> items,
+    Map<String, EffectiveMapping> scope,
+  ) => [
+    for (final item in items)
+      if (item.relationType == 'LOCATED_IN' &&
+          (scope[item.id]?.minimumDepth ?? 0) >= 1)
+        item,
+  ];
+
+  static Future<MapFrame?> _locationFrame(
+    AppDatabase db,
+    KnowledgeItem primary,
+    List<KnowledgeItem> locations,
+    String on,
+    int minimum,
+  ) => GeometryRepository(db).frameOf(
+    primary.subjectId,
+    minimum: minimum,
+    eligibleNodeIds: {for (final item in locations) item.subjectId},
+    on: on,
+  );
+
+  static final _presentedLocations = Expando<Future<List<KnowledgeItem>>>();
+
+  static Future<List<KnowledgeItem>> _locations(
+    PresentationContext context,
+    String on,
+  ) => _presentedLocations[context] ??= () async {
+    final current = await KnowledgeGraph(context.db).currentItems(on: on);
+    if (context.allowedItemIds case final allowed?) {
+      return [
+        for (final item in current)
+          if (item.relationType == 'LOCATED_IN' && allowed.contains(item.id))
+            item,
+      ];
+    }
+    final profile = await LearnerProfiles(context.db).current();
+    if (profile == null) {
+      return current.where((i) => i.relationType == 'LOCATED_IN').toList();
+    }
+    return _mappedLocations(
+      current,
+      await StudyPlanner(context.db)
+          .effectiveMappings(profile.activeCertificationId),
+    );
+  }();
+
+  @override
+  Future<MapFrame?> frameFor(
+    PresentationContext context, {
+    required String itemId,
+    required String nodeId,
+    required String questionTemplateId,
+    required String on,
+  }) async {
+    final primary = await (context.db.select(
+      context.db.knowledgeItems,
+    )..where((i) => i.id.equals(itemId))).getSingle();
+    final locations = await _locations(context, on);
+    if (!locations.any((i) => i.id == itemId)) return null;
+    final template = await (context.db.select(
+      context.db.questionTemplates,
+    )..where((t) => t.id.equals(questionTemplateId))).getSingle();
+    return _locationFrame(
+      context.db,
+      primary,
+      locations,
+      on,
+      _limits(template).minimum,
+    );
+  }
+
   @override
   Future<bool> isEligible(
     GeneratorContext context,
@@ -152,30 +225,40 @@ class MapPairFormat extends MapFormat {
     if (item.relationType != 'LOCATED_IN' || template.direction != 'forward') {
       return false;
     }
-    final frame = await GeometryRepository(context.db)
-        .frameOf(item.subjectId, on: context.today);
-    if (frame == null) return false;
-    final peers = _peers(context.items, item, frame);
-    final needed = _limits(template).minimum - 1;
-    if (peers.length < needed) return false;
+    final minimum = _limits(template).minimum;
+    final needed = minimum - 1;
     // Ingestion is shared by all tracks. Generate a composite only when
     // every selectable track serving the primary can supply enough peers.
+    var checkedTrack = false;
     for (final scope in await _scopes(context)) {
       if ((scope[item.id]?.minimumDepth ?? 0) < requiredDepth('forward')) {
         continue;
       }
-      if (peers
-              .where(
-                (peer) =>
-                    (scope[peer.id]?.minimumDepth ?? 0) >=
-                    requiredDepth('forward'),
-              )
-              .length <
-          needed) {
+      checkedTrack = true;
+      final locations = _mappedLocations(context.items, scope);
+      final frame = await _locationFrame(
+        context.db,
+        item,
+        locations,
+        context.today,
+        minimum,
+      );
+      if (frame == null || _peers(locations, item, frame).length < needed) {
         return false;
       }
     }
-    return true;
+    if (checkedTrack) return true;
+    final locations = context.items
+        .where((i) => i.relationType == 'LOCATED_IN')
+        .toList();
+    final frame = await _locationFrame(
+      context.db,
+      item,
+      locations,
+      context.today,
+      minimum,
+    );
+    return frame != null && _peers(locations, item, frame).length >= needed;
   }
 
   @override
@@ -199,22 +282,7 @@ class MapPairFormat extends MapFormat {
       db.questionTemplates,
     )..where((t) => t.id.equals(questionTemplateId))).getSingle();
     final on = isoDate(context.now.toLocal());
-    var others = _peers(
-      await KnowledgeGraph(db).currentItems(on: on),
-      primary,
-      map.frame,
-    );
-    final profile = await LearnerProfiles(db).current();
-    if (profile != null) {
-      final scope = await StudyPlanner(db)
-          .effectiveMappings(profile.activeCertificationId);
-      others = others
-          .where(
-            (peer) =>
-                (scope[peer.id]?.minimumDepth ?? 0) >= requiredDepth('forward'),
-          )
-          .toList();
-    }
+    final others = _peers(await _locations(context, on), primary, map.frame);
     final limits = _limits(template);
     if (others.length < limits.minimum - 1) {
       throw StateError('$itemId has too few mapped co-items');

@@ -161,6 +161,11 @@ class _Validator {
     _unique('curriculum_domains', d.curriculumDomains, (r) => r.id);
     _unique('curriculum_domains', d.curriculumDomains, (r) => r.position);
     _unique('tasting_grids', d.tastingGrids, (r) => r.id);
+    _unique(
+      'tasting_grids',
+      d.tastingGrids,
+      (r) => '${r.framework} ${r.version}',
+    );
     _unique('certifications', d.certifications, (r) => r.id);
     _unique(
       'certifications',

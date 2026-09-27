@@ -35,7 +35,7 @@ class ExercisePresenter {
       db.questionTemplates,
     )..where((t) => t.id.equals(questionTemplateId))).getSingle();
     Set<String>? allowedItems;
-    if (template.mode == 'reasoning') {
+    if (template.mode == 'reasoning' || template.mode == 'map_pair') {
       final profile = await db.select(db.userProfiles).getSingleOrNull();
       final track = certificationId ?? profile?.activeCertificationId;
       if (track != null) {
@@ -44,7 +44,7 @@ class ExercisePresenter {
         if ((mapping[itemId]?.minimumDepth ?? 0) <
             format.requiredDepth(template.direction)) {
           throw ArgumentError(
-            'This track does not serve reasoning for $itemId',
+            'This track does not serve ${template.mode} for $itemId',
           );
         }
         final current = await KnowledgeGraph(db, clock: _clock).currentItems();

@@ -1,0 +1,1329 @@
+{
+  "schema_version": 1,
+  "checked_on": "2026-09-27",
+  "scope_source": {
+    "url": "https://www.wsetglobal.com/media/19132/wset_l2wines_specification_en_april2026_issue21.pdf",
+    "version": "2026 Issue 2.1",
+    "locator": "Principal and regional grape origins, printed pages 10–13"
+  },
+  "note": "Original app scope index. A geographic reference and a generic grape profile do not alone prove the local style; regional explanatory lessons are assigned separately in the required-study catalog. Wine categories with a shared area need honest representative geography rather than invented boundaries.",
+  "grape_gi_requirements": [
+    {
+      "id": "l2_merlot_paysdoc",
+      "grape": "merlot",
+      "region": "Pays d’Oc",
+      "canonical_node_id": null,
+      "candidate_node_ids": [],
+      "location_item_ids": [],
+      "grape_items": [
+        "ki_wset_grape_merlot_profile",
+        "ki_wset_grape_merlot_variation"
+      ],
+      "status": "pending canonical identity or location fact"
+    },
+    {
+      "id": "l2_merlot_bordeaux",
+      "grape": "merlot",
+      "region": "Bordeaux",
+      "canonical_node_id": "n_geo_bordeaux",
+      "candidate_node_ids": [
+        "n_geo_bordeaux"
+      ],
+      "location_item_ids": [
+        "ki_fr_atlas_bordeaux_location"
+      ],
+      "grape_items": [
+        "ki_wset_grape_merlot_profile",
+        "ki_wset_grape_merlot_variation"
+      ],
+      "status": "present; level mapping and delivery to verify"
+    },
+    {
+      "id": "l2_merlot_saintemilion",
+      "grape": "merlot",
+      "region": "Saint-Émilion",
+      "canonical_node_id": "n_geo_saint_emilion",
+      "candidate_node_ids": [
+        "n_geo_saint_emilion"
+      ],
+      "location_item_ids": [
+        "ki_fr_atlas_saint_emilion_location"
+      ],
+      "grape_items": [
+        "ki_wset_grape_merlot_profile",
+        "ki_wset_grape_merlot_variation"
+      ],
+      "status": "present; level mapping and delivery to verify"
+    },
+    {
+      "id": "l2_merlot_pomerol",
+      "grape": "merlot",
+      "region": "Pomerol",
+      "canonical_node_id": "n_geo_pomerol",
+      "candidate_node_ids": [
+        "n_geo_pomerol"
+      ],
+      "location_item_ids": [
+        "ki_fr_atlas_pomerol_location"
+      ],
+      "grape_items": [
+        "ki_wset_grape_merlot_profile",
+        "ki_wset_grape_merlot_variation"
+      ],
+      "status": "present; level mapping and delivery to verify"
+    },
+    {
+      "id": "l2_cabernet_sauvignon_paysdoc",
+      "grape": "cabernet_sauvignon",
+      "region": "Pays d’Oc",
+      "canonical_node_id": null,
+      "candidate_node_ids": [],
+      "location_item_ids": [],
+      "grape_items": [
+        "ki_wset_grape_cabernet_sauvignon_profile",
+        "ki_wset_grape_cabernet_sauvignon_variation"
+      ],
+      "status": "pending canonical identity or location fact"
+    },
+    {
+      "id": "l2_cabernet_sauvignon_bordeaux",
+      "grape": "cabernet_sauvignon",
+      "region": "Bordeaux",
+      "canonical_node_id": "n_geo_bordeaux",
+      "candidate_node_ids": [
+        "n_geo_bordeaux"
+      ],
+      "location_item_ids": [
+        "ki_fr_atlas_bordeaux_location"
+      ],
+      "grape_items": [
+        "ki_wset_grape_cabernet_sauvignon_profile",
+        "ki_wset_grape_cabernet_sauvignon_variation"
+      ],
+      "status": "present; level mapping and delivery to verify"
+    },
+    {
+      "id": "l2_cabernet_sauvignon_hautmedoc",
+      "grape": "cabernet_sauvignon",
+      "region": "Haut-Médoc",
+      "canonical_node_id": "n_geo_haut_medoc",
+      "candidate_node_ids": [
+        "n_geo_haut_medoc"
+      ],
+      "location_item_ids": [
+        "ki_fr_atlas_haut_medoc_location"
+      ],
+      "grape_items": [
+        "ki_wset_grape_cabernet_sauvignon_profile",
+        "ki_wset_grape_cabernet_sauvignon_variation"
+      ],
+      "status": "present; level mapping and delivery to verify"
+    },
+    {
+      "id": "l2_cabernet_sauvignon_pauillac",
+      "grape": "cabernet_sauvignon",
+      "region": "Pauillac",
+      "canonical_node_id": "n_geo_pauillac",
+      "candidate_node_ids": [
+        "n_geo_pauillac"
+      ],
+      "location_item_ids": [
+        "ki_fr_atlas_pauillac_location"
+      ],
+      "grape_items": [
+        "ki_wset_grape_cabernet_sauvignon_profile",
+        "ki_wset_grape_cabernet_sauvignon_variation"
+      ],
+      "status": "present; level mapping and delivery to verify"
+    },
+    {
+      "id": "l2_cabernet_sauvignon_margaux",
+      "grape": "cabernet_sauvignon",
+      "region": "Margaux",
+      "canonical_node_id": "n_geo_margaux",
+      "candidate_node_ids": [
+        "n_geo_margaux"
+      ],
+      "location_item_ids": [
+        "ki_fr_atlas_margaux_location"
+      ],
+      "grape_items": [
+        "ki_wset_grape_cabernet_sauvignon_profile",
+        "ki_wset_grape_cabernet_sauvignon_variation"
+      ],
+      "status": "present; level mapping and delivery to verify"
+    },
+    {
+      "id": "l2_cabernet_sauvignon_graves",
+      "grape": "cabernet_sauvignon",
+      "region": "Graves",
+      "canonical_node_id": "n_geo_graves",
+      "candidate_node_ids": [
+        "n_geo_graves"
+      ],
+      "location_item_ids": [
+        "ki_fr_atlas_graves_location"
+      ],
+      "grape_items": [
+        "ki_wset_grape_cabernet_sauvignon_profile",
+        "ki_wset_grape_cabernet_sauvignon_variation"
+      ],
+      "status": "present; level mapping and delivery to verify"
+    },
+    {
+      "id": "l2_cabernet_sauvignon_pessacleognan",
+      "grape": "cabernet_sauvignon",
+      "region": "Pessac-Léognan",
+      "canonical_node_id": "n_geo_pessac_leognan",
+      "candidate_node_ids": [
+        "n_geo_pessac_leognan"
+      ],
+      "location_item_ids": [
+        "ki_fr_atlas_pessac_leognan_location"
+      ],
+      "grape_items": [
+        "ki_wset_grape_cabernet_sauvignon_profile",
+        "ki_wset_grape_cabernet_sauvignon_variation"
+      ],
+      "status": "present; level mapping and delivery to verify"
+    },
+    {
+      "id": "l2_syrah_paysdoc",
+      "grape": "syrah",
+      "region": "Pays d’Oc",
+      "canonical_node_id": null,
+      "candidate_node_ids": [],
+      "location_item_ids": [],
+      "grape_items": [
+        "ki_wset_grape_syrah_profile",
+        "ki_wset_grape_syrah_variation"
+      ],
+      "status": "pending canonical identity or location fact"
+    },
+    {
+      "id": "l2_syrah_crozeshermitage",
+      "grape": "syrah",
+      "region": "Crozes-Hermitage",
+      "canonical_node_id": "n_geo_crozes_hermitage",
+      "candidate_node_ids": [
+        "n_geo_crozes_hermitage"
+      ],
+      "location_item_ids": [
+        "ki_crozes_hermitage_location"
+      ],
+      "grape_items": [
+        "ki_wset_grape_syrah_profile",
+        "ki_wset_grape_syrah_variation"
+      ],
+      "status": "present; level mapping and delivery to verify"
+    },
+    {
+      "id": "l2_syrah_hermitage",
+      "grape": "syrah",
+      "region": "Hermitage",
+      "canonical_node_id": "n_geo_hermitage",
+      "candidate_node_ids": [
+        "n_geo_hermitage"
+      ],
+      "location_item_ids": [
+        "ki_fr_atlas_hermitage_location"
+      ],
+      "grape_items": [
+        "ki_wset_grape_syrah_profile",
+        "ki_wset_grape_syrah_variation"
+      ],
+      "status": "present; level mapping and delivery to verify"
+    },
+    {
+      "id": "l2_syrah_coterotie",
+      "grape": "syrah",
+      "region": "Côte Rôtie",
+      "canonical_node_id": "n_geo_cote_rotie",
+      "candidate_node_ids": [
+        "n_geo_cote_rotie"
+      ],
+      "location_item_ids": [
+        "ki_fr_atlas_cote_rotie_location"
+      ],
+      "grape_items": [
+        "ki_wset_grape_syrah_profile",
+        "ki_wset_grape_syrah_variation"
+      ],
+      "status": "present; level mapping and delivery to verify"
+    },
+    {
+      "id": "l2_syrah_minervois",
+      "grape": "syrah",
+      "region": "Minervois",
+      "canonical_node_id": "n_geo_minervois",
+      "candidate_node_ids": [
+        "n_geo_minervois"
+      ],
+      "location_item_ids": [
+        "ki_fr_atlas_minervois_location"
+      ],
+      "grape_items": [
+        "ki_wset_grape_syrah_profile",
+        "ki_wset_grape_syrah_variation"
+      ],
+      "status": "present; level mapping and delivery to verify"
+    },
+    {
+      "id": "l2_pinot_noir_burgundy",
+      "grape": "pinot_noir",
+      "region": "Burgundy",
+      "canonical_node_id": "n_geo_burgundy",
+      "candidate_node_ids": [
+        "n_geo_burgundy"
+      ],
+      "location_item_ids": [
+        "ki_burgundy_location"
+      ],
+      "grape_items": [
+        "ki_wset_grape_pinot_noir_profile",
+        "ki_wset_grape_pinot_noir_variation"
+      ],
+      "status": "present; level mapping and delivery to verify"
+    },
+    {
+      "id": "l2_pinot_noir_gevreychambertin",
+      "grape": "pinot_noir",
+      "region": "Gevrey-Chambertin",
+      "canonical_node_id": "n_geo_gevrey_chambertin",
+      "candidate_node_ids": [
+        "n_geo_gevrey_chambertin"
+      ],
+      "location_item_ids": [
+        "ki_fr_atlas_gevrey_chambertin_location"
+      ],
+      "grape_items": [
+        "ki_wset_grape_pinot_noir_profile",
+        "ki_wset_grape_pinot_noir_variation"
+      ],
+      "status": "present; level mapping and delivery to verify"
+    },
+    {
+      "id": "l2_pinot_noir_nuitssaintgeorges",
+      "grape": "pinot_noir",
+      "region": "Nuits-Saint-Georges",
+      "canonical_node_id": "n_geo_nuits_saint_georges",
+      "candidate_node_ids": [
+        "n_geo_nuits_saint_georges"
+      ],
+      "location_item_ids": [
+        "ki_fr_atlas_nuits_saint_georges_location"
+      ],
+      "grape_items": [
+        "ki_wset_grape_pinot_noir_profile",
+        "ki_wset_grape_pinot_noir_variation"
+      ],
+      "status": "present; level mapping and delivery to verify"
+    },
+    {
+      "id": "l2_pinot_noir_beaune",
+      "grape": "pinot_noir",
+      "region": "Beaune",
+      "canonical_node_id": "n_geo_beaune",
+      "candidate_node_ids": [
+        "n_geo_beaune"
+      ],
+      "location_item_ids": [
+        "ki_fr_atlas_beaune_location"
+      ],
+      "grape_items": [
+        "ki_wset_grape_pinot_noir_profile",
+        "ki_wset_grape_pinot_noir_variation"
+      ],
+      "status": "present; level mapping and delivery to verify"
+    },
+    {
+      "id": "l2_pinot_noir_pommard",
+      "grape": "pinot_noir",
+      "region": "Pommard",
+      "canonical_node_id": "n_geo_pommard",
+      "candidate_node_ids": [
+        "n_geo_pommard"
+      ],
+      "location_item_ids": [
+        "ki_fr_atlas_pommard_location"
+      ],
+      "grape_items": [
+        "ki_wset_grape_pinot_noir_profile",
+        "ki_wset_grape_pinot_noir_variation"
+      ],
+      "status": "present; level mapping and delivery to verify"
+    },
+    {
+      "id": "l2_chardonnay_paysdoc",
+      "grape": "chardonnay",
+      "region": "Pays d’Oc",
+      "canonical_node_id": null,
+      "candidate_node_ids": [],
+      "location_item_ids": [],
+      "grape_items": [
+        "ki_wset_grape_chardonnay_profile",
+        "ki_wset_grape_chardonnay_variation"
+      ],
+      "status": "pending canonical identity or location fact"
+    },
+    {
+      "id": "l2_chardonnay_burgundy",
+      "grape": "chardonnay",
+      "region": "Burgundy",
+      "canonical_node_id": "n_geo_burgundy",
+      "candidate_node_ids": [
+        "n_geo_burgundy"
+      ],
+      "location_item_ids": [
+        "ki_burgundy_location"
+      ],
+      "grape_items": [
+        "ki_wset_grape_chardonnay_profile",
+        "ki_wset_grape_chardonnay_variation"
+      ],
+      "status": "present; level mapping and delivery to verify"
+    },
+    {
+      "id": "l2_chardonnay_chablis",
+      "grape": "chardonnay",
+      "region": "Chablis",
+      "canonical_node_id": "n_geo_chablis",
+      "candidate_node_ids": [
+        "n_geo_chablis"
+      ],
+      "location_item_ids": [
+        "ki_chablis_location",
+        "ki_fr_atlas_chablis_location_wine_area"
+      ],
+      "grape_items": [
+        "ki_wset_grape_chardonnay_profile",
+        "ki_wset_grape_chardonnay_variation"
+      ],
+      "status": "present; level mapping and delivery to verify"
+    },
+    {
+      "id": "l2_chardonnay_pulignymontrachet",
+      "grape": "chardonnay",
+      "region": "Puligny-Montrachet",
+      "canonical_node_id": "n_geo_puligny_montrachet",
+      "candidate_node_ids": [
+        "n_geo_puligny_montrachet"
+      ],
+      "location_item_ids": [
+        "ki_fr_atlas_puligny_montrachet_location"
+      ],
+      "grape_items": [
+        "ki_wset_grape_chardonnay_profile",
+        "ki_wset_grape_chardonnay_variation"
+      ],
+      "status": "present; level mapping and delivery to verify"
+    },
+    {
+      "id": "l2_chardonnay_meursault",
+      "grape": "chardonnay",
+      "region": "Meursault",
+      "canonical_node_id": "n_geo_meursault",
+      "candidate_node_ids": [
+        "n_geo_meursault"
+      ],
+      "location_item_ids": [
+        "ki_fr_atlas_meursault_location"
+      ],
+      "grape_items": [
+        "ki_wset_grape_chardonnay_profile",
+        "ki_wset_grape_chardonnay_variation"
+      ],
+      "status": "present; level mapping and delivery to verify"
+    },
+    {
+      "id": "l2_chardonnay_macon",
+      "grape": "chardonnay",
+      "region": "Mâcon",
+      "canonical_node_id": "n_geo_macon",
+      "candidate_node_ids": [
+        "n_geo_macon"
+      ],
+      "location_item_ids": [
+        "ki_fr_atlas_macon_location"
+      ],
+      "grape_items": [
+        "ki_wset_grape_chardonnay_profile",
+        "ki_wset_grape_chardonnay_variation"
+      ],
+      "status": "present; level mapping and delivery to verify"
+    },
+    {
+      "id": "l2_chardonnay_pouillyfuisse",
+      "grape": "chardonnay",
+      "region": "Pouilly-Fuissé",
+      "canonical_node_id": "n_geo_pouilly_fuisse",
+      "candidate_node_ids": [
+        "n_geo_pouilly_fuisse"
+      ],
+      "location_item_ids": [
+        "ki_fr_atlas_pouilly_fuisse_location"
+      ],
+      "grape_items": [
+        "ki_wset_grape_chardonnay_profile",
+        "ki_wset_grape_chardonnay_variation"
+      ],
+      "status": "present; level mapping and delivery to verify"
+    },
+    {
+      "id": "l2_riesling_alsace",
+      "grape": "riesling",
+      "region": "Alsace",
+      "canonical_node_id": "n_geo_alsace_aoc",
+      "candidate_node_ids": [
+        "n_geo_alsace_region",
+        "n_geo_alsace_aoc"
+      ],
+      "location_item_ids": [
+        "ki_fr_atlas_alsace_aoc_location"
+      ],
+      "grape_items": [
+        "ki_wset_grape_riesling_profile",
+        "ki_wset_grape_riesling_variation"
+      ],
+      "status": "present; level mapping and delivery to verify"
+    },
+    {
+      "id": "l2_riesling_mosel",
+      "grape": "riesling",
+      "region": "Mosel",
+      "canonical_node_id": "n_geo_mosel",
+      "candidate_node_ids": [
+        "n_geo_mosel"
+      ],
+      "location_item_ids": [
+        "ki_mosel_location"
+      ],
+      "grape_items": [
+        "ki_wset_grape_riesling_profile",
+        "ki_wset_grape_riesling_variation"
+      ],
+      "status": "present; level mapping and delivery to verify"
+    },
+    {
+      "id": "l2_riesling_rheingau",
+      "grape": "riesling",
+      "region": "Rheingau",
+      "canonical_node_id": "n_geo_rheingau",
+      "candidate_node_ids": [
+        "n_geo_rheingau"
+      ],
+      "location_item_ids": [
+        "ki_rheingau_location"
+      ],
+      "grape_items": [
+        "ki_wset_grape_riesling_profile",
+        "ki_wset_grape_riesling_variation"
+      ],
+      "status": "present; level mapping and delivery to verify"
+    },
+    {
+      "id": "l2_riesling_pfalz",
+      "grape": "riesling",
+      "region": "Pfalz",
+      "canonical_node_id": "n_geo_pfalz",
+      "candidate_node_ids": [
+        "n_geo_pfalz"
+      ],
+      "location_item_ids": [
+        "ki_pfalz_location"
+      ],
+      "grape_items": [
+        "ki_wset_grape_riesling_profile",
+        "ki_wset_grape_riesling_variation"
+      ],
+      "status": "present; level mapping and delivery to verify"
+    },
+    {
+      "id": "l2_sauvignon_blanc_paysdoc",
+      "grape": "sauvignon_blanc",
+      "region": "Pays d’Oc",
+      "canonical_node_id": null,
+      "candidate_node_ids": [],
+      "location_item_ids": [],
+      "grape_items": [
+        "ki_wset_grape_sauvignon_blanc_profile",
+        "ki_wset_grape_sauvignon_blanc_variation"
+      ],
+      "status": "pending canonical identity or location fact"
+    },
+    {
+      "id": "l2_sauvignon_blanc_sancerre",
+      "grape": "sauvignon_blanc",
+      "region": "Sancerre",
+      "canonical_node_id": "n_geo_sancerre",
+      "candidate_node_ids": [
+        "n_geo_sancerre"
+      ],
+      "location_item_ids": [
+        "ki_fr_atlas_sancerre_location"
+      ],
+      "grape_items": [
+        "ki_wset_grape_sauvignon_blanc_profile",
+        "ki_wset_grape_sauvignon_blanc_variation"
+      ],
+      "status": "present; level mapping and delivery to verify"
+    },
+    {
+      "id": "l2_sauvignon_blanc_pouillyfume",
+      "grape": "sauvignon_blanc",
+      "region": "Pouilly-Fumé",
+      "canonical_node_id": "n_geo_pouilly_fume",
+      "candidate_node_ids": [
+        "n_geo_pouilly_fume"
+      ],
+      "location_item_ids": [
+        "ki_pouilly_fume_location"
+      ],
+      "grape_items": [
+        "ki_wset_grape_sauvignon_blanc_profile",
+        "ki_wset_grape_sauvignon_blanc_variation"
+      ],
+      "status": "present; level mapping and delivery to verify"
+    },
+    {
+      "id": "l2_sauvignon_blanc_touraine",
+      "grape": "sauvignon_blanc",
+      "region": "Touraine",
+      "canonical_node_id": "n_geo_touraine",
+      "candidate_node_ids": [
+        "n_geo_touraine"
+      ],
+      "location_item_ids": [
+        "ki_touraine_location"
+      ],
+      "grape_items": [
+        "ki_wset_grape_sauvignon_blanc_profile",
+        "ki_wset_grape_sauvignon_blanc_variation"
+      ],
+      "status": "present; level mapping and delivery to verify"
+    },
+    {
+      "id": "l2_sauvignon_blanc_bordeaux",
+      "grape": "sauvignon_blanc",
+      "region": "Bordeaux",
+      "canonical_node_id": "n_geo_bordeaux",
+      "candidate_node_ids": [
+        "n_geo_bordeaux"
+      ],
+      "location_item_ids": [
+        "ki_fr_atlas_bordeaux_location"
+      ],
+      "grape_items": [
+        "ki_wset_grape_sauvignon_blanc_profile",
+        "ki_wset_grape_sauvignon_blanc_variation"
+      ],
+      "status": "present; level mapping and delivery to verify"
+    },
+    {
+      "id": "l2_sauvignon_blanc_graves",
+      "grape": "sauvignon_blanc",
+      "region": "Graves",
+      "canonical_node_id": "n_geo_graves",
+      "candidate_node_ids": [
+        "n_geo_graves"
+      ],
+      "location_item_ids": [
+        "ki_fr_atlas_graves_location"
+      ],
+      "grape_items": [
+        "ki_wset_grape_sauvignon_blanc_profile",
+        "ki_wset_grape_sauvignon_blanc_variation"
+      ],
+      "status": "present; level mapping and delivery to verify"
+    },
+    {
+      "id": "l2_sauvignon_blanc_pessacleognan",
+      "grape": "sauvignon_blanc",
+      "region": "Pessac-Léognan",
+      "canonical_node_id": "n_geo_pessac_leognan",
+      "candidate_node_ids": [
+        "n_geo_pessac_leognan"
+      ],
+      "location_item_ids": [
+        "ki_fr_atlas_pessac_leognan_location"
+      ],
+      "grape_items": [
+        "ki_wset_grape_sauvignon_blanc_profile",
+        "ki_wset_grape_sauvignon_blanc_variation"
+      ],
+      "status": "present; level mapping and delivery to verify"
+    },
+    {
+      "id": "l2_pinot_gris_veneto",
+      "grape": "pinot_gris",
+      "region": "Veneto",
+      "canonical_node_id": "n_geo_veneto",
+      "candidate_node_ids": [
+        "n_geo_veneto"
+      ],
+      "location_item_ids": [
+        "ki_atlas_veneto_location"
+      ],
+      "grape_items": [
+        "ki_wset_grape_pinot_gris_profile",
+        "ki_wset_grape_pinot_gris_variation"
+      ],
+      "status": "present; level mapping and delivery to verify"
+    },
+    {
+      "id": "l2_pinot_gris_alsace",
+      "grape": "pinot_gris",
+      "region": "Alsace",
+      "canonical_node_id": "n_geo_alsace_aoc",
+      "candidate_node_ids": [
+        "n_geo_alsace_region",
+        "n_geo_alsace_aoc"
+      ],
+      "location_item_ids": [
+        "ki_fr_atlas_alsace_aoc_location"
+      ],
+      "grape_items": [
+        "ki_wset_grape_pinot_gris_profile",
+        "ki_wset_grape_pinot_gris_variation"
+      ],
+      "status": "present; level mapping and delivery to verify"
+    },
+    {
+      "id": "l2_pinot_gris_dellevenezie",
+      "grape": "pinot_gris",
+      "region": "Delle Venezie",
+      "canonical_node_id": null,
+      "candidate_node_ids": [],
+      "location_item_ids": [],
+      "grape_items": [
+        "ki_wset_grape_pinot_gris_profile",
+        "ki_wset_grape_pinot_gris_variation"
+      ],
+      "status": "pending canonical identity or location fact"
+    },
+    {
+      "id": "l2_pinot_gris_friuliveneziagiulia",
+      "grape": "pinot_gris",
+      "region": "Friuli-Venezia Giulia",
+      "canonical_node_id": "n_geo_friuli_venezia_giulia",
+      "candidate_node_ids": [
+        "n_geo_friuli_venezia_giulia"
+      ],
+      "location_item_ids": [
+        "ki_atlas_friuli_venezia_giulia_location"
+      ],
+      "grape_items": [
+        "ki_wset_grape_pinot_gris_profile",
+        "ki_wset_grape_pinot_gris_variation"
+      ],
+      "status": "present; level mapping and delivery to verify"
+    },
+    {
+      "id": "l2_gamay_beaujolais",
+      "grape": "gamay",
+      "region": "Beaujolais",
+      "canonical_node_id": "n_geo_beaujolais",
+      "candidate_node_ids": [
+        "n_geo_beaujolais_region",
+        "n_geo_beaujolais"
+      ],
+      "location_item_ids": [
+        "ki_fr_atlas_beaujolais_location"
+      ],
+      "grape_items": [
+        "ki_wset_grape_gamay_profile",
+        "ki_wset_grape_gamay_variation"
+      ],
+      "status": "present; level mapping and delivery to verify"
+    },
+    {
+      "id": "l2_gamay_beaujolaisvillages",
+      "grape": "gamay",
+      "region": "Beaujolais-Villages",
+      "canonical_node_id": "n_geo_beaujolais_villages",
+      "candidate_node_ids": [
+        "n_geo_beaujolais_villages"
+      ],
+      "location_item_ids": [
+        "ki_fr_atlas_beaujolais_villages_location"
+      ],
+      "grape_items": [
+        "ki_wset_grape_gamay_profile",
+        "ki_wset_grape_gamay_variation"
+      ],
+      "status": "present; level mapping and delivery to verify"
+    },
+    {
+      "id": "l2_gamay_fleurie",
+      "grape": "gamay",
+      "region": "Fleurie",
+      "canonical_node_id": "n_geo_fleurie",
+      "candidate_node_ids": [
+        "n_geo_fleurie"
+      ],
+      "location_item_ids": [
+        "ki_fr_atlas_fleurie_location"
+      ],
+      "grape_items": [
+        "ki_wset_grape_gamay_profile",
+        "ki_wset_grape_gamay_variation"
+      ],
+      "status": "present; level mapping and delivery to verify"
+    },
+    {
+      "id": "l2_grenache_cotesdurhone",
+      "grape": "grenache",
+      "region": "Côtes du Rhône",
+      "canonical_node_id": "n_geo_cotes_du_rhone",
+      "candidate_node_ids": [
+        "n_geo_cotes_du_rhone"
+      ],
+      "location_item_ids": [
+        "ki_fr_atlas_cotes_du_rhone_location"
+      ],
+      "grape_items": [
+        "ki_wset_grape_grenache_profile",
+        "ki_wset_grape_grenache_variation"
+      ],
+      "status": "present; level mapping and delivery to verify"
+    },
+    {
+      "id": "l2_grenache_cotesdurhonevillages",
+      "grape": "grenache",
+      "region": "Côtes du Rhône Villages",
+      "canonical_node_id": "n_geo_cotes_du_rhone_villages",
+      "candidate_node_ids": [
+        "n_geo_cotes_du_rhone_villages"
+      ],
+      "location_item_ids": [
+        "ki_fr_atlas_cotes_du_rhone_villages_location"
+      ],
+      "grape_items": [
+        "ki_wset_grape_grenache_profile",
+        "ki_wset_grape_grenache_variation"
+      ],
+      "status": "present; level mapping and delivery to verify"
+    },
+    {
+      "id": "l2_grenache_chateauneufdupape",
+      "grape": "grenache",
+      "region": "Châteauneuf-du-Pape",
+      "canonical_node_id": "n_geo_chateauneuf_du_pape",
+      "candidate_node_ids": [
+        "n_geo_chateauneuf_du_pape"
+      ],
+      "location_item_ids": [
+        "ki_chateauneuf_du_pape_location"
+      ],
+      "grape_items": [
+        "ki_wset_grape_grenache_profile",
+        "ki_wset_grape_grenache_variation"
+      ],
+      "status": "present; level mapping and delivery to verify"
+    },
+    {
+      "id": "l2_grenache_minervois",
+      "grape": "grenache",
+      "region": "Minervois",
+      "canonical_node_id": "n_geo_minervois",
+      "candidate_node_ids": [
+        "n_geo_minervois"
+      ],
+      "location_item_ids": [
+        "ki_fr_atlas_minervois_location"
+      ],
+      "grape_items": [
+        "ki_wset_grape_grenache_profile",
+        "ki_wset_grape_grenache_variation"
+      ],
+      "status": "present; level mapping and delivery to verify"
+    },
+    {
+      "id": "l2_grenache_cotesdeprovence",
+      "grape": "grenache",
+      "region": "Côtes de Provence",
+      "canonical_node_id": "n_geo_cotes_de_provence",
+      "candidate_node_ids": [
+        "n_geo_cotes_de_provence"
+      ],
+      "location_item_ids": [
+        "ki_fr_atlas_cotes_de_provence_location"
+      ],
+      "grape_items": [
+        "ki_wset_grape_grenache_profile",
+        "ki_wset_grape_grenache_variation"
+      ],
+      "status": "present; level mapping and delivery to verify"
+    },
+    {
+      "id": "l2_grenache_rioja",
+      "grape": "grenache",
+      "region": "Rioja",
+      "canonical_node_id": "n_geo_rioja",
+      "candidate_node_ids": [
+        "n_geo_rioja"
+      ],
+      "location_item_ids": [
+        "ki_atlas_rioja_location"
+      ],
+      "grape_items": [
+        "ki_wset_grape_grenache_profile",
+        "ki_wset_grape_grenache_variation"
+      ],
+      "status": "present; level mapping and delivery to verify"
+    },
+    {
+      "id": "l2_grenache_navarra",
+      "grape": "grenache",
+      "region": "Navarra",
+      "canonical_node_id": null,
+      "candidate_node_ids": [],
+      "location_item_ids": [],
+      "grape_items": [
+        "ki_wset_grape_grenache_profile",
+        "ki_wset_grape_grenache_variation"
+      ],
+      "status": "pending canonical identity or location fact"
+    },
+    {
+      "id": "l2_grenache_priorat",
+      "grape": "grenache",
+      "region": "Priorat",
+      "canonical_node_id": "n_geo_priorat",
+      "candidate_node_ids": [
+        "n_geo_priorat"
+      ],
+      "location_item_ids": [
+        "ki_atlas_priorat_location"
+      ],
+      "grape_items": [
+        "ki_wset_grape_grenache_profile",
+        "ki_wset_grape_grenache_variation"
+      ],
+      "status": "present; level mapping and delivery to verify"
+    },
+    {
+      "id": "l2_tempranillo_rioja",
+      "grape": "tempranillo",
+      "region": "Rioja",
+      "canonical_node_id": "n_geo_rioja",
+      "candidate_node_ids": [
+        "n_geo_rioja"
+      ],
+      "location_item_ids": [
+        "ki_atlas_rioja_location"
+      ],
+      "grape_items": [
+        "ki_wset_grape_tempranillo_profile",
+        "ki_wset_grape_tempranillo_variation"
+      ],
+      "status": "present; level mapping and delivery to verify"
+    },
+    {
+      "id": "l2_tempranillo_riberadelduero",
+      "grape": "tempranillo",
+      "region": "Ribera del Duero",
+      "canonical_node_id": "n_geo_ribera_del_duero",
+      "candidate_node_ids": [
+        "n_geo_ribera_del_duero"
+      ],
+      "location_item_ids": [
+        "ki_atlas_ribera_del_duero_location"
+      ],
+      "grape_items": [
+        "ki_wset_grape_tempranillo_profile",
+        "ki_wset_grape_tempranillo_variation"
+      ],
+      "status": "present; level mapping and delivery to verify"
+    },
+    {
+      "id": "l2_tempranillo_catalunya",
+      "grape": "tempranillo",
+      "region": "Catalunya",
+      "canonical_node_id": null,
+      "candidate_node_ids": [],
+      "location_item_ids": [],
+      "grape_items": [
+        "ki_wset_grape_tempranillo_profile",
+        "ki_wset_grape_tempranillo_variation"
+      ],
+      "status": "pending canonical identity or location fact"
+    },
+    {
+      "id": "l2_nebbiolo_barolo",
+      "grape": "nebbiolo",
+      "region": "Barolo",
+      "canonical_node_id": "n_geo_barolo",
+      "candidate_node_ids": [
+        "n_geo_barolo"
+      ],
+      "location_item_ids": [
+        "ki_barolo_location"
+      ],
+      "grape_items": [
+        "ki_wset_grape_nebbiolo_profile",
+        "ki_wset_grape_nebbiolo_variation"
+      ],
+      "status": "present; level mapping and delivery to verify"
+    },
+    {
+      "id": "l2_nebbiolo_barbaresco",
+      "grape": "nebbiolo",
+      "region": "Barbaresco",
+      "canonical_node_id": "n_geo_barbaresco",
+      "candidate_node_ids": [
+        "n_geo_barbaresco"
+      ],
+      "location_item_ids": [
+        "ki_atlas_barbaresco_location"
+      ],
+      "grape_items": [
+        "ki_wset_grape_nebbiolo_profile",
+        "ki_wset_grape_nebbiolo_variation"
+      ],
+      "status": "present; level mapping and delivery to verify"
+    },
+    {
+      "id": "l2_barbera_barberadasti",
+      "grape": "barbera",
+      "region": "Barbera d’Asti",
+      "canonical_node_id": "n_geo_barbera_d_asti",
+      "candidate_node_ids": [
+        "n_geo_barbera_d_asti"
+      ],
+      "location_item_ids": [
+        "ki_atlas_barbera_d_asti_location"
+      ],
+      "grape_items": [
+        "ki_wset_grape_barbera_profile",
+        "ki_wset_grape_barbera_variation"
+      ],
+      "status": "present; level mapping and delivery to verify"
+    },
+    {
+      "id": "l2_sangiovese_chianti",
+      "grape": "sangiovese",
+      "region": "Chianti",
+      "canonical_node_id": "n_geo_chianti",
+      "candidate_node_ids": [
+        "n_geo_chianti"
+      ],
+      "location_item_ids": [
+        "ki_atlas_chianti_location"
+      ],
+      "grape_items": [
+        "ki_wset_grape_sangiovese_profile",
+        "ki_wset_grape_sangiovese_variation"
+      ],
+      "status": "present; level mapping and delivery to verify"
+    },
+    {
+      "id": "l2_sangiovese_chianticlassico",
+      "grape": "sangiovese",
+      "region": "Chianti Classico",
+      "canonical_node_id": "n_geo_chianti_classico",
+      "candidate_node_ids": [
+        "n_geo_chianti_classico"
+      ],
+      "location_item_ids": [
+        "ki_chianti_classico_location"
+      ],
+      "grape_items": [
+        "ki_wset_grape_sangiovese_profile",
+        "ki_wset_grape_sangiovese_variation"
+      ],
+      "status": "present; level mapping and delivery to verify"
+    },
+    {
+      "id": "l2_sangiovese_brunellodimontalcino",
+      "grape": "sangiovese",
+      "region": "Brunello di Montalcino",
+      "canonical_node_id": "n_geo_brunello_di_montalcino",
+      "candidate_node_ids": [
+        "n_geo_brunello_di_montalcino"
+      ],
+      "location_item_ids": [
+        "ki_atlas_brunello_di_montalcino_location"
+      ],
+      "grape_items": [
+        "ki_wset_grape_sangiovese_profile",
+        "ki_wset_grape_sangiovese_variation"
+      ],
+      "status": "present; level mapping and delivery to verify"
+    },
+    {
+      "id": "l2_corvina_valpolicella",
+      "grape": "corvina",
+      "region": "Valpolicella",
+      "canonical_node_id": "n_geo_valpolicella",
+      "candidate_node_ids": [
+        "n_geo_valpolicella"
+      ],
+      "location_item_ids": [
+        "ki_atlas_valpolicella_location"
+      ],
+      "grape_items": [
+        "ki_wset_grape_corvina_profile",
+        "ki_wset_grape_corvina_variation"
+      ],
+      "status": "present; level mapping and delivery to verify"
+    },
+    {
+      "id": "l2_corvina_amaronedellavalpolicella",
+      "grape": "corvina",
+      "region": "Amarone della Valpolicella",
+      "canonical_node_id": null,
+      "candidate_node_ids": [],
+      "location_item_ids": [],
+      "grape_items": [
+        "ki_wset_grape_corvina_profile",
+        "ki_wset_grape_corvina_variation"
+      ],
+      "status": "pending canonical identity or location fact"
+    },
+    {
+      "id": "l2_corvina_reciotodellavalpolicella",
+      "grape": "corvina",
+      "region": "Recioto della Valpolicella",
+      "canonical_node_id": null,
+      "candidate_node_ids": [],
+      "location_item_ids": [],
+      "grape_items": [
+        "ki_wset_grape_corvina_profile",
+        "ki_wset_grape_corvina_variation"
+      ],
+      "status": "pending canonical identity or location fact"
+    },
+    {
+      "id": "l2_montepulciano_montepulcianodabruzzo",
+      "grape": "montepulciano",
+      "region": "Montepulciano d’Abruzzo",
+      "canonical_node_id": "n_geo_montepulciano_abruzzo",
+      "candidate_node_ids": [
+        "n_geo_montepulciano_abruzzo"
+      ],
+      "location_item_ids": [
+        "ki_eac_montepulciano_abruzzo_location"
+      ],
+      "grape_items": [
+        "ki_wset_grape_montepulciano_profile",
+        "ki_wset_grape_montepulciano_variation"
+      ],
+      "status": "present; level mapping and delivery to verify"
+    },
+    {
+      "id": "l2_zinfandel_puglia",
+      "grape": "zinfandel",
+      "region": "Puglia",
+      "canonical_node_id": "n_geo_puglia",
+      "candidate_node_ids": [
+        "n_geo_puglia"
+      ],
+      "location_item_ids": [
+        "ki_eac_puglia_location"
+      ],
+      "grape_items": [
+        "ki_wset_grape_zinfandel_profile",
+        "ki_wset_grape_zinfandel_variation"
+      ],
+      "status": "present; level mapping and delivery to verify"
+    },
+    {
+      "id": "l2_chenin_blanc_vouvray",
+      "grape": "chenin_blanc",
+      "region": "Vouvray",
+      "canonical_node_id": "n_geo_vouvray",
+      "candidate_node_ids": [
+        "n_geo_vouvray"
+      ],
+      "location_item_ids": [
+        "ki_vouvray_location"
+      ],
+      "grape_items": [
+        "ki_wset_grape_chenin_blanc_profile",
+        "ki_wset_grape_chenin_blanc_variation"
+      ],
+      "status": "present; level mapping and delivery to verify"
+    },
+    {
+      "id": "l2_semillon_sauternes",
+      "grape": "semillon",
+      "region": "Sauternes",
+      "canonical_node_id": "n_geo_sauternes",
+      "candidate_node_ids": [
+        "n_geo_sauternes"
+      ],
+      "location_item_ids": [
+        "ki_fr_atlas_sauternes_location"
+      ],
+      "grape_items": [
+        "ki_wset_grape_semillon_profile",
+        "ki_wset_grape_semillon_variation"
+      ],
+      "status": "present; level mapping and delivery to verify"
+    },
+    {
+      "id": "l2_viognier_condrieu",
+      "grape": "viognier",
+      "region": "Condrieu",
+      "canonical_node_id": "n_geo_condrieu",
+      "candidate_node_ids": [
+        "n_geo_condrieu"
+      ],
+      "location_item_ids": [
+        "ki_condrieu_location"
+      ],
+      "grape_items": [
+        "ki_wset_grape_viognier_profile",
+        "ki_wset_grape_viognier_variation"
+      ],
+      "status": "present; level mapping and delivery to verify"
+    },
+    {
+      "id": "l2_gewurztraminer_alsace",
+      "grape": "gewurztraminer",
+      "region": "Alsace",
+      "canonical_node_id": "n_geo_alsace_aoc",
+      "candidate_node_ids": [
+        "n_geo_alsace_region",
+        "n_geo_alsace_aoc"
+      ],
+      "location_item_ids": [
+        "ki_fr_atlas_alsace_aoc_location"
+      ],
+      "grape_items": [
+        "ki_wset_grape_gewurztraminer_profile",
+        "ki_wset_grape_gewurztraminer_variation"
+      ],
+      "status": "present; level mapping and delivery to verify"
+    },
+    {
+      "id": "l2_gewurztraminer_alsacegrandcru",
+      "grape": "gewurztraminer",
+      "region": "Alsace Grand Cru",
+      "canonical_node_id": null,
+      "candidate_node_ids": [],
+      "location_item_ids": [],
+      "grape_items": [
+        "ki_wset_grape_gewurztraminer_profile",
+        "ki_wset_grape_gewurztraminer_variation"
+      ],
+      "status": "pending canonical identity or location fact"
+    },
+    {
+      "id": "l2_verdicchio_verdicchiodeicastellidijesi",
+      "grape": "verdicchio",
+      "region": "Verdicchio dei Castelli di Jesi",
+      "canonical_node_id": "n_geo_verdicchio_castelli_jesi",
+      "candidate_node_ids": [
+        "n_geo_verdicchio_castelli_jesi"
+      ],
+      "location_item_ids": [
+        "ki_atlas_verdicchio_castelli_jesi_location"
+      ],
+      "grape_items": [
+        "ki_wset_grape_verdicchio_profile",
+        "ki_wset_grape_verdicchio_variation"
+      ],
+      "status": "present; level mapping and delivery to verify"
+    },
+    {
+      "id": "l2_cortese_gavi",
+      "grape": "cortese",
+      "region": "Gavi",
+      "canonical_node_id": "n_geo_gavi",
+      "candidate_node_ids": [
+        "n_geo_gavi"
+      ],
+      "location_item_ids": [
+        "ki_atlas_gavi_location"
+      ],
+      "grape_items": [
+        "ki_wset_grape_cortese_profile",
+        "ki_wset_grape_cortese_variation"
+      ],
+      "status": "present; level mapping and delivery to verify"
+    },
+    {
+      "id": "l2_garganega_soave",
+      "grape": "garganega",
+      "region": "Soave",
+      "canonical_node_id": "n_geo_soave",
+      "candidate_node_ids": [
+        "n_geo_soave"
+      ],
+      "location_item_ids": [
+        "ki_atlas_soave_location"
+      ],
+      "grape_items": [
+        "ki_wset_grape_garganega_profile",
+        "ki_wset_grape_garganega_variation"
+      ],
+      "status": "present; level mapping and delivery to verify"
+    },
+    {
+      "id": "l2_garganega_reciotodisoave",
+      "grape": "garganega",
+      "region": "Recioto di Soave",
+      "canonical_node_id": null,
+      "candidate_node_ids": [],
+      "location_item_ids": [],
+      "grape_items": [
+        "ki_wset_grape_garganega_profile",
+        "ki_wset_grape_garganega_variation"
+      ],
+      "status": "pending canonical identity or location fact"
+    },
+    {
+      "id": "l2_fiano_fianodiavellino",
+      "grape": "fiano",
+      "region": "Fiano di Avellino",
+      "canonical_node_id": "n_geo_fiano_avellino",
+      "candidate_node_ids": [
+        "n_geo_fiano_avellino"
+      ],
+      "location_item_ids": [
+        "ki_eac_fiano_avellino_location"
+      ],
+      "grape_items": [
+        "ki_wset_grape_fiano_profile",
+        "ki_wset_grape_fiano_variation"
+      ],
+      "status": "present; level mapping and delivery to verify"
+    },
+    {
+      "id": "l2_albarino_riasbaixas",
+      "grape": "albarino",
+      "region": "Rías Baixas",
+      "canonical_node_id": "n_geo_rias_baixas",
+      "candidate_node_ids": [
+        "n_geo_rias_baixas"
+      ],
+      "location_item_ids": [
+        "ki_atlas_rias_baixas_location"
+      ],
+      "grape_items": [
+        "ki_wset_grape_albarino_profile",
+        "ki_wset_grape_albarino_variation"
+      ],
+      "status": "present; level mapping and delivery to verify"
+    },
+    {
+      "id": "l2_furmint_tokaj",
+      "grape": "furmint",
+      "region": "Tokaj",
+      "canonical_node_id": "n_geo_tokaj",
+      "candidate_node_ids": [
+        "n_geo_tokaj"
+      ],
+      "location_item_ids": [
+        "ki_hu_tokaj_location"
+      ],
+      "grape_items": [
+        "ki_wset_grape_furmint_profile",
+        "ki_wset_grape_furmint_variation"
+      ],
+      "status": "present; level mapping and delivery to verify"
+    }
+  ]
+}

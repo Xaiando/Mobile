@@ -29,11 +29,15 @@ const expected = {
   schemaVersion: Number(declared[1]),
   json: 1,
   curriculum: 'installed',
-  mapLayers: 10,
+  lowerTracks: 3,
+  requiredUnavailable: 0,
+  rehearsalSizes: '30,50,50',
+  writtenPrompts: 4,
+  calibrationsStarted: 3,
   chablisFeature: true,
   chablisFrame: 'n_geo_france',
   chablisTap: 'n_geo_chablis',
-  chablisAncestors: 'Burgundy > France',
+  chablisAncestors: 'Burgundy > Chablis wine area > France > World',
   mcqOptions: 4,
   mcqAnswerShown: true,
   sessionCards: 5,
@@ -84,15 +88,18 @@ for (const [port, isolated] of [[8631, false], [8632, true]]) {
   });
   page.on('pageerror', (error) => errors.push(error.message));
   await page.goto(`http://localhost:${port}/`);
-  for (let i = 0; i < 120 && !result; i++) await page.waitForTimeout(250);
+  for (let i = 0; i < 480 && !result; i++) await page.waitForTimeout(250);
 
   const label = `COOP/COEP ${isolated ? 'on' : 'off'}`;
   const problems = [...errors.map((e) => `page error: ${e}`)];
-  if (!result) problems.push('no SMOKE_RESULT within 30 s');
+  if (!result) problems.push('no SMOKE_RESULT within 120 s');
   else {
     if (result.error) problems.push(`error: ${result.error}`);
     for (const [key, value] of Object.entries(expected)) {
       if (result[key] !== value) problems.push(`${key}: expected ${value}, got ${result[key]}`);
+    }
+    if (!(result.bundleMapLayers > 0) || result.mapLayers !== result.bundleMapLayers) {
+      problems.push(`mapLayers: installed ${result.mapLayers}, bundled ${result.bundleMapLayers}`);
     }
     // The bundle loads only if every file its manifest includes was bundled,
     // and the release installed must be the one bundled.

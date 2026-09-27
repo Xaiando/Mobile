@@ -119,8 +119,8 @@ map_layers:
     display_name: French appellations
     geometry_kind: area
     asset_path: assets/geography/fr_appellations.topo.json
-    asset_sha256: 5cb8d02ffb844e7d7fdc9e8c6ab4c85024b6f921fc7750a6fa94de8944138d83
-    asset_bytes: 730204
+    asset_sha256: 96cc59f95bcaf710ea0c3f91e52315f8dc8ab76fbd4ff148b8802341b82635e0
+    asset_bytes: 797070
     min_zoom: 7
     max_zoom: 14
     parent_layer_id: ml_fr_regions
@@ -241,7 +241,7 @@ map_layers:
     display_name: Vino Nobile Pieve locality reference markers
     geometry_kind: point
     asset_path: assets/geography/vino_nobile_pievi_markers.topo.json
-    asset_sha256: 548adbefcef305050895ea81cf982796fc66722c6e57997d4e69ce5eb522bad2
+    asset_sha256: 600ce7a15f136a66d005d19ad1b864a083266e07757bce09cdbbb2659b7de1f2
     asset_bytes: 1178
     min_zoom: 4
     max_zoom: 18
@@ -393,6 +393,78 @@ map_layers:
     source_citation_ids:
       - src_new_world_americas_gazetteer_markers
     attribution: Contains GeoNames geographical data (CC BY 4.0, https://creativecommons.org/licenses/by/4.0/), retrieved 26 September 2026. Selected WGS84 locality and terrain coordinates are reference markers, not wine-area boundaries or official centroids.
+  - id: ml_soave_uga_wikidata_markers
+    display_name: Soave settlement reference markers
+    geometry_kind: point
+    asset_path: assets/geography/soave_uga_wikidata_markers.topo.json
+    asset_sha256: 58b561ce5e6fdc0cab8468eb717ac2de02dfa97615aee6792740780fbd7289fc
+    asset_bytes: 373
+    min_zoom: 4
+    max_zoom: 18
+    parent_layer_id: ml_world_countries
+    source_citation_ids:
+      - src_soave_uga_wikidata_markers
+    attribution: Location markers from Wikidata (CC0), retrieved 27 September 2026. Points indicate settlements in Soave municipalities, not additional geographical unit boundaries.
+  - id: ml_soave_uga_geonames_markers
+    display_name: Soave locality and summit reference markers
+    geometry_kind: point
+    asset_path: assets/geography/soave_uga_geonames_markers.topo.json
+    asset_sha256: bb39be13e53ca7ea50297721ae2dd76e45099d0a2189fefbb27ac668343fd881
+    asset_bytes: 599
+    min_zoom: 4
+    max_zoom: 18
+    parent_layer_id: ml_world_countries
+    source_citation_ids:
+      - src_soave_uga_geonames_markers
+    attribution: Contains GeoNames geographical data (CC BY 4.0, https://creativecommons.org/licenses/by/4.0/), retrieved 27 September 2026. Selected WGS84 locality and summit coordinates are reference markers, not Soave unit boundaries or official centroids.
+  - id: ml_alto_adige_uga_geonames_markers
+    display_name: Alto Adige settlement reference markers
+    geometry_kind: point
+    asset_path: assets/geography/alto_adige_uga_geonames_markers.topo.json
+    asset_sha256: e844dd29f714ff892365a78f2776e072b410c28e4ee22e22b9b9de753b4079b2
+    asset_bytes: 700
+    min_zoom: 4
+    max_zoom: 18
+    parent_layer_id: ml_world_countries
+    source_citation_ids:
+      - src_alto_adige_uga_geonames_markers
+    attribution: Contains GeoNames geographical data (CC BY 4.0, https://creativecommons.org/licenses/by/4.0/), retrieved 27 September 2026. Selected WGS84 settlement coordinates are reference markers, not Alto Adige unit boundaries or official centroids.
+  - id: ml_wset_required_gazetteer
+    display_name: Required wine-origin orientation references
+    geometry_kind: point
+    asset_path: assets/geography/wset_required_gazetteer.topo.json
+    asset_sha256: a1e71d4bcb1647b57e895c71be465aff36e9d0476c603d9f7372204b0cb6d542
+    asset_bytes: 3528
+    min_zoom: 3
+    max_zoom: 18
+    parent_layer_id: ml_world_countries
+    source_citation_ids:
+      - src_wset_required_gazetteer_markers
+    attribution: Contains GeoNames data, licensed CC BY 4.0. Named orientation references do not represent official wine centroids or wine boundaries.
+  - id: ml_wset_required_ava
+    display_name: St. Helena AVA orientation reference
+    geometry_kind: point
+    asset_path: assets/geography/wset_required_ava.topo.json
+    asset_sha256: 6e050bd4752fb3086195c15659e8d3f312d74e800171de3c629565a6995bea50
+    asset_bytes: 236
+    min_zoom: 3
+    max_zoom: 18
+    parent_layer_id: ml_world_countries
+    source_citation_ids:
+      - src_wset_required_ava_markers
+    attribution: UC Davis Library and DataLab American Viticultural Areas Project, with UCSB Library and Virginia Tech contributors. Source-polygon interior reference, not a legal border.
+  - id: ml_world_land
+    display_name: World land for country questions
+    geometry_kind: area
+    asset_path: assets/geography/world_land.topo.json
+    asset_sha256: ebbbdde430834eb80403782abcf14bffeeac309b547ad12769702d03902366c0
+    asset_bytes: 44059
+    min_zoom: 0
+    max_zoom: 3
+    parent_layer_id: null
+    source_citation_ids:
+      - src_ne_countries
+    attribution: Made with Natural Earth.
 node_geometries:
   - knowledge_node_id: n_geo_argentina
     map_layer_id: ml_world_countries
@@ -1006,6 +1078,60 @@ node_geometries:
     max_lat: 47.336565
     label_lon: -0.535338
     label_lat: 47.273684
+  - knowledge_node_id: n_geo_bordeaux_superieur
+    map_layer_id: ml_fr_appellations
+    feature_key: n_geo_bordeaux_superieur
+    min_lon: -1.173628
+    min_lat: 44.324036
+    max_lon: 0.315123
+    max_lat: 45.586505
+    label_lon: -0.367425
+    label_lat: 44.822782
+  - knowledge_node_id: n_geo_bourgogne_aoc
+    map_layer_id: ml_fr_appellations
+    feature_key: n_geo_bourgogne_aoc
+    min_lon: 3.270493
+    min_lat: 46.060501
+    max_lon: 5.101997
+    max_lat: 48.060087
+    label_lon: 4.822111
+    label_lat: 46.513558
+  - knowledge_node_id: n_geo_bourgogne_cote_chalonnaise
+    map_layer_id: ml_fr_appellations
+    feature_key: n_geo_bourgogne_cote_chalonnaise
+    min_lon: 4.534282
+    min_lat: 46.585539
+    max_lon: 4.826313
+    max_lat: 46.924555
+    label_lon: 4.685429
+    label_lat: 46.709194
+  - knowledge_node_id: n_geo_bourgogne_cote_d_or
+    map_layer_id: ml_fr_appellations
+    feature_key: n_geo_bourgogne_cote_d_or
+    min_lon: 4.635525
+    min_lat: 46.880394
+    max_lon: 5.101997
+    max_lat: 47.377451
+    label_lon: 4.969483
+    label_lat: 47.233042
+  - knowledge_node_id: n_geo_bourgogne_hautes_cotes_de_beaune
+    map_layer_id: ml_fr_appellations
+    feature_key: n_geo_bourgogne_hautes_cotes_de_beaune
+    min_lon: 4.573888
+    min_lat: 46.880394
+    max_lon: 4.900159
+    max_lat: 47.149351
+    label_lon: 4.74706
+    label_lat: 47.010571
+  - knowledge_node_id: n_geo_bourgogne_hautes_cotes_de_nuits
+    map_layer_id: ml_fr_appellations
+    feature_key: n_geo_bourgogne_hautes_cotes_de_nuits
+    min_lon: 4.802629
+    min_lat: 47.079775
+    max_lon: 5.015182
+    max_lat: 47.207626
+    label_lon: 4.898423
+    label_lat: 47.149409
   - knowledge_node_id: n_geo_bourgueil
     map_layer_id: ml_fr_appellations
     feature_key: n_geo_bourgueil
@@ -1058,8 +1184,17 @@ node_geometries:
     min_lat: 43.219022
     max_lon: 2.445332
     max_lat: 43.375819
-    label_lon: 2.295247
-    label_lat: 43.290997
+    label_lon: 2.295245
+    label_lat: 43.290998
+  - knowledge_node_id: n_geo_cabernet_d_anjou
+    map_layer_id: ml_fr_appellations
+    feature_key: n_geo_cabernet_d_anjou
+    min_lon: -1.354199
+    min_lat: 46.924642
+    max_lon: 0.11843
+    max_lat: 47.683277
+    label_lon: -0.426975
+    label_lat: 47.256796
   - knowledge_node_id: n_geo_cadillac
     map_layer_id: ml_fr_appellations
     feature_key: n_geo_cadillac
@@ -1175,7 +1310,7 @@ node_geometries:
     min_lat: 47.923684
     max_lon: 4.900171
     max_lat: 49.455359
-    label_lon: 4.003657
+    label_lon: 4.003659
     label_lat: 48.984815
   - knowledge_node_id: n_geo_chassagne_montrachet
     map_layer_id: ml_fr_appellations
@@ -1238,8 +1373,8 @@ node_geometries:
     min_lat: 46.17188
     max_lon: 4.68051
     max_lat: 46.198729
-    label_lon: 4.655911
-    label_lat: 46.185561
+    label_lon: 4.655922
+    label_lat: 46.185559
   - knowledge_node_id: n_geo_chorey_les_beaune
     map_layer_id: ml_fr_appellations
     feature_key: n_geo_chorey_les_beaune
@@ -1284,7 +1419,7 @@ node_geometries:
     max_lon: 3.185035
     max_lat: 43.244533
     label_lon: 2.786119
-    label_lat: 43.052175
+    label_lat: 43.052176
   - knowledge_node_id: n_geo_cornas
     map_layer_id: ml_fr_appellations
     feature_key: n_geo_cornas
@@ -1319,8 +1454,8 @@ node_geometries:
     min_lat: 42.7049
     max_lon: 9.492695
     max_lat: 43.027644
-    label_lon: 9.406489
-    label_lat: 42.859477
+    label_lon: 9.406491
+    label_lat: 42.859472
   - knowledge_node_id: n_geo_corse_figari
     map_layer_id: ml_fr_appellations
     feature_key: n_geo_corse_figari
@@ -1400,8 +1535,8 @@ node_geometries:
     min_lat: 45.469841
     max_lon: 4.861497
     max_lat: 45.527375
-    label_lon: 4.800995
-    label_lat: 45.502689
+    label_lon: 4.800998
+    label_lat: 45.50269
   - knowledge_node_id: n_geo_coteaux_champenois
     map_layer_id: ml_fr_appellations
     feature_key: n_geo_coteaux_champenois
@@ -1409,7 +1544,7 @@ node_geometries:
     min_lat: 47.923684
     max_lon: 4.900171
     max_lat: 49.455359
-    label_lon: 4.003657
+    label_lon: 4.003659
     label_lat: 48.984815
   - knowledge_node_id: n_geo_coteaux_d_aix_en_provence
     map_layer_id: ml_fr_appellations
@@ -1418,8 +1553,8 @@ node_geometries:
     min_lat: 43.324312
     max_lon: 5.831155
     max_lat: 43.829855
-    label_lon: 5.243396
-    label_lat: 43.598759
+    label_lon: 5.243685
+    label_lat: 43.598471
   - knowledge_node_id: n_geo_coteaux_du_layon
     map_layer_id: ml_fr_appellations
     feature_key: n_geo_coteaux_du_layon
@@ -1472,8 +1607,8 @@ node_geometries:
     min_lat: 42.982029
     max_lon: 7.108124
     max_lat: 43.993945
-    label_lon: 6.41081
-    label_lat: 43.365335
+    label_lon: 6.410809
+    label_lat: 43.365336
   - knowledge_node_id: n_geo_cotes_du_rhone
     map_layer_id: ml_fr_appellations
     feature_key: n_geo_cotes_du_rhone
@@ -1519,6 +1654,15 @@ node_geometries:
     max_lat: 49.057973
     label_lon: 7.298071
     label_lat: 48.14164
+  - knowledge_node_id: n_geo_cremant_de_bourgogne
+    map_layer_id: ml_fr_appellations
+    feature_key: n_geo_cremant_de_bourgogne
+    min_lon: 3.270493
+    min_lat: 45.822612
+    max_lon: 5.101997
+    max_lat: 48.060087
+    label_lon: 4.650775
+    label_lat: 46.092495
   - knowledge_node_id: n_geo_cremant_de_limoux
     map_layer_id: ml_fr_appellations
     feature_key: n_geo_cremant_de_limoux
@@ -1528,6 +1672,15 @@ node_geometries:
     max_lat: 43.135807
     label_lon: 2.225456
     label_lat: 43.021806
+  - knowledge_node_id: n_geo_cremant_de_loire
+    map_layer_id: ml_fr_appellations
+    feature_key: n_geo_cremant_de_loire
+    min_lon: -1.354199
+    min_lat: 46.756058
+    max_lon: 1.72802
+    max_lat: 47.761043
+    label_lon: -0.195733
+    label_lat: 47.15058
   - knowledge_node_id: n_geo_crozes_hermitage
     map_layer_id: ml_fr_appellations
     feature_key: n_geo_crozes_hermitage
@@ -1554,7 +1707,7 @@ node_geometries:
     max_lon: 3.264308
     max_lat: 43.596852
     label_lon: 3.17264
-    label_lat: 43.54201
+    label_lat: 43.542011
   - knowledge_node_id: n_geo_fitou
     map_layer_id: ml_fr_appellations
     feature_key: n_geo_fitou
@@ -1580,8 +1733,8 @@ node_geometries:
     min_lat: 46.173845
     max_lon: 4.725273
     max_lat: 46.216712
-    label_lon: 4.692592
-    label_lat: 46.195432
+    label_lon: 4.692588
+    label_lat: 46.195436
   - knowledge_node_id: n_geo_francs_cotes_de_bordeaux
     map_layer_id: ml_fr_appellations
     feature_key: n_geo_francs_cotes_de_bordeaux
@@ -1616,8 +1769,8 @@ node_geometries:
     min_lat: 43.7279
     max_lon: 2.311598
     max_lat: 44.123411
-    label_lon: 1.870462
-    label_lat: 43.922343
+    label_lon: 1.870461
+    label_lat: 43.922342
   - knowledge_node_id: n_geo_gevrey_chambertin
     map_layer_id: ml_fr_appellations
     feature_key: n_geo_gevrey_chambertin
@@ -1715,8 +1868,8 @@ node_geometries:
     min_lat: 43.145829
     max_lon: -0.295351
     max_lat: 43.378236
-    label_lon: -0.49378
-    label_lat: 43.263368
+    label_lon: -0.493783
+    label_lat: 43.263369
   - knowledge_node_id: n_geo_l_etoile
     map_layer_id: ml_fr_appellations
     feature_key: n_geo_l_etoile
@@ -1877,8 +2030,8 @@ node_geometries:
     min_lat: 47.239882
     max_lon: 5.036478
     max_lat: 47.303915
-    label_lon: 4.980409
-    label_lat: 47.275492
+    label_lon: 4.980404
+    label_lat: 47.275493
   - knowledge_node_id: n_geo_maury
     map_layer_id: ml_fr_appellations
     feature_key: n_geo_maury
@@ -1886,8 +2039,8 @@ node_geometries:
     min_lat: 42.746171
     max_lon: 2.796085
     max_lat: 42.851741
-    label_lon: 2.618124
-    label_lat: 42.812481
+    label_lon: 2.618126
+    label_lat: 42.812482
   - knowledge_node_id: n_geo_maury_sec
     map_layer_id: ml_fr_appellations
     feature_key: n_geo_maury_sec
@@ -1895,8 +2048,8 @@ node_geometries:
     min_lat: 42.746171
     max_lon: 2.796085
     max_lat: 42.851741
-    label_lon: 2.618124
-    label_lat: 42.812481
+    label_lon: 2.618126
+    label_lat: 42.812482
   - knowledge_node_id: n_geo_medoc
     map_layer_id: ml_fr_appellations
     feature_key: n_geo_medoc
@@ -1967,8 +2120,8 @@ node_geometries:
     min_lat: 44.899973
     max_lon: -0.074502
     max_lat: 44.964756
-    label_lon: -0.127372
-    label_lat: 44.932263
+    label_lon: -0.127379
+    label_lat: 44.93227
   - knowledge_node_id: n_geo_montagny
     map_layer_id: ml_fr_appellations
     feature_key: n_geo_montagny
@@ -1976,8 +2129,8 @@ node_geometries:
     min_lat: 46.667774
     max_lon: 4.778587
     max_lat: 46.727116
-    label_lon: 4.703964
-    label_lat: 46.696859
+    label_lon: 4.703963
+    label_lat: 46.696861
   - knowledge_node_id: n_geo_monthelie
     map_layer_id: ml_fr_appellations
     feature_key: n_geo_monthelie
@@ -2068,6 +2221,15 @@ node_geometries:
     max_lat: 47.306343
     label_lon: -1.347537
     label_lat: 47.174464
+  - knowledge_node_id: n_geo_muscat_de_beaumes_de_venise
+    map_layer_id: ml_fr_appellations
+    feature_key: n_geo_muscat_de_beaumes_de_venise
+    min_lon: 4.984807
+    min_lat: 44.074612
+    max_lon: 5.074239
+    max_lat: 44.143921
+    label_lon: 5.030237
+    label_lat: 44.111832
   - knowledge_node_id: n_geo_muscat_de_frontignan
     map_layer_id: ml_fr_appellations
     feature_key: n_geo_muscat_de_frontignan
@@ -2255,8 +2417,8 @@ node_geometries:
     min_lat: 44.906321
     max_lon: -0.028195
     max_lat: 44.954684
-    label_lon: -0.063089
-    label_lat: 44.932365
+    label_lon: -0.063096
+    label_lat: 44.932362
   - knowledge_node_id: n_geo_puligny_montrachet
     map_layer_id: ml_fr_appellations
     feature_key: n_geo_puligny_montrachet
@@ -2291,8 +2453,8 @@ node_geometries:
     min_lat: 44.179583
     max_lon: 5.033143
     max_lat: 44.264852
-    label_lon: 4.965674
-    label_lat: 44.226062
+    label_lon: 4.964613
+    label_lat: 44.226327
   - knowledge_node_id: n_geo_regnie
     map_layer_id: ml_fr_appellations
     feature_key: n_geo_regnie
@@ -2309,8 +2471,8 @@ node_geometries:
     min_lat: 47.024451
     max_lon: 2.195731
     max_lat: 47.155698
-    label_lon: 2.03952
-    label_lat: 47.082735
+    label_lon: 2.039517
+    label_lat: 47.082733
   - knowledge_node_id: n_geo_rivesaltes
     map_layer_id: ml_fr_appellations
     feature_key: n_geo_rivesaltes
@@ -2320,6 +2482,24 @@ node_geometries:
     max_lat: 43.004449
     label_lon: 2.788858
     label_lat: 42.710851
+  - knowledge_node_id: n_geo_rose_d_anjou
+    map_layer_id: ml_fr_appellations
+    feature_key: n_geo_rose_d_anjou
+    min_lon: -1.354199
+    min_lat: 46.924642
+    max_lon: 0.11843
+    max_lat: 47.683277
+    label_lon: -0.426975
+    label_lat: 47.256796
+  - knowledge_node_id: n_geo_rose_de_loire
+    map_layer_id: ml_fr_appellations
+    feature_key: n_geo_rose_de_loire
+    min_lon: -1.354199
+    min_lat: 46.756058
+    max_lon: 1.568422
+    max_lat: 47.683277
+    label_lon: -0.222183
+    label_lat: 47.167555
   - knowledge_node_id: n_geo_rose_des_riceys
     map_layer_id: ml_fr_appellations
     feature_key: n_geo_rose_des_riceys
@@ -2408,8 +2588,8 @@ node_geometries:
     min_lat: 45.222381
     max_lon: -0.746401
     max_lat: 45.284023
-    label_lon: -0.780048
-    label_lat: 45.251276
+    label_lon: -0.780045
+    label_lat: 45.251275
   - knowledge_node_id: n_geo_saint_georges_saint_emilion
     map_layer_id: ml_fr_appellations
     feature_key: n_geo_saint_georges_saint_emilion
@@ -2417,8 +2597,8 @@ node_geometries:
     min_lat: 44.899973
     max_lon: -0.074502
     max_lat: 44.964756
-    label_lon: -0.127372
-    label_lat: 44.932263
+    label_lon: -0.127379
+    label_lat: 44.93227
   - knowledge_node_id: n_geo_saint_joseph
     map_layer_id: ml_fr_appellations
     feature_key: n_geo_saint_joseph
@@ -2453,8 +2633,8 @@ node_geometries:
     min_lat: 47.254894
     max_lon: 0.164911
     max_lat: 47.345543
-    label_lon: 0.130279
-    label_lat: 47.296448
+    label_lon: 0.130277
+    label_lat: 47.296449
   - knowledge_node_id: n_geo_saint_peray
     map_layer_id: ml_fr_appellations
     feature_key: n_geo_saint_peray
@@ -2552,8 +2732,8 @@ node_geometries:
     min_lat: 47.361567
     max_lon: -0.587156
     max_lat: 47.459542
-    label_lon: -0.666546
-    label_lat: 47.406582
+    label_lon: -0.66655
+    label_lat: 47.406581
   - knowledge_node_id: n_geo_savigny_les_beaune
     map_layer_id: ml_fr_appellations
     feature_key: n_geo_savigny_les_beaune
@@ -2561,7 +2741,7 @@ node_geometries:
     min_lat: 47.041218
     max_lon: 4.854221
     max_lat: 47.117863
-    label_lon: 4.803286
+    label_lon: 4.803677
     label_lat: 47.081594
   - knowledge_node_id: n_geo_savoie_apremont
     map_layer_id: ml_fr_appellations
@@ -2678,8 +2858,8 @@ node_geometries:
     min_lat: 44.297939
     max_lon: 5.0994
     max_lat: 44.376447
-    label_lon: 5.050424
-    label_lat: 44.33556
+    label_lon: 5.050429
+    label_lat: 44.335559
   - knowledge_node_id: n_geo_vire_clesse
     map_layer_id: ml_fr_appellations
     feature_key: n_geo_vire_clesse
@@ -13462,3 +13642,381 @@ node_geometries:
     max_lat: 43.18235
     label_lon: -79.36514
     label_lat: 43.18235
+  - knowledge_node_id: n_geo_soave_uga_brognoligo
+    map_layer_id: ml_soave_uga_wikidata_markers
+    feature_key: n_geo_soave_uga_brognoligo
+    min_lon: 11.283333
+    min_lat: 45.416667
+    max_lon: 11.283333
+    max_lat: 45.416667
+    label_lon: 11.283333
+    label_lat: 45.416667
+  - knowledge_node_id: n_geo_soave_uga_castelcerino
+    map_layer_id: ml_soave_uga_wikidata_markers
+    feature_key: n_geo_soave_uga_castelcerino
+    min_lon: 11.24032
+    min_lat: 45.46122
+    max_lon: 11.24032
+    max_lat: 45.46122
+    label_lon: 11.24032
+    label_lat: 45.46122
+  - knowledge_node_id: n_geo_soave_uga_colombara
+    map_layer_id: ml_soave_uga_geonames_markers
+    feature_key: n_geo_soave_uga_colombara
+    min_lon: 11.25672
+    min_lat: 45.51975
+    max_lon: 11.25672
+    max_lat: 45.51975
+    label_lon: 11.25672
+    label_lat: 45.51975
+  - knowledge_node_id: n_geo_soave_uga_duello
+    map_layer_id: ml_soave_uga_geonames_markers
+    feature_key: n_geo_soave_uga_duello
+    min_lon: 11.2832
+    min_lat: 45.47649
+    max_lon: 11.2832
+    max_lat: 45.47649
+    label_lon: 11.2832
+    label_lat: 45.47649
+  - knowledge_node_id: n_geo_soave_uga_fitta
+    map_layer_id: ml_soave_uga_geonames_markers
+    feature_key: n_geo_soave_uga_fitta
+    min_lon: 11.25331
+    min_lat: 45.45326
+    max_lon: 11.25331
+    max_lat: 45.45326
+    label_lon: 11.25331
+    label_lat: 45.45326
+  - knowledge_node_id: n_geo_soave_uga_ronca_monte_calvarina
+    map_layer_id: ml_soave_uga_geonames_markers
+    feature_key: n_geo_soave_uga_ronca_monte_calvarina
+    min_lon: 11.28075
+    min_lat: 45.5093
+    max_lon: 11.28075
+    max_lat: 45.5093
+    label_lon: 11.28075
+    label_lat: 45.5093
+  - knowledge_node_id: n_geo_alto_adige_uga_buchholz
+    map_layer_id: ml_alto_adige_uga_geonames_markers
+    feature_key: n_geo_alto_adige_uga_buchholz
+    min_lon: 11.2424
+    min_lat: 46.24623
+    max_lon: 11.2424
+    max_lat: 46.24623
+    label_lon: 11.2424
+    label_lat: 46.24623
+  - knowledge_node_id: n_geo_alto_adige_uga_girlan
+    map_layer_id: ml_alto_adige_uga_geonames_markers
+    feature_key: n_geo_alto_adige_uga_girlan
+    min_lon: 11.28115
+    min_lat: 46.46329
+    max_lon: 11.28115
+    max_lat: 46.46329
+    label_lon: 11.28115
+    label_lat: 46.46329
+  - knowledge_node_id: n_geo_alto_adige_uga_gries
+    map_layer_id: ml_alto_adige_uga_geonames_markers
+    feature_key: n_geo_alto_adige_uga_gries
+    min_lon: 11.33333
+    min_lat: 46.51667
+    max_lon: 11.33333
+    max_lat: 46.51667
+    label_lon: 11.33333
+    label_lat: 46.51667
+  - knowledge_node_id: n_geo_alto_adige_uga_penon
+    map_layer_id: ml_alto_adige_uga_geonames_markers
+    feature_key: n_geo_alto_adige_uga_penon
+    min_lon: 11.20115
+    min_lat: 46.30188
+    max_lon: 11.20115
+    max_lat: 46.30188
+    label_lon: 11.20115
+    label_lat: 46.30188
+  - knowledge_node_id: n_geo_alto_adige_uga_rain
+    map_layer_id: ml_alto_adige_uga_geonames_markers
+    feature_key: n_geo_alto_adige_uga_rain
+    min_lon: 11.21286
+    min_lat: 46.30889
+    max_lon: 11.21286
+    max_lat: 46.30889
+    label_lon: 11.21286
+    label_lat: 46.30889
+  - knowledge_node_id: n_geo_aconcagua_wine
+    map_layer_id: ml_wset_required_gazetteer
+    feature_key: n_geo_aconcagua_wine
+    min_lon: -71.33333
+    min_lat: -32.75
+    max_lon: -71.33333
+    max_lat: -32.75
+    label_lon: -71.33333
+    label_lat: -32.75
+  - knowledge_node_id: n_geo_alentejano_igp
+    map_layer_id: ml_wset_required_gazetteer
+    feature_key: n_geo_alentejano_igp
+    min_lon: -7.90405
+    min_lat: 38.56587
+    max_lon: -7.90405
+    max_lat: 38.56587
+    label_lon: -7.90405
+    label_lat: 38.56587
+  - knowledge_node_id: n_geo_calatayud
+    map_layer_id: ml_wset_required_gazetteer
+    feature_key: n_geo_calatayud
+    min_lon: -1.64318
+    min_lat: 41.35353
+    max_lon: -1.64318
+    max_lat: 41.35353
+    label_lon: -1.64318
+    label_lat: 41.35353
+  - knowledge_node_id: n_geo_castilla_y_leon_igp
+    map_layer_id: ml_wset_required_gazetteer
+    feature_key: n_geo_castilla_y_leon_igp
+    min_lon: -4.25
+    min_lat: 41.66667
+    max_lon: -4.25
+    max_lat: 41.66667
+    label_lon: -4.25
+    label_lat: 41.66667
+  - knowledge_node_id: n_geo_catalunya_do
+    map_layer_id: ml_wset_required_gazetteer
+    feature_key: n_geo_catalunya_do
+    min_lon: 1.86768
+    min_lat: 41.82046
+    max_lon: 1.86768
+    max_lat: 41.82046
+    label_lon: 1.86768
+    label_lat: 41.82046
+  - knowledge_node_id: n_geo_coquimbo_wine
+    map_layer_id: ml_wset_required_gazetteer
+    feature_key: n_geo_coquimbo_wine
+    min_lon: -71
+    min_lat: -30.75
+    max_lon: -71
+    max_lat: -30.75
+    label_lon: -71
+    label_lat: -30.75
+  - knowledge_node_id: n_geo_cote_de_sezanne
+    map_layer_id: ml_wset_required_gazetteer
+    feature_key: n_geo_cote_de_sezanne
+    min_lon: 3.72339
+    min_lat: 48.72047
+    max_lon: 3.72339
+    max_lat: 48.72047
+    label_lon: 3.72339
+    label_lat: 48.72047
+  - knowledge_node_id: n_geo_cotes_de_gascogne
+    map_layer_id: ml_wset_required_gazetteer
+    feature_key: n_geo_cotes_de_gascogne
+    min_lon: 0.10061
+    min_lat: 43.86071
+    max_lon: 0.10061
+    max_lat: 43.86071
+    label_lon: 0.10061
+    label_lat: 43.86071
+  - knowledge_node_id: n_geo_deidesheim
+    map_layer_id: ml_wset_required_gazetteer
+    feature_key: n_geo_deidesheim
+    min_lon: 8.18445
+    min_lat: 49.40782
+    max_lon: 8.18445
+    max_lat: 49.40782
+    label_lon: 8.18445
+    label_lat: 49.40782
+  - knowledge_node_id: n_geo_delle_venezie
+    map_layer_id: ml_wset_required_gazetteer
+    feature_key: n_geo_delle_venezie
+    min_lon: 11.12177
+    min_lat: 46.06966
+    max_lon: 11.12177
+    max_lat: 46.06966
+    label_lon: 11.12177
+    label_lat: 46.06966
+  - knowledge_node_id: n_geo_dolcetto_d_alba
+    map_layer_id: ml_wset_required_gazetteer
+    feature_key: n_geo_dolcetto_d_alba
+    min_lon: 8.0347
+    min_lat: 44.6999
+    max_lon: 8.0347
+    max_lat: 44.6999
+    label_lon: 8.0347
+    label_lat: 44.6999
+  - knowledge_node_id: n_geo_forst_pfalz
+    map_layer_id: ml_wset_required_gazetteer
+    feature_key: n_geo_forst_pfalz
+    min_lon: 8.1897
+    min_lat: 49.42567
+    max_lon: 8.1897
+    max_lat: 49.42567
+    label_lon: 8.1897
+    label_lat: 49.42567
+  - knowledge_node_id: n_geo_la_mancha_do
+    map_layer_id: ml_wset_required_gazetteer
+    feature_key: n_geo_la_mancha_do
+    min_lon: -3.20827
+    min_lat: 39.39011
+    max_lon: -3.20827
+    max_lat: 39.39011
+    label_lon: -3.20827
+    label_lat: 39.39011
+  - knowledge_node_id: n_geo_mendocino_county
+    map_layer_id: ml_wset_required_gazetteer
+    feature_key: n_geo_mendocino_county
+    min_lon: -123.43155
+    min_lat: 39.43362
+    max_lon: -123.43155
+    max_lat: 39.43362
+    label_lon: -123.43155
+    label_lat: 39.43362
+  - knowledge_node_id: n_geo_napa_county
+    map_layer_id: ml_wset_required_gazetteer
+    feature_key: n_geo_napa_county
+    min_lon: -122.33053
+    min_lat: 38.50647
+    max_lon: -122.33053
+    max_lat: 38.50647
+    label_lon: -122.33053
+    label_lat: 38.50647
+  - knowledge_node_id: n_geo_navarra_do
+    map_layer_id: ml_wset_required_gazetteer
+    feature_key: n_geo_navarra_do
+    min_lon: -1.66667
+    min_lat: 42.75
+    max_lon: -1.66667
+    max_lat: 42.75
+    label_lon: -1.66667
+    label_lat: 42.75
+  - knowledge_node_id: n_geo_nierstein
+    map_layer_id: ml_wset_required_gazetteer
+    feature_key: n_geo_nierstein
+    min_lon: 8.33647
+    min_lat: 49.87003
+    max_lon: 8.33647
+    max_lat: 49.87003
+    label_lon: 8.33647
+    label_lat: 49.87003
+  - knowledge_node_id: n_geo_pays_doc
+    map_layer_id: ml_wset_required_gazetteer
+    feature_key: n_geo_pays_doc
+    min_lon: 3.5
+    min_lat: 43.66667
+    max_lon: 3.5
+    max_lat: 43.66667
+    label_lon: 3.5
+    label_lat: 43.66667
+  - knowledge_node_id: n_geo_penedes
+    map_layer_id: ml_wset_required_gazetteer
+    feature_key: n_geo_penedes
+    min_lon: 1.69713
+    min_lat: 41.34618
+    max_lon: 1.69713
+    max_lat: 41.34618
+    label_lon: 1.69713
+    label_lat: 41.34618
+  - knowledge_node_id: n_geo_san_luis_obispo_county
+    map_layer_id: ml_wset_required_gazetteer
+    feature_key: n_geo_san_luis_obispo_county
+    min_lon: -120.4522
+    min_lat: 35.38742
+    max_lon: -120.4522
+    max_lat: 35.38742
+    label_lon: -120.4522
+    label_lat: 35.38742
+  - knowledge_node_id: n_geo_santa_barbara_county
+    map_layer_id: ml_wset_required_gazetteer
+    feature_key: n_geo_santa_barbara_county
+    min_lon: -120.03078
+    min_lat: 34.53834
+    max_lon: -120.03078
+    max_lat: 34.53834
+    label_lon: -120.03078
+    label_lat: 34.53834
+  - knowledge_node_id: n_geo_schlossbockelheim
+    map_layer_id: ml_wset_required_gazetteer
+    feature_key: n_geo_schlossbockelheim
+    min_lon: 7.75
+    min_lat: 49.8
+    max_lon: 7.75
+    max_lat: 49.8
+    label_lon: 7.75
+    label_lat: 49.8
+  - knowledge_node_id: n_geo_sicilia_doc
+    map_layer_id: ml_wset_required_gazetteer
+    feature_key: n_geo_sicilia_doc
+    min_lon: 14.25
+    min_lat: 37.75
+    max_lon: 14.25
+    max_lat: 37.75
+    label_lon: 14.25
+    label_lat: 37.75
+  - knowledge_node_id: n_geo_sonoma_county
+    map_layer_id: ml_wset_required_gazetteer
+    feature_key: n_geo_sonoma_county
+    min_lon: -122.92254
+    min_lat: 38.52529
+    max_lon: -122.92254
+    max_lat: 38.52529
+    label_lon: -122.92254
+    label_lat: 38.52529
+  - knowledge_node_id: n_geo_terre_siciliane_igt
+    map_layer_id: ml_wset_required_gazetteer
+    feature_key: n_geo_terre_siciliane_igt
+    min_lon: 14.25
+    min_lat: 37.75
+    max_lon: 14.25
+    max_lat: 37.75
+    label_lon: 14.25
+    label_lat: 37.75
+  - knowledge_node_id: n_geo_toscana_igt
+    map_layer_id: ml_wset_required_gazetteer
+    feature_key: n_geo_toscana_igt
+    min_lon: 11
+    min_lat: 43.41667
+    max_lon: 11
+    max_lat: 43.41667
+    label_lon: 11
+    label_lat: 43.41667
+  - knowledge_node_id: n_geo_valdepenas
+    map_layer_id: ml_wset_required_gazetteer
+    feature_key: n_geo_valdepenas
+    min_lon: -3.38483
+    min_lat: 38.76211
+    max_lon: -3.38483
+    max_lat: 38.76211
+    label_lon: -3.38483
+    label_lat: 38.76211
+  - knowledge_node_id: n_geo_valencia_do
+    map_layer_id: ml_wset_required_gazetteer
+    feature_key: n_geo_valencia_do
+    min_lon: -0.37966
+    min_lat: 39.47391
+    max_lon: -0.37966
+    max_lat: 39.47391
+    label_lon: -0.37966
+    label_lat: 39.47391
+  - knowledge_node_id: n_geo_yecla
+    map_layer_id: ml_wset_required_gazetteer
+    feature_key: n_geo_yecla
+    min_lon: -1.11468
+    min_lat: 38.61365
+    max_lon: -1.11468
+    max_lat: 38.61365
+    label_lon: -1.11468
+    label_lat: 38.61365
+  - knowledge_node_id: n_geo_st_helena
+    map_layer_id: ml_wset_required_ava
+    feature_key: n_geo_st_helena
+    min_lon: -122.450529
+    min_lat: 38.505405
+    max_lon: -122.450529
+    max_lat: 38.505405
+    label_lon: -122.450529
+    label_lat: 38.505405
+  - knowledge_node_id: n_geo_world
+    map_layer_id: ml_world_land
+    feature_key: n_geo_world
+    min_lon: -180
+    min_lat: -89.998926
+    max_lon: 180
+    max_lat: 83.599609
+    label_lon: 79.737157
+    label_lat: 44.476392

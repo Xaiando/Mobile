@@ -2,11 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../app/learner_state.dart';
+import '../../app/startup.dart';
+import '../../core/curriculum/name_normalizer.dart';
 import '../../core/database/app_database.dart';
+import '../../core/database/database_providers.dart';
 import '../../core/study/study_planner.dart';
+import '../../core/study/study_search.dart';
 import '../../core/time/time_providers.dart';
 import '../../core/time/utc_clock.dart';
 import '../home/track_picker.dart';
+
+/// Names supplement assertion text when searching the active track's cards.
+/// Watching both authored tables keeps newly installed aliases searchable.
+final _studyNodeNamesProvider = StreamProvider.autoDispose<Map<String, String>>(
+  (ref) async* {
+    await ref.watch(appStartupProvider.future);
+    final db = ref.watch(appDatabaseProvider);
+    yield* StudySearchIndex(db).watchNames();
+  },
+);
 
 /// Study: the active track's curriculum by topic, with each item's memory
 /// state, badges and sources (spec §M).
@@ -38,6 +52,9 @@ class StudyScreen extends ConsumerWidget {
           ),
         ),
         AsyncData(value: final cards?) => _Curriculum(
+          key: ValueKey(
+            ref.watch(learnerProfileProvider).value?.activeCertificationId,
+          ),
           cards: cards,
           domains: domains,
         ),
@@ -50,50 +67,210 @@ class StudyScreen extends ConsumerWidget {
   }
 }
 
-class _Curriculum extends ConsumerWidget {
-  const _Curriculum({required this.cards, required this.domains});
+class _Curriculum extends ConsumerStatefulWidget {
+  const _Curriculum({super.key, required this.cards, required this.domains});
 
   final List<StudyCard> cards;
   final List<CurriculumDomain> domains;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<_Curriculum> createState() => _CurriculumState();
+}
+
+class _CurriculumState extends ConsumerState<_Curriculum> {
+  final _search = TextEditingController();
+  String? _domainId;
+  List<StudyCard>? _indexedCards;
+  List<CurriculumDomain>? _indexedDomains;
+  Map<String, String>? _indexedNames;
+  Map<String, String> _searchText = const {};
+
+  @override
+  void dispose() {
+    _search.dispose();
+    super.dispose();
+  }
+
+  void _reset() {
+    _search.clear();
+    setState(() => _domainId = null);
+  }
+
+  void _index(Map<String, String> nodeNames) {
+    if (identical(_indexedCards, widget.cards) &&
+        identical(_indexedDomains, widget.domains) &&
+        identical(_indexedNames, nodeNames)) {
+      return;
+    }
+    final domainNames = {
+      for (final domain in widget.domains) domain.id: domain.displayName,
+    };
+    _searchText = {
+      for (final card in widget.cards)
+        card.itemId: normalizeName(
+          [
+            card.item.assertionText,
+            domainNames[card.item.domainId] ?? card.item.domainId,
+            nodeNames[card.item.subjectId] ?? '',
+            nodeNames[card.item.objectId] ?? '',
+          ].join(' '),
+        ),
+    };
+    _indexedCards = widget.cards;
+    _indexedDomains = widget.domains;
+    _indexedNames = nodeNames;
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final now = utcNow(ref.watch(clockProvider));
     final theme = Theme.of(context);
+    final nodeNames =
+        ref.watch(_studyNodeNamesProvider).value ?? const <String, String>{};
+    _index(nodeNames);
+    final availableDomains = widget.cards
+        .map((card) => card.item.domainId)
+        .toSet();
+    final selectedDomain = availableDomains.contains(_domainId)
+        ? _domainId
+        : null;
+    final terms = normalizeName(_search.text)
+        .split(' ')
+        .where((term) => term.isNotEmpty)
+        .toList();
+    final matching = widget.cards.where((card) {
+      if (selectedDomain != null && card.item.domainId != selectedDomain) {
+        return false;
+      }
+      if (terms.isEmpty) return true;
+      final text = _searchText[card.itemId]!;
+      return terms.every(text.contains);
+    }).toList();
     final byDomain = <String, List<StudyCard>>{};
-    for (final card in cards) {
+    for (final card in matching) {
       byDomain.putIfAbsent(card.item.domainId, () => []).add(card);
     }
-    return ListView(
+    final filtered = _search.text.isNotEmpty || selectedDomain != null;
+    return Column(
       children: [
-        for (final domain in domains)
-          if (byDomain[domain.id] case final domainCards?) ...[
-            Padding(
-              padding: const EdgeInsets.fromLTRB(16, 16, 16, 4),
-              child: Text(
-                '${domain.displayName} · ${domainCards.length}',
-                style: theme.textTheme.titleSmall?.copyWith(
-                  color: theme.colorScheme.primary,
-                ),
-              ),
+        Padding(
+          padding: const EdgeInsets.fromLTRB(16, 12, 16, 8),
+          child: TextField(
+            key: const ValueKey('study-search'),
+            controller: _search,
+            decoration: InputDecoration(
+              labelText: 'Search study',
+              hintText: 'Wine, grape or topic',
+              prefixIcon: const Icon(Icons.search),
+              suffixIcon: _search.text.isEmpty
+                  ? null
+                  : IconButton(
+                      tooltip: 'Clear search',
+                      icon: const Icon(Icons.clear),
+                      onPressed: () {
+                        _search.clear();
+                        setState(() {});
+                      },
+                    ),
+              border: const OutlineInputBorder(),
             ),
-            for (final card in domainCards)
-              ListTile(
-                title: Text(
-                  card.item.assertionText,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                ),
-                subtitle: Text(memoryLabel(card, now)),
-                trailing: _BadgeIcons(card),
-                onTap: () => showModalBottomSheet<void>(
-                  context: context,
-                  isScrollControlled: true,
-                  showDragHandle: true,
-                  builder: (context) => _ItemDetails(card),
-                ),
+            onChanged: (_) => setState(() {}),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: DropdownButtonFormField<String>(
+            key: ValueKey('study-topic-${selectedDomain ?? 'all'}'),
+            initialValue: selectedDomain ?? '',
+            isExpanded: true,
+            decoration: const InputDecoration(
+              labelText: 'Focus on a topic',
+              border: OutlineInputBorder(),
+            ),
+            items: [
+              const DropdownMenuItem(
+                value: '',
+                child: Text('All topics', overflow: TextOverflow.ellipsis),
               ),
-          ],
+              for (final domain in widget.domains)
+                if (availableDomains.contains(domain.id))
+                  DropdownMenuItem(
+                    value: domain.id,
+                    child: Text(
+                      domain.displayName,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+            ],
+            onChanged: (value) => setState(() {
+              _domainId = value == '' ? null : value;
+            }),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.fromLTRB(16, 4, 16, 4),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                '${matching.length} of ${widget.cards.length} facts',
+                key: const ValueKey('study-result-count'),
+              ),
+              if (filtered)
+                TextButton(
+                  onPressed: _reset,
+                  child: const Text('Reset filters'),
+                ),
+            ],
+          ),
+        ),
+        Expanded(
+          child: matching.isEmpty
+              ? Center(
+                  child: Padding(
+                    padding: const EdgeInsets.all(24),
+                    child: Text(
+                      widget.cards.isEmpty
+                          ? 'No study material is available for this track yet.'
+                          : 'No facts match these filters.',
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                )
+              : ListView(
+                  key: const ValueKey('study-results'),
+                  children: [
+                    for (final domain in widget.domains)
+                      if (byDomain[domain.id] case final domainCards?) ...[
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(16, 16, 16, 4),
+                          child: Text(
+                            '${domain.displayName} · ${domainCards.length}',
+                            style: theme.textTheme.titleSmall?.copyWith(
+                              color: theme.colorScheme.primary,
+                            ),
+                          ),
+                        ),
+                        for (final card in domainCards)
+                          ListTile(
+                            title: Text(
+                              card.item.assertionText,
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                            subtitle: Text(memoryLabel(card, now)),
+                            trailing: _BadgeIcons(card),
+                            onTap: () => showModalBottomSheet<void>(
+                              context: context,
+                              isScrollControlled: true,
+                              showDragHandle: true,
+                              builder: (context) => _ItemDetails(card),
+                            ),
+                          ),
+                      ],
+                  ],
+                ),
+        ),
       ],
     );
   }

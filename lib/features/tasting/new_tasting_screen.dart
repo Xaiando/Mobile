@@ -64,12 +64,20 @@ class _NewTastingScreenState extends ConsumerState<NewTastingScreen> {
   }
 
   Widget _form(List<TastingGrid> grids) {
+    // Guided grids belong to the observation-and-evidence flow. Starting them
+    // in the legacy recorder would omit their required written prompts.
+    final recorderGrids = grids
+        .where((grid) => !grid.id.startsWith('tg_guided_wine_'))
+        .toList();
     final theme = Theme.of(context);
     final trackGrid = ref.watch(trackGridProvider).value;
     final gridId =
         _gridId ??
-        grids.map((g) => g.id).where((id) => id == trackGrid).firstOrNull ??
-        grids.first.id;
+        recorderGrids
+            .map((g) => g.id)
+            .where((id) => id == trackGrid)
+            .firstOrNull ??
+        recorderGrids.first.id;
     final wines = ref.watch(journalEntriesProvider).value ?? const [];
     final wineId = wines.any((w) => w.id == _wineId) ? _wineId : null;
 
@@ -92,7 +100,7 @@ class _NewTastingScreenState extends ConsumerState<NewTastingScreen> {
           onChanged: (id) => setState(() => _gridId = id),
           child: Column(
             children: [
-              for (final grid in grids)
+              for (final grid in recorderGrids)
                 RadioListTile<String>(
                   value: grid.id,
                   title: Text(grid.displayName),

@@ -1,0 +1,1374 @@
+# App-owned observation grids. Append-only; existing tasting grids and saved vocabulary are unchanged.
+tasting_grids:
+  - id: tg_guided_wine_l1_v1
+    framework: WSET_SAT
+    version: guided_l1_v1
+    display_name: App guided wine observation · Level 1
+  - id: tg_guided_wine_l2_v1
+    framework: WSET_SAT
+    version: guided_l2_v1
+    display_name: App guided wine observation · Level 2
+  - id: tg_guided_wine_l3_v1
+    framework: WSET_SAT
+    version: guided_l3_v1
+    display_name: App guided wine observation · Level 3
+tasting_grid_attributes:
+  - tasting_grid_id: tg_guided_wine_l1_v1
+    attribute_key: colour
+    section: Appearance
+    label: Wine colour
+    position: 1
+    selection: single
+    is_required: true
+  - tasting_grid_id: tg_guided_wine_l1_v1
+    attribute_key: aromas
+    section: Smell
+    label: Aroma associations
+    position: 2
+    selection: multi
+    is_required: true
+  - tasting_grid_id: tg_guided_wine_l1_v1
+    attribute_key: sweetness
+    section: Taste and feel
+    label: Perceived sweetness
+    position: 3
+    selection: single
+    is_required: true
+  - tasting_grid_id: tg_guided_wine_l1_v1
+    attribute_key: acidity
+    section: Taste and feel
+    label: Mouthwatering acidity
+    position: 4
+    selection: single
+    is_required: true
+  - tasting_grid_id: tg_guided_wine_l1_v1
+    attribute_key: tannin
+    section: Taste and feel
+    label: Drying tannin amount
+    position: 5
+    selection: single
+    is_required: true
+  - tasting_grid_id: tg_guided_wine_l1_v1
+    attribute_key: body
+    section: Taste and feel
+    label: Perceived weight
+    position: 6
+    selection: single
+    is_required: true
+  - tasting_grid_id: tg_guided_wine_l1_v1
+    attribute_key: alcohol
+    section: Taste and feel
+    label: Alcohol warmth
+    position: 7
+    selection: single
+    is_required: true
+  - tasting_grid_id: tg_guided_wine_l1_v1
+    attribute_key: flavours
+    section: Taste and feel
+    label: Flavour associations
+    position: 8
+    selection: multi
+    is_required: true
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: colour
+    section: Appearance
+    label: Wine colour
+    position: 1
+    selection: single
+    is_required: true
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: aromas
+    section: Smell
+    label: Aroma associations
+    position: 2
+    selection: multi
+    is_required: true
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: sweetness
+    section: Taste and feel
+    label: Perceived sweetness
+    position: 3
+    selection: single
+    is_required: true
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: acidity
+    section: Taste and feel
+    label: Mouthwatering acidity
+    position: 4
+    selection: single
+    is_required: true
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: tannin
+    section: Taste and feel
+    label: Drying tannin amount
+    position: 5
+    selection: single
+    is_required: true
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: body
+    section: Taste and feel
+    label: Perceived weight
+    position: 6
+    selection: single
+    is_required: true
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: alcohol
+    section: Taste and feel
+    label: Alcohol warmth
+    position: 7
+    selection: single
+    is_required: true
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: clarity
+    section: Appearance
+    label: Clarity
+    position: 8
+    selection: single
+    is_required: true
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: depth
+    section: Appearance
+    label: Colour depth
+    position: 9
+    selection: single
+    is_required: true
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: hue
+    section: Appearance
+    label: Colour shade
+    position: 10
+    selection: single
+    is_required: true
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: nose_condition
+    section: Smell
+    label: Condition to investigate
+    position: 11
+    selection: single
+    is_required: true
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: aroma_strength
+    section: Smell
+    label: Aroma strength
+    position: 12
+    selection: single
+    is_required: true
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: development
+    section: Smell
+    label: Development of character
+    position: 13
+    selection: single
+    is_required: true
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: flavours
+    section: Taste and feel
+    label: Flavour associations
+    position: 14
+    selection: multi
+    is_required: true
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: flavour_strength
+    section: Taste and feel
+    label: Flavour strength
+    position: 15
+    selection: single
+    is_required: true
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: finish
+    section: After the sip
+    label: Pleasant flavour persistence
+    position: 16
+    selection: single
+    is_required: true
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: texture
+    section: Taste and feel
+    label: Tannin texture
+    position: 17
+    selection: single
+    is_required: true
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: colour
+    section: Appearance
+    label: Wine colour
+    position: 1
+    selection: single
+    is_required: true
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: aromas
+    section: Smell
+    label: Aroma associations
+    position: 2
+    selection: multi
+    is_required: true
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: sweetness
+    section: Taste and feel
+    label: Perceived sweetness
+    position: 3
+    selection: single
+    is_required: true
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: acidity
+    section: Taste and feel
+    label: Mouthwatering acidity
+    position: 4
+    selection: single
+    is_required: true
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: tannin
+    section: Taste and feel
+    label: Drying tannin amount
+    position: 5
+    selection: single
+    is_required: true
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: body
+    section: Taste and feel
+    label: Perceived weight
+    position: 6
+    selection: single
+    is_required: true
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: alcohol
+    section: Taste and feel
+    label: Alcohol warmth
+    position: 7
+    selection: single
+    is_required: true
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: clarity
+    section: Appearance
+    label: Clarity
+    position: 8
+    selection: single
+    is_required: true
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: depth
+    section: Appearance
+    label: Colour depth
+    position: 9
+    selection: single
+    is_required: true
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: hue
+    section: Appearance
+    label: Colour shade
+    position: 10
+    selection: single
+    is_required: true
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: nose_condition
+    section: Smell
+    label: Condition to investigate
+    position: 11
+    selection: single
+    is_required: true
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: aroma_strength
+    section: Smell
+    label: Aroma strength
+    position: 12
+    selection: single
+    is_required: true
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: development
+    section: Smell
+    label: Development of character
+    position: 13
+    selection: single
+    is_required: true
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: flavours
+    section: Taste and feel
+    label: Flavour associations
+    position: 14
+    selection: multi
+    is_required: true
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: flavour_strength
+    section: Taste and feel
+    label: Flavour strength
+    position: 15
+    selection: single
+    is_required: true
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: finish
+    section: After the sip
+    label: Pleasant flavour persistence
+    position: 16
+    selection: single
+    is_required: true
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: texture
+    section: Taste and feel
+    label: Tannin texture
+    position: 17
+    selection: single
+    is_required: true
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: quality
+    section: Conclusions
+    label: Evidence for quality
+    position: 18
+    selection: single
+    is_required: true
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: readiness
+    section: Conclusions
+    label: Readiness and development
+    position: 19
+    selection: single
+    is_required: true
+tasting_grid_values:
+  - tasting_grid_id: tg_guided_wine_l1_v1
+    attribute_key: colour
+    value_key: white
+    label: White
+    position: 1
+  - tasting_grid_id: tg_guided_wine_l1_v1
+    attribute_key: colour
+    value_key: rose
+    label: Rosé
+    position: 2
+  - tasting_grid_id: tg_guided_wine_l1_v1
+    attribute_key: colour
+    value_key: red
+    label: Red
+    position: 3
+  - tasting_grid_id: tg_guided_wine_l1_v1
+    attribute_key: aromas
+    value_key: citrus
+    label: Citrus
+    position: 1
+  - tasting_grid_id: tg_guided_wine_l1_v1
+    attribute_key: aromas
+    value_key: orchard
+    label: Apple or pear
+    position: 2
+  - tasting_grid_id: tg_guided_wine_l1_v1
+    attribute_key: aromas
+    value_key: stone
+    label: Stone fruit
+    position: 3
+  - tasting_grid_id: tg_guided_wine_l1_v1
+    attribute_key: aromas
+    value_key: tropical
+    label: Tropical fruit
+    position: 4
+  - tasting_grid_id: tg_guided_wine_l1_v1
+    attribute_key: aromas
+    value_key: red_fruit
+    label: Red fruit
+    position: 5
+  - tasting_grid_id: tg_guided_wine_l1_v1
+    attribute_key: aromas
+    value_key: black_fruit
+    label: Black fruit
+    position: 6
+  - tasting_grid_id: tg_guided_wine_l1_v1
+    attribute_key: aromas
+    value_key: floral
+    label: Flowers
+    position: 7
+  - tasting_grid_id: tg_guided_wine_l1_v1
+    attribute_key: aromas
+    value_key: herbal
+    label: Herbal or green
+    position: 8
+  - tasting_grid_id: tg_guided_wine_l1_v1
+    attribute_key: aromas
+    value_key: spice
+    label: Spice
+    position: 9
+  - tasting_grid_id: tg_guided_wine_l1_v1
+    attribute_key: aromas
+    value_key: yeast
+    label: Yeast or bread
+    position: 10
+  - tasting_grid_id: tg_guided_wine_l1_v1
+    attribute_key: aromas
+    value_key: oak
+    label: Vanilla or toast
+    position: 11
+  - tasting_grid_id: tg_guided_wine_l1_v1
+    attribute_key: aromas
+    value_key: developed
+    label: Dried fruit, honey or savoury development
+    position: 12
+  - tasting_grid_id: tg_guided_wine_l1_v1
+    attribute_key: aromas
+    value_key: none
+    label: No identifiable character
+    position: 13
+  - tasting_grid_id: tg_guided_wine_l1_v1
+    attribute_key: sweetness
+    value_key: dry
+    label: Dry
+    position: 1
+  - tasting_grid_id: tg_guided_wine_l1_v1
+    attribute_key: sweetness
+    value_key: touch
+    label: A little sweetness
+    position: 2
+  - tasting_grid_id: tg_guided_wine_l1_v1
+    attribute_key: sweetness
+    value_key: noticeable
+    label: Noticeably sweet
+    position: 3
+  - tasting_grid_id: tg_guided_wine_l1_v1
+    attribute_key: sweetness
+    value_key: rich
+    label: Richly sweet
+    position: 4
+  - tasting_grid_id: tg_guided_wine_l1_v1
+    attribute_key: acidity
+    value_key: low
+    label: Low
+    position: 1
+  - tasting_grid_id: tg_guided_wine_l1_v1
+    attribute_key: acidity
+    value_key: moderate
+    label: Moderate
+    position: 2
+  - tasting_grid_id: tg_guided_wine_l1_v1
+    attribute_key: acidity
+    value_key: high
+    label: High
+    position: 3
+  - tasting_grid_id: tg_guided_wine_l1_v1
+    attribute_key: tannin
+    value_key: none
+    label: No noticeable tannin
+    position: 1
+  - tasting_grid_id: tg_guided_wine_l1_v1
+    attribute_key: tannin
+    value_key: low
+    label: Low
+    position: 2
+  - tasting_grid_id: tg_guided_wine_l1_v1
+    attribute_key: tannin
+    value_key: moderate
+    label: Moderate
+    position: 3
+  - tasting_grid_id: tg_guided_wine_l1_v1
+    attribute_key: tannin
+    value_key: high
+    label: High
+    position: 4
+  - tasting_grid_id: tg_guided_wine_l1_v1
+    attribute_key: body
+    value_key: light
+    label: Light
+    position: 1
+  - tasting_grid_id: tg_guided_wine_l1_v1
+    attribute_key: body
+    value_key: middle
+    label: Medium weight
+    position: 2
+  - tasting_grid_id: tg_guided_wine_l1_v1
+    attribute_key: body
+    value_key: full
+    label: Full
+    position: 3
+  - tasting_grid_id: tg_guided_wine_l1_v1
+    attribute_key: alcohol
+    value_key: low
+    label: Low
+    position: 1
+  - tasting_grid_id: tg_guided_wine_l1_v1
+    attribute_key: alcohol
+    value_key: moderate
+    label: Moderate
+    position: 2
+  - tasting_grid_id: tg_guided_wine_l1_v1
+    attribute_key: alcohol
+    value_key: high
+    label: High
+    position: 3
+  - tasting_grid_id: tg_guided_wine_l1_v1
+    attribute_key: flavours
+    value_key: citrus
+    label: Citrus
+    position: 1
+  - tasting_grid_id: tg_guided_wine_l1_v1
+    attribute_key: flavours
+    value_key: orchard
+    label: Apple or pear
+    position: 2
+  - tasting_grid_id: tg_guided_wine_l1_v1
+    attribute_key: flavours
+    value_key: stone
+    label: Stone fruit
+    position: 3
+  - tasting_grid_id: tg_guided_wine_l1_v1
+    attribute_key: flavours
+    value_key: tropical
+    label: Tropical fruit
+    position: 4
+  - tasting_grid_id: tg_guided_wine_l1_v1
+    attribute_key: flavours
+    value_key: red_fruit
+    label: Red fruit
+    position: 5
+  - tasting_grid_id: tg_guided_wine_l1_v1
+    attribute_key: flavours
+    value_key: black_fruit
+    label: Black fruit
+    position: 6
+  - tasting_grid_id: tg_guided_wine_l1_v1
+    attribute_key: flavours
+    value_key: floral
+    label: Flowers
+    position: 7
+  - tasting_grid_id: tg_guided_wine_l1_v1
+    attribute_key: flavours
+    value_key: herbal
+    label: Herbal or green
+    position: 8
+  - tasting_grid_id: tg_guided_wine_l1_v1
+    attribute_key: flavours
+    value_key: spice
+    label: Spice
+    position: 9
+  - tasting_grid_id: tg_guided_wine_l1_v1
+    attribute_key: flavours
+    value_key: yeast
+    label: Yeast or bread
+    position: 10
+  - tasting_grid_id: tg_guided_wine_l1_v1
+    attribute_key: flavours
+    value_key: oak
+    label: Vanilla or toast
+    position: 11
+  - tasting_grid_id: tg_guided_wine_l1_v1
+    attribute_key: flavours
+    value_key: developed
+    label: Dried fruit, honey or savoury development
+    position: 12
+  - tasting_grid_id: tg_guided_wine_l1_v1
+    attribute_key: flavours
+    value_key: none
+    label: No identifiable character
+    position: 13
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: colour
+    value_key: white
+    label: White
+    position: 1
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: colour
+    value_key: rose
+    label: Rosé
+    position: 2
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: colour
+    value_key: red
+    label: Red
+    position: 3
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: aromas
+    value_key: citrus
+    label: Citrus
+    position: 1
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: aromas
+    value_key: orchard
+    label: Apple or pear
+    position: 2
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: aromas
+    value_key: stone
+    label: Stone fruit
+    position: 3
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: aromas
+    value_key: tropical
+    label: Tropical fruit
+    position: 4
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: aromas
+    value_key: red_fruit
+    label: Red fruit
+    position: 5
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: aromas
+    value_key: black_fruit
+    label: Black fruit
+    position: 6
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: aromas
+    value_key: floral
+    label: Flowers
+    position: 7
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: aromas
+    value_key: herbal
+    label: Herbal or green
+    position: 8
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: aromas
+    value_key: spice
+    label: Spice
+    position: 9
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: aromas
+    value_key: yeast
+    label: Yeast or bread
+    position: 10
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: aromas
+    value_key: oak
+    label: Vanilla or toast
+    position: 11
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: aromas
+    value_key: developed
+    label: Dried fruit, honey or savoury development
+    position: 12
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: aromas
+    value_key: none
+    label: No identifiable character
+    position: 13
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: sweetness
+    value_key: dry
+    label: Dry
+    position: 1
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: sweetness
+    value_key: touch
+    label: A little sweetness
+    position: 2
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: sweetness
+    value_key: noticeable
+    label: Noticeably sweet
+    position: 3
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: sweetness
+    value_key: rich
+    label: Richly sweet
+    position: 4
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: acidity
+    value_key: low
+    label: Low
+    position: 1
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: acidity
+    value_key: moderate
+    label: Moderate
+    position: 2
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: acidity
+    value_key: high
+    label: High
+    position: 3
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: tannin
+    value_key: none
+    label: No noticeable tannin
+    position: 1
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: tannin
+    value_key: low
+    label: Low
+    position: 2
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: tannin
+    value_key: moderate
+    label: Moderate
+    position: 3
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: tannin
+    value_key: high
+    label: High
+    position: 4
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: body
+    value_key: light
+    label: Light
+    position: 1
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: body
+    value_key: middle
+    label: Medium weight
+    position: 2
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: body
+    value_key: full
+    label: Full
+    position: 3
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: alcohol
+    value_key: low
+    label: Low
+    position: 1
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: alcohol
+    value_key: moderate
+    label: Moderate
+    position: 2
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: alcohol
+    value_key: high
+    label: High
+    position: 3
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: clarity
+    value_key: clear
+    label: Clear
+    position: 1
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: clarity
+    value_key: hazy
+    label: Hazy
+    position: 2
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: depth
+    value_key: pale
+    label: Pale
+    position: 1
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: depth
+    value_key: moderate
+    label: Moderate depth
+    position: 2
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: depth
+    value_key: deep
+    label: Deep
+    position: 3
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: hue
+    value_key: straw
+    label: Straw
+    position: 1
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: hue
+    value_key: gold
+    label: Gold
+    position: 2
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: hue
+    value_key: amber
+    label: Amber
+    position: 3
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: hue
+    value_key: pink
+    label: Pink
+    position: 4
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: hue
+    value_key: copper
+    label: Copper
+    position: 5
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: hue
+    value_key: purple
+    label: Purple
+    position: 6
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: hue
+    value_key: ruby
+    label: Ruby
+    position: 7
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: hue
+    value_key: garnet
+    label: Garnet
+    position: 8
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: hue
+    value_key: brown
+    label: Brown
+    position: 9
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: nose_condition
+    value_key: sound
+    label: No suspected fault
+    position: 1
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: nose_condition
+    value_key: suspect
+    label: Investigate a suspected fault
+    position: 2
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: aroma_strength
+    value_key: subtle
+    label: Subtle
+    position: 1
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: aroma_strength
+    value_key: clear
+    label: Clearly expressed
+    position: 2
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: aroma_strength
+    value_key: powerful
+    label: Powerful
+    position: 3
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: development
+    value_key: fresh
+    label: Fresh character dominates
+    position: 1
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: development
+    value_key: mixed
+    label: Fresh and developed character
+    position: 2
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: development
+    value_key: developed
+    label: Developed character dominates
+    position: 3
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: flavours
+    value_key: citrus
+    label: Citrus
+    position: 1
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: flavours
+    value_key: orchard
+    label: Apple or pear
+    position: 2
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: flavours
+    value_key: stone
+    label: Stone fruit
+    position: 3
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: flavours
+    value_key: tropical
+    label: Tropical fruit
+    position: 4
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: flavours
+    value_key: red_fruit
+    label: Red fruit
+    position: 5
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: flavours
+    value_key: black_fruit
+    label: Black fruit
+    position: 6
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: flavours
+    value_key: floral
+    label: Flowers
+    position: 7
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: flavours
+    value_key: herbal
+    label: Herbal or green
+    position: 8
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: flavours
+    value_key: spice
+    label: Spice
+    position: 9
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: flavours
+    value_key: yeast
+    label: Yeast or bread
+    position: 10
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: flavours
+    value_key: oak
+    label: Vanilla or toast
+    position: 11
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: flavours
+    value_key: developed
+    label: Dried fruit, honey or savoury development
+    position: 12
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: flavours
+    value_key: none
+    label: No identifiable character
+    position: 13
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: flavour_strength
+    value_key: subtle
+    label: Subtle
+    position: 1
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: flavour_strength
+    value_key: clear
+    label: Clearly expressed
+    position: 2
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: flavour_strength
+    value_key: powerful
+    label: Powerful
+    position: 3
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: finish
+    value_key: brief
+    label: Brief
+    position: 1
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: finish
+    value_key: sustained
+    label: Sustained
+    position: 2
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: finish
+    value_key: persistent
+    label: Persistent
+    position: 3
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: texture
+    value_key: none
+    label: No noticeable tannin
+    position: 1
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: texture
+    value_key: smooth
+    label: Smooth or fine
+    position: 2
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: texture
+    value_key: firm
+    label: Firm or grippy
+    position: 3
+  - tasting_grid_id: tg_guided_wine_l2_v1
+    attribute_key: texture
+    value_key: rough
+    label: Rough or coarse
+    position: 4
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: colour
+    value_key: white
+    label: White
+    position: 1
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: colour
+    value_key: rose
+    label: Rosé
+    position: 2
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: colour
+    value_key: red
+    label: Red
+    position: 3
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: aromas
+    value_key: citrus
+    label: Citrus
+    position: 1
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: aromas
+    value_key: orchard
+    label: Apple or pear
+    position: 2
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: aromas
+    value_key: stone
+    label: Stone fruit
+    position: 3
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: aromas
+    value_key: tropical
+    label: Tropical fruit
+    position: 4
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: aromas
+    value_key: red_fruit
+    label: Red fruit
+    position: 5
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: aromas
+    value_key: black_fruit
+    label: Black fruit
+    position: 6
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: aromas
+    value_key: floral
+    label: Flowers
+    position: 7
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: aromas
+    value_key: herbal
+    label: Herbal or green
+    position: 8
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: aromas
+    value_key: spice
+    label: Spice
+    position: 9
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: aromas
+    value_key: yeast
+    label: Yeast or bread
+    position: 10
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: aromas
+    value_key: oak
+    label: Vanilla or toast
+    position: 11
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: aromas
+    value_key: developed
+    label: Dried fruit, honey or savoury development
+    position: 12
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: aromas
+    value_key: none
+    label: No identifiable character
+    position: 13
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: sweetness
+    value_key: dry
+    label: Dry
+    position: 1
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: sweetness
+    value_key: touch
+    label: A little sweetness
+    position: 2
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: sweetness
+    value_key: noticeable
+    label: Noticeably sweet
+    position: 3
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: sweetness
+    value_key: rich
+    label: Richly sweet
+    position: 4
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: acidity
+    value_key: low
+    label: Low
+    position: 1
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: acidity
+    value_key: moderate
+    label: Moderate
+    position: 2
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: acidity
+    value_key: high
+    label: High
+    position: 3
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: tannin
+    value_key: none
+    label: No noticeable tannin
+    position: 1
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: tannin
+    value_key: low
+    label: Low
+    position: 2
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: tannin
+    value_key: moderate
+    label: Moderate
+    position: 3
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: tannin
+    value_key: high
+    label: High
+    position: 4
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: body
+    value_key: light
+    label: Light
+    position: 1
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: body
+    value_key: middle
+    label: Medium weight
+    position: 2
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: body
+    value_key: full
+    label: Full
+    position: 3
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: alcohol
+    value_key: low
+    label: Low
+    position: 1
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: alcohol
+    value_key: moderate
+    label: Moderate
+    position: 2
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: alcohol
+    value_key: high
+    label: High
+    position: 3
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: clarity
+    value_key: clear
+    label: Clear
+    position: 1
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: clarity
+    value_key: hazy
+    label: Hazy
+    position: 2
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: depth
+    value_key: pale
+    label: Pale
+    position: 1
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: depth
+    value_key: moderate
+    label: Moderate depth
+    position: 2
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: depth
+    value_key: deep
+    label: Deep
+    position: 3
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: hue
+    value_key: straw
+    label: Straw
+    position: 1
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: hue
+    value_key: gold
+    label: Gold
+    position: 2
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: hue
+    value_key: amber
+    label: Amber
+    position: 3
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: hue
+    value_key: pink
+    label: Pink
+    position: 4
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: hue
+    value_key: copper
+    label: Copper
+    position: 5
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: hue
+    value_key: purple
+    label: Purple
+    position: 6
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: hue
+    value_key: ruby
+    label: Ruby
+    position: 7
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: hue
+    value_key: garnet
+    label: Garnet
+    position: 8
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: hue
+    value_key: brown
+    label: Brown
+    position: 9
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: nose_condition
+    value_key: sound
+    label: No suspected fault
+    position: 1
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: nose_condition
+    value_key: suspect
+    label: Investigate a suspected fault
+    position: 2
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: aroma_strength
+    value_key: subtle
+    label: Subtle
+    position: 1
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: aroma_strength
+    value_key: clear
+    label: Clearly expressed
+    position: 2
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: aroma_strength
+    value_key: powerful
+    label: Powerful
+    position: 3
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: development
+    value_key: fresh
+    label: Fresh character dominates
+    position: 1
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: development
+    value_key: mixed
+    label: Fresh and developed character
+    position: 2
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: development
+    value_key: developed
+    label: Developed character dominates
+    position: 3
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: flavours
+    value_key: citrus
+    label: Citrus
+    position: 1
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: flavours
+    value_key: orchard
+    label: Apple or pear
+    position: 2
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: flavours
+    value_key: stone
+    label: Stone fruit
+    position: 3
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: flavours
+    value_key: tropical
+    label: Tropical fruit
+    position: 4
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: flavours
+    value_key: red_fruit
+    label: Red fruit
+    position: 5
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: flavours
+    value_key: black_fruit
+    label: Black fruit
+    position: 6
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: flavours
+    value_key: floral
+    label: Flowers
+    position: 7
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: flavours
+    value_key: herbal
+    label: Herbal or green
+    position: 8
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: flavours
+    value_key: spice
+    label: Spice
+    position: 9
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: flavours
+    value_key: yeast
+    label: Yeast or bread
+    position: 10
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: flavours
+    value_key: oak
+    label: Vanilla or toast
+    position: 11
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: flavours
+    value_key: developed
+    label: Dried fruit, honey or savoury development
+    position: 12
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: flavours
+    value_key: none
+    label: No identifiable character
+    position: 13
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: flavour_strength
+    value_key: subtle
+    label: Subtle
+    position: 1
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: flavour_strength
+    value_key: clear
+    label: Clearly expressed
+    position: 2
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: flavour_strength
+    value_key: powerful
+    label: Powerful
+    position: 3
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: finish
+    value_key: brief
+    label: Brief
+    position: 1
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: finish
+    value_key: sustained
+    label: Sustained
+    position: 2
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: finish
+    value_key: persistent
+    label: Persistent
+    position: 3
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: texture
+    value_key: none
+    label: No noticeable tannin
+    position: 1
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: texture
+    value_key: smooth
+    label: Smooth or fine
+    position: 2
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: texture
+    value_key: firm
+    label: Firm or grippy
+    position: 3
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: texture
+    value_key: rough
+    label: Rough or coarse
+    position: 4
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: quality
+    value_key: limited
+    label: Limited quality evidence
+    position: 1
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: quality
+    value_key: sound
+    label: Sound with some strengths
+    position: 2
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: quality
+    value_key: strong
+    label: Strong quality evidence
+    position: 3
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: quality
+    value_key: exceptional
+    label: Exceptional quality evidence
+    position: 4
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: readiness
+    value_key: now
+    label: Drink now
+    position: 1
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: readiness
+    value_key: now_develop
+    label: Enjoy now; may develop
+    position: 2
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: readiness
+    value_key: needs_time
+    label: Structure needs time
+    position: 3
+  - tasting_grid_id: tg_guided_wine_l3_v1
+    attribute_key: readiness
+    value_key: declining
+    label: Appears past its best
+    position: 4

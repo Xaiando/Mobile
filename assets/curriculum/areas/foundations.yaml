@@ -15,8 +15,8 @@ curriculum_domains:
 # WSET_L4 and CMS_CERTIFIED are offered. Diploma inherits authored lower-level
 # practice; selectability does not establish complete Diploma coverage.
 certifications:
-  - { id: WSET_L1, organization: WSET, level: 1, display_name: WSET Level 1, default_tasting_grid_id: tg_structured }
-  - { id: WSET_L2, organization: WSET, level: 2, display_name: WSET Level 2, includes_certification_id: WSET_L1, default_tasting_grid_id: tg_structured }
+  - { id: WSET_L1, organization: WSET, level: 1, display_name: WSET Level 1, is_selectable: true, default_tasting_grid_id: tg_structured }
+  - { id: WSET_L2, organization: WSET, level: 2, display_name: WSET Level 2, includes_certification_id: WSET_L1, is_selectable: true, default_tasting_grid_id: tg_structured }
   - { id: WSET_L3, organization: WSET, level: 3, display_name: WSET Level 3, includes_certification_id: WSET_L2, is_selectable: true, default_tasting_grid_id: tg_structured }
   - { id: WSET_L4, organization: WSET, level: 4, display_name: WSET Level 4 Diploma, includes_certification_id: WSET_L3, is_selectable: true, default_tasting_grid_id: tg_structured }
   - { id: CMS_INTRODUCTORY, organization: CMS, level: 1, display_name: CMS Introductory Sommelier, default_tasting_grid_id: tg_deductive }

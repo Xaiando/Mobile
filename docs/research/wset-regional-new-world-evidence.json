@@ -1,0 +1,5909 @@
+{
+  "schema_version": 1,
+  "authored_on": "2026-09-27",
+  "scope_sources": [
+    {
+      "level": "WSET_L2",
+      "version": "2026 Issue 2.1",
+      "url": "https://www.wsetglobal.com/media/19132/wset_l2wines_specification_en_april2026_issue21.pdf",
+      "outcomes": [
+        "LO3 principal grapes and GIs",
+        "LO4 regionally important grapes and terms"
+      ]
+    },
+    {
+      "level": "WSET_L3",
+      "version": "May 2022 issue 2",
+      "url": "https://www.wsetglobal.com/media/11731/wset_l3wines_specification_en_highres_may2022_issue2.pdf",
+      "outcome": "Unit 1 LO2, still wine regional contexts and labelling"
+    }
+  ],
+  "coverage_claim": "Original, cited explanatory study content for named New World still-wine contexts. Includes only enumerated evidence and selected lower-level mappings. This is not official WSET endorsement, expert verification, exam content, or a complete qualification. Sparkling, fortified, practical tasting and global production/commerce remain separate audited dimensions.",
+  "source_semantics": "Official WSET publications define study scope. Regional boards, regulators and technical sources support factual lesson claims. Promotional quality rankings, transient statistics, soil-to-flavour guarantees and required price ladders are excluded.",
+  "study_inheritance": "L2 core items are inherited by L3 and L4. Reused L2 mappings are selected original beginner-suitable explanations only. Existing L3/L4 mappings are retained.",
+  "groups": [
+    {
+      "id": "us_california",
+      "level": "WSET_L2",
+      "required_region_names": [
+        "California"
+      ],
+      "grapes": [
+        "Merlot",
+        "Cabernet Sauvignon",
+        "Chardonnay",
+        "Zinfandel"
+      ],
+      "dimensions": {
+        "grapes": [
+          "ki_wset_nw_california_variation",
+          "ki_wset_nw_california_zinfandel_range"
+        ],
+        "environment": [
+          "ki_wset_nw_california_variation"
+        ],
+        "production": [
+          "ki_wset_nw_california_zinfandel_range"
+        ],
+        "style": [
+          "ki_wset_nw_california_variation",
+          "ki_wset_nw_california_zinfandel_range"
+        ],
+        "quality_price": [],
+        "labels": [
+          "ki_wset_nw_usa_origin_scale",
+          "ki_wset_nw_usa_ava_origin"
+        ]
+      },
+      "canonical_locations": [
+        {
+          "required_name": "California",
+          "node_id": "n_geo_california",
+          "location_items": [
+            "ki_atlas_california_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        }
+      ],
+      "quality_price_common_items": [
+        "ki_biz_cost_plus"
+      ],
+      "generic_style_items": [],
+      "coverage_note": "The group separates original regional explanations, transferable grape/production principles and existing map facts. It does not claim every named place has every dimension independently. Root’s topic audit must inspect this evidence and any explicitly empty dimensions."
+    },
+    {
+      "id": "us_napa",
+      "level": "WSET_L2",
+      "required_region_names": [
+        "Napa County",
+        "Napa Valley",
+        "Rutherford",
+        "Oakville",
+        "Calistoga",
+        "Los Carneros"
+      ],
+      "grapes": [
+        "Merlot",
+        "Cabernet Sauvignon",
+        "Chardonnay",
+        "Sauvignon Blanc",
+        "Pinot Noir"
+      ],
+      "dimensions": {
+        "grapes": [
+          "ki_wset_nw_napa_cabernet",
+          "ki_wset_nw_napa_merlot",
+          "ki_wset_nw_napa_chardonnay",
+          "ki_wset_nw_napa_sauvignon",
+          "ki_reg_am_carneros_cooling",
+          "ki_wset_nw_oakville_setting",
+          "ki_wset_nw_rutherford_setting",
+          "ki_wset_nw_calistoga_setting"
+        ],
+        "environment": [
+          "ki_reg_am_carneros_cooling",
+          "ki_reg_am_upper_napa_warmth",
+          "ki_wset_nw_oakville_setting",
+          "ki_wset_nw_rutherford_setting",
+          "ki_wset_nw_calistoga_setting"
+        ],
+        "production": [
+          "ki_wset_nw_napa_cabernet",
+          "ki_wset_nw_napa_merlot",
+          "ki_wset_nw_napa_chardonnay",
+          "ki_wset_nw_napa_sauvignon"
+        ],
+        "style": [
+          "ki_wset_nw_napa_cabernet",
+          "ki_wset_nw_napa_merlot",
+          "ki_wset_nw_napa_chardonnay",
+          "ki_wset_nw_napa_sauvignon"
+        ],
+        "quality_price": [],
+        "labels": [
+          "ki_wset_nw_napa_sauvignon",
+          "ki_wset_nw_usa_origin_scale",
+          "ki_wset_nw_usa_ava_origin"
+        ]
+      },
+      "canonical_locations": [
+        {
+          "required_name": "Napa County",
+          "node_id": "n_geo_napa_county",
+          "location_items": [],
+          "exists_at_authoring": false,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Napa Valley",
+          "node_id": "n_geo_napa_valley",
+          "location_items": [
+            "ki_atlas_napa_valley_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Rutherford",
+          "node_id": "n_geo_rutherford",
+          "location_items": [
+            "ki_atlas_rutherford_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Oakville",
+          "node_id": "n_geo_oakville",
+          "location_items": [
+            "ki_atlas_oakville_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Calistoga",
+          "node_id": "n_geo_calistoga",
+          "location_items": [
+            "ki_atlas_calistoga_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Los Carneros",
+          "node_id": "n_geo_los_carneros",
+          "location_items": [
+            "ki_atlas_los_carneros_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        }
+      ],
+      "quality_price_common_items": [
+        "ki_biz_cost_plus"
+      ],
+      "generic_style_items": [],
+      "coverage_note": "The group separates original regional explanations, transferable grape/production principles and existing map facts. It does not claim every named place has every dimension independently. Root’s topic audit must inspect this evidence and any explicitly empty dimensions."
+    },
+    {
+      "id": "us_napa_subavas",
+      "level": "WSET_L3",
+      "required_region_names": [
+        "Stags Leap District",
+        "Howell Mountain",
+        "Mount Veeder",
+        "Saint Helena"
+      ],
+      "grapes": [
+        "Cabernet Sauvignon",
+        "Merlot"
+      ],
+      "dimensions": {
+        "grapes": [
+          "ki_wset_nw_stags_leap_setting",
+          "ki_wset_nw_howell_setting",
+          "ki_wset_nw_veeder_setting",
+          "ki_wset_nw_saint_helena_setting"
+        ],
+        "environment": [
+          "ki_wset_nw_stags_leap_setting",
+          "ki_wset_nw_howell_setting",
+          "ki_wset_nw_veeder_setting",
+          "ki_wset_nw_saint_helena_setting"
+        ],
+        "production": [
+          "ki_wset_nw_napa_cabernet",
+          "ki_wset_nw_napa_merlot"
+        ],
+        "style": [
+          "ki_wset_nw_napa_cabernet",
+          "ki_wset_nw_napa_merlot"
+        ],
+        "quality_price": [],
+        "labels": [
+          "ki_wset_nw_usa_origin_scale",
+          "ki_wset_nw_usa_ava_origin"
+        ]
+      },
+      "canonical_locations": [
+        {
+          "required_name": "Stags Leap District",
+          "node_id": "n_geo_stags_leap_district",
+          "location_items": [
+            "ki_nwc_stags_leap_district_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Howell Mountain",
+          "node_id": "n_geo_howell_mountain",
+          "location_items": [
+            "ki_nwc_howell_mountain_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Mount Veeder",
+          "node_id": "n_geo_mount_veeder",
+          "location_items": [
+            "ki_nwc_mount_veeder_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Saint Helena",
+          "node_id": "n_geo_saint_helena_ava",
+          "location_items": [],
+          "exists_at_authoring": false,
+          "counts_as_explanatory_coverage": false
+        }
+      ],
+      "quality_price_common_items": [
+        "ki_biz_cost_plus"
+      ],
+      "generic_style_items": [],
+      "coverage_note": "The group separates original regional explanations, transferable grape/production principles and existing map facts. It does not claim every named place has every dimension independently. Root’s topic audit must inspect this evidence and any explicitly empty dimensions."
+    },
+    {
+      "id": "us_sonoma",
+      "level": "WSET_L2",
+      "required_region_names": [
+        "Sonoma",
+        "Sonoma County",
+        "Russian River Valley",
+        "Alexander Valley",
+        "Dry Creek Valley",
+        "Sonoma Coast"
+      ],
+      "grapes": [
+        "Cabernet Sauvignon",
+        "Merlot",
+        "Pinot Noir",
+        "Chardonnay",
+        "Zinfandel"
+      ],
+      "dimensions": {
+        "grapes": [
+          "ki_reg_am_russian_river_pinot",
+          "ki_reg_am_alexander_cabernet",
+          "ki_wset_nw_sonoma_grape_sites",
+          "ki_wset_nw_dry_creek_zinfandel",
+          "ki_wset_nw_sonoma_coast_setting"
+        ],
+        "environment": [
+          "ki_reg_am_russian_river_pinot",
+          "ki_reg_am_alexander_cabernet",
+          "ki_wset_nw_sonoma_grape_sites",
+          "ki_wset_nw_sonoma_coast_setting"
+        ],
+        "production": [
+          "ki_wset_grape_merlot_profile",
+          "ki_wset_grape_chardonnay_variation"
+        ],
+        "style": [
+          "ki_wset_nw_dry_creek_zinfandel",
+          "ki_wset_grape_merlot_profile",
+          "ki_wset_grape_pinot_noir_profile",
+          "ki_wset_grape_chardonnay_variation"
+        ],
+        "quality_price": [],
+        "labels": [
+          "ki_wset_nw_usa_origin_scale",
+          "ki_wset_nw_usa_ava_origin"
+        ]
+      },
+      "canonical_locations": [
+        {
+          "required_name": "Sonoma",
+          "node_id": "n_geo_sonoma_county",
+          "location_items": [],
+          "exists_at_authoring": false,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Sonoma County",
+          "node_id": "n_geo_sonoma_county",
+          "location_items": [],
+          "exists_at_authoring": false,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Russian River Valley",
+          "node_id": "n_geo_russian_river_valley",
+          "location_items": [
+            "ki_atlas_russian_river_valley_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Alexander Valley",
+          "node_id": "n_geo_alexander_valley",
+          "location_items": [
+            "ki_atlas_alexander_valley_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Dry Creek Valley",
+          "node_id": "n_geo_dry_creek_valley",
+          "location_items": [
+            "ki_atlas_dry_creek_valley_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Sonoma Coast",
+          "node_id": "n_geo_sonoma_coast",
+          "location_items": [
+            "ki_atlas_sonoma_coast_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        }
+      ],
+      "quality_price_common_items": [
+        "ki_biz_cost_plus"
+      ],
+      "generic_style_items": [
+        "ki_wset_grape_merlot_profile",
+        "ki_wset_grape_pinot_noir_profile",
+        "ki_wset_grape_chardonnay_variation"
+      ],
+      "coverage_note": "The group separates original regional explanations, transferable grape/production principles and existing map facts. It does not claim every named place has every dimension independently. Root’s topic audit must inspect this evidence and any explicitly empty dimensions."
+    },
+    {
+      "id": "us_central_coast",
+      "level": "WSET_L2",
+      "required_region_names": [
+        "Santa Barbara County"
+      ],
+      "grapes": [
+        "Pinot Noir",
+        "Chardonnay"
+      ],
+      "dimensions": {
+        "grapes": [
+          "ki_reg_na_sta_rita_grapes",
+          "ki_reg_na_happy_later_grapes",
+          "ki_wset_nw_santa_maria_grapes"
+        ],
+        "environment": [
+          "ki_reg_na_sta_rita_grapes",
+          "ki_reg_na_happy_later_grapes",
+          "ki_wset_nw_santa_maria_grapes"
+        ],
+        "production": [
+          "ki_wset_grape_chardonnay_variation"
+        ],
+        "style": [
+          "ki_wset_grape_pinot_noir_profile",
+          "ki_wset_grape_chardonnay_variation"
+        ],
+        "quality_price": [],
+        "labels": [
+          "ki_wset_nw_usa_origin_scale",
+          "ki_wset_nw_usa_ava_origin"
+        ]
+      },
+      "canonical_locations": [
+        {
+          "required_name": "Santa Barbara County",
+          "node_id": "n_geo_santa_barbara_county",
+          "location_items": [],
+          "exists_at_authoring": false,
+          "counts_as_explanatory_coverage": false
+        }
+      ],
+      "quality_price_common_items": [
+        "ki_biz_cost_plus"
+      ],
+      "generic_style_items": [
+        "ki_wset_grape_pinot_noir_profile",
+        "ki_wset_grape_chardonnay_variation"
+      ],
+      "coverage_note": "The group separates original regional explanations, transferable grape/production principles and existing map facts. It does not claim every named place has every dimension independently. Root’s topic audit must inspect this evidence and any explicitly empty dimensions."
+    },
+    {
+      "id": "us_coast_depth",
+      "level": "WSET_L3",
+      "required_region_names": [
+        "Mendocino County",
+        "Santa Cruz Mountains",
+        "Monterey",
+        "San Luis Obispo County",
+        "Paso Robles",
+        "Santa Maria Valley"
+      ],
+      "grapes": [
+        "Cabernet Sauvignon",
+        "Merlot",
+        "Pinot Noir",
+        "Chardonnay",
+        "Zinfandel",
+        "Syrah"
+      ],
+      "dimensions": {
+        "grapes": [
+          "ki_wset_nw_mendocino_diversity",
+          "ki_wset_nw_san_luis_grapes",
+          "ki_reg_na_santa_cruz_east",
+          "ki_reg_na_santa_cruz_coastal",
+          "ki_reg_am_templeton_ripening",
+          "ki_wset_nw_santa_maria_grapes"
+        ],
+        "environment": [
+          "ki_wset_nw_mendocino_diversity",
+          "ki_wset_nw_san_luis_grapes",
+          "ki_reg_na_santa_cruz_east",
+          "ki_reg_na_santa_cruz_coastal",
+          "ki_reg_na_slh_morning_aspect",
+          "ki_reg_am_templeton_air",
+          "ki_reg_am_templeton_ripening",
+          "ki_wset_nw_santa_maria_grapes"
+        ],
+        "production": [],
+        "style": [
+          "ki_reg_na_slh_chardonnay_range"
+        ],
+        "quality_price": [],
+        "labels": [
+          "ki_wset_nw_usa_origin_scale",
+          "ki_wset_nw_usa_ava_origin"
+        ]
+      },
+      "canonical_locations": [
+        {
+          "required_name": "Mendocino County",
+          "node_id": "n_geo_mendocino_county",
+          "location_items": [],
+          "exists_at_authoring": false,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Santa Cruz Mountains",
+          "node_id": "n_geo_santa_cruz_mountains",
+          "location_items": [
+            "ki_nwc_santa_cruz_mountains_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Monterey",
+          "node_id": "n_geo_monterey_ava",
+          "location_items": [
+            "ki_nwc_monterey_ava_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "San Luis Obispo County",
+          "node_id": "n_geo_san_luis_obispo_county",
+          "location_items": [],
+          "exists_at_authoring": false,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Paso Robles",
+          "node_id": "n_geo_paso_robles",
+          "location_items": [
+            "ki_atlas_paso_robles_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Santa Maria Valley",
+          "node_id": "n_geo_santa_maria_valley",
+          "location_items": [
+            "ki_atlas_santa_maria_valley_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        }
+      ],
+      "quality_price_common_items": [
+        "ki_biz_cost_plus"
+      ],
+      "generic_style_items": [],
+      "coverage_note": "The group separates original regional explanations, transferable grape/production principles and existing map facts. It does not claim every named place has every dimension independently. Root’s topic audit must inspect this evidence and any explicitly empty dimensions."
+    },
+    {
+      "id": "us_lodi",
+      "level": "WSET_L3",
+      "required_region_names": [
+        "Lodi"
+      ],
+      "grapes": [
+        "Zinfandel"
+      ],
+      "dimensions": {
+        "grapes": [
+          "ki_wset_nw_lodi_style_choices"
+        ],
+        "environment": [
+          "ki_reg_na_lodi_canopy_air"
+        ],
+        "production": [
+          "ki_wset_nw_lodi_style_choices",
+          "ki_reg_na_lodi_canopy_air"
+        ],
+        "style": [
+          "ki_wset_nw_lodi_style_choices"
+        ],
+        "quality_price": [],
+        "labels": [
+          "ki_wset_nw_usa_origin_scale",
+          "ki_wset_nw_usa_ava_origin"
+        ]
+      },
+      "canonical_locations": [
+        {
+          "required_name": "Lodi",
+          "node_id": "n_geo_lodi",
+          "location_items": [
+            "ki_nwc_lodi_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        }
+      ],
+      "quality_price_common_items": [
+        "ki_biz_cost_plus"
+      ],
+      "generic_style_items": [],
+      "coverage_note": "The group separates original regional explanations, transferable grape/production principles and existing map facts. It does not claim every named place has every dimension independently. Root’s topic audit must inspect this evidence and any explicitly empty dimensions."
+    },
+    {
+      "id": "us_oregon",
+      "level": "WSET_L2",
+      "required_region_names": [
+        "Oregon",
+        "Willamette Valley"
+      ],
+      "grapes": [
+        "Pinot Noir",
+        "Chardonnay"
+      ],
+      "dimensions": {
+        "grapes": [
+          "ki_reg_am_willamette_pinot",
+          "ki_wset_nw_oregon_chardonnay_range"
+        ],
+        "environment": [
+          "ki_reg_am_willamette_pinot",
+          "ki_reg_am_rogue_diversity"
+        ],
+        "production": [
+          "ki_wset_nw_oregon_chardonnay_range",
+          "ki_reg_na_oregon_whole_cluster_effect"
+        ],
+        "style": [
+          "ki_wset_nw_oregon_chardonnay_range",
+          "ki_wset_grape_pinot_noir_profile"
+        ],
+        "quality_price": [],
+        "labels": [
+          "ki_wset_nw_usa_origin_scale",
+          "ki_wset_nw_usa_ava_origin"
+        ]
+      },
+      "canonical_locations": [
+        {
+          "required_name": "Oregon",
+          "node_id": "n_geo_oregon",
+          "location_items": [
+            "ki_atlas_oregon_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Willamette Valley",
+          "node_id": "n_geo_willamette_valley",
+          "location_items": [
+            "ki_atlas_willamette_valley_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        }
+      ],
+      "quality_price_common_items": [
+        "ki_biz_cost_plus"
+      ],
+      "generic_style_items": [
+        "ki_wset_grape_pinot_noir_profile"
+      ],
+      "coverage_note": "The group separates original regional explanations, transferable grape/production principles and existing map facts. It does not claim every named place has every dimension independently. Root’s topic audit must inspect this evidence and any explicitly empty dimensions."
+    },
+    {
+      "id": "us_washington",
+      "level": "WSET_L3",
+      "required_region_names": [
+        "Washington",
+        "Columbia Valley",
+        "Yakima Valley"
+      ],
+      "grapes": [
+        "Cabernet Sauvignon",
+        "Merlot",
+        "Chardonnay",
+        "Riesling",
+        "Syrah"
+      ],
+      "dimensions": {
+        "grapes": [
+          "ki_wset_nw_yakima_sites"
+        ],
+        "environment": [
+          "ki_reg_am_washington_irrigation",
+          "ki_reg_am_washington_diurnal",
+          "ki_wset_nw_yakima_sites"
+        ],
+        "production": [
+          "ki_reg_am_washington_irrigation"
+        ],
+        "style": [
+          "ki_wset_grape_cabernet_sauvignon_profile",
+          "ki_wset_grape_merlot_profile",
+          "ki_wset_grape_riesling_variation"
+        ],
+        "quality_price": [],
+        "labels": [
+          "ki_wset_nw_usa_origin_scale",
+          "ki_wset_nw_usa_ava_origin"
+        ]
+      },
+      "canonical_locations": [
+        {
+          "required_name": "Washington",
+          "node_id": "n_geo_washington",
+          "location_items": [
+            "ki_atlas_washington_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Columbia Valley",
+          "node_id": "n_geo_columbia_valley",
+          "location_items": [
+            "ki_atlas_columbia_valley_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Yakima Valley",
+          "node_id": "n_geo_yakima_valley",
+          "location_items": [
+            "ki_atlas_yakima_valley_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        }
+      ],
+      "quality_price_common_items": [
+        "ki_biz_cost_plus"
+      ],
+      "generic_style_items": [
+        "ki_wset_grape_cabernet_sauvignon_profile",
+        "ki_wset_grape_merlot_profile",
+        "ki_wset_grape_riesling_variation"
+      ],
+      "coverage_note": "The group separates original regional explanations, transferable grape/production principles and existing map facts. It does not claim every named place has every dimension independently. Root’s topic audit must inspect this evidence and any explicitly empty dimensions."
+    },
+    {
+      "id": "us_new_york",
+      "level": "WSET_L3",
+      "required_region_names": [
+        "New York",
+        "Finger Lakes"
+      ],
+      "grapes": [
+        "Riesling"
+      ],
+      "dimensions": {
+        "grapes": [
+          "ki_wset_nw_finger_lakes_riesling"
+        ],
+        "environment": [
+          "ki_reg_am_finger_spring",
+          "ki_reg_am_finger_autumn"
+        ],
+        "production": [],
+        "style": [
+          "ki_wset_nw_finger_lakes_riesling"
+        ],
+        "quality_price": [],
+        "labels": [
+          "ki_wset_nw_usa_origin_scale",
+          "ki_wset_nw_usa_ava_origin"
+        ]
+      },
+      "canonical_locations": [
+        {
+          "required_name": "New York",
+          "node_id": "n_geo_new_york",
+          "location_items": [
+            "ki_dus_new_york_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Finger Lakes",
+          "node_id": "n_geo_finger_lakes",
+          "location_items": [
+            "ki_dus_finger_lakes_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        }
+      ],
+      "quality_price_common_items": [
+        "ki_biz_cost_plus"
+      ],
+      "generic_style_items": [],
+      "coverage_note": "The group separates original regional explanations, transferable grape/production principles and existing map facts. It does not claim every named place has every dimension independently. Root’s topic audit must inspect this evidence and any explicitly empty dimensions."
+    },
+    {
+      "id": "us_labels",
+      "level": "WSET_L2",
+      "required_region_names": [
+        "USA",
+        "California",
+        "Napa County",
+        "Sonoma County"
+      ],
+      "grapes": [],
+      "dimensions": {
+        "grapes": [],
+        "environment": [],
+        "production": [],
+        "style": [],
+        "quality_price": [
+          "ki_biz_cost_plus"
+        ],
+        "labels": [
+          "ki_wset_nw_usa_origin_scale",
+          "ki_wset_nw_usa_ava_origin"
+        ]
+      },
+      "canonical_locations": [
+        {
+          "required_name": "USA",
+          "node_id": "n_geo_united_states",
+          "location_items": [],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "California",
+          "node_id": "n_geo_california",
+          "location_items": [
+            "ki_atlas_california_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Napa County",
+          "node_id": "n_geo_napa_county",
+          "location_items": [],
+          "exists_at_authoring": false,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Sonoma County",
+          "node_id": "n_geo_sonoma_county",
+          "location_items": [],
+          "exists_at_authoring": false,
+          "counts_as_explanatory_coverage": false
+        }
+      ],
+      "quality_price_common_items": [
+        "ki_biz_cost_plus"
+      ],
+      "generic_style_items": [],
+      "coverage_note": "The group separates original regional explanations, transferable grape/production principles and existing map facts. It does not claim every named place has every dimension independently. Root’s topic audit must inspect this evidence and any explicitly empty dimensions."
+    },
+    {
+      "id": "ca_ontario",
+      "level": "WSET_L3",
+      "required_region_names": [
+        "Canada",
+        "Ontario",
+        "Niagara Peninsula"
+      ],
+      "grapes": [
+        "Riesling",
+        "Vidal"
+      ],
+      "dimensions": {
+        "grapes": [
+          "ki_wset_nw_ontario_icewine_selection",
+          "ki_wset_nw_ontario_icewine_style"
+        ],
+        "environment": [
+          "ki_reg_am_niagara_water",
+          "ki_reg_na_niagara_slope_air"
+        ],
+        "production": [
+          "ki_wset_nw_ontario_icewine_selection"
+        ],
+        "style": [
+          "ki_wset_nw_ontario_icewine_style"
+        ],
+        "quality_price": [
+          "ki_biz_cost_plus"
+        ],
+        "labels": [
+          "ki_wset_nw_ontario_vqa_origins"
+        ]
+      },
+      "canonical_locations": [
+        {
+          "required_name": "Canada",
+          "node_id": "n_geo_canada",
+          "location_items": [],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Ontario",
+          "node_id": "n_geo_ontario",
+          "location_items": [
+            "ki_atlas_ontario_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Niagara Peninsula",
+          "node_id": "n_geo_niagara_peninsula",
+          "location_items": [
+            "ki_atlas_niagara_peninsula_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        }
+      ],
+      "quality_price_common_items": [
+        "ki_biz_cost_plus"
+      ],
+      "generic_style_items": [],
+      "coverage_note": "The group separates original regional explanations, transferable grape/production principles and existing map facts. It does not claim every named place has every dimension independently. Root’s topic audit must inspect this evidence and any explicitly empty dimensions."
+    },
+    {
+      "id": "ca_bc",
+      "level": "WSET_L3",
+      "required_region_names": [
+        "British Columbia",
+        "Okanagan Valley"
+      ],
+      "grapes": [
+        "Riesling",
+        "Cabernet Sauvignon",
+        "Pinot Noir",
+        "Chardonnay"
+      ],
+      "dimensions": {
+        "grapes": [
+          "ki_reg_na_okanagan_north_aromatic",
+          "ki_reg_na_okanagan_warm_cabernet"
+        ],
+        "environment": [
+          "ki_reg_am_okanagan_variation",
+          "ki_reg_na_okanagan_north_aromatic",
+          "ki_reg_na_okanagan_warm_cabernet"
+        ],
+        "production": [
+          "ki_wset_grape_cabernet_sauvignon_variation"
+        ],
+        "style": [
+          "ki_wset_grape_riesling_profile",
+          "ki_wset_grape_cabernet_sauvignon_variation"
+        ],
+        "quality_price": [],
+        "labels": [
+          "ki_wset_nw_bc_vqa_origin",
+          "ki_wset_nw_ontario_vqa_origins"
+        ]
+      },
+      "canonical_locations": [
+        {
+          "required_name": "British Columbia",
+          "node_id": "n_geo_british_columbia",
+          "location_items": [
+            "ki_atlas_british_columbia_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Okanagan Valley",
+          "node_id": "n_geo_okanagan_valley",
+          "location_items": [
+            "ki_atlas_okanagan_valley_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        }
+      ],
+      "quality_price_common_items": [
+        "ki_biz_cost_plus"
+      ],
+      "generic_style_items": [
+        "ki_wset_grape_riesling_profile",
+        "ki_wset_grape_cabernet_sauvignon_variation"
+      ],
+      "coverage_note": "The group separates original regional explanations, transferable grape/production principles and existing map facts. It does not claim every named place has every dimension independently. Root’s topic audit must inspect this evidence and any explicitly empty dimensions."
+    },
+    {
+      "id": "cl_central",
+      "level": "WSET_L2",
+      "required_region_names": [
+        "Central Valley",
+        "Maipo",
+        "Colchagua"
+      ],
+      "grapes": [
+        "Merlot",
+        "Cabernet Sauvignon",
+        "Chardonnay",
+        "Sauvignon Blanc",
+        "Carménère"
+      ],
+      "dimensions": {
+        "grapes": [
+          "ki_reg_am_maipo_cabernet",
+          "ki_reg_am_colchagua_reds",
+          "ki_wset_nw_central_valley_reds",
+          "ki_wset_nw_central_valley_whites"
+        ],
+        "environment": [
+          "ki_reg_am_maipo_cabernet",
+          "ki_reg_am_colchagua_reds",
+          "ki_wset_nw_central_valley_reds"
+        ],
+        "production": [
+          "ki_wset_grape_chardonnay_variation",
+          "ki_wset_grape_sauvignon_blanc_variation"
+        ],
+        "style": [
+          "ki_wset_nw_central_valley_reds",
+          "ki_wset_nw_central_valley_whites",
+          "ki_wset_grape_carmenere_profile",
+          "ki_wset_grape_cabernet_sauvignon_profile",
+          "ki_wset_grape_merlot_profile",
+          "ki_wset_grape_chardonnay_variation",
+          "ki_wset_grape_sauvignon_blanc_variation"
+        ],
+        "quality_price": [],
+        "labels": [
+          "ki_wset_nw_chile_origin_hierarchy",
+          "ki_wset_nw_chile_crosswise_terms"
+        ]
+      },
+      "canonical_locations": [
+        {
+          "required_name": "Central Valley",
+          "node_id": "n_geo_central_valley_chile",
+          "location_items": [
+            "ki_atlas_central_valley_chile_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Maipo",
+          "node_id": "n_geo_maipo",
+          "location_items": [
+            "ki_atlas_maipo_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Colchagua",
+          "node_id": "n_geo_colchagua",
+          "location_items": [
+            "ki_atlas_colchagua_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        }
+      ],
+      "quality_price_common_items": [
+        "ki_biz_cost_plus"
+      ],
+      "generic_style_items": [
+        "ki_wset_grape_carmenere_profile",
+        "ki_wset_grape_cabernet_sauvignon_profile",
+        "ki_wset_grape_merlot_profile",
+        "ki_wset_grape_chardonnay_variation",
+        "ki_wset_grape_sauvignon_blanc_variation"
+      ],
+      "coverage_note": "The group separates original regional explanations, transferable grape/production principles and existing map facts. It does not claim every named place has every dimension independently. Root’s topic audit must inspect this evidence and any explicitly empty dimensions."
+    },
+    {
+      "id": "cl_coastal",
+      "level": "WSET_L2",
+      "required_region_names": [
+        "Casablanca"
+      ],
+      "grapes": [
+        "Sauvignon Blanc",
+        "Chardonnay",
+        "Pinot Noir"
+      ],
+      "dimensions": {
+        "grapes": [
+          "ki_reg_am_casablanca_low",
+          "ki_wset_nw_casablanca_grapes"
+        ],
+        "environment": [
+          "ki_reg_am_casablanca_low",
+          "ki_reg_am_casablanca_high",
+          "ki_wset_nw_casablanca_grapes"
+        ],
+        "production": [
+          "ki_wset_grape_chardonnay_variation"
+        ],
+        "style": [
+          "ki_wset_nw_casablanca_grapes",
+          "ki_wset_grape_sauvignon_blanc_profile",
+          "ki_wset_grape_chardonnay_variation",
+          "ki_wset_grape_pinot_noir_profile"
+        ],
+        "quality_price": [],
+        "labels": [
+          "ki_wset_nw_chile_origin_hierarchy",
+          "ki_wset_nw_chile_crosswise_terms"
+        ]
+      },
+      "canonical_locations": [
+        {
+          "required_name": "Casablanca",
+          "node_id": "n_geo_casablanca",
+          "location_items": [
+            "ki_atlas_casablanca_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        }
+      ],
+      "quality_price_common_items": [
+        "ki_biz_cost_plus"
+      ],
+      "generic_style_items": [
+        "ki_wset_grape_sauvignon_blanc_profile",
+        "ki_wset_grape_chardonnay_variation",
+        "ki_wset_grape_pinot_noir_profile"
+      ],
+      "coverage_note": "The group separates original regional explanations, transferable grape/production principles and existing map facts. It does not claim every named place has every dimension independently. Root’s topic audit must inspect this evidence and any explicitly empty dimensions."
+    },
+    {
+      "id": "cl_north",
+      "level": "WSET_L3",
+      "required_region_names": [
+        "Coquimbo Region",
+        "Elqui",
+        "Limarí"
+      ],
+      "grapes": [
+        "Syrah",
+        "Chardonnay",
+        "Sauvignon Blanc"
+      ],
+      "dimensions": {
+        "grapes": [
+          "ki_reg_am_limari_chardonnay",
+          "ki_wset_nw_elqui_aridity"
+        ],
+        "environment": [
+          "ki_reg_am_limari_chardonnay",
+          "ki_wset_nw_elqui_aridity"
+        ],
+        "production": [],
+        "style": [],
+        "quality_price": [],
+        "labels": [
+          "ki_wset_nw_chile_origin_hierarchy",
+          "ki_wset_nw_chile_crosswise_terms"
+        ]
+      },
+      "canonical_locations": [
+        {
+          "required_name": "Coquimbo Region",
+          "node_id": "n_geo_coquimbo_region_chile",
+          "location_items": [],
+          "exists_at_authoring": false,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Elqui",
+          "node_id": "n_geo_elqui",
+          "location_items": [
+            "ki_atlas_elqui_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Limarí",
+          "node_id": "n_geo_limari",
+          "location_items": [
+            "ki_atlas_limari_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        }
+      ],
+      "quality_price_common_items": [
+        "ki_biz_cost_plus"
+      ],
+      "generic_style_items": [],
+      "coverage_note": "The group separates original regional explanations, transferable grape/production principles and existing map facts. It does not claim every named place has every dimension independently. Root’s topic audit must inspect this evidence and any explicitly empty dimensions."
+    },
+    {
+      "id": "cl_aconcagua",
+      "level": "WSET_L3",
+      "required_region_names": [
+        "Aconcagua Region",
+        "Aconcagua Valley",
+        "San Antonio",
+        "Leyda"
+      ],
+      "grapes": [
+        "Cabernet Sauvignon",
+        "Syrah",
+        "Pinot Noir",
+        "Chardonnay",
+        "Sauvignon Blanc"
+      ],
+      "dimensions": {
+        "grapes": [
+          "ki_reg_am_aconcagua_coast",
+          "ki_wset_nw_leyda_coastal"
+        ],
+        "environment": [
+          "ki_reg_am_aconcagua_coast",
+          "ki_wset_nw_leyda_coastal"
+        ],
+        "production": [],
+        "style": [],
+        "quality_price": [],
+        "labels": [
+          "ki_wset_nw_chile_origin_hierarchy",
+          "ki_wset_nw_chile_crosswise_terms"
+        ]
+      },
+      "canonical_locations": [
+        {
+          "required_name": "Aconcagua Region",
+          "node_id": "n_geo_aconcagua_region_chile",
+          "location_items": [],
+          "exists_at_authoring": false,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Aconcagua Valley",
+          "node_id": "n_geo_aconcagua_valley",
+          "location_items": [
+            "ki_atlas_aconcagua_valley_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "San Antonio",
+          "node_id": "n_geo_san_antonio_valley",
+          "location_items": [
+            "ki_atlas_san_antonio_valley_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Leyda",
+          "node_id": "n_geo_leyda",
+          "location_items": [
+            "ki_atlas_leyda_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        }
+      ],
+      "quality_price_common_items": [
+        "ki_biz_cost_plus"
+      ],
+      "generic_style_items": [],
+      "coverage_note": "The group separates original regional explanations, transferable grape/production principles and existing map facts. It does not claim every named place has every dimension independently. Root’s topic audit must inspect this evidence and any explicitly empty dimensions."
+    },
+    {
+      "id": "cl_south_central",
+      "level": "WSET_L3",
+      "required_region_names": [
+        "Cachapoal",
+        "Curicó",
+        "Maule",
+        "Southern Region"
+      ],
+      "grapes": [
+        "Cabernet Sauvignon",
+        "Merlot",
+        "Carménère",
+        "Sauvignon Blanc",
+        "Chardonnay",
+        "Pinot Noir"
+      ],
+      "dimensions": {
+        "grapes": [
+          "ki_reg_sa_biobio_grapes",
+          "ki_wset_nw_curico_maule_diversity"
+        ],
+        "environment": [
+          "ki_reg_sa_biobio_grapes",
+          "ki_reg_sa_biobio_weather",
+          "ki_wset_nw_curico_maule_diversity"
+        ],
+        "production": [],
+        "style": [],
+        "quality_price": [],
+        "labels": [
+          "ki_wset_nw_chile_origin_hierarchy",
+          "ki_wset_nw_chile_crosswise_terms"
+        ]
+      },
+      "canonical_locations": [
+        {
+          "required_name": "Cachapoal",
+          "node_id": "n_geo_cachapoal",
+          "location_items": [
+            "ki_atlas_cachapoal_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Curicó",
+          "node_id": "n_geo_curico",
+          "location_items": [
+            "ki_atlas_curico_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Maule",
+          "node_id": "n_geo_maule",
+          "location_items": [
+            "ki_atlas_maule_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Southern Region",
+          "node_id": "n_geo_southern_chile",
+          "location_items": [
+            "ki_atlas_southern_chile_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        }
+      ],
+      "quality_price_common_items": [
+        "ki_biz_cost_plus"
+      ],
+      "generic_style_items": [],
+      "coverage_note": "The group separates original regional explanations, transferable grape/production principles and existing map facts. It does not claim every named place has every dimension independently. Root’s topic audit must inspect this evidence and any explicitly empty dimensions."
+    },
+    {
+      "id": "cl_labels",
+      "level": "WSET_L2",
+      "required_region_names": [
+        "Chile",
+        "Central Valley",
+        "Coquimbo Region",
+        "Aconcagua Region",
+        "Southern Region"
+      ],
+      "grapes": [],
+      "dimensions": {
+        "grapes": [],
+        "environment": [
+          "ki_wset_nw_chile_crosswise_terms"
+        ],
+        "production": [],
+        "style": [],
+        "quality_price": [
+          "ki_biz_cost_plus"
+        ],
+        "labels": [
+          "ki_wset_nw_chile_origin_hierarchy",
+          "ki_wset_nw_chile_crosswise_terms"
+        ]
+      },
+      "canonical_locations": [
+        {
+          "required_name": "Chile",
+          "node_id": "n_geo_chile",
+          "location_items": [],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Central Valley",
+          "node_id": "n_geo_central_valley_chile",
+          "location_items": [
+            "ki_atlas_central_valley_chile_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Coquimbo Region",
+          "node_id": "n_geo_coquimbo_region_chile",
+          "location_items": [],
+          "exists_at_authoring": false,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Aconcagua Region",
+          "node_id": "n_geo_aconcagua_region_chile",
+          "location_items": [],
+          "exists_at_authoring": false,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Southern Region",
+          "node_id": "n_geo_southern_chile",
+          "location_items": [
+            "ki_atlas_southern_chile_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        }
+      ],
+      "quality_price_common_items": [
+        "ki_biz_cost_plus"
+      ],
+      "generic_style_items": [],
+      "coverage_note": "The group separates original regional explanations, transferable grape/production principles and existing map facts. It does not claim every named place has every dimension independently. Root’s topic audit must inspect this evidence and any explicitly empty dimensions."
+    },
+    {
+      "id": "ar_mendoza",
+      "level": "WSET_L2",
+      "required_region_names": [
+        "Mendoza",
+        "Uco Valley",
+        "Luján de Cuyo",
+        "Maipú"
+      ],
+      "grapes": [
+        "Malbec",
+        "Cabernet Sauvignon",
+        "Chardonnay"
+      ],
+      "dimensions": {
+        "grapes": [
+          "ki_wset_grape_malbec_profile",
+          "ki_wset_nw_mendoza_malbec_range"
+        ],
+        "environment": [
+          "ki_reg_am_mendoza_temperature",
+          "ki_reg_am_andes_irrigation"
+        ],
+        "production": [
+          "ki_reg_am_andes_irrigation",
+          "ki_reg_am_argentina_methods",
+          "ki_wset_nw_mendoza_malbec_range"
+        ],
+        "style": [
+          "ki_wset_grape_malbec_profile",
+          "ki_wset_nw_mendoza_malbec_range"
+        ],
+        "quality_price": [
+          "ki_biz_cost_plus"
+        ],
+        "labels": []
+      },
+      "canonical_locations": [
+        {
+          "required_name": "Mendoza",
+          "node_id": "n_geo_mendoza",
+          "location_items": [
+            "ki_atlas_mendoza_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Uco Valley",
+          "node_id": "n_geo_uco_valley",
+          "location_items": [
+            "ki_atlas_uco_valley_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Luján de Cuyo",
+          "node_id": "n_geo_lujan_de_cuyo",
+          "location_items": [
+            "ki_atlas_lujan_de_cuyo_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Maipú",
+          "node_id": "n_geo_maipu",
+          "location_items": [
+            "ki_atlas_maipu_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        }
+      ],
+      "quality_price_common_items": [
+        "ki_biz_cost_plus"
+      ],
+      "generic_style_items": [
+        "ki_wset_grape_malbec_profile"
+      ],
+      "coverage_note": "The group separates original regional explanations, transferable grape/production principles and existing map facts. It does not claim every named place has every dimension independently. Root’s topic audit must inspect this evidence and any explicitly empty dimensions."
+    },
+    {
+      "id": "ar_north_south",
+      "level": "WSET_L3",
+      "required_region_names": [
+        "Argentina",
+        "Salta",
+        "Cafayate",
+        "San Juan",
+        "Patagonia"
+      ],
+      "grapes": [
+        "Malbec",
+        "Torrontés",
+        "Cabernet Sauvignon",
+        "Chardonnay",
+        "Bonarda"
+      ],
+      "dimensions": {
+        "grapes": [
+          "ki_reg_sa_salta_grapes",
+          "ki_reg_sa_torrontes_identity",
+          "ki_reg_sa_torrontes_riojano",
+          "ki_reg_sa_sanjuan_valleys",
+          "ki_reg_sa_rionegro_profiles",
+          "ki_reg_sa_neuquen_grapes",
+          "ki_wset_nw_argentina_malbec_contrasts"
+        ],
+        "environment": [
+          "ki_reg_sa_salta_grapes",
+          "ki_reg_sa_salta_canopy",
+          "ki_reg_sa_sanjuan_valleys",
+          "ki_reg_sa_pedernal_exposure",
+          "ki_reg_am_patagonia_latitude",
+          "ki_reg_am_patagonia_evaporation",
+          "ki_wset_nw_argentina_malbec_contrasts"
+        ],
+        "production": [
+          "ki_reg_sa_salta_canopy",
+          "ki_reg_am_patagonia_evaporation"
+        ],
+        "style": [
+          "ki_wset_nw_argentina_malbec_contrasts"
+        ],
+        "quality_price": [],
+        "labels": []
+      },
+      "canonical_locations": [
+        {
+          "required_name": "Argentina",
+          "node_id": "n_geo_argentina",
+          "location_items": [],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Salta",
+          "node_id": "n_geo_salta",
+          "location_items": [
+            "ki_atlas_salta_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Cafayate",
+          "node_id": "n_geo_cafayate",
+          "location_items": [
+            "ki_atlas_cafayate_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "San Juan",
+          "node_id": "n_geo_san_juan_argentina",
+          "location_items": [
+            "ki_nwc_san_juan_argentina_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Patagonia",
+          "node_id": "n_geo_patagonia_wine",
+          "location_items": [
+            "ki_nwc_patagonia_wine_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        }
+      ],
+      "quality_price_common_items": [
+        "ki_biz_cost_plus"
+      ],
+      "generic_style_items": [],
+      "coverage_note": "The group separates original regional explanations, transferable grape/production principles and existing map facts. It does not claim every named place has every dimension independently. Root’s topic audit must inspect this evidence and any explicitly empty dimensions."
+    },
+    {
+      "id": "za_western_cape",
+      "level": "WSET_L2",
+      "required_region_names": [
+        "Western Cape"
+      ],
+      "grapes": [
+        "Chenin Blanc",
+        "Pinotage",
+        "Chardonnay"
+      ],
+      "dimensions": {
+        "grapes": [
+          "ki_reg_sh_chenin_fresh",
+          "ki_wset_grape_pinotage_profile",
+          "ki_wset_nw_cape_blend_meaning"
+        ],
+        "environment": [],
+        "production": [
+          "ki_reg_sh_chenin_fresh",
+          "ki_reg_sh_chenin_oak",
+          "ki_wset_grape_chardonnay_variation",
+          "ki_wset_nw_cape_blend_meaning"
+        ],
+        "style": [
+          "ki_reg_sh_chenin_fresh",
+          "ki_reg_sh_chenin_oak",
+          "ki_wset_grape_pinotage_profile",
+          "ki_wset_grape_chardonnay_variation"
+        ],
+        "quality_price": [],
+        "labels": [
+          "ki_wset_nw_cape_blend_meaning",
+          "ki_wset_nw_south_africa_wo_origin",
+          "ki_wset_nw_south_africa_wo_levels",
+          "ki_wset_nw_south_africa_estate"
+        ]
+      },
+      "canonical_locations": [
+        {
+          "required_name": "Western Cape",
+          "node_id": "n_geo_western_cape",
+          "location_items": [
+            "ki_atlas_western_cape_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        }
+      ],
+      "quality_price_common_items": [
+        "ki_biz_cost_plus"
+      ],
+      "generic_style_items": [
+        "ki_wset_grape_pinotage_profile",
+        "ki_wset_grape_chardonnay_variation"
+      ],
+      "coverage_note": "The group separates original regional explanations, transferable grape/production principles and existing map facts. It does not claim every named place has every dimension independently. Root’s topic audit must inspect this evidence and any explicitly empty dimensions."
+    },
+    {
+      "id": "za_stellenbosch",
+      "level": "WSET_L2",
+      "required_region_names": [
+        "Stellenbosch"
+      ],
+      "grapes": [
+        "Cabernet Sauvignon",
+        "Merlot"
+      ],
+      "dimensions": {
+        "grapes": [
+          "ki_reg_sh_stellenbosch_heat"
+        ],
+        "environment": [
+          "ki_reg_sh_stellenbosch_heat",
+          "ki_reg_sh_stellenbosch_aspect"
+        ],
+        "production": [
+          "ki_wset_grape_cabernet_sauvignon_variation"
+        ],
+        "style": [
+          "ki_wset_grape_cabernet_sauvignon_profile",
+          "ki_wset_grape_merlot_profile"
+        ],
+        "quality_price": [],
+        "labels": [
+          "ki_wset_nw_south_africa_wo_origin",
+          "ki_wset_nw_south_africa_wo_levels",
+          "ki_wset_nw_south_africa_estate"
+        ]
+      },
+      "canonical_locations": [
+        {
+          "required_name": "Stellenbosch",
+          "node_id": "n_geo_stellenbosch",
+          "location_items": [
+            "ki_atlas_stellenbosch_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        }
+      ],
+      "quality_price_common_items": [
+        "ki_biz_cost_plus"
+      ],
+      "generic_style_items": [
+        "ki_wset_grape_cabernet_sauvignon_profile",
+        "ki_wset_grape_merlot_profile"
+      ],
+      "coverage_note": "The group separates original regional explanations, transferable grape/production principles and existing map facts. It does not claim every named place has every dimension independently. Root’s topic audit must inspect this evidence and any explicitly empty dimensions."
+    },
+    {
+      "id": "za_coastal",
+      "level": "WSET_L2",
+      "required_region_names": [
+        "Constantia",
+        "Elgin",
+        "Walker Bay"
+      ],
+      "grapes": [
+        "Sauvignon Blanc",
+        "Chardonnay",
+        "Pinot Noir"
+      ],
+      "dimensions": {
+        "grapes": [
+          "ki_reg_oa_constantia_aspects",
+          "ki_reg_sh_elgin_ripening",
+          "ki_reg_sh_hemel_maritime",
+          "ki_wset_nw_elgin_sauvignon"
+        ],
+        "environment": [
+          "ki_reg_oa_constantia_aspects",
+          "ki_reg_sh_elgin_ripening",
+          "ki_reg_sh_hemel_maritime",
+          "ki_wset_nw_elgin_sauvignon"
+        ],
+        "production": [
+          "ki_reg_oa_constantia_assembly",
+          "ki_wset_grape_chardonnay_variation"
+        ],
+        "style": [
+          "ki_wset_grape_sauvignon_blanc_profile",
+          "ki_wset_grape_chardonnay_variation",
+          "ki_wset_grape_pinot_noir_profile"
+        ],
+        "quality_price": [],
+        "labels": [
+          "ki_wset_nw_south_africa_wo_origin",
+          "ki_wset_nw_south_africa_wo_levels",
+          "ki_wset_nw_south_africa_estate"
+        ]
+      },
+      "canonical_locations": [
+        {
+          "required_name": "Constantia",
+          "node_id": "n_geo_constantia",
+          "location_items": [
+            "ki_atlas_constantia_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Elgin",
+          "node_id": "n_geo_elgin",
+          "location_items": [
+            "ki_atlas_elgin_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Walker Bay",
+          "node_id": "n_geo_walker_bay",
+          "location_items": [
+            "ki_atlas_walker_bay_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        }
+      ],
+      "quality_price_common_items": [
+        "ki_biz_cost_plus"
+      ],
+      "generic_style_items": [
+        "ki_wset_grape_sauvignon_blanc_profile",
+        "ki_wset_grape_chardonnay_variation",
+        "ki_wset_grape_pinot_noir_profile"
+      ],
+      "coverage_note": "The group separates original regional explanations, transferable grape/production principles and existing map facts. It does not claim every named place has every dimension independently. Root’s topic audit must inspect this evidence and any explicitly empty dimensions."
+    },
+    {
+      "id": "za_coastal_depth",
+      "level": "WSET_L3",
+      "required_region_names": [
+        "Coastal Region",
+        "Paarl",
+        "Durbanville",
+        "Swartland"
+      ],
+      "grapes": [
+        "Cabernet Sauvignon",
+        "Merlot",
+        "Syrah",
+        "Chenin Blanc",
+        "Pinotage",
+        "Sauvignon Blanc",
+        "Chardonnay"
+      ],
+      "dimensions": {
+        "grapes": [
+          "ki_wset_nw_durbanville_setting",
+          "ki_wset_nw_swartland_grapes"
+        ],
+        "environment": [
+          "ki_reg_oa_paarl_water_sites",
+          "ki_reg_sh_swartland_variation",
+          "ki_reg_sh_swartland_shade",
+          "ki_wset_nw_durbanville_setting"
+        ],
+        "production": [
+          "ki_reg_oa_paarl_water_sites",
+          "ki_reg_oa_paarl_fairview",
+          "ki_reg_sh_swartland_shade"
+        ],
+        "style": [
+          "ki_wset_nw_swartland_grapes"
+        ],
+        "quality_price": [],
+        "labels": [
+          "ki_wset_nw_south_africa_wo_origin",
+          "ki_wset_nw_south_africa_wo_levels",
+          "ki_wset_nw_south_africa_estate"
+        ]
+      },
+      "canonical_locations": [
+        {
+          "required_name": "Coastal Region",
+          "node_id": "n_geo_coastal_region",
+          "location_items": [
+            "ki_atlas_coastal_region_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Paarl",
+          "node_id": "n_geo_paarl",
+          "location_items": [
+            "ki_atlas_paarl_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Durbanville",
+          "node_id": "n_geo_durbanville_wine",
+          "location_items": [
+            "ki_nwc_durbanville_wine_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Swartland",
+          "node_id": "n_geo_swartland",
+          "location_items": [
+            "ki_atlas_swartland_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        }
+      ],
+      "quality_price_common_items": [
+        "ki_biz_cost_plus"
+      ],
+      "generic_style_items": [],
+      "coverage_note": "The group separates original regional explanations, transferable grape/production principles and existing map facts. It does not claim every named place has every dimension independently. Root’s topic audit must inspect this evidence and any explicitly empty dimensions."
+    },
+    {
+      "id": "za_breede",
+      "level": "WSET_L3",
+      "required_region_names": [
+        "Breede River Valley",
+        "Worcester",
+        "Robertson"
+      ],
+      "grapes": [
+        "Chenin Blanc",
+        "Chardonnay"
+      ],
+      "dimensions": {
+        "grapes": [
+          "ki_reg_oa_robertson_unwooded",
+          "ki_wset_nw_worcester_wine_context"
+        ],
+        "environment": [
+          "ki_reg_oa_robertson_water"
+        ],
+        "production": [
+          "ki_reg_oa_robertson_water",
+          "ki_reg_oa_robertson_unwooded",
+          "ki_wset_nw_worcester_wine_context"
+        ],
+        "style": [
+          "ki_reg_oa_robertson_unwooded",
+          "ki_reg_sh_chenin_fresh"
+        ],
+        "quality_price": [],
+        "labels": [
+          "ki_wset_nw_south_africa_wo_origin",
+          "ki_wset_nw_south_africa_wo_levels",
+          "ki_wset_nw_south_africa_estate"
+        ]
+      },
+      "canonical_locations": [
+        {
+          "required_name": "Breede River Valley",
+          "node_id": "n_geo_breede_river_valley",
+          "location_items": [
+            "ki_nwc_breede_river_valley_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Worcester",
+          "node_id": "n_geo_worcester_wine",
+          "location_items": [
+            "ki_nwc_worcester_wine_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Robertson",
+          "node_id": "n_geo_robertson_wine",
+          "location_items": [
+            "ki_nwc_robertson_wine_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        }
+      ],
+      "quality_price_common_items": [
+        "ki_biz_cost_plus"
+      ],
+      "generic_style_items": [],
+      "coverage_note": "The group separates original regional explanations, transferable grape/production principles and existing map facts. It does not claim every named place has every dimension independently. Root’s topic audit must inspect this evidence and any explicitly empty dimensions."
+    },
+    {
+      "id": "za_south_coast",
+      "level": "WSET_L3",
+      "required_region_names": [
+        "Cape South Coast",
+        "Walker Bay",
+        "Hemel-en-Aarde Wards",
+        "Elim",
+        "Elgin"
+      ],
+      "grapes": [
+        "Pinot Noir",
+        "Chardonnay",
+        "Sauvignon Blanc",
+        "Syrah"
+      ],
+      "dimensions": {
+        "grapes": [
+          "ki_reg_sh_hemel_maritime",
+          "ki_reg_sh_elgin_ripening",
+          "ki_wset_nw_elim_cooling"
+        ],
+        "environment": [
+          "ki_reg_sh_hemel_maritime",
+          "ki_reg_sh_elgin_ripening",
+          "ki_wset_nw_elim_cooling"
+        ],
+        "production": [],
+        "style": [],
+        "quality_price": [],
+        "labels": [
+          "ki_wset_nw_south_africa_wo_origin",
+          "ki_wset_nw_south_africa_wo_levels",
+          "ki_wset_nw_south_africa_estate"
+        ]
+      },
+      "canonical_locations": [
+        {
+          "required_name": "Cape South Coast",
+          "node_id": "n_geo_cape_south_coast",
+          "location_items": [
+            "ki_atlas_cape_south_coast_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Walker Bay",
+          "node_id": "n_geo_walker_bay",
+          "location_items": [
+            "ki_atlas_walker_bay_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Hemel-en-Aarde Wards",
+          "node_id": "n_geo_hemel_en_aarde_valley",
+          "location_items": [
+            "ki_atlas_hemel_en_aarde_valley_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Hemel-en-Aarde Wards",
+          "node_id": "n_geo_upper_hemel_en_aarde",
+          "location_items": [
+            "ki_nwc_upper_hemel_en_aarde_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Hemel-en-Aarde Wards",
+          "node_id": "n_geo_hemel_en_aarde_ridge",
+          "location_items": [
+            "ki_nwc_hemel_en_aarde_ridge_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Elim",
+          "node_id": "n_geo_elim_wine",
+          "location_items": [
+            "ki_nwc_elim_wine_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Elgin",
+          "node_id": "n_geo_elgin",
+          "location_items": [
+            "ki_atlas_elgin_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        }
+      ],
+      "quality_price_common_items": [
+        "ki_biz_cost_plus"
+      ],
+      "generic_style_items": [],
+      "coverage_note": "The group separates original regional explanations, transferable grape/production principles and existing map facts. It does not claim every named place has every dimension independently. Root’s topic audit must inspect this evidence and any explicitly empty dimensions."
+    },
+    {
+      "id": "za_labels",
+      "level": "WSET_L2",
+      "required_region_names": [
+        "South Africa",
+        "Western Cape"
+      ],
+      "grapes": [],
+      "dimensions": {
+        "grapes": [],
+        "environment": [],
+        "production": [
+          "ki_wset_nw_south_africa_estate"
+        ],
+        "style": [],
+        "quality_price": [
+          "ki_biz_cost_plus"
+        ],
+        "labels": [
+          "ki_wset_nw_south_africa_wo_origin",
+          "ki_wset_nw_south_africa_wo_levels",
+          "ki_wset_nw_south_africa_estate"
+        ]
+      },
+      "canonical_locations": [
+        {
+          "required_name": "South Africa",
+          "node_id": "n_geo_south_africa",
+          "location_items": [],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Western Cape",
+          "node_id": "n_geo_western_cape",
+          "location_items": [
+            "ki_atlas_western_cape_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        }
+      ],
+      "quality_price_common_items": [
+        "ki_biz_cost_plus"
+      ],
+      "generic_style_items": [],
+      "coverage_note": "The group separates original regional explanations, transferable grape/production principles and existing map facts. It does not claim every named place has every dimension independently. Root’s topic audit must inspect this evidence and any explicitly empty dimensions."
+    },
+    {
+      "id": "au_inland",
+      "level": "WSET_L2",
+      "required_region_names": [
+        "Australia",
+        "South Eastern Australia",
+        "Murray-Darling",
+        "Riverina",
+        "Riverland"
+      ],
+      "grapes": [
+        "Shiraz",
+        "Chardonnay",
+        "Cabernet Sauvignon",
+        "Merlot",
+        "Semillon"
+      ],
+      "dimensions": {
+        "grapes": [
+          "ki_wset_nw_murray_darling_styles",
+          "ki_wset_nw_riverland_styles",
+          "ki_wset_nw_riverina_sweet_exception",
+          "ki_wset_nw_riverina_dry_styles",
+          "ki_wset_nw_south_eastern_range"
+        ],
+        "environment": [
+          "ki_wset_nw_murray_darling_irrigation",
+          "ki_wset_nw_riverina_sweet_exception",
+          "ki_wset_nw_south_eastern_range"
+        ],
+        "production": [
+          "ki_wset_nw_murray_darling_irrigation",
+          "ki_wset_nw_riverina_sweet_exception",
+          "ki_wset_nw_inland_water_costs",
+          "ki_wset_grape_chardonnay_variation"
+        ],
+        "style": [
+          "ki_wset_nw_murray_darling_styles",
+          "ki_wset_nw_riverland_styles",
+          "ki_wset_nw_riverina_sweet_exception",
+          "ki_wset_nw_riverina_dry_styles",
+          "ki_wset_nw_south_eastern_range",
+          "ki_wset_grape_syrah_profile",
+          "ki_wset_grape_chardonnay_variation"
+        ],
+        "quality_price": [
+          "ki_wset_nw_murray_darling_styles",
+          "ki_wset_nw_inland_water_costs"
+        ],
+        "labels": [
+          "ki_wset_nw_south_eastern_range",
+          "ki_wset_nw_australia_gi_levels"
+        ]
+      },
+      "canonical_locations": [
+        {
+          "required_name": "Australia",
+          "node_id": "n_geo_australia",
+          "location_items": [],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "South Eastern Australia",
+          "node_id": "n_geo_south_eastern_australia",
+          "location_items": [
+            "ki_diploma_south_eastern_australia_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Murray-Darling",
+          "node_id": "n_geo_au_murray_darling_region",
+          "location_items": [
+            "ki_nwoa_au_murray_darling_region_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Riverina",
+          "node_id": "n_geo_riverina_wine",
+          "location_items": [
+            "ki_nwc_riverina_wine_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Riverland",
+          "node_id": "n_geo_riverland",
+          "location_items": [
+            "ki_nwc_riverland_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        }
+      ],
+      "quality_price_common_items": [
+        "ki_biz_cost_plus"
+      ],
+      "generic_style_items": [
+        "ki_wset_grape_syrah_profile",
+        "ki_wset_grape_chardonnay_variation"
+      ],
+      "coverage_note": "The group separates original regional explanations, transferable grape/production principles and existing map facts. It does not claim every named place has every dimension independently. Root’s topic audit must inspect this evidence and any explicitly empty dimensions."
+    },
+    {
+      "id": "au_barossa",
+      "level": "WSET_L2",
+      "required_region_names": [
+        "Barossa",
+        "Barossa Valley"
+      ],
+      "grapes": [
+        "Shiraz",
+        "Grenache",
+        "Semillon"
+      ],
+      "dimensions": {
+        "grapes": [
+          "ki_reg_sh_barossa_floor",
+          "ki_wset_nw_barossa_gsm",
+          "ki_wset_nw_barossa_semillon_range"
+        ],
+        "environment": [
+          "ki_reg_sh_barossa_floor",
+          "ki_reg_sh_eden_sites"
+        ],
+        "production": [
+          "ki_wset_nw_barossa_gsm",
+          "ki_wset_nw_barossa_semillon_range"
+        ],
+        "style": [
+          "ki_reg_sh_barossa_floor",
+          "ki_wset_nw_barossa_gsm",
+          "ki_wset_nw_barossa_semillon_range"
+        ],
+        "quality_price": [
+          "ki_reg_sh_price_costs",
+          "ki_reg_sh_price_demand"
+        ],
+        "labels": [
+          "ki_wset_nw_australia_gi_levels"
+        ]
+      },
+      "canonical_locations": [
+        {
+          "required_name": "Barossa",
+          "node_id": "n_geo_barossa_zone",
+          "location_items": [
+            "ki_atlas_barossa_zone_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Barossa Valley",
+          "node_id": "n_geo_barossa_valley",
+          "location_items": [
+            "ki_atlas_barossa_valley_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        }
+      ],
+      "quality_price_common_items": [
+        "ki_biz_cost_plus"
+      ],
+      "generic_style_items": [],
+      "coverage_note": "The group separates original regional explanations, transferable grape/production principles and existing map facts. It does not claim every named place has every dimension independently. Root’s topic audit must inspect this evidence and any explicitly empty dimensions."
+    },
+    {
+      "id": "au_riesling",
+      "level": "WSET_L2",
+      "required_region_names": [
+        "Eden Valley",
+        "Clare Valley"
+      ],
+      "grapes": [
+        "Riesling"
+      ],
+      "dimensions": {
+        "grapes": [
+          "ki_reg_sh_eden_riesling",
+          "ki_wset_nw_clare_riesling_style",
+          "ki_wset_nw_eden_riesling_setting"
+        ],
+        "environment": [
+          "ki_reg_sh_clare_cooling",
+          "ki_wset_nw_eden_riesling_setting"
+        ],
+        "production": [],
+        "style": [
+          "ki_reg_sh_eden_riesling",
+          "ki_wset_nw_clare_riesling_style"
+        ],
+        "quality_price": [
+          "ki_reg_sh_price_costs",
+          "ki_reg_sh_price_demand"
+        ],
+        "labels": [
+          "ki_wset_nw_australia_gi_levels"
+        ]
+      },
+      "canonical_locations": [
+        {
+          "required_name": "Eden Valley",
+          "node_id": "n_geo_eden_valley",
+          "location_items": [
+            "ki_atlas_eden_valley_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Clare Valley",
+          "node_id": "n_geo_clare_valley",
+          "location_items": [
+            "ki_atlas_clare_valley_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        }
+      ],
+      "quality_price_common_items": [
+        "ki_biz_cost_plus"
+      ],
+      "generic_style_items": [],
+      "coverage_note": "The group separates original regional explanations, transferable grape/production principles and existing map facts. It does not claim every named place has every dimension independently. Root’s topic audit must inspect this evidence and any explicitly empty dimensions."
+    },
+    {
+      "id": "au_cabernet",
+      "level": "WSET_L2",
+      "required_region_names": [
+        "Coonawarra",
+        "Margaret River"
+      ],
+      "grapes": [
+        "Cabernet Sauvignon",
+        "Merlot",
+        "Chardonnay",
+        "Sauvignon Blanc"
+      ],
+      "dimensions": {
+        "grapes": [
+          "ki_reg_sh_cab_styles",
+          "ki_wset_nw_margaret_merlot_blend",
+          "ki_wset_nw_margaret_white_range"
+        ],
+        "environment": [
+          "ki_reg_sh_cab_maritime"
+        ],
+        "production": [
+          "ki_wset_nw_margaret_merlot_blend",
+          "ki_wset_nw_margaret_white_range"
+        ],
+        "style": [
+          "ki_reg_sh_cab_styles",
+          "ki_wset_nw_margaret_merlot_blend",
+          "ki_wset_nw_margaret_white_range"
+        ],
+        "quality_price": [
+          "ki_reg_sh_price_costs",
+          "ki_reg_sh_price_demand"
+        ],
+        "labels": [
+          "ki_wset_nw_australia_gi_levels"
+        ]
+      },
+      "canonical_locations": [
+        {
+          "required_name": "Coonawarra",
+          "node_id": "n_geo_coonawarra",
+          "location_items": [
+            "ki_atlas_coonawarra_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Margaret River",
+          "node_id": "n_geo_margaret_river",
+          "location_items": [
+            "ki_atlas_margaret_river_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        }
+      ],
+      "quality_price_common_items": [
+        "ki_biz_cost_plus"
+      ],
+      "generic_style_items": [],
+      "coverage_note": "The group separates original regional explanations, transferable grape/production principles and existing map facts. It does not claim every named place has every dimension independently. Root’s topic audit must inspect this evidence and any explicitly empty dimensions."
+    },
+    {
+      "id": "au_yarra_mornington",
+      "level": "WSET_L2",
+      "required_region_names": [
+        "Yarra Valley",
+        "Mornington Peninsula"
+      ],
+      "grapes": [
+        "Pinot Noir",
+        "Chardonnay"
+      ],
+      "dimensions": {
+        "grapes": [
+          "ki_reg_sh_yarra_mesoclimate",
+          "ki_reg_sh_mornington_maritime",
+          "ki_wset_nw_yarra_wine_range"
+        ],
+        "environment": [
+          "ki_reg_sh_yarra_mesoclimate",
+          "ki_reg_sh_mornington_maritime"
+        ],
+        "production": [
+          "ki_wset_nw_yarra_wine_range"
+        ],
+        "style": [
+          "ki_reg_sh_mornington_maritime",
+          "ki_wset_nw_yarra_wine_range"
+        ],
+        "quality_price": [
+          "ki_reg_sh_price_costs",
+          "ki_reg_sh_price_demand"
+        ],
+        "labels": [
+          "ki_wset_nw_australia_gi_levels"
+        ]
+      },
+      "canonical_locations": [
+        {
+          "required_name": "Yarra Valley",
+          "node_id": "n_geo_yarra_valley",
+          "location_items": [
+            "ki_atlas_yarra_valley_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Mornington Peninsula",
+          "node_id": "n_geo_mornington_peninsula",
+          "location_items": [
+            "ki_atlas_mornington_peninsula_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        }
+      ],
+      "quality_price_common_items": [
+        "ki_biz_cost_plus"
+      ],
+      "generic_style_items": [],
+      "coverage_note": "The group separates original regional explanations, transferable grape/production principles and existing map facts. It does not claim every named place has every dimension independently. Root’s topic audit must inspect this evidence and any explicitly empty dimensions."
+    },
+    {
+      "id": "au_adelaide",
+      "level": "WSET_L2",
+      "required_region_names": [
+        "Adelaide Hills"
+      ],
+      "grapes": [
+        "Chardonnay",
+        "Sauvignon Blanc"
+      ],
+      "dimensions": {
+        "grapes": [
+          "ki_reg_oa_adelaide_sauvignon",
+          "ki_wset_nw_adelaide_chardonnay"
+        ],
+        "environment": [
+          "ki_reg_oa_adelaide_warm_slopes",
+          "ki_wset_nw_adelaide_chardonnay"
+        ],
+        "production": [
+          "ki_reg_oa_adelaide_m3_process"
+        ],
+        "style": [
+          "ki_reg_oa_adelaide_sauvignon",
+          "ki_wset_nw_adelaide_chardonnay"
+        ],
+        "quality_price": [
+          "ki_reg_sh_price_costs",
+          "ki_reg_sh_price_demand"
+        ],
+        "labels": [
+          "ki_wset_nw_australia_gi_levels"
+        ]
+      },
+      "canonical_locations": [
+        {
+          "required_name": "Adelaide Hills",
+          "node_id": "n_geo_adelaide_hills",
+          "location_items": [
+            "ki_atlas_adelaide_hills_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        }
+      ],
+      "quality_price_common_items": [
+        "ki_biz_cost_plus"
+      ],
+      "generic_style_items": [],
+      "coverage_note": "The group separates original regional explanations, transferable grape/production principles and existing map facts. It does not claim every named place has every dimension independently. Root’s topic audit must inspect this evidence and any explicitly empty dimensions."
+    },
+    {
+      "id": "au_hunter",
+      "level": "WSET_L2",
+      "required_region_names": [
+        "New South Wales",
+        "Hunter Valley",
+        "Hunter"
+      ],
+      "grapes": [
+        "Shiraz",
+        "Semillon",
+        "Chardonnay"
+      ],
+      "dimensions": {
+        "grapes": [
+          "ki_reg_oa_hunter_early",
+          "ki_wset_nw_hunter_shiraz_style"
+        ],
+        "environment": [
+          "ki_reg_oa_hunter_moderation",
+          "ki_reg_oa_hunter_rain"
+        ],
+        "production": [
+          "ki_reg_oa_hunter_early",
+          "ki_reg_oa_hunter_bottle"
+        ],
+        "style": [
+          "ki_reg_oa_hunter_early",
+          "ki_reg_oa_hunter_bottle",
+          "ki_wset_nw_hunter_shiraz_style"
+        ],
+        "quality_price": [
+          "ki_reg_sh_price_costs",
+          "ki_reg_sh_price_demand"
+        ],
+        "labels": [
+          "ki_wset_nw_australia_gi_levels"
+        ]
+      },
+      "canonical_locations": [
+        {
+          "required_name": "New South Wales",
+          "node_id": "n_geo_new_south_wales",
+          "location_items": [
+            "ki_nwc_new_south_wales_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Hunter Valley",
+          "node_id": "n_geo_hunter_valley_zone",
+          "location_items": [
+            "ki_nwc_hunter_valley_zone_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Hunter",
+          "node_id": "n_geo_hunter",
+          "location_items": [
+            "ki_atlas_hunter_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        }
+      ],
+      "quality_price_common_items": [
+        "ki_biz_cost_plus"
+      ],
+      "generic_style_items": [],
+      "coverage_note": "The group separates original regional explanations, transferable grape/production principles and existing map facts. It does not claim every named place has every dimension independently. Root’s topic audit must inspect this evidence and any explicitly empty dimensions."
+    },
+    {
+      "id": "au_mclaren",
+      "level": "WSET_L2",
+      "required_region_names": [
+        "McLaren Vale"
+      ],
+      "grapes": [
+        "Grenache",
+        "Shiraz",
+        "Cabernet Sauvignon"
+      ],
+      "dimensions": {
+        "grapes": [
+          "ki_reg_oa_mclaren_varietal_blend",
+          "ki_wset_nw_mclaren_environment"
+        ],
+        "environment": [
+          "ki_wset_nw_mclaren_environment"
+        ],
+        "production": [
+          "ki_reg_oa_mclaren_varietal_blend",
+          "ki_reg_oa_mclaren_gentle_cap"
+        ],
+        "style": [
+          "ki_reg_oa_mclaren_varietal_blend"
+        ],
+        "quality_price": [
+          "ki_reg_sh_price_costs",
+          "ki_reg_sh_price_demand"
+        ],
+        "labels": [
+          "ki_wset_nw_australia_gi_levels"
+        ]
+      },
+      "canonical_locations": [
+        {
+          "required_name": "McLaren Vale",
+          "node_id": "n_geo_mclaren_vale",
+          "location_items": [
+            "ki_atlas_mclaren_vale_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        }
+      ],
+      "quality_price_common_items": [
+        "ki_biz_cost_plus"
+      ],
+      "generic_style_items": [],
+      "coverage_note": "The group separates original regional explanations, transferable grape/production principles and existing map facts. It does not claim every named place has every dimension independently. Root’s topic audit must inspect this evidence and any explicitly empty dimensions."
+    },
+    {
+      "id": "au_victoria_depth",
+      "level": "WSET_L3",
+      "required_region_names": [
+        "Victoria",
+        "Geelong",
+        "Heathcote",
+        "Goulburn Valley"
+      ],
+      "grapes": [
+        "Pinot Noir",
+        "Chardonnay",
+        "Shiraz",
+        "Cabernet Sauvignon"
+      ],
+      "dimensions": {
+        "grapes": [
+          "ki_wset_nw_geelong_range",
+          "ki_wset_nw_heathcote_shiraz",
+          "ki_wset_nw_goulburn_heat_water"
+        ],
+        "environment": [
+          "ki_wset_nw_geelong_range",
+          "ki_wset_nw_heathcote_shiraz",
+          "ki_wset_nw_goulburn_heat_water"
+        ],
+        "production": [
+          "ki_wset_nw_goulburn_heat_water"
+        ],
+        "style": [
+          "ki_wset_nw_geelong_range",
+          "ki_wset_nw_heathcote_shiraz",
+          "ki_wset_nw_goulburn_heat_water"
+        ],
+        "quality_price": [
+          "ki_reg_sh_price_costs",
+          "ki_reg_sh_price_demand"
+        ],
+        "labels": [
+          "ki_wset_nw_australia_gi_levels"
+        ]
+      },
+      "canonical_locations": [
+        {
+          "required_name": "Victoria",
+          "node_id": "n_geo_victoria",
+          "location_items": [
+            "ki_atlas_victoria_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Geelong",
+          "node_id": "n_geo_geelong_wine",
+          "location_items": [
+            "ki_nwc_geelong_wine_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Heathcote",
+          "node_id": "n_geo_heathcote_wine",
+          "location_items": [
+            "ki_nwc_heathcote_wine_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Goulburn Valley",
+          "node_id": "n_geo_goulburn_valley_wine",
+          "location_items": [
+            "ki_nwc_goulburn_valley_wine_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        }
+      ],
+      "quality_price_common_items": [
+        "ki_biz_cost_plus"
+      ],
+      "generic_style_items": [],
+      "coverage_note": "The group separates original regional explanations, transferable grape/production principles and existing map facts. It does not claim every named place has every dimension independently. Root’s topic audit must inspect this evidence and any explicitly empty dimensions."
+    },
+    {
+      "id": "au_tasmania",
+      "level": "WSET_L3",
+      "required_region_names": [
+        "Tasmania"
+      ],
+      "grapes": [
+        "Chardonnay",
+        "Pinot Noir"
+      ],
+      "dimensions": {
+        "grapes": [
+          "ki_reg_sh_tasmania_chardonnay"
+        ],
+        "environment": [
+          "ki_reg_sh_tasmania_chardonnay",
+          "ki_reg_sh_tasmania_hazards"
+        ],
+        "production": [
+          "ki_wset_grape_chardonnay_variation"
+        ],
+        "style": [
+          "ki_reg_sh_tasmania_chardonnay",
+          "ki_wset_grape_pinot_noir_profile"
+        ],
+        "quality_price": [
+          "ki_reg_sh_price_costs",
+          "ki_reg_sh_price_demand"
+        ],
+        "labels": [
+          "ki_wset_nw_australia_gi_levels"
+        ]
+      },
+      "canonical_locations": [
+        {
+          "required_name": "Tasmania",
+          "node_id": "n_geo_tasmania",
+          "location_items": [
+            "ki_atlas_tasmania_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        }
+      ],
+      "quality_price_common_items": [
+        "ki_biz_cost_plus"
+      ],
+      "generic_style_items": [
+        "ki_wset_grape_pinot_noir_profile"
+      ],
+      "coverage_note": "The group separates original regional explanations, transferable grape/production principles and existing map facts. It does not claim every named place has every dimension independently. Root’s topic audit must inspect this evidence and any explicitly empty dimensions."
+    },
+    {
+      "id": "au_great_southern",
+      "level": "WSET_L3",
+      "required_region_names": [
+        "Western Australia",
+        "Great Southern"
+      ],
+      "grapes": [
+        "Riesling",
+        "Cabernet Sauvignon",
+        "Shiraz",
+        "Chardonnay",
+        "Pinot Noir"
+      ],
+      "dimensions": {
+        "grapes": [
+          "ki_wset_nw_great_southern_sites",
+          "ki_wset_nw_great_southern_styles"
+        ],
+        "environment": [
+          "ki_wset_nw_great_southern_sites"
+        ],
+        "production": [],
+        "style": [
+          "ki_wset_nw_great_southern_styles"
+        ],
+        "quality_price": [
+          "ki_reg_sh_price_costs",
+          "ki_reg_sh_price_demand"
+        ],
+        "labels": [
+          "ki_wset_nw_australia_gi_levels"
+        ]
+      },
+      "canonical_locations": [
+        {
+          "required_name": "Western Australia",
+          "node_id": "n_geo_western_australia",
+          "location_items": [
+            "ki_atlas_western_australia_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Great Southern",
+          "node_id": "n_geo_great_southern",
+          "location_items": [
+            "ki_atlas_great_southern_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        }
+      ],
+      "quality_price_common_items": [
+        "ki_biz_cost_plus"
+      ],
+      "generic_style_items": [],
+      "coverage_note": "The group separates original regional explanations, transferable grape/production principles and existing map facts. It does not claim every named place has every dimension independently. Root’s topic audit must inspect this evidence and any explicitly empty dimensions."
+    },
+    {
+      "id": "au_labels",
+      "level": "WSET_L2",
+      "required_region_names": [
+        "Australia",
+        "South Australia",
+        "Victoria",
+        "New South Wales",
+        "Western Australia"
+      ],
+      "grapes": [],
+      "dimensions": {
+        "grapes": [],
+        "environment": [],
+        "production": [],
+        "style": [],
+        "quality_price": [
+          "ki_biz_cost_plus"
+        ],
+        "labels": [
+          "ki_wset_nw_australia_gi_levels"
+        ]
+      },
+      "canonical_locations": [
+        {
+          "required_name": "Australia",
+          "node_id": "n_geo_australia",
+          "location_items": [],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "South Australia",
+          "node_id": "n_geo_south_australia",
+          "location_items": [
+            "ki_atlas_south_australia_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Victoria",
+          "node_id": "n_geo_victoria",
+          "location_items": [
+            "ki_atlas_victoria_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "New South Wales",
+          "node_id": "n_geo_new_south_wales",
+          "location_items": [
+            "ki_nwc_new_south_wales_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Western Australia",
+          "node_id": "n_geo_western_australia",
+          "location_items": [
+            "ki_atlas_western_australia_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        }
+      ],
+      "quality_price_common_items": [
+        "ki_biz_cost_plus"
+      ],
+      "generic_style_items": [],
+      "coverage_note": "The group separates original regional explanations, transferable grape/production principles and existing map facts. It does not claim every named place has every dimension independently. Root’s topic audit must inspect this evidence and any explicitly empty dimensions."
+    },
+    {
+      "id": "nz_marlborough",
+      "level": "WSET_L2",
+      "required_region_names": [
+        "New Zealand",
+        "South Island",
+        "Marlborough"
+      ],
+      "grapes": [
+        "Sauvignon Blanc",
+        "Chardonnay",
+        "Pinot Noir",
+        "Pinot Gris",
+        "Riesling"
+      ],
+      "dimensions": {
+        "grapes": [
+          "ki_wset_nw_marlborough_sauvignon_style",
+          "ki_wset_nw_marlborough_chardonnay_range",
+          "ki_wset_nw_marlborough_pinot_style",
+          "ki_wset_nw_marlborough_aromatics"
+        ],
+        "environment": [
+          "ki_reg_sh_marlborough_wairau",
+          "ki_reg_sh_marlborough_awatere"
+        ],
+        "production": [
+          "ki_wset_nw_marlborough_chardonnay_range"
+        ],
+        "style": [
+          "ki_wset_nw_marlborough_sauvignon_style",
+          "ki_wset_nw_marlborough_chardonnay_range",
+          "ki_wset_nw_marlborough_pinot_style",
+          "ki_wset_nw_marlborough_aromatics"
+        ],
+        "quality_price": [
+          "ki_biz_cost_plus"
+        ],
+        "labels": []
+      },
+      "canonical_locations": [
+        {
+          "required_name": "New Zealand",
+          "node_id": "n_geo_new_zealand",
+          "location_items": [],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "South Island",
+          "node_id": "n_geo_south_island",
+          "location_items": [
+            "ki_diploma_south_island_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Marlborough",
+          "node_id": "n_geo_marlborough",
+          "location_items": [
+            "ki_atlas_marlborough_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        }
+      ],
+      "quality_price_common_items": [
+        "ki_biz_cost_plus"
+      ],
+      "generic_style_items": [],
+      "coverage_note": "The group separates original regional explanations, transferable grape/production principles and existing map facts. It does not claim every named place has every dimension independently. Root’s topic audit must inspect this evidence and any explicitly empty dimensions."
+    },
+    {
+      "id": "nz_hawkes",
+      "level": "WSET_L2",
+      "required_region_names": [
+        "North Island",
+        "Hawke’s Bay"
+      ],
+      "grapes": [
+        "Merlot",
+        "Cabernet Sauvignon",
+        "Chardonnay",
+        "Syrah",
+        "Pinot Gris"
+      ],
+      "dimensions": {
+        "grapes": [
+          "ki_reg_sh_hawkes_reds",
+          "ki_wset_nw_hawkes_cab_merlot",
+          "ki_wset_nw_hawkes_chardonnay",
+          "ki_wset_nw_hawkes_syrah_pinot_gris"
+        ],
+        "environment": [
+          "ki_reg_sh_hawkes_reds",
+          "ki_reg_sh_hawkes_cool"
+        ],
+        "production": [
+          "ki_wset_nw_hawkes_cab_merlot"
+        ],
+        "style": [
+          "ki_wset_nw_hawkes_cab_merlot",
+          "ki_wset_nw_hawkes_chardonnay",
+          "ki_wset_nw_hawkes_syrah_pinot_gris"
+        ],
+        "quality_price": [],
+        "labels": []
+      },
+      "canonical_locations": [
+        {
+          "required_name": "North Island",
+          "node_id": "n_geo_north_island",
+          "location_items": [
+            "ki_diploma_north_island_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        },
+        {
+          "required_name": "Hawke’s Bay",
+          "node_id": "n_geo_hawkes_bay",
+          "location_items": [
+            "ki_atlas_hawkes_bay_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        }
+      ],
+      "quality_price_common_items": [
+        "ki_biz_cost_plus"
+      ],
+      "generic_style_items": [],
+      "coverage_note": "The group separates original regional explanations, transferable grape/production principles and existing map facts. It does not claim every named place has every dimension independently. Root’s topic audit must inspect this evidence and any explicitly empty dimensions."
+    },
+    {
+      "id": "nz_martinborough",
+      "level": "WSET_L2",
+      "required_region_names": [
+        "Martinborough"
+      ],
+      "grapes": [
+        "Pinot Noir"
+      ],
+      "dimensions": {
+        "grapes": [
+          "ki_reg_sh_martinborough_setting",
+          "ki_wset_nw_martinborough_pinot_style"
+        ],
+        "environment": [
+          "ki_reg_sh_martinborough_setting",
+          "ki_reg_sh_wairarapa_variation"
+        ],
+        "production": [],
+        "style": [
+          "ki_wset_nw_martinborough_pinot_style"
+        ],
+        "quality_price": [],
+        "labels": []
+      },
+      "canonical_locations": [
+        {
+          "required_name": "Martinborough",
+          "node_id": "n_geo_martinborough",
+          "location_items": [
+            "ki_atlas_martinborough_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        }
+      ],
+      "quality_price_common_items": [
+        "ki_biz_cost_plus"
+      ],
+      "generic_style_items": [],
+      "coverage_note": "The group separates original regional explanations, transferable grape/production principles and existing map facts. It does not claim every named place has every dimension independently. Root’s topic audit must inspect this evidence and any explicitly empty dimensions."
+    },
+    {
+      "id": "nz_otago",
+      "level": "WSET_L2",
+      "required_region_names": [
+        "Central Otago"
+      ],
+      "grapes": [
+        "Pinot Noir",
+        "Riesling",
+        "Pinot Gris"
+      ],
+      "dimensions": {
+        "grapes": [
+          "ki_wset_nw_otago_pinot_style",
+          "ki_wset_nw_otago_aromatics"
+        ],
+        "environment": [
+          "ki_reg_sh_otago_gibbston",
+          "ki_reg_sh_otago_bannockburn",
+          "ki_wset_nw_otago_pinot_style"
+        ],
+        "production": [],
+        "style": [
+          "ki_wset_nw_otago_pinot_style",
+          "ki_wset_nw_otago_aromatics"
+        ],
+        "quality_price": [],
+        "labels": []
+      },
+      "canonical_locations": [
+        {
+          "required_name": "Central Otago",
+          "node_id": "n_geo_central_otago",
+          "location_items": [
+            "ki_atlas_central_otago_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        }
+      ],
+      "quality_price_common_items": [
+        "ki_biz_cost_plus"
+      ],
+      "generic_style_items": [],
+      "coverage_note": "The group separates original regional explanations, transferable grape/production principles and existing map facts. It does not claim every named place has every dimension independently. Root’s topic audit must inspect this evidence and any explicitly empty dimensions."
+    },
+    {
+      "id": "nz_nelson",
+      "level": "WSET_L3",
+      "required_region_names": [
+        "Nelson"
+      ],
+      "grapes": [
+        "Sauvignon Blanc",
+        "Chardonnay",
+        "Pinot Noir",
+        "Pinot Gris"
+      ],
+      "dimensions": {
+        "grapes": [
+          "ki_reg_oa_nelson_moutere",
+          "ki_reg_oa_nelson_waimea",
+          "ki_wset_nw_nelson_wine_styles"
+        ],
+        "environment": [
+          "ki_reg_oa_nelson_moutere",
+          "ki_reg_oa_nelson_waimea"
+        ],
+        "production": [],
+        "style": [
+          "ki_wset_nw_nelson_wine_styles"
+        ],
+        "quality_price": [],
+        "labels": []
+      },
+      "canonical_locations": [
+        {
+          "required_name": "Nelson",
+          "node_id": "n_geo_nelson",
+          "location_items": [
+            "ki_atlas_nelson_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        }
+      ],
+      "quality_price_common_items": [
+        "ki_biz_cost_plus"
+      ],
+      "generic_style_items": [],
+      "coverage_note": "The group separates original regional explanations, transferable grape/production principles and existing map facts. It does not claim every named place has every dimension independently. Root’s topic audit must inspect this evidence and any explicitly empty dimensions."
+    },
+    {
+      "id": "nz_gisborne",
+      "level": "WSET_L3",
+      "required_region_names": [
+        "Gisborne"
+      ],
+      "grapes": [
+        "Chardonnay",
+        "Pinot Gris",
+        "Merlot"
+      ],
+      "dimensions": {
+        "grapes": [
+          "ki_reg_oa_gisborne_patutahi",
+          "ki_reg_oa_gisborne_manutuke",
+          "ki_wset_nw_gisborne_wine_styles"
+        ],
+        "environment": [
+          "ki_reg_oa_gisborne_patutahi",
+          "ki_reg_oa_gisborne_manutuke"
+        ],
+        "production": [],
+        "style": [
+          "ki_wset_nw_gisborne_wine_styles"
+        ],
+        "quality_price": [],
+        "labels": []
+      },
+      "canonical_locations": [
+        {
+          "required_name": "Gisborne",
+          "node_id": "n_geo_gisborne",
+          "location_items": [
+            "ki_atlas_gisborne_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        }
+      ],
+      "quality_price_common_items": [
+        "ki_biz_cost_plus"
+      ],
+      "generic_style_items": [],
+      "coverage_note": "The group separates original regional explanations, transferable grape/production principles and existing map facts. It does not claim every named place has every dimension independently. Root’s topic audit must inspect this evidence and any explicitly empty dimensions."
+    },
+    {
+      "id": "nz_canterbury",
+      "level": "WSET_L3",
+      "required_region_names": [
+        "Canterbury"
+      ],
+      "grapes": [
+        "Pinot Noir",
+        "Chardonnay",
+        "Riesling",
+        "Pinot Gris",
+        "Sauvignon Blanc"
+      ],
+      "dimensions": {
+        "grapes": [
+          "ki_reg_oa_canterbury_riesling",
+          "ki_reg_oa_canterbury_pinot",
+          "ki_wset_nw_canterbury_style_range"
+        ],
+        "environment": [
+          "ki_reg_oa_canterbury_waipara",
+          "ki_reg_oa_canterbury_plains",
+          "ki_reg_oa_canterbury_pinot"
+        ],
+        "production": [],
+        "style": [
+          "ki_reg_oa_canterbury_riesling",
+          "ki_wset_nw_canterbury_style_range"
+        ],
+        "quality_price": [],
+        "labels": []
+      },
+      "canonical_locations": [
+        {
+          "required_name": "Canterbury",
+          "node_id": "n_geo_canterbury_wine",
+          "location_items": [
+            "ki_nwc_canterbury_wine_location"
+          ],
+          "exists_at_authoring": true,
+          "counts_as_explanatory_coverage": false
+        }
+      ],
+      "quality_price_common_items": [
+        "ki_biz_cost_plus"
+      ],
+      "generic_style_items": [],
+      "coverage_note": "The group separates original regional explanations, transferable grape/production principles and existing map facts. It does not claim every named place has every dimension independently. Root’s topic audit must inspect this evidence and any explicitly empty dimensions."
+    }
+  ],
+  "grape_gi_requirements": [
+    {
+      "id": "l2_merlot_california",
+      "grape": "merlot",
+      "region": "California",
+      "group": "us_california",
+      "canonical_node_ids": [
+        "n_geo_california"
+      ],
+      "grape_items": [
+        "ki_wset_grape_merlot_profile",
+        "ki_wset_grape_merlot_variation"
+      ],
+      "regional_items": [
+        "ki_wset_nw_california_variation",
+        "ki_wset_nw_california_zinfandel_range"
+      ],
+      "note": "Grape profile/variation and regional context are distinct dimensions; sibling grape facts in the group are not themselves evidence of this grape’s style."
+    },
+    {
+      "id": "l2_merlot_napa_valley",
+      "grape": "merlot",
+      "region": "Napa Valley",
+      "group": "us_napa",
+      "canonical_node_ids": [
+        "n_geo_napa_valley"
+      ],
+      "grape_items": [
+        "ki_wset_grape_merlot_profile",
+        "ki_wset_grape_merlot_variation"
+      ],
+      "regional_items": [
+        "ki_reg_am_carneros_cooling",
+        "ki_reg_am_upper_napa_warmth",
+        "ki_wset_nw_oakville_setting",
+        "ki_wset_nw_rutherford_setting",
+        "ki_wset_nw_calistoga_setting",
+        "ki_wset_nw_napa_cabernet",
+        "ki_wset_nw_napa_merlot",
+        "ki_wset_nw_napa_chardonnay",
+        "ki_wset_nw_napa_sauvignon"
+      ],
+      "note": "Grape profile/variation and regional context are distinct dimensions; sibling grape facts in the group are not themselves evidence of this grape’s style."
+    },
+    {
+      "id": "l2_merlot_sonoma",
+      "grape": "merlot",
+      "region": "Sonoma",
+      "group": "us_sonoma",
+      "canonical_node_ids": [
+        "n_geo_sonoma_county"
+      ],
+      "grape_items": [
+        "ki_wset_grape_merlot_profile",
+        "ki_wset_grape_merlot_variation"
+      ],
+      "regional_items": [
+        "ki_reg_am_russian_river_pinot",
+        "ki_reg_am_alexander_cabernet",
+        "ki_wset_nw_sonoma_grape_sites",
+        "ki_wset_grape_merlot_profile",
+        "ki_wset_grape_pinot_noir_profile",
+        "ki_wset_grape_chardonnay_variation"
+      ],
+      "note": "Grape profile/variation and regional context are distinct dimensions; sibling grape facts in the group are not themselves evidence of this grape’s style."
+    },
+    {
+      "id": "l2_merlot_central_valley",
+      "grape": "merlot",
+      "region": "Central Valley",
+      "group": "cl_central",
+      "canonical_node_ids": [
+        "n_geo_central_valley_chile"
+      ],
+      "grape_items": [
+        "ki_wset_grape_merlot_profile",
+        "ki_wset_grape_merlot_variation"
+      ],
+      "regional_items": [
+        "ki_reg_am_maipo_cabernet",
+        "ki_reg_am_colchagua_reds",
+        "ki_wset_nw_central_valley_reds",
+        "ki_wset_nw_central_valley_whites",
+        "ki_wset_grape_carmenere_profile",
+        "ki_wset_grape_cabernet_sauvignon_profile",
+        "ki_wset_grape_merlot_profile",
+        "ki_wset_grape_chardonnay_variation",
+        "ki_wset_grape_sauvignon_blanc_variation"
+      ],
+      "note": "Grape profile/variation and regional context are distinct dimensions; sibling grape facts in the group are not themselves evidence of this grape’s style."
+    },
+    {
+      "id": "l2_merlot_stellenbosch",
+      "grape": "merlot",
+      "region": "Stellenbosch",
+      "group": "za_stellenbosch",
+      "canonical_node_ids": [
+        "n_geo_stellenbosch"
+      ],
+      "grape_items": [
+        "ki_wset_grape_merlot_profile",
+        "ki_wset_grape_merlot_variation"
+      ],
+      "regional_items": [
+        "ki_reg_sh_stellenbosch_heat",
+        "ki_reg_sh_stellenbosch_aspect",
+        "ki_wset_grape_cabernet_sauvignon_profile",
+        "ki_wset_grape_merlot_profile",
+        "ki_wset_grape_cabernet_sauvignon_variation"
+      ],
+      "note": "Grape profile/variation and regional context are distinct dimensions; sibling grape facts in the group are not themselves evidence of this grape’s style."
+    },
+    {
+      "id": "l2_merlot_margaret_river",
+      "grape": "merlot",
+      "region": "Margaret River",
+      "group": "au_cabernet",
+      "canonical_node_ids": [
+        "n_geo_margaret_river"
+      ],
+      "grape_items": [
+        "ki_wset_grape_merlot_profile",
+        "ki_wset_grape_merlot_variation"
+      ],
+      "regional_items": [
+        "ki_reg_sh_cab_maritime",
+        "ki_reg_sh_cab_styles",
+        "ki_wset_nw_margaret_merlot_blend",
+        "ki_wset_nw_margaret_white_range"
+      ],
+      "note": "Grape profile/variation and regional context are distinct dimensions; sibling grape facts in the group are not themselves evidence of this grape’s style."
+    },
+    {
+      "id": "l2_merlot_hawke_s_bay",
+      "grape": "merlot",
+      "region": "Hawke’s Bay",
+      "group": "nz_hawkes",
+      "canonical_node_ids": [
+        "n_geo_hawkes_bay"
+      ],
+      "grape_items": [
+        "ki_wset_grape_merlot_profile",
+        "ki_wset_grape_merlot_variation"
+      ],
+      "regional_items": [
+        "ki_reg_sh_hawkes_reds",
+        "ki_reg_sh_hawkes_cool",
+        "ki_wset_nw_hawkes_cab_merlot",
+        "ki_wset_nw_hawkes_chardonnay"
+      ],
+      "note": "Grape profile/variation and regional context are distinct dimensions; sibling grape facts in the group are not themselves evidence of this grape’s style."
+    },
+    {
+      "id": "l2_cabernet_sauvignon_california",
+      "grape": "cabernet_sauvignon",
+      "region": "California",
+      "group": "us_california",
+      "canonical_node_ids": [
+        "n_geo_california"
+      ],
+      "grape_items": [
+        "ki_wset_grape_cabernet_sauvignon_profile",
+        "ki_wset_grape_cabernet_sauvignon_variation"
+      ],
+      "regional_items": [
+        "ki_wset_nw_california_variation",
+        "ki_wset_nw_california_zinfandel_range"
+      ],
+      "note": "Grape profile/variation and regional context are distinct dimensions; sibling grape facts in the group are not themselves evidence of this grape’s style."
+    },
+    {
+      "id": "l2_cabernet_sauvignon_napa_valley",
+      "grape": "cabernet_sauvignon",
+      "region": "Napa Valley",
+      "group": "us_napa",
+      "canonical_node_ids": [
+        "n_geo_napa_valley"
+      ],
+      "grape_items": [
+        "ki_wset_grape_cabernet_sauvignon_profile",
+        "ki_wset_grape_cabernet_sauvignon_variation"
+      ],
+      "regional_items": [
+        "ki_reg_am_carneros_cooling",
+        "ki_reg_am_upper_napa_warmth",
+        "ki_wset_nw_oakville_setting",
+        "ki_wset_nw_rutherford_setting",
+        "ki_wset_nw_calistoga_setting",
+        "ki_wset_nw_napa_cabernet",
+        "ki_wset_nw_napa_merlot",
+        "ki_wset_nw_napa_chardonnay",
+        "ki_wset_nw_napa_sauvignon"
+      ],
+      "note": "Grape profile/variation and regional context are distinct dimensions; sibling grape facts in the group are not themselves evidence of this grape’s style."
+    },
+    {
+      "id": "l2_cabernet_sauvignon_oakville",
+      "grape": "cabernet_sauvignon",
+      "region": "Oakville",
+      "group": "us_napa",
+      "canonical_node_ids": [
+        "n_geo_oakville"
+      ],
+      "grape_items": [
+        "ki_wset_grape_cabernet_sauvignon_profile",
+        "ki_wset_grape_cabernet_sauvignon_variation"
+      ],
+      "regional_items": [
+        "ki_reg_am_carneros_cooling",
+        "ki_reg_am_upper_napa_warmth",
+        "ki_wset_nw_oakville_setting",
+        "ki_wset_nw_rutherford_setting",
+        "ki_wset_nw_calistoga_setting",
+        "ki_wset_nw_napa_cabernet",
+        "ki_wset_nw_napa_merlot",
+        "ki_wset_nw_napa_chardonnay",
+        "ki_wset_nw_napa_sauvignon"
+      ],
+      "note": "Grape profile/variation and regional context are distinct dimensions; sibling grape facts in the group are not themselves evidence of this grape’s style."
+    },
+    {
+      "id": "l2_cabernet_sauvignon_rutherford",
+      "grape": "cabernet_sauvignon",
+      "region": "Rutherford",
+      "group": "us_napa",
+      "canonical_node_ids": [
+        "n_geo_rutherford"
+      ],
+      "grape_items": [
+        "ki_wset_grape_cabernet_sauvignon_profile",
+        "ki_wset_grape_cabernet_sauvignon_variation"
+      ],
+      "regional_items": [
+        "ki_reg_am_carneros_cooling",
+        "ki_reg_am_upper_napa_warmth",
+        "ki_wset_nw_oakville_setting",
+        "ki_wset_nw_rutherford_setting",
+        "ki_wset_nw_calistoga_setting",
+        "ki_wset_nw_napa_cabernet",
+        "ki_wset_nw_napa_merlot",
+        "ki_wset_nw_napa_chardonnay",
+        "ki_wset_nw_napa_sauvignon"
+      ],
+      "note": "Grape profile/variation and regional context are distinct dimensions; sibling grape facts in the group are not themselves evidence of this grape’s style."
+    },
+    {
+      "id": "l2_cabernet_sauvignon_calistoga",
+      "grape": "cabernet_sauvignon",
+      "region": "Calistoga",
+      "group": "us_napa",
+      "canonical_node_ids": [
+        "n_geo_calistoga"
+      ],
+      "grape_items": [
+        "ki_wset_grape_cabernet_sauvignon_profile",
+        "ki_wset_grape_cabernet_sauvignon_variation"
+      ],
+      "regional_items": [
+        "ki_reg_am_carneros_cooling",
+        "ki_reg_am_upper_napa_warmth",
+        "ki_wset_nw_oakville_setting",
+        "ki_wset_nw_rutherford_setting",
+        "ki_wset_nw_calistoga_setting",
+        "ki_wset_nw_napa_cabernet",
+        "ki_wset_nw_napa_merlot",
+        "ki_wset_nw_napa_chardonnay",
+        "ki_wset_nw_napa_sauvignon"
+      ],
+      "note": "Grape profile/variation and regional context are distinct dimensions; sibling grape facts in the group are not themselves evidence of this grape’s style."
+    },
+    {
+      "id": "l2_cabernet_sauvignon_sonoma",
+      "grape": "cabernet_sauvignon",
+      "region": "Sonoma",
+      "group": "us_sonoma",
+      "canonical_node_ids": [
+        "n_geo_sonoma_county"
+      ],
+      "grape_items": [
+        "ki_wset_grape_cabernet_sauvignon_profile",
+        "ki_wset_grape_cabernet_sauvignon_variation"
+      ],
+      "regional_items": [
+        "ki_reg_am_russian_river_pinot",
+        "ki_reg_am_alexander_cabernet",
+        "ki_wset_nw_sonoma_grape_sites",
+        "ki_wset_grape_merlot_profile",
+        "ki_wset_grape_pinot_noir_profile",
+        "ki_wset_grape_chardonnay_variation"
+      ],
+      "note": "Grape profile/variation and regional context are distinct dimensions; sibling grape facts in the group are not themselves evidence of this grape’s style."
+    },
+    {
+      "id": "l2_cabernet_sauvignon_central_valley",
+      "grape": "cabernet_sauvignon",
+      "region": "Central Valley",
+      "group": "cl_central",
+      "canonical_node_ids": [
+        "n_geo_central_valley_chile"
+      ],
+      "grape_items": [
+        "ki_wset_grape_cabernet_sauvignon_profile",
+        "ki_wset_grape_cabernet_sauvignon_variation"
+      ],
+      "regional_items": [
+        "ki_reg_am_maipo_cabernet",
+        "ki_reg_am_colchagua_reds",
+        "ki_wset_nw_central_valley_reds",
+        "ki_wset_nw_central_valley_whites",
+        "ki_wset_grape_carmenere_profile",
+        "ki_wset_grape_cabernet_sauvignon_profile",
+        "ki_wset_grape_merlot_profile",
+        "ki_wset_grape_chardonnay_variation",
+        "ki_wset_grape_sauvignon_blanc_variation"
+      ],
+      "note": "Grape profile/variation and regional context are distinct dimensions; sibling grape facts in the group are not themselves evidence of this grape’s style."
+    },
+    {
+      "id": "l2_cabernet_sauvignon_maipo",
+      "grape": "cabernet_sauvignon",
+      "region": "Maipo",
+      "group": "cl_central",
+      "canonical_node_ids": [
+        "n_geo_maipo"
+      ],
+      "grape_items": [
+        "ki_wset_grape_cabernet_sauvignon_profile",
+        "ki_wset_grape_cabernet_sauvignon_variation"
+      ],
+      "regional_items": [
+        "ki_reg_am_maipo_cabernet",
+        "ki_reg_am_colchagua_reds",
+        "ki_wset_nw_central_valley_reds",
+        "ki_wset_nw_central_valley_whites",
+        "ki_wset_grape_carmenere_profile",
+        "ki_wset_grape_cabernet_sauvignon_profile",
+        "ki_wset_grape_merlot_profile",
+        "ki_wset_grape_chardonnay_variation",
+        "ki_wset_grape_sauvignon_blanc_variation"
+      ],
+      "note": "Grape profile/variation and regional context are distinct dimensions; sibling grape facts in the group are not themselves evidence of this grape’s style."
+    },
+    {
+      "id": "l2_cabernet_sauvignon_colchagua",
+      "grape": "cabernet_sauvignon",
+      "region": "Colchagua",
+      "group": "cl_central",
+      "canonical_node_ids": [
+        "n_geo_colchagua"
+      ],
+      "grape_items": [
+        "ki_wset_grape_cabernet_sauvignon_profile",
+        "ki_wset_grape_cabernet_sauvignon_variation"
+      ],
+      "regional_items": [
+        "ki_reg_am_maipo_cabernet",
+        "ki_reg_am_colchagua_reds",
+        "ki_wset_nw_central_valley_reds",
+        "ki_wset_nw_central_valley_whites",
+        "ki_wset_grape_carmenere_profile",
+        "ki_wset_grape_cabernet_sauvignon_profile",
+        "ki_wset_grape_merlot_profile",
+        "ki_wset_grape_chardonnay_variation",
+        "ki_wset_grape_sauvignon_blanc_variation"
+      ],
+      "note": "Grape profile/variation and regional context are distinct dimensions; sibling grape facts in the group are not themselves evidence of this grape’s style."
+    },
+    {
+      "id": "l2_cabernet_sauvignon_stellenbosch",
+      "grape": "cabernet_sauvignon",
+      "region": "Stellenbosch",
+      "group": "za_stellenbosch",
+      "canonical_node_ids": [
+        "n_geo_stellenbosch"
+      ],
+      "grape_items": [
+        "ki_wset_grape_cabernet_sauvignon_profile",
+        "ki_wset_grape_cabernet_sauvignon_variation"
+      ],
+      "regional_items": [
+        "ki_reg_sh_stellenbosch_heat",
+        "ki_reg_sh_stellenbosch_aspect",
+        "ki_wset_grape_cabernet_sauvignon_profile",
+        "ki_wset_grape_merlot_profile",
+        "ki_wset_grape_cabernet_sauvignon_variation"
+      ],
+      "note": "Grape profile/variation and regional context are distinct dimensions; sibling grape facts in the group are not themselves evidence of this grape’s style."
+    },
+    {
+      "id": "l2_cabernet_sauvignon_coonawarra",
+      "grape": "cabernet_sauvignon",
+      "region": "Coonawarra",
+      "group": "au_cabernet",
+      "canonical_node_ids": [
+        "n_geo_coonawarra"
+      ],
+      "grape_items": [
+        "ki_wset_grape_cabernet_sauvignon_profile",
+        "ki_wset_grape_cabernet_sauvignon_variation"
+      ],
+      "regional_items": [
+        "ki_reg_sh_cab_maritime",
+        "ki_reg_sh_cab_styles",
+        "ki_wset_nw_margaret_merlot_blend",
+        "ki_wset_nw_margaret_white_range"
+      ],
+      "note": "Grape profile/variation and regional context are distinct dimensions; sibling grape facts in the group are not themselves evidence of this grape’s style."
+    },
+    {
+      "id": "l2_cabernet_sauvignon_margaret_river",
+      "grape": "cabernet_sauvignon",
+      "region": "Margaret River",
+      "group": "au_cabernet",
+      "canonical_node_ids": [
+        "n_geo_margaret_river"
+      ],
+      "grape_items": [
+        "ki_wset_grape_cabernet_sauvignon_profile",
+        "ki_wset_grape_cabernet_sauvignon_variation"
+      ],
+      "regional_items": [
+        "ki_reg_sh_cab_maritime",
+        "ki_reg_sh_cab_styles",
+        "ki_wset_nw_margaret_merlot_blend",
+        "ki_wset_nw_margaret_white_range"
+      ],
+      "note": "Grape profile/variation and regional context are distinct dimensions; sibling grape facts in the group are not themselves evidence of this grape’s style."
+    },
+    {
+      "id": "l2_cabernet_sauvignon_hawke_s_bay",
+      "grape": "cabernet_sauvignon",
+      "region": "Hawke’s Bay",
+      "group": "nz_hawkes",
+      "canonical_node_ids": [
+        "n_geo_hawkes_bay"
+      ],
+      "grape_items": [
+        "ki_wset_grape_cabernet_sauvignon_profile",
+        "ki_wset_grape_cabernet_sauvignon_variation"
+      ],
+      "regional_items": [
+        "ki_reg_sh_hawkes_reds",
+        "ki_reg_sh_hawkes_cool",
+        "ki_wset_nw_hawkes_cab_merlot",
+        "ki_wset_nw_hawkes_chardonnay"
+      ],
+      "note": "Grape profile/variation and regional context are distinct dimensions; sibling grape facts in the group are not themselves evidence of this grape’s style."
+    },
+    {
+      "id": "l2_syrah_south_eastern_australia",
+      "grape": "syrah",
+      "region": "South Eastern Australia",
+      "group": "au_inland",
+      "canonical_node_ids": [
+        "n_geo_south_eastern_australia"
+      ],
+      "grape_items": [
+        "ki_wset_grape_syrah_profile",
+        "ki_wset_grape_syrah_variation"
+      ],
+      "regional_items": [
+        "ki_wset_nw_south_eastern_range",
+        "ki_wset_grape_syrah_profile",
+        "ki_wset_grape_chardonnay_variation"
+      ],
+      "note": "Grape profile/variation and regional context are distinct dimensions; sibling grape facts in the group are not themselves evidence of this grape’s style."
+    },
+    {
+      "id": "l2_syrah_barossa_valley",
+      "grape": "syrah",
+      "region": "Barossa Valley",
+      "group": "au_barossa",
+      "canonical_node_ids": [
+        "n_geo_barossa_valley"
+      ],
+      "grape_items": [
+        "ki_wset_grape_syrah_profile",
+        "ki_wset_grape_syrah_variation"
+      ],
+      "regional_items": [
+        "ki_reg_sh_barossa_floor",
+        "ki_reg_sh_eden_sites",
+        "ki_wset_nw_barossa_gsm",
+        "ki_wset_nw_barossa_semillon_range"
+      ],
+      "note": "Grape profile/variation and regional context are distinct dimensions; sibling grape facts in the group are not themselves evidence of this grape’s style."
+    },
+    {
+      "id": "l2_syrah_hunter_valley",
+      "grape": "syrah",
+      "region": "Hunter Valley",
+      "group": "au_hunter",
+      "canonical_node_ids": [
+        "n_geo_hunter_valley_zone"
+      ],
+      "grape_items": [
+        "ki_wset_grape_syrah_profile",
+        "ki_wset_grape_syrah_variation"
+      ],
+      "regional_items": [
+        "ki_reg_oa_hunter_moderation",
+        "ki_reg_oa_hunter_rain",
+        "ki_reg_oa_hunter_early",
+        "ki_reg_oa_hunter_bottle",
+        "ki_wset_nw_hunter_shiraz_style"
+      ],
+      "note": "Grape profile/variation and regional context are distinct dimensions; sibling grape facts in the group are not themselves evidence of this grape’s style."
+    },
+    {
+      "id": "l2_pinot_noir_sonoma",
+      "grape": "pinot_noir",
+      "region": "Sonoma",
+      "group": "us_sonoma",
+      "canonical_node_ids": [
+        "n_geo_sonoma_county"
+      ],
+      "grape_items": [
+        "ki_wset_grape_pinot_noir_profile",
+        "ki_wset_grape_pinot_noir_variation"
+      ],
+      "regional_items": [
+        "ki_reg_am_russian_river_pinot",
+        "ki_reg_am_alexander_cabernet",
+        "ki_wset_nw_sonoma_grape_sites",
+        "ki_wset_grape_merlot_profile",
+        "ki_wset_grape_pinot_noir_profile",
+        "ki_wset_grape_chardonnay_variation"
+      ],
+      "note": "Grape profile/variation and regional context are distinct dimensions; sibling grape facts in the group are not themselves evidence of this grape’s style."
+    },
+    {
+      "id": "l2_pinot_noir_los_carneros",
+      "grape": "pinot_noir",
+      "region": "Los Carneros",
+      "group": "us_napa",
+      "canonical_node_ids": [
+        "n_geo_los_carneros"
+      ],
+      "grape_items": [
+        "ki_wset_grape_pinot_noir_profile",
+        "ki_wset_grape_pinot_noir_variation"
+      ],
+      "regional_items": [
+        "ki_reg_am_carneros_cooling",
+        "ki_reg_am_upper_napa_warmth",
+        "ki_wset_nw_oakville_setting",
+        "ki_wset_nw_rutherford_setting",
+        "ki_wset_nw_calistoga_setting",
+        "ki_wset_nw_napa_cabernet",
+        "ki_wset_nw_napa_merlot",
+        "ki_wset_nw_napa_chardonnay",
+        "ki_wset_nw_napa_sauvignon"
+      ],
+      "note": "Grape profile/variation and regional context are distinct dimensions; sibling grape facts in the group are not themselves evidence of this grape’s style."
+    },
+    {
+      "id": "l2_pinot_noir_santa_barbara_county",
+      "grape": "pinot_noir",
+      "region": "Santa Barbara County",
+      "group": "us_central_coast",
+      "canonical_node_ids": [
+        "n_geo_santa_barbara_county"
+      ],
+      "grape_items": [
+        "ki_wset_grape_pinot_noir_profile",
+        "ki_wset_grape_pinot_noir_variation"
+      ],
+      "regional_items": [
+        "ki_reg_na_sta_rita_grapes",
+        "ki_reg_na_happy_later_grapes",
+        "ki_wset_grape_pinot_noir_profile",
+        "ki_wset_grape_chardonnay_variation"
+      ],
+      "note": "Grape profile/variation and regional context are distinct dimensions; sibling grape facts in the group are not themselves evidence of this grape’s style."
+    },
+    {
+      "id": "l2_pinot_noir_oregon",
+      "grape": "pinot_noir",
+      "region": "Oregon",
+      "group": "us_oregon",
+      "canonical_node_ids": [
+        "n_geo_oregon"
+      ],
+      "grape_items": [
+        "ki_wset_grape_pinot_noir_profile",
+        "ki_wset_grape_pinot_noir_variation"
+      ],
+      "regional_items": [
+        "ki_reg_am_willamette_pinot",
+        "ki_reg_am_rogue_diversity",
+        "ki_wset_nw_oregon_chardonnay_range",
+        "ki_wset_grape_pinot_noir_profile"
+      ],
+      "note": "Grape profile/variation and regional context are distinct dimensions; sibling grape facts in the group are not themselves evidence of this grape’s style."
+    },
+    {
+      "id": "l2_pinot_noir_casablanca",
+      "grape": "pinot_noir",
+      "region": "Casablanca",
+      "group": "cl_coastal",
+      "canonical_node_ids": [
+        "n_geo_casablanca"
+      ],
+      "grape_items": [
+        "ki_wset_grape_pinot_noir_profile",
+        "ki_wset_grape_pinot_noir_variation"
+      ],
+      "regional_items": [
+        "ki_reg_am_casablanca_low",
+        "ki_reg_am_casablanca_high",
+        "ki_wset_nw_casablanca_grapes",
+        "ki_wset_grape_sauvignon_blanc_profile",
+        "ki_wset_grape_chardonnay_variation",
+        "ki_wset_grape_pinot_noir_profile"
+      ],
+      "note": "Grape profile/variation and regional context are distinct dimensions; sibling grape facts in the group are not themselves evidence of this grape’s style."
+    },
+    {
+      "id": "l2_pinot_noir_walker_bay",
+      "grape": "pinot_noir",
+      "region": "Walker Bay",
+      "group": "za_coastal",
+      "canonical_node_ids": [
+        "n_geo_walker_bay"
+      ],
+      "grape_items": [
+        "ki_wset_grape_pinot_noir_profile",
+        "ki_wset_grape_pinot_noir_variation"
+      ],
+      "regional_items": [
+        "ki_reg_oa_constantia_aspects",
+        "ki_reg_sh_elgin_ripening",
+        "ki_reg_sh_hemel_maritime",
+        "ki_wset_nw_elgin_sauvignon",
+        "ki_wset_grape_sauvignon_blanc_profile",
+        "ki_wset_grape_chardonnay_variation",
+        "ki_wset_grape_pinot_noir_profile",
+        "ki_reg_oa_constantia_assembly"
+      ],
+      "note": "Grape profile/variation and regional context are distinct dimensions; sibling grape facts in the group are not themselves evidence of this grape’s style."
+    },
+    {
+      "id": "l2_pinot_noir_yarra_valley",
+      "grape": "pinot_noir",
+      "region": "Yarra Valley",
+      "group": "au_yarra_mornington",
+      "canonical_node_ids": [
+        "n_geo_yarra_valley"
+      ],
+      "grape_items": [
+        "ki_wset_grape_pinot_noir_profile",
+        "ki_wset_grape_pinot_noir_variation"
+      ],
+      "regional_items": [
+        "ki_reg_sh_yarra_mesoclimate",
+        "ki_reg_sh_mornington_maritime",
+        "ki_wset_nw_yarra_wine_range"
+      ],
+      "note": "Grape profile/variation and regional context are distinct dimensions; sibling grape facts in the group are not themselves evidence of this grape’s style."
+    },
+    {
+      "id": "l2_pinot_noir_mornington_peninsula",
+      "grape": "pinot_noir",
+      "region": "Mornington Peninsula",
+      "group": "au_yarra_mornington",
+      "canonical_node_ids": [
+        "n_geo_mornington_peninsula"
+      ],
+      "grape_items": [
+        "ki_wset_grape_pinot_noir_profile",
+        "ki_wset_grape_pinot_noir_variation"
+      ],
+      "regional_items": [
+        "ki_reg_sh_yarra_mesoclimate",
+        "ki_reg_sh_mornington_maritime",
+        "ki_wset_nw_yarra_wine_range"
+      ],
+      "note": "Grape profile/variation and regional context are distinct dimensions; sibling grape facts in the group are not themselves evidence of this grape’s style."
+    },
+    {
+      "id": "l2_pinot_noir_martinborough",
+      "grape": "pinot_noir",
+      "region": "Martinborough",
+      "group": "nz_martinborough",
+      "canonical_node_ids": [
+        "n_geo_martinborough"
+      ],
+      "grape_items": [
+        "ki_wset_grape_pinot_noir_profile",
+        "ki_wset_grape_pinot_noir_variation"
+      ],
+      "regional_items": [
+        "ki_reg_sh_martinborough_setting",
+        "ki_reg_sh_wairarapa_variation",
+        "ki_wset_nw_martinborough_pinot_style"
+      ],
+      "note": "Grape profile/variation and regional context are distinct dimensions; sibling grape facts in the group are not themselves evidence of this grape’s style."
+    },
+    {
+      "id": "l2_pinot_noir_marlborough",
+      "grape": "pinot_noir",
+      "region": "Marlborough",
+      "group": "nz_marlborough",
+      "canonical_node_ids": [
+        "n_geo_marlborough"
+      ],
+      "grape_items": [
+        "ki_wset_grape_pinot_noir_profile",
+        "ki_wset_grape_pinot_noir_variation"
+      ],
+      "regional_items": [
+        "ki_reg_sh_marlborough_wairau",
+        "ki_reg_sh_marlborough_awatere",
+        "ki_wset_nw_marlborough_sauvignon_style",
+        "ki_wset_nw_marlborough_chardonnay_range",
+        "ki_wset_nw_marlborough_pinot_style"
+      ],
+      "note": "Grape profile/variation and regional context are distinct dimensions; sibling grape facts in the group are not themselves evidence of this grape’s style."
+    },
+    {
+      "id": "l2_pinot_noir_central_otago",
+      "grape": "pinot_noir",
+      "region": "Central Otago",
+      "group": "nz_otago",
+      "canonical_node_ids": [
+        "n_geo_central_otago"
+      ],
+      "grape_items": [
+        "ki_wset_grape_pinot_noir_profile",
+        "ki_wset_grape_pinot_noir_variation"
+      ],
+      "regional_items": [
+        "ki_reg_sh_otago_gibbston",
+        "ki_reg_sh_otago_bannockburn",
+        "ki_wset_nw_otago_pinot_style"
+      ],
+      "note": "Grape profile/variation and regional context are distinct dimensions; sibling grape facts in the group are not themselves evidence of this grape’s style."
+    },
+    {
+      "id": "l2_chardonnay_california",
+      "grape": "chardonnay",
+      "region": "California",
+      "group": "us_california",
+      "canonical_node_ids": [
+        "n_geo_california"
+      ],
+      "grape_items": [
+        "ki_wset_grape_chardonnay_profile",
+        "ki_wset_grape_chardonnay_variation"
+      ],
+      "regional_items": [
+        "ki_wset_nw_california_variation",
+        "ki_wset_nw_california_zinfandel_range"
+      ],
+      "note": "Grape profile/variation and regional context are distinct dimensions; sibling grape facts in the group are not themselves evidence of this grape’s style."
+    },
+    {
+      "id": "l2_chardonnay_sonoma",
+      "grape": "chardonnay",
+      "region": "Sonoma",
+      "group": "us_sonoma",
+      "canonical_node_ids": [
+        "n_geo_sonoma_county"
+      ],
+      "grape_items": [
+        "ki_wset_grape_chardonnay_profile",
+        "ki_wset_grape_chardonnay_variation"
+      ],
+      "regional_items": [
+        "ki_reg_am_russian_river_pinot",
+        "ki_reg_am_alexander_cabernet",
+        "ki_wset_nw_sonoma_grape_sites",
+        "ki_wset_grape_merlot_profile",
+        "ki_wset_grape_pinot_noir_profile",
+        "ki_wset_grape_chardonnay_variation"
+      ],
+      "note": "Grape profile/variation and regional context are distinct dimensions; sibling grape facts in the group are not themselves evidence of this grape’s style."
+    },
+    {
+      "id": "l2_chardonnay_los_carneros",
+      "grape": "chardonnay",
+      "region": "Los Carneros",
+      "group": "us_napa",
+      "canonical_node_ids": [
+        "n_geo_los_carneros"
+      ],
+      "grape_items": [
+        "ki_wset_grape_chardonnay_profile",
+        "ki_wset_grape_chardonnay_variation"
+      ],
+      "regional_items": [
+        "ki_reg_am_carneros_cooling",
+        "ki_reg_am_upper_napa_warmth",
+        "ki_wset_nw_oakville_setting",
+        "ki_wset_nw_rutherford_setting",
+        "ki_wset_nw_calistoga_setting",
+        "ki_wset_nw_napa_cabernet",
+        "ki_wset_nw_napa_merlot",
+        "ki_wset_nw_napa_chardonnay",
+        "ki_wset_nw_napa_sauvignon"
+      ],
+      "note": "Grape profile/variation and regional context are distinct dimensions; sibling grape facts in the group are not themselves evidence of this grape’s style."
+    },
+    {
+      "id": "l2_chardonnay_napa_valley",
+      "grape": "chardonnay",
+      "region": "Napa Valley",
+      "group": "us_napa",
+      "canonical_node_ids": [
+        "n_geo_napa_valley"
+      ],
+      "grape_items": [
+        "ki_wset_grape_chardonnay_profile",
+        "ki_wset_grape_chardonnay_variation"
+      ],
+      "regional_items": [
+        "ki_reg_am_carneros_cooling",
+        "ki_reg_am_upper_napa_warmth",
+        "ki_wset_nw_oakville_setting",
+        "ki_wset_nw_rutherford_setting",
+        "ki_wset_nw_calistoga_setting",
+        "ki_wset_nw_napa_cabernet",
+        "ki_wset_nw_napa_merlot",
+        "ki_wset_nw_napa_chardonnay",
+        "ki_wset_nw_napa_sauvignon"
+      ],
+      "note": "Grape profile/variation and regional context are distinct dimensions; sibling grape facts in the group are not themselves evidence of this grape’s style."
+    },
+    {
+      "id": "l2_chardonnay_santa_barbara_county",
+      "grape": "chardonnay",
+      "region": "Santa Barbara County",
+      "group": "us_central_coast",
+      "canonical_node_ids": [
+        "n_geo_santa_barbara_county"
+      ],
+      "grape_items": [
+        "ki_wset_grape_chardonnay_profile",
+        "ki_wset_grape_chardonnay_variation"
+      ],
+      "regional_items": [
+        "ki_reg_na_sta_rita_grapes",
+        "ki_reg_na_happy_later_grapes",
+        "ki_wset_grape_pinot_noir_profile",
+        "ki_wset_grape_chardonnay_variation"
+      ],
+      "note": "Grape profile/variation and regional context are distinct dimensions; sibling grape facts in the group are not themselves evidence of this grape’s style."
+    },
+    {
+      "id": "l2_chardonnay_oregon",
+      "grape": "chardonnay",
+      "region": "Oregon",
+      "group": "us_oregon",
+      "canonical_node_ids": [
+        "n_geo_oregon"
+      ],
+      "grape_items": [
+        "ki_wset_grape_chardonnay_profile",
+        "ki_wset_grape_chardonnay_variation"
+      ],
+      "regional_items": [
+        "ki_reg_am_willamette_pinot",
+        "ki_reg_am_rogue_diversity",
+        "ki_wset_nw_oregon_chardonnay_range",
+        "ki_wset_grape_pinot_noir_profile"
+      ],
+      "note": "Grape profile/variation and regional context are distinct dimensions; sibling grape facts in the group are not themselves evidence of this grape’s style."
+    },
+    {
+      "id": "l2_chardonnay_central_valley",
+      "grape": "chardonnay",
+      "region": "Central Valley",
+      "group": "cl_central",
+      "canonical_node_ids": [
+        "n_geo_central_valley_chile"
+      ],
+      "grape_items": [
+        "ki_wset_grape_chardonnay_profile",
+        "ki_wset_grape_chardonnay_variation"
+      ],
+      "regional_items": [
+        "ki_reg_am_maipo_cabernet",
+        "ki_reg_am_colchagua_reds",
+        "ki_wset_nw_central_valley_reds",
+        "ki_wset_nw_central_valley_whites",
+        "ki_wset_grape_carmenere_profile",
+        "ki_wset_grape_cabernet_sauvignon_profile",
+        "ki_wset_grape_merlot_profile",
+        "ki_wset_grape_chardonnay_variation",
+        "ki_wset_grape_sauvignon_blanc_variation"
+      ],
+      "note": "Grape profile/variation and regional context are distinct dimensions; sibling grape facts in the group are not themselves evidence of this grape’s style."
+    },
+    {
+      "id": "l2_chardonnay_casablanca",
+      "grape": "chardonnay",
+      "region": "Casablanca",
+      "group": "cl_coastal",
+      "canonical_node_ids": [
+        "n_geo_casablanca"
+      ],
+      "grape_items": [
+        "ki_wset_grape_chardonnay_profile",
+        "ki_wset_grape_chardonnay_variation"
+      ],
+      "regional_items": [
+        "ki_reg_am_casablanca_low",
+        "ki_reg_am_casablanca_high",
+        "ki_wset_nw_casablanca_grapes",
+        "ki_wset_grape_sauvignon_blanc_profile",
+        "ki_wset_grape_chardonnay_variation",
+        "ki_wset_grape_pinot_noir_profile"
+      ],
+      "note": "Grape profile/variation and regional context are distinct dimensions; sibling grape facts in the group are not themselves evidence of this grape’s style."
+    },
+    {
+      "id": "l2_chardonnay_western_cape",
+      "grape": "chardonnay",
+      "region": "Western Cape",
+      "group": "za_western_cape",
+      "canonical_node_ids": [
+        "n_geo_western_cape"
+      ],
+      "grape_items": [
+        "ki_wset_grape_chardonnay_profile",
+        "ki_wset_grape_chardonnay_variation"
+      ],
+      "regional_items": [
+        "ki_reg_sh_chenin_fresh",
+        "ki_reg_sh_chenin_oak",
+        "ki_wset_grape_pinotage_profile",
+        "ki_wset_grape_chardonnay_variation",
+        "ki_wset_nw_cape_blend_meaning"
+      ],
+      "note": "Grape profile/variation and regional context are distinct dimensions; sibling grape facts in the group are not themselves evidence of this grape’s style."
+    },
+    {
+      "id": "l2_chardonnay_walker_bay",
+      "grape": "chardonnay",
+      "region": "Walker Bay",
+      "group": "za_coastal",
+      "canonical_node_ids": [
+        "n_geo_walker_bay"
+      ],
+      "grape_items": [
+        "ki_wset_grape_chardonnay_profile",
+        "ki_wset_grape_chardonnay_variation"
+      ],
+      "regional_items": [
+        "ki_reg_oa_constantia_aspects",
+        "ki_reg_sh_elgin_ripening",
+        "ki_reg_sh_hemel_maritime",
+        "ki_wset_nw_elgin_sauvignon",
+        "ki_wset_grape_sauvignon_blanc_profile",
+        "ki_wset_grape_chardonnay_variation",
+        "ki_wset_grape_pinot_noir_profile",
+        "ki_reg_oa_constantia_assembly"
+      ],
+      "note": "Grape profile/variation and regional context are distinct dimensions; sibling grape facts in the group are not themselves evidence of this grape’s style."
+    },
+    {
+      "id": "l2_chardonnay_south_eastern_australia",
+      "grape": "chardonnay",
+      "region": "South Eastern Australia",
+      "group": "au_inland",
+      "canonical_node_ids": [
+        "n_geo_south_eastern_australia"
+      ],
+      "grape_items": [
+        "ki_wset_grape_chardonnay_profile",
+        "ki_wset_grape_chardonnay_variation"
+      ],
+      "regional_items": [
+        "ki_wset_nw_south_eastern_range",
+        "ki_wset_grape_syrah_profile",
+        "ki_wset_grape_chardonnay_variation"
+      ],
+      "note": "Grape profile/variation and regional context are distinct dimensions; sibling grape facts in the group are not themselves evidence of this grape’s style."
+    },
+    {
+      "id": "l2_chardonnay_yarra_valley",
+      "grape": "chardonnay",
+      "region": "Yarra Valley",
+      "group": "au_yarra_mornington",
+      "canonical_node_ids": [
+        "n_geo_yarra_valley"
+      ],
+      "grape_items": [
+        "ki_wset_grape_chardonnay_profile",
+        "ki_wset_grape_chardonnay_variation"
+      ],
+      "regional_items": [
+        "ki_reg_sh_yarra_mesoclimate",
+        "ki_reg_sh_mornington_maritime",
+        "ki_wset_nw_yarra_wine_range"
+      ],
+      "note": "Grape profile/variation and regional context are distinct dimensions; sibling grape facts in the group are not themselves evidence of this grape’s style."
+    },
+    {
+      "id": "l2_chardonnay_adelaide_hills",
+      "grape": "chardonnay",
+      "region": "Adelaide Hills",
+      "group": "au_adelaide",
+      "canonical_node_ids": [
+        "n_geo_adelaide_hills"
+      ],
+      "grape_items": [
+        "ki_wset_grape_chardonnay_profile",
+        "ki_wset_grape_chardonnay_variation"
+      ],
+      "regional_items": [
+        "ki_reg_oa_adelaide_warm_slopes",
+        "ki_wset_nw_adelaide_chardonnay",
+        "ki_reg_oa_adelaide_sauvignon"
+      ],
+      "note": "Grape profile/variation and regional context are distinct dimensions; sibling grape facts in the group are not themselves evidence of this grape’s style."
+    },
+    {
+      "id": "l2_chardonnay_margaret_river",
+      "grape": "chardonnay",
+      "region": "Margaret River",
+      "group": "au_cabernet",
+      "canonical_node_ids": [
+        "n_geo_margaret_river"
+      ],
+      "grape_items": [
+        "ki_wset_grape_chardonnay_profile",
+        "ki_wset_grape_chardonnay_variation"
+      ],
+      "regional_items": [
+        "ki_reg_sh_cab_maritime",
+        "ki_reg_sh_cab_styles",
+        "ki_wset_nw_margaret_merlot_blend",
+        "ki_wset_nw_margaret_white_range"
+      ],
+      "note": "Grape profile/variation and regional context are distinct dimensions; sibling grape facts in the group are not themselves evidence of this grape’s style."
+    },
+    {
+      "id": "l2_chardonnay_marlborough",
+      "grape": "chardonnay",
+      "region": "Marlborough",
+      "group": "nz_marlborough",
+      "canonical_node_ids": [
+        "n_geo_marlborough"
+      ],
+      "grape_items": [
+        "ki_wset_grape_chardonnay_profile",
+        "ki_wset_grape_chardonnay_variation"
+      ],
+      "regional_items": [
+        "ki_reg_sh_marlborough_wairau",
+        "ki_reg_sh_marlborough_awatere",
+        "ki_wset_nw_marlborough_sauvignon_style",
+        "ki_wset_nw_marlborough_chardonnay_range",
+        "ki_wset_nw_marlborough_pinot_style"
+      ],
+      "note": "Grape profile/variation and regional context are distinct dimensions; sibling grape facts in the group are not themselves evidence of this grape’s style."
+    },
+    {
+      "id": "l2_chardonnay_hawke_s_bay",
+      "grape": "chardonnay",
+      "region": "Hawke’s Bay",
+      "group": "nz_hawkes",
+      "canonical_node_ids": [
+        "n_geo_hawkes_bay"
+      ],
+      "grape_items": [
+        "ki_wset_grape_chardonnay_profile",
+        "ki_wset_grape_chardonnay_variation"
+      ],
+      "regional_items": [
+        "ki_reg_sh_hawkes_reds",
+        "ki_reg_sh_hawkes_cool",
+        "ki_wset_nw_hawkes_cab_merlot",
+        "ki_wset_nw_hawkes_chardonnay"
+      ],
+      "note": "Grape profile/variation and regional context are distinct dimensions; sibling grape facts in the group are not themselves evidence of this grape’s style."
+    },
+    {
+      "id": "l2_riesling_clare_valley",
+      "grape": "riesling",
+      "region": "Clare Valley",
+      "group": "au_riesling",
+      "canonical_node_ids": [
+        "n_geo_clare_valley"
+      ],
+      "grape_items": [
+        "ki_wset_grape_riesling_profile",
+        "ki_wset_grape_riesling_variation"
+      ],
+      "regional_items": [
+        "ki_reg_sh_clare_cooling",
+        "ki_wset_nw_eden_riesling_setting",
+        "ki_reg_sh_eden_riesling",
+        "ki_wset_nw_clare_riesling_style"
+      ],
+      "note": "Grape profile/variation and regional context are distinct dimensions; sibling grape facts in the group are not themselves evidence of this grape’s style."
+    },
+    {
+      "id": "l2_riesling_eden_valley",
+      "grape": "riesling",
+      "region": "Eden Valley",
+      "group": "au_riesling",
+      "canonical_node_ids": [
+        "n_geo_eden_valley"
+      ],
+      "grape_items": [
+        "ki_wset_grape_riesling_profile",
+        "ki_wset_grape_riesling_variation"
+      ],
+      "regional_items": [
+        "ki_reg_sh_clare_cooling",
+        "ki_wset_nw_eden_riesling_setting",
+        "ki_reg_sh_eden_riesling",
+        "ki_wset_nw_clare_riesling_style"
+      ],
+      "note": "Grape profile/variation and regional context are distinct dimensions; sibling grape facts in the group are not themselves evidence of this grape’s style."
+    },
+    {
+      "id": "l2_sauvignon_blanc_napa_valley",
+      "grape": "sauvignon_blanc",
+      "region": "Napa Valley",
+      "group": "us_napa",
+      "canonical_node_ids": [
+        "n_geo_napa_valley"
+      ],
+      "grape_items": [
+        "ki_wset_grape_sauvignon_blanc_profile",
+        "ki_wset_grape_sauvignon_blanc_variation"
+      ],
+      "regional_items": [
+        "ki_reg_am_carneros_cooling",
+        "ki_reg_am_upper_napa_warmth",
+        "ki_wset_nw_oakville_setting",
+        "ki_wset_nw_rutherford_setting",
+        "ki_wset_nw_calistoga_setting",
+        "ki_wset_nw_napa_cabernet",
+        "ki_wset_nw_napa_merlot",
+        "ki_wset_nw_napa_chardonnay",
+        "ki_wset_nw_napa_sauvignon"
+      ],
+      "note": "Grape profile/variation and regional context are distinct dimensions; sibling grape facts in the group are not themselves evidence of this grape’s style."
+    },
+    {
+      "id": "l2_sauvignon_blanc_central_valley",
+      "grape": "sauvignon_blanc",
+      "region": "Central Valley",
+      "group": "cl_central",
+      "canonical_node_ids": [
+        "n_geo_central_valley_chile"
+      ],
+      "grape_items": [
+        "ki_wset_grape_sauvignon_blanc_profile",
+        "ki_wset_grape_sauvignon_blanc_variation"
+      ],
+      "regional_items": [
+        "ki_reg_am_maipo_cabernet",
+        "ki_reg_am_colchagua_reds",
+        "ki_wset_nw_central_valley_reds",
+        "ki_wset_nw_central_valley_whites",
+        "ki_wset_grape_carmenere_profile",
+        "ki_wset_grape_cabernet_sauvignon_profile",
+        "ki_wset_grape_merlot_profile",
+        "ki_wset_grape_chardonnay_variation",
+        "ki_wset_grape_sauvignon_blanc_variation"
+      ],
+      "note": "Grape profile/variation and regional context are distinct dimensions; sibling grape facts in the group are not themselves evidence of this grape’s style."
+    },
+    {
+      "id": "l2_sauvignon_blanc_casablanca",
+      "grape": "sauvignon_blanc",
+      "region": "Casablanca",
+      "group": "cl_coastal",
+      "canonical_node_ids": [
+        "n_geo_casablanca"
+      ],
+      "grape_items": [
+        "ki_wset_grape_sauvignon_blanc_profile",
+        "ki_wset_grape_sauvignon_blanc_variation"
+      ],
+      "regional_items": [
+        "ki_reg_am_casablanca_low",
+        "ki_reg_am_casablanca_high",
+        "ki_wset_nw_casablanca_grapes",
+        "ki_wset_grape_sauvignon_blanc_profile",
+        "ki_wset_grape_chardonnay_variation",
+        "ki_wset_grape_pinot_noir_profile"
+      ],
+      "note": "Grape profile/variation and regional context are distinct dimensions; sibling grape facts in the group are not themselves evidence of this grape’s style."
+    },
+    {
+      "id": "l2_sauvignon_blanc_elgin",
+      "grape": "sauvignon_blanc",
+      "region": "Elgin",
+      "group": "za_coastal",
+      "canonical_node_ids": [
+        "n_geo_elgin"
+      ],
+      "grape_items": [
+        "ki_wset_grape_sauvignon_blanc_profile",
+        "ki_wset_grape_sauvignon_blanc_variation"
+      ],
+      "regional_items": [
+        "ki_reg_oa_constantia_aspects",
+        "ki_reg_sh_elgin_ripening",
+        "ki_reg_sh_hemel_maritime",
+        "ki_wset_nw_elgin_sauvignon",
+        "ki_wset_grape_sauvignon_blanc_profile",
+        "ki_wset_grape_chardonnay_variation",
+        "ki_wset_grape_pinot_noir_profile",
+        "ki_reg_oa_constantia_assembly"
+      ],
+      "note": "Grape profile/variation and regional context are distinct dimensions; sibling grape facts in the group are not themselves evidence of this grape’s style."
+    },
+    {
+      "id": "l2_sauvignon_blanc_constantia",
+      "grape": "sauvignon_blanc",
+      "region": "Constantia",
+      "group": "za_coastal",
+      "canonical_node_ids": [
+        "n_geo_constantia"
+      ],
+      "grape_items": [
+        "ki_wset_grape_sauvignon_blanc_profile",
+        "ki_wset_grape_sauvignon_blanc_variation"
+      ],
+      "regional_items": [
+        "ki_reg_oa_constantia_aspects",
+        "ki_reg_sh_elgin_ripening",
+        "ki_reg_sh_hemel_maritime",
+        "ki_wset_nw_elgin_sauvignon",
+        "ki_wset_grape_sauvignon_blanc_profile",
+        "ki_wset_grape_chardonnay_variation",
+        "ki_wset_grape_pinot_noir_profile",
+        "ki_reg_oa_constantia_assembly"
+      ],
+      "note": "Grape profile/variation and regional context are distinct dimensions; sibling grape facts in the group are not themselves evidence of this grape’s style."
+    },
+    {
+      "id": "l2_sauvignon_blanc_adelaide_hills",
+      "grape": "sauvignon_blanc",
+      "region": "Adelaide Hills",
+      "group": "au_adelaide",
+      "canonical_node_ids": [
+        "n_geo_adelaide_hills"
+      ],
+      "grape_items": [
+        "ki_wset_grape_sauvignon_blanc_profile",
+        "ki_wset_grape_sauvignon_blanc_variation"
+      ],
+      "regional_items": [
+        "ki_reg_oa_adelaide_warm_slopes",
+        "ki_wset_nw_adelaide_chardonnay",
+        "ki_reg_oa_adelaide_sauvignon"
+      ],
+      "note": "Grape profile/variation and regional context are distinct dimensions; sibling grape facts in the group are not themselves evidence of this grape’s style."
+    },
+    {
+      "id": "l2_sauvignon_blanc_margaret_river",
+      "grape": "sauvignon_blanc",
+      "region": "Margaret River",
+      "group": "au_cabernet",
+      "canonical_node_ids": [
+        "n_geo_margaret_river"
+      ],
+      "grape_items": [
+        "ki_wset_grape_sauvignon_blanc_profile",
+        "ki_wset_grape_sauvignon_blanc_variation"
+      ],
+      "regional_items": [
+        "ki_reg_sh_cab_maritime",
+        "ki_reg_sh_cab_styles",
+        "ki_wset_nw_margaret_merlot_blend",
+        "ki_wset_nw_margaret_white_range"
+      ],
+      "note": "Grape profile/variation and regional context are distinct dimensions; sibling grape facts in the group are not themselves evidence of this grape’s style."
+    },
+    {
+      "id": "l2_sauvignon_blanc_marlborough",
+      "grape": "sauvignon_blanc",
+      "region": "Marlborough",
+      "group": "nz_marlborough",
+      "canonical_node_ids": [
+        "n_geo_marlborough"
+      ],
+      "grape_items": [
+        "ki_wset_grape_sauvignon_blanc_profile",
+        "ki_wset_grape_sauvignon_blanc_variation"
+      ],
+      "regional_items": [
+        "ki_reg_sh_marlborough_wairau",
+        "ki_reg_sh_marlborough_awatere",
+        "ki_wset_nw_marlborough_sauvignon_style",
+        "ki_wset_nw_marlborough_chardonnay_range",
+        "ki_wset_nw_marlborough_pinot_style"
+      ],
+      "note": "Grape profile/variation and regional context are distinct dimensions; sibling grape facts in the group are not themselves evidence of this grape’s style."
+    },
+    {
+      "id": "l2_grenache_barossa_valley",
+      "grape": "grenache",
+      "region": "Barossa Valley",
+      "group": "au_barossa",
+      "canonical_node_ids": [
+        "n_geo_barossa_valley"
+      ],
+      "grape_items": [
+        "ki_wset_grape_grenache_profile",
+        "ki_wset_grape_grenache_variation"
+      ],
+      "regional_items": [
+        "ki_reg_sh_barossa_floor",
+        "ki_reg_sh_eden_sites",
+        "ki_wset_nw_barossa_gsm",
+        "ki_wset_nw_barossa_semillon_range"
+      ],
+      "note": "Grape profile/variation and regional context are distinct dimensions; sibling grape facts in the group are not themselves evidence of this grape’s style."
+    },
+    {
+      "id": "l2_grenache_mclaren_vale",
+      "grape": "grenache",
+      "region": "McLaren Vale",
+      "group": "au_mclaren",
+      "canonical_node_ids": [
+        "n_geo_mclaren_vale"
+      ],
+      "grape_items": [
+        "ki_wset_grape_grenache_profile",
+        "ki_wset_grape_grenache_variation"
+      ],
+      "regional_items": [
+        "ki_wset_nw_mclaren_environment",
+        "ki_reg_oa_mclaren_varietal_blend"
+      ],
+      "note": "Grape profile/variation and regional context are distinct dimensions; sibling grape facts in the group are not themselves evidence of this grape’s style."
+    },
+    {
+      "id": "l2_zinfandel_california",
+      "grape": "zinfandel",
+      "region": "California",
+      "group": "us_california",
+      "canonical_node_ids": [
+        "n_geo_california"
+      ],
+      "grape_items": [
+        "ki_wset_grape_zinfandel_profile",
+        "ki_wset_grape_zinfandel_variation"
+      ],
+      "regional_items": [
+        "ki_wset_nw_california_variation",
+        "ki_wset_nw_california_zinfandel_range"
+      ],
+      "note": "Grape profile/variation and regional context are distinct dimensions; sibling grape facts in the group are not themselves evidence of this grape’s style."
+    },
+    {
+      "id": "l2_pinotage_western_cape",
+      "grape": "pinotage",
+      "region": "Western Cape",
+      "group": "za_western_cape",
+      "canonical_node_ids": [
+        "n_geo_western_cape"
+      ],
+      "grape_items": [
+        "ki_wset_grape_pinotage_profile",
+        "ki_wset_grape_pinotage_variation"
+      ],
+      "regional_items": [
+        "ki_reg_sh_chenin_fresh",
+        "ki_reg_sh_chenin_oak",
+        "ki_wset_grape_pinotage_profile",
+        "ki_wset_grape_chardonnay_variation",
+        "ki_wset_nw_cape_blend_meaning"
+      ],
+      "note": "Grape profile/variation and regional context are distinct dimensions; sibling grape facts in the group are not themselves evidence of this grape’s style."
+    },
+    {
+      "id": "l2_carmenere_central_valley",
+      "grape": "carmenere",
+      "region": "Central Valley",
+      "group": "cl_central",
+      "canonical_node_ids": [
+        "n_geo_central_valley_chile"
+      ],
+      "grape_items": [
+        "ki_wset_grape_carmenere_profile",
+        "ki_wset_grape_carmenere_variation"
+      ],
+      "regional_items": [
+        "ki_reg_am_maipo_cabernet",
+        "ki_reg_am_colchagua_reds",
+        "ki_wset_nw_central_valley_reds",
+        "ki_wset_nw_central_valley_whites",
+        "ki_wset_grape_carmenere_profile",
+        "ki_wset_grape_cabernet_sauvignon_profile",
+        "ki_wset_grape_merlot_profile",
+        "ki_wset_grape_chardonnay_variation",
+        "ki_wset_grape_sauvignon_blanc_variation"
+      ],
+      "note": "Grape profile/variation and regional context are distinct dimensions; sibling grape facts in the group are not themselves evidence of this grape’s style."
+    },
+    {
+      "id": "l2_malbec_mendoza",
+      "grape": "malbec",
+      "region": "Mendoza",
+      "group": "ar_mendoza",
+      "canonical_node_ids": [
+        "n_geo_mendoza"
+      ],
+      "grape_items": [
+        "ki_wset_grape_malbec_profile",
+        "ki_wset_grape_malbec_variation"
+      ],
+      "regional_items": [
+        "ki_reg_am_mendoza_temperature",
+        "ki_reg_am_andes_irrigation",
+        "ki_wset_grape_malbec_profile",
+        "ki_wset_nw_mendoza_malbec_range",
+        "ki_reg_am_argentina_methods"
+      ],
+      "note": "Grape profile/variation and regional context are distinct dimensions; sibling grape facts in the group are not themselves evidence of this grape’s style."
+    },
+    {
+      "id": "l2_chenin_blanc_western_cape",
+      "grape": "chenin_blanc",
+      "region": "Western Cape",
+      "group": "za_western_cape",
+      "canonical_node_ids": [
+        "n_geo_western_cape"
+      ],
+      "grape_items": [
+        "ki_wset_grape_chenin_blanc_profile",
+        "ki_wset_grape_chenin_blanc_variation"
+      ],
+      "regional_items": [
+        "ki_reg_sh_chenin_fresh",
+        "ki_reg_sh_chenin_oak",
+        "ki_wset_grape_pinotage_profile",
+        "ki_wset_grape_chardonnay_variation",
+        "ki_wset_nw_cape_blend_meaning"
+      ],
+      "note": "Grape profile/variation and regional context are distinct dimensions; sibling grape facts in the group are not themselves evidence of this grape’s style."
+    },
+    {
+      "id": "l2_semillon_hunter_valley",
+      "grape": "semillon",
+      "region": "Hunter Valley",
+      "group": "au_hunter",
+      "canonical_node_ids": [
+        "n_geo_hunter_valley_zone"
+      ],
+      "grape_items": [
+        "ki_wset_grape_semillon_profile",
+        "ki_wset_grape_semillon_variation"
+      ],
+      "regional_items": [
+        "ki_reg_oa_hunter_moderation",
+        "ki_reg_oa_hunter_rain",
+        "ki_reg_oa_hunter_early",
+        "ki_reg_oa_hunter_bottle",
+        "ki_wset_nw_hunter_shiraz_style"
+      ],
+      "note": "Grape profile/variation and regional context are distinct dimensions; sibling grape facts in the group are not themselves evidence of this grape’s style."
+    },
+    {
+      "id": "l2_semillon_barossa_valley",
+      "grape": "semillon",
+      "region": "Barossa Valley",
+      "group": "au_barossa",
+      "canonical_node_ids": [
+        "n_geo_barossa_valley"
+      ],
+      "grape_items": [
+        "ki_wset_grape_semillon_profile",
+        "ki_wset_grape_semillon_variation"
+      ],
+      "regional_items": [
+        "ki_reg_sh_barossa_floor",
+        "ki_reg_sh_eden_sites",
+        "ki_wset_nw_barossa_gsm",
+        "ki_wset_nw_barossa_semillon_range"
+      ],
+      "note": "Grape profile/variation and regional context are distinct dimensions; sibling grape facts in the group are not themselves evidence of this grape’s style."
+    }
+  ],
+  "lessons": [
+    {
+      "id": "ki_wset_nw_california_variation",
+      "group": "us_california",
+      "level": "WSET_L2",
+      "dimensions": [
+        "environment",
+        "grapes",
+        "style"
+      ],
+      "source_ids": [
+        "src_reg_am_sonoma"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_napa_cabernet",
+      "group": "us_napa",
+      "level": "WSET_L2",
+      "dimensions": [
+        "grapes",
+        "style",
+        "production"
+      ],
+      "source_ids": [
+        "src_wset_nw_napa_wine"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_napa_merlot",
+      "group": "us_napa",
+      "level": "WSET_L2",
+      "dimensions": [
+        "grapes",
+        "style",
+        "production"
+      ],
+      "source_ids": [
+        "src_wset_nw_napa_wine"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_napa_chardonnay",
+      "group": "us_napa",
+      "level": "WSET_L2",
+      "dimensions": [
+        "grapes",
+        "style",
+        "production"
+      ],
+      "source_ids": [
+        "src_wset_nw_napa_wine"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_napa_sauvignon",
+      "group": "us_napa",
+      "level": "WSET_L2",
+      "dimensions": [
+        "grapes",
+        "style",
+        "production",
+        "labels"
+      ],
+      "source_ids": [
+        "src_wset_nw_napa_wine"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_oakville_setting",
+      "group": "us_napa",
+      "level": "WSET_L2",
+      "dimensions": [
+        "environment",
+        "grapes"
+      ],
+      "source_ids": [
+        "src_reg_am_napa_regions"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_rutherford_setting",
+      "group": "us_napa",
+      "level": "WSET_L2",
+      "dimensions": [
+        "environment",
+        "grapes"
+      ],
+      "source_ids": [
+        "src_reg_am_napa_regions"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_calistoga_setting",
+      "group": "us_napa",
+      "level": "WSET_L2",
+      "dimensions": [
+        "environment",
+        "grapes"
+      ],
+      "source_ids": [
+        "src_reg_am_napa_regions"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_stags_leap_setting",
+      "group": "us_napa_subavas",
+      "level": "WSET_L3",
+      "dimensions": [
+        "environment",
+        "grapes"
+      ],
+      "source_ids": [
+        "src_reg_am_napa_regions"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_howell_setting",
+      "group": "us_napa_subavas",
+      "level": "WSET_L3",
+      "dimensions": [
+        "environment",
+        "grapes"
+      ],
+      "source_ids": [
+        "src_reg_am_napa_regions"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_veeder_setting",
+      "group": "us_napa_subavas",
+      "level": "WSET_L3",
+      "dimensions": [
+        "environment",
+        "grapes"
+      ],
+      "source_ids": [
+        "src_reg_am_napa_regions"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_saint_helena_setting",
+      "group": "us_napa_subavas",
+      "level": "WSET_L3",
+      "dimensions": [
+        "environment",
+        "grapes"
+      ],
+      "source_ids": [
+        "src_reg_am_napa_regions"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_sonoma_grape_sites",
+      "group": "us_sonoma",
+      "level": "WSET_L2",
+      "dimensions": [
+        "grapes",
+        "environment"
+      ],
+      "source_ids": [
+        "src_reg_am_sonoma"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_dry_creek_zinfandel",
+      "group": "us_sonoma",
+      "level": "WSET_L3",
+      "dimensions": [
+        "grapes",
+        "style"
+      ],
+      "source_ids": [
+        "src_reg_am_sonoma"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_sonoma_coast_setting",
+      "group": "us_sonoma",
+      "level": "WSET_L3",
+      "dimensions": [
+        "environment",
+        "grapes"
+      ],
+      "source_ids": [
+        "src_reg_am_sonoma"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_santa_maria_grapes",
+      "group": "us_central_coast",
+      "level": "WSET_L3",
+      "dimensions": [
+        "grapes",
+        "environment"
+      ],
+      "source_ids": [
+        "src_wset_nw_santa_maria"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_mendocino_diversity",
+      "group": "us_coast_depth",
+      "level": "WSET_L3",
+      "dimensions": [
+        "grapes",
+        "environment"
+      ],
+      "source_ids": [
+        "src_wset_nw_mendocino"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_san_luis_grapes",
+      "group": "us_coast_depth",
+      "level": "WSET_L3",
+      "dimensions": [
+        "grapes",
+        "environment"
+      ],
+      "source_ids": [
+        "src_wset_nw_slo"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_lodi_style_choices",
+      "group": "us_lodi",
+      "level": "WSET_L3",
+      "dimensions": [
+        "style",
+        "production",
+        "grapes"
+      ],
+      "source_ids": [
+        "src_wset_nw_lodi_style"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_oregon_chardonnay_range",
+      "group": "us_oregon",
+      "level": "WSET_L2",
+      "dimensions": [
+        "grapes",
+        "style",
+        "production"
+      ],
+      "source_ids": [
+        "src_wset_nw_oregon_grapes"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_yakima_sites",
+      "group": "us_washington",
+      "level": "WSET_L3",
+      "dimensions": [
+        "environment",
+        "grapes"
+      ],
+      "source_ids": [
+        "src_wset_nw_yakima"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_finger_lakes_riesling",
+      "group": "us_new_york",
+      "level": "WSET_L3",
+      "dimensions": [
+        "style",
+        "grapes"
+      ],
+      "source_ids": [
+        "src_wset_nw_finger_riesling"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_usa_origin_scale",
+      "group": "us_labels",
+      "level": "WSET_L2",
+      "dimensions": [
+        "labels"
+      ],
+      "source_ids": [
+        "src_wset_nw_ttb_origin"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_usa_ava_origin",
+      "group": "us_labels",
+      "level": "WSET_L3",
+      "dimensions": [
+        "labels"
+      ],
+      "source_ids": [
+        "src_wset_nw_ttb_origin"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_ontario_icewine_selection",
+      "group": "ca_ontario",
+      "level": "WSET_L3",
+      "dimensions": [
+        "production",
+        "grapes"
+      ],
+      "source_ids": [
+        "src_wset_nw_ontario_labels"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_ontario_icewine_style",
+      "group": "ca_ontario",
+      "level": "WSET_L3",
+      "dimensions": [
+        "style",
+        "grapes"
+      ],
+      "source_ids": [
+        "src_wset_nw_ontario_icewine"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_ontario_vqa_origins",
+      "group": "ca_ontario",
+      "level": "WSET_L3",
+      "dimensions": [
+        "labels"
+      ],
+      "source_ids": [
+        "src_wset_nw_ontario_labels"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_bc_vqa_origin",
+      "group": "ca_bc",
+      "level": "WSET_L3",
+      "dimensions": [
+        "labels"
+      ],
+      "source_ids": [
+        "src_nwa_ca_bc"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_central_valley_reds",
+      "group": "cl_central",
+      "level": "WSET_L2",
+      "dimensions": [
+        "grapes",
+        "style",
+        "environment"
+      ],
+      "source_ids": [
+        "src_reg_am_chile"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_central_valley_whites",
+      "group": "cl_central",
+      "level": "WSET_L2",
+      "dimensions": [
+        "grapes",
+        "style"
+      ],
+      "source_ids": [
+        "src_wset_grape_chile_carmenere"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_casablanca_grapes",
+      "group": "cl_coastal",
+      "level": "WSET_L2",
+      "dimensions": [
+        "grapes",
+        "environment",
+        "style"
+      ],
+      "source_ids": [
+        "src_reg_am_chile"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_elqui_aridity",
+      "group": "cl_north",
+      "level": "WSET_L3",
+      "dimensions": [
+        "environment",
+        "grapes"
+      ],
+      "source_ids": [
+        "src_reg_am_chile"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_leyda_coastal",
+      "group": "cl_aconcagua",
+      "level": "WSET_L3",
+      "dimensions": [
+        "environment",
+        "grapes"
+      ],
+      "source_ids": [
+        "src_reg_am_chile"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_curico_maule_diversity",
+      "group": "cl_south_central",
+      "level": "WSET_L3",
+      "dimensions": [
+        "environment",
+        "grapes"
+      ],
+      "source_ids": [
+        "src_reg_am_chile"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_chile_origin_hierarchy",
+      "group": "cl_labels",
+      "level": "WSET_L2",
+      "dimensions": [
+        "labels"
+      ],
+      "source_ids": [
+        "src_atlas_cl_zonation"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_chile_crosswise_terms",
+      "group": "cl_labels",
+      "level": "WSET_L3",
+      "dimensions": [
+        "labels",
+        "environment"
+      ],
+      "source_ids": [
+        "src_atlas_cl_zonation"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_mendoza_malbec_range",
+      "group": "ar_mendoza",
+      "level": "WSET_L2",
+      "dimensions": [
+        "style",
+        "grapes",
+        "production"
+      ],
+      "source_ids": [
+        "src_wset_nw_malbec_regions"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_argentina_malbec_contrasts",
+      "group": "ar_north_south",
+      "level": "WSET_L3",
+      "dimensions": [
+        "style",
+        "grapes",
+        "environment"
+      ],
+      "source_ids": [
+        "src_wset_nw_malbec_regions"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_cape_blend_meaning",
+      "group": "za_western_cape",
+      "level": "WSET_L2",
+      "dimensions": [
+        "grapes",
+        "labels",
+        "production"
+      ],
+      "source_ids": [
+        "src_wset_nw_cape_blend"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_elgin_sauvignon",
+      "group": "za_coastal",
+      "level": "WSET_L2",
+      "dimensions": [
+        "environment",
+        "grapes"
+      ],
+      "source_ids": [
+        "src_diploma_za_olifants"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_durbanville_setting",
+      "group": "za_coastal_depth",
+      "level": "WSET_L3",
+      "dimensions": [
+        "environment",
+        "grapes"
+      ],
+      "source_ids": [
+        "src_diploma_za_olifants"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_swartland_grapes",
+      "group": "za_coastal_depth",
+      "level": "WSET_L3",
+      "dimensions": [
+        "grapes",
+        "style"
+      ],
+      "source_ids": [
+        "src_diploma_za_olifants"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_worcester_wine_context",
+      "group": "za_breede",
+      "level": "WSET_L3",
+      "dimensions": [
+        "production",
+        "grapes"
+      ],
+      "source_ids": [
+        "src_diploma_za_olifants"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_elim_cooling",
+      "group": "za_south_coast",
+      "level": "WSET_L3",
+      "dimensions": [
+        "environment",
+        "grapes"
+      ],
+      "source_ids": [
+        "src_diploma_za_olifants"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_south_africa_wo_origin",
+      "group": "za_labels",
+      "level": "WSET_L2",
+      "dimensions": [
+        "labels"
+      ],
+      "source_ids": [
+        "src_wset_nw_za_wo"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_south_africa_wo_levels",
+      "group": "za_labels",
+      "level": "WSET_L3",
+      "dimensions": [
+        "labels"
+      ],
+      "source_ids": [
+        "src_wset_nw_za_wo"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_south_africa_estate",
+      "group": "za_labels",
+      "level": "WSET_L3",
+      "dimensions": [
+        "labels",
+        "production"
+      ],
+      "source_ids": [
+        "src_wset_nw_za_wo"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_murray_darling_irrigation",
+      "group": "au_inland",
+      "level": "WSET_L3",
+      "dimensions": [
+        "environment",
+        "production"
+      ],
+      "source_ids": [
+        "src_wset_nw_murray_darling"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_murray_darling_styles",
+      "group": "au_inland",
+      "level": "WSET_L3",
+      "dimensions": [
+        "grapes",
+        "style",
+        "quality_price"
+      ],
+      "source_ids": [
+        "src_wset_nw_murray_darling"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_riverland_styles",
+      "group": "au_inland",
+      "level": "WSET_L3",
+      "dimensions": [
+        "grapes",
+        "style"
+      ],
+      "source_ids": [
+        "src_wset_nw_riverland"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_riverina_sweet_exception",
+      "group": "au_inland",
+      "level": "WSET_L3",
+      "dimensions": [
+        "environment",
+        "production",
+        "style",
+        "grapes"
+      ],
+      "source_ids": [
+        "src_wset_nw_riverina"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_riverina_dry_styles",
+      "group": "au_inland",
+      "level": "WSET_L3",
+      "dimensions": [
+        "style",
+        "grapes"
+      ],
+      "source_ids": [
+        "src_wset_nw_riverina"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_south_eastern_range",
+      "group": "au_inland",
+      "level": "WSET_L2",
+      "dimensions": [
+        "labels",
+        "environment",
+        "style",
+        "grapes"
+      ],
+      "source_ids": [
+        "src_atlas_au_gis"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_inland_water_costs",
+      "group": "au_inland",
+      "level": "WSET_L3",
+      "dimensions": [
+        "quality_price",
+        "production"
+      ],
+      "source_ids": [
+        "src_wset_nw_au_water_costs"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_barossa_gsm",
+      "group": "au_barossa",
+      "level": "WSET_L2",
+      "dimensions": [
+        "grapes",
+        "production",
+        "style"
+      ],
+      "source_ids": [
+        "src_wset_nw_barossa_semillon"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_barossa_semillon_range",
+      "group": "au_barossa",
+      "level": "WSET_L2",
+      "dimensions": [
+        "grapes",
+        "style",
+        "production"
+      ],
+      "source_ids": [
+        "src_wset_nw_barossa_semillon"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_clare_riesling_style",
+      "group": "au_riesling",
+      "level": "WSET_L2",
+      "dimensions": [
+        "style",
+        "grapes"
+      ],
+      "source_ids": [
+        "src_reg_sh_clare"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_eden_riesling_setting",
+      "group": "au_riesling",
+      "level": "WSET_L2",
+      "dimensions": [
+        "environment",
+        "grapes"
+      ],
+      "source_ids": [
+        "src_reg_sh_eden"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_margaret_merlot_blend",
+      "group": "au_cabernet",
+      "level": "WSET_L2",
+      "dimensions": [
+        "grapes",
+        "style",
+        "production"
+      ],
+      "source_ids": [
+        "src_reg_sh_margaret"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_margaret_white_range",
+      "group": "au_cabernet",
+      "level": "WSET_L2",
+      "dimensions": [
+        "style",
+        "grapes",
+        "production"
+      ],
+      "source_ids": [
+        "src_reg_sh_margaret"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_yarra_wine_range",
+      "group": "au_yarra_mornington",
+      "level": "WSET_L2",
+      "dimensions": [
+        "style",
+        "production",
+        "grapes"
+      ],
+      "source_ids": [
+        "src_reg_sh_yarra"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_adelaide_chardonnay",
+      "group": "au_adelaide",
+      "level": "WSET_L2",
+      "dimensions": [
+        "style",
+        "grapes",
+        "environment"
+      ],
+      "source_ids": [
+        "src_reg_oa_adelaide"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_hunter_shiraz_style",
+      "group": "au_hunter",
+      "level": "WSET_L2",
+      "dimensions": [
+        "style",
+        "grapes"
+      ],
+      "source_ids": [
+        "src_reg_oa_hunter"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_mclaren_environment",
+      "group": "au_mclaren",
+      "level": "WSET_L2",
+      "dimensions": [
+        "environment",
+        "grapes"
+      ],
+      "source_ids": [
+        "src_reg_oa_mclaren"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_geelong_range",
+      "group": "au_victoria_depth",
+      "level": "WSET_L3",
+      "dimensions": [
+        "environment",
+        "grapes",
+        "style"
+      ],
+      "source_ids": [
+        "src_wset_nw_geelong"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_heathcote_shiraz",
+      "group": "au_victoria_depth",
+      "level": "WSET_L3",
+      "dimensions": [
+        "environment",
+        "grapes",
+        "style"
+      ],
+      "source_ids": [
+        "src_wset_nw_heathcote"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_goulburn_heat_water",
+      "group": "au_victoria_depth",
+      "level": "WSET_L3",
+      "dimensions": [
+        "environment",
+        "production",
+        "grapes",
+        "style"
+      ],
+      "source_ids": [
+        "src_wset_nw_goulburn"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_great_southern_sites",
+      "group": "au_great_southern",
+      "level": "WSET_L3",
+      "dimensions": [
+        "environment",
+        "grapes"
+      ],
+      "source_ids": [
+        "src_wset_nw_great_southern"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_great_southern_styles",
+      "group": "au_great_southern",
+      "level": "WSET_L3",
+      "dimensions": [
+        "style",
+        "grapes"
+      ],
+      "source_ids": [
+        "src_wset_nw_great_southern"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_australia_gi_levels",
+      "group": "au_labels",
+      "level": "WSET_L2",
+      "dimensions": [
+        "labels"
+      ],
+      "source_ids": [
+        "src_atlas_au_gis"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_marlborough_sauvignon_style",
+      "group": "nz_marlborough",
+      "level": "WSET_L2",
+      "dimensions": [
+        "grapes",
+        "style"
+      ],
+      "source_ids": [
+        "src_nwc_nz_marlborough"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_marlborough_chardonnay_range",
+      "group": "nz_marlborough",
+      "level": "WSET_L2",
+      "dimensions": [
+        "grapes",
+        "style",
+        "production"
+      ],
+      "source_ids": [
+        "src_nwc_nz_marlborough"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_marlborough_pinot_style",
+      "group": "nz_marlborough",
+      "level": "WSET_L2",
+      "dimensions": [
+        "grapes",
+        "style"
+      ],
+      "source_ids": [
+        "src_nwc_nz_marlborough"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_marlborough_aromatics",
+      "group": "nz_marlborough",
+      "level": "WSET_L3",
+      "dimensions": [
+        "grapes",
+        "style"
+      ],
+      "source_ids": [
+        "src_nwc_nz_marlborough"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_hawkes_cab_merlot",
+      "group": "nz_hawkes",
+      "level": "WSET_L2",
+      "dimensions": [
+        "grapes",
+        "style",
+        "production"
+      ],
+      "source_ids": [
+        "src_reg_sh_hawkes"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_hawkes_chardonnay",
+      "group": "nz_hawkes",
+      "level": "WSET_L2",
+      "dimensions": [
+        "grapes",
+        "style"
+      ],
+      "source_ids": [
+        "src_reg_sh_hawkes"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_hawkes_syrah_pinot_gris",
+      "group": "nz_hawkes",
+      "level": "WSET_L3",
+      "dimensions": [
+        "grapes",
+        "style"
+      ],
+      "source_ids": [
+        "src_reg_sh_hawkes"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_martinborough_pinot_style",
+      "group": "nz_martinborough",
+      "level": "WSET_L2",
+      "dimensions": [
+        "grapes",
+        "style"
+      ],
+      "source_ids": [
+        "src_reg_sh_wairarapa"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_otago_pinot_style",
+      "group": "nz_otago",
+      "level": "WSET_L2",
+      "dimensions": [
+        "grapes",
+        "style",
+        "environment"
+      ],
+      "source_ids": [
+        "src_nwc_nz_otago"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_otago_aromatics",
+      "group": "nz_otago",
+      "level": "WSET_L3",
+      "dimensions": [
+        "grapes",
+        "style"
+      ],
+      "source_ids": [
+        "src_nwc_nz_otago"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_nelson_wine_styles",
+      "group": "nz_nelson",
+      "level": "WSET_L3",
+      "dimensions": [
+        "grapes",
+        "style"
+      ],
+      "source_ids": [
+        "src_reg_oa_nelson"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_gisborne_wine_styles",
+      "group": "nz_gisborne",
+      "level": "WSET_L3",
+      "dimensions": [
+        "grapes",
+        "style"
+      ],
+      "source_ids": [
+        "src_reg_oa_gisborne"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_canterbury_style_range",
+      "group": "nz_canterbury",
+      "level": "WSET_L3",
+      "dimensions": [
+        "grapes",
+        "style"
+      ],
+      "source_ids": [
+        "src_reg_oa_canterbury"
+      ]
+    },
+    {
+      "id": "ki_wset_nw_california_zinfandel_range",
+      "group": "us_california",
+      "level": "WSET_L2",
+      "dimensions": [
+        "grapes",
+        "style",
+        "production"
+      ],
+      "source_ids": [
+        "src_wset_nw_napa_wine"
+      ]
+    }
+  ],
+  "reused_lower_level_mappings": [
+    "ki_reg_am_carneros_cooling",
+    "ki_reg_am_upper_napa_warmth",
+    "ki_reg_am_russian_river_pinot",
+    "ki_reg_am_alexander_cabernet",
+    "ki_reg_na_sta_rita_grapes",
+    "ki_reg_na_happy_later_grapes",
+    "ki_reg_am_willamette_pinot",
+    "ki_reg_am_rogue_diversity",
+    "ki_reg_am_maipo_cabernet",
+    "ki_reg_am_colchagua_reds",
+    "ki_reg_am_casablanca_low",
+    "ki_reg_am_casablanca_high",
+    "ki_reg_am_mendoza_temperature",
+    "ki_reg_am_andes_irrigation",
+    "ki_reg_am_argentina_methods",
+    "ki_reg_sh_chenin_fresh",
+    "ki_reg_sh_chenin_oak",
+    "ki_reg_sh_stellenbosch_heat",
+    "ki_reg_sh_stellenbosch_aspect",
+    "ki_reg_oa_constantia_aspects",
+    "ki_reg_oa_constantia_assembly",
+    "ki_reg_sh_elgin_ripening",
+    "ki_reg_sh_hemel_maritime",
+    "ki_reg_sh_barossa_floor",
+    "ki_reg_sh_eden_sites",
+    "ki_reg_sh_eden_riesling",
+    "ki_reg_sh_clare_cooling",
+    "ki_reg_sh_cab_maritime",
+    "ki_reg_sh_cab_styles",
+    "ki_reg_sh_yarra_mesoclimate",
+    "ki_reg_sh_mornington_maritime",
+    "ki_reg_oa_adelaide_sauvignon",
+    "ki_reg_oa_adelaide_warm_slopes",
+    "ki_reg_oa_hunter_early",
+    "ki_reg_oa_hunter_bottle",
+    "ki_reg_oa_hunter_moderation",
+    "ki_reg_oa_hunter_rain",
+    "ki_reg_oa_mclaren_varietal_blend",
+    "ki_reg_sh_marlborough_wairau",
+    "ki_reg_sh_marlborough_awatere",
+    "ki_reg_sh_hawkes_reds",
+    "ki_reg_sh_hawkes_cool",
+    "ki_reg_sh_martinborough_setting",
+    "ki_reg_sh_wairarapa_variation",
+    "ki_reg_sh_otago_gibbston",
+    "ki_reg_sh_otago_bannockburn"
+  ],
+  "missing_geography": [
+    {
+      "name": "Napa County",
+      "requested_node_id": "n_geo_napa_county",
+      "node_type": "geographic_area",
+      "suggested_parent": "n_geo_california",
+      "primary_source_url": "https://jp.discovercaliforniawines.com/wp-content/uploads/2021/04/Map2022.147AVAs.Poster.18x24.V01.Web_.pdf",
+      "caveat": "A same-named or similarly named AVA is not a substitute for the required county.",
+      "status": "root_requested"
+    },
+    {
+      "name": "Sonoma County",
+      "requested_node_id": "n_geo_sonoma_county",
+      "node_type": "geographic_area",
+      "suggested_parent": "n_geo_california",
+      "primary_source_url": "https://jp.discovercaliforniawines.com/wp-content/uploads/2021/04/Map2022.147AVAs.Poster.18x24.V01.Web_.pdf",
+      "caveat": "A same-named or similarly named AVA is not a substitute for the required county.",
+      "status": "root_requested"
+    },
+    {
+      "name": "Mendocino County",
+      "requested_node_id": "n_geo_mendocino_county",
+      "node_type": "geographic_area",
+      "suggested_parent": "n_geo_california",
+      "primary_source_url": "https://jp.discovercaliforniawines.com/wp-content/uploads/2021/04/Map2022.147AVAs.Poster.18x24.V01.Web_.pdf",
+      "caveat": "A same-named or similarly named AVA is not a substitute for the required county.",
+      "status": "root_requested"
+    },
+    {
+      "name": "San Luis Obispo County",
+      "requested_node_id": "n_geo_san_luis_obispo_county",
+      "node_type": "geographic_area",
+      "suggested_parent": "n_geo_california",
+      "primary_source_url": "https://jp.discovercaliforniawines.com/wp-content/uploads/2021/04/Map2022.147AVAs.Poster.18x24.V01.Web_.pdf",
+      "caveat": "A same-named or similarly named AVA is not a substitute for the required county.",
+      "status": "root_requested"
+    },
+    {
+      "name": "Santa Barbara County",
+      "requested_node_id": "n_geo_santa_barbara_county",
+      "node_type": "geographic_area",
+      "suggested_parent": "n_geo_california",
+      "primary_source_url": "https://jp.discovercaliforniawines.com/wp-content/uploads/2021/04/Map2022.147AVAs.Poster.18x24.V01.Web_.pdf",
+      "caveat": "A same-named or similarly named AVA is not a substitute for the required county.",
+      "status": "root_requested"
+    },
+    {
+      "name": "Saint Helena",
+      "requested_node_id": "n_geo_saint_helena_ava",
+      "node_type": "appellation",
+      "suggested_parent": "n_geo_napa_valley",
+      "primary_source_url": "https://wine.napavintners.com/region",
+      "caveat": "Use the wine AVA, not an unrelated town or island.",
+      "status": "root_requested"
+    },
+    {
+      "name": "Coquimbo Region",
+      "requested_node_id": "n_geo_coquimbo_region_chile",
+      "node_type": "geographic_area",
+      "suggested_parent": "n_geo_chile",
+      "primary_source_url": "https://www.bcn.cl/leychile/navegar?idNorma=13601&idVersion=2026-07-14",
+      "caveat": "Wine-zoning region, not an assumption that administrative and wine boundaries coincide.",
+      "status": "root_requested"
+    },
+    {
+      "name": "Aconcagua Region",
+      "requested_node_id": "n_geo_aconcagua_region_chile",
+      "node_type": "geographic_area",
+      "suggested_parent": "n_geo_chile",
+      "primary_source_url": "https://www.bcn.cl/leychile/navegar?idNorma=13601&idVersion=2026-07-14",
+      "caveat": "Wine-zoning region, not an assumption that administrative and wine boundaries coincide.",
+      "status": "root_requested"
+    }
+  ],
+  "remaining_integration": [
+    "Register this area in the root manifest and source scope.",
+    "Resolve root-requested county/AVA/wine-region geography IDs and parents.",
+    "Audit generic-versus-region-specific style and production evidence; empty dimensions are not covered by map pins.",
+    "Review and integrate the separate regional and global production, commerce, sparkling and fortified evidence.",
+    "All new facts remain unverified with MCQ disabled pending qualified review."
+  ]
+}

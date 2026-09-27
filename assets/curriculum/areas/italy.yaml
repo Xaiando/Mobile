@@ -220,8 +220,8 @@ knowledge_item_prerequisites:
 # CM-6: 1 recognize (MCQ), 2 also forward recall, 3 also reverse recall.
 certification_knowledge_mappings:
   # Foundations, visible to every higher level through the track chains
-  - { certification_id: WSET_L2, knowledge_item_id: ki_barolo_grape, importance: core, minimum_depth: 1 }
-  - { certification_id: WSET_L2, knowledge_item_id: ki_chianti_classico_grape, importance: core, minimum_depth: 1 }
+  - { certification_id: WSET_L2, knowledge_item_id: ki_barolo_grape, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L2, knowledge_item_id: ki_chianti_classico_grape, importance: core, minimum_depth: 2 }
   - { certification_id: CMS_INTRODUCTORY, knowledge_item_id: ki_barolo_grape, importance: core, minimum_depth: 1 }
   # WSET Level 3
   - { certification_id: WSET_L3, knowledge_item_id: ki_barolo_location, importance: core, minimum_depth: 2 }

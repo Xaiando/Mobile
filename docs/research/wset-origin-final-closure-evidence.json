@@ -1,0 +1,60 @@
+{
+  "reviewedOn": "2026-09-27",
+  "pack": "assets/curriculum/areas/wset_origin_final_closure.yaml",
+  "semanticCompletionClaim": false,
+  "lowestLevel": 2,
+  "newItemIds": [
+    "ki_wset_ofinal_recioto_corvina"
+  ],
+  "pairRepairs": [
+    {
+      "id": "l2_corvina_reciotodellavalpolicella",
+      "requirementId": "extended_grape_origin_l2_corvina_reciotodellavalpolicella",
+      "lowestLevel": 2,
+      "dimension": "style",
+      "addItemIds": [
+        "ki_wset_ofinal_recioto_corvina"
+      ],
+      "retainItemIds": [
+        "ki_wset_eu_recioto_valpolicella_sweet",
+        "ki_wset_eu_recioto_amarone_contrast",
+        "ki_wset_grape_corvina_profile",
+        "ki_wset_grape_corvina_variation"
+      ]
+    },
+    {
+      "id": "l2_chardonnay_chablis",
+      "requirementId": "extended_grape_origin_l2_chardonnay_chablis",
+      "lowestLevel": 2,
+      "dimension": "style",
+      "addExistingItemIds": [
+        "ki_wset_found_familiar_chablis"
+      ],
+      "retainRegionalContext": true,
+      "note": "Inherited L1 core depth2 point directly identifies Chardonnay/citrus or green-apple/fresh taut style; no legal depth raise is needed."
+    },
+    {
+      "id": "l2_cabernet_sauvignon_california",
+      "requirementId": "extended_grape_origin_l2_cabernet_sauvignon_california",
+      "lowestLevel": 2,
+      "dimension": "style",
+      "addExistingItemIds": [
+        "ki_wset_nw_napa_cabernet"
+      ],
+      "retainItemIds": [
+        "ki_wset_nw_california_variation"
+      ],
+      "note": "Documented Napa Cabernet style is a specific California example, beside broad state's climate variation; not one fixed statewide wine style."
+    }
+  ],
+  "sourcesReused": [
+    "src_wset_geo_recioto_valpo_spec_2023",
+    "src_wset_eu_recioto_valpolicella"
+  ],
+  "reviewCaveats": [
+    "Current law permits Corvina and/or Corvinone; Corvina is an important association, not necessarily present in every legal bottle.",
+    "The point is original beginner explanation, not the copied blend table or an exhaustive legal requirement.",
+    "No other required origins or legal identity nodes are added."
+  ]
+}
+

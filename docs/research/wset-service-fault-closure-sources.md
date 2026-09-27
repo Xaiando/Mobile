@@ -1,0 +1,10 @@
+# Level 3 service fault closure sources
+
+27 September 2026. Original app explanations close the seven-name common-fault checklist in [WSET Level 3, May 2022 Issue 2](https://www.wsetglobal.com/media/11731/wset_l3wines_specification_en_highres_may2022_issue2.pdf), Unit 1 LO5 Range 2, printed page 19. Existing service points already explain cork taint, oxidation and volatile acidity. The pack reuses exact H2S and Brett facts rather than duplicate those lessons.
+
+- **src_fault_faults_overview**, reused: [AWRI Wine flavours, faults and taints](https://www.awri.com.au/industry_support/winemaking_resources/sensory_assessment/recognition-of-wine-faults-and-taints/wine_faults/), accessed 27 September 2026. Reduction includes multiple sulfur compounds; the sulfur dioxide section identifies pungency and its protective use. Aeration guidance explicitly has limits. No sensory thresholds or legal maxima are copied into the lessons.
+- **src_wset_sfault_common_faults**, new: [WSET Common wine faults and how to spot them](https://www.wsetglobal.com/knowledge-centre/blog/2023/august/24/common-wine-faults-and-how-to-spot-them), 24 August 2023. The original condition explanation draws on lost fresh fruit and dull stale character under heat damage and the distinction between unwanted oxidation and intended oxidative styles. Its broad aeration recommendation is not adopted without the AWRI caveat.
+- **src_wset_sfault_l3_spec**, new: public Level 3 specification above. Establishes the required named faults and separates sound development from deterioration. No tasting grid, lexicon table, exam question or official answer is reproduced.
+
+All three new explanations remain unverified and are mapped only to Level 3, core depth 2. Source URLs were checked for duplicates against the registered manifest. Exact existing/new requirement replacements are in `wset-service-fault-closure-evidence.json`; root owns registration and the final catalog refresh.
+

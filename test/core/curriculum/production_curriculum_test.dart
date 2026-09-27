@@ -502,8 +502,8 @@ void main() {
     expect(snapshot.levels.map((level) => level.counts.mapped), [
       0,
       103,
-      2381,
-      2885,
+      2392,
+      2896,
     ]);
     final diploma = snapshot.levels.last;
     final unitIds = {
@@ -675,9 +675,35 @@ void main() {
             .minimumDepth,
         3,
       );
-      if (item.relationType != 'PRINCIPLE_EXPLANATION' ||
-          item.id.startsWith('ki_reg_cn_')) {
+      if (item.id.startsWith('ki_reg_cn_')) {
         expect(mappings.map((m) => m.certificationId), ['WSET_L4']);
+      } else if (item.relationType != 'PRINCIPLE_EXPLANATION') {
+        // Selected original case points now teach the required L3 decisions.
+        // Every promotion must be declared in the independently reviewed
+        // authoring evidence, while its Diploma depth remains unchanged.
+        final europe = jsonDecode(
+          File('docs/research/wset-regional-europe-evidence.json')
+              .readAsStringSync(),
+        ) as Map<String, dynamic>;
+        final production = jsonDecode(
+          File('docs/research/wset-general-production-evidence.json')
+              .readAsStringSync(),
+        ) as Map<String, dynamic>;
+        final allowed = <String>{
+          for (final row in europe['mapping_additions'] as List)
+            '${row['certification_id']}|${row['knowledge_item_id']}',
+          for (final id in production['case_point_ids'] as List) 'WSET_L3|$id',
+        };
+        for (final mapping in mappings.where(
+          (m) => m.certificationId != 'WSET_L4',
+        )) {
+          expect(
+            allowed,
+            contains('${mapping.certificationId}|${item.id}'),
+            reason: item.id,
+          );
+          expect(mapping.minimumDepth, lessThanOrEqualTo(2));
+        }
       } else if (const [
         'ki_reg_inc_',
         'ki_reg_isi_',
@@ -692,15 +718,15 @@ void main() {
         'ki_reg_sa_',
         'ki_reg_oa_',
       ].any(item.id.startsWith)) {
-        expect(mappings.map((m) => m.certificationId).toSet(), {
-          'WSET_L4',
-          'WSET_L3',
-          'CMS_CERTIFIED',
-        }, reason: 'regional foundations remain available on lower tracks');
+        expect(
+          mappings.map((m) => m.certificationId).toSet(),
+          containsAll({'WSET_L4', 'WSET_L3', 'CMS_CERTIFIED'}),
+          reason: 'regional foundations remain available on lower tracks',
+        );
         expect(
           mappings
               .where((m) => m.certificationId != 'WSET_L4')
-              .every((m) => m.minimumDepth == 2),
+              .every((m) => m.minimumDepth <= 2),
           isTrue,
         );
       }

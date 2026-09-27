@@ -12,6 +12,7 @@ import 'package:sommelier/core/database/storage_durability.dart';
 import 'package:sommelier/core/progress/progress_providers.dart';
 import 'package:sommelier/core/progress/wset_progress.dart';
 import 'package:sommelier/core/progress/wset_scope.dart';
+import 'package:sommelier/core/progress/wset_requirements.dart';
 import 'package:sommelier/core/questions/format_registry.dart';
 import 'package:sommelier/core/questions/formats/flashcard/flashcard_format.dart';
 import 'package:sommelier/core/questions/question_providers.dart';
@@ -284,4 +285,86 @@ void main() {
       expect(question, findsOneWidget);
     },
   );
+
+  testApp('a required topic opens focused practice with shared memory', (
+    tester,
+  ) async {
+    scope = WsetScope([
+      for (final level in scope.levels)
+        WsetLevelScope(
+          certificationId: level.certificationId,
+          title: level.title,
+          curriculumComplete: false,
+          gaps: level.gaps,
+          sourceUrl: level.sourceUrl,
+          units: level.units,
+          requirements: level.certificationId == 'WSET_L3'
+              ? [
+                  const WsetRequirement(
+                    id: 'chablis_environment',
+                    title: 'Chablis site study',
+                    reviewed: true,
+                    dimensions: [
+                      WsetEvidenceDimension(
+                        kind: 'environment',
+                        itemIds: ['ki_chablis_soil'],
+                        formats: ['flashcard'],
+                      ),
+                    ],
+                  ),
+                ]
+              : [],
+        ),
+    ]);
+    progress = WsetProgressRepository(db, scope: scope, clock: time.clock);
+    await tester.runAsync(
+      () => LearnerProfiles(db, clock: time.clock).selectTrack('WSET_L3'),
+    );
+    await pumpApp(
+      tester,
+      db,
+      overrides: [
+        appStartupProvider.overrideWith(
+          (ref) async => StorageDurability.persistent,
+        ),
+        clockProvider.overrideWithValue(time.clock),
+        wsetScopeProvider.overrideWith((ref) async => scope),
+        wsetProgressProvider.overrideWith((ref) => progress.watch()),
+        formatRegistryProvider.overrideWithValue(
+          FormatRegistry([FlashcardFormat()]),
+        ),
+      ],
+    );
+    await settle(tester);
+    await tester.scrollUntilVisible(find.text('View WSET progress'), 250);
+    await tap(tester, find.text('View WSET progress'));
+    final requirements = find.text('Study requirements · 0/1 mastered');
+    await tester.scrollUntilVisible(
+      requirements,
+      350,
+      scrollable: find.byType(Scrollable).last,
+      maxScrolls: 50,
+    );
+    await tap(tester, requirements);
+    final topic = find.byKey(
+      const ValueKey('wset_topic_WSET_L3_chablis_environment'),
+    );
+    await tester.scrollUntilVisible(
+      topic,
+      250,
+      scrollable: find.byType(Scrollable).last,
+    );
+    await tap(tester, topic);
+    expect(find.byType(PracticeScreen), findsOneWidget);
+    expect(
+      find.text('What is the characteristic soil of Chablis?'),
+      findsOneWidget,
+    );
+    expect(find.textContaining('principal grape of Chablis'), findsNothing);
+    expect(
+      await tester.runAsync(() => db.select(db.reviewEvents).get()),
+      isEmpty,
+    );
+    expect(tester.takeException(), isNull);
+  });
 }

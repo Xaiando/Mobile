@@ -1,0 +1,2164 @@
+# Original wine service and conditional food interactions. Sources establish mechanisms; examples are app-authored.
+# Wine-only scope: Grok owns history and the other-beverage strand. All facts remain unverified.
+knowledge_nodes:
+  - id: n_wset_srv_principle_storage
+    node_type: production_principle
+    name: How do you protect unopened wine during storage?
+  - id: n_wset_srv_point_storage_cool
+    node_type: learning_point
+    name: Cool and steady storage
+  - id: n_wset_srv_point_storage_dark
+    node_type: learning_point
+    name: Dark storage
+  - id: n_wset_srv_point_storage_closure
+    node_type: learning_point
+    name: Closure-aware bottle position
+  - id: n_wset_srv_point_storage_provenance
+    node_type: learning_point
+    name: Check storage history
+  - id: n_wset_srv_principle_red_temp
+    node_type: production_principle
+    name: What changes when a full-bodied red is served too cold or too warm?
+  - id: n_wset_srv_point_red_temperature
+    node_type: learning_point
+    name: "Full red: 15–18°C"
+  - id: n_wset_srv_point_red_cold
+    node_type: learning_point
+    name: Cold red can seem harsher
+  - id: n_wset_srv_point_white_temperature
+    node_type: learning_point
+    name: "Full white: 10–13°C"
+  - id: n_wset_srv_principle_other_temp
+    node_type: production_principle
+    name: How should chilling reflect the wine style?
+  - id: n_wset_srv_point_light_white_temperature
+    node_type: learning_point
+    name: "Light white and rosé: 7–10°C"
+  - id: n_wset_srv_point_light_red_temperature
+    node_type: learning_point
+    name: "Light red: 10–13°C"
+  - id: n_wset_srv_point_sweet_temperature
+    node_type: learning_point
+    name: "Sweet white: 6–8°C"
+  - id: n_wset_srv_point_champagne_temperature
+    node_type: learning_point
+    name: "Champagne: 8–10°C"
+  - id: n_wset_srv_principle_cooling
+    node_type: production_principle
+    name: How can an ice bucket chill wine efficiently?
+  - id: n_wset_srv_point_ice_water
+    node_type: learning_point
+    name: Ice and water surround the bottle
+  - id: n_wset_srv_point_temp_masking
+    node_type: learning_point
+    name: Avoid aroma-masking cold
+  - id: n_wset_srv_principle_glass
+    node_type: production_principle
+    name: What should be checked before wine is poured?
+  - id: n_wset_srv_point_glass_clean
+    node_type: learning_point
+    name: Clean, odour-free glassware
+  - id: n_wset_srv_point_bottle_identity
+    node_type: learning_point
+    name: Confirm the selected bottle
+  - id: n_wset_srv_point_sparkling_glass
+    node_type: learning_point
+    name: Tulip-shaped Champagne glass
+  - id: n_wset_srv_principle_still_open
+    node_type: production_principle
+    name: How do you open a cork-closed still wine carefully?
+  - id: n_wset_srv_point_foil
+    node_type: learning_point
+    name: Remove capsule and clean neck
+  - id: n_wset_srv_point_corkscrew
+    node_type: learning_point
+    name: Controlled corkscrew extraction
+  - id: n_wset_srv_point_cork_fragile
+    node_type: learning_point
+    name: Fragile cork needs a suitable opener
+  - id: n_wset_srv_point_cork_taint_distinct
+    node_type: learning_point
+    name: Cork fragments are not cork taint
+  - id: n_wset_srv_principle_spark_open
+    node_type: production_principle
+    name: How do you open a pressured sparkling bottle safely?
+  - id: n_wset_srv_point_spark_chill
+    node_type: learning_point
+    name: Chill before opening sparkling wine
+  - id: n_wset_srv_point_spark_control
+    node_type: learning_point
+    name: Keep cork under control
+  - id: n_wset_srv_point_spark_rotate
+    node_type: learning_point
+    name: Rotate bottle with cork restrained
+  - id: n_wset_srv_principle_preservation
+    node_type: production_principle
+    name: How can opened still wine be protected?
+  - id: n_wset_srv_point_preserve_cool
+    node_type: learning_point
+    name: Reclose and refrigerate
+  - id: n_wset_srv_point_preserve_air
+    node_type: learning_point
+    name: Reduce air contact
+  - id: n_wset_srv_point_preserve_vacuum
+    node_type: learning_point
+    name: Vacuum removes some headspace air
+  - id: n_wset_srv_point_preserve_gas
+    node_type: learning_point
+    name: Gas reduces oxygen contact
+  - id: n_wset_srv_principle_spark_preserve
+    node_type: production_principle
+    name: Why is sparkling-wine preservation different?
+  - id: n_wset_srv_point_spark_stopper
+    node_type: learning_point
+    name: Purpose-made sparkling stopper
+  - id: n_wset_srv_point_spark_no_vacuum
+    node_type: learning_point
+    name: Avoid vacuum on sparkling wine
+  - id: n_wset_srv_point_preserve_check
+    node_type: learning_point
+    name: Recheck condition before service
+  - id: n_wset_srv_principle_decant
+    node_type: production_principle
+    name: When is decanting justified and how is sediment kept out?
+  - id: n_wset_srv_point_decant_deposit
+    node_type: learning_point
+    name: Separate wine from sediment
+  - id: n_wset_srv_point_decant_gently
+    node_type: learning_point
+    name: Stop when deposit reaches the neck
+  - id: n_wset_srv_point_decant_air
+    node_type: learning_point
+    name: Aeration is not universally beneficial
+  - id: n_wset_srv_point_crystals
+    node_type: learning_point
+    name: Crystals need not mean spoiled wine
+  - id: n_wset_srv_principle_faults
+    node_type: production_principle
+    name: How do common faults differ from normal wine character?
+  - id: n_wset_srv_point_fault_cork
+    node_type: learning_point
+    name: Mustiness and muted fruit
+  - id: n_wset_srv_point_fault_oxidation
+    node_type: learning_point
+    name: Unwanted oxidation dulls freshness
+  - id: n_wset_srv_point_fault_va
+    node_type: learning_point
+    name: Excess volatile acidity
+  - id: n_wset_srv_point_fault_recheck
+    node_type: learning_point
+    name: Investigate a suspected fault
+  - id: n_wset_srv_principle_pairing_preference
+    node_type: production_principle
+    name: What makes a wine recommendation appropriate for a particular person?
+  - id: n_wset_srv_point_pairing_person
+    node_type: learning_point
+    name: Ask about preferences
+  - id: n_wset_srv_point_pairing_perception
+    node_type: learning_point
+    name: Food changes perceived wine
+  - id: n_wset_srv_principle_food_sweet
+    node_type: production_principle
+    name: What can a sweet food do to a dry wine?
+  - id: n_wset_srv_point_food_sweet_dry
+    node_type: learning_point
+    name: Sweet food can make wine seem drier
+  - id: n_wset_srv_point_food_sweet_choice
+    node_type: learning_point
+    name: Consider a wine at least as sweet
+  - id: n_wset_srv_principle_food_acid
+    node_type: production_principle
+    name: How can acidity in food influence perceived wine balance?
+  - id: n_wset_srv_point_food_acid_soft
+    node_type: learning_point
+    name: Acidic food softens perceived wine acidity
+  - id: n_wset_srv_point_food_acid_choice
+    node_type: learning_point
+    name: Acidic wine can retain freshness
+  - id: n_wset_srv_principle_food_salt
+    node_type: production_principle
+    name: How does salt often change perceived wine?
+  - id: n_wset_srv_point_food_salt_soft
+    node_type: learning_point
+    name: Salt can soften harshness
+  - id: n_wset_srv_point_food_salt_not_rule
+    node_type: learning_point
+    name: Assess the complete dish
+  - id: n_wset_srv_principle_food_umami
+    node_type: production_principle
+    name: Why can a savoury, umami-rich dish challenge a tannic wine?
+  - id: n_wset_srv_point_food_umami_bitter
+    node_type: learning_point
+    name: Umami can emphasise bitterness
+  - id: n_wset_srv_point_food_umami_choice
+    node_type: learning_point
+    name: Try lower tannin and sufficient fruit
+  - id: n_wset_srv_principle_food_fat
+    node_type: production_principle
+    name: What can freshness and tannin contribute with a fatty dish?
+  - id: n_wset_srv_point_food_fat_fresh
+    node_type: learning_point
+    name: Acidity gives a refreshing contrast
+  - id: n_wset_srv_point_food_fat_complete
+    node_type: learning_point
+    name: Include seasoning and sauce
+  - id: n_wset_srv_principle_food_chilli
+    node_type: production_principle
+    name: How can wine structure affect a chilli-hot pairing?
+  - id: n_wset_srv_point_food_chilli_alcohol
+    node_type: learning_point
+    name: Alcohol can amplify chilli heat
+  - id: n_wset_srv_point_food_chilli_tannin
+    node_type: learning_point
+    name: Tannin can add harshness
+  - id: n_wset_srv_point_food_chilli_sweet
+    node_type: learning_point
+    name: Some sweetness may soften heat
+  - id: n_wset_srv_principle_food_intensity
+    node_type: production_principle
+    name: How can flavour intensity and weight guide a pairing?
+  - id: n_wset_srv_point_food_intensity_match
+    node_type: learning_point
+    name: Compare food and wine intensity
+  - id: n_wset_srv_point_food_intensity_preference
+    node_type: learning_point
+    name: Complement or contrast deliberately
+  - id: n_wset_srv_principle_responsible
+    node_type: production_principle
+    name: What should a wine professional understand about alcohol-related harm?
+  - id: n_wset_srv_point_alcohol_risk
+    node_type: learning_point
+    name: Alcohol is not risk-free
+  - id: n_wset_srv_point_alcohol_pregnancy
+    node_type: learning_point
+    name: Alcohol risks during pregnancy
+  - id: n_wset_srv_point_alcohol_driving
+    node_type: learning_point
+    name: Alcohol impairs safe driving
+  - id: n_wset_srv_principle_responsible_context
+    node_type: production_principle
+    name: Why must wine quality or a generic limit not be presented as a health guarantee?
+  - id: n_wset_srv_point_alcohol_wine_not_health
+    node_type: learning_point
+    name: Wine quality does not remove ethanol risk
+  - id: n_wset_srv_point_alcohol_individual
+    node_type: learning_point
+    name: Individual and context affect risk
+  - id: n_wset_srv_case_chilli
+    node_type: production_case
+    name: A guest dislikes strong chilli burn but enjoys fresh white wine. The dish has hot chilli, herbs and no
+      sweet sauce. Available samples include a high-alcohol dry white and a lower-alcohol lightly sweet white.
+      Recommend a trial, explain the mechanism, discuss a tradeoff and state what still needs checking.
+  - id: n_wset_srv_point_case_chilli_action
+    node_type: learning_point
+    name: Trial the lower-alcohol lightly sweet wine
+  - id: n_wset_srv_point_case_chilli_reason
+    node_type: learning_point
+    name: Alcohol and sweetness change heat perception
+  - id: n_wset_srv_point_case_chilli_tradeoff
+    node_type: learning_point
+    name: Sweetness may not suit preference
+  - id: n_wset_srv_point_case_chilli_limitation
+    node_type: learning_point
+    name: Check the full dish and guest response
+  - id: n_wset_srv_case_dessert
+    node_type: production_case
+    name: A citrus pudding is clearly sweeter than a proposed dry aromatic white. A second sample is sweet with
+      refreshing acidity. Explain a sensible tasting comparison, a reason, a tradeoff and a limit on
+      predicting the outcome.
+  - id: n_wset_srv_point_case_dessert_action
+    node_type: learning_point
+    name: Compare the sweet acidic sample with pudding
+  - id: n_wset_srv_point_case_dessert_reason
+    node_type: learning_point
+    name: Food sweetness reduces perceived wine sweetness
+  - id: n_wset_srv_point_case_dessert_tradeoff
+    node_type: learning_point
+    name: Sweetness and freshness must both fit
+  - id: n_wset_srv_point_case_dessert_limitation
+    node_type: learning_point
+    name: Specific pudding and wine determine the match
+  - id: n_wset_srv_case_older_red
+    node_type: production_case
+    name: An older red has visible sediment. The guest plans to drink it immediately; its fruit is delicate in a
+      clean glass. Explain your service choice, the reason, a tradeoff and a limitation.
+  - id: n_wset_srv_point_case_older_red_action
+    node_type: learning_point
+    name: Decant gently just before service
+  - id: n_wset_srv_point_case_older_red_reason
+    node_type: learning_point
+    name: Keep sediment out without unnecessary air time
+  - id: n_wset_srv_point_case_older_red_tradeoff
+    node_type: learning_point
+    name: Separation increases handling and air exposure
+  - id: n_wset_srv_point_case_older_red_limitation
+    node_type: learning_point
+    name: Observe condition rather than infer from age
+knowledge_relations:
+  - subject_id: n_wset_srv_principle_storage
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_storage_cool
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_principle_storage
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_storage_dark
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_principle_storage
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_storage_closure
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_principle_storage
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_storage_provenance
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_principle_red_temp
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_red_temperature
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_principle_red_temp
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_red_cold
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_principle_red_temp
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_white_temperature
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_principle_other_temp
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_light_white_temperature
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_principle_other_temp
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_light_red_temperature
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_principle_other_temp
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_sweet_temperature
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_principle_other_temp
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_champagne_temperature
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_principle_cooling
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_ice_water
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_principle_cooling
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_temp_masking
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_principle_glass
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_glass_clean
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_principle_glass
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_bottle_identity
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_principle_glass
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_sparkling_glass
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_principle_still_open
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_foil
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_principle_still_open
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_corkscrew
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_principle_still_open
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_cork_fragile
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_principle_still_open
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_cork_taint_distinct
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_principle_spark_open
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_spark_chill
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_principle_spark_open
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_spark_control
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_principle_spark_open
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_spark_rotate
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_principle_preservation
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_preserve_cool
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_principle_preservation
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_preserve_air
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_principle_preservation
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_preserve_vacuum
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_principle_preservation
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_preserve_gas
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_principle_spark_preserve
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_spark_stopper
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_principle_spark_preserve
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_spark_no_vacuum
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_principle_spark_preserve
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_preserve_check
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_principle_decant
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_decant_deposit
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_principle_decant
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_decant_gently
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_principle_decant
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_decant_air
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_principle_decant
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_crystals
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_principle_faults
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_fault_cork
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_principle_faults
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_fault_oxidation
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_principle_faults
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_fault_va
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_principle_faults
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_fault_recheck
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_principle_pairing_preference
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_pairing_person
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_principle_pairing_preference
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_pairing_perception
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_principle_food_sweet
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_food_sweet_dry
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_principle_food_sweet
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_food_sweet_choice
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_principle_food_acid
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_food_acid_soft
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_principle_food_acid
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_food_acid_choice
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_principle_food_salt
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_food_salt_soft
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_principle_food_salt
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_food_salt_not_rule
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_principle_food_umami
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_food_umami_bitter
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_principle_food_umami
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_food_umami_choice
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_principle_food_fat
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_food_fat_fresh
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_principle_food_fat
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_food_fat_complete
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_principle_food_chilli
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_food_chilli_alcohol
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_principle_food_chilli
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_food_chilli_tannin
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_principle_food_chilli
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_food_chilli_sweet
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_principle_food_intensity
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_food_intensity_match
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_principle_food_intensity
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_food_intensity_preference
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_principle_responsible
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_alcohol_risk
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_principle_responsible
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_alcohol_pregnancy
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_principle_responsible
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_alcohol_driving
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_principle_responsible_context
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_alcohol_wine_not_health
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_principle_responsible_context
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_alcohol_individual
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_case_chilli
+    relation_type: CASE_ACTION
+    object_id: n_wset_srv_point_case_chilli_action
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_case_chilli
+    relation_type: CASE_REASON
+    object_id: n_wset_srv_point_case_chilli_reason
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_case_chilli
+    relation_type: CASE_TRADEOFF
+    object_id: n_wset_srv_point_case_chilli_tradeoff
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_case_chilli
+    relation_type: CASE_LIMITATION
+    object_id: n_wset_srv_point_case_chilli_limitation
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_case_dessert
+    relation_type: CASE_ACTION
+    object_id: n_wset_srv_point_case_dessert_action
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_case_dessert
+    relation_type: CASE_REASON
+    object_id: n_wset_srv_point_case_dessert_reason
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_case_dessert
+    relation_type: CASE_TRADEOFF
+    object_id: n_wset_srv_point_case_dessert_tradeoff
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_case_dessert
+    relation_type: CASE_LIMITATION
+    object_id: n_wset_srv_point_case_dessert_limitation
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_case_older_red
+    relation_type: CASE_ACTION
+    object_id: n_wset_srv_point_case_older_red_action
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_case_older_red
+    relation_type: CASE_REASON
+    object_id: n_wset_srv_point_case_older_red_reason
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_case_older_red
+    relation_type: CASE_TRADEOFF
+    object_id: n_wset_srv_point_case_older_red_tradeoff
+    valid_from: 2026-09-27
+  - subject_id: n_wset_srv_case_older_red
+    relation_type: CASE_LIMITATION
+    object_id: n_wset_srv_point_case_older_red_limitation
+    valid_from: 2026-09-27
+knowledge_items:
+  - id: ki_wset_srv_storage_cool
+    subject_id: n_wset_srv_principle_storage
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_storage_cool
+    domain_id: service
+    assertion_text: Keep unopened wine cool and at a stable temperature; prolonged heat or large temperature
+      swings can damage it.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_storage_dark
+    subject_id: n_wset_srv_principle_storage
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_storage_dark
+    domain_id: service
+    assertion_text: Protect stored wine from strong light; heating and light-driven reactions can harm its character.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_storage_closure
+    subject_id: n_wset_srv_principle_storage
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_storage_closure
+    domain_id: service
+    assertion_text: For conventional cork-closed still wines, side storage maintains cork contact with wine;
+      screwcaps can stand upright.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_storage_provenance
+    subject_id: n_wset_srv_principle_storage
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_storage_provenance
+    domain_id: service
+    assertion_text: Before buying an older bottle, ask about storage and inspect leakage, fill level and bottle condition.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_red_temperature
+    subject_id: n_wset_srv_principle_red_temp
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_red_temperature
+    domain_id: service
+    assertion_text: Use roughly 15–18°C for full-bodied reds; a heated room above this range is not the intended
+      service condition.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_red_cold
+    subject_id: n_wset_srv_principle_red_temp
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_red_cold
+    domain_id: service
+    assertion_text: Excessive chilling can make a full-bodied red seem thin and harsh; warm it gently rather than
+      beside a heater.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_white_temperature
+    subject_id: n_wset_srv_principle_red_temp
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_white_temperature
+    domain_id: service
+    assertion_text: A fuller-bodied white can be lightly chilled around 10–13°C; extreme cold masks aroma and flavour.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_light_white_temperature
+    subject_id: n_wset_srv_principle_other_temp
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_light_white_temperature
+    domain_id: service
+    assertion_text: A useful service range for light whites and rosés is about 7–10°C; adjust to the actual wine.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_light_red_temperature
+    subject_id: n_wset_srv_principle_other_temp
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_light_red_temperature
+    domain_id: service
+    assertion_text: Light reds can be served slightly chilled, around 10–13°C, rather than at a warm room temperature.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_sweet_temperature
+    subject_id: n_wset_srv_principle_other_temp
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_sweet_temperature
+    domain_id: service
+    assertion_text: Sweet whites can be well chilled around 6–8°C; temperature remains a style guideline rather
+      than a legal requirement.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_champagne_temperature
+    subject_id: n_wset_srv_principle_other_temp
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_champagne_temperature
+    domain_id: service
+    assertion_text: Comité Champagne recommends about 8–10°C for drinking Champagne; source-specific ranges need
+      not be identical for every sparkling wine.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_ice_water
+    subject_id: n_wset_srv_principle_cooling
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_ice_water
+    domain_id: service
+    assertion_text: "Use both ice and water: contact with cold water transfers heat more effectively than gaps of
+      air between ice cubes."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_temp_masking
+    subject_id: n_wset_srv_principle_cooling
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_temp_masking
+    domain_id: service
+    assertion_text: Serving below roughly 6°C can suppress white, rosé and sparkling aromas; allow a very cold
+      sample to warm before judging it.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_glass_clean
+    subject_id: n_wset_srv_principle_glass
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_glass_clean
+    domain_id: service
+    assertion_text: Use clean, odour-free glasses so residues do not distort the wine.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_bottle_identity
+    subject_id: n_wset_srv_principle_glass
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_bottle_identity
+    domain_id: service
+    assertion_text: Confirm the wine and vintage before opening; inspect and smell the wine before continuing service.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_sparkling_glass
+    subject_id: n_wset_srv_principle_glass
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_sparkling_glass
+    domain_id: service
+    assertion_text: A tulip-shaped glass gives Champagne aroma space while its narrowing rim helps retain aroma and bubbles.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_foil
+    subject_id: n_wset_srv_principle_still_open
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_foil
+    domain_id: service
+    assertion_text: Remove the upper foil and clean the neck before drawing the cork; keep the bottle steady.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_corkscrew
+    subject_id: n_wset_srv_principle_still_open
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_corkscrew
+    domain_id: service
+    assertion_text: Centre the spiral in the cork and use the lever to draw it gently; avoid driving through the
+      cork into the wine.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_cork_fragile
+    subject_id: n_wset_srv_principle_still_open
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_cork_fragile
+    domain_id: service
+    assertion_text: Older corks can break under a normal spiral; a two-prong opener or combined tool can support
+      gentler extraction.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_cork_taint_distinct
+    subject_id: n_wset_srv_principle_still_open
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_cork_taint_distinct
+    domain_id: service
+    assertion_text: A broken cork is a physical problem; cork taint is a sensory taint, so assess the wine rather
+      than infer taint from fragments.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_spark_chill
+    subject_id: n_wset_srv_principle_spark_open
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_spark_chill
+    domain_id: service
+    assertion_text: Chill sparkling wine before opening and avoid shaking the bottle.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_spark_control
+    subject_id: n_wset_srv_principle_spark_open
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_spark_control
+    domain_id: service
+    assertion_text: Keep a firm hand on the cork while loosening the wire; point the bottle away from people.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_spark_rotate
+    subject_id: n_wset_srv_principle_spark_open
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_spark_rotate
+    domain_id: service
+    assertion_text: Restrain the cork and gently rotate the bottle; ease the cork out without letting it fly.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_preserve_cool
+    subject_id: n_wset_srv_principle_preservation
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_preserve_cool
+    domain_id: service
+    assertion_text: Reclose opened still wine and refrigerate it, including red wine; cooling slows oxidation.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_preserve_air
+    subject_id: n_wset_srv_principle_preservation
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_preserve_air
+    domain_id: service
+    assertion_text: A smaller, clean sealed bottle reduces air space around leftover still wine; handle
+      hygienically and label the opening date.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_preserve_vacuum
+    subject_id: n_wset_srv_principle_preservation
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_preserve_vacuum
+    domain_id: service
+    assertion_text: A vacuum device removes some air before resealing; it delays deterioration rather than
+      restoring damaged wine.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_preserve_gas
+    subject_id: n_wset_srv_principle_preservation
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_preserve_gas
+    domain_id: service
+    assertion_text: An appropriate inert-gas system limits oxygen exposure; its benefit depends on the seal, wine
+      and correct operation.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_spark_stopper
+    subject_id: n_wset_srv_principle_spark_preserve
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_spark_stopper
+    domain_id: service
+    assertion_text: Use a purpose-made sparkling-wine stopper and keep the opened bottle cool; a spoon in the neck
+      does not preserve bubbles.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_spark_no_vacuum
+    subject_id: n_wset_srv_principle_spark_preserve
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_spark_no_vacuum
+    domain_id: service
+    assertion_text: A still-wine vacuum pump can remove dissolved gas and flatten sparkling wine; use equipment
+      designed for carbonation.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_preserve_check
+    subject_id: n_wset_srv_principle_spark_preserve
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_preserve_check
+    domain_id: service
+    assertion_text: "Preservation cannot guarantee a fixed usable life: assess the opened bottle again before serving it."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_decant_deposit
+    subject_id: n_wset_srv_principle_decant
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_decant_deposit
+    domain_id: service
+    assertion_text: Some aged or less-filtered reds form a deposit; gentle decanting separates clear wine from sediment.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_decant_gently
+    subject_id: n_wset_srv_principle_decant
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_decant_gently
+    domain_id: service
+    assertion_text: Avoid disturbing sediment; watch the neck in good light and stop pouring before the deposit
+      enters the decanter.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_decant_air
+    subject_id: n_wset_srv_principle_decant
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_decant_air
+    domain_id: service
+    assertion_text: Extra air may change aroma, but fragile older wines can lose character; assess rather than
+      impose a fixed long aeration.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_crystals
+    subject_id: n_wset_srv_principle_decant
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_crystals
+    domain_id: service
+    assertion_text: Harmless tartrate crystals or normal red sediment do not by themselves show that wine is spoiled.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_fault_cork
+    subject_id: n_wset_srv_principle_faults
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_fault_cork
+    domain_id: service
+    assertion_text: Cork-type taint may smell musty and suppress fruit; TCA can arise without contact with a cork.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_fault_oxidation
+    subject_id: n_wset_srv_principle_faults
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_fault_oxidation
+    domain_id: service
+    assertion_text: Unwanted oxidation can dull fruit and introduce stale or sherry-like notes; oxidative styles
+      must be judged in their intended context.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_fault_va
+    subject_id: n_wset_srv_principle_faults
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_fault_va
+    domain_id: service
+    assertion_text: Strong vinegar or solvent-like notes can indicate excessive volatile acidity; concentration
+      and the wine context affect judgement.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_fault_recheck
+    subject_id: n_wset_srv_principle_faults
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_fault_recheck
+    domain_id: service
+    assertion_text: Check glass cleanliness and compare a fresh sample or replacement bottle; explain the concern
+      without insisting on one aroma threshold.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_pairing_person
+    subject_id: n_wset_srv_principle_pairing_preference
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_pairing_person
+    domain_id: service
+    assertion_text: Ask about preferred sweetness, body and flavours, the dish and budget before recommending;
+      personal preference can outweigh a conventional pairing.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_pairing_perception
+    subject_id: n_wset_srv_principle_pairing_preference
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_pairing_perception
+    domain_id: service
+    assertion_text: Food can change how the same wine tastes without changing the liquid’s composition; compare a
+      sip before and after a bite.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_food_sweet_dry
+    subject_id: n_wset_srv_principle_food_sweet
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_food_sweet_dry
+    domain_id: service
+    assertion_text: Sweet food can make wine seem less sweet and fruity and more bitter; this is a common
+      perception effect, not a guarantee.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_food_sweet_choice
+    subject_id: n_wset_srv_principle_food_sweet
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_food_sweet_choice
+    domain_id: service
+    assertion_text: For a sweet dish, a wine at least as sweet often preserves balance; check the actual dish,
+      wine and person’s preference.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_food_acid_soft
+    subject_id: n_wset_srv_principle_food_acid
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_food_acid_soft
+    domain_id: service
+    assertion_text: An acidic dish can make wine acidity seem softer; a low-acid wine may then seem flat.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_food_acid_choice
+    subject_id: n_wset_srv_principle_food_acid
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_food_acid_choice
+    domain_id: service
+    assertion_text: Try a wine with enough acidity to retain freshness after the dish; taste both together rather
+      than choose only by food colour.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_food_salt_soft
+    subject_id: n_wset_srv_principle_food_salt
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_food_salt_soft
+    domain_id: service
+    assertion_text: Salt can reduce perceived acidity and bitterness and make fruit more evident; individual
+      sensitivity varies.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_food_salt_not_rule
+    subject_id: n_wset_srv_principle_food_salt
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_food_salt_not_rule
+    domain_id: service
+    assertion_text: Salt is only one component; sweetness, umami and the sauce may pull the pairing in different directions.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_food_umami_bitter
+    subject_id: n_wset_srv_principle_food_umami
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_food_umami_bitter
+    domain_id: service
+    assertion_text: Umami-rich food can make wine seem more bitter and less fruity; tannic wines may be
+      particularly challenging.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_food_umami_choice
+    subject_id: n_wset_srv_principle_food_umami
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_food_umami_choice
+    domain_id: service
+    assertion_text: With pronounced umami, consider lower tannin and sufficient fruit intensity, then check
+      acidity, salt and the actual pairing.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_food_fat_fresh
+    subject_id: n_wset_srv_principle_food_fat
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_food_fat_fresh
+    domain_id: service
+    assertion_text: Wine acidity can give a refreshing contrast with a fatty dish; the fat can make tannin seem less harsh.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_food_fat_complete
+    subject_id: n_wset_srv_principle_food_fat
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_food_fat_complete
+    domain_id: service
+    assertion_text: Assess the fatty dish’s sauce and seasoning too; fat alone cannot select one grape or appellation.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_food_chilli_alcohol
+    subject_id: n_wset_srv_principle_food_chilli
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_food_chilli_alcohol
+    domain_id: service
+    assertion_text: Alcohol can intensify the burning sensation with chilli; a lower-alcohol wine may suit someone
+      seeking gentler heat.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_food_chilli_tannin
+    subject_id: n_wset_srv_principle_food_chilli
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_food_chilli_tannin
+    domain_id: service
+    assertion_text: Strong tannin with hot spice can feel harsher; a softer-tannin option may be more comfortable.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_food_chilli_sweet
+    subject_id: n_wset_srv_principle_food_chilli
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_food_chilli_sweet
+    domain_id: service
+    assertion_text: A little sweetness can soften perceived chilli heat; the diner’s tolerance and preferred
+      sweetness still matter.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_food_intensity_match
+    subject_id: n_wset_srv_principle_food_intensity
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_food_intensity_match
+    domain_id: service
+    assertion_text: A very intense dish can obscure a delicate wine; compare flavour intensity and texture,
+      including the sauce.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_food_intensity_preference
+    subject_id: n_wset_srv_principle_food_intensity
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_food_intensity_preference
+    domain_id: service
+    assertion_text: Matching aromas or contrasting weight can both work; use the intended experience and the
+      diner’s preference to choose.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_alcohol_risk
+    subject_id: n_wset_srv_principle_responsible
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_alcohol_risk
+    domain_id: service
+    assertion_text: Alcohol can cause dependence, disease and injury; even low intake carries risk, and greater
+      consumption generally increases harm.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_alcohol_pregnancy
+    subject_id: n_wset_srv_principle_responsible
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_alcohol_pregnancy
+    domain_id: service
+    assertion_text: Alcohol during pregnancy can harm fetal development; support an alcohol-free choice without
+      pressuring the customer.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_alcohol_driving
+    subject_id: n_wset_srv_principle_responsible
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_alcohol_driving
+    domain_id: service
+    assertion_text: Alcohol contributes to road injuries; arrange an alcohol-free option and discourage driving
+      after drinking.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_alcohol_wine_not_health
+    subject_id: n_wset_srv_principle_responsible_context
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_alcohol_wine_not_health
+    domain_id: service
+    assertion_text: Expensive or high-quality wine still contains ethanol; do not present wine as a treatment or a
+      risk-free health choice.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_alcohol_individual
+    subject_id: n_wset_srv_principle_responsible_context
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_srv_point_alcohol_individual
+    domain_id: service
+    assertion_text: Risk also depends on health, amount, drinking pattern and context; a server should not invent
+      a personally safe limit.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_case_chilli_action
+    subject_id: n_wset_srv_case_chilli
+    relation_type: CASE_ACTION
+    object_id: n_wset_srv_point_case_chilli_action
+    domain_id: service
+    assertion_text: Offer a small trial of the lower-alcohol, lightly sweet wine if its style fits the guest.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_case_chilli_reason
+    subject_id: n_wset_srv_case_chilli
+    relation_type: CASE_REASON
+    object_id: n_wset_srv_point_case_chilli_reason
+    domain_id: service
+    assertion_text: Lower alcohol avoids amplifying heat while some sweetness can soften the burning sensation.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_case_chilli_tradeoff
+    subject_id: n_wset_srv_case_chilli
+    relation_type: CASE_TRADEOFF
+    object_id: n_wset_srv_point_case_chilli_tradeoff
+    domain_id: service
+    assertion_text: The sweeter option may reduce heat but conflict with a preference for dry wine.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_case_chilli_limitation
+    subject_id: n_wset_srv_case_chilli
+    relation_type: CASE_LIMITATION
+    object_id: n_wset_srv_point_case_chilli_limitation
+    domain_id: service
+    assertion_text: Taste with the actual dish and ask the guest; heat tolerance and flavour balance vary.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_case_dessert_action
+    subject_id: n_wset_srv_case_dessert
+    relation_type: CASE_ACTION
+    object_id: n_wset_srv_point_case_dessert_action
+    domain_id: service
+    assertion_text: Trial the sweet, fresh sample alongside the pudding and ask which balance is preferred.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_case_dessert_reason
+    subject_id: n_wset_srv_case_dessert
+    relation_type: CASE_REASON
+    object_id: n_wset_srv_point_case_dessert_reason
+    domain_id: service
+    assertion_text: The pudding may make the dry wine seem drier and less fruity; sufficient wine sweetness can
+      retain balance.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_case_dessert_tradeoff
+    subject_id: n_wset_srv_case_dessert
+    relation_type: CASE_TRADEOFF
+    object_id: n_wset_srv_point_case_dessert_tradeoff
+    domain_id: service
+    assertion_text: Extra wine sweetness can fit dessert while still needing enough acidity for freshness.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_case_dessert_limitation
+    subject_id: n_wset_srv_case_dessert
+    relation_type: CASE_LIMITATION
+    object_id: n_wset_srv_point_case_dessert_limitation
+    domain_id: service
+    assertion_text: The pudding’s actual sweetness, acidity and flavour intensity and the guest’s taste determine the result.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_case_older_red_action
+    subject_id: n_wset_srv_case_older_red
+    relation_type: CASE_ACTION
+    object_id: n_wset_srv_point_case_older_red_action
+    domain_id: service
+    assertion_text: If separating the deposit, decant gently just before serving and stop when sediment approaches the neck.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_case_older_red_reason
+    subject_id: n_wset_srv_case_older_red
+    relation_type: CASE_REASON
+    object_id: n_wset_srv_point_case_older_red_reason
+    domain_id: service
+    assertion_text: The purpose is separating sediment rather than imposing prolonged aeration on fragile fruit.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_case_older_red_tradeoff
+    subject_id: n_wset_srv_case_older_red
+    relation_type: CASE_TRADEOFF
+    object_id: n_wset_srv_point_case_older_red_tradeoff
+    domain_id: service
+    assertion_text: Decanting improves clarity but increases handling and oxygen contact; keep both controlled.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_srv_case_older_red_limitation
+    subject_id: n_wset_srv_case_older_red
+    relation_type: CASE_LIMITATION
+    object_id: n_wset_srv_point_case_older_red_limitation
+    domain_id: service
+    assertion_text: Age does not prove a benefit from aeration; monitor the actual wine and serve promptly.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+certification_knowledge_mappings:
+  - certification_id: WSET_L1
+    knowledge_item_id: ki_wset_srv_storage_cool
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_storage_cool
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L1
+    knowledge_item_id: ki_wset_srv_storage_dark
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_storage_dark
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L1
+    knowledge_item_id: ki_wset_srv_storage_closure
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_storage_closure
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L1
+    knowledge_item_id: ki_wset_srv_storage_provenance
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_storage_provenance
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L1
+    knowledge_item_id: ki_wset_srv_red_temperature
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_red_temperature
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L1
+    knowledge_item_id: ki_wset_srv_red_cold
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_red_cold
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L1
+    knowledge_item_id: ki_wset_srv_white_temperature
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_white_temperature
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L1
+    knowledge_item_id: ki_wset_srv_light_white_temperature
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_light_white_temperature
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L1
+    knowledge_item_id: ki_wset_srv_light_red_temperature
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_light_red_temperature
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L1
+    knowledge_item_id: ki_wset_srv_sweet_temperature
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_sweet_temperature
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L1
+    knowledge_item_id: ki_wset_srv_champagne_temperature
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_champagne_temperature
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L1
+    knowledge_item_id: ki_wset_srv_ice_water
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_ice_water
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L1
+    knowledge_item_id: ki_wset_srv_temp_masking
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_temp_masking
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L1
+    knowledge_item_id: ki_wset_srv_glass_clean
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_glass_clean
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L1
+    knowledge_item_id: ki_wset_srv_bottle_identity
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_bottle_identity
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L1
+    knowledge_item_id: ki_wset_srv_sparkling_glass
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_sparkling_glass
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L1
+    knowledge_item_id: ki_wset_srv_foil
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_foil
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L1
+    knowledge_item_id: ki_wset_srv_corkscrew
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_corkscrew
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L1
+    knowledge_item_id: ki_wset_srv_cork_fragile
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_cork_fragile
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L1
+    knowledge_item_id: ki_wset_srv_cork_taint_distinct
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_cork_taint_distinct
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L1
+    knowledge_item_id: ki_wset_srv_spark_chill
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_spark_chill
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L1
+    knowledge_item_id: ki_wset_srv_spark_control
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_spark_control
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L1
+    knowledge_item_id: ki_wset_srv_spark_rotate
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_spark_rotate
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L1
+    knowledge_item_id: ki_wset_srv_preserve_cool
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_preserve_cool
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L1
+    knowledge_item_id: ki_wset_srv_preserve_air
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_preserve_air
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L1
+    knowledge_item_id: ki_wset_srv_preserve_vacuum
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_preserve_vacuum
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L1
+    knowledge_item_id: ki_wset_srv_preserve_gas
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_preserve_gas
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L1
+    knowledge_item_id: ki_wset_srv_spark_stopper
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_spark_stopper
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L1
+    knowledge_item_id: ki_wset_srv_spark_no_vacuum
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_spark_no_vacuum
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L1
+    knowledge_item_id: ki_wset_srv_preserve_check
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_preserve_check
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_srv_decant_deposit
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_decant_deposit
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_srv_decant_gently
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_decant_gently
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_srv_decant_air
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_decant_air
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_srv_crystals
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_crystals
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L1
+    knowledge_item_id: ki_wset_srv_fault_cork
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_fault_cork
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L1
+    knowledge_item_id: ki_wset_srv_fault_oxidation
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_fault_oxidation
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L1
+    knowledge_item_id: ki_wset_srv_fault_va
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_fault_va
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L1
+    knowledge_item_id: ki_wset_srv_fault_recheck
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_fault_recheck
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L1
+    knowledge_item_id: ki_wset_srv_pairing_person
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_pairing_person
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L1
+    knowledge_item_id: ki_wset_srv_pairing_perception
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_pairing_perception
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L1
+    knowledge_item_id: ki_wset_srv_food_sweet_dry
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_food_sweet_dry
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L1
+    knowledge_item_id: ki_wset_srv_food_sweet_choice
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_food_sweet_choice
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L1
+    knowledge_item_id: ki_wset_srv_food_acid_soft
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_food_acid_soft
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L1
+    knowledge_item_id: ki_wset_srv_food_acid_choice
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_food_acid_choice
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L1
+    knowledge_item_id: ki_wset_srv_food_salt_soft
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_food_salt_soft
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L1
+    knowledge_item_id: ki_wset_srv_food_salt_not_rule
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_food_salt_not_rule
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_srv_food_umami_bitter
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_food_umami_bitter
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_srv_food_umami_choice
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_food_umami_choice
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L1
+    knowledge_item_id: ki_wset_srv_food_fat_fresh
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_food_fat_fresh
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L1
+    knowledge_item_id: ki_wset_srv_food_fat_complete
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_food_fat_complete
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L1
+    knowledge_item_id: ki_wset_srv_food_chilli_alcohol
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_food_chilli_alcohol
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L1
+    knowledge_item_id: ki_wset_srv_food_chilli_tannin
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_food_chilli_tannin
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L1
+    knowledge_item_id: ki_wset_srv_food_chilli_sweet
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_food_chilli_sweet
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_srv_food_intensity_match
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_food_intensity_match
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_srv_food_intensity_preference
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_food_intensity_preference
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L1
+    knowledge_item_id: ki_wset_srv_alcohol_risk
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_alcohol_risk
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L1
+    knowledge_item_id: ki_wset_srv_alcohol_pregnancy
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_alcohol_pregnancy
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L1
+    knowledge_item_id: ki_wset_srv_alcohol_driving
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_alcohol_driving
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L1
+    knowledge_item_id: ki_wset_srv_alcohol_wine_not_health
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_alcohol_wine_not_health
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L1
+    knowledge_item_id: ki_wset_srv_alcohol_individual
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_alcohol_individual
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_srv_case_chilli_action
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_case_chilli_action
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_srv_case_chilli_reason
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_case_chilli_reason
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_srv_case_chilli_tradeoff
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_case_chilli_tradeoff
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_srv_case_chilli_limitation
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_case_chilli_limitation
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_srv_case_dessert_action
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_case_dessert_action
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_srv_case_dessert_reason
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_case_dessert_reason
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_srv_case_dessert_tradeoff
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_case_dessert_tradeoff
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_srv_case_dessert_limitation
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_case_dessert_limitation
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_srv_case_older_red_action
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_case_older_red_action
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_srv_case_older_red_reason
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_case_older_red_reason
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_srv_case_older_red_tradeoff
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_case_older_red_tradeoff
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_srv_case_older_red_limitation
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_wset_srv_case_older_red_limitation
+    importance: core
+    minimum_depth: 2
+source_citations:
+  - id: src_wset_srv_temperature
+    kind: reference_work
+    title: Ideal serving temperatures and top tips for wine storage
+    publisher: Wine & Spirit Education Trust
+    document_identifier: 26 April 2022; serving and long-term storage sections
+    url: https://www.wsetglobal.com/knowledge-centre/blog/2022/april/26/ideal-serving-temperatures-and-top-tips-for-wine-storage
+    accessed_on: 2026-09-27
+  - id: src_wset_srv_cms
+    kind: reference_work
+    title: Service standards 24.1
+    publisher: Court of Master Sommeliers Europe
+    document_identifier: 2024; pp. 3, 10–13, 19; wine service only
+    url: https://courtofmastersommeliers.org/wp-content/uploads/2024/05/Service-Standards-24.1.pdf
+    accessed_on: 2026-09-27
+  - id: src_wset_srv_champagne
+    kind: reference_work
+    title: Preparations for drinking Champagne
+    publisher: Comité Champagne
+    document_identifier: Opening and serving; glassware; storing an open bottle
+    url: https://www.champagne.fr/en/champagne-tasting/preparations-for-drinking-champagne
+    accessed_on: 2026-09-27
+  - id: src_wset_srv_tools
+    kind: reference_work
+    title: Five wine accessories and tools every enthusiast should know
+    publisher: Wine & Spirit Education Trust
+    document_identifier: 21 February 2025; corkscrews and fragile corks
+    url: https://www.wsetglobal.com/knowledge-centre/blog/2025/five-wine-tools-every-enthusiast-should-know
+    accessed_on: 2026-09-27
+  - id: src_wset_srv_decant
+    kind: reference_work
+    title: Frequently asked questions about serving and decanting wine
+    publisher: Wine & Spirit Education Trust
+    document_identifier: 21 July 2024; deposit, aeration and decanting technique
+    url: https://www.wsetglobal.com/knowledge-centre/blog/2024/july/21/frequently-asked-questions-about-serving-and-decanting-wine
+    accessed_on: 2026-09-27
+  - id: src_wset_srv_preserve
+    kind: reference_work
+    title: The best ways to preserve wine after opening
+    publisher: Wine & Spirit Education Trust
+    document_identifier: 7 March 2023; cooling, air exposure, vacuum and gas principles; product shelf-life claims not adopted
+    url: https://www.wsetglobal.com/knowledge-centre/blog/2023/march/07/the-best-ways-to-preserve-wine-after-opening
+    accessed_on: 2026-09-27
+  - id: src_wset_srv_food
+    kind: reference_work
+    title: Four rules to masterful food and wine pairing
+    publisher: Wine & Spirit Education Trust
+    document_identifier: 13 July 2023; perception, preferences, salt, acidity and fat
+    url: https://www.wsetglobal.com/knowledge-centre/blog/2023/july/13/four-rules-to-masterful-food-and-wine-pairing
+    accessed_on: 2026-09-27
+  - id: src_wset_srv_umami
+    kind: reference_work
+    title: How to pair wine with your favourite takeaway meals
+    publisher: Wine & Spirit Education Trust
+    document_identifier: 2 June 2020; umami and intensity; original examples replace suggested dishes
+    url: https://www.wsetglobal.com/knowledge-centre/blog/2020/june/02/how-to-pair-wine-with-your-favourite-takeaway-meals
+    accessed_on: 2026-09-27
+  - id: src_wset_srv_sweet
+    kind: reference_work
+    title: Winter wine and food matching
+    publisher: Wine & Spirit Education Trust
+    document_identifier: 21 December 2020; sweetness, acidity and chilli heat
+    url: https://www.wsetglobal.com/knowledge-centre/blog/2020/december/21/winter-wine-and-food-matching
+    accessed_on: 2026-09-27
+  - id: src_wset_srv_spice
+    kind: reference_work
+    title: How to pair drinks with spice
+    publisher: Wine & Spirit Education Trust
+    document_identifier: 24 March 2026; alcohol, sweetness, tannin, flavour and weight; wine only
+    url: https://www.wsetglobal.com/knowledge-centre/blog/2026/how-to-pair-drinks-with-spice
+    accessed_on: 2026-09-27
+  - id: src_wset_srv_who
+    kind: reference_work
+    title: Alcohol
+    publisher: World Health Organization
+    document_identifier: 28 June 2024; health risks, road injuries, pregnancy and risk factors
+    url: https://www.who.int/news-room/fact-sheets/detail/alcohol
+    accessed_on: 2026-09-27
+  - id: src_wset_srv_who_cancer
+    kind: reference_work
+    title: No level of alcohol consumption is safe for our health
+    publisher: World Health Organization Europe
+    document_identifier: 4 January 2023; corrected 17 September 2026; ethanol-related risk, not country-specific limits
+    url: https://www.who.int/europe/news/item/04-01-2023-no-level-of-alcohol-consumption-is-safe-for-our-health
+    accessed_on: 2026-09-27
+knowledge_item_citations:
+  - knowledge_item_id: ki_wset_srv_storage_cool
+    source_citation_id: src_wset_srv_temperature
+    locator: Original concise lesson; see named section of source
+  - knowledge_item_id: ki_wset_srv_storage_dark
+    source_citation_id: src_wset_srv_temperature
+    locator: Original concise lesson; see named section of source
+  - knowledge_item_id: ki_wset_srv_storage_closure
+    source_citation_id: src_wset_srv_temperature
+    locator: Original concise lesson; see named section of source
+  - knowledge_item_id: ki_wset_srv_storage_provenance
+    source_citation_id: src_wset_srv_cms
+    locator: Original concise lesson; see named section of source
+  - knowledge_item_id: ki_wset_srv_red_temperature
+    source_citation_id: src_wset_srv_temperature
+    locator: Original concise lesson; see named section of source
+  - knowledge_item_id: ki_wset_srv_red_cold
+    source_citation_id: src_wset_srv_temperature
+    locator: Original concise lesson; see named section of source
+  - knowledge_item_id: ki_wset_srv_white_temperature
+    source_citation_id: src_wset_srv_temperature
+    locator: Original concise lesson; see named section of source
+  - knowledge_item_id: ki_wset_srv_light_white_temperature
+    source_citation_id: src_wset_srv_cms
+    locator: Original concise lesson; see named section of source
+  - knowledge_item_id: ki_wset_srv_light_red_temperature
+    source_citation_id: src_wset_srv_cms
+    locator: Original concise lesson; see named section of source
+  - knowledge_item_id: ki_wset_srv_sweet_temperature
+    source_citation_id: src_wset_srv_cms
+    locator: Original concise lesson; see named section of source
+  - knowledge_item_id: ki_wset_srv_champagne_temperature
+    source_citation_id: src_wset_srv_champagne
+    locator: Original concise lesson; see named section of source
+  - knowledge_item_id: ki_wset_srv_ice_water
+    source_citation_id: src_wset_srv_temperature
+    locator: Original concise lesson; see named section of source
+  - knowledge_item_id: ki_wset_srv_temp_masking
+    source_citation_id: src_wset_srv_temperature
+    locator: Original concise lesson; see named section of source
+  - knowledge_item_id: ki_wset_srv_glass_clean
+    source_citation_id: src_wset_srv_cms
+    locator: Original concise lesson; see named section of source
+  - knowledge_item_id: ki_wset_srv_bottle_identity
+    source_citation_id: src_wset_srv_cms
+    locator: Original concise lesson; see named section of source
+  - knowledge_item_id: ki_wset_srv_sparkling_glass
+    source_citation_id: src_wset_srv_champagne
+    locator: Original concise lesson; see named section of source
+  - knowledge_item_id: ki_wset_srv_foil
+    source_citation_id: src_wset_srv_cms
+    locator: Original concise lesson; see named section of source
+  - knowledge_item_id: ki_wset_srv_corkscrew
+    source_citation_id: src_wset_srv_cms
+    locator: Original concise lesson; see named section of source
+  - knowledge_item_id: ki_wset_srv_cork_fragile
+    source_citation_id: src_wset_srv_tools
+    locator: Original concise lesson; see named section of source
+  - knowledge_item_id: ki_wset_srv_cork_taint_distinct
+    source_citation_id: src_wset_srv_tools
+    locator: Original concise lesson; see named section of source
+  - knowledge_item_id: ki_wset_srv_cork_taint_distinct
+    source_citation_id: src_fault_faults_overview
+    locator: Original concise lesson; see named section of source
+  - knowledge_item_id: ki_wset_srv_spark_chill
+    source_citation_id: src_wset_srv_champagne
+    locator: Original concise lesson; see named section of source
+  - knowledge_item_id: ki_wset_srv_spark_control
+    source_citation_id: src_wset_srv_champagne
+    locator: Original concise lesson; see named section of source
+  - knowledge_item_id: ki_wset_srv_spark_rotate
+    source_citation_id: src_wset_srv_champagne
+    locator: Original concise lesson; see named section of source
+  - knowledge_item_id: ki_wset_srv_preserve_cool
+    source_citation_id: src_wset_srv_preserve
+    locator: Original concise lesson; see named section of source
+  - knowledge_item_id: ki_wset_srv_preserve_air
+    source_citation_id: src_wset_srv_preserve
+    locator: Original concise lesson; see named section of source
+  - knowledge_item_id: ki_wset_srv_preserve_vacuum
+    source_citation_id: src_wset_srv_preserve
+    locator: Original concise lesson; see named section of source
+  - knowledge_item_id: ki_wset_srv_preserve_gas
+    source_citation_id: src_wset_srv_preserve
+    locator: Original concise lesson; see named section of source
+  - knowledge_item_id: ki_wset_srv_spark_stopper
+    source_citation_id: src_wset_srv_champagne
+    locator: Original concise lesson; see named section of source
+  - knowledge_item_id: ki_wset_srv_spark_no_vacuum
+    source_citation_id: src_wset_srv_preserve
+    locator: Original concise lesson; see named section of source
+  - knowledge_item_id: ki_wset_srv_preserve_check
+    source_citation_id: src_wset_srv_preserve
+    locator: Original concise lesson; see named section of source
+  - knowledge_item_id: ki_wset_srv_decant_deposit
+    source_citation_id: src_wset_srv_decant
+    locator: Original concise lesson; see named section of source
+  - knowledge_item_id: ki_wset_srv_decant_gently
+    source_citation_id: src_wset_srv_decant
+    locator: Original concise lesson; see named section of source
+  - knowledge_item_id: ki_wset_srv_decant_air
+    source_citation_id: src_wset_srv_decant
+    locator: Original concise lesson; see named section of source
+  - knowledge_item_id: ki_wset_srv_crystals
+    source_citation_id: src_wset_srv_decant
+    locator: Original concise lesson; see named section of source
+  - knowledge_item_id: ki_wset_srv_fault_cork
+    source_citation_id: src_fault_faults_overview
+    locator: Original concise lesson; see named section of source
+  - knowledge_item_id: ki_wset_srv_fault_oxidation
+    source_citation_id: src_fault_faults_overview
+    locator: Original concise lesson; see named section of source
+  - knowledge_item_id: ki_wset_srv_fault_va
+    source_citation_id: src_fault_faults_overview
+    locator: Original concise lesson; see named section of source
+  - knowledge_item_id: ki_wset_srv_fault_recheck
+    source_citation_id: src_fault_faults_overview
+    locator: Original concise lesson; see named section of source
+  - knowledge_item_id: ki_wset_srv_pairing_person
+    source_citation_id: src_wset_srv_food
+    locator: Original concise lesson; see named section of source
+  - knowledge_item_id: ki_wset_srv_pairing_perception
+    source_citation_id: src_wset_srv_food
+    locator: Original concise lesson; see named section of source
+  - knowledge_item_id: ki_wset_srv_food_sweet_dry
+    source_citation_id: src_wset_srv_sweet
+    locator: Original concise lesson; see named section of source
+  - knowledge_item_id: ki_wset_srv_food_sweet_choice
+    source_citation_id: src_wset_srv_sweet
+    locator: Original concise lesson; see named section of source
+  - knowledge_item_id: ki_wset_srv_food_acid_soft
+    source_citation_id: src_wset_srv_sweet
+    locator: Original concise lesson; see named section of source
+  - knowledge_item_id: ki_wset_srv_food_acid_choice
+    source_citation_id: src_wset_srv_sweet
+    locator: Original concise lesson; see named section of source
+  - knowledge_item_id: ki_wset_srv_food_salt_soft
+    source_citation_id: src_wset_srv_food
+    locator: Original concise lesson; see named section of source
+  - knowledge_item_id: ki_wset_srv_food_salt_not_rule
+    source_citation_id: src_wset_srv_food
+    locator: Original concise lesson; see named section of source
+  - knowledge_item_id: ki_wset_srv_food_salt_not_rule
+    source_citation_id: src_wset_srv_umami
+    locator: Original concise lesson; see named section of source
+  - knowledge_item_id: ki_wset_srv_food_umami_bitter
+    source_citation_id: src_wset_srv_umami
+    locator: Original concise lesson; see named section of source
+  - knowledge_item_id: ki_wset_srv_food_umami_choice
+    source_citation_id: src_wset_srv_umami
+    locator: Original concise lesson; see named section of source
+  - knowledge_item_id: ki_wset_srv_food_fat_fresh
+    source_citation_id: src_wset_srv_food
+    locator: Original concise lesson; see named section of source
+  - knowledge_item_id: ki_wset_srv_food_fat_complete
+    source_citation_id: src_wset_srv_food
+    locator: Original concise lesson; see named section of source
+  - knowledge_item_id: ki_wset_srv_food_chilli_alcohol
+    source_citation_id: src_wset_srv_spice
+    locator: Original concise lesson; see named section of source
+  - knowledge_item_id: ki_wset_srv_food_chilli_tannin
+    source_citation_id: src_wset_srv_spice
+    locator: Original concise lesson; see named section of source
+  - knowledge_item_id: ki_wset_srv_food_chilli_sweet
+    source_citation_id: src_wset_srv_spice
+    locator: Original concise lesson; see named section of source
+  - knowledge_item_id: ki_wset_srv_food_intensity_match
+    source_citation_id: src_wset_srv_umami
+    locator: Original concise lesson; see named section of source
+  - knowledge_item_id: ki_wset_srv_food_intensity_preference
+    source_citation_id: src_wset_srv_spice
+    locator: Original concise lesson; see named section of source
+  - knowledge_item_id: ki_wset_srv_alcohol_risk
+    source_citation_id: src_wset_srv_who
+    locator: Original concise lesson; see named section of source
+  - knowledge_item_id: ki_wset_srv_alcohol_pregnancy
+    source_citation_id: src_wset_srv_who
+    locator: Original concise lesson; see named section of source
+  - knowledge_item_id: ki_wset_srv_alcohol_driving
+    source_citation_id: src_wset_srv_who
+    locator: Original concise lesson; see named section of source
+  - knowledge_item_id: ki_wset_srv_alcohol_wine_not_health
+    source_citation_id: src_wset_srv_who_cancer
+    locator: Original concise lesson; see named section of source
+  - knowledge_item_id: ki_wset_srv_alcohol_individual
+    source_citation_id: src_wset_srv_who
+    locator: Original concise lesson; see named section of source
+  - knowledge_item_id: ki_wset_srv_case_chilli_action
+    source_citation_id: src_wset_srv_spice
+    locator: Source mechanism; original application to this supplied scenario, not an exclusive correct wine
+  - knowledge_item_id: ki_wset_srv_case_chilli_reason
+    source_citation_id: src_wset_srv_spice
+    locator: Source mechanism; original application to this supplied scenario, not an exclusive correct wine
+  - knowledge_item_id: ki_wset_srv_case_chilli_tradeoff
+    source_citation_id: src_wset_srv_spice
+    locator: Source mechanism; original application to this supplied scenario, not an exclusive correct wine
+  - knowledge_item_id: ki_wset_srv_case_chilli_limitation
+    source_citation_id: src_wset_srv_food
+    locator: Source mechanism; original application to this supplied scenario, not an exclusive correct wine
+  - knowledge_item_id: ki_wset_srv_case_dessert_action
+    source_citation_id: src_wset_srv_sweet
+    locator: Source mechanism; original application to this supplied scenario, not an exclusive correct wine
+  - knowledge_item_id: ki_wset_srv_case_dessert_reason
+    source_citation_id: src_wset_srv_sweet
+    locator: Source mechanism; original application to this supplied scenario, not an exclusive correct wine
+  - knowledge_item_id: ki_wset_srv_case_dessert_tradeoff
+    source_citation_id: src_wset_srv_sweet
+    locator: Source mechanism; original application to this supplied scenario, not an exclusive correct wine
+  - knowledge_item_id: ki_wset_srv_case_dessert_tradeoff
+    source_citation_id: src_wset_srv_food
+    locator: Source mechanism; original application to this supplied scenario, not an exclusive correct wine
+  - knowledge_item_id: ki_wset_srv_case_dessert_limitation
+    source_citation_id: src_wset_srv_food
+    locator: Source mechanism; original application to this supplied scenario, not an exclusive correct wine
+  - knowledge_item_id: ki_wset_srv_case_dessert_limitation
+    source_citation_id: src_wset_srv_umami
+    locator: Source mechanism; original application to this supplied scenario, not an exclusive correct wine
+  - knowledge_item_id: ki_wset_srv_case_older_red_action
+    source_citation_id: src_wset_srv_decant
+    locator: Source mechanism; original application to this supplied scenario, not an exclusive correct wine
+  - knowledge_item_id: ki_wset_srv_case_older_red_reason
+    source_citation_id: src_wset_srv_decant
+    locator: Source mechanism; original application to this supplied scenario, not an exclusive correct wine
+  - knowledge_item_id: ki_wset_srv_case_older_red_tradeoff
+    source_citation_id: src_wset_srv_decant
+    locator: Source mechanism; original application to this supplied scenario, not an exclusive correct wine
+  - knowledge_item_id: ki_wset_srv_case_older_red_limitation
+    source_citation_id: src_wset_srv_decant
+    locator: Source mechanism; original application to this supplied scenario, not an exclusive correct wine

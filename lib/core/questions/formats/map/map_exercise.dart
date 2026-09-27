@@ -225,6 +225,16 @@ abstract class MapFormat extends ExerciseFormat {
   /// for.
   MapMode modeFor(MapMode mode) => mode;
 
+  /// Composite maps may widen their frame using the locations actually served
+  /// by the session track. Simple maps retain the usual geographic frame.
+  Future<MapFrame?> frameFor(
+    PresentationContext context, {
+    required String itemId,
+    required String nodeId,
+    required String questionTemplateId,
+    required String on,
+  }) => GeometryRepository(context.db).frameOf(nodeId, on: on);
+
   /// The names this format offers, in display order; none by default.
   List<QuestionOption> optionsFor(
     QuestionOption answer,
@@ -255,7 +265,13 @@ abstract class MapFormat extends ExerciseFormat {
     final nodeId = row.read<String>('subject_id');
     final maps = GeometryRepository(db);
     final on = isoDate(context.now.toLocal());
-    final frame = await maps.frameOf(nodeId, on: on);
+    final frame = await frameFor(
+      context,
+      itemId: itemId,
+      nodeId: nodeId,
+      questionTemplateId: questionTemplateId,
+      on: on,
+    );
     if (frame == null) {
       throw StateError('$nodeId has no map frame');
     }

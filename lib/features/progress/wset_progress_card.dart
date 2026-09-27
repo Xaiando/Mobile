@@ -66,17 +66,19 @@ class _LevelRow extends StatelessWidget {
         ),
         if (level.examPassed) const Text('Exam passed · self-reported'),
         Text(
-          level.counts.available == 0
+          level.milestoneCounts.available == 0
               ? 'Study material not yet available'
-              : '${level.counts.studied}/${level.counts.available} studied · '
-                    '${level.counts.mastered}/${level.counts.available} mastered',
+              : '${level.milestoneCounts.studied}/${level.milestoneCounts.available} studied · '
+                    '${level.milestoneCounts.mastered}/${level.milestoneCounts.available} mastered',
         ),
-        if (level.counts.unavailable > 0)
+        if (level.milestoneCounts.unavailable > 0)
           Text(
-            '${level.counts.unavailable} mapped facts are not yet available for practice.',
+            '${level.milestoneCounts.unavailable} required facts are not yet available for practice.',
           ),
         const SizedBox(height: 4),
-        LinearProgressIndicator(value: level.counts.masteredFraction ?? 0),
+        LinearProgressIndicator(
+          value: level.milestoneCounts.masteredFraction ?? 0,
+        ),
       ],
     ),
   );

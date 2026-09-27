@@ -1,0 +1,758 @@
+# Original named applications. Supplied case assumptions are not universal regional facts.
+knowledge_nodes:
+  - id: n_wset_apply_principle_bordeaux_white_cost
+    node_type: production_principle
+    name: Compare a fresh dry Bordeaux white with a barrel/lees cuvée
+  - id: n_wset_apply_point_bordeaux_white_cost
+    node_type: learning_point
+    name: "Reasoned comparison: bordeaux white cost"
+  - id: n_wset_apply_principle_bordeaux_maritime
+    node_type: production_principle
+    name: Explain Bordeaux maritime growing conditions
+  - id: n_wset_apply_point_bordeaux_maritime
+    node_type: learning_point
+    name: "Reasoned comparison: bordeaux maritime"
+  - id: n_wset_apply_principle_sauternes_environment
+    node_type: production_principle
+    name: Why do mist and drier afternoons matter to Sauternes?
+  - id: n_wset_apply_point_sauternes_environment
+    node_type: learning_point
+    name: "Reasoned comparison: sauternes environment"
+  - id: n_wset_apply_principle_sauternes_selection_cost
+    node_type: production_principle
+    name: How can a selective Sauternes harvest affect cost?
+  - id: n_wset_apply_point_sauternes_selection_cost
+    node_type: learning_point
+    name: "Reasoned comparison: sauternes selection cost"
+  - id: n_wset_apply_principle_muscadet_rainfall
+    node_type: production_principle
+    name: Explain Atlantic rainfall and Muscadet fruit condition
+  - id: n_wset_apply_point_muscadet_rainfall
+    node_type: learning_point
+    name: "Reasoned comparison: muscadet rainfall"
+  - id: n_wset_apply_principle_north_italian_white_cost
+    node_type: production_principle
+    name: Compare early release and longer-held northern Italian whites
+  - id: n_wset_apply_point_north_italian_white_cost
+    node_type: learning_point
+    name: "Reasoned comparison: north italian white cost"
+  - id: n_wset_apply_principle_veneto_local_cooling
+    node_type: production_principle
+    name: Explain lake and hill influences within Valpolicella
+  - id: n_wset_apply_point_veneto_local_cooling
+    node_type: learning_point
+    name: "Reasoned comparison: veneto local cooling"
+  - id: n_wset_apply_principle_abruzzo_cost
+    node_type: production_principle
+    name: Compare fresh Abruzzo red and a longer wood-matured lot
+  - id: n_wset_apply_point_abruzzo_cost
+    node_type: learning_point
+    name: "Reasoned comparison: abruzzo cost"
+  - id: n_wset_apply_principle_aragon_cost
+    node_type: production_principle
+    name: Compare Aragón Garnacha crop and maturation choices
+  - id: n_wset_apply_point_aragon_cost
+    node_type: learning_point
+    name: "Reasoned comparison: aragon cost"
+  - id: n_wset_apply_principle_duero_cost
+    node_type: production_principle
+    name: Compare young and oak-matured Duero red styles
+  - id: n_wset_apply_point_duero_cost
+    node_type: learning_point
+    name: "Reasoned comparison: duero cost"
+  - id: n_wset_apply_principle_northwest_cost
+    node_type: production_principle
+    name: Assess wet-site labour and Albariño cellar choices
+  - id: n_wset_apply_point_northwest_cost
+    node_type: learning_point
+    name: "Reasoned comparison: northwest cost"
+  - id: n_wset_apply_principle_levante_white_route
+    node_type: production_principle
+    name: Apply white production choices to Valencia
+  - id: n_wset_apply_point_levante_white_route
+    node_type: learning_point
+    name: "Reasoned comparison: levante white route"
+  - id: n_wset_apply_principle_levante_cost
+    node_type: production_principle
+    name: Compare selected Monastrell and longer maturation in Levante
+  - id: n_wset_apply_point_levante_cost
+    node_type: learning_point
+    name: "Reasoned comparison: levante cost"
+  - id: n_wset_apply_principle_mancha_cost
+    node_type: production_principle
+    name: Explain scale and harvest costs in a supplied La Mancha case
+  - id: n_wset_apply_point_mancha_cost
+    node_type: learning_point
+    name: "Reasoned comparison: mancha cost"
+  - id: n_wset_apply_principle_alentejo_production
+    node_type: production_principle
+    name: Choose extraction for an Alentejo red brief
+  - id: n_wset_apply_point_alentejo_production
+    node_type: learning_point
+    name: "Reasoned comparison: alentejo production"
+  - id: n_wset_apply_principle_alentejo_cost
+    node_type: production_principle
+    name: Compare Alentejo site access and a longer-held cuvée
+  - id: n_wset_apply_point_alentejo_cost
+    node_type: learning_point
+    name: "Reasoned comparison: alentejo cost"
+  - id: n_wset_apply_principle_lisboa_cost
+    node_type: production_principle
+    name: Compare Lisboa harvest condition and maturation expenditure
+  - id: n_wset_apply_point_lisboa_cost
+    node_type: learning_point
+    name: "Reasoned comparison: lisboa cost"
+  - id: n_wset_apply_principle_rheinhessen_cost
+    node_type: production_principle
+    name: Compare Rheinhessen Grauburgunder vessels
+  - id: n_wset_apply_point_rheinhessen_cost
+    node_type: learning_point
+    name: "Reasoned comparison: rheinhessen cost"
+  - id: n_wset_apply_principle_niederosterreich_production
+    node_type: production_principle
+    name: Choose a Niederösterreich dry-white cellar plan
+  - id: n_wset_apply_point_niederosterreich_production
+    node_type: learning_point
+    name: "Reasoned comparison: niederosterreich production"
+knowledge_relations:
+  - subject_id: n_wset_apply_principle_bordeaux_white_cost
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_apply_point_bordeaux_white_cost
+    valid_from: 2026-09-27
+  - subject_id: n_wset_apply_principle_bordeaux_maritime
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_apply_point_bordeaux_maritime
+    valid_from: 2026-09-27
+  - subject_id: n_wset_apply_principle_sauternes_environment
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_apply_point_sauternes_environment
+    valid_from: 2026-09-27
+  - subject_id: n_wset_apply_principle_sauternes_selection_cost
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_apply_point_sauternes_selection_cost
+    valid_from: 2026-09-27
+  - subject_id: n_wset_apply_principle_muscadet_rainfall
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_apply_point_muscadet_rainfall
+    valid_from: 2026-09-27
+  - subject_id: n_wset_apply_principle_north_italian_white_cost
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_apply_point_north_italian_white_cost
+    valid_from: 2026-09-27
+  - subject_id: n_wset_apply_principle_veneto_local_cooling
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_apply_point_veneto_local_cooling
+    valid_from: 2026-09-27
+  - subject_id: n_wset_apply_principle_abruzzo_cost
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_apply_point_abruzzo_cost
+    valid_from: 2026-09-27
+  - subject_id: n_wset_apply_principle_aragon_cost
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_apply_point_aragon_cost
+    valid_from: 2026-09-27
+  - subject_id: n_wset_apply_principle_duero_cost
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_apply_point_duero_cost
+    valid_from: 2026-09-27
+  - subject_id: n_wset_apply_principle_northwest_cost
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_apply_point_northwest_cost
+    valid_from: 2026-09-27
+  - subject_id: n_wset_apply_principle_levante_white_route
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_apply_point_levante_white_route
+    valid_from: 2026-09-27
+  - subject_id: n_wset_apply_principle_levante_cost
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_apply_point_levante_cost
+    valid_from: 2026-09-27
+  - subject_id: n_wset_apply_principle_mancha_cost
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_apply_point_mancha_cost
+    valid_from: 2026-09-27
+  - subject_id: n_wset_apply_principle_alentejo_production
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_apply_point_alentejo_production
+    valid_from: 2026-09-27
+  - subject_id: n_wset_apply_principle_alentejo_cost
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_apply_point_alentejo_cost
+    valid_from: 2026-09-27
+  - subject_id: n_wset_apply_principle_lisboa_cost
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_apply_point_lisboa_cost
+    valid_from: 2026-09-27
+  - subject_id: n_wset_apply_principle_rheinhessen_cost
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_apply_point_rheinhessen_cost
+    valid_from: 2026-09-27
+  - subject_id: n_wset_apply_principle_niederosterreich_production
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_apply_point_niederosterreich_production
+    valid_from: 2026-09-27
+knowledge_items:
+  - id: ki_wset_apply_bordeaux_white_cost
+    subject_id: n_wset_apply_principle_bordeaux_white_cost
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_apply_point_bordeaux_white_cost
+    domain_id: business
+    assertion_text: For comparable dry Bordeaux white lots, new barrels, lees handling and later sale can increase
+      cellar cost and add texture or wood character. Compare the intended style and trial wine before paying
+      for the longer route; higher cost does not ensure better balance.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_apply_bordeaux_maritime
+    subject_id: n_wset_apply_principle_bordeaux_maritime
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_apply_point_bordeaux_maritime
+    domain_id: viticulture
+    assertion_text: The Atlantic, Gironde estuary and Garonne/Dordogne valleys moderate Bordeaux temperatures;
+      that influence weakens farther inland. Rainfall and autumn weather vary by vintage, affecting disease
+      pressure and harvest ripeness. Dry-white and sweet-white producers therefore assess their actual site
+      and fruit condition rather than relying on one regional climate label.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_apply_sauternes_environment
+    subject_id: n_wset_apply_principle_sauternes_environment
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_apply_point_sauternes_environment
+    domain_id: viticulture
+    assertion_text: The Ciron/Garonne setting can create humid morning mist followed by drier sunny afternoons,
+      favouring noble rot on ripe grapes. Persistent wet conditions can instead cause destructive rot;
+      selective picking and actual vintage conditions matter. These are Sauternes sweet-wine conditions, not a
+      recipe for every Bordeaux white.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_apply_sauternes_selection_cost
+    subject_id: n_wset_apply_principle_sauternes_selection_cost
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_apply_point_sauternes_selection_cost
+    domain_id: business
+    assertion_text: Successive selective hand-picking passes for suitable Sauternes fruit require labour, while
+      concentration and rejected berries can reduce usable juice. At otherwise similar costs, less saleable
+      wine raises cost per unit. Noble rot does not guarantee an excellent wine or a particular market price.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_apply_muscadet_rainfall
+    subject_id: n_wset_apply_principle_muscadet_rainfall
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_apply_point_muscadet_rainfall
+    domain_id: viticulture
+    assertion_text: The oceanic Nantais provides a generally cool, moist growing context for Melon. Wet weather
+      can increase fungal pressure and hinder ripe, sound fruit; drainage, canopy ventilation and picking
+      decisions help manage that risk. Ocean proximity does not guarantee identical acidity in every Muscadet
+      vintage.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_apply_north_italian_white_cost
+    subject_id: n_wset_apply_principle_north_italian_white_cost
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_apply_point_north_italian_white_cost
+    domain_id: business
+    assertion_text: For a Cortese di Gavi or Soave lot intended for freshness, compare early release with a
+      longer-held cuvée after a sensory trial. Holding inventory delays income and occupies capacity; lees or
+      wood may change texture. Developed complexity must justify the intended style and budget, not merely a
+      longer duration.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_apply_veneto_local_cooling
+    subject_id: n_wset_apply_principle_veneto_local_cooling
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_apply_point_veneto_local_cooling
+    domain_id: viticulture
+    assertion_text: In Valpolicella, nearby Lake Garda moderates temperature extremes, while hill and valley
+      breezes create local cooling differences. Inland plain, hill and lake-influenced sites should be
+      compared separately. These conditions affect ripening choices; they do not make every Veneto vineyard
+      equally cool or eliminate disease and hail risk.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_apply_abruzzo_cost
+    subject_id: n_wset_apply_principle_abruzzo_cost
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_apply_point_abruzzo_cost
+    domain_id: business
+    assertion_text: Given a Montepulciano d’Abruzzo fruit-led early-release brief, compare it with a lot held
+      longer in purchased barrels. Extra wood and storage can raise cost and alter flavour or tannin texture.
+      Judge fruit balance and demand before choosing; red grape identity does not oblige that maturation
+      route.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_apply_aragon_cost
+    subject_id: n_wset_apply_principle_aragon_cost
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_apply_point_aragon_cost
+    domain_id: business
+    assertion_text: For comparable Calatayud or Cariñena Garnacha plots with the same annual cost, selecting fewer
+      usable grapes can raise cost per litre; it does not automatically improve quality. Compare concentration
+      with freshness. Additional purchased wood is a separate cost and style choice, not a consequence of the
+      origin name.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_apply_duero_cost
+    subject_id: n_wset_apply_principle_duero_cost
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_apply_point_duero_cost
+    domain_id: business
+    assertion_text: For a Toro Tinta de Toro or Ribera del Duero Tempranillo lot, compare young fruit-led release
+      with a suitable oak-matured route. Wood, handling and holding time add costs; maturation can reshape
+      tannin and flavours. Retain fruit balance and assess demand rather than assuming more oak earns a higher
+      price.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_apply_northwest_cost
+    subject_id: n_wset_apply_principle_northwest_cost
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_apply_point_northwest_cost
+    domain_id: business
+    assertion_text: In a supplied Rías Baixas pergola plot needing repeated hand work, extra labour increases
+      growing cost compared with an otherwise comparable easier plot. Sound fruit is the aim, not a guaranteed
+      premium. Compare an early-release Albariño lot with longer lees holding only after tasting and costing
+      the delay.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_apply_levante_white_route
+    subject_id: n_wset_apply_principle_levante_white_route
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_apply_point_levante_white_route
+    domain_id: winemaking
+    assertion_text: Given sound white grapes grown for a fresh Valencia white, separate juice from skins and
+      consider cool fermentation with limited oxygen exposure. A fuller target might use lees or suitable
+      wood. This is a conditional cellar plan, not a mandatory regional technique or a claim that warm-climate
+      whites must be heavy.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_apply_levante_cost
+    subject_id: n_wset_apply_principle_levante_cost
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_apply_point_levante_cost
+    domain_id: business
+    assertion_text: For Jumilla or Yecla Monastrell lots, compare a fruit-led early-release plan with a
+      longer-matured plan after judging ripe fruit and tannin. Longer holding delays sale and new wood
+      requires expenditure. Harvest selection can reduce usable volume; higher cost needs a suitable style and
+      customers, not an assumed regional premium.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_apply_mancha_cost
+    subject_id: n_wset_apply_principle_mancha_cost
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_apply_point_mancha_cost
+    domain_id: business
+    assertion_text: For a supplied accessible, machine-suitable Airén vineyard in La Mancha, mechanised picking
+      can collect fruit quickly with fewer pickers. Compare equipment cost and fruit condition with selective
+      hand picking. Temperature control supports a fresh target but also consumes resources; neither volume
+      nor the harvesting method establishes quality alone.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_apply_alentejo_production
+    subject_id: n_wset_apply_principle_alentejo_production
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_apply_point_alentejo_production
+    domain_id: winemaking
+    assertion_text: For a ripe Aragonez/Alicante Bouschet Alentejo red lot, more intensive skin contact can
+      increase phenolic extraction; choose contact and cap management for the observed tannin and intended
+      fruit-led or structured style. Longer contact can over-extract some lots. Strong extraction or oak is
+      not compulsory because the region is warm.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_apply_alentejo_cost
+    subject_id: n_wset_apply_principle_alentejo_cost
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_apply_point_alentejo_cost
+    domain_id: business
+    assertion_text: Given a supplied easier-access Alentejo plot and a more demanding Portalegre hillside, budget
+      the actual labour and equipment needs separately. Longer cellar holding adds capacity and cash demands.
+      Cooler elevation may alter freshness, but access costs and taste must be established rather than
+      presumed from altitude.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_apply_lisboa_cost
+    subject_id: n_wset_apply_principle_lisboa_cost
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_apply_point_lisboa_cost
+    domain_id: business
+    assertion_text: Given coastal Lisboa fruit requiring repeated sorting after wet weather, budget the extra
+      labour and reduced usable volume. For sound lots, compare fresh release with a longer-held blend using
+      trials. Wind and broad origin alone do not set cost, sensory quality or the shelf price.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_apply_rheinhessen_cost
+    subject_id: n_wset_apply_principle_rheinhessen_cost
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_apply_point_rheinhessen_cost
+    domain_id: business
+    assertion_text: For comparable Rheinhessen Grauburgunder lots, steel and purchased smaller oak vessels offer
+      different flavour, texture and handling choices. Added wood and longer holding can raise cellar cost.
+      Compare acidity, fruit and the target style; a barrique label or more expenditure does not guarantee
+      superior balance.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_apply_niederosterreich_production
+    subject_id: n_wset_apply_principle_niederosterreich_production
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_apply_point_niederosterreich_production
+    domain_id: winemaking
+    assertion_text: For a supplied Niederösterreich Riesling or Grüner Veltliner lot, cool fermentation in a
+      neutral vessel is one way to retain a fresh fruit-led target. Lees contact or suitable larger wood can
+      change texture. Evaluate fruit, acidity and trials; neither grape nor origin dictates one identical
+      cellar treatment.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+certification_knowledge_mappings:
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_apply_bordeaux_white_cost
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_apply_bordeaux_maritime
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_apply_sauternes_environment
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_apply_sauternes_selection_cost
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_apply_muscadet_rainfall
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_apply_north_italian_white_cost
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_apply_veneto_local_cooling
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_apply_abruzzo_cost
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_apply_aragon_cost
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_apply_duero_cost
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_apply_northwest_cost
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_apply_levante_white_route
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_apply_levante_cost
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_apply_mancha_cost
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_apply_alentejo_production
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_apply_alentejo_cost
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_apply_lisboa_cost
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_apply_rheinhessen_cost
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_apply_niederosterreich_production
+    importance: core
+    minimum_depth: 2
+source_citations:
+  - id: src_wset_apply_valencia_white_styles
+    kind: reference_work
+    title: Valencia DO white-wine styles
+    publisher: Consejo Regulador DO Valencia
+    url: https://vinovalencia.org/vinos-do-valencia/nuestros-vinos/
+    accessed_on: 2026-09-27
+    document_identifier: Official board white-wine style context; conditional cellar applications use separately cited technical mechanisms
+  - id: src_wset_apply_valpo_climate
+    kind: reference_work
+    title: Climate of Valpolicella
+    publisher: Consorzio Tutela Vini Valpolicella
+    url: https://www.consorziovalpolicella.it/en/the-area/climate-of-valpolicella/
+    accessed_on: 2026-09-27
+    document_identifier: Lake Garda, hills and breezes; qualitative opening passages only
+  - id: src_wset_apply_bordeaux_climate
+    kind: reference_work
+    title: Bordeaux Supérieur geographical-context account (2023 opposition draft)
+    publisher: Institut national de l’origine et de la qualité
+    url: https://extranet.inao.gouv.fr/fichier/CDCBordeauxSuperieur-PNO2023.pdf
+    accessed_on: 2026-09-27
+    document_identifier: 2023 draft Chapter I X(1)(a), qualitative Bordeaux geography/climate only; not cited as
+      current production law
+knowledge_item_citations:
+  - knowledge_item_id: ki_wset_apply_bordeaux_white_cost
+    source_citation_id: src_wset_eu_bdx_cellar
+    locator: "Original conditional application; basis: Dry Bordeaux whites can combine freshness and texture"
+  - knowledge_item_id: ki_wset_apply_bordeaux_white_cost
+    source_citation_id: src_wset_prod_planning
+    locator: "Original conditional application; basis: Planning your wine: cost and market variability"
+  - knowledge_item_id: ki_wset_apply_bordeaux_white_cost
+    source_citation_id: src_wset_prod_clarification
+    locator: "Original conditional application; basis: Reducing wine movements during production"
+  - knowledge_item_id: ki_wset_apply_bordeaux_white_cost
+    source_citation_id: src_win_oak
+    locator: "Original conditional application; basis: Relevant mechanism, context and editorial application"
+  - knowledge_item_id: ki_wset_apply_bordeaux_maritime
+    source_citation_id: src_reg_fr_bordeaux_2024
+    locator: "Original conditional application; basis: Opening vintage account: rain, mildew and fragile crop
+      potential."
+  - knowledge_item_id: ki_wset_apply_bordeaux_maritime
+    source_citation_id: src_wset_apply_bordeaux_climate
+    locator: "Original conditional application; basis: Chapter I X(1)(a), printed page 10: qualitative
+      Atlantic/rivers and rainfall context only, not proposed legal production rules"
+  - knowledge_item_id: ki_wset_apply_sauternes_environment
+    source_citation_id: src_wset_found_civb_sauternes
+    locator: "Original conditional application; basis: What is the Sauternes wine region: Ciron, fog, sunshine,
+      selection"
+  - knowledge_item_id: ki_wset_apply_sauternes_selection_cost
+    source_citation_id: src_wset_prod_planning
+    locator: "Original conditional application; basis: Planning your wine: cost and market variability"
+  - knowledge_item_id: ki_wset_apply_sauternes_selection_cost
+    source_citation_id: src_vit_balance
+    locator: "Original conditional application; basis: Relevant mechanism, context and editorial application"
+  - knowledge_item_id: ki_wset_apply_sauternes_selection_cost
+    source_citation_id: src_wset_found_civb_sauternes
+    locator: "Original conditional application; basis: Morning fog/afternoon sunshine and successive selective
+      handpicking"
+  - knowledge_item_id: ki_wset_apply_muscadet_rainfall
+    source_citation_id: src_reg_fs_muscadet_grape
+    locator: "Original conditional application; basis: Melon de Bourgogne section; Nantais oceanic climate;
+      qualified sensory expectation"
+  - knowledge_item_id: ki_wset_apply_muscadet_rainfall
+    source_citation_id: src_reg_fs_loire_climates
+    locator: "Original conditional application; basis: Melon de Bourgogne section; Nantais oceanic climate;
+      qualified sensory expectation"
+  - knowledge_item_id: ki_wset_apply_muscadet_rainfall
+    source_citation_id: src_vit_downy
+    locator: "Original conditional application; basis: Comments on the Disease: dispersal and moisture factors."
+  - knowledge_item_id: ki_wset_apply_north_italian_white_cost
+    source_citation_id: src_wset_grape_gavi_cortese
+    locator: "Original conditional application; basis: Dry fresh palate; fruit, flowers, citrus, bitter almond;
+      richer Riserva"
+  - knowledge_item_id: ki_wset_apply_north_italian_white_cost
+    source_citation_id: src_wset_grape_soave_garganega
+    locator: "Original conditional application; basis: Garganega and Soave fruit, white flower and almond character"
+  - knowledge_item_id: ki_wset_apply_north_italian_white_cost
+    source_citation_id: src_wset_prod_planning
+    locator: "Original conditional application; basis: Planning your wine: cost and market variability"
+  - knowledge_item_id: ki_wset_apply_north_italian_white_cost
+    source_citation_id: src_wset_prod_clarification
+    locator: "Original conditional application; basis: Reducing wine movements during production"
+  - knowledge_item_id: ki_wset_apply_north_italian_white_cost
+    source_citation_id: src_win_oak
+    locator: "Original conditional application; basis: Relevant mechanism, context and editorial application"
+  - knowledge_item_id: ki_wset_apply_veneto_local_cooling
+    source_citation_id: src_wset_apply_valpo_climate
+    locator: "Original conditional application; basis: Climate opening: Lake Garda moderation; temperatures and
+      breezes"
+  - knowledge_item_id: ki_wset_apply_abruzzo_cost
+    source_citation_id: src_reg_isi_abruzzo
+    locator: "Original conditional application; basis: La storia dei vini abruzzesi; grape associations; obsolete
+      Cerasuolo category statement unused"
+  - knowledge_item_id: ki_wset_apply_abruzzo_cost
+    source_citation_id: src_wset_prod_planning
+    locator: "Original conditional application; basis: Planning your wine: cost and market variability"
+  - knowledge_item_id: ki_wset_apply_abruzzo_cost
+    source_citation_id: src_wset_prod_clarification
+    locator: "Original conditional application; basis: Reducing wine movements during production"
+  - knowledge_item_id: ki_wset_apply_abruzzo_cost
+    source_citation_id: src_win_oak
+    locator: "Original conditional application; basis: Relevant mechanism, context and editorial application"
+  - knowledge_item_id: ki_wset_apply_aragon_cost
+    source_citation_id: src_wset_eu_calatayud
+    locator: "Original conditional application; basis: Calatayud is an important Garnacha red association"
+  - knowledge_item_id: ki_wset_apply_aragon_cost
+    source_citation_id: src_wset_eu_carinena
+    locator: "Original conditional application; basis: Cariñena offers fruit-led and structured red styles"
+  - knowledge_item_id: ki_wset_apply_aragon_cost
+    source_citation_id: src_wset_prod_planning
+    locator: "Original conditional application; basis: Planning your wine: cost and market variability"
+  - knowledge_item_id: ki_wset_apply_aragon_cost
+    source_citation_id: src_vit_balance
+    locator: "Original conditional application; basis: Relevant mechanism, context and editorial application"
+  - knowledge_item_id: ki_wset_apply_duero_cost
+    source_citation_id: src_wset_eu_toro_red
+    locator: "Original conditional application; basis: Toro reds are strongly associated with Tinta de Toro"
+  - knowledge_item_id: ki_wset_apply_duero_cost
+    source_citation_id: src_reg_ib_ribera_climate
+    locator: "Original conditional application; basis: Climate description; slow and late maturation; no automatic
+      quality claim"
+  - knowledge_item_id: ki_wset_apply_duero_cost
+    source_citation_id: src_wset_prod_planning
+    locator: "Original conditional application; basis: Planning your wine: cost and market variability"
+  - knowledge_item_id: ki_wset_apply_duero_cost
+    source_citation_id: src_wset_prod_clarification
+    locator: "Original conditional application; basis: Reducing wine movements during production"
+  - knowledge_item_id: ki_wset_apply_duero_cost
+    source_citation_id: src_win_oak
+    locator: "Original conditional application; basis: Relevant mechanism, context and editorial application"
+  - knowledge_item_id: ki_wset_apply_northwest_cost
+    source_citation_id: src_reg_ib_rias_climate
+    locator: "Original conditional application; basis: Climate in Rías Baixas; Two vine-training systems;
+      conditional management implication"
+  - knowledge_item_id: ki_wset_apply_northwest_cost
+    source_citation_id: src_reg_ib_rias_canopy
+    locator: "Original conditional application; basis: Climate in Rías Baixas; Two vine-training systems;
+      conditional management implication"
+  - knowledge_item_id: ki_wset_apply_northwest_cost
+    source_citation_id: src_biz_models_psu_vineyard
+    locator: "Original conditional application; basis: Grape species, cultivars, grafting and vineyard establishment"
+  - knowledge_item_id: ki_wset_apply_northwest_cost
+    source_citation_id: src_wset_prod_planning
+    locator: "Original conditional application; basis: Planning your wine: cost and market variability"
+  - knowledge_item_id: ki_wset_apply_northwest_cost
+    source_citation_id: src_wset_prod_clarification
+    locator: "Original conditional application; basis: Reducing wine movements during production"
+  - knowledge_item_id: ki_wset_apply_northwest_cost
+    source_citation_id: src_win_oak
+    locator: "Original conditional application; basis: Relevant mechanism, context and editorial application"
+  - knowledge_item_id: ki_wset_apply_levante_white_route
+    source_citation_id: src_wset_apply_valencia_white_styles
+    locator: "Original conditional application; basis: official board's white-wine style context; cellar choices are conditional technical applications"
+  - knowledge_item_id: ki_wset_apply_levante_white_route
+    source_citation_id: src_win_oxygen
+    locator: "Original conditional application; basis: Oxygen Exposure: beneficial and unwanted effects"
+  - knowledge_item_id: ki_wset_apply_levante_white_route
+    source_citation_id: src_win_white_temperature
+    locator: "Original conditional application; basis: Wine fermentation: white and aromatically delicate varieties"
+  - knowledge_item_id: ki_wset_apply_levante_cost
+    source_citation_id: src_reg_ib_jumilla_grapes
+    locator: "Original conditional application; basis: Jumilla Monastrell and harvest balance; Castaño’s Yecla
+      climate and later maturation account"
+  - knowledge_item_id: ki_wset_apply_levante_cost
+    source_citation_id: src_reg_ib_jumilla_harvest
+    locator: "Original conditional application; basis: Jumilla Monastrell and harvest balance; Castaño’s Yecla
+      climate and later maturation account"
+  - knowledge_item_id: ki_wset_apply_levante_cost
+    source_citation_id: src_reg_ib_yecla_producer
+    locator: "Original conditional application; basis: Jumilla Monastrell and harvest balance; Castaño’s Yecla
+      climate and later maturation account"
+  - knowledge_item_id: ki_wset_apply_levante_cost
+    source_citation_id: src_wset_prod_planning
+    locator: "Original conditional application; basis: Planning your wine: cost and market variability"
+  - knowledge_item_id: ki_wset_apply_levante_cost
+    source_citation_id: src_wset_prod_clarification
+    locator: "Original conditional application; basis: Reducing wine movements during production"
+  - knowledge_item_id: ki_wset_apply_levante_cost
+    source_citation_id: src_win_oak
+    locator: "Original conditional application; basis: Relevant mechanism, context and editorial application"
+  - knowledge_item_id: ki_wset_apply_levante_cost
+    source_citation_id: src_vit_balance
+    locator: "Original conditional application; basis: Relevant mechanism, context and editorial application"
+  - knowledge_item_id: ki_wset_apply_mancha_cost
+    source_citation_id: src_reg_ib_mancha_airen
+    locator: "Original conditional application; basis: Airén adaptation to continental climate; no area totals or
+      quality ranking"
+  - knowledge_item_id: ki_wset_apply_mancha_cost
+    source_citation_id: src_reg_ib_mancha_ferment
+    locator: "Original conditional application; basis: Subrayar el valor de la blanca airén; temperature control
+      and aromatic freshness; no competition rules"
+  - knowledge_item_id: ki_wset_apply_mancha_cost
+    source_citation_id: src_wset_prod_harvest_cost
+    locator: "Original conditional application; basis: Winegrape and wine industry: harvesting technology"
+  - knowledge_item_id: ki_wset_apply_mancha_cost
+    source_citation_id: src_biz_models_psu_vineyard
+    locator: "Original conditional application; basis: Grape species, cultivars, grafting and vineyard establishment"
+  - knowledge_item_id: ki_wset_apply_mancha_cost
+    source_citation_id: src_wset_prod_planning
+    locator: "Original conditional application; basis: Planning your wine: cost and market variability"
+  - knowledge_item_id: ki_wset_apply_alentejo_production
+    source_citation_id: src_reg_ib_alentejo
+    locator: "Original conditional application; basis: Climate and red varieties; qualitative style description only"
+  - knowledge_item_id: ki_wset_apply_alentejo_production
+    source_citation_id: src_wset_prod_red_extract
+    locator: "Original conditional application; basis: Red wine: cold soak and extended maceration"
+  - knowledge_item_id: ki_wset_apply_alentejo_production
+    source_citation_id: src_win_skin_contact
+    locator: "Original conditional application; basis: Relevant mechanism, context and editorial application"
+  - knowledge_item_id: ki_wset_apply_alentejo_production
+    source_citation_id: src_win_temperature
+    locator: "Original conditional application; basis: Background: temperature, cap management and phenolic
+      extraction"
+  - knowledge_item_id: ki_wset_apply_alentejo_cost
+    source_citation_id: src_reg_ib_alentejo
+    locator: "Original conditional application; basis: Portalegre and Serra de São Mamede; qualified within-region
+      comparison"
+  - knowledge_item_id: ki_wset_apply_alentejo_cost
+    source_citation_id: src_biz_models_psu_vineyard
+    locator: "Original conditional application; basis: Grape species, cultivars, grafting and vineyard establishment"
+  - knowledge_item_id: ki_wset_apply_alentejo_cost
+    source_citation_id: src_wset_prod_planning
+    locator: "Original conditional application; basis: Planning your wine: cost and market variability"
+  - knowledge_item_id: ki_wset_apply_alentejo_cost
+    source_citation_id: src_wset_prod_clarification
+    locator: "Original conditional application; basis: Reducing wine movements during production"
+  - knowledge_item_id: ki_wset_apply_alentejo_cost
+    source_citation_id: src_win_oak
+    locator: "Original conditional application; basis: Relevant mechanism, context and editorial application"
+  - knowledge_item_id: ki_wset_apply_lisboa_cost
+    source_citation_id: src_wset_eu_lisboa
+    locator: "Original conditional application; basis: Lisboa encompasses varied native and international grape
+      blends"
+  - knowledge_item_id: ki_wset_apply_lisboa_cost
+    source_citation_id: src_wset_prod_planning
+    locator: "Original conditional application; basis: Planning your wine: cost and market variability"
+  - knowledge_item_id: ki_wset_apply_lisboa_cost
+    source_citation_id: src_vit_balance
+    locator: "Original conditional application; basis: Relevant mechanism, context and editorial application"
+  - knowledge_item_id: ki_wset_apply_rheinhessen_cost
+    source_citation_id: src_reg_de_grauburgunder
+    locator: "Original conditional application; basis: Bedeutung and Ausbau/Geschmack: Rheinhessen, vessels,
+      biological acid reduction and style alternatives."
+  - knowledge_item_id: ki_wset_apply_rheinhessen_cost
+    source_citation_id: src_wset_prod_planning
+    locator: "Original conditional application; basis: Planning your wine: cost and market variability"
+  - knowledge_item_id: ki_wset_apply_rheinhessen_cost
+    source_citation_id: src_wset_prod_clarification
+    locator: "Original conditional application; basis: Reducing wine movements during production"
+  - knowledge_item_id: ki_wset_apply_rheinhessen_cost
+    source_citation_id: src_win_oak
+    locator: "Original conditional application; basis: Relevant mechanism, context and editorial application"
+  - knowledge_item_id: ki_wset_apply_niederosterreich_production
+    source_citation_id: src_win_white_temperature
+    locator: "Original conditional application; basis: Wine fermentation: white and aromatically delicate varieties"
+  - knowledge_item_id: ki_wset_apply_niederosterreich_production
+    source_citation_id: src_win_lees
+    locator: "Original conditional application; basis: Printed pp. 4–5: lees composition and reported benefits"
+  - knowledge_item_id: ki_wset_apply_niederosterreich_production
+    source_citation_id: src_reg_ah_wachau
+    locator: "Original conditional application; basis: The Wachau; climate paragraphs on Pannonian influence,
+      forested Gräben and air circulation"

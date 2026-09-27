@@ -22,6 +22,10 @@ import 'package:sommelier/core/geography/hit_test.dart';
 import 'package:sommelier/core/geography/topojson.dart';
 import 'package:sommelier/core/geography/web_mercator.dart';
 import 'package:sommelier/core/questions/question_presenter.dart';
+import 'package:sommelier/core/progress/wset_progress.dart';
+import 'package:sommelier/core/progress/wset_scope.dart';
+import 'package:sommelier/core/rehearsal/rehearsal.dart';
+import 'package:sommelier/core/tasting_guidance/guided_tasting.dart';
 import 'package:sommelier/core/study/learner_profile.dart';
 import 'package:sommelier/core/study/review_service.dart';
 import 'package:sommelier/core/study/scheduler_config.dart';
@@ -84,6 +88,7 @@ Future<void> main() async {
     // The map layers came in with the release: a layer asset parses, and a
     // map question about Chablis is framed (geography §5).
     result['mapLayers'] = await count(db, 'map_layers');
+    result['bundleMapLayers'] = bundle.mapLayers.length;
     final appellations = Topology.parse(
       utf8.decode(
         await readBundledAsset('assets/geography/fr_appellations.topo.json'),
@@ -124,6 +129,49 @@ Future<void> main() async {
     // Phase 3: a learner picks a track, plans a session and answers a card.
     // The memory state must round-trip exactly: doubles and UTC instants.
     await ensureSchedulerConfig(db);
+    // All lower tracks and the actual original practice assets must work
+    // through the browser's WASM database, not only a native fixture.
+    final rehearsals = RehearsalRepository(
+      db,
+      bank: RehearsalBank.fromJson(
+        utf8.decode(await readBundledAsset('assets/study/wset_rehearsal.json')),
+      ),
+      random: Random(91),
+    );
+    final guidance = GuidedTastingRepository(
+      db,
+      bank: GuidedTastingBank.fromJson(
+        utf8.decode(await readBundledAsset('assets/study/guided_tasting.json')),
+      ),
+    );
+    final sizes = <int>[];
+    var calibrations = 0;
+    for (var level = 1; level <= 3; level++) {
+      await LearnerProfiles(db).selectTrack('WSET_L$level');
+      final attempt = await rehearsals.start(level);
+      sizes.add(attempt.mcqs.length);
+      if (level == 3) result['writtenPrompts'] = attempt.written.length;
+      await rehearsals.finish(attempt.id);
+      final calibration = guidance.bank.cases.firstWhere(
+        (c) => c.level == level,
+      );
+      final record = await guidance.start(level, caseId: calibration.id);
+      if (record.calibration?.id == calibration.id) calibrations++;
+      await guidance.leaveCurrent();
+    }
+    result['rehearsalSizes'] = sizes.join(',');
+    result['calibrationsStarted'] = calibrations;
+    final scope = WsetScope.fromJson(
+      utf8.decode(await readBundledAsset('assets/progress/wset_scope.json')),
+    );
+    final progress = await WsetProgressRepository(db, scope: scope).snapshot();
+    result['requiredUnavailable'] = progress.levels
+        .take(3)
+        .fold<int>(0, (sum, level) => sum + level.requiredCounts!.unavailable);
+    result['lowerTracks'] = progress.levels
+        .take(3)
+        .where((l) => l.selectable)
+        .length;
     await LearnerProfiles(db).selectTrack('WSET_L3');
     final planner = StudyPlanner(db);
     final plan = (await planner.plan())!;
