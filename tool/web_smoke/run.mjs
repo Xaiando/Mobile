@@ -77,8 +77,9 @@ function serve(port, isolated) {
 
 const browser = await chromium.launch();
 let failures = 0;
-for (const [port, isolated] of [[8631, false], [8632, true]]) {
-  const server = await serve(port, isolated);
+for (const isolated of [false, true]) {
+  const server = await serve(0, isolated);
+  const port = server.address().port;
   const page = await browser.newPage({ locale: 'en-US' });
   let result;
   const errors = [];

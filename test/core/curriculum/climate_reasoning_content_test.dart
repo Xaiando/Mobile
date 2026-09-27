@@ -314,10 +314,10 @@ void main() {
       ).ingest(dataset);
       final planner = StudyPlanner(db, clock: time.clock);
       for (final entry in {
-        'WSET_L1': 0,
-        'WSET_L2': 103,
-        'WSET_L3': 2392,
-        'CMS_CERTIFIED': 2389,
+        'WSET_L1': 132,
+        'WSET_L2': 819,
+        'WSET_L3': 3429,
+        'CMS_CERTIFIED': 2548,
       }.entries) {
         final mappings = await planner.effectiveMappings(entry.key);
         expect(mappings, hasLength(entry.value), reason: entry.key);
@@ -374,10 +374,10 @@ void main() {
         everyElement(0),
       );
       expect(snapshot.levels.map((level) => level.counts.mapped), [
-        0,
-        103,
-        2392,
-        2896,
+        132,
+        819,
+        3429,
+        3759,
       ]);
       expect(
         snapshot.levels.every(

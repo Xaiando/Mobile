@@ -1,0 +1,409 @@
+# Sommelier basics for beer, cider, spirits, sake and cigars. Authored
+# 27 September 2026. Every item is unverified. Mapped to CMS only, not to
+# WSET Levels 1–3. Legal category facts are not instructions for making
+# alcohol. No still construction, cuts or home-distillation procedure.
+knowledge_nodes:
+  - { id: n_bev_spirit_separate, node_type: production_principle, name: "Are beer, wine and cider spirit drinks under EU law?" }
+  - { id: n_bev_spirit_separate_point, node_type: learning_point, name: "Spirit drinks are not beer, wine or cider" }
+  - { id: n_bev_rum_cane, node_type: production_principle, name: "What is rum under the adopted EU spirit-drink categories?" }
+  - { id: n_bev_rum_cane_point, node_type: learning_point, name: "Rum is distilled from fermented cane products" }
+  - { id: n_bev_gin_juniper, node_type: production_principle, name: "What must gin taste of under the adopted EU category?" }
+  - { id: n_bev_gin_juniper_point, node_type: learning_point, name: "Gin tastes predominantly of juniper" }
+  - { id: n_bev_vodka_neutral, node_type: production_principle, name: "What does the adopted EU vodka category require of the raw materials?" }
+  - { id: n_bev_vodka_neutral_point, node_type: learning_point, name: "Vodka reduces raw-material character" }
+  - { id: n_bev_scotch_rules, node_type: production_principle, name: "What must be true before a whisky is Scotch Whisky?" }
+  - { id: n_bev_scotch_rules_point, node_type: learning_point, name: "Scotch is matured at least three years in Scotland" }
+  - { id: n_bev_scotch_malt, node_type: production_principle, name: "What is Single Malt Scotch Whisky?" }
+  - { id: n_bev_scotch_malt_point, node_type: learning_point, name: "Single malt is one distillery and malted barley only" }
+  - { id: n_bev_scotch_age_statement, node_type: production_principle, name: "What age may a Scotch Whisky label state?" }
+  - { id: n_bev_scotch_age_statement_point, node_type: learning_point, name: "A Scotch age is the youngest whisky" }
+  - { id: n_bev_bourbon_corn, node_type: production_principle, name: "What makes a whisky bourbon under US rules?" }
+  - { id: n_bev_bourbon_corn_point, node_type: learning_point, name: "Bourbon is corn whisky aged in new charred oak in the US" }
+  - { id: n_bev_bourbon_straight, node_type: production_principle, name: "What extra rule makes bourbon straight?" }
+  - { id: n_bev_bourbon_straight_point, node_type: learning_point, name: "Straight bourbon is aged at least two years" }
+  - { id: n_bev_cognac_minimum, node_type: production_principle, name: "What ageing must Cognac have before it is sold?" }
+  - { id: n_bev_cognac_minimum_point, node_type: learning_point, name: "Cognac ages at least two years in oak" }
+  - { id: n_bev_cognac_mentions, node_type: production_principle, name: "What do the Cognac ageing mentions VS, VSOP, Napoleon, XO and XXO mean?" }
+  - { id: n_bev_cognac_mentions_point, node_type: learning_point, name: "Cognac ageing mentions are minimum years" }
+  - { id: n_bev_cognac_fine_champagne, node_type: production_principle, name: "What does Cognac Fine Champagne mean?" }
+  - { id: n_bev_cognac_fine_champagne_point, node_type: learning_point, name: "Fine Champagne is a cru blend, not a vintage" }
+  - { id: n_bev_cask_ale, node_type: production_principle, name: "What is cask-conditioned beer?" }
+  - { id: n_bev_cask_ale_point, node_type: learning_point, name: "Cask ale conditions in the cask" }
+  - { id: n_bev_cider_perry, node_type: production_principle, name: "How does UK excise use the word cider?" }
+  - { id: n_bev_cider_perry_point, node_type: learning_point, name: "UK excise cider covers apple cider and perry" }
+  - { id: n_bev_sake_polish, node_type: production_principle, name: "What is seimaibuai on a sake label?" }
+  - { id: n_bev_sake_polish_point, node_type: learning_point, name: "Seimaibuai is rice remaining" }
+  - { id: n_bev_sake_junmai, node_type: production_principle, name: "What may junmai sake contain, and what polishing rule does it no longer have?" }
+  - { id: n_bev_sake_junmai_point, node_type: learning_point, name: "Junmai adds no brewer's alcohol" }
+  - { id: n_bev_sake_ginjo, node_type: production_principle, name: "What polishing ratios define ginjo and daiginjo?" }
+  - { id: n_bev_sake_ginjo_point, node_type: learning_point, name: "Ginjo 60 percent and daiginjo 50 percent" }
+  - { id: n_bev_sake_honjozo, node_type: production_principle, name: "What may honjozo contain that junmai may not?" }
+  - { id: n_bev_sake_honjozo_point, node_type: learning_point, name: "Honjozo may include brewer's alcohol" }
+  - { id: n_bev_habano_name, node_type: production_principle, name: "What does the name Habanos legally identify?" }
+  - { id: n_bev_habano_name_point, node_type: learning_point, name: "Habanos is a Cuban denomination" }
+  - { id: n_bev_habano_leaves, node_type: production_principle, name: "What are the filler, binder and wrapper of a Habano?" }
+  - { id: n_bev_habano_leaves_point, node_type: learning_point, name: "Filler, binder and wrapper" }
+  - { id: n_bev_tobacco_harm, node_type: production_principle, name: "What health harm does tobacco cause?" }
+  - { id: n_bev_tobacco_harm_point, node_type: learning_point, name: "Tobacco causes cancer and heart disease" }
+  - { id: n_bev_alcohol_harm, node_type: production_principle, name: "Is there a safe level of drinking for cancer risk?" }
+  - { id: n_bev_alcohol_harm_point, node_type: learning_point, name: "Ethanol is a carcinogen at any dose" }
+
+knowledge_relations:
+  - { subject_id: n_bev_spirit_separate, relation_type: PRINCIPLE_EXPLANATION, object_id: n_bev_spirit_separate_point, valid_from: "2026-09-27" }
+  - { subject_id: n_bev_rum_cane, relation_type: PRINCIPLE_EXPLANATION, object_id: n_bev_rum_cane_point, valid_from: "2026-09-27" }
+  - { subject_id: n_bev_gin_juniper, relation_type: PRINCIPLE_EXPLANATION, object_id: n_bev_gin_juniper_point, valid_from: "2026-09-27" }
+  - { subject_id: n_bev_vodka_neutral, relation_type: PRINCIPLE_EXPLANATION, object_id: n_bev_vodka_neutral_point, valid_from: "2026-09-27" }
+  - { subject_id: n_bev_scotch_rules, relation_type: PRINCIPLE_EXPLANATION, object_id: n_bev_scotch_rules_point, valid_from: "2026-09-27" }
+  - { subject_id: n_bev_scotch_malt, relation_type: PRINCIPLE_EXPLANATION, object_id: n_bev_scotch_malt_point, valid_from: "2026-09-27" }
+  - { subject_id: n_bev_scotch_age_statement, relation_type: PRINCIPLE_EXPLANATION, object_id: n_bev_scotch_age_statement_point, valid_from: "2026-09-27" }
+  - { subject_id: n_bev_bourbon_corn, relation_type: PRINCIPLE_EXPLANATION, object_id: n_bev_bourbon_corn_point, valid_from: "2026-09-27" }
+  - { subject_id: n_bev_bourbon_straight, relation_type: PRINCIPLE_EXPLANATION, object_id: n_bev_bourbon_straight_point, valid_from: "2026-09-27" }
+  - { subject_id: n_bev_cognac_minimum, relation_type: PRINCIPLE_EXPLANATION, object_id: n_bev_cognac_minimum_point, valid_from: "2026-09-27" }
+  - { subject_id: n_bev_cognac_mentions, relation_type: PRINCIPLE_EXPLANATION, object_id: n_bev_cognac_mentions_point, valid_from: "2026-09-27" }
+  - { subject_id: n_bev_cognac_fine_champagne, relation_type: PRINCIPLE_EXPLANATION, object_id: n_bev_cognac_fine_champagne_point, valid_from: "2026-09-27" }
+  - { subject_id: n_bev_cask_ale, relation_type: PRINCIPLE_EXPLANATION, object_id: n_bev_cask_ale_point, valid_from: "2026-09-27" }
+  - { subject_id: n_bev_cider_perry, relation_type: PRINCIPLE_EXPLANATION, object_id: n_bev_cider_perry_point, valid_from: "2026-09-27" }
+  - { subject_id: n_bev_sake_polish, relation_type: PRINCIPLE_EXPLANATION, object_id: n_bev_sake_polish_point, valid_from: "2026-09-27" }
+  - { subject_id: n_bev_sake_junmai, relation_type: PRINCIPLE_EXPLANATION, object_id: n_bev_sake_junmai_point, valid_from: "2026-09-27" }
+  - { subject_id: n_bev_sake_ginjo, relation_type: PRINCIPLE_EXPLANATION, object_id: n_bev_sake_ginjo_point, valid_from: "2026-09-27" }
+  - { subject_id: n_bev_sake_honjozo, relation_type: PRINCIPLE_EXPLANATION, object_id: n_bev_sake_honjozo_point, valid_from: "2026-09-27" }
+  - { subject_id: n_bev_habano_name, relation_type: PRINCIPLE_EXPLANATION, object_id: n_bev_habano_name_point, valid_from: "2026-09-27" }
+  - { subject_id: n_bev_habano_leaves, relation_type: PRINCIPLE_EXPLANATION, object_id: n_bev_habano_leaves_point, valid_from: "2026-09-27" }
+  - { subject_id: n_bev_tobacco_harm, relation_type: PRINCIPLE_EXPLANATION, object_id: n_bev_tobacco_harm_point, valid_from: "2026-09-27" }
+  - { subject_id: n_bev_alcohol_harm, relation_type: PRINCIPLE_EXPLANATION, object_id: n_bev_alcohol_harm_point, valid_from: "2026-09-27" }
+
+knowledge_items:
+  - id: ki_bev_spirit_separate
+    subject_id: n_bev_spirit_separate
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_bev_spirit_separate_point
+    domain_id: service
+    assertion_text: "Under the adopted text of Regulation (EU) 2019/787, a spirit drink is an alcoholic beverage for human consumption with particular organoleptic qualities and, except for one listed category, at least 15 percent alcohol. It must not fall in the customs codes for beer, wine, vermouth, other fermented drinks or undenatured ethyl alcohol. Some spirit drinks are distillates of a fermented product. Others, such as gin, are agricultural alcohol that has been flavoured. Beer, wine and cider are not spirit drinks under that article."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_bev_rum_cane
+    subject_id: n_bev_rum_cane
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_bev_rum_cane_point
+    domain_id: service
+    assertion_text: "In the adopted EU categories, rum is a spirit drink produced only by distilling the fermented product of molasses or syrup from cane-sugar manufacture, or of sugar-cane juice itself, at less than 96 percent alcohol so that the distillate still has the discernible character of rum."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_bev_gin_juniper
+    subject_id: n_bev_gin_juniper
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_bev_gin_juniper_point
+    domain_id: service
+    assertion_text: "In the adopted EU categories, gin is a juniper-flavoured spirit drink made by flavouring ethyl alcohol of agricultural origin with juniper berries, Juniperus communis. Its minimum strength is 37.5 percent alcohol, and the taste must be predominantly that of juniper. It is not a grape wine and it is not a cane spirit."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_bev_vodka_neutral
+    subject_id: n_bev_vodka_neutral
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_bev_vodka_neutral_point
+    domain_id: service
+    assertion_text: "In the adopted EU categories, vodka is a spirit drink from ethyl alcohol of agricultural origin, fermented by yeast from potatoes, cereals or other agricultural raw materials, and distilled so that the character of those raw materials and of fermentation by-products is selectively reduced. The category does not say the raw material must be one grain."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_bev_scotch_rules
+    subject_id: n_bev_scotch_rules
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_bev_scotch_rules_point
+    domain_id: service
+    assertion_text: "Scotch Whisky is whisky produced in Scotland from water and malted barley, to which only whole grains of other cereals may be added. It is distilled below 94.8 percent alcohol so that aroma and taste from the raw materials remain, matured only in Scotland in oak casks of no more than 700 litres for at least three years, and bottled at at least 40 percent alcohol. Nothing may be added except water, plain caramel colouring, or both."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_bev_scotch_malt
+    subject_id: n_bev_scotch_malt
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_bev_scotch_malt_point
+    domain_id: service
+    assertion_text: "Single Malt Scotch Whisky is distilled at a single distillery, from water and malted barley with no other cereal, in pot stills. Blended Scotch Whisky is a blend of one or more Single Malt Scotch Whiskies with one or more Single Grain Scotch Whiskies. A blend of malt and grain is not single malt."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_bev_scotch_age_statement
+    subject_id: n_bev_scotch_age_statement
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_bev_scotch_age_statement_point
+    domain_id: service
+    assertion_text: "A maturation or age statement on Scotch Whisky may be used only when it refers to the youngest alcoholic component, and the Scotch Whisky Regulations require that stated age to be expressed in years. Older whisky may be in the same bottle. The stated age is not an average."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_bev_bourbon_corn
+    subject_id: n_bev_bourbon_corn
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_bev_bourbon_corn_point
+    domain_id: service
+    assertion_text: "US rules define bourbon whisky as whisky from a fermented mash of not less than 51 percent corn, stored in charred new oak barrels. The word bourbon may not describe whisky that was not distilled and aged in the United States. Kentucky is not required. A state name may appear when distillation and any required aging took place in that state. Whisky in this class is bottled at not less than 40 percent alcohol."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_bev_bourbon_straight
+    subject_id: n_bev_bourbon_straight
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_bev_bourbon_straight_point
+    domain_id: service
+    assertion_text: "Straight bourbon whisky uses the same mash of at least 51 percent corn and charred new oak, and it must be stored in those barrels for at least two years. The straight-bourbon standard allows no added coloring, flavoring or blending materials."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_bev_cognac_minimum
+    subject_id: n_bev_cognac_minimum
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_bev_cognac_minimum_point
+    domain_id: service
+    assertion_text: "The BNIC states that Cognac, Eau-de-vie de Cognac or Eau-de-vie des Charentes cannot be sold until it has aged at least two years, without interruption, only in oak. The age of a blend is the age of its youngest eau-de-vie. At sale to the consumer the minimum strength is 40 percent alcohol. Ageing stops at bottling; the spirit does not continue to age under glass."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_bev_cognac_mentions
+    subject_id: n_bev_cognac_mentions
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_bev_cognac_mentions_point
+    domain_id: service
+    assertion_text: "On the BNIC list, Very Special is at least 2 years, Very Superior Old Pale is at least 4, Napoleon is at least 6, Extra Old is at least 10, and Extra Extra Old is at least 14. Each figure is the youngest eau-de-vie, not an average. Napoleon on a Cognac label is this ageing mention. It is not evidence that Napoleon I made the bottle, and it is not the 1855 classification commissioned under Napoleon III."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_bev_cognac_fine_champagne
+    subject_id: n_bev_cognac_fine_champagne
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_bev_cognac_fine_champagne_point
+    domain_id: service
+    assertion_text: "Cognac Fine Champagne is a blend made only from Grande Champagne and Petite Champagne, with at least 50 percent Grande Champagne. It is a cru designation. It does not mean the Champagne wine region, and it does not state a vintage."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_bev_cask_ale
+    subject_id: n_bev_cask_ale
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_bev_cask_ale_point
+    domain_id: service
+    assertion_text: "CAMRA defines cask-conditioned beer as a live beer that continues to mature in the cask from which it is served, with excess carbon dioxide vented so that it is served at atmospheric pressure. It is not dispensed by injecting carbon dioxide. Unfined cask beer may be cloudy and is still cask-conditioned. This is a trade definition of beer, not a world beer statute, and it is not a distillation method."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_bev_cider_perry
+    subject_id: n_bev_cider_perry
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_bev_cider_perry_point
+    domain_id: service
+    assertion_text: "The Alcoholic Liquor Duties (Definition of Cider) Order 2010 uses cider to mean cider or perry: a drink above 1.2 percent and below 8.5 percent alcohol, obtained by fermenting apple or pear juice, subject to the juice conditions in that order. It is a UK excise definition, not a world definition of every farmhouse cider, and it does not make cider a distilled spirit."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_bev_sake_polish
+    subject_id: n_bev_sake_polish
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_bev_sake_polish_point
+    domain_id: service
+    assertion_text: "The Japanese National Tax Agency defines the rice-polishing ratio as the percentage of the brown-rice weight that remains. A ratio of 60 percent means about 40 percent of the outer layer was removed. The labelling standard does not require sake to be served hot, and it does not make sake a grape wine or a distillate."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_bev_sake_junmai
+    subject_id: n_bev_sake_junmai
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_bev_sake_junmai_point
+    domain_id: service
+    assertion_text: "Junmai uses rice, koji rice and water, and the National Tax Agency table gives it no added brewer's alcohol. A 2003 amendment deleted the old rule that junmai had to be polished to 70 percent or less, so junmai now has no single polishing-ratio ceiling. Koji rice, rice on which koji mold has been grown so that it can turn starch into sugar, must be at least 15 percent of the white-rice weight."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_bev_sake_ginjo
+    subject_id: n_bev_sake_ginjo
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_bev_sake_ginjo_point
+    domain_id: service
+    assertion_text: "Ginjo requires a rice-polishing ratio of 60 percent or less, and daiginjo 50 percent or less, plus the ginjo method of careful polishing and low-temperature fermentation for a fragrant style. Junmai ginjo and junmai daiginjo are those classes made without added brewer's alcohol. The percentages are grain remaining, not grain removed."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_bev_sake_honjozo
+    subject_id: n_bev_sake_honjozo
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_bev_sake_honjozo_point
+    domain_id: service
+    assertion_text: "Honjozo requires a rice-polishing ratio of 70 percent or less and may include brewer's alcohol. The National Tax Agency overview limits that alcohol to no more than 10 percent of the weight of the white rice. Junmai may not include it."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_bev_habano_name
+    subject_id: n_bev_habano_name
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_bev_habano_name_point
+    domain_id: service
+    assertion_text: "Habanos is the protected denomination for selected cigars made in Cuba, to the Regulatory Council's standard, from tobacco grown only in particular protected areas of Cuba. Every Habano is Cuban. Not every Cuban cigar is a Habano, and a cigar made outside Cuba is not a Habano."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_bev_habano_leaves
+    subject_id: n_bev_habano_leaves
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_bev_habano_leaves_point
+    domain_id: service
+    assertion_text: "Habanos describes a cigar as filler, binder and wrapper. The tripa, or filler, is the blend of leaves that supplies flavour. The capote, or binder, wraps that filler and sets the shape. The capa, or wrapper, is the outer leaf. Habanos says the wrapper contributes little of the flavour and that every leaf is grown in Cuba. A factory size name is not, by itself, an international statute."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_bev_tobacco_harm
+    subject_id: n_bev_tobacco_harm
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_bev_tobacco_harm_point
+    domain_id: service
+    assertion_text: "The World Health Organization states that tobacco damages nearly every organ, causes cancer, heart disease, stroke and lung disease, and that there is no safe level of exposure. All forms of tobacco use are harmful. Cigar study does not make tobacco safe."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_bev_alcohol_harm
+    subject_id: n_bev_alcohol_harm
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_bev_alcohol_harm_point
+    domain_id: service
+    assertion_text: "The World Health Organization states that ethanol is a toxic, dependence-producing Group 1 carcinogen and that it causes at least seven types of cancer. The cancer risk is from the alcohol itself, in any beverage, and current evidence does not show a threshold at which that risk switches on. Less drinking is safer. There is no safe level to teach."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+
+certification_knowledge_mappings:
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_bev_spirit_separate, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_bev_rum_cane, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_bev_gin_juniper, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_bev_vodka_neutral, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_bev_scotch_rules, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_bev_scotch_malt, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_bev_scotch_age_statement, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_bev_bourbon_corn, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_bev_bourbon_straight, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_bev_cognac_minimum, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_bev_cognac_mentions, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_bev_cognac_fine_champagne, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_bev_cask_ale, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_bev_cider_perry, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_bev_sake_polish, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_bev_sake_junmai, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_bev_sake_ginjo, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_bev_sake_honjozo, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_bev_habano_name, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_bev_habano_leaves, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_bev_tobacco_harm, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_bev_alcohol_harm, importance: secondary, minimum_depth: 2 }
+
+source_citations:
+  - id: src_bev_eu_spirits_article
+    kind: legislation
+    title: "Regulation (EU) 2019/787, article 2, as adopted"
+    publisher: "European Union, published on legislation.gov.uk"
+    jurisdiction: EU
+    document_identifier: "Adopted text, article 2. Later consolidation may amend details."
+    url: "https://www.legislation.gov.uk/eur/2019/787/adopted/data.pdf"
+    accessed_on: "2026-09-27"
+  - id: src_bev_eu_spirits_2019
+    kind: legislation
+    title: "Regulation (EU) 2019/787, Annex I, as adopted"
+    publisher: "European Union, published on legislation.gov.uk"
+    jurisdiction: EU
+    document_identifier: "Adopted Annex I categories rum, vodka and gin. Later consolidation may amend details."
+    url: "https://www.legislation.gov.uk/eur/2019/787/annex/I/adopted"
+    accessed_on: "2026-09-27"
+  - id: src_bev_scotch_2009
+    kind: legislation
+    title: "The Scotch Whisky Regulations 2009"
+    publisher: "Statute Law Database, United Kingdom"
+    jurisdiction: GB
+    document_identifier: "SI 2009/2890, regulations 3 and 12, revised text in force from 2025-02-01"
+    url: "https://www.legislation.gov.uk/uksi/2009/2890"
+    accessed_on: "2026-09-27"
+  - id: src_bev_bourbon_cfr
+    kind: legislation
+    title: "27 CFR 5.143 Whisky"
+    publisher: "Electronic Code of Federal Regulations, Alcohol and Tobacco Tax and Trade Bureau"
+    jurisdiction: US
+    document_identifier: "Bourbon whisky and straight bourbon whisky, table rows (c)(2) and (c)(5); class bottling strength in paragraph (a)"
+    url: "https://www.ecfr.gov/current/title-27/section-5.143"
+    accessed_on: "2026-09-27"
+  - id: src_bev_cognac_bnic
+    kind: regulator_register
+    title: "Cognac, une appellation d'origine contrôlée"
+    publisher: "Bureau National Interprofessionnel du Cognac"
+    jurisdiction: FR
+    document_identifier: "Ageing mentions retrieved 27 September 2026; cahier homologated by the order of 10 June 2026"
+    url: "https://www.cognac.fr/decouvrir/spiritueux-unique/une-origine-controlee/"
+    accessed_on: "2026-09-27"
+  - id: src_bev_camra_cask
+    kind: reference_work
+    title: "CAMRA's definitions of real ale"
+    publisher: "Campaign for Real Ale"
+    document_identifier: "Cask-conditioned beer definition, November 2020 text"
+    url: "https://aberdeencamra.org.uk/wp-content/uploads/2024/07/CAMRA-Definitions-of-Real-Ale-November-2020.pdf"
+    accessed_on: "2026-09-27"
+  - id: src_bev_uk_cider_2010
+    kind: legislation
+    title: "The Alcoholic Liquor Duties (Definition of Cider) Order 2010"
+    publisher: "Statute Law Database, United Kingdom"
+    jurisdiction: GB
+    document_identifier: "SI 2010/1914, amending Alcoholic Liquor Duties Act 1979 section 1(6)"
+    url: "https://www.legislation.gov.uk/uksi/2010/1914"
+    accessed_on: "2026-09-27"
+  - id: src_bev_sake_nta
+    kind: government_publication
+    title: "清酒の製法品質表示基準の概要"
+    publisher: "National Tax Agency, Japan"
+    jurisdiction: JP
+    document_identifier: "Special-designation table; 2003 deletion of the junmai 70 percent ceiling; koji rice at least 15 percent"
+    url: "https://www.nta.go.jp/taxes/sake/hyoji/seishu/gaiyo/02.htm"
+    accessed_on: "2026-09-27"
+  - id: src_bev_habanos_intro
+    kind: regulator_register
+    title: "Introduction to Habanos"
+    publisher: "Habanos, S.A."
+    jurisdiction: CU
+    document_identifier: "Protected denomination of origin; not every Cuban cigar is a Habano"
+    url: "https://www.habanos.com/en/introduction/"
+    accessed_on: "2026-09-27"
+  - id: src_bev_habanos_anatomy
+    kind: regulator_register
+    title: "The anatomy of a Habano"
+    publisher: "Habanos, S.A."
+    jurisdiction: CU
+    document_identifier: "Tripa, capote and capa"
+    url: "https://www.habanos.com/en/the-anatomy-of-a-habano/"
+    accessed_on: "2026-09-27"
+  - id: src_bev_who_tobacco
+    kind: government_publication
+    title: "Tobacco and nicotine"
+    publisher: "World Health Organization"
+    document_identifier: "Fact sheet, 26 June 2026"
+    url: "https://www.who.int/news-room/fact-sheets/detail/tobacco"
+    accessed_on: "2026-09-27"
+
+knowledge_item_citations:
+  - { knowledge_item_id: ki_bev_spirit_separate, source_citation_id: src_bev_eu_spirits_article, locator: "Article 2: minimum strength, production paths, and exclusion of CN 2203, 2204, 2205, 2206 and 2207." }
+  - { knowledge_item_id: ki_bev_rum_cane, source_citation_id: src_bev_eu_spirits_2019, locator: "Annex I, category 1, rum." }
+  - { knowledge_item_id: ki_bev_gin_juniper, source_citation_id: src_bev_eu_spirits_2019, locator: "Annex I, category 20, gin." }
+  - { knowledge_item_id: ki_bev_vodka_neutral, source_citation_id: src_bev_eu_spirits_2019, locator: "Annex I, category 15, vodka." }
+  - { knowledge_item_id: ki_bev_scotch_rules, source_citation_id: src_bev_scotch_2009, locator: "Regulation 3(1)." }
+  - { knowledge_item_id: ki_bev_scotch_malt, source_citation_id: src_bev_scotch_2009, locator: "Regulation 3(2), Single Malt and Blended Scotch Whisky." }
+  - { knowledge_item_id: ki_bev_scotch_age_statement, source_citation_id: src_bev_scotch_2009, locator: "Regulation 12(1), youngest alcoholic component, age in years." }
+  - { knowledge_item_id: ki_bev_bourbon_corn, source_citation_id: src_bev_bourbon_cfr, locator: "Paragraphs (a) and (b), and table row (c)(2)." }
+  - { knowledge_item_id: ki_bev_bourbon_straight, source_citation_id: src_bev_bourbon_cfr, locator: "Table row (c)(5), straight bourbon whisky." }
+  - { knowledge_item_id: ki_bev_cognac_minimum, source_citation_id: src_bev_cognac_bnic, locator: "Minimum two years in oak; youngest component; 40 percent at sale; age stops at bottling." }
+  - { knowledge_item_id: ki_bev_cognac_mentions, source_citation_id: src_bev_cognac_bnic, locator: "VS 2, VSOP 4, Napoleon 6, XO 10, XXO 14." }
+  - { knowledge_item_id: ki_bev_cognac_fine_champagne, source_citation_id: src_bev_cognac_bnic, locator: "Fine Champagne: Grande Champagne at least 50 percent, the rest Petite Champagne." }
+  - { knowledge_item_id: ki_bev_cask_ale, source_citation_id: src_bev_camra_cask, locator: "Cask-conditioned beer: conditions in the cask and is served at atmospheric pressure." }
+  - { knowledge_item_id: ki_bev_cider_perry, source_citation_id: src_bev_uk_cider_2010, locator: "Cider or perry, above 1.2 percent and below 8.5 percent, from apple or pear juice." }
+  - { knowledge_item_id: ki_bev_sake_polish, source_citation_id: src_bev_sake_nta, locator: "Rice-polishing ratio is the percentage of brown rice remaining." }
+  - { knowledge_item_id: ki_bev_sake_junmai, source_citation_id: src_bev_sake_nta, locator: "Junmai ingredients and the 2003 deletion of the 70 percent ceiling; koji rice at least 15 percent." }
+  - { knowledge_item_id: ki_bev_sake_ginjo, source_citation_id: src_bev_sake_nta, locator: "Ginjo 60 percent or less; daiginjo 50 percent or less; junmai classes have no added alcohol." }
+  - { knowledge_item_id: ki_bev_sake_honjozo, source_citation_id: src_bev_sake_nta, locator: "Honjozo 70 percent or less; brewer's alcohol no more than 10 percent of the white-rice weight." }
+  - { knowledge_item_id: ki_bev_habano_name, source_citation_id: src_bev_habanos_intro, locator: "Protected denomination; all Habanos are Cuban, and not every Cuban cigar is a Habano." }
+  - { knowledge_item_id: ki_bev_habano_leaves, source_citation_id: src_bev_habanos_anatomy, locator: "Tripa, capote and capa." }
+  - { knowledge_item_id: ki_bev_tobacco_harm, source_citation_id: src_bev_who_tobacco, locator: "Cancer, heart disease, stroke and lung disease; no safe level." }
+  - { knowledge_item_id: ki_bev_alcohol_harm, source_citation_id: src_wset_srv_who_cancer, locator: "Ethanol is a Group 1 carcinogen; no established safe threshold." }

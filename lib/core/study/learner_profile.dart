@@ -23,8 +23,7 @@ class LearnerProfiles {
   /// The profile as it changes; switching track updates every screen.
   Stream<UserProfile?> watch() => _row.watchSingleOrNull();
 
-  /// The tracks a learner can pick in V0.1: WSET Level 3 and CMS Certified
-  /// (spec §N, audit CM-1).
+  /// The tracks enabled by the current editorial curriculum release.
   Future<List<Certification>> selectableTracks() =>
       (db.select(db.certifications)
             ..where((c) => c.isSelectable.equals(true))

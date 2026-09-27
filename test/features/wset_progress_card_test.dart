@@ -31,7 +31,7 @@ void main() {
           scope: WsetLevelScope(
             certificationId: 'WSET_L1',
             title: 'WSET Level 1',
-            curriculumComplete: false,
+            curriculumComplete: true,
             gaps: [],
             sourceUrl: 'https://www.wsetglobal.com/',
           ),
@@ -70,5 +70,10 @@ void main() {
       1,
     );
     expect(find.textContaining('1/100'), findsNothing);
+    expect(
+      find.textContaining('Full level coverage is still being built.'),
+      findsNothing,
+    );
+    expect(find.text('Diploma coverage is still being built.'), findsNothing);
   });
 }

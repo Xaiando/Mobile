@@ -1,0 +1,2741 @@
+# Original point-specific recall. Authoring ledger and independent review are recorded in assets/study and docs/research.
+question_templates:
+  - id: qt_wset_principle_point_typed
+    relation_type: PRINCIPLE_EXPLANATION
+    direction: forward
+    mode: typed
+    variant: point_scoped_cue
+    prompt_template: "{subject.name} Recall the specified learning point."
+    parameters:
+      item_cues:
+        ki_reg_fr_chablis_mlf_acid:
+          prompt: Which acid-conversion process commonly reduces acidity in Chablis?
+          acceptedAnswers:
+            - malolactic fermentation
+            - MLF
+        ki_wset_taste_ageing_evolution:
+          prompt: During bottle development, what can happen to tannin texture as youthful fruit recedes?
+          acceptedAnswers:
+            - tannins soften
+            - softer tannin texture
+        ki_wset_taste_ageing_not_all:
+          prompt: For many wines made ready for release, when is drinking usually intended?
+          acceptedAnswers:
+            - early drinking
+            - while young
+        ki_wset_taste_ageing_uncertain:
+          prompt: Which two bottle-related variables prevent a tasting note from guaranteeing a future
+            drinking date?
+          acceptedAnswers:
+            - storage and bottle variation
+            - storage conditions and bottle variation
+        ki_wset_eu_delle_venezie_style:
+          prompt: Which grape provides the familiar Delle Venezie style with pear, apple or citrus and
+            restrained wood influence?
+          acceptedAnswers:
+            - Pinot Grigio
+            - Pinot Gris
+        ki_reg_sh_eden_riesling:
+          prompt: Which two terrain features create different Riesling ripening conditions across Eden Valley?
+          acceptedAnswers:
+            - altitude and aspect
+            - elevation and aspect
+        ki_wset_srv_storage_cool:
+          prompt: For unopened wine, what temperature pattern helps prevent heat damage?
+          acceptedAnswers:
+            - cool and stable
+            - cool stable temperature
+        ki_wset_srv_storage_dark:
+          prompt: What kind of illumination should stored wine be protected from?
+          acceptedAnswers:
+            - strong light
+            - intense light
+        ki_wset_srv_storage_closure:
+          prompt: How should a conventional cork-closed still-wine bottle lie to maintain wine contact with
+            its closure?
+          acceptedAnswers:
+            - on its side
+            - horizontally
+        ki_wset_srv_storage_provenance:
+          prompt: Before buying an older bottle, what part of its past should you ask about alongside
+            inspecting its condition?
+          acceptedAnswers:
+            - storage history
+            - how it was stored
+        ki_wset_srv_red_temperature:
+          prompt: Give the suggested serving-temperature range in Celsius for a full-bodied red wine.
+          acceptedAnswers:
+            - 15–18°C
+            - 15-18
+            - 15 to 18
+        ki_wset_srv_red_cold:
+          prompt: A full-bodied red was chilled excessively. Which two palate impressions can become more
+            noticeable?
+          acceptedAnswers:
+            - thin and harsh
+            - thinness and harshness
+        ki_wset_srv_white_temperature:
+          prompt: Give the lightly chilled serving-temperature range in Celsius for a fuller-bodied white.
+          acceptedAnswers:
+            - 10–13°C
+            - 10-13
+            - 10 to 13
+        ki_wset_srv_light_white_temperature:
+          prompt: Give the suggested serving-temperature range in Celsius for light whites and rosés.
+          acceptedAnswers:
+            - 7–10°C
+            - 7-10
+            - 7 to 10
+        ki_wset_srv_light_red_temperature:
+          prompt: Give the slightly chilled serving-temperature range in Celsius for a light red.
+          acceptedAnswers:
+            - 10–13°C
+            - 10-13
+            - 10 to 13
+        ki_wset_srv_sweet_temperature:
+          prompt: Give the well-chilled serving-temperature range in Celsius for a sweet white.
+          acceptedAnswers:
+            - 6–8°C
+            - 6-8
+            - 6 to 8
+        ki_wset_srv_champagne_temperature:
+          prompt: Give Comité Champagne’s suggested drinking-temperature range in Celsius.
+          acceptedAnswers:
+            - 8–10°C
+            - 8-10
+            - 8 to 10
+        ki_wset_srv_ice_water:
+          prompt: Besides frozen cubes, what should be added to a chilling bucket to improve bottle contact
+            and heat transfer?
+          acceptedAnswers:
+            - water
+            - cold water
+        ki_wset_srv_temp_masking:
+          prompt: What should you allow an excessively cold white-wine sample to do before judging its aromas?
+          acceptedAnswers:
+            - warm slightly
+            - warm up
+        ki_wset_srv_glass_clean:
+          prompt: What two cleanliness qualities should wine glasses have so residues do not distort the
+            sample?
+          acceptedAnswers:
+            - clean and odour-free
+            - clean and odor-free
+        ki_wset_srv_bottle_identity:
+          prompt: Before opening a bottle, which two identity details should you confirm?
+          acceptedAnswers:
+            - wine and vintage
+            - wine identity and vintage
+        ki_wset_srv_sparkling_glass:
+          prompt: Which glass shape gives Champagne aroma space and a narrowing rim?
+          acceptedAnswers:
+            - tulip
+            - tulip-shaped glass
+        ki_wset_srv_foil:
+          prompt: Which two neck-preparation actions come before drawing a still-wine cork?
+          acceptedAnswers:
+            - remove foil and clean neck
+            - remove capsule and clean neck
+        ki_wset_srv_corkscrew:
+          prompt: For gentle cork extraction, where should the corkscrew spiral be positioned?
+          acceptedAnswers:
+            - in the centre of the cork
+            - centred in the cork
+        ki_wset_srv_cork_fragile:
+          prompt: Name a suitable opener for an older cork that may break under a normal spiral.
+          acceptedAnswers:
+            - two-prong opener
+            - combined cork opener
+        ki_wset_srv_cork_taint_distinct:
+          prompt: Broken cork pieces are a physical problem. What separate sensory condition must not be
+            inferred from them alone?
+          acceptedAnswers:
+            - cork taint
+            - TCA taint
+        ki_wset_srv_spark_chill:
+          prompt: What temperature preparation should precede opening a pressured sparkling bottle?
+          acceptedAnswers:
+            - chill it
+            - chilling
+        ki_wset_srv_spark_control:
+          prompt: While loosening the sparkling bottle’s wire cage, what must remain restrained by your hand?
+          acceptedAnswers:
+            - the cork
+            - cork
+        ki_wset_srv_spark_rotate:
+          prompt: With the sparkling cork restrained, which part should you gently turn to ease the closure
+            out?
+          acceptedAnswers:
+            - the bottle
+            - bottle
+        ki_wset_srv_preserve_cool:
+          prompt: Which two actions protect leftover still wine, including red, by limiting exposure and
+            slowing deterioration?
+          acceptedAnswers:
+            - reclose and refrigerate
+            - reseal and refrigerate
+        ki_wset_srv_preserve_air:
+          prompt: Which container change reduces the air space around leftover still wine?
+          acceptedAnswers:
+            - a smaller sealed bottle
+            - smaller clean sealed bottle
+        ki_wset_srv_preserve_vacuum:
+          prompt: Which preservation device takes some air out of the bottle’s headspace before resealing?
+          acceptedAnswers:
+            - vacuum pump
+            - vacuum device
+        ki_wset_srv_preserve_gas:
+          prompt: Which preservation approach replaces oxygen exposure with an appropriate nonreactive
+            atmosphere?
+          acceptedAnswers:
+            - inert gas
+            - inert-gas system
+        ki_wset_srv_spark_stopper:
+          prompt: What closure should be used for an opened sparkling bottle rather than a spoon in its neck?
+          acceptedAnswers:
+            - sparkling-wine stopper
+            - sparkling stopper
+        ki_wset_srv_spark_no_vacuum:
+          prompt: Which still-wine preservation device can flatten sparkling wine by removing dissolved gas?
+          acceptedAnswers:
+            - vacuum pump
+            - vacuum device
+        ki_wset_srv_preserve_check:
+          prompt: After preservation, what must be assessed again before the opened bottle is served?
+          acceptedAnswers:
+            - wine condition
+            - the bottle’s condition
+        ki_wset_srv_decant_deposit:
+          prompt: For an aged red with a deposit, what is the main separation purpose of gentle decanting?
+          acceptedAnswers:
+            - remove sediment
+            - separate wine from sediment
+        ki_wset_srv_decant_gently:
+          prompt: When decanting an aged red, at what point should pouring stop to keep the deposit out?
+          acceptedAnswers:
+            - when sediment reaches the neck
+            - before sediment enters the decanter
+        ki_wset_srv_decant_air:
+          prompt: What can prolonged aeration cause a fragile older wine to lose?
+          acceptedAnswers:
+            - character
+            - aromatic character
+        ki_wset_srv_crystals:
+          prompt: What harmless wine deposits can be mistaken for spoilage even when the wine is sound?
+          acceptedAnswers:
+            - tartrate crystals
+            - tartrates
+            - normal sediment
+        ki_wset_srv_fault_cork:
+          prompt: Which taint can produce musty smells and suppressed fruit even without contact with a cork?
+          acceptedAnswers:
+            - TCA
+            - cork taint
+        ki_wset_srv_fault_oxidation:
+          prompt: Which unwanted change can dull fresh fruit and introduce stale, sherry-like character in an
+            ordinary fresh style?
+          acceptedAnswers:
+            - oxidation
+            - unwanted oxidation
+        ki_wset_srv_fault_va:
+          prompt: Which excessive wine component can give strong vinegar or solvent-like notes?
+          acceptedAnswers:
+            - volatile acidity
+            - VA
+        ki_wset_srv_fault_recheck:
+          prompt: After checking the glass, what fresh comparison can help investigate a suspected wine fault?
+          acceptedAnswers:
+            - a fresh sample
+            - a replacement bottle
+        ki_wset_srv_pairing_person:
+          prompt: Before recommending wine with food, whose sweetness, flavour and budget preferences should
+            guide the recommendation?
+          acceptedAnswers:
+            - the customer’s
+            - the diner’s
+            - customer preferences
+        ki_wset_srv_pairing_perception:
+          prompt: A bite changes how the same wine tastes without changing the liquid. What kind of change is
+            this?
+          acceptedAnswers:
+            - perception
+            - a perception change
+        ki_wset_srv_food_sweet_dry:
+          prompt: After sweet food, how may the same wine’s apparent sweetness change?
+          acceptedAnswers:
+            - less sweet
+            - drier
+        ki_wset_srv_food_sweet_choice:
+          prompt: Relative to a sweet dish, what sweetness level often helps the wine retain balance?
+          acceptedAnswers:
+            - at least as sweet
+            - equal or greater sweetness
+        ki_wset_srv_food_acid_soft:
+          prompt: After an acidic dish, how can the same wine’s acidity feel?
+          acceptedAnswers:
+            - softer
+            - less acidic
+        ki_wset_srv_food_acid_choice:
+          prompt: Which wine component should be sufficient to retain freshness alongside an acidic dish?
+          acceptedAnswers:
+            - acidity
+            - wine acidity
+        ki_wset_srv_food_salt_soft:
+          prompt: Which food component can reduce perceived wine bitterness and bring fruit forward?
+          acceptedAnswers:
+            - salt
+            - saltiness
+        ki_wset_srv_food_salt_not_rule:
+          prompt: Besides salt, what food elements must a pairing consider because they can change the overall
+            interaction?
+          acceptedAnswers:
+            - sweetness umami and sauce
+            - the whole dish
+            - the complete dish
+        ki_wset_srv_food_umami_bitter:
+          prompt: How may a tannic wine’s bitterness seem after pronounced umami in food?
+          acceptedAnswers:
+            - more bitter
+            - increased bitterness
+        ki_wset_srv_food_umami_choice:
+          prompt: For a pronounced umami dish, what tannin level is a useful starting choice alongside
+            sufficient fruit?
+          acceptedAnswers:
+            - lower tannin
+            - low tannin
+        ki_wset_srv_food_fat_fresh:
+          prompt: Which wine component can give a refreshing contrast with a fatty dish?
+          acceptedAnswers:
+            - acidity
+            - wine acidity
+        ki_wset_srv_food_fat_complete:
+          prompt: Besides fat, which two culinary details should be considered before selecting the wine?
+          acceptedAnswers:
+            - sauce and seasoning
+            - seasoning and sauce
+        ki_wset_srv_food_chilli_alcohol:
+          prompt: Which wine component can intensify the burning sensation of chilli?
+          acceptedAnswers:
+            - alcohol
+            - ethanol
+        ki_wset_srv_food_chilli_tannin:
+          prompt: Which wine structure can add harshness when combined with hot spice?
+          acceptedAnswers:
+            - tannin
+            - strong tannin
+        ki_wset_srv_food_chilli_sweet:
+          prompt: Which taste in a wine may soften perceived chilli heat for some diners?
+          acceptedAnswers:
+            - sweetness
+            - a little sweetness
+        ki_wset_srv_food_intensity_match:
+          prompt: Which property of dish and wine should be compared so the food does not overwhelm a delicate
+            sample?
+          acceptedAnswers:
+            - flavour intensity
+            - flavor intensity
+        ki_wset_srv_food_intensity_preference:
+          prompt: What two deliberate relationships between food and wine can both work depending on the
+            diner’s preference?
+          acceptedAnswers:
+            - complement and contrast
+            - complementing and contrasting
+        ki_wset_srv_alcohol_risk:
+          prompt: Name one kind of harm that drinking alcohol can cause, even when it is served as wine.
+          acceptedAnswers:
+            - dependence
+            - disease
+            - injury
+        ki_wset_srv_alcohol_pregnancy:
+          prompt: During pregnancy, whose development can alcohol exposure harm?
+          acceptedAnswers:
+            - the fetus
+            - fetal development
+        ki_wset_srv_alcohol_driving:
+          prompt: Which transport activity should be discouraged after drinking because alcohol increases
+            injury risk?
+          acceptedAnswers:
+            - driving
+            - driving a vehicle
+        ki_wset_srv_alcohol_wine_not_health:
+          prompt: What substance remains in expensive wine and prevents price or quality from making it a
+            risk-free health choice?
+          acceptedAnswers:
+            - ethanol
+            - alcohol
+        ki_wset_srv_alcohol_individual:
+          prompt: Besides amount and drinking pattern, name a personal factor that affects alcohol risk.
+          acceptedAnswers:
+            - health
+            - individual health
+        ki_wset_taste_conditions_glass:
+          prompt: What kind of background smells should a tasting setting avoid?
+          acceptedAnswers:
+            - strong smells
+            - strong odours
+            - strong odors
+        ki_wset_taste_conditions_temperature:
+          prompt: Which serving variable should be comparable because it alters both aroma and mouthfeel?
+          acceptedAnswers:
+            - temperature
+            - serving temperature
+        ki_wset_taste_conditions_bias:
+          prompt: During blind practice, when should observations be written relative to revealing the label
+            or price?
+          acceptedAnswers:
+            - before revealing the label
+            - before label disclosure
+        ki_wset_taste_sequence_look:
+          prompt: Which observation stage comes before smelling and tasting the wine?
+          acceptedAnswers:
+            - appearance
+            - looking at the wine
+        ki_wset_taste_sequence_colour:
+          prompt: In an appearance note, what visible property should be recorded before guessing the grape?
+          acceptedAnswers:
+            - colour
+            - color
+        ki_wset_taste_sequence_note:
+          prompt: What kind of written record allows repeated tastings to be compared reliably?
+          acceptedAnswers:
+            - consistent notes
+            - a consistent record
+        ki_wset_taste_aroma_observe:
+          prompt: Name one familiar smell family used as a starting point when describing perceived wine
+            aromas.
+          acceptedAnswers:
+            - fruit
+            - flowers
+            - spice
+        ki_wset_taste_aroma_train:
+          prompt: Which practical comparison helps train aroma recognition?
+          acceptedAnswers:
+            - side-by-side comparison
+            - compare familiar smells and wines
+        ki_wset_taste_aroma_not_ingredient:
+          prompt: A wine smells like peach. What does the fruit descriptor express rather than prove an added
+            ingredient?
+          acceptedAnswers:
+            - a resemblance
+            - an aroma association
+        ki_wset_taste_sweetness:
+          prompt: Which palate observation must be judged separately from a wine’s fruit aromas?
+          acceptedAnswers:
+            - sweetness
+            - perceived sweetness
+        ki_wset_taste_acidity:
+          prompt: Which structure produces a salivation response rather than being measured by smelling
+            citrus?
+          acceptedAnswers:
+            - acidity
+            - acid
+        ki_wset_taste_sweet_acid_balance:
+          prompt: Alongside sweetness, which structure can still be high in the same wine?
+          acceptedAnswers:
+            - acidity
+            - acid
+        ki_wset_taste_tannin:
+          prompt: Which wine structure produces a drying, astringent sensation distinct from salivation?
+          acceptedAnswers:
+            - tannin
+            - tannins
+        ki_wset_taste_body:
+          prompt: What does body describe on the palate?
+          acceptedAnswers:
+            - perceived weight
+            - weight
+        ki_wset_taste_alcohol:
+          prompt: Which wine component can create warmth on the palate?
+          acceptedAnswers:
+            - alcohol
+            - ethanol
+        ki_wset_taste_appearance_clarity:
+          prompt: Which appearance dimension should be recorded separately from colour concentration?
+          acceptedAnswers:
+            - clarity
+            - clarity of the wine
+        ki_wset_taste_appearance_limits:
+          prompt: Name a conclusion that wine colour alone cannot establish.
+          acceptedAnswers:
+            - quality
+            - grape identity
+            - age
+        ki_wset_taste_nose_condition:
+          prompt: Before describing a suspicious smell in detail, what aspect of the sample should be checked?
+          acceptedAnswers:
+            - condition
+            - whether it is faulty
+        ki_wset_taste_nose_intensity:
+          prompt: Which aroma dimension describes strength rather than smell identity?
+          acceptedAnswers:
+            - intensity
+            - aroma intensity
+        ki_wset_taste_aroma_primary:
+          prompt: Which aroma category includes fruit, flowers and grape-related character?
+          acceptedAnswers:
+            - primary
+            - primary aromas
+        ki_wset_taste_aroma_secondary:
+          prompt: Which aroma category includes post-fermentation lees, malolactic or wood effects?
+          acceptedAnswers:
+            - secondary
+            - secondary aromas
+        ki_wset_taste_aroma_tertiary:
+          prompt: Which aroma category describes character developed during maturation?
+          acceptedAnswers:
+            - tertiary
+            - tertiary aromas
+        ki_wset_taste_palate_flavours:
+          prompt: Besides structure, what palate attribute and its strength should be recorded?
+          acceptedAnswers:
+            - flavour
+            - flavor
+        ki_wset_taste_palate_finish:
+          prompt: What pleasant sensation’s duration should be followed after a sip when judging finish?
+          acceptedAnswers:
+            - flavour persistence
+            - flavor persistence
+            - pleasant flavour
+        ki_wset_taste_palate_texture:
+          prompt: Apart from tannin amount, what separate tactile quality should be described?
+          acceptedAnswers:
+            - texture
+            - tannin texture
+        ki_wset_taste_palate_sparkle:
+          prompt: Which dissolved gas can create a prickling sensation distinct from body?
+          acceptedAnswers:
+            - carbon dioxide
+            - CO2
+        ki_wset_taste_calibration_comparison:
+          prompt: When comparing tasting samples, what should be kept consistent so observation differences
+            are meaningful?
+          acceptedAnswers:
+            - serving conditions
+            - tasting conditions
+        ki_wset_taste_calibration_discussion:
+          prompt: Who can help identify calibration needs by comparing your written tasting observations?
+          acceptedAnswers:
+            - an experienced taster
+            - experienced taster
+        ki_wset_taste_quality_balance:
+          prompt: Which quality judgement requires explaining how flavour and structure work together?
+          acceptedAnswers:
+            - balance
+            - wine balance
+        ki_wset_taste_quality_length:
+          prompt: For length as quality evidence, which lingering sensation matters more than heat alone?
+          acceptedAnswers:
+            - pleasant flavour
+            - pleasant flavor
+        ki_wset_taste_quality_intensity:
+          prompt: What judgement cannot be established by aroma strength or large body alone?
+          acceptedAnswers:
+            - high quality
+            - wine quality
+        ki_wset_taste_quality_complexity:
+          prompt: Which quality attribute is supported by distinct flavours or changing layers, without
+            requiring wood or age?
+          acceptedAnswers:
+            - complexity
+            - flavour complexity
+        ki_wset_taste_quality_preference:
+          prompt: What personal response should be stated separately from evidence of wine quality?
+          acceptedAnswers:
+            - preference
+            - personal preference
+        ki_wset_taste_quality_fault_context:
+          prompt: What wine context should be considered before calling oxidative or developed character a
+            fault?
+          acceptedAnswers:
+            - intended style
+            - the intended wine style
+        ki_wset_taste_ageing_support:
+          prompt: Besides flavour concentration, name one structural component that can support
+            bottle-development potential.
+          acceptedAnswers:
+            - acidity
+            - tannin
+        ki_wset_taste_ageing_now_future:
+          prompt: Which two time perspectives should be separated when discussing whether a wine is ready to
+            drink?
+          acceptedAnswers:
+            - enjoyment now and future development
+            - current readiness and further development
+        ki_vit_phylloxera_roots:
+          prompt: What grafting material protects susceptible vinifera roots against phylloxera?
+          acceptedAnswers:
+            - resistant rootstocks
+            - phylloxera-resistant rootstocks
+        ki_vit_current_shoots:
+          prompt: On what age of shoots are grape bunches borne?
+          acceptedAnswers:
+            - current-season shoots
+            - new shoots
+        ki_vit_two_seasons:
+          prompt: When are potential flower clusters initiated relative to the season that bears the crop?
+          acceptedAnswers:
+            - the previous season
+            - one season earlier
+        ki_vit_flower_set:
+          prompt: What do successfully fertilized grape flowers develop into after flowering?
+          acceptedAnswers:
+            - berries
+            - grape berries
+        ki_vit_softening:
+          prompt: Which ripening stage includes the onset of berry softening and skin-colour changes?
+          acceptedAnswers:
+            - veraison
+        ki_vit_photosynthesis:
+          prompt: Which process allows illuminated vine leaves to produce carbohydrates?
+          acceptedAnswers:
+            - photosynthesis
+        ki_vit_ripening_chemistry:
+          prompt: What usual pair of sugar and acid trends accompanies grape ripening?
+          acceptedAnswers:
+            - sugar rises and acidity falls
+            - increasing sugar and decreasing acidity
+        ki_vit_multiple_measures:
+          prompt: Besides sugar and acid analysis, what direct fruit assessment informs a harvest decision?
+          acceptedAnswers:
+            - sensory assessment
+            - tasting the grapes
+        ki_vit_representative_samples:
+          prompt: What sampling approach represents vineyard variation and reveals maturity trends over time?
+          acceptedAnswers:
+            - representative repeated sampling
+            - repeated representative samples
+        ki_vit_cold_air:
+          prompt: What movement of cold air should site selection permit to reduce accumulation during
+            radiation frost?
+          acceptedAnswers:
+            - cold-air drainage
+        ki_vit_airflow:
+          prompt: Which two microclimate effects can selective fruit-zone opening improve in a damp canopy?
+          acceptedAnswers:
+            - airflow and drying
+            - air circulation and drying
+        ki_vit_exposure_limit:
+          prompt: Which berry injury can excessive afternoon fruit exposure cause?
+          acceptedAnswers:
+            - sunburn
+            - berry sunburn
+        ki_vit_interior_shade:
+          prompt: In a dense canopy, what happens to carbohydrate production by deeply shaded inner leaves?
+          acceptedAnswers:
+            - reduced photosynthesis
+            - less photosynthesis
+        ki_vit_overcrop:
+          prompt: Which two vine functions can a crop beyond available canopy resources strain?
+          acceptedAnswers:
+            - ripening and reserve replenishment
+            - fruit ripening and reserves
+        ki_vit_not_min_yield:
+          prompt: What should determine crop removal instead of automatically pursuing the smallest possible
+            yield?
+          acceptedAnswers:
+            - vine capacity and production goals
+            - vine balance
+        ki_vit_style_gain:
+          prompt: Name one fruit-development benefit that can justify delaying harvest when crop condition
+            permits.
+          acceptedAnswers:
+            - flavour development
+            - aroma development
+            - colour development
+        ki_vit_delay_risk:
+          prompt: Name one crop-condition risk that can rise as fruit stays on the vine longer.
+          acceptedAnswers:
+            - disease
+            - weather damage
+            - predators
+            - shrivelling
+        ki_vit_radiation_inversion:
+          prompt: What vertical temperature pattern can make wind machines effective during radiation frost?
+          acceptedAnswers:
+            - temperature inversion
+            - warmer air above colder ground air
+        ki_vit_advective_limit:
+          prompt: What condition must be available for a wind machine to protect against frost effectively?
+          acceptedAnswers:
+            - a usable inversion
+            - warmer air above the vines
+        ki_vit_freezing_heat:
+          prompt: What happens energetically as continually supplied frost-sprinkler water freezes?
+          acceptedAnswers:
+            - heat is released
+            - release of heat
+        ki_vit_continuous_water:
+          prompt: What water-delivery requirement must frost sprinklers maintain throughout the protection
+            period?
+          acceptedAnswers:
+            - continuous sufficient supply
+            - reliable continuous water supply
+        ki_vit_stress_photo:
+          prompt: What leaf process can severe prolonged water stress reduce?
+          acceptedAnswers:
+            - photosynthesis
+        ki_vit_ripening_canopy:
+          prompt: During ripening, what canopy resource should water management preserve without stimulating
+            excess lateral growth?
+          acceptedAnswers:
+            - healthy functioning leaves
+            - functioning leaves
+        ki_vit_plant_soil:
+          prompt: What plant-level evidence should complement soil moisture measurements when deciding
+            irrigation?
+          acceptedAnswers:
+            - vine water measurements
+            - vine water status
+        ki_vit_late_leaf_burn:
+          prompt: What injury becomes more likely when shaded berries are suddenly exposed by heavy
+            late-summer leaf removal?
+          acceptedAnswers:
+            - sunburn
+            - berry sunburn
+        ki_vit_nematode_species:
+          prompt: When choosing a nematode-resistant rootstock, what identity must the resistance be matched
+            to?
+          acceptedAnswers:
+            - nematode species
+            - the local nematode species
+        ki_vit_powdery_inoculum:
+          prompt: For season-long powdery mildew control, what early source of infection should be reduced?
+          acceptedAnswers:
+            - inoculum
+            - early inoculum
+        ki_vit_downy_moisture:
+          prompt: Which vineyard moisture conditions favour downy mildew?
+          acceptedAnswers:
+            - rain and wet surfaces
+            - wet humid conditions
+        ki_vit_botrytis_wet:
+          prompt: Which combination of fruit-zone conditions favours Botrytis bunch rot?
+          acceptedAnswers:
+            - wet and dense
+            - damp dense canopy
+        ki_wset_eu_fr_aoc_identity:
+          prompt: Which European protected-origin term corresponds to French AOC?
+          acceptedAnswers:
+            - AOP
+            - appellation d’origine protégée
+        ki_wset_eu_fr_igp_identity:
+          prompt: Which French protected geographical-indication category includes Pays d’Oc?
+          acceptedAnswers:
+            - IGP
+            - indication géographique protégée
+        ki_wset_eu_fr_vin_de_france:
+          prompt: Which French wine term indicates national provenance without a protected regional
+            indication?
+          acceptedAnswers:
+            - Vin de France
+        ki_wset_eu_bordeaux_dry_white:
+          prompt: Name the usual two-grape combination taught for dry Bordeaux, Graves and Pessac-Léognan
+            whites.
+          acceptedAnswers:
+            - Sauvignon Blanc and Sémillon
+        ki_wset_eu_bordeaux_white_mlf:
+          prompt: Which conversion may be allowed or avoided to change dry Bordeaux white acidity?
+          acceptedAnswers:
+            - malolactic conversion
+            - malolactic fermentation
+            - MLF
+        ki_wset_eu_bordeaux_sweet_white:
+          prompt: Which beneficial grape condition is central to the classic concentrated sweet-white styles
+            of Sauternes and Barsac?
+          acceptedAnswers:
+            - noble rot
+            - botrytis
+        ki_wset_eu_bordeaux_superieur_identity:
+          prompt: Besides red wine, which white-wine sweetness category is included in Bordeaux Supérieur?
+          acceptedAnswers:
+            - sweet white
+            - sweet white wine
+        ki_wset_eu_bordeaux_superieur_evaluation:
+          prompt: What direct assessment is still needed instead of assuming the word Supérieur makes every
+            bottle better?
+          acceptedAnswers:
+            - tasting the actual wine
+            - tasting assessment
+        ki_wset_eu_bordeaux_classifications_scope:
+          prompt: In Bordeaux, do Médoc, Graves and Saint-Émilion classifications rank vineyards or which kind
+            of producer entity?
+          acceptedAnswers:
+            - estates
+            - wine estates
+        ki_wset_eu_saint_emilion_grand_cru_classe:
+          prompt: Which Saint-Émilion term adds estate-classification status beyond the Grand Cru appellation?
+          acceptedAnswers:
+            - Grand Cru Classé
+        ki_wset_eu_bordeaux_classification_quality:
+          prompt: Which two market effects can an estate classification influence besides the wine’s actual
+            cellar characteristics?
+          acceptedAnswers:
+            - reputation and demand
+            - demand and reputation
+        ki_wset_eu_burgundy_regional_village:
+          prompt: Compared with village appellations, what scale of permitted origin do regional Bourgogne and
+            Mâcon labels cover?
+          acceptedAnswers:
+            - broader origins
+            - a broader area
+        ki_wset_eu_burgundy_premier_cru:
+          prompt: Which Burgundy label identifies eligible classified land within a village appellation?
+          acceptedAnswers:
+            - Premier Cru
+        ki_wset_eu_burgundy_grand_cru:
+          prompt: Does Burgundy Grand Cru classify an estate or what delimited kind of origin?
+          acceptedAnswers:
+            - an appellation
+            - a delimited appellation
+        ki_wset_eu_burgundy_origin_price:
+          prompt: What supply effect can more restricted Burgundy site origin have before demand and
+            reputation are considered?
+          acceptedAnswers:
+            - limited available volume
+            - reduced supply
+        ki_wset_eu_bourgogne_cote_or_level:
+          prompt: At which hierarchy level is Bourgogne Côte d’Or classified?
+          acceptedAnswers:
+            - regional
+            - regional denomination
+        ki_wset_eu_burgundy_hautes_level:
+          prompt: At which hierarchy level do Bourgogne Hautes Côtes de Nuits and Bourgogne Côte Chalonnaise
+            sit?
+          acceptedAnswers:
+            - regional
+            - regional denominations
+        ki_wset_eu_alsace_gc_origin:
+          prompt: What geographically precise unit does an Alsace Grand Cru name identify?
+          acceptedAnswers:
+            - a named delimited site
+            - a delimited site
+        ki_wset_eu_alsace_vt_sgn:
+          prompt: Which Alsace selection term specifically involves harvesting suitably botrytised individual
+            berries?
+          acceptedAnswers:
+            - Sélection de Grains Nobles
+            - SGN
+        ki_wset_eu_rose_anjou_style:
+          prompt: What usual sweetness association distinguishes Rosé d’Anjou from dry Rosé de Loire?
+          acceptedAnswers:
+            - off-dry
+        ki_wset_eu_cabernet_anjou_style:
+          prompt: Name the two Cabernet grapes associated with sweetish Cabernet d’Anjou rosé.
+          acceptedAnswers:
+            - Cabernet Franc and Cabernet Sauvignon
+            - Cabernet Sauvignon and Cabernet Franc
+        ki_wset_eu_rose_loire_style:
+          prompt: Which sweetness category is the principal Rosé de Loire association?
+          acceptedAnswers:
+            - dry
+        ki_wset_eu_tavel_identity:
+          prompt: Which southern Rhône appellation is dedicated to rosé rather than also allowing red and
+            white like Lirac?
+          acceptedAnswers:
+            - Tavel
+        ki_wset_eu_tavel_style:
+          prompt: Relative to a delicate pale rosé, how is Tavel’s body commonly described?
+          acceptedAnswers:
+            - more substantial
+            - fuller-bodied
+            - fuller body
+        ki_wset_eu_cote_rotie_style:
+          prompt: Which optional white grape may be co-fermented with Syrah in Côte-Rôtie?
+          acceptedAnswers:
+            - Viognier
+        ki_wset_eu_cote_rotie_work:
+          prompt: Which vineyard operation cost can steep narrow Côte-Rôtie terraces increase by constraining
+            access?
+          acceptedAnswers:
+            - manual labour
+            - manual labor
+            - hand work
+        ki_wset_eu_gascogne_dry_white:
+          prompt: Which grape commonly supplies citrus and tropical-fruit expression in fresh Côtes de
+            Gascogne whites?
+          acceptedAnswers:
+            - Colombard
+        ki_wset_eu_gascogne_manseng:
+          prompt: Which pair of Manseng varieties is associated with sweet Gascogne styles?
+          acceptedAnswers:
+            - Gros Manseng and Petit Manseng
+            - Petit Manseng and Gros Manseng
+        ki_wset_eu_pays_oc_varieties:
+          prompt: Name a familiar white grape taught among the varietal options of Pays d’Oc IGP.
+          acceptedAnswers:
+            - Chardonnay
+            - Sauvignon Blanc
+        ki_wset_eu_pays_oc_comparison:
+          prompt: To explain contrasting Pays d’Oc whites, which information should be checked alongside the
+            shared region?
+          acceptedAnswers:
+            - grape and cellar choices
+            - variety and production choices
+        ki_wset_eu_it_doc_docg:
+          prompt: Which European origin category do Italian DOC and DOCG traditional terms correspond to?
+          acceptedAnswers:
+            - PDO
+            - protected designation of origin
+        ki_wset_eu_it_igt:
+          prompt: Which European geographical-indication category corresponds to Italian IGT?
+          acceptedAnswers:
+            - PGI
+            - IGP
+            - protected geographical indication
+        ki_wset_eu_delle_venezie_identity:
+          prompt: Which three northeastern areas make up the Delle Venezie DOC production area?
+          acceptedAnswers:
+            - Veneto Friuli Venezia Giulia and Trento
+            - Veneto Friuli and Trento
+        ki_wset_eu_dolcetto_alba_style:
+          prompt: Despite its grape name, what finished sweetness category is associated with Dolcetto d’Alba
+            reds?
+          acceptedAnswers:
+            - dry
+        ki_wset_eu_dolcetto_alba_use:
+          prompt: Compared with a firm Nebbiolo made for ageing, when can fruit-led Dolcetto often be enjoyed?
+          acceptedAnswers:
+            - younger
+            - earlier
+            - early drinking
+        ki_wset_eu_gavi_cortese:
+          prompt: Which white grape is associated with Gavi in Piedmont?
+          acceptedAnswers:
+            - Cortese
+        ki_wset_eu_gavi_vineyard:
+          prompt: Name a vineyard-management choice that helps Gavi’s Cortese ripen while retaining freshness.
+          acceptedAnswers:
+            - canopy exposure
+            - yield management
+        ki_wset_eu_recioto_valpolicella_sweet:
+          prompt: After drying grapes, what fermentation choice retains sweetness in Recioto della
+            Valpolicella?
+          acceptedAnswers:
+            - stop fermentation before all sugar is consumed
+            - arrest fermentation
+        ki_wset_eu_recioto_amarone_contrast:
+          prompt: What happens to more grape sugar in Amarone than in sweet Recioto as fermentation proceeds
+            further?
+          acceptedAnswers:
+            - it is fermented
+            - more sugar becomes alcohol
+        ki_wset_eu_recioto_soave_sweet:
+          prompt: Which leading grape is associated with sweet Recioto di Soave?
+          acceptedAnswers:
+            - Garganega
+        ki_wset_eu_recioto_soave_selection:
+          prompt: What happens to saleable juice volume when grapes are dried for Recioto?
+          acceptedAnswers:
+            - it decreases
+            - reduced juice volume
+        ki_wset_eu_vino_nobile_sangiovese:
+          prompt: Which leading grape, locally Prugnolo Gentile, defines the Vino Nobile study association?
+          acceptedAnswers:
+            - Sangiovese
+        ki_wset_eu_vino_nobile_site:
+          prompt: Which physical ground characteristic varies between sandy, clay-rich and mixed Vino Nobile
+            hill sites?
+          acceptedAnswers:
+            - soil
+            - soil composition
+        ki_wset_eu_sicilia_terre_identity:
+          prompt: Which origin category belongs to Terre Siciliane IGT, in contrast to Sicilia DOC?
+          acceptedAnswers:
+            - PGI
+            - IGP
+            - protected geographical indication
+        ki_wset_eu_terre_siciliane_styles:
+          prompt: Besides ordinary still styles, name a concentrated-fruit wine category included in Terre
+            Siciliane.
+          acceptedAnswers:
+            - passito
+            - late harvest
+        ki_wset_eu_rioja_generico:
+          prompt: Which Rioja category can include young wines and ambitious wines outside the named ageing
+            categories?
+          acceptedAnswers:
+            - Genérico
+            - generic
+        ki_wset_eu_rioja_ageing_labels:
+          prompt: What production dimension do Crianza, Reserva and Gran Reserva principally specify in Rioja?
+          acceptedAnswers:
+            - minimum maturation
+            - maturation requirements
+            - ageing requirements
+        ki_wset_eu_rioja_label_quality:
+          prompt: What sensory judgement must still be made rather than automatically ranking Rioja quality by
+            age category?
+          acceptedAnswers:
+            - assess the actual wine
+            - tasting assessment
+        ki_wset_eu_catalunya_styles:
+          prompt: Name a black grape beyond Tempranillo that broadens Catalunya DO’s red-wine options.
+          acceptedAnswers:
+            - Garnacha
+            - Cariñena
+            - Cabernet Sauvignon
+            - Merlot
+        ki_wset_eu_catalunya_cellar:
+          prompt: Which fermentation control helps preserve fresh fruit in Catalunya whites and rosés?
+          acceptedAnswers:
+            - cool temperature control
+            - temperature-controlled fermentation
+        ki_wset_eu_calatayud_garnacha:
+          prompt: Which red grape is an important Calatayud study association?
+          acceptedAnswers:
+            - Garnacha
+            - Grenache
+        ki_wset_eu_calatayud_altitude:
+          prompt: Which topographic feature helps moderate Calatayud’s continental ripening environment?
+          acceptedAnswers:
+            - elevation
+            - altitude
+        ki_wset_eu_carinena_identity:
+          prompt: Which central red variety prevents Cariñena PDO from meaning compulsory pure Carignan?
+          acceptedAnswers:
+            - Garnacha
+            - Grenache
+        ki_wset_eu_carinena_style_range:
+          prompt: Name a cellar choice that can distinguish a young fruit-led Cariñena red from a more
+            structured or matured example.
+          acceptedAnswers:
+            - maturation
+            - oak maturation
+            - extraction
+        ki_wset_eu_bierzo_mencia:
+          prompt: Which red grape is the principal Bierzo study association?
+          acceptedAnswers:
+            - Mencía
+        ki_wset_eu_bierzo_cellar:
+          prompt: Which two cellar choices should be checked when Bierzo reds differ in tannin and wood
+            expression?
+          acceptedAnswers:
+            - extraction and maturation
+            - maturation and extraction
+        ki_wset_eu_valencia_reds:
+          prompt: Name one black-grape option for Valencia reds other than Cabernet Sauvignon or Merlot.
+          acceptedAnswers:
+            - Monastrell
+            - Tempranillo
+            - Garnacha Tintorera
+        ki_wset_eu_valencia_whites:
+          prompt: Name one local white-grape association taught for Valencia PDO.
+          acceptedAnswers:
+            - Merseguera
+            - Macabeo
+            - Malvasia
+            - Verdil
+        ki_wset_eu_valdepenas_identity:
+          prompt: What local name is used for Tempranillo in the Valdepeñas red association?
+          acceptedAnswers:
+            - Cencibel
+        ki_wset_eu_valdepenas_climate:
+          prompt: Which broad climate type combines Valdepeñas’s hot dry summers with strong seasonal
+            contrast?
+          acceptedAnswers:
+            - continental
+            - hot dry continental
+        ki_wset_eu_pt_doc_igp:
+          prompt: Which Portuguese traditional term corresponds to protected geographical-indication wine?
+          acceptedAnswers:
+            - Vinho Regional
+        ki_wset_eu_alentejo_alentejano:
+          prompt: Which named Portuguese IGP covers a broader area and allows greater flexibility than
+            Alentejo DOC?
+          acceptedAnswers:
+            - Alentejano IGP
+        ki_wset_eu_lisboa_atlantic:
+          prompt: Which ocean provides cooling influence and wind to exposed Lisboa coastal vineyards?
+          acceptedAnswers:
+            - Atlantic
+            - Atlantic Ocean
+        ki_wset_eu_lisboa_blends:
+          prompt: What grape information must be read because a broad Lisboa label does not prescribe one
+            recipe?
+          acceptedAnswers:
+            - blend composition
+            - grape varieties
+            - the grapes
+        ki_wset_eu_de_predicate_sweetness:
+          prompt: Which fruit condition is principally described by Kabinett, Spätlese and Auslese rather than
+            guaranteeing finished sweetness?
+          acceptedAnswers:
+            - grape maturity
+            - harvest maturity
+        ki_wset_eu_de_trocken_halbtrocken:
+          prompt: Which German finished-wine sweetness term means off-dry?
+          acceptedAnswers:
+            - halbtrocken
+        ki_wset_eu_at_dac_meaning:
+          prompt: What does the Austrian abbreviation DAC stand for?
+          acceptedAnswers:
+            - Districtus Austriae Controllatus
+        ki_wset_eu_at_dac_other_wines:
+          prompt: If a wine fails its region’s DAC profile, what kind of eligible origin may it use instead?
+          acceptedAnswers:
+            - a broader Austrian origin
+            - broader origin
+        ki_wset_eu_greece_pdo_origin:
+          prompt: Which label element identifies the grape variety rather than proving Santorini PDO origin?
+          acceptedAnswers:
+            - Assyrtiko
+            - a grape name
+        ki_wset_eu_greece_three_grapes:
+          prompt: Which red grape is associated with Naoussa, in contrast to Nemea’s Agiorgitiko?
+          acceptedAnswers:
+            - Xinomavro
+        ki_wset_eu_es_do_doca:
+          prompt: Which European protected-origin category do Spanish DO and DOCa correspond to?
+          acceptedAnswers:
+            - PDO
+            - protected designation of origin
+        ki_wset_eu_es_vino_tierra:
+          prompt: Which Spanish traditional term identifies PGI wine such as Castilla y León?
+          acceptedAnswers:
+            - Vino de la Tierra
+        ki_wset_eu_es_vino_pago:
+          prompt: Which Spanish traditional term identifies a protected delimited estate origin rather than an
+            ordinary brand name?
+          acceptedAnswers:
+            - Vino de Pago
+        ki_wset_eu_chalonnaise_colours:
+          prompt: Which Côte Chalonnaise appellation is the white-only Chardonnay example, unlike
+            red-and-white Rully, Mercurey and Givry?
+          acceptedAnswers:
+            - Montagny
+        ki_wset_eu_chalonnaise_site:
+          prompt: Name a vineyard variable inside Rully or Givry that can alter fruit ripening before cellar
+            treatment.
+          acceptedAnswers:
+            - slope position
+            - soil
+            - exposure
+        ki_wset_eu_maconnais_white_names:
+          prompt: Which white grape links Mâcon-Villages, Pouilly-Fuissé and Saint-Véran?
+          acceptedAnswers:
+            - Chardonnay
+        ki_wset_eu_saint_veran_style:
+          prompt: What sweetness category is the principal Saint-Véran Chardonnay study style?
+          acceptedAnswers:
+            - dry
+        ki_wset_eu_beaujolais_nouveau_identity:
+          prompt: What release timing distinguishes Beaujolais Nouveau from a cru appellation identity?
+          acceptedAnswers:
+            - early release
+            - released young
+        ki_wset_eu_beaujolais_nouveau_style:
+          prompt: Which tannin style can short whole-bunch maceration promote in Beaujolais Nouveau?
+          acceptedAnswers:
+            - gentle tannins
+            - soft tannins
+            - supple tannins
+        ki_wset_eu_frascati_white_blend:
+          prompt: Which two white-grape families frame the Frascati blend association?
+          acceptedAnswers:
+            - Malvasia and Trebbiano
+            - Trebbiano and Malvasia
+        ki_wset_eu_frascati_steel_lees:
+          prompt: In the documented Frascati Superiore example, what post-fermentation contact develops
+            texture after steel fermentation?
+          acceptedAnswers:
+            - lees ageing
+            - lees aging
+            - lees contact
+        ki_wset_eu_toro_grapes:
+          prompt: What is the local Tempranillo name strongly associated with Toro reds?
+          acceptedAnswers:
+            - Tinta de Toro
+        ki_wset_eu_toro_climate:
+          prompt: Which raised vineyard landform helps frame Toro’s dry continental growing environment?
+          acceptedAnswers:
+            - high plateau
+            - elevated plateau
+        ki_wset_eu_penedes_varieties:
+          prompt: Which important local white grape is taught for Penedès beyond its association with Cava?
+          acceptedAnswers:
+            - Xarel·lo
+        ki_wset_eu_penedes_sites:
+          prompt: Name the topographic variable that creates different Penedès conditions alongside coastal
+            and inland positions.
+          acceptedAnswers:
+            - elevation
+            - altitude
+        ki_wset_eu_penedes_xarello_oak:
+          prompt: Which vessel treatment appears in the board’s named still Xarel·lo producer example?
+          acceptedAnswers:
+            - barrel treatment
+            - oak barrels
+            - barrel maturation
+        ki_wset_eu_navarra_varieties:
+          prompt: Which black grape is associated with Navarra’s familiar rosé examples?
+          acceptedAnswers:
+            - Garnacha
+            - Grenache
+        ki_wset_eu_navarra_rose_skin:
+          prompt: Compared with red vinification, what skin-contact duration limits Navarra rosé colour and
+            tannin?
+          acceptedAnswers:
+            - shorter skin contact
+            - short maceration
+        ki_wset_eu_it_classico_origin:
+          prompt: Which Italian label term concerns a defined traditional production area rather than
+            maturation?
+          acceptedAnswers:
+            - Classico
+        ki_wset_eu_it_riserva_maturation:
+          prompt: For an Italian Riserva’s required duration, which origin’s rules must be consulted?
+          acceptedAnswers:
+            - the particular appellation
+            - the appellation specification
+        ki_wset_eu_at_qualitaetswein:
+          prompt: Which Austrian quality-wine category combines protected regional origin and official
+            approval?
+          acceptedAnswers:
+            - Qualitätswein
+        ki_wset_eu_at_predikatswein:
+          prompt: Which Austrian category adds specified fruit ripeness or harvest conditions to
+            Qualitätswein?
+          acceptedAnswers:
+            - Prädikatswein
+        ki_wset_eu_trentino_varieties:
+          prompt: Name a local Trentino variety beyond internationally familiar grapes.
+          acceptedAnswers:
+            - Nosiola
+            - Marzemino
+            - Teroldego
+        ki_wset_eu_trentino_sites:
+          prompt: Name one physical landscape feature that creates varied growing conditions across Trentino.
+          acceptedAnswers:
+            - mountains
+            - lakes
+            - altitude
+            - exposure
+        ki_wset_eu_friuli_grave_varieties:
+          prompt: Name a white variety listed for Friuli Grave besides Pinot Grigio.
+          acceptedAnswers:
+            - Sauvignon
+            - Chardonnay
+            - Friulano
+        ki_wset_eu_collio_white_identity:
+          prompt: Which Friuli hill appellation is strongly associated with white wines and differs from
+            flatter Friuli Grave?
+          acceptedAnswers:
+            - Collio
+        ki_wset_eu_languedoc_red_blends:
+          prompt: Name a Mediterranean black grape commonly associated with Minervois and Corbières red
+            blends.
+          acceptedAnswers:
+            - Syrah
+            - Grenache
+            - Mourvèdre
+            - Carignan
+        ki_wset_eu_minervois_corbieres_colours:
+          prompt: Besides reds, which two wine colours are also made in Minervois and Corbières?
+          acceptedAnswers:
+            - rosé and white
+            - white and rosé
+        ki_reg_fr_cabernet_late:
+          prompt: Which principal black Bordeaux variety normally ripens after Merlot?
+          acceptedAnswers:
+            - Cabernet Sauvignon
+        ki_reg_fr_merlot_early:
+          prompt: Which principal black Bordeaux variety normally ripens before Cabernet Sauvignon?
+          acceptedAnswers:
+            - Merlot
+        ki_reg_fr_cabernet_gravel:
+          prompt: Which Left Bank soil setting is particularly associated with Cabernet Sauvignon suitability?
+          acceptedAnswers:
+            - warm gravel
+            - gravel
+        ki_reg_fr_merlot_clay:
+          prompt: Which two Right Bank soil settings commonly accompany prominent Merlot plantings?
+          acceptedAnswers:
+            - clay and limestone
+            - limestone and clay
+        ki_reg_fr_cabernet_structure:
+          prompt: What structure can Cabernet Sauvignon contribute to a Bordeaux blend?
+          acceptedAnswers:
+            - tannic structure
+            - tannin
+        ki_reg_fr_merlot_roundness:
+          prompt: What palate quality can Merlot contribute alongside Cabernet Sauvignon in a blend?
+          acceptedAnswers:
+            - roundness
+            - a rounder palate
+        ki_reg_fr_chablis_cool:
+          prompt: Which seasonal hazard is notable in Chablis’s cool northern setting?
+          acceptedAnswers:
+            - spring frost
+            - frost
+        ki_reg_fr_chablis_vessels:
+          prompt: Which two vessel materials can Chablis producers use for fermentation or maturation?
+          acceptedAnswers:
+            - stainless steel and oak
+            - oak and stainless steel
+        ki_reg_fr_chablis_new_oak:
+          prompt: When Chablis uses wood, which barrel-age category often forms a low proportion?
+          acceptedAnswers:
+            - new barrels
+            - new oak
+        ki_reg_fr_nuits_pinot:
+          prompt: Which black grape predominates in Côte de Nuits red wines?
+          acceptedAnswers:
+            - Pinot Noir
+        ki_reg_fr_beaune_mix:
+          prompt: Which white grape becomes especially prominent from Meursault southwards in the Côte de
+            Beaune?
+          acceptedAnswers:
+            - Chardonnay
+        ki_reg_fr_climat_site:
+          prompt: What Burgundy term identifies a named vineyard plot with distinctive geological, water and
+            exposure conditions?
+          acceptedAnswers:
+            - Climat
+        ki_reg_fr_climat_separate:
+          prompt: How are Burgundy Climats handled in vinification to preserve comparisons of their origins?
+          acceptedAnswers:
+            - vinified separately
+            - separate vinification
+        ki_reg_fr_hautes_plateaus:
+          prompt: What type of raised inland landform behind the main Côte holds the Hautes Côtes vineyards?
+          acceptedAnswers:
+            - plateaus
+            - higher inland plateaus
+        ki_reg_fr_cote_aspect:
+          prompt: Name one physical benefit of the main Bourgogne hillside exposure for vines.
+          acceptedAnswers:
+            - sunlight
+            - drainage
+        ki_reg_fr_macon_warm:
+          prompt: Compared with northern Bourgogne, how does typical ripening proceed in warmer, drier
+            Mâconnais?
+          acceptedAnswers:
+            - faster
+            - earlier
+        ki_reg_fe_beaujolais_gamay:
+          prompt: Which red grape is the established Beaujolais association?
+          acceptedAnswers:
+            - Gamay
+        ki_reg_fe_beaujolais_hills:
+          prompt: Beaujolais vineyards lie between Massif Central foothills and which river plain?
+          acceptedAnswers:
+            - Saône plain
+        ki_reg_fe_beaujolais_parcels:
+          prompt: At what scale does detailed Beaujolais soil surveying support practical vineyard comparison?
+          acceptedAnswers:
+            - parcel scale
+            - individual parcels
+        ki_reg_fe_beaujolais_intact:
+          prompt: In intact berries near the top of a semi-carbonic Beaujolais vat, which fermentation
+            mechanism occurs?
+          acceptedAnswers:
+            - intracellular fermentation
+            - intracellular metabolism
+        ki_reg_fe_beaujolais_yeast:
+          prompt: What produces carbon dioxide in the juice released at the bottom of a semi-carbonic
+            Beaujolais vat?
+          acceptedAnswers:
+            - yeast fermentation
+            - alcoholic yeast fermentation
+        ki_reg_fe_beaujolais_pressing:
+          prompt: What timing change can reduce phenolic extraction in carbonic-style Beaujolais?
+          acceptedAnswers:
+            - earlier pressing
+            - pressing earlier
+        ki_reg_fe_beaujolais_maturation:
+          prompt: Besides extraction, which cellar decision helps explain Beaujolais structure and aroma
+            differences?
+          acceptedAnswers:
+            - maturation vessel
+            - vessel choice
+        ki_reg_fe_alsace_riesling:
+          prompt: Which structural component frames Alsace Riesling’s citrus and floral aromas?
+          acceptedAnswers:
+            - acidity
+            - high acidity
+        ki_reg_fe_alsace_gewurz:
+          prompt: Which floral aroma is a familiar Alsace Gewurztraminer association?
+          acceptedAnswers:
+            - rose
+            - rose petals
+        ki_reg_fe_alsace_pinot_gris:
+          prompt: Which Alsace grape is described by CIVA through weight, roundness and an acidic framework?
+          acceptedAnswers:
+            - Pinot Gris
+        ki_reg_fe_alsace_pinot_blanc:
+          prompt: Which Alsace grape provides the restrained peach/apple, lighter-palate comparison with
+            fuller Pinot Gris?
+          acceptedAnswers:
+            - Pinot Blanc
+        ki_reg_fe_alsace_shelter:
+          prompt: Which mountain range intercepts moist western air and contributes to Alsace’s relative
+            dryness?
+          acceptedAnswers:
+            - Vosges
+            - Vosges Mountains
+        ki_reg_fe_alsace_autumn:
+          prompt: What autumn day–night pattern can help extend Alsace ripening while retaining freshness?
+          acceptedAnswers:
+            - warm days and cool nights
+            - warm autumn days and cool nights
+        ki_reg_fe_alsace_foliage:
+          prompt: What canopy-height choice in Alsace can improve exposure and limit some frost damage?
+          acceptedAnswers:
+            - raised foliage
+            - higher foliage
+        ki_reg_fe_alsace_late_fruit:
+          prompt: In CIVA’s concentrated late-harvest example, what fruit characteristic underlies the richer
+            style?
+          acceptedAnswers:
+            - concentrated fruit
+            - fruit concentration
+        ki_reg_fe_alsace_muscat_dry:
+          prompt: Despite intense grape fragrance, what sweetness category can Alsace Muscat have?
+          acceptedAnswers:
+            - dry
+        ki_reg_fs_muscadet_melon:
+          prompt: Which grape is the established Muscadet association in the Nantais?
+          acceptedAnswers:
+            - Melon de Bourgogne
+            - Melon
+        ki_reg_fs_muscadet_lees:
+          prompt: Which post-fermentation contact can broaden Muscadet’s palate fullness?
+          acceptedAnswers:
+            - fine-lees contact
+            - lees contact
+        ki_reg_fs_chinon_grapes:
+          prompt: Which white grape accounts for small dry-white production alongside Chinon’s Cabernet Franc?
+          acceptedAnswers:
+            - Chenin Blanc
+        ki_reg_fr_vouvray_range:
+          prompt: Name a Vouvray Chenin style other than dry still wine.
+          acceptedAnswers:
+            - off-dry
+            - sweet
+            - sparkling
+        ki_reg_fs_anjou_oceanic:
+          prompt: Which broad climate influence gives Anjou relatively mild winters and limited seasonal
+            contrast?
+          acceptedAnswers:
+            - oceanic
+            - oceanic influence
+        ki_reg_fs_saumur_season:
+          prompt: Compared with Anjou, what does partial shelter give Saumur more of across the seasons?
+          acceptedAnswers:
+            - temperature variation
+            - seasonal temperature contrast
+        ki_reg_fs_chinon_sites:
+          prompt: Name a landform in Chinon that provides a contrasting Cabernet Franc site.
+          acceptedAnswers:
+            - alluvial terraces
+            - limestone slopes
+            - clay-flint plateaus
+        ki_reg_fs_layon_selection:
+          prompt: What harvest pattern selects concentrated Coteaux du Layon fruit across multiple visits?
+          acceptedAnswers:
+            - successive passes
+            - selective harvest passes
+        ki_reg_fs_savennieres_dry:
+          prompt: Which usual finished sweetness in Savennières shows that fully ripe Chenin need not be
+            sweet?
+          acceptedAnswers:
+            - dry
+        ki_reg_fr_centre_sauvignon:
+          prompt: Which grape provides the fresh aromatic Centre-Loire white association?
+          acceptedAnswers:
+            - Sauvignon Blanc
+            - Sauvignon
+        ki_reg_fr_centre_slow:
+          prompt: What ripening pace can Centre-Loire climate and soils support in Sauvignon?
+          acceptedAnswers:
+            - slow ripening
+            - slower ripening
+        ki_reg_fr_centre_microclimates:
+          prompt: What vineyard-scale climate variation results from Centre-Loire hills and differing
+            exposures?
+          acceptedAnswers:
+            - microclimates
+            - varied microclimates
+        ki_reg_fr_rhone_north_syrah:
+          prompt: Which black variety is emblematic of northern Rhône reds?
+          acceptedAnswers:
+            - Syrah
+        ki_reg_fs_marsanne_palate:
+          prompt: How is Marsanne acidity commonly described alongside its broad palate?
+          acceptedAnswers:
+            - moderate to low
+            - moderate to low acidity
+        ki_reg_fs_roussanne_sensitivity:
+          prompt: Name a disease to which Roussanne is susceptible in the Rhône vineyard context.
+          acceptedAnswers:
+            - powdery mildew
+            - grey rot
+            - gray rot
+        ki_reg_fr_rhone_terraces:
+          prompt: Which vineyard work resource can northern Rhône steep narrow terraces make demanding?
+          acceptedAnswers:
+            - labour
+            - labor
+            - manual work
+        ki_reg_fs_syrah_timing:
+          prompt: Compared with Grenache in the regional reference, how does Syrah tend to ripen?
+          acceptedAnswers:
+            - earlier
+            - earlier ripening
+        ki_reg_fr_rhone_south_blends:
+          prompt: Which two black grapes are especially prevalent alongside Syrah in the Mediterranean
+            southern Rhône?
+          acceptedAnswers:
+            - Grenache and Mourvèdre
+            - Mourvèdre and Grenache
+        ki_reg_fs_grenache_water:
+          prompt: Even with Grenache’s dry-site adaptation, what water-related condition must growers monitor?
+          acceptedAnswers:
+            - water constraint
+            - water stress
+        ki_reg_fs_gigondas_exposure:
+          prompt: Which mountain formations create varied exposures and local breezes in Gigondas?
+          acceptedAnswers:
+            - Dentelles de Montmirail
+            - Dentelles
+        ki_reg_fs_gigondas_soils:
+          prompt: Which physical water movement can Gigondas hillside surface debris help?
+          acceptedAnswers:
+            - infiltration
+            - water infiltration
+        ki_reg_fs_chateauneuf_variation:
+          prompt: Which cold, dry wind influences Châteauneuf-du-Pape alongside Mediterranean heat?
+          acceptedAnswers:
+            - Mistral
+        ki_reg_fs_lirac_variation:
+          prompt: Name one Lirac landform or soil setting that prevents treating it as one uniform site.
+          acceptedAnswers:
+            - limestone plateaus
+            - alluvial terraces
+            - sandy slopes
+        ki_reg_fs_madiran_tannat:
+          prompt: Which late-ripening, polyphenol-rich grape frames Madiran’s red-wine structure?
+          acceptedAnswers:
+            - Tannat
+        ki_reg_fs_jurancon_cycle:
+          prompt: Which budbreak-to-maturity pattern gives Petit and Gros Manseng a long growing cycle?
+          acceptedAnswers:
+            - early budbreak and late maturity
+            - early budding and late ripening
+        ki_reg_fs_cahors_terraces:
+          prompt: What river-valley landform gives Cahors relatively deep alluvial soils?
+          acceptedAnswers:
+            - Lot terraces
+            - alluvial terraces
+        ki_reg_fs_cahors_causses:
+          prompt: In Cahors’s higher limestone Causses, which rock feature can affect vine rooting depth?
+          acceptedAnswers:
+            - fissures
+            - rock fissures
+        ki_reg_fs_jurancon_foehn:
+          prompt: Which warm, dry autumn wind can assist on-vine concentration in Jurançon?
+          acceptedAnswers:
+            - foehn
+            - föhn
+        ki_reg_fs_madiran_extraction:
+          prompt: Name an extraction variable Madiran producers adjust to manage tannins.
+          acceptedAnswers:
+            - maceration duration
+            - skin-contact duration
+            - extraction intensity
+        ki_reg_fs_monbazillac_selection:
+          prompt: Which alternating morning and daytime conditions can favour Monbazillac noble rot?
+          acceptedAnswers:
+            - mist and sunshine
+            - morning mist and sunshine
+        ki_reg_fs_bergerac_dry:
+          prompt: Which grape adds fuller palate character alongside Sauvignon in Bergerac dry whites?
+          acceptedAnswers:
+            - Sémillon
+        ki_reg_fm_picpoul_variety:
+          prompt: Which white grape provides Picpoul de Pinet’s late-ripening, acid-retaining association?
+          acceptedAnswers:
+            - Piquepoul Blanc
+            - Picpoul Blanc
+        ki_reg_fm_languedoc_mediterranean:
+          prompt: Which broad climate type describes Languedoc’s predominantly hot, dry summers?
+          acceptedAnswers:
+            - Mediterranean
+        ki_reg_fm_languedoc_west:
+          prompt: Which additional climate influence distinguishes western Cabardès and Limoux from a
+            uniformly Mediterranean interpretation?
+          acceptedAnswers:
+            - oceanic
+            - Atlantic influence
+        ki_reg_fm_picpoul_exposure:
+          prompt: In Picpoul de Pinet, what northern landform attenuates the lagoon’s maritime influence?
+          acceptedAnswers:
+            - limestone hillocks
+            - northern relief
+        ki_reg_fm_bandol_late:
+          prompt: Which late-ripening black grape is the Bandol reference requiring a sufficiently long
+            season?
+          acceptedAnswers:
+            - Mourvèdre
+        ki_reg_fm_roussillon_colours:
+          prompt: Besides red wines, which two still-wine colours are included in Côtes du Roussillon?
+          acceptedAnswers:
+            - white and rosé
+            - rosé and white
+        ki_reg_fm_villages_red:
+          prompt: Which still-wine colour is the principal Côtes du Roussillon Villages comparison?
+          acceptedAnswers:
+            - red
+        ki_reg_fm_roussillon_seasons:
+          prompt: In Roussillon, which two seasons receive most rainfall outside the hot summer?
+          acceptedAnswers:
+            - spring and autumn
+            - autumn and spring
+        ki_reg_fm_roussillon_wind:
+          prompt: Which prominent dry northerly wind can limit humidity-related disease pressure in
+            Roussillon?
+          acceptedAnswers:
+            - Tramontane
+        ki_reg_fm_provence_maritime:
+          prompt: Which two physical influences vary between Provence’s coastal and interior sites beyond a
+            broad Mediterranean label?
+          acceptedAnswers:
+            - maritime exposure and topography
+            - sea influence and relief
+        ki_reg_fm_rose_direct:
+          prompt: Which Provence rosé method separates juice without a distinct pre-maceration period?
+          acceptedAnswers:
+            - direct pressing
+        ki_reg_fm_rose_maceration:
+          prompt: Which pre-fermentation operation extracts Provence rosé pigments before juice is pressed
+            off?
+          acceptedAnswers:
+            - skin maceration
+            - skin contact
+        ki_reg_fm_rose_cooling:
+          prompt: Which time of day can keep Provence harvest fruit cool and reduce subsequent chilling
+            demand?
+          acceptedAnswers:
+            - early morning
+            - morning
+        ki_reg_fm_bandol_structure:
+          prompt: Which black grape is associated with structure even in some pale Bandol rosés?
+          acceptedAnswers:
+            - Mourvèdre
+        ki_reg_inc_alto_adige_air:
+          prompt: Which mountain barrier shelters Alto Adige from cold, wet northern air?
+          acceptedAnswers:
+            - the Alps
+            - Alps
+        ki_reg_inc_alto_adige_variation:
+          prompt: Which two terrain variables create contrasting growing conditions within Alto Adige?
+          acceptedAnswers:
+            - elevation and topography
+            - altitude and terrain
+        ki_reg_inc_friuli_ponca:
+          prompt: Which alternating rock materials are described in Friuli Colli Orientali’s hills?
+          acceptedAnswers:
+            - marl and sandstone
+            - sandstone and marl
+        ki_reg_inc_friuli_position:
+          prompt: Which sea provides the ventilation context in front of Friuli Colli Orientali?
+          acceptedAnswers:
+            - Adriatic
+            - Adriatic Sea
+        ki_reg_inc_garganega_later:
+          prompt: Relative to Trebbiano di Soave, how does Garganega usually ripen?
+          acceptedAnswers:
+            - later
+            - later ripening
+        ki_reg_inc_trebbiano_freshness:
+          prompt: Which organic acid is high in the consortium’s earlier-ripening Trebbiano di Soave
+            description?
+          acceptedAnswers:
+            - malic acid
+        ki_reg_inc_amarone_drying:
+          prompt: What grape treatment precedes Amarone fermentation and concentrates berry constituents?
+          acceptedAnswers:
+            - drying
+            - appassimento
+        ki_reg_inc_ripasso_pomace:
+          prompt: What material from Amarone or Recioto is used to referment basic Valpolicella in Ripasso?
+          acceptedAnswers:
+            - pomace
+            - grape pomace
+        ki_reg_inc_valpolicella_fresh:
+          prompt: What maturation length frames the youthful basic Valpolicella study style?
+          acceptedAnswers:
+            - short
+            - relatively short maturation
+        ki_reg_inc_ripasso_structure:
+          prompt: Compared with its base wine, name one composition measure that the Ripasso process can
+            increase.
+          acceptedAnswers:
+            - alcohol
+            - phenolics
+            - extract
+        ki_reg_inc_nebbiolo_cycle:
+          prompt: Which budbreak-and-ripening combination lengthens Nebbiolo’s exposure to the Piedmont
+            growing season?
+          acceptedAnswers:
+            - early budbreak and late ripening
+            - early budding and late maturity
+        ki_reg_inc_barbera_timing:
+          prompt: Which Piedmont grape is usually harvested before Barbera in the consortium’s regional
+            sequence?
+          acceptedAnswers:
+            - Dolcetto
+        ki_reg_inc_nebbiolo_site:
+          prompt: Name one site variable to which Nebbiolo responds, apart from its grape identity.
+          acceptedAnswers:
+            - exposure
+            - temperature
+            - moisture
+            - soil water
+        ki_reg_inc_classico_heartland:
+          prompt: Between which two Tuscan cities is Chianti Classico’s historic heartland situated?
+          acceptedAnswers:
+            - Florence and Siena
+            - Siena and Florence
+        ki_reg_inc_classico_altitude:
+          prompt: Compared with warmer low sites, how can higher Chianti Classico sites develop?
+          acceptedAnswers:
+            - later
+            - later ripening
+        ki_reg_inc_classico_water:
+          prompt: Compared with stony upper slopes, which lower-slope soil material can hold more water in
+            Chianti Classico?
+          acceptedAnswers:
+            - clay
+            - clay-rich soil
+        ki_reg_inc_bolgheri_breeze:
+          prompt: Which coastal air movement can cool and ventilate Bolgheri vineyards?
+          acceptedAnswers:
+            - sea breezes
+            - sea breeze
+        ki_reg_inc_bolgheri_soils:
+          prompt: Which two broad origins contribute to Bolgheri’s varied soils?
+          acceptedAnswers:
+            - marine and alluvial
+            - alluvial and marine
+        ki_reg_inc_brunello_maturation:
+          prompt: Relative to younger Rosso di Montalcino, what production-time difference is associated with
+            Brunello?
+          acceptedAnswers:
+            - longer maturation
+            - long maturation
+        ki_reg_inc_sangiovese_design:
+          prompt: Besides environment and grape outcomes, which labour cost was considered in Chianti Classico
+            training research?
+          acceptedAnswers:
+            - pruning costs
+            - pruning
+        ki_reg_inc_chianti_separate:
+          prompt: What separate regulatory identity distinguishes Chianti Classico from generic Chianti?
+          acceptedAnswers:
+            - an autonomous production code
+            - a separate appellation
+        ki_reg_inc_orvieto_grapes:
+          prompt: Which two white grapes are central to the Orvieto blend association?
+          acceptedAnswers:
+            - Procanico and Grechetto
+            - Grechetto and Procanico
+        ki_reg_inc_jesi_air:
+          prompt: Which sea contributes winds alongside mountain air in Castelli di Jesi?
+          acceptedAnswers:
+            - Adriatic
+            - Adriatic Sea
+        ki_reg_inc_matelica_inland:
+          prompt: Compared with more sea-influenced Castelli di Jesi, what geographical setting characterises
+            Matelica?
+          acceptedAnswers:
+            - inland mountain setting
+            - more inland
+        ki_reg_inc_orvieto_sweetness:
+          prompt: Name an Orvieto sweetness category beyond secco.
+          acceptedAnswers:
+            - abboccato
+            - amabile
+            - dolce
+        ki_reg_isi_abruzzo_grapes_styles:
+          prompt: Which grape links Abruzzo red wines and Cerasuolo rosato despite their different
+            skin-contact choices?
+          acceptedAnswers:
+            - Montepulciano
+        ki_reg_isi_abruzzo_climate:
+          prompt: Compared with the mountain interior, how is Abruzzo’s coastal hill climate described?
+          acceptedAnswers:
+            - milder
+            - a milder coastal climate
+        ki_reg_isi_taurasi_late:
+          prompt: Which late-ripening grape requires a sufficiently long Taurasi growing season?
+          acceptedAnswers:
+            - Aglianico
+        ki_reg_isi_fiano_style:
+          prompt: Which nut-like note may develop with age in Fiano according to the Irpinia consortium?
+          acceptedAnswers:
+            - hazelnut
+            - hazelnut-like notes
+        ki_reg_isi_greco_style:
+          prompt: Which Irpinia white variety associated with Tufo provides the substantial-structure
+            comparison?
+          acceptedAnswers:
+            - Greco
+        ki_reg_isi_vulture_shared:
+          prompt: Which late-ripening black grape is shared by Taurasi and the Vulture area?
+          acceptedAnswers:
+            - Aglianico
+        ki_reg_isi_irpinia_terrain:
+          prompt: Within which Italian mountain system do Irpinia’s varied hills and valleys lie?
+          acceptedAnswers:
+            - Campanian Apennines
+            - Apennines
+        ki_reg_isi_fiano_local_moderation:
+          prompt: Besides local terrain, which natural cover can moderate Fiano di Avellino summer temperature
+            peaks?
+          acceptedAnswers:
+            - woodland
+            - woods
+        ki_reg_isi_vulture_setting:
+          prompt: What geological landform frames Vulture vineyards in northern Basilicata?
+          acceptedAnswers:
+            - an extinct volcano
+            - extinct volcano
+        ki_reg_isi_fiano_steel:
+          prompt: Which common vessel approach helps preserve fresh floral Fiano di Avellino character?
+          acceptedAnswers:
+            - temperature-controlled stainless steel
+            - stainless steel
+        ki_reg_isi_fiano_wood:
+          prompt: Which alternative maturation material can change Fiano’s texture and aroma without itself
+            proving better quality?
+          acceptedAnswers:
+            - wood
+            - oak
+        ki_reg_isi_taurasi_tannin:
+          prompt: Which grape structure makes careful maceration and maturation important for Taurasi?
+          acceptedAnswers:
+            - tannin
+            - substantial tannin
+        ki_reg_isi_primitivo_style:
+          prompt: Which finished taste must be checked because Primitivo di Manduria examples range from dry
+            to slightly sweet?
+          acceptedAnswers:
+            - residual sweetness
+            - sweetness
+        ki_reg_isi_salice_context:
+          prompt: Which black grape is central to Salice Salentino’s local tradition?
+          acceptedAnswers:
+            - Negroamaro
+        ki_reg_isi_nero_structure:
+          prompt: Which grape supplies ruby colour and substantial body in the Cerasuolo di Vittoria
+            consortium’s comparison?
+          acceptedAnswers:
+            - Nero d’Avola
+        ki_reg_isi_etna_north:
+          prompt: Which red grape is prominent in Etna’s relatively cool, protected northern slope?
+          acceptedAnswers:
+            - Nerello Mascalese
+        ki_reg_isi_etna_east:
+          prompt: Which white grape is especially associated with Etna’s rain-and-wind-exposed eastern slope?
+          acceptedAnswers:
+            - Carricante
+        ki_reg_isi_etna_factors:
+          prompt: Besides elevation, name one environmental variable that differs among Etna vineyard sites.
+          acceptedAnswers:
+            - orientation
+            - sunlight exposure
+            - rainfall
+            - ventilation
+            - temperature range
+        ki_reg_isi_etna_human:
+          prompt: Besides Etna’s physical site, which two production identities must wine comparisons account
+            for?
+          acceptedAnswers:
+            - grapes and cellar treatment
+            - grape variety and producer choices
+        ki_reg_isi_salice_styles:
+          prompt: Compared with structured Salice Salentino reds, what lighter wine-colour expression is also
+            described?
+          acceptedAnswers:
+            - rosato
+            - rosé
+        ki_reg_ib_rioja_gradient:
+          prompt: Across Rioja’s broad west-to-east climate gradient, how is the eastern setting generally
+            described?
+          acceptedAnswers:
+            - warmer and drier
+            - hotter and drier
+        ki_reg_ib_rioja_topography:
+          prompt: Name one topographic variable that modifies Rioja’s broad climate gradient within a site.
+          acceptedAnswers:
+            - mountain barriers
+            - elevation
+            - aspect
+        ki_reg_ib_rioja_red_cellar:
+          prompt: Which black grape is an established foundation of Rioja reds before blend and maturation
+            choices?
+          acceptedAnswers:
+            - Tempranillo
+        ki_reg_ib_rioja_white_oak:
+          prompt: Which white grape is associated with Rioja’s fruit-led and wood-influenced white
+            comparisons?
+          acceptedAnswers:
+            - Viura
+            - Macabeo
+        ki_reg_ib_priorat_access:
+          prompt: What vineyard operation can steep Priorat slopes and difficult access restrict?
+          acceptedAnswers:
+            - mechanisation
+            - mechanization
+        ki_reg_ib_rueda_verdejo_style:
+          prompt: Which white grape gives the fruit-and-herbal, acidic Rueda association?
+          acceptedAnswers:
+            - Verdejo
+        ki_reg_ib_ribera_elevation:
+          prompt: Which topographic variable in Ribera del Duero must be considered alongside warm summer
+            daytime readings?
+          acceptedAnswers:
+            - elevation
+            - altitude
+        ki_reg_ib_ribera_season:
+          prompt: Alongside dry summers, what winter character constrains Ribera del Duero’s growing season?
+          acceptedAnswers:
+            - long rigorous winters
+            - long cold winters
+        ki_reg_ib_rueda_ripening:
+          prompt: Besides elevation, which daily temperature pattern contributes to Rueda’s Verdejo
+            environment?
+          acceptedAnswers:
+            - day–night variation
+            - diurnal variation
+        ki_reg_ib_rias_canopy_context:
+          prompt: Which traditional training structure raises Rías Baixas fruit above damp ground and permits
+            ventilation?
+          acceptedAnswers:
+            - pergola
+            - pergolas
+        ki_reg_ib_levante_monastrell:
+          prompt: Which black grape’s long cycle requires care with early vegetal picking and late freshness
+            loss in Jumilla?
+          acceptedAnswers:
+            - Monastrell
+        ki_reg_ib_mancha_adaptation:
+          prompt: Which white grape is adapted to La Mancha’s continental temperatures and limited rainfall?
+          acceptedAnswers:
+            - Airén
+        ki_reg_ib_mancha_ferment:
+          prompt: Which cellar control can preserve a fresh young Airén style despite La Mancha’s heat?
+          acceptedAnswers:
+            - fermentation temperature control
+            - temperature-controlled fermentation
+        ki_reg_ib_verde_shelter:
+          prompt: Which more sheltered Vinho Verde subregion is associated with fuller whites and relatively
+            higher alcohol?
+          acceptedAnswers:
+            - Monção e Melgaço
+        ki_reg_ib_verde_atlantic:
+          prompt: Which ocean supplies Vinho Verde’s rainy, moderate-temperature growing influence?
+          acceptedAnswers:
+            - Atlantic
+            - Atlantic Ocean
+        ki_reg_ib_douro_blends:
+          prompt: Name one native variety frequently included in Douro still-red blends.
+          acceptedAnswers:
+            - Touriga Nacional
+            - Touriga Franca
+            - Tinta Roriz
+        ki_reg_ib_douro_shelter:
+          prompt: Which mountain barrier is named among those sheltering the Douro from direct Atlantic
+            moderation?
+          acceptedAnswers:
+            - Serra do Marão
+        ki_reg_ib_douro_gradient:
+          prompt: Relative to cooler, wetter Baixo Corgo, how is Douro Superior generally described?
+          acceptedAnswers:
+            - hotter and drier
+            - warmer and drier
+        ki_reg_ib_douro_terrain:
+          prompt: Which two terrain features complicate Douro vineyard operations?
+          acceptedAnswers:
+            - steep slopes and terraces
+            - steep terrain and terraces
+        ki_reg_ib_dao_encruzado:
+          prompt: Which Dão white grape is associated with a structured palate alongside acidity?
+          acceptedAnswers:
+            - Encruzado
+        ki_reg_ib_dao_mountains:
+          prompt: Which surrounding landform modifies Dão’s maritime and continental influences?
+          acceptedAnswers:
+            - mountains
+            - surrounding mountains
+        ki_reg_ib_bairrada_baga_ripening:
+          prompt: Which late-ripening Bairrada variety is particularly exposed to wet-harvest rot risks?
+          acceptedAnswers:
+            - Baga
+        ki_reg_ib_baga_structure:
+          prompt: Which two structural components can remain substantial in well-ripened Baga reds?
+          acceptedAnswers:
+            - acidity and tannin
+            - tannin and acidity
+        ki_reg_ib_alentejo_heat:
+          prompt: Name one black grape associated with ripe, fuller Alentejo red styles.
+          acceptedAnswers:
+            - Aragonez
+            - Alicante Bouschet
+        ki_reg_ib_alentejo_portalegre:
+          prompt: Which Alentejo subregion offers higher, cooler Serra de São Mamede sites?
+          acceptedAnswers:
+            - Portalegre
+        ki_reg_de_mosel_riesling_energy:
+          prompt: Which slowly ripening grape with marked acidity needs suitable site energy in the Mosel?
+          acceptedAnswers:
+            - Riesling
+        ki_reg_de_mosel_steep_work:
+          prompt: Which work resource is particularly required by steep and terraced Mosel vineyards?
+          acceptedAnswers:
+            - manual labour
+            - manual labor
+            - hand work
+        ki_reg_de_saar_exposure:
+          prompt: Which slope direction is described for Saar side-valley vineyard sites?
+          acceptedAnswers:
+            - south-facing
+        ki_reg_de_ruwer_relative_height:
+          prompt: Relative to the Mosel valley, what elevation position is described for Ruwer vineyards?
+          acceptedAnswers:
+            - higher
+            - higher elevation
+        ki_reg_de_nahe_site_variety:
+          prompt: Name one soil or rock setting that contributes to Nahe’s geological diversity.
+          acceptedAnswers:
+            - slate
+            - porphyry
+            - loess
+            - loam
+        ki_reg_de_nahe_shelter:
+          prompt: Which upland barrier shelters Nahe vineyards from cold winds?
+          acceptedAnswers:
+            - Hunsrück
+        ki_reg_de_rheingau_riesling_exposure:
+          prompt: Which exposure direction is prominent on Rheingau slopes at the westward Rhine bend?
+          acceptedAnswers:
+            - south-facing
+        ki_reg_de_rheinhessen_silvaner_range:
+          prompt: Which Rheinhessen white grape spans restrained fresh and richer wood-matured styles?
+          acceptedAnswers:
+            - Silvaner
+        ki_reg_de_rheinhessen_grauburgunder_vessels:
+          prompt: Name one vessel option available for Rheinhessen Grauburgunder.
+          acceptedAnswers:
+            - steel
+            - stainless steel
+            - larger wood
+            - barrique
+        ki_reg_de_rheinhessen_shelter:
+          prompt: What landform west of Rheinhessen shelters its vineyards from heavier rain?
+          acceptedAnswers:
+            - western uplands
+            - uplands
+        ki_reg_de_rheinhessen_terrain:
+          prompt: Alongside rolling hills, which river-linked landform creates different Rheinhessen sites?
+          acceptedAnswers:
+            - Rhine terraces
+            - river terraces
+        ki_reg_de_pfalz_grape_style_range:
+          prompt: Which red Pinot name in Pfalz introduces tannin and wood-treatment questions unlike
+            Riesling?
+          acceptedAnswers:
+            - Spätburgunder
+            - Pinot Noir
+        ki_reg_de_pfalz_forest_shelter:
+          prompt: Which forest shelters the Pfalz vineyard corridor between the Rhine plain and Haardt?
+          acceptedAnswers:
+            - Pfälzerwald
+        ki_reg_de_baden_grape_context:
+          prompt: Which grape is a distinctive Markgräflerland association within Baden’s varied local
+            pattern?
+          acceptedAnswers:
+            - Gutedel
+        ki_reg_de_franken_silvaner_palate:
+          prompt: How is Franken Silvaner acidity generally described in the regional palate comparison?
+          acceptedAnswers:
+            - mild
+            - mild acidity
+        ki_reg_de_franken_muller_fresh:
+          prompt: Which early-ripening Franken grape supplies gentle acidity and lightly floral or muscat-like
+            aromas?
+          acceptedAnswers:
+            - Müller-Thurgau
+        ki_reg_de_baden_kaiserstuhl_warm:
+          prompt: Which notably warm site is one part of Baden’s varied growing climate?
+          acceptedAnswers:
+            - Kaiserstuhl
+        ki_reg_de_baden_pinot_light:
+          prompt: Compared with firmer Spätburgunder examples, how does tannin feel in DWI’s classic lighter
+            expression?
+          acceptedAnswers:
+            - milder
+            - mild tannin
+        ki_reg_de_baden_pinot_wood:
+          prompt: Name one aroma small-oak treatment can add to a structured Spätburgunder example.
+          acceptedAnswers:
+            - vanilla
+            - cinnamon
+        ki_reg_ah_weinviertel_gv:
+          prompt: Which peppery and fruity grape is Weinviertel’s central association?
+          acceptedAnswers:
+            - Grüner Veltliner
+        ki_reg_ah_wachau_air:
+          prompt: Which eastern warmth influence interacts with cooler forest-valley air in the Wachau?
+          acceptedAnswers:
+            - Pannonian
+            - Pannonian influence
+        ki_reg_ah_wachau_walls:
+          prompt: What is retained by Wachau’s dry-stone terraces to help limit erosion?
+          acceptedAnswers:
+            - soil
+            - vineyard soil
+        ki_reg_ah_weinviertel_sites:
+          prompt: Which Weinviertel town lies in the Manhartsberg rain-shadow setting?
+          acceptedAnswers:
+            - Retz
+        ki_reg_ah_neusiedler_zweigelt:
+          prompt: Which red grape is prominent at Neusiedlersee and can follow steel or wood cellar routes?
+          acceptedAnswers:
+            - Zweigelt
+        ki_reg_ah_leithaberg_grapes:
+          prompt: Which black grape centres Leithaberg’s red-wine association alongside its separate white
+            varieties?
+          acceptedAnswers:
+            - Blaufränkisch
+        ki_reg_ah_neusiedler_botrytis:
+          prompt: Which autumn atmospheric condition around Lake Neusiedl can favour botrytis development?
+          acceptedAnswers:
+            - humidity and mist
+            - autumn humidity
+            - autumn mist
+        ki_reg_ah_leithaberg_climate:
+          prompt: Near Leithaberg, what acts as a heat store alongside cooler air from the wooded ridge?
+          acceptedAnswers:
+            - Lake Neusiedl
+            - the lake
+        ki_reg_ah_eisenberg_access:
+          prompt: Besides steepness, which inherited plot characteristic can make Eisenberg vineyards
+            difficult to mechanise?
+          acceptedAnswers:
+            - narrow plots
+            - narrow plot shape
+        ki_reg_ah_tokaj_furmint:
+          prompt: Which structural component is marked in Tokaj Furmint despite relatively restrained varietal
+            perfume?
+          acceptedAnswers:
+            - acidity
+            - high acidity
+        ki_reg_ah_tokaj_hars:
+          prompt: Which Tokaj grape is described as softer and more aromatic than Furmint?
+          acceptedAnswers:
+            - Hárslevelű
+        ki_reg_ah_tokaj_continental:
+          prompt: Which hills shelter some Tokaj southern slopes from cold northeastern winds?
+          acceptedAnswers:
+            - Zemplén hills
+        ki_reg_ah_tokaj_autumn:
+          prompt: After humid infection conditions, what weather is needed for useful Tokaj noble-rot
+            concentration?
+          acceptedAnswers:
+            - dry weather
+            - sufficient drying weather
+        ki_reg_ah_tokaj_aszu_selection:
+          prompt: What picking pattern selects Aszú berries that develop at different stages within a bunch?
+          acceptedAnswers:
+            - repeated selective passes
+            - selective harvesting in repeated passes
+        ki_reg_gr_xinomavro_structure:
+          prompt: Despite pale colour, which two structural components can be firm in Xinomavro?
+          acceptedAnswers:
+            - tannin and acidity
+            - acidity and tannin
+        ki_reg_gr_naoussa_seasons:
+          prompt: Which noncoastal climate influence contributes Naoussa’s cold winters and hot summers?
+          acceptedAnswers:
+            - continental influence
+            - continental
+        ki_reg_gr_naoussa_variation:
+          prompt: Name one physical vineyard variable that differs across Mount Vermio’s Naoussa slopes.
+          acceptedAnswers:
+            - elevation
+            - orientation
+            - soil
+        ki_reg_gr_naoussa_style_choices:
+          prompt: What young-palate character can longer maceration and wood maturation produce in Naoussa?
+          acceptedAnswers:
+            - austere
+            - austerity
+        ki_reg_gr_nemea_altitude:
+          prompt: Which vineyard-height variable can change ripening timing within Nemea?
+          acceptedAnswers:
+            - altitude
+            - elevation
+        ki_reg_gr_nemea_inland_nights:
+          prompt: What daily temperature contrast can be marked at higher inland Nemea sites?
+          acceptedAnswers:
+            - day–night temperature variation
+            - diurnal variation
+        ki_reg_gr_nemea_extraction_oak:
+          prompt: Which post-fermentation extraction choice is documented for GAIA’s Nemea Estate wine?
+          acceptedAnswers:
+            - extended maceration
+            - extended post-fermentation maceration
+        ki_reg_gr_agiorgitiko_young:
+          prompt: How are tannins commonly described in the young, fruit-led Agiorgitiko dry-red example?
+          acceptedAnswers:
+            - soft
+            - softer tannins
+        ki_reg_gr_assyrtiko_acidity:
+          prompt: Which white grape can retain crisp acidity alongside substantial body in hot, dry Greek
+            conditions?
+          acceptedAnswers:
+            - Assyrtiko
+        ki_reg_gr_santorini_wind_drought:
+          prompt: Which wind direction contributes Santorini’s strong exposure challenge?
+          acceptedAnswers:
+            - northerly
+            - north
+        ki_reg_gr_santorini_kouloura:
+          prompt: What local basket-training name describes Santorini vines kept low to shelter bunches?
+          acceptedAnswers:
+            - kouloura
+        ki_reg_gr_santorini_lees_oak:
+          prompt: Which maturation contact can broaden dry Santorini texture even when no oak is used?
+          acceptedAnswers:
+            - fine-lees contact
+            - lees maturation
+        ki_reg_am_carneros_cooling:
+          prompt: Across which bay does marine air moderate Carneros vineyard temperatures?
+          acceptedAnswers:
+            - San Pablo Bay
+        ki_reg_am_upper_napa_warmth:
+          prompt: What cooling influence is generally reduced farther up Napa Valley compared with bay-side
+            sites?
+          acceptedAnswers:
+            - marine influence
+            - Pacific moderation
+        ki_reg_am_russian_river_pinot:
+          prompt: Which Pacific weather feature cools Russian River Valley and extends ripening?
+          acceptedAnswers:
+            - fog
+            - Pacific fog
+        ki_reg_am_alexander_cabernet:
+          prompt: Which later-ripening black grape suits warmer inland Alexander Valley?
+          acceptedAnswers:
+            - Cabernet Sauvignon
+        ki_reg_am_maipo_cabernet:
+          prompt: Which black grape is an established focus in Maipo’s hot, dry summer setting?
+          acceptedAnswers:
+            - Cabernet Sauvignon
+        ki_reg_am_colchagua_reds:
+          prompt: Which two breeze sources can extend Colchagua ripening while retaining acidity?
+          acceptedAnswers:
+            - Pacific and Andean
+            - ocean and Andes
+        ki_reg_sh_cab_maritime:
+          prompt: Which broad moderating influence is shared by Margaret River and Coonawarra through
+            different local conditions?
+          acceptedAnswers:
+            - maritime moderation
+            - marine influence
+        ki_reg_sh_cab_styles:
+          prompt: What similar Cabernet body range prevents body alone from separating Margaret River and
+            Coonawarra?
+          acceptedAnswers:
+            - medium to full-bodied
+            - medium to full body
+        ki_reg_sh_hawkes_reds:
+          prompt: Name a red-wine association supported at suitable sunny Hawke’s Bay sites.
+          acceptedAnswers:
+            - Cabernet-based blends
+            - Cabernet blends
+            - Syrah
+        ki_reg_sh_hawkes_cool:
+          prompt: Which white grape is supported by coastal and higher Hawke’s Bay sites?
+          acceptedAnswers:
+            - Chardonnay
+        ki_reg_sh_stellenbosch_heat:
+          prompt: What exposure-dependent air movement can moderate Stellenbosch heat while sunlight supports
+            Cabernet ripening?
+          acceptedAnswers:
+            - sea breezes
+            - sea breeze
+        ki_reg_sh_stellenbosch_aspect:
+          prompt: Which two vineyard terrain features alter Stellenbosch sunlight, air exposure and drainage?
+          acceptedAnswers:
+            - aspect and slope
+            - slope and aspect
+        ki_reg_sh_barossa_floor:
+          prompt: Which red variety commonly produces ripe full-bodied wines on warmer Barossa valley-floor
+            sites?
+          acceptedAnswers:
+            - Shiraz
+            - Syrah
+        ki_reg_sh_eden_sites:
+          prompt: Compared with Barossa Valley, under what relative temperatures does Eden Valley generally
+            ripen and harvest?
+          acceptedAnswers:
+            - cooler
+            - cooler conditions
+        ki_reg_oa_hunter_moderation:
+          prompt: Name one moderating influence that qualifies Hunter Valley’s warm, humid climate.
+          acceptedAnswers:
+            - cloud cover
+            - rainfall
+            - sea breezes
+        ki_reg_oa_hunter_rain:
+          prompt: Besides forecast rain, what fruit-health evidence should be checked before picking an early
+            Hunter Sémillon lot?
+          acceptedAnswers:
+            - actual fruit health
+            - fruit condition
+        ki_reg_oa_hunter_early:
+          prompt: At early flavour ripeness, which grape-composition level can be relatively low in Hunter
+            Sémillon?
+          acceptedAnswers:
+            - sugar
+            - grape sugar
+        ki_reg_oa_hunter_bottle:
+          prompt: Which two developed aromas can classic unoaked Hunter Sémillon acquire in bottle?
+          acceptedAnswers:
+            - toast and honey
+            - honey and toast
+        ki_reg_na_sta_rita_grapes:
+          prompt: Name a principal cool-site grape associated with Sta. Rita Hills marine exposure.
+          acceptedAnswers:
+            - Pinot Noir
+            - Chardonnay
+        ki_reg_na_happy_later_grapes:
+          prompt: Compared with western marine sites, what temperature setting lets Happy Canyon support
+            later-ripening Cabernet Sauvignon?
+          acceptedAnswers:
+            - warmer growing conditions
+            - inland warmth
+        ki_reg_am_willamette_pinot:
+          prompt: Which variety is the flagship of Willamette Valley despite other grapes also being grown?
+          acceptedAnswers:
+            - Pinot Noir
+        ki_reg_am_rogue_diversity:
+          prompt: What kind of local climate variation lets Rogue Valley accommodate both cool- and
+            warm-climate varieties?
+          acceptedAnswers:
+            - varied microclimates
+            - warmer and cooler microclimates
+        ki_reg_am_casablanca_low:
+          prompt: Name a white grape favoured by lower, cooler Casablanca sites.
+          acceptedAnswers:
+            - Sauvignon Blanc
+            - Chardonnay
+        ki_reg_am_casablanca_high:
+          prompt: Compared with low Casablanca sites, how can some higher sites differ in temperature and
+            frost exposure?
+          acceptedAnswers:
+            - warmer and less frost-prone
+            - warmer with less frost risk
+        ki_reg_oa_constantia_aspects:
+          prompt: At Klein Constantia, which Sauvignon slope direction ripens earlier than south-facing sites
+            in the estate account?
+          acceptedAnswers:
+            - east-facing
+        ki_reg_sh_elgin_ripening:
+          prompt: What happens to the ripening period under Elgin’s elevated, windy and cloud-moderated
+            conditions?
+          acceptedAnswers:
+            - it is extended
+            - longer ripening
+            - slower ripening
+        ki_reg_sh_hemel_maritime:
+          prompt: Which natural body’s proximity moderates Hemel-en-Aarde temperatures?
+          acceptedAnswers:
+            - the ocean
+            - ocean
+        ki_reg_oa_constantia_assembly:
+          prompt: How are Klein Constantia Sauvignon blocks fermented before the estate blend is assembled?
+          acceptedAnswers:
+            - separately
+            - separate fermentation
+        ki_reg_sh_yarra_mesoclimate:
+          prompt: Which two topographic features create different mesoclimates in Yarra Valley?
+          acceptedAnswers:
+            - altitude and aspect
+            - elevation and aspect
+        ki_reg_sh_mornington_maritime:
+          prompt: Which broad climate influence strongly moderates Mornington Peninsula sites?
+          acceptedAnswers:
+            - maritime
+            - maritime influence
+        ki_reg_sh_martinborough_setting:
+          prompt: What soil drainage character accompanies Martinborough’s cool, dry Pinot Noir context?
+          acceptedAnswers:
+            - free-draining
+            - good drainage
+        ki_reg_sh_wairarapa_variation:
+          prompt: Which Wairarapa subregion is described through cooler river-terrace sites rather than using
+            Martinborough for the whole area?
+          acceptedAnswers:
+            - Gladstone
+        ki_reg_sh_marlborough_wairau:
+          prompt: What moderates Wairau’s coastal sites compared with its early-ripening inland stony sites?
+          acceptedAnswers:
+            - sea breezes
+            - sea breeze
+        ki_reg_sh_marlborough_awatere:
+          prompt: Relative to Wairau, give Awatere’s usual temperature, rainfall and wind contrast.
+          acceptedAnswers:
+            - cooler drier and windier
+        ki_reg_sh_otago_gibbston:
+          prompt: Compared with warmer Central Otago subregions, how does higher Gibbston tend to ripen Pinot
+            Noir?
+          acceptedAnswers:
+            - later
+            - later ripening
+        ki_reg_sh_otago_bannockburn:
+          prompt: Compared with cooler Central Otago subregions, when can warm dry Bannockburn harvest?
+          acceptedAnswers:
+            - earlier
+            - earlier harvest
+        ki_reg_oa_robertson_unwooded:
+          prompt: Which lees operation accompanies steel fermentation in De Wetshof’s unoaked 2025 Limestone
+            Hill Chardonnay?
+          acceptedAnswers:
+            - lees stirring
+            - stirring the lees
+        ki_reg_oa_adelaide_warm_slopes:
+          prompt: Which black grape can ripen on some warm northern west-facing Adelaide Hills slopes?
+          acceptedAnswers:
+            - Cabernet Sauvignon
+        ki_reg_oa_adelaide_sauvignon:
+          prompt: Which Adelaide Hills white grape can combine tropical fruit with gooseberry or herbal
+            nuances?
+          acceptedAnswers:
+            - Sauvignon Blanc
+        ki_reg_sh_clare_cooling:
+          prompt: Besides cooling breezes, what daily temperature pattern helps Clare Valley retain acidity?
+          acceptedAnswers:
+            - warm days and cool nights
+            - day–night variation
+        ki_reg_oa_mclaren_varietal_blend:
+          prompt: Alongside varietal Grenache, which three-letter blend style is documented in McLaren Vale?
+          acceptedAnswers:
+            - GSM
+            - GSM blend
+        ki_reg_sh_chenin_fresh:
+          prompt: Which South African white grape spans fresh fruit-led and fuller styles rather than having
+            one fixed regional profile?
+          acceptedAnswers:
+            - Chenin Blanc
+        ki_reg_sh_chenin_oak:
+          prompt: Which fermentation vessel can support a richer South African Chenin expression?
+          acceptedAnswers:
+            - barrel
+            - oak barrel
+        ki_reg_am_mendoza_temperature:
+          prompt: At Adrianna in Gualtallary, which topographic feature moderates temperature relative to
+            lower sites?
+          acceptedAnswers:
+            - elevation
+            - altitude
+        ki_reg_am_andes_irrigation:
+          prompt: Which mountain-derived water source supports irrigation in many arid Argentine wine valleys?
+          acceptedAnswers:
+            - Andean meltwater
+            - Andes meltwater
+        ki_reg_am_argentina_methods:
+          prompt: Which two irrigation delivery methods are documented in Argentine vineyards?
+          acceptedAnswers:
+            - flood and drip
+            - drip and flood
+        ki_reg_na_santa_cruz_east:
+          prompt: Compared with the coast, how is the inland eastern Santa Cruz Mountains setting broadly
+            described?
+          acceptedAnswers:
+            - warmer and less windy
+            - warmer with less wind
+        ki_reg_na_santa_cruz_coastal:
+          prompt: Name one ocean-related cooling influence associated with coastal Santa Cruz Mountains Pinot
+            and Chardonnay sites.
+          acceptedAnswers:
+            - ocean breezes
+            - fog
+        ki_reg_am_templeton_ripening:
+          prompt: What ripening-period effect can cooler Templeton Gap provide?
+          acceptedAnswers:
+            - extended ripening
+            - longer ripening
+        ki_reg_na_slh_morning_aspect:
+          prompt: Which sunlight timing results from Santa Lucia Highlands’ east-facing benches?
+          acceptedAnswers:
+            - morning sunshine
+            - morning sun
+        ki_reg_am_templeton_air:
+          prompt: What passage through the mountains channels Pacific cooling into Templeton Gap?
+          acceptedAnswers:
+            - gaps in the Santa Lucia Range
+            - mountain gaps
+        ki_reg_na_slh_chardonnay_range:
+          prompt: Which white variety illustrates Santa Lucia Highlands’ leaner-to-richer palate range?
+          acceptedAnswers:
+            - Chardonnay
+        ki_reg_na_lodi_canopy_air:
+          prompt: Name one canopy operation used at TruLux in 2018 to improve bunch airflow.
+          acceptedAnswers:
+            - shoot thinning
+            - leaf removal
+        ki_reg_na_oregon_whole_cluster_effect:
+          prompt: Besides aromatic effects, what structural dimension can stems add in Cristom’s whole-cluster
+            Pinot Noir?
+          acceptedAnswers:
+            - tannin
+            - a tannin dimension
+        ki_reg_am_washington_irrigation:
+          prompt: What water-management practice is needed in most eastern Washington vineyards behind the
+            rain shadow?
+          acceptedAnswers:
+            - irrigation
+        ki_reg_am_washington_diurnal:
+          prompt: Which nighttime condition can help eastern Washington retain acidity after warm summer days?
+          acceptedAnswers:
+            - cool nights
+            - nighttime cooling
+        ki_reg_am_finger_spring:
+          prompt: What spring vine-growth event can the Finger Lakes’ slow water warming delay?
+          acceptedAnswers:
+            - budbreak
+            - bud burst
+        ki_reg_am_finger_autumn:
+          prompt: What autumn vineyard opportunity can slowly cooling Finger Lakes water extend?
+          acceptedAnswers:
+            - ripening
+            - the ripening period
+        ki_reg_am_niagara_water:
+          prompt: Which two water bodies moderate Niagara-on-the-Lake frost exposure?
+          acceptedAnswers:
+            - Lake Ontario and Niagara River
+            - Niagara River and Lake Ontario
+        ki_reg_na_niagara_slope_air:
+          prompt: During radiation frost, what air movement can Niagara Escarpment slopes facilitate?
+          acceptedAnswers:
+            - cold air moving downslope
+            - cold-air drainage
+        ki_reg_na_okanagan_north_aromatic:
+          prompt: Name one grape association for cooler northern Okanagan sites.
+          acceptedAnswers:
+            - Riesling
+            - Pinot Noir
+        ki_reg_na_okanagan_warm_cabernet:
+          prompt: Which later-ripening black grape is suited to warmer Okanagan sites near Osoyoos?
+          acceptedAnswers:
+            - Cabernet Sauvignon
+        ki_reg_am_okanagan_variation:
+          prompt: Within Okanagan Valley, what scale of origin should be checked because soils and climates
+            differ?
+          acceptedAnswers:
+            - the specific site
+            - subregion
+        ki_reg_am_limari_chardonnay:
+          prompt: Which named morning fog accompanies maritime moderation in coastal Limarí?
+          acceptedAnswers:
+            - Camanchaca
+        ki_reg_am_aconcagua_coast:
+          prompt: Name one cool-climate grape associated with coastal Aconcagua rather than its inland red
+            tradition.
+          acceptedAnswers:
+            - Chardonnay
+            - Sauvignon Blanc
+            - Pinot Noir
+        ki_reg_sa_biobio_grapes:
+          prompt: Name one aromatic white variety described south of the Bío-Bío river.
+          acceptedAnswers:
+            - Sauvignon Blanc
+            - Riesling
+        ki_reg_sa_biobio_weather:
+          prompt: Besides Bío-Bío’s coolness and wind, which water-from-weather factor calls for health
+            checks?
+          acceptedAnswers:
+            - substantial rainfall
+            - rainfall
+        ki_reg_sa_salta_grapes:
+          prompt: Name a Salta/Calchaquí black-grape association beyond the region’s Torrontés whites.
+          acceptedAnswers:
+            - Malbec
+            - Cabernet Sauvignon
+            - Tannat
+        ki_reg_sa_torrontes_identity:
+          prompt: How many genetically distinct Argentine cultivars share the Torrontés name in the INV
+            account?
+          acceptedAnswers:
+            - three
+            - "3"
+        ki_reg_sa_torrontes_riojano:
+          prompt: Which Torrontés cultivar provides the principal aromatic northwest and Calchaquí
+            association?
+          acceptedAnswers:
+            - Torrontés Riojano
+        ki_reg_sa_sanjuan_valleys:
+          prompt: Which San Juan valley supplies the cooler, dry comparison with warm Tulum?
+          acceptedAnswers:
+            - Pedernal
+        ki_reg_sa_rionegro_profiles:
+          prompt: Alongside loamy-sandy and sandy profiles, what soil texture is documented near Río Negro’s
+            middle barda?
+          acceptedAnswers:
+            - clay-rich
+            - clay
+        ki_reg_sa_neuquen_grapes:
+          prompt: Which named wine centre belongs to Neuquén rather than Río Negro?
+          acceptedAnswers:
+            - San Patricio del Chañar
+        ki_reg_sa_salta_canopy:
+          prompt: Which vineyard management dimension did Domingo Molina link to avoiding overripeness in
+            sunny Calchaquí sites?
+          acceptedAnswers:
+            - foliage management
+            - canopy management
+        ki_reg_sa_pedernal_exposure:
+          prompt: Which two times of day differ in sun exposure on opposing Pedernal slopes in the producer
+            account?
+          acceptedAnswers:
+            - morning and evening
+            - evening and morning
+        ki_reg_am_patagonia_latitude:
+          prompt: Which coordinate-related factor helps explain cooler temperatures farther south in
+            Patagonia?
+          acceptedAnswers:
+            - latitude
+            - southerly latitude
+        ki_reg_am_patagonia_evaporation:
+          prompt: In arid eastern Patagonia, what water-loss process is increased by strong winds?
+          acceptedAnswers:
+            - evaporation
+            - evaporative water loss
+        ki_reg_oa_paarl_water_sites:
+          prompt: What additional summer water practice is described for Paarl valley land compared with some
+            water-retaining slopes?
+          acceptedAnswers:
+            - supplementary irrigation
+            - irrigation
+        ki_reg_sh_swartland_variation:
+          prompt: Name one cooling factor that distinguishes some Swartland sites from hot Malmesbury
+            settings.
+          acceptedAnswers:
+            - Atlantic breezes
+            - elevation
+        ki_reg_sh_swartland_shade:
+          prompt: What does a bush-vine canopy provide to fruit in the cited Swartland summer-heat example?
+          acceptedAnswers:
+            - shade
+            - fruit shading
+        ki_reg_oa_paarl_fairview:
+          prompt: Which supplementary summer irrigation delivery system is used in most Fairview home
+            vineyards?
+          acceptedAnswers:
+            - drip irrigation
+            - drip
+        ki_reg_oa_robertson_water:
+          prompt: Which river supplies Robertson’s important water context alongside low rainfall?
+          acceptedAnswers:
+            - Breede River
+            - Breede
+        ki_reg_sh_price_costs:
+          prompt: Which two broad business costs should be analysed to estimate a sustainable Australian wine
+            selling price?
+          acceptedAnswers:
+            - production and selling costs
+            - production and route-to-market costs
+        ki_reg_sh_price_demand:
+          prompt: Besides competing offers, whose perceived value influences an achievable wine price?
+          acceptedAnswers:
+            - the target customer’s
+            - customer perceived value
+        ki_reg_oa_adelaide_m3_process:
+          prompt: In the 2025 M3 Chardonnay record, which two fermentation types occur in French oak?
+          acceptedAnswers:
+            - alcoholic and malolactic
+            - alcoholic and malolactic fermentation
+        ki_reg_oa_mclaren_gentle_cap:
+          prompt: In Yangarra’s 2024 Old Vine Grenache, how vigorous is the documented pump-over or
+            cap-wetting regime?
+          acceptedAnswers:
+            - gentle
+            - gentle pump overs
+        ki_reg_sh_tasmania_chardonnay:
+          prompt: Which structure is naturally high in the cool Tasmania Chardonnay association?
+          acceptedAnswers:
+            - acidity
+            - natural acidity
+        ki_reg_sh_tasmania_hazards:
+          prompt: Name a growing hazard that must be considered in the Tasmania regional reference.
+          acceptedAnswers:
+            - spring frost
+            - high humidity
+        ki_reg_oa_nelson_moutere:
+          prompt: Compared with Waimea, how are Nelson’s Moutere Hills described in temperature and rainfall?
+          acceptedAnswers:
+            - warmer and wetter
+            - slightly warmer and wetter
+        ki_reg_oa_nelson_waimea:
+          prompt: What broad soil setting accompanies Waimea Plains’ maritime moderation?
+          acceptedAnswers:
+            - stony alluvial soils
+            - alluvial stony soils
+        ki_reg_oa_gisborne_patutahi:
+          prompt: Which aromatic white grape is associated with rich expressions in warmer inland Patutahi?
+          acceptedAnswers:
+            - Gewurztraminer
+        ki_reg_oa_gisborne_manutuke:
+          prompt: Which white grape is associated with well-drained sandy coastal Manutuke sites?
+          acceptedAnswers:
+            - Chardonnay
+        ki_reg_oa_canterbury_riesling:
+          prompt: Which two sweetness ends are represented in North Canterbury Riesling?
+          acceptedAnswers:
+            - dry and dessert
+            - dry and sweet
+        ki_reg_oa_canterbury_pinot:
+          prompt: Beyond perfumed lighter versions, what fuller visual style can North Canterbury Pinot Noir
+            also display?
+          acceptedAnswers:
+            - darker and more substantial
+            - darker expressions
+        ki_reg_oa_canterbury_waipara:
+          prompt: Which drying wind remains a Waipara challenge despite shelter from surrounding hills?
+          acceptedAnswers:
+            - nor’wester
+            - norwester
+        ki_reg_oa_canterbury_plains:
+          prompt: Compared with Waipara, how are Canterbury Plains sites generally described in temperature?
+          acceptedAnswers:
+            - slightly cooler
+            - cooler
+        ki_reg_fs_saumur_water:
+          prompt: Which porous Saumur rock can absorb water in wet periods and release it in drier conditions?
+          acceptedAnswers:
+            - tuffeau
+        ki_reg_fs_saumur_thermal:
+          prompt: Which river’s thermal inertia can moderate heat and frost near Saumur-Champigny?
+          acceptedAnswers:
+            - Loire
+            - Loire River
+        ki_reg_fr_chablis_quality:
+          prompt: Besides origin and vessel, name a fruit or cellar factor that affects Chablis quality.
+          acceptedAnswers:
+            - harvested fruit
+            - hygiene
+            - vinification
+        ki_reg_ah_tokaj_oak:
+          prompt: Which maturation vessel material can affect Tokaj aroma and colour?
+          acceptedAnswers:
+            - oak
+            - oak barrels
+        ki_reg_isi_primitivo_early:
+          prompt: Which ripening-time tendency is reflected in the Primitivo name?
+          acceptedAnswers:
+            - early ripening
+            - early maturity

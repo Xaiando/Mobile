@@ -4,11 +4,23 @@ A Flutter study app for wine certification candidates on the WSET and Court of M
 
 **Status: active development.** The bundled curriculum loads on first launch. All five tracks are selectable: WSET Levels 1, 2 and 3, WSET Level 4 Diploma, and CMS Certified. Level 1–3 delivery is mapped to the public specifications: Level 1 June 2022 Issue 1.2, Level 2 2026 Issue 2.1 and Level 3 May 2022 Issue 2. The [completion plan](docs/research/wset-1-3-completion-plan.md) and [delivery validation](docs/research/wset-1-3-delivery-validation.md) record the required topics, exact lesson evidence, review boundary and release gates. Diploma remains incomplete; its broader production, business, regional analysis, sparkling, fortified, tasting and research requirements are tracked in the [Diploma gap audit](docs/research/wset-level-4-gap-audit.md).
 
+The candidate release is **app 0.3.0+16 / dataset 0.23.0**, with 119 registered curriculum includes, 3,781 factual items and 38 map layers. The [final outcome audit](docs/research/wset-levels-1-3-final-outcome-audit.md) finds no remaining mandatory Level 1–3 instructional or exact-reference gap in the reviewed study catalog. Level 1–3 coverage completion metadata and final release acceptance are pending until the final delivery, regression and browser gates pass.
+
+| Level | Required topic rows | Distinct required facts |
+|---|---:|---:|
+| WSET 1 | 49 | 132 |
+| WSET 2 | 442 | 752 |
+| WSET 3 | 888 | 1,625 |
+
+These cumulative app study selections separate required explanations from optional mapped material; they are not official examination-topic counts. Geographic location, grape/style, growing environment, production, labels and quality/price have their own exact teaching evidence.
+
 A learner chooses a track on Home, then practises through multiple choice, flashcards, typed recall, numeric answers, short written profiles, causal reasoning and offline map questions. FSRS-6 shares each item's memory across formats, and a difficulty ladder adjusts its presentations. Study searches lesson text, names and aliases without requiring accents, offers a topic filter, and retains each item's memory state and sources. Unfinished required topics can start focused practice using their exact lesson IDs.
+
+Shared-topic principles use 522 original point-specific typed cues covering all 520 required shared points and two additional optional points. Each cue accepts its finite responsive phrases, so a different sibling lesson or an unresponsive broad title cannot earn credit for the selected fact. Written explanation exercises use the selected track's currently served points and explicit self-assessment; they do not automatically grade prose.
 
 Maps include finding two to four named places with separate grading, and finding an area from grape clues. Legal grape questions use cited permission lists; dated planting questions use a separate survey-year cohort. Every represented correct alternative is accepted and each requested fact is reviewed independently. Point markers show reference locations rather than wine-area boundaries. The atlas retains its European core and expanded American and Southern Hemisphere coverage; [geography coverage](docs/research/geography-coverage.md) records its inventory and remaining finer-region gaps.
 
-Original timed rehearsals save answers and prompt snapshots, with feedback after the attempt ends. Level 3 includes saved written responses and explicit self-review against explanatory criteria. Guided tasting adds original teaching grids and fictional calibration cases, physical wine notes and a timed Level 3 two-wine practice. Existing tasting sessions and vocabulary remain usable. Rehearsal participation, written self-review and tasting evidence are recorded separately from FSRS reviews; they do not award official examination grades or passes. Saved work is included in backup and restore, and unreadable practice records are reported without hiding valid history.
+Original timed rehearsals save answers and prompt snapshots, with feedback after the attempt ends. A 220-question original MCQ bank supplies scoped pools of 65/190/220 questions for Levels 1/2/3; presets sample 30 questions in 45 minutes, 50 in 60 minutes, and 50 plus four written prompts in 120 minutes respectively. Level 3 draws from twelve original extended cases with saved responses and explicit self-review against explanatory criteria. Guided tasting adds three original teaching grids and nine fictional calibration cases, physical wine notes and a timed Level 3 two-wine practice. Existing tasting sessions and vocabulary remain usable. Rehearsal participation, written self-review and tasting evidence are recorded separately from FSRS reviews; they do not award official examination grades or passes. Saved work is included in backup and restore, and unreadable practice records are reported without hiding valid history.
 
 Home → **Your WSET progress** separates required Level 1–3 teaching from optional atlas material, shows studied and currently mastered facts, and records the level's practice evidence. An app study milestone requires a scope explicitly marked complete, every required topic mastered and its required practice recorded. Spaced successful reviews establish mastery; later failures or fading memory can reduce it. Diploma topic groups show supporting material and outstanding gaps. Learners can independently record exam passes as self-reported results. App milestones do not award a WSET qualification. [Progress behaviour and validation](docs/wset-learner-progress.md).
 
@@ -84,7 +96,7 @@ Windows, Android and iOS are configured targets. The web gets basic support.
 | `lib/core/progress/` | Required and optional WSET material, current mastery, recorded practice, Diploma groups and self-reported exam settings |
 | `lib/core/rehearsal/`, `lib/core/tasting_guidance/`, `lib/core/tasting_pair/` | Original timed rehearsals, guided calibration and saved two-wine practice |
 | `assets/curriculum/` | The curriculum release, teaching grids, expert-review ledger, coverage policy and baseline |
-| `assets/study/` | Original rehearsal bank, presets and guided tasting calibration cases |
+| `assets/study/` | Original rehearsal bank, point-specific typed cues, presets and guided tasting calibration cases |
 | `assets/progress/` | Exact required-topic evidence, completion metadata and level-specific practice requirements |
 | `lib/core/time/` | The UTC millisecond clock used for every stored timestamp |
 | `lib/features/` | Home (dashboard and track picker), Study (curriculum browser), Practice (sessions), Tasting and Cellar |
@@ -107,6 +119,7 @@ Windows, Android and iOS are configured targets. The web gets basic support.
 - [Geography coverage](docs/research/geography-coverage.md): the bundled countries and location facts, map formats, source methods and remaining atlas work.
 - [Learner progress](docs/wset-learner-progress.md): required and optional material, lasting mastery, recorded practice and independently recorded exam results.
 - [WSET Level 1–3 delivery validation](docs/research/wset-1-3-delivery-validation.md): specification scope, original practice, preservation checks and release evidence.
+- [Final Level 1–3 outcome audit](docs/research/wset-levels-1-3-final-outcome-audit.md): exact required selections, semantic review, optional boundaries and remaining release gates.
 
 ## Historical release snapshots
 

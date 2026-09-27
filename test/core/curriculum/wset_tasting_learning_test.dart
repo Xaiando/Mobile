@@ -1,13 +1,18 @@
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
+import 'package:sommelier/core/curriculum/curriculum_dataset.dart';
 import 'package:sommelier/core/curriculum/curriculum_validator.dart';
+import 'package:sommelier/core/progress/wset_scope.dart';
 import 'package:sommelier/core/tasting_guidance/guided_tasting.dart';
 
 import '../../support/curriculum_fixture.dart';
 
 void main() {
   final dataset = bundledDataset();
+  final scope = WsetScope.fromJson(
+    File('assets/progress/wset_scope.json').readAsStringSync(),
+  );
   final bank = GuidedTastingBank.fromJson(
     File('assets/study/guided_tasting.json').readAsStringSync(),
   );
@@ -28,13 +33,43 @@ void main() {
         isNotEmpty,
         reason: item.id,
       );
+      final mappings = dataset.certificationKnowledgeMappings.where(
+        (mapping) =>
+            mapping.knowledgeItemId == item.id &&
+            mapping.certificationId.startsWith('WSET_'),
+      );
+      final authoredMappings = mappings.where(
+        (mapping) =>
+            dataset
+                .locate((
+                  section: 'certification_knowledge_mappings',
+                  key: rowKey('certification_knowledge_mappings', mapping),
+                ))
+                ?.path
+                .endsWith('wset_tasting_learning.yaml') ??
+            false,
+      );
+      expect(authoredMappings, hasLength(1), reason: item.id);
+      final requiredLevels =
+          scope.levels
+              .where((level) => level.requiredItemIds.contains(item.id))
+              .map((level) => level.certificationId)
+              .toList()
+            ..sort();
+      expect(requiredLevels, isNotEmpty, reason: item.id);
+      final expectedTracks = {
+        authoredMappings.single.certificationId,
+        requiredLevels.first,
+      };
+      expect(mappings, hasLength(expectedTracks.length), reason: item.id);
       expect(
-        dataset.certificationKnowledgeMappings.where(
-          (mapping) =>
-              mapping.knowledgeItemId == item.id &&
-              mapping.certificationId.startsWith('WSET_'),
-        ),
-        hasLength(item.id == 'ki_wset_taste_palate_flavours' ? 2 : 1),
+        mappings.map((mapping) => mapping.certificationId).toSet(),
+        expectedTracks,
+        reason: '${item.id}: only its authored level and required lower reuse',
+      );
+      expect(
+        {'WSET_L1', 'WSET_L2', 'WSET_L3'},
+        contains(authoredMappings.single.certificationId),
         reason: item.id,
       );
     }

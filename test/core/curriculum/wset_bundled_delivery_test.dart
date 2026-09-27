@@ -60,7 +60,7 @@ void main() {
       expect(
         level.appLevelComplete,
         isFalse,
-        reason: 'Partial unreviewed catalog never confers completion.',
+        reason: 'A fresh learner still needs mastery and practice evidence.',
       );
     }
   });

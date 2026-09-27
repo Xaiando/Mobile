@@ -216,8 +216,6 @@ void main() {
     await tap(tester, find.widgetWithText(NavigationDestination, 'Study'));
 
     expect(find.textContaining('Geography ·'), findsOneWidget);
-    expect(find.byTooltip('Unverified'), findsWidgets);
-    expect(find.textContaining('Core · New'), findsWidgets);
 
     final chablis = await query(
       tester,
@@ -225,13 +223,19 @@ void main() {
         db.knowledgeItems,
       )..where((i) => i.id.equals('ki_chablis_grape'))).getSingle(),
     );
-    await tester.scrollUntilVisible(
-      find.text(chablis.assertionText),
-      400,
-      scrollable: find.byType(Scrollable).last,
-      maxScrolls: 200,
+    await tester.enterText(
+      find.byKey(const ValueKey('study-search')),
+      chablis.assertionText,
     );
-    await tap(tester, find.text(chablis.assertionText));
+    await tester.pumpAndSettle();
+    final resultRow = find.descendant(
+      of: find.byKey(const ValueKey('study-results')),
+      matching: find.text(chablis.assertionText),
+    );
+    expect(resultRow, findsOneWidget);
+    expect(find.byTooltip('Unverified'), findsWidgets);
+    expect(find.textContaining('Core · New'), findsWidgets);
+    await tap(tester, resultRow);
     expect(find.text('Sources'), findsOneWidget);
     expect(find.text('Not studied yet.'), findsOneWidget);
     final source = await query(

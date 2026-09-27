@@ -35,7 +35,31 @@ class ExercisePresenter {
       db.questionTemplates,
     )..where((t) => t.id.equals(questionTemplateId))).getSingle();
     Set<String>? allowedItems;
-    if (template.mode == 'reasoning' || template.mode == 'map_pair') {
+    if (template.mode == 'short_answer') {
+      final profile = await db.select(db.userProfiles).getSingleOrNull();
+      final track = certificationId ?? profile?.activeCertificationId;
+      if (track != null) {
+        // Use actual delivery rather than mapping depth alone: this also
+        // respects currentness, template membership and the planner fallback.
+        final cards = await StudyPlanner(
+          db,
+          formats: formats,
+          clock: _clock,
+        ).cards(track);
+        allowedItems = {
+          for (final card in cards)
+            if (card.formats.any(
+              (format) => format.questionTemplateId == template.id,
+            ))
+              card.itemId,
+        };
+        if (!allowedItems.contains(itemId)) {
+          throw ArgumentError(
+            'This track does not serve short_answer for $itemId',
+          );
+        }
+      }
+    } else if (template.mode == 'reasoning' || template.mode == 'map_pair') {
       final profile = await db.select(db.userProfiles).getSingleOrNull();
       final track = certificationId ?? profile?.activeCertificationId;
       if (track != null) {

@@ -151,10 +151,25 @@ void main() {
       reason: 'the local northern Rhône frame is smaller than France',
     );
 
+    final world = (await maps.frameOf('n_geo_france'))!;
+    expect(world.parent.id, 'n_geo_world');
     expect(
-      await maps.frameOf('n_geo_france'),
+      ids(world.candidates),
+      containsAll([
+        'n_geo_france',
+        'n_geo_italy',
+        'n_geo_spain',
+        'n_geo_germany',
+      ]),
+    );
+    expect(
+      world.candidates.map((candidate) => candidate.node.nodeType),
+      everyElement('country'),
+    );
+    expect(
+      await maps.frameOf('n_geo_world'),
       isNull,
-      reason: 'France is drawn inside nothing',
+      reason: 'World is the outer map frame',
     );
     expect(await maps.frameOf('n_grape_chardonnay'), isNull);
     expect(

@@ -33,8 +33,15 @@ class WsetProgressCard extends ConsumerWidget {
             },
             const SizedBox(height: 8),
             const Text(
-              'Counts describe the available study material. Full level coverage is still being built.',
+              'Counts describe the available required study material. Topic mastery and practice activity are app study milestones; official exam results are recorded separately.',
             ),
+            if (progress case AsyncData(:final value))
+              if (value.levels.any(
+                (level) =>
+                    level.scope.certificationId == 'WSET_L4' &&
+                    !level.scope.curriculumComplete,
+              ))
+                const Text('Diploma coverage is still being built.'),
             const SizedBox(height: 8),
             TextButton.icon(
               onPressed: () => Navigator.of(context).push<void>(

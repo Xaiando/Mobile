@@ -40,6 +40,32 @@ void main() {
   );
 
   test(
+    'fault and advice factual citations do not rely on a scope specification',
+    () {
+      expect(
+        dataset.sourceCitations.any(
+          (source) => source.id == 'src_wset_sfault_l3_spec',
+        ),
+        isFalse,
+      );
+      expect(
+        dataset.knowledgeItemCitations.any(
+          (citation) => citation.sourceCitationId == 'src_wset_sfault_l3_spec',
+        ),
+        isFalse,
+      );
+      expect(
+        dataset.knowledgeItemCitations.any(
+          (citation) =>
+              citation.knowledgeItemId == 'ki_wset_sfault_out_of_condition' &&
+              citation.sourceCitationId == 'src_wset_taste_ageing',
+        ),
+        isTrue,
+      );
+    },
+  );
+
+  test(
     'fault identification preserves compound and intended-style distinctions',
     () {
       expect(

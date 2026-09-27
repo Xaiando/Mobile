@@ -1,11 +1,17 @@
+import 'dart:io';
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:sommelier/core/curriculum/curriculum_validator.dart';
 import 'package:sommelier/core/curriculum/curriculum_dataset.dart';
+import 'package:sommelier/core/progress/wset_scope.dart';
 
 import '../../support/curriculum_fixture.dart';
 
 void main() {
   final dataset = bundledDataset();
+  final scope = WsetScope.fromJson(
+    File('assets/progress/wset_scope.json').readAsStringSync(),
+  );
   final lessons = dataset.knowledgeItems
       .where((item) => item.id.startsWith('ki_wset_eu_'))
       .toList();
@@ -27,13 +33,43 @@ void main() {
         reason: item.id,
       );
       final mappings = dataset.certificationKnowledgeMappings.where(
-        (mapping) => mapping.knowledgeItemId == item.id,
+        (mapping) =>
+            mapping.knowledgeItemId == item.id &&
+            mapping.certificationId.startsWith('WSET_'),
       );
-      expect(mappings, hasLength(1), reason: item.id);
+      final authoredMappings = mappings.where(
+        (mapping) =>
+            dataset
+                .locate((
+                  section: 'certification_knowledge_mappings',
+                  key: rowKey('certification_knowledge_mappings', mapping),
+                ))
+                ?.path
+                .endsWith('wset_regional_europe.yaml') ??
+            false,
+      );
+      expect(authoredMappings, hasLength(1), reason: item.id);
       expect(
         {'WSET_L2', 'WSET_L3'},
-        contains(mappings.single.certificationId),
+        contains(authoredMappings.single.certificationId),
         reason: item.id,
+      );
+      final requiredLevels =
+          scope.levels
+              .where((level) => level.requiredItemIds.contains(item.id))
+              .map((level) => level.certificationId)
+              .toList()
+            ..sort();
+      expect(requiredLevels, isNotEmpty, reason: item.id);
+      final expectedTracks = {
+        authoredMappings.single.certificationId,
+        requiredLevels.first,
+      };
+      expect(mappings, hasLength(expectedTracks.length), reason: item.id);
+      expect(
+        mappings.map((mapping) => mapping.certificationId).toSet(),
+        expectedTracks,
+        reason: '${item.id}: only its authored level and required lower reuse',
       );
     }
     expect(

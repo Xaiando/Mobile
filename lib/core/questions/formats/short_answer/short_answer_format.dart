@@ -296,8 +296,16 @@ class ShortAnswerFormat extends ExerciseFormat {
     final pool = rows.first.read<int>('pool');
     final points = [
       for (final row in rows)
-        if (row.read<int>('pool') == pool) row,
+        if (row.read<int>('pool') == pool &&
+            (context.allowedItemIds == null ||
+                context.allowedItemIds!.contains(row.read<String>('item'))))
+          row,
     ];
+    if (!points.any((row) => row.read<String>('item') == itemId)) {
+      throw ArgumentError(
+        'This track does not serve $itemId in $questionTemplateId',
+      );
+    }
 
     // The planned item, and up to three others the learner has studied, due
     // ones first, each group in the seed's order. A new item joins only when

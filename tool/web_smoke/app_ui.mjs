@@ -70,7 +70,10 @@ async function reveal(locator, { direction = 1, steps = 70 } = {}) {
   // Flutter ListViews scroll on the canvas. DOM scrollIntoView alone cannot
   // reveal their lazily built children. Keep this bounded, including long exams.
   for (let step = 0; step <= steps; step++) {
-    if (await onScreen(locator)) return locator.first();
+    for (let match = 0, count = await locator.count(); match < count; match++) {
+      const candidate = locator.nth(match);
+      if (await onScreen(candidate)) return candidate;
+    }
     if (step === steps) break;
     await page.mouse.move(viewport.width / 2, viewport.height / 2);
     await page.mouse.wheel(0, direction * 540);
@@ -276,6 +279,7 @@ try {
     await reveal(text(/^Optional material:/));
     assert(await text('App study milestone complete').count() === 0,
       'Fresh learner incorrectly has a completed app study milestone.');
+    await top();
     for (const level of ['WSET Level 1', 'WSET Level 2', 'WSET Level 3']) {
       await reveal(text(level));
       await screenshot(`04-progress-${level.replace(/\W+/g, '-').toLowerCase()}`);
@@ -293,6 +297,7 @@ try {
 
   let savedAnswer;
   let rehearsalRemaining;
+  let rehearsalDeadline;
   await stage('05-rehearsal-saved-draft', async () => {
     await navigation('Home');
     await chooseTrack('WSET Level 2');
@@ -300,6 +305,7 @@ try {
     await tap('Start Level 2 practice');
     await top();
     rehearsalRemaining = await secondsRemaining();
+    rehearsalDeadline = Date.now() + rehearsalRemaining * 1000;
     assert(rehearsalRemaining > 3500 && rehearsalRemaining <= 3600, 'Incorrect Level 2 duration.');
     const radio = page.getByRole('radio').first();
     await reveal(radio);
@@ -309,14 +315,15 @@ try {
     await page.getByRole('radio', { name: savedAnswer, exact: true, checked: true }).waitFor();
     assert(await text(/^Answer:/).count() === 0, 'Rehearsal reveals answers before finish.');
     await navigation('Home');
-    await page.waitForTimeout(1400);
+    await page.waitForTimeout(5000);
     await reload();
     await visible('Home', startupTimeout);
     assert(await selected(named('WSET Level 2')), 'Selected track did not survive reload.');
     await openHomeAction('Level rehearsal', 'WSET practice');
     const after = await secondsRemaining();
-    assert(after < rehearsalRemaining && after > rehearsalRemaining - 120,
-      'Saved rehearsal deadline was reset or moved backwards on reload.');
+    assert(after < rehearsalRemaining &&
+      Math.abs(Date.now() + after * 1000 - rehearsalDeadline) <= 3000,
+      'Saved rehearsal absolute deadline changed on reload.');
     await reveal(page.getByRole('radio', { name: savedAnswer, exact: true, checked: true }));
     result.assertions.rehearsalAnswerRestored = true;
     result.assertions.rehearsalTimerRestored = true;
@@ -329,10 +336,12 @@ try {
     await visible('Start Level 2 practice');
     await reveal(text('Saved attempts'));
     await tap('Ended draft');
+    await top();
     await visible('Attempt ended without a score.');
     assert(await text(/^Original practice:/).count() === 0, 'Ended draft was falsely scored.');
     await tap('Choose a new practice attempt');
     await tap('Start Level 2 practice');
+    await top();
     const newTimer = await secondsRemaining();
     assert(newTimer > 3500, 'A new rehearsal did not receive a new timer.');
     // History of a finished draft must not replace this running current attempt.
@@ -374,6 +383,7 @@ try {
     await openHomeAction('Level 3 paired tasting', 'Paired tasting practice');
     await tap('Start two wines · 30 minutes');
     const before = await secondsRemaining();
+    const pairedDeadline = Date.now() + before * 1000;
     assert(before > 1700 && before <= 1800, 'Incorrect paired tasting duration.');
     await tap('Wine 2');
     await visible(/^Wine 2 · saved original grid /);
@@ -384,12 +394,13 @@ try {
     // proves persistent storage. Core regressions test writes racing deadlines.
     await page.waitForTimeout(700);
     await navigation('Home');
-    await page.waitForTimeout(1400);
+    await page.waitForTimeout(5000);
     await reload();
     await visible('Home', startupTimeout);
     await openHomeAction('Level 3 paired tasting', 'Paired tasting practice');
     const after = await secondsRemaining();
-    assert(after < before && after > before - 120, 'Paired deadline reset after reload.');
+    assert(after < before && Math.abs(Date.now() + after * 1000 - pairedDeadline) <= 3000,
+      'Paired absolute deadline changed on reload.');
     await tap('Wine 2');
     await reveal(evidence);
     assert((await evidence.inputValue()).startsWith('UI smoke Wine 2 evidence:'), 'Wine 2 evidence lost.');

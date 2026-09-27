@@ -4,6 +4,16 @@ Home → **Your WSET progress** separates required teaching, current fact master
 
 `WsetProgressRepository` derives progress from the installed knowledge items, cumulative study mappings, served question formats, shared review states, append-only review log and saved practice snapshots. It creates no curriculum facts and requires no schema migration. Counts come from the installed curriculum rather than a fixed release total.
 
+The candidate **app 0.3.0+16 / dataset 0.23.0** bundles 119 registered curriculum includes, 3,781 factual items and 38 map layers. Its reviewed Level 1–3 study selections are:
+
+| Level | Required topic rows | Distinct required facts |
+|---|---:|---:|
+| 1 | 49 | 132 |
+| 2 | 442 | 752 |
+| 3 | 888 | 1,625 |
+
+These are cumulative app requirement groups, not official syllabus or examination counts. The [final outcome audit](research/wset-levels-1-3-final-outcome-audit.md) found no remaining mandatory instructional or exact-reference gap in this snapshot. Level 1–3 coverage completion metadata and final release acceptance are pending until the final delivery, regression and browser gates pass.
+
 ## Required and optional material
 
 The app-owned `assets/progress/wset_scope.json` catalog links each Level 1–3 requirement to exact current lesson IDs, the teaching dimension and acceptable practice formats. Grapes, environment, production, style, labels and quality/price are separate from geographic location. Mastering a map pin therefore cannot substitute for a region's explanatory lessons. Required item IDs count once per level even when several requirements use the same lesson.
@@ -11,6 +21,8 @@ The app-owned `assets/progress/wset_scope.json` catalog links each Level 1–3 r
 Required-material bars show available, studied and currently mastered facts. A required fact must be current, mapped at that level and served in a format accepted by each requirement that uses it. Missing, retired or unserved required lessons remain visible as unavailable gaps and block the study milestone; their review history is retained. Optional mapped material has a separate denominator and does not block a Level 1–3 milestone. A level without an explicit requirement catalog shows its available mapped material instead. Empty material has no percentage and cannot complete a milestone.
 
 An unfinished requirement can start focused practice with its exact lesson IDs through the ordinary study planner. Study also searches assertion text, names and aliases without requiring accents, offers a topic filter, and retains each lesson's sources and memory state. Cumulative mappings let the same lesson and review state support each appropriate level without granting lower levels advanced-only content.
+
+Shared-subject principle recall uses original point-specific questions with finite accepted responsive phrases. All 520 required shared points have cues; the 522-cue bank also includes two additional optional points. A sibling point or an unresponsive canonical lesson title cannot receive credit for the selected fact. This is finite phrase recall, not automated grading of an explanation. Written explanation pools separately use only current served points from the selected track and retain explicit self-assessment, including a valid one-point exercise.
 
 ## Current mastery and app milestones
 
@@ -32,7 +44,7 @@ Practice evidence measures participation and explicit self-review separately fro
 | 2 | One completed original rehearsal with every multiple-choice question answered; three distinct completed calibration cases with observations and evidence |
 | 3 | One completed original rehearsal with every multiple-choice question answered; four saved written responses with explicit self-review; three distinct completed calibration cases with observations and evidence; one completed timed two-wine practice |
 
-Rehearsals use original questions, level-specific topic blueprints and the public assessment durations. Answers, prompt versions, explanations and written criteria are saved as snapshots. Feedback appears after the attempt ends. Written criteria support learner self-review, including an honest review with no criteria selected; they do not produce an official mark. Deadlines persist across restarts, and late or duplicate submissions cannot extend an attempt.
+Rehearsals use 220 original MCQs and twelve original Level 3 extended prompts, level-specific topic blueprints and the public assessment durations. Eligible MCQ pools are 65/190/220 questions for Levels 1/2/3. Presets sample 30 MCQs in 45 minutes at Level 1, 50 in 60 minutes at Level 2, and 50 MCQs plus four written prompts in 120 minutes at Level 3. Answers, prompt versions, explanations and written criteria are saved as snapshots. Feedback appears after the attempt ends. Written criteria support learner self-review, including an honest review with no criteria selected; they do not produce an official mark. Deadlines persist across restarts, and late or duplicate submissions cannot extend an attempt.
 
 Three appended teaching grids and nine fictional calibration cases preserve the two historical grids and saved vocabulary. Required observations and evidence must be recorded before completing a calibration. Physical wine descriptions use the learner's observations, with no invented objective answer. Physical single-wine practice is optional for Levels 1–2. Level 3's timed two-wine practice saves both wines' observations, evidence and conclusions. Editing a completed physical tasting invalidates its guided completion evidence until the revised record is completed again.
 
@@ -42,7 +54,7 @@ The evidence reader checks current mapped lesson membership, completion timestam
 
 Diploma D1–D6 topic groups assign each mapped fact to at most one group. Explicit `itemIds` take precedence over selected regional facts, which take precedence over broad domains. Regional vineyard, winery and commercial lessons stay with D3 ahead of broad domain matching. Specialist production or business points can support D4/D5 without being treated as locations. Rutherglen's regional selector supplies location context because the region makes other wine styles; Douro is not automatically classified as Port. Dedicated fortified-production lessons are assigned explicitly to D5. Unassigned material is displayed separately.
 
-These groups measure supporting facts, not official unit completion. The original 704 D3 selectors remain intact. China's eight optional atlas references remain available, while its 44 analytical lessons remain Diploma-only. Wine history and other beverages are a separate sommelier strand and cannot inflate Award in Wines completion. Independently assessed tasting, written work and the Diploma research assignment remain outside fact-mastery counts.
+Diploma's broader scope remains incomplete. Its groups measure supporting facts, not official unit completion. The original 704 D3 selectors remain intact. China's eight optional atlas references remain available, while its 44 analytical lessons remain Diploma-only. Wine history and other beverages are a separate sommelier strand and cannot inflate Award in Wines completion. Independently assessed tasting, written work and the Diploma research assignment remain outside fact-mastery counts.
 
 Exam pass declarations are optional and labelled **self-reported**. `exam_pass_wset_l1` through `exam_pass_wset_l4` use the existing `user_settings` table. They can be checked or unchecked independently; a higher-level declaration does not set lower levels. Backup exports and imports these setting keys. Resetting study reviews retains settings; erasing all learner data removes declarations. No pass is inferred from app scores, practice participation or fact mastery.
 

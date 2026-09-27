@@ -75,6 +75,8 @@ States: open, active, implemented (review/tests pending), passed. A task is pass
 | W64 | Final outcome audit: zero required study topics still open, no atlas-only explanation credit | critic + root | open |
 | W65 | Update learner completion metadata from measured outcome audit; retain explicit expert-review and exam distinctions | root | open |
 | W66 | Commit coherent integration, record exact handoff for Grok and remaining external review/device checks | root | open |
+| W67 | Shared-topic typed practice: uniquely targeted original cues, responsive accepted phrases, primary-only grading and independent cue review | research + critic + debugger | active |
+| W68 | Written explanation pools: current served members of the selected track only, with a valid single-point scoped exercise | debugger + root | active |
 
 ## Evidence matrix rules
 
@@ -113,3 +115,13 @@ New beginner content has 147 original points (51 first taught at Level 1, 96 at 
 Practice progress now distinguishes shared fact memory from original rehearsal participation, explicit written self-review, distinct calibration cases, physical guided observations and timed two-wine snapshots. Five activity-evidence regressions pass, including stale legacy edits, corrupt history recovery, honest zero-criterion self-review and absence of FSRS/pass writes. Partial required-topic progress installs without unavailable items. All coverage flags remain false while the complete matrix, regional/general additions, missing canonical geography and independent review remain open.
 
 The paired core and UI checks pass; the timer, ended state and errors remain visible above scrolling observations. Full analysis, complete suite and final asset/build verification await a final source freeze. No partial checkpoint closes W64–W66.
+
+## Final semantic review and delivery repairs
+
+The independent scope refresh finds no remaining required Level 1–3 instructional topic gap after 43 explicit grape-structure lessons, the final service and regional-role closures, 149 Level 2 grape/origin pairs and 22 Level 3 sparkling/fortified families. The catalog selects 49/442/888 topic rows and 132/752/1,625 distinct required facts. This is semantic acceptance; runtime gates remain open.
+
+Final integration includes Grok's registered fifteen history and twenty-two other-beverage facts, preserving its unregistered newer course candidates. Candidate combined release is dataset 0.23.0 / app 0.3.0+16. All 2,896 original assertions, 3,371 nodes, 3,007 relations, legacy grids, Diploma selectors and runtime pins pass preservation comparison. Geometry reproduces 38 layers identically; eighteen geography checks pass with three optional authoring-cache checks skipped. Analysis is clean and curriculum lint has zero errors.
+
+The coverage ratchet exposed actual delivery weaknesses and therefore refused a baseline update. Exact introductory explanatory mappings were depth 1, preventing generated typed/written recall at depth 2; those precise mappings are raised without making optional material compulsory. Fifty-two older location recall floors are restored after an overly broad promotion had lowered them. Six protected-origin labels now serve their existing typed recall. Prior baseline metrics are retained while repairs are validated.
+
+W67/W68 address two additional correctness defects: a broad shared-subject typed answer could accept one sibling phrase but credit a different primary fact; and a written explanation pool could choose an unavailable sibling outside its track. Original point-specific cues and scoped written membership close those defects without changing the facts, legal multi-answer behaviour or qualified-review status. Full regression was interrupted after 159 passing checks and the confirmed coverage failure; it is not recorded as a passing full suite. Complete acceptance will run after these repairs freeze.

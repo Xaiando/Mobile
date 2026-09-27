@@ -478,11 +478,11 @@ void main() {
 
     test('32 actual recalls affect only D2 and preserve lower tracks and incomplete levels', () async {
       for (final entry in {
-        'WSET_L1': 0,
-        'WSET_L2': 103,
-        'WSET_L3': 2381,
-        'CMS_CERTIFIED': 2389,
-        'WSET_L4': 2885,
+        'WSET_L1': 132,
+        'WSET_L2': 819,
+        'WSET_L3': 3429,
+        'CMS_CERTIFIED': 2548,
+        'WSET_L4': 3759,
       }.entries) {
         final mappings = await planner.effectiveMappings(entry.key);
         expect(mappings, hasLength(entry.value), reason: entry.key);
@@ -508,9 +508,10 @@ void main() {
       );
       expect(diploma.counts.studied, 32);
       expect(diploma.counts.mastered, 0);
+      expect(diploma.scope.curriculumComplete, isFalse);
       final d2 = diploma.units.singleWhere((unit) => unit.scope.id == 'D2');
       expect(d2.counts.studied, 32);
-      expect(d2.counts.available, 70);
+      expect(d2.counts.available, 116);
       expect(d2.scope.gap, isNotEmpty);
       for (final unit in diploma.units.where((unit) => unit.scope.id != 'D2')) {
         expect(unit.counts.studied, 0, reason: unit.scope.id);
@@ -525,10 +526,10 @@ void main() {
         hasLength(704),
       );
       expect(snapshot.levels.map((level) => level.counts.mapped).toList(), [
-        0,
-        103,
-        2381,
-        2885,
+        132,
+        819,
+        3429,
+        3759,
       ]);
       expect(
         snapshot.levels.take(3).map((level) => level.counts.studied),
@@ -536,10 +537,7 @@ void main() {
       );
       expect(
         snapshot.levels.every(
-          (level) =>
-              !level.scope.curriculumComplete &&
-              !level.appLevelComplete &&
-              !level.examPassed,
+          (level) => !level.appLevelComplete && !level.examPassed,
         ),
         isTrue,
       );

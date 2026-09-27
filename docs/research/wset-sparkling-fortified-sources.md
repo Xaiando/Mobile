@@ -16,6 +16,10 @@ Quality and price statements are conditional applications. Hand work on steep As
 
 The evidence JSON maps all 22 required style families to exact existing and new item IDs for grapes/style, growing environment, production, labels, and quality/price. Geographic identities and served practice must still pass the combined release checks. This source pack alone does not establish complete course coverage or a WSET qualification.
 
+Final Level 2 boundaries are explicit. Transfer, ancestral and force-carbonation processes remain Level 3 required content; their optional lower-track mappings do not put them into the Level 2 completion denominator. The Level 2 country examples use the bounded Tasmania, Marlborough and Domaine Carneros explanations alongside traditional-method study. They teach Australia, New Zealand and USA sparkling context without declaring those particular regions additional compulsory Level 2 geographic families. Reserve Tawny is a contrast within general Tawny study, not a separately required Level 2 style category.
+
+All 40 new source jurisdiction fields use actual publisher country codes. In particular, the Prosecco and current Asti regulations use IT, and the Cava and Manzanilla specifications use ES. The Port research published by the University of Trieste uses IT; Portuguese regulator and producer references use PT. Factual assertions and verification statuses are unchanged.
+
 ## Primary source inventory
 
 The following inventory lists exact source identifiers used by the pack. Existing canonical citations are reused instead of registering duplicate URLs. Production websites are evidence of their own methods and examples; regional organisations and legal specifications support broader protected-origin claims. The source registry distinguishes those kinds.

@@ -3,6 +3,7 @@ import 'package:drift/drift.dart' show DataClass;
 import '../questions/format_registry.dart';
 import '../questions/formats/short_answer/short_answer_format.dart';
 import '../questions/formats/reasoning/reasoning_format.dart';
+import '../questions/formats/typed/typed_format.dart';
 import '../database/app_database.dart';
 import 'curriculum_dataset.dart';
 
@@ -1055,6 +1056,9 @@ class _Validator {
             );
           }
         }
+        if (t.mode == 'typed' && problems.isEmpty) {
+          _typedCueReferences(t);
+        }
       }
       for (final match in placeholder.allMatches(t.promptTemplate)) {
         if (!templatePlaceholders.contains(match[0])) {
@@ -1071,6 +1075,66 @@ class _Validator {
     for (final type in {for (final i in d.knowledgeItems) i.relationType}) {
       if (!forward.contains(type)) {
         error('template-coverage', 'no forward template for $type');
+      }
+    }
+  }
+
+  /// A well-formed cue must target a real eligible point, rather than quietly
+  /// generating no question for a typo or a different kind of teaching fact.
+  void _typedCueReferences(QuestionTemplate template) {
+    final cues = TypedFormat.itemCuesOf(template);
+    if (cues == null) return;
+    final row = _ref('question_templates', template);
+    final allowed = {
+      for (final signature in d.relationTypeSignatures)
+        '${signature.relationType} ${signature.subjectNodeType} ${signature.objectNodeType}',
+    };
+    for (final id in cues.keys) {
+      final item = items[id];
+      if (item == null) {
+        error(
+          'template-parameters',
+          '${template.id}: item_cues names $id, which is no knowledge item',
+          row: row,
+        );
+        continue;
+      }
+      if (item.relationType != 'PRINCIPLE_EXPLANATION' ||
+          item.relationType != template.relationType ||
+          template.direction != 'forward') {
+        error(
+          'template-parameters',
+          '${template.id}: item_cues names $id, which is not an eligible forward PRINCIPLE_EXPLANATION item',
+          row: row,
+        );
+        continue;
+      }
+      final subject = nodes[item.subjectId];
+      final object = nodes[item.objectId];
+      if (subject == null || object == null) {
+        error(
+          'template-parameters',
+          '${template.id}: item_cues names $id with a missing subject or answer node',
+          row: row,
+        );
+        continue;
+      }
+      final signature =
+          '${item.relationType} ${subject.nodeType} ${object.nodeType}';
+      if (!allowed.contains(signature)) {
+        error(
+          'template-parameters',
+          '${template.id}: item_cues names $id, whose ${subject.nodeType} -> ${object.nodeType} signature is not allowed',
+          row: row,
+        );
+      }
+      final triple = '${item.subjectId} ${item.relationType} ${item.objectId}';
+      if (!relations.containsKey(triple)) {
+        error(
+          'template-parameters',
+          '${template.id}: item_cues names $id, which has no supporting relation',
+          row: row,
+        );
       }
     }
   }

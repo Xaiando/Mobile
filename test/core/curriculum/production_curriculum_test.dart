@@ -6,6 +6,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:fsrs/fsrs.dart' as fsrs;
 import 'package:sommelier/core/curriculum/curriculum_dataset.dart';
 import 'package:sommelier/core/curriculum/curriculum_ingestion.dart';
+import 'package:sommelier/core/curriculum/name_normalizer.dart';
 import 'package:sommelier/core/database/app_database.dart';
 import 'package:sommelier/core/progress/wset_progress.dart';
 import 'package:sommelier/core/progress/wset_scope.dart';
@@ -174,7 +175,7 @@ void main() {
     );
     expect(
       diploma.units.singleWhere((u) => u.scope.id == 'D2').counts.available,
-      70,
+      116,
     );
     expect(diploma.appLevelComplete, isFalse);
     expect(
@@ -281,6 +282,18 @@ void main() {
     'product, fault and regional terms are cited, mapped and answerable',
     () async {
       final presenter = ExercisePresenter(db, clock: time.clock);
+      final templatesById = {
+        for (final template in dataset.questionTemplates) template.id: template,
+      };
+      final typedTemplatesByItem = <String, List<String>>{};
+      for (final question in await db.select(db.questions).get()) {
+        final template = templatesById[question.questionTemplateId]!;
+        if (template.mode == 'typed' && template.direction == 'forward') {
+          typedTemplatesByItem
+              .putIfAbsent(question.knowledgeItemId, () => [])
+              .add(template.id);
+        }
+      }
       for (final prefix in [
         'ki_spark_',
         'ki_fort_',
@@ -346,9 +359,9 @@ void main() {
             ),
             isNotEmpty,
           );
-          final template = dataset.questionTemplates.singleWhere(
-            (t) => t.mode == 'typed' && t.relationType == item.relationType,
-          );
+          final servedTemplates = typedTemplatesByItem[item.id] ?? [];
+          expect(servedTemplates, hasLength(1), reason: item.id);
+          final template = templatesById[servedTemplates.single]!;
           final exercise = await presenter.present(
             item.id,
             template.id,
@@ -358,10 +371,53 @@ void main() {
             (a) => a.knowledgeNodeId == item.objectId,
           );
           expect(aliases, isNotEmpty, reason: item.id);
+          final cue = TypedFormat.itemCuesOf(template)?[item.id];
+          final responsiveAnswers = cue?.acceptedAnswers
+              .map(
+                (answer) =>
+                    TypedFormat.core(normalizeName(answer), exercise.typeWords),
+              )
+              .toSet();
+          if (cue != null) {
+            expect(exercise.prompt, cue.prompt, reason: item.id);
+            expect(
+              exercise.accepted.keys.toSet(),
+              responsiveAnswers,
+              reason: item.id,
+            );
+            for (final answer in cue.acceptedAnswers) {
+              expect(
+                const TypedFormat().grade(exercise, answer).single.rating,
+                fsrs.Rating.good,
+                reason: '${item.id}: authored response $answer',
+              );
+            }
+            final canonical = dataset.knowledgeNodes
+                .singleWhere((node) => node.id == item.objectId)
+                .name;
+            expect(exercise.canonicalAnswer, canonical, reason: item.id);
+            expect(
+              const TypedFormat().grade(exercise, canonical).single.rating,
+              responsiveAnswers!.contains(
+                    TypedFormat.core(
+                      normalizeName(canonical),
+                      exercise.typeWords,
+                    ),
+                  )
+                  ? fsrs.Rating.good
+                  : fsrs.Rating.again,
+              reason: '${item.id}: canonical title must answer the actual cue',
+            );
+          }
           for (final alias in aliases) {
             expect(
               const TypedFormat().grade(exercise, alias.name).single.rating,
-              fsrs.Rating.good,
+              cue == null ||
+                      responsiveAnswers!.contains(
+                        TypedFormat.core(alias.nameNorm, exercise.typeWords),
+                      )
+                  ? fsrs.Rating.good
+                  : fsrs.Rating.again,
               reason: '${item.id}: ${alias.name}',
             );
           }
@@ -500,10 +556,10 @@ void main() {
       clock: time.clock,
     ).snapshot();
     expect(snapshot.levels.map((level) => level.counts.mapped), [
-      0,
-      103,
-      2392,
-      2896,
+      132,
+      819,
+      3429,
+      3759,
     ]);
     final diploma = snapshot.levels.last;
     final unitIds = {
@@ -521,7 +577,7 @@ void main() {
     }
     expect(
       diploma.units.singleWhere((u) => u.scope.id == 'D2').counts.available,
-      70,
+      116,
     );
     expect(
       diploma.units.singleWhere((u) => u.scope.id == 'D3').scope.domains,
