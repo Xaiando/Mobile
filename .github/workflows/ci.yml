@@ -171,6 +171,8 @@ jobs:
         working-directory: tool/geography
         run: |
           npm ci
+          npm run fetch -- --only=src_ne_countries
+          npm run fetch -- --only=src_ne_map_units
           npm test
           npm run check
       - name: Install Playwright
@@ -184,7 +186,7 @@ jobs:
         run: node tool/web_smoke/app_ui.mjs build/web build/app_ui_smoke
       - name: Preserve failed app UI screenshots and diagnostics
         if: failure()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: web-app-ui-smoke-failure
           path: build/app_ui_smoke
