@@ -1603,3 +1603,31 @@ layers:
       source: src_new_world_americas_gazetteer_markers
     simplify: 100%
     quantization: 100000
+  - id: ml_soave_uga_wikidata_markers
+    asset: soave_uga_wikidata_markers.topo.json
+    display_name: Soave settlement reference markers
+    geometry: point
+    zoom:
+      - 4
+      - 18
+    parent: ml_world_countries
+    sources:
+      - src_soave_uga_wikidata_markers
+    gazetteer:
+      source: src_soave_uga_wikidata_markers
+    simplify: 100%
+    quantization: 100000
+  - id: ml_soave_uga_geonames_markers
+    asset: soave_uga_geonames_markers.topo.json
+    display_name: Soave locality and summit reference markers
+    geometry: point
+    zoom:
+      - 4
+      - 18
+    parent: ml_world_countries
+    sources:
+      - src_soave_uga_geonames_markers
+    gazetteer:
+      source: src_soave_uga_geonames_markers
+    simplify: 100%
+    quantization: 100000

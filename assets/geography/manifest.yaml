@@ -393,6 +393,30 @@ map_layers:
     source_citation_ids:
       - src_new_world_americas_gazetteer_markers
     attribution: Contains GeoNames geographical data (CC BY 4.0, https://creativecommons.org/licenses/by/4.0/), retrieved 26 September 2026. Selected WGS84 locality and terrain coordinates are reference markers, not wine-area boundaries or official centroids.
+  - id: ml_soave_uga_wikidata_markers
+    display_name: Soave settlement reference markers
+    geometry_kind: point
+    asset_path: assets/geography/soave_uga_wikidata_markers.topo.json
+    asset_sha256: 58b561ce5e6fdc0cab8468eb717ac2de02dfa97615aee6792740780fbd7289fc
+    asset_bytes: 373
+    min_zoom: 4
+    max_zoom: 18
+    parent_layer_id: ml_world_countries
+    source_citation_ids:
+      - src_soave_uga_wikidata_markers
+    attribution: Location markers from Wikidata (CC0), retrieved 27 September 2026. Points indicate settlements in Soave municipalities, not additional geographical unit boundaries.
+  - id: ml_soave_uga_geonames_markers
+    display_name: Soave locality and summit reference markers
+    geometry_kind: point
+    asset_path: assets/geography/soave_uga_geonames_markers.topo.json
+    asset_sha256: bb39be13e53ca7ea50297721ae2dd76e45099d0a2189fefbb27ac668343fd881
+    asset_bytes: 599
+    min_zoom: 4
+    max_zoom: 18
+    parent_layer_id: ml_world_countries
+    source_citation_ids:
+      - src_soave_uga_geonames_markers
+    attribution: Contains GeoNames geographical data (CC BY 4.0, https://creativecommons.org/licenses/by/4.0/), retrieved 27 September 2026. Selected WGS84 locality and summit coordinates are reference markers, not Soave unit boundaries or official centroids.
 node_geometries:
   - knowledge_node_id: n_geo_argentina
     map_layer_id: ml_world_countries
@@ -13462,3 +13486,57 @@ node_geometries:
     max_lat: 43.18235
     label_lon: -79.36514
     label_lat: 43.18235
+  - knowledge_node_id: n_geo_soave_uga_brognoligo
+    map_layer_id: ml_soave_uga_wikidata_markers
+    feature_key: n_geo_soave_uga_brognoligo
+    min_lon: 11.283333
+    min_lat: 45.416667
+    max_lon: 11.283333
+    max_lat: 45.416667
+    label_lon: 11.283333
+    label_lat: 45.416667
+  - knowledge_node_id: n_geo_soave_uga_castelcerino
+    map_layer_id: ml_soave_uga_wikidata_markers
+    feature_key: n_geo_soave_uga_castelcerino
+    min_lon: 11.24032
+    min_lat: 45.46122
+    max_lon: 11.24032
+    max_lat: 45.46122
+    label_lon: 11.24032
+    label_lat: 45.46122
+  - knowledge_node_id: n_geo_soave_uga_colombara
+    map_layer_id: ml_soave_uga_geonames_markers
+    feature_key: n_geo_soave_uga_colombara
+    min_lon: 11.25672
+    min_lat: 45.51975
+    max_lon: 11.25672
+    max_lat: 45.51975
+    label_lon: 11.25672
+    label_lat: 45.51975
+  - knowledge_node_id: n_geo_soave_uga_duello
+    map_layer_id: ml_soave_uga_geonames_markers
+    feature_key: n_geo_soave_uga_duello
+    min_lon: 11.2832
+    min_lat: 45.47649
+    max_lon: 11.2832
+    max_lat: 45.47649
+    label_lon: 11.2832
+    label_lat: 45.47649
+  - knowledge_node_id: n_geo_soave_uga_fitta
+    map_layer_id: ml_soave_uga_geonames_markers
+    feature_key: n_geo_soave_uga_fitta
+    min_lon: 11.25331
+    min_lat: 45.45326
+    max_lon: 11.25331
+    max_lat: 45.45326
+    label_lon: 11.25331
+    label_lat: 45.45326
+  - knowledge_node_id: n_geo_soave_uga_ronca_monte_calvarina
+    map_layer_id: ml_soave_uga_geonames_markers
+    feature_key: n_geo_soave_uga_ronca_monte_calvarina
+    min_lon: 11.28075
+    min_lat: 45.5093
+    max_lon: 11.28075
+    max_lat: 45.5093
+    label_lon: 11.28075
+    label_lat: 45.5093
