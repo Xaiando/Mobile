@@ -1,0 +1,128 @@
+# Local continuation handoff — 26 September 2026
+
+**Latest local continuation:** [release 0.20.0, causal reasoning](diploma-reasoning-continuation.md), completed on 27 September 2026. It implements the objective Q6 runtime and four original exercises with 21 Diploma-only cited points. Final-target scheduling/coverage, current contradiction evidence, active-track membership, depth-4 guards, studied support, chain credit versus target-only blame, source feedback and completed-answer backups are integrated. The 704 D3 points, China's eight optional atlas references, all 80 prior includes and all 32 geography files are preserved. The [0.19.0 China release](diploma-china-continuation.md) retains its snapshot. The reasoning report records concrete gates; all levels and qualified review remain incomplete. No commit or push was made. Earlier C6/geography history remains below.
+
+## Repository comparison
+
+The local checkout is on `claude/c6-germany-europe`, based on `e350dc6`. GitHub was fetched before work; `origin/main` was `21cfe4b`. The checkout already contains the typed-recall/short-answer work in [PR #17](https://github.com/Xaiando/Mobile/pull/17) and the difficulty ladder in [PR #18](https://github.com/Xaiando/Mobile/pull/18). Those PRs were still open when inspected, with #18 targeting #17's branch. They were preserved; this continuation did not merge or publish them.
+
+Claude had left uncommitted EU/Germany drafts, manifest/template/policy changes and regulatory-source validation changes. The active task was C6. All existing authored rows and the pending feature work were retained. The C6 continuation remains local and uncommitted; nothing was pushed.
+
+## C6 implementation
+
+Release `0.8.0` includes 117 new cited, unverified items: Germany 59, Austria 25, Switzerland 9, Hungary 15 and Greece 9. The complete release contains 219 nodes, 249 relations and 177 items. Generation produces 528 single-item questions: 188 flashcards, 166 MCQs, 138 typed questions and 18 each of map locate/identify, plus 16 short-answer pools.
+
+The continuation completes the German origin pyramid, distinguishes the private VDP classification from legal quality marks, fixes the EG/GG transition's earlier cutoff, and preserves dated 2024 vineyard statistics as historical subjects. It adds Austrian region/DAC content, Swiss regions and Fendant, Tokaj's current specification and selected Greek PDOs. Every new region/appellation has a cited location item. New map layers remain G12 work.
+
+`PERMITS_GRAPE` models specifications that make no principal/accessory distinction. Its neutral prompts and complete structural links prevent an accessory Vinsanto variety from being taught as a principal dry-white grape or offered as a defensible wrong answer. Existing principal/accessory relations remain unchanged for the French/Italian specifications that use them. Wine-law relations require legislation or regulator-register citations; private classification and statistics have distinct provenance.
+
+Both tracks' country scope selectors now include the authored country content, including German legal/statistical subjects and Tokaj wine types. The coverage baseline has been regenerated for 26 September 2026 with no known blocking gaps and no flashcard-only items. Represented objectives do not establish complete certification parity.
+
+## Validation
+
+- Flutter 3.47.5 / Dart 3.13.4; local dependencies restored with the pinned lockfile unchanged.
+- `flutter test`: **672 tests passed**.
+- `flutter analyze`: no issues.
+- Changed Dart files formatted; `git diff --check` clean.
+- Curriculum lint: **0 errors**. Existing warning categories remain: uncurated effective dates, structural edges awaiting curator review and unverified items.
+- Generation report and coverage ratchet passed; baseline updated.
+- `tool/web_assets.sh check`: SQLite/Drift versions and asset hashes match the lockfile.
+
+The SDK is installed at `D:\tools\flutter` but was absent from the shell's PATH. Commands were run through its `bin\dart.bat` and `bin\flutter.bat`. Detailed local logs are in `build/codex-*.log`, and the coverage report is `build/codex-coverage-report.md`; build outputs are ignored by Git.
+
+The new C6 test checks the 60-item minimum, five-country presence, citations/mappings, map-location prerequisites, regulatory source rejection, testable/objective core practice, legal-category aliases, relative release years and permitted-grape correctness. Existing app tests now select their intended formats explicitly, compare all journal-priority items, separate composite reviews from preceding cards, scroll to offscreen study items and verify all source credits through a phone viewport.
+
+## Remaining work
+
+C6 is marked in progress in the backlog because remote CI has not run for these local changes. Before integrating it, account for the pending Q1/F4 PR stack, rerun CI and preserve the generated coverage baseline. Qualified expert review remains separate from authoring, and public certification parity remains gated by R3. No reviewer verification, new signing key, installable build or remote publication was performed.
+
+Read `CLAUDE.md`, the research handoff and the canonical backlog before selecting the next task. C6 supplies content for the Spätburgunder fast track; the selectable pack (P1/P2) and its map layers (G12) remain unfinished.
+
+## Geography expansion — release 0.9.0
+
+The user's subsequent request expanded the continuation to geographically broad, varied map practice, including Chablis/Burgundy subregions, finding multiple named locations and locating areas from grape questions. This section supersedes the earlier release counts while preserving the C6 history. The same checkout and pending PR stack remain preserved; all continuation changes remain local and uncommitted.
+
+The bundle now contains 794 knowledge nodes, 881 relations, 776 items, 127 sources, 798 item citations and 1,558 track mappings. All 631 geographic nodes have geometry: 18 country frames and 613 distinct noncountry places. There are 614 cited location items, because one place has two location facts. Each location item generates `map_locate`, `map_identify` and `map_pair` practice. The [coverage inventory](geography-coverage.md) lists every country count and the remaining scope limits.
+
+French coverage includes seven Chablis Grand Cru climats, ten selected Premier Cru climats, all 32 Côte d'Or Grand Cru appellations, regional Burgundy/village study and substantial Bordeaux, Loire, Rhône, Alsace, Champagne, Jura and other regional selections. World and central-European files add major regions and selected subregions, districts, villages and sites across the 18 countries. This is broad authored coverage, not an exhaustive world register or completed Master-level syllabus.
+
+`map_pair` selects two to four active-track location items, varies seeded prompts and grades each requested place independently through composite reviews. `map_grape` asks for one area that legally permits a named grape. Every selectable area requires a current cited complete permission union, and every represented legal alternative is accepted, including structural permissions without a study card. There are 22 complete unions, generating 63 grape map questions. Principal/accessory distinctions and conditional permissions remain explicit. Austrian DAC headline varieties and incomplete Santorini/Vinsanto lists do not establish exclusions.
+
+The geography bundle has 16 layers totalling 2,409.5 KB. French production-area polygons retain the INAO/IGN method; vineyard/reference points use pinned INAO parcels, cadastral lieux-dits and qualified municipality references. World/European coordinates use pinned Wikidata CC0 snapshots. Point metadata distinguishes legal-area references from municipalities and never asserts a boundary. Open Licence 1.0 is retained for cadastral and Insee commune-event sources; INAO/IGN sources retain their appropriate Open Licence 2.0 attribution. No OSM-derived geometry or wine-map tracing is introduced.
+
+The pipeline now preserves overlapping French appellation unions (`allow-overlaps`) and refuses missing expected features. All authored locations are represented, mixed-layer frames load every required layer and sparse-country frames can provide alternatives without inventing polygons. Preferred correct targets resolve genuine overlapping hits; a nearby requested place cannot override an exact hit on another area. Hidden point markers retain an eight-pixel hit area, including a regression using Clos de Bèze inside Gevrey-Chambertin.
+
+### Final local validation for 0.9.0
+
+- Full Flutter suite: **695 tests passed**. Two subsequently added French grape-grading tests also passed in a focused run.
+- `flutter analyze`: **no issues**; changed Dart files formatted.
+- Curriculum lint: **0 errors**, with three warning categories: 772 uncurated dates, 105 structural relations awaiting curator review and all 776 items awaiting expert review.
+- Generation report: **4,190 questions** (787 flashcards, 761 MCQs, 737 typed, 614 each of locate/identify/pair and 63 grape maps), plus **23 exercise pools**.
+- Coverage baseline on 26 September 2026: **passes**. CMS Certified has 773 testable items; WSET L3 has 776. Neither track has flashcard-only items or known blocking gaps in its authored scope. Planned objectives remain visible and do not imply certification parity.
+- Seven Node geography pipeline tests pass, with an offline byte-identical rebuild and successful containment/feature/budget checks for all 16 layers.
+- Web SQLite/Drift asset hashes and versions pass `tool/web_assets.sh check`; the pinned dependency lockfile is unchanged.
+
+Final logs are in ignored `build/atlas-final-*.log`, `build/atlas-final-coverage-report.md` and `build/atlas-french-grape-tests.log`. Remote CI, qualified content review, remaining atlas sheets, deeper grape/physical-geography curriculum and release gates remain open in the canonical backlog. Reference markers can be replaced only with eligible, sourced legal boundary data; detailed lists must be expanded with dated primary provenance.
+
+
+## Local continuation — release 0.10.0, WSET Level 4 target
+
+The user corrected the whole-companion target to **WSET Level 4 Diploma**, superseding the earlier Level 3 completion boundary. The continuation preserves Claude's existing working-tree changes on `claude/c6-germany-europe`, including typed/short-answer and difficulty-stack work. No commit, push or PR was created during this continuation.
+
+`WSET_L4` is selectable and includes `WSET_L3`. It inherits existing mappings with their original depth and importance; no mass copy or automatic promotion to Diploma depth was made. Its own scope pins WSET's August 2025 Issue 1.4 specification and has 57 editorial objectives across six units. Backlog `DIP-1` through `DIP-6` and the [Diploma gap audit](wset-level-4-gap-audit.md) retain unfinished production, business, regional analysis/tasting, sparkling, fortified and research work. A scope objective represented by a location item is authored support, not sufficient Diploma preparation.
+
+### Authored geography and question changes
+
+Release 0.10.0 has **1,291 nodes, 1,475 relations, 1,370 knowledge items, 2,746 track mappings, 340 source citations and 1,548 item citations**, including 30 complete permitted-grape unions. Geometry represents **1,062 noncountry places plus 20 countries**, with **1,063 cited location items**; one place has two location assertions. This adds 449 distinct noncountry places to 0.9.0.
+
+- France completion adds the missing 30 Chablis Premier Cru label names and 41 Alsace Grand Crus. Combined coverage is seven Chablis Grand Cru climats, 40 Premier Cru label names including all 17 umbrella names, 32 Côte d'Or Grand Cru appellations and 51 Alsace Grand Crus. These are not all cadastral parcels. Côte de Fontenay keeps a qualified municipality reference.
+- Europe completion adds 152 places, including every Italian administrative region and the named Barolo/Barbaresco, Chianti Classico/Chianti, northern Italian, current Jerez and Cava study sets. Full MGAs/Pievi/UGAs remain unfinished. Current Chianti has eight subzones; Vino Nobile's unimplemented 12 Pievi include Sant'Ilario, not Argiano.
+- New World completion adds 174 places with documented legal nesting and licensed reference points. Napa's 17 study areas include 15 wholly contained AVAs and two partial overlaps. All 11 Willamette nested AVAs and 11 Paso districts are represented. Australian registered subregions, New Zealand regional/local wine GIs and the listed Stellenbosch/Hemel-en-Aarde ward sets are complete within their stated inventories; wider registers remain partial.
+- Diploma additions supply 22 British places, eight Chinese references, New York state and all 11 associated AVAs, and ten missing macro-region frames. Lake Erie retains a US parent because it spans New York, Ohio and Pennsylvania. Spanish administrative La Rioja and Navarra are distinct from the same-named wine appellations. China provinces/autonomous regions are administrative geography; Helan foothills uses a qualified Zhenbeibu wine-cluster point. Lisboa, Olifants River and South Eastern Australia retain qualified locality references. NZ island frames are geography, without a new permission-completeness claim.
+- Eight Spanish legal grape unions add 100 permitted-grape facts, 46 grape identities and aliases. Conditions remain explicit for historic Ribera plantings, Rueda Palomino and Cava Trepat. Rioja Turruntés is Albillo Mayor; Cava Subirat Parent is Alarije; Galician Torrontés is separate. Rueda's current list excludes Godello. Pirulé identity remains unresolved.
+- Forty-five new physical berry-colour facts cite primary cultivar catalogues. Their flashcard/typed recall is served at depth 2; they disable MCQ because the answer vocabulary has only three colours. Gewürztraminer has pink berries; its permission's pink distractor pool and unresolved Pirulé disable MCQ while retaining other practice. The generator now refuses colour-matched peers if the correct grape's required colour is unknown.
+- `map_grape` varies one to three requested grapes from current served permissions for the same authored area. It accepts every represented area that permits the entire combination and independently reviews each requested permission. `map_pair` varies two to four named places with separate grades. Composite review retains the same-template eligibility rule.
+
+The final pipeline ships **26 layers, 2,468.8 KB** (within the 8 MB total and 1.5 MB/layer budgets). CC0 Wikidata/UC Davis, INAO Open Licence 2.0, Cadastre Open Licence 1.0 and GeoNames CC BY 4.0 snapshots remain separately pinned and attributed. British Somerset/Wessex references were corrected to exact inland Taunton/Dorchester points, verified inside the simplified UK polygon. Source notes and reproductions retain the derivation and location qualifications.
+
+### Local validation
+
+Validation covers all **709 unique Flutter tests**: 707 passed in the full run. Two tests had outdated assumptions (only two selectable tracks, and 999 items as an artificially high coverage ceiling); their expectations were corrected and both passed a targeted recheck. The full suite was not repeated after those test-only changes. Analysis is clean, curriculum lint has zero errors, seven Node pipeline tests pass, and the offline rebuild is byte-identical with feature/containment/budget checks. SQLite/Drift web assets pass and the dependency lockfile is unchanged. Generation produces **7,372 questions**: 1,381 flashcards, 1,308 MCQs, 1,331 typed, 1,063 each of locate/identify/pair and 163 grape maps, plus 31 exercise pools. All three track baselines pass with zero known blocking gaps or flashcard-only items in the authored scope; CMS has 1,367 testable items and both WSET tracks 1,370. Planned Diploma objectives and quality/depth thresholds remain separate from that ratchet.
+
+All 1,370 items await qualified expert review; lint also discloses 1,358 uncurated relation dates and 105 structural relations awaiting curator review. Local technical validation does not close those content gates or the full Diploma curriculum. Logs are in ignored `build/atlas-completion-*` files. Remote CI, finer atlas registers, authoritative boundaries, physical-geography and analytical formats and the six Diploma workstreams remain open.
+
+## New World and learner progress continuation — release 0.11.0
+
+The user requested the remaining New World map work and visible progress towards WSET levels, retaining **Level 4 Diploma as the whole-companion target**. The existing checkout and all prior authored rows remain preserved. This release is local and uncommitted; nothing was pushed or merged.
+
+The release adds **361 distinct mapped places**: Australia 58, South Africa 112, United States 88, Canada 32, Argentina 41 and Chile 30. Every addition has a cited location item, cumulative track mappings and a licensed reference marker. Australia now represents all 114 current national register names including the country, Ontario all 17 appellations and British Columbia all 21 wine GIs/sub-GIs. The California/Oregon/Washington register inventory covers 196 unique associated AVAs; state-associated counts overlap. South Africa covers 149 of 150 noncountry register entries, including all 32 districts and 101 of 102 wards. **Paardeberg South remains unsourced**: rejected references contradicted the primary locality description. Do not substitute a same-named mountain, farm or guessed point to close this gap.
+
+The new [Oceania/Africa](../../tool/geography/new_world_oceania_africa_sources.md) and [Americas](../../tool/geography/new_world_americas_sources.md) notes retain exact source editions, inventory categories, coordinate provenance and homonym checks. Wine Australia polygon-derived interior points retain its CC BY 4.0 licence. GeoNames CC BY 4.0 and Wikidata/UC Davis CC0 sources stay separate. Complete original Natural Earth 10m island polygon parts restore Salt Spring Island and Rapa Nui in the Canadian/Chilean country frames; no boundary tracing or artificial island buffers are introduced.
+
+Six complete New Zealand regional top-two planted-variety records add 12 dated facts and grape-map practice, using **observed 2025 planted area** from NZ Winegrowers' 2026 report. Reified statistic subjects and a shared source/year cohort keep these questions separate from legal grape permissions. Every represented alternative matching the requested combination is accepted, and each requested clue receives its own review grade. The generator and shared map presenter consistently use the learner's local calendar date for current facts, frame eligibility and presentation.
+
+Pinot Gris physical berry colour is corrected to **grey**, with Grey/Gray typed aliases. The inherited White row is retained with an expiry date. Five grape permission/planting MCQs are disabled because the grey-grape distractor pool is insufficient; their typed, flashcard and eligible map practice remains available. Historical legal-permission unions are preserved; typed current colour/ranking answers exclude expired assertions.
+
+Home now links to **WSET progress for Levels 1–4**. The repository computes studied facts, current mastery, due/new facts, next study suggestions and Diploma D1–D6 supporting-topic counts from installed curriculum and existing review data. Mastery requires spaced successful reviews, stability and current retrievability; a lapse or memory decay can reduce it. Optional exam-pass declarations are clearly self-reported, reversible and independent of app milestones. Existing backup/reset/erase behaviour preserves the intended distinction. All four authored scopes remain explicitly incomplete: Level 1 has no material, Level 2 seven facts and cumulative Level 3/4 1,744 facts. Available-material percentages cannot declare a complete syllabus. See [learner progress](../wset-learner-progress.md).
+
+The final release contains **1,658 nodes, 1,855 relations, 1,744 knowledge items, 3,494 track mappings, 444 source citations and 2,010 item citations**. Geometry covers **1,423 noncountry places plus 20 country frames**, with **1,424 cited location items**; one place has two location assertions. The bundle has **31 layers totalling 2,516.1 KB**. Generation yields **9,583 questions**: 1,755 flashcards, 1,676 MCQs, 1,705 typed questions, 1,424 each of locate/identify/pair and 175 grape maps, plus 31 exercise pools. The 30 complete legal permission unions and six complete dated statistical sets remain different question families.
+
+Manifest release `0.11.0` is published at `2026-09-26T21:52:25.000Z` with dataset checksum `sha256:7b862c406f5ef5310b97cb57c4296e991c36b4d65eb459a5e9710854592f77f0`. Regenerating source snapshots requires re-registering source/layer metadata, rebuilding, recomputing the dataset checksum and updating the coverage baseline. Do not edit generated hashes independently of their inputs.
+
+Remaining work includes Paardeberg South, other finer regional registers, deeper grape-growing/physical-geography clues, analytical formats and the six Diploma content workstreams. All 1,744 facts still await expert review. Name-list completeness in the closed inventories does not establish complete WSET coverage or full regional wine analysis. The [coverage inventory](geography-coverage.md), [Diploma audit](wset-level-4-gap-audit.md) and canonical backlog record those limits.
+
+### Release 0.11 content and geometry validation
+
+Curriculum lint has **zero errors**, with the disclosed warnings of 1,719 uncurated relation dates, 111 structural relations awaiting curator review and all 1,744 items unverified. All three selectable coverage baselines pass with **zero known blocking gaps and zero flashcard-only items in the authored scope**: CMS has 1,741 testable items, both WSET tracks 1,744. This is an authored-scope ratchet, not a full-syllabus assessment.
+
+All **20 Node geography tests pass**. The offline 31-layer rebuild is byte-identical and passes source/feature/containment/budget checks. SQLite 3.6.0 / Drift 2.35 web-asset hashes and versions match the unchanged pinned lockfile. Four local-midnight regression tests and the four NZ planting tests pass together; they cover current ranking edges, completeness assertions, mapped area links, eligible named peers and Pinot Gris typed recall across the UTC/local date boundary.
+
+Logs are in ignored `build/new-world-*` files, notably `new-world-curriculum-lint.log`, `new-world-curriculum-report.log`, `new-world-coverage-report.md`, `new-world-node-tests.log`, `new-world-geography-check.log` and `new-world-boundary-tests.log`.
+
+### Release 0.11 Flutter validation
+
+Validation covers **741 unique Flutter tests across the full run and focused rechecks**. The first full run passed 718 of the original 740 tests. One expectation lacked the newly required island-source attribution; 21 UI cases exposed progress-card loading/refresh timing. The attribution expectation was updated, and progress now retains one serialized/coalesced subscription, starts the minute timer after initial success and uses static initial Home loading. No fixture checks or timeouts were relaxed.
+
+After those changes, **104 tests passed** in the feature/progress/geometry recheck. A separate explicit run of the progress files passed **20 tests**, including the additional slow-initial-load/refresh/cancellation regression. Thus the original 740 cases and the new regression are covered; the complete suite was not repeated after the refresh fix. Static analysis is clean and changed Dart files are formatted. Logs: `new-world-full-tests.log`, `new-world-ui-recheck.log`, `new-world-progress-refresh-tests.log` and `new-world-post-refresh-analyze.log`.
+
+`flutter build web --no-web-resources-cdn --output build/new-world-web` succeeds, including its Wasm dry run. The built curriculum manifest, both new regional files, NZ planting file, progress scope, restored country layer and SQLite/Drift runtime files match their source hashes. The offline renderer and Flutter asset/font manifests are bundled. The usable build is in ignored `build/new-world-web`, with compiler output in `new-world-fresh-web-build.log`. The first build into the existing `build/web` compiled but lacked runtime files that its metadata listed as outputs; rebuilding into a fresh directory and checking actual files resolved that local packaging issue. Use the verified fresh output rather than the partial older directory. Final whitespace checks pass and `pubspec.lock` is unchanged. No installable Android/Windows package, remote CI, commit, push or publication was performed.

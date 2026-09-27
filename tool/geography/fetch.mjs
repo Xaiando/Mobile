@@ -92,6 +92,7 @@ let failed = false;
 for (const source of sources.values()) {
   const file = downloadPath(source);
   if (!fs.existsSync(file)) {
+    if (source.snapshot) throw new Error(`${source.id}: missing checked-in snapshot ${source.snapshot}`);
     console.log(`Downloading ${source.id}: ${source.url}`);
     await download(source.url, file);
   }

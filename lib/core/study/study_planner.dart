@@ -5,9 +5,11 @@ import 'package:drift/drift.dart';
 import 'package:fsrs/fsrs.dart' as fsrs;
 
 import '../curriculum/knowledge_graph.dart';
+import '../curriculum/reasoning_paths.dart';
 import '../database/app_database.dart';
 import '../questions/exercise_format.dart';
 import '../questions/format_registry.dart';
+import '../questions/formats/reasoning/reasoning_format.dart';
 import '../time/utc_clock.dart';
 import 'format_ladder.dart';
 import 'memory_state.dart';
@@ -35,7 +37,7 @@ class EffectiveMapping {
   /// `core`, `secondary` or `tertiary`.
   final String importance;
 
-  /// 1 recognize, 2 also forward recall, 3 also reverse recall (CM-6).
+  /// 1 recognize, 2 forward recall, 3 reverse recall, 4 causal reasoning (CM-6).
   final int minimumDepth;
 
   /// 0 when the track maps the item itself, 1 for the level below, and so on.
@@ -286,6 +288,11 @@ class StudyPlanner {
       for (final state in await db.select(db.reviewStates).get())
         state.knowledgeItemId: state,
     };
+    final readyReasoning = await _readyReasoningTemplates(
+      currentItems: {for (final item in items) item.id},
+      mappedItems: mappings.keys.toSet(),
+      studiedItems: states.keys.toSet(),
+    );
     final lastTemplates = await _lastTemplates();
     final scheduler = await _scheduler();
     final staleCutoff = staleBefore(now);
@@ -329,8 +336,16 @@ class StudyPlanner {
     final cards = <StudyCard>[];
     for (final item in items) {
       final mapping = mappings[item.id];
-      final available = formats[item.id];
-      if (mapping == null || available == null) continue;
+      final available = formats[item.id]
+          ?.where(
+            (format) =>
+                format.mode != ReasoningFormat.formatId ||
+                readyReasoning.contains((item.id, format.questionTemplateId)),
+          )
+          .toList();
+      if (mapping == null || available == null || available.isEmpty) continue;
+      final served = servedFormats(available, mapping.minimumDepth);
+      if (served.isEmpty) continue;
       final state = states[item.id];
       final r = retrievability(state);
       final j = journal(item);
@@ -338,7 +353,7 @@ class StudyPlanner {
         StudyCard(
           item: item,
           mapping: mapping,
-          formats: servedFormats(available, mapping.minimumDepth),
+          formats: served,
           state: state,
           retrievability: r,
           priority: state == null
@@ -480,7 +495,12 @@ class StudyPlanner {
       for (final format in sorted)
         if (format.requiredDepth <= minimumDepth) format,
     ];
-    return served.isNotEmpty ? served : [sorted.first];
+    if (served.isNotEmpty) return served;
+    // Reasoning may never bypass its depth requirement through A-10 fallback.
+    return sorted
+        .where((format) => format.mode != ReasoningFormat.formatId)
+        .take(1)
+        .toList();
   }
 
   /// The overview of the active track, or null before a track is chosen.
@@ -605,6 +625,7 @@ class StudyPlanner {
       FROM exercise_pool_items i
       JOIN exercise_pools p ON p.id = i.exercise_pool_id
       JOIN question_templates t ON t.id = p.question_template_id
+      WHERE ${ReasoningFormat.scheduledPoolMemberSql()}
       ORDER BY 1, 2''',
           readsFrom: {
             db.questions,
@@ -630,5 +651,58 @@ class StudyPlanner {
           );
     }
     return byItem;
+  }
+
+  /// A causal chain never introduces unseen supporting facts as bonus reviews.
+  /// It is offered only after every support was studied and every member is
+  /// current and mapped to this track. Other formats can teach its target first.
+  Future<Set<(String, String)>> _readyReasoningTemplates({
+    required Set<String> currentItems,
+    required Set<String> mappedItems,
+    required Set<String> studiedItems,
+  }) async {
+    final validPools = await ReasoningPaths(db)
+        .validPoolIds(on: localToday(_clock));
+    final rows = await db
+        .customSelect(
+          '''
+      SELECT p.id, p.question_template_id, i.knowledge_item_id, i.rank
+      FROM exercise_pools p
+      JOIN question_templates t ON t.id = p.question_template_id
+      JOIN exercise_pool_items i ON i.exercise_pool_id = p.id
+      WHERE t.mode = ?1
+      ORDER BY p.id, i.rank''',
+          variables: [const Variable(ReasoningFormat.formatId)],
+          readsFrom: {
+            db.exercisePools,
+            db.exercisePoolItems,
+            db.questionTemplates,
+          },
+        )
+        .get();
+    final pools = <int, List<QueryRow>>{};
+    for (final row in rows) {
+      pools.putIfAbsent(row.read<int>('id'), () => []).add(row);
+    }
+    return {
+      for (final entry in pools.entries)
+        if (validPools.contains(entry.key) &&
+            entry.value.every(
+              (r) =>
+                  currentItems.contains(r.read<String>('knowledge_item_id')) &&
+                  mappedItems.contains(r.read<String>('knowledge_item_id')),
+            ) &&
+            entry.value
+                .take(entry.value.length - 1)
+                .every(
+                  (r) => studiedItems.contains(
+                    r.read<String>('knowledge_item_id'),
+                  ),
+                ))
+          (
+            entry.value.last.read<String>('knowledge_item_id'),
+            entry.value.last.read<String>('question_template_id'),
+          ),
+    };
   }
 }

@@ -1,0 +1,74 @@
+# Original hypothetical comparisons; one scoped self-checked pool per case.
+question_templates:
+  - id: qt_reg_am_case_california_sites
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: reg_am_california_sites
+    prompt_template: A grower can contract a cool, bay-influenced Carneros parcel or a warmer upper Napa
+      parcel. The plans are a fresh Pinot Noir and a fully ripe Cabernet Sauvignon. Both sites have
+      adequate water and suitable soils; the warmer parcel has the lower quoted fruit cost. Propose a
+      defensible site allocation, explain the regional mechanism, and discuss a commercial tradeoff and a
+      limitation before contracting. Do not infer quality from the appellation alone.
+    parameters:
+      scope_node_ids:
+        - n_reg_am_case_california_sites
+      key_points:
+        CASE_ACTION: Defensible action
+        CASE_REASON: Regional mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or follow-up
+  - id: qt_reg_am_case_pacific_northwest
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: reg_am_pacific_northwest
+    prompt_template: "A buyer needs two dry wines: a fresh Pinot Noir and a ripe Cabernet Sauvignon with
+      retained acidity. A Willamette supplier offers Pinot Noir; an eastern Columbia Valley supplier
+      offers Cabernet with documented irrigation. The latter quote is cheaper but requires a larger
+      order. Propose a defensible sourcing plan, compare growing conditions, and explain a tradeoff and
+      the evidence needed before promising quality or price."
+    parameters:
+      scope_node_ids:
+        - n_reg_am_case_pacific_northwest
+      key_points:
+        CASE_ACTION: Defensible action
+        CASE_REASON: Regional mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or follow-up
+  - id: qt_reg_am_case_chile_white
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: reg_am_chile_white
+    prompt_template: A Chilean supplier offers Chardonnay from a cooler coastal Aconcagua parcel or a warmer
+      inland parcel. Samples from the coast meet the buyer's freshness target; the inland sample is
+      fuller and riper. The coastal quote is higher and volume smaller. The buyer wants a fresh dry white
+      for prompt release. Recommend a defensible offer, explain the regional context, a commercial
+      tradeoff and a limitation. No soil name alone proves a mineral flavour.
+    parameters:
+      scope_node_ids:
+        - n_reg_am_case_chile_white
+      key_points:
+        CASE_ACTION: Defensible action
+        CASE_REASON: Regional mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or follow-up
+  - id: qt_reg_am_case_mendoza_claim
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: reg_am_mendoza_claim
+    prompt_template: "Two dry Mendoza Malbec samples are available from the same vintage: one from a higher
+      Uco Valley site and one from a lower warmer site. Their suppliers use different harvest dates and
+      oak regimes. The higher-site quote is greater. A retailer wants balanced fruit and acidity within a
+      fixed margin and asks whether altitude justifies the premium. Propose a defensible evaluation,
+      explain a mechanism, and give a tradeoff and a limitation."
+    parameters:
+      scope_node_ids:
+        - n_reg_am_case_mendoza_claim
+      key_points:
+        CASE_ACTION: Defensible action
+        CASE_REASON: Regional mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or follow-up

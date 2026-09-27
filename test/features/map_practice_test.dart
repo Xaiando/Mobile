@@ -204,15 +204,14 @@ void main() {
 
   testApp('answers from the list when this app cannot draw the map '
       '(GEO-30)', (tester) async {
-    // As after a downgrade: the database holds a newer appellation layer.
+    // As after a downgrade: stored map hashes differ from bundled assets.
     final exercise = await mapCard(
       tester,
       locateFirst,
       beforeStart: () => db.writeCurriculum(
-        () =>
-            (db.update(db.mapLayers)
-                  ..where((l) => l.id.equals('ml_fr_appellations')))
-                .write(MapLayersCompanion(assetSha256: Value('0' * 64))),
+        () => db
+            .update(db.mapLayers)
+            .write(MapLayersCompanion(assetSha256: Value('0' * 64))),
       ),
     );
     expect(find.textContaining('cannot draw this map'), findsOneWidget);

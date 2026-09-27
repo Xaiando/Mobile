@@ -1,0 +1,101 @@
+# Original self-checked production decisions; every pool is scoped to one scenario.
+question_templates:
+  - id: qt_win_case_fresh_white
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: win_fresh_white
+    prompt_template: Sound white grapes are intended for a delicate, fresh style. A trial with prolonged warm skin
+      contact produces an astringent wine. Propose a more suitable extraction plan for the next batch, explain its mechanism, and
+      discuss a tradeoff and a limitation. Other defensible plans may exist.
+    parameters:
+      scope_node_ids:
+        - n_win_case_fresh_white
+      key_points:
+        CASE_ACTION: Defensible action
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or follow-up
+  - id: qt_win_case_hot_red
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: win_hot_red
+    prompt_template: A sound red must is fermenting rapidly and its temperature keeps rising. Cooling capacity is
+      limited, and the winemaker wants moderate tannin rather than maximum extraction. Propose an immediate
+      temperature-management response, its rationale, one tradeoff and a limit. Do not assume that simply
+      making the cap cooler will solve the problem.
+    parameters:
+      scope_node_ids:
+        - n_win_case_hot_red
+      key_points:
+        CASE_ACTION: Defensible action
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or follow-up
+  - id: qt_win_case_low_yan
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: win_low_yan
+    prompt_template: Before inoculation, a high-sugar juice tests low in yeast-assimilable nitrogen. The producer
+      wants complete fermentation and proposes adding a large unmeasured DAP dose. Give a more defensible
+      nutrition plan, why it helps, a tradeoff and a limitation.
+    parameters:
+      scope_node_ids:
+        - n_win_case_low_yan
+      key_points:
+        CASE_ACTION: Defensible action
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or follow-up
+  - id: qt_win_case_difficult_mlf
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: win_difficult_mlf
+    prompt_template: A dry white wine is intended to undergo MLF for acid and texture adjustment. It has low pH,
+      is held cold and has substantial total sulfur dioxide. Inoculation has not given measurable malic-acid
+      decline. Propose a defensible response, explain why, and identify a tradeoff and limitation. Do not
+      assume warming alone guarantees completion.
+    parameters:
+      scope_node_ids:
+        - n_win_case_difficult_mlf
+      key_points:
+        CASE_ACTION: Defensible action
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or follow-up
+  - id: qt_win_case_protein_white
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: win_protein_white
+    prompt_template: A clear finished white blend fails a controlled heat-stability test. The producer wants to
+      bottle without a later haze but also preserve aroma and minimise wine loss. Propose a suitable trial and
+      treatment, its mechanism, a tradeoff and a limitation.
+    parameters:
+      scope_node_ids:
+        - n_win_case_protein_white
+      key_points:
+        CASE_ACTION: Defensible action
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or follow-up
+  - id: qt_win_case_sweet_bottling
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: win_sweet_bottling
+    prompt_template: A wine with fermentable residual sugar is ready for bottling. It looks clear after cross-flow
+      filtration, but the proposed final membrane has only a nominal rating and its integrity is untested. The
+      filling line has uncertain cleaning records. Propose a defensible packaging plan, why it is needed, a
+      tradeoff and a limitation.
+    parameters:
+      scope_node_ids:
+        - n_win_case_sweet_bottling
+      key_points:
+        CASE_ACTION: Defensible action
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or follow-up

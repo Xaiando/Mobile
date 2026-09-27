@@ -88,7 +88,13 @@ void main() {
   }
 
   Future<List<ReviewEvent>> events(WidgetTester tester) async =>
-      (await tester.runAsync(() => db.select(db.reviewEvents).get()))!;
+      (await tester.runAsync(
+        () =>
+            (db.select(db.reviewEvents)..where(
+                  (e) => e.questionTemplateId.equals('qt_profile_short_answer'),
+                ))
+                .get(),
+      ))!;
 
   testApp('writes an answer, then ticks the key points it covered', (
     tester,
@@ -107,7 +113,7 @@ void main() {
     expect(answerField, findsNothing, reason: 'the answer is final');
     expect(find.text(written), findsOneWidget);
     expect(
-      find.text('Tick the key points your answer covered.'),
+      find.text('Tick the selected learning points your answer covered.'),
       findsOneWidget,
     );
     final points = exercise.keyPoints;
@@ -117,7 +123,9 @@ void main() {
     await tap(tester, find.widgetWithText(CheckboxListTile, ticked.title));
     await tap(tester, find.widgetWithText(FilledButton, 'Done'));
     expect(
-      find.text('You covered 1 of ${points.length} key points.'),
+      find.text(
+        'You marked 1 of ${points.length} selected learning points as covered.',
+      ),
       findsOneWidget,
     );
     expect(find.byIcon(Icons.check_circle), findsOneWidget);
@@ -154,7 +162,9 @@ void main() {
     expect(find.text('You wrote nothing.'), findsOneWidget);
     await tap(tester, find.widgetWithText(FilledButton, 'Done'));
     expect(
-      find.text('You covered 0 of ${exercise.keyPoints.length} key points.'),
+      find.text(
+        'You marked 0 of ${exercise.keyPoints.length} selected learning points as covered.',
+      ),
       findsOneWidget,
     );
     expect((await events(tester)).map((e) => e.rating), everyElement(1));

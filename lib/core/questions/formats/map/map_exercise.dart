@@ -6,6 +6,7 @@ import '../../../database/app_database.dart';
 import '../../../geography/coordinates.dart';
 import '../../../geography/geometry_repository.dart';
 import '../../../geography/hit_test.dart';
+import '../../../time/utc_clock.dart';
 import '../../exercise.dart';
 import '../../exercise_format.dart';
 import '../../question_presenter.dart';
@@ -53,7 +54,8 @@ final class MapExercise implements Exercise {
     required this.mode,
     required this.names,
     this.options = const [],
-    this._correct,
+    this.correct,
+    this.correctByItem = const {},
   });
 
   @override
@@ -89,13 +91,21 @@ final class MapExercise implements Exercise {
   final List<QuestionOption> options;
 
   @override
-  List<String> get itemIds => [primaryItemId];
+  List<String> get itemIds => [
+    primaryItemId,
+    ...correctByItem.keys.where((id) => id != primaryItemId),
+  ];
 
-  final Set<String>? _correct;
+  final Set<String>? correct;
+
+  /// A grape-combination question can settle several related grape facts at
+  /// one selected location. Each fact retains its own accepted locations,
+  /// so a partly correct combination does not earn every item a Good.
+  final Map<String, Set<String>> correctByItem;
 
   /// Every node that answers the question: any correct node counts
   /// (question-system §6). A location item's is its area alone.
-  Set<String> get correctNodeIds => _correct ?? {nodeId};
+  Set<String> get correctNodeIds => correct ?? {nodeId};
 
   /// This exercise shown in [mode] instead.
   MapExercise inMode(MapMode mode) => MapExercise(
@@ -112,7 +122,8 @@ final class MapExercise implements Exercise {
     mode: mode,
     names: names,
     options: options,
-    correct: _correct,
+    correct: correct,
+    correctByItem: correctByItem,
   );
 
   Set<String> get candidateIds => {for (final c in frame.candidates) c.id};
@@ -130,13 +141,37 @@ final class MapLocateAnswer {
   });
 
   /// A tap, hit-tested against the candidates (geography §4).
-  MapLocateAnswer.fromTap(MapTap tap)
-    : this(
-        nodeId: tap.hit?.key,
-        position: tap.position,
-        zoom: tap.zoom,
-        view: tap.visibleBounds,
-      );
+  MapLocateAnswer.fromTap(
+    MapTap tap, {
+    String? preferredNodeId,
+    Set<String> preferredNodeIds = const {},
+  }) : this(
+         nodeId: _preferredHit(tap, {
+           ?preferredNodeId,
+           ...preferredNodeIds,
+         })?.key,
+         position: tap.position,
+         zoom: tap.zoom,
+         view: tap.visibleBounds,
+       );
+
+  /// A target whose shape really contains the tap remains correct where
+  /// official wine areas overlap. A merely nearby target cannot override
+  /// another area's exact hit; only equally near hits may break a tie.
+  static MapHit? _preferredHit(MapTap tap, Set<String> preferred) {
+    final best = tap.hit;
+    if (best == null || preferred.isEmpty) return best;
+    for (final hit in tap.hits) {
+      if (!preferred.contains(hit.key)) continue;
+      if (hit.kind == HitKind.inside ||
+          (best.kind == HitKind.near &&
+              hit.kind == HitKind.near &&
+              (hit.distance - best.distance).abs() < 0.000001)) {
+        return hit;
+      }
+    }
+    return best;
+  }
 
   /// A name chosen in the list instead of a tap.
   const MapLocateAnswer.fromList(String nodeId)
@@ -219,11 +254,12 @@ abstract class MapFormat extends ExerciseFormat {
         .getSingle();
     final nodeId = row.read<String>('subject_id');
     final maps = GeometryRepository(db);
-    final frame = await maps.frameOf(nodeId);
+    final on = isoDate(context.now.toLocal());
+    final frame = await maps.frameOf(nodeId, on: on);
     if (frame == null) {
       throw StateError('$nodeId has no map frame');
     }
-    final zoomedOut = await maps.frameOf(frame.parent.id);
+    final zoomedOut = await maps.frameOf(frame.parent.id, on: on);
     final state = await (db.select(
       db.reviewStates,
     )..where((s) => s.knowledgeItemId.equals(itemId))).getSingleOrNull();

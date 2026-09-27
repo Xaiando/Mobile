@@ -2,6 +2,7 @@ import 'package:drift/drift.dart';
 import 'package:fsrs/fsrs.dart' as fsrs;
 
 import '../../../curriculum/name_normalizer.dart';
+import '../../../time/utc_clock.dart';
 import '../../exercise.dart';
 import '../../exercise_format.dart';
 import '../../question_presenter.dart';
@@ -21,16 +22,25 @@ final class TypedQuestion extends PresentedQuestion {
     required this.accepted,
     required this.rivals,
     required this.typeWords,
+    this.partialRivals,
   }) : super(options: const []);
 
   /// Every name that answers the question, as a [TypedFormat.core], with the
   /// name of the node it names: each correct node in any validity period,
+  /// except physical berry metadata and dated rankings, which use current
+  /// relations so a retired erroneous value cannot remain a correct answer,
   /// and its alternative names (synonyms, former names, spellings; QF-8).
   final Map<String, String> accepted;
 
   /// The names of every other node, and their alternative names, as cores:
   /// typing one is a wrong answer, never a slip or a part of the answer.
   final Set<String> rivals;
+
+  /// Names that could answer the relation, used to decide whether an
+  /// incomplete answer is ambiguous. Exact known wrong names are still
+  /// rejected through [rivals], including names from other node types.
+  /// Older/manual presentations fall back to [rivals].
+  final Set<String>? partialRivals;
 
   /// The words of the answer's node type ("climate", "grape variety"), in
   /// the singular and the plural, which an answer may add or leave out.
@@ -131,18 +141,29 @@ class TypedFormat extends ExerciseFormat {
     final typeWords = typeWordsOf(type.label);
     String coreOf(String norm) => core(norm, typeWords);
 
-    // Every node the relation gives as an answer, in any period (QF-8).
+    // Retain legal alternatives across periods (QF-8). Corrected physical
+    // descriptions and dated ranks must not accept retired erroneous values.
     final forward = question.direction == 'forward';
     final (from, to, given) = forward
         ? ('subject_id', 'object_id', item.subjectId)
         : ('object_id', 'subject_id', item.objectId);
+    final currentDescription = const {
+      'HAS_BERRY_COLOUR',
+      'TOP_PLANTED_GRAPE',
+    }.contains(item.relationType);
+    final on = isoDate(context.now.toLocal());
     final answers = await db
         .customSelect(
           '''
       SELECT n.id, n.name, n.name_norm FROM knowledge_relations r
       JOIN knowledge_nodes n ON n.id = r.$to
-      WHERE r.$from = ?1 AND r.relation_type = ?2''',
-          variables: [Variable(given), Variable(item.relationType)],
+      WHERE r.$from = ?1 AND r.relation_type = ?2
+      ${currentDescription ? 'AND r.valid_from <= ?3 AND (r.valid_until IS NULL OR r.valid_until > ?3)' : ''}''',
+          variables: [
+            Variable(given),
+            Variable(item.relationType),
+            if (currentDescription) Variable(on),
+          ],
           readsFrom: {db.knowledgeRelations, db.knowledgeNodes},
         )
         .get();
@@ -154,9 +175,23 @@ class TypedFormat extends ExerciseFormat {
       for (final row in answers)
         coreOf(row.read<String>('name_norm')): row.read<String>('name'),
     };
+    final answerTypes = {
+      answerNode.nodeType,
+      for (final signature in await (db.select(
+        db.relationTypeSignatures,
+      )..where((s) => s.relationType.equals(item.relationType))).get())
+        forward ? signature.objectNodeType : signature.subjectNodeType,
+    };
+    final nodes = await db.select(db.knowledgeNodes).get();
+    final nodeTypes = {for (final node in nodes) node.id: node.nodeType};
     final rivals = <String>{};
-    for (final node in await db.select(db.knowledgeNodes).get()) {
-      if (!names.containsKey(node.id)) rivals.add(coreOf(node.nameNorm));
+    final partialRivals = <String>{};
+    for (final node in nodes) {
+      if (!names.containsKey(node.id)) {
+        final name = coreOf(node.nameNorm);
+        rivals.add(name);
+        if (answerTypes.contains(node.nodeType)) partialRivals.add(name);
+      }
     }
     for (final alternative in await db.select(db.nodeAlternativeNames).get()) {
       final name = coreOf(alternative.nameNorm);
@@ -164,9 +199,13 @@ class TypedFormat extends ExerciseFormat {
         accepted[name] = answer;
       } else {
         rivals.add(name);
+        if (answerTypes.contains(nodeTypes[alternative.knowledgeNodeId])) {
+          partialRivals.add(name);
+        }
       }
     }
     rivals.removeAll(accepted.keys);
+    partialRivals.removeAll(accepted.keys);
     return TypedQuestion(
       knowledgeItemId: question.knowledgeItemId,
       questionTemplateId: question.questionTemplateId,
@@ -178,6 +217,7 @@ class TypedFormat extends ExerciseFormat {
       seed: seed,
       accepted: accepted,
       rivals: rivals,
+      partialRivals: partialRivals,
       typeWords: typeWords,
     );
   }
@@ -202,9 +242,12 @@ class TypedFormat extends ExerciseFormat {
       }
     }
     // Whole words of the name, long enough to mean something, and part of
-    // no other name.
+    // no competing name of a type that can answer this relation. Lesson
+    // sentences may mention the same word without naming another answer.
     if (text.replaceAll(' ', '').length >= 5 &&
-        !question.rivals.any((rival) => _isPart(text, rival))) {
+        !(question.partialRivals ?? question.rivals).any(
+          (rival) => _isPart(text, rival),
+        )) {
       for (final MapEntry(key: norm, value: name)
           in question.accepted.entries) {
         if (_isPart(text, norm)) return (TypedOutcome.partial, name);

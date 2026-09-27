@@ -152,6 +152,7 @@ void main() {
     final questions = await presenter.questionsFor('ki_barolo_grape');
     expect(questions.map((q) => q.questionTemplateId), [
       'qt_principal_grape_fwd_flashcard',
+      'qt_principal_grape_fwd_map_grape',
       'qt_principal_grape_fwd_mcq',
       'qt_principal_grape_fwd_typed',
     ]);

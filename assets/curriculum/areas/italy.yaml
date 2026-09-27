@@ -80,8 +80,8 @@ knowledge_items:
     relation_type: HAS_SOIL
     object_id: n_soil_tortonian_marl
     domain_id: viticulture
-    assertion_text: "Most of the Barolo zone lies on Tortonian marls and sands."
-    last_verified_at: "2026-09-24T12:00:00.000Z"
+    assertion_text: "The Barolo specification says that most of the zone belongs to the Tortonian formation of stratified marls and sands."
+    last_verified_at: "2026-09-27T20:00:00.000Z"
   - id: ki_barolo_min_ageing
     subject_id: n_geo_barolo
     relation_type: MIN_AGEING
@@ -153,8 +153,8 @@ knowledge_items:
     relation_type: PERMITS_PRINCIPAL_GRAPE
     object_id: n_grape_sangiovese
     domain_id: geography
-    assertion_text: "Chianti Classico must contain 80–100% Sangiovese, and Chianti Classico Gran Selezione at least 90%."
-    last_verified_at: "2026-09-24T12:00:00.000Z"
+    assertion_text: "Chianti Classico and Chianti Classico Riserva must be 80–100% Sangiovese. From the 2027 vintage, Gran Selezione must be at least 90% Sangiovese, with only listed native varieties in the rest; until that vintage, vineyards meeting the 80% rule remain eligible."
+    last_verified_at: "2026-09-27T20:00:00.000Z"
   - id: ki_chianti_classico_soil
     subject_id: n_geo_chianti_classico
     relation_type: HAS_SOIL
@@ -174,6 +174,42 @@ knowledge_items:
 
 # Learn the basic fact before the one that builds on it (§G's prerequisite
 # factor, used by the study queue in Phase 3).
+  - id: ki_atlas_piedmont_location
+    subject_id: n_geo_piedmont
+    relation_type: LOCATED_IN
+    object_id: n_geo_italy
+    domain_id: geography
+    assertion_text: Piedmont (Piemonte) is a wine region in northwestern Italy.
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_atlas_tuscany_location
+    subject_id: n_geo_tuscany
+    relation_type: LOCATED_IN
+    object_id: n_geo_italy
+    domain_id: geography
+    assertion_text: Tuscany (Toscana) is a wine region in central Italy.
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_atlas_langhe_location
+    subject_id: n_geo_langhe
+    relation_type: LOCATED_IN
+    object_id: n_geo_piedmont
+    domain_id: geography
+    assertion_text: The Langhe hills form a wine-growing area of Piedmont.
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_atlas_barbaresco_location
+    subject_id: n_geo_barbaresco
+    relation_type: LOCATED_IN
+    object_id: n_geo_langhe
+    domain_id: geography
+    assertion_text: Barbaresco is produced in the Langhe hills of Piedmont.
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_atlas_brunello_di_montalcino_location
+    subject_id: n_geo_brunello_di_montalcino
+    relation_type: LOCATED_IN
+    object_id: n_geo_tuscany
+    domain_id: geography
+    assertion_text: Brunello di Montalcino is produced around Montalcino in Tuscany.
+    last_verified_at: 2026-09-26T17:29:14.000Z
+
 knowledge_item_prerequisites:
   - { knowledge_item_id: ki_barolo_grape, prerequisite_item_id: ki_barolo_location }
   - { knowledge_item_id: ki_barolo_min_ageing, prerequisite_item_id: ki_barolo_grape }
@@ -222,6 +258,47 @@ certification_knowledge_mappings:
 
 # Primary legal texts, as the Italian Ministry of Agriculture (MASAF)
 # publishes them.
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_piedmont_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_piedmont_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_tuscany_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_tuscany_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_langhe_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_langhe_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_barbaresco_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_barbaresco_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_brunello_di_montalcino_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_brunello_di_montalcino_location
+    importance: core
+    minimum_depth: 1
+
 source_citations:
   - id: src_masaf_disciplinare_barolo
     kind: legislation
@@ -250,11 +327,11 @@ source_citations:
   - id: src_masaf_disciplinare_brunello_di_montalcino
     kind: legislation
     title: "Disciplinare di produzione della denominazione di origine controllata e garantita del vino «Brunello di Montalcino»"
-    publisher: "Ministero dell'agricoltura, della sovranità alimentare e delle foreste (national catalogue of vine varieties)"
+    publisher: "Ministero dell'agricoltura, della sovranità alimentare e delle foreste (MASAF)"
     jurisdiction: IT
-    document_identifier: "Text as amended by D.M. of 7 March 2014"
-    url: "http://catalogoviti.politicheagricole.it/scheda_denom.php?t=dsc&q=1013"
-    accessed_on: "2026-09-24"
+    document_identifier: "Consolidated specification annexed to the decree of 27 October 2015, incorporating the amendment of 19 October 2015"
+    url: "https://www.masaf.gov.it/flex/cm/pages/ServeAttachment.php/L/IT/D/d%252F3%252F3%252FD.f8d16666572c26748523/P/BLOB%3AID%3D8292/E/pdf?mode=download"
+    accessed_on: "2026-09-26"
 
 knowledge_item_citations:
   - { knowledge_item_id: ki_barolo_location, source_citation_id: src_masaf_disciplinare_barolo, locator: "Art. 10 (legame con l'ambiente geografico)" }
@@ -272,3 +349,18 @@ knowledge_item_citations:
   - { knowledge_item_id: ki_chianti_classico_grape, source_citation_id: src_masaf_disciplinare_chianti_classico, locator: "Art. 2" }
   - { knowledge_item_id: ki_chianti_classico_soil, source_citation_id: src_masaf_disciplinare_chianti_classico, locator: "Art. 9 (legame con il territorio)" }
   - { knowledge_item_id: ki_chianti_classico_climate, source_citation_id: src_masaf_disciplinare_chianti_classico, locator: "Art. 9 (legame con il territorio)" }
+  - knowledge_item_id: ki_atlas_piedmont_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: "Regional grouping: Piemonte"
+  - knowledge_item_id: ki_atlas_tuscany_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: "Regional grouping: Toscana"
+  - knowledge_item_id: ki_atlas_langhe_location
+    source_citation_id: src_masaf_disciplinare_barolo
+    locator: "Art. 10: geographical link, Langhe and Regione Piemonte"
+  - knowledge_item_id: ki_atlas_barbaresco_location
+    source_citation_id: src_masaf_disciplinare_barbaresco
+    locator: "Art. 9: geographical link, Langhe"
+  - knowledge_item_id: ki_atlas_brunello_di_montalcino_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: "Regional grouping: Toscana; Brunello di Montalcino"

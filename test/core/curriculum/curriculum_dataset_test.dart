@@ -58,8 +58,15 @@ void main() {
       );
       expect([
         for (final t in dataset.questionTemplates)
-          if (t.mode != 'short_answer') (t.variant, t.parameters),
+          if (t.mode != 'short_answer' && t.mode != 'reasoning' &&
+              t.id != 'qt_located_in_fwd_map_pair')
+            (t.variant, t.parameters),
       ], everyElement(('', null)));
+      final pair = dataset.questionTemplates.singleWhere(
+        (t) => t.id == 'qt_located_in_fwd_map_pair',
+      );
+      expect(pair.variant, '');
+      expect(jsonDecode(pair.parameters!), {'min_places': 2, 'max_places': 4});
       // A mapping of parameters is stored as JSON (QF-14).
       final profile = dataset.questionTemplates.singleWhere(
         (t) => t.id == 'qt_profile_short_answer',
@@ -69,6 +76,15 @@ void main() {
         jsonDecode(profile.parameters!),
         containsPair('key_points', containsPair('HAS_SOIL', 'Soil')),
       );
+      final reasoning = dataset.questionTemplates.singleWhere(
+        (t) => t.id == 'qt_reason_water_chain',
+      );
+      expect(reasoning.variant, 'reason_water_chain');
+      final parameters = jsonDecode(reasoning.parameters!) as Map<String, dynamic>;
+      expect(parameters['path_relation_types'], ['CAUSES_STATE', 'LEADS_TO']);
+      expect(parameters['scope_node_ids'], ['n_reason_water_premise']);
+      expect(parameters['contrasts'], containsPair('ki_reason_water_assimilation',
+        containsPair('n_reason_water_premise', hasLength(3))));
     });
 
     test('keeps every item unverified until expert review (D3)', () {

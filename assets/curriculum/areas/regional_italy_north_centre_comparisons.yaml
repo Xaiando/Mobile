@@ -1,0 +1,1724 @@
+# Original northern and central Italian regional comparisons.
+# All facts are unverified; curation date is not a wine-law effective date.
+# MCQ is disabled because site, vintage, producer and target admit plausible alternatives.
+knowledge_nodes:
+  - id: n_reg_inc_principle_nebbiolo_sites
+    node_type: production_principle
+    name: Why do Barolo and Barbaresco Nebbiolo comparisons need site and ripening context?
+  - id: n_reg_inc_point_nebbiolo_cycle
+    node_type: learning_point
+    name: Nebbiolo buds relatively early and ripens late
+  - id: n_reg_inc_point_nebbiolo_site
+    node_type: learning_point
+    name: Nebbiolo outcomes respond to exposure and local growing conditions
+  - id: n_reg_inc_principle_barbera_dolcetto
+    node_type: production_principle
+    name: How can Barbera and Dolcetto differ in the Piedmont harvest sequence and drinking style?
+  - id: n_reg_inc_point_barbera_timing
+    node_type: learning_point
+    name: Barbera often follows Dolcetto in the local harvest sequence
+  - id: n_reg_inc_point_dolcetto_dry
+    node_type: learning_point
+    name: Dolcetto is a dry wine with modest acidity and variable structure
+  - id: n_reg_inc_principle_valpolicella_styles
+    node_type: production_principle
+    name: How does a youthful basic Valpolicella differ in production emphasis from Amarone?
+  - id: n_reg_inc_point_valpolicella_fresh
+    node_type: learning_point
+    name: Basic Valpolicella uses conventional red vinification and short maturation
+  - id: n_reg_inc_point_amarone_drying
+    node_type: learning_point
+    name: Amarone uses dried grapes for a concentrated dry red style
+  - id: n_reg_inc_principle_ripasso_process
+    node_type: production_principle
+    name: Why is Valpolicella Ripasso a distinct production comparison from direct Amarone vinification?
+  - id: n_reg_inc_point_ripasso_pomace
+    node_type: learning_point
+    name: Ripasso referments Valpolicella on Amarone or Recioto pomace
+  - id: n_reg_inc_point_ripasso_structure
+    node_type: learning_point
+    name: Ripasso can increase alcohol and extract compared with its base wine
+  - id: n_reg_inc_principle_soave_grapes
+    node_type: production_principle
+    name: How do Garganega and Trebbiano di Soave differ as growing and blending components?
+  - id: n_reg_inc_point_garganega_later
+    node_type: learning_point
+    name: Garganega ripens later with loose bunches suited to drying
+  - id: n_reg_inc_point_trebbiano_freshness
+    node_type: learning_point
+    name: Trebbiano di Soave can contribute malic acidity to a blend
+  - id: n_reg_inc_principle_alto_adige_sites
+    node_type: production_principle
+    name: Why can two Alto Adige vineyards have different growing conditions despite an Alpine location?
+  - id: n_reg_inc_point_alto_adige_air
+    node_type: learning_point
+    name: Alto Adige combines Alpine shelter and warmer southern air
+  - id: n_reg_inc_point_alto_adige_variation
+    node_type: learning_point
+    name: Alto Adige altitude and terrain create contrasting local climates
+  - id: n_reg_inc_principle_friuli_hills
+    node_type: production_principle
+    name: How do terrain and position frame a Friuli Colli Orientali vineyard comparison?
+  - id: n_reg_inc_point_friuli_ponca
+    node_type: learning_point
+    name: Friuli Colli Orientali combines marl and sandstone hills with terraces
+  - id: n_reg_inc_point_friuli_position
+    node_type: learning_point
+    name: Friuli Colli Orientali lies between Alpine shelter and Adriatic ventilation
+  - id: n_reg_inc_principle_chianti_site_gradients
+    node_type: production_principle
+    name: How can altitude and water conditions distinguish nearby Chianti Classico Sangiovese sites?
+  - id: n_reg_inc_point_classico_altitude
+    node_type: learning_point
+    name: Higher Chianti Classico sites often ripen later
+  - id: n_reg_inc_point_classico_water
+    node_type: learning_point
+    name: Chianti Classico slopes vary in water retention
+  - id: n_reg_inc_principle_chianti_identity
+    node_type: production_principle
+    name: Why should a regional comparison retain the full names Chianti and Chianti Classico?
+  - id: n_reg_inc_point_classico_heartland
+    node_type: learning_point
+    name: Chianti Classico occupies the historic Florence to Siena heartland
+  - id: n_reg_inc_point_chianti_separate
+    node_type: learning_point
+    name: Chianti Classico has an identity distinct from generic Chianti
+  - id: n_reg_inc_principle_sangiovese_vineyard_choices
+    node_type: production_principle
+    name: How do plant material and vineyard design qualify Chianti Classico Sangiovese comparisons?
+  - id: n_reg_inc_point_sangiovese_material
+    node_type: learning_point
+    name: Chianti Classico research tested clones and rootstock fit
+  - id: n_reg_inc_point_sangiovese_design
+    node_type: learning_point
+    name: Training and density interact with environment and vineyard work
+  - id: n_reg_inc_principle_montalcino_styles
+    node_type: production_principle
+    name: How can Brunello and Rosso di Montalcino illustrate different aims within a shared Sangiovese origin?
+  - id: n_reg_inc_point_brunello_maturation
+    node_type: learning_point
+    name: Brunello is associated with longer maturation and ageing aims
+  - id: n_reg_inc_point_rosso_youth
+    node_type: learning_point
+    name: Rosso di Montalcino commonly emphasises fruit and earlier drinking
+  - id: n_reg_inc_principle_bolgheri_terroir
+    node_type: production_principle
+    name: How do coastal position and soil diversity qualify a Bolgheri comparison with inland Tuscany?
+  - id: n_reg_inc_point_bolgheri_breeze
+    node_type: learning_point
+    name: Bolgheri sea breezes moderate conditions and ventilate vineyards
+  - id: n_reg_inc_point_bolgheri_soils
+    node_type: learning_point
+    name: Bolgheri combines diverse marine and alluvial soil origins
+  - id: n_reg_inc_principle_verdicchio_regions
+    node_type: production_principle
+    name: How do Castelli di Jesi and Matelica provide contrasting Verdicchio geographic contexts?
+  - id: n_reg_inc_point_jesi_air
+    node_type: learning_point
+    name: Castelli di Jesi combines mountain air and Adriatic influence
+  - id: n_reg_inc_point_matelica_inland
+    node_type: learning_point
+    name: Matelica is the more inland mountain context for Verdicchio
+  - id: n_reg_inc_principle_orvieto_range
+    node_type: production_principle
+    name: Why is Orvieto origin alone insufficient for choosing a dry or sweet white-wine slot?
+  - id: n_reg_inc_point_orvieto_grapes
+    node_type: learning_point
+    name: Orvieto white blends centre on Procanico and Grechetto
+  - id: n_reg_inc_point_orvieto_sweetness
+    node_type: learning_point
+    name: Orvieto includes dry through sweet styles
+  - id: n_reg_inc_case_nebbiolo_list
+    node_type: production_case
+    name: A restaurant is comparing current Barolo and Barbaresco samples for a Nebbiolo slot intended for
+      drinking this year. Both wines are available now. The Barolo quote is higher; neither sample has been
+      tasted and no producer or vintage style is supplied. Give a defensible selection process, explain the
+      growing-context issue, discuss a price/value tradeoff and state a limitation.
+  - id: n_reg_inc_point_case_nebbiolo_list_action
+    node_type: learning_point
+    name: Compare coded Nebbiolo samples for current readiness
+  - id: n_reg_inc_point_case_nebbiolo_list_reason
+    node_type: learning_point
+    name: Assess Nebbiolo site and vintage instead of assuming commune style
+  - id: n_reg_inc_point_case_nebbiolo_list_tradeoff
+    node_type: learning_point
+    name: Weigh the stated Barolo premium against customer value
+  - id: n_reg_inc_point_case_nebbiolo_list_limitation
+    node_type: learning_point
+    name: Neither Nebbiolo name proves immediate drinking readiness
+  - id: n_reg_inc_case_valpolicella_buy
+    node_type: production_case
+    name: A buyer needs a fresh, moderate-weight red and can compare a basic Valpolicella, a Ripasso and an
+      Amarone from current suppliers. All are within the buying budget and have cuvée specifications, but
+      there are no tasting results. Propose an assessment process, explain the production contrasts, discuss a
+      concentration/style tradeoff and state a limitation.
+  - id: n_reg_inc_point_case_valpolicella_buy_action
+    node_type: learning_point
+    name: Compare the three Valpolicella samples against the fresh red brief
+  - id: n_reg_inc_point_case_valpolicella_buy_reason
+    node_type: learning_point
+    name: Distinguish fresh vinification from Ripasso and dried-grape Amarone
+  - id: n_reg_inc_point_case_valpolicella_buy_tradeoff
+    node_type: learning_point
+    name: Greater Valpolicella concentration may conflict with the light brief
+  - id: n_reg_inc_point_case_valpolicella_buy_limitation
+    node_type: learning_point
+    name: Valpolicella categories do not supply exact cuvée balance
+  - id: n_reg_inc_case_sangiovese_plots
+    node_type: production_case
+    name: A Chianti Classico grower has two Sangiovese plots. Repeated observations show a higher stony plot
+      developing later and a lower clay-rich plot developing earlier with more vigour. Both have healthy
+      fruit; the target is balanced ripeness. No picking date or water measurements are supplied. Propose a
+      monitoring approach, explain the site comparison, discuss a water-management tradeoff and state a
+      limitation.
+  - id: n_reg_inc_point_case_sangiovese_plots_action
+    node_type: learning_point
+    name: Monitor each Sangiovese plot before picking
+  - id: n_reg_inc_point_case_sangiovese_plots_reason
+    node_type: learning_point
+    name: Higher Sangiovese sites may develop more slowly
+  - id: n_reg_inc_point_case_sangiovese_plots_tradeoff
+    node_type: learning_point
+    name: Balance upper stress against lower wetness
+  - id: n_reg_inc_point_case_sangiovese_plots_limitation
+    node_type: learning_point
+    name: Plot observations do not yet establish the harvest date
+  - id: n_reg_inc_case_white_slots
+    node_type: production_case
+    name: A restaurant needs one dry central Italian white for its main wine-list slot and one sweet white for
+      dessert. Current offers are a Verdicchio dei Castelli di Jesi, an Orvieto secco and an Orvieto dolce.
+      Samples, cuvée details and landed quotes are available, but no tasting results are supplied. Propose an
+      allocation process, explain the grape/origin issue, discuss a value tradeoff and state a limitation.
+  - id: n_reg_inc_point_case_white_slots_action
+    node_type: learning_point
+    name: Check and taste the central Italian whites before allocating slots
+  - id: n_reg_inc_point_case_white_slots_reason
+    node_type: learning_point
+    name: Orvieto blend identity does not fix the finished sweetness
+  - id: n_reg_inc_point_case_white_slots_tradeoff
+    node_type: learning_point
+    name: Weigh central Italian white style fit against landed value
+  - id: n_reg_inc_point_case_white_slots_limitation
+    node_type: learning_point
+    name: Central Italian white aromas cannot prove origin or dessert suitability
+node_alternative_names:
+  - knowledge_node_id: n_reg_inc_point_nebbiolo_cycle
+    name: Piedmont Nebbiolo long growing cycle
+    kind: synonym
+  - knowledge_node_id: n_reg_inc_point_nebbiolo_site
+    name: Nebbiolo site sensitivity in the Langhe
+    kind: synonym
+  - knowledge_node_id: n_reg_inc_point_barbera_timing
+    name: Piedmont Barbera later than Dolcetto harvest
+    kind: synonym
+  - knowledge_node_id: n_reg_inc_point_dolcetto_dry
+    name: Dry Dolcetto with modest acidity
+    kind: synonym
+  - knowledge_node_id: n_reg_inc_point_valpolicella_fresh
+    name: Young Valpolicella conventional red vinification
+    kind: synonym
+  - knowledge_node_id: n_reg_inc_point_amarone_drying
+    name: Amarone dried grapes and dry fermentation
+    kind: synonym
+  - knowledge_node_id: n_reg_inc_point_ripasso_pomace
+    name: Ripasso Valpolicella refermentation on dried wine pomace
+    kind: synonym
+  - knowledge_node_id: n_reg_inc_point_ripasso_structure
+    name: Ripasso greater alcohol and extract than its base
+    kind: synonym
+  - knowledge_node_id: n_reg_inc_point_garganega_later
+    name: Soave Garganega later ripening and loose bunches
+    kind: synonym
+  - knowledge_node_id: n_reg_inc_point_trebbiano_freshness
+    name: Trebbiano di Soave malic acidity blending
+    kind: synonym
+  - knowledge_node_id: n_reg_inc_point_alto_adige_air
+    name: Alto Adige Alpine shelter and Mediterranean air
+    kind: synonym
+  - knowledge_node_id: n_reg_inc_point_alto_adige_variation
+    name: Alto Adige terrain and altitude microclimates
+    kind: synonym
+  - knowledge_node_id: n_reg_inc_point_friuli_ponca
+    name: Friuli Colli Orientali marl sandstone terraces
+    kind: synonym
+  - knowledge_node_id: n_reg_inc_point_friuli_position
+    name: Friuli Colli Orientali Alps and Adriatic air
+    kind: synonym
+  - knowledge_node_id: n_reg_inc_point_classico_altitude
+    name: Chianti Classico altitude ripening
+    kind: synonym
+  - knowledge_node_id: n_reg_inc_point_classico_water
+    name: Chianti Classico slope water retention
+    kind: synonym
+  - knowledge_node_id: n_reg_inc_point_classico_heartland
+    name: Chianti Classico historic Florence Siena territory
+    kind: synonym
+  - knowledge_node_id: n_reg_inc_point_chianti_separate
+    name: Separate Chianti and Chianti Classico identities
+    kind: synonym
+  - knowledge_node_id: n_reg_inc_point_sangiovese_material
+    name: Sangiovese clone and rootstock site fit
+    kind: synonym
+  - knowledge_node_id: n_reg_inc_point_sangiovese_design
+    name: Sangiovese vineyard training density and labour
+    kind: synonym
+  - knowledge_node_id: n_reg_inc_point_brunello_maturation
+    name: Brunello longer maturation emphasis
+    kind: synonym
+  - knowledge_node_id: n_reg_inc_point_rosso_youth
+    name: Rosso di Montalcino youthful fruit emphasis
+    kind: synonym
+  - knowledge_node_id: n_reg_inc_point_bolgheri_breeze
+    name: Bolgheri maritime cooling and ventilation
+    kind: synonym
+  - knowledge_node_id: n_reg_inc_point_bolgheri_soils
+    name: Bolgheri marine and alluvial soil diversity
+    kind: synonym
+  - knowledge_node_id: n_reg_inc_point_jesi_air
+    name: Jesi Verdicchio mountain air and Adriatic winds
+    kind: synonym
+  - knowledge_node_id: n_reg_inc_point_matelica_inland
+    name: Matelica inland mountain Verdicchio context
+    kind: synonym
+  - knowledge_node_id: n_reg_inc_point_orvieto_grapes
+    name: Orvieto Procanico Grechetto blend emphasis
+    kind: synonym
+  - knowledge_node_id: n_reg_inc_point_orvieto_sweetness
+    name: Orvieto dry and sweet style range
+    kind: synonym
+  - knowledge_node_id: n_reg_inc_point_case_nebbiolo_list_action
+    name: Compare current Barolo Barbaresco samples
+    kind: synonym
+  - knowledge_node_id: n_reg_inc_point_case_nebbiolo_list_reason
+    name: Nebbiolo regional buying needs site and vintage
+    kind: synonym
+  - knowledge_node_id: n_reg_inc_point_case_nebbiolo_list_tradeoff
+    name: Nebbiolo quoted premium and customer value
+    kind: synonym
+  - knowledge_node_id: n_reg_inc_point_case_nebbiolo_list_limitation
+    name: Barolo Barbaresco names do not prove readiness
+    kind: synonym
+  - knowledge_node_id: n_reg_inc_point_case_valpolicella_buy_action
+    name: Sample Valpolicella Ripasso Amarone for style fit
+    kind: synonym
+  - knowledge_node_id: n_reg_inc_point_case_valpolicella_buy_reason
+    name: Separate Valpolicella Ripasso and Amarone processes
+    kind: synonym
+  - knowledge_node_id: n_reg_inc_point_case_valpolicella_buy_tradeoff
+    name: Valpolicella concentration versus fresh style target
+    kind: synonym
+  - knowledge_node_id: n_reg_inc_point_case_valpolicella_buy_limitation
+    name: Valpolicella category needs cuvée specifications
+    kind: synonym
+  - knowledge_node_id: n_reg_inc_point_case_sangiovese_plots_action
+    name: Separate Sangiovese plot monitoring
+    kind: synonym
+  - knowledge_node_id: n_reg_inc_point_case_sangiovese_plots_reason
+    name: Higher Sangiovese plot slower development
+    kind: synonym
+  - knowledge_node_id: n_reg_inc_point_case_sangiovese_plots_tradeoff
+    name: Sangiovese upper lower water constraints
+    kind: synonym
+  - knowledge_node_id: n_reg_inc_point_case_sangiovese_plots_limitation
+    name: Sangiovese plot evidence still needs ripeness checks
+    kind: synonym
+  - knowledge_node_id: n_reg_inc_point_case_white_slots_action
+    name: Central Italian white slot assessment
+    kind: synonym
+  - knowledge_node_id: n_reg_inc_point_case_white_slots_reason
+    name: Orvieto grapes and origin do not fix sweetness
+    kind: synonym
+  - knowledge_node_id: n_reg_inc_point_case_white_slots_tradeoff
+    name: Central Italian whites style fit and quoted value
+    kind: synonym
+  - knowledge_node_id: n_reg_inc_point_case_white_slots_limitation
+    name: Central Italian white sensory inference limits
+    kind: synonym
+knowledge_relations:
+  - subject_id: n_reg_inc_principle_nebbiolo_sites
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_inc_point_nebbiolo_cycle
+    valid_from: 2026-09-27
+  - subject_id: n_reg_inc_principle_nebbiolo_sites
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_inc_point_nebbiolo_site
+    valid_from: 2026-09-27
+  - subject_id: n_reg_inc_principle_barbera_dolcetto
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_inc_point_barbera_timing
+    valid_from: 2026-09-27
+  - subject_id: n_reg_inc_principle_barbera_dolcetto
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_inc_point_dolcetto_dry
+    valid_from: 2026-09-27
+  - subject_id: n_reg_inc_principle_valpolicella_styles
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_inc_point_valpolicella_fresh
+    valid_from: 2026-09-27
+  - subject_id: n_reg_inc_principle_valpolicella_styles
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_inc_point_amarone_drying
+    valid_from: 2026-09-27
+  - subject_id: n_reg_inc_principle_ripasso_process
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_inc_point_ripasso_pomace
+    valid_from: 2026-09-27
+  - subject_id: n_reg_inc_principle_ripasso_process
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_inc_point_ripasso_structure
+    valid_from: 2026-09-27
+  - subject_id: n_reg_inc_principle_soave_grapes
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_inc_point_garganega_later
+    valid_from: 2026-09-27
+  - subject_id: n_reg_inc_principle_soave_grapes
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_inc_point_trebbiano_freshness
+    valid_from: 2026-09-27
+  - subject_id: n_reg_inc_principle_alto_adige_sites
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_inc_point_alto_adige_air
+    valid_from: 2026-09-27
+  - subject_id: n_reg_inc_principle_alto_adige_sites
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_inc_point_alto_adige_variation
+    valid_from: 2026-09-27
+  - subject_id: n_reg_inc_principle_friuli_hills
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_inc_point_friuli_ponca
+    valid_from: 2026-09-27
+  - subject_id: n_reg_inc_principle_friuli_hills
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_inc_point_friuli_position
+    valid_from: 2026-09-27
+  - subject_id: n_reg_inc_principle_chianti_site_gradients
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_inc_point_classico_altitude
+    valid_from: 2026-09-27
+  - subject_id: n_reg_inc_principle_chianti_site_gradients
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_inc_point_classico_water
+    valid_from: 2026-09-27
+  - subject_id: n_reg_inc_principle_chianti_identity
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_inc_point_classico_heartland
+    valid_from: 2026-09-27
+  - subject_id: n_reg_inc_principle_chianti_identity
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_inc_point_chianti_separate
+    valid_from: 2026-09-27
+  - subject_id: n_reg_inc_principle_sangiovese_vineyard_choices
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_inc_point_sangiovese_material
+    valid_from: 2026-09-27
+  - subject_id: n_reg_inc_principle_sangiovese_vineyard_choices
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_inc_point_sangiovese_design
+    valid_from: 2026-09-27
+  - subject_id: n_reg_inc_principle_montalcino_styles
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_inc_point_brunello_maturation
+    valid_from: 2026-09-27
+  - subject_id: n_reg_inc_principle_montalcino_styles
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_inc_point_rosso_youth
+    valid_from: 2026-09-27
+  - subject_id: n_reg_inc_principle_bolgheri_terroir
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_inc_point_bolgheri_breeze
+    valid_from: 2026-09-27
+  - subject_id: n_reg_inc_principle_bolgheri_terroir
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_inc_point_bolgheri_soils
+    valid_from: 2026-09-27
+  - subject_id: n_reg_inc_principle_verdicchio_regions
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_inc_point_jesi_air
+    valid_from: 2026-09-27
+  - subject_id: n_reg_inc_principle_verdicchio_regions
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_inc_point_matelica_inland
+    valid_from: 2026-09-27
+  - subject_id: n_reg_inc_principle_orvieto_range
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_inc_point_orvieto_grapes
+    valid_from: 2026-09-27
+  - subject_id: n_reg_inc_principle_orvieto_range
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_inc_point_orvieto_sweetness
+    valid_from: 2026-09-27
+  - subject_id: n_reg_inc_case_nebbiolo_list
+    relation_type: CASE_ACTION
+    object_id: n_reg_inc_point_case_nebbiolo_list_action
+    valid_from: 2026-09-27
+  - subject_id: n_reg_inc_case_nebbiolo_list
+    relation_type: CASE_REASON
+    object_id: n_reg_inc_point_case_nebbiolo_list_reason
+    valid_from: 2026-09-27
+  - subject_id: n_reg_inc_case_nebbiolo_list
+    relation_type: CASE_TRADEOFF
+    object_id: n_reg_inc_point_case_nebbiolo_list_tradeoff
+    valid_from: 2026-09-27
+  - subject_id: n_reg_inc_case_nebbiolo_list
+    relation_type: CASE_LIMITATION
+    object_id: n_reg_inc_point_case_nebbiolo_list_limitation
+    valid_from: 2026-09-27
+  - subject_id: n_reg_inc_case_valpolicella_buy
+    relation_type: CASE_ACTION
+    object_id: n_reg_inc_point_case_valpolicella_buy_action
+    valid_from: 2026-09-27
+  - subject_id: n_reg_inc_case_valpolicella_buy
+    relation_type: CASE_REASON
+    object_id: n_reg_inc_point_case_valpolicella_buy_reason
+    valid_from: 2026-09-27
+  - subject_id: n_reg_inc_case_valpolicella_buy
+    relation_type: CASE_TRADEOFF
+    object_id: n_reg_inc_point_case_valpolicella_buy_tradeoff
+    valid_from: 2026-09-27
+  - subject_id: n_reg_inc_case_valpolicella_buy
+    relation_type: CASE_LIMITATION
+    object_id: n_reg_inc_point_case_valpolicella_buy_limitation
+    valid_from: 2026-09-27
+  - subject_id: n_reg_inc_case_sangiovese_plots
+    relation_type: CASE_ACTION
+    object_id: n_reg_inc_point_case_sangiovese_plots_action
+    valid_from: 2026-09-27
+  - subject_id: n_reg_inc_case_sangiovese_plots
+    relation_type: CASE_REASON
+    object_id: n_reg_inc_point_case_sangiovese_plots_reason
+    valid_from: 2026-09-27
+  - subject_id: n_reg_inc_case_sangiovese_plots
+    relation_type: CASE_TRADEOFF
+    object_id: n_reg_inc_point_case_sangiovese_plots_tradeoff
+    valid_from: 2026-09-27
+  - subject_id: n_reg_inc_case_sangiovese_plots
+    relation_type: CASE_LIMITATION
+    object_id: n_reg_inc_point_case_sangiovese_plots_limitation
+    valid_from: 2026-09-27
+  - subject_id: n_reg_inc_case_white_slots
+    relation_type: CASE_ACTION
+    object_id: n_reg_inc_point_case_white_slots_action
+    valid_from: 2026-09-27
+  - subject_id: n_reg_inc_case_white_slots
+    relation_type: CASE_REASON
+    object_id: n_reg_inc_point_case_white_slots_reason
+    valid_from: 2026-09-27
+  - subject_id: n_reg_inc_case_white_slots
+    relation_type: CASE_TRADEOFF
+    object_id: n_reg_inc_point_case_white_slots_tradeoff
+    valid_from: 2026-09-27
+  - subject_id: n_reg_inc_case_white_slots
+    relation_type: CASE_LIMITATION
+    object_id: n_reg_inc_point_case_white_slots_limitation
+    valid_from: 2026-09-27
+knowledge_items:
+  - id: ki_reg_inc_nebbiolo_cycle
+    subject_id: n_reg_inc_principle_nebbiolo_sites
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_inc_point_nebbiolo_cycle
+    domain_id: viticulture
+    assertion_text: Nebbiolo combines relatively early budbreak with late ripening, so a Piedmont comparison
+      should consider both spring cold exposure and the conditions available at the end of the growing season.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:49:30.000Z
+  - id: ki_reg_inc_nebbiolo_site
+    subject_id: n_reg_inc_principle_nebbiolo_sites
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_inc_point_nebbiolo_site
+    domain_id: viticulture
+    assertion_text: Nebbiolo is sensitive to exposure, temperature, moisture and soil water conditions. Wines from
+      nearby Langhe sites can therefore differ; the grape name alone does not fix a Barolo or Barbaresco
+      style.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:49:30.000Z
+  - id: ki_reg_inc_barbera_timing
+    subject_id: n_reg_inc_principle_barbera_dolcetto
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_inc_point_barbera_timing
+    domain_id: viticulture
+    assertion_text: The consortium describes Barbera harvest as late September to early October and Dolcetto
+      harvest as September. This is a typical regional sequence, rather than a fixed date for every site or
+      vintage.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:49:30.000Z
+  - id: ki_reg_inc_dolcetto_dry
+    subject_id: n_reg_inc_principle_barbera_dolcetto
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_inc_point_dolcetto_dry
+    domain_id: geography
+    assertion_text: The name Dolcetto does not mean a sweet finished wine. The consortium describes dry wines with
+      modest acidity, ranging from youthful examples to more structured wines depending on site and
+      vinification.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:49:30.000Z
+  - id: ki_reg_inc_valpolicella_fresh
+    subject_id: n_reg_inc_principle_valpolicella_styles
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_inc_point_valpolicella_fresh
+    domain_id: winemaking
+    assertion_text: The consortium presents basic Valpolicella as a youthful, fresh wine made by conventional red
+      vinification and a relatively short maturation. This description does not define all Superiore cuvées.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:49:30.000Z
+  - id: ki_reg_inc_amarone_drying
+    subject_id: n_reg_inc_principle_valpolicella_styles
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_inc_point_amarone_drying
+    domain_id: winemaking
+    assertion_text: For Amarone, drying precedes vinification and concentrates berry constituents; subsequent
+      fermentation produces a dry red with relatively high alcohol. Drying does not itself mean the finished
+      wine must be sweet.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:49:30.000Z
+  - id: ki_reg_inc_ripasso_pomace
+    subject_id: n_reg_inc_principle_ripasso_process
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_inc_point_ripasso_pomace
+    domain_id: winemaking
+    assertion_text: Ripasso uses an existing basic Valpolicella wine for refermentation on pomace from Amarone
+      and/or Recioto. This differs from making Amarone directly from dried grapes.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:49:30.000Z
+  - id: ki_reg_inc_ripasso_structure
+    subject_id: n_reg_inc_principle_ripasso_process
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_inc_point_ripasso_structure
+    domain_id: winemaking
+    assertion_text: The additional Ripasso process can increase alcohol, phenolic substances and extract compared
+      with the basic wine used. The degree of change and final balance still depend on the starting wine and
+      production choices.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:49:30.000Z
+  - id: ki_reg_inc_garganega_later
+    subject_id: n_reg_inc_principle_soave_grapes
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_inc_point_garganega_later
+    domain_id: viticulture
+    assertion_text: Garganega has relatively loose bunches suited to air drying and ripens later than Trebbiano di
+      Soave. Harvest and drying decisions vary with conditions and the intended wine.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:49:30.000Z
+  - id: ki_reg_inc_trebbiano_freshness
+    subject_id: n_reg_inc_principle_soave_grapes
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_inc_point_trebbiano_freshness
+    domain_id: winemaking
+    assertion_text: The consortium describes Trebbiano di Soave as earlier ripening, relatively neutral and high
+      in malic acid, making it a potential freshness component in a Soave blend. Final acidity also depends on
+      harvest and cellar practice.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:49:30.000Z
+  - id: ki_reg_inc_alto_adige_air
+    subject_id: n_reg_inc_principle_alto_adige_sites
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_inc_point_alto_adige_air
+    domain_id: geography
+    assertion_text: The Alps shelter Alto Adige from northern cold, wet air masses, while warmer air can arrive
+      from the south via Lake Garda and the Mediterranean. Alpine location alone therefore does not describe
+      its whole growing climate.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:49:30.000Z
+  - id: ki_reg_inc_alto_adige_variation
+    subject_id: n_reg_inc_principle_alto_adige_sites
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_inc_point_alto_adige_variation
+    domain_id: viticulture
+    assertion_text: Alto Adige vineyards occupy varied elevations and topography, with substantial local climate
+      differences. Site and variety choices are needed before predicting ripening or wine style from the
+      regional name.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:49:30.000Z
+  - id: ki_reg_inc_friuli_ponca
+    subject_id: n_reg_inc_principle_friuli_hills
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_inc_point_friuli_ponca
+    domain_id: geography
+    assertion_text: Friuli Colli Orientali hills include alternating marl and sandstone. Growers have shaped
+      slopes into vineyard terraces; the geological description does not establish a mineral flavour in wine.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:49:30.000Z
+  - id: ki_reg_inc_friuli_position
+    subject_id: n_reg_inc_principle_friuli_hills
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_inc_point_friuli_position
+    domain_id: geography
+    assertion_text: The consortium describes the Julian Alps behind Friuli Colli Orientali and the Adriatic in
+      front, with shelter from northern cold currents and ventilation. This is regional context rather than an
+      identical microclimate for every plot.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:49:30.000Z
+  - id: ki_reg_inc_classico_altitude
+    subject_id: n_reg_inc_principle_chianti_site_gradients
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_inc_point_classico_altitude
+    domain_id: viticulture
+    assertion_text: Higher Chianti Classico sites often develop later than warmer lower sites; exposure and actual
+      conditions can modify this comparison.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:49:30.000Z
+  - id: ki_reg_inc_classico_water
+    subject_id: n_reg_inc_principle_chianti_site_gradients
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_inc_point_classico_water
+    domain_id: viticulture
+    assertion_text: Stony upper slopes may face water stress; clay-rich lower positions may retain water but
+      become excessively wet. Quality is not implied.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:49:30.000Z
+  - id: ki_reg_inc_classico_heartland
+    subject_id: n_reg_inc_principle_chianti_identity
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_inc_point_classico_heartland
+    domain_id: geography
+    assertion_text: Chianti Classico is associated with the historic wine territory between Florence and Siena.
+      Keeping Classico in the name preserves this geographic identity when comparing it with wines labelled
+      Chianti.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:49:30.000Z
+  - id: ki_reg_inc_chianti_separate
+    subject_id: n_reg_inc_principle_chianti_identity
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_inc_point_chianti_separate
+    domain_id: geography
+    assertion_text: Chianti Classico gained an autonomous production code separate from generic Chianti. Classico
+      should not be treated simply as a more expensive quality tier of every Chianti wine; the geographic and
+      production identities differ.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:49:30.000Z
+  - id: ki_reg_inc_sangiovese_material
+    subject_id: n_reg_inc_principle_sangiovese_vineyard_choices
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_inc_point_sangiovese_material
+    domain_id: viticulture
+    assertion_text: The Chianti Classico 2000 project compared clonal behaviour and rootstock suitability.
+      Sangiovese grape identity alone is insufficient to explain performance when plant material and the
+      growing environment differ.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:49:30.000Z
+  - id: ki_reg_inc_sangiovese_design
+    subject_id: n_reg_inc_principle_sangiovese_vineyard_choices
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_inc_point_sangiovese_design
+    domain_id: viticulture
+    assertion_text: Chianti Classico research considered planting density in relation to environment and
+      production goals, and training in relation to grape/wine outcomes and pruning costs. A single density or
+      training system is not automatically best for all regional sites.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:49:30.000Z
+  - id: ki_reg_inc_brunello_maturation
+    subject_id: n_reg_inc_principle_montalcino_styles
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_inc_point_brunello_maturation
+    domain_id: geography
+    assertion_text: The consortium contrasts Brunello, with its long maturation and ageing orientation, with a
+      younger Rosso di Montalcino style. This gives a production and buying comparison without proving that
+      every Brunello needs further bottle age.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:49:30.000Z
+  - id: ki_reg_inc_rosso_youth
+    subject_id: n_reg_inc_principle_montalcino_styles
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_inc_point_rosso_youth
+    domain_id: geography
+    assertion_text: Rosso di Montalcino is presented as a fresher, fruit-focused Sangiovese wine generally suited
+      to younger drinking. Individual producer choices and vintage can still make a specific Rosso more
+      structured than the broad description suggests.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:49:30.000Z
+  - id: ki_reg_inc_bolgheri_breeze
+    subject_id: n_reg_inc_principle_bolgheri_terroir
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_inc_point_bolgheri_breeze
+    domain_id: geography
+    assertion_text: Bolgheri faces the Tyrrhenian Sea and receives cooling, ventilating sea breezes. This coastal
+      influence is useful context when comparing an actual site with inland Tuscany, but does not guarantee a
+      fixed acidity or quality.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:49:30.000Z
+  - id: ki_reg_inc_bolgheri_soils
+    subject_id: n_reg_inc_principle_bolgheri_terroir
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_inc_point_bolgheri_soils
+    domain_id: geography
+    assertion_text: Bolgheri soils have marine and alluvial origins with considerable variation over small
+      distances. The consortium links this diversity with varied planting choices; a single regional soil
+      label cannot explain every cuvée.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:49:30.000Z
+  - id: ki_reg_inc_jesi_air
+    subject_id: n_reg_inc_principle_verdicchio_regions
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_inc_point_jesi_air
+    domain_id: geography
+    assertion_text: The Istituto Marchigiano describes the Castelli di Jesi area as receiving mountain air and
+      Adriatic winds. The same Verdicchio grape can therefore be compared across local sites rather than
+      assigned one regional taste.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:49:30.000Z
+  - id: ki_reg_inc_matelica_inland
+    subject_id: n_reg_inc_principle_verdicchio_regions
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_inc_point_matelica_inland
+    domain_id: geography
+    assertion_text: Matelica is described as the inland, mountain counterpart to the more sea-influenced Castelli
+      di Jesi setting. This is a broad geographic comparison; vintage, site and cellar details are still
+      required for an actual wine comparison.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:49:30.000Z
+  - id: ki_reg_inc_orvieto_grapes
+    subject_id: n_reg_inc_principle_orvieto_range
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_inc_point_orvieto_grapes
+    domain_id: geography
+    assertion_text: The Orvieto consortium identifies Procanico and Grechetto as central components alongside
+      other white grapes. This describes the regional blend emphasis, not a complete legal list or a single
+      producer recipe.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:49:30.000Z
+  - id: ki_reg_inc_orvieto_sweetness
+    subject_id: n_reg_inc_principle_orvieto_range
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_inc_point_orvieto_sweetness
+    domain_id: geography
+    assertion_text: Orvieto covers secco, abboccato, amabile and dolce styles, with additional late-harvest and
+      noble-rot expressions. Confirm the actual cuvée sweetness and specification rather than assume all
+      Orvieto is dry.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:49:30.000Z
+  - id: ki_reg_inc_case_nebbiolo_list_action
+    subject_id: n_reg_inc_case_nebbiolo_list
+    relation_type: CASE_ACTION
+    object_id: n_reg_inc_point_case_nebbiolo_list_action
+    domain_id: geography
+    assertion_text: Taste both current samples under comparable coded conditions, assess their structure and
+      present readiness against the restaurant brief, and then compare the supplied quotes. Either wine could
+      be suitable.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:49:30.000Z
+  - id: ki_reg_inc_case_nebbiolo_list_reason
+    subject_id: n_reg_inc_case_nebbiolo_list
+    relation_type: CASE_REASON
+    object_id: n_reg_inc_point_case_nebbiolo_list_reason
+    domain_id: viticulture
+    assertion_text: Nebbiolo responds strongly to exposure and growing conditions. Site and vintage therefore help
+      explain the actual wines, rather than assuming every Barolo is firmer or less ready than every
+      Barbaresco.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:49:30.000Z
+  - id: ki_reg_inc_case_nebbiolo_list_tradeoff
+    subject_id: n_reg_inc_case_nebbiolo_list
+    relation_type: CASE_TRADEOFF
+    object_id: n_reg_inc_point_case_nebbiolo_list_tradeoff
+    domain_id: business
+    assertion_text: The given higher Barolo quote needs to be weighed against the actual style fit and value to
+      customers. Origin reputation may matter to demand, but cannot by itself justify the premium for this
+      slot.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:49:30.000Z
+  - id: ki_reg_inc_case_nebbiolo_list_limitation
+    subject_id: n_reg_inc_case_nebbiolo_list
+    relation_type: CASE_LIMITATION
+    object_id: n_reg_inc_point_case_nebbiolo_list_limitation
+    domain_id: geography
+    assertion_text: Barolo or Barbaresco on the label cannot establish current drinking readiness or the
+      restaurant best buy. The sample, producer, vintage and intended service are still needed.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:49:30.000Z
+  - id: ki_reg_inc_case_valpolicella_buy_action
+    subject_id: n_reg_inc_case_valpolicella_buy
+    relation_type: CASE_ACTION
+    object_id: n_reg_inc_point_case_valpolicella_buy_action
+    domain_id: geography
+    assertion_text: Check the cuvée data and compare coded samples for weight, freshness and alcohol balance.
+      Basic Valpolicella is a sensible candidate to assess first, but none should be selected solely by
+      category.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:49:30.000Z
+  - id: ki_reg_inc_case_valpolicella_buy_reason
+    subject_id: n_reg_inc_case_valpolicella_buy
+    relation_type: CASE_REASON
+    object_id: n_reg_inc_point_case_valpolicella_buy_reason
+    domain_id: winemaking
+    assertion_text: Basic Valpolicella is conventionally vinified, Ripasso referments a base wine on Amarone or
+      Recioto pomace, and Amarone is vinified from dried grapes. These different routes help explain potential
+      weight and concentration.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:49:30.000Z
+  - id: ki_reg_inc_case_valpolicella_buy_tradeoff
+    subject_id: n_reg_inc_case_valpolicella_buy
+    relation_type: CASE_TRADEOFF
+    object_id: n_reg_inc_point_case_valpolicella_buy_tradeoff
+    domain_id: winemaking
+    assertion_text: Extra concentration or structure can be attractive but may make the wine feel heavier than the
+      requested fresh, moderate-weight style. Assess the actual balance rather than equate intensity with
+      suitability.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:49:30.000Z
+  - id: ki_reg_inc_case_valpolicella_buy_limitation
+    subject_id: n_reg_inc_case_valpolicella_buy
+    relation_type: CASE_LIMITATION
+    object_id: n_reg_inc_point_case_valpolicella_buy_limitation
+    domain_id: geography
+    assertion_text: A category does not reveal the exact alcohol, sweetness, oak influence or freshness of an
+      individual cuvée. Supplier details and sample assessment remain necessary, even when all quotes fit the
+      budget.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:49:30.000Z
+  - id: ki_reg_inc_case_sangiovese_plots_action
+    subject_id: n_reg_inc_case_sangiovese_plots
+    relation_type: CASE_ACTION
+    object_id: n_reg_inc_point_case_sangiovese_plots_action
+    domain_id: viticulture
+    assertion_text: Monitor each plot against the shared ripeness target; the observed timing difference does not
+      justify one automatic picking date.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:49:30.000Z
+  - id: ki_reg_inc_case_sangiovese_plots_reason
+    subject_id: n_reg_inc_case_sangiovese_plots
+    relation_type: CASE_REASON
+    object_id: n_reg_inc_point_case_sangiovese_plots_reason
+    domain_id: viticulture
+    assertion_text: The given timing fits a cooler higher-site cycle and earlier lower-site cycle, subject to
+      exposure and measurement checks.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:49:30.000Z
+  - id: ki_reg_inc_case_sangiovese_plots_tradeoff
+    subject_id: n_reg_inc_case_sangiovese_plots
+    relation_type: CASE_TRADEOFF
+    object_id: n_reg_inc_point_case_sangiovese_plots_tradeoff
+    domain_id: viticulture
+    assertion_text: The upper plot may face water stress, while lower clay may retain excess moisture. Respond to
+      measurements rather than prescribe identical management.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:49:30.000Z
+  - id: ki_reg_inc_case_sangiovese_plots_limitation
+    subject_id: n_reg_inc_case_sangiovese_plots
+    relation_type: CASE_LIMITATION
+    object_id: n_reg_inc_point_case_sangiovese_plots_limitation
+    domain_id: viticulture
+    assertion_text: The supplied developmental observations do not establish sugar, acidity, phenolic ripeness or
+      a best picking date. Site response and vineyard choices must be assessed rather than treating one
+      altitude or training system as decisive.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:49:30.000Z
+  - id: ki_reg_inc_case_white_slots_action
+    subject_id: n_reg_inc_case_white_slots
+    relation_type: CASE_ACTION
+    object_id: n_reg_inc_point_case_white_slots_action
+    domain_id: geography
+    assertion_text: Confirm sweetness and cuvée details, then assess the actual samples against each slot. Compare
+      the dry candidates for the main list and evaluate the Orvieto dolce against the dessert brief without
+      assuming suitability from its name alone.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:49:30.000Z
+  - id: ki_reg_inc_case_white_slots_reason
+    subject_id: n_reg_inc_case_white_slots
+    relation_type: CASE_REASON
+    object_id: n_reg_inc_point_case_white_slots_reason
+    domain_id: geography
+    assertion_text: Orvieto blends centred on Procanico and Grechetto can have different sweetness styles. Grape
+      and origin information therefore complements rather than replaces the specific cuvée designation and
+      assessment.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:49:30.000Z
+  - id: ki_reg_inc_case_white_slots_tradeoff
+    subject_id: n_reg_inc_case_white_slots
+    relation_type: CASE_TRADEOFF
+    object_id: n_reg_inc_point_case_white_slots_tradeoff
+    domain_id: business
+    assertion_text: A wine that meets the style brief still needs a workable landed cost and customer value. Use
+      the actual quotes and customer expectations rather than presume Verdicchio or Orvieto is universally
+      cheaper or better.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:49:30.000Z
+  - id: ki_reg_inc_case_white_slots_limitation
+    subject_id: n_reg_inc_case_white_slots
+    relation_type: CASE_LIMITATION
+    object_id: n_reg_inc_point_case_white_slots_limitation
+    domain_id: geography
+    assertion_text: Aromas alone cannot prove the geographic origin or full suitability of these whites. Confirm
+      sweetness, balance and producer details, and treat the regional descriptions as context for the actual
+      samples.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:49:30.000Z
+certification_knowledge_mappings:
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_inc_nebbiolo_cycle
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_inc_nebbiolo_cycle
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_inc_nebbiolo_cycle
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_inc_nebbiolo_site
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_inc_nebbiolo_site
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_inc_nebbiolo_site
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_inc_barbera_timing
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_inc_barbera_timing
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_inc_barbera_timing
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_inc_dolcetto_dry
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_inc_dolcetto_dry
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_inc_dolcetto_dry
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_inc_valpolicella_fresh
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_inc_valpolicella_fresh
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_inc_valpolicella_fresh
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_inc_amarone_drying
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_inc_amarone_drying
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_inc_amarone_drying
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_inc_ripasso_pomace
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_inc_ripasso_pomace
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_inc_ripasso_pomace
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_inc_ripasso_structure
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_inc_ripasso_structure
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_inc_ripasso_structure
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_inc_garganega_later
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_inc_garganega_later
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_inc_garganega_later
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_inc_trebbiano_freshness
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_inc_trebbiano_freshness
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_inc_trebbiano_freshness
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_inc_alto_adige_air
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_inc_alto_adige_air
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_inc_alto_adige_air
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_inc_alto_adige_variation
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_inc_alto_adige_variation
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_inc_alto_adige_variation
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_inc_friuli_ponca
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_inc_friuli_ponca
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_inc_friuli_ponca
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_inc_friuli_position
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_inc_friuli_position
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_inc_friuli_position
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_inc_classico_altitude
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_inc_classico_altitude
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_inc_classico_altitude
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_inc_classico_water
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_inc_classico_water
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_inc_classico_water
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_inc_classico_heartland
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_inc_classico_heartland
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_inc_classico_heartland
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_inc_chianti_separate
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_inc_chianti_separate
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_inc_chianti_separate
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_inc_sangiovese_material
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_inc_sangiovese_material
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_inc_sangiovese_material
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_inc_sangiovese_design
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_inc_sangiovese_design
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_inc_sangiovese_design
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_inc_brunello_maturation
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_inc_brunello_maturation
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_inc_brunello_maturation
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_inc_rosso_youth
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_inc_rosso_youth
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_inc_rosso_youth
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_inc_bolgheri_breeze
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_inc_bolgheri_breeze
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_inc_bolgheri_breeze
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_inc_bolgheri_soils
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_inc_bolgheri_soils
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_inc_bolgheri_soils
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_inc_jesi_air
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_inc_jesi_air
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_inc_jesi_air
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_inc_matelica_inland
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_inc_matelica_inland
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_inc_matelica_inland
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_inc_orvieto_grapes
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_inc_orvieto_grapes
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_inc_orvieto_grapes
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_inc_orvieto_sweetness
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_inc_orvieto_sweetness
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_inc_orvieto_sweetness
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_inc_case_nebbiolo_list_action
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_inc_case_nebbiolo_list_reason
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_inc_case_nebbiolo_list_tradeoff
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_inc_case_nebbiolo_list_limitation
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_inc_case_valpolicella_buy_action
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_inc_case_valpolicella_buy_reason
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_inc_case_valpolicella_buy_tradeoff
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_inc_case_valpolicella_buy_limitation
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_inc_case_sangiovese_plots_action
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_inc_case_sangiovese_plots_reason
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_inc_case_sangiovese_plots_tradeoff
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_inc_case_sangiovese_plots_limitation
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_inc_case_white_slots_action
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_inc_case_white_slots_reason
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_inc_case_white_slots_tradeoff
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_inc_case_white_slots_limitation
+    importance: core
+    minimum_depth: 3
+source_citations:
+  - id: src_reg_inc_nebbiolo
+    kind: reference_work
+    title: "Nebbiolo: phenology and site sensitivity"
+    publisher: Consorzio Barolo Barbaresco Alba Langhe e Dogliani
+    jurisdiction: IT
+    document_identifier: Public primary regional reference; publication day not stated unless shown in text;
+      retrieved 27 September 2026
+    url: https://www.langhevini.it/i-vitigni-del-territorio/nebbiolo/
+    accessed_on: 2026-09-27
+  - id: src_reg_inc_barbera
+    kind: reference_work
+    title: "Barbera: harvest timing and range"
+    publisher: Consorzio Barolo Barbaresco Alba Langhe e Dogliani
+    jurisdiction: IT
+    document_identifier: Public primary regional reference; publication day not stated unless shown in text;
+      retrieved 27 September 2026
+    url: https://www.langhevini.it/en/i-vitigni-del-territorio/barbera/
+    accessed_on: 2026-09-27
+  - id: src_reg_inc_dolcetto
+    kind: reference_work
+    title: "Dolcetto: timing and dry wine styles"
+    publisher: Consorzio Barolo Barbaresco Alba Langhe e Dogliani
+    jurisdiction: IT
+    document_identifier: Public primary regional reference; publication day not stated unless shown in text;
+      retrieved 27 September 2026
+    url: https://www.langhevini.it/i-vitigni-del-territorio/dolcetto/
+    accessed_on: 2026-09-27
+  - id: src_reg_inc_valpolicella
+    kind: reference_work
+    title: "Valpolicella DOC: wine and vinification overview"
+    publisher: Consorzio Tutela Vini Valpolicella
+    jurisdiction: IT
+    document_identifier: Public primary regional reference; publication day not stated unless shown in text;
+      retrieved 27 September 2026
+    url: https://www.consorziovalpolicella.it/en/types-of-wines/vino-valpolicella-doc/
+    accessed_on: 2026-09-27
+  - id: src_reg_inc_amarone
+    kind: reference_work
+    title: "Amarone della Valpolicella: drying and fermentation"
+    publisher: Consorzio Tutela Vini Valpolicella
+    jurisdiction: IT
+    document_identifier: Public primary regional reference; publication day not stated unless shown in text;
+      retrieved 27 September 2026
+    url: https://www.consorziovalpolicella.it/en/types-of-wines/amarone-della-valpolicella-docg/
+    accessed_on: 2026-09-27
+  - id: src_reg_inc_ripasso
+    kind: reference_work
+    title: "Valpolicella Ripasso: refermentation"
+    publisher: Consorzio Tutela Vini Valpolicella
+    jurisdiction: IT
+    document_identifier: Public primary regional reference; publication day not stated unless shown in text;
+      retrieved 27 September 2026
+    url: https://www.consorziovalpolicella.it/en/types-of-wines/valpolicella-ripasso-doc/
+    accessed_on: 2026-09-27
+  - id: src_reg_inc_soave
+    kind: reference_work
+    title: "The grapes: Garganega and Trebbiano di Soave"
+    publisher: Consorzio Tutela Vini Soave e Recioto di Soave
+    jurisdiction: IT
+    document_identifier: Public primary regional reference; publication day not stated unless shown in text;
+      retrieved 27 September 2026
+    url: https://www.ilsoave.com/en/the-grapes/
+    accessed_on: 2026-09-27
+  - id: src_reg_inc_alto_adige
+    kind: reference_work
+    title: Climate and topography of Alto Adige
+    publisher: Consorzio Vini Alto Adige
+    jurisdiction: IT
+    document_identifier: Public primary regional reference; publication day not stated unless shown in text;
+      retrieved 27 September 2026
+    url: https://www.altoadigewines.com/en/our-wine/climate-topography
+    accessed_on: 2026-09-27
+  - id: src_reg_inc_friuli
+    kind: reference_work
+    title: "Il territorio: Friuli Colli Orientali"
+    publisher: Consorzio Colli Orientali del Friuli Venezia Giulia
+    jurisdiction: IT
+    document_identifier: Public primary regional reference; publication day not stated unless shown in text;
+      retrieved 27 September 2026
+    url: https://www.colliorientali.com/il-territorio/
+    accessed_on: 2026-09-27
+  - id: src_reg_inc_chianti_sites
+    kind: reference_work
+    title: How changes in vineyard altitude within Chianti Classico affect climate and soil factors
+    publisher: Ruggero Mazzilli, Stazione Sperimentale per la Viticoltura Sostenibile; original author
+      contribution to Inside Chianti Classico
+    jurisdiction: IT
+    document_identifier: Public primary regional reference; publication day not stated unless shown in text;
+      retrieved 27 September 2026
+    url: https://www.insidechianticlassico.com/
+    accessed_on: 2026-09-27
+  - id: src_reg_inc_classico_zone
+    kind: reference_work
+    title: Production zone of Chianti Classico
+    publisher: Consorzio Vino Chianti Classico
+    jurisdiction: IT
+    document_identifier: Public primary regional reference; publication day not stated unless shown in text;
+      retrieved 27 September 2026
+    url: https://www.chianticlassico.com/en/territory/production-zone/
+    accessed_on: 2026-09-27
+  - id: src_reg_inc_classico_code
+    kind: reference_work
+    title: "Chianti Classico production code: English explanatory translation, 2023"
+    publisher: Consorzio Vino Chianti Classico
+    jurisdiction: IT
+    document_identifier: Public primary regional reference; publication day not stated unless shown in text;
+      retrieved 27 September 2026
+    url: https://www.chianticlassico.com/wp-content/uploads/2024/01/Production-Code-2023.pdf
+    accessed_on: 2026-09-27
+  - id: src_reg_inc_classico_research
+    kind: reference_work
+    title: Chianti Classico characteristics and the Chianti Classico 2000 project
+    publisher: Consorzio Vino Chianti Classico
+    jurisdiction: IT
+    document_identifier: Public primary regional reference; publication day not stated unless shown in text;
+      retrieved 27 September 2026
+    url: https://www.chianticlassico.com/en/wine/characteristics/
+    accessed_on: 2026-09-27
+  - id: src_reg_inc_montalcino
+    kind: reference_work
+    title: "Rosso di Montalcino: style comparison with Brunello"
+    publisher: Consorzio del Vino Brunello di Montalcino
+    jurisdiction: IT
+    document_identifier: Public primary regional reference; publication day not stated unless shown in text;
+      retrieved 27 September 2026
+    url: https://www.consorziobrunellodimontalcino.it/it/587/il-rosso
+    accessed_on: 2026-09-27
+  - id: src_reg_inc_bolgheri
+    kind: reference_work
+    title: Bolgheri DOC terroir
+    publisher: Consorzio per la Tutela dei Vini DOC Bolgheri e DOC Bolgheri Sassicaia
+    jurisdiction: IT
+    document_identifier: Public primary regional reference; publication day not stated unless shown in text;
+      retrieved 27 September 2026
+    url: https://www.bolgheridoc.com/en/terroir/
+    accessed_on: 2026-09-27
+  - id: src_reg_inc_verdicchio
+    kind: reference_work
+    title: "Verdicchio: Castelli di Jesi and Matelica territorial comparison"
+    publisher: Istituto Marchigiano di Tutela Vini
+    jurisdiction: IT
+    document_identifier: Public primary regional reference; publication day not stated unless shown in text;
+      retrieved 27 September 2026
+    url: https://imtdoc.it/verdicchio/index.html
+    accessed_on: 2026-09-27
+  - id: src_reg_inc_orvieto
+    kind: reference_work
+    title: "Vitigni Orvieto DOC: grapes and wine types"
+    publisher: Consorzio Tutela Vini Orvieto
+    jurisdiction: IT
+    document_identifier: Public primary regional reference; publication day not stated unless shown in text;
+      retrieved 27 September 2026
+    url: https://www.orvietodoc.it/vitigni-orvietodoc/
+    accessed_on: 2026-09-27
+knowledge_item_citations:
+  - knowledge_item_id: ki_reg_inc_nebbiolo_cycle
+    source_citation_id: src_reg_inc_nebbiolo
+    locator: "Periodi and La regina delle uve nere: early budbreak, late ripening and spring-cold protection;
+      editorial implication."
+  - knowledge_item_id: ki_reg_inc_nebbiolo_site
+    source_citation_id: src_reg_inc_nebbiolo
+    locator: "La regina delle uve nere: exposure needs and sensitivity to climate and soil factors; no universal
+      commune hierarchy."
+  - knowledge_item_id: ki_reg_inc_barbera_timing
+    source_citation_id: src_reg_inc_barbera
+    locator: "Phenological periods: harvest"
+  - knowledge_item_id: ki_reg_inc_barbera_timing
+    source_citation_id: src_reg_inc_dolcetto
+    locator: "Periodi: Vendemmia; editorial relative comparison."
+  - knowledge_item_id: ki_reg_inc_dolcetto_dry
+    source_citation_id: src_reg_inc_dolcetto
+    locator: "Vitigno di langa per eccellenza: name, dry wines, modest acidity and variation with site and
+      vinification."
+  - knowledge_item_id: ki_reg_inc_valpolicella_fresh
+    source_citation_id: src_reg_inc_valpolicella
+    locator: Valpolicella DOC opening paragraph; separate Superiore discussion not generalized.
+  - knowledge_item_id: ki_reg_inc_amarone_drying
+    source_citation_id: src_reg_inc_amarone
+    locator: "Amarone opening paragraph: drying, concentration and dry fermentation; fixed drying duration and
+      prestige claims unused."
+  - knowledge_item_id: ki_reg_inc_ripasso_pomace
+    source_citation_id: src_reg_inc_ripasso
+    locator: "Valpolicella Ripasso DOC opening paragraph: refermentation on Amarone and/or Recioto pomace."
+  - knowledge_item_id: ki_reg_inc_ripasso_pomace
+    source_citation_id: src_reg_inc_amarone
+    locator: "Opening paragraph: direct dried-grape vinification; editorial distinction."
+  - knowledge_item_id: ki_reg_inc_ripasso_structure
+    source_citation_id: src_reg_inc_ripasso
+    locator: "Opening paragraph: increased alcohol, phenolic substances and extracts; conditional process comparison."
+  - knowledge_item_id: ki_reg_inc_garganega_later
+    source_citation_id: src_reg_inc_soave
+    locator: Garganega bunch description and Trebbiano di Soave relative ripening paragraph; no legal blend list
+      asserted.
+  - knowledge_item_id: ki_reg_inc_trebbiano_freshness
+    source_citation_id: src_reg_inc_soave
+    locator: "Trebbiano di Soave paragraph: earlier ripening, neutrality and malic acid; conditional application."
+  - knowledge_item_id: ki_reg_inc_alto_adige_air
+    source_citation_id: src_reg_inc_alto_adige
+    locator: "Opening climate discussion: meteorological divide, Alpine shelter and southern air currents."
+  - knowledge_item_id: ki_reg_inc_alto_adige_variation
+    source_citation_id: src_reg_inc_alto_adige
+    locator: Altitude/topography and regional climate variation; regional inference is conditional.
+  - knowledge_item_id: ki_reg_inc_friuli_ponca
+    source_citation_id: src_reg_inc_friuli
+    locator: "Il territorio: Eocene marl/sandstone formations and grower-shaped terraces."
+  - knowledge_item_id: ki_reg_inc_friuli_position
+    source_citation_id: src_reg_inc_friuli
+    locator: "Il territorio: Julian Alps and Adriatic position; regional ventilation description."
+  - knowledge_item_id: ki_reg_inc_classico_altitude
+    source_citation_id: src_reg_inc_chianti_sites
+    locator: "Ambient temperature: general altitude gradient; qualifications retained."
+  - knowledge_item_id: ki_reg_inc_classico_water
+    source_citation_id: src_reg_inc_chianti_sites
+    locator: "Texture of the soil: drainage, water stress, clay moisture."
+  - knowledge_item_id: ki_reg_inc_classico_heartland
+    source_citation_id: src_reg_inc_classico_zone
+    locator: "Production zone: territory shared between Florence and Siena; no complete municipality list asserted."
+  - knowledge_item_id: ki_reg_inc_chianti_separate
+    source_citation_id: src_reg_inc_classico_code
+    locator: "Article 9(A2), PDF p. 9: autonomy from generic Chianti in 1996; explanatory translation, current
+      numeric law unused."
+  - knowledge_item_id: ki_reg_inc_chianti_separate
+    source_citation_id: src_eac_classico
+    locator: "Article 9(A2): historical autonomy from generic Chianti; existing official consolidated Italian text."
+  - knowledge_item_id: ki_reg_inc_sangiovese_material
+    source_citation_id: src_reg_inc_classico_research
+    locator: "Scientific Research, themes 1, 2 and 6: clones and rootstocks; no universal best clone claimed."
+  - knowledge_item_id: ki_reg_inc_sangiovese_design
+    source_citation_id: src_reg_inc_classico_research
+    locator: "Scientific Research, themes 3 and 4: planting density, environment, training and manual pruning cost."
+  - knowledge_item_id: ki_reg_inc_brunello_maturation
+    source_citation_id: src_reg_inc_montalcino
+    locator: "Rosso opening comparison: Brunello destined for long ageing versus younger Rosso; no release-date
+      rule authored."
+  - knowledge_item_id: ki_reg_inc_rosso_youth
+    source_citation_id: src_reg_inc_montalcino
+    locator: Rosso aroma and palate discussion, youthful drinking with capacity to withstand ageing; no universal
+      quality comparison.
+  - knowledge_item_id: ki_reg_inc_bolgheri_breeze
+    source_citation_id: src_reg_inc_bolgheri
+    locator: "Geography and Climate: coastal position, cooling sea breezes and ventilation; numeric climate
+      estimates unused."
+  - knowledge_item_id: ki_reg_inc_bolgheri_soils
+    source_citation_id: src_reg_inc_bolgheri
+    locator: "A unique Soil: marine/alluvial origins, zonation and small-scale soil variation; no soil-to-flavour
+      mechanism asserted."
+  - knowledge_item_id: ki_reg_inc_jesi_air
+    source_citation_id: src_reg_inc_verdicchio
+    locator: "Il Territorio, Tra il mare e le colline: combined mountain and Adriatic air; no geographical
+      certainty from aroma."
+  - knowledge_item_id: ki_reg_inc_matelica_inland
+    source_citation_id: src_reg_inc_verdicchio
+    locator: "Il Territorio, Tra il mare e le colline: mountain Matelica contrasted with sea-influenced Jesi; no
+      absolute style ranking."
+  - knowledge_item_id: ki_reg_inc_orvieto_grapes
+    source_citation_id: src_reg_inc_orvieto
+    locator: "Vitigni: Procanico and Grechetto with other white varieties; numeric permission percentages unused."
+  - knowledge_item_id: ki_reg_inc_orvieto_sweetness
+    source_citation_id: src_reg_inc_orvieto
+    locator: "Tipologie and sensory description: dry and sweet range; no numeric sweetness threshold asserted."
+  - knowledge_item_id: ki_reg_inc_case_nebbiolo_list_action
+    source_citation_id: src_srv_oiv_sensory
+    locator: "Part I, sections 3.2–3.3 and 4: comparable conditions and coded samples; editorial restaurant
+      application."
+  - knowledge_item_id: ki_reg_inc_case_nebbiolo_list_reason
+    source_citation_id: src_reg_inc_nebbiolo
+    locator: "La regina delle uve nere: site/climate sensitivity; editorial comparison of the given candidates."
+  - knowledge_item_id: ki_reg_inc_case_nebbiolo_list_tradeoff
+    source_citation_id: src_biz_au_pricing
+    locator: "Research your market, Competitors and Value pricing: customer value and costs; given hypothetical
+      quotes, no regional market-price claim."
+  - knowledge_item_id: ki_reg_inc_case_nebbiolo_list_limitation
+    source_citation_id: src_reg_inc_nebbiolo
+    locator: Variation with site and growing factors; editorial limitation.
+  - knowledge_item_id: ki_reg_inc_case_nebbiolo_list_limitation
+    source_citation_id: src_srv_oiv_sensory
+    locator: "Part I, section 5: expectations can bias assessment; editorial application."
+  - knowledge_item_id: ki_reg_inc_case_valpolicella_buy_action
+    source_citation_id: src_reg_inc_valpolicella
+    locator: "Opening description: youthful fresh style; editorial candidate screening."
+  - knowledge_item_id: ki_reg_inc_case_valpolicella_buy_action
+    source_citation_id: src_srv_oiv_sensory
+    locator: "Part I, sections 3.2 and 4: same-type comparison conditions and coded samples."
+  - knowledge_item_id: ki_reg_inc_case_valpolicella_buy_reason
+    source_citation_id: src_reg_inc_valpolicella
+    locator: Opening vinification paragraph.
+  - knowledge_item_id: ki_reg_inc_case_valpolicella_buy_reason
+    source_citation_id: src_reg_inc_ripasso
+    locator: Opening refermentation paragraph.
+  - knowledge_item_id: ki_reg_inc_case_valpolicella_buy_reason
+    source_citation_id: src_reg_inc_amarone
+    locator: Opening drying and fermentation paragraph; editorial three-way comparison.
+  - knowledge_item_id: ki_reg_inc_case_valpolicella_buy_tradeoff
+    source_citation_id: src_reg_inc_amarone
+    locator: Drying and concentration paragraph; editorial style-fit tradeoff.
+  - knowledge_item_id: ki_reg_inc_case_valpolicella_buy_tradeoff
+    source_citation_id: src_reg_inc_ripasso
+    locator: Higher alcohol, phenolics and extract compared with the base wine.
+  - knowledge_item_id: ki_reg_inc_case_valpolicella_buy_limitation
+    source_citation_id: src_srv_oiv_sensory
+    locator: "Part I, sections 4–5: assess the actual sample and avoid expectation bias; editorial limitation."
+  - knowledge_item_id: ki_reg_inc_case_valpolicella_buy_limitation
+    source_citation_id: src_reg_inc_valpolicella
+    locator: Separate basic and Superiore production descriptions illustrate variability.
+  - knowledge_item_id: ki_reg_inc_case_sangiovese_plots_action
+    source_citation_id: src_reg_inc_chianti_sites
+    locator: Ambient temperature and within-vineyard gradients; editorial monitoring application.
+  - knowledge_item_id: ki_reg_inc_case_sangiovese_plots_reason
+    source_citation_id: src_reg_inc_chianti_sites
+    locator: "Ambient temperature: altitude and development; qualified application."
+  - knowledge_item_id: ki_reg_inc_case_sangiovese_plots_tradeoff
+    source_citation_id: src_reg_inc_chianti_sites
+    locator: "Texture of the soil: contrasting water constraints; editorial application."
+  - knowledge_item_id: ki_reg_inc_case_sangiovese_plots_limitation
+    source_citation_id: src_reg_inc_classico_research
+    locator: "Scientific Research, themes 1–4: environment, plant material and vineyard-design interactions;
+      editorial evidence limitation."
+  - knowledge_item_id: ki_reg_inc_case_white_slots_action
+    source_citation_id: src_reg_inc_orvieto
+    locator: Tipologie and dry/sweet sensory range; editorial slot allocation.
+  - knowledge_item_id: ki_reg_inc_case_white_slots_action
+    source_citation_id: src_srv_oiv_sensory
+    locator: "Part I, sections 3.2 and 4: appropriate sample conditions and coded comparison."
+  - knowledge_item_id: ki_reg_inc_case_white_slots_reason
+    source_citation_id: src_reg_inc_orvieto
+    locator: Vitigni, Tipologie and dry/sweet sensory descriptions; editorial buying implication.
+  - knowledge_item_id: ki_reg_inc_case_white_slots_tradeoff
+    source_citation_id: src_biz_au_pricing
+    locator: Research your market, Cost-plus pricing and Value pricing; editorial application to hypothetical offers.
+  - knowledge_item_id: ki_reg_inc_case_white_slots_limitation
+    source_citation_id: src_srv_oiv_sensory
+    locator: "Part I, sections 4–5: actual sample evaluation and expectation bias; editorial inference limitation."
+  - knowledge_item_id: ki_reg_inc_case_white_slots_limitation
+    source_citation_id: src_reg_inc_verdicchio
+    locator: A varied territory and geographic context; no unique origin marker asserted.

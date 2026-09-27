@@ -84,6 +84,7 @@ final class ShortAnswerResponse {
 /// ```yaml
 /// parameters:
 ///   key_points: { HAS_SOIL: Soil, HAS_CLIMATE: Climate }
+///   scope_node_ids: [ n_case_specific_scenario ] # optional subject filter
 /// ```
 ///
 /// Ingestion writes one pool per subject with at least two key points. An
@@ -141,6 +142,26 @@ class ShortAnswerFormat extends ExerciseFormat {
     return points.cast<String, String>();
   }
 
+  /// An optional subject allow-list for prompts written for specific cases.
+  /// An absent scope retains the general profile behaviour. Malformed scopes
+  /// are rejected by [templateProblems] before generation.
+  static Set<String>? scopeNodeIdsOf(QuestionTemplate template) {
+    final text = template.parameters;
+    if (text == null) return null;
+    final parameters = jsonDecode(text) as Map<String, Object?>;
+    if (!parameters.containsKey('scope_node_ids')) return null;
+    final ids = parameters['scope_node_ids'];
+    if (ids is! List ||
+        ids.isEmpty ||
+        ids.any((id) => id is! String || id.trim().isEmpty) ||
+        ids.toSet().length != ids.length) {
+      throw const FormatException(
+        'scope_node_ids must be a nonempty list of unique node IDs',
+      );
+    }
+    return ids.cast<String>().toSet();
+  }
+
   @override
   List<String> templateProblems(
     QuestionTemplate template, {
@@ -153,7 +174,20 @@ class ShortAnswerFormat extends ExerciseFormat {
             'to the label of its key points',
       ];
     }
+    String? scopeProblem;
+    Set<String>? scope;
+    try {
+      scope = scopeNodeIdsOf(template);
+    } on FormatException catch (error) {
+      scopeProblem = error.message;
+    }
     return [
+      ?scopeProblem,
+      if (scopeProblem == null &&
+          !template.promptTemplate.contains('{') &&
+          scope?.length != 1)
+        'a fixed short-answer prompt needs exactly one scope_node_id; '
+            'multiple subjects need {subject.name}',
       if (!points.containsKey(template.relationType))
         'key_points leaves out its own relation type, '
             '${template.relationType}',
@@ -176,9 +210,11 @@ class ShortAnswerFormat extends ExerciseFormat {
     QuestionTemplate template,
   ) async {
     final points = keyPointsOf(template)!;
+    final scope = scopeNodeIdsOf(template);
     final bySubject = <String, List<KnowledgeItem>>{};
     for (final item in context.items) {
-      if (points.containsKey(item.relationType)) {
+      if (points.containsKey(item.relationType) &&
+          (scope == null || scope.contains(item.subjectId))) {
         bySubject.putIfAbsent(item.subjectId, () => []).add(item);
       }
     }

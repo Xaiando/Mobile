@@ -6,6 +6,9 @@
 # one slip of a letter is Hard (QF-4). Quantities are left to the numeric
 # format (Q4).
 question_templates:
+  - { id: qt_top_planted_grape_fwd_typed, relation_type: TOP_PLANTED_GRAPE, direction: forward, mode: typed, prompt_template: "Type a grape included in {subject.name}." }
+  - { id: qt_berry_colour_fwd_typed, relation_type: HAS_BERRY_COLOUR, direction: forward, mode: typed, prompt_template: "Type the berry skin colour of {subject.name}." }
+  - { id: qt_permitted_grape_fwd_typed, relation_type: PERMITS_GRAPE, direction: forward, mode: typed, prompt_template: "Type a permitted grape variety of {subject.name}." }
   - { id: qt_located_in_fwd_typed, relation_type: LOCATED_IN, direction: forward, mode: typed, prompt_template: "In which {object.type_label} is {subject.name} located?" }
   - { id: qt_principal_grape_fwd_typed, relation_type: PERMITS_PRINCIPAL_GRAPE, direction: forward, mode: typed, prompt_template: "Type a principal grape variety of {subject.name}." }
   - { id: qt_accessory_grape_fwd_typed, relation_type: PERMITS_ACCESSORY_GRAPE, direction: forward, mode: typed, prompt_template: "Type an accessory grape variety of {subject.name}." }
@@ -13,3 +16,11 @@ question_templates:
   - { id: qt_climate_fwd_typed, relation_type: HAS_CLIMATE, direction: forward, mode: typed, prompt_template: "Which type of climate does {subject.name} have?" }
   - { id: qt_hazard_fwd_typed, relation_type: SUSCEPTIBLE_TO, direction: forward, mode: typed, prompt_template: "Which {object.type_label} is a notable risk in {subject.name}?" }
   - { id: qt_method_fwd_typed, relation_type: REQUIRES_METHOD, direction: forward, mode: typed, prompt_template: "Which sparkling-wine method must {subject.name} use?" }
+  # EU and German wine law (backlog C6)
+  - { id: qt_wine_zone_fwd_typed, relation_type: IN_WINE_ZONE, direction: forward, mode: typed, prompt_template: "In which {object.type_label} does {subject.name} lie?" }
+  - { id: qt_protected_as_fwd_typed, relation_type: PROTECTED_AS, direction: forward, mode: typed, prompt_template: "Which {object.type_label} does {subject.name} belong to?" }
+  - { id: qt_reserved_region_fwd_typed, relation_type: RESERVED_FOR_REGION, direction: forward, mode: typed, prompt_template: "For wines from which {object.type_label} is the term {subject.name} reserved?" }
+  - { id: qt_awarded_by_fwd_typed, relation_type: AWARDED_BY, direction: forward, mode: typed, prompt_template: "Which {object.type_label} awards the quality mark {subject.name}?" }
+  - { id: qt_released_fwd_typed, relation_type: RELEASED_NOT_BEFORE, direction: forward, mode: typed, prompt_template: "From when may a wine labelled {subject.name} first be sold to consumers?" }
+  - { id: qt_private_classification_fwd_typed, relation_type: PRIVATE_CLASSIFICATION_OF, direction: forward, mode: typed, prompt_template: "Which organisation owns the private classification term {subject.name}?" }
+  - { id: qt_leading_red_grape_fwd_typed, relation_type: LEADING_RED_GRAPE, direction: forward, mode: typed, prompt_template: "Which red grape had the largest planted area according to {subject.name}?" }

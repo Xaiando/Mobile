@@ -6,5 +6,10 @@
 # found by a tap, or named when highlighted. Both practise the same item as
 # its text questions (GEO-1). Only areas drawn on the map are asked.
 question_templates:
+  - { id: qt_top_planted_grape_fwd_map_grape, relation_type: TOP_PLANTED_GRAPE, direction: forward, mode: map_grape, prompt_template: "Find a region with {object.name} among its top-two planted varieties in the cited dated record." }
   - { id: qt_located_in_fwd_map_locate, relation_type: LOCATED_IN, direction: forward, mode: map_locate, prompt_template: "Find {subject.name} on the map." }
   - { id: qt_located_in_fwd_map_identify, relation_type: LOCATED_IN, direction: forward, mode: map_identify, prompt_template: "Name the highlighted area." }
+  - { id: qt_located_in_fwd_map_pair, relation_type: LOCATED_IN, direction: forward, mode: map_pair, prompt_template: "Find these places on the map.", parameters: {min_places: 2, max_places: 4} }
+  - { id: qt_permitted_grape_fwd_map_grape, relation_type: PERMITS_GRAPE, direction: forward, mode: map_grape, prompt_template: "Find one appellation on this map that permits {object.name}." }
+  - { id: qt_principal_grape_fwd_map_grape, relation_type: PERMITS_PRINCIPAL_GRAPE, direction: forward, mode: map_grape, prompt_template: "Find one appellation on this map that permits {object.name}." }
+  - { id: qt_accessory_grape_fwd_map_grape, relation_type: PERMITS_ACCESSORY_GRAPE, direction: forward, mode: map_grape, prompt_template: "Find one appellation on this map that permits {object.name}." }

@@ -1,7 +1,7 @@
 name: sommelier
 description: "Sommelier study app: spaced repetition, tasting practice and a wine journal."
 publish_to: 'none'
-version: 0.2.0+2
+version: 0.2.9+11
 
 environment:
   sdk: ^3.13.0
@@ -46,3 +46,5 @@ flutter:
     # The map layers and their manifest (tool/geography), which the release
     # names under geography:.
     - assets/geography/
+    # Original study milestones and known gaps for learner progress.
+    - assets/progress/

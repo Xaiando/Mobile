@@ -3,6 +3,7 @@ import 'package:drift/drift.dart' show Variable;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:sommelier/core/curriculum/curriculum_dataset.dart';
 import 'package:sommelier/core/curriculum/curriculum_ingestion.dart';
+import 'package:sommelier/core/curriculum/knowledge_graph.dart';
 import 'package:sommelier/core/database/app_database.dart';
 import 'package:sommelier/core/database/curriculum_writes.dart';
 import 'package:sommelier/core/questions/question_generator.dart';
@@ -204,11 +205,35 @@ void main() {
         report.skipped.map((s) => '${s.itemId} ${s.reason.name}'),
         contains('ki_champagne_min_ageing notReverseSafe'),
       );
-      expect(await pool('ki_barolo_min_ageing', 'qt_min_ageing_rev_mcq'), [
+      final wrong = await pool('ki_barolo_min_ageing', 'qt_min_ageing_rev_mcq');
+      final piedmont = await KnowledgeGraph(db).descendants('n_geo_piedmont');
+      final nearbyAppellations = {
+        for (final node in piedmont)
+          if (node.nodeType == 'appellation' && node.id != 'n_geo_barolo')
+            node.id,
+      };
+      expect(nearbyAppellations.length, greaterThanOrEqualTo(3));
+      expect(
+        wrong,
+        unorderedEquals(nearbyAppellations),
+        reason: 'Piedmont now supplies enough peers without widening to Italy',
+      );
+      expect(
+        wrong.first,
         'n_geo_barbaresco',
-        'n_geo_brunello_di_montalcino',
-        'n_geo_chianti_classico',
-      ]);
+        reason: 'the nearest Langhe peer',
+      );
+      expect(
+        wrong,
+        isNot(
+          anyOf(
+            contains('n_geo_barolo'),
+            contains('n_geo_brunello_di_montalcino'),
+            contains('n_geo_chianti_classico'),
+          ),
+        ),
+        reason: 'exclude the answer and more distant Tuscan appellations',
+      );
     });
 
     test('a curator-disabled MCQ leaves the flashcard and typed recall '
@@ -269,6 +294,40 @@ void main() {
         everyElement(SkipReason.tooFewDistractors),
       );
     });
+
+    test(
+      'an unknown required discriminator cannot establish matching peers',
+      () async {
+        final data = _withWhiteGrapes(minimalDataset());
+        rowsOf(data, 'knowledge_relations').removeWhere(
+          (row) =>
+              row['subject_id'] == 'n_grape_chardonnay' &&
+              row['relation_type'] == 'HAS_BERRY_COLOUR',
+        );
+        await CurriculumIngester(db)
+            .ingest(CurriculumDataset.parse(datasetText(data)));
+        final questions = await db.customSelect('''
+        SELECT q.question_template_id FROM questions q
+        JOIN question_templates t ON t.id = q.question_template_id
+        WHERE q.knowledge_item_id = 'ki_chablis_grape' AND t.mode = 'mcq'
+      ''').get();
+        expect(
+          questions,
+          isEmpty,
+          reason: 'known white candidates cannot match an unknown berry colour',
+        );
+        final item = await (db.select(
+          db.knowledgeItems,
+        )..where((i) => i.id.equals('ki_chablis_grape'))).getSingle();
+        expect(
+          await QuestionGenerator(
+            db,
+            today: '2026-10-01',
+          ).distractorPool(item, reverse: false),
+          isEmpty,
+        );
+      },
+    );
 
     test('a past correct answer is never a wrong one (QG-4)', () async {
       final data = _withWhiteGrapes(minimalDataset());

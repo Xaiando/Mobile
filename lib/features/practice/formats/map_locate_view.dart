@@ -46,7 +46,12 @@ class _MapLocateViewState extends ConsumerState<MapLocateView> {
             },
             onTap: turn.isAnswered
                 ? null
-                : (tap) => controller.submit(MapLocateAnswer.fromTap(tap)),
+                : (tap) => controller.submit(
+                    MapLocateAnswer.fromTap(
+                      tap,
+                      preferredNodeId: exercise.nodeId,
+                    ),
+                  ),
           ),
         ),
         const SizedBox(height: 8),

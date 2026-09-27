@@ -1,0 +1,2742 @@
+{
+  "audited_on": "2026-09-26",
+  "authored": {
+    "nodes": 170,
+    "location_items": 170,
+    "mappings": 340,
+    "snapshots": {
+      "au_gis": {
+        "path": "tool/geography/new_world_oceania_africa_au_gis_points.geojson",
+        "features": 55,
+        "sha256": "81568c51780095ab4f8223b24cb8da272750631f24c0d1564761c1e652eefd0a"
+      },
+      "reference": {
+        "path": "tool/geography/new_world_oceania_africa_reference_points.geojson",
+        "features": 35,
+        "sha256": "070888983f87d9b6b734e1343512487a37a9e3e705e0533fedf79c33eb3778e0"
+      },
+      "gazetteer": {
+        "path": "tool/geography/new_world_oceania_africa_gazetteer_points.geojson",
+        "features": 80,
+        "sha256": "735baeda1a42a93633477c2ca61a4a6309ee799fa2f32756786880d3b12bb2ca"
+      }
+    }
+  },
+  "australia": {
+    "source_url": "https://www.wineaustralia.com/labelling/register-of-protected-gis-and-other-terms/geographical-indications",
+    "source_html_sha256": "bdbd2bd4dad47080fd0c38d41bdfc2ba0ff861815289cfaf6bc46e47529e62de",
+    "table_columns": {
+      "state_zone": 37,
+      "region": 63,
+      "subregion": 14
+    },
+    "unique_register_names": 114,
+    "unique_noncountry_nodes": 113,
+    "represented_names": 114,
+    "missing_names": [],
+    "classification_notes": [
+      "The State/Zone column includes Australia, states, territories, zones and Adelaide super zone.",
+      "Tasmania is listed in the State/Zone column but also occurs in GIS region and zone layers; both records map to its existing single node.",
+      "Queensland doubles as state and zone; its single node is explicitly labelled (zone).",
+      "Murray Darling and Swan Hill span NSW and Victoria; existing country containment avoids false single-state nesting.",
+      "The register has 63 distinct Region-column names; the GIS region layer has 64 records including Tasmania."
+    ],
+    "register_rows": [
+      {
+        "register_name": "Australia",
+        "register_column": "State/Zone",
+        "node_id": "n_geo_australia",
+        "node_name": "Australia",
+        "added": false
+      },
+      {
+        "register_name": "South Eastern Australia",
+        "register_column": "State/Zone",
+        "node_id": "n_geo_south_eastern_australia",
+        "node_name": "South Eastern Australia",
+        "added": false
+      },
+      {
+        "register_name": "South Australia",
+        "register_column": "State/Zone",
+        "node_id": "n_geo_south_australia",
+        "node_name": "South Australia",
+        "added": false
+      },
+      {
+        "register_name": "Adelaide (Super Zone, includes Mount Lofty Ranges, Fleurieu and Barossa)",
+        "register_column": "State/Zone",
+        "node_id": "n_geo_au_adelaide_super_zone",
+        "node_name": "Adelaide (super zone)",
+        "added": true
+      },
+      {
+        "register_name": "Barossa",
+        "register_column": "State/Zone",
+        "node_id": "n_geo_barossa_zone",
+        "node_name": "Barossa (zone)",
+        "added": false
+      },
+      {
+        "register_name": "Far North",
+        "register_column": "State/Zone",
+        "node_id": "n_geo_au_far_north_zone",
+        "node_name": "Far North (zone)",
+        "added": true
+      },
+      {
+        "register_name": "Fleurieu",
+        "register_column": "State/Zone",
+        "node_id": "n_geo_fleurieu_zone",
+        "node_name": "Fleurieu (zone)",
+        "added": false
+      },
+      {
+        "register_name": "Limestone Coast",
+        "register_column": "State/Zone",
+        "node_id": "n_geo_limestone_coast",
+        "node_name": "Limestone Coast (zone)",
+        "added": false
+      },
+      {
+        "register_name": "Lower Murray",
+        "register_column": "State/Zone",
+        "node_id": "n_geo_au_lower_murray_zone",
+        "node_name": "Lower Murray (zone)",
+        "added": true
+      },
+      {
+        "register_name": "Mount Lofty Ranges",
+        "register_column": "State/Zone",
+        "node_id": "n_geo_mount_lofty_ranges",
+        "node_name": "Mount Lofty Ranges (zone)",
+        "added": false
+      },
+      {
+        "register_name": "The Peninsulas",
+        "register_column": "State/Zone",
+        "node_id": "n_geo_au_the_peninsulas_zone",
+        "node_name": "The Peninsulas (zone)",
+        "added": true
+      },
+      {
+        "register_name": "New South Wales",
+        "register_column": "State/Zone",
+        "node_id": "n_geo_new_south_wales",
+        "node_name": "New South Wales",
+        "added": false
+      },
+      {
+        "register_name": "Big Rivers",
+        "register_column": "State/Zone",
+        "node_id": "n_geo_au_big_rivers_zone",
+        "node_name": "Big Rivers (zone)",
+        "added": true
+      },
+      {
+        "register_name": "Central Ranges",
+        "register_column": "State/Zone",
+        "node_id": "n_geo_au_central_ranges_zone",
+        "node_name": "Central Ranges (zone)",
+        "added": true
+      },
+      {
+        "register_name": "Hunter Valley",
+        "register_column": "State/Zone",
+        "node_id": "n_geo_hunter_valley_zone",
+        "node_name": "Hunter Valley (zone)",
+        "added": false
+      },
+      {
+        "register_name": "Northern Rivers",
+        "register_column": "State/Zone",
+        "node_id": "n_geo_au_northern_rivers_zone",
+        "node_name": "Northern Rivers (zone)",
+        "added": true
+      },
+      {
+        "register_name": "Northern Slopes",
+        "register_column": "State/Zone",
+        "node_id": "n_geo_au_northern_slopes_zone",
+        "node_name": "Northern Slopes (zone)",
+        "added": true
+      },
+      {
+        "register_name": "S outh Coast",
+        "register_column": "State/Zone",
+        "node_id": "n_geo_au_south_coast_zone",
+        "node_name": "South Coast (zone)",
+        "added": true
+      },
+      {
+        "register_name": "Southern New South Wales",
+        "register_column": "State/Zone",
+        "node_id": "n_geo_au_southern_new_south_wales_zone",
+        "node_name": "Southern New South Wales (zone)",
+        "added": true
+      },
+      {
+        "register_name": "Western Plains",
+        "register_column": "State/Zone",
+        "node_id": "n_geo_au_western_plains_zone",
+        "node_name": "Western Plains (zone)",
+        "added": true
+      },
+      {
+        "register_name": "Western Australia",
+        "register_column": "State/Zone",
+        "node_id": "n_geo_western_australia",
+        "node_name": "Western Australia",
+        "added": false
+      },
+      {
+        "register_name": "Central Western Australia",
+        "register_column": "State/Zone",
+        "node_id": "n_geo_au_central_western_australia_zone",
+        "node_name": "Central Western Australia (zone)",
+        "added": true
+      },
+      {
+        "register_name": "Eastern Plains - Inland and North of Western Australia",
+        "register_column": "State/Zone",
+        "node_id": "n_geo_au_eastern_plains_inland_and_north_of_western_australia_zone",
+        "node_name": "Eastern Plains, Inland And North Of Western Australia (zone)",
+        "added": true
+      },
+      {
+        "register_name": "Greater Perth",
+        "register_column": "State/Zone",
+        "node_id": "n_geo_au_greater_perth_zone",
+        "node_name": "Greater Perth (zone)",
+        "added": true
+      },
+      {
+        "register_name": "South West Australia",
+        "register_column": "State/Zone",
+        "node_id": "n_geo_au_south_west_australia_zone",
+        "node_name": "South West Australia (zone)",
+        "added": true
+      },
+      {
+        "register_name": "West Australian South East Coastal",
+        "register_column": "State/Zone",
+        "node_id": "n_geo_au_west_australian_south_east_coastal_zone",
+        "node_name": "West Australian South East Coastal (zone)",
+        "added": true
+      },
+      {
+        "register_name": "Queensland",
+        "register_column": "State/Zone",
+        "node_id": "n_geo_au_queensland_zone",
+        "node_name": "Queensland (zone)",
+        "added": true
+      },
+      {
+        "register_name": "Victoria",
+        "register_column": "State/Zone",
+        "node_id": "n_geo_victoria",
+        "node_name": "Victoria",
+        "added": false
+      },
+      {
+        "register_name": "Central Victoria",
+        "register_column": "State/Zone",
+        "node_id": "n_geo_au_central_victoria_zone",
+        "node_name": "Central Victoria (zone)",
+        "added": true
+      },
+      {
+        "register_name": "Gippsland",
+        "register_column": "State/Zone",
+        "node_id": "n_geo_au_gippsland_zone",
+        "node_name": "Gippsland (zone)",
+        "added": true
+      },
+      {
+        "register_name": "North East Victoria",
+        "register_column": "State/Zone",
+        "node_id": "n_geo_au_north_east_victoria_zone",
+        "node_name": "North East Victoria (zone)",
+        "added": true
+      },
+      {
+        "register_name": "North West Victoria",
+        "register_column": "State/Zone",
+        "node_id": "n_geo_au_north_west_victoria_zone",
+        "node_name": "North West Victoria (zone)",
+        "added": true
+      },
+      {
+        "register_name": "Port Phillip",
+        "register_column": "State/Zone",
+        "node_id": "n_geo_port_phillip",
+        "node_name": "Port Phillip (zone)",
+        "added": false
+      },
+      {
+        "register_name": "Western Victoria",
+        "register_column": "State/Zone",
+        "node_id": "n_geo_au_western_victoria_zone",
+        "node_name": "Western Victoria (zone)",
+        "added": true
+      },
+      {
+        "register_name": "Tasmania",
+        "register_column": "State/Zone",
+        "node_id": "n_geo_tasmania",
+        "node_name": "Tasmania",
+        "added": false
+      },
+      {
+        "register_name": "Northern Territory",
+        "register_column": "State/Zone",
+        "node_id": "n_geo_au_northern_territory",
+        "node_name": "Northern Territory",
+        "added": true
+      },
+      {
+        "register_name": "Australian Capital Territory",
+        "register_column": "State/Zone",
+        "node_id": "n_geo_au_australian_capital_territory",
+        "node_name": "Australian Capital Territory",
+        "added": true
+      },
+      {
+        "register_name": "Barossa Valley",
+        "register_column": "Region",
+        "node_id": "n_geo_barossa_valley",
+        "node_name": "Barossa Valley",
+        "added": false
+      },
+      {
+        "register_name": "Eden Valley",
+        "register_column": "Region",
+        "node_id": "n_geo_eden_valley",
+        "node_name": "Eden Valley",
+        "added": false
+      },
+      {
+        "register_name": "Southern Flinders Ranges",
+        "register_column": "Region",
+        "node_id": "n_geo_au_southern_flinders_ranges_region",
+        "node_name": "Southern Flinders Ranges",
+        "added": true
+      },
+      {
+        "register_name": "Currency Creek",
+        "register_column": "Region",
+        "node_id": "n_geo_au_currency_creek_region",
+        "node_name": "Currency Creek",
+        "added": true
+      },
+      {
+        "register_name": "Kangaroo Island",
+        "register_column": "Region",
+        "node_id": "n_geo_au_kangaroo_island_region",
+        "node_name": "Kangaroo Island",
+        "added": true
+      },
+      {
+        "register_name": "Langhorne Creek",
+        "register_column": "Region",
+        "node_id": "n_geo_langhorne_creek",
+        "node_name": "Langhorne Creek",
+        "added": false
+      },
+      {
+        "register_name": "McLaren Vale",
+        "register_column": "Region",
+        "node_id": "n_geo_mclaren_vale",
+        "node_name": "McLaren Vale",
+        "added": false
+      },
+      {
+        "register_name": "Southern Fleurieu",
+        "register_column": "Region",
+        "node_id": "n_geo_au_southern_fleurieu_region",
+        "node_name": "Southern Fleurieu",
+        "added": true
+      },
+      {
+        "register_name": "Coonawarra",
+        "register_column": "Region",
+        "node_id": "n_geo_coonawarra",
+        "node_name": "Coonawarra",
+        "added": false
+      },
+      {
+        "register_name": "Mount Benson",
+        "register_column": "Region",
+        "node_id": "n_geo_au_mount_benson_region",
+        "node_name": "Mount Benson",
+        "added": true
+      },
+      {
+        "register_name": "Mount Gambier",
+        "register_column": "Region",
+        "node_id": "n_geo_au_mount_gambier_region",
+        "node_name": "Mount Gambier",
+        "added": true
+      },
+      {
+        "register_name": "Padthaway",
+        "register_column": "Region",
+        "node_id": "n_geo_padthaway",
+        "node_name": "Padthaway",
+        "added": false
+      },
+      {
+        "register_name": "Robe",
+        "register_column": "Region",
+        "node_id": "n_geo_au_robe_region",
+        "node_name": "Robe",
+        "added": true
+      },
+      {
+        "register_name": "Wrattonbully",
+        "register_column": "Region",
+        "node_id": "n_geo_wrattonbully",
+        "node_name": "Wrattonbully",
+        "added": false
+      },
+      {
+        "register_name": "Riverland",
+        "register_column": "Region",
+        "node_id": "n_geo_riverland",
+        "node_name": "Riverland",
+        "added": false
+      },
+      {
+        "register_name": "Adelaide Hills",
+        "register_column": "Region",
+        "node_id": "n_geo_adelaide_hills",
+        "node_name": "Adelaide Hills",
+        "added": false
+      },
+      {
+        "register_name": "Adelaide Plains",
+        "register_column": "Region",
+        "node_id": "n_geo_au_adelaide_plains_region",
+        "node_name": "Adelaide Plains",
+        "added": true
+      },
+      {
+        "register_name": "Clare Valley",
+        "register_column": "Region",
+        "node_id": "n_geo_clare_valley",
+        "node_name": "Clare Valley",
+        "added": false
+      },
+      {
+        "register_name": "Murray Darling",
+        "register_column": "Region",
+        "node_id": "n_geo_au_murray_darling_region",
+        "node_name": "Murray Darling",
+        "added": true
+      },
+      {
+        "register_name": "Perricoota",
+        "register_column": "Region",
+        "node_id": "n_geo_au_perricoota_region",
+        "node_name": "Perricoota",
+        "added": true
+      },
+      {
+        "register_name": "Riverina",
+        "register_column": "Region",
+        "node_id": "n_geo_riverina_wine",
+        "node_name": "Riverina",
+        "added": false
+      },
+      {
+        "register_name": "Swan Hill",
+        "register_column": "Region",
+        "node_id": "n_geo_au_swan_hill_region",
+        "node_name": "Swan Hill",
+        "added": true
+      },
+      {
+        "register_name": "Cowra",
+        "register_column": "Region",
+        "node_id": "n_geo_au_cowra_region",
+        "node_name": "Cowra",
+        "added": true
+      },
+      {
+        "register_name": "Mudgee",
+        "register_column": "Region",
+        "node_id": "n_geo_mudgee_wine",
+        "node_name": "Mudgee",
+        "added": false
+      },
+      {
+        "register_name": "Orange",
+        "register_column": "Region",
+        "node_id": "n_geo_orange_wine",
+        "node_name": "Orange",
+        "added": false
+      },
+      {
+        "register_name": "Hunter",
+        "register_column": "Region",
+        "node_id": "n_geo_hunter",
+        "node_name": "Hunter",
+        "added": false
+      },
+      {
+        "register_name": "Hastings River",
+        "register_column": "Region",
+        "node_id": "n_geo_au_hastings_river_region",
+        "node_name": "Hastings River",
+        "added": true
+      },
+      {
+        "register_name": "New England Australia",
+        "register_column": "Region",
+        "node_id": "n_geo_au_new_england_australia_region",
+        "node_name": "New England Australia",
+        "added": true
+      },
+      {
+        "register_name": "Shoalhaven Coast",
+        "register_column": "Region",
+        "node_id": "n_geo_au_shoalhaven_coast_region",
+        "node_name": "Shoalhaven Coast",
+        "added": true
+      },
+      {
+        "register_name": "Southern Highlands",
+        "register_column": "Region",
+        "node_id": "n_geo_au_southern_highlands_region",
+        "node_name": "Southern Highlands",
+        "added": true
+      },
+      {
+        "register_name": "Canberra District",
+        "register_column": "Region",
+        "node_id": "n_geo_canberra_district",
+        "node_name": "Canberra District",
+        "added": false
+      },
+      {
+        "register_name": "Gundagai",
+        "register_column": "Region",
+        "node_id": "n_geo_au_gundagai_region",
+        "node_name": "Gundagai",
+        "added": true
+      },
+      {
+        "register_name": "Hilltops",
+        "register_column": "Region",
+        "node_id": "n_geo_au_hilltops_region",
+        "node_name": "Hilltops",
+        "added": true
+      },
+      {
+        "register_name": "Tumbarumba",
+        "register_column": "Region",
+        "node_id": "n_geo_tumbarumba_wine",
+        "node_name": "Tumbarumba",
+        "added": false
+      },
+      {
+        "register_name": "Peel",
+        "register_column": "Region",
+        "node_id": "n_geo_au_peel_region",
+        "node_name": "Peel",
+        "added": true
+      },
+      {
+        "register_name": "Perth Hills",
+        "register_column": "Region",
+        "node_id": "n_geo_au_perth_hills_region",
+        "node_name": "Perth Hills",
+        "added": true
+      },
+      {
+        "register_name": "Swan District",
+        "register_column": "Region",
+        "node_id": "n_geo_swan_district",
+        "node_name": "Swan District",
+        "added": false
+      },
+      {
+        "register_name": "Blackwood Valley",
+        "register_column": "Region",
+        "node_id": "n_geo_au_blackwood_valley_region",
+        "node_name": "Blackwood Valley",
+        "added": true
+      },
+      {
+        "register_name": "Geographe",
+        "register_column": "Region",
+        "node_id": "n_geo_au_geographe_region",
+        "node_name": "Geographe",
+        "added": true
+      },
+      {
+        "register_name": "Great Southern",
+        "register_column": "Region",
+        "node_id": "n_geo_great_southern",
+        "node_name": "Great Southern",
+        "added": false
+      },
+      {
+        "register_name": "Manjimup",
+        "register_column": "Region",
+        "node_id": "n_geo_au_manjimup_region",
+        "node_name": "Manjimup",
+        "added": true
+      },
+      {
+        "register_name": "Margaret River",
+        "register_column": "Region",
+        "node_id": "n_geo_margaret_river",
+        "node_name": "Margaret River",
+        "added": false
+      },
+      {
+        "register_name": "Pemberton",
+        "register_column": "Region",
+        "node_id": "n_geo_pemberton_wine",
+        "node_name": "Pemberton",
+        "added": false
+      },
+      {
+        "register_name": "Granite Belt",
+        "register_column": "Region",
+        "node_id": "n_geo_au_granite_belt_region",
+        "node_name": "Granite Belt",
+        "added": true
+      },
+      {
+        "register_name": "South Burnett",
+        "register_column": "Region",
+        "node_id": "n_geo_au_south_burnett_region",
+        "node_name": "South Burnett",
+        "added": true
+      },
+      {
+        "register_name": "Bendigo",
+        "register_column": "Region",
+        "node_id": "n_geo_au_bendigo_region",
+        "node_name": "Bendigo",
+        "added": true
+      },
+      {
+        "register_name": "Goulburn Valley",
+        "register_column": "Region",
+        "node_id": "n_geo_goulburn_valley_wine",
+        "node_name": "Goulburn Valley",
+        "added": false
+      },
+      {
+        "register_name": "Heathcote",
+        "register_column": "Region",
+        "node_id": "n_geo_heathcote_wine",
+        "node_name": "Heathcote",
+        "added": false
+      },
+      {
+        "register_name": "Strathbogie Ranges",
+        "register_column": "Region",
+        "node_id": "n_geo_au_strathbogie_ranges_region",
+        "node_name": "Strathbogie Ranges",
+        "added": true
+      },
+      {
+        "register_name": "Upper Goulburn",
+        "register_column": "Region",
+        "node_id": "n_geo_au_upper_goulburn_region",
+        "node_name": "Upper Goulburn",
+        "added": true
+      },
+      {
+        "register_name": "Alpine Valleys",
+        "register_column": "Region",
+        "node_id": "n_geo_au_alpine_valleys_region",
+        "node_name": "Alpine Valleys",
+        "added": true
+      },
+      {
+        "register_name": "Beechworth",
+        "register_column": "Region",
+        "node_id": "n_geo_au_beechworth_region",
+        "node_name": "Beechworth",
+        "added": true
+      },
+      {
+        "register_name": "Glenrowan",
+        "register_column": "Region",
+        "node_id": "n_geo_au_glenrowan_region",
+        "node_name": "Glenrowan",
+        "added": true
+      },
+      {
+        "register_name": "King Valley",
+        "register_column": "Region",
+        "node_id": "n_geo_king_valley",
+        "node_name": "King Valley",
+        "added": false
+      },
+      {
+        "register_name": "Rutherglen",
+        "register_column": "Region",
+        "node_id": "n_geo_rutherglen_wine",
+        "node_name": "Rutherglen",
+        "added": false
+      },
+      {
+        "register_name": "Geelong",
+        "register_column": "Region",
+        "node_id": "n_geo_geelong_wine",
+        "node_name": "Geelong",
+        "added": false
+      },
+      {
+        "register_name": "Macedon Ranges",
+        "register_column": "Region",
+        "node_id": "n_geo_macedon_ranges_wine",
+        "node_name": "Macedon Ranges",
+        "added": false
+      },
+      {
+        "register_name": "Mornington Peninsula",
+        "register_column": "Region",
+        "node_id": "n_geo_mornington_peninsula",
+        "node_name": "Mornington Peninsula",
+        "added": false
+      },
+      {
+        "register_name": "Sunbury",
+        "register_column": "Region",
+        "node_id": "n_geo_au_sunbury_region",
+        "node_name": "Sunbury",
+        "added": true
+      },
+      {
+        "register_name": "Yarra Valley",
+        "register_column": "Region",
+        "node_id": "n_geo_yarra_valley",
+        "node_name": "Yarra Valley",
+        "added": false
+      },
+      {
+        "register_name": "Grampians",
+        "register_column": "Region",
+        "node_id": "n_geo_grampians_wine",
+        "node_name": "Grampians",
+        "added": false
+      },
+      {
+        "register_name": "Henty",
+        "register_column": "Region",
+        "node_id": "n_geo_au_henty_region",
+        "node_name": "Henty",
+        "added": true
+      },
+      {
+        "register_name": "Pyrenees",
+        "register_column": "Region",
+        "node_id": "n_geo_au_pyrenees_region",
+        "node_name": "Pyrenees",
+        "added": true
+      },
+      {
+        "register_name": "High Eden",
+        "register_column": "Subregion",
+        "node_id": "n_geo_high_eden",
+        "node_name": "High Eden",
+        "added": false
+      },
+      {
+        "register_name": "Lenswood",
+        "register_column": "Subregion",
+        "node_id": "n_geo_lenswood",
+        "node_name": "Lenswood",
+        "added": false
+      },
+      {
+        "register_name": "Piccadilly Valley",
+        "register_column": "Subregion",
+        "node_id": "n_geo_piccadilly_valley",
+        "node_name": "Piccadilly Valley",
+        "added": false
+      },
+      {
+        "register_name": "Broke Fordwich",
+        "register_column": "Subregion",
+        "node_id": "n_geo_broke_fordwich",
+        "node_name": "Broke Fordwich",
+        "added": false
+      },
+      {
+        "register_name": "Pokolbin",
+        "register_column": "Subregion",
+        "node_id": "n_geo_pokolbin",
+        "node_name": "Pokolbin",
+        "added": false
+      },
+      {
+        "register_name": "Upper Hunter Valley",
+        "register_column": "Subregion",
+        "node_id": "n_geo_upper_hunter_valley",
+        "node_name": "Upper Hunter Valley",
+        "added": false
+      },
+      {
+        "register_name": "Swan Valley",
+        "register_column": "Subregion",
+        "node_id": "n_geo_swan_valley",
+        "node_name": "Swan Valley",
+        "added": false
+      },
+      {
+        "register_name": "Albany",
+        "register_column": "Subregion",
+        "node_id": "n_geo_albany_wine",
+        "node_name": "Albany (wine subregion)",
+        "added": false
+      },
+      {
+        "register_name": "Denmark",
+        "register_column": "Subregion",
+        "node_id": "n_geo_denmark_wine",
+        "node_name": "Denmark (wine subregion)",
+        "added": false
+      },
+      {
+        "register_name": "Frankland River",
+        "register_column": "Subregion",
+        "node_id": "n_geo_frankland_river_wine",
+        "node_name": "Frankland River",
+        "added": false
+      },
+      {
+        "register_name": "Mount Barker",
+        "register_column": "Subregion",
+        "node_id": "n_geo_mount_barker_wine",
+        "node_name": "Mount Barker (wine subregion)",
+        "added": false
+      },
+      {
+        "register_name": "Porongurup",
+        "register_column": "Subregion",
+        "node_id": "n_geo_porongurup_wine",
+        "node_name": "Porongurup",
+        "added": false
+      },
+      {
+        "register_name": "Nagambie Lakes",
+        "register_column": "Subregion",
+        "node_id": "n_geo_nagambie_lakes",
+        "node_name": "Nagambie Lakes",
+        "added": false
+      },
+      {
+        "register_name": "Great Western",
+        "register_column": "Subregion",
+        "node_id": "n_geo_great_western_wine",
+        "node_name": "Great Western",
+        "added": false
+      }
+    ],
+    "gis_layers": [
+      {
+        "layer": 0,
+        "record_count": 14,
+        "source_file_sha256": "67f9179d90cf09e26ccf5f1af0aff2e592fec828f131da0a5c852a079b8c9adb",
+        "records": [
+          {
+            "gis_name": "Upper Hunter Valley",
+            "gi_number": 111,
+            "state": "NSW",
+            "node_id": "n_geo_upper_hunter_valley"
+          },
+          {
+            "gis_name": "Pokolbin",
+            "gi_number": 110,
+            "state": "NSW",
+            "node_id": "n_geo_pokolbin"
+          },
+          {
+            "gis_name": "Broke Fordwich",
+            "gi_number": 50,
+            "state": "NSW",
+            "node_id": "n_geo_broke_fordwich"
+          },
+          {
+            "gis_name": "Swan Valley",
+            "gi_number": 98,
+            "state": "WA",
+            "node_id": "n_geo_swan_valley"
+          },
+          {
+            "gis_name": "Porongurup",
+            "gi_number": 71,
+            "state": "WA",
+            "node_id": "n_geo_porongurup_wine"
+          },
+          {
+            "gis_name": "Mount Barker",
+            "gi_number": 46,
+            "state": "WA",
+            "node_id": "n_geo_mount_barker_wine"
+          },
+          {
+            "gis_name": "Frankland River",
+            "gi_number": 79,
+            "state": "WA",
+            "node_id": "n_geo_frankland_river_wine"
+          },
+          {
+            "gis_name": "Denmark",
+            "gi_number": 97,
+            "state": "WA",
+            "node_id": "n_geo_denmark_wine"
+          },
+          {
+            "gis_name": "Albany",
+            "gi_number": 70,
+            "state": "WA",
+            "node_id": "n_geo_albany_wine"
+          },
+          {
+            "gis_name": "Great Western",
+            "gi_number": 107,
+            "state": "VIC",
+            "node_id": "n_geo_great_western_wine"
+          },
+          {
+            "gis_name": "Nagambie Lakes",
+            "gi_number": 84,
+            "state": "VIC",
+            "node_id": "n_geo_nagambie_lakes"
+          },
+          {
+            "gis_name": "Piccadilly Valley",
+            "gi_number": 76,
+            "state": "SA",
+            "node_id": "n_geo_piccadilly_valley"
+          },
+          {
+            "gis_name": "High Eden",
+            "gi_number": 75,
+            "state": "SA",
+            "node_id": "n_geo_high_eden"
+          },
+          {
+            "gis_name": "Lenswood",
+            "gi_number": 56,
+            "state": "SA",
+            "node_id": "n_geo_lenswood"
+          }
+        ]
+      },
+      {
+        "layer": 1,
+        "record_count": 64,
+        "source_file_sha256": "16ef048525b09b0127f79bf7e3bdbe351677f7e9be8e5016d9766fe45190f719",
+        "records": [
+          {
+            "gis_name": "Granite Belt",
+            "gi_number": 89,
+            "state": "QLD",
+            "node_id": "n_geo_au_granite_belt_region"
+          },
+          {
+            "gis_name": "South Burnett",
+            "gi_number": 82,
+            "state": "QLD",
+            "node_id": "n_geo_au_south_burnett_region"
+          },
+          {
+            "gis_name": "Perricoota",
+            "gi_number": 69,
+            "state": "NSW",
+            "node_id": "n_geo_au_perricoota_region"
+          },
+          {
+            "gis_name": "Riverina",
+            "gi_number": 59,
+            "state": "NSW",
+            "node_id": "n_geo_riverina_wine"
+          },
+          {
+            "gis_name": "Cowra",
+            "gi_number": 57,
+            "state": "NSW",
+            "node_id": "n_geo_au_cowra_region"
+          },
+          {
+            "gis_name": "Mudgee",
+            "gi_number": 80,
+            "state": "NSW",
+            "node_id": "n_geo_mudgee_wine"
+          },
+          {
+            "gis_name": "Orange",
+            "gi_number": 52,
+            "state": "NSW",
+            "node_id": "n_geo_orange_wine"
+          },
+          {
+            "gis_name": "Hunter",
+            "gi_number": 41,
+            "state": "NSW",
+            "node_id": "n_geo_hunter"
+          },
+          {
+            "gis_name": "Hastings River",
+            "gi_number": 68,
+            "state": "NSW",
+            "node_id": "n_geo_au_hastings_river_region"
+          },
+          {
+            "gis_name": "New England Australia",
+            "gi_number": 109,
+            "state": "NSW",
+            "node_id": "n_geo_au_new_england_australia_region"
+          },
+          {
+            "gis_name": "Shoalhaven Coast",
+            "gi_number": 94,
+            "state": "NSW",
+            "node_id": "n_geo_au_shoalhaven_coast_region"
+          },
+          {
+            "gis_name": "Southern Highlands",
+            "gi_number": 90,
+            "state": "NSW",
+            "node_id": "n_geo_au_southern_highlands_region"
+          },
+          {
+            "gis_name": "Canberra District",
+            "gi_number": 55,
+            "state": "NSW",
+            "node_id": "n_geo_canberra_district"
+          },
+          {
+            "gis_name": "Gundagai",
+            "gi_number": 92,
+            "state": "NSW",
+            "node_id": "n_geo_au_gundagai_region"
+          },
+          {
+            "gis_name": "Hilltops",
+            "gi_number": 54,
+            "state": "NSW",
+            "node_id": "n_geo_au_hilltops_region"
+          },
+          {
+            "gis_name": "Tumbarumba",
+            "gi_number": 63,
+            "state": "NSW",
+            "node_id": "n_geo_tumbarumba_wine"
+          },
+          {
+            "gis_name": "Peel",
+            "gi_number": 88,
+            "state": "WA",
+            "node_id": "n_geo_au_peel_region"
+          },
+          {
+            "gis_name": "Perth Hills",
+            "gi_number": 67,
+            "state": "WA",
+            "node_id": "n_geo_au_perth_hills_region"
+          },
+          {
+            "gis_name": "Blackwood Valley",
+            "gi_number": 64,
+            "state": "WA",
+            "node_id": "n_geo_au_blackwood_valley_region"
+          },
+          {
+            "gis_name": "Geographe",
+            "gi_number": 66,
+            "state": "WA",
+            "node_id": "n_geo_au_geographe_region"
+          },
+          {
+            "gis_name": "Great Southern",
+            "gi_number": 40,
+            "state": "WA",
+            "node_id": "n_geo_great_southern"
+          },
+          {
+            "gis_name": "Manjimup",
+            "gi_number": 104,
+            "state": "WA",
+            "node_id": "n_geo_au_manjimup_region"
+          },
+          {
+            "gis_name": "Margaret River",
+            "gi_number": 39,
+            "state": "WA",
+            "node_id": "n_geo_margaret_river"
+          },
+          {
+            "gis_name": "Pemberton",
+            "gi_number": 105,
+            "state": "WA",
+            "node_id": "n_geo_pemberton_wine"
+          },
+          {
+            "gis_name": "Swan District",
+            "gi_number": 62,
+            "state": "WA",
+            "node_id": "n_geo_swan_district"
+          },
+          {
+            "gis_name": "Yarra Valley",
+            "gi_number": 38,
+            "state": "VIC",
+            "node_id": "n_geo_yarra_valley"
+          },
+          {
+            "gis_name": "Upper Goulburn",
+            "gi_number": 102,
+            "state": "VIC",
+            "node_id": "n_geo_au_upper_goulburn_region"
+          },
+          {
+            "gis_name": "Swan Hill",
+            "gi_number": 36,
+            "state": "VIC",
+            "node_id": "n_geo_au_swan_hill_region"
+          },
+          {
+            "gis_name": "Sunbury",
+            "gi_number": 60,
+            "state": "VIC",
+            "node_id": "n_geo_au_sunbury_region"
+          },
+          {
+            "gis_name": "Strathbogie Ranges",
+            "gi_number": 91,
+            "state": "VIC",
+            "node_id": "n_geo_au_strathbogie_ranges_region"
+          },
+          {
+            "gis_name": "Rutherglen",
+            "gi_number": 49,
+            "state": "VIC",
+            "node_id": "n_geo_rutherglen_wine"
+          },
+          {
+            "gis_name": "Pyrenees",
+            "gi_number": 77,
+            "state": "VIC",
+            "node_id": "n_geo_au_pyrenees_region"
+          },
+          {
+            "gis_name": "Murray Darling",
+            "gi_number": 45,
+            "state": "VIC",
+            "node_id": "n_geo_au_murray_darling_region"
+          },
+          {
+            "gis_name": "Mornington Peninsula",
+            "gi_number": 42,
+            "state": "VIC",
+            "node_id": "n_geo_mornington_peninsula"
+          },
+          {
+            "gis_name": "Macedon Ranges",
+            "gi_number": 96,
+            "state": "VIC",
+            "node_id": "n_geo_macedon_ranges_wine"
+          },
+          {
+            "gis_name": "King Valley",
+            "gi_number": 108,
+            "state": "VIC",
+            "node_id": "n_geo_king_valley"
+          },
+          {
+            "gis_name": "Henty",
+            "gi_number": 78,
+            "state": "VIC",
+            "node_id": "n_geo_au_henty_region"
+          },
+          {
+            "gis_name": "Heathcote",
+            "gi_number": 95,
+            "state": "VIC",
+            "node_id": "n_geo_heathcote_wine"
+          },
+          {
+            "gis_name": "Grampians",
+            "gi_number": 44,
+            "state": "VIC",
+            "node_id": "n_geo_grampians_wine"
+          },
+          {
+            "gis_name": "Goulburn Valley",
+            "gi_number": 72,
+            "state": "VIC",
+            "node_id": "n_geo_goulburn_valley_wine"
+          },
+          {
+            "gis_name": "Glenrowan",
+            "gi_number": 101,
+            "state": "VIC",
+            "node_id": "n_geo_au_glenrowan_region"
+          },
+          {
+            "gis_name": "Geelong",
+            "gi_number": 37,
+            "state": "VIC",
+            "node_id": "n_geo_geelong_wine"
+          },
+          {
+            "gis_name": "Bendigo",
+            "gi_number": 87,
+            "state": "VIC",
+            "node_id": "n_geo_au_bendigo_region"
+          },
+          {
+            "gis_name": "Beechworth",
+            "gi_number": 81,
+            "state": "VIC",
+            "node_id": "n_geo_au_beechworth_region"
+          },
+          {
+            "gis_name": "Alpine Valleys",
+            "gi_number": 74,
+            "state": "VIC",
+            "node_id": "n_geo_au_alpine_valleys_region"
+          },
+          {
+            "gis_name": "Adelaide Plains",
+            "gi_number": 93,
+            "state": "SA",
+            "node_id": "n_geo_au_adelaide_plains_region"
+          },
+          {
+            "gis_name": "Barossa Valley",
+            "gi_number": 47,
+            "state": "SA",
+            "node_id": "n_geo_barossa_valley"
+          },
+          {
+            "gis_name": "Clare Valley",
+            "gi_number": 65,
+            "state": "SA",
+            "node_id": "n_geo_clare_valley"
+          },
+          {
+            "gis_name": "Coonawarra",
+            "gi_number": 99,
+            "state": "SA",
+            "node_id": "n_geo_coonawarra"
+          },
+          {
+            "gis_name": "Currency Creek",
+            "gi_number": 85,
+            "state": "SA",
+            "node_id": "n_geo_au_currency_creek_region"
+          },
+          {
+            "gis_name": "Kangaroo Island",
+            "gi_number": 83,
+            "state": "SA",
+            "node_id": "n_geo_au_kangaroo_island_region"
+          },
+          {
+            "gis_name": "Langhorne Creek",
+            "gi_number": 58,
+            "state": "SA",
+            "node_id": "n_geo_langhorne_creek"
+          },
+          {
+            "gis_name": "Mount Benson",
+            "gi_number": 43,
+            "state": "SA",
+            "node_id": "n_geo_au_mount_benson_region"
+          },
+          {
+            "gis_name": "Mount Gambier",
+            "gi_number": 112,
+            "state": "SA",
+            "node_id": "n_geo_au_mount_gambier_region"
+          },
+          {
+            "gis_name": "Padthaway",
+            "gi_number": 73,
+            "state": "SA",
+            "node_id": "n_geo_padthaway"
+          },
+          {
+            "gis_name": "Riverland",
+            "gi_number": 61,
+            "state": "SA",
+            "node_id": "n_geo_riverland"
+          },
+          {
+            "gis_name": "Robe",
+            "gi_number": 106,
+            "state": "SA",
+            "node_id": "n_geo_au_robe_region"
+          },
+          {
+            "gis_name": "Southern Fleurieu",
+            "gi_number": 86,
+            "state": "SA",
+            "node_id": "n_geo_au_southern_fleurieu_region"
+          },
+          {
+            "gis_name": "Southern Flinders Ranges",
+            "gi_number": 100,
+            "state": "SA",
+            "node_id": "n_geo_au_southern_flinders_ranges_region"
+          },
+          {
+            "gis_name": "Wrattonbully",
+            "gi_number": 103,
+            "state": "SA",
+            "node_id": "n_geo_wrattonbully"
+          },
+          {
+            "gis_name": "Eden Valley",
+            "gi_number": 48,
+            "state": "SA",
+            "node_id": "n_geo_eden_valley"
+          },
+          {
+            "gis_name": "Adelaide Hills",
+            "gi_number": 53,
+            "state": "SA",
+            "node_id": "n_geo_adelaide_hills"
+          },
+          {
+            "gis_name": "Tasmania",
+            "gi_number": 33,
+            "state": "TAS",
+            "node_id": "n_geo_tasmania"
+          },
+          {
+            "gis_name": "Mclaren Vale",
+            "gi_number": 51,
+            "state": "SA",
+            "node_id": "n_geo_mclaren_vale"
+          }
+        ]
+      },
+      {
+        "layer": 2,
+        "record_count": 28,
+        "source_file_sha256": "84601bcde0f164d5a3ab2a51bbe289d17434ed4cbe1873df07c2044cdee7a9f4",
+        "records": [
+          {
+            "gis_name": "Western Victoria",
+            "gi_number": 16,
+            "state": "VIC",
+            "node_id": "n_geo_au_western_victoria_zone"
+          },
+          {
+            "gis_name": "Port Phillip",
+            "gi_number": 15,
+            "state": "VIC",
+            "node_id": "n_geo_port_phillip"
+          },
+          {
+            "gis_name": "North West Victoria",
+            "gi_number": 14,
+            "state": "VIC",
+            "node_id": "n_geo_au_north_west_victoria_zone"
+          },
+          {
+            "gis_name": "North East Victoria",
+            "gi_number": 13,
+            "state": "VIC",
+            "node_id": "n_geo_au_north_east_victoria_zone"
+          },
+          {
+            "gis_name": "Gippsland",
+            "gi_number": 12,
+            "state": "VIC",
+            "node_id": "n_geo_au_gippsland_zone"
+          },
+          {
+            "gis_name": "Central Victoria",
+            "gi_number": 11,
+            "state": "VIC",
+            "node_id": "n_geo_au_central_victoria_zone"
+          },
+          {
+            "gis_name": "Central Western Australia",
+            "gi_number": 30,
+            "state": "WA",
+            "node_id": "n_geo_au_central_western_australia_zone"
+          },
+          {
+            "gis_name": "Greater Perth",
+            "gi_number": 31,
+            "state": "WA",
+            "node_id": "n_geo_au_greater_perth_zone"
+          },
+          {
+            "gis_name": "South West Australia",
+            "gi_number": 29,
+            "state": "WA",
+            "node_id": "n_geo_au_south_west_australia_zone"
+          },
+          {
+            "gis_name": "West Australian South East Coastal",
+            "gi_number": 28,
+            "state": "WA",
+            "node_id": "n_geo_au_west_australian_south_east_coastal_zone"
+          },
+          {
+            "gis_name": "Central Ranges",
+            "gi_number": 3,
+            "state": "NSW",
+            "node_id": "n_geo_au_central_ranges_zone"
+          },
+          {
+            "gis_name": "Hunter Valley",
+            "gi_number": 4,
+            "state": "NSW",
+            "node_id": "n_geo_hunter_valley_zone"
+          },
+          {
+            "gis_name": "Northern Rivers",
+            "gi_number": 5,
+            "state": "NSW",
+            "node_id": "n_geo_au_northern_rivers_zone"
+          },
+          {
+            "gis_name": "Northern Slopes",
+            "gi_number": 6,
+            "state": "NSW",
+            "node_id": "n_geo_au_northern_slopes_zone"
+          },
+          {
+            "gis_name": "South Coast",
+            "gi_number": 7,
+            "state": "NSW",
+            "node_id": "n_geo_au_south_coast_zone"
+          },
+          {
+            "gis_name": "Southern New South Wales",
+            "gi_number": 8,
+            "state": "NSW",
+            "node_id": "n_geo_au_southern_new_south_wales_zone"
+          },
+          {
+            "gis_name": "Big Rivers",
+            "gi_number": 2,
+            "state": "NSW",
+            "node_id": "n_geo_au_big_rivers_zone"
+          },
+          {
+            "gis_name": "The Peninsulas",
+            "gi_number": 22,
+            "state": "SA",
+            "node_id": "n_geo_au_the_peninsulas_zone"
+          },
+          {
+            "gis_name": "Mount Lofty Ranges",
+            "gi_number": 19,
+            "state": "SA",
+            "node_id": "n_geo_mount_lofty_ranges"
+          },
+          {
+            "gis_name": "Lower Murray",
+            "gi_number": 23,
+            "state": "SA",
+            "node_id": "n_geo_au_lower_murray_zone"
+          },
+          {
+            "gis_name": "Limestone Coast",
+            "gi_number": 21,
+            "state": "SA",
+            "node_id": "n_geo_limestone_coast"
+          },
+          {
+            "gis_name": "Fleurieu",
+            "gi_number": 20,
+            "state": "SA",
+            "node_id": "n_geo_fleurieu_zone"
+          },
+          {
+            "gis_name": "Far North",
+            "gi_number": 24,
+            "state": "SA",
+            "node_id": "n_geo_au_far_north_zone"
+          },
+          {
+            "gis_name": "Barossa",
+            "gi_number": 25,
+            "state": "SA",
+            "node_id": "n_geo_barossa_zone"
+          },
+          {
+            "gis_name": "Tasmania",
+            "gi_number": 33,
+            "state": "TAS",
+            "node_id": "n_geo_tasmania"
+          },
+          {
+            "gis_name": "Eastern Plains, Inland And North Of Western Australia",
+            "gi_number": 27,
+            "state": "WA",
+            "node_id": "n_geo_au_eastern_plains_inland_and_north_of_western_australia_zone"
+          },
+          {
+            "gis_name": "Western Plains",
+            "gi_number": 9,
+            "state": "NSW",
+            "node_id": "n_geo_au_western_plains_zone"
+          },
+          {
+            "gis_name": "Queensland",
+            "gi_number": 34,
+            "state": "QLD",
+            "node_id": "n_geo_au_queensland_zone"
+          }
+        ]
+      }
+    ]
+  },
+  "south_africa": {
+    "source_url": "https://www.sawis.co.za/cert/download/Production_areas_-_Eng_%26_Afr_-_Feb26.pdf",
+    "source_pdf_sha256": "0a0beac0faf48ba2dd079295b69dca46437da5341e37674d060d767bb591c871",
+    "unique_register_entries": 150,
+    "represented_entries": 149,
+    "counts": {
+      "geographical_units": 7,
+      "overarching_geographical_units": 1,
+      "regions": 6,
+      "overarching_regions": 1,
+      "subregions": 1,
+      "districts": 32,
+      "wards": 102,
+      "represented_districts": 32,
+      "represented_wards": 101,
+      "missing_wards": 1
+    },
+    "classification_notes": [
+      "None placeholders are not places.",
+      "Simonsberg-Stellenbosh is a source spelling error mapped to the canonical Simonsberg-Stellenbosch node.",
+      "Nieuwoudtville is under the Western Cape Wine of Origin unit in this register, despite its town being politically in Northern Cape.",
+      "Lutzville Valley is under Coastal Region / Cape West Coast in this February 2026 register.",
+      "Qualified markers provide orientation; nearby locality/terrain references do not prove legal wine-area extent.",
+      "Paardeberg South has a verified legal classification but remains without an authored map target: proposed licensed farm references contradict the primary north-west/west locality description."
+    ],
+    "register_rows": [
+      {
+        "register_name": "Western Cape",
+        "register_kind": "geographical unit",
+        "source_group": "South Africa",
+        "node_id": "n_geo_western_cape",
+        "node_name": "Western Cape",
+        "added": false
+      },
+      {
+        "register_name": "Northern Cape",
+        "register_kind": "geographical unit",
+        "source_group": "South Africa",
+        "node_id": "n_geo_za_northern_cape",
+        "node_name": "Northern Cape",
+        "added": true
+      },
+      {
+        "register_name": "Eastern Cape",
+        "register_kind": "geographical unit",
+        "source_group": "South Africa",
+        "node_id": "n_geo_za_eastern_cape",
+        "node_name": "Eastern Cape",
+        "added": true
+      },
+      {
+        "register_name": "KwaZulu-Natal",
+        "register_kind": "geographical unit",
+        "source_group": "South Africa",
+        "node_id": "n_geo_za_kwazulu_natal",
+        "node_name": "KwaZulu-Natal",
+        "added": true
+      },
+      {
+        "register_name": "Free State",
+        "register_kind": "geographical unit",
+        "source_group": "South Africa",
+        "node_id": "n_geo_za_free_state",
+        "node_name": "Free State",
+        "added": true
+      },
+      {
+        "register_name": "Limpopo",
+        "register_kind": "geographical unit",
+        "source_group": "South Africa",
+        "node_id": "n_geo_za_limpopo",
+        "node_name": "Limpopo",
+        "added": true
+      },
+      {
+        "register_name": "North West",
+        "register_kind": "geographical unit",
+        "source_group": "South Africa",
+        "node_id": "n_geo_za_north_west",
+        "node_name": "North West",
+        "added": true
+      },
+      {
+        "register_name": "Greater Cape",
+        "register_kind": "overarching geographical unit",
+        "source_group": "South Africa",
+        "node_id": "n_geo_za_greater_cape",
+        "node_name": "Greater Cape",
+        "added": true
+      },
+      {
+        "register_name": "Cape South Coast",
+        "register_kind": "region",
+        "source_group": "South Africa",
+        "node_id": "n_geo_cape_south_coast",
+        "node_name": "Cape South Coast",
+        "added": false
+      },
+      {
+        "register_name": "Coastal Region",
+        "register_kind": "region",
+        "source_group": "South Africa",
+        "node_id": "n_geo_coastal_region",
+        "node_name": "Coastal Region",
+        "added": false
+      },
+      {
+        "register_name": "Breede River Valley",
+        "register_kind": "region",
+        "source_group": "South Africa",
+        "node_id": "n_geo_breede_river_valley",
+        "node_name": "Breede River Valley",
+        "added": false
+      },
+      {
+        "register_name": "Klein Karoo",
+        "register_kind": "region",
+        "source_group": "South Africa",
+        "node_id": "n_geo_klein_karoo_wine",
+        "node_name": "Klein Karoo",
+        "added": false
+      },
+      {
+        "register_name": "Olifants River",
+        "register_kind": "region",
+        "source_group": "South Africa",
+        "node_id": "n_geo_olifants_river_wine",
+        "node_name": "Olifants River (wine region)",
+        "added": false
+      },
+      {
+        "register_name": "Karoo-Hoogland",
+        "register_kind": "region",
+        "source_group": "South Africa",
+        "node_id": "n_geo_za_karoo_hoogland",
+        "node_name": "Karoo-Hoogland",
+        "added": true
+      },
+      {
+        "register_name": "Cape Coast",
+        "register_kind": "overarching region",
+        "source_group": "Western Cape",
+        "node_id": "n_geo_za_cape_coast",
+        "node_name": "Cape Coast",
+        "added": true
+      },
+      {
+        "register_name": "Cape West Coast",
+        "register_kind": "subregion",
+        "source_group": "Coastal Region",
+        "node_id": "n_geo_za_cape_west_coast",
+        "node_name": "Cape West Coast",
+        "added": true
+      },
+      {
+        "register_name": "Cape Agulhas",
+        "register_kind": "district",
+        "source_group": "Cape South Coast",
+        "node_id": "n_geo_cape_agulhas_wine",
+        "node_name": "Cape Agulhas",
+        "added": false
+      },
+      {
+        "register_name": "Elgin",
+        "register_kind": "district",
+        "source_group": "Cape South Coast",
+        "node_id": "n_geo_elgin",
+        "node_name": "Elgin",
+        "added": false
+      },
+      {
+        "register_name": "Lower Duivenhoks River",
+        "register_kind": "district",
+        "source_group": "Cape South Coast",
+        "node_id": "n_geo_za_lower_duivenhoks_river",
+        "node_name": "Lower Duivenhoks River",
+        "added": true
+      },
+      {
+        "register_name": "Overberg",
+        "register_kind": "district",
+        "source_group": "Cape South Coast",
+        "node_id": "n_geo_overberg_wine",
+        "node_name": "Overberg",
+        "added": false
+      },
+      {
+        "register_name": "Plettenberg Bay",
+        "register_kind": "district",
+        "source_group": "Cape South Coast",
+        "node_id": "n_geo_za_plettenberg_bay",
+        "node_name": "Plettenberg Bay",
+        "added": true
+      },
+      {
+        "register_name": "Swellendam",
+        "register_kind": "district",
+        "source_group": "Cape South Coast",
+        "node_id": "n_geo_za_swellendam",
+        "node_name": "Swellendam",
+        "added": true
+      },
+      {
+        "register_name": "Walker Bay",
+        "register_kind": "district",
+        "source_group": "Cape South Coast",
+        "node_id": "n_geo_walker_bay",
+        "node_name": "Walker Bay",
+        "added": false
+      },
+      {
+        "register_name": "Still Bay",
+        "register_kind": "district",
+        "source_group": "Cape South Coast",
+        "node_id": "n_geo_za_still_bay",
+        "node_name": "Still Bay",
+        "added": true
+      },
+      {
+        "register_name": "Cape Town",
+        "register_kind": "district",
+        "source_group": "Coastal Region",
+        "node_id": "n_geo_cape_town_wine",
+        "node_name": "Cape Town (wine district)",
+        "added": false
+      },
+      {
+        "register_name": "Darling",
+        "register_kind": "district",
+        "source_group": "Coastal Region",
+        "node_id": "n_geo_darling_wine",
+        "node_name": "Darling",
+        "added": false
+      },
+      {
+        "register_name": "Franschhoek",
+        "register_kind": "district",
+        "source_group": "Coastal Region",
+        "node_id": "n_geo_franschhoek_wine",
+        "node_name": "Franschhoek",
+        "added": false
+      },
+      {
+        "register_name": "Lutzville Valley",
+        "register_kind": "district",
+        "source_group": "Coastal Region",
+        "node_id": "n_geo_za_lutzville_valley",
+        "node_name": "Lutzville Valley",
+        "added": true
+      },
+      {
+        "register_name": "Paarl",
+        "register_kind": "district",
+        "source_group": "Coastal Region",
+        "node_id": "n_geo_paarl",
+        "node_name": "Paarl",
+        "added": false
+      },
+      {
+        "register_name": "Stellenbosch",
+        "register_kind": "district",
+        "source_group": "Coastal Region",
+        "node_id": "n_geo_stellenbosch",
+        "node_name": "Stellenbosch",
+        "added": false
+      },
+      {
+        "register_name": "Swartland",
+        "register_kind": "district",
+        "source_group": "Coastal Region",
+        "node_id": "n_geo_swartland",
+        "node_name": "Swartland",
+        "added": false
+      },
+      {
+        "register_name": "Tulbagh",
+        "register_kind": "district",
+        "source_group": "Coastal Region",
+        "node_id": "n_geo_tulbagh_wine",
+        "node_name": "Tulbagh",
+        "added": false
+      },
+      {
+        "register_name": "Wellington",
+        "register_kind": "district",
+        "source_group": "Coastal Region",
+        "node_id": "n_geo_wellington_wine",
+        "node_name": "Wellington",
+        "added": false
+      },
+      {
+        "register_name": "Breedekloof",
+        "register_kind": "district",
+        "source_group": "Breede River Valley",
+        "node_id": "n_geo_breedekloof",
+        "node_name": "Breedekloof",
+        "added": false
+      },
+      {
+        "register_name": "Robertson",
+        "register_kind": "district",
+        "source_group": "Breede River Valley",
+        "node_id": "n_geo_robertson_wine",
+        "node_name": "Robertson",
+        "added": false
+      },
+      {
+        "register_name": "Worcester",
+        "register_kind": "district",
+        "source_group": "Breede River Valley",
+        "node_id": "n_geo_worcester_wine",
+        "node_name": "Worcester",
+        "added": false
+      },
+      {
+        "register_name": "Calitzdorp",
+        "register_kind": "district",
+        "source_group": "Klein Karoo",
+        "node_id": "n_geo_calitzdorp_wine",
+        "node_name": "Calitzdorp",
+        "added": false
+      },
+      {
+        "register_name": "Langeberg-Garcia",
+        "register_kind": "district",
+        "source_group": "Klein Karoo",
+        "node_id": "n_geo_za_langeberg_garcia",
+        "node_name": "Langeberg-Garcia",
+        "added": true
+      },
+      {
+        "register_name": "Citrusdal Mountain",
+        "register_kind": "district",
+        "source_group": "Olifants River",
+        "node_id": "n_geo_za_citrusdal_mountain",
+        "node_name": "Citrusdal Mountain",
+        "added": true
+      },
+      {
+        "register_name": "Citrusdal Valley",
+        "register_kind": "district",
+        "source_group": "Olifants River",
+        "node_id": "n_geo_za_citrusdal_valley",
+        "node_name": "Citrusdal Valley",
+        "added": true
+      },
+      {
+        "register_name": "Ceres Plateau",
+        "register_kind": "district",
+        "source_group": "Western Cape",
+        "node_id": "n_geo_za_ceres_plateau",
+        "node_name": "Ceres Plateau",
+        "added": true
+      },
+      {
+        "register_name": "Nuveld-Karoo",
+        "register_kind": "district",
+        "source_group": "Western Cape",
+        "node_id": "n_geo_za_nuveld_karoo",
+        "node_name": "Nuveld-Karoo",
+        "added": true
+      },
+      {
+        "register_name": "Prince Albert",
+        "register_kind": "district",
+        "source_group": "Western Cape",
+        "node_id": "n_geo_za_prince_albert",
+        "node_name": "Prince Albert",
+        "added": true
+      },
+      {
+        "register_name": "Sutherland-Karoo",
+        "register_kind": "district",
+        "source_group": "Karoo-Hoogland",
+        "node_id": "n_geo_za_sutherland_karoo",
+        "node_name": "Sutherland-Karoo",
+        "added": true
+      },
+      {
+        "register_name": "Central Orange River",
+        "register_kind": "district",
+        "source_group": "Northern Cape",
+        "node_id": "n_geo_za_central_orange_river",
+        "node_name": "Central Orange River",
+        "added": true
+      },
+      {
+        "register_name": "Douglas",
+        "register_kind": "district",
+        "source_group": "Northern Cape",
+        "node_id": "n_geo_za_douglas",
+        "node_name": "Douglas",
+        "added": true
+      },
+      {
+        "register_name": "Central Drakensberg",
+        "register_kind": "district",
+        "source_group": "KwaZulu-Natal",
+        "node_id": "n_geo_za_central_drakensberg",
+        "node_name": "Central Drakensberg",
+        "added": true
+      },
+      {
+        "register_name": "Lions River",
+        "register_kind": "district",
+        "source_group": "KwaZulu-Natal",
+        "node_id": "n_geo_za_lions_river",
+        "node_name": "Lions River",
+        "added": true
+      },
+      {
+        "register_name": "Elim",
+        "register_kind": "ward",
+        "source_group": "Cape South Coast",
+        "node_id": "n_geo_elim_wine",
+        "node_name": "Elim",
+        "added": false
+      },
+      {
+        "register_name": "Elandskloof/Kaaimansgat",
+        "register_kind": "ward",
+        "source_group": "Cape South Coast",
+        "node_id": "n_geo_za_elandskloof_kaaimansgat",
+        "node_name": "Elandskloof/Kaaimansgat",
+        "added": true
+      },
+      {
+        "register_name": "Greyton",
+        "register_kind": "ward",
+        "source_group": "Cape South Coast",
+        "node_id": "n_geo_za_greyton",
+        "node_name": "Greyton",
+        "added": true
+      },
+      {
+        "register_name": "Klein River",
+        "register_kind": "ward",
+        "source_group": "Cape South Coast",
+        "node_id": "n_geo_za_klein_river",
+        "node_name": "Klein River",
+        "added": true
+      },
+      {
+        "register_name": "Shaw's Mountain",
+        "register_kind": "ward",
+        "source_group": "Cape South Coast",
+        "node_id": "n_geo_za_shaws_mountain",
+        "node_name": "Shaw’s Mountain",
+        "added": true
+      },
+      {
+        "register_name": "Theewater",
+        "register_kind": "ward",
+        "source_group": "Cape South Coast",
+        "node_id": "n_geo_za_theewater",
+        "node_name": "Theewater",
+        "added": true
+      },
+      {
+        "register_name": "Buffeljags",
+        "register_kind": "ward",
+        "source_group": "Cape South Coast",
+        "node_id": "n_geo_za_buffeljags",
+        "node_name": "Buffeljags",
+        "added": true
+      },
+      {
+        "register_name": "Malgas",
+        "register_kind": "ward",
+        "source_group": "Cape South Coast",
+        "node_id": "n_geo_za_malgas",
+        "node_name": "Malgas",
+        "added": true
+      },
+      {
+        "register_name": "Stormsvlei",
+        "register_kind": "ward",
+        "source_group": "Cape South Coast",
+        "node_id": "n_geo_za_stormsvlei",
+        "node_name": "Stormsvlei",
+        "added": true
+      },
+      {
+        "register_name": "Bot River",
+        "register_kind": "ward",
+        "source_group": "Cape South Coast",
+        "node_id": "n_geo_bot_river_wine",
+        "node_name": "Bot River",
+        "added": false
+      },
+      {
+        "register_name": "Hemel-en-Aarde Ridge",
+        "register_kind": "ward",
+        "source_group": "Cape South Coast",
+        "node_id": "n_geo_hemel_en_aarde_ridge",
+        "node_name": "Hemel-en-Aarde Ridge",
+        "added": false
+      },
+      {
+        "register_name": "Hemel-en-Aarde Valley",
+        "register_kind": "ward",
+        "source_group": "Cape South Coast",
+        "node_id": "n_geo_hemel_en_aarde_valley",
+        "node_name": "Hemel-en-Aarde Valley",
+        "added": false
+      },
+      {
+        "register_name": "Sunday's Glen",
+        "register_kind": "ward",
+        "source_group": "Cape South Coast",
+        "node_id": "n_geo_za_sundays_glen",
+        "node_name": "Sunday's Glen",
+        "added": true
+      },
+      {
+        "register_name": "Springfontein Rim",
+        "register_kind": "ward",
+        "source_group": "Cape South Coast",
+        "node_id": "n_geo_za_springfontein_rim",
+        "node_name": "Springfontein Rim",
+        "added": true
+      },
+      {
+        "register_name": "Stanford Foothills",
+        "register_kind": "ward",
+        "source_group": "Cape South Coast",
+        "node_id": "n_geo_za_stanford_foothills",
+        "node_name": "Stanford Foothills",
+        "added": true
+      },
+      {
+        "register_name": "Upper Hemel-en-Aarde Valley",
+        "register_kind": "ward",
+        "source_group": "Cape South Coast",
+        "node_id": "n_geo_upper_hemel_en_aarde",
+        "node_name": "Upper Hemel-en-Aarde Valley",
+        "added": false
+      },
+      {
+        "register_name": "Goukou River Valley",
+        "register_kind": "ward",
+        "source_group": "Cape South Coast",
+        "node_id": "n_geo_za_goukou_river_valley",
+        "node_name": "Goukou River Valley",
+        "added": true
+      },
+      {
+        "register_name": "Herbertsdale",
+        "register_kind": "ward",
+        "source_group": "Cape South Coast",
+        "node_id": "n_geo_za_herbertsdale",
+        "node_name": "Herbertsdale",
+        "added": true
+      },
+      {
+        "register_name": "Napier",
+        "register_kind": "ward",
+        "source_group": "Cape South Coast",
+        "node_id": "n_geo_za_napier",
+        "node_name": "Napier",
+        "added": true
+      },
+      {
+        "register_name": "Constantia",
+        "register_kind": "ward",
+        "source_group": "Coastal Region",
+        "node_id": "n_geo_constantia",
+        "node_name": "Constantia",
+        "added": false
+      },
+      {
+        "register_name": "Durbanville",
+        "register_kind": "ward",
+        "source_group": "Coastal Region",
+        "node_id": "n_geo_durbanville_wine",
+        "node_name": "Durbanville",
+        "added": false
+      },
+      {
+        "register_name": "Hout Bay",
+        "register_kind": "ward",
+        "source_group": "Coastal Region",
+        "node_id": "n_geo_za_hout_bay",
+        "node_name": "Hout Bay",
+        "added": true
+      },
+      {
+        "register_name": "Philadelphia",
+        "register_kind": "ward",
+        "source_group": "Coastal Region",
+        "node_id": "n_geo_za_philadelphia",
+        "node_name": "Philadelphia",
+        "added": true
+      },
+      {
+        "register_name": "Groenekloof",
+        "register_kind": "ward",
+        "source_group": "Coastal Region",
+        "node_id": "n_geo_za_groenekloof",
+        "node_name": "Groenekloof",
+        "added": true
+      },
+      {
+        "register_name": "Koekenaap",
+        "register_kind": "ward",
+        "source_group": "Coastal Region",
+        "node_id": "n_geo_za_koekenaap",
+        "node_name": "Koekenaap",
+        "added": true
+      },
+      {
+        "register_name": "Agter-Paarl",
+        "register_kind": "ward",
+        "source_group": "Coastal Region",
+        "node_id": "n_geo_za_agter_paarl",
+        "node_name": "Agter-Paarl",
+        "added": true
+      },
+      {
+        "register_name": "Simonsberg-Paarl",
+        "register_kind": "ward",
+        "source_group": "Coastal Region",
+        "node_id": "n_geo_za_simonsberg_paarl",
+        "node_name": "Simonsberg-Paarl",
+        "added": true
+      },
+      {
+        "register_name": "Voor-Paardeberg",
+        "register_kind": "ward",
+        "source_group": "Coastal Region",
+        "node_id": "n_geo_za_voor_paardeberg",
+        "node_name": "Voor-Paardeberg",
+        "added": true
+      },
+      {
+        "register_name": "Banghoek",
+        "register_kind": "ward",
+        "source_group": "Coastal Region",
+        "node_id": "n_geo_banghoek",
+        "node_name": "Banghoek",
+        "added": false
+      },
+      {
+        "register_name": "Bottelary",
+        "register_kind": "ward",
+        "source_group": "Coastal Region",
+        "node_id": "n_geo_bottelary",
+        "node_name": "Bottelary",
+        "added": false
+      },
+      {
+        "register_name": "Devon Valley",
+        "register_kind": "ward",
+        "source_group": "Coastal Region",
+        "node_id": "n_geo_devon_valley",
+        "node_name": "Devon Valley",
+        "added": false
+      },
+      {
+        "register_name": "Jonkershoek Valley",
+        "register_kind": "ward",
+        "source_group": "Coastal Region",
+        "node_id": "n_geo_jonkershoek_valley",
+        "node_name": "Jonkershoek Valley",
+        "added": false
+      },
+      {
+        "register_name": "Papegaaiberg",
+        "register_kind": "ward",
+        "source_group": "Coastal Region",
+        "node_id": "n_geo_papegaaiberg",
+        "node_name": "Papegaaiberg",
+        "added": false
+      },
+      {
+        "register_name": "Polkadraai Hills",
+        "register_kind": "ward",
+        "source_group": "Coastal Region",
+        "node_id": "n_geo_polkadraai_hills",
+        "node_name": "Polkadraai Hills",
+        "added": false
+      },
+      {
+        "register_name": "Simonsberg-Stellenbosch",
+        "register_kind": "ward",
+        "source_group": "Coastal Region",
+        "node_id": "n_geo_simonsberg_stellenbosch",
+        "node_name": "Simonsberg-Stellenbosch",
+        "added": false
+      },
+      {
+        "register_name": "Vlottenburg",
+        "register_kind": "ward",
+        "source_group": "Coastal Region",
+        "node_id": "n_geo_vlottenburg",
+        "node_name": "Vlottenburg",
+        "added": false
+      },
+      {
+        "register_name": "Malmesbury",
+        "register_kind": "ward",
+        "source_group": "Coastal Region",
+        "node_id": "n_geo_za_malmesbury",
+        "node_name": "Malmesbury",
+        "added": true
+      },
+      {
+        "register_name": "Paardeberg",
+        "register_kind": "ward",
+        "source_group": "Coastal Region",
+        "node_id": "n_geo_za_paardeberg",
+        "node_name": "Paardeberg",
+        "added": true
+      },
+      {
+        "register_name": "Paardeberg South",
+        "register_kind": "ward",
+        "source_group": "Coastal Region",
+        "node_id": null,
+        "node_name": null,
+        "added": false
+      },
+      {
+        "register_name": "Piket-Bo-Berg",
+        "register_kind": "ward",
+        "source_group": "Coastal Region",
+        "node_id": "n_geo_za_piket_bo_berg",
+        "node_name": "Piket-Bo-Berg",
+        "added": true
+      },
+      {
+        "register_name": "Porseleinberg",
+        "register_kind": "ward",
+        "source_group": "Coastal Region",
+        "node_id": "n_geo_za_porseleinberg",
+        "node_name": "Porseleinberg",
+        "added": true
+      },
+      {
+        "register_name": "Riebeekberg",
+        "register_kind": "ward",
+        "source_group": "Coastal Region",
+        "node_id": "n_geo_za_riebeekberg",
+        "node_name": "Riebeekberg",
+        "added": true
+      },
+      {
+        "register_name": "Riebeeksrivier",
+        "register_kind": "ward",
+        "source_group": "Coastal Region",
+        "node_id": "n_geo_za_riebeeksrivier",
+        "node_name": "Riebeeksrivier",
+        "added": true
+      },
+      {
+        "register_name": "St Helena Bay",
+        "register_kind": "ward",
+        "source_group": "Coastal Region",
+        "node_id": "n_geo_za_st_helena_bay",
+        "node_name": "St Helena Bay",
+        "added": true
+      },
+      {
+        "register_name": "Blouvlei",
+        "register_kind": "ward",
+        "source_group": "Coastal Region",
+        "node_id": "n_geo_za_blouvlei",
+        "node_name": "Blouvlei",
+        "added": true
+      },
+      {
+        "register_name": "Bovlei",
+        "register_kind": "ward",
+        "source_group": "Coastal Region",
+        "node_id": "n_geo_za_bovlei",
+        "node_name": "Bovlei",
+        "added": true
+      },
+      {
+        "register_name": "Groenberg",
+        "register_kind": "ward",
+        "source_group": "Coastal Region",
+        "node_id": "n_geo_za_groenberg",
+        "node_name": "Groenberg",
+        "added": true
+      },
+      {
+        "register_name": "Limietberg",
+        "register_kind": "ward",
+        "source_group": "Coastal Region",
+        "node_id": "n_geo_za_limietberg",
+        "node_name": "Limietberg",
+        "added": true
+      },
+      {
+        "register_name": "Mid-Berg River",
+        "register_kind": "ward",
+        "source_group": "Coastal Region",
+        "node_id": "n_geo_za_mid_berg_river",
+        "node_name": "Mid-Berg River",
+        "added": true
+      },
+      {
+        "register_name": "Bamboes Bay",
+        "register_kind": "ward",
+        "source_group": "Coastal Region",
+        "node_id": "n_geo_za_bamboes_bay",
+        "node_name": "Bamboes Bay",
+        "added": true
+      },
+      {
+        "register_name": "Lamberts Bay",
+        "register_kind": "ward",
+        "source_group": "Coastal Region",
+        "node_id": "n_geo_za_lamberts_bay",
+        "node_name": "Lamberts Bay",
+        "added": true
+      },
+      {
+        "register_name": "Goudini",
+        "register_kind": "ward",
+        "source_group": "Breede River Valley",
+        "node_id": "n_geo_za_goudini",
+        "node_name": "Goudini",
+        "added": true
+      },
+      {
+        "register_name": "Slanghoek",
+        "register_kind": "ward",
+        "source_group": "Breede River Valley",
+        "node_id": "n_geo_za_slanghoek",
+        "node_name": "Slanghoek",
+        "added": true
+      },
+      {
+        "register_name": "Agterkliphoogte",
+        "register_kind": "ward",
+        "source_group": "Breede River Valley",
+        "node_id": "n_geo_za_agterkliphoogte",
+        "node_name": "Agterkliphoogte",
+        "added": true
+      },
+      {
+        "register_name": "Ashton",
+        "register_kind": "ward",
+        "source_group": "Breede River Valley",
+        "node_id": "n_geo_za_ashton",
+        "node_name": "Ashton",
+        "added": true
+      },
+      {
+        "register_name": "Boesmansrivier",
+        "register_kind": "ward",
+        "source_group": "Breede River Valley",
+        "node_id": "n_geo_za_boesmansrivier",
+        "node_name": "Boesmansrivier",
+        "added": true
+      },
+      {
+        "register_name": "Bonnievale",
+        "register_kind": "ward",
+        "source_group": "Breede River Valley",
+        "node_id": "n_geo_za_bonnievale",
+        "node_name": "Bonnievale",
+        "added": true
+      },
+      {
+        "register_name": "Eilandia",
+        "register_kind": "ward",
+        "source_group": "Breede River Valley",
+        "node_id": "n_geo_za_eilandia",
+        "node_name": "Eilandia",
+        "added": true
+      },
+      {
+        "register_name": "Goedemoed",
+        "register_kind": "ward",
+        "source_group": "Breede River Valley",
+        "node_id": "n_geo_za_goedemoed",
+        "node_name": "Goedemoed",
+        "added": true
+      },
+      {
+        "register_name": "Goree",
+        "register_kind": "ward",
+        "source_group": "Breede River Valley",
+        "node_id": "n_geo_za_goree",
+        "node_name": "Goree",
+        "added": true
+      },
+      {
+        "register_name": "Goudmyn",
+        "register_kind": "ward",
+        "source_group": "Breede River Valley",
+        "node_id": "n_geo_za_goudmyn",
+        "node_name": "Goudmyn",
+        "added": true
+      },
+      {
+        "register_name": "Hoopsrivier",
+        "register_kind": "ward",
+        "source_group": "Breede River Valley",
+        "node_id": "n_geo_za_hoopsrivier",
+        "node_name": "Hoopsrivier",
+        "added": true
+      },
+      {
+        "register_name": "Klaasvoogds",
+        "register_kind": "ward",
+        "source_group": "Breede River Valley",
+        "node_id": "n_geo_za_klaasvoogds",
+        "node_name": "Klaasvoogds",
+        "added": true
+      },
+      {
+        "register_name": "Le Chasseur",
+        "register_kind": "ward",
+        "source_group": "Breede River Valley",
+        "node_id": "n_geo_za_le_chasseur",
+        "node_name": "Le Chasseur",
+        "added": true
+      },
+      {
+        "register_name": "McGregor",
+        "register_kind": "ward",
+        "source_group": "Breede River Valley",
+        "node_id": "n_geo_za_mcgregor",
+        "node_name": "McGregor",
+        "added": true
+      },
+      {
+        "register_name": "Vinkrivier",
+        "register_kind": "ward",
+        "source_group": "Breede River Valley",
+        "node_id": "n_geo_za_vinkrivier",
+        "node_name": "Vinkrivier",
+        "added": true
+      },
+      {
+        "register_name": "Zandrivier",
+        "register_kind": "ward",
+        "source_group": "Breede River Valley",
+        "node_id": "n_geo_za_zandrivier",
+        "node_name": "Zandrivier",
+        "added": true
+      },
+      {
+        "register_name": "Hex River Valley",
+        "register_kind": "ward",
+        "source_group": "Breede River Valley",
+        "node_id": "n_geo_za_hex_river_valley",
+        "node_name": "Hex River Valley",
+        "added": true
+      },
+      {
+        "register_name": "Keeromsberg",
+        "register_kind": "ward",
+        "source_group": "Breede River Valley",
+        "node_id": "n_geo_za_keeromsberg",
+        "node_name": "Keeromsberg",
+        "added": true
+      },
+      {
+        "register_name": "Moordkuil",
+        "register_kind": "ward",
+        "source_group": "Breede River Valley",
+        "node_id": "n_geo_za_moordkuil",
+        "node_name": "Moordkuil",
+        "added": true
+      },
+      {
+        "register_name": "Nuy",
+        "register_kind": "ward",
+        "source_group": "Breede River Valley",
+        "node_id": "n_geo_za_nuy",
+        "node_name": "Nuy",
+        "added": true
+      },
+      {
+        "register_name": "Rooikrans",
+        "register_kind": "ward",
+        "source_group": "Breede River Valley",
+        "node_id": "n_geo_za_rooikrans",
+        "node_name": "Rooikrans",
+        "added": true
+      },
+      {
+        "register_name": "Scherpenheuvel",
+        "register_kind": "ward",
+        "source_group": "Breede River Valley",
+        "node_id": "n_geo_za_scherpenheuvel",
+        "node_name": "Scherpenheuvel",
+        "added": true
+      },
+      {
+        "register_name": "Stettyn",
+        "register_kind": "ward",
+        "source_group": "Breede River Valley",
+        "node_id": "n_geo_za_stettyn",
+        "node_name": "Stettyn",
+        "added": true
+      },
+      {
+        "register_name": "Groenfontein",
+        "register_kind": "ward",
+        "source_group": "Klein Karoo",
+        "node_id": "n_geo_za_groenfontein",
+        "node_name": "Groenfontein",
+        "added": true
+      },
+      {
+        "register_name": "Cango Valley",
+        "register_kind": "ward",
+        "source_group": "Klein Karoo",
+        "node_id": "n_geo_za_cango_valley",
+        "node_name": "Cango Valley",
+        "added": true
+      },
+      {
+        "register_name": "Koo Plateau",
+        "register_kind": "ward",
+        "source_group": "Klein Karoo",
+        "node_id": "n_geo_za_koo_plateau",
+        "node_name": "Koo Plateau",
+        "added": true
+      },
+      {
+        "register_name": "Montagu",
+        "register_kind": "ward",
+        "source_group": "Klein Karoo",
+        "node_id": "n_geo_za_montagu",
+        "node_name": "Montagu",
+        "added": true
+      },
+      {
+        "register_name": "Outeniqua",
+        "register_kind": "ward",
+        "source_group": "Klein Karoo",
+        "node_id": "n_geo_za_outeniqua",
+        "node_name": "Outeniqua",
+        "added": true
+      },
+      {
+        "register_name": "Tradouw",
+        "register_kind": "ward",
+        "source_group": "Klein Karoo",
+        "node_id": "n_geo_za_tradouw",
+        "node_name": "Tradouw",
+        "added": true
+      },
+      {
+        "register_name": "Tradouw Highlands",
+        "register_kind": "ward",
+        "source_group": "Klein Karoo",
+        "node_id": "n_geo_za_tradouw_highlands",
+        "node_name": "Tradouw Highlands",
+        "added": true
+      },
+      {
+        "register_name": "Upper Langkloof",
+        "register_kind": "ward",
+        "source_group": "Klein Karoo",
+        "node_id": "n_geo_za_upper_langkloof",
+        "node_name": "Upper Langkloof",
+        "added": true
+      },
+      {
+        "register_name": "Piekenierskloof",
+        "register_kind": "ward",
+        "source_group": "Olifants River",
+        "node_id": "n_geo_za_piekenierskloof",
+        "node_name": "Piekenierskloof",
+        "added": true
+      },
+      {
+        "register_name": "Spruitdrift",
+        "register_kind": "ward",
+        "source_group": "Olifants River",
+        "node_id": "n_geo_za_spruitdrift",
+        "node_name": "Spruitdrift",
+        "added": true
+      },
+      {
+        "register_name": "Vredendal",
+        "register_kind": "ward",
+        "source_group": "Olifants River",
+        "node_id": "n_geo_za_vredendal",
+        "node_name": "Vredendal",
+        "added": true
+      },
+      {
+        "register_name": "Ceres",
+        "register_kind": "ward",
+        "source_group": "Western Cape",
+        "node_id": "n_geo_za_ceres_ward",
+        "node_name": "Ceres",
+        "added": true
+      },
+      {
+        "register_name": "Kweekvallei",
+        "register_kind": "ward",
+        "source_group": "Western Cape",
+        "node_id": "n_geo_za_kweekvallei",
+        "node_name": "Kweekvallei",
+        "added": true
+      },
+      {
+        "register_name": "Prince Albert Valley",
+        "register_kind": "ward",
+        "source_group": "Western Cape",
+        "node_id": "n_geo_za_prince_albert_valley",
+        "node_name": "Prince Albert Valley",
+        "added": true
+      },
+      {
+        "register_name": "Swartberg",
+        "register_kind": "ward",
+        "source_group": "Western Cape",
+        "node_id": "n_geo_za_swartberg",
+        "node_name": "Swartberg",
+        "added": true
+      },
+      {
+        "register_name": "Nieuwoudtville",
+        "register_kind": "ward",
+        "source_group": "Western Cape",
+        "node_id": "n_geo_za_nieuwoudtville",
+        "node_name": "Nieuwoudtville",
+        "added": true
+      },
+      {
+        "register_name": "Cederberg",
+        "register_kind": "ward",
+        "source_group": "Western Cape",
+        "node_id": "n_geo_za_cederberg",
+        "node_name": "Cederberg",
+        "added": true
+      },
+      {
+        "register_name": "Leipoldtville-Sandveld",
+        "register_kind": "ward",
+        "source_group": "Western Cape",
+        "node_id": "n_geo_za_leipoldtville_sandveld",
+        "node_name": "Leipoldtville-Sandveld",
+        "added": true
+      },
+      {
+        "register_name": "Groblershoop",
+        "register_kind": "ward",
+        "source_group": "Northern Cape",
+        "node_id": "n_geo_za_groblershoop",
+        "node_name": "Groblershoop",
+        "added": true
+      },
+      {
+        "register_name": "Grootdrink",
+        "register_kind": "ward",
+        "source_group": "Northern Cape",
+        "node_id": "n_geo_za_grootdrink",
+        "node_name": "Grootdrink",
+        "added": true
+      },
+      {
+        "register_name": "Kakamas",
+        "register_kind": "ward",
+        "source_group": "Northern Cape",
+        "node_id": "n_geo_za_kakamas",
+        "node_name": "Kakamas",
+        "added": true
+      },
+      {
+        "register_name": "Keimoes",
+        "register_kind": "ward",
+        "source_group": "Northern Cape",
+        "node_id": "n_geo_za_keimoes",
+        "node_name": "Keimoes",
+        "added": true
+      },
+      {
+        "register_name": "Upington",
+        "register_kind": "ward",
+        "source_group": "Northern Cape",
+        "node_id": "n_geo_za_upington",
+        "node_name": "Upington",
+        "added": true
+      },
+      {
+        "register_name": "Hartswater",
+        "register_kind": "ward",
+        "source_group": "Northern Cape",
+        "node_id": "n_geo_za_hartswater",
+        "node_name": "Hartswater",
+        "added": true
+      },
+      {
+        "register_name": "Prieska",
+        "register_kind": "ward",
+        "source_group": "Northern Cape",
+        "node_id": "n_geo_za_prieska",
+        "node_name": "Prieska",
+        "added": true
+      },
+      {
+        "register_name": "St Francis Bay",
+        "register_kind": "ward",
+        "source_group": "Eastern Cape",
+        "node_id": "n_geo_za_st_francis_bay",
+        "node_name": "St Francis Bay",
+        "added": true
+      },
+      {
+        "register_name": "Rietrivier FS",
+        "register_kind": "ward",
+        "source_group": "Free State",
+        "node_id": "n_geo_za_rietrivier_fs",
+        "node_name": "Rietrivier FS",
+        "added": true
+      },
+      {
+        "register_name": "Lanseria",
+        "register_kind": "ward",
+        "source_group": "No geographical unit",
+        "node_id": "n_geo_za_lanseria",
+        "node_name": "Lanseria",
+        "added": true
+      }
+    ],
+    "missing_wards": [
+      {
+        "register_name": "Paardeberg South",
+        "register_kind": "ward",
+        "source_group": "Coastal Region",
+        "node_id": null,
+        "node_name": null,
+        "added": false
+      }
+    ]
+  }
+}

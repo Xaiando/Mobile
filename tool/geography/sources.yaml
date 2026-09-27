@@ -8,6 +8,20 @@
 # with the layer (GEO-14).
 
 sources:
+  - id: src_ne_americas_island_parts
+    title: Natural Earth 1:10m complete country polygon parts for Salt Spring Island
+      and Rapa Nui
+    publisher: Natural Earth
+    url: https://naciscdn.org/naturalearth/10m/cultural/ne_10m_admin_0_countries.zip
+    file: americas_country_islands.geojson
+    snapshot: americas_country_islands.geojson
+    version: "5.1.1; exact source polygon parts selected by licensed island markers"
+    retrieved: "2026-09-26"
+    sha256: fa2e4dac547eb06e8d4971285301d9ee091ef4bf3c7ab97f2531b97a243b8c93
+    license: Public domain
+    attribution: Made with Natural Earth. Complete source island polygon parts
+      preserve Salt Spring Island and Rapa Nui in their countries.
+
   - id: src_ne_countries
     title: Natural Earth 1:50m, Admin 0 – Countries
     publisher: Natural Earth
@@ -86,7 +100,8 @@ sources:
     attribution: Made with Natural Earth.
 
   - id: src_ign_admin_express
-    title: ADMIN EXPRESS COG CARTO, 2026 edition, metropolitan France (GeoPackage, Lambert-93)
+    title: ADMIN EXPRESS COG CARTO, 2026 edition, metropolitan France (GeoPackage,
+      Lambert-93)
     publisher: IGN
     url: https://data.geopf.fr/telechargement/download/ADMIN-EXPRESS-COG-CARTO/ADMIN-EXPRESS-COG-CARTO_4-0__GPKG_LAMB93_FXX_2026-01-01/ADMIN-EXPRESS-COG-CARTO_4-0__GPKG_LAMB93_FXX_2026-01-01.7z
     file: ADMIN-EXPRESS-COG-CARTO_4-0__GPKG_LAMB93_FXX_2026-01-01.7z
@@ -97,7 +112,8 @@ sources:
     attribution: IGN – ADMIN EXPRESS COG CARTO, edition of 1 January 2026.
 
   - id: src_inao_areas
-    title: Aires géographiques des AOC/AOP (the communes of each appellation's geographical area)
+    title: Aires géographiques des AOC/AOP (the communes of each appellation's
+      geographical area)
     publisher: INAO
     url: https://static.data.gouv.fr/resources/aires-geographiques-des-aoc-aop/20251009-122320/2025-10-09-comagri-communes-aires-ao.csv
     file: inao_communes_aires_ao_2025-10-09.csv
@@ -106,6 +122,286 @@ sources:
     sha256: 7e2472ab7550d8cc3426816040310952365148b5483d0b6cb9a7e70c33fa9cbe
     license: Licence Ouverte / Open Licence 2.0 (Etalab)
     attribution: INAO – aires géographiques des AOC/AOP, 9 October 2025.
+  - id: src_current_regions_markers
+    title: European wine-area location markers
+    publisher: Wikidata
+    url: https://www.wikidata.org/w/api.php?action=wbgetentities&ids=Q1216|Q1273|Q19865|Q18356|Q18353|Q91208|Q82707|Q522620|Q2833|Q2999|Q14872|Q523273|Q155622|Q7047|Q4149|Q628118|Q1720|Q529853|Q8738|Q1022|Q42497|Q43210|Q41358|Q1741|Q337827|Q131266|Q672511|Q674246|Q305159|Q585533|Q192201|Q661260|Q672576|Q41945|Q834|Q12771|Q11917|Q12724|Q688060|Q69570|Q43195|Q582209|Q78967|Q81734|Q171132|Q15261586|Q567755|Q129296&props=claims&format=json
+    file: current_regions_points.geojson
+    snapshot: current_regions_points.geojson
+    version: 2026-09-26 curated snapshot
+    retrieved: 2026-09-26
+    sha256: cc4750467f08960121eff74b470ffd81de73cf9a56ee2ccfd31157614e81f62e
+    license: CC0 1.0
+    attribution: Location markers from Wikidata (CC0), retrieved 26 September 2026.
+      Points indicate locations, not wine-area boundaries.
+  - id: src_world_atlas_markers
+    title: World wine-area location markers
+    publisher: Wikidata
+    url: https://www.wikidata.org/w/api.php?action=wbgetentities&ids=Q1243|Q1210|Q1250|Q1279|Q1438|Q1460|Q18394|Q17806|Q17839|Q17368|Q6122|Q20022|Q594168|Q1421577|Q6697|Q91217|Q891340|Q215116|Q20385|Q1401752|Q852467|Q47876|Q47428|Q29371|Q104590|Q16542993|Q13144|Q55126|Q478277|Q3908|Q5739|Q5705|Q5783|Q4040|Q1569384|Q495380|Q356128|Q836948|Q695202|Q1754563|Q1808846|Q984508|Q695477|Q818341|Q917180|Q1607428|Q12303|Q2009060|Q502975|Q984529&props=claims&format=json
+    file: world_atlas_points.geojson
+    snapshot: world_atlas_points.geojson
+    version: 2026-09-26 curated snapshot
+    retrieved: 2026-09-26
+    sha256: cdf16bc4a0b15a8b8491f414f5eac53b233d1c7670d48eef3b7e9416ae0d341c
+    license: CC0 1.0
+    attribution: Location markers from Wikidata (CC0), retrieved 26 September 2026.
+      Points indicate locations, not wine-area boundaries.
+  - id: src_central_europe_atlas_markers
+    title: Central European wine-area location markers
+    publisher: Wikidata
+    url: https://www.wikidata.org/w/api.php?action=wbgetentities&ids=Q161930|Q659878|Q155622|Q502749|Q594609|Q662505|Q22901|Q7052|Q701516|Q4044|Q505468|Q880403|Q2833|Q835695|Q7050|Q61724|Q498212|Q375762|Q100265374|Q628118|Q558516|Q1698901|Q317535|Q1427553|Q826656|Q1237404|Q2094130|Q670770|Q126321|Q240653|Q250832|Q573106|Q693550|Q259214|Q672576|Q657642|Q167109|Q1151541|Q189761|Q642172|Q680743|Q168648&props=claims&format=json
+    file: central_europe_atlas_points.geojson
+    snapshot: central_europe_atlas_points.geojson
+    version: 2026-09-26 curated snapshot
+    retrieved: 2026-09-26
+    sha256: ff3b23bec27190452406902985cb73e62676c84a4baee1936d7faee0ea94c5d3
+    license: CC0 1.0
+    attribution: Location markers from Wikidata (CC0), retrieved 26 September 2026.
+      Points indicate locations, not wine-area boundaries.
+  - id: src_france_champagne_markers
+    title: Champagne traditional wine-area location markers
+    publisher: IGN and Wikidata
+    url: https://geoservices.ign.fr/adminexpress
+    file: france_champagne_points.geojson
+    snapshot: france_champagne_points.geojson
+    version: 2026-09-26 curated snapshot
+    retrieved: 2026-09-26
+    sha256: 221233bc99d69e44482c74663cbee312a17844e8b121610e5b09a1f892a75944
+    license: Licence Ouverte / Open Licence 2.0 (Etalab)
+    attribution: IGN – ADMIN EXPRESS COG CARTO, edition 1 January 2026 (Open Licence
+      2.0); Wikidata (CC0). Points indicate locations, not wine-area boundaries.
+  - id: src_france_atlas_markers
+    title: French vineyard and wine-area location markers
+    publisher: INAO
+    url: https://www.data.gouv.fr/fr/datasets/delimitation-parcellaire-des-aoc-viticoles-de-linao/
+    file: france_atlas_points.geojson
+    snapshot: france_atlas_points.geojson
+    version: 2026-09-26 curated snapshot
+    retrieved: 2026-09-26
+    sha256: 3862cd9934a5a7948e8e5b5764a39170bd67c6e9504ec103b0dbe497fee1137f
+    license: Licence Ouverte / Open Licence 2.0 (Etalab)
+    attribution: INAO – vineyard parcels, 21 September 2026. Points indicate
+      vineyard locations, not appellation boundaries.
+  - id: src_insee_cog_movements
+    title: Code officiel géographique 2026 – commune events since 1943
+    publisher: Insee
+    url: https://www.insee.fr/fr/statistiques/fichier/8740222/v_mvt_commune_2026.csv
+    file: v_mvt_commune_2026.csv
+    version: 2026-01-01
+    retrieved: 2026-09-26
+    sha256: 8b339fad8232e97233af3fd9468715af845e2cf8b14cb67b24d9a301ef8645f1
+    license: Licence Ouverte / Open Licence 1.0 (Etalab)
+    attribution: Insee – Code officiel géographique 2026, commune events. Used to
+      reconcile historical INAO commune codes.
+  - id: src_france_chablis_cadastre_markers
+    title: Chablis Premier Cru vineyard location markers
+    publisher: DGFiP and Etalab
+    url: https://cadastre.data.gouv.fr/data/etalab-cadastre/2026-06-01/geojson/communes/89/89068/cadastre-89068-lieux_dits.json.gz
+    file: france_chablis_cadastre_points.geojson
+    snapshot: france_chablis_cadastre_points.geojson
+    version: 2026-09-26 curated snapshot
+    retrieved: 2026-09-26
+    sha256: b88e13726d204764958f3eead18e58b9b344b7fcc29a44c2fc11879171dab1eb
+    license: Licence Ouverte / Open Licence 1.0 (Etalab)
+    attribution: DGFiP / Etalab – French cadastre, edition June 2026 (Open Licence
+      1.0). Points indicate vineyard locations, not Premier Cru boundaries;
+      cadastral names are matched using INAO product definitions.
+  - id: src_france_atlas_completion_markers
+    title: Additional Chablis and Alsace vineyard location markers
+    publisher: INAO
+    url: https://static.data.gouv.fr/resources/delimitation-parcellaire-des-aoc-viticoles-de-linao/20260921-213954/2026-09-21-delim-parcellaire-aoc-shp.zip
+    file: france_atlas_completion_points.geojson
+    snapshot: france_atlas_completion_points.geojson
+    version: 2026-09-26 curated snapshot
+    retrieved: 2026-09-26
+    sha256: 1cb8d2bff646ad71bff6f829bf355a0cc09084672c6e3b8bfa579fe30aa9b0be
+    license: Licence Ouverte / Open Licence 2.0 (Etalab)
+    attribution: INAO – vineyard parcels, 21 September 2026. Points indicate
+      vineyard locations, not appellation boundaries.
+  - id: src_france_atlas_completion_cadastre_markers
+    title: Additional Chablis climat location markers
+    publisher: DGFiP and Etalab
+    url: https://cadastre.data.gouv.fr/data/etalab-cadastre/2026-06-01/geojson/communes/89/
+    file: france_atlas_completion_cadastre_points.geojson
+    snapshot: france_atlas_completion_cadastre_points.geojson
+    version: 2026-09-26 curated snapshot
+    retrieved: 2026-09-26
+    sha256: 53ea8cb1fcd2dc05c0b2c531953451d73cf1fad9a19e2af1bef5883e92266d70
+    license: Licence Ouverte / Open Licence 1.0 (Etalab)
+    attribution: DGFiP / Etalab – French cadastre, edition June 2026 (Open Licence
+      1.0). Points indicate vineyard locations, not Premier Cru boundaries;
+      cadastral names are matched using INAO product definitions.
+  - id: src_france_atlas_completion_reference_markers
+    title: Chablis climat municipality reference
+    publisher: Wikidata
+    url: https://www.wikidata.org/w/api.php?action=wbgetentities&ids=Q1139642&props=claims&format=json
+    file: france_atlas_completion_reference_points.geojson
+    snapshot: france_atlas_completion_reference_points.geojson
+    version: 2026-09-26 curated snapshot
+    retrieved: 2026-09-26
+    sha256: 99749e76f6610838d8833c11d864ed0d19db62cf35421065c53697398bcbea94
+    license: CC0 1.0
+    attribution: Location markers from Wikidata (CC0), retrieved 26 September 2026.
+      Points indicate locations, not wine-area boundaries.
+  - id: src_europe_atlas_completion_markers
+    title: Italian and Spanish wine-area location markers
+    publisher: Wikidata
+    url: https://www.wikidata.org/w/api.php?action=wbgetentities&ids=Q1222|Q1256|Q1237|Q1263|Q1280|Q1282|Q1284|Q1443|Q1447|Q1452|Q1458|Q1462|Q18356|Q19918|Q20495|Q20109|Q20191|Q20530|Q20268|Q20099|Q20017|Q19946|Q20425|Q18353|Q20251|Q20517|Q18440721|Q91134|Q91142|Q91199|Q82707|Q18487026|Q1131395|Q3893502|Q91360|Q82822|Q3947022|Q4007233|Q13378|Q82712|Q2751|Q103279|Q20385|Q82783|Q82817|Q82884|Q47121|Q4008315|Q55929|Q46941&props=claims&format=json
+    file: europe_atlas_completion_points.geojson
+    snapshot: europe_atlas_completion_points.geojson
+    version: 2026-09-26 curated snapshot
+    retrieved: 2026-09-26
+    sha256: 9dcaeb6a4f1fd7ad3b65bb5d53ed7f585efb2fd72e948f0b61e4263b76a384e9
+    license: CC0 1.0
+    attribution: Location markers from Wikidata (CC0), retrieved 26 September 2026.
+      Points indicate locations, not wine-area boundaries.
+  - id: src_new_world_atlas_completion_markers
+    title: Additional New World wine-area location markers
+    publisher: UC Davis Library and Wikidata
+    url: https://github.com/UCDavisLibrary/ava/tree/7af5b29d45aee5e6c6ce3889e9b1de19085d7107
+    file: new_world_atlas_completion_points.geojson
+    snapshot: new_world_atlas_completion_points.geojson
+    version: 2026-09-26 curated snapshot
+    retrieved: 2026-09-26
+    sha256: 6ba1cd2c4176040d489d152e713310f75df5934de0409c76ba04173b877189fe
+    license: CC0 1.0
+    attribution: UC Davis Library / DataLab American Viticultural Areas Project,
+      commit 7af5b29d45aee5e6c6ce3889e9b1de19085d7107 (CC0), and Wikidata (CC0),
+      retrieved 26 September 2026. Reference markers indicate locations, not
+      legal wine-area boundaries.
+  - id: src_new_world_atlas_completion_gazetteer_markers
+    title: New World locality and terrain reference markers
+    publisher: GeoNames
+    url: https://www.geonames.org/
+    file: new_world_atlas_completion_gazetteer_points.geojson
+    snapshot: new_world_atlas_completion_gazetteer_points.geojson
+    version: 2026-09-26 curated snapshot
+    retrieved: 2026-09-26
+    sha256: 98ab0298d3b4b061492397bb67bd931c8c575398843287bad2c955f9f35ab7bd
+    license: CC BY 4.0
+    attribution: Contains GeoNames geographical data (CC BY 4.0,
+      https://creativecommons.org/licenses/by/4.0/), retrieved 26 September
+      2026. Selected WGS84 locality and terrain coordinates are reference
+      markers, not wine-area boundaries or official centroids.
+  - id: src_british_atlas_markers
+    title: England and Wales wine-area reference markers
+    publisher: Wikidata
+    url: https://www.wikidata.org/w/api.php?action=wbgetentities&ids=Q21|Q25|Q23298|Q23240|Q23204|Q23276|Q23159|Q23183|Q9679|Q23148|Q23156|Q845619|Q23129|Q23165|Q23109|Q23111|Q23346|Q503331|Q207176|Q217840|Q213361|Q217829&props=claims&format=json
+    file: british_atlas_points.geojson
+    snapshot: british_atlas_points.geojson
+    version: 2026-09-26 curated snapshot
+    retrieved: 2026-09-26
+    sha256: 4391727a11732f523c7a19a3bb7489947bf59f9b2e0088ac957d9d41571ac41c
+    license: CC0 1.0
+    attribution: Location markers from Wikidata (CC0), retrieved 26 September 2026.
+      Points indicate locations, not wine-area boundaries.
+  - id: src_china_atlas_markers
+    title: Chinese wine-area reference markers
+    publisher: Wikidata
+    url: https://www.wikidata.org/w/api.php?action=wbgetentities&ids=Q57448|Q43407|Q21208|Q34800|Q43194|Q14053711|Q210493|Q1197061&props=claims&format=json
+    file: china_atlas_points.geojson
+    snapshot: china_atlas_points.geojson
+    version: 2026-09-26 curated snapshot
+    retrieved: 2026-09-26
+    sha256: fd3625499b4c7b5fe3d36d4f5348357bccf7101f3921345a806858cdd3f42c47
+    license: CC0 1.0
+    attribution: Location markers from Wikidata (CC0), retrieved 26 September 2026.
+      Points indicate locations, not wine-area boundaries.
+  - id: src_diploma_us_atlas_markers
+    title: New York wine-area reference markers
+    publisher: UC Davis Library and Wikidata
+    url: https://raw.githubusercontent.com/UCDavisLibrary/ava/7af5b29d45aee5e6c6ce3889e9b1de19085d7107/avas_aggregated_files/avas.geojson
+    file: diploma_us_atlas_points.geojson
+    snapshot: diploma_us_atlas_points.geojson
+    version: 2026-09-26 curated snapshot
+    retrieved: 2026-09-26
+    sha256: 26f004387b0820815bf0fa6679abd1803eacf827ffe067c9756da173b9505852
+    license: CC0 1.0
+    attribution: UC Davis Library / DataLab American Viticultural Areas Project,
+      commit 7af5b29d45aee5e6c6ce3889e9b1de19085d7107 (CC0), and Wikidata (CC0),
+      retrieved 26 September 2026. Reference markers indicate locations, not
+      legal wine-area boundaries.
+  - id: src_diploma_regions_markers
+    title: Diploma regional reference markers
+    publisher: Wikidata
+    url: https://www.wikidata.org/w/api.php?action=wbgetentities&ids=Q5720|Q5772|Q5748|Q5727|Q4018|Q917319|Q1341350|Q118863|Q120755|Q3141&props=claims&format=json
+    file: diploma_regions_points.geojson
+    snapshot: diploma_regions_points.geojson
+    version: 2026-09-26 curated snapshot
+    retrieved: 2026-09-26
+    sha256: d8fb7b10664e06059a9c69d07c1e01c28fb9de367fbce127c56baab01e1ffce2
+    license: CC0 1.0
+    attribution: Location markers from Wikidata (CC0), retrieved 26 September 2026.
+      Points indicate locations, not wine-area boundaries.
+  - id: src_new_world_oceania_africa_au_gis_markers
+    title: Australian wine GI interior reference markers
+    publisher: Wine Australia
+    url: https://services6.arcgis.com/s8j6JbJJCqmhNgh7/arcgis/rest/services/Wine_Geographical_Indications_Australia/FeatureServer
+    file: new_world_oceania_africa_au_gis_points.geojson
+    snapshot: new_world_oceania_africa_au_gis_points.geojson
+    version: 2026-09-26 curated snapshot
+    retrieved: 2026-09-26
+    sha256: 81568c51780095ab4f8223b24cb8da272750631f24c0d1564761c1e652eefd0a
+    license: CC BY 4.0
+    attribution: © Wine Australia, Geographical Indications of Australia (CC BY 4.0,
+      https://creativecommons.org/licenses/by/4.0/), retrieved 26 September
+      2026. Interior reference markers derived from GIS interpretations; legal
+      textual definitions prevail. Points are not official centroids or legal
+      boundaries.
+  - id: src_new_world_oceania_africa_reference_markers
+    title: Australian and South African reference markers
+    publisher: Wikidata
+    url: https://www.wikidata.org/w/api.php?action=wbgetentities&ids=Q5112|Q3235|Q3258|Q813395|Q777884|Q132418|Q130840|Q81725|Q160284|Q134907|Q165956|Q1734288|Q1021918|Q922360|Q1023257|Q1921038|Q2011842|Q13034759|Q1003362|Q2038408|Q1533623|Q1750319|Q575780|Q269474|Q8026530|Q13035272|Q184284|Q506170|Q3113320|Q2675839|Q1341350|Q2742675|Q13035391|Q1800611|Q809120&props=claims&format=json
+    file: new_world_oceania_africa_reference_points.geojson
+    snapshot: new_world_oceania_africa_reference_points.geojson
+    version: 2026-09-26 curated snapshot
+    retrieved: 2026-09-26
+    sha256: 070888983f87d9b6b734e1343512487a37a9e3e705e0533fedf79c33eb3778e0
+    license: CC0 1.0
+    attribution: Location markers from Wikidata (CC0), retrieved 26 September 2026.
+      Points indicate locations, not wine-area boundaries.
+  - id: src_new_world_oceania_africa_gazetteer_markers
+    title: South African locality and terrain references
+    publisher: GeoNames
+    url: https://download.geonames.org/export/dump/ZA.zip
+    file: new_world_oceania_africa_gazetteer_points.geojson
+    snapshot: new_world_oceania_africa_gazetteer_points.geojson
+    version: 2026-09-26 curated snapshot
+    retrieved: 2026-09-26
+    sha256: 735baeda1a42a93633477c2ca61a4a6309ee799fa2f32756786880d3b12bb2ca
+    license: CC BY 4.0
+    attribution: Contains GeoNames geographical data (CC BY 4.0,
+      https://creativecommons.org/licenses/by/4.0/), retrieved 26 September
+      2026. Selected WGS84 locality and terrain coordinates are reference
+      markers, not wine-area boundaries or official centroids.
+  - id: src_new_world_americas_markers
+    title: American wine-area reference markers
+    publisher: UC Davis Library and Wikidata
+    url: https://github.com/UCDavisLibrary/ava/blob/7af5b29d45aee5e6c6ce3889e9b1de19085d7107/avas_aggregated_files/avas.geojson
+    file: new_world_americas_points.geojson
+    snapshot: new_world_americas_points.geojson
+    version: 2026-09-26 curated snapshot
+    retrieved: 2026-09-26
+    sha256: 4ff905658bc90c7bde1f732f4d3dc35ddd33794b85fc7d0eb1a2b3303383b284
+    license: CC0 1.0
+    attribution: UC Davis Library / DataLab American Viticultural Areas Project,
+      commit 7af5b29d45aee5e6c6ce3889e9b1de19085d7107 (CC0), and Wikidata (CC0),
+      retrieved 26 September 2026. Reference markers indicate locations, not
+      legal wine-area boundaries.
+  - id: src_new_world_americas_gazetteer_markers
+    title: American locality and terrain references
+    publisher: GeoNames
+    url: https://download.geonames.org/export/dump/
+    file: new_world_americas_gazetteer_points.geojson
+    snapshot: new_world_americas_gazetteer_points.geojson
+    version: 2026-09-26 curated snapshot
+    retrieved: 2026-09-26
+    sha256: da030bbaf1557eafef7b360e879c0a85949d02c750d37f8eeea15b82808b839c
+    license: CC BY 4.0
+    attribution: Contains GeoNames geographical data (CC BY 4.0,
+      https://creativecommons.org/licenses/by/4.0/), retrieved 26 September
+      2026. Selected WGS84 locality and terrain coordinates are reference
+      markers, not wine-area boundaries or official centroids.
 
 # Considered and not used (GEO-5, legal review L-16).
 excluded:

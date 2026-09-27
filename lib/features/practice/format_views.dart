@@ -4,7 +4,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'formats/flashcard_view.dart';
 import 'formats/map_identify_view.dart';
 import 'formats/map_locate_view.dart';
+import 'formats/map_pair_view.dart';
+import 'formats/map_grape_view.dart';
 import 'formats/mcq_view.dart';
+import 'formats/reasoning_view.dart';
 import 'formats/short_answer_view.dart';
 import 'formats/typed_view.dart';
 import 'study_session_controller.dart';
@@ -47,7 +50,21 @@ final formatViewsProvider = Provider<Map<String, FormatView>>(
       builder: MapIdentifyView.new,
       expands: true,
     ),
+    'map_pair': FormatView(
+      icon: Icons.location_on_outlined,
+      builder: MapPairView.new,
+      expands: true,
+    ),
+    'map_grape': FormatView(
+      icon: Icons.grain,
+      builder: MapGrapeView.new,
+      expands: true,
+    ),
     'typed': FormatView(icon: Icons.keyboard_outlined, builder: TypedView.new),
+    'reasoning': FormatView(
+      icon: Icons.account_tree_outlined,
+      builder: ReasoningView.new,
+    ),
     'short_answer': FormatView(
       icon: Icons.edit_note,
       builder: ShortAnswerView.new,

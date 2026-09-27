@@ -58,6 +58,8 @@ Work is planned in docs/backlog.md: one task per session, each naming its design
 
 Research handoff: read `docs/research/claude-handoff.md` before curriculum, coverage, certification-scope, geography-data, or release-gate work. The supporting audit is `docs/research/curriculum-gap-audit.md` and the track matrix is `docs/research/certification-matrix.md`. The research adds SCOPE-1, C7 and S3; it does **not** supersede the canonical domain model or completed G3 renderer.
 
+The user subsequently set **WSET Level 4 Diploma** as the whole-companion target. Read `docs/research/wset-level-4-gap-audit.md`, the latest content continuation, `docs/research/diploma-reasoning-continuation.md` (0.20.0), and the source check in `docs/research/fact-check-2026-09-27.md` (0.20.1). Earlier research/handoff documents retain historical snapshots. Progress groups support study and keep all levels incomplete; source citations and passing tests do not establish qualification or expert verification.
+
 Content plans live in docs/content/: the Spätburgunder study tree and the sub-region atlas. Author only their cited facts. Resolve each *to verify* item against its primary source first. Never author a heuristic marked **(H)** as a fact (audit PK-7). The task that creates a node also writes its location item (GEO-18).
 
 ## Data rules
@@ -91,7 +93,7 @@ dart run tool/curriculum/verify.dart <item> --reviewer <name> --outcome verified
 - A new file needs an `includes` line; its folder is already bundled. A row's key is unique across all files.
 - `lint` must report no errors. `test/core/curriculum/curriculum_validator_test.dart` also runs `validateDataset` on the bundle.
 - **Record expert reviews only with `verify`** (D3). It appends to the ledger in `assets/curriculum/reviews/` and sets the item's `verification_status`. Never set `verified` by hand; `lint` rejects a verified item that the ledger does not back.
-- Every item cites a primary legal text (`knowledge_item_citations`) and maps to at least one track. Wine-law relation types need a `legislation` or `regulator_register` citation (`regulatoryRelationTypes`).
+- Every item cites a public primary source (`knowledge_item_citations`) and maps to at least one track. Legal assertions cite legal texts/registers; wine-law relation types need a `legislation` or `regulator_register` citation (`regulatoryRelationTypes`). Nonlegal production, regional and business explanations may cite primary technical or regional-body evidence.
 - When a legal text lists grape varieties, link every listed variety that exists as a node, or it can be offered as a wrong answer.
 - Set `mcq_disabled: true` when a wrong answer could be defensible, e.g. overlapping climate types.
 - A symmetric relation type (`is_symmetric: true`, e.g. `BORDERS`) stores each pair once, with the smaller node ID as subject.
@@ -116,6 +118,8 @@ Ingestion regenerates `questions`, `question_distractors` and the exercise pools
 3. Add it to every relation type in `coverage_policy.yaml`, and give it templates.
 
 A format can decline an item with `isEligible`: the map formats (`map_locate`, `map_identify`) ask only location items whose area is drawn and framed (GEO-27). A composite format grades several items: one `ItemGrade` each, always including the exercise's primary item. They share an `exercise_id`. Co-items count as bonus reviews and take no session slot. `test/support/pair_format.dart` is a worked example.
+
+A scenario-specific short-answer template uses optional `parameters.scope_node_ids`: a nonempty list of unique known node IDs. Generation filters subjects before creating pools. Fixed prompts must have one scoped ID; multiple subjects require `{subject.name}`. Omit the parameter for general profiles.
 
 A short answer (`short_answer`, QF-14) is pooled: its template's `parameters.key_points` maps each relation type whose items are key points to their label, and a subject needs two key points for a pool. Typed recall (`typed`, QF-13) accepts every correct node's name and its `node_alternative_names`. When a correct answer is refused, add the missing synonym to the dataset; do not loosen the grader. An app test that serves only some formats passes `overrides: servingOnly(registry)`, so the release still ingests with every format.
 

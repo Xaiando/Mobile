@@ -2,7 +2,13 @@
 
 A Flutter study app for wine certification candidates on the WSET and Court of Master Sommeliers tracks. It combines spaced repetition over a canonical wine knowledge graph with structured tasting practice and a personal wine journal. It works fully offline.
 
-**Status: Phase 3 (FSRS and study engine) complete.** The bundled curriculum dataset (release 0.2.0: 65 nodes, 87 relations, 46 cited items) loads on first launch and generates 91 questions (43 multiple-choice, 48 flashcards), with distractors chosen by walking the knowledge graph. A learner picks WSET Level 3 or CMS Certified on Home. Practice then runs adaptive sessions: FSRS-6 schedules every item, and a priority score picks what to study. Study lists the track's items with their memory state and sources. Tasting and journal screens arrive in later phases; [docs/phase-status.md](docs/phase-status.md) tracks every phase's acceptance criteria.
+**Status: active development.** The bundled curriculum dataset (release 0.20.1) loads on first launch. It retains the German, Austrian, Swiss, Hungarian and Greek core and maps 1,423 noncountry places across 20 countries, supported by 1,424 cited location facts. French coverage includes seven Chablis Grand Cru climats, all 40 named Premier Cru label climats, all 32 Côte d'Or Grand Cru appellations and all 51 Alsace Grand Crus. Italy has all 20 administrative regions and important appellations and subregions; the United States and Southern Hemisphere have substantially expanded regional coverage. The full Diploma curriculum remains unfinished; the atlas also has documented finer-region gaps. [Geography coverage](docs/research/geography-coverage.md) records the current inventory and limits.
+
+The whole companion targets WSET Level 4 Diploma; production, business, regional analysis, sparkling and fortified wines, tasting and research support are tracked in the [Diploma gap audit](docs/research/wset-level-4-gap-audit.md). A learner picks WSET Level 3, WSET Level 4 Diploma or CMS Certified on Home, then practises through multiple choice, flashcards, typed recall, short written profiles, causal reasoning and offline map questions. Maps include finding two to four named places, with a separate grade for each, and finding one area from one to three grape clues. Legal grape questions use cited complete permission lists; dated planting questions use a separate cited survey-year cohort. Every represented correct alternative is accepted and each requested fact is reviewed independently. Point markers show reference locations rather than wine-area boundaries. FSRS-6 shares each item's memory across formats, and a difficulty ladder adjusts its presentations. Study lists items with their memory state and sources; structured tasting, a personal wine journal, onboarding and data export are implemented. Content awaits qualified expert review, and certification parity is not yet claimed. [docs/backlog.md](docs/backlog.md) tracks the remaining work.
+
+Release 0.20.0 adds objective causal reasoning and 21 cited Diploma-only points across four controlled vineyard/winery mechanisms. Release 0.20.1 does not add items: it corrects two Italian explanations after a source check. [Fact check](docs/research/fact-check-2026-09-27.md). A correct answer reviews the full chain; a wrong answer reviews only its conclusion. Sources and explanations appear after answering, and only already-studied support can join the exercise. The bundle has 2,824 items; its 704 D3 regional analysis points and all maps remain intact. China analysis stays Diploma-only, with eight older optional atlas references retained. All facts await qualified review. [Reasoning continuation and validation](docs/research/diploma-reasoning-continuation.md).
+
+Home → **Your WSET progress** shows studied and currently mastered material for Levels 1–4, missing curriculum coverage, Diploma topic groups and the next facts to study. Spaced successful reviews establish mastery; later failures or fading memory can reduce it. Learners can independently record exam passes as self-reported results. All four level scopes remain explicitly incomplete, so mastering the available material cannot claim a completed WSET qualification. [Progress behaviour and validation](docs/wset-learner-progress.md).
 
 ## Install
 
@@ -59,7 +65,7 @@ Cross-Origin-Embedder-Policy: require-corp
 
 ## Platforms
 
-Android and iOS are the primary targets. The web gets basic support. Nothing in the code is mobile-specific, so desktop can be added later with `flutter create --platforms=windows,macos .`.
+Windows, Android and iOS are configured targets. The web gets basic support.
 
 ## Project layout
 
@@ -71,6 +77,7 @@ Android and iOS are the primary targets. The web gets basic support. Nothing in 
 | `lib/core/questions/` | Question generation (templates, eligibility, distractors) and seeded presentation |
 | `lib/core/study/` | FSRS reviews, the learner's track, the priority score and session planning |
 | `lib/core/coverage/` | The question coverage checker: which items each track can practise, and how; the policy and the baseline ratchet |
+| `lib/core/progress/` | Cumulative WSET material counts, current mastery, Diploma groups and self-reported exam settings |
 | `assets/curriculum/` | The curriculum release: a manifest that includes one YAML file per area and per question format; beside it, the expert-review ledger, the coverage policy and baseline, and the certification scope manifest |
 | `lib/core/time/` | The UTC millisecond clock used for every stored timestamp |
 | `lib/features/` | Home (dashboard and track picker), Study (curriculum browser), Practice (sessions), Tasting and Cellar |
@@ -87,9 +94,11 @@ Android and iOS are the primary targets. The web gets basic support. Nothing in 
 - [Phase 0 engineering audit](docs/audit/phase-0-engineering-audit.md): the review of the product specification.
 - [Legal review register](docs/legal-review.md): items to clear before any public release.
 - [Phase status](docs/phase-status.md): each phase's acceptance criteria and where they stand.
-- [Implementation backlog](docs/backlog.md): the remaining work as 45 session-sized tasks, with dependencies and a parallel plan.
+- [Implementation backlog](docs/backlog.md): 48 session-sized tasks, with status, dependencies and a parallel plan.
 - Content plans: the [Spätburgunder study tree](docs/content/spaetburgunder-study-tree.md), with a blind-tasting playbook, and the [sub-region atlas](docs/content/subregion-atlas.md) of the famous regions.
 - Design notes: [question system and coverage](docs/design/question-system.md), [geography and maps](docs/design/geography.md), [study packs](docs/design/study-packs.md).
+- [Geography coverage](docs/research/geography-coverage.md): the bundled countries and location facts, map formats, source methods and remaining atlas work.
+- [Learner progress](docs/wset-learner-progress.md): available material, lasting mastery, incomplete levels and independently recorded exam results.
 
 ## License
 

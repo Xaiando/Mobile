@@ -90,7 +90,7 @@ const finish = (layer) =>
   `-filter-fields node,name ` +
   `-o layer.topo.json format=topojson id-field=node quantization=${layer.quantization}`;
 
-async function buildNaturalEarth(config, layer) {
+export async function buildNaturalEarth(config, layer) {
   const recipe = layer.natural_earth;
   const nodes = recipe.nodes ?? {};
   const nodeOf = `(${literal(nodes)})[${recipe.key ? 'key' : 'null'}] || null`;
@@ -116,6 +116,21 @@ async function buildNaturalEarth(config, layer) {
       `-each "key = ${recipe.key ?? 'null'}, name = ${nameOf(recipe.name)}" ` +
       `-each "node = ${nodeOf}" `;
   }
+  if (recipe.supplement) {
+    const supplementalSource = config.sources.get(recipe.supplement.source);
+    if (!supplementalSource?.snapshot) {
+      throw new Error(`${layer.id}: a country supplement must be a pinned GeoJSON snapshot`);
+    }
+    // Add complete, licensed source polygon parts to their existing country.
+    // Dissolving by the country key keeps other countries and France's
+    // metropolitan/overseas map-unit distinction separate.
+    commands +=
+      `-i "${forward(downloadPath(supplementalSource))}" name=country_supplement ` +
+      `-each "key = ${recipe.supplement.key}, name = ${recipe.supplement.name}, node = ${nodeOf}" target=country_supplement ` +
+      `-filter-fields key,name,node target=layer,country_supplement ` +
+      `-merge-layers target=layer,country_supplement name=layer force ` +
+      `-dissolve key copy-fields=name,node allow-overlaps `;
+  }
   const built = await run(commands + finish(layer));
   const missing = Object.entries(nodes).filter(
     ([, node]) => !built.table.some((row) => row.node === node),
@@ -124,6 +139,45 @@ async function buildNaturalEarth(config, layer) {
     throw new Error(`${layer.id}: no feature for ${missing.map(([k, n]) => `${n} (${k})`).join(', ')}`);
   }
   return { ...built, communes: new Map() };
+}
+
+/** Sourced gazetteer markers are points, never invented appellation borders. */
+export async function buildGazetteer(config, layer) {
+  const source = config.sources.get(layer.gazetteer.source);
+  const data = JSON.parse(fs.readFileSync(downloadPath(source), 'utf8'));
+  if (data.type !== 'FeatureCollection' || !Array.isArray(data.features)) {
+    throw new Error(`${source.id}: expected a GeoJSON FeatureCollection`);
+  }
+  const seen = new Set();
+  for (const f of data.features) {
+    const node = f.properties?.node;
+    const c = f.geometry?.coordinates;
+    if (typeof node !== 'string' || seen.has(node) ||
+        f.geometry?.type !== 'Point' || !Array.isArray(c) || c.length !== 2 ||
+        !c.every(Number.isFinite) || Math.abs(c[0]) > 180 || Math.abs(c[1]) > 85 ||
+        typeof f.properties?.source_url !== 'string' ||
+        !f.properties.source_url.startsWith('https://')) {
+      throw new Error(`${source.id}: invalid or duplicate sourced marker ${node}`);
+    }
+    seen.add(node);
+  }
+  // Point coordinates have no polygon interior; preserve the source point
+  // exactly in the manifest rather than asking mapshaper for an inner point.
+  const features = data.features.map((f) => ({
+    type: 'Point', id: f.properties.node,
+    properties: { node: f.properties.node, name: f.properties.name }, coordinates: f.geometry.coordinates,
+  })).sort((a, b) => a.id.localeCompare(b.id));
+  return {
+    topology: { type: 'Topology', objects: { layer: {
+      type: 'GeometryCollection', geometries: features,
+    } }, arcs: [] },
+    table: features.map((f) => ({
+      node: f.id, name: f.properties.name,
+      min_lon: f.coordinates[0], max_lon: f.coordinates[0],
+      min_lat: f.coordinates[1], max_lat: f.coordinates[1],
+      label_lon: f.coordinates[0], label_lat: f.coordinates[1],
+    })), communes: new Map(),
+  };
 }
 
 /** INAO's geographical areas: appellation ID to the INSEE codes of its communes. */
@@ -256,7 +310,7 @@ function communeCodes(layer, inao, successors) {
   return result;
 }
 
-async function buildAppellationAreas(layer, curriculum, codesOf, geometries) {
+export async function buildAppellationAreas(layer, curriculum, codesOf, geometries) {
   const features = [];
   const communesOf = new Map();
   for (const node of Object.keys(layer.appellation_areas)) {
@@ -277,11 +331,22 @@ async function buildAppellationAreas(layer, curriculum, codesOf, geometries) {
   }
   const input = JSON.stringify({ type: 'FeatureCollection', features });
   const built = await run(
-    `-i communes.json name=layer -dissolve node copy-fields=name ` +
+    // A commune can belong to several AOCs. The repaired dissolve otherwise
+    // assigns each overlapping polygon to one group and silently empties the
+    // others; preserve the independent union of communes for every node.
+    `-i communes.json name=layer -dissolve node copy-fields=name allow-overlaps ` +
       `-proj wgs84 init=EPSG:2154 ` +
       finish(layer),
     { 'communes.json': input },
   );
+  const rows = new Set(built.table.map((row) => row.node));
+  const [object] = Object.values(built.topology.objects);
+  const shapes = new Set(object.geometries.map((shape) => shape.id));
+  const missing = Object.keys(layer.appellation_areas)
+    .filter((node) => !rows.has(node) || !shapes.has(node));
+  if (missing.length > 0) {
+    throw new Error(`${layer.id}: no feature for ${missing.join(', ')}`);
+  }
   return { ...built, communes: communesOf };
 }
 
@@ -367,13 +432,17 @@ export async function build(outDir) {
     for (const layer of french) codes.set(layer.id, communeCodes(layer, inao, config.successors));
     const all = new Set([...codes.values()].flatMap((byNode) => [...byNode.values()].flat()));
     communeShapes = await communes(config, all);
+    const unknown = [...all].filter(code => !communeShapes.has(code)).sort();
+    if (unknown.length) throw new Error(`Communes not in ADMIN EXPRESS: ${unknown.join(', ')}`);
   }
 
   const built = [];
   for (const layer of config.layers) {
     const result = layer.natural_earth
       ? await buildNaturalEarth(config, layer)
-      : await buildAppellationAreas(layer, curriculum, codes.get(layer.id), communeShapes);
+      : layer.gazetteer
+        ? await buildGazetteer(config, layer)
+        : await buildAppellationAreas(layer, curriculum, codes.get(layer.id), communeShapes);
     for (const row of result.table) {
       if (row.node != null && !curriculum.nodes.has(row.node)) {
         throw new Error(`${layer.id}: ${row.node} is not a node of the curriculum`);

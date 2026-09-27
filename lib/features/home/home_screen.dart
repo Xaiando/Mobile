@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import '../../app/learner_state.dart';
 import '../../core/study/study_planner.dart';
 import '../practice/study_session_controller.dart';
+import '../progress/wset_progress_card.dart';
 import 'track_picker.dart';
 
 /// Home: the study dashboard (spec TASK-006).
@@ -133,6 +134,8 @@ class _Dashboard extends StatelessWidget {
             ),
           ],
         ),
+        const SizedBox(height: 16),
+        const WsetProgressCard(),
         if (overview.changed.isNotEmpty) ...[
           const SizedBox(height: 16),
           Card(

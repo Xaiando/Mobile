@@ -198,15 +198,47 @@ class GeometryRepository {
     String nodeId, {
     int minimum = minimumCandidates,
     String? on,
+    Set<String>? eligibleNodeIds,
   }) async {
+    if (eligibleNodeIds != null && !eligibleNodeIds.contains(nodeId)) {
+      return null;
+    }
     final drawn = await geometriesOf(nodeId);
     if (drawn.isEmpty) return null;
     final nodeType = drawn.first.node.nodeType;
+    MappedNode? fallbackParent;
     for (final ancestor in await _graph.ancestors(nodeId, on: on)) {
       final framing = await geometriesOf(ancestor.id);
       if (framing.isEmpty) continue;
-      final box = GeoBox.of(framing.first.geometry).expand(frameMargin);
-      final candidates = await candidatesIn(box, nodeType: nodeType);
+      fallbackParent ??= framing.first;
+      var box = GeoBox.of(framing.first.geometry);
+      // A marker has no boundary. Frame it from the sourced markers of
+      // its descendants, without inventing a regional polygon.
+      if (box.width == 0 || box.height == 0) {
+        final descendants = {
+          for (final n in await _graph.descendants(ancestor.id, on: on)) n.id,
+        };
+        final members =
+            (await candidatesIn(
+                  const GeoBox(-180, -85, 180, 85),
+                  nodeType: nodeType,
+                ))
+                .where(
+                  (n) =>
+                      descendants.contains(n.id) &&
+                      (eligibleNodeIds == null ||
+                          eligibleNodeIds.contains(n.id)),
+                )
+                .toList();
+        if (members.length < minimum) continue;
+        box = _boxOf(members);
+      }
+      box = box.expand(frameMargin);
+      final candidates = (await candidatesIn(box, nodeType: nodeType))
+          .where(
+            (n) => eligibleNodeIds == null || eligibleNodeIds.contains(n.id),
+          )
+          .toList();
       if (candidates.length >= minimum &&
           candidates.any((c) => c.id == nodeId)) {
         return MapFrame(
@@ -216,7 +248,59 @@ class GeometryRepository {
         );
       }
     }
+    // A small country's atlas can have fewer than four units of a type.
+    // Nearby mapped units provide geographic alternatives across borders;
+    // the question still asks the exact named target, not containment.
+    if (fallbackParent != null && minimum <= minimumCandidates) {
+      final nearby =
+          (await candidatesIn(
+                const GeoBox(-180, -85, 180, 85),
+                nodeType: nodeType,
+              ))
+              .where(
+                (n) =>
+                    eligibleNodeIds == null || eligibleNodeIds.contains(n.id),
+              )
+              .toList();
+      final target = drawn.first.geometry;
+      double distance(MappedNode n) {
+        final dy = n.geometry.labelLat - target.labelLat;
+        final dx =
+            (n.geometry.labelLon - target.labelLon) *
+            math.cos(target.labelLat * math.pi / 180);
+        return dx * dx + dy * dy;
+      }
+
+      nearby.sort((a, b) => distance(a).compareTo(distance(b)));
+      if (nearby.length >= minimum) {
+        final box = _boxOf(nearby.take(minimum).toList()).expand(frameMargin);
+        return MapFrame(
+          parent: fallbackParent,
+          box: box,
+          candidates: (await candidatesIn(box, nodeType: nodeType))
+              .where(
+                (n) =>
+                    eligibleNodeIds == null || eligibleNodeIds.contains(n.id),
+              )
+              .toList(),
+        );
+      }
+    }
     return null;
+  }
+
+  static GeoBox _boxOf(List<MappedNode> nodes) {
+    final lon = nodes.map((n) => n.geometry.labelLon);
+    final lat = nodes.map((n) => n.geometry.labelLat);
+    final left = lon.reduce(math.min), right = lon.reduce(math.max);
+    final bottom = lat.reduce(math.min), top = lat.reduce(math.max);
+    // Keep a usable frame when markers share a latitude or longitude.
+    return GeoBox(
+      left == right ? left - 0.05 : left,
+      bottom == top ? bottom - 0.05 : bottom,
+      left == right ? right + 0.05 : right,
+      bottom == top ? top + 0.05 : top,
+    );
   }
 
   /// The label point of each node [layerId] draws, by feature key: the

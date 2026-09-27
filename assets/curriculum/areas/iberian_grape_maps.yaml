@@ -1,0 +1,4401 @@
+# Spanish mapped appellations: complete neutral legal grape unions, checked 26 September 2026.
+# Includes historical and conditional varieties so map clues never classify them as prohibited.
+# Core/secondary mappings are editorial study priorities; source-backed items remain unverified.
+# 1900-01-01 is the project sentinel for uncurated effective dates, not an assertion of historical law.
+# Ribera Pirulé (Jaén) is a qualified legal entry; no unsupported identity with Portuguese Jaen/Mencía is asserted.
+# Palomino and Listán Blanco/Palomino Fino remain distinct legal entries in the May 2026 Jerez register.
+# Torrontés (Galicia) is separate from Rioja Turruntés/Albillo Mayor and Argentine Torrontés.
+# The Cava completeness citation uses the live MAPA register; council harvest-2024 spec URL now returns 404.
+
+# Physical berry colours below use explicit primary cultivar fields, not white/red wine categories.
+# Pirulé (Jaén) remains unknown; its permission and the small pink Gewürztraminer pool disable MCQ only.
+
+knowledge_nodes:
+  - id: n_grape_tempranillo
+    node_type: grape
+    name: Tempranillo
+  - id: n_grape_graciano
+    node_type: grape
+    name: Graciano
+  - id: n_grape_carignan
+    node_type: grape
+    name: Carignan
+  - id: n_grape_maturana_tinta
+    node_type: grape
+    name: Maturana Tinta
+  - id: n_grape_macabeo
+    node_type: grape
+    name: Macabeo
+  - id: n_grape_alarije
+    node_type: grape
+    name: Alarije
+  - id: n_grape_tempranillo_blanco
+    node_type: grape
+    name: Tempranillo Blanco
+  - id: n_grape_maturana_blanca
+    node_type: grape
+    name: Maturana Blanca
+  - id: n_grape_albillo_mayor
+    node_type: grape
+    name: Albillo Mayor
+  - id: n_grape_verdejo
+    node_type: grape
+    name: Verdejo
+  - id: n_grape_pirule_jaen
+    node_type: grape
+    name: Pirulé (Jaén, Ribera del Duero)
+  - id: n_grape_bobal
+    node_type: grape
+    name: Bobal
+  - id: n_grape_alicante_bouschet
+    node_type: grape
+    name: Alicante Bouschet
+  - id: n_grape_albarino
+    node_type: grape
+    name: Albariño
+  - id: n_grape_treixadura
+    node_type: grape
+    name: Treixadura
+  - id: n_grape_loureiro
+    node_type: grape
+    name: Loureiro
+  - id: n_grape_caino_blanco
+    node_type: grape
+    name: Caíño Blanco
+  - id: n_grape_torrontes_galicia
+    node_type: grape
+    name: Torrontés (Galicia)
+  - id: n_grape_godello
+    node_type: grape
+    name: Godello
+  - id: n_grape_ratino_gallega
+    node_type: grape
+    name: Ratiño Gallega
+  - id: n_grape_caino_tinto
+    node_type: grape
+    name: Caíño Tinto
+  - id: n_grape_espadeiro
+    node_type: grape
+    name: Espadeiro
+  - id: n_grape_loureiro_tinto
+    node_type: grape
+    name: Loureiro Tinto
+  - id: n_grape_souson
+    node_type: grape
+    name: Sousón
+  - id: n_grape_mencia
+    node_type: grape
+    name: Mencía
+  - id: n_grape_brancellao
+    node_type: grape
+    name: Brancellao
+  - id: n_grape_pedral
+    node_type: grape
+    name: Pedral
+  - id: n_grape_castanal
+    node_type: grape
+    name: Castañal
+  - id: n_grape_palomino_fino
+    node_type: grape
+    name: Palomino Fino
+  - id: n_grape_gewurztraminer
+    node_type: grape
+    name: Gewürztraminer
+  - id: n_grape_muscat_of_alexandria
+    node_type: grape
+    name: Muscat of Alexandria
+  - id: n_grape_cenicienta
+    node_type: grape
+    name: Cenicienta
+  - id: n_grape_brunal
+    node_type: grape
+    name: Bruñal
+  - id: n_grape_dona_blanca
+    node_type: grape
+    name: Doña Blanca
+  - id: n_grape_albillo_real
+    node_type: grape
+    name: Albillo Real
+  - id: n_grape_garnacha_peluda
+    node_type: grape
+    name: Garnacha Peluda
+  - id: n_grape_picapoll_tinto
+    node_type: grape
+    name: Picapoll Tinto
+  - id: n_grape_pedro_ximenez
+    node_type: grape
+    name: Pedro Ximénez
+  - id: n_grape_xarello
+    node_type: grape
+    name: Xarel·lo
+  - id: n_grape_picapoll_blanco
+    node_type: grape
+    name: Picapoll Blanco
+  - id: n_grape_parellada
+    node_type: grape
+    name: Parellada
+  - id: n_grape_trepat
+    node_type: grape
+    name: Trepat
+  - id: n_grape_palomino
+    node_type: grape
+    name: Palomino
+  - id: n_grape_beba
+    node_type: grape
+    name: Beba
+  - id: n_grape_perruno
+    node_type: grape
+    name: Perruno
+  - id: n_grape_vigiriega
+    node_type: grape
+    name: Vigiriega
+node_alternative_names:
+  - knowledge_node_id: n_grape_grenache
+    name: Garnacha tinta
+    kind: synonym
+  - knowledge_node_id: n_grape_grenache_blanc
+    name: Garnacha blanca
+    kind: synonym
+  - knowledge_node_id: n_grape_muscat_blanc_a_petits_grains
+    name: Moscatel de grano menudo
+    kind: synonym
+  - knowledge_node_id: n_grape_chasselas
+    name: Chasselas Doré
+    kind: synonym
+  - knowledge_node_id: n_grape_tempranillo
+    name: Tinto Fino
+    kind: synonym
+  - knowledge_node_id: n_grape_tempranillo
+    name: Tinta del País
+    kind: synonym
+  - knowledge_node_id: n_grape_tempranillo
+    name: Tinta de Toro
+    kind: synonym
+  - knowledge_node_id: n_grape_tempranillo
+    name: Ull de Llebre
+    kind: synonym
+  - knowledge_node_id: n_grape_carignan
+    name: Mazuelo
+    kind: synonym
+  - knowledge_node_id: n_grape_carignan
+    name: Mazuela
+    kind: synonym
+  - knowledge_node_id: n_grape_carignan
+    name: Cariñena
+    kind: synonym
+  - knowledge_node_id: n_grape_carignan
+    name: Samsó
+    kind: synonym
+  - knowledge_node_id: n_grape_macabeo
+    name: Viura
+    kind: synonym
+  - knowledge_node_id: n_grape_alarije
+    name: Malvasía Riojana
+    kind: synonym
+  - knowledge_node_id: n_grape_alarije
+    name: Subirat Parent
+    kind: synonym
+  - knowledge_node_id: n_grape_alarije
+    name: Pirulés
+    kind: synonym
+  - knowledge_node_id: n_grape_albillo_mayor
+    name: Turruntés
+    kind: synonym
+  - knowledge_node_id: n_grape_pirule_jaen
+    name: Jaén (Ribera del Duero)
+    kind: synonym
+  - knowledge_node_id: n_grape_bobal
+    name: Valenciana
+    kind: synonym
+  - knowledge_node_id: n_grape_alicante_bouschet
+    name: Garnacha Tintorera
+    kind: synonym
+  - knowledge_node_id: n_grape_loureiro
+    name: Loureira
+    kind: synonym
+  - knowledge_node_id: n_grape_loureiro
+    name: Loureiro blanco
+    kind: synonym
+  - knowledge_node_id: n_grape_loureiro
+    name: Marqués
+    kind: synonym
+  - knowledge_node_id: n_grape_palomino_fino
+    name: Listán Blanco
+    kind: synonym
+  - knowledge_node_id: n_grape_muscat_of_alexandria
+    name: Moscatel de Alejandría
+    kind: synonym
+  - knowledge_node_id: n_grape_dona_blanca
+    name: Malvasía Castellana
+    kind: synonym
+  - knowledge_node_id: n_grape_xarello
+    name: Pansal
+    kind: synonym
+  - knowledge_node_id: n_grape_xarello
+    name: Xarello
+    kind: synonym
+  - knowledge_node_id: n_grape_xarello
+    name: Xarel.lo
+    kind: synonym
+knowledge_relations:
+  - subject_id: n_geo_rioja
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_tempranillo
+    valid_from: 1900-01-01
+  - subject_id: n_geo_rioja
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_grenache
+    valid_from: 1900-01-01
+  - subject_id: n_geo_rioja
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_graciano
+    valid_from: 1900-01-01
+  - subject_id: n_geo_rioja
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_carignan
+    valid_from: 1900-01-01
+  - subject_id: n_geo_rioja
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_maturana_tinta
+    valid_from: 1900-01-01
+  - subject_id: n_geo_rioja
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_macabeo
+    valid_from: 1900-01-01
+  - subject_id: n_geo_rioja
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_grenache_blanc
+    valid_from: 1900-01-01
+  - subject_id: n_geo_rioja
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_alarije
+    valid_from: 1900-01-01
+  - subject_id: n_geo_rioja
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_tempranillo_blanco
+    valid_from: 1900-01-01
+  - subject_id: n_geo_rioja
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_maturana_blanca
+    valid_from: 1900-01-01
+  - subject_id: n_geo_rioja
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_albillo_mayor
+    valid_from: 1900-01-01
+  - subject_id: n_geo_rioja
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_chardonnay
+    valid_from: 1900-01-01
+  - subject_id: n_geo_rioja
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_sauvignon_blanc
+    valid_from: 1900-01-01
+  - subject_id: n_geo_rioja
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_verdejo
+    valid_from: 1900-01-01
+  - subject_id: n_geo_ribera_del_duero
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_tempranillo
+    valid_from: 1900-01-01
+  - subject_id: n_geo_ribera_del_duero
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_cabernet_sauvignon
+    valid_from: 1900-01-01
+  - subject_id: n_geo_ribera_del_duero
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_grenache
+    valid_from: 1900-01-01
+  - subject_id: n_geo_ribera_del_duero
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_malbec
+    valid_from: 1900-01-01
+  - subject_id: n_geo_ribera_del_duero
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_merlot
+    valid_from: 1900-01-01
+  - subject_id: n_geo_ribera_del_duero
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_albillo_mayor
+    valid_from: 1900-01-01
+  - subject_id: n_geo_ribera_del_duero
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_alarije
+    valid_from: 1900-01-01
+  - subject_id: n_geo_ribera_del_duero
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_pirule_jaen
+    valid_from: 1900-01-01
+  - subject_id: n_geo_ribera_del_duero
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_bobal
+    valid_from: 1900-01-01
+  - subject_id: n_geo_ribera_del_duero
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_alicante_bouschet
+    valid_from: 1900-01-01
+  - subject_id: n_geo_ribera_del_duero
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_chasselas
+    valid_from: 1900-01-01
+  - subject_id: n_geo_ribera_del_duero
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_mourvedre
+    valid_from: 1900-01-01
+  - subject_id: n_geo_rias_baixas
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_albarino
+    valid_from: 1900-01-01
+  - subject_id: n_geo_rias_baixas
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_treixadura
+    valid_from: 1900-01-01
+  - subject_id: n_geo_rias_baixas
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_loureiro
+    valid_from: 1900-01-01
+  - subject_id: n_geo_rias_baixas
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_caino_blanco
+    valid_from: 1900-01-01
+  - subject_id: n_geo_rias_baixas
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_torrontes_galicia
+    valid_from: 1900-01-01
+  - subject_id: n_geo_rias_baixas
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_godello
+    valid_from: 1900-01-01
+  - subject_id: n_geo_rias_baixas
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_ratino_gallega
+    valid_from: 1900-01-01
+  - subject_id: n_geo_rias_baixas
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_caino_tinto
+    valid_from: 1900-01-01
+  - subject_id: n_geo_rias_baixas
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_espadeiro
+    valid_from: 1900-01-01
+  - subject_id: n_geo_rias_baixas
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_loureiro_tinto
+    valid_from: 1900-01-01
+  - subject_id: n_geo_rias_baixas
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_souson
+    valid_from: 1900-01-01
+  - subject_id: n_geo_rias_baixas
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_mencia
+    valid_from: 1900-01-01
+  - subject_id: n_geo_rias_baixas
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_brancellao
+    valid_from: 1900-01-01
+  - subject_id: n_geo_rias_baixas
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_pedral
+    valid_from: 1900-01-01
+  - subject_id: n_geo_rias_baixas
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_castanal
+    valid_from: 1900-01-01
+  - subject_id: n_geo_rueda
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_verdejo
+    valid_from: 1900-01-01
+  - subject_id: n_geo_rueda
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_sauvignon_blanc
+    valid_from: 1900-01-01
+  - subject_id: n_geo_rueda
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_macabeo
+    valid_from: 1900-01-01
+  - subject_id: n_geo_rueda
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_palomino_fino
+    valid_from: 1900-01-01
+  - subject_id: n_geo_rueda
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_chardonnay
+    valid_from: 1900-01-01
+  - subject_id: n_geo_rueda
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_viognier
+    valid_from: 1900-01-01
+  - subject_id: n_geo_rueda
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_riesling
+    valid_from: 1900-01-01
+  - subject_id: n_geo_rueda
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_grenache_blanc
+    valid_from: 1900-01-01
+  - subject_id: n_geo_rueda
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_muscat_blanc_a_petits_grains
+    valid_from: 1900-01-01
+  - subject_id: n_geo_rueda
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_muscat_of_alexandria
+    valid_from: 1900-01-01
+  - subject_id: n_geo_rueda
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_gewurztraminer
+    valid_from: 1900-01-01
+  - subject_id: n_geo_rueda
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_tempranillo
+    valid_from: 1900-01-01
+  - subject_id: n_geo_rueda
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_cabernet_sauvignon
+    valid_from: 1900-01-01
+  - subject_id: n_geo_rueda
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_merlot
+    valid_from: 1900-01-01
+  - subject_id: n_geo_rueda
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_grenache
+    valid_from: 1900-01-01
+  - subject_id: n_geo_rueda
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_syrah
+    valid_from: 1900-01-01
+  - subject_id: n_geo_rueda
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_cenicienta
+    valid_from: 1900-01-01
+  - subject_id: n_geo_rueda
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_brunal
+    valid_from: 1900-01-01
+  - subject_id: n_geo_toro
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_tempranillo
+    valid_from: 1900-01-01
+  - subject_id: n_geo_toro
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_grenache
+    valid_from: 1900-01-01
+  - subject_id: n_geo_toro
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_dona_blanca
+    valid_from: 1900-01-01
+  - subject_id: n_geo_toro
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_verdejo
+    valid_from: 1900-01-01
+  - subject_id: n_geo_toro
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_muscat_blanc_a_petits_grains
+    valid_from: 1900-01-01
+  - subject_id: n_geo_toro
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_albillo_real
+    valid_from: 1900-01-01
+  - subject_id: n_geo_priorat
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_grenache
+    valid_from: 1900-01-01
+  - subject_id: n_geo_priorat
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_carignan
+    valid_from: 1900-01-01
+  - subject_id: n_geo_priorat
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_garnacha_peluda
+    valid_from: 1900-01-01
+  - subject_id: n_geo_priorat
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_cabernet_sauvignon
+    valid_from: 1900-01-01
+  - subject_id: n_geo_priorat
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_cabernet_franc
+    valid_from: 1900-01-01
+  - subject_id: n_geo_priorat
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_tempranillo
+    valid_from: 1900-01-01
+  - subject_id: n_geo_priorat
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_pinot_noir
+    valid_from: 1900-01-01
+  - subject_id: n_geo_priorat
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_merlot
+    valid_from: 1900-01-01
+  - subject_id: n_geo_priorat
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_syrah
+    valid_from: 1900-01-01
+  - subject_id: n_geo_priorat
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_picapoll_tinto
+    valid_from: 1900-01-01
+  - subject_id: n_geo_priorat
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_grenache_blanc
+    valid_from: 1900-01-01
+  - subject_id: n_geo_priorat
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_macabeo
+    valid_from: 1900-01-01
+  - subject_id: n_geo_priorat
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_pedro_ximenez
+    valid_from: 1900-01-01
+  - subject_id: n_geo_priorat
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_chenin_blanc
+    valid_from: 1900-01-01
+  - subject_id: n_geo_priorat
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_muscat_of_alexandria
+    valid_from: 1900-01-01
+  - subject_id: n_geo_priorat
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_muscat_blanc_a_petits_grains
+    valid_from: 1900-01-01
+  - subject_id: n_geo_priorat
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_xarello
+    valid_from: 1900-01-01
+  - subject_id: n_geo_priorat
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_picapoll_blanco
+    valid_from: 1900-01-01
+  - subject_id: n_geo_priorat
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_viognier
+    valid_from: 1900-01-01
+  - subject_id: n_geo_cava
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_macabeo
+    valid_from: 1900-01-01
+  - subject_id: n_geo_cava
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_xarello
+    valid_from: 1900-01-01
+  - subject_id: n_geo_cava
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_parellada
+    valid_from: 1900-01-01
+  - subject_id: n_geo_cava
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_alarije
+    valid_from: 1900-01-01
+  - subject_id: n_geo_cava
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_chardonnay
+    valid_from: 1900-01-01
+  - subject_id: n_geo_cava
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_grenache
+    valid_from: 1900-01-01
+  - subject_id: n_geo_cava
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_mourvedre
+    valid_from: 1900-01-01
+  - subject_id: n_geo_cava
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_pinot_noir
+    valid_from: 1900-01-01
+  - subject_id: n_geo_cava
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_trepat
+    valid_from: 1900-01-01
+  - subject_id: n_geo_jerez
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_palomino
+    valid_from: 1900-01-01
+  - subject_id: n_geo_jerez
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_palomino_fino
+    valid_from: 1900-01-01
+  - subject_id: n_geo_jerez
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_pedro_ximenez
+    valid_from: 1900-01-01
+  - subject_id: n_geo_jerez
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_muscat_of_alexandria
+    valid_from: 1900-01-01
+  - subject_id: n_geo_jerez
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_beba
+    valid_from: 1900-01-01
+  - subject_id: n_geo_jerez
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_perruno
+    valid_from: 1900-01-01
+  - subject_id: n_geo_jerez
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_vigiriega
+    valid_from: 1900-01-01
+  - subject_id: n_grape_tempranillo
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_black
+    valid_from: 1900-01-01
+  - subject_id: n_grape_graciano
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_black
+    valid_from: 1900-01-01
+  - subject_id: n_grape_carignan
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_black
+    valid_from: 1900-01-01
+  - subject_id: n_grape_macabeo
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_white
+    valid_from: 1900-01-01
+  - subject_id: n_grape_alarije
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_white
+    valid_from: 1900-01-01
+  - subject_id: n_grape_tempranillo_blanco
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_white
+    valid_from: 1900-01-01
+  - subject_id: n_grape_maturana_blanca
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_white
+    valid_from: 1900-01-01
+  - subject_id: n_grape_albillo_mayor
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_white
+    valid_from: 1900-01-01
+  - subject_id: n_grape_verdejo
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_white
+    valid_from: 1900-01-01
+  - subject_id: n_grape_bobal
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_black
+    valid_from: 1900-01-01
+  - subject_id: n_grape_alicante_bouschet
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_black
+    valid_from: 1900-01-01
+  - subject_id: n_grape_palomino_fino
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_white
+    valid_from: 1900-01-01
+  - subject_id: n_grape_pedro_ximenez
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_white
+    valid_from: 1900-01-01
+  - subject_id: n_grape_xarello
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_white
+    valid_from: 1900-01-01
+  - subject_id: n_grape_maturana_tinta
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_black
+    valid_from: 1900-01-01
+  - subject_id: n_grape_gewurztraminer
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_pink
+    valid_from: 1900-01-01
+  - subject_id: n_grape_muscat_of_alexandria
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_white
+    valid_from: 1900-01-01
+  - subject_id: n_grape_cenicienta
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_black
+    valid_from: 1900-01-01
+  - subject_id: n_grape_brunal
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_black
+    valid_from: 1900-01-01
+  - subject_id: n_grape_dona_blanca
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_white
+    valid_from: 1900-01-01
+  - subject_id: n_grape_albillo_real
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_white
+    valid_from: 1900-01-01
+  - subject_id: n_grape_garnacha_peluda
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_black
+    valid_from: 1900-01-01
+  - subject_id: n_grape_picapoll_tinto
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_black
+    valid_from: 1900-01-01
+  - subject_id: n_grape_picapoll_blanco
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_white
+    valid_from: 1900-01-01
+  - subject_id: n_grape_parellada
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_white
+    valid_from: 1900-01-01
+  - subject_id: n_grape_trepat
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_black
+    valid_from: 1900-01-01
+  - subject_id: n_grape_palomino
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_white
+    valid_from: 1900-01-01
+  - subject_id: n_grape_beba
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_white
+    valid_from: 1900-01-01
+  - subject_id: n_grape_perruno
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_white
+    valid_from: 1900-01-01
+  - subject_id: n_grape_vigiriega
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_white
+    valid_from: 1900-01-01
+  - subject_id: n_grape_albarino
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_white
+    valid_from: 1900-01-01
+  - subject_id: n_grape_treixadura
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_white
+    valid_from: 1900-01-01
+  - subject_id: n_grape_loureiro
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_white
+    valid_from: 1900-01-01
+  - subject_id: n_grape_caino_blanco
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_white
+    valid_from: 1900-01-01
+  - subject_id: n_grape_torrontes_galicia
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_white
+    valid_from: 1900-01-01
+  - subject_id: n_grape_godello
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_white
+    valid_from: 1900-01-01
+  - subject_id: n_grape_ratino_gallega
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_white
+    valid_from: 1900-01-01
+  - subject_id: n_grape_caino_tinto
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_black
+    valid_from: 1900-01-01
+  - subject_id: n_grape_espadeiro
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_black
+    valid_from: 1900-01-01
+  - subject_id: n_grape_loureiro_tinto
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_black
+    valid_from: 1900-01-01
+  - subject_id: n_grape_souson
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_black
+    valid_from: 1900-01-01
+  - subject_id: n_grape_mencia
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_black
+    valid_from: 1900-01-01
+  - subject_id: n_grape_brancellao
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_black
+    valid_from: 1900-01-01
+  - subject_id: n_grape_pedral
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_black
+    valid_from: 1900-01-01
+  - subject_id: n_grape_castanal
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_black
+    valid_from: 1900-01-01
+knowledge_items:
+  - id: ki_es_map_rioja_tempranillo
+    subject_id: n_geo_rioja
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_tempranillo
+    domain_id: geography
+    assertion_text: Rioja permits Tempranillo under its current authorised grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_rioja_grenache
+    subject_id: n_geo_rioja
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_grenache
+    domain_id: geography
+    assertion_text: Rioja permits Grenache under its current authorised grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_rioja_graciano
+    subject_id: n_geo_rioja
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_graciano
+    domain_id: geography
+    assertion_text: Rioja permits Graciano under its current authorised grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_rioja_carignan
+    subject_id: n_geo_rioja
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_carignan
+    domain_id: geography
+    assertion_text: Rioja permits Mazuelo (Carignan) under its current authorised
+      grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_rioja_maturana_tinta
+    subject_id: n_geo_rioja
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_maturana_tinta
+    domain_id: geography
+    assertion_text: Rioja permits Maturana Tinta under its current authorised
+      grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_rioja_macabeo
+    subject_id: n_geo_rioja
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_macabeo
+    domain_id: geography
+    assertion_text: Rioja permits Viura (Macabeo) under its current authorised
+      grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_rioja_grenache_blanc
+    subject_id: n_geo_rioja
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_grenache_blanc
+    domain_id: geography
+    assertion_text: Rioja permits Grenache Blanc under its current authorised
+      grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_rioja_alarije
+    subject_id: n_geo_rioja
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_alarije
+    domain_id: geography
+    assertion_text: Rioja permits Malvasía Riojana (Alarije) under its current
+      authorised grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_rioja_tempranillo_blanco
+    subject_id: n_geo_rioja
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_tempranillo_blanco
+    domain_id: geography
+    assertion_text: Rioja permits Tempranillo Blanco under its current authorised
+      grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_rioja_maturana_blanca
+    subject_id: n_geo_rioja
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_maturana_blanca
+    domain_id: geography
+    assertion_text: Rioja permits Maturana Blanca under its current authorised
+      grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_rioja_albillo_mayor
+    subject_id: n_geo_rioja
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_albillo_mayor
+    domain_id: geography
+    assertion_text: Rioja permits Turruntés (Albillo Mayor) under its current
+      authorised grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_rioja_chardonnay
+    subject_id: n_geo_rioja
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_chardonnay
+    domain_id: geography
+    assertion_text: Rioja permits Chardonnay under its current authorised grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_rioja_sauvignon_blanc
+    subject_id: n_geo_rioja
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_sauvignon_blanc
+    domain_id: geography
+    assertion_text: Rioja permits Sauvignon Blanc under its current authorised
+      grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_rioja_verdejo
+    subject_id: n_geo_rioja
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_verdejo
+    domain_id: geography
+    assertion_text: Rioja permits Verdejo under its current authorised grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_ribera_del_duero_tempranillo
+    subject_id: n_geo_ribera_del_duero
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_tempranillo
+    domain_id: geography
+    assertion_text: Ribera del Duero permits Tinto Fino / Tinta del País
+      (Tempranillo) under its current authorised grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_ribera_del_duero_cabernet_sauvignon
+    subject_id: n_geo_ribera_del_duero
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_cabernet_sauvignon
+    domain_id: geography
+    assertion_text: Ribera del Duero permits Cabernet Sauvignon under its current
+      authorised grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_ribera_del_duero_grenache
+    subject_id: n_geo_ribera_del_duero
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_grenache
+    domain_id: geography
+    assertion_text: Ribera del Duero permits Grenache under its current authorised
+      grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_ribera_del_duero_malbec
+    subject_id: n_geo_ribera_del_duero
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_malbec
+    domain_id: geography
+    assertion_text: Ribera del Duero permits Malbec under its current authorised
+      grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_ribera_del_duero_merlot
+    subject_id: n_geo_ribera_del_duero
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_merlot
+    domain_id: geography
+    assertion_text: Ribera del Duero permits Merlot under its current authorised
+      grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_ribera_del_duero_albillo_mayor
+    subject_id: n_geo_ribera_del_duero
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_albillo_mayor
+    domain_id: geography
+    assertion_text: Ribera del Duero permits Albillo Mayor under its current
+      authorised grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_ribera_del_duero_alarije
+    subject_id: n_geo_ribera_del_duero
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_alarije
+    domain_id: geography
+    assertion_text: Pirulés (Alarije) is permitted only as interplanted vines in
+      vineyard plots planted before 21 July 1982 where the generally authorised
+      varieties predominate for Ribera del Duero.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_ribera_del_duero_pirule_jaen
+    subject_id: n_geo_ribera_del_duero
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_pirule_jaen
+    domain_id: geography
+    assertion_text: Pirulé (Jaén) is permitted only as interplanted vines in
+      vineyard plots planted before 21 July 1982 where the generally authorised
+      varieties predominate for Ribera del Duero.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+    mcq_disabled: true
+  - id: ki_es_map_ribera_del_duero_bobal
+    subject_id: n_geo_ribera_del_duero
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_bobal
+    domain_id: geography
+    assertion_text: Valenciana (Bobal) is permitted only as interplanted vines in
+      vineyard plots planted before 21 July 1982 where the generally authorised
+      varieties predominate for Ribera del Duero.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_ribera_del_duero_alicante_bouschet
+    subject_id: n_geo_ribera_del_duero
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_alicante_bouschet
+    domain_id: geography
+    assertion_text: Garnacha Tintorera (Alicante Bouschet) is permitted only as
+      interplanted vines in vineyard plots planted before 21 July 1982 where the
+      generally authorised varieties predominate for Ribera del Duero.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_ribera_del_duero_chasselas
+    subject_id: n_geo_ribera_del_duero
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_chasselas
+    domain_id: geography
+    assertion_text: Chasselas Doré is permitted only as interplanted vines in
+      vineyard plots planted before 21 July 1982 where the generally authorised
+      varieties predominate for Ribera del Duero.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_ribera_del_duero_mourvedre
+    subject_id: n_geo_ribera_del_duero
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_mourvedre
+    domain_id: geography
+    assertion_text: Monastrell (Mourvèdre) is permitted only as interplanted vines
+      in vineyard plots planted before 21 July 1982 where the generally
+      authorised varieties predominate for Ribera del Duero.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_rias_baixas_albarino
+    subject_id: n_geo_rias_baixas
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_albarino
+    domain_id: geography
+    assertion_text: Rías Baixas permits Albariño under its current authorised
+      grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_rias_baixas_treixadura
+    subject_id: n_geo_rias_baixas
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_treixadura
+    domain_id: geography
+    assertion_text: Rías Baixas permits Treixadura under its current authorised
+      grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_rias_baixas_loureiro
+    subject_id: n_geo_rias_baixas
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_loureiro
+    domain_id: geography
+    assertion_text: Rías Baixas permits Loureira / Loureiro blanco (Loureiro) under
+      its current authorised grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_rias_baixas_caino_blanco
+    subject_id: n_geo_rias_baixas
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_caino_blanco
+    domain_id: geography
+    assertion_text: Rías Baixas permits Caíño Blanco under its current authorised
+      grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_rias_baixas_torrontes_galicia
+    subject_id: n_geo_rias_baixas
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_torrontes_galicia
+    domain_id: geography
+    assertion_text: Rías Baixas permits Torrontés (Galicia) under its current
+      authorised grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_rias_baixas_godello
+    subject_id: n_geo_rias_baixas
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_godello
+    domain_id: geography
+    assertion_text: Rías Baixas permits Godello under its current authorised
+      grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_rias_baixas_ratino_gallega
+    subject_id: n_geo_rias_baixas
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_ratino_gallega
+    domain_id: geography
+    assertion_text: Rías Baixas permits Ratiño Gallega under its current authorised
+      grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_rias_baixas_caino_tinto
+    subject_id: n_geo_rias_baixas
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_caino_tinto
+    domain_id: geography
+    assertion_text: Rías Baixas permits Caíño Tinto under its current authorised
+      grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_rias_baixas_espadeiro
+    subject_id: n_geo_rias_baixas
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_espadeiro
+    domain_id: geography
+    assertion_text: Rías Baixas permits Espadeiro under its current authorised
+      grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_rias_baixas_loureiro_tinto
+    subject_id: n_geo_rias_baixas
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_loureiro_tinto
+    domain_id: geography
+    assertion_text: Rías Baixas permits Loureiro Tinto under its current authorised
+      grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_rias_baixas_souson
+    subject_id: n_geo_rias_baixas
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_souson
+    domain_id: geography
+    assertion_text: Rías Baixas permits Sousón under its current authorised grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_rias_baixas_mencia
+    subject_id: n_geo_rias_baixas
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_mencia
+    domain_id: geography
+    assertion_text: Rías Baixas permits Mencía under its current authorised grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_rias_baixas_brancellao
+    subject_id: n_geo_rias_baixas
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_brancellao
+    domain_id: geography
+    assertion_text: Rías Baixas permits Brancellao under its current authorised
+      grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_rias_baixas_pedral
+    subject_id: n_geo_rias_baixas
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_pedral
+    domain_id: geography
+    assertion_text: Rías Baixas permits Pedral under its current authorised grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_rias_baixas_castanal
+    subject_id: n_geo_rias_baixas
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_castanal
+    domain_id: geography
+    assertion_text: Rías Baixas permits Castañal under its current authorised
+      grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_rueda_verdejo
+    subject_id: n_geo_rueda
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_verdejo
+    domain_id: geography
+    assertion_text: Rueda permits Verdejo under its current authorised grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_rueda_sauvignon_blanc
+    subject_id: n_geo_rueda
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_sauvignon_blanc
+    domain_id: geography
+    assertion_text: Rueda permits Sauvignon Blanc under its current authorised
+      grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_rueda_macabeo
+    subject_id: n_geo_rueda
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_macabeo
+    domain_id: geography
+    assertion_text: Rueda permits Viura (Macabeo) under its current authorised
+      grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_rueda_palomino_fino
+    subject_id: n_geo_rueda
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_palomino_fino
+    domain_id: geography
+    assertion_text: Palomino Fino is permitted from existing vineyards; new
+      plantings of this variety are not authorised for Rueda.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_rueda_chardonnay
+    subject_id: n_geo_rueda
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_chardonnay
+    domain_id: geography
+    assertion_text: Rueda permits Chardonnay under its current authorised grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_rueda_viognier
+    subject_id: n_geo_rueda
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_viognier
+    domain_id: geography
+    assertion_text: Rueda permits Viognier under its current authorised grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_rueda_riesling
+    subject_id: n_geo_rueda
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_riesling
+    domain_id: geography
+    assertion_text: Rueda permits Riesling under its current authorised grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_rueda_grenache_blanc
+    subject_id: n_geo_rueda
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_grenache_blanc
+    domain_id: geography
+    assertion_text: Rueda permits Grenache Blanc under its current authorised
+      grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_rueda_muscat_blanc_a_petits_grains
+    subject_id: n_geo_rueda
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_muscat_blanc_a_petits_grains
+    domain_id: geography
+    assertion_text: Rueda permits Muscat Blanc à Petits Grains under its current
+      authorised grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_rueda_muscat_of_alexandria
+    subject_id: n_geo_rueda
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_muscat_of_alexandria
+    domain_id: geography
+    assertion_text: Rueda permits Muscat of Alexandria under its current authorised
+      grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_rueda_gewurztraminer
+    subject_id: n_geo_rueda
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_gewurztraminer
+    domain_id: geography
+    assertion_text: Rueda permits Gewürztraminer under its current authorised
+      grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+    mcq_disabled: true
+  - id: ki_es_map_rueda_tempranillo
+    subject_id: n_geo_rueda
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_tempranillo
+    domain_id: geography
+    assertion_text: Rueda permits Tempranillo under its current authorised grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_rueda_cabernet_sauvignon
+    subject_id: n_geo_rueda
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_cabernet_sauvignon
+    domain_id: geography
+    assertion_text: Rueda permits Cabernet Sauvignon under its current authorised
+      grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_rueda_merlot
+    subject_id: n_geo_rueda
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_merlot
+    domain_id: geography
+    assertion_text: Rueda permits Merlot under its current authorised grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_rueda_grenache
+    subject_id: n_geo_rueda
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_grenache
+    domain_id: geography
+    assertion_text: Rueda permits Grenache under its current authorised grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_rueda_syrah
+    subject_id: n_geo_rueda
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_syrah
+    domain_id: geography
+    assertion_text: Rueda permits Syrah under its current authorised grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_rueda_cenicienta
+    subject_id: n_geo_rueda
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_cenicienta
+    domain_id: geography
+    assertion_text: Rueda permits Cenicienta under its current authorised grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_rueda_brunal
+    subject_id: n_geo_rueda
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_brunal
+    domain_id: geography
+    assertion_text: Rueda permits Bruñal under its current authorised grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_toro_tempranillo
+    subject_id: n_geo_toro
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_tempranillo
+    domain_id: geography
+    assertion_text: Toro permits Tinta de Toro (Tempranillo) under its current
+      authorised grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_toro_grenache
+    subject_id: n_geo_toro
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_grenache
+    domain_id: geography
+    assertion_text: Toro permits Grenache under its current authorised grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_toro_dona_blanca
+    subject_id: n_geo_toro
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_dona_blanca
+    domain_id: geography
+    assertion_text: Toro permits Malvasía Castellana (Doña Blanca) under its current
+      authorised grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_toro_verdejo
+    subject_id: n_geo_toro
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_verdejo
+    domain_id: geography
+    assertion_text: Toro permits Verdejo under its current authorised grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_toro_muscat_blanc_a_petits_grains
+    subject_id: n_geo_toro
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_muscat_blanc_a_petits_grains
+    domain_id: geography
+    assertion_text: Toro permits Muscat Blanc à Petits Grains under its current
+      authorised grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_toro_albillo_real
+    subject_id: n_geo_toro
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_albillo_real
+    domain_id: geography
+    assertion_text: Toro permits Albillo Real under its current authorised grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_priorat_grenache
+    subject_id: n_geo_priorat
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_grenache
+    domain_id: geography
+    assertion_text: Priorat permits Grenache under its current authorised grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_priorat_carignan
+    subject_id: n_geo_priorat
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_carignan
+    domain_id: geography
+    assertion_text: Priorat permits Cariñena / Mazuela / Samsó (Carignan) under its
+      current authorised grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_priorat_garnacha_peluda
+    subject_id: n_geo_priorat
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_garnacha_peluda
+    domain_id: geography
+    assertion_text: Priorat permits Garnacha Peluda under its current authorised
+      grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_priorat_cabernet_sauvignon
+    subject_id: n_geo_priorat
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_cabernet_sauvignon
+    domain_id: geography
+    assertion_text: Priorat permits Cabernet Sauvignon under its current authorised
+      grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_priorat_cabernet_franc
+    subject_id: n_geo_priorat
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_cabernet_franc
+    domain_id: geography
+    assertion_text: Priorat permits Cabernet Franc under its current authorised
+      grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_priorat_tempranillo
+    subject_id: n_geo_priorat
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_tempranillo
+    domain_id: geography
+    assertion_text: Priorat permits Ull de Llebre (Tempranillo) under its current
+      authorised grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_priorat_pinot_noir
+    subject_id: n_geo_priorat
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_pinot_noir
+    domain_id: geography
+    assertion_text: Priorat permits Pinot Noir under its current authorised grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_priorat_merlot
+    subject_id: n_geo_priorat
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_merlot
+    domain_id: geography
+    assertion_text: Priorat permits Merlot under its current authorised grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_priorat_syrah
+    subject_id: n_geo_priorat
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_syrah
+    domain_id: geography
+    assertion_text: Priorat permits Syrah under its current authorised grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_priorat_picapoll_tinto
+    subject_id: n_geo_priorat
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_picapoll_tinto
+    domain_id: geography
+    assertion_text: Priorat permits Picapoll Tinto under its current authorised
+      grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_priorat_grenache_blanc
+    subject_id: n_geo_priorat
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_grenache_blanc
+    domain_id: geography
+    assertion_text: Priorat permits Grenache Blanc under its current authorised
+      grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_priorat_macabeo
+    subject_id: n_geo_priorat
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_macabeo
+    domain_id: geography
+    assertion_text: Priorat permits Macabeo under its current authorised grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_priorat_pedro_ximenez
+    subject_id: n_geo_priorat
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_pedro_ximenez
+    domain_id: geography
+    assertion_text: Priorat permits Pedro Ximénez under its current authorised
+      grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_priorat_chenin_blanc
+    subject_id: n_geo_priorat
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_chenin_blanc
+    domain_id: geography
+    assertion_text: Priorat permits Chenin Blanc under its current authorised
+      grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_priorat_muscat_of_alexandria
+    subject_id: n_geo_priorat
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_muscat_of_alexandria
+    domain_id: geography
+    assertion_text: Priorat permits Muscat of Alexandria under its current
+      authorised grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_priorat_muscat_blanc_a_petits_grains
+    subject_id: n_geo_priorat
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_muscat_blanc_a_petits_grains
+    domain_id: geography
+    assertion_text: Priorat permits Muscat Blanc à Petits Grains under its current
+      authorised grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_priorat_xarello
+    subject_id: n_geo_priorat
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_xarello
+    domain_id: geography
+    assertion_text: Priorat permits Pansal (Xarel·lo) under its current authorised
+      grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_priorat_picapoll_blanco
+    subject_id: n_geo_priorat
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_picapoll_blanco
+    domain_id: geography
+    assertion_text: Priorat permits Picapoll Blanco under its current authorised
+      grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_priorat_viognier
+    subject_id: n_geo_priorat
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_viognier
+    domain_id: geography
+    assertion_text: Priorat permits Viognier under its current authorised grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_cava_macabeo
+    subject_id: n_geo_cava
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_macabeo
+    domain_id: geography
+    assertion_text: Cava permits Macabeo under its current authorised grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_cava_xarello
+    subject_id: n_geo_cava
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_xarello
+    domain_id: geography
+    assertion_text: Cava permits Xarel·lo under its current authorised grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_cava_parellada
+    subject_id: n_geo_cava
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_parellada
+    domain_id: geography
+    assertion_text: Cava permits Parellada under its current authorised grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_cava_alarije
+    subject_id: n_geo_cava
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_alarije
+    domain_id: geography
+    assertion_text: Cava permits Subirat Parent / Malvasía Riojana (Alarije) under
+      its current authorised grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_cava_chardonnay
+    subject_id: n_geo_cava
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_chardonnay
+    domain_id: geography
+    assertion_text: Cava permits Chardonnay under its current authorised grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_cava_grenache
+    subject_id: n_geo_cava
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_grenache
+    domain_id: geography
+    assertion_text: Cava permits Grenache under its current authorised grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_cava_mourvedre
+    subject_id: n_geo_cava
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_mourvedre
+    domain_id: geography
+    assertion_text: Cava permits Monastrell (Mourvèdre) under its current authorised
+      grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_cava_pinot_noir
+    subject_id: n_geo_cava
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_pinot_noir
+    domain_id: geography
+    assertion_text: Cava permits Pinot Noir under its current authorised grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_cava_trepat
+    subject_id: n_geo_cava
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_trepat
+    domain_id: geography
+    assertion_text: Trepat is permitted only for rosé wines for Cava.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_jerez_palomino
+    subject_id: n_geo_jerez
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_palomino
+    domain_id: geography
+    assertion_text: Jerez-Xérès-Sherry permits Palomino under its current authorised
+      grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_jerez_palomino_fino
+    subject_id: n_geo_jerez
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_palomino_fino
+    domain_id: geography
+    assertion_text: Jerez-Xérès-Sherry permits Listán Blanco / Palomino Fino under
+      its current authorised grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_jerez_pedro_ximenez
+    subject_id: n_geo_jerez
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_pedro_ximenez
+    domain_id: geography
+    assertion_text: Jerez-Xérès-Sherry permits Pedro Ximénez under its current
+      authorised grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_jerez_muscat_of_alexandria
+    subject_id: n_geo_jerez
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_muscat_of_alexandria
+    domain_id: geography
+    assertion_text: Jerez-Xérès-Sherry permits Muscat of Alexandria under its
+      current authorised grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_jerez_beba
+    subject_id: n_geo_jerez
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_beba
+    domain_id: geography
+    assertion_text: Jerez-Xérès-Sherry permits Beba under its current authorised
+      grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_jerez_perruno
+    subject_id: n_geo_jerez
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_perruno
+    domain_id: geography
+    assertion_text: Jerez-Xérès-Sherry permits Perruno under its current authorised
+      grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_map_jerez_vigiriega
+    subject_id: n_geo_jerez
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_vigiriega
+    domain_id: geography
+    assertion_text: Jerez-Xérès-Sherry permits Vigiriega under its current
+      authorised grape-variety list.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+  - id: ki_es_berry_tempranillo
+    subject_id: n_grape_tempranillo
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_black
+    domain_id: viticulture
+    assertion_text: Tempranillo has black berries.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+    mcq_disabled: true
+  - id: ki_es_berry_graciano
+    subject_id: n_grape_graciano
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_black
+    domain_id: viticulture
+    assertion_text: Graciano has black berries.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+    mcq_disabled: true
+  - id: ki_es_berry_carignan
+    subject_id: n_grape_carignan
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_black
+    domain_id: viticulture
+    assertion_text: Carignan has black berries.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+    mcq_disabled: true
+  - id: ki_es_berry_macabeo
+    subject_id: n_grape_macabeo
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_white
+    domain_id: viticulture
+    assertion_text: Macabeo has white berries.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+    mcq_disabled: true
+  - id: ki_es_berry_alarije
+    subject_id: n_grape_alarije
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_white
+    domain_id: viticulture
+    assertion_text: Alarije has white berries.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+    mcq_disabled: true
+  - id: ki_es_berry_tempranillo_blanco
+    subject_id: n_grape_tempranillo_blanco
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_white
+    domain_id: viticulture
+    assertion_text: Tempranillo Blanco has white berries.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+    mcq_disabled: true
+  - id: ki_es_berry_maturana_blanca
+    subject_id: n_grape_maturana_blanca
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_white
+    domain_id: viticulture
+    assertion_text: Maturana Blanca has white berries.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+    mcq_disabled: true
+  - id: ki_es_berry_albillo_mayor
+    subject_id: n_grape_albillo_mayor
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_white
+    domain_id: viticulture
+    assertion_text: Albillo Mayor has white berries.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+    mcq_disabled: true
+  - id: ki_es_berry_verdejo
+    subject_id: n_grape_verdejo
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_white
+    domain_id: viticulture
+    assertion_text: Verdejo has white berries.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+    mcq_disabled: true
+  - id: ki_es_berry_bobal
+    subject_id: n_grape_bobal
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_black
+    domain_id: viticulture
+    assertion_text: Bobal has black berries.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+    mcq_disabled: true
+  - id: ki_es_berry_alicante_bouschet
+    subject_id: n_grape_alicante_bouschet
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_black
+    domain_id: viticulture
+    assertion_text: Alicante Bouschet has black berries.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+    mcq_disabled: true
+  - id: ki_es_berry_palomino_fino
+    subject_id: n_grape_palomino_fino
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_white
+    domain_id: viticulture
+    assertion_text: Palomino Fino has white berries.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+    mcq_disabled: true
+  - id: ki_es_berry_pedro_ximenez
+    subject_id: n_grape_pedro_ximenez
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_white
+    domain_id: viticulture
+    assertion_text: Pedro Ximénez has white berries.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+    mcq_disabled: true
+  - id: ki_es_berry_xarello
+    subject_id: n_grape_xarello
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_white
+    domain_id: viticulture
+    assertion_text: Xarel·lo has white berries.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+    mcq_disabled: true
+  - id: ki_es_berry_maturana_tinta
+    subject_id: n_grape_maturana_tinta
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_black
+    domain_id: viticulture
+    assertion_text: Maturana Tinta has black berries.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+    mcq_disabled: true
+  - id: ki_es_berry_gewurztraminer
+    subject_id: n_grape_gewurztraminer
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_pink
+    domain_id: viticulture
+    assertion_text: Gewürztraminer has pink berries.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+    mcq_disabled: true
+  - id: ki_es_berry_muscat_of_alexandria
+    subject_id: n_grape_muscat_of_alexandria
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_white
+    domain_id: viticulture
+    assertion_text: Muscat of Alexandria has white berries.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+    mcq_disabled: true
+  - id: ki_es_berry_cenicienta
+    subject_id: n_grape_cenicienta
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_black
+    domain_id: viticulture
+    assertion_text: Cenicienta has black berries.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+    mcq_disabled: true
+  - id: ki_es_berry_brunal
+    subject_id: n_grape_brunal
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_black
+    domain_id: viticulture
+    assertion_text: Bruñal has black berries.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+    mcq_disabled: true
+  - id: ki_es_berry_dona_blanca
+    subject_id: n_grape_dona_blanca
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_white
+    domain_id: viticulture
+    assertion_text: Doña Blanca has white berries.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+    mcq_disabled: true
+  - id: ki_es_berry_albillo_real
+    subject_id: n_grape_albillo_real
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_white
+    domain_id: viticulture
+    assertion_text: Albillo Real has white berries.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+    mcq_disabled: true
+  - id: ki_es_berry_garnacha_peluda
+    subject_id: n_grape_garnacha_peluda
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_black
+    domain_id: viticulture
+    assertion_text: Garnacha Peluda has black berries.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+    mcq_disabled: true
+  - id: ki_es_berry_picapoll_tinto
+    subject_id: n_grape_picapoll_tinto
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_black
+    domain_id: viticulture
+    assertion_text: Picapoll Tinto has black berries.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+    mcq_disabled: true
+  - id: ki_es_berry_picapoll_blanco
+    subject_id: n_grape_picapoll_blanco
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_white
+    domain_id: viticulture
+    assertion_text: Picapoll Blanco has white berries.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+    mcq_disabled: true
+  - id: ki_es_berry_parellada
+    subject_id: n_grape_parellada
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_white
+    domain_id: viticulture
+    assertion_text: Parellada has white berries.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+    mcq_disabled: true
+  - id: ki_es_berry_trepat
+    subject_id: n_grape_trepat
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_black
+    domain_id: viticulture
+    assertion_text: Trepat has black berries.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+    mcq_disabled: true
+  - id: ki_es_berry_palomino
+    subject_id: n_grape_palomino
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_white
+    domain_id: viticulture
+    assertion_text: Palomino has white berries.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+    mcq_disabled: true
+  - id: ki_es_berry_beba
+    subject_id: n_grape_beba
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_white
+    domain_id: viticulture
+    assertion_text: Beba has white berries.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+    mcq_disabled: true
+  - id: ki_es_berry_perruno
+    subject_id: n_grape_perruno
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_white
+    domain_id: viticulture
+    assertion_text: Perruno has white berries.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+    mcq_disabled: true
+  - id: ki_es_berry_vigiriega
+    subject_id: n_grape_vigiriega
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_white
+    domain_id: viticulture
+    assertion_text: Vigiriega has white berries.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+    mcq_disabled: true
+  - id: ki_es_berry_albarino
+    subject_id: n_grape_albarino
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_white
+    domain_id: viticulture
+    assertion_text: Albariño has white berries.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+    mcq_disabled: true
+  - id: ki_es_berry_treixadura
+    subject_id: n_grape_treixadura
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_white
+    domain_id: viticulture
+    assertion_text: Treixadura has white berries.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+    mcq_disabled: true
+  - id: ki_es_berry_loureiro
+    subject_id: n_grape_loureiro
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_white
+    domain_id: viticulture
+    assertion_text: Loureiro has white berries.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+    mcq_disabled: true
+  - id: ki_es_berry_caino_blanco
+    subject_id: n_grape_caino_blanco
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_white
+    domain_id: viticulture
+    assertion_text: Caíño Blanco has white berries.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+    mcq_disabled: true
+  - id: ki_es_berry_torrontes_galicia
+    subject_id: n_grape_torrontes_galicia
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_white
+    domain_id: viticulture
+    assertion_text: Torrontés (Galicia) has white berries.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+    mcq_disabled: true
+  - id: ki_es_berry_godello
+    subject_id: n_grape_godello
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_white
+    domain_id: viticulture
+    assertion_text: Godello has white berries.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+    mcq_disabled: true
+  - id: ki_es_berry_ratino_gallega
+    subject_id: n_grape_ratino_gallega
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_white
+    domain_id: viticulture
+    assertion_text: Ratiño Gallega has white berries.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+    mcq_disabled: true
+  - id: ki_es_berry_caino_tinto
+    subject_id: n_grape_caino_tinto
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_black
+    domain_id: viticulture
+    assertion_text: Caíño Tinto has black berries.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+    mcq_disabled: true
+  - id: ki_es_berry_espadeiro
+    subject_id: n_grape_espadeiro
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_black
+    domain_id: viticulture
+    assertion_text: Espadeiro has black berries.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+    mcq_disabled: true
+  - id: ki_es_berry_loureiro_tinto
+    subject_id: n_grape_loureiro_tinto
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_black
+    domain_id: viticulture
+    assertion_text: Loureiro Tinto has black berries.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+    mcq_disabled: true
+  - id: ki_es_berry_souson
+    subject_id: n_grape_souson
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_black
+    domain_id: viticulture
+    assertion_text: Sousón has black berries.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+    mcq_disabled: true
+  - id: ki_es_berry_mencia
+    subject_id: n_grape_mencia
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_black
+    domain_id: viticulture
+    assertion_text: Mencía has black berries.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+    mcq_disabled: true
+  - id: ki_es_berry_brancellao
+    subject_id: n_grape_brancellao
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_black
+    domain_id: viticulture
+    assertion_text: Brancellao has black berries.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+    mcq_disabled: true
+  - id: ki_es_berry_pedral
+    subject_id: n_grape_pedral
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_black
+    domain_id: viticulture
+    assertion_text: Pedral has black berries.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+    mcq_disabled: true
+  - id: ki_es_berry_castanal
+    subject_id: n_grape_castanal
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_black
+    domain_id: viticulture
+    assertion_text: Castañal has black berries.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T17:29:14.000Z
+    mcq_disabled: true
+certification_knowledge_mappings:
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_rioja_tempranillo
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_rioja_tempranillo
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_rioja_grenache
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_rioja_grenache
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_rioja_graciano
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_rioja_graciano
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_rioja_carignan
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_rioja_carignan
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_rioja_maturana_tinta
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_rioja_maturana_tinta
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_rioja_macabeo
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_rioja_macabeo
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_rioja_grenache_blanc
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_rioja_grenache_blanc
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_rioja_alarije
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_rioja_alarije
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_rioja_tempranillo_blanco
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_rioja_tempranillo_blanco
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_rioja_maturana_blanca
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_rioja_maturana_blanca
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_rioja_albillo_mayor
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_rioja_albillo_mayor
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_rioja_chardonnay
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_rioja_chardonnay
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_rioja_sauvignon_blanc
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_rioja_sauvignon_blanc
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_rioja_verdejo
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_rioja_verdejo
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_ribera_del_duero_tempranillo
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_ribera_del_duero_tempranillo
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_ribera_del_duero_cabernet_sauvignon
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_ribera_del_duero_cabernet_sauvignon
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_ribera_del_duero_grenache
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_ribera_del_duero_grenache
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_ribera_del_duero_malbec
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_ribera_del_duero_malbec
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_ribera_del_duero_merlot
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_ribera_del_duero_merlot
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_ribera_del_duero_albillo_mayor
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_ribera_del_duero_albillo_mayor
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_ribera_del_duero_alarije
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_ribera_del_duero_alarije
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_ribera_del_duero_pirule_jaen
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_ribera_del_duero_pirule_jaen
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_ribera_del_duero_bobal
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_ribera_del_duero_bobal
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_ribera_del_duero_alicante_bouschet
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_ribera_del_duero_alicante_bouschet
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_ribera_del_duero_chasselas
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_ribera_del_duero_chasselas
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_ribera_del_duero_mourvedre
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_ribera_del_duero_mourvedre
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_rias_baixas_albarino
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_rias_baixas_albarino
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_rias_baixas_treixadura
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_rias_baixas_treixadura
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_rias_baixas_loureiro
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_rias_baixas_loureiro
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_rias_baixas_caino_blanco
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_rias_baixas_caino_blanco
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_rias_baixas_torrontes_galicia
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_rias_baixas_torrontes_galicia
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_rias_baixas_godello
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_rias_baixas_godello
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_rias_baixas_ratino_gallega
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_rias_baixas_ratino_gallega
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_rias_baixas_caino_tinto
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_rias_baixas_caino_tinto
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_rias_baixas_espadeiro
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_rias_baixas_espadeiro
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_rias_baixas_loureiro_tinto
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_rias_baixas_loureiro_tinto
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_rias_baixas_souson
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_rias_baixas_souson
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_rias_baixas_mencia
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_rias_baixas_mencia
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_rias_baixas_brancellao
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_rias_baixas_brancellao
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_rias_baixas_pedral
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_rias_baixas_pedral
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_rias_baixas_castanal
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_rias_baixas_castanal
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_rueda_verdejo
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_rueda_verdejo
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_rueda_sauvignon_blanc
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_rueda_sauvignon_blanc
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_rueda_macabeo
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_rueda_macabeo
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_rueda_palomino_fino
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_rueda_palomino_fino
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_rueda_chardonnay
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_rueda_chardonnay
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_rueda_viognier
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_rueda_viognier
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_rueda_riesling
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_rueda_riesling
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_rueda_grenache_blanc
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_rueda_grenache_blanc
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_rueda_muscat_blanc_a_petits_grains
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_rueda_muscat_blanc_a_petits_grains
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_rueda_muscat_of_alexandria
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_rueda_muscat_of_alexandria
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_rueda_gewurztraminer
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_rueda_gewurztraminer
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_rueda_tempranillo
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_rueda_tempranillo
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_rueda_cabernet_sauvignon
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_rueda_cabernet_sauvignon
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_rueda_merlot
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_rueda_merlot
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_rueda_grenache
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_rueda_grenache
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_rueda_syrah
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_rueda_syrah
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_rueda_cenicienta
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_rueda_cenicienta
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_rueda_brunal
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_rueda_brunal
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_toro_tempranillo
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_toro_tempranillo
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_toro_grenache
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_toro_grenache
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_toro_dona_blanca
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_toro_dona_blanca
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_toro_verdejo
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_toro_verdejo
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_toro_muscat_blanc_a_petits_grains
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_toro_muscat_blanc_a_petits_grains
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_toro_albillo_real
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_toro_albillo_real
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_priorat_grenache
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_priorat_grenache
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_priorat_carignan
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_priorat_carignan
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_priorat_garnacha_peluda
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_priorat_garnacha_peluda
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_priorat_cabernet_sauvignon
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_priorat_cabernet_sauvignon
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_priorat_cabernet_franc
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_priorat_cabernet_franc
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_priorat_tempranillo
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_priorat_tempranillo
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_priorat_pinot_noir
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_priorat_pinot_noir
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_priorat_merlot
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_priorat_merlot
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_priorat_syrah
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_priorat_syrah
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_priorat_picapoll_tinto
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_priorat_picapoll_tinto
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_priorat_grenache_blanc
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_priorat_grenache_blanc
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_priorat_macabeo
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_priorat_macabeo
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_priorat_pedro_ximenez
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_priorat_pedro_ximenez
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_priorat_chenin_blanc
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_priorat_chenin_blanc
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_priorat_muscat_of_alexandria
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_priorat_muscat_of_alexandria
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_priorat_muscat_blanc_a_petits_grains
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_priorat_muscat_blanc_a_petits_grains
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_priorat_xarello
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_priorat_xarello
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_priorat_picapoll_blanco
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_priorat_picapoll_blanco
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_priorat_viognier
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_priorat_viognier
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_cava_macabeo
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_cava_macabeo
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_cava_xarello
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_cava_xarello
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_cava_parellada
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_cava_parellada
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_cava_alarije
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_cava_alarije
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_cava_chardonnay
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_cava_chardonnay
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_cava_grenache
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_cava_grenache
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_cava_mourvedre
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_cava_mourvedre
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_cava_pinot_noir
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_cava_pinot_noir
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_cava_trepat
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_cava_trepat
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_jerez_palomino
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_jerez_palomino
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_jerez_palomino_fino
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_jerez_palomino_fino
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_jerez_pedro_ximenez
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_jerez_pedro_ximenez
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_jerez_muscat_of_alexandria
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_jerez_muscat_of_alexandria
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_jerez_beba
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_jerez_beba
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_jerez_perruno
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_jerez_perruno
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_map_jerez_vigiriega
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_map_jerez_vigiriega
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_berry_tempranillo
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_berry_tempranillo
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_berry_graciano
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_berry_graciano
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_berry_carignan
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_berry_carignan
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_berry_macabeo
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_berry_macabeo
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_berry_alarije
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_berry_alarije
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_berry_tempranillo_blanco
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_berry_tempranillo_blanco
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_berry_maturana_blanca
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_berry_maturana_blanca
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_berry_albillo_mayor
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_berry_albillo_mayor
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_berry_verdejo
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_berry_verdejo
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_berry_bobal
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_berry_bobal
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_berry_alicante_bouschet
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_berry_alicante_bouschet
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_berry_palomino_fino
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_berry_palomino_fino
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_berry_pedro_ximenez
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_berry_pedro_ximenez
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_berry_xarello
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_berry_xarello
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_berry_maturana_tinta
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_berry_maturana_tinta
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_berry_gewurztraminer
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_berry_gewurztraminer
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_berry_muscat_of_alexandria
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_berry_muscat_of_alexandria
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_berry_cenicienta
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_berry_cenicienta
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_berry_brunal
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_berry_brunal
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_berry_dona_blanca
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_berry_dona_blanca
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_berry_albillo_real
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_berry_albillo_real
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_berry_garnacha_peluda
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_berry_garnacha_peluda
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_berry_picapoll_tinto
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_berry_picapoll_tinto
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_berry_picapoll_blanco
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_berry_picapoll_blanco
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_berry_parellada
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_berry_parellada
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_berry_trepat
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_berry_trepat
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_berry_palomino
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_berry_palomino
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_berry_beba
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_berry_beba
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_berry_perruno
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_berry_perruno
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_berry_vigiriega
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_berry_vigiriega
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_berry_albarino
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_berry_albarino
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_berry_treixadura
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_berry_treixadura
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_berry_loureiro
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_berry_loureiro
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_berry_caino_blanco
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_berry_caino_blanco
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_berry_torrontes_galicia
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_berry_torrontes_galicia
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_berry_godello
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_berry_godello
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_berry_ratino_gallega
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_berry_ratino_gallega
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_berry_caino_tinto
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_berry_caino_tinto
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_berry_espadeiro
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_berry_espadeiro
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_berry_loureiro_tinto
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_berry_loureiro_tinto
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_berry_souson
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_berry_souson
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_berry_mencia
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_berry_mencia
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_berry_brancellao
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_berry_brancellao
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_berry_pedral
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_berry_pedral
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_es_berry_castanal
+    importance: tertiary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_es_berry_castanal
+    importance: tertiary
+    minimum_depth: 2
+source_citations:
+  - id: src_es_iberian_rioja_grapes
+    kind: regulator_register
+    title: "Rioja: authorised grape varieties"
+    publisher: Consejo Regulador DOCa Rioja
+    jurisdiction: ES
+    document_identifier: "Current regulator list: 5 red and 9 white varieties"
+    url: https://riojawine.com/es/doca-rioja/variedades-de-uva/
+    accessed_on: 2026-09-26
+  - id: src_es_iberian_ribera_spec
+    kind: legislation
+    title: Pliego de condiciones DOP Ribera del Duero, revision 5
+    publisher: Instituto Tecnológico Agrario de Castilla y León (ITACyL)
+    jurisdiction: ES
+    document_identifier: PDO-ES-A0626; revision 5; §6
+    url: https://www.atlas.itacyl.es/documents/20143/342640/PCC%2BDOP%2BRIBERA%2BDUERO%2B_rev%2B5%2B%281%29.pdf/a1e603c3-0df9-1129-0cd4-02cfa675f3ba?t=1739272997084
+    accessed_on: 2026-09-26
+  - id: src_es_iberian_rias_baixas_spec
+    kind: legislation
+    title: Pliego de condiciones DOP Rías Baixas, July 2024
+    publisher: Axencia Galega da Calidade Alimentaria (AGACAL)
+    jurisdiction: ES
+    document_identifier: July 2024; §6
+    url: https://agacal.xunta.gal/sites/default/files/calidade-alimentaria/vinos/PC_DOP_Rias_Baixas_julio_2024_ESP.pdf
+    accessed_on: 2026-09-26
+  - id: src_es_iberian_rueda_spec
+    kind: legislation
+    title: Pliego de condiciones DOP Rueda, revision 4.1
+    publisher: Instituto Tecnológico Agrario de Castilla y León (ITACyL)
+    jurisdiction: ES
+    document_identifier: PDO-ES-A0889; revision 4.1; current 26-page version; §6
+      excludes suspended Godello
+    url: https://www.itacyl.es/documents/20143/342640/PCC%2BDOP%2BRUEDA_Rev%2B4.1.pdf/1f9d4b81-88a1-6edb-5a5b-ddaf6e16edb4?t=1730195765157
+    accessed_on: 2026-09-26
+  - id: src_es_iberian_toro_spec
+    kind: legislation
+    title: Pliego de condiciones DOP Toro, 3 January 2025
+    publisher: Ministerio de Agricultura, Pesca y Alimentación (MAPA)
+    jurisdiction: ES
+    document_identifier: 3 January 2025; §6
+    url: https://www.mapa.gob.es/dam/mapa/contenido/alimentacion/temas/calidad-agroalimentaria/2017-calidad-diferenciada/nuevo_denominaciones/pliegos-de-condiciones/pliego-condiciones-vinos/dops/toro_2025_01_03.pdf
+    accessed_on: 2026-09-26
+  - id: src_es_iberian_priorat_spec
+    kind: legislation
+    title: Pliego de condiciones DOP Priorat, 6 September 2022
+    publisher: Consell Regulador DOQ Priorat
+    jurisdiction: ES
+    document_identifier: PDO-ES-A1567; 6 September 2022; §6
+    url: https://www.doqpriorat.org/wp-content/uploads/2024/05/priorat_2022_09_06_tcm30-634110.pdf
+    accessed_on: 2026-09-26
+  - id: src_es_iberian_cava_register
+    kind: regulator_register
+    title: "Variedades de uva autorizadas en las Indicaciones Geográficas: Cava"
+    publisher: Ministerio de Agricultura, Pesca y Alimentación (MAPA)
+    jurisdiction: ES
+    document_identifier: Supraautonómico, DOP Cava PDO-ES-A0735; current 45-page register
+    url: https://www.mapa.gob.es/es/dam/jcr:87989633-9fd8-4418-af74-fe6a232e1e67/vitisxccaa.pdf
+    accessed_on: 2026-09-26
+  - id: src_es_iberian_jerez_spec
+    kind: legislation
+    title: Pliego de condiciones DOP Jerez-Xérès-Sherry, 21 May 2026
+    publisher: Consejo Regulador de las DOP Jerez-Xérès-Sherry y Manzanilla-Sanlúcar
+      de Barrameda
+    jurisdiction: ES
+    document_identifier: 21 May 2026; §F
+    url: https://www.sherry.wine/documents/595/21052026_Pliego_Jerez.pdf
+    accessed_on: 2026-09-26
+  - id: src_es_iberian_rioja_turruntes
+    kind: regulator_register
+    title: "Rioja: Turruntés, synonyms"
+    publisher: Consejo Regulador DOCa Rioja
+    jurisdiction: ES
+    document_identifier: "Sinonimias: Albillo Mayor; distinction from Galician
+      Torrontés and Argentine varieties"
+    url: https://riojawine.com/es/doca-rioja/variedades-de-uva/turruntes/
+    accessed_on: 2026-09-26
+  - id: src_es_iberian_rioja_malvasia
+    kind: regulator_register
+    title: "Rioja: Malvasía, synonyms"
+    publisher: Consejo Regulador DOCa Rioja
+    jurisdiction: ES
+    document_identifier: "Sinonimias: Alarije, Rojal"
+    url: https://riojawine.com/es/doca-rioja/variedades-de-uva/malvasia/
+    accessed_on: 2026-09-26
+  - id: src_es_iberian_cava_grapes
+    kind: regulator_register
+    title: "Uvas del Cava: authorised grapes and Subirat Parent synonyms"
+    publisher: Consejo Regulador de la DOP Cava
+    jurisdiction: ES
+    document_identifier: Nine authorised varieties; Subirat Parent (Alarije/Malvasía
+      riojana); Macabeo (Viura)
+    url: https://www.cava.wine/es/ultimas-noticias-articulos/uvas-del-cava-tipos-y-variedades-de-uvas-del-cava/
+    accessed_on: 2026-09-26
+  - id: src_es_iberian_alicante_bouschet
+    kind: government_publication
+    title: "Garnacha tintoreira: grape variety synonyms"
+    publisher: Museo do Viño de Galicia, Xunta de Galicia
+    jurisdiction: ES
+    document_identifier: Variety synonyms include Alicante Henri Bouschet
+    url: https://museovinogalicia.xunta.gal/es/el-vino/uvas-y-vinos-de-galicia/garnacha-tintoreira
+    accessed_on: 2026-09-26
+  - id: src_es_iberian_viticultural_varieties
+    kind: legislation
+    title: "Real Decreto 536/2019: authorised vine varieties and synonyms"
+    publisher: Boletín Oficial del Estado
+    jurisdiction: ES
+    document_identifier: "BOE-A-2019-13412; Annex XIX, Cataluña: Xarello, Cartoixa,
+      Pansal, Pansa Blanca"
+    url: https://www.cava.wine/documents/215/DO_CAVA_2019_RD_536-2019.pdf
+    accessed_on: 2026-09-26
+  - id: src_es_iberian_cava_trepat
+    kind: regulator_register
+    title: "Cava: authorised grape varieties, Trepat restriction"
+    publisher: Consejo Regulador de la DOP Cava
+    jurisdiction: ES
+    document_identifier: "Características del Cava, Variedades: Trepat (solo para rosados)"
+    url: https://www.cava.wine/es/ultimas-noticias-articulos/diferencias-entre-cava-champagne-y-prosecco/
+    accessed_on: 2026-09-26
+  - id: src_iberian_chasselas_synonym
+    kind: legislation
+    title: "Official vine catalogue: Chasselas and Chasselas doré synonyms"
+    publisher: Ministère de l’Agriculture et de l’Alimentation / Légifrance
+    jurisdiction: FR
+    document_identifier: Arrêté du 3 janvier 2019, official catalogue synonyms
+    url: https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000038021324
+    accessed_on: 2026-09-26
+  - id: src_es_berry_tempranillo
+    kind: reference_work
+    title: "Vitis International Variety Catalogue: TEMPRANILLO TINTO"
+    publisher: Julius Kühn-Institut, Institute for Grapevine Breeding Geilweilerhof
+    jurisdiction: DE
+    url: https://www.vivc.de/index.php?r=passport%2Fview&id=12350
+    accessed_on: 2026-09-26
+  - id: src_es_berry_graciano
+    kind: reference_work
+    title: "Vitis International Variety Catalogue: GRACIANO"
+    publisher: Julius Kühn-Institut, Institute for Grapevine Breeding Geilweilerhof
+    jurisdiction: DE
+    url: https://www.vivc.de/index.php?r=passport%2Fview&id=4935
+    accessed_on: 2026-09-26
+  - id: src_es_berry_carignan
+    kind: reference_work
+    title: "Vitis International Variety Catalogue: CARIGNAN NOIR"
+    publisher: Julius Kühn-Institut, Institute for Grapevine Breeding Geilweilerhof
+    jurisdiction: DE
+    url: https://www.vivc.de/index.php?r=passport%2Fview&id=2098
+    accessed_on: 2026-09-26
+  - id: src_es_berry_macabeo
+    kind: reference_work
+    title: "Vitis International Variety Catalogue: VIURA"
+    publisher: Julius Kühn-Institut, Institute for Grapevine Breeding Geilweilerhof
+    jurisdiction: DE
+    url: https://www.vivc.de/index.php?r=passport%2Fview&id=13127
+    accessed_on: 2026-09-26
+  - id: src_es_berry_alarije
+    kind: reference_work
+    title: "Vitis International Variety Catalogue: ALARIJE"
+    publisher: Julius Kühn-Institut, Institute for Grapevine Breeding Geilweilerhof
+    jurisdiction: DE
+    url: https://www.vivc.de/index.php?r=passport%2Fview&id=213
+    accessed_on: 2026-09-26
+  - id: src_es_berry_tempranillo_blanco
+    kind: reference_work
+    title: "Vitis International Variety Catalogue: TEMPRANILLO BLANCO"
+    publisher: Julius Kühn-Institut, Institute for Grapevine Breeding Geilweilerhof
+    jurisdiction: DE
+    url: https://www.vivc.de/index.php?r=passport%2Fview&id=25057
+    accessed_on: 2026-09-26
+  - id: src_es_berry_maturana_blanca
+    kind: reference_work
+    title: "Vitis International Variety Catalogue: MATURANA BLANCA"
+    publisher: Julius Kühn-Institut, Institute for Grapevine Breeding Geilweilerhof
+    jurisdiction: DE
+    url: https://www.vivc.de/index.php?r=passport%2Fview&id=7518
+    accessed_on: 2026-09-26
+  - id: src_es_berry_albillo_mayor
+    kind: reference_work
+    title: "Vitis International Variety Catalogue: ALBILLO MAYOR"
+    publisher: Julius Kühn-Institut, Institute for Grapevine Breeding Geilweilerhof
+    jurisdiction: DE
+    url: https://www.vivc.de/index.php?r=passport%2Fview&id=12581
+    accessed_on: 2026-09-26
+  - id: src_es_berry_verdejo
+    kind: reference_work
+    title: "Vitis International Variety Catalogue: VERDEJO BLANCO"
+    publisher: Julius Kühn-Institut, Institute for Grapevine Breeding Geilweilerhof
+    jurisdiction: DE
+    url: https://www.vivc.de/index.php?r=passport%2Fview&id=12949
+    accessed_on: 2026-09-26
+  - id: src_es_berry_bobal
+    kind: reference_work
+    title: "Vitis International Variety Catalogue: BOBAL"
+    publisher: Julius Kühn-Institut, Institute for Grapevine Breeding Geilweilerhof
+    jurisdiction: DE
+    url: https://www.vivc.de/index.php?r=passport%2Fview&id=1493
+    accessed_on: 2026-09-26
+  - id: src_es_berry_alicante_bouschet
+    kind: reference_work
+    title: "Vitis International Variety Catalogue: ALICANTE HENRI BOUSCHET"
+    publisher: Julius Kühn-Institut, Institute for Grapevine Breeding Geilweilerhof
+    jurisdiction: DE
+    url: https://www.vivc.de/index.php?r=passport%2Fview&id=304
+    accessed_on: 2026-09-26
+  - id: src_es_berry_palomino_fino
+    kind: reference_work
+    title: "Vitis International Variety Catalogue: PALOMINO FINO"
+    publisher: Julius Kühn-Institut, Institute for Grapevine Breeding Geilweilerhof
+    jurisdiction: DE
+    url: https://www.vivc.de/index.php?r=passport%2Fview&id=8888
+    accessed_on: 2026-09-26
+  - id: src_es_berry_pedro_ximenez
+    kind: reference_work
+    title: "Vitis International Variety Catalogue: PEDRO XIMENEZ"
+    publisher: Julius Kühn-Institut, Institute for Grapevine Breeding Geilweilerhof
+    jurisdiction: DE
+    url: https://www.vivc.de/index.php?r=passport%2Fview&id=9080
+    accessed_on: 2026-09-26
+  - id: src_es_berry_xarello
+    kind: reference_work
+    title: "Vitis International Variety Catalogue: XARELLO"
+    publisher: Julius Kühn-Institut, Institute for Grapevine Breeding Geilweilerhof
+    jurisdiction: DE
+    url: https://www.vivc.de/index.php?r=passport%2Fview&id=13270
+    accessed_on: 2026-09-26
+  - id: src_es_berry_maturana_tinta
+    kind: regulator_register
+    title: "Rioja: Maturana Tinta, berry morphology"
+    publisher: Consejo Regulador DOCa Rioja
+    jurisdiction: ES
+    url: https://riojawine.com/es/doca-rioja/variedades-de-uva/maturana-tinta/
+    accessed_on: 2026-09-26
+  - id: src_es_berry_gewurztraminer
+    kind: reference_work
+    title: "Plantgrape: Gewurztraminer Rs"
+    publisher: INRAE – IFV – Institut Agro Montpellier
+    jurisdiction: FR
+    url: https://www.plantgrape.fr/fr/varietes/varietes-a-fruits/112/export
+    accessed_on: 2026-09-26
+  - id: src_es_berry_muscat_of_alexandria
+    kind: reference_work
+    title: "VIVC passport 8241: MUSCAT OF ALEXANDRIA"
+    publisher: Julius Kühn Institute
+    jurisdiction: DE
+    url: https://www.vivc.de/index.php?r=passport%2Fview&id=8241
+    accessed_on: 2026-09-26
+  - id: src_es_berry_cenicienta
+    kind: reference_work
+    title: "VIVC passport 24701: CENICIENTA"
+    publisher: Julius Kühn Institute
+    jurisdiction: DE
+    url: https://www.vivc.de/index.php?r=passport%2Fview&id=24701
+    accessed_on: 2026-09-26
+  - id: src_es_berry_brunal
+    kind: reference_work
+    title: "VIVC passport 277: ALFROCHEIRO"
+    publisher: Julius Kühn Institute
+    jurisdiction: DE
+    url: https://www.vivc.de/index.php?r=passport%2Fview&id=277
+    accessed_on: 2026-09-26
+  - id: src_es_berry_dona_blanca
+    kind: reference_work
+    title: "VIVC passport 2742: SIRIA"
+    publisher: Julius Kühn Institute
+    jurisdiction: DE
+    url: https://www.vivc.de/index.php?r=passport%2Fview&id=2742
+    accessed_on: 2026-09-26
+  - id: src_es_berry_albillo_real
+    kind: reference_work
+    title: "VIVC passport 247: ALBILLO REAL"
+    publisher: Julius Kühn Institute
+    jurisdiction: DE
+    url: https://www.vivc.de/index.php?r=passport%2Fview&id=247
+    accessed_on: 2026-09-26
+  - id: src_es_berry_garnacha_peluda
+    kind: reference_work
+    title: "VIVC passport 4460: GARNACHA PELUDA"
+    publisher: Julius Kühn Institute
+    jurisdiction: DE
+    url: https://www.vivc.de/index.php?r=passport%2Fview&id=4460
+    accessed_on: 2026-09-26
+  - id: src_es_berry_picapoll_tinto
+    kind: reference_work
+    title: "VIVC passport 9298: PIQUEPOUL NOIR"
+    publisher: Julius Kühn Institute
+    jurisdiction: DE
+    url: https://www.vivc.de/index.php?r=passport%2Fview&id=9298
+    accessed_on: 2026-09-26
+  - id: src_es_berry_picapoll_blanco
+    kind: reference_work
+    title: "VIVC passport 2695: CLAIRETTE BLANCHE"
+    publisher: Julius Kühn Institute
+    jurisdiction: DE
+    url: https://www.vivc.de/index.php?r=passport%2Fview&id=2695
+    accessed_on: 2026-09-26
+  - id: src_es_berry_parellada
+    kind: reference_work
+    title: "VIVC passport 8938: PARELLADA"
+    publisher: Julius Kühn Institute
+    jurisdiction: DE
+    url: https://www.vivc.de/index.php?r=passport%2Fview&id=8938
+    accessed_on: 2026-09-26
+  - id: src_es_berry_trepat
+    kind: reference_work
+    title: "VIVC passport 12633: TREPAT"
+    publisher: Julius Kühn Institute
+    jurisdiction: DE
+    url: https://www.vivc.de/index.php?r=passport%2Fview&id=12633
+    accessed_on: 2026-09-26
+  - id: src_es_berry_palomino
+    kind: reference_work
+    title: "VIVC passport 8887: PALOMINO DE JEREZ"
+    publisher: Julius Kühn Institute
+    jurisdiction: DE
+    url: https://www.vivc.de/index.php?r=passport%2Fview&id=8887
+    accessed_on: 2026-09-26
+  - id: src_es_berry_beba
+    kind: reference_work
+    title: "VIVC passport 22710: BEBA"
+    publisher: Julius Kühn Institute
+    jurisdiction: DE
+    url: https://www.vivc.de/index.php?r=passport%2Fview&id=22710
+    accessed_on: 2026-09-26
+  - id: src_es_berry_perruno
+    kind: reference_work
+    title: "VIVC passport 9185: PERRUNO"
+    publisher: Julius Kühn Institute
+    jurisdiction: DE
+    url: https://www.vivc.de/index.php?r=passport%2Fview&id=9185
+    accessed_on: 2026-09-26
+  - id: src_es_berry_vigiriega
+    kind: reference_work
+    title: "VIVC passport 13075: VIJARIEGO BLANCO"
+    publisher: Julius Kühn Institute
+    jurisdiction: DE
+    url: https://www.vivc.de/index.php?r=passport%2Fview&id=13075
+    accessed_on: 2026-09-26
+  - id: src_es_berry_albarino
+    kind: reference_work
+    title: "Vitis International Variety Catalogue: ALVARINHO (VIVC 15689)"
+    publisher: Julius Kühn-Institut
+    jurisdiction: DE
+    url: https://www.vivc.de/index.php?r=passport%2Fview&id=15689
+    accessed_on: 2026-09-26
+  - id: src_es_berry_albarino_identity
+    kind: reference_work
+    title: Screening of Galician grapevine varieties by SNPs, phenotypic traits, and
+      phytopathology
+    publisher: EVEGA / AGACAL; Instituto de Ciencias de la Vid y del Vino (ICVV)
+    jurisdiction: ES
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC10904527/
+    accessed_on: 2026-09-26
+  - id: src_es_berry_treixadura
+    kind: reference_work
+    title: "Vitis International Variety Catalogue: TRAJADURA (VIVC 12629)"
+    publisher: Julius Kühn-Institut
+    jurisdiction: DE
+    url: https://www.vivc.de/index.php?r=passport%2Fview&id=12629
+    accessed_on: 2026-09-26
+  - id: src_es_berry_loureiro
+    kind: reference_work
+    title: "Vitis International Variety Catalogue: LOUREIRO BLANCO (VIVC 6912)"
+    publisher: Julius Kühn-Institut
+    jurisdiction: DE
+    url: https://www.vivc.de/index.php?r=passport%2Fview&id=6912
+    accessed_on: 2026-09-26
+  - id: src_es_berry_caino_blanco
+    kind: reference_work
+    title: "Vitis International Variety Catalogue: CAINO BLANCO (VIVC 371)"
+    publisher: Julius Kühn-Institut
+    jurisdiction: DE
+    url: https://www.vivc.de/index.php?r=passport%2Fview&id=371
+    accessed_on: 2026-09-26
+  - id: src_es_berry_torrontes_galicia
+    kind: reference_work
+    title: "Vitis International Variety Catalogue: MALVASIA FINA (VIVC 715)"
+    publisher: Julius Kühn-Institut
+    jurisdiction: DE
+    url: https://www.vivc.de/index.php?r=passport%2Fview&id=715
+    accessed_on: 2026-09-26
+  - id: src_es_berry_godello
+    kind: reference_work
+    title: "Vitis International Variety Catalogue: GOUVEIO (VIVC 12953)"
+    publisher: Julius Kühn-Institut
+    jurisdiction: DE
+    url: https://www.vivc.de/index.php?r=passport%2Fview&id=12953
+    accessed_on: 2026-09-26
+  - id: src_es_berry_ratino_gallega
+    kind: reference_work
+    title: "Vitis International Variety Catalogue: RATINO (VIVC 24127)"
+    publisher: Julius Kühn-Institut
+    jurisdiction: DE
+    url: https://www.vivc.de/index.php?r=passport%2Fview&id=24127
+    accessed_on: 2026-09-26
+  - id: src_es_berry_ratino_gallega_identity
+    kind: regulator_register
+    title: Boletín del Registro de Variedades Comerciales, 6/2020
+    publisher: Ministerio de Agricultura, Pesca y Alimentación
+    jurisdiction: ES
+    url: https://www.mapa.gob.es/ministerio/pags/Biblioteca/Revistas/pdf_RVC%2FBOL_RVC_6-2020.pdf
+    accessed_on: 2026-09-26
+  - id: src_es_berry_caino_tinto
+    kind: reference_work
+    title: "Vitis International Variety Catalogue: BORRACAL (VIVC 1564)"
+    publisher: Julius Kühn-Institut
+    jurisdiction: DE
+    url: https://www.vivc.de/index.php?r=passport%2Fview&id=1564
+    accessed_on: 2026-09-26
+  - id: src_es_berry_espadeiro
+    kind: reference_work
+    title: "Vitis International Variety Catalogue: CAMARAOU NOIR (VIVC 2017)"
+    publisher: Julius Kühn-Institut
+    jurisdiction: DE
+    url: https://www.vivc.de/index.php?r=passport%2Fview&id=2017
+    accessed_on: 2026-09-26
+  - id: src_es_berry_loureiro_tinto
+    kind: reference_work
+    title: "Vitis International Variety Catalogue: LOUREIRO TINTO (VIVC 17346)"
+    publisher: Julius Kühn-Institut
+    jurisdiction: DE
+    url: https://www.vivc.de/index.php?r=passport%2Fview&id=17346
+    accessed_on: 2026-09-26
+  - id: src_es_berry_loureiro_tinto_identity
+    kind: reference_work
+    title: El potencial de las variedades de vid locales
+    publisher: Xunta de Galicia / Estación de Viticultura e Enoloxía de Galicia (EVEGA)
+    jurisdiction: ES
+    url: https://libraria.xunta.gal/sites/default/files/downloads/publicacion/libro_vid_i_castellano.pdf
+    accessed_on: 2026-09-26
+  - id: src_es_berry_souson
+    kind: reference_work
+    title: "Vitis International Variety Catalogue: VINHAO (VIVC 13100)"
+    publisher: Julius Kühn-Institut
+    jurisdiction: DE
+    url: https://www.vivc.de/index.php?r=passport%2Fview&id=13100
+    accessed_on: 2026-09-26
+  - id: src_es_berry_mencia
+    kind: reference_work
+    title: "Vitis International Variety Catalogue: MENCIA (VIVC 7623)"
+    publisher: Julius Kühn-Institut
+    jurisdiction: DE
+    url: https://www.vivc.de/index.php?r=passport%2Fview&id=7623
+    accessed_on: 2026-09-26
+  - id: src_es_berry_brancellao
+    kind: reference_work
+    title: "Vitis International Variety Catalogue: ALVARELHAO (VIVC 1650)"
+    publisher: Julius Kühn-Institut
+    jurisdiction: DE
+    url: https://www.vivc.de/index.php?r=passport%2Fview&id=1650
+    accessed_on: 2026-09-26
+  - id: src_es_berry_pedral
+    kind: reference_work
+    title: "Vitis International Variety Catalogue: PEDRAL (VIVC 9078)"
+    publisher: Julius Kühn-Institut
+    jurisdiction: DE
+    url: https://www.vivc.de/index.php?r=passport%2Fview&id=9078
+    accessed_on: 2026-09-26
+  - id: src_es_berry_castanal
+    kind: reference_work
+    title: "Vitis International Variety Catalogue: CASTANAL (VIVC 23051)"
+    publisher: Julius Kühn-Institut
+    jurisdiction: DE
+    url: https://www.vivc.de/index.php?r=passport%2Fview&id=23051
+    accessed_on: 2026-09-26
+knowledge_item_citations:
+  - knowledge_item_id: ki_es_map_rioja_tempranillo
+    source_citation_id: src_es_iberian_rioja_grapes
+    locator: "Variedades de uva: all 5 red and 9 white varieties"
+  - knowledge_item_id: ki_es_map_rioja_grenache
+    source_citation_id: src_es_iberian_rioja_grapes
+    locator: "Variedades de uva: all 5 red and 9 white varieties"
+  - knowledge_item_id: ki_es_map_rioja_graciano
+    source_citation_id: src_es_iberian_rioja_grapes
+    locator: "Variedades de uva: all 5 red and 9 white varieties"
+  - knowledge_item_id: ki_es_map_rioja_carignan
+    source_citation_id: src_es_iberian_rioja_grapes
+    locator: "Variedades de uva: all 5 red and 9 white varieties"
+  - knowledge_item_id: ki_es_map_rioja_maturana_tinta
+    source_citation_id: src_es_iberian_rioja_grapes
+    locator: "Variedades de uva: all 5 red and 9 white varieties"
+  - knowledge_item_id: ki_es_map_rioja_macabeo
+    source_citation_id: src_es_iberian_rioja_grapes
+    locator: "Variedades de uva: all 5 red and 9 white varieties"
+  - knowledge_item_id: ki_es_map_rioja_grenache_blanc
+    source_citation_id: src_es_iberian_rioja_grapes
+    locator: "Variedades de uva: all 5 red and 9 white varieties"
+  - knowledge_item_id: ki_es_map_rioja_alarije
+    source_citation_id: src_es_iberian_rioja_grapes
+    locator: "Variedades de uva: all 5 red and 9 white varieties"
+  - knowledge_item_id: ki_es_map_rioja_alarije
+    source_citation_id: src_es_iberian_rioja_malvasia
+    locator: "Sinonimias: Alarije"
+  - knowledge_item_id: ki_es_map_rioja_tempranillo_blanco
+    source_citation_id: src_es_iberian_rioja_grapes
+    locator: "Variedades de uva: all 5 red and 9 white varieties"
+  - knowledge_item_id: ki_es_map_rioja_maturana_blanca
+    source_citation_id: src_es_iberian_rioja_grapes
+    locator: "Variedades de uva: all 5 red and 9 white varieties"
+  - knowledge_item_id: ki_es_map_rioja_albillo_mayor
+    source_citation_id: src_es_iberian_rioja_grapes
+    locator: "Variedades de uva: all 5 red and 9 white varieties"
+  - knowledge_item_id: ki_es_map_rioja_albillo_mayor
+    source_citation_id: src_es_iberian_rioja_turruntes
+    locator: "Sinonimias: Albillo Mayor"
+  - knowledge_item_id: ki_es_map_rioja_chardonnay
+    source_citation_id: src_es_iberian_rioja_grapes
+    locator: "Variedades de uva: all 5 red and 9 white varieties"
+  - knowledge_item_id: ki_es_map_rioja_sauvignon_blanc
+    source_citation_id: src_es_iberian_rioja_grapes
+    locator: "Variedades de uva: all 5 red and 9 white varieties"
+  - knowledge_item_id: ki_es_map_rioja_verdejo
+    source_citation_id: src_es_iberian_rioja_grapes
+    locator: "Variedades de uva: all 5 red and 9 white varieties"
+  - knowledge_item_id: ki_es_map_ribera_del_duero_tempranillo
+    source_citation_id: src_es_iberian_ribera_spec
+    locator: §6(1)-(3), printed pp. 17–18; six generally authorised varieties and
+      six conditional historical exceptions
+  - knowledge_item_id: ki_es_map_ribera_del_duero_cabernet_sauvignon
+    source_citation_id: src_es_iberian_ribera_spec
+    locator: §6(1)-(3), printed pp. 17–18; six generally authorised varieties and
+      six conditional historical exceptions
+  - knowledge_item_id: ki_es_map_ribera_del_duero_grenache
+    source_citation_id: src_es_iberian_ribera_spec
+    locator: §6(1)-(3), printed pp. 17–18; six generally authorised varieties and
+      six conditional historical exceptions
+  - knowledge_item_id: ki_es_map_ribera_del_duero_malbec
+    source_citation_id: src_es_iberian_ribera_spec
+    locator: §6(1)-(3), printed pp. 17–18; six generally authorised varieties and
+      six conditional historical exceptions
+  - knowledge_item_id: ki_es_map_ribera_del_duero_merlot
+    source_citation_id: src_es_iberian_ribera_spec
+    locator: §6(1)-(3), printed pp. 17–18; six generally authorised varieties and
+      six conditional historical exceptions
+  - knowledge_item_id: ki_es_map_ribera_del_duero_albillo_mayor
+    source_citation_id: src_es_iberian_ribera_spec
+    locator: §6(1)-(3), printed pp. 17–18; six generally authorised varieties and
+      six conditional historical exceptions
+  - knowledge_item_id: ki_es_map_ribera_del_duero_alarije
+    source_citation_id: src_es_iberian_ribera_spec
+    locator: §6(1)-(3), printed pp. 17–18; six generally authorised varieties and
+      six conditional historical exceptions
+  - knowledge_item_id: ki_es_map_ribera_del_duero_pirule_jaen
+    source_citation_id: src_es_iberian_ribera_spec
+    locator: §6(1)-(3), printed pp. 17–18; six generally authorised varieties and
+      six conditional historical exceptions
+  - knowledge_item_id: ki_es_map_ribera_del_duero_bobal
+    source_citation_id: src_es_iberian_ribera_spec
+    locator: §6(1)-(3), printed pp. 17–18; six generally authorised varieties and
+      six conditional historical exceptions
+  - knowledge_item_id: ki_es_map_ribera_del_duero_alicante_bouschet
+    source_citation_id: src_es_iberian_ribera_spec
+    locator: §6(1)-(3), printed pp. 17–18; six generally authorised varieties and
+      six conditional historical exceptions
+  - knowledge_item_id: ki_es_map_ribera_del_duero_alicante_bouschet
+    source_citation_id: src_es_iberian_alicante_bouschet
+    locator: "Synonyms: Alicante Henri Bouschet"
+  - knowledge_item_id: ki_es_map_ribera_del_duero_chasselas
+    source_citation_id: src_es_iberian_ribera_spec
+    locator: §6(1)-(3), printed pp. 17–18; six generally authorised varieties and
+      six conditional historical exceptions
+  - knowledge_item_id: ki_es_map_ribera_del_duero_chasselas
+    source_citation_id: src_iberian_chasselas_synonym
+    locator: "Official catalogue table, Chasselas: permitted synonym Chasselas doré"
+  - knowledge_item_id: ki_es_map_ribera_del_duero_mourvedre
+    source_citation_id: src_es_iberian_ribera_spec
+    locator: §6(1)-(3), printed pp. 17–18; six generally authorised varieties and
+      six conditional historical exceptions
+  - knowledge_item_id: ki_es_map_rias_baixas_albarino
+    source_citation_id: src_es_iberian_rias_baixas_spec
+    locator: "§6, printed p. 8: all 7 white and 8 red varieties"
+  - knowledge_item_id: ki_es_map_rias_baixas_treixadura
+    source_citation_id: src_es_iberian_rias_baixas_spec
+    locator: "§6, printed p. 8: all 7 white and 8 red varieties"
+  - knowledge_item_id: ki_es_map_rias_baixas_loureiro
+    source_citation_id: src_es_iberian_rias_baixas_spec
+    locator: "§6, printed p. 8: all 7 white and 8 red varieties"
+  - knowledge_item_id: ki_es_map_rias_baixas_caino_blanco
+    source_citation_id: src_es_iberian_rias_baixas_spec
+    locator: "§6, printed p. 8: all 7 white and 8 red varieties"
+  - knowledge_item_id: ki_es_map_rias_baixas_torrontes_galicia
+    source_citation_id: src_es_iberian_rias_baixas_spec
+    locator: "§6, printed p. 8: all 7 white and 8 red varieties"
+  - knowledge_item_id: ki_es_map_rias_baixas_godello
+    source_citation_id: src_es_iberian_rias_baixas_spec
+    locator: "§6, printed p. 8: all 7 white and 8 red varieties"
+  - knowledge_item_id: ki_es_map_rias_baixas_ratino_gallega
+    source_citation_id: src_es_iberian_rias_baixas_spec
+    locator: "§6, printed p. 8: all 7 white and 8 red varieties"
+  - knowledge_item_id: ki_es_map_rias_baixas_caino_tinto
+    source_citation_id: src_es_iberian_rias_baixas_spec
+    locator: "§6, printed p. 8: all 7 white and 8 red varieties"
+  - knowledge_item_id: ki_es_map_rias_baixas_espadeiro
+    source_citation_id: src_es_iberian_rias_baixas_spec
+    locator: "§6, printed p. 8: all 7 white and 8 red varieties"
+  - knowledge_item_id: ki_es_map_rias_baixas_loureiro_tinto
+    source_citation_id: src_es_iberian_rias_baixas_spec
+    locator: "§6, printed p. 8: all 7 white and 8 red varieties"
+  - knowledge_item_id: ki_es_map_rias_baixas_souson
+    source_citation_id: src_es_iberian_rias_baixas_spec
+    locator: "§6, printed p. 8: all 7 white and 8 red varieties"
+  - knowledge_item_id: ki_es_map_rias_baixas_mencia
+    source_citation_id: src_es_iberian_rias_baixas_spec
+    locator: "§6, printed p. 8: all 7 white and 8 red varieties"
+  - knowledge_item_id: ki_es_map_rias_baixas_brancellao
+    source_citation_id: src_es_iberian_rias_baixas_spec
+    locator: "§6, printed p. 8: all 7 white and 8 red varieties"
+  - knowledge_item_id: ki_es_map_rias_baixas_pedral
+    source_citation_id: src_es_iberian_rias_baixas_spec
+    locator: "§6, printed p. 8: all 7 white and 8 red varieties"
+  - knowledge_item_id: ki_es_map_rias_baixas_castanal
+    source_citation_id: src_es_iberian_rias_baixas_spec
+    locator: "§6, printed p. 8: all 7 white and 8 red varieties"
+  - knowledge_item_id: ki_es_map_rueda_verdejo
+    source_citation_id: src_es_iberian_rueda_spec
+    locator: "§6, printed p. 13: current list of 11 white and 7 red varieties;
+      Palomino Fino planting restriction; Godello removed"
+  - knowledge_item_id: ki_es_map_rueda_sauvignon_blanc
+    source_citation_id: src_es_iberian_rueda_spec
+    locator: "§6, printed p. 13: current list of 11 white and 7 red varieties;
+      Palomino Fino planting restriction; Godello removed"
+  - knowledge_item_id: ki_es_map_rueda_macabeo
+    source_citation_id: src_es_iberian_rueda_spec
+    locator: "§6, printed p. 13: current list of 11 white and 7 red varieties;
+      Palomino Fino planting restriction; Godello removed"
+  - knowledge_item_id: ki_es_map_rueda_palomino_fino
+    source_citation_id: src_es_iberian_rueda_spec
+    locator: "§6, printed p. 13: current list of 11 white and 7 red varieties;
+      Palomino Fino planting restriction; Godello removed"
+  - knowledge_item_id: ki_es_map_rueda_chardonnay
+    source_citation_id: src_es_iberian_rueda_spec
+    locator: "§6, printed p. 13: current list of 11 white and 7 red varieties;
+      Palomino Fino planting restriction; Godello removed"
+  - knowledge_item_id: ki_es_map_rueda_viognier
+    source_citation_id: src_es_iberian_rueda_spec
+    locator: "§6, printed p. 13: current list of 11 white and 7 red varieties;
+      Palomino Fino planting restriction; Godello removed"
+  - knowledge_item_id: ki_es_map_rueda_riesling
+    source_citation_id: src_es_iberian_rueda_spec
+    locator: "§6, printed p. 13: current list of 11 white and 7 red varieties;
+      Palomino Fino planting restriction; Godello removed"
+  - knowledge_item_id: ki_es_map_rueda_grenache_blanc
+    source_citation_id: src_es_iberian_rueda_spec
+    locator: "§6, printed p. 13: current list of 11 white and 7 red varieties;
+      Palomino Fino planting restriction; Godello removed"
+  - knowledge_item_id: ki_es_map_rueda_muscat_blanc_a_petits_grains
+    source_citation_id: src_es_iberian_rueda_spec
+    locator: "§6, printed p. 13: current list of 11 white and 7 red varieties;
+      Palomino Fino planting restriction; Godello removed"
+  - knowledge_item_id: ki_es_map_rueda_muscat_of_alexandria
+    source_citation_id: src_es_iberian_rueda_spec
+    locator: "§6, printed p. 13: current list of 11 white and 7 red varieties;
+      Palomino Fino planting restriction; Godello removed"
+  - knowledge_item_id: ki_es_map_rueda_gewurztraminer
+    source_citation_id: src_es_iberian_rueda_spec
+    locator: "§6, printed p. 13: current list of 11 white and 7 red varieties;
+      Palomino Fino planting restriction; Godello removed"
+  - knowledge_item_id: ki_es_map_rueda_tempranillo
+    source_citation_id: src_es_iberian_rueda_spec
+    locator: "§6, printed p. 13: current list of 11 white and 7 red varieties;
+      Palomino Fino planting restriction; Godello removed"
+  - knowledge_item_id: ki_es_map_rueda_cabernet_sauvignon
+    source_citation_id: src_es_iberian_rueda_spec
+    locator: "§6, printed p. 13: current list of 11 white and 7 red varieties;
+      Palomino Fino planting restriction; Godello removed"
+  - knowledge_item_id: ki_es_map_rueda_merlot
+    source_citation_id: src_es_iberian_rueda_spec
+    locator: "§6, printed p. 13: current list of 11 white and 7 red varieties;
+      Palomino Fino planting restriction; Godello removed"
+  - knowledge_item_id: ki_es_map_rueda_grenache
+    source_citation_id: src_es_iberian_rueda_spec
+    locator: "§6, printed p. 13: current list of 11 white and 7 red varieties;
+      Palomino Fino planting restriction; Godello removed"
+  - knowledge_item_id: ki_es_map_rueda_syrah
+    source_citation_id: src_es_iberian_rueda_spec
+    locator: "§6, printed p. 13: current list of 11 white and 7 red varieties;
+      Palomino Fino planting restriction; Godello removed"
+  - knowledge_item_id: ki_es_map_rueda_cenicienta
+    source_citation_id: src_es_iberian_rueda_spec
+    locator: "§6, printed p. 13: current list of 11 white and 7 red varieties;
+      Palomino Fino planting restriction; Godello removed"
+  - knowledge_item_id: ki_es_map_rueda_brunal
+    source_citation_id: src_es_iberian_rueda_spec
+    locator: "§6, printed p. 13: current list of 11 white and 7 red varieties;
+      Palomino Fino planting restriction; Godello removed"
+  - knowledge_item_id: ki_es_map_toro_tempranillo
+    source_citation_id: src_es_iberian_toro_spec
+    locator: "§6: all 2 red and 4 white varieties, including the two secondary white
+      varieties"
+  - knowledge_item_id: ki_es_map_toro_grenache
+    source_citation_id: src_es_iberian_toro_spec
+    locator: "§6: all 2 red and 4 white varieties, including the two secondary white
+      varieties"
+  - knowledge_item_id: ki_es_map_toro_dona_blanca
+    source_citation_id: src_es_iberian_toro_spec
+    locator: "§6: all 2 red and 4 white varieties, including the two secondary white
+      varieties"
+  - knowledge_item_id: ki_es_map_toro_verdejo
+    source_citation_id: src_es_iberian_toro_spec
+    locator: "§6: all 2 red and 4 white varieties, including the two secondary white
+      varieties"
+  - knowledge_item_id: ki_es_map_toro_muscat_blanc_a_petits_grains
+    source_citation_id: src_es_iberian_toro_spec
+    locator: "§6: all 2 red and 4 white varieties, including the two secondary white
+      varieties"
+  - knowledge_item_id: ki_es_map_toro_albillo_real
+    source_citation_id: src_es_iberian_toro_spec
+    locator: "§6: all 2 red and 4 white varieties, including the two secondary white
+      varieties"
+  - knowledge_item_id: ki_es_map_priorat_grenache
+    source_citation_id: src_es_iberian_priorat_spec
+    locator: "§6, printed p. 21: all 10 red and 9 white varieties"
+  - knowledge_item_id: ki_es_map_priorat_carignan
+    source_citation_id: src_es_iberian_priorat_spec
+    locator: "§6, printed p. 21: all 10 red and 9 white varieties"
+  - knowledge_item_id: ki_es_map_priorat_garnacha_peluda
+    source_citation_id: src_es_iberian_priorat_spec
+    locator: "§6, printed p. 21: all 10 red and 9 white varieties"
+  - knowledge_item_id: ki_es_map_priorat_cabernet_sauvignon
+    source_citation_id: src_es_iberian_priorat_spec
+    locator: "§6, printed p. 21: all 10 red and 9 white varieties"
+  - knowledge_item_id: ki_es_map_priorat_cabernet_franc
+    source_citation_id: src_es_iberian_priorat_spec
+    locator: "§6, printed p. 21: all 10 red and 9 white varieties"
+  - knowledge_item_id: ki_es_map_priorat_tempranillo
+    source_citation_id: src_es_iberian_priorat_spec
+    locator: "§6, printed p. 21: all 10 red and 9 white varieties"
+  - knowledge_item_id: ki_es_map_priorat_pinot_noir
+    source_citation_id: src_es_iberian_priorat_spec
+    locator: "§6, printed p. 21: all 10 red and 9 white varieties"
+  - knowledge_item_id: ki_es_map_priorat_merlot
+    source_citation_id: src_es_iberian_priorat_spec
+    locator: "§6, printed p. 21: all 10 red and 9 white varieties"
+  - knowledge_item_id: ki_es_map_priorat_syrah
+    source_citation_id: src_es_iberian_priorat_spec
+    locator: "§6, printed p. 21: all 10 red and 9 white varieties"
+  - knowledge_item_id: ki_es_map_priorat_picapoll_tinto
+    source_citation_id: src_es_iberian_priorat_spec
+    locator: "§6, printed p. 21: all 10 red and 9 white varieties"
+  - knowledge_item_id: ki_es_map_priorat_grenache_blanc
+    source_citation_id: src_es_iberian_priorat_spec
+    locator: "§6, printed p. 21: all 10 red and 9 white varieties"
+  - knowledge_item_id: ki_es_map_priorat_macabeo
+    source_citation_id: src_es_iberian_priorat_spec
+    locator: "§6, printed p. 21: all 10 red and 9 white varieties"
+  - knowledge_item_id: ki_es_map_priorat_pedro_ximenez
+    source_citation_id: src_es_iberian_priorat_spec
+    locator: "§6, printed p. 21: all 10 red and 9 white varieties"
+  - knowledge_item_id: ki_es_map_priorat_chenin_blanc
+    source_citation_id: src_es_iberian_priorat_spec
+    locator: "§6, printed p. 21: all 10 red and 9 white varieties"
+  - knowledge_item_id: ki_es_map_priorat_muscat_of_alexandria
+    source_citation_id: src_es_iberian_priorat_spec
+    locator: "§6, printed p. 21: all 10 red and 9 white varieties"
+  - knowledge_item_id: ki_es_map_priorat_muscat_blanc_a_petits_grains
+    source_citation_id: src_es_iberian_priorat_spec
+    locator: "§6, printed p. 21: all 10 red and 9 white varieties"
+  - knowledge_item_id: ki_es_map_priorat_xarello
+    source_citation_id: src_es_iberian_priorat_spec
+    locator: "§6, printed p. 21: all 10 red and 9 white varieties"
+  - knowledge_item_id: ki_es_map_priorat_xarello
+    source_citation_id: src_es_iberian_viticultural_varieties
+    locator: "Annex XIX, Cataluña: Xarello, Cartoixa, Pansal, Pansa Blanca"
+  - knowledge_item_id: ki_es_map_priorat_picapoll_blanco
+    source_citation_id: src_es_iberian_priorat_spec
+    locator: "§6, printed p. 21: all 10 red and 9 white varieties"
+  - knowledge_item_id: ki_es_map_priorat_viognier
+    source_citation_id: src_es_iberian_priorat_spec
+    locator: "§6, printed p. 21: all 10 red and 9 white varieties"
+  - knowledge_item_id: ki_es_map_cava_macabeo
+    source_citation_id: src_es_iberian_cava_register
+    locator: "Supraautonómico, DOP Cava PDO-ES-A0735, printed p. 41: complete union
+      of 9 varieties (5 white, 4 red)"
+  - knowledge_item_id: ki_es_map_cava_macabeo
+    source_citation_id: src_es_iberian_cava_grapes
+    locator: ¿Cuáles son las uvas autorizadas para el Cava?; Subirat Parent
+      (Alarije/Malvasía riojana)
+  - knowledge_item_id: ki_es_map_cava_xarello
+    source_citation_id: src_es_iberian_cava_register
+    locator: "Supraautonómico, DOP Cava PDO-ES-A0735, printed p. 41: complete union
+      of 9 varieties (5 white, 4 red)"
+  - knowledge_item_id: ki_es_map_cava_xarello
+    source_citation_id: src_es_iberian_cava_grapes
+    locator: ¿Cuáles son las uvas autorizadas para el Cava?; Subirat Parent
+      (Alarije/Malvasía riojana)
+  - knowledge_item_id: ki_es_map_cava_parellada
+    source_citation_id: src_es_iberian_cava_register
+    locator: "Supraautonómico, DOP Cava PDO-ES-A0735, printed p. 41: complete union
+      of 9 varieties (5 white, 4 red)"
+  - knowledge_item_id: ki_es_map_cava_parellada
+    source_citation_id: src_es_iberian_cava_grapes
+    locator: ¿Cuáles son las uvas autorizadas para el Cava?; Subirat Parent
+      (Alarije/Malvasía riojana)
+  - knowledge_item_id: ki_es_map_cava_alarije
+    source_citation_id: src_es_iberian_cava_register
+    locator: "Supraautonómico, DOP Cava PDO-ES-A0735, printed p. 41: complete union
+      of 9 varieties (5 white, 4 red)"
+  - knowledge_item_id: ki_es_map_cava_alarije
+    source_citation_id: src_es_iberian_cava_grapes
+    locator: ¿Cuáles son las uvas autorizadas para el Cava?; Subirat Parent
+      (Alarije/Malvasía riojana)
+  - knowledge_item_id: ki_es_map_cava_chardonnay
+    source_citation_id: src_es_iberian_cava_register
+    locator: "Supraautonómico, DOP Cava PDO-ES-A0735, printed p. 41: complete union
+      of 9 varieties (5 white, 4 red)"
+  - knowledge_item_id: ki_es_map_cava_chardonnay
+    source_citation_id: src_es_iberian_cava_grapes
+    locator: ¿Cuáles son las uvas autorizadas para el Cava?; Subirat Parent
+      (Alarije/Malvasía riojana)
+  - knowledge_item_id: ki_es_map_cava_grenache
+    source_citation_id: src_es_iberian_cava_register
+    locator: "Supraautonómico, DOP Cava PDO-ES-A0735, printed p. 41: complete union
+      of 9 varieties (5 white, 4 red)"
+  - knowledge_item_id: ki_es_map_cava_grenache
+    source_citation_id: src_es_iberian_cava_grapes
+    locator: ¿Cuáles son las uvas autorizadas para el Cava?; Subirat Parent
+      (Alarije/Malvasía riojana)
+  - knowledge_item_id: ki_es_map_cava_mourvedre
+    source_citation_id: src_es_iberian_cava_register
+    locator: "Supraautonómico, DOP Cava PDO-ES-A0735, printed p. 41: complete union
+      of 9 varieties (5 white, 4 red)"
+  - knowledge_item_id: ki_es_map_cava_mourvedre
+    source_citation_id: src_es_iberian_cava_grapes
+    locator: ¿Cuáles son las uvas autorizadas para el Cava?; Subirat Parent
+      (Alarije/Malvasía riojana)
+  - knowledge_item_id: ki_es_map_cava_pinot_noir
+    source_citation_id: src_es_iberian_cava_register
+    locator: "Supraautonómico, DOP Cava PDO-ES-A0735, printed p. 41: complete union
+      of 9 varieties (5 white, 4 red)"
+  - knowledge_item_id: ki_es_map_cava_pinot_noir
+    source_citation_id: src_es_iberian_cava_grapes
+    locator: ¿Cuáles son las uvas autorizadas para el Cava?; Subirat Parent
+      (Alarije/Malvasía riojana)
+  - knowledge_item_id: ki_es_map_cava_trepat
+    source_citation_id: src_es_iberian_cava_register
+    locator: "Supraautonómico, DOP Cava PDO-ES-A0735, printed p. 41: complete union
+      of 9 varieties (5 white, 4 red)"
+  - knowledge_item_id: ki_es_map_cava_trepat
+    source_citation_id: src_es_iberian_cava_trepat
+    locator: "Características del Cava, Variedades: Trepat (solo para rosados)"
+  - knowledge_item_id: ki_es_map_jerez_palomino
+    source_citation_id: src_es_iberian_jerez_spec
+    locator: "§F, printed p. 7: all seven legal variety entries, treating Listán
+      Blanco / Palomino Fino as one synonym pair"
+  - knowledge_item_id: ki_es_map_jerez_palomino_fino
+    source_citation_id: src_es_iberian_jerez_spec
+    locator: "§F, printed p. 7: all seven legal variety entries, treating Listán
+      Blanco / Palomino Fino as one synonym pair"
+  - knowledge_item_id: ki_es_map_jerez_pedro_ximenez
+    source_citation_id: src_es_iberian_jerez_spec
+    locator: "§F, printed p. 7: all seven legal variety entries, treating Listán
+      Blanco / Palomino Fino as one synonym pair"
+  - knowledge_item_id: ki_es_map_jerez_muscat_of_alexandria
+    source_citation_id: src_es_iberian_jerez_spec
+    locator: "§F, printed p. 7: all seven legal variety entries, treating Listán
+      Blanco / Palomino Fino as one synonym pair"
+  - knowledge_item_id: ki_es_map_jerez_beba
+    source_citation_id: src_es_iberian_jerez_spec
+    locator: "§F, printed p. 7: all seven legal variety entries, treating Listán
+      Blanco / Palomino Fino as one synonym pair"
+  - knowledge_item_id: ki_es_map_jerez_perruno
+    source_citation_id: src_es_iberian_jerez_spec
+    locator: "§F, printed p. 7: all seven legal variety entries, treating Listán
+      Blanco / Palomino Fino as one synonym pair"
+  - knowledge_item_id: ki_es_map_jerez_vigiriega
+    source_citation_id: src_es_iberian_jerez_spec
+    locator: "§F, printed p. 7: all seven legal variety entries, treating Listán
+      Blanco / Palomino Fino as one synonym pair"
+  - knowledge_item_id: ki_es_berry_tempranillo
+    source_citation_id: src_es_berry_tempranillo
+    locator: "VIVC 12350, Prime name TEMPRANILLO TINTO; Color of berry skin: NOIR"
+  - knowledge_item_id: ki_es_berry_graciano
+    source_citation_id: src_es_berry_graciano
+    locator: "VIVC 4935, Prime name GRACIANO; Color of berry skin: NOIR"
+  - knowledge_item_id: ki_es_berry_carignan
+    source_citation_id: src_es_berry_carignan
+    locator: "VIVC 2098, Prime name CARIGNAN NOIR; Color of berry skin: NOIR"
+  - knowledge_item_id: ki_es_berry_macabeo
+    source_citation_id: src_es_berry_macabeo
+    locator: "VIVC 13127, Prime name VIURA; Color of berry skin: BLANC"
+  - knowledge_item_id: ki_es_berry_alarije
+    source_citation_id: src_es_berry_alarije
+    locator: "VIVC 213, Prime name ALARIJE; Color of berry skin: BLANC"
+  - knowledge_item_id: ki_es_berry_tempranillo_blanco
+    source_citation_id: src_es_berry_tempranillo_blanco
+    locator: "VIVC 25057, Prime name TEMPRANILLO BLANCO; Color of berry skin: BLANC"
+  - knowledge_item_id: ki_es_berry_maturana_blanca
+    source_citation_id: src_es_berry_maturana_blanca
+    locator: "VIVC 7518, Prime name MATURANA BLANCA; Color of berry skin: BLANC"
+  - knowledge_item_id: ki_es_berry_albillo_mayor
+    source_citation_id: src_es_berry_albillo_mayor
+    locator: "VIVC 12581, Prime name ALBILLO MAYOR; Color of berry skin: BLANC"
+  - knowledge_item_id: ki_es_berry_verdejo
+    source_citation_id: src_es_berry_verdejo
+    locator: "VIVC 12949, Prime name VERDEJO BLANCO; Color of berry skin: BLANC"
+  - knowledge_item_id: ki_es_berry_bobal
+    source_citation_id: src_es_berry_bobal
+    locator: "VIVC 1493, Prime name BOBAL; Color of berry skin: NOIR"
+  - knowledge_item_id: ki_es_berry_alicante_bouschet
+    source_citation_id: src_es_berry_alicante_bouschet
+    locator: "VIVC 304, Prime name ALICANTE HENRI BOUSCHET; Color of berry skin: NOIR"
+  - knowledge_item_id: ki_es_berry_palomino_fino
+    source_citation_id: src_es_berry_palomino_fino
+    locator: "VIVC 8888, Prime name PALOMINO FINO; Color of berry skin: BLANC"
+  - knowledge_item_id: ki_es_berry_pedro_ximenez
+    source_citation_id: src_es_berry_pedro_ximenez
+    locator: "VIVC 9080, Prime name PEDRO XIMENEZ; Color of berry skin: BLANC"
+  - knowledge_item_id: ki_es_berry_xarello
+    source_citation_id: src_es_berry_xarello
+    locator: "VIVC 13270, Prime name XARELLO; Color of berry skin: BLANC"
+  - knowledge_item_id: ki_es_berry_maturana_tinta
+    source_citation_id: src_es_berry_maturana_tinta
+    locator: "Características, Aspecto: berry skin described as glossy blue-black
+      (hollejo azul negruzco)"
+  - knowledge_item_id: ki_es_berry_gewurztraminer
+    source_citation_id: src_es_berry_gewurztraminer
+    locator: "p. 1, Éléments de description: berry epidermis rose (violacé) à
+      maturité; Origine identifies the pink aromatic mutation of Savagnin blanc"
+  - knowledge_item_id: ki_es_berry_muscat_of_alexandria
+    source_citation_id: src_es_berry_muscat_of_alexandria
+    locator: "Color of berry skin: BLANC; synonym table includes MOSCATEL DE ALEJANDRIA"
+  - knowledge_item_id: ki_es_berry_cenicienta
+    source_citation_id: src_es_berry_cenicienta
+    locator: "Color of berry skin: NOIR; prime name CENICIENTA"
+  - knowledge_item_id: ki_es_berry_brunal
+    source_citation_id: src_es_berry_brunal
+    locator: "Color of berry skin: NOIR; synonym table explicitly includes BRUNAL"
+  - knowledge_item_id: ki_es_berry_dona_blanca
+    source_citation_id: src_es_berry_dona_blanca
+    locator: "Color of berry skin: BLANC; synonym table explicitly includes DONA
+      BLANCA and MALVASIA CASTELLANA"
+  - knowledge_item_id: ki_es_berry_albillo_real
+    source_citation_id: src_es_berry_albillo_real
+    locator: "Color of berry skin: BLANC; prime name ALBILLO REAL"
+  - knowledge_item_id: ki_es_berry_garnacha_peluda
+    source_citation_id: src_es_berry_garnacha_peluda
+    locator: "Color of berry skin: NOIR; synonym table includes LLEDONER PELUT;
+      independent of the GARNACHA TINTA passport"
+  - knowledge_item_id: ki_es_berry_picapoll_tinto
+    source_citation_id: src_es_berry_picapoll_tinto
+    locator: "Color of berry skin: NOIR; synonym table explicitly includes PICAPOLL
+      TINTO and PICAPOLL NEGRO"
+  - knowledge_item_id: ki_es_berry_picapoll_blanco
+    source_citation_id: src_es_berry_picapoll_blanco
+    locator: "Color of berry skin: BLANC; current synonym table explicitly includes
+      PICAPOLL BLANCO; obsolete Picapoll Blanco passport 9232 no longer supplies
+      an entry; do not conflate with PIQUEPOUL BLANC 9295"
+  - knowledge_item_id: ki_es_berry_parellada
+    source_citation_id: src_es_berry_parellada
+    locator: "Color of berry skin: BLANC; prime name PARELLADA"
+  - knowledge_item_id: ki_es_berry_trepat
+    source_citation_id: src_es_berry_trepat
+    locator: "Color of berry skin: NOIR; prime name TREPAT"
+  - knowledge_item_id: ki_es_berry_palomino
+    source_citation_id: src_es_berry_palomino
+    locator: "Color of berry skin: BLANC; synonym table explicitly includes PALOMINO
+      and PALOMINO BASTO; confirmed pedigree PALOMINO FINO MUTATION
+      distinguishes this passport from Palomino Fino 8888"
+  - knowledge_item_id: ki_es_berry_beba
+    source_citation_id: src_es_berry_beba
+    locator: "Color of berry skin: BLANC; prime name BEBA; distinct from BEBA ROJA
+      passport 2008"
+  - knowledge_item_id: ki_es_berry_perruno
+    source_citation_id: src_es_berry_perruno
+    locator: "Color of berry skin: BLANC; prime name PERRUNO; distinct from PERRUNO
+      NEGRO passport 21440"
+  - knowledge_item_id: ki_es_berry_vigiriega
+    source_citation_id: src_es_berry_vigiriega
+    locator: "Color of berry skin: BLANC; synonym table explicitly includes
+      VIGIRIEGA; distinct from black SUMOLL/Vijariego Negro"
+  - knowledge_item_id: ki_es_berry_albarino
+    source_citation_id: src_es_berry_albarino
+    locator: "Passport 15689: Prime name = ALVARINHO; Color of berry skin = BLANC;
+      Synonyms includes ALBARINO."
+  - knowledge_item_id: ki_es_berry_albarino
+    source_citation_id: src_es_berry_albarino_identity
+    locator: "Table 1: EVEGA collection names matched to VIVC prime names and
+      variety IDs."
+  - knowledge_item_id: ki_es_berry_treixadura
+    source_citation_id: src_es_berry_treixadura
+    locator: "Passport 12629: Prime name = TRAJADURA; Color of berry skin = BLANC;
+      Synonyms includes TREIXADURA."
+  - knowledge_item_id: ki_es_berry_treixadura
+    source_citation_id: src_es_berry_albarino_identity
+    locator: "Table 1: EVEGA collection names matched to VIVC prime names and
+      variety IDs."
+  - knowledge_item_id: ki_es_berry_loureiro
+    source_citation_id: src_es_berry_loureiro
+    locator: "Passport 6912: Prime name = LOUREIRO BLANCO; Color of berry skin =
+      BLANC; Synonyms includes LOUREIRA and LOUREIRO."
+  - knowledge_item_id: ki_es_berry_loureiro
+    source_citation_id: src_es_berry_albarino_identity
+    locator: "Table 1: EVEGA collection names matched to VIVC prime names and
+      variety IDs."
+  - knowledge_item_id: ki_es_berry_caino_blanco
+    source_citation_id: src_es_berry_caino_blanco
+    locator: "Passport 371: Prime name = CAINO BLANCO; Color of berry skin = BLANC."
+  - knowledge_item_id: ki_es_berry_torrontes_galicia
+    source_citation_id: src_es_berry_torrontes_galicia
+    locator: "Passport 715: Prime name = MALVASIA FINA; Color of berry skin = BLANC;
+      Synonyms includes TORRONTES."
+  - knowledge_item_id: ki_es_berry_torrontes_galicia
+    source_citation_id: src_es_berry_albarino_identity
+    locator: "Table 1: EVEGA collection names matched to VIVC prime names and
+      variety IDs."
+  - knowledge_item_id: ki_es_berry_godello
+    source_citation_id: src_es_berry_godello
+    locator: "Passport 12953: Prime name = GOUVEIO; Color of berry skin = BLANC;
+      Synonyms includes GODELLO."
+  - knowledge_item_id: ki_es_berry_godello
+    source_citation_id: src_es_berry_albarino_identity
+    locator: "Table 1: EVEGA collection names matched to VIVC prime names and
+      variety IDs."
+  - knowledge_item_id: ki_es_berry_ratino_gallega
+    source_citation_id: src_es_berry_ratino_gallega
+    locator: "Passport 24127: Prime name = RATINO; Color of berry skin = BLANC."
+  - knowledge_item_id: ki_es_berry_ratino_gallega
+    source_citation_id: src_es_berry_ratino_gallega_identity
+    locator: "Page 15, VID — VITIS VINIFERA L: registry 20150344, denomination
+      change RATIÑO → RATIÑO GALLEGA, 03/11/2020."
+  - knowledge_item_id: ki_es_berry_ratino_gallega
+    source_citation_id: src_es_berry_albarino_identity
+    locator: "Table 1: EVEGA collection names matched to VIVC prime names and
+      variety IDs."
+  - knowledge_item_id: ki_es_berry_caino_tinto
+    source_citation_id: src_es_berry_caino_tinto
+    locator: "Passport 1564: Prime name = BORRACAL; Color of berry skin = NOIR;
+      Synonyms includes CAINO TINTO."
+  - knowledge_item_id: ki_es_berry_caino_tinto
+    source_citation_id: src_es_berry_albarino_identity
+    locator: "Table 1: EVEGA collection names matched to VIVC prime names and
+      variety IDs."
+  - knowledge_item_id: ki_es_berry_espadeiro
+    source_citation_id: src_es_berry_espadeiro
+    locator: "Passport 2017: Prime name = CAMARAOU NOIR; Color of berry skin = NOIR;
+      Synonyms includes ESPADEIRO."
+  - knowledge_item_id: ki_es_berry_espadeiro
+    source_citation_id: src_es_berry_albarino_identity
+    locator: "Table 1: EVEGA collection names matched to VIVC prime names and
+      variety IDs."
+  - knowledge_item_id: ki_es_berry_loureiro_tinto
+    source_citation_id: src_es_berry_loureiro_tinto
+    locator: "Passport 17346: Prime name = LOUREIRO TINTO; Color of berry skin = NOIR."
+  - knowledge_item_id: ki_es_berry_loureiro_tinto
+    source_citation_id: src_es_berry_loureiro_tinto_identity
+    locator: "Table 1, pages 26–27: Loureiro Tinto is assigned its own VIVC 17346,
+      distinct from Mencía 7623."
+  - knowledge_item_id: ki_es_berry_souson
+    source_citation_id: src_es_berry_souson
+    locator: "Passport 13100: Prime name = VINHAO; Color of berry skin = NOIR;
+      Synonyms includes SOUSON."
+  - knowledge_item_id: ki_es_berry_souson
+    source_citation_id: src_es_berry_albarino_identity
+    locator: "Table 1: EVEGA collection names matched to VIVC prime names and
+      variety IDs."
+  - knowledge_item_id: ki_es_berry_mencia
+    source_citation_id: src_es_berry_mencia
+    locator: "Passport 7623: Prime name = MENCIA; Color of berry skin = NOIR."
+  - knowledge_item_id: ki_es_berry_brancellao
+    source_citation_id: src_es_berry_brancellao
+    locator: "Passport 1650: Prime name = ALVARELHAO; Color of berry skin = NOIR;
+      Synonyms includes BRANCELLAO."
+  - knowledge_item_id: ki_es_berry_brancellao
+    source_citation_id: src_es_berry_albarino_identity
+    locator: "Table 1: EVEGA collection names matched to VIVC prime names and
+      variety IDs."
+  - knowledge_item_id: ki_es_berry_pedral
+    source_citation_id: src_es_berry_pedral
+    locator: "Passport 9078: Prime name = PEDRAL; Color of berry skin = NOIR."
+  - knowledge_item_id: ki_es_berry_castanal
+    source_citation_id: src_es_berry_castanal
+    locator: "Passport 23051: Prime name = CASTANAL; Color of berry skin = NOIR."
+relation_set_assertions:
+  - node_id: n_geo_rioja
+    relation_type: PERMITS_GRAPE
+    direction: forward
+    member_node_type: grape
+    valid_from: 1900-01-01
+    source_citation_id: src_es_iberian_rioja_grapes
+    locator: "Variedades de uva: all 5 red and 9 white varieties; complete neutral
+      legal union, including conditional permissions where stated"
+  - node_id: n_geo_ribera_del_duero
+    relation_type: PERMITS_GRAPE
+    direction: forward
+    member_node_type: grape
+    valid_from: 1900-01-01
+    source_citation_id: src_es_iberian_ribera_spec
+    locator: §6(1)-(3), printed pp. 17–18; six generally authorised varieties and
+      six conditional historical exceptions; complete neutral legal union,
+      including conditional permissions where stated
+  - node_id: n_geo_rias_baixas
+    relation_type: PERMITS_GRAPE
+    direction: forward
+    member_node_type: grape
+    valid_from: 1900-01-01
+    source_citation_id: src_es_iberian_rias_baixas_spec
+    locator: "§6, printed p. 8: all 7 white and 8 red varieties; complete neutral
+      legal union, including conditional permissions where stated"
+  - node_id: n_geo_rueda
+    relation_type: PERMITS_GRAPE
+    direction: forward
+    member_node_type: grape
+    valid_from: 1900-01-01
+    source_citation_id: src_es_iberian_rueda_spec
+    locator: "§6, printed p. 13: current list of 11 white and 7 red varieties;
+      Palomino Fino planting restriction; Godello removed; complete neutral
+      legal union, including conditional permissions where stated"
+  - node_id: n_geo_toro
+    relation_type: PERMITS_GRAPE
+    direction: forward
+    member_node_type: grape
+    valid_from: 1900-01-01
+    source_citation_id: src_es_iberian_toro_spec
+    locator: "§6: all 2 red and 4 white varieties, including the two secondary white
+      varieties; complete neutral legal union, including conditional permissions
+      where stated"
+  - node_id: n_geo_priorat
+    relation_type: PERMITS_GRAPE
+    direction: forward
+    member_node_type: grape
+    valid_from: 1900-01-01
+    source_citation_id: src_es_iberian_priorat_spec
+    locator: "§6, printed p. 21: all 10 red and 9 white varieties; complete neutral
+      legal union, including conditional permissions where stated"
+  - node_id: n_geo_cava
+    relation_type: PERMITS_GRAPE
+    direction: forward
+    member_node_type: grape
+    valid_from: 1900-01-01
+    source_citation_id: src_es_iberian_cava_register
+    locator: "Supraautonómico, DOP Cava PDO-ES-A0735, printed p. 41: complete union
+      of 9 varieties (5 white, 4 red); complete neutral legal union, including
+      conditional permissions where stated"
+  - node_id: n_geo_jerez
+    relation_type: PERMITS_GRAPE
+    direction: forward
+    member_node_type: grape
+    valid_from: 1900-01-01
+    source_citation_id: src_es_iberian_jerez_spec
+    locator: "§F, printed p. 7: all seven legal variety entries, treating Listán
+      Blanco / Palomino Fino as one synonym pair; complete neutral legal union,
+      including conditional permissions where stated"

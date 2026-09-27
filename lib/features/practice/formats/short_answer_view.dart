@@ -45,9 +45,9 @@ class _ShortAnswerViewState extends ConsumerState<ShortAnswerView> {
               labelText: 'Your answer',
               alignLabelWithHint: true,
               helperText:
-                  'Write it as you would in the exam, then check it against '
-                  'the key points.',
-              helperMaxLines: 2,
+                  'Write in your own words, then check the selected learning '
+                  'points. This is original practice, not official exam marking.',
+              helperMaxLines: 3,
               border: OutlineInputBorder(),
             ),
           ),
@@ -70,9 +70,9 @@ class _ShortAnswerViewState extends ConsumerState<ShortAnswerView> {
         const SizedBox(height: 16),
         Text(
           response == null
-              ? 'Tick the key points your answer covered.'
-              : 'You covered ${covered.length} of ${points.length} key '
-                    'points.',
+              ? 'Tick the selected learning points your answer covered.'
+              : 'You marked ${covered.length} of ${points.length} selected '
+                    'learning points as covered.',
           style: theme.textTheme.titleSmall,
         ),
         const SizedBox(height: 8),

@@ -60,10 +60,14 @@ enum FormatGeneration {
 /// What a format presents from: the curriculum, and the time, so that a
 /// composite format can prefer due co-items.
 class PresentationContext {
-  const PresentationContext(this.db, {required this.now});
+  const PresentationContext(this.db, {required this.now, this.allowedItemIds});
 
   final AppDatabase db;
   final DateTime now;
+
+  /// Current mapped members of the session track. Null permits direct
+  /// curriculum inspection without a learner session.
+  final Set<String>? allowedItemIds;
 }
 
 /// What a format generates from, inside the ingestion transaction: its

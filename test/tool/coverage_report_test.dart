@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
+import 'package:yaml/yaml.dart';
 
 import '../../tool/curriculum/coverage_tool.dart';
 import '../../tool/curriculum/curriculum_tools.dart';
@@ -59,6 +60,7 @@ void main() {
     expect(code, exitOk, reason: out);
     expect(out, contains('# Question coverage'));
     expect(out, contains('## WSET Level 3 (`WSET_L3`)'));
+    expect(out, contains('## WSET Level 4 Diploma (`WSET_L4`)'));
     expect(out, contains('## CMS Certified Sommelier (`CMS_CERTIFIED`)'));
     expect(
       out,
@@ -94,16 +96,19 @@ void main() {
 
   test('fails when coverage falls below the baseline', () async {
     final baseline = File(pathOf('coverage_baseline.json'));
-    baseline.writeAsStringSync(
-      baseline.readAsStringSync().replaceFirst(
-        RegExp(r'"testable": \d+'),
-        '"testable": 999',
-      ),
-    );
+    final document = jsonDecode(baseline.readAsStringSync()) as Map;
+    final total = (document['tracks'] as Map)['CMS_CERTIFIED']['total'] as Map;
+    final measured = total['testable'] as int;
+    final raised = measured + 1;
+    total['testable'] = raised;
+    baseline.writeAsStringSync(jsonEncode(document));
     final (code, out) = await run([]);
     expect(code, exitFailed);
     expect(out, contains('**fails**'));
-    expect(out, contains('CMS_CERTIFIED: testable fell from 999 to'));
+    expect(
+      out,
+      contains('CMS_CERTIFIED: testable fell from $raised to $measured'),
+    );
   });
 
   test('fails without a baseline', () async {
@@ -287,7 +292,7 @@ void main() {
       File(pathOf('track_scope.yaml')).deleteSync();
       final out = StringBuffer();
       expect(await lint(['--dataset', manifest], out), exitFailed);
-      for (final track in ['CMS_CERTIFIED', 'WSET_L3']) {
+      for (final track in ['CMS_CERTIFIED', 'WSET_L3', 'WSET_L4']) {
         expect(
           '$out',
           contains(
@@ -301,12 +306,19 @@ void main() {
 
     test('the report refuses a scope that does not fit the release', () async {
       final scope = File(pathOf('track_scope.yaml'));
-      scope.writeAsStringSync(
-        scope.readAsStringSync().replaceFirst(
-          'within: [n_geo_burgundy]',
-          'within: [n_geo_nowhere]',
-        ),
+      // Mutate the objective rather than its YAML layout: selectors may
+      // use either inline lists or multiline lists as content grows.
+      final document = jsonDecode(
+        jsonEncode(loadYaml(scope.readAsStringSync())),
+      ) as Map<String, dynamic>;
+      final objectives = document['tracks']['WSET_L3']['objectives'] as List;
+      final burgundy = objectives.cast<Map<String, dynamic>>().singleWhere(
+        (o) => o['id'] == 'wset_l3.still.burgundy',
       );
+      final within = burgundy['covers']['within'] as List;
+      expect(within, contains('n_geo_burgundy'));
+      within[within.indexOf('n_geo_burgundy')] = 'n_geo_nowhere';
+      scope.writeAsStringSync(jsonEncode(document));
       final (code, out) = await run([]);
       expect(code, exitFailed);
       expect(
@@ -359,7 +371,7 @@ void main() {
         contains('Coverage on ${releaseDate(bundledDataset())} '),
         reason: 'coverage is measured on the release date (COV-5)',
       );
-      for (final track in ['CMS_CERTIFIED', 'WSET_L3']) {
+      for (final track in ['CMS_CERTIFIED', 'WSET_L3', 'WSET_L4']) {
         expect(
           '$out',
           contains(

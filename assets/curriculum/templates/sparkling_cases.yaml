@@ -1,0 +1,88 @@
+# Original conditional decisions. Each self-checked pool belongs to one scenario.
+question_templates:
+  - id: qt_spark_case_fruit_tank
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: spark_fruit_tank
+    prompt_template: A producer has aromatic base wine and an available pressure-tank line. The target is a
+      fresh, youthful sparkling style with rapid release; pronounced mature lees character is not required.
+      Propose a defensible production method, explain why it suits the target, and discuss a tradeoff and a
+      limitation. A method name alone does not establish wine quality.
+    parameters:
+      scope_node_ids:
+        - n_spark_case_fruit_tank
+      key_points:
+        CASE_ACTION: Defensible action
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or follow-up
+  - id: qt_spark_case_transfer_batch
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: spark_transfer_batch
+    prompt_template: A sparkling producer wants bottle fermentation and bottle lees ageing. Its
+      individual-bottle finishing capacity is limited, but a suitable pressure-tank filtration and filling
+      line is available. The product has no appellation requirement to stay in its fermentation bottle.
+      Propose a defensible finishing approach, its rationale, a tradeoff and a limitation.
+    parameters:
+      scope_node_ids:
+        - n_spark_case_transfer_batch
+      key_points:
+        CASE_ACTION: Defensible action
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or follow-up
+  - id: qt_spark_case_long_closure
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: spark_long_closure
+    prompt_template: A traditional-method sparkling cuvée is intended for extended bottle lees ageing while
+      retaining carbonation and relatively fresh fruit character. Two suitable crown closures differ in gas
+      permeability. Bottles are stored above ground in a cellar with variable temperatures, and active
+      climate control would use additional resources. Propose a defensible closure and storage plan, its
+      rationale, a tradeoff and a limitation.
+    parameters:
+      scope_node_ids:
+        - n_spark_case_long_closure
+      key_points:
+        CASE_ACTION: Defensible action
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or follow-up
+  - id: qt_spark_case_gushing_batch
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: spark_gushing_batch
+    prompt_template: A traditional-method sparkling batch gushes on opening even though the recorded
+      gas-generating sugar addition appears appropriate. Some bottles contain tartrate crystals and residual
+      lees. Propose a defensible investigation before further release, explain the mechanism, and identify a
+      tradeoff and a limitation. Do not assume that reducing sugar alone solves every gushing problem.
+    parameters:
+      scope_node_ids:
+        - n_spark_case_gushing_batch
+      key_points:
+        CASE_ACTION: Defensible action
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or follow-up
+  - id: qt_spark_case_dosage_trial
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: spark_dosage_trial
+    prompt_template: A disgorged sparkling blend has completed the producer’s planned lees ageing. The team is
+      comparing neutral and characterful dosage wines and different sweetness levels before sealing. Propose
+      a defensible trial, explain why dosage choice matters, and identify a tradeoff and a limitation. Do
+      not treat tirage and dosage as interchangeable.
+    parameters:
+      scope_node_ids:
+        - n_spark_case_dosage_trial
+      key_points:
+        CASE_ACTION: Defensible action
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or follow-up

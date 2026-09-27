@@ -4,6 +4,7 @@ import 'dart:math';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:fsrs/fsrs.dart' as fsrs;
 import 'package:sommelier/core/curriculum/curriculum_ingestion.dart';
+import 'package:sommelier/core/curriculum/knowledge_graph.dart';
 import 'package:sommelier/core/database/app_database.dart';
 import 'package:sommelier/core/geography/coordinates.dart';
 import 'package:sommelier/core/geography/geo_layer.dart';
@@ -29,11 +30,15 @@ void main() {
   late GenerationReport generated;
   late ExercisePresenter presenter;
   late ReviewService reviews;
-  final appellations = GeoLayer.fromTopology(
-    Topology.parse(
-      File('assets/geography/fr_appellations.topo.json').readAsStringSync(),
+  late Map<String, String> layerAssets;
+  final layers = <String, GeoLayer>{};
+
+  GeoLayer layer(String id) => layers.putIfAbsent(
+    id,
+    () => GeoLayer.fromTopology(
+      Topology.parse(File(layerAssets[id]!).readAsStringSync()),
+      id: id,
     ),
-    id: 'ml_fr_appellations',
   );
 
   const locate = 'qt_located_in_fwd_map_locate';
@@ -47,6 +52,10 @@ void main() {
       clock: time.clock,
       assets: (path) async => File(path).readAsBytesSync(),
     ).ingest(bundledDataset());
+    layerAssets = {
+      for (final layer in await db.select(db.mapLayers).get())
+        layer.id: layer.assetPath,
+    };
     presenter = ExercisePresenter(db, clock: time.clock);
     reviews = ReviewService(
       db,
@@ -65,7 +74,9 @@ void main() {
   MapTap tapAt(MapExercise exercise, LonLat at) {
     final frame = exercise.frame.box;
     final shapes = [
-      for (final id in exercise.candidateIds) ?appellations.shapeFor(id),
+      for (final candidate in exercise.frame.candidates)
+        layer(candidate.geometry.mapLayerId)
+            .shapeFor(candidate.geometry.featureKey)!,
     ];
     final pixelsPerWorld = 400 / ((frame.maxLon - frame.minLon) / 360);
     return MapTap(
@@ -96,17 +107,49 @@ void main() {
     final map = await (db.select(
       db.questions,
     )..where((q) => q.questionTemplateId.equals(locate))).get();
-    expect(map, hasLength(18), reason: 'every drawn location item');
-    expect([
-      for (final q in map) q.knowledgeItemId,
-    ], containsAll(['ki_chablis_location', 'ki_burgundy_location']));
+    final locations = (await KnowledgeGraph(db).currentItems(on: '2026-10-01'))
+        .where((item) => item.relationType == 'LOCATED_IN')
+        .toList();
+    final drawn = {
+      for (final geometry in await db.select(db.nodeGeometries).get())
+        geometry.knowledgeNodeId,
+    };
+    final expected = {
+      for (final item in locations)
+        if (drawn.contains(item.subjectId)) item.id,
+    };
+    final asked = {for (final q in map) q.knowledgeItemId};
+    expect(
+      asked,
+      expected,
+      reason: 'every current mapped location is clickable',
+    );
+    expect(
+      [
+        for (final item in locations)
+          if (asked.contains(item.id)) item.subjectId,
+      ],
+      containsAll([
+        'n_geo_chablis',
+        'n_geo_burgundy',
+        'n_geo_barolo',
+        'n_geo_mosel',
+        'n_geo_baden',
+        'n_geo_tokaj',
+        'n_geo_rioja',
+        'n_geo_douro',
+        'n_geo_california',
+        'n_geo_mendoza',
+        'n_geo_marlborough',
+      ]),
+    );
     expect(
       [
         for (final s in generated.skipped)
           if (s.templateId == locate) (s.itemId, s.reason),
       ],
-      contains(('ki_barolo_location', SkipReason.notEligible)),
-      reason: 'Barolo is not drawn yet',
+      isNot(contains(('ki_barolo_location', SkipReason.notEligible))),
+      reason: 'Barolo now has a sourced study location',
     );
   });
 
@@ -114,7 +157,7 @@ void main() {
     final chablis = await present('ki_chablis_location', locate);
     expect(chablis.prompt, 'Find Chablis on the map.');
     expect(chablis.nodeId, 'n_geo_chablis');
-    expect(chablis.frame.parent.id, 'n_geo_france');
+    expect(chablis.frame.parent.id, 'n_geo_burgundy');
     expect(chablis.candidateIds, contains('n_geo_volnay'));
     expect(chablis.names['n_geo_chablis'], 'Chablis');
     expect(chablis.options, isEmpty);
@@ -127,20 +170,34 @@ void main() {
     const format = MapLocateFormat();
 
     final inside = tapAt(chablis, labelOf(chablis, 'n_geo_chablis'));
-    expect(inside.hit?.key, 'n_geo_chablis');
-    final right = format.grade(chablis, MapLocateAnswer.fromTap(inside)).single;
+    expect(inside.hits.map((hit) => hit.key), contains('n_geo_chablis'));
+    final right = format
+        .grade(
+          chablis,
+          MapLocateAnswer.fromTap(inside, preferredNodeId: chablis.nodeId),
+        )
+        .single;
     expect(right.rating, fsrs.Rating.good);
     expect(right.selectedNodeId, 'n_geo_chablis');
     expect(right.payload, containsPair('tap', isA<List<Object?>>()));
-    expect(right.payload, containsPair('frame', 'n_geo_france'));
+    expect(right.payload, containsPair('frame', chablis.frame.parent.id));
 
     final volnay = tapAt(chablis, labelOf(chablis, 'n_geo_volnay'));
     final wrong = format.grade(chablis, MapLocateAnswer.fromTap(volnay)).single;
     expect(wrong.rating, fsrs.Rating.again);
-    expect(wrong.selectedNodeId, 'n_geo_volnay');
+    expect(wrong.selectedNodeId, isNot(chablis.nodeId));
+    expect(
+      volnay.hits.map((hit) => hit.key),
+      contains(wrong.selectedNodeId),
+      reason: 'shared production communes can represent several wine areas',
+    );
 
-    // Bordeaux: no candidate there.
-    final outside = tapAt(chablis, const LonLat(-0.58, 44.84));
+    // Far outside this frame, so newly authored areas cannot turn the
+    // deliberate miss into a legitimate location.
+    final outside = tapAt(
+      chablis,
+      LonLat(chablis.frame.box.minLon - 20, chablis.frame.box.minLat - 20),
+    );
     expect(outside.hit, isNull);
     final missed = format
         .grade(chablis, MapLocateAnswer.fromTap(outside))
@@ -160,9 +217,29 @@ void main() {
     );
   });
 
+  test(
+    'a sourced point outside France is clickable and grades the same item',
+    () async {
+      final barolo = await present('ki_barolo_location', locate);
+      final tap = tapAt(barolo, labelOf(barolo, 'n_geo_barolo'));
+      final answer = MapLocateAnswer.fromTap(
+        tap,
+        preferredNodeId: barolo.nodeId,
+      );
+      expect(answer.nodeId, 'n_geo_barolo');
+      final grade = const MapLocateFormat().grade(barolo, answer).single;
+      expect(grade.itemId, 'ki_barolo_location');
+      expect(grade.rating, fsrs.Rating.good);
+      expect(grade.payload, containsPair('tap', isA<List<Object?>>()));
+    },
+  );
+
   test('a tap near an area selects it, and any correct node counts', () async {
     final chablis = await present('ki_chablis_location', locate);
-    final shape = appellations.shapeFor('n_geo_chablis')!;
+    final geometry = chablis.frame.candidates
+        .firstWhere((candidate) => candidate.id == chablis.nodeId)
+        .geometry;
+    final shape = layer(geometry.mapLayerId).shapeFor(geometry.featureKey)!;
     final near = MapTap(
       position: const LonLat(4.1, 47.8),
       hits: [MapHit(shape: shape, kind: HitKind.near, distance: 6)],

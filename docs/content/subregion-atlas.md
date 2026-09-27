@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **Status** | Study map and content plan for backlog tasks G10–G13, researched on 2026-09-24. The lists are the planned scope. Each task checks its lists against the register named in the region's sheet, and every item stays `unverified` until an expert review (D3). |
+| **Status** | Study map and content plan for backlog tasks G10–G13, researched on 2026-09-24; authored release 0.11 coverage updated on 2026-09-26. The release maps 1,423 wine places across 20 countries. The implementation inventory below describes authored coverage; the region sheets and drill table retain the broader planned scope. Complete registers and advanced atlas drills remain partial. Each task checks its lists against the named register, and every item stays `unverified` until an expert review (D3). |
 | **Design** | [geography.md](../design/geography.md) (map model, formats, sources) · [question-system.md](../design/question-system.md) (formats, completeness) · decisions GEO-15 to GEO-18 in [architecture-audit.md](../architecture-audit.md) §15 |
 | **Companion** | [spaetburgunder-study-tree.md](spaetburgunder-study-tree.md): the deep dive into one grape and one country |
 
@@ -15,6 +15,40 @@ The famous regions are learnt through their sub-regions. A candidate must answer
 
 This atlas turns each famous region into a map-based study unit: a tree of its sub-regions, the rivers and landforms that explain it, the levels each track needs, the drills, and the register that makes each fact checkable. As everywhere in the app, a map question practises the same item as its text form (GEO-1).
 
+**Authored coverage in release 0.11.** The curriculum and geography manifest contain 20 country roots and 1,423 noncountry wine places. Every place has reusable geometry and a cited location item; one place with two parents has two location items, giving 1,424 in total. Existing country and atlas files are extended by `france_atlas_completion.yaml`, `europe_atlas_completion.yaml` and `new_world_atlas_completion.yaml`, adding 397 places. Release 0.11 additionally adds 361 places through `new_world_oceania_africa.yaml` and `new_world_americas.yaml`, plus twelve dated NZ planting-rank facts. Australia, Ontario/BC and California/Oregon/Washington now have explicit closed register inventories; South Africa retains the single Paardeberg South ward gap. All three selectable tracks account for authored support; Diploma inherits WSET Level 3 location practice in `track_scope.yaml`; the six Diploma workstreams retain the broader wine-content tasks. The [Diploma gap audit](../research/wset-level-4-gap-audit.md) records production, business, analytical, tasting and research work.
+
+| Countries | Mapped wine places |
+|---|---:|
+| France | 379 |
+| Italy, Spain, Portugal | 167, 56, 31 |
+| Germany, Austria, Switzerland | 42, 32, 7 |
+| Hungary, Greece | 8, 6 |
+| United States, Canada | 211, 40 |
+| Chile, Argentina | 50, 65 |
+| Australia, New Zealand | 113, 31 |
+| South Africa | 149 |
+| Georgia, Lebanon | 3, 3 |
+| United Kingdom, China | 22, 8 |
+
+The maps use French commune-based areas and sourced point fallbacks, with provenance and approximation notes in `tool/geography/`. Points can represent a named settlement within a larger wine area; they do not depict legal boundaries. New markers also include documented interior points derived from open source polygons. This inventory covers the authored places, rather than every unit proposed below. Ordering, neighbours, rivers and landforms, and geographic complete-the-set drills remain G10–G13 work. The release's complete grape-set assertions support scoped grape-map questions; they do not assert complete geographic child sets or worldwide grape permissions. Expert review and certification parity remain separate release gates.
+
+### Implementation status in release 0.11
+
+These are named places with sourced map references and location items, not a claim that every legal area has a boundary polygon or that all proposed drills are implemented.
+
+| Study area | Implemented coverage | Remaining qualification or scope |
+|---|---|---|
+| Chablis and Alsace | All 40 Chablis Premier Cru label climat names, including the 17 umbrella names; all 51 Alsace Grand Cru appellations. Existing Chablis coverage includes its seven Grand Cru climats. | The 40 names are not the full cadastral lieu-dit or parcel set. Côte de Fontenay uses a representative locality reference; it is not a precise vineyard marker. See [France completion source notes](../../tool/geography/france_atlas_completion_sources.md). |
+| Italy | The 20-region administrative framework; all 11 Barolo communes and the four Barbaresco localities; all 11 Chianti Classico UGAs and eight current Chianti subzones; Valpolicella Classico and Valpantena, Soave Classico and Colli Scaligeri, Cartizze, six Alto Adige DOC subzones, principal Friuli Colli Orientali subzones and further major appellations. | Commune inclusion may be partial. Locality points and region-parented commune facts do not place every hectare of those communes within a DOCG. Barolo/Barbaresco MGAs, Vino Nobile's 12 Pievi, the full Soave UGA set and Alto Adige's 86 UGAs remain unfinished. See [European completion source notes](../../tool/geography/europe_atlas_completion_sources.md). |
+| Spain and Portugal | The ten current Marco de Jerez production/ageing towns; four Cava zones and seven Cava subzones. Existing coverage includes Rioja's three zones, Rías Baixas' five subzones, Douro's three subregions, Vinho Verde's nine and Alentejo's eight. | Priorat's full village/single-vineyard lists and Rioja's vineyard register remain unfinished. |
+| United States and Canada | All 196 unique California/Oregon/Washington-associated AVAs and 11 New York-associated AVAs; all 17 Ontario appellations and 21 British Columbia wine GIs/sub-GIs. The existing Napa, Sonoma, Willamette and Paso study sets remain included. | State-associated AVA counts overlap. Napa's list contains 15 wholly nested AVAs and two partial overlaps: Los Carneros and Wild Horse Valley. Partial overlaps use a fully containing parent; this is not every US AVA or every Canadian wine region. See [Americas inventory](../../tool/geography/new_world_americas_sources.md). |
+| Australia and New Zealand | All 114 current Australian national register names including the country, covering 113 noncountry places; all 19 currently registered New Zealand regional/local wine GIs, plus the listed Central Otago and Marlborough informal areas. | The Australian inventory counts each register name once even where GIS categories overlap. North and South Island have geographic reference questions; these are not extra assertions of grape permission completeness. Informal areas remain explicitly informal. See [Australian inventory](../../tool/geography/new_world_oceania_africa_sources.md). |
+| South Africa and Argentina | 149 of 150 South African noncountry register entries, including all 32 districts and 101 of 102 wards; further Argentine study areas bring its total to 65 places. | Paardeberg South is the single remaining South African ward gap, awaiting a defensible licensed location reference. Argentine GIs remain a selected set; Gualtallary is authored as an informal wine area. See [South African inventory](../../tool/geography/new_world_oceania_africa_sources.md) and [Americas qualifications](../../tool/geography/new_world_americas_sources.md). |
+
+Diploma geography also includes England/Wales and selected counties, selected Chinese wine areas, the New York state frame and 11 associated AVAs, and the missing Spanish, Portuguese, South African, New Zealand and Australian macro frames. These additions contribute 52 noncountry places; legal/product and analytical depth remain partial.
+
+The built map formats include locate and identify. Hierarchy drills remain planned. Release 0.11 also supports `map_pair` questions requesting two to four named places, and `map_grape` questions requesting one mapped wine area permitting one to three named grapes, with varied wording. Legal grape answers require current complete permission sets for the represented candidate areas; dated planting maps use separate complete survey-year ranking sets. All represented alternatives in the relevant cohort are accepted. Each requested authored fact receives its own grade and review. These formats do not implement the planned neighbour, ordering, river/soil deduction, timed or geographic complete-set drills below.
+
 ---
 
 ## 1. Principles
@@ -22,7 +56,7 @@ This atlas turns each famous region into a map-based study unit: a tree of its s
 | # | Principle | Why |
 |---|---|---|
 | 1 | **Legal units are areas; informal areas are labelled as such (GEO-15).** A sub-region is drawn as an area only when a legal register defines it: an AOC specification, a *disciplinare*, a *pliego*, a DAC regulation, 27 CFR part 9, a GI register, or a German vineyard register. Traditional areas are node type `informal_area`. Examples: Bordeaux's Left and Right Banks, Champagne's Côte des Blancs, Marlborough's Awatere Valley. They are drawn only from a cited public definition, such as a commune list; otherwise they are a labelled point. The legend says "traditional area, not a legal unit". | Learners need these areas, but an app must never present them as appellations. An "appellation" question never offers an `informal_area` as an answer. |
-| 2 | **Nesting follows the register (GEO-16).** `LOCATED_IN` chains mirror the legal nesting: Oakville is in Napa Valley, which is in North Coast. A unit inside two parents has one location item per parent: Los Carneros (Napa and Sonoma), Walla Walla Valley (Washington and Oregon). A map question grades the item whose parent frames it. | GEO-6 assumed one parent. Real registers overlap. |
+| 2 | **Nesting follows the register (GEO-16).** `LOCATED_IN` chains mirror full legal containment: Oakville is in Napa Valley, which is in North Coast. A unit wholly inside two parents has one location item per parent. A partial overlap is not full containment: Los Carneros and Wild Horse Valley overlap Napa Valley but are not wholly nested within it. Multistate Walla Walla Valley spans Washington and Oregon. A map question grades the item whose containing parent frames it. | GEO-6 assumed one parent. Real registers overlap; overlap and containment must be distinguished. |
 | 3 | **Levels per track are editorial (L-14).** Each sheet proposes which levels WSET Level 3, CMS Certified and the atlas map. These become `minimum_depth` and importance in the mappings; they are judgements, not syllabus text. | The same map serves each track at its own depth (GEO-4). |
 | 4 | **Complete sets need assertions (QF-8).** "Tap all six communal appellations of the Haut-Médoc" is generated only when a completeness assertion cites the register. | Multi-answer drills must be right by construction. |
 | 5 | **Registers change (GEO-17).** Lists carry `valid_from` and cite the register with its date. A change retires rows (`valid_until`) and never deletes them (V-2). Recent examples: Rioja Baja renamed Rioja Oriental; Crystal Springs of Napa Valley added in 2024; Bannockburn registered in 2022; the Chianti Classico UGAs from 2023; the Vino Nobile Pievi from 2025. | Knowing what changed is itself examinable. |
@@ -32,7 +66,7 @@ This atlas turns each famous region into a map-based study unit: a tree of its s
 
 ## 2. Drills
 
-Every drill is a generic format ([geography.md](../design/geography.md) §4). The atlas tasks add data, not formats.
+Every drill is a generic format ([geography.md](../design/geography.md) §4). The atlas tasks add data, not formats. This table preserves the intended drill scope and examples; inclusion here does not mean a format or its required relations have been implemented. The release 0.11 implementation status above identifies the current map formats.
 
 | Drill | Format (task) | Example | Items graded |
 |---|---|---|---|
@@ -171,14 +205,14 @@ Each sheet gives the **tree**, the **features** that explain it, the **levels** 
 #### Tuscany
 
 - **Chianti Classico DOCG: 11 UGAs** (*unità geografiche aggiuntive*), for Gran Selezione, in the Gazzetta Ufficiale since 1 July 2023: Castellina, Castelnuovo Berardenga, Gaiole, Greve, Lamole, Montefioralle, Panzano, Radda, San Casciano, San Donato in Poggio, Vagliagli.
-- **Chianti DOCG: seven subzones.** Colli Aretini, Colli Fiorentini, Colli Senesi, Colline Pisane, Montalbano, Montespertoli, Rufina.
+- **Chianti DOCG: eight current subzones.** Colli Aretini, Colli Fiorentini, Colli Senesi, Colline Pisane, Montalbano, Montespertoli, Rufina and Terre di Vinci. The [decree of 5 June 2026, Annex A article 1.1](https://www.gazzettaufficiale.it/atto/serie_generale/caricaArticolo?art.codiceRedazionale=26A02927&art.dataPubblicazioneGazzetta=2026-06-12&art.flagTipoArticolo=1&art.idArticolo=1&art.idGruppo=0&art.idSottoArticolo=1&art.idSottoArticolo1=10&art.progressivo=0&art.versione=1) includes Terre di Vinci; the older seven-subzone list is historical.
 - **Brunello and Rosso di Montalcino:** the commune of Montalcino.
-- **Vino Nobile di Montepulciano: 12 *Pievi*** (UGAs), decree published on 5 February 2025. Ascianello, Argiano, Badia, Caggiole, Cerliana, Cervognano, Gracciano, Le Grazie, San Biagio, Sant'Albino, Valardegna, Valiano.
+- **Vino Nobile di Montepulciano: 12 *Pievi*** (UGAs), in the [current 2025 specification, EU C/2025/2742](https://eur-lex.europa.eu/legal-content/IT/TXT/PDF/?uri=OJ:C_202502742). Ascianello, Badia, Caggiole, Cerliana, Cervognano, Gracciano, Le Grazie, San Biagio, Sant'Albino, Sant’Ilario, Valardegna, Valiano. Sant’Ilario replaces the earlier proposed Argiano name. Their fine-scale map locations remain planned.
 - **The coast and other DOCGs:** Bolgheri and Bolgheri Sassicaia; Morellino di Scansano; Carmignano; Vernaccia di San Gimignano.
 - **Features:** the Apennines, the Arno, Florence and Siena; the Tyrrhenian coast.
 - **Levels:**
   - L3: Chianti against Chianti Classico, Rufina and Colli Senesi, Montalcino, Montepulciano, Bolgheri, Maremma;
-  - CMS: all seven Chianti subzones, Carmignano;
+  - CMS: all eight current Chianti subzones, Carmignano;
   - Atlas: the 11 UGAs and the 12 Pievi.
 
 #### Veneto
@@ -203,7 +237,8 @@ Each sheet gives the **tree**, the **features** that explain it, the **levels** 
 - **Priorat (DOQ):** *llicorella* slate; village wines (*Vi de Vila*), *to verify* the list; Montsant surrounds it.
 - **Rías Baixas (DO): five subzones.** Val do Salnés, Condado do Tea, O Rosal, Soutomaior, Ribeira do Ulla.
 - **Jerez-Xérès-Sherry (DO):**
-  - the ageing towns of the "triangle": Jerez de la Frontera, El Puerto de Santa María and Sanlúcar de Barrameda (Manzanilla);
+  - the historic "triangle": Jerez de la Frontera, El Puerto de Santa María and Sanlúcar de Barrameda; this is not the current exclusive Sherry ageing zone;
+  - the current production and ageing area has ten municipalities: those three plus Trebujena, Lebrija, Chipiona, Rota, Chiclana de la Frontera, Puerto Real and San José del Valle. The [Consejo Regulador's 14 November 2025 account](https://www.sherry.wine/news/the-sherry-triangle-evolves-from-three-to-ten) describes the expanded area; Manzanilla's ageing geography remains Sanlúcar de Barrameda;
   - albariza soil; the Guadalquivir; the Levante and Poniente winds.
 - **Cava:** the zoning of 2020 (*to verify* the zones).
 - **Levels:**
@@ -280,9 +315,10 @@ Each sheet gives the **tree**, the **features** that explain it, the **levels** 
 
 **Register:** 27 CFR part 9. **Geometry:** the UC Davis AVA Digitizing Project (CC0).
 
-#### Napa Valley: 17 nested AVAs
+#### Napa Valley: 17 study areas, including partial overlaps
 
 - **The list:** Atlas Peak, Calistoga, Chiles Valley, Coombsville, Crystal Springs of Napa Valley (2024), Diamond Mountain District, Howell Mountain, Los Carneros (shared with Sonoma), Mount Veeder, Oak Knoll District of Napa Valley, Oakville, Rutherford, Spring Mountain District, St. Helena, Stags Leap District, Wild Horse Valley (shared with Solano), Yountville.
+- **Legal nesting:** the [TTB register, updated 18 August 2026](https://www.ttb.gov/regulated-commodities/beverage-alcohol/wine/established-avas), lists 15 wholly contained AVAs and marks Los Carneros and Wild Horse Valley as partial overlaps with Napa Valley. These 17 are a study grouping; the two overlaps must not generate false whole-area `LOCATED_IN` facts.
 - **Features:**
   - the valley floor, north to south: Calistoga, St. Helena, Rutherford, Oakville, Yountville, Oak Knoll;
   - the Mayacamas Mountains to the west: Diamond Mountain, Spring Mountain, Mount Veeder;

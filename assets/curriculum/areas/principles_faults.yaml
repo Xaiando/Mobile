@@ -1,0 +1,2005 @@
+# Original fault mechanisms, sensory limitations and conditional quality-control cases.
+# All await qualified expert review. Curation dates do not date the start of a mechanism.
+# No universal sensory thresholds, chemical recipes or examining-body questions are authored.
+knowledge_nodes:
+  - id: n_fault_principle_oxidative_style
+    node_type: production_principle
+    name: Why must oxidative character be assessed against the intended wine style?
+  - id: n_fault_point_oxidative_style
+    node_type: learning_point
+    name: Oxidative character can be intentional
+  - id: n_fault_principle_oxidative_aroma
+    node_type: production_principle
+    name: What changes can excess oxidation cause in a fresh white wine?
+  - id: n_fault_point_oxidative_aroma
+    node_type: learning_point
+    name: Fruit loss and browning
+  - id: n_fault_principle_chemical_oxidation
+    node_type: production_principle
+    name: How can chemical oxidation of phenolics lead to acetaldehyde in wine?
+  - id: n_fault_point_chemical_oxidation
+    node_type: learning_point
+    name: Peroxide can oxidise ethanol
+  - id: n_fault_principle_enzymatic_browning
+    node_type: production_principle
+    name: What released grape enzyme can accelerate browning after crushing?
+  - id: n_fault_point_enzymatic_browning
+    node_type: learning_point
+    name: Polyphenol oxidase
+  - id: n_fault_principle_h2s_descriptor
+    node_type: production_principle
+    name: Which sulfur compound is commonly associated with a rotten-egg wine aroma?
+  - id: n_fault_point_h2s_descriptor
+    node_type: learning_point
+    name: Hydrogen sulfide
+  - id: n_fault_principle_sulfur_stress
+    node_type: production_principle
+    name: Why does a hydrogen-sulfide smell during fermentation not prove nitrogen deficiency alone?
+  - id: n_fault_point_sulfur_stress
+    node_type: learning_point
+    name: Several yeast stresses can contribute
+  - id: n_fault_principle_mercaptans
+    node_type: production_principle
+    name: What chemical family is also called mercaptans and contains an SH group?
+  - id: n_fault_point_mercaptans
+    node_type: learning_point
+    name: Thiols
+  - id: n_fault_principle_aeration_risk
+    node_type: production_principle
+    name: Why can indiscriminate aeration complicate a suspected reductive sulfur fault?
+  - id: n_fault_point_aeration_risk
+    node_type: learning_point
+    name: Thiols may become disulfides
+  - id: n_fault_principle_copper_carryover
+    node_type: production_principle
+    name: Why does filtration after copper fining not prove all reactive copper has gone?
+  - id: n_fault_point_copper_carryover
+    node_type: learning_point
+    name: Copper complexes can remain dissolved
+  - id: n_fault_principle_late_copper
+    node_type: production_principle
+    name: What packaging risk follows an unassessed last-minute copper addition?
+  - id: n_fault_point_late_copper
+    node_type: learning_point
+    name: Post-bottling instability
+  - id: n_fault_principle_brett_organism
+    node_type: production_principle
+    name: What kind of microorganism is Brettanomyces?
+  - id: n_fault_point_brett_organism
+    node_type: learning_point
+    name: A yeast
+  - id: n_fault_principle_brett_ep
+    node_type: production_principle
+    name: Which Brett-associated phenol commonly gives medicinal or sticking-plaster character?
+  - id: n_fault_point_brett_ep
+    node_type: learning_point
+    name: 4-ethylphenol
+  - id: n_fault_principle_brett_eg
+    node_type: production_principle
+    name: Which Brett-associated phenol can contribute smoky and spicy character?
+  - id: n_fault_point_brett_eg
+    node_type: learning_point
+    name: 4-ethylguaiacol
+  - id: n_fault_principle_brett_masking
+    node_type: production_principle
+    name: Why can the same 4-ethylphenol concentration be perceived differently in two wines?
+  - id: n_fault_point_brett_masking
+    node_type: learning_point
+    name: Wine matrix changes perception
+  - id: n_fault_principle_brett_misdiagnosis
+    node_type: production_principle
+    name: Why is a savoury aroma alone insufficient to diagnose Brett spoilage?
+  - id: n_fault_point_brett_misdiagnosis
+    node_type: learning_point
+    name: Other faults can smell similar
+  - id: n_fault_principle_brett_cells_phenols
+    node_type: production_principle
+    name: Why does removing Brett cells not mean existing volatile phenols have been removed?
+  - id: n_fault_point_brett_cells_phenols
+    node_type: learning_point
+    name: Cells and dissolved phenols differ
+  - id: n_fault_principle_va_acid
+    node_type: production_principle
+    name: Which acid is the principal contributor to wine volatile acidity?
+  - id: n_fault_point_va_acid
+    node_type: learning_point
+    name: Acetic acid
+  - id: n_fault_principle_ethyl_acetate
+    node_type: production_principle
+    name: Which ester is associated with a nail-polish-remover wine aroma at high concentration?
+  - id: n_fault_point_ethyl_acetate
+    node_type: learning_point
+    name: Ethyl acetate
+  - id: n_fault_principle_acetic_bacteria
+    node_type: production_principle
+    name: What environmental exposure supports acetic-acid-bacterial wine spoilage?
+  - id: n_fault_point_acetic_bacteria
+    node_type: learning_point
+    name: Oxygen exposure
+  - id: n_fault_principle_va_analysis
+    node_type: production_principle
+    name: Why should a solvent-like aroma not replace a laboratory volatile-acidity result?
+  - id: n_fault_point_va_analysis
+    node_type: learning_point
+    name: Ethyl acetate is outside the VA acid measure
+  - id: n_fault_principle_tca_compound
+    node_type: production_principle
+    name: Which compound is a major cause of musty cork-type taint?
+  - id: n_fault_point_tca_compound
+    node_type: learning_point
+    name: 2,4,6-trichloroanisole
+  - id: n_fault_principle_tca_non_cork
+    node_type: production_principle
+    name: Why can wine acquire TCA taint without using a natural cork closure?
+  - id: n_fault_point_tca_non_cork
+    node_type: learning_point
+    name: Contaminated oak can transfer TCA
+  - id: n_fault_principle_musty_alternatives
+    node_type: production_principle
+    name: Why does a musty aroma not by itself chemically identify TCA?
+  - id: n_fault_point_musty_alternatives
+    node_type: learning_point
+    name: Several compounds give musty or earthy aromas
+  - id: n_fault_principle_tca_fruit
+    node_type: production_principle
+    name: How can TCA reduce wine expression beyond adding obvious mustiness?
+  - id: n_fault_point_tca_fruit
+    node_type: learning_point
+    name: Suppression of desirable fruit
+  - id: n_fault_principle_light_reaction
+    node_type: production_principle
+    name: Which vitamin can drive light-induced sulfur-aroma formation in white wine?
+  - id: n_fault_point_light_reaction
+    node_type: learning_point
+    name: Riboflavin
+  - id: n_fault_principle_glass_protection
+    node_type: production_principle
+    name: Why does clear wine-bottle glass need stronger protection from relevant light?
+  - id: n_fault_point_glass_protection
+    node_type: learning_point
+    name: More relevant wavelengths can pass through
+  - id: n_fault_principle_light_intensity
+    node_type: production_principle
+    name: Which lighting factors determine the rate of lightstrike risk in displayed wine?
+  - id: n_fault_point_light_intensity
+    node_type: learning_point
+    name: Spectrum and intensity of exposure
+  - id: n_fault_principle_heat_seal
+    node_type: production_principle
+    name: What can leakage or cork movement after hot transport demonstrate without proving sensory damage?
+  - id: n_fault_point_heat_seal
+    node_type: learning_point
+    name: Thermal expansion and closure stress
+  - id: n_fault_principle_heat_comparison
+    node_type: production_principle
+    name: What comparison strengthens an investigation of suspected wine heat damage?
+  - id: n_fault_point_heat_comparison
+    node_type: learning_point
+    name: Same-wine samples held under known conditions
+  - id: n_fault_principle_refermentation
+    node_type: production_principle
+    name: What combination can allow unintended alcoholic refermentation in packaged sweet wine?
+  - id: n_fault_point_refermentation
+    node_type: learning_point
+    name: Viable yeast and fermentable sugar
+  - id: n_fault_principle_packaging_inputs
+    node_type: production_principle
+    name: Which packaging inputs and contact surfaces should microbial QA assess?
+  - id: n_fault_point_packaging_inputs
+    node_type: learning_point
+    name: Wine, water, dry goods and line surfaces
+  - id: n_fault_principle_packaging_biofilms
+    node_type: production_principle
+    name: Why can a small poorly cleaned bottling-line recess matter after final filtration?
+  - id: n_fault_point_packaging_biofilms
+    node_type: learning_point
+    name: Post-filter microbial contamination
+  - id: n_fault_principle_haze_diagnosis
+    node_type: production_principle
+    name: Why should a hazy wine be investigated before its haze is assumed harmless?
+  - id: n_fault_point_haze_diagnosis
+    node_type: learning_point
+    name: Haze may include viable microorganisms
+  - id: n_fault_principle_mousy_delay
+    node_type: production_principle
+    name: Why can a quick sniff and immediate move to the next wine miss mousiness?
+  - id: n_fault_point_mousy_delay
+    node_type: learning_point
+    name: Delayed retronasal perception
+  - id: n_fault_principle_mousy_ph
+    node_type: production_principle
+    name: Why is mousy character often hard to smell directly in acidic wine?
+  - id: n_fault_point_mousy_ph
+    node_type: learning_point
+    name: Low pH limits volatile expression
+  - id: n_fault_principle_mousy_sensitivity
+    node_type: production_principle
+    name: Why does one insensitive taster not rule out mousy character?
+  - id: n_fault_point_mousy_sensitivity
+    node_type: learning_point
+    name: Tasters differ substantially in sensitivity
+  - id: n_fault_principle_threshold_limits
+    node_type: production_principle
+    name: Why is a published aroma-detection threshold not an absolute boundary for every taster?
+  - id: n_fault_point_threshold_limits
+    node_type: learning_point
+    name: Thresholds describe a tested panel and matrix
+  - id: n_fault_principle_threshold_rejection
+    node_type: production_principle
+    name: Why does detecting a wine aroma not establish that consumers will reject the wine?
+  - id: n_fault_point_threshold_rejection
+    node_type: learning_point
+    name: Detection and rejection are distinct
+  - id: n_fault_case_sulfur_before_bottling
+    node_type: production_case
+    name: Sulfur aroma persists in a white wine awaiting bottling
+  - id: n_fault_point_case_sulfur_before_bottling_action
+    node_type: learning_point
+    name: Diagnose and trial before bulk treatment
+  - id: n_fault_point_case_sulfur_before_bottling_reason
+    node_type: learning_point
+    name: Treatment depends on sulfur species
+  - id: n_fault_point_case_sulfur_before_bottling_tradeoff
+    node_type: learning_point
+    name: Desirable aromas may also be reduced
+  - id: n_fault_point_case_sulfur_before_bottling_limitation
+    node_type: learning_point
+    name: Residual copper can remain and cause later problems
+  - id: n_fault_case_brett_rising
+    node_type: production_case
+    name: Brett cells and volatile phenols increase during barrel maturation
+  - id: n_fault_point_case_brett_rising_action
+    node_type: learning_point
+    name: Combine microbial control and sensory assessment
+  - id: n_fault_point_case_brett_rising_reason
+    node_type: learning_point
+    name: Stopping growth limits additional phenol formation
+  - id: n_fault_point_case_brett_rising_tradeoff
+    node_type: learning_point
+    name: Volatile removal can also remove positive aromas
+  - id: n_fault_point_case_brett_rising_limitation
+    node_type: learning_point
+    name: Cell control does not erase existing phenols
+  - id: n_fault_case_lit_display
+    node_type: production_case
+    name: Clear-bottle white wine develops sulfur character in a bright window
+  - id: n_fault_point_case_lit_display_action
+    node_type: learning_point
+    name: Remove sale stock from strong light
+  - id: n_fault_point_case_lit_display_reason
+    node_type: learning_point
+    name: Light can create volatile sulfur compounds
+  - id: n_fault_point_case_lit_display_tradeoff
+    node_type: learning_point
+    name: Wine visibility competes with light protection
+  - id: n_fault_point_case_lit_display_limitation
+    node_type: learning_point
+    name: Compare stock before attributing the aroma
+  - id: n_fault_case_hot_delivery
+    node_type: production_case
+    name: A hot wine shipment arrives with leakage on some bottles
+  - id: n_fault_point_case_hot_delivery_action
+    node_type: learning_point
+    name: Compare suspect stock with controlled holdbacks
+  - id: n_fault_point_case_hot_delivery_reason
+    node_type: learning_point
+    name: Heat affects both reactions and package integrity
+  - id: n_fault_point_case_hot_delivery_tradeoff
+    node_type: learning_point
+    name: Investigation requires samples and holding time
+  - id: n_fault_point_case_hot_delivery_limitation
+    node_type: learning_point
+    name: Physical signs do not establish flavour damage
+  - id: n_fault_case_sporadic_sweet_spoilage
+    node_type: production_case
+    name: Some bottles of a still sweet wine show unexpected gas and haze
+  - id: n_fault_point_case_sporadic_sweet_spoilage_action
+    node_type: learning_point
+    name: Investigate wine and the complete packaging path
+  - id: n_fault_point_case_sporadic_sweet_spoilage_reason
+    node_type: learning_point
+    name: Contamination can occur after filtration
+  - id: n_fault_point_case_sporadic_sweet_spoilage_tradeoff
+    node_type: learning_point
+    name: A thorough audit costs time and resources
+  - id: n_fault_point_case_sporadic_sweet_spoilage_limitation
+    node_type: learning_point
+    name: Clear peer bottles do not prove the lot is stable
+node_alternative_names:
+  - knowledge_node_id: n_fault_point_oxidative_style
+    name: Judge oxidation against intended style
+    kind: synonym
+  - knowledge_node_id: n_fault_point_oxidative_aroma
+    name: Browning and loss of fruit
+    kind: synonym
+  - knowledge_node_id: n_fault_point_chemical_oxidation
+    name: Hydrogen peroxide oxidises ethanol
+    kind: synonym
+  - knowledge_node_id: n_fault_point_enzymatic_browning
+    name: PPO
+    kind: synonym
+  - knowledge_node_id: n_fault_point_h2s_descriptor
+    name: H2S
+    kind: synonym
+  - knowledge_node_id: n_fault_point_h2s_descriptor
+    name: Hydrogen sulphide
+    kind: synonym
+  - knowledge_node_id: n_fault_point_sulfur_stress
+    name: Multiple causes of H2S
+    kind: synonym
+  - knowledge_node_id: n_fault_point_mercaptans
+    name: Sulfhydryls
+    kind: synonym
+  - knowledge_node_id: n_fault_point_mercaptans
+    name: Sulphhydryls
+    kind: synonym
+  - knowledge_node_id: n_fault_point_aeration_risk
+    name: Mercaptans can oxidise to disulfides
+    kind: synonym
+  - knowledge_node_id: n_fault_point_copper_carryover
+    name: Dissolved copper species remain
+    kind: synonym
+  - knowledge_node_id: n_fault_point_late_copper
+    name: Copper haze and later sulfur aromas
+    kind: synonym
+  - knowledge_node_id: n_fault_point_brett_organism
+    name: Yeast
+    kind: synonym
+  - knowledge_node_id: n_fault_point_brett_ep
+    name: 4-EP
+    kind: synonym
+  - knowledge_node_id: n_fault_point_brett_eg
+    name: 4-EG
+    kind: synonym
+  - knowledge_node_id: n_fault_point_brett_masking
+    name: Matrix effects
+    kind: synonym
+  - knowledge_node_id: n_fault_point_brett_masking
+    name: Masking and interactions
+    kind: synonym
+  - knowledge_node_id: n_fault_point_brett_misdiagnosis
+    name: Consider alternative causes
+    kind: synonym
+  - knowledge_node_id: n_fault_point_brett_cells_phenols
+    name: Cell removal is not phenol removal
+    kind: synonym
+  - knowledge_node_id: n_fault_point_va_acid
+    name: Ethanoic acid
+    kind: synonym
+  - knowledge_node_id: n_fault_point_ethyl_acetate
+    name: Ethyl ethanoate
+    kind: synonym
+  - knowledge_node_id: n_fault_point_acetic_bacteria
+    name: Air exposure
+    kind: synonym
+  - knowledge_node_id: n_fault_point_va_analysis
+    name: VA and ethyl acetate are distinct
+    kind: synonym
+  - knowledge_node_id: n_fault_point_tca_compound
+    name: TCA
+    kind: synonym
+  - knowledge_node_id: n_fault_point_tca_non_cork
+    name: TCA is not exclusive to cork
+    kind: synonym
+  - knowledge_node_id: n_fault_point_musty_alternatives
+    name: Mustiness has several possible causes
+    kind: synonym
+  - knowledge_node_id: n_fault_point_tca_fruit
+    name: Fruit aroma suppression
+    kind: synonym
+  - knowledge_node_id: n_fault_point_light_reaction
+    name: Vitamin B2
+    kind: synonym
+  - knowledge_node_id: n_fault_point_glass_protection
+    name: Greater light transmission
+    kind: synonym
+  - knowledge_node_id: n_fault_point_light_intensity
+    name: Wavelengths and illuminance
+    kind: synonym
+  - knowledge_node_id: n_fault_point_heat_seal
+    name: Physical damage is not sensory proof
+    kind: synonym
+  - knowledge_node_id: n_fault_point_heat_comparison
+    name: Use controlled holdback samples
+    kind: synonym
+  - knowledge_node_id: n_fault_point_refermentation
+    name: Live yeast plus fermentable sugar
+    kind: synonym
+  - knowledge_node_id: n_fault_point_packaging_inputs
+    name: Test inputs and contact surfaces
+    kind: synonym
+  - knowledge_node_id: n_fault_point_packaging_biofilms
+    name: Recontamination after filtration
+    kind: synonym
+  - knowledge_node_id: n_fault_point_haze_diagnosis
+    name: Identify the haze components
+    kind: synonym
+  - knowledge_node_id: n_fault_point_mousy_delay
+    name: Mousiness may appear after tasting
+    kind: synonym
+  - knowledge_node_id: n_fault_point_mousy_ph
+    name: Acidity suppresses direct aroma
+    kind: synonym
+  - knowledge_node_id: n_fault_point_mousy_sensitivity
+    name: Use a sensitive assessor
+    kind: synonym
+  - knowledge_node_id: n_fault_point_threshold_limits
+    name: Panel and matrix dependence
+    kind: synonym
+  - knowledge_node_id: n_fault_point_threshold_rejection
+    name: Detection is not rejection
+    kind: synonym
+  - knowledge_node_id: n_fault_point_case_sulfur_before_bottling_action
+    name: Laboratory diagnosis and trials
+    kind: synonym
+  - knowledge_node_id: n_fault_point_case_sulfur_before_bottling_reason
+    name: Match treatment to sulfur compounds
+    kind: synonym
+  - knowledge_node_id: n_fault_point_case_sulfur_before_bottling_tradeoff
+    name: Potential loss of desirable thiols
+    kind: synonym
+  - knowledge_node_id: n_fault_point_case_sulfur_before_bottling_limitation
+    name: Recheck post-treatment stability
+    kind: synonym
+  - knowledge_node_id: n_fault_point_case_brett_rising_action
+    name: A combined Brett control plan
+    kind: synonym
+  - knowledge_node_id: n_fault_point_case_brett_rising_reason
+    name: Prevent further phenol production
+    kind: synonym
+  - knowledge_node_id: n_fault_point_case_brett_rising_tradeoff
+    name: Remediation may reduce desirable aromas
+    kind: synonym
+  - knowledge_node_id: n_fault_point_case_brett_rising_limitation
+    name: Existing phenols require separate assessment
+    kind: synonym
+  - knowledge_node_id: n_fault_point_case_lit_display_action
+    name: Protect sale wine from light
+    kind: synonym
+  - knowledge_node_id: n_fault_point_case_lit_display_reason
+    name: Riboflavin photochemistry
+    kind: synonym
+  - knowledge_node_id: n_fault_point_case_lit_display_tradeoff
+    name: Presentation versus light protection
+    kind: synonym
+  - knowledge_node_id: n_fault_point_case_lit_display_limitation
+    name: Aroma alone does not prove lightstrike
+    kind: synonym
+  - knowledge_node_id: n_fault_point_case_hot_delivery_action
+    name: Use holdbacks and multiple checks
+    kind: synonym
+  - knowledge_node_id: n_fault_point_case_hot_delivery_reason
+    name: Assess wine and package together
+    kind: synonym
+  - knowledge_node_id: n_fault_point_case_hot_delivery_tradeoff
+    name: Assessment consumes samples and time
+    kind: synonym
+  - knowledge_node_id: n_fault_point_case_hot_delivery_limitation
+    name: Closure stress is not sensory proof
+    kind: synonym
+  - knowledge_node_id: n_fault_point_case_sporadic_sweet_spoilage_action
+    name: Investigate microbes, filter and filling line
+    kind: synonym
+  - knowledge_node_id: n_fault_point_case_sporadic_sweet_spoilage_reason
+    name: Live yeast can reach sweet wine after filtration
+    kind: synonym
+  - knowledge_node_id: n_fault_point_case_sporadic_sweet_spoilage_tradeoff
+    name: Audit effort versus recurrence risk
+    kind: synonym
+  - knowledge_node_id: n_fault_point_case_sporadic_sweet_spoilage_limitation
+    name: Sporadic spoilage requires representative investigation
+    kind: synonym
+knowledge_relations:
+  - subject_id: n_fault_principle_oxidative_style
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_oxidative_style
+    valid_from: 2026-09-26
+  - subject_id: n_fault_principle_oxidative_aroma
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_oxidative_aroma
+    valid_from: 2026-09-26
+  - subject_id: n_fault_principle_chemical_oxidation
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_chemical_oxidation
+    valid_from: 2026-09-26
+  - subject_id: n_fault_principle_enzymatic_browning
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_enzymatic_browning
+    valid_from: 2026-09-26
+  - subject_id: n_fault_principle_h2s_descriptor
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_h2s_descriptor
+    valid_from: 2026-09-26
+  - subject_id: n_fault_principle_sulfur_stress
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_sulfur_stress
+    valid_from: 2026-09-26
+  - subject_id: n_fault_principle_mercaptans
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_mercaptans
+    valid_from: 2026-09-26
+  - subject_id: n_fault_principle_aeration_risk
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_aeration_risk
+    valid_from: 2026-09-26
+  - subject_id: n_fault_principle_copper_carryover
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_copper_carryover
+    valid_from: 2026-09-26
+  - subject_id: n_fault_principle_late_copper
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_late_copper
+    valid_from: 2026-09-26
+  - subject_id: n_fault_principle_brett_organism
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_brett_organism
+    valid_from: 2026-09-26
+  - subject_id: n_fault_principle_brett_ep
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_brett_ep
+    valid_from: 2026-09-26
+  - subject_id: n_fault_principle_brett_eg
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_brett_eg
+    valid_from: 2026-09-26
+  - subject_id: n_fault_principle_brett_masking
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_brett_masking
+    valid_from: 2026-09-26
+  - subject_id: n_fault_principle_brett_misdiagnosis
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_brett_misdiagnosis
+    valid_from: 2026-09-26
+  - subject_id: n_fault_principle_brett_cells_phenols
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_brett_cells_phenols
+    valid_from: 2026-09-26
+  - subject_id: n_fault_principle_va_acid
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_va_acid
+    valid_from: 2026-09-26
+  - subject_id: n_fault_principle_ethyl_acetate
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_ethyl_acetate
+    valid_from: 2026-09-26
+  - subject_id: n_fault_principle_acetic_bacteria
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_acetic_bacteria
+    valid_from: 2026-09-26
+  - subject_id: n_fault_principle_va_analysis
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_va_analysis
+    valid_from: 2026-09-26
+  - subject_id: n_fault_principle_tca_compound
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_tca_compound
+    valid_from: 2026-09-26
+  - subject_id: n_fault_principle_tca_non_cork
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_tca_non_cork
+    valid_from: 2026-09-26
+  - subject_id: n_fault_principle_musty_alternatives
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_musty_alternatives
+    valid_from: 2026-09-26
+  - subject_id: n_fault_principle_tca_fruit
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_tca_fruit
+    valid_from: 2026-09-26
+  - subject_id: n_fault_principle_light_reaction
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_light_reaction
+    valid_from: 2026-09-26
+  - subject_id: n_fault_principle_glass_protection
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_glass_protection
+    valid_from: 2026-09-26
+  - subject_id: n_fault_principle_light_intensity
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_light_intensity
+    valid_from: 2026-09-26
+  - subject_id: n_fault_principle_heat_seal
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_heat_seal
+    valid_from: 2026-09-26
+  - subject_id: n_fault_principle_heat_comparison
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_heat_comparison
+    valid_from: 2026-09-26
+  - subject_id: n_fault_principle_refermentation
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_refermentation
+    valid_from: 2026-09-26
+  - subject_id: n_fault_principle_packaging_inputs
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_packaging_inputs
+    valid_from: 2026-09-26
+  - subject_id: n_fault_principle_packaging_biofilms
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_packaging_biofilms
+    valid_from: 2026-09-26
+  - subject_id: n_fault_principle_haze_diagnosis
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_haze_diagnosis
+    valid_from: 2026-09-26
+  - subject_id: n_fault_principle_mousy_delay
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_mousy_delay
+    valid_from: 2026-09-26
+  - subject_id: n_fault_principle_mousy_ph
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_mousy_ph
+    valid_from: 2026-09-26
+  - subject_id: n_fault_principle_mousy_sensitivity
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_mousy_sensitivity
+    valid_from: 2026-09-26
+  - subject_id: n_fault_principle_threshold_limits
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_threshold_limits
+    valid_from: 2026-09-26
+  - subject_id: n_fault_principle_threshold_rejection
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_threshold_rejection
+    valid_from: 2026-09-26
+  - subject_id: n_fault_case_sulfur_before_bottling
+    relation_type: CASE_ACTION
+    object_id: n_fault_point_case_sulfur_before_bottling_action
+    valid_from: 2026-09-26
+  - subject_id: n_fault_case_sulfur_before_bottling
+    relation_type: CASE_REASON
+    object_id: n_fault_point_case_sulfur_before_bottling_reason
+    valid_from: 2026-09-26
+  - subject_id: n_fault_case_sulfur_before_bottling
+    relation_type: CASE_TRADEOFF
+    object_id: n_fault_point_case_sulfur_before_bottling_tradeoff
+    valid_from: 2026-09-26
+  - subject_id: n_fault_case_sulfur_before_bottling
+    relation_type: CASE_LIMITATION
+    object_id: n_fault_point_case_sulfur_before_bottling_limitation
+    valid_from: 2026-09-26
+  - subject_id: n_fault_case_brett_rising
+    relation_type: CASE_ACTION
+    object_id: n_fault_point_case_brett_rising_action
+    valid_from: 2026-09-26
+  - subject_id: n_fault_case_brett_rising
+    relation_type: CASE_REASON
+    object_id: n_fault_point_case_brett_rising_reason
+    valid_from: 2026-09-26
+  - subject_id: n_fault_case_brett_rising
+    relation_type: CASE_TRADEOFF
+    object_id: n_fault_point_case_brett_rising_tradeoff
+    valid_from: 2026-09-26
+  - subject_id: n_fault_case_brett_rising
+    relation_type: CASE_LIMITATION
+    object_id: n_fault_point_case_brett_rising_limitation
+    valid_from: 2026-09-26
+  - subject_id: n_fault_case_lit_display
+    relation_type: CASE_ACTION
+    object_id: n_fault_point_case_lit_display_action
+    valid_from: 2026-09-26
+  - subject_id: n_fault_case_lit_display
+    relation_type: CASE_REASON
+    object_id: n_fault_point_case_lit_display_reason
+    valid_from: 2026-09-26
+  - subject_id: n_fault_case_lit_display
+    relation_type: CASE_TRADEOFF
+    object_id: n_fault_point_case_lit_display_tradeoff
+    valid_from: 2026-09-26
+  - subject_id: n_fault_case_lit_display
+    relation_type: CASE_LIMITATION
+    object_id: n_fault_point_case_lit_display_limitation
+    valid_from: 2026-09-26
+  - subject_id: n_fault_case_hot_delivery
+    relation_type: CASE_ACTION
+    object_id: n_fault_point_case_hot_delivery_action
+    valid_from: 2026-09-26
+  - subject_id: n_fault_case_hot_delivery
+    relation_type: CASE_REASON
+    object_id: n_fault_point_case_hot_delivery_reason
+    valid_from: 2026-09-26
+  - subject_id: n_fault_case_hot_delivery
+    relation_type: CASE_TRADEOFF
+    object_id: n_fault_point_case_hot_delivery_tradeoff
+    valid_from: 2026-09-26
+  - subject_id: n_fault_case_hot_delivery
+    relation_type: CASE_LIMITATION
+    object_id: n_fault_point_case_hot_delivery_limitation
+    valid_from: 2026-09-26
+  - subject_id: n_fault_case_sporadic_sweet_spoilage
+    relation_type: CASE_ACTION
+    object_id: n_fault_point_case_sporadic_sweet_spoilage_action
+    valid_from: 2026-09-26
+  - subject_id: n_fault_case_sporadic_sweet_spoilage
+    relation_type: CASE_REASON
+    object_id: n_fault_point_case_sporadic_sweet_spoilage_reason
+    valid_from: 2026-09-26
+  - subject_id: n_fault_case_sporadic_sweet_spoilage
+    relation_type: CASE_TRADEOFF
+    object_id: n_fault_point_case_sporadic_sweet_spoilage_tradeoff
+    valid_from: 2026-09-26
+  - subject_id: n_fault_case_sporadic_sweet_spoilage
+    relation_type: CASE_LIMITATION
+    object_id: n_fault_point_case_sporadic_sweet_spoilage_limitation
+    valid_from: 2026-09-26
+knowledge_items:
+  - id: ki_fault_oxidative_style
+    subject_id: n_fault_principle_oxidative_style
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_oxidative_style
+    domain_id: tasting
+    assertion_text: Oxidative character may suit an intentionally oxidative style, whereas loss of freshness can
+      be unwanted in a fresh table wine. The style supplies the context.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:28:43.000Z
+  - id: ki_fault_oxidative_aroma
+    subject_id: n_fault_principle_oxidative_aroma
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_oxidative_aroma
+    domain_id: tasting
+    assertion_text: Excess oxidation can reduce fruit expression, deepen colour and produce aldehydic aromas; no
+      single colour or aroma proves the full production history.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:28:43.000Z
+  - id: ki_fault_chemical_oxidation
+    subject_id: n_fault_principle_chemical_oxidation
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_chemical_oxidation
+    domain_id: winemaking
+    assertion_text: Phenolic oxidation can generate hydrogen peroxide, which can then oxidise ethanol to
+      acetaldehyde. This pathway differs from enzyme-mediated browning in grape must.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:28:43.000Z
+  - id: ki_fault_enzymatic_browning
+    subject_id: n_fault_principle_enzymatic_browning
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_enzymatic_browning
+    domain_id: winemaking
+    assertion_text: Crushing releases grape polyphenol oxidase, which catalyses oxidation of susceptible
+      phenolic substrates in must. Browning depends on composition and handling.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:28:43.000Z
+  - id: ki_fault_h2s_descriptor
+    subject_id: n_fault_principle_h2s_descriptor
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_h2s_descriptor
+    domain_id: tasting
+    assertion_text: Hydrogen sulfide commonly evokes rotten egg. A descriptor is a sensory clue, and
+      confirmation of compounds or treatment suitability needs further assessment.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:28:43.000Z
+  - id: ki_fault_sulfur_stress
+    subject_id: n_fault_principle_sulfur_stress
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_sulfur_stress
+    domain_id: winemaking
+    assertion_text: Yeast strain, sulfur residues and several nutritional or compositional stresses can affect
+      hydrogen-sulfide production; nitrogen deficiency is one possible contributor.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:28:43.000Z
+  - id: ki_fault_mercaptans
+    subject_id: n_fault_principle_mercaptans
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_mercaptans
+    domain_id: winemaking
+    assertion_text: Mercaptans are thiols containing an SH group. Some volatile thiols contribute unwanted
+      sulfur characters, while others support desirable fruit aromas.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:28:43.000Z
+  - id: ki_fault_aeration_risk
+    subject_id: n_fault_principle_aeration_risk
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_aeration_risk
+    domain_id: winemaking
+    assertion_text: Aeration can oxidise some unwanted thiols into disulfides that do not directly respond to
+      copper fining; aeration is therefore not a universal remedy.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:28:43.000Z
+  - id: ki_fault_copper_carryover
+    subject_id: n_fault_principle_copper_carryover
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_copper_carryover
+    domain_id: winemaking
+    assertion_text: Some copper-sulfur species can remain dissolved after treatment and filtration. The older
+      assumption of complete precipitation and removal is unreliable.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:28:43.000Z
+  - id: ki_fault_late_copper
+    subject_id: n_fault_principle_late_copper
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_late_copper
+    domain_id: winemaking
+    assertion_text: Late copper additions can increase haze and later reductive-aroma risk. Existing copper and
+      treatment response should be assessed before a bulk addition.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:28:43.000Z
+  - id: ki_fault_brett_organism
+    subject_id: n_fault_principle_brett_organism
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_brett_organism
+    domain_id: winemaking
+    assertion_text: Brettanomyces is a yeast capable of producing spoilage-associated volatile phenols in wine.
+      Its presence and its sensory effects are related but distinct observations.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:28:43.000Z
+  - id: ki_fault_brett_ep
+    subject_id: n_fault_principle_brett_ep
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_brett_ep
+    domain_id: tasting
+    assertion_text: 4-ethylphenol is commonly associated with medicinal or sticking-plaster character. Such a
+      description alone does not identify live Brettanomyces in the sample.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:28:43.000Z
+  - id: ki_fault_brett_eg
+    subject_id: n_fault_principle_brett_eg
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_brett_eg
+    domain_id: tasting
+    assertion_text: 4-ethylguaiacol can contribute smoky or spicy notes. Interactions with other compounds
+      affect the overall impression, and oak can give similar descriptors.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:28:43.000Z
+  - id: ki_fault_brett_masking
+    subject_id: n_fault_principle_brett_masking
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_brett_masking
+    domain_id: tasting
+    assertion_text: Other wine components can mask or accentuate Brett-associated phenols; a concentration is
+      not a universal sensory or rejection threshold.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:28:43.000Z
+  - id: ki_fault_brett_misdiagnosis
+    subject_id: n_fault_principle_brett_misdiagnosis
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_brett_misdiagnosis
+    domain_id: tasting
+    assertion_text: Sulfur characters, reduced fruit from oxidation and smoke taint may be confused with Brett
+      character. Targeted assessment avoids assuming that savouriness establishes one cause.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:28:43.000Z
+  - id: ki_fault_brett_cells_phenols
+    subject_id: n_fault_principle_brett_cells_phenols
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_brett_cells_phenols
+    domain_id: winemaking
+    assertion_text: Appropriate filtration targets yeast cells, whereas removal of dissolved Brett-associated
+      volatiles needs a different treatment strategy. Stopping growth does not erase past sensory effects.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:28:43.000Z
+  - id: ki_fault_va_acid
+    subject_id: n_fault_principle_va_acid
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_va_acid
+    domain_id: winemaking
+    assertion_text: Acetic acid is the principal contributor to volatile acidity. Small amounts arise in normal
+      fermentation, so its mere presence does not establish a faulty wine.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:28:43.000Z
+  - id: ki_fault_ethyl_acetate
+    subject_id: n_fault_principle_ethyl_acetate
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_ethyl_acetate
+    domain_id: tasting
+    assertion_text: Ethyl acetate is an ester associated with solvent-like character at elevated concentration;
+      lower amounts can contribute fruit character. It differs chemically from acetic acid.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:28:43.000Z
+  - id: ki_fault_acetic_bacteria
+    subject_id: n_fault_principle_acetic_bacteria
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_acetic_bacteria
+    domain_id: winemaking
+    assertion_text: Acetic acid bacteria can convert ethanol into acetic acid when oxygen is available. Exposed
+      stored wine is therefore at increased risk.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:28:43.000Z
+  - id: ki_fault_va_analysis
+    subject_id: n_fault_principle_va_analysis
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_va_analysis
+    domain_id: tasting
+    assertion_text: A standard volatile-acidity result measures volatile acids, whereas ethyl acetate is an
+      ester. Its aroma can dominate the impression without being the same analytical measurement.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:28:43.000Z
+  - id: ki_fault_tca_compound
+    subject_id: n_fault_principle_tca_compound
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_tca_compound
+    domain_id: tasting
+    assertion_text: TCA is a major contributor to musty cork-type taint. A musty observation requires assessment
+      because other compounds can give similar sensory descriptions.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:28:43.000Z
+  - id: ki_fault_tca_non_cork
+    subject_id: n_fault_principle_tca_non_cork
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_tca_non_cork
+    domain_id: winemaking
+    assertion_text: TCA-contaminated barrels or other oak products can taint wine before bottling; a non-cork
+      closure therefore does not rule out TCA.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:28:43.000Z
+  - id: ki_fault_musty_alternatives
+    subject_id: n_fault_principle_musty_alternatives
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_musty_alternatives
+    domain_id: tasting
+    assertion_text: Geosmin, methylisoborneol and other compounds may give earthy or musty impressions. Sensory
+      similarity does not prove that a sample contains TCA.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:28:43.000Z
+  - id: ki_fault_tca_fruit
+    subject_id: n_fault_principle_tca_fruit
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_tca_fruit
+    domain_id: tasting
+    assertion_text: TCA can suppress desirable fruit character, so a subdued wine can require closer comparison
+      even when mustiness is not obvious.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:28:43.000Z
+  - id: ki_fault_light_reaction
+    subject_id: n_fault_principle_light_reaction
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_light_reaction
+    domain_id: winemaking
+    assertion_text: Light can activate riboflavin, enabling reactions involving sulfur-containing amino acids
+      and formation of unwanted volatile sulfur compounds.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:28:43.000Z
+  - id: ki_fault_glass_protection
+    subject_id: n_fault_principle_glass_protection
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_glass_protection
+    domain_id: service
+    assertion_text: Clear glass can transmit more damaging wavelengths than protective coloured glass.
+      Protection also depends on glass composition, thickness and the actual lighting.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:28:43.000Z
+  - id: ki_fault_light_intensity
+    subject_id: n_fault_principle_light_intensity
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_light_intensity
+    domain_id: service
+    assertion_text: Both spectral output and intensity influence lightstrike risk; lighting names alone do not
+      define a universal safe exposure time.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:28:43.000Z
+  - id: ki_fault_heat_seal
+    subject_id: n_fault_principle_heat_seal
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_heat_seal
+    domain_id: service
+    assertion_text: Heat can expand wine and move a closure or cause leakage, but those physical signs alone do
+      not prove that flavour quality has deteriorated.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:28:43.000Z
+  - id: ki_fault_heat_comparison
+    subject_id: n_fault_principle_heat_comparison
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_heat_comparison
+    domain_id: service
+    assertion_text: Comparing suspect stock with the same wine retained under known conditions strengthens
+      chemical, physical and sensory evaluation of possible heat damage.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:28:43.000Z
+  - id: ki_fault_refermentation
+    subject_id: n_fault_principle_refermentation
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_refermentation
+    domain_id: winemaking
+    assertion_text: Viable fermentative yeast can grow where sufficient fermentable sugar remains, leading to
+      unwanted fermentation in package. Sugar alone does not prove active spoilage.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:28:43.000Z
+  - id: ki_fault_packaging_inputs
+    subject_id: n_fault_principle_packaging_inputs
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_packaging_inputs
+    domain_id: winemaking
+    assertion_text: Packaging audits assess wine, rinse water, dry goods and internal contact surfaces because
+      contamination can enter through several routes after wine treatment.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:28:43.000Z
+  - id: ki_fault_packaging_biofilms
+    subject_id: n_fault_principle_packaging_biofilms
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_packaging_biofilms
+    domain_id: winemaking
+    assertion_text: Valves, seals, filler heads and other difficult contact points can harbour contamination
+      after final filtration. Filter performance does not replace line hygiene.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:28:43.000Z
+  - id: ki_fault_haze_diagnosis
+    subject_id: n_fault_principle_haze_diagnosis
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_haze_diagnosis
+    domain_id: winemaking
+    assertion_text: A haze may contain viable microorganisms as well as other material; its composition should
+      be investigated before microbial risk is dismissed.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:28:43.000Z
+  - id: ki_fault_mousy_delay
+    subject_id: n_fault_principle_mousy_delay
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_mousy_delay
+    domain_id: tasting
+    assertion_text: Mousy character can emerge late after tasting and persist; a quick sniff alone can miss it,
+      and perception timing differs between tasters.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:28:43.000Z
+  - id: ki_fault_mousy_ph
+    subject_id: n_fault_principle_mousy_ph
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_mousy_ph
+    domain_id: tasting
+    assertion_text: The responsible compounds are less aroma-active at wine pH; increased pH in the mouth can
+      reveal retronasal character during or after tasting.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:28:43.000Z
+  - id: ki_fault_mousy_sensitivity
+    subject_id: n_fault_principle_mousy_sensitivity
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_mousy_sensitivity
+    domain_id: tasting
+    assertion_text: Sensitivity to mousiness varies substantially. Assessment by a taster known to perceive it
+      can help when the first assessor is insensitive.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:28:43.000Z
+  - id: ki_fault_threshold_limits
+    subject_id: n_fault_principle_threshold_limits
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_threshold_limits
+    domain_id: tasting
+    assertion_text: A detection threshold describes a particular test, wine matrix and group of assessors;
+      individuals and interacting compounds may produce different responses.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:28:43.000Z
+  - id: ki_fault_threshold_rejection
+    subject_id: n_fault_principle_threshold_rejection
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_fault_point_threshold_rejection
+    domain_id: tasting
+    assertion_text: Detection asks whether a difference can be perceived; rejection concerns acceptability. TCA
+      research reports separate detection and rejection measures rather than one universal fault boundary.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:28:43.000Z
+  - id: ki_fault_case_sulfur_before_bottling_action
+    subject_id: n_fault_case_sulfur_before_bottling
+    relation_type: CASE_ACTION
+    object_id: n_fault_point_case_sulfur_before_bottling_action
+    domain_id: winemaking
+    assertion_text: Characterise the sulfur problem, measure current copper and run controlled laboratory trials
+      before choosing any bulk treatment; allow time to reassess stability before packaging.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:28:43.000Z
+  - id: ki_fault_case_sulfur_before_bottling_reason
+    subject_id: n_fault_case_sulfur_before_bottling
+    relation_type: CASE_REASON
+    object_id: n_fault_point_case_sulfur_before_bottling_reason
+    domain_id: winemaking
+    assertion_text: Sulfhydryls can respond to copper, whereas disulfides do not directly do so. Diagnosis helps
+      avoid a treatment that does not address the compounds present.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:28:43.000Z
+  - id: ki_fault_case_sulfur_before_bottling_tradeoff
+    subject_id: n_fault_case_sulfur_before_bottling
+    relation_type: CASE_TRADEOFF
+    object_id: n_fault_point_case_sulfur_before_bottling_tradeoff
+    domain_id: winemaking
+    assertion_text: A copper-based treatment can diminish desirable fruity thiol or flinty expression, so
+      improvement of an unwanted aroma should be weighed against the intended wine style.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:28:43.000Z
+  - id: ki_fault_case_sulfur_before_bottling_limitation
+    subject_id: n_fault_case_sulfur_before_bottling
+    relation_type: CASE_LIMITATION
+    object_id: n_fault_point_case_sulfur_before_bottling_limitation
+    domain_id: winemaking
+    assertion_text: "A good immediate aroma response does not establish later stability: dissolved copper
+      species can remain, and excess or late copper can increase haze or later sulfur-aroma risk."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:28:43.000Z
+  - id: ki_fault_case_brett_rising_action
+    subject_id: n_fault_case_brett_rising
+    relation_type: CASE_ACTION
+    object_id: n_fault_point_case_brett_rising_action
+    domain_id: winemaking
+    assertion_text: Assess sanitation, sugar, pH and sulfur dioxide together, and consider appropriate
+      cell-removing filtration. Separately assess whether the existing volatile-phenol effect is acceptable
+      or warrants a trial.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:28:43.000Z
+  - id: ki_fault_case_brett_rising_reason
+    subject_id: n_fault_case_brett_rising
+    relation_type: CASE_REASON
+    object_id: n_fault_point_case_brett_rising_reason
+    domain_id: winemaking
+    assertion_text: Viable Brett cells can produce further volatile phenols, including after packaging.
+      Controlling viable cells addresses future formation rather than simply masking current aroma.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:28:43.000Z
+  - id: ki_fault_case_brett_rising_tradeoff
+    subject_id: n_fault_case_brett_rising
+    relation_type: CASE_TRADEOFF
+    object_id: n_fault_point_case_brett_rising_tradeoff
+    domain_id: winemaking
+    assertion_text: If reverse-osmosis remediation is trialled for existing phenols, positive volatiles may also
+      be reduced. Comparative sensory checks are needed as treatment proceeds.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:28:43.000Z
+  - id: ki_fault_case_brett_rising_limitation
+    subject_id: n_fault_case_brett_rising
+    relation_type: CASE_LIMITATION
+    object_id: n_fault_point_case_brett_rising_limitation
+    domain_id: winemaking
+    assertion_text: Removal or inhibition of cells does not establish that already formed phenols are gone;
+      their sensory effect depends on the wine matrix and must be assessed separately.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:28:43.000Z
+  - id: ki_fault_case_lit_display_action
+    subject_id: n_fault_case_lit_display
+    relation_type: CASE_ACTION
+    object_id: n_fault_point_case_lit_display_action
+    domain_id: service
+    assertion_text: Move sale stock to protected storage and use a display arrangement that limits relevant
+      light reaching wine, such as protected bottles or non-sale display examples.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:28:43.000Z
+  - id: ki_fault_case_lit_display_reason
+    subject_id: n_fault_case_lit_display
+    relation_type: CASE_REASON
+    object_id: n_fault_point_case_lit_display_reason
+    domain_id: service
+    assertion_text: Light-activated riboflavin can promote reactions of sulfur-containing amino acids, producing
+      volatile sulfur compounds associated with lightstruck aroma.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:28:43.000Z
+  - id: ki_fault_case_lit_display_tradeoff
+    subject_id: n_fault_case_lit_display
+    relation_type: CASE_TRADEOFF
+    object_id: n_fault_point_case_lit_display_tradeoff
+    domain_id: service
+    assertion_text: Clear bottles and illuminated displays support visual presentation but transmit relevant
+      light; protective glass or shielding changes that display choice.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:28:43.000Z
+  - id: ki_fault_case_lit_display_limitation
+    subject_id: n_fault_case_lit_display
+    relation_type: CASE_LIMITATION
+    object_id: n_fault_point_case_lit_display_limitation
+    domain_id: service
+    assertion_text: Cabbage-like descriptors can arise from several sulfur compounds. Compare affected and
+      protected stock and exposure history before attributing the observation solely to lightstrike.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:28:43.000Z
+  - id: ki_fault_case_hot_delivery_action
+    subject_id: n_fault_case_hot_delivery
+    relation_type: CASE_ACTION
+    object_id: n_fault_point_case_hot_delivery_action
+    domain_id: service
+    assertion_text: Assess suspect stock against same-lot holdbacks using physical, sensory and appropriate
+      chemical checks, recording exposure and bottle differences before deciding disposition.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:28:43.000Z
+  - id: ki_fault_case_hot_delivery_reason
+    subject_id: n_fault_case_hot_delivery
+    relation_type: CASE_REASON
+    object_id: n_fault_point_case_hot_delivery_reason
+    domain_id: service
+    assertion_text: Elevated temperature can accelerate undesirable wine development and cause thermal expansion
+      that stresses closures; both liquid quality and package condition need assessment.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:28:43.000Z
+  - id: ki_fault_case_hot_delivery_tradeoff
+    subject_id: n_fault_case_hot_delivery
+    relation_type: CASE_TRADEOFF
+    object_id: n_fault_point_case_hot_delivery_tradeoff
+    domain_id: service
+    assertion_text: A documented comparison uses stock, testing effort and time while its outcome is uncertain;
+      a smaller hurried check offers less evidence for the disposition decision.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:28:43.000Z
+  - id: ki_fault_case_hot_delivery_limitation
+    subject_id: n_fault_case_hot_delivery
+    relation_type: CASE_LIMITATION
+    object_id: n_fault_point_case_hot_delivery_limitation
+    domain_id: service
+    assertion_text: Leakage or cork movement is evidence of package stress, not conclusive sensory damage.
+      Effects depend on exposure, wine and bottle, so one observation cannot settle the lot.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:28:43.000Z
+  - id: ki_fault_case_sporadic_sweet_spoilage_action
+    subject_id: n_fault_case_sporadic_sweet_spoilage
+    relation_type: CASE_ACTION
+    object_id: n_fault_point_case_sporadic_sweet_spoilage_action
+    domain_id: winemaking
+    assertion_text: Assess affected and unaffected bottles for viable microbes, review final-filter integrity,
+      and investigate inputs, filler heads, seals and sanitation across the packaging path.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:28:43.000Z
+  - id: ki_fault_case_sporadic_sweet_spoilage_reason
+    subject_id: n_fault_case_sporadic_sweet_spoilage
+    relation_type: CASE_REASON
+    object_id: n_fault_point_case_sporadic_sweet_spoilage_reason
+    domain_id: winemaking
+    assertion_text: Residual fermentable sugar can support unwanted fermentation when viable yeast is present;
+      microbial contamination may enter after the final filter, so that filter is not the only possible
+      source.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:28:43.000Z
+  - id: ki_fault_case_sporadic_sweet_spoilage_tradeoff
+    subject_id: n_fault_case_sporadic_sweet_spoilage
+    relation_type: CASE_TRADEOFF
+    object_id: n_fault_point_case_sporadic_sweet_spoilage_tradeoff
+    domain_id: winemaking
+    assertion_text: Sampling and auditing multiple contact points use time and resources, but a narrow
+      investigation may miss contamination routes and allow the problem to recur.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:28:43.000Z
+  - id: ki_fault_case_sporadic_sweet_spoilage_limitation
+    subject_id: n_fault_case_sporadic_sweet_spoilage
+    relation_type: CASE_LIMITATION
+    object_id: n_fault_point_case_sporadic_sweet_spoilage_limitation
+    domain_id: winemaking
+    assertion_text: Spoilage can be sporadic. A few apparently clear bottles or a satisfactory filter result do
+      not establish that every bottle remained free of viable contaminating organisms.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:28:43.000Z
+certification_knowledge_mappings:
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_fault_oxidative_style
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_fault_oxidative_style
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_fault_oxidative_style
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_fault_oxidative_aroma
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_fault_oxidative_aroma
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_fault_oxidative_aroma
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_fault_chemical_oxidation
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_fault_chemical_oxidation
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_fault_enzymatic_browning
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_fault_enzymatic_browning
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_fault_h2s_descriptor
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_fault_h2s_descriptor
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_fault_h2s_descriptor
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_fault_sulfur_stress
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_fault_sulfur_stress
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_fault_mercaptans
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_fault_mercaptans
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_fault_aeration_risk
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_fault_aeration_risk
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_fault_copper_carryover
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_fault_copper_carryover
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_fault_late_copper
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_fault_late_copper
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_fault_brett_organism
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_fault_brett_organism
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_fault_brett_organism
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_fault_brett_ep
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_fault_brett_ep
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_fault_brett_eg
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_fault_brett_eg
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_fault_brett_masking
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_fault_brett_masking
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_fault_brett_misdiagnosis
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_fault_brett_misdiagnosis
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_fault_brett_cells_phenols
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_fault_brett_cells_phenols
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_fault_va_acid
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_fault_va_acid
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_fault_va_acid
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_fault_ethyl_acetate
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_fault_ethyl_acetate
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_fault_ethyl_acetate
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_fault_acetic_bacteria
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_fault_acetic_bacteria
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_fault_va_analysis
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_fault_va_analysis
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_fault_tca_compound
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_fault_tca_compound
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_fault_tca_compound
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_fault_tca_non_cork
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_fault_tca_non_cork
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_fault_tca_non_cork
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_fault_musty_alternatives
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_fault_musty_alternatives
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_fault_tca_fruit
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_fault_tca_fruit
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_fault_light_reaction
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_fault_light_reaction
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_fault_glass_protection
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_fault_glass_protection
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_fault_glass_protection
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_fault_light_intensity
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_fault_light_intensity
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_fault_heat_seal
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_fault_heat_seal
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_fault_heat_comparison
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_fault_heat_comparison
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_fault_refermentation
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_fault_refermentation
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_fault_packaging_inputs
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_fault_packaging_inputs
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_fault_packaging_biofilms
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_fault_packaging_biofilms
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_fault_haze_diagnosis
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_fault_haze_diagnosis
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_fault_mousy_delay
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_fault_mousy_delay
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_fault_mousy_ph
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_fault_mousy_ph
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_fault_mousy_sensitivity
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_fault_mousy_sensitivity
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_fault_threshold_limits
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_fault_threshold_limits
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_fault_threshold_rejection
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_fault_threshold_rejection
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_fault_case_sulfur_before_bottling_action
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_fault_case_sulfur_before_bottling_reason
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_fault_case_sulfur_before_bottling_tradeoff
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_fault_case_sulfur_before_bottling_limitation
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_fault_case_brett_rising_action
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_fault_case_brett_rising_reason
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_fault_case_brett_rising_tradeoff
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_fault_case_brett_rising_limitation
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_fault_case_lit_display_action
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_fault_case_lit_display_reason
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_fault_case_lit_display_tradeoff
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_fault_case_lit_display_limitation
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_fault_case_hot_delivery_action
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_fault_case_hot_delivery_reason
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_fault_case_hot_delivery_tradeoff
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_fault_case_hot_delivery_limitation
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_fault_case_sporadic_sweet_spoilage_action
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_fault_case_sporadic_sweet_spoilage_reason
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_fault_case_sporadic_sweet_spoilage_tradeoff
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_fault_case_sporadic_sweet_spoilage_limitation
+    importance: core
+    minimum_depth: 3
+source_citations:
+  - id: src_fault_oxidation_white
+    kind: reference_work
+    title: Oxidation in White Wine
+    publisher: Iowa State University Extension and Outreach
+    document_identifier: Aude Watrelot; 25 February 2020
+    url: https://www.extension.iastate.edu/wine/oxidation-white-wine
+    accessed_on: 2026-09-27
+  - id: src_fault_oxidation_dangers
+    kind: reference_work
+    title: Dangers of Oxidation in Table Wines
+    publisher: Iowa State University Extension and Outreach, Midwest Grape and Wine Industry Institute
+    document_identifier: Murli Dharmadhikari; technical note, exact publication day not stated
+    url: https://www.extension.iastate.edu/wine/wp-content/uploads/2021/08/dangers-of-oxidation.pdf
+    accessed_on: 2026-09-27
+  - id: src_fault_sulfur
+    kind: reference_work
+    title: Removal of volatile sulfur compounds
+    publisher: Australian Wine Research Institute
+    document_identifier: Living technical guidance including 2016 and 2018 copper-speciation findings; numeric
+      protocols are not authored here
+    url: https://www.awri.com.au/industry_support/winemaking_resources/storage-and-packaging/pre-packaging-preparation/removal-volatile-sulfur-compounds/
+    accessed_on: 2026-09-27
+  - id: src_fault_copper_aroma
+    kind: reference_work
+    title: AWRI Annual Report 2024
+    publisher: Australian Wine Research Institute
+    document_identifier: "2024 annual report: Surface nanoengineering technology; printed p. 38 (PDF p. 40)"
+    url: https://www.awri.com.au/wp-content/uploads/2024/12/AWRI-Annual-Report-2024.pdf
+    accessed_on: 2026-09-27
+  - id: src_fault_brett_faq
+    kind: reference_work
+    title: Brettanomyces
+    publisher: Australian Wine Research Institute
+    document_identifier: Living technical FAQ; includes sensory and bottle-spoilage research
+    url: https://www.awri.com.au/industry_support/winemaking_resources/frequently_asked_questions/brettanomyces-faq/
+    accessed_on: 2026-09-27
+  - id: src_fault_brett_control
+    kind: reference_work
+    title: Controlling Brettanomyces during winemaking
+    publisher: Australian Wine Research Institute
+    document_identifier: Fact sheet updated February 2023
+    url: https://www.awri.com.au/files/attachment/brett-fact-sheet/
+    accessed_on: 2026-09-27
+  - id: src_fault_va_technical
+    kind: reference_work
+    title: The relationship between acetic acid and volatile acidity
+    publisher: Australian Wine Research Institute
+    document_identifier: Don Buick and Matthew Holdstock; Technical Review 143, April 2003, printed pp. 40–43;
+      analytical concepts only, no legal limits
+    url: https://www.awri.com.au/wp-content/uploads/2021/04/TR-143.TECHNOTE.03.pdf
+    accessed_on: 2026-09-27
+  - id: src_fault_faults_overview
+    kind: reference_work
+    title: Wine flavours, faults and taints
+    publisher: Australian Wine Research Institute
+    document_identifier: Living technical reference; numerical sensory and legal limits deliberately excluded
+    url: https://www.awri.com.au/industry_support/winemaking_resources/sensory_assessment/recognition-of-wine-faults-and-taints/wine_faults/
+    accessed_on: 2026-09-27
+  - id: src_fault_oak_taints
+    kind: reference_work
+    title: Wine taints from oak
+    publisher: Australian Wine Research Institute
+    document_identifier: Adrian Coulter; Australian and New Zealand Grapegrower and Winemaker 709 (2023), printed pp. 56–57
+    url: https://www.awri.com.au/wp-content/uploads/2023/02/s2327.pdf
+    accessed_on: 2026-09-27
+  - id: src_fault_taints
+    kind: reference_work
+    title: Taints in wine
+    publisher: Australian Wine Research Institute
+    document_identifier: Grapegrower and Winemaker 638, March 2017, printed p. 64
+    url: https://www.awri.com.au/wp-content/uploads/2018/03/s1903.pdf
+    accessed_on: 2026-09-27
+  - id: src_fault_heat_light
+    kind: reference_work
+    title: The effects of heat and light on wine during storage
+    publisher: Australian Wine Research Institute
+    document_identifier: Technical Note TN09; Nick Bruer, exact publication day not stated; 4 PDF pages
+    url: https://www.awri.com.au/wp-content/uploads/TN09.pdf
+    accessed_on: 2026-09-27
+  - id: src_fault_mousiness
+    kind: reference_work
+    title: Avoid mousy, off-flavours
+    publisher: Australian Wine Research Institute
+    document_identifier: Ask the AWRI; Grapegrower and Winemaker 613, February 2015, printed p. 50; historic
+      assay-availability claims not used
+    url: https://www.awri.com.au/wp-content/uploads/2018/04/s1694.pdf
+    accessed_on: 2026-09-27
+  - id: src_fault_sensory_thresholds
+    kind: reference_work
+    title: "Smoke taint decision-making: simple steps for reliable sensory testing"
+    publisher: Australian Wine Research Institute
+    document_identifier: Damian Espinase Nandorfy; Technical Review 252, June 2021, printed pp. 5–12; p. 11 for
+      threshold interpretation
+    url: https://www.awri.com.au/wp-content/uploads/2021/06/Technical_Review_Issue_252_Nandorfy.pdf
+    accessed_on: 2026-09-27
+knowledge_item_citations:
+  - knowledge_item_id: ki_fault_oxidative_style
+    source_citation_id: src_fault_oxidation_white
+    locator: "Introduction: desirable oxidative character versus other white wines"
+  - knowledge_item_id: ki_fault_oxidative_aroma
+    source_citation_id: src_fault_oxidation_dangers
+    locator: "Wine Oxidation: browning, fruity aroma and aldehydic odour"
+  - knowledge_item_id: ki_fault_chemical_oxidation
+    source_citation_id: src_fault_oxidation_dangers
+    locator: "Wine Oxidation: nonenzymic reaction and hydrogen peroxide"
+  - knowledge_item_id: ki_fault_enzymatic_browning
+    source_citation_id: src_fault_oxidation_white
+    locator: "Mechanisms of oxidation: PPO release and hydroxycinnamic acids"
+  - knowledge_item_id: ki_fault_h2s_descriptor
+    source_citation_id: src_fault_sulfur
+    locator: "Common examples: Hydrogen sulfide"
+  - knowledge_item_id: ki_fault_sulfur_stress
+    source_citation_id: src_fault_sulfur
+    locator: "Hydrogen sulfide: multiple contributors"
+  - knowledge_item_id: ki_fault_mercaptans
+    source_citation_id: src_fault_sulfur
+    locator: What are volatile sulfur compounds; Unwanted sulfhydryls
+  - knowledge_item_id: ki_fault_aeration_risk
+    source_citation_id: src_fault_sulfur
+    locator: "Using copper to remove VSCs: aeration and disulfides"
+  - knowledge_item_id: ki_fault_copper_carryover
+    source_citation_id: src_fault_sulfur
+    locator: "Using copper to remove VSCs: Kreitman 2016 and Clark 2018 findings"
+  - knowledge_item_id: ki_fault_late_copper
+    source_citation_id: src_fault_sulfur
+    locator: Avoiding copper instabilities
+  - knowledge_item_id: ki_fault_brett_organism
+    source_citation_id: src_fault_brett_control
+    locator: "PDF p. 1: Introduction"
+  - knowledge_item_id: ki_fault_brett_ep
+    source_citation_id: src_fault_brett_faq
+    locator: What is Brett; What does Brett smell like
+  - knowledge_item_id: ki_fault_brett_eg
+    source_citation_id: src_fault_brett_faq
+    locator: What does Brett smell like; Why does Brett smell different
+  - knowledge_item_id: ki_fault_brett_masking
+    source_citation_id: src_fault_brett_faq
+    locator: What are the sensory thresholds for Brett
+  - knowledge_item_id: ki_fault_brett_misdiagnosis
+    source_citation_id: src_fault_brett_faq
+    locator: Misdiagnoses of Brett
+  - knowledge_item_id: ki_fault_brett_cells_phenols
+    source_citation_id: src_fault_brett_control
+    locator: "PDF p. 4: Filtration and clarification; Other treatments and monitoring options"
+  - knowledge_item_id: ki_fault_va_acid
+    source_citation_id: src_fault_va_technical
+    locator: "PDF p. 1: Definition of volatile acidity and normal fermentation production"
+  - knowledge_item_id: ki_fault_ethyl_acetate
+    source_citation_id: src_fault_faults_overview
+    locator: Ethyl acetate
+  - knowledge_item_id: ki_fault_acetic_bacteria
+    source_citation_id: src_fault_faults_overview
+    locator: "Volatile acidity: acetic acid bacteria during storage"
+  - knowledge_item_id: ki_fault_va_analysis
+    source_citation_id: src_fault_va_technical
+    locator: "PDF pp. 1–2: chemical definition, ethyl acetate and measurement"
+  - knowledge_item_id: ki_fault_tca_compound
+    source_citation_id: src_fault_faults_overview
+    locator: "Cork-type taints: 2,4,6-trichloroanisole"
+  - knowledge_item_id: ki_fault_tca_non_cork
+    source_citation_id: src_fault_oak_taints
+    locator: "Printed pp. 56–57: taints from oak and historical barrel investigation"
+  - knowledge_item_id: ki_fault_musty_alternatives
+    source_citation_id: src_fault_oak_taints
+    locator: "Printed p. 56: compounds identified in a tainted barrel wine"
+  - knowledge_item_id: ki_fault_tca_fruit
+    source_citation_id: src_fault_taints
+    locator: "Printed p. 64: How do TCA taints form"
+  - knowledge_item_id: ki_fault_light_reaction
+    source_citation_id: src_srv_awri_light
+    locator: "Printed p. 76: What causes lightstruck character"
+  - knowledge_item_id: ki_fault_glass_protection
+    source_citation_id: src_srv_awri_light
+    locator: "Printed p. 76: How much protection do different bottle colours provide"
+  - knowledge_item_id: ki_fault_light_intensity
+    source_citation_id: src_srv_awri_light
+    locator: "Printed pp. 76–77: light source and illuminance"
+  - knowledge_item_id: ki_fault_heat_seal
+    source_citation_id: src_srv_awri_storage
+    locator: "Effects of temperature, humidity and light: physical damage qualification"
+  - knowledge_item_id: ki_fault_heat_comparison
+    source_citation_id: src_srv_awri_storage
+    locator: "Damage during transport: holdback comparisons and combined tests"
+  - knowledge_item_id: ki_fault_refermentation
+    source_citation_id: src_win_packaging
+    locator: "Printed pp. 46–47: refermentation and viable microorganisms"
+  - knowledge_item_id: ki_fault_packaging_inputs
+    source_citation_id: src_win_packaging
+    locator: "Printed p. 46: What steps are carried out during an audit"
+  - knowledge_item_id: ki_fault_packaging_biofilms
+    source_citation_id: src_win_packaging
+    locator: "Printed pp. 46–47: infrastructure risks, microbial biofilms and post-filter contamination"
+  - knowledge_item_id: ki_fault_haze_diagnosis
+    source_citation_id: src_fault_brett_control
+    locator: "PDF p. 4: Filtration and clarification"
+  - knowledge_item_id: ki_fault_mousy_delay
+    source_citation_id: src_fault_mousiness
+    locator: "Printed p. 50: What does a mousy wine taste like; Is everyone sensitive"
+  - knowledge_item_id: ki_fault_mousy_ph
+    source_citation_id: src_fault_mousiness
+    locator: "Printed p. 50: What does a mousy wine taste like"
+  - knowledge_item_id: ki_fault_mousy_sensitivity
+    source_citation_id: src_fault_mousiness
+    locator: "Printed p. 50: Is everyone sensitive; Can mousiness be measured"
+  - knowledge_item_id: ki_fault_threshold_limits
+    source_citation_id: src_fault_sensory_thresholds
+    locator: "Printed p. 11: interpretation of sensory detection thresholds"
+  - knowledge_item_id: ki_fault_threshold_rejection
+    source_citation_id: src_fault_faults_overview
+    locator: "Cork-type taints: consumer detection versus rejection thresholds"
+  - knowledge_item_id: ki_fault_case_sulfur_before_bottling_action
+    source_citation_id: src_fault_sulfur
+    locator: "Using copper to remove VSCs: diagnostic assessment and trials; Avoiding copper instabilities"
+  - knowledge_item_id: ki_fault_case_sulfur_before_bottling_reason
+    source_citation_id: src_fault_sulfur
+    locator: "Using copper to remove VSCs: sulfhydryls versus disulfides"
+  - knowledge_item_id: ki_fault_case_sulfur_before_bottling_tradeoff
+    source_citation_id: src_fault_copper_aroma
+    locator: "Printed p. 38 (PDF p. 40): findings on aroma, flavour and palate concerns"
+  - knowledge_item_id: ki_fault_case_sulfur_before_bottling_limitation
+    source_citation_id: src_fault_sulfur
+    locator: Using copper to remove VSCs; Avoiding copper instabilities
+  - knowledge_item_id: ki_fault_case_brett_rising_action
+    source_citation_id: src_fault_brett_control
+    locator: "PDF pp. 1–4: coordinated control, filtration and other treatments"
+  - knowledge_item_id: ki_fault_case_brett_rising_reason
+    source_citation_id: src_fault_brett_faq
+    locator: Can Brett grow in bottle
+  - knowledge_item_id: ki_fault_case_brett_rising_tradeoff
+    source_citation_id: src_fault_brett_control
+    locator: "PDF p. 4: Other treatments and monitoring options"
+  - knowledge_item_id: ki_fault_case_brett_rising_limitation
+    source_citation_id: src_fault_brett_control
+    locator: "PDF p. 4: separate cell and volatile treatments; matrix masking"
+  - knowledge_item_id: ki_fault_case_lit_display_action
+    source_citation_id: src_srv_awri_light
+    locator: "Printed pp. 76–77: bottle protection, spectrum and window-display risk"
+  - knowledge_item_id: ki_fault_case_lit_display_reason
+    source_citation_id: src_srv_awri_light
+    locator: "Printed p. 76: What causes lightstruck character"
+  - knowledge_item_id: ki_fault_case_lit_display_tradeoff
+    source_citation_id: src_fault_heat_light
+    locator: "PDF p. 2: glass-colour selection and marketing concerns"
+  - knowledge_item_id: ki_fault_case_lit_display_limitation
+    source_citation_id: src_srv_awri_light
+    locator: "Printed pp. 76–77: lightstruck descriptors and exposure-dependent formation"
+  - knowledge_item_id: ki_fault_case_hot_delivery_action
+    source_citation_id: src_srv_awri_storage
+    locator: "Damage during transport: controlled holdbacks and combined assessment"
+  - knowledge_item_id: ki_fault_case_hot_delivery_reason
+    source_citation_id: src_srv_awri_storage
+    locator: Effects of temperature, humidity and light; Damage during transport
+  - knowledge_item_id: ki_fault_case_hot_delivery_tradeoff
+    source_citation_id: src_srv_awri_storage
+    locator: "Damage during transport: comparison of stock and holdbacks using multiple tests"
+  - knowledge_item_id: ki_fault_case_hot_delivery_limitation
+    source_citation_id: src_fault_heat_light
+    locator: "PDF p. 1: physical damage qualification and comparative testing"
+  - knowledge_item_id: ki_fault_case_sporadic_sweet_spoilage_action
+    source_citation_id: src_win_packaging
+    locator: "Printed pp. 46–47: audit steps, infrastructure risks and microbiological failures"
+  - knowledge_item_id: ki_fault_case_sporadic_sweet_spoilage_reason
+    source_citation_id: src_win_packaging
+    locator: "Printed pp. 46–47: refermentation and post-filter contamination"
+  - knowledge_item_id: ki_fault_case_sporadic_sweet_spoilage_tradeoff
+    source_citation_id: src_win_packaging
+    locator: "Printed pp. 46–47: audit scope and costly product holdbacks or recalls"
+  - knowledge_item_id: ki_fault_case_sporadic_sweet_spoilage_limitation
+    source_citation_id: src_win_packaging
+    locator: "Printed pp. 46–49: sporadic spoilage, post-filter contamination and QA limitations"
+  - knowledge_item_id: ki_fault_va_analysis
+    source_citation_id: src_fault_faults_overview
+    locator: "Ethyl acetate: ester chemistry and solvent-like aroma"
+  - knowledge_item_id: ki_fault_case_lit_display_limitation
+    source_citation_id: src_fault_sulfur
+    locator: "Common examples: descriptors of different volatile sulfur compounds"

@@ -32,8 +32,11 @@ void main() {
       'mcq',
       'map_locate',
       'map_identify',
+      'map_pair',
+      'map_grape',
       'typed',
       'short_answer',
+      'reasoning',
     ]);
     final mcq = appFormats.require('mcq');
     final card = appFormats.require('flashcard');

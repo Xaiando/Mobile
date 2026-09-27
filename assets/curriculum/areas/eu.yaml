@@ -1,0 +1,66 @@
+# The European Union's wine framework: the wine-growing zones and the
+# categories of protected names, shared by every EU country's area.
+# Part of the curriculum release in ../curriculum.yaml, in the format of
+# docs/domain-model.md §7.
+
+node_types:
+  - { id: wine_zone, label: wine-growing zone }
+  - { id: gi_category, label: EU protection category }
+
+relation_types:
+  # Some specifications list permitted varieties without distinguishing
+  # principal and accessory classes. Their items must not invent that split.
+  - id: PERMITS_GRAPE
+    label: permits the grape
+    reverse_label: is a permitted grape of
+    cardinality: many
+    default_domain_id: geography
+    distractor_match_relation_type: HAS_BERRY_COLOUR
+  - id: IN_WINE_ZONE
+    label: lies in the wine-growing zone
+    reverse_label: includes
+    cardinality: one
+    default_domain_id: geography
+  - id: PROTECTED_AS
+    label: is protected as
+    reverse_label: is the protection of
+    cardinality: one
+    default_domain_id: geography
+
+relation_type_signatures:
+  - { relation_type: PERMITS_GRAPE, subject_node_type: appellation, object_node_type: grape }
+  - { relation_type: IN_WINE_ZONE, subject_node_type: country, object_node_type: wine_zone }
+  - { relation_type: IN_WINE_ZONE, subject_node_type: region, object_node_type: wine_zone }
+  - { relation_type: IN_WINE_ZONE, subject_node_type: appellation, object_node_type: wine_zone }
+  - { relation_type: PROTECTED_AS, subject_node_type: label_term, object_node_type: gi_category }
+
+knowledge_nodes:
+  # The zones of Regulation (EU) No 1308/2013, Annex VII, Appendix I.
+  - { id: n_zone_a, node_type: wine_zone, name: Zone A }
+  - { id: n_zone_b, node_type: wine_zone, name: Zone B }
+  - { id: n_zone_c_i, node_type: wine_zone, name: Zone C I }
+  - { id: n_zone_c_ii, node_type: wine_zone, name: Zone C II }
+  - { id: n_zone_c_iii_a, node_type: wine_zone, name: Zone C III (a) }
+  - { id: n_zone_c_iii_b, node_type: wine_zone, name: Zone C III (b) }
+  - { id: n_gi_pdo, node_type: gi_category, name: Protected designation of origin (PDO) }
+  - { id: n_gi_pgi, node_type: gi_category, name: Protected geographical indication (PGI) }
+
+node_alternative_names:
+  - { knowledge_node_id: n_gi_pdo, name: PDO, kind: abbreviation }
+  - { knowledge_node_id: n_gi_pdo, name: Protected designation of origin, kind: synonym }
+  - { knowledge_node_id: n_gi_pdo, name: geschützte Ursprungsbezeichnung, kind: synonym }
+  - { knowledge_node_id: n_gi_pdo, name: g.U., kind: abbreviation }
+  - { knowledge_node_id: n_gi_pgi, name: PGI, kind: abbreviation }
+  - { knowledge_node_id: n_gi_pgi, name: Protected geographical indication, kind: synonym }
+  - { knowledge_node_id: n_gi_pgi, name: geschützte geografische Angabe, kind: synonym }
+  - { knowledge_node_id: n_gi_pgi, name: g.g.A., kind: abbreviation }
+
+source_citations:
+  - id: src_eu_reg_1308_2013
+    kind: legislation
+    title: "Regulation (EU) No 1308/2013 of the European Parliament and of the Council establishing a common organisation of the markets in agricultural products"
+    publisher: "Official Journal of the European Union, L 347, 20.12.2013, p. 671"
+    jurisdiction: EU
+    document_identifier: "CELEX 02013R1308-20260318, consolidated 18 March 2026; Annex VII, Appendix I: wine-growing zones"
+    url: "https://eur-lex.europa.eu/eli/reg/2013/1308/2026-03-18/eng"
+    accessed_on: "2026-09-26"

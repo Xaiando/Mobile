@@ -1,0 +1,1741 @@
+# Original Alsace, Beaujolais and Jura regional comparisons.
+# All items are unverified; dates record curation, not a wine-law effective date.
+# MCQ disabled throughout: qualified explanations and case decisions permit defensible alternatives.
+knowledge_nodes:
+  - id: n_reg_fe_principle_alsace_climate
+    node_type: production_principle
+    name: How do Vosges shelter and autumn temperature patterns frame an Alsace ripening comparison without
+      guaranteeing the harvest outcome?
+  - id: n_reg_fe_point_alsace_shelter
+    node_type: learning_point
+    name: Vosges shelter reduces Atlantic rainfall in Alsace
+  - id: n_reg_fe_point_alsace_autumn
+    node_type: learning_point
+    name: Alsace autumn days and nights can support extended ripening
+  - id: n_reg_fe_principle_alsace_practices
+    node_type: production_principle
+    name: Why do Alsace growers consider foliage height and managed soil cover alongside the site rather than
+      assume the dry regional climate removes all vineyard risks?
+  - id: n_reg_fe_point_alsace_foliage
+    node_type: learning_point
+    name: Raised Alsace foliage addresses exposure and frost risk
+  - id: n_reg_fe_point_alsace_cover
+    node_type: learning_point
+    name: Managed ground cover helps retain Alsace hillside soil
+  - id: n_reg_fe_principle_alsace_riesling_gewurz
+    node_type: production_principle
+    name: How do Riesling and Gewurztraminer supply different aroma and palate expectations for an Alsace
+      comparison?
+  - id: n_reg_fe_point_alsace_riesling
+    node_type: learning_point
+    name: Alsace Riesling offers citrus, floral notes and vivid acidity
+  - id: n_reg_fe_point_alsace_gewurz
+    node_type: learning_point
+    name: Alsace Gewurztraminer combines intense perfume with palate weight
+  - id: n_reg_fe_principle_alsace_pinot_whites
+    node_type: production_principle
+    name: What grape-related palate contrast is useful between Pinot Gris and Pinot Blanc in Alsace without fixing
+      their exact sweetness or production?
+  - id: n_reg_fe_point_alsace_pinot_gris
+    node_type: learning_point
+    name: Alsace Pinot Gris can combine roundness with acidic structure
+  - id: n_reg_fe_point_alsace_pinot_blanc
+    node_type: learning_point
+    name: Alsace Pinot Blanc offers restrained fruit and a lighter palate
+  - id: n_reg_fe_principle_alsace_aroma_sweetness
+    node_type: production_principle
+    name: Why should an Alsace sweetness comparison distinguish fragrant Muscat from the ripe-fruit character of
+      late-harvest wines?
+  - id: n_reg_fe_point_alsace_muscat_dry
+    node_type: learning_point
+    name: Fragrant Alsace Muscat can be vinified dry
+  - id: n_reg_fe_point_alsace_late_fruit
+    node_type: learning_point
+    name: CIVA illustrates a rich Alsace late-harvest style
+  - id: n_reg_fe_principle_beaujolais_grapes
+    node_type: production_principle
+    name: How do Gamay reds and Chardonnay whites prevent a single grape or production stereotype from describing
+      all Beaujolais?
+  - id: n_reg_fe_point_beaujolais_gamay
+    node_type: learning_point
+    name: Beaujolais Gamay combines thin skins with varied fruit expression
+  - id: n_reg_fe_point_beaujolais_chardonnay
+    node_type: learning_point
+    name: Beaujolais Chardonnay whites allow different vessels and lees choices
+  - id: n_reg_fe_principle_beaujolais_sites
+    node_type: production_principle
+    name: Why do Beaujolais hill and parcel observations matter more than assigning one soil-derived flavour or
+      quality level to the whole region?
+  - id: n_reg_fe_point_beaujolais_hills
+    node_type: learning_point
+    name: Beaujolais hills sit between upland foothills and the Saône plain
+  - id: n_reg_fe_point_beaujolais_parcels
+    node_type: learning_point
+    name: Beaujolais soil surveying supports comparisons at parcel scale
+  - id: n_reg_fe_principle_beaujolais_semicarbonic
+    node_type: production_principle
+    name: How do intact berries and yeast fermentation coexist in traditional Beaujolais semi-carbonic
+      vinification?
+  - id: n_reg_fe_point_beaujolais_intact
+    node_type: learning_point
+    name: Beaujolais intact berries undergo intracellular fermentation
+  - id: n_reg_fe_point_beaujolais_yeast
+    node_type: learning_point
+    name: Yeast fermentation of Beaujolais juice supplies carbon dioxide
+  - id: n_reg_fe_principle_beaujolais_extraction
+    node_type: production_principle
+    name: How do maceration and maturation decisions widen Beaujolais style beyond the image of a single
+      early-drinking red?
+  - id: n_reg_fe_point_beaujolais_pressing
+    node_type: learning_point
+    name: Earlier pressing can reduce carbonic-wine phenolic extraction
+  - id: n_reg_fe_point_beaujolais_maturation
+    node_type: learning_point
+    name: Beaujolais extraction and vessel choices influence structure and maturation
+  - id: n_reg_fe_principle_jura_climate_sites
+    node_type: production_principle
+    name: How do Jura’s semi-continental season and varied slopes affect a site comparison without giving all Jura
+      wines one ripeness pattern?
+  - id: n_reg_fe_point_jura_season
+    node_type: learning_point
+    name: Jura combines warm summers with often rainy springs
+  - id: n_reg_fe_point_jura_exposure
+    node_type: learning_point
+    name: Jura exposure, altitude and slope create contrasting microclimates
+  - id: n_reg_fe_principle_jura_white_grapes
+    node_type: production_principle
+    name: How do Chardonnay and Savagnin provide different Jura growing and white-wine comparisons without
+      assuming all Savagnin is Vin Jaune?
+  - id: n_reg_fe_point_jura_chardonnay
+    node_type: learning_point
+    name: Jura Chardonnay offers adaptable growing and varied white styles
+  - id: n_reg_fe_point_jura_savagnin
+    node_type: learning_point
+    name: Jura Savagnin ripens slowly and has several cellar expressions
+  - id: n_reg_fe_principle_jura_red_grapes
+    node_type: production_principle
+    name: How do Poulsard and Trousseau create different Jura red-wine expectations and ripening considerations?
+  - id: n_reg_fe_point_jura_poulsard
+    node_type: learning_point
+    name: Jura Poulsard’s thin skins accompany light red colour
+  - id: n_reg_fe_point_jura_trousseau
+    node_type: learning_point
+    name: Jura Trousseau’s later ripening needs a suitable warm site
+  - id: n_reg_fe_principle_jura_ouillage
+    node_type: production_principle
+    name: Why can Jura Chardonnay or Savagnin give different white-wine styles depending on whether the producer
+      tops up the barrel?
+  - id: n_reg_fe_point_jura_topped
+    node_type: learning_point
+    name: Jura ouillage replenishes evaporated wine
+  - id: n_reg_fe_point_jura_non_topped
+    node_type: learning_point
+    name: Non-topped-up Jura whites require cellar context
+  - id: n_reg_fe_principle_jura_patient_wines
+    node_type: production_principle
+    name: How do Vin Jaune maturation and Vin de Paille grape drying create different Jura wine and commercial
+      comparisons?
+  - id: n_reg_fe_point_jura_jaune_time
+    node_type: learning_point
+    name: Jura Vin Jaune develops under a surface yeast veil
+  - id: n_reg_fe_point_jura_paille_drying
+    node_type: learning_point
+    name: Jura Vin de Paille concentrates grapes before fermentation
+  - id: n_reg_fe_case_alsace_dry_aromatic
+    node_type: production_case
+    name: A restaurant needs a dry, aromatic Alsace white for its main wine-list slot. Offers include a Muscat
+      with a producer specification confirming a dry palate and a Gewurztraminer with a specification
+      confirming noticeable residual sweetness. Both landed quotes fit the purchase budget; current samples
+      are available but have not been tasted. Propose an action, explain the regional style context, discuss a
+      tradeoff and give a limitation without treating perfume as a sweetness or quality test.
+  - id: n_reg_fe_point_case_alsace_dry_aromatic_action
+    node_type: learning_point
+    name: Check the Alsace specifications and compare coded samples
+  - id: n_reg_fe_point_case_alsace_dry_aromatic_reason
+    node_type: learning_point
+    name: Alsace grape perfume does not establish residual sweetness
+  - id: n_reg_fe_point_case_alsace_dry_aromatic_tradeoff
+    node_type: learning_point
+    name: Weigh the dry Alsace style fit against customer value
+  - id: n_reg_fe_point_case_alsace_dry_aromatic_limitation
+    node_type: learning_point
+    name: Alsace specifications do not yet establish full wine-list suitability
+  - id: n_reg_fe_case_beaujolais_berry_handling
+    node_type: production_case
+    name: "A Beaujolais grower wants a fruit-led Gamay red with supple tannin for relatively early release. Two
+      sound lots have comparable ripeness: one was gently hand-picked and arrives with mostly intact bunches;
+      the cheaper second lot has many crushed berries. The grower can run small trials and has berry-condition
+      and cost records. Assess an action, reason, tradeoff and limitation for a carbonic-style approach; no
+      finished wine or universal quality advantage is given."
+  - id: n_reg_fe_point_case_beaujolais_berry_handling_action
+    node_type: learning_point
+    name: Assess berry integrity and trial the Beaujolais lots separately
+  - id: n_reg_fe_point_case_beaujolais_berry_handling_reason
+    node_type: learning_point
+    name: Intact Gamay berries support the intracellular component
+  - id: n_reg_fe_point_case_beaujolais_berry_handling_tradeoff
+    node_type: learning_point
+    name: Balance Beaujolais fruit handling costs against the style target
+  - id: n_reg_fe_point_case_beaujolais_berry_handling_limitation
+    node_type: learning_point
+    name: Berry integrity cannot guarantee Beaujolais quality or release readiness
+  - id: n_reg_fe_case_jura_white_comparison
+    node_type: production_case
+    name: A class compares two sound Jura Savagnins from one producer and vintage. Records identify one as topped
+      up in barrel and the other as matured without topping up under a surface yeast veil; samples show
+      respectively citrus/floral and walnut-like characters. Vineyard sources differ and their detailed
+      records are available. Design a comparison with an action, reason, tradeoff and limitation, without
+      treating a soil name or aroma as proof of origin or superior quality.
+  - id: n_reg_fe_point_case_jura_white_comparison_action
+    node_type: learning_point
+    name: Separate Jura site records from maturation when comparing samples
+  - id: n_reg_fe_point_case_jura_white_comparison_reason
+    node_type: learning_point
+    name: The Jura white comparison contains a documented cellar difference
+  - id: n_reg_fe_point_case_jura_white_comparison_tradeoff
+    node_type: learning_point
+    name: The Jura contrast is vivid but changes both site and cellar
+  - id: n_reg_fe_point_case_jura_white_comparison_limitation
+    node_type: learning_point
+    name: The Jura pair cannot isolate soil effects or establish a ranking
+  - id: n_reg_fe_case_jura_maturation_cash
+    node_type: production_case
+    name: A Jura winery considers expanding a Savagnin lot intended for prolonged Vin Jaune-style maturation
+      instead of selling its sound topped-up Savagnin sooner. Its records show that the longer route ties up
+      cellar space, requires storage spending and loses saleable volume through evaporation. Payment for fruit
+      and work is due before sales, and no future premium or demand is assured. Propose an action, explain a
+      reason, discuss a tradeoff and state a limitation without making a legal-release-date decision.
+  - id: n_reg_fe_point_case_jura_maturation_cash_action
+    node_type: learning_point
+    name: Forecast the Jura maturation route’s cash and saleable volume
+  - id: n_reg_fe_point_case_jura_maturation_cash_reason
+    node_type: learning_point
+    name: Long Jura maturation combines delayed sale with evaporation
+  - id: n_reg_fe_point_case_jura_maturation_cash_tradeoff
+    node_type: learning_point
+    name: Balance Jura style development against inventory and cash costs
+  - id: n_reg_fe_point_case_jura_maturation_cash_limitation
+    node_type: learning_point
+    name: Jura maturation tradition cannot guarantee profitable expansion
+node_alternative_names:
+  - knowledge_node_id: n_reg_fe_point_alsace_shelter
+    name: Alsace Vosges rain shelter
+    kind: synonym
+  - knowledge_node_id: n_reg_fe_point_alsace_autumn
+    name: Alsace autumn day night ripening
+    kind: synonym
+  - knowledge_node_id: n_reg_fe_point_alsace_foliage
+    name: Alsace high foliage exposure frost
+    kind: synonym
+  - knowledge_node_id: n_reg_fe_point_alsace_cover
+    name: Alsace managed cover soil retention
+    kind: synonym
+  - knowledge_node_id: n_reg_fe_point_alsace_riesling
+    name: Alsace Riesling citrus floral acidity
+    kind: synonym
+  - knowledge_node_id: n_reg_fe_point_alsace_gewurz
+    name: Alsace Gewurztraminer perfume weight
+    kind: synonym
+  - knowledge_node_id: n_reg_fe_point_alsace_pinot_gris
+    name: Alsace Pinot Gris round acidic palate
+    kind: synonym
+  - knowledge_node_id: n_reg_fe_point_alsace_pinot_blanc
+    name: Alsace Pinot Blanc restrained light palate
+    kind: synonym
+  - knowledge_node_id: n_reg_fe_point_alsace_muscat_dry
+    name: Alsace Muscat fragrance dry palate
+    kind: synonym
+  - knowledge_node_id: n_reg_fe_point_alsace_late_fruit
+    name: CIVA Alsace late harvest rich style example
+    kind: synonym
+  - knowledge_node_id: n_reg_fe_point_beaujolais_gamay
+    name: Beaujolais Gamay thin skins varied fruit
+    kind: synonym
+  - knowledge_node_id: n_reg_fe_point_beaujolais_chardonnay
+    name: Beaujolais Chardonnay vessels lees
+    kind: synonym
+  - knowledge_node_id: n_reg_fe_point_beaujolais_hills
+    name: Beaujolais hills foothills Saone plain
+    kind: synonym
+  - knowledge_node_id: n_reg_fe_point_beaujolais_parcels
+    name: Beaujolais soil survey parcel comparison
+    kind: synonym
+  - knowledge_node_id: n_reg_fe_point_beaujolais_intact
+    name: Beaujolais intact berry intracellular process
+    kind: synonym
+  - knowledge_node_id: n_reg_fe_point_beaujolais_yeast
+    name: Beaujolais bottom juice yeast carbon dioxide
+    kind: synonym
+  - knowledge_node_id: n_reg_fe_point_beaujolais_pressing
+    name: Beaujolais early press reduced extraction
+    kind: synonym
+  - knowledge_node_id: n_reg_fe_point_beaujolais_maturation
+    name: Beaujolais extraction vessels maturation choices
+    kind: synonym
+  - knowledge_node_id: n_reg_fe_point_jura_season
+    name: Jura semi continental summer spring
+    kind: synonym
+  - knowledge_node_id: n_reg_fe_point_jura_exposure
+    name: Jura exposure altitude slope microclimates
+    kind: synonym
+  - knowledge_node_id: n_reg_fe_point_jura_chardonnay
+    name: Jura Chardonnay adaptation floral range
+    kind: synonym
+  - knowledge_node_id: n_reg_fe_point_jura_savagnin
+    name: Jura Savagnin slow ripening varied cellar
+    kind: synonym
+  - knowledge_node_id: n_reg_fe_point_jura_poulsard
+    name: Jura Poulsard thin skin light red
+    kind: synonym
+  - knowledge_node_id: n_reg_fe_point_jura_trousseau
+    name: Jura Trousseau late ripening warm site
+    kind: synonym
+  - knowledge_node_id: n_reg_fe_point_jura_topped
+    name: Jura ouillage replaces evaporated volume
+    kind: synonym
+  - knowledge_node_id: n_reg_fe_point_jura_non_topped
+    name: Jura non topped traditional white cellar
+    kind: synonym
+  - knowledge_node_id: n_reg_fe_point_jura_jaune_time
+    name: Jura Vin Jaune surface yeast prolonged maturation
+    kind: synonym
+  - knowledge_node_id: n_reg_fe_point_jura_paille_drying
+    name: Jura Vin de Paille pre fermentation drying
+    kind: synonym
+  - knowledge_node_id: n_reg_fe_point_case_alsace_dry_aromatic_action
+    name: Alsace dry brief specifications coded samples
+    kind: synonym
+  - knowledge_node_id: n_reg_fe_point_case_alsace_dry_aromatic_reason
+    name: Alsace Muscat Gewurz perfume sugar distinction
+    kind: synonym
+  - knowledge_node_id: n_reg_fe_point_case_alsace_dry_aromatic_tradeoff
+    name: Alsace dry style fit customer value
+    kind: synonym
+  - knowledge_node_id: n_reg_fe_point_case_alsace_dry_aromatic_limitation
+    name: Alsace specification sample suitability limit
+    kind: synonym
+  - knowledge_node_id: n_reg_fe_point_case_beaujolais_berry_handling_action
+    name: Beaujolais intact crushed berry separate trials
+    kind: synonym
+  - knowledge_node_id: n_reg_fe_point_case_beaujolais_berry_handling_reason
+    name: Beaujolais carbonic intact berry mechanism
+    kind: synonym
+  - knowledge_node_id: n_reg_fe_point_case_beaujolais_berry_handling_tradeoff
+    name: Beaujolais gentle berry handling cost target
+    kind: synonym
+  - knowledge_node_id: n_reg_fe_point_case_beaujolais_berry_handling_limitation
+    name: Beaujolais berry integrity finished wine limit
+    kind: synonym
+  - knowledge_node_id: n_reg_fe_point_case_jura_white_comparison_action
+    name: Jura Savagnin site maturation separate comparison
+    kind: synonym
+  - knowledge_node_id: n_reg_fe_point_case_jura_white_comparison_reason
+    name: Jura Savagnin ouillage veil cellar difference
+    kind: synonym
+  - knowledge_node_id: n_reg_fe_point_case_jura_white_comparison_tradeoff
+    name: Jura vivid style contrast site cellar confounding
+    kind: synonym
+  - knowledge_node_id: n_reg_fe_point_case_jura_white_comparison_limitation
+    name: Jura pair soil origin quality inference limit
+    kind: synonym
+  - knowledge_node_id: n_reg_fe_point_case_jura_maturation_cash_action
+    name: Jura prolonged maturation cash volume forecast
+    kind: synonym
+  - knowledge_node_id: n_reg_fe_point_case_jura_maturation_cash_reason
+    name: Jura long maturation delay evaporation mechanism
+    kind: synonym
+  - knowledge_node_id: n_reg_fe_point_case_jura_maturation_cash_tradeoff
+    name: Jura maturation style inventory cash tradeoff
+    kind: synonym
+  - knowledge_node_id: n_reg_fe_point_case_jura_maturation_cash_limitation
+    name: Jura expansion demand price quality uncertainty
+    kind: synonym
+knowledge_relations:
+  - subject_id: n_reg_fe_principle_alsace_climate
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_fe_point_alsace_shelter
+    valid_from: 2026-09-27
+  - subject_id: n_reg_fe_principle_alsace_climate
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_fe_point_alsace_autumn
+    valid_from: 2026-09-27
+  - subject_id: n_reg_fe_principle_alsace_practices
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_fe_point_alsace_foliage
+    valid_from: 2026-09-27
+  - subject_id: n_reg_fe_principle_alsace_practices
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_fe_point_alsace_cover
+    valid_from: 2026-09-27
+  - subject_id: n_reg_fe_principle_alsace_riesling_gewurz
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_fe_point_alsace_riesling
+    valid_from: 2026-09-27
+  - subject_id: n_reg_fe_principle_alsace_riesling_gewurz
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_fe_point_alsace_gewurz
+    valid_from: 2026-09-27
+  - subject_id: n_reg_fe_principle_alsace_pinot_whites
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_fe_point_alsace_pinot_gris
+    valid_from: 2026-09-27
+  - subject_id: n_reg_fe_principle_alsace_pinot_whites
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_fe_point_alsace_pinot_blanc
+    valid_from: 2026-09-27
+  - subject_id: n_reg_fe_principle_alsace_aroma_sweetness
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_fe_point_alsace_muscat_dry
+    valid_from: 2026-09-27
+  - subject_id: n_reg_fe_principle_alsace_aroma_sweetness
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_fe_point_alsace_late_fruit
+    valid_from: 2026-09-27
+  - subject_id: n_reg_fe_principle_beaujolais_grapes
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_fe_point_beaujolais_gamay
+    valid_from: 2026-09-27
+  - subject_id: n_reg_fe_principle_beaujolais_grapes
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_fe_point_beaujolais_chardonnay
+    valid_from: 2026-09-27
+  - subject_id: n_reg_fe_principle_beaujolais_sites
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_fe_point_beaujolais_hills
+    valid_from: 2026-09-27
+  - subject_id: n_reg_fe_principle_beaujolais_sites
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_fe_point_beaujolais_parcels
+    valid_from: 2026-09-27
+  - subject_id: n_reg_fe_principle_beaujolais_semicarbonic
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_fe_point_beaujolais_intact
+    valid_from: 2026-09-27
+  - subject_id: n_reg_fe_principle_beaujolais_semicarbonic
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_fe_point_beaujolais_yeast
+    valid_from: 2026-09-27
+  - subject_id: n_reg_fe_principle_beaujolais_extraction
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_fe_point_beaujolais_pressing
+    valid_from: 2026-09-27
+  - subject_id: n_reg_fe_principle_beaujolais_extraction
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_fe_point_beaujolais_maturation
+    valid_from: 2026-09-27
+  - subject_id: n_reg_fe_principle_jura_climate_sites
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_fe_point_jura_season
+    valid_from: 2026-09-27
+  - subject_id: n_reg_fe_principle_jura_climate_sites
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_fe_point_jura_exposure
+    valid_from: 2026-09-27
+  - subject_id: n_reg_fe_principle_jura_white_grapes
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_fe_point_jura_chardonnay
+    valid_from: 2026-09-27
+  - subject_id: n_reg_fe_principle_jura_white_grapes
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_fe_point_jura_savagnin
+    valid_from: 2026-09-27
+  - subject_id: n_reg_fe_principle_jura_red_grapes
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_fe_point_jura_poulsard
+    valid_from: 2026-09-27
+  - subject_id: n_reg_fe_principle_jura_red_grapes
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_fe_point_jura_trousseau
+    valid_from: 2026-09-27
+  - subject_id: n_reg_fe_principle_jura_ouillage
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_fe_point_jura_topped
+    valid_from: 2026-09-27
+  - subject_id: n_reg_fe_principle_jura_ouillage
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_fe_point_jura_non_topped
+    valid_from: 2026-09-27
+  - subject_id: n_reg_fe_principle_jura_patient_wines
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_fe_point_jura_jaune_time
+    valid_from: 2026-09-27
+  - subject_id: n_reg_fe_principle_jura_patient_wines
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_fe_point_jura_paille_drying
+    valid_from: 2026-09-27
+  - subject_id: n_reg_fe_case_alsace_dry_aromatic
+    relation_type: CASE_ACTION
+    object_id: n_reg_fe_point_case_alsace_dry_aromatic_action
+    valid_from: 2026-09-27
+  - subject_id: n_reg_fe_case_alsace_dry_aromatic
+    relation_type: CASE_REASON
+    object_id: n_reg_fe_point_case_alsace_dry_aromatic_reason
+    valid_from: 2026-09-27
+  - subject_id: n_reg_fe_case_alsace_dry_aromatic
+    relation_type: CASE_TRADEOFF
+    object_id: n_reg_fe_point_case_alsace_dry_aromatic_tradeoff
+    valid_from: 2026-09-27
+  - subject_id: n_reg_fe_case_alsace_dry_aromatic
+    relation_type: CASE_LIMITATION
+    object_id: n_reg_fe_point_case_alsace_dry_aromatic_limitation
+    valid_from: 2026-09-27
+  - subject_id: n_reg_fe_case_beaujolais_berry_handling
+    relation_type: CASE_ACTION
+    object_id: n_reg_fe_point_case_beaujolais_berry_handling_action
+    valid_from: 2026-09-27
+  - subject_id: n_reg_fe_case_beaujolais_berry_handling
+    relation_type: CASE_REASON
+    object_id: n_reg_fe_point_case_beaujolais_berry_handling_reason
+    valid_from: 2026-09-27
+  - subject_id: n_reg_fe_case_beaujolais_berry_handling
+    relation_type: CASE_TRADEOFF
+    object_id: n_reg_fe_point_case_beaujolais_berry_handling_tradeoff
+    valid_from: 2026-09-27
+  - subject_id: n_reg_fe_case_beaujolais_berry_handling
+    relation_type: CASE_LIMITATION
+    object_id: n_reg_fe_point_case_beaujolais_berry_handling_limitation
+    valid_from: 2026-09-27
+  - subject_id: n_reg_fe_case_jura_white_comparison
+    relation_type: CASE_ACTION
+    object_id: n_reg_fe_point_case_jura_white_comparison_action
+    valid_from: 2026-09-27
+  - subject_id: n_reg_fe_case_jura_white_comparison
+    relation_type: CASE_REASON
+    object_id: n_reg_fe_point_case_jura_white_comparison_reason
+    valid_from: 2026-09-27
+  - subject_id: n_reg_fe_case_jura_white_comparison
+    relation_type: CASE_TRADEOFF
+    object_id: n_reg_fe_point_case_jura_white_comparison_tradeoff
+    valid_from: 2026-09-27
+  - subject_id: n_reg_fe_case_jura_white_comparison
+    relation_type: CASE_LIMITATION
+    object_id: n_reg_fe_point_case_jura_white_comparison_limitation
+    valid_from: 2026-09-27
+  - subject_id: n_reg_fe_case_jura_maturation_cash
+    relation_type: CASE_ACTION
+    object_id: n_reg_fe_point_case_jura_maturation_cash_action
+    valid_from: 2026-09-27
+  - subject_id: n_reg_fe_case_jura_maturation_cash
+    relation_type: CASE_REASON
+    object_id: n_reg_fe_point_case_jura_maturation_cash_reason
+    valid_from: 2026-09-27
+  - subject_id: n_reg_fe_case_jura_maturation_cash
+    relation_type: CASE_TRADEOFF
+    object_id: n_reg_fe_point_case_jura_maturation_cash_tradeoff
+    valid_from: 2026-09-27
+  - subject_id: n_reg_fe_case_jura_maturation_cash
+    relation_type: CASE_LIMITATION
+    object_id: n_reg_fe_point_case_jura_maturation_cash_limitation
+    valid_from: 2026-09-27
+knowledge_items:
+  - id: ki_reg_fe_alsace_shelter
+    subject_id: n_reg_fe_principle_alsace_climate
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_fe_point_alsace_shelter
+    domain_id: geography
+    assertion_text: The Vosges intercept moist western air, contributing to Alsace’s relatively dry
+      semi-continental setting. Actual seasonal rain and disease observations remain necessary for a vineyard
+      decision.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T06:14:33.000Z
+  - id: ki_reg_fe_alsace_autumn
+    subject_id: n_reg_fe_principle_alsace_climate
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_fe_point_alsace_autumn
+    domain_id: geography
+    assertion_text: Warm autumn days and cool nights can support extended Alsace ripening and freshness. Site,
+      variety and vintage still determine the outcome; this pattern cannot prescribe a picking date.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T06:14:33.000Z
+  - id: ki_reg_fe_alsace_foliage
+    subject_id: n_reg_fe_principle_alsace_practices
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_fe_point_alsace_foliage
+    domain_id: viticulture
+    assertion_text: Raised Alsace foliage can improve sun exposure and limit some frost damage. This explains a
+      training choice, without making canopy height sufficient protection against every frost event.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T06:14:33.000Z
+  - id: ki_reg_fe_alsace_cover
+    subject_id: n_reg_fe_principle_alsace_practices
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_fe_point_alsace_cover
+    domain_id: viticulture
+    assertion_text: Managed Alsace ground cover helps retain soil and water and curb hillside erosion. Plot and
+      season still matter; cover alone guarantees neither adequate water nor finished-wine quality.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T06:14:33.000Z
+  - id: ki_reg_fe_alsace_riesling
+    subject_id: n_reg_fe_principle_alsace_riesling_gewurz
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_fe_point_alsace_riesling
+    domain_id: geography
+    assertion_text: Alsace Riesling is associated with citrus and floral aromas and a vivid acidic framework.
+      These are useful comparison expectations, while sweetness, ripeness and cellar information are needed
+      for the actual cuvée; aroma alone cannot prove origin.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T06:14:33.000Z
+  - id: ki_reg_fe_alsace_gewurz
+    subject_id: n_reg_fe_principle_alsace_riesling_gewurz
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_fe_point_alsace_gewurz
+    domain_id: geography
+    assertion_text: Gewurztraminer in Alsace is associated with pronounced rose, exotic-fruit and spice aromas and
+      a weighty palate, with freshness described as less prominent than in other regional whites. Aromatic
+      intensity does not by itself establish sweetness, balance or superior quality.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T06:14:33.000Z
+  - id: ki_reg_fe_alsace_pinot_gris
+    subject_id: n_reg_fe_principle_alsace_pinot_whites
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_fe_point_alsace_pinot_gris
+    domain_id: geography
+    assertion_text: CIVA describes Pinot Gris whites with weight, roundness and an acidic framework. This supports
+      a fuller-white comparison brief, but individual sweetness and production choices must be checked before
+      assigning a role or judging balance.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T06:14:33.000Z
+  - id: ki_reg_fe_alsace_pinot_blanc
+    subject_id: n_reg_fe_principle_alsace_pinot_whites
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_fe_point_alsace_pinot_blanc
+    domain_id: geography
+    assertion_text: Pinot Blanc in Alsace is associated with restrained peach, apple and floral character and a
+      lighter palate with measured acidity. This contrasts with the fuller Pinot Gris description without
+      requiring every example to be lighter or less complex.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T06:14:33.000Z
+  - id: ki_reg_fe_alsace_muscat_dry
+    subject_id: n_reg_fe_principle_alsace_aroma_sweetness
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_fe_point_alsace_muscat_dry
+    domain_id: geography
+    assertion_text: Alsace Muscat can show an intense fresh-grape fragrance while being dry on the palate. A
+      fragrant nose therefore does not establish residual sweetness; use the actual cuvée specification and
+      taste when matching a dry-wine brief.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T06:14:33.000Z
+  - id: ki_reg_fe_alsace_late_fruit
+    subject_id: n_reg_fe_principle_alsace_aroma_sweetness
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_fe_point_alsace_late_fruit
+    domain_id: geography
+    assertion_text: CIVA illustrates a rich, sweet-style late-harvest example with concentrated fruit. Actual
+      cuvée sweetness and balance still need checking; this illustration supplies neither a complete legal
+      definition nor a dessert-suitability guarantee.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T06:14:33.000Z
+  - id: ki_reg_fe_beaujolais_gamay
+    subject_id: n_reg_fe_principle_beaujolais_grapes
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_fe_point_beaujolais_gamay
+    domain_id: geography
+    assertion_text: "Gamay is the established red-wine association of Beaujolais: its thin dark skins and early
+      ripening accompany a broad range of fruit-led wines. That association does not fix extraction, drinking
+      readiness or the structure of every cuvée."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T06:14:33.000Z
+  - id: ki_reg_fe_beaujolais_chardonnay
+    subject_id: n_reg_fe_principle_beaujolais_grapes
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_fe_point_beaujolais_chardonnay
+    domain_id: geography
+    assertion_text: Beaujolais also produces Chardonnay whites. The interprofession describes pressing followed by
+      fermentation in tanks or wooden vessels, with lees maturation common. Compare actual cellar details
+      rather than transfer whole-bunch red-wine methods to every regional white.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T06:14:33.000Z
+  - id: ki_reg_fe_beaujolais_hills
+    subject_id: n_reg_fe_principle_beaujolais_sites
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_fe_point_beaujolais_hills
+    domain_id: geography
+    assertion_text: Beaujolais vineyards occupy a hill landscape between Massif Central foothills and the Saône
+      plain. The varied terrain is a reason to compare actual slope and exposure, rather than infer identical
+      growing conditions from the regional name.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T06:14:33.000Z
+  - id: ki_reg_fe_beaujolais_parcels
+    subject_id: n_reg_fe_principle_beaujolais_sites
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_fe_point_beaujolais_parcels
+    domain_id: geography
+    assertion_text: Inter Beaujolais commissioned a detailed field soil survey with Sigales and the Rhône
+      agriculture chamber, documenting substantial variation and supporting parcel work. A soil description is
+      site evidence; it does not prove direct mineral transfer into flavour or a universal quality hierarchy.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T06:14:33.000Z
+  - id: ki_reg_fe_beaujolais_intact
+    subject_id: n_reg_fe_principle_beaujolais_semicarbonic
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_fe_point_beaujolais_intact
+    domain_id: winemaking
+    assertion_text: In traditional semi-carbonic Beaujolais vinification, intact berries near the top of the vat
+      undergo intracellular metabolism in an atmosphere increasingly rich in carbon dioxide. This process
+      contributes aroma and some alcohol, but does not complete the whole wine’s fermentation.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T06:14:33.000Z
+  - id: ki_reg_fe_beaujolais_yeast
+    subject_id: n_reg_fe_principle_beaujolais_semicarbonic
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_fe_point_beaujolais_yeast
+    domain_id: winemaking
+    assertion_text: Bunch weight releases juice at the bottom of a Beaujolais vat, where yeast fermentation
+      produces alcohol and carbon dioxide. After draining and pressing, juice continues fermenting;
+      semi-carbonic vinification therefore includes ordinary yeast fermentation as well as intact-berry
+      metabolism.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T06:14:33.000Z
+  - id: ki_reg_fe_beaujolais_pressing
+    subject_id: n_reg_fe_principle_beaujolais_extraction
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_fe_point_beaujolais_pressing
+    domain_id: winemaking
+    assertion_text: Earlier carbonic-style pressing reduces phenolic extraction and can support supple tannins.
+      This is a Beaujolais style lever, not a universal quality rule; carbonic techniques can also produce
+      wines for ageing.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T06:14:33.000Z
+  - id: ki_reg_fe_beaujolais_maturation
+    subject_id: n_reg_fe_principle_beaujolais_extraction
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_fe_point_beaujolais_maturation
+    domain_id: winemaking
+    assertion_text: Beaujolais producers vary extraction operations and use vats, casks or barrels for maturation.
+      These choices help explain structural and aroma differences; a cru name or Gamay identity alone cannot
+      establish oak treatment, ageability or sensory quality.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T06:14:33.000Z
+  - id: ki_reg_fe_jura_season
+    subject_id: n_reg_fe_principle_jura_climate_sites
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_fe_point_jura_season
+    domain_id: geography
+    assertion_text: CIVJ describes a semi-continental Jura climate with generally warm, dry summers and often
+      rainy springs. This contrast frames seasonal ripening and vineyard monitoring; current weather records
+      are still needed for a specific plot and vintage.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T06:14:33.000Z
+  - id: ki_reg_fe_jura_exposure
+    subject_id: n_reg_fe_principle_jura_climate_sites
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_fe_point_jura_exposure
+    domain_id: geography
+    assertion_text: Jura’s relief, exposure, altitude and slope produce contrasting vineyard microclimates, with
+      many sites facing south or southwest. Compare those conditions with the grape’s ripening demands instead
+      of treating a broad regional climate or soil name as a complete explanation.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T06:14:33.000Z
+  - id: ki_reg_fe_jura_chardonnay
+    subject_id: n_reg_fe_principle_jura_white_grapes
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_fe_point_jura_chardonnay
+    domain_id: geography
+    assertion_text: Adaptable Jura Chardonnay can give floral, fruit-led whites. Site, blends and maturation
+      qualify that expectation; the grape name cannot identify topping up or sous-voile treatment.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T06:14:33.000Z
+  - id: ki_reg_fe_jura_savagnin
+    subject_id: n_reg_fe_principle_jura_white_grapes
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_fe_point_jura_savagnin
+    domain_id: geography
+    assertion_text: Slow-ripening Jura Savagnin appears in topped-up and sous-voile whites. Check production
+      records before identifying its maturation or calling a particular wine Vin Jaune.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T06:14:33.000Z
+  - id: ki_reg_fe_jura_poulsard
+    subject_id: n_reg_fe_principle_jura_red_grapes
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_fe_point_jura_poulsard
+    domain_id: viticulture
+    assertion_text: Thin-skinned Poulsard, also called Ploussard, can give pale reds with red-fruit character.
+      Pale colour alone establishes neither rosé production, weak flavour nor inferior quality.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T06:14:33.000Z
+  - id: ki_reg_fe_jura_trousseau
+    subject_id: n_reg_fe_principle_jura_red_grapes
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_fe_point_jura_trousseau
+    domain_id: viticulture
+    assertion_text: Later-ripening Trousseau favours warmer, lighter Jura sites and can give fruit/spice
+      expressions. Its name guarantees neither successful ripening in every vintage nor higher quality.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T06:14:33.000Z
+  - id: ki_reg_fe_jura_topped
+    subject_id: n_reg_fe_principle_jura_ouillage
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_fe_point_jura_topped
+    domain_id: winemaking
+    assertion_text: Jura ouillage replaces evaporated barrel wine. Topped-up floral whites include Chardonnay and
+      Savagnin; grape alone therefore cannot identify the method used for an individual wine.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T06:14:33.000Z
+  - id: ki_reg_fe_jura_non_topped
+    subject_id: n_reg_fe_principle_jura_ouillage
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_fe_point_jura_non_topped
+    domain_id: winemaking
+    assertion_text: Non-topped-up Jura whites offer a more oxidative traditional expression, using Savagnin alone
+      or with Chardonnay. Check maturation and condition; intentional style must be distinguished from bottle
+      damage.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T06:14:33.000Z
+  - id: ki_reg_fe_jura_jaune_time
+    subject_id: n_reg_fe_principle_jura_patient_wines
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_fe_point_jura_jaune_time
+    domain_id: winemaking
+    assertion_text: Vin Jaune matures Savagnin for a prolonged period without topping up, under a surface yeast
+      veil. Time and evaporation merit cost investigation, without proving a price or quality premium.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T06:14:33.000Z
+  - id: ki_reg_fe_jura_paille_drying
+    subject_id: n_reg_fe_principle_jura_patient_wines
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_fe_point_jura_paille_drying
+    domain_id: winemaking
+    assertion_text: Vin de Paille concentrates selected Jura grapes through ventilated drying before pressing and
+      fermentation. This sweet-wine route differs from Vin Jaune maturation; assess the actual wine’s dessert
+      suitability.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T06:14:33.000Z
+  - id: ki_reg_fe_case_alsace_dry_aromatic_action
+    subject_id: n_reg_fe_case_alsace_dry_aromatic
+    relation_type: CASE_ACTION
+    object_id: n_reg_fe_point_case_alsace_dry_aromatic_action
+    domain_id: geography
+    assertion_text: Check the supplied sweetness specifications against the dry brief, then taste the current
+      wines under comparable conditions. The Muscat is the documented dry candidate, but aroma, balance and
+      condition still need assessment before a final listing.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T06:14:33.000Z
+  - id: ki_reg_fe_case_alsace_dry_aromatic_reason
+    subject_id: n_reg_fe_case_alsace_dry_aromatic
+    relation_type: CASE_REASON
+    object_id: n_reg_fe_point_case_alsace_dry_aromatic_reason
+    domain_id: geography
+    assertion_text: Muscat can be dry despite strong grape perfume, while Gewurztraminer brings a different
+      intense aroma and weight profile. In this case the producer records, rather than those general aromas,
+      establish the candidates’ sweetness difference.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T06:14:33.000Z
+  - id: ki_reg_fe_case_alsace_dry_aromatic_tradeoff
+    subject_id: n_reg_fe_case_alsace_dry_aromatic
+    relation_type: CASE_TRADEOFF
+    object_id: n_reg_fe_point_case_alsace_dry_aromatic_tradeoff
+    domain_id: business
+    assertion_text: The dry candidate better matches the stated sweetness brief, while the sweeter Gewurztraminer
+      may suit a different slot or customer preference. Budget fit alone does not establish demand or value;
+      test the intended listing and quoted cost against the restaurant’s customers.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T06:14:33.000Z
+  - id: ki_reg_fe_case_alsace_dry_aromatic_limitation
+    subject_id: n_reg_fe_case_alsace_dry_aromatic
+    relation_type: CASE_LIMITATION
+    object_id: n_reg_fe_point_case_alsace_dry_aromatic_limitation
+    domain_id: geography
+    assertion_text: No sample result is given, so the records do not establish flavour balance, condition or
+      customer acceptance. Nor can this pair prove that all Muscats are dry, all Gewurztraminers are sweet, or
+      either grape is universally superior.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T06:14:33.000Z
+  - id: ki_reg_fe_case_beaujolais_berry_handling_action
+    subject_id: n_reg_fe_case_beaujolais_berry_handling
+    relation_type: CASE_ACTION
+    object_id: n_reg_fe_point_case_beaujolais_berry_handling_action
+    domain_id: winemaking
+    assertion_text: Assess berry integrity and run separate monitored trials before committing the harvest.
+      Preserve intact fruit for the intracellular component; test the crushed lot as a different fermentation
+      option rather than assume identical carbonic response.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T06:14:33.000Z
+  - id: ki_reg_fe_case_beaujolais_berry_handling_reason
+    subject_id: n_reg_fe_case_beaujolais_berry_handling
+    relation_type: CASE_REASON
+    object_id: n_reg_fe_point_case_beaujolais_berry_handling_reason
+    domain_id: winemaking
+    assertion_text: Intracellular metabolism depends on intact berries in a low-oxygen atmosphere, while exposed
+      juice ferments through yeasts. The stated berry damage therefore changes the process opportunity, though
+      ripeness and sound condition alone do not establish the finished wine’s tannin or aroma.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T06:14:33.000Z
+  - id: ki_reg_fe_case_beaujolais_berry_handling_tradeoff
+    subject_id: n_reg_fe_case_beaujolais_berry_handling
+    relation_type: CASE_TRADEOFF
+    object_id: n_reg_fe_point_case_beaujolais_berry_handling_tradeoff
+    domain_id: business
+    assertion_text: The more expensive intact lot offers a better starting condition for this intended process,
+      but uses more of the production budget. Compare the trials and actual handling costs before assuming the
+      style benefit will recover that expense through sales.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T06:14:33.000Z
+  - id: ki_reg_fe_case_beaujolais_berry_handling_limitation
+    subject_id: n_reg_fe_case_beaujolais_berry_handling
+    relation_type: CASE_LIMITATION
+    object_id: n_reg_fe_point_case_beaujolais_berry_handling_limitation
+    domain_id: winemaking
+    assertion_text: "Assess fermentation and finished samples: intact berries are only one condition and carbonic
+      production has risks. Handling and origin cannot guarantee quality, release readiness or an achievable
+      price."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T06:14:33.000Z
+  - id: ki_reg_fe_case_jura_white_comparison_action
+    subject_id: n_reg_fe_case_jura_white_comparison
+    relation_type: CASE_ACTION
+    object_id: n_reg_fe_point_case_jura_white_comparison_action
+    domain_id: winemaking
+    assertion_text: Compare coded samples under the same conditions and record the different vineyard sources and
+      maturation treatments separately. Add a closer site match if the aim is to isolate maturation rather
+      than simply describe this useful style contrast.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T06:14:33.000Z
+  - id: ki_reg_fe_case_jura_white_comparison_reason
+    subject_id: n_reg_fe_case_jura_white_comparison
+    relation_type: CASE_REASON
+    object_id: n_reg_fe_point_case_jura_white_comparison_reason
+    domain_id: winemaking
+    assertion_text: The documented topping-up and yeast-veil treatments plausibly contribute to the observed
+      contrast. The specific aroma observations are scenario premises, not universal signatures of Savagnin’s
+      soil or origin.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T06:14:33.000Z
+  - id: ki_reg_fe_case_jura_white_comparison_tradeoff
+    subject_id: n_reg_fe_case_jura_white_comparison
+    relation_type: CASE_TRADEOFF
+    object_id: n_reg_fe_point_case_jura_white_comparison_tradeoff
+    domain_id: winemaking
+    assertion_text: Showing these two styles makes the maturation question accessible, but different vineyard
+      sources confound a causal explanation. Closer site matching improves attribution while reducing the
+      range of sites demonstrated; several wines or vintages would test the pattern more broadly.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T06:14:33.000Z
+  - id: ki_reg_fe_case_jura_white_comparison_limitation
+    subject_id: n_reg_fe_case_jura_white_comparison
+    relation_type: CASE_LIMITATION
+    object_id: n_reg_fe_point_case_jura_white_comparison_limitation
+    domain_id: winemaking
+    assertion_text: The pair cannot assign the aroma difference to soil, prove the origin of an unknown wine or
+      rank regional quality. Even with producer and vintage matched, harvest and other cellar differences need
+      checking; intentional maturation character must be distinguished from a damaged bottle.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T06:14:33.000Z
+  - id: ki_reg_fe_case_jura_maturation_cash_action
+    subject_id: n_reg_fe_case_jura_maturation_cash
+    relation_type: CASE_ACTION
+    object_id: n_reg_fe_point_case_jura_maturation_cash_action
+    domain_id: business
+    assertion_text: Build a cash forecast using the recorded payment dates, storage expenses, likely sale timing
+      and actual volume losses. Compare it with the sooner-sale option and test demand before expanding; a
+      production tradition does not itself fund the waiting period.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T06:14:33.000Z
+  - id: ki_reg_fe_case_jura_maturation_cash_reason
+    subject_id: n_reg_fe_case_jura_maturation_cash
+    relation_type: CASE_REASON
+    object_id: n_reg_fe_point_case_jura_maturation_cash_reason
+    domain_id: winemaking
+    assertion_text: Prolonged maturation without topping up entails evaporative loss. Together with the scenario’s
+      payment and storage records, this explains less saleable volume and delayed revenue, without proving an
+      attainable premium.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T06:14:33.000Z
+  - id: ki_reg_fe_case_jura_maturation_cash_tradeoff
+    subject_id: n_reg_fe_case_jura_maturation_cash
+    relation_type: CASE_TRADEOFF
+    object_id: n_reg_fe_point_case_jura_maturation_cash_tradeoff
+    domain_id: business
+    assertion_text: Waiting may develop the intended distinctive style, but commits space and spending and leaves
+      cash tied to stock for longer. Selling the topped-up wine sooner forgoes that possible style development
+      while releasing cash earlier; use actual customer and cost evidence to assess the choice.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T06:14:33.000Z
+  - id: ki_reg_fe_case_jura_maturation_cash_limitation
+    subject_id: n_reg_fe_case_jura_maturation_cash
+    relation_type: CASE_LIMITATION
+    object_id: n_reg_fe_point_case_jura_maturation_cash_limitation
+    domain_id: business
+    assertion_text: A forecast must test loss, timing, condition and demand assumptions. Neither the Vin Jaune
+      association nor prolonged maturation guarantees successful development, a fixed evaporation rate or a
+      price that covers the additional costs; review the winery’s own evidence.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T06:14:33.000Z
+certification_knowledge_mappings:
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_fe_alsace_shelter
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_fe_alsace_shelter
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_fe_alsace_shelter
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_fe_alsace_autumn
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_fe_alsace_autumn
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_fe_alsace_autumn
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_fe_alsace_foliage
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_fe_alsace_foliage
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_fe_alsace_foliage
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_fe_alsace_cover
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_fe_alsace_cover
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_fe_alsace_cover
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_fe_alsace_riesling
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_fe_alsace_riesling
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_fe_alsace_riesling
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_fe_alsace_gewurz
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_fe_alsace_gewurz
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_fe_alsace_gewurz
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_fe_alsace_pinot_gris
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_fe_alsace_pinot_gris
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_fe_alsace_pinot_gris
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_fe_alsace_pinot_blanc
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_fe_alsace_pinot_blanc
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_fe_alsace_pinot_blanc
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_fe_alsace_muscat_dry
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_fe_alsace_muscat_dry
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_fe_alsace_muscat_dry
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_fe_alsace_late_fruit
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_fe_alsace_late_fruit
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_fe_alsace_late_fruit
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_fe_beaujolais_gamay
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_fe_beaujolais_gamay
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_fe_beaujolais_gamay
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_fe_beaujolais_chardonnay
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_fe_beaujolais_chardonnay
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_fe_beaujolais_chardonnay
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_fe_beaujolais_hills
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_fe_beaujolais_hills
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_fe_beaujolais_hills
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_fe_beaujolais_parcels
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_fe_beaujolais_parcels
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_fe_beaujolais_parcels
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_fe_beaujolais_intact
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_fe_beaujolais_intact
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_fe_beaujolais_intact
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_fe_beaujolais_yeast
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_fe_beaujolais_yeast
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_fe_beaujolais_yeast
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_fe_beaujolais_pressing
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_fe_beaujolais_pressing
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_fe_beaujolais_pressing
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_fe_beaujolais_maturation
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_fe_beaujolais_maturation
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_fe_beaujolais_maturation
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_fe_jura_season
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_fe_jura_season
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_fe_jura_season
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_fe_jura_exposure
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_fe_jura_exposure
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_fe_jura_exposure
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_fe_jura_chardonnay
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_fe_jura_chardonnay
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_fe_jura_chardonnay
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_fe_jura_savagnin
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_fe_jura_savagnin
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_fe_jura_savagnin
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_fe_jura_poulsard
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_fe_jura_poulsard
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_fe_jura_poulsard
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_fe_jura_trousseau
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_fe_jura_trousseau
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_fe_jura_trousseau
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_fe_jura_topped
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_fe_jura_topped
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_fe_jura_topped
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_fe_jura_non_topped
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_fe_jura_non_topped
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_fe_jura_non_topped
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_fe_jura_jaune_time
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_fe_jura_jaune_time
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_fe_jura_jaune_time
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_fe_jura_paille_drying
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_fe_jura_paille_drying
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_fe_jura_paille_drying
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_fe_case_alsace_dry_aromatic_action
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_fe_case_alsace_dry_aromatic_reason
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_fe_case_alsace_dry_aromatic_tradeoff
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_fe_case_alsace_dry_aromatic_limitation
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_fe_case_beaujolais_berry_handling_action
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_fe_case_beaujolais_berry_handling_reason
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_fe_case_beaujolais_berry_handling_tradeoff
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_fe_case_beaujolais_berry_handling_limitation
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_fe_case_jura_white_comparison_action
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_fe_case_jura_white_comparison_reason
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_fe_case_jura_white_comparison_tradeoff
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_fe_case_jura_white_comparison_limitation
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_fe_case_jura_maturation_cash_action
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_fe_case_jura_maturation_cash_reason
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_fe_case_jura_maturation_cash_tradeoff
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_fe_case_jura_maturation_cash_limitation
+    importance: core
+    minimum_depth: 3
+source_citations:
+  - id: src_reg_fe_alsace_climate
+    kind: reference_work
+    title: "Terroir genius: Alsace climate and cultural practices"
+    publisher: Conseil Interprofessionnel des Vins d’Alsace
+    jurisdiction: FR
+    url: https://www.vinsalsace.com/en/terroirs/terroir-genius/
+    document_identifier: Living primary regional educational page; no publication day invented; qualitative
+      observations only; retrieved 27 September 2026
+    accessed_on: 2026-09-27
+  - id: src_reg_fe_alsace_work
+    kind: reference_work
+    title: "Vineyard work: Alsace soil cover and canopy practice"
+    publisher: Conseil Interprofessionnel des Vins d’Alsace
+    jurisdiction: FR
+    url: https://www.vinsalsace.com/en/terroirs/vineyard-work/
+    document_identifier: Living primary regional educational page; no publication day invented; qualitative
+      observations only; retrieved 27 September 2026
+    accessed_on: 2026-09-27
+  - id: src_reg_fe_riesling
+    kind: reference_work
+    title: "Riesling d’Alsace: aroma and palate"
+    publisher: Conseil Interprofessionnel des Vins d’Alsace
+    jurisdiction: FR
+    url: https://www.vinsalsace.com/en/tastes-and-colours/grapes-varieties/fresh-and-dry/riesling-dalsace/
+    document_identifier: Living primary regional educational page; no publication day invented; qualitative
+      observations only; retrieved 27 September 2026
+    accessed_on: 2026-09-27
+  - id: src_reg_fe_gewurztraminer
+    kind: reference_work
+    title: "Gewurztraminer d’Alsace: aroma and palate"
+    publisher: Conseil Interprofessionnel des Vins d’Alsace
+    jurisdiction: FR
+    url: https://www.vinsalsace.com/en/tastes-and-colours/grapes-varieties/powerful-and-intense/gewurztraminer-dalsace/
+    document_identifier: Living primary regional educational page; no publication day invented; qualitative
+      observations only; retrieved 27 September 2026
+    accessed_on: 2026-09-27
+  - id: src_reg_fe_pinot_gris
+    kind: reference_work
+    title: "Pinot Gris d’Alsace: palate weight and acidity"
+    publisher: Conseil Interprofessionnel des Vins d’Alsace
+    jurisdiction: FR
+    url: https://www.vinsalsace.com/en/tastes-and-colours/grapes-varieties/powerful-and-intense/pinot-gris-dalsace/
+    document_identifier: Living primary regional educational page; no publication day invented; qualitative
+      observations only; retrieved 27 September 2026
+    accessed_on: 2026-09-27
+  - id: src_reg_fe_pinot_blanc
+    kind: reference_work
+    title: "Pinot Blanc d’Alsace: restrained fruit and light palate"
+    publisher: Conseil Interprofessionnel des Vins d’Alsace
+    jurisdiction: FR
+    url: https://www.vinsalsace.com/en/tastes-and-colours/grapes-varieties/fresh-and-dry/pinot-blanc-dalsace/
+    document_identifier: Living primary regional educational page; no publication day invented; qualitative
+      observations only; retrieved 27 September 2026
+    accessed_on: 2026-09-27
+  - id: src_reg_fe_muscat
+    kind: reference_work
+    title: "Muscat d’Alsace: fragrant dry style"
+    publisher: Conseil Interprofessionnel des Vins d’Alsace
+    jurisdiction: FR
+    url: https://www.vinsalsace.com/en/tastes-and-colours/grapes-varieties/fresh-and-dry/muscat-dalsace/
+    document_identifier: Living primary regional educational page; no publication day invented; qualitative
+      observations only; retrieved 27 September 2026
+    accessed_on: 2026-09-27
+  - id: src_reg_fe_late_harvest
+    kind: reference_work
+    title: "Vendanges tardives: ripe fruit and sweet-acid balance"
+    publisher: Conseil Interprofessionnel des Vins d’Alsace
+    jurisdiction: FR
+    url: https://www.vinsalsace.com/en/tastes-and-colours/grapes-varieties/sweet-and-dessert/vendanges-tardives/
+    document_identifier: Living primary regional educational page; no publication day invented; qualitative
+      observations only; retrieved 27 September 2026
+    accessed_on: 2026-09-27
+  - id: src_reg_fe_gamay
+    kind: reference_work
+    title: "Gamay: berries and varied Beaujolais wine expression"
+    publisher: Inter Beaujolais
+    jurisdiction: FR
+    url: https://www.beaujolais.com/cepage/gamay/
+    document_identifier: Living primary regional educational page; no publication day invented; qualitative
+      observations only; retrieved 27 September 2026
+    accessed_on: 2026-09-27
+  - id: src_reg_fe_chardonnay
+    kind: reference_work
+    title: "Chardonnay: Beaujolais whites and cellar choices"
+    publisher: Inter Beaujolais
+    jurisdiction: FR
+    url: https://www.beaujolais.com/cepage/chardonnay/
+    document_identifier: Living primary regional educational page; no publication day invented; qualitative
+      observations only; retrieved 27 September 2026
+    accessed_on: 2026-09-27
+  - id: src_reg_fe_beaujolais_landscape
+    kind: reference_work
+    title: "Discover Beaujolais: hill landscape"
+    publisher: Inter Beaujolais
+    jurisdiction: FR
+    url: https://www.beaujolais.com/decouvrir/
+    document_identifier: Living primary regional educational page; no publication day invented; qualitative
+      observations only; retrieved 27 September 2026
+    accessed_on: 2026-09-27
+  - id: src_reg_fe_beaujolais_soils
+    kind: reference_work
+    title: "Le vignoble du Beaujolais, une mosaïque de sols: original survey"
+    publisher: Inter Beaujolais; Sigales and Chambre d’Agriculture du Rhône contributions
+    jurisdiction: FR
+    url: https://www.beaujolais.com/3-univers/pur-terroir-by-beaujolais/le-vignoble-du-beaujolais-une-mosaique-des-sols/
+    document_identifier: Living primary regional educational page; no publication day invented; qualitative
+      observations only; retrieved 27 September 2026
+    accessed_on: 2026-09-27
+  - id: src_reg_fe_beaujolais_vinification
+    kind: reference_work
+    title: "Beaujolais vinification: whole berries and yeast fermentation"
+    publisher: Inter Beaujolais
+    jurisdiction: FR
+    url: https://www.beaujolais.com/en/2020/09/22/beaujolais-vinification-a-process-like-no-other/
+    document_identifier: Dated 22 September 2020 primary educational feature; process observations only, no
+      category-specific day counts adopted; retrieved 27 September 2026
+    accessed_on: 2026-09-27
+  - id: src_reg_fe_beaujolais_work
+    kind: reference_work
+    title: "The grower’s work: extraction and maturation choices"
+    publisher: Inter Beaujolais
+    jurisdiction: FR
+    url: https://www.beaujolais.com/en/discover/know-how/the-grower-s-work/
+    document_identifier: Living primary regional educational page; no publication day invented; qualitative
+      observations only; retrieved 27 September 2026
+    accessed_on: 2026-09-27
+  - id: src_reg_fe_carbonic
+    kind: reference_work
+    title: "Macération carbonique: mechanisms, extraction and limits"
+    publisher: Institut Français de la Vigne et du Vin
+    jurisdiction: FR
+    url: https://www.vignevin.com/publications/fiches-pratiques/maceration-carbonique/
+    document_identifier: Primary technical reference including the IFV/University of Zaragoza VINAROMAS work; no
+      additive, temperature or regulatory instructions adopted; retrieved 27 September 2026
+    accessed_on: 2026-09-27
+  - id: src_reg_fe_jura_sites
+    kind: reference_work
+    title: "Histoire, terroirs et cépages: Jura growing environment"
+    publisher: Comité Interprofessionnel des Vins du Jura
+    jurisdiction: FR
+    url: https://www.jura-vins.com/medias/documents-a-telecharger/docs-utiles/CIVJ_PLQ_Pro_2009_FR.pdf
+    document_identifier: Older professional brochure identified by the 2009 filename; indexed primary text checked
+      for enduring site/climate observations, direct PDF retrieval returned HTTP 403; current statistics and
+      legal numerical rules unused; retrieved 27 September 2026
+    accessed_on: 2026-09-27
+  - id: src_reg_fe_jura_grapes
+    kind: reference_work
+    title: "Guide des vins du Jura: grape and production differences"
+    publisher: Comité Interprofessionnel des Vins du Jura
+    jurisdiction: FR
+    url: https://www.jura-vins.com/medias/documents-a-telecharger/docs-utiles/VDJ-guide2015new-V2-Francais.pdf
+    document_identifier: Older guide identified by the 2015 filename; indexed primary grape and Vin de Paille
+      passages checked, direct PDF retrieval returned HTTP 403; current rankings, area figures, legal grape
+      lists and numerical requirements unused; retrieved 27 September 2026
+    accessed_on: 2026-09-27
+knowledge_item_citations:
+  - knowledge_item_id: ki_reg_fe_alsace_shelter
+    source_citation_id: src_reg_fe_alsace_climate
+    locator: "A privileged exposure and climate: mountain barrier and western rainfall; seasonal qualification."
+  - knowledge_item_id: ki_reg_fe_alsace_autumn
+    source_citation_id: src_reg_fe_alsace_climate
+    locator: "Final climate paragraphs: autumn day–night contrast, slow ripening and acidity; editorial harvest
+      limitation."
+  - knowledge_item_id: ki_reg_fe_alsace_foliage
+    source_citation_id: src_reg_fe_alsace_climate
+    locator: "Terroir-specific cultural practices: high trained foliage, frost damage and sunlight."
+  - knowledge_item_id: ki_reg_fe_alsace_cover
+    source_citation_id: src_reg_fe_alsace_climate
+    locator: "Terroir-specific cultural practices: grass cover and erosion."
+  - knowledge_item_id: ki_reg_fe_alsace_cover
+    source_citation_id: src_reg_fe_alsace_work
+    locator: "Soil maintenance: controlled vegetation retaining soil and water; no herbicide prescription adopted."
+  - knowledge_item_id: ki_reg_fe_alsace_riesling
+    source_citation_id: src_reg_fe_riesling
+    locator: "Tasting it: Nose and Palate; food discussion of acidity, with editorial cuvée qualification."
+  - knowledge_item_id: ki_reg_fe_alsace_gewurz
+    source_citation_id: src_reg_fe_gewurztraminer
+    locator: "Tasting it: exotic fruit, roses and spice; dense palate and relatively discreet freshness."
+  - knowledge_item_id: ki_reg_fe_alsace_pinot_gris
+    source_citation_id: src_reg_fe_pinot_gris
+    locator: "Palate: weight, roundness and acidic structure; editorial limit on using the general description."
+  - knowledge_item_id: ki_reg_fe_alsace_pinot_blanc
+    source_citation_id: src_reg_fe_pinot_blanc
+    locator: "Nose and Palate: subtle fruit, light body and balanced acidity."
+  - knowledge_item_id: ki_reg_fe_alsace_pinot_blanc
+    source_citation_id: src_reg_fe_pinot_gris
+    locator: Palate weight as the comparison reference; no universal ranking.
+  - knowledge_item_id: ki_reg_fe_alsace_muscat_dry
+    source_citation_id: src_reg_fe_muscat
+    locator: "Tasting it: primary grape aromas and dry vinification; editorial distinction between aroma and
+      sweetness."
+  - knowledge_item_id: ki_reg_fe_alsace_late_fruit
+    source_citation_id: src_reg_fe_late_harvest
+    locator: "Tasting it: illustrated concentrated ripe fruit and rich sweet-acid palate; no blanket
+      residual-sugar classification or numerical law."
+  - knowledge_item_id: ki_reg_fe_beaujolais_gamay
+    source_citation_id: src_reg_fe_gamay
+    locator: Berry description, early ripening and young/ageing style range; statistics and full permission lists
+      unused.
+  - knowledge_item_id: ki_reg_fe_beaujolais_chardonnay
+    source_citation_id: src_reg_fe_chardonnay
+    locator: "Chardonnay whites: pressing, fermentation vessels and lees maturation; no legal minimum or fixed
+      duration asserted."
+  - knowledge_item_id: ki_reg_fe_beaujolais_hills
+    source_citation_id: src_reg_fe_beaujolais_landscape
+    locator: Opening landscape description; editorial implication for site comparison.
+  - knowledge_item_id: ki_reg_fe_beaujolais_parcels
+    source_citation_id: src_reg_fe_beaujolais_soils
+    locator: 2009–2018 original field survey and parcel applications; mineral-flavour and quality inference excluded.
+  - knowledge_item_id: ki_reg_fe_beaujolais_intact
+    source_citation_id: src_reg_fe_beaujolais_vinification
+    locator: "Second stage: top-of-vat intact berries, intracellular fermentation and small alcohol contribution."
+  - knowledge_item_id: ki_reg_fe_beaujolais_yeast
+    source_citation_id: src_reg_fe_beaujolais_vinification
+    locator: Bottom-of-vat yeast fermentation and pressing stages.
+  - knowledge_item_id: ki_reg_fe_beaujolais_yeast
+    source_citation_id: src_reg_fe_beaujolais_work
+    locator: "Maceration and Fermentation: free-run/press juices finish fermenting together."
+  - knowledge_item_id: ki_reg_fe_beaujolais_pressing
+    source_citation_id: src_reg_fe_carbonic
+    locator: "Oenological effects: reduced phenolic extraction with early pressing; opening note on styles
+      including wines for ageing."
+  - knowledge_item_id: ki_reg_fe_beaujolais_maturation
+    source_citation_id: src_reg_fe_beaujolais_work
+    locator: "Fermentation: extraction operations; Maturing and In the cellars: different vessels and longer
+      maturation choices."
+  - knowledge_item_id: ki_reg_fe_jura_season
+    source_citation_id: src_reg_fe_jura_sites
+    locator: "Climate section: semi-continental variation, summers and rainy springs; older qualitative reference
+      only."
+  - knowledge_item_id: ki_reg_fe_jura_exposure
+    source_citation_id: src_reg_fe_jura_sites
+    locator: "Climate and relief: exposure and microclimate contrasts; no elevation threshold or soil-flavour claim."
+  - knowledge_item_id: ki_reg_fe_jura_chardonnay
+    source_citation_id: src_reg_fe_jura_grapes
+    locator: "Cinq cépages: Chardonnay adaptation and floral/fruit description; editorial production-inference limit."
+  - knowledge_item_id: ki_reg_fe_jura_savagnin
+    source_citation_id: src_reg_fe_jura_grapes
+    locator: "Cinq cépages: Savagnin slow ripening and ouillé/sous-voile contrast; no legal naming assertion."
+  - knowledge_item_id: ki_reg_fe_jura_poulsard
+    source_citation_id: src_reg_fe_jura_grapes
+    locator: "Cinq cépages: Poulsard/Ploussard berries and pale ruby red character; editorial colour-inference
+      limits."
+  - knowledge_item_id: ki_reg_fe_jura_trousseau
+    source_citation_id: src_reg_fe_jura_grapes
+    locator: "Cinq cépages: Trousseau late ripening, warmer site preference and fruit/spice description."
+  - knowledge_item_id: ki_reg_fe_jura_topped
+    source_citation_id: src_fr_atlas_jura
+    locator: "Des blancs tout en nuances, printed page 4: topping up and floral Chardonnay/Savagnin."
+  - knowledge_item_id: ki_reg_fe_jura_non_topped
+    source_citation_id: src_fr_atlas_jura
+    locator: "Des blancs tout en nuances, printed page 4: non-ouillage, traditional styles and variable blends;
+      editorial condition distinction."
+  - knowledge_item_id: ki_reg_fe_jura_jaune_time
+    source_citation_id: src_fr_atlas_jura
+    locator: "Vins patients: Vin Jaune, printed page 9: Savagnin, evaporation and surface yeast; numerical law and
+      bottle arithmetic unused."
+  - knowledge_item_id: ki_reg_fe_jura_paille_drying
+    source_citation_id: src_reg_fe_jura_grapes
+    locator: "Le Vin de Paille: selection, ventilated drying, dehydration, pressing and fermentation; fixed time,
+      alcohol, grapes and legal limits unused."
+  - knowledge_item_id: ki_reg_fe_case_alsace_dry_aromatic_action
+    source_citation_id: src_reg_fe_muscat
+    locator: Dry aromatic Muscat description; application to the explicit hypothetical specification.
+  - knowledge_item_id: ki_reg_fe_case_alsace_dry_aromatic_action
+    source_citation_id: src_srv_oiv_sensory
+    locator: Part I sample conditions and coded presentation; editorial assessment action.
+  - knowledge_item_id: ki_reg_fe_case_alsace_dry_aromatic_reason
+    source_citation_id: src_reg_fe_muscat
+    locator: Primary aroma and dry palate.
+  - knowledge_item_id: ki_reg_fe_case_alsace_dry_aromatic_reason
+    source_citation_id: src_reg_fe_gewurztraminer
+    locator: Intense aroma and weight; editorial separation from the scenario sweetness record.
+  - knowledge_item_id: ki_reg_fe_case_alsace_dry_aromatic_tradeoff
+    source_citation_id: src_biz_au_pricing
+    locator: Research your market and Value pricing; hypothetical style-slot tradeoff rather than a regional price
+      claim.
+  - knowledge_item_id: ki_reg_fe_case_alsace_dry_aromatic_limitation
+    source_citation_id: src_srv_oiv_sensory
+    locator: Part I actual sample assessment and expectation bias; editorial inference limitation.
+  - knowledge_item_id: ki_reg_fe_case_alsace_dry_aromatic_limitation
+    source_citation_id: src_reg_fe_muscat
+    locator: Illustrative dry regional style, not an exhaustive wine-style set.
+  - knowledge_item_id: ki_reg_fe_case_beaujolais_berry_handling_action
+    source_citation_id: src_reg_fe_carbonic
+    locator: Definition, intact-berry requirements and variable technique effects; editorial lot-trial action.
+  - knowledge_item_id: ki_reg_fe_case_beaujolais_berry_handling_reason
+    source_citation_id: src_reg_fe_beaujolais_vinification
+    locator: "Second stage: contrasting intact-berry and juice processes; application to given sound lots."
+  - knowledge_item_id: ki_reg_fe_case_beaujolais_berry_handling_tradeoff
+    source_citation_id: src_biz_au_pricing
+    locator: Cost-plus pricing, Value pricing and Research your market; editorial comparison of given costs and
+      process premises.
+  - knowledge_item_id: ki_reg_fe_case_beaujolais_berry_handling_limitation
+    source_citation_id: src_reg_fe_carbonic
+    locator: Risks and technique variables; no fixed protocol asserted.
+  - knowledge_item_id: ki_reg_fe_case_beaujolais_berry_handling_limitation
+    source_citation_id: src_srv_oiv_sensory
+    locator: Part I assess actual samples under controlled conditions; editorial quality limitation.
+  - knowledge_item_id: ki_reg_fe_case_jura_white_comparison_action
+    source_citation_id: src_srv_oiv_sensory
+    locator: Part I sample conditions and coded presentation; editorial control design using explicit maturation
+      premises.
+  - knowledge_item_id: ki_reg_fe_case_jura_white_comparison_reason
+    source_citation_id: src_fr_atlas_jura
+    locator: "Printed pages 4 and 9: ouillage and yeast-veil production differences; editorial application to
+      supplied aroma observations."
+  - knowledge_item_id: ki_reg_fe_case_jura_white_comparison_tradeoff
+    source_citation_id: src_srv_oiv_sensory
+    locator: Part I sample definition and controlled sensory assessment; original comparison-design tradeoff.
+  - knowledge_item_id: ki_reg_fe_case_jura_white_comparison_limitation
+    source_citation_id: src_srv_oiv_sensory
+    locator: Part I expectation bias and actual sample assessment; editorial limit on supplied case observations.
+  - knowledge_item_id: ki_reg_fe_case_jura_maturation_cash_action
+    source_citation_id: src_biz_au_cashflow
+    locator: Managing inventory, payment timing and supplier terms; application to explicit pay-before-sale premises.
+  - knowledge_item_id: ki_reg_fe_case_jura_maturation_cash_action
+    source_citation_id: src_biz_au_pricing
+    locator: Cost-plus pricing, Set your prices and Value pricing; editorial future-demand test.
+  - knowledge_item_id: ki_reg_fe_case_jura_maturation_cash_reason
+    source_citation_id: src_fr_atlas_jura
+    locator: "Vins patients, printed page 9: prolonged Savagnin maturation, evaporation and absence of ouillage;
+      hypothetical cost consequence."
+  - knowledge_item_id: ki_reg_fe_case_jura_maturation_cash_tradeoff
+    source_citation_id: src_biz_au_cashflow
+    locator: Manage inventory and control outgoing payments; editorial delayed-sale tradeoff from explicit
+      cellar-style premises.
+  - knowledge_item_id: ki_reg_fe_case_jura_maturation_cash_limitation
+    source_citation_id: src_biz_au_pricing
+    locator: Research your market and Value pricing; no future regional price prediction.
+  - knowledge_item_id: ki_reg_fe_case_jura_maturation_cash_limitation
+    source_citation_id: src_biz_au_cashflow
+    locator: Forecast cash movements and monitor inventory; original scenario limitation.

@@ -22,7 +22,7 @@ void main() {
   setUp(() => db = openTestDatabase());
   tearDown(() => db.close());
 
-  Future<void> launch(WidgetTester tester) async {
+  Future<void> launch(WidgetTester tester, {bool mcqOnly = false}) async {
     tester.view.physicalSize = const Size(1080, 2340);
     tester.view.devicePixelRatio = 3;
     addTearDown(tester.view.reset);
@@ -37,7 +37,11 @@ void main() {
         // Text formats that settle one item each, so the counts below hold;
         // maps and composite exercises have tests of their own.
         ...servingOnly(
-          FormatRegistry(const [FlashcardFormat(), McqFormat(), TypedFormat()]),
+          FormatRegistry(
+            mcqOnly
+                ? const [McqFormat()]
+                : const [FlashcardFormat(), McqFormat(), TypedFormat()],
+          ),
         ),
       ],
     );
@@ -151,7 +155,7 @@ void main() {
   });
 
   testApp('a wrong MCQ answer shows the right one', (tester) async {
-    await launch(tester);
+    await launch(tester, mcqOnly: true);
     await tap(tester, find.text('WSET Level 3'));
     await tap(
       tester,
@@ -220,6 +224,12 @@ void main() {
       () => (db.select(
         db.knowledgeItems,
       )..where((i) => i.id.equals('ki_chablis_grape'))).getSingle(),
+    );
+    await tester.scrollUntilVisible(
+      find.text(chablis.assertionText),
+      400,
+      scrollable: find.byType(Scrollable).last,
+      maxScrolls: 200,
     );
     await tap(tester, find.text(chablis.assertionText));
     expect(find.text('Sources'), findsOneWidget);

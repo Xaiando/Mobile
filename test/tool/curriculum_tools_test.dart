@@ -157,10 +157,13 @@ void main() {
     expect(out, contains('${pathOf('areas/france.yaml')}: '));
     expect(
       out,
-      contains(
-        RegExp(r'Questions: \d+ \(\d+ flashcard, \d+ mcq, [^)]*typed[^)]*\)'),
-      ),
+      contains(RegExp(r'Questions: \d+ \([^)]*\d+ flashcard[^)]*\)')),
     );
+    final questionLine = out
+        .split('\n')
+        .singleWhere((line) => line.startsWith('Questions:'));
+    expect(questionLine, contains(RegExp(r'\d+ mcq')));
+    expect(questionLine, contains(RegExp(r'\d+ typed')));
     expect(out, contains('mcqDisabled'));
     expect(out, contains('Items with no multiple-choice question:'));
   });

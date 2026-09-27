@@ -1,0 +1,672 @@
+# Small original Diploma causal-reasoning starter; all points await qualified review.
+# Hypothetical premises isolate the stated mechanism; they are not claimed source observations.
+# MCQ disabled: generic relation distractors cannot resolve these conditional causal claims;
+# the reasoning format instead uses three explicit cited contradictions for each target.
+node_types:
+  - id: causal_premise
+    label: conditional premise
+  - id: causal_state
+    label: causal state
+relation_types:
+  - id: CAUSES_STATE
+    label: produces the conditional state
+    reverse_label: is produced under the premise
+    cardinality: many
+    default_domain_id: winemaking
+  - id: LEADS_TO
+    label: supports the downstream state
+    reverse_label: follows from the causal state
+    cardinality: many
+    default_domain_id: winemaking
+  - id: CONTRADICTS
+    label: contradicts the proposed conclusion
+    reverse_label: is contradicted by the premise
+    cardinality: many
+    default_domain_id: winemaking
+relation_type_signatures:
+  - relation_type: CAUSES_STATE
+    subject_node_type: causal_premise
+    object_node_type: causal_state
+  - relation_type: LEADS_TO
+    subject_node_type: causal_state
+    object_node_type: causal_state
+  - relation_type: CONTRADICTS
+    subject_node_type: causal_premise
+    object_node_type: causal_state
+knowledge_nodes:
+  - id: n_reason_water_premise
+    node_type: causal_premise
+    name: A grapevine block has a sustained water deficit relative to evaporative demand. Measurements show
+      that its stomata are closing sufficiently to restrict CO₂ entry. Compare it with adequately watered
+      vines of the same cultivar under the same light, atmospheric CO₂ and controlled leaf temperature;
+      leaves are otherwise healthy. Consider the stomatal route, without assuming that every cultivar
+      responds identically.
+  - id: n_reason_water_co2_entry
+    node_type: causal_state
+    name: Less CO₂ enters the leaves through stomata
+  - id: n_reason_water_assimilation
+    node_type: causal_state
+    name: Reduced photosynthetic carbon assimilation through stomatal limitation
+  - id: n_reason_water_wrong_more_co2
+    node_type: causal_state
+    name: Greater CO₂ entry through the closing stomata
+  - id: n_reason_water_wrong_more_assimilation
+    node_type: causal_state
+    name: Increased carbon assimilation because the stomata close
+  - id: n_reason_water_wrong_more_cooling
+    node_type: causal_state
+    name: Greater capacity for cooling by transpiration through the closing stomata
+  - id: n_reason_bloom_premise
+    node_type: causal_premise
+    name: In a carbohydrate-sensitive wine-grape block, photosynthetically active basal leaves are removed
+      just before bloom. These leaves were an important carbohydrate source for the inflorescences, and
+      their supply is not compensated by other leaves or stored reserves during the comparison. Cultivar
+      and flowering weather are matched to an untreated control, and no whole clusters are removed. Trace
+      the carbohydrate-limitation mechanism, rather than assuming the treatment has the same effect in
+      every block.
+  - id: n_reason_bloom_carbohydrate
+    node_type: causal_state
+    name: Reduced carbohydrate supply to the inflorescences
+  - id: n_reason_bloom_set
+    node_type: causal_state
+    name: Reduced fruit set through carbohydrate limitation
+  - id: n_reason_bloom_berries
+    node_type: causal_state
+    name: Fewer berries per cluster through reduced fruit set
+  - id: n_reason_bloom_wrong_more_carbohydrate
+    node_type: causal_state
+    name: Greater carbohydrate supply from removing the active basal leaves
+  - id: n_reason_bloom_wrong_more_set
+    node_type: causal_state
+    name: Increased fruit set because carbohydrate supply is restricted
+  - id: n_reason_bloom_wrong_cluster_thinning
+    node_type: causal_state
+    name: Reduced crop by removing whole clusters rather than reducing berries per cluster
+  - id: n_reason_mlf_premise
+    node_type: causal_premise
+    name: "A dry wine containing L-malic acid undergoes successful malolactic conversion. For this
+      comparison, isolate the conversion of L-malic acid to L-lactic acid: no acid addition, blending,
+      sugar-derived acid production, dilution or tartrate precipitation changes the acidity. Compare
+      before and after this conversion, without assuming a buttery aroma or complete microbiological
+      stability."
+  - id: n_reason_mlf_conversion
+    node_type: causal_state
+    name: L-malic acid is converted to L-lactic acid
+  - id: n_reason_mlf_acidity
+    node_type: causal_state
+    name: Lower titratable acidity from the isolated malic-to-lactic conversion
+  - id: n_reason_mlf_wrong_more_malic
+    node_type: causal_state
+    name: Increased L-malic acid caused by successful malolactic conversion
+  - id: n_reason_mlf_wrong_no_lactic
+    node_type: causal_state
+    name: No L-lactic acid formation during the malic-acid conversion
+  - id: n_reason_mlf_wrong_more_acidity
+    node_type: causal_state
+    name: Higher titratable acidity from replacing malic acid with lactic acid
+  - id: n_reason_so2_premise
+    node_type: causal_premise
+    name: Two otherwise comparable wines have the same accurately measured free SO₂ concentration, alcohol
+      and temperature, but wine B has a higher pH within the normal wine-pH range. Compare only the
+      molecular-SO₂ contribution to antimicrobial protection; microbial strain, population and all other
+      barriers are held constant. Do not infer a universal killing threshold or an oxidation result.
+  - id: n_reason_so2_molecular
+    node_type: causal_state
+    name: Lower molecular SO₂ concentration in the higher-pH wine
+  - id: n_reason_so2_protection
+    node_type: causal_state
+    name: Weaker molecular-SO₂ antimicrobial protection at the same free SO₂
+  - id: n_reason_so2_wrong_more_molecular
+    node_type: causal_state
+    name: Greater molecular SO₂ concentration in the higher-pH wine
+  - id: n_reason_so2_wrong_ph_independent
+    node_type: causal_state
+    name: A molecular SO₂ fraction independent of wine pH
+  - id: n_reason_so2_wrong_less_free
+    node_type: causal_state
+    name: Less free SO₂ needed at higher pH for equivalent antimicrobial protection
+node_alternative_names:
+  - knowledge_node_id: n_reason_water_co2_entry
+    name: reduced stomatal carbon dioxide entry
+    kind: synonym
+  - knowledge_node_id: n_reason_water_assimilation
+    name: reduced photosynthetic carbon assimilation
+    kind: synonym
+  - knowledge_node_id: n_reason_water_wrong_more_co2
+    name: increased stomatal carbon dioxide entry
+    kind: synonym
+  - knowledge_node_id: n_reason_water_wrong_more_assimilation
+    name: increased carbon assimilation from closure
+    kind: synonym
+  - knowledge_node_id: n_reason_water_wrong_more_cooling
+    name: greater transpiration cooling from closure
+    kind: synonym
+  - knowledge_node_id: n_reason_bloom_carbohydrate
+    name: reduced inflorescence carbohydrate supply
+    kind: synonym
+  - knowledge_node_id: n_reason_bloom_set
+    name: reduced fruit set from carbohydrate limitation
+    kind: synonym
+  - knowledge_node_id: n_reason_bloom_berries
+    name: fewer berries per cluster from reduced set
+    kind: synonym
+  - knowledge_node_id: n_reason_bloom_wrong_more_carbohydrate
+    name: greater carbohydrate supply from basal removal
+    kind: synonym
+  - knowledge_node_id: n_reason_bloom_wrong_more_set
+    name: increased fruit set from carbohydrate restriction
+    kind: synonym
+  - knowledge_node_id: n_reason_bloom_wrong_cluster_thinning
+    name: crop reduction through whole cluster removal
+    kind: synonym
+  - knowledge_node_id: n_reason_mlf_conversion
+    name: malic to lactic acid conversion
+    kind: synonym
+  - knowledge_node_id: n_reason_mlf_acidity
+    name: lower titratable acidity from malolactic conversion
+    kind: synonym
+  - knowledge_node_id: n_reason_mlf_wrong_more_malic
+    name: increased malic acid from malolactic conversion
+    kind: synonym
+  - knowledge_node_id: n_reason_mlf_wrong_no_lactic
+    name: no lactic acid formation during conversion
+    kind: synonym
+  - knowledge_node_id: n_reason_mlf_wrong_more_acidity
+    name: higher titratable acidity from malic replacement
+    kind: synonym
+  - knowledge_node_id: n_reason_so2_molecular
+    name: lower molecular sulfur dioxide at higher pH
+    kind: synonym
+  - knowledge_node_id: n_reason_so2_protection
+    name: weaker sulfur dioxide antimicrobial protection
+    kind: synonym
+  - knowledge_node_id: n_reason_so2_wrong_more_molecular
+    name: greater molecular sulfur dioxide at higher pH
+    kind: synonym
+  - knowledge_node_id: n_reason_so2_wrong_ph_independent
+    name: pH independent molecular sulfur dioxide fraction
+    kind: synonym
+  - knowledge_node_id: n_reason_so2_wrong_less_free
+    name: less free sulfur dioxide needed at higher pH
+    kind: synonym
+knowledge_relations:
+  - subject_id: n_reason_water_premise
+    relation_type: CAUSES_STATE
+    object_id: n_reason_water_co2_entry
+    valid_from: 2026-09-27
+  - subject_id: n_reason_water_co2_entry
+    relation_type: LEADS_TO
+    object_id: n_reason_water_assimilation
+    valid_from: 2026-09-27
+  - subject_id: n_reason_water_premise
+    relation_type: CONTRADICTS
+    object_id: n_reason_water_wrong_more_co2
+    valid_from: 2026-09-27
+  - subject_id: n_reason_water_premise
+    relation_type: CONTRADICTS
+    object_id: n_reason_water_wrong_more_assimilation
+    valid_from: 2026-09-27
+  - subject_id: n_reason_water_premise
+    relation_type: CONTRADICTS
+    object_id: n_reason_water_wrong_more_cooling
+    valid_from: 2026-09-27
+  - subject_id: n_reason_bloom_premise
+    relation_type: CAUSES_STATE
+    object_id: n_reason_bloom_carbohydrate
+    valid_from: 2026-09-27
+  - subject_id: n_reason_bloom_carbohydrate
+    relation_type: LEADS_TO
+    object_id: n_reason_bloom_set
+    valid_from: 2026-09-27
+  - subject_id: n_reason_bloom_set
+    relation_type: LEADS_TO
+    object_id: n_reason_bloom_berries
+    valid_from: 2026-09-27
+  - subject_id: n_reason_bloom_premise
+    relation_type: CONTRADICTS
+    object_id: n_reason_bloom_wrong_more_carbohydrate
+    valid_from: 2026-09-27
+  - subject_id: n_reason_bloom_premise
+    relation_type: CONTRADICTS
+    object_id: n_reason_bloom_wrong_more_set
+    valid_from: 2026-09-27
+  - subject_id: n_reason_bloom_premise
+    relation_type: CONTRADICTS
+    object_id: n_reason_bloom_wrong_cluster_thinning
+    valid_from: 2026-09-27
+  - subject_id: n_reason_mlf_premise
+    relation_type: CAUSES_STATE
+    object_id: n_reason_mlf_conversion
+    valid_from: 2026-09-27
+  - subject_id: n_reason_mlf_conversion
+    relation_type: LEADS_TO
+    object_id: n_reason_mlf_acidity
+    valid_from: 2026-09-27
+  - subject_id: n_reason_mlf_premise
+    relation_type: CONTRADICTS
+    object_id: n_reason_mlf_wrong_more_malic
+    valid_from: 2026-09-27
+  - subject_id: n_reason_mlf_premise
+    relation_type: CONTRADICTS
+    object_id: n_reason_mlf_wrong_no_lactic
+    valid_from: 2026-09-27
+  - subject_id: n_reason_mlf_premise
+    relation_type: CONTRADICTS
+    object_id: n_reason_mlf_wrong_more_acidity
+    valid_from: 2026-09-27
+  - subject_id: n_reason_so2_premise
+    relation_type: CAUSES_STATE
+    object_id: n_reason_so2_molecular
+    valid_from: 2026-09-27
+  - subject_id: n_reason_so2_molecular
+    relation_type: LEADS_TO
+    object_id: n_reason_so2_protection
+    valid_from: 2026-09-27
+  - subject_id: n_reason_so2_premise
+    relation_type: CONTRADICTS
+    object_id: n_reason_so2_wrong_more_molecular
+    valid_from: 2026-09-27
+  - subject_id: n_reason_so2_premise
+    relation_type: CONTRADICTS
+    object_id: n_reason_so2_wrong_ph_independent
+    valid_from: 2026-09-27
+  - subject_id: n_reason_so2_premise
+    relation_type: CONTRADICTS
+    object_id: n_reason_so2_wrong_less_free
+    valid_from: 2026-09-27
+knowledge_items:
+  - id: ki_reason_water_co2_entry
+    subject_id: n_reason_water_premise
+    relation_type: CAUSES_STATE
+    object_id: n_reason_water_co2_entry
+    domain_id: viticulture
+    assertion_text: Under the supplied closing-stomata response, restricted gas exchange reduces stomatal CO₂
+      entry; open stomata normally admit CO₂ for photosynthesis.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T12:22:12.000Z"
+  - id: ki_reason_water_assimilation
+    subject_id: n_reason_water_co2_entry
+    relation_type: LEADS_TO
+    object_id: n_reason_water_assimilation
+    domain_id: viticulture
+    assertion_text: Reduced stomatal CO₂ supply limits photosynthetic carbon assimilation in this controlled
+      comparison; the premise does not establish a universal response magnitude.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T12:22:12.000Z"
+  - id: ki_reason_water_contra_more_co2
+    subject_id: n_reason_water_premise
+    relation_type: CONTRADICTS
+    object_id: n_reason_water_wrong_more_co2
+    domain_id: viticulture
+    assertion_text: Closing stomata restrict the CO₂ entry route, contradicting increased stomatal CO₂ supply
+      under these conditions.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T12:22:12.000Z"
+  - id: ki_reason_water_contra_more_assimilation
+    subject_id: n_reason_water_premise
+    relation_type: CONTRADICTS
+    object_id: n_reason_water_wrong_more_assimilation
+    domain_id: viticulture
+    assertion_text: A closure that limits CO₂ entry does not increase photosynthesis through that route; the
+      guide identifies inhibition of photosynthesis when water supply fails to meet demand.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T12:22:12.000Z"
+  - id: ki_reason_water_contra_more_cooling
+    subject_id: n_reason_water_premise
+    relation_type: CONTRADICTS
+    object_id: n_reason_water_wrong_more_cooling
+    domain_id: viticulture
+    assertion_text: Stomatal closure restricts water-vapour loss; severe water limitation can reduce the
+      leaf’s capacity for transpiration cooling, rather than enhance it.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T12:22:12.000Z"
+  - id: ki_reason_bloom_carbohydrate
+    subject_id: n_reason_bloom_premise
+    relation_type: CAUSES_STATE
+    object_id: n_reason_bloom_carbohydrate
+    domain_id: viticulture
+    assertion_text: Removing active basal source leaves around bloom can restrict carbohydrate supply to
+      inflorescences; the supplied scenario rules out compensation.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T12:22:12.000Z"
+  - id: ki_reason_bloom_set
+    subject_id: n_reason_bloom_carbohydrate
+    relation_type: LEADS_TO
+    object_id: n_reason_bloom_set
+    domain_id: viticulture
+    assertion_text: A shortage of carbohydrate resources during flowering can reduce the proportion of
+      flowers that develop into berries; weather and cultivar also influence this response.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T12:22:12.000Z"
+  - id: ki_reason_bloom_berries
+    subject_id: n_reason_bloom_set
+    relation_type: LEADS_TO
+    object_id: n_reason_bloom_berries
+    domain_id: viticulture
+    assertion_text: Under this fruit-set mechanism, fewer flowers develop into berries, so fewer berries per
+      cluster are expected; no exact yield reduction is predicted.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T12:22:12.000Z"
+  - id: ki_reason_bloom_contra_more_carbohydrate
+    subject_id: n_reason_bloom_premise
+    relation_type: CONTRADICTS
+    object_id: n_reason_bloom_wrong_more_carbohydrate
+    domain_id: viticulture
+    assertion_text: Around bloom, active basal leaves supply carbohydrates. Removing them without replacement
+      reduces that source, contradicting increased supply from the removal itself.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T12:22:12.000Z"
+  - id: ki_reason_bloom_contra_more_set
+    subject_id: n_reason_bloom_premise
+    relation_type: CONTRADICTS
+    object_id: n_reason_bloom_wrong_more_set
+    domain_id: viticulture
+    assertion_text: The cited carbohydrate-limitation mechanism reduces fruit set; it does not increase set
+      by depriving inflorescences of that supply.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T12:22:12.000Z"
+  - id: ki_reason_bloom_contra_cluster_thinning
+    subject_id: n_reason_bloom_premise
+    relation_type: CONTRADICTS
+    object_id: n_reason_bloom_wrong_cluster_thinning
+    domain_id: viticulture
+    assertion_text: Early leaf removal can reduce cluster weight through fewer or smaller berries. Removing
+      whole clusters is the separate mechanism of cluster thinning and is excluded by this premise.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T12:22:12.000Z"
+  - id: ki_reason_mlf_conversion
+    subject_id: n_reason_mlf_premise
+    relation_type: CAUSES_STATE
+    object_id: n_reason_mlf_conversion
+    domain_id: winemaking
+    assertion_text: Successful malolactic conversion decreases malic acid and produces lactic acid; the
+      supplied scenario isolates this reaction from other acid changes.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T12:22:12.000Z"
+  - id: ki_reason_mlf_acidity
+    subject_id: n_reason_mlf_conversion
+    relation_type: LEADS_TO
+    object_id: n_reason_mlf_acidity
+    domain_id: winemaking
+    assertion_text: Lactic acid contributes less titratable acidity than the malic acid it replaces, so the
+      isolated conversion lowers TA; whole-wine changes need not follow a fixed numerical prediction.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T12:22:12.000Z"
+  - id: ki_reason_mlf_contra_more_malic
+    subject_id: n_reason_mlf_premise
+    relation_type: CONTRADICTS
+    object_id: n_reason_mlf_wrong_more_malic
+    domain_id: winemaking
+    assertion_text: MLF consumes malic acid; monitoring follows declining malic acid, contradicting increased
+      malate caused by this conversion.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T12:22:12.000Z"
+  - id: ki_reason_mlf_contra_no_lactic
+    subject_id: n_reason_mlf_premise
+    relation_type: CONTRADICTS
+    object_id: n_reason_mlf_wrong_no_lactic
+    domain_id: winemaking
+    assertion_text: The stated malolactic reaction converts L-malic acid to L-lactic acid, contradicting the
+      claim that it forms no lactate.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T12:22:12.000Z"
+  - id: ki_reason_mlf_contra_more_acidity
+    subject_id: n_reason_mlf_premise
+    relation_type: CONTRADICTS
+    object_id: n_reason_mlf_wrong_more_acidity
+    domain_id: winemaking
+    assertion_text: The replacement acid contributes less TA than the malic acid it replaces; an increase in
+      TA from this isolated replacement contradicts that mechanism.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T12:22:12.000Z"
+  - id: ki_reason_so2_molecular
+    subject_id: n_reason_so2_premise
+    relation_type: CAUSES_STATE
+    object_id: n_reason_so2_molecular
+    domain_id: winemaking
+    assertion_text: At the same free SO₂, alcohol and temperature, higher pH shifts the equilibrium towards a
+      lower molecular SO₂ concentration.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T12:22:12.000Z"
+  - id: ki_reason_so2_protection
+    subject_id: n_reason_so2_molecular
+    relation_type: LEADS_TO
+    object_id: n_reason_so2_protection
+    domain_id: winemaking
+    assertion_text: A lower molecular SO₂ concentration weakens the antimicrobial contribution of that SO₂;
+      equal free SO₂ alone does not establish equal protection at different pH values.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T12:22:12.000Z"
+  - id: ki_reason_so2_contra_more_molecular
+    subject_id: n_reason_so2_premise
+    relation_type: CONTRADICTS
+    object_id: n_reason_so2_wrong_more_molecular
+    domain_id: winemaking
+    assertion_text: With free SO₂, alcohol and temperature fixed, molecular SO₂ is less abundant at higher
+      pH, contradicting an increase from pH alone.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T12:22:12.000Z"
+  - id: ki_reason_so2_contra_ph_independent
+    subject_id: n_reason_so2_premise
+    relation_type: CONTRADICTS
+    object_id: n_reason_so2_wrong_ph_independent
+    domain_id: winemaking
+    assertion_text: The molecular-to-bisulfite equilibrium depends on pH, contradicting a pH-independent
+      molecular fraction within these wine conditions.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T12:22:12.000Z"
+  - id: ki_reason_so2_contra_less_free
+    subject_id: n_reason_so2_premise
+    relation_type: CONTRADICTS
+    object_id: n_reason_so2_wrong_less_free
+    domain_id: winemaking
+    assertion_text: For equivalent SO₂ antimicrobial protection, a higher-pH wine requires more free SO₂, all
+      else equal; requiring less contradicts the pH mechanism.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T12:22:12.000Z"
+certification_knowledge_mappings:
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reason_water_co2_entry
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reason_water_assimilation
+    importance: core
+    minimum_depth: 4
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reason_water_contra_more_co2
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reason_water_contra_more_assimilation
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reason_water_contra_more_cooling
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reason_bloom_carbohydrate
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reason_bloom_set
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reason_bloom_berries
+    importance: core
+    minimum_depth: 4
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reason_bloom_contra_more_carbohydrate
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reason_bloom_contra_more_set
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reason_bloom_contra_cluster_thinning
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reason_mlf_conversion
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reason_mlf_acidity
+    importance: core
+    minimum_depth: 4
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reason_mlf_contra_more_malic
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reason_mlf_contra_no_lactic
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reason_mlf_contra_more_acidity
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reason_so2_molecular
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reason_so2_protection
+    importance: core
+    minimum_depth: 4
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reason_so2_contra_more_molecular
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reason_so2_contra_ph_independent
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reason_so2_contra_less_free
+    importance: secondary
+    minimum_depth: 2
+source_citations:
+  - id: src_reason_early_leaf_removal
+    kind: academic
+    title: "Early Season Grapevine Canopy Management, Part II: Early Leaf Removal (ELR)"
+    publisher: Penn State Extension
+    document_identifier: Michela Centinari; primary extension discussion of flowering carbohydrate supply,
+      fruit-set and ELR limitations
+    url: https://extension.psu.edu/early-season-grapevine-canopy-management-part-ii-early-leaf-removal-elr
+    accessed_on: 2026-09-27
+  - id: src_reason_molecular_so2
+    kind: academic
+    title: Understanding molecular SO₂
+    publisher: The Australian Wine Research Institute
+    document_identifier: Coulter, A.; Australian & New Zealand Grapegrower & Winemaker 636, January 2017, printed p.76
+    url: https://www.awri.com.au/wp-content/uploads/2018/03/s1886.pdf
+    accessed_on: 2026-09-27
+knowledge_item_citations:
+  - knowledge_item_id: ki_reason_water_co2_entry
+    source_citation_id: src_vit_water_status
+    locator: "Printed p.14: Root and leaf functioning control vine water status; high demand, inhibition of
+      photosynthesis and loss of transpiration cooling"
+  - knowledge_item_id: ki_reason_water_assimilation
+    source_citation_id: src_vit_water_status
+    locator: "Printed p.14: Root and leaf functioning control vine water status; high demand, inhibition of
+      photosynthesis and loss of transpiration cooling"
+  - knowledge_item_id: ki_reason_water_contra_more_co2
+    source_citation_id: src_vit_water_status
+    locator: "Printed p.14: Root and leaf functioning control vine water status; high demand, inhibition of
+      photosynthesis and loss of transpiration cooling"
+  - knowledge_item_id: ki_reason_water_contra_more_assimilation
+    source_citation_id: src_vit_water_status
+    locator: "Printed p.14: Root and leaf functioning control vine water status; high demand, inhibition of
+      photosynthesis and loss of transpiration cooling"
+  - knowledge_item_id: ki_reason_water_contra_more_cooling
+    source_citation_id: src_vit_water_status
+    locator: "Printed p.14: Root and leaf functioning control vine water status; high demand, inhibition of
+      photosynthesis and loss of transpiration cooling"
+  - knowledge_item_id: ki_reason_bloom_carbohydrate
+    source_citation_id: src_reason_early_leaf_removal
+    locator: What is Early Leaf Removal (ELR) and how does it work? Basal-leaf carbohydrate supply, fruit-set
+      and berries per cluster; contrast with cluster thinning; Considerations regarding ELR
+  - knowledge_item_id: ki_reason_bloom_set
+    source_citation_id: src_reason_early_leaf_removal
+    locator: What is Early Leaf Removal (ELR) and how does it work? Basal-leaf carbohydrate supply, fruit-set
+      and berries per cluster; contrast with cluster thinning; Considerations regarding ELR
+  - knowledge_item_id: ki_reason_bloom_berries
+    source_citation_id: src_reason_early_leaf_removal
+    locator: What is Early Leaf Removal (ELR) and how does it work? Basal-leaf carbohydrate supply, fruit-set
+      and berries per cluster; contrast with cluster thinning; Considerations regarding ELR
+  - knowledge_item_id: ki_reason_bloom_contra_more_carbohydrate
+    source_citation_id: src_reason_early_leaf_removal
+    locator: What is Early Leaf Removal (ELR) and how does it work? Basal-leaf carbohydrate supply, fruit-set
+      and berries per cluster; contrast with cluster thinning; Considerations regarding ELR
+  - knowledge_item_id: ki_reason_bloom_contra_more_set
+    source_citation_id: src_reason_early_leaf_removal
+    locator: What is Early Leaf Removal (ELR) and how does it work? Basal-leaf carbohydrate supply, fruit-set
+      and berries per cluster; contrast with cluster thinning; Considerations regarding ELR
+  - knowledge_item_id: ki_reason_bloom_contra_cluster_thinning
+    source_citation_id: src_reason_early_leaf_removal
+    locator: What is Early Leaf Removal (ELR) and how does it work? Basal-leaf carbohydrate supply, fruit-set
+      and berries per cluster; contrast with cluster thinning; Considerations regarding ELR
+  - knowledge_item_id: ki_reason_mlf_conversion
+    source_citation_id: src_win_mlf
+    locator: "PDF p.4: Changes in titratable acidity (TA) after MLF; p.3: Monitoring MLF performance"
+  - knowledge_item_id: ki_reason_mlf_acidity
+    source_citation_id: src_win_mlf
+    locator: "PDF p.4: Changes in titratable acidity (TA) after MLF; p.3: Monitoring MLF performance"
+  - knowledge_item_id: ki_reason_mlf_contra_more_malic
+    source_citation_id: src_win_mlf
+    locator: "PDF p.4: Changes in titratable acidity (TA) after MLF; p.3: Monitoring MLF performance"
+  - knowledge_item_id: ki_reason_mlf_contra_no_lactic
+    source_citation_id: src_win_mlf
+    locator: "PDF p.4: Changes in titratable acidity (TA) after MLF; p.3: Monitoring MLF performance"
+  - knowledge_item_id: ki_reason_mlf_contra_more_acidity
+    source_citation_id: src_win_mlf
+    locator: "PDF p.4: Changes in titratable acidity (TA) after MLF; p.3: Monitoring MLF performance"
+  - knowledge_item_id: ki_reason_so2_molecular
+    source_citation_id: src_reason_molecular_so2
+    locator: "Printed p.76: Why do I need to know the pH when considering my SO₂ additions?; Which other wine
+      parameters affect the amount of molecular SO₂ present in wine?"
+  - knowledge_item_id: ki_reason_so2_protection
+    source_citation_id: src_reason_molecular_so2
+    locator: "Printed p.76: Why do I need to know the pH when considering my SO₂ additions?; Which other wine
+      parameters affect the amount of molecular SO₂ present in wine?"
+  - knowledge_item_id: ki_reason_so2_protection
+    source_citation_id: src_win_sulfur
+    locator: Properties bullet on pH-dependent free-SO₂ effectiveness; higher free concentration needed at
+      higher pH for equivalent antimicrobial effect
+  - knowledge_item_id: ki_reason_so2_contra_more_molecular
+    source_citation_id: src_reason_molecular_so2
+    locator: "Printed p.76: Why do I need to know the pH when considering my SO₂ additions?; Which other wine
+      parameters affect the amount of molecular SO₂ present in wine?"
+  - knowledge_item_id: ki_reason_so2_contra_ph_independent
+    source_citation_id: src_reason_molecular_so2
+    locator: "Printed p.76: Why do I need to know the pH when considering my SO₂ additions?; Which other wine
+      parameters affect the amount of molecular SO₂ present in wine?"
+  - knowledge_item_id: ki_reason_so2_contra_less_free
+    source_citation_id: src_win_sulfur
+    locator: Properties bullet on pH-dependent free-SO₂ effectiveness; higher free concentration needed at
+      higher pH for equivalent antimicrobial effect

@@ -1,0 +1,169 @@
+# Switzerland: principal cantonal wine regions, selected Vaud AOCs, and
+# Fendant. Sources are federal statistics and current cantonal wine laws.
+# Effective dates remain uncurated (1900-01-01), and all items are unverified.
+
+relation_type_signatures:
+  - { relation_type: PERMITS_GRAPE, subject_node_type: wine_type, object_node_type: grape }
+
+knowledge_nodes:
+  - { id: n_geo_switzerland, node_type: country, name: Switzerland }
+  - { id: n_geo_valais, node_type: region, name: Valais }
+  - { id: n_geo_vaud, node_type: region, name: Vaud }
+  - { id: n_geo_geneva, node_type: region, name: Geneva }
+  - { id: n_geo_ticino, node_type: region, name: Ticino }
+  - { id: n_geo_lavaux, node_type: appellation, name: Lavaux }
+  - { id: n_geo_la_cote, node_type: appellation, name: La Côte }
+  - { id: n_geo_chablais_vaud, node_type: appellation, name: Chablais (Vaud) }
+  - { id: n_wine_fendant, node_type: wine_type, name: Fendant }
+  - { id: n_grape_chasselas, node_type: grape, name: Chasselas }
+
+node_alternative_names:
+  - { knowledge_node_id: n_geo_switzerland, name: Schweiz, kind: synonym }
+  - { knowledge_node_id: n_geo_switzerland, name: Suisse, kind: synonym }
+  - { knowledge_node_id: n_geo_valais, name: Wallis, kind: synonym }
+  - { knowledge_node_id: n_geo_vaud, name: Waadt, kind: synonym }
+  - { knowledge_node_id: n_geo_geneva, name: Genève, kind: synonym }
+  - { knowledge_node_id: n_geo_geneva, name: Genf, kind: synonym }
+  - { knowledge_node_id: n_geo_ticino, name: Tessin, kind: synonym }
+  - { knowledge_node_id: n_geo_chablais_vaud, name: Chablais, kind: synonym }
+
+knowledge_relations:
+  - { subject_id: n_geo_valais, relation_type: LOCATED_IN, object_id: n_geo_switzerland, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_vaud, relation_type: LOCATED_IN, object_id: n_geo_switzerland, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_geneva, relation_type: LOCATED_IN, object_id: n_geo_switzerland, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_ticino, relation_type: LOCATED_IN, object_id: n_geo_switzerland, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_lavaux, relation_type: LOCATED_IN, object_id: n_geo_vaud, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_la_cote, relation_type: LOCATED_IN, object_id: n_geo_vaud, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_chablais_vaud, relation_type: LOCATED_IN, object_id: n_geo_vaud, valid_from: "1900-01-01" }
+  - { subject_id: n_wine_fendant, relation_type: RESERVED_FOR_REGION, object_id: n_geo_valais, valid_from: "1900-01-01" }
+  - { subject_id: n_wine_fendant, relation_type: PERMITS_GRAPE, object_id: n_grape_chasselas, valid_from: "1900-01-01" }
+  - { subject_id: n_grape_chasselas, relation_type: HAS_BERRY_COLOUR, object_id: n_colour_white, valid_from: "1900-01-01" }
+
+knowledge_items:
+  - id: ki_valais_location
+    subject_id: n_geo_valais
+    relation_type: LOCATED_IN
+    object_id: n_geo_switzerland
+    domain_id: geography
+    assertion_text: "Valais (Wallis) is a Swiss wine-growing canton."
+    last_verified_at: "2026-09-26T08:00:00.000Z"
+  - id: ki_vaud_location
+    subject_id: n_geo_vaud
+    relation_type: LOCATED_IN
+    object_id: n_geo_switzerland
+    domain_id: geography
+    assertion_text: "Vaud (Waadt) is a Swiss wine-growing canton."
+    last_verified_at: "2026-09-26T08:00:00.000Z"
+  - id: ki_geneva_location
+    subject_id: n_geo_geneva
+    relation_type: LOCATED_IN
+    object_id: n_geo_switzerland
+    domain_id: geography
+    assertion_text: "Geneva (Genève, Genf) is a Swiss wine-growing canton."
+    last_verified_at: "2026-09-26T08:00:00.000Z"
+  - id: ki_ticino_location
+    subject_id: n_geo_ticino
+    relation_type: LOCATED_IN
+    object_id: n_geo_switzerland
+    domain_id: geography
+    assertion_text: "Ticino (Tessin) is a Swiss wine-growing canton."
+    last_verified_at: "2026-09-26T08:00:00.000Z"
+  - id: ki_lavaux_location
+    subject_id: n_geo_lavaux
+    relation_type: LOCATED_IN
+    object_id: n_geo_vaud
+    domain_id: geography
+    assertion_text: "Lavaux is a wine appellation of the canton of Vaud; qualifying wines may use its appellation d'origine contrôlée (AOC)."
+    last_verified_at: "2026-09-26T08:00:00.000Z"
+  - id: ki_la_cote_location
+    subject_id: n_geo_la_cote
+    relation_type: LOCATED_IN
+    object_id: n_geo_vaud
+    domain_id: geography
+    assertion_text: "La Côte is a wine appellation of the canton of Vaud; qualifying wines may use its appellation d'origine contrôlée (AOC)."
+    last_verified_at: "2026-09-26T08:00:00.000Z"
+  - id: ki_chablais_vaud_location
+    subject_id: n_geo_chablais_vaud
+    relation_type: LOCATED_IN
+    object_id: n_geo_vaud
+    domain_id: geography
+    assertion_text: "The Swiss Chablais AOC is in the canton of Vaud, in the wine-growing communes of the district of Aigle."
+    last_verified_at: "2026-09-26T08:00:00.000Z"
+  - id: ki_fendant_region
+    subject_id: n_wine_fendant
+    relation_type: RESERVED_FOR_REGION
+    object_id: n_geo_valais
+    domain_id: geography
+    assertion_text: "Fendant is a legally defined AOC wine of Valais."
+    last_verified_at: "2026-09-26T08:00:00.000Z"
+  - id: ki_fendant_grape
+    subject_id: n_wine_fendant
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_chasselas
+    domain_id: geography
+    assertion_text: "Fendant AOC is made exclusively from the Chasselas grape variety under Valais wine law."
+    last_verified_at: "2026-09-26T08:00:00.000Z"
+
+knowledge_item_prerequisites:
+  - { knowledge_item_id: ki_lavaux_location, prerequisite_item_id: ki_vaud_location }
+  - { knowledge_item_id: ki_la_cote_location, prerequisite_item_id: ki_vaud_location }
+  - { knowledge_item_id: ki_chablais_vaud_location, prerequisite_item_id: ki_vaud_location }
+  - { knowledge_item_id: ki_fendant_region, prerequisite_item_id: ki_valais_location }
+  - { knowledge_item_id: ki_fendant_grape, prerequisite_item_id: ki_fendant_region }
+
+certification_knowledge_mappings:
+  - { certification_id: WSET_L3, knowledge_item_id: ki_valais_location, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_vaud_location, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_geneva_location, importance: tertiary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_ticino_location, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_lavaux_location, importance: tertiary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_la_cote_location, importance: tertiary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_chablais_vaud_location, importance: tertiary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_fendant_region, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_fendant_grape, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_valais_location, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_vaud_location, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_geneva_location, importance: tertiary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_ticino_location, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_lavaux_location, importance: tertiary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_la_cote_location, importance: tertiary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_chablais_vaud_location, importance: tertiary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_fendant_region, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_fendant_grape, importance: secondary, minimum_depth: 2 }
+
+source_citations:
+  - id: src_ch_wine_year_2025
+    kind: government_publication
+    title: "Das Weinjahr 2025: Weinwirtschaftliche Statistik"
+    publisher: "Bundesamt für Landwirtschaft (Swiss Federal Office for Agriculture)"
+    jurisdiction: CH
+    document_identifier: "2025 national wine statistics; table 1.1, cantonal vineyard areas"
+    url: "https://www.blw.admin.ch/dam/de/sd-web/an5PEIBQ1W3u/Das%20Weinjahr_2025.pdf"
+    accessed_on: "2026-09-26"
+  - id: src_ch_vaud_wine_regulation
+    kind: legislation
+    title: "Règlement sur les vins vaudois (RVV)"
+    publisher: "Conseil d'État du Canton de Vaud"
+    jurisdiction: CH-VD
+    document_identifier: "RSV 916.125.2, 27 May 2009; consolidated version in force 1 September 2024"
+    url: "https://www.vd.ch/fileadmin/user_upload/themes/economie_emploi/viticulture/fichiers_pdf/REG_20240901_R%C3%A8glement-vins-vaudois-VD.pdf"
+    accessed_on: "2026-09-26"
+  - id: src_ch_valais_wine_ordinance
+    kind: legislation
+    title: "Ordonnance sur la vigne et le vin (OVV)"
+    publisher: "Conseil d'État du Canton du Valais"
+    jurisdiction: CH-VS
+    document_identifier: "RS 916.142, 17 March 2004; consolidated version in force 1 April 2026"
+    url: "https://lex.vs.ch/api/fr/versions/3580/pdf_file"
+    accessed_on: "2026-09-26"
+
+knowledge_item_citations:
+  - { knowledge_item_id: ki_valais_location, source_citation_id: src_ch_wine_year_2025, locator: "Table 1.1: Wallis / Valais (VS)" }
+  - { knowledge_item_id: ki_vaud_location, source_citation_id: src_ch_wine_year_2025, locator: "Table 1.1: Waadt / Vaud (VD)" }
+  - { knowledge_item_id: ki_geneva_location, source_citation_id: src_ch_wine_year_2025, locator: "Table 1.1: Genf / Genève (GE)" }
+  - { knowledge_item_id: ki_ticino_location, source_citation_id: src_ch_wine_year_2025, locator: "Table 1.1: Tessin / Ticino (TI)" }
+  - { knowledge_item_id: ki_lavaux_location, source_citation_id: src_ch_vaud_wine_regulation, locator: "Articles 3 and 4: Lavaux regional area and AOC" }
+  - { knowledge_item_id: ki_la_cote_location, source_citation_id: src_ch_vaud_wine_regulation, locator: "Articles 3 and 4: La Côte regional area and AOC" }
+  - { knowledge_item_id: ki_chablais_vaud_location, source_citation_id: src_ch_vaud_wine_regulation, locator: "Article 3 paragraph 1(a); article 4" }
+  - { knowledge_item_id: ki_fendant_region, source_citation_id: src_ch_valais_wine_ordinance, locator: "Article 49 paragraph 1: Fendant is an AOC wine of Valais" }
+  - { knowledge_item_id: ki_fendant_grape, source_citation_id: src_ch_valais_wine_ordinance, locator: "Article 49 paragraph 1: exclusively Chasselas" }

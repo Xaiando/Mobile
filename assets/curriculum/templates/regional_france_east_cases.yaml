@@ -1,0 +1,75 @@
+# Original self-checked conditional cases; each fixes one complete subject premise.
+question_templates:
+  - id: qt_reg_fe_case_alsace_dry_aromatic
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: reg_fe_alsace_dry_aromatic
+    prompt_template: A restaurant needs a dry, aromatic Alsace white for its main wine-list slot. Offers include a
+      Muscat with a producer specification confirming a dry palate and a Gewurztraminer with a specification
+      confirming noticeable residual sweetness. Both landed quotes fit the purchase budget; current samples
+      are available but have not been tasted. Propose an action, explain the regional style context, discuss a
+      tradeoff and give a limitation without treating perfume as a sweetness or quality test.
+    parameters:
+      scope_node_ids:
+        - n_reg_fe_case_alsace_dry_aromatic
+      key_points:
+        CASE_ACTION: Defensible action
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or evidence needed
+  - id: qt_reg_fe_case_beaujolais_berry_handling
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: reg_fe_beaujolais_berry_handling
+    prompt_template: "A Beaujolais grower wants a fruit-led Gamay red with supple tannin for relatively early
+      release. Two sound lots have comparable ripeness: one was gently hand-picked and arrives with mostly
+      intact bunches; the cheaper second lot has many crushed berries. The grower can run small trials and has
+      berry-condition and cost records. Assess an action, reason, tradeoff and limitation for a carbonic-style
+      approach; no finished wine or universal quality advantage is given."
+    parameters:
+      scope_node_ids:
+        - n_reg_fe_case_beaujolais_berry_handling
+      key_points:
+        CASE_ACTION: Defensible action
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or evidence needed
+  - id: qt_reg_fe_case_jura_white_comparison
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: reg_fe_jura_white_comparison
+    prompt_template: A class compares two sound Jura Savagnins from one producer and vintage. Records identify one
+      as topped up in barrel and the other as matured without topping up under a surface yeast veil; samples
+      show respectively citrus/floral and walnut-like characters. Vineyard sources differ and their detailed
+      records are available. Design a comparison with an action, reason, tradeoff and limitation, without
+      treating a soil name or aroma as proof of origin or superior quality.
+    parameters:
+      scope_node_ids:
+        - n_reg_fe_case_jura_white_comparison
+      key_points:
+        CASE_ACTION: Defensible action
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or evidence needed
+  - id: qt_reg_fe_case_jura_maturation_cash
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: reg_fe_jura_maturation_cash
+    prompt_template: A Jura winery considers expanding a Savagnin lot intended for prolonged Vin Jaune-style
+      maturation instead of selling its sound topped-up Savagnin sooner. Its records show that the longer
+      route ties up cellar space, requires storage spending and loses saleable volume through evaporation.
+      Payment for fruit and work is due before sales, and no future premium or demand is assured. Propose an
+      action, explain a reason, discuss a tradeoff and state a limitation without making a legal-release-date
+      decision.
+    parameters:
+      scope_node_ids:
+        - n_reg_fe_case_jura_maturation_cash
+      key_points:
+        CASE_ACTION: Defensible action
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or evidence needed

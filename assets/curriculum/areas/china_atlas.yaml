@@ -1,0 +1,394 @@
+# China atlas: bounded primary-cited geography, not exhaustive WSET Diploma content.
+# The five provincial/autonomous regions and two local administrative places are not wine GIs.
+# Helan foothills use a documented wine-cluster town reference; no GI boundary is inferred.
+# Exact CC0 P625 gazetteer markers are not vineyard coordinates, wine-area centroids or boundaries.
+# Track mappings are editorial; knowledge items await qualified review.
+knowledge_nodes:
+  - id: n_geo_china
+    node_type: country
+    name: China
+  - id: n_geo_ningxia
+    node_type: region
+    name: Ningxia
+  - id: n_geo_shandong
+    node_type: region
+    name: Shandong
+  - id: n_geo_hebei
+    node_type: region
+    name: Hebei
+  - id: n_geo_xinjiang
+    node_type: region
+    name: Xinjiang
+  - id: n_geo_yunnan
+    node_type: region
+    name: Yunnan
+  - id: n_geo_helan_mountain_eastern_foothills
+    node_type: subregion
+    name: Helan Mountain eastern foothills
+  - id: n_geo_yantai
+    node_type: subregion
+    name: Yantai
+  - id: n_geo_huailai
+    node_type: subregion
+    name: Huailai
+node_alternative_names:
+  - knowledge_node_id: n_geo_ningxia
+    name: Ningxia Hui Autonomous Region
+    kind: synonym
+  - knowledge_node_id: n_geo_shandong
+    name: Shandong Province
+    kind: synonym
+  - knowledge_node_id: n_geo_hebei
+    name: Hebei Province
+    kind: synonym
+  - knowledge_node_id: n_geo_xinjiang
+    name: Xinjiang Uygur Autonomous Region
+    kind: synonym
+  - knowledge_node_id: n_geo_yunnan
+    name: Yunnan Province
+    kind: synonym
+  - knowledge_node_id: n_geo_helan_mountain_eastern_foothills
+    name: Helan Mountain East Region
+    kind: synonym
+  - knowledge_node_id: n_geo_yantai
+    name: Yantai City
+    kind: synonym
+  - knowledge_node_id: n_geo_huailai
+    name: Huailai County
+    kind: synonym
+knowledge_relations:
+  - subject_id: n_geo_ningxia
+    relation_type: LOCATED_IN
+    object_id: n_geo_china
+    valid_from: 2026-09-26
+  - subject_id: n_geo_shandong
+    relation_type: LOCATED_IN
+    object_id: n_geo_china
+    valid_from: 2026-09-26
+  - subject_id: n_geo_hebei
+    relation_type: LOCATED_IN
+    object_id: n_geo_china
+    valid_from: 2026-09-26
+  - subject_id: n_geo_xinjiang
+    relation_type: LOCATED_IN
+    object_id: n_geo_china
+    valid_from: 2026-09-26
+  - subject_id: n_geo_yunnan
+    relation_type: LOCATED_IN
+    object_id: n_geo_china
+    valid_from: 2026-09-26
+  - subject_id: n_geo_helan_mountain_eastern_foothills
+    relation_type: LOCATED_IN
+    object_id: n_geo_ningxia
+    valid_from: 2026-09-26
+  - subject_id: n_geo_yantai
+    relation_type: LOCATED_IN
+    object_id: n_geo_shandong
+    valid_from: 2026-09-26
+  - subject_id: n_geo_huailai
+    relation_type: LOCATED_IN
+    object_id: n_geo_hebei
+    valid_from: 2026-09-26
+knowledge_items:
+  - id: ki_cn_atlas_ningxia_location
+    subject_id: n_geo_ningxia
+    relation_type: LOCATED_IN
+    object_id: n_geo_china
+    domain_id: geography
+    assertion_text: Ningxia is an autonomous region of China with wine production associated with the eastern foothills of the Helan Mountains.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T20:31:03.000Z
+  - id: ki_cn_atlas_shandong_location
+    subject_id: n_geo_shandong
+    relation_type: LOCATED_IN
+    object_id: n_geo_china
+    domain_id: geography
+    assertion_text: Shandong is a province of China whose wine-producing areas include the coastal city of Yantai.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T20:31:03.000Z
+  - id: ki_cn_atlas_hebei_location
+    subject_id: n_geo_hebei
+    relation_type: LOCATED_IN
+    object_id: n_geo_china
+    domain_id: geography
+    assertion_text: Hebei is a province of China whose wine-producing areas include Huailai County.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T20:31:03.000Z
+  - id: ki_cn_atlas_xinjiang_location
+    subject_id: n_geo_xinjiang
+    relation_type: LOCATED_IN
+    object_id: n_geo_china
+    domain_id: geography
+    assertion_text: Xinjiang is an autonomous region in northwest China where grapes are cultivated for wine as well as for table use and raisins.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T20:31:03.000Z
+  - id: ki_cn_atlas_yunnan_location
+    subject_id: n_geo_yunnan
+    relation_type: LOCATED_IN
+    object_id: n_geo_china
+    domain_id: geography
+    assertion_text: Yunnan is a province of China with wine-grape production documented in Deqin, Mile and Qiubei.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T20:31:03.000Z
+  - id: ki_cn_atlas_helan_mountain_eastern_foothills_location
+    subject_id: n_geo_helan_mountain_eastern_foothills
+    relation_type: LOCATED_IN
+    object_id: n_geo_ningxia
+    domain_id: geography
+    assertion_text: The eastern foothills of the Helan Mountains are a wine-growing area in Ningxia, with Zhenbeibu named among its winery clusters.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T20:31:03.000Z
+  - id: ki_cn_atlas_yantai_location
+    subject_id: n_geo_yantai
+    relation_type: LOCATED_IN
+    object_id: n_geo_shandong
+    domain_id: geography
+    assertion_text: Yantai is a coastal city and wine-producing area on the northeastern Shandong Peninsula.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T20:31:03.000Z
+  - id: ki_cn_atlas_huailai_location
+    subject_id: n_geo_huailai
+    relation_type: LOCATED_IN
+    object_id: n_geo_hebei
+    domain_id: geography
+    assertion_text: Huailai County is a grape-growing and wine-producing locality in Hebei, documented in the province’s official grape-industry response.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T20:31:03.000Z
+certification_knowledge_mappings:
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_cn_atlas_ningxia_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_cn_atlas_ningxia_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_cn_atlas_shandong_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_cn_atlas_shandong_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_cn_atlas_hebei_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_cn_atlas_hebei_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_cn_atlas_xinjiang_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_cn_atlas_xinjiang_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_cn_atlas_yunnan_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_cn_atlas_yunnan_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_cn_atlas_helan_mountain_eastern_foothills_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_cn_atlas_helan_mountain_eastern_foothills_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_cn_atlas_yantai_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_cn_atlas_yantai_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_cn_atlas_huailai_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_cn_atlas_huailai_location
+    importance: secondary
+    minimum_depth: 2
+source_citations:
+  - id: src_cn_atlas_administration
+    kind: government_publication
+    title: Administrative Division
+    publisher: State Council of the People’s Republic of China
+    jurisdiction: CN
+    url: https://english.www.gov.cn/archive/china_abc/2014/08/27/content_281474983873401.htm
+    accessed_on: 2026-09-26
+  - id: src_cn_atlas_ningxia_wine
+    kind: government_publication
+    title: "Introduction to GIs under the China-EU Agreement on Geographical Indications (39): Wine in Helan Mountain East Region"
+    publisher: Mission of the People’s Republic of China to the European Union
+    jurisdiction: CN
+    url: https://eu.china-mission.gov.cn/eng/zgggfz/cega/202211/t20221111_10972980.htm
+    accessed_on: 2026-09-26
+  - id: src_cn_atlas_yantai_wine
+    kind: government_publication
+    title: "Yantai mayor interview: coastal city and wine industry (烟台市市长张明康：海洋经济大市，做强微醺经济)"
+    publisher: Yantai Grape and Wine Bureau; interview with the mayor published by Southern Weekly
+    jurisdiction: CN
+    url: https://ptjj.yantai.gov.cn/col/col1626/art/2026/art_74588db58bde453d914ac1bfcba34685.html
+    accessed_on: 2026-09-26
+  - id: src_cn_atlas_hebei_wine
+    kind: government_publication
+    title: "Response to recommendation 1138 of the first session of the 14th Hebei Provincial People’s Congress: Huailai grape and wine industry"
+    publisher: Hebei Provincial Department of Industry and Information Technology
+    jurisdiction: CN
+    url: https://gxt.hebei.gov.cn/hbgyhxxht/zfxxgk/fdzdgknr/669481/669482/2025042121450690712/index.html
+    accessed_on: 2026-09-26
+  - id: src_cn_atlas_xinjiang_wine
+    kind: government_publication
+    title: NW China’s Xinjiang ushers in grape harvest season
+    publisher: State Council of the People’s Republic of China; CGTN
+    jurisdiction: CN
+    url: https://english.www.gov.cn/news/202309/15/content_WS65042172c6d0868f4e8df76e.html
+    accessed_on: 2026-09-26
+  - id: src_cn_atlas_yunnan_wine
+    kind: government_publication
+    title: "Response to recommendation 507 of the first session of the 13th Yunnan Provincial People’s Congress: wine grapes in Deqin, Mile and Qiubei"
+    publisher: Yunnan Provincial Department of Agriculture
+    jurisdiction: CN
+    url: https://nync.yn.gov.cn/html/2018/tianjianyibanli2018_0930/375112.html?cid=3406
+    accessed_on: 2026-09-26
+  - id: src_cn_atlas_helan_plan
+    kind: government_publication
+    title: "Ningxia Helan Mountain eastern foothills wine industry: 14th Five-Year Plan and 2035 vision, issued 31 December 2021"
+    publisher: General Office of the People’s Government of Ningxia Hui Autonomous Region
+    jurisdiction: CN
+    url: https://www.nx.gov.cn/zwgk/qzfwj/202202/t20220208_3316559_wap.html
+    accessed_on: 2026-09-26
+  - id: src_cn_atlas_wikidata_ningxia
+    kind: dataset
+    title: "Wikidata Ningxia: coordinate location (P625), revision 2535502169"
+    publisher: Wikidata / Wikimedia Foundation
+    jurisdiction: CN
+    url: https://www.wikidata.org/wiki/Special:EntityData/Q57448.json
+    accessed_on: 2026-09-26
+  - id: src_cn_atlas_wikidata_shandong
+    kind: dataset
+    title: "Wikidata Shandong: coordinate location (P625), revision 2548837613"
+    publisher: Wikidata / Wikimedia Foundation
+    jurisdiction: CN
+    url: https://www.wikidata.org/wiki/Special:EntityData/Q43407.json
+    accessed_on: 2026-09-26
+  - id: src_cn_atlas_wikidata_hebei
+    kind: dataset
+    title: "Wikidata Hebei: coordinate location (P625), revision 2541882132"
+    publisher: Wikidata / Wikimedia Foundation
+    jurisdiction: CN
+    url: https://www.wikidata.org/wiki/Special:EntityData/Q21208.json
+    accessed_on: 2026-09-26
+  - id: src_cn_atlas_wikidata_xinjiang
+    kind: dataset
+    title: "Wikidata Xinjiang: coordinate location (P625), revision 2547886485"
+    publisher: Wikidata / Wikimedia Foundation
+    jurisdiction: CN
+    url: https://www.wikidata.org/wiki/Special:EntityData/Q34800.json
+    accessed_on: 2026-09-26
+  - id: src_cn_atlas_wikidata_yunnan
+    kind: dataset
+    title: "Wikidata Yunnan: coordinate location (P625), revision 2535498282"
+    publisher: Wikidata / Wikimedia Foundation
+    jurisdiction: CN
+    url: https://www.wikidata.org/wiki/Special:EntityData/Q43194.json
+    accessed_on: 2026-09-26
+  - id: src_cn_atlas_wikidata_helan_mountain_eastern_foothills
+    kind: dataset
+    title: "Wikidata Zhenbeibu: coordinate location (P625), revision 2523451554"
+    publisher: Wikidata / Wikimedia Foundation
+    jurisdiction: CN
+    url: https://www.wikidata.org/wiki/Special:EntityData/Q14053711.json
+    accessed_on: 2026-09-26
+  - id: src_cn_atlas_wikidata_yantai
+    kind: dataset
+    title: "Wikidata Yantai: coordinate location (P625), revision 2526608854"
+    publisher: Wikidata / Wikimedia Foundation
+    jurisdiction: CN
+    url: https://www.wikidata.org/wiki/Special:EntityData/Q210493.json
+    accessed_on: 2026-09-26
+  - id: src_cn_atlas_wikidata_huailai
+    kind: dataset
+    title: "Wikidata Huailai County: coordinate location (P625), revision 2526577303"
+    publisher: Wikidata / Wikimedia Foundation
+    jurisdiction: CN
+    url: https://www.wikidata.org/wiki/Special:EntityData/Q1197061.json
+    accessed_on: 2026-09-26
+knowledge_item_citations:
+  - knowledge_item_id: ki_cn_atlas_ningxia_location
+    source_citation_id: src_cn_atlas_administration
+    locator: "List of provinces and autonomous regions: Ningxia Hui Autonomous Region"
+  - knowledge_item_id: ki_cn_atlas_ningxia_location
+    source_citation_id: src_cn_atlas_ningxia_wine
+    locator: "Opening description: Helan Mountain East Region is in Ningxia Hui Autonomous Region"
+  - knowledge_item_id: ki_cn_atlas_ningxia_location
+    source_citation_id: src_cn_atlas_wikidata_ningxia
+    locator: P625 q57448$E11199E1-A059-42BF-945F-9089F66F3B82; administrative gazetteer reference, not a vineyard or wine-area boundary
+  - knowledge_item_id: ki_cn_atlas_shandong_location
+    source_citation_id: src_cn_atlas_administration
+    locator: "List of provinces and autonomous regions: Shandong province"
+  - knowledge_item_id: ki_cn_atlas_shandong_location
+    source_citation_id: src_cn_atlas_yantai_wine
+    locator: Opening location on the northeastern Shandong Peninsula and paragraphs on Yantai’s wine industry
+  - knowledge_item_id: ki_cn_atlas_shandong_location
+    source_citation_id: src_cn_atlas_wikidata_shandong
+    locator: P625 q43407$1CE2B3E6-2756-4FC1-B3AB-3EA04A95A773; administrative gazetteer reference, not a vineyard or wine-area boundary
+  - knowledge_item_id: ki_cn_atlas_hebei_location
+    source_citation_id: src_cn_atlas_administration
+    locator: "List of provinces and autonomous regions: Hebei province"
+  - knowledge_item_id: ki_cn_atlas_hebei_location
+    source_citation_id: src_cn_atlas_hebei_wine
+    locator: "Section I.1: provincial grape industry and licensed wine producers in Huailai County"
+  - knowledge_item_id: ki_cn_atlas_hebei_location
+    source_citation_id: src_cn_atlas_wikidata_hebei
+    locator: P625 q21208$2FE60457-8046-42AA-B617-B858FA87B469; administrative gazetteer reference, not a vineyard or wine-area boundary
+  - knowledge_item_id: ki_cn_atlas_xinjiang_location
+    source_citation_id: src_cn_atlas_administration
+    locator: "List of provinces and autonomous regions: Xinjiang Uygur Autonomous Region"
+  - knowledge_item_id: ki_cn_atlas_xinjiang_location
+    source_citation_id: src_cn_atlas_xinjiang_wine
+    locator: "First and final paragraphs: northwest China; grape varieties cultivated for table grapes, raisins and wine grapes"
+  - knowledge_item_id: ki_cn_atlas_xinjiang_location
+    source_citation_id: src_cn_atlas_wikidata_xinjiang
+    locator: P625 q34800$034EBC9C-C69B-46A4-B05C-4A694CFF7A88; administrative gazetteer reference, not a vineyard or wine-area boundary
+  - knowledge_item_id: ki_cn_atlas_yunnan_location
+    source_citation_id: src_cn_atlas_administration
+    locator: "List of provinces and autonomous regions: Yunnan province"
+  - knowledge_item_id: ki_cn_atlas_yunnan_location
+    source_citation_id: src_cn_atlas_yunnan_wine
+    locator: "Section I: the province’s wine-grape production is concentrated in Deqin, Mile and Qiubei"
+  - knowledge_item_id: ki_cn_atlas_yunnan_location
+    source_citation_id: src_cn_atlas_wikidata_yunnan
+    locator: P625 q43194$A0FBD3A1-E11D-481E-81C6-AF7FE5283954; administrative gazetteer reference, not a vineyard or wine-area boundary
+  - knowledge_item_id: ki_cn_atlas_helan_mountain_eastern_foothills_location
+    source_citation_id: src_cn_atlas_ningxia_wine
+    locator: "Opening description: eastern foothills of Helan Mountain in Ningxia"
+  - knowledge_item_id: ki_cn_atlas_helan_mountain_eastern_foothills_location
+    source_citation_id: src_cn_atlas_helan_plan
+    locator: "Opening development review and Chapter III planning scope: Xixia District’s Zhenbeibu winery cluster (西夏区镇北堡)"
+  - knowledge_item_id: ki_cn_atlas_helan_mountain_eastern_foothills_location
+    source_citation_id: src_cn_atlas_wikidata_helan_mountain_eastern_foothills
+    locator: P625 Q14053711$1c3eb022-c7c8-43a5-96f2-0775776f31ab; Zhenbeibu wine-cluster reference, not the region’s boundary or centroid
+  - knowledge_item_id: ki_cn_atlas_yantai_location
+    source_citation_id: src_cn_atlas_yantai_wine
+    locator: Opening description of northeastern Shandong Peninsula; mayor’s wine-industry responses
+  - knowledge_item_id: ki_cn_atlas_yantai_location
+    source_citation_id: src_cn_atlas_wikidata_yantai
+    locator: P625 Q210493$6f0f4211-4bd2-b7d4-4a95-13e73be0437f; administrative gazetteer reference, not a vineyard or wine-area boundary
+  - knowledge_item_id: ki_cn_atlas_huailai_location
+    source_citation_id: src_cn_atlas_hebei_wine
+    locator: "Section I.1 and I.5: Huailai County in the provincial grape-industry and wine-production area account"
+  - knowledge_item_id: ki_cn_atlas_huailai_location
+    source_citation_id: src_cn_atlas_wikidata_huailai
+    locator: P625 q1197061$83D5773A-004F-4C4A-B35F-E50D8041CAF7; administrative gazetteer reference, not a vineyard or wine-area boundary

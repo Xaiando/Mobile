@@ -9,6 +9,7 @@ import 'package:sommelier/core/questions/exercise_format.dart';
 import 'package:sommelier/core/questions/exercise_presenter.dart';
 import 'package:sommelier/core/questions/format_registry.dart';
 import 'package:sommelier/core/questions/formats/map/map_exercise.dart';
+import 'package:sommelier/core/questions/formats/map_pair/map_pair_format.dart';
 import 'package:sommelier/core/questions/question_presenter.dart';
 import 'package:sommelier/core/study/format_ladder.dart';
 import 'package:sommelier/core/study/review_service.dart';
@@ -247,6 +248,10 @@ void main() {
         seed: i,
       );
       final Object answer = switch (exercise) {
+        MapPairExercise(:final places) => MapPairAnswer({
+          for (final place in places)
+            place.itemId: MapLocateAnswer.fromList(place.nodeId),
+        }),
         MapExercise(formatId: 'map_locate') => const MapLocateAnswer(
           nodeId: node,
           fromList: true,
@@ -263,13 +268,20 @@ void main() {
         exercise,
         presenter.grade(exercise, answer),
       );
-      expect(results.single.rating, isNot(fsrs.Rating.again));
+      final primaryResult = results.singleWhere(
+        (result) => result.event.knowledgeItemId == item,
+      );
+      expect(primaryResult.rating, isNot(fsrs.Rating.again));
       asked.add((
         MemoryBand.of(card.state),
         spec(format),
-        exercise is MapExercise ? exercise.mode : null,
+        switch (exercise) {
+          MapExercise(:final mode) => mode,
+          MapPairExercise(:final map) => map.mode,
+          _ => null,
+        },
       ));
-      time.now = results.single.after.due.add(const Duration(minutes: 1));
+      time.now = primaryResult.after.due.add(const Duration(minutes: 1));
     }
 
     // Recognition or a labelled map while it is learnt; recall or an
@@ -279,14 +291,23 @@ void main() {
     for (final (band, format, mode) in asked) {
       switch (band) {
         case MemoryBand.learning:
-          expect(format, isIn(['mcq', 'map_locate', 'map_identify']));
+          expect(
+            format,
+            isIn(['mcq', 'map_locate', 'map_identify', 'map_pair']),
+          );
         case MemoryBand.young:
           expect(
             format,
-            isIn(['flashcard', 'typed', 'map_locate', 'map_identify']),
+            isIn([
+              'flashcard',
+              'typed',
+              'map_locate',
+              'map_identify',
+              'map_pair',
+            ]),
           );
         case MemoryBand.maturing || MemoryBand.mature:
-          expect(format, isIn(['map_locate', 'map_identify']));
+          expect(format, isIn(['map_locate', 'map_identify', 'map_pair']));
       }
       if (mode != null) {
         // Identify is never labelled, which would name its answer.

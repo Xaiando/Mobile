@@ -38,14 +38,14 @@ void main() {
     late AppDatabase db;
     late TestClock time;
     late StudyPlanner planner;
+    late int itemCount;
 
     setUp(() async {
       time = TestClock(DateTime.utc(2026, 10, 1, 9));
       db = openTestDatabase();
-      await CurriculumIngester(
-        db,
-        clock: time.clock,
-      ).ensureCurrent(bundledDataset());
+      final dataset = bundledDataset();
+      itemCount = dataset.knowledgeItems.length;
+      await CurriculumIngester(db, clock: time.clock).ensureCurrent(dataset);
       await LearnerProfiles(db, clock: time.clock).selectTrack('WSET_L3');
       planner = StudyPlanner(db, clock: time.clock);
     });
@@ -53,8 +53,8 @@ void main() {
 
     Future<List<String>> newOrder() async => [
       for (final card in (await planner.plan(
-        sessionSize: 100,
-        newItems: 100,
+        sessionSize: itemCount,
+        newItems: itemCount,
       ))!.cards)
         card.itemId,
     ];

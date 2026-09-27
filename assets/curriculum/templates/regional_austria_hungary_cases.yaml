@@ -1,0 +1,78 @@
+# Original hypothetical cases; full premises exactly match their production_case node names.
+question_templates:
+  - id: qt_reg_ah_case_vienna_harvest
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: reg_ah_vienna_harvest
+    prompt_template: A Vienna producer plans a joint harvest for a field-mixed white wine.
+      Representative checks find that one component is much sweeter than the others, while the
+      combined lot has not yet been assessed for acidity, pH or flavour balance. The manager
+      proposes setting the date from the sweetest component alone. The fruit is presently sound and
+      the team can make a small combined trial. Propose an assessment step, explain its mechanism,
+      and discuss a tradeoff and a limitation.
+    parameters:
+      scope_node_ids:
+        - n_reg_ah_case_vienna_harvest
+      key_points:
+        CASE_ACTION: Defensible action or assessment
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or evidence needed
+  - id: qt_reg_ah_case_styria_crew
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: reg_ah_styria_crew
+    prompt_template: A Südsteiermark producer has one hand-harvest crew for two Sauvignon Blanc blocks
+      before forecast rain. Representative sampling confirms that the Gamlitz block meets the
+      intended dry-white balance, while the Kitzeck-Sausal block needs more flavour development.
+      Both blocks are sound, steep access prevents substituting a machine, and the crew can finish
+      only one block in the available window. Propose a scheduling response, explain why, and
+      discuss a tradeoff and a limitation.
+    parameters:
+      scope_node_ids:
+        - n_reg_ah_case_styria_crew
+      key_points:
+        CASE_ACTION: Defensible action or assessment
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or evidence needed
+  - id: qt_reg_ah_case_tokaj_berry_selection
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: reg_ah_tokaj_berry_selection
+    prompt_template: A Tokaj grower has ripe fruit containing some suitably shrivelled noble-rot
+      berries, some still-healthy berries, and some wet berries with damaging decay confirmed by a
+      qualified vineyard assessment. A short drying window is forecast before renewed rain. The
+      manager proposes collecting everything together because river humidity supposedly makes every
+      affected berry useful for sweet wine. Propose a defensible response, explain the mechanism,
+      and discuss a tradeoff and a limitation.
+    parameters:
+      scope_node_ids:
+        - n_reg_ah_case_tokaj_berry_selection
+      key_points:
+        CASE_ACTION: Defensible action or assessment
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or evidence needed
+  - id: qt_reg_ah_case_tokaj_maturation_cash
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: reg_ah_tokaj_maturation_cash
+    prompt_template: A Tokaj sweet-wine producer considers an optional extension of the planned
+      oak-maturation programme after the wine has already been cleared for release. Current tasting
+      finds the wine balanced, but the team wants to assess a further change in aroma and colour.
+      The business must pay continuing storage and staff costs, buyers would pay only after
+      delivery, and no buyer has committed to the extended programme. Explain a defensible decision
+      process, its rationale, a tradeoff and a limitation.
+    parameters:
+      scope_node_ids:
+        - n_reg_ah_case_tokaj_maturation_cash
+      key_points:
+        CASE_ACTION: Defensible action or assessment
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or evidence needed

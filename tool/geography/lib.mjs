@@ -37,7 +37,9 @@ export async function hashOf(file) {
 export const readYaml = (file) => YAML.parse(fs.readFileSync(file, 'utf8'));
 
 /** The cached download of [source]. */
-export const downloadPath = (source) => path.join(cacheDir, source.file);
+export const downloadPath = (source) => source.snapshot
+  ? path.join(toolDir, source.snapshot)
+  : path.join(cacheDir, source.file);
 
 /** Where [source]'s archive is unpacked; the download itself otherwise. */
 export const unpackedDir = (source) => path.join(cacheDir, source.id);
@@ -111,6 +113,10 @@ export function loadConfig() {
     if (typeof s?.license === 'string' && !isOpenLicence(s.license)) {
       problems.push(`${where}: "${s.license}" is not an open licence GEO-5 allows`);
     }
+    if (s?.snapshot !== undefined &&
+        (typeof s.snapshot !== 'string' || !/^[a-z0-9_]+\.geojson$/.test(s.snapshot))) {
+      problems.push(`${where}: snapshot must name a GeoJSON file in tool/geography`);
+    }
   }
   for (const [i, e] of excluded.entries()) {
     if (typeof e?.name !== 'string' || typeof e?.reason !== 'string') problems.push(`sources.yaml: excluded ${i} needs a name and a reason`);
@@ -146,8 +152,12 @@ export function loadConfig() {
     if (l?.parent !== undefined && !layers.some((other) => other?.id === l.parent)) problems.push(`${where}: unknown parent ${l.parent}`);
     if (!/^\d+(\.\d+)?%$/.test(String(l?.simplify))) problems.push(`${where}: simplify must be a share of vertices, e.g. 40%`);
     if (!Number.isInteger(l?.quantization) || l.quantization < 1000) problems.push(`${where}: quantization must be an integer of at least 1000`);
-    const recipes = ['natural_earth', 'appellation_areas'].filter((key) => l?.[key] !== undefined);
-    if (recipes.length !== 1) problems.push(`${where} needs exactly one of natural_earth and appellation_areas`);
+    const recipes = ['natural_earth', 'appellation_areas', 'gazetteer'].filter((key) => l?.[key] !== undefined);
+    if (recipes.length !== 1) problems.push(`${where} needs exactly one of natural_earth, appellation_areas and gazetteer`);
+    if (l?.gazetteer !== undefined &&
+        (!l.sources?.includes(l.gazetteer.source) || l.geometry !== 'point')) {
+      problems.push(`${where}: gazetteer needs a listed source and point geometry`);
+    }
     if (l?.appellation_areas !== undefined) {
       for (const [node, area] of Object.entries(l.appellation_areas ?? {})) {
         if (!Array.isArray(area?.aoc) || area.aoc.length === 0 || !area.aoc.every(Number.isInteger)) {

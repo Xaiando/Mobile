@@ -1,0 +1,166 @@
+# Original forward causal exercises. The four targets use ordered, cited paths and
+# explicit current CONTRADICTS evidence; wrong conclusions are explained, not inferred from absence.
+question_templates:
+  - id: qt_reason_water_chain
+    relation_type: LEADS_TO
+    direction: forward
+    mode: reasoning
+    variant: reason_water_chain
+    prompt_template: "{subject.name} Which conclusion follows through the stated stomatal mechanism?"
+    parameters:
+      path_relation_types:
+        - CAUSES_STATE
+        - LEADS_TO
+      scope_node_ids:
+        - n_reason_water_premise
+      contrasts:
+        ki_reason_water_assimilation:
+          n_reason_water_premise:
+            - option_node_id: n_reason_water_wrong_more_co2
+              evidence_item_ids:
+                - ki_reason_water_contra_more_co2
+              explanation: The supplied stomatal response restricts gas exchange. It does not increase CO₂ entry; the
+                other comparison conditions are controlled.
+            - option_node_id: n_reason_water_wrong_more_assimilation
+              evidence_item_ids:
+                - ki_reason_water_contra_more_assimilation
+              explanation: This scenario specifies CO₂ restriction and controls leaf temperature. Water conservation
+                from closure does not imply an increase in carbon assimilation through restricted gas
+                exchange.
+            - option_node_id: n_reason_water_wrong_more_cooling
+              evidence_item_ids:
+                - ki_reason_water_contra_more_cooling
+              explanation: Open stomata permit water loss as well as CO₂ entry. Closing that route cannot increase
+                cooling capacity through those stomata; controlled leaf temperature is not evidence of
+                increased transpiration.
+  - id: qt_reason_bloom_chain
+    relation_type: LEADS_TO
+    direction: forward
+    mode: reasoning
+    variant: reason_bloom_chain
+    prompt_template: "{subject.name} Which berry-number conclusion follows through the stated carbohydrate
+      and fruit-set mechanism?"
+    parameters:
+      path_relation_types:
+        - CAUSES_STATE
+        - LEADS_TO
+        - LEADS_TO
+      scope_node_ids:
+        - n_reason_bloom_premise
+      contrasts:
+        ki_reason_bloom_berries:
+          n_reason_bloom_premise:
+            - option_node_id: n_reason_bloom_wrong_more_carbohydrate
+              evidence_item_ids:
+                - ki_reason_bloom_contra_more_carbohydrate
+              explanation: The premise excludes replacement by other sources. Removing an active source cannot increase
+                that source’s contribution to inflorescence nutrition.
+            - option_node_id: n_reason_bloom_wrong_more_set
+              evidence_item_ids:
+                - ki_reason_bloom_contra_more_set
+              explanation: Fruit set is cultivar- and weather-dependent, but this comparison expressly isolates a
+                carbohydrate-sensitive block with no compensation. The specified shortage acts against
+                increased set.
+            - option_node_id: n_reason_bloom_wrong_cluster_thinning
+              evidence_item_ids:
+                - ki_reason_bloom_contra_cluster_thinning
+              explanation: No whole clusters were removed. The source distinguishes reduced berries or berry weight
+                within clusters from the reduced cluster number produced by cluster thinning.
+  - id: qt_reason_mlf_chain
+    relation_type: LEADS_TO
+    direction: forward
+    mode: reasoning
+    variant: reason_mlf_chain
+    prompt_template: "{subject.name} Which acidity conclusion follows through the stated conversion mechanism?"
+    parameters:
+      path_relation_types:
+        - CAUSES_STATE
+        - LEADS_TO
+      scope_node_ids:
+        - n_reason_mlf_premise
+      contrasts:
+        ki_reason_mlf_acidity:
+          n_reason_mlf_premise:
+            - option_node_id: n_reason_mlf_wrong_more_malic
+              evidence_item_ids:
+                - ki_reason_mlf_contra_more_malic
+              explanation: The reaction uses L-malic acid as its substrate. Other sources of malate are not part of the
+                supplied comparison.
+            - option_node_id: n_reason_mlf_wrong_no_lactic
+              evidence_item_ids:
+                - ki_reason_mlf_contra_no_lactic
+              explanation: L-lactic acid is the product of the conversion being considered. This is a chemical
+                conclusion, not a promise about aroma.
+            - option_node_id: n_reason_mlf_wrong_more_acidity
+              evidence_item_ids:
+                - ki_reason_mlf_contra_more_acidity
+              explanation: Other acid production or acid additions could complicate a real wine, but the premise
+                excludes them. The isolated malic-to-lactic replacement lowers the acid contribution.
+  - id: qt_reason_so2_chain
+    relation_type: LEADS_TO
+    direction: forward
+    mode: reasoning
+    variant: reason_so2_chain
+    prompt_template: "{subject.name} Which protection conclusion follows through the stated pH and
+      molecular-SO₂ mechanism?"
+    parameters:
+      path_relation_types:
+        - CAUSES_STATE
+        - LEADS_TO
+      scope_node_ids:
+        - n_reason_so2_premise
+      contrasts:
+        ki_reason_so2_protection:
+          n_reason_so2_premise:
+            - option_node_id: n_reason_so2_wrong_more_molecular
+              evidence_item_ids:
+                - ki_reason_so2_contra_more_molecular
+              explanation: The comparison holds the other major composition controls constant. Increasing pH decreases
+                the molecular fraction, rather than increasing it.
+            - option_node_id: n_reason_so2_wrong_ph_independent
+              evidence_item_ids:
+                - ki_reason_so2_contra_ph_independent
+              explanation: Matching free SO₂ does not remove pH from the equilibrium. That is why otherwise comparable
+                wines can have different molecular SO₂ concentrations.
+            - option_node_id: n_reason_so2_wrong_less_free
+              evidence_item_ids:
+                - ki_reason_so2_contra_less_free
+              explanation: The primary technical discussion states the opposite direction. This comparison does not
+                supply a universal dose, legal limit or microbial-kill threshold.
+  - id: qt_reason_causes_state_flashcard
+    relation_type: CAUSES_STATE
+    direction: forward
+    mode: flashcard
+    variant: reason_causes_state_flashcard
+    prompt_template: "{subject.name} Which conditional causal state is supported?"
+  - id: qt_reason_causes_state_typed
+    relation_type: CAUSES_STATE
+    direction: forward
+    mode: typed
+    variant: reason_causes_state_typed
+    prompt_template: "{subject.name} Which conditional causal state is supported? Type the cited state or conclusion."
+  - id: qt_reason_leads_to_flashcard
+    relation_type: LEADS_TO
+    direction: forward
+    mode: flashcard
+    variant: reason_leads_to_flashcard
+    prompt_template: "{subject.name} Which downstream causal state is supported?"
+  - id: qt_reason_leads_to_typed
+    relation_type: LEADS_TO
+    direction: forward
+    mode: typed
+    variant: reason_leads_to_typed
+    prompt_template: "{subject.name} Which downstream causal state is supported? Type the cited state or conclusion."
+  - id: qt_reason_contradicts_flashcard
+    relation_type: CONTRADICTS
+    direction: forward
+    mode: flashcard
+    variant: reason_contradicts_flashcard
+    prompt_template: "{subject.name} Which proposed conclusion is contradicted by these conditions?"
+  - id: qt_reason_contradicts_typed
+    relation_type: CONTRADICTS
+    direction: forward
+    mode: typed
+    variant: reason_contradicts_typed
+    prompt_template: "{subject.name} Which proposed conclusion is contradicted by these conditions? Type the
+      cited state or conclusion."

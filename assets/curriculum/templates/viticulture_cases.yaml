@@ -1,0 +1,92 @@
+# Original scenarios. Scope restriction is required so a prompt cannot be served for another case.
+# Self-checked rubric facts share normal FSRS memory; this is not official exam marking.
+question_templates:
+  - id: qt_vit_case_humid_canopy
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: vit_humid_canopy
+    prompt_template: After fruit set, a humid vineyard has dense foliage around compact bunches and a
+      history of bunch rot. The manager proposes selective fruit-zone leaf removal. Explain one
+      defensible action, its mechanism, a trade-off and a condition that limits how strongly you
+      would apply it. Consider cultivar and exposure; there may be other defensible management
+      choices.
+    parameters:
+      key_points:
+        CASE_ACTION: Defensible action
+        CASE_REASON: Mechanism
+        CASE_TRADEOFF: Trade-off
+        CASE_LIMITATION: Condition or limitation
+      scope_node_ids:
+        - n_vit_case_humid_canopy
+  - id: qt_vit_case_late_deficit
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: vit_late_deficit
+    prompt_template: After veraison, an irrigated red-wine vineyard has a dry root zone, wilting leaves
+      and poor ripening progress during hot weather. The owner wants to withhold all irrigation to
+      increase concentration. Explain a defensible response, the physiological reason, the trade-off
+      and the information needed to decide the water amount. Do not give a universal irrigation
+      recipe.
+    parameters:
+      key_points:
+        CASE_ACTION: Defensible action
+        CASE_REASON: Mechanism
+        CASE_TRADEOFF: Trade-off
+        CASE_LIMITATION: Condition or limitation
+      scope_node_ids:
+        - n_vit_case_late_deficit
+  - id: qt_vit_case_radiation_frost
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: vit_radiation_frost
+    prompt_template: A vineyard at budbreak faces a clear calm frost night. Measurements show
+      substantially warmer air above the cold fruiting zone, and a correctly installed wind machine
+      is available. Explain why operating it is defensible, how it works, one cost or constraint,
+      and why the same plan may not protect a windy freeze without an inversion. No method
+      guarantees complete protection.
+    parameters:
+      key_points:
+        CASE_ACTION: Defensible action
+        CASE_REASON: Mechanism
+        CASE_TRADEOFF: Trade-off
+        CASE_LIMITATION: Condition or limitation
+      scope_node_ids:
+        - n_vit_case_radiation_frost
+  - id: qt_vit_case_rootstock_replant
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: vit_rootstock_replant
+    prompt_template: A vinifera vineyard is being replanted after confirmed phylloxera root damage. Soil
+      tests also indicate plant-parasitic nematodes, and water availability is limited. Explain a
+      defensible planting-material choice, why it addresses phylloxera, an agronomic trade-off and
+      why a rootstock name alone is insufficient to finish the decision.
+    parameters:
+      key_points:
+        CASE_ACTION: Defensible action
+        CASE_REASON: Mechanism
+        CASE_TRADEOFF: Trade-off
+        CASE_LIMITATION: Condition or limitation
+      scope_node_ids:
+        - n_vit_case_rootstock_replant
+  - id: qt_vit_case_rain_harvest
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: vit_rain_harvest
+    prompt_template: A dry-wine block has acceptable sugar and acidity for its planned style. Flavour
+      development could improve with more time, but prolonged rain is forecast and some injured
+      berries already show bunch rot. Explain a defensible harvest response, the disease mechanism,
+      the quality trade-off and what measurements you would check before committing. More than one
+      picking strategy may be justified.
+    parameters:
+      key_points:
+        CASE_ACTION: Defensible action
+        CASE_REASON: Mechanism
+        CASE_TRADEOFF: Trade-off
+        CASE_LIMITATION: Condition or limitation
+      scope_node_ids:
+        - n_vit_case_rain_harvest

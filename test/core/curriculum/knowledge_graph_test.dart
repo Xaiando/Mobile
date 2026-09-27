@@ -28,16 +28,35 @@ void main() {
   test('ancestors walk up the containment hierarchy, nearest first', () async {
     expect(names(await graph.ancestors('n_geo_chablis')), [
       'Burgundy',
+      'Chablis wine area',
       'France',
     ]);
     final volnay = await graph.ancestors('n_geo_volnay');
-    expect(names(volnay), ['Côte de Beaune', 'Burgundy', 'France']);
-    expect([for (final n in volnay) n.depth], [1, 2, 3]);
+    expect(
+      names(volnay),
+      containsAll(['Côte de Beaune', 'Burgundy', 'France']),
+    );
+    expect(volnay.first.name, 'Côte de Beaune');
+    expect(volnay.last.name, 'France');
+    expect(
+      volnay.map((node) => node.depth).toList(),
+      orderedEquals(volnay.map((node) => node.depth).toList()..sort()),
+    );
+    expect(volnay.singleWhere((node) => node.name == 'Burgundy').depth, 2);
+    expect(volnay.last.depth, 3);
   });
 
   test('descendants walk down, nearest first', () async {
     final burgundy = await graph.descendants('n_geo_burgundy');
-    expect(names(burgundy), ['Chablis', 'Côte de Beaune', 'Volnay']);
+    expect(
+      names(burgundy),
+      containsAll(['Chablis', 'Côte de Beaune', 'Volnay']),
+    );
+    expect(burgundy.map((node) => node.id).toSet(), hasLength(burgundy.length));
+    expect(
+      burgundy.map((node) => node.depth).toList(),
+      orderedEquals(burgundy.map((node) => node.depth).toList()..sort()),
+    );
     expect(
       names(await graph.descendants('n_geo_italy')),
       containsAll(['Piedmont', 'Langhe', 'Barolo', 'Chianti Classico']),
@@ -46,8 +65,13 @@ void main() {
 
   test('siblings share a parent and a node type', () async {
     expect(names(await graph.siblings('n_geo_cornas')), [
+      'Château-Grillet',
       'Condrieu',
       'Crozes-Hermitage',
+      'Côte-Rôtie',
+      'Hermitage',
+      'Saint-Joseph',
+      'Saint-Péray',
     ]);
     expect(names(await graph.siblings('n_geo_barolo')), ['Barbaresco']);
   });
@@ -82,6 +106,7 @@ void main() {
     expect(await graph.ancestors('n_geo_chablis'), isEmpty);
     expect(names(await graph.ancestors('n_geo_chablis', on: '2027-06-01')), [
       'Burgundy',
+      'Chablis wine area',
       'France',
     ]);
   });

@@ -1,0 +1,73 @@
+# Original hypothetical comparisons, self-checked against four conditional points.
+question_templates:
+  - id: qt_reg_isi_case_fiano_cellar_choice
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: reg_isi_fiano_cellar_choice
+    prompt_template: A Campanian producer splits the same Fiano di Avellino fruit into two lots. One is
+      fermented in temperature-controlled stainless steel for a fresh floral style; the other
+      receives a deliberately pronounced oak treatment. The target customers prefer the fresh floral
+      style, and both lots meet the budget. Propose a defensible selection process, explain the
+      cellar contribution, and discuss one tradeoff and one limitation.
+    parameters:
+      scope_node_ids:
+        - n_reg_isi_case_fiano_cellar_choice
+      key_points:
+        CASE_ACTION: Defensible comparison or action
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or evidence needed
+  - id: qt_reg_isi_case_aglianico_comparison
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: reg_isi_aglianico_comparison
+    prompt_template: A study group has one Taurasi and one Aglianico del Vulture from the same vintage,
+      served blind at the same temperature. Both have substantial tannin, but their vineyards and
+      maturation regimes differ. Design a useful regional comparison, give one mechanism, and
+      discuss a tradeoff and a limitation. Do not claim that a tannic taste proves one origin.
+    parameters:
+      scope_node_ids:
+        - n_reg_isi_case_aglianico_comparison
+      key_points:
+        CASE_ACTION: Defensible comparison or action
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or evidence needed
+  - id: qt_reg_isi_case_etna_price
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: reg_isi_etna_price
+    prompt_template: An Etna producer documents higher terrace-maintenance and hand-work costs for a
+      Nerello Mascalese wine than a competing red made on an easier site. Independent tasting gives
+      the two wines similar evaluations for balance and persistence. The Etna producer proposes a
+      higher selling price, but customer demand is untested. Explain how to assess the proposal,
+      with a cost mechanism, a tradeoff and a limitation.
+    parameters:
+      scope_node_ids:
+        - n_reg_isi_case_etna_price
+      key_points:
+        CASE_ACTION: Defensible comparison or action
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or evidence needed
+  - id: qt_reg_isi_case_cannonau_harvest
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: reg_isi_cannonau_harvest
+    prompt_template: A Sardinian grower compares two Cannonau blocks during a warm season. Both have
+      reached the same sugar reading; one has lower acidity and less convincing phenolic maturity.
+      The grower wants a balanced dry red and has not yet measured pH or checked the weather
+      forecast. Propose a defensible next step, explain why sugar alone is insufficient, and discuss
+      a tradeoff and a limitation without prescribing a universal harvest date.
+    parameters:
+      scope_node_ids:
+        - n_reg_isi_case_cannonau_harvest
+      key_points:
+        CASE_ACTION: Defensible comparison or action
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or evidence needed

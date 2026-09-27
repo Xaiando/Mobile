@@ -1,0 +1,256 @@
+# Hungary: Tokaj's geographic origin, all six permitted grapes and core wine rules (C6).
+# The ministry's version 10 applies to grapes harvested after 1 August 2025.
+# The permitted list has no principal/accessory split; every listed grape uses PERMITS_GRAPE.
+# All items await expert review. The Hungarian PDO is distinct from Slovakia's Tokaj GI.
+
+relation_type_signatures:
+  - { relation_type: "LOCATED_IN", subject_node_type: "appellation", object_node_type: "country" }
+  - { relation_type: "MIN_WOOD_AGEING", subject_node_type: "wine_type", object_node_type: "quantity" }
+
+knowledge_nodes:
+  - { id: "n_geo_hungary", node_type: "country", name: "Hungary" }
+  - { id: "n_geo_tokaj", node_type: "appellation", name: "Tokaj" }
+  - { id: "n_grape_furmint", node_type: "grape", name: "Furmint" }
+  - { id: "n_grape_harslevelu", node_type: "grape", name: "Hárslevelű" }
+  - { id: "n_grape_kabar", node_type: "grape", name: "Kabar" }
+  - { id: "n_grape_koverszolo", node_type: "grape", name: "Kövérszőlő" }
+  - { id: "n_grape_muscat_blanc_a_petits_grains", node_type: "grape", name: "Muscat Blanc à Petits Grains" }
+  - { id: "n_grape_zeta", node_type: "grape", name: "Zéta" }
+  - { id: "n_wine_tokaji_eszencia", node_type: "wine_type", name: "Tokaji Eszencia" }
+  - { id: "n_rule_tokaj_free_run", node_type: "making_rule", name: "Fermenting the unpressed juice that drains from separately hand-picked botrytised berries" }
+  - { id: "n_wine_tokaji_aszu", node_type: "wine_type", name: "Tokaji Aszú" }
+  - { id: "n_rule_tokaj_aszu_maceration", node_type: "making_rule", name: "Macerating separately hand-picked botrytised berries in must or wine from the same vintage" }
+  - { id: "n_wine_tokaji_szamorodni_dry", node_type: "wine_type", name: "Tokaji Száraz Szamorodni" }
+  - { id: "n_rule_tokaj_whole_bunches", node_type: "making_rule", name: "Processing bunches containing both botrytised and healthy berries" }
+  - { id: "n_wine_tokaji_szamorodni_sweet", node_type: "wine_type", name: "Tokaji Édes Szamorodni" }
+  - { id: "n_qty_6_months", node_type: "quantity", name: "6 months" }
+
+quantity_values:
+  - { knowledge_node_id: "n_qty_6_months", minimum: 6, unit: "month" }
+
+node_alternative_names:
+  - { knowledge_node_id: "n_geo_hungary", name: "Magyarország", kind: "synonym" }
+  - { knowledge_node_id: "n_geo_tokaj", name: "Tokaji", kind: "synonym" }
+  - { knowledge_node_id: "n_grape_muscat_blanc_a_petits_grains", name: "Sárgamuskotály", kind: "synonym" }
+  - { knowledge_node_id: "n_grape_muscat_blanc_a_petits_grains", name: "Yellow Muscat", kind: "synonym" }
+  - { knowledge_node_id: "n_grape_harslevelu", name: "Harslevelu", kind: "spelling_variant" }
+  - { knowledge_node_id: "n_grape_koverszolo", name: "Koverszolo", kind: "spelling_variant" }
+  - { knowledge_node_id: "n_grape_zeta", name: "Zeta", kind: "spelling_variant" }
+  - { knowledge_node_id: "n_wine_tokaji_szamorodni_dry", name: "Dry Tokaji Szamorodni", kind: "synonym" }
+  - { knowledge_node_id: "n_wine_tokaji_szamorodni_sweet", name: "Sweet Tokaji Szamorodni", kind: "synonym" }
+  - { knowledge_node_id: "n_wine_tokaji_eszencia", name: "Tokaji Essencia", kind: "spelling_variant" }
+
+knowledge_relations:
+  - { subject_id: "n_geo_tokaj", relation_type: "LOCATED_IN", object_id: "n_geo_hungary", valid_from: "1900-01-01" }
+  - { subject_id: "n_geo_hungary", relation_type: "IN_WINE_ZONE", object_id: "n_zone_c_i", valid_from: "1900-01-01" }
+  - { subject_id: "n_grape_furmint", relation_type: "HAS_BERRY_COLOUR", object_id: "n_colour_white", valid_from: "1900-01-01" }
+  - { subject_id: "n_geo_tokaj", relation_type: "PERMITS_GRAPE", object_id: "n_grape_furmint", valid_from: "2025-08-01" }
+  - { subject_id: "n_grape_harslevelu", relation_type: "HAS_BERRY_COLOUR", object_id: "n_colour_white", valid_from: "1900-01-01" }
+  - { subject_id: "n_geo_tokaj", relation_type: "PERMITS_GRAPE", object_id: "n_grape_harslevelu", valid_from: "2025-08-01" }
+  - { subject_id: "n_grape_kabar", relation_type: "HAS_BERRY_COLOUR", object_id: "n_colour_white", valid_from: "1900-01-01" }
+  - { subject_id: "n_geo_tokaj", relation_type: "PERMITS_GRAPE", object_id: "n_grape_kabar", valid_from: "2025-08-01" }
+  - { subject_id: "n_grape_koverszolo", relation_type: "HAS_BERRY_COLOUR", object_id: "n_colour_white", valid_from: "1900-01-01" }
+  - { subject_id: "n_geo_tokaj", relation_type: "PERMITS_GRAPE", object_id: "n_grape_koverszolo", valid_from: "2025-08-01" }
+  - { subject_id: "n_grape_muscat_blanc_a_petits_grains", relation_type: "HAS_BERRY_COLOUR", object_id: "n_colour_white", valid_from: "1900-01-01" }
+  - { subject_id: "n_geo_tokaj", relation_type: "PERMITS_GRAPE", object_id: "n_grape_muscat_blanc_a_petits_grains", valid_from: "2025-08-01" }
+  - { subject_id: "n_grape_zeta", relation_type: "HAS_BERRY_COLOUR", object_id: "n_colour_white", valid_from: "1900-01-01" }
+  - { subject_id: "n_geo_tokaj", relation_type: "PERMITS_GRAPE", object_id: "n_grape_zeta", valid_from: "2025-08-01" }
+  - { subject_id: "n_wine_tokaji_eszencia", relation_type: "LEGAL_DEFINITION", object_id: "n_rule_tokaj_free_run", valid_from: "2025-08-01" }
+  - { subject_id: "n_wine_tokaji_aszu", relation_type: "LEGAL_DEFINITION", object_id: "n_rule_tokaj_aszu_maceration", valid_from: "2025-08-01" }
+  - { subject_id: "n_wine_tokaji_szamorodni_dry", relation_type: "LEGAL_DEFINITION", object_id: "n_rule_tokaj_whole_bunches", valid_from: "2025-08-01" }
+  - { subject_id: "n_wine_tokaji_szamorodni_sweet", relation_type: "LEGAL_DEFINITION", object_id: "n_rule_tokaj_whole_bunches", valid_from: "2025-08-01" }
+  - { subject_id: "n_wine_tokaji_aszu", relation_type: "MIN_WOOD_AGEING", object_id: "n_qty_18_months", valid_from: "2025-08-01" }
+  - { subject_id: "n_wine_tokaji_szamorodni_dry", relation_type: "MIN_WOOD_AGEING", object_id: "n_qty_24_months", valid_from: "2025-08-01" }
+  - { subject_id: "n_wine_tokaji_szamorodni_sweet", relation_type: "MIN_WOOD_AGEING", object_id: "n_qty_6_months", valid_from: "2025-08-01" }
+
+knowledge_items:
+  - id: "ki_hu_tokaj_location"
+    subject_id: "n_geo_tokaj"
+    relation_type: "LOCATED_IN"
+    object_id: "n_geo_hungary"
+    domain_id: "geography"
+    assertion_text: "The Tokaj PDO delimits a Hungarian production area around Tokaj and its listed neighbouring settlements."
+    verification_status: "unverified"
+    last_verified_at: "2026-09-26T12:00:00.000Z"
+  - id: "ki_hu_wine_zone"
+    subject_id: "n_geo_hungary"
+    relation_type: "IN_WINE_ZONE"
+    object_id: "n_zone_c_i"
+    domain_id: "geography"
+    assertion_text: "All Hungarian vineyard areas belong to EU wine-growing zone C I."
+    verification_status: "unverified"
+    last_verified_at: "2026-09-26T12:00:00.000Z"
+  - id: "ki_hu_tokaj_furmint"
+    subject_id: "n_geo_tokaj"
+    relation_type: "PERMITS_GRAPE"
+    object_id: "n_grape_furmint"
+    domain_id: "geography"
+    assertion_text: "Tokaj permits Furmint for its wines and sparkling wines."
+    verification_status: "unverified"
+    last_verified_at: "2026-09-26T12:00:00.000Z"
+  - id: "ki_hu_tokaj_harslevelu"
+    subject_id: "n_geo_tokaj"
+    relation_type: "PERMITS_GRAPE"
+    object_id: "n_grape_harslevelu"
+    domain_id: "geography"
+    assertion_text: "Tokaj permits Hárslevelű for its wines and sparkling wines."
+    verification_status: "unverified"
+    last_verified_at: "2026-09-26T12:00:00.000Z"
+  - id: "ki_hu_tokaj_kabar"
+    subject_id: "n_geo_tokaj"
+    relation_type: "PERMITS_GRAPE"
+    object_id: "n_grape_kabar"
+    domain_id: "geography"
+    assertion_text: "Tokaj permits Kabar for its wines and sparkling wines."
+    verification_status: "unverified"
+    last_verified_at: "2026-09-26T12:00:00.000Z"
+  - id: "ki_hu_tokaj_koverszolo"
+    subject_id: "n_geo_tokaj"
+    relation_type: "PERMITS_GRAPE"
+    object_id: "n_grape_koverszolo"
+    domain_id: "geography"
+    assertion_text: "Tokaj permits Kövérszőlő for its wines and sparkling wines."
+    verification_status: "unverified"
+    last_verified_at: "2026-09-26T12:00:00.000Z"
+  - id: "ki_hu_tokaj_muscat_blanc_a_petits_grains"
+    subject_id: "n_geo_tokaj"
+    relation_type: "PERMITS_GRAPE"
+    object_id: "n_grape_muscat_blanc_a_petits_grains"
+    domain_id: "geography"
+    assertion_text: "Tokaj permits Muscat Blanc à Petits Grains (Sárgamuskotály) for its wines and sparkling wines."
+    verification_status: "unverified"
+    last_verified_at: "2026-09-26T12:00:00.000Z"
+  - id: "ki_hu_tokaj_zeta"
+    subject_id: "n_geo_tokaj"
+    relation_type: "PERMITS_GRAPE"
+    object_id: "n_grape_zeta"
+    domain_id: "geography"
+    assertion_text: "Tokaj permits Zéta for its wines and sparkling wines."
+    verification_status: "unverified"
+    last_verified_at: "2026-09-26T12:00:00.000Z"
+  - id: "ki_hu_tokaji_eszencia_rule"
+    subject_id: "n_wine_tokaji_eszencia"
+    relation_type: "LEGAL_DEFINITION"
+    object_id: "n_rule_tokaj_free_run"
+    domain_id: "winemaking"
+    assertion_text: "Tokaji Eszencia comes from minimal fermentation of juice that drains under the berries' own weight, without pressing, from individually hand-picked berries shrivelled by Botrytis."
+    verification_status: "unverified"
+    last_verified_at: "2026-09-26T12:00:00.000Z"
+    is_distinctive: true
+  - id: "ki_hu_tokaji_aszu_rule"
+    subject_id: "n_wine_tokaji_aszu"
+    relation_type: "LEGAL_DEFINITION"
+    object_id: "n_rule_tokaj_aszu_maceration"
+    domain_id: "winemaking"
+    assertion_text: "Tokaji Aszú requires separately hand-picked botrytised berries to be steeped in must, partly fermented must, fermenting new wine or wine of the same vintage."
+    verification_status: "unverified"
+    last_verified_at: "2026-09-26T12:00:00.000Z"
+    is_distinctive: true
+  - id: "ki_hu_tokaji_szamorodni_dry_rule"
+    subject_id: "n_wine_tokaji_szamorodni_dry"
+    relation_type: "LEGAL_DEFINITION"
+    object_id: "n_rule_tokaj_whole_bunches"
+    domain_id: "winemaking"
+    assertion_text: "Dry Tokaji Szamorodni is made by processing bunches containing both shrivelled botrytised berries and healthy berries."
+    verification_status: "unverified"
+    last_verified_at: "2026-09-26T12:00:00.000Z"
+  - id: "ki_hu_tokaji_szamorodni_sweet_rule"
+    subject_id: "n_wine_tokaji_szamorodni_sweet"
+    relation_type: "LEGAL_DEFINITION"
+    object_id: "n_rule_tokaj_whole_bunches"
+    domain_id: "winemaking"
+    assertion_text: "Sweet Tokaji Szamorodni is made by processing bunches containing both shrivelled botrytised berries and healthy berries."
+    verification_status: "unverified"
+    last_verified_at: "2026-09-26T12:00:00.000Z"
+  - id: "ki_hu_tokaji_aszu_wood_ageing"
+    subject_id: "n_wine_tokaji_aszu"
+    relation_type: "MIN_WOOD_AGEING"
+    object_id: "n_qty_18_months"
+    domain_id: "winemaking"
+    assertion_text: "Tokaji Aszú requires at least 18 months of ageing in wooden barrels under the specification for grapes harvested from August 2025."
+    verification_status: "unverified"
+    last_verified_at: "2026-09-26T12:00:00.000Z"
+  - id: "ki_hu_tokaji_szamorodni_dry_wood_ageing"
+    subject_id: "n_wine_tokaji_szamorodni_dry"
+    relation_type: "MIN_WOOD_AGEING"
+    object_id: "n_qty_24_months"
+    domain_id: "winemaking"
+    assertion_text: "Tokaji Száraz Szamorodni requires at least 24 months of ageing in wooden barrels under the specification for grapes harvested from August 2025."
+    verification_status: "unverified"
+    last_verified_at: "2026-09-26T12:00:00.000Z"
+  - id: "ki_hu_tokaji_szamorodni_sweet_wood_ageing"
+    subject_id: "n_wine_tokaji_szamorodni_sweet"
+    relation_type: "MIN_WOOD_AGEING"
+    object_id: "n_qty_6_months"
+    domain_id: "winemaking"
+    assertion_text: "Tokaji Édes Szamorodni requires at least 6 months of ageing in wooden barrels under the specification for grapes harvested from August 2025."
+    verification_status: "unverified"
+    last_verified_at: "2026-09-26T12:00:00.000Z"
+
+certification_knowledge_mappings:
+  - { certification_id: "WSET_L3", knowledge_item_id: "ki_hu_tokaj_location", importance: "core", minimum_depth: 3 }
+  - { certification_id: "CMS_CERTIFIED", knowledge_item_id: "ki_hu_tokaj_location", importance: "core", minimum_depth: 3 }
+  - { certification_id: "WSET_L3", knowledge_item_id: "ki_hu_wine_zone", importance: "secondary", minimum_depth: 2 }
+  - { certification_id: "CMS_CERTIFIED", knowledge_item_id: "ki_hu_wine_zone", importance: "secondary", minimum_depth: 2 }
+  - { certification_id: "WSET_L3", knowledge_item_id: "ki_hu_tokaj_furmint", importance: "core", minimum_depth: 3 }
+  - { certification_id: "CMS_CERTIFIED", knowledge_item_id: "ki_hu_tokaj_furmint", importance: "core", minimum_depth: 3 }
+  - { certification_id: "WSET_L3", knowledge_item_id: "ki_hu_tokaj_harslevelu", importance: "core", minimum_depth: 3 }
+  - { certification_id: "CMS_CERTIFIED", knowledge_item_id: "ki_hu_tokaj_harslevelu", importance: "core", minimum_depth: 3 }
+  - { certification_id: "WSET_L3", knowledge_item_id: "ki_hu_tokaj_kabar", importance: "secondary", minimum_depth: 2 }
+  - { certification_id: "CMS_CERTIFIED", knowledge_item_id: "ki_hu_tokaj_kabar", importance: "secondary", minimum_depth: 2 }
+  - { certification_id: "WSET_L3", knowledge_item_id: "ki_hu_tokaj_koverszolo", importance: "secondary", minimum_depth: 2 }
+  - { certification_id: "CMS_CERTIFIED", knowledge_item_id: "ki_hu_tokaj_koverszolo", importance: "secondary", minimum_depth: 2 }
+  - { certification_id: "WSET_L3", knowledge_item_id: "ki_hu_tokaj_muscat_blanc_a_petits_grains", importance: "core", minimum_depth: 2 }
+  - { certification_id: "CMS_CERTIFIED", knowledge_item_id: "ki_hu_tokaj_muscat_blanc_a_petits_grains", importance: "core", minimum_depth: 2 }
+  - { certification_id: "WSET_L3", knowledge_item_id: "ki_hu_tokaj_zeta", importance: "secondary", minimum_depth: 2 }
+  - { certification_id: "CMS_CERTIFIED", knowledge_item_id: "ki_hu_tokaj_zeta", importance: "secondary", minimum_depth: 2 }
+  - { certification_id: "WSET_L3", knowledge_item_id: "ki_hu_tokaji_eszencia_rule", importance: "core", minimum_depth: 3 }
+  - { certification_id: "CMS_CERTIFIED", knowledge_item_id: "ki_hu_tokaji_eszencia_rule", importance: "core", minimum_depth: 3 }
+  - { certification_id: "WSET_L3", knowledge_item_id: "ki_hu_tokaji_aszu_rule", importance: "core", minimum_depth: 3 }
+  - { certification_id: "CMS_CERTIFIED", knowledge_item_id: "ki_hu_tokaji_aszu_rule", importance: "core", minimum_depth: 3 }
+  - { certification_id: "WSET_L3", knowledge_item_id: "ki_hu_tokaji_szamorodni_dry_rule", importance: "core", minimum_depth: 3 }
+  - { certification_id: "CMS_CERTIFIED", knowledge_item_id: "ki_hu_tokaji_szamorodni_dry_rule", importance: "core", minimum_depth: 3 }
+  - { certification_id: "WSET_L3", knowledge_item_id: "ki_hu_tokaji_szamorodni_sweet_rule", importance: "core", minimum_depth: 3 }
+  - { certification_id: "CMS_CERTIFIED", knowledge_item_id: "ki_hu_tokaji_szamorodni_sweet_rule", importance: "core", minimum_depth: 3 }
+  - { certification_id: "WSET_L3", knowledge_item_id: "ki_hu_tokaji_aszu_wood_ageing", importance: "core", minimum_depth: 2 }
+  - { certification_id: "CMS_CERTIFIED", knowledge_item_id: "ki_hu_tokaji_aszu_wood_ageing", importance: "core", minimum_depth: 2 }
+  - { certification_id: "WSET_L3", knowledge_item_id: "ki_hu_tokaji_szamorodni_dry_wood_ageing", importance: "core", minimum_depth: 2 }
+  - { certification_id: "CMS_CERTIFIED", knowledge_item_id: "ki_hu_tokaji_szamorodni_dry_wood_ageing", importance: "core", minimum_depth: 2 }
+  - { certification_id: "WSET_L3", knowledge_item_id: "ki_hu_tokaji_szamorodni_sweet_wood_ageing", importance: "core", minimum_depth: 2 }
+  - { certification_id: "CMS_CERTIFIED", knowledge_item_id: "ki_hu_tokaji_szamorodni_sweet_wood_ageing", importance: "core", minimum_depth: 2 }
+
+source_citations:
+  - id: "src_hu_tokaj_2025"
+    kind: "regulator_register"
+    title: "Tokaj protected designation of origin product specification, version 10"
+    publisher: "Hungarian Ministry of Agriculture / Tokaji Borvidék Hegyközségi Tanácsa"
+    jurisdiction: "HU"
+    document_identifier: "Version 10; applies to products from grapes harvested after 1 August 2025"
+    url: "https://boraszat.kormany.hu/download/b/85/53000/TOKAJ%20term%C3%A9kle%C3%ADr%C3%A1s%20%2810%20v%C3%A1ltozat%29%20kn.pdf"
+    accessed_on: "2026-09-26"
+  - id: "src_hu_muscat_synonym"
+    kind: "government_publication"
+    title: "Muscat à petits grains blancs B: official synonymy"
+    publisher: "Plantgrape / INRAE, IFV, Institut Agro Montpellier"
+    jurisdiction: "EU"
+    document_identifier: "Variety sheet, edited 23 September 2026"
+    url: "https://www.plantgrape.fr/en/varieties/fruit-varieties/183/export"
+    accessed_on: "2026-09-26"
+
+knowledge_item_citations:
+  - { knowledge_item_id: "ki_hu_tokaj_location", source_citation_id: "src_hu_tokaj_2025", locator: "IV, p. 9; VII.A.1, pp. 11-13" }
+  - { knowledge_item_id: "ki_hu_wine_zone", source_citation_id: "src_eu_reg_1308_2013", locator: "Annex VII, Appendix I, point 3(e)" }
+  - { knowledge_item_id: "ki_hu_tokaj_furmint", source_citation_id: "src_hu_tokaj_2025", locator: "VI.1-2, p. 10" }
+  - { knowledge_item_id: "ki_hu_tokaj_harslevelu", source_citation_id: "src_hu_tokaj_2025", locator: "VI.1-2, p. 10" }
+  - { knowledge_item_id: "ki_hu_tokaj_kabar", source_citation_id: "src_hu_tokaj_2025", locator: "VI.1-2, p. 10" }
+  - { knowledge_item_id: "ki_hu_tokaj_koverszolo", source_citation_id: "src_hu_tokaj_2025", locator: "VI.1-2, p. 10" }
+  - { knowledge_item_id: "ki_hu_tokaj_muscat_blanc_a_petits_grains", source_citation_id: "src_hu_tokaj_2025", locator: "VI.1-2, p. 10" }
+  - { knowledge_item_id: "ki_hu_tokaj_zeta", source_citation_id: "src_hu_tokaj_2025", locator: "VI.1-2, p. 10" }
+  - { knowledge_item_id: "ki_hu_tokaji_eszencia_rule", source_citation_id: "src_hu_tokaj_2025", locator: "III.A, row 1, p. 6" }
+  - { knowledge_item_id: "ki_hu_tokaji_aszu_rule", source_citation_id: "src_hu_tokaj_2025", locator: "III.A, row 2, p. 6" }
+  - { knowledge_item_id: "ki_hu_tokaji_szamorodni_dry_rule", source_citation_id: "src_hu_tokaj_2025", locator: "III.A, row 3, p. 6" }
+  - { knowledge_item_id: "ki_hu_tokaji_szamorodni_sweet_rule", source_citation_id: "src_hu_tokaj_2025", locator: "III.A, row 4, p. 6" }
+  - { knowledge_item_id: "ki_hu_tokaji_aszu_wood_ageing", source_citation_id: "src_hu_tokaj_2025", locator: "III.A, row 2, p. 6" }
+  - { knowledge_item_id: "ki_hu_tokaji_szamorodni_dry_wood_ageing", source_citation_id: "src_hu_tokaj_2025", locator: "III.A, row 3, p. 6" }
+  - { knowledge_item_id: "ki_hu_tokaji_szamorodni_sweet_wood_ageing", source_citation_id: "src_hu_tokaj_2025", locator: "III.A, row 4, p. 6" }
+  - { knowledge_item_id: "ki_hu_tokaj_muscat_blanc_a_petits_grains", source_citation_id: "src_hu_muscat_synonym", locator: "Synonymy, p. 1: Sárga muskotály (Hungary)" }

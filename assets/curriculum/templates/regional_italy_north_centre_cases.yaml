@@ -1,0 +1,72 @@
+# Original self-checked cases with one subject and four distinct rubric points.
+question_templates:
+  - id: qt_reg_inc_case_nebbiolo_list
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: reg_inc_nebbiolo_list
+    prompt_template: A restaurant is comparing current Barolo and Barbaresco samples for a Nebbiolo slot intended
+      for drinking this year. Both wines are available now. The Barolo quote is higher; neither sample has
+      been tasted and no producer or vintage style is supplied. Give a defensible selection process, explain
+      the growing-context issue, discuss a price/value tradeoff and state a limitation.
+    parameters:
+      scope_node_ids:
+        - n_reg_inc_case_nebbiolo_list
+      key_points:
+        CASE_ACTION: Defensible action
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or follow-up
+  - id: qt_reg_inc_case_valpolicella_buy
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: reg_inc_valpolicella_buy
+    prompt_template: A buyer needs a fresh, moderate-weight red and can compare a basic Valpolicella, a Ripasso
+      and an Amarone from current suppliers. All are within the buying budget and have cuvée specifications,
+      but there are no tasting results. Propose an assessment process, explain the production contrasts,
+      discuss a concentration/style tradeoff and state a limitation.
+    parameters:
+      scope_node_ids:
+        - n_reg_inc_case_valpolicella_buy
+      key_points:
+        CASE_ACTION: Defensible action
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or follow-up
+  - id: qt_reg_inc_case_sangiovese_plots
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: reg_inc_sangiovese_plots
+    prompt_template: A Chianti Classico grower has two Sangiovese plots. Repeated observations show a higher stony
+      plot developing later and a lower clay-rich plot developing earlier with more vigour. Both have healthy
+      fruit; the target is balanced ripeness. No picking date or water measurements are supplied. Propose a
+      monitoring approach, explain the site comparison, discuss a water-management tradeoff and state a
+      limitation.
+    parameters:
+      scope_node_ids:
+        - n_reg_inc_case_sangiovese_plots
+      key_points:
+        CASE_ACTION: Defensible action
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or follow-up
+  - id: qt_reg_inc_case_white_slots
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: reg_inc_white_slots
+    prompt_template: A restaurant needs one dry central Italian white for its main wine-list slot and one sweet
+      white for dessert. Current offers are a Verdicchio dei Castelli di Jesi, an Orvieto secco and an Orvieto
+      dolce. Samples, cuvée details and landed quotes are available, but no tasting results are supplied.
+      Propose an allocation process, explain the grape/origin issue, discuss a value tradeoff and state a
+      limitation.
+    parameters:
+      scope_node_ids:
+        - n_reg_inc_case_white_slots
+      key_points:
+        CASE_ACTION: Defensible action
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or follow-up

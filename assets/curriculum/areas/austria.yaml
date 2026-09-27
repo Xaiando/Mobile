@@ -1,0 +1,403 @@
+# Austria: legal wine-growing areas and current DAC grape permissions (C6).
+# Country nodes are geographic roots. Atlas G12 adds finer location hierarchies.
+# All authored items await expert review; maps and boundaries are not authored here.
+
+knowledge_nodes:
+  - { id: "n_geo_austria", node_type: "country", name: "Austria" }
+  - { id: "n_geo_niederoesterreich", node_type: "region", name: "Niederösterreich" }
+  - { id: "n_geo_burgenland", node_type: "region", name: "Burgenland" }
+  - { id: "n_geo_steiermark", node_type: "region", name: "Steiermark" }
+  - { id: "n_geo_wien", node_type: "region", name: "Wien" }
+  - { id: "n_geo_thermenregion", node_type: "region", name: "Thermenregion" }
+  - { id: "n_geo_kremstal", node_type: "region", name: "Kremstal" }
+  - { id: "n_geo_kamptal", node_type: "region", name: "Kamptal" }
+  - { id: "n_geo_wagram", node_type: "region", name: "Wagram" }
+  - { id: "n_geo_traisental", node_type: "region", name: "Traisental" }
+  - { id: "n_geo_carnuntum", node_type: "region", name: "Carnuntum" }
+  - { id: "n_geo_wachau", node_type: "region", name: "Wachau" }
+  - { id: "n_geo_weinviertel", node_type: "region", name: "Weinviertel" }
+  - { id: "n_geo_suedsteiermark", node_type: "region", name: "Südsteiermark" }
+  - { id: "n_geo_weinviertel_dac", node_type: "appellation", name: "Weinviertel DAC" }
+  - { id: "n_geo_kamptal_dac", node_type: "appellation", name: "Kamptal DAC" }
+  - { id: "n_grape_gruner_veltliner", node_type: "grape", name: "Grüner Veltliner" }
+  - { id: "n_geo_mittelburgenland", node_type: "region", name: "Mittelburgenland" }
+  - { id: "n_geo_mittelburgenland_dac", node_type: "appellation", name: "Mittelburgenland DAC" }
+  - { id: "n_grape_blaufrankisch", node_type: "grape", name: "Blaufränkisch" }
+
+node_alternative_names:
+  - { knowledge_node_id: "n_geo_austria", name: "Österreich", kind: "synonym" }
+  - { knowledge_node_id: "n_geo_niederoesterreich", name: "Lower Austria", kind: "synonym" }
+  - { knowledge_node_id: "n_geo_steiermark", name: "Styria", kind: "synonym" }
+  - { knowledge_node_id: "n_geo_wien", name: "Vienna", kind: "synonym" }
+  - { knowledge_node_id: "n_geo_suedsteiermark", name: "South Styria", kind: "synonym" }
+  - { knowledge_node_id: "n_grape_gruner_veltliner", name: "Gruner Veltliner", kind: "spelling_variant" }
+  - { knowledge_node_id: "n_grape_gruner_veltliner", name: "Gruener Veltliner", kind: "spelling_variant" }
+  - { knowledge_node_id: "n_grape_blaufrankisch", name: "Blaufrankisch", kind: "spelling_variant" }
+  - { knowledge_node_id: "n_grape_blaufrankisch", name: "Blaufraenkisch", kind: "spelling_variant" }
+  - { knowledge_node_id: "n_grape_blaufrankisch", name: "Lemberger", kind: "synonym" }
+  - { knowledge_node_id: "n_grape_blaufrankisch", name: "Kékfrankos", kind: "synonym" }
+
+knowledge_relations:
+  - { subject_id: "n_geo_niederoesterreich", relation_type: "LOCATED_IN", object_id: "n_geo_austria", valid_from: "1900-01-01" }
+  - { subject_id: "n_geo_burgenland", relation_type: "LOCATED_IN", object_id: "n_geo_austria", valid_from: "1900-01-01" }
+  - { subject_id: "n_geo_steiermark", relation_type: "LOCATED_IN", object_id: "n_geo_austria", valid_from: "1900-01-01" }
+  - { subject_id: "n_geo_wien", relation_type: "LOCATED_IN", object_id: "n_geo_austria", valid_from: "1900-01-01" }
+  - { subject_id: "n_geo_thermenregion", relation_type: "LOCATED_IN", object_id: "n_geo_austria", valid_from: "1900-01-01" }
+  - { subject_id: "n_geo_kremstal", relation_type: "LOCATED_IN", object_id: "n_geo_austria", valid_from: "1900-01-01" }
+  - { subject_id: "n_geo_kamptal", relation_type: "LOCATED_IN", object_id: "n_geo_austria", valid_from: "1900-01-01" }
+  - { subject_id: "n_geo_wagram", relation_type: "LOCATED_IN", object_id: "n_geo_austria", valid_from: "1900-01-01" }
+  - { subject_id: "n_geo_traisental", relation_type: "LOCATED_IN", object_id: "n_geo_austria", valid_from: "1900-01-01" }
+  - { subject_id: "n_geo_carnuntum", relation_type: "LOCATED_IN", object_id: "n_geo_austria", valid_from: "1900-01-01" }
+  - { subject_id: "n_geo_wachau", relation_type: "LOCATED_IN", object_id: "n_geo_austria", valid_from: "1900-01-01" }
+  - { subject_id: "n_geo_weinviertel", relation_type: "LOCATED_IN", object_id: "n_geo_austria", valid_from: "1900-01-01" }
+  - { subject_id: "n_geo_suedsteiermark", relation_type: "LOCATED_IN", object_id: "n_geo_austria", valid_from: "1900-01-01" }
+  - { subject_id: "n_geo_austria", relation_type: "IN_WINE_ZONE", object_id: "n_zone_b", valid_from: "1900-01-01" }
+  - { subject_id: "n_geo_weinviertel_dac", relation_type: "LOCATED_IN", object_id: "n_geo_weinviertel", valid_from: "1900-01-01" }
+  - { subject_id: "n_geo_kamptal_dac", relation_type: "LOCATED_IN", object_id: "n_geo_kamptal", valid_from: "1900-01-01" }
+  - { subject_id: "n_grape_gruner_veltliner", relation_type: "HAS_BERRY_COLOUR", object_id: "n_colour_white", valid_from: "1900-01-01" }
+  - { subject_id: "n_geo_weinviertel_dac", relation_type: "PERMITS_GRAPE", object_id: "n_grape_gruner_veltliner", valid_from: "1900-01-01" }
+  - { subject_id: "n_geo_kamptal_dac", relation_type: "PERMITS_GRAPE", object_id: "n_grape_gruner_veltliner", valid_from: "2024-09-17" }
+  - { subject_id: "n_geo_kamptal_dac", relation_type: "PERMITS_GRAPE", object_id: "n_grape_riesling", valid_from: "2024-09-17" }
+  - { subject_id: "n_geo_kamptal_dac", relation_type: "PERMITS_GRAPE", object_id: "n_grape_chardonnay", valid_from: "2024-09-17" }
+  - { subject_id: "n_geo_kamptal_dac", relation_type: "PERMITS_GRAPE", object_id: "n_grape_pinot_blanc", valid_from: "2024-09-17" }
+  - { subject_id: "n_geo_kamptal_dac", relation_type: "PERMITS_GRAPE", object_id: "n_grape_pinot_gris", valid_from: "2024-09-17" }
+  - { subject_id: "n_geo_mittelburgenland", relation_type: "LOCATED_IN", object_id: "n_geo_austria", valid_from: "1900-01-01" }
+  - { subject_id: "n_geo_mittelburgenland_dac", relation_type: "LOCATED_IN", object_id: "n_geo_mittelburgenland", valid_from: "1900-01-01" }
+  - { subject_id: "n_grape_blaufrankisch", relation_type: "HAS_BERRY_COLOUR", object_id: "n_colour_black", valid_from: "1900-01-01" }
+  - { subject_id: "n_geo_mittelburgenland_dac", relation_type: "PERMITS_GRAPE", object_id: "n_grape_blaufrankisch", valid_from: "1900-01-01" }
+  # Study the named principal varieties, not every legally tolerated blend
+  # component. The neutral positive permissions above remain available to
+  # map grading; they are not assertions of a complete permitted-grape set.
+  - { subject_id: "n_geo_weinviertel_dac", relation_type: "PERMITS_PRINCIPAL_GRAPE", object_id: "n_grape_gruner_veltliner", valid_from: "1900-01-01" }
+  - { subject_id: "n_geo_kamptal_dac", relation_type: "PERMITS_PRINCIPAL_GRAPE", object_id: "n_grape_gruner_veltliner", valid_from: "2024-09-17" }
+  - { subject_id: "n_geo_kamptal_dac", relation_type: "PERMITS_PRINCIPAL_GRAPE", object_id: "n_grape_riesling", valid_from: "2024-09-17" }
+  - { subject_id: "n_geo_kamptal_dac", relation_type: "PERMITS_PRINCIPAL_GRAPE", object_id: "n_grape_chardonnay", valid_from: "2024-09-17" }
+  - { subject_id: "n_geo_kamptal_dac", relation_type: "PERMITS_PRINCIPAL_GRAPE", object_id: "n_grape_pinot_blanc", valid_from: "2024-09-17" }
+  - { subject_id: "n_geo_kamptal_dac", relation_type: "PERMITS_PRINCIPAL_GRAPE", object_id: "n_grape_pinot_gris", valid_from: "2024-09-17" }
+  - { subject_id: "n_geo_mittelburgenland_dac", relation_type: "PERMITS_PRINCIPAL_GRAPE", object_id: "n_grape_blaufrankisch", valid_from: "1900-01-01" }
+
+knowledge_items:
+  - id: "ki_at_niederoesterreich_location"
+    subject_id: "n_geo_niederoesterreich"
+    relation_type: "LOCATED_IN"
+    object_id: "n_geo_austria"
+    domain_id: "geography"
+    assertion_text: "Niederösterreich is an Austrian wine-growing area."
+    verification_status: "unverified"
+    last_verified_at: "2026-09-26T12:00:00.000Z"
+  - id: "ki_at_burgenland_location"
+    subject_id: "n_geo_burgenland"
+    relation_type: "LOCATED_IN"
+    object_id: "n_geo_austria"
+    domain_id: "geography"
+    assertion_text: "Burgenland is an Austrian wine-growing area."
+    verification_status: "unverified"
+    last_verified_at: "2026-09-26T12:00:00.000Z"
+  - id: "ki_at_steiermark_location"
+    subject_id: "n_geo_steiermark"
+    relation_type: "LOCATED_IN"
+    object_id: "n_geo_austria"
+    domain_id: "geography"
+    assertion_text: "Steiermark is an Austrian wine-growing area."
+    verification_status: "unverified"
+    last_verified_at: "2026-09-26T12:00:00.000Z"
+  - id: "ki_at_wien_location"
+    subject_id: "n_geo_wien"
+    relation_type: "LOCATED_IN"
+    object_id: "n_geo_austria"
+    domain_id: "geography"
+    assertion_text: "Wien is an Austrian wine-growing area."
+    verification_status: "unverified"
+    last_verified_at: "2026-09-26T12:00:00.000Z"
+  - id: "ki_at_thermenregion_location"
+    subject_id: "n_geo_thermenregion"
+    relation_type: "LOCATED_IN"
+    object_id: "n_geo_austria"
+    domain_id: "geography"
+    assertion_text: "Thermenregion is an Austrian wine-growing area."
+    verification_status: "unverified"
+    last_verified_at: "2026-09-26T12:00:00.000Z"
+  - id: "ki_at_kremstal_location"
+    subject_id: "n_geo_kremstal"
+    relation_type: "LOCATED_IN"
+    object_id: "n_geo_austria"
+    domain_id: "geography"
+    assertion_text: "Kremstal is an Austrian wine-growing area."
+    verification_status: "unverified"
+    last_verified_at: "2026-09-26T12:00:00.000Z"
+  - id: "ki_at_kamptal_location"
+    subject_id: "n_geo_kamptal"
+    relation_type: "LOCATED_IN"
+    object_id: "n_geo_austria"
+    domain_id: "geography"
+    assertion_text: "Kamptal is an Austrian wine-growing area."
+    verification_status: "unverified"
+    last_verified_at: "2026-09-26T12:00:00.000Z"
+  - id: "ki_at_wagram_location"
+    subject_id: "n_geo_wagram"
+    relation_type: "LOCATED_IN"
+    object_id: "n_geo_austria"
+    domain_id: "geography"
+    assertion_text: "Wagram is an Austrian wine-growing area."
+    verification_status: "unverified"
+    last_verified_at: "2026-09-26T12:00:00.000Z"
+  - id: "ki_at_traisental_location"
+    subject_id: "n_geo_traisental"
+    relation_type: "LOCATED_IN"
+    object_id: "n_geo_austria"
+    domain_id: "geography"
+    assertion_text: "Traisental is an Austrian wine-growing area."
+    verification_status: "unverified"
+    last_verified_at: "2026-09-26T12:00:00.000Z"
+  - id: "ki_at_carnuntum_location"
+    subject_id: "n_geo_carnuntum"
+    relation_type: "LOCATED_IN"
+    object_id: "n_geo_austria"
+    domain_id: "geography"
+    assertion_text: "Carnuntum is an Austrian wine-growing area."
+    verification_status: "unverified"
+    last_verified_at: "2026-09-26T12:00:00.000Z"
+  - id: "ki_at_wachau_location"
+    subject_id: "n_geo_wachau"
+    relation_type: "LOCATED_IN"
+    object_id: "n_geo_austria"
+    domain_id: "geography"
+    assertion_text: "Wachau is an Austrian wine-growing area."
+    verification_status: "unverified"
+    last_verified_at: "2026-09-26T12:00:00.000Z"
+  - id: "ki_at_weinviertel_location"
+    subject_id: "n_geo_weinviertel"
+    relation_type: "LOCATED_IN"
+    object_id: "n_geo_austria"
+    domain_id: "geography"
+    assertion_text: "Weinviertel is an Austrian wine-growing area."
+    verification_status: "unverified"
+    last_verified_at: "2026-09-26T12:00:00.000Z"
+  - id: "ki_at_suedsteiermark_location"
+    subject_id: "n_geo_suedsteiermark"
+    relation_type: "LOCATED_IN"
+    object_id: "n_geo_austria"
+    domain_id: "geography"
+    assertion_text: "Südsteiermark is an Austrian wine-growing area."
+    verification_status: "unverified"
+    last_verified_at: "2026-09-26T12:00:00.000Z"
+  - id: "ki_at_wine_zone"
+    subject_id: "n_geo_austria"
+    relation_type: "IN_WINE_ZONE"
+    object_id: "n_zone_b"
+    domain_id: "geography"
+    assertion_text: "Austria's wine-growing area belongs to EU wine-growing zone B."
+    verification_status: "unverified"
+    last_verified_at: "2026-09-26T12:00:00.000Z"
+  - id: "ki_at_weinviertel_dac_location"
+    subject_id: "n_geo_weinviertel_dac"
+    relation_type: "LOCATED_IN"
+    object_id: "n_geo_weinviertel"
+    domain_id: "geography"
+    assertion_text: "Weinviertel DAC has its designated origin in Weinviertel."
+    verification_status: "unverified"
+    last_verified_at: "2026-09-26T12:00:00.000Z"
+  - id: "ki_at_kamptal_dac_location"
+    subject_id: "n_geo_kamptal_dac"
+    relation_type: "LOCATED_IN"
+    object_id: "n_geo_kamptal"
+    domain_id: "geography"
+    assertion_text: "Kamptal DAC has its designated origin in Kamptal."
+    verification_status: "unverified"
+    last_verified_at: "2026-09-26T12:00:00.000Z"
+  - id: "ki_at_weinviertel_gruner"
+    subject_id: "n_geo_weinviertel_dac"
+    relation_type: "PERMITS_PRINCIPAL_GRAPE"
+    object_id: "n_grape_gruner_veltliner"
+    domain_id: "geography"
+    assertion_text: "Grüner Veltliner is the principal grape variety specified for Weinviertel DAC; legally tolerable minor blending with other quality-wine varieties is allowed."
+    verification_status: "unverified"
+    last_verified_at: "2026-09-26T12:00:00.000Z"
+  - id: "ki_at_kamptal_gruner_veltliner"
+    subject_id: "n_geo_kamptal_dac"
+    relation_type: "PERMITS_PRINCIPAL_GRAPE"
+    object_id: "n_grape_gruner_veltliner"
+    domain_id: "geography"
+    assertion_text: "Grüner Veltliner is one of the five principal grape varieties named in the current Kamptal DAC rules, eligible alone or as a cuvée among those varieties; other quality-wine varieties are tolerated in minor blends."
+    verification_status: "unverified"
+    last_verified_at: "2026-09-26T12:00:00.000Z"
+  - id: "ki_at_kamptal_riesling"
+    subject_id: "n_geo_kamptal_dac"
+    relation_type: "PERMITS_PRINCIPAL_GRAPE"
+    object_id: "n_grape_riesling"
+    domain_id: "geography"
+    assertion_text: "Riesling is one of the five principal grape varieties named in the current Kamptal DAC rules, eligible alone or as a cuvée among those varieties; other quality-wine varieties are tolerated in minor blends."
+    verification_status: "unverified"
+    last_verified_at: "2026-09-26T12:00:00.000Z"
+  - id: "ki_at_kamptal_chardonnay"
+    subject_id: "n_geo_kamptal_dac"
+    relation_type: "PERMITS_PRINCIPAL_GRAPE"
+    object_id: "n_grape_chardonnay"
+    domain_id: "geography"
+    assertion_text: "Chardonnay is one of the five principal grape varieties named in the current Kamptal DAC rules, eligible alone or as a cuvée among those varieties; other quality-wine varieties are tolerated in minor blends."
+    verification_status: "unverified"
+    last_verified_at: "2026-09-26T12:00:00.000Z"
+  - id: "ki_at_kamptal_pinot_blanc"
+    subject_id: "n_geo_kamptal_dac"
+    relation_type: "PERMITS_PRINCIPAL_GRAPE"
+    object_id: "n_grape_pinot_blanc"
+    domain_id: "geography"
+    assertion_text: "Pinot Blanc is one of the five principal grape varieties named in the current Kamptal DAC rules, eligible alone or as a cuvée among those varieties; other quality-wine varieties are tolerated in minor blends."
+    verification_status: "unverified"
+    last_verified_at: "2026-09-26T12:00:00.000Z"
+  - id: "ki_at_kamptal_pinot_gris"
+    subject_id: "n_geo_kamptal_dac"
+    relation_type: "PERMITS_PRINCIPAL_GRAPE"
+    object_id: "n_grape_pinot_gris"
+    domain_id: "geography"
+    assertion_text: "Pinot Gris is one of the five principal grape varieties named in the current Kamptal DAC rules, eligible alone or as a cuvée among those varieties; other quality-wine varieties are tolerated in minor blends."
+    verification_status: "unverified"
+    last_verified_at: "2026-09-26T12:00:00.000Z"
+    # Only one other grey-skinned variety is curated; three rivals are unavailable.
+    mcq_disabled: true
+  - id: "ki_at_mittelburgenland_location"
+    subject_id: "n_geo_mittelburgenland"
+    relation_type: "LOCATED_IN"
+    object_id: "n_geo_austria"
+    domain_id: "geography"
+    assertion_text: "Mittelburgenland is an Austrian wine-growing area defined as the political district of Oberpullendorf."
+    verification_status: "unverified"
+    last_verified_at: "2026-09-26T12:00:00.000Z"
+  - id: "ki_at_mittelburgenland_dac_location"
+    subject_id: "n_geo_mittelburgenland_dac"
+    relation_type: "LOCATED_IN"
+    object_id: "n_geo_mittelburgenland"
+    domain_id: "geography"
+    assertion_text: "Mittelburgenland DAC must originate from the Mittelburgenland wine-growing area."
+    verification_status: "unverified"
+    last_verified_at: "2026-09-26T12:00:00.000Z"
+  - id: "ki_at_mittelburgenland_blaufrankisch"
+    subject_id: "n_geo_mittelburgenland_dac"
+    relation_type: "PERMITS_PRINCIPAL_GRAPE"
+    object_id: "n_grape_blaufrankisch"
+    domain_id: "geography"
+    assertion_text: "Blaufränkisch is the principal grape variety specified for Mittelburgenland DAC; legally tolerable minor blending with other quality-wine varieties is allowed."
+    verification_status: "unverified"
+    last_verified_at: "2026-09-26T12:00:00.000Z"
+
+certification_knowledge_mappings:
+  - { certification_id: "WSET_L3", knowledge_item_id: "ki_at_niederoesterreich_location", importance: "core", minimum_depth: 2 }
+  - { certification_id: "CMS_CERTIFIED", knowledge_item_id: "ki_at_niederoesterreich_location", importance: "core", minimum_depth: 2 }
+  - { certification_id: "WSET_L3", knowledge_item_id: "ki_at_burgenland_location", importance: "core", minimum_depth: 2 }
+  - { certification_id: "CMS_CERTIFIED", knowledge_item_id: "ki_at_burgenland_location", importance: "core", minimum_depth: 2 }
+  - { certification_id: "WSET_L3", knowledge_item_id: "ki_at_steiermark_location", importance: "core", minimum_depth: 2 }
+  - { certification_id: "CMS_CERTIFIED", knowledge_item_id: "ki_at_steiermark_location", importance: "core", minimum_depth: 2 }
+  - { certification_id: "WSET_L3", knowledge_item_id: "ki_at_wien_location", importance: "core", minimum_depth: 2 }
+  - { certification_id: "CMS_CERTIFIED", knowledge_item_id: "ki_at_wien_location", importance: "core", minimum_depth: 2 }
+  - { certification_id: "WSET_L3", knowledge_item_id: "ki_at_thermenregion_location", importance: "secondary", minimum_depth: 2 }
+  - { certification_id: "CMS_CERTIFIED", knowledge_item_id: "ki_at_thermenregion_location", importance: "secondary", minimum_depth: 2 }
+  - { certification_id: "WSET_L3", knowledge_item_id: "ki_at_kremstal_location", importance: "core", minimum_depth: 2 }
+  - { certification_id: "CMS_CERTIFIED", knowledge_item_id: "ki_at_kremstal_location", importance: "core", minimum_depth: 2 }
+  - { certification_id: "WSET_L3", knowledge_item_id: "ki_at_kamptal_location", importance: "core", minimum_depth: 2 }
+  - { certification_id: "CMS_CERTIFIED", knowledge_item_id: "ki_at_kamptal_location", importance: "core", minimum_depth: 2 }
+  - { certification_id: "WSET_L3", knowledge_item_id: "ki_at_wagram_location", importance: "secondary", minimum_depth: 2 }
+  - { certification_id: "CMS_CERTIFIED", knowledge_item_id: "ki_at_wagram_location", importance: "secondary", minimum_depth: 2 }
+  - { certification_id: "WSET_L3", knowledge_item_id: "ki_at_traisental_location", importance: "secondary", minimum_depth: 2 }
+  - { certification_id: "CMS_CERTIFIED", knowledge_item_id: "ki_at_traisental_location", importance: "secondary", minimum_depth: 2 }
+  - { certification_id: "WSET_L3", knowledge_item_id: "ki_at_carnuntum_location", importance: "secondary", minimum_depth: 2 }
+  - { certification_id: "CMS_CERTIFIED", knowledge_item_id: "ki_at_carnuntum_location", importance: "secondary", minimum_depth: 2 }
+  - { certification_id: "WSET_L3", knowledge_item_id: "ki_at_wachau_location", importance: "core", minimum_depth: 2 }
+  - { certification_id: "CMS_CERTIFIED", knowledge_item_id: "ki_at_wachau_location", importance: "core", minimum_depth: 2 }
+  - { certification_id: "WSET_L3", knowledge_item_id: "ki_at_weinviertel_location", importance: "core", minimum_depth: 2 }
+  - { certification_id: "CMS_CERTIFIED", knowledge_item_id: "ki_at_weinviertel_location", importance: "core", minimum_depth: 2 }
+  - { certification_id: "WSET_L3", knowledge_item_id: "ki_at_suedsteiermark_location", importance: "core", minimum_depth: 2 }
+  - { certification_id: "CMS_CERTIFIED", knowledge_item_id: "ki_at_suedsteiermark_location", importance: "core", minimum_depth: 2 }
+  - { certification_id: "WSET_L3", knowledge_item_id: "ki_at_wine_zone", importance: "secondary", minimum_depth: 2 }
+  - { certification_id: "CMS_CERTIFIED", knowledge_item_id: "ki_at_wine_zone", importance: "secondary", minimum_depth: 2 }
+  - { certification_id: "WSET_L3", knowledge_item_id: "ki_at_weinviertel_dac_location", importance: "core", minimum_depth: 2 }
+  - { certification_id: "CMS_CERTIFIED", knowledge_item_id: "ki_at_weinviertel_dac_location", importance: "core", minimum_depth: 2 }
+  - { certification_id: "WSET_L3", knowledge_item_id: "ki_at_kamptal_dac_location", importance: "core", minimum_depth: 2 }
+  - { certification_id: "CMS_CERTIFIED", knowledge_item_id: "ki_at_kamptal_dac_location", importance: "core", minimum_depth: 2 }
+  - { certification_id: "WSET_L3", knowledge_item_id: "ki_at_weinviertel_gruner", importance: "core", minimum_depth: 3 }
+  - { certification_id: "CMS_CERTIFIED", knowledge_item_id: "ki_at_weinviertel_gruner", importance: "core", minimum_depth: 3 }
+  - { certification_id: "WSET_L3", knowledge_item_id: "ki_at_kamptal_gruner_veltliner", importance: "core", minimum_depth: 3 }
+  - { certification_id: "CMS_CERTIFIED", knowledge_item_id: "ki_at_kamptal_gruner_veltliner", importance: "core", minimum_depth: 3 }
+  - { certification_id: "WSET_L3", knowledge_item_id: "ki_at_kamptal_riesling", importance: "core", minimum_depth: 3 }
+  - { certification_id: "CMS_CERTIFIED", knowledge_item_id: "ki_at_kamptal_riesling", importance: "core", minimum_depth: 3 }
+  - { certification_id: "WSET_L3", knowledge_item_id: "ki_at_kamptal_chardonnay", importance: "secondary", minimum_depth: 2 }
+  - { certification_id: "CMS_CERTIFIED", knowledge_item_id: "ki_at_kamptal_chardonnay", importance: "secondary", minimum_depth: 2 }
+  - { certification_id: "WSET_L3", knowledge_item_id: "ki_at_kamptal_pinot_blanc", importance: "secondary", minimum_depth: 2 }
+  - { certification_id: "CMS_CERTIFIED", knowledge_item_id: "ki_at_kamptal_pinot_blanc", importance: "secondary", minimum_depth: 2 }
+  - { certification_id: "WSET_L3", knowledge_item_id: "ki_at_kamptal_pinot_gris", importance: "secondary", minimum_depth: 2 }
+  - { certification_id: "CMS_CERTIFIED", knowledge_item_id: "ki_at_kamptal_pinot_gris", importance: "secondary", minimum_depth: 2 }
+  - { certification_id: "WSET_L3", knowledge_item_id: "ki_at_mittelburgenland_location", importance: "core", minimum_depth: 2 }
+  - { certification_id: "CMS_CERTIFIED", knowledge_item_id: "ki_at_mittelburgenland_location", importance: "core", minimum_depth: 2 }
+  - { certification_id: "WSET_L3", knowledge_item_id: "ki_at_mittelburgenland_dac_location", importance: "core", minimum_depth: 2 }
+  - { certification_id: "CMS_CERTIFIED", knowledge_item_id: "ki_at_mittelburgenland_dac_location", importance: "core", minimum_depth: 2 }
+  - { certification_id: "WSET_L3", knowledge_item_id: "ki_at_mittelburgenland_blaufrankisch", importance: "core", minimum_depth: 3 }
+  - { certification_id: "CMS_CERTIFIED", knowledge_item_id: "ki_at_mittelburgenland_blaufrankisch", importance: "core", minimum_depth: 3 }
+
+source_citations:
+  - id: "src_at_weing_21"
+    kind: "legislation"
+    title: "Weingesetz 2009, geographic indications"
+    publisher: "Rechtsinformationssystem des Bundes (RIS)"
+    jurisdiction: "AT"
+    document_identifier: "BGBl. I Nr. 111/2009; § 21 as amended by BGBl. I Nr. 91/2023"
+    url: "https://www.ris.bka.gv.at/eli/bgbl/i/2009/111/P21/NOR40254626"
+    accessed_on: "2026-09-26"
+  - id: "src_at_weinviertel_dac"
+    kind: "legislation"
+    title: "DAC Verordnung Weinviertel"
+    publisher: "Rechtsinformationssystem des Bundes (RIS)"
+    jurisdiction: "AT"
+    document_identifier: "BGBl. II Nr. 58/2010; § 1 as amended by BGBl. II Nr. 587/2020"
+    url: "https://www.ris.bka.gv.at/eli/bgbl/ii/2010/58/P1/NOR40230115"
+    accessed_on: "2026-09-26"
+  - id: "src_at_kamptal_dac"
+    kind: "legislation"
+    title: "DAC-Verordnung Kamptal"
+    publisher: "Rechtsinformationssystem des Bundes (RIS)"
+    jurisdiction: "AT"
+    document_identifier: "BGBl. II Nr. 250/2024, effective 17 September 2024; §§ 1-3"
+    url: "https://www.ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=20012689"
+    accessed_on: "2026-09-26"
+  - id: "src_at_mittelburgenland_dac"
+    kind: "legislation"
+    title: "DAC-Verordnung Mittelburgenland"
+    publisher: "Rechtsinformationssystem des Bundes (RIS)"
+    jurisdiction: "AT"
+    document_identifier: "BGBl. II Nr. 56/2010; § 1 as amended by BGBl. II Nr. 184/2018"
+    url: "https://www.ris.bka.gv.at/eli/bgbl/ii/2010/56/P1/NOR40205555"
+    accessed_on: "2026-09-26"
+  - id: "src_at_blaufrankisch_synonyms"
+    kind: "government_publication"
+    title: "Blaufränkisch: ampelographic variety sheet"
+    publisher: "Höhere Bundeslehranstalt und Bundesamt für Wein- und Obstbau Klosterneuburg"
+    jurisdiction: "AT"
+    document_identifier: "Variety sheet: synonyms and berry colour"
+    url: "https://www.weinobst.at/dam/jcr:03e811f5-1178-4650-bed8-a0cb14f1a763/Blaufr%C3%A4nkisch.pdf"
+    accessed_on: "2026-09-26"
+
+knowledge_item_citations:
+  - { knowledge_item_id: "ki_at_niederoesterreich_location", source_citation_id: "src_at_weing_21", locator: "§ 21(3)(1)(k)" }
+  - { knowledge_item_id: "ki_at_burgenland_location", source_citation_id: "src_at_weing_21", locator: "§ 21(3)(1)(j)" }
+  - { knowledge_item_id: "ki_at_steiermark_location", source_citation_id: "src_at_weing_21", locator: "§ 21(3)(3)(d)" }
+  - { knowledge_item_id: "ki_at_wien_location", source_citation_id: "src_at_weing_21", locator: "§ 21(3)(1)(i)" }
+  - { knowledge_item_id: "ki_at_thermenregion_location", source_citation_id: "src_at_weing_21", locator: "§ 21(3)(1)(a)" }
+  - { knowledge_item_id: "ki_at_kremstal_location", source_citation_id: "src_at_weing_21", locator: "§ 21(3)(1)(b)" }
+  - { knowledge_item_id: "ki_at_kamptal_location", source_citation_id: "src_at_weing_21", locator: "§ 21(3)(1)(c)" }
+  - { knowledge_item_id: "ki_at_wagram_location", source_citation_id: "src_at_weing_21", locator: "§ 21(3)(1)(d)" }
+  - { knowledge_item_id: "ki_at_traisental_location", source_citation_id: "src_at_weing_21", locator: "§ 21(3)(1)(e)" }
+  - { knowledge_item_id: "ki_at_carnuntum_location", source_citation_id: "src_at_weing_21", locator: "§ 21(3)(1)(f)" }
+  - { knowledge_item_id: "ki_at_wachau_location", source_citation_id: "src_at_weing_21", locator: "§ 21(3)(1)(g)" }
+  - { knowledge_item_id: "ki_at_weinviertel_location", source_citation_id: "src_at_weing_21", locator: "§ 21(3)(1)(h)" }
+  - { knowledge_item_id: "ki_at_suedsteiermark_location", source_citation_id: "src_at_weing_21", locator: "§ 21(3)(3)(a)" }
+  - { knowledge_item_id: "ki_at_wine_zone", source_citation_id: "src_eu_reg_1308_2013", locator: "Annex VII, Appendix I, point 2(c)" }
+  - { knowledge_item_id: "ki_at_weinviertel_dac_location", source_citation_id: "src_at_weinviertel_dac", locator: "§ 1(1)" }
+  - { knowledge_item_id: "ki_at_kamptal_dac_location", source_citation_id: "src_at_kamptal_dac", locator: "§§ 1-3" }
+  - { knowledge_item_id: "ki_at_weinviertel_gruner", source_citation_id: "src_at_weinviertel_dac", locator: "§ 1(2)" }
+  - { knowledge_item_id: "ki_at_kamptal_gruner_veltliner", source_citation_id: "src_at_kamptal_dac", locator: "§ 3(1), BGBl. II Nr. 250/2024" }
+  - { knowledge_item_id: "ki_at_kamptal_riesling", source_citation_id: "src_at_kamptal_dac", locator: "§ 3(1), BGBl. II Nr. 250/2024" }
+  - { knowledge_item_id: "ki_at_kamptal_chardonnay", source_citation_id: "src_at_kamptal_dac", locator: "§ 3(1), BGBl. II Nr. 250/2024" }
+  - { knowledge_item_id: "ki_at_kamptal_pinot_blanc", source_citation_id: "src_at_kamptal_dac", locator: "§ 3(1), BGBl. II Nr. 250/2024" }
+  - { knowledge_item_id: "ki_at_kamptal_pinot_gris", source_citation_id: "src_at_kamptal_dac", locator: "§ 3(1), BGBl. II Nr. 250/2024" }
+  - { knowledge_item_id: "ki_at_mittelburgenland_location", source_citation_id: "src_at_mittelburgenland_dac", locator: "§ 1(1)" }
+  - { knowledge_item_id: "ki_at_mittelburgenland_dac_location", source_citation_id: "src_at_mittelburgenland_dac", locator: "§ 1(1)" }
+  - { knowledge_item_id: "ki_at_mittelburgenland_blaufrankisch", source_citation_id: "src_at_mittelburgenland_dac", locator: "§ 1(2)" }
+  - { knowledge_item_id: "ki_at_mittelburgenland_blaufrankisch", source_citation_id: "src_at_blaufrankisch_synonyms", locator: "Synonyme Bezeichnungen, p. 1" }

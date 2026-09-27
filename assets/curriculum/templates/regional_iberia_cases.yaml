@@ -1,0 +1,74 @@
+# Original conditional regional comparisons; one self-checked case per scope.
+question_templates:
+  - id: qt_reg_ib_case_es_rioja_site
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: reg_ib_es_rioja_site
+    prompt_template: A class compares two Tempranillo-based Rioja reds from the same vintage with similar
+      blend composition and oak maturation. Records show that the western vineyard had a cooler ripening
+      period and later picking than the eastern vineyard; the western wine tastes fresher and less ripe.
+      Design an evidence-based explanation, with a reason, tradeoff and limitation. The regional labels
+      alone provide no quality ranking.
+    parameters:
+      scope_node_ids:
+        - n_reg_ib_case_es_rioja_site
+      key_points:
+        CASE_ACTION: Defensible comparison or action
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or evidence needed
+  - id: qt_reg_ib_case_es_priorat_price
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: reg_ib_es_priorat_price
+    prompt_template: A buyer compares a Priorat Garnatxa red from a steep parcel worked manually with a
+      Montsant Garnatxa red from a parcel where tractor access is possible. Both receive similar blind
+      evaluations for balance and persistence. The Priorat supplier documents higher labour cost per
+      bottle and proposes a higher selling price. Assess the proposal with an action, reason, tradeoff
+      and limitation; demand at the proposed price has not been measured.
+    parameters:
+      scope_node_ids:
+        - n_reg_ib_case_es_priorat_price
+      key_points:
+        CASE_ACTION: Defensible comparison or action
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or evidence needed
+  - id: qt_reg_ib_case_pt_white_design
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: reg_ib_pt_white_design
+    prompt_template: A study group compares a structured Dão Encruzado fermented in barrel with a fresh,
+      aromatic Vinho Verde Loureiro fermented in stainless steel. The pair differs in grape and cellar
+      treatment, and vineyard records are available. Design a useful regional comparison, give a reason,
+      and discuss a tradeoff and limitation when explaining acidity, aroma and texture. Neither wine has
+      an independently established quality advantage.
+    parameters:
+      scope_node_ids:
+        - n_reg_ib_case_pt_white_design
+      key_points:
+        CASE_ACTION: Defensible comparison or action
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or evidence needed
+  - id: qt_reg_ib_case_pt_baga_inventory
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: reg_ib_pt_baga_inventory
+    prompt_template: A merchant’s customers prefer softer mature red wines. A young Bairrada Baga tastes
+      firmly tannic, while a Dão red blend already meets that preference. The Baga supplier proposes two
+      years of bottle storage but provides no mature sample. Both wines fit the purchase budget; storage
+      would require payment now, space and insurance before later sales. Assess the Baga option with an
+      action, reason, tradeoff and limitation without assuming it will mature successfully.
+    parameters:
+      scope_node_ids:
+        - n_reg_ib_case_pt_baga_inventory
+      key_points:
+        CASE_ACTION: Defensible comparison or action
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or evidence needed

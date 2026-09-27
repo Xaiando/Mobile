@@ -1,0 +1,78 @@
+# Original hypothetical cases; full premises exactly match their production_case node names.
+question_templates:
+  - id: qt_reg_sa_case_maule_brand
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: reg_sa_maule_brand
+    prompt_template: A Maule producer group can document the origin and cultivation history of its
+      rainfed old-vine Carignan lots. It proposes a new shared private brand with joint promotion,
+      but the finished lots taste different, packaging and coordination add costs, and no buyer has
+      committed to the proposed price. The manager assumes that an old-vine regional story
+      guarantees a premium sale. Propose a defensible assessment, explain why, and discuss a
+      tradeoff and a limitation.
+    parameters:
+      scope_node_ids:
+        - n_reg_sa_case_maule_brand
+      key_points:
+        CASE_ACTION: Defensible action or assessment
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or evidence needed
+  - id: qt_reg_sa_case_itata_skin_trial
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: reg_sa_itata_skin_trial
+    prompt_template: An Itata producer divides the same sound Moscatel de Alejandría harvest between a
+      pressed-juice white and a tinaja lot fermented with skins. Both finish dry. Coded tasting at
+      the same temperature finds the pressed wine more delicate and the skin-fermented wine more
+      structured; neither has a detected fault. The buyer wants a structured dry white but has not
+      tasted either sample, and the manager says clay guarantees the better wine. Propose a
+      defensible selection process, explain why, and discuss a tradeoff and a limitation.
+    parameters:
+      scope_node_ids:
+        - n_reg_sa_case_itata_skin_trial
+      key_points:
+        CASE_ACTION: Defensible action or assessment
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or evidence needed
+  - id: qt_reg_sa_case_mendoza_capacity
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: reg_sa_mendoza_capacity
+    prompt_template: A Mendoza winery has Cabernet Sauvignon and Malbec lots that representative
+      sampling confirms are both ready for their intended wines in the same short window. Its own
+      reception and fermentation capacity cannot handle both on time. A qualified outside facility
+      confirms suitable capacity, but its fee and transport require payment before the eventual wine
+      sale. No current cash forecast includes those costs. Propose a defensible capacity decision
+      process, explain why, and discuss a tradeoff and a limitation.
+    parameters:
+      scope_node_ids:
+        - n_reg_sa_case_mendoza_capacity
+      key_points:
+        CASE_ACTION: Defensible action or assessment
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or evidence needed
+  - id: qt_reg_sa_case_mendoza_yeast_trial
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: reg_sa_mendoza_yeast_trial
+    prompt_template: A Mendoza producer splits one homogeneous Malbec must between two yeast treatments
+      with matching temperature and handling. Both wines finish dry and sound. Repeated coded
+      tasting finds treatment B fresher-fruited and less bitter, but it occupies its tank longer.
+      The producer wants those sensory attributes and proposes launching every vineyard with B while
+      claiming the trial proves a unique vineyard flavour. Propose a defensible next step, explain
+      why, and discuss a tradeoff and a limitation.
+    parameters:
+      scope_node_ids:
+        - n_reg_sa_case_mendoza_yeast_trial
+      key_points:
+        CASE_ACTION: Defensible action or assessment
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or evidence needed

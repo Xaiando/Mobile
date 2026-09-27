@@ -1,0 +1,5383 @@
+# World atlas: cited geography, without grape or production-rule claims.
+# Gazetteer reference points are in tool/geography/world_atlas_points.geojson.
+# Items remain unverified; certification mappings are editorial.
+
+knowledge_nodes:
+  - id: n_geo_spain
+    node_type: country
+    name: Spain
+  - id: n_geo_portugal
+    node_type: country
+    name: Portugal
+  - id: n_geo_united_states
+    node_type: country
+    name: United States
+  - id: n_geo_canada
+    node_type: country
+    name: Canada
+  - id: n_geo_chile
+    node_type: country
+    name: Chile
+  - id: n_geo_argentina
+    node_type: country
+    name: Argentina
+  - id: n_geo_australia
+    node_type: country
+    name: Australia
+  - id: n_geo_new_zealand
+    node_type: country
+    name: New Zealand
+  - id: n_geo_south_africa
+    node_type: country
+    name: South Africa
+  - id: n_geo_georgia
+    node_type: country
+    name: Georgia
+  - id: n_geo_lebanon
+    node_type: country
+    name: Lebanon
+  - id: n_geo_veneto
+    node_type: region
+    name: Veneto
+  - id: n_geo_lombardy
+    node_type: region
+    name: Lombardy
+  - id: n_geo_friuli_venezia_giulia
+    node_type: region
+    name: Friuli Venezia Giulia
+  - id: n_geo_marche
+    node_type: region
+    name: Marche
+  - id: n_geo_campania
+    node_type: region
+    name: Campania
+  - id: n_geo_sicily
+    node_type: region
+    name: Sicily
+  - id: n_geo_roero
+    node_type: appellation
+    name: Roero
+  - id: n_geo_barbera_d_asti
+    node_type: appellation
+    name: Barbera d’Asti
+  - id: n_geo_nizza
+    node_type: appellation
+    name: Nizza
+  - id: n_geo_gavi
+    node_type: appellation
+    name: Gavi
+  - id: n_geo_asti
+    node_type: appellation
+    name: Asti
+  - id: n_geo_dogliani
+    node_type: appellation
+    name: Dogliani
+  - id: n_geo_gattinara
+    node_type: appellation
+    name: Gattinara
+  - id: n_geo_ghemme
+    node_type: appellation
+    name: Ghemme
+  - id: n_geo_chianti
+    node_type: appellation
+    name: Chianti
+  - id: n_geo_vino_nobile_di_montepulciano
+    node_type: appellation
+    name: Vino Nobile di Montepulciano
+  - id: n_geo_bolgheri
+    node_type: appellation
+    name: Bolgheri
+  - id: n_geo_morellino_di_scansano
+    node_type: appellation
+    name: Morellino di Scansano
+  - id: n_geo_carmignano
+    node_type: appellation
+    name: Carmignano
+  - id: n_geo_vernaccia_di_san_gimignano
+    node_type: appellation
+    name: Vernaccia di San Gimignano
+  - id: n_geo_valpolicella
+    node_type: appellation
+    name: Valpolicella
+  - id: n_geo_soave
+    node_type: appellation
+    name: Soave
+  - id: n_geo_conegliano_valdobbiadene
+    node_type: appellation
+    name: Conegliano Valdobbiadene Prosecco
+  - id: n_geo_asolo_prosecco
+    node_type: appellation
+    name: Asolo Prosecco
+  - id: n_geo_franciacorta
+    node_type: appellation
+    name: Franciacorta
+  - id: n_geo_collio
+    node_type: appellation
+    name: Collio Goriziano
+  - id: n_geo_verdicchio_castelli_jesi
+    node_type: appellation
+    name: Verdicchio dei Castelli di Jesi
+  - id: n_geo_taurasi
+    node_type: appellation
+    name: Taurasi
+  - id: n_geo_etna
+    node_type: appellation
+    name: Etna
+  - id: n_geo_galicia
+    node_type: region
+    name: Galicia
+  - id: n_geo_castilla_y_leon
+    node_type: region
+    name: Castilla y León
+  - id: n_geo_catalonia
+    node_type: region
+    name: Catalonia
+  - id: n_geo_andalusia
+    node_type: region
+    name: Andalusia
+  - id: n_geo_aragon
+    node_type: region
+    name: Aragón
+  - id: n_geo_rioja
+    node_type: appellation
+    name: Rioja
+  - id: n_geo_ribera_del_duero
+    node_type: appellation
+    name: Ribera del Duero
+  - id: n_geo_rueda
+    node_type: appellation
+    name: Rueda
+  - id: n_geo_toro
+    node_type: appellation
+    name: Toro
+  - id: n_geo_bierzo
+    node_type: appellation
+    name: Bierzo
+  - id: n_geo_priorat
+    node_type: appellation
+    name: Priorat
+  - id: n_geo_montsant
+    node_type: appellation
+    name: Montsant
+  - id: n_geo_cava
+    node_type: appellation
+    name: Cava
+  - id: n_geo_rias_baixas
+    node_type: appellation
+    name: Rías Baixas
+  - id: n_geo_ribeira_sacra
+    node_type: appellation
+    name: Ribeira Sacra
+  - id: n_geo_ribeiro
+    node_type: appellation
+    name: Ribeiro
+  - id: n_geo_valdeorras
+    node_type: appellation
+    name: Valdeorras
+  - id: n_geo_jerez
+    node_type: appellation
+    name: Jerez-Xérès-Sherry
+  - id: n_geo_manzanilla_sanlucar
+    node_type: appellation
+    name: Manzanilla-Sanlúcar de Barrameda
+  - id: n_geo_somontano
+    node_type: appellation
+    name: Somontano
+  - id: n_geo_carinena
+    node_type: appellation
+    name: Cariñena
+  - id: n_geo_jumilla
+    node_type: appellation
+    name: Jumilla
+  - id: n_geo_rioja_alta
+    node_type: subregion
+    name: Rioja Alta
+  - id: n_geo_rioja_alavesa
+    node_type: subregion
+    name: Rioja Alavesa
+  - id: n_geo_rioja_oriental
+    node_type: subregion
+    name: Rioja Oriental
+  - id: n_geo_val_do_salnes
+    node_type: subregion
+    name: Val do Salnés
+  - id: n_geo_o_rosal
+    node_type: subregion
+    name: O Rosal
+  - id: n_geo_condado_do_tea
+    node_type: subregion
+    name: Condado do Tea
+  - id: n_geo_soutomaior
+    node_type: subregion
+    name: Soutomaior
+  - id: n_geo_ribeira_do_ulla
+    node_type: subregion
+    name: Ribeira do Ulla
+  - id: n_geo_douro
+    node_type: appellation
+    name: Douro
+  - id: n_geo_vinho_verde
+    node_type: appellation
+    name: Vinho Verde
+  - id: n_geo_dao
+    node_type: appellation
+    name: Dão
+  - id: n_geo_bairrada
+    node_type: appellation
+    name: Bairrada
+  - id: n_geo_alentejo
+    node_type: appellation
+    name: Alentejo
+  - id: n_geo_madeira
+    node_type: appellation
+    name: Madeira
+  - id: n_geo_tejo
+    node_type: appellation
+    name: Tejo
+  - id: n_geo_colares
+    node_type: appellation
+    name: Colares
+  - id: n_geo_setubal
+    node_type: appellation
+    name: Setúbal
+  - id: n_geo_pico
+    node_type: appellation
+    name: Pico
+  - id: n_geo_baixo_corgo
+    node_type: subregion
+    name: Baixo Corgo
+  - id: n_geo_cima_corgo
+    node_type: subregion
+    name: Cima Corgo
+  - id: n_geo_douro_superior
+    node_type: subregion
+    name: Douro Superior
+  - id: n_geo_moncao_melgaco
+    node_type: subregion
+    name: Monção e Melgaço
+  - id: n_geo_lima
+    node_type: subregion
+    name: Lima
+  - id: n_geo_basto
+    node_type: subregion
+    name: Basto
+  - id: n_geo_cavado
+    node_type: subregion
+    name: Cávado
+  - id: n_geo_ave
+    node_type: subregion
+    name: Ave
+  - id: n_geo_amarante
+    node_type: subregion
+    name: Amarante
+  - id: n_geo_baiao
+    node_type: subregion
+    name: Baião
+  - id: n_geo_sousa
+    node_type: subregion
+    name: Sousa
+  - id: n_geo_paiva
+    node_type: subregion
+    name: Paiva
+  - id: n_geo_portalegre
+    node_type: subregion
+    name: Portalegre
+  - id: n_geo_borba
+    node_type: subregion
+    name: Borba
+  - id: n_geo_redondo
+    node_type: subregion
+    name: Redondo
+  - id: n_geo_reguengos
+    node_type: subregion
+    name: Reguengos
+  - id: n_geo_evora
+    node_type: subregion
+    name: Évora
+  - id: n_geo_vidigueira
+    node_type: subregion
+    name: Vidigueira
+  - id: n_geo_moura
+    node_type: subregion
+    name: Moura
+  - id: n_geo_granja_amareleja
+    node_type: subregion
+    name: Granja-Amareleja
+  - id: n_geo_california
+    node_type: region
+    name: California
+  - id: n_geo_oregon
+    node_type: region
+    name: Oregon
+  - id: n_geo_washington
+    node_type: region
+    name: Washington
+  - id: n_geo_napa_valley
+    node_type: appellation
+    name: Napa Valley
+  - id: n_geo_sonoma_coast
+    node_type: appellation
+    name: Sonoma Coast
+  - id: n_geo_russian_river_valley
+    node_type: appellation
+    name: Russian River Valley
+  - id: n_geo_dry_creek_valley
+    node_type: appellation
+    name: Dry Creek Valley
+  - id: n_geo_alexander_valley
+    node_type: appellation
+    name: Alexander Valley
+  - id: n_geo_central_coast
+    node_type: appellation
+    name: Central Coast (California)
+  - id: n_geo_paso_robles
+    node_type: appellation
+    name: Paso Robles
+  - id: n_geo_santa_ynez_valley
+    node_type: appellation
+    name: Santa Ynez Valley
+  - id: n_geo_sta_rita_hills
+    node_type: appellation
+    name: Sta. Rita Hills
+  - id: n_geo_santa_maria_valley
+    node_type: appellation
+    name: Santa Maria Valley
+  - id: n_geo_santa_lucia_highlands
+    node_type: appellation
+    name: Santa Lucia Highlands
+  - id: n_geo_oakville
+    node_type: appellation
+    name: Oakville
+  - id: n_geo_rutherford
+    node_type: appellation
+    name: Rutherford
+  - id: n_geo_st_helena
+    node_type: appellation
+    name: St. Helena
+  - id: n_geo_calistoga
+    node_type: appellation
+    name: Calistoga
+  - id: n_geo_los_carneros
+    node_type: appellation
+    name: Los Carneros
+  - id: n_geo_willamette_valley
+    node_type: appellation
+    name: Willamette Valley
+  - id: n_geo_dundee_hills
+    node_type: appellation
+    name: Dundee Hills
+  - id: n_geo_eola_amity_hills
+    node_type: appellation
+    name: Eola-Amity Hills
+  - id: n_geo_chehalem_mountains
+    node_type: appellation
+    name: Chehalem Mountains
+  - id: n_geo_ribbon_ridge
+    node_type: appellation
+    name: Ribbon Ridge
+  - id: n_geo_columbia_valley
+    node_type: appellation
+    name: Columbia Valley
+  - id: n_geo_yakima_valley
+    node_type: appellation
+    name: Yakima Valley
+  - id: n_geo_red_mountain
+    node_type: appellation
+    name: Red Mountain
+  - id: n_geo_walla_walla_valley
+    node_type: appellation
+    name: Walla Walla Valley
+  - id: n_geo_ontario
+    node_type: region
+    name: Ontario
+  - id: n_geo_niagara_peninsula
+    node_type: appellation
+    name: Niagara Peninsula
+  - id: n_geo_lake_erie_north_shore
+    node_type: appellation
+    name: Lake Erie North Shore
+  - id: n_geo_prince_edward_county
+    node_type: appellation
+    name: Prince Edward County
+  - id: n_geo_british_columbia
+    node_type: region
+    name: British Columbia
+  - id: n_geo_okanagan_valley
+    node_type: appellation
+    name: Okanagan Valley
+  - id: n_geo_similkameen_valley
+    node_type: appellation
+    name: Similkameen Valley
+  - id: n_geo_golden_mile_bench
+    node_type: subregion
+    name: Golden Mile Bench
+  - id: n_geo_coquimbo_wine
+    node_type: region
+    name: Coquimbo (wine region)
+  - id: n_geo_aconcagua_wine
+    node_type: region
+    name: Aconcagua (wine region)
+  - id: n_geo_central_valley_chile
+    node_type: region
+    name: Central Valley (Chile)
+  - id: n_geo_southern_chile
+    node_type: region
+    name: Southern Region (Chile)
+  - id: n_geo_elqui
+    node_type: subregion
+    name: Elqui Valley
+  - id: n_geo_limari
+    node_type: subregion
+    name: Limarí Valley
+  - id: n_geo_choapa
+    node_type: subregion
+    name: Choapa Valley
+  - id: n_geo_aconcagua_valley
+    node_type: subregion
+    name: Aconcagua Valley
+  - id: n_geo_casablanca
+    node_type: subregion
+    name: Casablanca Valley
+  - id: n_geo_san_antonio_valley
+    node_type: subregion
+    name: San Antonio Valley
+  - id: n_geo_leyda
+    node_type: subregion
+    name: Leyda Valley
+  - id: n_geo_maipo
+    node_type: subregion
+    name: Maipo Valley
+  - id: n_geo_rapel
+    node_type: subregion
+    name: Rapel Valley
+  - id: n_geo_cachapoal
+    node_type: subregion
+    name: Cachapoal Valley
+  - id: n_geo_colchagua
+    node_type: subregion
+    name: Colchagua Valley
+  - id: n_geo_curico
+    node_type: subregion
+    name: Curicó Valley
+  - id: n_geo_maule
+    node_type: subregion
+    name: Maule Valley
+  - id: n_geo_itata
+    node_type: subregion
+    name: Itata Valley
+  - id: n_geo_bio_bio
+    node_type: subregion
+    name: Bío Bío Valley
+  - id: n_geo_malleco
+    node_type: subregion
+    name: Malleco Valley
+  - id: n_geo_mendoza
+    node_type: region
+    name: Mendoza
+  - id: n_geo_salta
+    node_type: region
+    name: Salta
+  - id: n_geo_rio_negro
+    node_type: region
+    name: Río Negro
+  - id: n_geo_neuquen
+    node_type: region
+    name: Neuquén
+  - id: n_geo_lujan_de_cuyo
+    node_type: appellation
+    name: Luján de Cuyo
+  - id: n_geo_maipu
+    node_type: appellation
+    name: Maipú
+  - id: n_geo_cafayate
+    node_type: appellation
+    name: Valle de Cafayate
+  - id: n_geo_tupungato
+    node_type: appellation
+    name: Tupungato
+  - id: n_geo_tunuyan
+    node_type: appellation
+    name: Tunuyán
+  - id: n_geo_san_carlos_mendoza
+    node_type: appellation
+    name: San Carlos (Mendoza)
+  - id: n_geo_uco_valley
+    node_type: appellation
+    name: Uco Valley
+  - id: n_geo_paraje_altamira
+    node_type: appellation
+    name: Paraje Altamira
+  - id: n_geo_south_australia
+    node_type: region
+    name: South Australia
+  - id: n_geo_victoria
+    node_type: region
+    name: Victoria
+  - id: n_geo_western_australia
+    node_type: region
+    name: Western Australia
+  - id: n_geo_barossa_zone
+    node_type: region
+    name: Barossa (zone)
+  - id: n_geo_mount_lofty_ranges
+    node_type: region
+    name: Mount Lofty Ranges (zone)
+  - id: n_geo_limestone_coast
+    node_type: region
+    name: Limestone Coast (zone)
+  - id: n_geo_port_phillip
+    node_type: region
+    name: Port Phillip (zone)
+  - id: n_geo_barossa_valley
+    node_type: appellation
+    name: Barossa Valley
+  - id: n_geo_eden_valley
+    node_type: appellation
+    name: Eden Valley
+  - id: n_geo_high_eden
+    node_type: subregion
+    name: High Eden
+  - id: n_geo_clare_valley
+    node_type: appellation
+    name: Clare Valley
+  - id: n_geo_adelaide_hills
+    node_type: appellation
+    name: Adelaide Hills
+  - id: n_geo_mclaren_vale
+    node_type: appellation
+    name: McLaren Vale
+  - id: n_geo_coonawarra
+    node_type: appellation
+    name: Coonawarra
+  - id: n_geo_yarra_valley
+    node_type: appellation
+    name: Yarra Valley
+  - id: n_geo_mornington_peninsula
+    node_type: appellation
+    name: Mornington Peninsula
+  - id: n_geo_margaret_river
+    node_type: appellation
+    name: Margaret River
+  - id: n_geo_great_southern
+    node_type: appellation
+    name: Great Southern
+  - id: n_geo_hunter
+    node_type: appellation
+    name: Hunter
+  - id: n_geo_tasmania
+    node_type: region
+    name: Tasmania
+  - id: n_geo_marlborough
+    node_type: appellation
+    name: Marlborough
+  - id: n_geo_central_otago
+    node_type: appellation
+    name: Central Otago
+  - id: n_geo_hawkes_bay
+    node_type: appellation
+    name: Hawke’s Bay
+  - id: n_geo_wairarapa
+    node_type: appellation
+    name: Wairarapa
+  - id: n_geo_martinborough
+    node_type: appellation
+    name: Martinborough
+  - id: n_geo_gisborne
+    node_type: appellation
+    name: Gisborne
+  - id: n_geo_nelson
+    node_type: appellation
+    name: Nelson
+  - id: n_geo_north_canterbury
+    node_type: appellation
+    name: North Canterbury
+  - id: n_geo_waipara_valley
+    node_type: appellation
+    name: Waipara Valley
+  - id: n_geo_bannockburn
+    node_type: appellation
+    name: Bannockburn
+  - id: n_geo_western_cape
+    node_type: region
+    name: Western Cape
+  - id: n_geo_coastal_region
+    node_type: region
+    name: Coastal Region
+  - id: n_geo_cape_south_coast
+    node_type: region
+    name: Cape South Coast
+  - id: n_geo_stellenbosch
+    node_type: appellation
+    name: Stellenbosch
+  - id: n_geo_paarl
+    node_type: appellation
+    name: Paarl
+  - id: n_geo_swartland
+    node_type: appellation
+    name: Swartland
+  - id: n_geo_constantia
+    node_type: subregion
+    name: Constantia
+  - id: n_geo_walker_bay
+    node_type: appellation
+    name: Walker Bay
+  - id: n_geo_elgin
+    node_type: appellation
+    name: Elgin
+  - id: n_geo_hemel_en_aarde_valley
+    node_type: subregion
+    name: Hemel-en-Aarde Valley
+  - id: n_geo_kakheti
+    node_type: region
+    name: Kakheti
+  - id: n_geo_kartli
+    node_type: region
+    name: Kartli
+  - id: n_geo_imereti
+    node_type: region
+    name: Imereti
+  - id: n_geo_bekaa_valley
+    node_type: region
+    name: Bekaa Valley
+  - id: n_geo_batroun
+    node_type: region
+    name: Batroun
+  - id: n_geo_mount_lebanon
+    node_type: region
+    name: Mount Lebanon
+relation_type_signatures:
+  - relation_type: LOCATED_IN
+    subject_node_type: region
+    object_node_type: region
+  - relation_type: LOCATED_IN
+    subject_node_type: subregion
+    object_node_type: appellation
+node_alternative_names:
+  - knowledge_node_id: n_geo_united_states
+    name: USA
+    kind: synonym
+  - knowledge_node_id: n_geo_united_states
+    name: United States of America
+    kind: synonym
+  - knowledge_node_id: n_geo_lombardy
+    name: Lombardia
+    kind: synonym
+  - knowledge_node_id: n_geo_sicily
+    name: Sicilia
+    kind: synonym
+  - knowledge_node_id: n_geo_castilla_y_leon
+    name: Castile and León
+    kind: synonym
+  - knowledge_node_id: n_geo_aragon
+    name: Aragon
+    kind: synonym
+  - knowledge_node_id: n_geo_rioja_oriental
+    name: Rioja Baja
+    kind: synonym
+  - knowledge_node_id: n_geo_carinena
+    name: Carinena
+    kind: synonym
+  - knowledge_node_id: n_geo_barbera_d_asti
+    name: Barbera d'Asti
+    kind: synonym
+  - knowledge_node_id: n_geo_hawkes_bay
+    name: Hawke's Bay
+    kind: synonym
+  - knowledge_node_id: n_geo_hawkes_bay
+    name: Hawkes Bay
+    kind: synonym
+  - knowledge_node_id: n_geo_bekaa_valley
+    name: Beqaa Valley
+    kind: synonym
+  - knowledge_node_id: n_geo_manzanilla_sanlucar
+    name: Manzanilla
+    kind: synonym
+  - knowledge_node_id: n_geo_jerez
+    name: Sherry
+    kind: synonym
+  - knowledge_node_id: n_geo_jerez
+    name: Jerez
+    kind: synonym
+  - knowledge_node_id: n_geo_central_coast
+    name: Central Coast
+    kind: synonym
+  - knowledge_node_id: n_geo_conegliano_valdobbiadene
+    name: Conegliano Valdobbiadene
+    kind: synonym
+  - knowledge_node_id: n_geo_collio
+    name: Collio
+    kind: synonym
+  - knowledge_node_id: n_geo_tejo
+    name: Ribatejo
+    kind: synonym
+  - knowledge_node_id: n_geo_gavi
+    name: Cortese di Gavi
+    kind: synonym
+  - knowledge_node_id: n_geo_waipara_valley
+    name: Waipara
+    kind: synonym
+  - knowledge_node_id: n_geo_cafayate
+    name: Cafayate
+    kind: synonym
+  - knowledge_node_id: n_geo_tupungato
+    name: Valle de Tupungato
+    kind: synonym
+  - knowledge_node_id: n_geo_southern_chile
+    name: Región Vitícola del Sur
+    kind: synonym
+knowledge_relations:
+  - subject_id: n_geo_veneto
+    relation_type: LOCATED_IN
+    object_id: n_geo_italy
+    valid_from: 1900-01-01
+  - subject_id: n_geo_lombardy
+    relation_type: LOCATED_IN
+    object_id: n_geo_italy
+    valid_from: 1900-01-01
+  - subject_id: n_geo_friuli_venezia_giulia
+    relation_type: LOCATED_IN
+    object_id: n_geo_italy
+    valid_from: 1900-01-01
+  - subject_id: n_geo_marche
+    relation_type: LOCATED_IN
+    object_id: n_geo_italy
+    valid_from: 1900-01-01
+  - subject_id: n_geo_campania
+    relation_type: LOCATED_IN
+    object_id: n_geo_italy
+    valid_from: 1900-01-01
+  - subject_id: n_geo_sicily
+    relation_type: LOCATED_IN
+    object_id: n_geo_italy
+    valid_from: 1900-01-01
+  - subject_id: n_geo_roero
+    relation_type: LOCATED_IN
+    object_id: n_geo_piedmont
+    valid_from: 1900-01-01
+  - subject_id: n_geo_barbera_d_asti
+    relation_type: LOCATED_IN
+    object_id: n_geo_piedmont
+    valid_from: 1900-01-01
+  - subject_id: n_geo_nizza
+    relation_type: LOCATED_IN
+    object_id: n_geo_piedmont
+    valid_from: 1900-01-01
+  - subject_id: n_geo_gavi
+    relation_type: LOCATED_IN
+    object_id: n_geo_piedmont
+    valid_from: 1900-01-01
+  - subject_id: n_geo_asti
+    relation_type: LOCATED_IN
+    object_id: n_geo_piedmont
+    valid_from: 1900-01-01
+  - subject_id: n_geo_dogliani
+    relation_type: LOCATED_IN
+    object_id: n_geo_piedmont
+    valid_from: 1900-01-01
+  - subject_id: n_geo_gattinara
+    relation_type: LOCATED_IN
+    object_id: n_geo_piedmont
+    valid_from: 1900-01-01
+  - subject_id: n_geo_ghemme
+    relation_type: LOCATED_IN
+    object_id: n_geo_piedmont
+    valid_from: 1900-01-01
+  - subject_id: n_geo_chianti
+    relation_type: LOCATED_IN
+    object_id: n_geo_tuscany
+    valid_from: 1900-01-01
+  - subject_id: n_geo_vino_nobile_di_montepulciano
+    relation_type: LOCATED_IN
+    object_id: n_geo_tuscany
+    valid_from: 1900-01-01
+  - subject_id: n_geo_bolgheri
+    relation_type: LOCATED_IN
+    object_id: n_geo_tuscany
+    valid_from: 1900-01-01
+  - subject_id: n_geo_morellino_di_scansano
+    relation_type: LOCATED_IN
+    object_id: n_geo_tuscany
+    valid_from: 1900-01-01
+  - subject_id: n_geo_carmignano
+    relation_type: LOCATED_IN
+    object_id: n_geo_tuscany
+    valid_from: 1900-01-01
+  - subject_id: n_geo_vernaccia_di_san_gimignano
+    relation_type: LOCATED_IN
+    object_id: n_geo_tuscany
+    valid_from: 1900-01-01
+  - subject_id: n_geo_valpolicella
+    relation_type: LOCATED_IN
+    object_id: n_geo_veneto
+    valid_from: 1900-01-01
+  - subject_id: n_geo_soave
+    relation_type: LOCATED_IN
+    object_id: n_geo_veneto
+    valid_from: 1900-01-01
+  - subject_id: n_geo_conegliano_valdobbiadene
+    relation_type: LOCATED_IN
+    object_id: n_geo_veneto
+    valid_from: 1900-01-01
+  - subject_id: n_geo_asolo_prosecco
+    relation_type: LOCATED_IN
+    object_id: n_geo_veneto
+    valid_from: 1900-01-01
+  - subject_id: n_geo_franciacorta
+    relation_type: LOCATED_IN
+    object_id: n_geo_lombardy
+    valid_from: 1900-01-01
+  - subject_id: n_geo_collio
+    relation_type: LOCATED_IN
+    object_id: n_geo_friuli_venezia_giulia
+    valid_from: 1900-01-01
+  - subject_id: n_geo_verdicchio_castelli_jesi
+    relation_type: LOCATED_IN
+    object_id: n_geo_marche
+    valid_from: 1900-01-01
+  - subject_id: n_geo_taurasi
+    relation_type: LOCATED_IN
+    object_id: n_geo_campania
+    valid_from: 1900-01-01
+  - subject_id: n_geo_etna
+    relation_type: LOCATED_IN
+    object_id: n_geo_sicily
+    valid_from: 1900-01-01
+  - subject_id: n_geo_galicia
+    relation_type: LOCATED_IN
+    object_id: n_geo_spain
+    valid_from: 1900-01-01
+  - subject_id: n_geo_castilla_y_leon
+    relation_type: LOCATED_IN
+    object_id: n_geo_spain
+    valid_from: 1900-01-01
+  - subject_id: n_geo_catalonia
+    relation_type: LOCATED_IN
+    object_id: n_geo_spain
+    valid_from: 1900-01-01
+  - subject_id: n_geo_andalusia
+    relation_type: LOCATED_IN
+    object_id: n_geo_spain
+    valid_from: 1900-01-01
+  - subject_id: n_geo_aragon
+    relation_type: LOCATED_IN
+    object_id: n_geo_spain
+    valid_from: 1900-01-01
+  - subject_id: n_geo_rioja
+    relation_type: LOCATED_IN
+    object_id: n_geo_spain
+    valid_from: 1900-01-01
+  - subject_id: n_geo_ribera_del_duero
+    relation_type: LOCATED_IN
+    object_id: n_geo_castilla_y_leon
+    valid_from: 1900-01-01
+  - subject_id: n_geo_rueda
+    relation_type: LOCATED_IN
+    object_id: n_geo_castilla_y_leon
+    valid_from: 1900-01-01
+  - subject_id: n_geo_toro
+    relation_type: LOCATED_IN
+    object_id: n_geo_castilla_y_leon
+    valid_from: 1900-01-01
+  - subject_id: n_geo_bierzo
+    relation_type: LOCATED_IN
+    object_id: n_geo_castilla_y_leon
+    valid_from: 1900-01-01
+  - subject_id: n_geo_priorat
+    relation_type: LOCATED_IN
+    object_id: n_geo_catalonia
+    valid_from: 1900-01-01
+  - subject_id: n_geo_montsant
+    relation_type: LOCATED_IN
+    object_id: n_geo_catalonia
+    valid_from: 1900-01-01
+  - subject_id: n_geo_cava
+    relation_type: LOCATED_IN
+    object_id: n_geo_spain
+    valid_from: 1900-01-01
+  - subject_id: n_geo_rias_baixas
+    relation_type: LOCATED_IN
+    object_id: n_geo_galicia
+    valid_from: 1900-01-01
+  - subject_id: n_geo_ribeira_sacra
+    relation_type: LOCATED_IN
+    object_id: n_geo_galicia
+    valid_from: 1900-01-01
+  - subject_id: n_geo_ribeiro
+    relation_type: LOCATED_IN
+    object_id: n_geo_galicia
+    valid_from: 1900-01-01
+  - subject_id: n_geo_valdeorras
+    relation_type: LOCATED_IN
+    object_id: n_geo_galicia
+    valid_from: 1900-01-01
+  - subject_id: n_geo_jerez
+    relation_type: LOCATED_IN
+    object_id: n_geo_andalusia
+    valid_from: 1900-01-01
+  - subject_id: n_geo_manzanilla_sanlucar
+    relation_type: LOCATED_IN
+    object_id: n_geo_andalusia
+    valid_from: 1900-01-01
+  - subject_id: n_geo_somontano
+    relation_type: LOCATED_IN
+    object_id: n_geo_aragon
+    valid_from: 1900-01-01
+  - subject_id: n_geo_carinena
+    relation_type: LOCATED_IN
+    object_id: n_geo_aragon
+    valid_from: 1900-01-01
+  - subject_id: n_geo_jumilla
+    relation_type: LOCATED_IN
+    object_id: n_geo_spain
+    valid_from: 1900-01-01
+  - subject_id: n_geo_rioja_alta
+    relation_type: LOCATED_IN
+    object_id: n_geo_rioja
+    valid_from: 1900-01-01
+  - subject_id: n_geo_rioja_alavesa
+    relation_type: LOCATED_IN
+    object_id: n_geo_rioja
+    valid_from: 1900-01-01
+  - subject_id: n_geo_rioja_oriental
+    relation_type: LOCATED_IN
+    object_id: n_geo_rioja
+    valid_from: 1900-01-01
+  - subject_id: n_geo_val_do_salnes
+    relation_type: LOCATED_IN
+    object_id: n_geo_rias_baixas
+    valid_from: 1900-01-01
+  - subject_id: n_geo_o_rosal
+    relation_type: LOCATED_IN
+    object_id: n_geo_rias_baixas
+    valid_from: 1900-01-01
+  - subject_id: n_geo_condado_do_tea
+    relation_type: LOCATED_IN
+    object_id: n_geo_rias_baixas
+    valid_from: 1900-01-01
+  - subject_id: n_geo_soutomaior
+    relation_type: LOCATED_IN
+    object_id: n_geo_rias_baixas
+    valid_from: 1900-01-01
+  - subject_id: n_geo_ribeira_do_ulla
+    relation_type: LOCATED_IN
+    object_id: n_geo_rias_baixas
+    valid_from: 1900-01-01
+  - subject_id: n_geo_douro
+    relation_type: LOCATED_IN
+    object_id: n_geo_portugal
+    valid_from: 1900-01-01
+  - subject_id: n_geo_vinho_verde
+    relation_type: LOCATED_IN
+    object_id: n_geo_portugal
+    valid_from: 1900-01-01
+  - subject_id: n_geo_dao
+    relation_type: LOCATED_IN
+    object_id: n_geo_portugal
+    valid_from: 1900-01-01
+  - subject_id: n_geo_bairrada
+    relation_type: LOCATED_IN
+    object_id: n_geo_portugal
+    valid_from: 1900-01-01
+  - subject_id: n_geo_alentejo
+    relation_type: LOCATED_IN
+    object_id: n_geo_portugal
+    valid_from: 1900-01-01
+  - subject_id: n_geo_madeira
+    relation_type: LOCATED_IN
+    object_id: n_geo_portugal
+    valid_from: 1900-01-01
+  - subject_id: n_geo_tejo
+    relation_type: LOCATED_IN
+    object_id: n_geo_portugal
+    valid_from: 1900-01-01
+  - subject_id: n_geo_colares
+    relation_type: LOCATED_IN
+    object_id: n_geo_portugal
+    valid_from: 1900-01-01
+  - subject_id: n_geo_setubal
+    relation_type: LOCATED_IN
+    object_id: n_geo_portugal
+    valid_from: 1900-01-01
+  - subject_id: n_geo_pico
+    relation_type: LOCATED_IN
+    object_id: n_geo_portugal
+    valid_from: 1900-01-01
+  - subject_id: n_geo_baixo_corgo
+    relation_type: LOCATED_IN
+    object_id: n_geo_douro
+    valid_from: 1900-01-01
+  - subject_id: n_geo_cima_corgo
+    relation_type: LOCATED_IN
+    object_id: n_geo_douro
+    valid_from: 1900-01-01
+  - subject_id: n_geo_douro_superior
+    relation_type: LOCATED_IN
+    object_id: n_geo_douro
+    valid_from: 1900-01-01
+  - subject_id: n_geo_moncao_melgaco
+    relation_type: LOCATED_IN
+    object_id: n_geo_vinho_verde
+    valid_from: 1900-01-01
+  - subject_id: n_geo_lima
+    relation_type: LOCATED_IN
+    object_id: n_geo_vinho_verde
+    valid_from: 1900-01-01
+  - subject_id: n_geo_basto
+    relation_type: LOCATED_IN
+    object_id: n_geo_vinho_verde
+    valid_from: 1900-01-01
+  - subject_id: n_geo_cavado
+    relation_type: LOCATED_IN
+    object_id: n_geo_vinho_verde
+    valid_from: 1900-01-01
+  - subject_id: n_geo_ave
+    relation_type: LOCATED_IN
+    object_id: n_geo_vinho_verde
+    valid_from: 1900-01-01
+  - subject_id: n_geo_amarante
+    relation_type: LOCATED_IN
+    object_id: n_geo_vinho_verde
+    valid_from: 1900-01-01
+  - subject_id: n_geo_baiao
+    relation_type: LOCATED_IN
+    object_id: n_geo_vinho_verde
+    valid_from: 1900-01-01
+  - subject_id: n_geo_sousa
+    relation_type: LOCATED_IN
+    object_id: n_geo_vinho_verde
+    valid_from: 1900-01-01
+  - subject_id: n_geo_paiva
+    relation_type: LOCATED_IN
+    object_id: n_geo_vinho_verde
+    valid_from: 1900-01-01
+  - subject_id: n_geo_portalegre
+    relation_type: LOCATED_IN
+    object_id: n_geo_alentejo
+    valid_from: 1900-01-01
+  - subject_id: n_geo_borba
+    relation_type: LOCATED_IN
+    object_id: n_geo_alentejo
+    valid_from: 1900-01-01
+  - subject_id: n_geo_redondo
+    relation_type: LOCATED_IN
+    object_id: n_geo_alentejo
+    valid_from: 1900-01-01
+  - subject_id: n_geo_reguengos
+    relation_type: LOCATED_IN
+    object_id: n_geo_alentejo
+    valid_from: 1900-01-01
+  - subject_id: n_geo_evora
+    relation_type: LOCATED_IN
+    object_id: n_geo_alentejo
+    valid_from: 1900-01-01
+  - subject_id: n_geo_vidigueira
+    relation_type: LOCATED_IN
+    object_id: n_geo_alentejo
+    valid_from: 1900-01-01
+  - subject_id: n_geo_moura
+    relation_type: LOCATED_IN
+    object_id: n_geo_alentejo
+    valid_from: 1900-01-01
+  - subject_id: n_geo_granja_amareleja
+    relation_type: LOCATED_IN
+    object_id: n_geo_alentejo
+    valid_from: 1900-01-01
+  - subject_id: n_geo_california
+    relation_type: LOCATED_IN
+    object_id: n_geo_united_states
+    valid_from: 1900-01-01
+  - subject_id: n_geo_oregon
+    relation_type: LOCATED_IN
+    object_id: n_geo_united_states
+    valid_from: 1900-01-01
+  - subject_id: n_geo_washington
+    relation_type: LOCATED_IN
+    object_id: n_geo_united_states
+    valid_from: 1900-01-01
+  - subject_id: n_geo_napa_valley
+    relation_type: LOCATED_IN
+    object_id: n_geo_california
+    valid_from: 1900-01-01
+  - subject_id: n_geo_sonoma_coast
+    relation_type: LOCATED_IN
+    object_id: n_geo_california
+    valid_from: 1900-01-01
+  - subject_id: n_geo_russian_river_valley
+    relation_type: LOCATED_IN
+    object_id: n_geo_california
+    valid_from: 1900-01-01
+  - subject_id: n_geo_dry_creek_valley
+    relation_type: LOCATED_IN
+    object_id: n_geo_california
+    valid_from: 1900-01-01
+  - subject_id: n_geo_alexander_valley
+    relation_type: LOCATED_IN
+    object_id: n_geo_california
+    valid_from: 1900-01-01
+  - subject_id: n_geo_central_coast
+    relation_type: LOCATED_IN
+    object_id: n_geo_california
+    valid_from: 1900-01-01
+  - subject_id: n_geo_paso_robles
+    relation_type: LOCATED_IN
+    object_id: n_geo_central_coast
+    valid_from: 1900-01-01
+  - subject_id: n_geo_santa_ynez_valley
+    relation_type: LOCATED_IN
+    object_id: n_geo_central_coast
+    valid_from: 1900-01-01
+  - subject_id: n_geo_sta_rita_hills
+    relation_type: LOCATED_IN
+    object_id: n_geo_santa_ynez_valley
+    valid_from: 1900-01-01
+  - subject_id: n_geo_santa_maria_valley
+    relation_type: LOCATED_IN
+    object_id: n_geo_central_coast
+    valid_from: 1900-01-01
+  - subject_id: n_geo_santa_lucia_highlands
+    relation_type: LOCATED_IN
+    object_id: n_geo_central_coast
+    valid_from: 1900-01-01
+  - subject_id: n_geo_oakville
+    relation_type: LOCATED_IN
+    object_id: n_geo_napa_valley
+    valid_from: 1900-01-01
+  - subject_id: n_geo_rutherford
+    relation_type: LOCATED_IN
+    object_id: n_geo_napa_valley
+    valid_from: 1900-01-01
+  - subject_id: n_geo_st_helena
+    relation_type: LOCATED_IN
+    object_id: n_geo_napa_valley
+    valid_from: 1900-01-01
+  - subject_id: n_geo_calistoga
+    relation_type: LOCATED_IN
+    object_id: n_geo_napa_valley
+    valid_from: 1900-01-01
+  - subject_id: n_geo_los_carneros
+    relation_type: LOCATED_IN
+    object_id: n_geo_california
+    valid_from: 1900-01-01
+  - subject_id: n_geo_willamette_valley
+    relation_type: LOCATED_IN
+    object_id: n_geo_oregon
+    valid_from: 1900-01-01
+  - subject_id: n_geo_dundee_hills
+    relation_type: LOCATED_IN
+    object_id: n_geo_willamette_valley
+    valid_from: 1900-01-01
+  - subject_id: n_geo_eola_amity_hills
+    relation_type: LOCATED_IN
+    object_id: n_geo_willamette_valley
+    valid_from: 1900-01-01
+  - subject_id: n_geo_chehalem_mountains
+    relation_type: LOCATED_IN
+    object_id: n_geo_willamette_valley
+    valid_from: 1900-01-01
+  - subject_id: n_geo_ribbon_ridge
+    relation_type: LOCATED_IN
+    object_id: n_geo_chehalem_mountains
+    valid_from: 1900-01-01
+  - subject_id: n_geo_columbia_valley
+    relation_type: LOCATED_IN
+    object_id: n_geo_united_states
+    valid_from: 1900-01-01
+  - subject_id: n_geo_yakima_valley
+    relation_type: LOCATED_IN
+    object_id: n_geo_columbia_valley
+    valid_from: 1900-01-01
+  - subject_id: n_geo_red_mountain
+    relation_type: LOCATED_IN
+    object_id: n_geo_yakima_valley
+    valid_from: 1900-01-01
+  - subject_id: n_geo_walla_walla_valley
+    relation_type: LOCATED_IN
+    object_id: n_geo_columbia_valley
+    valid_from: 1900-01-01
+  - subject_id: n_geo_ontario
+    relation_type: LOCATED_IN
+    object_id: n_geo_canada
+    valid_from: 1900-01-01
+  - subject_id: n_geo_niagara_peninsula
+    relation_type: LOCATED_IN
+    object_id: n_geo_ontario
+    valid_from: 1900-01-01
+  - subject_id: n_geo_lake_erie_north_shore
+    relation_type: LOCATED_IN
+    object_id: n_geo_ontario
+    valid_from: 1900-01-01
+  - subject_id: n_geo_prince_edward_county
+    relation_type: LOCATED_IN
+    object_id: n_geo_ontario
+    valid_from: 1900-01-01
+  - subject_id: n_geo_british_columbia
+    relation_type: LOCATED_IN
+    object_id: n_geo_canada
+    valid_from: 1900-01-01
+  - subject_id: n_geo_okanagan_valley
+    relation_type: LOCATED_IN
+    object_id: n_geo_british_columbia
+    valid_from: 1900-01-01
+  - subject_id: n_geo_similkameen_valley
+    relation_type: LOCATED_IN
+    object_id: n_geo_british_columbia
+    valid_from: 1900-01-01
+  - subject_id: n_geo_golden_mile_bench
+    relation_type: LOCATED_IN
+    object_id: n_geo_okanagan_valley
+    valid_from: 1900-01-01
+  - subject_id: n_geo_coquimbo_wine
+    relation_type: LOCATED_IN
+    object_id: n_geo_chile
+    valid_from: 1900-01-01
+  - subject_id: n_geo_aconcagua_wine
+    relation_type: LOCATED_IN
+    object_id: n_geo_chile
+    valid_from: 1900-01-01
+  - subject_id: n_geo_central_valley_chile
+    relation_type: LOCATED_IN
+    object_id: n_geo_chile
+    valid_from: 1900-01-01
+  - subject_id: n_geo_southern_chile
+    relation_type: LOCATED_IN
+    object_id: n_geo_chile
+    valid_from: 1900-01-01
+  - subject_id: n_geo_elqui
+    relation_type: LOCATED_IN
+    object_id: n_geo_coquimbo_wine
+    valid_from: 1900-01-01
+  - subject_id: n_geo_limari
+    relation_type: LOCATED_IN
+    object_id: n_geo_coquimbo_wine
+    valid_from: 1900-01-01
+  - subject_id: n_geo_choapa
+    relation_type: LOCATED_IN
+    object_id: n_geo_coquimbo_wine
+    valid_from: 1900-01-01
+  - subject_id: n_geo_aconcagua_valley
+    relation_type: LOCATED_IN
+    object_id: n_geo_aconcagua_wine
+    valid_from: 1900-01-01
+  - subject_id: n_geo_casablanca
+    relation_type: LOCATED_IN
+    object_id: n_geo_aconcagua_wine
+    valid_from: 1900-01-01
+  - subject_id: n_geo_san_antonio_valley
+    relation_type: LOCATED_IN
+    object_id: n_geo_aconcagua_wine
+    valid_from: 1900-01-01
+  - subject_id: n_geo_leyda
+    relation_type: LOCATED_IN
+    object_id: n_geo_san_antonio_valley
+    valid_from: 1900-01-01
+  - subject_id: n_geo_maipo
+    relation_type: LOCATED_IN
+    object_id: n_geo_central_valley_chile
+    valid_from: 1900-01-01
+  - subject_id: n_geo_rapel
+    relation_type: LOCATED_IN
+    object_id: n_geo_central_valley_chile
+    valid_from: 1900-01-01
+  - subject_id: n_geo_cachapoal
+    relation_type: LOCATED_IN
+    object_id: n_geo_rapel
+    valid_from: 1900-01-01
+  - subject_id: n_geo_colchagua
+    relation_type: LOCATED_IN
+    object_id: n_geo_rapel
+    valid_from: 1900-01-01
+  - subject_id: n_geo_curico
+    relation_type: LOCATED_IN
+    object_id: n_geo_central_valley_chile
+    valid_from: 1900-01-01
+  - subject_id: n_geo_maule
+    relation_type: LOCATED_IN
+    object_id: n_geo_central_valley_chile
+    valid_from: 1900-01-01
+  - subject_id: n_geo_itata
+    relation_type: LOCATED_IN
+    object_id: n_geo_southern_chile
+    valid_from: 1900-01-01
+  - subject_id: n_geo_bio_bio
+    relation_type: LOCATED_IN
+    object_id: n_geo_southern_chile
+    valid_from: 1900-01-01
+  - subject_id: n_geo_malleco
+    relation_type: LOCATED_IN
+    object_id: n_geo_southern_chile
+    valid_from: 1900-01-01
+  - subject_id: n_geo_mendoza
+    relation_type: LOCATED_IN
+    object_id: n_geo_argentina
+    valid_from: 1900-01-01
+  - subject_id: n_geo_salta
+    relation_type: LOCATED_IN
+    object_id: n_geo_argentina
+    valid_from: 1900-01-01
+  - subject_id: n_geo_rio_negro
+    relation_type: LOCATED_IN
+    object_id: n_geo_argentina
+    valid_from: 1900-01-01
+  - subject_id: n_geo_neuquen
+    relation_type: LOCATED_IN
+    object_id: n_geo_argentina
+    valid_from: 1900-01-01
+  - subject_id: n_geo_lujan_de_cuyo
+    relation_type: LOCATED_IN
+    object_id: n_geo_mendoza
+    valid_from: 1900-01-01
+  - subject_id: n_geo_maipu
+    relation_type: LOCATED_IN
+    object_id: n_geo_mendoza
+    valid_from: 1900-01-01
+  - subject_id: n_geo_cafayate
+    relation_type: LOCATED_IN
+    object_id: n_geo_salta
+    valid_from: 1900-01-01
+  - subject_id: n_geo_tupungato
+    relation_type: LOCATED_IN
+    object_id: n_geo_uco_valley
+    valid_from: 1900-01-01
+  - subject_id: n_geo_tunuyan
+    relation_type: LOCATED_IN
+    object_id: n_geo_uco_valley
+    valid_from: 1900-01-01
+  - subject_id: n_geo_san_carlos_mendoza
+    relation_type: LOCATED_IN
+    object_id: n_geo_uco_valley
+    valid_from: 1900-01-01
+  - subject_id: n_geo_uco_valley
+    relation_type: LOCATED_IN
+    object_id: n_geo_mendoza
+    valid_from: 1900-01-01
+  - subject_id: n_geo_paraje_altamira
+    relation_type: LOCATED_IN
+    object_id: n_geo_san_carlos_mendoza
+    valid_from: 1900-01-01
+  - subject_id: n_geo_south_australia
+    relation_type: LOCATED_IN
+    object_id: n_geo_australia
+    valid_from: 1900-01-01
+  - subject_id: n_geo_victoria
+    relation_type: LOCATED_IN
+    object_id: n_geo_australia
+    valid_from: 1900-01-01
+  - subject_id: n_geo_western_australia
+    relation_type: LOCATED_IN
+    object_id: n_geo_australia
+    valid_from: 1900-01-01
+  - subject_id: n_geo_barossa_zone
+    relation_type: LOCATED_IN
+    object_id: n_geo_south_australia
+    valid_from: 1900-01-01
+  - subject_id: n_geo_mount_lofty_ranges
+    relation_type: LOCATED_IN
+    object_id: n_geo_south_australia
+    valid_from: 1900-01-01
+  - subject_id: n_geo_limestone_coast
+    relation_type: LOCATED_IN
+    object_id: n_geo_south_australia
+    valid_from: 1900-01-01
+  - subject_id: n_geo_port_phillip
+    relation_type: LOCATED_IN
+    object_id: n_geo_victoria
+    valid_from: 1900-01-01
+  - subject_id: n_geo_barossa_valley
+    relation_type: LOCATED_IN
+    object_id: n_geo_barossa_zone
+    valid_from: 1900-01-01
+  - subject_id: n_geo_eden_valley
+    relation_type: LOCATED_IN
+    object_id: n_geo_barossa_zone
+    valid_from: 1900-01-01
+  - subject_id: n_geo_high_eden
+    relation_type: LOCATED_IN
+    object_id: n_geo_eden_valley
+    valid_from: 1900-01-01
+  - subject_id: n_geo_clare_valley
+    relation_type: LOCATED_IN
+    object_id: n_geo_mount_lofty_ranges
+    valid_from: 1900-01-01
+  - subject_id: n_geo_adelaide_hills
+    relation_type: LOCATED_IN
+    object_id: n_geo_mount_lofty_ranges
+    valid_from: 1900-01-01
+  - subject_id: n_geo_mclaren_vale
+    relation_type: LOCATED_IN
+    object_id: n_geo_south_australia
+    valid_from: 1900-01-01
+  - subject_id: n_geo_coonawarra
+    relation_type: LOCATED_IN
+    object_id: n_geo_limestone_coast
+    valid_from: 1900-01-01
+  - subject_id: n_geo_yarra_valley
+    relation_type: LOCATED_IN
+    object_id: n_geo_port_phillip
+    valid_from: 1900-01-01
+  - subject_id: n_geo_mornington_peninsula
+    relation_type: LOCATED_IN
+    object_id: n_geo_port_phillip
+    valid_from: 1900-01-01
+  - subject_id: n_geo_margaret_river
+    relation_type: LOCATED_IN
+    object_id: n_geo_western_australia
+    valid_from: 1900-01-01
+  - subject_id: n_geo_great_southern
+    relation_type: LOCATED_IN
+    object_id: n_geo_western_australia
+    valid_from: 1900-01-01
+  - subject_id: n_geo_hunter
+    relation_type: LOCATED_IN
+    object_id: n_geo_australia
+    valid_from: 1900-01-01
+  - subject_id: n_geo_tasmania
+    relation_type: LOCATED_IN
+    object_id: n_geo_australia
+    valid_from: 1900-01-01
+  - subject_id: n_geo_marlborough
+    relation_type: LOCATED_IN
+    object_id: n_geo_new_zealand
+    valid_from: 1900-01-01
+  - subject_id: n_geo_central_otago
+    relation_type: LOCATED_IN
+    object_id: n_geo_new_zealand
+    valid_from: 1900-01-01
+  - subject_id: n_geo_hawkes_bay
+    relation_type: LOCATED_IN
+    object_id: n_geo_new_zealand
+    valid_from: 1900-01-01
+  - subject_id: n_geo_wairarapa
+    relation_type: LOCATED_IN
+    object_id: n_geo_new_zealand
+    valid_from: 1900-01-01
+  - subject_id: n_geo_martinborough
+    relation_type: LOCATED_IN
+    object_id: n_geo_wairarapa
+    valid_from: 1900-01-01
+  - subject_id: n_geo_gisborne
+    relation_type: LOCATED_IN
+    object_id: n_geo_new_zealand
+    valid_from: 1900-01-01
+  - subject_id: n_geo_nelson
+    relation_type: LOCATED_IN
+    object_id: n_geo_new_zealand
+    valid_from: 1900-01-01
+  - subject_id: n_geo_north_canterbury
+    relation_type: LOCATED_IN
+    object_id: n_geo_new_zealand
+    valid_from: 1900-01-01
+  - subject_id: n_geo_waipara_valley
+    relation_type: LOCATED_IN
+    object_id: n_geo_north_canterbury
+    valid_from: 1900-01-01
+  - subject_id: n_geo_bannockburn
+    relation_type: LOCATED_IN
+    object_id: n_geo_central_otago
+    valid_from: 1900-01-01
+  - subject_id: n_geo_western_cape
+    relation_type: LOCATED_IN
+    object_id: n_geo_south_africa
+    valid_from: 1900-01-01
+  - subject_id: n_geo_coastal_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_western_cape
+    valid_from: 1900-01-01
+  - subject_id: n_geo_cape_south_coast
+    relation_type: LOCATED_IN
+    object_id: n_geo_western_cape
+    valid_from: 1900-01-01
+  - subject_id: n_geo_stellenbosch
+    relation_type: LOCATED_IN
+    object_id: n_geo_coastal_region
+    valid_from: 1900-01-01
+  - subject_id: n_geo_paarl
+    relation_type: LOCATED_IN
+    object_id: n_geo_coastal_region
+    valid_from: 1900-01-01
+  - subject_id: n_geo_swartland
+    relation_type: LOCATED_IN
+    object_id: n_geo_coastal_region
+    valid_from: 1900-01-01
+  - subject_id: n_geo_constantia
+    relation_type: LOCATED_IN
+    object_id: n_geo_coastal_region
+    valid_from: 1900-01-01
+  - subject_id: n_geo_walker_bay
+    relation_type: LOCATED_IN
+    object_id: n_geo_cape_south_coast
+    valid_from: 1900-01-01
+  - subject_id: n_geo_elgin
+    relation_type: LOCATED_IN
+    object_id: n_geo_cape_south_coast
+    valid_from: 1900-01-01
+  - subject_id: n_geo_hemel_en_aarde_valley
+    relation_type: LOCATED_IN
+    object_id: n_geo_walker_bay
+    valid_from: 1900-01-01
+  - subject_id: n_geo_kakheti
+    relation_type: LOCATED_IN
+    object_id: n_geo_georgia
+    valid_from: 1900-01-01
+  - subject_id: n_geo_kartli
+    relation_type: LOCATED_IN
+    object_id: n_geo_georgia
+    valid_from: 1900-01-01
+  - subject_id: n_geo_imereti
+    relation_type: LOCATED_IN
+    object_id: n_geo_georgia
+    valid_from: 1900-01-01
+  - subject_id: n_geo_bekaa_valley
+    relation_type: LOCATED_IN
+    object_id: n_geo_lebanon
+    valid_from: 1900-01-01
+  - subject_id: n_geo_batroun
+    relation_type: LOCATED_IN
+    object_id: n_geo_lebanon
+    valid_from: 1900-01-01
+  - subject_id: n_geo_mount_lebanon
+    relation_type: LOCATED_IN
+    object_id: n_geo_lebanon
+    valid_from: 1900-01-01
+knowledge_items:
+  - id: ki_atlas_veneto_location
+    subject_id: n_geo_veneto
+    relation_type: LOCATED_IN
+    object_id: n_geo_italy
+    domain_id: geography
+    assertion_text: Veneto is located in Italy.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_lombardy_location
+    subject_id: n_geo_lombardy
+    relation_type: LOCATED_IN
+    object_id: n_geo_italy
+    domain_id: geography
+    assertion_text: Lombardy is located in Italy.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_friuli_venezia_giulia_location
+    subject_id: n_geo_friuli_venezia_giulia
+    relation_type: LOCATED_IN
+    object_id: n_geo_italy
+    domain_id: geography
+    assertion_text: Friuli Venezia Giulia is located in Italy.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_marche_location
+    subject_id: n_geo_marche
+    relation_type: LOCATED_IN
+    object_id: n_geo_italy
+    domain_id: geography
+    assertion_text: Marche is located in Italy.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_campania_location
+    subject_id: n_geo_campania
+    relation_type: LOCATED_IN
+    object_id: n_geo_italy
+    domain_id: geography
+    assertion_text: Campania is located in Italy.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_sicily_location
+    subject_id: n_geo_sicily
+    relation_type: LOCATED_IN
+    object_id: n_geo_italy
+    domain_id: geography
+    assertion_text: Sicily is located in Italy.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_roero_location
+    subject_id: n_geo_roero
+    relation_type: LOCATED_IN
+    object_id: n_geo_piedmont
+    domain_id: geography
+    assertion_text: Roero is located in Piedmont.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_barbera_d_asti_location
+    subject_id: n_geo_barbera_d_asti
+    relation_type: LOCATED_IN
+    object_id: n_geo_piedmont
+    domain_id: geography
+    assertion_text: Barbera d’Asti is located in Piedmont.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_nizza_location
+    subject_id: n_geo_nizza
+    relation_type: LOCATED_IN
+    object_id: n_geo_piedmont
+    domain_id: geography
+    assertion_text: Nizza is located in Piedmont.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_gavi_location
+    subject_id: n_geo_gavi
+    relation_type: LOCATED_IN
+    object_id: n_geo_piedmont
+    domain_id: geography
+    assertion_text: Gavi is located in Piedmont.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_asti_location
+    subject_id: n_geo_asti
+    relation_type: LOCATED_IN
+    object_id: n_geo_piedmont
+    domain_id: geography
+    assertion_text: Asti is located in Piedmont.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_dogliani_location
+    subject_id: n_geo_dogliani
+    relation_type: LOCATED_IN
+    object_id: n_geo_piedmont
+    domain_id: geography
+    assertion_text: Dogliani is located in Piedmont.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_gattinara_location
+    subject_id: n_geo_gattinara
+    relation_type: LOCATED_IN
+    object_id: n_geo_piedmont
+    domain_id: geography
+    assertion_text: Gattinara is located in Piedmont.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_ghemme_location
+    subject_id: n_geo_ghemme
+    relation_type: LOCATED_IN
+    object_id: n_geo_piedmont
+    domain_id: geography
+    assertion_text: Ghemme is located in Piedmont.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_chianti_location
+    subject_id: n_geo_chianti
+    relation_type: LOCATED_IN
+    object_id: n_geo_tuscany
+    domain_id: geography
+    assertion_text: Chianti is located in Tuscany.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_vino_nobile_di_montepulciano_location
+    subject_id: n_geo_vino_nobile_di_montepulciano
+    relation_type: LOCATED_IN
+    object_id: n_geo_tuscany
+    domain_id: geography
+    assertion_text: Vino Nobile di Montepulciano is located in Tuscany.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_bolgheri_location
+    subject_id: n_geo_bolgheri
+    relation_type: LOCATED_IN
+    object_id: n_geo_tuscany
+    domain_id: geography
+    assertion_text: Bolgheri is located in Tuscany.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_morellino_di_scansano_location
+    subject_id: n_geo_morellino_di_scansano
+    relation_type: LOCATED_IN
+    object_id: n_geo_tuscany
+    domain_id: geography
+    assertion_text: Morellino di Scansano is located in Tuscany.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_carmignano_location
+    subject_id: n_geo_carmignano
+    relation_type: LOCATED_IN
+    object_id: n_geo_tuscany
+    domain_id: geography
+    assertion_text: Carmignano is located in Tuscany.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_vernaccia_di_san_gimignano_location
+    subject_id: n_geo_vernaccia_di_san_gimignano
+    relation_type: LOCATED_IN
+    object_id: n_geo_tuscany
+    domain_id: geography
+    assertion_text: Vernaccia di San Gimignano is located in Tuscany.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_valpolicella_location
+    subject_id: n_geo_valpolicella
+    relation_type: LOCATED_IN
+    object_id: n_geo_veneto
+    domain_id: geography
+    assertion_text: Valpolicella is located in Veneto.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_soave_location
+    subject_id: n_geo_soave
+    relation_type: LOCATED_IN
+    object_id: n_geo_veneto
+    domain_id: geography
+    assertion_text: Soave is located in Veneto.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_conegliano_valdobbiadene_location
+    subject_id: n_geo_conegliano_valdobbiadene
+    relation_type: LOCATED_IN
+    object_id: n_geo_veneto
+    domain_id: geography
+    assertion_text: Conegliano Valdobbiadene Prosecco is located in Veneto.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_asolo_prosecco_location
+    subject_id: n_geo_asolo_prosecco
+    relation_type: LOCATED_IN
+    object_id: n_geo_veneto
+    domain_id: geography
+    assertion_text: Asolo Prosecco is located in Veneto.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_franciacorta_location
+    subject_id: n_geo_franciacorta
+    relation_type: LOCATED_IN
+    object_id: n_geo_lombardy
+    domain_id: geography
+    assertion_text: Franciacorta is located in Lombardy.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_collio_location
+    subject_id: n_geo_collio
+    relation_type: LOCATED_IN
+    object_id: n_geo_friuli_venezia_giulia
+    domain_id: geography
+    assertion_text: Collio Goriziano is located in Friuli Venezia Giulia.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_verdicchio_castelli_jesi_location
+    subject_id: n_geo_verdicchio_castelli_jesi
+    relation_type: LOCATED_IN
+    object_id: n_geo_marche
+    domain_id: geography
+    assertion_text: Verdicchio dei Castelli di Jesi is located in Marche.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_taurasi_location
+    subject_id: n_geo_taurasi
+    relation_type: LOCATED_IN
+    object_id: n_geo_campania
+    domain_id: geography
+    assertion_text: Taurasi is located in Campania.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_etna_location
+    subject_id: n_geo_etna
+    relation_type: LOCATED_IN
+    object_id: n_geo_sicily
+    domain_id: geography
+    assertion_text: Etna is located in Sicily.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_galicia_location
+    subject_id: n_geo_galicia
+    relation_type: LOCATED_IN
+    object_id: n_geo_spain
+    domain_id: geography
+    assertion_text: Galicia is located in Spain.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_castilla_y_leon_location
+    subject_id: n_geo_castilla_y_leon
+    relation_type: LOCATED_IN
+    object_id: n_geo_spain
+    domain_id: geography
+    assertion_text: Castilla y León is located in Spain.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_catalonia_location
+    subject_id: n_geo_catalonia
+    relation_type: LOCATED_IN
+    object_id: n_geo_spain
+    domain_id: geography
+    assertion_text: Catalonia is located in Spain.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_andalusia_location
+    subject_id: n_geo_andalusia
+    relation_type: LOCATED_IN
+    object_id: n_geo_spain
+    domain_id: geography
+    assertion_text: Andalusia is located in Spain.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_aragon_location
+    subject_id: n_geo_aragon
+    relation_type: LOCATED_IN
+    object_id: n_geo_spain
+    domain_id: geography
+    assertion_text: Aragón is located in Spain.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_rioja_location
+    subject_id: n_geo_rioja
+    relation_type: LOCATED_IN
+    object_id: n_geo_spain
+    domain_id: geography
+    assertion_text: Rioja is located in Spain.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_ribera_del_duero_location
+    subject_id: n_geo_ribera_del_duero
+    relation_type: LOCATED_IN
+    object_id: n_geo_castilla_y_leon
+    domain_id: geography
+    assertion_text: Ribera del Duero is located in Castilla y León.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_rueda_location
+    subject_id: n_geo_rueda
+    relation_type: LOCATED_IN
+    object_id: n_geo_castilla_y_leon
+    domain_id: geography
+    assertion_text: Rueda is located in Castilla y León.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_toro_location
+    subject_id: n_geo_toro
+    relation_type: LOCATED_IN
+    object_id: n_geo_castilla_y_leon
+    domain_id: geography
+    assertion_text: Toro is located in Castilla y León.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_bierzo_location
+    subject_id: n_geo_bierzo
+    relation_type: LOCATED_IN
+    object_id: n_geo_castilla_y_leon
+    domain_id: geography
+    assertion_text: Bierzo is located in Castilla y León.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_priorat_location
+    subject_id: n_geo_priorat
+    relation_type: LOCATED_IN
+    object_id: n_geo_catalonia
+    domain_id: geography
+    assertion_text: Priorat is located in Catalonia.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_montsant_location
+    subject_id: n_geo_montsant
+    relation_type: LOCATED_IN
+    object_id: n_geo_catalonia
+    domain_id: geography
+    assertion_text: Montsant is located in Catalonia.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_cava_location
+    subject_id: n_geo_cava
+    relation_type: LOCATED_IN
+    object_id: n_geo_spain
+    domain_id: geography
+    assertion_text: Cava is located in Spain.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_rias_baixas_location
+    subject_id: n_geo_rias_baixas
+    relation_type: LOCATED_IN
+    object_id: n_geo_galicia
+    domain_id: geography
+    assertion_text: Rías Baixas is located in Galicia.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_ribeira_sacra_location
+    subject_id: n_geo_ribeira_sacra
+    relation_type: LOCATED_IN
+    object_id: n_geo_galicia
+    domain_id: geography
+    assertion_text: Ribeira Sacra is located in Galicia.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_ribeiro_location
+    subject_id: n_geo_ribeiro
+    relation_type: LOCATED_IN
+    object_id: n_geo_galicia
+    domain_id: geography
+    assertion_text: Ribeiro is located in Galicia.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_valdeorras_location
+    subject_id: n_geo_valdeorras
+    relation_type: LOCATED_IN
+    object_id: n_geo_galicia
+    domain_id: geography
+    assertion_text: Valdeorras is located in Galicia.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_jerez_location
+    subject_id: n_geo_jerez
+    relation_type: LOCATED_IN
+    object_id: n_geo_andalusia
+    domain_id: geography
+    assertion_text: Jerez-Xérès-Sherry is located in Andalusia.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_manzanilla_sanlucar_location
+    subject_id: n_geo_manzanilla_sanlucar
+    relation_type: LOCATED_IN
+    object_id: n_geo_andalusia
+    domain_id: geography
+    assertion_text: Manzanilla-Sanlúcar de Barrameda is located in Andalusia.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_somontano_location
+    subject_id: n_geo_somontano
+    relation_type: LOCATED_IN
+    object_id: n_geo_aragon
+    domain_id: geography
+    assertion_text: Somontano is located in Aragón.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_carinena_location
+    subject_id: n_geo_carinena
+    relation_type: LOCATED_IN
+    object_id: n_geo_aragon
+    domain_id: geography
+    assertion_text: Cariñena is located in Aragón.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_jumilla_location
+    subject_id: n_geo_jumilla
+    relation_type: LOCATED_IN
+    object_id: n_geo_spain
+    domain_id: geography
+    assertion_text: Jumilla is located in Spain.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_rioja_alta_location
+    subject_id: n_geo_rioja_alta
+    relation_type: LOCATED_IN
+    object_id: n_geo_rioja
+    domain_id: geography
+    assertion_text: Rioja Alta is located in Rioja.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_rioja_alavesa_location
+    subject_id: n_geo_rioja_alavesa
+    relation_type: LOCATED_IN
+    object_id: n_geo_rioja
+    domain_id: geography
+    assertion_text: Rioja Alavesa is located in Rioja.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_rioja_oriental_location
+    subject_id: n_geo_rioja_oriental
+    relation_type: LOCATED_IN
+    object_id: n_geo_rioja
+    domain_id: geography
+    assertion_text: Rioja Oriental is located in Rioja.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_val_do_salnes_location
+    subject_id: n_geo_val_do_salnes
+    relation_type: LOCATED_IN
+    object_id: n_geo_rias_baixas
+    domain_id: geography
+    assertion_text: Val do Salnés is located in Rías Baixas.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_o_rosal_location
+    subject_id: n_geo_o_rosal
+    relation_type: LOCATED_IN
+    object_id: n_geo_rias_baixas
+    domain_id: geography
+    assertion_text: O Rosal is located in Rías Baixas.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_condado_do_tea_location
+    subject_id: n_geo_condado_do_tea
+    relation_type: LOCATED_IN
+    object_id: n_geo_rias_baixas
+    domain_id: geography
+    assertion_text: Condado do Tea is located in Rías Baixas.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_soutomaior_location
+    subject_id: n_geo_soutomaior
+    relation_type: LOCATED_IN
+    object_id: n_geo_rias_baixas
+    domain_id: geography
+    assertion_text: Soutomaior is located in Rías Baixas.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_ribeira_do_ulla_location
+    subject_id: n_geo_ribeira_do_ulla
+    relation_type: LOCATED_IN
+    object_id: n_geo_rias_baixas
+    domain_id: geography
+    assertion_text: Ribeira do Ulla is located in Rías Baixas.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_douro_location
+    subject_id: n_geo_douro
+    relation_type: LOCATED_IN
+    object_id: n_geo_portugal
+    domain_id: geography
+    assertion_text: Douro is located in Portugal.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_vinho_verde_location
+    subject_id: n_geo_vinho_verde
+    relation_type: LOCATED_IN
+    object_id: n_geo_portugal
+    domain_id: geography
+    assertion_text: Vinho Verde is located in Portugal.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_dao_location
+    subject_id: n_geo_dao
+    relation_type: LOCATED_IN
+    object_id: n_geo_portugal
+    domain_id: geography
+    assertion_text: Dão is located in Portugal.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_bairrada_location
+    subject_id: n_geo_bairrada
+    relation_type: LOCATED_IN
+    object_id: n_geo_portugal
+    domain_id: geography
+    assertion_text: Bairrada is located in Portugal.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_alentejo_location
+    subject_id: n_geo_alentejo
+    relation_type: LOCATED_IN
+    object_id: n_geo_portugal
+    domain_id: geography
+    assertion_text: Alentejo is located in Portugal.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_madeira_location
+    subject_id: n_geo_madeira
+    relation_type: LOCATED_IN
+    object_id: n_geo_portugal
+    domain_id: geography
+    assertion_text: Madeira is located in Portugal.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_tejo_location
+    subject_id: n_geo_tejo
+    relation_type: LOCATED_IN
+    object_id: n_geo_portugal
+    domain_id: geography
+    assertion_text: Tejo is located in Portugal.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_colares_location
+    subject_id: n_geo_colares
+    relation_type: LOCATED_IN
+    object_id: n_geo_portugal
+    domain_id: geography
+    assertion_text: Colares is located in Portugal.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_setubal_location
+    subject_id: n_geo_setubal
+    relation_type: LOCATED_IN
+    object_id: n_geo_portugal
+    domain_id: geography
+    assertion_text: Setúbal is located in Portugal.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_pico_location
+    subject_id: n_geo_pico
+    relation_type: LOCATED_IN
+    object_id: n_geo_portugal
+    domain_id: geography
+    assertion_text: Pico is located in Portugal.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_baixo_corgo_location
+    subject_id: n_geo_baixo_corgo
+    relation_type: LOCATED_IN
+    object_id: n_geo_douro
+    domain_id: geography
+    assertion_text: Baixo Corgo is located in Douro.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_cima_corgo_location
+    subject_id: n_geo_cima_corgo
+    relation_type: LOCATED_IN
+    object_id: n_geo_douro
+    domain_id: geography
+    assertion_text: Cima Corgo is located in Douro.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_douro_superior_location
+    subject_id: n_geo_douro_superior
+    relation_type: LOCATED_IN
+    object_id: n_geo_douro
+    domain_id: geography
+    assertion_text: Douro Superior is located in Douro.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_moncao_melgaco_location
+    subject_id: n_geo_moncao_melgaco
+    relation_type: LOCATED_IN
+    object_id: n_geo_vinho_verde
+    domain_id: geography
+    assertion_text: Monção e Melgaço is located in Vinho Verde.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_lima_location
+    subject_id: n_geo_lima
+    relation_type: LOCATED_IN
+    object_id: n_geo_vinho_verde
+    domain_id: geography
+    assertion_text: Lima is located in Vinho Verde.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_basto_location
+    subject_id: n_geo_basto
+    relation_type: LOCATED_IN
+    object_id: n_geo_vinho_verde
+    domain_id: geography
+    assertion_text: Basto is located in Vinho Verde.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_cavado_location
+    subject_id: n_geo_cavado
+    relation_type: LOCATED_IN
+    object_id: n_geo_vinho_verde
+    domain_id: geography
+    assertion_text: Cávado is located in Vinho Verde.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_ave_location
+    subject_id: n_geo_ave
+    relation_type: LOCATED_IN
+    object_id: n_geo_vinho_verde
+    domain_id: geography
+    assertion_text: Ave is located in Vinho Verde.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_amarante_location
+    subject_id: n_geo_amarante
+    relation_type: LOCATED_IN
+    object_id: n_geo_vinho_verde
+    domain_id: geography
+    assertion_text: Amarante is located in Vinho Verde.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_baiao_location
+    subject_id: n_geo_baiao
+    relation_type: LOCATED_IN
+    object_id: n_geo_vinho_verde
+    domain_id: geography
+    assertion_text: Baião is located in Vinho Verde.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_sousa_location
+    subject_id: n_geo_sousa
+    relation_type: LOCATED_IN
+    object_id: n_geo_vinho_verde
+    domain_id: geography
+    assertion_text: Sousa is located in Vinho Verde.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_paiva_location
+    subject_id: n_geo_paiva
+    relation_type: LOCATED_IN
+    object_id: n_geo_vinho_verde
+    domain_id: geography
+    assertion_text: Paiva is located in Vinho Verde.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_portalegre_location
+    subject_id: n_geo_portalegre
+    relation_type: LOCATED_IN
+    object_id: n_geo_alentejo
+    domain_id: geography
+    assertion_text: Portalegre is located in Alentejo.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_borba_location
+    subject_id: n_geo_borba
+    relation_type: LOCATED_IN
+    object_id: n_geo_alentejo
+    domain_id: geography
+    assertion_text: Borba is located in Alentejo.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_redondo_location
+    subject_id: n_geo_redondo
+    relation_type: LOCATED_IN
+    object_id: n_geo_alentejo
+    domain_id: geography
+    assertion_text: Redondo is located in Alentejo.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_reguengos_location
+    subject_id: n_geo_reguengos
+    relation_type: LOCATED_IN
+    object_id: n_geo_alentejo
+    domain_id: geography
+    assertion_text: Reguengos is located in Alentejo.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_evora_location
+    subject_id: n_geo_evora
+    relation_type: LOCATED_IN
+    object_id: n_geo_alentejo
+    domain_id: geography
+    assertion_text: Évora is located in Alentejo.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_vidigueira_location
+    subject_id: n_geo_vidigueira
+    relation_type: LOCATED_IN
+    object_id: n_geo_alentejo
+    domain_id: geography
+    assertion_text: Vidigueira is located in Alentejo.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_moura_location
+    subject_id: n_geo_moura
+    relation_type: LOCATED_IN
+    object_id: n_geo_alentejo
+    domain_id: geography
+    assertion_text: Moura is located in Alentejo.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_granja_amareleja_location
+    subject_id: n_geo_granja_amareleja
+    relation_type: LOCATED_IN
+    object_id: n_geo_alentejo
+    domain_id: geography
+    assertion_text: Granja-Amareleja is located in Alentejo.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_california_location
+    subject_id: n_geo_california
+    relation_type: LOCATED_IN
+    object_id: n_geo_united_states
+    domain_id: geography
+    assertion_text: California is located in United States.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_oregon_location
+    subject_id: n_geo_oregon
+    relation_type: LOCATED_IN
+    object_id: n_geo_united_states
+    domain_id: geography
+    assertion_text: Oregon is located in United States.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_washington_location
+    subject_id: n_geo_washington
+    relation_type: LOCATED_IN
+    object_id: n_geo_united_states
+    domain_id: geography
+    assertion_text: Washington is located in United States.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_napa_valley_location
+    subject_id: n_geo_napa_valley
+    relation_type: LOCATED_IN
+    object_id: n_geo_california
+    domain_id: geography
+    assertion_text: Napa Valley is located in California.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_sonoma_coast_location
+    subject_id: n_geo_sonoma_coast
+    relation_type: LOCATED_IN
+    object_id: n_geo_california
+    domain_id: geography
+    assertion_text: Sonoma Coast is located in California.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_russian_river_valley_location
+    subject_id: n_geo_russian_river_valley
+    relation_type: LOCATED_IN
+    object_id: n_geo_california
+    domain_id: geography
+    assertion_text: Russian River Valley is located in California.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_dry_creek_valley_location
+    subject_id: n_geo_dry_creek_valley
+    relation_type: LOCATED_IN
+    object_id: n_geo_california
+    domain_id: geography
+    assertion_text: Dry Creek Valley is located in California.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_alexander_valley_location
+    subject_id: n_geo_alexander_valley
+    relation_type: LOCATED_IN
+    object_id: n_geo_california
+    domain_id: geography
+    assertion_text: Alexander Valley is located in California.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_central_coast_location
+    subject_id: n_geo_central_coast
+    relation_type: LOCATED_IN
+    object_id: n_geo_california
+    domain_id: geography
+    assertion_text: Central Coast (California) is located in California.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_paso_robles_location
+    subject_id: n_geo_paso_robles
+    relation_type: LOCATED_IN
+    object_id: n_geo_central_coast
+    domain_id: geography
+    assertion_text: Paso Robles is located in Central Coast (California).
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_santa_ynez_valley_location
+    subject_id: n_geo_santa_ynez_valley
+    relation_type: LOCATED_IN
+    object_id: n_geo_central_coast
+    domain_id: geography
+    assertion_text: Santa Ynez Valley is located in Central Coast (California).
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_sta_rita_hills_location
+    subject_id: n_geo_sta_rita_hills
+    relation_type: LOCATED_IN
+    object_id: n_geo_santa_ynez_valley
+    domain_id: geography
+    assertion_text: Sta. Rita Hills is located in Santa Ynez Valley.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_santa_maria_valley_location
+    subject_id: n_geo_santa_maria_valley
+    relation_type: LOCATED_IN
+    object_id: n_geo_central_coast
+    domain_id: geography
+    assertion_text: Santa Maria Valley is located in Central Coast (California).
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_santa_lucia_highlands_location
+    subject_id: n_geo_santa_lucia_highlands
+    relation_type: LOCATED_IN
+    object_id: n_geo_central_coast
+    domain_id: geography
+    assertion_text: Santa Lucia Highlands is located in Central Coast (California).
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_oakville_location
+    subject_id: n_geo_oakville
+    relation_type: LOCATED_IN
+    object_id: n_geo_napa_valley
+    domain_id: geography
+    assertion_text: Oakville is located in Napa Valley.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_rutherford_location
+    subject_id: n_geo_rutherford
+    relation_type: LOCATED_IN
+    object_id: n_geo_napa_valley
+    domain_id: geography
+    assertion_text: Rutherford is located in Napa Valley.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_st_helena_location
+    subject_id: n_geo_st_helena
+    relation_type: LOCATED_IN
+    object_id: n_geo_napa_valley
+    domain_id: geography
+    assertion_text: St. Helena is located in Napa Valley.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_calistoga_location
+    subject_id: n_geo_calistoga
+    relation_type: LOCATED_IN
+    object_id: n_geo_napa_valley
+    domain_id: geography
+    assertion_text: Calistoga is located in Napa Valley.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_los_carneros_location
+    subject_id: n_geo_los_carneros
+    relation_type: LOCATED_IN
+    object_id: n_geo_california
+    domain_id: geography
+    assertion_text: Los Carneros is located in California.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_willamette_valley_location
+    subject_id: n_geo_willamette_valley
+    relation_type: LOCATED_IN
+    object_id: n_geo_oregon
+    domain_id: geography
+    assertion_text: Willamette Valley is located in Oregon.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_dundee_hills_location
+    subject_id: n_geo_dundee_hills
+    relation_type: LOCATED_IN
+    object_id: n_geo_willamette_valley
+    domain_id: geography
+    assertion_text: Dundee Hills is located in Willamette Valley.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_eola_amity_hills_location
+    subject_id: n_geo_eola_amity_hills
+    relation_type: LOCATED_IN
+    object_id: n_geo_willamette_valley
+    domain_id: geography
+    assertion_text: Eola-Amity Hills is located in Willamette Valley.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_chehalem_mountains_location
+    subject_id: n_geo_chehalem_mountains
+    relation_type: LOCATED_IN
+    object_id: n_geo_willamette_valley
+    domain_id: geography
+    assertion_text: Chehalem Mountains is located in Willamette Valley.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_ribbon_ridge_location
+    subject_id: n_geo_ribbon_ridge
+    relation_type: LOCATED_IN
+    object_id: n_geo_chehalem_mountains
+    domain_id: geography
+    assertion_text: Ribbon Ridge is located in Chehalem Mountains.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_columbia_valley_location
+    subject_id: n_geo_columbia_valley
+    relation_type: LOCATED_IN
+    object_id: n_geo_united_states
+    domain_id: geography
+    assertion_text: Columbia Valley is located in United States.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_yakima_valley_location
+    subject_id: n_geo_yakima_valley
+    relation_type: LOCATED_IN
+    object_id: n_geo_columbia_valley
+    domain_id: geography
+    assertion_text: Yakima Valley is located in Columbia Valley.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_red_mountain_location
+    subject_id: n_geo_red_mountain
+    relation_type: LOCATED_IN
+    object_id: n_geo_yakima_valley
+    domain_id: geography
+    assertion_text: Red Mountain is located in Yakima Valley.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_walla_walla_valley_location
+    subject_id: n_geo_walla_walla_valley
+    relation_type: LOCATED_IN
+    object_id: n_geo_columbia_valley
+    domain_id: geography
+    assertion_text: Walla Walla Valley is located in Columbia Valley.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_ontario_location
+    subject_id: n_geo_ontario
+    relation_type: LOCATED_IN
+    object_id: n_geo_canada
+    domain_id: geography
+    assertion_text: Ontario is located in Canada.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_niagara_peninsula_location
+    subject_id: n_geo_niagara_peninsula
+    relation_type: LOCATED_IN
+    object_id: n_geo_ontario
+    domain_id: geography
+    assertion_text: Niagara Peninsula is located in Ontario.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_lake_erie_north_shore_location
+    subject_id: n_geo_lake_erie_north_shore
+    relation_type: LOCATED_IN
+    object_id: n_geo_ontario
+    domain_id: geography
+    assertion_text: Lake Erie North Shore is located in Ontario.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_prince_edward_county_location
+    subject_id: n_geo_prince_edward_county
+    relation_type: LOCATED_IN
+    object_id: n_geo_ontario
+    domain_id: geography
+    assertion_text: Prince Edward County is located in Ontario.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_british_columbia_location
+    subject_id: n_geo_british_columbia
+    relation_type: LOCATED_IN
+    object_id: n_geo_canada
+    domain_id: geography
+    assertion_text: British Columbia is located in Canada.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_okanagan_valley_location
+    subject_id: n_geo_okanagan_valley
+    relation_type: LOCATED_IN
+    object_id: n_geo_british_columbia
+    domain_id: geography
+    assertion_text: Okanagan Valley is located in British Columbia.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_similkameen_valley_location
+    subject_id: n_geo_similkameen_valley
+    relation_type: LOCATED_IN
+    object_id: n_geo_british_columbia
+    domain_id: geography
+    assertion_text: Similkameen Valley is located in British Columbia.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_golden_mile_bench_location
+    subject_id: n_geo_golden_mile_bench
+    relation_type: LOCATED_IN
+    object_id: n_geo_okanagan_valley
+    domain_id: geography
+    assertion_text: Golden Mile Bench is located in Okanagan Valley.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_coquimbo_wine_location
+    subject_id: n_geo_coquimbo_wine
+    relation_type: LOCATED_IN
+    object_id: n_geo_chile
+    domain_id: geography
+    assertion_text: Coquimbo (wine region) is located in Chile.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_aconcagua_wine_location
+    subject_id: n_geo_aconcagua_wine
+    relation_type: LOCATED_IN
+    object_id: n_geo_chile
+    domain_id: geography
+    assertion_text: Aconcagua (wine region) is located in Chile.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_central_valley_chile_location
+    subject_id: n_geo_central_valley_chile
+    relation_type: LOCATED_IN
+    object_id: n_geo_chile
+    domain_id: geography
+    assertion_text: Central Valley (Chile) is located in Chile.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_southern_chile_location
+    subject_id: n_geo_southern_chile
+    relation_type: LOCATED_IN
+    object_id: n_geo_chile
+    domain_id: geography
+    assertion_text: Southern Region (Chile) is located in Chile.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_elqui_location
+    subject_id: n_geo_elqui
+    relation_type: LOCATED_IN
+    object_id: n_geo_coquimbo_wine
+    domain_id: geography
+    assertion_text: Elqui Valley is located in Coquimbo (wine region).
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_limari_location
+    subject_id: n_geo_limari
+    relation_type: LOCATED_IN
+    object_id: n_geo_coquimbo_wine
+    domain_id: geography
+    assertion_text: Limarí Valley is located in Coquimbo (wine region).
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_choapa_location
+    subject_id: n_geo_choapa
+    relation_type: LOCATED_IN
+    object_id: n_geo_coquimbo_wine
+    domain_id: geography
+    assertion_text: Choapa Valley is located in Coquimbo (wine region).
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_aconcagua_valley_location
+    subject_id: n_geo_aconcagua_valley
+    relation_type: LOCATED_IN
+    object_id: n_geo_aconcagua_wine
+    domain_id: geography
+    assertion_text: Aconcagua Valley is located in Aconcagua (wine region).
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_casablanca_location
+    subject_id: n_geo_casablanca
+    relation_type: LOCATED_IN
+    object_id: n_geo_aconcagua_wine
+    domain_id: geography
+    assertion_text: Casablanca Valley is located in Aconcagua (wine region).
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_san_antonio_valley_location
+    subject_id: n_geo_san_antonio_valley
+    relation_type: LOCATED_IN
+    object_id: n_geo_aconcagua_wine
+    domain_id: geography
+    assertion_text: San Antonio Valley is located in Aconcagua (wine region).
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_leyda_location
+    subject_id: n_geo_leyda
+    relation_type: LOCATED_IN
+    object_id: n_geo_san_antonio_valley
+    domain_id: geography
+    assertion_text: Leyda Valley is located in San Antonio Valley.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_maipo_location
+    subject_id: n_geo_maipo
+    relation_type: LOCATED_IN
+    object_id: n_geo_central_valley_chile
+    domain_id: geography
+    assertion_text: Maipo Valley is located in Central Valley (Chile).
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_rapel_location
+    subject_id: n_geo_rapel
+    relation_type: LOCATED_IN
+    object_id: n_geo_central_valley_chile
+    domain_id: geography
+    assertion_text: Rapel Valley is located in Central Valley (Chile).
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_cachapoal_location
+    subject_id: n_geo_cachapoal
+    relation_type: LOCATED_IN
+    object_id: n_geo_rapel
+    domain_id: geography
+    assertion_text: Cachapoal Valley is located in Rapel Valley.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_colchagua_location
+    subject_id: n_geo_colchagua
+    relation_type: LOCATED_IN
+    object_id: n_geo_rapel
+    domain_id: geography
+    assertion_text: Colchagua Valley is located in Rapel Valley.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_curico_location
+    subject_id: n_geo_curico
+    relation_type: LOCATED_IN
+    object_id: n_geo_central_valley_chile
+    domain_id: geography
+    assertion_text: Curicó Valley is located in Central Valley (Chile).
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_maule_location
+    subject_id: n_geo_maule
+    relation_type: LOCATED_IN
+    object_id: n_geo_central_valley_chile
+    domain_id: geography
+    assertion_text: Maule Valley is located in Central Valley (Chile).
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_itata_location
+    subject_id: n_geo_itata
+    relation_type: LOCATED_IN
+    object_id: n_geo_southern_chile
+    domain_id: geography
+    assertion_text: Itata Valley is located in Southern Region (Chile).
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_bio_bio_location
+    subject_id: n_geo_bio_bio
+    relation_type: LOCATED_IN
+    object_id: n_geo_southern_chile
+    domain_id: geography
+    assertion_text: Bío Bío Valley is located in Southern Region (Chile).
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_malleco_location
+    subject_id: n_geo_malleco
+    relation_type: LOCATED_IN
+    object_id: n_geo_southern_chile
+    domain_id: geography
+    assertion_text: Malleco Valley is located in Southern Region (Chile).
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_mendoza_location
+    subject_id: n_geo_mendoza
+    relation_type: LOCATED_IN
+    object_id: n_geo_argentina
+    domain_id: geography
+    assertion_text: Mendoza is located in Argentina.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_salta_location
+    subject_id: n_geo_salta
+    relation_type: LOCATED_IN
+    object_id: n_geo_argentina
+    domain_id: geography
+    assertion_text: Salta is located in Argentina.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_rio_negro_location
+    subject_id: n_geo_rio_negro
+    relation_type: LOCATED_IN
+    object_id: n_geo_argentina
+    domain_id: geography
+    assertion_text: Río Negro is located in Argentina.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_neuquen_location
+    subject_id: n_geo_neuquen
+    relation_type: LOCATED_IN
+    object_id: n_geo_argentina
+    domain_id: geography
+    assertion_text: Neuquén is located in Argentina.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_lujan_de_cuyo_location
+    subject_id: n_geo_lujan_de_cuyo
+    relation_type: LOCATED_IN
+    object_id: n_geo_mendoza
+    domain_id: geography
+    assertion_text: Luján de Cuyo is located in Mendoza.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_maipu_location
+    subject_id: n_geo_maipu
+    relation_type: LOCATED_IN
+    object_id: n_geo_mendoza
+    domain_id: geography
+    assertion_text: Maipú is located in Mendoza.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_cafayate_location
+    subject_id: n_geo_cafayate
+    relation_type: LOCATED_IN
+    object_id: n_geo_salta
+    domain_id: geography
+    assertion_text: Valle de Cafayate is located in Salta.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_tupungato_location
+    subject_id: n_geo_tupungato
+    relation_type: LOCATED_IN
+    object_id: n_geo_uco_valley
+    domain_id: geography
+    assertion_text: Tupungato is located in Uco Valley.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_tunuyan_location
+    subject_id: n_geo_tunuyan
+    relation_type: LOCATED_IN
+    object_id: n_geo_uco_valley
+    domain_id: geography
+    assertion_text: Tunuyán is located in Uco Valley.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_san_carlos_mendoza_location
+    subject_id: n_geo_san_carlos_mendoza
+    relation_type: LOCATED_IN
+    object_id: n_geo_uco_valley
+    domain_id: geography
+    assertion_text: San Carlos (Mendoza) is located in Uco Valley.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_uco_valley_location
+    subject_id: n_geo_uco_valley
+    relation_type: LOCATED_IN
+    object_id: n_geo_mendoza
+    domain_id: geography
+    assertion_text: Uco Valley is located in Mendoza.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_paraje_altamira_location
+    subject_id: n_geo_paraje_altamira
+    relation_type: LOCATED_IN
+    object_id: n_geo_san_carlos_mendoza
+    domain_id: geography
+    assertion_text: Paraje Altamira is located in San Carlos (Mendoza).
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_south_australia_location
+    subject_id: n_geo_south_australia
+    relation_type: LOCATED_IN
+    object_id: n_geo_australia
+    domain_id: geography
+    assertion_text: South Australia is located in Australia.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_victoria_location
+    subject_id: n_geo_victoria
+    relation_type: LOCATED_IN
+    object_id: n_geo_australia
+    domain_id: geography
+    assertion_text: Victoria is located in Australia.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_western_australia_location
+    subject_id: n_geo_western_australia
+    relation_type: LOCATED_IN
+    object_id: n_geo_australia
+    domain_id: geography
+    assertion_text: Western Australia is located in Australia.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_barossa_zone_location
+    subject_id: n_geo_barossa_zone
+    relation_type: LOCATED_IN
+    object_id: n_geo_south_australia
+    domain_id: geography
+    assertion_text: Barossa (zone) is located in South Australia.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_mount_lofty_ranges_location
+    subject_id: n_geo_mount_lofty_ranges
+    relation_type: LOCATED_IN
+    object_id: n_geo_south_australia
+    domain_id: geography
+    assertion_text: Mount Lofty Ranges (zone) is located in South Australia.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_limestone_coast_location
+    subject_id: n_geo_limestone_coast
+    relation_type: LOCATED_IN
+    object_id: n_geo_south_australia
+    domain_id: geography
+    assertion_text: Limestone Coast (zone) is located in South Australia.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_port_phillip_location
+    subject_id: n_geo_port_phillip
+    relation_type: LOCATED_IN
+    object_id: n_geo_victoria
+    domain_id: geography
+    assertion_text: Port Phillip (zone) is located in Victoria.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_barossa_valley_location
+    subject_id: n_geo_barossa_valley
+    relation_type: LOCATED_IN
+    object_id: n_geo_barossa_zone
+    domain_id: geography
+    assertion_text: Barossa Valley is located in Barossa (zone).
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_eden_valley_location
+    subject_id: n_geo_eden_valley
+    relation_type: LOCATED_IN
+    object_id: n_geo_barossa_zone
+    domain_id: geography
+    assertion_text: Eden Valley is located in Barossa (zone).
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_high_eden_location
+    subject_id: n_geo_high_eden
+    relation_type: LOCATED_IN
+    object_id: n_geo_eden_valley
+    domain_id: geography
+    assertion_text: High Eden is located in Eden Valley.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_clare_valley_location
+    subject_id: n_geo_clare_valley
+    relation_type: LOCATED_IN
+    object_id: n_geo_mount_lofty_ranges
+    domain_id: geography
+    assertion_text: Clare Valley is located in Mount Lofty Ranges (zone).
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_adelaide_hills_location
+    subject_id: n_geo_adelaide_hills
+    relation_type: LOCATED_IN
+    object_id: n_geo_mount_lofty_ranges
+    domain_id: geography
+    assertion_text: Adelaide Hills is located in Mount Lofty Ranges (zone).
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_mclaren_vale_location
+    subject_id: n_geo_mclaren_vale
+    relation_type: LOCATED_IN
+    object_id: n_geo_south_australia
+    domain_id: geography
+    assertion_text: McLaren Vale is located in South Australia.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_coonawarra_location
+    subject_id: n_geo_coonawarra
+    relation_type: LOCATED_IN
+    object_id: n_geo_limestone_coast
+    domain_id: geography
+    assertion_text: Coonawarra is located in Limestone Coast (zone).
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_yarra_valley_location
+    subject_id: n_geo_yarra_valley
+    relation_type: LOCATED_IN
+    object_id: n_geo_port_phillip
+    domain_id: geography
+    assertion_text: Yarra Valley is located in Port Phillip (zone).
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_mornington_peninsula_location
+    subject_id: n_geo_mornington_peninsula
+    relation_type: LOCATED_IN
+    object_id: n_geo_port_phillip
+    domain_id: geography
+    assertion_text: Mornington Peninsula is located in Port Phillip (zone).
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_margaret_river_location
+    subject_id: n_geo_margaret_river
+    relation_type: LOCATED_IN
+    object_id: n_geo_western_australia
+    domain_id: geography
+    assertion_text: Margaret River is located in Western Australia.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_great_southern_location
+    subject_id: n_geo_great_southern
+    relation_type: LOCATED_IN
+    object_id: n_geo_western_australia
+    domain_id: geography
+    assertion_text: Great Southern is located in Western Australia.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_hunter_location
+    subject_id: n_geo_hunter
+    relation_type: LOCATED_IN
+    object_id: n_geo_australia
+    domain_id: geography
+    assertion_text: Hunter is located in Australia.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_tasmania_location
+    subject_id: n_geo_tasmania
+    relation_type: LOCATED_IN
+    object_id: n_geo_australia
+    domain_id: geography
+    assertion_text: Tasmania is located in Australia.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_marlborough_location
+    subject_id: n_geo_marlborough
+    relation_type: LOCATED_IN
+    object_id: n_geo_new_zealand
+    domain_id: geography
+    assertion_text: Marlborough is located in New Zealand.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_central_otago_location
+    subject_id: n_geo_central_otago
+    relation_type: LOCATED_IN
+    object_id: n_geo_new_zealand
+    domain_id: geography
+    assertion_text: Central Otago is located in New Zealand.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_hawkes_bay_location
+    subject_id: n_geo_hawkes_bay
+    relation_type: LOCATED_IN
+    object_id: n_geo_new_zealand
+    domain_id: geography
+    assertion_text: Hawke’s Bay is located in New Zealand.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_wairarapa_location
+    subject_id: n_geo_wairarapa
+    relation_type: LOCATED_IN
+    object_id: n_geo_new_zealand
+    domain_id: geography
+    assertion_text: Wairarapa is located in New Zealand.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_martinborough_location
+    subject_id: n_geo_martinborough
+    relation_type: LOCATED_IN
+    object_id: n_geo_wairarapa
+    domain_id: geography
+    assertion_text: Martinborough is located in Wairarapa.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_gisborne_location
+    subject_id: n_geo_gisborne
+    relation_type: LOCATED_IN
+    object_id: n_geo_new_zealand
+    domain_id: geography
+    assertion_text: Gisborne is located in New Zealand.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_nelson_location
+    subject_id: n_geo_nelson
+    relation_type: LOCATED_IN
+    object_id: n_geo_new_zealand
+    domain_id: geography
+    assertion_text: Nelson is located in New Zealand.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_north_canterbury_location
+    subject_id: n_geo_north_canterbury
+    relation_type: LOCATED_IN
+    object_id: n_geo_new_zealand
+    domain_id: geography
+    assertion_text: North Canterbury is located in New Zealand.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_waipara_valley_location
+    subject_id: n_geo_waipara_valley
+    relation_type: LOCATED_IN
+    object_id: n_geo_north_canterbury
+    domain_id: geography
+    assertion_text: Waipara Valley is located in North Canterbury.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_bannockburn_location
+    subject_id: n_geo_bannockburn
+    relation_type: LOCATED_IN
+    object_id: n_geo_central_otago
+    domain_id: geography
+    assertion_text: Bannockburn is located in Central Otago.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_western_cape_location
+    subject_id: n_geo_western_cape
+    relation_type: LOCATED_IN
+    object_id: n_geo_south_africa
+    domain_id: geography
+    assertion_text: Western Cape is located in South Africa.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_coastal_region_location
+    subject_id: n_geo_coastal_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_western_cape
+    domain_id: geography
+    assertion_text: Coastal Region is located in Western Cape.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_cape_south_coast_location
+    subject_id: n_geo_cape_south_coast
+    relation_type: LOCATED_IN
+    object_id: n_geo_western_cape
+    domain_id: geography
+    assertion_text: Cape South Coast is located in Western Cape.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_stellenbosch_location
+    subject_id: n_geo_stellenbosch
+    relation_type: LOCATED_IN
+    object_id: n_geo_coastal_region
+    domain_id: geography
+    assertion_text: Stellenbosch is located in Coastal Region.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_paarl_location
+    subject_id: n_geo_paarl
+    relation_type: LOCATED_IN
+    object_id: n_geo_coastal_region
+    domain_id: geography
+    assertion_text: Paarl is located in Coastal Region.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_swartland_location
+    subject_id: n_geo_swartland
+    relation_type: LOCATED_IN
+    object_id: n_geo_coastal_region
+    domain_id: geography
+    assertion_text: Swartland is located in Coastal Region.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_constantia_location
+    subject_id: n_geo_constantia
+    relation_type: LOCATED_IN
+    object_id: n_geo_coastal_region
+    domain_id: geography
+    assertion_text: Constantia is located in Coastal Region.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_walker_bay_location
+    subject_id: n_geo_walker_bay
+    relation_type: LOCATED_IN
+    object_id: n_geo_cape_south_coast
+    domain_id: geography
+    assertion_text: Walker Bay is located in Cape South Coast.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_elgin_location
+    subject_id: n_geo_elgin
+    relation_type: LOCATED_IN
+    object_id: n_geo_cape_south_coast
+    domain_id: geography
+    assertion_text: Elgin is located in Cape South Coast.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_hemel_en_aarde_valley_location
+    subject_id: n_geo_hemel_en_aarde_valley
+    relation_type: LOCATED_IN
+    object_id: n_geo_walker_bay
+    domain_id: geography
+    assertion_text: Hemel-en-Aarde Valley is located in Walker Bay.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_kakheti_location
+    subject_id: n_geo_kakheti
+    relation_type: LOCATED_IN
+    object_id: n_geo_georgia
+    domain_id: geography
+    assertion_text: Kakheti is located in Georgia.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_kartli_location
+    subject_id: n_geo_kartli
+    relation_type: LOCATED_IN
+    object_id: n_geo_georgia
+    domain_id: geography
+    assertion_text: Kartli is located in Georgia.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_imereti_location
+    subject_id: n_geo_imereti
+    relation_type: LOCATED_IN
+    object_id: n_geo_georgia
+    domain_id: geography
+    assertion_text: Imereti is located in Georgia.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_bekaa_valley_location
+    subject_id: n_geo_bekaa_valley
+    relation_type: LOCATED_IN
+    object_id: n_geo_lebanon
+    domain_id: geography
+    assertion_text: Bekaa Valley is located in Lebanon.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_batroun_location
+    subject_id: n_geo_batroun
+    relation_type: LOCATED_IN
+    object_id: n_geo_lebanon
+    domain_id: geography
+    assertion_text: Batroun is located in Lebanon.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+  - id: ki_atlas_mount_lebanon_location
+    subject_id: n_geo_mount_lebanon
+    relation_type: LOCATED_IN
+    object_id: n_geo_lebanon
+    domain_id: geography
+    assertion_text: Mount Lebanon is located in Lebanon.
+    last_verified_at: 2026-09-26T16:00:00.000Z
+certification_knowledge_mappings:
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_veneto_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_veneto_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_lombardy_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_lombardy_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_friuli_venezia_giulia_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_friuli_venezia_giulia_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_marche_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_marche_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_campania_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_campania_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_sicily_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_sicily_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_roero_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_roero_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_barbera_d_asti_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_barbera_d_asti_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_nizza_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_nizza_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_gavi_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_gavi_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_asti_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_asti_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_dogliani_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_dogliani_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_gattinara_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_gattinara_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_ghemme_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_ghemme_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_chianti_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_chianti_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_vino_nobile_di_montepulciano_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_vino_nobile_di_montepulciano_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_bolgheri_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_bolgheri_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_morellino_di_scansano_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_morellino_di_scansano_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_carmignano_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_carmignano_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_vernaccia_di_san_gimignano_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_vernaccia_di_san_gimignano_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_valpolicella_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_valpolicella_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_soave_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_soave_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_conegliano_valdobbiadene_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_conegliano_valdobbiadene_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_asolo_prosecco_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_asolo_prosecco_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_franciacorta_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_franciacorta_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_collio_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_collio_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_verdicchio_castelli_jesi_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_verdicchio_castelli_jesi_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_taurasi_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_taurasi_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_etna_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_etna_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_galicia_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_galicia_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_castilla_y_leon_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_castilla_y_leon_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_catalonia_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_catalonia_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_andalusia_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_andalusia_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_aragon_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_aragon_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_rioja_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_rioja_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_ribera_del_duero_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_ribera_del_duero_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_rueda_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_rueda_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_toro_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_toro_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_bierzo_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_bierzo_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_priorat_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_priorat_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_montsant_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_montsant_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_cava_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_cava_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_rias_baixas_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_rias_baixas_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_ribeira_sacra_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_ribeira_sacra_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_ribeiro_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_ribeiro_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_valdeorras_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_valdeorras_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_jerez_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_jerez_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_manzanilla_sanlucar_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_manzanilla_sanlucar_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_somontano_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_somontano_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_carinena_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_carinena_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_jumilla_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_jumilla_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_rioja_alta_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_rioja_alta_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_rioja_alavesa_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_rioja_alavesa_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_rioja_oriental_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_rioja_oriental_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_val_do_salnes_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_val_do_salnes_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_o_rosal_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_o_rosal_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_condado_do_tea_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_condado_do_tea_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_soutomaior_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_soutomaior_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_ribeira_do_ulla_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_ribeira_do_ulla_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_douro_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_douro_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_vinho_verde_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_vinho_verde_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_dao_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_dao_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_bairrada_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_bairrada_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_alentejo_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_alentejo_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_madeira_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_madeira_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_tejo_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_tejo_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_colares_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_colares_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_setubal_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_setubal_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_pico_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_pico_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_baixo_corgo_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_baixo_corgo_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_cima_corgo_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_cima_corgo_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_douro_superior_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_douro_superior_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_moncao_melgaco_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_moncao_melgaco_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_lima_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_lima_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_basto_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_basto_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_cavado_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_cavado_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_ave_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_ave_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_amarante_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_amarante_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_baiao_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_baiao_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_sousa_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_sousa_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_paiva_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_paiva_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_portalegre_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_portalegre_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_borba_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_borba_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_redondo_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_redondo_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_reguengos_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_reguengos_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_evora_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_evora_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_vidigueira_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_vidigueira_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_moura_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_moura_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_granja_amareleja_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_granja_amareleja_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_california_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_california_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_oregon_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_oregon_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_washington_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_washington_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_napa_valley_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_napa_valley_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_sonoma_coast_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_sonoma_coast_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_russian_river_valley_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_russian_river_valley_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_dry_creek_valley_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_dry_creek_valley_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_alexander_valley_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_alexander_valley_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_central_coast_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_central_coast_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_paso_robles_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_paso_robles_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_santa_ynez_valley_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_santa_ynez_valley_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_sta_rita_hills_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_sta_rita_hills_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_santa_maria_valley_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_santa_maria_valley_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_santa_lucia_highlands_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_santa_lucia_highlands_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_oakville_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_oakville_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_rutherford_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_rutherford_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_st_helena_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_st_helena_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_calistoga_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_calistoga_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_los_carneros_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_los_carneros_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_willamette_valley_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_willamette_valley_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_dundee_hills_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_dundee_hills_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_eola_amity_hills_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_eola_amity_hills_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_chehalem_mountains_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_chehalem_mountains_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_ribbon_ridge_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_ribbon_ridge_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_columbia_valley_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_columbia_valley_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_yakima_valley_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_yakima_valley_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_red_mountain_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_red_mountain_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_walla_walla_valley_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_walla_walla_valley_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_ontario_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_ontario_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_niagara_peninsula_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_niagara_peninsula_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_lake_erie_north_shore_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_lake_erie_north_shore_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_prince_edward_county_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_prince_edward_county_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_british_columbia_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_british_columbia_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_okanagan_valley_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_okanagan_valley_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_similkameen_valley_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_similkameen_valley_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_golden_mile_bench_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_golden_mile_bench_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_coquimbo_wine_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_coquimbo_wine_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_aconcagua_wine_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_aconcagua_wine_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_central_valley_chile_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_central_valley_chile_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_southern_chile_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_southern_chile_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_elqui_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_elqui_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_limari_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_limari_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_choapa_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_choapa_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_aconcagua_valley_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_aconcagua_valley_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_casablanca_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_casablanca_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_san_antonio_valley_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_san_antonio_valley_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_leyda_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_leyda_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_maipo_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_maipo_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_rapel_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_rapel_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_cachapoal_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_cachapoal_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_colchagua_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_colchagua_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_curico_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_curico_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_maule_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_maule_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_itata_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_itata_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_bio_bio_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_bio_bio_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_malleco_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_malleco_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_mendoza_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_mendoza_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_salta_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_salta_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_rio_negro_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_rio_negro_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_neuquen_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_neuquen_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_lujan_de_cuyo_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_lujan_de_cuyo_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_maipu_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_maipu_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_cafayate_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_cafayate_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_tupungato_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_tupungato_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_tunuyan_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_tunuyan_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_san_carlos_mendoza_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_san_carlos_mendoza_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_uco_valley_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_uco_valley_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_paraje_altamira_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_paraje_altamira_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_south_australia_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_south_australia_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_victoria_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_victoria_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_western_australia_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_western_australia_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_barossa_zone_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_barossa_zone_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_mount_lofty_ranges_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_mount_lofty_ranges_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_limestone_coast_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_limestone_coast_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_port_phillip_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_port_phillip_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_barossa_valley_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_barossa_valley_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_eden_valley_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_eden_valley_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_high_eden_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_high_eden_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_clare_valley_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_clare_valley_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_adelaide_hills_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_adelaide_hills_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_mclaren_vale_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_mclaren_vale_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_coonawarra_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_coonawarra_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_yarra_valley_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_yarra_valley_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_mornington_peninsula_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_mornington_peninsula_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_margaret_river_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_margaret_river_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_great_southern_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_great_southern_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_hunter_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_hunter_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_tasmania_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_tasmania_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_marlborough_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_marlborough_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_central_otago_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_central_otago_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_hawkes_bay_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_hawkes_bay_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_wairarapa_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_wairarapa_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_martinborough_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_martinborough_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_gisborne_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_gisborne_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_nelson_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_nelson_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_north_canterbury_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_north_canterbury_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_waipara_valley_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_waipara_valley_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_bannockburn_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_bannockburn_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_western_cape_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_western_cape_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_coastal_region_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_coastal_region_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_cape_south_coast_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_cape_south_coast_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_stellenbosch_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_stellenbosch_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_paarl_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_paarl_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_swartland_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_swartland_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_constantia_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_constantia_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_walker_bay_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_walker_bay_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_elgin_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_elgin_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_hemel_en_aarde_valley_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_hemel_en_aarde_valley_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_kakheti_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_kakheti_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_kartli_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_kartli_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_imereti_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_imereti_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_bekaa_valley_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_bekaa_valley_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_batroun_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_batroun_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_atlas_mount_lebanon_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_atlas_mount_lebanon_location
+    importance: core
+    minimum_depth: 2
+knowledge_item_citations:
+  - knowledge_item_id: ki_atlas_veneto_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Entry Veneto; geographical parent Italy
+  - knowledge_item_id: ki_atlas_lombardy_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Entry Lombardy; geographical parent Italy
+  - knowledge_item_id: ki_atlas_friuli_venezia_giulia_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Entry Friuli Venezia Giulia; geographical parent Italy
+  - knowledge_item_id: ki_atlas_marche_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Entry Marche; geographical parent Italy
+  - knowledge_item_id: ki_atlas_campania_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Entry Campania; geographical parent Italy
+  - knowledge_item_id: ki_atlas_sicily_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Entry Sicily; geographical parent Italy
+  - knowledge_item_id: ki_atlas_roero_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Entry Roero; geographical parent Piedmont
+  - knowledge_item_id: ki_atlas_barbera_d_asti_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Entry Barbera d’Asti; geographical parent Piedmont
+  - knowledge_item_id: ki_atlas_nizza_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Entry Nizza; geographical parent Piedmont
+  - knowledge_item_id: ki_atlas_gavi_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Entry Gavi; geographical parent Piedmont
+  - knowledge_item_id: ki_atlas_asti_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Entry Asti; geographical parent Piedmont
+  - knowledge_item_id: ki_atlas_dogliani_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Entry Dogliani; geographical parent Piedmont
+  - knowledge_item_id: ki_atlas_gattinara_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Entry Gattinara; geographical parent Piedmont
+  - knowledge_item_id: ki_atlas_ghemme_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Entry Ghemme; geographical parent Piedmont
+  - knowledge_item_id: ki_atlas_chianti_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Entry Chianti; geographical parent Tuscany
+  - knowledge_item_id: ki_atlas_vino_nobile_di_montepulciano_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Entry Vino Nobile di Montepulciano; geographical parent Tuscany
+  - knowledge_item_id: ki_atlas_bolgheri_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Entry Bolgheri; geographical parent Tuscany
+  - knowledge_item_id: ki_atlas_morellino_di_scansano_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Entry Morellino di Scansano; geographical parent Tuscany
+  - knowledge_item_id: ki_atlas_carmignano_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Entry Carmignano; geographical parent Tuscany
+  - knowledge_item_id: ki_atlas_vernaccia_di_san_gimignano_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Entry Vernaccia di San Gimignano; geographical parent Tuscany
+  - knowledge_item_id: ki_atlas_valpolicella_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Entry Valpolicella; geographical parent Veneto
+  - knowledge_item_id: ki_atlas_soave_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Entry Soave; geographical parent Veneto
+  - knowledge_item_id: ki_atlas_conegliano_valdobbiadene_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Entry Conegliano Valdobbiadene Prosecco; geographical parent Veneto
+  - knowledge_item_id: ki_atlas_asolo_prosecco_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Entry Asolo Prosecco; geographical parent Veneto
+  - knowledge_item_id: ki_atlas_franciacorta_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Entry Franciacorta; geographical parent Lombardy
+  - knowledge_item_id: ki_atlas_collio_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Entry Collio Goriziano; geographical parent Friuli Venezia Giulia
+  - knowledge_item_id: ki_atlas_verdicchio_castelli_jesi_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Entry Verdicchio dei Castelli di Jesi; geographical parent Marche
+  - knowledge_item_id: ki_atlas_taurasi_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Entry Taurasi; geographical parent Campania
+  - knowledge_item_id: ki_atlas_etna_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Entry Etna; geographical parent Sicily
+  - knowledge_item_id: ki_atlas_galicia_location
+    source_citation_id: src_atlas_es_dop_list
+    locator: Entry Galicia; geographical parent Spain
+  - knowledge_item_id: ki_atlas_castilla_y_leon_location
+    source_citation_id: src_atlas_es_dop_list
+    locator: Entry Castilla y León; geographical parent Spain
+  - knowledge_item_id: ki_atlas_catalonia_location
+    source_citation_id: src_atlas_es_dop_list
+    locator: Entry Catalonia; geographical parent Spain
+  - knowledge_item_id: ki_atlas_andalusia_location
+    source_citation_id: src_atlas_es_dop_list
+    locator: Entry Andalusia; geographical parent Spain
+  - knowledge_item_id: ki_atlas_aragon_location
+    source_citation_id: src_atlas_es_dop_list
+    locator: Entry Aragón; geographical parent Spain
+  - knowledge_item_id: ki_atlas_rioja_location
+    source_citation_id: src_atlas_es_dop_list
+    locator: Entry Rioja; geographical parent Spain
+  - knowledge_item_id: ki_atlas_ribera_del_duero_location
+    source_citation_id: src_atlas_es_dop_list
+    locator: Entry Ribera del Duero; geographical parent Castilla y León
+  - knowledge_item_id: ki_atlas_rueda_location
+    source_citation_id: src_atlas_es_dop_list
+    locator: Entry Rueda; geographical parent Castilla y León
+  - knowledge_item_id: ki_atlas_toro_location
+    source_citation_id: src_atlas_es_dop_list
+    locator: Entry Toro; geographical parent Castilla y León
+  - knowledge_item_id: ki_atlas_bierzo_location
+    source_citation_id: src_atlas_es_dop_list
+    locator: Entry Bierzo; geographical parent Castilla y León
+  - knowledge_item_id: ki_atlas_priorat_location
+    source_citation_id: src_atlas_es_dop_list
+    locator: Entry Priorat; geographical parent Catalonia
+  - knowledge_item_id: ki_atlas_montsant_location
+    source_citation_id: src_atlas_es_dop_list
+    locator: Entry Montsant; geographical parent Catalonia
+  - knowledge_item_id: ki_atlas_cava_location
+    source_citation_id: src_atlas_es_dop_list
+    locator: Entry Cava; geographical parent Spain
+  - knowledge_item_id: ki_atlas_rias_baixas_location
+    source_citation_id: src_atlas_es_dop_list
+    locator: Entry Rías Baixas; geographical parent Galicia
+  - knowledge_item_id: ki_atlas_ribeira_sacra_location
+    source_citation_id: src_atlas_es_dop_list
+    locator: Entry Ribeira Sacra; geographical parent Galicia
+  - knowledge_item_id: ki_atlas_ribeiro_location
+    source_citation_id: src_atlas_es_dop_list
+    locator: Entry Ribeiro; geographical parent Galicia
+  - knowledge_item_id: ki_atlas_valdeorras_location
+    source_citation_id: src_atlas_es_dop_list
+    locator: Entry Valdeorras; geographical parent Galicia
+  - knowledge_item_id: ki_atlas_jerez_location
+    source_citation_id: src_atlas_es_dop_list
+    locator: Entry Jerez-Xérès-Sherry; geographical parent Andalusia
+  - knowledge_item_id: ki_atlas_manzanilla_sanlucar_location
+    source_citation_id: src_atlas_es_dop_list
+    locator: Entry Manzanilla-Sanlúcar de Barrameda; geographical parent Andalusia
+  - knowledge_item_id: ki_atlas_somontano_location
+    source_citation_id: src_atlas_es_dop_list
+    locator: Entry Somontano; geographical parent Aragón
+  - knowledge_item_id: ki_atlas_carinena_location
+    source_citation_id: src_atlas_es_dop_list
+    locator: Entry Cariñena; geographical parent Aragón
+  - knowledge_item_id: ki_atlas_jumilla_location
+    source_citation_id: src_atlas_es_dop_list
+    locator: Entry Jumilla; geographical parent Spain
+  - knowledge_item_id: ki_atlas_rioja_alta_location
+    source_citation_id: src_atlas_es_rioja_zones
+    locator: Entry Rioja Alta; geographical parent Rioja
+  - knowledge_item_id: ki_atlas_rioja_alavesa_location
+    source_citation_id: src_atlas_es_rioja_zones
+    locator: Entry Rioja Alavesa; geographical parent Rioja
+  - knowledge_item_id: ki_atlas_rioja_oriental_location
+    source_citation_id: src_atlas_es_rioja_zones
+    locator: Entry Rioja Oriental; geographical parent Rioja
+  - knowledge_item_id: ki_atlas_val_do_salnes_location
+    source_citation_id: src_atlas_es_rias_subzones
+    locator: Entry Val do Salnés; geographical parent Rías Baixas
+  - knowledge_item_id: ki_atlas_o_rosal_location
+    source_citation_id: src_atlas_es_rias_subzones
+    locator: Entry O Rosal; geographical parent Rías Baixas
+  - knowledge_item_id: ki_atlas_condado_do_tea_location
+    source_citation_id: src_atlas_es_rias_subzones
+    locator: Entry Condado do Tea; geographical parent Rías Baixas
+  - knowledge_item_id: ki_atlas_soutomaior_location
+    source_citation_id: src_atlas_es_rias_subzones
+    locator: Entry Soutomaior; geographical parent Rías Baixas
+  - knowledge_item_id: ki_atlas_ribeira_do_ulla_location
+    source_citation_id: src_atlas_es_rias_subzones
+    locator: Entry Ribeira do Ulla; geographical parent Rías Baixas
+  - knowledge_item_id: ki_atlas_douro_location
+    source_citation_id: src_atlas_pt_regions
+    locator: Entry Douro; geographical parent Portugal
+  - knowledge_item_id: ki_atlas_vinho_verde_location
+    source_citation_id: src_atlas_pt_regions
+    locator: Entry Vinho Verde; geographical parent Portugal
+  - knowledge_item_id: ki_atlas_dao_location
+    source_citation_id: src_atlas_pt_regions
+    locator: Entry Dão; geographical parent Portugal
+  - knowledge_item_id: ki_atlas_bairrada_location
+    source_citation_id: src_atlas_pt_regions
+    locator: Entry Bairrada; geographical parent Portugal
+  - knowledge_item_id: ki_atlas_alentejo_location
+    source_citation_id: src_atlas_pt_regions
+    locator: Entry Alentejo; geographical parent Portugal
+  - knowledge_item_id: ki_atlas_madeira_location
+    source_citation_id: src_atlas_pt_regions
+    locator: Entry Madeira; geographical parent Portugal
+  - knowledge_item_id: ki_atlas_tejo_location
+    source_citation_id: src_atlas_pt_regions
+    locator: Entry Tejo; geographical parent Portugal
+  - knowledge_item_id: ki_atlas_colares_location
+    source_citation_id: src_atlas_pt_regions
+    locator: Entry Colares; geographical parent Portugal
+  - knowledge_item_id: ki_atlas_setubal_location
+    source_citation_id: src_atlas_pt_regions
+    locator: Entry Setúbal; geographical parent Portugal
+  - knowledge_item_id: ki_atlas_pico_location
+    source_citation_id: src_atlas_pt_regions
+    locator: Entry Pico; geographical parent Portugal
+  - knowledge_item_id: ki_atlas_baixo_corgo_location
+    source_citation_id: src_atlas_pt_douro_subregions
+    locator: Entry Baixo Corgo; geographical parent Douro
+  - knowledge_item_id: ki_atlas_cima_corgo_location
+    source_citation_id: src_atlas_pt_douro_subregions
+    locator: Entry Cima Corgo; geographical parent Douro
+  - knowledge_item_id: ki_atlas_douro_superior_location
+    source_citation_id: src_atlas_pt_douro_subregions
+    locator: Entry Douro Superior; geographical parent Douro
+  - knowledge_item_id: ki_atlas_moncao_melgaco_location
+    source_citation_id: src_atlas_pt_vinho_verde_subregions
+    locator: Entry Monção e Melgaço; geographical parent Vinho Verde
+  - knowledge_item_id: ki_atlas_lima_location
+    source_citation_id: src_atlas_pt_vinho_verde_subregions
+    locator: Entry Lima; geographical parent Vinho Verde
+  - knowledge_item_id: ki_atlas_basto_location
+    source_citation_id: src_atlas_pt_vinho_verde_subregions
+    locator: Entry Basto; geographical parent Vinho Verde
+  - knowledge_item_id: ki_atlas_cavado_location
+    source_citation_id: src_atlas_pt_vinho_verde_subregions
+    locator: Entry Cávado; geographical parent Vinho Verde
+  - knowledge_item_id: ki_atlas_ave_location
+    source_citation_id: src_atlas_pt_vinho_verde_subregions
+    locator: Entry Ave; geographical parent Vinho Verde
+  - knowledge_item_id: ki_atlas_amarante_location
+    source_citation_id: src_atlas_pt_vinho_verde_subregions
+    locator: Entry Amarante; geographical parent Vinho Verde
+  - knowledge_item_id: ki_atlas_baiao_location
+    source_citation_id: src_atlas_pt_vinho_verde_subregions
+    locator: Entry Baião; geographical parent Vinho Verde
+  - knowledge_item_id: ki_atlas_sousa_location
+    source_citation_id: src_atlas_pt_vinho_verde_subregions
+    locator: Entry Sousa; geographical parent Vinho Verde
+  - knowledge_item_id: ki_atlas_paiva_location
+    source_citation_id: src_atlas_pt_vinho_verde_subregions
+    locator: Entry Paiva; geographical parent Vinho Verde
+  - knowledge_item_id: ki_atlas_portalegre_location
+    source_citation_id: src_atlas_pt_alentejo_subregions
+    locator: Entry Portalegre; geographical parent Alentejo
+  - knowledge_item_id: ki_atlas_borba_location
+    source_citation_id: src_atlas_pt_alentejo_subregions
+    locator: Entry Borba; geographical parent Alentejo
+  - knowledge_item_id: ki_atlas_redondo_location
+    source_citation_id: src_atlas_pt_alentejo_subregions
+    locator: Entry Redondo; geographical parent Alentejo
+  - knowledge_item_id: ki_atlas_reguengos_location
+    source_citation_id: src_atlas_pt_alentejo_subregions
+    locator: Entry Reguengos; geographical parent Alentejo
+  - knowledge_item_id: ki_atlas_evora_location
+    source_citation_id: src_atlas_pt_alentejo_subregions
+    locator: Entry Évora; geographical parent Alentejo
+  - knowledge_item_id: ki_atlas_vidigueira_location
+    source_citation_id: src_atlas_pt_alentejo_subregions
+    locator: Entry Vidigueira; geographical parent Alentejo
+  - knowledge_item_id: ki_atlas_moura_location
+    source_citation_id: src_atlas_pt_alentejo_subregions
+    locator: Entry Moura; geographical parent Alentejo
+  - knowledge_item_id: ki_atlas_granja_amareleja_location
+    source_citation_id: src_atlas_pt_alentejo_subregions
+    locator: Entry Granja-Amareleja; geographical parent Alentejo
+  - knowledge_item_id: ki_atlas_california_location
+    source_citation_id: src_atlas_us_avas
+    locator: Entry California; geographical parent United States
+  - knowledge_item_id: ki_atlas_oregon_location
+    source_citation_id: src_atlas_us_avas
+    locator: Entry Oregon; geographical parent United States
+  - knowledge_item_id: ki_atlas_washington_location
+    source_citation_id: src_atlas_us_avas
+    locator: Entry Washington; geographical parent United States
+  - knowledge_item_id: ki_atlas_napa_valley_location
+    source_citation_id: src_atlas_us_avas
+    locator: Entry Napa Valley; geographical parent California
+  - knowledge_item_id: ki_atlas_sonoma_coast_location
+    source_citation_id: src_atlas_us_avas
+    locator: Entry Sonoma Coast; geographical parent California
+  - knowledge_item_id: ki_atlas_russian_river_valley_location
+    source_citation_id: src_atlas_us_avas
+    locator: Entry Russian River Valley; geographical parent California
+  - knowledge_item_id: ki_atlas_dry_creek_valley_location
+    source_citation_id: src_atlas_us_avas
+    locator: Entry Dry Creek Valley; geographical parent California
+  - knowledge_item_id: ki_atlas_alexander_valley_location
+    source_citation_id: src_atlas_us_avas
+    locator: Entry Alexander Valley; geographical parent California
+  - knowledge_item_id: ki_atlas_central_coast_location
+    source_citation_id: src_atlas_us_avas
+    locator: Entry Central Coast (California); geographical parent California
+  - knowledge_item_id: ki_atlas_paso_robles_location
+    source_citation_id: src_atlas_us_avas
+    locator: Entry Paso Robles; geographical parent Central Coast (California)
+  - knowledge_item_id: ki_atlas_santa_ynez_valley_location
+    source_citation_id: src_atlas_us_avas
+    locator: Entry Santa Ynez Valley; geographical parent Central Coast (California)
+  - knowledge_item_id: ki_atlas_sta_rita_hills_location
+    source_citation_id: src_atlas_us_avas
+    locator: Entry Sta. Rita Hills; geographical parent Santa Ynez Valley
+  - knowledge_item_id: ki_atlas_santa_maria_valley_location
+    source_citation_id: src_atlas_us_avas
+    locator: Entry Santa Maria Valley; geographical parent Central Coast (California)
+  - knowledge_item_id: ki_atlas_santa_lucia_highlands_location
+    source_citation_id: src_atlas_us_avas
+    locator: Entry Santa Lucia Highlands; geographical parent Central Coast (California)
+  - knowledge_item_id: ki_atlas_oakville_location
+    source_citation_id: src_atlas_us_avas
+    locator: Entry Oakville; geographical parent Napa Valley
+  - knowledge_item_id: ki_atlas_rutherford_location
+    source_citation_id: src_atlas_us_avas
+    locator: Entry Rutherford; geographical parent Napa Valley
+  - knowledge_item_id: ki_atlas_st_helena_location
+    source_citation_id: src_atlas_us_avas
+    locator: Entry St. Helena; geographical parent Napa Valley
+  - knowledge_item_id: ki_atlas_calistoga_location
+    source_citation_id: src_atlas_us_avas
+    locator: Entry Calistoga; geographical parent Napa Valley
+  - knowledge_item_id: ki_atlas_los_carneros_location
+    source_citation_id: src_atlas_us_avas
+    locator: Entry Los Carneros; geographical parent California
+  - knowledge_item_id: ki_atlas_willamette_valley_location
+    source_citation_id: src_atlas_us_avas
+    locator: Entry Willamette Valley; geographical parent Oregon
+  - knowledge_item_id: ki_atlas_dundee_hills_location
+    source_citation_id: src_atlas_us_avas
+    locator: Entry Dundee Hills; geographical parent Willamette Valley
+  - knowledge_item_id: ki_atlas_eola_amity_hills_location
+    source_citation_id: src_atlas_us_avas
+    locator: Entry Eola-Amity Hills; geographical parent Willamette Valley
+  - knowledge_item_id: ki_atlas_chehalem_mountains_location
+    source_citation_id: src_atlas_us_avas
+    locator: Entry Chehalem Mountains; geographical parent Willamette Valley
+  - knowledge_item_id: ki_atlas_ribbon_ridge_location
+    source_citation_id: src_atlas_us_avas
+    locator: Entry Ribbon Ridge; geographical parent Chehalem Mountains
+  - knowledge_item_id: ki_atlas_columbia_valley_location
+    source_citation_id: src_atlas_us_avas
+    locator: Entry Columbia Valley; geographical parent United States
+  - knowledge_item_id: ki_atlas_yakima_valley_location
+    source_citation_id: src_atlas_us_avas
+    locator: Entry Yakima Valley; geographical parent Columbia Valley
+  - knowledge_item_id: ki_atlas_red_mountain_location
+    source_citation_id: src_atlas_us_avas
+    locator: Entry Red Mountain; geographical parent Yakima Valley
+  - knowledge_item_id: ki_atlas_walla_walla_valley_location
+    source_citation_id: src_atlas_us_avas
+    locator: Entry Walla Walla Valley; geographical parent Columbia Valley
+  - knowledge_item_id: ki_atlas_ontario_location
+    source_citation_id: src_atlas_ca_ontario
+    locator: Entry Ontario; geographical parent Canada
+  - knowledge_item_id: ki_atlas_niagara_peninsula_location
+    source_citation_id: src_atlas_ca_ontario
+    locator: Entry Niagara Peninsula; geographical parent Ontario
+  - knowledge_item_id: ki_atlas_lake_erie_north_shore_location
+    source_citation_id: src_atlas_ca_ontario
+    locator: Entry Lake Erie North Shore; geographical parent Ontario
+  - knowledge_item_id: ki_atlas_prince_edward_county_location
+    source_citation_id: src_atlas_ca_ontario
+    locator: Entry Prince Edward County; geographical parent Ontario
+  - knowledge_item_id: ki_atlas_british_columbia_location
+    source_citation_id: src_atlas_ca_bc
+    locator: Entry British Columbia; geographical parent Canada
+  - knowledge_item_id: ki_atlas_okanagan_valley_location
+    source_citation_id: src_atlas_ca_bc
+    locator: Entry Okanagan Valley; geographical parent British Columbia
+  - knowledge_item_id: ki_atlas_similkameen_valley_location
+    source_citation_id: src_atlas_ca_bc
+    locator: Entry Similkameen Valley; geographical parent British Columbia
+  - knowledge_item_id: ki_atlas_golden_mile_bench_location
+    source_citation_id: src_atlas_ca_bc
+    locator: Entry Golden Mile Bench; geographical parent Okanagan Valley
+  - knowledge_item_id: ki_atlas_coquimbo_wine_location
+    source_citation_id: src_atlas_cl_zonation
+    locator: Entry Coquimbo (wine region); geographical parent Chile
+  - knowledge_item_id: ki_atlas_aconcagua_wine_location
+    source_citation_id: src_atlas_cl_zonation
+    locator: Entry Aconcagua (wine region); geographical parent Chile
+  - knowledge_item_id: ki_atlas_central_valley_chile_location
+    source_citation_id: src_atlas_cl_zonation
+    locator: Entry Central Valley (Chile); geographical parent Chile
+  - knowledge_item_id: ki_atlas_southern_chile_location
+    source_citation_id: src_atlas_cl_zonation
+    locator: Entry Southern Region (Chile); geographical parent Chile
+  - knowledge_item_id: ki_atlas_elqui_location
+    source_citation_id: src_atlas_cl_zonation
+    locator: Entry Elqui Valley; geographical parent Coquimbo (wine region)
+  - knowledge_item_id: ki_atlas_limari_location
+    source_citation_id: src_atlas_cl_zonation
+    locator: Entry Limarí Valley; geographical parent Coquimbo (wine region)
+  - knowledge_item_id: ki_atlas_choapa_location
+    source_citation_id: src_atlas_cl_zonation
+    locator: Entry Choapa Valley; geographical parent Coquimbo (wine region)
+  - knowledge_item_id: ki_atlas_aconcagua_valley_location
+    source_citation_id: src_atlas_cl_zonation
+    locator: Entry Aconcagua Valley; geographical parent Aconcagua (wine region)
+  - knowledge_item_id: ki_atlas_casablanca_location
+    source_citation_id: src_atlas_cl_zonation
+    locator: Entry Casablanca Valley; geographical parent Aconcagua (wine region)
+  - knowledge_item_id: ki_atlas_san_antonio_valley_location
+    source_citation_id: src_atlas_cl_zonation
+    locator: Entry San Antonio Valley; geographical parent Aconcagua (wine region)
+  - knowledge_item_id: ki_atlas_leyda_location
+    source_citation_id: src_atlas_cl_zonation
+    locator: Entry Leyda Valley; geographical parent San Antonio Valley
+  - knowledge_item_id: ki_atlas_maipo_location
+    source_citation_id: src_atlas_cl_zonation
+    locator: Entry Maipo Valley; geographical parent Central Valley (Chile)
+  - knowledge_item_id: ki_atlas_rapel_location
+    source_citation_id: src_atlas_cl_zonation
+    locator: Entry Rapel Valley; geographical parent Central Valley (Chile)
+  - knowledge_item_id: ki_atlas_cachapoal_location
+    source_citation_id: src_atlas_cl_zonation
+    locator: Entry Cachapoal Valley; geographical parent Rapel Valley
+  - knowledge_item_id: ki_atlas_colchagua_location
+    source_citation_id: src_atlas_cl_zonation
+    locator: Entry Colchagua Valley; geographical parent Rapel Valley
+  - knowledge_item_id: ki_atlas_curico_location
+    source_citation_id: src_atlas_cl_zonation
+    locator: Entry Curicó Valley; geographical parent Central Valley (Chile)
+  - knowledge_item_id: ki_atlas_maule_location
+    source_citation_id: src_atlas_cl_zonation
+    locator: Entry Maule Valley; geographical parent Central Valley (Chile)
+  - knowledge_item_id: ki_atlas_itata_location
+    source_citation_id: src_atlas_cl_zonation
+    locator: Entry Itata Valley; geographical parent Southern Region (Chile)
+  - knowledge_item_id: ki_atlas_bio_bio_location
+    source_citation_id: src_atlas_cl_zonation
+    locator: Entry Bío Bío Valley; geographical parent Southern Region (Chile)
+  - knowledge_item_id: ki_atlas_malleco_location
+    source_citation_id: src_atlas_cl_zonation
+    locator: Entry Malleco Valley; geographical parent Southern Region (Chile)
+  - knowledge_item_id: ki_atlas_mendoza_location
+    source_citation_id: src_atlas_ar_gis
+    locator: Entry Mendoza; geographical parent Argentina
+  - knowledge_item_id: ki_atlas_salta_location
+    source_citation_id: src_atlas_ar_gis
+    locator: Entry Salta; geographical parent Argentina
+  - knowledge_item_id: ki_atlas_rio_negro_location
+    source_citation_id: src_atlas_ar_gis
+    locator: Entry Río Negro; geographical parent Argentina
+  - knowledge_item_id: ki_atlas_neuquen_location
+    source_citation_id: src_atlas_ar_gis
+    locator: Entry Neuquén; geographical parent Argentina
+  - knowledge_item_id: ki_atlas_lujan_de_cuyo_location
+    source_citation_id: src_atlas_ar_gis
+    locator: Entry Luján de Cuyo; geographical parent Mendoza
+  - knowledge_item_id: ki_atlas_maipu_location
+    source_citation_id: src_atlas_ar_gis
+    locator: Entry Maipú; geographical parent Mendoza
+  - knowledge_item_id: ki_atlas_cafayate_location
+    source_citation_id: src_atlas_ar_gis
+    locator: Entry Valle de Cafayate; geographical parent Salta
+  - knowledge_item_id: ki_atlas_tupungato_location
+    source_citation_id: src_atlas_ar_gis
+    locator: Entry Tupungato; geographical parent Uco Valley
+  - knowledge_item_id: ki_atlas_tunuyan_location
+    source_citation_id: src_atlas_ar_gis
+    locator: Entry Tunuyán; geographical parent Uco Valley
+  - knowledge_item_id: ki_atlas_san_carlos_mendoza_location
+    source_citation_id: src_atlas_ar_gis
+    locator: Entry San Carlos (Mendoza); geographical parent Uco Valley
+  - knowledge_item_id: ki_atlas_uco_valley_location
+    source_citation_id: src_atlas_ar_gis
+    locator: Entry Uco Valley; geographical parent Mendoza
+  - knowledge_item_id: ki_atlas_paraje_altamira_location
+    source_citation_id: src_atlas_ar_altamira
+    locator: Entry Paraje Altamira; geographical parent San Carlos (Mendoza)
+  - knowledge_item_id: ki_atlas_south_australia_location
+    source_citation_id: src_atlas_au_gis
+    locator: Entry South Australia; geographical parent Australia
+  - knowledge_item_id: ki_atlas_victoria_location
+    source_citation_id: src_atlas_au_gis
+    locator: Entry Victoria; geographical parent Australia
+  - knowledge_item_id: ki_atlas_western_australia_location
+    source_citation_id: src_atlas_au_gis
+    locator: Entry Western Australia; geographical parent Australia
+  - knowledge_item_id: ki_atlas_barossa_zone_location
+    source_citation_id: src_atlas_au_gis
+    locator: Entry Barossa (zone); geographical parent South Australia
+  - knowledge_item_id: ki_atlas_mount_lofty_ranges_location
+    source_citation_id: src_atlas_au_gis
+    locator: Entry Mount Lofty Ranges (zone); geographical parent South Australia
+  - knowledge_item_id: ki_atlas_limestone_coast_location
+    source_citation_id: src_atlas_au_gis
+    locator: Entry Limestone Coast (zone); geographical parent South Australia
+  - knowledge_item_id: ki_atlas_port_phillip_location
+    source_citation_id: src_atlas_au_gis
+    locator: Entry Port Phillip (zone); geographical parent Victoria
+  - knowledge_item_id: ki_atlas_barossa_valley_location
+    source_citation_id: src_atlas_au_gis
+    locator: Entry Barossa Valley; geographical parent Barossa (zone)
+  - knowledge_item_id: ki_atlas_eden_valley_location
+    source_citation_id: src_atlas_au_gis
+    locator: Entry Eden Valley; geographical parent Barossa (zone)
+  - knowledge_item_id: ki_atlas_high_eden_location
+    source_citation_id: src_atlas_au_gis
+    locator: Entry High Eden; geographical parent Eden Valley
+  - knowledge_item_id: ki_atlas_clare_valley_location
+    source_citation_id: src_atlas_au_gis
+    locator: Entry Clare Valley; geographical parent Mount Lofty Ranges (zone)
+  - knowledge_item_id: ki_atlas_adelaide_hills_location
+    source_citation_id: src_atlas_au_gis
+    locator: Entry Adelaide Hills; geographical parent Mount Lofty Ranges (zone)
+  - knowledge_item_id: ki_atlas_mclaren_vale_location
+    source_citation_id: src_atlas_au_gis
+    locator: Entry McLaren Vale; geographical parent South Australia
+  - knowledge_item_id: ki_atlas_coonawarra_location
+    source_citation_id: src_atlas_au_gis
+    locator: Entry Coonawarra; geographical parent Limestone Coast (zone)
+  - knowledge_item_id: ki_atlas_yarra_valley_location
+    source_citation_id: src_atlas_au_gis
+    locator: Entry Yarra Valley; geographical parent Port Phillip (zone)
+  - knowledge_item_id: ki_atlas_mornington_peninsula_location
+    source_citation_id: src_atlas_au_gis
+    locator: Entry Mornington Peninsula; geographical parent Port Phillip (zone)
+  - knowledge_item_id: ki_atlas_margaret_river_location
+    source_citation_id: src_atlas_au_gis
+    locator: Entry Margaret River; geographical parent Western Australia
+  - knowledge_item_id: ki_atlas_great_southern_location
+    source_citation_id: src_atlas_au_gis
+    locator: Entry Great Southern; geographical parent Western Australia
+  - knowledge_item_id: ki_atlas_hunter_location
+    source_citation_id: src_atlas_au_gis
+    locator: Entry Hunter; geographical parent Australia
+  - knowledge_item_id: ki_atlas_tasmania_location
+    source_citation_id: src_atlas_au_gis
+    locator: Entry Tasmania; geographical parent Australia
+  - knowledge_item_id: ki_atlas_marlborough_location
+    source_citation_id: src_atlas_nz_gis
+    locator: Entry Marlborough; geographical parent New Zealand
+  - knowledge_item_id: ki_atlas_central_otago_location
+    source_citation_id: src_atlas_nz_gis
+    locator: Entry Central Otago; geographical parent New Zealand
+  - knowledge_item_id: ki_atlas_hawkes_bay_location
+    source_citation_id: src_atlas_nz_gis
+    locator: Entry Hawke’s Bay; geographical parent New Zealand
+  - knowledge_item_id: ki_atlas_wairarapa_location
+    source_citation_id: src_atlas_nz_gis
+    locator: Entry Wairarapa; geographical parent New Zealand
+  - knowledge_item_id: ki_atlas_martinborough_location
+    source_citation_id: src_atlas_nz_gis
+    locator: Entry Martinborough; geographical parent Wairarapa
+  - knowledge_item_id: ki_atlas_martinborough_location
+    source_citation_id: src_atlas_nz_wairarapa_examiner
+    locator: "Geographical features: Wairarapa and its subregions Martinborough and Gladstone"
+  - knowledge_item_id: ki_atlas_gisborne_location
+    source_citation_id: src_atlas_nz_gis
+    locator: Entry Gisborne; geographical parent New Zealand
+  - knowledge_item_id: ki_atlas_nelson_location
+    source_citation_id: src_atlas_nz_gis
+    locator: Entry Nelson; geographical parent New Zealand
+  - knowledge_item_id: ki_atlas_north_canterbury_location
+    source_citation_id: src_atlas_nz_gis
+    locator: Entry North Canterbury; geographical parent New Zealand
+  - knowledge_item_id: ki_atlas_waipara_valley_location
+    source_citation_id: src_atlas_nz_gis
+    locator: Entry Waipara Valley; geographical parent North Canterbury
+  - knowledge_item_id: ki_atlas_waipara_valley_location
+    source_citation_id: src_atlas_nz_nc_examiner
+    locator: "Pages 5–6, boxes 24–25: Waipara Valley in the northern part of North Canterbury"
+  - knowledge_item_id: ki_atlas_bannockburn_location
+    source_citation_id: src_atlas_nz_gis
+    locator: Entry Bannockburn; geographical parent Central Otago
+  - knowledge_item_id: ki_atlas_bannockburn_location
+    source_citation_id: src_atlas_nz_bannockburn_evidence
+    locator: Central Otago GI and the smaller geographical unit Bannockburn
+  - knowledge_item_id: ki_atlas_western_cape_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: Entry Western Cape; geographical parent South Africa
+  - knowledge_item_id: ki_atlas_coastal_region_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: Entry Coastal Region; geographical parent Western Cape
+  - knowledge_item_id: ki_atlas_cape_south_coast_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: Entry Cape South Coast; geographical parent Western Cape
+  - knowledge_item_id: ki_atlas_stellenbosch_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: Entry Stellenbosch; geographical parent Coastal Region
+  - knowledge_item_id: ki_atlas_paarl_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: Entry Paarl; geographical parent Coastal Region
+  - knowledge_item_id: ki_atlas_swartland_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: Entry Swartland; geographical parent Coastal Region
+  - knowledge_item_id: ki_atlas_constantia_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: Entry Constantia; geographical parent Coastal Region
+  - knowledge_item_id: ki_atlas_walker_bay_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: Entry Walker Bay; geographical parent Cape South Coast
+  - knowledge_item_id: ki_atlas_elgin_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: Entry Elgin; geographical parent Cape South Coast
+  - knowledge_item_id: ki_atlas_hemel_en_aarde_valley_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: Entry Hemel-en-Aarde Valley; geographical parent Walker Bay
+  - knowledge_item_id: ki_atlas_kakheti_location
+    source_citation_id: src_atlas_ge_regions
+    locator: Entry Kakheti; geographical parent Georgia
+  - knowledge_item_id: ki_atlas_kartli_location
+    source_citation_id: src_atlas_ge_regions
+    locator: Entry Kartli; geographical parent Georgia
+  - knowledge_item_id: ki_atlas_imereti_location
+    source_citation_id: src_atlas_ge_regions
+    locator: Entry Imereti; geographical parent Georgia
+  - knowledge_item_id: ki_atlas_bekaa_valley_location
+    source_citation_id: src_atlas_lb_wine_regions
+    locator: Entry Bekaa Valley; geographical parent Lebanon
+  - knowledge_item_id: ki_atlas_batroun_location
+    source_citation_id: src_atlas_lb_wine_regions
+    locator: Entry Batroun; geographical parent Lebanon
+  - knowledge_item_id: ki_atlas_mount_lebanon_location
+    source_citation_id: src_atlas_lb_wine_regions
+    locator: Entry Mount Lebanon; geographical parent Lebanon
+source_citations:
+  - id: src_atlas_it_dop_2026
+    kind: regulator_register
+    title: Elenco alfabetico Vini DOP italiani, aggiornato 18 marzo 2026
+    publisher: Ministero dell’agricoltura, della sovranità alimentare e delle foreste
+    url: https://www.masaf.gov.it/flex/cm/pages/ServeAttachment.php/L/IT/D/1%252Fd%252F5%252FD.fd1629819dea12c20cf4/P/BLOB%3AID%3D4625/E/pdf?mode=download
+    jurisdiction: IT
+    accessed_on: 2026-09-26
+    document_identifier: Elenco alfabetico Vini DOP italiani, aggiornato 18 marzo 2026
+  - id: src_atlas_es_dop_list
+    kind: regulator_register
+    title: Listado de denominaciones de origen protegidas por comunidades autónomas
+    publisher: Ministerio de Agricultura, Pesca y Alimentación
+    url: https://servicio.mapa.gob.es/es/alimentacion/temas/calidad-diferenciada/04_dopxccaa_tcm30-628181.pdf
+    jurisdiction: ES
+    accessed_on: 2026-09-26
+    document_identifier: Listado de denominaciones de origen protegidas por comunidades autónomas
+  - id: src_atlas_es_rioja_zones
+    kind: regulator_register
+    title: "Rioja designation specifications: production zones"
+    publisher: Consejo Regulador de la Denominación de Origen Calificada Rioja
+    url: https://riojawine.com/wp-content/uploads/2019/01/designation_specifications.pdf
+    jurisdiction: ES
+    accessed_on: 2026-09-26
+    document_identifier: "Rioja designation specifications: production zones"
+  - id: src_atlas_es_rias_subzones
+    kind: government_publication
+    title: "Rías Baixas: five production subzones"
+    publisher: Turismo de Galicia, Xunta de Galicia
+    url: https://www.turismo.gal/que-facer/paseando-entre-vinedos/denominacions-de-orixe/rias-baixas?langId=gl_ES
+    jurisdiction: ES-GA
+    accessed_on: 2026-09-26
+    document_identifier: "Rías Baixas: five production subzones"
+  - id: src_atlas_pt_regions
+    kind: government_publication
+    title: Mapa das regiões vitivinícolas portuguesas
+    publisher: Instituto da Vinha e do Vinho
+    url: https://www.ivv.gov.pt/regioes-vitivinicolas/mapa-das-regioes/
+    jurisdiction: PT
+    accessed_on: 2026-09-26
+    document_identifier: Mapa das regiões vitivinícolas portuguesas
+  - id: src_atlas_pt_douro_subregions
+    kind: government_publication
+    title: "Douro e Porto: common territory and three subregions"
+    publisher: Instituto da Vinha e do Vinho
+    url: https://www.ivv.gov.pt/regioes-vitivinicolas/mapa-das-regioes/douro/
+    jurisdiction: PT
+    accessed_on: 2026-09-26
+    document_identifier: "Douro e Porto: common territory and three subregions"
+  - id: src_atlas_pt_vinho_verde_subregions
+    kind: legislation
+    title: "Portaria n.º 152/2015: Vinho Verde production subregions"
+    publisher: Diário da República
+    url: https://diariodarepublica.pt/dr/detalhe/portaria/152-2015-67289947
+    jurisdiction: PT
+    accessed_on: 2026-09-26
+    document_identifier: "Portaria n.º 152/2015: Vinho Verde production subregions"
+  - id: src_atlas_pt_alentejo_subregions
+    kind: government_publication
+    title: "Alentejo: eight DOP subregions, updated 24 March 2026"
+    publisher: Instituto da Vinha e do Vinho
+    url: https://www.ivv.gov.pt/regioes-vitivinicolas/mapa-das-regioes/alentejo/
+    jurisdiction: PT
+    accessed_on: 2026-09-26
+    document_identifier: "Alentejo: eight DOP subregions, updated 24 March 2026"
+  - id: src_atlas_us_avas
+    kind: regulator_register
+    title: Established American Viticultural Areas, updated 18 August 2026
+    publisher: Alcohol and Tobacco Tax and Trade Bureau
+    url: https://www.ttb.gov/regulated-commodities/beverage-alcohol/wine/established-avas
+    jurisdiction: US
+    accessed_on: 2026-09-26
+    document_identifier: Established American Viticultural Areas, updated 18 August 2026
+  - id: src_atlas_ca_ontario
+    kind: regulator_register
+    title: Ontario appellations of origin
+    publisher: Ontario Wine Appellation Authority
+    url: https://vqaontario.ca/ontario-appellations/
+    jurisdiction: CA-ON
+    accessed_on: 2026-09-26
+    document_identifier: Ontario appellations of origin
+  - id: src_atlas_ca_bc
+    kind: regulator_register
+    title: Geographical and sub-geographical indications of British Columbia
+    publisher: British Columbia Wine Authority
+    url: https://bcvqa.ca/wine-regions/
+    jurisdiction: CA-BC
+    accessed_on: 2026-09-26
+    document_identifier: Geographical and sub-geographical indications of British Columbia
+  - id: src_atlas_cl_zonation
+    kind: legislation
+    title: "Decreto 464: zonificación vitícola, consolidated 14 July 2026"
+    publisher: Ministerio de Agricultura / Biblioteca del Congreso Nacional
+    url: https://www.bcn.cl/leychile/navegar?idNorma=13601&idVersion=2026-07-14
+    jurisdiction: CL
+    accessed_on: 2026-09-26
+    document_identifier: "Decreto 464: zonificación vitícola, consolidated 14 July 2026"
+  - id: src_atlas_ar_gis
+    kind: regulator_register
+    title: Indicaciones geográficas y denominaciones de origen reconocidas y protegidas
+    publisher: Instituto Nacional de Vitivinicultura
+    url: https://www.argentina.gob.ar/sites/default/files/i.g._y_d.o.c._de_la_republica_argentina_1.pdf
+    jurisdiction: AR
+    accessed_on: 2026-09-26
+    document_identifier: Indicaciones geográficas y denominaciones de origen reconocidas y protegidas
+  - id: src_atlas_ar_altamira
+    kind: legislation
+    title: "Resolución C 44/2013: Paraje Altamira, department San Carlos, Mendoza"
+    publisher: Instituto Nacional de Vitivinicultura
+    url: https://www.argentina.gob.ar/normativa/nacional/resoluci%C3%B3n-44-2013-224994/texto
+    jurisdiction: AR
+    accessed_on: 2026-09-26
+    document_identifier: "Resolución C 44/2013: Paraje Altamira, department San Carlos, Mendoza"
+  - id: src_atlas_au_gis
+    kind: regulator_register
+    title: Register of protected Australian geographical indications
+    publisher: Wine Australia
+    url: https://www.wineaustralia.com/labelling/register-of-protected-gis-and-other-terms/geographical-indications
+    jurisdiction: AU
+    accessed_on: 2026-09-26
+    document_identifier: Register of protected Australian geographical indications
+  - id: src_atlas_nz_gis
+    kind: regulator_register
+    title: New Zealand geographical indications register
+    publisher: Intellectual Property Office of New Zealand
+    url: https://www.iponz.govt.nz/get-ip/geographical-indications/register/?location=nz&sort=alphabet
+    jurisdiction: NZ
+    accessed_on: 2026-09-26
+    document_identifier: New Zealand geographical indications register
+  - id: src_atlas_nz_nc_examiner
+    kind: regulator_register
+    title: North Canterbury GI 1016 examination check sheet
+    publisher: Intellectual Property Office of New Zealand
+    url: https://www.iponz.govt.nz/assets/GIRegister/1866/Examiners-check-sheet.pdf
+    jurisdiction: NZ
+    accessed_on: 2026-09-26
+    document_identifier: North Canterbury GI 1016 examination check sheet
+  - id: src_atlas_nz_wairarapa_examiner
+    kind: regulator_register
+    title: "Gladstone GI 1014 examination check sheet: Wairarapa subregions"
+    publisher: Intellectual Property Office of New Zealand
+    url: https://www.iponz.govt.nz/assets/GIRegister/1860/1014-Gladstone-examiners-check-sheet.pdf
+    jurisdiction: NZ
+    accessed_on: 2026-09-26
+    document_identifier: "Gladstone GI 1014 examination check sheet: Wairarapa subregions"
+  - id: src_atlas_nz_bannockburn_evidence
+    kind: regulator_register
+    title: "Bannockburn GI 1028 applicants evidence: Central Otago location"
+    publisher: Intellectual Property Office of New Zealand
+    url: https://www.iponz.govt.nz/assets/GIRegister/2926/NZGI1028-Bannockburn-applicants-evidence.pdf
+    jurisdiction: NZ
+    accessed_on: 2026-09-26
+    document_identifier: "Bannockburn GI 1028 applicants evidence: Central Otago location"
+  - id: src_atlas_za_wo_2026
+    kind: regulator_register
+    title: Production areas defined in terms of the Wine of Origin Scheme, February 2026
+    publisher: Wine Certification Authority / SAWIS
+    url: https://www.sawis.co.za/cert/download/Production_areas_-_Eng_%26_Afr_-_Feb26.pdf
+    jurisdiction: ZA
+    accessed_on: 2026-09-26
+    document_identifier: Production areas defined in terms of the Wine of Origin Scheme, February 2026
+  - id: src_atlas_ge_regions
+    kind: government_publication
+    title: Viticulture and winemaking regions of Georgia
+    publisher: National Wine Agency of Georgia
+    url: https://wine.gov.ge/En/WineMakingRegions
+    jurisdiction: GE
+    accessed_on: 2026-09-26
+    document_identifier: Viticulture and winemaking regions of Georgia
+  - id: src_atlas_lb_wine_regions
+    kind: government_publication
+    title: "Investment opportunities in West Bekaa: Lebanese wine-region map"
+    publisher: Investment Development Authority of Lebanon
+    url: https://investinlebanon.gov.lb/Content/uploads/SideBlock/170616110924892~INVESTMENT%20OPPORTUNITIES%20IN%20WEST%20BEKAA.pdf
+    jurisdiction: LB
+    accessed_on: 2026-09-26
+    document_identifier: "Investment opportunities in West Bekaa: Lebanese wine-region map"

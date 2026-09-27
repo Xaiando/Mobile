@@ -67,9 +67,27 @@ void main() {
     ('ki_chablis_frost', 'qt_hazard_fwd_flashcard'),
   ]);
 
-  test('one pool per appellation with two key points or more', () async {
-    expect(generated.pools, 13);
-    final pools = await db.select(db.exercisePools).get();
+  test('one pool per subject with two key points or more', () async {
+    final allPools = await db.select(db.exercisePools).get();
+    final pools = allPools
+        .where((p) => p.questionTemplateId == profile)
+        .toList();
+    final expectedSubjects = await db.customSelect('''
+      SELECT subject_id FROM knowledge_items
+      WHERE relation_type IN (
+        'PERMITS_PRINCIPAL_GRAPE', 'PERMITS_ACCESSORY_GRAPE', 'PERMITS_GRAPE', 'HAS_CLIMATE',
+        'HAS_SOIL', 'SUSCEPTIBLE_TO', 'REQUIRES_METHOD', 'MIN_AGEING',
+        'MIN_WOOD_AGEING')
+      GROUP BY subject_id HAVING count(*) >= 2
+    ''').get();
+    expect(generated.pools, allPools.length);
+    expect(pools, hasLength(expectedSubjects.length));
+    expect(
+      pools.map((p) => p.scopeNodeId),
+      unorderedEquals(
+        expectedSubjects.map((r) => r.read<String>('subject_id')),
+      ),
+    );
     final chablis = pools.singleWhere((p) => p.scopeNodeId == 'n_geo_chablis');
     expect(
       chablis.promptText,
@@ -86,6 +104,7 @@ void main() {
         'ki_chablis_climate',
         'ki_chablis_soil',
         'ki_chablis_frost',
+        'ki_fr_atlas_chablis_permits_grape_chardonnay',
       },
       reason: 'its location is not a key point',
     );
@@ -158,7 +177,11 @@ void main() {
       expect(exercise.keyPoints, hasLength(2));
       seen.addAll(exercise.itemIds);
     }
-    expect(seen, hasLength(4), reason: 'the seed draws the new one');
+    expect(
+      seen,
+      hasLength(5),
+      reason: 'the seed draws each authored key point',
+    );
   });
 
   test('a ticked point is Good, the others Again; the text is kept', () async {

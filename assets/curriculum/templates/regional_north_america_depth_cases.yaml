@@ -1,0 +1,84 @@
+# Original self-checked cases; node names contain identical full prompt premises.
+question_templates:
+  - id: qt_reg_na_case_lodi_sampling_triage
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: reg_na_lodi_sampling_triage
+    prompt_template: A Lodi Zinfandel grower has one crew day before a booked crush slot. Block A has healthy
+      fruit and consistent maturity checks matching the intended fresh red style. Block B has a dense canopy
+      and noticeably mixed berry maturity; inspection finds some damaged bunches. The crew can either harvest
+      A or spend the day sampling and selectively opening B’s canopy, but cannot complete both. Another crew
+      is available later at a higher quoted cost, and the next crush slot is unconfirmed. No regional name
+      guarantees ripeness or sound fruit. Propose an action, explain a reason, weigh a tradeoff and state a
+      limitation.
+    parameters:
+      scope_node_ids:
+        - n_reg_na_case_lodi_sampling_triage
+      key_points:
+        CASE_ACTION: Defensible action
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or evidence needed
+  - id: qt_reg_na_case_oregon_stem_trial
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: reg_na_oregon_stem_trial
+    prompt_template: An Oregon Pinot Noir producer can split one sound, uniformly sampled parcel lot into matched
+      vessels. A small pilot using destemmed fruit has the bright fruit and lighter grip wanted for one
+      product; a pilot retaining half the bunches has more spice and firmer grip wanted for another. The
+      pilots were tasted blind and have no detected faults. Harvest, vessel size, temperature, extraction and
+      oak programme can be kept the same for the split, and both proposed routes fit the budget. Full-scale
+      consistency and customer demand remain untested. Propose an action, explain a reason, weigh a tradeoff
+      and state a limitation before scaling stem use.
+    parameters:
+      scope_node_ids:
+        - n_reg_na_case_oregon_stem_trial
+      key_points:
+        CASE_ACTION: Defensible action
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or evidence needed
+  - id: qt_reg_na_case_county_protection_budget
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: reg_na_county_protection_budget
+    prompt_template: A Prince Edward County grower compares soil burial and geotextile protection for the same
+      cultivar on one block before winter. Both can be installed before the forecast cold period. A local
+      contractor quotes textile installation and storage at a higher upfront cost; both options fit the
+      available budget. Last year’s neighbouring plots used different pruning and experienced different
+      exposures, so their bud-survival results are not a controlled comparison. The grower can obtain local
+      technical advice, monitor cover and temperature, and inspect buds in spring. The target is preserving
+      viable fruiting buds while limiting annual handling work. Propose an action, explain a reason, weigh a
+      tradeoff and state a limitation.
+    parameters:
+      scope_node_ids:
+        - n_reg_na_case_county_protection_budget
+      key_points:
+        CASE_ACTION: Defensible action
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or evidence needed
+  - id: qt_reg_na_case_niagara_preplant_drainage
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: reg_na_niagara_preplant_drainage
+    prompt_template: A Niagara bench grower compares two unplanted parcels for Riesling. Parcel A’s local
+      assessment reports workable soil drainage and no persistent standing water. Parcel B has documented
+      standing water and equipment ruts after rain; a specialist proposes drainage installation before
+      planting. Both have suitable local heat and exposure records for the intended grape, but root-zone
+      assessments for B are incomplete. The quoted installation would exceed the current capital budget unless
+      planting B is delayed. The grower can plant A this season or defer B until investigation and funding are
+      complete. No limestone or bench label establishes wine flavour or quality. Propose an action, explain a
+      reason, weigh a tradeoff and state a limitation.
+    parameters:
+      scope_node_ids:
+        - n_reg_na_case_niagara_preplant_drainage
+      key_points:
+        CASE_ACTION: Defensible action
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or evidence needed

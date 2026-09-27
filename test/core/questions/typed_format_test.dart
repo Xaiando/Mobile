@@ -119,6 +119,22 @@ void main() {
   test('part of the answer is Hard, unless it names something else', () async {
     final frost = await question('ki_chablis_frost', 'qt_hazard_fwd_typed');
     final part = typed.grade(frost, 'frost').single;
+    expect(
+      frost.rivals,
+      contains('radiation frost can create a temperature inversion'),
+      reason: 'the explanatory point remains a known different answer',
+    );
+    expect(
+      frost.partialRivals,
+      isNot(contains('radiation frost can create a temperature inversion')),
+      reason: 'a learning-point sentence is not a competing hazard name',
+    );
+    expect(
+      ratingOf(frost, 'radiation frost can create a temperature inversion'),
+      fsrs.Rating.again,
+      reason:
+          'the complete unrelated learning point is still a known wrong answer',
+    );
     expect(part.rating, fsrs.Rating.hard);
     expect(part.payload, containsPair('outcome', 'partial'));
     expect(part.payload, containsPair('matched', 'Spring frost'));

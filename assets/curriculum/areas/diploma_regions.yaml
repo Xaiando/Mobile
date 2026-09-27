@@ -1,0 +1,338 @@
+# Ten bounded macro-region geography additions; not complete Diploma coverage.
+# Administrative regions, islands and wine areas are distinguished in assertions.
+# Exact CC0 reference points are not boundaries; all facts await qualified review.
+knowledge_nodes:
+  - id: n_geo_valencian_community
+    node_type: region
+    name: Valencia (autonomous community)
+  - id: n_geo_region_murcia
+    node_type: region
+    name: Murcia (autonomous community)
+  - id: n_geo_castilla_la_mancha
+    node_type: region
+    name: Castilla-La Mancha
+  - id: n_geo_la_rioja_region
+    node_type: region
+    name: La Rioja (autonomous community)
+  - id: n_geo_navarra_region
+    node_type: region
+    name: Navarra (autonomous community)
+  - id: n_geo_lisboa_wine
+    node_type: region
+    name: Lisboa (wine region)
+  - id: n_geo_olifants_river_wine
+    node_type: region
+    name: Olifants River (wine region)
+  - id: n_geo_north_island
+    node_type: region
+    name: North Island
+  - id: n_geo_south_island
+    node_type: region
+    name: South Island
+  - id: n_geo_south_eastern_australia
+    node_type: region
+    name: South Eastern Australia
+node_alternative_names:
+  - knowledge_node_id: n_geo_valencian_community
+    name: Valencian Community
+    kind: synonym
+  - knowledge_node_id: n_geo_valencian_community
+    name: Comunitat Valenciana
+    kind: synonym
+  - knowledge_node_id: n_geo_region_murcia
+    name: Region of Murcia
+    kind: synonym
+  - knowledge_node_id: n_geo_castilla_la_mancha
+    name: Castilla–La Mancha
+    kind: synonym
+  - knowledge_node_id: n_geo_navarra_region
+    name: Navarre (autonomous community)
+    kind: synonym
+  - knowledge_node_id: n_geo_north_island
+    name: Te Ika-a-Māui
+    kind: synonym
+  - knowledge_node_id: n_geo_south_island
+    name: Te Waipounamu
+    kind: synonym
+knowledge_relations:
+  - subject_id: n_geo_valencian_community
+    relation_type: LOCATED_IN
+    object_id: n_geo_spain
+    valid_from: 1900-01-01
+  - subject_id: n_geo_region_murcia
+    relation_type: LOCATED_IN
+    object_id: n_geo_spain
+    valid_from: 1900-01-01
+  - subject_id: n_geo_castilla_la_mancha
+    relation_type: LOCATED_IN
+    object_id: n_geo_spain
+    valid_from: 1900-01-01
+  - subject_id: n_geo_la_rioja_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_spain
+    valid_from: 1900-01-01
+  - subject_id: n_geo_navarra_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_spain
+    valid_from: 1900-01-01
+  - subject_id: n_geo_lisboa_wine
+    relation_type: LOCATED_IN
+    object_id: n_geo_portugal
+    valid_from: 1900-01-01
+  - subject_id: n_geo_olifants_river_wine
+    relation_type: LOCATED_IN
+    object_id: n_geo_south_africa
+    valid_from: 1900-01-01
+  - subject_id: n_geo_north_island
+    relation_type: LOCATED_IN
+    object_id: n_geo_new_zealand
+    valid_from: 1900-01-01
+  - subject_id: n_geo_south_island
+    relation_type: LOCATED_IN
+    object_id: n_geo_new_zealand
+    valid_from: 1900-01-01
+  - subject_id: n_geo_south_eastern_australia
+    relation_type: LOCATED_IN
+    object_id: n_geo_australia
+    valid_from: 1900-01-01
+knowledge_items:
+  - id: ki_diploma_valencian_community_location
+    subject_id: n_geo_valencian_community
+    relation_type: LOCATED_IN
+    object_id: n_geo_spain
+    domain_id: geography
+    assertion_text: Valencia (autonomous community) is an autonomous community of
+      Spain; this geography item describes the administrative region.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_diploma_region_murcia_location
+    subject_id: n_geo_region_murcia
+    relation_type: LOCATED_IN
+    object_id: n_geo_spain
+    domain_id: geography
+    assertion_text: Murcia (autonomous community) is an autonomous community of
+      Spain; this geography item describes the administrative region.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_diploma_castilla_la_mancha_location
+    subject_id: n_geo_castilla_la_mancha
+    relation_type: LOCATED_IN
+    object_id: n_geo_spain
+    domain_id: geography
+    assertion_text: Castilla-La Mancha is an autonomous community of Spain; this
+      geography item describes the administrative region.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_diploma_la_rioja_region_location
+    subject_id: n_geo_la_rioja_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_spain
+    domain_id: geography
+    assertion_text: La Rioja (autonomous community) is an autonomous community of
+      Spain; this geography item describes the administrative region.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_diploma_navarra_region_location
+    subject_id: n_geo_navarra_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_spain
+    domain_id: geography
+    assertion_text: Navarra (autonomous community) is an autonomous community of
+      Spain; this geography item describes the administrative region.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_diploma_lisboa_wine_location
+    subject_id: n_geo_lisboa_wine
+    relation_type: LOCATED_IN
+    object_id: n_geo_portugal
+    domain_id: geography
+    assertion_text: Lisboa is a wine-growing region of Portugal, distinct from the
+      city of Lisbon.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_diploma_olifants_river_wine_location
+    subject_id: n_geo_olifants_river_wine
+    relation_type: LOCATED_IN
+    object_id: n_geo_south_africa
+    domain_id: geography
+    assertion_text: Olifants River is a Wine of Origin region in South Africa.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_diploma_north_island_location
+    subject_id: n_geo_north_island
+    relation_type: LOCATED_IN
+    object_id: n_geo_new_zealand
+    domain_id: geography
+    assertion_text: North Island is one of the two main islands of New Zealand. This
+      item describes the geographic island, not a wine GI.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_diploma_south_island_location
+    subject_id: n_geo_south_island
+    relation_type: LOCATED_IN
+    object_id: n_geo_new_zealand
+    domain_id: geography
+    assertion_text: South Island is one of the two main islands of New Zealand. This
+      item describes the geographic island, not a wine GI.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_diploma_south_eastern_australia_location
+    subject_id: n_geo_south_eastern_australia
+    relation_type: LOCATED_IN
+    object_id: n_geo_australia
+    domain_id: geography
+    assertion_text: South Eastern Australia is a registered Australian wine
+      geographical-indication zone.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+certification_knowledge_mappings:
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_diploma_valencian_community_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_diploma_valencian_community_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_diploma_region_murcia_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_diploma_region_murcia_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_diploma_castilla_la_mancha_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_diploma_castilla_la_mancha_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_diploma_la_rioja_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_diploma_la_rioja_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_diploma_navarra_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_diploma_navarra_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_diploma_lisboa_wine_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_diploma_lisboa_wine_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_diploma_olifants_river_wine_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_diploma_olifants_river_wine_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_diploma_north_island_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_diploma_north_island_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_diploma_south_island_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_diploma_south_island_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_diploma_south_eastern_australia_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_diploma_south_eastern_australia_location
+    importance: secondary
+    minimum_depth: 2
+source_citations:
+  - id: src_diploma_es_autonomous
+    kind: government_publication
+    title: Relación de comunidades y ciudades autónomas con sus códigos
+    publisher: Instituto Nacional de Estadística
+    jurisdiction: ES
+    url: https://www.ine.es/daco/daco42/codmun/cod_ccaa.htm
+    accessed_on: 2026-09-26
+  - id: src_diploma_pt_lisboa
+    kind: reference_work
+    title: "Lisboa wine region: geography and denominations"
+    publisher: ViniPortugal / Wines of Portugal
+    jurisdiction: PT
+    url: https://www.winesofportugal.com/en/discover/wine-regions/lisboa/
+    accessed_on: 2026-09-26
+  - id: src_diploma_nz_island_names
+    kind: government_publication
+    title: Te Ika-a-Māui North Island and Te Waipounamu South Island
+    publisher: Toitū Te Whenua Land Information New Zealand / New Zealand Geographic Board
+    jurisdiction: NZ
+    url: https://www.linz.govt.nz/our-work/new-zealand-geographic-board/place-name-stories/te-ika-maui-north-island-and-te-waipounamu-south-island
+    accessed_on: 2026-09-26
+  - id: src_diploma_za_olifants
+    kind: reference_work
+    title: "Winelands of South Africa: Olifants River"
+    publisher: Wines of South Africa
+    jurisdiction: ZA
+    url: https://www.wosa.co.za/The-Industry/Winegrowing-Areas/Winelands-of-South-Africa/
+    accessed_on: 2026-09-26
+knowledge_item_citations:
+  - knowledge_item_id: ki_diploma_valencian_community_location
+    source_citation_id: src_diploma_es_autonomous
+    locator: "Code 10: Comunitat Valenciana"
+  - knowledge_item_id: ki_diploma_region_murcia_location
+    source_citation_id: src_diploma_es_autonomous
+    locator: "Code 14: Murcia, Región de"
+  - knowledge_item_id: ki_diploma_castilla_la_mancha_location
+    source_citation_id: src_diploma_es_autonomous
+    locator: "Code 08: Castilla - La Mancha"
+  - knowledge_item_id: ki_diploma_la_rioja_region_location
+    source_citation_id: src_diploma_es_autonomous
+    locator: "Code 17: Rioja, La; administrative community, not Rioja DOCa"
+  - knowledge_item_id: ki_diploma_navarra_region_location
+    source_citation_id: src_diploma_es_autonomous
+    locator: "Code 15: Navarra, Comunidad Foral de; administrative community, not
+      Navarra DO"
+  - knowledge_item_id: ki_diploma_lisboa_wine_location
+    source_citation_id: src_diploma_pt_lisboa
+    locator: "Description of Lisboa Region: Portugal; Torres Vedras among its
+      central denominations"
+  - knowledge_item_id: ki_diploma_olifants_river_wine_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "Geographical unit Western Cape: region Olifants River /
+      Olifantsrivier; Vredendal ward"
+  - knowledge_item_id: ki_diploma_north_island_location
+    source_citation_id: src_diploma_nz_island_names
+    locator: "North Island / Te Ika-a-Māui: northern of the two main islands of New
+      Zealand"
+  - knowledge_item_id: ki_diploma_south_island_location
+    source_citation_id: src_diploma_nz_island_names
+    locator: "South Island / Te Waipounamu: southern of the two main islands of New
+      Zealand"
+  - knowledge_item_id: ki_diploma_south_eastern_australia_location
+    source_citation_id: src_atlas_au_gis
+    locator: "South Eastern Australia zone; footnote 1: all NSW, Victoria and
+      Tasmania, parts of Queensland and South Australia"
+  - knowledge_item_id: ki_diploma_olifants_river_wine_location
+    source_citation_id: src_diploma_za_olifants
+    locator: "Olifants River: wine region incorporates Vredendal and Spruitdrift
+      wards; named reference locality"

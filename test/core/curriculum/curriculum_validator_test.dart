@@ -446,6 +446,28 @@ void main() {
         ..['min_zoom'] = 14;
       expect(brokenRules(data), {'layer-asset'});
     });
+
+    test('point bounds preserve coordinates without invented area', () {
+      final data = v2Dataset();
+      rowOf(data, 'map_layers', 'id', 'ml_test_appellations')['geometry_kind'] =
+          'point';
+      final chablis = rowOf(
+        data,
+        'node_geometries',
+        'knowledge_node_id',
+        'n_geo_chablis',
+      );
+      chablis
+        ..['min_lon'] = 3.8
+        ..['max_lon'] = 3.8
+        ..['min_lat'] = 47.8
+        ..['max_lat'] = 47.8
+        ..['label_lon'] = 3.8
+        ..['label_lat'] = 47.8;
+      expect(brokenRules(data), isEmpty);
+      chablis['max_lon'] = 3.9;
+      expect(brokenRules(data), {'geometry-bounds'});
+    });
   });
 
   test('rejects a tasting grid without a real choice (T1)', () {

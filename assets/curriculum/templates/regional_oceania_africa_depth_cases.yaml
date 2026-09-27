@@ -1,0 +1,79 @@
+# Original hypothetical additional regional still-wine cases.
+question_templates:
+  - id: qt_reg_oa_case_hunter_toast
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: reg_oa_hunter_toast
+    prompt_template: "A tutor pours two dry Hunter Semillons from the same producer but different vintages: a
+      current release with citrus-led freshness and a mature bottle with toast, honey and lemon-curd
+      notes. Producer records say both were fermented and matured in stainless steel without oak before bottling. Storage history is
+      documented only for the mature bottle after purchase, and vineyard lots differ. A student says the
+      toast proves barrel ageing and higher quality. Explain an action, reason, tradeoff and limitation
+      for a defensible teaching comparison."
+    parameters:
+      scope_node_ids:
+        - n_reg_oa_case_hunter_toast
+      key_points:
+        CASE_ACTION: Defensible regional action or comparison
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or evidence needed
+  - id: qt_reg_oa_case_mclaren_cap_trial
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: reg_oa_mclaren_cap_trial
+    prompt_template: A McLaren Vale grower divides one healthy Grenache lot into small trials, holding yeast,
+      temperature, skin-contact duration and maturation vessel constant. Trial A uses gentle cap wetting;
+      trial B uses a more intensive pump-over schedule. Both ferment dry. The panel finds A has the
+      supple tannin sought for an early-drinking brief, while B is too firm for that brief but sound.
+      Saleable trial quantities and full-scale labour requirements are still unknown. Explain an action,
+      reason, tradeoff and limitation without treating gentle extraction as universally better.
+    parameters:
+      scope_node_ids:
+        - n_reg_oa_case_mclaren_cap_trial
+      key_points:
+        CASE_ACTION: Defensible regional action or comparison
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or evidence needed
+  - id: qt_reg_oa_case_canterbury_riesling_offer
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: reg_oa_canterbury_riesling_offer
+    prompt_template: "A North Canterbury buyer needs a dry aromatic Riesling for a by-the-glass list. Two
+      regional offers both have citrus and floral aromas: lot A is documented dry and meets the panel’s
+      balance brief; lot B is documented sweet and balanced for a dessert use. The listed purchase cost
+      is equal, but bottle quantities, expected turnover and supplier payment terms are not yet checked.
+      Explain an action, reason, tradeoff and limitation without inferring sweetness or quality from
+      perfume alone."
+    parameters:
+      scope_node_ids:
+        - n_reg_oa_case_canterbury_riesling_offer
+      key_points:
+        CASE_ACTION: Defensible regional action or comparison
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or evidence needed
+  - id: qt_reg_oa_case_robertson_water_plan
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: reg_oa_robertson_water_plan
+    prompt_template: A Robertson grower plans dry Chardonnay from two blocks. Repeated vine-water
+      measurements and soil-moisture checks show block A becoming excessively stressed while block B
+      remains adequate; fruit maturity checks have not yet justified harvesting either block. The
+      permitted water allocation is limited. Applying the proposed irrigation to A would use part of the
+      remaining reserve and require an electricity payment before wine sales. Forecast rain is uncertain.
+      Explain an action, reason, tradeoff and limitation without prescribing an unmeasured water dose or
+      assuming smaller crops always improve quality.
+    parameters:
+      scope_node_ids:
+        - n_reg_oa_case_robertson_water_plan
+      key_points:
+        CASE_ACTION: Defensible regional action or comparison
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or evidence needed

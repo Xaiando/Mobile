@@ -4,6 +4,8 @@ import 'package:clock/clock.dart';
 
 import '../database/app_database.dart';
 import '../time/utc_clock.dart';
+import '../curriculum/knowledge_graph.dart';
+import '../study/study_planner.dart';
 import 'exercise.dart';
 import 'exercise_format.dart';
 import 'format_registry.dart';
@@ -27,14 +29,39 @@ class ExercisePresenter {
     String itemId,
     String questionTemplateId, {
     required int seed,
+    String? certificationId,
   }) async {
     final template = await (db.select(
       db.questionTemplates,
     )..where((t) => t.id.equals(questionTemplateId))).getSingle();
+    Set<String>? allowedItems;
+    if (template.mode == 'reasoning') {
+      final profile = await db.select(db.userProfiles).getSingleOrNull();
+      final track = certificationId ?? profile?.activeCertificationId;
+      if (track != null) {
+        final mapping = await StudyPlanner(db).effectiveMappings(track);
+        final format = formats.require(template.mode);
+        if ((mapping[itemId]?.minimumDepth ?? 0) <
+            format.requiredDepth(template.direction)) {
+          throw ArgumentError(
+            'This track does not serve reasoning for $itemId',
+          );
+        }
+        final current = await KnowledgeGraph(db, clock: _clock).currentItems();
+        allowedItems = {
+          for (final item in current)
+            if (mapping.containsKey(item.id)) item.id,
+        };
+      }
+    }
     return formats
         .require(template.mode)
         .present(
-          PresentationContext(db, now: utcNow(_clock)),
+          PresentationContext(
+            db,
+            now: utcNow(_clock),
+            allowedItemIds: allowedItems,
+          ),
           itemId: itemId,
           questionTemplateId: questionTemplateId,
           seed: seed,

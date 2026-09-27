@@ -1,0 +1,72 @@
+# Original self-checked fortified decisions. Each scenario has one scoped pool.
+question_templates:
+  - id: "qt_fort_case_port_fruit"
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: "fort_port_fruit"
+    prompt_template: "A producer wants a Port with youthful red-fruit character and deep colour. A trial dominated by extensively oxidatively aged cask parcels tastes too nutty and mature. Propose a different maturation and selection direction, explain why, and give a tradeoff and a limitation. Do not assume every fruit-led Port is ready to drink immediately."
+    parameters:
+      scope_node_ids:
+        - "n_fort_case_port_fruit"
+      key_points:
+        CASE_ACTION: Defensible action
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or follow-up
+  - id: "qt_fort_case_flor_oxygen"
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: "fort_flor_oxygen"
+    prompt_template: "A sound Sherry is intended to continue biological ageing, but its flor has weakened. The cellar team proposes filling every butt completely to exclude all oxygen. Propose a more defensible response, explain the mechanism, and identify a tradeoff and limitation. Several causes of weak flor are possible."
+    parameters:
+      scope_node_ids:
+        - "n_fort_case_flor_oxygen"
+      key_points:
+        CASE_ACTION: Defensible action
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or follow-up
+  - id: "qt_fort_case_madeira_slow"
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: "fort_madeira_slow"
+    prompt_template: "A Madeira lot has been selected for prolonged cask maturation in warm canteiro cellars. Sales asks for an immediate release, arguing that brief artificial heating will guarantee the same mature profile. Propose a defensible response for the chosen style, its reason, a tradeoff and a limitation. No exact legal release date or universal quality ranking is requested."
+    parameters:
+      scope_node_ids:
+        - "n_fort_case_madeira_slow"
+      key_points:
+        CASE_ACTION: Defensible action
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or follow-up
+  - id: "qt_fort_case_vdn_fresh"
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: "fort_vdn_fresh"
+    prompt_template: "A Muscat de Rivesaltes batch is intended for a youthful, floral-fruit style. The team suggests copying prolonged air-contact maturation from an oxidative Ambré VDN. Give a more suitable maturation direction, why it fits, a tradeoff and a limitation. Treat this as a style decision rather than a universal claim that older Muscat is defective."
+    parameters:
+      scope_node_ids:
+        - "n_fort_case_vdn_fresh"
+      key_points:
+        CASE_ACTION: Defensible action
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or follow-up
+  - id: "qt_fort_case_ruth_balance"
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: "fort_ruth_balance"
+    prompt_template: "A producer is blending a foundation Rutherglen Muscat intended to balance fresh raisin fruit with some mature complexity. A trial dominated by very concentrated old parcels overwhelms that aim. Propose a blending response, explain why, and give a tradeoff and limitation. Do not assign a classification from age alone."
+    parameters:
+      scope_node_ids:
+        - "n_fort_case_ruth_balance"
+      key_points:
+        CASE_ACTION: Defensible action
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or follow-up

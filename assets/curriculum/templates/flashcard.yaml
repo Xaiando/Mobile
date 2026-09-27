@@ -6,6 +6,12 @@
 # {object.name} and {object.type_label} (QG-2). Reverse templates exist only
 # where an item is distinctive (QG-3).
 question_templates:
+  - { id: qt_top_planted_grape_fwd_flashcard, relation_type: TOP_PLANTED_GRAPE, direction: forward, mode: flashcard, prompt_template: "Name a grape included in {subject.name}." }
+  - { id: qt_berry_colour_fwd_flashcard, relation_type: HAS_BERRY_COLOUR, direction: forward, mode: flashcard, prompt_template: "What is the berry skin colour of {subject.name}?" }
+  - { id: qt_permitted_grape_fwd_flashcard, relation_type: PERMITS_GRAPE, direction: forward, mode: flashcard, prompt_template: "Name a permitted grape variety of {subject.name}." }
+  - { id: qt_statistic_value_fwd_flashcard, relation_type: STATISTIC_VALUE, direction: forward, mode: flashcard, prompt_template: "What value was reported for {subject.name}?" }
+  - { id: qt_private_classification_fwd_flashcard, relation_type: PRIVATE_CLASSIFICATION_OF, direction: forward, mode: flashcard, prompt_template: "Which organisation owns the private classification term {subject.name}?" }
+  - { id: qt_leading_red_grape_fwd_flashcard, relation_type: LEADING_RED_GRAPE, direction: forward, mode: flashcard, prompt_template: "Which red grape had the largest planted area according to {subject.name}?" }
   - { id: qt_located_in_fwd_flashcard, relation_type: LOCATED_IN, direction: forward, mode: flashcard, prompt_template: "In which {object.type_label} is {subject.name} located?" }
   - { id: qt_principal_grape_fwd_flashcard, relation_type: PERMITS_PRINCIPAL_GRAPE, direction: forward, mode: flashcard, prompt_template: "Name a principal grape variety of {subject.name}." }
   - { id: qt_accessory_grape_fwd_flashcard, relation_type: PERMITS_ACCESSORY_GRAPE, direction: forward, mode: flashcard, prompt_template: "Name an accessory grape variety of {subject.name}." }
@@ -16,3 +22,12 @@ question_templates:
   - { id: qt_min_ageing_rev_flashcard, relation_type: MIN_AGEING, direction: reverse, mode: flashcard, prompt_template: "Which appellation requires a minimum ageing period of {object.name}?" }
   - { id: qt_min_wood_ageing_fwd_flashcard, relation_type: MIN_WOOD_AGEING, direction: forward, mode: flashcard, prompt_template: "What is the minimum time in wood for {subject.name}?" }
   - { id: qt_method_fwd_flashcard, relation_type: REQUIRES_METHOD, direction: forward, mode: flashcard, prompt_template: "Which sparkling-wine method must {subject.name} use?" }
+  # EU and German wine law (backlog C6)
+  - { id: qt_wine_zone_fwd_flashcard, relation_type: IN_WINE_ZONE, direction: forward, mode: flashcard, prompt_template: "In which {object.type_label} does {subject.name} lie?" }
+  - { id: qt_protected_as_fwd_flashcard, relation_type: PROTECTED_AS, direction: forward, mode: flashcard, prompt_template: "Which {object.type_label} does {subject.name} belong to?" }
+  - { id: qt_reserved_region_fwd_flashcard, relation_type: RESERVED_FOR_REGION, direction: forward, mode: flashcard, prompt_template: "For wines from which {object.type_label} is the term {subject.name} reserved?" }
+  - { id: qt_reserved_region_rev_flashcard, relation_type: RESERVED_FOR_REGION, direction: reverse, mode: flashcard, prompt_template: "Which term is reserved for wines from {object.name}?" }
+  - { id: qt_legal_definition_fwd_flashcard, relation_type: LEGAL_DEFINITION, direction: forward, mode: flashcard, prompt_template: "Which legal rule defines {subject.name}?" }
+  - { id: qt_legal_definition_rev_flashcard, relation_type: LEGAL_DEFINITION, direction: reverse, mode: flashcard, prompt_template: "Which term does this legal rule define: {object.name}?" }
+  - { id: qt_awarded_by_fwd_flashcard, relation_type: AWARDED_BY, direction: forward, mode: flashcard, prompt_template: "Which {object.type_label} awards the quality mark {subject.name}?" }
+  - { id: qt_released_fwd_flashcard, relation_type: RELEASED_NOT_BEFORE, direction: forward, mode: flashcard, prompt_template: "From when may a wine labelled {subject.name} first be sold to consumers?" }
