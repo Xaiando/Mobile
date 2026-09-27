@@ -13,6 +13,7 @@ import {
   budgets,
   cacheState,
   layerAttribution,
+  downloadPath,
   loadConfig,
   readCurriculum,
   repoDir,
@@ -103,7 +104,10 @@ const expectedNodes = new Set();
 for (const spec of config.layers) {
   const nodes = spec.appellation_areas
     ? Object.keys(spec.appellation_areas)
-    : Object.values(spec.natural_earth.nodes ?? {});
+    : spec.gazetteer
+      ? JSON.parse(fs.readFileSync(downloadPath(config.sources.get(spec.gazetteer.source)), 'utf8'))
+        .features.map((feature) => feature.properties.node)
+      : Object.values(spec.natural_earth.nodes ?? {});
   for (const node of nodes) expectedNodes.add(`${spec.id} ${node}`);
 }
 for (const g of geometries) {
@@ -130,7 +134,8 @@ if (cached && problems.length === 0) {
   const out = fs.mkdtempSync(path.join(os.tmpdir(), 'geography-'));
   try {
     fs.mkdirSync(path.join(out, 'tool', 'geography'), { recursive: true });
-    await build(out);
+    const { failures } = await build(out);
+    for (const failure of failures) fail(`containment: ${failure}`);
     const text = (file) => fs.readFileSync(file, 'utf8').replaceAll('\r\n', '\n');
     for (const name of known) {
       if (text(path.join(out, 'assets', 'geography', name)) !== text(path.join(assetsDir, name))) {

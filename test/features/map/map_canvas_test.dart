@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -39,6 +41,7 @@ void main() {
     Map<String, MapHighlight> highlights = const {},
     bool revealed = false,
     GeoBounds? frame,
+    GeoBounds? zoomedOutFrame,
     List<MapLayer>? mapLayers,
     Set<String> mapCandidates = fixtureCandidates,
     TextScaler textScaler = TextScaler.noScaling,
@@ -59,7 +62,7 @@ void main() {
             highlights: highlights,
             revealed: revealed,
             frame: frame ?? fixture.regionFrame,
-            zoomedOutFrame: fixture.countryFrame,
+            zoomedOutFrame: zoomedOutFrame ?? fixture.countryFrame,
             onTap: taps.add,
           ),
         ),
@@ -193,6 +196,69 @@ void main() {
   });
 
   group('markers', () {
+    for (final mode in [MapLabelMode.minimal, MapLabelMode.blank]) {
+      testWidgets(
+        'hidden vineyard points retain their hit radius in ${mode.name}',
+        (tester) async {
+          // The sourced Clos de Bèze vineyard marker lies in the broader
+          // Gevrey-Chambertin production-commune polygon. Both are candidates.
+          final areas = GeoLayer.fromTopology(
+            Topology.parse(
+              File('assets/geography/fr_appellations.topo.json')
+                  .readAsStringSync(),
+            ),
+            id: 'ml_fr_appellations',
+          );
+          final points = GeoLayer.fromTopology(
+            Topology.parse(
+              File('assets/geography/france_atlas_markers.topo.json')
+                  .readAsStringSync(),
+            ),
+            id: 'ml_france_atlas_markers',
+          );
+          const vineyard = 'n_geo_chambertin_clos_de_beze';
+          const surrounding = 'n_geo_gevrey_chambertin';
+          final point = points.shapeFor(vineyard)!;
+          final polygon = areas.shapeFor(surrounding)!;
+          expect(point.kind, GeometryKind.point);
+          expect(polygon.contains(point.labelPoint), isTrue);
+          final centre = WebMercator.unproject(point.labelPoint);
+          final localFrame = GeoBounds(
+            minLon: centre.lon - 0.02,
+            minLat: centre.lat - 0.02,
+            maxLon: centre.lon + 0.02,
+            maxLat: centre.lat + 0.02,
+          );
+          final state = await pumpMap(
+            tester,
+            mode: mode,
+            mapLayers: [MapLayer(areas), MapLayer(points)],
+            mapCandidates: const {vineyard, surrounding},
+            frame: localFrame,
+            zoomedOutFrame: localFrame,
+          );
+          expect(state.debugLookOf(vineyard).drawn, isFalse);
+          expect(state.debugLookOf(surrounding).drawn, isFalse);
+          expect(state.debugOverlay!.markers, isEmpty);
+          for (final offset in [Offset.zero, const Offset(7, 0)]) {
+            final inside = await tap(tester, centre, offset);
+            expect(inside.hits.map((hit) => (hit.key, hit.kind)), [
+              (vineyard, HitKind.inside),
+              (surrounding, HitKind.inside),
+            ]);
+          }
+          final outside = await tap(tester, centre, const Offset(9, 0));
+          expect(outside.hit?.key, surrounding);
+          expect(outside.hit?.kind, HitKind.inside);
+          expect(
+            outside.hits.singleWhere((hit) => hit.key == vineyard).kind,
+            HitKind.near,
+            reason: 'outside 8 pixels the point cannot steal an exact AOC hit',
+          );
+        },
+      );
+    }
+
     testWidgets('replace candidates too small to tap', (tester) async {
       final state = await pumpMap(tester);
       final markers = state.debugOverlay!.markers;

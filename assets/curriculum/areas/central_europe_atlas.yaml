@@ -1,0 +1,1405 @@
+# Central European atlas: sourced districts, wine villages and vineyard sites.
+# Coordinates are separate CC0 gazetteer markers, never invented boundaries.
+# Track importance is editorial; all location facts await expert review.
+node_types:
+  - id: village
+    label: wine locality
+relation_type_signatures:
+  - relation_type: LOCATED_IN
+    subject_node_type: village
+    object_node_type: region
+  - relation_type: LOCATED_IN
+    subject_node_type: site
+    object_node_type: village
+  - relation_type: LOCATED_IN
+    subject_node_type: appellation
+    object_node_type: village
+knowledge_nodes:
+  - id: n_geo_saar
+    node_type: subregion
+    name: Saar
+  - id: n_geo_ruwer
+    node_type: subregion
+    name: Ruwer
+  - id: n_geo_bernkastel_bereich
+    node_type: subregion
+    name: Bernkastel (Mittelmosel)
+  - id: n_geo_burg_cochem
+    node_type: subregion
+    name: Burg Cochem (Terrassenmosel)
+  - id: n_geo_obermosel
+    node_type: subregion
+    name: Obermosel
+  - id: n_geo_moseltor
+    node_type: subregion
+    name: Moseltor
+  - id: n_geo_mittelhaardt
+    node_type: subregion
+    name: Mittelhaardt-Deutsche Weinstraße
+  - id: n_geo_suedliche_weinstrasse
+    node_type: subregion
+    name: Südliche Weinstraße
+  - id: n_geo_kaiserstuhl
+    node_type: subregion
+    name: Kaiserstuhl
+  - id: n_geo_ortenau
+    node_type: subregion
+    name: Ortenau
+  - id: n_geo_markgraeflerland
+    node_type: subregion
+    name: Markgräflerland
+  - id: n_geo_tuniberg
+    node_type: subregion
+    name: Tuniberg
+  - id: n_geo_breisgau
+    node_type: subregion
+    name: Breisgau
+  - id: n_geo_kraichgau
+    node_type: subregion
+    name: Kraichgau
+  - id: n_geo_badische_bergstrasse
+    node_type: subregion
+    name: Badische Bergstraße
+  - id: n_geo_tauberfranken
+    node_type: subregion
+    name: Tauberfranken
+  - id: n_geo_bodensee_baden
+    node_type: subregion
+    name: Bodensee (Baden)
+  - id: n_geo_piesport
+    node_type: village
+    name: Piesport
+  - id: n_geo_wehlen
+    node_type: village
+    name: Wehlen
+  - id: n_geo_bernkastel
+    node_type: village
+    name: Bernkastel-Kues
+  - id: n_geo_wiltingen
+    node_type: village
+    name: Wiltingen
+  - id: n_geo_ruedesheim
+    node_type: village
+    name: Rüdesheim am Rhein
+  - id: n_geo_geisenheim
+    node_type: village
+    name: Geisenheim
+  - id: n_geo_johannisberg
+    node_type: village
+    name: Johannisberg
+  - id: n_geo_assmannshausen
+    node_type: village
+    name: Assmannshausen
+  - id: n_geo_scharzhofberg
+    node_type: site
+    name: Scharzhofberg
+  - id: n_geo_bernkasteler_doctor
+    node_type: site
+    name: Bernkasteler Doctor
+  - id: n_geo_wehlener_sonnenuhr
+    node_type: site
+    name: Wehlener Sonnenuhr
+  - id: n_geo_piesporter_goldtroepfchen
+    node_type: site
+    name: Piesporter Goldtröpfchen
+  - id: n_geo_neusiedlersee
+    node_type: region
+    name: Neusiedlersee
+  - id: n_geo_leithaberg
+    node_type: region
+    name: Leithaberg
+  - id: n_geo_eisenberg
+    node_type: region
+    name: Eisenberg
+  - id: n_geo_rosalia
+    node_type: region
+    name: Rosalia
+  - id: n_geo_weststeiermark
+    node_type: region
+    name: Weststeiermark
+  - id: n_geo_vulkanland_steiermark
+    node_type: region
+    name: Vulkanland Steiermark
+  - id: n_geo_rust
+    node_type: village
+    name: Rust
+  - id: n_geo_neusiedlersee_dac
+    node_type: appellation
+    name: Neusiedlersee DAC
+  - id: n_geo_leithaberg_dac
+    node_type: appellation
+    name: Leithaberg DAC
+  - id: n_geo_eisenberg_dac
+    node_type: appellation
+    name: Eisenberg DAC
+  - id: n_geo_rosalia_dac
+    node_type: appellation
+    name: Rosalia DAC
+  - id: n_geo_ruster_ausbruch_dac
+    node_type: appellation
+    name: Ruster Ausbruch DAC
+  - id: n_geo_weststeiermark_dac
+    node_type: appellation
+    name: Weststeiermark DAC
+  - id: n_geo_vulkanland_steiermark_dac
+    node_type: appellation
+    name: Vulkanland Steiermark DAC
+  - id: n_geo_suedsteiermark_dac
+    node_type: appellation
+    name: Südsteiermark DAC
+  - id: n_geo_villany
+    node_type: appellation
+    name: Villány
+  - id: n_geo_eger
+    node_type: appellation
+    name: Eger
+  - id: n_geo_somlo
+    node_type: appellation
+    name: Somló
+  - id: n_geo_szekszard
+    node_type: appellation
+    name: Szekszárd
+  - id: n_geo_badacsony
+    node_type: appellation
+    name: Badacsony
+  - id: n_geo_balatonfured_csopak
+    node_type: appellation
+    name: Balatonfüred-Csopak
+  - id: n_geo_sopron
+    node_type: appellation
+    name: Sopron
+knowledge_relations:
+  - subject_id: n_geo_saar
+    relation_type: LOCATED_IN
+    object_id: n_geo_mosel
+    valid_from: 1900-01-01
+  - subject_id: n_geo_ruwer
+    relation_type: LOCATED_IN
+    object_id: n_geo_mosel
+    valid_from: 1900-01-01
+  - subject_id: n_geo_bernkastel_bereich
+    relation_type: LOCATED_IN
+    object_id: n_geo_mosel
+    valid_from: 1900-01-01
+  - subject_id: n_geo_burg_cochem
+    relation_type: LOCATED_IN
+    object_id: n_geo_mosel
+    valid_from: 1900-01-01
+  - subject_id: n_geo_obermosel
+    relation_type: LOCATED_IN
+    object_id: n_geo_mosel
+    valid_from: 1900-01-01
+  - subject_id: n_geo_moseltor
+    relation_type: LOCATED_IN
+    object_id: n_geo_mosel
+    valid_from: 1900-01-01
+  - subject_id: n_geo_mittelhaardt
+    relation_type: LOCATED_IN
+    object_id: n_geo_pfalz
+    valid_from: 1900-01-01
+  - subject_id: n_geo_suedliche_weinstrasse
+    relation_type: LOCATED_IN
+    object_id: n_geo_pfalz
+    valid_from: 1900-01-01
+  - subject_id: n_geo_kaiserstuhl
+    relation_type: LOCATED_IN
+    object_id: n_geo_baden
+    valid_from: 1900-01-01
+  - subject_id: n_geo_ortenau
+    relation_type: LOCATED_IN
+    object_id: n_geo_baden
+    valid_from: 1900-01-01
+  - subject_id: n_geo_markgraeflerland
+    relation_type: LOCATED_IN
+    object_id: n_geo_baden
+    valid_from: 1900-01-01
+  - subject_id: n_geo_tuniberg
+    relation_type: LOCATED_IN
+    object_id: n_geo_baden
+    valid_from: 1900-01-01
+  - subject_id: n_geo_breisgau
+    relation_type: LOCATED_IN
+    object_id: n_geo_baden
+    valid_from: 1900-01-01
+  - subject_id: n_geo_kraichgau
+    relation_type: LOCATED_IN
+    object_id: n_geo_baden
+    valid_from: 1900-01-01
+  - subject_id: n_geo_badische_bergstrasse
+    relation_type: LOCATED_IN
+    object_id: n_geo_baden
+    valid_from: 1900-01-01
+  - subject_id: n_geo_tauberfranken
+    relation_type: LOCATED_IN
+    object_id: n_geo_baden
+    valid_from: 1900-01-01
+  - subject_id: n_geo_bodensee_baden
+    relation_type: LOCATED_IN
+    object_id: n_geo_baden
+    valid_from: 1900-01-01
+  - subject_id: n_geo_piesport
+    relation_type: LOCATED_IN
+    object_id: n_geo_mosel
+    valid_from: 1900-01-01
+  - subject_id: n_geo_wehlen
+    relation_type: LOCATED_IN
+    object_id: n_geo_mosel
+    valid_from: 1900-01-01
+  - subject_id: n_geo_bernkastel
+    relation_type: LOCATED_IN
+    object_id: n_geo_mosel
+    valid_from: 1900-01-01
+  - subject_id: n_geo_wiltingen
+    relation_type: LOCATED_IN
+    object_id: n_geo_mosel
+    valid_from: 1900-01-01
+  - subject_id: n_geo_ruedesheim
+    relation_type: LOCATED_IN
+    object_id: n_geo_rheingau
+    valid_from: 1900-01-01
+  - subject_id: n_geo_geisenheim
+    relation_type: LOCATED_IN
+    object_id: n_geo_rheingau
+    valid_from: 1900-01-01
+  - subject_id: n_geo_johannisberg
+    relation_type: LOCATED_IN
+    object_id: n_geo_rheingau
+    valid_from: 1900-01-01
+  - subject_id: n_geo_assmannshausen
+    relation_type: LOCATED_IN
+    object_id: n_geo_rheingau
+    valid_from: 1900-01-01
+  - subject_id: n_geo_scharzhofberg
+    relation_type: LOCATED_IN
+    object_id: n_geo_wiltingen
+    valid_from: 1900-01-01
+  - subject_id: n_geo_bernkasteler_doctor
+    relation_type: LOCATED_IN
+    object_id: n_geo_bernkastel
+    valid_from: 1900-01-01
+  - subject_id: n_geo_wehlener_sonnenuhr
+    relation_type: LOCATED_IN
+    object_id: n_geo_wehlen
+    valid_from: 1900-01-01
+  - subject_id: n_geo_piesporter_goldtroepfchen
+    relation_type: LOCATED_IN
+    object_id: n_geo_piesport
+    valid_from: 1900-01-01
+  - subject_id: n_geo_neusiedlersee
+    relation_type: LOCATED_IN
+    object_id: n_geo_burgenland
+    valid_from: 1900-01-01
+  - subject_id: n_geo_leithaberg
+    relation_type: LOCATED_IN
+    object_id: n_geo_burgenland
+    valid_from: 1900-01-01
+  - subject_id: n_geo_eisenberg
+    relation_type: LOCATED_IN
+    object_id: n_geo_burgenland
+    valid_from: 1900-01-01
+  - subject_id: n_geo_rosalia
+    relation_type: LOCATED_IN
+    object_id: n_geo_burgenland
+    valid_from: 1900-01-01
+  - subject_id: n_geo_weststeiermark
+    relation_type: LOCATED_IN
+    object_id: n_geo_steiermark
+    valid_from: 1900-01-01
+  - subject_id: n_geo_vulkanland_steiermark
+    relation_type: LOCATED_IN
+    object_id: n_geo_steiermark
+    valid_from: 1900-01-01
+  - subject_id: n_geo_rust
+    relation_type: LOCATED_IN
+    object_id: n_geo_burgenland
+    valid_from: 1900-01-01
+  - subject_id: n_geo_neusiedlersee_dac
+    relation_type: LOCATED_IN
+    object_id: n_geo_neusiedlersee
+    valid_from: 1900-01-01
+  - subject_id: n_geo_leithaberg_dac
+    relation_type: LOCATED_IN
+    object_id: n_geo_leithaberg
+    valid_from: 1900-01-01
+  - subject_id: n_geo_eisenberg_dac
+    relation_type: LOCATED_IN
+    object_id: n_geo_eisenberg
+    valid_from: 1900-01-01
+  - subject_id: n_geo_rosalia_dac
+    relation_type: LOCATED_IN
+    object_id: n_geo_rosalia
+    valid_from: 1900-01-01
+  - subject_id: n_geo_ruster_ausbruch_dac
+    relation_type: LOCATED_IN
+    object_id: n_geo_rust
+    valid_from: 1900-01-01
+  - subject_id: n_geo_weststeiermark_dac
+    relation_type: LOCATED_IN
+    object_id: n_geo_weststeiermark
+    valid_from: 1900-01-01
+  - subject_id: n_geo_vulkanland_steiermark_dac
+    relation_type: LOCATED_IN
+    object_id: n_geo_vulkanland_steiermark
+    valid_from: 1900-01-01
+  - subject_id: n_geo_suedsteiermark_dac
+    relation_type: LOCATED_IN
+    object_id: n_geo_suedsteiermark
+    valid_from: 1900-01-01
+  - subject_id: n_geo_villany
+    relation_type: LOCATED_IN
+    object_id: n_geo_hungary
+    valid_from: 1900-01-01
+  - subject_id: n_geo_eger
+    relation_type: LOCATED_IN
+    object_id: n_geo_hungary
+    valid_from: 1900-01-01
+  - subject_id: n_geo_somlo
+    relation_type: LOCATED_IN
+    object_id: n_geo_hungary
+    valid_from: 1900-01-01
+  - subject_id: n_geo_szekszard
+    relation_type: LOCATED_IN
+    object_id: n_geo_hungary
+    valid_from: 1900-01-01
+  - subject_id: n_geo_badacsony
+    relation_type: LOCATED_IN
+    object_id: n_geo_hungary
+    valid_from: 1900-01-01
+  - subject_id: n_geo_balatonfured_csopak
+    relation_type: LOCATED_IN
+    object_id: n_geo_hungary
+    valid_from: 1900-01-01
+  - subject_id: n_geo_sopron
+    relation_type: LOCATED_IN
+    object_id: n_geo_hungary
+    valid_from: 1900-01-01
+knowledge_items:
+  - id: ki_ce_saar_location
+    subject_id: n_geo_saar
+    relation_type: LOCATED_IN
+    object_id: n_geo_mosel
+    domain_id: geography
+    assertion_text: Saar is a wine-growing area in Mosel.
+    last_verified_at: 2026-09-26T12:00:00.000Z
+    verification_status: unverified
+  - id: ki_ce_ruwer_location
+    subject_id: n_geo_ruwer
+    relation_type: LOCATED_IN
+    object_id: n_geo_mosel
+    domain_id: geography
+    assertion_text: Ruwer is a wine-growing area in Mosel.
+    last_verified_at: 2026-09-26T12:00:00.000Z
+    verification_status: unverified
+  - id: ki_ce_bernkastel_bereich_location
+    subject_id: n_geo_bernkastel_bereich
+    relation_type: LOCATED_IN
+    object_id: n_geo_mosel
+    domain_id: geography
+    assertion_text: Bernkastel (Mittelmosel) is a wine-growing area in Mosel.
+    last_verified_at: 2026-09-26T12:00:00.000Z
+    verification_status: unverified
+  - id: ki_ce_burg_cochem_location
+    subject_id: n_geo_burg_cochem
+    relation_type: LOCATED_IN
+    object_id: n_geo_mosel
+    domain_id: geography
+    assertion_text: Burg Cochem (Terrassenmosel) is a wine-growing area in Mosel.
+    last_verified_at: 2026-09-26T12:00:00.000Z
+    verification_status: unverified
+  - id: ki_ce_obermosel_location
+    subject_id: n_geo_obermosel
+    relation_type: LOCATED_IN
+    object_id: n_geo_mosel
+    domain_id: geography
+    assertion_text: Obermosel is a wine-growing area in Mosel.
+    last_verified_at: 2026-09-26T12:00:00.000Z
+    verification_status: unverified
+  - id: ki_ce_moseltor_location
+    subject_id: n_geo_moseltor
+    relation_type: LOCATED_IN
+    object_id: n_geo_mosel
+    domain_id: geography
+    assertion_text: Moseltor is a wine-growing area in Mosel.
+    last_verified_at: 2026-09-26T12:00:00.000Z
+    verification_status: unverified
+  - id: ki_ce_mittelhaardt_location
+    subject_id: n_geo_mittelhaardt
+    relation_type: LOCATED_IN
+    object_id: n_geo_pfalz
+    domain_id: geography
+    assertion_text: Mittelhaardt-Deutsche Weinstraße is a wine-growing area in Pfalz.
+    last_verified_at: 2026-09-26T12:00:00.000Z
+    verification_status: unverified
+  - id: ki_ce_suedliche_weinstrasse_location
+    subject_id: n_geo_suedliche_weinstrasse
+    relation_type: LOCATED_IN
+    object_id: n_geo_pfalz
+    domain_id: geography
+    assertion_text: Südliche Weinstraße is a wine-growing area in Pfalz.
+    last_verified_at: 2026-09-26T12:00:00.000Z
+    verification_status: unverified
+  - id: ki_ce_kaiserstuhl_location
+    subject_id: n_geo_kaiserstuhl
+    relation_type: LOCATED_IN
+    object_id: n_geo_baden
+    domain_id: geography
+    assertion_text: Kaiserstuhl is a wine-growing area in Baden.
+    last_verified_at: 2026-09-26T12:00:00.000Z
+    verification_status: unverified
+  - id: ki_ce_ortenau_location
+    subject_id: n_geo_ortenau
+    relation_type: LOCATED_IN
+    object_id: n_geo_baden
+    domain_id: geography
+    assertion_text: Ortenau is a wine-growing area in Baden.
+    last_verified_at: 2026-09-26T12:00:00.000Z
+    verification_status: unverified
+  - id: ki_ce_markgraeflerland_location
+    subject_id: n_geo_markgraeflerland
+    relation_type: LOCATED_IN
+    object_id: n_geo_baden
+    domain_id: geography
+    assertion_text: Markgräflerland is a wine-growing area in Baden.
+    last_verified_at: 2026-09-26T12:00:00.000Z
+    verification_status: unverified
+  - id: ki_ce_tuniberg_location
+    subject_id: n_geo_tuniberg
+    relation_type: LOCATED_IN
+    object_id: n_geo_baden
+    domain_id: geography
+    assertion_text: Tuniberg is a wine-growing area in Baden.
+    last_verified_at: 2026-09-26T12:00:00.000Z
+    verification_status: unverified
+  - id: ki_ce_breisgau_location
+    subject_id: n_geo_breisgau
+    relation_type: LOCATED_IN
+    object_id: n_geo_baden
+    domain_id: geography
+    assertion_text: Breisgau is a wine-growing area in Baden.
+    last_verified_at: 2026-09-26T12:00:00.000Z
+    verification_status: unverified
+  - id: ki_ce_kraichgau_location
+    subject_id: n_geo_kraichgau
+    relation_type: LOCATED_IN
+    object_id: n_geo_baden
+    domain_id: geography
+    assertion_text: Kraichgau is a wine-growing area in Baden.
+    last_verified_at: 2026-09-26T12:00:00.000Z
+    verification_status: unverified
+  - id: ki_ce_badische_bergstrasse_location
+    subject_id: n_geo_badische_bergstrasse
+    relation_type: LOCATED_IN
+    object_id: n_geo_baden
+    domain_id: geography
+    assertion_text: Badische Bergstraße is a wine-growing area in Baden.
+    last_verified_at: 2026-09-26T12:00:00.000Z
+    verification_status: unverified
+  - id: ki_ce_tauberfranken_location
+    subject_id: n_geo_tauberfranken
+    relation_type: LOCATED_IN
+    object_id: n_geo_baden
+    domain_id: geography
+    assertion_text: Tauberfranken is a wine-growing area in Baden.
+    last_verified_at: 2026-09-26T12:00:00.000Z
+    verification_status: unverified
+  - id: ki_ce_bodensee_baden_location
+    subject_id: n_geo_bodensee_baden
+    relation_type: LOCATED_IN
+    object_id: n_geo_baden
+    domain_id: geography
+    assertion_text: Bodensee (Baden) is a wine-growing area in Baden.
+    last_verified_at: 2026-09-26T12:00:00.000Z
+    verification_status: unverified
+  - id: ki_ce_piesport_location
+    subject_id: n_geo_piesport
+    relation_type: LOCATED_IN
+    object_id: n_geo_mosel
+    domain_id: geography
+    assertion_text: Piesport is a wine locality in Mosel.
+    last_verified_at: 2026-09-26T12:00:00.000Z
+    verification_status: unverified
+  - id: ki_ce_wehlen_location
+    subject_id: n_geo_wehlen
+    relation_type: LOCATED_IN
+    object_id: n_geo_mosel
+    domain_id: geography
+    assertion_text: Wehlen is a wine locality in Mosel.
+    last_verified_at: 2026-09-26T12:00:00.000Z
+    verification_status: unverified
+  - id: ki_ce_bernkastel_location
+    subject_id: n_geo_bernkastel
+    relation_type: LOCATED_IN
+    object_id: n_geo_mosel
+    domain_id: geography
+    assertion_text: Bernkastel-Kues is a wine locality in Mosel.
+    last_verified_at: 2026-09-26T12:00:00.000Z
+    verification_status: unverified
+  - id: ki_ce_wiltingen_location
+    subject_id: n_geo_wiltingen
+    relation_type: LOCATED_IN
+    object_id: n_geo_mosel
+    domain_id: geography
+    assertion_text: Wiltingen is a wine locality in Mosel.
+    last_verified_at: 2026-09-26T12:00:00.000Z
+    verification_status: unverified
+  - id: ki_ce_ruedesheim_location
+    subject_id: n_geo_ruedesheim
+    relation_type: LOCATED_IN
+    object_id: n_geo_rheingau
+    domain_id: geography
+    assertion_text: Rüdesheim am Rhein is a wine locality in Rheingau.
+    last_verified_at: 2026-09-26T12:00:00.000Z
+    verification_status: unverified
+  - id: ki_ce_geisenheim_location
+    subject_id: n_geo_geisenheim
+    relation_type: LOCATED_IN
+    object_id: n_geo_rheingau
+    domain_id: geography
+    assertion_text: Geisenheim is a wine locality in Rheingau.
+    last_verified_at: 2026-09-26T12:00:00.000Z
+    verification_status: unverified
+  - id: ki_ce_johannisberg_location
+    subject_id: n_geo_johannisberg
+    relation_type: LOCATED_IN
+    object_id: n_geo_rheingau
+    domain_id: geography
+    assertion_text: Johannisberg is a wine locality in Rheingau.
+    last_verified_at: 2026-09-26T12:00:00.000Z
+    verification_status: unverified
+  - id: ki_ce_assmannshausen_location
+    subject_id: n_geo_assmannshausen
+    relation_type: LOCATED_IN
+    object_id: n_geo_rheingau
+    domain_id: geography
+    assertion_text: Assmannshausen is a wine locality in Rheingau.
+    last_verified_at: 2026-09-26T12:00:00.000Z
+    verification_status: unverified
+  - id: ki_ce_scharzhofberg_location
+    subject_id: n_geo_scharzhofberg
+    relation_type: LOCATED_IN
+    object_id: n_geo_wiltingen
+    domain_id: geography
+    assertion_text: Scharzhofberg is a vineyard site in Wiltingen.
+    last_verified_at: 2026-09-26T12:00:00.000Z
+    verification_status: unverified
+  - id: ki_ce_bernkasteler_doctor_location
+    subject_id: n_geo_bernkasteler_doctor
+    relation_type: LOCATED_IN
+    object_id: n_geo_bernkastel
+    domain_id: geography
+    assertion_text: Bernkasteler Doctor is a vineyard site in Bernkastel-Kues.
+    last_verified_at: 2026-09-26T12:00:00.000Z
+    verification_status: unverified
+  - id: ki_ce_wehlener_sonnenuhr_location
+    subject_id: n_geo_wehlener_sonnenuhr
+    relation_type: LOCATED_IN
+    object_id: n_geo_wehlen
+    domain_id: geography
+    assertion_text: Wehlener Sonnenuhr is a vineyard site in Wehlen.
+    last_verified_at: 2026-09-26T12:00:00.000Z
+    verification_status: unverified
+  - id: ki_ce_piesporter_goldtroepfchen_location
+    subject_id: n_geo_piesporter_goldtroepfchen
+    relation_type: LOCATED_IN
+    object_id: n_geo_piesport
+    domain_id: geography
+    assertion_text: Piesporter Goldtröpfchen is a vineyard site in Piesport.
+    last_verified_at: 2026-09-26T12:00:00.000Z
+    verification_status: unverified
+  - id: ki_ce_neusiedlersee_location
+    subject_id: n_geo_neusiedlersee
+    relation_type: LOCATED_IN
+    object_id: n_geo_burgenland
+    domain_id: geography
+    assertion_text: Neusiedlersee is a wine-growing area in Burgenland.
+    last_verified_at: 2026-09-26T12:00:00.000Z
+    verification_status: unverified
+  - id: ki_ce_leithaberg_location
+    subject_id: n_geo_leithaberg
+    relation_type: LOCATED_IN
+    object_id: n_geo_burgenland
+    domain_id: geography
+    assertion_text: Leithaberg is a wine-growing area in Burgenland.
+    last_verified_at: 2026-09-26T12:00:00.000Z
+    verification_status: unverified
+  - id: ki_ce_eisenberg_location
+    subject_id: n_geo_eisenberg
+    relation_type: LOCATED_IN
+    object_id: n_geo_burgenland
+    domain_id: geography
+    assertion_text: Eisenberg is a wine-growing area in Burgenland.
+    last_verified_at: 2026-09-26T12:00:00.000Z
+    verification_status: unverified
+  - id: ki_ce_rosalia_location
+    subject_id: n_geo_rosalia
+    relation_type: LOCATED_IN
+    object_id: n_geo_burgenland
+    domain_id: geography
+    assertion_text: Rosalia is a wine-growing area in Burgenland.
+    last_verified_at: 2026-09-26T12:00:00.000Z
+    verification_status: unverified
+  - id: ki_ce_weststeiermark_location
+    subject_id: n_geo_weststeiermark
+    relation_type: LOCATED_IN
+    object_id: n_geo_steiermark
+    domain_id: geography
+    assertion_text: Weststeiermark is a wine-growing area in Steiermark.
+    last_verified_at: 2026-09-26T12:00:00.000Z
+    verification_status: unverified
+  - id: ki_ce_vulkanland_steiermark_location
+    subject_id: n_geo_vulkanland_steiermark
+    relation_type: LOCATED_IN
+    object_id: n_geo_steiermark
+    domain_id: geography
+    assertion_text: Vulkanland Steiermark is a wine-growing area in Steiermark.
+    last_verified_at: 2026-09-26T12:00:00.000Z
+    verification_status: unverified
+  - id: ki_ce_rust_location
+    subject_id: n_geo_rust
+    relation_type: LOCATED_IN
+    object_id: n_geo_burgenland
+    domain_id: geography
+    assertion_text: Rust is a wine locality in Burgenland.
+    last_verified_at: 2026-09-26T12:00:00.000Z
+    verification_status: unverified
+  - id: ki_ce_neusiedlersee_dac_location
+    subject_id: n_geo_neusiedlersee_dac
+    relation_type: LOCATED_IN
+    object_id: n_geo_neusiedlersee
+    domain_id: geography
+    assertion_text: Neusiedlersee DAC is a wine appellation in Neusiedlersee.
+    last_verified_at: 2026-09-26T12:00:00.000Z
+    verification_status: unverified
+  - id: ki_ce_leithaberg_dac_location
+    subject_id: n_geo_leithaberg_dac
+    relation_type: LOCATED_IN
+    object_id: n_geo_leithaberg
+    domain_id: geography
+    assertion_text: Leithaberg DAC is a wine appellation in Leithaberg.
+    last_verified_at: 2026-09-26T12:00:00.000Z
+    verification_status: unverified
+  - id: ki_ce_eisenberg_dac_location
+    subject_id: n_geo_eisenberg_dac
+    relation_type: LOCATED_IN
+    object_id: n_geo_eisenberg
+    domain_id: geography
+    assertion_text: Eisenberg DAC is a wine appellation in Eisenberg.
+    last_verified_at: 2026-09-26T12:00:00.000Z
+    verification_status: unverified
+  - id: ki_ce_rosalia_dac_location
+    subject_id: n_geo_rosalia_dac
+    relation_type: LOCATED_IN
+    object_id: n_geo_rosalia
+    domain_id: geography
+    assertion_text: Rosalia DAC is a wine appellation in Rosalia.
+    last_verified_at: 2026-09-26T12:00:00.000Z
+    verification_status: unverified
+  - id: ki_ce_ruster_ausbruch_dac_location
+    subject_id: n_geo_ruster_ausbruch_dac
+    relation_type: LOCATED_IN
+    object_id: n_geo_rust
+    domain_id: geography
+    assertion_text: Ruster Ausbruch DAC is a wine appellation in Rust.
+    last_verified_at: 2026-09-26T12:00:00.000Z
+    verification_status: unverified
+  - id: ki_ce_weststeiermark_dac_location
+    subject_id: n_geo_weststeiermark_dac
+    relation_type: LOCATED_IN
+    object_id: n_geo_weststeiermark
+    domain_id: geography
+    assertion_text: Weststeiermark DAC is a wine appellation in Weststeiermark.
+    last_verified_at: 2026-09-26T12:00:00.000Z
+    verification_status: unverified
+  - id: ki_ce_vulkanland_steiermark_dac_location
+    subject_id: n_geo_vulkanland_steiermark_dac
+    relation_type: LOCATED_IN
+    object_id: n_geo_vulkanland_steiermark
+    domain_id: geography
+    assertion_text: Vulkanland Steiermark DAC is a wine appellation in Vulkanland Steiermark.
+    last_verified_at: 2026-09-26T12:00:00.000Z
+    verification_status: unverified
+  - id: ki_ce_suedsteiermark_dac_location
+    subject_id: n_geo_suedsteiermark_dac
+    relation_type: LOCATED_IN
+    object_id: n_geo_suedsteiermark
+    domain_id: geography
+    assertion_text: Südsteiermark DAC is a wine appellation in Südsteiermark.
+    last_verified_at: 2026-09-26T12:00:00.000Z
+    verification_status: unverified
+  - id: ki_ce_villany_location
+    subject_id: n_geo_villany
+    relation_type: LOCATED_IN
+    object_id: n_geo_hungary
+    domain_id: geography
+    assertion_text: Villány is a wine appellation in Hungary.
+    last_verified_at: 2026-09-26T12:00:00.000Z
+    verification_status: unverified
+  - id: ki_ce_eger_location
+    subject_id: n_geo_eger
+    relation_type: LOCATED_IN
+    object_id: n_geo_hungary
+    domain_id: geography
+    assertion_text: Eger is a wine appellation in Hungary.
+    last_verified_at: 2026-09-26T12:00:00.000Z
+    verification_status: unverified
+  - id: ki_ce_somlo_location
+    subject_id: n_geo_somlo
+    relation_type: LOCATED_IN
+    object_id: n_geo_hungary
+    domain_id: geography
+    assertion_text: Somló is a wine appellation in Hungary.
+    last_verified_at: 2026-09-26T12:00:00.000Z
+    verification_status: unverified
+  - id: ki_ce_szekszard_location
+    subject_id: n_geo_szekszard
+    relation_type: LOCATED_IN
+    object_id: n_geo_hungary
+    domain_id: geography
+    assertion_text: Szekszárd is a wine appellation in Hungary.
+    last_verified_at: 2026-09-26T12:00:00.000Z
+    verification_status: unverified
+  - id: ki_ce_badacsony_location
+    subject_id: n_geo_badacsony
+    relation_type: LOCATED_IN
+    object_id: n_geo_hungary
+    domain_id: geography
+    assertion_text: Badacsony is a wine appellation in Hungary.
+    last_verified_at: 2026-09-26T12:00:00.000Z
+    verification_status: unverified
+  - id: ki_ce_balatonfured_csopak_location
+    subject_id: n_geo_balatonfured_csopak
+    relation_type: LOCATED_IN
+    object_id: n_geo_hungary
+    domain_id: geography
+    assertion_text: Balatonfüred-Csopak is a wine appellation in Hungary.
+    last_verified_at: 2026-09-26T12:00:00.000Z
+    verification_status: unverified
+  - id: ki_ce_sopron_location
+    subject_id: n_geo_sopron
+    relation_type: LOCATED_IN
+    object_id: n_geo_hungary
+    domain_id: geography
+    assertion_text: Sopron is a wine appellation in Hungary.
+    last_verified_at: 2026-09-26T12:00:00.000Z
+    verification_status: unverified
+certification_knowledge_mappings:
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_ce_saar_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_ce_saar_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_ce_ruwer_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_ce_ruwer_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_ce_bernkastel_bereich_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_ce_bernkastel_bereich_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_ce_burg_cochem_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_ce_burg_cochem_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_ce_obermosel_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_ce_obermosel_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_ce_moseltor_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_ce_moseltor_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_ce_mittelhaardt_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_ce_mittelhaardt_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_ce_suedliche_weinstrasse_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_ce_suedliche_weinstrasse_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_ce_kaiserstuhl_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_ce_kaiserstuhl_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_ce_ortenau_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_ce_ortenau_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_ce_markgraeflerland_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_ce_markgraeflerland_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_ce_tuniberg_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_ce_tuniberg_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_ce_breisgau_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_ce_breisgau_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_ce_kraichgau_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_ce_kraichgau_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_ce_badische_bergstrasse_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_ce_badische_bergstrasse_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_ce_tauberfranken_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_ce_tauberfranken_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_ce_bodensee_baden_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_ce_bodensee_baden_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_ce_piesport_location
+    importance: secondary
+    minimum_depth: 1
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_ce_piesport_location
+    importance: secondary
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_ce_wehlen_location
+    importance: secondary
+    minimum_depth: 1
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_ce_wehlen_location
+    importance: secondary
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_ce_bernkastel_location
+    importance: secondary
+    minimum_depth: 1
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_ce_bernkastel_location
+    importance: secondary
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_ce_wiltingen_location
+    importance: secondary
+    minimum_depth: 1
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_ce_wiltingen_location
+    importance: secondary
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_ce_ruedesheim_location
+    importance: secondary
+    minimum_depth: 1
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_ce_ruedesheim_location
+    importance: secondary
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_ce_geisenheim_location
+    importance: secondary
+    minimum_depth: 1
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_ce_geisenheim_location
+    importance: secondary
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_ce_johannisberg_location
+    importance: secondary
+    minimum_depth: 1
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_ce_johannisberg_location
+    importance: secondary
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_ce_assmannshausen_location
+    importance: secondary
+    minimum_depth: 1
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_ce_assmannshausen_location
+    importance: secondary
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_ce_scharzhofberg_location
+    importance: secondary
+    minimum_depth: 1
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_ce_scharzhofberg_location
+    importance: secondary
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_ce_bernkasteler_doctor_location
+    importance: secondary
+    minimum_depth: 1
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_ce_bernkasteler_doctor_location
+    importance: secondary
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_ce_wehlener_sonnenuhr_location
+    importance: secondary
+    minimum_depth: 1
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_ce_wehlener_sonnenuhr_location
+    importance: secondary
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_ce_piesporter_goldtroepfchen_location
+    importance: secondary
+    minimum_depth: 1
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_ce_piesporter_goldtroepfchen_location
+    importance: secondary
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_ce_neusiedlersee_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_ce_neusiedlersee_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_ce_leithaberg_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_ce_leithaberg_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_ce_eisenberg_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_ce_eisenberg_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_ce_rosalia_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_ce_rosalia_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_ce_weststeiermark_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_ce_weststeiermark_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_ce_vulkanland_steiermark_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_ce_vulkanland_steiermark_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_ce_rust_location
+    importance: secondary
+    minimum_depth: 1
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_ce_rust_location
+    importance: secondary
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_ce_neusiedlersee_dac_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_ce_neusiedlersee_dac_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_ce_leithaberg_dac_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_ce_leithaberg_dac_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_ce_eisenberg_dac_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_ce_eisenberg_dac_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_ce_rosalia_dac_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_ce_rosalia_dac_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_ce_ruster_ausbruch_dac_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_ce_ruster_ausbruch_dac_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_ce_weststeiermark_dac_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_ce_weststeiermark_dac_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_ce_vulkanland_steiermark_dac_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_ce_vulkanland_steiermark_dac_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_ce_suedsteiermark_dac_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_ce_suedsteiermark_dac_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_ce_villany_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_ce_villany_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_ce_eger_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_ce_eger_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_ce_somlo_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_ce_somlo_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_ce_szekszard_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_ce_szekszard_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_ce_badacsony_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_ce_badacsony_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_ce_balatonfured_csopak_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_ce_balatonfured_csopak_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_ce_sopron_location
+    importance: core
+    minimum_depth: 1
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_ce_sopron_location
+    importance: core
+    minimum_depth: 1
+source_citations:
+  - id: src_ce_mosel
+    kind: reference_work
+    title: "Mosel: the six wine-growing districts"
+    publisher: Moselwein e.V.
+    jurisdiction: DE
+    url: https://www.weinland-mosel.de/de/die-region/die-teilregionen
+    accessed_on: 2026-09-26
+  - id: src_ce_districts
+    kind: reference_work
+    title: German wine-growing regions and their districts
+    publisher: Deutsches Weininstitut
+    jurisdiction: DE
+    url: https://www.deutscheweine.de/fileadmin/DWI/Seminare-KD/pdf/Seminarhandbuch.pdf
+    accessed_on: 2026-09-26
+  - id: src_ce_baden
+    kind: reference_work
+    title: "Baden: nine wine-growing districts"
+    publisher: Deutsches Weininstitut
+    jurisdiction: DE
+    url: https://www.deutscheweine.de/anbaugebiet/65/baden
+    accessed_on: 2026-09-26
+  - id: src_ce_rheingau
+    kind: reference_work
+    title: "Rheingau: wine villages and geography"
+    publisher: Deutsches Weininstitut
+    jurisdiction: DE
+    url: https://www.deutscheweine.de/anbaugebiet/69/rheingau
+    accessed_on: 2026-09-26
+  - id: src_ce_vdp_mosel
+    kind: reference_work
+    title: "Mosel, Saar and Ruwer: vineyard locations and their villages"
+    publisher: VDP.Mosel-Saar-Ruwer
+    jurisdiction: DE
+    url: https://www.vdp.de/fileadmin/user_upload/Downloads/VDPM_2024_Katalog_Meisterwerke_Versteigerung.pdf
+    accessed_on: 2026-09-26
+  - id: src_ce_at_regions
+    kind: reference_work
+    title: Austrian wine-growing regions and their geographic hierarchy
+    publisher: Austrian Wine Marketing Board
+    jurisdiction: AT
+    url: https://www.austrianvineyards.com/
+    accessed_on: 2026-09-26
+  - id: src_ce_at_dacs
+    kind: reference_work
+    title: Austrian wine-growing regions and protected designations (DAC)
+    publisher: Austrian Wine Marketing Board
+    jurisdiction: AT
+    url: https://www.oesterreichwein.at/fileadmin/content/Documents/01_AVZ_Prowine_Shanghai_2023_FINAL_online.pdf
+    accessed_on: 2026-09-26
+  - id: src_ce_hu_districts
+    kind: reference_work
+    title: Hungarian wine districts and their regional hierarchy
+    publisher: Hungarian Wine Marketing Agency
+    jurisdiction: HU
+    url: https://bor.hu/en/
+    accessed_on: 2026-09-26
+knowledge_item_citations:
+  - knowledge_item_id: ki_ce_saar_location
+    source_citation_id: src_ce_mosel
+    locator: "Saar: geographic location and parent wine area"
+  - knowledge_item_id: ki_ce_ruwer_location
+    source_citation_id: src_ce_mosel
+    locator: "Ruwer: geographic location and parent wine area"
+  - knowledge_item_id: ki_ce_bernkastel_bereich_location
+    source_citation_id: src_ce_mosel
+    locator: "Bernkastel (Mittelmosel): geographic location and parent wine area"
+  - knowledge_item_id: ki_ce_burg_cochem_location
+    source_citation_id: src_ce_mosel
+    locator: "Burg Cochem (Terrassenmosel): geographic location and parent wine area"
+  - knowledge_item_id: ki_ce_obermosel_location
+    source_citation_id: src_ce_mosel
+    locator: "Obermosel: geographic location and parent wine area"
+  - knowledge_item_id: ki_ce_moseltor_location
+    source_citation_id: src_ce_mosel
+    locator: "Moseltor: geographic location and parent wine area"
+  - knowledge_item_id: ki_ce_mittelhaardt_location
+    source_citation_id: src_ce_districts
+    locator: "Mittelhaardt-Deutsche Weinstraße: geographic location and parent wine
+      area"
+  - knowledge_item_id: ki_ce_suedliche_weinstrasse_location
+    source_citation_id: src_ce_districts
+    locator: "Südliche Weinstraße: geographic location and parent wine area"
+  - knowledge_item_id: ki_ce_kaiserstuhl_location
+    source_citation_id: src_ce_baden
+    locator: "Kaiserstuhl: geographic location and parent wine area"
+  - knowledge_item_id: ki_ce_ortenau_location
+    source_citation_id: src_ce_baden
+    locator: "Ortenau: geographic location and parent wine area"
+  - knowledge_item_id: ki_ce_markgraeflerland_location
+    source_citation_id: src_ce_baden
+    locator: "Markgräflerland: geographic location and parent wine area"
+  - knowledge_item_id: ki_ce_tuniberg_location
+    source_citation_id: src_ce_baden
+    locator: "Tuniberg: geographic location and parent wine area"
+  - knowledge_item_id: ki_ce_breisgau_location
+    source_citation_id: src_ce_baden
+    locator: "Breisgau: geographic location and parent wine area"
+  - knowledge_item_id: ki_ce_kraichgau_location
+    source_citation_id: src_ce_baden
+    locator: "Kraichgau: geographic location and parent wine area"
+  - knowledge_item_id: ki_ce_badische_bergstrasse_location
+    source_citation_id: src_ce_baden
+    locator: "Badische Bergstraße: geographic location and parent wine area"
+  - knowledge_item_id: ki_ce_tauberfranken_location
+    source_citation_id: src_ce_baden
+    locator: "Tauberfranken: geographic location and parent wine area"
+  - knowledge_item_id: ki_ce_bodensee_baden_location
+    source_citation_id: src_ce_baden
+    locator: "Bodensee (Baden): geographic location and parent wine area"
+  - knowledge_item_id: ki_ce_piesport_location
+    source_citation_id: src_ce_vdp_mosel
+    locator: "Piesport: geographic location and parent wine area"
+  - knowledge_item_id: ki_ce_wehlen_location
+    source_citation_id: src_ce_vdp_mosel
+    locator: "Wehlen: geographic location and parent wine area"
+  - knowledge_item_id: ki_ce_bernkastel_location
+    source_citation_id: src_ce_vdp_mosel
+    locator: "Bernkastel-Kues: geographic location and parent wine area"
+  - knowledge_item_id: ki_ce_wiltingen_location
+    source_citation_id: src_ce_vdp_mosel
+    locator: "Wiltingen: geographic location and parent wine area"
+  - knowledge_item_id: ki_ce_ruedesheim_location
+    source_citation_id: src_ce_rheingau
+    locator: "Rüdesheim am Rhein: geographic location and parent wine area"
+  - knowledge_item_id: ki_ce_geisenheim_location
+    source_citation_id: src_ce_rheingau
+    locator: "Geisenheim: geographic location and parent wine area"
+  - knowledge_item_id: ki_ce_johannisberg_location
+    source_citation_id: src_ce_rheingau
+    locator: "Johannisberg: geographic location and parent wine area"
+  - knowledge_item_id: ki_ce_assmannshausen_location
+    source_citation_id: src_ce_rheingau
+    locator: "Assmannshausen: geographic location and parent wine area"
+  - knowledge_item_id: ki_ce_scharzhofberg_location
+    source_citation_id: src_ce_vdp_mosel
+    locator: "Scharzhofberg: geographic location and parent wine area"
+  - knowledge_item_id: ki_ce_bernkasteler_doctor_location
+    source_citation_id: src_ce_vdp_mosel
+    locator: "Bernkasteler Doctor: geographic location and parent wine area"
+  - knowledge_item_id: ki_ce_wehlener_sonnenuhr_location
+    source_citation_id: src_ce_vdp_mosel
+    locator: "Wehlener Sonnenuhr: geographic location and parent wine area"
+  - knowledge_item_id: ki_ce_piesporter_goldtroepfchen_location
+    source_citation_id: src_ce_vdp_mosel
+    locator: "Piesporter Goldtröpfchen: geographic location and parent wine area"
+  - knowledge_item_id: ki_ce_neusiedlersee_location
+    source_citation_id: src_ce_at_regions
+    locator: "Neusiedlersee: geographic location and parent wine area"
+  - knowledge_item_id: ki_ce_leithaberg_location
+    source_citation_id: src_ce_at_regions
+    locator: "Leithaberg: geographic location and parent wine area"
+  - knowledge_item_id: ki_ce_eisenberg_location
+    source_citation_id: src_ce_at_regions
+    locator: "Eisenberg: geographic location and parent wine area"
+  - knowledge_item_id: ki_ce_rosalia_location
+    source_citation_id: src_ce_at_regions
+    locator: "Rosalia: geographic location and parent wine area"
+  - knowledge_item_id: ki_ce_weststeiermark_location
+    source_citation_id: src_ce_at_regions
+    locator: "Weststeiermark: geographic location and parent wine area"
+  - knowledge_item_id: ki_ce_vulkanland_steiermark_location
+    source_citation_id: src_ce_at_regions
+    locator: "Vulkanland Steiermark: geographic location and parent wine area"
+  - knowledge_item_id: ki_ce_rust_location
+    source_citation_id: src_ce_at_regions
+    locator: "Rust: geographic location and parent wine area"
+  - knowledge_item_id: ki_ce_neusiedlersee_dac_location
+    source_citation_id: src_ce_at_dacs
+    locator: "Neusiedlersee DAC: geographic location and parent wine area"
+  - knowledge_item_id: ki_ce_leithaberg_dac_location
+    source_citation_id: src_ce_at_dacs
+    locator: "Leithaberg DAC: geographic location and parent wine area"
+  - knowledge_item_id: ki_ce_eisenberg_dac_location
+    source_citation_id: src_ce_at_dacs
+    locator: "Eisenberg DAC: geographic location and parent wine area"
+  - knowledge_item_id: ki_ce_rosalia_dac_location
+    source_citation_id: src_ce_at_dacs
+    locator: "Rosalia DAC: geographic location and parent wine area"
+  - knowledge_item_id: ki_ce_ruster_ausbruch_dac_location
+    source_citation_id: src_ce_at_dacs
+    locator: "Ruster Ausbruch DAC: geographic location and parent wine area"
+  - knowledge_item_id: ki_ce_weststeiermark_dac_location
+    source_citation_id: src_ce_at_dacs
+    locator: "Weststeiermark DAC: geographic location and parent wine area"
+  - knowledge_item_id: ki_ce_vulkanland_steiermark_dac_location
+    source_citation_id: src_ce_at_dacs
+    locator: "Vulkanland Steiermark DAC: geographic location and parent wine area"
+  - knowledge_item_id: ki_ce_suedsteiermark_dac_location
+    source_citation_id: src_ce_at_dacs
+    locator: "Südsteiermark DAC: geographic location and parent wine area"
+  - knowledge_item_id: ki_ce_villany_location
+    source_citation_id: src_ce_hu_districts
+    locator: "Villány: geographic location and parent wine area"
+  - knowledge_item_id: ki_ce_eger_location
+    source_citation_id: src_ce_hu_districts
+    locator: "Eger: geographic location and parent wine area"
+  - knowledge_item_id: ki_ce_somlo_location
+    source_citation_id: src_ce_hu_districts
+    locator: "Somló: geographic location and parent wine area"
+  - knowledge_item_id: ki_ce_szekszard_location
+    source_citation_id: src_ce_hu_districts
+    locator: "Szekszárd: geographic location and parent wine area"
+  - knowledge_item_id: ki_ce_badacsony_location
+    source_citation_id: src_ce_hu_districts
+    locator: "Badacsony: geographic location and parent wine area"
+  - knowledge_item_id: ki_ce_balatonfured_csopak_location
+    source_citation_id: src_ce_hu_districts
+    locator: "Balatonfüred-Csopak: geographic location and parent wine area"
+  - knowledge_item_id: ki_ce_sopron_location
+    source_citation_id: src_ce_hu_districts
+    locator: "Sopron: geographic location and parent wine area"

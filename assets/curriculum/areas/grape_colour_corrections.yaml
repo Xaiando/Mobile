@@ -1,0 +1,44 @@
+# Physical berry skins, not the colour of wine produced from the variety.
+# The inherited white metadata is retired in germany.yaml on this correction
+# date. These dates record a curriculum correction, not a biological change.
+node_alternative_names:
+  - knowledge_node_id: n_colour_grey
+    name: Gray
+    kind: spelling_variant
+knowledge_relations:
+  - subject_id: n_grape_pinot_gris
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_grey
+    valid_from: "2026-09-26"
+knowledge_items:
+  - id: ki_berry_pinot_gris_grey
+    subject_id: n_grape_pinot_gris
+    relation_type: HAS_BERRY_COLOUR
+    object_id: n_colour_grey
+    domain_id: viticulture
+    assertion_text: Pinot Gris has grey berry skins at maturity.
+    verification_status: unverified
+    last_verified_at: "2026-09-26T21:33:23.000Z"
+    # The small set of berry-colour answer nodes cannot supply three rivals.
+    mcq_disabled: true
+certification_knowledge_mappings:
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_berry_pinot_gris_grey
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_berry_pinot_gris_grey
+    importance: tertiary
+    minimum_depth: 2
+source_citations:
+  - id: src_plantgrape_pinot_gris_colour
+    kind: reference_work
+    title: "Pl@ntGrape: Pinot gris G"
+    publisher: "INRAE / IFV / Institut Agro Montpellier (UMT Géno-Vigne)"
+    document_identifier: "Variety record 217; edition retrieved 26 September 2026"
+    url: https://www.plantgrape.fr/en/varieties/fruit-varieties/217/export
+    accessed_on: "2026-09-26"
+knowledge_item_citations:
+  - knowledge_item_id: ki_berry_pinot_gris_grey
+    source_citation_id: src_plantgrape_pinot_gris_colour
+    locator: "PDF p. 1, Description elements: ripe berry skin is grey; Origin: grey mutation of Pinot noir."

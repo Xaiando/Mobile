@@ -1,0 +1,74 @@
+# Original conditional cases. scope_node_ids prevents a case prompt from leaking into other subjects.
+# Existing short-answer practice shows learner-checked key points; it does not award official marks.
+question_templates:
+  - id: qt_biz_wine_discount_case
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: wine_discount
+    prompt_template: "Hypothetical wine offer: the selling price is 30 currency units per bottle and the
+      variable cost is 18. A 20% price discount is proposed. Fixed costs do not change, there is
+      spare capacity, and demand at the lower price is unknown. Explain how to evaluate the
+      proposal, why bottle volume alone is insufficient, one trade-off and one limitation. All
+      figures are invented."
+    parameters:
+      scope_node_ids:
+        - n_biz_case_wine_discount
+      key_points:
+        CASE_ACTION: Decision
+        CASE_REASON: Reason
+        CASE_TRADEOFF: Trade-off
+        CASE_LIMITATION: Limit or condition
+  - id: qt_biz_cellar_cash_case
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: cellar_cash
+    prompt_template: "Hypothetical restaurant: its accounts show profit, several wine invoices to
+      customers are unpaid, and cash has been spent on slowly selling cellar stock. Supplier bills
+      fall due before those customers are expected to pay. Explain the immediate cash analysis, the
+      accounting reason, a stock-purchasing trade-off and a limitation. No amounts, tax rates or
+      borrowing recommendation are implied."
+    parameters:
+      scope_node_ids:
+        - n_biz_case_cellar_cash
+      key_points:
+        CASE_ACTION: Decision
+        CASE_REASON: Reason
+        CASE_TRADEOFF: Trade-off
+        CASE_LIMITATION: Limit or condition
+  - id: qt_biz_export_currency_case
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: export_currency
+    prompt_template: "Hypothetical exporter: a customer will pay a fixed invoice in the customer's
+      currency in three months. The exporter pays its costs in its own currency and has no
+      offsetting foreign-currency costs. Explain a way to address this exchange-rate exposure, the
+      risk mechanism, a trade-off of home-currency invoicing and a risk that remains. No current
+      exchange rate or personal financial recommendation is supplied."
+    parameters:
+      scope_node_ids:
+        - n_biz_case_export_currency
+      key_points:
+        CASE_ACTION: Decision
+        CASE_REASON: Reason
+        CASE_TRADEOFF: Trade-off
+        CASE_LIMITATION: Limit or condition
+  - id: qt_srv_fragile_sediment_case
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: fragile_sediment
+    prompt_template: A guest selects a fragile older red wine with visible bottle sediment. The aim is
+      to serve clear wine while preserving its present aromas. Explain a suitable handling decision,
+      its purpose, an oxygen-exposure trade-off and a limit on what decanting can achieve. Use the
+      condition of this bottle; do not prescribe a fixed decanting time for all old wines.
+    parameters:
+      scope_node_ids:
+        - n_srv_case_fragile_sediment
+      key_points:
+        CASE_ACTION: Decision
+        CASE_REASON: Reason
+        CASE_TRADEOFF: Trade-off
+        CASE_LIMITATION: Limit or condition

@@ -1,0 +1,73 @@
+# Original conditional regional comparisons; one self-checked case per scope.
+question_templates:
+  - id: qt_reg_sh_case_au_shiraz_selection
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: reg_sh_au_shiraz_selection
+    prompt_template: An Australian tasting-class organiser has a ripe, full-bodied Barossa Valley Shiraz and
+      an Eden Valley Shiraz from a cooler high site. Both are the same vintage and had comparable
+      maturation; individual vineyard records are available. Plan a comparison that explains a possible
+      climatic contribution, a tradeoff and a limitation. Do not assume the Eden wine must be
+      pepper-dominant.
+    parameters:
+      scope_node_ids:
+        - n_reg_sh_case_au_shiraz_selection
+      key_points:
+        CASE_ACTION: Defensible comparison or action
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or evidence needed
+  - id: qt_reg_sh_case_au_cabernet_price
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: reg_sh_au_cabernet_price
+    prompt_template: Two Cabernet Sauvignon wines, one from Margaret River and one from Coonawarra, receive
+      similar sensory evaluations for balance and persistence. The first producer supplies evidence of
+      higher production and selling costs, and proposes a higher price. Explain how to assess that
+      proposal, linking wine style, quality and price, with a tradeoff and a limitation. No actual market
+      price is given.
+    parameters:
+      scope_node_ids:
+        - n_reg_sh_case_au_cabernet_price
+      key_points:
+        CASE_ACTION: Defensible comparison or action
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or evidence needed
+  - id: qt_reg_sh_case_nz_white_comparison
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: reg_sh_nz_white_comparison
+    prompt_template: A study group compares an Awatere Valley Marlborough Sauvignon Blanc, fermented in
+      stainless steel for a fresh fruit-led style, with a Hawke’s Bay Chardonnay fermented in barrel for
+      a fuller style. The wines differ in both grape and cellar treatment. Design a useful regional
+      comparison, give a rationale, and discuss a tradeoff and a limitation on attributing the sensory
+      differences.
+    parameters:
+      scope_node_ids:
+        - n_reg_sh_case_nz_white_comparison
+      key_points:
+        CASE_ACTION: Defensible comparison or action
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or evidence needed
+  - id: qt_reg_sh_case_za_chenin_purchasing
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: reg_sh_za_chenin_purchasing
+    prompt_template: A buyer compares a fresh, fruit-led Stellenbosch Chenin Blanc with a barrel-fermented
+      Swartland Chenin Blanc that tastes fuller. The target customers prefer a fresh style; both supplier
+      prices meet the stated budget. Propose a defensible selection process, a rationale, a tradeoff and
+      a limitation. The fuller wine has no independently established quality advantage.
+    parameters:
+      scope_node_ids:
+        - n_reg_sh_case_za_chenin_purchasing
+      key_points:
+        CASE_ACTION: Defensible comparison or action
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or evidence needed

@@ -241,6 +241,9 @@ class QuestionGenerator {
     final universe = await _candidates(answerType, match);
     final answer = universe[answerId];
     if (answer == null) return const [];
+    // A required discriminator must be known on the answer. Missing
+    // metadata does not establish that any candidate shares its value.
+    if (match != null && answer.matchValue == null) return const [];
 
     final correct = reverse
         ? await _subjectsHolding(relationType, item.objectId)
@@ -255,9 +258,7 @@ class QuestionGenerator {
       final candidate = universe[id];
       if (candidate == null || correct.contains(id)) return false;
       if (correctNames.contains(candidate.nameNorm)) return false;
-      if (match != null &&
-          answer.matchValue != null &&
-          candidate.matchValue != answer.matchValue) {
+      if (match != null && candidate.matchValue != answer.matchValue) {
         return false;
       }
       return answer.unit == null || candidate.unit == answer.unit;

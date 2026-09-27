@@ -1,0 +1,889 @@
+# Germany: the specified regions and the core of German wine law, at the
+# certification level of docs/content/spaetburgunder-study-tree.md §11.1
+# (backlog C6). Legal facts cite the current Weingesetz (WeinG),
+# Weinverordnung (WeinV) or EU law. Dated vineyard figures cite the DWI's
+# publication of the Destatis survey; private VDP terms cite the VDP's rules.
+# Part of the curriculum release in ../curriculum.yaml, in the format of
+# docs/domain-model.md §7.
+
+node_types:
+  - { id: label_term, label: label term }
+  - { id: wine_type, label: wine type }
+  - { id: ripeness_rule, label: ripeness rule }
+  - { id: making_rule, label: production rule }
+  - { id: quality_mark, label: quality mark }
+  - { id: organisation, label: organisation }
+  - { id: date_rule, label: release date }
+  - { id: statistic, label: dated vineyard statistic }
+  - { id: origin_unit, label: origin unit }
+
+relation_types:
+  - id: RESERVED_FOR_REGION
+    label: is reserved for wines from
+    reverse_label: reserves the term
+    cardinality: one
+    is_reverse_safe: true
+    default_domain_id: geography
+  # Not reverse-safe: every Prädikat must meet the Kabinett rule, and every
+  # Rotling the Rotling rule. Only the items marked distinctive are asked
+  # in reverse.
+  - id: LEGAL_DEFINITION
+    label: is legally defined by
+    reverse_label: legally defines
+    cardinality: many
+    default_domain_id: winemaking
+  - id: AWARDED_BY
+    label: is awarded by
+    reverse_label: awards
+    cardinality: one
+    default_domain_id: geography
+  - id: RELEASED_NOT_BEFORE
+    label: may first be sold to consumers from
+    reverse_label: is the earliest release of
+    cardinality: one
+    default_domain_id: geography
+  - id: STATISTIC_VALUE
+    label: has the reported value
+    reverse_label: is the reported value of
+    cardinality: one
+    default_domain_id: viticulture
+  - id: PLANTED_AREA
+    label: has the dated planted-area statistic
+    reverse_label: reports the planted area of
+    cardinality: many
+    default_domain_id: viticulture
+  - id: STATISTIC_IN_AREA
+    label: describes vineyards in
+    reverse_label: has the vineyard statistic
+    cardinality: one
+    default_domain_id: viticulture
+  - id: LEADING_RED_GRAPE
+    label: has the most planted red grape
+    reverse_label: is the most planted red grape in
+    cardinality: one
+    default_domain_id: viticulture
+    distractor_match_relation_type: HAS_BERRY_COLOUR
+  - id: PRIVATE_CLASSIFICATION_OF
+    label: belongs to the private classification of
+    reverse_label: uses the private classification term
+    cardinality: one
+    default_domain_id: geography
+
+relation_type_signatures:
+  - { relation_type: RESERVED_FOR_REGION, subject_node_type: wine_type, object_node_type: region }
+  - { relation_type: LEGAL_DEFINITION, subject_node_type: label_term, object_node_type: ripeness_rule }
+  - { relation_type: LEGAL_DEFINITION, subject_node_type: wine_type, object_node_type: making_rule }
+  - { relation_type: AWARDED_BY, subject_node_type: quality_mark, object_node_type: organisation }
+  - { relation_type: RELEASED_NOT_BEFORE, subject_node_type: label_term, object_node_type: date_rule }
+  - { relation_type: REQUIRES_METHOD, subject_node_type: wine_type, object_node_type: winemaking_method }
+  - { relation_type: MIN_AGEING, subject_node_type: wine_type, object_node_type: quantity }
+  - { relation_type: LEGAL_DEFINITION, subject_node_type: label_term, object_node_type: origin_unit }
+  - { relation_type: STATISTIC_VALUE, subject_node_type: statistic, object_node_type: quantity }
+  - { relation_type: PLANTED_AREA, subject_node_type: grape, object_node_type: statistic }
+  - { relation_type: STATISTIC_IN_AREA, subject_node_type: statistic, object_node_type: country }
+  - { relation_type: STATISTIC_IN_AREA, subject_node_type: statistic, object_node_type: region }
+  - { relation_type: LEADING_RED_GRAPE, subject_node_type: statistic, object_node_type: grape }
+  - { relation_type: PRIVATE_CLASSIFICATION_OF, subject_node_type: label_term, object_node_type: organisation }
+
+knowledge_nodes:
+  # Geography: the 13 specified regions of WeinG §3(1)
+  - { id: n_geo_germany, node_type: country, name: Germany }
+  - { id: n_geo_ahr, node_type: region, name: Ahr }
+  - { id: n_geo_baden, node_type: region, name: Baden }
+  - { id: n_geo_franken, node_type: region, name: Franken }
+  - { id: n_geo_hessische_bergstrasse, node_type: region, name: Hessische Bergstraße }
+  - { id: n_geo_mittelrhein, node_type: region, name: Mittelrhein }
+  - { id: n_geo_mosel, node_type: region, name: Mosel }
+  - { id: n_geo_nahe, node_type: region, name: Nahe }
+  - { id: n_geo_pfalz, node_type: region, name: Pfalz }
+  - { id: n_geo_rheingau, node_type: region, name: Rheingau }
+  - { id: n_geo_rheinhessen, node_type: region, name: Rheinhessen }
+  - { id: n_geo_saale_unstrut, node_type: region, name: Saale-Unstrut }
+  - { id: n_geo_sachsen, node_type: region, name: Sachsen }
+  - { id: n_geo_wuerttemberg, node_type: region, name: Württemberg }
+  # Categories and Prädikate (WeinG §2, §20)
+  - { id: n_term_qualitaetswein, node_type: label_term, name: Qualitätswein }
+  - { id: n_term_praedikatswein, node_type: label_term, name: Prädikatswein }
+  - { id: n_term_landwein, node_type: label_term, name: Landwein }
+  - { id: n_term_kabinett, node_type: label_term, name: Kabinett }
+  - { id: n_term_spaetlese, node_type: label_term, name: Spätlese }
+  - { id: n_term_auslese, node_type: label_term, name: Auslese }
+  - { id: n_term_beerenauslese, node_type: label_term, name: Beerenauslese }
+  - { id: n_term_trockenbeerenauslese, node_type: label_term, name: Trockenbeerenauslese }
+  - { id: n_term_eiswein, node_type: label_term, name: Eiswein }
+  - { id: n_rule_not_enriched, node_type: ripeness_rule, name: Made without enrichment }
+  - { id: n_rule_late_harvest, node_type: ripeness_rule, name: Fully ripe grapes from a late harvest }
+  - { id: n_rule_ripe_or_noble_rot, node_type: ripeness_rule, name: Fully ripe or nobly rotten grapes }
+  - { id: n_rule_noble_rot_or_overripe, node_type: ripeness_rule, name: Nobly rotten or at least overripe berries }
+  - { id: n_rule_shrivelled_noble_rot, node_type: ripeness_rule, name: Largely shrivelled nobly rotten berries }
+  - { id: n_rule_frozen_grapes, node_type: ripeness_rule, name: Grapes frozen at harvest and pressing }
+  # Origin units on the label (WeinV §39)
+  - { id: n_term_ortswein, node_type: label_term, name: Ortswein }
+  - { id: n_term_lagenwein, node_type: label_term, name: Lagenwein }
+  - { id: n_date_15_december, node_type: date_rule, name: 15 December of the harvest year }
+  - { id: n_date_1_march, node_type: date_rule, name: 1 March of the following year }
+  # Wine types (WeinV §32) and sparkling wine (§34a)
+  - { id: n_wine_roseewein, node_type: wine_type, name: Roséwein }
+  - { id: n_wine_rotling, node_type: wine_type, name: Rotling }
+  - { id: n_wine_blanc_de_noirs, node_type: wine_type, name: Blanc de Noirs }
+  - { id: n_wine_weissherbst, node_type: wine_type, name: Weißherbst }
+  - { id: n_wine_schillerwein, node_type: wine_type, name: Schillerwein }
+  - { id: n_wine_badisch_rotgold, node_type: wine_type, name: Badisch Rotgold }
+  - { id: n_wine_schieler, node_type: wine_type, name: Schieler }
+  - { id: n_wine_winzersekt, node_type: wine_type, name: Winzersekt }
+  - { id: n_rule_red_grapes_pale, node_type: making_rule, name: "Only red grapes, with a pale to light red colour" }
+  - { id: n_rule_white_and_red_blended, node_type: making_rule, name: "White and red grapes blended, also as mash" }
+  - { id: n_rule_red_pressed_as_white, node_type: making_rule, name: "Red grapes pressed like white wine, with a white wine's colour" }
+  - { id: n_rule_one_red_light_pressed, node_type: making_rule, name: "One red variety, at least 95 % light-pressed must" }
+  # Quality marks (WeinV §30)
+  - { id: n_mark_erstes_gewaechs, node_type: quality_mark, name: Erstes Gewächs }
+  - { id: n_mark_grosses_gewaechs, node_type: quality_mark, name: Großes Gewächs }
+  - { id: n_mark_deutsches_weinsiegel, node_type: quality_mark, name: Deutsches Weinsiegel }
+  - { id: n_org_komitee, node_type: organisation, name: Komitee – Klassifikation Erster und Großer Lagen in Deutschland }
+  - { id: n_org_dlg, node_type: organisation, name: Deutsche Landwirtschafts-Gesellschaft (DLG) }
+  # Shared German/Austrian varieties. Colours are structural, not new items.
+  - { id: n_grape_riesling, node_type: grape, name: Riesling }
+  - { id: n_grape_pinot_blanc, node_type: grape, name: Pinot Blanc }
+  - { id: n_grape_pinot_gris, node_type: grape, name: Pinot Gris }
+  # Origin-pyramid labels describe the geographic unit used on a label.
+  - { id: n_term_gebietswein, node_type: label_term, name: Gebietswein }
+  - { id: n_term_regionalwein, node_type: label_term, name: Regionalwein }
+  - { id: n_origin_anbaugebiet, node_type: origin_unit, name: Specified region (Anbaugebiet) }
+  - { id: n_origin_bereich_grosslage, node_type: origin_unit, name: Bereich or Großlage preceded by Region }
+  - { id: n_origin_village, node_type: origin_unit, name: Village or part of a village }
+  - { id: n_origin_single_vineyard, node_type: origin_unit, name: Einzellage or a smaller registered unit with its village name }
+  # VDP names belong to its private rules; they are not legal quality marks.
+  - { id: n_org_vdp, node_type: organisation, name: Verband Deutscher Prädikatsweingüter (VDP) }
+  - { id: n_term_vdp_gutswein, node_type: label_term, name: VDP.GUTSWEIN }
+  - { id: n_term_vdp_ortswein, node_type: label_term, name: VDP.ORTSWEIN }
+  - { id: n_term_vdp_erste_lage, node_type: label_term, name: VDP.ERSTE LAGE }
+  - { id: n_term_vdp_grosse_lage, node_type: label_term, name: VDP.GROSSE LAGE }
+  - { id: n_term_vdp_grosses_gewaechs, node_type: label_term, name: VDP.GROSSES GEWÄCHS }
+  # Reified survey facts (question-system §6). The subject fixes grape,
+  # geography, measurement and year; the quantity supplies a numeric value.
+  - { id: n_stat_de_leading_red_2024, node_type: statistic, name: "Germany's 2024 vineyard survey" }
+  - { id: n_stat_de_pinot_area_2024, node_type: statistic, name: "Spätburgunder planted area in Germany, 2024" }
+  - { id: n_stat_baden_pinot_area_2024, node_type: statistic, name: "Spätburgunder planted area in Baden, 2024" }
+  - { id: n_stat_pfalz_pinot_area_2024, node_type: statistic, name: "Spätburgunder planted area in Pfalz, 2024" }
+  - { id: n_stat_rheinhessen_pinot_area_2024, node_type: statistic, name: "Spätburgunder planted area in Rheinhessen, 2024" }
+  - { id: n_stat_wuerttemberg_pinot_area_2024, node_type: statistic, name: "Spätburgunder planted area in Württemberg, 2024" }
+  - { id: n_stat_de_pinot_share_2024, node_type: statistic, name: "Spätburgunder share of Germany's planted vineyard area, 2024" }
+  - { id: n_stat_baden_pinot_share_2024, node_type: statistic, name: "Spätburgunder share of Baden's planted vineyard area, 2024" }
+  - { id: n_stat_pfalz_pinot_share_2024, node_type: statistic, name: "Spätburgunder share of Pfalz's planted vineyard area, 2024" }
+  - { id: n_stat_rheinhessen_pinot_share_2024, node_type: statistic, name: "Spätburgunder share of Rheinhessen's planted vineyard area, 2024" }
+  - { id: n_stat_wuerttemberg_pinot_share_2024, node_type: statistic, name: "Spätburgunder share of Württemberg's planted vineyard area, 2024" }
+  - { id: n_stat_ahr_pinot_share_2024, node_type: statistic, name: "Spätburgunder share of Ahr's planted vineyard area, 2024" }
+  - { id: n_qty_11437_ha, node_type: quantity, name: "11,437 hectares" }
+  - { id: n_qty_4910_ha, node_type: quantity, name: "4,910 hectares" }
+  - { id: n_qty_1757_ha, node_type: quantity, name: "1,757 hectares" }
+  - { id: n_qty_1529_ha, node_type: quantity, name: "1,529 hectares" }
+  - { id: n_qty_1284_ha, node_type: quantity, name: "1,284 hectares" }
+  - { id: n_qty_11_percent, node_type: quantity, name: "11.0 %" }
+  - { id: n_qty_31_8_percent, node_type: quantity, name: "31.8 %" }
+  - { id: n_qty_7_4_percent, node_type: quantity, name: "7.4 %" }
+  - { id: n_qty_5_5_percent, node_type: quantity, name: "5.5 %" }
+  - { id: n_qty_11_5_percent, node_type: quantity, name: "11.5 %" }
+  - { id: n_qty_64_9_percent, node_type: quantity, name: "64.9 %" }
+
+quantity_values:
+  - { knowledge_node_id: n_qty_11437_ha, minimum: 11437, maximum: 11437, unit: ha }
+  - { knowledge_node_id: n_qty_4910_ha, minimum: 4910, maximum: 4910, unit: ha }
+  - { knowledge_node_id: n_qty_1757_ha, minimum: 1757, maximum: 1757, unit: ha }
+  - { knowledge_node_id: n_qty_1529_ha, minimum: 1529, maximum: 1529, unit: ha }
+  - { knowledge_node_id: n_qty_1284_ha, minimum: 1284, maximum: 1284, unit: ha }
+  - { knowledge_node_id: n_qty_11_percent, minimum: 11, maximum: 11, unit: "%" }
+  - { knowledge_node_id: n_qty_31_8_percent, minimum: 31.8, maximum: 31.8, unit: "%" }
+  - { knowledge_node_id: n_qty_7_4_percent, minimum: 7.4, maximum: 7.4, unit: "%" }
+  - { knowledge_node_id: n_qty_5_5_percent, minimum: 5.5, maximum: 5.5, unit: "%" }
+  - { knowledge_node_id: n_qty_11_5_percent, minimum: 11.5, maximum: 11.5, unit: "%" }
+  - { knowledge_node_id: n_qty_64_9_percent, minimum: 64.9, maximum: 64.9, unit: "%" }
+
+node_alternative_names:
+  - { knowledge_node_id: n_geo_franken, name: Franconia, kind: synonym }
+  - { knowledge_node_id: n_geo_mittelrhein, name: Middle Rhine, kind: synonym }
+  - { knowledge_node_id: n_geo_mosel, name: Mosel-Saar-Ruwer, kind: former_name }
+  - { knowledge_node_id: n_geo_pfalz, name: Palatinate, kind: synonym }
+  - { knowledge_node_id: n_geo_sachsen, name: Saxony, kind: synonym }
+  - { knowledge_node_id: n_term_qualitaetswein, name: Qualitätswein b.A., kind: synonym }
+  - { knowledge_node_id: n_term_qualitaetswein, name: QbA, kind: abbreviation }
+  - { knowledge_node_id: n_term_praedikatswein, name: Qualitätswein mit Prädikat, kind: former_name }
+  - { knowledge_node_id: n_term_praedikatswein, name: QmP, kind: abbreviation }
+  - { knowledge_node_id: n_term_beerenauslese, name: BA, kind: abbreviation }
+  - { knowledge_node_id: n_term_trockenbeerenauslese, name: TBA, kind: abbreviation }
+  - { knowledge_node_id: n_geo_germany, name: Deutschland, kind: synonym }
+  - { knowledge_node_id: n_date_15_december, name: 15 December of harvest year, kind: synonym }
+  - { knowledge_node_id: n_date_15_december, name: December 15 of the harvest year, kind: spelling_variant }
+  - { knowledge_node_id: n_date_1_march, name: 1 March of the year after harvest, kind: synonym }
+  - { knowledge_node_id: n_date_1_march, name: March 1 of the following year, kind: spelling_variant }
+  - { knowledge_node_id: n_wine_blanc_de_noirs, name: Blanc de Noir, kind: spelling_variant }
+  - { knowledge_node_id: n_wine_roseewein, name: Rosé, kind: synonym }
+  - { knowledge_node_id: n_org_komitee, name: Komitee, kind: abbreviation }
+  - { knowledge_node_id: n_org_dlg, name: DLG, kind: abbreviation }
+  - { knowledge_node_id: n_mark_grosses_gewaechs, name: GG, kind: abbreviation }
+  # Pinot Noir and Meunier under their German names
+  - { knowledge_node_id: n_grape_pinot_noir, name: Spätburgunder, kind: synonym }
+  - { knowledge_node_id: n_grape_pinot_noir, name: Blauer Spätburgunder, kind: synonym }
+  - { knowledge_node_id: n_grape_meunier, name: Schwarzriesling, kind: synonym }
+  - { knowledge_node_id: n_grape_pinot_blanc, name: Weißburgunder, kind: synonym }
+  - { knowledge_node_id: n_grape_pinot_blanc, name: Weisser Burgunder, kind: spelling_variant }
+  - { knowledge_node_id: n_grape_pinot_gris, name: Grauburgunder, kind: synonym }
+  - { knowledge_node_id: n_grape_pinot_gris, name: Ruländer, kind: synonym }
+  - { knowledge_node_id: n_org_vdp, name: VDP, kind: abbreviation }
+  - { knowledge_node_id: n_org_vdp, name: Verband Deutscher Prädikatsweingüter, kind: synonym }
+
+knowledge_relations:
+  - { subject_id: n_geo_ahr, relation_type: LOCATED_IN, object_id: n_geo_germany, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_baden, relation_type: LOCATED_IN, object_id: n_geo_germany, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_franken, relation_type: LOCATED_IN, object_id: n_geo_germany, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_hessische_bergstrasse, relation_type: LOCATED_IN, object_id: n_geo_germany, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_mittelrhein, relation_type: LOCATED_IN, object_id: n_geo_germany, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_mosel, relation_type: LOCATED_IN, object_id: n_geo_germany, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_nahe, relation_type: LOCATED_IN, object_id: n_geo_germany, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_pfalz, relation_type: LOCATED_IN, object_id: n_geo_germany, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_rheingau, relation_type: LOCATED_IN, object_id: n_geo_germany, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_rheinhessen, relation_type: LOCATED_IN, object_id: n_geo_germany, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_saale_unstrut, relation_type: LOCATED_IN, object_id: n_geo_germany, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_sachsen, relation_type: LOCATED_IN, object_id: n_geo_germany, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_wuerttemberg, relation_type: LOCATED_IN, object_id: n_geo_germany, valid_from: "1900-01-01" }
+  # The zones: Baden is zone B, every other German area zone A.
+  - { subject_id: n_geo_baden, relation_type: IN_WINE_ZONE, object_id: n_zone_b, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_mosel, relation_type: IN_WINE_ZONE, object_id: n_zone_a, valid_from: "1900-01-01" }
+  - { subject_id: n_term_qualitaetswein, relation_type: PROTECTED_AS, object_id: n_gi_pdo, valid_from: "1900-01-01" }
+  - { subject_id: n_term_praedikatswein, relation_type: PROTECTED_AS, object_id: n_gi_pdo, valid_from: "1900-01-01" }
+  - { subject_id: n_term_landwein, relation_type: PROTECTED_AS, object_id: n_gi_pgi, valid_from: "1900-01-01" }
+  - { subject_id: n_term_kabinett, relation_type: LEGAL_DEFINITION, object_id: n_rule_not_enriched, valid_from: "1900-01-01" }
+  - { subject_id: n_term_spaetlese, relation_type: LEGAL_DEFINITION, object_id: n_rule_late_harvest, valid_from: "1900-01-01" }
+  - { subject_id: n_term_auslese, relation_type: LEGAL_DEFINITION, object_id: n_rule_ripe_or_noble_rot, valid_from: "1900-01-01" }
+  - { subject_id: n_term_beerenauslese, relation_type: LEGAL_DEFINITION, object_id: n_rule_noble_rot_or_overripe, valid_from: "1900-01-01" }
+  - { subject_id: n_term_trockenbeerenauslese, relation_type: LEGAL_DEFINITION, object_id: n_rule_shrivelled_noble_rot, valid_from: "1900-01-01" }
+  - { subject_id: n_term_eiswein, relation_type: LEGAL_DEFINITION, object_id: n_rule_frozen_grapes, valid_from: "1900-01-01" }
+  # Structural: every higher Prädikat is unenriched too (WeinG §20(4)), so
+  # the Kabinett rule is never offered as their wrong answer.
+  - { subject_id: n_term_spaetlese, relation_type: LEGAL_DEFINITION, object_id: n_rule_not_enriched, valid_from: "1900-01-01" }
+  - { subject_id: n_term_auslese, relation_type: LEGAL_DEFINITION, object_id: n_rule_not_enriched, valid_from: "1900-01-01" }
+  - { subject_id: n_term_beerenauslese, relation_type: LEGAL_DEFINITION, object_id: n_rule_not_enriched, valid_from: "1900-01-01" }
+  - { subject_id: n_term_trockenbeerenauslese, relation_type: LEGAL_DEFINITION, object_id: n_rule_not_enriched, valid_from: "1900-01-01" }
+  - { subject_id: n_term_eiswein, relation_type: LEGAL_DEFINITION, object_id: n_rule_not_enriched, valid_from: "1900-01-01" }
+  - { subject_id: n_term_ortswein, relation_type: RELEASED_NOT_BEFORE, object_id: n_date_15_december, valid_from: "1900-01-01" }
+  - { subject_id: n_term_lagenwein, relation_type: RELEASED_NOT_BEFORE, object_id: n_date_1_march, valid_from: "1900-01-01" }
+  - { subject_id: n_wine_roseewein, relation_type: LEGAL_DEFINITION, object_id: n_rule_red_grapes_pale, valid_from: "1900-01-01" }
+  - { subject_id: n_wine_rotling, relation_type: LEGAL_DEFINITION, object_id: n_rule_white_and_red_blended, valid_from: "1900-01-01" }
+  - { subject_id: n_wine_blanc_de_noirs, relation_type: LEGAL_DEFINITION, object_id: n_rule_red_pressed_as_white, valid_from: "1900-01-01" }
+  - { subject_id: n_wine_weissherbst, relation_type: LEGAL_DEFINITION, object_id: n_rule_one_red_light_pressed, valid_from: "1900-01-01" }
+  # Structural: the three regional names are Rotlings (WeinV §32(7)).
+  - { subject_id: n_wine_schillerwein, relation_type: LEGAL_DEFINITION, object_id: n_rule_white_and_red_blended, valid_from: "1900-01-01" }
+  - { subject_id: n_wine_badisch_rotgold, relation_type: LEGAL_DEFINITION, object_id: n_rule_white_and_red_blended, valid_from: "1900-01-01" }
+  - { subject_id: n_wine_schieler, relation_type: LEGAL_DEFINITION, object_id: n_rule_white_and_red_blended, valid_from: "1900-01-01" }
+  - { subject_id: n_wine_schillerwein, relation_type: RESERVED_FOR_REGION, object_id: n_geo_wuerttemberg, valid_from: "1900-01-01" }
+  - { subject_id: n_wine_badisch_rotgold, relation_type: RESERVED_FOR_REGION, object_id: n_geo_baden, valid_from: "1900-01-01" }
+  - { subject_id: n_wine_schieler, relation_type: RESERVED_FOR_REGION, object_id: n_geo_sachsen, valid_from: "1900-01-01" }
+  - { subject_id: n_wine_winzersekt, relation_type: REQUIRES_METHOD, object_id: n_method_traditional, valid_from: "1900-01-01" }
+  - { subject_id: n_wine_winzersekt, relation_type: MIN_AGEING, object_id: n_qty_9_months, valid_from: "1900-01-01" }
+  # The quality marks of the amendment of 24 August 2026 (BGBl. 2026 I No. 243).
+  - { subject_id: n_mark_erstes_gewaechs, relation_type: AWARDED_BY, object_id: n_org_komitee, valid_from: "2026-09-02" }
+  - { subject_id: n_mark_grosses_gewaechs, relation_type: AWARDED_BY, object_id: n_org_komitee, valid_from: "2026-09-02" }
+  - { subject_id: n_mark_deutsches_weinsiegel, relation_type: AWARDED_BY, object_id: n_org_dlg, valid_from: "1900-01-01" }
+  - { subject_id: n_grape_riesling, relation_type: HAS_BERRY_COLOUR, object_id: n_colour_white, valid_from: "1900-01-01" }
+  - { subject_id: n_grape_pinot_blanc, relation_type: HAS_BERRY_COLOUR, object_id: n_colour_white, valid_from: "1900-01-01" }
+  # Retired inherited metadata: the correction date is not a biological change.
+  - { subject_id: n_grape_pinot_gris, relation_type: HAS_BERRY_COLOUR, object_id: n_colour_white, valid_from: "1900-01-01", valid_until: "2026-09-26" }
+  - { subject_id: n_term_gebietswein, relation_type: LEGAL_DEFINITION, object_id: n_origin_anbaugebiet, valid_from: "1900-01-01" }
+  - { subject_id: n_term_regionalwein, relation_type: LEGAL_DEFINITION, object_id: n_origin_bereich_grosslage, valid_from: "2021-05-08" }
+  - { subject_id: n_term_ortswein, relation_type: LEGAL_DEFINITION, object_id: n_origin_village, valid_from: "2021-05-08" }
+  - { subject_id: n_term_lagenwein, relation_type: LEGAL_DEFINITION, object_id: n_origin_single_vineyard, valid_from: "2021-05-08" }
+  - { subject_id: n_term_vdp_gutswein, relation_type: PRIVATE_CLASSIFICATION_OF, object_id: n_org_vdp, valid_from: "1900-01-01" }
+  - { subject_id: n_term_vdp_ortswein, relation_type: PRIVATE_CLASSIFICATION_OF, object_id: n_org_vdp, valid_from: "1900-01-01" }
+  - { subject_id: n_term_vdp_erste_lage, relation_type: PRIVATE_CLASSIFICATION_OF, object_id: n_org_vdp, valid_from: "1900-01-01" }
+  - { subject_id: n_term_vdp_grosse_lage, relation_type: PRIVATE_CLASSIFICATION_OF, object_id: n_org_vdp, valid_from: "1900-01-01" }
+  - { subject_id: n_term_vdp_grosses_gewaechs, relation_type: PRIVATE_CLASSIFICATION_OF, object_id: n_org_vdp, valid_from: "1900-01-01" }
+  # The leading-grape claim is explicitly fixed to the 2024 survey.
+  - { subject_id: n_stat_de_leading_red_2024, relation_type: LEADING_RED_GRAPE, object_id: n_grape_pinot_noir, valid_from: "2024-01-01" }
+  - { subject_id: n_stat_de_leading_red_2024, relation_type: STATISTIC_IN_AREA, object_id: n_geo_germany, valid_from: "2024-01-01" }
+  - { subject_id: n_grape_pinot_noir, relation_type: PLANTED_AREA, object_id: n_stat_de_pinot_area_2024, valid_from: "2024-01-01" }
+  - { subject_id: n_grape_pinot_noir, relation_type: PLANTED_AREA, object_id: n_stat_baden_pinot_area_2024, valid_from: "2024-01-01" }
+  - { subject_id: n_grape_pinot_noir, relation_type: PLANTED_AREA, object_id: n_stat_pfalz_pinot_area_2024, valid_from: "2024-01-01" }
+  - { subject_id: n_grape_pinot_noir, relation_type: PLANTED_AREA, object_id: n_stat_rheinhessen_pinot_area_2024, valid_from: "2024-01-01" }
+  - { subject_id: n_grape_pinot_noir, relation_type: PLANTED_AREA, object_id: n_stat_wuerttemberg_pinot_area_2024, valid_from: "2024-01-01" }
+  - { subject_id: n_stat_de_pinot_area_2024, relation_type: STATISTIC_IN_AREA, object_id: n_geo_germany, valid_from: "2024-01-01" }
+  - { subject_id: n_stat_baden_pinot_area_2024, relation_type: STATISTIC_IN_AREA, object_id: n_geo_baden, valid_from: "2024-01-01" }
+  - { subject_id: n_stat_pfalz_pinot_area_2024, relation_type: STATISTIC_IN_AREA, object_id: n_geo_pfalz, valid_from: "2024-01-01" }
+  - { subject_id: n_stat_rheinhessen_pinot_area_2024, relation_type: STATISTIC_IN_AREA, object_id: n_geo_rheinhessen, valid_from: "2024-01-01" }
+  - { subject_id: n_stat_wuerttemberg_pinot_area_2024, relation_type: STATISTIC_IN_AREA, object_id: n_geo_wuerttemberg, valid_from: "2024-01-01" }
+  - { subject_id: n_stat_de_pinot_share_2024, relation_type: STATISTIC_IN_AREA, object_id: n_geo_germany, valid_from: "2024-01-01" }
+  - { subject_id: n_stat_baden_pinot_share_2024, relation_type: STATISTIC_IN_AREA, object_id: n_geo_baden, valid_from: "2024-01-01" }
+  - { subject_id: n_stat_pfalz_pinot_share_2024, relation_type: STATISTIC_IN_AREA, object_id: n_geo_pfalz, valid_from: "2024-01-01" }
+  - { subject_id: n_stat_rheinhessen_pinot_share_2024, relation_type: STATISTIC_IN_AREA, object_id: n_geo_rheinhessen, valid_from: "2024-01-01" }
+  - { subject_id: n_stat_wuerttemberg_pinot_share_2024, relation_type: STATISTIC_IN_AREA, object_id: n_geo_wuerttemberg, valid_from: "2024-01-01" }
+  - { subject_id: n_stat_ahr_pinot_share_2024, relation_type: STATISTIC_IN_AREA, object_id: n_geo_ahr, valid_from: "2024-01-01" }
+  - { subject_id: n_stat_de_pinot_area_2024, relation_type: STATISTIC_VALUE, object_id: n_qty_11437_ha, valid_from: "2024-01-01" }
+  - { subject_id: n_stat_baden_pinot_area_2024, relation_type: STATISTIC_VALUE, object_id: n_qty_4910_ha, valid_from: "2024-01-01" }
+  - { subject_id: n_stat_pfalz_pinot_area_2024, relation_type: STATISTIC_VALUE, object_id: n_qty_1757_ha, valid_from: "2024-01-01" }
+  - { subject_id: n_stat_rheinhessen_pinot_area_2024, relation_type: STATISTIC_VALUE, object_id: n_qty_1529_ha, valid_from: "2024-01-01" }
+  - { subject_id: n_stat_wuerttemberg_pinot_area_2024, relation_type: STATISTIC_VALUE, object_id: n_qty_1284_ha, valid_from: "2024-01-01" }
+  - { subject_id: n_stat_de_pinot_share_2024, relation_type: STATISTIC_VALUE, object_id: n_qty_11_percent, valid_from: "2024-01-01" }
+  - { subject_id: n_stat_baden_pinot_share_2024, relation_type: STATISTIC_VALUE, object_id: n_qty_31_8_percent, valid_from: "2024-01-01" }
+  - { subject_id: n_stat_pfalz_pinot_share_2024, relation_type: STATISTIC_VALUE, object_id: n_qty_7_4_percent, valid_from: "2024-01-01" }
+  - { subject_id: n_stat_rheinhessen_pinot_share_2024, relation_type: STATISTIC_VALUE, object_id: n_qty_5_5_percent, valid_from: "2024-01-01" }
+  - { subject_id: n_stat_wuerttemberg_pinot_share_2024, relation_type: STATISTIC_VALUE, object_id: n_qty_11_5_percent, valid_from: "2024-01-01" }
+  - { subject_id: n_stat_ahr_pinot_share_2024, relation_type: STATISTIC_VALUE, object_id: n_qty_64_9_percent, valid_from: "2024-01-01" }
+
+knowledge_items:
+  # The specified regions
+  - id: ki_ahr_location
+    subject_id: n_geo_ahr
+    relation_type: LOCATED_IN
+    object_id: n_geo_germany
+    domain_id: geography
+    assertion_text: "The Ahr is one of the 13 specified regions (bestimmte Anbaugebiete) that German wine law sets for quality wine."
+    last_verified_at: "2026-09-26T08:00:00.000Z"
+  - id: ki_baden_location
+    subject_id: n_geo_baden
+    relation_type: LOCATED_IN
+    object_id: n_geo_germany
+    domain_id: geography
+    assertion_text: "Baden is one of the 13 specified regions (bestimmte Anbaugebiete) that German wine law sets for quality wine."
+    last_verified_at: "2026-09-26T08:00:00.000Z"
+  - id: ki_franken_location
+    subject_id: n_geo_franken
+    relation_type: LOCATED_IN
+    object_id: n_geo_germany
+    domain_id: geography
+    assertion_text: "Franken is one of the 13 specified regions (bestimmte Anbaugebiete) that German wine law sets for quality wine."
+    last_verified_at: "2026-09-26T08:00:00.000Z"
+  - id: ki_hessische_bergstrasse_location
+    subject_id: n_geo_hessische_bergstrasse
+    relation_type: LOCATED_IN
+    object_id: n_geo_germany
+    domain_id: geography
+    assertion_text: "The Hessische Bergstraße is one of the 13 specified regions (bestimmte Anbaugebiete) that German wine law sets for quality wine."
+    last_verified_at: "2026-09-26T08:00:00.000Z"
+  - id: ki_mittelrhein_location
+    subject_id: n_geo_mittelrhein
+    relation_type: LOCATED_IN
+    object_id: n_geo_germany
+    domain_id: geography
+    assertion_text: "The Mittelrhein is one of the 13 specified regions (bestimmte Anbaugebiete) that German wine law sets for quality wine."
+    last_verified_at: "2026-09-26T08:00:00.000Z"
+  - id: ki_mosel_location
+    subject_id: n_geo_mosel
+    relation_type: LOCATED_IN
+    object_id: n_geo_germany
+    domain_id: geography
+    assertion_text: "The Mosel is one of the 13 specified regions (bestimmte Anbaugebiete) that German wine law sets for quality wine."
+    last_verified_at: "2026-09-26T08:00:00.000Z"
+  - id: ki_nahe_location
+    subject_id: n_geo_nahe
+    relation_type: LOCATED_IN
+    object_id: n_geo_germany
+    domain_id: geography
+    assertion_text: "The Nahe is one of the 13 specified regions (bestimmte Anbaugebiete) that German wine law sets for quality wine."
+    last_verified_at: "2026-09-26T08:00:00.000Z"
+  - id: ki_pfalz_location
+    subject_id: n_geo_pfalz
+    relation_type: LOCATED_IN
+    object_id: n_geo_germany
+    domain_id: geography
+    assertion_text: "The Pfalz is one of the 13 specified regions (bestimmte Anbaugebiete) that German wine law sets for quality wine."
+    last_verified_at: "2026-09-26T08:00:00.000Z"
+  - id: ki_rheingau_location
+    subject_id: n_geo_rheingau
+    relation_type: LOCATED_IN
+    object_id: n_geo_germany
+    domain_id: geography
+    assertion_text: "The Rheingau is one of the 13 specified regions (bestimmte Anbaugebiete) that German wine law sets for quality wine."
+    last_verified_at: "2026-09-26T08:00:00.000Z"
+  - id: ki_rheinhessen_location
+    subject_id: n_geo_rheinhessen
+    relation_type: LOCATED_IN
+    object_id: n_geo_germany
+    domain_id: geography
+    assertion_text: "Rheinhessen is one of the 13 specified regions (bestimmte Anbaugebiete) that German wine law sets for quality wine."
+    last_verified_at: "2026-09-26T08:00:00.000Z"
+  - id: ki_saale_unstrut_location
+    subject_id: n_geo_saale_unstrut
+    relation_type: LOCATED_IN
+    object_id: n_geo_germany
+    domain_id: geography
+    assertion_text: "Saale-Unstrut is one of the 13 specified regions (bestimmte Anbaugebiete) that German wine law sets for quality wine."
+    last_verified_at: "2026-09-26T08:00:00.000Z"
+  - id: ki_sachsen_location
+    subject_id: n_geo_sachsen
+    relation_type: LOCATED_IN
+    object_id: n_geo_germany
+    domain_id: geography
+    assertion_text: "Sachsen is one of the 13 specified regions (bestimmte Anbaugebiete) that German wine law sets for quality wine."
+    last_verified_at: "2026-09-26T08:00:00.000Z"
+  - id: ki_wuerttemberg_location
+    subject_id: n_geo_wuerttemberg
+    relation_type: LOCATED_IN
+    object_id: n_geo_germany
+    domain_id: geography
+    assertion_text: "Württemberg is one of the 13 specified regions (bestimmte Anbaugebiete) that German wine law sets for quality wine."
+    last_verified_at: "2026-09-26T08:00:00.000Z"
+  # EU zones
+  - id: ki_baden_zone
+    subject_id: n_geo_baden
+    relation_type: IN_WINE_ZONE
+    object_id: n_zone_b
+    domain_id: geography
+    assertion_text: "Baden is the only German region in EU wine-growing zone B; every other German vineyard area is in zone A."
+    last_verified_at: "2026-09-26T08:00:00.000Z"
+    is_distinctive: true
+  - id: ki_mosel_zone
+    subject_id: n_geo_mosel
+    relation_type: IN_WINE_ZONE
+    object_id: n_zone_a
+    domain_id: geography
+    assertion_text: "The Mosel, like every German vineyard area outside Baden, lies in EU wine-growing zone A."
+    last_verified_at: "2026-09-26T08:00:00.000Z"
+  # Categories
+  - id: ki_qualitaetswein_protection
+    subject_id: n_term_qualitaetswein
+    relation_type: PROTECTED_AS
+    object_id: n_gi_pdo
+    domain_id: geography
+    assertion_text: "Qualitätswein is a wine with a protected designation of origin that has passed the official analytical and sensory quality test."
+    last_verified_at: "2026-09-26T08:00:00.000Z"
+    mcq_disabled: true
+  - id: ki_praedikatswein_protection
+    subject_id: n_term_praedikatswein
+    relation_type: PROTECTED_AS
+    object_id: n_gi_pdo
+    domain_id: geography
+    assertion_text: "Prädikatswein is a wine with a protected designation of origin that has passed the official quality test and meets requirements stricter than those for Qualitätswein."
+    last_verified_at: "2026-09-26T08:00:00.000Z"
+    mcq_disabled: true
+  - id: ki_landwein_protection
+    subject_id: n_term_landwein
+    relation_type: PROTECTED_AS
+    object_id: n_gi_pgi
+    domain_id: geography
+    assertion_text: "Landwein is a wine with a protected geographical indication."
+    last_verified_at: "2026-09-26T08:00:00.000Z"
+    mcq_disabled: true
+  # Prädikate
+  - id: ki_kabinett_rule
+    subject_id: n_term_kabinett
+    relation_type: LEGAL_DEFINITION
+    object_id: n_rule_not_enriched
+    domain_id: viticulture
+    assertion_text: "The Prädikat Kabinett is awarded only to a wine made without enrichment; every higher Prädikat must also be unenriched."
+    last_verified_at: "2026-09-26T08:00:00.000Z"
+  - id: ki_spaetlese_rule
+    subject_id: n_term_spaetlese
+    relation_type: LEGAL_DEFINITION
+    object_id: n_rule_late_harvest
+    domain_id: viticulture
+    assertion_text: "A Spätlese may be made only from fully ripe grapes picked in a late harvest."
+    last_verified_at: "2026-09-26T08:00:00.000Z"
+  - id: ki_auslese_rule
+    subject_id: n_term_auslese
+    relation_type: LEGAL_DEFINITION
+    object_id: n_rule_ripe_or_noble_rot
+    domain_id: viticulture
+    assertion_text: "An Auslese may be made only from fully ripe or nobly rotten grapes."
+    last_verified_at: "2026-09-26T08:00:00.000Z"
+  - id: ki_beerenauslese_rule
+    subject_id: n_term_beerenauslese
+    relation_type: LEGAL_DEFINITION
+    object_id: n_rule_noble_rot_or_overripe
+    domain_id: viticulture
+    assertion_text: "A Beerenauslese may be made only from nobly rotten or at least overripe berries, picked by hand."
+    last_verified_at: "2026-09-26T08:00:00.000Z"
+  - id: ki_trockenbeerenauslese_rule
+    subject_id: n_term_trockenbeerenauslese
+    relation_type: LEGAL_DEFINITION
+    object_id: n_rule_shrivelled_noble_rot
+    domain_id: viticulture
+    assertion_text: "A Trockenbeerenauslese may be made only from largely shrivelled, nobly rotten berries, picked by hand; where noble rot exceptionally fails, overripe shrivelled berries suffice."
+    last_verified_at: "2026-09-26T08:00:00.000Z"
+    is_distinctive: true
+  - id: ki_eiswein_rule
+    subject_id: n_term_eiswein
+    relation_type: LEGAL_DEFINITION
+    object_id: n_rule_frozen_grapes
+    domain_id: viticulture
+    assertion_text: "The grapes for an Eiswein must be frozen when they are harvested and pressed."
+    last_verified_at: "2026-09-26T08:00:00.000Z"
+    is_distinctive: true
+  # Origin units
+  - id: ki_ortswein_release
+    subject_id: n_term_ortswein
+    relation_type: RELEASED_NOT_BEFORE
+    object_id: n_date_15_december
+    domain_id: geography
+    assertion_text: "For the 2026 vintage onwards, a quality wine labelled with a village name (an Ortswein) may not be sold to consumers before 15 December of its harvest year, and its must needs at least the Kabinett natural minimum alcohol; wines through the 2025 vintage may follow the previous labelling rules."
+    last_verified_at: "2026-09-26T08:00:00.000Z"
+    mcq_disabled: true
+  - id: ki_lagenwein_release
+    subject_id: n_term_lagenwein
+    relation_type: RELEASED_NOT_BEFORE
+    object_id: n_date_1_march
+    domain_id: geography
+    assertion_text: "For the 2026 vintage onwards, a quality wine labelled with an Einzellage (a Lagenwein) may not be sold before 1 March of the year after harvest, carries its village name, and uses only varieties listed in its specification; wines through the 2025 vintage may follow the previous labelling rules."
+    last_verified_at: "2026-09-26T08:00:00.000Z"
+    mcq_disabled: true
+  # Wine types
+  - id: ki_roseewein_rule
+    subject_id: n_wine_roseewein
+    relation_type: LEGAL_DEFINITION
+    object_id: n_rule_red_grapes_pale
+    domain_id: winemaking
+    assertion_text: "A German Qualitätswein or Prädikatswein may be called Roséwein only if it is made solely from red grapes and is pale to light red."
+    last_verified_at: "2026-09-26T08:00:00.000Z"
+  - id: ki_rotling_rule
+    subject_id: n_wine_rotling
+    relation_type: LEGAL_DEFINITION
+    object_id: n_rule_white_and_red_blended
+    domain_id: winemaking
+    assertion_text: "A Rotling is a pale to light red German wine made by blending white and red grapes, which may also be blended as mash."
+    last_verified_at: "2026-09-26T08:00:00.000Z"
+  - id: ki_blanc_de_noirs_rule
+    subject_id: n_wine_blanc_de_noirs
+    relation_type: LEGAL_DEFINITION
+    object_id: n_rule_red_pressed_as_white
+    domain_id: winemaking
+    assertion_text: "A German Blanc de Noirs is made from fresh red grapes pressed like a white wine, and has the colour typical of white wine."
+    last_verified_at: "2026-09-26T08:00:00.000Z"
+  - id: ki_weissherbst_rule
+    subject_id: n_wine_weissherbst
+    relation_type: LEGAL_DEFINITION
+    object_id: n_rule_one_red_light_pressed
+    domain_id: winemaking
+    assertion_text: "A Weißherbst is a Qualitätswein or Prädikatswein from a single red variety and at least 95 % light-pressed must; the variety is named with it, and it may not also be called Roséwein."
+    last_verified_at: "2026-09-26T08:00:00.000Z"
+    is_distinctive: true
+  - id: ki_schillerwein_region
+    subject_id: n_wine_schillerwein
+    relation_type: RESERVED_FOR_REGION
+    object_id: n_geo_wuerttemberg
+    domain_id: geography
+    assertion_text: "Schillerwein, a Rotling Qualitätswein or Prädikatswein, may come only from grapes harvested in Württemberg."
+    last_verified_at: "2026-09-26T08:00:00.000Z"
+  - id: ki_badisch_rotgold_region
+    subject_id: n_wine_badisch_rotgold
+    relation_type: RESERVED_FOR_REGION
+    object_id: n_geo_baden
+    domain_id: geography
+    assertion_text: "Badisch Rotgold, a Rotling of Grauburgunder and Spätburgunder, may come only from grapes harvested in Baden."
+    last_verified_at: "2026-09-26T08:00:00.000Z"
+  - id: ki_schieler_region
+    subject_id: n_wine_schieler
+    relation_type: RESERVED_FOR_REGION
+    object_id: n_geo_sachsen
+    domain_id: geography
+    assertion_text: "Schieler, a Rotling Qualitätswein or Prädikatswein, may come only from grapes harvested in Sachsen."
+    last_verified_at: "2026-09-26T08:00:00.000Z"
+  - id: ki_winzersekt_method
+    subject_id: n_wine_winzersekt
+    relation_type: REQUIRES_METHOD
+    object_id: n_method_traditional
+    domain_id: winemaking
+    assertion_text: "Winzersekt is a Sekt b.A. made by traditional bottle fermentation from the estate's own grapes or, for a producer group, its members' grapes; its label names the estate or group, the variety and the vintage."
+    last_verified_at: "2026-09-26T08:00:00.000Z"
+  - id: ki_winzersekt_lees
+    subject_id: n_wine_winzersekt
+    relation_type: MIN_AGEING
+    object_id: n_qty_9_months
+    domain_id: winemaking
+    assertion_text: "Winzersekt must rest on its lees for at least nine months without interruption, in the same estate, before it is disgorged."
+    last_verified_at: "2026-09-26T08:00:00.000Z"
+  # Quality marks
+  - id: ki_erstes_gewaechs_awarder
+    subject_id: n_mark_erstes_gewaechs
+    relation_type: AWARDED_BY
+    object_id: n_org_komitee
+    domain_id: geography
+    assertion_text: "From 2 September 2026, Erstes Gewächs is a legal quality mark of the Komitee – Klassifikation Erster und Großer Lagen in Deutschland for qualifying PDO wines. The earlier rules may cover wines through the 2030 vintage, but only until the committee's approved rules become effective if that happens sooner; compliant stocks may then be sold until exhausted."
+    last_verified_at: "2026-09-26T08:00:00.000Z"
+    mcq_disabled: true
+  - id: ki_grosses_gewaechs_awarder
+    subject_id: n_mark_grosses_gewaechs
+    relation_type: AWARDED_BY
+    object_id: n_org_komitee
+    domain_id: geography
+    assertion_text: "From 2 September 2026, Großes Gewächs is a legal quality mark of the Komitee – Klassifikation Erster und Großer Lagen in Deutschland for qualifying PDO wines. The earlier rules may cover wines through the 2030 vintage, but only until the committee's approved rules become effective if that happens sooner; compliant stocks may then be sold until exhausted."
+    last_verified_at: "2026-09-26T08:00:00.000Z"
+    mcq_disabled: true
+  - id: ki_deutsches_weinsiegel_awarder
+    subject_id: n_mark_deutsches_weinsiegel
+    relation_type: AWARDED_BY
+    object_id: n_org_dlg
+    domain_id: geography
+    assertion_text: "The Deutsches Weinsiegel is a quality mark of the Deutsche Landwirtschafts-Gesellschaft (DLG), awarded after a sensory test in a competition."
+    last_verified_at: "2026-09-26T08:00:00.000Z"
+    mcq_disabled: true
+  # Origin levels. These conventional level names describe the label's
+  # origin units; the 2021 rules are compulsory from the 2026 vintage.
+  - { id: ki_gebietswein_origin, subject_id: n_term_gebietswein, relation_type: LEGAL_DEFINITION, object_id: n_origin_anbaugebiet, domain_id: geography, assertion_text: "Gebietswein describes quality wine labelled at the level of its specified region (Anbaugebiet).", last_verified_at: "2026-09-26T08:00:00.000Z" }
+  - { id: ki_regionalwein_origin, subject_id: n_term_regionalwein, relation_type: LEGAL_DEFINITION, object_id: n_origin_bereich_grosslage, domain_id: geography, assertion_text: "From the 2026 vintage, a Bereich or Großlage on a German quality-wine label must be immediately preceded by Region in the same colour, typeface and size; this level is commonly called Regionalwein.", last_verified_at: "2026-09-26T08:00:00.000Z" }
+  - { id: ki_ortswein_origin, subject_id: n_term_ortswein, relation_type: LEGAL_DEFINITION, object_id: n_origin_village, domain_id: geography, assertion_text: "Ortswein describes the origin level identified by a village or part of a village on a German quality-wine label.", last_verified_at: "2026-09-26T08:00:00.000Z" }
+  - { id: ki_lagenwein_origin, subject_id: n_term_lagenwein, relation_type: LEGAL_DEFINITION, object_id: n_origin_single_vineyard, domain_id: geography, assertion_text: "From the 2026 vintage, an Einzellage or smaller registered unit on a German quality-wine label must be accompanied by its village name; this level is commonly called Lagenwein.", last_verified_at: "2026-09-26T08:00:00.000Z" }
+  # Private classification facts deliberately use a separate relation from
+  # legal marks. Recognition has too few organisations for a four-option
+  # MCQ; typed recall provides useful practice.
+  - { id: ki_vdp_gutswein_private, subject_id: n_term_vdp_gutswein, relation_type: PRIVATE_CLASSIFICATION_OF, object_id: n_org_vdp, domain_id: geography, assertion_text: "VDP.GUTSWEIN is the estate-wine tier of the VDP's private classification, governed by its association rules.", last_verified_at: "2026-09-26T08:00:00.000Z", mcq_disabled: true }
+  - { id: ki_vdp_ortswein_private, subject_id: n_term_vdp_ortswein, relation_type: PRIVATE_CLASSIFICATION_OF, object_id: n_org_vdp, domain_id: geography, assertion_text: "VDP.ORTSWEIN is the village-wine tier of the VDP's private classification, governed by its association rules.", last_verified_at: "2026-09-26T08:00:00.000Z", mcq_disabled: true }
+  - { id: ki_vdp_erste_lage_private, subject_id: n_term_vdp_erste_lage, relation_type: PRIVATE_CLASSIFICATION_OF, object_id: n_org_vdp, domain_id: geography, assertion_text: "VDP.ERSTE LAGE is a vineyard tier of the VDP's private classification, governed by its association rules.", last_verified_at: "2026-09-26T08:00:00.000Z", mcq_disabled: true }
+  - { id: ki_vdp_grosse_lage_private, subject_id: n_term_vdp_grosse_lage, relation_type: PRIVATE_CLASSIFICATION_OF, object_id: n_org_vdp, domain_id: geography, assertion_text: "VDP.GROSSE LAGE is the highest vineyard tier of the VDP's private classification, governed by its association rules.", last_verified_at: "2026-09-26T08:00:00.000Z", mcq_disabled: true }
+  - { id: ki_vdp_grosses_gewaechs_private, subject_id: n_term_vdp_grosses_gewaechs, relation_type: PRIVATE_CLASSIFICATION_OF, object_id: n_org_vdp, domain_id: geography, assertion_text: "VDP.GROSSES GEWÄCHS names dry wine from VDP.GROSSE LAGE in the VDP's private classification; it is distinct from the statutory Großes Gewächs quality mark.", last_verified_at: "2026-09-26T08:00:00.000Z", mcq_disabled: true }
+  # Survey results remain historical facts after the survey year ends.
+  - { id: ki_de_leading_red_2024, subject_id: n_stat_de_leading_red_2024, relation_type: LEADING_RED_GRAPE, object_id: n_grape_pinot_noir, domain_id: viticulture, assertion_text: "Spätburgunder was Germany's most planted red grape in the 2024 survey.", last_verified_at: "2026-09-26T08:00:00.000Z" }
+  - { id: ki_de_pinot_area_2024, subject_id: n_stat_de_pinot_area_2024, relation_type: STATISTIC_VALUE, object_id: n_qty_11437_ha, domain_id: viticulture, assertion_text: "Germany's 2024 survey reported 11,437 ha of Spätburgunder.", last_verified_at: "2026-09-26T08:00:00.000Z" }
+  - { id: ki_baden_pinot_area_2024, subject_id: n_stat_baden_pinot_area_2024, relation_type: STATISTIC_VALUE, object_id: n_qty_4910_ha, domain_id: viticulture, assertion_text: "Baden's 2024 survey reported 4,910 ha of Spätburgunder.", last_verified_at: "2026-09-26T08:00:00.000Z" }
+  - { id: ki_pfalz_pinot_area_2024, subject_id: n_stat_pfalz_pinot_area_2024, relation_type: STATISTIC_VALUE, object_id: n_qty_1757_ha, domain_id: viticulture, assertion_text: "Pfalz's 2024 survey reported 1,757 ha of Spätburgunder.", last_verified_at: "2026-09-26T08:00:00.000Z" }
+  - { id: ki_rheinhessen_pinot_area_2024, subject_id: n_stat_rheinhessen_pinot_area_2024, relation_type: STATISTIC_VALUE, object_id: n_qty_1529_ha, domain_id: viticulture, assertion_text: "Rheinhessen's 2024 survey reported 1,529 ha of Spätburgunder.", last_verified_at: "2026-09-26T08:00:00.000Z" }
+  - { id: ki_wuerttemberg_pinot_area_2024, subject_id: n_stat_wuerttemberg_pinot_area_2024, relation_type: STATISTIC_VALUE, object_id: n_qty_1284_ha, domain_id: viticulture, assertion_text: "Württemberg's 2024 survey reported 1,284 ha of Spätburgunder.", last_verified_at: "2026-09-26T08:00:00.000Z" }
+  - { id: ki_de_pinot_share_2024, subject_id: n_stat_de_pinot_share_2024, relation_type: STATISTIC_VALUE, object_id: n_qty_11_percent, domain_id: viticulture, assertion_text: "Spätburgunder occupied 11.0 % of Germany's planted vineyard area in 2024.", last_verified_at: "2026-09-26T08:00:00.000Z" }
+  - { id: ki_baden_pinot_share_2024, subject_id: n_stat_baden_pinot_share_2024, relation_type: STATISTIC_VALUE, object_id: n_qty_31_8_percent, domain_id: viticulture, assertion_text: "Spätburgunder occupied 31.8 % of Baden's planted vineyard area in 2024.", last_verified_at: "2026-09-26T08:00:00.000Z" }
+  - { id: ki_pfalz_pinot_share_2024, subject_id: n_stat_pfalz_pinot_share_2024, relation_type: STATISTIC_VALUE, object_id: n_qty_7_4_percent, domain_id: viticulture, assertion_text: "Spätburgunder occupied 7.4 % of Pfalz's planted vineyard area in 2024.", last_verified_at: "2026-09-26T08:00:00.000Z" }
+  - { id: ki_rheinhessen_pinot_share_2024, subject_id: n_stat_rheinhessen_pinot_share_2024, relation_type: STATISTIC_VALUE, object_id: n_qty_5_5_percent, domain_id: viticulture, assertion_text: "Spätburgunder occupied 5.5 % of Rheinhessen's planted vineyard area in 2024.", last_verified_at: "2026-09-26T08:00:00.000Z" }
+  - { id: ki_wuerttemberg_pinot_share_2024, subject_id: n_stat_wuerttemberg_pinot_share_2024, relation_type: STATISTIC_VALUE, object_id: n_qty_11_5_percent, domain_id: viticulture, assertion_text: "Spätburgunder occupied 11.5 % of Württemberg's planted vineyard area in 2024.", last_verified_at: "2026-09-26T08:00:00.000Z" }
+  - { id: ki_ahr_pinot_share_2024, subject_id: n_stat_ahr_pinot_share_2024, relation_type: STATISTIC_VALUE, object_id: n_qty_64_9_percent, domain_id: viticulture, assertion_text: "Spätburgunder occupied 64.9 % of Ahr's planted vineyard area in 2024.", last_verified_at: "2026-09-26T08:00:00.000Z" }
+
+knowledge_item_prerequisites:
+  - { knowledge_item_id: ki_baden_zone, prerequisite_item_id: ki_baden_location }
+  - { knowledge_item_id: ki_mosel_zone, prerequisite_item_id: ki_mosel_location }
+  - { knowledge_item_id: ki_schillerwein_region, prerequisite_item_id: ki_wuerttemberg_location }
+  - { knowledge_item_id: ki_schillerwein_region, prerequisite_item_id: ki_rotling_rule }
+  - { knowledge_item_id: ki_badisch_rotgold_region, prerequisite_item_id: ki_baden_location }
+  - { knowledge_item_id: ki_badisch_rotgold_region, prerequisite_item_id: ki_rotling_rule }
+  - { knowledge_item_id: ki_schieler_region, prerequisite_item_id: ki_sachsen_location }
+  - { knowledge_item_id: ki_schieler_region, prerequisite_item_id: ki_rotling_rule }
+  - { knowledge_item_id: ki_spaetlese_rule, prerequisite_item_id: ki_kabinett_rule }
+  - { knowledge_item_id: ki_auslese_rule, prerequisite_item_id: ki_spaetlese_rule }
+  - { knowledge_item_id: ki_beerenauslese_rule, prerequisite_item_id: ki_auslese_rule }
+  - { knowledge_item_id: ki_trockenbeerenauslese_rule, prerequisite_item_id: ki_beerenauslese_rule }
+  - { knowledge_item_id: ki_kabinett_rule, prerequisite_item_id: ki_praedikatswein_protection }
+  - { knowledge_item_id: ki_lagenwein_release, prerequisite_item_id: ki_ortswein_release }
+  - { knowledge_item_id: ki_winzersekt_lees, prerequisite_item_id: ki_winzersekt_method }
+  - { knowledge_item_id: ki_grosses_gewaechs_awarder, prerequisite_item_id: ki_erstes_gewaechs_awarder }
+  - { knowledge_item_id: ki_regionalwein_origin, prerequisite_item_id: ki_gebietswein_origin }
+  - { knowledge_item_id: ki_ortswein_origin, prerequisite_item_id: ki_regionalwein_origin }
+  - { knowledge_item_id: ki_lagenwein_origin, prerequisite_item_id: ki_ortswein_origin }
+  - { knowledge_item_id: ki_vdp_grosses_gewaechs_private, prerequisite_item_id: ki_grosses_gewaechs_awarder }
+  - { knowledge_item_id: ki_vdp_grosses_gewaechs_private, prerequisite_item_id: ki_vdp_grosse_lage_private }
+  - { knowledge_item_id: ki_baden_pinot_area_2024, prerequisite_item_id: ki_baden_location }
+  - { knowledge_item_id: ki_pfalz_pinot_area_2024, prerequisite_item_id: ki_pfalz_location }
+  - { knowledge_item_id: ki_rheinhessen_pinot_area_2024, prerequisite_item_id: ki_rheinhessen_location }
+  - { knowledge_item_id: ki_wuerttemberg_pinot_area_2024, prerequisite_item_id: ki_wuerttemberg_location }
+  - { knowledge_item_id: ki_ahr_pinot_share_2024, prerequisite_item_id: ki_ahr_location }
+
+# Editorial study-planning judgements. minimum_depth follows CM-6 and QF-6:
+# 1 recognition, 2 recall, 3 reverse recall.
+certification_knowledge_mappings:
+  # WSET Level 3
+  - { certification_id: WSET_L3, knowledge_item_id: ki_ahr_location, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_baden_location, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_franken_location, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_hessische_bergstrasse_location, importance: tertiary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_mittelrhein_location, importance: tertiary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_mosel_location, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_nahe_location, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_pfalz_location, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_rheingau_location, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_rheinhessen_location, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_saale_unstrut_location, importance: tertiary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_sachsen_location, importance: tertiary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_wuerttemberg_location, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_baden_zone, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_mosel_zone, importance: tertiary, minimum_depth: 1 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_qualitaetswein_protection, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_praedikatswein_protection, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_landwein_protection, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_kabinett_rule, importance: core, minimum_depth: 3 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_spaetlese_rule, importance: core, minimum_depth: 3 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_auslese_rule, importance: core, minimum_depth: 3 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_beerenauslese_rule, importance: core, minimum_depth: 3 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_trockenbeerenauslese_rule, importance: core, minimum_depth: 3 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_eiswein_rule, importance: core, minimum_depth: 3 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_ortswein_release, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_lagenwein_release, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_roseewein_rule, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_rotling_rule, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_blanc_de_noirs_rule, importance: tertiary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_weissherbst_rule, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_schillerwein_region, importance: tertiary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_badisch_rotgold_region, importance: tertiary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_schieler_region, importance: tertiary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_winzersekt_method, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_winzersekt_lees, importance: tertiary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_erstes_gewaechs_awarder, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_grosses_gewaechs_awarder, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_deutsches_weinsiegel_awarder, importance: tertiary, minimum_depth: 2 }
+  # CMS Certified
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_ahr_location, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_baden_location, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_franken_location, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hessische_bergstrasse_location, importance: tertiary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_mittelrhein_location, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_mosel_location, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_nahe_location, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_pfalz_location, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_rheingau_location, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_rheinhessen_location, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_saale_unstrut_location, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_sachsen_location, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_wuerttemberg_location, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_baden_zone, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_qualitaetswein_protection, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_praedikatswein_protection, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_landwein_protection, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_kabinett_rule, importance: core, minimum_depth: 3 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_spaetlese_rule, importance: core, minimum_depth: 3 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_auslese_rule, importance: core, minimum_depth: 3 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_beerenauslese_rule, importance: core, minimum_depth: 3 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_trockenbeerenauslese_rule, importance: core, minimum_depth: 3 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_eiswein_rule, importance: core, minimum_depth: 3 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_ortswein_release, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_lagenwein_release, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_roseewein_rule, importance: tertiary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_rotling_rule, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_blanc_de_noirs_rule, importance: tertiary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_weissherbst_rule, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_schillerwein_region, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_badisch_rotgold_region, importance: tertiary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_schieler_region, importance: tertiary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_winzersekt_method, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_erstes_gewaechs_awarder, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_grosses_gewaechs_awarder, importance: core, minimum_depth: 2 }
+
+  # C6 origin levels, private-classification distinction and dated statistics
+  - { certification_id: WSET_L3, knowledge_item_id: ki_gebietswein_origin, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_regionalwein_origin, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_ortswein_origin, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_lagenwein_origin, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_vdp_gutswein_private, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_vdp_ortswein_private, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_vdp_erste_lage_private, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_vdp_grosse_lage_private, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_vdp_grosses_gewaechs_private, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_de_leading_red_2024, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_de_pinot_area_2024, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_baden_pinot_area_2024, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_pfalz_pinot_area_2024, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_rheinhessen_pinot_area_2024, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_wuerttemberg_pinot_area_2024, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_de_pinot_share_2024, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_baden_pinot_share_2024, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_pfalz_pinot_share_2024, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_rheinhessen_pinot_share_2024, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_wuerttemberg_pinot_share_2024, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_ahr_pinot_share_2024, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_gebietswein_origin, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_regionalwein_origin, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_ortswein_origin, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_lagenwein_origin, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_vdp_gutswein_private, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_vdp_ortswein_private, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_vdp_erste_lage_private, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_vdp_grosse_lage_private, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_vdp_grosses_gewaechs_private, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_de_leading_red_2024, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_de_pinot_area_2024, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_baden_pinot_area_2024, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_pfalz_pinot_area_2024, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_rheinhessen_pinot_area_2024, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_wuerttemberg_pinot_area_2024, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_de_pinot_share_2024, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_baden_pinot_share_2024, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_pfalz_pinot_share_2024, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_rheinhessen_pinot_share_2024, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_wuerttemberg_pinot_share_2024, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_ahr_pinot_share_2024, importance: core, minimum_depth: 2 }
+
+source_citations:
+  - id: src_de_weing
+    kind: legislation
+    title: "Weingesetz (WeinG)"
+    publisher: "Bundesministerium der Justiz / Bundesamt für Justiz (gesetze-im-internet.de)"
+    jurisdiction: DE
+    document_identifier: "In the version of 18 January 2011 (BGBl. I S. 66), as last amended by Art. 2 of the Act of 11 January 2026 (BGBl. 2026 I Nr. 9)"
+    url: "https://www.gesetze-im-internet.de/weing_1994/"
+    accessed_on: "2026-09-26"
+  - id: src_de_weinv
+    kind: legislation
+    title: "Weinverordnung (WeinV)"
+    publisher: "Bundesministerium der Justiz / Bundesamt für Justiz (gesetze-im-internet.de)"
+    jurisdiction: DE
+    document_identifier: "In the version of 21 April 2009 (BGBl. I S. 827), as last amended by Art. 2 of the Ordinance of 24 August 2026 (BGBl. 2026 I Nr. 243)"
+    url: "https://www.gesetze-im-internet.de/weinv_1995/"
+    accessed_on: "2026-09-26"
+  - id: src_de_dwi_statistics_2025
+    kind: dataset
+    title: Deutscher Wein Statistik 2025/2026
+    publisher: "Deutsches Weininstitut, reporting Statistisches Bundesamt (Destatis) data"
+    jurisdiction: DE
+    document_identifier: "2024 vineyard survey; table 3 as of 3 June 2024, table 4 as of 5 March 2025"
+    url: "https://www.deutscheweine.de/fileadmin/DWI/News_Medien/Publikationen/Deutscher_Wein_Statistik/Statistik_2025.pdf"
+    accessed_on: "2026-09-26"
+  - id: src_de_vdp_classification
+    kind: reference_work
+    title: VDP.Classification — the association's private rules
+    publisher: Verband Deutscher Prädikatsweingüter (VDP)
+    jurisdiction: DE
+    document_identifier: "Private classification; origin tiers and dry VDP.GROSSES GEWÄCHS"
+    url: "https://www.vdp.de/en/the-wines/classification"
+    accessed_on: "2026-09-26"
+
+knowledge_item_citations:
+  - { knowledge_item_id: ki_ahr_location, source_citation_id: src_de_weing, locator: "§ 3 Abs. 1 Nr. 1" }
+  - { knowledge_item_id: ki_baden_location, source_citation_id: src_de_weing, locator: "§ 3 Abs. 1 Nr. 2" }
+  - { knowledge_item_id: ki_franken_location, source_citation_id: src_de_weing, locator: "§ 3 Abs. 1 Nr. 3" }
+  - { knowledge_item_id: ki_hessische_bergstrasse_location, source_citation_id: src_de_weing, locator: "§ 3 Abs. 1 Nr. 4" }
+  - { knowledge_item_id: ki_mittelrhein_location, source_citation_id: src_de_weing, locator: "§ 3 Abs. 1 Nr. 5" }
+  - { knowledge_item_id: ki_mosel_location, source_citation_id: src_de_weing, locator: "§ 3 Abs. 1 Nr. 6" }
+  - { knowledge_item_id: ki_nahe_location, source_citation_id: src_de_weing, locator: "§ 3 Abs. 1 Nr. 7" }
+  - { knowledge_item_id: ki_pfalz_location, source_citation_id: src_de_weing, locator: "§ 3 Abs. 1 Nr. 8" }
+  - { knowledge_item_id: ki_rheingau_location, source_citation_id: src_de_weing, locator: "§ 3 Abs. 1 Nr. 9" }
+  - { knowledge_item_id: ki_rheinhessen_location, source_citation_id: src_de_weing, locator: "§ 3 Abs. 1 Nr. 10" }
+  - { knowledge_item_id: ki_saale_unstrut_location, source_citation_id: src_de_weing, locator: "§ 3 Abs. 1 Nr. 11" }
+  - { knowledge_item_id: ki_sachsen_location, source_citation_id: src_de_weing, locator: "§ 3 Abs. 1 Nr. 12" }
+  - { knowledge_item_id: ki_wuerttemberg_location, source_citation_id: src_de_weing, locator: "§ 3 Abs. 1 Nr. 13" }
+  - { knowledge_item_id: ki_baden_zone, source_citation_id: src_eu_reg_1308_2013, locator: "Annex VII, Appendix I, points 1(a) and 2(a)" }
+  - { knowledge_item_id: ki_mosel_zone, source_citation_id: src_eu_reg_1308_2013, locator: "Annex VII, Appendix I, point 1(a)" }
+  - { knowledge_item_id: ki_qualitaetswein_protection, source_citation_id: src_de_weing, locator: "§ 2 Nr. 24" }
+  - { knowledge_item_id: ki_praedikatswein_protection, source_citation_id: src_de_weing, locator: "§ 2 Nr. 27" }
+  - { knowledge_item_id: ki_landwein_protection, source_citation_id: src_de_weing, locator: "§ 2 Nr. 25" }
+  - { knowledge_item_id: ki_kabinett_rule, source_citation_id: src_de_weing, locator: "§ 20 Abs. 3 und 4" }
+  - { knowledge_item_id: ki_spaetlese_rule, source_citation_id: src_de_weing, locator: "§ 20 Abs. 4 Nr. 1" }
+  - { knowledge_item_id: ki_auslese_rule, source_citation_id: src_de_weing, locator: "§ 20 Abs. 4 Nr. 2" }
+  - { knowledge_item_id: ki_beerenauslese_rule, source_citation_id: src_de_weing, locator: "§ 20 Abs. 4 Nr. 3 und Abs. 5" }
+  - { knowledge_item_id: ki_trockenbeerenauslese_rule, source_citation_id: src_de_weing, locator: "§ 20 Abs. 4 Nr. 4 und Abs. 5" }
+  - { knowledge_item_id: ki_eiswein_rule, source_citation_id: src_de_weing, locator: "§ 20 Abs. 4 Nr. 5" }
+  - { knowledge_item_id: ki_ortswein_release, source_citation_id: src_de_weinv, locator: "§ 39 Abs. 1 Satz 1 Nr. 2; § 54 Abs. 16 (transition through 2025 vintage)" }
+  - { knowledge_item_id: ki_lagenwein_release, source_citation_id: src_de_weinv, locator: "§ 39 Abs. 1 Satz 1 Nr. 3; § 54 Abs. 16 (transition through 2025 vintage)" }
+  - { knowledge_item_id: ki_roseewein_rule, source_citation_id: src_de_weinv, locator: "§ 32 Abs. 1 Nr. 3" }
+  - { knowledge_item_id: ki_rotling_rule, source_citation_id: src_de_weinv, locator: "§ 32 Abs. 2" }
+  - { knowledge_item_id: ki_blanc_de_noirs_rule, source_citation_id: src_de_weinv, locator: "§ 32 Abs. 3" }
+  - { knowledge_item_id: ki_weissherbst_rule, source_citation_id: src_de_weinv, locator: "§ 32 Abs. 5 und 6" }
+  - { knowledge_item_id: ki_schillerwein_region, source_citation_id: src_de_weinv, locator: "§ 32 Abs. 7 Satz 1 Nr. 1" }
+  - { knowledge_item_id: ki_badisch_rotgold_region, source_citation_id: src_de_weinv, locator: "§ 32 Abs. 7 Satz 1 Nr. 2" }
+  - { knowledge_item_id: ki_schieler_region, source_citation_id: src_de_weinv, locator: "§ 32 Abs. 7 Satz 1 Nr. 3" }
+  - { knowledge_item_id: ki_winzersekt_method, source_citation_id: src_de_weinv, locator: "§ 34a Abs. 3" }
+  - { knowledge_item_id: ki_winzersekt_lees, source_citation_id: src_de_weinv, locator: "§ 34a Abs. 3 Nr. 2" }
+  - { knowledge_item_id: ki_erstes_gewaechs_awarder, source_citation_id: src_de_weinv, locator: "§ 30 Abs. 2 Nr. 2 Buchst. a und Abs. 4; § 54 Abs. 23" }
+  - { knowledge_item_id: ki_grosses_gewaechs_awarder, source_citation_id: src_de_weinv, locator: "§ 30 Abs. 2 Nr. 2 Buchst. b und Abs. 4; § 54 Abs. 23" }
+  - { knowledge_item_id: ki_deutsches_weinsiegel_awarder, source_citation_id: src_de_weinv, locator: "§ 30 Abs. 2 Nr. 2 Buchst. c und Abs. 3" }
+  - { knowledge_item_id: ki_gebietswein_origin, source_citation_id: src_de_weing, locator: "§ 2 Nr. 24; § 3 Abs. 1 (specified regions)" }
+  - { knowledge_item_id: ki_regionalwein_origin, source_citation_id: src_de_weinv, locator: "§ 39 Abs. 1 Satz 1 Nr. 1; § 54 Abs. 16" }
+  - { knowledge_item_id: ki_ortswein_origin, source_citation_id: src_de_weinv, locator: "§ 39 Abs. 1 Satz 1 Nr. 2" }
+  - { knowledge_item_id: ki_lagenwein_origin, source_citation_id: src_de_weinv, locator: "§ 39 Abs. 1 Satz 1 Nr. 3; § 54 Abs. 16" }
+  - { knowledge_item_id: ki_vdp_gutswein_private, source_citation_id: src_de_vdp_classification, locator: "VDP.CLASSIFICATION introduction; VDP.GUTSWEIN" }
+  - { knowledge_item_id: ki_vdp_ortswein_private, source_citation_id: src_de_vdp_classification, locator: "VDP.CLASSIFICATION introduction; VDP.ORTSWEIN" }
+  - { knowledge_item_id: ki_vdp_erste_lage_private, source_citation_id: src_de_vdp_classification, locator: "VDP.CLASSIFICATION introduction; VDP.ERSTE LAGE" }
+  - { knowledge_item_id: ki_vdp_grosse_lage_private, source_citation_id: src_de_vdp_classification, locator: "VDP.CLASSIFICATION introduction; VDP.GROSSE LAGE" }
+  - { knowledge_item_id: ki_vdp_grosses_gewaechs_private, source_citation_id: src_de_vdp_classification, locator: "VDP.GROSSE LAGE, labelling: dry wines named VDP.GROSSES GEWÄCHS" }
+  - { knowledge_item_id: ki_vdp_grosses_gewaechs_private, source_citation_id: src_de_weinv, locator: "§ 30 Abs. 2 Nr. 2 Buchst. b (distinct statutory mark)" }
+  - { knowledge_item_id: ki_de_leading_red_2024, source_citation_id: src_de_dwi_statistics_2025, locator: "Table 4, p. 10: planted areas by variety, 2024" }
+  - { knowledge_item_id: ki_de_pinot_area_2024, source_citation_id: src_de_dwi_statistics_2025, locator: "Table 4, p. 10: Spätburgunder 2024, ha" }
+  - { knowledge_item_id: ki_baden_pinot_area_2024, source_citation_id: src_de_dwi_statistics_2025, locator: "Table 3, p. 8: Baden, Spätburgunder 2024, ha" }
+  - { knowledge_item_id: ki_pfalz_pinot_area_2024, source_citation_id: src_de_dwi_statistics_2025, locator: "Table 3, p. 8: Pfalz, Spätburgunder 2024, ha" }
+  - { knowledge_item_id: ki_rheinhessen_pinot_area_2024, source_citation_id: src_de_dwi_statistics_2025, locator: "Table 3, p. 8: Rheinhessen, Spätburgunder 2024, ha" }
+  - { knowledge_item_id: ki_wuerttemberg_pinot_area_2024, source_citation_id: src_de_dwi_statistics_2025, locator: "Table 3, p. 8: Württemberg, Spätburgunder 2024, ha" }
+  - { knowledge_item_id: ki_de_pinot_share_2024, source_citation_id: src_de_dwi_statistics_2025, locator: "Table 4, p. 10: Spätburgunder 2024, share (%)" }
+  - { knowledge_item_id: ki_baden_pinot_share_2024, source_citation_id: src_de_dwi_statistics_2025, locator: "Table 3, p. 8: Baden, Spätburgunder 2024, share (%)" }
+  - { knowledge_item_id: ki_pfalz_pinot_share_2024, source_citation_id: src_de_dwi_statistics_2025, locator: "Table 3, p. 8: Pfalz, Spätburgunder 2024, share (%)" }
+  - { knowledge_item_id: ki_rheinhessen_pinot_share_2024, source_citation_id: src_de_dwi_statistics_2025, locator: "Table 3, p. 8: Rheinhessen, Spätburgunder 2024, share (%)" }
+  - { knowledge_item_id: ki_wuerttemberg_pinot_share_2024, source_citation_id: src_de_dwi_statistics_2025, locator: "Table 3, p. 8: Württemberg, Spätburgunder 2024, share (%)" }
+  - { knowledge_item_id: ki_ahr_pinot_share_2024, source_citation_id: src_de_dwi_statistics_2025, locator: "Table 3, p. 9: Ahr, Spätburgunder 2024, share (%)" }

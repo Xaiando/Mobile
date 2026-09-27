@@ -71,9 +71,18 @@ class StudySession {
       final queued = _queue.where((c) => c.itemId == itemId).firstOrNull;
       _queue.removeWhere((c) => c.itemId == itemId);
       if (queued != null && co.staysInSession) {
-        _queue.addLast(queued.reviewed(co.after));
+        _queue.addLast(
+          queued.reviewed(co.after, templateId: co.event.questionTemplateId),
+        );
       }
     }
-    if (result.staysInSession) _queue.addLast(card.reviewed(result.after));
+    if (result.staysInSession) {
+      _queue.addLast(
+        card.reviewed(
+          result.after,
+          templateId: result.event.questionTemplateId,
+        ),
+      );
+    }
   }
 }

@@ -1,0 +1,652 @@
+# British atlas: bounded primary-cited geography, not full Diploma coverage.
+# Counties, constituent countries and informal wine areas are distinct.
+# CC0 markers are sourced reference locations, not boundaries or PDO centroids.
+# Track mappings are editorial; all knowledge items await qualified review.
+knowledge_nodes:
+  - id: n_geo_united_kingdom
+    node_type: country
+    name: United Kingdom
+  - id: n_geo_england
+    node_type: region
+    name: England
+  - id: n_geo_wales
+    node_type: region
+    name: Wales
+  - id: n_geo_kent
+    node_type: region
+    name: Kent
+  - id: n_geo_essex
+    node_type: region
+    name: Essex
+  - id: n_geo_hampshire
+    node_type: region
+    name: Hampshire
+  - id: n_geo_surrey
+    node_type: region
+    name: Surrey
+  - id: n_geo_dorset
+    node_type: region
+    name: Dorset
+  - id: n_geo_wiltshire
+    node_type: region
+    name: Wiltshire
+  - id: n_geo_isle_of_wight
+    node_type: region
+    name: Isle of Wight
+  - id: n_geo_cornwall
+    node_type: region
+    name: Cornwall
+  - id: n_geo_devon
+    node_type: region
+    name: Devon
+  - id: n_geo_somerset
+    node_type: region
+    name: Somerset
+  - id: n_geo_herefordshire
+    node_type: region
+    name: Herefordshire
+  - id: n_geo_gloucestershire
+    node_type: region
+    name: Gloucestershire
+  - id: n_geo_norfolk
+    node_type: region
+    name: Norfolk
+  - id: n_geo_suffolk
+    node_type: region
+    name: Suffolk
+  - id: n_geo_sussex
+    node_type: informal_area
+    name: Sussex
+  - id: n_geo_wessex_wine
+    node_type: informal_area
+    name: Wessex (WineGB region)
+  - id: n_geo_monmouthshire
+    node_type: region
+    name: Monmouthshire
+  - id: n_geo_carmarthenshire
+    node_type: region
+    name: Carmarthenshire
+  - id: n_geo_pembrokeshire
+    node_type: region
+    name: Pembrokeshire
+  - id: n_geo_ceredigion
+    node_type: region
+    name: Ceredigion
+node_alternative_names:
+  - knowledge_node_id: n_geo_united_kingdom
+    name: UK
+    kind: synonym
+  - knowledge_node_id: n_geo_wessex_wine
+    name: Wessex wine region
+    kind: synonym
+knowledge_relations:
+  - subject_id: n_geo_england
+    relation_type: LOCATED_IN
+    object_id: n_geo_united_kingdom
+    valid_from: 1900-01-01
+  - subject_id: n_geo_wales
+    relation_type: LOCATED_IN
+    object_id: n_geo_united_kingdom
+    valid_from: 1900-01-01
+  - subject_id: n_geo_kent
+    relation_type: LOCATED_IN
+    object_id: n_geo_england
+    valid_from: 1900-01-01
+  - subject_id: n_geo_essex
+    relation_type: LOCATED_IN
+    object_id: n_geo_england
+    valid_from: 1900-01-01
+  - subject_id: n_geo_hampshire
+    relation_type: LOCATED_IN
+    object_id: n_geo_england
+    valid_from: 1900-01-01
+  - subject_id: n_geo_surrey
+    relation_type: LOCATED_IN
+    object_id: n_geo_england
+    valid_from: 1900-01-01
+  - subject_id: n_geo_dorset
+    relation_type: LOCATED_IN
+    object_id: n_geo_england
+    valid_from: 1900-01-01
+  - subject_id: n_geo_wiltshire
+    relation_type: LOCATED_IN
+    object_id: n_geo_england
+    valid_from: 1900-01-01
+  - subject_id: n_geo_isle_of_wight
+    relation_type: LOCATED_IN
+    object_id: n_geo_england
+    valid_from: 1900-01-01
+  - subject_id: n_geo_cornwall
+    relation_type: LOCATED_IN
+    object_id: n_geo_england
+    valid_from: 1900-01-01
+  - subject_id: n_geo_devon
+    relation_type: LOCATED_IN
+    object_id: n_geo_england
+    valid_from: 1900-01-01
+  - subject_id: n_geo_somerset
+    relation_type: LOCATED_IN
+    object_id: n_geo_england
+    valid_from: 1900-01-01
+  - subject_id: n_geo_herefordshire
+    relation_type: LOCATED_IN
+    object_id: n_geo_england
+    valid_from: 1900-01-01
+  - subject_id: n_geo_gloucestershire
+    relation_type: LOCATED_IN
+    object_id: n_geo_england
+    valid_from: 1900-01-01
+  - subject_id: n_geo_norfolk
+    relation_type: LOCATED_IN
+    object_id: n_geo_england
+    valid_from: 1900-01-01
+  - subject_id: n_geo_suffolk
+    relation_type: LOCATED_IN
+    object_id: n_geo_england
+    valid_from: 1900-01-01
+  - subject_id: n_geo_sussex
+    relation_type: LOCATED_IN
+    object_id: n_geo_england
+    valid_from: 1900-01-01
+  - subject_id: n_geo_wessex_wine
+    relation_type: LOCATED_IN
+    object_id: n_geo_england
+    valid_from: 1900-01-01
+  - subject_id: n_geo_monmouthshire
+    relation_type: LOCATED_IN
+    object_id: n_geo_wales
+    valid_from: 1900-01-01
+  - subject_id: n_geo_carmarthenshire
+    relation_type: LOCATED_IN
+    object_id: n_geo_wales
+    valid_from: 1900-01-01
+  - subject_id: n_geo_pembrokeshire
+    relation_type: LOCATED_IN
+    object_id: n_geo_wales
+    valid_from: 1900-01-01
+  - subject_id: n_geo_ceredigion
+    relation_type: LOCATED_IN
+    object_id: n_geo_wales
+    valid_from: 1900-01-01
+knowledge_items:
+  - id: ki_british_england_location
+    subject_id: n_geo_england
+    relation_type: LOCATED_IN
+    object_id: n_geo_united_kingdom
+    domain_id: geography
+    assertion_text: England is a constituent country of the United Kingdom and a
+      wine-growing area.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_british_wales_location
+    subject_id: n_geo_wales
+    relation_type: LOCATED_IN
+    object_id: n_geo_united_kingdom
+    domain_id: geography
+    assertion_text: Wales is a constituent country of the United Kingdom and a
+      wine-growing area.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_british_kent_location
+    subject_id: n_geo_kent
+    relation_type: LOCATED_IN
+    object_id: n_geo_england
+    domain_id: geography
+    assertion_text: Kent is an English county represented in WineGB's wine-growing geography.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_british_essex_location
+    subject_id: n_geo_essex
+    relation_type: LOCATED_IN
+    object_id: n_geo_england
+    domain_id: geography
+    assertion_text: Essex is an English county represented in WineGB's wine-growing geography.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_british_hampshire_location
+    subject_id: n_geo_hampshire
+    relation_type: LOCATED_IN
+    object_id: n_geo_england
+    domain_id: geography
+    assertion_text: Hampshire is an English county represented in WineGB's
+      wine-growing geography.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_british_surrey_location
+    subject_id: n_geo_surrey
+    relation_type: LOCATED_IN
+    object_id: n_geo_england
+    domain_id: geography
+    assertion_text: Surrey is an English county represented in WineGB's wine-growing geography.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_british_dorset_location
+    subject_id: n_geo_dorset
+    relation_type: LOCATED_IN
+    object_id: n_geo_england
+    domain_id: geography
+    assertion_text: Dorset is an English county represented in WineGB's wine-growing geography.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_british_wiltshire_location
+    subject_id: n_geo_wiltshire
+    relation_type: LOCATED_IN
+    object_id: n_geo_england
+    domain_id: geography
+    assertion_text: Wiltshire is an English county represented in WineGB's
+      wine-growing geography.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_british_isle_of_wight_location
+    subject_id: n_geo_isle_of_wight
+    relation_type: LOCATED_IN
+    object_id: n_geo_england
+    domain_id: geography
+    assertion_text: Isle of Wight is an English county represented in WineGB's
+      wine-growing geography.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_british_cornwall_location
+    subject_id: n_geo_cornwall
+    relation_type: LOCATED_IN
+    object_id: n_geo_england
+    domain_id: geography
+    assertion_text: Cornwall is an English county represented in WineGB's
+      wine-growing geography.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_british_devon_location
+    subject_id: n_geo_devon
+    relation_type: LOCATED_IN
+    object_id: n_geo_england
+    domain_id: geography
+    assertion_text: Devon is an English county represented in WineGB's wine-growing geography.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_british_somerset_location
+    subject_id: n_geo_somerset
+    relation_type: LOCATED_IN
+    object_id: n_geo_england
+    domain_id: geography
+    assertion_text: Somerset is an English county represented in WineGB's
+      wine-growing geography.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_british_herefordshire_location
+    subject_id: n_geo_herefordshire
+    relation_type: LOCATED_IN
+    object_id: n_geo_england
+    domain_id: geography
+    assertion_text: Herefordshire is an English county represented in WineGB's
+      wine-growing geography.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_british_gloucestershire_location
+    subject_id: n_geo_gloucestershire
+    relation_type: LOCATED_IN
+    object_id: n_geo_england
+    domain_id: geography
+    assertion_text: Gloucestershire is an English county represented in WineGB's
+      wine-growing geography.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_british_norfolk_location
+    subject_id: n_geo_norfolk
+    relation_type: LOCATED_IN
+    object_id: n_geo_england
+    domain_id: geography
+    assertion_text: Norfolk is an English county represented in WineGB's
+      wine-growing geography.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_british_suffolk_location
+    subject_id: n_geo_suffolk
+    relation_type: LOCATED_IN
+    object_id: n_geo_england
+    domain_id: geography
+    assertion_text: Suffolk is an English county represented in WineGB's
+      wine-growing geography.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_british_sussex_location
+    subject_id: n_geo_sussex
+    relation_type: LOCATED_IN
+    object_id: n_geo_england
+    domain_id: geography
+    assertion_text: Sussex is a historical English county and wine-growing area;
+      WineGB groups East Sussex and West Sussex in its South East region. This
+      geography item does not describe the Sussex PDO.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_british_wessex_wine_location
+    subject_id: n_geo_wessex_wine
+    relation_type: LOCATED_IN
+    object_id: n_geo_england
+    domain_id: geography
+    assertion_text: The WineGB Wessex wine-growing region covers Dorset, Hampshire,
+      the Isle of Wight and Wiltshire in England; it is a regional association
+      area rather than a wine appellation.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_british_monmouthshire_location
+    subject_id: n_geo_monmouthshire
+    relation_type: LOCATED_IN
+    object_id: n_geo_wales
+    domain_id: geography
+    assertion_text: Monmouthshire is a Welsh county with vineyards represented in
+      WineGB's Welsh wine-growing geography.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_british_carmarthenshire_location
+    subject_id: n_geo_carmarthenshire
+    relation_type: LOCATED_IN
+    object_id: n_geo_wales
+    domain_id: geography
+    assertion_text: Carmarthenshire is a Welsh county with vineyards represented in
+      WineGB's Welsh wine-growing geography.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_british_pembrokeshire_location
+    subject_id: n_geo_pembrokeshire
+    relation_type: LOCATED_IN
+    object_id: n_geo_wales
+    domain_id: geography
+    assertion_text: Pembrokeshire is a Welsh county with vineyards represented in
+      WineGB's Welsh wine-growing geography.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_british_ceredigion_location
+    subject_id: n_geo_ceredigion
+    relation_type: LOCATED_IN
+    object_id: n_geo_wales
+    domain_id: geography
+    assertion_text: Ceredigion is a Welsh county with vineyards represented in
+      WineGB's Welsh wine-growing geography.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+certification_knowledge_mappings:
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_british_england_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_british_england_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_british_wales_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_british_wales_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_british_kent_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_british_kent_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_british_essex_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_british_essex_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_british_hampshire_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_british_hampshire_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_british_surrey_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_british_surrey_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_british_dorset_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_british_dorset_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_british_wiltshire_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_british_wiltshire_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_british_isle_of_wight_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_british_isle_of_wight_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_british_cornwall_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_british_cornwall_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_british_devon_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_british_devon_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_british_somerset_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_british_somerset_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_british_herefordshire_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_british_herefordshire_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_british_gloucestershire_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_british_gloucestershire_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_british_norfolk_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_british_norfolk_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_british_suffolk_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_british_suffolk_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_british_sussex_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_british_sussex_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_british_wessex_wine_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_british_wessex_wine_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_british_monmouthshire_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_british_monmouthshire_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_british_carmarthenshire_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_british_carmarthenshire_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_british_pembrokeshire_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_british_pembrokeshire_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_british_ceredigion_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_british_ceredigion_location
+    importance: secondary
+    minimum_depth: 2
+source_citations:
+  - id: src_british_ons_administrative
+    kind: government_publication
+    title: "Administrative geographies: constituent countries of the United Kingdom"
+    publisher: Office for National Statistics
+    jurisdiction: GB
+    url: https://www.ons.gov.uk/methodology/geography/ukgeographies/administrativegeography
+    accessed_on: 2026-09-26
+  - id: src_british_winegb_regions
+    kind: reference_work
+    title: Wine regions of England and Wales
+    publisher: Wines of Great Britain
+    jurisdiction: GB
+    url: https://winegb.co.uk/wines/regions/
+    accessed_on: 2026-09-26
+  - id: src_british_winegb_associations
+    kind: reference_work
+    title: WineGB regional associations and county membership
+    publisher: Wines of Great Britain
+    jurisdiction: GB
+    url: https://winegb.co.uk/about/regional-associations/
+    accessed_on: 2026-09-26
+knowledge_item_citations:
+  - knowledge_item_id: ki_british_england_location
+    source_citation_id: src_british_ons_administrative
+    locator: "England: constituent country within UK administrative geographies"
+  - knowledge_item_id: ki_british_wales_location
+    source_citation_id: src_british_ons_administrative
+    locator: "Wales: constituent country within UK administrative geographies"
+  - knowledge_item_id: ki_british_kent_location
+    source_citation_id: src_british_winegb_associations
+    locator: "Kent: county membership under South East, East, Wessex or West;
+      England's wine-growing counties"
+  - knowledge_item_id: ki_british_essex_location
+    source_citation_id: src_british_winegb_associations
+    locator: "Essex: county membership under South East, East, Wessex or West;
+      England's wine-growing counties"
+  - knowledge_item_id: ki_british_hampshire_location
+    source_citation_id: src_british_winegb_associations
+    locator: "Hampshire: county membership under South East, East, Wessex or West;
+      England's wine-growing counties"
+  - knowledge_item_id: ki_british_surrey_location
+    source_citation_id: src_british_winegb_associations
+    locator: "Surrey: county membership under South East, East, Wessex or West;
+      England's wine-growing counties"
+  - knowledge_item_id: ki_british_dorset_location
+    source_citation_id: src_british_winegb_associations
+    locator: "Dorset: county membership under South East, East, Wessex or West;
+      England's wine-growing counties"
+  - knowledge_item_id: ki_british_wiltshire_location
+    source_citation_id: src_british_winegb_associations
+    locator: "Wiltshire: county membership under South East, East, Wessex or West;
+      England's wine-growing counties"
+  - knowledge_item_id: ki_british_isle_of_wight_location
+    source_citation_id: src_british_winegb_associations
+    locator: "Isle of Wight: county membership under South East, East, Wessex or
+      West; England's wine-growing counties"
+  - knowledge_item_id: ki_british_cornwall_location
+    source_citation_id: src_british_winegb_associations
+    locator: "Cornwall: county membership under South East, East, Wessex or West;
+      England's wine-growing counties"
+  - knowledge_item_id: ki_british_devon_location
+    source_citation_id: src_british_winegb_associations
+    locator: "Devon: county membership under South East, East, Wessex or West;
+      England's wine-growing counties"
+  - knowledge_item_id: ki_british_somerset_location
+    source_citation_id: src_british_winegb_associations
+    locator: "Somerset: county membership under South East, East, Wessex or West;
+      England's wine-growing counties"
+  - knowledge_item_id: ki_british_herefordshire_location
+    source_citation_id: src_british_winegb_associations
+    locator: "Herefordshire: county membership under South East, East, Wessex or
+      West; England's wine-growing counties"
+  - knowledge_item_id: ki_british_gloucestershire_location
+    source_citation_id: src_british_winegb_associations
+    locator: "Gloucestershire: county membership under South East, East, Wessex or
+      West; England's wine-growing counties"
+  - knowledge_item_id: ki_british_norfolk_location
+    source_citation_id: src_british_winegb_associations
+    locator: "Norfolk: county membership under South East, East, Wessex or West;
+      England's wine-growing counties"
+  - knowledge_item_id: ki_british_suffolk_location
+    source_citation_id: src_british_winegb_associations
+    locator: "Suffolk: county membership under South East, East, Wessex or West;
+      England's wine-growing counties"
+  - knowledge_item_id: ki_british_sussex_location
+    source_citation_id: src_british_winegb_regions
+    locator: "Largest five counties: Sussex; South East: East Sussex and West Sussex"
+  - knowledge_item_id: ki_british_wessex_wine_location
+    source_citation_id: src_british_winegb_associations
+    locator: "Wessex: Dorset, Hampshire, Isle of Wight and Wiltshire"
+  - knowledge_item_id: ki_british_monmouthshire_location
+    source_citation_id: src_british_winegb_regions
+    locator: "Wales: named county Monmouthshire"
+  - knowledge_item_id: ki_british_carmarthenshire_location
+    source_citation_id: src_british_winegb_regions
+    locator: "Wales: named county Carmarthenshire"
+  - knowledge_item_id: ki_british_pembrokeshire_location
+    source_citation_id: src_british_winegb_regions
+    locator: "Wales: named county Pembrokeshire"
+  - knowledge_item_id: ki_british_ceredigion_location
+    source_citation_id: src_british_winegb_regions
+    locator: "Wales: named county Ceredigion"
+  - knowledge_item_id: ki_british_england_location
+    source_citation_id: src_british_winegb_regions
+    locator: "England: Wine Standards 2025 area and wine-growing geography"
+  - knowledge_item_id: ki_british_wales_location
+    source_citation_id: src_british_winegb_regions
+    locator: "Wales: Wine Standards 2025 area and wine-growing geography"

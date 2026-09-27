@@ -1,0 +1,21 @@
+# Original learning points and conditional decision cases. These edges describe
+# cited mechanisms and defensible choices, never a complete set of options.
+# Items select their own domain (vineyard, winery, business or service).
+node_types:
+  - { id: production_principle, label: principle }
+  - { id: learning_point, label: learning point }
+  - { id: production_case, label: decision case }
+
+relation_types:
+  - { id: PRINCIPLE_EXPLANATION, label: has a cited learning point, reverse_label: explains the principle, cardinality: many, default_domain_id: winemaking }
+  - { id: CASE_ACTION, label: has a defensible action, reverse_label: is a defensible action for, cardinality: many, default_domain_id: winemaking }
+  - { id: CASE_REASON, label: has a supporting mechanism, reverse_label: supports the decision in, cardinality: many, default_domain_id: winemaking }
+  - { id: CASE_TRADEOFF, label: has a trade-off, reverse_label: is a trade-off in, cardinality: many, default_domain_id: winemaking }
+  - { id: CASE_LIMITATION, label: has a condition or limitation, reverse_label: limits the decision in, cardinality: many, default_domain_id: winemaking }
+
+relation_type_signatures:
+  - { relation_type: PRINCIPLE_EXPLANATION, subject_node_type: production_principle, object_node_type: learning_point }
+  - { relation_type: CASE_ACTION, subject_node_type: production_case, object_node_type: learning_point }
+  - { relation_type: CASE_REASON, subject_node_type: production_case, object_node_type: learning_point }
+  - { relation_type: CASE_TRADEOFF, subject_node_type: production_case, object_node_type: learning_point }
+  - { relation_type: CASE_LIMITATION, subject_node_type: production_case, object_node_type: learning_point }

@@ -1,0 +1,435 @@
+import 'dart:convert';
+import 'dart:io';
+
+import 'package:flutter_test/flutter_test.dart';
+import 'package:fsrs/fsrs.dart' as fsrs;
+import 'package:sommelier/core/backup/user_data_backup.dart';
+import 'package:sommelier/core/database/app_database.dart';
+import 'package:sommelier/core/database/curriculum_writes.dart';
+import 'package:sommelier/core/progress/wset_progress.dart';
+import 'package:sommelier/core/progress/wset_scope.dart';
+import 'package:sommelier/core/study/review_service.dart';
+
+import '../../support/fixture.dart';
+import '../../support/study_fixture.dart';
+
+WsetScope testScope({
+  List<WsetUnitScope> units = const [],
+  bool complete = false,
+}) => WsetScope([
+  for (var level = 1; level <= 4; level++)
+    WsetLevelScope(
+      certificationId: 'WSET_L$level',
+      title: 'WSET Level $level',
+      curriculumComplete: complete,
+      gaps: complete ? [] : ['Further content needed.'],
+      sourceUrl: 'https://www.wsetglobal.com/',
+      units: level == 4 ? units : [],
+    ),
+]);
+
+void main() {
+  late AppDatabase db;
+  late TestClock time;
+  late ReviewService reviews;
+  late WsetProgressRepository progress;
+
+  Future<WsetLevelProgress> level(int number) async =>
+      (await progress.snapshot()).levels[number - 1];
+
+  Future<void> review({
+    String template = 'qt_ppg_fwd_flashcard',
+    fsrs.Rating rating = fsrs.Rating.easy,
+  }) async {
+    await reviews.record(
+      knowledgeItemId: 'ki_chablis_grape',
+      questionTemplateId: template,
+      rating: rating,
+    );
+  }
+
+  Future<void> buildMastery() async {
+    await review();
+    time.advance(const Duration(days: 3));
+    await review(template: 'qt_ppg_fwd_mcq');
+    time.advance(const Duration(days: 4));
+    await review(template: 'qt_ppg_rev_flashcard');
+  }
+
+  setUp(() async {
+    db = openTestDatabase();
+    time = TestClock(t0);
+    await seedCurriculum(db);
+    await seedSchedulerConfig(db);
+    await db.writeCurriculum(
+      () => runSql(db, [
+        "INSERT INTO certifications VALUES ('WSET_L4','WSET',4,'WSET Level 4 Diploma','WSET_L3',NULL,1,'certification',NULL)",
+        "INSERT INTO question_templates VALUES ('qt_ppg_fwd_flashcard','PERMITS_PRINCIPAL_GRAPE','forward','flashcard','en','Grape?','',NULL), ('qt_ppg_rev_flashcard','PERMITS_PRINCIPAL_GRAPE','reverse','flashcard','en','Place?','',NULL)",
+        "INSERT INTO questions VALUES ('ki_chablis_grape','qt_ppg_fwd_flashcard','PERMITS_PRINCIPAL_GRAPE','Grape?'), ('ki_chablis_grape','qt_ppg_rev_flashcard','PERMITS_PRINCIPAL_GRAPE','Place?')",
+      ]),
+    );
+    reviews = ReviewService(
+      db,
+      clock: time.clock,
+      schedulerFactory: unfuzzedScheduler,
+    );
+    progress = WsetProgressRepository(
+      db,
+      scope: testScope(),
+      clock: time.clock,
+    );
+  });
+  tearDown(() => db.close());
+
+  test('empty level has no percentage or completed milestone', () async {
+    final result = await level(1);
+    expect(result.counts.mapped, 0);
+    expect(result.counts.studiedFraction, isNull);
+    expect(result.counts.masteredFraction, isNull);
+    expect(result.counts.availableMaterialMastered, isFalse);
+    expect(result.appLevelComplete, isFalse);
+    progress = WsetProgressRepository(
+      db,
+      scope: testScope(complete: true),
+      clock: time.clock,
+    );
+    expect((await level(1)).appLevelComplete, isFalse);
+  });
+
+  test(
+    'cumulative levels share item reviews without counting formats twice',
+    () async {
+      await review();
+      final result = await progress.snapshot();
+      expect(result.levels.map((entry) => entry.counts.available), [
+        0,
+        1,
+        2,
+        2,
+      ]);
+      expect(result.levels.map((entry) => entry.counts.studied), [0, 1, 1, 1]);
+      expect((await level(2)).counts.mastered, 0);
+      expect((await level(2)).nextItems.single.reason, 'Keep practising');
+    },
+  );
+
+  test('repeated taps on one date cannot establish lasting mastery', () async {
+    for (var i = 0; i < 4; i++) {
+      await review();
+      time.advance(const Duration(minutes: 1));
+    }
+    expect((await level(2)).counts.studied, 1);
+    expect((await level(2)).counts.mastered, 0);
+  });
+
+  test('three successful dates must span at least seven days', () async {
+    await review();
+    time.advance(const Duration(days: 1));
+    await review();
+    time.advance(const Duration(days: 1));
+    await review();
+    expect((await level(2)).counts.mastered, 0);
+  });
+
+  test(
+    'spaced mixed-format successes master material but not an incomplete level',
+    () async {
+      await buildMastery();
+      final result = await level(2);
+      expect(result.counts.mastered, 1);
+      expect(result.counts.availableMaterialMastered, isTrue);
+      expect(result.appLevelComplete, isFalse);
+      expect((await level(4)).counts.mastered, 1);
+      expect((await level(4)).nextItems.single.itemId, 'ki_chablis_soil');
+    },
+  );
+
+  test('a reverse failure reduces mastery and history before that lapse cannot restore it', () async {
+    await buildMastery();
+    expect((await level(2)).counts.mastered, 1);
+    time.advance(const Duration(minutes: 1));
+    await review(template: 'qt_ppg_rev_flashcard', rating: fsrs.Rating.again);
+    expect((await level(2)).counts.mastered, 0);
+    time.advance(const Duration(minutes: 11));
+    await review();
+    expect((await level(2)).counts.mastered, 0);
+    expect((await level(2)).counts.studied, 1);
+  });
+
+  test('memory decay can lower mastery without a new review', () async {
+    await buildMastery();
+    expect((await level(2)).counts.mastered, 1);
+    time.advance(const Duration(days: 1000));
+    expect((await level(2)).counts.mastered, 0);
+    expect((await level(2)).counts.due, 1);
+  });
+
+  test(
+    'mapped facts without a usable question stay visible as coverage gaps',
+    () async {
+      await db.writeCurriculum(
+        () => runSql(db, [
+          "INSERT INTO certification_knowledge_mappings VALUES ('WSET_L4','ki_barolo_min_ageing','core',2,NULL)",
+        ]),
+      );
+      final result = await level(4);
+      expect(result.counts.mapped, 3);
+      expect(result.counts.available, 2);
+      expect(result.counts.unavailable, 1);
+      expect(result.counts.studiedFraction, 0);
+      expect(
+        result.topics
+            .singleWhere((topic) => topic.title == 'Geography')
+            .counts
+            .unavailable,
+        1,
+      );
+    },
+  );
+
+  test(
+    'expired current facts leave the denominator while reviews remain',
+    () async {
+      await buildMastery();
+      await db.writeCurriculum(
+        () => runSql(db, [
+          "UPDATE knowledge_relations SET valid_until='2026-01-08' WHERE subject_id='n_geo_chablis' AND relation_type='PERMITS_PRINCIPAL_GRAPE'",
+        ]),
+      );
+      expect((await level(2)).counts.mapped, 0);
+      expect(await db.select(db.reviewEvents).get(), hasLength(3));
+      expect((await level(2)).counts.masteredFraction, isNull);
+    },
+  );
+
+  test('six Diploma groups partition counts; mixed-style geography selection is selective', () async {
+    progress = WsetProgressRepository(
+      db,
+      clock: time.clock,
+      scope: testScope(
+        units: [
+          for (var i = 1; i <= 6; i++)
+            WsetUnitScope(
+              id: 'D$i',
+              title: 'Unit $i',
+              gap: 'Expand unit.',
+              domains: i == 1
+                  ? ['viticulture']
+                  : i == 3
+                  ? ['geography']
+                  : [],
+              regionRoots: i == 4 ? ['n_geo_chablis'] : [],
+              geographyRoots: i == 5 ? ['n_geo_barolo'] : [],
+            ),
+        ],
+      ),
+    );
+    await db.writeCurriculum(
+      () => runSql(db, [
+        "INSERT INTO certification_knowledge_mappings VALUES ('WSET_L4','ki_barolo_min_ageing','core',2,NULL)",
+      ]),
+    );
+    final result = await level(4);
+    expect(result.units, hasLength(6));
+    expect(
+      result.units[3].counts.mapped,
+      2,
+    ); // Regional support takes precedence.
+    expect(
+      result.units[2].counts.mapped,
+      1,
+    ); // Barolo ageing is not a location fact.
+    expect(result.units[4].counts.mapped, 0);
+    expect(result.units[5].counts.mapped, 0);
+    expect(
+      result.units.fold(0, (int sum, unit) => sum + unit.counts.mapped) +
+          result.unassigned.mapped,
+      result.counts.mapped,
+    );
+  });
+
+  test(
+    'stale region selector fails visibly instead of silently dropping facts',
+    () async {
+      progress = WsetProgressRepository(
+        db,
+        clock: time.clock,
+        scope: testScope(
+          units: [
+            for (var i = 1; i <= 6; i++)
+              WsetUnitScope(
+                id: 'D$i',
+                title: 'Unit $i',
+                gap: '',
+                regionRoots: i == 4 ? ['n_geo_missing'] : [],
+              ),
+          ],
+        ),
+      );
+      await expectLater(progress.snapshot(), throwsFormatException);
+    },
+  );
+
+  test('explicit product lessons override region and domain without double counting', () async {
+    progress = WsetProgressRepository(
+      db,
+      clock: time.clock,
+      scope: testScope(
+        units: [
+          for (var i = 1; i <= 6; i++)
+            WsetUnitScope(
+              id: 'D$i',
+              title: 'Unit $i',
+              gap: '',
+              domains: i == 1
+                  ? ['viticulture']
+                  : i == 3
+                  ? ['geography']
+                  : [],
+              regionRoots: i == 4 ? ['n_geo_chablis'] : [],
+              itemIds: i == 5 ? ['ki_chablis_soil'] : [],
+            ),
+        ],
+      ),
+    );
+    final result = await level(4);
+    expect(result.units[0].counts.mapped, 0);
+    expect(result.units[3].counts.mapped, 1);
+    expect(result.units[4].counts.mapped, 1);
+    expect(
+      result.units.fold(0, (int n, u) => n + u.counts.mapped) +
+          result.unassigned.mapped,
+      result.counts.mapped,
+    );
+    await db.writeCurriculum(
+      () => runSql(db, [
+        "UPDATE knowledge_relations SET valid_until='2026-01-01' WHERE subject_id='n_geo_chablis' AND relation_type='HAS_SOIL'",
+      ]),
+    );
+    // Retiring a referenced item is valid, but it no longer contributes.
+    expect((await level(4)).units[4].counts.mapped, 0);
+    expect((await level(4)).counts.mapped, 1);
+  });
+
+  test(
+    'unknown explicit item fails visibly even when it is unmapped',
+    () async {
+      progress = WsetProgressRepository(
+        db,
+        clock: time.clock,
+        scope: testScope(
+          units: [
+            for (var i = 1; i <= 6; i++)
+              WsetUnitScope(
+                id: 'D$i',
+                title: 'Unit $i',
+                gap: '',
+                itemIds: i == 5 ? ['ki_missing'] : [],
+              ),
+          ],
+        ),
+      );
+      await expectLater(progress.snapshot(), throwsFormatException);
+    },
+  );
+
+  test('self-reported exam pass is independent, reversible, backed up and reset safely', () async {
+    await progress.setExamPassed('WSET_L1', true);
+    expect((await level(1)).examPassed, isTrue);
+    expect((await level(1)).counts.mastered, 0);
+    expect((await level(1)).appLevelComplete, isFalse);
+    final backup = UserDataBackup(db, clock: time.clock);
+    final exported = await backup.exportJson();
+    await progress.setExamPassed('WSET_L1', false);
+    expect((await level(1)).examPassed, isFalse);
+    await backup.import(exported);
+    expect((await level(1)).examPassed, isTrue);
+    await backup.resetProgress();
+    expect((await level(1)).examPassed, isTrue);
+    await backup.eraseAll();
+    expect((await level(1)).examPassed, isFalse);
+    await expectLater(
+      progress.setExamPassed('CMS_CERTIFIED', true),
+      throwsArgumentError,
+    );
+  });
+
+  test(
+    'app milestone requires nonempty fully available reviewed scope',
+    () async {
+      progress = WsetProgressRepository(
+        db,
+        scope: testScope(complete: true),
+        clock: time.clock,
+      );
+      await buildMastery();
+      expect((await level(2)).appLevelComplete, isTrue);
+      expect((await level(3)).appLevelComplete, isFalse);
+      expect((await level(2)).examPassed, isFalse);
+    },
+  );
+
+  test('bundled scope stays incomplete and has six valid Diploma groups', () {
+    final scope = WsetScope.fromJson(
+      File('assets/progress/wset_scope.json').readAsStringSync(),
+    );
+    expect(scope.levels, hasLength(4));
+    expect(scope.levels.every((level) => !level.curriculumComplete), isTrue);
+    expect(scope.levels.last.units.map((unit) => unit.id), [
+      'D1',
+      'D2',
+      'D3',
+      'D4',
+      'D5',
+      'D6',
+    ]);
+  });
+
+  test(
+    'scope parser rejects contradictory completion, duplicate or unknown units',
+    () {
+      final json = jsonDecode(
+        File('assets/progress/wset_scope.json').readAsStringSync(),
+      ) as Map<String, dynamic>;
+      final levels = json['levels'] as List<dynamic>;
+      (levels.first as Map<String, dynamic>)['curriculumComplete'] = true;
+      expect(() => WsetScope.fromJson(jsonEncode(json)), throwsFormatException);
+      (levels.first as Map<String, dynamic>)['curriculumComplete'] = false;
+      final units =
+          (levels.last as Map<String, dynamic>)['units'] as List<dynamic>;
+      (units.last as Map<String, dynamic>)['id'] = 'D1';
+      expect(() => WsetScope.fromJson(jsonEncode(json)), throwsFormatException);
+      (units.last as Map<String, dynamic>)['id'] = 'D7';
+      expect(() => WsetScope.fromJson(jsonEncode(json)), throwsFormatException);
+    },
+  );
+
+  test('scope rejects invalid and repeated item selectors across units', () {
+    Map<String, dynamic> json() =>
+        jsonDecode(File('assets/progress/wset_scope.json').readAsStringSync())
+            as Map<String, dynamic>;
+    for (final invalid in [
+      null,
+      'ki_example',
+      [42],
+      [''],
+      [' ki_example'],
+      ['n_example'],
+      ['ki_example', 'ki_example'],
+    ]) {
+      final value = json();
+      final units = (value['levels'] as List).last['units'] as List;
+      units.first['itemIds'] = invalid;
+      expect(
+        () => WsetScope.fromJson(jsonEncode(value)),
+        throwsFormatException,
+        reason: '$invalid',
+      );
+    }
+    final value = json();
+    final units = (value['levels'] as List).last['units'] as List;
+    units.first['itemIds'] = ['ki_shared'];
+    units.last['itemIds'] = ['ki_shared'];
+    expect(() => WsetScope.fromJson(jsonEncode(value)), throwsFormatException);
+  });
+}

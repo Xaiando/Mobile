@@ -1,0 +1,1490 @@
+# Original China regional comparisons and conditional applications.
+# All points are unverified; curation dates are not legal effective dates.
+# MCQ disabled: explanations and conditional decisions admit defensible alternatives.
+# Diploma only: pinned lower-course regional scope does not require this analysis.
+knowledge_nodes:
+  - id: n_reg_cn_principle_helan_sun_water
+    node_type: production_principle
+    name: How do sunshine and limited rainfall raise different vineyard questions in Ningxia’s Helan foothills?
+  - id: n_reg_cn_point_helan_sun
+    node_type: learning_point
+    name: Helan foothill sunshine provides growing context
+  - id: n_reg_cn_point_helan_water
+    node_type: learning_point
+    name: Helan rainfall and irrigation require water assessment
+  - id: n_reg_cn_principle_hongsibu_winter_work
+    node_type: production_principle
+    name: Why should Hongsibu winter protection be assessed as both vineyard work and a recurring production cost?
+  - id: n_reg_cn_point_hongsibu_burial
+    node_type: learning_point
+    name: A Hongsibu survey describes winter soil protection
+  - id: n_reg_cn_point_hongsibu_cost
+    node_type: learning_point
+    name: Hongsibu winter burial complicates mechanisation and cost
+  - id: n_reg_cn_principle_ningxia_training
+    node_type: production_principle
+    name: How can burial-compatible training change both winter operations and canopy performance in Ningxia?
+  - id: n_reg_cn_point_ningxia_training_work
+    node_type: learning_point
+    name: Training can connect winter lay-down with canopy design
+  - id: n_reg_cn_point_ningxia_training_trial
+    node_type: learning_point
+    name: The Yuquanying trial measured training-dependent berry changes
+  - id: n_reg_cn_principle_ningxia_deficit_irrigation
+    node_type: production_principle
+    name: What different tradeoffs did the Yinchuan deficit-irrigation experiment identify for crop output and
+      wine chemistry?
+  - id: n_reg_cn_point_ningxia_deficit_crop
+    node_type: learning_point
+    name: Stronger deficit treatments reduced crop output in a local trial
+  - id: n_reg_cn_point_ningxia_deficit_chemistry
+    node_type: learning_point
+    name: Deficit irrigation changed precursors and wine volatiles
+  - id: n_reg_cn_principle_shandong_storm_storage
+    node_type: production_principle
+    name: How can a Shandong estate face damaging storm rain and still plan for dry-year irrigation?
+  - id: n_reg_cn_point_shandong_typhoon
+    node_type: learning_point
+    name: Long Dai describes episodic storm pressure on terraces
+  - id: n_reg_cn_point_shandong_pond
+    node_type: learning_point
+    name: Long Dai reports stored monsoon water for occasional dry-year use
+  - id: n_reg_cn_principle_shandong_small_lots
+    node_type: production_principle
+    name: How do Long Dai’s terraced parcels connect vineyard handling with small-batch cellar work?
+  - id: n_reg_cn_point_shandong_terrace_work
+    node_type: learning_point
+    name: Long Dai adapts work to heterogeneous terraced lots
+  - id: n_reg_cn_point_shandong_separate_ferments
+    node_type: learning_point
+    name: Long Dai separates small lots in temperature-controlled steel vats
+  - id: n_reg_cn_principle_shandong_grapes_extraction
+    node_type: production_principle
+    name: What do Long Dai’s blend and Marselan handling show about matching grapes with production choices?
+  - id: n_reg_cn_point_shandong_blend
+    node_type: learning_point
+    name: Long Dai describes a selected multi-grape red blend
+  - id: n_reg_cn_point_shandong_marselan_extraction
+    node_type: learning_point
+    name: Long Dai describes gentle Marselan extraction
+  - id: n_reg_cn_principle_china_phenology_models
+    node_type: production_principle
+    name: Why should a Changli-inclusive Chinese phenology comparison test site and winter-cover assumptions
+      before using a growth-stage forecast?
+  - id: n_reg_cn_point_china_model_transfer
+    node_type: learning_point
+    name: Chinese growth-stage models need local cultivar and site checks
+  - id: n_reg_cn_point_china_model_burial
+    node_type: learning_point
+    name: Winter soil cover changes buds’ thermal exposure
+  - id: n_reg_cn_principle_xinjiang_shade
+    node_type: production_principle
+    name: What crop and style tradeoffs arise from the 2018 Manas Cabernet Sauvignon shading experiment?
+  - id: n_reg_cn_point_xinjiang_shade_growth
+    node_type: learning_point
+    name: Manas partial shade lowered temperature and crop output
+  - id: n_reg_cn_point_xinjiang_shade_style
+    node_type: learning_point
+    name: Manas shading altered ripening and measured wine composition
+  - id: n_reg_cn_principle_xinjiang_nonburial_cover
+    node_type: production_principle
+    name: Why do material, cover geometry and temperature monitoring matter in a Shihezi non-burial winter
+      experiment?
+  - id: n_reg_cn_point_xinjiang_cover_material
+    node_type: learning_point
+    name: Shihezi insulation varied with material and covering height
+  - id: n_reg_cn_point_xinjiang_cover_monitoring
+    node_type: learning_point
+    name: Shihezi temperature modelling does not guarantee vine survival
+  - id: n_reg_cn_principle_xinjiang_water_nitrogen
+    node_type: production_principle
+    name: How did the 2018 Xinjiang Cabernet Sauvignon trial connect soil nitrogen supply with irrigation and
+      fertilizer uptake?
+  - id: n_reg_cn_point_xinjiang_soil_nitrogen
+    node_type: learning_point
+    name: Extra fertilizer did not establish greater total nitrogen uptake
+  - id: n_reg_cn_point_xinjiang_water_nitrogen_response
+    node_type: learning_point
+    name: Xinjiang fertilizer recovery differed with water and input level
+  - id: n_reg_cn_principle_yunnan_village_exposure
+    node_type: production_principle
+    name: How do Ao Yun’s contrasting village sites complicate a single temperature or ripening description for
+      Yunnan mountain vineyards?
+  - id: n_reg_cn_point_yunnan_village_temperature
+    node_type: learning_point
+    name: Ao Yun contrasts Xidang and Adong site temperatures
+  - id: n_reg_cn_point_yunnan_mountain_ripening
+    node_type: learning_point
+    name: Ao Yun describes mountain shading and cooler-night ripening context
+  - id: n_reg_cn_principle_yunnan_work_blend
+    node_type: production_principle
+    name: How do Ao Yun’s manual mountain work and dated multi-grape blend raise distinct production and product
+      questions?
+  - id: n_reg_cn_point_yunnan_manual_work
+    node_type: learning_point
+    name: Ao Yun describes manual work in steep mountain vineyards
+  - id: n_reg_cn_point_yunnan_2017_blend
+    node_type: learning_point
+    name: Ao Yun’s 2017 blend illustrates selected grape diversity
+  - id: n_reg_cn_principle_grace_2025_comparison
+    node_type: production_principle
+    name: What can Grace Vineyard’s 2025 Shanxi–Ningxia report show about changing vineyard conditions and
+      coordinating harvest, and what can it not prove?
+  - id: n_reg_cn_point_grace_2025_causality
+    node_type: learning_point
+    name: Grace’s 2025 observations do not isolate one cause of ripening
+  - id: n_reg_cn_point_grace_2025_logistics
+    node_type: learning_point
+    name: Grace coordinated a dated harvest sequence and separate lot handling
+  - id: n_reg_cn_case_ningxia_training_budget
+    node_type: production_case
+    name: A Ningxia grower is planning a new Cabernet Gernischt block that will need winter protection. A
+      contractor offers a conventional vertical system and a low slant-trunk system intended to make
+      mechanical soil burial easier. The slant system has a higher quoted establishment cost and a projected
+      annual handling saving; both installation quotes fit available funds, but the saving has not been
+      demonstrated on this site. Existing blocks have recorded winter bending damage and high handling hours.
+      The grower can establish a small comparison, record work and canopy development, monitor winter
+      conditions and inspect buds in spring. Neither option guarantees survival. Propose an action, explain a
+      reason, weigh a tradeoff and state a limitation before committing the entire block.
+  - id: n_reg_cn_point_case_ningxia_training_budget_action
+    node_type: learning_point
+    name: Pilot training and compare real operations before full commitment
+  - id: n_reg_cn_point_case_ningxia_training_budget_reason
+    node_type: learning_point
+    name: Winter convenience and canopy function are linked
+  - id: n_reg_cn_point_case_ningxia_training_budget_tradeoff
+    node_type: learning_point
+    name: Initial investment competes with possible annual labour savings
+  - id: n_reg_cn_point_case_ningxia_training_budget_limitation
+    node_type: learning_point
+    name: One local comparison cannot assure future winter performance
+  - id: n_reg_cn_case_shandong_water_budget
+    node_type: production_case
+    name: A hypothetical Shandong terraced winery has recorded storm runoff damaging vineyard paths and two later
+      dry seasons requiring supplementary vine water. An engineer confirms that either a small retention pond
+      or a larger pond can be built and supplies itemised capital and maintenance quotes; both installation
+      costs fit current funds. Catchment inflow, storage losses and future seasonal vine demand still need
+      assessment, and neither quote is in the operating cash-flow forecast. The larger pond uses space
+      currently available for vineyard access. The manager claims monsoon rain makes later irrigation
+      unnecessary and that the larger pond must be more profitable. Propose an action, explain a reason, weigh
+      a tradeoff and state a limitation.
+  - id: n_reg_cn_point_case_shandong_water_budget_action
+    node_type: learning_point
+    name: Assess seasonal water demand and cash flow before selecting capacity
+  - id: n_reg_cn_point_case_shandong_water_budget_reason
+    node_type: learning_point
+    name: Storm water and later vine water needs occur at different times
+  - id: n_reg_cn_point_case_shandong_water_budget_tradeoff
+    node_type: learning_point
+    name: Extra storage competes with capital, upkeep and vineyard access
+  - id: n_reg_cn_point_case_shandong_water_budget_limitation
+    node_type: learning_point
+    name: An estate example cannot establish this catchment’s future supply
+  - id: n_reg_cn_case_xinjiang_shade_style
+    node_type: production_case
+    name: A Xinjiang Cabernet Sauvignon producer runs a one-vintage split-block trial with partial canopy shade
+      and an unshaded control. Cultivar, vine age, crop preparation, irrigation and nutrition are matched. The
+      shaded treatment ripens more slowly, has higher measured acidity and lower harvest weight. Matched dry,
+      fault-free pilot wines are repeatedly tasted under blind codes; the shaded wine is judged fresher but
+      less deeply coloured in these pilots. A buyer’s stated brief asks for fresher acidity with acceptable
+      colour, but the buyer has not tasted the pilots. Full-scale yield costs and margins have not been
+      calculated. The manager proposes shading every block because a cooler wine must be better. Propose an
+      action, explain a reason, weigh a tradeoff and state a limitation.
+  - id: n_reg_cn_point_case_xinjiang_shade_style_action
+    node_type: learning_point
+    name: Use a limited style trial and buyer assessment before blanket shading
+  - id: n_reg_cn_point_case_xinjiang_shade_style_reason
+    node_type: learning_point
+    name: Shade can alter assimilation and ripening as well as heat exposure
+  - id: n_reg_cn_point_case_xinjiang_shade_style_tradeoff
+    node_type: learning_point
+    name: Preferred freshness may compete with crop output and colour targets
+  - id: n_reg_cn_point_case_xinjiang_shade_style_limitation
+    node_type: learning_point
+    name: One vintage and a pilot panel do not define regional quality
+  - id: n_reg_cn_case_yunnan_blend_evidence
+    node_type: production_case
+    name: A Yunnan mountain winery has two Cabernet Sauvignon lots from contrasting village parcels. The lots are
+      dry and fault-free and used the same documented fermentation and maturation programme. Measured acidity
+      and repeated blind tasting show Lot A has more body and Lot B more freshness. A coded pilot blend meets
+      the winery’s stated balance target better than either lot alone. Both lots are available in sufficient
+      quantity; blending capacity fits the budget. Separate parcel handling and manual harvest have higher
+      recorded costs than consolidating operations, and no buyers have yet evaluated the blend or its proposed
+      price. The manager says the highest parcel and highest labour cost guarantee a premium wine and that
+      tasting proves village origin. Propose an action, explain a reason, weigh a tradeoff and state a
+      limitation.
+  - id: n_reg_cn_point_case_yunnan_blend_evidence_action
+    node_type: learning_point
+    name: Confirm the blend under controlled tasting and test buyer acceptance
+  - id: n_reg_cn_point_case_yunnan_blend_evidence_reason
+    node_type: learning_point
+    name: Village exposure can vary while the actual lots determine the blend
+  - id: n_reg_cn_point_case_yunnan_blend_evidence_tradeoff
+    node_type: learning_point
+    name: Separate mountain lots preserve choices at added operating cost
+  - id: n_reg_cn_point_case_yunnan_blend_evidence_limitation
+    node_type: learning_point
+    name: Blind tasting does not authenticate a village or isolate altitude
+node_alternative_names:
+  - knowledge_node_id: n_reg_cn_point_helan_sun
+    name: Helan sunshine parcel maturity assessment
+    kind: synonym
+  - knowledge_node_id: n_reg_cn_point_helan_water
+    name: Helan low rain Yellow River water context
+    kind: synonym
+  - knowledge_node_id: n_reg_cn_point_hongsibu_burial
+    name: Hongsibu survey winter soil cover purpose
+    kind: synonym
+  - knowledge_node_id: n_reg_cn_point_hongsibu_cost
+    name: Hongsibu burial recurring labour cost
+    kind: synonym
+  - knowledge_node_id: n_reg_cn_point_ningxia_training_work
+    name: Ningxia low trunk burial canopy choice
+    kind: synonym
+  - knowledge_node_id: n_reg_cn_point_ningxia_training_trial
+    name: Yuquanying 2016 canopy berry trial boundary
+    kind: synonym
+  - knowledge_node_id: n_reg_cn_point_ningxia_deficit_crop
+    name: Yinchuan deficit yield berry acidity tradeoff
+    kind: synonym
+  - knowledge_node_id: n_reg_cn_point_ningxia_deficit_chemistry
+    name: Yinchuan irrigation amino acid volatile response
+    kind: synonym
+  - knowledge_node_id: n_reg_cn_point_shandong_typhoon
+    name: Long Dai typhoon terrace runoff pressure
+    kind: synonym
+  - knowledge_node_id: n_reg_cn_point_shandong_pond
+    name: Long Dai monsoon pond dry year drip
+    kind: synonym
+  - knowledge_node_id: n_reg_cn_point_shandong_terrace_work
+    name: Long Dai terraces adapted parcel work
+    kind: synonym
+  - knowledge_node_id: n_reg_cn_point_shandong_separate_ferments
+    name: Long Dai small lot steel fermentations
+    kind: synonym
+  - knowledge_node_id: n_reg_cn_point_shandong_blend
+    name: Long Dai Cabernet Marselan Franc example
+    kind: synonym
+  - knowledge_node_id: n_reg_cn_point_shandong_marselan_extraction
+    name: Long Dai Marselan gentle extraction choice
+    kind: synonym
+  - knowledge_node_id: n_reg_cn_point_china_model_transfer
+    name: Changli inclusive phenology transfer caution
+    kind: synonym
+  - knowledge_node_id: n_reg_cn_point_china_model_burial
+    name: Chinese phenology soil cover air temperature gap
+    kind: synonym
+  - knowledge_node_id: n_reg_cn_point_xinjiang_shade_growth
+    name: Manas 2018 shade assimilation yield balance
+    kind: synonym
+  - knowledge_node_id: n_reg_cn_point_xinjiang_shade_style
+    name: Manas shade ripening chemistry style assessment
+    kind: synonym
+  - knowledge_node_id: n_reg_cn_point_xinjiang_cover_material
+    name: Shihezi winter material airspace interaction
+    kind: synonym
+  - knowledge_node_id: n_reg_cn_point_xinjiang_cover_monitoring
+    name: Shihezi cane soil monitoring survival limitation
+    kind: synonym
+  - knowledge_node_id: n_reg_cn_point_xinjiang_soil_nitrogen
+    name: Xinjiang 2018 soil nitrogen input caution
+    kind: synonym
+  - knowledge_node_id: n_reg_cn_point_xinjiang_water_nitrogen_response
+    name: Xinjiang irrigation fertilizer recovery interaction
+    kind: synonym
+  - knowledge_node_id: n_reg_cn_point_yunnan_village_temperature
+    name: Ao Yun Xidang Adong exposure contrast
+    kind: synonym
+  - knowledge_node_id: n_reg_cn_point_yunnan_mountain_ripening
+    name: Ao Yun mountain sunlight ripening duration
+    kind: synonym
+  - knowledge_node_id: n_reg_cn_point_yunnan_manual_work
+    name: Ao Yun steep parcels manual operations
+    kind: synonym
+  - knowledge_node_id: n_reg_cn_point_yunnan_2017_blend
+    name: Ao Yun 2017 five grape blend example
+    kind: synonym
+  - knowledge_node_id: n_reg_cn_point_grace_2025_causality
+    name: Grace 2025 rain drip vigour causal limit
+    kind: synonym
+  - knowledge_node_id: n_reg_cn_point_grace_2025_logistics
+    name: Grace 2025 serial crew separated fruit handling
+    kind: synonym
+  - knowledge_node_id: n_reg_cn_point_case_ningxia_training_budget_action
+    name: Ningxia training pilot before scaling
+    kind: synonym
+  - knowledge_node_id: n_reg_cn_point_case_ningxia_training_budget_reason
+    name: Ningxia training winter canopy rationale
+    kind: synonym
+  - knowledge_node_id: n_reg_cn_point_case_ningxia_training_budget_tradeoff
+    name: Ningxia training capital recurring cost tradeoff
+    kind: synonym
+  - knowledge_node_id: n_reg_cn_point_case_ningxia_training_budget_limitation
+    name: Ningxia training future winter evidence limit
+    kind: synonym
+  - knowledge_node_id: n_reg_cn_point_case_shandong_water_budget_action
+    name: Shandong storage water budget decision
+    kind: synonym
+  - knowledge_node_id: n_reg_cn_point_case_shandong_water_budget_reason
+    name: Shandong monsoon storage dry season rationale
+    kind: synonym
+  - knowledge_node_id: n_reg_cn_point_case_shandong_water_budget_tradeoff
+    name: Shandong pond capacity access cost tradeoff
+    kind: synonym
+  - knowledge_node_id: n_reg_cn_point_case_shandong_water_budget_limitation
+    name: Shandong pond site seasons evidence limit
+    kind: synonym
+  - knowledge_node_id: n_reg_cn_point_case_xinjiang_shade_style_action
+    name: Xinjiang shade pilot buyer margin decision
+    kind: synonym
+  - knowledge_node_id: n_reg_cn_point_case_xinjiang_shade_style_reason
+    name: Xinjiang shade physiological style rationale
+    kind: synonym
+  - knowledge_node_id: n_reg_cn_point_case_xinjiang_shade_style_tradeoff
+    name: Xinjiang shade yield colour freshness tradeoff
+    kind: synonym
+  - knowledge_node_id: n_reg_cn_point_case_xinjiang_shade_style_limitation
+    name: Xinjiang shade single vintage preference limit
+    kind: synonym
+  - knowledge_node_id: n_reg_cn_point_case_yunnan_blend_evidence_action
+    name: Yunnan blend target buyer assessment decision
+    kind: synonym
+  - knowledge_node_id: n_reg_cn_point_case_yunnan_blend_evidence_reason
+    name: Yunnan village lots observed blend rationale
+    kind: synonym
+  - knowledge_node_id: n_reg_cn_point_case_yunnan_blend_evidence_tradeoff
+    name: Yunnan parcel flexibility manual cost tradeoff
+    kind: synonym
+  - knowledge_node_id: n_reg_cn_point_case_yunnan_blend_evidence_limitation
+    name: Yunnan sensory origin altitude inference limit
+    kind: synonym
+knowledge_relations:
+  - subject_id: n_reg_cn_principle_helan_sun_water
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_cn_point_helan_sun
+    valid_from: 2026-09-27
+  - subject_id: n_reg_cn_principle_helan_sun_water
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_cn_point_helan_water
+    valid_from: 2026-09-27
+  - subject_id: n_reg_cn_principle_hongsibu_winter_work
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_cn_point_hongsibu_burial
+    valid_from: 2026-09-27
+  - subject_id: n_reg_cn_principle_hongsibu_winter_work
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_cn_point_hongsibu_cost
+    valid_from: 2026-09-27
+  - subject_id: n_reg_cn_principle_ningxia_training
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_cn_point_ningxia_training_work
+    valid_from: 2026-09-27
+  - subject_id: n_reg_cn_principle_ningxia_training
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_cn_point_ningxia_training_trial
+    valid_from: 2026-09-27
+  - subject_id: n_reg_cn_principle_ningxia_deficit_irrigation
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_cn_point_ningxia_deficit_crop
+    valid_from: 2026-09-27
+  - subject_id: n_reg_cn_principle_ningxia_deficit_irrigation
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_cn_point_ningxia_deficit_chemistry
+    valid_from: 2026-09-27
+  - subject_id: n_reg_cn_principle_shandong_storm_storage
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_cn_point_shandong_typhoon
+    valid_from: 2026-09-27
+  - subject_id: n_reg_cn_principle_shandong_storm_storage
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_cn_point_shandong_pond
+    valid_from: 2026-09-27
+  - subject_id: n_reg_cn_principle_shandong_small_lots
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_cn_point_shandong_terrace_work
+    valid_from: 2026-09-27
+  - subject_id: n_reg_cn_principle_shandong_small_lots
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_cn_point_shandong_separate_ferments
+    valid_from: 2026-09-27
+  - subject_id: n_reg_cn_principle_shandong_grapes_extraction
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_cn_point_shandong_blend
+    valid_from: 2026-09-27
+  - subject_id: n_reg_cn_principle_shandong_grapes_extraction
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_cn_point_shandong_marselan_extraction
+    valid_from: 2026-09-27
+  - subject_id: n_reg_cn_principle_china_phenology_models
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_cn_point_china_model_transfer
+    valid_from: 2026-09-27
+  - subject_id: n_reg_cn_principle_china_phenology_models
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_cn_point_china_model_burial
+    valid_from: 2026-09-27
+  - subject_id: n_reg_cn_principle_xinjiang_shade
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_cn_point_xinjiang_shade_growth
+    valid_from: 2026-09-27
+  - subject_id: n_reg_cn_principle_xinjiang_shade
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_cn_point_xinjiang_shade_style
+    valid_from: 2026-09-27
+  - subject_id: n_reg_cn_principle_xinjiang_nonburial_cover
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_cn_point_xinjiang_cover_material
+    valid_from: 2026-09-27
+  - subject_id: n_reg_cn_principle_xinjiang_nonburial_cover
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_cn_point_xinjiang_cover_monitoring
+    valid_from: 2026-09-27
+  - subject_id: n_reg_cn_principle_xinjiang_water_nitrogen
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_cn_point_xinjiang_soil_nitrogen
+    valid_from: 2026-09-27
+  - subject_id: n_reg_cn_principle_xinjiang_water_nitrogen
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_cn_point_xinjiang_water_nitrogen_response
+    valid_from: 2026-09-27
+  - subject_id: n_reg_cn_principle_yunnan_village_exposure
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_cn_point_yunnan_village_temperature
+    valid_from: 2026-09-27
+  - subject_id: n_reg_cn_principle_yunnan_village_exposure
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_cn_point_yunnan_mountain_ripening
+    valid_from: 2026-09-27
+  - subject_id: n_reg_cn_principle_yunnan_work_blend
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_cn_point_yunnan_manual_work
+    valid_from: 2026-09-27
+  - subject_id: n_reg_cn_principle_yunnan_work_blend
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_cn_point_yunnan_2017_blend
+    valid_from: 2026-09-27
+  - subject_id: n_reg_cn_principle_grace_2025_comparison
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_cn_point_grace_2025_causality
+    valid_from: 2026-09-27
+  - subject_id: n_reg_cn_principle_grace_2025_comparison
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_cn_point_grace_2025_logistics
+    valid_from: 2026-09-27
+  - subject_id: n_reg_cn_case_ningxia_training_budget
+    relation_type: CASE_ACTION
+    object_id: n_reg_cn_point_case_ningxia_training_budget_action
+    valid_from: 2026-09-27
+  - subject_id: n_reg_cn_case_ningxia_training_budget
+    relation_type: CASE_REASON
+    object_id: n_reg_cn_point_case_ningxia_training_budget_reason
+    valid_from: 2026-09-27
+  - subject_id: n_reg_cn_case_ningxia_training_budget
+    relation_type: CASE_TRADEOFF
+    object_id: n_reg_cn_point_case_ningxia_training_budget_tradeoff
+    valid_from: 2026-09-27
+  - subject_id: n_reg_cn_case_ningxia_training_budget
+    relation_type: CASE_LIMITATION
+    object_id: n_reg_cn_point_case_ningxia_training_budget_limitation
+    valid_from: 2026-09-27
+  - subject_id: n_reg_cn_case_shandong_water_budget
+    relation_type: CASE_ACTION
+    object_id: n_reg_cn_point_case_shandong_water_budget_action
+    valid_from: 2026-09-27
+  - subject_id: n_reg_cn_case_shandong_water_budget
+    relation_type: CASE_REASON
+    object_id: n_reg_cn_point_case_shandong_water_budget_reason
+    valid_from: 2026-09-27
+  - subject_id: n_reg_cn_case_shandong_water_budget
+    relation_type: CASE_TRADEOFF
+    object_id: n_reg_cn_point_case_shandong_water_budget_tradeoff
+    valid_from: 2026-09-27
+  - subject_id: n_reg_cn_case_shandong_water_budget
+    relation_type: CASE_LIMITATION
+    object_id: n_reg_cn_point_case_shandong_water_budget_limitation
+    valid_from: 2026-09-27
+  - subject_id: n_reg_cn_case_xinjiang_shade_style
+    relation_type: CASE_ACTION
+    object_id: n_reg_cn_point_case_xinjiang_shade_style_action
+    valid_from: 2026-09-27
+  - subject_id: n_reg_cn_case_xinjiang_shade_style
+    relation_type: CASE_REASON
+    object_id: n_reg_cn_point_case_xinjiang_shade_style_reason
+    valid_from: 2026-09-27
+  - subject_id: n_reg_cn_case_xinjiang_shade_style
+    relation_type: CASE_TRADEOFF
+    object_id: n_reg_cn_point_case_xinjiang_shade_style_tradeoff
+    valid_from: 2026-09-27
+  - subject_id: n_reg_cn_case_xinjiang_shade_style
+    relation_type: CASE_LIMITATION
+    object_id: n_reg_cn_point_case_xinjiang_shade_style_limitation
+    valid_from: 2026-09-27
+  - subject_id: n_reg_cn_case_yunnan_blend_evidence
+    relation_type: CASE_ACTION
+    object_id: n_reg_cn_point_case_yunnan_blend_evidence_action
+    valid_from: 2026-09-27
+  - subject_id: n_reg_cn_case_yunnan_blend_evidence
+    relation_type: CASE_REASON
+    object_id: n_reg_cn_point_case_yunnan_blend_evidence_reason
+    valid_from: 2026-09-27
+  - subject_id: n_reg_cn_case_yunnan_blend_evidence
+    relation_type: CASE_TRADEOFF
+    object_id: n_reg_cn_point_case_yunnan_blend_evidence_tradeoff
+    valid_from: 2026-09-27
+  - subject_id: n_reg_cn_case_yunnan_blend_evidence
+    relation_type: CASE_LIMITATION
+    object_id: n_reg_cn_point_case_yunnan_blend_evidence_limitation
+    valid_from: 2026-09-27
+knowledge_items:
+  - id: ki_reg_cn_helan_sun
+    subject_id: n_reg_cn_principle_helan_sun_water
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_cn_point_helan_sun
+    domain_id: viticulture
+    assertion_text: The primary Helan foothill account describes abundant sunshine. This provides growing-season
+      context, while a parcel’s actual maturity and intended wine style still require observation rather than
+      a sunshine-based quality guarantee.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:47:12.467Z"
+  - id: ki_reg_cn_helan_water
+    subject_id: n_reg_cn_principle_helan_sun_water
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_cn_point_helan_water
+    domain_id: viticulture
+    assertion_text: The same account describes limited precipitation and Yellow River irrigation in the Helan
+      foothills. Irrigation access and rainfall provide water-supply context; neither establishes the
+      appropriate water regime for every vineyard.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:47:12.467Z"
+  - id: ki_reg_cn_hongsibu_burial
+    subject_id: n_reg_cn_principle_hongsibu_winter_work
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_cn_point_hongsibu_burial
+    domain_id: viticulture
+    assertion_text: Research based on a March 2019 Hongsibu survey describes burying vines for winter cold
+      protection. This is a dated local practice, not evidence that one burial depth or calendar suits all
+      Chinese vineyards.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:47:12.467Z"
+  - id: ki_reg_cn_hongsibu_cost
+    subject_id: n_reg_cn_principle_hongsibu_winter_work
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_cn_point_hongsibu_cost
+    domain_id: business
+    assertion_text: The Hongsibu study identifies burial as an added production cost and an obstacle to
+      mechanisation. A business comparison therefore needs actual winter-work costs, rather than assuming the
+      region’s growing opportunity removes annual handling burdens.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:47:12.467Z"
+  - id: ki_reg_cn_ningxia_training_work
+    subject_id: n_reg_cn_principle_ningxia_training
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_cn_point_ningxia_training_work
+    domain_id: viticulture
+    assertion_text: The Ningxia training study treats convenient winter lay-down and fruit exposure as linked
+      design questions. Low or slanting trunks can aid burial operations, but a training choice must also
+      consider its canopy arrangement.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:47:12.467Z"
+  - id: ki_reg_cn_ningxia_training_trial
+    subject_id: n_reg_cn_principle_ningxia_training
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_cn_point_ningxia_training_trial
+    domain_id: viticulture
+    assertion_text: In the 2016 Yuquanying Cabernet Gernischt trial, slant-trunk training changed canopy density,
+      leaf photosynthesis and measured berry composition. These cultivar/site/vintage results do not
+      demonstrate superior finished-wine taste.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:47:12.467Z"
+  - id: ki_reg_cn_ningxia_deficit_crop
+    subject_id: n_reg_cn_principle_ningxia_deficit_irrigation
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_cn_point_ningxia_deficit_crop
+    domain_id: viticulture
+    assertion_text: In the 2015–16 Yinchuan Cabernet Sauvignon experiment, the stronger deficit treatments reduced
+      yield, berry weight and titratable acidity relative to full irrigation. This bounds a possible
+      water-saving tradeoff, rather than prescribing one deficit for Ningxia.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:47:12.467Z"
+  - id: ki_reg_cn_ningxia_deficit_chemistry
+    subject_id: n_reg_cn_principle_ningxia_deficit_irrigation
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_cn_point_ningxia_deficit_chemistry
+    domain_id: winemaking
+    assertion_text: The same experiment found irrigation-related differences in grape amino acids and derived wine
+      volatiles. Composition measurements inform fermentation and style assessment; they do not establish a
+      universally preferred taste or an optimal water dose.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:47:12.467Z"
+  - id: ki_reg_cn_shandong_typhoon
+    subject_id: n_reg_cn_principle_shandong_storm_storage
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_cn_point_shandong_typhoon
+    domain_id: viticulture
+    assertion_text: Long Dai’s Shandong account describes typhoons bringing rain and potential terrace damage.
+      Storm water requires local monitoring and protection; its arrival does not guarantee usable water at the
+      time vines later need it.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:47:12.467Z"
+  - id: ki_reg_cn_shandong_pond
+    subject_id: n_reg_cn_principle_shandong_storm_storage
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_cn_point_shandong_pond
+    domain_id: viticulture
+    assertion_text: Long Dai’s 2022–23 sustainability account describes retaining monsoon runoff in a pond for
+      occasional drip support in the driest years. This is an estate water-storage example, not a promise of
+      permanent supply sufficiency.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:47:12.467Z"
+  - id: ki_reg_cn_shandong_terrace_work
+    subject_id: n_reg_cn_principle_shandong_small_lots
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_cn_point_shandong_terrace_work
+    domain_id: viticulture
+    assertion_text: Long Dai describes adapting vineyard work to heterogeneous terraced lots, with more manual
+      handling and suitable machinery. Parcel differences affect operating arrangements rather than
+      guaranteeing a particular wine flavour.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:47:12.467Z"
+  - id: ki_reg_cn_shandong_separate_ferments
+    subject_id: n_reg_cn_principle_shandong_small_lots
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_cn_point_shandong_separate_ferments
+    domain_id: winemaking
+    assertion_text: The producer describes small temperature-controlled stainless-steel vats for separate
+      small-lot fermentations. Keeping lots separate preserves production choices before blending; it does not
+      itself prove greater quality.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:47:12.467Z"
+  - id: ki_reg_cn_shandong_blend
+    subject_id: n_reg_cn_principle_shandong_grapes_extraction
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_cn_point_shandong_blend
+    domain_id: winemaking
+    assertion_text: Long Dai describes Cabernet Sauvignon, Marselan and Cabernet Franc in its red blend. This is a
+      producer example, not a complete list of legally permitted grapes or every Shandong wine’s composition.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:47:12.467Z"
+  - id: ki_reg_cn_shandong_marselan_extraction
+    subject_id: n_reg_cn_principle_shandong_grapes_extraction
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_cn_point_shandong_marselan_extraction
+    domain_id: winemaking
+    assertion_text: Long Dai describes gentle Marselan extraction alongside traditional Bordeaux methods for its
+      emblematic varieties. The practice illustrates adapting extraction to a grape and product, without
+      promising a fixed tannin level in every resulting wine.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:47:12.467Z"
+  - id: ki_reg_cn_china_model_transfer
+    subject_id: n_reg_cn_principle_china_phenology_models
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_cn_point_china_model_transfer
+    domain_id: viticulture
+    assertion_text: A five-region Chinese comparison, including Changli, found model performance depended on site
+      and cultivar. Limited observations support checking local growth-stage predictions rather than importing
+      one air-temperature model unchanged across Chinese regions.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:47:12.467Z"
+  - id: ki_reg_cn_china_model_burial
+    subject_id: n_reg_cn_principle_china_phenology_models
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_cn_point_china_model_burial
+    domain_id: viticulture
+    assertion_text: The comparison explains that buried buds experience soil rather than station-air temperatures
+      during cover. Burial and uncovering can therefore alter budburst prediction; the paper does not supply a
+      universally safe spring uncovering date.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:47:12.467Z"
+  - id: ki_reg_cn_xinjiang_shade_growth
+    subject_id: n_reg_cn_principle_xinjiang_shade
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_cn_point_xinjiang_shade_growth
+    domain_id: viticulture
+    assertion_text: In the 2018 Manas trial, partial canopy shading reduced radiation and bunch-zone temperature,
+      but also photosynthesis and yield. Cooler exposure therefore came with a crop-output tradeoff in that
+      treatment and vintage.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:47:12.467Z"
+  - id: ki_reg_cn_xinjiang_shade_style
+    subject_id: n_reg_cn_principle_xinjiang_shade
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_cn_point_xinjiang_shade_style
+    domain_id: winemaking
+    assertion_text: Shading delayed ripening and slowed soluble-solids accumulation at matched sampling dates in
+      the Manas trial; respective-harvest soluble solids did not differ significantly. Acidity and wine
+      compounds also changed. These measurements require style assessment; chemical aroma indicators do not
+      demonstrate consumer preference.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:47:12.467Z"
+  - id: ki_reg_cn_xinjiang_cover_material
+    subject_id: n_reg_cn_principle_xinjiang_nonburial_cover
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_cn_point_xinjiang_cover_material
+    domain_id: viticulture
+    assertion_text: The 2023–24 Shihezi experiment compared a tarpaulin with an insulating blanket at different
+      covering heights. Insulation depended on material and airspace configuration; the blanket performed
+      better thermally in that local comparison.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:47:12.467Z"
+  - id: ki_reg_cn_xinjiang_cover_monitoring
+    subject_id: n_reg_cn_principle_xinjiang_nonburial_cover
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_cn_point_xinjiang_cover_monitoring
+    domain_id: viticulture
+    assertion_text: The experiment monitored cane and soil temperatures and fitted temperature predictions. These
+      measurements support local cover assessment, but one winter’s thermal model is not proof that a chosen
+      configuration protects all vines in future winters.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:47:12.467Z"
+  - id: ki_reg_cn_xinjiang_soil_nitrogen
+    subject_id: n_reg_cn_principle_xinjiang_water_nitrogen
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_cn_point_xinjiang_soil_nitrogen
+    domain_id: viticulture
+    assertion_text: In the 2018 Xinjiang trial, total vine nitrogen uptake did not differ significantly among
+      treatments, and much uptake came from soil nitrogen. More fertilizer input therefore did not demonstrate
+      greater total uptake in that experiment.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:47:12.467Z"
+  - id: ki_reg_cn_xinjiang_water_nitrogen_response
+    subject_id: n_reg_cn_principle_xinjiang_water_nitrogen
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_cn_point_xinjiang_water_nitrogen_response
+    domain_id: viticulture
+    assertion_text: At the same nitrogen input, the trial’s higher irrigation treatment had a higher measured
+      fertilizer-nitrogen utilization fraction. The highest nitrogen input had a lower measured fraction than
+      the lowest input and left more soil residue; not all utilization contrasts were statistically
+      significant. Water and nutrition need joint assessment, without treating these trial doses as regional
+      recommendations.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:47:12.467Z"
+  - id: ki_reg_cn_yunnan_village_temperature
+    subject_id: n_reg_cn_principle_yunnan_village_exposure
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_cn_point_yunnan_village_temperature
+    domain_id: viticulture
+    assertion_text: Ao Yun describes lower, southwest-facing Xidang as its warmest village setting and higher,
+      northwest-facing Adong as its coolest. This estate comparison concerns combined elevation and exposure,
+      without isolating either as the sole cause.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:47:12.467Z"
+  - id: ki_reg_cn_yunnan_mountain_ripening
+    subject_id: n_reg_cn_principle_yunnan_village_exposure
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_cn_point_yunnan_mountain_ripening
+    domain_id: viticulture
+    assertion_text: The producer describes mountain shading limiting sunshine and cooler nights extending ripening
+      at its sites. Such local conditions need parcel and seasonal assessment; a national latitude or
+      elevation label cannot establish one harvest date.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:47:12.467Z"
+  - id: ki_reg_cn_yunnan_manual_work
+    subject_id: n_reg_cn_principle_yunnan_work_blend
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_cn_point_yunnan_manual_work
+    domain_id: business
+    assertion_text: The producer describes manual vineyard and harvest work in steep mountain conditions. These
+      operating constraints matter to labour planning and costs, but do not establish a universal
+      mountain-wine price premium.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:47:12.467Z"
+  - id: ki_reg_cn_yunnan_2017_blend
+    subject_id: n_reg_cn_principle_yunnan_work_blend
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_cn_point_yunnan_2017_blend
+    domain_id: winemaking
+    assertion_text: Ao Yun’s explicitly dated 2017 blend includes Cabernet Sauvignon, Cabernet Franc, Syrah, Petit
+      Verdot and Merlot. This demonstrates one producer’s blending choices, without defining all vintages or
+      all Yunnan wines.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:47:12.467Z"
+  - id: ki_reg_cn_grace_2025_causality
+    subject_id: n_reg_cn_principle_grace_2025_comparison
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_cn_point_grace_2025_causality
+    domain_id: viticulture
+    assertion_text: Grace reports ripening-period rain in Shanxi and both drip changes and differing block vigour
+      in Ningxia in 2025. The writer explicitly calls for more seasons before attributing changes to one
+      cause.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:47:12.467Z"
+  - id: ki_reg_cn_grace_2025_logistics
+    subject_id: n_reg_cn_principle_grace_2025_comparison
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_cn_point_grace_2025_logistics
+    domain_id: business
+    assertion_text: In Grace’s 2025 report, Shanxi finished before Ningxia, allowing serial crew work; reception,
+      sorting and pressing were scheduled separately. This is dated operational evidence, not a permanent
+      regional harvest order.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:47:12.467Z"
+  - id: ki_reg_cn_case_ningxia_training_budget_action
+    subject_id: n_reg_cn_case_ningxia_training_budget
+    relation_type: CASE_ACTION
+    object_id: n_reg_cn_point_case_ningxia_training_budget_action
+    domain_id: viticulture
+    assertion_text: A defensible route is a small burial-operability and canopy comparison, recording actual
+      labour, damage and spring bud condition. Include establishment payments and recurring work in the
+      cash-flow forecast before selecting a whole-block system.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:47:12.467Z"
+  - id: ki_reg_cn_case_ningxia_training_budget_reason
+    subject_id: n_reg_cn_case_ningxia_training_budget
+    relation_type: CASE_REASON
+    object_id: n_reg_cn_point_case_ningxia_training_budget_reason
+    domain_id: viticulture
+    assertion_text: The low/slant trunk is intended to simplify lay-down for burial, while training also changes
+      canopy exposure. The supplied handling problems justify testing both operating convenience and growth
+      rather than relying only on the contractor’s saving projection.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:47:12.467Z"
+  - id: ki_reg_cn_case_ningxia_training_budget_tradeoff
+    subject_id: n_reg_cn_case_ningxia_training_budget
+    relation_type: CASE_TRADEOFF
+    object_id: n_reg_cn_point_case_ningxia_training_budget_tradeoff
+    domain_id: business
+    assertion_text: The higher establishment payment buys a possible recurring handling saving, with a canopy
+      reconfiguration to assess. Actual saving and crop performance determine the tradeoff; available
+      installation funds alone do not establish lifetime profitability.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:47:12.467Z"
+  - id: ki_reg_cn_case_ningxia_training_budget_limitation
+    subject_id: n_reg_cn_case_ningxia_training_budget
+    relation_type: CASE_LIMITATION
+    object_id: n_reg_cn_point_case_ningxia_training_budget_limitation
+    domain_id: viticulture
+    assertion_text: Monitor repeated winters and finished-wine performance before broad adoption. The cited
+      Yuquanying evidence concerns one cultivar/site/vintage’s canopy and berries, not guaranteed survival,
+      wine preference or the contractor’s projected savings.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:47:12.467Z"
+  - id: ki_reg_cn_case_shandong_water_budget_action
+    subject_id: n_reg_cn_case_shandong_water_budget
+    relation_type: CASE_ACTION
+    object_id: n_reg_cn_point_case_shandong_water_budget_action
+    domain_id: business
+    assertion_text: Estimate usable inflow, losses, vine demand and payment timing for both options before
+      selecting capacity. Protect access and monitor runoff; a staged smaller investment is defensible if the
+      larger option’s additional value remains unproven.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:47:12.467Z"
+  - id: ki_reg_cn_case_shandong_water_budget_reason
+    subject_id: n_reg_cn_case_shandong_water_budget
+    relation_type: CASE_REASON
+    object_id: n_reg_cn_point_case_shandong_water_budget_reason
+    domain_id: viticulture
+    assertion_text: Monsoon runoff can cause damage yet be unavailable when vines later need supplementary water.
+      Long Dai’s storm account and dated storage example illustrate why rain timing and usable retained supply
+      must be assessed separately.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:47:12.467Z"
+  - id: ki_reg_cn_case_shandong_water_budget_tradeoff
+    subject_id: n_reg_cn_case_shandong_water_budget
+    relation_type: CASE_TRADEOFF
+    object_id: n_reg_cn_point_case_shandong_water_budget_tradeoff
+    domain_id: business
+    assertion_text: The larger pond offers more potential storage but commits additional capital and maintenance
+      and consumes access space. Compare usable supply benefits with those supplied costs and operational
+      constraints rather than assuming capacity alone guarantees profit.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:47:12.467Z"
+  - id: ki_reg_cn_case_shandong_water_budget_limitation
+    subject_id: n_reg_cn_case_shandong_water_budget
+    relation_type: CASE_LIMITATION
+    object_id: n_reg_cn_point_case_shandong_water_budget_limitation
+    domain_id: viticulture
+    assertion_text: The pond example does not quantify this hypothetical catchment’s dependable inflow or future
+      demand. Repeated local records and the engineer’s site-specific assessment are needed; neither monsoon
+      rain nor available funds establish guaranteed water sufficiency or profitability.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:47:12.467Z"
+  - id: ki_reg_cn_case_xinjiang_shade_style_action
+    subject_id: n_reg_cn_case_xinjiang_shade_style
+    relation_type: CASE_ACTION
+    object_id: n_reg_cn_point_case_xinjiang_shade_style_action
+    domain_id: business
+    assertion_text: Retain a limited matched comparison, obtain buyer feedback on the supplied freshness/colour
+      tradeoff and calculate yield costs before expanding shade. The buyer’s brief gives a target, while the
+      missing tasting and margin evidence prevent a blanket commercial conclusion.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:47:12.467Z"
+  - id: ki_reg_cn_case_xinjiang_shade_style_reason
+    subject_id: n_reg_cn_case_xinjiang_shade_style
+    relation_type: CASE_REASON
+    object_id: n_reg_cn_point_case_xinjiang_shade_style_reason
+    domain_id: viticulture
+    assertion_text: The Manas experiment links partial shade with lower temperature and photosynthesis and altered
+      ripening. These mechanisms make the supplied slower development plausible, while the pilot’s own
+      measurements establish its particular wine-style response.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:47:12.467Z"
+  - id: ki_reg_cn_case_xinjiang_shade_style_tradeoff
+    subject_id: n_reg_cn_case_xinjiang_shade_style
+    relation_type: CASE_TRADEOFF
+    object_id: n_reg_cn_point_case_xinjiang_shade_style_tradeoff
+    domain_id: business
+    assertion_text: The supplied fresher pilot also has less colour and lower harvest weight. Assess whether buyer
+      acceptance and achievable returns cover the output loss; neither the tasting preference nor shade itself
+      guarantees a profitable product.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:47:12.467Z"
+  - id: ki_reg_cn_case_xinjiang_shade_style_limitation
+    subject_id: n_reg_cn_case_xinjiang_shade_style
+    relation_type: CASE_LIMITATION
+    object_id: n_reg_cn_point_case_xinjiang_shade_style_limitation
+    domain_id: winemaking
+    assertion_text: Repeat the comparison across seasons and at production scale. The supplied panel preference is
+      specific to its samples and brief; the cited study’s chemical indicators do not establish all consumers’
+      preferences or superior quality for every shaded Chinese wine.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:47:12.467Z"
+  - id: ki_reg_cn_case_yunnan_blend_evidence_action
+    subject_id: n_reg_cn_case_yunnan_blend_evidence
+    relation_type: CASE_ACTION
+    object_id: n_reg_cn_point_case_yunnan_blend_evidence_action
+    domain_id: winemaking
+    assertion_text: Confirm the blend’s balance in repeated coded production trials, document lot proportions and
+      obtain buyer feedback before fixing price and release volume. The supplied blend result supports a
+      product trial; it does not establish market acceptance or village authenticity.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:47:12.467Z"
+  - id: ki_reg_cn_case_yunnan_blend_evidence_reason
+    subject_id: n_reg_cn_case_yunnan_blend_evidence
+    relation_type: CASE_REASON
+    object_id: n_reg_cn_point_case_yunnan_blend_evidence_reason
+    domain_id: winemaking
+    assertion_text: Ao Yun’s village account shows that elevation and orientation can accompany different
+      temperature settings. Here, the supplied acidity and tasting establish the two lots’ complementary
+      roles; the regional example does not predict their body or taste automatically.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:47:12.467Z"
+  - id: ki_reg_cn_case_yunnan_blend_evidence_tradeoff
+    subject_id: n_reg_cn_case_yunnan_blend_evidence
+    relation_type: CASE_TRADEOFF
+    object_id: n_reg_cn_point_case_yunnan_blend_evidence_tradeoff
+    domain_id: business
+    assertion_text: Keeping parcels separate preserves blending choices but incurs the supplied manual-harvest and
+      handling costs. Assess whether the chosen product and buyer response justify those costs; expense alone
+      does not establish greater quality or a viable premium.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:47:12.467Z"
+  - id: ki_reg_cn_case_yunnan_blend_evidence_limitation
+    subject_id: n_reg_cn_case_yunnan_blend_evidence
+    relation_type: CASE_LIMITATION
+    object_id: n_reg_cn_point_case_yunnan_blend_evidence_limitation
+    domain_id: winemaking
+    assertion_text: Retain traceable lot records for provenance; coded tasting evaluates the supplied wines, not
+      village identity. One vintage’s comparison cannot isolate altitude from exposure and other parcel
+      factors or prove a universal mountain quality hierarchy.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:47:12.467Z"
+certification_knowledge_mappings:
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_cn_helan_sun
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_cn_helan_water
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_cn_hongsibu_burial
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_cn_hongsibu_cost
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_cn_ningxia_training_work
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_cn_ningxia_training_trial
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_cn_ningxia_deficit_crop
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_cn_ningxia_deficit_chemistry
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_cn_shandong_typhoon
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_cn_shandong_pond
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_cn_shandong_terrace_work
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_cn_shandong_separate_ferments
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_cn_shandong_blend
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_cn_shandong_marselan_extraction
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_cn_china_model_transfer
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_cn_china_model_burial
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_cn_xinjiang_shade_growth
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_cn_xinjiang_shade_style
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_cn_xinjiang_cover_material
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_cn_xinjiang_cover_monitoring
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_cn_xinjiang_soil_nitrogen
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_cn_xinjiang_water_nitrogen_response
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_cn_yunnan_village_temperature
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_cn_yunnan_mountain_ripening
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_cn_yunnan_manual_work
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_cn_yunnan_2017_blend
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_cn_grace_2025_causality
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_cn_grace_2025_logistics
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_cn_case_ningxia_training_budget_action
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_cn_case_ningxia_training_budget_reason
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_cn_case_ningxia_training_budget_tradeoff
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_cn_case_ningxia_training_budget_limitation
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_cn_case_shandong_water_budget_action
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_cn_case_shandong_water_budget_reason
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_cn_case_shandong_water_budget_tradeoff
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_cn_case_shandong_water_budget_limitation
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_cn_case_xinjiang_shade_style_action
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_cn_case_xinjiang_shade_style_reason
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_cn_case_xinjiang_shade_style_tradeoff
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_cn_case_xinjiang_shade_style_limitation
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_cn_case_yunnan_blend_evidence_action
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_cn_case_yunnan_blend_evidence_reason
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_cn_case_yunnan_blend_evidence_tradeoff
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_cn_case_yunnan_blend_evidence_limitation
+    importance: core
+    minimum_depth: 3
+source_citations:
+  - id: src_reg_cn_hongsibu
+    kind: reference_work
+    title: Combating Desertification through the Wine Industry in Hongsibu, Ningxia
+    publisher: Zhang et al. / Sustainability
+    jurisdiction: CN
+    url: https://www.mdpi.com/2071-1050/13/10/5654
+    document_identifier: 2021 research, DOI 10.3390/su13105654; March 2019 survey; winter-work discussion only;
+      retrieved 2026-09-27
+    accessed_on: 2026-09-27
+  - id: src_reg_cn_training
+    kind: reference_work
+    title: "Evolution of Volatile Aroma Compounds and Amino Acids in Cabernet Gernischt Grape Berries (Vitis
+      vinifera L.): Comparison of Different Training Systems for Mechanical Soil Burial"
+    publisher: Ningxia University researchers / Foods
+    jurisdiction: CN
+    url: https://www.mdpi.com/2304-8158/11/11/1568
+    document_identifier: 2022 research, DOI 10.3390/foods11111568; 2016 Yuquanying training trial; berry and
+      canopy measurements; retrieved 2026-09-27
+    accessed_on: 2026-09-27
+  - id: src_reg_cn_rdi
+    kind: reference_work
+    title: Effects of Regulated Deficit Irrigation on Amino Acid Profiles and Their Derived Volatile Compounds in
+      Cabernet Sauvignon (Vitis vinifera L.) Grapes and Wines
+    publisher: Ju et al. / Molecules
+    jurisdiction: CN
+    url: https://www.mdpi.com/1420-3049/23/8/1983
+    document_identifier: 2018 research, DOI 10.3390/molecules23081983; Yinchuan commercial vineyard 2015–16; retrieved 2026-09-27
+    accessed_on: 2026-09-27
+  - id: src_reg_cn_long_wind
+    kind: reference_work
+    title: "Gone with the winds: Long Dai and typhoons"
+    publisher: Domaines Barons de Rothschild Lafite
+    jurisdiction: CN
+    url: https://www.lafite.com/gone-with-the-winds/
+    document_identifier: Primary estate feature; Typhoon, The Unpredictable subsection; no numerical weather
+      forecast; retrieved 2026-09-27
+    accessed_on: 2026-09-27
+  - id: src_reg_cn_long_water
+    kind: reference_work
+    title: "Long Dai: sustainable development report focus"
+    publisher: Domaines Barons de Rothschild Lafite
+    jurisdiction: CN
+    url: https://www.lafite.com/wp-content/uploads/2024/03/Focus-Long-Dai-EN.pdf
+    document_identifier: 2022–23 estate CSR account; printed pages 54–55, physical PDF pages 1–2; retrieved 2026-09-27
+    accessed_on: 2026-09-27
+  - id: src_reg_cn_long_practice
+    kind: reference_work
+    title: "Domaine de Long Dai: vineyard, vinification and wines"
+    publisher: Domaines Barons de Rothschild Lafite
+    jurisdiction: CN
+    url: https://www.lafite.com/domaines/domaine-de-long-dai/read/
+    document_identifier: Living first-party estate account; selected practices, not numerical statistics or
+      guarantees; retrieved 2026-09-27
+    accessed_on: 2026-09-27
+  - id: src_reg_cn_phenology
+    kind: reference_work
+    title: Assessing grapevine phenological models under Chinese climatic conditions
+    publisher: Wang, Li and García de Cortázar-Atauri / OENO One
+    jurisdiction: CN
+    url: https://oeno-one.eu/article/view/3195
+    document_identifier: 2020 research, DOI 10.20870/oeno-one.2020.54.3.3195; limited observations across five
+      Chinese regions; retrieved 2026-09-27
+    accessed_on: 2026-09-27
+  - id: src_reg_cn_shade
+    kind: reference_work
+    title: Effects of sunlight exclusion on leaf gas exchange, berry composition, and wine flavour profile of
+      Cabernet-Sauvignon from the foot of the north side of Mount Tianshan and a semi-arid continental climate
+    publisher: Lu et al. / OENO One
+    jurisdiction: CN
+    url: https://oeno-one.eu/article/view/4545
+    document_identifier: 2021 research, DOI 10.20870/oeno-one.2021.55.2.4545; 2018 Manas partial-canopy-shade
+      experiment; retrieved 2026-09-27
+    accessed_on: 2026-09-27
+  - id: src_reg_cn_cover
+    kind: reference_work
+    title: Neural-Network-Based Prediction of Non-Burial Overwintering Material Covering Height for Wine Grapes
+    publisher: Ma et al. / Agronomy
+    jurisdiction: CN
+    url: https://www.mdpi.com/2073-4395/15/5/1060
+    document_identifier: 2025 research, DOI 10.3390/agronomy15051060; Shihezi 2023–24 covering/temperature
+      experiment; retrieved 2026-09-27
+    accessed_on: 2026-09-27
+  - id: src_reg_cn_nitrogen
+    kind: reference_work
+    title: Effects of Irrigation and N Fertilization on 15N Fertilizer Utilization by Vitis vinifera L. Cabernet
+      Sauvignon in China
+    publisher: Gong, Zhang and Liu / Water
+    jurisdiction: CN
+    url: https://www.mdpi.com/2073-4441/14/8/1205
+    document_identifier: 2022 research, DOI 10.3390/w14081205; 2018 Xinjiang drip-irrigation/fertilizer
+      experiment; retrieved 2026-09-27
+    accessed_on: 2026-09-27
+  - id: src_reg_cn_aoyun_sites
+    kind: reference_work
+    title: "Ao Yun: a mystical place and four unique villages"
+    publisher: Ao Yun
+    jurisdiction: CN
+    url: https://www.aoyun-wine.com/mystical_place.php
+    document_identifier: Living first-party mountain-site account; comparative temperature/exposure only; retrieved 2026-09-27
+    accessed_on: 2026-09-27
+  - id: src_reg_cn_aoyun_production
+    kind: reference_work
+    title: "Ao Yun: maison identity and 2017 icon"
+    publisher: LVMH / Ao Yun
+    jurisdiction: CN
+    url: https://www.lvmh.com/en/our-maisons/wines-spirits/ao-yun
+    document_identifier: Primary producer account; manual mountain work and explicitly dated 2017 blend example;
+      retrieved 2026-09-27
+    accessed_on: 2026-09-27
+  - id: src_reg_cn_grace
+    kind: reference_work
+    title: "Grace Vineyard: 2025 harvest report"
+    publisher: Grace Vineyard
+    jurisdiction: CN
+    url: https://en.grace-vineyard.com/news_Detail/10.html
+    document_identifier: Released 29 December 2025; dated Shanxi/Ningxia observations and handling practices; retrieved 2026-09-27
+    accessed_on: 2026-09-27
+knowledge_item_citations:
+  - knowledge_item_id: ki_reg_cn_helan_sun
+    source_citation_id: src_cn_atlas_ningxia_wine
+    locator: "Physical growing-conditions paragraph: sunshine; promotional superlatives excluded."
+  - knowledge_item_id: ki_reg_cn_helan_water
+    source_citation_id: src_cn_atlas_ningxia_wine
+    locator: "Physical growing-conditions paragraph: precipitation and Yellow River irrigation; no legal GI clause."
+  - knowledge_item_id: ki_reg_cn_hongsibu_burial
+    source_citation_id: src_reg_cn_hongsibu
+    locator: "Discussion: winter burial for cold protection; Methods: March 2019 survey."
+  - knowledge_item_id: ki_reg_cn_hongsibu_cost
+    source_citation_id: src_reg_cn_hongsibu
+    locator: "Discussion: burial raises production cost and complicates mechanisation; no current cost figure."
+  - knowledge_item_id: ki_reg_cn_ningxia_training_work
+    source_citation_id: src_reg_cn_training
+    locator: "Introduction: training systems for mechanical burial and canopy exposure."
+  - knowledge_item_id: ki_reg_cn_ningxia_training_trial
+    source_citation_id: src_reg_cn_training
+    locator: "Methods: 2016 Yuquanying randomized training comparison; Results/Abstract: canopy, photosynthesis
+      and berry measurements."
+  - knowledge_item_id: ki_reg_cn_ningxia_deficit_crop
+    source_citation_id: src_reg_cn_rdi
+    locator: "Sections 2.1 and 3.1: site/years, stronger RDI treatments and measured crop effects."
+  - knowledge_item_id: ki_reg_cn_ningxia_deficit_chemistry
+    source_citation_id: src_reg_cn_rdi
+    locator: "Sections 3.2–3.4 and 4: amino-acid profiles and derived volatiles; preference not established."
+  - knowledge_item_id: ki_reg_cn_shandong_typhoon
+    source_citation_id: src_reg_cn_long_wind
+    locator: "Typhoon, The Unpredictable: rain, terrace damage and local storm vigilance."
+  - knowledge_item_id: ki_reg_cn_shandong_pond
+    source_citation_id: src_reg_cn_long_water
+    locator: "Printed page 54 / physical page 1: Saving natural resources, retention pond and occasional drip
+      support."
+  - knowledge_item_id: ki_reg_cn_shandong_terrace_work
+    source_citation_id: src_reg_cn_long_practice
+    locator: "The Vineyard: heterogeneous terraces and adapted work."
+  - knowledge_item_id: ki_reg_cn_shandong_separate_ferments
+    source_citation_id: src_reg_cn_long_practice
+    locator: "Vinification: small steel vats and separate batches."
+  - knowledge_item_id: ki_reg_cn_shandong_blend
+    source_citation_id: src_reg_cn_long_practice
+    locator: "The Wines: selected blend grapes."
+  - knowledge_item_id: ki_reg_cn_shandong_marselan_extraction
+    source_citation_id: src_reg_cn_long_practice
+    locator: "The Wines: gentle Marselan extraction alongside traditional Bordeaux methods; no quantified
+      extraction comparison."
+  - knowledge_item_id: ki_reg_cn_china_model_transfer
+    source_citation_id: src_reg_cn_phenology
+    locator: "Methods: five regions/cultivars; Discussion and Conclusions: transferability and limited regional data."
+  - knowledge_item_id: ki_reg_cn_china_model_burial
+    source_citation_id: src_reg_cn_phenology
+    locator: "Discussion subsection on budburst errors: burial/uncovering and soil-versus-air thermal exposure."
+  - knowledge_item_id: ki_reg_cn_xinjiang_shade_growth
+    source_citation_id: src_reg_cn_shade
+    locator: "Methods: 2018 partial shade and fruit-zone air measurements; Results: temperature, photosynthesis
+      and yield."
+  - knowledge_item_id: ki_reg_cn_xinjiang_shade_style
+    source_citation_id: src_reg_cn_shade
+    locator: "Results 4: matched-date sugar accumulation versus respective harvests; Results 7–8: wine chemistry
+      and chemical odour-activity assessment."
+  - knowledge_item_id: ki_reg_cn_xinjiang_cover_material
+    source_citation_id: src_reg_cn_cover
+    locator: "Sections 2.1–2.5 and Results: materials, covering heights and measured insulation."
+  - knowledge_item_id: ki_reg_cn_xinjiang_cover_monitoring
+    source_citation_id: src_reg_cn_cover
+    locator: "Methods and Conclusions: branch/soil monitoring and temperature model; no universal survival claim."
+  - knowledge_item_id: ki_reg_cn_xinjiang_soil_nitrogen
+    source_citation_id: src_reg_cn_nitrogen
+    locator: "Methods: 2018 experiment; Abstract/Results/Discussion: total uptake, soil contribution and
+      significance."
+  - knowledge_item_id: ki_reg_cn_xinjiang_water_nitrogen_response
+    source_citation_id: src_reg_cn_nitrogen
+    locator: "Results 3.1/Table 3: soil residue; Results 3.3/Table 7: measured utilization fractions and
+      statistical contrasts; no monotonic dose claim."
+  - knowledge_item_id: ki_reg_cn_yunnan_village_temperature
+    source_citation_id: src_reg_cn_aoyun_sites
+    locator: "Four Unique Villages: Xidang/Adong relative elevation, orientation and temperature."
+  - knowledge_item_id: ki_reg_cn_yunnan_mountain_ripening
+    source_citation_id: src_reg_cn_aoyun_sites
+    locator: "A Mystical Place: mountain-limited sunshine, cool nights and longer ripening; flavour marketing
+      excluded."
+  - knowledge_item_id: ki_reg_cn_yunnan_manual_work
+    source_citation_id: src_reg_cn_aoyun_production
+    locator: "Identity: steep mountain sites, local farmer collaboration and manual operations."
+  - knowledge_item_id: ki_reg_cn_yunnan_2017_blend
+    source_citation_id: src_reg_cn_aoyun_production
+    locator: "Icon: explicitly dated 2017 blend; no complete regional or legal grape list."
+  - knowledge_item_id: ki_reg_cn_grace_2025_causality
+    source_citation_id: src_reg_cn_grace
+    locator: "2025 vineyard observations: Shanxi rain, Ningxia drip/vigour and explicit multi-season causal caution."
+  - knowledge_item_id: ki_reg_cn_grace_2025_logistics
+    source_citation_id: src_reg_cn_grace
+    locator: "2025 harvest sequence and winery handling: serial crew work, reception/sorting/press arrangements."
+  - knowledge_item_id: ki_reg_cn_case_ningxia_training_budget_action
+    source_citation_id: src_reg_cn_training
+    locator: "Introduction and Methods: training, burial operations and local comparisons."
+  - knowledge_item_id: ki_reg_cn_case_ningxia_training_budget_action
+    source_citation_id: src_biz_au_cashflow
+    locator: "Set up a cash flow statement; Create a budget: timing and expected outgoings, not Chinese law."
+  - knowledge_item_id: ki_reg_cn_case_ningxia_training_budget_reason
+    source_citation_id: src_reg_cn_training
+    locator: "Introduction: burial-compatible trunk design and canopy exposure."
+  - knowledge_item_id: ki_reg_cn_case_ningxia_training_budget_tradeoff
+    source_citation_id: src_reg_cn_hongsibu
+    locator: "Discussion: recurring burial cost and mechanisation constraints."
+  - knowledge_item_id: ki_reg_cn_case_ningxia_training_budget_tradeoff
+    source_citation_id: src_biz_au_cashflow
+    locator: "Cash-flow statement and budget: expected versus actual costs and timing."
+  - knowledge_item_id: ki_reg_cn_case_ningxia_training_budget_limitation
+    source_citation_id: src_reg_cn_training
+    locator: "Methods/Results: bounded 2016 Cabernet Gernischt canopy/berry experiment."
+  - knowledge_item_id: ki_reg_cn_case_shandong_water_budget_action
+    source_citation_id: src_reg_cn_long_water
+    locator: "Printed page 54: storage supports occasional dry-year irrigation."
+  - knowledge_item_id: ki_reg_cn_case_shandong_water_budget_action
+    source_citation_id: src_biz_au_cashflow
+    locator: "Cash-flow statement and budget: timing, forecast and actual performance."
+  - knowledge_item_id: ki_reg_cn_case_shandong_water_budget_reason
+    source_citation_id: src_reg_cn_long_wind
+    locator: "Typhoon, The Unpredictable: storm rain and terrace damage."
+  - knowledge_item_id: ki_reg_cn_case_shandong_water_budget_reason
+    source_citation_id: src_reg_cn_long_water
+    locator: "Printed page 54: monsoon collection and occasional dry-year drip use."
+  - knowledge_item_id: ki_reg_cn_case_shandong_water_budget_tradeoff
+    source_citation_id: src_biz_au_cashflow
+    locator: "Budget and performance tracking: forecast costs and actual outcomes."
+  - knowledge_item_id: ki_reg_cn_case_shandong_water_budget_limitation
+    source_citation_id: src_reg_cn_long_water
+    locator: "Printed page 54: bounded estate storage account; no hypothetical site performance."
+  - knowledge_item_id: ki_reg_cn_case_xinjiang_shade_style_action
+    source_citation_id: src_biz_au_pricing
+    locator: "Research your market and Market testing: customer feedback; Cost-plus pricing: actual production costs."
+  - knowledge_item_id: ki_reg_cn_case_xinjiang_shade_style_action
+    source_citation_id: src_srv_oiv_sensory
+    locator: "Part I, physical pages 3–4: comparable conditions and blind-coded samples."
+  - knowledge_item_id: ki_reg_cn_case_xinjiang_shade_style_reason
+    source_citation_id: src_reg_cn_shade
+    locator: "Abstract/Results: temperature, photosynthesis, ripening and crop effects; local experiment."
+  - knowledge_item_id: ki_reg_cn_case_xinjiang_shade_style_tradeoff
+    source_citation_id: src_reg_cn_shade
+    locator: "Results: measured crop and wine-composition tradeoffs."
+  - knowledge_item_id: ki_reg_cn_case_xinjiang_shade_style_tradeoff
+    source_citation_id: src_biz_au_pricing
+    locator: "Research your market; Cost-plus pricing: buyer value and real costs."
+  - knowledge_item_id: ki_reg_cn_case_xinjiang_shade_style_limitation
+    source_citation_id: src_reg_cn_shade
+    locator: "Methods/Results: 2018 Manas experiment and chemical aroma assessment."
+  - knowledge_item_id: ki_reg_cn_case_xinjiang_shade_style_limitation
+    source_citation_id: src_srv_oiv_sensory
+    locator: "Part I: controlled sensory assessment, sample context and repeatability."
+  - knowledge_item_id: ki_reg_cn_case_yunnan_blend_evidence_action
+    source_citation_id: src_srv_oiv_sensory
+    locator: "Part I: comparable conditions, blind codes and repeatability."
+  - knowledge_item_id: ki_reg_cn_case_yunnan_blend_evidence_action
+    source_citation_id: src_biz_au_pricing
+    locator: "Research your market and Market testing: customer acceptance before pricing conclusions."
+  - knowledge_item_id: ki_reg_cn_case_yunnan_blend_evidence_reason
+    source_citation_id: src_reg_cn_aoyun_sites
+    locator: "Four Unique Villages: contrasting exposure, elevation and temperature."
+  - knowledge_item_id: ki_reg_cn_case_yunnan_blend_evidence_tradeoff
+    source_citation_id: src_reg_cn_aoyun_production
+    locator: "Identity: manual mountain vineyard operations."
+  - knowledge_item_id: ki_reg_cn_case_yunnan_blend_evidence_tradeoff
+    source_citation_id: src_biz_au_pricing
+    locator: "Cost-plus pricing and Value pricing: costs and customer-perceived value are distinct inputs."
+  - knowledge_item_id: ki_reg_cn_case_yunnan_blend_evidence_limitation
+    source_citation_id: src_srv_oiv_sensory
+    locator: "Part I: sensory assessment under limited sample information; not an origin-authentication guarantee."
+  - knowledge_item_id: ki_reg_cn_case_yunnan_blend_evidence_limitation
+    source_citation_id: src_reg_cn_aoyun_sites
+    locator: "Four Unique Villages: combined site factors, not an isolated altitude trial."

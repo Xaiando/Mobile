@@ -1,0 +1,438 @@
+import 'dart:async';
+
+import 'package:clock/clock.dart';
+import 'package:fsrs/fsrs.dart' as fsrs;
+
+import '../curriculum/knowledge_graph.dart';
+import '../database/app_database.dart';
+import '../study/study_planner.dart';
+import '../time/utc_clock.dart';
+import 'wset_scope.dart';
+
+/// Counts current, mapped facts. A fact counts once, regardless of formats.
+class ProgressCounts {
+  const ProgressCounts({
+    required this.mapped,
+    required this.available,
+    required this.studied,
+    required this.mastered,
+    required this.due,
+  });
+
+  final int mapped;
+  final int available;
+  final int studied;
+  final int mastered;
+  final int due;
+
+  int get unavailable => mapped - available;
+  int get newItems => available - studied;
+  double? get studiedFraction => available == 0 ? null : studied / available;
+  double? get masteredFraction => available == 0 ? null : mastered / available;
+  bool get availableMaterialMastered => available > 0 && mastered == available;
+}
+
+class ProgressTopic {
+  const ProgressTopic({required this.title, required this.counts});
+  final String title;
+  final ProgressCounts counts;
+}
+
+class ProgressSuggestion {
+  const ProgressSuggestion({
+    required this.itemId,
+    required this.title,
+    required this.topic,
+    required this.reason,
+  });
+  final String itemId;
+  final String title;
+  final String topic;
+  final String reason;
+}
+
+class WsetUnitProgress {
+  const WsetUnitProgress({required this.scope, required this.counts});
+  final WsetUnitScope scope;
+  final ProgressCounts counts;
+}
+
+class WsetLevelProgress {
+  const WsetLevelProgress({
+    required this.scope,
+    required this.counts,
+    required this.selectable,
+    required this.examPassed,
+    required this.topics,
+    required this.nextItems,
+    required this.units,
+    required this.unassigned,
+  });
+
+  final WsetLevelScope scope;
+  final ProgressCounts counts;
+  final bool selectable;
+
+  /// Learner-entered exam result; never inferred from app study activity.
+  final bool examPassed;
+  final List<ProgressTopic> topics;
+  final List<ProgressSuggestion> nextItems;
+  final List<WsetUnitProgress> units;
+  final ProgressCounts unassigned;
+
+  bool get appLevelComplete =>
+      scope.curriculumComplete &&
+      counts.mapped > 0 &&
+      counts.unavailable == 0 &&
+      counts.mastered == counts.mapped;
+}
+
+class WsetProgressSnapshot {
+  const WsetProgressSnapshot({required this.asOf, required this.levels});
+  final DateTime asOf;
+  final List<WsetLevelProgress> levels;
+}
+
+/// Derives study progress from the planner's cumulative mappings and FSRS
+/// projection. No new learner schema or separate format-specific counters.
+class WsetProgressRepository {
+  WsetProgressRepository(
+    this.db, {
+    required this.scope,
+    StudyPlanner? planner,
+    Clock? clock,
+  }) : _clock = clock ?? const Clock(),
+       _planner = planner ?? StudyPlanner(db, clock: clock),
+       _graph = KnowledgeGraph(db, clock: clock);
+
+  final AppDatabase db;
+  final WsetScope scope;
+  final Clock _clock;
+  final StudyPlanner _planner;
+  final KnowledgeGraph _graph;
+
+  static const masteryStabilityDays = 7.0;
+  static const masteryRetrievability = 0.90;
+  static const masterySuccessfulDates = 3;
+  static const masterySpan = Duration(days: 7);
+
+  /// Recompute after reviews, curriculum changes and learner-entered passes.
+  /// Optional clock refreshes reuse the subscription and retain the last value.
+  Stream<WsetProgressSnapshot> watch({Duration? refreshInterval}) {
+    if (refreshInterval != null && refreshInterval <= Duration.zero) {
+      throw ArgumentError.value(refreshInterval, 'refreshInterval');
+    }
+    final updates = StreamController<WsetProgressSnapshot>();
+    StreamSubscription<void>? changes;
+    Timer? timer;
+    var cancelled = false;
+    var computing = false;
+    var requested = false;
+
+    Future<void> recompute() async {
+      if (cancelled) {
+        return;
+      }
+      requested = true;
+      if (computing) {
+        return;
+      }
+      computing = true;
+      try {
+        // A write during a calculation needs one follow-up, not a parallel
+        // query or a queue of obsolete snapshots.
+        while (requested && !cancelled) {
+          requested = false;
+          try {
+            final value = await snapshot();
+            if (cancelled) {
+              return;
+            }
+            updates.add(value);
+            // Start only after initial data. A slow first calculation must
+            // never be restarted by a clock tick before it can finish.
+            if (timer == null && refreshInterval != null) {
+              timer = Timer.periodic(
+                refreshInterval,
+                (_) => unawaited(recompute()),
+              );
+            }
+          } catch (error, stack) {
+            if (!cancelled) {
+              updates.addError(error, stack);
+            }
+          }
+        }
+      } finally {
+        computing = false;
+      }
+    }
+
+    updates.onListen = () {
+      changes = db
+          .customSelect(
+            'SELECT 1',
+            readsFrom: {
+              db.reviewStates,
+              db.reviewEvents,
+              db.userSettings,
+              db.certifications,
+              db.certificationKnowledgeMappings,
+              db.curriculumReleases,
+              db.knowledgeItems,
+              db.knowledgeRelations,
+              db.knowledgeNodes,
+              db.curriculumDomains,
+              db.questions,
+              db.exercisePools,
+              db.exercisePoolItems,
+              db.schedulerConfigs,
+            },
+          )
+          .watch()
+          .map<void>((_) {})
+          .listen(
+            (_) => unawaited(recompute()),
+            onError: updates.addError,
+            onDone: updates.close,
+          );
+    };
+    updates.onCancel = () async {
+      cancelled = true;
+      timer?.cancel();
+      await changes?.cancel();
+    };
+    return updates.stream;
+  }
+
+  Future<void> setExamPassed(String certificationId, bool passed) async {
+    if (!scope.levels.any(
+      (level) => level.certificationId == certificationId,
+    )) {
+      throw ArgumentError.value(certificationId, 'certificationId');
+    }
+    await db
+        .into(db.userSettings)
+        .insertOnConflictUpdate(
+          UserSettingsCompanion.insert(
+            name: _passKey(certificationId),
+            value: passed ? 'true' : 'false',
+            updatedAt: utcNow(_clock),
+          ),
+        );
+  }
+
+  static String _passKey(String certificationId) =>
+      'exam_pass_${certificationId.toLowerCase()}';
+
+  Future<WsetProgressSnapshot> snapshot() async {
+    scope.validate();
+    final now = utcNow(_clock);
+    final items = await _graph.currentItems();
+    final certifications = {
+      for (final row in await db.select(db.certifications).get()) row.id: row,
+    };
+    final domains = {
+      for (final row in await db.select(db.curriculumDomains).get())
+        row.id: row.displayName,
+    };
+    final nodes = {
+      for (final row in await db.select(db.knowledgeNodes).get())
+        row.id: row.name,
+    };
+    final settings = {
+      for (final row in await db.select(db.userSettings).get())
+        row.name: row.value,
+    };
+    final events = <String, List<ReviewEvent>>{};
+    for (final event in await db.select(db.reviewEvents).get()) {
+      if (!event.reviewedAt.isAfter(now)) {
+        events.putIfAbsent(event.knowledgeItemId, () => []).add(event);
+      }
+    }
+    final regionSets = <String, Set<String>>{};
+    final itemQuery = db.selectOnly(db.knowledgeItems)
+      ..addColumns([db.knowledgeItems.id]);
+    final installedItemIds = {
+      for (final row in await itemQuery.get()) row.read(db.knowledgeItems.id)!,
+    };
+    for (final level in scope.levels) {
+      for (final unit in level.units) {
+        for (final id in unit.itemIds) {
+          if (!installedItemIds.contains(id)) {
+            throw FormatException('Unknown progress topic item: $id');
+          }
+        }
+        for (final root in [...unit.regionRoots, ...unit.geographyRoots]) {
+          if (!nodes.containsKey(root)) {
+            throw FormatException('Unknown progress topic region: $root');
+          }
+          if (!regionSets.containsKey(root)) {
+            regionSets[root] = {
+              root,
+              for (final node in await _graph.descendants(root)) node.id,
+            };
+          }
+        }
+      }
+    }
+    final levels = <WsetLevelProgress>[];
+    for (final level in scope.levels) {
+      final mappings = await _planner.effectiveMappings(level.certificationId);
+      final mapped = items
+          .where((item) => mappings.containsKey(item.id))
+          .toList();
+      // The planner applies format registry, depth and current-fact rules.
+      final cards = {
+        for (final card in await _planner.cards(level.certificationId))
+          if (card.formats.isNotEmpty) card.itemId: card,
+      };
+      final mastered = {
+        for (final card in cards.values)
+          if (_isMastered(card, events[card.itemId] ?? const [], now))
+            card.itemId,
+      };
+      ProgressCounts count(Iterable<KnowledgeItem> subset) {
+        final all = subset.toList();
+        final served = [
+          for (final item in all)
+            if (cards[item.id] != null) cards[item.id]!,
+        ];
+        return ProgressCounts(
+          mapped: all.length,
+          available: served.length,
+          studied: served.where((card) => card.state != null).length,
+          mastered: served
+              .where((card) => mastered.contains(card.itemId))
+              .length,
+          due: served.where((card) => card.isDue(now)).length,
+        );
+      }
+
+      final topicIds = mapped.map((item) => item.domainId).toSet().toList()
+        ..sort();
+      final topics = [
+        for (final domain in topicIds)
+          ProgressTopic(
+            title: domains[domain] ?? domain,
+            counts: count(mapped.where((item) => item.domainId == domain)),
+          ),
+      ];
+      final candidates =
+          cards.values.where((card) => !mastered.contains(card.itemId)).toList()
+            ..sort((a, b) {
+              int rank(StudyCard card) => card.isDue(now)
+                  ? 0
+                  : card.isNew
+                  ? 1
+                  : 2;
+              final rankOrder = rank(a).compareTo(rank(b));
+              if (rankOrder != 0) return rankOrder;
+              if (a.state != null && b.state != null) {
+                final dueOrder = a.state!.due.compareTo(b.state!.due);
+                if (dueOrder != 0) return dueOrder;
+              }
+              return a.itemId.compareTo(b.itemId);
+            });
+      final assigned = <String, List<KnowledgeItem>>{
+        for (final unit in level.units) unit.id: [],
+      };
+      final unassigned = <KnowledgeItem>[];
+      final explicitUnits = {
+        for (final unit in level.units)
+          for (final id in unit.itemIds) id: unit,
+      };
+      for (final item in mapped) {
+        final regional = level.units
+            .where(
+              (unit) =>
+                  unit.regionRoots.any(
+                    (root) => regionSets[root]!.contains(item.subjectId),
+                  ) ||
+                  (item.relationType == 'LOCATED_IN' &&
+                      unit.geographyRoots.any(
+                        (root) => regionSets[root]!.contains(item.subjectId),
+                      )),
+            )
+            .firstOrNull;
+        final unit =
+            explicitUnits[item.id] ??
+            regional ??
+            level.units
+                .where((unit) => unit.domains.contains(item.domainId))
+                .firstOrNull;
+        if (unit == null) {
+          unassigned.add(item);
+        } else {
+          assigned[unit.id]!.add(item);
+        }
+      }
+      levels.add(
+        WsetLevelProgress(
+          scope: level,
+          counts: count(mapped),
+          selectable:
+              certifications[level.certificationId]?.isSelectable ?? false,
+          examPassed: settings[_passKey(level.certificationId)] == 'true',
+          topics: topics,
+          nextItems: [
+            for (final card in candidates.take(3))
+              ProgressSuggestion(
+                itemId: card.itemId,
+                title: card.item.assertionText,
+                topic:
+                    '${domains[card.item.domainId] ?? card.item.domainId} · '
+                    '${nodes[card.item.subjectId] ?? card.item.subjectId}',
+                reason: card.isDue(now)
+                    ? 'Review due'
+                    : card.isNew
+                    ? 'New fact'
+                    : 'Keep practising',
+              ),
+          ],
+          units: [
+            for (final unit in level.units)
+              WsetUnitProgress(scope: unit, counts: count(assigned[unit.id]!)),
+          ],
+          unassigned: count(unassigned),
+        ),
+      );
+    }
+    return WsetProgressSnapshot(asOf: now, levels: List.unmodifiable(levels));
+  }
+
+  static bool _isMastered(
+    StudyCard card,
+    List<ReviewEvent> events,
+    DateTime now,
+  ) {
+    final state = card.state;
+    if (state == null ||
+        state.state != fsrs.State.review.value ||
+        state.lastReview.isAfter(now) ||
+        state.stability < masteryStabilityDays ||
+        card.retrievability < masteryRetrievability) {
+      return false;
+    }
+    DateTime? lastAgain;
+    for (final event in events) {
+      if (event.rating == fsrs.Rating.again.value &&
+          (lastAgain == null || event.reviewedAt.isAfter(lastAgain))) {
+        lastAgain = event.reviewedAt;
+      }
+    }
+    // Use distinct UTC review dates, not taps or template counts. Successes
+    // at the same instant as a lapse do not restore mastery.
+    final dates = <DateTime>{};
+    for (final event in events) {
+      if (event.rating >= fsrs.Rating.good.value &&
+          (lastAgain == null || event.reviewedAt.isAfter(lastAgain))) {
+        final date = event.reviewedAt.toUtc();
+        dates.add(DateTime.utc(date.year, date.month, date.day));
+      }
+    }
+    if (dates.length < masterySuccessfulDates) return false;
+    final ordered = dates.toList()..sort();
+    return ordered.last.difference(ordered.first) >= masterySpan;
+  }
+}

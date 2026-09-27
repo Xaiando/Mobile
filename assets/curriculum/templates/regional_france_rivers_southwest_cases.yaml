@@ -1,0 +1,78 @@
+# Original conditional regional comparisons; one self-checked case per scope.
+question_templates:
+  - id: qt_reg_fs_case_loire_muscadet_inventory
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: reg_fs_loire_muscadet_inventory
+    prompt_template: A Muscadet producer divides the same finished base wine between fine-lees maturation for
+      six months and eighteen months, with otherwise similar cellar treatment. Trials show the
+      longer-held lot has a fuller palate; customers have expressed interest but have not committed to
+      purchases. Bottling the longer-held lot later would occupy vats and delay sales, and the producer
+      must pay ongoing bills during that period. Assess the longer-maturation option with an action,
+      reason, tradeoff and limitation; neither lot has an established quality advantage.
+    parameters:
+      scope_node_ids:
+        - n_reg_fs_case_loire_muscadet_inventory
+      key_points:
+        CASE_ACTION: Defensible comparison or action
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or evidence needed
+  - id: qt_reg_fs_case_rhone_harvest_water
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: reg_fs_rhone_harvest_water
+    prompt_template: Two southern Rhône trial blocks contain Syrah and Grenache. Current berry samples show
+      that Syrah meets the producer’s chosen ripeness target while Grenache does not; monitoring also
+      records worsening water constraint in the Grenache block. The manager proposes one harvest date for
+      both because Grenache is drought-adapted. Assess that proposal with an action, reason, tradeoff and
+      limitation. The target is balanced fruit for two separately vinified dry reds, and no irrigation
+      permission or universal maturity threshold is supplied.
+    parameters:
+      scope_node_ids:
+        - n_reg_fs_case_rhone_harvest_water
+      key_points:
+        CASE_ACTION: Defensible comparison or action
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or evidence needed
+  - id: qt_reg_fs_case_southwest_madiran_extraction
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: reg_fs_southwest_madiran_extraction
+    prompt_template: A Madiran producer divides ripe Tannat fruit into two trial lots. The shorter
+      skin-contact lot is less astringent and meets a restaurant’s preference for an approachable young
+      red; the longer-contact lot has more colour and firmer tannins but no better rating for balance.
+      Other recorded cellar treatments are similar, and the producer has no mature samples from either
+      treatment. Choose a provisional route for this customer and explain a reason, tradeoff and
+      limitation without treating the darkest wine as inherently best.
+    parameters:
+      scope_node_ids:
+        - n_reg_fs_case_southwest_madiran_extraction
+      key_points:
+        CASE_ACTION: Defensible comparison or action
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or evidence needed
+  - id: qt_reg_fs_case_southwest_sweet_process
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: reg_fs_southwest_sweet_process
+    prompt_template: "A buyer receives two sweet-white offers: a Jurançon made from on-vine dried Manseng
+      fruit and a Monbazillac made from selectively picked noble-rotted fruit. Both currently meet the
+      buyer’s sweetness and freshness brief in tasting. The Monbazillac supplier documents more picking
+      passes and higher harvest labour cost for these specific lots, but asks the buyer to accept a
+      higher price solely because noble rot is supposedly better. Compare the processes and assess the
+      claim with an action, reason, tradeoff and limitation; customer willingness to pay is unknown."
+    parameters:
+      scope_node_ids:
+        - n_reg_fs_case_southwest_sweet_process
+      key_points:
+        CASE_ACTION: Defensible comparison or action
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or evidence needed

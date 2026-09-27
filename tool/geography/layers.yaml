@@ -18,6 +18,23 @@ commune_successors:
   "37120": "37232" # Ingrandes-de-Touraine, now part of Coteaux-sur-Loire
   "37227": "37232" # Saint-Michel-sur-Loire, now part of Coteaux-sur-Loire
   "44160": "44003" # Saint-Géréon, now part of Ancenis-Saint-Géréon
+  "69144": "69208" # Nuelles, merged into Saint-Germain-Nuelles (INSEE 2026).
+  "33091": "33268" # Cantenac, now Margaux-Cantenac (INSEE).
+  "33092": "33008" # Cantois, now Porte-de-Benauge (INSEE).
+  "33338": "33055" # Prignac-en-Médoc, now Blaignan-Prignac (INSEE).
+  # INSEE COG 2026, v_mvt_commune_2026.csv (src_insee_cog_movements).
+  "12020": "12090" # Balsac → Druelle Balsac
+  "24181": "24534" # Flaugeac → Sigoulès-et-Flaugeac
+  "25134": "25185" # Châtillon-sur-Lison → Cussey-sur-Lison
+  "25399": "25460" # Montfort → Le Val
+  "26371": "26289" # Véronne → Saillans
+  "39023": "39378" # L'Aubépin → Les Trois-Châteaux
+  "39135": "39378" # Chazelles → Les Trois-Châteaux
+  "39395": "39043" # Orbagna → Beaufort-Orbagna
+  "39484": "39378" # Saint-Jean-d'Étreux → Les Trois-Châteaux
+  "39488": "39021" # Saint-Laurent-la-Roche → La Chailleuse
+  "66163": "66106" # Riunoguès → Maureillas-las-Illas
+  "81155": "81026" # Marsal → Bellegarde-Marsal
 
 layers:
   # World context, from Natural Earth 1:50m.
@@ -25,8 +42,8 @@ layers:
     asset: world_continents.topo.json
     display_name: Continents
     geometry: area
-    zoom: [0, 3]
-    sources: [src_ne_regions]
+    zoom: [ 0, 3 ]
+    sources: [ src_ne_regions ]
     natural_earth:
       input: ne_50m_geography_regions_polys
       where: FEATURECLA == 'Continent'
@@ -38,8 +55,8 @@ layers:
     asset: world_countries.topo.json
     display_name: Countries
     geometry: area
-    zoom: [0, 10]
-    sources: [src_ne_countries, src_ne_map_units]
+    zoom: [ 0, 10 ]
+    sources: [ src_ne_countries, src_ne_map_units, src_ne_americas_island_parts ]
     natural_earth:
       input: ne_50m_admin_0_countries
       name: NAME_EN
@@ -50,9 +67,33 @@ layers:
         input: ne_50m_admin_0_map_units
         where: ADM0_A3 == 'FRA'
         key: GU_A3
+      # Complete 10m source island parts omitted by the 50m country outlines.
+      # Existing country shapes and France's map-unit replacement remain.
+      supplement:
+        source: src_ne_americas_island_parts
+        key: key
+        name: name
       nodes:
         FXX: n_geo_france
         ITA: n_geo_italy
+        DEU: n_geo_germany
+        AUT: n_geo_austria
+        CHE: n_geo_switzerland
+        HUN: n_geo_hungary
+        GRC: n_geo_greece
+        ESP: n_geo_spain
+        PRT: n_geo_portugal
+        USA: n_geo_united_states
+        CAN: n_geo_canada
+        CHL: n_geo_chile
+        ARG: n_geo_argentina
+        AUS: n_geo_australia
+        NZL: n_geo_new_zealand
+        ZAF: n_geo_south_africa
+        GEO: n_geo_georgia
+        LBN: n_geo_lebanon
+        GBR: n_geo_united_kingdom
+        CHN: n_geo_china
     simplify: 40%
     quantization: 100000
 
@@ -60,8 +101,8 @@ layers:
     asset: world_coastline.topo.json
     display_name: Coastlines
     geometry: line
-    zoom: [0, 10]
-    sources: [src_ne_coastline]
+    zoom: [ 0, 10 ]
+    sources: [ src_ne_coastline ]
     natural_earth:
       input: ne_50m_coastline
     simplify: 40%
@@ -71,8 +112,8 @@ layers:
     asset: world_marine.topo.json
     display_name: Seas and oceans
     geometry: area
-    zoom: [0, 8]
-    sources: [src_ne_marine]
+    zoom: [ 0, 8 ]
+    sources: [ src_ne_marine ]
     natural_earth:
       input: ne_50m_geography_marine_polys
       name: name
@@ -83,8 +124,8 @@ layers:
     asset: world_lakes.topo.json
     display_name: Lakes
     geometry: area
-    zoom: [2, 10]
-    sources: [src_ne_lakes]
+    zoom: [ 2, 10 ]
+    sources: [ src_ne_lakes ]
     natural_earth:
       input: ne_50m_lakes
       name: name
@@ -95,8 +136,8 @@ layers:
     asset: world_rivers.topo.json
     display_name: Major rivers
     geometry: line
-    zoom: [3, 10]
-    sources: [src_ne_rivers]
+    zoom: [ 3, 10 ]
+    sources: [ src_ne_rivers ]
     natural_earth:
       input: ne_50m_rivers_lake_centerlines
       where: featurecla == 'River'
@@ -108,11 +149,12 @@ layers:
     asset: world_physical.topo.json
     display_name: Mountain ranges, plateaus and plains
     geometry: area
-    zoom: [2, 7]
-    sources: [src_ne_regions]
+    zoom: [ 2, 7 ]
+    sources: [ src_ne_regions ]
     natural_earth:
       input: ne_50m_geography_regions_polys
-      where: "['Range/mtn', 'Plateau', 'Plain', 'Valley', 'Basin', 'Foothills', 'Lowland'].includes(FEATURECLA)"
+      where: "['Range/mtn', 'Plateau', 'Plain', 'Valley', 'Basin', 'Foothills',
+        'Lowland'].includes(FEATURECLA)"
       name: NAME
     simplify: 15%
     quantization: 50000
@@ -127,23 +169,304 @@ layers:
     asset: fr_regions.topo.json
     display_name: French wine regions
     geometry: area
-    zoom: [4, 10]
+    zoom: [ 4, 10 ]
     parent: ml_world_countries
-    sources: [src_inao_areas, src_ign_admin_express]
+    sources: [ src_inao_areas, src_ign_admin_express, src_insee_cog_movements ]
     appellation_areas:
       n_geo_burgundy:
-        aoc: [2184]
-        departments: ["21", "71", "89"]
-        note: The regional AOC Bourgogne, without its communes in the Rhône department (Beaujolais).
+        aoc:
+          - 220
+          - 238
+          - 249
+          - 282
+          - 326
+          - 327
+          - 336
+          - 356
+          - 397
+          - 398
+          - 406
+          - 407
+          - 408
+          - 434
+          - 436
+          - 437
+          - 498
+          - 502
+          - 503
+          - 504
+          - 505
+          - 506
+          - 507
+          - 508
+          - 509
+          - 510
+          - 511
+          - 516
+          - 520
+          - 522
+          - 543
+          - 571
+          - 600
+          - 607
+          - 608
+          - 609
+          - 610
+          - 619
+          - 749
+          - 758
+          - 760
+          - 761
+          - 762
+          - 796
+          - 815
+          - 866
+          - 879
+          - 880
+          - 925
+          - 926
+          - 969
+          - 977
+          - 1007
+          - 1008
+          - 1009
+          - 1010
+          - 1032
+          - 1033
+          - 1034
+          - 1035
+          - 1036
+          - 1074
+          - 1106
+          - 1107
+          - 1108
+          - 1122
+          - 1169
+          - 1207
+          - 1223
+          - 1230
+          - 1231
+          - 1232
+          - 1233
+          - 1630
+          - 2184
+          - 2185
+          - 2187
+          - 2188
+          - 2189
+          - 2216
+          - 2428
+        departments:
+          - "21"
+          - "71"
+          - "89"
+        note: "The regional AOC Bourgogne, without its communes in the Rhône department
+          (Beaujolais). Study-area footprint: union of the named descendant
+          appellation production communes; this grouping has no independent
+          legal appellation boundary."
       n_geo_champagne_region:
-        aoc: [54]
-        note: The AOC Champagne.
+        aoc:
+          - 54
+          - 1961
+          - 1963
+        note: "The AOC Champagne. Study-area footprint: union of the named descendant
+          appellation production communes; this grouping has no independent
+          legal appellation boundary."
       n_geo_rhone_valley:
-        aoc: [1286, 1284, 1282, 1278, 1310, 1308, 1306, 1283, 1311, 1279]
-        note: The regional AOC Côtes du Rhône with the northern crus and Châteauneuf-du-Pape.
+        aoc:
+          - 1251
+          - 1278
+          - 1279
+          - 1281
+          - 1282
+          - 1283
+          - 1284
+          - 1286
+          - 1287
+          - 1288
+          - 1302
+          - 1305
+          - 1306
+          - 1307
+          - 1308
+          - 1309
+          - 1310
+          - 1311
+          - 1312
+          - 1313
+          - 1341
+          - 1822
+          - 1862
+          - 2123
+        note: "The regional AOC Côtes du Rhône with the northern crus and
+          Châteauneuf-du-Pape. Study-area footprint: union of the named
+          descendant appellation production communes; this grouping has no
+          independent legal appellation boundary."
       n_geo_loire_valley:
-        aoc: [2341, 195, 158, 203, 209, 214, 202, 196]
-        note: The principal AOCs of the Pays Nantais (Muscadet), Anjou, Saumur, Touraine and the Centre (Sancerre, Pouilly-Fumé).
+        aoc:
+          - 158
+          - 162
+          - 163
+          - 165
+          - 168
+          - 180
+          - 191
+          - 194
+          - 195
+          - 196
+          - 197
+          - 198
+          - 199
+          - 201
+          - 202
+          - 203
+          - 204
+          - 205
+          - 206
+          - 209
+          - 214
+          - 215
+          - 2341
+          - 2342
+        note: "The principal AOCs of the Pays Nantais (Muscadet), Anjou, Saumur,
+          Touraine and the Centre (Sancerre, Pouilly-Fumé). Study-area
+          footprint: union of the named descendant appellation production
+          communes; this grouping has no independent legal appellation
+          boundary."
+      n_geo_beaujolais_region:
+        aoc:
+          - 250
+          - 251
+          - 354
+          - 495
+          - 499
+          - 512
+          - 529
+          - 601
+          - 902
+          - 910
+          - 1029
+          - 1061
+        note: "Study-area footprint: union of the named descendant appellation
+          production communes; this grouping has no independent legal
+          appellation boundary."
+      n_geo_bordeaux:
+        aoc:
+          - 58
+          - 63
+          - 66
+          - 68
+          - 70
+          - 71
+          - 81
+          - 83
+          - 86
+          - 88
+          - 92
+          - 93
+          - 94
+          - 95
+          - 99
+          - 100
+          - 102
+          - 106
+          - 108
+          - 109
+          - 148
+          - 150
+          - 151
+          - 152
+          - 153
+          - 154
+          - 157
+          - 1882
+          - 1890
+          - 1891
+          - 1892
+          - 1893
+          - 2390
+          - 2422
+        note: "Study-area footprint: union of the named descendant appellation
+          production communes; this grouping has no independent legal
+          appellation boundary."
+      n_geo_alsace_region:
+        aoc:
+          - 1
+          - 4
+          - 6
+          - 18
+          - 22
+          - 35
+          - 36
+          - 38
+          - 39
+          - 52
+          - 1653
+          - 2181
+        note: "Study-area footprint: union of the named descendant appellation
+          production communes; this grouping has no independent legal
+          appellation boundary."
+      n_geo_savoie_region:
+        aoc:
+          - 1146
+          - 1151
+          - 1152
+          - 1153
+          - 1154
+          - 1158
+          - 1159
+          - 1885
+        note: "Study-area footprint: union of the named descendant appellation
+          production communes; this grouping has no independent legal
+          appellation boundary."
+      n_geo_provence:
+        aoc:
+          - 1322
+          - 1320
+          - 1321
+          - 1317
+          - 1319
+          - 1323
+          - 1318
+      n_geo_languedoc_region:
+        aoc:
+          - 2352
+          - 1274
+          - 1277
+          - 1250
+          - 1620
+          - 1273
+          - 1272
+          - 1275
+          - 1841
+          - 2354
+          - 1839
+          - 1725
+          - 1276
+          - 1414
+          - 1235
+          - 1870
+          - 1333
+      n_geo_roussillon:
+        aoc:
+          - 1266
+          - 1267
+          - 1249
+          - 1332
+          - 1335
+          - 1342
+          - 1873
+      n_geo_corsica:
+        aoc:
+          - 1316
+          - 1324
+          - 1325
+          - 1326
+          - 1330
+          - 1328
+          - 1329
+          - 1327
+          - 1340
     simplify: 30%
     quantization: 100000
 
@@ -151,22 +474,192 @@ layers:
     asset: fr_subregions.topo.json
     display_name: French wine subregions
     geometry: area
-    zoom: [6, 12]
+    zoom: [ 6, 12 ]
     parent: ml_fr_regions
-    sources: [src_inao_areas, src_ign_admin_express]
+    sources: [ src_inao_areas, src_ign_admin_express, src_insee_cog_movements ]
     appellation_areas:
       n_geo_cote_de_beaune:
-        aoc: [511, 610, 969, 220, 502, 1122, 282, 510, 977, 1169, 866, 238, 1106, 796, 327, 1010, 437, 1074, 1108, 749]
-        note: Côte de Beaune-Villages and the village AOCs of the Côte de Beaune.
+        aoc:
+          - 220
+          - 238
+          - 249
+          - 282
+          - 326
+          - 327
+          - 437
+          - 498
+          - 502
+          - 508
+          - 509
+          - 510
+          - 511
+          - 520
+          - 610
+          - 749
+          - 796
+          - 866
+          - 879
+          - 969
+          - 977
+          - 1010
+          - 1074
+          - 1106
+          - 1108
+          - 1122
+          - 1169
+          - 2185
+        note: "Côte de Beaune-Villages and the village AOCs of the Côte de Beaune.
+          Study-area footprint: union of the named descendant appellation
+          production communes; this grouping has no independent legal
+          appellation boundary."
       n_geo_northern_rhone:
-        aoc: [1284, 1282, 1278, 1310, 1308, 1306, 1283, 1311]
+        aoc: [ 1284, 1282, 1278, 1310, 1308, 1306, 1283, 1311 ]
         note: The northern crus, from Côte Rôtie to Saint-Péray.
       n_geo_southern_rhone:
-        aoc: [1287, 1279, 1307, 1313, 1302, 1341, 1822, 1309, 1312, 1288]
+        aoc: [ 1287, 1279, 1307, 1313, 1302, 1341, 1822, 1309, 1312, 1288 ]
         note: Côtes du Rhône Villages and the southern crus.
       n_geo_touraine:
-        aoc: [209, 214]
-        note: The AOC Touraine, with Vouvray.
+        aoc:
+          - 163
+          - 165
+          - 191
+          - 201
+          - 209
+          - 214
+        note: "The AOC Touraine, with Vouvray. Study-area footprint: union of the named
+          descendant appellation production communes; this grouping has no
+          independent legal appellation boundary."
+      n_geo_chablisien:
+        aoc:
+          - 356
+          - 397
+          - 398
+          - 2189
+        note: "Study-area footprint: union of the named descendant appellation
+          production communes; this grouping has no independent legal
+          appellation boundary."
+      n_geo_grand_auxerrois:
+        aoc:
+          - 1233
+          - 1230
+          - 2428
+      n_geo_cote_de_nuits:
+        aoc:
+          - 336
+          - 406
+          - 407
+          - 408
+          - 434
+          - 436
+          - 503
+          - 504
+          - 505
+          - 506
+          - 507
+          - 516
+          - 522
+          - 543
+          - 600
+          - 607
+          - 608
+          - 609
+          - 619
+          - 758
+          - 760
+          - 761
+          - 880
+          - 925
+          - 926
+          - 1032
+          - 1033
+          - 1034
+          - 1035
+          - 1207
+          - 1223
+          - 2187
+          - 2188
+        note: "Study-area footprint: union of the named descendant appellation
+          production communes; this grouping has no independent legal
+          appellation boundary."
+      n_geo_cote_chalonnaise:
+        aoc:
+          - 1231
+          - 1036
+          - 762
+          - 571
+          - 815
+      n_geo_maconnais:
+        aoc:
+          - 2216
+          - 1630
+          - 1232
+          - 1107
+          - 1007
+          - 1008
+          - 1009
+      n_geo_bordeaux_left_bank:
+        aoc:
+          - 100
+          - 88
+          - 151
+          - 106
+          - 153
+          - 99
+          - 93
+          - 2390
+          - 86
+          - 108
+          - 157
+          - 58
+          - 71
+      n_geo_bordeaux_right_bank:
+        aoc:
+          - 70
+          - 83
+          - 92
+          - 95
+          - 102
+          - 109
+          - 148
+          - 150
+          - 152
+          - 1882
+          - 1891
+          - 1893
+        note: "Study-area footprint: union of the named descendant appellation
+          production communes; this grouping has no independent legal
+          appellation boundary."
+      n_geo_entre_deux_mers_area:
+        aoc:
+          - 81
+          - 68
+          - 94
+          - 154
+          - 1890
+          - 2422
+      n_geo_pays_nantais:
+        aoc:
+          - 2341
+          - 195
+          - 2342
+          - 194
+      n_geo_anjou_saumur:
+        aoc:
+          - 206
+          - 168
+          - 197
+          - 162
+          - 205
+          - 203
+          - 204
+          - 215
+          - 158
+      n_geo_centre_loire:
+        aoc:
+          - 202
+          - 180
+          - 198
+          - 199
     simplify: 30%
     quantization: 100000
 
@@ -174,19 +667,925 @@ layers:
     asset: fr_appellations.topo.json
     display_name: French appellations
     geometry: area
-    zoom: [7, 14]
+    zoom: [ 7, 14 ]
     parent: ml_fr_regions
-    sources: [src_inao_areas, src_ign_admin_express]
+    sources: [ src_inao_areas, src_ign_admin_express, src_insee_cog_movements ]
     appellation_areas:
-      n_geo_chablis: {aoc: [356]}
-      n_geo_volnay: {aoc: [1169]}
-      n_geo_cornas: {aoc: [1283]}
-      n_geo_crozes_hermitage: {aoc: [1306]}
-      n_geo_condrieu: {aoc: [1282]}
-      n_geo_chateauneuf_du_pape: {aoc: [1279]}
-      n_geo_pouilly_fume: {aoc: [196]}
-      n_geo_vouvray: {aoc: [214]}
-      n_geo_muscadet_sevre_et_maine: {aoc: [195]}
-      n_geo_champagne: {aoc: [54]}
+      n_geo_chablis: { aoc: [ 356 ] }
+      n_geo_volnay: { aoc: [ 1169 ] }
+      n_geo_cornas: { aoc: [ 1283 ] }
+      n_geo_crozes_hermitage: { aoc: [ 1306 ] }
+      n_geo_condrieu: { aoc: [ 1282 ] }
+      n_geo_chateauneuf_du_pape: { aoc: [ 1279 ] }
+      n_geo_pouilly_fume: { aoc: [ 196 ] }
+      n_geo_vouvray: { aoc: [ 214 ] }
+      n_geo_muscadet_sevre_et_maine: { aoc: [ 195 ] }
+      n_geo_champagne: { aoc: [ 54 ] }
+      n_geo_marsannay:
+        aoc:
+          - 758
+      n_geo_fixin:
+        aoc:
+          - 522
+      n_geo_gevrey_chambertin:
+        aoc:
+          - 543
+      n_geo_morey_saint_denis:
+        aoc:
+          - 880
+      n_geo_chambolle_musigny:
+        aoc:
+          - 408
+      n_geo_vougeot:
+        aoc:
+          - 1223
+      n_geo_vosne_romanee:
+        aoc:
+          - 1207
+      n_geo_nuits_saint_georges:
+        aoc:
+          - 926
+      n_geo_cote_de_nuits_villages:
+        aoc:
+          - 516
+      n_geo_ladoix:
+        aoc:
+          - 610
+      n_geo_pernand_vergelesses:
+        aoc:
+          - 969
+      n_geo_aloxe_corton:
+        aoc:
+          - 220
+      n_geo_chorey_les_beaune:
+        aoc:
+          - 502
+      n_geo_savigny_les_beaune:
+        aoc:
+          - 1122
+      n_geo_beaune:
+        aoc:
+          - 282
+      n_geo_pommard:
+        aoc:
+          - 977
+      n_geo_monthelie:
+        aoc:
+          - 866
+      n_geo_auxey_duresses:
+        aoc:
+          - 238
+      n_geo_saint_romain:
+        aoc:
+          - 1106
+      n_geo_meursault:
+        aoc:
+          - 796
+      n_geo_blagny:
+        aoc:
+          - 327
+      n_geo_puligny_montrachet:
+        aoc:
+          - 1010
+      n_geo_chassagne_montrachet:
+        aoc:
+          - 437
+      n_geo_saint_aubin:
+        aoc:
+          - 1074
+      n_geo_santenay:
+        aoc:
+          - 1108
+      n_geo_maranges:
+        aoc:
+          - 749
+      n_geo_cote_de_beaune_aoc:
+        aoc:
+          - 510
+      n_geo_cote_de_beaune_villages:
+        aoc:
+          - 511
+      n_geo_bouzeron:
+        aoc:
+          - 1231
+      n_geo_rully:
+        aoc:
+          - 1036
+      n_geo_mercurey:
+        aoc:
+          - 762
+      n_geo_givry:
+        aoc:
+          - 571
+      n_geo_montagny:
+        aoc:
+          - 815
+      n_geo_macon:
+        aoc:
+          - 2216
+      n_geo_macon_villages:
+        aoc:
+          - 1630
+      n_geo_vire_clesse:
+        aoc:
+          - 1232
+      n_geo_saint_veran:
+        aoc:
+          - 1107
+      n_geo_pouilly_fuisse:
+        aoc:
+          - 1007
+      n_geo_pouilly_loche:
+        aoc:
+          - 1008
+      n_geo_pouilly_vinzelles:
+        aoc:
+          - 1009
+      n_geo_irancy:
+        aoc:
+          - 1233
+      n_geo_saint_bris:
+        aoc:
+          - 1230
+      n_geo_vezelay:
+        aoc:
+          - 2428
+      n_geo_petit_chablis:
+        aoc:
+          - 2189
+      n_geo_chablis_premier_cru:
+        aoc:
+          - 397
+      n_geo_chablis_grand_cru:
+        aoc:
+          - 398
+      n_geo_saint_amour:
+        aoc:
+          - 1061
+      n_geo_julienas:
+        aoc:
+          - 601
+      n_geo_chenas:
+        aoc:
+          - 495
+      n_geo_moulin_a_vent:
+        aoc:
+          - 910
+      n_geo_fleurie:
+        aoc:
+          - 529
+      n_geo_chiroubles:
+        aoc:
+          - 499
+      n_geo_morgon:
+        aoc:
+          - 902
+      n_geo_regnie:
+        aoc:
+          - 1029
+      n_geo_cote_de_brouilly:
+        aoc:
+          - 512
+      n_geo_brouilly:
+        aoc:
+          - 354
+      n_geo_beaujolais:
+        aoc:
+          - 250
+      n_geo_beaujolais_villages:
+        aoc:
+          - 251
+      n_geo_medoc:
+        aoc:
+          - 100
+      n_geo_haut_medoc:
+        aoc:
+          - 88
+      n_geo_saint_estephe:
+        aoc:
+          - 151
+      n_geo_pauillac:
+        aoc:
+          - 106
+      n_geo_saint_julien:
+        aoc:
+          - 153
+      n_geo_margaux:
+        aoc:
+          - 99
+      n_geo_listrac_medoc:
+        aoc:
+          - 93
+      n_geo_moulis_en_medoc:
+        aoc:
+          - 2390
+      n_geo_graves:
+        aoc:
+          - 86
+      n_geo_pessac_leognan:
+        aoc:
+          - 108
+      n_geo_sauternes:
+        aoc:
+          - 157
+      n_geo_barsac:
+        aoc:
+          - 58
+      n_geo_cerons:
+        aoc:
+          - 71
+      n_geo_saint_emilion:
+        aoc:
+          - 150
+      n_geo_saint_emilion_grand_cru:
+        aoc:
+          - 1882
+      n_geo_montagne_saint_emilion:
+        aoc:
+          - 102
+      n_geo_lussac_saint_emilion:
+        aoc:
+          - 95
+      n_geo_puisseguin_saint_emilion:
+        aoc:
+          - 148
+      n_geo_saint_georges_saint_emilion:
+        aoc:
+          - 152
+      n_geo_pomerol:
+        aoc:
+          - 109
+      n_geo_lalande_de_pomerol:
+        aoc:
+          - 92
+      n_geo_fronsac:
+        aoc:
+          - 83
+      n_geo_canon_fronsac:
+        aoc:
+          - 70
+      n_geo_entre_deux_mers:
+        aoc:
+          - 81
+      n_geo_cadillac:
+        aoc:
+          - 68
+      n_geo_loupiac:
+        aoc:
+          - 94
+      n_geo_sainte_croix_du_mont:
+        aoc:
+          - 154
+      n_geo_cadillac_cotes_de_bordeaux:
+        aoc:
+          - 1890
+      n_geo_sainte_foy_cotes_de_bordeaux:
+        aoc:
+          - 2422
+      n_geo_cotes_de_bourg:
+        aoc:
+          - 66
+      n_geo_blaye_cotes_de_bordeaux:
+        aoc:
+          - 1892
+      n_geo_castillon_cotes_de_bordeaux:
+        aoc:
+          - 1891
+      n_geo_francs_cotes_de_bordeaux:
+        aoc:
+          - 1893
+      n_geo_cotes_de_bordeaux:
+        aoc:
+          - 1890
+          - 1892
+          - 1891
+          - 1893
+          - 2422
+      n_geo_savennieres:
+        aoc:
+          - 206
+      n_geo_coteaux_du_layon:
+        aoc:
+          - 168
+      n_geo_quarts_de_chaume:
+        aoc:
+          - 197
+      n_geo_bonnezeaux:
+        aoc:
+          - 162
+      n_geo_saumur:
+        aoc:
+          - 205
+          - 203
+          - 204
+      n_geo_saumur_champigny:
+        aoc:
+          - 215
+      n_geo_anjou:
+        aoc:
+          - 158
+      n_geo_chinon:
+        aoc:
+          - 165
+      n_geo_bourgueil:
+        aoc:
+          - 163
+      n_geo_saint_nicolas_de_bourgueil:
+        aoc:
+          - 201
+      n_geo_montlouis_sur_loire:
+        aoc:
+          - 191
+      n_geo_sancerre:
+        aoc:
+          - 202
+      n_geo_menetou_salon:
+        aoc:
+          - 180
+      n_geo_quincy:
+        aoc:
+          - 198
+      n_geo_reuilly:
+        aoc:
+          - 199
+      n_geo_muscadet:
+        aoc:
+          - 2341
+      n_geo_muscadet_coteaux_de_la_loire:
+        aoc:
+          - 2342
+      n_geo_muscadet_cotes_de_grandlieu:
+        aoc:
+          - 194
+      n_geo_cote_rotie:
+        aoc:
+          - 1284
+      n_geo_chateau_grillet:
+        aoc:
+          - 1278
+      n_geo_saint_joseph:
+        aoc:
+          - 1310
+      n_geo_hermitage:
+        aoc:
+          - 1308
+      n_geo_saint_peray:
+        aoc:
+          - 1311
+      n_geo_gigondas:
+        aoc:
+          - 1307
+      n_geo_vacqueyras:
+        aoc:
+          - 1313
+      n_geo_rasteau:
+        aoc:
+          - 1341
+      n_geo_cairanne:
+        aoc:
+          - 1822
+      n_geo_vinsobres:
+        aoc:
+          - 1302
+      n_geo_beaumes_de_venise:
+        aoc:
+          - 1288
+      n_geo_lirac:
+        aoc:
+          - 1309
+      n_geo_tavel:
+        aoc:
+          - 1312
+      n_geo_cotes_du_rhone:
+        aoc:
+          - 1286
+      n_geo_cotes_du_rhone_villages:
+        aoc:
+          - 1287
+      n_geo_ventoux:
+        aoc:
+          - 1305
+      n_geo_luberon:
+        aoc:
+          - 1862
+      n_geo_costieres_de_nimes:
+        aoc:
+          - 1251
+      n_geo_grignan_les_adhemar:
+        aoc:
+          - 2123
+      n_geo_clairette_de_die:
+        aoc:
+          - 1281
+      n_geo_coteaux_champenois:
+        aoc:
+          - 1963
+      n_geo_rose_des_riceys:
+        aoc:
+          - 1961
+      n_geo_alsace_aoc:
+        aoc:
+          - 1
+      n_geo_cremant_d_alsace:
+        aoc:
+          - 2181
+      n_geo_arbois:
+        aoc:
+          - 236
+      n_geo_arbois_pupillin:
+        aoc:
+          - 237
+      n_geo_chateau_chalon:
+        aoc:
+          - 494
+      n_geo_l_etoile:
+        aoc:
+          - 606
+      n_geo_vin_de_savoie:
+        aoc:
+          - 1151
+      n_geo_roussette_de_savoie:
+        aoc:
+          - 1885
+      n_geo_seyssel:
+        aoc:
+          - 1146
+      n_geo_savoie_apremont:
+        aoc:
+          - 1153
+      n_geo_savoie_les_abymes:
+        aoc:
+          - 1152
+      n_geo_savoie_chignin:
+        aoc:
+          - 1158
+      n_geo_savoie_chignin_bergeron:
+        aoc:
+          - 1159
+      n_geo_savoie_arbin:
+        aoc:
+          - 1154
+      n_geo_cotes_de_provence:
+        aoc:
+          - 1322
+      n_geo_coteaux_d_aix_en_provence:
+        aoc:
+          - 1320
+      n_geo_coteaux_varois_en_provence:
+        aoc:
+          - 1321
+      n_geo_bandol:
+        aoc:
+          - 1317
+      n_geo_cassis:
+        aoc:
+          - 1319
+      n_geo_palette:
+        aoc:
+          - 1323
+      n_geo_bellet:
+        aoc:
+          - 1318
+      n_geo_languedoc_aoc:
+        aoc:
+          - 2352
+      n_geo_minervois:
+        aoc:
+          - 1274
+      n_geo_minervois_la_liviniere:
+        aoc:
+          - 1277
+      n_geo_corbieres:
+        aoc:
+          - 1250
+      n_geo_boutenac:
+        aoc:
+          - 1620
+      n_geo_fitou:
+        aoc:
+          - 1273
+      n_geo_faugeres:
+        aoc:
+          - 1272
+      n_geo_saint_chinian:
+        aoc:
+          - 1275
+      n_geo_pic_saint_loup:
+        aoc:
+          - 1841
+      n_geo_terrasses_du_larzac:
+        aoc:
+          - 2354
+      n_geo_la_clape:
+        aoc:
+          - 1839
+      n_geo_picpoul_de_pinet:
+        aoc:
+          - 1725
+      n_geo_cabardes:
+        aoc:
+          - 1276
+      n_geo_malepere:
+        aoc:
+          - 1414
+      n_geo_limoux:
+        aoc:
+          - 1235
+      n_geo_blanquette_de_limoux:
+        aoc:
+          - 1235
+      n_geo_cremant_de_limoux:
+        aoc:
+          - 1870
+      n_geo_muscat_de_frontignan:
+        aoc:
+          - 1333
+      n_geo_cotes_du_roussillon:
+        aoc:
+          - 1266
+      n_geo_cotes_du_roussillon_villages:
+        aoc:
+          - 1267
+      n_geo_collioure:
+        aoc:
+          - 1249
+      n_geo_banyuls:
+        aoc:
+          - 1332
+      n_geo_banyuls_grand_cru:
+        aoc:
+          - 1332
+      n_geo_maury:
+        aoc:
+          - 1335
+      n_geo_maury_sec:
+        aoc:
+          - 1335
+      n_geo_rivesaltes:
+        aoc:
+          - 1342
+      n_geo_muscat_de_rivesaltes:
+        aoc:
+          - 1873
+      n_geo_cahors:
+        aoc:
+          - 2145
+      n_geo_madiran:
+        aoc:
+          - 96
+      n_geo_pacherenc_du_vic_bilh:
+        aoc:
+          - 97
+      n_geo_jurancon:
+        aoc:
+          - 91
+      n_geo_gaillac:
+        aoc:
+          - 1627
+      n_geo_fronton:
+        aoc:
+          - 77
+      n_geo_irouleguy:
+        aoc:
+          - 90
+      n_geo_saint_mont:
+        aoc:
+          - 1733
+      n_geo_bergerac:
+        aoc:
+          - 61
+      n_geo_monbazillac:
+        aoc:
+          - 101
+      n_geo_pecharmant:
+        aoc:
+          - 107
+      n_geo_buzet:
+        aoc:
+          - 67
+      n_geo_cotes_de_duras:
+        aoc:
+          - 75
+      n_geo_ajaccio:
+        aoc:
+          - 1316
+      n_geo_patrimonio:
+        aoc:
+          - 1324
+      n_geo_corse:
+        aoc:
+          - 1325
+      n_geo_corse_calvi:
+        aoc:
+          - 1326
+      n_geo_corse_sartene:
+        aoc:
+          - 1330
+      n_geo_corse_figari:
+        aoc:
+          - 1328
+      n_geo_corse_porto_vecchio:
+        aoc:
+          - 1329
+      n_geo_corse_coteaux_du_cap_corse:
+        aoc:
+          - 1327
+      n_geo_muscat_du_cap_corse:
+        aoc:
+          - 1340
     simplify: 40%
+    quantization: 100000
+  - id: ml_current_regions_markers
+    asset: current_regions_markers.topo.json
+    display_name: European wine-area location markers
+    geometry: point
+    zoom:
+      - 4
+      - 18
+    parent: ml_world_countries
+    sources:
+      - src_current_regions_markers
+    gazetteer:
+      source: src_current_regions_markers
+    simplify: 100%
+    quantization: 100000
+  - id: ml_world_atlas_markers
+    asset: world_atlas_markers.topo.json
+    display_name: World wine-area location markers
+    geometry: point
+    zoom:
+      - 4
+      - 18
+    parent: ml_world_countries
+    sources:
+      - src_world_atlas_markers
+    gazetteer:
+      source: src_world_atlas_markers
+    simplify: 100%
+    quantization: 100000
+  - id: ml_central_europe_atlas_markers
+    asset: central_europe_atlas_markers.topo.json
+    display_name: Central European wine-area location markers
+    geometry: point
+    zoom:
+      - 4
+      - 18
+    parent: ml_world_countries
+    sources:
+      - src_central_europe_atlas_markers
+    gazetteer:
+      source: src_central_europe_atlas_markers
+    simplify: 100%
+    quantization: 100000
+  - id: ml_france_champagne_markers
+    asset: france_champagne_markers.topo.json
+    display_name: Champagne traditional wine-area location markers
+    geometry: point
+    zoom:
+      - 4
+      - 18
+    parent: ml_world_countries
+    sources:
+      - src_france_champagne_markers
+    gazetteer:
+      source: src_france_champagne_markers
+    simplify: 100%
+    quantization: 100000
+  - id: ml_france_atlas_markers
+    asset: france_atlas_markers.topo.json
+    display_name: French vineyard and wine-area location markers
+    geometry: point
+    zoom:
+      - 4
+      - 18
+    parent: ml_world_countries
+    sources:
+      - src_france_atlas_markers
+    gazetteer:
+      source: src_france_atlas_markers
+    simplify: 100%
+    quantization: 100000
+  - id: ml_france_chablis_cadastre_markers
+    asset: france_chablis_cadastre_markers.topo.json
+    display_name: Chablis Premier Cru vineyard location markers
+    geometry: point
+    zoom:
+      - 4
+      - 18
+    parent: ml_world_countries
+    sources:
+      - src_france_chablis_cadastre_markers
+    gazetteer:
+      source: src_france_chablis_cadastre_markers
+    simplify: 100%
+    quantization: 100000
+  - id: ml_france_atlas_completion_markers
+    asset: france_atlas_completion_markers.topo.json
+    display_name: Additional Chablis and Alsace vineyard location markers
+    geometry: point
+    zoom:
+      - 4
+      - 18
+    parent: ml_world_countries
+    sources:
+      - src_france_atlas_completion_markers
+    gazetteer:
+      source: src_france_atlas_completion_markers
+    simplify: 100%
+    quantization: 100000
+  - id: ml_france_atlas_completion_cadastre_markers
+    asset: france_atlas_completion_cadastre_markers.topo.json
+    display_name: Additional Chablis climat location markers
+    geometry: point
+    zoom:
+      - 4
+      - 18
+    parent: ml_world_countries
+    sources:
+      - src_france_atlas_completion_cadastre_markers
+    gazetteer:
+      source: src_france_atlas_completion_cadastre_markers
+    simplify: 100%
+    quantization: 100000
+  - id: ml_france_atlas_completion_reference_markers
+    asset: france_atlas_completion_reference_markers.topo.json
+    display_name: Chablis climat municipality reference
+    geometry: point
+    zoom:
+      - 4
+      - 18
+    parent: ml_world_countries
+    sources:
+      - src_france_atlas_completion_reference_markers
+    gazetteer:
+      source: src_france_atlas_completion_reference_markers
+    simplify: 100%
+    quantization: 100000
+  - id: ml_europe_atlas_completion_markers
+    asset: europe_atlas_completion_markers.topo.json
+    display_name: Italian and Spanish wine-area location markers
+    geometry: point
+    zoom:
+      - 4
+      - 18
+    parent: ml_world_countries
+    sources:
+      - src_europe_atlas_completion_markers
+    gazetteer:
+      source: src_europe_atlas_completion_markers
+    simplify: 100%
+    quantization: 100000
+  - id: ml_new_world_atlas_completion_markers
+    asset: new_world_atlas_completion_markers.topo.json
+    display_name: Additional New World wine-area location markers
+    geometry: point
+    zoom:
+      - 4
+      - 18
+    parent: ml_world_countries
+    sources:
+      - src_new_world_atlas_completion_markers
+    gazetteer:
+      source: src_new_world_atlas_completion_markers
+    simplify: 100%
+    quantization: 100000
+  - id: ml_new_world_atlas_completion_gazetteer_markers
+    asset: new_world_atlas_completion_gazetteer_markers.topo.json
+    display_name: New World locality and terrain reference markers
+    geometry: point
+    zoom:
+      - 4
+      - 18
+    parent: ml_world_countries
+    sources:
+      - src_new_world_atlas_completion_gazetteer_markers
+    gazetteer:
+      source: src_new_world_atlas_completion_gazetteer_markers
+    simplify: 100%
+    quantization: 100000
+  - id: ml_british_atlas_markers
+    asset: british_atlas_markers.topo.json
+    display_name: England and Wales wine-area reference markers
+    geometry: point
+    zoom:
+      - 4
+      - 18
+    parent: ml_world_countries
+    sources:
+      - src_british_atlas_markers
+    gazetteer:
+      source: src_british_atlas_markers
+    simplify: 100%
+    quantization: 100000
+  - id: ml_china_atlas_markers
+    asset: china_atlas_markers.topo.json
+    display_name: Chinese wine-area reference markers
+    geometry: point
+    zoom:
+      - 4
+      - 18
+    parent: ml_world_countries
+    sources:
+      - src_china_atlas_markers
+    gazetteer:
+      source: src_china_atlas_markers
+    simplify: 100%
+    quantization: 100000
+  - id: ml_diploma_us_atlas_markers
+    asset: diploma_us_atlas_markers.topo.json
+    display_name: New York wine-area reference markers
+    geometry: point
+    zoom:
+      - 4
+      - 18
+    parent: ml_world_countries
+    sources:
+      - src_diploma_us_atlas_markers
+    gazetteer:
+      source: src_diploma_us_atlas_markers
+    simplify: 100%
+    quantization: 100000
+  - id: ml_diploma_regions_markers
+    asset: diploma_regions_markers.topo.json
+    display_name: Diploma regional reference markers
+    geometry: point
+    zoom:
+      - 4
+      - 18
+    parent: ml_world_countries
+    sources:
+      - src_diploma_regions_markers
+    gazetteer:
+      source: src_diploma_regions_markers
+    simplify: 100%
+    quantization: 100000
+  - id: ml_new_world_oceania_africa_au_gis_markers
+    asset: new_world_oceania_africa_au_gis_markers.topo.json
+    display_name: Australian wine GI interior reference markers
+    geometry: point
+    zoom:
+      - 4
+      - 18
+    parent: ml_world_countries
+    sources:
+      - src_new_world_oceania_africa_au_gis_markers
+    gazetteer:
+      source: src_new_world_oceania_africa_au_gis_markers
+    simplify: 100%
+    quantization: 100000
+  - id: ml_new_world_oceania_africa_reference_markers
+    asset: new_world_oceania_africa_reference_markers.topo.json
+    display_name: Australian and South African reference markers
+    geometry: point
+    zoom:
+      - 4
+      - 18
+    parent: ml_world_countries
+    sources:
+      - src_new_world_oceania_africa_reference_markers
+    gazetteer:
+      source: src_new_world_oceania_africa_reference_markers
+    simplify: 100%
+    quantization: 100000
+  - id: ml_new_world_oceania_africa_gazetteer_markers
+    asset: new_world_oceania_africa_gazetteer_markers.topo.json
+    display_name: South African locality and terrain references
+    geometry: point
+    zoom:
+      - 4
+      - 18
+    parent: ml_world_countries
+    sources:
+      - src_new_world_oceania_africa_gazetteer_markers
+    gazetteer:
+      source: src_new_world_oceania_africa_gazetteer_markers
+    simplify: 100%
+    quantization: 100000
+  - id: ml_new_world_americas_markers
+    asset: new_world_americas_markers.topo.json
+    display_name: American wine-area reference markers
+    geometry: point
+    zoom:
+      - 4
+      - 18
+    parent: ml_world_countries
+    sources:
+      - src_new_world_americas_markers
+    gazetteer:
+      source: src_new_world_americas_markers
+    simplify: 100%
+    quantization: 100000
+  - id: ml_new_world_americas_gazetteer_markers
+    asset: new_world_americas_gazetteer_markers.topo.json
+    display_name: American locality and terrain references
+    geometry: point
+    zoom:
+      - 4
+      - 18
+    parent: ml_world_countries
+    sources:
+      - src_new_world_americas_gazetteer_markers
+    gazetteer:
+      source: src_new_world_americas_gazetteer_markers
+    simplify: 100%
     quantization: 100000

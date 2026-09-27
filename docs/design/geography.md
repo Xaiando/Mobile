@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **Status** | Design for backlog group G ([backlog.md](../backlog.md)). Decisions are registered in [architecture-audit.md](../architecture-audit.md) §15; licensing questions in [legal-review.md](../legal-review.md) L-15 to L-23 and L-25. |
+| **Status** | Design for backlog group G ([backlog.md](../backlog.md)), with release 0.11 atlas coverage recorded on 2026-09-26: 20 countries and 1,423 mapped wine places. Complete regional lists and advanced atlas drills remain partial. Decisions are registered in [architecture-audit.md](../architecture-audit.md) §15; licensing questions in [legal-review.md](../legal-review.md) L-15 to L-23 and L-25. |
 | **Content plan** | [content/subregion-atlas.md](../content/subregion-atlas.md): the sub-regions of the famous regions, their drills and registers (GEO-15 to GEO-18, tasks G10–G13) |
 | **Builds on** | The knowledge graph (domain model §3.2), FS-2 (one memory state per item), V-2 (validity by date), the question system ([question-system.md](question-system.md)) |
 
@@ -48,6 +48,8 @@ The existing types are `country`, `region`, `subregion`, `appellation`, `soil` a
 | `informal_area` | Left Bank, Côte des Blancs, Gibbston | A traditional area with no legal definition (GEO-15). It is drawn from a cited commune list or as a labelled point, and never offered as an appellation. |
 
 ### Relation types
+
+Release 0.11 uses dated statistic subjects for six New Zealand 2025 top-two planted-variety records. `STATISTIC_IN_AREA` resolves each record to existing geographic geometry; the statistic receives no invented shape. `TOP_PLANTED_GRAPE` clues stay within one complete ranking cohort with the same cited source and observation year. They are separate from complete legal permission unions. Every represented qualifying area is accepted, including alternatives to the primary card's area, and composite reviews grade each clue independently. [Measure and source](../../tool/geography/new_world_plantings_sources.md).
 
 | Relation | Signature | Meaning, with an example | Used by |
 |---|---|---|---|
@@ -190,9 +192,11 @@ Layers are built only from sources that allow commercial redistribution. Finding
 
 The Copernicus DEM is an alternative to SRTM, with a mandatory "all rights reserved" notice, so SRTM is preferred (L-23).
 
-**Countries not yet covered.** Spain, Portugal, Austria, Switzerland, Australia, New Zealand, South Africa, Chile and Argentina are researched in their atlas tasks (G11–G13), and so are the German states outside Rhineland-Palatinate (G12) (L-25). Each needs an open-licensed boundary source, or it falls back as below.
+**Release 0.11 coverage.** Authored location facts and reusable geometry cover France, Italy, Germany, Austria, Switzerland, Hungary, Greece, Spain, Portugal, the United States, Canada, Chile, Argentina, Australia, New Zealand, South Africa, Georgia, Lebanon, the United Kingdom and China. Every one of the 1,423 noncountry wine places has a cited location item and a geometry; country context adds 20 more node features. This is the authored set, not every wine region or site in those countries. G10–G13 still extend the regional lists, vineyards and spatial relationships (L-25).
 
 **Fallback (GEO-9).** Where no open shape exists, the node is drawn as a *point* at a label point taken from an open municipal boundary or a public-domain gazetteer. It still supports locate questions at a coarser frame. Nobody draws boundaries by hand from copyrighted maps.
+
+The release's checked-in gazetteer snapshots record each marker's original source and coordinate. Most international points come from Wikidata under CC0; a named settlement can represent its surrounding wine area, as recorded in the source notes. French vineyard markers use published INAO parcel data where available. Six Chablis Premier Cru locations use interior points of named cadastral lieux-dits from the June 2026 Etalab cadastre, under Open Licence 1.0. The completion adds 47 INAO parcel references, 23 additional cadastral references and one explicitly qualified Côte de Fontenay municipality reference. New World markers also use UC Davis AVA Project CC0 polygon-derived interior points and GeoNames locality/terrain coordinates under CC BY 4.0, with separate attribution. These markers indicate locations and do not depict wine-area boundaries. See the source notes in [tool/geography](../../tool/geography/).
 
 **Approximation disclosure.** An appellation area built from its communes is the legal *geographical area*, which is larger than the delimited vineyard parcels. The map legend says so (GEO-10).
 
@@ -220,7 +224,7 @@ The Copernicus DEM is an alternative to SRTM, with a mandatory "all rights reser
 - a layer parses in at most 100 ms on a mid-range phone;
 - a frame renders in at most 8 ms after warm-up.
 
-**As built (G1).** `tool/geography/` builds ten layers, 1.4 MB in all (`report.md` lists them):
+**As built (G1 and release 0.11).** `tool/geography/` builds 31 layers, 2,516.1 KB in all ([report.md](../../tool/geography/report.md) lists them). The original world-context and French-area layers are extended by twenty-one point layers:
 
 - **World context** comes from Natural Earth 5.1.1 at 1:50m: continents, countries, coastlines, seas and oceans, lakes, major rivers, and physical regions (ranges, plateaus, plains, valleys and basins). France comes from Natural Earth's map units, so metropolitan France is the node `n_geo_france` and each overseas department is a context feature of its own.
 - **France** has three layers: wine regions, subregions and appellations. Each feature is the union of the communes of INAO geographical areas (INAO's list of 9 October 2025). The commune shapes come from IGN ADMIN EXPRESS COG CARTO 2026, reprojected from Lambert-93.
@@ -228,6 +232,7 @@ The Copernicus DEM is an alternative to SRTM, with a mandatory "all rights reser
   - INAO still names a few merged communes by their old INSEE codes. See GEO-20 for how the build draws them.
   - INAO lists whole communes. Where a specification includes only part of a commune, the map draws the whole commune. This is part of the approximation that GEO-10 discloses.
   - The areas follow INAO's commune lists, not INAO's SIQO area polygons. The research handoff treats the lists as authoritative wherever the two differ.
+- **Atlas point layers** draw existing European regions, the world atlas, Central Europe, Champagne's traditional areas, French vineyard sites and the six Chablis cadastral reference points. Each source snapshot is pinned by SHA-256 with its licence and attribution in `sources.yaml`; its per-feature provenance remains in the checked-in GeoJSON. Together with the area layers, these draw all 1,443 authored geography nodes. Country and wine-place coverage does not establish complete wine-law or certification coverage; every authored item still awaits expert review.
 - **`fetch`** downloads each source into `~/.cache/sommelier-geography`, or into `$SOMMELIER_GEO_CACHE`.
   - It resumes interrupted downloads.
   - It refuses any file whose SHA-256 differs from `sources.yaml`.
@@ -249,7 +254,7 @@ The Copernicus DEM is an alternative to SRTM, with a mandatory "all rights reser
 
   When every source is cached, `check` also rebuilds the layers in a temporary directory and compares them with the committed files. It fails when a cached source is another edition. CI runs it offline, in the web job, after `npm test`, which runs the pipeline's own unit tests.
 - **The tool test** (`test/tool/geography_manifest_test.dart`) loads every asset with the G3 decoder. It checks that each node's label point lies inside the node's shape.
-- **The research's provisional budgets** are looser than GEO-11: at most 30 MB for the certification core, at most 2 MB per frequently loaded layer, and three levels of detail for dense layers. GEO-11 stays. At 1.4 MB, no layer needs its own levels of detail yet: G3 already simplifies each shared arc per zoom level. The atlas tasks revisit this when dense layers arrive.
+- **The research's provisional budgets** are looser than GEO-11: at most 30 MB for the certification core, at most 2 MB per frequently loaded layer, and three levels of detail for dense layers. GEO-11 stays. The current assets fit its 8 MB total and 1.5 MB per-layer budgets; G3 already simplifies each shared arc per zoom level. The atlas tasks revisit additional levels of detail when dense layers arrive.
 
 ---
 

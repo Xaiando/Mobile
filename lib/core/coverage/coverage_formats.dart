@@ -5,7 +5,12 @@ export '../questions/exercise_format.dart' show FormatFamily;
 
 /// A question format as the coverage checker sees it (question-system §2).
 final class CoverageFormat {
-  const CoverageFormat(this.id, this.family, {required this.isObjective});
+  const CoverageFormat(
+    this.id,
+    this.family, {
+    required this.isObjective,
+    this.isPooled = false,
+  });
 
   /// The `question_templates.mode` whose questions have this format.
   final String id;
@@ -14,6 +19,9 @@ final class CoverageFormat {
   /// Graded by the app rather than by the learner (§3). Only the flashcard
   /// and the short written answer are self-graded.
   final bool isObjective;
+
+  /// Asked from exercise pools rather than `questions` rows (QF-10).
+  final bool isPooled;
 
   @override
   String toString() => id;
@@ -31,5 +39,6 @@ final Map<String, CoverageFormat> builtFormats = {
       format.id,
       format.family,
       isObjective: format.isObjective,
+      isPooled: format.generation == FormatGeneration.pooled,
     ),
 };

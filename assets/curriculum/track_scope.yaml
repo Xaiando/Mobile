@@ -23,6 +23,9 @@
 #   region's objectives.
 # - Re-check an objective list against its document at least once a year;
 #   lint warns when checked_on is older.
+# - Release 0.10 place selectors account for authored atlas facts. A represented
+#   objective can still need its planned wine, law, style and production content;
+#   place practice alone does not establish complete certification coverage.
 
 tracks:
   WSET_L3:
@@ -54,80 +57,474 @@ tracks:
       # The still wines of the principal regions.
       - id: wset_l3.still.bordeaux
         label: The still wines of Bordeaux
+        covers:
+          within:
+            - n_geo_bordeaux
+            - n_reg_fr_principle_bordeaux_ripening
+            - n_reg_fr_principle_bordeaux_soils
+            - n_reg_fr_principle_bordeaux_blends
+            - n_reg_fr_principle_bordeaux_2024
+            - n_reg_fr_case_bordeaux_blend
         tasks: [C2]
       - id: wset_l3.still.south_west_france
         label: The still wines of the Dordogne and South West France
+        covers:
+          within:
+            - n_geo_southwest_france
+            - n_reg_fs_principle_southwest_cahors
+            - n_reg_fs_principle_southwest_madiran
+            - n_reg_fs_principle_southwest_jurancon
+            - n_reg_fs_principle_southwest_pacherenc
+            - n_reg_fs_principle_southwest_bergerac
+            - n_reg_fs_case_southwest_madiran_extraction
+            - n_reg_fs_case_southwest_sweet_process
         tasks: [C2]
       - id: wset_l3.still.burgundy
         label: The still wines of Burgundy
-        covers: {within: [n_geo_burgundy]}
+        covers:
+          within:
+            - n_geo_burgundy
+            - n_reg_fr_principle_chardonnay_climate
+            - n_reg_fr_principle_chablis_elevage
+            - n_reg_fr_principle_chablis_mlf
+            - n_reg_fr_principle_cotes_grapes
+            - n_reg_fr_principle_climat_comparison
+            - n_reg_fr_principle_hautes_cotes
+            - n_reg_fr_case_chardonnay_buy
         tasks: [C2]
       - id: wset_l3.still.beaujolais
         label: The wines of Beaujolais
+        covers:
+          within:
+            - n_geo_beaujolais_region
+            - n_reg_fe_principle_beaujolais_grapes
+            - n_reg_fe_principle_beaujolais_sites
+            - n_reg_fe_principle_beaujolais_semicarbonic
+            - n_reg_fe_principle_beaujolais_extraction
+            - n_reg_fe_case_beaujolais_berry_handling
         tasks: [C2]
       - id: wset_l3.still.alsace
         label: The wines of Alsace
+        covers:
+          within:
+            - n_geo_alsace_region
+            - n_reg_fe_principle_alsace_climate
+            - n_reg_fe_principle_alsace_practices
+            - n_reg_fe_principle_alsace_riesling_gewurz
+            - n_reg_fe_principle_alsace_pinot_whites
+            - n_reg_fe_principle_alsace_aroma_sweetness
+            - n_reg_fe_case_alsace_dry_aromatic
         tasks: [C2]
       - id: wset_l3.still.loire
         label: The still wines of the Loire Valley
-        covers: {within: [n_geo_loire_valley]}
+        covers:
+          within:
+            - n_geo_loire_valley
+            - n_reg_fr_principle_loire_white_styles
+            - n_reg_fr_principle_centre_sites
+            - n_reg_fr_case_loire_list
+            - n_reg_fs_principle_loire_muscadet
+            - n_reg_fs_principle_loire_anjou_saumur
+            - n_reg_fs_principle_loire_saumur_champigny
+            - n_reg_fs_principle_loire_chinon
+            - n_reg_fs_principle_loire_chenin_harvest
+            - n_reg_fs_case_loire_muscadet_inventory
         tasks: [C2]
       - id: wset_l3.still.rhone
         label: The wines of the Rhône Valley
-        covers: {within: [n_geo_rhone_valley]}
+        covers:
+          within:
+            - n_geo_rhone_valley
+            - n_reg_fr_principle_rhone_grapes
+            - n_reg_fr_principle_rhone_terrain
+            - n_reg_fr_case_rhone_cost
+            - n_reg_fs_principle_rhone_syrah_grenache
+            - n_reg_fs_principle_rhone_white_grapes
+            - n_reg_fs_principle_rhone_chateauneuf_lirac
+            - n_reg_fs_principle_rhone_gigondas
+            - n_reg_fs_case_rhone_harvest_water
         tasks: [C2]
       - id: wset_l3.still.southern_france
         label: The wines of Languedoc, Roussillon and Provence
+        covers:
+          within:
+            - n_geo_languedoc_region
+            - n_geo_roussillon
+            - n_geo_provence
+            - n_reg_fm_principle_languedoc_climate
+            - n_reg_fm_principle_picpoul_sites
+            - n_reg_fm_principle_cabardes_transition
+            - n_reg_fm_principle_pic_saint_loup
+            - n_reg_fm_principle_larzac_variation
+            - n_reg_fm_principle_faugeres_viticulture
+            - n_reg_fm_case_picpoul_harvest
+            - n_reg_fm_case_faugeres_pests
+            - n_reg_fm_principle_roussillon_conditions
+            - n_reg_fm_principle_roussillon_styles
+            - n_reg_fm_principle_maury_sec
+            - n_reg_fm_principle_collioure_terraces
+            - n_reg_fm_case_collioure_maintenance
+            - n_reg_fm_principle_provence_climate
+            - n_reg_fm_principle_rose_methods
+            - n_reg_fm_principle_rose_harvest
+            - n_reg_fm_principle_bandol_mourvedre
+            - n_reg_fm_case_rose_selection
         tasks: [C2]
       - id: wset_l3.still.germany
         label: The wines of Germany
+        covers:
+          within:
+            - n_geo_germany
+            - n_term_qualitaetswein
+            - n_term_praedikatswein
+            - n_term_landwein
+            - n_term_kabinett
+            - n_term_spaetlese
+            - n_term_auslese
+            - n_term_beerenauslese
+            - n_term_trockenbeerenauslese
+            - n_term_eiswein
+            - n_term_ortswein
+            - n_term_lagenwein
+            - n_wine_roseewein
+            - n_wine_rotling
+            - n_wine_blanc_de_noirs
+            - n_wine_weissherbst
+            - n_wine_schillerwein
+            - n_wine_badisch_rotgold
+            - n_wine_schieler
+            - n_wine_winzersekt
+            - n_mark_erstes_gewaechs
+            - n_mark_grosses_gewaechs
+            - n_mark_deutsches_weinsiegel
+            - n_term_gebietswein
+            - n_term_regionalwein
+            - n_term_vdp_gutswein
+            - n_term_vdp_ortswein
+            - n_term_vdp_erste_lage
+            - n_term_vdp_grosse_lage
+            - n_term_vdp_grosses_gewaechs
+            - n_stat_de_leading_red_2024
+            - n_stat_de_pinot_area_2024
+            - n_stat_baden_pinot_area_2024
+            - n_stat_pfalz_pinot_area_2024
+            - n_stat_rheinhessen_pinot_area_2024
+            - n_stat_wuerttemberg_pinot_area_2024
+            - n_stat_de_pinot_share_2024
+            - n_stat_baden_pinot_share_2024
+            - n_stat_pfalz_pinot_share_2024
+            - n_stat_rheinhessen_pinot_share_2024
+            - n_stat_wuerttemberg_pinot_share_2024
+            - n_stat_ahr_pinot_share_2024
+            - n_reg_de_principle_mosel_slope_work
+            - n_reg_de_principle_saar_ruwer_sites
+            - n_reg_de_principle_mosel_riesling_elbling
+            - n_reg_de_principle_nahe_shelter_diversity
+            - n_reg_de_principle_rheingau_exposure_reds
+            - n_reg_de_principle_rheinhessen_climate_terrain
+            - n_reg_de_principle_rheinhessen_silvaner_grauburgunder
+            - n_reg_de_principle_pfalz_shelter_styles
+            - n_reg_de_principle_franken_silvaner_muller
+            - n_reg_de_principle_baden_site_grapes
+            - n_reg_de_principle_baden_pinot_cellar
+            - n_reg_de_principle_ahr_pinot_work
+            - n_reg_de_principle_wuerttemberg_red_comparison
+            - n_reg_de_principle_eastern_exposure_frost
+            - n_reg_de_case_mosel_steep_budget
+            - n_reg_de_case_riesling_sweetness_evidence
+            - n_reg_de_case_baden_pinot_cellar_trial
+            - n_reg_de_case_saale_unstrut_frost_site
         tasks: [C6]
       - id: wset_l3.still.austria
         label: The wines of Austria
+        covers:
+          within:
+            - n_geo_austria
+            - n_reg_ah_principle_wachau
+            - n_reg_ah_principle_kremstal
+            - n_reg_ah_principle_kamptal
+            - n_reg_ah_principle_weinviertel
+            - n_reg_ah_principle_burgenland_red_sites
+            - n_reg_ah_principle_leithaberg
+            - n_reg_ah_principle_neusiedler_styles
+            - n_reg_ah_principle_south_styria
+            - n_reg_ah_principle_vienna_field_mix
+            - n_reg_ah_case_vienna_harvest
+            - n_reg_ah_case_styria_crew
         tasks: [C6]
       - id: wset_l3.still.hungary
         label: The sweet wines of Tokaj
+        covers:
+          within:
+            - n_geo_hungary
+            - n_wine_tokaji_eszencia
+            - n_wine_tokaji_aszu
+            - n_wine_tokaji_szamorodni_dry
+            - n_wine_tokaji_szamorodni_sweet
+            - n_reg_ah_principle_tokaj_climate
+            - n_reg_ah_principle_tokaj_grapes
+            - n_reg_ah_principle_tokaj_soils
+            - n_reg_ah_principle_tokaj_harvest
+            - n_reg_ah_principle_tokaj_maturation
+            - n_reg_ah_case_tokaj_berry_selection
+            - n_reg_ah_case_tokaj_maturation_cash
         tasks: [C6]
       - id: wset_l3.still.greece
         label: The wines of Greece
+        covers:
+          within:
+            - n_geo_greece
+            - n_reg_gr_principle_naoussa_sites
+            - n_reg_gr_principle_naoussa_styles
+            - n_reg_gr_principle_amyndeon_context
+            - n_reg_gr_principle_northern_harvest
+            - n_reg_gr_principle_nemea_sites
+            - n_reg_gr_principle_nemea_styles
+            - n_reg_gr_principle_mantinia_white
+            - n_reg_gr_principle_santorini_training
+            - n_reg_gr_principle_santorini_white_styles
+            - n_reg_gr_principle_cefalonia_robola
+            - n_reg_gr_principle_samos_dry_context
+            - n_reg_gr_principle_crete_site_liatiko
+            - n_reg_gr_principle_crete_white_grapes
+            - n_reg_gr_principle_crete_red_blending
+            - n_reg_gr_case_north_comparison
+            - n_reg_gr_case_nemea_customer
+            - n_reg_gr_case_santorini_training
+            - n_reg_gr_case_aromatic_whites
         tasks: [C6]
       - id: wset_l3.still.italy_north
         label: The wines of northern Italy, from Alto Adige and Friuli to Veneto and Piedmont
-        covers: {within: [n_geo_piedmont]}
+        covers:
+          within:
+            - n_geo_piedmont
+            - n_geo_lombardy
+            - n_geo_veneto
+            - n_geo_friuli_venezia_giulia
+            - n_geo_valle_d_aosta
+            - n_geo_liguria
+            - n_geo_trentino_alto_adige
+            - n_geo_emilia_romagna
+            - n_reg_inc_principle_nebbiolo_sites
+            - n_reg_inc_principle_barbera_dolcetto
+            - n_reg_inc_principle_valpolicella_styles
+            - n_reg_inc_principle_ripasso_process
+            - n_reg_inc_principle_soave_grapes
+            - n_reg_inc_principle_alto_adige_sites
+            - n_reg_inc_principle_friuli_hills
+            - n_reg_inc_case_nebbiolo_list
+            - n_reg_inc_case_valpolicella_buy
         tasks: [C3]
       - id: wset_l3.still.italy_centre
         label: The wines of central Italy, from Tuscany to Abruzzo
-        covers: {within: [n_geo_tuscany]}
+        covers:
+          within:
+            - n_geo_tuscany
+            - n_geo_marche
+            - n_geo_umbria
+            - n_geo_lazio
+            - n_geo_abruzzo
+            - n_reg_inc_principle_chianti_site_gradients
+            - n_reg_inc_principle_chianti_identity
+            - n_reg_inc_principle_sangiovese_vineyard_choices
+            - n_reg_inc_principle_montalcino_styles
+            - n_reg_inc_principle_bolgheri_terroir
+            - n_reg_inc_principle_verdicchio_regions
+            - n_reg_inc_principle_orvieto_range
+            - n_reg_inc_case_sangiovese_plots
+            - n_reg_inc_case_white_slots
+            - n_reg_isi_principle_abruzzo_contrasts
         tasks: [C3]
       - id: wset_l3.still.italy_south
         label: The wines of southern Italy and Sicily
+        covers:
+          within:
+            - n_geo_campania
+            - n_geo_sicily
+            - n_geo_molise
+            - n_geo_puglia
+            - n_geo_basilicata
+            - n_geo_calabria
+            - n_geo_sardinia
+            - n_reg_isi_principle_irpinia_sites
+            - n_reg_isi_principle_taurasi_ripening
+            - n_reg_isi_principle_fiano_greco
+            - n_reg_isi_principle_fiano_cellar
+            - n_reg_isi_principle_vulture_taurasi
+            - n_reg_isi_principle_puglia_primitivo
+            - n_reg_isi_principle_salice_comparison
+            - n_reg_isi_principle_etna_slopes
+            - n_reg_isi_principle_etna_variation
+            - n_reg_isi_principle_etna_costs
+            - n_reg_isi_principle_vittoria_blend
+            - n_reg_isi_principle_gallura_vermentino
+            - n_reg_isi_principle_cannonau_ripeness
+            - n_reg_isi_case_fiano_cellar_choice
+            - n_reg_isi_case_aglianico_comparison
+            - n_reg_isi_case_etna_price
+            - n_reg_isi_case_cannonau_harvest
         tasks: [C3]
       - id: wset_l3.still.spain
         label: The still wines of Spain
+        covers:
+          within:
+            - n_geo_spain
+            - n_reg_ib_principle_es_rioja_climate
+            - n_reg_ib_principle_es_rioja_styles
+            - n_reg_ib_principle_es_ribera
+            - n_reg_ib_principle_es_galicia
+            - n_reg_ib_principle_es_rueda
+            - n_reg_ib_principle_es_priorat_montsant
+            - n_reg_ib_principle_es_levante
+            - n_reg_ib_principle_es_mancha_airen
+            - n_reg_ib_case_es_rioja_site
+            - n_reg_ib_case_es_priorat_price
         tasks: [C3]
       - id: wset_l3.still.portugal
         label: The still wines of Portugal
+        covers:
+          within:
+            - n_geo_portugal
+            - n_reg_ib_principle_pt_douro_climate
+            - n_reg_ib_principle_pt_douro_still
+            - n_reg_ib_principle_pt_dao
+            - n_reg_ib_principle_pt_bairrada
+            - n_reg_ib_principle_pt_vinho_verde
+            - n_reg_ib_principle_pt_alentejo
+            - n_reg_ib_case_pt_white_design
+            - n_reg_ib_case_pt_baga_inventory
         tasks: [C3]
       - id: wset_l3.still.usa
         label: The wines of the United States
+        covers:
+          within:
+            - n_geo_united_states
+            - n_reg_am_principle_napa_contrast
+            - n_reg_am_principle_sonoma_contrast
+            - n_reg_am_principle_paso_contrast
+            - n_reg_am_principle_oregon_range
+            - n_reg_am_principle_eola_planning
+            - n_reg_am_principle_washington_contrast
+            - n_reg_am_case_california_sites
+            - n_reg_am_case_pacific_northwest
+            - n_reg_am_principle_finger_seasons
+            - n_reg_na_principle_santa_barbara_grape_sites
+            - n_reg_na_principle_slh_aspect_style
+            - n_reg_na_principle_santa_cruz_slopes
+            - n_reg_na_principle_lodi_cluster_canopy
+            - n_reg_na_principle_amador_water_training
+            - n_reg_na_principle_red_mountain_exposure_air
+            - n_reg_na_principle_walla_profile_contrasts
+            - n_reg_na_principle_oregon_stem_comparison
+            - n_reg_na_case_lodi_sampling_triage
+            - n_reg_na_case_oregon_stem_trial
+            - n_reg_na_principle_long_island_grape_timing
         tasks: [C4]
       - id: wset_l3.still.canada
         label: The wines of Canada
+        covers:
+          within:
+            - n_geo_canada
+            - n_reg_am_principle_canada_sites
+            - n_reg_na_principle_niagara_bench_physics
+            - n_reg_na_principle_county_winter_spring
+            - n_reg_na_principle_erie_heat_soils
+            - n_reg_na_principle_similkameen_wind_sites
+            - n_reg_na_principle_okanagan_specific_grapes
+            - n_reg_na_case_county_protection_budget
+            - n_reg_na_case_niagara_preplant_drainage
         tasks: [C4]
       - id: wset_l3.still.chile
         label: The wines of Chile
+        covers:
+          within:
+            - n_geo_chile
+            - n_reg_am_principle_chile_coast_inland
+            - n_reg_am_principle_casablanca_sites
+            - n_reg_am_principle_chile_style_range
+            - n_reg_am_case_chile_white
+            - n_reg_sa_principle_elqui
+            - n_reg_sa_principle_leyda
+            - n_reg_sa_principle_peumo
+            - n_reg_sa_principle_itata_vineyards
+            - n_reg_sa_principle_itata_tinajas
+            - n_reg_sa_principle_maule_heritage
+            - n_reg_sa_principle_maule_site_trial
+            - n_reg_sa_principle_biobio
+            - n_reg_sa_case_maule_brand
+            - n_reg_sa_case_itata_skin_trial
         tasks: [C4]
       - id: wset_l3.still.argentina
         label: The wines of Argentina
+        covers:
+          within:
+            - n_geo_argentina
+            - n_reg_am_principle_mendoza_altitude
+            - n_reg_am_principle_mendoza_water
+            - n_reg_am_principle_patagonia_comparison
+            - n_reg_am_case_mendoza_claim
+            - n_reg_sa_principle_salta
+            - n_reg_sa_principle_torrontes
+            - n_reg_sa_principle_sanjuan
+            - n_reg_sa_principle_mendoza_yeast
+            - n_reg_sa_principle_mendoza_harvest
+            - n_reg_sa_principle_patagonia_provinces
+            - n_reg_sa_case_mendoza_capacity
+            - n_reg_sa_case_mendoza_yeast_trial
         tasks: [C4]
       - id: wset_l3.still.south_africa
         label: The wines of South Africa
+        covers:
+          within:
+            - n_geo_south_africa
+            - n_reg_sh_principle_za_stellenbosch
+            - n_reg_sh_principle_za_swartland
+            - n_reg_sh_principle_za_cool_whites
+            - n_reg_sh_principle_za_chenin
+            - n_reg_sh_case_za_chenin_purchasing
+            - n_reg_oa_principle_constantia_blocks
+            - n_reg_oa_principle_paarl_water
+            - n_reg_oa_principle_robertson_chardonnay
+            - n_reg_oa_principle_paarl_pinotage
+            - n_reg_oa_case_robertson_water_plan
         tasks: [C4]
       - id: wset_l3.still.australia
         label: The wines of Australia
+        covers:
+          within:
+            - n_geo_australia
+            - n_reg_sh_principle_au_barossa_eden
+            - n_reg_sh_principle_au_riesling
+            - n_reg_sh_principle_au_cabernet
+            - n_reg_sh_principle_au_pinot_chardonnay
+            - n_reg_sh_principle_au_tasmania
+            - n_reg_sh_principle_au_price
+            - n_reg_sh_case_au_shiraz_selection
+            - n_reg_sh_case_au_cabernet_price
+            - n_reg_oa_principle_hunter_style
+            - n_reg_oa_principle_hunter_harvest
+            - n_reg_oa_principle_mclaren_routes
+            - n_reg_oa_principle_mclaren_cellar
+            - n_reg_oa_principle_adelaide_sites
+            - n_reg_oa_principle_adelaide_m3
+            - n_reg_oa_case_hunter_toast
+            - n_reg_oa_case_mclaren_cap_trial
         tasks: [C4]
       - id: wset_l3.still.new_zealand
         label: The wines of New Zealand
+        covers:
+          within:
+            - n_geo_new_zealand
+            - n_reg_sh_principle_nz_marlborough
+            - n_reg_sh_principle_nz_hawkes
+            - n_reg_sh_principle_nz_otago
+            - n_reg_sh_principle_nz_martinborough
+            - n_reg_sh_case_nz_white_comparison
+            - n_reg_oa_principle_nelson_sites
+            - n_reg_oa_principle_canterbury_sites
+            - n_reg_oa_principle_canterbury_styles
+            - n_reg_oa_principle_gisborne_sites
+            - n_reg_oa_case_canterbury_riesling_offer
         tasks: [C4]
       - id: wset_l3.law_and_labels
         label: The wine laws and label terms of the principal regions
@@ -146,7 +543,60 @@ tracks:
       # Sparkling and fortified wines.
       - id: wset_l3.sparkling.methods
         label: The ways sparkling wine is made, from the traditional method to carbonation
-        covers: {relation_types: [REQUIRES_METHOD]}
+        covers:
+          within:
+            - n_geo_champagne
+            - n_wine_winzersekt
+            - n_spark_principle_traditional
+            - n_spark_principle_tirage
+            - n_spark_principle_more_alcohol
+            - n_spark_principle_tank
+            - n_spark_principle_tank_filter
+            - n_spark_principle_transfer_bottle
+            - n_spark_principle_transfer_tank
+            - n_spark_principle_transfer_lees
+            - n_spark_principle_ancestral
+            - n_spark_principle_ancestral_disgorge
+            - n_spark_principle_carbonation
+            - n_spark_principle_carbonation_fermentation
+            - n_spark_principle_cool_solubility
+            - n_spark_principle_agitation
+            - n_spark_principle_white_press
+            - n_spark_principle_press_fractions
+            - n_spark_principle_base_acidity
+            - n_spark_principle_base_alcohol
+            - n_spark_principle_blending
+            - n_spark_principle_multivintage
+            - n_spark_principle_mlf_optional
+            - n_spark_principle_autolysis
+            - n_spark_principle_lees_style
+            - n_spark_principle_riddling
+            - n_spark_principle_automated_riddling
+            - n_spark_principle_disgorgement
+            - n_spark_principle_disgorge_oxygen
+            - n_spark_principle_dosage
+            - n_spark_principle_dosage_aroma
+            - n_spark_principle_liner
+            - n_spark_principle_low_liner
+            - n_spark_principle_lees_decline
+            - n_spark_principle_bidule
+            - n_spark_principle_gushing_solids
+            - n_spark_principle_alcohol_tartrate
+            - n_spark_principle_counterpressure
+            - n_spark_principle_gas_return
+            - n_spark_principle_gas_cost
+            - n_spark_case_fruit_tank
+            - n_spark_case_transfer_batch
+            - n_spark_case_long_closure
+            - n_spark_case_gushing_batch
+            - n_spark_case_dosage_trial
+          relation_types:
+            - REQUIRES_METHOD
+            - PRINCIPLE_EXPLANATION
+            - CASE_ACTION
+            - CASE_REASON
+            - CASE_TRADEOFF
+            - CASE_LIMITATION
         tasks: [C5]
       - id: wset_l3.sparkling.champagne
         label: Champagne
@@ -154,15 +604,55 @@ tracks:
         tasks: [C2]
       - id: wset_l3.sparkling.others
         label: The other principal sparkling wines of Europe and the New World
+        covers: {within: [n_geo_cava, n_geo_conegliano_valdobbiadene, n_geo_asolo_prosecco]}
         tasks: [C2, C3, C4, C6]
       - id: wset_l3.fortified.sherry
         label: Sherry
+        covers:
+          within:
+            - n_geo_jerez
+            - n_geo_manzanilla_sanlucar
+            - n_fort_principle_sherry_classify
+            - n_fort_principle_sherry_flor_level
+            - n_fort_principle_sherry_flor_ethanol
+            - n_fort_principle_sherry_acetaldehyde
+            - n_fort_principle_sherry_glycerol
+            - n_fort_principle_sherry_ullage
+            - n_fort_principle_sherry_amontillado
+            - n_fort_principle_sherry_oloroso
+            - n_fort_principle_sherry_solera
+            - n_fort_principle_sherry_saca
+            - n_fort_principle_sherry_refresh
+            - n_fort_principle_sherry_px
+            - n_fort_principle_sherry_cream
+            - n_fort_case_flor_oxygen
         tasks: [C3]
       - id: wset_l3.fortified.port
         label: Port
+        covers:
+          within:
+            - n_geo_douro
+            - n_fort_principle_port_sugar
+            - n_fort_principle_port_stop
+            - n_fort_principle_port_ruby
+            - n_fort_principle_port_tawny
+            - n_fort_principle_port_vintage
+            - n_fort_principle_port_lbv
+            - n_fort_principle_port_colheita
+            - n_fort_principle_port_white_dry
+            - n_fort_case_port_fruit
         tasks: [C3]
       - id: wset_l3.fortified.muscat
         label: Fortified Muscats
+        covers:
+          within:
+            - n_fort_principle_ruth_spirit
+            - n_fort_principle_ruth_sugar
+            - n_fort_principle_ruth_parcels
+            - n_fort_principle_ruth_casks
+            - n_fort_principle_ruth_classification
+            - n_fort_principle_ruth_youthful_blend
+            - n_fort_case_ruth_balance
         tasks: [C3]
 
       # Advice to customers and staff.
@@ -189,6 +679,1163 @@ tracks:
         covers: {domains: [tasting]}
         tasks: [T1, T2]
 
+      # Editorial enrichment; not a required Jura wine objective on this track.
+      - id: wset_l3.regional.jura_support
+        label: Optional Jura regional comparison support
+        required: false
+        covers:
+          within:
+            - n_reg_fe_principle_jura_climate_sites
+            - n_reg_fe_principle_jura_white_grapes
+            - n_reg_fe_principle_jura_red_grapes
+            - n_reg_fe_principle_jura_ouillage
+            - n_reg_fe_principle_jura_patient_wines
+            - n_reg_fe_case_jura_white_comparison
+            - n_reg_fe_case_jura_maturation_cash
+          relation_types:
+            - PRINCIPLE_EXPLANATION
+            - CASE_ACTION
+            - CASE_REASON
+            - CASE_TRADEOFF
+            - CASE_LIMITATION
+        tasks:
+          - DIP-3
+          - C2
+
+      # Supporting atlas places, without adding required syllabus objectives.
+      - id: wset_l3.atlas.additional_places
+        label: Additional wine places for atlas study
+        required: false
+        covers:
+          within: [n_geo_jura, n_geo_savoie_region, n_geo_corsica, n_geo_switzerland, n_geo_georgia, n_geo_lebanon]
+          relation_types: [LOCATED_IN]
+        tasks: [G10, G12, G13]
+
+  WSET_L4:
+    name: WSET Level 4 Diploma in Wines
+    body: Wine & Spirit Education Trust
+    source:
+      title: WSET Level 4 Diploma in Wines, Specification
+      url: https://www.wsetglobal.com/media/17609/wset_l4wines_specification_en_august-2025.pdf
+      version: "2025, Issue 1.4"
+      checked_on: "2026-09-26"
+    # Editorial study groups, not copied learning outcomes or assessment text.
+    # Diploma uses existing WSET_L3 mappings through the cumulative track chain.
+    # covers measures authored support, never completion of a Diploma unit.
+    # DIP-1 through DIP-6 retain the unimplemented depth and assessment work.
+    objectives:
+      # D1: production decisions and their consequences.
+      - id: wset_l4.production.environment
+        label: Connect vine growth and site conditions to vineyard decisions
+        covers: {domains: [viticulture], relation_types: [HAS_CLIMATE, HAS_SOIL, SUSCEPTIBLE_TO]}
+        tasks: [DIP-1, C5]
+      - id: wset_l4.production.vineyard
+        label: Compare ways to establish and manage a vineyard
+        covers: {domains: [viticulture], relation_types: [PRINCIPLE_EXPLANATION, CASE_ACTION, CASE_REASON, CASE_TRADEOFF, CASE_LIMITATION, CAUSES_STATE, LEADS_TO, CONTRADICTS]}
+        tasks: [DIP-1, C5]
+      - id: wset_l4.production.cellar
+        label: Compare cellar choices and their consequences for the finished wine
+        covers: {domains: [winemaking]}
+        tasks: [DIP-1, C5, Q6]
+      - id: wset_l4.production.quality_control
+        label: Diagnose production risks and choose suitable preventive controls
+        covers:
+          within:
+            - n_win_principle_rot_sort
+            - n_win_principle_laccase
+            - n_win_principle_yeast_health
+            - n_win_principle_yan_risk
+            - n_win_principle_filter_ratings
+            - n_win_principle_packaging_hygiene
+            - n_win_principle_stability_retest
+            - n_win_case_low_yan
+            - n_win_case_protein_white
+            - n_win_case_sweet_bottling
+            - n_fault_principle_oxidative_style
+            - n_fault_principle_oxidative_aroma
+            - n_fault_principle_chemical_oxidation
+            - n_fault_principle_enzymatic_browning
+            - n_fault_principle_h2s_descriptor
+            - n_fault_principle_sulfur_stress
+            - n_fault_principle_mercaptans
+            - n_fault_principle_aeration_risk
+            - n_fault_principle_copper_carryover
+            - n_fault_principle_late_copper
+            - n_fault_principle_brett_organism
+            - n_fault_principle_brett_ep
+            - n_fault_principle_brett_eg
+            - n_fault_principle_brett_masking
+            - n_fault_principle_brett_misdiagnosis
+            - n_fault_principle_brett_cells_phenols
+            - n_fault_principle_va_acid
+            - n_fault_principle_ethyl_acetate
+            - n_fault_principle_acetic_bacteria
+            - n_fault_principle_va_analysis
+            - n_fault_principle_tca_compound
+            - n_fault_principle_tca_non_cork
+            - n_fault_principle_musty_alternatives
+            - n_fault_principle_tca_fruit
+            - n_fault_principle_light_reaction
+            - n_fault_principle_glass_protection
+            - n_fault_principle_light_intensity
+            - n_fault_principle_heat_seal
+            - n_fault_principle_heat_comparison
+            - n_fault_principle_refermentation
+            - n_fault_principle_packaging_inputs
+            - n_fault_principle_packaging_biofilms
+            - n_fault_principle_haze_diagnosis
+            - n_fault_principle_mousy_delay
+            - n_fault_principle_mousy_ph
+            - n_fault_principle_mousy_sensitivity
+            - n_fault_principle_threshold_limits
+            - n_fault_principle_threshold_rejection
+            - n_fault_case_sulfur_before_bottling
+            - n_fault_case_brett_rising
+            - n_fault_case_lit_display
+            - n_fault_case_hot_delivery
+            - n_fault_case_sporadic_sweet_spoilage
+        tasks: [DIP-1, C5]
+
+      # D2: commercial decisions; CMS service arithmetic is not a substitute.
+      - id: wset_l4.business.economics
+        label: Analyse the economic forces behind a bottle price
+        covers: {domains: [business]}
+        tasks: [DIP-2]
+      - id: wset_l4.business.routes
+        label: Compare producer models and routes from winery to customer
+        covers: {within: [n_biz_channel_mix, n_biz_tasting_room_relationship, n_biz_fx_receivable, n_biz_home_currency_invoice, n_biz_case_export_currency]}
+        tasks: [DIP-2]
+      - id: wset_l4.business.marketing
+        label: Build and evaluate a wine marketing decision
+        covers: {within: [n_biz_customer_segment, n_biz_primary_research, n_biz_cost_plus, n_biz_value_pricing, n_biz_competitor_pricing, n_biz_price_review, n_biz_case_wine_discount]}
+        tasks: [DIP-2]
+
+      # D3: existing places support regional study; analytical content is partial.
+      - id: wset_l4.world.bordeaux
+        label: Analyse Bordeaux through its places and wines
+        covers:
+          within:
+            - n_geo_bordeaux
+            - n_reg_fr_principle_bordeaux_ripening
+            - n_reg_fr_principle_bordeaux_soils
+            - n_reg_fr_principle_bordeaux_blends
+            - n_reg_fr_principle_bordeaux_2024
+            - n_reg_fr_case_bordeaux_blend
+        tasks: [DIP-3, C2, G10]
+      - id: wset_l4.world.burgundy
+        label: Analyse Burgundy through its places and wines
+        covers:
+          within:
+            - n_geo_burgundy
+            - n_reg_fr_principle_chardonnay_climate
+            - n_reg_fr_principle_chablis_elevage
+            - n_reg_fr_principle_chablis_mlf
+            - n_reg_fr_principle_cotes_grapes
+            - n_reg_fr_principle_climat_comparison
+            - n_reg_fr_principle_hautes_cotes
+            - n_reg_fr_case_chardonnay_buy
+        tasks: [DIP-3, C2, G10]
+      - id: wset_l4.world.beaujolais
+        label: Analyse Beaujolais through its places and wines
+        covers:
+          within:
+            - n_geo_beaujolais_region
+            - n_reg_fe_principle_beaujolais_grapes
+            - n_reg_fe_principle_beaujolais_sites
+            - n_reg_fe_principle_beaujolais_semicarbonic
+            - n_reg_fe_principle_beaujolais_extraction
+            - n_reg_fe_case_beaujolais_berry_handling
+        tasks: [DIP-3, C2, G10]
+      - id: wset_l4.world.alsace
+        label: Analyse Alsace through its places and wines
+        covers:
+          within:
+            - n_geo_alsace_region
+            - n_reg_fe_principle_alsace_climate
+            - n_reg_fe_principle_alsace_practices
+            - n_reg_fe_principle_alsace_riesling_gewurz
+            - n_reg_fe_principle_alsace_pinot_whites
+            - n_reg_fe_principle_alsace_aroma_sweetness
+            - n_reg_fe_case_alsace_dry_aromatic
+        tasks: [DIP-3, C2, G10]
+      - id: wset_l4.world.loire
+        label: Analyse the Loire through its places and wines
+        covers:
+          within:
+            - n_geo_loire_valley
+            - n_reg_fr_principle_loire_white_styles
+            - n_reg_fr_principle_centre_sites
+            - n_reg_fr_case_loire_list
+            - n_reg_fs_principle_loire_muscadet
+            - n_reg_fs_principle_loire_anjou_saumur
+            - n_reg_fs_principle_loire_saumur_champigny
+            - n_reg_fs_principle_loire_chinon
+            - n_reg_fs_principle_loire_chenin_harvest
+            - n_reg_fs_case_loire_muscadet_inventory
+        tasks: [DIP-3, C2, G10]
+      - id: wset_l4.world.rhone
+        label: Analyse the Rhône through its places and wines
+        covers:
+          within:
+            - n_geo_rhone_valley
+            - n_reg_fr_principle_rhone_grapes
+            - n_reg_fr_principle_rhone_terrain
+            - n_reg_fr_case_rhone_cost
+            - n_reg_fs_principle_rhone_syrah_grenache
+            - n_reg_fs_principle_rhone_white_grapes
+            - n_reg_fs_principle_rhone_chateauneuf_lirac
+            - n_reg_fs_principle_rhone_gigondas
+            - n_reg_fs_case_rhone_harvest_water
+        tasks: [DIP-3, C2, G10]
+      - id: wset_l4.world.southern_france
+        label: Compare wines from the French Mediterranean regions
+        covers:
+          within:
+            - n_geo_languedoc_region
+            - n_geo_roussillon
+            - n_geo_provence
+            - n_reg_fm_principle_languedoc_climate
+            - n_reg_fm_principle_picpoul_sites
+            - n_reg_fm_principle_cabardes_transition
+            - n_reg_fm_principle_pic_saint_loup
+            - n_reg_fm_principle_larzac_variation
+            - n_reg_fm_principle_faugeres_viticulture
+            - n_reg_fm_case_picpoul_harvest
+            - n_reg_fm_case_faugeres_pests
+            - n_reg_fm_principle_roussillon_conditions
+            - n_reg_fm_principle_roussillon_styles
+            - n_reg_fm_principle_maury_sec
+            - n_reg_fm_principle_collioure_terraces
+            - n_reg_fm_case_collioure_maintenance
+            - n_reg_fm_principle_provence_climate
+            - n_reg_fm_principle_rose_methods
+            - n_reg_fm_principle_rose_harvest
+            - n_reg_fm_principle_bandol_mourvedre
+            - n_reg_fm_case_rose_selection
+        tasks: [DIP-3, C2, G10]
+      - id: wset_l4.world.southwest_france
+        label: Analyse South West France through its places and wines
+        covers:
+          within:
+            - n_geo_southwest_france
+            - n_reg_fs_principle_southwest_cahors
+            - n_reg_fs_principle_southwest_madiran
+            - n_reg_fs_principle_southwest_jurancon
+            - n_reg_fs_principle_southwest_pacherenc
+            - n_reg_fs_principle_southwest_bergerac
+            - n_reg_fs_case_southwest_madiran_extraction
+            - n_reg_fs_case_southwest_sweet_process
+        tasks: [DIP-3, C2, G10]
+      - id: wset_l4.world.jura
+        label: Analyse Jura through its places and wines
+        covers:
+          within:
+            - n_geo_jura
+            - n_reg_fe_principle_jura_climate_sites
+            - n_reg_fe_principle_jura_white_grapes
+            - n_reg_fe_principle_jura_red_grapes
+            - n_reg_fe_principle_jura_ouillage
+            - n_reg_fe_principle_jura_patient_wines
+            - n_reg_fe_case_jura_white_comparison
+            - n_reg_fe_case_jura_maturation_cash
+        tasks: [DIP-3, C2, G10]
+      - id: wset_l4.world.germany
+        label: Compare German wine regions and their regulatory distinctions
+        covers:
+          within:
+            - n_geo_germany
+            - n_reg_de_principle_mosel_slope_work
+            - n_reg_de_principle_saar_ruwer_sites
+            - n_reg_de_principle_mosel_riesling_elbling
+            - n_reg_de_principle_nahe_shelter_diversity
+            - n_reg_de_principle_rheingau_exposure_reds
+            - n_reg_de_principle_rheinhessen_climate_terrain
+            - n_reg_de_principle_rheinhessen_silvaner_grauburgunder
+            - n_reg_de_principle_pfalz_shelter_styles
+            - n_reg_de_principle_franken_silvaner_muller
+            - n_reg_de_principle_baden_site_grapes
+            - n_reg_de_principle_baden_pinot_cellar
+            - n_reg_de_principle_ahr_pinot_work
+            - n_reg_de_principle_wuerttemberg_red_comparison
+            - n_reg_de_principle_eastern_exposure_frost
+            - n_reg_de_case_mosel_steep_budget
+            - n_reg_de_case_riesling_sweetness_evidence
+            - n_reg_de_case_baden_pinot_cellar_trial
+            - n_reg_de_case_saale_unstrut_frost_site
+        tasks: [DIP-3, C6, G12]
+      - id: wset_l4.world.austria
+        label: Compare Austrian wine regions and their regulatory distinctions
+        covers:
+          within:
+            - n_geo_austria
+            - n_reg_ah_principle_wachau
+            - n_reg_ah_principle_kremstal
+            - n_reg_ah_principle_kamptal
+            - n_reg_ah_principle_weinviertel
+            - n_reg_ah_principle_burgenland_red_sites
+            - n_reg_ah_principle_leithaberg
+            - n_reg_ah_principle_neusiedler_styles
+            - n_reg_ah_principle_south_styria
+            - n_reg_ah_principle_vienna_field_mix
+            - n_reg_ah_case_vienna_harvest
+            - n_reg_ah_case_styria_crew
+        tasks: [DIP-3, C6, G12]
+      - id: wset_l4.world.hungary
+        label: Analyse Tokaj through its places and wines
+        covers:
+          within:
+            - n_geo_hungary
+            - n_reg_ah_principle_tokaj_climate
+            - n_reg_ah_principle_tokaj_grapes
+            - n_reg_ah_principle_tokaj_soils
+            - n_reg_ah_principle_tokaj_harvest
+            - n_reg_ah_principle_tokaj_maturation
+            - n_reg_ah_case_tokaj_berry_selection
+            - n_reg_ah_case_tokaj_maturation_cash
+        tasks: [DIP-3, C6]
+      - id: wset_l4.world.greece
+        label: Compare Greek mainland and island wine contexts
+        covers:
+          within:
+            - n_geo_greece
+            - n_reg_gr_principle_naoussa_sites
+            - n_reg_gr_principle_naoussa_styles
+            - n_reg_gr_principle_amyndeon_context
+            - n_reg_gr_principle_northern_harvest
+            - n_reg_gr_principle_nemea_sites
+            - n_reg_gr_principle_nemea_styles
+            - n_reg_gr_principle_mantinia_white
+            - n_reg_gr_principle_santorini_training
+            - n_reg_gr_principle_santorini_white_styles
+            - n_reg_gr_principle_cefalonia_robola
+            - n_reg_gr_principle_samos_dry_context
+            - n_reg_gr_principle_crete_site_liatiko
+            - n_reg_gr_principle_crete_white_grapes
+            - n_reg_gr_principle_crete_red_blending
+            - n_reg_gr_case_north_comparison
+            - n_reg_gr_case_nemea_customer
+            - n_reg_gr_case_santorini_training
+            - n_reg_gr_case_aromatic_whites
+        tasks: [DIP-3, C6]
+      - id: wset_l4.world.italy_north
+        label: Compare wines across northern Italy
+        covers:
+          within:
+            - n_geo_piedmont
+            - n_geo_trentino_alto_adige
+            - n_geo_friuli_venezia_giulia
+            - n_geo_veneto
+            - n_reg_inc_principle_nebbiolo_sites
+            - n_reg_inc_principle_barbera_dolcetto
+            - n_reg_inc_principle_valpolicella_styles
+            - n_reg_inc_principle_ripasso_process
+            - n_reg_inc_principle_soave_grapes
+            - n_reg_inc_principle_alto_adige_sites
+            - n_reg_inc_principle_friuli_hills
+            - n_reg_inc_case_nebbiolo_list
+            - n_reg_inc_case_valpolicella_buy
+        tasks: [DIP-3, C3, G11]
+      - id: wset_l4.world.italy_centre
+        label: Compare wines across central Italy
+        covers:
+          within:
+            - n_geo_tuscany
+            - n_geo_marche
+            - n_geo_umbria
+            - n_geo_lazio
+            - n_geo_abruzzo
+            - n_reg_inc_principle_chianti_site_gradients
+            - n_reg_inc_principle_chianti_identity
+            - n_reg_inc_principle_sangiovese_vineyard_choices
+            - n_reg_inc_principle_montalcino_styles
+            - n_reg_inc_principle_bolgheri_terroir
+            - n_reg_inc_principle_verdicchio_regions
+            - n_reg_inc_principle_orvieto_range
+            - n_reg_inc_case_sangiovese_plots
+            - n_reg_inc_case_white_slots
+            - n_reg_isi_principle_abruzzo_contrasts
+        tasks: [DIP-3, C3, G11]
+      - id: wset_l4.world.italy_south
+        label: Compare wines across southern Italy and its major islands
+        covers:
+          within:
+            - n_geo_campania
+            - n_geo_puglia
+            - n_geo_basilicata
+            - n_geo_sicily
+            - n_geo_sardinia
+            - n_reg_isi_principle_irpinia_sites
+            - n_reg_isi_principle_taurasi_ripening
+            - n_reg_isi_principle_fiano_greco
+            - n_reg_isi_principle_fiano_cellar
+            - n_reg_isi_principle_vulture_taurasi
+            - n_reg_isi_principle_puglia_primitivo
+            - n_reg_isi_principle_salice_comparison
+            - n_reg_isi_principle_etna_slopes
+            - n_reg_isi_principle_etna_variation
+            - n_reg_isi_principle_etna_costs
+            - n_reg_isi_principle_vittoria_blend
+            - n_reg_isi_principle_gallura_vermentino
+            - n_reg_isi_principle_cannonau_ripeness
+            - n_reg_isi_case_fiano_cellar_choice
+            - n_reg_isi_case_aglianico_comparison
+            - n_reg_isi_case_etna_price
+            - n_reg_isi_case_cannonau_harvest
+        tasks: [DIP-3, C3, G11]
+      - id: wset_l4.world.spain
+        label: Compare Spanish still-wine regions and their wines
+        covers:
+          within:
+            - n_geo_spain
+            - n_reg_ib_principle_es_rioja_climate
+            - n_reg_ib_principle_es_rioja_styles
+            - n_reg_ib_principle_es_ribera
+            - n_reg_ib_principle_es_galicia
+            - n_reg_ib_principle_es_rueda
+            - n_reg_ib_principle_es_priorat_montsant
+            - n_reg_ib_principle_es_levante
+            - n_reg_ib_principle_es_mancha_airen
+            - n_reg_ib_case_es_rioja_site
+            - n_reg_ib_case_es_priorat_price
+        tasks: [DIP-3, C3, G11]
+      - id: wset_l4.world.portugal
+        label: Compare Portuguese still-wine regions and their wines
+        covers:
+          within:
+            - n_geo_portugal
+            - n_reg_ib_principle_pt_douro_climate
+            - n_reg_ib_principle_pt_douro_still
+            - n_reg_ib_principle_pt_dao
+            - n_reg_ib_principle_pt_bairrada
+            - n_reg_ib_principle_pt_vinho_verde
+            - n_reg_ib_principle_pt_alentejo
+            - n_reg_ib_case_pt_white_design
+            - n_reg_ib_case_pt_baga_inventory
+        tasks: [DIP-3, C3, G11]
+      - id: wset_l4.world.usa_west
+        label: Compare Pacific-state wine regions and their wines
+        covers:
+          within:
+            - n_geo_california
+            - n_geo_oregon
+            - n_geo_washington
+            - n_reg_am_principle_napa_contrast
+            - n_reg_am_principle_sonoma_contrast
+            - n_reg_am_principle_paso_contrast
+            - n_reg_am_principle_oregon_range
+            - n_reg_am_principle_eola_planning
+            - n_reg_am_principle_washington_contrast
+            - n_reg_am_case_california_sites
+            - n_reg_am_case_pacific_northwest
+            - n_reg_na_principle_santa_barbara_grape_sites
+            - n_reg_na_principle_slh_aspect_style
+            - n_reg_na_principle_santa_cruz_slopes
+            - n_reg_na_principle_lodi_cluster_canopy
+            - n_reg_na_principle_amador_water_training
+            - n_reg_na_principle_red_mountain_exposure_air
+            - n_reg_na_principle_walla_profile_contrasts
+            - n_reg_na_principle_oregon_stem_comparison
+            - n_reg_na_case_lodi_sampling_triage
+            - n_reg_na_case_oregon_stem_trial
+        tasks: [DIP-3, C4, G13]
+      - id: wset_l4.world.usa_new_york
+        label: Study the contrasting wine contexts of New York
+        covers:
+          within:
+            - n_geo_new_york
+            - n_geo_lake_erie
+            - n_reg_am_principle_finger_seasons
+            - n_reg_na_principle_long_island_grape_timing
+        tasks: [DIP-3, C4, G13]
+      - id: wset_l4.world.canada
+        label: Compare Canadian wine regions and their wines
+        covers:
+          within:
+            - n_geo_canada
+            - n_reg_am_principle_canada_sites
+            - n_reg_na_principle_niagara_bench_physics
+            - n_reg_na_principle_county_winter_spring
+            - n_reg_na_principle_erie_heat_soils
+            - n_reg_na_principle_similkameen_wind_sites
+            - n_reg_na_principle_okanagan_specific_grapes
+            - n_reg_na_case_county_protection_budget
+            - n_reg_na_case_niagara_preplant_drainage
+        tasks: [DIP-3, C4, G13]
+      - id: wset_l4.world.chile
+        label: Compare Chilean wine regions and their wines
+        covers:
+          within:
+            - n_geo_chile
+            - n_reg_am_principle_chile_coast_inland
+            - n_reg_am_principle_casablanca_sites
+            - n_reg_am_principle_chile_style_range
+            - n_reg_am_case_chile_white
+            - n_reg_sa_principle_elqui
+            - n_reg_sa_principle_leyda
+            - n_reg_sa_principle_peumo
+            - n_reg_sa_principle_itata_vineyards
+            - n_reg_sa_principle_itata_tinajas
+            - n_reg_sa_principle_maule_heritage
+            - n_reg_sa_principle_maule_site_trial
+            - n_reg_sa_principle_biobio
+            - n_reg_sa_case_maule_brand
+            - n_reg_sa_case_itata_skin_trial
+        tasks: [DIP-3, C4, G13]
+      - id: wset_l4.world.argentina
+        label: Compare Argentine wine regions and their wines
+        covers:
+          within:
+            - n_geo_argentina
+            - n_reg_am_principle_mendoza_altitude
+            - n_reg_am_principle_mendoza_water
+            - n_reg_am_principle_patagonia_comparison
+            - n_reg_am_case_mendoza_claim
+            - n_reg_sa_principle_salta
+            - n_reg_sa_principle_torrontes
+            - n_reg_sa_principle_sanjuan
+            - n_reg_sa_principle_mendoza_yeast
+            - n_reg_sa_principle_mendoza_harvest
+            - n_reg_sa_principle_patagonia_provinces
+            - n_reg_sa_case_mendoza_capacity
+            - n_reg_sa_case_mendoza_yeast_trial
+        tasks: [DIP-3, C4, G13]
+      - id: wset_l4.world.south_africa
+        label: Compare South African wine regions and their wines
+        covers:
+          within:
+            - n_geo_south_africa
+            - n_reg_sh_principle_za_stellenbosch
+            - n_reg_sh_principle_za_swartland
+            - n_reg_sh_principle_za_cool_whites
+            - n_reg_sh_principle_za_chenin
+            - n_reg_sh_case_za_chenin_purchasing
+            - n_reg_oa_principle_constantia_blocks
+            - n_reg_oa_principle_paarl_water
+            - n_reg_oa_principle_robertson_chardonnay
+            - n_reg_oa_principle_paarl_pinotage
+            - n_reg_oa_case_robertson_water_plan
+        tasks: [DIP-3, C4, G13]
+      - id: wset_l4.world.australia
+        label: Compare Australian wine regions and their wines
+        covers:
+          within:
+            - n_geo_australia
+            - n_reg_sh_principle_au_barossa_eden
+            - n_reg_sh_principle_au_riesling
+            - n_reg_sh_principle_au_cabernet
+            - n_reg_sh_principle_au_pinot_chardonnay
+            - n_reg_sh_principle_au_tasmania
+            - n_reg_sh_principle_au_price
+            - n_reg_sh_case_au_shiraz_selection
+            - n_reg_sh_case_au_cabernet_price
+            - n_reg_oa_principle_hunter_style
+            - n_reg_oa_principle_hunter_harvest
+            - n_reg_oa_principle_mclaren_routes
+            - n_reg_oa_principle_mclaren_cellar
+            - n_reg_oa_principle_adelaide_sites
+            - n_reg_oa_principle_adelaide_m3
+            - n_reg_oa_case_hunter_toast
+            - n_reg_oa_case_mclaren_cap_trial
+        tasks: [DIP-3, C4, G13]
+      - id: wset_l4.world.new_zealand
+        label: Compare New Zealand wine regions and their wines
+        covers:
+          within:
+            - n_geo_new_zealand
+            - n_reg_sh_principle_nz_marlborough
+            - n_reg_sh_principle_nz_hawkes
+            - n_reg_sh_principle_nz_otago
+            - n_reg_sh_principle_nz_martinborough
+            - n_reg_sh_case_nz_white_comparison
+            - n_reg_oa_principle_nelson_sites
+            - n_reg_oa_principle_canterbury_sites
+            - n_reg_oa_principle_canterbury_styles
+            - n_reg_oa_principle_gisborne_sites
+            - n_reg_oa_case_canterbury_riesling_offer
+        tasks: [DIP-3, C4, G13]
+      - id: wset_l4.world.china
+        label: Study the regional wine contexts of China
+        covers:
+          within:
+            - n_geo_china
+            - n_reg_cn_principle_helan_sun_water
+            - n_reg_cn_principle_hongsibu_winter_work
+            - n_reg_cn_principle_ningxia_training
+            - n_reg_cn_principle_ningxia_deficit_irrigation
+            - n_reg_cn_principle_shandong_storm_storage
+            - n_reg_cn_principle_shandong_small_lots
+            - n_reg_cn_principle_shandong_grapes_extraction
+            - n_reg_cn_principle_china_phenology_models
+            - n_reg_cn_principle_xinjiang_shade
+            - n_reg_cn_principle_xinjiang_nonburial_cover
+            - n_reg_cn_principle_xinjiang_water_nitrogen
+            - n_reg_cn_principle_yunnan_village_exposure
+            - n_reg_cn_principle_yunnan_work_blend
+            - n_reg_cn_principle_grace_2025_comparison
+            - n_reg_cn_case_ningxia_training_budget
+            - n_reg_cn_case_shandong_water_budget
+            - n_reg_cn_case_xinjiang_shade_style
+            - n_reg_cn_case_yunnan_blend_evidence
+        tasks: [DIP-3, C4, G13]
+      - id: wset_l4.world.comparison
+        label: Develop supported comparisons of regional wine choices
+        covers:
+          within:
+            - n_reg_fr_principle_chardonnay_climate
+            - n_reg_fr_principle_chablis_elevage
+            - n_reg_fr_principle_chablis_mlf
+            - n_reg_fr_principle_cotes_grapes
+            - n_reg_fr_principle_climat_comparison
+            - n_reg_fr_principle_hautes_cotes
+            - n_reg_fr_principle_bordeaux_ripening
+            - n_reg_fr_principle_bordeaux_soils
+            - n_reg_fr_principle_bordeaux_blends
+            - n_reg_fr_principle_bordeaux_2024
+            - n_reg_fr_principle_loire_white_styles
+            - n_reg_fr_principle_centre_sites
+            - n_reg_fr_principle_rhone_grapes
+            - n_reg_fr_principle_rhone_terrain
+            - n_reg_fr_case_chardonnay_buy
+            - n_reg_fr_case_bordeaux_blend
+            - n_reg_fr_case_loire_list
+            - n_reg_fr_case_rhone_cost
+            - n_reg_am_principle_napa_contrast
+            - n_reg_am_principle_sonoma_contrast
+            - n_reg_am_principle_paso_contrast
+            - n_reg_am_principle_oregon_range
+            - n_reg_am_principle_eola_planning
+            - n_reg_am_principle_washington_contrast
+            - n_reg_am_principle_finger_seasons
+            - n_reg_am_principle_canada_sites
+            - n_reg_am_principle_chile_coast_inland
+            - n_reg_am_principle_casablanca_sites
+            - n_reg_am_principle_chile_style_range
+            - n_reg_am_principle_mendoza_altitude
+            - n_reg_am_principle_mendoza_water
+            - n_reg_am_principle_patagonia_comparison
+            - n_reg_am_case_california_sites
+            - n_reg_am_case_pacific_northwest
+            - n_reg_am_case_chile_white
+            - n_reg_am_case_mendoza_claim
+            - n_reg_sh_principle_au_barossa_eden
+            - n_reg_sh_principle_au_riesling
+            - n_reg_sh_principle_au_cabernet
+            - n_reg_sh_principle_au_pinot_chardonnay
+            - n_reg_sh_principle_au_tasmania
+            - n_reg_sh_principle_au_price
+            - n_reg_sh_principle_nz_marlborough
+            - n_reg_sh_principle_nz_hawkes
+            - n_reg_sh_principle_nz_otago
+            - n_reg_sh_principle_nz_martinborough
+            - n_reg_sh_principle_za_stellenbosch
+            - n_reg_sh_principle_za_swartland
+            - n_reg_sh_principle_za_cool_whites
+            - n_reg_sh_principle_za_chenin
+            - n_reg_sh_case_au_shiraz_selection
+            - n_reg_sh_case_au_cabernet_price
+            - n_reg_sh_case_nz_white_comparison
+            - n_reg_sh_case_za_chenin_purchasing
+            - n_reg_inc_principle_nebbiolo_sites
+            - n_reg_inc_principle_barbera_dolcetto
+            - n_reg_inc_principle_valpolicella_styles
+            - n_reg_inc_principle_ripasso_process
+            - n_reg_inc_principle_soave_grapes
+            - n_reg_inc_principle_alto_adige_sites
+            - n_reg_inc_principle_friuli_hills
+            - n_reg_inc_principle_chianti_site_gradients
+            - n_reg_inc_principle_chianti_identity
+            - n_reg_inc_principle_sangiovese_vineyard_choices
+            - n_reg_inc_principle_montalcino_styles
+            - n_reg_inc_principle_bolgheri_terroir
+            - n_reg_inc_principle_verdicchio_regions
+            - n_reg_inc_principle_orvieto_range
+            - n_reg_inc_case_nebbiolo_list
+            - n_reg_inc_case_valpolicella_buy
+            - n_reg_inc_case_sangiovese_plots
+            - n_reg_inc_case_white_slots
+            - n_reg_isi_principle_irpinia_sites
+            - n_reg_isi_principle_taurasi_ripening
+            - n_reg_isi_principle_fiano_greco
+            - n_reg_isi_principle_fiano_cellar
+            - n_reg_isi_principle_vulture_taurasi
+            - n_reg_isi_principle_puglia_primitivo
+            - n_reg_isi_principle_salice_comparison
+            - n_reg_isi_principle_etna_slopes
+            - n_reg_isi_principle_etna_variation
+            - n_reg_isi_principle_etna_costs
+            - n_reg_isi_principle_vittoria_blend
+            - n_reg_isi_principle_gallura_vermentino
+            - n_reg_isi_principle_cannonau_ripeness
+            - n_reg_isi_principle_abruzzo_contrasts
+            - n_reg_isi_case_fiano_cellar_choice
+            - n_reg_isi_case_aglianico_comparison
+            - n_reg_isi_case_etna_price
+            - n_reg_isi_case_cannonau_harvest
+            - n_reg_ib_principle_es_rioja_climate
+            - n_reg_ib_principle_es_rioja_styles
+            - n_reg_ib_principle_es_ribera
+            - n_reg_ib_principle_es_galicia
+            - n_reg_ib_principle_es_rueda
+            - n_reg_ib_principle_es_priorat_montsant
+            - n_reg_ib_principle_es_levante
+            - n_reg_ib_principle_es_mancha_airen
+            - n_reg_ib_principle_pt_douro_climate
+            - n_reg_ib_principle_pt_douro_still
+            - n_reg_ib_principle_pt_dao
+            - n_reg_ib_principle_pt_bairrada
+            - n_reg_ib_principle_pt_vinho_verde
+            - n_reg_ib_principle_pt_alentejo
+            - n_reg_ib_case_es_rioja_site
+            - n_reg_ib_case_es_priorat_price
+            - n_reg_ib_case_pt_white_design
+            - n_reg_ib_case_pt_baga_inventory
+            - n_reg_fe_principle_alsace_climate
+            - n_reg_fe_principle_alsace_practices
+            - n_reg_fe_principle_alsace_riesling_gewurz
+            - n_reg_fe_principle_alsace_pinot_whites
+            - n_reg_fe_principle_alsace_aroma_sweetness
+            - n_reg_fe_principle_beaujolais_grapes
+            - n_reg_fe_principle_beaujolais_sites
+            - n_reg_fe_principle_beaujolais_semicarbonic
+            - n_reg_fe_principle_beaujolais_extraction
+            - n_reg_fe_principle_jura_climate_sites
+            - n_reg_fe_principle_jura_white_grapes
+            - n_reg_fe_principle_jura_red_grapes
+            - n_reg_fe_principle_jura_ouillage
+            - n_reg_fe_principle_jura_patient_wines
+            - n_reg_fe_case_alsace_dry_aromatic
+            - n_reg_fe_case_beaujolais_berry_handling
+            - n_reg_fe_case_jura_white_comparison
+            - n_reg_fe_case_jura_maturation_cash
+            - n_reg_fm_principle_languedoc_climate
+            - n_reg_fm_principle_picpoul_sites
+            - n_reg_fm_principle_cabardes_transition
+            - n_reg_fm_principle_pic_saint_loup
+            - n_reg_fm_principle_larzac_variation
+            - n_reg_fm_principle_faugeres_viticulture
+            - n_reg_fm_principle_roussillon_conditions
+            - n_reg_fm_principle_roussillon_styles
+            - n_reg_fm_principle_maury_sec
+            - n_reg_fm_principle_collioure_terraces
+            - n_reg_fm_principle_provence_climate
+            - n_reg_fm_principle_rose_methods
+            - n_reg_fm_principle_rose_harvest
+            - n_reg_fm_principle_bandol_mourvedre
+            - n_reg_fm_case_picpoul_harvest
+            - n_reg_fm_case_faugeres_pests
+            - n_reg_fm_case_collioure_maintenance
+            - n_reg_fm_case_rose_selection
+            - n_reg_fs_principle_loire_muscadet
+            - n_reg_fs_principle_loire_anjou_saumur
+            - n_reg_fs_principle_loire_saumur_champigny
+            - n_reg_fs_principle_loire_chinon
+            - n_reg_fs_principle_loire_chenin_harvest
+            - n_reg_fs_principle_rhone_syrah_grenache
+            - n_reg_fs_principle_rhone_white_grapes
+            - n_reg_fs_principle_rhone_chateauneuf_lirac
+            - n_reg_fs_principle_rhone_gigondas
+            - n_reg_fs_principle_southwest_cahors
+            - n_reg_fs_principle_southwest_madiran
+            - n_reg_fs_principle_southwest_jurancon
+            - n_reg_fs_principle_southwest_pacherenc
+            - n_reg_fs_principle_southwest_bergerac
+            - n_reg_fs_case_loire_muscadet_inventory
+            - n_reg_fs_case_rhone_harvest_water
+            - n_reg_fs_case_southwest_madiran_extraction
+            - n_reg_fs_case_southwest_sweet_process
+            - n_reg_de_principle_mosel_slope_work
+            - n_reg_de_principle_saar_ruwer_sites
+            - n_reg_de_principle_mosel_riesling_elbling
+            - n_reg_de_principle_nahe_shelter_diversity
+            - n_reg_de_principle_rheingau_exposure_reds
+            - n_reg_de_principle_rheinhessen_climate_terrain
+            - n_reg_de_principle_rheinhessen_silvaner_grauburgunder
+            - n_reg_de_principle_pfalz_shelter_styles
+            - n_reg_de_principle_franken_silvaner_muller
+            - n_reg_de_principle_baden_site_grapes
+            - n_reg_de_principle_baden_pinot_cellar
+            - n_reg_de_principle_ahr_pinot_work
+            - n_reg_de_principle_wuerttemberg_red_comparison
+            - n_reg_de_principle_eastern_exposure_frost
+            - n_reg_de_case_mosel_steep_budget
+            - n_reg_de_case_riesling_sweetness_evidence
+            - n_reg_de_case_baden_pinot_cellar_trial
+            - n_reg_de_case_saale_unstrut_frost_site
+            - n_reg_ah_principle_wachau
+            - n_reg_ah_principle_kremstal
+            - n_reg_ah_principle_kamptal
+            - n_reg_ah_principle_weinviertel
+            - n_reg_ah_principle_burgenland_red_sites
+            - n_reg_ah_principle_leithaberg
+            - n_reg_ah_principle_neusiedler_styles
+            - n_reg_ah_principle_south_styria
+            - n_reg_ah_principle_vienna_field_mix
+            - n_reg_ah_principle_tokaj_climate
+            - n_reg_ah_principle_tokaj_grapes
+            - n_reg_ah_principle_tokaj_soils
+            - n_reg_ah_principle_tokaj_harvest
+            - n_reg_ah_principle_tokaj_maturation
+            - n_reg_ah_case_vienna_harvest
+            - n_reg_ah_case_styria_crew
+            - n_reg_ah_case_tokaj_berry_selection
+            - n_reg_ah_case_tokaj_maturation_cash
+            - n_reg_gr_principle_naoussa_sites
+            - n_reg_gr_principle_naoussa_styles
+            - n_reg_gr_principle_amyndeon_context
+            - n_reg_gr_principle_northern_harvest
+            - n_reg_gr_principle_nemea_sites
+            - n_reg_gr_principle_nemea_styles
+            - n_reg_gr_principle_mantinia_white
+            - n_reg_gr_principle_santorini_training
+            - n_reg_gr_principle_santorini_white_styles
+            - n_reg_gr_principle_cefalonia_robola
+            - n_reg_gr_principle_samos_dry_context
+            - n_reg_gr_principle_crete_site_liatiko
+            - n_reg_gr_principle_crete_white_grapes
+            - n_reg_gr_principle_crete_red_blending
+            - n_reg_gr_case_north_comparison
+            - n_reg_gr_case_nemea_customer
+            - n_reg_gr_case_santorini_training
+            - n_reg_gr_case_aromatic_whites
+            - n_reg_na_principle_santa_barbara_grape_sites
+            - n_reg_na_principle_slh_aspect_style
+            - n_reg_na_principle_santa_cruz_slopes
+            - n_reg_na_principle_lodi_cluster_canopy
+            - n_reg_na_principle_amador_water_training
+            - n_reg_na_principle_red_mountain_exposure_air
+            - n_reg_na_principle_walla_profile_contrasts
+            - n_reg_na_principle_oregon_stem_comparison
+            - n_reg_na_principle_long_island_grape_timing
+            - n_reg_na_principle_niagara_bench_physics
+            - n_reg_na_principle_county_winter_spring
+            - n_reg_na_principle_erie_heat_soils
+            - n_reg_na_principle_similkameen_wind_sites
+            - n_reg_na_principle_okanagan_specific_grapes
+            - n_reg_na_case_lodi_sampling_triage
+            - n_reg_na_case_oregon_stem_trial
+            - n_reg_na_case_county_protection_budget
+            - n_reg_na_case_niagara_preplant_drainage
+            - n_reg_sa_principle_elqui
+            - n_reg_sa_principle_leyda
+            - n_reg_sa_principle_peumo
+            - n_reg_sa_principle_itata_vineyards
+            - n_reg_sa_principle_itata_tinajas
+            - n_reg_sa_principle_maule_heritage
+            - n_reg_sa_principle_maule_site_trial
+            - n_reg_sa_principle_biobio
+            - n_reg_sa_principle_salta
+            - n_reg_sa_principle_torrontes
+            - n_reg_sa_principle_sanjuan
+            - n_reg_sa_principle_mendoza_yeast
+            - n_reg_sa_principle_mendoza_harvest
+            - n_reg_sa_principle_patagonia_provinces
+            - n_reg_sa_case_maule_brand
+            - n_reg_sa_case_itata_skin_trial
+            - n_reg_sa_case_mendoza_capacity
+            - n_reg_sa_case_mendoza_yeast_trial
+            - n_reg_oa_principle_hunter_style
+            - n_reg_oa_principle_hunter_harvest
+            - n_reg_oa_principle_mclaren_routes
+            - n_reg_oa_principle_mclaren_cellar
+            - n_reg_oa_principle_adelaide_sites
+            - n_reg_oa_principle_adelaide_m3
+            - n_reg_oa_principle_nelson_sites
+            - n_reg_oa_principle_canterbury_sites
+            - n_reg_oa_principle_canterbury_styles
+            - n_reg_oa_principle_gisborne_sites
+            - n_reg_oa_principle_constantia_blocks
+            - n_reg_oa_principle_paarl_water
+            - n_reg_oa_principle_robertson_chardonnay
+            - n_reg_oa_principle_paarl_pinotage
+            - n_reg_oa_case_hunter_toast
+            - n_reg_oa_case_mclaren_cap_trial
+            - n_reg_oa_case_canterbury_riesling_offer
+            - n_reg_oa_case_robertson_water_plan
+            - n_reg_cn_principle_helan_sun_water
+            - n_reg_cn_principle_hongsibu_winter_work
+            - n_reg_cn_principle_ningxia_training
+            - n_reg_cn_principle_ningxia_deficit_irrigation
+            - n_reg_cn_principle_shandong_storm_storage
+            - n_reg_cn_principle_shandong_small_lots
+            - n_reg_cn_principle_shandong_grapes_extraction
+            - n_reg_cn_principle_china_phenology_models
+            - n_reg_cn_principle_xinjiang_shade
+            - n_reg_cn_principle_xinjiang_nonburial_cover
+            - n_reg_cn_principle_xinjiang_water_nitrogen
+            - n_reg_cn_principle_yunnan_village_exposure
+            - n_reg_cn_principle_yunnan_work_blend
+            - n_reg_cn_principle_grace_2025_comparison
+            - n_reg_cn_case_ningxia_training_budget
+            - n_reg_cn_case_shandong_water_budget
+            - n_reg_cn_case_xinjiang_shade_style
+            - n_reg_cn_case_yunnan_blend_evidence
+          relation_types:
+            - PRINCIPLE_EXPLANATION
+            - CASE_ACTION
+            - CASE_REASON
+            - CASE_TRADEOFF
+            - CASE_LIMITATION
+        tasks: [DIP-3, Q6, G9]
+      - id: wset_l4.world.tasting
+        label: Practise evidence-based conclusions from still-wine tasting
+        covers: {domains: [tasting]}
+        tasks: [DIP-3, T1, T2, Q8, S3]
+
+      # D4: sparkling geography is support, not a complete product curriculum.
+      - id: wset_l4.sparkling.france
+        label: Compare French sparkling-wine contexts
+        covers: {within: [n_geo_champagne_region, n_geo_cremant_d_alsace, n_geo_saumur, n_geo_vouvray]}
+        tasks: [DIP-4, C2, G10]
+      - id: wset_l4.sparkling.germany
+        label: Study German sparkling-wine choices
+        covers: {within: [n_wine_winzersekt]}
+        tasks: [DIP-4, C6]
+      - id: wset_l4.sparkling.italy
+        label: Compare Italian sparkling-wine contexts
+        covers: {within: [n_geo_asti, n_geo_franciacorta, n_geo_conegliano_valdobbiadene, n_geo_asolo_prosecco, n_geo_prosecco, n_geo_trento_doc, n_geo_lambrusco_sorbara, n_geo_lambrusco_grasparossa, n_geo_lambrusco_salamino]}
+        tasks: [DIP-4, C3, G11]
+      - id: wset_l4.sparkling.spain
+        label: Study Cava and its regional contexts
+        covers: {within: [n_geo_cava]}
+        tasks: [DIP-4, C3, G11]
+      - id: wset_l4.sparkling.britain
+        label: Study sparkling-wine contexts in England and Wales
+        covers: {within: [n_geo_england, n_geo_wales]}
+        tasks: [DIP-4, G13]
+      - id: wset_l4.sparkling.americas
+        label: Compare sparkling-wine contexts in the Americas
+        tasks: [DIP-4, C4]
+      - id: wset_l4.sparkling.south_africa
+        label: Study South African bottle-fermented sparkling wines
+        tasks: [DIP-4, C4]
+      - id: wset_l4.sparkling.australia
+        label: Compare Australian sparkling-wine contexts
+        tasks: [DIP-4, C4]
+      - id: wset_l4.sparkling.new_zealand
+        label: Study New Zealand sparkling-wine contexts
+        tasks: [DIP-4, C4]
+      - id: wset_l4.sparkling.production
+        label: Compare ways to create and finish sparkling wines
+        covers:
+          within:
+            - n_geo_champagne_region
+            - n_geo_cava
+            - n_geo_asti
+            - n_geo_franciacorta
+            - n_geo_prosecco
+            - n_geo_trento_doc
+            - n_spark_principle_traditional
+            - n_spark_principle_tirage
+            - n_spark_principle_more_alcohol
+            - n_spark_principle_tank
+            - n_spark_principle_tank_filter
+            - n_spark_principle_transfer_bottle
+            - n_spark_principle_transfer_tank
+            - n_spark_principle_transfer_lees
+            - n_spark_principle_ancestral
+            - n_spark_principle_ancestral_disgorge
+            - n_spark_principle_carbonation
+            - n_spark_principle_carbonation_fermentation
+            - n_spark_principle_cool_solubility
+            - n_spark_principle_agitation
+            - n_spark_principle_white_press
+            - n_spark_principle_press_fractions
+            - n_spark_principle_base_acidity
+            - n_spark_principle_base_alcohol
+            - n_spark_principle_blending
+            - n_spark_principle_multivintage
+            - n_spark_principle_mlf_optional
+            - n_spark_principle_autolysis
+            - n_spark_principle_lees_style
+            - n_spark_principle_riddling
+            - n_spark_principle_disgorgement
+            - n_spark_principle_disgorge_oxygen
+            - n_spark_principle_dosage
+            - n_spark_principle_dosage_aroma
+            - n_spark_principle_liner
+            - n_spark_principle_low_liner
+            - n_spark_principle_lees_decline
+            - n_spark_principle_bidule
+            - n_spark_principle_gushing_solids
+            - n_spark_principle_alcohol_tartrate
+            - n_spark_principle_counterpressure
+            - n_spark_case_fruit_tank
+            - n_spark_case_transfer_batch
+            - n_spark_case_long_closure
+            - n_spark_case_gushing_batch
+            - n_spark_case_dosage_trial
+          relation_types:
+            - REQUIRES_METHOD
+            - PRINCIPLE_EXPLANATION
+            - CASE_ACTION
+            - CASE_REASON
+            - CASE_TRADEOFF
+            - CASE_LIMITATION
+        tasks: [DIP-4, C5]
+      - id: wset_l4.sparkling.commerce
+        label: Connect sparkling-wine labels and producer choices to market positioning
+        covers:
+          within:
+            - n_spark_principle_automated_riddling
+            - n_spark_principle_gas_return
+            - n_spark_principle_gas_cost
+            - n_spark_case_fruit_tank
+            - n_spark_case_transfer_batch
+            - n_spark_case_long_closure
+            - n_spark_case_gushing_batch
+            - n_spark_case_dosage_trial
+          relation_types:
+            - PRINCIPLE_EXPLANATION
+            - CASE_TRADEOFF
+        tasks: [DIP-4, DIP-2]
+      - id: wset_l4.sparkling.tasting
+        label: Practise evidence-based conclusions from sparkling-wine tasting
+        tasks: [DIP-4, T1, T2, Q8, S3]
+
+      # D5: places are separated from fortified-wine styles and business facts.
+      - id: wset_l4.fortified.sherry
+        label: Study Sherry through its places and wines
+        covers:
+          within:
+            - n_geo_jerez
+            - n_geo_manzanilla_sanlucar
+            - n_fort_principle_sherry_classify
+            - n_fort_principle_sherry_flor_level
+            - n_fort_principle_sherry_flor_ethanol
+            - n_fort_principle_sherry_acetaldehyde
+            - n_fort_principle_sherry_glycerol
+            - n_fort_principle_sherry_ullage
+            - n_fort_principle_sherry_amontillado
+            - n_fort_principle_sherry_oloroso
+            - n_fort_principle_sherry_solera
+            - n_fort_principle_sherry_saca
+            - n_fort_principle_sherry_refresh
+            - n_fort_principle_sherry_px
+            - n_fort_principle_sherry_cream
+            - n_fort_case_flor_oxygen
+        tasks: [DIP-5, C3, G11]
+      - id: wset_l4.fortified.port
+        label: Study Port through its places and wines
+        covers:
+          within:
+            - n_geo_douro
+            - n_fort_principle_port_sugar
+            - n_fort_principle_port_stop
+            - n_fort_principle_port_ruby
+            - n_fort_principle_port_tawny
+            - n_fort_principle_port_vintage
+            - n_fort_principle_port_lbv
+            - n_fort_principle_port_colheita
+            - n_fort_principle_port_white_dry
+            - n_fort_case_port_fruit
+        tasks: [DIP-5, C3, G11]
+      - id: wset_l4.fortified.madeira
+        label: Study Madeira through its places and wines
+        covers:
+          within:
+            - n_geo_madeira
+            - n_fort_principle_madeira_sweetness
+            - n_fort_principle_madeira_estufagem
+            - n_fort_principle_madeira_canteiro
+            - n_fort_principle_madeira_rest
+            - n_fort_principle_madeira_concentration
+            - n_fort_principle_madeira_locations
+            - n_fort_case_madeira_slow
+        tasks: [DIP-5, C3]
+      - id: wset_l4.fortified.france
+        label: Compare French fortified sweet-wine contexts
+        covers:
+          within:
+            - n_geo_banyuls
+            - n_geo_banyuls_grand_cru
+            - n_geo_maury
+            - n_geo_rivesaltes
+            - n_geo_muscat_de_rivesaltes
+            - n_geo_muscat_de_frontignan
+            - n_fort_principle_vdn_mutage
+            - n_fort_principle_vdn_marc
+            - n_fort_principle_vdn_young
+            - n_fort_principle_vdn_oxidative
+            - n_fort_case_vdn_fresh
+        tasks: [DIP-5, C2, G10]
+      - id: wset_l4.fortified.australia
+        label: Study Rutherglen's fortified Muscat context
+        covers:
+          within:
+            - n_geo_rutherglen_wine
+            - n_fort_principle_ruth_spirit
+            - n_fort_principle_ruth_sugar
+            - n_fort_principle_ruth_parcels
+            - n_fort_principle_ruth_casks
+            - n_fort_principle_ruth_classification
+            - n_fort_principle_ruth_youthful_blend
+            - n_fort_case_ruth_balance
+        tasks: [DIP-5, C4, G13]
+      - id: wset_l4.fortified.production_and_market
+        label: Compare fortified-wine cellar decisions and their market consequences
+        covers:
+          within:
+            - n_fort_principle_port_sugar
+            - n_fort_principle_port_stop
+            - n_fort_principle_port_ruby
+            - n_fort_principle_port_tawny
+            - n_fort_principle_port_vintage
+            - n_fort_principle_port_lbv
+            - n_fort_principle_port_colheita
+            - n_fort_principle_port_white_dry
+            - n_fort_principle_sherry_classify
+            - n_fort_principle_sherry_flor_level
+            - n_fort_principle_sherry_flor_ethanol
+            - n_fort_principle_sherry_acetaldehyde
+            - n_fort_principle_sherry_glycerol
+            - n_fort_principle_sherry_ullage
+            - n_fort_principle_sherry_amontillado
+            - n_fort_principle_sherry_oloroso
+            - n_fort_principle_sherry_solera
+            - n_fort_principle_sherry_saca
+            - n_fort_principle_sherry_refresh
+            - n_fort_principle_sherry_px
+            - n_fort_principle_sherry_cream
+            - n_fort_principle_madeira_sweetness
+            - n_fort_principle_madeira_estufagem
+            - n_fort_principle_madeira_canteiro
+            - n_fort_principle_madeira_rest
+            - n_fort_principle_madeira_concentration
+            - n_fort_principle_madeira_locations
+            - n_fort_principle_vdn_mutage
+            - n_fort_principle_vdn_marc
+            - n_fort_principle_vdn_young
+            - n_fort_principle_vdn_oxidative
+            - n_fort_principle_ruth_spirit
+            - n_fort_principle_ruth_sugar
+            - n_fort_principle_ruth_parcels
+            - n_fort_principle_ruth_casks
+            - n_fort_principle_ruth_classification
+            - n_fort_principle_ruth_youthful_blend
+            - n_fort_case_port_fruit
+            - n_fort_case_flor_oxygen
+            - n_fort_case_madeira_slow
+            - n_fort_case_vdn_fresh
+            - n_fort_case_ruth_balance
+          relation_types:
+            - PRINCIPLE_EXPLANATION
+            - CASE_ACTION
+            - CASE_REASON
+            - CASE_TRADEOFF
+            - CASE_LIMITATION
+        tasks: [DIP-5, DIP-2, C5]
+      - id: wset_l4.fortified.tasting
+        label: Practise evidence-based conclusions from fortified-wine tasting
+        tasks: [DIP-5, T1, T2, Q8, S3]
+
+      # D6: future research support; no copied assignment or auto-marking claim.
+      - id: wset_l4.research.evidence
+        label: Plan an inquiry and evaluate competing wine-related evidence
+        tasks: [DIP-6]
+      - id: wset_l4.research.argument
+        label: Build a referenced written argument and revise it critically
+        tasks: [DIP-6]
+
   CMS_CERTIFIED:
     name: Certified Sommelier
     body: Court of Master Sommeliers Europe
@@ -202,13 +1849,45 @@ tracks:
       # Wine regions.
       - id: cms_certified.alsace
         label: Alsace
+        covers:
+          within:
+            - n_geo_alsace_region
+            - n_reg_fe_principle_alsace_climate
+            - n_reg_fe_principle_alsace_practices
+            - n_reg_fe_principle_alsace_riesling_gewurz
+            - n_reg_fe_principle_alsace_pinot_whites
+            - n_reg_fe_principle_alsace_aroma_sweetness
+            - n_reg_fe_case_alsace_dry_aromatic
         tasks: [C2]
       - id: cms_certified.bordeaux
         label: Bordeaux and its classifications
+        covers:
+          within:
+            - n_geo_bordeaux
+            - n_reg_fr_principle_bordeaux_ripening
+            - n_reg_fr_principle_bordeaux_soils
+            - n_reg_fr_principle_bordeaux_blends
+            - n_reg_fr_principle_bordeaux_2024
+            - n_reg_fr_case_bordeaux_blend
         tasks: [C2]
       - id: cms_certified.burgundy
         label: Burgundy, from Chablis to the Mâconnais, and Beaujolais
-        covers: {within: [n_geo_burgundy]}
+        covers:
+          within:
+            - n_geo_burgundy
+            - n_geo_beaujolais_region
+            - n_reg_fr_principle_chardonnay_climate
+            - n_reg_fr_principle_chablis_elevage
+            - n_reg_fr_principle_chablis_mlf
+            - n_reg_fr_principle_cotes_grapes
+            - n_reg_fr_principle_climat_comparison
+            - n_reg_fr_principle_hautes_cotes
+            - n_reg_fr_case_chardonnay_buy
+            - n_reg_fe_principle_beaujolais_grapes
+            - n_reg_fe_principle_beaujolais_sites
+            - n_reg_fe_principle_beaujolais_semicarbonic
+            - n_reg_fe_principle_beaujolais_extraction
+            - n_reg_fe_case_beaujolais_berry_handling
         tasks: [C2]
       - id: cms_certified.champagne
         label: Champagne
@@ -216,60 +1895,481 @@ tracks:
         tasks: [C2]
       - id: cms_certified.sparkling
         label: How sparkling wines are made, and the principal sparkling wines of other countries
-        covers: {relation_types: [REQUIRES_METHOD]}
+        covers:
+          within:
+            - n_geo_champagne
+            - n_wine_winzersekt
+            - n_spark_principle_traditional
+            - n_spark_principle_tirage
+            - n_spark_principle_more_alcohol
+            - n_spark_principle_tank
+            - n_spark_principle_tank_filter
+            - n_spark_principle_transfer_bottle
+            - n_spark_principle_transfer_tank
+            - n_spark_principle_transfer_lees
+            - n_spark_principle_ancestral
+            - n_spark_principle_ancestral_disgorge
+            - n_spark_principle_carbonation
+            - n_spark_principle_carbonation_fermentation
+            - n_spark_principle_cool_solubility
+            - n_spark_principle_agitation
+            - n_spark_principle_white_press
+            - n_spark_principle_press_fractions
+            - n_spark_principle_base_acidity
+            - n_spark_principle_base_alcohol
+            - n_spark_principle_blending
+            - n_spark_principle_multivintage
+            - n_spark_principle_mlf_optional
+            - n_spark_principle_autolysis
+            - n_spark_principle_lees_style
+            - n_spark_principle_riddling
+            - n_spark_principle_automated_riddling
+            - n_spark_principle_disgorgement
+            - n_spark_principle_disgorge_oxygen
+            - n_spark_principle_dosage
+            - n_spark_principle_dosage_aroma
+            - n_spark_principle_liner
+            - n_spark_principle_low_liner
+            - n_spark_principle_lees_decline
+            - n_spark_principle_bidule
+            - n_spark_principle_gushing_solids
+            - n_spark_principle_alcohol_tartrate
+            - n_spark_principle_counterpressure
+            - n_spark_principle_gas_return
+            - n_spark_principle_gas_cost
+            - n_spark_case_fruit_tank
+            - n_spark_case_transfer_batch
+            - n_spark_case_long_closure
+            - n_spark_case_gushing_batch
+            - n_spark_case_dosage_trial
+          relation_types:
+            - REQUIRES_METHOD
+            - PRINCIPLE_EXPLANATION
+            - CASE_ACTION
+            - CASE_REASON
+            - CASE_TRADEOFF
+            - CASE_LIMITATION
         tasks: [C2, C3, C4, C5, C6]
       - id: cms_certified.loire
         label: The Loire Valley
-        covers: {within: [n_geo_loire_valley]}
+        covers:
+          within:
+            - n_geo_loire_valley
+            - n_reg_fr_principle_loire_white_styles
+            - n_reg_fr_principle_centre_sites
+            - n_reg_fr_case_loire_list
+            - n_reg_fs_principle_loire_muscadet
+            - n_reg_fs_principle_loire_anjou_saumur
+            - n_reg_fs_principle_loire_saumur_champigny
+            - n_reg_fs_principle_loire_chinon
+            - n_reg_fs_principle_loire_chenin_harvest
+            - n_reg_fs_case_loire_muscadet_inventory
         tasks: [C2]
       - id: cms_certified.rhone
         label: The Rhône Valley
-        covers: {within: [n_geo_rhone_valley]}
+        covers:
+          within:
+            - n_geo_rhone_valley
+            - n_reg_fr_principle_rhone_grapes
+            - n_reg_fr_principle_rhone_terrain
+            - n_reg_fr_case_rhone_cost
+            - n_reg_fs_principle_rhone_syrah_grenache
+            - n_reg_fs_principle_rhone_white_grapes
+            - n_reg_fs_principle_rhone_chateauneuf_lirac
+            - n_reg_fs_principle_rhone_gigondas
+            - n_reg_fs_case_rhone_harvest_water
         tasks: [C2]
       - id: cms_certified.south_of_france
         label: Provence, Languedoc, Roussillon and South West France
+        covers:
+          within:
+            - n_geo_provence
+            - n_geo_languedoc_region
+            - n_geo_roussillon
+            - n_geo_southwest_france
+            - n_reg_fm_principle_languedoc_climate
+            - n_reg_fm_principle_picpoul_sites
+            - n_reg_fm_principle_cabardes_transition
+            - n_reg_fm_principle_pic_saint_loup
+            - n_reg_fm_principle_larzac_variation
+            - n_reg_fm_principle_faugeres_viticulture
+            - n_reg_fm_case_picpoul_harvest
+            - n_reg_fm_case_faugeres_pests
+            - n_reg_fm_principle_roussillon_conditions
+            - n_reg_fm_principle_roussillon_styles
+            - n_reg_fm_principle_maury_sec
+            - n_reg_fm_principle_collioure_terraces
+            - n_reg_fm_case_collioure_maintenance
+            - n_reg_fm_principle_provence_climate
+            - n_reg_fm_principle_rose_methods
+            - n_reg_fm_principle_rose_harvest
+            - n_reg_fm_principle_bandol_mourvedre
+            - n_reg_fm_case_rose_selection
+            - n_reg_fs_principle_southwest_cahors
+            - n_reg_fs_principle_southwest_madiran
+            - n_reg_fs_principle_southwest_jurancon
+            - n_reg_fs_principle_southwest_pacherenc
+            - n_reg_fs_principle_southwest_bergerac
+            - n_reg_fs_case_southwest_madiran_extraction
+            - n_reg_fs_case_southwest_sweet_process
         tasks: [C2]
       - id: cms_certified.spain
         label: Spain
+        covers:
+          within:
+            - n_geo_spain
+            - n_reg_ib_principle_es_rioja_climate
+            - n_reg_ib_principle_es_rioja_styles
+            - n_reg_ib_principle_es_ribera
+            - n_reg_ib_principle_es_galicia
+            - n_reg_ib_principle_es_rueda
+            - n_reg_ib_principle_es_priorat_montsant
+            - n_reg_ib_principle_es_levante
+            - n_reg_ib_principle_es_mancha_airen
+            - n_reg_ib_case_es_rioja_site
+            - n_reg_ib_case_es_priorat_price
         tasks: [C3]
       - id: cms_certified.portugal
         label: Portugal
+        covers:
+          within:
+            - n_geo_portugal
+            - n_reg_ib_principle_pt_douro_climate
+            - n_reg_ib_principle_pt_douro_still
+            - n_reg_ib_principle_pt_dao
+            - n_reg_ib_principle_pt_bairrada
+            - n_reg_ib_principle_pt_vinho_verde
+            - n_reg_ib_principle_pt_alentejo
+            - n_reg_ib_case_pt_white_design
+            - n_reg_ib_case_pt_baga_inventory
         tasks: [C3]
       - id: cms_certified.italy
         label: Italy
-        covers: {within: [n_geo_italy]}
+        covers:
+          within:
+            - n_geo_italy
+            - n_reg_inc_principle_nebbiolo_sites
+            - n_reg_inc_principle_barbera_dolcetto
+            - n_reg_inc_principle_valpolicella_styles
+            - n_reg_inc_principle_ripasso_process
+            - n_reg_inc_principle_soave_grapes
+            - n_reg_inc_principle_alto_adige_sites
+            - n_reg_inc_principle_friuli_hills
+            - n_reg_inc_case_nebbiolo_list
+            - n_reg_inc_case_valpolicella_buy
+            - n_reg_inc_principle_chianti_site_gradients
+            - n_reg_inc_principle_chianti_identity
+            - n_reg_inc_principle_sangiovese_vineyard_choices
+            - n_reg_inc_principle_montalcino_styles
+            - n_reg_inc_principle_bolgheri_terroir
+            - n_reg_inc_principle_verdicchio_regions
+            - n_reg_inc_principle_orvieto_range
+            - n_reg_inc_case_sangiovese_plots
+            - n_reg_inc_case_white_slots
+            - n_reg_isi_principle_abruzzo_contrasts
+            - n_reg_isi_principle_irpinia_sites
+            - n_reg_isi_principle_taurasi_ripening
+            - n_reg_isi_principle_fiano_greco
+            - n_reg_isi_principle_fiano_cellar
+            - n_reg_isi_principle_vulture_taurasi
+            - n_reg_isi_principle_puglia_primitivo
+            - n_reg_isi_principle_salice_comparison
+            - n_reg_isi_principle_etna_slopes
+            - n_reg_isi_principle_etna_variation
+            - n_reg_isi_principle_etna_costs
+            - n_reg_isi_principle_vittoria_blend
+            - n_reg_isi_principle_gallura_vermentino
+            - n_reg_isi_principle_cannonau_ripeness
+            - n_reg_isi_case_fiano_cellar_choice
+            - n_reg_isi_case_aglianico_comparison
+            - n_reg_isi_case_etna_price
+            - n_reg_isi_case_cannonau_harvest
         tasks: [C3]
       - id: cms_certified.germany
         label: Germany
+        covers:
+          within:
+            - n_geo_germany
+            - n_term_qualitaetswein
+            - n_term_praedikatswein
+            - n_term_landwein
+            - n_term_kabinett
+            - n_term_spaetlese
+            - n_term_auslese
+            - n_term_beerenauslese
+            - n_term_trockenbeerenauslese
+            - n_term_eiswein
+            - n_term_ortswein
+            - n_term_lagenwein
+            - n_wine_roseewein
+            - n_wine_rotling
+            - n_wine_blanc_de_noirs
+            - n_wine_weissherbst
+            - n_wine_schillerwein
+            - n_wine_badisch_rotgold
+            - n_wine_schieler
+            - n_wine_winzersekt
+            - n_mark_erstes_gewaechs
+            - n_mark_grosses_gewaechs
+            - n_mark_deutsches_weinsiegel
+            - n_term_gebietswein
+            - n_term_regionalwein
+            - n_term_vdp_gutswein
+            - n_term_vdp_ortswein
+            - n_term_vdp_erste_lage
+            - n_term_vdp_grosse_lage
+            - n_term_vdp_grosses_gewaechs
+            - n_stat_de_leading_red_2024
+            - n_stat_de_pinot_area_2024
+            - n_stat_baden_pinot_area_2024
+            - n_stat_pfalz_pinot_area_2024
+            - n_stat_rheinhessen_pinot_area_2024
+            - n_stat_wuerttemberg_pinot_area_2024
+            - n_stat_de_pinot_share_2024
+            - n_stat_baden_pinot_share_2024
+            - n_stat_pfalz_pinot_share_2024
+            - n_stat_rheinhessen_pinot_share_2024
+            - n_stat_wuerttemberg_pinot_share_2024
+            - n_stat_ahr_pinot_share_2024
+            - n_reg_de_principle_mosel_slope_work
+            - n_reg_de_principle_saar_ruwer_sites
+            - n_reg_de_principle_mosel_riesling_elbling
+            - n_reg_de_principle_nahe_shelter_diversity
+            - n_reg_de_principle_rheingau_exposure_reds
+            - n_reg_de_principle_rheinhessen_climate_terrain
+            - n_reg_de_principle_rheinhessen_silvaner_grauburgunder
+            - n_reg_de_principle_pfalz_shelter_styles
+            - n_reg_de_principle_franken_silvaner_muller
+            - n_reg_de_principle_baden_site_grapes
+            - n_reg_de_principle_baden_pinot_cellar
+            - n_reg_de_principle_ahr_pinot_work
+            - n_reg_de_principle_wuerttemberg_red_comparison
+            - n_reg_de_principle_eastern_exposure_frost
+            - n_reg_de_case_mosel_steep_budget
+            - n_reg_de_case_riesling_sweetness_evidence
+            - n_reg_de_case_baden_pinot_cellar_trial
+            - n_reg_de_case_saale_unstrut_frost_site
         tasks: [C6]
       - id: cms_certified.austria
         label: Austria
+        covers:
+          within:
+            - n_geo_austria
+            - n_reg_ah_principle_wachau
+            - n_reg_ah_principle_kremstal
+            - n_reg_ah_principle_kamptal
+            - n_reg_ah_principle_weinviertel
+            - n_reg_ah_principle_burgenland_red_sites
+            - n_reg_ah_principle_leithaberg
+            - n_reg_ah_principle_neusiedler_styles
+            - n_reg_ah_principle_south_styria
+            - n_reg_ah_principle_vienna_field_mix
+            - n_reg_ah_case_vienna_harvest
+            - n_reg_ah_case_styria_crew
         tasks: [C6]
       - id: cms_certified.greece
         label: Greece
+        covers:
+          within:
+            - n_geo_greece
+            - n_reg_gr_principle_naoussa_sites
+            - n_reg_gr_principle_naoussa_styles
+            - n_reg_gr_principle_amyndeon_context
+            - n_reg_gr_principle_northern_harvest
+            - n_reg_gr_principle_nemea_sites
+            - n_reg_gr_principle_nemea_styles
+            - n_reg_gr_principle_mantinia_white
+            - n_reg_gr_principle_santorini_training
+            - n_reg_gr_principle_santorini_white_styles
+            - n_reg_gr_principle_cefalonia_robola
+            - n_reg_gr_principle_samos_dry_context
+            - n_reg_gr_principle_crete_site_liatiko
+            - n_reg_gr_principle_crete_white_grapes
+            - n_reg_gr_principle_crete_red_blending
+            - n_reg_gr_case_north_comparison
+            - n_reg_gr_case_nemea_customer
+            - n_reg_gr_case_santorini_training
+            - n_reg_gr_case_aromatic_whites
         tasks: [C6]
       - id: cms_certified.eastern_europe
         label: Tokaji, and the wine regions and grapes of Eastern Europe
+        covers:
+          within:
+            - n_geo_hungary
+            - n_wine_tokaji_eszencia
+            - n_wine_tokaji_aszu
+            - n_wine_tokaji_szamorodni_dry
+            - n_wine_tokaji_szamorodni_sweet
+            - n_reg_ah_principle_tokaj_climate
+            - n_reg_ah_principle_tokaj_grapes
+            - n_reg_ah_principle_tokaj_soils
+            - n_reg_ah_principle_tokaj_harvest
+            - n_reg_ah_principle_tokaj_maturation
+            - n_reg_ah_case_tokaj_berry_selection
+            - n_reg_ah_case_tokaj_maturation_cash
         tasks: [C6]
       - id: cms_certified.australia
         label: Australia
+        covers:
+          within:
+            - n_geo_australia
+            - n_reg_sh_principle_au_barossa_eden
+            - n_reg_sh_principle_au_riesling
+            - n_reg_sh_principle_au_cabernet
+            - n_reg_sh_principle_au_pinot_chardonnay
+            - n_reg_sh_principle_au_tasmania
+            - n_reg_sh_principle_au_price
+            - n_reg_sh_case_au_shiraz_selection
+            - n_reg_sh_case_au_cabernet_price
+            - n_reg_oa_principle_hunter_style
+            - n_reg_oa_principle_hunter_harvest
+            - n_reg_oa_principle_mclaren_routes
+            - n_reg_oa_principle_mclaren_cellar
+            - n_reg_oa_principle_adelaide_sites
+            - n_reg_oa_principle_adelaide_m3
+            - n_reg_oa_case_hunter_toast
+            - n_reg_oa_case_mclaren_cap_trial
         tasks: [C4]
       - id: cms_certified.new_zealand
         label: New Zealand
+        covers:
+          within:
+            - n_geo_new_zealand
+            - n_reg_sh_principle_nz_marlborough
+            - n_reg_sh_principle_nz_hawkes
+            - n_reg_sh_principle_nz_otago
+            - n_reg_sh_principle_nz_martinborough
+            - n_reg_sh_case_nz_white_comparison
+            - n_reg_oa_principle_nelson_sites
+            - n_reg_oa_principle_canterbury_sites
+            - n_reg_oa_principle_canterbury_styles
+            - n_reg_oa_principle_gisborne_sites
+            - n_reg_oa_case_canterbury_riesling_offer
         tasks: [C4]
       - id: cms_certified.north_america
         label: The United States and Canada
+        covers:
+          within:
+            - n_geo_united_states
+            - n_geo_canada
+            - n_reg_am_principle_napa_contrast
+            - n_reg_am_principle_sonoma_contrast
+            - n_reg_am_principle_paso_contrast
+            - n_reg_am_principle_oregon_range
+            - n_reg_am_principle_eola_planning
+            - n_reg_am_principle_washington_contrast
+            - n_reg_am_case_california_sites
+            - n_reg_am_case_pacific_northwest
+            - n_reg_am_principle_finger_seasons
+            - n_reg_am_principle_canada_sites
+            - n_reg_na_principle_santa_barbara_grape_sites
+            - n_reg_na_principle_slh_aspect_style
+            - n_reg_na_principle_santa_cruz_slopes
+            - n_reg_na_principle_lodi_cluster_canopy
+            - n_reg_na_principle_amador_water_training
+            - n_reg_na_principle_red_mountain_exposure_air
+            - n_reg_na_principle_walla_profile_contrasts
+            - n_reg_na_principle_oregon_stem_comparison
+            - n_reg_na_case_lodi_sampling_triage
+            - n_reg_na_case_oregon_stem_trial
+            - n_reg_na_principle_long_island_grape_timing
+            - n_reg_na_principle_niagara_bench_physics
+            - n_reg_na_principle_county_winter_spring
+            - n_reg_na_principle_erie_heat_soils
+            - n_reg_na_principle_similkameen_wind_sites
+            - n_reg_na_principle_okanagan_specific_grapes
+            - n_reg_na_case_county_protection_budget
+            - n_reg_na_case_niagara_preplant_drainage
         tasks: [C4]
       - id: cms_certified.south_america
         label: Chile and Argentina
+        covers:
+          within:
+            - n_geo_chile
+            - n_geo_argentina
+            - n_reg_am_principle_chile_coast_inland
+            - n_reg_am_principle_casablanca_sites
+            - n_reg_am_principle_chile_style_range
+            - n_reg_am_case_chile_white
+            - n_reg_am_principle_mendoza_altitude
+            - n_reg_am_principle_mendoza_water
+            - n_reg_am_principle_patagonia_comparison
+            - n_reg_am_case_mendoza_claim
+            - n_reg_sa_principle_elqui
+            - n_reg_sa_principle_leyda
+            - n_reg_sa_principle_peumo
+            - n_reg_sa_principle_itata_vineyards
+            - n_reg_sa_principle_itata_tinajas
+            - n_reg_sa_principle_maule_heritage
+            - n_reg_sa_principle_maule_site_trial
+            - n_reg_sa_principle_biobio
+            - n_reg_sa_case_maule_brand
+            - n_reg_sa_case_itata_skin_trial
+            - n_reg_sa_principle_salta
+            - n_reg_sa_principle_torrontes
+            - n_reg_sa_principle_sanjuan
+            - n_reg_sa_principle_mendoza_yeast
+            - n_reg_sa_principle_mendoza_harvest
+            - n_reg_sa_principle_patagonia_provinces
+            - n_reg_sa_case_mendoza_capacity
+            - n_reg_sa_case_mendoza_yeast_trial
         tasks: [C4]
       - id: cms_certified.south_africa
         label: South Africa
+        covers:
+          within:
+            - n_geo_south_africa
+            - n_reg_sh_principle_za_stellenbosch
+            - n_reg_sh_principle_za_swartland
+            - n_reg_sh_principle_za_cool_whites
+            - n_reg_sh_principle_za_chenin
+            - n_reg_sh_case_za_chenin_purchasing
+            - n_reg_oa_principle_constantia_blocks
+            - n_reg_oa_principle_paarl_water
+            - n_reg_oa_principle_robertson_chardonnay
+            - n_reg_oa_principle_paarl_pinotage
+            - n_reg_oa_case_robertson_water_plan
         tasks: [C4]
 
       # Other beverages.
       - id: cms_certified.fortified
         label: Sherry, Port and Madeira
+        covers:
+          within:
+            - n_geo_jerez
+            - n_geo_manzanilla_sanlucar
+            - n_geo_douro
+            - n_geo_madeira
+            - n_fort_principle_port_sugar
+            - n_fort_principle_port_stop
+            - n_fort_principle_port_ruby
+            - n_fort_principle_port_tawny
+            - n_fort_principle_port_vintage
+            - n_fort_principle_port_lbv
+            - n_fort_principle_port_colheita
+            - n_fort_principle_port_white_dry
+            - n_fort_case_port_fruit
+            - n_fort_principle_sherry_classify
+            - n_fort_principle_sherry_flor_level
+            - n_fort_principle_sherry_flor_ethanol
+            - n_fort_principle_sherry_acetaldehyde
+            - n_fort_principle_sherry_glycerol
+            - n_fort_principle_sherry_ullage
+            - n_fort_principle_sherry_amontillado
+            - n_fort_principle_sherry_oloroso
+            - n_fort_principle_sherry_solera
+            - n_fort_principle_sherry_saca
+            - n_fort_principle_sherry_refresh
+            - n_fort_principle_sherry_px
+            - n_fort_principle_sherry_cream
+            - n_fort_case_flor_oxygen
+            - n_fort_principle_madeira_sweetness
+            - n_fort_principle_madeira_estufagem
+            - n_fort_principle_madeira_canteiro
+            - n_fort_principle_madeira_rest
+            - n_fort_principle_madeira_concentration
+            - n_fort_principle_madeira_locations
+            - n_fort_case_madeira_slow
         tasks: [C3]
       - id: cms_certified.spirits
         label: Distillation and the principal spirits
@@ -307,3 +2407,35 @@ tracks:
         label: Deductive tasting of two wines
         covers: {domains: [tasting]}
         tasks: [T1, T2, Q8]
+
+      # Editorial enrichment; not a required Jura wine objective on this track.
+      - id: cms_certified.regional.jura_support
+        label: Optional Jura regional comparison support
+        required: false
+        covers:
+          within:
+            - n_reg_fe_principle_jura_climate_sites
+            - n_reg_fe_principle_jura_white_grapes
+            - n_reg_fe_principle_jura_red_grapes
+            - n_reg_fe_principle_jura_ouillage
+            - n_reg_fe_principle_jura_patient_wines
+            - n_reg_fe_case_jura_white_comparison
+            - n_reg_fe_case_jura_maturation_cash
+          relation_types:
+            - PRINCIPLE_EXPLANATION
+            - CASE_ACTION
+            - CASE_REASON
+            - CASE_TRADEOFF
+            - CASE_LIMITATION
+        tasks:
+          - DIP-3
+          - C2
+
+      # Supporting atlas places, without adding required syllabus objectives.
+      - id: cms_certified.atlas.additional_places
+        label: Additional wine places for atlas study
+        required: false
+        covers:
+          within: [n_geo_jura, n_geo_savoie_region, n_geo_corsica, n_geo_switzerland, n_geo_georgia, n_geo_lebanon]
+          relation_types: [LOCATED_IN]
+        tasks: [G10, G12, G13]

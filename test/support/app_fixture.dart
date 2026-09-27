@@ -3,9 +3,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_riverpod/misc.dart' show Override;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:sommelier/app/app.dart';
+import 'package:sommelier/core/curriculum/curriculum_ingestion.dart';
+import 'package:sommelier/core/curriculum/curriculum_providers.dart';
 import 'package:sommelier/core/database/app_database.dart';
 import 'package:sommelier/core/database/database_providers.dart';
+import 'package:sommelier/core/questions/format_registry.dart';
+import 'package:sommelier/core/questions/question_providers.dart';
 import 'package:sommelier/core/settings/user_settings.dart';
+import 'package:sommelier/core/time/time_providers.dart';
 
 /// A widget test of the whole app.
 ///
@@ -26,6 +31,22 @@ void testApp(
     }
   });
 }
+
+/// Overrides that serve only [formats] in practice.
+///
+/// Startup still ingests the release for every format the app registers,
+/// since ingestion refuses a template whose format is not registered; the
+/// planner skips the questions of the others.
+List<Override> servingOnly(FormatRegistry formats) => [
+  formatRegistryProvider.overrideWithValue(formats),
+  curriculumIngesterProvider.overrideWith(
+    (ref) => CurriculumIngester(
+      ref.watch(appDatabaseProvider),
+      clock: ref.watch(clockProvider),
+      assets: readBundledAsset,
+    ),
+  ),
+];
 
 /// Pumps the app on [db] and waits until it settles. Unless [onboarded] is
 /// false, the learner has already been through onboarding (backlog R1).

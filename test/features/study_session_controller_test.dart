@@ -5,6 +5,9 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:sommelier/core/curriculum/curriculum_ingestion.dart';
 import 'package:sommelier/core/database/app_database.dart';
 import 'package:sommelier/core/database/database_providers.dart';
+import 'package:sommelier/core/questions/format_registry.dart';
+import 'package:sommelier/core/questions/formats/mcq/mcq_format.dart';
+import 'package:sommelier/core/questions/question_providers.dart';
 import 'package:sommelier/core/study/learner_profile.dart';
 import 'package:sommelier/core/time/time_providers.dart';
 import 'package:sommelier/features/practice/study_session_controller.dart';
@@ -31,6 +34,10 @@ void main() {
         appDatabaseProvider.overrideWithValue(db),
         clockProvider.overrideWithValue(time.clock),
         studyRandomProvider.overrideWithValue(Random(1)),
+        // These tests exercise choose(), which only accepts MCQ answers.
+        formatRegistryProvider.overrideWithValue(
+          FormatRegistry(const [McqFormat()]),
+        ),
       ],
     );
   });

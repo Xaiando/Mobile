@@ -37,6 +37,18 @@ void main() {
       expect(await count(db, 'knowledge_nodes'), greaterThanOrEqualTo(50));
       expect(await count(db, 'knowledge_relations'), greaterThanOrEqualTo(50));
       expect(await count(db, 'certifications'), 8);
+      // C6 adds country files without changing the ingestion contract.
+      final dataset = bundledDataset();
+      expect(await count(db, 'knowledge_nodes'), dataset.knowledgeNodes.length);
+      expect(
+        await count(db, 'knowledge_relations'),
+        dataset.knowledgeRelations.length,
+      );
+      expect(await count(db, 'knowledge_items'), dataset.knowledgeItems.length);
+      expect(
+        await count(db, 'knowledge_item_citations'),
+        dataset.knowledgeItemCitations.length,
+      );
 
       final release = await ingestion.installedRelease();
       expect(release!.version, bundledDataset().version);

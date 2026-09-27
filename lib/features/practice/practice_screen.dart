@@ -118,7 +118,12 @@ class _TurnView extends ConsumerWidget {
             const SizedBox(height: 12),
             Text(turn.exercise.prompt, style: theme.textTheme.titleLarge),
             const SizedBox(height: 12),
-            Expanded(child: view.builder(turn)),
+            Expanded(
+              child: KeyedSubtree(
+                key: ObjectKey(turn.exercise),
+                child: view.builder(turn),
+              ),
+            ),
           ],
         ),
       );
@@ -138,7 +143,10 @@ class _TurnView extends ConsumerWidget {
             '"${turn.exercise.formatId}" questions.',
           )
         else
-          view.builder(turn),
+          KeyedSubtree(
+            key: ObjectKey(turn.exercise),
+            child: view.builder(turn),
+          ),
       ],
     );
   }

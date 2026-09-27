@@ -1,6 +1,8 @@
 import 'package:drift/drift.dart' show DataClass;
 
 import '../questions/format_registry.dart';
+import '../questions/formats/short_answer/short_answer_format.dart';
+import '../questions/formats/reasoning/reasoning_format.dart';
 import '../database/app_database.dart';
 import 'curriculum_dataset.dart';
 
@@ -9,9 +11,17 @@ import 'curriculum_dataset.dart';
 const regulatoryRelationTypes = {
   'PERMITS_PRINCIPAL_GRAPE',
   'PERMITS_ACCESSORY_GRAPE',
+  'PERMITS_GRAPE',
   'MIN_AGEING',
   'MIN_WOOD_AGEING',
   'REQUIRES_METHOD',
+  // EU and German wine law (backlog C6)
+  'IN_WINE_ZONE',
+  'PROTECTED_AS',
+  'RESERVED_FOR_REGION',
+  'LEGAL_DEFINITION',
+  'AWARDED_BY',
+  'RELEASED_NOT_BEFORE',
 };
 
 /// The `valid_from` recorded while a fact's real effective date is not
@@ -907,9 +917,14 @@ class _Validator {
       }
     }
     for (final g in d.nodeGeometries) {
+      final isPoint = layers[g.mapLayerId]?.geometryKind == 'point';
       final problems = [
-        if (!(g.minLon < g.maxLon && g.minLat < g.maxLat))
-          'its bounding box is empty',
+        if (isPoint
+            ? !(g.minLon == g.maxLon && g.minLat == g.maxLat)
+            : !(g.minLon < g.maxLon && g.minLat < g.maxLat))
+          isPoint
+              ? 'its point bounding box must match its coordinates'
+              : 'its bounding box is empty',
         if (g.minLon < -180 ||
             g.maxLon > 180 ||
             g.minLat < -90 ||
@@ -995,13 +1010,46 @@ class _Validator {
     final forward = <String>{};
     for (final t in d.questionTemplates) {
       // The schema checks only a mode's form; the formats decide (QF-2).
-      if (!formats.contains(t.mode)) {
+      final format = formats[t.mode];
+      if (format == null) {
         error(
           'template-format',
           '${t.id} has mode "${t.mode}", which is no format; the formats '
               'are ${formats.ids.join(', ')}',
           row: _ref('question_templates', t),
         );
+      } else {
+        final problems = format.templateProblems(
+          t,
+          relationTypes: relationTypes.keys.toSet(),
+        );
+        for (final problem in problems) {
+          error(
+            'template-parameters',
+            '${t.id}: $problem',
+            row: _ref('question_templates', t),
+          );
+        }
+        if (t.mode == ShortAnswerFormat.formatId && problems.isEmpty) {
+          for (final id in ShortAnswerFormat.scopeNodeIdsOf(t) ?? <String>{}) {
+            if (!nodes.containsKey(id)) {
+              error(
+                'template-parameters',
+                '${t.id}: scope_node_ids names $id, which is no node',
+                row: _ref('question_templates', t),
+              );
+            }
+          }
+        }
+        if (t.mode == ReasoningFormat.formatId && problems.isEmpty) {
+          for (final problem in ReasoningFormat.datasetProblems(t, d)) {
+            error(
+              'template-parameters',
+              '${t.id}: $problem',
+              row: _ref('question_templates', t),
+            );
+          }
+        }
       }
       for (final match in placeholder.allMatches(t.promptTemplate)) {
         if (!templatePlaceholders.contains(match[0])) {

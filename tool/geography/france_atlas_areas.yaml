@@ -1,0 +1,999 @@
+# Integration recipes for layers.yaml. Fine sites must use parcel-derived point coordinates rather than shared commune shapes.
+regions:
+  n_geo_beaujolais_region:
+    aoc:
+      - 250
+  n_geo_bordeaux:
+    aoc:
+      - 63
+  n_geo_alsace_region:
+    aoc:
+      - 1
+  n_geo_jura:
+    aoc:
+      - 518
+  n_geo_savoie_region:
+    aoc:
+      - 1151
+      - 1885
+      - 1146
+  n_geo_provence:
+    aoc:
+      - 1322
+      - 1320
+      - 1321
+      - 1317
+      - 1319
+      - 1323
+      - 1318
+  n_geo_languedoc_region:
+    aoc:
+      - 2352
+      - 1274
+      - 1277
+      - 1250
+      - 1620
+      - 1273
+      - 1272
+      - 1275
+      - 1841
+      - 2354
+      - 1839
+      - 1725
+      - 1276
+      - 1414
+      - 1235
+      - 1870
+      - 1333
+  n_geo_roussillon:
+    aoc:
+      - 1266
+      - 1267
+      - 1249
+      - 1332
+      - 1335
+      - 1342
+      - 1873
+  n_geo_southwest_france:
+    aoc:
+      - 2145
+      - 96
+      - 97
+      - 91
+      - 1627
+      - 77
+      - 98
+      - 90
+      - 1733
+      - 61
+      - 101
+      - 107
+      - 67
+      - 75
+  n_geo_corsica:
+    aoc:
+      - 1316
+      - 1324
+      - 1325
+      - 1326
+      - 1330
+      - 1328
+      - 1329
+      - 1327
+      - 1340
+subregions:
+  n_geo_chablisien:
+    aoc:
+      - 356
+      - 2189
+      - 398
+  n_geo_grand_auxerrois:
+    aoc:
+      - 1233
+      - 1230
+      - 2428
+  n_geo_cote_de_nuits:
+    aoc:
+      - 758
+      - 522
+      - 543
+      - 880
+      - 408
+      - 1223
+      - 1207
+      - 926
+      - 516
+  n_geo_cote_chalonnaise:
+    aoc:
+      - 1231
+      - 1036
+      - 762
+      - 571
+      - 815
+  n_geo_maconnais:
+    aoc:
+      - 2216
+      - 1630
+      - 1232
+      - 1107
+      - 1007
+      - 1008
+      - 1009
+  n_geo_bordeaux_left_bank:
+    aoc:
+      - 100
+      - 88
+      - 151
+      - 106
+      - 153
+      - 99
+      - 93
+      - 2390
+      - 86
+      - 108
+      - 157
+      - 58
+      - 71
+  n_geo_bordeaux_right_bank:
+    aoc:
+      - 150
+      - 1882
+      - 102
+      - 95
+      - 148
+      - 152
+      - 109
+      - 92
+      - 83
+      - 70
+  n_geo_entre_deux_mers_area:
+    aoc:
+      - 81
+      - 68
+      - 94
+      - 154
+      - 1890
+      - 2422
+  n_geo_pays_nantais:
+    aoc:
+      - 2341
+      - 195
+      - 2342
+      - 194
+  n_geo_anjou_saumur:
+    aoc:
+      - 206
+      - 168
+      - 197
+      - 162
+      - 205
+      - 203
+      - 204
+      - 215
+      - 158
+  n_geo_centre_loire:
+    aoc:
+      - 202
+      - 180
+      - 198
+      - 199
+appellations:
+  n_geo_marsannay:
+    aoc:
+      - 758
+  n_geo_fixin:
+    aoc:
+      - 522
+  n_geo_gevrey_chambertin:
+    aoc:
+      - 543
+  n_geo_morey_saint_denis:
+    aoc:
+      - 880
+  n_geo_chambolle_musigny:
+    aoc:
+      - 408
+  n_geo_vougeot:
+    aoc:
+      - 1223
+  n_geo_vosne_romanee:
+    aoc:
+      - 1207
+  n_geo_nuits_saint_georges:
+    aoc:
+      - 926
+  n_geo_cote_de_nuits_villages:
+    aoc:
+      - 516
+  n_geo_ladoix:
+    aoc:
+      - 610
+  n_geo_pernand_vergelesses:
+    aoc:
+      - 969
+  n_geo_aloxe_corton:
+    aoc:
+      - 220
+  n_geo_chorey_les_beaune:
+    aoc:
+      - 502
+  n_geo_savigny_les_beaune:
+    aoc:
+      - 1122
+  n_geo_beaune:
+    aoc:
+      - 282
+  n_geo_pommard:
+    aoc:
+      - 977
+  n_geo_monthelie:
+    aoc:
+      - 866
+  n_geo_auxey_duresses:
+    aoc:
+      - 238
+  n_geo_saint_romain:
+    aoc:
+      - 1106
+  n_geo_meursault:
+    aoc:
+      - 796
+  n_geo_blagny:
+    aoc:
+      - 327
+  n_geo_puligny_montrachet:
+    aoc:
+      - 1010
+  n_geo_chassagne_montrachet:
+    aoc:
+      - 437
+  n_geo_saint_aubin:
+    aoc:
+      - 1074
+  n_geo_santenay:
+    aoc:
+      - 1108
+  n_geo_maranges:
+    aoc:
+      - 749
+  n_geo_cote_de_beaune_aoc:
+    aoc:
+      - 510
+  n_geo_cote_de_beaune_villages:
+    aoc:
+      - 511
+  n_geo_bouzeron:
+    aoc:
+      - 1231
+  n_geo_rully:
+    aoc:
+      - 1036
+  n_geo_mercurey:
+    aoc:
+      - 762
+  n_geo_givry:
+    aoc:
+      - 571
+  n_geo_montagny:
+    aoc:
+      - 815
+  n_geo_macon:
+    aoc:
+      - 2216
+  n_geo_macon_villages:
+    aoc:
+      - 1630
+  n_geo_vire_clesse:
+    aoc:
+      - 1232
+  n_geo_saint_veran:
+    aoc:
+      - 1107
+  n_geo_pouilly_fuisse:
+    aoc:
+      - 1007
+  n_geo_pouilly_loche:
+    aoc:
+      - 1008
+  n_geo_pouilly_vinzelles:
+    aoc:
+      - 1009
+  n_geo_irancy:
+    aoc:
+      - 1233
+  n_geo_saint_bris:
+    aoc:
+      - 1230
+  n_geo_vezelay:
+    aoc:
+      - 2428
+  n_geo_petit_chablis:
+    aoc:
+      - 2189
+  n_geo_chablis_premier_cru:
+    aoc:
+      - 397
+  n_geo_chablis_grand_cru:
+    aoc:
+      - 398
+  n_geo_saint_amour:
+    aoc:
+      - 1061
+  n_geo_julienas:
+    aoc:
+      - 601
+  n_geo_chenas:
+    aoc:
+      - 495
+  n_geo_moulin_a_vent:
+    aoc:
+      - 910
+  n_geo_fleurie:
+    aoc:
+      - 529
+  n_geo_chiroubles:
+    aoc:
+      - 499
+  n_geo_morgon:
+    aoc:
+      - 902
+  n_geo_regnie:
+    aoc:
+      - 1029
+  n_geo_cote_de_brouilly:
+    aoc:
+      - 512
+  n_geo_brouilly:
+    aoc:
+      - 354
+  n_geo_beaujolais:
+    aoc:
+      - 250
+  n_geo_beaujolais_villages:
+    aoc:
+      - 251
+  n_geo_medoc:
+    aoc:
+      - 100
+  n_geo_haut_medoc:
+    aoc:
+      - 88
+  n_geo_saint_estephe:
+    aoc:
+      - 151
+  n_geo_pauillac:
+    aoc:
+      - 106
+  n_geo_saint_julien:
+    aoc:
+      - 153
+  n_geo_margaux:
+    aoc:
+      - 99
+  n_geo_listrac_medoc:
+    aoc:
+      - 93
+  n_geo_moulis_en_medoc:
+    aoc:
+      - 2390
+  n_geo_graves:
+    aoc:
+      - 86
+  n_geo_pessac_leognan:
+    aoc:
+      - 108
+  n_geo_sauternes:
+    aoc:
+      - 157
+  n_geo_barsac:
+    aoc:
+      - 58
+  n_geo_cerons:
+    aoc:
+      - 71
+  n_geo_saint_emilion:
+    aoc:
+      - 150
+  n_geo_saint_emilion_grand_cru:
+    aoc:
+      - 1882
+  n_geo_montagne_saint_emilion:
+    aoc:
+      - 102
+  n_geo_lussac_saint_emilion:
+    aoc:
+      - 95
+  n_geo_puisseguin_saint_emilion:
+    aoc:
+      - 148
+  n_geo_saint_georges_saint_emilion:
+    aoc:
+      - 152
+  n_geo_pomerol:
+    aoc:
+      - 109
+  n_geo_lalande_de_pomerol:
+    aoc:
+      - 92
+  n_geo_fronsac:
+    aoc:
+      - 83
+  n_geo_canon_fronsac:
+    aoc:
+      - 70
+  n_geo_entre_deux_mers:
+    aoc:
+      - 81
+  n_geo_cadillac:
+    aoc:
+      - 68
+  n_geo_loupiac:
+    aoc:
+      - 94
+  n_geo_sainte_croix_du_mont:
+    aoc:
+      - 154
+  n_geo_cadillac_cotes_de_bordeaux:
+    aoc:
+      - 1890
+  n_geo_sainte_foy_cotes_de_bordeaux:
+    aoc:
+      - 2422
+  n_geo_cotes_de_bourg:
+    aoc:
+      - 66
+  n_geo_blaye_cotes_de_bordeaux:
+    aoc:
+      - 1892
+  n_geo_castillon_cotes_de_bordeaux:
+    aoc:
+      - 1891
+  n_geo_francs_cotes_de_bordeaux:
+    aoc:
+      - 1893
+  n_geo_cotes_de_bordeaux:
+    aoc:
+      - 1890
+      - 1892
+      - 1891
+      - 1893
+      - 2422
+  n_geo_savennieres:
+    aoc:
+      - 206
+  n_geo_coteaux_du_layon:
+    aoc:
+      - 168
+  n_geo_quarts_de_chaume:
+    aoc:
+      - 197
+  n_geo_bonnezeaux:
+    aoc:
+      - 162
+  n_geo_saumur:
+    aoc:
+      - 205
+      - 203
+      - 204
+  n_geo_saumur_champigny:
+    aoc:
+      - 215
+  n_geo_anjou:
+    aoc:
+      - 158
+  n_geo_chinon:
+    aoc:
+      - 165
+  n_geo_bourgueil:
+    aoc:
+      - 163
+  n_geo_saint_nicolas_de_bourgueil:
+    aoc:
+      - 201
+  n_geo_montlouis_sur_loire:
+    aoc:
+      - 191
+  n_geo_sancerre:
+    aoc:
+      - 202
+  n_geo_menetou_salon:
+    aoc:
+      - 180
+  n_geo_quincy:
+    aoc:
+      - 198
+  n_geo_reuilly:
+    aoc:
+      - 199
+  n_geo_muscadet:
+    aoc:
+      - 2341
+  n_geo_muscadet_coteaux_de_la_loire:
+    aoc:
+      - 2342
+  n_geo_muscadet_cotes_de_grandlieu:
+    aoc:
+      - 194
+  n_geo_cote_rotie:
+    aoc:
+      - 1284
+  n_geo_chateau_grillet:
+    aoc:
+      - 1278
+  n_geo_saint_joseph:
+    aoc:
+      - 1310
+  n_geo_hermitage:
+    aoc:
+      - 1308
+  n_geo_saint_peray:
+    aoc:
+      - 1311
+  n_geo_gigondas:
+    aoc:
+      - 1307
+  n_geo_vacqueyras:
+    aoc:
+      - 1313
+  n_geo_rasteau:
+    aoc:
+      - 1341
+  n_geo_cairanne:
+    aoc:
+      - 1822
+  n_geo_vinsobres:
+    aoc:
+      - 1302
+  n_geo_beaumes_de_venise:
+    aoc:
+      - 1288
+  n_geo_lirac:
+    aoc:
+      - 1309
+  n_geo_tavel:
+    aoc:
+      - 1312
+  n_geo_cotes_du_rhone:
+    aoc:
+      - 1286
+  n_geo_cotes_du_rhone_villages:
+    aoc:
+      - 1287
+  n_geo_ventoux:
+    aoc:
+      - 1305
+  n_geo_luberon:
+    aoc:
+      - 1862
+  n_geo_costieres_de_nimes:
+    aoc:
+      - 1251
+  n_geo_grignan_les_adhemar:
+    aoc:
+      - 2123
+  n_geo_clairette_de_die:
+    aoc:
+      - 1281
+  n_geo_coteaux_champenois:
+    aoc:
+      - 1963
+  n_geo_rose_des_riceys:
+    aoc:
+      - 1961
+  n_geo_alsace_aoc:
+    aoc:
+      - 1
+  n_geo_cremant_d_alsace:
+    aoc:
+      - 2181
+  n_geo_arbois:
+    aoc:
+      - 236
+  n_geo_arbois_pupillin:
+    aoc:
+      - 237
+  n_geo_cotes_du_jura:
+    aoc:
+      - 518
+  n_geo_chateau_chalon:
+    aoc:
+      - 494
+  n_geo_l_etoile:
+    aoc:
+      - 606
+  n_geo_cremant_du_jura:
+    aoc:
+      - 2398
+  n_geo_macvin_du_jura:
+    aoc:
+      - 1874
+  n_geo_vin_de_savoie:
+    aoc:
+      - 1151
+  n_geo_roussette_de_savoie:
+    aoc:
+      - 1885
+  n_geo_seyssel:
+    aoc:
+      - 1146
+  n_geo_savoie_apremont:
+    aoc:
+      - 1153
+  n_geo_savoie_les_abymes:
+    aoc:
+      - 1152
+  n_geo_savoie_chignin:
+    aoc:
+      - 1158
+  n_geo_savoie_chignin_bergeron:
+    aoc:
+      - 1159
+  n_geo_savoie_arbin:
+    aoc:
+      - 1154
+  n_geo_cotes_de_provence:
+    aoc:
+      - 1322
+  n_geo_coteaux_d_aix_en_provence:
+    aoc:
+      - 1320
+  n_geo_coteaux_varois_en_provence:
+    aoc:
+      - 1321
+  n_geo_bandol:
+    aoc:
+      - 1317
+  n_geo_cassis:
+    aoc:
+      - 1319
+  n_geo_palette:
+    aoc:
+      - 1323
+  n_geo_bellet:
+    aoc:
+      - 1318
+  n_geo_languedoc_aoc:
+    aoc:
+      - 2352
+  n_geo_minervois:
+    aoc:
+      - 1274
+  n_geo_minervois_la_liviniere:
+    aoc:
+      - 1277
+  n_geo_corbieres:
+    aoc:
+      - 1250
+  n_geo_boutenac:
+    aoc:
+      - 1620
+  n_geo_fitou:
+    aoc:
+      - 1273
+  n_geo_faugeres:
+    aoc:
+      - 1272
+  n_geo_saint_chinian:
+    aoc:
+      - 1275
+  n_geo_pic_saint_loup:
+    aoc:
+      - 1841
+  n_geo_terrasses_du_larzac:
+    aoc:
+      - 2354
+  n_geo_la_clape:
+    aoc:
+      - 1839
+  n_geo_picpoul_de_pinet:
+    aoc:
+      - 1725
+  n_geo_cabardes:
+    aoc:
+      - 1276
+  n_geo_malepere:
+    aoc:
+      - 1414
+  n_geo_limoux:
+    aoc:
+      - 1235
+  n_geo_blanquette_de_limoux:
+    aoc:
+      - 1235
+  n_geo_cremant_de_limoux:
+    aoc:
+      - 1870
+  n_geo_muscat_de_frontignan:
+    aoc:
+      - 1333
+  n_geo_cotes_du_roussillon:
+    aoc:
+      - 1266
+  n_geo_cotes_du_roussillon_villages:
+    aoc:
+      - 1267
+  n_geo_collioure:
+    aoc:
+      - 1249
+  n_geo_banyuls:
+    aoc:
+      - 1332
+  n_geo_banyuls_grand_cru:
+    aoc:
+      - 1332
+  n_geo_maury:
+    aoc:
+      - 1335
+  n_geo_maury_sec:
+    aoc:
+      - 1335
+  n_geo_rivesaltes:
+    aoc:
+      - 1342
+  n_geo_muscat_de_rivesaltes:
+    aoc:
+      - 1873
+  n_geo_cahors:
+    aoc:
+      - 2145
+  n_geo_madiran:
+    aoc:
+      - 96
+  n_geo_pacherenc_du_vic_bilh:
+    aoc:
+      - 97
+  n_geo_jurancon:
+    aoc:
+      - 91
+  n_geo_gaillac:
+    aoc:
+      - 1627
+  n_geo_fronton:
+    aoc:
+      - 77
+  n_geo_marcillac:
+    aoc:
+      - 98
+  n_geo_irouleguy:
+    aoc:
+      - 90
+  n_geo_saint_mont:
+    aoc:
+      - 1733
+  n_geo_bergerac:
+    aoc:
+      - 61
+  n_geo_monbazillac:
+    aoc:
+      - 101
+  n_geo_pecharmant:
+    aoc:
+      - 107
+  n_geo_buzet:
+    aoc:
+      - 67
+  n_geo_cotes_de_duras:
+    aoc:
+      - 75
+  n_geo_ajaccio:
+    aoc:
+      - 1316
+  n_geo_patrimonio:
+    aoc:
+      - 1324
+  n_geo_corse:
+    aoc:
+      - 1325
+  n_geo_corse_calvi:
+    aoc:
+      - 1326
+  n_geo_corse_sartene:
+    aoc:
+      - 1330
+  n_geo_corse_figari:
+    aoc:
+      - 1328
+  n_geo_corse_porto_vecchio:
+    aoc:
+      - 1329
+  n_geo_corse_coteaux_du_cap_corse:
+    aoc:
+      - 1327
+  n_geo_muscat_du_cap_corse:
+    aoc:
+      - 1340
+sites:
+  n_geo_chablis_gc_blanchot:
+    aoc:
+      - 399
+  n_geo_chablis_gc_bougros:
+    aoc:
+      - 400
+  n_geo_chablis_gc_les_clos:
+    aoc:
+      - 402
+  n_geo_chablis_gc_grenouilles:
+    aoc:
+      - 401
+  n_geo_chablis_gc_preuses:
+    aoc:
+      - 403
+  n_geo_chablis_gc_valmur:
+    aoc:
+      - 404
+  n_geo_chablis_gc_vaudesir:
+    aoc:
+      - 405
+  n_geo_chablis_pc_fourchaume:
+    aoc:
+      - 373
+  n_geo_chablis_pc_montee_de_tonnerre:
+    aoc:
+      - 381
+  n_geo_chablis_pc_mont_de_milieu:
+    aoc:
+      - 379
+  n_geo_chablis_pc_vaulorent:
+    aoc:
+      - 393
+  n_geo_chablis_pc_vaillons:
+    aoc:
+      - 388
+  n_geo_chablis_pc_montmains:
+    aoc:
+      - 380
+  n_geo_chablis_pc_cote_de_lechet:
+    aoc:
+      - 368
+  n_geo_chablis_pc_beauroy:
+    aoc:
+      - 357
+  n_geo_chablis_pc_vaucoupin:
+    aoc:
+      - 391
+  n_geo_chablis_pc_vosgros:
+    aoc:
+      - 396
+  n_geo_chambertin:
+    aoc:
+      - 406
+  n_geo_chambertin_clos_de_beze:
+    aoc:
+      - 407
+  n_geo_charmes_chambertin:
+    aoc:
+      - 436
+  n_geo_mazoyeres_chambertin:
+    aoc:
+      - 761
+  n_geo_chapelle_chambertin:
+    aoc:
+      - 434
+  n_geo_griotte_chambertin:
+    aoc:
+      - 600
+  n_geo_latricieres_chambertin:
+    aoc:
+      - 619
+  n_geo_mazis_chambertin:
+    aoc:
+      - 760
+  n_geo_ruchottes_chambertin:
+    aoc:
+      - 1035
+  n_geo_clos_de_la_roche:
+    aoc:
+      - 503
+  n_geo_clos_saint_denis:
+    aoc:
+      - 507
+  n_geo_clos_des_lambrays:
+    aoc:
+      - 506
+  n_geo_clos_de_tart:
+    aoc:
+      - 504
+  n_geo_bonnes_mares:
+    aoc:
+      - 336
+  n_geo_musigny:
+    aoc:
+      - 925
+  n_geo_clos_de_vougeot:
+    aoc:
+      - 505
+  n_geo_echezeaux:
+    aoc:
+      - 2187
+  n_geo_grands_echezeaux:
+    aoc:
+      - 2188
+  n_geo_romanee_conti:
+    aoc:
+      - 1033
+  n_geo_romanee_saint_vivant:
+    aoc:
+      - 1034
+  n_geo_la_romanee:
+    aoc:
+      - 608
+  n_geo_la_tache:
+    aoc:
+      - 609
+  n_geo_richebourg:
+    aoc:
+      - 1032
+  n_geo_la_grande_rue:
+    aoc:
+      - 607
+  n_geo_corton:
+    aoc:
+      - 508
+  n_geo_corton_charlemagne:
+    aoc:
+      - 509
+  n_geo_charlemagne:
+    aoc:
+      - 2185
+  n_geo_montrachet:
+    aoc:
+      - 879
+  n_geo_chevalier_montrachet:
+    aoc:
+      - 498
+  n_geo_batard_montrachet:
+    aoc:
+      - 249
+  n_geo_bienvenues_batard_montrachet:
+    aoc:
+      - 326
+  n_geo_criots_batard_montrachet:
+    aoc:
+      - 520
+  n_geo_alsace_grand_cru_schlossberg:
+    aoc:
+      - 38
+  n_geo_alsace_grand_cru_rangen:
+    aoc:
+      - 35
+  n_geo_alsace_grand_cru_hengst:
+    aoc:
+      - 18
+  n_geo_alsace_grand_cru_kirchberg_de_barr:
+    aoc:
+      - 22
+  n_geo_alsace_grand_cru_zotzenberg:
+    aoc:
+      - 52
+  n_geo_alsace_grand_cru_kaefferkopf:
+    aoc:
+      - 1653
+  n_geo_alsace_grand_cru_altenberg_de_bergheim:
+    aoc:
+      - 4
+  n_geo_alsace_grand_cru_brand:
+    aoc:
+      - 6
+  n_geo_alsace_grand_cru_rosacker:
+    aoc:
+      - 36
+  n_geo_alsace_grand_cru_schoenenbourg:
+    aoc:
+      - 39
+points:
+  - node: n_geo_montagne_de_reims
+    name: Montagne de Reims
+    parent: n_geo_champagne_region
+    geoNames: []
+  - node: n_geo_vallee_de_la_marne
+    name: Vallée de la Marne
+    parent: n_geo_champagne_region
+    geoNames: []
+  - node: n_geo_cote_des_blancs
+    name: Côte des Blancs
+    parent: n_geo_champagne_region
+    geoNames: []
+  - node: n_geo_cote_des_bar
+    name: Côte des Bar
+    parent: n_geo_champagne_region
+    geoNames: []

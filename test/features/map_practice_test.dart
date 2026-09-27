@@ -14,7 +14,6 @@ import 'package:sommelier/core/questions/formats/map/map_exercise.dart';
 import 'package:sommelier/core/questions/formats/map_identify/map_identify_format.dart';
 import 'package:sommelier/core/questions/formats/map_locate/map_locate_format.dart';
 import 'package:sommelier/core/questions/formats/mcq/mcq_format.dart';
-import 'package:sommelier/core/questions/question_providers.dart';
 import 'package:sommelier/core/study/learner_profile.dart';
 import 'package:sommelier/features/map/map_canvas.dart';
 import 'package:sommelier/features/map/map_presentation.dart';
@@ -71,11 +70,7 @@ void main() {
     tester.view.physicalSize = const Size(1080, 2340);
     tester.view.devicePixelRatio = 3;
     addTearDown(tester.view.reset);
-    await pumpApp(
-      tester,
-      db,
-      overrides: [formatRegistryProvider.overrideWithValue(formats)],
-    );
+    await pumpApp(tester, db, overrides: servingOnly(formats));
     await tap(tester, find.text('WSET Level 3'));
     // Every item in one session, so the drawn areas come up.
     await tester.runAsync(
@@ -209,15 +204,14 @@ void main() {
 
   testApp('answers from the list when this app cannot draw the map '
       '(GEO-30)', (tester) async {
-    // As after a downgrade: the database holds a newer appellation layer.
+    // As after a downgrade: stored map hashes differ from bundled assets.
     final exercise = await mapCard(
       tester,
       locateFirst,
       beforeStart: () => db.writeCurriculum(
-        () =>
-            (db.update(db.mapLayers)
-                  ..where((l) => l.id.equals('ml_fr_appellations')))
-                .write(MapLayersCompanion(assetSha256: Value('0' * 64))),
+        () => db
+            .update(db.mapLayers)
+            .write(MapLayersCompanion(assetSha256: Value('0' * 64))),
       ),
     );
     expect(find.textContaining('cannot draw this map'), findsOneWidget);

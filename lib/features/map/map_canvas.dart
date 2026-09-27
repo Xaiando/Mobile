@@ -302,11 +302,15 @@ class MapCanvasState extends State<MapCanvas> {
       layerOf.keys,
       world,
       view.scale,
-      drawnAsMarker: (shape) => scene.drawsMarker(
-        scene.lookOf(layerOf[shape]!, shape),
-        shape,
-        view.scale,
-      ),
+      // A sourced point has no polygon interior. Keep its marker hit area
+      // when practice hides it, including when an AOC surrounds the point.
+      drawnAsMarker: (shape) =>
+          shape.kind == GeometryKind.point ||
+          scene.drawsMarker(
+            scene.lookOf(layerOf[shape]!, shape),
+            shape,
+            view.scale,
+          ),
     );
     widget.onTap?.call(
       MapTap(

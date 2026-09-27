@@ -4,6 +4,8 @@ import '../curriculum/name_normalizer.dart';
 import '../database/app_database.dart';
 import 'wine_journal.dart';
 
+export '../curriculum/name_normalizer.dart' show editDistance;
+
 /// A knowledge node that a journal entry's text names.
 class NodeSuggestion {
   const NodeSuggestion(
@@ -168,25 +170,4 @@ class JournalMatcher {
           ...nodes,
     ];
   }
-}
-
-/// The Levenshtein distance between [a] and [b], or [limit] + 1 as soon as
-/// it must exceed [limit].
-int editDistance(String a, String b, {int limit = 1 << 30}) {
-  if ((a.length - b.length).abs() > limit) return limit + 1;
-  var previous = List<int>.generate(b.length + 1, (j) => j);
-  for (var i = 1; i <= a.length; i++) {
-    final current = List<int>.filled(b.length + 1, 0)..[0] = i;
-    var best = current[0];
-    for (var j = 1; j <= b.length; j++) {
-      current[j] = min(
-        min(current[j - 1] + 1, previous[j] + 1),
-        previous[j - 1] + (a.codeUnitAt(i - 1) == b.codeUnitAt(j - 1) ? 0 : 1),
-      );
-      best = min(best, current[j]);
-    }
-    if (best > limit) return limit + 1;
-    previous = current;
-  }
-  return previous[b.length];
 }

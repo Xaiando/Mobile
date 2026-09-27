@@ -41,6 +41,25 @@ test('the licence gate admits only licences that allow bundling (GEO-5)', () => 
   }
 });
 
+test('a checked-in gazetteer snapshot is verified by its recorded hash', async () => {
+  const source = {
+    id: 'src_snapshot_test', file: 'unused.geojson',
+    snapshot: '../../.dart_tool/geography_snapshot_test.geojson',
+    sha256: sha256('sourced coordinates'),
+  };
+  const { downloadPath } = await import('./lib.mjs');
+  const file = downloadPath(source);
+  fs.mkdirSync(path.dirname(file), { recursive: true });
+  fs.writeFileSync(file, 'sourced coordinates');
+  try {
+    assert.equal(await cacheState(source), 'ok');
+    fs.writeFileSync(file, 'different coordinates');
+    assert.equal(await cacheState(source), 'stale');
+  } finally {
+    fs.unlinkSync(file);
+  }
+});
+
 test('a cached download counts only as the edition sources.yaml records', async () => {
   const source = { id: 'src_test_csv', file: 'test.csv', sha256: sha256('a;b\n') };
   assert.equal(await cacheState(source), 'missing');

@@ -1,0 +1,2323 @@
+# Original production explanations and conditional decisions. All await expert review.
+# Valid-from is the curation boundary, not a claim that these mechanisms began in 2026.
+# No numeric legal limits, commercial protocols or proprietary exam text are reproduced.
+knowledge_nodes:
+  - id: n_win_principle_machine_contact
+    node_type: production_principle
+    name: What contact can broken machine-harvested white berries undergo before winery intake?
+  - id: n_win_point_machine_contact
+    node_type: learning_point
+    name: Unplanned skin contact
+  - id: n_win_principle_gentle_press
+    node_type: production_principle
+    name: What extraction should gentle pressing limit for a delicate white style?
+  - id: n_win_point_gentle_press
+    node_type: learning_point
+    name: Limit skin and seed extraction
+  - id: n_win_principle_rot_sort
+    node_type: production_principle
+    name: What should selective harvesting remove when damaging bunch rot is present?
+  - id: n_win_point_rot_sort
+    node_type: learning_point
+    name: Exclude badly affected fruit
+  - id: n_win_principle_laccase
+    node_type: production_principle
+    name: Why can Botrytis-related oxidation remain a risk after sulfur dioxide is added?
+  - id: n_win_point_laccase
+    node_type: learning_point
+    name: Laccase remains active
+  - id: n_win_principle_press_fractions
+    node_type: production_principle
+    name: What blending option does separating white free-run and press fractions preserve?
+  - id: n_win_point_press_fractions
+    node_type: learning_point
+    name: Keep blending options open
+  - id: n_win_principle_skin_flavour
+    node_type: production_principle
+    name: How can controlled white skin contact increase flavour and texture?
+  - id: n_win_point_skin_flavour
+    node_type: learning_point
+    name: Extract flavour and phenolics
+  - id: n_win_principle_warm_skin
+    node_type: production_principle
+    name: How can warmer white-must skin contact affect phenolic extraction?
+  - id: n_win_point_warm_skin
+    node_type: learning_point
+    name: Faster phenolic extraction
+  - id: n_win_principle_amber_style
+    node_type: production_principle
+    name: What skin-contact treatment can produce an amber wine from white grapes?
+  - id: n_win_point_amber_style
+    node_type: learning_point
+    name: Ferment white grapes on skins
+  - id: n_win_principle_cap_contact
+    node_type: production_principle
+    name: What does varying cap management control in a red fermentation?
+  - id: n_win_point_cap_contact
+    node_type: learning_point
+    name: Control phenolic extraction
+  - id: n_win_principle_colour_tannin
+    node_type: production_principle
+    name: "What tends to reach maximum extraction first in a red fermentation: colour or tannin?"
+  - id: n_win_point_colour_tannin
+    node_type: learning_point
+    name: Colour extraction peaks earlier
+  - id: n_win_principle_alcoholic_products
+    node_type: production_principle
+    name: Which two principal products does wine yeast form from fermentable sugar?
+  - id: n_win_point_alcoholic_products
+    node_type: learning_point
+    name: Ethanol and carbon dioxide
+  - id: n_win_principle_grape_sugars
+    node_type: production_principle
+    name: Which two grape-juice sugars principally feed alcoholic fermentation?
+  - id: n_win_point_grape_sugars
+    node_type: learning_point
+    name: Glucose and fructose
+  - id: n_win_principle_yeast_health
+    node_type: production_principle
+    name: What yeast condition is needed to complete alcoholic fermentation to dryness?
+  - id: n_win_point_yeast_health
+    node_type: learning_point
+    name: Maintain viable yeast
+  - id: n_win_principle_yan_risk
+    node_type: production_principle
+    name: What fermentation risk arises when high sugar is combined with low yeast-assimilable nitrogen?
+  - id: n_win_point_yan_risk
+    node_type: learning_point
+    name: Risk of a sluggish fermentation
+  - id: n_win_principle_yan_measure
+    node_type: production_principle
+    name: What measurement helps plan yeast nitrogen additions before fermentation?
+  - id: n_win_point_yan_measure
+    node_type: learning_point
+    name: Measure yeast-assimilable nitrogen
+  - id: n_win_principle_dap_scope
+    node_type: production_principle
+    name: What does DAP supply, and which nutritional needs does it leave unmet?
+  - id: n_win_point_dap_scope
+    node_type: learning_point
+    name: Nitrogen without micronutrients
+  - id: n_win_principle_late_nutrients
+    node_type: production_principle
+    name: Why can a late nutrient addition fail to rescue a slowing fermentation?
+  - id: n_win_point_late_nutrients
+    node_type: learning_point
+    name: Uptake can be ineffective
+  - id: n_win_principle_white_cooling
+    node_type: production_principle
+    name: What stylistic aim can cooler fermentation support in an aromatic white wine?
+  - id: n_win_point_white_cooling
+    node_type: learning_point
+    name: Retain delicate aromas
+  - id: n_win_principle_red_heat
+    node_type: production_principle
+    name: Why can a warm red fermentation keep heating faster than its cooling system can cope?
+  - id: n_win_point_red_heat
+    node_type: learning_point
+    name: Fermentation heat feedback
+  - id: n_win_principle_yeast_heat
+    node_type: production_principle
+    name: How can excessive alcoholic-fermentation heat affect the yeast?
+  - id: n_win_point_yeast_heat
+    node_type: learning_point
+    name: Yeast viability declines
+  - id: n_win_principle_oxygen_active
+    node_type: production_principle
+    name: What yeast function can managed oxygen support during active fermentation?
+  - id: n_win_point_oxygen_active
+    node_type: learning_point
+    name: Support yeast membrane synthesis
+  - id: n_win_principle_oxygen_stage
+    node_type: production_principle
+    name: How should oxygen exposure be chosen across fermentation and maturation?
+  - id: n_win_point_oxygen_stage
+    node_type: learning_point
+    name: Stage-specific oxygen management
+  - id: n_win_principle_sulfur_forms
+    node_type: production_principle
+    name: Which sulfur dioxide distinction matters when assessing wine protection?
+  - id: n_win_point_sulfur_forms
+    node_type: learning_point
+    name: Distinguish free and bound sulfur dioxide
+  - id: n_win_principle_sulfur_ph
+    node_type: production_principle
+    name: At the same free SO2, what happens to molecular SO2 as wine pH rises?
+  - id: n_win_point_sulfur_ph
+    node_type: learning_point
+    name: Less molecular sulfur dioxide
+  - id: n_win_principle_mlf_conversion
+    node_type: production_principle
+    name: Which acid conversion occurs during malolactic fermentation?
+  - id: n_win_point_mlf_conversion
+    node_type: learning_point
+    name: Malic acid becomes lactic acid
+  - id: n_win_principle_mlf_organism
+    node_type: production_principle
+    name: Which bacterium is principally used to conduct wine malolactic fermentation?
+  - id: n_win_point_mlf_organism
+    node_type: learning_point
+    name: Oenococcus oeni
+  - id: n_win_principle_mlf_butter
+    node_type: production_principle
+    name: Which bacterial metabolite can contribute buttery aroma during MLF?
+  - id: n_win_point_mlf_butter
+    node_type: learning_point
+    name: Diacetyl from bacterial metabolism
+  - id: n_win_principle_mlf_inhibitors
+    node_type: production_principle
+    name: Why can a cold, acidic, sulfured white wine be difficult to inoculate for MLF?
+  - id: n_win_point_mlf_inhibitors
+    node_type: learning_point
+    name: Combined inhibitory conditions
+  - id: n_win_principle_mlf_stability
+    node_type: production_principle
+    name: How does completed MLF remove a source of later microbial activity?
+  - id: n_win_point_mlf_stability
+    node_type: learning_point
+    name: Remove fermentable malic acid
+  - id: n_win_principle_mlf_monitor
+    node_type: production_principle
+    name: What analysis tracks malolactic-fermentation progress?
+  - id: n_win_point_mlf_monitor
+    node_type: learning_point
+    name: Measure malic acid decline
+  - id: n_win_principle_oak_flavours
+    node_type: production_principle
+    name: Which types of compounds can oak transfer into wine during ageing?
+  - id: n_win_point_oak_flavours
+    node_type: learning_point
+    name: Wood aroma compounds and tannins
+  - id: n_win_principle_oak_variables
+    node_type: production_principle
+    name: Besides geographic origin, which wood and barrel factors shape oak influence?
+  - id: n_win_point_oak_variables
+    node_type: learning_point
+    name: Species, toast, size and age
+  - id: n_win_principle_oak_reuse
+    node_type: production_principle
+    name: How does repeated barrel use affect fresh oak extraction?
+  - id: n_win_point_oak_reuse
+    node_type: learning_point
+    name: Reduced fresh oak extraction
+  - id: n_win_principle_lees_release
+    node_type: production_principle
+    name: How can managed yeast-lees contact change wine texture and flavour integration?
+  - id: n_win_point_lees_release
+    node_type: learning_point
+    name: Release yeast-derived compounds
+  - id: n_win_principle_lees_stirring
+    node_type: production_principle
+    name: Which oxygen-related tradeoff needs managing during lees stirring?
+  - id: n_win_point_lees_stirring
+    node_type: learning_point
+    name: Reduction and oxidation tradeoff
+  - id: n_win_principle_fining_mechanism
+    node_type: production_principle
+    name: How does a fining agent make targeted wine components removable?
+  - id: n_win_point_fining_mechanism
+    node_type: learning_point
+    name: Bind and separate components
+  - id: n_win_principle_bentonite
+    node_type: production_principle
+    name: What instability does bentonite primarily address in a susceptible white wine?
+  - id: n_win_point_bentonite
+    node_type: learning_point
+    name: Remove haze-forming proteins
+  - id: n_win_principle_fining_trials
+    node_type: production_principle
+    name: How should a winemaker compare fining treatments before treating a whole wine?
+  - id: n_win_point_fining_trials
+    node_type: learning_point
+    name: Bench trials with an untreated control
+  - id: n_win_principle_filter_ratings
+    node_type: production_principle
+    name: Why is a nominal filter rating insufficient to establish microbial membrane performance?
+  - id: n_win_point_filter_ratings
+    node_type: learning_point
+    name: Not equivalent to absolute membranes
+  - id: n_win_principle_packaging_hygiene
+    node_type: production_principle
+    name: What microbial risk remains after wine passes through its final filter?
+  - id: n_win_point_packaging_hygiene
+    node_type: learning_point
+    name: Recontamination remains possible
+  - id: n_win_principle_tartrate_cooling
+    node_type: production_principle
+    name: How can cooling help stabilise wine against potassium bitartrate deposits?
+  - id: n_win_point_tartrate_cooling
+    node_type: learning_point
+    name: Promote tartrate crystallisation
+  - id: n_win_principle_stability_retest
+    node_type: production_principle
+    name: What should happen to tartrate-stability assessment after blending or completing MLF?
+  - id: n_win_point_stability_retest
+    node_type: learning_point
+    name: Reassess the final wine
+  - id: n_win_case_fresh_white
+    node_type: production_case
+    name: Revising a delicate-white batch after an over-extracted trial
+  - id: n_win_point_case_fresh_white_action
+    node_type: learning_point
+    name: Shorten and cool skin contact
+  - id: n_win_point_case_fresh_white_reason
+    node_type: learning_point
+    name: Limit phenolic extraction
+  - id: n_win_point_case_fresh_white_tradeoff
+    node_type: learning_point
+    name: Less skin-derived flavour and texture
+  - id: n_win_point_case_fresh_white_limitation
+    node_type: learning_point
+    name: Assess each fruit batch and press fraction
+  - id: n_win_case_hot_red
+    node_type: production_case
+    name: A red ferment exceeding its cooling capacity
+  - id: n_win_point_case_hot_red_action
+    node_type: learning_point
+    name: Cool the fermenting liquid
+  - id: n_win_point_case_hot_red_reason
+    node_type: learning_point
+    name: Interrupt heat feedback and protect yeast
+  - id: n_win_point_case_hot_red_tradeoff
+    node_type: learning_point
+    name: Alter extraction rate and fermentation speed
+  - id: n_win_point_case_hot_red_limitation
+    node_type: learning_point
+    name: Check must temperature and real cooling capacity
+  - id: n_win_case_low_yan
+    node_type: production_case
+    name: High-sugar juice with low YAN before fermentation
+  - id: n_win_point_case_low_yan_action
+    node_type: learning_point
+    name: Plan measured early nutrient additions
+  - id: n_win_point_case_low_yan_reason
+    node_type: learning_point
+    name: Support yeast through a demanding ferment
+  - id: n_win_point_case_low_yan_tradeoff
+    node_type: learning_point
+    name: Excess nutrients can alter fermentation and spoilage risk
+  - id: n_win_point_case_low_yan_limitation
+    node_type: learning_point
+    name: DAP supplies no micronutrients
+  - id: n_win_case_difficult_mlf
+    node_type: production_case
+    name: Planned MLF in a cold acidic white with substantial SO2
+  - id: n_win_point_case_difficult_mlf_action
+    node_type: learning_point
+    name: Assess conditions and choose a tolerant culture
+  - id: n_win_point_case_difficult_mlf_reason
+    node_type: learning_point
+    name: Several inhibitory conditions act together
+  - id: n_win_point_case_difficult_mlf_tradeoff
+    node_type: learning_point
+    name: More permissive conditions can help unwanted microbes
+  - id: n_win_point_case_difficult_mlf_limitation
+    node_type: learning_point
+    name: Verify completion analytically
+  - id: n_win_case_protein_white
+    node_type: production_case
+    name: A white blend failing protein-stability testing
+  - id: n_win_point_case_protein_white_action
+    node_type: learning_point
+    name: Trial the lowest effective bentonite treatment
+  - id: n_win_point_case_protein_white_reason
+    node_type: learning_point
+    name: Remove unstable grape proteins
+  - id: n_win_point_case_protein_white_tradeoff
+    node_type: learning_point
+    name: Lees losses and unwanted flavour removal
+  - id: n_win_point_case_protein_white_limitation
+    node_type: learning_point
+    name: Retest after later composition changes
+  - id: n_win_case_sweet_bottling
+    node_type: production_case
+    name: Residual-sugar bottling with unvalidated filtration and cleaning
+  - id: n_win_point_case_sweet_bottling_action
+    node_type: learning_point
+    name: Validate final membrane filtration and line hygiene
+  - id: n_win_point_case_sweet_bottling_reason
+    node_type: learning_point
+    name: Reduce surviving and introduced microbes
+  - id: n_win_point_case_sweet_bottling_tradeoff
+    node_type: learning_point
+    name: Filterability affects throughput and cost
+  - id: n_win_point_case_sweet_bottling_limitation
+    node_type: learning_point
+    name: Filtration alone cannot guarantee the bottled result
+node_alternative_names:
+  - knowledge_node_id: n_win_point_machine_contact
+    name: Skin contact before pressing
+    kind: synonym
+  - knowledge_node_id: n_win_point_gentle_press
+    name: Reduce phenolic extraction
+    kind: synonym
+  - knowledge_node_id: n_win_point_rot_sort
+    name: Remove rotten fruit
+    kind: synonym
+  - knowledge_node_id: n_win_point_laccase
+    name: SO2 does not inactivate laccase
+    kind: synonym
+  - knowledge_node_id: n_win_point_press_fractions
+    name: Separate free-run and press juice
+    kind: synonym
+  - knowledge_node_id: n_win_point_skin_flavour
+    name: Skin extraction
+    kind: synonym
+  - knowledge_node_id: n_win_point_warm_skin
+    name: Increase phenolic extraction
+    kind: synonym
+  - knowledge_node_id: n_win_point_amber_style
+    name: Skin fermentation of white grapes
+    kind: synonym
+  - knowledge_node_id: n_win_point_amber_style
+    name: Orange winemaking
+    kind: synonym
+  - knowledge_node_id: n_win_point_cap_contact
+    name: Control colour and tannin extraction
+    kind: synonym
+  - knowledge_node_id: n_win_point_colour_tannin
+    name: Colour before tannin
+    kind: synonym
+  - knowledge_node_id: n_win_point_alcoholic_products
+    name: Alcohol and carbon dioxide
+    kind: synonym
+  - knowledge_node_id: n_win_point_alcoholic_products
+    name: Ethanol and CO2
+    kind: synonym
+  - knowledge_node_id: n_win_point_grape_sugars
+    name: Fructose and glucose
+    kind: synonym
+  - knowledge_node_id: n_win_point_yeast_health
+    name: Healthy yeast population
+    kind: synonym
+  - knowledge_node_id: n_win_point_yan_risk
+    name: Sluggish or stuck fermentation
+    kind: synonym
+  - knowledge_node_id: n_win_point_yan_measure
+    name: Measure YAN
+    kind: synonym
+  - knowledge_node_id: n_win_point_dap_scope
+    name: Nitrogen only
+    kind: synonym
+  - knowledge_node_id: n_win_point_late_nutrients
+    name: Late nutrient uptake is limited
+    kind: synonym
+  - knowledge_node_id: n_win_point_white_cooling
+    name: Preserve aromatic character
+    kind: synonym
+  - knowledge_node_id: n_win_point_red_heat
+    name: Positive temperature feedback
+    kind: synonym
+  - knowledge_node_id: n_win_point_yeast_heat
+    name: Heat stress on yeast
+    kind: synonym
+  - knowledge_node_id: n_win_point_oxygen_active
+    name: Sterol and fatty-acid synthesis
+    kind: synonym
+  - knowledge_node_id: n_win_point_oxygen_stage
+    name: Manage oxygen according to stage
+    kind: synonym
+  - knowledge_node_id: n_win_point_sulfur_forms
+    name: Free versus bound SO2
+    kind: synonym
+  - knowledge_node_id: n_win_point_sulfur_ph
+    name: Lower molecular SO2
+    kind: synonym
+  - knowledge_node_id: n_win_point_mlf_conversion
+    name: Conversion of malic acid to lactic acid
+    kind: synonym
+  - knowledge_node_id: n_win_point_mlf_conversion
+    name: Malic to lactic acid
+    kind: synonym
+  - knowledge_node_id: n_win_point_mlf_organism
+    name: O. oeni
+    kind: synonym
+  - knowledge_node_id: n_win_point_mlf_butter
+    name: Diacetyl
+    kind: synonym
+  - knowledge_node_id: n_win_point_mlf_inhibitors
+    name: Low pH, low temperature, sulfur and alcohol
+    kind: synonym
+  - knowledge_node_id: n_win_point_mlf_stability
+    name: Remove malic acid
+    kind: synonym
+  - knowledge_node_id: n_win_point_mlf_monitor
+    name: Test malic acid
+    kind: synonym
+  - knowledge_node_id: n_win_point_oak_flavours
+    name: Oak flavour compounds and tannins
+    kind: synonym
+  - knowledge_node_id: n_win_point_oak_variables
+    name: Species, toast, barrel size and age
+    kind: synonym
+  - knowledge_node_id: n_win_point_oak_reuse
+    name: Less new oak character
+    kind: synonym
+  - knowledge_node_id: n_win_point_lees_release
+    name: Yeast compounds influence texture
+    kind: synonym
+  - knowledge_node_id: n_win_point_lees_stirring
+    name: Balance reductive and oxidative risks
+    kind: synonym
+  - knowledge_node_id: n_win_point_fining_mechanism
+    name: Binding and separation
+    kind: synonym
+  - knowledge_node_id: n_win_point_bentonite
+    name: Protein stabilisation
+    kind: synonym
+  - knowledge_node_id: n_win_point_fining_trials
+    name: Laboratory fining trials
+    kind: synonym
+  - knowledge_node_id: n_win_point_filter_ratings
+    name: Nominal is not absolute
+    kind: synonym
+  - knowledge_node_id: n_win_point_packaging_hygiene
+    name: Post-filter contamination
+    kind: synonym
+  - knowledge_node_id: n_win_point_tartrate_cooling
+    name: Cold stabilisation
+    kind: synonym
+  - knowledge_node_id: n_win_point_stability_retest
+    name: Retest the final blend
+    kind: synonym
+  - knowledge_node_id: n_win_point_case_fresh_white_action
+    name: Reduce warm skin contact
+    kind: synonym
+  - knowledge_node_id: n_win_point_case_fresh_white_reason
+    name: Reduce phenolics
+    kind: synonym
+  - knowledge_node_id: n_win_point_case_fresh_white_tradeoff
+    name: Less extraction of flavour and body
+    kind: synonym
+  - knowledge_node_id: n_win_point_case_fresh_white_limitation
+    name: Trial the actual fruit
+    kind: synonym
+  - knowledge_node_id: n_win_point_case_hot_red_action
+    name: Active must cooling
+    kind: synonym
+  - knowledge_node_id: n_win_point_case_hot_red_reason
+    name: Reduce heat feedback
+    kind: synonym
+  - knowledge_node_id: n_win_point_case_hot_red_tradeoff
+    name: Slower extraction and fermentation
+    kind: synonym
+  - knowledge_node_id: n_win_point_case_hot_red_limitation
+    name: Cap temperature alone is insufficient
+    kind: synonym
+  - knowledge_node_id: n_win_point_case_low_yan_action
+    name: Tailored early nutrition
+    kind: synonym
+  - knowledge_node_id: n_win_point_case_low_yan_reason
+    name: Avoid nitrogen limitation
+    kind: synonym
+  - knowledge_node_id: n_win_point_case_low_yan_tradeoff
+    name: Overfeeding risks
+    kind: synonym
+  - knowledge_node_id: n_win_point_case_low_yan_limitation
+    name: Nitrogen is not the whole diagnosis
+    kind: synonym
+  - knowledge_node_id: n_win_point_case_difficult_mlf_action
+    name: Match culture to wine conditions
+    kind: synonym
+  - knowledge_node_id: n_win_point_case_difficult_mlf_reason
+    name: Combined bacterial inhibition
+    kind: synonym
+  - knowledge_node_id: n_win_point_case_difficult_mlf_tradeoff
+    name: Spoilage risk in permissive conditions
+    kind: synonym
+  - knowledge_node_id: n_win_point_case_difficult_mlf_limitation
+    name: Monitor malic acid
+    kind: synonym
+  - knowledge_node_id: n_win_point_case_protein_white_action
+    name: Bentonite bench trials
+    kind: synonym
+  - knowledge_node_id: n_win_point_case_protein_white_reason
+    name: Bind haze-forming proteins
+    kind: synonym
+  - knowledge_node_id: n_win_point_case_protein_white_tradeoff
+    name: Wine loss and flavour stripping
+    kind: synonym
+  - knowledge_node_id: n_win_point_case_protein_white_limitation
+    name: Check final blend stability
+    kind: synonym
+  - knowledge_node_id: n_win_point_case_sweet_bottling_action
+    name: Validated membrane and clean line
+    kind: synonym
+  - knowledge_node_id: n_win_point_case_sweet_bottling_reason
+    name: Prevent post-filter contamination
+    kind: synonym
+  - knowledge_node_id: n_win_point_case_sweet_bottling_tradeoff
+    name: Fouling and throughput
+    kind: synonym
+  - knowledge_node_id: n_win_point_case_sweet_bottling_limitation
+    name: Filtration is not the whole packaging system
+    kind: synonym
+knowledge_relations:
+  - subject_id: n_win_principle_machine_contact
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_machine_contact
+    valid_from: 2026-09-26
+  - subject_id: n_win_principle_gentle_press
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_gentle_press
+    valid_from: 2026-09-26
+  - subject_id: n_win_principle_rot_sort
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_rot_sort
+    valid_from: 2026-09-26
+  - subject_id: n_win_principle_laccase
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_laccase
+    valid_from: 2026-09-26
+  - subject_id: n_win_principle_press_fractions
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_press_fractions
+    valid_from: 2026-09-26
+  - subject_id: n_win_principle_skin_flavour
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_skin_flavour
+    valid_from: 2026-09-26
+  - subject_id: n_win_principle_warm_skin
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_warm_skin
+    valid_from: 2026-09-26
+  - subject_id: n_win_principle_amber_style
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_amber_style
+    valid_from: 2026-09-26
+  - subject_id: n_win_principle_cap_contact
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_cap_contact
+    valid_from: 2026-09-26
+  - subject_id: n_win_principle_colour_tannin
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_colour_tannin
+    valid_from: 2026-09-26
+  - subject_id: n_win_principle_alcoholic_products
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_alcoholic_products
+    valid_from: 2026-09-26
+  - subject_id: n_win_principle_grape_sugars
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_grape_sugars
+    valid_from: 2026-09-26
+  - subject_id: n_win_principle_yeast_health
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_yeast_health
+    valid_from: 2026-09-26
+  - subject_id: n_win_principle_yan_risk
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_yan_risk
+    valid_from: 2026-09-26
+  - subject_id: n_win_principle_yan_measure
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_yan_measure
+    valid_from: 2026-09-26
+  - subject_id: n_win_principle_dap_scope
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_dap_scope
+    valid_from: 2026-09-26
+  - subject_id: n_win_principle_late_nutrients
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_late_nutrients
+    valid_from: 2026-09-26
+  - subject_id: n_win_principle_white_cooling
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_white_cooling
+    valid_from: 2026-09-26
+  - subject_id: n_win_principle_red_heat
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_red_heat
+    valid_from: 2026-09-26
+  - subject_id: n_win_principle_yeast_heat
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_yeast_heat
+    valid_from: 2026-09-26
+  - subject_id: n_win_principle_oxygen_active
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_oxygen_active
+    valid_from: 2026-09-26
+  - subject_id: n_win_principle_oxygen_stage
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_oxygen_stage
+    valid_from: 2026-09-26
+  - subject_id: n_win_principle_sulfur_forms
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_sulfur_forms
+    valid_from: 2026-09-26
+  - subject_id: n_win_principle_sulfur_ph
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_sulfur_ph
+    valid_from: 2026-09-26
+  - subject_id: n_win_principle_mlf_conversion
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_mlf_conversion
+    valid_from: 2026-09-26
+  - subject_id: n_win_principle_mlf_organism
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_mlf_organism
+    valid_from: 2026-09-26
+  - subject_id: n_win_principle_mlf_butter
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_mlf_butter
+    valid_from: 2026-09-26
+  - subject_id: n_win_principle_mlf_inhibitors
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_mlf_inhibitors
+    valid_from: 2026-09-26
+  - subject_id: n_win_principle_mlf_stability
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_mlf_stability
+    valid_from: 2026-09-26
+  - subject_id: n_win_principle_mlf_monitor
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_mlf_monitor
+    valid_from: 2026-09-26
+  - subject_id: n_win_principle_oak_flavours
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_oak_flavours
+    valid_from: 2026-09-26
+  - subject_id: n_win_principle_oak_variables
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_oak_variables
+    valid_from: 2026-09-26
+  - subject_id: n_win_principle_oak_reuse
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_oak_reuse
+    valid_from: 2026-09-26
+  - subject_id: n_win_principle_lees_release
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_lees_release
+    valid_from: 2026-09-26
+  - subject_id: n_win_principle_lees_stirring
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_lees_stirring
+    valid_from: 2026-09-26
+  - subject_id: n_win_principle_fining_mechanism
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_fining_mechanism
+    valid_from: 2026-09-26
+  - subject_id: n_win_principle_bentonite
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_bentonite
+    valid_from: 2026-09-26
+  - subject_id: n_win_principle_fining_trials
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_fining_trials
+    valid_from: 2026-09-26
+  - subject_id: n_win_principle_filter_ratings
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_filter_ratings
+    valid_from: 2026-09-26
+  - subject_id: n_win_principle_packaging_hygiene
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_packaging_hygiene
+    valid_from: 2026-09-26
+  - subject_id: n_win_principle_tartrate_cooling
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_tartrate_cooling
+    valid_from: 2026-09-26
+  - subject_id: n_win_principle_stability_retest
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_stability_retest
+    valid_from: 2026-09-26
+  - subject_id: n_win_case_fresh_white
+    relation_type: CASE_ACTION
+    object_id: n_win_point_case_fresh_white_action
+    valid_from: 2026-09-26
+  - subject_id: n_win_case_fresh_white
+    relation_type: CASE_REASON
+    object_id: n_win_point_case_fresh_white_reason
+    valid_from: 2026-09-26
+  - subject_id: n_win_case_fresh_white
+    relation_type: CASE_TRADEOFF
+    object_id: n_win_point_case_fresh_white_tradeoff
+    valid_from: 2026-09-26
+  - subject_id: n_win_case_fresh_white
+    relation_type: CASE_LIMITATION
+    object_id: n_win_point_case_fresh_white_limitation
+    valid_from: 2026-09-26
+  - subject_id: n_win_case_hot_red
+    relation_type: CASE_ACTION
+    object_id: n_win_point_case_hot_red_action
+    valid_from: 2026-09-26
+  - subject_id: n_win_case_hot_red
+    relation_type: CASE_REASON
+    object_id: n_win_point_case_hot_red_reason
+    valid_from: 2026-09-26
+  - subject_id: n_win_case_hot_red
+    relation_type: CASE_TRADEOFF
+    object_id: n_win_point_case_hot_red_tradeoff
+    valid_from: 2026-09-26
+  - subject_id: n_win_case_hot_red
+    relation_type: CASE_LIMITATION
+    object_id: n_win_point_case_hot_red_limitation
+    valid_from: 2026-09-26
+  - subject_id: n_win_case_low_yan
+    relation_type: CASE_ACTION
+    object_id: n_win_point_case_low_yan_action
+    valid_from: 2026-09-26
+  - subject_id: n_win_case_low_yan
+    relation_type: CASE_REASON
+    object_id: n_win_point_case_low_yan_reason
+    valid_from: 2026-09-26
+  - subject_id: n_win_case_low_yan
+    relation_type: CASE_TRADEOFF
+    object_id: n_win_point_case_low_yan_tradeoff
+    valid_from: 2026-09-26
+  - subject_id: n_win_case_low_yan
+    relation_type: CASE_LIMITATION
+    object_id: n_win_point_case_low_yan_limitation
+    valid_from: 2026-09-26
+  - subject_id: n_win_case_difficult_mlf
+    relation_type: CASE_ACTION
+    object_id: n_win_point_case_difficult_mlf_action
+    valid_from: 2026-09-26
+  - subject_id: n_win_case_difficult_mlf
+    relation_type: CASE_REASON
+    object_id: n_win_point_case_difficult_mlf_reason
+    valid_from: 2026-09-26
+  - subject_id: n_win_case_difficult_mlf
+    relation_type: CASE_TRADEOFF
+    object_id: n_win_point_case_difficult_mlf_tradeoff
+    valid_from: 2026-09-26
+  - subject_id: n_win_case_difficult_mlf
+    relation_type: CASE_LIMITATION
+    object_id: n_win_point_case_difficult_mlf_limitation
+    valid_from: 2026-09-26
+  - subject_id: n_win_case_protein_white
+    relation_type: CASE_ACTION
+    object_id: n_win_point_case_protein_white_action
+    valid_from: 2026-09-26
+  - subject_id: n_win_case_protein_white
+    relation_type: CASE_REASON
+    object_id: n_win_point_case_protein_white_reason
+    valid_from: 2026-09-26
+  - subject_id: n_win_case_protein_white
+    relation_type: CASE_TRADEOFF
+    object_id: n_win_point_case_protein_white_tradeoff
+    valid_from: 2026-09-26
+  - subject_id: n_win_case_protein_white
+    relation_type: CASE_LIMITATION
+    object_id: n_win_point_case_protein_white_limitation
+    valid_from: 2026-09-26
+  - subject_id: n_win_case_sweet_bottling
+    relation_type: CASE_ACTION
+    object_id: n_win_point_case_sweet_bottling_action
+    valid_from: 2026-09-26
+  - subject_id: n_win_case_sweet_bottling
+    relation_type: CASE_REASON
+    object_id: n_win_point_case_sweet_bottling_reason
+    valid_from: 2026-09-26
+  - subject_id: n_win_case_sweet_bottling
+    relation_type: CASE_TRADEOFF
+    object_id: n_win_point_case_sweet_bottling_tradeoff
+    valid_from: 2026-09-26
+  - subject_id: n_win_case_sweet_bottling
+    relation_type: CASE_LIMITATION
+    object_id: n_win_point_case_sweet_bottling_limitation
+    valid_from: 2026-09-26
+knowledge_items:
+  - id: ki_win_machine_contact
+    subject_id: n_win_principle_machine_contact
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_machine_contact
+    domain_id: winemaking
+    assertion_text: Broken berries can expose juice to skins before winery intake; cool handling and prompt
+      processing help control the resulting extraction. This does not make machine harvesting inherently
+      unsuitable.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:42:55.000Z
+  - id: ki_win_gentle_press
+    subject_id: n_win_principle_gentle_press
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_gentle_press
+    domain_id: winemaking
+    assertion_text: Gentle handling and prompt pressing can limit phenolic extraction for a delicate white style;
+      longer contact may be chosen for other styles.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:42:55.000Z
+  - id: ki_win_rot_sort
+    subject_id: n_win_principle_rot_sort
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_rot_sort
+    domain_id: winemaking
+    assertion_text: Where damaging Botrytis bunch rot is present, selective picking or sorting limits
+      mould-affected material entering the winery. This is distinct from intentionally using suitable
+      noble-rot fruit.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:42:55.000Z
+  - id: ki_win_laccase
+    subject_id: n_win_principle_laccase
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_laccase
+    domain_id: winemaking
+    assertion_text: Botrytis can supply laccase that promotes oxidation in the presence of oxygen. Sulfur dioxide
+      can support protection but does not inactivate this enzyme.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:42:55.000Z
+  - id: ki_win_press_fractions
+    subject_id: n_win_principle_press_fractions
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_press_fractions
+    domain_id: winemaking
+    assertion_text: Processing free-run and press fractions separately allows the winemaker to assess and manage
+      different phenolic characters before blending for the intended white-wine style.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:42:55.000Z
+  - id: ki_win_skin_flavour
+    subject_id: n_win_principle_skin_flavour
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_skin_flavour
+    domain_id: winemaking
+    assertion_text: Contact between juice and white-grape skins can increase flavour and texture through
+      extraction; excessive contact can also bring astringency or herbaceous character.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:42:55.000Z
+  - id: ki_win_warm_skin
+    subject_id: n_win_principle_warm_skin
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_warm_skin
+    domain_id: winemaking
+    assertion_text: Warmer pre-fermentation skin contact can increase phenolic extraction and astringency; the
+      outcome also depends on contact time, fruit condition and handling.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:42:55.000Z
+  - id: ki_win_amber_style
+    subject_id: n_win_principle_amber_style
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_amber_style
+    domain_id: winemaking
+    assertion_text: An amber or orange style can be made by fermenting white grapes with their skins. Skin contact
+      changes texture and flavour; the style is not defined by oxidising the wine.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:42:55.000Z
+  - id: ki_win_cap_contact
+    subject_id: n_win_principle_cap_contact
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_cap_contact
+    domain_id: winemaking
+    assertion_text: The extent and duration of contact between fermenting red must and the cap influence the
+      extraction of colour and tannin. More intensive treatment is not automatically preferable.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:42:55.000Z
+  - id: ki_win_colour_tannin
+    subject_id: n_win_principle_colour_tannin
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_colour_tannin
+    domain_id: winemaking
+    assertion_text: In studied red fermentations, maximum colour extraction occurs before maximum tannin
+      extraction. Extending contact to extract tannin does not necessarily keep increasing colour.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:42:55.000Z
+  - id: ki_win_alcoholic_products
+    subject_id: n_win_principle_alcoholic_products
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_alcoholic_products
+    domain_id: winemaking
+    assertion_text: Wine yeast converts fermentable grape sugars principally into ethanol and carbon dioxide.
+      Other metabolic products contribute to wine composition and aroma.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:42:55.000Z
+  - id: ki_win_grape_sugars
+    subject_id: n_win_principle_grape_sugars
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_grape_sugars
+    domain_id: winemaking
+    assertion_text: Glucose and fructose are the principal grape-juice sugars used by Saccharomyces during wine
+      fermentation; successful completion depends on a healthy yeast population.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:42:55.000Z
+  - id: ki_win_yeast_health
+    subject_id: n_win_principle_yeast_health
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_yeast_health
+    domain_id: winemaking
+    assertion_text: A sufficient population of metabolically healthy yeast is needed to consume fermentable
+      sugars. Inoculation alone does not guarantee completion under unsuitable conditions.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:42:55.000Z
+  - id: ki_win_yan_risk
+    subject_id: n_win_principle_yan_risk
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_yan_risk
+    domain_id: winemaking
+    assertion_text: High sugar increases the fermentation workload while low yeast-assimilable nitrogen can limit
+      yeast performance. Low nutrients and increasing alcohol are common causes of sluggish or stuck
+      fermentation.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:42:55.000Z
+  - id: ki_win_yan_measure
+    subject_id: n_win_principle_yan_measure
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_yan_measure
+    domain_id: winemaking
+    assertion_text: Measuring YAN before fermentation helps tailor nutrient additions to the must and yeast strain
+      instead of assuming that every juice has the same requirement.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:42:55.000Z
+  - id: ki_win_dap_scope
+    subject_id: n_win_principle_dap_scope
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_dap_scope
+    domain_id: winemaking
+    assertion_text: Diammonium phosphate supplies available nitrogen but does not supply the vitamins and other
+      micronutrients that a yeast culture may also need.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:42:55.000Z
+  - id: ki_win_late_nutrients
+    subject_id: n_win_principle_late_nutrients
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_late_nutrients
+    domain_id: winemaking
+    assertion_text: Rising ethanol can hinder amino-acid uptake late in fermentation. A late nutrient addition is
+      not a dependable substitute for diagnosing and preventing the underlying problem.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:42:55.000Z
+  - id: ki_win_white_cooling
+    subject_id: n_win_principle_white_cooling
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_white_cooling
+    domain_id: winemaking
+    assertion_text: Cooler fermentation can help preserve delicate white-wine aroma character. The temperature
+      still has to suit the yeast and allow reliable fermentation.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:42:55.000Z
+  - id: ki_win_red_heat
+    subject_id: n_win_principle_red_heat
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_red_heat
+    domain_id: winemaking
+    assertion_text: Warmer red fermentation can accelerate fermentation, generating further heat. Limited cooling
+      capacity can allow the temperature to run away.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:42:55.000Z
+  - id: ki_win_yeast_heat
+    subject_id: n_win_principle_yeast_heat
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_yeast_heat
+    domain_id: winemaking
+    assertion_text: Extreme fermentation temperatures can harm yeast health and increase stuck-fermentation risk.
+      Temperature management must balance extraction goals with yeast viability.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:42:55.000Z
+  - id: ki_win_oxygen_active
+    subject_id: n_win_principle_oxygen_active
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_oxygen_active
+    domain_id: winemaking
+    assertion_text: At a suitable stage of active fermentation, oxygen can help yeast synthesise sterols and
+      unsaturated fatty acids needed for ethanol-tolerant membranes. Timing matters because other microbes and
+      wine components also use oxygen.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:42:55.000Z
+  - id: ki_win_oxygen_stage
+    subject_id: n_win_principle_oxygen_stage
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_oxygen_stage
+    domain_id: winemaking
+    assertion_text: Oxygen can support yeast during active fermentation and can promote chosen maturation
+      reactions; unwanted exposure can also cause browning, aldehydic character or microbial growth. Its
+      effect depends on wine and stage.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:42:55.000Z
+  - id: ki_win_sulfur_forms
+    subject_id: n_win_principle_sulfur_forms
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_sulfur_forms
+    domain_id: winemaking
+    assertion_text: "Total sulfur dioxide alone does not describe protection: the free and bound fractions differ,
+      and the useful concentration must be interpreted with the wine’s pH and condition."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:42:55.000Z
+  - id: ki_win_sulfur_ph
+    subject_id: n_win_principle_sulfur_ph
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_sulfur_ph
+    domain_id: winemaking
+    assertion_text: At the same free sulfur dioxide concentration, a higher wine pH reduces the molecular fraction
+      associated with antimicrobial protection. A single free-SO2 target does not suit all wines.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:42:55.000Z
+  - id: ki_win_mlf_conversion
+    subject_id: n_win_principle_mlf_conversion
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_mlf_conversion
+    domain_id: winemaking
+    assertion_text: Lactic acid bacteria convert L-malic acid into L-lactic acid during MLF, reducing acidity.
+      This is a different process from yeast converting sugars into alcohol.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:42:55.000Z
+  - id: ki_win_mlf_organism
+    subject_id: n_win_principle_mlf_organism
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_mlf_organism
+    domain_id: winemaking
+    assertion_text: Oenococcus oeni is the principal bacterium used to conduct wine MLF. Other suitable bacterial
+      species or strains can also carry out the conversion.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:42:55.000Z
+  - id: ki_win_mlf_butter
+    subject_id: n_win_principle_mlf_butter
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_mlf_butter
+    domain_id: winemaking
+    assertion_text: Diacetyl formed through bacterial citric-acid metabolism can contribute buttery aroma. Its
+      concentration and sensory impact depend on strain, timing, lees contact and the wine matrix; MLF is not
+      invariably buttery.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:42:55.000Z
+  - id: ki_win_mlf_inhibitors
+    subject_id: n_win_principle_mlf_inhibitors
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_mlf_inhibitors
+    domain_id: winemaking
+    assertion_text: Low pH, cool temperature, sulfur dioxide and alcohol can jointly inhibit malolactic bacteria.
+      Choosing a strain requires assessing the combined conditions rather than one parameter alone.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:42:55.000Z
+  - id: ki_win_mlf_stability
+    subject_id: n_win_principle_mlf_stability
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_mlf_stability
+    domain_id: winemaking
+    assertion_text: Removing malic acid through completed MLF removes a substrate that could otherwise support
+      later bacterial activity. It does not replace broader hygiene and microbial stability controls.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:42:55.000Z
+  - id: ki_win_mlf_monitor
+    subject_id: n_win_principle_mlf_monitor
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_mlf_monitor
+    domain_id: winemaking
+    assertion_text: MLF progress is monitored through declining malic acid and rising lactic acid using suitable
+      analysis. The absence of visible bubbling does not establish completion.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:42:55.000Z
+  - id: ki_win_oak_flavours
+    subject_id: n_win_principle_oak_flavours
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_oak_flavours
+    domain_id: winemaking
+    assertion_text: Oak can supply aroma compounds associated with vanilla, coconut, spice or toast and
+      hydrolysable tannins. The sensory result depends on the wood and treatment.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:42:55.000Z
+  - id: ki_win_oak_variables
+    subject_id: n_win_principle_oak_variables
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_oak_variables
+    domain_id: winemaking
+    assertion_text: Wood species, toast, vessel size, barrel age and cooperage affect oak influence. Geographic
+      origin alone is insufficient to predict the finished wine.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:42:55.000Z
+  - id: ki_win_oak_reuse
+    subject_id: n_win_principle_oak_reuse
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_oak_reuse
+    domain_id: winemaking
+    assertion_text: Repeated barrel use reduces the distinction in extractable oak character compared with new
+      wood. Used barrels can still influence maturation and require care.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:42:55.000Z
+  - id: ki_win_lees_release
+    subject_id: n_win_principle_lees_release
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_lees_release
+    domain_id: winemaking
+    assertion_text: During lees contact, yeast-derived compounds including polysaccharides and mannoproteins can
+      alter texture and flavour integration. Results depend on management and time.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:42:55.000Z
+  - id: ki_win_lees_stirring
+    subject_id: n_win_principle_lees_stirring
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_lees_stirring
+    domain_id: winemaking
+    assertion_text: Lees management can risk unwanted sulfur characters when oxygen is insufficient, while
+      excessive oxygen during stirring can favour acetaldehyde and acetic acid formation. More stirring is not
+      always better.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:42:55.000Z
+  - id: ki_win_fining_mechanism
+    subject_id: n_win_principle_fining_mechanism
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_fining_mechanism
+    domain_id: winemaking
+    assertion_text: A fining agent reacts with target components to create material that can separate from the
+      wine. Depending on the agent, treatment can reduce astringency, colour or haze-forming proteins.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:42:55.000Z
+  - id: ki_win_bentonite
+    subject_id: n_win_principle_bentonite
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_bentonite
+    domain_id: winemaking
+    assertion_text: Negatively charged bentonite binds susceptible proteins, helping remove material that could
+      form a later haze. The effective addition depends on the particular wine.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:42:55.000Z
+  - id: ki_win_fining_trials
+    subject_id: n_win_principle_fining_trials
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_fining_trials
+    domain_id: winemaking
+    assertion_text: Laboratory trials against an untreated control help choose a fining treatment that achieves
+      the target while assessing unwanted flavour or colour loss.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:42:55.000Z
+  - id: ki_win_filter_ratings
+    subject_id: n_win_principle_filter_ratings
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_filter_ratings
+    domain_id: winemaking
+    assertion_text: A nominal pore-size rating allows wider tolerance and is not equivalent to an absolute
+      membrane intended for microbial removal. Filter choice and integrity testing matter.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:42:55.000Z
+  - id: ki_win_packaging_hygiene
+    subject_id: n_win_principle_packaging_hygiene
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_packaging_hygiene
+    domain_id: winemaking
+    assertion_text: Effective microbial filtration does not protect against contamination farther down an
+      inadequately cleaned bottling line. Filtration and packaging hygiene must be assessed together.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:42:55.000Z
+  - id: ki_win_tartrate_cooling
+    subject_id: n_win_principle_tartrate_cooling
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_tartrate_cooling
+    domain_id: winemaking
+    assertion_text: Lower temperature reduces potassium bitartrate solubility and can promote crystallisation
+      before bottling; seeding can assist. This addresses tartrate stability rather than microbial or protein
+      stability.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:42:55.000Z
+  - id: ki_win_stability_retest
+    subject_id: n_win_principle_stability_retest
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_win_point_stability_retest
+    domain_id: winemaking
+    assertion_text: Changes in composition or pH through blending or MLF can change tartrate stability. A result
+      from an earlier component does not establish stability of the final blend.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:42:55.000Z
+  - id: ki_win_case_fresh_white_action
+    subject_id: n_win_case_fresh_white
+    relation_type: CASE_ACTION
+    object_id: n_win_point_case_fresh_white_action
+    domain_id: winemaking
+    assertion_text: For this target style, shorten and cool pre-fermentation skin contact and handle the fruit
+      gently; rapid pressing is one defensible option.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:42:55.000Z
+  - id: ki_win_case_fresh_white_reason
+    subject_id: n_win_case_fresh_white
+    relation_type: CASE_REASON
+    object_id: n_win_point_case_fresh_white_reason
+    domain_id: winemaking
+    assertion_text: The trial’s astringency is consistent with excessive phenolic extraction; limiting contact and
+      temperature can reduce that extraction.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:42:55.000Z
+  - id: ki_win_case_fresh_white_tradeoff
+    subject_id: n_win_case_fresh_white
+    relation_type: CASE_TRADEOFF
+    object_id: n_win_point_case_fresh_white_tradeoff
+    domain_id: winemaking
+    assertion_text: Reducing contact can also reduce desired skin-derived flavour or texture. The choice follows
+      the specified delicate style rather than a universal quality rule.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:42:55.000Z
+  - id: ki_win_case_fresh_white_limitation
+    subject_id: n_win_case_fresh_white
+    relation_type: CASE_LIMITATION
+    object_id: n_win_point_case_fresh_white_limitation
+    domain_id: winemaking
+    assertion_text: The response depends on fruit ripeness, condition and handling; assess batches and press
+      fractions before committing to a final blend.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:42:55.000Z
+  - id: ki_win_case_hot_red_action
+    subject_id: n_win_case_hot_red
+    relation_type: CASE_ACTION
+    object_id: n_win_point_case_hot_red_action
+    domain_id: winemaking
+    assertion_text: Use available heat-exchange cooling of the fermenting liquid and distribute it appropriately;
+      monitor the trajectory rather than seeking maximum fermentation temperature.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:42:55.000Z
+  - id: ki_win_case_hot_red_reason
+    subject_id: n_win_case_hot_red
+    relation_type: CASE_REASON
+    object_id: n_win_point_case_hot_red_reason
+    domain_id: winemaking
+    assertion_text: A warmer ferment can accelerate its own heat production; controlling temperature also reduces
+      the risk of heat-related yeast injury.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:42:55.000Z
+  - id: ki_win_case_hot_red_tradeoff
+    subject_id: n_win_case_hot_red
+    relation_type: CASE_TRADEOFF
+    object_id: n_win_point_case_hot_red_tradeoff
+    domain_id: winemaking
+    assertion_text: Reducing temperature can change colour and tannin extraction rates and slow fermentation. The
+      intended moderate-tannin style helps justify that choice.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:42:55.000Z
+  - id: ki_win_case_hot_red_limitation
+    subject_id: n_win_case_hot_red
+    relation_type: CASE_LIMITATION
+    object_id: n_win_point_case_hot_red_limitation
+    domain_id: winemaking
+    assertion_text: Must temperature can matter more than cap temperature for phenolic extraction, and
+      insufficient cooling capacity still constrains control. Avoid repeated large temperature swings.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:42:55.000Z
+  - id: ki_win_case_low_yan_action
+    subject_id: n_win_case_low_yan
+    relation_type: CASE_ACTION
+    object_id: n_win_point_case_low_yan_action
+    domain_id: winemaking
+    assertion_text: Use the YAN result, sugar concentration and yeast requirements to plan appropriate early
+      nutrient additions instead of one unmeasured dose.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:42:55.000Z
+  - id: ki_win_case_low_yan_reason
+    subject_id: n_win_case_low_yan
+    relation_type: CASE_REASON
+    object_id: n_win_point_case_low_yan_reason
+    domain_id: winemaking
+    assertion_text: A high sugar workload combined with low nutrients can contribute to a sluggish or stuck
+      fermentation as alcohol accumulates.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:42:55.000Z
+  - id: ki_win_case_low_yan_tradeoff
+    subject_id: n_win_case_low_yan
+    relation_type: CASE_TRADEOFF
+    object_id: n_win_point_case_low_yan_tradeoff
+    domain_id: winemaking
+    assertion_text: Excessive nutrient addition can cause overly vigorous fermentation, change aroma and leave
+      nutrients available to unwanted microbes.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:42:55.000Z
+  - id: ki_win_case_low_yan_limitation
+    subject_id: n_win_case_low_yan
+    relation_type: CASE_LIMITATION
+    object_id: n_win_point_case_low_yan_limitation
+    domain_id: winemaking
+    assertion_text: DAP does not supply micronutrients; the plan may need broader nutrition, and temperature,
+      hydration or microbial problems can still cause failure.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:42:55.000Z
+  - id: ki_win_case_difficult_mlf_action
+    subject_id: n_win_case_difficult_mlf
+    relation_type: CASE_ACTION
+    object_id: n_win_point_case_difficult_mlf_action
+    domain_id: winemaking
+    assertion_text: Measure the relevant wine conditions, select a compatible culture suited to them and use
+      appropriate temperature or acclimatisation measures under the supplier’s guidance.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:42:55.000Z
+  - id: ki_win_case_difficult_mlf_reason
+    subject_id: n_win_case_difficult_mlf
+    relation_type: CASE_REASON
+    object_id: n_win_point_case_difficult_mlf_reason
+    domain_id: winemaking
+    assertion_text: Low pH, cold conditions and sulfur dioxide can jointly inhibit bacteria. One favourable
+      measurement cannot cancel all the other constraints.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:42:55.000Z
+  - id: ki_win_case_difficult_mlf_tradeoff
+    subject_id: n_win_case_difficult_mlf
+    relation_type: CASE_TRADEOFF
+    object_id: n_win_point_case_difficult_mlf_tradeoff
+    domain_id: winemaking
+    assertion_text: Conditions made more permissive for MLF, especially a higher pH, can also favour spoilage
+      organisms; the desired conversion must be balanced with microbial control.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:42:55.000Z
+  - id: ki_win_case_difficult_mlf_limitation
+    subject_id: n_win_case_difficult_mlf
+    relation_type: CASE_LIMITATION
+    object_id: n_win_point_case_difficult_mlf_limitation
+    domain_id: winemaking
+    assertion_text: "A chosen culture or warmer cellar does not establish completion: follow malic-acid decline
+      with analysis, while continuing to assess strain compatibility and wine conditions."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:42:55.000Z
+  - id: ki_win_case_protein_white_action
+    subject_id: n_win_case_protein_white
+    relation_type: CASE_ACTION
+    object_id: n_win_point_case_protein_white_action
+    domain_id: winemaking
+    assertion_text: Run bentonite trials on the actual final blend and choose a treatment that passes the agreed
+      protein-stability test. Assess an untreated control.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:42:55.000Z
+  - id: ki_win_case_protein_white_reason
+    subject_id: n_win_case_protein_white
+    relation_type: CASE_REASON
+    object_id: n_win_point_case_protein_white_reason
+    domain_id: winemaking
+    assertion_text: Bentonite binds proteins that could later unfold and aggregate into haze; an apparently clear
+      wine can still be protein unstable.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:42:55.000Z
+  - id: ki_win_case_protein_white_tradeoff
+    subject_id: n_win_case_protein_white
+    relation_type: CASE_TRADEOFF
+    object_id: n_win_point_case_protein_white_tradeoff
+    domain_id: winemaking
+    assertion_text: Fining can create wine losses in sediment and may remove positive sensory components, so the
+      appropriate effective treatment matters.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:42:55.000Z
+  - id: ki_win_case_protein_white_limitation
+    subject_id: n_win_case_protein_white
+    relation_type: CASE_LIMITATION
+    object_id: n_win_point_case_protein_white_limitation
+    domain_id: winemaking
+    assertion_text: Subsequent blending, sweetening or protein-based fining can change stability; retest the final
+      wine rather than assuming an earlier component result will persist.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:42:55.000Z
+  - id: ki_win_case_sweet_bottling_action
+    subject_id: n_win_case_sweet_bottling
+    relation_type: CASE_ACTION
+    object_id: n_win_point_case_sweet_bottling_action
+    domain_id: winemaking
+    assertion_text: Use an appropriate absolute membrane with confirmed integrity and assess downstream cleaning
+      and sanitation before packaging. Clear appearance or prior cross-flow treatment is insufficient.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:42:55.000Z
+  - id: ki_win_case_sweet_bottling_reason
+    subject_id: n_win_case_sweet_bottling
+    relation_type: CASE_REASON
+    object_id: n_win_point_case_sweet_bottling_reason
+    domain_id: winemaking
+    assertion_text: Residual sugar can support post-bottling spoilage or renewed fermentation; organisms may also
+      be introduced after the filter if the filling equipment is inadequately cleaned.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:42:55.000Z
+  - id: ki_win_case_sweet_bottling_tradeoff
+    subject_id: n_win_case_sweet_bottling
+    relation_type: CASE_TRADEOFF
+    object_id: n_win_point_case_sweet_bottling_tradeoff
+    domain_id: winemaking
+    assertion_text: Even visually bright wine can foul a membrane, so checking filterability and choosing suitable
+      preparation can affect practical throughput and filtration work.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:42:55.000Z
+  - id: ki_win_case_sweet_bottling_limitation
+    subject_id: n_win_case_sweet_bottling
+    relation_type: CASE_LIMITATION
+    object_id: n_win_point_case_sweet_bottling_limitation
+    domain_id: winemaking
+    assertion_text: "Microbial filtration is one control, not a guarantee of a sterile bottle: downstream
+      contamination and the wine’s other stability risks still require assessment."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:42:55.000Z
+certification_knowledge_mappings:
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_win_machine_contact
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_win_machine_contact
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_win_machine_contact
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_win_gentle_press
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_win_gentle_press
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_win_gentle_press
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_win_rot_sort
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_win_rot_sort
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_win_rot_sort
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_win_laccase
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_win_laccase
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_win_press_fractions
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_win_press_fractions
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_win_press_fractions
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_win_skin_flavour
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_win_skin_flavour
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_win_skin_flavour
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_win_warm_skin
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_win_warm_skin
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_win_amber_style
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_win_amber_style
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_win_amber_style
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_win_cap_contact
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_win_cap_contact
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_win_cap_contact
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_win_colour_tannin
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_win_colour_tannin
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_win_alcoholic_products
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_win_alcoholic_products
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_win_alcoholic_products
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_win_grape_sugars
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_win_grape_sugars
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_win_grape_sugars
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_win_yeast_health
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_win_yeast_health
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_win_yeast_health
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_win_yan_risk
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_win_yan_risk
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_win_yan_measure
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_win_dap_scope
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_win_late_nutrients
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_win_white_cooling
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_win_white_cooling
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_win_white_cooling
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_win_red_heat
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_win_yeast_heat
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_win_yeast_heat
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_win_yeast_heat
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_win_oxygen_active
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_win_oxygen_stage
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_win_oxygen_stage
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_win_oxygen_stage
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_win_sulfur_forms
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_win_sulfur_forms
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_win_sulfur_forms
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_win_sulfur_ph
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_win_sulfur_ph
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_win_mlf_conversion
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_win_mlf_conversion
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_win_mlf_conversion
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_win_mlf_organism
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_win_mlf_organism
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_win_mlf_organism
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_win_mlf_butter
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_win_mlf_butter
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_win_mlf_butter
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_win_mlf_inhibitors
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_win_mlf_stability
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_win_mlf_stability
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_win_mlf_monitor
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_win_oak_flavours
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_win_oak_flavours
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_win_oak_flavours
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_win_oak_variables
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_win_oak_variables
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_win_oak_reuse
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_win_oak_reuse
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_win_oak_reuse
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_win_lees_release
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_win_lees_release
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_win_lees_release
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_win_lees_stirring
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_win_lees_stirring
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_win_fining_mechanism
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_win_fining_mechanism
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_win_fining_mechanism
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_win_bentonite
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_win_bentonite
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_win_bentonite
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_win_fining_trials
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_win_fining_trials
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_win_filter_ratings
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_win_filter_ratings
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_win_packaging_hygiene
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_win_packaging_hygiene
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_win_tartrate_cooling
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_win_tartrate_cooling
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_win_tartrate_cooling
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_win_stability_retest
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_win_case_fresh_white_action
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_win_case_fresh_white_reason
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_win_case_fresh_white_tradeoff
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_win_case_fresh_white_limitation
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_win_case_hot_red_action
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_win_case_hot_red_reason
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_win_case_hot_red_tradeoff
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_win_case_hot_red_limitation
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_win_case_low_yan_action
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_win_case_low_yan_reason
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_win_case_low_yan_tradeoff
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_win_case_low_yan_limitation
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_win_case_difficult_mlf_action
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_win_case_difficult_mlf_reason
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_win_case_difficult_mlf_tradeoff
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_win_case_difficult_mlf_limitation
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_win_case_protein_white_action
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_win_case_protein_white_reason
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_win_case_protein_white_tradeoff
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_win_case_protein_white_limitation
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_win_case_sweet_bottling_action
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_win_case_sweet_bottling_reason
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_win_case_sweet_bottling_tradeoff
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_win_case_sweet_bottling_limitation
+    importance: core
+    minimum_depth: 3
+source_citations:
+  - id: src_win_skin_contact
+    kind: reference_work
+    title: Winemaking treatment – Skin contact
+    publisher: Australian Wine Research Institute
+    document_identifier: Living technical reference; includes 2019 Chardonnay trials and 2020 technical guidance
+    url: https://www.awri.com.au/industry_support/winemaking_resources/winemaking-practices/winemaking-treatment-skin-contact/
+    accessed_on: 2026-09-27
+  - id: src_win_amber
+    kind: reference_work
+    title: Winemaking treatment – Amber wine
+    publisher: Australian Wine Research Institute
+    document_identifier: Living technical reference; publication day not stated
+    url: https://www.awri.com.au/industry_support/winemaking_resources/winemaking-practices/winemaking-treatment-amber-wine/
+    accessed_on: 2026-09-27
+  - id: src_win_botrytis
+    kind: reference_work
+    title: Managing Botrytis-infected fruit
+    publisher: Australian Wine Research Institute
+    document_identifier: Fact sheet updated January 2023
+    url: https://www.awri.com.au/wp-content/uploads/managing_botrytis_infected_fruit_fact_sheet.pdf
+    accessed_on: 2026-09-27
+  - id: src_win_temperature
+    kind: reference_work
+    title: Fermentation temperature
+    publisher: Australian Wine Research Institute
+    document_identifier: Living technical reference; cites Godden 2021 and extraction research
+    url: https://www.awri.com.au/industry_support/winemaking_resources/winemaking-practices/fermentation-temperature/
+    accessed_on: 2026-09-27
+  - id: src_win_fermentation
+    kind: reference_work
+    title: Overview of Grape Juice Fermentation
+    publisher: University of California, Davis, Department of Viticulture and Enology
+    document_identifier: Fermentation management guide; exact publication day not stated
+    url: https://wine.ucdavis.edu/industry-info/enology/fermentation-management-guides/wine-fermentation/overview
+    accessed_on: 2026-09-27
+  - id: src_win_yan
+    kind: reference_work
+    title: Yeast nutrients and 'stuck fermentations'
+    publisher: Oregon State University Extension Service
+    document_identifier: James Osborne; EM 9619; published September 2018, reviewed 2024
+    url: https://extension.oregonstate.edu/catalog/em-9619-yeast-nutrients-stuck-fermentations
+    accessed_on: 2026-09-27
+  - id: src_win_white_temperature
+    kind: reference_work
+    title: Wine Production
+    publisher: Penn State Extension
+    document_identifier: Wine production technical overview; exact publication day not stated
+    url: https://extension.psu.edu/food-safety-and-quality/grape-and-wine-production/wine-production
+    accessed_on: 2026-09-27
+  - id: src_win_oxygen
+    kind: reference_work
+    title: Fermentation Management Practices
+    publisher: University of California, Davis, Department of Viticulture and Enology
+    document_identifier: Fermentation management guide; Oxygen Exposure section
+    url: https://wine.ucdavis.edu/industry-info/enology/fermentation-management-guides/wine-fermentation/fermentation-management-practices
+    accessed_on: 2026-09-27
+  - id: src_win_sulfur
+    kind: reference_work
+    title: Revisiting sulfur dioxide use
+    publisher: Australian Wine Research Institute
+    document_identifier: Living technical reference; no current legal limits are taken from this historical discussion
+    url: https://www.awri.com.au/industry_support/winemaking_resources/fining-stabilities/microbiological/avoidance/sulfur_dioxide/
+    accessed_on: 2026-09-27
+  - id: src_win_mlf
+    kind: reference_work
+    title: Achieving successful malolactic fermentation
+    publisher: Australian Wine Research Institute
+    document_identifier: Fact sheet updated September 2020
+    url: https://www.awri.com.au/wp-content/uploads/2011/06/Malolactic-fermentation.pdf
+    accessed_on: 2026-09-27
+  - id: src_win_mlf_style
+    kind: reference_work
+    title: Using malolactic fermentation to modulate wine style
+    publisher: Australian Wine Research Institute
+    document_identifier: Fact sheet updated August 2020
+    url: https://www.awri.com.au/wp-content/uploads/mlf_modulation_AWRI_fact_sheet.pdf
+    accessed_on: 2026-09-27
+  - id: src_win_white_mlf
+    kind: reference_work
+    title: Malolactic fermentation in white and sparkling wines
+    publisher: Australian Wine Research Institute
+    document_identifier: Fact sheet updated September 2020
+    url: https://www.awri.com.au/wp-content/uploads/2018/03/MLF-in-white-and-sparkling-wine.pdf
+    accessed_on: 2026-09-27
+  - id: src_win_oak
+    kind: reference_work
+    title: Oak Wood Composition
+    publisher: Iowa State University Extension and Outreach, Midwest Grape and Wine Industry Institute
+    document_identifier: Technical extension reference; exact publication day not stated
+    url: https://www.extension.iastate.edu/wine/oak-wood-composition
+    accessed_on: 2026-09-27
+  - id: src_win_oak_flavour
+    kind: reference_work
+    title: Tannins from oak barrels that flavor wine are ‘fingerprinted’ by researchers
+    publisher: Penn State University
+    document_identifier: University research communication on oak tannins and wine; last updated 6 April 2026
+    url: https://www.psu.edu/news/research/story/tannins-oak-barrels-flavor-wine-are-fingerprinted-researchers
+    accessed_on: 2026-09-27
+  - id: src_win_lees
+    kind: reference_work
+    title: Understanding the effects of lees contact in white wine
+    publisher: Australian Wine Research Institute
+    document_identifier: Peter Godden; Technical Review No. 249, December 2020, printed pp. 4–8
+    url: https://www.awri.com.au/wp-content/uploads/2020/12/249-December-2020-Technical-Review-Godden.pdf
+    accessed_on: 2026-09-27
+  - id: src_win_fining
+    kind: reference_work
+    title: Fining Agents
+    publisher: Australian Wine Research Institute
+    document_identifier: Living technical reference; chemical mechanisms and laboratory trials only
+    url: https://www.awri.com.au/industry_support/winemaking_resources/frequently_asked_questions/fining_agents/
+    accessed_on: 2026-09-27
+  - id: src_win_protein
+    kind: reference_work
+    title: Protein stability
+    publisher: Australian Wine Research Institute
+    document_identifier: Fact sheet updated March 2020
+    url: https://www.awri.com.au/wp-content/uploads/2020/03/protein-stability-fact-sheet.pdf
+    accessed_on: 2026-09-27
+  - id: src_win_filtration
+    kind: reference_work
+    title: Top tips for filtration
+    publisher: Wine Australia; technical guidance from AWRI Senior Oenologist Matt Holdstock
+    document_identifier: Published 8 July 2016
+    url: https://www.wineaustralia.com/news/articles/top-tips-for-filtration
+    accessed_on: 2026-09-27
+    published_on: 2016-07-08
+  - id: src_win_packaging
+    kind: reference_work
+    title: Microbiological stability of wine packaging in Australia and New Zealand
+    publisher: Australian Wine Research Institute
+    document_identifier: Tina Tran, Eric Wilkes and Dan Johnson; Wine & Viticulture Journal 30(2), March/April
+      2015, printed pp. 46–49
+    url: https://www.awri.com.au/wp-content/uploads/2015/05/1704-tran-et-al-WVJ-30-2-2015.pdf
+    accessed_on: 2026-09-27
+  - id: src_win_tartrate
+    kind: reference_work
+    title: Potassium Instability
+    publisher: Australian Wine Research Institute
+    document_identifier: Living technical reference; potassium bitartrate mechanisms and stability testing
+    url: https://www.awri.com.au/industry_support/winemaking_resources/fining-stabilities/hazes_and_deposits/potassium_instability/
+    accessed_on: 2026-09-27
+knowledge_item_citations:
+  - knowledge_item_id: ki_win_machine_contact
+    source_citation_id: src_win_skin_contact
+    locator: "Background: machine harvesting and transport"
+  - knowledge_item_id: ki_win_gentle_press
+    source_citation_id: src_win_amber
+    locator: "Background: gentle or whole-bunch pressing and lower must phenolics"
+  - knowledge_item_id: ki_win_rot_sort
+    source_citation_id: src_win_botrytis
+    locator: "PDF pp. 1–2: implications and strategies for both red and white grapes"
+  - knowledge_item_id: ki_win_laccase
+    source_citation_id: src_win_botrytis
+    locator: "PDF pp. 1–2: laccase, sulfur dioxide and oxygen exposure"
+  - knowledge_item_id: ki_win_press_fractions
+    source_citation_id: src_win_amber
+    locator: "Background: separate processing of free run and press fractions"
+  - knowledge_item_id: ki_win_skin_flavour
+    source_citation_id: src_win_skin_contact
+    locator: Introduction, practical considerations and potential risks
+  - knowledge_item_id: ki_win_warm_skin
+    source_citation_id: src_win_skin_contact
+    locator: "Practical considerations: temperature and extraction"
+  - knowledge_item_id: ki_win_amber_style
+    source_citation_id: src_win_amber
+    locator: "Introduction and background: white grapes fermented on skins"
+  - knowledge_item_id: ki_win_cap_contact
+    source_citation_id: src_win_temperature
+    locator: "Background: temperature, cap management and phenolic extraction"
+  - knowledge_item_id: ki_win_colour_tannin
+    source_citation_id: src_win_temperature
+    locator: "Background: differing extraction rates of colour and tannins"
+  - knowledge_item_id: ki_win_alcoholic_products
+    source_citation_id: src_win_fermentation
+    locator: "Overview of Grape Juice Fermentation: glycolysis and ethanol formation"
+  - knowledge_item_id: ki_win_grape_sugars
+    source_citation_id: src_win_fermentation
+    locator: "Overview of Grape Juice Fermentation: substrates"
+  - knowledge_item_id: ki_win_yeast_health
+    source_citation_id: src_win_fermentation
+    locator: "Overview of Grape Juice Fermentation: healthy cells and sugar conversion"
+  - knowledge_item_id: ki_win_yan_risk
+    source_citation_id: src_win_yan
+    locator: Nutrient needs during wine fermentation
+  - knowledge_item_id: ki_win_yan_measure
+    source_citation_id: src_win_yan
+    locator: "Yeast assimilable nitrogen: prior measurement and variable needs"
+  - knowledge_item_id: ki_win_dap_scope
+    source_citation_id: src_win_yan
+    locator: "Other nutrient needs: DAP and complex nutrients"
+  - knowledge_item_id: ki_win_late_nutrients
+    source_citation_id: src_win_yan
+    locator: "Yeast assimilable nitrogen: late uptake and timing"
+  - knowledge_item_id: ki_win_white_cooling
+    source_citation_id: src_win_white_temperature
+    locator: "Wine fermentation: white and aromatically delicate varieties"
+  - knowledge_item_id: ki_win_red_heat
+    source_citation_id: src_win_temperature
+    locator: "Potential risks: fermentation rate and positive temperature feedback"
+  - knowledge_item_id: ki_win_yeast_heat
+    source_citation_id: src_win_temperature
+    locator: "Potential risks: extreme temperatures and yeast health"
+  - knowledge_item_id: ki_win_oxygen_active
+    source_citation_id: src_win_oxygen
+    locator: "Oxygen Exposure: yeast nutrients, membrane synthesis and timing"
+  - knowledge_item_id: ki_win_oxygen_stage
+    source_citation_id: src_win_oxygen
+    locator: "Oxygen Exposure: beneficial and unwanted effects"
+  - knowledge_item_id: ki_win_sulfur_forms
+    source_citation_id: src_win_sulfur
+    locator: Functions and forms of sulfur dioxide; pH interactions
+  - knowledge_item_id: ki_win_sulfur_ph
+    source_citation_id: src_win_sulfur
+    locator: pH and molecular sulfur dioxide effectiveness
+  - knowledge_item_id: ki_win_mlf_conversion
+    source_citation_id: src_win_mlf_style
+    locator: "PDF pp. 1–2: roles of MLF and malic-to-lactic conversion"
+  - knowledge_item_id: ki_win_mlf_organism
+    source_citation_id: src_win_mlf
+    locator: "PDF p. 1: introduction"
+  - knowledge_item_id: ki_win_mlf_butter
+    source_citation_id: src_win_mlf_style
+    locator: "PDF pp. 2–3: diacetyl and winemaking variables"
+  - knowledge_item_id: ki_win_mlf_inhibitors
+    source_citation_id: src_win_white_mlf
+    locator: "PDF p. 2: wine composition, synergistic effects and strain selection"
+  - knowledge_item_id: ki_win_mlf_stability
+    source_citation_id: src_win_mlf
+    locator: "PDF p. 1: malic acid as a carbon source and spoilage risk"
+  - knowledge_item_id: ki_win_mlf_monitor
+    source_citation_id: src_win_mlf
+    locator: "PDF p. 3: Monitoring MLF performance"
+  - knowledge_item_id: ki_win_oak_flavours
+    source_citation_id: src_win_oak_flavour
+    locator: "Research description: wood flavours and hydrolysable tannins"
+  - knowledge_item_id: ki_win_oak_variables
+    source_citation_id: src_win_oak
+    locator: "Sources of Oak and Their Significance: factors beyond origin"
+  - knowledge_item_id: ki_win_oak_reuse
+    source_citation_id: src_win_oak
+    locator: "Variation Due to Genetic Differences: barrel reuse"
+  - knowledge_item_id: ki_win_lees_release
+    source_citation_id: src_win_lees
+    locator: "Printed pp. 4–5: lees composition and reported benefits"
+  - knowledge_item_id: ki_win_lees_stirring
+    source_citation_id: src_win_lees
+    locator: "Printed p. 6: practical tips and potential risks"
+  - knowledge_item_id: ki_win_fining_mechanism
+    source_citation_id: src_win_fining
+    locator: What is the purpose of using a fining agent?
+  - knowledge_item_id: ki_win_bentonite
+    source_citation_id: src_win_fining
+    locator: "Bentonite: protein charge, precipitation and laboratory trials"
+  - knowledge_item_id: ki_win_fining_trials
+    source_citation_id: src_win_fining
+    locator: "Best application: minimum effective treatment and control"
+  - knowledge_item_id: ki_win_filter_ratings
+    source_citation_id: src_win_filtration
+    locator: "Sections 2, 3 and 7: nominal/absolute, fit for purpose and integrity"
+  - knowledge_item_id: ki_win_packaging_hygiene
+    source_citation_id: src_win_packaging
+    locator: "Printed p. 47: Sterile is not really sterile; biofilms and post-filter contamination"
+  - knowledge_item_id: ki_win_tartrate_cooling
+    source_citation_id: src_win_tartrate
+    locator: Effects of wine composition; Effects of time and temperature
+  - knowledge_item_id: ki_win_stability_retest
+    source_citation_id: src_win_tartrate
+    locator: "Factors affecting KHT instability: pH, blending and MLF; final tests"
+  - knowledge_item_id: ki_win_case_fresh_white_action
+    source_citation_id: src_win_skin_contact
+    locator: Temperature, skin-contact duration and over-extraction
+  - knowledge_item_id: ki_win_case_fresh_white_reason
+    source_citation_id: src_win_skin_contact
+    locator: "Potential risks: over-extraction of phenolics"
+  - knowledge_item_id: ki_win_case_fresh_white_tradeoff
+    source_citation_id: src_win_skin_contact
+    locator: "Introduction: flavour, viscosity and excessive extraction"
+  - knowledge_item_id: ki_win_case_fresh_white_limitation
+    source_citation_id: src_win_amber
+    locator: "Background and potential risks: separate fractions and phenolic effects"
+  - knowledge_item_id: ki_win_case_hot_red_action
+    source_citation_id: src_win_temperature
+    locator: "Practical and logistical considerations: heat exchanger and cooled liquid"
+  - knowledge_item_id: ki_win_case_hot_red_reason
+    source_citation_id: src_win_temperature
+    locator: "Potential risks: rate feedback and viability"
+  - knowledge_item_id: ki_win_case_hot_red_tradeoff
+    source_citation_id: src_win_temperature
+    locator: "Background and potential risks: extraction rates and fermentation rate"
+  - knowledge_item_id: ki_win_case_hot_red_limitation
+    source_citation_id: src_win_temperature
+    locator: "Background: must versus cap; risks: changing temperature repeatedly"
+  - knowledge_item_id: ki_win_case_low_yan_action
+    source_citation_id: src_win_yan
+    locator: "Yeast assimilable nitrogen: measurement, variable requirements and excessive additions"
+  - knowledge_item_id: ki_win_case_low_yan_reason
+    source_citation_id: src_win_yan
+    locator: Nutrient needs during wine fermentation
+  - knowledge_item_id: ki_win_case_low_yan_tradeoff
+    source_citation_id: src_win_yan
+    locator: "Yeast assimilable nitrogen: effects of excessive additions"
+  - knowledge_item_id: ki_win_case_low_yan_limitation
+    source_citation_id: src_win_yan
+    locator: "Other nutrient needs; Nutrient needs: multiple causes"
+  - knowledge_item_id: ki_win_case_difficult_mlf_action
+    source_citation_id: src_win_white_mlf
+    locator: "PDF pp. 2–3: strain tolerance, compatibility and acclimatisation"
+  - knowledge_item_id: ki_win_case_difficult_mlf_reason
+    source_citation_id: src_win_white_mlf
+    locator: "PDF p. 2: composition and synergistic inhibitory effects"
+  - knowledge_item_id: ki_win_case_difficult_mlf_tradeoff
+    source_citation_id: src_win_mlf
+    locator: "PDF p. 2: pH balance and spoilage organisms"
+  - knowledge_item_id: ki_win_case_difficult_mlf_limitation
+    source_citation_id: src_win_mlf
+    locator: "PDF p. 3: culture preparation and Monitoring MLF performance"
+  - knowledge_item_id: ki_win_case_protein_white_action
+    source_citation_id: src_win_fining
+    locator: "Best application; Bentonite: trial rates and final blend"
+  - knowledge_item_id: ki_win_case_protein_white_reason
+    source_citation_id: src_win_protein
+    locator: "PDF p. 1: background, haze formation and heat prediction"
+  - knowledge_item_id: ki_win_case_protein_white_tradeoff
+    source_citation_id: src_win_fining
+    locator: "Best application; Different bentonite types: lees and wine losses"
+  - knowledge_item_id: ki_win_case_protein_white_limitation
+    source_citation_id: src_win_fining
+    locator: "Timing of bentonite additions: final blend and later changes"
+  - knowledge_item_id: ki_win_case_sweet_bottling_action
+    source_citation_id: src_win_filtration
+    locator: "Sections 1–3 and 7: residual sugar, membranes and integrity"
+  - knowledge_item_id: ki_win_case_sweet_bottling_reason
+    source_citation_id: src_win_packaging
+    locator: "Printed pp. 46–47: contamination sources and post-filter biofilms"
+  - knowledge_item_id: ki_win_case_sweet_bottling_tradeoff
+    source_citation_id: src_win_filtration
+    locator: "Sections 5–6: membrane fouling and filterability versus turbidity"
+  - knowledge_item_id: ki_win_case_sweet_bottling_limitation
+    source_citation_id: src_win_packaging
+    locator: "Printed p. 47: limits of sterile terminology and post-filter contamination"

@@ -1,0 +1,60 @@
+# Complete legal grape unions used by map_grape to establish wrong answers.
+# Every variety in each cited list has a current PERMITS_GRAPE edge.
+# Existing positive grape facts alone do not establish completeness.
+#
+# No Austrian DAC assertion is made here: Weinviertel, Mittelburgenland and
+# Kamptal tolerate up to 15% other quality-wine varieties, so their named
+# headline varieties are not the complete legal union.
+# No Santorini assertion is made: Vinsanto permits further minor varieties
+# beyond Assyrtiko, Aidani, Athiri and Muscat Blanc a Petits Grains.
+
+knowledge_relations:
+  # Art. 2 specifies an exclusive single-grape base for each of these DOCGs.
+  # Existing principal-grape cards continue to supply the study questions.
+  - { subject_id: n_geo_barolo, relation_type: PERMITS_GRAPE, object_id: n_grape_nebbiolo, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_barbaresco, relation_type: PERMITS_GRAPE, object_id: n_grape_nebbiolo, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_brunello_di_montalcino, relation_type: PERMITS_GRAPE, object_id: n_grape_sangiovese, valid_from: "1900-01-01" }
+
+relation_set_assertions:
+  - node_id: n_geo_tokaj
+    relation_type: PERMITS_GRAPE
+    direction: forward
+    member_node_type: grape
+    valid_from: "2025-08-01"
+    source_citation_id: src_hu_tokaj_2025
+    locator: "VI.1-2, p. 10: Furmint, Hárslevelű, Kabar, Kövérszőlő, Sárga muskotály and Zéta; complete permitted-variety list"
+  - node_id: n_geo_nemea
+    relation_type: PERMITS_GRAPE
+    direction: forward
+    member_node_type: grape
+    valid_from: "1900-01-01"
+    source_citation_id: src_gr_nemea_spec
+    locator: "Section 6, p. 9 (Wine grape varieties): AGIORGITIKO; complete permitted-variety list"
+  - node_id: n_geo_naoussa
+    relation_type: PERMITS_GRAPE
+    direction: forward
+    member_node_type: grape
+    valid_from: "1900-01-01"
+    source_citation_id: src_gr_naoussa_spec
+    locator: "Section 6, p. 12 (Wine grape varieties): XINOMAVRO; complete permitted-variety list"
+  - node_id: n_geo_barolo
+    relation_type: PERMITS_GRAPE
+    direction: forward
+    member_node_type: grape
+    valid_from: "1900-01-01"
+    source_citation_id: src_masaf_disciplinare_barolo
+    locator: "Art. 2(1), Base ampelografica: exclusively Nebbiolo; complete permitted-variety list"
+  - node_id: n_geo_barbaresco
+    relation_type: PERMITS_GRAPE
+    direction: forward
+    member_node_type: grape
+    valid_from: "1900-01-01"
+    source_citation_id: src_masaf_disciplinare_barbaresco
+    locator: "Art. 2(1), Base ampelografica: exclusively Nebbiolo; complete permitted-variety list"
+  - node_id: n_geo_brunello_di_montalcino
+    relation_type: PERMITS_GRAPE
+    direction: forward
+    member_node_type: grape
+    valid_from: "1900-01-01"
+    source_citation_id: src_masaf_disciplinare_brunello_di_montalcino
+    locator: "Art. 2(1), Base ampelografica: exclusively Sangiovese; complete permitted-variety list"

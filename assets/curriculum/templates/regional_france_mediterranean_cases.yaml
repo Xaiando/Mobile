@@ -1,0 +1,75 @@
+# Original hypothetical comparisons, self-checked against four conditional points.
+question_templates:
+  - id: qt_reg_fm_case_picpoul_harvest
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: reg_fm_picpoul_harvest
+    prompt_template: A Picpoul de Pinet grower samples a northern Piochs block and a lagoon-facing
+      plateau block on the same morning. The sugar readings match, but acidity and flavour
+      development differ. The aim is a balanced dry white, and neither block has yet been sampled
+      across its shaded and exposed fruit. Propose a defensible harvest-assessment step, explain why
+      one shared date is uncertain, and discuss a tradeoff and a limitation.
+    parameters:
+      scope_node_ids:
+        - n_reg_fm_case_picpoul_harvest
+      key_points:
+        CASE_ACTION: Defensible comparison or action
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or evidence needed
+  - id: qt_reg_fm_case_faugeres_pests
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: reg_fm_faugeres_pests
+    prompt_template: A Faugères grower confirms that last season’s berry damage came from the moth
+      species targeted by a local mating-disruption programme. A coordinated plan for next season
+      offers pheromone dispensers and repeated monitoring, with installation labour in the budget.
+      Another adviser claims that this programme will remove the need to check all other pests and
+      diseases. Propose a defensible planning response, give the mechanism, and explain one tradeoff
+      and one limitation without prescribing pesticide use.
+    parameters:
+      scope_node_ids:
+        - n_reg_fm_case_faugeres_pests
+      key_points:
+        CASE_ACTION: Defensible comparison or action
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or evidence needed
+  - id: qt_reg_fm_case_collioure_maintenance
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: reg_fm_collioure_maintenance
+    prompt_template: A Collioure producer finds erosion and damaged retaining walls after intense autumn
+      rain on a steep terraced block. A qualified site assessment recommends repairs to preserve the
+      vineyard; narrow access limits machinery. The producer has cost estimates but no evidence that
+      repairs will raise bottle quality or customers’ willingness to pay. Explain a defensible
+      operational assessment, the terrain mechanism, a tradeoff and a limitation.
+    parameters:
+      scope_node_ids:
+        - n_reg_fm_case_collioure_maintenance
+      key_points:
+        CASE_ACTION: Defensible comparison or action
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or evidence needed
+  - id: qt_reg_fm_case_rose_selection
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: reg_fm_rose_selection
+    prompt_template: A Provence producer trials direct pressing and controlled pre-fermentation skin
+      maceration on the same sound fruit. Both trials meet the desired balance and freshness, but
+      the direct-press trial is paler. Customers have asked for a pale rosé, while the cellar can
+      manage either method within budget. Propose a defensible selection, explain the colour
+      mechanism, and discuss a tradeoff and a limitation.
+    parameters:
+      scope_node_ids:
+        - n_reg_fm_case_rose_selection
+      key_points:
+        CASE_ACTION: Defensible comparison or action
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or evidence needed

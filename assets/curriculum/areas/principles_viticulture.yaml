@@ -1,0 +1,2355 @@
+# Original cited vineyard mechanisms and conditional Diploma practice.
+# Sources establish principles, not local pesticide permissions or legal rules.
+# All items await qualified review; cases offer a defensible choice, not a unique optimum.
+knowledge_nodes:
+  - id: n_vit_principle_shoot_origin
+    node_type: production_principle
+    name: How does fruit-bearing growth relate to the grapevine’s annual cycle?
+  - id: n_vit_point_current_shoots
+    node_type: learning_point
+    name: Fruit on current-season shoots
+  - id: n_vit_point_two_seasons
+    node_type: learning_point
+    name: Flower clusters initiated the previous season
+  - id: n_vit_principle_reserve_cycle
+    node_type: production_principle
+    name: How are grapevine carbohydrate reserves used and replenished?
+  - id: n_vit_point_spring_reserves
+    node_type: learning_point
+    name: Stored carbohydrates support early growth
+  - id: n_vit_point_postharvest_reserves
+    node_type: learning_point
+    name: Healthy leaves replenish reserves after harvest
+  - id: n_vit_principle_light_capture
+    node_type: production_principle
+    name: Why does leaf light exposure matter for grapevine photosynthesis?
+  - id: n_vit_point_photosynthesis
+    node_type: learning_point
+    name: Leaves make carbohydrates using light
+  - id: n_vit_point_interior_shade
+    node_type: learning_point
+    name: Shading lowers interior-leaf photosynthesis
+  - id: n_vit_principle_flowering
+    node_type: production_principle
+    name: How does flowering become fruit set, and why does water status matter?
+  - id: n_vit_point_flower_set
+    node_type: learning_point
+    name: Fertilized flowers develop into berries
+  - id: n_vit_point_flowering_water
+    node_type: learning_point
+    name: Water stress at flowering can reduce fruit set
+  - id: n_vit_principle_veraison
+    node_type: production_principle
+    name: What changes as grape berries enter ripening?
+  - id: n_vit_point_softening
+    node_type: learning_point
+    name: Berry softening at veraison
+  - id: n_vit_point_ripening_chemistry
+    node_type: learning_point
+    name: Sugar accumulation and falling acidity
+  - id: n_vit_principle_rootstock_choice
+    node_type: production_principle
+    name: How should soil-pest resistance influence rootstock selection?
+  - id: n_vit_point_phylloxera_roots
+    node_type: learning_point
+    name: Resistant rootstocks protect against phylloxera
+  - id: n_vit_point_nematode_species
+    node_type: learning_point
+    name: Match rootstock resistance to nematode species
+  - id: n_vit_principle_water_measurement
+    node_type: production_principle
+    name: How can growers assess vine water status?
+  - id: n_vit_point_plant_soil
+    node_type: learning_point
+    name: Combine vine and soil measurements
+  - id: n_vit_point_pressure_chamber
+    node_type: learning_point
+    name: Pressure chamber measures water potential
+  - id: n_vit_principle_water_deficit
+    node_type: production_principle
+    name: Why can excessive water stress impair grape ripening?
+  - id: n_vit_point_stress_photo
+    node_type: learning_point
+    name: Severe stress reduces photosynthesis
+  - id: n_vit_point_ripening_canopy
+    node_type: learning_point
+    name: Maintain functioning leaves during ripening
+  - id: n_vit_principle_rdi_timing
+    node_type: production_principle
+    name: When can regulated deficit irrigation control growth, and what limits it?
+  - id: n_vit_point_rdi_window
+    node_type: learning_point
+    name: Controlled deficit between fruit set and veraison
+  - id: n_vit_point_rdi_soil
+    node_type: learning_point
+    name: Soil drying and rewetting limit feasibility
+  - id: n_vit_principle_fruit_zone
+    node_type: production_principle
+    name: What are the benefits and risks of increasing fruit-zone exposure?
+  - id: n_vit_point_airflow
+    node_type: learning_point
+    name: Open fruit zones improve airflow and drying
+  - id: n_vit_point_exposure_limit
+    node_type: learning_point
+    name: Excess exposure can cause sunburn
+  - id: n_vit_principle_leaf_timing
+    node_type: production_principle
+    name: Why does the timing of fruit-zone leaf removal matter?
+  - id: n_vit_point_prebloom_set
+    node_type: learning_point
+    name: Early leaf removal can lower fruit set
+  - id: n_vit_point_late_leaf_burn
+    node_type: learning_point
+    name: Late sudden exposure raises sunburn risk
+  - id: n_vit_principle_site_drainage
+    node_type: production_principle
+    name: Why do cold-air drainage and soil drainage matter at a vineyard site?
+  - id: n_vit_point_cold_air
+    node_type: learning_point
+    name: Avoid sites where cold air accumulates
+  - id: n_vit_point_saturated_soil
+    node_type: learning_point
+    name: Waterlogged soils favour root disease
+  - id: n_vit_principle_frost_types
+    node_type: production_principle
+    name: Why does frost type matter when considering a wind machine?
+  - id: n_vit_point_radiation_inversion
+    node_type: learning_point
+    name: Radiation frost can create a temperature inversion
+  - id: n_vit_point_advective_limit
+    node_type: learning_point
+    name: Wind machines need an inversion
+  - id: n_vit_principle_sprinkler_frost
+    node_type: production_principle
+    name: How does overhead frost sprinkling work, and what does it require?
+  - id: n_vit_point_freezing_heat
+    node_type: learning_point
+    name: Freezing water releases heat
+  - id: n_vit_point_continuous_water
+    node_type: learning_point
+    name: Reliable continuous water supply is essential
+  - id: n_vit_principle_powdery_risk
+    node_type: production_principle
+    name: Why do early infection and fungicide resistance matter in powdery mildew?
+  - id: n_vit_point_powdery_inoculum
+    node_type: learning_point
+    name: Early inoculum supports later powdery mildew spread
+  - id: n_vit_point_powdery_resistance
+    node_type: learning_point
+    name: Rotate fungicide modes of action
+  - id: n_vit_principle_downy_risk
+    node_type: production_principle
+    name: How do wet conditions and preventive timing affect downy mildew management?
+  - id: n_vit_point_downy_moisture
+    node_type: learning_point
+    name: Moisture favours downy mildew
+  - id: n_vit_point_downy_preventive
+    node_type: learning_point
+    name: Protectants precede infection periods
+  - id: n_vit_principle_botrytis_risk
+    node_type: production_principle
+    name: Why do canopy moisture and berry injury increase bunch-rot risk?
+  - id: n_vit_point_botrytis_wet
+    node_type: learning_point
+    name: Wet dense fruit zones favour Botrytis
+  - id: n_vit_point_botrytis_injury
+    node_type: learning_point
+    name: Berry injury creates entry points for rot
+  - id: n_vit_principle_crop_balance
+    node_type: production_principle
+    name: Why should crop load be matched to vine capacity rather than minimized?
+  - id: n_vit_point_overcrop
+    node_type: learning_point
+    name: Excess crop can strain ripening and reserves
+  - id: n_vit_point_not_min_yield
+    node_type: learning_point
+    name: Lowest yield does not guarantee best quality
+  - id: n_vit_principle_harvest_maturity
+    node_type: production_principle
+    name: How should vineyard sampling and maturity evidence guide harvest?
+  - id: n_vit_point_multiple_measures
+    node_type: learning_point
+    name: Combine sugar, acidity and sensory evidence
+  - id: n_vit_point_representative_samples
+    node_type: learning_point
+    name: Use representative repeated vineyard samples
+  - id: n_vit_principle_harvest_delay
+    node_type: production_principle
+    name: What benefits and risks should be weighed when delaying harvest?
+  - id: n_vit_point_style_gain
+    node_type: learning_point
+    name: Further flavour development may justify waiting
+  - id: n_vit_point_delay_risk
+    node_type: learning_point
+    name: Waiting can increase crop loss and imbalance
+  - id: n_vit_case_humid_canopy
+    node_type: production_case
+    name: Dense humid fruit zone after fruit set
+  - id: n_vit_point_case_humid_canopy_action
+    node_type: learning_point
+    name: Selective fruit-zone opening
+  - id: n_vit_point_case_humid_canopy_reason
+    node_type: learning_point
+    name: Faster drying and better spray access
+  - id: n_vit_point_case_humid_canopy_tradeoff
+    node_type: learning_point
+    name: Greater sunburn exposure
+  - id: n_vit_point_case_humid_canopy_limitation
+    node_type: learning_point
+    name: Adjust intensity for cultivar and weather
+  - id: n_vit_case_late_deficit
+    node_type: production_case
+    name: Hot dry root zone with wilting leaves after veraison
+  - id: n_vit_point_case_late_deficit_action
+    node_type: learning_point
+    name: Relieve excessive stress using monitored irrigation
+  - id: n_vit_point_case_late_deficit_reason
+    node_type: learning_point
+    name: Leaf function supports ripening and reserves
+  - id: n_vit_point_case_late_deficit_tradeoff
+    node_type: learning_point
+    name: Too much water can stimulate lateral growth
+  - id: n_vit_point_case_late_deficit_limitation
+    node_type: learning_point
+    name: Use vine status and root-zone information
+  - id: n_vit_case_radiation_frost
+    node_type: production_case
+    name: Calm budbreak frost with a measured warm-air inversion
+  - id: n_vit_point_case_radiation_frost_action
+    node_type: learning_point
+    name: Operate the suitable wind machine
+  - id: n_vit_point_case_radiation_frost_reason
+    node_type: learning_point
+    name: Mix warmer inversion air toward the vines
+  - id: n_vit_point_case_radiation_frost_tradeoff
+    node_type: learning_point
+    name: Operating expense and noise
+  - id: n_vit_point_case_radiation_frost_limitation
+    node_type: learning_point
+    name: An advective freeze may lack warmer air to mix
+  - id: n_vit_case_rootstock_replant
+    node_type: production_case
+    name: Phylloxera replant with nematodes and limited water
+  - id: n_vit_point_case_rootstock_replant_action
+    node_type: learning_point
+    name: Use a suitable resistant grafted rootstock
+  - id: n_vit_point_case_rootstock_replant_reason
+    node_type: learning_point
+    name: Protect the roots from phylloxera damage
+  - id: n_vit_point_case_rootstock_replant_tradeoff
+    node_type: learning_point
+    name: Rootstock also changes vine growth capacity
+  - id: n_vit_point_case_rootstock_replant_limitation
+    node_type: learning_point
+    name: Nematode resistance is species-specific
+  - id: n_vit_case_rain_harvest
+    node_type: production_case
+    name: Ripe injured fruit before prolonged harvest rain
+  - id: n_vit_point_case_rain_harvest_action
+    node_type: learning_point
+    name: Consider earlier picking of vulnerable fruit
+  - id: n_vit_point_case_rain_harvest_reason
+    node_type: learning_point
+    name: Wet injured berries increase rot risk
+  - id: n_vit_point_case_rain_harvest_tradeoff
+    node_type: learning_point
+    name: Less time for further flavour development
+  - id: n_vit_point_case_rain_harvest_limitation
+    node_type: learning_point
+    name: Check chemistry, tasting and block variation
+node_alternative_names:
+  - knowledge_node_id: n_vit_point_current_shoots
+    name: new shoots
+    kind: synonym
+  - knowledge_node_id: n_vit_point_current_shoots
+    name: current year shoots
+    kind: synonym
+  - knowledge_node_id: n_vit_point_two_seasons
+    name: previous season bud initiation
+    kind: synonym
+  - knowledge_node_id: n_vit_point_two_seasons
+    name: two-season reproductive cycle
+    kind: synonym
+  - knowledge_node_id: n_vit_point_spring_reserves
+    name: stored starch and sugars
+    kind: synonym
+  - knowledge_node_id: n_vit_point_spring_reserves
+    name: root and wood carbohydrate reserves
+    kind: synonym
+  - knowledge_node_id: n_vit_point_postharvest_reserves
+    name: postharvest photosynthesis
+    kind: synonym
+  - knowledge_node_id: n_vit_point_postharvest_reserves
+    name: replenishment of carbohydrate reserves
+    kind: synonym
+  - knowledge_node_id: n_vit_point_photosynthesis
+    name: carbohydrate production
+    kind: synonym
+  - knowledge_node_id: n_vit_point_photosynthesis
+    name: photosynthesis
+    kind: synonym
+  - knowledge_node_id: n_vit_point_interior_shade
+    name: lower photosynthesis in shaded leaves
+    kind: synonym
+  - knowledge_node_id: n_vit_point_interior_shade
+    name: reduced photosynthetic efficiency
+    kind: synonym
+  - knowledge_node_id: n_vit_point_flower_set
+    name: fruit set
+    kind: synonym
+  - knowledge_node_id: n_vit_point_flower_set
+    name: fertilization followed by berry development
+    kind: synonym
+  - knowledge_node_id: n_vit_point_flowering_water
+    name: reduced fruit set
+    kind: synonym
+  - knowledge_node_id: n_vit_point_flowering_water
+    name: fewer berries per bunch
+    kind: synonym
+  - knowledge_node_id: n_vit_point_softening
+    name: veraison
+    kind: synonym
+  - knowledge_node_id: n_vit_point_softening
+    name: onset of ripening
+    kind: synonym
+  - knowledge_node_id: n_vit_point_ripening_chemistry
+    name: rising sugar and declining acidity
+    kind: synonym
+  - knowledge_node_id: n_vit_point_ripening_chemistry
+    name: sugars increase and acids decrease
+    kind: synonym
+  - knowledge_node_id: n_vit_point_phylloxera_roots
+    name: phylloxera-resistant rootstock
+    kind: synonym
+  - knowledge_node_id: n_vit_point_phylloxera_roots
+    name: grafting onto resistant roots
+    kind: synonym
+  - knowledge_node_id: n_vit_point_nematode_species
+    name: species-specific nematode resistance
+    kind: synonym
+  - knowledge_node_id: n_vit_point_nematode_species
+    name: nematode testing and appropriate rootstock
+    kind: synonym
+  - knowledge_node_id: n_vit_point_plant_soil
+    name: vine and soil moisture measurements
+    kind: synonym
+  - knowledge_node_id: n_vit_point_plant_soil
+    name: plant and soil measurements
+    kind: synonym
+  - knowledge_node_id: n_vit_point_pressure_chamber
+    name: leaf or stem water potential
+    kind: synonym
+  - knowledge_node_id: n_vit_point_pressure_chamber
+    name: water potential
+    kind: synonym
+  - knowledge_node_id: n_vit_point_stress_photo
+    name: reduced photosynthesis
+    kind: synonym
+  - knowledge_node_id: n_vit_point_stress_photo
+    name: impaired ripening and reserves
+    kind: synonym
+  - knowledge_node_id: n_vit_point_ripening_canopy
+    name: healthy functioning canopy
+    kind: synonym
+  - knowledge_node_id: n_vit_point_ripening_canopy
+    name: maintain leaf function
+    kind: synonym
+  - knowledge_node_id: n_vit_point_rdi_window
+    name: fruit set to veraison
+    kind: synonym
+  - knowledge_node_id: n_vit_point_rdi_window
+    name: controlled pre-veraison water deficit
+    kind: synonym
+  - knowledge_node_id: n_vit_point_rdi_soil
+    name: soil and rainfall constraints
+    kind: synonym
+  - knowledge_node_id: n_vit_point_rdi_soil
+    name: ability to dry and rewet the root zone
+    kind: synonym
+  - knowledge_node_id: n_vit_point_airflow
+    name: airflow and faster drying
+    kind: synonym
+  - knowledge_node_id: n_vit_point_airflow
+    name: improved air circulation
+    kind: synonym
+  - knowledge_node_id: n_vit_point_exposure_limit
+    name: sunburn risk
+    kind: synonym
+  - knowledge_node_id: n_vit_point_exposure_limit
+    name: retain some afternoon shade
+    kind: synonym
+  - knowledge_node_id: n_vit_point_prebloom_set
+    name: lower fruit set and yield
+    kind: synonym
+  - knowledge_node_id: n_vit_point_prebloom_set
+    name: reduced fruit set
+    kind: synonym
+  - knowledge_node_id: n_vit_point_late_leaf_burn
+    name: late sunburn risk
+    kind: synonym
+  - knowledge_node_id: n_vit_point_late_leaf_burn
+    name: sunburn from sudden late exposure
+    kind: synonym
+  - knowledge_node_id: n_vit_point_cold_air
+    name: cold-air drainage
+    kind: synonym
+  - knowledge_node_id: n_vit_point_cold_air
+    name: avoid frost pockets
+    kind: synonym
+  - knowledge_node_id: n_vit_point_saturated_soil
+    name: waterlogging and Phytophthora
+    kind: synonym
+  - knowledge_node_id: n_vit_point_saturated_soil
+    name: root disease risk in saturated soil
+    kind: synonym
+  - knowledge_node_id: n_vit_point_radiation_inversion
+    name: temperature inversion
+    kind: synonym
+  - knowledge_node_id: n_vit_point_radiation_inversion
+    name: warmer air above colder ground-level air
+    kind: synonym
+  - knowledge_node_id: n_vit_point_advective_limit
+    name: inversion required
+    kind: synonym
+  - knowledge_node_id: n_vit_point_advective_limit
+    name: limited in advective freezes
+    kind: synonym
+  - knowledge_node_id: n_vit_point_freezing_heat
+    name: latent heat of freezing
+    kind: synonym
+  - knowledge_node_id: n_vit_point_freezing_heat
+    name: heat released as water freezes
+    kind: synonym
+  - knowledge_node_id: n_vit_point_continuous_water
+    name: continuous water and reliable coverage
+    kind: synonym
+  - knowledge_node_id: n_vit_point_continuous_water
+    name: adequate reliable water supply
+    kind: synonym
+  - knowledge_node_id: n_vit_point_powdery_inoculum
+    name: overwintering inoculum
+    kind: synonym
+  - knowledge_node_id: n_vit_point_powdery_inoculum
+    name: early infection and spore production
+    kind: synonym
+  - knowledge_node_id: n_vit_point_powdery_resistance
+    name: rotation of modes of action
+    kind: synonym
+  - knowledge_node_id: n_vit_point_powdery_resistance
+    name: fungicide resistance management
+    kind: synonym
+  - knowledge_node_id: n_vit_point_downy_moisture
+    name: wet conditions
+    kind: synonym
+  - knowledge_node_id: n_vit_point_downy_moisture
+    name: rain and high moisture
+    kind: synonym
+  - knowledge_node_id: n_vit_point_downy_preventive
+    name: protect before infection
+    kind: synonym
+  - knowledge_node_id: n_vit_point_downy_preventive
+    name: new growth needs protection
+    kind: synonym
+  - knowledge_node_id: n_vit_point_botrytis_wet
+    name: wet dense canopies
+    kind: synonym
+  - knowledge_node_id: n_vit_point_botrytis_wet
+    name: moisture and poor airflow
+    kind: synonym
+  - knowledge_node_id: n_vit_point_botrytis_injury
+    name: damaged berry skins
+    kind: synonym
+  - knowledge_node_id: n_vit_point_botrytis_injury
+    name: berry injury
+    kind: synonym
+  - knowledge_node_id: n_vit_point_overcrop
+    name: too much fruit relative to canopy
+    kind: synonym
+  - knowledge_node_id: n_vit_point_overcrop
+    name: overcropping
+    kind: synonym
+  - knowledge_node_id: n_vit_point_not_min_yield
+    name: balance crop with canopy
+    kind: synonym
+  - knowledge_node_id: n_vit_point_not_min_yield
+    name: no universal optimum yield
+    kind: synonym
+  - knowledge_node_id: n_vit_point_multiple_measures
+    name: Brix pH acidity and sensory assessment
+    kind: synonym
+  - knowledge_node_id: n_vit_point_multiple_measures
+    name: chemical and sensory maturity
+    kind: synonym
+  - knowledge_node_id: n_vit_point_representative_samples
+    name: representative sampling
+    kind: synonym
+  - knowledge_node_id: n_vit_point_representative_samples
+    name: repeated representative berry samples
+    kind: synonym
+  - knowledge_node_id: n_vit_point_style_gain
+    name: flavour aroma and colour development
+    kind: synonym
+  - knowledge_node_id: n_vit_point_style_gain
+    name: additional flavour development
+    kind: synonym
+  - knowledge_node_id: n_vit_point_delay_risk
+    name: disease weather and shrivel risks
+    kind: synonym
+  - knowledge_node_id: n_vit_point_delay_risk
+    name: crop loss and sugar acid imbalance
+    kind: synonym
+  - knowledge_node_id: n_vit_point_case_humid_canopy_action
+    name: selective leaf removal
+    kind: synonym
+  - knowledge_node_id: n_vit_point_case_humid_canopy_action
+    name: fruit-zone leaf removal
+    kind: synonym
+  - knowledge_node_id: n_vit_point_case_humid_canopy_reason
+    name: airflow drying and spray penetration
+    kind: synonym
+  - knowledge_node_id: n_vit_point_case_humid_canopy_reason
+    name: better airflow
+    kind: synonym
+  - knowledge_node_id: n_vit_point_case_humid_canopy_tradeoff
+    name: sunburn risk
+    kind: synonym
+  - knowledge_node_id: n_vit_point_case_humid_canopy_tradeoff
+    name: greater fruit heat exposure
+    kind: synonym
+  - knowledge_node_id: n_vit_point_case_humid_canopy_limitation
+    name: cultivar climate and timing
+    kind: synonym
+  - knowledge_node_id: n_vit_point_case_humid_canopy_limitation
+    name: site-specific intensity
+    kind: synonym
+  - knowledge_node_id: n_vit_point_case_late_deficit_action
+    name: monitored irrigation
+    kind: synonym
+  - knowledge_node_id: n_vit_point_case_late_deficit_action
+    name: restore enough water for leaf function
+    kind: synonym
+  - knowledge_node_id: n_vit_point_case_late_deficit_reason
+    name: maintain photosynthesis
+    kind: synonym
+  - knowledge_node_id: n_vit_point_case_late_deficit_reason
+    name: photosynthesis supports ripening
+    kind: synonym
+  - knowledge_node_id: n_vit_point_case_late_deficit_tradeoff
+    name: avoid excessive lateral growth
+    kind: synonym
+  - knowledge_node_id: n_vit_point_case_late_deficit_tradeoff
+    name: excess vigour
+    kind: synonym
+  - knowledge_node_id: n_vit_point_case_late_deficit_limitation
+    name: vine and soil monitoring
+    kind: synonym
+  - knowledge_node_id: n_vit_point_case_late_deficit_limitation
+    name: measure vine water status and soil moisture
+    kind: synonym
+  - knowledge_node_id: n_vit_point_case_radiation_frost_action
+    name: use a wind machine
+    kind: synonym
+  - knowledge_node_id: n_vit_point_case_radiation_frost_action
+    name: run the wind machine
+    kind: synonym
+  - knowledge_node_id: n_vit_point_case_radiation_frost_reason
+    name: mix warmer air downward
+    kind: synonym
+  - knowledge_node_id: n_vit_point_case_radiation_frost_reason
+    name: draw down warmer air
+    kind: synonym
+  - knowledge_node_id: n_vit_point_case_radiation_frost_tradeoff
+    name: cost and noise
+    kind: synonym
+  - knowledge_node_id: n_vit_point_case_radiation_frost_tradeoff
+    name: operating costs
+    kind: synonym
+  - knowledge_node_id: n_vit_point_case_radiation_frost_limitation
+    name: needs a usable inversion
+    kind: synonym
+  - knowledge_node_id: n_vit_point_case_radiation_frost_limitation
+    name: limited without inversion
+    kind: synonym
+  - knowledge_node_id: n_vit_point_case_rootstock_replant_action
+    name: grafted phylloxera-resistant rootstock
+    kind: synonym
+  - knowledge_node_id: n_vit_point_case_rootstock_replant_action
+    name: resistant rootstock
+    kind: synonym
+  - knowledge_node_id: n_vit_point_case_rootstock_replant_reason
+    name: resistant roots avoid damage
+    kind: synonym
+  - knowledge_node_id: n_vit_point_case_rootstock_replant_reason
+    name: protection from root feeding
+    kind: synonym
+  - knowledge_node_id: n_vit_point_case_rootstock_replant_tradeoff
+    name: vigour and vine balance
+    kind: synonym
+  - knowledge_node_id: n_vit_point_case_rootstock_replant_tradeoff
+    name: rootstock effects on vigour
+    kind: synonym
+  - knowledge_node_id: n_vit_point_case_rootstock_replant_limitation
+    name: identify nematode species
+    kind: synonym
+  - knowledge_node_id: n_vit_point_case_rootstock_replant_limitation
+    name: species-specific resistance
+    kind: synonym
+  - knowledge_node_id: n_vit_point_case_rain_harvest_action
+    name: earlier harvest
+    kind: synonym
+  - knowledge_node_id: n_vit_point_case_rain_harvest_action
+    name: prioritize vulnerable ripe fruit
+    kind: synonym
+  - knowledge_node_id: n_vit_point_case_rain_harvest_reason
+    name: wet conditions and berry injury
+    kind: synonym
+  - knowledge_node_id: n_vit_point_case_rain_harvest_reason
+    name: increased bunch rot risk
+    kind: synonym
+  - knowledge_node_id: n_vit_point_case_rain_harvest_tradeoff
+    name: less flavour development
+    kind: synonym
+  - knowledge_node_id: n_vit_point_case_rain_harvest_tradeoff
+    name: foregone further ripening
+    kind: synonym
+  - knowledge_node_id: n_vit_point_case_rain_harvest_limitation
+    name: chemical and sensory assessment
+    kind: synonym
+  - knowledge_node_id: n_vit_point_case_rain_harvest_limitation
+    name: Brix pH acidity and tasting
+    kind: synonym
+knowledge_relations:
+  - subject_id: n_vit_principle_shoot_origin
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_current_shoots
+    valid_from: 1900-01-01
+  - subject_id: n_vit_principle_shoot_origin
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_two_seasons
+    valid_from: 1900-01-01
+  - subject_id: n_vit_principle_reserve_cycle
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_spring_reserves
+    valid_from: 1900-01-01
+  - subject_id: n_vit_principle_reserve_cycle
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_postharvest_reserves
+    valid_from: 1900-01-01
+  - subject_id: n_vit_principle_light_capture
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_photosynthesis
+    valid_from: 1900-01-01
+  - subject_id: n_vit_principle_light_capture
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_interior_shade
+    valid_from: 1900-01-01
+  - subject_id: n_vit_principle_flowering
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_flower_set
+    valid_from: 1900-01-01
+  - subject_id: n_vit_principle_flowering
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_flowering_water
+    valid_from: 1900-01-01
+  - subject_id: n_vit_principle_veraison
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_softening
+    valid_from: 1900-01-01
+  - subject_id: n_vit_principle_veraison
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_ripening_chemistry
+    valid_from: 1900-01-01
+  - subject_id: n_vit_principle_rootstock_choice
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_phylloxera_roots
+    valid_from: 1900-01-01
+  - subject_id: n_vit_principle_rootstock_choice
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_nematode_species
+    valid_from: 1900-01-01
+  - subject_id: n_vit_principle_water_measurement
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_plant_soil
+    valid_from: 1900-01-01
+  - subject_id: n_vit_principle_water_measurement
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_pressure_chamber
+    valid_from: 1900-01-01
+  - subject_id: n_vit_principle_water_deficit
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_stress_photo
+    valid_from: 1900-01-01
+  - subject_id: n_vit_principle_water_deficit
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_ripening_canopy
+    valid_from: 1900-01-01
+  - subject_id: n_vit_principle_rdi_timing
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_rdi_window
+    valid_from: 1900-01-01
+  - subject_id: n_vit_principle_rdi_timing
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_rdi_soil
+    valid_from: 1900-01-01
+  - subject_id: n_vit_principle_fruit_zone
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_airflow
+    valid_from: 1900-01-01
+  - subject_id: n_vit_principle_fruit_zone
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_exposure_limit
+    valid_from: 1900-01-01
+  - subject_id: n_vit_principle_leaf_timing
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_prebloom_set
+    valid_from: 1900-01-01
+  - subject_id: n_vit_principle_leaf_timing
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_late_leaf_burn
+    valid_from: 1900-01-01
+  - subject_id: n_vit_principle_site_drainage
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_cold_air
+    valid_from: 1900-01-01
+  - subject_id: n_vit_principle_site_drainage
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_saturated_soil
+    valid_from: 1900-01-01
+  - subject_id: n_vit_principle_frost_types
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_radiation_inversion
+    valid_from: 1900-01-01
+  - subject_id: n_vit_principle_frost_types
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_advective_limit
+    valid_from: 1900-01-01
+  - subject_id: n_vit_principle_sprinkler_frost
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_freezing_heat
+    valid_from: 1900-01-01
+  - subject_id: n_vit_principle_sprinkler_frost
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_continuous_water
+    valid_from: 1900-01-01
+  - subject_id: n_vit_principle_powdery_risk
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_powdery_inoculum
+    valid_from: 1900-01-01
+  - subject_id: n_vit_principle_powdery_risk
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_powdery_resistance
+    valid_from: 1900-01-01
+  - subject_id: n_vit_principle_downy_risk
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_downy_moisture
+    valid_from: 1900-01-01
+  - subject_id: n_vit_principle_downy_risk
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_downy_preventive
+    valid_from: 1900-01-01
+  - subject_id: n_vit_principle_botrytis_risk
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_botrytis_wet
+    valid_from: 1900-01-01
+  - subject_id: n_vit_principle_botrytis_risk
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_botrytis_injury
+    valid_from: 1900-01-01
+  - subject_id: n_vit_principle_crop_balance
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_overcrop
+    valid_from: 1900-01-01
+  - subject_id: n_vit_principle_crop_balance
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_not_min_yield
+    valid_from: 1900-01-01
+  - subject_id: n_vit_principle_harvest_maturity
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_multiple_measures
+    valid_from: 1900-01-01
+  - subject_id: n_vit_principle_harvest_maturity
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_representative_samples
+    valid_from: 1900-01-01
+  - subject_id: n_vit_principle_harvest_delay
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_style_gain
+    valid_from: 1900-01-01
+  - subject_id: n_vit_principle_harvest_delay
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_delay_risk
+    valid_from: 1900-01-01
+  - subject_id: n_vit_case_humid_canopy
+    relation_type: CASE_ACTION
+    object_id: n_vit_point_case_humid_canopy_action
+    valid_from: 1900-01-01
+  - subject_id: n_vit_case_humid_canopy
+    relation_type: CASE_REASON
+    object_id: n_vit_point_case_humid_canopy_reason
+    valid_from: 1900-01-01
+  - subject_id: n_vit_case_humid_canopy
+    relation_type: CASE_TRADEOFF
+    object_id: n_vit_point_case_humid_canopy_tradeoff
+    valid_from: 1900-01-01
+  - subject_id: n_vit_case_humid_canopy
+    relation_type: CASE_LIMITATION
+    object_id: n_vit_point_case_humid_canopy_limitation
+    valid_from: 1900-01-01
+  - subject_id: n_vit_case_late_deficit
+    relation_type: CASE_ACTION
+    object_id: n_vit_point_case_late_deficit_action
+    valid_from: 1900-01-01
+  - subject_id: n_vit_case_late_deficit
+    relation_type: CASE_REASON
+    object_id: n_vit_point_case_late_deficit_reason
+    valid_from: 1900-01-01
+  - subject_id: n_vit_case_late_deficit
+    relation_type: CASE_TRADEOFF
+    object_id: n_vit_point_case_late_deficit_tradeoff
+    valid_from: 1900-01-01
+  - subject_id: n_vit_case_late_deficit
+    relation_type: CASE_LIMITATION
+    object_id: n_vit_point_case_late_deficit_limitation
+    valid_from: 1900-01-01
+  - subject_id: n_vit_case_radiation_frost
+    relation_type: CASE_ACTION
+    object_id: n_vit_point_case_radiation_frost_action
+    valid_from: 1900-01-01
+  - subject_id: n_vit_case_radiation_frost
+    relation_type: CASE_REASON
+    object_id: n_vit_point_case_radiation_frost_reason
+    valid_from: 1900-01-01
+  - subject_id: n_vit_case_radiation_frost
+    relation_type: CASE_TRADEOFF
+    object_id: n_vit_point_case_radiation_frost_tradeoff
+    valid_from: 1900-01-01
+  - subject_id: n_vit_case_radiation_frost
+    relation_type: CASE_LIMITATION
+    object_id: n_vit_point_case_radiation_frost_limitation
+    valid_from: 1900-01-01
+  - subject_id: n_vit_case_rootstock_replant
+    relation_type: CASE_ACTION
+    object_id: n_vit_point_case_rootstock_replant_action
+    valid_from: 1900-01-01
+  - subject_id: n_vit_case_rootstock_replant
+    relation_type: CASE_REASON
+    object_id: n_vit_point_case_rootstock_replant_reason
+    valid_from: 1900-01-01
+  - subject_id: n_vit_case_rootstock_replant
+    relation_type: CASE_TRADEOFF
+    object_id: n_vit_point_case_rootstock_replant_tradeoff
+    valid_from: 1900-01-01
+  - subject_id: n_vit_case_rootstock_replant
+    relation_type: CASE_LIMITATION
+    object_id: n_vit_point_case_rootstock_replant_limitation
+    valid_from: 1900-01-01
+  - subject_id: n_vit_case_rain_harvest
+    relation_type: CASE_ACTION
+    object_id: n_vit_point_case_rain_harvest_action
+    valid_from: 1900-01-01
+  - subject_id: n_vit_case_rain_harvest
+    relation_type: CASE_REASON
+    object_id: n_vit_point_case_rain_harvest_reason
+    valid_from: 1900-01-01
+  - subject_id: n_vit_case_rain_harvest
+    relation_type: CASE_TRADEOFF
+    object_id: n_vit_point_case_rain_harvest_tradeoff
+    valid_from: 1900-01-01
+  - subject_id: n_vit_case_rain_harvest
+    relation_type: CASE_LIMITATION
+    object_id: n_vit_point_case_rain_harvest_limitation
+    valid_from: 1900-01-01
+knowledge_items:
+  - id: ki_vit_current_shoots
+    subject_id: n_vit_principle_shoot_origin
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_current_shoots
+    domain_id: viticulture
+    assertion_text: Grapevine bunches are borne on new shoots that emerge from buds on the previous season’s wood.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:45:00.000Z
+  - id: ki_vit_two_seasons
+    subject_id: n_vit_principle_shoot_origin
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_two_seasons
+    domain_id: viticulture
+    assertion_text: "The reproductive cycle spans two seasons: potential flower clusters develop in buds
+      before those buds grow into fruit-bearing shoots the following year."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:45:00.000Z
+  - id: ki_vit_spring_reserves
+    subject_id: n_vit_principle_reserve_cycle
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_spring_reserves
+    domain_id: viticulture
+    assertion_text: Early spring root and shoot growth draws on carbohydrates stored in the vine’s
+      perennial roots and wood before the new canopy meets its demand.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:45:00.000Z
+  - id: ki_vit_postharvest_reserves
+    subject_id: n_vit_principle_reserve_cycle
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_postharvest_reserves
+    domain_id: viticulture
+    assertion_text: When leaves remain active after picking, continued photosynthesis helps replenish
+      carbohydrate reserves used for growth the following season.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:45:00.000Z
+  - id: ki_vit_photosynthesis
+    subject_id: n_vit_principle_light_capture
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_photosynthesis
+    domain_id: viticulture
+    assertion_text: Light-exposed grapevine leaves produce carbohydrates through photosynthesis to
+      support vegetative growth, fruit and reserves.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:45:00.000Z
+  - id: ki_vit_interior_shade
+    subject_id: n_vit_principle_light_capture
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_interior_shade
+    domain_id: viticulture
+    assertion_text: In a dense vine canopy, outer leaves intercept light and deeply shaded inner leaves
+      contribute less carbohydrate production. More leaf area alone does not guarantee more useful
+      photosynthesis.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:45:00.000Z
+  - id: ki_vit_flower_set
+    subject_id: n_vit_principle_flowering
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_flower_set
+    domain_id: viticulture
+    assertion_text: Fruit set follows flowering when successfully fertilized grape flowers develop into
+      berries; flower number alone does not determine the final crop.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:45:00.000Z
+  - id: ki_vit_flowering_water
+    subject_id: n_vit_principle_flowering
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_flowering_water
+    domain_id: viticulture
+    assertion_text: Insufficient water during flowering and fruit set can lower the number of berries
+      per bunch and reduce yield; a deficit intended for later growth should not be assumed harmless
+      at flowering.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:45:00.000Z
+  - id: ki_vit_softening
+    subject_id: n_vit_principle_veraison
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_softening
+    domain_id: viticulture
+    assertion_text: Veraison marks the onset of ripening, including berry softening and changes in
+      colour; the colour response depends on whether the cultivar has coloured skins.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:45:00.000Z
+  - id: ki_vit_ripening_chemistry
+    subject_id: n_vit_principle_veraison
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_ripening_chemistry
+    domain_id: viticulture
+    assertion_text: During grape ripening, sugars generally accumulate while acidity declines. The
+      changing balance must be evaluated for the intended wine style rather than a universal harvest
+      date.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:45:00.000Z
+  - id: ki_vit_phylloxera_roots
+    subject_id: n_vit_principle_rootstock_choice
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_phylloxera_roots
+    domain_id: viticulture
+    assertion_text: Grafting susceptible Vitis vinifera scions to suitably phylloxera-resistant
+      rootstocks protects the roots; resistance does not mean all rootstocks are equally suitable at
+      every site.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:45:00.000Z
+  - id: ki_vit_nematode_species
+    subject_id: n_vit_principle_rootstock_choice
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_nematode_species
+    domain_id: viticulture
+    assertion_text: Rootstocks differ in resistance to different plant-parasitic nematodes. Identify the
+      local nematode problem and evaluate the relevant resistance rather than treating nematode
+      resistance as universal.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:45:00.000Z
+  - id: ki_vit_plant_soil
+    subject_id: n_vit_principle_water_measurement
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_plant_soil
+    domain_id: viticulture
+    assertion_text: Vine water measurements and soil moisture monitoring complement one another when
+      deciding irrigation; soil water readings alone may not describe the water stress experienced
+      by the vine.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:45:00.000Z
+  - id: ki_vit_pressure_chamber
+    subject_id: n_vit_principle_water_measurement
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_pressure_chamber
+    domain_id: viticulture
+    assertion_text: A pressure chamber measures leaf or stem water potential, providing a plant-based
+      measurement of water status; readings need a consistent sampling method and timing.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:45:00.000Z
+  - id: ki_vit_stress_photo
+    subject_id: n_vit_principle_water_deficit
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_stress_photo
+    domain_id: viticulture
+    assertion_text: Severe or prolonged water stress can reduce grapevine photosynthesis, impair sugar
+      and colour development, and reduce carbohydrate storage. Stress does not automatically improve
+      wine quality.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:45:00.000Z
+  - id: ki_vit_ripening_canopy
+    subject_id: n_vit_principle_water_deficit
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_ripening_canopy
+    domain_id: viticulture
+    assertion_text: From veraison to harvest, water management should preserve healthy functioning
+      leaves for ripening while avoiding unnecessary stimulation of excessive lateral growth.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:45:00.000Z
+  - id: ki_vit_rdi_window
+    subject_id: n_vit_principle_rdi_timing
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_rdi_window
+    domain_id: viticulture
+    assertion_text: One use of regulated deficit irrigation is a controlled deficit between fruit set
+      and veraison to restrict excessive shoot growth and, in some circumstances, berry size.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:45:00.000Z
+  - id: ki_vit_rdi_soil
+    subject_id: n_vit_principle_rdi_timing
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_rdi_soil
+    domain_id: viticulture
+    assertion_text: Regulated deficit irrigation requires the root zone to dry at the intended stage and
+      rewet sufficiently when irrigation resumes; persistent rain or slowly drying and rewetting
+      soils can limit control.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:45:00.000Z
+  - id: ki_vit_airflow
+    subject_id: n_vit_principle_fruit_zone
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_airflow
+    domain_id: viticulture
+    assertion_text: In a humid vineyard with dense fruit-zone foliage, selective opening can improve
+      airflow, drying and spray penetration, making the microclimate less favourable to bunch rot.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:45:00.000Z
+  - id: ki_vit_exposure_limit
+    subject_id: n_vit_principle_fruit_zone
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_exposure_limit
+    domain_id: viticulture
+    assertion_text: The appropriate amount of fruit-zone leaf removal depends on cultivar, weather,
+      training and exposure. Hot afternoon-facing fruit may need retained shade to reduce sunburn.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:45:00.000Z
+  - id: ki_vit_prebloom_set
+    subject_id: n_vit_principle_leaf_timing
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_prebloom_set
+    domain_id: viticulture
+    assertion_text: Removing substantial leaf area before or during bloom can reduce carbohydrate supply
+      to flowers, lowering fruit set and bunch weight; this can be useful for compact bunches but
+      unacceptable when yield loss cannot be tolerated.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:45:00.000Z
+  - id: ki_vit_late_leaf_burn
+    subject_id: n_vit_principle_leaf_timing
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_late_leaf_burn
+    domain_id: viticulture
+    assertion_text: Berries that developed in shade may suffer sunburn if the fruit zone is heavily
+      defoliated late in summer. Early acclimation and moderate removal reduce this particular risk.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:45:00.000Z
+  - id: ki_vit_cold_air
+    subject_id: n_vit_principle_site_drainage
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_cold_air
+    domain_id: viticulture
+    assertion_text: On radiation-frost nights, cold air can collect in low areas. Site selection should
+      allow cold-air drainage and avoid obstructions that trap it around vines.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:45:00.000Z
+  - id: ki_vit_saturated_soil
+    subject_id: n_vit_principle_site_drainage
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_saturated_soil
+    domain_id: viticulture
+    assertion_text: Frequently saturated and poorly draining soils favour Phytophthora activity and
+      grapevine root infection. Good site drainage addresses a different problem from simply
+      supplying enough irrigation water.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:45:00.000Z
+  - id: ki_vit_radiation_inversion
+    subject_id: n_vit_principle_frost_types
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_radiation_inversion
+    domain_id: viticulture
+    assertion_text: During a radiation frost, the vineyard can have colder air near the ground with
+      warmer air above. Wind machines use this inversion by mixing warmer air down toward vines.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:45:00.000Z
+  - id: ki_vit_advective_limit
+    subject_id: n_vit_principle_frost_types
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_advective_limit
+    domain_id: viticulture
+    assertion_text: Wind machines are suited to radiation frost with a usable inversion; a windy
+      advective freeze without warmer air above is not the same protection problem.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:45:00.000Z
+  - id: ki_vit_freezing_heat
+    subject_id: n_vit_principle_sprinkler_frost
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_freezing_heat
+    domain_id: viticulture
+    assertion_text: Properly designed overhead frost sprinkling protects tissue through the heat
+      released as continuously applied water freezes; a static layer of ice is not a substitute for
+      continued water supply.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:45:00.000Z
+  - id: ki_vit_continuous_water
+    subject_id: n_vit_principle_sprinkler_frost
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_continuous_water
+    domain_id: viticulture
+    assertion_text: Overhead frost protection requires sufficient water, uniform coverage and reliable
+      continuous operation through the protection period. Inadequate supply or a poorly suited windy
+      event can make the technique ineffective.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:45:00.000Z
+  - id: ki_vit_powdery_inoculum
+    subject_id: n_vit_principle_powdery_risk
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_powdery_inoculum
+    domain_id: viticulture
+    assertion_text: Grape powdery mildew can overwinter in buds or fruiting bodies, and early infections
+      supply spores for later spread. Reducing early inoculum is part of season-long management.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:45:00.000Z
+  - id: ki_vit_powdery_resistance
+    subject_id: n_vit_principle_powdery_risk
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_powdery_resistance
+    domain_id: viticulture
+    assertion_text: Repeated use of the same fungicide mode of action can select less sensitive powdery
+      mildew populations. Resistance management rotates effective modes of action rather than merely
+      changing brand names.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:45:00.000Z
+  - id: ki_vit_downy_moisture
+    subject_id: n_vit_principle_downy_risk
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_downy_moisture
+    domain_id: viticulture
+    assertion_text: Rain, wet plant surfaces and humid conditions favour downy mildew development and
+      spread; irrigation practices that repeatedly wet the canopy can contribute to risk.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:45:00.000Z
+  - id: ki_vit_downy_preventive
+    subject_id: n_vit_principle_downy_risk
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_downy_preventive
+    domain_id: viticulture
+    assertion_text: Preventive downy mildew treatments protect covered tissues before an infection
+      period. New growth appearing after application is not automatically protected by the earlier
+      coverage.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:45:00.000Z
+  - id: ki_vit_botrytis_wet
+    subject_id: n_vit_principle_botrytis_risk
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_botrytis_wet
+    domain_id: viticulture
+    assertion_text: Wet conditions and dense damp canopy areas favour Botrytis infection and bunch rot.
+      Opening the fruit zone and avoiding unnecessary wetting can reduce risk.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:45:00.000Z
+  - id: ki_vit_botrytis_injury
+    subject_id: n_vit_principle_botrytis_risk
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_botrytis_injury
+    domain_id: viticulture
+    assertion_text: Bird, insect or mechanical damage can create entry points for Botrytis and other
+      decay organisms; protecting berry integrity is part of bunch-rot prevention.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:45:00.000Z
+  - id: ki_vit_overcrop
+    subject_id: n_vit_principle_crop_balance
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_overcrop
+    domain_id: viticulture
+    assertion_text: A crop too large for a vine’s effective canopy and available resources can strain
+      fruit ripening and reserve replenishment. Suitable crop load depends on vine size and
+      conditions.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:45:00.000Z
+  - id: ki_vit_not_min_yield
+    subject_id: n_vit_principle_crop_balance
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_not_min_yield
+    domain_id: viticulture
+    assertion_text: Vine balance aims to sustain canopy, crop and fruit quality. Crop removal should
+      respond to vine capacity and production goals rather than an assumption that the smallest
+      yield is always best.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:45:00.000Z
+  - id: ki_vit_multiple_measures
+    subject_id: n_vit_principle_harvest_maturity
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_multiple_measures
+    domain_id: viticulture
+    assertion_text: A harvest decision uses trends in soluble solids, pH and titratable acidity
+      alongside sensory assessment and the intended wine style. A single Brix reading cannot
+      establish complete maturity.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:45:00.000Z
+  - id: ki_vit_representative_samples
+    subject_id: n_vit_principle_harvest_maturity
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_representative_samples
+    domain_id: viticulture
+    assertion_text: Maturity samples should represent the vineyard’s variation rather than only
+      attractive or exposed berries; repeating comparable sampling reveals ripening trends more
+      reliably.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:45:00.000Z
+  - id: ki_vit_style_gain
+    subject_id: n_vit_principle_harvest_delay
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_style_gain
+    domain_id: viticulture
+    assertion_text: Leaving grapes on the vine can allow additional flavour, aroma or colour development
+      for a desired style; that benefit has to be judged against crop condition and weather.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:45:00.000Z
+  - id: ki_vit_delay_risk
+    subject_id: n_vit_principle_harvest_delay
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_vit_point_delay_risk
+    domain_id: viticulture
+    assertion_text: Extending hang time exposes fruit to disease, weather and predators and can cause
+      shrivel and less balanced sugar–acid chemistry. Higher sugar alone does not establish a net
+      quality gain.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:45:00.000Z
+  - id: ki_vit_case_humid_canopy_action
+    subject_id: n_vit_case_humid_canopy
+    relation_type: CASE_ACTION
+    object_id: n_vit_point_case_humid_canopy_action
+    domain_id: viticulture
+    assertion_text: Selective removal around bunches after fruit set is a defensible way to open this
+      dense fruit zone while retaining enough canopy to support the crop.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:45:00.000Z
+  - id: ki_vit_case_humid_canopy_reason
+    subject_id: n_vit_case_humid_canopy
+    relation_type: CASE_REASON
+    object_id: n_vit_point_case_humid_canopy_reason
+    domain_id: viticulture
+    assertion_text: Opening this humid fruit zone improves airflow, drying and spray penetration,
+      reducing conditions favourable to bunch rot.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:45:00.000Z
+  - id: ki_vit_case_humid_canopy_tradeoff
+    subject_id: n_vit_case_humid_canopy
+    relation_type: CASE_TRADEOFF
+    object_id: n_vit_point_case_humid_canopy_tradeoff
+    domain_id: viticulture
+    assertion_text: Increasing cluster exposure can also increase heat and sunburn risk; retain more
+      shade where the fruit faces hot afternoon sun.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:45:00.000Z
+  - id: ki_vit_case_humid_canopy_limitation
+    subject_id: n_vit_case_humid_canopy
+    relation_type: CASE_LIMITATION
+    object_id: n_vit_point_case_humid_canopy_limitation
+    domain_id: viticulture
+    assertion_text: The appropriate extent of removal depends on cultivar, training system, timing,
+      climate and current disease pressure; the scenario does not justify stripping every leaf from
+      every vine.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:45:00.000Z
+  - id: ki_vit_case_late_deficit_action
+    subject_id: n_vit_case_late_deficit
+    relation_type: CASE_ACTION
+    object_id: n_vit_point_case_late_deficit_action
+    domain_id: viticulture
+    assertion_text: Restore sufficient water to sustain leaf function rather than deliberately
+      prolonging severe stress, with the amount guided by measured vine and soil conditions.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:45:00.000Z
+  - id: ki_vit_case_late_deficit_reason
+    subject_id: n_vit_case_late_deficit
+    relation_type: CASE_REASON
+    object_id: n_vit_point_case_late_deficit_reason
+    domain_id: viticulture
+    assertion_text: Severe stress reduces photosynthesis and can impair fruit sugar development and
+      carbohydrate storage, so keeping the canopy functional supports ripening.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:45:00.000Z
+  - id: ki_vit_case_late_deficit_tradeoff
+    subject_id: n_vit_case_late_deficit
+    relation_type: CASE_TRADEOFF
+    object_id: n_vit_point_case_late_deficit_tradeoff
+    domain_id: viticulture
+    assertion_text: Relieving stress must be balanced against excessive water that stimulates unwanted
+      lateral growth; the aim is a functioning canopy without uncontrolled vegetative growth.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:45:00.000Z
+  - id: ki_vit_case_late_deficit_limitation
+    subject_id: n_vit_case_late_deficit
+    relation_type: CASE_LIMITATION
+    object_id: n_vit_point_case_late_deficit_limitation
+    domain_id: viticulture
+    assertion_text: Irrigation decisions need plant-based water status together with soil moisture,
+      rooting conditions and the developmental stage; symptoms alone do not determine a universal
+      water dose.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:45:00.000Z
+  - id: ki_vit_case_radiation_frost_action
+    subject_id: n_vit_case_radiation_frost
+    relation_type: CASE_ACTION
+    object_id: n_vit_point_case_radiation_frost_action
+    domain_id: viticulture
+    assertion_text: A correctly positioned wind machine is a defensible active protection option when a
+      usable temperature inversion is measured during a radiation frost.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:45:00.000Z
+  - id: ki_vit_case_radiation_frost_reason
+    subject_id: n_vit_case_radiation_frost
+    relation_type: CASE_REASON
+    object_id: n_vit_point_case_radiation_frost_reason
+    domain_id: viticulture
+    assertion_text: The wind machine draws warmer air from above the inversion toward the colder vine
+      zone, raising the temperature there if sufficient warmer air is available.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:45:00.000Z
+  - id: ki_vit_case_radiation_frost_tradeoff
+    subject_id: n_vit_case_radiation_frost
+    relation_type: CASE_TRADEOFF
+    object_id: n_vit_point_case_radiation_frost_tradeoff
+    domain_id: viticulture
+    assertion_text: Wind machines entail operating costs and noise, so protection planning includes
+      economic and neighbouring-site considerations as well as crop risk.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:45:00.000Z
+  - id: ki_vit_case_radiation_frost_limitation
+    subject_id: n_vit_case_radiation_frost
+    relation_type: CASE_LIMITATION
+    object_id: n_vit_point_case_radiation_frost_limitation
+    domain_id: viticulture
+    assertion_text: The mechanism relies on accessible warmer air in an inversion. A windy advective
+      freeze without that warmer layer is not a situation in which the same result should be
+      assumed.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:45:00.000Z
+  - id: ki_vit_case_rootstock_replant_action
+    subject_id: n_vit_case_rootstock_replant
+    relation_type: CASE_ACTION
+    object_id: n_vit_point_case_rootstock_replant_action
+    domain_id: viticulture
+    assertion_text: Replant with clean material grafted to a suitably phylloxera-resistant rootstock,
+      and evaluate the other site constraints before selecting the particular stock.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:45:00.000Z
+  - id: ki_vit_case_rootstock_replant_reason
+    subject_id: n_vit_case_rootstock_replant
+    relation_type: CASE_REASON
+    object_id: n_vit_point_case_rootstock_replant_reason
+    domain_id: viticulture
+    assertion_text: Phylloxera feeding damages susceptible roots and can stunt or kill vines; resistant
+      root systems address the injury mechanism rather than relying on eradication by pesticide.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:45:00.000Z
+  - id: ki_vit_case_rootstock_replant_tradeoff
+    subject_id: n_vit_case_rootstock_replant
+    relation_type: CASE_TRADEOFF
+    object_id: n_vit_point_case_rootstock_replant_tradeoff
+    domain_id: viticulture
+    assertion_text: Rootstock choice influences vine vigour and therefore canopy and crop capacity;
+      resistance must be considered alongside the intended vine balance and site resources.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:45:00.000Z
+  - id: ki_vit_case_rootstock_replant_limitation
+    subject_id: n_vit_case_rootstock_replant
+    relation_type: CASE_LIMITATION
+    object_id: n_vit_point_case_rootstock_replant_limitation
+    domain_id: viticulture
+    assertion_text: The tested nematode species and the stock’s resistance to each matter; a stock
+      resistant to phylloxera is not automatically resistant to every local nematode.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:45:00.000Z
+  - id: ki_vit_case_rain_harvest_action
+    subject_id: n_vit_case_rain_harvest
+    relation_type: CASE_ACTION
+    object_id: n_vit_point_case_rain_harvest_action
+    domain_id: viticulture
+    assertion_text: For fruit already close to the intended maturity, bringing forward harvest of the
+      vulnerable block is defensible when wet weather raises the risk of bunch rot.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:45:00.000Z
+  - id: ki_vit_case_rain_harvest_reason
+    subject_id: n_vit_case_rain_harvest
+    relation_type: CASE_REASON
+    object_id: n_vit_point_case_rain_harvest_reason
+    domain_id: viticulture
+    assertion_text: Wet conditions promote Botrytis, and injured berries create entry routes for decay
+      organisms; waiting through prolonged rain may increase crop deterioration.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:45:00.000Z
+  - id: ki_vit_case_rain_harvest_tradeoff
+    subject_id: n_vit_case_rain_harvest
+    relation_type: CASE_TRADEOFF
+    object_id: n_vit_point_case_rain_harvest_tradeoff
+    domain_id: viticulture
+    assertion_text: Picking earlier can sacrifice possible additional flavour, aroma or colour
+      development. The benefit of more hang time must be weighed against weather-related crop loss.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:45:00.000Z
+  - id: ki_vit_case_rain_harvest_limitation
+    subject_id: n_vit_case_rain_harvest
+    relation_type: CASE_LIMITATION
+    object_id: n_vit_point_case_rain_harvest_limitation
+    domain_id: viticulture
+    assertion_text: Recheck representative samples and the trends in soluble solids, pH, titratable
+      acidity and sensory maturity for the planned style; acceptable sugar alone does not establish
+      the harvest decision.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T22:45:00.000Z
+certification_knowledge_mappings:
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_vit_current_shoots
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_vit_current_shoots
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_vit_current_shoots
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_vit_two_seasons
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_vit_two_seasons
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_vit_two_seasons
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_vit_spring_reserves
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_vit_spring_reserves
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_vit_spring_reserves
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_vit_postharvest_reserves
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_vit_postharvest_reserves
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_vit_postharvest_reserves
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_vit_photosynthesis
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_vit_photosynthesis
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_vit_photosynthesis
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_vit_interior_shade
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_vit_interior_shade
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_vit_interior_shade
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_vit_flower_set
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_vit_flower_set
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_vit_flower_set
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_vit_flowering_water
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_vit_flowering_water
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_vit_flowering_water
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_vit_softening
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_vit_softening
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_vit_softening
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_vit_ripening_chemistry
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_vit_ripening_chemistry
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_vit_ripening_chemistry
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_vit_phylloxera_roots
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_vit_phylloxera_roots
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_vit_phylloxera_roots
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_vit_nematode_species
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_vit_nematode_species
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_vit_nematode_species
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_vit_plant_soil
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_vit_plant_soil
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_vit_plant_soil
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_vit_pressure_chamber
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_vit_pressure_chamber
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_vit_pressure_chamber
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_vit_stress_photo
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_vit_stress_photo
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_vit_stress_photo
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_vit_ripening_canopy
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_vit_ripening_canopy
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_vit_ripening_canopy
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_vit_rdi_window
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_vit_rdi_window
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_vit_rdi_window
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_vit_rdi_soil
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_vit_rdi_soil
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_vit_rdi_soil
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_vit_airflow
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_vit_airflow
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_vit_airflow
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_vit_exposure_limit
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_vit_exposure_limit
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_vit_exposure_limit
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_vit_prebloom_set
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_vit_prebloom_set
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_vit_prebloom_set
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_vit_late_leaf_burn
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_vit_late_leaf_burn
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_vit_late_leaf_burn
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_vit_cold_air
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_vit_cold_air
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_vit_cold_air
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_vit_saturated_soil
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_vit_saturated_soil
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_vit_saturated_soil
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_vit_radiation_inversion
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_vit_radiation_inversion
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_vit_radiation_inversion
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_vit_advective_limit
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_vit_advective_limit
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_vit_advective_limit
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_vit_freezing_heat
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_vit_freezing_heat
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_vit_freezing_heat
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_vit_continuous_water
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_vit_continuous_water
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_vit_continuous_water
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_vit_powdery_inoculum
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_vit_powdery_inoculum
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_vit_powdery_inoculum
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_vit_powdery_resistance
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_vit_powdery_resistance
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_vit_powdery_resistance
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_vit_downy_moisture
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_vit_downy_moisture
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_vit_downy_moisture
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_vit_downy_preventive
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_vit_downy_preventive
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_vit_downy_preventive
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_vit_botrytis_wet
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_vit_botrytis_wet
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_vit_botrytis_wet
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_vit_botrytis_injury
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_vit_botrytis_injury
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_vit_botrytis_injury
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_vit_overcrop
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_vit_overcrop
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_vit_overcrop
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_vit_not_min_yield
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_vit_not_min_yield
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_vit_not_min_yield
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_vit_multiple_measures
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_vit_multiple_measures
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_vit_multiple_measures
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_vit_representative_samples
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_vit_representative_samples
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_vit_representative_samples
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_vit_style_gain
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_vit_style_gain
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_vit_style_gain
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_vit_delay_risk
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_vit_delay_risk
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_vit_delay_risk
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_vit_case_humid_canopy_action
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_vit_case_humid_canopy_reason
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_vit_case_humid_canopy_tradeoff
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_vit_case_humid_canopy_limitation
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_vit_case_late_deficit_action
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_vit_case_late_deficit_reason
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_vit_case_late_deficit_tradeoff
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_vit_case_late_deficit_limitation
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_vit_case_radiation_frost_action
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_vit_case_radiation_frost_reason
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_vit_case_radiation_frost_tradeoff
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_vit_case_radiation_frost_limitation
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_vit_case_rootstock_replant_action
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_vit_case_rootstock_replant_reason
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_vit_case_rootstock_replant_tradeoff
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_vit_case_rootstock_replant_limitation
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_vit_case_rain_harvest_action
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_vit_case_rain_harvest_reason
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_vit_case_rain_harvest_tradeoff
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_vit_case_rain_harvest_limitation
+    importance: core
+    minimum_depth: 3
+source_citations:
+  - id: src_vit_phenology
+    kind: academic
+    title: "Grapevine Phenology: Annual Growth and Development"
+    publisher: New Mexico State University Cooperative Extension
+    document_identifier: Guide H-338
+    url: https://pubs.nmsu.edu/_h/H338.pdf
+    accessed_on: 2026-09-27
+  - id: src_vit_reserves
+    kind: academic
+    title: "Post-harvest care of grapevines: Irrigation and nutrition"
+    publisher: Grape and Wine Research and Development Corporation / Charles Sturt University / NSW DPI
+    document_identifier: April 2014 fact sheet
+    url: https://www.wineaustralia.com/getmedia/71d11299-dddd-4cc4-ac8f-9b3e94df6170/201404_post-harvest-care-of-grapevines-irrigation-and-nutrition.pdf
+    accessed_on: 2026-09-27
+  - id: src_vit_canopy
+    kind: academic
+    title: The role of canopy management in vine balance
+    publisher: Oregon State University Extension Service
+    document_identifier: EM 9071; published June 2013, reviewed 2026
+    url: https://extension.oregonstate.edu/sites/extd8/files/catalog/auto/EM9071.pdf
+    accessed_on: 2026-09-27
+  - id: src_vit_balance
+    kind: academic
+    title: "Understanding Vine Balance: An Important Concept in Vineyard Management"
+    publisher: Oregon State University Extension Service
+    document_identifier: EM 9068
+    url: https://extension.oregonstate.edu/sites/extd8/files/documents/em9068.pdf
+    accessed_on: 2026-09-27
+  - id: src_vit_phylloxera
+    kind: academic
+    title: Grape Phylloxera
+    publisher: University of California Statewide Integrated Pest Management Program
+    document_identifier: UC ANR Publication 3448, Grape Pest Management Guidelines
+    url: https://ipm.ucanr.edu/agriculture/grape/grape-phylloxera/
+    accessed_on: 2026-09-27
+  - id: src_vit_nematodes
+    kind: academic
+    title: "Nematodes: Grape Pest Management Guidelines"
+    publisher: University of California Statewide Integrated Pest Management Program
+    document_identifier: UC ANR Publication 3448
+    url: https://ipm.ucanr.edu/agriculture/grape/nematodes/
+    accessed_on: 2026-09-27
+  - id: src_vit_water_status
+    kind: government_publication
+    title: "Monitoring vine water status: Part 1, Some physiological principles"
+    publisher: NSW Department of Primary Industries / National Wine and Grape Industry Centre
+    document_identifier: Grapevine management guide 2014–15, pp. 12–15
+    url: https://www.dpi.nsw.gov.au/__data/assets/pdf_file/0004/1158124/Monitoring-vine-water-status-part-1.pdf
+    accessed_on: 2026-09-27
+  - id: src_vit_rdi
+    kind: academic
+    title: An introduction to Regulated Deficit Irrigation
+    publisher: The Australian Wine Research Institute
+    document_identifier: Research to Practice Viti-note RTP 0037, 2010
+    url: https://www.awri.com.au/wp-content/uploads/2_irrigation_introduction_to_rdi.pdf
+    accessed_on: 2026-09-27
+  - id: src_vit_rdi_limits
+    kind: academic
+    title: Limitations of Regulated Deficit Irrigation
+    publisher: The Australian Wine Research Institute
+    document_identifier: Research to Practice Viti-note RTP 0038, 2010
+    url: https://www.awri.com.au/wp-content/uploads/3_irrigation_limitations_of_rdi.pdf
+    accessed_on: 2026-09-27
+  - id: src_vit_leaf_removal
+    kind: academic
+    title: Grapevine Fruit Zone Leaf Removal
+    publisher: Penn State Extension
+    document_identifier: Cain Hickey and Michela Centinari; video transcript
+    url: https://extension.psu.edu/grapevine-fruit-zone-leaf-removal
+    accessed_on: 2026-09-27
+  - id: src_vit_frost
+    kind: academic
+    title: Understanding and Preventing Spring Frost and Freeze Damage to Grapes
+    publisher: Penn State Extension
+    document_identifier: Extension article, Spring Frost and Freeze Damage
+    url: https://extension.psu.edu/understanding-and-preventing-spring-frost-and-freeze-damage-to-grapes
+    accessed_on: 2026-09-27
+  - id: src_vit_frost_ncsu
+    kind: academic
+    title: Prevention and Management of Frost Injury in Wine Grapes
+    publisher: North Carolina State University Extension
+    document_identifier: "Extension publication: overhead sprinkler systems and delayed pruning"
+    url: https://content.ces.ncsu.edu/prevention-and-management-of-frost-injury-in-wine-grapes
+    accessed_on: 2026-09-27
+  - id: src_vit_waterlogging
+    kind: academic
+    title: Phytophthora Crown and Root Rot of Grape
+    publisher: University of California Statewide Integrated Pest Management Program
+    document_identifier: "Home and Landscape Pest Notes: Life cycle and Damage"
+    url: https://ipm.ucanr.edu/home-and-landscape/phytophthora-crown-and-root-rot-of-grape/
+    accessed_on: 2026-09-27
+  - id: src_vit_powdery
+    kind: academic
+    title: "Powdery Mildew: Grape Pest Management Guidelines"
+    publisher: University of California Statewide Integrated Pest Management Program
+    document_identifier: UC ANR Publication 3448
+    url: https://ipm.ucanr.edu/agriculture/grape/powdery-mildew/
+    accessed_on: 2026-09-27
+  - id: src_vit_downy
+    kind: academic
+    title: "Downy Mildew: Grape Pest Management Guidelines"
+    publisher: University of California Statewide Integrated Pest Management Program
+    document_identifier: UC ANR Publication 3448
+    url: https://ipm.ucanr.edu/agriculture/grape/downy-mildew/
+    accessed_on: 2026-09-27
+  - id: src_vit_botrytis
+    kind: academic
+    title: Botrytis Bunch Rot of Grapes, or Gray Mold
+    publisher: University of California Statewide Integrated Pest Management Program
+    document_identifier: "Home and Landscape Pest Notes: Life cycle and Solutions"
+    url: https://ipm.ucanr.edu/home-and-landscape/botrytis-bunch-rot-of-grapes-or-gray-mold/
+    accessed_on: 2026-09-27
+  - id: src_vit_sampling
+    kind: academic
+    title: Determining Grape Maturity and Fruit Sampling
+    publisher: Ohio State University Extension
+    document_identifier: HYG-1436-13
+    url: https://ohiograpeweb.cfaes.ohio-state.edu/sites/grapeweb/files/imce/pdf_factsheets/determining%20Fruit%20Maturity.pdf
+    accessed_on: 2026-09-27
+  - id: src_vit_maturity
+    kind: academic
+    title: "Grape Sampling for Maturity Analysis: Grape Maturity Series"
+    publisher: Iowa State University Extension and Outreach
+    document_identifier: FS 0049A; 9 December 2020
+    url: https://www.extension.iastate.edu/wine/grape-sampling-maturity-analysis-grape-maturity-series
+    accessed_on: 2026-09-27
+knowledge_item_citations:
+  - knowledge_item_id: ki_vit_current_shoots
+    source_citation_id: src_vit_phenology
+    locator: "p. 1, reproductive cycle: buds formed in one year produce fruit-bearing shoots in the next."
+  - knowledge_item_id: ki_vit_two_seasons
+    source_citation_id: src_vit_phenology
+    locator: p. 1, distinction between vegetative and reproductive cycles.
+  - knowledge_item_id: ki_vit_spring_reserves
+    source_citation_id: src_vit_reserves
+    locator: pp. 1–2, Carbohydrate reserve storage and dynamics.
+  - knowledge_item_id: ki_vit_postharvest_reserves
+    source_citation_id: src_vit_reserves
+    locator: pp. 1–2, continued post-harvest photosynthesis and carbohydrate storage.
+  - knowledge_item_id: ki_vit_photosynthesis
+    source_citation_id: src_vit_canopy
+    locator: p. 2, Fueling the canopy.
+  - knowledge_item_id: ki_vit_interior_shade
+    source_citation_id: src_vit_canopy
+    locator: p. 2, light interception by outer leaves and efficiency of shaded inner leaves.
+  - knowledge_item_id: ki_vit_flower_set
+    source_citation_id: src_vit_phenology
+    locator: pp. 7–8, bloom, fertilization and fruit set.
+  - knowledge_item_id: ki_vit_flowering_water
+    source_citation_id: src_vit_rdi
+    locator: p. 2, Flowering to fruit set.
+  - knowledge_item_id: ki_vit_softening
+    source_citation_id: src_vit_phenology
+    locator: pp. 6 and 8–9, veraison and ripening.
+  - knowledge_item_id: ki_vit_ripening_chemistry
+    source_citation_id: src_vit_phenology
+    locator: pp. 8–9, berry ripening and changes in fruit chemistry.
+  - knowledge_item_id: ki_vit_phylloxera_roots
+    source_citation_id: src_vit_phylloxera
+    locator: Description of the Pest and Management, Cultural Control.
+  - knowledge_item_id: ki_vit_nematode_species
+    source_citation_id: src_vit_nematodes
+    locator: "Management and rootstock susceptibility table: species-specific resistance."
+  - knowledge_item_id: ki_vit_plant_soil
+    source_citation_id: src_vit_water_status
+    locator: pp. 12–13, In a nutshell, monitoring methods and soil heterogeneity.
+  - knowledge_item_id: ki_vit_pressure_chamber
+    source_citation_id: src_vit_water_status
+    locator: p. 13, Table 1 and direct water-status techniques.
+  - knowledge_item_id: ki_vit_stress_photo
+    source_citation_id: src_vit_rdi
+    locator: p. 2, Risk factors.
+  - knowledge_item_id: ki_vit_ripening_canopy
+    source_citation_id: src_vit_rdi
+    locator: p. 2, Veraison to harvest.
+  - knowledge_item_id: ki_vit_rdi_window
+    source_citation_id: src_vit_rdi
+    locator: pp. 1–2, The RDI period and Fruitset to veraison.
+  - knowledge_item_id: ki_vit_rdi_soil
+    source_citation_id: src_vit_rdi_limits
+    locator: p. 1, opening explanation, Climatic conditions and Different soil types.
+  - knowledge_item_id: ki_vit_airflow
+    source_citation_id: src_vit_leaf_removal
+    locator: Transcript, airflow, humidity, drying time and fungicide penetration.
+  - knowledge_item_id: ki_vit_exposure_limit
+    source_citation_id: src_vit_leaf_removal
+    locator: Transcript, magnitude of exposure and afternoon sun-exposed canopy side.
+  - knowledge_item_id: ki_vit_prebloom_set
+    source_citation_id: src_vit_leaf_removal
+    locator: Transcript, before-bloom leaf removal, reduced set and cluster weights.
+  - knowledge_item_id: ki_vit_late_leaf_burn
+    source_citation_id: src_vit_leaf_removal
+    locator: Transcript, late defoliation of berries that developed in shade.
+  - knowledge_item_id: ki_vit_cold_air
+    source_citation_id: src_vit_frost
+    locator: Passive protection, Site selection and air drainage.
+  - knowledge_item_id: ki_vit_saturated_soil
+    source_citation_id: src_vit_waterlogging
+    locator: "Life cycle and Damage: water-filled soil pores, root infection and poorly draining soil."
+  - knowledge_item_id: ki_vit_radiation_inversion
+    source_citation_id: src_vit_frost
+    locator: Types of frost and Active protection, Wind Machines.
+  - knowledge_item_id: ki_vit_advective_limit
+    source_citation_id: src_vit_frost
+    locator: "Types of frost and Wind Machines: suitability for radiational frost and inversion."
+  - knowledge_item_id: ki_vit_freezing_heat
+    source_citation_id: src_vit_frost_ncsu
+    locator: Overhead Sprinkler Systems, continuous water/ice interface and heat release.
+  - knowledge_item_id: ki_vit_continuous_water
+    source_citation_id: src_vit_frost_ncsu
+    locator: "Overhead Sprinkler Systems: water capacity, operation, low-wind conditions and drainage."
+  - knowledge_item_id: ki_vit_powdery_inoculum
+    source_citation_id: src_vit_powdery
+    locator: "Comments on the Disease and Management: overwintering and early-season infection."
+  - knowledge_item_id: ki_vit_powdery_resistance
+    source_citation_id: src_vit_powdery
+    locator: Resistance Management.
+  - knowledge_item_id: ki_vit_downy_moisture
+    source_citation_id: src_vit_downy
+    locator: "Comments on the Disease: dispersal and moisture factors."
+  - knowledge_item_id: ki_vit_downy_preventive
+    source_citation_id: src_vit_downy
+    locator: "Management: preventive fungicides and new growth."
+  - knowledge_item_id: ki_vit_botrytis_wet
+    source_citation_id: src_vit_botrytis
+    locator: Identification, Life cycle and Solutions.
+  - knowledge_item_id: ki_vit_botrytis_injury
+    source_citation_id: src_vit_botrytis
+    locator: "Life cycle: injured berries and routes of entry."
+  - knowledge_item_id: ki_vit_overcrop
+    source_citation_id: src_vit_balance
+    locator: Vine balance definition and Environmental impacts on vine balance.
+  - knowledge_item_id: ki_vit_not_min_yield
+    source_citation_id: src_vit_balance
+    locator: Definition of vine balance and absence of prescriptive guidelines across sites.
+  - knowledge_item_id: ki_vit_multiple_measures
+    source_citation_id: src_vit_maturity
+    locator: "Product Description: multiple factors over time, TSS, pH, titratable acidity and sensory
+      analysis."
+  - knowledge_item_id: ki_vit_representative_samples
+    source_citation_id: src_vit_sampling
+    locator: pp. 2–3, berry and cluster sampling, representative samples and consistency.
+  - knowledge_item_id: ki_vit_style_gain
+    source_citation_id: src_vit_phenology
+    locator: p. 9, weighing extended ripening for desired style against potential disadvantages.
+  - knowledge_item_id: ki_vit_delay_risk
+    source_citation_id: src_vit_phenology
+    locator: "p. 9, extended ripening disadvantages: rains, frost, disease, shrivel and fruit chemistry."
+  - knowledge_item_id: ki_vit_case_humid_canopy_action
+    source_citation_id: src_vit_leaf_removal
+    locator: "Transcript: implementation after fruit set and magnitude of leaf removal."
+  - knowledge_item_id: ki_vit_case_humid_canopy_reason
+    source_citation_id: src_vit_leaf_removal
+    locator: "Transcript: airflow, drying time, fungicide penetration and reduced bunch rots."
+  - knowledge_item_id: ki_vit_case_humid_canopy_tradeoff
+    source_citation_id: src_vit_leaf_removal
+    locator: "Transcript: modest removal on afternoon-exposed side."
+  - knowledge_item_id: ki_vit_case_humid_canopy_limitation
+    source_citation_id: src_vit_leaf_removal
+    locator: "Transcript: factors determining the magnitude of removal."
+  - knowledge_item_id: ki_vit_case_late_deficit_action
+    source_citation_id: src_vit_rdi
+    locator: p. 2, Veraison to harvest and Risk factors.
+  - knowledge_item_id: ki_vit_case_late_deficit_reason
+    source_citation_id: src_vit_rdi
+    locator: p. 2, Risk factors.
+  - knowledge_item_id: ki_vit_case_late_deficit_tradeoff
+    source_citation_id: src_vit_rdi
+    locator: p. 2, Veraison to harvest.
+  - knowledge_item_id: ki_vit_case_late_deficit_limitation
+    source_citation_id: src_vit_water_status
+    locator: pp. 12–13, vine and soil monitoring, soil heterogeneity and growth-stage management.
+  - knowledge_item_id: ki_vit_case_radiation_frost_action
+    source_citation_id: src_vit_frost
+    locator: "Active protection, Wind Machines: suitability for radiational frost."
+  - knowledge_item_id: ki_vit_case_radiation_frost_reason
+    source_citation_id: src_vit_frost
+    locator: "Wind Machines: use of the air-temperature inversion."
+  - knowledge_item_id: ki_vit_case_radiation_frost_tradeoff
+    source_citation_id: src_vit_frost
+    locator: "Wind Machines: noise and comparative operating costs."
+  - knowledge_item_id: ki_vit_case_radiation_frost_limitation
+    source_citation_id: src_vit_frost
+    locator: Frost types and suitability of wind machines for inversion conditions.
+  - knowledge_item_id: ki_vit_case_rootstock_replant_action
+    source_citation_id: src_vit_phylloxera
+    locator: "Management and Cultural Control: resistant roots, clean planting stock and local agronomic
+      advice."
+  - knowledge_item_id: ki_vit_case_rootstock_replant_reason
+    source_citation_id: src_vit_phylloxera
+    locator: "Description of the Pest and Management: root damage and limits of pesticide treatment."
+  - knowledge_item_id: ki_vit_case_rootstock_replant_tradeoff
+    source_citation_id: src_vit_balance
+    locator: Cultivar and rootstock impacts on vine balance.
+  - knowledge_item_id: ki_vit_case_rootstock_replant_limitation
+    source_citation_id: src_vit_nematodes
+    locator: Rootstock susceptibility table and site-specific nematode factors.
+  - knowledge_item_id: ki_vit_case_rain_harvest_action
+    source_citation_id: src_vit_botrytis
+    locator: "Solutions: harvest ripe fruit and consider early harvest before humid or rainy weather."
+  - knowledge_item_id: ki_vit_case_rain_harvest_reason
+    source_citation_id: src_vit_botrytis
+    locator: "Life cycle: wet conditions and damaged berries."
+  - knowledge_item_id: ki_vit_case_rain_harvest_tradeoff
+    source_citation_id: src_vit_phenology
+    locator: p. 9, extended ripening benefits and disadvantages.
+  - knowledge_item_id: ki_vit_case_rain_harvest_limitation
+    source_citation_id: src_vit_maturity
+    locator: "Product Description: measurements over time plus sensory assessment."

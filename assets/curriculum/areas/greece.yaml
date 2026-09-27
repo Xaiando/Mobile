@@ -1,0 +1,225 @@
+# Greece: introductory regional geography and the grape rules of three
+# certification appellations. Government product specifications are the
+# evidence; track importance is an editorial study-planning judgement.
+# Effective dates remain uncurated (1900-01-01), and all items are unverified.
+
+knowledge_nodes:
+  - { id: n_geo_greece, node_type: country, name: Greece }
+  - { id: n_geo_peloponnese, node_type: region, name: Peloponnese }
+  - { id: n_geo_macedonia, node_type: region, name: Macedonia (Greece) }
+  - { id: n_geo_cyclades, node_type: region, name: Cyclades }
+  - { id: n_geo_nemea, node_type: appellation, name: Nemea }
+  - { id: n_geo_naoussa, node_type: appellation, name: Naoussa }
+  - { id: n_geo_santorini, node_type: appellation, name: Santorini }
+  - { id: n_grape_agiorgitiko, node_type: grape, name: Agiorgitiko }
+  - { id: n_grape_xinomavro, node_type: grape, name: Xinomavro }
+  - { id: n_grape_assyrtiko, node_type: grape, name: Assyrtiko }
+  - { id: n_grape_aidani, node_type: grape, name: Aidani }
+  - { id: n_grape_athiri, node_type: grape, name: Athiri }
+
+node_alternative_names:
+  - { knowledge_node_id: n_geo_greece, name: Hellas, kind: synonym }
+  - { knowledge_node_id: n_geo_peloponnese, name: Peloponnesus, kind: spelling_variant }
+  - { knowledge_node_id: n_geo_macedonia, name: Macedonia, kind: synonym }
+  - { knowledge_node_id: n_geo_naoussa, name: Naousa, kind: spelling_variant }
+  - { knowledge_node_id: n_grape_agiorgitiko, name: Aghiorghitiko, kind: spelling_variant }
+  - { knowledge_node_id: n_grape_assyrtiko, name: Assirtiko, kind: spelling_variant }
+
+knowledge_relations:
+  - { subject_id: n_geo_peloponnese, relation_type: LOCATED_IN, object_id: n_geo_greece, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_macedonia, relation_type: LOCATED_IN, object_id: n_geo_greece, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_cyclades, relation_type: LOCATED_IN, object_id: n_geo_greece, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_nemea, relation_type: LOCATED_IN, object_id: n_geo_peloponnese, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_naoussa, relation_type: LOCATED_IN, object_id: n_geo_macedonia, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_santorini, relation_type: LOCATED_IN, object_id: n_geo_cyclades, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_nemea, relation_type: PERMITS_GRAPE, object_id: n_grape_agiorgitiko, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_naoussa, relation_type: PERMITS_GRAPE, object_id: n_grape_xinomavro, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_santorini, relation_type: PERMITS_GRAPE, object_id: n_grape_assyrtiko, valid_from: "1900-01-01" }
+  # The specification lists varieties and proportions, rather than the
+  # graph's principal/accessory categories. Link the other listed varieties
+  # as well, so neither can be presented as a wrong grape for Santorini.
+  - { subject_id: n_geo_santorini, relation_type: PERMITS_GRAPE, object_id: n_grape_aidani, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_santorini, relation_type: PERMITS_GRAPE, object_id: n_grape_athiri, valid_from: "1900-01-01" }
+  # Vinsanto also permits small quantities of Moschato lefko/aspro (Muscat
+  # Blanc à Petits Grains). The generic grape prompt covers the whole PDO.
+  - { subject_id: n_geo_santorini, relation_type: PERMITS_GRAPE, object_id: n_grape_muscat_blanc_a_petits_grains, valid_from: "1900-01-01" }
+  # Berry colours only filter distractors; these are not new study items.
+  - { subject_id: n_grape_agiorgitiko, relation_type: HAS_BERRY_COLOUR, object_id: n_colour_black, valid_from: "1900-01-01" }
+  - { subject_id: n_grape_xinomavro, relation_type: HAS_BERRY_COLOUR, object_id: n_colour_black, valid_from: "1900-01-01" }
+  - { subject_id: n_grape_assyrtiko, relation_type: HAS_BERRY_COLOUR, object_id: n_colour_white, valid_from: "1900-01-01" }
+  - { subject_id: n_grape_aidani, relation_type: HAS_BERRY_COLOUR, object_id: n_colour_white, valid_from: "1900-01-01" }
+  - { subject_id: n_grape_athiri, relation_type: HAS_BERRY_COLOUR, object_id: n_colour_white, valid_from: "1900-01-01" }
+
+knowledge_items:
+  - id: ki_peloponnese_location
+    subject_id: n_geo_peloponnese
+    relation_type: LOCATED_IN
+    object_id: n_geo_greece
+    domain_id: geography
+    assertion_text: "The Peloponnese is a wine-growing region of southern Greece."
+    last_verified_at: "2026-09-26T08:00:00.000Z"
+  - id: ki_macedonia_location
+    subject_id: n_geo_macedonia
+    relation_type: LOCATED_IN
+    object_id: n_geo_greece
+    domain_id: geography
+    assertion_text: "The Greek wine-growing region of Macedonia lies in northern Greece."
+    last_verified_at: "2026-09-26T08:00:00.000Z"
+  - id: ki_cyclades_location
+    subject_id: n_geo_cyclades
+    relation_type: LOCATED_IN
+    object_id: n_geo_greece
+    domain_id: geography
+    assertion_text: "The Cyclades are a Greek island group in the Aegean Sea."
+    last_verified_at: "2026-09-26T08:00:00.000Z"
+  - id: ki_nemea_location
+    subject_id: n_geo_nemea
+    relation_type: LOCATED_IN
+    object_id: n_geo_peloponnese
+    domain_id: geography
+    assertion_text: "Nemea PDO lies in the Peloponnese, with its delimited vineyards in Corinthia and Argolis."
+    last_verified_at: "2026-09-26T08:00:00.000Z"
+  - id: ki_naoussa_location
+    subject_id: n_geo_naoussa
+    relation_type: LOCATED_IN
+    object_id: n_geo_macedonia
+    domain_id: geography
+    assertion_text: "Naoussa PDO lies in the Greek region of Macedonia, in Imathia."
+    last_verified_at: "2026-09-26T08:00:00.000Z"
+  - id: ki_santorini_location
+    subject_id: n_geo_santorini
+    relation_type: LOCATED_IN
+    object_id: n_geo_cyclades
+    domain_id: geography
+    assertion_text: "Santorini PDO is in the Cyclades; its delimited area comprises the islands of Thira and Thirasia."
+    last_verified_at: "2026-09-26T08:00:00.000Z"
+  - id: ki_nemea_grape
+    subject_id: n_geo_nemea
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_agiorgitiko
+    domain_id: geography
+    assertion_text: "The grape variety specified for Nemea PDO is Agiorgitiko."
+    last_verified_at: "2026-09-26T08:00:00.000Z"
+  - id: ki_naoussa_grape
+    subject_id: n_geo_naoussa
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_xinomavro
+    domain_id: geography
+    assertion_text: "The grape variety specified for Naoussa PDO is Xinomavro."
+    last_verified_at: "2026-09-26T08:00:00.000Z"
+  - id: ki_santorini_grape
+    subject_id: n_geo_santorini
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_assyrtiko
+    domain_id: geography
+    assertion_text: "Assyrtiko is the main grape of Santorini PDO: dry white wines contain at least 85 % Assyrtiko, with the remainder from Aidani and Athiri."
+    last_verified_at: "2026-09-26T08:00:00.000Z"
+
+knowledge_item_prerequisites:
+  - { knowledge_item_id: ki_nemea_location, prerequisite_item_id: ki_peloponnese_location }
+  - { knowledge_item_id: ki_naoussa_location, prerequisite_item_id: ki_macedonia_location }
+  - { knowledge_item_id: ki_santorini_location, prerequisite_item_id: ki_cyclades_location }
+  - { knowledge_item_id: ki_nemea_grape, prerequisite_item_id: ki_nemea_location }
+  - { knowledge_item_id: ki_naoussa_grape, prerequisite_item_id: ki_naoussa_location }
+  - { knowledge_item_id: ki_santorini_grape, prerequisite_item_id: ki_santorini_location }
+
+certification_knowledge_mappings:
+  - { certification_id: WSET_L3, knowledge_item_id: ki_peloponnese_location, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_macedonia_location, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_cyclades_location, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_nemea_location, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_naoussa_location, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_santorini_location, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_nemea_grape, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_naoussa_grape, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_santorini_grape, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_peloponnese_location, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_macedonia_location, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cyclades_location, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_nemea_location, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_naoussa_location, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_santorini_location, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_nemea_grape, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_naoussa_grape, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_santorini_grape, importance: core, minimum_depth: 2 }
+
+source_citations:
+  - id: src_gr_nemea_spec
+    kind: regulator_register
+    title: "Nemea PDO product specification"
+    publisher: "Hellenic Ministry of Rural Development and Food"
+    jurisdiction: GR
+    document_identifier: "PDO-GR-A1573; technical file for Nemea"
+    url: "https://www.minagric.gr/images/stories/docs/agrotis/POP-PGE/TEXNIKOI%20FAKELOI%20OINON%20POP-PGE%20ENGLISH/PDO%2022/Technical%20file%20related%20to%20PDO%2022%20Nemea.pdf"
+    accessed_on: "2026-09-26"
+  - id: src_gr_naoussa_spec
+    kind: regulator_register
+    title: "Naoussa PDO product specification"
+    publisher: "Hellenic Ministry of Rural Development and Food"
+    jurisdiction: GR
+    document_identifier: "PDO-GR-A1610; technical file for Naoussa"
+    url: "https://www.minagric.gr/images/stories/docs/agrotis/POP-PGE/TEXNIKOI%20FAKELOI%20OINON%20POP-PGE%20ENGLISH/PDO%2021/Technical%20file%20related%20to%20PDO%2021%20Naousa.pdf"
+    accessed_on: "2026-09-26"
+  - id: src_gr_santorini_spec
+    kind: regulator_register
+    title: "Santorini PDO product specification"
+    publisher: "Hellenic Ministry of Rural Development and Food"
+    jurisdiction: GR
+    document_identifier: "Product specification dated 20 December 2021; standard amendment published as 2022/C 143/09"
+    url: "https://www.minagric.gr/images/stories/docs/agrotis/POP-PGE/TEXNIKOI%20FAKELOI%20OINON%20POP-PGE%20ENGLISH/PDO%2031/prodiagrafi_POPSantorini_201221.pdf"
+    accessed_on: "2026-09-26"
+  - id: src_gr_santorini_geography
+    kind: government_publication
+    title: "Santorini (Thera)"
+    publisher: "Greek National Tourism Organisation"
+    jurisdiction: GR
+    url: "https://www.visitgreece.gr/en/mainland/Cyclades/santorini"
+    accessed_on: "2026-09-26"
+  - id: src_gr_nemea_geography
+    kind: government_publication
+    title: "The Vineyards of Nemea"
+    publisher: "Greek National Tourism Organisation"
+    jurisdiction: GR
+    url: "https://www.visitgreece.gr/en/experiences/gastronomy/traditional-products/the-vineyards-of-nemea"
+    accessed_on: "2026-09-26"
+  - id: src_gr_naoussa_geography
+    kind: government_publication
+    title: "Naoussa: The Heroic City of Vermio"
+    publisher: "Region of Central Macedonia"
+    jurisdiction: GR
+    url: "https://www.visit-centralmacedonia.gr/en/where-to-go/56/1-imathia/98/naoussa"
+    accessed_on: "2026-09-26"
+  - id: src_gr_variety_catalogue_2025
+    kind: regulator_register
+    title: "Greek national catalogue of vine varieties, 2025 amendment"
+    publisher: "Hellenic Ministry of Rural Development and Food"
+    jurisdiction: GR
+    document_identifier: "Decision 191259, 15 July 2025; catalogue entry 123, Moschato aspro"
+    url: "https://www.minagric.gr/images/stories/docs/agrotis/Pollaplasiastiko_Yliko/nomothesia_pollaplasiastiko_yliko/2021/ya191259_150725.pdf"
+    accessed_on: "2026-09-26"
+  - id: src_fr_vine_variety_catalogue
+    kind: regulator_register
+    title: "Catalogue officiel des variétés de vigne"
+    publisher: "Ministère de l'Agriculture et de la Souveraineté alimentaire"
+    jurisdiction: FR
+    document_identifier: "Annex 1: Muscat à petits grains blancs, synonym Moschato aspro (Greece)"
+    url: "https://info.agriculture.gouv.fr/boagri/document_administratif-4e7522c5-c36c-4a53-8f45-aedf50e7f9de/telechargement"
+    accessed_on: "2026-09-26"
+
+knowledge_item_citations:
+  - { knowledge_item_id: ki_peloponnese_location, source_citation_id: src_gr_nemea_spec, locator: "Sections 5 and 7: delimited area and geographical link" }
+  - { knowledge_item_id: ki_peloponnese_location, source_citation_id: src_gr_nemea_geography, locator: "Vines, wine and oenotourism in the Peloponnese; southern Greece" }
+  - { knowledge_item_id: ki_macedonia_location, source_citation_id: src_gr_naoussa_spec, locator: "Sections 5 and 7: Imathia and Macedonia" }
+  - { knowledge_item_id: ki_macedonia_location, source_citation_id: src_gr_naoussa_geography, locator: "Naoussa in the Region of Central Macedonia, Northern Greece" }
+  - { knowledge_item_id: ki_cyclades_location, source_citation_id: src_gr_santorini_geography, locator: "Cyclades / Santorini: the island group in Greece" }
+  - { knowledge_item_id: ki_nemea_location, source_citation_id: src_gr_nemea_spec, locator: "Section 5: Corinthia and Argolis; geographical link in section 7" }
+  - { knowledge_item_id: ki_nemea_location, source_citation_id: src_gr_nemea_geography, locator: "Vines, wine and oenotourism in the Peloponnese" }
+  - { knowledge_item_id: ki_naoussa_location, source_citation_id: src_gr_naoussa_spec, locator: "Section 5: Imathia; geographical link in section 7" }
+  - { knowledge_item_id: ki_naoussa_location, source_citation_id: src_gr_naoussa_geography, locator: "Naoussa: Imathia, Central Macedonia" }
+  - { knowledge_item_id: ki_santorini_location, source_citation_id: src_gr_santorini_spec, locator: "Section 5: delimited area, Thira and Thirasia" }
+  - { knowledge_item_id: ki_santorini_location, source_citation_id: src_gr_santorini_geography, locator: "Santorini's location in the Cyclades" }
+  - { knowledge_item_id: ki_nemea_grape, source_citation_id: src_gr_nemea_spec, locator: "Section 6: wine grape varieties, Agiorgitiko" }
+  - { knowledge_item_id: ki_naoussa_grape, source_citation_id: src_gr_naoussa_spec, locator: "Section 6: wine grape varieties, Xinomavro" }
+  - { knowledge_item_id: ki_santorini_grape, source_citation_id: src_gr_santorini_spec, locator: "Sections 3.1 and 7.1.1: dry white wine varieties and proportions; sections 3.2 and 7.1.2: other permitted Vinsanto varieties, including white Muscat" }
+  - { knowledge_item_id: ki_santorini_grape, source_citation_id: src_gr_variety_catalogue_2025, locator: "Entry 123: Moschato lefko is a synonym of Moschato aspro" }
+  - { knowledge_item_id: ki_santorini_grape, source_citation_id: src_fr_vine_variety_catalogue, locator: "Annex 1: Moschato aspro (GRC) is Muscat à petits grains blancs" }

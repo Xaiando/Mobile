@@ -73,19 +73,39 @@ void main() {
   });
 
   testApp('About credits every source of the curriculum', (tester) async {
-    // Tall enough for the whole list to be built at once.
-    tester.view.physicalSize = const Size(1080, 30000);
-    tester.view.devicePixelRatio = 3;
-    addTearDown(tester.view.reset);
+    phone(tester);
     await pumpApp(tester, db);
     await tap(tester, find.byTooltip('Settings'));
+    await tester.scrollUntilVisible(
+      find.text('About, sources and licences'),
+      300,
+    );
     await tap(tester, find.text('About, sources and licences'));
     final sources = await tester.runAsync(
       () => db.select(db.sourceCitations).get(),
     );
+    await tester.pumpAndSettle();
     expect(sources, isNotEmpty);
-    for (final source in sources!) {
-      expect(find.text(source.title), findsOneWidget, reason: source.id);
+    final scrollable = find
+        .descendant(
+          of: find.byType(ListView),
+          matching: find.byType(Scrollable),
+        )
+        .last;
+    final position = tester.state<ScrollableState>(scrollable).position;
+    final credited = <String>{};
+    while (true) {
+      for (final source in sources!) {
+        if (find.text(source.title).evaluate().isNotEmpty) {
+          credited.add(source.id);
+        }
+      }
+      if (position.pixels >= position.maxScrollExtent) break;
+      await tester.drag(scrollable, const Offset(0, -300));
+      await tester.pumpAndSettle();
+    }
+    for (final source in sources) {
+      expect(credited, contains(source.id), reason: source.title);
     }
     expect(find.text('Open-source licences'), findsOneWidget);
 

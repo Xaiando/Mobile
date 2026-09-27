@@ -1,0 +1,2032 @@
+# Original sparkling production and style learning points; all await expert review.
+# Valid-from records UTC curation, not the origin of these general mechanisms.
+# No legal maturation, sugar, grape-composition or pressure limits are asserted.
+knowledge_nodes:
+  - id: n_spark_principle_traditional
+    node_type: production_principle
+    name: Where does the second alcoholic fermentation occur in traditional-method sparkling production?
+  - id: n_spark_point_traditional
+    node_type: learning_point
+    name: In the individual bottle
+  - id: n_spark_principle_tirage
+    node_type: production_principle
+    name: Which addition starts a second alcoholic fermentation in a dry sparkling base wine?
+  - id: n_spark_point_tirage
+    node_type: learning_point
+    name: Sugar and yeast in tirage
+  - id: n_spark_principle_more_alcohol
+    node_type: production_principle
+    name: Besides carbon dioxide, what does sparkling wine second alcoholic fermentation add?
+  - id: n_spark_point_more_alcohol
+    node_type: learning_point
+    name: Additional alcohol
+  - id: n_spark_principle_tank
+    node_type: production_principle
+    name: Where is the second fermentation conducted in a conventional Charmat sparkling process?
+  - id: n_spark_point_tank
+    node_type: learning_point
+    name: In a sealed pressure tank
+  - id: n_spark_principle_tank_filter
+    node_type: production_principle
+    name: How is yeast removed before bottling in a conventional clear tank-method sparkling process?
+  - id: n_spark_point_tank_filter
+    node_type: learning_point
+    name: Filter the wine in bulk
+  - id: n_spark_principle_transfer_bottle
+    node_type: production_principle
+    name: Where is the second fermentation conducted before a sparkling wine is finished by the transfer method?
+  - id: n_spark_point_transfer_bottle
+    node_type: learning_point
+    name: In bottles before transfer
+  - id: n_spark_principle_transfer_tank
+    node_type: production_principle
+    name: Which bulk operation replaces individual-bottle sediment removal in the transfer method?
+  - id: n_spark_point_transfer_tank
+    node_type: learning_point
+    name: Tank transfer and filtration
+  - id: n_spark_principle_transfer_lees
+    node_type: production_principle
+    name: Which maturation feature can the transfer method retain from bottle fermentation?
+  - id: n_spark_point_transfer_lees
+    node_type: learning_point
+    name: Bottle ageing on yeast lees
+  - id: n_spark_principle_ancestral
+    node_type: production_principle
+    name: Which fermentation supplies the bubbles when an ancestral sparkling wine is bottled before dryness?
+  - id: n_spark_point_ancestral
+    node_type: learning_point
+    name: The original alcoholic fermentation
+  - id: n_spark_principle_ancestral_disgorge
+    node_type: production_principle
+    name: Can an ancestral sparkling wine be disgorged after its original fermentation finishes in bottle?
+  - id: n_spark_point_ancestral_disgorge
+    node_type: learning_point
+    name: Disgorgement is possible
+  - id: n_spark_principle_carbonation
+    node_type: production_principle
+    name: What directly supplies the gas in force-carbonated sparkling wine?
+  - id: n_spark_point_carbonation
+    node_type: learning_point
+    name: Externally added carbon dioxide
+  - id: n_spark_principle_carbonation_fermentation
+    node_type: production_principle
+    name: Does force carbonation itself require another alcoholic fermentation?
+  - id: n_spark_point_carbonation_fermentation
+    node_type: learning_point
+    name: No additional fermentation
+  - id: n_spark_principle_cool_solubility
+    node_type: production_principle
+    name: How does cooling affect carbon dioxide solubility in wine?
+  - id: n_spark_point_cool_solubility
+    node_type: learning_point
+    name: More carbon dioxide stays dissolved
+  - id: n_spark_principle_agitation
+    node_type: production_principle
+    name: Why can agitation accelerate loss of sparkling wine gas after opening?
+  - id: n_spark_point_agitation
+    node_type: learning_point
+    name: Release dissolved gas
+  - id: n_spark_principle_white_press
+    node_type: production_principle
+    name: How can gentle pressing make a pale sparkling base wine from dark-skinned grapes?
+  - id: n_spark_point_white_press
+    node_type: learning_point
+    name: Limit skin pigment extraction
+  - id: n_spark_principle_press_fractions
+    node_type: production_principle
+    name: Why keep early and later sparkling press fractions separate before blending?
+  - id: n_spark_point_press_fractions
+    node_type: learning_point
+    name: Preserve blending choices
+  - id: n_spark_principle_base_acidity
+    node_type: production_principle
+    name: What freshness-related composition is often sought when picking grapes for sparkling base wine?
+  - id: n_spark_point_base_acidity
+    node_type: learning_point
+    name: Retain natural acidity
+  - id: n_spark_principle_base_alcohol
+    node_type: production_principle
+    name: Why is a relatively low-alcohol base useful before a planned second alcoholic fermentation?
+  - id: n_spark_point_base_alcohol
+    node_type: learning_point
+    name: Allow for later alcohol increase
+  - id: n_spark_principle_blending
+    node_type: production_principle
+    name: What sensory goal can blending different sparkling base wines serve?
+  - id: n_spark_point_blending
+    node_type: learning_point
+    name: Build complementary balance
+  - id: n_spark_principle_multivintage
+    node_type: production_principle
+    name: Which blending option can combine sparkling base-wine characteristics from different harvest years?
+  - id: n_spark_point_multivintage
+    node_type: learning_point
+    name: Blend wines across vintages
+  - id: n_spark_principle_mlf_optional
+    node_type: production_principle
+    name: Must every Champagne base wine complete malolactic fermentation?
+  - id: n_spark_point_mlf_optional
+    node_type: learning_point
+    name: MLF is a style choice
+  - id: n_spark_principle_autolysis
+    node_type: production_principle
+    name: What happens to dead yeast cells during sparkling wine autolysis?
+  - id: n_spark_point_autolysis
+    node_type: learning_point
+    name: Yeast cells break down
+  - id: n_spark_principle_lees_style
+    node_type: production_principle
+    name: How can time on sparkling yeast lees change the intended style?
+  - id: n_spark_point_lees_style
+    node_type: learning_point
+    name: Develop maturation character
+  - id: n_spark_principle_riddling
+    node_type: production_principle
+    name: What is the sediment-management purpose of sparkling wine riddling?
+  - id: n_spark_point_riddling
+    node_type: learning_point
+    name: Collect lees in the bottle neck
+  - id: n_spark_principle_automated_riddling
+    node_type: production_principle
+    name: Which labour-saving operation can move traditional-method sparkling lees into the bottle neck?
+  - id: n_spark_point_automated_riddling
+    node_type: learning_point
+    name: Automated riddling
+  - id: n_spark_principle_disgorgement
+    node_type: production_principle
+    name: What does disgorgement remove from a riddled sparkling wine bottle?
+  - id: n_spark_point_disgorgement
+    node_type: learning_point
+    name: The concentrated lees deposit
+  - id: n_spark_principle_disgorge_oxygen
+    node_type: production_principle
+    name: Which new exposure can occur when a traditional-method sparkling bottle is disgorged?
+  - id: n_spark_point_disgorge_oxygen
+    node_type: learning_point
+    name: Exposure to outside oxygen
+  - id: n_spark_principle_dosage
+    node_type: production_principle
+    name: At which finishing stage can dosage adjust a disgorged sparkling wine’s sweetness?
+  - id: n_spark_point_dosage
+    node_type: learning_point
+    name: After disgorgement before final sealing
+  - id: n_spark_principle_dosage_aroma
+    node_type: production_principle
+    name: Apart from sweetness, what can the wine used in a sparkling dosage influence?
+  - id: n_spark_point_dosage_aroma
+    node_type: learning_point
+    name: The final aromatic profile
+  - id: n_spark_principle_liner
+    node_type: production_principle
+    name: Which two gas movements are affected by a sparkling tirage crown-seal liner?
+  - id: n_spark_point_liner
+    node_type: learning_point
+    name: Oxygen ingress and carbon dioxide loss
+  - id: n_spark_principle_low_liner
+    node_type: production_principle
+    name: What crown-seal liner property helps preserve carbonation during extended sparkling bottle ageing?
+  - id: n_spark_point_low_liner
+    node_type: learning_point
+    name: Low gas permeability
+  - id: n_spark_principle_lees_decline
+    node_type: production_principle
+    name: Why do sparkling yeast lees not guarantee indefinite protection from oxygen during bottle ageing?
+  - id: n_spark_point_lees_decline
+    node_type: learning_point
+    name: Oxygen consumption declines
+  - id: n_spark_principle_bidule
+    node_type: production_principle
+    name: Which finishing operation is a sparkling bottle bidule designed to facilitate?
+  - id: n_spark_point_bidule
+    node_type: learning_point
+    name: Facilitate disgorgement
+  - id: n_spark_principle_gushing_solids
+    node_type: production_principle
+    name: How can tartrate crystals or remaining lees promote sparkling wine gushing?
+  - id: n_spark_point_gushing_solids
+    node_type: learning_point
+    name: Create gas nucleation sites
+  - id: n_spark_principle_alcohol_tartrate
+    node_type: production_principle
+    name: Why can a cold-stable sparkling base need reassessment for its planned second fermentation?
+  - id: n_spark_point_alcohol_tartrate
+    node_type: learning_point
+    name: Alcohol changes tartrate solubility
+  - id: n_spark_principle_counterpressure
+    node_type: production_principle
+    name: Why maintain counter-pressure during sparkling tank filtration and filling?
+  - id: n_spark_point_counterpressure
+    node_type: learning_point
+    name: Keep fermentation carbon dioxide dissolved
+  - id: n_spark_principle_gas_return
+    node_type: production_principle
+    name: What gas-saving principle can connect tank headspaces during suitable sparkling pressure filtration?
+  - id: n_spark_point_gas_return
+    node_type: learning_point
+    name: Return displaced headspace gas
+  - id: n_spark_principle_gas_cost
+    node_type: production_principle
+    name: Why can tank-fermented sparkling production still consume purchased carbon dioxide?
+  - id: n_spark_point_gas_cost
+    node_type: learning_point
+    name: Maintain processing headspaces
+  - id: n_spark_case_fruit_tank
+    node_type: production_case
+    name: Fresh aromatic sparkling wine needs rapid release from available pressure tanks
+  - id: n_spark_point_case_fruit_tank_action
+    node_type: learning_point
+    name: Use a short tank-method cycle
+  - id: n_spark_point_case_fruit_tank_reason
+    node_type: learning_point
+    name: Retain a youthful style
+  - id: n_spark_point_case_fruit_tank_tradeoff
+    node_type: learning_point
+    name: Less developed maturation character
+  - id: n_spark_point_case_fruit_tank_limitation
+    node_type: learning_point
+    name: Validate pressure handling
+  - id: n_spark_case_transfer_batch
+    node_type: production_case
+    name: Bottle lees ageing is wanted but individual-bottle finishing capacity is limited
+  - id: n_spark_point_case_transfer_batch_action
+    node_type: learning_point
+    name: Consider transfer finishing
+  - id: n_spark_point_case_transfer_batch_reason
+    node_type: learning_point
+    name: Keep earlier bottle lees contact
+  - id: n_spark_point_case_transfer_batch_tradeoff
+    node_type: learning_point
+    name: Additional pressure processing costs
+  - id: n_spark_point_case_transfer_batch_limitation
+    node_type: learning_point
+    name: Confirm the intended style
+  - id: n_spark_case_long_closure
+    node_type: production_case
+    name: Extended bottle ageing in variable-temperature storage must preserve carbonation and fresh character
+  - id: n_spark_point_case_long_closure_action
+    node_type: learning_point
+    name: Match liner and storage conditions to the target
+  - id: n_spark_point_case_long_closure_reason
+    node_type: learning_point
+    name: Control gas exchange and temperature
+  - id: n_spark_point_case_long_closure_tradeoff
+    node_type: learning_point
+    name: Climate-control resource costs
+  - id: n_spark_point_case_long_closure_limitation
+    node_type: learning_point
+    name: Lees protection can weaken
+  - id: n_spark_case_gushing_batch
+    node_type: production_case
+    name: Sparkling bottles gush despite a seemingly normal gas addition
+  - id: n_spark_point_case_gushing_batch_action
+    node_type: learning_point
+    name: Investigate stability and sediment removal
+  - id: n_spark_point_case_gushing_batch_reason
+    node_type: learning_point
+    name: Particles trigger rapid degassing
+  - id: n_spark_point_case_gushing_batch_tradeoff
+    node_type: learning_point
+    name: Reworking has economic costs
+  - id: n_spark_point_case_gushing_batch_limitation
+    node_type: learning_point
+    name: Check other gushing causes
+  - id: n_spark_case_dosage_trial
+    node_type: production_case
+    name: A mature disgorged sparkling blend needs its final balance adjusted
+  - id: n_spark_point_case_dosage_trial_action
+    node_type: learning_point
+    name: Compare dosage trials
+  - id: n_spark_point_case_dosage_trial_reason
+    node_type: learning_point
+    name: Adjust the finishing profile
+  - id: n_spark_point_case_dosage_trial_tradeoff
+    node_type: learning_point
+    name: A characterful dosage changes expression
+  - id: n_spark_point_case_dosage_trial_limitation
+    node_type: learning_point
+    name: Dosage does not replace lees ageing
+node_alternative_names:
+  - knowledge_node_id: n_spark_point_traditional
+    name: Bottle fermentation
+    kind: synonym
+  - knowledge_node_id: n_spark_point_tirage
+    name: Liqueur de tirage
+    kind: synonym
+  - knowledge_node_id: n_spark_point_more_alcohol
+    name: More ethanol
+    kind: synonym
+  - knowledge_node_id: n_spark_point_tank
+    name: Tank fermentation
+    kind: synonym
+  - knowledge_node_id: n_spark_point_tank_filter
+    name: Bulk filtration
+    kind: synonym
+  - knowledge_node_id: n_spark_point_transfer_bottle
+    name: Bottle fermentation before tank processing
+    kind: synonym
+  - knowledge_node_id: n_spark_point_transfer_tank
+    name: Transfer then bulk filtration
+    kind: synonym
+  - knowledge_node_id: n_spark_point_transfer_lees
+    name: Bottle lees contact
+    kind: synonym
+  - knowledge_node_id: n_spark_point_ancestral
+    name: Completion of primary fermentation
+    kind: synonym
+  - knowledge_node_id: n_spark_point_ancestral_disgorge
+    name: Ancestral wines can be disgorged
+    kind: synonym
+  - knowledge_node_id: n_spark_point_carbonation
+    name: Injected carbon dioxide
+    kind: synonym
+  - knowledge_node_id: n_spark_point_carbonation_fermentation
+    name: Carbonation without refermentation
+    kind: synonym
+  - knowledge_node_id: n_spark_point_cool_solubility
+    name: Greater CO2 solubility
+    kind: synonym
+  - knowledge_node_id: n_spark_point_agitation
+    name: Carbon dioxide comes out of solution
+    kind: synonym
+  - knowledge_node_id: n_spark_point_white_press
+    name: Minimise skin contact
+    kind: synonym
+  - knowledge_node_id: n_spark_point_press_fractions
+    name: Assess fractions separately
+    kind: synonym
+  - knowledge_node_id: n_spark_point_base_acidity
+    name: Higher acidity
+    kind: synonym
+  - knowledge_node_id: n_spark_point_base_alcohol
+    name: Leave room for added alcohol
+    kind: synonym
+  - knowledge_node_id: n_spark_point_blending
+    name: Balance complementary components
+    kind: synonym
+  - knowledge_node_id: n_spark_point_multivintage
+    name: Multi-vintage blending
+    kind: synonym
+  - knowledge_node_id: n_spark_point_mlf_optional
+    name: Malolactic fermentation is optional
+    kind: synonym
+  - knowledge_node_id: n_spark_point_autolysis
+    name: Decomposition of yeast cells
+    kind: synonym
+  - knowledge_node_id: n_spark_point_lees_style
+    name: Lees-derived complexity
+    kind: synonym
+  - knowledge_node_id: n_spark_point_riddling
+    name: Move sediment to the neck
+    kind: synonym
+  - knowledge_node_id: n_spark_point_automated_riddling
+    name: Mechanised remuage
+    kind: synonym
+  - knowledge_node_id: n_spark_point_disgorgement
+    name: Remove the sediment
+    kind: synonym
+  - knowledge_node_id: n_spark_point_disgorge_oxygen
+    name: Oxygen entry at disgorgement
+    kind: synonym
+  - knowledge_node_id: n_spark_point_dosage
+    name: Post-disgorgement dosage
+    kind: synonym
+  - knowledge_node_id: n_spark_point_dosage_aroma
+    name: Aroma and style
+    kind: synonym
+  - knowledge_node_id: n_spark_point_liner
+    name: Oxygen entry and CO2 escape
+    kind: synonym
+  - knowledge_node_id: n_spark_point_low_liner
+    name: A low-permeability liner
+    kind: synonym
+  - knowledge_node_id: n_spark_point_lees_decline
+    name: Lees consume oxygen more slowly with age
+    kind: synonym
+  - knowledge_node_id: n_spark_point_bidule
+    name: Assist disgorgement
+    kind: synonym
+  - knowledge_node_id: n_spark_point_gushing_solids
+    name: Provide sites for rapid bubble formation
+    kind: synonym
+  - knowledge_node_id: n_spark_point_alcohol_tartrate
+    name: Higher alcohol lowers KHT solubility
+    kind: synonym
+  - knowledge_node_id: n_spark_point_counterpressure
+    name: Retain dissolved CO2 under pressure
+    kind: synonym
+  - knowledge_node_id: n_spark_point_gas_return
+    name: Reuse displaced carbon dioxide
+    kind: synonym
+  - knowledge_node_id: n_spark_point_gas_cost
+    name: Supply counter-pressure gas
+    kind: synonym
+  - knowledge_node_id: n_spark_point_case_fruit_tank_action
+    name: Consider Charmat production
+    kind: synonym
+  - knowledge_node_id: n_spark_point_case_fruit_tank_reason
+    name: Produce bubbles without extended bottle ageing
+    kind: synonym
+  - knowledge_node_id: n_spark_point_case_fruit_tank_tradeoff
+    name: Less time for lees evolution
+    kind: synonym
+  - knowledge_node_id: n_spark_point_case_fruit_tank_limitation
+    name: Preserve dissolved gas through finishing
+    kind: synonym
+  - knowledge_node_id: n_spark_point_case_transfer_batch_action
+    name: Use the transfer method
+    kind: synonym
+  - knowledge_node_id: n_spark_point_case_transfer_batch_reason
+    name: Retain the bottle-ageing stage
+    kind: synonym
+  - knowledge_node_id: n_spark_point_case_transfer_batch_tradeoff
+    name: Allow for purchased processing gas
+    kind: synonym
+  - knowledge_node_id: n_spark_point_case_transfer_batch_limitation
+    name: Method does not guarantee sensory quality
+    kind: synonym
+  - knowledge_node_id: n_spark_point_case_long_closure_action
+    name: Choose a suitable liner and manage cellar temperature
+    kind: synonym
+  - knowledge_node_id: n_spark_point_case_long_closure_reason
+    name: Limit carbonation loss and unwanted oxygen exposure
+    kind: synonym
+  - knowledge_node_id: n_spark_point_case_long_closure_tradeoff
+    name: Storage control has economic and environmental costs
+    kind: synonym
+  - knowledge_node_id: n_spark_point_case_long_closure_limitation
+    name: Do not assume permanent protection from lees
+    kind: synonym
+  - knowledge_node_id: n_spark_point_case_gushing_batch_action
+    name: Check tartrates and residual lees
+    kind: synonym
+  - knowledge_node_id: n_spark_point_case_gushing_batch_reason
+    name: Solids create nucleation sites
+    kind: synonym
+  - knowledge_node_id: n_spark_point_case_gushing_batch_tradeoff
+    name: Replacement or rework costs
+    kind: synonym
+  - knowledge_node_id: n_spark_point_case_gushing_batch_limitation
+    name: Gushing has multiple possible causes
+    kind: synonym
+  - knowledge_node_id: n_spark_point_case_dosage_trial_action
+    name: Trial finishing dosage alternatives
+    kind: synonym
+  - knowledge_node_id: n_spark_point_case_dosage_trial_reason
+    name: Influence sweetness and aroma
+    kind: synonym
+  - knowledge_node_id: n_spark_point_case_dosage_trial_tradeoff
+    name: Added aromas alter the blend
+    kind: synonym
+  - knowledge_node_id: n_spark_point_case_dosage_trial_limitation
+    name: Finishing differs from maturation
+    kind: synonym
+knowledge_relations:
+  - subject_id: n_spark_principle_traditional
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_traditional
+    valid_from: 2026-09-26
+  - subject_id: n_spark_principle_tirage
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_tirage
+    valid_from: 2026-09-26
+  - subject_id: n_spark_principle_more_alcohol
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_more_alcohol
+    valid_from: 2026-09-26
+  - subject_id: n_spark_principle_tank
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_tank
+    valid_from: 2026-09-26
+  - subject_id: n_spark_principle_tank_filter
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_tank_filter
+    valid_from: 2026-09-26
+  - subject_id: n_spark_principle_transfer_bottle
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_transfer_bottle
+    valid_from: 2026-09-26
+  - subject_id: n_spark_principle_transfer_tank
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_transfer_tank
+    valid_from: 2026-09-26
+  - subject_id: n_spark_principle_transfer_lees
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_transfer_lees
+    valid_from: 2026-09-26
+  - subject_id: n_spark_principle_ancestral
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_ancestral
+    valid_from: 2026-09-26
+  - subject_id: n_spark_principle_ancestral_disgorge
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_ancestral_disgorge
+    valid_from: 2026-09-26
+  - subject_id: n_spark_principle_carbonation
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_carbonation
+    valid_from: 2026-09-26
+  - subject_id: n_spark_principle_carbonation_fermentation
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_carbonation_fermentation
+    valid_from: 2026-09-26
+  - subject_id: n_spark_principle_cool_solubility
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_cool_solubility
+    valid_from: 2026-09-26
+  - subject_id: n_spark_principle_agitation
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_agitation
+    valid_from: 2026-09-26
+  - subject_id: n_spark_principle_white_press
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_white_press
+    valid_from: 2026-09-26
+  - subject_id: n_spark_principle_press_fractions
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_press_fractions
+    valid_from: 2026-09-26
+  - subject_id: n_spark_principle_base_acidity
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_base_acidity
+    valid_from: 2026-09-26
+  - subject_id: n_spark_principle_base_alcohol
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_base_alcohol
+    valid_from: 2026-09-26
+  - subject_id: n_spark_principle_blending
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_blending
+    valid_from: 2026-09-26
+  - subject_id: n_spark_principle_multivintage
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_multivintage
+    valid_from: 2026-09-26
+  - subject_id: n_spark_principle_mlf_optional
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_mlf_optional
+    valid_from: 2026-09-26
+  - subject_id: n_spark_principle_autolysis
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_autolysis
+    valid_from: 2026-09-26
+  - subject_id: n_spark_principle_lees_style
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_lees_style
+    valid_from: 2026-09-26
+  - subject_id: n_spark_principle_riddling
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_riddling
+    valid_from: 2026-09-26
+  - subject_id: n_spark_principle_automated_riddling
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_automated_riddling
+    valid_from: 2026-09-26
+  - subject_id: n_spark_principle_disgorgement
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_disgorgement
+    valid_from: 2026-09-26
+  - subject_id: n_spark_principle_disgorge_oxygen
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_disgorge_oxygen
+    valid_from: 2026-09-26
+  - subject_id: n_spark_principle_dosage
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_dosage
+    valid_from: 2026-09-26
+  - subject_id: n_spark_principle_dosage_aroma
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_dosage_aroma
+    valid_from: 2026-09-26
+  - subject_id: n_spark_principle_liner
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_liner
+    valid_from: 2026-09-26
+  - subject_id: n_spark_principle_low_liner
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_low_liner
+    valid_from: 2026-09-26
+  - subject_id: n_spark_principle_lees_decline
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_lees_decline
+    valid_from: 2026-09-26
+  - subject_id: n_spark_principle_bidule
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_bidule
+    valid_from: 2026-09-26
+  - subject_id: n_spark_principle_gushing_solids
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_gushing_solids
+    valid_from: 2026-09-26
+  - subject_id: n_spark_principle_alcohol_tartrate
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_alcohol_tartrate
+    valid_from: 2026-09-26
+  - subject_id: n_spark_principle_counterpressure
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_counterpressure
+    valid_from: 2026-09-26
+  - subject_id: n_spark_principle_gas_return
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_gas_return
+    valid_from: 2026-09-26
+  - subject_id: n_spark_principle_gas_cost
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_gas_cost
+    valid_from: 2026-09-26
+  - subject_id: n_spark_case_fruit_tank
+    relation_type: CASE_ACTION
+    object_id: n_spark_point_case_fruit_tank_action
+    valid_from: 2026-09-26
+  - subject_id: n_spark_case_fruit_tank
+    relation_type: CASE_REASON
+    object_id: n_spark_point_case_fruit_tank_reason
+    valid_from: 2026-09-26
+  - subject_id: n_spark_case_fruit_tank
+    relation_type: CASE_TRADEOFF
+    object_id: n_spark_point_case_fruit_tank_tradeoff
+    valid_from: 2026-09-26
+  - subject_id: n_spark_case_fruit_tank
+    relation_type: CASE_LIMITATION
+    object_id: n_spark_point_case_fruit_tank_limitation
+    valid_from: 2026-09-26
+  - subject_id: n_spark_case_transfer_batch
+    relation_type: CASE_ACTION
+    object_id: n_spark_point_case_transfer_batch_action
+    valid_from: 2026-09-26
+  - subject_id: n_spark_case_transfer_batch
+    relation_type: CASE_REASON
+    object_id: n_spark_point_case_transfer_batch_reason
+    valid_from: 2026-09-26
+  - subject_id: n_spark_case_transfer_batch
+    relation_type: CASE_TRADEOFF
+    object_id: n_spark_point_case_transfer_batch_tradeoff
+    valid_from: 2026-09-26
+  - subject_id: n_spark_case_transfer_batch
+    relation_type: CASE_LIMITATION
+    object_id: n_spark_point_case_transfer_batch_limitation
+    valid_from: 2026-09-26
+  - subject_id: n_spark_case_long_closure
+    relation_type: CASE_ACTION
+    object_id: n_spark_point_case_long_closure_action
+    valid_from: 2026-09-26
+  - subject_id: n_spark_case_long_closure
+    relation_type: CASE_REASON
+    object_id: n_spark_point_case_long_closure_reason
+    valid_from: 2026-09-26
+  - subject_id: n_spark_case_long_closure
+    relation_type: CASE_TRADEOFF
+    object_id: n_spark_point_case_long_closure_tradeoff
+    valid_from: 2026-09-26
+  - subject_id: n_spark_case_long_closure
+    relation_type: CASE_LIMITATION
+    object_id: n_spark_point_case_long_closure_limitation
+    valid_from: 2026-09-26
+  - subject_id: n_spark_case_gushing_batch
+    relation_type: CASE_ACTION
+    object_id: n_spark_point_case_gushing_batch_action
+    valid_from: 2026-09-26
+  - subject_id: n_spark_case_gushing_batch
+    relation_type: CASE_REASON
+    object_id: n_spark_point_case_gushing_batch_reason
+    valid_from: 2026-09-26
+  - subject_id: n_spark_case_gushing_batch
+    relation_type: CASE_TRADEOFF
+    object_id: n_spark_point_case_gushing_batch_tradeoff
+    valid_from: 2026-09-26
+  - subject_id: n_spark_case_gushing_batch
+    relation_type: CASE_LIMITATION
+    object_id: n_spark_point_case_gushing_batch_limitation
+    valid_from: 2026-09-26
+  - subject_id: n_spark_case_dosage_trial
+    relation_type: CASE_ACTION
+    object_id: n_spark_point_case_dosage_trial_action
+    valid_from: 2026-09-26
+  - subject_id: n_spark_case_dosage_trial
+    relation_type: CASE_REASON
+    object_id: n_spark_point_case_dosage_trial_reason
+    valid_from: 2026-09-26
+  - subject_id: n_spark_case_dosage_trial
+    relation_type: CASE_TRADEOFF
+    object_id: n_spark_point_case_dosage_trial_tradeoff
+    valid_from: 2026-09-26
+  - subject_id: n_spark_case_dosage_trial
+    relation_type: CASE_LIMITATION
+    object_id: n_spark_point_case_dosage_trial_limitation
+    valid_from: 2026-09-26
+knowledge_items:
+  - id: ki_spark_traditional
+    subject_id: n_spark_principle_traditional
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_traditional
+    domain_id: winemaking
+    assertion_text: The traditional method creates its second alcoholic fermentation in bottle, retaining the
+      fermentation gas in the wine.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:33:57.518Z
+  - id: ki_spark_tirage
+    subject_id: n_spark_principle_tirage
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_tirage
+    domain_id: winemaking
+    assertion_text: Tirage supplies fermentable sugar and yeast to the base wine; this differs from sweetness
+      adjustment after disgorgement.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:33:57.518Z
+  - id: ki_spark_more_alcohol
+    subject_id: n_spark_principle_more_alcohol
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_more_alcohol
+    domain_id: winemaking
+    assertion_text: Yeast converts tirage sugar into alcohol and carbon dioxide, increasing alcohol above that
+      of the base wine.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:33:57.518Z
+  - id: ki_spark_tank
+    subject_id: n_spark_principle_tank
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_tank
+    domain_id: winemaking
+    assertion_text: In the conventional tank method, sugar and yeast initiate a second fermentation in a sealed
+      tank that retains the gas.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:33:57.518Z
+  - id: ki_spark_tank_filter
+    subject_id: n_spark_principle_tank_filter
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_tank_filter
+    domain_id: winemaking
+    assertion_text: Tank-fermented wine is filtered before bottling; individual-bottle riddling is unnecessary
+      for this clear tank-method process.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:33:57.518Z
+  - id: ki_spark_transfer_bottle
+    subject_id: n_spark_principle_transfer_bottle
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_transfer_bottle
+    domain_id: winemaking
+    assertion_text: Transfer-method wine undergoes second fermentation in bottles before being moved to a tank
+      for finishing.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:33:57.518Z
+  - id: ki_spark_transfer_tank
+    subject_id: n_spark_principle_transfer_tank
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_transfer_tank
+    domain_id: winemaking
+    assertion_text: Following bottle fermentation and lees contact, transfer-method wine is pooled in tank and
+      filtered to remove yeast before rebottling.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:33:57.518Z
+  - id: ki_spark_transfer_lees
+    subject_id: n_spark_principle_transfer_lees
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_transfer_lees
+    domain_id: winemaking
+    assertion_text: Transfer processing follows a period on bottle lees; transferring later does not erase the
+      earlier lees contact.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:33:57.518Z
+  - id: ki_spark_ancestral
+    subject_id: n_spark_principle_ancestral
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_ancestral
+    domain_id: winemaking
+    assertion_text: In an ancestral process, the original fermentation continues after bottling, consuming
+      remaining grape sugar and retaining its gas.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:33:57.518Z
+  - id: ki_spark_ancestral_disgorge
+    subject_id: n_spark_principle_ancestral_disgorge
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_ancestral_disgorge
+    domain_id: winemaking
+    assertion_text: Troon documents disgorging its ancestral-method wine after bottle ageing; retaining all
+      sediment is not inherent to every ancestral wine.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:33:57.518Z
+  - id: ki_spark_carbonation
+    subject_id: n_spark_principle_carbonation
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_carbonation
+    domain_id: winemaking
+    assertion_text: Force carbonation introduces carbon dioxide directly into wine rather than generating that
+      gas through a new fermentation.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:33:57.518Z
+  - id: ki_spark_carbonation_fermentation
+    subject_id: n_spark_principle_carbonation_fermentation
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_carbonation_fermentation
+    domain_id: winemaking
+    assertion_text: Injecting gas does not itself require more yeast fermentation; any earlier lees character
+      depends on the base wine and its handling.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:33:57.518Z
+  - id: ki_spark_cool_solubility
+    subject_id: n_spark_principle_cool_solubility
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_cool_solubility
+    domain_id: winemaking
+    assertion_text: At lower temperatures carbon dioxide is more soluble in wine; temperature therefore matters
+      when managing gas retention.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:33:57.518Z
+  - id: ki_spark_agitation
+    subject_id: n_spark_principle_agitation
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_agitation
+    domain_id: winemaking
+    assertion_text: Agitation promotes escape of dissolved carbon dioxide; bubbles represent gas leaving
+      solution, rather than the dissolved gas itself.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:33:57.518Z
+  - id: ki_spark_white_press
+    subject_id: n_spark_principle_white_press
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_white_press
+    domain_id: winemaking
+    assertion_text: Gentle pressing and limited skin contact restrict colour extraction when a pale base wine is
+      intended; rosé objectives differ.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:33:57.518Z
+  - id: ki_spark_press_fractions
+    subject_id: n_spark_principle_press_fractions
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_press_fractions
+    domain_id: winemaking
+    assertion_text: Press fractions have different characteristics; keeping them separate allows selection and
+      blending for the intended style.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:33:57.518Z
+  - id: ki_spark_base_acidity
+    subject_id: n_spark_principle_base_acidity
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_base_acidity
+    domain_id: winemaking
+    assertion_text: Early picking can retain acidity for a fresh sparkling base, but a useful harvest decision
+      still follows the intended wine style.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:33:57.518Z
+  - id: ki_spark_base_alcohol
+    subject_id: n_spark_principle_base_alcohol
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_base_alcohol
+    domain_id: winemaking
+    assertion_text: A relatively low-alcohol base allows for alcohol added during second fermentation; the
+      intended final style determines the target.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:33:57.518Z
+  - id: ki_spark_blending
+    subject_id: n_spark_principle_blending
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_blending
+    domain_id: winemaking
+    assertion_text: Different base wines can contribute complementary aromas and structure; the blend follows
+      the producer’s intended style.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:33:57.518Z
+  - id: ki_spark_multivintage
+    subject_id: n_spark_principle_multivintage
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_multivintage
+    domain_id: winemaking
+    assertion_text: A non-vintage sparkling blend may combine wines from different years, adding complementary
+      characters rather than expressing only one harvest.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:33:57.518Z
+  - id: ki_spark_mlf_optional
+    subject_id: n_spark_principle_mlf_optional
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_mlf_optional
+    domain_id: winemaking
+    assertion_text: Champagne producers may complete, partly conduct or avoid MLF according to the desired
+      style; it is distinct from alcoholic fermentation.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:33:57.518Z
+  - id: ki_spark_autolysis
+    subject_id: n_spark_principle_autolysis
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_autolysis
+    domain_id: winemaking
+    assertion_text: Yeast cells break down and release compounds into the wine during autolysis; this differs
+      from active sugar fermentation.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:33:57.518Z
+  - id: ki_spark_lees_style
+    subject_id: n_spark_principle_lees_style
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_lees_style
+    domain_id: winemaking
+    assertion_text: Lees contact and slow wine evolution can contribute mature aroma and fullness; duration
+      alone does not guarantee a preferred style.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:33:57.518Z
+  - id: ki_spark_riddling
+    subject_id: n_spark_principle_riddling
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_riddling
+    domain_id: winemaking
+    assertion_text: Riddling rotates and progressively tilts bottles to collect sediment in the neck for later removal.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:33:57.518Z
+  - id: ki_spark_automated_riddling
+    subject_id: n_spark_principle_automated_riddling
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_automated_riddling
+    domain_id: business
+    assertion_text: Automated riddling moves batches of bottles through sediment collection; hand turning is not
+      essential to the process.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:33:57.518Z
+  - id: ki_spark_disgorgement
+    subject_id: n_spark_principle_disgorgement
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_disgorgement
+    domain_id: winemaking
+    assertion_text: Opening the prepared bottle expels the lees gathered at its neck; mechanised disgorgement
+      can use a frozen sediment plug.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:33:57.518Z
+  - id: ki_spark_disgorge_oxygen
+    subject_id: n_spark_principle_disgorge_oxygen
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_disgorge_oxygen
+    domain_id: winemaking
+    assertion_text: Disgorgement opens the bottle to outside air; this changes oxygen exposure and can affect
+      subsequent wine evolution.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:33:57.518Z
+  - id: ki_spark_dosage
+    subject_id: n_spark_principle_dosage
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_dosage
+    domain_id: winemaking
+    assertion_text: Dosage can add wine and sugar after sediment removal, adjusting the finishing profile before
+      final sealing; it is not tirage.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:33:57.518Z
+  - id: ki_spark_dosage_aroma
+    subject_id: n_spark_principle_dosage_aroma
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_dosage_aroma
+    domain_id: winemaking
+    assertion_text: A neutral dosage wine or a more characterful reserve wine can influence the final aromatic
+      style as well as sweetness.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:33:57.518Z
+  - id: ki_spark_liner
+    subject_id: n_spark_principle_liner
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_liner
+    domain_id: winemaking
+    assertion_text: A crown closure can control oxygen entry; its seal permeability also affects carbon dioxide
+      loss during bottle ageing.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:42:47.784Z
+  - id: ki_spark_low_liner
+    subject_id: n_spark_principle_low_liner
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_low_liner
+    domain_id: winemaking
+    assertion_text: A less gas-permeable seal can help retain carbonation; the research-partner model also
+      identifies storage temperature as a factor.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:42:47.784Z
+  - id: ki_spark_lees_decline
+    subject_id: n_spark_principle_lees_decline
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_lees_decline
+    domain_id: winemaking
+    assertion_text: Original Cava research observed declining oxygen consumption by ageing lees, indicating that
+      their protective capacity can weaken with time.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:42:47.784Z
+  - id: ki_spark_bidule
+    subject_id: n_spark_principle_bidule
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_bidule
+    domain_id: winemaking
+    assertion_text: PE.DI describes its polyethylene bidule as an insert used with a crown closure to support
+      sealing and facilitate disgorgement.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:42:47.784Z
+  - id: ki_spark_gushing_solids
+    subject_id: n_spark_principle_gushing_solids
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_gushing_solids
+    domain_id: winemaking
+    assertion_text: Solid particles can nucleate bubbles and promote rapid degassing; gushing is not evidence of
+      excessive sugar alone.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:33:57.518Z
+  - id: ki_spark_alcohol_tartrate
+    subject_id: n_spark_principle_alcohol_tartrate
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_alcohol_tartrate
+    domain_id: winemaking
+    assertion_text: Additional fermentation alcohol reduces potassium hydrogen tartrate solubility; stability of
+      the unchanged base may not represent the finished wine.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:33:57.518Z
+  - id: ki_spark_counterpressure
+    subject_id: n_spark_principle_counterpressure
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_counterpressure
+    domain_id: winemaking
+    assertion_text: Counter-pressure helps keep fermentation-derived carbon dioxide in solution while wine moves
+      through tank processing.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:33:57.518Z
+  - id: ki_spark_gas_return
+    subject_id: n_spark_principle_gas_return
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_gas_return
+    domain_id: business
+    assertion_text: Returning gas displaced from the receiving tank can reduce purchased carbon dioxide used to
+      refill the emptying tank’s headspace.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:33:57.518Z
+  - id: ki_spark_gas_cost
+    subject_id: n_spark_principle_gas_cost
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_spark_point_gas_cost
+    domain_id: business
+    assertion_text: Fermentation supplies wine bubbles, but maintaining headspace pressure during processing can
+      consume bought gas and add operating cost.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:33:57.518Z
+  - id: ki_spark_case_fruit_tank_action
+    subject_id: n_spark_case_fruit_tank
+    relation_type: CASE_ACTION
+    object_id: n_spark_point_case_fruit_tank_action
+    domain_id: winemaking
+    assertion_text: Use the available tank method with short finishing time, while protecting the base wine’s
+      fresh character.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:33:57.518Z
+  - id: ki_spark_case_fruit_tank_reason
+    subject_id: n_spark_case_fruit_tank
+    relation_type: CASE_REASON
+    object_id: n_spark_point_case_fruit_tank_reason
+    domain_id: winemaking
+    assertion_text: Tank fermentation and bulk finishing can suit a fresh style without requiring prolonged
+      maturation in individual bottles.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:33:57.518Z
+  - id: ki_spark_case_fruit_tank_tradeoff
+    subject_id: n_spark_case_fruit_tank
+    relation_type: CASE_TRADEOFF
+    object_id: n_spark_point_case_fruit_tank_tradeoff
+    domain_id: winemaking
+    assertion_text: Short release allows less time for mature lees-related evolution than a deliberately
+      extended bottle-ageing plan.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:33:57.518Z
+  - id: ki_spark_case_fruit_tank_limitation
+    subject_id: n_spark_case_fruit_tank
+    relation_type: CASE_LIMITATION
+    object_id: n_spark_point_case_fruit_tank_limitation
+    domain_id: winemaking
+    assertion_text: Filtration and filling still require controlled counter-pressure; method choice alone does
+      not ensure gas retention or a good finished wine.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:33:57.518Z
+  - id: ki_spark_case_transfer_batch_action
+    subject_id: n_spark_case_transfer_batch
+    relation_type: CASE_ACTION
+    object_id: n_spark_point_case_transfer_batch_action
+    domain_id: winemaking
+    assertion_text: Transfer the bottle-aged wine to a suitable tank, remove lees by bulk filtration and
+      rebottle under controlled pressure.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:33:57.518Z
+  - id: ki_spark_case_transfer_batch_reason
+    subject_id: n_spark_case_transfer_batch
+    relation_type: CASE_REASON
+    object_id: n_spark_point_case_transfer_batch_reason
+    domain_id: winemaking
+    assertion_text: Transfer follows bottle fermentation and lees contact while replacing individual-bottle
+      sediment finishing with a bulk process.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:33:57.518Z
+  - id: ki_spark_case_transfer_batch_tradeoff
+    subject_id: n_spark_case_transfer_batch
+    relation_type: CASE_TRADEOFF
+    object_id: n_spark_point_case_transfer_batch_tradeoff
+    domain_id: winemaking
+    assertion_text: Tank processing consumes counter-pressure gas; include this operating demand when comparing
+      finishing options rather than assuming cost disappears.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:33:57.518Z
+  - id: ki_spark_case_transfer_batch_limitation
+    subject_id: n_spark_case_transfer_batch
+    relation_type: CASE_LIMITATION
+    object_id: n_spark_point_case_transfer_batch_limitation
+    domain_id: winemaking
+    assertion_text: Assess the actual finished wine against the style target; simpler bulk finishing is an
+      option, not a guarantee of the desired result.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:33:57.518Z
+  - id: ki_spark_case_long_closure_action
+    subject_id: n_spark_case_long_closure
+    relation_type: CASE_ACTION
+    object_id: n_spark_point_case_long_closure_action
+    domain_id: winemaking
+    assertion_text: Select a suitably low-permeability closure and manage storage temperature for the stated
+      gas-retention and evolution targets.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:42:47.784Z
+  - id: ki_spark_case_long_closure_reason
+    subject_id: n_spark_case_long_closure
+    relation_type: CASE_REASON
+    object_id: n_spark_point_case_long_closure_reason
+    domain_id: winemaking
+    assertion_text: Seal permeability influences carbonation loss, while higher storage temperature can
+      accelerate it; crown-closure choice can also control oxygen entry.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:42:47.784Z
+  - id: ki_spark_case_long_closure_tradeoff
+    subject_id: n_spark_case_long_closure
+    relation_type: CASE_TRADEOFF
+    object_id: n_spark_point_case_long_closure_tradeoff
+    domain_id: winemaking
+    assertion_text: Climate-controlled storage has economic and environmental costs; balance those resources
+      against the intended retention and ageing outcome.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:42:47.784Z
+  - id: ki_spark_case_long_closure_limitation
+    subject_id: n_spark_case_long_closure
+    relation_type: CASE_LIMITATION
+    object_id: n_spark_point_case_long_closure_limitation
+    domain_id: winemaking
+    assertion_text: The Cava study observed oxygen consumption by lees tending to decline with age; the plan
+      still needs monitoring rather than assuming permanent protection.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:42:47.784Z
+  - id: ki_spark_case_gushing_batch_action
+    subject_id: n_spark_case_gushing_batch
+    relation_type: CASE_ACTION
+    object_id: n_spark_point_case_gushing_batch_action
+    domain_id: winemaking
+    assertion_text: Investigate cold stability and the effectiveness of riddling and disgorgement, alongside
+      checking the gas-generating addition.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:33:57.518Z
+  - id: ki_spark_case_gushing_batch_reason
+    subject_id: n_spark_case_gushing_batch
+    relation_type: CASE_REASON
+    object_id: n_spark_point_case_gushing_batch_reason
+    domain_id: winemaking
+    assertion_text: Crystals and remaining lees supply nucleation sites that can trigger rapid gas release even
+      when the planned gas addition seems appropriate.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:33:57.518Z
+  - id: ki_spark_case_gushing_batch_tradeoff
+    subject_id: n_spark_case_gushing_batch
+    relation_type: CASE_TRADEOFF
+    object_id: n_spark_point_case_gushing_batch_tradeoff
+    domain_id: winemaking
+    assertion_text: Investigation may lead to replacement or reworking of affected bottles, adding cost while
+      addressing the defect.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:33:57.518Z
+  - id: ki_spark_case_gushing_batch_limitation
+    subject_id: n_spark_case_gushing_batch
+    relation_type: CASE_LIMITATION
+    object_id: n_spark_point_case_gushing_batch_limitation
+    domain_id: winemaking
+    assertion_text: Other causes include excessive dissolved gas, foreign solids and unsuitable gas handling;
+      one observed particle does not establish the complete cause.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:33:57.518Z
+  - id: ki_spark_case_dosage_trial_action
+    subject_id: n_spark_case_dosage_trial
+    relation_type: CASE_ACTION
+    object_id: n_spark_point_case_dosage_trial_action
+    domain_id: winemaking
+    assertion_text: Compare controlled dosage options in the actual blend before choosing its final sweetness
+      and aromatic profile.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:33:57.518Z
+  - id: ki_spark_case_dosage_trial_reason
+    subject_id: n_spark_case_dosage_trial
+    relation_type: CASE_REASON
+    object_id: n_spark_point_case_dosage_trial_reason
+    domain_id: winemaking
+    assertion_text: Dosage changes sweetness, and the wine component can preserve or add aromatic character
+      according to the intended style.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:33:57.518Z
+  - id: ki_spark_case_dosage_trial_tradeoff
+    subject_id: n_spark_case_dosage_trial
+    relation_type: CASE_TRADEOFF
+    object_id: n_spark_point_case_dosage_trial_tradeoff
+    domain_id: winemaking
+    assertion_text: A characterful reserve-wine dosage can add aromas, trading a more neutral expression for the
+      chosen finishing character.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:33:57.518Z
+  - id: ki_spark_case_dosage_trial_limitation
+    subject_id: n_spark_case_dosage_trial
+    relation_type: CASE_LIMITATION
+    object_id: n_spark_point_case_dosage_trial_limitation
+    domain_id: winemaking
+    assertion_text: Post-disgorgement dosage does not recreate the earlier time-dependent lees maturation; the
+      underlying base and ageing still shape the result.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T23:33:57.518Z
+certification_knowledge_mappings:
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_spark_traditional
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_spark_traditional
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_spark_traditional
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_spark_tirage
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_spark_tirage
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_spark_tirage
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_spark_more_alcohol
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_spark_more_alcohol
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_spark_more_alcohol
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_spark_tank
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_spark_tank
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_spark_tank
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_spark_tank_filter
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_spark_tank_filter
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_spark_transfer_bottle
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_spark_transfer_bottle
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_spark_transfer_bottle
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_spark_transfer_tank
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_spark_transfer_tank
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_spark_transfer_lees
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_spark_transfer_lees
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_spark_ancestral
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_spark_ancestral
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_spark_ancestral
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_spark_ancestral_disgorge
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_spark_ancestral_disgorge
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_spark_carbonation
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_spark_carbonation
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_spark_carbonation
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_spark_carbonation_fermentation
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_spark_carbonation_fermentation
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_spark_cool_solubility
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_spark_cool_solubility
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_spark_cool_solubility
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_spark_agitation
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_spark_agitation
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_spark_white_press
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_spark_white_press
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_spark_white_press
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_spark_press_fractions
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_spark_press_fractions
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_spark_base_acidity
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_spark_base_acidity
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_spark_base_acidity
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_spark_base_alcohol
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_spark_base_alcohol
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_spark_base_alcohol
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_spark_blending
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_spark_blending
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_spark_blending
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_spark_multivintage
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_spark_multivintage
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_spark_mlf_optional
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_spark_mlf_optional
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_spark_mlf_optional
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_spark_autolysis
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_spark_autolysis
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_spark_autolysis
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_spark_lees_style
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_spark_lees_style
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_spark_riddling
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_spark_riddling
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_spark_riddling
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_spark_automated_riddling
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_spark_disgorgement
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_spark_disgorgement
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_spark_disgorgement
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_spark_disgorge_oxygen
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_spark_disgorge_oxygen
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_spark_dosage
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_spark_dosage
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_spark_dosage
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_spark_dosage_aroma
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_spark_dosage_aroma
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_spark_liner
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_spark_low_liner
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_spark_lees_decline
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_spark_bidule
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_spark_gushing_solids
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_spark_gushing_solids
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_spark_alcohol_tartrate
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_spark_counterpressure
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_spark_gas_return
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_spark_gas_cost
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_spark_case_fruit_tank_action
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_spark_case_fruit_tank_reason
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_spark_case_fruit_tank_tradeoff
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_spark_case_fruit_tank_limitation
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_spark_case_transfer_batch_action
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_spark_case_transfer_batch_reason
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_spark_case_transfer_batch_tradeoff
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_spark_case_transfer_batch_limitation
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_spark_case_long_closure_action
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_spark_case_long_closure_reason
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_spark_case_long_closure_tradeoff
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_spark_case_long_closure_limitation
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_spark_case_gushing_batch_action
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_spark_case_gushing_batch_reason
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_spark_case_gushing_batch_tradeoff
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_spark_case_gushing_batch_limitation
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_spark_case_dosage_trial_action
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_spark_case_dosage_trial_reason
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_spark_case_dosage_trial_tradeoff
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_spark_case_dosage_trial_limitation
+    importance: core
+    minimum_depth: 3
+source_citations:
+  - id: src_spark_tirage
+    kind: reference_work
+    title: Bottling and second fermentation
+    publisher: Comité Champagne
+    document_identifier: Living official process reference; exact publication day not stated
+    url: https://www.champagne.fr/en/about-champagne/how-champagne-is-made/bottling-and-second-fermentation
+    accessed_on: 2026-09-27
+  - id: src_spark_australian_methods
+    kind: reference_work
+    title: How sparkling wine is made
+    publisher: Wine Australia / Australian Wine
+    document_identifier: 30 October 2020; public method descriptions; market-share and universal quality claims unused
+    url: https://www.australianwine.com/experience/articles/how-sparkling-wine-is-made
+    accessed_on: 2026-09-27
+  - id: src_spark_ancestral
+    kind: reference_work
+    title: "Pét tanNat: Nate Wall winemaker notes"
+    publisher: Troon Vineyard
+    document_identifier: Producer account for the 2023 Pét tanNat; process example only
+    url: https://troonvineyard.squarespace.com/pet-tannat
+    accessed_on: 2026-09-27
+  - id: src_spark_carbon_dioxide
+    kind: reference_work
+    title: Carbon Dioxide – ’Tis the Season for Bubbles!
+    publisher: Iowa State University Extension and Outreach, Midwest Grape and Wine Industry Institute
+    document_identifier: Jennie Savits; 13 December 2019
+    url: https://www.extension.iastate.edu/wine/carbon-dioxide-tis-season-bubbles
+    accessed_on: 2026-09-27
+  - id: src_spark_pressing
+    kind: reference_work
+    title: Arrival at the pressing centre
+    publisher: Comité Champagne
+    document_identifier: Living official process reference; numeric law and press-yield limits unused
+    url: https://www.champagne.fr/en/about-champagne/how-champagne-is-made/pressing
+    accessed_on: 2026-09-27
+  - id: src_spark_base_wine
+    kind: reference_work
+    title: Crafting Sparkling Wine
+    publisher: Wolf Blass
+    document_identifier: Public producer method reference; exact publication day not stated; generic three-grape
+      restriction unused
+    url: https://www.wolfblass.com/en-au/about/our-craft/sparkling.html
+    accessed_on: 2026-09-27
+  - id: src_spark_blending
+    kind: reference_work
+    title: Blending
+    publisher: Comité Champagne
+    document_identifier: Living official process reference; exact publication day not stated
+    url: https://www.champagne.fr/en/about-champagne/how-champagne-is-made/blending-champagne
+    accessed_on: 2026-09-27
+  - id: src_spark_fermentation
+    kind: reference_work
+    title: Fermentation
+    publisher: Comité Champagne
+    document_identifier: Living official process reference; numeric wine composition limits unused
+    url: https://www.champagne.fr/en/about-champagne/how-champagne-is-made/fermentation
+    accessed_on: 2026-09-27
+  - id: src_spark_maturation
+    kind: reference_work
+    title: Maturation on lees
+    publisher: Comité Champagne
+    document_identifier: Living official process reference; legal minimum maturation periods unused
+    url: https://www.champagne.fr/en/about-champagne/how-champagne-is-made/maturation
+    accessed_on: 2026-09-27
+  - id: src_spark_riddling
+    kind: reference_work
+    title: Riddling
+    publisher: Comité Champagne
+    document_identifier: Living official process reference; exact publication day not stated
+    url: https://www.champagne.fr/en/about-champagne/how-champagne-is-made/riddling
+    accessed_on: 2026-09-27
+  - id: src_spark_disgorgement
+    kind: reference_work
+    title: Disgorgement
+    publisher: Comité Champagne
+    document_identifier: Living official process reference; commercial recipe temperatures unused
+    url: https://www.champagne.fr/en/about-champagne/how-champagne-is-made/disgorgement
+    accessed_on: 2026-09-27
+  - id: src_spark_dosage
+    kind: reference_work
+    title: Dosage
+    publisher: Comité Champagne
+    document_identifier: Living official process reference; legal sweetness category limits unused
+    url: https://www.champagne.fr/en/about-champagne/how-champagne-is-made/dosage
+    accessed_on: 2026-09-27
+  - id: src_spark_closures
+    kind: reference_work
+    title: PE.DI Crown cap
+    publisher: Crealis / PE.DI
+    document_identifier: First-party closure description; oxygen entry and options for different ageing periods;
+      accessed 27 September 2026
+    url: https://www.crealisgroup.com/en/collection/closures/crown-cap/
+    accessed_on: 2026-09-27
+  - id: src_spark_gushing
+    kind: reference_work
+    title: "Sparkling wine gushing: not a cause for celebration"
+    publisher: Australian Wine Research Institute
+    document_identifier: Ben Cordingley; Grapegrower & Winemaker 682, November 2020, printed pp. 42–43; numeric limits unused
+    url: https://www.awri.com.au/wp-content/uploads/2021/01/s2195.pdf
+    accessed_on: 2026-09-27
+  - id: src_spark_gas_recovery
+    kind: reference_work
+    title: Reducing CO2 use during tank sparkling wine production
+    publisher: Australian Wine Research Institute
+    document_identifier: Simon Nordestgaard; Grapegrower & Winemaker 732, January 2025, printed pp. 42–47;
+      engineering examples not installation instructions
+    url: https://www.awri.com.au/wp-content/uploads/2025/01/s2430.pdf
+    accessed_on: 2026-09-27
+  - id: src_spark_closure_gas
+    kind: reference_work
+    title: "Crealis PE.DI: Crown-cap influence on sparkling ageing"
+    publisher: Crealis / PE.DI; research collaboration with Université de Reims Champagne-Ardenne
+    document_identifier: 9 July 2026; first-party research-partner report; CO2 retention, cap permeability and
+      storage temperature; numeric legal-pressure thresholds unused
+    url: https://www.crealisgroup.com/en/press_releases/crealis-pe-di-unveils-a-new-scientific-study-on-the-impact-of-crown-cap-on-sparkling-wines-during-aging/
+    accessed_on: 2026-09-27
+  - id: src_spark_lees_oxygen
+    kind: academic
+    title: Oxygen consumption rate of lees during sparkling wine (Cava) aging; influence of the aging time
+    publisher: Pons-Mercadé et al.; Universitat Rovira i Virgili and Juvé & Camps; Food Chemistry 342
+    document_identifier: Original 2021 research; DOI 10.1016/j.foodchem.2020.128238; PMID 33051100; author
+      abstract, not a universal maximum-age prescription
+    url: https://pubmed.ncbi.nlm.nih.gov/33051100/
+    accessed_on: 2026-09-27
+  - id: src_spark_bidule
+    kind: reference_work
+    title: PE.DI Bidule
+    publisher: Crealis / PE.DI
+    document_identifier: First-party product description; polyethylene insert with crown closure to facilitate
+      disgorgement; exact publication day not stated
+    url: https://www.crealisgroup.com/en/collection/closures/bidule/
+    accessed_on: 2026-09-27
+knowledge_item_citations:
+  - knowledge_item_id: ki_spark_traditional
+    source_citation_id: src_spark_tirage
+    locator: Bottling and second fermentation; mixture and bottle fermentation
+  - knowledge_item_id: ki_spark_tirage
+    source_citation_id: src_spark_tirage
+    locator: Bottling and second fermentation; composition of liqueur de tirage
+  - knowledge_item_id: ki_spark_more_alcohol
+    source_citation_id: src_spark_tirage
+    locator: Bottling and second fermentation; yeast consumes sugar
+  - knowledge_item_id: ki_spark_tank
+    source_citation_id: src_spark_australian_methods
+    locator: How is sparkling wine made?; Tank/charmat method
+  - knowledge_item_id: ki_spark_tank_filter
+    source_citation_id: src_spark_australian_methods
+    locator: How is sparkling wine made?; Tank/charmat method
+  - knowledge_item_id: ki_spark_transfer_bottle
+    source_citation_id: src_spark_australian_methods
+    locator: How is sparkling wine made?; Transfer method
+  - knowledge_item_id: ki_spark_transfer_tank
+    source_citation_id: src_spark_australian_methods
+    locator: How is sparkling wine made?; Transfer method
+  - knowledge_item_id: ki_spark_transfer_lees
+    source_citation_id: src_spark_australian_methods
+    locator: How is sparkling wine made?; Transfer method
+  - knowledge_item_id: ki_spark_ancestral
+    source_citation_id: src_spark_ancestral
+    locator: Nate Wall winemaker notes; bottling before completion of fermentation
+  - knowledge_item_id: ki_spark_ancestral_disgorge
+    source_citation_id: src_spark_ancestral
+    locator: Nate Wall winemaker notes; lees ageing and hand disgorgement
+  - knowledge_item_id: ki_spark_carbonation
+    source_citation_id: src_spark_carbon_dioxide
+    locator: Managing Carbon Dioxide in the Winery; force carbonation
+  - knowledge_item_id: ki_spark_carbonation_fermentation
+    source_citation_id: src_spark_carbon_dioxide
+    locator: Managing Carbon Dioxide in the Winery; added gas contrasted with second fermentation
+  - knowledge_item_id: ki_spark_cool_solubility
+    source_citation_id: src_spark_carbon_dioxide
+    locator: Managing Carbon Dioxide in the Winery; lower temperatures and headspace
+  - knowledge_item_id: ki_spark_agitation
+    source_citation_id: src_spark_carbon_dioxide
+    locator: Carbodoseur explanation; agitation and release of dissolved CO2
+  - knowledge_item_id: ki_spark_white_press
+    source_citation_id: src_spark_pressing
+    locator: A gentle, careful approach; whole bunches and limited skin contact
+  - knowledge_item_id: ki_spark_press_fractions
+    source_citation_id: src_spark_pressing
+    locator: Cuvée and taille; distinct characteristics
+  - knowledge_item_id: ki_spark_base_acidity
+    source_citation_id: src_spark_base_wine
+    locator: Making the Base Wine; early harvest and acid backbone
+  - knowledge_item_id: ki_spark_base_alcohol
+    source_citation_id: src_spark_base_wine
+    locator: Making the Base Wine; Bottling and Secondary Fermentation
+  - knowledge_item_id: ki_spark_blending
+    source_citation_id: src_spark_blending
+    locator: A subtle art; complementary aromas, balance and personality
+  - knowledge_item_id: ki_spark_multivintage
+    source_citation_id: src_spark_base_wine
+    locator: Making the Base Wine; single vintage and non-vintage blends
+  - knowledge_item_id: ki_spark_mlf_optional
+    source_citation_id: src_spark_fermentation
+    locator: Several stages; alcoholic fermentation required and MLF optional
+  - knowledge_item_id: ki_spark_autolysis
+    source_citation_id: src_spark_maturation
+    locator: Protected from light; yeast dies and decomposes
+  - knowledge_item_id: ki_spark_lees_style
+    source_citation_id: src_spark_maturation
+    locator: Protected from light; autolysis, slow oxidation and mature aromas
+  - knowledge_item_id: ki_spark_riddling
+    source_citation_id: src_spark_riddling
+    locator: Easing the sediment downwards; aim and neck-down movement
+  - knowledge_item_id: ki_spark_automated_riddling
+    source_citation_id: src_spark_riddling
+    locator: Manual and automated remuage
+  - knowledge_item_id: ki_spark_disgorgement
+    source_citation_id: src_spark_disgorgement
+    locator: A crucial moment; sediment concentration and expulsion
+  - knowledge_item_id: ki_spark_disgorge_oxygen
+    source_citation_id: src_spark_disgorgement
+    locator: A crucial moment; contact with outside air
+  - knowledge_item_id: ki_spark_dosage
+    source_citation_id: src_spark_dosage
+    locator: The final touch; wine-and-sugar addition before corking
+  - knowledge_item_id: ki_spark_dosage_aroma
+    source_citation_id: src_spark_dosage
+    locator: The final touch; neutral liqueur and reserve-wine alternatives
+  - knowledge_item_id: ki_spark_liner
+    source_citation_id: src_spark_closures
+    locator: PE.DI Crown cap; oxygen entry during ageing and liner options
+  - knowledge_item_id: ki_spark_low_liner
+    source_citation_id: src_spark_closure_gas
+    locator: An unprecedented approach; Cellar temperature and capsule selection
+  - knowledge_item_id: ki_spark_lees_decline
+    source_citation_id: src_spark_lees_oxygen
+    locator: Author abstract; measurements from first through ninth year and decreasing oxygen-consumption rate
+  - knowledge_item_id: ki_spark_bidule
+    source_citation_id: src_spark_bidule
+    locator: Collection; crown-cap combination, pressure sealing and disgorgement
+  - knowledge_item_id: ki_spark_gushing_solids
+    source_citation_id: src_spark_gushing
+    locator: Printed pp. 42–43; cold instability and residual yeast
+  - knowledge_item_id: ki_spark_alcohol_tartrate
+    source_citation_id: src_spark_gushing
+    locator: Printed p. 42; inadequate cold stabilisation
+  - knowledge_item_id: ki_spark_counterpressure
+    source_citation_id: src_spark_gas_recovery
+    locator: Printed p. 42; counter-pressure and processing stages
+  - knowledge_item_id: ki_spark_gas_return
+    source_citation_id: src_spark_gas_recovery
+    locator: Printed p. 43; connecting tank headspaces
+  - knowledge_item_id: ki_spark_gas_cost
+    source_citation_id: src_spark_gas_recovery
+    locator: Printed p. 42; Introduction and CO2 costs
+  - knowledge_item_id: ki_spark_case_fruit_tank_action
+    source_citation_id: src_spark_australian_methods
+    locator: How is sparkling wine made?; Tank/charmat method
+  - knowledge_item_id: ki_spark_case_fruit_tank_reason
+    source_citation_id: src_spark_australian_methods
+    locator: How is sparkling wine made?; Tank/charmat method
+  - knowledge_item_id: ki_spark_case_fruit_tank_tradeoff
+    source_citation_id: src_spark_maturation
+    locator: Protected from light; slow autolysis and wine evolution
+  - knowledge_item_id: ki_spark_case_fruit_tank_limitation
+    source_citation_id: src_spark_gas_recovery
+    locator: Printed p. 42; tank headspace counter-pressure
+  - knowledge_item_id: ki_spark_case_transfer_batch_action
+    source_citation_id: src_spark_australian_methods
+    locator: How is sparkling wine made?; Transfer method
+  - knowledge_item_id: ki_spark_case_transfer_batch_reason
+    source_citation_id: src_spark_australian_methods
+    locator: How is sparkling wine made?; Transfer method
+  - knowledge_item_id: ki_spark_case_transfer_batch_tradeoff
+    source_citation_id: src_spark_gas_recovery
+    locator: Printed p. 42; purchased headspace gas in tank and transfer processes
+  - knowledge_item_id: ki_spark_case_transfer_batch_limitation
+    source_citation_id: src_spark_australian_methods
+    locator: How is sparkling wine made?; Transfer method; editorial application of the method description
+  - knowledge_item_id: ki_spark_case_long_closure_action
+    source_citation_id: src_spark_closure_gas
+    locator: "Cellar temperature and capsule selection: two key factors"
+  - knowledge_item_id: ki_spark_case_long_closure_reason
+    source_citation_id: src_spark_closure_gas
+    locator: An unprecedented approach; Cellar temperature and capsule selection
+  - knowledge_item_id: ki_spark_case_long_closure_tradeoff
+    source_citation_id: src_spark_closure_gas
+    locator: Cellar temperature and capsule selection; economic and environmental challenge
+  - knowledge_item_id: ki_spark_case_long_closure_limitation
+    source_citation_id: src_spark_lees_oxygen
+    locator: Author abstract; decreasing oxygen-consumption rate and protective capacity
+  - knowledge_item_id: ki_spark_case_gushing_batch_action
+    source_citation_id: src_spark_gushing
+    locator: Printed pp. 42–43; excessive gas, tartrate instability and residual yeast
+  - knowledge_item_id: ki_spark_case_gushing_batch_reason
+    source_citation_id: src_spark_gushing
+    locator: Printed pp. 42–43; solids and residual yeast
+  - knowledge_item_id: ki_spark_case_gushing_batch_tradeoff
+    source_citation_id: src_spark_gushing
+    locator: Printed p. 42; economic losses, replacements and rework
+  - knowledge_item_id: ki_spark_case_gushing_batch_limitation
+    source_citation_id: src_spark_gushing
+    locator: Printed pp. 42–43; listed gushing factors
+  - knowledge_item_id: ki_spark_case_dosage_trial_action
+    source_citation_id: src_spark_dosage
+    locator: The final touch; quantities and liqueur choice; original editorial trial application
+  - knowledge_item_id: ki_spark_case_dosage_trial_reason
+    source_citation_id: src_spark_dosage
+    locator: The final touch; neutral and reserve-wine dosage
+  - knowledge_item_id: ki_spark_case_dosage_trial_tradeoff
+    source_citation_id: src_spark_dosage
+    locator: The final touch; neutral versus reserve-wine liqueur
+  - knowledge_item_id: ki_spark_case_dosage_trial_limitation
+    source_citation_id: src_spark_maturation
+    locator: Protected from light; time-dependent autolysis and wine evolution
+  - knowledge_item_id: ki_spark_case_transfer_batch_action
+    source_citation_id: src_spark_gas_recovery
+    locator: Printed p. 42; transfer-method tank processing and counter-pressure
+  - knowledge_item_id: ki_spark_liner
+    source_citation_id: src_spark_closure_gas
+    locator: An unprecedented approach to measuring CO2 transfers; cap permeability and CO2 retention
+  - knowledge_item_id: ki_spark_case_long_closure_action
+    source_citation_id: src_spark_closures
+    locator: Oxygen entry during bottle ageing and technical solutions for different ageing periods
+  - knowledge_item_id: ki_spark_case_long_closure_reason
+    source_citation_id: src_spark_closures
+    locator: Collection; calibrating oxygen entry during bottle ageing

@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **Date** | 2026-09-24 |
+| **Date** | 2026-09-26 |
 | **Baseline** | Phases 0–3 complete on `claude/charming-ramanujan-8w1v2r` ([Xaiando/Mobile#1](https://github.com/Xaiando/Mobile/pull/1)): 241 tests, CI green on Android, iOS and web |
 | **Design** | [Question system and coverage](design/question-system.md) · [Geography and maps](design/geography.md) · [Study packs](design/study-packs.md) |
 | **Content plans** | [Spätburgunder study tree](content/spaetburgunder-study-tree.md) · [Sub-region atlas](content/subregion-atlas.md) |
@@ -14,6 +14,10 @@ The product specification's backlog (§P) has ten large tasks, seven of which ar
 - the question system grows from three formats to the sixteen study modes requested, plus short written answers (spec §T) and episodic recall;
 - a coverage checker makes sure that no important knowledge can only ever be practised as a flashcard;
 - a Spätburgunder pack gives one grape and one country full depth, and has a fast track (§4).
+
+**Historical atlas validation, release 0.9.0 (26 September 2026).** Release 0.9.0 retains the C6 core and maps 613 noncountry places across 18 countries, supported by 614 cited `LOCATED_IN` items. A unit with two parents has more than one location fact; these are not 614 distinct places. The atlas now includes major world wine areas, seven Chablis Grand Cru climats, ten selected Chablis Premier Cru climats and all 32 Côte d'Or Grand Cru appellations. `map_pair` asks for two to four named places and grades each location item; `map_grape` asks for one legally permitted area and uses only cited complete grape lists. These changes advance G8 and G10–G13, but do not complete their hierarchy, ordering, neighbour or complete-the-set objectives. Point markers are reference locations, and full Master-level or worldwide legal-appellation coverage remains open. See [geography coverage](research/geography-coverage.md). Local validation passes: 695 full-suite Flutter tests plus two additional French grape-grading tests, clean analysis, zero curriculum-lint errors, the coverage baseline, seven geography pipeline tests and reproducibility/containment checks. The earlier C6 validation remains recorded in its handoff; remote CI and expert review remain open.
+
+**Current local atlas progress, release 0.11.0.** The companion targets WSET Level 4 Diploma and now maps 1,423 noncountry places plus 20 country frames, with 1,424 cited location facts. This continuation adds 361 New World places, six dated NZ planting-rank maps and cumulative learner progress for Levels 1–4. Australia, Ontario/BC and California/Oregon/Washington have explicit closed name inventories; South Africa covers all districts and 101 of 102 wards, retaining Paardeberg South as an explicit missing licensed-reference target. Named-place and grape-combination maps share each fact’s review history. The full Diploma curriculum and other fine-region registers remain incomplete; exact sources and final validation are in the [geography inventory](research/geography-coverage.md) and [learner progress notes](wset-learner-progress.md).
 
 ---
 
@@ -61,14 +65,14 @@ TASK-008 (tasting grids) and TASK-009 (journal integration) remain; they are T1�
 | F1 | Question-coverage checker: report and ratchet | — | 1 | ☑ |
 | F2 | Schema v2: question system, geography, packs | C1 | 2 | ☑ |
 | F3 | Format registry and exercise runtime | F2 | 3 | ☑ |
-| F4 | Presentation difficulty ladder | F3 | 4 | ☐ |
+| F4 | Presentation difficulty ladder | F3 | 4 | ☑ |
 | **C** | **Curriculum content and tooling** | | | |
 | C1 | Dataset modularization, authoring and verification tools | — | 1 | ☑ |
 | C2 | Content: France | C1, F2 | 3 | ☐ |
 | C3 | Content: Italy, Spain, Portugal and fortified wines | C1, F2 | 3 | ☐ |
 | C4 | Content: the New World | C1, F2 | 3 | ☐ |
 | C5 | Content: principles | C1 | 2 | ☐ |
-| C6 | Content: Germany, Austria and the rest of Europe | C1 | 2 | ☐ |
+| C6 | Content: Germany, Austria and the rest of Europe | C1 | 2 | ◐ |
 | C7 | Content: CMS Europe beverages, service and business core | C1, F2, SCOPE-1 | 3 | ☐ |
 | **G** | **Geography and maps** | | | |
 | G1 | Geodata pipeline, sources and licences | — | 1 | ☑ |
@@ -78,19 +82,19 @@ TASK-008 (tasting grids) and TASK-009 (journal integration) remain; they are T1�
 | G5 | Hierarchy drills and map orderings | G4, Q3 | 5 | ☐ |
 | G6 | Physical geography and climate influences | G4 | 5 | ☐ |
 | G7 | Topography and geology | G4 | 5 | ☐ |
-| G8 | Neighbours and grape–region drills | G4, Q2, Q3 | 5 | ☐ |
+| G8 | Neighbours and grape–region drills | G4, Q2, Q3 | 5 | ◐ |
 | G9 | Map-based deduction | Q6, G6, G7 | 6 | ☐ |
-| G10 | Sub-region atlas: France | C2, G5, G8 | 6 | ☐ |
-| G11 | Sub-region atlas: Italy, Spain and Portugal | C3, G5, G8 | 6 | ☐ |
-| G12 | Sub-region atlas: Germany, Austria and Switzerland | C6, G4 | 5 | ☐ |
-| G13 | Sub-region atlas: the United States and the Southern Hemisphere | C4, G5, G8 | 6 | ☐ |
+| G10 | Sub-region atlas: France | C2, G5, G8 | 6 | ◐ |
+| G11 | Sub-region atlas: Italy, Spain and Portugal | C3, G5, G8 | 6 | ◐ |
+| G12 | Sub-region atlas: Germany, Austria and Switzerland | C6, G4 | 5 | ◐ |
+| G13 | Sub-region atlas: the United States and the Southern Hemisphere | C4, G5, G8 | 6 | ◐ |
 | **Q** | **Question formats** | | | |
-| Q1 | Typed recall and short written answers | F3 | 4 | ☐ |
+| Q1 | Typed recall and short written answers | F3 | 4 | ☑ |
 | Q2 | Multiple response and completeness assertions | F3 | 4 | ☐ |
 | Q3 | Matching and ordering | F3 | 4 | ☐ |
 | Q4 | Numeric and range answers | F3 | 4 | ☐ |
 | Q5 | Label interpretation and wine-list error spotting | F3 | 4 | ☐ |
-| Q6 | Reasoning engine: climate, viticulture, production | F3 | 4 | ☐ |
+| Q6 | Reasoning engine: climate, viticulture, production | F3 | 4 | ◐ |
 | Q7 | Service and food-pairing scenarios | Q6, C5 | 5 | ☐ |
 | Q8 | Tasting deduction | Q6, T1 | 5 | ☐ |
 | Q9 | Cross-domain reasoning | Q6, G6 | 6 | ☐ |
@@ -186,7 +190,7 @@ For a learner preparing now, the [study tree](content/spaetburgunder-study-tree.
   - The policy declares format capabilities for every relation type in the dataset. The checker fails if a relation type is missing from the policy.
   - `dart run tool/coverage_report.dart --track WSET_L3 --format md|json` runs offline.
   - `coverage_baseline.json` is committed. The build fails if a metric drops below it, or if a *new* core item is flashcard-only.
-  - Known gaps are allowed only when listed in the baseline, each with a reason and the task that will close it. The five `mcq_disabled` items that are flashcard-only today are the first entries; Q1 closes them.
+  - Known gaps are allowed only when listed in the baseline, each with a reason and the task that will close it. The five `mcq_disabled` items that are flashcard-only today are the first entries; Q1 closes them (typed recall, release 0.6.0).
   - The PR attaches the report for the current dataset.
 - **Required automated tests.**
   - Fixture datasets for each metric and each gap rule.
@@ -282,6 +286,7 @@ For a learner preparing now, the [study tree](content/spaetburgunder-study-tree.
   - A distribution test over many seeds.
   - A simulated-weeks integration test in which an item's presentations harden as it is recalled.
 - **Parallel.** Yes with Q1–Q6, G4, J3 and S2. It owns only the chooser.
+- **Status.** Done (QF-15): `FormatLadder` and `MemoryBand`; formats declare `preferredBands`; the planner reads each item's last template; the map modes use the same bands; FS-15's random draw is superseded.
 
 ### Group C: Curriculum content and tooling
 
@@ -355,6 +360,8 @@ For a learner preparing now, the [study tree](content/spaetburgunder-study-tree.
 
 #### C5 · Content: principles
 
+- **Status.** In progress through release 0.13.0: the preceding 182-point vineyard/winery/business/service module now has a further 173 points on sparkling, fortified wines, faults and diagnostic limits, including 15 additional conditional cases. Editorial WSET/CMS mappings retain foundation depth and Diploma-specific case depth. Food pairing, wider regional/product comparisons, analytical tasting, the Q6 reasoning engine and qualified review remain open. [Products and faults continuation](research/diploma-products-faults-continuation.md). The subsequent [regional continuation](research/diploma-regional-comparisons-continuation.md) adds 132 points and 12 cases for DIP-3.
+
 - **Objective.** Author the general knowledge that reasoning and scenario formats need ([question-system §7](design/question-system.md#7-principles-the-knowledge-behind-reasoning-formats)):
   - climate → style;
   - viticultural hazards and practices;
@@ -362,7 +369,7 @@ For a learner preparing now, the [study tree](content/spaetburgunder-study-tree.
   - wine faults (cork taint, oxidation, *Brettanomyces*, volatile acidity);
   - service: temperatures, glassware, decanting, storage;
   - food-pairing principles;
-  - the **business** domain (wine lists, pricing, cellar management), which is empty today;
+  - the **business** domain (wine lists, pricing, cellar management), now partially populated;
   - wine-focused service and pairing principles shared by both tracks.
 
   CMS Europe-specific non-wine beverages, cocktails and business arithmetic belong to C7, not C5.
@@ -390,6 +397,8 @@ For a learner preparing now, the [study tree](content/spaetburgunder-study-tree.
   - No new core item is flashcard-only. Every item is `unverified` (D3).
 - **Required automated tests.** As C2: the validator and §S.3 gate, the generation report, updated ingestion counts and a raised coverage baseline.
 - **Parallel.** Yes in wave 2. It writes only its own files.
+
+- **Status.** Implemented locally in release 0.8.0 and retained in 0.9.0; remote CI remains pending. The five country files originally added 117 cited, unverified items: Germany 59, Austria 25, Switzerland 9, Hungary 15 and Greece 9. EU zones, legal and private classifications, dated German vineyard statistics, regional locations and permitted grapes have objective practice. `europe_content_test.dart` checks the C6 minimum, provenance, legal-source requirements, location items, useful core practice and legal-category grading. Ingestion counts follow the complete release, and the coverage baseline is raised. Sources follow the September 2026 German consolidation, the 2024 Kamptal ordinance and the Tokaj specification applicable after 1 August 2025. Release 0.9.0 adds sourced markers for the C6 geography and selected deeper European areas; the full G12 atlas remains unfinished. Expert review and certification parity remain release gates.
 
 ### Group G: Geography and maps
 
@@ -478,6 +487,8 @@ For a learner preparing now, the [study tree](content/spaetburgunder-study-tree.
   - A web smoke test that taps a feature.
 - **Parallel.** Yes in wave 4.
 
+The 0.9.0 `map_pair` extension to G4 asks for two to four named places in a common frame, with independent answers and one review per location item. It uses active-track co-items, seeded selection, editable choices and the accessible name list. It does not implement G5's hierarchy or ordering exercises. Exact hits on an overlapping requested area remain correct; merely nearby targets do not override an exact hit on another area. Local expansion validation passes; see the geography coverage inventory.
+
 #### G5 · Hierarchy drills and map orderings
 
 - **Objective.** Add two map exercises:
@@ -533,6 +544,7 @@ For a learner preparing now, the [study tree](content/spaetburgunder-study-tree.
   - Ranking questions cite a survey and its date.
 - **Required automated tests.** Adjacency comparison; closed-world refusal; multi-locate grading per item; ranking generation.
 - **Parallel.** Yes in wave 5.
+- **Status.** Partial in release 0.11.0: 1,423 noncountry places across 20 countries and 1,424 cited location items, mapped at depth two or above on WSET Level 3 and CMS Certified and inherited by Diploma. Chablis now has all seven Grand Cru climats and 40 Premier Cru label-climat names; Alsace all 51 Grand Crus; Côte d'Or all 32 Grand Cru appellations. Europe adds all 20 Italian administrative regions, important commune/subregion sets, eight current Chianti subzones and current Jerez/Cava geography. New World coverage completes the listed Napa/Sonoma/Willamette/Paso study sets and several Southern Hemisphere subregion/ward sets. Diploma geography adds China, England/Wales, New York and missing macro-region frames. Point fallbacks remain explicitly qualified and source/licence pinned. Named-place and one-to-three grape clues are implemented with independent review grades. Detailed MGAs/Pievi/UGAs, physical-geography relationships, authoritative legal boundaries and the remaining G5/G8 drills stay open. The [coverage inventory](research/geography-coverage.md) records exact counts, closed lists, source methods and validation.
 
 #### G9 · Map-based deduction
 
@@ -584,6 +596,7 @@ Four tasks share one pattern. Each turns the famous regions of one country group
   - The GEO-1 same-item test on one unit per country group, e.g. Pauillac, Barolo, the Assmannshäuser Höllenberg, Oakville.
   - Pipeline checks for the new layers: byte-identical rebuild, budgets, containment.
 - **Parallel.** Yes. Each task writes its own atlas files and layers. G12 runs in wave 5, the others in wave 6.
+- **Status.** Partial in release 0.11.0. The atlas files supply 1,424 cited location facts for 1,423 distinct noncountry places across 20 countries, with editorial WSET L3/CMS mappings inherited by Diploma. French coverage includes seven Chablis Grand Cru climats, 40 Premier Cru label-climat names, all 32 Côte d'Or Grand Cru appellations and all 51 Alsace Grand Crus. Europe, New World, British and Chinese additions broaden the major regions, districts, villages and sites. Sourced point fallbacks complement commune-based French areas; markers never assert legal boundaries. Remaining atlas sheets, finer legal boundaries, complete subregion lists and G5/G8's other drills are still open. The [coverage inventory](research/geography-coverage.md) records source methods, limits and passing local validation.
 
 ### Group Q: Question formats
 
@@ -608,6 +621,12 @@ Four tasks share one pattern. Each turns the famous regions of one country group
   - Widget tests.
   - The coverage change.
 - **Parallel.** Yes in wave 4.
+- **Status.** Done:
+  - typed recall (QF-13): `formats/typed/`, its view and forward templates for seven relation types, in release 0.6.0. The grader accepts every correct node and its alternative names, and lets an answer add or drop its type's words; a slip of one letter, or part of the name that names nothing else, is Hard. The five former known gaps have typed recall, and the baseline lists none;
+  - short written answers (QF-14): `formats/short_answer/`, its view, and an appellation profile template whose key points are the facts of eight relation types, in release 0.7.0. Thirteen appellations have a pool; each exercise checks up to four points;
+  - the coverage checker counts pooled formats, and an item served only self-graded formats is flashcard-only.
+
+  Reverse typed recall accepts only the subjects the dataset lists, so it waits for Q2's completeness assertions (QF-8).
 
 #### Q2 · Multiple response and completeness assertions
 
@@ -618,6 +637,7 @@ Four tasks share one pattern. Each turns the famous regions of one country group
   - Questions are generated only for asserted sets (QF-8).
   - Grading is per item (QF-4).
   - Distractors follow QG-4.
+  - Reverse typed recall (QF-13) is generated for each asserted reverse set.
 - **Required automated tests.** Refusal for a set without an assertion; per-item grading with false positives and misses.
 - **Parallel.** Yes in wave 4.
 
@@ -665,6 +685,7 @@ Four tasks share one pattern. Each turns the famous regions of one country group
 
 #### Q6 · Reasoning engine: climate, viticulture, production
 
+- **0.20.0 implementation:** The pure-core engine and four cited Diploma starter chains are implemented. Scheduling and coverage expose final targets only; current explicit contradictions, active-track membership, depth 4 and studied support are required. Correct answers credit the complete chain; wrong answers grade only its target. Cited feedback and completed-answer backups use the existing runtime. Broader climate/production content, sustained written practice and qualified review remain open. [Evidence and checks](research/diploma-reasoning-continuation.md). The [earlier Q6 audit](research/reasoning-engine-implementation-audit.md) retains its historical assessment.
 - **Objective.** Build the reasoning engine: path-pattern templates, chain enumeration, primary and supporting items, distractors that violate a principle, and chain grading ([question-system §7](design/question-system.md#7-principles-the-knowledge-behind-reasoning-formats), QF-5). Add climate, viticulture and production reasoning templates.
 - **Depends on.** F3. C5 supplies real principles, and fixtures suffice until then.
 - **Modules.** `formats/reasoning/`, path queries in `lib/core/curriculum/`, `templates/` files.
@@ -949,7 +970,7 @@ Every mode requested for this backlog maps to tasks:
 
 | Requested | Tasks |
 |---|---|
-| Simple recall; reverse recall; multiple choice | built (Phases 2–3); Q1 adds typed recall in both directions and short written answers |
+| Simple recall; reverse recall; multiple choice | built (Phases 2–3); typed recall (forward) and short written answers built (Q1); reverse typed recall comes with Q2 |
 | Multiple response; matching; ordering; numeric and range | Q2; Q3; Q3; Q4 |
 | Label interpretation | Q5 |
 | Map and geography | G1–G9 |
@@ -958,8 +979,9 @@ Every mode requested for this backlog maps to tasks:
 | Tasting deduction | Q8, with the lexicon from T1 |
 | Cross-domain reasoning | Q9 |
 | Tap the country, region, subregion or appellation; identify a highlighted region | G4 |
+| Find two to four named places on one map | built and validated locally as `map_pair`, extending G4 |
 | Hierarchy drills | G5 |
-| Grape → regions; region → grapes; neighbours | G8 |
+| Grape → regions; region → grapes; neighbours | G8; one legally permitted area built locally as `map_grape`, other drills open |
 | Rivers and bodies of water; mountain ranges and barriers; climate influences | G6 |
 | Slope, aspect, elevation; soils and geology | G7 |
 | Map-based deduction | G9 |
@@ -978,7 +1000,7 @@ The backlog was reviewed against the specification (§A–§T), the decision reg
 
 | Area | Found | Now in |
 |---|---|---|
-| Business domain (wine lists, pricing, cellar management) | The domain exists but has no items | C5 |
+| Business domain (wine lists, pricing, cellar management) | 38 business points, including pricing, cash-flow and currency cases; wider commercial analysis remains open | C5, DIP-2 |
 | Wine faults | Absent, but essential for service and tasting | C5, Q7 |
 | Spirits, beer and sake basics | Needed for the CMS tracks' breadth | C5 |
 | Age gate and age rating | Alcohol-related apps need a store age rating | R1, R3, L-24 |
@@ -1012,7 +1034,7 @@ The backlog was reviewed against the specification (§A–§T), the decision reg
 | Producer and vintage knowledge | Volatile, and raises trademark questions |
 | Several learner profiles | V0.1 is a single-learner app; `user_profiles` has one row by design (CM-9) |
 | Studying several tracks at once | PK-3 |
-| More selectable tracks (WSET Levels 2 and 4; CMS Introductory and Advanced) | Mapping and content work after V0.1 (CM-1) |
+| More selectable tracks (WSET Level 2; CMS Introductory and Advanced) | Mapping and content work after V0.1 (CM-1); Diploma is selectable with incomplete content |
 | Streaks, goals and other motivation features | Product decision |
 | Automated ingestion of legal-text updates | Spec §T; curators update releases by hand (V-7, V-8) |
 | Images of grapes and leaves | No licensed images |
@@ -1088,3 +1110,68 @@ R3 additionally requires:
 ### Product claim
 
 Until these gates pass, describe the app as a developing sommelier study companion. Do not claim official affiliation, accreditation, guaranteed exam readiness, or validation of physical table-service technique.
+
+## 9. WSET Level 4 Diploma target (26 September 2026)
+
+The user confirmed **Level 4 Diploma as the target for the whole study companion**. This supersedes the earlier Level 3 completion boundary. Level 3 and CMS Certified remain available. Diploma inherits their relevant authored practice, but adding a selectable track or location questions does not complete the Diploma curriculum. The [pinned scope](../assets/curriculum/track_scope.yaml) and [gap audit](research/wset-level-4-gap-audit.md) use WSET's August 2025 Issue 1.4 specification. Labels below are editorial descriptions; the app does not reproduce WSET course material or official examination questions.
+
+| Task | Status | Required result |
+|---|---|---|
+| DIP-1 | In progress; vineyard/winery foundations, fault/control cases and four causal-reasoning starter chains | Explain and evaluate vineyard and winery decisions, including their effect on style, quality and costs |
+| DIP-2 | In progress; 26 commercial principles and three conditional cases | Wine supply, demand, costs, business structures, distribution, markets and marketing |
+| DIP-3 | In progress; substantial atlas, regional comparisons/cases and diagnostic tasting foundations | Regional wine knowledge with linked geography, grapes, environment, production, law, business and analytical tasting |
+| DIP-4 | In progress; 38 method/style principles and five conditional cases | Sparkling-wine methods, styles, regions, labelling, business and tasting |
+| DIP-5 | In progress; 37 production/style principles and five conditional cases | Fortified-wine production, maturation, styles, regions, law, business and tasting |
+| DIP-6 | Open | Research planning, source evaluation, evidence management and original written argument |
+
+**Learner progress implemented in 0.11.0.** Home and the progress detail screen show Levels 1–4, available facts studied/mastered, unavailable mapped facts, next study actions and six Diploma topic groups. Current mastery requires spaced successful reviews and FSRS memory thresholds; failures and decay can reduce it. All level scopes remain incomplete. Independently reversible self-reported exam passes use existing backed-up settings. No schema migration or automatic qualification claim is introduced. [Behaviour and checks](wset-learner-progress.md).
+
+### DIP-1 · Production reasoning
+
+**0.20.0 continuation:** Four objective causal chains and 21 Diploma-only points introduce bounded vineyard/winery reasoning. The runtime is implemented; broad climate, cost and analytical coverage still needs authoring and qualified review. [Evidence and checks](research/diploma-reasoning-continuation.md).
+
+**0.13.0 continuation:** 38 fault/diagnostic principles and five conditional quality-control/service cases add production controls and observation limits. Winemaking points contribute to D1; diagnostic tasting foundations contribute to D3. The cases do not establish practical cellar competence or complete analytical tasting. [Evidence and limits](research/diploma-products-faults-continuation.md).
+
+**0.12.0 continuation:** 40 vineyard and 42 winery learning points, plus 11 original cases with four independently graded learning points each. Case prompts retain their conditions and scope; the existing short-answer format self-checks selected points rather than assigning official essay marks. More comparisons, faults, packaging choices, quality/cost evaluation and expert review remain required. [Evidence and limits](research/diploma-principles-continuation.md).
+
+Build on C5 with cited vine physiology, climate and site, propagation and rootstocks, soil and water management, canopy decisions, hazards, harvest, fermentation, extraction, maturation, finishing, packaging, faults and quality control. Author original explanation, comparison and evaluation exercises with evidence-linked rubrics. Recall questions alone do not meet the acceptance criteria. Test that scenarios preserve relevant conditions, support more than one defensible decision when appropriate, and link reviews to the knowledge actually assessed.
+
+### DIP-2 · Wine business
+
+**0.12.0 continuation:** 26 business principles and three original four-point cases now cover selected costing/pricing, cash/inventory and exchange-rate decisions. Fictional arithmetic illustrates assumptions; numeric grading, fuller market/distribution/producer structures, law and comparative marketing are still open. All facts await qualified review.
+
+Author a business graph and original scenarios covering supply and demand, production and sales costs, pricing, currency risk, producer structures, intermediaries, retail and hospitality channels, market systems and marketing decisions. Use dated primary sources for current laws and costs, and explicitly hypothetical figures for arithmetic. Test unit handling, margin versus markup, stated assumptions, track isolation and source dates. No business-complete claim is allowed while the domain has no authored practice.
+
+### DIP-3 · Regional analysis and tasting
+
+**0.19.0 continuation:** 44 Diploma-only China points add 14 comparisons and four cases, assigned explicitly to D3. Chinese country coverage now has eight preserved map facts and 44 analytical facts. Full regional depth, law, commercial evidence, tasting and qualified review remain open. [Evidence and checks](research/diploma-china-continuation.md).
+
+**0.18.0 continuation:** 132 points add 42 paired explanations and 12 original cases for the United States, Canada, Chile, Argentina, Australia, New Zealand and South Africa, explicitly assigned to D3. The 84 foundations support lower tracks at depth 2, with secondary mappings where appropriate. China, wider regional/product depth, current law, commercial evidence, analytical tasting and qualified review remain open. [Evidence and checks](research/diploma-new-world-depth-continuation.md).
+
+**0.17.0 continuation:** 132 points add 42 paired explanations and 12 original cases for Germany, Austria, Tokaj and Greece, all assigned explicitly to D3. The 84 foundations support lower tracks at depth 2, with secondary study mappings where appropriate. Broader regional/product depth, current law, commercial evidence, tasting and qualified review remain open. [Evidence and checks](research/diploma-european-depth-continuation.md).
+
+**0.16.0 continuation:** 132 further points add 42 paired explanations and 12 cases across Alsace, Beaujolais, Jura, Mediterranean France, the Loire, Rhône and South West. All join D3 explicitly; 84 foundations support lower tracks, with Jura optional/secondary there. Current law, broader commercial evidence, regional depth, tasting and qualified review remain open. [Evidence and validation](research/diploma-france-depth-continuation.md).
+
+**0.15.0 continuation:** 132 further regional points add 42 paired explanations and 12 original cases for Italy, Spain and Portugal. All join D3 explicitly; 84 foundations support Level 3/CMS. Existing maps are preserved, and deeper regional, legal, commercial and tasting coverage remains open. [Evidence and validation](research/diploma-italy-iberia-continuation.md).
+
+**0.14.0 continuation:** 132 cited points supply 42 paired regional explanations and 12 original four-point cases across France, the Americas, Australia, New Zealand and South Africa. Explicit selectors assign all to D3; 82 foundation points also support Level 3/CMS. Country scope selectors retain further tasks. This addition preserves the atlas and leaves wider regional, regulatory, commercial and analytical tasting depth open. [Evidence and limits](research/diploma-regional-comparisons-continuation.md).
+
+Complete the named Diploma regions, then add depth within each: influential varieties, environment and viticulture, production and maturation, classification and labelling, styles, quality and price, business structures and routes to market. Preserve complete map lists where asserted, and qualify markers as reference locations. China, England/Wales and New York are included in this atlas continuation; unrepresented named places must remain visible in the audit. Add original regional comparisons and explanation rubrics, plus tasting records that connect observations to quality and development. An objective represented by a location fact still needs regional analytical content and qualified review.
+
+### DIP-4 · Sparkling analysis
+
+**0.13.0 continuation:** 38 principles and five scoped cases cover production methods, finishing, pressure handling and selected cost choices. Explicit item selectors assign all 58 facts to D4 without classifying non-geographic subjects as places. Regional product depth, current label rules, wider commercial analysis and structured tasting remain open.
+
+Cover the named sparkling regions and methods with original process, labelling, style, quality, price and business exercises. Distinguish legal permission lists by product category: English/Welsh sparkling rules do not establish the complete permitted-grape union for all PDO wine. Add sparkling tasting practice without copying proprietary tasting-grid wording or artwork. Test legal conditions, process sequences, category-specific completeness and explanations that compare production choices.
+
+### DIP-5 · Fortified analysis
+
+**0.13.0 continuation:** 37 principles and five scoped cases cover Port, Sherry, Madeira, VDN and Rutherglen production/maturation choices. All 57 facts support D5 through explicit item selectors, while mixed-style regional facts retain their existing grouping. Detailed regulatory/product comparisons, broader commercial evidence and structured tasting remain open.
+
+Cover the named fortified families with their geography, varieties, fermentation and fortification choices, maturation, styles, labelling and commercial considerations. Distinguish current rules from historical practice, and separate sweetening and blending permissions from principal varieties. Add original comparative tasting and written exercises. Test the timing and consequences of fortification, maturation sequences and conditional legal facts.
+
+### DIP-6 · Research support
+
+Add an evidence notebook, bibliography/export support, research planning and original argument/self-evaluation prompts. Track provenance and conflicting or dated evidence. Support the learner's own work without supplying a completed submission to a current official assignment or claiming to grade it as WSET. Test durable drafts, citation linking, export and clear distinction between source evidence and learner interpretation.
+
+**Diploma release gate.** Every required editorial scope objective must have sufficient authored depth and appropriate explanation/evaluation or tasting practice, rather than only a selector or a planned task. Qualified reviewers must verify core facts and assess curriculum sufficiency. The published coverage report must show remaining gaps across all six units, and Diploma rehearsal must use original material. These gates extend the existing technical and content release gates; selecting Level 4 does not imply they have passed.

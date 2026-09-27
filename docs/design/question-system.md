@@ -32,8 +32,8 @@ The **depth** column refines CM-6, and audit QF-6 records it. A track serves a f
 | `flashcard` | Simple recall | recall | text → self-graded reveal | 1 | a template | 2 | built |
 | `mcq` | Multiple choice | recognition | text → 1 of 4 options | 1 | ≥ 3 valid distractors (QG-12) | 1 | built |
 | *reverse* | Reverse recall | recall / recognition | the object asks for the subject | 1 | reverse-safe or distinctive (QG-3) | 3 | built for flashcard and MCQ |
-| `typed` | Typed recall | recall | text → typed answer, graded by name matching | 1 | answer names and alternative names | 2 | Q1 |
-| `short_answer` | Short written answer (spec §T) | recall | an "explain" prompt → free text, then a self-check against key points | 2–4, one per key point | key points that are items (principles, facts) | 4 | Q1 |
+| `typed` | Typed recall | recall | text → typed answer, graded by name matching | 1 | answer names and alternative names | 2 | built, forward (Q1) |
+| `short_answer` | Short written answer (spec §T) | recall | an "explain" prompt → free text, then a self-check against key points | 2–4, one per key point | key points that are items (principles, facts) | 2 (QF-14) | built: appellation profiles, multi-point vineyard explanations and scoped decision cases (Q1/DIP-1/DIP-2) |
 | `multiple_response` | Select all that apply | recognition | text → any number of options | all items of one complete set | a completeness assertion (§6) | 2 | Q2 |
 | `matching` | Matching | structured | two columns → pairs | 3–5 | a pool of items sharing a relation type in a scope | 2 | Q3 |
 | `ordering` | Ordering | structured | list → order | 3–6 | an order key: tier chain, process chain, quantity or latitude | 2 | Q3 |
@@ -66,7 +66,7 @@ The **depth** column refines CM-6, and audit QF-6 records it. A track serves a f
 
 A format is **objective** when the app grades it; only the flashcard and the short written answer are self-graded.
 
-**Useful practice** for an item means at least one objective format *and* at least two families. The coverage checker (§8) measures both. An item whose only served format is the flashcard is **flashcard-only**, the state this design exists to prevent.
+**Useful practice** for an item means at least one objective format *and* at least two families. The coverage checker (§8) measures both. An item served only self-graded formats (the flashcard, alone or with the short answer) is **flashcard-only**, the state this design exists to prevent (QF-14).
 
 ---
 
@@ -79,7 +79,7 @@ Every graded item gets exactly one `review_events` row, whichever format produce
 | flashcard | item | The learner grades 1–4 (FS-6). |
 | short answer | each key point's item | After writing, the learner ticks the key points the answer covered. Ticked is Good; not ticked is Again. The text is stored in `answer_payload` and is never machine-graded in V0.1 (spec §T). |
 | MCQ, map identify, map locate | item | Right is Good; wrong is Again (FS-6). |
-| typed | item | An exact match after `normalizeName`, or an alternative name, is Good. One edit away on the normalized form is Hard. Anything else is Again. |
+| typed | item | An exact match after `normalizeName`, or an alternative name, is Good. One edit away on the normalized form is Hard. Anything else is Again. As built (QF-13): the answer type's words may be added or left out ("oceanic climate"); whole words of the answer that name nothing else ("frost" for *Spring frost*) are Hard; the name of any other node is Again. |
 | numeric | item | Within the template's exact band is Good, within the tolerance band is Hard, outside is Again. Legal minima are exact. A range answer is right when it falls inside the stated range. |
 | multiple response | each item of the set | A correct option selected is Good, or Hard if the learner also selected a wrong option. A correct option missed is Again. |
 | matching | each pair's item | A right pair is Good; a wrong pair is Again. |
@@ -107,6 +107,8 @@ FS-15 lets later presentations draw a served format at random. The ladder (QF-7)
 | S ≥ 30 days | reasoning and the hardest spatial modes | a blank map zoomed out to France; map deduction |
 
 Two variety rules apply: never repeat the item's last format when another is served, and once in five presentations pick at random from the served formats so the ladder does not overfit. The thresholds are provisional, like the weights of A-7.
+
+**As built (F4, QF-15).** `FormatLadder` (`lib/core/study/format_ladder.dart`) chooses; each format declares the bands it is preferred in, by default from its family, and the short answer waits until an item is maturing. Within the item's band, or the nearest band that has a preferred format, the format is drawn at random, so no preferred format starves. A new item still starts with its easiest format.
 
 ---
 
@@ -138,6 +140,8 @@ Reasoning, scenario and deduction questions need general knowledge as well as ap
 A reasoning template names a path pattern, for example `region –HAS_CLIMATE→ climate –TENDS_TO_PRODUCE→ style_trait`. The generator enumerates the paths that match. The item on the last edge is the **primary** item, and the items on the other edges are **supporting**. Distractors are traits that the principles attach to contrasting premises, such as the styles of a warm climate.
 
 Principles come from public, citable sources (government publications, academic papers, extension services). They never come from WSET or CMS materials (D10). Service scenarios use general hospitality practice, never the CMS service standards (legal review L-17).
+
+**As built in 0.20.0:** The pure-Dart core reasoning engine follows two or three forward, current, cited KnowledgeItems. Template parameters specify `path_relation_types`, optional starting `scope_node_ids`, and `contrasts` keyed by target item and starting premise. Each exercise has four options: one supported conclusion and three alternatives with cited direct `CONTRADICTS` evidence under the stated premise. Ordered pools place the final target at the highest rank; only that target schedules or counts as independent reasoning coverage. Practice requires an active-track depth-4 target, mapped current chain members and previously studied supporting items. Current evidence is rechecked before scheduling, presentation and coverage, including expired negative evidence. A correct choice credits every assessed chain item once; a wrong choice grades only the target. After submission, feedback shows the complete cited chain and authored contradiction explanations; explanation-only evidence adds no review credit. Completed reviews persist the seed, premise, ordered chain, shown options and selection in their answer payloads and travel in backups. Unfinished questions and drafts remain in memory; exact restoration is not implemented. Four sourced starter chains contain 21 points, including contradiction evidence. Broader climate reasoning, sustained written analysis and analytical tasting remain incomplete; this format does not provide official essay marks.
 
 ---
 

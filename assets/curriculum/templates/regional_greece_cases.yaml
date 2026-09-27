@@ -1,0 +1,84 @@
+# Original conditional comparisons of Greek regional still wines.
+question_templates:
+  - id: qt_reg_gr_case_north_comparison
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: reg_gr_north_comparison
+    prompt_template: "A buyer is offered two dry Xinomavro reds: one from a clay-rich Naoussa parcel and one
+      from a sandy-loamy Amyndeon parcel. They are from different vintages; the Naoussa wine had longer
+      extraction and new oak, while the Amyndeon wine had shorter extraction and older barrels. In the
+      current tasting the Naoussa wine is firmer and the Amyndeon wine more immediately supple. The
+      supplier attributes the difference entirely to region and promises the same contrast every year.
+      Propose an action, reason, tradeoff and limitation for a defensible regional comparison; no matched
+      trial or parcel weather records are supplied."
+    parameters:
+      scope_node_ids:
+        - n_reg_gr_case_north_comparison
+      key_points:
+        CASE_ACTION: Defensible regional comparison or action
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or evidence needed
+  - id: qt_reg_gr_case_nemea_customer
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: reg_gr_nemea_customer
+    prompt_template: A restaurant seeks a dry Nemea Agiorgitiko for immediate by-the-glass service, with
+      fresh red fruit and gentle tannins. Its panel confirms that a younger, tank-matured offer fits the
+      brief. A second offer, made with extended extraction and new oak, has firmer tannins and noticeable
+      wood that the panel finds less suitable now. The second supplier documents higher barrel and
+      storage costs and proposes a larger order, claiming the extra cost proves higher quality. The
+      restaurant’s cash budget is limited and future demand is unknown. Give an action, reason, tradeoff
+      and limitation without treating either style as universally superior.
+    parameters:
+      scope_node_ids:
+        - n_reg_gr_case_nemea_customer
+      key_points:
+        CASE_ACTION: Defensible regional comparison or action
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or evidence needed
+  - id: qt_reg_gr_case_santorini_training
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: reg_gr_santorini_training
+    prompt_template: A Santorini grower supplies Assyrtiko for dry whites from an exposed, terraced parcel
+      currently trained in low kouloura baskets. A consultant proposes replacing all baskets with a
+      taller trellis solely to reduce pruning hours. The grower has records of strong winds but no local
+      trial comparing wind damage, fruit maturity or wine balance under the two systems. The quoted
+      conversion cost is payable before harvest; forecast labour savings and buyer demand are untested.
+      Give an action, reason, tradeoff and limitation for this parcel rather than assuming either
+      training system is universally best.
+    parameters:
+      scope_node_ids:
+        - n_reg_gr_case_santorini_training
+      key_points:
+        CASE_ACTION: Defensible regional comparison or action
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or evidence needed
+  - id: qt_reg_gr_case_aromatic_whites
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: reg_gr_aromatic_whites
+    prompt_template: A buyer compares a still dry Moschofilero from Mantinia, a still dry Muscat from
+      elevated Samos terraces and a still dry Vidiano from Crete. Producer analyses and the tasting panel
+      confirm all three as dry. The panel records rose/citrus and a light palate for the Mantinia,
+      floral/apricot and a light palate for the Samos, and apricot with a fuller palate for the Vidiano.
+      For an aromatic but light-bodied by-the-glass brief, both Mantinia and Samos fit; Vidiano is less
+      suitable for this specific texture brief. The Samos offer has a lower landed cost in this
+      comparison, but available bottle quantities and demand are not yet checked. Explain an action,
+      reason, tradeoff and limitation without calling Muscat automatically sweet or identifying origin
+      from aroma alone.
+    parameters:
+      scope_node_ids:
+        - n_reg_gr_case_aromatic_whites
+      key_points:
+        CASE_ACTION: Defensible regional comparison or action
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or evidence needed

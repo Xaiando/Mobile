@@ -1,0 +1,363 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "node": "n_geo_new_york",
+        "node_id": "n_geo_new_york",
+        "name": "New York",
+        "parent_node_id": "n_geo_united_states",
+        "country_node_id": "n_geo_united_states",
+        "point_role": "gazetteer_state_reference_point",
+        "point_place_name": "New York",
+        "point_description": "state of the United States of America",
+        "wikidata_id": "Q1384",
+        "wikidata_coordinate_claim": "q1384$71f93a35-4ab5-5bfd-d1f3-bcfa9f980dea",
+        "coordinate_precision": 1,
+        "source_url": "https://www.wikidata.org/wiki/Q1384",
+        "source_coordinate_url": "https://www.wikidata.org/wiki/Special:EntityData/Q1384.json",
+        "retrieved_on": "2026-09-26",
+        "license": "CC0-1.0",
+        "label_note": "Exact gazetteer reference for New York state; not a state boundary or an official vineyard centroid."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -75,
+          43
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node": "n_geo_cayuga_lake",
+        "node_id": "n_geo_cayuga_lake",
+        "name": "Cayuga Lake",
+        "parent_node_id": "n_geo_finger_lakes",
+        "country_node_id": "n_geo_united_states",
+        "point_role": "source_polygon_interior_reference_point",
+        "point_place_name": "Cayuga Lake",
+        "source_url": "https://raw.githubusercontent.com/UCDavisLibrary/ava/7af5b29d45aee5e6c6ce3889e9b1de19085d7107/avas/cayuga_lake.geojson",
+        "source_coordinate_url": "https://raw.githubusercontent.com/UCDavisLibrary/ava/7af5b29d45aee5e6c6ce3889e9b1de19085d7107/avas_aggregated_files/avas.geojson",
+        "source_commit": "7af5b29d45aee5e6c6ce3889e9b1de19085d7107",
+        "source_file_sha256": "c90068f7154764519f0a7c6fb2788e597b7c56bf7581e8c0faa979554d984926",
+        "source_feature_id": "cayuga_lake",
+        "source_cfr_index": "9.127",
+        "derivation": "widest verified interior horizontal scanline interval midpoint; 63 evenly spaced scanlines per polygon",
+        "retrieved_on": "2026-09-26",
+        "license": "CC0-1.0",
+        "attribution": "UC Davis Library and DataLab American Viticultural Areas Project, with UCSB Library and Virginia Tech contributors",
+        "label_note": "Reference marker derived from the community digitized AVA polygon. It is not a legal boundary or an official centroid."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.73905036302264,
+          42.684775875
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node": "n_geo_champlain_valley_of_new_york",
+        "node_id": "n_geo_champlain_valley_of_new_york",
+        "name": "Champlain Valley of New York",
+        "parent_node_id": "n_geo_new_york",
+        "country_node_id": "n_geo_united_states",
+        "point_role": "source_polygon_interior_reference_point",
+        "point_place_name": "Champlain Valley of New York",
+        "source_url": "https://raw.githubusercontent.com/UCDavisLibrary/ava/7af5b29d45aee5e6c6ce3889e9b1de19085d7107/avas/champlain_valley_of_new_york.geojson",
+        "source_coordinate_url": "https://raw.githubusercontent.com/UCDavisLibrary/ava/7af5b29d45aee5e6c6ce3889e9b1de19085d7107/avas_aggregated_files/avas.geojson",
+        "source_commit": "7af5b29d45aee5e6c6ce3889e9b1de19085d7107",
+        "source_file_sha256": "c90068f7154764519f0a7c6fb2788e597b7c56bf7581e8c0faa979554d984926",
+        "source_feature_id": "champlain_valley_of_new_york",
+        "source_cfr_index": "9.258",
+        "derivation": "widest verified interior horizontal scanline interval midpoint; 63 evenly spaced scanlines per polygon",
+        "retrieved_on": "2026-09-26",
+        "license": "CC0-1.0",
+        "attribution": "UC Davis Library and DataLab American Viticultural Areas Project, with UCSB Library and Virginia Tech contributors",
+        "label_note": "Reference marker derived from the community digitized AVA polygon. It is not a legal boundary or an official centroid."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.5560383724515,
+          44.99255528742206
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node": "n_geo_finger_lakes",
+        "node_id": "n_geo_finger_lakes",
+        "name": "Finger Lakes",
+        "parent_node_id": "n_geo_new_york",
+        "country_node_id": "n_geo_united_states",
+        "point_role": "source_polygon_interior_reference_point",
+        "point_place_name": "Finger Lakes",
+        "source_url": "https://raw.githubusercontent.com/UCDavisLibrary/ava/7af5b29d45aee5e6c6ce3889e9b1de19085d7107/avas/finger_lakes.geojson",
+        "source_coordinate_url": "https://raw.githubusercontent.com/UCDavisLibrary/ava/7af5b29d45aee5e6c6ce3889e9b1de19085d7107/avas_aggregated_files/avas.geojson",
+        "source_commit": "7af5b29d45aee5e6c6ce3889e9b1de19085d7107",
+        "source_file_sha256": "c90068f7154764519f0a7c6fb2788e597b7c56bf7581e8c0faa979554d984926",
+        "source_feature_id": "finger_lakes",
+        "source_cfr_index": "9.34",
+        "derivation": "widest verified interior horizontal scanline interval midpoint; 63 evenly spaced scanlines per polygon",
+        "retrieved_on": "2026-09-26",
+        "license": "CC0-1.0",
+        "attribution": "UC Davis Library and DataLab American Viticultural Areas Project, with UCSB Library and Virginia Tech contributors",
+        "label_note": "Reference marker derived from the community digitized AVA polygon. It is not a legal boundary or an official centroid."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.97728019467995,
+          42.77424883599769
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node": "n_geo_hudson_river_region",
+        "node_id": "n_geo_hudson_river_region",
+        "name": "Hudson River Region",
+        "parent_node_id": "n_geo_new_york",
+        "country_node_id": "n_geo_united_states",
+        "point_role": "source_polygon_interior_reference_point",
+        "point_place_name": "Hudson River Region",
+        "source_url": "https://raw.githubusercontent.com/UCDavisLibrary/ava/7af5b29d45aee5e6c6ce3889e9b1de19085d7107/avas/hudson_river_region.geojson",
+        "source_coordinate_url": "https://raw.githubusercontent.com/UCDavisLibrary/ava/7af5b29d45aee5e6c6ce3889e9b1de19085d7107/avas_aggregated_files/avas.geojson",
+        "source_commit": "7af5b29d45aee5e6c6ce3889e9b1de19085d7107",
+        "source_file_sha256": "c90068f7154764519f0a7c6fb2788e597b7c56bf7581e8c0faa979554d984926",
+        "source_feature_id": "hudson_river_region",
+        "source_cfr_index": "9.47",
+        "derivation": "widest verified interior horizontal scanline interval midpoint; 63 evenly spaced scanlines per polygon",
+        "retrieved_on": "2026-09-26",
+        "license": "CC0-1.0",
+        "attribution": "UC Davis Library and DataLab American Viticultural Areas Project, with UCSB Library and Virginia Tech contributors",
+        "label_note": "Reference marker derived from the community digitized AVA polygon. It is not a legal boundary or an official centroid."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.11808366187859,
+          41.36553479458001
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node": "n_geo_long_island",
+        "node_id": "n_geo_long_island",
+        "name": "Long Island",
+        "parent_node_id": "n_geo_new_york",
+        "country_node_id": "n_geo_united_states",
+        "point_role": "source_polygon_interior_reference_point",
+        "point_place_name": "Long Island",
+        "source_url": "https://raw.githubusercontent.com/UCDavisLibrary/ava/7af5b29d45aee5e6c6ce3889e9b1de19085d7107/avas/long_island.geojson",
+        "source_coordinate_url": "https://raw.githubusercontent.com/UCDavisLibrary/ava/7af5b29d45aee5e6c6ce3889e9b1de19085d7107/avas_aggregated_files/avas.geojson",
+        "source_commit": "7af5b29d45aee5e6c6ce3889e9b1de19085d7107",
+        "source_file_sha256": "c90068f7154764519f0a7c6fb2788e597b7c56bf7581e8c0faa979554d984926",
+        "source_feature_id": "long_island",
+        "source_cfr_index": "9.170",
+        "derivation": "widest verified interior horizontal scanline interval midpoint; 63 evenly spaced scanlines per polygon",
+        "retrieved_on": "2026-09-26",
+        "license": "CC0-1.0",
+        "attribution": "UC Davis Library and DataLab American Viticultural Areas Project, with UCSB Library and Virginia Tech contributors",
+        "label_note": "Reference marker derived from the community digitized AVA polygon. It is not a legal boundary or an official centroid."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0966121016811,
+          40.85893125975282
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node": "n_geo_niagara_escarpment",
+        "node_id": "n_geo_niagara_escarpment",
+        "name": "Niagara Escarpment",
+        "parent_node_id": "n_geo_new_york",
+        "country_node_id": "n_geo_united_states",
+        "point_role": "source_polygon_interior_reference_point",
+        "point_place_name": "Niagara Escarpment",
+        "source_url": "https://raw.githubusercontent.com/UCDavisLibrary/ava/7af5b29d45aee5e6c6ce3889e9b1de19085d7107/avas/niagara_escarpment.geojson",
+        "source_coordinate_url": "https://raw.githubusercontent.com/UCDavisLibrary/ava/7af5b29d45aee5e6c6ce3889e9b1de19085d7107/avas_aggregated_files/avas.geojson",
+        "source_commit": "7af5b29d45aee5e6c6ce3889e9b1de19085d7107",
+        "source_file_sha256": "c90068f7154764519f0a7c6fb2788e597b7c56bf7581e8c0faa979554d984926",
+        "source_feature_id": "niagara_escarpment",
+        "source_cfr_index": "9.186",
+        "derivation": "widest verified interior horizontal scanline interval midpoint; 63 evenly spaced scanlines per polygon",
+        "retrieved_on": "2026-09-26",
+        "license": "CC0-1.0",
+        "attribution": "UC Davis Library and DataLab American Viticultural Areas Project, with UCSB Library and Virginia Tech contributors",
+        "label_note": "Reference marker derived from the community digitized AVA polygon. It is not a legal boundary or an official centroid."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -78.80719101115622,
+          43.182035778906574
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node": "n_geo_north_fork_of_long_island",
+        "node_id": "n_geo_north_fork_of_long_island",
+        "name": "North Fork of Long Island",
+        "parent_node_id": "n_geo_long_island",
+        "country_node_id": "n_geo_united_states",
+        "point_role": "source_polygon_interior_reference_point",
+        "point_place_name": "North Fork of Long Island",
+        "source_url": "https://raw.githubusercontent.com/UCDavisLibrary/ava/7af5b29d45aee5e6c6ce3889e9b1de19085d7107/avas/north_fork_of_long_island.geojson",
+        "source_coordinate_url": "https://raw.githubusercontent.com/UCDavisLibrary/ava/7af5b29d45aee5e6c6ce3889e9b1de19085d7107/avas_aggregated_files/avas.geojson",
+        "source_commit": "7af5b29d45aee5e6c6ce3889e9b1de19085d7107",
+        "source_file_sha256": "c90068f7154764519f0a7c6fb2788e597b7c56bf7581e8c0faa979554d984926",
+        "source_feature_id": "north_fork_of_long_island",
+        "source_cfr_index": "9.113",
+        "derivation": "widest verified interior horizontal scanline interval midpoint; 63 evenly spaced scanlines per polygon",
+        "retrieved_on": "2026-09-26",
+        "license": "CC0-1.0",
+        "attribution": "UC Davis Library and DataLab American Viticultural Areas Project, with UCSB Library and Virginia Tech contributors",
+        "label_note": "Reference marker derived from the community digitized AVA polygon. It is not a legal boundary or an official centroid."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.70292986113188,
+          40.96491362817396
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node": "n_geo_seneca_lake",
+        "node_id": "n_geo_seneca_lake",
+        "name": "Seneca Lake",
+        "parent_node_id": "n_geo_finger_lakes",
+        "country_node_id": "n_geo_united_states",
+        "point_role": "source_polygon_interior_reference_point",
+        "point_place_name": "Seneca Lake",
+        "source_url": "https://raw.githubusercontent.com/UCDavisLibrary/ava/7af5b29d45aee5e6c6ce3889e9b1de19085d7107/avas/seneca_lake.geojson",
+        "source_coordinate_url": "https://raw.githubusercontent.com/UCDavisLibrary/ava/7af5b29d45aee5e6c6ce3889e9b1de19085d7107/avas_aggregated_files/avas.geojson",
+        "source_commit": "7af5b29d45aee5e6c6ce3889e9b1de19085d7107",
+        "source_file_sha256": "c90068f7154764519f0a7c6fb2788e597b7c56bf7581e8c0faa979554d984926",
+        "source_feature_id": "seneca_lake",
+        "source_cfr_index": "9.128",
+        "derivation": "widest verified interior horizontal scanline interval midpoint; 63 evenly spaced scanlines per polygon",
+        "retrieved_on": "2026-09-26",
+        "license": "CC0-1.0",
+        "attribution": "UC Davis Library and DataLab American Viticultural Areas Project, with UCSB Library and Virginia Tech contributors",
+        "label_note": "Reference marker derived from the community digitized AVA polygon. It is not a legal boundary or an official centroid."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -76.92657907722938,
+          42.67110448776738
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node": "n_geo_the_hamptons_long_island",
+        "node_id": "n_geo_the_hamptons_long_island",
+        "name": "The Hamptons, Long Island",
+        "parent_node_id": "n_geo_long_island",
+        "country_node_id": "n_geo_united_states",
+        "point_role": "source_polygon_interior_reference_point",
+        "point_place_name": "The Hamptons, Long Island",
+        "source_url": "https://raw.githubusercontent.com/UCDavisLibrary/ava/7af5b29d45aee5e6c6ce3889e9b1de19085d7107/avas/the_hamptons_long_island.geojson",
+        "source_coordinate_url": "https://raw.githubusercontent.com/UCDavisLibrary/ava/7af5b29d45aee5e6c6ce3889e9b1de19085d7107/avas_aggregated_files/avas.geojson",
+        "source_commit": "7af5b29d45aee5e6c6ce3889e9b1de19085d7107",
+        "source_file_sha256": "c90068f7154764519f0a7c6fb2788e597b7c56bf7581e8c0faa979554d984926",
+        "source_feature_id": "the_hamptons_long_island",
+        "source_cfr_index": "9.101",
+        "derivation": "widest verified interior horizontal scanline interval midpoint; 63 evenly spaced scanlines per polygon",
+        "retrieved_on": "2026-09-26",
+        "license": "CC0-1.0",
+        "attribution": "UC Davis Library and DataLab American Viticultural Areas Project, with UCSB Library and Virginia Tech contributors",
+        "label_note": "Reference marker derived from the community digitized AVA polygon. It is not a legal boundary or an official centroid."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -72.21819910107982,
+          40.98826691341915
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node": "n_geo_upper_hudson",
+        "node_id": "n_geo_upper_hudson",
+        "name": "Upper Hudson",
+        "parent_node_id": "n_geo_new_york",
+        "country_node_id": "n_geo_united_states",
+        "point_role": "source_polygon_interior_reference_point",
+        "point_place_name": "Upper Hudson",
+        "source_url": "https://raw.githubusercontent.com/UCDavisLibrary/ava/7af5b29d45aee5e6c6ce3889e9b1de19085d7107/avas/upper_hudson.geojson",
+        "source_coordinate_url": "https://raw.githubusercontent.com/UCDavisLibrary/ava/7af5b29d45aee5e6c6ce3889e9b1de19085d7107/avas_aggregated_files/avas.geojson",
+        "source_commit": "7af5b29d45aee5e6c6ce3889e9b1de19085d7107",
+        "source_file_sha256": "c90068f7154764519f0a7c6fb2788e597b7c56bf7581e8c0faa979554d984926",
+        "source_feature_id": "upper_hudson",
+        "source_cfr_index": "9.264",
+        "derivation": "widest verified interior horizontal scanline interval midpoint; 63 evenly spaced scanlines per polygon",
+        "retrieved_on": "2026-09-26",
+        "license": "CC0-1.0",
+        "attribution": "UC Davis Library and DataLab American Viticultural Areas Project, with UCSB Library and Virginia Tech contributors",
+        "label_note": "Reference marker derived from the community digitized AVA polygon. It is not a legal boundary or an official centroid."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.85467731591044,
+          42.923337778125
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node": "n_geo_lake_erie",
+        "node_id": "n_geo_lake_erie",
+        "name": "Lake Erie",
+        "parent_node_id": "n_geo_united_states",
+        "country_node_id": "n_geo_united_states",
+        "point_role": "source_polygon_interior_reference_point",
+        "point_place_name": "Lake Erie",
+        "source_url": "https://raw.githubusercontent.com/UCDavisLibrary/ava/7af5b29d45aee5e6c6ce3889e9b1de19085d7107/avas/lake_erie.geojson",
+        "source_coordinate_url": "https://raw.githubusercontent.com/UCDavisLibrary/ava/7af5b29d45aee5e6c6ce3889e9b1de19085d7107/avas_aggregated_files/avas.geojson",
+        "source_commit": "7af5b29d45aee5e6c6ce3889e9b1de19085d7107",
+        "source_file_sha256": "c90068f7154764519f0a7c6fb2788e597b7c56bf7581e8c0faa979554d984926",
+        "source_feature_id": "lake_erie",
+        "source_cfr_index": "9.83",
+        "derivation": "widest verified interior horizontal scanline interval midpoint; 63 evenly spaced scanlines per polygon",
+        "retrieved_on": "2026-09-26",
+        "license": "CC0-1.0",
+        "attribution": "UC Davis Library and DataLab American Viticultural Areas Project, with UCSB Library and Virginia Tech contributors",
+        "label_note": "Reference marker derived from the community digitized AVA polygon. It is not a legal boundary or an official centroid."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -82.31940868014672,
+          41.36299714653792
+        ]
+      }
+    }
+  ]
+}

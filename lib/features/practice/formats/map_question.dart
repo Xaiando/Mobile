@@ -67,17 +67,18 @@ Future<MapLayer?> _load(GeometryRepository maps, LayerWithSources entry) async {
       : MapLayer(geometry);
 }
 
-/// The layers of a question whose candidates are in [candidateLayerId]: the
-/// same layers, with that one drawn at every zoom (geography §5). The list
+/// The layers of a question, with each comma-separated candidate layer
+/// drawn at every zoom (geography §5). The list
 /// is kept, so the map's picture cache is too.
 final questionLayersProvider = FutureProvider.family<List<MapLayer>, String>((
   ref,
   candidateLayerId,
 ) async {
   final layers = await ref.watch(mapLayersProvider.future);
+  final requiredLayers = candidateLayerId.split(',').toSet();
   return [
     for (final layer in layers)
-      layer.geometry.id == candidateLayerId
+      requiredLayers.contains(layer.geometry.id)
           ? MapLayer(layer.geometry.drawnAtEveryZoom())
           : layer,
   ];
@@ -116,10 +117,18 @@ class MapQuestionMap extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
     final zoomedOut = exercise.zoomedOut;
-    final candidateLayer = exercise.frame.candidates.first.geometry.mapLayerId;
-    final layers = ref.watch(questionLayersProvider(candidateLayer));
+    final candidateLayers =
+        exercise.frame.candidates
+            .map((c) => c.geometry.mapLayerId)
+            .toSet()
+            .toList()
+          ..sort();
+    final layers = ref.watch(questionLayersProvider(candidateLayers.join(',')));
     final missing =
-        layers.value?.every((l) => l.geometry.id != candidateLayer) ?? false;
+        layers.value != null &&
+        candidateLayers.any(
+          (id) => !layers.value!.any((l) => l.geometry.id == id),
+        );
     return DecoratedBox(
       decoration: BoxDecoration(
         border: Border.all(color: theme.colorScheme.outlineVariant),
@@ -127,38 +136,60 @@ class MapQuestionMap extends ConsumerWidget {
       ),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(12),
-        child: switch (layers) {
-          AsyncData() when missing => Center(
-            child: Padding(
-              padding: const EdgeInsets.all(16),
-              child: Text(
-                'This version of the app cannot draw this map. Answer from '
-                'the list instead.',
-                textAlign: TextAlign.center,
-                style: theme.textTheme.bodyLarge,
+        child: Column(
+          children: [
+            Expanded(
+              child: switch (layers) {
+                AsyncData() when missing => Center(
+                  child: Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: Text(
+                      'This version of the app cannot draw this map. Answer from '
+                      'the list instead.',
+                      textAlign: TextAlign.center,
+                      style: theme.textTheme.bodyLarge,
+                    ),
+                  ),
+                ),
+                AsyncData(value: final layers) => MapCanvas(
+                  layers: layers,
+                  mode: labelModeOf(exercise.mode),
+                  candidates: exercise.candidateIds,
+                  parent: exercise.frame.parent.id,
+                  highlights: highlights,
+                  revealed: revealed,
+                  names: exercise.names,
+                  frame: boundsOf(exercise.frame.box),
+                  zoomedOutFrame: zoomedOut == null
+                      ? null
+                      : boundsOf(zoomedOut),
+                  onTap: onTap,
+                ),
+                AsyncError(:final error) => Center(
+                  child: Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: Text('The map could not be loaded: $error'),
+                  ),
+                ),
+                _ => const Center(child: CircularProgressIndicator()),
+              },
+            ),
+            if (!missing &&
+                exercise.frame.candidates.any(
+                  (c) =>
+                      c.geometry.minLon == c.geometry.maxLon &&
+                      c.geometry.minLat == c.geometry.maxLat,
+                ))
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                child: Text(
+                  'Points show locations, not wine-area boundaries.',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 11),
+                ),
               ),
-            ),
-          ),
-          AsyncData(value: final layers) => MapCanvas(
-            layers: layers,
-            mode: labelModeOf(exercise.mode),
-            candidates: exercise.candidateIds,
-            parent: exercise.frame.parent.id,
-            highlights: highlights,
-            revealed: revealed,
-            names: exercise.names,
-            frame: boundsOf(exercise.frame.box),
-            zoomedOutFrame: zoomedOut == null ? null : boundsOf(zoomedOut),
-            onTap: onTap,
-          ),
-          AsyncError(:final error) => Center(
-            child: Padding(
-              padding: const EdgeInsets.all(16),
-              child: Text('The map could not be loaded: $error'),
-            ),
-          ),
-          _ => const Center(child: CircularProgressIndicator()),
-        },
+          ],
+        ),
       ),
     );
   }

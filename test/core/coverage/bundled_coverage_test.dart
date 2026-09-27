@@ -45,8 +45,12 @@ void main() {
     ];
   });
 
-  test('the checker measures both selectable tracks (F1)', () {
-    expect(tracks.map((t) => t.trackId), ['CMS_CERTIFIED', 'WSET_L3']);
+  test('the checker measures every selectable track (F1)', () {
+    expect(tracks.map((t) => t.trackId), [
+      'CMS_CERTIFIED',
+      'WSET_L3',
+      'WSET_L4',
+    ]);
     for (final track in tracks) {
       expect(track.counts[CoverageMetric.items], greaterThan(0));
       expect(
@@ -58,7 +62,28 @@ void main() {
     }
   });
 
-  test('the scope manifest accounts for every objective of both tracks '
+  test('pooled formats count as the planner serves them (QF-14)', () {
+    final wset = tracks.firstWhere((t) => t.trackId == 'WSET_L3');
+    ItemCoverage item(String id) => wset.items.firstWhere((i) => i.id == id);
+    expect([
+      for (final format in item('ki_chablis_soil').generated) format.mode,
+    ], contains('short_answer'));
+    expect(item('ki_chablis_soil').servedFormats, contains('short_answer'));
+    final vouvray = item('ki_vouvray_grape');
+    expect(
+      vouvray.missing,
+      containsPair('short_answer', 'in no short_answer pool'),
+      reason: 'Vouvray has one key point',
+    );
+    expect(
+      vouvray.missing,
+      containsPair('map_grape', 'the format cannot ask it'),
+      reason: 'Vouvray has no complete permitted-grape assertion',
+    );
+    expect(vouvray.servedFormats, isNot(contains('map_grape')));
+  });
+
+  test('the scope manifest accounts for every selectable track objective '
       '(SCOPE-1)', () {
     final scope = TrackScopeManifest.parse(
       File(scopePath).readAsStringSync(),

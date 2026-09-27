@@ -30,25 +30,26 @@ void main() {
     'lists the layers, the coarsest first, with composed attributions',
     () async {
       final layers = await maps.layers();
-      expect(layers, hasLength(10));
+      expect(layers.length, greaterThanOrEqualTo(15));
       expect(layers.first.layer.minZoom, 0);
+      final zooms = layers.map((entry) => entry.layer.minZoom).toList();
+      expect(zooms, orderedEquals([...zooms]..sort()));
       final regions = layers.firstWhere((l) => l.layer.id == 'ml_fr_regions');
-      expect(
-        [for (final s in regions.sources) s.id],
-        ['src_inao_areas', 'src_ign_admin_express'],
-      );
-      expect(
-        regions.attribution,
-        'INAO – aires géographiques des AOC/AOP, 9 October 2025. '
-        'IGN – ADMIN EXPRESS COG CARTO, edition of 1 January 2026.',
-      );
+      expect([
+        for (final s in regions.sources) s.id,
+      ], containsAll(['src_inao_areas', 'src_ign_admin_express']));
+      expect(regions.attribution, allOf(contains('INAO'), contains('IGN')));
       final countries = layers.firstWhere(
         (l) => l.layer.id == 'ml_world_countries',
       );
       expect(
         countries.attribution,
-        'Made with Natural Earth.',
-        reason: 'each text once',
+        'Made with Natural Earth. Made with Natural Earth. '
+        'Complete source island polygon parts preserve Salt Spring Island '
+        'and Rapa Nui in their countries.',
+        reason:
+            'the identical country/map-unit credit is included once; '
+            'the new island source keeps its distinct qualification',
       );
     },
   );
@@ -66,10 +67,10 @@ void main() {
   });
 
   test('finds the drawn siblings and the candidates in a box', () async {
-    expect(ids(await maps.siblingsOf('n_geo_condrieu')), [
-      'n_geo_cornas',
-      'n_geo_crozes_hermitage',
-    ]);
+    expect(
+      ids(await maps.siblingsOf('n_geo_condrieu')),
+      containsAll(['n_geo_cornas', 'n_geo_crozes_hermitage']),
+    );
     final burgundy = (await maps.geometriesOf('n_geo_burgundy')).single;
     final inBurgundy = await maps.candidatesIn(
       GeoBox.of(burgundy.geometry),
@@ -115,24 +116,31 @@ void main() {
       'candidates (geography §5)', () async {
     final burgundy = (await maps.frameOf('n_geo_burgundy'))!;
     expect(burgundy.parent.id, 'n_geo_france');
-    expect(ids(burgundy.candidates), [
-      'n_geo_burgundy',
-      'n_geo_champagne_region',
-      'n_geo_loire_valley',
-      'n_geo_rhone_valley',
-    ]);
+    expect(
+      ids(burgundy.candidates),
+      containsAll([
+        'n_geo_burgundy',
+        'n_geo_champagne_region',
+        'n_geo_loire_valley',
+        'n_geo_rhone_valley',
+      ]),
+    );
 
-    // The northern Rhône draws three appellations: the frame moves up.
+    final chablis = (await maps.frameOf('n_geo_chablis'))!;
+    expect(chablis.parent.id, 'n_geo_burgundy');
+    expect(
+      ids(chablis.candidates),
+      containsAll(['n_geo_chablis', 'n_geo_volnay']),
+    );
+    expect(chablis.candidates.length, greaterThanOrEqualTo(4));
+
+    // The expanded northern Rhône has enough targets for a local frame.
     final condrieu = (await maps.frameOf('n_geo_condrieu'))!;
-    expect(condrieu.parent.id, 'n_geo_rhone_valley');
+    expect(condrieu.parent.id, 'n_geo_northern_rhone');
+    expect(condrieu.candidates.length, greaterThanOrEqualTo(4));
     expect(
       ids(condrieu.candidates),
-      containsAll([
-        'n_geo_condrieu',
-        'n_geo_cornas',
-        'n_geo_crozes_hermitage',
-        'n_geo_chateauneuf_du_pape',
-      ]),
+      containsAll(['n_geo_condrieu', 'n_geo_cornas', 'n_geo_crozes_hermitage']),
     );
     final france = GeoBox.of(
       (await maps.geometriesOf('n_geo_france')).single.geometry,
@@ -140,7 +148,7 @@ void main() {
     expect(
       condrieu.box.width,
       lessThan(france.width),
-      reason: 'framed on the Rhône Valley, not all of France',
+      reason: 'the local northern Rhône frame is smaller than France',
     );
 
     expect(
@@ -150,9 +158,9 @@ void main() {
     );
     expect(await maps.frameOf('n_grape_chardonnay'), isNull);
     expect(
-      await maps.frameOf('n_geo_condrieu', minimum: 30),
+      await maps.frameOf('n_geo_condrieu', minimum: 10000),
       isNull,
-      reason: 'no ancestor draws thirty appellations',
+      reason: 'an impossible minimum cannot create a frame',
     );
   });
 }

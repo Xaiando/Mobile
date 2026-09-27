@@ -1,0 +1,4720 @@
+# Additive register-driven Australian / South African atlas completion.
+# Track mappings are editorial; all facts await expert review.
+# Marker snapshots retain licence and coordinate provenance; no boundaries are invented.
+knowledge_nodes:
+  - id: n_geo_au_granite_belt_region
+    node_type: appellation
+    name: Granite Belt
+  - id: n_geo_au_south_burnett_region
+    node_type: appellation
+    name: South Burnett
+  - id: n_geo_au_perricoota_region
+    node_type: appellation
+    name: Perricoota
+  - id: n_geo_au_cowra_region
+    node_type: appellation
+    name: Cowra
+  - id: n_geo_au_hastings_river_region
+    node_type: appellation
+    name: Hastings River
+  - id: n_geo_au_new_england_australia_region
+    node_type: appellation
+    name: New England Australia
+  - id: n_geo_au_shoalhaven_coast_region
+    node_type: appellation
+    name: Shoalhaven Coast
+  - id: n_geo_au_southern_highlands_region
+    node_type: appellation
+    name: Southern Highlands
+  - id: n_geo_au_gundagai_region
+    node_type: appellation
+    name: Gundagai
+  - id: n_geo_au_hilltops_region
+    node_type: appellation
+    name: Hilltops
+  - id: n_geo_au_peel_region
+    node_type: appellation
+    name: Peel
+  - id: n_geo_au_perth_hills_region
+    node_type: appellation
+    name: Perth Hills
+  - id: n_geo_au_blackwood_valley_region
+    node_type: appellation
+    name: Blackwood Valley
+  - id: n_geo_au_geographe_region
+    node_type: appellation
+    name: Geographe
+  - id: n_geo_au_manjimup_region
+    node_type: appellation
+    name: Manjimup
+  - id: n_geo_au_upper_goulburn_region
+    node_type: appellation
+    name: Upper Goulburn
+  - id: n_geo_au_swan_hill_region
+    node_type: appellation
+    name: Swan Hill
+  - id: n_geo_au_sunbury_region
+    node_type: appellation
+    name: Sunbury
+  - id: n_geo_au_strathbogie_ranges_region
+    node_type: appellation
+    name: Strathbogie Ranges
+  - id: n_geo_au_pyrenees_region
+    node_type: appellation
+    name: Pyrenees
+  - id: n_geo_au_murray_darling_region
+    node_type: appellation
+    name: Murray Darling
+  - id: n_geo_au_henty_region
+    node_type: appellation
+    name: Henty
+  - id: n_geo_au_glenrowan_region
+    node_type: appellation
+    name: Glenrowan
+  - id: n_geo_au_bendigo_region
+    node_type: appellation
+    name: Bendigo
+  - id: n_geo_au_beechworth_region
+    node_type: appellation
+    name: Beechworth
+  - id: n_geo_au_alpine_valleys_region
+    node_type: appellation
+    name: Alpine Valleys
+  - id: n_geo_au_adelaide_plains_region
+    node_type: appellation
+    name: Adelaide Plains
+  - id: n_geo_au_currency_creek_region
+    node_type: appellation
+    name: Currency Creek
+  - id: n_geo_au_kangaroo_island_region
+    node_type: appellation
+    name: Kangaroo Island
+  - id: n_geo_au_mount_benson_region
+    node_type: appellation
+    name: Mount Benson
+  - id: n_geo_au_mount_gambier_region
+    node_type: appellation
+    name: Mount Gambier
+  - id: n_geo_au_robe_region
+    node_type: appellation
+    name: Robe
+  - id: n_geo_au_southern_fleurieu_region
+    node_type: appellation
+    name: Southern Fleurieu
+  - id: n_geo_au_southern_flinders_ranges_region
+    node_type: appellation
+    name: Southern Flinders Ranges
+  - id: n_geo_au_western_victoria_zone
+    node_type: region
+    name: Western Victoria (zone)
+  - id: n_geo_au_north_west_victoria_zone
+    node_type: region
+    name: North West Victoria (zone)
+  - id: n_geo_au_north_east_victoria_zone
+    node_type: region
+    name: North East Victoria (zone)
+  - id: n_geo_au_gippsland_zone
+    node_type: region
+    name: Gippsland (zone)
+  - id: n_geo_au_central_victoria_zone
+    node_type: region
+    name: Central Victoria (zone)
+  - id: n_geo_au_central_western_australia_zone
+    node_type: region
+    name: Central Western Australia (zone)
+  - id: n_geo_au_greater_perth_zone
+    node_type: region
+    name: Greater Perth (zone)
+  - id: n_geo_au_south_west_australia_zone
+    node_type: region
+    name: South West Australia (zone)
+  - id: n_geo_au_west_australian_south_east_coastal_zone
+    node_type: region
+    name: West Australian South East Coastal (zone)
+  - id: n_geo_au_central_ranges_zone
+    node_type: region
+    name: Central Ranges (zone)
+  - id: n_geo_au_northern_rivers_zone
+    node_type: region
+    name: Northern Rivers (zone)
+  - id: n_geo_au_northern_slopes_zone
+    node_type: region
+    name: Northern Slopes (zone)
+  - id: n_geo_au_south_coast_zone
+    node_type: region
+    name: South Coast (zone)
+  - id: n_geo_au_southern_new_south_wales_zone
+    node_type: region
+    name: Southern New South Wales (zone)
+  - id: n_geo_au_big_rivers_zone
+    node_type: region
+    name: Big Rivers (zone)
+  - id: n_geo_au_the_peninsulas_zone
+    node_type: region
+    name: The Peninsulas (zone)
+  - id: n_geo_au_lower_murray_zone
+    node_type: region
+    name: Lower Murray (zone)
+  - id: n_geo_au_far_north_zone
+    node_type: region
+    name: Far North (zone)
+  - id: n_geo_au_eastern_plains_inland_and_north_of_western_australia_zone
+    node_type: region
+    name: Eastern Plains, Inland And North Of Western Australia (zone)
+  - id: n_geo_au_western_plains_zone
+    node_type: region
+    name: Western Plains (zone)
+  - id: n_geo_au_queensland_zone
+    node_type: region
+    name: Queensland (zone)
+  - id: n_geo_au_adelaide_super_zone
+    node_type: region
+    name: Adelaide (super zone)
+  - id: n_geo_au_northern_territory
+    node_type: region
+    name: Northern Territory
+  - id: n_geo_au_australian_capital_territory
+    node_type: region
+    name: Australian Capital Territory
+  - id: n_geo_za_greater_cape
+    node_type: region
+    name: Greater Cape
+  - id: n_geo_za_cape_coast
+    node_type: region
+    name: Cape Coast
+  - id: n_geo_za_cape_west_coast
+    node_type: subregion
+    name: Cape West Coast
+  - id: n_geo_za_northern_cape
+    node_type: region
+    name: Northern Cape
+  - id: n_geo_za_eastern_cape
+    node_type: region
+    name: Eastern Cape
+  - id: n_geo_za_kwazulu_natal
+    node_type: region
+    name: KwaZulu-Natal
+  - id: n_geo_za_free_state
+    node_type: region
+    name: Free State
+  - id: n_geo_za_limpopo
+    node_type: region
+    name: Limpopo
+  - id: n_geo_za_north_west
+    node_type: region
+    name: North West
+  - id: n_geo_za_karoo_hoogland
+    node_type: region
+    name: Karoo-Hoogland
+  - id: n_geo_za_lower_duivenhoks_river
+    node_type: appellation
+    name: Lower Duivenhoks River
+  - id: n_geo_za_plettenberg_bay
+    node_type: appellation
+    name: Plettenberg Bay
+  - id: n_geo_za_swellendam
+    node_type: appellation
+    name: Swellendam
+  - id: n_geo_za_still_bay
+    node_type: appellation
+    name: Still Bay
+  - id: n_geo_za_lutzville_valley
+    node_type: appellation
+    name: Lutzville Valley
+  - id: n_geo_za_langeberg_garcia
+    node_type: appellation
+    name: Langeberg-Garcia
+  - id: n_geo_za_citrusdal_mountain
+    node_type: appellation
+    name: Citrusdal Mountain
+  - id: n_geo_za_citrusdal_valley
+    node_type: appellation
+    name: Citrusdal Valley
+  - id: n_geo_za_ceres_plateau
+    node_type: appellation
+    name: Ceres Plateau
+  - id: n_geo_za_nuveld_karoo
+    node_type: appellation
+    name: Nuveld-Karoo
+  - id: n_geo_za_prince_albert
+    node_type: appellation
+    name: Prince Albert
+  - id: n_geo_za_sutherland_karoo
+    node_type: appellation
+    name: Sutherland-Karoo
+  - id: n_geo_za_central_orange_river
+    node_type: appellation
+    name: Central Orange River
+  - id: n_geo_za_douglas
+    node_type: appellation
+    name: Douglas
+  - id: n_geo_za_central_drakensberg
+    node_type: appellation
+    name: Central Drakensberg
+  - id: n_geo_za_lions_river
+    node_type: appellation
+    name: Lions River
+  - id: n_geo_za_cederberg
+    node_type: subregion
+    name: Cederberg
+  - id: n_geo_za_nieuwoudtville
+    node_type: subregion
+    name: Nieuwoudtville
+  - id: n_geo_za_piekenierskloof
+    node_type: subregion
+    name: Piekenierskloof
+  - id: n_geo_za_slanghoek
+    node_type: subregion
+    name: Slanghoek
+  - id: n_geo_za_goudini
+    node_type: subregion
+    name: Goudini
+  - id: n_geo_za_simonsberg_paarl
+    node_type: subregion
+    name: Simonsberg-Paarl
+  - id: n_geo_za_agter_paarl
+    node_type: subregion
+    name: Agter-Paarl
+  - id: n_geo_za_voor_paardeberg
+    node_type: subregion
+    name: Voor-Paardeberg
+  - id: n_geo_za_malmesbury
+    node_type: subregion
+    name: Malmesbury
+  - id: n_geo_za_paardeberg
+    node_type: subregion
+    name: Paardeberg
+  - id: n_geo_za_porseleinberg
+    node_type: subregion
+    name: Porseleinberg
+  - id: n_geo_za_riebeekberg
+    node_type: subregion
+    name: Riebeekberg
+  - id: n_geo_za_riebeeksrivier
+    node_type: subregion
+    name: Riebeeksrivier
+  - id: n_geo_za_groenekloof
+    node_type: subregion
+    name: Groenekloof
+  - id: n_geo_za_koekenaap
+    node_type: subregion
+    name: Koekenaap
+  - id: n_geo_za_vredendal
+    node_type: subregion
+    name: Vredendal
+  - id: n_geo_za_spruitdrift
+    node_type: subregion
+    name: Spruitdrift
+  - id: n_geo_za_sundays_glen
+    node_type: subregion
+    name: Sunday's Glen
+  - id: n_geo_za_stanford_foothills
+    node_type: subregion
+    name: Stanford Foothills
+  - id: n_geo_za_malgas
+    node_type: subregion
+    name: Malgas
+  - id: n_geo_za_montagu
+    node_type: subregion
+    name: Montagu
+  - id: n_geo_za_tradouw
+    node_type: subregion
+    name: Tradouw
+  - id: n_geo_za_tradouw_highlands
+    node_type: subregion
+    name: Tradouw Highlands
+  - id: n_geo_za_agterkliphoogte
+    node_type: subregion
+    name: Agterkliphoogte
+  - id: n_geo_za_ashton
+    node_type: subregion
+    name: Ashton
+  - id: n_geo_za_boesmansrivier
+    node_type: subregion
+    name: Boesmansrivier
+  - id: n_geo_za_bonnievale
+    node_type: subregion
+    name: Bonnievale
+  - id: n_geo_za_eilandia
+    node_type: subregion
+    name: Eilandia
+  - id: n_geo_za_goree
+    node_type: subregion
+    name: Goree
+  - id: n_geo_za_goudmyn
+    node_type: subregion
+    name: Goudmyn
+  - id: n_geo_za_hoopsrivier
+    node_type: subregion
+    name: Hoopsrivier
+  - id: n_geo_za_klaasvoogds
+    node_type: subregion
+    name: Klaasvoogds
+  - id: n_geo_za_le_chasseur
+    node_type: subregion
+    name: Le Chasseur
+  - id: n_geo_za_mcgregor
+    node_type: subregion
+    name: McGregor
+  - id: n_geo_za_vinkrivier
+    node_type: subregion
+    name: Vinkrivier
+  - id: n_geo_za_zandrivier
+    node_type: subregion
+    name: Zandrivier
+  - id: n_geo_za_hex_river_valley
+    node_type: subregion
+    name: Hex River Valley
+  - id: n_geo_za_keeromsberg
+    node_type: subregion
+    name: Keeromsberg
+  - id: n_geo_za_moordkuil
+    node_type: subregion
+    name: Moordkuil
+  - id: n_geo_za_nuy
+    node_type: subregion
+    name: Nuy
+  - id: n_geo_za_scherpenheuvel
+    node_type: subregion
+    name: Scherpenheuvel
+  - id: n_geo_za_stettyn
+    node_type: subregion
+    name: Stettyn
+  - id: n_geo_za_groenfontein
+    node_type: subregion
+    name: Groenfontein
+  - id: n_geo_za_koo_plateau
+    node_type: subregion
+    name: Koo Plateau
+  - id: n_geo_za_outeniqua
+    node_type: subregion
+    name: Outeniqua
+  - id: n_geo_za_ceres_ward
+    node_type: subregion
+    name: Ceres
+  - id: n_geo_za_swartberg
+    node_type: subregion
+    name: Swartberg
+  - id: n_geo_za_leipoldtville_sandveld
+    node_type: subregion
+    name: Leipoldtville-Sandveld
+  - id: n_geo_za_groblershoop
+    node_type: subregion
+    name: Groblershoop
+  - id: n_geo_za_grootdrink
+    node_type: subregion
+    name: Grootdrink
+  - id: n_geo_za_kakamas
+    node_type: subregion
+    name: Kakamas
+  - id: n_geo_za_keimoes
+    node_type: subregion
+    name: Keimoes
+  - id: n_geo_za_upington
+    node_type: subregion
+    name: Upington
+  - id: n_geo_za_hartswater
+    node_type: subregion
+    name: Hartswater
+  - id: n_geo_za_prieska
+    node_type: subregion
+    name: Prieska
+  - id: n_geo_za_lanseria
+    node_type: subregion
+    name: Lanseria
+  - id: n_geo_za_elandskloof_kaaimansgat
+    node_type: subregion
+    name: Elandskloof/Kaaimansgat
+  - id: n_geo_za_greyton
+    node_type: subregion
+    name: Greyton
+  - id: n_geo_za_klein_river
+    node_type: subregion
+    name: Klein River
+  - id: n_geo_za_shaws_mountain
+    node_type: subregion
+    name: Shaw’s Mountain
+  - id: n_geo_za_theewater
+    node_type: subregion
+    name: Theewater
+  - id: n_geo_za_buffeljags
+    node_type: subregion
+    name: Buffeljags
+  - id: n_geo_za_stormsvlei
+    node_type: subregion
+    name: Stormsvlei
+  - id: n_geo_za_springfontein_rim
+    node_type: subregion
+    name: Springfontein Rim
+  - id: n_geo_za_goukou_river_valley
+    node_type: subregion
+    name: Goukou River Valley
+  - id: n_geo_za_herbertsdale
+    node_type: subregion
+    name: Herbertsdale
+  - id: n_geo_za_napier
+    node_type: subregion
+    name: Napier
+  - id: n_geo_za_hout_bay
+    node_type: subregion
+    name: Hout Bay
+  - id: n_geo_za_philadelphia
+    node_type: subregion
+    name: Philadelphia
+  - id: n_geo_za_piket_bo_berg
+    node_type: subregion
+    name: Piket-Bo-Berg
+  - id: n_geo_za_st_helena_bay
+    node_type: subregion
+    name: St Helena Bay
+  - id: n_geo_za_groenberg
+    node_type: subregion
+    name: Groenberg
+  - id: n_geo_za_limietberg
+    node_type: subregion
+    name: Limietberg
+  - id: n_geo_za_bamboes_bay
+    node_type: subregion
+    name: Bamboes Bay
+  - id: n_geo_za_lamberts_bay
+    node_type: subregion
+    name: Lamberts Bay
+  - id: n_geo_za_goedemoed
+    node_type: subregion
+    name: Goedemoed
+  - id: n_geo_za_rooikrans
+    node_type: subregion
+    name: Rooikrans
+  - id: n_geo_za_cango_valley
+    node_type: subregion
+    name: Cango Valley
+  - id: n_geo_za_upper_langkloof
+    node_type: subregion
+    name: Upper Langkloof
+  - id: n_geo_za_kweekvallei
+    node_type: subregion
+    name: Kweekvallei
+  - id: n_geo_za_prince_albert_valley
+    node_type: subregion
+    name: Prince Albert Valley
+  - id: n_geo_za_rietrivier_fs
+    node_type: subregion
+    name: Rietrivier FS
+  - id: n_geo_za_st_francis_bay
+    node_type: subregion
+    name: St Francis Bay
+  - id: n_geo_za_blouvlei
+    node_type: subregion
+    name: Blouvlei
+  - id: n_geo_za_bovlei
+    node_type: subregion
+    name: Bovlei
+  - id: n_geo_za_mid_berg_river
+    node_type: subregion
+    name: Mid-Berg River
+knowledge_relations:
+  - subject_id: n_geo_au_granite_belt_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_au_queensland_zone
+    valid_from: 1900-01-01
+  - subject_id: n_geo_au_south_burnett_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_au_queensland_zone
+    valid_from: 1900-01-01
+  - subject_id: n_geo_au_perricoota_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_au_big_rivers_zone
+    valid_from: 1900-01-01
+  - subject_id: n_geo_au_cowra_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_au_central_ranges_zone
+    valid_from: 1900-01-01
+  - subject_id: n_geo_au_hastings_river_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_au_northern_rivers_zone
+    valid_from: 1900-01-01
+  - subject_id: n_geo_au_new_england_australia_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_au_northern_slopes_zone
+    valid_from: 1900-01-01
+  - subject_id: n_geo_au_shoalhaven_coast_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_au_south_coast_zone
+    valid_from: 1900-01-01
+  - subject_id: n_geo_au_southern_highlands_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_au_south_coast_zone
+    valid_from: 1900-01-01
+  - subject_id: n_geo_au_gundagai_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_au_southern_new_south_wales_zone
+    valid_from: 1900-01-01
+  - subject_id: n_geo_au_hilltops_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_au_southern_new_south_wales_zone
+    valid_from: 1900-01-01
+  - subject_id: n_geo_au_peel_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_au_greater_perth_zone
+    valid_from: 1900-01-01
+  - subject_id: n_geo_au_perth_hills_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_au_greater_perth_zone
+    valid_from: 1900-01-01
+  - subject_id: n_geo_au_blackwood_valley_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_au_south_west_australia_zone
+    valid_from: 1900-01-01
+  - subject_id: n_geo_au_geographe_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_au_south_west_australia_zone
+    valid_from: 1900-01-01
+  - subject_id: n_geo_au_manjimup_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_au_south_west_australia_zone
+    valid_from: 1900-01-01
+  - subject_id: n_geo_au_upper_goulburn_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_au_central_victoria_zone
+    valid_from: 1900-01-01
+  - subject_id: n_geo_au_swan_hill_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_australia
+    valid_from: 1900-01-01
+  - subject_id: n_geo_au_sunbury_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_port_phillip
+    valid_from: 1900-01-01
+  - subject_id: n_geo_au_strathbogie_ranges_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_au_central_victoria_zone
+    valid_from: 1900-01-01
+  - subject_id: n_geo_au_pyrenees_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_au_western_victoria_zone
+    valid_from: 1900-01-01
+  - subject_id: n_geo_au_murray_darling_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_australia
+    valid_from: 1900-01-01
+  - subject_id: n_geo_au_henty_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_au_western_victoria_zone
+    valid_from: 1900-01-01
+  - subject_id: n_geo_au_glenrowan_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_au_north_east_victoria_zone
+    valid_from: 1900-01-01
+  - subject_id: n_geo_au_bendigo_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_au_central_victoria_zone
+    valid_from: 1900-01-01
+  - subject_id: n_geo_au_beechworth_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_au_north_east_victoria_zone
+    valid_from: 1900-01-01
+  - subject_id: n_geo_au_alpine_valleys_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_au_north_east_victoria_zone
+    valid_from: 1900-01-01
+  - subject_id: n_geo_au_adelaide_plains_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_mount_lofty_ranges
+    valid_from: 1900-01-01
+  - subject_id: n_geo_au_currency_creek_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_fleurieu_zone
+    valid_from: 1900-01-01
+  - subject_id: n_geo_au_kangaroo_island_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_fleurieu_zone
+    valid_from: 1900-01-01
+  - subject_id: n_geo_au_mount_benson_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_limestone_coast
+    valid_from: 1900-01-01
+  - subject_id: n_geo_au_mount_gambier_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_limestone_coast
+    valid_from: 1900-01-01
+  - subject_id: n_geo_au_robe_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_limestone_coast
+    valid_from: 1900-01-01
+  - subject_id: n_geo_au_southern_fleurieu_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_fleurieu_zone
+    valid_from: 1900-01-01
+  - subject_id: n_geo_au_southern_flinders_ranges_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_au_far_north_zone
+    valid_from: 1900-01-01
+  - subject_id: n_geo_au_western_victoria_zone
+    relation_type: LOCATED_IN
+    object_id: n_geo_victoria
+    valid_from: 1900-01-01
+  - subject_id: n_geo_au_north_west_victoria_zone
+    relation_type: LOCATED_IN
+    object_id: n_geo_victoria
+    valid_from: 1900-01-01
+  - subject_id: n_geo_au_north_east_victoria_zone
+    relation_type: LOCATED_IN
+    object_id: n_geo_victoria
+    valid_from: 1900-01-01
+  - subject_id: n_geo_au_gippsland_zone
+    relation_type: LOCATED_IN
+    object_id: n_geo_victoria
+    valid_from: 1900-01-01
+  - subject_id: n_geo_au_central_victoria_zone
+    relation_type: LOCATED_IN
+    object_id: n_geo_victoria
+    valid_from: 1900-01-01
+  - subject_id: n_geo_au_central_western_australia_zone
+    relation_type: LOCATED_IN
+    object_id: n_geo_western_australia
+    valid_from: 1900-01-01
+  - subject_id: n_geo_au_greater_perth_zone
+    relation_type: LOCATED_IN
+    object_id: n_geo_western_australia
+    valid_from: 1900-01-01
+  - subject_id: n_geo_au_south_west_australia_zone
+    relation_type: LOCATED_IN
+    object_id: n_geo_western_australia
+    valid_from: 1900-01-01
+  - subject_id: n_geo_au_west_australian_south_east_coastal_zone
+    relation_type: LOCATED_IN
+    object_id: n_geo_western_australia
+    valid_from: 1900-01-01
+  - subject_id: n_geo_au_central_ranges_zone
+    relation_type: LOCATED_IN
+    object_id: n_geo_new_south_wales
+    valid_from: 1900-01-01
+  - subject_id: n_geo_au_northern_rivers_zone
+    relation_type: LOCATED_IN
+    object_id: n_geo_new_south_wales
+    valid_from: 1900-01-01
+  - subject_id: n_geo_au_northern_slopes_zone
+    relation_type: LOCATED_IN
+    object_id: n_geo_new_south_wales
+    valid_from: 1900-01-01
+  - subject_id: n_geo_au_south_coast_zone
+    relation_type: LOCATED_IN
+    object_id: n_geo_new_south_wales
+    valid_from: 1900-01-01
+  - subject_id: n_geo_au_southern_new_south_wales_zone
+    relation_type: LOCATED_IN
+    object_id: n_geo_new_south_wales
+    valid_from: 1900-01-01
+  - subject_id: n_geo_au_big_rivers_zone
+    relation_type: LOCATED_IN
+    object_id: n_geo_new_south_wales
+    valid_from: 1900-01-01
+  - subject_id: n_geo_au_the_peninsulas_zone
+    relation_type: LOCATED_IN
+    object_id: n_geo_south_australia
+    valid_from: 1900-01-01
+  - subject_id: n_geo_au_lower_murray_zone
+    relation_type: LOCATED_IN
+    object_id: n_geo_south_australia
+    valid_from: 1900-01-01
+  - subject_id: n_geo_au_far_north_zone
+    relation_type: LOCATED_IN
+    object_id: n_geo_south_australia
+    valid_from: 1900-01-01
+  - subject_id: n_geo_au_eastern_plains_inland_and_north_of_western_australia_zone
+    relation_type: LOCATED_IN
+    object_id: n_geo_western_australia
+    valid_from: 1900-01-01
+  - subject_id: n_geo_au_western_plains_zone
+    relation_type: LOCATED_IN
+    object_id: n_geo_new_south_wales
+    valid_from: 1900-01-01
+  - subject_id: n_geo_au_queensland_zone
+    relation_type: LOCATED_IN
+    object_id: n_geo_australia
+    valid_from: 1900-01-01
+  - subject_id: n_geo_au_adelaide_super_zone
+    relation_type: LOCATED_IN
+    object_id: n_geo_south_australia
+    valid_from: 1900-01-01
+  - subject_id: n_geo_au_northern_territory
+    relation_type: LOCATED_IN
+    object_id: n_geo_australia
+    valid_from: 1900-01-01
+  - subject_id: n_geo_au_australian_capital_territory
+    relation_type: LOCATED_IN
+    object_id: n_geo_australia
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_greater_cape
+    relation_type: LOCATED_IN
+    object_id: n_geo_south_africa
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_cape_coast
+    relation_type: LOCATED_IN
+    object_id: n_geo_western_cape
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_cape_west_coast
+    relation_type: LOCATED_IN
+    object_id: n_geo_coastal_region
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_northern_cape
+    relation_type: LOCATED_IN
+    object_id: n_geo_south_africa
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_eastern_cape
+    relation_type: LOCATED_IN
+    object_id: n_geo_south_africa
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_kwazulu_natal
+    relation_type: LOCATED_IN
+    object_id: n_geo_south_africa
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_free_state
+    relation_type: LOCATED_IN
+    object_id: n_geo_south_africa
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_limpopo
+    relation_type: LOCATED_IN
+    object_id: n_geo_south_africa
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_north_west
+    relation_type: LOCATED_IN
+    object_id: n_geo_south_africa
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_karoo_hoogland
+    relation_type: LOCATED_IN
+    object_id: n_geo_za_northern_cape
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_lower_duivenhoks_river
+    relation_type: LOCATED_IN
+    object_id: n_geo_cape_south_coast
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_plettenberg_bay
+    relation_type: LOCATED_IN
+    object_id: n_geo_cape_south_coast
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_swellendam
+    relation_type: LOCATED_IN
+    object_id: n_geo_cape_south_coast
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_still_bay
+    relation_type: LOCATED_IN
+    object_id: n_geo_cape_south_coast
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_lutzville_valley
+    relation_type: LOCATED_IN
+    object_id: n_geo_coastal_region
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_langeberg_garcia
+    relation_type: LOCATED_IN
+    object_id: n_geo_klein_karoo_wine
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_citrusdal_mountain
+    relation_type: LOCATED_IN
+    object_id: n_geo_olifants_river_wine
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_citrusdal_valley
+    relation_type: LOCATED_IN
+    object_id: n_geo_olifants_river_wine
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_ceres_plateau
+    relation_type: LOCATED_IN
+    object_id: n_geo_western_cape
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_nuveld_karoo
+    relation_type: LOCATED_IN
+    object_id: n_geo_western_cape
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_prince_albert
+    relation_type: LOCATED_IN
+    object_id: n_geo_western_cape
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_sutherland_karoo
+    relation_type: LOCATED_IN
+    object_id: n_geo_za_karoo_hoogland
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_central_orange_river
+    relation_type: LOCATED_IN
+    object_id: n_geo_za_northern_cape
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_douglas
+    relation_type: LOCATED_IN
+    object_id: n_geo_za_northern_cape
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_central_drakensberg
+    relation_type: LOCATED_IN
+    object_id: n_geo_za_kwazulu_natal
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_lions_river
+    relation_type: LOCATED_IN
+    object_id: n_geo_za_kwazulu_natal
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_cederberg
+    relation_type: LOCATED_IN
+    object_id: n_geo_western_cape
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_nieuwoudtville
+    relation_type: LOCATED_IN
+    object_id: n_geo_western_cape
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_piekenierskloof
+    relation_type: LOCATED_IN
+    object_id: n_geo_za_citrusdal_mountain
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_slanghoek
+    relation_type: LOCATED_IN
+    object_id: n_geo_breedekloof
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_goudini
+    relation_type: LOCATED_IN
+    object_id: n_geo_breedekloof
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_simonsberg_paarl
+    relation_type: LOCATED_IN
+    object_id: n_geo_paarl
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_agter_paarl
+    relation_type: LOCATED_IN
+    object_id: n_geo_paarl
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_voor_paardeberg
+    relation_type: LOCATED_IN
+    object_id: n_geo_paarl
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_malmesbury
+    relation_type: LOCATED_IN
+    object_id: n_geo_swartland
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_paardeberg
+    relation_type: LOCATED_IN
+    object_id: n_geo_swartland
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_porseleinberg
+    relation_type: LOCATED_IN
+    object_id: n_geo_swartland
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_riebeekberg
+    relation_type: LOCATED_IN
+    object_id: n_geo_swartland
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_riebeeksrivier
+    relation_type: LOCATED_IN
+    object_id: n_geo_swartland
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_groenekloof
+    relation_type: LOCATED_IN
+    object_id: n_geo_darling_wine
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_koekenaap
+    relation_type: LOCATED_IN
+    object_id: n_geo_za_lutzville_valley
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_vredendal
+    relation_type: LOCATED_IN
+    object_id: n_geo_olifants_river_wine
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_spruitdrift
+    relation_type: LOCATED_IN
+    object_id: n_geo_olifants_river_wine
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_sundays_glen
+    relation_type: LOCATED_IN
+    object_id: n_geo_walker_bay
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_stanford_foothills
+    relation_type: LOCATED_IN
+    object_id: n_geo_walker_bay
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_malgas
+    relation_type: LOCATED_IN
+    object_id: n_geo_za_swellendam
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_montagu
+    relation_type: LOCATED_IN
+    object_id: n_geo_klein_karoo_wine
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_tradouw
+    relation_type: LOCATED_IN
+    object_id: n_geo_klein_karoo_wine
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_tradouw_highlands
+    relation_type: LOCATED_IN
+    object_id: n_geo_klein_karoo_wine
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_agterkliphoogte
+    relation_type: LOCATED_IN
+    object_id: n_geo_robertson_wine
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_ashton
+    relation_type: LOCATED_IN
+    object_id: n_geo_robertson_wine
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_boesmansrivier
+    relation_type: LOCATED_IN
+    object_id: n_geo_robertson_wine
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_bonnievale
+    relation_type: LOCATED_IN
+    object_id: n_geo_robertson_wine
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_eilandia
+    relation_type: LOCATED_IN
+    object_id: n_geo_robertson_wine
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_goree
+    relation_type: LOCATED_IN
+    object_id: n_geo_robertson_wine
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_goudmyn
+    relation_type: LOCATED_IN
+    object_id: n_geo_robertson_wine
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_hoopsrivier
+    relation_type: LOCATED_IN
+    object_id: n_geo_robertson_wine
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_klaasvoogds
+    relation_type: LOCATED_IN
+    object_id: n_geo_robertson_wine
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_le_chasseur
+    relation_type: LOCATED_IN
+    object_id: n_geo_robertson_wine
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_mcgregor
+    relation_type: LOCATED_IN
+    object_id: n_geo_robertson_wine
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_vinkrivier
+    relation_type: LOCATED_IN
+    object_id: n_geo_robertson_wine
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_zandrivier
+    relation_type: LOCATED_IN
+    object_id: n_geo_robertson_wine
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_hex_river_valley
+    relation_type: LOCATED_IN
+    object_id: n_geo_worcester_wine
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_keeromsberg
+    relation_type: LOCATED_IN
+    object_id: n_geo_worcester_wine
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_moordkuil
+    relation_type: LOCATED_IN
+    object_id: n_geo_worcester_wine
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_nuy
+    relation_type: LOCATED_IN
+    object_id: n_geo_worcester_wine
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_scherpenheuvel
+    relation_type: LOCATED_IN
+    object_id: n_geo_worcester_wine
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_stettyn
+    relation_type: LOCATED_IN
+    object_id: n_geo_worcester_wine
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_groenfontein
+    relation_type: LOCATED_IN
+    object_id: n_geo_calitzdorp_wine
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_koo_plateau
+    relation_type: LOCATED_IN
+    object_id: n_geo_klein_karoo_wine
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_outeniqua
+    relation_type: LOCATED_IN
+    object_id: n_geo_klein_karoo_wine
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_ceres_ward
+    relation_type: LOCATED_IN
+    object_id: n_geo_za_ceres_plateau
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_swartberg
+    relation_type: LOCATED_IN
+    object_id: n_geo_za_prince_albert
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_leipoldtville_sandveld
+    relation_type: LOCATED_IN
+    object_id: n_geo_western_cape
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_groblershoop
+    relation_type: LOCATED_IN
+    object_id: n_geo_za_central_orange_river
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_grootdrink
+    relation_type: LOCATED_IN
+    object_id: n_geo_za_central_orange_river
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_kakamas
+    relation_type: LOCATED_IN
+    object_id: n_geo_za_central_orange_river
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_keimoes
+    relation_type: LOCATED_IN
+    object_id: n_geo_za_central_orange_river
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_upington
+    relation_type: LOCATED_IN
+    object_id: n_geo_za_central_orange_river
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_hartswater
+    relation_type: LOCATED_IN
+    object_id: n_geo_za_northern_cape
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_prieska
+    relation_type: LOCATED_IN
+    object_id: n_geo_za_northern_cape
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_lanseria
+    relation_type: LOCATED_IN
+    object_id: n_geo_south_africa
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_elandskloof_kaaimansgat
+    relation_type: LOCATED_IN
+    object_id: n_geo_overberg_wine
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_greyton
+    relation_type: LOCATED_IN
+    object_id: n_geo_overberg_wine
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_klein_river
+    relation_type: LOCATED_IN
+    object_id: n_geo_overberg_wine
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_shaws_mountain
+    relation_type: LOCATED_IN
+    object_id: n_geo_overberg_wine
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_theewater
+    relation_type: LOCATED_IN
+    object_id: n_geo_overberg_wine
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_buffeljags
+    relation_type: LOCATED_IN
+    object_id: n_geo_za_swellendam
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_stormsvlei
+    relation_type: LOCATED_IN
+    object_id: n_geo_za_swellendam
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_springfontein_rim
+    relation_type: LOCATED_IN
+    object_id: n_geo_walker_bay
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_goukou_river_valley
+    relation_type: LOCATED_IN
+    object_id: n_geo_za_still_bay
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_herbertsdale
+    relation_type: LOCATED_IN
+    object_id: n_geo_cape_south_coast
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_napier
+    relation_type: LOCATED_IN
+    object_id: n_geo_cape_south_coast
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_hout_bay
+    relation_type: LOCATED_IN
+    object_id: n_geo_cape_town_wine
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_philadelphia
+    relation_type: LOCATED_IN
+    object_id: n_geo_cape_town_wine
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_piket_bo_berg
+    relation_type: LOCATED_IN
+    object_id: n_geo_swartland
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_st_helena_bay
+    relation_type: LOCATED_IN
+    object_id: n_geo_swartland
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_groenberg
+    relation_type: LOCATED_IN
+    object_id: n_geo_wellington_wine
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_limietberg
+    relation_type: LOCATED_IN
+    object_id: n_geo_wellington_wine
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_bamboes_bay
+    relation_type: LOCATED_IN
+    object_id: n_geo_za_cape_west_coast
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_lamberts_bay
+    relation_type: LOCATED_IN
+    object_id: n_geo_za_cape_west_coast
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_goedemoed
+    relation_type: LOCATED_IN
+    object_id: n_geo_robertson_wine
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_rooikrans
+    relation_type: LOCATED_IN
+    object_id: n_geo_worcester_wine
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_cango_valley
+    relation_type: LOCATED_IN
+    object_id: n_geo_klein_karoo_wine
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_upper_langkloof
+    relation_type: LOCATED_IN
+    object_id: n_geo_klein_karoo_wine
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_kweekvallei
+    relation_type: LOCATED_IN
+    object_id: n_geo_za_prince_albert
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_prince_albert_valley
+    relation_type: LOCATED_IN
+    object_id: n_geo_za_prince_albert
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_rietrivier_fs
+    relation_type: LOCATED_IN
+    object_id: n_geo_za_free_state
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_st_francis_bay
+    relation_type: LOCATED_IN
+    object_id: n_geo_za_eastern_cape
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_blouvlei
+    relation_type: LOCATED_IN
+    object_id: n_geo_wellington_wine
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_bovlei
+    relation_type: LOCATED_IN
+    object_id: n_geo_wellington_wine
+    valid_from: 1900-01-01
+  - subject_id: n_geo_za_mid_berg_river
+    relation_type: LOCATED_IN
+    object_id: n_geo_wellington_wine
+    valid_from: 1900-01-01
+knowledge_items:
+  - id: ki_nwoa_au_granite_belt_region_location
+    subject_id: n_geo_au_granite_belt_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_au_queensland_zone
+    domain_id: geography
+    assertion_text: Granite Belt is an Australian wine GI region in Queensland (zone).
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_au_south_burnett_region_location
+    subject_id: n_geo_au_south_burnett_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_au_queensland_zone
+    domain_id: geography
+    assertion_text: South Burnett is an Australian wine GI region in Queensland (zone).
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_au_perricoota_region_location
+    subject_id: n_geo_au_perricoota_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_au_big_rivers_zone
+    domain_id: geography
+    assertion_text: Perricoota is an Australian wine GI region in Big Rivers (zone).
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_au_cowra_region_location
+    subject_id: n_geo_au_cowra_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_au_central_ranges_zone
+    domain_id: geography
+    assertion_text: Cowra is an Australian wine GI region in Central Ranges (zone).
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_au_hastings_river_region_location
+    subject_id: n_geo_au_hastings_river_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_au_northern_rivers_zone
+    domain_id: geography
+    assertion_text: Hastings River is an Australian wine GI region in Northern Rivers (zone).
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_au_new_england_australia_region_location
+    subject_id: n_geo_au_new_england_australia_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_au_northern_slopes_zone
+    domain_id: geography
+    assertion_text: New England Australia is an Australian wine GI region in
+      Northern Slopes (zone).
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_au_shoalhaven_coast_region_location
+    subject_id: n_geo_au_shoalhaven_coast_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_au_south_coast_zone
+    domain_id: geography
+    assertion_text: Shoalhaven Coast is an Australian wine GI region in South Coast (zone).
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_au_southern_highlands_region_location
+    subject_id: n_geo_au_southern_highlands_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_au_south_coast_zone
+    domain_id: geography
+    assertion_text: Southern Highlands is an Australian wine GI region in South Coast (zone).
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_au_gundagai_region_location
+    subject_id: n_geo_au_gundagai_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_au_southern_new_south_wales_zone
+    domain_id: geography
+    assertion_text: Gundagai is an Australian wine GI region in Southern New South
+      Wales (zone).
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_au_hilltops_region_location
+    subject_id: n_geo_au_hilltops_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_au_southern_new_south_wales_zone
+    domain_id: geography
+    assertion_text: Hilltops is an Australian wine GI region in Southern New South
+      Wales (zone).
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_au_peel_region_location
+    subject_id: n_geo_au_peel_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_au_greater_perth_zone
+    domain_id: geography
+    assertion_text: Peel is an Australian wine GI region in Greater Perth (zone).
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_au_perth_hills_region_location
+    subject_id: n_geo_au_perth_hills_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_au_greater_perth_zone
+    domain_id: geography
+    assertion_text: Perth Hills is an Australian wine GI region in Greater Perth (zone).
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_au_blackwood_valley_region_location
+    subject_id: n_geo_au_blackwood_valley_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_au_south_west_australia_zone
+    domain_id: geography
+    assertion_text: Blackwood Valley is an Australian wine GI region in South West
+      Australia (zone).
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_au_geographe_region_location
+    subject_id: n_geo_au_geographe_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_au_south_west_australia_zone
+    domain_id: geography
+    assertion_text: Geographe is an Australian wine GI region in South West Australia (zone).
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_au_manjimup_region_location
+    subject_id: n_geo_au_manjimup_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_au_south_west_australia_zone
+    domain_id: geography
+    assertion_text: Manjimup is an Australian wine GI region in South West Australia (zone).
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_au_upper_goulburn_region_location
+    subject_id: n_geo_au_upper_goulburn_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_au_central_victoria_zone
+    domain_id: geography
+    assertion_text: Upper Goulburn is an Australian wine GI region in Central Victoria (zone).
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_au_swan_hill_region_location
+    subject_id: n_geo_au_swan_hill_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_australia
+    domain_id: geography
+    assertion_text: Swan Hill is an Australian wine GI region in Australia.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_au_sunbury_region_location
+    subject_id: n_geo_au_sunbury_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_port_phillip
+    domain_id: geography
+    assertion_text: Sunbury is an Australian wine GI region in Port Phillip (zone).
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_au_strathbogie_ranges_region_location
+    subject_id: n_geo_au_strathbogie_ranges_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_au_central_victoria_zone
+    domain_id: geography
+    assertion_text: Strathbogie Ranges is an Australian wine GI region in Central
+      Victoria (zone).
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_au_pyrenees_region_location
+    subject_id: n_geo_au_pyrenees_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_au_western_victoria_zone
+    domain_id: geography
+    assertion_text: Pyrenees is an Australian wine GI region in Western Victoria (zone).
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_au_murray_darling_region_location
+    subject_id: n_geo_au_murray_darling_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_australia
+    domain_id: geography
+    assertion_text: Murray Darling is an Australian wine GI region in Australia.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_au_henty_region_location
+    subject_id: n_geo_au_henty_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_au_western_victoria_zone
+    domain_id: geography
+    assertion_text: Henty is an Australian wine GI region in Western Victoria (zone).
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_au_glenrowan_region_location
+    subject_id: n_geo_au_glenrowan_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_au_north_east_victoria_zone
+    domain_id: geography
+    assertion_text: Glenrowan is an Australian wine GI region in North East Victoria (zone).
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_au_bendigo_region_location
+    subject_id: n_geo_au_bendigo_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_au_central_victoria_zone
+    domain_id: geography
+    assertion_text: Bendigo is an Australian wine GI region in Central Victoria (zone).
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_au_beechworth_region_location
+    subject_id: n_geo_au_beechworth_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_au_north_east_victoria_zone
+    domain_id: geography
+    assertion_text: Beechworth is an Australian wine GI region in North East Victoria (zone).
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_au_alpine_valleys_region_location
+    subject_id: n_geo_au_alpine_valleys_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_au_north_east_victoria_zone
+    domain_id: geography
+    assertion_text: Alpine Valleys is an Australian wine GI region in North East
+      Victoria (zone).
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_au_adelaide_plains_region_location
+    subject_id: n_geo_au_adelaide_plains_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_mount_lofty_ranges
+    domain_id: geography
+    assertion_text: Adelaide Plains is an Australian wine GI region in Mount Lofty
+      Ranges (zone).
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_au_currency_creek_region_location
+    subject_id: n_geo_au_currency_creek_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_fleurieu_zone
+    domain_id: geography
+    assertion_text: Currency Creek is an Australian wine GI region in Fleurieu (zone).
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_au_kangaroo_island_region_location
+    subject_id: n_geo_au_kangaroo_island_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_fleurieu_zone
+    domain_id: geography
+    assertion_text: Kangaroo Island is an Australian wine GI region in Fleurieu (zone).
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_au_mount_benson_region_location
+    subject_id: n_geo_au_mount_benson_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_limestone_coast
+    domain_id: geography
+    assertion_text: Mount Benson is an Australian wine GI region in Limestone Coast (zone).
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_au_mount_gambier_region_location
+    subject_id: n_geo_au_mount_gambier_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_limestone_coast
+    domain_id: geography
+    assertion_text: Mount Gambier is an Australian wine GI region in Limestone Coast (zone).
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_au_robe_region_location
+    subject_id: n_geo_au_robe_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_limestone_coast
+    domain_id: geography
+    assertion_text: Robe is an Australian wine GI region in Limestone Coast (zone).
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_au_southern_fleurieu_region_location
+    subject_id: n_geo_au_southern_fleurieu_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_fleurieu_zone
+    domain_id: geography
+    assertion_text: Southern Fleurieu is an Australian wine GI region in Fleurieu (zone).
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_au_southern_flinders_ranges_region_location
+    subject_id: n_geo_au_southern_flinders_ranges_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_au_far_north_zone
+    domain_id: geography
+    assertion_text: Southern Flinders Ranges is an Australian wine GI region in Far
+      North (zone).
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_au_western_victoria_zone_location
+    subject_id: n_geo_au_western_victoria_zone
+    relation_type: LOCATED_IN
+    object_id: n_geo_victoria
+    domain_id: geography
+    assertion_text: Western Victoria (zone) is an Australian wine GI zone in Victoria.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_au_north_west_victoria_zone_location
+    subject_id: n_geo_au_north_west_victoria_zone
+    relation_type: LOCATED_IN
+    object_id: n_geo_victoria
+    domain_id: geography
+    assertion_text: North West Victoria (zone) is an Australian wine GI zone in Victoria.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_au_north_east_victoria_zone_location
+    subject_id: n_geo_au_north_east_victoria_zone
+    relation_type: LOCATED_IN
+    object_id: n_geo_victoria
+    domain_id: geography
+    assertion_text: North East Victoria (zone) is an Australian wine GI zone in Victoria.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_au_gippsland_zone_location
+    subject_id: n_geo_au_gippsland_zone
+    relation_type: LOCATED_IN
+    object_id: n_geo_victoria
+    domain_id: geography
+    assertion_text: Gippsland (zone) is an Australian wine GI zone in Victoria.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_au_central_victoria_zone_location
+    subject_id: n_geo_au_central_victoria_zone
+    relation_type: LOCATED_IN
+    object_id: n_geo_victoria
+    domain_id: geography
+    assertion_text: Central Victoria (zone) is an Australian wine GI zone in Victoria.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_au_central_western_australia_zone_location
+    subject_id: n_geo_au_central_western_australia_zone
+    relation_type: LOCATED_IN
+    object_id: n_geo_western_australia
+    domain_id: geography
+    assertion_text: Central Western Australia (zone) is an Australian wine GI zone
+      in Western Australia.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_au_greater_perth_zone_location
+    subject_id: n_geo_au_greater_perth_zone
+    relation_type: LOCATED_IN
+    object_id: n_geo_western_australia
+    domain_id: geography
+    assertion_text: Greater Perth (zone) is an Australian wine GI zone in Western Australia.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_au_south_west_australia_zone_location
+    subject_id: n_geo_au_south_west_australia_zone
+    relation_type: LOCATED_IN
+    object_id: n_geo_western_australia
+    domain_id: geography
+    assertion_text: South West Australia (zone) is an Australian wine GI zone in
+      Western Australia.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_au_west_australian_south_east_coastal_zone_location
+    subject_id: n_geo_au_west_australian_south_east_coastal_zone
+    relation_type: LOCATED_IN
+    object_id: n_geo_western_australia
+    domain_id: geography
+    assertion_text: West Australian South East Coastal (zone) is an Australian wine
+      GI zone in Western Australia.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_au_central_ranges_zone_location
+    subject_id: n_geo_au_central_ranges_zone
+    relation_type: LOCATED_IN
+    object_id: n_geo_new_south_wales
+    domain_id: geography
+    assertion_text: Central Ranges (zone) is an Australian wine GI zone in New South Wales.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_au_northern_rivers_zone_location
+    subject_id: n_geo_au_northern_rivers_zone
+    relation_type: LOCATED_IN
+    object_id: n_geo_new_south_wales
+    domain_id: geography
+    assertion_text: Northern Rivers (zone) is an Australian wine GI zone in New South Wales.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_au_northern_slopes_zone_location
+    subject_id: n_geo_au_northern_slopes_zone
+    relation_type: LOCATED_IN
+    object_id: n_geo_new_south_wales
+    domain_id: geography
+    assertion_text: Northern Slopes (zone) is an Australian wine GI zone in New South Wales.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_au_south_coast_zone_location
+    subject_id: n_geo_au_south_coast_zone
+    relation_type: LOCATED_IN
+    object_id: n_geo_new_south_wales
+    domain_id: geography
+    assertion_text: South Coast (zone) is an Australian wine GI zone in New South Wales.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_au_southern_new_south_wales_zone_location
+    subject_id: n_geo_au_southern_new_south_wales_zone
+    relation_type: LOCATED_IN
+    object_id: n_geo_new_south_wales
+    domain_id: geography
+    assertion_text: Southern New South Wales (zone) is an Australian wine GI zone in
+      New South Wales.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_au_big_rivers_zone_location
+    subject_id: n_geo_au_big_rivers_zone
+    relation_type: LOCATED_IN
+    object_id: n_geo_new_south_wales
+    domain_id: geography
+    assertion_text: Big Rivers (zone) is an Australian wine GI zone in New South Wales.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_au_the_peninsulas_zone_location
+    subject_id: n_geo_au_the_peninsulas_zone
+    relation_type: LOCATED_IN
+    object_id: n_geo_south_australia
+    domain_id: geography
+    assertion_text: The Peninsulas (zone) is an Australian wine GI zone in South Australia.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_au_lower_murray_zone_location
+    subject_id: n_geo_au_lower_murray_zone
+    relation_type: LOCATED_IN
+    object_id: n_geo_south_australia
+    domain_id: geography
+    assertion_text: Lower Murray (zone) is an Australian wine GI zone in South Australia.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_au_far_north_zone_location
+    subject_id: n_geo_au_far_north_zone
+    relation_type: LOCATED_IN
+    object_id: n_geo_south_australia
+    domain_id: geography
+    assertion_text: Far North (zone) is an Australian wine GI zone in South Australia.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_au_eastern_plains_inland_and_north_of_western_australia_zone_location
+    subject_id: n_geo_au_eastern_plains_inland_and_north_of_western_australia_zone
+    relation_type: LOCATED_IN
+    object_id: n_geo_western_australia
+    domain_id: geography
+    assertion_text: Eastern Plains, Inland And North Of Western Australia (zone) is
+      an Australian wine GI zone in Western Australia.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_au_western_plains_zone_location
+    subject_id: n_geo_au_western_plains_zone
+    relation_type: LOCATED_IN
+    object_id: n_geo_new_south_wales
+    domain_id: geography
+    assertion_text: Western Plains (zone) is an Australian wine GI zone in New South Wales.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_au_queensland_zone_location
+    subject_id: n_geo_au_queensland_zone
+    relation_type: LOCATED_IN
+    object_id: n_geo_australia
+    domain_id: geography
+    assertion_text: Queensland (zone) is an Australian wine GI zone in Australia.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_au_adelaide_super_zone_location
+    subject_id: n_geo_au_adelaide_super_zone
+    relation_type: LOCATED_IN
+    object_id: n_geo_south_australia
+    domain_id: geography
+    assertion_text: Adelaide (super zone) is an Australian wine GI super zone in
+      South Australia.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_au_northern_territory_location
+    subject_id: n_geo_au_northern_territory
+    relation_type: LOCATED_IN
+    object_id: n_geo_australia
+    domain_id: geography
+    assertion_text: Northern Territory is an Australian wine GI state/territory in Australia.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_au_australian_capital_territory_location
+    subject_id: n_geo_au_australian_capital_territory
+    relation_type: LOCATED_IN
+    object_id: n_geo_australia
+    domain_id: geography
+    assertion_text: Australian Capital Territory is an Australian wine GI
+      state/territory in Australia.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_greater_cape_location
+    subject_id: n_geo_za_greater_cape
+    relation_type: LOCATED_IN
+    object_id: n_geo_south_africa
+    domain_id: geography
+    assertion_text: Greater Cape is an overarching geographical unit in South Africa
+      under the Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_cape_coast_location
+    subject_id: n_geo_za_cape_coast
+    relation_type: LOCATED_IN
+    object_id: n_geo_western_cape
+    domain_id: geography
+    assertion_text: Cape Coast is an overarching Wine of Origin region in Western
+      Cape under the Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_cape_west_coast_location
+    subject_id: n_geo_za_cape_west_coast
+    relation_type: LOCATED_IN
+    object_id: n_geo_coastal_region
+    domain_id: geography
+    assertion_text: Cape West Coast is a Wine of Origin subregion in Coastal Region
+      under the Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_northern_cape_location
+    subject_id: n_geo_za_northern_cape
+    relation_type: LOCATED_IN
+    object_id: n_geo_south_africa
+    domain_id: geography
+    assertion_text: Northern Cape is a Wine of Origin geographical unit in South
+      Africa under the Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_eastern_cape_location
+    subject_id: n_geo_za_eastern_cape
+    relation_type: LOCATED_IN
+    object_id: n_geo_south_africa
+    domain_id: geography
+    assertion_text: Eastern Cape is a Wine of Origin geographical unit in South
+      Africa under the Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_kwazulu_natal_location
+    subject_id: n_geo_za_kwazulu_natal
+    relation_type: LOCATED_IN
+    object_id: n_geo_south_africa
+    domain_id: geography
+    assertion_text: KwaZulu-Natal is a Wine of Origin geographical unit in South
+      Africa under the Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_free_state_location
+    subject_id: n_geo_za_free_state
+    relation_type: LOCATED_IN
+    object_id: n_geo_south_africa
+    domain_id: geography
+    assertion_text: Free State is a Wine of Origin geographical unit in South Africa
+      under the Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_limpopo_location
+    subject_id: n_geo_za_limpopo
+    relation_type: LOCATED_IN
+    object_id: n_geo_south_africa
+    domain_id: geography
+    assertion_text: Limpopo is a Wine of Origin geographical unit in South Africa
+      under the Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_north_west_location
+    subject_id: n_geo_za_north_west
+    relation_type: LOCATED_IN
+    object_id: n_geo_south_africa
+    domain_id: geography
+    assertion_text: North West is a Wine of Origin geographical unit in South Africa
+      under the Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_karoo_hoogland_location
+    subject_id: n_geo_za_karoo_hoogland
+    relation_type: LOCATED_IN
+    object_id: n_geo_za_northern_cape
+    domain_id: geography
+    assertion_text: Karoo-Hoogland is a Wine of Origin region in Northern Cape under
+      the Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_lower_duivenhoks_river_location
+    subject_id: n_geo_za_lower_duivenhoks_river
+    relation_type: LOCATED_IN
+    object_id: n_geo_cape_south_coast
+    domain_id: geography
+    assertion_text: Lower Duivenhoks River is a Wine of Origin district in Cape
+      South Coast under the Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_plettenberg_bay_location
+    subject_id: n_geo_za_plettenberg_bay
+    relation_type: LOCATED_IN
+    object_id: n_geo_cape_south_coast
+    domain_id: geography
+    assertion_text: Plettenberg Bay is a Wine of Origin district in Cape South Coast
+      under the Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_swellendam_location
+    subject_id: n_geo_za_swellendam
+    relation_type: LOCATED_IN
+    object_id: n_geo_cape_south_coast
+    domain_id: geography
+    assertion_text: Swellendam is a Wine of Origin district in Cape South Coast
+      under the Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_still_bay_location
+    subject_id: n_geo_za_still_bay
+    relation_type: LOCATED_IN
+    object_id: n_geo_cape_south_coast
+    domain_id: geography
+    assertion_text: Still Bay is a Wine of Origin district in Cape South Coast under
+      the Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_lutzville_valley_location
+    subject_id: n_geo_za_lutzville_valley
+    relation_type: LOCATED_IN
+    object_id: n_geo_coastal_region
+    domain_id: geography
+    assertion_text: Lutzville Valley is a Wine of Origin district in Coastal Region
+      under the Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_langeberg_garcia_location
+    subject_id: n_geo_za_langeberg_garcia
+    relation_type: LOCATED_IN
+    object_id: n_geo_klein_karoo_wine
+    domain_id: geography
+    assertion_text: Langeberg-Garcia is a Wine of Origin district in Klein Karoo
+      under the Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_citrusdal_mountain_location
+    subject_id: n_geo_za_citrusdal_mountain
+    relation_type: LOCATED_IN
+    object_id: n_geo_olifants_river_wine
+    domain_id: geography
+    assertion_text: Citrusdal Mountain is a Wine of Origin district in Olifants
+      River (wine region) under the Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_citrusdal_valley_location
+    subject_id: n_geo_za_citrusdal_valley
+    relation_type: LOCATED_IN
+    object_id: n_geo_olifants_river_wine
+    domain_id: geography
+    assertion_text: Citrusdal Valley is a Wine of Origin district in Olifants River
+      (wine region) under the Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_ceres_plateau_location
+    subject_id: n_geo_za_ceres_plateau
+    relation_type: LOCATED_IN
+    object_id: n_geo_western_cape
+    domain_id: geography
+    assertion_text: Ceres Plateau is a Wine of Origin district in Western Cape under
+      the Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_nuveld_karoo_location
+    subject_id: n_geo_za_nuveld_karoo
+    relation_type: LOCATED_IN
+    object_id: n_geo_western_cape
+    domain_id: geography
+    assertion_text: Nuveld-Karoo is a Wine of Origin district in Western Cape under
+      the Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_prince_albert_location
+    subject_id: n_geo_za_prince_albert
+    relation_type: LOCATED_IN
+    object_id: n_geo_western_cape
+    domain_id: geography
+    assertion_text: Prince Albert is a Wine of Origin district in Western Cape under
+      the Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_sutherland_karoo_location
+    subject_id: n_geo_za_sutherland_karoo
+    relation_type: LOCATED_IN
+    object_id: n_geo_za_karoo_hoogland
+    domain_id: geography
+    assertion_text: Sutherland-Karoo is a Wine of Origin district in Karoo-Hoogland
+      under the Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_central_orange_river_location
+    subject_id: n_geo_za_central_orange_river
+    relation_type: LOCATED_IN
+    object_id: n_geo_za_northern_cape
+    domain_id: geography
+    assertion_text: Central Orange River is a Wine of Origin district in Northern
+      Cape under the Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_douglas_location
+    subject_id: n_geo_za_douglas
+    relation_type: LOCATED_IN
+    object_id: n_geo_za_northern_cape
+    domain_id: geography
+    assertion_text: Douglas is a Wine of Origin district in Northern Cape under the
+      Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_central_drakensberg_location
+    subject_id: n_geo_za_central_drakensberg
+    relation_type: LOCATED_IN
+    object_id: n_geo_za_kwazulu_natal
+    domain_id: geography
+    assertion_text: Central Drakensberg is a Wine of Origin district in
+      KwaZulu-Natal under the Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_lions_river_location
+    subject_id: n_geo_za_lions_river
+    relation_type: LOCATED_IN
+    object_id: n_geo_za_kwazulu_natal
+    domain_id: geography
+    assertion_text: Lions River is a Wine of Origin district in KwaZulu-Natal under
+      the Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_cederberg_location
+    subject_id: n_geo_za_cederberg
+    relation_type: LOCATED_IN
+    object_id: n_geo_western_cape
+    domain_id: geography
+    assertion_text: Cederberg is a Wine of Origin ward in Western Cape under the
+      Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_nieuwoudtville_location
+    subject_id: n_geo_za_nieuwoudtville
+    relation_type: LOCATED_IN
+    object_id: n_geo_western_cape
+    domain_id: geography
+    assertion_text: Nieuwoudtville is a Wine of Origin ward in Western Cape under
+      the Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_piekenierskloof_location
+    subject_id: n_geo_za_piekenierskloof
+    relation_type: LOCATED_IN
+    object_id: n_geo_za_citrusdal_mountain
+    domain_id: geography
+    assertion_text: Piekenierskloof is a Wine of Origin ward in Citrusdal Mountain
+      under the Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_slanghoek_location
+    subject_id: n_geo_za_slanghoek
+    relation_type: LOCATED_IN
+    object_id: n_geo_breedekloof
+    domain_id: geography
+    assertion_text: Slanghoek is a Wine of Origin ward in Breedekloof under the Wine
+      of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_goudini_location
+    subject_id: n_geo_za_goudini
+    relation_type: LOCATED_IN
+    object_id: n_geo_breedekloof
+    domain_id: geography
+    assertion_text: Goudini is a Wine of Origin ward in Breedekloof under the Wine
+      of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_simonsberg_paarl_location
+    subject_id: n_geo_za_simonsberg_paarl
+    relation_type: LOCATED_IN
+    object_id: n_geo_paarl
+    domain_id: geography
+    assertion_text: Simonsberg-Paarl is a Wine of Origin ward in Paarl under the
+      Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_agter_paarl_location
+    subject_id: n_geo_za_agter_paarl
+    relation_type: LOCATED_IN
+    object_id: n_geo_paarl
+    domain_id: geography
+    assertion_text: Agter-Paarl is a Wine of Origin ward in Paarl under the Wine of
+      Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_voor_paardeberg_location
+    subject_id: n_geo_za_voor_paardeberg
+    relation_type: LOCATED_IN
+    object_id: n_geo_paarl
+    domain_id: geography
+    assertion_text: Voor-Paardeberg is a Wine of Origin ward in Paarl under the Wine
+      of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_malmesbury_location
+    subject_id: n_geo_za_malmesbury
+    relation_type: LOCATED_IN
+    object_id: n_geo_swartland
+    domain_id: geography
+    assertion_text: Malmesbury is a Wine of Origin ward in Swartland under the Wine
+      of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_paardeberg_location
+    subject_id: n_geo_za_paardeberg
+    relation_type: LOCATED_IN
+    object_id: n_geo_swartland
+    domain_id: geography
+    assertion_text: Paardeberg is a Wine of Origin ward in Swartland under the Wine
+      of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_porseleinberg_location
+    subject_id: n_geo_za_porseleinberg
+    relation_type: LOCATED_IN
+    object_id: n_geo_swartland
+    domain_id: geography
+    assertion_text: Porseleinberg is a Wine of Origin ward in Swartland under the
+      Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_riebeekberg_location
+    subject_id: n_geo_za_riebeekberg
+    relation_type: LOCATED_IN
+    object_id: n_geo_swartland
+    domain_id: geography
+    assertion_text: Riebeekberg is a Wine of Origin ward in Swartland under the Wine
+      of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_riebeeksrivier_location
+    subject_id: n_geo_za_riebeeksrivier
+    relation_type: LOCATED_IN
+    object_id: n_geo_swartland
+    domain_id: geography
+    assertion_text: Riebeeksrivier is a Wine of Origin ward in Swartland under the
+      Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_groenekloof_location
+    subject_id: n_geo_za_groenekloof
+    relation_type: LOCATED_IN
+    object_id: n_geo_darling_wine
+    domain_id: geography
+    assertion_text: Groenekloof is a Wine of Origin ward in Darling under the Wine
+      of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_koekenaap_location
+    subject_id: n_geo_za_koekenaap
+    relation_type: LOCATED_IN
+    object_id: n_geo_za_lutzville_valley
+    domain_id: geography
+    assertion_text: Koekenaap is a Wine of Origin ward in Lutzville Valley under the
+      Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_vredendal_location
+    subject_id: n_geo_za_vredendal
+    relation_type: LOCATED_IN
+    object_id: n_geo_olifants_river_wine
+    domain_id: geography
+    assertion_text: Vredendal is a Wine of Origin ward in Olifants River (wine
+      region) under the Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_spruitdrift_location
+    subject_id: n_geo_za_spruitdrift
+    relation_type: LOCATED_IN
+    object_id: n_geo_olifants_river_wine
+    domain_id: geography
+    assertion_text: Spruitdrift is a Wine of Origin ward in Olifants River (wine
+      region) under the Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_sundays_glen_location
+    subject_id: n_geo_za_sundays_glen
+    relation_type: LOCATED_IN
+    object_id: n_geo_walker_bay
+    domain_id: geography
+    assertion_text: Sunday's Glen is a Wine of Origin ward in Walker Bay under the
+      Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_stanford_foothills_location
+    subject_id: n_geo_za_stanford_foothills
+    relation_type: LOCATED_IN
+    object_id: n_geo_walker_bay
+    domain_id: geography
+    assertion_text: Stanford Foothills is a Wine of Origin ward in Walker Bay under
+      the Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_malgas_location
+    subject_id: n_geo_za_malgas
+    relation_type: LOCATED_IN
+    object_id: n_geo_za_swellendam
+    domain_id: geography
+    assertion_text: Malgas is a Wine of Origin ward in Swellendam under the Wine of
+      Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_montagu_location
+    subject_id: n_geo_za_montagu
+    relation_type: LOCATED_IN
+    object_id: n_geo_klein_karoo_wine
+    domain_id: geography
+    assertion_text: Montagu is a Wine of Origin ward in Klein Karoo under the Wine
+      of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_tradouw_location
+    subject_id: n_geo_za_tradouw
+    relation_type: LOCATED_IN
+    object_id: n_geo_klein_karoo_wine
+    domain_id: geography
+    assertion_text: Tradouw is a Wine of Origin ward in Klein Karoo under the Wine
+      of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_tradouw_highlands_location
+    subject_id: n_geo_za_tradouw_highlands
+    relation_type: LOCATED_IN
+    object_id: n_geo_klein_karoo_wine
+    domain_id: geography
+    assertion_text: Tradouw Highlands is a Wine of Origin ward in Klein Karoo under
+      the Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_agterkliphoogte_location
+    subject_id: n_geo_za_agterkliphoogte
+    relation_type: LOCATED_IN
+    object_id: n_geo_robertson_wine
+    domain_id: geography
+    assertion_text: Agterkliphoogte is a Wine of Origin ward in Robertson under the
+      Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_ashton_location
+    subject_id: n_geo_za_ashton
+    relation_type: LOCATED_IN
+    object_id: n_geo_robertson_wine
+    domain_id: geography
+    assertion_text: Ashton is a Wine of Origin ward in Robertson under the Wine of
+      Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_boesmansrivier_location
+    subject_id: n_geo_za_boesmansrivier
+    relation_type: LOCATED_IN
+    object_id: n_geo_robertson_wine
+    domain_id: geography
+    assertion_text: Boesmansrivier is a Wine of Origin ward in Robertson under the
+      Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_bonnievale_location
+    subject_id: n_geo_za_bonnievale
+    relation_type: LOCATED_IN
+    object_id: n_geo_robertson_wine
+    domain_id: geography
+    assertion_text: Bonnievale is a Wine of Origin ward in Robertson under the Wine
+      of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_eilandia_location
+    subject_id: n_geo_za_eilandia
+    relation_type: LOCATED_IN
+    object_id: n_geo_robertson_wine
+    domain_id: geography
+    assertion_text: Eilandia is a Wine of Origin ward in Robertson under the Wine of
+      Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_goree_location
+    subject_id: n_geo_za_goree
+    relation_type: LOCATED_IN
+    object_id: n_geo_robertson_wine
+    domain_id: geography
+    assertion_text: Goree is a Wine of Origin ward in Robertson under the Wine of
+      Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_goudmyn_location
+    subject_id: n_geo_za_goudmyn
+    relation_type: LOCATED_IN
+    object_id: n_geo_robertson_wine
+    domain_id: geography
+    assertion_text: Goudmyn is a Wine of Origin ward in Robertson under the Wine of
+      Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_hoopsrivier_location
+    subject_id: n_geo_za_hoopsrivier
+    relation_type: LOCATED_IN
+    object_id: n_geo_robertson_wine
+    domain_id: geography
+    assertion_text: Hoopsrivier is a Wine of Origin ward in Robertson under the Wine
+      of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_klaasvoogds_location
+    subject_id: n_geo_za_klaasvoogds
+    relation_type: LOCATED_IN
+    object_id: n_geo_robertson_wine
+    domain_id: geography
+    assertion_text: Klaasvoogds is a Wine of Origin ward in Robertson under the Wine
+      of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_le_chasseur_location
+    subject_id: n_geo_za_le_chasseur
+    relation_type: LOCATED_IN
+    object_id: n_geo_robertson_wine
+    domain_id: geography
+    assertion_text: Le Chasseur is a Wine of Origin ward in Robertson under the Wine
+      of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_mcgregor_location
+    subject_id: n_geo_za_mcgregor
+    relation_type: LOCATED_IN
+    object_id: n_geo_robertson_wine
+    domain_id: geography
+    assertion_text: McGregor is a Wine of Origin ward in Robertson under the Wine of
+      Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_vinkrivier_location
+    subject_id: n_geo_za_vinkrivier
+    relation_type: LOCATED_IN
+    object_id: n_geo_robertson_wine
+    domain_id: geography
+    assertion_text: Vinkrivier is a Wine of Origin ward in Robertson under the Wine
+      of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_zandrivier_location
+    subject_id: n_geo_za_zandrivier
+    relation_type: LOCATED_IN
+    object_id: n_geo_robertson_wine
+    domain_id: geography
+    assertion_text: Zandrivier is a Wine of Origin ward in Robertson under the Wine
+      of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_hex_river_valley_location
+    subject_id: n_geo_za_hex_river_valley
+    relation_type: LOCATED_IN
+    object_id: n_geo_worcester_wine
+    domain_id: geography
+    assertion_text: Hex River Valley is a Wine of Origin ward in Worcester under the
+      Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_keeromsberg_location
+    subject_id: n_geo_za_keeromsberg
+    relation_type: LOCATED_IN
+    object_id: n_geo_worcester_wine
+    domain_id: geography
+    assertion_text: Keeromsberg is a Wine of Origin ward in Worcester under the Wine
+      of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_moordkuil_location
+    subject_id: n_geo_za_moordkuil
+    relation_type: LOCATED_IN
+    object_id: n_geo_worcester_wine
+    domain_id: geography
+    assertion_text: Moordkuil is a Wine of Origin ward in Worcester under the Wine
+      of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_nuy_location
+    subject_id: n_geo_za_nuy
+    relation_type: LOCATED_IN
+    object_id: n_geo_worcester_wine
+    domain_id: geography
+    assertion_text: Nuy is a Wine of Origin ward in Worcester under the Wine of
+      Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_scherpenheuvel_location
+    subject_id: n_geo_za_scherpenheuvel
+    relation_type: LOCATED_IN
+    object_id: n_geo_worcester_wine
+    domain_id: geography
+    assertion_text: Scherpenheuvel is a Wine of Origin ward in Worcester under the
+      Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_stettyn_location
+    subject_id: n_geo_za_stettyn
+    relation_type: LOCATED_IN
+    object_id: n_geo_worcester_wine
+    domain_id: geography
+    assertion_text: Stettyn is a Wine of Origin ward in Worcester under the Wine of
+      Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_groenfontein_location
+    subject_id: n_geo_za_groenfontein
+    relation_type: LOCATED_IN
+    object_id: n_geo_calitzdorp_wine
+    domain_id: geography
+    assertion_text: Groenfontein is a Wine of Origin ward in Calitzdorp under the
+      Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_koo_plateau_location
+    subject_id: n_geo_za_koo_plateau
+    relation_type: LOCATED_IN
+    object_id: n_geo_klein_karoo_wine
+    domain_id: geography
+    assertion_text: Koo Plateau is a Wine of Origin ward in Klein Karoo under the
+      Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_outeniqua_location
+    subject_id: n_geo_za_outeniqua
+    relation_type: LOCATED_IN
+    object_id: n_geo_klein_karoo_wine
+    domain_id: geography
+    assertion_text: Outeniqua is a Wine of Origin ward in Klein Karoo under the Wine
+      of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_ceres_ward_location
+    subject_id: n_geo_za_ceres_ward
+    relation_type: LOCATED_IN
+    object_id: n_geo_za_ceres_plateau
+    domain_id: geography
+    assertion_text: Ceres is a Wine of Origin ward in Ceres Plateau under the Wine
+      of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_swartberg_location
+    subject_id: n_geo_za_swartberg
+    relation_type: LOCATED_IN
+    object_id: n_geo_za_prince_albert
+    domain_id: geography
+    assertion_text: Swartberg is a Wine of Origin ward in Prince Albert under the
+      Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_leipoldtville_sandveld_location
+    subject_id: n_geo_za_leipoldtville_sandveld
+    relation_type: LOCATED_IN
+    object_id: n_geo_western_cape
+    domain_id: geography
+    assertion_text: Leipoldtville-Sandveld is a Wine of Origin ward in Western Cape
+      under the Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_groblershoop_location
+    subject_id: n_geo_za_groblershoop
+    relation_type: LOCATED_IN
+    object_id: n_geo_za_central_orange_river
+    domain_id: geography
+    assertion_text: Groblershoop is a Wine of Origin ward in Central Orange River
+      under the Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_grootdrink_location
+    subject_id: n_geo_za_grootdrink
+    relation_type: LOCATED_IN
+    object_id: n_geo_za_central_orange_river
+    domain_id: geography
+    assertion_text: Grootdrink is a Wine of Origin ward in Central Orange River
+      under the Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_kakamas_location
+    subject_id: n_geo_za_kakamas
+    relation_type: LOCATED_IN
+    object_id: n_geo_za_central_orange_river
+    domain_id: geography
+    assertion_text: Kakamas is a Wine of Origin ward in Central Orange River under
+      the Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_keimoes_location
+    subject_id: n_geo_za_keimoes
+    relation_type: LOCATED_IN
+    object_id: n_geo_za_central_orange_river
+    domain_id: geography
+    assertion_text: Keimoes is a Wine of Origin ward in Central Orange River under
+      the Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_upington_location
+    subject_id: n_geo_za_upington
+    relation_type: LOCATED_IN
+    object_id: n_geo_za_central_orange_river
+    domain_id: geography
+    assertion_text: Upington is a Wine of Origin ward in Central Orange River under
+      the Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_hartswater_location
+    subject_id: n_geo_za_hartswater
+    relation_type: LOCATED_IN
+    object_id: n_geo_za_northern_cape
+    domain_id: geography
+    assertion_text: Hartswater is a Wine of Origin ward in Northern Cape under the
+      Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_prieska_location
+    subject_id: n_geo_za_prieska
+    relation_type: LOCATED_IN
+    object_id: n_geo_za_northern_cape
+    domain_id: geography
+    assertion_text: Prieska is a Wine of Origin ward in Northern Cape under the Wine
+      of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_lanseria_location
+    subject_id: n_geo_za_lanseria
+    relation_type: LOCATED_IN
+    object_id: n_geo_south_africa
+    domain_id: geography
+    assertion_text: Lanseria is a Wine of Origin ward in South Africa under the Wine
+      of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_elandskloof_kaaimansgat_location
+    subject_id: n_geo_za_elandskloof_kaaimansgat
+    relation_type: LOCATED_IN
+    object_id: n_geo_overberg_wine
+    domain_id: geography
+    assertion_text: Elandskloof/Kaaimansgat is a Wine of Origin ward in Overberg
+      under the Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_greyton_location
+    subject_id: n_geo_za_greyton
+    relation_type: LOCATED_IN
+    object_id: n_geo_overberg_wine
+    domain_id: geography
+    assertion_text: Greyton is a Wine of Origin ward in Overberg under the Wine of
+      Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_klein_river_location
+    subject_id: n_geo_za_klein_river
+    relation_type: LOCATED_IN
+    object_id: n_geo_overberg_wine
+    domain_id: geography
+    assertion_text: Klein River is a Wine of Origin ward in Overberg under the Wine
+      of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_shaws_mountain_location
+    subject_id: n_geo_za_shaws_mountain
+    relation_type: LOCATED_IN
+    object_id: n_geo_overberg_wine
+    domain_id: geography
+    assertion_text: Shaw’s Mountain is a Wine of Origin ward in Overberg under the
+      Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_theewater_location
+    subject_id: n_geo_za_theewater
+    relation_type: LOCATED_IN
+    object_id: n_geo_overberg_wine
+    domain_id: geography
+    assertion_text: Theewater is a Wine of Origin ward in Overberg under the Wine of
+      Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_buffeljags_location
+    subject_id: n_geo_za_buffeljags
+    relation_type: LOCATED_IN
+    object_id: n_geo_za_swellendam
+    domain_id: geography
+    assertion_text: Buffeljags is a Wine of Origin ward in Swellendam under the Wine
+      of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_stormsvlei_location
+    subject_id: n_geo_za_stormsvlei
+    relation_type: LOCATED_IN
+    object_id: n_geo_za_swellendam
+    domain_id: geography
+    assertion_text: Stormsvlei is a Wine of Origin ward in Swellendam under the Wine
+      of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_springfontein_rim_location
+    subject_id: n_geo_za_springfontein_rim
+    relation_type: LOCATED_IN
+    object_id: n_geo_walker_bay
+    domain_id: geography
+    assertion_text: Springfontein Rim is a Wine of Origin ward in Walker Bay under
+      the Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_goukou_river_valley_location
+    subject_id: n_geo_za_goukou_river_valley
+    relation_type: LOCATED_IN
+    object_id: n_geo_za_still_bay
+    domain_id: geography
+    assertion_text: Goukou River Valley is a Wine of Origin ward in Still Bay under
+      the Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_herbertsdale_location
+    subject_id: n_geo_za_herbertsdale
+    relation_type: LOCATED_IN
+    object_id: n_geo_cape_south_coast
+    domain_id: geography
+    assertion_text: Herbertsdale is a Wine of Origin ward in Cape South Coast under
+      the Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_napier_location
+    subject_id: n_geo_za_napier
+    relation_type: LOCATED_IN
+    object_id: n_geo_cape_south_coast
+    domain_id: geography
+    assertion_text: Napier is a Wine of Origin ward in Cape South Coast under the
+      Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_hout_bay_location
+    subject_id: n_geo_za_hout_bay
+    relation_type: LOCATED_IN
+    object_id: n_geo_cape_town_wine
+    domain_id: geography
+    assertion_text: Hout Bay is a Wine of Origin ward in Cape Town (wine district)
+      under the Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_philadelphia_location
+    subject_id: n_geo_za_philadelphia
+    relation_type: LOCATED_IN
+    object_id: n_geo_cape_town_wine
+    domain_id: geography
+    assertion_text: Philadelphia is a Wine of Origin ward in Cape Town (wine
+      district) under the Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_piket_bo_berg_location
+    subject_id: n_geo_za_piket_bo_berg
+    relation_type: LOCATED_IN
+    object_id: n_geo_swartland
+    domain_id: geography
+    assertion_text: Piket-Bo-Berg is a Wine of Origin ward in Swartland under the
+      Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_st_helena_bay_location
+    subject_id: n_geo_za_st_helena_bay
+    relation_type: LOCATED_IN
+    object_id: n_geo_swartland
+    domain_id: geography
+    assertion_text: St Helena Bay is a Wine of Origin ward in Swartland under the
+      Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_groenberg_location
+    subject_id: n_geo_za_groenberg
+    relation_type: LOCATED_IN
+    object_id: n_geo_wellington_wine
+    domain_id: geography
+    assertion_text: Groenberg is a Wine of Origin ward in Wellington under the Wine
+      of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_limietberg_location
+    subject_id: n_geo_za_limietberg
+    relation_type: LOCATED_IN
+    object_id: n_geo_wellington_wine
+    domain_id: geography
+    assertion_text: Limietberg is a Wine of Origin ward in Wellington under the Wine
+      of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_bamboes_bay_location
+    subject_id: n_geo_za_bamboes_bay
+    relation_type: LOCATED_IN
+    object_id: n_geo_za_cape_west_coast
+    domain_id: geography
+    assertion_text: Bamboes Bay is a Wine of Origin ward in Cape West Coast under
+      the Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_lamberts_bay_location
+    subject_id: n_geo_za_lamberts_bay
+    relation_type: LOCATED_IN
+    object_id: n_geo_za_cape_west_coast
+    domain_id: geography
+    assertion_text: Lamberts Bay is a Wine of Origin ward in Cape West Coast under
+      the Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_goedemoed_location
+    subject_id: n_geo_za_goedemoed
+    relation_type: LOCATED_IN
+    object_id: n_geo_robertson_wine
+    domain_id: geography
+    assertion_text: Goedemoed is a Wine of Origin ward in Robertson under the Wine
+      of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_rooikrans_location
+    subject_id: n_geo_za_rooikrans
+    relation_type: LOCATED_IN
+    object_id: n_geo_worcester_wine
+    domain_id: geography
+    assertion_text: Rooikrans is a Wine of Origin ward in Worcester under the Wine
+      of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_cango_valley_location
+    subject_id: n_geo_za_cango_valley
+    relation_type: LOCATED_IN
+    object_id: n_geo_klein_karoo_wine
+    domain_id: geography
+    assertion_text: Cango Valley is a Wine of Origin ward in Klein Karoo under the
+      Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_upper_langkloof_location
+    subject_id: n_geo_za_upper_langkloof
+    relation_type: LOCATED_IN
+    object_id: n_geo_klein_karoo_wine
+    domain_id: geography
+    assertion_text: Upper Langkloof is a Wine of Origin ward in Klein Karoo under
+      the Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_kweekvallei_location
+    subject_id: n_geo_za_kweekvallei
+    relation_type: LOCATED_IN
+    object_id: n_geo_za_prince_albert
+    domain_id: geography
+    assertion_text: Kweekvallei is a Wine of Origin ward in Prince Albert under the
+      Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_prince_albert_valley_location
+    subject_id: n_geo_za_prince_albert_valley
+    relation_type: LOCATED_IN
+    object_id: n_geo_za_prince_albert
+    domain_id: geography
+    assertion_text: Prince Albert Valley is a Wine of Origin ward in Prince Albert
+      under the Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_rietrivier_fs_location
+    subject_id: n_geo_za_rietrivier_fs
+    relation_type: LOCATED_IN
+    object_id: n_geo_za_free_state
+    domain_id: geography
+    assertion_text: Rietrivier FS is a Wine of Origin ward in Free State under the
+      Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_st_francis_bay_location
+    subject_id: n_geo_za_st_francis_bay
+    relation_type: LOCATED_IN
+    object_id: n_geo_za_eastern_cape
+    domain_id: geography
+    assertion_text: St Francis Bay is a Wine of Origin ward in Eastern Cape under
+      the Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_blouvlei_location
+    subject_id: n_geo_za_blouvlei
+    relation_type: LOCATED_IN
+    object_id: n_geo_wellington_wine
+    domain_id: geography
+    assertion_text: Blouvlei is a Wine of Origin ward in Wellington under the Wine
+      of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_bovlei_location
+    subject_id: n_geo_za_bovlei
+    relation_type: LOCATED_IN
+    object_id: n_geo_wellington_wine
+    domain_id: geography
+    assertion_text: Bovlei is a Wine of Origin ward in Wellington under the Wine of
+      Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+  - id: ki_nwoa_za_mid_berg_river_location
+    subject_id: n_geo_za_mid_berg_river
+    relation_type: LOCATED_IN
+    object_id: n_geo_wellington_wine
+    domain_id: geography
+    assertion_text: Mid-Berg River is a Wine of Origin ward in Wellington under the
+      Wine of Origin production-area hierarchy.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T18:00:00.000Z
+certification_knowledge_mappings:
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_au_granite_belt_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_au_granite_belt_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_au_south_burnett_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_au_south_burnett_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_au_perricoota_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_au_perricoota_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_au_cowra_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_au_cowra_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_au_hastings_river_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_au_hastings_river_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_au_new_england_australia_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_au_new_england_australia_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_au_shoalhaven_coast_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_au_shoalhaven_coast_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_au_southern_highlands_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_au_southern_highlands_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_au_gundagai_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_au_gundagai_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_au_hilltops_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_au_hilltops_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_au_peel_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_au_peel_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_au_perth_hills_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_au_perth_hills_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_au_blackwood_valley_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_au_blackwood_valley_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_au_geographe_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_au_geographe_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_au_manjimup_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_au_manjimup_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_au_upper_goulburn_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_au_upper_goulburn_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_au_swan_hill_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_au_swan_hill_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_au_sunbury_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_au_sunbury_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_au_strathbogie_ranges_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_au_strathbogie_ranges_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_au_pyrenees_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_au_pyrenees_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_au_murray_darling_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_au_murray_darling_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_au_henty_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_au_henty_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_au_glenrowan_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_au_glenrowan_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_au_bendigo_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_au_bendigo_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_au_beechworth_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_au_beechworth_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_au_alpine_valleys_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_au_alpine_valleys_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_au_adelaide_plains_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_au_adelaide_plains_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_au_currency_creek_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_au_currency_creek_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_au_kangaroo_island_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_au_kangaroo_island_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_au_mount_benson_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_au_mount_benson_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_au_mount_gambier_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_au_mount_gambier_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_au_robe_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_au_robe_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_au_southern_fleurieu_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_au_southern_fleurieu_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_au_southern_flinders_ranges_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_au_southern_flinders_ranges_region_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_au_western_victoria_zone_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_au_western_victoria_zone_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_au_north_west_victoria_zone_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_au_north_west_victoria_zone_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_au_north_east_victoria_zone_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_au_north_east_victoria_zone_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_au_gippsland_zone_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_au_gippsland_zone_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_au_central_victoria_zone_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_au_central_victoria_zone_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_au_central_western_australia_zone_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_au_central_western_australia_zone_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_au_greater_perth_zone_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_au_greater_perth_zone_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_au_south_west_australia_zone_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_au_south_west_australia_zone_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_au_west_australian_south_east_coastal_zone_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_au_west_australian_south_east_coastal_zone_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_au_central_ranges_zone_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_au_central_ranges_zone_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_au_northern_rivers_zone_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_au_northern_rivers_zone_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_au_northern_slopes_zone_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_au_northern_slopes_zone_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_au_south_coast_zone_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_au_south_coast_zone_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_au_southern_new_south_wales_zone_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_au_southern_new_south_wales_zone_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_au_big_rivers_zone_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_au_big_rivers_zone_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_au_the_peninsulas_zone_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_au_the_peninsulas_zone_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_au_lower_murray_zone_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_au_lower_murray_zone_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_au_far_north_zone_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_au_far_north_zone_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_au_eastern_plains_inland_and_north_of_western_australia_zone_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_au_eastern_plains_inland_and_north_of_western_australia_zone_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_au_western_plains_zone_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_au_western_plains_zone_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_au_queensland_zone_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_au_queensland_zone_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_au_adelaide_super_zone_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_au_adelaide_super_zone_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_au_northern_territory_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_au_northern_territory_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_au_australian_capital_territory_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_au_australian_capital_territory_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_greater_cape_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_greater_cape_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_cape_coast_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_cape_coast_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_cape_west_coast_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_cape_west_coast_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_northern_cape_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_northern_cape_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_eastern_cape_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_eastern_cape_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_kwazulu_natal_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_kwazulu_natal_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_free_state_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_free_state_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_limpopo_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_limpopo_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_north_west_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_north_west_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_karoo_hoogland_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_karoo_hoogland_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_lower_duivenhoks_river_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_lower_duivenhoks_river_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_plettenberg_bay_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_plettenberg_bay_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_swellendam_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_swellendam_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_still_bay_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_still_bay_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_lutzville_valley_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_lutzville_valley_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_langeberg_garcia_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_langeberg_garcia_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_citrusdal_mountain_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_citrusdal_mountain_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_citrusdal_valley_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_citrusdal_valley_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_ceres_plateau_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_ceres_plateau_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_nuveld_karoo_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_nuveld_karoo_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_prince_albert_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_prince_albert_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_sutherland_karoo_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_sutherland_karoo_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_central_orange_river_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_central_orange_river_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_douglas_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_douglas_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_central_drakensberg_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_central_drakensberg_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_lions_river_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_lions_river_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_cederberg_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_cederberg_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_nieuwoudtville_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_nieuwoudtville_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_piekenierskloof_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_piekenierskloof_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_slanghoek_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_slanghoek_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_goudini_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_goudini_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_simonsberg_paarl_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_simonsberg_paarl_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_agter_paarl_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_agter_paarl_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_voor_paardeberg_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_voor_paardeberg_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_malmesbury_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_malmesbury_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_paardeberg_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_paardeberg_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_porseleinberg_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_porseleinberg_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_riebeekberg_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_riebeekberg_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_riebeeksrivier_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_riebeeksrivier_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_groenekloof_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_groenekloof_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_koekenaap_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_koekenaap_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_vredendal_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_vredendal_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_spruitdrift_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_spruitdrift_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_sundays_glen_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_sundays_glen_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_stanford_foothills_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_stanford_foothills_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_malgas_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_malgas_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_montagu_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_montagu_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_tradouw_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_tradouw_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_tradouw_highlands_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_tradouw_highlands_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_agterkliphoogte_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_agterkliphoogte_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_ashton_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_ashton_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_boesmansrivier_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_boesmansrivier_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_bonnievale_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_bonnievale_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_eilandia_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_eilandia_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_goree_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_goree_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_goudmyn_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_goudmyn_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_hoopsrivier_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_hoopsrivier_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_klaasvoogds_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_klaasvoogds_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_le_chasseur_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_le_chasseur_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_mcgregor_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_mcgregor_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_vinkrivier_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_vinkrivier_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_zandrivier_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_zandrivier_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_hex_river_valley_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_hex_river_valley_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_keeromsberg_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_keeromsberg_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_moordkuil_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_moordkuil_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_nuy_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_nuy_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_scherpenheuvel_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_scherpenheuvel_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_stettyn_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_stettyn_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_groenfontein_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_groenfontein_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_koo_plateau_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_koo_plateau_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_outeniqua_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_outeniqua_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_ceres_ward_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_ceres_ward_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_swartberg_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_swartberg_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_leipoldtville_sandveld_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_leipoldtville_sandveld_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_groblershoop_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_groblershoop_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_grootdrink_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_grootdrink_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_kakamas_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_kakamas_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_keimoes_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_keimoes_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_upington_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_upington_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_hartswater_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_hartswater_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_prieska_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_prieska_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_lanseria_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_lanseria_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_elandskloof_kaaimansgat_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_elandskloof_kaaimansgat_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_greyton_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_greyton_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_klein_river_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_klein_river_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_shaws_mountain_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_shaws_mountain_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_theewater_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_theewater_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_buffeljags_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_buffeljags_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_stormsvlei_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_stormsvlei_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_springfontein_rim_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_springfontein_rim_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_goukou_river_valley_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_goukou_river_valley_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_herbertsdale_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_herbertsdale_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_napier_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_napier_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_hout_bay_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_hout_bay_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_philadelphia_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_philadelphia_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_piket_bo_berg_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_piket_bo_berg_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_st_helena_bay_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_st_helena_bay_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_groenberg_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_groenberg_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_limietberg_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_limietberg_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_bamboes_bay_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_bamboes_bay_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_lamberts_bay_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_lamberts_bay_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_goedemoed_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_goedemoed_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_rooikrans_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_rooikrans_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_cango_valley_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_cango_valley_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_upper_langkloof_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_upper_langkloof_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_kweekvallei_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_kweekvallei_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_prince_albert_valley_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_prince_albert_valley_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_rietrivier_fs_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_rietrivier_fs_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_st_francis_bay_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_st_francis_bay_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_blouvlei_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_blouvlei_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_bovlei_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_bovlei_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nwoa_za_mid_berg_river_location
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nwoa_za_mid_berg_river_location
+    importance: secondary
+    minimum_depth: 2
+knowledge_item_citations:
+  - knowledge_item_id: ki_nwoa_au_granite_belt_region_location
+    source_citation_id: src_atlas_au_gis
+    locator: "Register: Granite Belt, region; state QLD; current national table and
+      footnotes"
+  - knowledge_item_id: ki_nwoa_au_south_burnett_region_location
+    source_citation_id: src_atlas_au_gis
+    locator: "Register: South Burnett, region; state QLD; current national table and
+      footnotes"
+  - knowledge_item_id: ki_nwoa_au_perricoota_region_location
+    source_citation_id: src_atlas_au_gis
+    locator: "Register: Perricoota, region; state NSW; current national table and
+      footnotes"
+  - knowledge_item_id: ki_nwoa_au_cowra_region_location
+    source_citation_id: src_atlas_au_gis
+    locator: "Register: Cowra, region; state NSW; current national table and footnotes"
+  - knowledge_item_id: ki_nwoa_au_hastings_river_region_location
+    source_citation_id: src_atlas_au_gis
+    locator: "Register: Hastings River, region; state NSW; current national table
+      and footnotes"
+  - knowledge_item_id: ki_nwoa_au_new_england_australia_region_location
+    source_citation_id: src_atlas_au_gis
+    locator: "Register: New England Australia, region; state NSW; current national
+      table and footnotes"
+  - knowledge_item_id: ki_nwoa_au_shoalhaven_coast_region_location
+    source_citation_id: src_atlas_au_gis
+    locator: "Register: Shoalhaven Coast, region; state NSW; current national table
+      and footnotes"
+  - knowledge_item_id: ki_nwoa_au_southern_highlands_region_location
+    source_citation_id: src_atlas_au_gis
+    locator: "Register: Southern Highlands, region; state NSW; current national
+      table and footnotes"
+  - knowledge_item_id: ki_nwoa_au_gundagai_region_location
+    source_citation_id: src_atlas_au_gis
+    locator: "Register: Gundagai, region; state NSW; current national table and
+      footnotes"
+  - knowledge_item_id: ki_nwoa_au_hilltops_region_location
+    source_citation_id: src_atlas_au_gis
+    locator: "Register: Hilltops, region; state NSW; current national table and
+      footnotes"
+  - knowledge_item_id: ki_nwoa_au_peel_region_location
+    source_citation_id: src_atlas_au_gis
+    locator: "Register: Peel, region; state WA; current national table and footnotes"
+  - knowledge_item_id: ki_nwoa_au_perth_hills_region_location
+    source_citation_id: src_atlas_au_gis
+    locator: "Register: Perth Hills, region; state WA; current national table and
+      footnotes"
+  - knowledge_item_id: ki_nwoa_au_blackwood_valley_region_location
+    source_citation_id: src_atlas_au_gis
+    locator: "Register: Blackwood Valley, region; state WA; current national table
+      and footnotes"
+  - knowledge_item_id: ki_nwoa_au_geographe_region_location
+    source_citation_id: src_atlas_au_gis
+    locator: "Register: Geographe, region; state WA; current national table and
+      footnotes"
+  - knowledge_item_id: ki_nwoa_au_manjimup_region_location
+    source_citation_id: src_atlas_au_gis
+    locator: "Register: Manjimup, region; state WA; current national table and
+      footnotes"
+  - knowledge_item_id: ki_nwoa_au_upper_goulburn_region_location
+    source_citation_id: src_atlas_au_gis
+    locator: "Register: Upper Goulburn, region; state VIC; current national table
+      and footnotes"
+  - knowledge_item_id: ki_nwoa_au_swan_hill_region_location
+    source_citation_id: src_atlas_au_gis
+    locator: "Register: Swan Hill, region; state VIC; current national table and
+      footnotes"
+  - knowledge_item_id: ki_nwoa_au_sunbury_region_location
+    source_citation_id: src_atlas_au_gis
+    locator: "Register: Sunbury, region; state VIC; current national table and
+      footnotes"
+  - knowledge_item_id: ki_nwoa_au_strathbogie_ranges_region_location
+    source_citation_id: src_atlas_au_gis
+    locator: "Register: Strathbogie Ranges, region; state VIC; current national
+      table and footnotes"
+  - knowledge_item_id: ki_nwoa_au_pyrenees_region_location
+    source_citation_id: src_atlas_au_gis
+    locator: "Register: Pyrenees, region; state VIC; current national table and
+      footnotes"
+  - knowledge_item_id: ki_nwoa_au_murray_darling_region_location
+    source_citation_id: src_atlas_au_gis
+    locator: "Register: Murray Darling, region; state VIC; current national table
+      and footnotes"
+  - knowledge_item_id: ki_nwoa_au_henty_region_location
+    source_citation_id: src_atlas_au_gis
+    locator: "Register: Henty, region; state VIC; current national table and footnotes"
+  - knowledge_item_id: ki_nwoa_au_glenrowan_region_location
+    source_citation_id: src_atlas_au_gis
+    locator: "Register: Glenrowan, region; state VIC; current national table and
+      footnotes"
+  - knowledge_item_id: ki_nwoa_au_bendigo_region_location
+    source_citation_id: src_atlas_au_gis
+    locator: "Register: Bendigo, region; state VIC; current national table and
+      footnotes"
+  - knowledge_item_id: ki_nwoa_au_beechworth_region_location
+    source_citation_id: src_atlas_au_gis
+    locator: "Register: Beechworth, region; state VIC; current national table and
+      footnotes"
+  - knowledge_item_id: ki_nwoa_au_alpine_valleys_region_location
+    source_citation_id: src_atlas_au_gis
+    locator: "Register: Alpine Valleys, region; state VIC; current national table
+      and footnotes"
+  - knowledge_item_id: ki_nwoa_au_adelaide_plains_region_location
+    source_citation_id: src_atlas_au_gis
+    locator: "Register: Adelaide Plains, region; state SA; current national table
+      and footnotes"
+  - knowledge_item_id: ki_nwoa_au_currency_creek_region_location
+    source_citation_id: src_atlas_au_gis
+    locator: "Register: Currency Creek, region; state SA; current national table and
+      footnotes"
+  - knowledge_item_id: ki_nwoa_au_kangaroo_island_region_location
+    source_citation_id: src_atlas_au_gis
+    locator: "Register: Kangaroo Island, region; state SA; current national table
+      and footnotes"
+  - knowledge_item_id: ki_nwoa_au_mount_benson_region_location
+    source_citation_id: src_atlas_au_gis
+    locator: "Register: Mount Benson, region; state SA; current national table and
+      footnotes"
+  - knowledge_item_id: ki_nwoa_au_mount_gambier_region_location
+    source_citation_id: src_atlas_au_gis
+    locator: "Register: Mount Gambier, region; state SA; current national table and
+      footnotes"
+  - knowledge_item_id: ki_nwoa_au_robe_region_location
+    source_citation_id: src_atlas_au_gis
+    locator: "Register: Robe, region; state SA; current national table and footnotes"
+  - knowledge_item_id: ki_nwoa_au_southern_fleurieu_region_location
+    source_citation_id: src_atlas_au_gis
+    locator: "Register: Southern Fleurieu, region; state SA; current national table
+      and footnotes"
+  - knowledge_item_id: ki_nwoa_au_southern_flinders_ranges_region_location
+    source_citation_id: src_atlas_au_gis
+    locator: "Register: Southern Flinders Ranges, region; state SA; current national
+      table and footnotes"
+  - knowledge_item_id: ki_nwoa_au_western_victoria_zone_location
+    source_citation_id: src_atlas_au_gis
+    locator: "Register: Western Victoria, zone; state VIC; current national table
+      and footnotes"
+  - knowledge_item_id: ki_nwoa_au_north_west_victoria_zone_location
+    source_citation_id: src_atlas_au_gis
+    locator: "Register: North West Victoria, zone; state VIC; current national table
+      and footnotes"
+  - knowledge_item_id: ki_nwoa_au_north_east_victoria_zone_location
+    source_citation_id: src_atlas_au_gis
+    locator: "Register: North East Victoria, zone; state VIC; current national table
+      and footnotes"
+  - knowledge_item_id: ki_nwoa_au_gippsland_zone_location
+    source_citation_id: src_atlas_au_gis
+    locator: "Register: Gippsland, zone; state VIC; current national table and
+      footnotes"
+  - knowledge_item_id: ki_nwoa_au_central_victoria_zone_location
+    source_citation_id: src_atlas_au_gis
+    locator: "Register: Central Victoria, zone; state VIC; current national table
+      and footnotes"
+  - knowledge_item_id: ki_nwoa_au_central_western_australia_zone_location
+    source_citation_id: src_atlas_au_gis
+    locator: "Register: Central Western Australia, zone; state WA; current national
+      table and footnotes"
+  - knowledge_item_id: ki_nwoa_au_greater_perth_zone_location
+    source_citation_id: src_atlas_au_gis
+    locator: "Register: Greater Perth, zone; state WA; current national table and
+      footnotes"
+  - knowledge_item_id: ki_nwoa_au_south_west_australia_zone_location
+    source_citation_id: src_atlas_au_gis
+    locator: "Register: South West Australia, zone; state WA; current national table
+      and footnotes"
+  - knowledge_item_id: ki_nwoa_au_west_australian_south_east_coastal_zone_location
+    source_citation_id: src_atlas_au_gis
+    locator: "Register: West Australian South East Coastal, zone; state WA; current
+      national table and footnotes"
+  - knowledge_item_id: ki_nwoa_au_central_ranges_zone_location
+    source_citation_id: src_atlas_au_gis
+    locator: "Register: Central Ranges, zone; state NSW; current national table and
+      footnotes"
+  - knowledge_item_id: ki_nwoa_au_northern_rivers_zone_location
+    source_citation_id: src_atlas_au_gis
+    locator: "Register: Northern Rivers, zone; state NSW; current national table and
+      footnotes"
+  - knowledge_item_id: ki_nwoa_au_northern_slopes_zone_location
+    source_citation_id: src_atlas_au_gis
+    locator: "Register: Northern Slopes, zone; state NSW; current national table and
+      footnotes"
+  - knowledge_item_id: ki_nwoa_au_south_coast_zone_location
+    source_citation_id: src_atlas_au_gis
+    locator: "Register: South Coast, zone; state NSW; current national table and
+      footnotes"
+  - knowledge_item_id: ki_nwoa_au_southern_new_south_wales_zone_location
+    source_citation_id: src_atlas_au_gis
+    locator: "Register: Southern New South Wales, zone; state NSW; current national
+      table and footnotes"
+  - knowledge_item_id: ki_nwoa_au_big_rivers_zone_location
+    source_citation_id: src_atlas_au_gis
+    locator: "Register: Big Rivers, zone; state NSW; current national table and
+      footnotes"
+  - knowledge_item_id: ki_nwoa_au_the_peninsulas_zone_location
+    source_citation_id: src_atlas_au_gis
+    locator: "Register: The Peninsulas, zone; state SA; current national table and
+      footnotes"
+  - knowledge_item_id: ki_nwoa_au_lower_murray_zone_location
+    source_citation_id: src_atlas_au_gis
+    locator: "Register: Lower Murray, zone; state SA; current national table and
+      footnotes"
+  - knowledge_item_id: ki_nwoa_au_far_north_zone_location
+    source_citation_id: src_atlas_au_gis
+    locator: "Register: Far North, zone; state SA; current national table and footnotes"
+  - knowledge_item_id: ki_nwoa_au_eastern_plains_inland_and_north_of_western_australia_zone_location
+    source_citation_id: src_atlas_au_gis
+    locator: "Register: Eastern Plains, Inland And North Of Western Australia, zone;
+      state WA; current national table and footnotes"
+  - knowledge_item_id: ki_nwoa_au_western_plains_zone_location
+    source_citation_id: src_atlas_au_gis
+    locator: "Register: Western Plains, zone; state NSW; current national table and
+      footnotes"
+  - knowledge_item_id: ki_nwoa_au_queensland_zone_location
+    source_citation_id: src_atlas_au_gis
+    locator: "Register: Queensland, zone; state QLD; current national table and
+      footnotes"
+  - knowledge_item_id: ki_nwoa_au_adelaide_super_zone_location
+    source_citation_id: src_atlas_au_gis
+    locator: Register entry Adelaide (super zone); listed in national
+      geographical-indication register
+  - knowledge_item_id: ki_nwoa_au_northern_territory_location
+    source_citation_id: src_atlas_au_gis
+    locator: Register entry Northern Territory; listed in national
+      geographical-indication register
+  - knowledge_item_id: ki_nwoa_au_australian_capital_territory_location
+    source_citation_id: src_atlas_au_gis
+    locator: Register entry Australian Capital Territory; listed in national
+      geographical-indication register
+  - knowledge_item_id: ki_nwoa_za_greater_cape_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Greater Cape; overarching
+      geographical unit; listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_cape_coast_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Cape Coast; overarching Wine of
+      Origin region; listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_cape_west_coast_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Cape West Coast; Wine of Origin
+      subregion; listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_northern_cape_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Northern Cape; Wine of Origin
+      geographical unit; listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_eastern_cape_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Eastern Cape; Wine of Origin
+      geographical unit; listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_kwazulu_natal_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: KwaZulu-Natal; Wine of Origin
+      geographical unit; listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_free_state_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Free State; Wine of Origin
+      geographical unit; listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_limpopo_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Limpopo; Wine of Origin
+      geographical unit; listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_north_west_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: North West; Wine of Origin
+      geographical unit; listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_karoo_hoogland_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Karoo-Hoogland; Wine of Origin
+      region; listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_lower_duivenhoks_river_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Lower Duivenhoks River; Wine of
+      Origin district; listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_plettenberg_bay_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Plettenberg Bay; Wine of Origin
+      district; listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_swellendam_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Swellendam; Wine of Origin
+      district; listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_still_bay_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Still Bay; Wine of Origin
+      district; listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_lutzville_valley_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Lutzville Valley; Wine of Origin
+      district; listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_langeberg_garcia_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Langeberg-Garcia; Wine of Origin
+      district; listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_citrusdal_mountain_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Citrusdal Mountain; Wine of
+      Origin district; listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_citrusdal_valley_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Citrusdal Valley; Wine of Origin
+      district; listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_ceres_plateau_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Ceres Plateau; Wine of Origin
+      district; listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_nuveld_karoo_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Nuveld-Karoo; Wine of Origin
+      district; listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_prince_albert_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Prince Albert; Wine of Origin
+      district; listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_sutherland_karoo_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Sutherland-Karoo; Wine of Origin
+      district; listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_central_orange_river_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Central Orange River; Wine of
+      Origin district; listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_douglas_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Douglas; Wine of Origin district;
+      listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_central_drakensberg_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Central Drakensberg; Wine of
+      Origin district; listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_lions_river_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Lions River; Wine of Origin
+      district; listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_cederberg_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Cederberg; Wine of Origin ward;
+      listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_nieuwoudtville_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Nieuwoudtville; Wine of Origin
+      ward; listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_piekenierskloof_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Piekenierskloof; Wine of Origin
+      ward; listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_slanghoek_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Slanghoek; Wine of Origin ward;
+      listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_goudini_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Goudini; Wine of Origin ward;
+      listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_simonsberg_paarl_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Simonsberg-Paarl; Wine of Origin
+      ward; listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_agter_paarl_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Agter-Paarl; Wine of Origin ward;
+      listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_voor_paardeberg_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Voor-Paardeberg; Wine of Origin
+      ward; listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_malmesbury_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Malmesbury; Wine of Origin ward;
+      listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_paardeberg_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Paardeberg; Wine of Origin ward;
+      listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_porseleinberg_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Porseleinberg; Wine of Origin
+      ward; listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_riebeekberg_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Riebeekberg; Wine of Origin ward;
+      listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_riebeeksrivier_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Riebeeksrivier; Wine of Origin
+      ward; listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_groenekloof_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Groenekloof; Wine of Origin ward;
+      listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_koekenaap_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Koekenaap; Wine of Origin ward;
+      listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_vredendal_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Vredendal; Wine of Origin ward;
+      listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_spruitdrift_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Spruitdrift; Wine of Origin ward;
+      listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_sundays_glen_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Sunday's Glen; Wine of Origin
+      ward; listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_stanford_foothills_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Stanford Foothills; Wine of
+      Origin ward; listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_malgas_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Malgas; Wine of Origin ward;
+      listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_montagu_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Montagu; Wine of Origin ward;
+      listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_tradouw_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Tradouw; Wine of Origin ward;
+      listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_tradouw_highlands_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Tradouw Highlands; Wine of Origin
+      ward; listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_agterkliphoogte_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Agterkliphoogte; Wine of Origin
+      ward; listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_ashton_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Ashton; Wine of Origin ward;
+      listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_boesmansrivier_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Boesmansrivier; Wine of Origin
+      ward; listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_bonnievale_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Bonnievale; Wine of Origin ward;
+      listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_eilandia_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Eilandia; Wine of Origin ward;
+      listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_goree_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Goree; Wine of Origin ward;
+      listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_goudmyn_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Goudmyn; Wine of Origin ward;
+      listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_hoopsrivier_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Hoopsrivier; Wine of Origin ward;
+      listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_klaasvoogds_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Klaasvoogds; Wine of Origin ward;
+      listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_le_chasseur_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Le Chasseur; Wine of Origin ward;
+      listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_mcgregor_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: McGregor; Wine of Origin ward;
+      listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_vinkrivier_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Vinkrivier; Wine of Origin ward;
+      listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_zandrivier_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Zandrivier; Wine of Origin ward;
+      listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_hex_river_valley_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Hex River Valley; Wine of Origin
+      ward; listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_keeromsberg_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Keeromsberg; Wine of Origin ward;
+      listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_moordkuil_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Moordkuil; Wine of Origin ward;
+      listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_nuy_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Nuy; Wine of Origin ward; listed
+      containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_scherpenheuvel_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Scherpenheuvel; Wine of Origin
+      ward; listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_stettyn_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Stettyn; Wine of Origin ward;
+      listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_groenfontein_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Groenfontein; Wine of Origin
+      ward; listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_koo_plateau_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Koo Plateau; Wine of Origin ward;
+      listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_outeniqua_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Outeniqua; Wine of Origin ward;
+      listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_ceres_ward_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Ceres; Wine of Origin ward;
+      listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_swartberg_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Swartberg; Wine of Origin ward;
+      listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_leipoldtville_sandveld_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Leipoldtville-Sandveld; Wine of
+      Origin ward; listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_groblershoop_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Groblershoop; Wine of Origin
+      ward; listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_grootdrink_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Grootdrink; Wine of Origin ward;
+      listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_kakamas_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Kakamas; Wine of Origin ward;
+      listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_keimoes_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Keimoes; Wine of Origin ward;
+      listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_upington_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Upington; Wine of Origin ward;
+      listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_hartswater_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Hartswater; Wine of Origin ward;
+      listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_prieska_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Prieska; Wine of Origin ward;
+      listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_lanseria_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Lanseria; Wine of Origin ward;
+      listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_elandskloof_kaaimansgat_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Elandskloof/Kaaimansgat; Wine of
+      Origin ward; listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_greyton_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Greyton; Wine of Origin ward;
+      listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_klein_river_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Klein River; Wine of Origin ward;
+      listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_shaws_mountain_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Shaw’s Mountain; Wine of Origin
+      ward; listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_theewater_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Theewater; Wine of Origin ward;
+      listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_buffeljags_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Buffeljags; Wine of Origin ward;
+      listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_stormsvlei_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Stormsvlei; Wine of Origin ward;
+      listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_springfontein_rim_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Springfontein Rim; Wine of Origin
+      ward; listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_goukou_river_valley_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Goukou River Valley; Wine of
+      Origin ward; listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_herbertsdale_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Herbertsdale; Wine of Origin
+      ward; listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_napier_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Napier; Wine of Origin ward;
+      listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_hout_bay_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Hout Bay; Wine of Origin ward;
+      listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_philadelphia_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Philadelphia; Wine of Origin
+      ward; listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_piket_bo_berg_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Piket-Bo-Berg; Wine of Origin
+      ward; listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_st_helena_bay_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: St Helena Bay; Wine of Origin
+      ward; listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_groenberg_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Groenberg; Wine of Origin ward;
+      listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_limietberg_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Limietberg; Wine of Origin ward;
+      listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_bamboes_bay_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Bamboes Bay; Wine of Origin ward;
+      listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_lamberts_bay_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Lamberts Bay; Wine of Origin
+      ward; listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_goedemoed_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Goedemoed; Wine of Origin ward;
+      listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_rooikrans_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Rooikrans; Wine of Origin ward;
+      listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_cango_valley_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Cango Valley; Wine of Origin
+      ward; listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_upper_langkloof_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Upper Langkloof; Wine of Origin
+      ward; listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_kweekvallei_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Kweekvallei; Wine of Origin ward;
+      listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_prince_albert_valley_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Prince Albert Valley; Wine of
+      Origin ward; listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_rietrivier_fs_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Rietrivier FS; Wine of Origin
+      ward; listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_st_francis_bay_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: St Francis Bay; Wine of Origin
+      ward; listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_blouvlei_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Blouvlei; Wine of Origin ward;
+      listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_bovlei_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Bovlei; Wine of Origin ward;
+      listed containing geographical unit/region/district"
+  - knowledge_item_id: ki_nwoa_za_mid_berg_river_location
+    source_citation_id: src_atlas_za_wo_2026
+    locator: "February 2026 production-area table: Mid-Berg River; Wine of Origin
+      ward; listed containing geographical unit/region/district"

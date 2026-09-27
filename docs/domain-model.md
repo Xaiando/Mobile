@@ -592,6 +592,7 @@ A deterministic structure for generating practice material (§D, §H).
 - `direction` (forward or reverse) and `mode` are independent axes. Placeholders are `{subject.name}`, `{object.name}` and `{object.type_label}`. The locale is English only in V0.1.
 - `mode` is a format ID, e.g. `flashcard` or `mcq`. The schema checks only its form, and the format registry decides which formats exist, so a new format needs no migration (audit QF-2). Until task F3 builds the registry, the validator checks membership against the built formats.
 - `variant` tells apart templates of one format for one relation type, e.g. two orderings, and is empty for the only one. `parameters` holds the format's settings as a JSON object.
+- For `short_answer`, `parameters.key_points` maps relation types to displayed labels. Optional `scope_node_ids` restricts pool subjects to a nonempty list of unique, known node IDs; omit it for general profiles. A fixed prompt may name only one scoped subject; multiple scoped subjects need `{subject.name}` in the prompt. Scoped filtering happens before the two-point minimum is applied. Case points describe cited decisions under stated conditions, without asserting a complete or unique set of possible actions.
 
 #### Question (`questions`), curriculum, generated
 

@@ -1,0 +1,1834 @@
+# Original North America regional depth and conditional decisions.
+# All points are unverified; curation dates do not establish legal effective dates.
+# MCQ disabled: explanations and conditional decisions admit defensible alternatives.
+knowledge_nodes:
+  - id: n_reg_na_principle_santa_barbara_grape_sites
+    node_type: production_principle
+    name: How does Santa Barbara’s Sta. Rita Hills–Happy Canyon comparison connect local marine exposure and
+      inland warmth with different grape choices?
+  - id: n_reg_na_point_sta_rita_grapes
+    node_type: learning_point
+    name: Sta. Rita Hills marine exposure suits Pinot Noir and Chardonnay
+  - id: n_reg_na_point_happy_later_grapes
+    node_type: learning_point
+    name: Happy Canyon’s inland warmth supports later-ripening grapes
+  - id: n_reg_na_principle_slh_aspect_style
+    node_type: production_principle
+    name: Why should a Santa Lucia Highlands comparison consider bench aspect and wine-style variation rather than
+      treat every Chardonnay as an identical cool-climate wine?
+  - id: n_reg_na_point_slh_morning_aspect
+    node_type: learning_point
+    name: Santa Lucia Highlands east-facing benches receive morning sun
+  - id: n_reg_na_point_slh_chardonnay_range
+    node_type: learning_point
+    name: Santa Lucia Highlands Chardonnay covers contrasting palate styles
+  - id: n_reg_na_principle_santa_cruz_slopes
+    node_type: production_principle
+    name: How can the Santa Cruz Mountains support both Bordeaux-variety reds and Pinot Noir/Chardonnay without
+      one climatic description explaining every site?
+  - id: n_reg_na_point_santa_cruz_east
+    node_type: learning_point
+    name: Inland Santa Cruz Mountains sites include warmer red-grape settings
+  - id: n_reg_na_point_santa_cruz_coastal
+    node_type: learning_point
+    name: Coastal Santa Cruz Mountains sites offer a Pinot–Chardonnay contrast
+  - id: n_reg_na_principle_lodi_cluster_canopy
+    node_type: production_principle
+    name: What different mechanisms can cluster selection and canopy work address in Lodi Zinfandel, without
+      making either a guarantee of sound fruit?
+  - id: n_reg_na_point_lodi_loose_selection
+    node_type: learning_point
+    name: Lodi Primitivo examples link looser clusters with reduced rot pressure
+  - id: n_reg_na_point_lodi_canopy_air
+    node_type: learning_point
+    name: A dated Lodi example uses canopy opening to improve bunch airflow
+  - id: n_reg_na_principle_amador_water_training
+    node_type: production_principle
+    name: How do Amador’s soil-water context and mixed vine-training practices complicate a single stereotype of
+      Sierra Foothills Zinfandel production?
+  - id: n_reg_na_point_amador_water_storage
+    node_type: learning_point
+    name: Amador soil-water storage provides context for dry farming
+  - id: n_reg_na_point_amador_training_range
+    node_type: learning_point
+    name: Amador includes head-trained and cordon-trained vineyards
+  - id: n_reg_na_principle_red_mountain_exposure_air
+    node_type: production_principle
+    name: How do Red Mountain exposure and local air movement provide different evidence for grape planning and
+      frost assessment within Washington?
+  - id: n_reg_na_point_red_mountain_sun
+    node_type: learning_point
+    name: Red Mountain’s southwest exposure offers a warm red-grape setting
+  - id: n_reg_na_point_red_mountain_air
+    node_type: learning_point
+    name: Red Mountain’s river-related airflow informs local frost comparisons
+  - id: n_reg_na_principle_walla_profile_contrasts
+    node_type: production_principle
+    name: Why does Walla Walla vineyard comparison require physical soil profiles rather than a single
+      soil-derived wine flavour?
+  - id: n_reg_na_point_walla_cobble_heat
+    node_type: learning_point
+    name: Some Walla Walla cobble sites combine drainage with stored heat
+  - id: n_reg_na_point_walla_loess_depth
+    node_type: learning_point
+    name: Walla Walla loess depth changes across uplands and steep hills
+  - id: n_reg_na_principle_oregon_stem_comparison
+    node_type: production_principle
+    name: How can Oregon Pinot Noir stem use be explained and compared without treating whole clusters as a
+      regional requirement or a universal quality improvement?
+  - id: n_reg_na_point_oregon_whole_cluster_effect
+    node_type: learning_point
+    name: An Oregon producer describes stem-related tannin and aromatic choices
+  - id: n_reg_na_point_oregon_series_controls
+    node_type: learning_point
+    name: Cristom’s dated series varies stem inclusion with shared production details
+  - id: n_reg_na_principle_long_island_grape_timing
+    node_type: production_principle
+    name: How do Merlot phenology and Cabernet Franc aromatic variation raise different management questions for
+      Long Island reds?
+  - id: n_reg_na_point_long_island_merlot_timing
+    node_type: learning_point
+    name: Long Island Merlot planning balances early budding and earlier maturity
+  - id: n_reg_na_point_long_island_cab_franc_style
+    node_type: learning_point
+    name: Long Island Cabernet Franc can show fruit or vegetal expression
+  - id: n_reg_na_principle_niagara_bench_physics
+    node_type: production_principle
+    name: How can Niagara Escarpment bench topography and soil-water behaviour affect vineyard decisions without
+      transferring rock minerals directly into wine flavour?
+  - id: n_reg_na_point_niagara_slope_air
+    node_type: learning_point
+    name: Niagara Escarpment slopes can move cold air during radiation-frost nights
+  - id: n_reg_na_point_niagara_soil_moisture
+    node_type: learning_point
+    name: Niagara bench drainage can coexist with substantial water retention
+  - id: n_reg_na_principle_county_winter_spring
+    node_type: production_principle
+    name: Why must Prince Edward County winter protection be considered together with spring vine handling rather
+      than chosen as a guaranteed crop-saving device?
+  - id: n_reg_na_point_county_insulating_cover
+    node_type: learning_point
+    name: A Prince Edward County producer contrasts textile and soil insulation
+  - id: n_reg_na_point_county_unbury_timing
+    node_type: learning_point
+    name: Spring unburying must consider bud swelling and cold vulnerability
+  - id: n_reg_na_principle_erie_heat_soils
+    node_type: production_principle
+    name: What distinct maturation and root-zone considerations arise from Lake Erie North Shore’s shallow-lake
+      setting and relatively light soils?
+  - id: n_reg_na_point_erie_shallow_heat
+    node_type: learning_point
+    name: Shallow Lake Erie warms quickly and supports summer heat accumulation
+  - id: n_reg_na_point_erie_light_drainage
+    node_type: learning_point
+    name: Lake Erie North Shore includes light, well-drained root-zone settings
+  - id: n_reg_na_principle_similkameen_wind_sites
+    node_type: production_principle
+    name: Why should Similkameen comparison separate regional wind-related disease conditions from grape choices
+      on cool shaded and warm sunny sites?
+  - id: n_reg_na_point_similkameen_wind_pressure
+    node_type: learning_point
+    name: Similkameen persistent wind can reduce disease pressure
+  - id: n_reg_na_point_similkameen_shade_grapes
+    node_type: learning_point
+    name: Similkameen shaded and sunny sites support contrasting grape choices
+  - id: n_reg_na_principle_okanagan_specific_grapes
+    node_type: production_principle
+    name: How can northern and southern Okanagan grape-site evidence guide a comparison without assigning one
+      uniform British Columbia wine style?
+  - id: n_reg_na_point_okanagan_north_aromatic
+    node_type: learning_point
+    name: Northern Okanagan provides cooler Riesling and Pinot settings
+  - id: n_reg_na_point_okanagan_warm_cabernet
+    node_type: learning_point
+    name: Warm Osoyoos-area sites offer a contrasting Cabernet opportunity
+  - id: n_reg_na_case_lodi_sampling_triage
+    node_type: production_case
+    name: A Lodi Zinfandel grower has one crew day before a booked crush slot. Block A has healthy fruit and
+      consistent maturity checks matching the intended fresh red style. Block B has a dense canopy and
+      noticeably mixed berry maturity; inspection finds some damaged bunches. The crew can either harvest A or
+      spend the day sampling and selectively opening B’s canopy, but cannot complete both. Another crew is
+      available later at a higher quoted cost, and the next crush slot is unconfirmed. No regional name
+      guarantees ripeness or sound fruit. Propose an action, explain a reason, weigh a tradeoff and state a
+      limitation.
+  - id: n_reg_na_point_case_lodi_sampling_triage_action
+    node_type: learning_point
+    name: Use the confirmed slot for the checked Lodi block and separately assess the uncertain fruit
+  - id: n_reg_na_point_case_lodi_sampling_triage_reason
+    node_type: learning_point
+    name: Lodi cluster and canopy variation makes representative assessment relevant
+  - id: n_reg_na_point_case_lodi_sampling_triage_tradeoff
+    node_type: learning_point
+    name: The triage protects the checked lot but leaves extra work and capacity uncertainty
+  - id: n_reg_na_point_case_lodi_sampling_triage_limitation
+    node_type: learning_point
+    name: Canopy work does not guarantee damaged or uneven fruit becomes suitable
+  - id: n_reg_na_case_oregon_stem_trial
+    node_type: production_case
+    name: An Oregon Pinot Noir producer can split one sound, uniformly sampled parcel lot into matched vessels. A
+      small pilot using destemmed fruit has the bright fruit and lighter grip wanted for one product; a pilot
+      retaining half the bunches has more spice and firmer grip wanted for another. The pilots were tasted
+      blind and have no detected faults. Harvest, vessel size, temperature, extraction and oak programme can
+      be kept the same for the split, and both proposed routes fit the budget. Full-scale consistency and
+      customer demand remain untested. Propose an action, explain a reason, weigh a tradeoff and state a
+      limitation before scaling stem use.
+  - id: n_reg_na_point_case_oregon_stem_trial_action
+    node_type: learning_point
+    name: Run a controlled Oregon split and assess each proposed style before scaling
+  - id: n_reg_na_point_case_oregon_stem_trial_reason
+    node_type: learning_point
+    name: Stem inclusion offers a plausible explanation for the pilot texture and spice contrast
+  - id: n_reg_na_point_case_oregon_stem_trial_tradeoff
+    node_type: learning_point
+    name: Different stem routes serve different briefs and still require a commercial choice
+  - id: n_reg_na_point_case_oregon_stem_trial_limitation
+    node_type: learning_point
+    name: One Oregon pilot cannot validate future stem proportions or market performance
+  - id: n_reg_na_case_county_protection_budget
+    node_type: production_case
+    name: A Prince Edward County grower compares soil burial and geotextile protection for the same cultivar on
+      one block before winter. Both can be installed before the forecast cold period. A local contractor
+      quotes textile installation and storage at a higher upfront cost; both options fit the available budget.
+      Last year’s neighbouring plots used different pruning and experienced different exposures, so their
+      bud-survival results are not a controlled comparison. The grower can obtain local technical advice,
+      monitor cover and temperature, and inspect buds in spring. The target is preserving viable fruiting buds
+      while limiting annual handling work. Propose an action, explain a reason, weigh a tradeoff and state a
+      limitation.
+  - id: n_reg_na_point_case_county_protection_budget_action
+    node_type: learning_point
+    name: Compare locally suitable County protection with a monitored block trial
+  - id: n_reg_na_point_case_county_protection_budget_reason
+    node_type: learning_point
+    name: Textile and soil cover address winter insulation while spring handling remains relevant
+  - id: n_reg_na_point_case_county_protection_budget_tradeoff
+    node_type: learning_point
+    name: Weigh the quoted textile outlay against the target of limiting soil handling
+  - id: n_reg_na_point_case_county_protection_budget_limitation
+    node_type: learning_point
+    name: Unmatched County bud-survival observations cannot establish the better method
+  - id: n_reg_na_case_niagara_preplant_drainage
+    node_type: production_case
+    name: A Niagara bench grower compares two unplanted parcels for Riesling. Parcel A’s local assessment reports
+      workable soil drainage and no persistent standing water. Parcel B has documented standing water and
+      equipment ruts after rain; a specialist proposes drainage installation before planting. Both have
+      suitable local heat and exposure records for the intended grape, but root-zone assessments for B are
+      incomplete. The quoted installation would exceed the current capital budget unless planting B is
+      delayed. The grower can plant A this season or defer B until investigation and funding are complete. No
+      limestone or bench label establishes wine flavour or quality. Propose an action, explain a reason, weigh
+      a tradeoff and state a limitation.
+  - id: n_reg_na_point_case_niagara_preplant_drainage_action
+    node_type: learning_point
+    name: Use the assessed Niagara parcel or defer drainage-dependent planting
+  - id: n_reg_na_point_case_niagara_preplant_drainage_reason
+    node_type: learning_point
+    name: Wet root zones can restrict growth despite a suitable Niagara heat setting
+  - id: n_reg_na_point_case_niagara_preplant_drainage_tradeoff
+    node_type: learning_point
+    name: Deferral trades time for completing a feasible drainage and capital plan
+  - id: n_reg_na_point_case_niagara_preplant_drainage_limitation
+    node_type: learning_point
+    name: Regional bench descriptions cannot certify a parcel’s drainage or wine quality
+node_alternative_names:
+  - knowledge_node_id: n_reg_na_point_sta_rita_grapes
+    name: Sta Rita marine Pinot Chardonnay fit
+    kind: synonym
+  - knowledge_node_id: n_reg_na_point_happy_later_grapes
+    name: Happy Canyon inland later grape opportunity
+    kind: synonym
+  - knowledge_node_id: n_reg_na_point_slh_morning_aspect
+    name: Santa Lucia east bench morning sunshine
+    kind: synonym
+  - knowledge_node_id: n_reg_na_point_slh_chardonnay_range
+    name: Santa Lucia Chardonnay lean to rich range
+    kind: synonym
+  - knowledge_node_id: n_reg_na_point_santa_cruz_east
+    name: Santa Cruz inland red grape setting
+    kind: synonym
+  - knowledge_node_id: n_reg_na_point_santa_cruz_coastal
+    name: Santa Cruz coastal Pinot Chardonnay contrast
+    kind: synonym
+  - knowledge_node_id: n_reg_na_point_lodi_loose_selection
+    name: Lodi Primitivo loose cluster rot opportunity
+    kind: synonym
+  - knowledge_node_id: n_reg_na_point_lodi_canopy_air
+    name: Lodi canopy opening bunch airflow example
+    kind: synonym
+  - knowledge_node_id: n_reg_na_point_amador_water_storage
+    name: Amador soil stored winter water context
+    kind: synonym
+  - knowledge_node_id: n_reg_na_point_amador_training_range
+    name: Amador head and cordon training range
+    kind: synonym
+  - knowledge_node_id: n_reg_na_point_red_mountain_sun
+    name: Red Mountain southwest red grape opportunity
+    kind: synonym
+  - knowledge_node_id: n_reg_na_point_red_mountain_air
+    name: Red Mountain river airflow frost context
+    kind: synonym
+  - knowledge_node_id: n_reg_na_point_walla_cobble_heat
+    name: Walla cobble drainage stored daytime heat
+    kind: synonym
+  - knowledge_node_id: n_reg_na_point_walla_loess_depth
+    name: Walla loess depth upland hillside contrast
+    kind: synonym
+  - knowledge_node_id: n_reg_na_point_oregon_whole_cluster_effect
+    name: Oregon whole cluster tannin aroma choice
+    kind: synonym
+  - knowledge_node_id: n_reg_na_point_oregon_series_controls
+    name: Oregon stem series shared production comparison
+    kind: synonym
+  - knowledge_node_id: n_reg_na_point_long_island_merlot_timing
+    name: Long Island Merlot spring autumn timing balance
+    kind: synonym
+  - knowledge_node_id: n_reg_na_point_long_island_cab_franc_style
+    name: Long Island Cabernet Franc vineyard aroma variation
+    kind: synonym
+  - knowledge_node_id: n_reg_na_point_niagara_slope_air
+    name: Niagara bench radiation frost slope circulation
+    kind: synonym
+  - knowledge_node_id: n_reg_na_point_niagara_soil_moisture
+    name: Niagara bench drainage moisture retention balance
+    kind: synonym
+  - knowledge_node_id: n_reg_na_point_county_insulating_cover
+    name: County textile soil winter insulation choices
+    kind: synonym
+  - knowledge_node_id: n_reg_na_point_county_unbury_timing
+    name: County spring unbury bud stage handling balance
+    kind: synonym
+  - knowledge_node_id: n_reg_na_point_erie_shallow_heat
+    name: Erie shallow lake rapid summer warming
+    kind: synonym
+  - knowledge_node_id: n_reg_na_point_erie_light_drainage
+    name: Erie lighter sandy gravel soil drainage
+    kind: synonym
+  - knowledge_node_id: n_reg_na_point_similkameen_wind_pressure
+    name: Similkameen persistent airflow disease context
+    kind: synonym
+  - knowledge_node_id: n_reg_na_point_similkameen_shade_grapes
+    name: Similkameen shaded Riesling sunny Cabernet fit
+    kind: synonym
+  - knowledge_node_id: n_reg_na_point_okanagan_north_aromatic
+    name: Okanagan northern Riesling Pinot site context
+    kind: synonym
+  - knowledge_node_id: n_reg_na_point_okanagan_warm_cabernet
+    name: Okanagan Osoyoos warm Cabernet site context
+    kind: synonym
+  - knowledge_node_id: n_reg_na_point_case_lodi_sampling_triage_action
+    name: Lodi checked block booked slot triage action
+    kind: synonym
+  - knowledge_node_id: n_reg_na_point_case_lodi_sampling_triage_reason
+    name: Lodi mixed maturity canopy assessment rationale
+    kind: synonym
+  - knowledge_node_id: n_reg_na_point_case_lodi_sampling_triage_tradeoff
+    name: Lodi crew crush capacity spending tradeoff
+    kind: synonym
+  - knowledge_node_id: n_reg_na_point_case_lodi_sampling_triage_limitation
+    name: Lodi sampling canopy rescue crop limit
+    kind: synonym
+  - knowledge_node_id: n_reg_na_point_case_oregon_stem_trial_action
+    name: Oregon matched stem split prospective action
+    kind: synonym
+  - knowledge_node_id: n_reg_na_point_case_oregon_stem_trial_reason
+    name: Oregon stem pilot tannin spice rationale
+    kind: synonym
+  - knowledge_node_id: n_reg_na_point_case_oregon_stem_trial_tradeoff
+    name: Oregon stem routes product brief demand tradeoff
+    kind: synonym
+  - knowledge_node_id: n_reg_na_point_case_oregon_stem_trial_limitation
+    name: Oregon one lot pilot scaling limit
+    kind: synonym
+  - knowledge_node_id: n_reg_na_point_case_county_protection_budget_action
+    name: County protection local advice monitored choice
+    kind: synonym
+  - knowledge_node_id: n_reg_na_point_case_county_protection_budget_reason
+    name: County insulating cover spring handling rationale
+    kind: synonym
+  - knowledge_node_id: n_reg_na_point_case_county_protection_budget_tradeoff
+    name: County textile spending annual soil handling tradeoff
+    kind: synonym
+  - knowledge_node_id: n_reg_na_point_case_county_protection_budget_limitation
+    name: County unmatched exposure pruning survival limit
+    kind: synonym
+  - knowledge_node_id: n_reg_na_point_case_niagara_preplant_drainage_action
+    name: Niagara assessed parcel defer drainage action
+    kind: synonym
+  - knowledge_node_id: n_reg_na_point_case_niagara_preplant_drainage_reason
+    name: Niagara wet soil root growth rationale
+    kind: synonym
+  - knowledge_node_id: n_reg_na_point_case_niagara_preplant_drainage_tradeoff
+    name: Niagara drainage capital planting delay tradeoff
+    kind: synonym
+  - knowledge_node_id: n_reg_na_point_case_niagara_preplant_drainage_limitation
+    name: Niagara parcel drainage label quality limit
+    kind: synonym
+knowledge_relations:
+  - subject_id: n_reg_na_principle_santa_barbara_grape_sites
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_na_point_sta_rita_grapes
+    valid_from: 2026-09-27
+  - subject_id: n_reg_na_principle_santa_barbara_grape_sites
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_na_point_happy_later_grapes
+    valid_from: 2026-09-27
+  - subject_id: n_reg_na_principle_slh_aspect_style
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_na_point_slh_morning_aspect
+    valid_from: 2026-09-27
+  - subject_id: n_reg_na_principle_slh_aspect_style
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_na_point_slh_chardonnay_range
+    valid_from: 2026-09-27
+  - subject_id: n_reg_na_principle_santa_cruz_slopes
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_na_point_santa_cruz_east
+    valid_from: 2026-09-27
+  - subject_id: n_reg_na_principle_santa_cruz_slopes
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_na_point_santa_cruz_coastal
+    valid_from: 2026-09-27
+  - subject_id: n_reg_na_principle_lodi_cluster_canopy
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_na_point_lodi_loose_selection
+    valid_from: 2026-09-27
+  - subject_id: n_reg_na_principle_lodi_cluster_canopy
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_na_point_lodi_canopy_air
+    valid_from: 2026-09-27
+  - subject_id: n_reg_na_principle_amador_water_training
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_na_point_amador_water_storage
+    valid_from: 2026-09-27
+  - subject_id: n_reg_na_principle_amador_water_training
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_na_point_amador_training_range
+    valid_from: 2026-09-27
+  - subject_id: n_reg_na_principle_red_mountain_exposure_air
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_na_point_red_mountain_sun
+    valid_from: 2026-09-27
+  - subject_id: n_reg_na_principle_red_mountain_exposure_air
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_na_point_red_mountain_air
+    valid_from: 2026-09-27
+  - subject_id: n_reg_na_principle_walla_profile_contrasts
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_na_point_walla_cobble_heat
+    valid_from: 2026-09-27
+  - subject_id: n_reg_na_principle_walla_profile_contrasts
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_na_point_walla_loess_depth
+    valid_from: 2026-09-27
+  - subject_id: n_reg_na_principle_oregon_stem_comparison
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_na_point_oregon_whole_cluster_effect
+    valid_from: 2026-09-27
+  - subject_id: n_reg_na_principle_oregon_stem_comparison
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_na_point_oregon_series_controls
+    valid_from: 2026-09-27
+  - subject_id: n_reg_na_principle_long_island_grape_timing
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_na_point_long_island_merlot_timing
+    valid_from: 2026-09-27
+  - subject_id: n_reg_na_principle_long_island_grape_timing
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_na_point_long_island_cab_franc_style
+    valid_from: 2026-09-27
+  - subject_id: n_reg_na_principle_niagara_bench_physics
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_na_point_niagara_slope_air
+    valid_from: 2026-09-27
+  - subject_id: n_reg_na_principle_niagara_bench_physics
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_na_point_niagara_soil_moisture
+    valid_from: 2026-09-27
+  - subject_id: n_reg_na_principle_county_winter_spring
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_na_point_county_insulating_cover
+    valid_from: 2026-09-27
+  - subject_id: n_reg_na_principle_county_winter_spring
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_na_point_county_unbury_timing
+    valid_from: 2026-09-27
+  - subject_id: n_reg_na_principle_erie_heat_soils
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_na_point_erie_shallow_heat
+    valid_from: 2026-09-27
+  - subject_id: n_reg_na_principle_erie_heat_soils
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_na_point_erie_light_drainage
+    valid_from: 2026-09-27
+  - subject_id: n_reg_na_principle_similkameen_wind_sites
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_na_point_similkameen_wind_pressure
+    valid_from: 2026-09-27
+  - subject_id: n_reg_na_principle_similkameen_wind_sites
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_na_point_similkameen_shade_grapes
+    valid_from: 2026-09-27
+  - subject_id: n_reg_na_principle_okanagan_specific_grapes
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_na_point_okanagan_north_aromatic
+    valid_from: 2026-09-27
+  - subject_id: n_reg_na_principle_okanagan_specific_grapes
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_na_point_okanagan_warm_cabernet
+    valid_from: 2026-09-27
+  - subject_id: n_reg_na_case_lodi_sampling_triage
+    relation_type: CASE_ACTION
+    object_id: n_reg_na_point_case_lodi_sampling_triage_action
+    valid_from: 2026-09-27
+  - subject_id: n_reg_na_case_lodi_sampling_triage
+    relation_type: CASE_REASON
+    object_id: n_reg_na_point_case_lodi_sampling_triage_reason
+    valid_from: 2026-09-27
+  - subject_id: n_reg_na_case_lodi_sampling_triage
+    relation_type: CASE_TRADEOFF
+    object_id: n_reg_na_point_case_lodi_sampling_triage_tradeoff
+    valid_from: 2026-09-27
+  - subject_id: n_reg_na_case_lodi_sampling_triage
+    relation_type: CASE_LIMITATION
+    object_id: n_reg_na_point_case_lodi_sampling_triage_limitation
+    valid_from: 2026-09-27
+  - subject_id: n_reg_na_case_oregon_stem_trial
+    relation_type: CASE_ACTION
+    object_id: n_reg_na_point_case_oregon_stem_trial_action
+    valid_from: 2026-09-27
+  - subject_id: n_reg_na_case_oregon_stem_trial
+    relation_type: CASE_REASON
+    object_id: n_reg_na_point_case_oregon_stem_trial_reason
+    valid_from: 2026-09-27
+  - subject_id: n_reg_na_case_oregon_stem_trial
+    relation_type: CASE_TRADEOFF
+    object_id: n_reg_na_point_case_oregon_stem_trial_tradeoff
+    valid_from: 2026-09-27
+  - subject_id: n_reg_na_case_oregon_stem_trial
+    relation_type: CASE_LIMITATION
+    object_id: n_reg_na_point_case_oregon_stem_trial_limitation
+    valid_from: 2026-09-27
+  - subject_id: n_reg_na_case_county_protection_budget
+    relation_type: CASE_ACTION
+    object_id: n_reg_na_point_case_county_protection_budget_action
+    valid_from: 2026-09-27
+  - subject_id: n_reg_na_case_county_protection_budget
+    relation_type: CASE_REASON
+    object_id: n_reg_na_point_case_county_protection_budget_reason
+    valid_from: 2026-09-27
+  - subject_id: n_reg_na_case_county_protection_budget
+    relation_type: CASE_TRADEOFF
+    object_id: n_reg_na_point_case_county_protection_budget_tradeoff
+    valid_from: 2026-09-27
+  - subject_id: n_reg_na_case_county_protection_budget
+    relation_type: CASE_LIMITATION
+    object_id: n_reg_na_point_case_county_protection_budget_limitation
+    valid_from: 2026-09-27
+  - subject_id: n_reg_na_case_niagara_preplant_drainage
+    relation_type: CASE_ACTION
+    object_id: n_reg_na_point_case_niagara_preplant_drainage_action
+    valid_from: 2026-09-27
+  - subject_id: n_reg_na_case_niagara_preplant_drainage
+    relation_type: CASE_REASON
+    object_id: n_reg_na_point_case_niagara_preplant_drainage_reason
+    valid_from: 2026-09-27
+  - subject_id: n_reg_na_case_niagara_preplant_drainage
+    relation_type: CASE_TRADEOFF
+    object_id: n_reg_na_point_case_niagara_preplant_drainage_tradeoff
+    valid_from: 2026-09-27
+  - subject_id: n_reg_na_case_niagara_preplant_drainage
+    relation_type: CASE_LIMITATION
+    object_id: n_reg_na_point_case_niagara_preplant_drainage_limitation
+    valid_from: 2026-09-27
+knowledge_items:
+  - id: ki_reg_na_sta_rita_grapes
+    subject_id: n_reg_na_principle_santa_barbara_grape_sites
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_na_point_sta_rita_grapes
+    domain_id: viticulture
+    assertion_text: Sta. Rita Hills combines morning fog and afternoon ocean airflow with Pinot Noir and
+      Chardonnay plantings. This provides a cooler-site grape comparison within Santa Barbara, while a
+      particular wine’s ripeness still depends on its parcel and harvest.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:08:43.579Z"
+  - id: ki_reg_na_happy_later_grapes
+    subject_id: n_reg_na_principle_santa_barbara_grape_sites
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_na_point_happy_later_grapes
+    domain_id: viticulture
+    assertion_text: Happy Canyon’s more inland position creates a warmer growing setting than western marine
+      sites. Its Cabernet Sauvignon and other Bordeaux-variety associations illustrate an opportunity for
+      later-ripening grapes; the regional description does not guarantee complete maturity in every season.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:08:43.579Z"
+  - id: ki_reg_na_slh_morning_aspect
+    subject_id: n_reg_na_principle_slh_aspect_style
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_na_point_slh_morning_aspect
+    domain_id: viticulture
+    assertion_text: Santa Lucia Highlands benches face east and receive morning sunshine before the afternoon
+      maritime airflow. This combines exposure with cooling in a site assessment, rather than treating a cool
+      regional label as evidence that grapes receive little sunlight.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:08:43.579Z"
+  - id: ki_reg_na_slh_chardonnay_range
+    subject_id: n_reg_na_principle_slh_aspect_style
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_na_point_slh_chardonnay_range
+    domain_id: winemaking
+    assertion_text: The regional body describes Santa Lucia Highlands Chardonnay ranging from leaner, crisp
+      examples to richer expressions. Local elevation and exposure vary; the actual wine and its production
+      record are needed before assigning a fixed body or oak character from the region alone.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:08:43.579Z"
+  - id: ki_reg_na_santa_cruz_east
+    subject_id: n_reg_na_principle_santa_cruz_slopes
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_na_point_santa_cruz_east
+    domain_id: viticulture
+    assertion_text: The Santa Cruz Mountains’ inland eastern side is described as warmer and less windy, with
+      Cabernet, Merlot and Zinfandel associations. These are broad site-grape tendencies rather than an
+      exclusive list or a claim that every eastern parcel ripens identically.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:08:43.579Z"
+  - id: ki_reg_na_santa_cruz_coastal
+    subject_id: n_reg_na_principle_santa_cruz_slopes
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_na_point_santa_cruz_coastal
+    domain_id: viticulture
+    assertion_text: The coastal side and exposed ridge sites receive ocean breezes and fog and are associated with
+      Pinot Noir and Chardonnay. Compare the actual exposure and elevation with inland parcels; the press
+      kit’s soil-to-mineral-flavour claims are unnecessary for this climatic explanation.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:08:43.579Z"
+  - id: ki_reg_na_lodi_loose_selection
+    subject_id: n_reg_na_principle_lodi_cluster_canopy
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_na_point_lodi_loose_selection
+    domain_id: viticulture
+    assertion_text: A 2018 Lodi grower feature describes Primitivo selections with looser, longer clusters and
+      lower rot pressure than more tightly packed Zinfandel selections. Cluster architecture can inform
+      selection and monitoring; clone identity alone does not guarantee freedom from disease.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:08:43.579Z"
+  - id: ki_reg_na_lodi_canopy_air
+    subject_id: n_reg_na_principle_lodi_cluster_canopy
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_na_point_lodi_canopy_air
+    domain_id: viticulture
+    assertion_text: At TruLux in 2018, the grower used shoot thinning and leaf removal to increase air movement
+      and some bunch light, aiming to reduce mould and rot pressure. This is a local management example;
+      intensity must follow the actual canopy and season rather than a universal removal recipe.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:08:43.579Z"
+  - id: ki_reg_na_amador_water_storage
+    subject_id: n_reg_na_principle_amador_water_training
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_na_point_amador_water_storage
+    domain_id: viticulture
+    assertion_text: The Amador regional body describes sandy-clay loams containing decomposed granite and
+      sufficient rainwater retention for many growers to dry farm. Stored soil water is a physical explanation
+      to investigate; it does not establish that every block can avoid irrigation in every year.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:08:43.579Z"
+  - id: ki_reg_na_amador_training_range
+    subject_id: n_reg_na_principle_amador_water_training
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_na_point_amador_training_range
+    domain_id: viticulture
+    assertion_text: Amador vineyards include head-trained, spur-pruned vines as well as bilateral cordons and
+      vertical trellises. These different systems warrant checking the actual pruning and canopy-work plan;
+      neither the regional name nor an old-vine description establishes one training system or superior
+      quality.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:08:43.579Z"
+  - id: ki_reg_na_red_mountain_sun
+    subject_id: n_reg_na_principle_red_mountain_exposure_air
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_na_point_red_mountain_sun
+    domain_id: viticulture
+    assertion_text: Red Mountain’s broad southwest-facing slopes receive strong summer sun, and the regional
+      profile associates that warm setting with red grapes, notably Cabernet Sauvignon. This is a grape-site
+      opportunity, not proof of optimal ripeness, tannin or quality in every wine.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:08:43.579Z"
+  - id: ki_reg_na_red_mountain_air
+    subject_id: n_reg_na_principle_red_mountain_exposure_air
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_na_point_red_mountain_air
+    domain_id: viticulture
+    assertion_text: The Washington Wine Commission describes temperature moderation and continual airflow near the
+      Yakima River at Red Mountain. These can inform comparison with nearby frost-prone sites, but local
+      exposure and the weather event still matter; continual airflow is not a frost-free guarantee.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:08:43.579Z"
+  - id: ki_reg_na_walla_cobble_heat
+    subject_id: n_reg_na_principle_walla_profile_contrasts
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_na_point_walla_cobble_heat
+    domain_id: viticulture
+    assertion_text: In parts of the lower Walla Walla valley, cobbles and gravel provide well-drained ground and
+      absorb daytime heat that is released later. These physical properties can affect the growing
+      environment; they do not prove a particular aroma, superior wine or identical water status across all
+      valley sites.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:08:43.579Z"
+  - id: ki_reg_na_walla_loess_depth
+    subject_id: n_reg_na_principle_walla_profile_contrasts
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_na_point_walla_loess_depth
+    domain_id: viticulture
+    assertion_text: Walla Walla includes deeper wind-deposited silt profiles and steeper hills with thinner loess
+      over weathered basalt. The contrasting depths justify parcel-specific root-zone and water assessment,
+      rather than applying one soil description or automatic mineral flavour to the whole valley.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:08:43.579Z"
+  - id: ki_reg_na_oregon_whole_cluster_effect
+    subject_id: n_reg_na_principle_oregon_stem_comparison
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_na_point_oregon_whole_cluster_effect
+    domain_id: winemaking
+    assertion_text: Cristom describes whole-cluster Pinot Noir as adding a tannin dimension and possible spicy or
+      herbaceous aromatic expression, with effects varying by site and vintage. This is one Oregon producer’s
+      technique, not a requirement for Oregon Pinot Noir or a guarantee of greater quality.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:08:43.579Z"
+  - id: ki_reg_na_oregon_series_controls
+    subject_id: n_reg_na_principle_oregon_stem_comparison
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_na_point_oregon_series_controls
+    domain_id: winemaking
+    assertion_text: Cristom’s 2022 Louise Vineyard series compares different whole-cluster proportions while
+      reporting the same vineyard, harvest date and maturation duration/new-oak share. Such shared conditions
+      make a focused stem comparison more useful than comparing unrelated bottles, although the sheet alone
+      does not establish replicated causal proof.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:08:43.579Z"
+  - id: ki_reg_na_long_island_merlot_timing
+    subject_id: n_reg_na_principle_long_island_grape_timing
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_na_point_long_island_merlot_timing
+    domain_id: viticulture
+    assertion_text: The New York grape profile associates Merlot with Long Island and describes early budding,
+      which increases spring-frost exposure, alongside early ripening that can reduce exposure to autumn rain.
+      The different seasonal risks require local timing records; earlier maturity does not prevent all rain or
+      frost losses.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:08:43.579Z"
+  - id: ki_reg_na_long_island_cab_franc_style
+    subject_id: n_reg_na_principle_long_island_grape_timing
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_na_point_long_island_cab_franc_style
+    domain_id: winemaking
+    assertion_text: The New York grape profile associates Cabernet Franc with Long Island and notes that vineyard
+      practices can influence a more fruity or vegetal expression. This makes canopy and fruit-maturity
+      evidence relevant when comparing reds; bell-pepper or red-fruit notes alone cannot establish origin or a
+      quality rank.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:08:43.579Z"
+  - id: ki_reg_na_niagara_slope_air
+    subject_id: n_reg_na_principle_niagara_bench_physics
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_na_point_niagara_slope_air
+    domain_id: viticulture
+    assertion_text: Shaw’s Niagara technical explanation describes cold air moving downslope on clear, calm
+      radiation-frost nights, with warmer air replacing it above. Bench-site assessment should consider slope
+      and air pathways; the mechanism does not eliminate every frost event or apply identically to flat
+      ground.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:08:43.579Z"
+  - id: ki_reg_na_niagara_soil_moisture
+    subject_id: n_reg_na_principle_niagara_bench_physics
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_na_point_niagara_soil_moisture
+    domain_id: viticulture
+    assertion_text: The Niagara Escarpment overview describes deep clay/silt and calcareous clay-loam soils with
+      water-holding capacity, groundwater input and natural slope drainage. Drainage and retained moisture are
+      different properties to assess together; neither a limestone label nor drainage alone establishes the
+      wine’s flavour.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:08:43.579Z"
+  - id: ki_reg_na_county_insulating_cover
+    subject_id: n_reg_na_principle_county_winter_spring
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_na_point_county_insulating_cover
+    domain_id: viticulture
+    assertion_text: Traynor’s dated Prince Edward County account contrasts covering vines with geotextiles and
+      burying them with soil as insulating winter-protection options. These are local examples requiring site
+      and cultivar assessment; the account does not prove that either method protects every vine from every
+      cold event.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:08:43.579Z"
+  - id: ki_reg_na_county_unbury_timing
+    subject_id: n_reg_na_principle_county_winter_spring
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_na_point_county_unbury_timing
+    domain_id: viticulture
+    assertion_text: Ontario’s spring-vineyard guidance warns that swelling buds become more cold-sensitive,
+      handling can damage emerging shoots, and budburst while buried can damage buds. Applied to soil-covered
+      County vines, this creates a timing decision based on development and weather rather than a fixed date
+      for all vineyards.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:08:43.579Z"
+  - id: ki_reg_na_erie_shallow_heat
+    subject_id: n_reg_na_principle_erie_heat_soils
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_na_point_erie_shallow_heat
+    domain_id: viticulture
+    assertion_text: The Lake Erie North Shore overview describes shallow water warming rapidly in summer and a
+      long growing season that supports grape maturation. This heat context differs from a generic assumption
+      that every nearby lake produces equal cooling; parcel records remain necessary before choosing a
+      late-ripening grape.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:08:43.579Z"
+  - id: ki_reg_na_erie_light_drainage
+    subject_id: n_reg_na_principle_erie_heat_soils
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_na_point_erie_light_drainage
+    domain_id: viticulture
+    assertion_text: Lake Erie North Shore soils are described as relatively light textured, including sandy loam
+      and gravel with areas over limestone or shale. Well-drained profiles are useful physical site evidence,
+      but texture and bedrock alone do not establish stored water, an irrigation budget or a specific wine
+      aroma.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:08:43.579Z"
+  - id: ki_reg_na_similkameen_wind_pressure
+    subject_id: n_reg_na_principle_similkameen_wind_sites
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_na_point_similkameen_wind_pressure
+    domain_id: viticulture
+    assertion_text: The Similkameen overview links persistent wind with lower vineyard disease pressure. Airflow
+      is useful growing context, but neither windy conditions nor an organic reputation demonstrates freedom
+      from infection or removes the need to monitor a particular canopy and season.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:08:43.579Z"
+  - id: ki_reg_na_similkameen_shade_grapes
+    subject_id: n_reg_na_principle_similkameen_wind_sites
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_na_point_similkameen_shade_grapes
+    domain_id: viticulture
+    assertion_text: The regional overview associates cooler shaded Similkameen sites with Riesling or Gamay and
+      sunnier slopes with Cabernet varieties. These local exposure differences help compare planting or
+      sourcing opportunities; warm regional summers do not make every parcel equally suitable for
+      later-ripening grapes.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:08:43.579Z"
+  - id: ki_reg_na_okanagan_north_aromatic
+    subject_id: n_reg_na_principle_okanagan_specific_grapes
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_na_point_okanagan_north_aromatic
+    domain_id: viticulture
+    assertion_text: The Okanagan overview associates its cooler northern reaches with aromatic whites including
+      Riesling and with Pinot Noir. This is a selected grape-site comparison within the valley; it does not
+      mean every northern wine is dry, light-bodied or identically acidic.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:08:43.579Z"
+  - id: ki_reg_na_okanagan_warm_cabernet
+    subject_id: n_reg_na_principle_okanagan_specific_grapes
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_na_point_okanagan_warm_cabernet
+    domain_id: viticulture
+    assertion_text: Wine Growers of BC identifies warmer Okanagan sites near Osoyoos, including eastern slopes, as
+      suitable Cabernet Sauvignon settings. Compare actual exposure and fruit maturity with cooler northern
+      sites; warm-site suitability does not establish a fixed tannin level, successful harvest or universal
+      quality advantage.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:08:43.579Z"
+  - id: ki_reg_na_case_lodi_sampling_triage_action
+    subject_id: n_reg_na_case_lodi_sampling_triage
+    relation_type: CASE_ACTION
+    object_id: n_reg_na_point_case_lodi_sampling_triage_action
+    domain_id: viticulture
+    assertion_text: Use the available crew and confirmed slot for A, whose supplied health and maturity evidence
+      fit the brief. Arrange separate inspection, representative maturity sampling and appropriately targeted
+      canopy work for B before assigning a harvest date; do not mix its uncertain fruit into A solely to fill
+      capacity.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:08:43.579Z"
+  - id: ki_reg_na_case_lodi_sampling_triage_reason
+    subject_id: n_reg_na_case_lodi_sampling_triage
+    relation_type: CASE_REASON
+    object_id: n_reg_na_point_case_lodi_sampling_triage_reason
+    domain_id: viticulture
+    assertion_text: The dated Lodi interviews report varied stages of ripening and targeted canopy opening for air
+      and bunch light. That context supports checking B rather than assuming its regional or variety identity
+      establishes uniform maturity; the observed damage and A’s suitability are supplied hypothetical
+      evidence.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:08:43.579Z"
+  - id: ki_reg_na_case_lodi_sampling_triage_tradeoff
+    subject_id: n_reg_na_case_lodi_sampling_triage
+    relation_type: CASE_TRADEOFF
+    object_id: n_reg_na_point_case_lodi_sampling_triage_tradeoff
+    domain_id: business
+    assertion_text: The action uses a confirmed opportunity for suitable fruit but postpones B’s assessment and
+      may require the later, dearer crew and another crush arrangement. Compare the added expense with actual
+      recoverable fruit and capacity; the premise does not prove those costs can be recovered through a higher
+      bottle price.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:08:43.579Z"
+  - id: ki_reg_na_case_lodi_sampling_triage_limitation
+    subject_id: n_reg_na_case_lodi_sampling_triage
+    relation_type: CASE_LIMITATION
+    object_id: n_reg_na_point_case_lodi_sampling_triage_limitation
+    domain_id: viticulture
+    assertion_text: Recheck B’s fruit condition, maturity and actual crush availability before committing. Opening
+      the canopy cannot establish that already damaged bunches are sound or that the whole block will reach
+      the intended style in time; the 2018 example is not a forecast for this hypothetical season.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:08:43.579Z"
+  - id: ki_reg_na_case_oregon_stem_trial_action
+    subject_id: n_reg_na_case_oregon_stem_trial
+    relation_type: CASE_ACTION
+    object_id: n_reg_na_point_case_oregon_stem_trial_action
+    domain_id: winemaking
+    assertion_text: Keep the supplied shared conditions matched and compare destemmed and partial whole-cluster
+      splits against their separate product briefs. Repeat blind assessment of finished wines before scaling;
+      use the pilot observations as provisional style evidence rather than select one method as universally
+      better.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:08:43.579Z"
+  - id: ki_reg_na_case_oregon_stem_trial_reason
+    subject_id: n_reg_na_case_oregon_stem_trial
+    relation_type: CASE_REASON
+    object_id: n_reg_na_point_case_oregon_stem_trial_reason
+    domain_id: winemaking
+    assertion_text: Cristom’s account describes an extra tannin dimension and possible spicy or herbaceous
+      expression from whole clusters. That offers a plausible mechanism for the supplied pilots’ contrast,
+      without proving stems caused every observation or guaranteeing identical effects in another lot.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:08:43.579Z"
+  - id: ki_reg_na_case_oregon_stem_trial_tradeoff
+    subject_id: n_reg_na_case_oregon_stem_trial
+    relation_type: CASE_TRADEOFF
+    object_id: n_reg_na_point_case_oregon_stem_trial_tradeoff
+    domain_id: business
+    assertion_text: Partial whole clusters fit the supplied firmer, spicier pilot brief while destemming fits the
+      lighter-fruit pilot. Both are affordable here, so compare production consistency and demand for each
+      product before allocating the full lot; the stronger grip has no demonstrated price premium.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:08:43.579Z"
+  - id: ki_reg_na_case_oregon_stem_trial_limitation
+    subject_id: n_reg_na_case_oregon_stem_trial
+    relation_type: CASE_LIMITATION
+    object_id: n_reg_na_point_case_oregon_stem_trial_limitation
+    domain_id: winemaking
+    assertion_text: One lot and small pilots do not establish repeatability across vintages, parcels or scale.
+      Confirm condition, consistency and customer response; keep the production comparison distinct from a
+      claim of regional origin, superior quality or inevitable whole-cluster flavour.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:08:43.579Z"
+  - id: ki_reg_na_case_county_protection_budget_action
+    subject_id: n_reg_na_case_county_protection_budget
+    relation_type: CASE_ACTION
+    object_id: n_reg_na_point_case_county_protection_budget_action
+    domain_id: viticulture
+    assertion_text: Use technical advice to establish that each cover option suits the block and cultivar, then
+      choose or trial a manageable allocation with recorded exposure, installation and spring bud outcomes. Do
+      not justify a blanket switch solely from the unmatched neighbouring results.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:08:43.579Z"
+  - id: ki_reg_na_case_county_protection_budget_reason
+    subject_id: n_reg_na_case_county_protection_budget
+    relation_type: CASE_REASON
+    object_id: n_reg_na_point_case_county_protection_budget_reason
+    domain_id: viticulture
+    assertion_text: Traynor illustrates textile and soil insulation for County winter protection. Ontario’s
+      guidance makes spring bud stage and unburying relevant to soil-covered vines. Thus cover choice and
+      later handling both bear on the stated viable-bud objective; neither regional precedent establishes
+      guaranteed survival.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:08:43.579Z"
+  - id: ki_reg_na_case_county_protection_budget_tradeoff
+    subject_id: n_reg_na_case_county_protection_budget
+    relation_type: CASE_TRADEOFF
+    object_id: n_reg_na_point_case_county_protection_budget_tradeoff
+    domain_id: business
+    assertion_text: Textiles require the supplied higher upfront installation/storage spending, while soil cover
+      entails annual burial and removal. Compare the actual labour plan and feasible handling burden with
+      those quotes; no quantified survival improvement, lower lifetime cost or bottle-price benefit has been
+      demonstrated.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:08:43.579Z"
+  - id: ki_reg_na_case_county_protection_budget_limitation
+    subject_id: n_reg_na_case_county_protection_budget
+    relation_type: CASE_LIMITATION
+    object_id: n_reg_na_point_case_county_protection_budget_limitation
+    domain_id: viticulture
+    assertion_text: Different pruning and exposure confound the neighbouring bud-survival results. Evaluate local
+      temperature and bud outcomes after comparable management before inferring a method effect; one monitored
+      winter still cannot promise protection in every future cold event.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:08:43.579Z"
+  - id: ki_reg_na_case_niagara_preplant_drainage_action
+    subject_id: n_reg_na_case_niagara_preplant_drainage
+    relation_type: CASE_ACTION
+    object_id: n_reg_na_point_case_niagara_preplant_drainage_action
+    domain_id: viticulture
+    assertion_text: Proceed with A only after normal planting checks, or defer B until the incomplete root-zone
+      assessment and drainage/funding plan are resolved. Do not plant B this season merely because its bench
+      identity and heat records are favourable; those premises do not remove its recorded water problem.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:08:43.579Z"
+  - id: ki_reg_na_case_niagara_preplant_drainage_reason
+    subject_id: n_reg_na_case_niagara_preplant_drainage
+    relation_type: CASE_REASON
+    object_id: n_reg_na_point_case_niagara_preplant_drainage_reason
+    domain_id: viticulture
+    assertion_text: Ontario’s preplant guidance explains that wet soils can reduce root growth, impair cold
+      acclimation and be prone to compaction. Those mechanisms make B’s supplied standing-water evidence
+      relevant independently of its suitable heat record, whereas the general bench overview does not diagnose
+      that individual parcel.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:08:43.579Z"
+  - id: ki_reg_na_case_niagara_preplant_drainage_tradeoff
+    subject_id: n_reg_na_case_niagara_preplant_drainage
+    relation_type: CASE_TRADEOFF
+    object_id: n_reg_na_point_case_niagara_preplant_drainage_tradeoff
+    domain_id: business
+    assertion_text: Deferring B loses the proposed planting opportunity this season but allows investigation and
+      funding of work that currently exceeds budget. A offers the supplied assessed route; weigh the actual
+      time and investment against the business plan rather than assume a prestigious bench name repays
+      installation costs.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:08:43.579Z"
+  - id: ki_reg_na_case_niagara_preplant_drainage_limitation
+    subject_id: n_reg_na_case_niagara_preplant_drainage
+    relation_type: CASE_LIMITATION
+    object_id: n_reg_na_point_case_niagara_preplant_drainage_limitation
+    domain_id: viticulture
+    assertion_text: The root-zone assessment and specialist design are still needed for B. Even properly installed
+      drainage does not demonstrate a guaranteed crop, wine aroma or financial return; the supplied regional,
+      heat and limestone information cannot substitute for those missing parcel and business observations.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T11:08:43.579Z"
+certification_knowledge_mappings:
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_na_sta_rita_grapes
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_na_sta_rita_grapes
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_na_sta_rita_grapes
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_na_happy_later_grapes
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_na_happy_later_grapes
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_na_happy_later_grapes
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_na_slh_morning_aspect
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_na_slh_morning_aspect
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_na_slh_morning_aspect
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_na_slh_chardonnay_range
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_na_slh_chardonnay_range
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_na_slh_chardonnay_range
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_na_santa_cruz_east
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_na_santa_cruz_east
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_na_santa_cruz_east
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_na_santa_cruz_coastal
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_na_santa_cruz_coastal
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_na_santa_cruz_coastal
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_na_lodi_loose_selection
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_na_lodi_loose_selection
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_na_lodi_loose_selection
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_na_lodi_canopy_air
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_na_lodi_canopy_air
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_na_lodi_canopy_air
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_na_amador_water_storage
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_na_amador_water_storage
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_na_amador_water_storage
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_na_amador_training_range
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_na_amador_training_range
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_na_amador_training_range
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_na_red_mountain_sun
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_na_red_mountain_sun
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_na_red_mountain_sun
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_na_red_mountain_air
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_na_red_mountain_air
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_na_red_mountain_air
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_na_walla_cobble_heat
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_na_walla_cobble_heat
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_na_walla_cobble_heat
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_na_walla_loess_depth
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_na_walla_loess_depth
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_na_walla_loess_depth
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_na_oregon_whole_cluster_effect
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_na_oregon_whole_cluster_effect
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_na_oregon_whole_cluster_effect
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_na_oregon_series_controls
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_na_oregon_series_controls
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_na_oregon_series_controls
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_na_long_island_merlot_timing
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_na_long_island_merlot_timing
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_na_long_island_merlot_timing
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_na_long_island_cab_franc_style
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_na_long_island_cab_franc_style
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_na_long_island_cab_franc_style
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_na_niagara_slope_air
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_na_niagara_slope_air
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_na_niagara_slope_air
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_na_niagara_soil_moisture
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_na_niagara_soil_moisture
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_na_niagara_soil_moisture
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_na_county_insulating_cover
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_na_county_insulating_cover
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_na_county_insulating_cover
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_na_county_unbury_timing
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_na_county_unbury_timing
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_na_county_unbury_timing
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_na_erie_shallow_heat
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_na_erie_shallow_heat
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_na_erie_shallow_heat
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_na_erie_light_drainage
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_na_erie_light_drainage
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_na_erie_light_drainage
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_na_similkameen_wind_pressure
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_na_similkameen_wind_pressure
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_na_similkameen_wind_pressure
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_na_similkameen_shade_grapes
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_na_similkameen_shade_grapes
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_na_similkameen_shade_grapes
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_na_okanagan_north_aromatic
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_na_okanagan_north_aromatic
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_na_okanagan_north_aromatic
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_na_okanagan_warm_cabernet
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_na_okanagan_warm_cabernet
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_na_okanagan_warm_cabernet
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_na_case_lodi_sampling_triage_action
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_na_case_lodi_sampling_triage_reason
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_na_case_lodi_sampling_triage_tradeoff
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_na_case_lodi_sampling_triage_limitation
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_na_case_oregon_stem_trial_action
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_na_case_oregon_stem_trial_reason
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_na_case_oregon_stem_trial_tradeoff
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_na_case_oregon_stem_trial_limitation
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_na_case_county_protection_budget_action
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_na_case_county_protection_budget_reason
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_na_case_county_protection_budget_tradeoff
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_na_case_county_protection_budget_limitation
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_na_case_niagara_preplant_drainage_action
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_na_case_niagara_preplant_drainage_reason
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_na_case_niagara_preplant_drainage_tradeoff
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_na_case_niagara_preplant_drainage_limitation
+    importance: core
+    minimum_depth: 3
+source_citations:
+  - id: src_reg_na_sta_rita
+    kind: reference_work
+    title: "Sta. Rita Hills: marine conditions and selected grapes"
+    publisher: Santa Barbara County Vintners Association
+    jurisdiction: US
+    url: https://sbcountywines.com/portfolio_page/sta-rita-hills/
+    document_identifier: Living primary educational page; qualitative support only; no publication day invented;
+      retrieved 27 September 2026
+    accessed_on: 2026-09-27
+  - id: src_reg_na_happy
+    kind: reference_work
+    title: "Happy Canyon: inland warmth and later-ripening grapes"
+    publisher: Santa Barbara County Vintners Association
+    jurisdiction: US
+    url: https://sbcountywines.com/portfolio_page/happy-canyon-of-santa-barbara/
+    document_identifier: Living primary educational page; qualitative support only; no publication day invented;
+      retrieved 27 September 2026
+    accessed_on: 2026-09-27
+  - id: src_reg_na_slh_climate
+    kind: reference_work
+    title: "Santa Lucia Highlands: Sun, Wind and Geography"
+    publisher: Santa Lucia Highlands Wine Artisans
+    jurisdiction: US
+    url: https://www.santaluciahighlands.com/about/climate
+    document_identifier: Living primary educational page; qualitative support only; no publication day invented;
+      retrieved 27 September 2026
+    accessed_on: 2026-09-27
+  - id: src_reg_na_slh_glass
+    kind: reference_work
+    title: "Santa Lucia Highlands: In the Glass"
+    publisher: Santa Lucia Highlands Wine Artisans
+    jurisdiction: US
+    url: https://www.santaluciahighlands.com/about/in-the-glass
+    document_identifier: Living primary educational page; qualitative support only; no publication day invented;
+      retrieved 27 September 2026
+    accessed_on: 2026-09-27
+  - id: src_reg_na_santa_cruz
+    kind: reference_work
+    title: "Santa Cruz Mountains press kit: Soils and Climate"
+    publisher: Wines of the Santa Cruz Mountains
+    jurisdiction: US
+    url: https://winesofthesantacruzmountains.com/wp-content/uploads/2025/09/PressKit2022Resized.pdf
+    document_identifier: 2022 press kit hosted in a 2025 directory; physical PDF page 5 qualitative passages, not
+      current statistics; retrieved 27 September 2026
+    accessed_on: 2026-09-27
+  - id: src_reg_na_lodi_selection
+    kind: reference_work
+    title: The physical impact of soil and selection on Lodi Zinfandels
+    publisher: Lodi Winegrape Commission
+    jurisdiction: US
+    url: https://www.lodiwine.com/blog/the-physical-impact-of-soil-and-selection-on-lodi-zinfandels/
+    document_identifier: 21 September 2018 grower feature; selected cluster architecture observation, no
+      soil-to-flavour conclusions; retrieved 27 September 2026
+    accessed_on: 2026-09-27
+  - id: src_reg_na_lodi_canopy
+    kind: reference_work
+    title: Mike McCay and Harney Lane’s Kyle Lerner share their prognosis of 2018 Lodi Zinfandel
+    publisher: Lodi Winegrape Commission
+    jurisdiction: US
+    url: https://www.lodiwine.com/blog/Mike-McCay-and-Harney-Lane-s-Kyle-Lerner--share-their-prognosis-of-2018-Lodi-Zinfandel
+    document_identifier: 23 July 2018 first-party grower interviews; dated local observations, no present-vintage
+      prediction; retrieved 27 September 2026
+    accessed_on: 2026-09-27
+  - id: src_reg_na_amador
+    kind: reference_work
+    title: "Amador wine region: soils, dry farming and vine training"
+    publisher: Amador Vintners Association
+    jurisdiction: US
+    url: https://amadorwine.com/about-our-region/
+    document_identifier: Living primary educational page; qualitative support only; no publication day invented;
+      retrieved 27 September 2026
+    accessed_on: 2026-09-27
+  - id: src_reg_na_red_mountain
+    kind: reference_work
+    title: "Red Mountain: exposure, grape association and airflow"
+    publisher: Washington State Wine Commission
+    jurisdiction: US
+    url: https://www.washingtonwine.org/resource/red-mountain/
+    document_identifier: Living primary educational page; qualitative support only; no publication day invented;
+      retrieved 27 September 2026
+    accessed_on: 2026-09-27
+  - id: src_reg_na_walla_soils
+    kind: reference_work
+    title: "Walla Walla Valley terroir: contrasting physical soil profiles"
+    publisher: Walla Walla Valley Wine
+    jurisdiction: US
+    url: https://www.wallawallawine.com/wine-region/terroir/
+    document_identifier: Living primary educational page; qualitative support only; no publication day invented;
+      retrieved 27 September 2026
+    accessed_on: 2026-09-27
+  - id: src_reg_na_cristom
+    kind: reference_work
+    title: "Cristom winemaking: whole-cluster effects"
+    publisher: Cristom Vineyards
+    jurisdiction: US
+    url: https://cristomvineyards.com/winemaking/
+    document_identifier: Living primary educational page; qualitative support only; no publication day invented;
+      retrieved 27 September 2026
+    accessed_on: 2026-09-27
+  - id: src_reg_na_cristom_series
+    kind: reference_work
+    title: "2022 Whole Cluster Series: production comparison"
+    publisher: Cristom Vineyards
+    jurisdiction: US
+    url: https://cristomvineyards.com/wp-content/uploads/2024/10/Cristom-Vineyards-2022-Whole-Cluster-Series-Tasting-Mat.pdf
+    document_identifier: Dated 2022 wine series; physical PDF page 1 production data and technique description, no
+      current recipe promise; retrieved 27 September 2026
+    accessed_on: 2026-09-27
+  - id: src_reg_na_ny_grapes
+    kind: reference_work
+    title: "New York grape profiles: Merlot and Cabernet Franc"
+    publisher: New York Wine and Grape Foundation
+    jurisdiction: US
+    url: https://newyorkwines.org/grapes/
+    document_identifier: Living primary educational page; qualitative support only; no publication day invented;
+      retrieved 27 September 2026
+    accessed_on: 2026-09-27
+  - id: src_reg_na_niagara_bench
+    kind: reference_work
+    title: "Niagara Escarpment: soil moisture and bench conditions"
+    publisher: Ontario Wine Appellation Authority
+    jurisdiction: CA
+    url: https://vqaontario.ca/ontario-appellations/niagara-peninsula/niagara-escarpment/
+    document_identifier: Living primary educational page; qualitative support only; no publication day invented;
+      retrieved 27 September 2026
+    accessed_on: 2026-09-27
+  - id: src_reg_na_niagara_air
+    kind: reference_work
+    title: Diagrams and technical information for the Niagara Peninsula
+    publisher: Anthony B. Shaw, Brock University / Ontario Wine Appellation Authority
+    jurisdiction: CA
+    url: https://vqaontario.ca/wp-content/uploads/2022/07/NiagaraPeninsulaTechnicalInformation-2.pdf
+    document_identifier: Technical reference hosted by OWAA; physical PDF page 1 radiation-frost airflow
+      explanation, no guaranteed protection; retrieved 27 September 2026
+    accessed_on: 2026-09-27
+  - id: src_reg_na_county_cover
+    kind: reference_work
+    title: "Vineyard Update: Preparing for Winter"
+    publisher: Traynor Family Vineyard
+    jurisdiction: CA
+    url: https://traynorvineyard.com/fr/blogs/news/vineyard-update-preparing-for-winter
+    document_identifier: Producer account referring to preparation for winter 2020–21; geotextile and soil-cover
+      examples, no universal recommendation; retrieved 27 September 2026
+    accessed_on: 2026-09-27
+  - id: src_reg_na_ontario_spring
+    kind: reference_work
+    title: Preparing for the spring in the vineyard
+    publisher: Ontario Ministry of Agriculture, Food and Agribusiness
+    jurisdiction: CA
+    url: https://www.ontario.ca/page/preparing-spring-vineyard
+    document_identifier: Living primary educational page; qualitative support only; no publication day invented;
+      retrieved 27 September 2026
+    accessed_on: 2026-09-27
+  - id: src_reg_na_erie
+    kind: reference_work
+    title: "Lake Erie North Shore: water, heat and soil conditions"
+    publisher: Ontario Wine Appellation Authority
+    jurisdiction: CA
+    url: https://vqaontario.ca/ontario-appellations/lake-erie-north-shore/
+    document_identifier: Living primary educational page; qualitative support only; no publication day invented;
+      retrieved 27 September 2026
+    accessed_on: 2026-09-27
+  - id: src_reg_na_similkameen
+    kind: reference_work
+    title: "Similkameen Valley: wind and local grape-site contrasts"
+    publisher: Wine Growers of British Columbia
+    jurisdiction: CA
+    url: https://winebc.com/wine-regions/similkameen-valley/
+    document_identifier: Living primary educational page; qualitative support only; no publication day invented;
+      retrieved 27 September 2026
+    accessed_on: 2026-09-27
+  - id: src_reg_na_bc_varietals
+    kind: reference_work
+    title: "BC wine varietals: selected Cabernet Sauvignon sites"
+    publisher: Wine Growers of British Columbia
+    jurisdiction: CA
+    url: https://winebc.com/varietals/
+    document_identifier: Living primary educational page; qualitative support only; no publication day invented;
+      retrieved 27 September 2026
+    accessed_on: 2026-09-27
+  - id: src_reg_na_ontario_preplant
+    kind: reference_work
+    title: Preparing for planting a new vineyard
+    publisher: Ontario Ministry of Agriculture, Food and Agribusiness
+    jurisdiction: CA
+    url: https://www.ontario.ca/page/preparing-planting-new-vineyard
+    document_identifier: Living primary educational page; qualitative support only; no publication day invented;
+      retrieved 27 September 2026
+    accessed_on: 2026-09-27
+knowledge_item_citations:
+  - knowledge_item_id: ki_reg_na_sta_rita_grapes
+    source_citation_id: src_reg_na_sta_rita
+    locator: "Regional description: proximity to Pacific, morning fog, afternoon breezes and hallmark Pinot
+      Noir/Chardonnay; no boundary or acreage claim."
+  - knowledge_item_id: ki_reg_na_happy_later_grapes
+    source_citation_id: src_reg_na_happy
+    locator: "Regional description: inland warmth, later-ripening varieties and selected Bordeaux/Rhône
+      associations; guarantee language narrowed."
+  - knowledge_item_id: ki_reg_na_slh_morning_aspect
+    source_citation_id: src_reg_na_slh_climate
+    locator: "The Geography: east-facing terraces and morning sunshine; The Wind: afternoon maritime airflow.
+      Numerical wind and absolute weather guarantees excluded."
+  - knowledge_item_id: ki_reg_na_slh_chardonnay_range
+    source_citation_id: src_reg_na_slh_glass
+    locator: "Chardonnay: range from lean/crisp to opulent expressions, varied exposures/elevations; no universal
+      mineral flavour or quality rank."
+  - knowledge_item_id: ki_reg_na_santa_cruz_east
+    source_citation_id: src_reg_na_santa_cruz
+    locator: "Physical PDF page 5, Soils & Earth: warmer inland eastern sites and selected red varieties; 2022
+      descriptive edition."
+  - knowledge_item_id: ki_reg_na_santa_cruz_coastal
+    source_citation_id: src_reg_na_santa_cruz
+    locator: "Physical PDF page 5, Soils & Earth: coastal/ridge cooling and Pinot Noir/Chardonnay; mineral-flavour
+      passages excluded."
+  - knowledge_item_id: ki_reg_na_lodi_loose_selection
+    source_citation_id: src_reg_na_lodi_selection
+    locator: "21 September 2018 feature: Primitivo cluster architecture paragraph; qualitative dated observation,
+      not soil-flavour inference."
+  - knowledge_item_id: ki_reg_na_lodi_canopy_air
+    source_citation_id: src_reg_na_lodi_canopy
+    locator: "TruLux Vineyard: 2018 shoot thinning/leaf pulling for air and light; grower observation qualified,
+      no yield or quality threshold."
+  - knowledge_item_id: ki_reg_na_amador_water_storage
+    source_citation_id: src_reg_na_amador
+    locator: "Soils: sandy-clay loam, density/rainwater retention and dry-farming practice; universal eligibility
+      narrowed."
+  - knowledge_item_id: ki_reg_na_amador_training_range
+    source_citation_id: src_reg_na_amador
+    locator: "Viticulture: head training/spur pruning alongside bilateral cordons and vertical trellises; no
+      comparative labour or quality numbers."
+  - knowledge_item_id: ki_reg_na_red_mountain_sun
+    source_citation_id: src_reg_na_red_mountain
+    locator: "Regional paragraphs: southwest-facing sun exposure and red-variety associations; no acreage, legal
+      extent or quality rank."
+  - knowledge_item_id: ki_reg_na_red_mountain_air
+    source_citation_id: src_reg_na_red_mountain
+    locator: "Yakima River paragraph: moderation, airflow and frost context; absolute protection and numerical
+      temperature drop not adopted."
+  - knowledge_item_id: ki_reg_na_walla_cobble_heat
+    source_citation_id: src_reg_na_walla_soils
+    locator: "Terroir text: lower-valley cobble/gravel drainage and daytime heat release; promotional flavour
+      conclusions omitted."
+  - knowledge_item_id: ki_reg_na_walla_loess_depth
+    source_citation_id: src_reg_na_walla_soils
+    locator: "Terroir text: loess/silt over flood deposits and thinner loess/weathered basalt on steep hills;
+      assessment is original inference."
+  - knowledge_item_id: ki_reg_na_oregon_whole_cluster_effect
+    source_citation_id: src_reg_na_cristom
+    locator: "Using Whole Clusters: site/vintage-dependent tannin and possible spice/herbaceous effects; terroir
+      and ageability promises omitted."
+  - knowledge_item_id: ki_reg_na_oregon_series_controls
+    source_citation_id: src_reg_na_cristom_series
+    locator: "Physical PDF page 1, Winemaking Data: common vineyard/date/maturation and different whole-cluster
+      proportions; original control/replication distinction."
+  - knowledge_item_id: ki_reg_na_long_island_merlot_timing
+    source_citation_id: src_reg_na_ny_grapes
+    locator: "Merlot: Viticulture and Principal AVAs; early budding/early ripening tradeoff qualified, no acreage
+      or immunity."
+  - knowledge_item_id: ki_reg_na_long_island_cab_franc_style
+    source_citation_id: src_reg_na_ny_grapes
+    locator: "Cabernet Franc: Principal AVAs and Taste and Aroma; vineyard-practice variation, no blind-origin
+      certainty."
+  - knowledge_item_id: ki_reg_na_niagara_slope_air
+    source_citation_id: src_reg_na_niagara_air
+    locator: "Physical PDF page 1: clear/calm-night radiation cooling, inversions and downslope cold-air movement;
+      weather-type limits retained."
+  - knowledge_item_id: ki_reg_na_niagara_soil_moisture
+    source_citation_id: src_reg_na_niagara_bench
+    locator: "Soil and Topography: depth/water-holding, groundwater and natural drainage; soil-to-minerality claim
+      excluded."
+  - knowledge_item_id: ki_reg_na_county_insulating_cover
+    source_citation_id: src_reg_na_county_cover
+    locator: "Preparing for winter 2020–21: Geotextiles vs. Hilling-Up; two insulation approaches, universal
+      survival language narrowed."
+  - knowledge_item_id: ki_reg_na_county_unbury_timing
+    source_citation_id: src_reg_na_ontario_spring
+    locator: When is it too late to finish dormant pruning and tying? including unburying; When should dehilling
+      start? Original County application, no fixed date.
+  - knowledge_item_id: ki_reg_na_erie_shallow_heat
+    source_citation_id: src_reg_na_erie
+    locator: "Climate: shallow Lake Erie rapid summer warming and long season; numerical/ranking claims omitted."
+  - knowledge_item_id: ki_reg_na_erie_light_drainage
+    source_citation_id: src_reg_na_erie
+    locator: "Soil: light texture, sandy loam/gravel and limestone/shale patches; water-budget limitation is
+      original inference."
+  - knowledge_item_id: ki_reg_na_similkameen_wind_pressure
+    source_citation_id: src_reg_na_similkameen
+    locator: "Soil & Climate: persistent winds and lower disease pressure; organic ranking and disease-immunity
+      wording excluded."
+  - knowledge_item_id: ki_reg_na_similkameen_shade_grapes
+    source_citation_id: src_reg_na_similkameen
+    locator: "Regional climate/grape text: cooler shaded Gamay/Riesling sites and sun-exposed Cabernet sites; no
+      complete permission list."
+  - knowledge_item_id: ki_reg_na_okanagan_north_aromatic
+    source_citation_id: src_reg_am_okanagan
+    locator: "Overview varietals and North Okanagan Valley: cooler northern Riesling/Pinot contexts; no uniform
+      sweetness or acidity."
+  - knowledge_item_id: ki_reg_na_okanagan_warm_cabernet
+    source_citation_id: src_reg_na_bc_varietals
+    locator: "BC Cabernet Sauvignon: warmest growing sites and Osoyoos eastern slopes; ageing and universal
+      intensity promises omitted."
+  - knowledge_item_id: ki_reg_na_case_lodi_sampling_triage_action
+    source_citation_id: src_reg_na_lodi_canopy
+    locator: "TruLux/Lizzy James: individual vines and canopy/maturity variation; proposed harvest sequence is
+      original inference from supplied premises."
+  - knowledge_item_id: ki_reg_na_case_lodi_sampling_triage_reason
+    source_citation_id: src_reg_na_lodi_canopy
+    locator: "TruLux Vineyard: uneven veraison and targeted opening; no claim that colour alone measures harvest
+      readiness."
+  - knowledge_item_id: ki_reg_na_case_lodi_sampling_triage_tradeoff
+    source_citation_id: src_biz_au_pricing
+    locator: "Cost-plus pricing and Research your market: labour, costs and demand; original supplied
+      crew/capacity tradeoff, no US financial rules."
+  - knowledge_item_id: ki_reg_na_case_lodi_sampling_triage_limitation
+    source_citation_id: src_reg_na_lodi_canopy
+    locator: Dated local ripening/canopy observations and vineyard variation; rescue and scheduling limits are
+      original inference.
+  - knowledge_item_id: ki_reg_na_case_oregon_stem_trial_action
+    source_citation_id: src_reg_na_cristom_series
+    locator: "Physical PDF page 1: differing stem proportions with shared vineyard/harvest/maturation;
+      hypothetical controlled split is original application."
+  - knowledge_item_id: ki_reg_na_case_oregon_stem_trial_action
+    source_citation_id: src_srv_oiv_sensory
+    locator: "Part I: controlled samples and sensory assessment conditions; proposed repeated evaluation is original."
+  - knowledge_item_id: ki_reg_na_case_oregon_stem_trial_reason
+    source_citation_id: src_reg_na_cristom
+    locator: "Using Whole Clusters: variable tannin/aromatic effects; sensory observations belong to original
+      hypothetical premises."
+  - knowledge_item_id: ki_reg_na_case_oregon_stem_trial_tradeoff
+    source_citation_id: src_biz_au_pricing
+    locator: "Research your market: customer features, likely purchases and market testing; affordability and
+      style briefs are supplied premises."
+  - knowledge_item_id: ki_reg_na_case_oregon_stem_trial_limitation
+    source_citation_id: src_reg_na_cristom
+    locator: "Using Whole Clusters: site/vintage dependence."
+  - knowledge_item_id: ki_reg_na_case_oregon_stem_trial_limitation
+    source_citation_id: src_srv_oiv_sensory
+    locator: "Part I: controlled evaluation and variability; scale and origin-inference limits are original."
+  - knowledge_item_id: ki_reg_na_case_county_protection_budget_action
+    source_citation_id: src_reg_na_county_cover
+    locator: "Geotextiles vs. Hilling-Up: producer examples of alternative insulation methods; monitored
+      comparison is original conditional action."
+  - knowledge_item_id: ki_reg_na_case_county_protection_budget_action
+    source_citation_id: src_reg_na_ontario_spring
+    locator: When should you check buds for winter survival? Bud inspection and pruning adjustments.
+  - knowledge_item_id: ki_reg_na_case_county_protection_budget_reason
+    source_citation_id: src_reg_na_county_cover
+    locator: "Geotextiles vs. Hilling-Up: insulation alternatives."
+  - knowledge_item_id: ki_reg_na_case_county_protection_budget_reason
+    source_citation_id: src_reg_na_ontario_spring
+    locator: "Dormant pruning/tying and unburying: swelling buds and handling injury; original application to
+      County cover choice."
+  - knowledge_item_id: ki_reg_na_case_county_protection_budget_tradeoff
+    source_citation_id: src_reg_na_county_cover
+    locator: "Geotextiles vs. Hilling-Up: annual burial/unburial and potential soil/handling issues; quantified
+      advantages excluded."
+  - knowledge_item_id: ki_reg_na_case_county_protection_budget_tradeoff
+    source_citation_id: src_biz_au_pricing
+    locator: "Cost-plus pricing: materials/labour/overheads; original quotation-based tradeoff."
+  - knowledge_item_id: ki_reg_na_case_county_protection_budget_limitation
+    source_citation_id: src_reg_na_ontario_spring
+    locator: Winter-survival bud assessments and development uncertainty; comparison/confounding and future-event
+      limits are original inference.
+  - knowledge_item_id: ki_reg_na_case_niagara_preplant_drainage_action
+    source_citation_id: src_reg_na_ontario_preplant
+    locator: "Soil preparation and Drainage: correct site problems before planting; standing water/ruts and easier
+      preplant drainage work. Choice is original inference."
+  - knowledge_item_id: ki_reg_na_case_niagara_preplant_drainage_reason
+    source_citation_id: src_reg_na_ontario_preplant
+    locator: "Drainage: wet-soil root growth, autumn acclimation and compaction; no cultivar-specific threshold."
+  - knowledge_item_id: ki_reg_na_case_niagara_preplant_drainage_reason
+    source_citation_id: src_reg_na_niagara_bench
+    locator: "Soil: regional drainage/moisture context, not a parcel diagnosis."
+  - knowledge_item_id: ki_reg_na_case_niagara_preplant_drainage_tradeoff
+    source_citation_id: src_reg_na_ontario_preplant
+    locator: "Drainage: drainage tiles easier before planting."
+  - knowledge_item_id: ki_reg_na_case_niagara_preplant_drainage_tradeoff
+    source_citation_id: src_biz_au_pricing
+    locator: "Set your pricing goals and Cost-plus pricing: resources, costs and goals; original capital/timing
+      inference, no Canadian legal or tax rule."
+  - knowledge_item_id: ki_reg_na_case_niagara_preplant_drainage_limitation
+    source_citation_id: src_reg_na_ontario_preplant
+    locator: "Soil preparation: site tests and physical corrections; Drainage: assessing individual water problems."
+  - knowledge_item_id: ki_reg_na_case_niagara_preplant_drainage_limitation
+    source_citation_id: src_reg_na_niagara_bench
+    locator: "Soil and Topography: regional physical descriptions only; no mineral-flavour transfer adopted."

@@ -1,0 +1,469 @@
+# Diploma New York geography support. Facts are primary-cited and await expert review.
+# Map points identify source-derived locations, not legal boundary shapes.
+knowledge_nodes:
+  - id: n_geo_new_york
+    node_type: region
+    name: New York
+  - id: n_geo_cayuga_lake
+    node_type: appellation
+    name: Cayuga Lake
+  - id: n_geo_champlain_valley_of_new_york
+    node_type: appellation
+    name: Champlain Valley of New York
+  - id: n_geo_finger_lakes
+    node_type: appellation
+    name: Finger Lakes
+  - id: n_geo_hudson_river_region
+    node_type: appellation
+    name: Hudson River Region
+  - id: n_geo_long_island
+    node_type: appellation
+    name: Long Island
+  - id: n_geo_niagara_escarpment
+    node_type: appellation
+    name: Niagara Escarpment
+  - id: n_geo_north_fork_of_long_island
+    node_type: appellation
+    name: North Fork of Long Island
+  - id: n_geo_seneca_lake
+    node_type: appellation
+    name: Seneca Lake
+  - id: n_geo_the_hamptons_long_island
+    node_type: appellation
+    name: The Hamptons, Long Island
+  - id: n_geo_upper_hudson
+    node_type: appellation
+    name: Upper Hudson
+  - id: n_geo_lake_erie
+    node_type: appellation
+    name: Lake Erie
+node_alternative_names:
+  - knowledge_node_id: n_geo_the_hamptons_long_island
+    name: The Hamptons
+    kind: synonym
+knowledge_relations:
+  - subject_id: n_geo_new_york
+    relation_type: LOCATED_IN
+    object_id: n_geo_united_states
+    valid_from: 1900-01-01
+  - subject_id: n_geo_cayuga_lake
+    relation_type: LOCATED_IN
+    object_id: n_geo_finger_lakes
+    valid_from: 1900-01-01
+  - subject_id: n_geo_champlain_valley_of_new_york
+    relation_type: LOCATED_IN
+    object_id: n_geo_new_york
+    valid_from: 1900-01-01
+  - subject_id: n_geo_finger_lakes
+    relation_type: LOCATED_IN
+    object_id: n_geo_new_york
+    valid_from: 1900-01-01
+  - subject_id: n_geo_hudson_river_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_new_york
+    valid_from: 1900-01-01
+  - subject_id: n_geo_long_island
+    relation_type: LOCATED_IN
+    object_id: n_geo_new_york
+    valid_from: 1900-01-01
+  - subject_id: n_geo_niagara_escarpment
+    relation_type: LOCATED_IN
+    object_id: n_geo_new_york
+    valid_from: 1900-01-01
+  - subject_id: n_geo_north_fork_of_long_island
+    relation_type: LOCATED_IN
+    object_id: n_geo_long_island
+    valid_from: 1900-01-01
+  - subject_id: n_geo_seneca_lake
+    relation_type: LOCATED_IN
+    object_id: n_geo_finger_lakes
+    valid_from: 1900-01-01
+  - subject_id: n_geo_the_hamptons_long_island
+    relation_type: LOCATED_IN
+    object_id: n_geo_long_island
+    valid_from: 1900-01-01
+  - subject_id: n_geo_upper_hudson
+    relation_type: LOCATED_IN
+    object_id: n_geo_new_york
+    valid_from: 1900-01-01
+  - subject_id: n_geo_lake_erie
+    relation_type: LOCATED_IN
+    object_id: n_geo_united_states
+    valid_from: 1900-01-01
+knowledge_items:
+  - id: ki_dus_new_york_location
+    subject_id: n_geo_new_york
+    relation_type: LOCATED_IN
+    object_id: n_geo_united_states
+    domain_id: geography
+    assertion_text: New York is a state of the United States.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T20:00:00.000Z
+  - id: ki_dus_cayuga_lake_location
+    subject_id: n_geo_cayuga_lake
+    relation_type: LOCATED_IN
+    object_id: n_geo_finger_lakes
+    domain_id: geography
+    assertion_text: Cayuga Lake is an American viticultural area wholly within Finger Lakes.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T20:00:00.000Z
+  - id: ki_dus_champlain_valley_of_new_york_location
+    subject_id: n_geo_champlain_valley_of_new_york
+    relation_type: LOCATED_IN
+    object_id: n_geo_new_york
+    domain_id: geography
+    assertion_text: Champlain Valley of New York is an American viticultural area
+      wholly within New York.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T20:00:00.000Z
+  - id: ki_dus_finger_lakes_location
+    subject_id: n_geo_finger_lakes
+    relation_type: LOCATED_IN
+    object_id: n_geo_new_york
+    domain_id: geography
+    assertion_text: Finger Lakes is an American viticultural area wholly within New York.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T20:00:00.000Z
+  - id: ki_dus_hudson_river_region_location
+    subject_id: n_geo_hudson_river_region
+    relation_type: LOCATED_IN
+    object_id: n_geo_new_york
+    domain_id: geography
+    assertion_text: Hudson River Region is an American viticultural area wholly
+      within New York.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T20:00:00.000Z
+  - id: ki_dus_long_island_location
+    subject_id: n_geo_long_island
+    relation_type: LOCATED_IN
+    object_id: n_geo_new_york
+    domain_id: geography
+    assertion_text: Long Island is an American viticultural area wholly within New York.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T20:00:00.000Z
+  - id: ki_dus_niagara_escarpment_location
+    subject_id: n_geo_niagara_escarpment
+    relation_type: LOCATED_IN
+    object_id: n_geo_new_york
+    domain_id: geography
+    assertion_text: Niagara Escarpment is an American viticultural area wholly within New York.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T20:00:00.000Z
+  - id: ki_dus_north_fork_of_long_island_location
+    subject_id: n_geo_north_fork_of_long_island
+    relation_type: LOCATED_IN
+    object_id: n_geo_long_island
+    domain_id: geography
+    assertion_text: North Fork of Long Island is an American viticultural area
+      wholly within Long Island.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T20:00:00.000Z
+  - id: ki_dus_seneca_lake_location
+    subject_id: n_geo_seneca_lake
+    relation_type: LOCATED_IN
+    object_id: n_geo_finger_lakes
+    domain_id: geography
+    assertion_text: Seneca Lake is an American viticultural area wholly within Finger Lakes.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T20:00:00.000Z
+  - id: ki_dus_the_hamptons_long_island_location
+    subject_id: n_geo_the_hamptons_long_island
+    relation_type: LOCATED_IN
+    object_id: n_geo_long_island
+    domain_id: geography
+    assertion_text: The Hamptons, Long Island is an American viticultural area
+      wholly within Long Island.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T20:00:00.000Z
+  - id: ki_dus_upper_hudson_location
+    subject_id: n_geo_upper_hudson
+    relation_type: LOCATED_IN
+    object_id: n_geo_new_york
+    domain_id: geography
+    assertion_text: Upper Hudson is an American viticultural area wholly within New York.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T20:00:00.000Z
+  - id: ki_dus_lake_erie_location
+    subject_id: n_geo_lake_erie
+    relation_type: LOCATED_IN
+    object_id: n_geo_united_states
+    domain_id: geography
+    assertion_text: Lake Erie is a multistate American viticultural area in the
+      United States, spanning New York, Ohio and Pennsylvania; it is not wholly
+      within New York.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T20:00:00.000Z
+certification_knowledge_mappings:
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_dus_new_york_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_dus_new_york_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_dus_cayuga_lake_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_dus_cayuga_lake_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_dus_champlain_valley_of_new_york_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_dus_champlain_valley_of_new_york_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_dus_finger_lakes_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_dus_finger_lakes_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_dus_hudson_river_region_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_dus_hudson_river_region_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_dus_long_island_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_dus_long_island_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_dus_niagara_escarpment_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_dus_niagara_escarpment_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_dus_north_fork_of_long_island_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_dus_north_fork_of_long_island_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_dus_seneca_lake_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_dus_seneca_lake_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_dus_the_hamptons_long_island_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_dus_the_hamptons_long_island_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_dus_upper_hudson_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_dus_upper_hudson_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_dus_lake_erie_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_dus_lake_erie_location
+    minimum_depth: 2
+    importance: secondary
+source_citations:
+  - id: src_dus_ny_state
+    kind: government_publication
+    title: "ANSI codes for states: New York, FIPS 36, USPS NY"
+    publisher: United States Census Bureau
+    jurisdiction: US
+    url: https://www.census.gov/library/reference/code-lists/ansi/ansi-codes-for-states.html
+    accessed_on: 2026-09-26
+    document_identifier: "New York state: 36 / NY"
+  - id: src_dus_us_cayuga_lake
+    kind: legislation
+    title: "27 CFR § 9.127: Cayuga Lake American viticultural area"
+    publisher: Alcohol and Tobacco Tax and Trade Bureau / eCFR
+    jurisdiction: US
+    url: https://www.ecfr.gov/current/title-27/section-9.127
+    accessed_on: 2026-09-26
+    document_identifier: 27 CFR § 9.127
+  - id: src_dus_us_champlain_valley_of_new_york
+    kind: legislation
+    title: "27 CFR § 9.258: Champlain Valley of New York American viticultural area"
+    publisher: Alcohol and Tobacco Tax and Trade Bureau / eCFR
+    jurisdiction: US
+    url: https://www.ecfr.gov/current/title-27/section-9.258
+    accessed_on: 2026-09-26
+    document_identifier: 27 CFR § 9.258
+  - id: src_dus_us_finger_lakes
+    kind: legislation
+    title: "27 CFR § 9.34: Finger Lakes American viticultural area"
+    publisher: Alcohol and Tobacco Tax and Trade Bureau / eCFR
+    jurisdiction: US
+    url: https://www.ecfr.gov/current/title-27/section-9.34
+    accessed_on: 2026-09-26
+    document_identifier: 27 CFR § 9.34
+  - id: src_dus_us_hudson_river_region
+    kind: legislation
+    title: "27 CFR § 9.47: Hudson River Region American viticultural area"
+    publisher: Alcohol and Tobacco Tax and Trade Bureau / eCFR
+    jurisdiction: US
+    url: https://www.ecfr.gov/current/title-27/section-9.47
+    accessed_on: 2026-09-26
+    document_identifier: 27 CFR § 9.47
+  - id: src_dus_us_long_island
+    kind: legislation
+    title: "27 CFR § 9.170: Long Island American viticultural area"
+    publisher: Alcohol and Tobacco Tax and Trade Bureau / eCFR
+    jurisdiction: US
+    url: https://www.ecfr.gov/current/title-27/section-9.170
+    accessed_on: 2026-09-26
+    document_identifier: 27 CFR § 9.170
+  - id: src_dus_us_niagara_escarpment
+    kind: legislation
+    title: "27 CFR § 9.186: Niagara Escarpment American viticultural area"
+    publisher: Alcohol and Tobacco Tax and Trade Bureau / eCFR
+    jurisdiction: US
+    url: https://www.ecfr.gov/current/title-27/section-9.186
+    accessed_on: 2026-09-26
+    document_identifier: 27 CFR § 9.186
+  - id: src_dus_us_north_fork_of_long_island
+    kind: legislation
+    title: "27 CFR § 9.113: North Fork of Long Island American viticultural area"
+    publisher: Alcohol and Tobacco Tax and Trade Bureau / eCFR
+    jurisdiction: US
+    url: https://www.ecfr.gov/current/title-27/section-9.113
+    accessed_on: 2026-09-26
+    document_identifier: 27 CFR § 9.113
+  - id: src_dus_us_seneca_lake
+    kind: legislation
+    title: "27 CFR § 9.128: Seneca Lake American viticultural area"
+    publisher: Alcohol and Tobacco Tax and Trade Bureau / eCFR
+    jurisdiction: US
+    url: https://www.ecfr.gov/current/title-27/section-9.128
+    accessed_on: 2026-09-26
+    document_identifier: 27 CFR § 9.128
+  - id: src_dus_us_the_hamptons_long_island
+    kind: legislation
+    title: "27 CFR § 9.101: The Hamptons, Long Island American viticultural area"
+    publisher: Alcohol and Tobacco Tax and Trade Bureau / eCFR
+    jurisdiction: US
+    url: https://www.ecfr.gov/current/title-27/section-9.101
+    accessed_on: 2026-09-26
+    document_identifier: 27 CFR § 9.101
+  - id: src_dus_us_upper_hudson
+    kind: legislation
+    title: "27 CFR § 9.264: Upper Hudson American viticultural area"
+    publisher: Alcohol and Tobacco Tax and Trade Bureau / eCFR
+    jurisdiction: US
+    url: https://www.ecfr.gov/current/title-27/section-9.264
+    accessed_on: 2026-09-26
+    document_identifier: 27 CFR § 9.264
+  - id: src_dus_us_lake_erie
+    kind: legislation
+    title: "27 CFR § 9.83: Lake Erie American viticultural area"
+    publisher: Alcohol and Tobacco Tax and Trade Bureau / eCFR
+    jurisdiction: US
+    url: https://www.ecfr.gov/current/title-27/section-9.83
+    accessed_on: 2026-09-26
+    document_identifier: 27 CFR § 9.83
+knowledge_item_citations:
+  - knowledge_item_id: ki_dus_new_york_location
+    source_citation_id: src_dus_ny_state
+    locator: "FIPS codes for the states and District of Columbia: New York, 36, NY"
+  - knowledge_item_id: ki_dus_cayuga_lake_location
+    source_citation_id: src_dus_us_cayuga_lake
+    locator: "27 CFR § 9.127(c): defined geographical area and state/containing AVA"
+  - knowledge_item_id: ki_dus_cayuga_lake_location
+    source_citation_id: src_atlas_us_avas
+    locator: "Cayuga Lake: New York single-state register; current August 18, 2026
+      edition"
+  - knowledge_item_id: ki_dus_champlain_valley_of_new_york_location
+    source_citation_id: src_dus_us_champlain_valley_of_new_york
+    locator: "27 CFR § 9.258(c): defined geographical area and state/containing AVA"
+  - knowledge_item_id: ki_dus_champlain_valley_of_new_york_location
+    source_citation_id: src_atlas_us_avas
+    locator: "Champlain Valley of New York: New York single-state register; current
+      August 18, 2026 edition"
+  - knowledge_item_id: ki_dus_finger_lakes_location
+    source_citation_id: src_dus_us_finger_lakes
+    locator: "27 CFR § 9.34(c): defined geographical area and state/containing AVA"
+  - knowledge_item_id: ki_dus_finger_lakes_location
+    source_citation_id: src_atlas_us_avas
+    locator: "Finger Lakes: New York single-state register; current August 18, 2026
+      edition"
+  - knowledge_item_id: ki_dus_hudson_river_region_location
+    source_citation_id: src_dus_us_hudson_river_region
+    locator: "27 CFR § 9.47(c): defined geographical area and state/containing AVA"
+  - knowledge_item_id: ki_dus_hudson_river_region_location
+    source_citation_id: src_atlas_us_avas
+    locator: "Hudson River Region: New York single-state register; current August
+      18, 2026 edition"
+  - knowledge_item_id: ki_dus_long_island_location
+    source_citation_id: src_dus_us_long_island
+    locator: "27 CFR § 9.170(c): defined geographical area and state/containing AVA"
+  - knowledge_item_id: ki_dus_long_island_location
+    source_citation_id: src_atlas_us_avas
+    locator: "Long Island: New York single-state register; current August 18, 2026
+      edition; CFR link typo corrected against current eCFR §9.170"
+  - knowledge_item_id: ki_dus_niagara_escarpment_location
+    source_citation_id: src_dus_us_niagara_escarpment
+    locator: "27 CFR § 9.186(c): defined geographical area and state/containing AVA"
+  - knowledge_item_id: ki_dus_niagara_escarpment_location
+    source_citation_id: src_atlas_us_avas
+    locator: "Niagara Escarpment: New York single-state register; current August 18,
+      2026 edition"
+  - knowledge_item_id: ki_dus_north_fork_of_long_island_location
+    source_citation_id: src_dus_us_north_fork_of_long_island
+    locator: "27 CFR § 9.113(c): defined geographical area and state/containing AVA"
+  - knowledge_item_id: ki_dus_north_fork_of_long_island_location
+    source_citation_id: src_atlas_us_avas
+    locator: "North Fork of Long Island: New York single-state register; current
+      August 18, 2026 edition"
+  - knowledge_item_id: ki_dus_seneca_lake_location
+    source_citation_id: src_dus_us_seneca_lake
+    locator: "27 CFR § 9.128(c): defined geographical area and state/containing AVA"
+  - knowledge_item_id: ki_dus_seneca_lake_location
+    source_citation_id: src_atlas_us_avas
+    locator: "Seneca Lake: New York single-state register; current August 18, 2026
+      edition"
+  - knowledge_item_id: ki_dus_the_hamptons_long_island_location
+    source_citation_id: src_dus_us_the_hamptons_long_island
+    locator: "27 CFR § 9.101(c): defined geographical area and state/containing AVA"
+  - knowledge_item_id: ki_dus_the_hamptons_long_island_location
+    source_citation_id: src_atlas_us_avas
+    locator: "The Hamptons, Long Island: New York single-state register; current
+      August 18, 2026 edition"
+  - knowledge_item_id: ki_dus_upper_hudson_location
+    source_citation_id: src_dus_us_upper_hudson
+    locator: "27 CFR § 9.264(c): defined geographical area and state/containing AVA"
+  - knowledge_item_id: ki_dus_upper_hudson_location
+    source_citation_id: src_atlas_us_avas
+    locator: "Upper Hudson: New York single-state register; current August 18, 2026
+      edition"
+  - knowledge_item_id: ki_dus_lake_erie_location
+    source_citation_id: src_dus_us_lake_erie
+    locator: "27 CFR § 9.83(c): defined geographical area and state/containing AVA"
+  - knowledge_item_id: ki_dus_lake_erie_location
+    source_citation_id: src_atlas_us_avas
+    locator: "Lake Erie: multi-state NY/OH/PA register; current August 18, 2026 edition"

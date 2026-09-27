@@ -119,7 +119,8 @@ void main() {
     expect(session.answered, 0);
   });
 
-  test('a new card starts with its easiest format; later ones vary', () async {
+  test('a new card starts with its easiest format; the ladder chooses the '
+      'next (F4)', () async {
     final card = await planner
         .cards('WSET_L3')
         .then(
@@ -127,18 +128,24 @@ void main() {
         );
     expect(card.formats.length, greaterThan(1));
     expect(card.chooseFormat(_FixedRandom(3)), card.formats.first);
+    expect(card.formats.first.mode, 'mcq');
 
-    final reviewed = card.reviewed(
-      (await reviews.gradeFlashcard(
-        await presenter.present(
-          card.itemId,
-          'qt_min_ageing_fwd_flashcard',
-          seed: 1,
-        ),
-        fsrs.Rating.good,
-      )).after,
+    final mcq = await presenter.present(
+      card.itemId,
+      card.formats.first.questionTemplateId,
+      seed: 1,
     );
-    expect(reviewed.chooseFormat(_FixedRandom(3)), card.formats[3]);
+    final result = await reviews.answerMultipleChoice(mcq, mcq.answer);
+    final reviewed = card.reviewed(
+      result.after,
+      templateId: result.event.questionTemplateId,
+    );
+    expect(reviewed.lastTemplateId, card.formats.first.questionTemplateId);
+    expect(
+      reviewed.chooseFormat(_FixedRandom(3)).mode,
+      isNot('mcq'),
+      reason: 'not the last format again (QF-7)',
+    );
   });
 }
 

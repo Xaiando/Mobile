@@ -1,0 +1,1675 @@
+# Original regional mechanisms and conditional comparisons; all await qualified review.
+# Valid-from records UTC curation, not historical effectiveness of physical mechanisms.
+# MCQs are disabled because climate, grape and commercial alternatives can be defensible.
+# Regional tendencies do not establish legal permissions, origin certainty or guaranteed quality/price.
+knowledge_nodes:
+  - id: n_reg_am_principle_napa_contrast
+    node_type: production_principle
+    name: How does marine influence distinguish Napa Carneros from sites farther up Napa Valley?
+  - id: n_reg_am_point_carneros_cooling
+    node_type: learning_point
+    name: Carneros marine cooling
+  - id: n_reg_am_point_upper_napa_warmth
+    node_type: learning_point
+    name: Reduced marine influence up Napa Valley
+  - id: n_reg_am_principle_sonoma_contrast
+    node_type: production_principle
+    name: How do Russian River Valley and Alexander Valley offer different grape-growing options in Sonoma?
+  - id: n_reg_am_point_russian_river_pinot
+    node_type: learning_point
+    name: Russian River cooling supports Pinot Noir
+  - id: n_reg_am_point_alexander_cabernet
+    node_type: learning_point
+    name: Alexander Valley warmth supports Cabernet Sauvignon
+  - id: n_reg_am_principle_paso_contrast
+    node_type: production_principle
+    name: How can Templeton Gap airflow alter ripening within the wider Paso Robles region?
+  - id: n_reg_am_point_templeton_air
+    node_type: learning_point
+    name: Templeton Gap channels Pacific air
+  - id: n_reg_am_point_templeton_ripening
+    node_type: learning_point
+    name: Cooler Templeton Gap extends ripening
+  - id: n_reg_am_principle_oregon_range
+    node_type: production_principle
+    name: Why should Willamette Valley Pinot Noir not define every Oregon vineyard or wine style?
+  - id: n_reg_am_point_willamette_pinot
+    node_type: learning_point
+    name: Willamette cool evenings and Pinot Noir
+  - id: n_reg_am_point_rogue_diversity
+    node_type: learning_point
+    name: Rogue Valley has warmer and cooler sites
+  - id: n_reg_am_principle_eola_planning
+    node_type: production_principle
+    name: How can Eola-Amity Hills climate and established grapes inform a regional wine comparison?
+  - id: n_reg_am_point_eola_wind
+    node_type: learning_point
+    name: Van Duzer cooling helps retain acidity
+  - id: n_reg_am_point_eola_grapes
+    node_type: learning_point
+    name: Eola includes Pinot Noir and Chardonnay
+  - id: n_reg_am_principle_washington_contrast
+    node_type: production_principle
+    name: How do eastern Washington growing conditions differ from the maritime western part of the state?
+  - id: n_reg_am_point_washington_irrigation
+    node_type: learning_point
+    name: Eastern Washington rain shadow needs irrigation
+  - id: n_reg_am_point_washington_diurnal
+    node_type: learning_point
+    name: Warm eastern Washington days and cool nights
+  - id: n_reg_am_principle_finger_seasons
+    node_type: production_principle
+    name: How does lake proximity influence the Finger Lakes growing season at different times of year?
+  - id: n_reg_am_point_finger_spring
+    node_type: learning_point
+    name: Finger Lakes spring cooling delays budbreak
+  - id: n_reg_am_point_finger_autumn
+    node_type: learning_point
+    name: Finger Lakes autumn heat extends ripening
+  - id: n_reg_am_principle_canada_sites
+    node_type: production_principle
+    name: Why do Niagara-on-the-Lake and Okanagan sourcing decisions require more than the label Canada?
+  - id: n_reg_am_point_niagara_water
+    node_type: learning_point
+    name: Niagara water moderates frost exposure
+  - id: n_reg_am_point_okanagan_variation
+    node_type: learning_point
+    name: Okanagan site climates vary along the valley
+  - id: n_reg_am_principle_chile_coast_inland
+    node_type: production_principle
+    name: How do coastal Aconcagua and inland Maipo illustrate different Chilean grape-growing opportunities?
+  - id: n_reg_am_point_aconcagua_coast
+    node_type: learning_point
+    name: Coastal Aconcagua favours cooler-climate grapes
+  - id: n_reg_am_point_maipo_cabernet
+    node_type: learning_point
+    name: Maipo warmth supports Cabernet Sauvignon
+  - id: n_reg_am_principle_casablanca_sites
+    node_type: production_principle
+    name: Why can grapes and ripening conditions differ between lower and higher sites in Casablanca?
+  - id: n_reg_am_point_casablanca_low
+    node_type: learning_point
+    name: Lower Casablanca sites are cooler
+  - id: n_reg_am_point_casablanca_high
+    node_type: learning_point
+    name: Higher Casablanca sites can be warmer
+  - id: n_reg_am_principle_chile_style_range
+    node_type: production_principle
+    name: How do Limari coastal Chardonnay and Colchagua red-wine traditions show Chilean regional diversity?
+  - id: n_reg_am_point_limari_chardonnay
+    node_type: learning_point
+    name: Limari coastal fog supports Chardonnay
+  - id: n_reg_am_point_colchagua_reds
+    node_type: learning_point
+    name: Colchagua cooling accompanies red varieties
+  - id: n_reg_am_principle_mendoza_altitude
+    node_type: production_principle
+    name: How can high-altitude Mendoza change both the temperature and light environment for Malbec?
+  - id: n_reg_am_point_mendoza_temperature
+    node_type: learning_point
+    name: Mendoza altitude can moderate temperature
+  - id: n_reg_am_point_malbec_uv
+    node_type: learning_point
+    name: High-altitude UV-B can alter Malbec phenolics
+  - id: n_reg_am_principle_mendoza_water
+    node_type: production_principle
+    name: Why is water management integral to grape growing in arid Argentine mountain valleys such as
+      Mendoza?
+  - id: n_reg_am_point_andes_irrigation
+    node_type: learning_point
+    name: Andean meltwater supports vineyard irrigation
+  - id: n_reg_am_point_argentina_methods
+    node_type: learning_point
+    name: Argentine vineyards use flood and drip options
+  - id: n_reg_am_principle_patagonia_comparison
+    node_type: production_principle
+    name: How do latitude and wind add different considerations in Patagonia compared with Mendoza altitude
+      alone?
+  - id: n_reg_am_point_patagonia_latitude
+    node_type: learning_point
+    name: Patagonia cooling also reflects southerly latitude
+  - id: n_reg_am_point_patagonia_evaporation
+    node_type: learning_point
+    name: Eastern Patagonia wind increases evaporation
+  - id: n_reg_am_case_california_sites
+    node_type: production_case
+    name: "California site choice: Carneros Pinot Noir and warmer Napa Cabernet targets. A grower can
+      contract a cool, bay-influenced Carneros parcel or a warmer upper Napa parcel. The plans are a
+      fresh Pinot Noir and a fully ripe Cabernet Sauvignon. Both sites have adequate water and suitable
+      soils; the warmer parcel has the lower quoted fruit cost. Propose a defensible site allocation,
+      explain the regional mechanism, and discuss a commercial tradeoff and a limitation before
+      contracting. Do not infer quality from the appellation alone."
+  - id: n_reg_am_point_case_california_sites_action
+    node_type: learning_point
+    name: Trial Pinot Noir in Carneros and Cabernet at the warmer site
+  - id: n_reg_am_point_case_california_sites_reason
+    node_type: learning_point
+    name: Different marine exposure alters ripening conditions
+  - id: n_reg_am_point_case_california_sites_tradeoff
+    node_type: learning_point
+    name: Style fit can outweigh the lower quote
+  - id: n_reg_am_point_case_california_sites_limitation
+    node_type: learning_point
+    name: Check vineyard and vintage evidence before commitment
+  - id: n_reg_am_case_pacific_northwest
+    node_type: production_case
+    name: "Pacific Northwest sourcing: Willamette Pinot Noir versus Columbia Valley Cabernet. A buyer needs
+      two dry wines: a fresh Pinot Noir and a ripe Cabernet Sauvignon with retained acidity. A Willamette
+      supplier offers Pinot Noir; an eastern Columbia Valley supplier offers Cabernet with documented
+      irrigation. The latter quote is cheaper but requires a larger order. Propose a defensible sourcing
+      plan, compare growing conditions, and explain a tradeoff and the evidence needed before promising
+      quality or price."
+  - id: n_reg_am_point_case_pacific_northwest_action
+    node_type: learning_point
+    name: Assess both regional offers against their stated targets
+  - id: n_reg_am_point_case_pacific_northwest_reason
+    node_type: learning_point
+    name: Different regional conditions allow ripeness and acidity
+  - id: n_reg_am_point_case_pacific_northwest_tradeoff
+    node_type: learning_point
+    name: The larger cheap order ties up more inventory
+  - id: n_reg_am_point_case_pacific_northwest_limitation
+    node_type: learning_point
+    name: Northern latitude and region cannot certify wine quality
+  - id: n_reg_am_case_chile_white
+    node_type: production_case
+    name: "Chile fresh-white procurement: cool coastal parcel versus warmer inland offer. A Chilean supplier
+      offers Chardonnay from a cooler coastal Aconcagua parcel or a warmer inland parcel. Samples from
+      the coast meet the buyer's freshness target; the inland sample is fuller and riper. The coastal
+      quote is higher and volume smaller. The buyer wants a fresh dry white for prompt release. Recommend
+      a defensible offer, explain the regional context, a commercial tradeoff and a limitation. No soil
+      name alone proves a mineral flavour."
+  - id: n_reg_am_point_case_chile_white_action
+    node_type: learning_point
+    name: Select the coastal sample if cost and volume fit
+  - id: n_reg_am_point_case_chile_white_reason
+    node_type: learning_point
+    name: Coastal conditions support cooler-climate grape growing
+  - id: n_reg_am_point_case_chile_white_tradeoff
+    node_type: learning_point
+    name: Freshness fit comes with the stated higher cost
+  - id: n_reg_am_point_case_chile_white_limitation
+    node_type: learning_point
+    name: A regional tendency does not prove every bottle style
+  - id: n_reg_am_case_mendoza_claim
+    node_type: production_case
+    name: "Mendoza Malbec procurement: altitude claim versus observed value. Two dry Mendoza Malbec samples
+      are available from the same vintage: one from a higher Uco Valley site and one from a lower warmer
+      site. Their suppliers use different harvest dates and oak regimes. The higher-site quote is
+      greater. A retailer wants balanced fruit and acidity within a fixed margin and asks whether
+      altitude justifies the premium. Propose a defensible evaluation, explain a mechanism, and give a
+      tradeoff and a limitation."
+  - id: n_reg_am_point_case_mendoza_claim_action
+    node_type: learning_point
+    name: Compare samples and total quoted cost against the target
+  - id: n_reg_am_point_case_mendoza_claim_reason
+    node_type: learning_point
+    name: Higher Mendoza sites may alter temperature and UV-B
+  - id: n_reg_am_point_case_mendoza_claim_tradeoff
+    node_type: learning_point
+    name: The premium can reduce margin unless target fit improves
+  - id: n_reg_am_point_case_mendoza_claim_limitation
+    node_type: learning_point
+    name: Different harvest and oak confound an altitude comparison
+node_alternative_names:
+  - knowledge_node_id: n_reg_am_point_carneros_cooling
+    name: San Pablo Bay breezes cool Carneros
+    kind: synonym
+  - knowledge_node_id: n_reg_am_point_upper_napa_warmth
+    name: Warmer summers farther up Napa
+    kind: synonym
+  - knowledge_node_id: n_reg_am_point_russian_river_pinot
+    name: Russian River fog and Pinot Noir
+    kind: synonym
+  - knowledge_node_id: n_reg_am_point_alexander_cabernet
+    name: Alexander Cabernet with cool nights
+    kind: synonym
+  - knowledge_node_id: n_reg_am_point_templeton_air
+    name: Paso cooling through Templeton Gap
+    kind: synonym
+  - knowledge_node_id: n_reg_am_point_templeton_ripening
+    name: Templeton later ripening opportunity
+    kind: synonym
+  - knowledge_node_id: n_reg_am_point_willamette_pinot
+    name: Willamette Pinot in a gentle season
+    kind: synonym
+  - knowledge_node_id: n_reg_am_point_rogue_diversity
+    name: Rogue microclimates broaden grape choices
+    kind: synonym
+  - knowledge_node_id: n_reg_am_point_eola_wind
+    name: Eola cooling from Van Duzer air
+    kind: synonym
+  - knowledge_node_id: n_reg_am_point_eola_grapes
+    name: Eola Pinot and Chardonnay examples
+    kind: synonym
+  - knowledge_node_id: n_reg_am_point_washington_irrigation
+    name: Columbia Valley rain shadow water demand
+    kind: synonym
+  - knowledge_node_id: n_reg_am_point_washington_diurnal
+    name: Washington ripening with retained acidity
+    kind: synonym
+  - knowledge_node_id: n_reg_am_point_finger_spring
+    name: Finger lake cooling later spring buds
+    kind: synonym
+  - knowledge_node_id: n_reg_am_point_finger_autumn
+    name: Finger lake warmth into autumn
+    kind: synonym
+  - knowledge_node_id: n_reg_am_point_niagara_water
+    name: Niagara Lake Ontario moderation
+    kind: synonym
+  - knowledge_node_id: n_reg_am_point_okanagan_variation
+    name: Okanagan subregions differ climatically
+    kind: synonym
+  - knowledge_node_id: n_reg_am_point_aconcagua_coast
+    name: Aconcagua coastal Chardonnay and Pinot
+    kind: synonym
+  - knowledge_node_id: n_reg_am_point_maipo_cabernet
+    name: Maipo dry summers and Cabernet
+    kind: synonym
+  - knowledge_node_id: n_reg_am_point_casablanca_low
+    name: Lower Casablanca Sauvignon and Chardonnay
+    kind: synonym
+  - knowledge_node_id: n_reg_am_point_casablanca_high
+    name: Casablanca warmer elevations support reds
+    kind: synonym
+  - knowledge_node_id: n_reg_am_point_limari_chardonnay
+    name: Limari Camanchaca cooling and Chardonnay
+    kind: synonym
+  - knowledge_node_id: n_reg_am_point_colchagua_reds
+    name: Colchagua reds with cooling breezes
+    kind: synonym
+  - knowledge_node_id: n_reg_am_point_mendoza_temperature
+    name: Higher Mendoza sites can be cooler
+    kind: synonym
+  - knowledge_node_id: n_reg_am_point_malbec_uv
+    name: Malbec phenolic response to UV-B
+    kind: synonym
+  - knowledge_node_id: n_reg_am_point_andes_irrigation
+    name: Andes meltwater supplies mountain valleys
+    kind: synonym
+  - knowledge_node_id: n_reg_am_point_argentina_methods
+    name: Argentina flood or drip irrigation
+    kind: synonym
+  - knowledge_node_id: n_reg_am_point_patagonia_latitude
+    name: Patagonia southward temperature trend
+    kind: synonym
+  - knowledge_node_id: n_reg_am_point_patagonia_evaporation
+    name: Patagonian wind and water loss
+    kind: synonym
+  - knowledge_node_id: n_reg_am_point_case_california_sites_action
+    name: Allocate grapes by site and target
+    kind: synonym
+  - knowledge_node_id: n_reg_am_point_case_california_sites_reason
+    name: Napa marine contrast shapes ripening
+    kind: synonym
+  - knowledge_node_id: n_reg_am_point_case_california_sites_tradeoff
+    name: Cheaper fruit may not fit both targets
+    kind: synonym
+  - knowledge_node_id: n_reg_am_point_case_california_sites_limitation
+    name: Contract after site and vintage checks
+    kind: synonym
+  - knowledge_node_id: n_reg_am_point_case_pacific_northwest_action
+    name: Trial Willamette Pinot and Columbia Cabernet
+    kind: synonym
+  - knowledge_node_id: n_reg_am_point_case_pacific_northwest_reason
+    name: Willamette moderation versus Columbia warmth
+    kind: synonym
+  - knowledge_node_id: n_reg_am_point_case_pacific_northwest_tradeoff
+    name: Lower quote with greater stock commitment
+    kind: synonym
+  - knowledge_node_id: n_reg_am_point_case_pacific_northwest_limitation
+    name: Confirm samples and production evidence
+    kind: synonym
+  - knowledge_node_id: n_reg_am_point_case_chile_white_action
+    name: Choose demonstrated coastal freshness
+    kind: synonym
+  - knowledge_node_id: n_reg_am_point_case_chile_white_reason
+    name: Aconcagua coast differs from inland sites
+    kind: synonym
+  - knowledge_node_id: n_reg_am_point_case_chile_white_tradeoff
+    name: Coastal quote and volume constrain margin
+    kind: synonym
+  - knowledge_node_id: n_reg_am_point_case_chile_white_limitation
+    name: Check producer and batch rather than origin alone
+    kind: synonym
+  - knowledge_node_id: n_reg_am_point_case_mendoza_claim_action
+    name: Evaluate Malbec value before paying altitude premium
+    kind: synonym
+  - knowledge_node_id: n_reg_am_point_case_mendoza_claim_reason
+    name: Altitude changes temperature and light
+    kind: synonym
+  - knowledge_node_id: n_reg_am_point_case_mendoza_claim_tradeoff
+    name: Paying more needs a demonstrated benefit
+    kind: synonym
+  - knowledge_node_id: n_reg_am_point_case_mendoza_claim_limitation
+    name: Control harvest and oak before causal claims
+    kind: synonym
+knowledge_relations:
+  - subject_id: n_reg_am_principle_napa_contrast
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_am_point_carneros_cooling
+    valid_from: 2026-09-27
+  - subject_id: n_reg_am_principle_napa_contrast
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_am_point_upper_napa_warmth
+    valid_from: 2026-09-27
+  - subject_id: n_reg_am_principle_sonoma_contrast
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_am_point_russian_river_pinot
+    valid_from: 2026-09-27
+  - subject_id: n_reg_am_principle_sonoma_contrast
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_am_point_alexander_cabernet
+    valid_from: 2026-09-27
+  - subject_id: n_reg_am_principle_paso_contrast
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_am_point_templeton_air
+    valid_from: 2026-09-27
+  - subject_id: n_reg_am_principle_paso_contrast
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_am_point_templeton_ripening
+    valid_from: 2026-09-27
+  - subject_id: n_reg_am_principle_oregon_range
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_am_point_willamette_pinot
+    valid_from: 2026-09-27
+  - subject_id: n_reg_am_principle_oregon_range
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_am_point_rogue_diversity
+    valid_from: 2026-09-27
+  - subject_id: n_reg_am_principle_eola_planning
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_am_point_eola_wind
+    valid_from: 2026-09-27
+  - subject_id: n_reg_am_principle_eola_planning
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_am_point_eola_grapes
+    valid_from: 2026-09-27
+  - subject_id: n_reg_am_principle_washington_contrast
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_am_point_washington_irrigation
+    valid_from: 2026-09-27
+  - subject_id: n_reg_am_principle_washington_contrast
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_am_point_washington_diurnal
+    valid_from: 2026-09-27
+  - subject_id: n_reg_am_principle_finger_seasons
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_am_point_finger_spring
+    valid_from: 2026-09-27
+  - subject_id: n_reg_am_principle_finger_seasons
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_am_point_finger_autumn
+    valid_from: 2026-09-27
+  - subject_id: n_reg_am_principle_canada_sites
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_am_point_niagara_water
+    valid_from: 2026-09-27
+  - subject_id: n_reg_am_principle_canada_sites
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_am_point_okanagan_variation
+    valid_from: 2026-09-27
+  - subject_id: n_reg_am_principle_chile_coast_inland
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_am_point_aconcagua_coast
+    valid_from: 2026-09-27
+  - subject_id: n_reg_am_principle_chile_coast_inland
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_am_point_maipo_cabernet
+    valid_from: 2026-09-27
+  - subject_id: n_reg_am_principle_casablanca_sites
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_am_point_casablanca_low
+    valid_from: 2026-09-27
+  - subject_id: n_reg_am_principle_casablanca_sites
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_am_point_casablanca_high
+    valid_from: 2026-09-27
+  - subject_id: n_reg_am_principle_chile_style_range
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_am_point_limari_chardonnay
+    valid_from: 2026-09-27
+  - subject_id: n_reg_am_principle_chile_style_range
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_am_point_colchagua_reds
+    valid_from: 2026-09-27
+  - subject_id: n_reg_am_principle_mendoza_altitude
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_am_point_mendoza_temperature
+    valid_from: 2026-09-27
+  - subject_id: n_reg_am_principle_mendoza_altitude
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_am_point_malbec_uv
+    valid_from: 2026-09-27
+  - subject_id: n_reg_am_principle_mendoza_water
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_am_point_andes_irrigation
+    valid_from: 2026-09-27
+  - subject_id: n_reg_am_principle_mendoza_water
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_am_point_argentina_methods
+    valid_from: 2026-09-27
+  - subject_id: n_reg_am_principle_patagonia_comparison
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_am_point_patagonia_latitude
+    valid_from: 2026-09-27
+  - subject_id: n_reg_am_principle_patagonia_comparison
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_am_point_patagonia_evaporation
+    valid_from: 2026-09-27
+  - subject_id: n_reg_am_case_california_sites
+    relation_type: CASE_ACTION
+    object_id: n_reg_am_point_case_california_sites_action
+    valid_from: 2026-09-27
+  - subject_id: n_reg_am_case_california_sites
+    relation_type: CASE_REASON
+    object_id: n_reg_am_point_case_california_sites_reason
+    valid_from: 2026-09-27
+  - subject_id: n_reg_am_case_california_sites
+    relation_type: CASE_TRADEOFF
+    object_id: n_reg_am_point_case_california_sites_tradeoff
+    valid_from: 2026-09-27
+  - subject_id: n_reg_am_case_california_sites
+    relation_type: CASE_LIMITATION
+    object_id: n_reg_am_point_case_california_sites_limitation
+    valid_from: 2026-09-27
+  - subject_id: n_reg_am_case_pacific_northwest
+    relation_type: CASE_ACTION
+    object_id: n_reg_am_point_case_pacific_northwest_action
+    valid_from: 2026-09-27
+  - subject_id: n_reg_am_case_pacific_northwest
+    relation_type: CASE_REASON
+    object_id: n_reg_am_point_case_pacific_northwest_reason
+    valid_from: 2026-09-27
+  - subject_id: n_reg_am_case_pacific_northwest
+    relation_type: CASE_TRADEOFF
+    object_id: n_reg_am_point_case_pacific_northwest_tradeoff
+    valid_from: 2026-09-27
+  - subject_id: n_reg_am_case_pacific_northwest
+    relation_type: CASE_LIMITATION
+    object_id: n_reg_am_point_case_pacific_northwest_limitation
+    valid_from: 2026-09-27
+  - subject_id: n_reg_am_case_chile_white
+    relation_type: CASE_ACTION
+    object_id: n_reg_am_point_case_chile_white_action
+    valid_from: 2026-09-27
+  - subject_id: n_reg_am_case_chile_white
+    relation_type: CASE_REASON
+    object_id: n_reg_am_point_case_chile_white_reason
+    valid_from: 2026-09-27
+  - subject_id: n_reg_am_case_chile_white
+    relation_type: CASE_TRADEOFF
+    object_id: n_reg_am_point_case_chile_white_tradeoff
+    valid_from: 2026-09-27
+  - subject_id: n_reg_am_case_chile_white
+    relation_type: CASE_LIMITATION
+    object_id: n_reg_am_point_case_chile_white_limitation
+    valid_from: 2026-09-27
+  - subject_id: n_reg_am_case_mendoza_claim
+    relation_type: CASE_ACTION
+    object_id: n_reg_am_point_case_mendoza_claim_action
+    valid_from: 2026-09-27
+  - subject_id: n_reg_am_case_mendoza_claim
+    relation_type: CASE_REASON
+    object_id: n_reg_am_point_case_mendoza_claim_reason
+    valid_from: 2026-09-27
+  - subject_id: n_reg_am_case_mendoza_claim
+    relation_type: CASE_TRADEOFF
+    object_id: n_reg_am_point_case_mendoza_claim_tradeoff
+    valid_from: 2026-09-27
+  - subject_id: n_reg_am_case_mendoza_claim
+    relation_type: CASE_LIMITATION
+    object_id: n_reg_am_point_case_mendoza_claim_limitation
+    valid_from: 2026-09-27
+knowledge_items:
+  - id: ki_reg_am_carneros_cooling
+    subject_id: n_reg_am_principle_napa_contrast
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_am_point_carneros_cooling
+    domain_id: geography
+    assertion_text: Marine air arriving across San Pablo Bay moderates Carneros temperatures, making it
+      cooler than many sites farther up Napa Valley.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:25:07.000Z
+  - id: ki_reg_am_upper_napa_warmth
+    subject_id: n_reg_am_principle_napa_contrast
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_am_point_upper_napa_warmth
+    domain_id: geography
+    assertion_text: Sites farther up Napa Valley generally receive less Pacific moderation and have warmer
+      summers; elevation, exposure and hills still differentiate individual vineyards.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:25:07.000Z
+  - id: ki_reg_am_russian_river_pinot
+    subject_id: n_reg_am_principle_sonoma_contrast
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_am_point_russian_river_pinot
+    domain_id: geography
+    assertion_text: Pacific fog cools Russian River Valley and extends ripening; Pinot Noir and Chardonnay
+      are established regional examples, rather than an exclusive legal grape set.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:25:07.000Z
+  - id: ki_reg_am_alexander_cabernet
+    subject_id: n_reg_am_principle_sonoma_contrast
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_am_point_alexander_cabernet
+    domain_id: geography
+    assertion_text: Warmer inland Alexander Valley has heat for Cabernet Sauvignon ripening while cool
+      evenings can help retain acidity; Sonoma is not one uniform growing environment.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:25:07.000Z
+  - id: ki_reg_am_templeton_air
+    subject_id: n_reg_am_principle_paso_contrast
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_am_point_templeton_air
+    domain_id: geography
+    assertion_text: Gaps in the Santa Lucia Range channel cool Pacific air into Templeton Gap and farther
+      inland, moderating temperatures relative to less marine-influenced Paso sites.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:25:07.000Z
+  - id: ki_reg_am_templeton_ripening
+    subject_id: n_reg_am_principle_paso_contrast
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_am_point_templeton_ripening
+    domain_id: viticulture
+    assertion_text: The cooler Templeton Gap can extend the ripening period and supports Chardonnay and Pinot
+      Noir; actual harvest timing depends on the vineyard and vintage.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:25:07.000Z
+  - id: ki_reg_am_willamette_pinot
+    subject_id: n_reg_am_principle_oregon_range
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_am_point_willamette_pinot
+    domain_id: geography
+    assertion_text: Willamette Valley combines warm summers, cool evenings and a long growing season; Pinot
+      Noir is its flagship grape, alongside several other varieties.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:25:07.000Z
+  - id: ki_reg_am_rogue_diversity
+    subject_id: n_reg_am_principle_oregon_range
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_am_point_rogue_diversity
+    domain_id: geography
+    assertion_text: Rogue Valley contains progressively warmer microclimates that accommodate both cool- and
+      warm-climate varieties; the Oregon state name alone cannot specify a wine style.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:25:07.000Z
+  - id: ki_reg_am_eola_wind
+    subject_id: n_reg_am_principle_eola_planning
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_am_point_eola_wind
+    domain_id: geography
+    assertion_text: Cool Pacific air passes through the Van Duzer Corridor to Eola-Amity Hills, lowering
+      late-summer afternoon temperatures and helping grapes retain acidity as they ripen.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:25:07.000Z
+  - id: ki_reg_am_eola_grapes
+    subject_id: n_reg_am_principle_eola_planning
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_am_point_eola_grapes
+    domain_id: geography
+    assertion_text: Pinot Noir and Chardonnay are among the established Eola-Amity Hills grapes; their
+      presence is useful regional context, but climate and grape name do not guarantee final wine
+      quality.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:25:07.000Z
+  - id: ki_reg_am_washington_irrigation
+    subject_id: n_reg_am_principle_washington_contrast
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_am_point_washington_irrigation
+    domain_id: viticulture
+    assertion_text: The Cascades and Olympics reduce rainfall reaching Columbia Valley, so irrigation is
+      needed in most eastern Washington vineyards; this differs from the maritime west.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:25:07.000Z
+  - id: ki_reg_am_washington_diurnal
+    subject_id: n_reg_am_principle_washington_contrast
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_am_point_washington_diurnal
+    domain_id: geography
+    assertion_text: Long warm summer days encourage ripening in eastern Washington, while cool nights and
+      harvest-season cooling can help retain acidity; a northern latitude alone does not mean cool
+      summers.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:25:07.000Z
+  - id: ki_reg_am_finger_spring
+    subject_id: n_reg_am_principle_finger_seasons
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_am_point_finger_spring
+    domain_id: viticulture
+    assertion_text: In spring, lake water warms more slowly than surrounding land; nearby Finger Lakes
+      vineyards can have delayed budbreak and reduced exposure to some spring frosts.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:25:07.000Z
+  - id: ki_reg_am_finger_autumn
+    subject_id: n_reg_am_principle_finger_seasons
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_am_point_finger_autumn
+    domain_id: viticulture
+    assertion_text: In autumn, lake water cools more slowly than surrounding land and can add warmth to
+      nearby Finger Lakes vineyards, extending ripening opportunities without eliminating cold risk.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:25:07.000Z
+  - id: ki_reg_am_niagara_water
+    subject_id: n_reg_am_principle_canada_sites
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_am_point_niagara_water
+    domain_id: geography
+    assertion_text: Lake Ontario and the Niagara River moderate Niagara-on-the-Lake temperatures and can
+      reduce spring and autumn frost risk; vineyards farther from the water receive less moderation.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:25:07.000Z
+  - id: ki_reg_am_okanagan_variation
+    subject_id: n_reg_am_principle_canada_sites
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_am_point_okanagan_variation
+    domain_id: geography
+    assertion_text: Okanagan Valley contains subregions with different soils and climates suited to a range
+      of varieties, so a specific site matters when predicting style rather than a country-wide Canadian
+      climate.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:25:07.000Z
+  - id: ki_reg_am_aconcagua_coast
+    subject_id: n_reg_am_principle_chile_coast_inland
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_am_point_aconcagua_coast
+    domain_id: geography
+    assertion_text: Coastal Aconcagua supports Chardonnay, Sauvignon Blanc and Pinot Noir, contrasting with
+      the red-variety tradition farther inland; this is regional context, not grape exclusivity.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:25:07.000Z
+  - id: ki_reg_am_maipo_cabernet
+    subject_id: n_reg_am_principle_chile_coast_inland
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_am_point_maipo_cabernet
+    domain_id: geography
+    assertion_text: Maipo has hot dry summers and an established Cabernet Sauvignon focus; its inland context
+      contrasts with the cooler coastal grape-growing opportunities of Aconcagua.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:25:07.000Z
+  - id: ki_reg_am_casablanca_low
+    subject_id: n_reg_am_principle_casablanca_sites
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_am_point_casablanca_low
+    domain_id: geography
+    assertion_text: Lower cooler Casablanca sites favour Sauvignon Blanc and Chardonnay within a region
+      moderated by Pacific air and morning fog.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:25:07.000Z
+  - id: ki_reg_am_casablanca_high
+    subject_id: n_reg_am_principle_casablanca_sites
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_am_point_casablanca_high
+    domain_id: geography
+    assertion_text: Some higher Casablanca sites are warmer and less frost-prone, accommodating Merlot and
+      Syrah; local topography means greater elevation does not always imply cooler conditions.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:25:07.000Z
+  - id: ki_reg_am_limari_chardonnay
+    subject_id: n_reg_am_principle_chile_style_range
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_am_point_limari_chardonnay
+    domain_id: geography
+    assertion_text: Coastal Limari combines maritime influence and morning Camanchaca fog in a semi-arid
+      setting, providing an established context for Chardonnay.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:25:07.000Z
+  - id: ki_reg_am_colchagua_reds
+    subject_id: n_reg_am_principle_chile_style_range
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_am_point_colchagua_reds
+    domain_id: geography
+    assertion_text: Colchagua has a strong red-variety tradition including Carmenere, Cabernet Sauvignon and
+      Merlot; Pacific and Andean breezes can extend ripening and help preserve acidity.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:25:07.000Z
+  - id: ki_reg_am_mendoza_temperature
+    subject_id: n_reg_am_principle_mendoza_altitude
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_am_point_mendoza_temperature
+    domain_id: geography
+    assertion_text: At the Adrianna vineyard in Gualtallary, Uco Valley, high elevation moderates
+      temperatures relative to warmer lower sites; altitude is one site factor rather than a quality
+      ranking.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:25:07.000Z
+  - id: ki_reg_am_malbec_uv
+    subject_id: n_reg_am_principle_mendoza_altitude
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_am_point_malbec_uv
+    domain_id: viticulture
+    assertion_text: Catena and university investigations at high-altitude Mendoza sites report increased UV-B
+      and changes in berry phenolics; the response depends on conditions and does not prove every higher
+      wine is better.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:25:07.000Z
+  - id: ki_reg_am_andes_irrigation
+    subject_id: n_reg_am_principle_mendoza_water
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_am_point_andes_irrigation
+    domain_id: viticulture
+    assertion_text: Many traditional Argentine mountain wine valleys are arid and use Andean meltwater for
+      irrigation; water availability must be part of site planning rather than assuming rainfall meets
+      vine demand.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:25:07.000Z
+  - id: ki_reg_am_argentina_methods
+    subject_id: n_reg_am_principle_mendoza_water
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_am_point_argentina_methods
+    domain_id: viticulture
+    assertion_text: Flood and drip irrigation are both documented in Argentine vineyards; the existence of
+      two methods does not establish one universal optimum for every Mendoza site.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:25:07.000Z
+  - id: ki_reg_am_patagonia_latitude
+    subject_id: n_reg_am_principle_patagonia_comparison
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_am_point_patagonia_latitude
+    domain_id: geography
+    assertion_text: Patagonian temperatures generally become cooler farther south, so latitude helps explain
+      regional differences alongside altitude and local exposure; Patagonia is climatically diverse.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:25:07.000Z
+  - id: ki_reg_am_patagonia_evaporation
+    subject_id: n_reg_am_principle_patagonia_comparison
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_am_point_patagonia_evaporation
+    domain_id: viticulture
+    assertion_text: Climate research describes eastern Patagonia as arid and highly evaporative with strong
+      winds; cool conditions alone therefore do not remove the need to assess vineyard water supply.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:25:07.000Z
+  - id: ki_reg_am_case_california_sites_action
+    subject_id: n_reg_am_case_california_sites
+    relation_type: CASE_ACTION
+    object_id: n_reg_am_point_case_california_sites_action
+    domain_id: viticulture
+    assertion_text: Trial Carneros for the fresh Pinot Noir target and the warmer upper Napa parcel for
+      Cabernet Sauvignon, confirming actual ripeness before contracting.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:25:07.000Z
+  - id: ki_reg_am_case_california_sites_reason
+    subject_id: n_reg_am_case_california_sites
+    relation_type: CASE_REASON
+    object_id: n_reg_am_point_case_california_sites_reason
+    domain_id: geography
+    assertion_text: Carneros receives greater marine cooling, while reduced Pacific influence farther up Napa
+      Valley can provide more summer warmth for ripening.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:25:07.000Z
+  - id: ki_reg_am_case_california_sites_tradeoff
+    subject_id: n_reg_am_case_california_sites
+    relation_type: CASE_TRADEOFF
+    object_id: n_reg_am_point_case_california_sites_tradeoff
+    domain_id: business
+    assertion_text: In this scenario, choosing the lower quoted parcel for both grapes saves fruit cost but
+      may compromise the desired fresh Pinot Noir style; compare total costs with target fit.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:25:07.000Z
+  - id: ki_reg_am_case_california_sites_limitation
+    subject_id: n_reg_am_case_california_sites
+    relation_type: CASE_LIMITATION
+    object_id: n_reg_am_point_case_california_sites_limitation
+    domain_id: viticulture
+    assertion_text: Inspect actual block exposure, grape performance and vintage conditions because the broad
+      Napa label does not replace vineyard-level suitability evidence.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:25:07.000Z
+  - id: ki_reg_am_case_pacific_northwest_action
+    subject_id: n_reg_am_case_pacific_northwest
+    relation_type: CASE_ACTION
+    object_id: n_reg_am_point_case_pacific_northwest_action
+    domain_id: geography
+    assertion_text: Assess Willamette Pinot Noir for the fresh target and Columbia Valley Cabernet Sauvignon
+      for the ripe target using samples and producer records.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:25:07.000Z
+  - id: ki_reg_am_case_pacific_northwest_reason
+    subject_id: n_reg_am_case_pacific_northwest
+    relation_type: CASE_REASON
+    object_id: n_reg_am_point_case_pacific_northwest_reason
+    domain_id: geography
+    assertion_text: Willamette has a long season with cool evenings; eastern Washington combines warm summer
+      days, cool nights and irrigation in a rain shadow.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:25:07.000Z
+  - id: ki_reg_am_case_pacific_northwest_tradeoff
+    subject_id: n_reg_am_case_pacific_northwest
+    relation_type: CASE_TRADEOFF
+    object_id: n_reg_am_point_case_pacific_northwest_tradeoff
+    domain_id: business
+    assertion_text: The hypothetical lower unit quote trades against a larger inventory commitment; compare
+      working capital and likely sales rather than treating region as a price guarantee.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:25:07.000Z
+  - id: ki_reg_am_case_pacific_northwest_limitation
+    subject_id: n_reg_am_case_pacific_northwest
+    relation_type: CASE_LIMITATION
+    object_id: n_reg_am_point_case_pacific_northwest_limitation
+    domain_id: geography
+    assertion_text: Region and latitude provide context, but site diversity and actual production choices
+      require sample assessment and records before guaranteeing the finished wine.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:25:07.000Z
+  - id: ki_reg_am_case_chile_white_action
+    subject_id: n_reg_am_case_chile_white
+    relation_type: CASE_ACTION
+    object_id: n_reg_am_point_case_chile_white_action
+    domain_id: geography
+    assertion_text: Select the coastal Chardonnay that demonstrably meets the freshness target if its quoted
+      cost and available volume suit the business plan.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:25:07.000Z
+  - id: ki_reg_am_case_chile_white_reason
+    subject_id: n_reg_am_case_chile_white
+    relation_type: CASE_REASON
+    object_id: n_reg_am_point_case_chile_white_reason
+    domain_id: geography
+    assertion_text: Coastal Aconcagua supports cooler-climate varieties including Chardonnay, contrasting
+      with inland red-variety traditions; the stated samples provide the final style evidence.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:25:07.000Z
+  - id: ki_reg_am_case_chile_white_tradeoff
+    subject_id: n_reg_am_case_chile_white
+    relation_type: CASE_TRADEOFF
+    object_id: n_reg_am_point_case_chile_white_tradeoff
+    domain_id: business
+    assertion_text: The scenario trades a closer style fit against a higher quoted price and smaller supply;
+      plan the required margin and volume without declaring all coastal wines expensive.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:25:07.000Z
+  - id: ki_reg_am_case_chile_white_limitation
+    subject_id: n_reg_am_case_chile_white
+    relation_type: CASE_LIMITATION
+    object_id: n_reg_am_point_case_chile_white_limitation
+    domain_id: winemaking
+    assertion_text: Coastal origin is useful context, but verify the batch and production choices; region
+      does not guarantee quality, exact flavour or absence of oak.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:25:07.000Z
+  - id: ki_reg_am_case_mendoza_claim_action
+    subject_id: n_reg_am_case_mendoza_claim
+    relation_type: CASE_ACTION
+    object_id: n_reg_am_point_case_mendoza_claim_action
+    domain_id: business
+    assertion_text: Compare both samples and their total quoted cost against balance and margin targets; do
+      not accept altitude alone as justification for the higher price.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:25:07.000Z
+  - id: ki_reg_am_case_mendoza_claim_reason
+    subject_id: n_reg_am_case_mendoza_claim
+    relation_type: CASE_REASON
+    object_id: n_reg_am_point_case_mendoza_claim_reason
+    domain_id: viticulture
+    assertion_text: High-altitude Mendoza conditions can moderate temperature and increase UV-B exposure,
+      affecting ripening and Malbec phenolics; these are mechanisms rather than a universal quality
+      score.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:25:07.000Z
+  - id: ki_reg_am_case_mendoza_claim_tradeoff
+    subject_id: n_reg_am_case_mendoza_claim
+    relation_type: CASE_TRADEOFF
+    object_id: n_reg_am_point_case_mendoza_claim_tradeoff
+    domain_id: business
+    assertion_text: Under the stated quotes, paying more reduces margin unless the actual style or sales case
+      justifies it; a physical site effect is not itself evidence of commercial value.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:25:07.000Z
+  - id: ki_reg_am_case_mendoza_claim_limitation
+    subject_id: n_reg_am_case_mendoza_claim
+    relation_type: CASE_LIMITATION
+    object_id: n_reg_am_point_case_mendoza_claim_limitation
+    domain_id: winemaking
+    assertion_text: The samples differ in harvest date and oak regime, so the comparison cannot isolate
+      altitude; obtain matched production information before claiming the cause of their sensory
+      differences.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:25:07.000Z
+certification_knowledge_mappings:
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_am_carneros_cooling
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_am_carneros_cooling
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_am_carneros_cooling
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_am_upper_napa_warmth
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_am_upper_napa_warmth
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_am_upper_napa_warmth
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_am_russian_river_pinot
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_am_russian_river_pinot
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_am_russian_river_pinot
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_am_alexander_cabernet
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_am_alexander_cabernet
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_am_alexander_cabernet
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_am_templeton_air
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_am_templeton_air
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_am_templeton_air
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_am_templeton_ripening
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_am_templeton_ripening
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_am_templeton_ripening
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_am_willamette_pinot
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_am_willamette_pinot
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_am_willamette_pinot
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_am_rogue_diversity
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_am_rogue_diversity
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_am_rogue_diversity
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_am_eola_wind
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_am_eola_wind
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_am_eola_wind
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_am_eola_grapes
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_am_eola_grapes
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_am_eola_grapes
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_am_washington_irrigation
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_am_washington_irrigation
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_am_washington_irrigation
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_am_washington_diurnal
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_am_washington_diurnal
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_am_washington_diurnal
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_am_finger_spring
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_am_finger_spring
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_am_finger_spring
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_am_finger_autumn
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_am_finger_autumn
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_am_finger_autumn
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_am_niagara_water
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_am_niagara_water
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_am_niagara_water
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_am_okanagan_variation
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_am_okanagan_variation
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_am_okanagan_variation
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_am_aconcagua_coast
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_am_aconcagua_coast
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_am_aconcagua_coast
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_am_maipo_cabernet
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_am_maipo_cabernet
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_am_maipo_cabernet
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_am_casablanca_low
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_am_casablanca_low
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_am_casablanca_low
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_am_casablanca_high
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_am_casablanca_high
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_am_casablanca_high
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_am_limari_chardonnay
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_am_limari_chardonnay
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_am_limari_chardonnay
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_am_colchagua_reds
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_am_colchagua_reds
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_am_colchagua_reds
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_am_mendoza_temperature
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_am_mendoza_temperature
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_am_mendoza_temperature
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_am_malbec_uv
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_am_malbec_uv
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_am_malbec_uv
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_am_andes_irrigation
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_am_andes_irrigation
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_am_andes_irrigation
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_am_argentina_methods
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_am_argentina_methods
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_am_argentina_methods
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_am_patagonia_latitude
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_am_patagonia_latitude
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_am_patagonia_latitude
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_am_patagonia_evaporation
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_am_patagonia_evaporation
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_am_patagonia_evaporation
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_am_case_california_sites_action
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_am_case_california_sites_reason
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_am_case_california_sites_tradeoff
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_am_case_california_sites_limitation
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_am_case_pacific_northwest_action
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_am_case_pacific_northwest_reason
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_am_case_pacific_northwest_tradeoff
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_am_case_pacific_northwest_limitation
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_am_case_chile_white_action
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_am_case_chile_white_reason
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_am_case_chile_white_tradeoff
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_am_case_chile_white_limitation
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_am_case_mendoza_claim_action
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_am_case_mendoza_claim_reason
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_am_case_mendoza_claim_tradeoff
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_am_case_mendoza_claim_limitation
+    importance: core
+    minimum_depth: 3
+source_citations:
+  - id: src_reg_am_napa
+    kind: reference_work
+    title: Climate
+    publisher: Napa Valley Vintners
+    document_identifier: Living regional-body climate description; promotional quality claims and numeric percentages unused
+    url: https://napavintners.com/napa_valley/science/climate/
+    accessed_on: 2026-09-27
+  - id: src_reg_am_napa_regions
+    kind: reference_work
+    title: What Makes Napa Valley Ideal for Growing Wine Grapes?
+    publisher: Napa Valley Vintners
+    document_identifier: Regional descriptions and example principal varieties; not a complete permission list
+    url: https://wine.napavintners.com/region
+    accessed_on: 2026-09-27
+  - id: src_reg_am_sonoma
+    kind: reference_work
+    title: Sonoma County Terroir
+    publisher: Sonoma County Winegrowers
+    document_identifier: Russian River Valley and Alexander Valley descriptions; numeric counts and
+      comparative superlatives unused
+    url: https://sonomawinegrape.org/visit/sonoma-county-terroir/
+    accessed_on: 2026-09-27
+  - id: src_reg_am_paso
+    kind: reference_work
+    title: Templeton Gap District
+    publisher: Paso Robles Wine Country Alliance
+    document_identifier: Christopher Taranto, 4 August 2021; Climate section only; law and soil-to-acidity claim unused
+    url: https://pasowine.com/templeton-gap-district/
+    accessed_on: 2026-09-27
+  - id: src_reg_am_willamette
+    kind: reference_work
+    title: Willamette Valley
+    publisher: Oregon Wine Board
+    document_identifier: Regional climatic and grape examples; no complete grape list
+    url: https://www.oregonwine.org/regions/willamette-valley/
+    accessed_on: 2026-09-27
+  - id: src_reg_am_rogue
+    kind: reference_work
+    title: Rogue Valley AVA Wine Region
+    publisher: Oregon Wine Board
+    document_identifier: About the Rogue Valley; progressively warmer microclimates
+    url: https://www.oregonwine.org/regions/rogue-valley/
+    accessed_on: 2026-09-27
+  - id: src_reg_am_eola
+    kind: reference_work
+    title: Eola-Amity Hills AVA Wine Region
+    publisher: Oregon Wine Board
+    document_identifier: Cool air drives personality and Dig deeper; numerical statistics unused
+    url: https://www.oregonwine.org/regions/willamette-valley/eola-amity-hills-ava/
+    accessed_on: 2026-09-27
+  - id: src_reg_am_washington
+    kind: reference_work
+    title: Grapes, Soil, & Sun
+    publisher: Washington State Wine Commission
+    document_identifier: Climate, Rain Shadow Effect, Diversity and variety examples; quantitative production shares unused
+    url: https://www.washingtonwine.org/grapes-soil-sun/
+    accessed_on: 2026-09-27
+  - id: src_reg_am_finger
+    kind: reference_work
+    title: Finger Lakes
+    publisher: New York Wine & Grape Foundation
+    document_identifier: Climate section; date of publication not stated; no claim of guaranteed frost protection
+    url: https://newyorkwines.org/avas/finger-lakes/
+    accessed_on: 2026-09-27
+  - id: src_reg_am_niagara
+    kind: reference_work
+    title: Niagara-on-the-Lake
+    publisher: Ontario Wine Appellation Authority
+    document_identifier: Characteristics, Climate; descriptive site contrast only, not appellation permission law
+    url: https://vqaontario.ca/ontario-appellations/niagara-peninsula/niagara-on-the-lake/
+    accessed_on: 2026-09-27
+  - id: src_reg_am_okanagan
+    kind: reference_work
+    title: Okanagan Valley Wine Country
+    publisher: Wines of British Columbia
+    document_identifier: Overview; regional diversity description, no current production totals or numerical
+      climate assertion
+    url: https://winebc.com/wine-regions/okanagan-valley/
+    accessed_on: 2026-09-27
+  - id: src_reg_am_chile
+    kind: reference_work
+    title: Wine Regions Map
+    publisher: Wines of Chile
+    document_identifier: Text entries for Limari, Aconcagua, Casablanca, Maipo and Colchagua; no map artwork,
+      hectare figures, legal hierarchy or mineral-flavour claims used
+    url: https://www.winesofchile.org/wine-regions-map/
+    accessed_on: 2026-09-27
+  - id: src_reg_am_adrianna
+    kind: reference_work
+    title: Adrianna Vineyard
+    publisher: Catena Institute of Wine
+    document_identifier: High Altitude and soil heterogeneity; primary research-partner account; promotional
+      quality rankings unused
+    url: https://catenainstitute.com/adrianna-vineyard/
+    accessed_on: 2026-09-27
+  - id: src_reg_am_argentina_water
+    kind: reference_work
+    title: Argentina Wine Country introduction
+    publisher: Wines of Argentina
+    document_identifier: Public regional-body presentation, physical PDF pages 7 and 9; Climate and Water;
+      dated market data and absolute purity claims unused
+    url: https://api.winesofargentina.org/uploads/2020/01/n5FlX7Bh7x_INTRODUCTION_TO_ARGENTINA_PRESENTATION_-_Eng.pdf
+    accessed_on: 2026-09-27
+  - id: src_reg_am_patagonia
+    kind: reference_work
+    title: Climate
+    publisher: Ente Regional Oficial de Turismo Patagonia Turistica
+    document_identifier: Regional climate description; latitude trend and wind, no single climate for all Patagonia
+    url: https://patagonia.gob.ar/wp2019/en/organice-su-viaje/climate/
+    accessed_on: 2026-09-27
+  - id: src_reg_am_patagonia_wind
+    kind: academic
+    title: Large-Scale Control on the Patagonian Climate
+    publisher: Rene D. Garreaud et al.; American Meteorological Society, Journal of Climate
+    document_identifier: 2013 original climate research; Introduction, eastern Patagonia aridity and highly
+      evaporative wind; DOI 10.1175/JCLI-D-12-00001.1
+    url: https://journals.ametsoc.org/view/journals/clim/26/1/jcli-d-12-00001.1.xml
+    accessed_on: 2026-09-27
+knowledge_item_citations:
+  - knowledge_item_id: ki_reg_am_carneros_cooling
+    source_citation_id: src_reg_am_napa
+    locator: Climate; Carneros and marine breezes
+  - knowledge_item_id: ki_reg_am_upper_napa_warmth
+    source_citation_id: src_reg_am_napa
+    locator: Climate; farther up the valley and local growing conditions
+  - knowledge_item_id: ki_reg_am_russian_river_pinot
+    source_citation_id: src_reg_am_sonoma
+    locator: Fog/Marine Influence; Russian River Valley; introductory grape examples
+  - knowledge_item_id: ki_reg_am_alexander_cabernet
+    source_citation_id: src_reg_am_sonoma
+    locator: Climate & Temperature; Alexander Valley
+  - knowledge_item_id: ki_reg_am_templeton_air
+    source_citation_id: src_reg_am_paso
+    locator: Climate; ocean air through the gap
+  - knowledge_item_id: ki_reg_am_templeton_ripening
+    source_citation_id: src_reg_am_paso
+    locator: Climate; longer hang time and cool-climate varieties
+  - knowledge_item_id: ki_reg_am_willamette_pinot
+    source_citation_id: src_reg_am_willamette
+    locator: Regional overview; climate and flagship Pinot noir
+  - knowledge_item_id: ki_reg_am_rogue_diversity
+    source_citation_id: src_reg_am_rogue
+    locator: About the Rogue Valley; three valleys and variety range
+  - knowledge_item_id: ki_reg_am_eola_wind
+    source_citation_id: src_reg_am_eola
+    locator: Cool air drives personality; late-summer air and acidity
+  - knowledge_item_id: ki_reg_am_eola_grapes
+    source_citation_id: src_reg_am_eola
+    locator: Dig deeper; predominant varieties; conditional comparison inference
+  - knowledge_item_id: ki_reg_am_washington_irrigation
+    source_citation_id: src_reg_am_washington
+    locator: Rain Shadow Effect; Diversity; Columbia River
+  - knowledge_item_id: ki_reg_am_washington_diurnal
+    source_citation_id: src_reg_am_washington
+    locator: Long, Warm Days; Cool Nights & Rapid Cooling at Harvest
+  - knowledge_item_id: ki_reg_am_finger_spring
+    source_citation_id: src_reg_am_finger
+    locator: Climate; spring lake effect
+  - knowledge_item_id: ki_reg_am_finger_autumn
+    source_citation_id: src_reg_am_finger
+    locator: Climate; autumn lake effect and variability
+  - knowledge_item_id: ki_reg_am_niagara_water
+    source_citation_id: src_reg_am_niagara
+    locator: Characteristics; Climate
+  - knowledge_item_id: ki_reg_am_okanagan_variation
+    source_citation_id: src_reg_am_okanagan
+    locator: Overview; varied subregions, soil and climate; conditional comparison inference
+  - knowledge_item_id: ki_reg_am_aconcagua_coast
+    source_citation_id: src_reg_am_chile
+    locator: Aconcagua Valley; coast and inland contrast
+  - knowledge_item_id: ki_reg_am_maipo_cabernet
+    source_citation_id: src_reg_am_chile
+    locator: Maipo Valley; summer climate and Cabernet Sauvignon
+  - knowledge_item_id: ki_reg_am_casablanca_low
+    source_citation_id: src_reg_am_chile
+    locator: Casa Blanca Valley; Pacific influence and lower sites
+  - knowledge_item_id: ki_reg_am_casablanca_high
+    source_citation_id: src_reg_am_chile
+    locator: Casa Blanca Valley; higher warmer elevations; qualified topographic inference
+  - knowledge_item_id: ki_reg_am_limari_chardonnay
+    source_citation_id: src_reg_am_chile
+    locator: Limari and Choapa Valleys; coastal adaptation and Camanchaca
+  - knowledge_item_id: ki_reg_am_colchagua_reds
+    source_citation_id: src_reg_am_chile
+    locator: Colchagua Valley; breezes, ripening and red varieties
+  - knowledge_item_id: ki_reg_am_mendoza_temperature
+    source_citation_id: src_reg_am_adrianna
+    locator: High Altitude; temperature moderation
+  - knowledge_item_id: ki_reg_am_malbec_uv
+    source_citation_id: src_reg_am_adrianna
+    locator: Light Environment; sunlight intensity experiments and berry phenolics
+  - knowledge_item_id: ki_reg_am_andes_irrigation
+    source_citation_id: src_reg_am_argentina_water
+    locator: Physical PDF pages 7 and 9; dry climate and main irrigation source
+  - knowledge_item_id: ki_reg_am_argentina_methods
+    source_citation_id: src_reg_am_argentina_water
+    locator: Physical PDF page 9; flood and drip methods; conditional planning inference
+  - knowledge_item_id: ki_reg_am_patagonia_latitude
+    source_citation_id: src_reg_am_patagonia
+    locator: Climate; southward temperatures and geographic diversity
+  - knowledge_item_id: ki_reg_am_patagonia_evaporation
+    source_citation_id: src_reg_am_patagonia_wind
+    locator: Introduction; eastern Patagonia aridity, wind and highly evaporative surface conditions
+  - knowledge_item_id: ki_reg_am_case_california_sites_action
+    source_citation_id: src_reg_am_napa_regions
+    locator: Los Carneros and upper-valley principal varieties; original conditional allocation
+  - knowledge_item_id: ki_reg_am_case_california_sites_reason
+    source_citation_id: src_reg_am_napa
+    locator: Climate; marine contrast
+  - knowledge_item_id: ki_reg_am_case_california_sites_tradeoff
+    source_citation_id: src_reg_am_napa_regions
+    locator: Regional grape/climate examples; cost and target tradeoff inferred from hypothetical premises
+  - knowledge_item_id: ki_reg_am_case_california_sites_limitation
+    source_citation_id: src_reg_am_napa
+    locator: Climate; hills, exposure and elevation differentiate conditions
+  - knowledge_item_id: ki_reg_am_case_pacific_northwest_action
+    source_citation_id: src_reg_am_willamette
+    locator: Regional overview; flagship Pinot noir; original conditional choice
+  - knowledge_item_id: ki_reg_am_case_pacific_northwest_reason
+    source_citation_id: src_reg_am_washington
+    locator: Climate; Rain Shadow Effect; comparison also cited to Willamette
+  - knowledge_item_id: ki_reg_am_case_pacific_northwest_tradeoff
+    source_citation_id: src_reg_am_washington
+    locator: Diversity; commercial inference derives from scenario order conditions
+  - knowledge_item_id: ki_reg_am_case_pacific_northwest_limitation
+    source_citation_id: src_reg_am_washington
+    locator: Diversity; range of heat accumulation and grapes
+  - knowledge_item_id: ki_reg_am_case_chile_white_action
+    source_citation_id: src_reg_am_chile
+    locator: Aconcagua Valley; coastal Chardonnay; action depends on stated samples
+  - knowledge_item_id: ki_reg_am_case_chile_white_reason
+    source_citation_id: src_reg_am_chile
+    locator: Aconcagua Valley; coast/inland varieties
+  - knowledge_item_id: ki_reg_am_case_chile_white_tradeoff
+    source_citation_id: src_reg_am_chile
+    locator: Aconcagua Valley; commercial tradeoff inferred from hypothetical quotes
+  - knowledge_item_id: ki_reg_am_case_chile_white_limitation
+    source_citation_id: src_reg_am_chile
+    locator: Aconcagua Valley; contextual rather than deterministic comparison
+  - knowledge_item_id: ki_reg_am_case_mendoza_claim_action
+    source_citation_id: src_reg_am_adrianna
+    locator: Soil heterogeneity and High Altitude; evaluation inferred from scenario targets
+  - knowledge_item_id: ki_reg_am_case_mendoza_claim_reason
+    source_citation_id: src_reg_am_adrianna
+    locator: High Altitude; Light Environment experiments
+  - knowledge_item_id: ki_reg_am_case_mendoza_claim_tradeoff
+    source_citation_id: src_reg_am_adrianna
+    locator: High Altitude; commercial inference from hypothetical quote and margin
+  - knowledge_item_id: ki_reg_am_case_mendoza_claim_limitation
+    source_citation_id: src_reg_am_adrianna
+    locator: Soil and site heterogeneity; controlled-protocol comparison described under soil properties;
+      original confounding inference
+  - knowledge_item_id: ki_reg_am_case_pacific_northwest_reason
+    source_citation_id: src_reg_am_willamette
+    locator: Regional overview; long gentle season and cool evenings
+  - knowledge_item_id: ki_reg_am_case_california_sites_action
+    source_citation_id: src_reg_am_napa
+    locator: Climate; Carneros versus warmer upper-valley conditions
+  - knowledge_item_id: ki_reg_am_case_california_sites_tradeoff
+    source_citation_id: src_biz_au_pricing
+    locator: Research your market; Cost-plus pricing; Value pricing; editorial application to hypothetical
+      quotes and target benefits; Australian legal rules unused
+  - knowledge_item_id: ki_reg_am_case_chile_white_tradeoff
+    source_citation_id: src_biz_au_pricing
+    locator: Research your market; Cost-plus pricing; Value pricing; editorial application to hypothetical
+      quotes and target benefits; Australian legal rules unused
+  - knowledge_item_id: ki_reg_am_case_mendoza_claim_action
+    source_citation_id: src_biz_au_pricing
+    locator: Research your market; Cost-plus pricing; Value pricing; editorial application to hypothetical
+      quotes and target benefits; Australian legal rules unused
+  - knowledge_item_id: ki_reg_am_case_mendoza_claim_tradeoff
+    source_citation_id: src_biz_au_pricing
+    locator: Research your market; Cost-plus pricing; Value pricing; editorial application to hypothetical
+      quotes and target benefits; Australian legal rules unused
+  - knowledge_item_id: ki_reg_am_case_pacific_northwest_tradeoff
+    source_citation_id: src_biz_au_cashflow
+    locator: Manage your inventory; over-ordering ties up cash; original application to hypothetical larger order
+  - knowledge_item_id: ki_reg_am_case_pacific_northwest_action
+    source_citation_id: src_srv_oiv_sensory
+    locator: Part I, 3.2-3.3 and 4-5; controlled sample evaluation and limiting expectation bias; editorial
+      application, no official tasting-grid claim
+  - knowledge_item_id: ki_reg_am_case_pacific_northwest_limitation
+    source_citation_id: src_srv_oiv_sensory
+    locator: Part I, 3.2-3.3 and 4-5; controlled sample evaluation and limiting expectation bias; editorial
+      application, no official tasting-grid claim
+  - knowledge_item_id: ki_reg_am_case_chile_white_action
+    source_citation_id: src_srv_oiv_sensory
+    locator: Part I, 3.2-3.3 and 4-5; controlled sample evaluation and limiting expectation bias; editorial
+      application, no official tasting-grid claim
+  - knowledge_item_id: ki_reg_am_case_chile_white_limitation
+    source_citation_id: src_srv_oiv_sensory
+    locator: Part I, 3.2-3.3 and 4-5; controlled sample evaluation and limiting expectation bias; editorial
+      application, no official tasting-grid claim
+  - knowledge_item_id: ki_reg_am_case_mendoza_claim_action
+    source_citation_id: src_srv_oiv_sensory
+    locator: Part I, 3.2-3.3 and 4-5; controlled sample evaluation and limiting expectation bias; editorial
+      application, no official tasting-grid claim
+  - knowledge_item_id: ki_reg_am_case_mendoza_claim_limitation
+    source_citation_id: src_srv_oiv_sensory
+    locator: Part I, 3.2-3.3 and 4-5; controlled sample evaluation and limiting expectation bias; editorial
+      application, no official tasting-grid claim

@@ -1,0 +1,87 @@
+# Original self-checked decisions; each rubric is scoped to its own scenario.
+question_templates:
+  - id: qt_fault_case_sulfur_before_bottling
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: fault_sulfur_before_bottling
+    prompt_template: A finished white wine awaiting bottling smells of rotten egg and onion. The producer
+      proposes an unmeasured last-minute copper addition followed by filtration. Give a defensible
+      investigation and treatment plan, its rationale, a tradeoff and a limitation. Do not assume that all
+      sulfur compounds respond alike or that filtration removes all copper.
+    parameters:
+      scope_node_ids:
+        - n_fault_case_sulfur_before_bottling
+      key_points:
+        CASE_ACTION: Defensible action
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or follow-up
+  - id: qt_fault_case_brett_rising
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: fault_brett_rising
+    prompt_template: A laboratory identifies Brettanomyces in a barrel lot after MLF, and repeated analyses show
+      rising volatile phenols. The wine is intended to retain clean fruit. Propose a response that addresses
+      ongoing growth and the existing sensory effect; explain its rationale, a tradeoff and a limitation. No
+      uniquely optimal remedy is assumed.
+    parameters:
+      scope_node_ids:
+        - n_fault_case_brett_rising
+      key_points:
+        CASE_ACTION: Defensible action
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or follow-up
+  - id: qt_fault_case_lit_display
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: fault_lit_display
+    prompt_template: Clear-bottle white wines have spent weeks in a bright retail window. Some samples now show
+      cabbage-like character absent from stock kept in cartons. Give a defensible display response, explain
+      the possible mechanism, discuss a commercial tradeoff and a diagnostic limitation. The descriptor
+      alone does not establish the cause.
+    parameters:
+      scope_node_ids:
+        - n_fault_case_lit_display
+      key_points:
+        CASE_ACTION: Defensible action
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or follow-up
+  - id: qt_fault_case_hot_delivery
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: fault_hot_delivery
+    prompt_template: A wine delivery has experienced a recorded hot period in transit, and a few cork-sealed
+      bottles show leakage. The same lot has holdback samples stored under known conditions. Propose an
+      evidence-based assessment before sale, explain why, identify a tradeoff and a limitation. Do not
+      assume either that every bottle is spoiled or that intact closures prove sound wine.
+    parameters:
+      scope_node_ids:
+        - n_fault_case_hot_delivery
+      key_points:
+        CASE_ACTION: Defensible action
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or follow-up
+  - id: qt_fault_case_sporadic_sweet_spoilage
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: fault_sporadic_sweet_spoilage
+    prompt_template: After packaging, some bottles of a still sweet wine develop unexpected gas and haze while
+      others remain apparently clear. The producer proposes blaming the whole problem on a filter failure
+      without testing the wine or line. Give a more defensible investigation, its rationale, a tradeoff and
+      a limitation. The scenario does not concern intentional sparkling fermentation.
+    parameters:
+      scope_node_ids:
+        - n_fault_case_sporadic_sweet_spoilage
+      key_points:
+        CASE_ACTION: Defensible action
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or follow-up

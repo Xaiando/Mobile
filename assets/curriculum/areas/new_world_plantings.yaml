@@ -1,0 +1,398 @@
+# Dated planting ranks, not legal grape permissions or an exhaustive cultivation list.
+# Completeness covers exactly the two highest individual-variety planted areas
+# in the observed 2025 columns; the 2026–28 forecast columns are not used.
+relation_types:
+  - id: TOP_PLANTED_GRAPE
+    label: has a top-two planted variety in its dated record
+    reverse_label: is a top-two planted variety in the dated record
+    cardinality: many
+    default_domain_id: geography
+    distractor_match_relation_type: HAS_BERRY_COLOUR
+relation_type_signatures:
+  - relation_type: TOP_PLANTED_GRAPE
+    subject_node_type: statistic
+    object_node_type: grape
+  - relation_type: STATISTIC_IN_AREA
+    subject_node_type: statistic
+    object_node_type: appellation
+knowledge_nodes:
+  - id: n_stat_nz_top_two_planted_2025_marlborough
+    node_type: statistic
+    name: Marlborough top-two planted varieties (2025)
+  - id: n_stat_nz_top_two_planted_2025_central_otago
+    node_type: statistic
+    name: Central Otago top-two planted varieties (2025)
+  - id: n_stat_nz_top_two_planted_2025_hawkes_bay
+    node_type: statistic
+    name: Hawke’s Bay top-two planted varieties (2025)
+  - id: n_stat_nz_top_two_planted_2025_gisborne
+    node_type: statistic
+    name: Gisborne top-two planted varieties (2025)
+  - id: n_stat_nz_top_two_planted_2025_nelson
+    node_type: statistic
+    name: Nelson top-two planted varieties (2025)
+  - id: n_stat_nz_top_two_planted_2025_wairarapa
+    node_type: statistic
+    name: Wairarapa top-two planted varieties (2025)
+knowledge_relations:
+  - subject_id: n_stat_nz_top_two_planted_2025_marlborough
+    relation_type: STATISTIC_IN_AREA
+    object_id: n_geo_marlborough
+    valid_from: 2026-02-26
+  - subject_id: n_stat_nz_top_two_planted_2025_marlborough
+    relation_type: TOP_PLANTED_GRAPE
+    object_id: n_grape_sauvignon_blanc
+    valid_from: 2026-02-26
+  - subject_id: n_stat_nz_top_two_planted_2025_marlborough
+    relation_type: TOP_PLANTED_GRAPE
+    object_id: n_grape_pinot_noir
+    valid_from: 2026-02-26
+  - subject_id: n_stat_nz_top_two_planted_2025_central_otago
+    relation_type: STATISTIC_IN_AREA
+    object_id: n_geo_central_otago
+    valid_from: 2026-02-26
+  - subject_id: n_stat_nz_top_two_planted_2025_central_otago
+    relation_type: TOP_PLANTED_GRAPE
+    object_id: n_grape_pinot_noir
+    valid_from: 2026-02-26
+  - subject_id: n_stat_nz_top_two_planted_2025_central_otago
+    relation_type: TOP_PLANTED_GRAPE
+    object_id: n_grape_pinot_gris
+    valid_from: 2026-02-26
+  - subject_id: n_stat_nz_top_two_planted_2025_hawkes_bay
+    relation_type: STATISTIC_IN_AREA
+    object_id: n_geo_hawkes_bay
+    valid_from: 2026-02-26
+  - subject_id: n_stat_nz_top_two_planted_2025_hawkes_bay
+    relation_type: TOP_PLANTED_GRAPE
+    object_id: n_grape_sauvignon_blanc
+    valid_from: 2026-02-26
+  - subject_id: n_stat_nz_top_two_planted_2025_hawkes_bay
+    relation_type: TOP_PLANTED_GRAPE
+    object_id: n_grape_chardonnay
+    valid_from: 2026-02-26
+  - subject_id: n_stat_nz_top_two_planted_2025_gisborne
+    relation_type: STATISTIC_IN_AREA
+    object_id: n_geo_gisborne
+    valid_from: 2026-02-26
+  - subject_id: n_stat_nz_top_two_planted_2025_gisborne
+    relation_type: TOP_PLANTED_GRAPE
+    object_id: n_grape_sauvignon_blanc
+    valid_from: 2026-02-26
+  - subject_id: n_stat_nz_top_two_planted_2025_gisborne
+    relation_type: TOP_PLANTED_GRAPE
+    object_id: n_grape_chardonnay
+    valid_from: 2026-02-26
+  - subject_id: n_stat_nz_top_two_planted_2025_nelson
+    relation_type: STATISTIC_IN_AREA
+    object_id: n_geo_nelson
+    valid_from: 2026-02-26
+  - subject_id: n_stat_nz_top_two_planted_2025_nelson
+    relation_type: TOP_PLANTED_GRAPE
+    object_id: n_grape_sauvignon_blanc
+    valid_from: 2026-02-26
+  - subject_id: n_stat_nz_top_two_planted_2025_nelson
+    relation_type: TOP_PLANTED_GRAPE
+    object_id: n_grape_pinot_noir
+    valid_from: 2026-02-26
+  - subject_id: n_stat_nz_top_two_planted_2025_wairarapa
+    relation_type: STATISTIC_IN_AREA
+    object_id: n_geo_wairarapa
+    valid_from: 2026-02-26
+  - subject_id: n_stat_nz_top_two_planted_2025_wairarapa
+    relation_type: TOP_PLANTED_GRAPE
+    object_id: n_grape_sauvignon_blanc
+    valid_from: 2026-02-26
+  - subject_id: n_stat_nz_top_two_planted_2025_wairarapa
+    relation_type: TOP_PLANTED_GRAPE
+    object_id: n_grape_pinot_noir
+    valid_from: 2026-02-26
+knowledge_items:
+  - id: ki_nz_2025_marlborough_top_sauvignon_blanc
+    subject_id: n_stat_nz_top_two_planted_2025_marlborough
+    relation_type: TOP_PLANTED_GRAPE
+    object_id: n_grape_sauvignon_blanc
+    domain_id: geography
+    assertion_text: "Marlborough: Sauvignon Blanc was a top-two planted variety (2025)."
+    last_verified_at: 2026-09-26T21:10:00.000Z
+  - id: ki_nz_2025_marlborough_top_pinot_noir
+    subject_id: n_stat_nz_top_two_planted_2025_marlborough
+    relation_type: TOP_PLANTED_GRAPE
+    object_id: n_grape_pinot_noir
+    domain_id: geography
+    assertion_text: "Marlborough: Pinot Noir was a top-two planted variety (2025)."
+    last_verified_at: 2026-09-26T21:10:00.000Z
+  - id: ki_nz_2025_central_otago_top_pinot_noir
+    subject_id: n_stat_nz_top_two_planted_2025_central_otago
+    relation_type: TOP_PLANTED_GRAPE
+    object_id: n_grape_pinot_noir
+    domain_id: geography
+    assertion_text: "Central Otago: Pinot Noir was a top-two planted variety (2025)."
+    last_verified_at: 2026-09-26T21:10:00.000Z
+  - id: ki_nz_2025_central_otago_top_pinot_gris
+    subject_id: n_stat_nz_top_two_planted_2025_central_otago
+    relation_type: TOP_PLANTED_GRAPE
+    object_id: n_grape_pinot_gris
+    domain_id: geography
+    assertion_text: "Central Otago: Pinot Gris was a top-two planted variety (2025)."
+    mcq_disabled: true
+    last_verified_at: 2026-09-26T21:10:00.000Z
+  - id: ki_nz_2025_hawkes_bay_top_sauvignon_blanc
+    subject_id: n_stat_nz_top_two_planted_2025_hawkes_bay
+    relation_type: TOP_PLANTED_GRAPE
+    object_id: n_grape_sauvignon_blanc
+    domain_id: geography
+    assertion_text: "Hawke’s Bay: Sauvignon Blanc was a top-two planted variety (2025)."
+    last_verified_at: 2026-09-26T21:10:00.000Z
+  - id: ki_nz_2025_hawkes_bay_top_chardonnay
+    subject_id: n_stat_nz_top_two_planted_2025_hawkes_bay
+    relation_type: TOP_PLANTED_GRAPE
+    object_id: n_grape_chardonnay
+    domain_id: geography
+    assertion_text: "Hawke’s Bay: Chardonnay was a top-two planted variety (2025)."
+    last_verified_at: 2026-09-26T21:10:00.000Z
+  - id: ki_nz_2025_gisborne_top_sauvignon_blanc
+    subject_id: n_stat_nz_top_two_planted_2025_gisborne
+    relation_type: TOP_PLANTED_GRAPE
+    object_id: n_grape_sauvignon_blanc
+    domain_id: geography
+    assertion_text: "Gisborne: Sauvignon Blanc was a top-two planted variety (2025)."
+    last_verified_at: 2026-09-26T21:10:00.000Z
+  - id: ki_nz_2025_gisborne_top_chardonnay
+    subject_id: n_stat_nz_top_two_planted_2025_gisborne
+    relation_type: TOP_PLANTED_GRAPE
+    object_id: n_grape_chardonnay
+    domain_id: geography
+    assertion_text: "Gisborne: Chardonnay was a top-two planted variety (2025)."
+    last_verified_at: 2026-09-26T21:10:00.000Z
+  - id: ki_nz_2025_nelson_top_sauvignon_blanc
+    subject_id: n_stat_nz_top_two_planted_2025_nelson
+    relation_type: TOP_PLANTED_GRAPE
+    object_id: n_grape_sauvignon_blanc
+    domain_id: geography
+    assertion_text: "Nelson: Sauvignon Blanc was a top-two planted variety (2025)."
+    last_verified_at: 2026-09-26T21:10:00.000Z
+  - id: ki_nz_2025_nelson_top_pinot_noir
+    subject_id: n_stat_nz_top_two_planted_2025_nelson
+    relation_type: TOP_PLANTED_GRAPE
+    object_id: n_grape_pinot_noir
+    domain_id: geography
+    assertion_text: "Nelson: Pinot Noir was a top-two planted variety (2025)."
+    last_verified_at: 2026-09-26T21:10:00.000Z
+  - id: ki_nz_2025_wairarapa_top_sauvignon_blanc
+    subject_id: n_stat_nz_top_two_planted_2025_wairarapa
+    relation_type: TOP_PLANTED_GRAPE
+    object_id: n_grape_sauvignon_blanc
+    domain_id: geography
+    assertion_text: "Wairarapa: Sauvignon Blanc was a top-two planted variety (2025)."
+    last_verified_at: 2026-09-26T21:10:00.000Z
+  - id: ki_nz_2025_wairarapa_top_pinot_noir
+    subject_id: n_stat_nz_top_two_planted_2025_wairarapa
+    relation_type: TOP_PLANTED_GRAPE
+    object_id: n_grape_pinot_noir
+    domain_id: geography
+    assertion_text: "Wairarapa: Pinot Noir was a top-two planted variety (2025)."
+    last_verified_at: 2026-09-26T21:10:00.000Z
+certification_knowledge_mappings:
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nz_2025_marlborough_top_sauvignon_blanc
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nz_2025_marlborough_top_sauvignon_blanc
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nz_2025_marlborough_top_pinot_noir
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nz_2025_marlborough_top_pinot_noir
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nz_2025_central_otago_top_pinot_noir
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nz_2025_central_otago_top_pinot_noir
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nz_2025_central_otago_top_pinot_gris
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nz_2025_central_otago_top_pinot_gris
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nz_2025_hawkes_bay_top_sauvignon_blanc
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nz_2025_hawkes_bay_top_sauvignon_blanc
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nz_2025_hawkes_bay_top_chardonnay
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nz_2025_hawkes_bay_top_chardonnay
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nz_2025_gisborne_top_sauvignon_blanc
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nz_2025_gisborne_top_sauvignon_blanc
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nz_2025_gisborne_top_chardonnay
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nz_2025_gisborne_top_chardonnay
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nz_2025_nelson_top_sauvignon_blanc
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nz_2025_nelson_top_sauvignon_blanc
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nz_2025_nelson_top_pinot_noir
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nz_2025_nelson_top_pinot_noir
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nz_2025_wairarapa_top_sauvignon_blanc
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nz_2025_wairarapa_top_sauvignon_blanc
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_nz_2025_wairarapa_top_pinot_noir
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_nz_2025_wairarapa_top_pinot_noir
+    importance: secondary
+    minimum_depth: 2
+source_citations:
+  - id: src_nz_vineyard_report_2026
+    kind: dataset
+    title: New Zealand Winegrowers Vineyard Report 2026
+    publisher: New Zealand Winegrowers
+    document_identifier: 2026 edition; observed regional planted-area record for 2025
+    url: https://www.nzwine.com/media/5fzng52v/vineyard-report-2026-final.pdf
+    accessed_on: 2026-09-26
+knowledge_item_citations:
+  - knowledge_item_id: ki_nz_2025_marlborough_top_sauvignon_blanc
+    source_citation_id: src_nz_vineyard_report_2026
+    locator: "Printed pp. 21–22, 2025 regional planted hectares: Marlborough column; largest two
+      individual-variety entries after ranking all rows. Not producing hectares or 2026 predictions."
+  - knowledge_item_id: ki_nz_2025_marlborough_top_pinot_noir
+    source_citation_id: src_nz_vineyard_report_2026
+    locator: "Printed pp. 21–22, 2025 regional planted hectares: Marlborough column; largest two
+      individual-variety entries after ranking all rows. Not producing hectares or 2026 predictions."
+  - knowledge_item_id: ki_nz_2025_central_otago_top_pinot_noir
+    source_citation_id: src_nz_vineyard_report_2026
+    locator: "Printed pp. 21–22, 2025 regional planted hectares: Central Otago column; largest two
+      individual-variety entries after ranking all rows. Not producing hectares or 2026 predictions."
+  - knowledge_item_id: ki_nz_2025_central_otago_top_pinot_gris
+    source_citation_id: src_nz_vineyard_report_2026
+    locator: "Printed pp. 21–22, 2025 regional planted hectares: Central Otago column; largest two
+      individual-variety entries after ranking all rows. Not producing hectares or 2026 predictions."
+  - knowledge_item_id: ki_nz_2025_hawkes_bay_top_sauvignon_blanc
+    source_citation_id: src_nz_vineyard_report_2026
+    locator: "Printed pp. 21–22, 2025 regional planted hectares: Hawke’s Bay column; largest two
+      individual-variety entries after ranking all rows. Not producing hectares or 2026 predictions."
+  - knowledge_item_id: ki_nz_2025_hawkes_bay_top_chardonnay
+    source_citation_id: src_nz_vineyard_report_2026
+    locator: "Printed pp. 21–22, 2025 regional planted hectares: Hawke’s Bay column; largest two
+      individual-variety entries after ranking all rows. Not producing hectares or 2026 predictions."
+  - knowledge_item_id: ki_nz_2025_gisborne_top_sauvignon_blanc
+    source_citation_id: src_nz_vineyard_report_2026
+    locator: "Printed pp. 21–22, 2025 regional planted hectares: Gisborne column; largest two individual-variety
+      entries after ranking all rows. Not producing hectares or 2026 predictions."
+  - knowledge_item_id: ki_nz_2025_gisborne_top_chardonnay
+    source_citation_id: src_nz_vineyard_report_2026
+    locator: "Printed pp. 21–22, 2025 regional planted hectares: Gisborne column; largest two individual-variety
+      entries after ranking all rows. Not producing hectares or 2026 predictions."
+  - knowledge_item_id: ki_nz_2025_nelson_top_sauvignon_blanc
+    source_citation_id: src_nz_vineyard_report_2026
+    locator: "Printed pp. 21–22, 2025 regional planted hectares: Nelson column; largest two individual-variety
+      entries after ranking all rows. Not producing hectares or 2026 predictions."
+  - knowledge_item_id: ki_nz_2025_nelson_top_pinot_noir
+    source_citation_id: src_nz_vineyard_report_2026
+    locator: "Printed pp. 21–22, 2025 regional planted hectares: Nelson column; largest two individual-variety
+      entries after ranking all rows. Not producing hectares or 2026 predictions."
+  - knowledge_item_id: ki_nz_2025_wairarapa_top_sauvignon_blanc
+    source_citation_id: src_nz_vineyard_report_2026
+    locator: "Printed pp. 21–22, 2025 regional planted hectares: Wairarapa column; largest two individual-variety
+      entries after ranking all rows. Not producing hectares or 2026 predictions."
+  - knowledge_item_id: ki_nz_2025_wairarapa_top_pinot_noir
+    source_citation_id: src_nz_vineyard_report_2026
+    locator: "Printed pp. 21–22, 2025 regional planted hectares: Wairarapa column; largest two individual-variety
+      entries after ranking all rows. Not producing hectares or 2026 predictions."
+relation_set_assertions:
+  - node_id: n_stat_nz_top_two_planted_2025_marlborough
+    relation_type: TOP_PLANTED_GRAPE
+    direction: forward
+    member_node_type: grape
+    valid_from: 2026-02-26
+    source_citation_id: src_nz_vineyard_report_2026
+    locator: "Printed pp. 21–22, 2025 regional planted hectares: Marlborough column; largest two
+      individual-variety entries after ranking all rows. Not producing hectares or 2026 predictions."
+  - node_id: n_stat_nz_top_two_planted_2025_central_otago
+    relation_type: TOP_PLANTED_GRAPE
+    direction: forward
+    member_node_type: grape
+    valid_from: 2026-02-26
+    source_citation_id: src_nz_vineyard_report_2026
+    locator: "Printed pp. 21–22, 2025 regional planted hectares: Central Otago column; largest two
+      individual-variety entries after ranking all rows. Not producing hectares or 2026 predictions."
+  - node_id: n_stat_nz_top_two_planted_2025_hawkes_bay
+    relation_type: TOP_PLANTED_GRAPE
+    direction: forward
+    member_node_type: grape
+    valid_from: 2026-02-26
+    source_citation_id: src_nz_vineyard_report_2026
+    locator: "Printed pp. 21–22, 2025 regional planted hectares: Hawke’s Bay column; largest two
+      individual-variety entries after ranking all rows. Not producing hectares or 2026 predictions."
+  - node_id: n_stat_nz_top_two_planted_2025_gisborne
+    relation_type: TOP_PLANTED_GRAPE
+    direction: forward
+    member_node_type: grape
+    valid_from: 2026-02-26
+    source_citation_id: src_nz_vineyard_report_2026
+    locator: "Printed pp. 21–22, 2025 regional planted hectares: Gisborne column; largest two individual-variety
+      entries after ranking all rows. Not producing hectares or 2026 predictions."
+  - node_id: n_stat_nz_top_two_planted_2025_nelson
+    relation_type: TOP_PLANTED_GRAPE
+    direction: forward
+    member_node_type: grape
+    valid_from: 2026-02-26
+    source_citation_id: src_nz_vineyard_report_2026
+    locator: "Printed pp. 21–22, 2025 regional planted hectares: Nelson column; largest two individual-variety
+      entries after ranking all rows. Not producing hectares or 2026 predictions."
+  - node_id: n_stat_nz_top_two_planted_2025_wairarapa
+    relation_type: TOP_PLANTED_GRAPE
+    direction: forward
+    member_node_type: grape
+    valid_from: 2026-02-26
+    source_citation_id: src_nz_vineyard_report_2026
+    locator: "Printed pp. 21–22, 2025 regional planted hectares: Wairarapa column; largest two individual-variety
+      entries after ranking all rows. Not producing hectares or 2026 predictions."

@@ -1,0 +1,79 @@
+# Original self-checked cases; each node name contains the identical full prompt.
+question_templates:
+  - id: qt_reg_de_case_mosel_steep_budget
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: reg_de_mosel_steep_budget
+    prompt_template: A Mosel winery compares two sound Riesling blocks of comparable current ripeness. The steep
+      block has recorded manual-work hours and access expenses above those of the easier-access block; both
+      can supply the planned volume. No finished-wine quality difference, customer demand or attainable price
+      premium has been established. The winery has its own yield, labour and overhead records and can test
+      customer interest. Propose an action, explain a reason, weigh a tradeoff and state a limitation before
+      enlarging the steep-block programme.
+    parameters:
+      scope_node_ids:
+        - n_reg_de_case_mosel_steep_budget
+      key_points:
+        CASE_ACTION: Defensible action
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or evidence needed
+  - id: qt_reg_de_case_riesling_sweetness_evidence
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: reg_de_riesling_sweetness_evidence
+    prompt_template: A wine educator is buying a Mosel Riesling and a Rheingau Riesling to demonstrate contrasting
+      sweetness while keeping variety constant. Both producer quotes fit the budget, but no current samples,
+      residual-sugar analyses or palate assessments have yet been obtained. A supplier calls Mosel Riesling
+      always sweet and Rheingau Riesling always dry. Both producers can provide specifications and samples;
+      producers and vineyard sites differ. Propose an action, explain a reason, discuss a tradeoff and state a
+      limitation before assigning the two wines their tasting roles.
+    parameters:
+      scope_node_ids:
+        - n_reg_de_case_riesling_sweetness_evidence
+      key_points:
+        CASE_ACTION: Defensible action
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or evidence needed
+  - id: qt_reg_de_case_baden_pinot_cellar_trial
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: reg_de_baden_pinot_cellar_trial
+    prompt_template: A Baden winery splits one sound Spätburgunder lot between a tank trial and a new-oak barrel
+      trial. Coded assessments report that both trials are balanced; the tank trial meets a cherry-fruit brief
+      with moderate tannin, while the barrel trial also shows vanilla and cinnamon. Recorded barrel and
+      handling expenses exceed those of the tank route. The intended customers want clear cherry fruit, and no
+      higher selling price for the oak version is established. Propose an action, explain a reason, weigh a
+      tradeoff and state a limitation before scaling either route.
+    parameters:
+      scope_node_ids:
+        - n_reg_de_case_baden_pinot_cellar_trial
+      key_points:
+        CASE_ACTION: Defensible action
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or evidence needed
+  - id: qt_reg_de_case_saale_unstrut_frost_site
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: reg_de_saale_unstrut_frost_site
+    prompt_template: A Saale-Unstrut grower compares two proposed vineyard blocks before planting. Records
+      identify repeated spring frost and poor air movement in the lower basin block; the other block is higher
+      relative to that basin, faces south and has better observed air movement. Its quoted establishment cost
+      is higher, although both fit the available capital budget. Comparable soil and water assessments are
+      pending, and no block is guaranteed frost-free. Local temperature histories, intended-variety bud-break
+      records and technical site advice can be obtained. Propose an action, explain a reason, weigh a tradeoff
+      and state a limitation before committing to a block.
+    parameters:
+      scope_node_ids:
+        - n_reg_de_case_saale_unstrut_frost_site
+      key_points:
+        CASE_ACTION: Defensible action
+        CASE_REASON: Mechanism and rationale
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Limitation or evidence needed

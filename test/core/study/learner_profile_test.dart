@@ -26,9 +26,9 @@ void main() {
   });
   tearDown(() => db.close());
 
-  test('offers WSET Level 3 and CMS Certified (spec §N, CM-1)', () async {
+  test('offers Level 3, Diploma and CMS Certified', () async {
     final tracks = await profiles.selectableTracks();
-    expect(tracks.map((t) => t.id), ['CMS_CERTIFIED', 'WSET_L3']);
+    expect(tracks.map((t) => t.id), ['CMS_CERTIFIED', 'WSET_L3', 'WSET_L4']);
   });
 
   test('has no profile until a track is chosen', () async {

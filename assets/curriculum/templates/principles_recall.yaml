@@ -1,0 +1,22 @@
+# Typed recall checks authored terms and aliases, not free-text explanations.
+# Cases also have their own scoped short-answer prompts with cited key points.
+question_templates:
+  - id: qt_principle_explanation_short_answer
+    relation_type: PRINCIPLE_EXPLANATION
+    direction: forward
+    mode: short_answer
+    variant: principle_explanation
+    prompt_template: "{subject.name} Explain the mechanism and relevant conditions in your own words."
+    parameters:
+      key_points:
+        PRINCIPLE_EXPLANATION: Learning point
+  - { id: qt_principle_explanation_flashcard, relation_type: PRINCIPLE_EXPLANATION, direction: forward, mode: flashcard, prompt_template: "{subject.name}" }
+  - { id: qt_principle_explanation_typed, relation_type: PRINCIPLE_EXPLANATION, direction: forward, mode: typed, prompt_template: "{subject.name} Type the key term or phrase." }
+  - { id: qt_case_action_flashcard, relation_type: CASE_ACTION, direction: forward, mode: flashcard, prompt_template: "For the decision case '{subject.name}', recall the cited action." }
+  - { id: qt_case_action_typed, relation_type: CASE_ACTION, direction: forward, mode: typed, prompt_template: "For the decision case '{subject.name}', name the cited action." }
+  - { id: qt_case_reason_flashcard, relation_type: CASE_REASON, direction: forward, mode: flashcard, prompt_template: "For the decision case '{subject.name}', recall the mechanism supporting the action." }
+  - { id: qt_case_reason_typed, relation_type: CASE_REASON, direction: forward, mode: typed, prompt_template: "For the decision case '{subject.name}', name the mechanism supporting the action." }
+  - { id: qt_case_tradeoff_flashcard, relation_type: CASE_TRADEOFF, direction: forward, mode: flashcard, prompt_template: "For the decision case '{subject.name}', recall the cited trade-off." }
+  - { id: qt_case_tradeoff_typed, relation_type: CASE_TRADEOFF, direction: forward, mode: typed, prompt_template: "For the decision case '{subject.name}', name the cited trade-off." }
+  - { id: qt_case_limitation_flashcard, relation_type: CASE_LIMITATION, direction: forward, mode: flashcard, prompt_template: "For the decision case '{subject.name}', recall the cited condition or limitation." }
+  - { id: qt_case_limitation_typed, relation_type: CASE_LIMITATION, direction: forward, mode: typed, prompt_template: "For the decision case '{subject.name}', name the cited condition or limitation." }

@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
@@ -37,15 +38,67 @@ void main() {
     test('comes with the release; its sources become citations, in order', () {
       final dataset = bundledDataset();
       expect(dataset.files.last, geography);
-      expect(dataset.mapLayers, hasLength(10));
-      expect(dataset.nodeGeometries, hasLength(20));
+      expect(dataset.mapLayers.map((layer) => layer.id), [
+        'ml_world_continents',
+        'ml_world_countries',
+        'ml_world_coastline',
+        'ml_world_marine',
+        'ml_world_lakes',
+        'ml_world_rivers',
+        'ml_world_physical',
+        'ml_fr_regions',
+        'ml_fr_subregions',
+        'ml_fr_appellations',
+        'ml_current_regions_markers',
+        'ml_world_atlas_markers',
+        'ml_central_europe_atlas_markers',
+        'ml_france_champagne_markers',
+        'ml_france_atlas_markers',
+        'ml_france_chablis_cadastre_markers',
+        'ml_france_atlas_completion_markers',
+        'ml_france_atlas_completion_cadastre_markers',
+        'ml_france_atlas_completion_reference_markers',
+        'ml_europe_atlas_completion_markers',
+        'ml_new_world_atlas_completion_markers',
+        'ml_new_world_atlas_completion_gazetteer_markers',
+        'ml_british_atlas_markers',
+        'ml_china_atlas_markers',
+        'ml_diploma_us_atlas_markers',
+        'ml_diploma_regions_markers',
+        'ml_new_world_oceania_africa_au_gis_markers',
+        'ml_new_world_oceania_africa_reference_markers',
+        'ml_new_world_oceania_africa_gazetteer_markers',
+        'ml_new_world_americas_markers',
+        'ml_new_world_americas_gazetteer_markers',
+      ]);
+      final featureKeys = <String>[];
+      for (final layer in dataset.mapLayers) {
+        final topology = jsonDecode(File(layer.assetPath).readAsStringSync());
+        final object = (topology['objects'] as Map).values.single as Map;
+        for (final feature in object['geometries'] as List) {
+          if (feature['id'] != null) {
+            featureKeys.add('${layer.id} ${feature['id']}');
+          }
+        }
+      }
+      expect(
+        dataset.nodeGeometries.map(
+          (geometry) => '${geometry.mapLayerId} ${geometry.knowledgeNodeId}',
+        ),
+        unorderedEquals(featureKeys),
+        reason: 'each sourced node feature is present in the release manifest',
+      );
       expect(
         [
           for (final c in dataset.mapLayerCitations)
             if (c.mapLayerId == 'ml_world_countries')
               (c.sourceCitationId, c.position),
         ],
-        [('src_ne_countries', 1), ('src_ne_map_units', 2)],
+        [
+          ('src_ne_countries', 1),
+          ('src_ne_map_units', 2),
+          ('src_ne_americas_island_parts', 3),
+        ],
       );
       final chablis = dataset.locate((
         section: 'node_geometries',
@@ -130,7 +183,8 @@ void main() {
         '${temp.path}/$curriculumAssetPath'.replaceAll(r'\', '/'),
         (path) => File(path).readAsStringSync(),
       );
-      expect(elsewhere.mapLayers, hasLength(10));
+      expect(elsewhere.mapLayers, bundledDataset().mapLayers);
+      expect(elsewhere.nodeGeometries, bundledDataset().nodeGeometries);
       expect(elsewhere.checksum, bundledDataset().checksum);
     });
   });
@@ -142,10 +196,20 @@ void main() {
     tearDown(() => db.close());
 
     test('brings in the layers, their sources and the geometries', () async {
-      await CurriculumIngester(db, assets: readAsset).ingest(bundledDataset());
-      expect(await db.select(db.mapLayers).get(), hasLength(10));
-      expect(await db.select(db.mapLayerCitations).get(), hasLength(14));
-      expect(await db.select(db.nodeGeometries).get(), hasLength(20));
+      final dataset = bundledDataset();
+      await CurriculumIngester(db, assets: readAsset).ingest(dataset);
+      expect(
+        await db.select(db.mapLayers).get(),
+        unorderedEquals(dataset.mapLayers),
+      );
+      expect(
+        await db.select(db.mapLayerCitations).get(),
+        unorderedEquals(dataset.mapLayerCitations),
+      );
+      expect(
+        await db.select(db.nodeGeometries).get(),
+        unorderedEquals(dataset.nodeGeometries),
+      );
     });
 
     test('refuses an asset that does not match its SHA-256, and writes '

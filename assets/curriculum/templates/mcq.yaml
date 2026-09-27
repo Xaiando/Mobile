@@ -6,6 +6,8 @@
 # {object.name} and {object.type_label} (QG-2). Reverse templates exist only
 # where an item is distinctive (QG-3).
 question_templates:
+  - { id: qt_top_planted_grape_fwd_mcq, relation_type: TOP_PLANTED_GRAPE, direction: forward, mode: mcq, prompt_template: "Which grape is included in {subject.name}?" }
+  - { id: qt_permitted_grape_fwd_mcq, relation_type: PERMITS_GRAPE, direction: forward, mode: mcq, prompt_template: "Which of these is a permitted grape variety of {subject.name}?" }
   - { id: qt_located_in_fwd_mcq, relation_type: LOCATED_IN, direction: forward, mode: mcq, prompt_template: "In which {object.type_label} is {subject.name} located?" }
   - { id: qt_principal_grape_fwd_mcq, relation_type: PERMITS_PRINCIPAL_GRAPE, direction: forward, mode: mcq, prompt_template: "Which of these is a principal grape variety of {subject.name}?" }
   - { id: qt_accessory_grape_fwd_mcq, relation_type: PERMITS_ACCESSORY_GRAPE, direction: forward, mode: mcq, prompt_template: "Which of these is an accessory grape variety of {subject.name}?" }
@@ -16,3 +18,11 @@ question_templates:
   - { id: qt_min_ageing_rev_mcq, relation_type: MIN_AGEING, direction: reverse, mode: mcq, prompt_template: "Which of these appellations requires a minimum ageing period of {object.name}?" }
   - { id: qt_min_wood_ageing_fwd_mcq, relation_type: MIN_WOOD_AGEING, direction: forward, mode: mcq, prompt_template: "What is the minimum time in wood for {subject.name}?" }
   - { id: qt_method_fwd_mcq, relation_type: REQUIRES_METHOD, direction: forward, mode: mcq, prompt_template: "Which sparkling-wine method must {subject.name} use?" }
+  # EU and German wine law (backlog C6)
+  - { id: qt_wine_zone_fwd_mcq, relation_type: IN_WINE_ZONE, direction: forward, mode: mcq, prompt_template: "In which {object.type_label} does {subject.name} lie?" }
+  - { id: qt_reserved_region_fwd_mcq, relation_type: RESERVED_FOR_REGION, direction: forward, mode: mcq, prompt_template: "For wines from which {object.type_label} is the term {subject.name} reserved?" }
+  - { id: qt_reserved_region_rev_mcq, relation_type: RESERVED_FOR_REGION, direction: reverse, mode: mcq, prompt_template: "Which term is reserved for wines from {object.name}?" }
+  - { id: qt_legal_definition_fwd_mcq, relation_type: LEGAL_DEFINITION, direction: forward, mode: mcq, prompt_template: "Which requirement does the wine law state specifically for {subject.name}?" }
+  - { id: qt_legal_definition_rev_mcq, relation_type: LEGAL_DEFINITION, direction: reverse, mode: mcq, prompt_template: "Which term is specifically defined by this legal requirement: {object.name}?" }
+  - { id: qt_statistic_value_fwd_mcq, relation_type: STATISTIC_VALUE, direction: forward, mode: mcq, prompt_template: "What value was reported for {subject.name}?" }
+  - { id: qt_leading_red_grape_fwd_mcq, relation_type: LEADING_RED_GRAPE, direction: forward, mode: mcq, prompt_template: "Which red grape had the largest planted area according to {subject.name}?" }

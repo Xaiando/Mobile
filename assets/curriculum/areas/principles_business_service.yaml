@@ -1,0 +1,2085 @@
+# Original, primary-sourced business and service foundations (C5/C7/DIP-2).
+# Authored 27 September 2026. All items await qualified expert review.
+# The curation timestamp is not expert verification. Structural dates are uncurated.
+# No jurisdictional tax/rate rules, universal pairing claim or official exam rubric.
+knowledge_nodes:
+  - id: n_biz_gross_profit
+    node_type: production_principle
+    name: How is gross profit on wine sales calculated?
+  - id: n_biz_gross_profit_point
+    node_type: learning_point
+    name: Net sales minus cost of goods sold
+  - id: n_biz_gross_margin
+    node_type: production_principle
+    name: What is the denominator of gross margin percentage?
+  - id: n_biz_gross_margin_point
+    node_type: learning_point
+    name: Net sales
+  - id: n_biz_markup
+    node_type: production_principle
+    name: What is the denominator of markup percentage?
+  - id: n_biz_markup_point
+    node_type: learning_point
+    name: Cost of goods sold
+  - id: n_biz_fixed_cost
+    node_type: production_principle
+    name: What cost stays unchanged with volume within the stated period and capacity?
+  - id: n_biz_fixed_cost_point
+    node_type: learning_point
+    name: Fixed cost
+  - id: n_biz_variable_cost
+    node_type: production_principle
+    name: What cost changes with bottled-wine output?
+  - id: n_biz_variable_cost_point
+    node_type: learning_point
+    name: Variable cost
+  - id: n_biz_mixed_cost
+    node_type: production_principle
+    name: What kind of cost combines a standing fee with usage charges?
+  - id: n_biz_mixed_cost_point
+    node_type: learning_point
+    name: Mixed cost
+  - id: n_biz_contribution
+    node_type: production_principle
+    name: How is unit contribution before fixed costs calculated?
+  - id: n_biz_contribution_point
+    node_type: learning_point
+    name: Selling price minus unit variable cost
+  - id: n_biz_breakeven
+    node_type: production_principle
+    name: How is break-even volume calculated for one product with positive unit contribution?
+  - id: n_biz_breakeven_point
+    node_type: learning_point
+    name: Fixed costs divided by unit contribution
+  - id: n_biz_profit_cash
+    node_type: production_principle
+    name: Why does reported profit not establish cash availability?
+  - id: n_biz_profit_cash_point
+    node_type: learning_point
+    name: Profit and cash flow differ
+  - id: n_biz_working_capital
+    node_type: production_principle
+    name: How is working capital calculated?
+  - id: n_biz_working_capital_point
+    node_type: learning_point
+    name: Current assets minus current liabilities
+  - id: n_biz_inventory_turnover
+    node_type: production_principle
+    name: How is inventory turnover calculated using cost-valued stock?
+  - id: n_biz_inventory_turnover_point
+    node_type: learning_point
+    name: Cost of sales divided by average inventory
+  - id: n_biz_inventory_cash
+    node_type: production_principle
+    name: What happens to cash when excessive wine stock remains unsold?
+  - id: n_biz_inventory_cash_point
+    node_type: learning_point
+    name: Cash tied up in inventory
+  - id: n_biz_stocktake
+    node_type: production_principle
+    name: What checks whether cellar records match actual bottles?
+  - id: n_biz_stocktake_point
+    node_type: learning_point
+    name: Physical stocktake
+  - id: n_biz_payment_timing
+    node_type: production_principle
+    name: What cash-planning factor is established by customer payment terms?
+  - id: n_biz_payment_timing_point
+    node_type: learning_point
+    name: Timing of cash receipts
+  - id: n_biz_cost_plus
+    node_type: production_principle
+    name: What is the basis of cost-plus wine pricing?
+  - id: n_biz_cost_plus_point
+    node_type: learning_point
+    name: Relevant supply costs plus an allowance for profit
+  - id: n_biz_value_pricing
+    node_type: production_principle
+    name: What is the basis of value-based wine pricing?
+  - id: n_biz_value_pricing_point
+    node_type: learning_point
+    name: Customer-perceived value
+  - id: n_biz_competitor_pricing
+    node_type: production_principle
+    name: How should competitor wine prices inform a pricing decision?
+  - id: n_biz_competitor_pricing_point
+    node_type: learning_point
+    name: Benchmark against own costs and value
+  - id: n_biz_discount_contribution
+    node_type: production_principle
+    name: What happens to unit contribution after a price discount at unchanged variable cost?
+  - id: n_biz_discount_contribution_point
+    node_type: learning_point
+    name: Lower contribution per bottle
+  - id: n_biz_price_review
+    node_type: production_principle
+    name: What should happen to pricing assumptions when costs or market conditions change?
+  - id: n_biz_price_review_point
+    node_type: learning_point
+    name: Review pricing assumptions
+  - id: n_biz_customer_segment
+    node_type: production_principle
+    name: What is a target wine customer segment?
+  - id: n_biz_customer_segment_point
+    node_type: learning_point
+    name: A defined group of intended customers
+  - id: n_biz_primary_research
+    node_type: production_principle
+    name: What research examines customer reactions to a proposed wine offer directly?
+  - id: n_biz_primary_research_point
+    node_type: learning_point
+    name: Primary customer research
+  - id: n_biz_channel_mix
+    node_type: production_principle
+    name: What describes the chosen routes by which a wine business reaches customers?
+  - id: n_biz_channel_mix_point
+    node_type: learning_point
+    name: A chosen mix of sales channels
+  - id: n_biz_tasting_room_relationship
+    node_type: production_principle
+    name: What customer benefit can a winery tasting-room visit provide?
+  - id: n_biz_tasting_room_relationship_point
+    node_type: learning_point
+    name: Build customer relationships
+  - id: n_biz_fx_receivable
+    node_type: production_principle
+    name: What happens to an unhedged export receipt if its foreign invoice currency weakens?
+  - id: n_biz_fx_receivable_point
+    node_type: learning_point
+    name: Lower home-currency receipt
+  - id: n_biz_home_currency_invoice
+    node_type: production_principle
+    name: Where does the currency burden move when an exporter insists on home-currency payment?
+  - id: n_biz_home_currency_invoice_point
+    node_type: learning_point
+    name: Shift currency burden to the buyer
+  - id: n_biz_forward_exchange
+    node_type: production_principle
+    name: What contract fixes a rate for a specified future currency exchange?
+  - id: n_biz_forward_exchange_point
+    node_type: learning_point
+    name: Forward exchange contract
+  - id: n_srv_heat_ageing
+    node_type: production_principle
+    name: Why can hot bottle storage change wine faster?
+  - id: n_srv_heat_ageing_point
+    node_type: learning_point
+    name: Faster ageing reactions
+  - id: n_srv_heat_so2
+    node_type: production_principle
+    name: What does elevated storage temperature do to protective free sulfur dioxide?
+  - id: n_srv_heat_so2_point
+    node_type: learning_point
+    name: Faster loss of free sulfur dioxide
+  - id: n_srv_lightstruck
+    node_type: production_principle
+    name: What wine aroma defect can damaging light exposure cause?
+  - id: n_srv_lightstruck_point
+    node_type: learning_point
+    name: Lightstruck character
+  - id: n_srv_holdback
+    node_type: production_principle
+    name: What independently stored sample helps investigate suspect transport conditions?
+  - id: n_srv_holdback_point
+    node_type: learning_point
+    name: Retained control sample
+  - id: n_srv_glass_odour
+    node_type: production_principle
+    name: What glassware condition supports unbiased wine aroma assessment?
+  - id: n_srv_glass_odour_point
+    node_type: learning_point
+    name: Clean odour-free glasses
+  - id: n_srv_comparison_temperature
+    node_type: production_principle
+    name: How should sample temperatures compare for the same product type in one controlled session?
+  - id: n_srv_comparison_temperature_point
+    node_type: learning_point
+    name: Use the same sample temperature
+  - id: n_srv_visual_background
+    node_type: production_principle
+    name: What visual surroundings support controlled wine assessment?
+  - id: n_srv_visual_background_point
+    node_type: learning_point
+    name: Neutral light-coloured surroundings
+  - id: n_srv_sediment_decant
+    node_type: production_principle
+    name: What is the purpose of decanting a red wine to separate visible sediment?
+  - id: n_srv_sediment_decant_point
+    node_type: learning_point
+    name: Leave sediment behind
+  - id: n_srv_older_aeration
+    node_type: production_principle
+    name: What oxygen-management aim suits a fragile older red wine needing sediment removal?
+  - id: n_srv_older_aeration_point
+    node_type: learning_point
+    name: Limit oxygen exposure
+  - id: n_srv_young_aeration
+    node_type: production_principle
+    name: What possible purpose does aeration serve for a young powerful red in Château Margaux practice?
+  - id: n_srv_young_aeration_point
+    node_type: learning_point
+    name: Encourage aromatic opening
+  - id: n_srv_cold_aroma
+    node_type: production_principle
+    name: What aroma effect can excessive chilling have on red Bordeaux in Château Margaux practice?
+  - id: n_srv_cold_aroma_point
+    node_type: learning_point
+    name: Muted aromas
+  - id: n_srv_older_cork
+    node_type: production_principle
+    name: How does Taylor's recommend removing a delicate cork from older Vintage Port?
+  - id: n_srv_older_cork_point
+    node_type: learning_point
+    name: Ease the cork out gently
+  - id: n_srv_storage_history
+    node_type: production_principle
+    name: What record helps investigate a wine shipment's heat exposure?
+  - id: n_srv_storage_history_point
+    node_type: learning_point
+    name: Recorded time and temperature history
+  - id: n_srv_smell_environment
+    node_type: production_principle
+    name: What room-odour condition supports controlled wine aroma assessment?
+  - id: n_srv_smell_environment_point
+    node_type: learning_point
+    name: Avoid interfering room odours
+  - id: n_biz_case_wine_discount
+    node_type: production_case
+    name: Discounting wine with unchanged costs and uncertain demand
+  - id: n_biz_case_wine_discount_action_point
+    node_type: learning_point
+    name: Compare total contribution at each price
+  - id: n_biz_case_wine_discount_reason_point
+    node_type: learning_point
+    name: Discount reduces unit contribution
+  - id: n_biz_case_wine_discount_tradeoff_point
+    node_type: learning_point
+    name: Possible volume gain against less contribution per bottle
+  - id: n_biz_case_wine_discount_limitation_point
+    node_type: learning_point
+    name: Demand response is unknown
+  - id: n_biz_case_cellar_cash
+    node_type: production_case
+    name: Profitable sales, unpaid invoices and slow cellar stock
+  - id: n_biz_case_cellar_cash_action_point
+    node_type: learning_point
+    name: Forecast dated cash receipts and payments
+  - id: n_biz_case_cellar_cash_reason_point
+    node_type: learning_point
+    name: Profit does not establish cash on hand
+  - id: n_biz_case_cellar_cash_tradeoff_point
+    node_type: learning_point
+    name: Lower stock tie-up against availability
+  - id: n_biz_case_cellar_cash_limitation_point
+    node_type: learning_point
+    name: Forecast depends on actual payment and demand
+  - id: n_biz_case_export_currency
+    node_type: production_case
+    name: Fixed foreign-currency wine payment with home-currency costs
+  - id: n_biz_case_export_currency_action_point
+    node_type: learning_point
+    name: Evaluate a matched forward exchange contract
+  - id: n_biz_case_export_currency_reason_point
+    node_type: learning_point
+    name: Invoice currency may weaken before payment
+  - id: n_biz_case_export_currency_tradeoff_point
+    node_type: learning_point
+    name: Home-currency invoicing can reduce buyer appeal
+  - id: n_biz_case_export_currency_limitation_point
+    node_type: learning_point
+    name: Buyer nonpayment remains a separate risk
+  - id: n_srv_case_fragile_sediment
+    node_type: production_case
+    name: Fragile older red wine with visible sediment
+  - id: n_srv_case_fragile_sediment_action_point
+    node_type: learning_point
+    name: Pour gently into a narrow vessel
+  - id: n_srv_case_fragile_sediment_reason_point
+    node_type: learning_point
+    name: Separate clear wine from sediment
+  - id: n_srv_case_fragile_sediment_tradeoff_point
+    node_type: learning_point
+    name: Aeration can harm a fragile older wine
+  - id: n_srv_case_fragile_sediment_limitation_point
+    node_type: learning_point
+    name: Bottle condition determines the handling
+node_alternative_names:
+  - knowledge_node_id: n_biz_gross_profit_point
+    name: Sales less cost of goods sold
+    kind: synonym
+  - knowledge_node_id: n_biz_gross_profit_point
+    name: Revenue minus COGS
+    kind: synonym
+  - knowledge_node_id: n_biz_gross_margin_point
+    name: Sales revenue
+    kind: synonym
+  - knowledge_node_id: n_biz_gross_margin_point
+    name: Net sales revenue
+    kind: synonym
+  - knowledge_node_id: n_biz_markup_point
+    name: Cost price
+    kind: synonym
+  - knowledge_node_id: n_biz_markup_point
+    name: Purchase cost
+    kind: synonym
+  - knowledge_node_id: n_biz_markup_point
+    name: COGS
+    kind: synonym
+  - knowledge_node_id: n_biz_fixed_cost_point
+    name: Fixed expense
+    kind: synonym
+  - knowledge_node_id: n_biz_variable_cost_point
+    name: Variable expense
+    kind: synonym
+  - knowledge_node_id: n_biz_mixed_cost_point
+    name: Semi-variable cost
+    kind: synonym
+  - knowledge_node_id: n_biz_contribution_point
+    name: Price less variable cost per unit
+    kind: synonym
+  - knowledge_node_id: n_biz_contribution_point
+    name: Unit selling price minus variable cost
+    kind: synonym
+  - knowledge_node_id: n_biz_breakeven_point
+    name: Fixed costs divided by price minus variable cost
+    kind: synonym
+  - knowledge_node_id: n_biz_profit_cash_point
+    name: Profit is not cash flow
+    kind: synonym
+  - knowledge_node_id: n_biz_profit_cash_point
+    name: Profit does not equal cash
+    kind: synonym
+  - knowledge_node_id: n_biz_working_capital_point
+    name: Current assets less current liabilities
+    kind: synonym
+  - knowledge_node_id: n_biz_inventory_turnover_point
+    name: COGS divided by average inventory
+    kind: synonym
+  - knowledge_node_id: n_biz_inventory_turnover_point
+    name: Cost of goods sold divided by average inventory
+    kind: synonym
+  - knowledge_node_id: n_biz_inventory_cash_point
+    name: Money tied up in stock
+    kind: synonym
+  - knowledge_node_id: n_biz_inventory_cash_point
+    name: Capital tied up in inventory
+    kind: synonym
+  - knowledge_node_id: n_biz_stocktake_point
+    name: Stocktake
+    kind: synonym
+  - knowledge_node_id: n_biz_stocktake_point
+    name: Inventory count
+    kind: synonym
+  - knowledge_node_id: n_biz_stocktake_point
+    name: Physical inventory count
+    kind: synonym
+  - knowledge_node_id: n_biz_payment_timing_point
+    name: Receipt timing
+    kind: synonym
+  - knowledge_node_id: n_biz_payment_timing_point
+    name: Customer payment timing
+    kind: synonym
+  - knowledge_node_id: n_biz_cost_plus_point
+    name: Total supply cost plus markup
+    kind: synonym
+  - knowledge_node_id: n_biz_cost_plus_point
+    name: Cost plus markup
+    kind: synonym
+  - knowledge_node_id: n_biz_value_pricing_point
+    name: Perceived customer value
+    kind: synonym
+  - knowledge_node_id: n_biz_value_pricing_point
+    name: Value to the customer
+    kind: synonym
+  - knowledge_node_id: n_biz_competitor_pricing_point
+    name: Consider own costs and customer value
+    kind: synonym
+  - knowledge_node_id: n_biz_discount_contribution_point
+    name: Lower unit contribution
+    kind: synonym
+  - knowledge_node_id: n_biz_discount_contribution_point
+    name: Reduced contribution per bottle
+    kind: synonym
+  - knowledge_node_id: n_biz_price_review_point
+    name: Review prices
+    kind: synonym
+  - knowledge_node_id: n_biz_price_review_point
+    name: Reassess pricing
+    kind: synonym
+  - knowledge_node_id: n_biz_customer_segment_point
+    name: Target customer group
+    kind: synonym
+  - knowledge_node_id: n_biz_customer_segment_point
+    name: Defined target market
+    kind: synonym
+  - knowledge_node_id: n_biz_primary_research_point
+    name: Direct customer research
+    kind: synonym
+  - knowledge_node_id: n_biz_primary_research_point
+    name: Customer interviews or surveys
+    kind: synonym
+  - knowledge_node_id: n_biz_channel_mix_point
+    name: Sales channel mix
+    kind: synonym
+  - knowledge_node_id: n_biz_channel_mix_point
+    name: Routes to market
+    kind: synonym
+  - knowledge_node_id: n_biz_tasting_room_relationship_point
+    name: Customer relationship building
+    kind: synonym
+  - knowledge_node_id: n_biz_tasting_room_relationship_point
+    name: Build relationships with customers
+    kind: synonym
+  - knowledge_node_id: n_biz_fx_receivable_point
+    name: Less home currency received
+    kind: synonym
+  - knowledge_node_id: n_biz_fx_receivable_point
+    name: Reduced home currency proceeds
+    kind: synonym
+  - knowledge_node_id: n_biz_home_currency_invoice_point
+    name: Transfer currency exposure to the buyer
+    kind: synonym
+  - knowledge_node_id: n_biz_forward_exchange_point
+    name: Currency forward contract
+    kind: synonym
+  - knowledge_node_id: n_biz_forward_exchange_point
+    name: Foreign exchange forward
+    kind: synonym
+  - knowledge_node_id: n_srv_heat_ageing_point
+    name: Accelerated ageing reactions
+    kind: synonym
+  - knowledge_node_id: n_srv_heat_ageing_point
+    name: Faster chemical ageing
+    kind: synonym
+  - knowledge_node_id: n_srv_heat_so2_point
+    name: Accelerated free SO2 loss
+    kind: synonym
+  - knowledge_node_id: n_srv_heat_so2_point
+    name: Faster free SO2 depletion
+    kind: synonym
+  - knowledge_node_id: n_srv_lightstruck_point
+    name: Light strike
+    kind: synonym
+  - knowledge_node_id: n_srv_lightstruck_point
+    name: Lightstruck aroma
+    kind: synonym
+  - knowledge_node_id: n_srv_holdback_point
+    name: Hold-back sample
+    kind: synonym
+  - knowledge_node_id: n_srv_holdback_point
+    name: Holdback sample
+    kind: synonym
+  - knowledge_node_id: n_srv_holdback_point
+    name: Reference sample
+    kind: synonym
+  - knowledge_node_id: n_srv_glass_odour_point
+    name: Clean odor-free glasses
+    kind: synonym
+  - knowledge_node_id: n_srv_glass_odour_point
+    name: Clean glasses without odours
+    kind: synonym
+  - knowledge_node_id: n_srv_comparison_temperature_point
+    name: Equal sample temperatures
+    kind: synonym
+  - knowledge_node_id: n_srv_comparison_temperature_point
+    name: Same temperature
+    kind: synonym
+  - knowledge_node_id: n_srv_visual_background_point
+    name: Neutral light colored surroundings
+    kind: synonym
+  - knowledge_node_id: n_srv_visual_background_point
+    name: Neutral pale background
+    kind: synonym
+  - knowledge_node_id: n_srv_sediment_decant_point
+    name: Separate wine from sediment
+    kind: synonym
+  - knowledge_node_id: n_srv_sediment_decant_point
+    name: Remove sediment
+    kind: synonym
+  - knowledge_node_id: n_srv_older_aeration_point
+    name: Minimise aeration
+    kind: synonym
+  - knowledge_node_id: n_srv_older_aeration_point
+    name: Minimize aeration
+    kind: synonym
+  - knowledge_node_id: n_srv_older_aeration_point
+    name: Limit aeration
+    kind: synonym
+  - knowledge_node_id: n_srv_young_aeration_point
+    name: Help aromas open
+    kind: synonym
+  - knowledge_node_id: n_srv_young_aeration_point
+    name: Aromatic opening
+    kind: synonym
+  - knowledge_node_id: n_srv_cold_aroma_point
+    name: Suppressed aromas
+    kind: synonym
+  - knowledge_node_id: n_srv_cold_aroma_point
+    name: Less expressive aromas
+    kind: synonym
+  - knowledge_node_id: n_srv_older_cork_point
+    name: Remove the cork gently
+    kind: synonym
+  - knowledge_node_id: n_srv_older_cork_point
+    name: Gentle cork removal
+    kind: synonym
+  - knowledge_node_id: n_srv_storage_history_point
+    name: Time-temperature record
+    kind: synonym
+  - knowledge_node_id: n_srv_storage_history_point
+    name: Temperature history
+    kind: synonym
+  - knowledge_node_id: n_srv_smell_environment_point
+    name: Neutral-smelling environment
+    kind: synonym
+  - knowledge_node_id: n_srv_smell_environment_point
+    name: Odour-free tasting environment
+    kind: synonym
+  - knowledge_node_id: n_biz_case_wine_discount_action_point
+    name: Compare contribution before and after discount
+    kind: synonym
+  - knowledge_node_id: n_biz_case_wine_discount_reason_point
+    name: Lower contribution per bottle
+    kind: synonym
+  - knowledge_node_id: n_biz_case_wine_discount_limitation_point
+    name: Unknown sales response
+    kind: synonym
+  - knowledge_node_id: n_biz_case_export_currency_action_point
+    name: Assess a currency forward
+    kind: synonym
+  - knowledge_node_id: n_srv_case_fragile_sediment_action_point
+    name: Gentle narrow-vessel decanting
+    kind: synonym
+  - knowledge_node_id: n_srv_case_fragile_sediment_reason_point
+    name: Leave sediment in the bottle
+    kind: synonym
+  - knowledge_node_id: n_srv_case_fragile_sediment_limitation_point
+    name: No universal decanting time
+    kind: synonym
+knowledge_relations:
+  - subject_id: n_biz_gross_profit
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_biz_gross_profit_point
+    valid_from: 1900-01-01
+  - subject_id: n_biz_gross_margin
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_biz_gross_margin_point
+    valid_from: 1900-01-01
+  - subject_id: n_biz_markup
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_biz_markup_point
+    valid_from: 1900-01-01
+  - subject_id: n_biz_fixed_cost
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_biz_fixed_cost_point
+    valid_from: 1900-01-01
+  - subject_id: n_biz_variable_cost
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_biz_variable_cost_point
+    valid_from: 1900-01-01
+  - subject_id: n_biz_mixed_cost
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_biz_mixed_cost_point
+    valid_from: 1900-01-01
+  - subject_id: n_biz_contribution
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_biz_contribution_point
+    valid_from: 1900-01-01
+  - subject_id: n_biz_breakeven
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_biz_breakeven_point
+    valid_from: 1900-01-01
+  - subject_id: n_biz_profit_cash
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_biz_profit_cash_point
+    valid_from: 1900-01-01
+  - subject_id: n_biz_working_capital
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_biz_working_capital_point
+    valid_from: 1900-01-01
+  - subject_id: n_biz_inventory_turnover
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_biz_inventory_turnover_point
+    valid_from: 1900-01-01
+  - subject_id: n_biz_inventory_cash
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_biz_inventory_cash_point
+    valid_from: 1900-01-01
+  - subject_id: n_biz_stocktake
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_biz_stocktake_point
+    valid_from: 1900-01-01
+  - subject_id: n_biz_payment_timing
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_biz_payment_timing_point
+    valid_from: 1900-01-01
+  - subject_id: n_biz_cost_plus
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_biz_cost_plus_point
+    valid_from: 1900-01-01
+  - subject_id: n_biz_value_pricing
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_biz_value_pricing_point
+    valid_from: 1900-01-01
+  - subject_id: n_biz_competitor_pricing
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_biz_competitor_pricing_point
+    valid_from: 1900-01-01
+  - subject_id: n_biz_discount_contribution
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_biz_discount_contribution_point
+    valid_from: 1900-01-01
+  - subject_id: n_biz_price_review
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_biz_price_review_point
+    valid_from: 1900-01-01
+  - subject_id: n_biz_customer_segment
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_biz_customer_segment_point
+    valid_from: 1900-01-01
+  - subject_id: n_biz_primary_research
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_biz_primary_research_point
+    valid_from: 1900-01-01
+  - subject_id: n_biz_channel_mix
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_biz_channel_mix_point
+    valid_from: 1900-01-01
+  - subject_id: n_biz_tasting_room_relationship
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_biz_tasting_room_relationship_point
+    valid_from: 1900-01-01
+  - subject_id: n_biz_fx_receivable
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_biz_fx_receivable_point
+    valid_from: 1900-01-01
+  - subject_id: n_biz_home_currency_invoice
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_biz_home_currency_invoice_point
+    valid_from: 1900-01-01
+  - subject_id: n_biz_forward_exchange
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_biz_forward_exchange_point
+    valid_from: 1900-01-01
+  - subject_id: n_srv_heat_ageing
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_srv_heat_ageing_point
+    valid_from: 1900-01-01
+  - subject_id: n_srv_heat_so2
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_srv_heat_so2_point
+    valid_from: 1900-01-01
+  - subject_id: n_srv_lightstruck
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_srv_lightstruck_point
+    valid_from: 1900-01-01
+  - subject_id: n_srv_holdback
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_srv_holdback_point
+    valid_from: 1900-01-01
+  - subject_id: n_srv_glass_odour
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_srv_glass_odour_point
+    valid_from: 1900-01-01
+  - subject_id: n_srv_comparison_temperature
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_srv_comparison_temperature_point
+    valid_from: 1900-01-01
+  - subject_id: n_srv_visual_background
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_srv_visual_background_point
+    valid_from: 1900-01-01
+  - subject_id: n_srv_sediment_decant
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_srv_sediment_decant_point
+    valid_from: 1900-01-01
+  - subject_id: n_srv_older_aeration
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_srv_older_aeration_point
+    valid_from: 1900-01-01
+  - subject_id: n_srv_young_aeration
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_srv_young_aeration_point
+    valid_from: 1900-01-01
+  - subject_id: n_srv_cold_aroma
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_srv_cold_aroma_point
+    valid_from: 1900-01-01
+  - subject_id: n_srv_older_cork
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_srv_older_cork_point
+    valid_from: 1900-01-01
+  - subject_id: n_srv_storage_history
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_srv_storage_history_point
+    valid_from: 1900-01-01
+  - subject_id: n_srv_smell_environment
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_srv_smell_environment_point
+    valid_from: 1900-01-01
+  - subject_id: n_biz_case_wine_discount
+    relation_type: CASE_ACTION
+    object_id: n_biz_case_wine_discount_action_point
+    valid_from: 1900-01-01
+  - subject_id: n_biz_case_wine_discount
+    relation_type: CASE_REASON
+    object_id: n_biz_case_wine_discount_reason_point
+    valid_from: 1900-01-01
+  - subject_id: n_biz_case_wine_discount
+    relation_type: CASE_TRADEOFF
+    object_id: n_biz_case_wine_discount_tradeoff_point
+    valid_from: 1900-01-01
+  - subject_id: n_biz_case_wine_discount
+    relation_type: CASE_LIMITATION
+    object_id: n_biz_case_wine_discount_limitation_point
+    valid_from: 1900-01-01
+  - subject_id: n_biz_case_cellar_cash
+    relation_type: CASE_ACTION
+    object_id: n_biz_case_cellar_cash_action_point
+    valid_from: 1900-01-01
+  - subject_id: n_biz_case_cellar_cash
+    relation_type: CASE_REASON
+    object_id: n_biz_case_cellar_cash_reason_point
+    valid_from: 1900-01-01
+  - subject_id: n_biz_case_cellar_cash
+    relation_type: CASE_TRADEOFF
+    object_id: n_biz_case_cellar_cash_tradeoff_point
+    valid_from: 1900-01-01
+  - subject_id: n_biz_case_cellar_cash
+    relation_type: CASE_LIMITATION
+    object_id: n_biz_case_cellar_cash_limitation_point
+    valid_from: 1900-01-01
+  - subject_id: n_biz_case_export_currency
+    relation_type: CASE_ACTION
+    object_id: n_biz_case_export_currency_action_point
+    valid_from: 1900-01-01
+  - subject_id: n_biz_case_export_currency
+    relation_type: CASE_REASON
+    object_id: n_biz_case_export_currency_reason_point
+    valid_from: 1900-01-01
+  - subject_id: n_biz_case_export_currency
+    relation_type: CASE_TRADEOFF
+    object_id: n_biz_case_export_currency_tradeoff_point
+    valid_from: 1900-01-01
+  - subject_id: n_biz_case_export_currency
+    relation_type: CASE_LIMITATION
+    object_id: n_biz_case_export_currency_limitation_point
+    valid_from: 1900-01-01
+  - subject_id: n_srv_case_fragile_sediment
+    relation_type: CASE_ACTION
+    object_id: n_srv_case_fragile_sediment_action_point
+    valid_from: 1900-01-01
+  - subject_id: n_srv_case_fragile_sediment
+    relation_type: CASE_REASON
+    object_id: n_srv_case_fragile_sediment_reason_point
+    valid_from: 1900-01-01
+  - subject_id: n_srv_case_fragile_sediment
+    relation_type: CASE_TRADEOFF
+    object_id: n_srv_case_fragile_sediment_tradeoff_point
+    valid_from: 1900-01-01
+  - subject_id: n_srv_case_fragile_sediment
+    relation_type: CASE_LIMITATION
+    object_id: n_srv_case_fragile_sediment_limitation_point
+    valid_from: 1900-01-01
+knowledge_items:
+  - id: ki_biz_gross_profit
+    subject_id: n_biz_gross_profit
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_biz_gross_profit_point
+    domain_id: business
+    assertion_text: Gross profit deducts the cost of goods sold from net sales; it is not the amount
+      remaining after every business expense.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T22:42:39.000Z
+    mcq_disabled: true
+  - id: ki_biz_gross_margin
+    subject_id: n_biz_gross_margin
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_biz_gross_margin_point
+    domain_id: business
+    assertion_text: Gross margin percentage expresses gross profit as a share of net sales, multiplied
+      by 100. Its denominator is sales, not the cost of the wine.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T22:42:39.000Z
+    mcq_disabled: true
+  - id: ki_biz_markup
+    subject_id: n_biz_markup
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_biz_markup_point
+    domain_id: business
+    assertion_text: Markup percentage expresses the excess of selling price over purchase or production
+      cost as a share of that cost, multiplied by 100. It does not use sales as its denominator.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T22:42:39.000Z
+    mcq_disabled: true
+  - id: ki_biz_fixed_cost
+    subject_id: n_biz_fixed_cost
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_biz_fixed_cost_point
+    domain_id: business
+    assertion_text: A fixed cost does not change with production or sales volume within the specified
+      period and capacity; an agreed cellar lease is an example. A new capacity level or contract
+      can change it.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T22:42:39.000Z
+    mcq_disabled: true
+  - id: ki_biz_variable_cost
+    subject_id: n_biz_variable_cost
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_biz_variable_cost_point
+    domain_id: business
+    assertion_text: A cost that varies with output is a variable cost; bottles consumed for each
+      additional bottle filled are an example. This classification describes cost behaviour, not
+      whether the cost is important.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T22:42:39.000Z
+    mcq_disabled: true
+  - id: ki_biz_mixed_cost
+    subject_id: n_biz_mixed_cost
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_biz_mixed_cost_point
+    domain_id: business
+    assertion_text: A cost with a fixed component and a volume-dependent component is a mixed or
+      semi-variable cost. Separating the components improves a simplified break-even estimate.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T22:42:39.000Z
+    mcq_disabled: true
+  - id: ki_biz_contribution
+    subject_id: n_biz_contribution
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_biz_contribution_point
+    domain_id: business
+    assertion_text: Unit contribution is the selling price per unit less its variable cost. In a simple
+      break-even model, positive contribution first covers fixed costs before producing operating
+      profit.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T22:42:39.000Z
+    mcq_disabled: true
+  - id: ki_biz_breakeven
+    subject_id: n_biz_breakeven
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_biz_breakeven_point
+    domain_id: business
+    assertion_text: For a single product with constant price and unit variable cost, break-even units
+      equal period fixed costs divided by positive unit contribution. Sales mix and capacity changes
+      require revisiting the assumptions.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T22:42:39.000Z
+    mcq_disabled: true
+  - id: ki_biz_profit_cash
+    subject_id: n_biz_profit_cash
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_biz_profit_cash_point
+    domain_id: business
+    assertion_text: Profit measures income less expenses for a period; cash flow tracks money received
+      and paid. Non-cash charges and the timing of customer or supplier payments can make the two
+      differ.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T22:42:39.000Z
+    mcq_disabled: true
+  - id: ki_biz_working_capital
+    subject_id: n_biz_working_capital
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_biz_working_capital_point
+    domain_id: business
+    assertion_text: Working capital is current assets less current liabilities. It includes assets other
+      than cash, so a positive figure alone does not prove every upcoming payment can be met
+      immediately.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T22:42:39.000Z
+    mcq_disabled: true
+  - id: ki_biz_inventory_turnover
+    subject_id: n_biz_inventory_turnover
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_biz_inventory_turnover_point
+    domain_id: business
+    assertion_text: Inventory turnover compares cost of sales with average inventory at cost for the
+      same period. Using sales revenue against cost-valued stock produces a different ratio.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T22:42:39.000Z
+    mcq_disabled: true
+  - id: ki_biz_inventory_cash
+    subject_id: n_biz_inventory_cash
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_biz_inventory_cash_point
+    domain_id: business
+    assertion_text: Wine purchased but not yet sold uses cash that is unavailable for other payments.
+      Aligning stock purchases with expected demand can reduce this tie-up, subject to delivery
+      times and availability.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T22:42:39.000Z
+    mcq_disabled: true
+  - id: ki_biz_stocktake
+    subject_id: n_biz_stocktake
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_biz_stocktake_point
+    domain_id: business
+    assertion_text: Comparing a physical stock count with inventory records helps identify shortages,
+      excess ordering and slow-selling stock; recording sales alone cannot confirm what is
+      physically in the cellar.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T22:42:39.000Z
+    mcq_disabled: true
+  - id: ki_biz_payment_timing
+    subject_id: n_biz_payment_timing
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_biz_payment_timing_point
+    domain_id: business
+    assertion_text: Payment terms determine when a customer is expected to pay. Forecasting that timing
+      alongside supplier payments helps assess liquidity even when the sale is profitable.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T22:42:39.000Z
+    mcq_disabled: true
+  - id: ki_biz_cost_plus
+    subject_id: n_biz_cost_plus
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_biz_cost_plus_point
+    domain_id: business
+    assertion_text: Cost-plus pricing starts with the costs of making and supplying the product,
+      including labour and overheads, then adds an allowance for profit. Bottle purchase cost alone
+      omits other costs of selling wine.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T22:42:39.000Z
+    mcq_disabled: true
+  - id: ki_biz_value_pricing
+    subject_id: n_biz_value_pricing
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_biz_value_pricing_point
+    domain_id: business
+    assertion_text: Value-based pricing considers the benefits customers value and tests willingness to
+      pay. High production cost alone does not establish that customers will accept a premium.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T22:42:39.000Z
+    mcq_disabled: true
+  - id: ki_biz_competitor_pricing
+    subject_id: n_biz_competitor_pricing
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_biz_competitor_pricing_point
+    domain_id: business
+    assertion_text: Competitor prices provide a market benchmark; a business should also consider its
+      own costs and the value of its offer rather than copying a competitor price mechanically.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T22:42:39.000Z
+    mcq_disabled: true
+  - id: ki_biz_discount_contribution
+    subject_id: n_biz_discount_contribution
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_biz_discount_contribution_point
+    domain_id: business
+    assertion_text: With unit variable cost unchanged, reducing the selling price lowers contribution
+      per bottle. Selling more bottles after a discount does not by itself establish higher total
+      contribution.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T22:42:39.000Z
+    mcq_disabled: true
+  - id: ki_biz_price_review
+    subject_id: n_biz_price_review
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_biz_price_review_point
+    domain_id: business
+    assertion_text: Changes in supply costs or market conditions warrant reviewing prices and their
+      assumptions. A historic percentage markup does not guarantee the same cash result after costs
+      change.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T22:42:39.000Z
+    mcq_disabled: true
+  - id: ki_biz_customer_segment
+    subject_id: n_biz_customer_segment
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_biz_customer_segment_point
+    domain_id: business
+    assertion_text: A target segment identifies the customers the offer aims to serve. Its needs,
+      purchasing context and alternatives should guide market research rather than assuming every
+      wine buyer wants the same offer.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T22:42:39.000Z
+    mcq_disabled: true
+  - id: ki_biz_primary_research
+    subject_id: n_biz_primary_research
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_biz_primary_research_point
+    domain_id: business
+    assertion_text: Surveys, interviews or focus groups can examine customers directly about a specific
+      offer. Existing broad statistics may help describe a market but may not answer that
+      offer-specific question.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T22:42:39.000Z
+    mcq_disabled: true
+  - id: ki_biz_channel_mix
+    subject_id: n_biz_channel_mix
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_biz_channel_mix_point
+    domain_id: business
+    assertion_text: A business plan identifies the channels used to reach customers and earn revenue.
+      Choosing direct sales or intermediary routes depends on the offer, customers and available
+      resources; one route is not universally best.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T22:42:39.000Z
+    mcq_disabled: true
+  - id: ki_biz_tasting_room_relationship
+    subject_id: n_biz_tasting_room_relationship
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_biz_tasting_room_relationship_point
+    domain_id: business
+    assertion_text: A tasting room can connect customers with a winery and encourage purchases and
+      repeat contact. A visit does not guarantee a sale, and the facility still needs resources to
+      operate.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T22:42:39.000Z
+    mcq_disabled: true
+  - id: ki_biz_fx_receivable
+    subject_id: n_biz_fx_receivable
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_biz_fx_receivable_point
+    domain_id: business
+    assertion_text: If the foreign invoice currency weakens before payment, a fixed unhedged receivable
+      converts into less home currency. If it strengthens, the same fixed receivable converts into
+      more.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T22:42:39.000Z
+    mcq_disabled: true
+  - id: ki_biz_home_currency_invoice
+    subject_id: n_biz_home_currency_invoice
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_biz_home_currency_invoice_point
+    domain_id: business
+    assertion_text: Requiring payment in the exporter's home currency shifts conversion exposure to the
+      buyer. It can reduce competitiveness or strain the buyer's ability to pay; it does not remove
+      every commercial risk.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T22:42:39.000Z
+    mcq_disabled: true
+  - id: ki_biz_forward_exchange
+    subject_id: n_biz_forward_exchange
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_biz_forward_exchange_point
+    domain_id: business
+    assertion_text: A forward exchange contract fixes the rate for exchanging a stated foreign-currency
+      amount on a specified future date. It addresses that exchange-rate exposure, not whether the
+      buyer actually pays.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T22:42:39.000Z
+    mcq_disabled: true
+  - id: ki_srv_heat_ageing
+    subject_id: n_srv_heat_ageing
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_srv_heat_ageing_point
+    domain_id: service
+    assertion_text: Elevated storage temperature accelerates many ageing reactions and can cause adverse
+      sensory changes. It is not a reliable shortcut to beneficial bottle development.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T22:42:39.000Z
+    mcq_disabled: true
+  - id: ki_srv_heat_so2
+    subject_id: n_srv_heat_so2
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_srv_heat_so2_point
+    domain_id: service
+    assertion_text: Free sulfur dioxide normally declines during bottle storage, and elevated
+      temperature accelerates its loss. Its depletion changes the protection available against
+      oxidative reactions.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T22:42:39.000Z
+    mcq_disabled: true
+  - id: ki_srv_lightstruck
+    subject_id: n_srv_lightstruck
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_srv_lightstruck_point
+    domain_id: service
+    assertion_text: Light exposure can generate volatile sulfur compounds associated with lightstruck
+      aroma. The risk depends on the wine, bottle and exposure; clear glass does not itself prove
+      the wine is damaged.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T22:42:39.000Z
+    mcq_disabled: true
+  - id: ki_srv_holdback
+    subject_id: n_srv_holdback
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_srv_holdback_point
+    domain_id: service
+    assertion_text: A retained sample stored under known conditions provides a comparison when
+      investigating transport or storage damage. It helps assess differences without proving a
+      particular party caused them.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T22:42:39.000Z
+    mcq_disabled: true
+  - id: ki_srv_glass_odour
+    subject_id: n_srv_glass_odour
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_srv_glass_odour_point
+    domain_id: service
+    assertion_text: For controlled sensory assessment, glasses should be cleaned without residual odours
+      and checked before use. Detergent or cupboard odours can interfere with smelling the wine.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T22:42:39.000Z
+    mcq_disabled: true
+  - id: ki_srv_comparison_temperature
+    subject_id: n_srv_comparison_temperature
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_srv_comparison_temperature_point
+    domain_id: service
+    assertion_text: Wines of the same product type in a controlled sensory session should be assessed at
+      the same temperature. Unequal temperatures introduce a difference unrelated to the wine
+      itself.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T22:42:39.000Z
+    mcq_disabled: true
+  - id: ki_srv_visual_background
+    subject_id: n_srv_visual_background
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_srv_visual_background_point
+    domain_id: service
+    assertion_text: Light, neutral surroundings support controlled sensory assessment. Strong background
+      colour can interfere with judging the apparent colour of a wine.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T22:42:39.000Z
+    mcq_disabled: true
+  - id: ki_srv_sediment_decant
+    subject_id: n_srv_sediment_decant
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_srv_sediment_decant_point
+    domain_id: service
+    assertion_text: For a red wine that has formed sediment, careful decanting separates clear wine from
+      the deposit. Sediment removal and deliberate aeration are distinct purposes.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T22:42:39.000Z
+    mcq_disabled: true
+  - id: ki_srv_older_aeration
+    subject_id: n_srv_older_aeration
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_srv_older_aeration_point
+    domain_id: service
+    assertion_text: An older red wine may be harmed by excessive oxygen exposure. When removing its
+      sediment, a gentle pour into a narrower vessel can limit aeration; assess the bottle rather
+      than applying a universal long decant.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T22:42:39.000Z
+    mcq_disabled: true
+  - id: ki_srv_young_aeration
+    subject_id: n_srv_young_aeration
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_srv_young_aeration_point
+    domain_id: service
+    assertion_text: Château Margaux describes aeration as potentially helping young powerful red wines
+      open aromatically. This producer practice is conditional and does not establish that every
+      young wine benefits from a fixed decanting time.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T22:42:39.000Z
+    mcq_disabled: true
+  - id: ki_srv_cold_aroma
+    subject_id: n_srv_cold_aroma
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_srv_cold_aroma_point
+    domain_id: service
+    assertion_text: Château Margaux notes that excessive chilling of its red Bordeaux wines can mute
+      aromas and make them appear less expressive. This is a service observation, not a universal
+      temperature prescription.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T22:42:39.000Z
+    mcq_disabled: true
+  - id: ki_srv_older_cork
+    subject_id: n_srv_older_cork
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_srv_older_cork_point
+    domain_id: service
+    assertion_text: Taylor's preparation guidance recommends gently easing out a Vintage Port cork,
+      particularly when older corks may be delicate. Forceful handling can crumble the cork and
+      disturb the bottle.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T22:42:39.000Z
+    mcq_disabled: true
+  - id: ki_srv_storage_history
+    subject_id: n_srv_storage_history
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_srv_storage_history_point
+    domain_id: service
+    assertion_text: Wine transport can expose bottles to temperature variation. Temperature records help
+      investigate exposure; the label and an intact bottle alone cannot establish its storage
+      history.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T22:42:39.000Z
+    mcq_disabled: true
+  - id: ki_srv_smell_environment
+    subject_id: n_srv_smell_environment
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_srv_smell_environment_point
+    domain_id: service
+    assertion_text: Controlled sensory analysis uses ventilation and controlled room conditions to
+      reduce outside sensory interference. Strong ambient odours should not be treated as evidence
+      that the wine has the same aroma.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T22:42:39.000Z
+    mcq_disabled: true
+  - id: ki_biz_case_wine_discount_action
+    subject_id: n_biz_case_wine_discount
+    relation_type: CASE_ACTION
+    object_id: n_biz_case_wine_discount_action_point
+    domain_id: business
+    assertion_text: Under the stated assumptions, compare price less variable cost at both prices and
+      test plausible sales volumes before judging the promotion.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T22:42:39.000Z
+    mcq_disabled: true
+  - id: ki_biz_case_wine_discount_reason
+    subject_id: n_biz_case_wine_discount
+    relation_type: CASE_REASON
+    object_id: n_biz_case_wine_discount_reason_point
+    domain_id: business
+    assertion_text: Here the unit contribution falls from 12 to 6 invented currency units. The new offer
+      needs twice the bottle volume to retain the same total contribution, before fixed costs.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T22:42:39.000Z
+    mcq_disabled: true
+  - id: ki_biz_case_wine_discount_tradeoff
+    subject_id: n_biz_case_wine_discount
+    relation_type: CASE_TRADEOFF
+    object_id: n_biz_case_wine_discount_tradeoff_point
+    domain_id: business
+    assertion_text: The discount may attract buyers or clear stock, but each sale contributes less
+      toward unchanged fixed costs. A volume gain must be large enough to offset that reduction.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T22:42:39.000Z
+    mcq_disabled: true
+  - id: ki_biz_case_wine_discount_limitation
+    subject_id: n_biz_case_wine_discount
+    relation_type: CASE_LIMITATION
+    object_id: n_biz_case_wine_discount_limitation_point
+    domain_id: business
+    assertion_text: The arithmetic describes the proposed prices and unchanged costs; it does not
+      establish that demand will double or that the promotion will succeed.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T22:42:39.000Z
+    mcq_disabled: true
+  - id: ki_biz_case_cellar_cash_action
+    subject_id: n_biz_case_cellar_cash
+    relation_type: CASE_ACTION
+    object_id: n_biz_case_cellar_cash_action_point
+    domain_id: business
+    assertion_text: For this timing problem, compare expected receipt dates with supplier payment dates
+      and available cash rather than relying on the reported profit figure.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T22:42:39.000Z
+    mcq_disabled: true
+  - id: ki_biz_case_cellar_cash_reason
+    subject_id: n_biz_case_cellar_cash
+    relation_type: CASE_REASON
+    object_id: n_biz_case_cellar_cash_reason_point
+    domain_id: business
+    assertion_text: Unpaid sales and cash spent on unsold inventory can create a payment shortfall
+      despite accounting profit; cash flow and profit measure different things.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T22:42:39.000Z
+    mcq_disabled: true
+  - id: ki_biz_case_cellar_cash_tradeoff
+    subject_id: n_biz_case_cellar_cash
+    relation_type: CASE_TRADEOFF
+    object_id: n_biz_case_cellar_cash_tradeoff_point
+    domain_id: business
+    assertion_text: Buying less excess stock can free cash, but the restaurant must consider
+      replenishment time and whether desired wines remain available.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T22:42:39.000Z
+    mcq_disabled: true
+  - id: ki_biz_case_cellar_cash_limitation
+    subject_id: n_biz_case_cellar_cash
+    relation_type: CASE_LIMITATION
+    object_id: n_biz_case_cellar_cash_limitation_point
+    domain_id: business
+    assertion_text: Expected customer payments and future stock sales can differ from forecasts. The
+      stated information does not prove a particular loan, discount or stock sale will resolve the
+      shortfall.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T22:42:39.000Z
+    mcq_disabled: true
+  - id: ki_biz_case_export_currency_action
+    subject_id: n_biz_case_export_currency
+    relation_type: CASE_ACTION
+    object_id: n_biz_case_export_currency_action_point
+    domain_id: business
+    assertion_text: For the stated fixed amount and date, evaluating a forward exchange contract
+      illustrates how to fix the conversion rate for that receivable. Its suitability depends on
+      actual contract terms and exposure.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T22:42:39.000Z
+    mcq_disabled: true
+  - id: ki_biz_case_export_currency_reason
+    subject_id: n_biz_case_export_currency
+    relation_type: CASE_REASON
+    object_id: n_biz_case_export_currency_reason_point
+    domain_id: business
+    assertion_text: If the invoice currency weakens against the exporter's currency before payment, the
+      fixed unhedged invoice yields less home currency; a stronger invoice currency would yield
+      more.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T22:42:39.000Z
+    mcq_disabled: true
+  - id: ki_biz_case_export_currency_tradeoff
+    subject_id: n_biz_case_export_currency
+    relation_type: CASE_TRADEOFF
+    object_id: n_biz_case_export_currency_tradeoff_point
+    domain_id: business
+    assertion_text: Insisting on home-currency payment shifts currency conversion exposure to the buyer
+      but may lose a sale to a competitor prepared to accept the buyer's currency.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T22:42:39.000Z
+    mcq_disabled: true
+  - id: ki_biz_case_export_currency_limitation
+    subject_id: n_biz_case_export_currency
+    relation_type: CASE_LIMITATION
+    object_id: n_biz_case_export_currency_limitation_point
+    domain_id: business
+    assertion_text: Fixing a currency conversion rate does not ensure that the customer pays the
+      invoice. Exchange-rate risk and payment risk require separate consideration.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T22:42:39.000Z
+    mcq_disabled: true
+  - id: ki_srv_case_fragile_sediment_action
+    subject_id: n_srv_case_fragile_sediment
+    relation_type: CASE_ACTION
+    object_id: n_srv_case_fragile_sediment_action_point
+    domain_id: service
+    assertion_text: For this fragile bottle, gentle decanting into a narrow vessel separates wine while
+      limiting exposure to air. Use a light source to observe the deposit and stop before it
+      transfers.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T22:42:39.000Z
+    mcq_disabled: true
+  - id: ki_srv_case_fragile_sediment_reason
+    subject_id: n_srv_case_fragile_sediment
+    relation_type: CASE_REASON
+    object_id: n_srv_case_fragile_sediment_reason_point
+    domain_id: service
+    assertion_text: The purpose in this case is to keep the bottle deposit out of the served wine,
+      rather than to maximise aeration.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T22:42:39.000Z
+    mcq_disabled: true
+  - id: ki_srv_case_fragile_sediment_tradeoff
+    subject_id: n_srv_case_fragile_sediment
+    relation_type: CASE_TRADEOFF
+    object_id: n_srv_case_fragile_sediment_tradeoff_point
+    domain_id: service
+    assertion_text: Pouring exposes the wine to oxygen. Aeration that may help a young powerful red can
+      be harmful to a fragile older bottle, so the sediment benefit must be balanced against that
+      exposure.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T22:42:39.000Z
+    mcq_disabled: true
+  - id: ki_srv_case_fragile_sediment_limitation
+    subject_id: n_srv_case_fragile_sediment
+    relation_type: CASE_LIMITATION
+    object_id: n_srv_case_fragile_sediment_limitation_point
+    domain_id: service
+    assertion_text: This decision is conditional on the wine's fragility and sediment. Decanting does
+      not guarantee improved flavour and cannot establish one beneficial duration for every older
+      wine.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T22:42:39.000Z
+    mcq_disabled: true
+certification_knowledge_mappings:
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_biz_gross_profit
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_biz_gross_profit
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_biz_gross_margin
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_biz_gross_margin
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_biz_markup
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_biz_markup
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_biz_fixed_cost
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_biz_fixed_cost
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_biz_fixed_cost
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_biz_variable_cost
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_biz_variable_cost
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_biz_variable_cost
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_biz_mixed_cost
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_biz_mixed_cost
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_biz_mixed_cost
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_biz_contribution
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_biz_contribution
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_biz_breakeven
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_biz_breakeven
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_biz_profit_cash
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_biz_profit_cash
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_biz_working_capital
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_biz_inventory_turnover
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_biz_inventory_turnover
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_biz_inventory_cash
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_biz_inventory_cash
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_biz_stocktake
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_biz_stocktake
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_biz_payment_timing
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_biz_payment_timing
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_biz_cost_plus
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_biz_cost_plus
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_biz_cost_plus
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_biz_value_pricing
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_biz_competitor_pricing
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_biz_discount_contribution
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_biz_discount_contribution
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_biz_price_review
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_biz_price_review
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_biz_price_review
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_biz_customer_segment
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_biz_primary_research
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_biz_channel_mix
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_biz_tasting_room_relationship
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_biz_tasting_room_relationship
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_biz_fx_receivable
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_biz_home_currency_invoice
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_biz_forward_exchange
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_srv_heat_ageing
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_srv_heat_ageing
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_srv_heat_ageing
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_srv_heat_so2
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_srv_heat_so2
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_srv_lightstruck
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_srv_lightstruck
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_srv_lightstruck
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_srv_holdback
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_srv_holdback
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_srv_glass_odour
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_srv_glass_odour
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_srv_glass_odour
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_srv_comparison_temperature
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_srv_comparison_temperature
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_srv_visual_background
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_srv_visual_background
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_srv_visual_background
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_srv_sediment_decant
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_srv_sediment_decant
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_srv_sediment_decant
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_srv_older_aeration
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_srv_older_aeration
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_srv_young_aeration
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_srv_young_aeration
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_srv_cold_aroma
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_srv_cold_aroma
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_srv_cold_aroma
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_srv_older_cork
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_srv_older_cork
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_srv_storage_history
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_srv_storage_history
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_srv_smell_environment
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_srv_smell_environment
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_srv_smell_environment
+    importance: secondary
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_biz_case_wine_discount_action
+    importance: core
+    minimum_depth: 3
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_biz_case_wine_discount_action
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_biz_case_wine_discount_reason
+    importance: core
+    minimum_depth: 3
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_biz_case_wine_discount_reason
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_biz_case_wine_discount_tradeoff
+    importance: core
+    minimum_depth: 3
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_biz_case_wine_discount_tradeoff
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_biz_case_wine_discount_limitation
+    importance: core
+    minimum_depth: 3
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_biz_case_wine_discount_limitation
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_biz_case_cellar_cash_action
+    importance: core
+    minimum_depth: 3
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_biz_case_cellar_cash_action
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_biz_case_cellar_cash_reason
+    importance: core
+    minimum_depth: 3
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_biz_case_cellar_cash_reason
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_biz_case_cellar_cash_tradeoff
+    importance: core
+    minimum_depth: 3
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_biz_case_cellar_cash_tradeoff
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_biz_case_cellar_cash_limitation
+    importance: core
+    minimum_depth: 3
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_biz_case_cellar_cash_limitation
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_biz_case_export_currency_action
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_biz_case_export_currency_reason
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_biz_case_export_currency_tradeoff
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_biz_case_export_currency_limitation
+    importance: core
+    minimum_depth: 3
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_srv_case_fragile_sediment_action
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_srv_case_fragile_sediment_action
+    importance: core
+    minimum_depth: 3
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_srv_case_fragile_sediment_reason
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_srv_case_fragile_sediment_reason
+    importance: core
+    minimum_depth: 3
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_srv_case_fragile_sediment_tradeoff
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_srv_case_fragile_sediment_tradeoff
+    importance: core
+    minimum_depth: 3
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_srv_case_fragile_sediment_limitation
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_srv_case_fragile_sediment_limitation
+    importance: core
+    minimum_depth: 3
+source_citations:
+  - id: src_biz_victoria_pricing
+    kind: government_publication
+    title: Calculate your breakeven point, margin and markup
+    publisher: Business Victoria, State Government of Victoria
+    document_identifier: Live educational guidance retrieved 27 September 2026
+    url: https://business.vic.gov.au/business-information/finance/pricing-for-profit/calculate-your-breakeven-point-margin-and-markup
+    accessed_on: 2026-09-27
+  - id: src_biz_sba_planning
+    kind: government_publication
+    title: Plan your business
+    publisher: U.S. Small Business Administration
+    document_identifier: Market research, break-even and cost guidance retrieved 27 September 2026
+    url: https://www.sba.gov/counseling/plan-your-business/
+    accessed_on: 2026-09-27
+  - id: src_biz_sec_statements
+    kind: government_publication
+    title: Beginners' Guide to Financial Statement
+    publisher: U.S. Securities and Exchange Commission
+    document_identifier: Investor education, 4 February 2007
+    url: https://www.sec.gov/about/reports-publications/investorpubsbegfinstmtguide
+    accessed_on: 2026-09-27
+    published_on: 2007-02-04
+  - id: src_biz_au_cashflow
+    kind: government_publication
+    title: Guide to managing cash flow
+    publisher: Australian Government, business.gov.au
+    document_identifier: Payment terms and inventory guidance retrieved 27 September 2026
+    url: https://business.gov.au/guide/guide-to-managing-cash-flow
+    accessed_on: 2026-09-27
+  - id: src_biz_au_pricing
+    kind: government_publication
+    title: Choose a pricing strategy
+    publisher: Australian Government, business.gov.au
+    document_identifier: Commercial concepts only; live guidance retrieved 27 September 2026
+    url: https://business.gov.au/products-and-services/choose-a-pricing-strategy
+    accessed_on: 2026-09-27
+  - id: src_biz_psu_tasting_room
+    kind: academic
+    title: Winery Tasting Room Essentials
+    publisher: Penn State Extension, The Pennsylvania State University
+    document_identifier: Extension guidance retrieved 27 September 2026
+    url: https://extension.psu.edu/winery-tasting-room-essentials
+    accessed_on: 2026-09-27
+  - id: src_biz_ita_fx
+    kind: government_publication
+    title: Foreign Exchange Risk
+    publisher: International Trade Administration, U.S. Department of Commerce
+    document_identifier: Trade finance education retrieved 27 September 2026
+    url: https://www.trade.gov/foreign-exchange-risk
+    accessed_on: 2026-09-27
+  - id: src_srv_awri_heat
+    kind: academic
+    title: The effects of elevated storage temperature on wine composition
+    publisher: The Australian Wine Research Institute
+    document_identifier: Technical Review 224, October 2016, printed pp. 9–12 (PDF pp. 1–4)
+    url: https://www.awri.com.au/wp-content/uploads/2011/07/Technical_Review_Issue_224_Scrimgeour.pdf
+    accessed_on: 2026-09-27
+  - id: src_srv_awri_storage
+    kind: academic
+    title: Transport and storage
+    publisher: The Australian Wine Research Institute
+    document_identifier: Industry technical guidance retrieved 27 September 2026
+    url: https://www.awri.com.au/industry_support/winemaking_resources/storage-and-packaging/post-packaging/transport-and-storage/
+    accessed_on: 2026-09-27
+  - id: src_srv_awri_light
+    kind: academic
+    title: Lightstruck character
+    publisher: The Australian Wine Research Institute; A. Coulter
+    document_identifier: Australian & New Zealand Grapegrower & Winemaker 654, July 2018, pp. 76–77
+    url: https://www.awri.com.au/wp-content/uploads/2018/07/s2018.pdf
+    accessed_on: 2026-09-27
+  - id: src_srv_oiv_sensory
+    kind: reference_work
+    title: Review document on sensory analysis of wine
+    publisher: International Organisation of Vine and Wine
+    document_identifier: 2015 review; Part I general conditions, §§3.1–3.3
+    url: https://www.oiv.int/sites/default/files/2022-09/review-on-sensory-analysis-of-wine_en_3.pdf
+    accessed_on: 2026-09-27
+  - id: src_srv_margaux_service
+    kind: reference_work
+    title: Service & tasting
+    publisher: Château Margaux
+    document_identifier: Producer service practice retrieved 27 September 2026
+    url: https://chateau-margaux.com/en/mon-vin/service
+    accessed_on: 2026-09-27
+  - id: src_srv_taylor_service
+    kind: reference_work
+    title: How to serve Port
+    publisher: Taylor's Port
+    document_identifier: "Producer practice: Preparation and Decanting; retrieved 27 September 2026"
+    url: https://www.taylor.pt/en/enjoy-port-wine/how-to-serve-port
+    accessed_on: 2026-09-27
+knowledge_item_citations:
+  - knowledge_item_id: ki_biz_gross_profit
+    source_citation_id: src_biz_victoria_pricing
+    locator: What is gross margin?; gross profit formula
+  - knowledge_item_id: ki_biz_gross_margin
+    source_citation_id: src_biz_victoria_pricing
+    locator: How to calculate gross profit and margin
+  - knowledge_item_id: ki_biz_markup
+    source_citation_id: src_biz_victoria_pricing
+    locator: What is markup?; How to calculate markup
+  - knowledge_item_id: ki_biz_fixed_cost
+    source_citation_id: src_biz_sba_planning
+    locator: "Break-even point: Learn about fixed costs"
+  - knowledge_item_id: ki_biz_variable_cost
+    source_citation_id: src_biz_sba_planning
+    locator: "Break-even point: variable cost per unit and fixed/variable cost guidance"
+  - knowledge_item_id: ki_biz_mixed_cost
+    source_citation_id: src_biz_sba_planning
+    locator: Learn about semi-variable costs
+  - knowledge_item_id: ki_biz_contribution
+    source_citation_id: src_biz_sba_planning
+    locator: Getting started; single-product break-even formula
+  - knowledge_item_id: ki_biz_breakeven
+    source_citation_id: src_biz_sba_planning
+    locator: "Tips and tricks: single product/service calculation and estimate limitation"
+  - knowledge_item_id: ki_biz_profit_cash
+    source_citation_id: src_biz_sec_statements
+    locator: Income Statements; Cash Flow Statements; Operating Activities
+  - knowledge_item_id: ki_biz_working_capital
+    source_citation_id: src_biz_sec_statements
+    locator: "Financial Statement Ratios and Calculations: Working Capital"
+  - knowledge_item_id: ki_biz_inventory_turnover
+    source_citation_id: src_biz_sec_statements
+    locator: "Financial Statement Ratios and Calculations: Inventory Turnover Ratio"
+  - knowledge_item_id: ki_biz_inventory_cash
+    source_citation_id: src_biz_au_cashflow
+    locator: Manage your inventory; Negotiate with your suppliers
+  - knowledge_item_id: ki_biz_stocktake
+    source_citation_id: src_biz_au_cashflow
+    locator: "Manage your inventory: stocktakes, levels and sales trends"
+  - knowledge_item_id: ki_biz_payment_timing
+    source_citation_id: src_biz_au_cashflow
+    locator: Set payment terms; Negotiate with your suppliers
+  - knowledge_item_id: ki_biz_cost_plus
+    source_citation_id: src_biz_au_pricing
+    locator: "Common pricing strategies: Cost-plus pricing"
+  - knowledge_item_id: ki_biz_value_pricing
+    source_citation_id: src_biz_au_pricing
+    locator: "Value pricing; Research your market: Market testing"
+  - knowledge_item_id: ki_biz_competitor_pricing
+    source_citation_id: src_biz_au_pricing
+    locator: "Research your market: Competitors; Going rate pricing"
+  - knowledge_item_id: ki_biz_discount_contribution
+    source_citation_id: src_biz_au_pricing
+    locator: Plan for discounts
+  - knowledge_item_id: ki_biz_price_review
+    source_citation_id: src_biz_au_pricing
+    locator: "Set your prices: review when costs or market conditions change"
+  - knowledge_item_id: ki_biz_customer_segment
+    source_citation_id: src_biz_sba_planning
+    locator: "Lean startup plan: Customer segments; Market research"
+  - knowledge_item_id: ki_biz_primary_research
+    source_citation_id: src_biz_sba_planning
+    locator: "Use market research to find customers: existing sources and direct research"
+  - knowledge_item_id: ki_biz_channel_mix
+    source_citation_id: src_biz_sba_planning
+    locator: "Lean startup plan: Channels, Revenue streams, Key resources"
+  - knowledge_item_id: ki_biz_tasting_room_relationship
+    source_citation_id: src_biz_psu_tasting_room
+    locator: Opening section; customer relationships and customer-retention discussion
+  - knowledge_item_id: ki_biz_fx_receivable
+    source_citation_id: src_biz_ita_fx
+    locator: "Uncertainty of future exchange rates: change between deal and payment"
+  - knowledge_item_id: ki_biz_home_currency_invoice
+    source_citation_id: src_biz_ita_fx
+    locator: "Quoting and requiring payment in U.S. dollars: burden on buyer and lost opportunities"
+  - knowledge_item_id: ki_biz_forward_exchange
+    source_citation_id: src_biz_ita_fx
+    locator: "Currency Convertibility Tips: forward contract; nonpayment discussion"
+  - knowledge_item_id: ki_srv_heat_ageing
+    source_citation_id: src_srv_awri_heat
+    locator: "pp. 1–3: elevated temperature, chemical reactions and aroma changes"
+  - knowledge_item_id: ki_srv_heat_so2
+    source_citation_id: src_srv_awri_heat
+    locator: "p. 1: SO2 loss accelerated by elevated temperature"
+  - knowledge_item_id: ki_srv_lightstruck
+    source_citation_id: src_srv_awri_light
+    locator: "pp. 76–77: light, riboflavin, sulfur compounds and prevention"
+  - knowledge_item_id: ki_srv_holdback
+    source_citation_id: src_srv_awri_storage
+    locator: "Opening paragraph: hold-back samples under known conditions"
+  - knowledge_item_id: ki_srv_glass_odour
+    source_citation_id: src_srv_oiv_sensory
+    locator: "Part I §3.3: odourless detergent, rinsing and olfactory examination"
+  - knowledge_item_id: ki_srv_comparison_temperature
+    source_citation_id: src_srv_oiv_sensory
+    locator: "Part I §3.2: evaluating temperature for the same product type/session"
+  - knowledge_item_id: ki_srv_visual_background
+    source_citation_id: src_srv_oiv_sensory
+    locator: "Part I §3.1: light and neutral colour of room, booths and walls"
+  - knowledge_item_id: ki_srv_sediment_decant
+    source_citation_id: src_srv_margaux_service
+    locator: "Decanting: principal purpose and oxygen exposure"
+  - knowledge_item_id: ki_srv_older_aeration
+    source_citation_id: src_srv_margaux_service
+    locator: "Decanting: older wines, narrower carafe and gentle pour"
+  - knowledge_item_id: ki_srv_young_aeration
+    source_citation_id: src_srv_margaux_service
+    locator: "Decanting: young powerful wines and wider carafe"
+  - knowledge_item_id: ki_srv_cold_aroma
+    source_citation_id: src_srv_margaux_service
+    locator: "Service: aromas muted when served too cold"
+  - knowledge_item_id: ki_srv_older_cork
+    source_citation_id: src_srv_taylor_service
+    locator: "Preparation: ease cork out gently; older vintages and control"
+  - knowledge_item_id: ki_srv_storage_history
+    source_citation_id: src_srv_awri_storage
+    locator: "Damage during transport: measuring heat-related exposure and temperature variation"
+  - knowledge_item_id: ki_srv_smell_environment
+    source_citation_id: src_srv_oiv_sensory
+    locator: "Part I §3.1: tasting room, air exchange and controlled conditions"
+  - knowledge_item_id: ki_biz_case_wine_discount_action
+    source_citation_id: src_biz_sba_planning
+    locator: Single-product break-even formula and projected unit sales
+  - knowledge_item_id: ki_biz_case_wine_discount_reason
+    source_citation_id: src_biz_sba_planning
+    locator: Single-product break-even formula; original arithmetic using invented numbers
+  - knowledge_item_id: ki_biz_case_wine_discount_tradeoff
+    source_citation_id: src_biz_au_pricing
+    locator: "Plan for discounts: demand, stock and bottom-line effects"
+  - knowledge_item_id: ki_biz_case_wine_discount_limitation
+    source_citation_id: src_biz_au_pricing
+    locator: Market testing; price sensitivity; Plan for discounts
+  - knowledge_item_id: ki_biz_case_cellar_cash_action
+    source_citation_id: src_biz_au_cashflow
+    locator: Set payment terms; Set up a cash flow statement
+  - knowledge_item_id: ki_biz_case_cellar_cash_reason
+    source_citation_id: src_biz_sec_statements
+    locator: Cash Flow Statements; Operating Activities
+  - knowledge_item_id: ki_biz_case_cellar_cash_tradeoff
+    source_citation_id: src_biz_au_cashflow
+    locator: "Manage your inventory: avoid stock-outs and over-ordering"
+  - knowledge_item_id: ki_biz_case_cellar_cash_limitation
+    source_citation_id: src_biz_au_cashflow
+    locator: Set payment terms; Manage your inventory; review timing
+  - knowledge_item_id: ki_biz_case_export_currency_action
+    source_citation_id: src_biz_ita_fx
+    locator: "Currency Convertibility Tips: set amount, pre-agreed rate and delivery date"
+  - knowledge_item_id: ki_biz_case_export_currency_reason
+    source_citation_id: src_biz_ita_fx
+    locator: Exchange-rate uncertainty between conclusion and payment
+  - knowledge_item_id: ki_biz_case_export_currency_tradeoff
+    source_citation_id: src_biz_ita_fx
+    locator: Home-currency quotes and lost export opportunities
+  - knowledge_item_id: ki_biz_case_export_currency_limitation
+    source_citation_id: src_biz_ita_fx
+    locator: Nonpayment discussion and forward-contract purpose
+  - knowledge_item_id: ki_srv_case_fragile_sediment_action
+    source_citation_id: src_srv_margaux_service
+    locator: "Decanting: narrow carafe, gentle pour and light source"
+  - knowledge_item_id: ki_srv_case_fragile_sediment_reason
+    source_citation_id: src_srv_margaux_service
+    locator: "Decanting: main purpose is sediment separation"
+  - knowledge_item_id: ki_srv_case_fragile_sediment_tradeoff
+    source_citation_id: src_srv_margaux_service
+    locator: "Decanting: oxygen may harm older wines"
+  - knowledge_item_id: ki_srv_case_fragile_sediment_limitation
+    source_citation_id: src_srv_margaux_service
+    locator: "Decanting: conditional benefits and generally not too long before serving"

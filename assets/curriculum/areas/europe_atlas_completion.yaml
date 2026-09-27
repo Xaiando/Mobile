@@ -1,0 +1,4500 @@
+# European geography completion. Source-cited facts remain unverified.
+# Municipality markers are locality references, not complete wine-zone boundaries.
+knowledge_nodes:
+  - id: n_geo_valle_d_aosta
+    node_type: region
+    name: Valle d’Aosta
+  - id: n_geo_liguria
+    node_type: region
+    name: Liguria
+  - id: n_geo_trentino_alto_adige
+    node_type: region
+    name: Trentino-Alto Adige
+  - id: n_geo_emilia_romagna
+    node_type: region
+    name: Emilia-Romagna
+  - id: n_geo_umbria
+    node_type: region
+    name: Umbria
+  - id: n_geo_lazio
+    node_type: region
+    name: Lazio
+  - id: n_geo_abruzzo
+    node_type: region
+    name: Abruzzo
+  - id: n_geo_molise
+    node_type: region
+    name: Molise
+  - id: n_geo_puglia
+    node_type: region
+    name: Puglia
+  - id: n_geo_basilicata
+    node_type: region
+    name: Basilicata
+  - id: n_geo_calabria
+    node_type: region
+    name: Calabria
+  - id: n_geo_sardinia
+    node_type: region
+    name: Sardinia
+  - id: n_geo_barolo_commune
+    node_type: village
+    name: Barolo (commune)
+  - id: n_geo_castiglione_falletto
+    node_type: village
+    name: Castiglione Falletto
+  - id: n_geo_serralunga_d_alba
+    node_type: village
+    name: Serralunga d’Alba
+  - id: n_geo_la_morra
+    node_type: village
+    name: La Morra
+  - id: n_geo_monforte_d_alba
+    node_type: village
+    name: Monforte d’Alba
+  - id: n_geo_verduno
+    node_type: village
+    name: Verduno
+  - id: n_geo_novello
+    node_type: village
+    name: Novello
+  - id: n_geo_grinzane_cavour
+    node_type: village
+    name: Grinzane Cavour
+  - id: n_geo_diano_d_alba
+    node_type: village
+    name: Diano d’Alba
+  - id: n_geo_cherasco
+    node_type: village
+    name: Cherasco
+  - id: n_geo_roddi
+    node_type: village
+    name: Roddi
+  - id: n_geo_barbaresco_commune
+    node_type: village
+    name: Barbaresco (commune)
+  - id: n_geo_neive
+    node_type: village
+    name: Neive
+  - id: n_geo_treiso
+    node_type: village
+    name: Treiso
+  - id: n_geo_san_rocco_seno_d_elvio
+    node_type: village
+    name: San Rocco Seno d’Elvio
+  - id: n_geo_castellina_uga
+    node_type: subregion
+    name: Castellina
+  - id: n_geo_castelnuovo_berardenga_uga
+    node_type: subregion
+    name: Castelnuovo Berardenga
+  - id: n_geo_gaiole_uga
+    node_type: subregion
+    name: Gaiole
+  - id: n_geo_greve_uga
+    node_type: subregion
+    name: Greve
+  - id: n_geo_lamole_uga
+    node_type: subregion
+    name: Lamole
+  - id: n_geo_montefioralle_uga
+    node_type: subregion
+    name: Montefioralle
+  - id: n_geo_panzano_uga
+    node_type: subregion
+    name: Panzano
+  - id: n_geo_radda_uga
+    node_type: subregion
+    name: Radda
+  - id: n_geo_san_casciano_uga
+    node_type: subregion
+    name: San Casciano
+  - id: n_geo_san_donato_in_poggio_uga
+    node_type: subregion
+    name: San Donato in Poggio
+  - id: n_geo_vagliagli_uga
+    node_type: subregion
+    name: Vagliagli
+  - id: n_geo_chianti_colli_aretini
+    node_type: subregion
+    name: Chianti Colli Aretini
+  - id: n_geo_chianti_colli_fiorentini
+    node_type: subregion
+    name: Chianti Colli Fiorentini
+  - id: n_geo_chianti_colli_senesi
+    node_type: subregion
+    name: Chianti Colli Senesi
+  - id: n_geo_chianti_colline_pisane
+    node_type: subregion
+    name: Chianti Colline Pisane
+  - id: n_geo_chianti_montalbano
+    node_type: subregion
+    name: Chianti Montalbano
+  - id: n_geo_chianti_montespertoli
+    node_type: subregion
+    name: Chianti Montespertoli
+  - id: n_geo_chianti_rufina
+    node_type: subregion
+    name: Chianti Rufina
+  - id: n_geo_chianti_terre_di_vinci
+    node_type: subregion
+    name: Chianti Terre di Vinci
+  - id: n_geo_valpolicella_classico
+    node_type: subregion
+    name: Valpolicella Classico
+  - id: n_geo_valpantena
+    node_type: subregion
+    name: Valpantena
+  - id: n_geo_fumane
+    node_type: village
+    name: Fumane
+  - id: n_geo_marano_di_valpolicella
+    node_type: village
+    name: Marano di Valpolicella
+  - id: n_geo_negrar
+    node_type: village
+    name: Negrar di Valpolicella
+  - id: n_geo_sant_ambrogio_di_valpolicella
+    node_type: village
+    name: Sant’Ambrogio di Valpolicella
+  - id: n_geo_san_pietro_in_cariano
+    node_type: village
+    name: San Pietro in Cariano
+  - id: n_geo_soave_classico
+    node_type: subregion
+    name: Soave Classico
+  - id: n_geo_soave_colli_scaligeri
+    node_type: subregion
+    name: Soave Colli Scaligeri
+  - id: n_geo_soave_commune
+    node_type: village
+    name: Soave (commune)
+  - id: n_geo_monteforte_d_alpone
+    node_type: village
+    name: Monteforte d’Alpone
+  - id: n_geo_cartizze
+    node_type: subregion
+    name: Cartizze
+  - id: n_geo_conegliano
+    node_type: village
+    name: Conegliano
+  - id: n_geo_valdobbiadene
+    node_type: village
+    name: Valdobbiadene
+  - id: n_geo_alto_adige
+    node_type: appellation
+    name: Alto Adige / Südtirol
+  - id: n_geo_alto_adige_valle_isarco
+    node_type: subregion
+    name: Valle Isarco / Eisacktal
+  - id: n_geo_alto_adige_val_venosta
+    node_type: subregion
+    name: Val Venosta / Vinschgau
+  - id: n_geo_alto_adige_terlano
+    node_type: subregion
+    name: Terlano / Terlan
+  - id: n_geo_alto_adige_merano
+    node_type: subregion
+    name: Merano / Meraner
+  - id: n_geo_alto_adige_colli_bolzano
+    node_type: subregion
+    name: Colli di Bolzano / Bozner Leiten
+  - id: n_geo_alto_adige_santa_maddalena
+    node_type: subregion
+    name: Santa Maddalena / St. Magdalener
+  - id: n_geo_friuli_colli_orientali
+    node_type: appellation
+    name: Friuli Colli Orientali
+  - id: n_geo_friuli_cialla
+    node_type: subregion
+    name: Cialla
+  - id: n_geo_friuli_rosazzo_subzones
+    node_type: informal_area
+    name: Rosazzo (Colli Orientali subzones)
+  - id: n_geo_friuli_schioppettino_prepotto
+    node_type: subregion
+    name: Schioppettino di Prepotto
+  - id: n_geo_friuli_savorgnano
+    node_type: subregion
+    name: Savorgnano
+  - id: n_geo_friuli_refosco_faedis
+    node_type: subregion
+    name: Refosco di Faedis
+  - id: n_geo_alto_piemonte
+    node_type: informal_area
+    name: Alto Piemonte (wine area)
+  - id: n_geo_nebbiolo_d_alba
+    node_type: appellation
+    name: Nebbiolo d’Alba
+  - id: n_geo_barbera_del_monferrato
+    node_type: appellation
+    name: Barbera del Monferrato
+  - id: n_geo_brachetto_d_acqui
+    node_type: appellation
+    name: Brachetto d’Acqui
+  - id: n_geo_boca
+    node_type: appellation
+    name: Boca
+  - id: n_geo_fara
+    node_type: appellation
+    name: Fara
+  - id: n_geo_lessona
+    node_type: appellation
+    name: Lessona
+  - id: n_geo_bramaterra
+    node_type: appellation
+    name: Bramaterra
+  - id: n_geo_sizzano
+    node_type: appellation
+    name: Sizzano
+  - id: n_geo_monferrato
+    node_type: appellation
+    name: Monferrato
+  - id: n_geo_rosso_di_montalcino
+    node_type: appellation
+    name: Rosso di Montalcino
+  - id: n_geo_bolgheri_sassicaia
+    node_type: appellation
+    name: Bolgheri Sassicaia
+  - id: n_geo_maremma_toscana
+    node_type: appellation
+    name: Maremma Toscana
+  - id: n_geo_bardolino
+    node_type: appellation
+    name: Bardolino
+  - id: n_geo_lugana
+    node_type: appellation
+    name: Lugana
+  - id: n_geo_gambellara
+    node_type: appellation
+    name: Gambellara
+  - id: n_geo_breganze
+    node_type: appellation
+    name: Breganze
+  - id: n_geo_prosecco
+    node_type: appellation
+    name: Prosecco
+  - id: n_geo_trentino
+    node_type: appellation
+    name: Trentino
+  - id: n_geo_trento_doc
+    node_type: appellation
+    name: Trento
+  - id: n_geo_teroldego_rotaliano
+    node_type: appellation
+    name: Teroldego Rotaliano
+  - id: n_geo_lago_di_caldaro
+    node_type: appellation
+    name: Lago di Caldaro / Kalterersee
+  - id: n_geo_valtellina_superiore
+    node_type: appellation
+    name: Valtellina Superiore
+  - id: n_geo_sforzato_valtellina
+    node_type: appellation
+    name: Sforzato di Valtellina
+  - id: n_geo_oltrepo_pavese
+    node_type: appellation
+    name: Oltrepò Pavese
+  - id: n_geo_ramandolo
+    node_type: appellation
+    name: Ramandolo
+  - id: n_geo_rosazzo
+    node_type: appellation
+    name: Rosazzo
+  - id: n_geo_friuli_grave
+    node_type: appellation
+    name: Friuli Grave
+  - id: n_geo_colli_orientali_picolit
+    node_type: appellation
+    name: Colli Orientali del Friuli Picolit
+  - id: n_geo_lambrusco_sorbara
+    node_type: appellation
+    name: Lambrusco di Sorbara
+  - id: n_geo_lambrusco_grasparossa
+    node_type: appellation
+    name: Lambrusco Grasparossa di Castelvetro
+  - id: n_geo_lambrusco_salamino
+    node_type: appellation
+    name: Lambrusco Salamino di Santa Croce
+  - id: n_geo_romagna_albana
+    node_type: appellation
+    name: Romagna Albana
+  - id: n_geo_montefalco_sagrantino
+    node_type: appellation
+    name: Montefalco Sagrantino
+  - id: n_geo_torgiano
+    node_type: appellation
+    name: Torgiano
+  - id: n_geo_orvieto
+    node_type: appellation
+    name: Orvieto
+  - id: n_geo_verdicchio_matelica
+    node_type: appellation
+    name: Verdicchio di Matelica
+  - id: n_geo_conero
+    node_type: appellation
+    name: Conero
+  - id: n_geo_montepulciano_abruzzo
+    node_type: appellation
+    name: Montepulciano d’Abruzzo
+  - id: n_geo_trebbiano_abruzzo
+    node_type: appellation
+    name: Trebbiano d’Abruzzo
+  - id: n_geo_cerasuolo_abruzzo
+    node_type: appellation
+    name: Cerasuolo d’Abruzzo
+  - id: n_geo_fiano_avellino
+    node_type: appellation
+    name: Fiano di Avellino
+  - id: n_geo_greco_tufo
+    node_type: appellation
+    name: Greco di Tufo
+  - id: n_geo_vesuvio
+    node_type: appellation
+    name: Vesuvio
+  - id: n_geo_aglianico_vulture
+    node_type: appellation
+    name: Aglianico del Vulture
+  - id: n_geo_primitivo_manduria
+    node_type: appellation
+    name: Primitivo di Manduria
+  - id: n_geo_salice_salentino
+    node_type: appellation
+    name: Salice Salentino
+  - id: n_geo_castel_del_monte
+    node_type: appellation
+    name: Castel del Monte
+  - id: n_geo_ciro
+    node_type: appellation
+    name: Cirò
+  - id: n_geo_cerasuolo_vittoria
+    node_type: appellation
+    name: Cerasuolo di Vittoria
+  - id: n_geo_marsala
+    node_type: appellation
+    name: Marsala
+  - id: n_geo_pantelleria
+    node_type: appellation
+    name: Pantelleria
+  - id: n_geo_faro
+    node_type: appellation
+    name: Faro
+  - id: n_geo_cannonau_sardegna
+    node_type: appellation
+    name: Cannonau di Sardegna
+  - id: n_geo_vermentino_gallura
+    node_type: appellation
+    name: Vermentino di Gallura
+  - id: n_geo_vernaccia_oristano
+    node_type: appellation
+    name: Vernaccia di Oristano
+  - id: n_geo_cinque_terre
+    node_type: appellation
+    name: Cinque Terre
+  - id: n_geo_frascati
+    node_type: appellation
+    name: Frascati
+  - id: n_geo_jerez_town
+    node_type: village
+    name: Jerez de la Frontera
+  - id: n_geo_el_puerto_santa_maria
+    node_type: village
+    name: El Puerto de Santa María
+  - id: n_geo_sanlucar_town
+    node_type: village
+    name: Sanlúcar de Barrameda
+  - id: n_geo_trebujena
+    node_type: village
+    name: Trebujena
+  - id: n_geo_lebrija
+    node_type: village
+    name: Lebrija
+  - id: n_geo_chipiona
+    node_type: village
+    name: Chipiona
+  - id: n_geo_rota
+    node_type: village
+    name: Rota
+  - id: n_geo_chiclana
+    node_type: village
+    name: Chiclana de la Frontera
+  - id: n_geo_puerto_real
+    node_type: village
+    name: Puerto Real
+  - id: n_geo_san_jose_del_valle
+    node_type: village
+    name: San José del Valle
+  - id: n_geo_cava_comtats_barcelona
+    node_type: subregion
+    name: Comtats de Barcelona
+  - id: n_geo_cava_valle_ebro
+    node_type: subregion
+    name: Valle del Ebro (Cava)
+  - id: n_geo_cava_almendralejo
+    node_type: subregion
+    name: Viñedos de Almendralejo
+  - id: n_geo_cava_requena
+    node_type: subregion
+    name: Requena (Cava)
+  - id: n_geo_cava_anoia_foix
+    node_type: subregion
+    name: Valls d’Anoia-Foix
+  - id: n_geo_cava_serra_mar
+    node_type: subregion
+    name: Serra de Mar
+  - id: n_geo_cava_conca_gaia
+    node_type: subregion
+    name: Conca del Gaià
+  - id: n_geo_cava_serra_prades
+    node_type: subregion
+    name: Serra de Prades
+  - id: n_geo_cava_pla_ponent
+    node_type: subregion
+    name: Pla de Ponent
+  - id: n_geo_cava_alto_ebro
+    node_type: subregion
+    name: Alto Ebro
+  - id: n_geo_cava_valle_cierzo
+    node_type: subregion
+    name: Valle del Cierzo
+node_alternative_names:
+  - knowledge_node_id: n_geo_barolo_commune
+    name: Barolo
+    kind: synonym
+  - knowledge_node_id: n_geo_barbaresco_commune
+    name: Barbaresco
+    kind: synonym
+  - knowledge_node_id: n_geo_soave_commune
+    name: Soave
+    kind: synonym
+  - knowledge_node_id: n_geo_valle_d_aosta
+    name: Aosta Valley
+    kind: synonym
+  - knowledge_node_id: n_geo_puglia
+    name: Apulia
+    kind: synonym
+  - knowledge_node_id: n_geo_sardinia
+    name: Sardegna
+    kind: synonym
+  - knowledge_node_id: n_geo_alto_adige
+    name: Südtirol
+    kind: synonym
+  - knowledge_node_id: n_geo_alto_adige
+    name: Alto Adige
+    kind: synonym
+  - knowledge_node_id: n_geo_castellina_uga
+    name: Castellina in Chianti
+    kind: synonym
+  - knowledge_node_id: n_geo_gaiole_uga
+    name: Gaiole in Chianti
+    kind: synonym
+  - knowledge_node_id: n_geo_greve_uga
+    name: Greve in Chianti
+    kind: synonym
+  - knowledge_node_id: n_geo_panzano_uga
+    name: Panzano in Chianti
+    kind: synonym
+  - knowledge_node_id: n_geo_radda_uga
+    name: Radda in Chianti
+    kind: synonym
+  - knowledge_node_id: n_geo_san_casciano_uga
+    name: San Casciano in Val di Pesa
+    kind: synonym
+  - knowledge_node_id: n_geo_negrar
+    name: Negrar
+    kind: synonym
+  - knowledge_node_id: n_geo_alto_piemonte
+    name: Alto Piemonte
+    kind: synonym
+  - knowledge_node_id: n_geo_alto_adige_valle_isarco
+    name: Valle Isarco
+    kind: synonym
+  - knowledge_node_id: n_geo_alto_adige_valle_isarco
+    name: Eisacktal
+    kind: synonym
+  - knowledge_node_id: n_geo_alto_adige_val_venosta
+    name: Val Venosta
+    kind: synonym
+  - knowledge_node_id: n_geo_alto_adige_val_venosta
+    name: Vinschgau
+    kind: synonym
+  - knowledge_node_id: n_geo_alto_adige_terlano
+    name: Terlano
+    kind: synonym
+  - knowledge_node_id: n_geo_alto_adige_terlano
+    name: Terlan
+    kind: synonym
+  - knowledge_node_id: n_geo_alto_adige_merano
+    name: Merano
+    kind: synonym
+  - knowledge_node_id: n_geo_alto_adige_merano
+    name: Meraner
+    kind: synonym
+  - knowledge_node_id: n_geo_alto_adige_colli_bolzano
+    name: Colli di Bolzano
+    kind: synonym
+  - knowledge_node_id: n_geo_alto_adige_colli_bolzano
+    name: Bozner Leiten
+    kind: synonym
+  - knowledge_node_id: n_geo_alto_adige_santa_maddalena
+    name: Santa Maddalena
+    kind: synonym
+  - knowledge_node_id: n_geo_alto_adige_santa_maddalena
+    name: St. Magdalener
+    kind: synonym
+  - knowledge_node_id: n_geo_lago_di_caldaro
+    name: Lago di Caldaro
+    kind: synonym
+  - knowledge_node_id: n_geo_lago_di_caldaro
+    name: Kalterersee
+    kind: synonym
+knowledge_relations:
+  - subject_id: n_geo_valle_d_aosta
+    relation_type: LOCATED_IN
+    object_id: n_geo_italy
+    valid_from: 1900-01-01
+  - subject_id: n_geo_liguria
+    relation_type: LOCATED_IN
+    object_id: n_geo_italy
+    valid_from: 1900-01-01
+  - subject_id: n_geo_trentino_alto_adige
+    relation_type: LOCATED_IN
+    object_id: n_geo_italy
+    valid_from: 1900-01-01
+  - subject_id: n_geo_emilia_romagna
+    relation_type: LOCATED_IN
+    object_id: n_geo_italy
+    valid_from: 1900-01-01
+  - subject_id: n_geo_umbria
+    relation_type: LOCATED_IN
+    object_id: n_geo_italy
+    valid_from: 1900-01-01
+  - subject_id: n_geo_lazio
+    relation_type: LOCATED_IN
+    object_id: n_geo_italy
+    valid_from: 1900-01-01
+  - subject_id: n_geo_abruzzo
+    relation_type: LOCATED_IN
+    object_id: n_geo_italy
+    valid_from: 1900-01-01
+  - subject_id: n_geo_molise
+    relation_type: LOCATED_IN
+    object_id: n_geo_italy
+    valid_from: 1900-01-01
+  - subject_id: n_geo_puglia
+    relation_type: LOCATED_IN
+    object_id: n_geo_italy
+    valid_from: 1900-01-01
+  - subject_id: n_geo_basilicata
+    relation_type: LOCATED_IN
+    object_id: n_geo_italy
+    valid_from: 1900-01-01
+  - subject_id: n_geo_calabria
+    relation_type: LOCATED_IN
+    object_id: n_geo_italy
+    valid_from: 1900-01-01
+  - subject_id: n_geo_sardinia
+    relation_type: LOCATED_IN
+    object_id: n_geo_italy
+    valid_from: 1900-01-01
+  - subject_id: n_geo_barolo_commune
+    relation_type: LOCATED_IN
+    object_id: n_geo_piedmont
+    valid_from: 1900-01-01
+  - subject_id: n_geo_castiglione_falletto
+    relation_type: LOCATED_IN
+    object_id: n_geo_piedmont
+    valid_from: 1900-01-01
+  - subject_id: n_geo_serralunga_d_alba
+    relation_type: LOCATED_IN
+    object_id: n_geo_piedmont
+    valid_from: 1900-01-01
+  - subject_id: n_geo_la_morra
+    relation_type: LOCATED_IN
+    object_id: n_geo_piedmont
+    valid_from: 1900-01-01
+  - subject_id: n_geo_monforte_d_alba
+    relation_type: LOCATED_IN
+    object_id: n_geo_piedmont
+    valid_from: 1900-01-01
+  - subject_id: n_geo_verduno
+    relation_type: LOCATED_IN
+    object_id: n_geo_piedmont
+    valid_from: 1900-01-01
+  - subject_id: n_geo_novello
+    relation_type: LOCATED_IN
+    object_id: n_geo_piedmont
+    valid_from: 1900-01-01
+  - subject_id: n_geo_grinzane_cavour
+    relation_type: LOCATED_IN
+    object_id: n_geo_piedmont
+    valid_from: 1900-01-01
+  - subject_id: n_geo_diano_d_alba
+    relation_type: LOCATED_IN
+    object_id: n_geo_piedmont
+    valid_from: 1900-01-01
+  - subject_id: n_geo_cherasco
+    relation_type: LOCATED_IN
+    object_id: n_geo_piedmont
+    valid_from: 1900-01-01
+  - subject_id: n_geo_roddi
+    relation_type: LOCATED_IN
+    object_id: n_geo_piedmont
+    valid_from: 1900-01-01
+  - subject_id: n_geo_barbaresco_commune
+    relation_type: LOCATED_IN
+    object_id: n_geo_piedmont
+    valid_from: 1900-01-01
+  - subject_id: n_geo_neive
+    relation_type: LOCATED_IN
+    object_id: n_geo_piedmont
+    valid_from: 1900-01-01
+  - subject_id: n_geo_treiso
+    relation_type: LOCATED_IN
+    object_id: n_geo_piedmont
+    valid_from: 1900-01-01
+  - subject_id: n_geo_san_rocco_seno_d_elvio
+    relation_type: LOCATED_IN
+    object_id: n_geo_piedmont
+    valid_from: 1900-01-01
+  - subject_id: n_geo_castellina_uga
+    relation_type: LOCATED_IN
+    object_id: n_geo_chianti_classico
+    valid_from: 1900-01-01
+  - subject_id: n_geo_castelnuovo_berardenga_uga
+    relation_type: LOCATED_IN
+    object_id: n_geo_chianti_classico
+    valid_from: 1900-01-01
+  - subject_id: n_geo_gaiole_uga
+    relation_type: LOCATED_IN
+    object_id: n_geo_chianti_classico
+    valid_from: 1900-01-01
+  - subject_id: n_geo_greve_uga
+    relation_type: LOCATED_IN
+    object_id: n_geo_chianti_classico
+    valid_from: 1900-01-01
+  - subject_id: n_geo_lamole_uga
+    relation_type: LOCATED_IN
+    object_id: n_geo_chianti_classico
+    valid_from: 1900-01-01
+  - subject_id: n_geo_montefioralle_uga
+    relation_type: LOCATED_IN
+    object_id: n_geo_chianti_classico
+    valid_from: 1900-01-01
+  - subject_id: n_geo_panzano_uga
+    relation_type: LOCATED_IN
+    object_id: n_geo_chianti_classico
+    valid_from: 1900-01-01
+  - subject_id: n_geo_radda_uga
+    relation_type: LOCATED_IN
+    object_id: n_geo_chianti_classico
+    valid_from: 1900-01-01
+  - subject_id: n_geo_san_casciano_uga
+    relation_type: LOCATED_IN
+    object_id: n_geo_chianti_classico
+    valid_from: 1900-01-01
+  - subject_id: n_geo_san_donato_in_poggio_uga
+    relation_type: LOCATED_IN
+    object_id: n_geo_chianti_classico
+    valid_from: 1900-01-01
+  - subject_id: n_geo_vagliagli_uga
+    relation_type: LOCATED_IN
+    object_id: n_geo_chianti_classico
+    valid_from: 1900-01-01
+  - subject_id: n_geo_chianti_colli_aretini
+    relation_type: LOCATED_IN
+    object_id: n_geo_chianti
+    valid_from: 1900-01-01
+  - subject_id: n_geo_chianti_colli_fiorentini
+    relation_type: LOCATED_IN
+    object_id: n_geo_chianti
+    valid_from: 1900-01-01
+  - subject_id: n_geo_chianti_colli_senesi
+    relation_type: LOCATED_IN
+    object_id: n_geo_chianti
+    valid_from: 1900-01-01
+  - subject_id: n_geo_chianti_colline_pisane
+    relation_type: LOCATED_IN
+    object_id: n_geo_chianti
+    valid_from: 1900-01-01
+  - subject_id: n_geo_chianti_montalbano
+    relation_type: LOCATED_IN
+    object_id: n_geo_chianti
+    valid_from: 1900-01-01
+  - subject_id: n_geo_chianti_montespertoli
+    relation_type: LOCATED_IN
+    object_id: n_geo_chianti
+    valid_from: 1900-01-01
+  - subject_id: n_geo_chianti_rufina
+    relation_type: LOCATED_IN
+    object_id: n_geo_chianti
+    valid_from: 1900-01-01
+  - subject_id: n_geo_chianti_terre_di_vinci
+    relation_type: LOCATED_IN
+    object_id: n_geo_chianti
+    valid_from: 1900-01-01
+  - subject_id: n_geo_valpolicella_classico
+    relation_type: LOCATED_IN
+    object_id: n_geo_valpolicella
+    valid_from: 1900-01-01
+  - subject_id: n_geo_valpantena
+    relation_type: LOCATED_IN
+    object_id: n_geo_valpolicella
+    valid_from: 1900-01-01
+  - subject_id: n_geo_fumane
+    relation_type: LOCATED_IN
+    object_id: n_geo_veneto
+    valid_from: 1900-01-01
+  - subject_id: n_geo_marano_di_valpolicella
+    relation_type: LOCATED_IN
+    object_id: n_geo_veneto
+    valid_from: 1900-01-01
+  - subject_id: n_geo_negrar
+    relation_type: LOCATED_IN
+    object_id: n_geo_veneto
+    valid_from: 1900-01-01
+  - subject_id: n_geo_sant_ambrogio_di_valpolicella
+    relation_type: LOCATED_IN
+    object_id: n_geo_veneto
+    valid_from: 1900-01-01
+  - subject_id: n_geo_san_pietro_in_cariano
+    relation_type: LOCATED_IN
+    object_id: n_geo_veneto
+    valid_from: 1900-01-01
+  - subject_id: n_geo_soave_classico
+    relation_type: LOCATED_IN
+    object_id: n_geo_soave
+    valid_from: 1900-01-01
+  - subject_id: n_geo_soave_colli_scaligeri
+    relation_type: LOCATED_IN
+    object_id: n_geo_soave
+    valid_from: 1900-01-01
+  - subject_id: n_geo_soave_commune
+    relation_type: LOCATED_IN
+    object_id: n_geo_veneto
+    valid_from: 1900-01-01
+  - subject_id: n_geo_monteforte_d_alpone
+    relation_type: LOCATED_IN
+    object_id: n_geo_veneto
+    valid_from: 1900-01-01
+  - subject_id: n_geo_cartizze
+    relation_type: LOCATED_IN
+    object_id: n_geo_conegliano_valdobbiadene
+    valid_from: 1900-01-01
+  - subject_id: n_geo_conegliano
+    relation_type: LOCATED_IN
+    object_id: n_geo_veneto
+    valid_from: 1900-01-01
+  - subject_id: n_geo_valdobbiadene
+    relation_type: LOCATED_IN
+    object_id: n_geo_veneto
+    valid_from: 1900-01-01
+  - subject_id: n_geo_alto_adige
+    relation_type: LOCATED_IN
+    object_id: n_geo_trentino_alto_adige
+    valid_from: 1900-01-01
+  - subject_id: n_geo_alto_adige_valle_isarco
+    relation_type: LOCATED_IN
+    object_id: n_geo_alto_adige
+    valid_from: 1900-01-01
+  - subject_id: n_geo_alto_adige_val_venosta
+    relation_type: LOCATED_IN
+    object_id: n_geo_alto_adige
+    valid_from: 1900-01-01
+  - subject_id: n_geo_alto_adige_terlano
+    relation_type: LOCATED_IN
+    object_id: n_geo_alto_adige
+    valid_from: 1900-01-01
+  - subject_id: n_geo_alto_adige_merano
+    relation_type: LOCATED_IN
+    object_id: n_geo_alto_adige
+    valid_from: 1900-01-01
+  - subject_id: n_geo_alto_adige_colli_bolzano
+    relation_type: LOCATED_IN
+    object_id: n_geo_alto_adige
+    valid_from: 1900-01-01
+  - subject_id: n_geo_alto_adige_santa_maddalena
+    relation_type: LOCATED_IN
+    object_id: n_geo_alto_adige
+    valid_from: 1900-01-01
+  - subject_id: n_geo_friuli_colli_orientali
+    relation_type: LOCATED_IN
+    object_id: n_geo_friuli_venezia_giulia
+    valid_from: 1900-01-01
+  - subject_id: n_geo_friuli_cialla
+    relation_type: LOCATED_IN
+    object_id: n_geo_friuli_colli_orientali
+    valid_from: 1900-01-01
+  - subject_id: n_geo_friuli_rosazzo_subzones
+    relation_type: LOCATED_IN
+    object_id: n_geo_friuli_colli_orientali
+    valid_from: 1900-01-01
+  - subject_id: n_geo_friuli_schioppettino_prepotto
+    relation_type: LOCATED_IN
+    object_id: n_geo_friuli_colli_orientali
+    valid_from: 1900-01-01
+  - subject_id: n_geo_friuli_savorgnano
+    relation_type: LOCATED_IN
+    object_id: n_geo_friuli_colli_orientali
+    valid_from: 1900-01-01
+  - subject_id: n_geo_friuli_refosco_faedis
+    relation_type: LOCATED_IN
+    object_id: n_geo_friuli_colli_orientali
+    valid_from: 1900-01-01
+  - subject_id: n_geo_alto_piemonte
+    relation_type: LOCATED_IN
+    object_id: n_geo_piedmont
+    valid_from: 1900-01-01
+  - subject_id: n_geo_nebbiolo_d_alba
+    relation_type: LOCATED_IN
+    object_id: n_geo_piedmont
+    valid_from: 1900-01-01
+  - subject_id: n_geo_barbera_del_monferrato
+    relation_type: LOCATED_IN
+    object_id: n_geo_piedmont
+    valid_from: 1900-01-01
+  - subject_id: n_geo_brachetto_d_acqui
+    relation_type: LOCATED_IN
+    object_id: n_geo_piedmont
+    valid_from: 1900-01-01
+  - subject_id: n_geo_boca
+    relation_type: LOCATED_IN
+    object_id: n_geo_piedmont
+    valid_from: 1900-01-01
+  - subject_id: n_geo_fara
+    relation_type: LOCATED_IN
+    object_id: n_geo_piedmont
+    valid_from: 1900-01-01
+  - subject_id: n_geo_lessona
+    relation_type: LOCATED_IN
+    object_id: n_geo_piedmont
+    valid_from: 1900-01-01
+  - subject_id: n_geo_bramaterra
+    relation_type: LOCATED_IN
+    object_id: n_geo_piedmont
+    valid_from: 1900-01-01
+  - subject_id: n_geo_sizzano
+    relation_type: LOCATED_IN
+    object_id: n_geo_piedmont
+    valid_from: 1900-01-01
+  - subject_id: n_geo_monferrato
+    relation_type: LOCATED_IN
+    object_id: n_geo_piedmont
+    valid_from: 1900-01-01
+  - subject_id: n_geo_rosso_di_montalcino
+    relation_type: LOCATED_IN
+    object_id: n_geo_tuscany
+    valid_from: 1900-01-01
+  - subject_id: n_geo_bolgheri_sassicaia
+    relation_type: LOCATED_IN
+    object_id: n_geo_tuscany
+    valid_from: 1900-01-01
+  - subject_id: n_geo_maremma_toscana
+    relation_type: LOCATED_IN
+    object_id: n_geo_tuscany
+    valid_from: 1900-01-01
+  - subject_id: n_geo_bardolino
+    relation_type: LOCATED_IN
+    object_id: n_geo_veneto
+    valid_from: 1900-01-01
+  - subject_id: n_geo_lugana
+    relation_type: LOCATED_IN
+    object_id: n_geo_italy
+    valid_from: 1900-01-01
+  - subject_id: n_geo_gambellara
+    relation_type: LOCATED_IN
+    object_id: n_geo_veneto
+    valid_from: 1900-01-01
+  - subject_id: n_geo_breganze
+    relation_type: LOCATED_IN
+    object_id: n_geo_veneto
+    valid_from: 1900-01-01
+  - subject_id: n_geo_prosecco
+    relation_type: LOCATED_IN
+    object_id: n_geo_italy
+    valid_from: 1900-01-01
+  - subject_id: n_geo_trentino
+    relation_type: LOCATED_IN
+    object_id: n_geo_trentino_alto_adige
+    valid_from: 1900-01-01
+  - subject_id: n_geo_trento_doc
+    relation_type: LOCATED_IN
+    object_id: n_geo_trentino_alto_adige
+    valid_from: 1900-01-01
+  - subject_id: n_geo_teroldego_rotaliano
+    relation_type: LOCATED_IN
+    object_id: n_geo_trentino_alto_adige
+    valid_from: 1900-01-01
+  - subject_id: n_geo_lago_di_caldaro
+    relation_type: LOCATED_IN
+    object_id: n_geo_trentino_alto_adige
+    valid_from: 1900-01-01
+  - subject_id: n_geo_valtellina_superiore
+    relation_type: LOCATED_IN
+    object_id: n_geo_lombardy
+    valid_from: 1900-01-01
+  - subject_id: n_geo_sforzato_valtellina
+    relation_type: LOCATED_IN
+    object_id: n_geo_lombardy
+    valid_from: 1900-01-01
+  - subject_id: n_geo_oltrepo_pavese
+    relation_type: LOCATED_IN
+    object_id: n_geo_lombardy
+    valid_from: 1900-01-01
+  - subject_id: n_geo_ramandolo
+    relation_type: LOCATED_IN
+    object_id: n_geo_friuli_venezia_giulia
+    valid_from: 1900-01-01
+  - subject_id: n_geo_rosazzo
+    relation_type: LOCATED_IN
+    object_id: n_geo_friuli_venezia_giulia
+    valid_from: 1900-01-01
+  - subject_id: n_geo_friuli_grave
+    relation_type: LOCATED_IN
+    object_id: n_geo_friuli_venezia_giulia
+    valid_from: 1900-01-01
+  - subject_id: n_geo_colli_orientali_picolit
+    relation_type: LOCATED_IN
+    object_id: n_geo_friuli_venezia_giulia
+    valid_from: 1900-01-01
+  - subject_id: n_geo_lambrusco_sorbara
+    relation_type: LOCATED_IN
+    object_id: n_geo_emilia_romagna
+    valid_from: 1900-01-01
+  - subject_id: n_geo_lambrusco_grasparossa
+    relation_type: LOCATED_IN
+    object_id: n_geo_emilia_romagna
+    valid_from: 1900-01-01
+  - subject_id: n_geo_lambrusco_salamino
+    relation_type: LOCATED_IN
+    object_id: n_geo_emilia_romagna
+    valid_from: 1900-01-01
+  - subject_id: n_geo_romagna_albana
+    relation_type: LOCATED_IN
+    object_id: n_geo_emilia_romagna
+    valid_from: 1900-01-01
+  - subject_id: n_geo_montefalco_sagrantino
+    relation_type: LOCATED_IN
+    object_id: n_geo_umbria
+    valid_from: 1900-01-01
+  - subject_id: n_geo_torgiano
+    relation_type: LOCATED_IN
+    object_id: n_geo_umbria
+    valid_from: 1900-01-01
+  - subject_id: n_geo_orvieto
+    relation_type: LOCATED_IN
+    object_id: n_geo_italy
+    valid_from: 1900-01-01
+  - subject_id: n_geo_verdicchio_matelica
+    relation_type: LOCATED_IN
+    object_id: n_geo_marche
+    valid_from: 1900-01-01
+  - subject_id: n_geo_conero
+    relation_type: LOCATED_IN
+    object_id: n_geo_marche
+    valid_from: 1900-01-01
+  - subject_id: n_geo_montepulciano_abruzzo
+    relation_type: LOCATED_IN
+    object_id: n_geo_abruzzo
+    valid_from: 1900-01-01
+  - subject_id: n_geo_trebbiano_abruzzo
+    relation_type: LOCATED_IN
+    object_id: n_geo_abruzzo
+    valid_from: 1900-01-01
+  - subject_id: n_geo_cerasuolo_abruzzo
+    relation_type: LOCATED_IN
+    object_id: n_geo_abruzzo
+    valid_from: 1900-01-01
+  - subject_id: n_geo_fiano_avellino
+    relation_type: LOCATED_IN
+    object_id: n_geo_campania
+    valid_from: 1900-01-01
+  - subject_id: n_geo_greco_tufo
+    relation_type: LOCATED_IN
+    object_id: n_geo_campania
+    valid_from: 1900-01-01
+  - subject_id: n_geo_vesuvio
+    relation_type: LOCATED_IN
+    object_id: n_geo_campania
+    valid_from: 1900-01-01
+  - subject_id: n_geo_aglianico_vulture
+    relation_type: LOCATED_IN
+    object_id: n_geo_basilicata
+    valid_from: 1900-01-01
+  - subject_id: n_geo_primitivo_manduria
+    relation_type: LOCATED_IN
+    object_id: n_geo_puglia
+    valid_from: 1900-01-01
+  - subject_id: n_geo_salice_salentino
+    relation_type: LOCATED_IN
+    object_id: n_geo_puglia
+    valid_from: 1900-01-01
+  - subject_id: n_geo_castel_del_monte
+    relation_type: LOCATED_IN
+    object_id: n_geo_puglia
+    valid_from: 1900-01-01
+  - subject_id: n_geo_ciro
+    relation_type: LOCATED_IN
+    object_id: n_geo_calabria
+    valid_from: 1900-01-01
+  - subject_id: n_geo_cerasuolo_vittoria
+    relation_type: LOCATED_IN
+    object_id: n_geo_sicily
+    valid_from: 1900-01-01
+  - subject_id: n_geo_marsala
+    relation_type: LOCATED_IN
+    object_id: n_geo_sicily
+    valid_from: 1900-01-01
+  - subject_id: n_geo_pantelleria
+    relation_type: LOCATED_IN
+    object_id: n_geo_sicily
+    valid_from: 1900-01-01
+  - subject_id: n_geo_faro
+    relation_type: LOCATED_IN
+    object_id: n_geo_sicily
+    valid_from: 1900-01-01
+  - subject_id: n_geo_cannonau_sardegna
+    relation_type: LOCATED_IN
+    object_id: n_geo_sardinia
+    valid_from: 1900-01-01
+  - subject_id: n_geo_vermentino_gallura
+    relation_type: LOCATED_IN
+    object_id: n_geo_sardinia
+    valid_from: 1900-01-01
+  - subject_id: n_geo_vernaccia_oristano
+    relation_type: LOCATED_IN
+    object_id: n_geo_sardinia
+    valid_from: 1900-01-01
+  - subject_id: n_geo_cinque_terre
+    relation_type: LOCATED_IN
+    object_id: n_geo_liguria
+    valid_from: 1900-01-01
+  - subject_id: n_geo_frascati
+    relation_type: LOCATED_IN
+    object_id: n_geo_lazio
+    valid_from: 1900-01-01
+  - subject_id: n_geo_jerez_town
+    relation_type: LOCATED_IN
+    object_id: n_geo_andalusia
+    valid_from: 1900-01-01
+  - subject_id: n_geo_el_puerto_santa_maria
+    relation_type: LOCATED_IN
+    object_id: n_geo_andalusia
+    valid_from: 1900-01-01
+  - subject_id: n_geo_sanlucar_town
+    relation_type: LOCATED_IN
+    object_id: n_geo_andalusia
+    valid_from: 1900-01-01
+  - subject_id: n_geo_trebujena
+    relation_type: LOCATED_IN
+    object_id: n_geo_andalusia
+    valid_from: 1900-01-01
+  - subject_id: n_geo_lebrija
+    relation_type: LOCATED_IN
+    object_id: n_geo_andalusia
+    valid_from: 1900-01-01
+  - subject_id: n_geo_chipiona
+    relation_type: LOCATED_IN
+    object_id: n_geo_andalusia
+    valid_from: 1900-01-01
+  - subject_id: n_geo_rota
+    relation_type: LOCATED_IN
+    object_id: n_geo_andalusia
+    valid_from: 1900-01-01
+  - subject_id: n_geo_chiclana
+    relation_type: LOCATED_IN
+    object_id: n_geo_andalusia
+    valid_from: 1900-01-01
+  - subject_id: n_geo_puerto_real
+    relation_type: LOCATED_IN
+    object_id: n_geo_andalusia
+    valid_from: 1900-01-01
+  - subject_id: n_geo_san_jose_del_valle
+    relation_type: LOCATED_IN
+    object_id: n_geo_andalusia
+    valid_from: 1900-01-01
+  - subject_id: n_geo_cava_comtats_barcelona
+    relation_type: LOCATED_IN
+    object_id: n_geo_cava
+    valid_from: 1900-01-01
+  - subject_id: n_geo_cava_valle_ebro
+    relation_type: LOCATED_IN
+    object_id: n_geo_cava
+    valid_from: 1900-01-01
+  - subject_id: n_geo_cava_almendralejo
+    relation_type: LOCATED_IN
+    object_id: n_geo_cava
+    valid_from: 1900-01-01
+  - subject_id: n_geo_cava_requena
+    relation_type: LOCATED_IN
+    object_id: n_geo_cava
+    valid_from: 1900-01-01
+  - subject_id: n_geo_cava_anoia_foix
+    relation_type: LOCATED_IN
+    object_id: n_geo_cava_comtats_barcelona
+    valid_from: 1900-01-01
+  - subject_id: n_geo_cava_serra_mar
+    relation_type: LOCATED_IN
+    object_id: n_geo_cava_comtats_barcelona
+    valid_from: 1900-01-01
+  - subject_id: n_geo_cava_conca_gaia
+    relation_type: LOCATED_IN
+    object_id: n_geo_cava_comtats_barcelona
+    valid_from: 1900-01-01
+  - subject_id: n_geo_cava_serra_prades
+    relation_type: LOCATED_IN
+    object_id: n_geo_cava_comtats_barcelona
+    valid_from: 1900-01-01
+  - subject_id: n_geo_cava_pla_ponent
+    relation_type: LOCATED_IN
+    object_id: n_geo_cava_comtats_barcelona
+    valid_from: 1900-01-01
+  - subject_id: n_geo_cava_alto_ebro
+    relation_type: LOCATED_IN
+    object_id: n_geo_cava_valle_ebro
+    valid_from: 1900-01-01
+  - subject_id: n_geo_cava_valle_cierzo
+    relation_type: LOCATED_IN
+    object_id: n_geo_cava_valle_ebro
+    valid_from: 1900-01-01
+knowledge_items:
+  - id: ki_eac_valle_d_aosta_location
+    subject_id: n_geo_valle_d_aosta
+    relation_type: LOCATED_IN
+    object_id: n_geo_italy
+    domain_id: geography
+    assertion_text: Valle d’Aosta is located within Italy. Its map point is an
+      explicitly named geographic reference, not a legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_liguria_location
+    subject_id: n_geo_liguria
+    relation_type: LOCATED_IN
+    object_id: n_geo_italy
+    domain_id: geography
+    assertion_text: Liguria is located within Italy. Its map point is an explicitly
+      named geographic reference, not a legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_trentino_alto_adige_location
+    subject_id: n_geo_trentino_alto_adige
+    relation_type: LOCATED_IN
+    object_id: n_geo_italy
+    domain_id: geography
+    assertion_text: Trentino-Alto Adige is located within Italy. Its map point is an
+      explicitly named geographic reference, not a legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_emilia_romagna_location
+    subject_id: n_geo_emilia_romagna
+    relation_type: LOCATED_IN
+    object_id: n_geo_italy
+    domain_id: geography
+    assertion_text: Emilia-Romagna is located within Italy. Its map point is an
+      explicitly named geographic reference, not a legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_umbria_location
+    subject_id: n_geo_umbria
+    relation_type: LOCATED_IN
+    object_id: n_geo_italy
+    domain_id: geography
+    assertion_text: Umbria is located within Italy. Its map point is an explicitly
+      named geographic reference, not a legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_lazio_location
+    subject_id: n_geo_lazio
+    relation_type: LOCATED_IN
+    object_id: n_geo_italy
+    domain_id: geography
+    assertion_text: Lazio is located within Italy. Its map point is an explicitly
+      named geographic reference, not a legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_abruzzo_location
+    subject_id: n_geo_abruzzo
+    relation_type: LOCATED_IN
+    object_id: n_geo_italy
+    domain_id: geography
+    assertion_text: Abruzzo is located within Italy. Its map point is an explicitly
+      named geographic reference, not a legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_molise_location
+    subject_id: n_geo_molise
+    relation_type: LOCATED_IN
+    object_id: n_geo_italy
+    domain_id: geography
+    assertion_text: Molise is located within Italy. Its map point is an explicitly
+      named geographic reference, not a legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_puglia_location
+    subject_id: n_geo_puglia
+    relation_type: LOCATED_IN
+    object_id: n_geo_italy
+    domain_id: geography
+    assertion_text: Puglia is located within Italy. Its map point is an explicitly
+      named geographic reference, not a legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_basilicata_location
+    subject_id: n_geo_basilicata
+    relation_type: LOCATED_IN
+    object_id: n_geo_italy
+    domain_id: geography
+    assertion_text: Basilicata is located within Italy. Its map point is an
+      explicitly named geographic reference, not a legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_calabria_location
+    subject_id: n_geo_calabria
+    relation_type: LOCATED_IN
+    object_id: n_geo_italy
+    domain_id: geography
+    assertion_text: Calabria is located within Italy. Its map point is an explicitly
+      named geographic reference, not a legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_sardinia_location
+    subject_id: n_geo_sardinia
+    relation_type: LOCATED_IN
+    object_id: n_geo_italy
+    domain_id: geography
+    assertion_text: Sardinia is located within Italy. Its map point is an explicitly
+      named geographic reference, not a legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_barolo_commune_location
+    subject_id: n_geo_barolo_commune
+    relation_type: LOCATED_IN
+    object_id: n_geo_piedmont
+    domain_id: geography
+    assertion_text: Barolo (commune) is a Piedmont wine locality; its municipality
+      is wholly included in the Barolo production zone. The marker identifies
+      the locality, not the municipality or appellation boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_castiglione_falletto_location
+    subject_id: n_geo_castiglione_falletto
+    relation_type: LOCATED_IN
+    object_id: n_geo_piedmont
+    domain_id: geography
+    assertion_text: Castiglione Falletto is a Piedmont wine locality; its
+      municipality is wholly included in the Barolo production zone. The marker
+      identifies the locality, not the municipality or appellation boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_serralunga_d_alba_location
+    subject_id: n_geo_serralunga_d_alba
+    relation_type: LOCATED_IN
+    object_id: n_geo_piedmont
+    domain_id: geography
+    assertion_text: Serralunga d’Alba is a Piedmont wine locality; its municipality
+      is wholly included in the Barolo production zone. The marker identifies
+      the locality, not the municipality or appellation boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_la_morra_location
+    subject_id: n_geo_la_morra
+    relation_type: LOCATED_IN
+    object_id: n_geo_piedmont
+    domain_id: geography
+    assertion_text: La Morra is a Piedmont wine locality; its municipality is partly
+      included in the Barolo production zone. The marker identifies the
+      locality, not the municipality or appellation boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_monforte_d_alba_location
+    subject_id: n_geo_monforte_d_alba
+    relation_type: LOCATED_IN
+    object_id: n_geo_piedmont
+    domain_id: geography
+    assertion_text: Monforte d’Alba is a Piedmont wine locality; its municipality is
+      partly included in the Barolo production zone. The marker identifies the
+      locality, not the municipality or appellation boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_verduno_location
+    subject_id: n_geo_verduno
+    relation_type: LOCATED_IN
+    object_id: n_geo_piedmont
+    domain_id: geography
+    assertion_text: Verduno is a Piedmont wine locality; its municipality is partly
+      included in the Barolo production zone. The marker identifies the
+      locality, not the municipality or appellation boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_novello_location
+    subject_id: n_geo_novello
+    relation_type: LOCATED_IN
+    object_id: n_geo_piedmont
+    domain_id: geography
+    assertion_text: Novello is a Piedmont wine locality; its municipality is partly
+      included in the Barolo production zone. The marker identifies the
+      locality, not the municipality or appellation boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_grinzane_cavour_location
+    subject_id: n_geo_grinzane_cavour
+    relation_type: LOCATED_IN
+    object_id: n_geo_piedmont
+    domain_id: geography
+    assertion_text: Grinzane Cavour is a Piedmont wine locality; its municipality is
+      partly included in the Barolo production zone. The marker identifies the
+      locality, not the municipality or appellation boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_diano_d_alba_location
+    subject_id: n_geo_diano_d_alba
+    relation_type: LOCATED_IN
+    object_id: n_geo_piedmont
+    domain_id: geography
+    assertion_text: Diano d’Alba is a Piedmont wine locality; its municipality is
+      partly included in the Barolo production zone. The marker identifies the
+      locality, not the municipality or appellation boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_cherasco_location
+    subject_id: n_geo_cherasco
+    relation_type: LOCATED_IN
+    object_id: n_geo_piedmont
+    domain_id: geography
+    assertion_text: Cherasco is a Piedmont wine locality; its municipality is partly
+      included in the Barolo production zone. The marker identifies the
+      locality, not the municipality or appellation boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_roddi_location
+    subject_id: n_geo_roddi
+    relation_type: LOCATED_IN
+    object_id: n_geo_piedmont
+    domain_id: geography
+    assertion_text: Roddi is a Piedmont wine locality; its municipality is partly
+      included in the Barolo production zone. The marker identifies the
+      locality, not the municipality or appellation boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_barbaresco_commune_location
+    subject_id: n_geo_barbaresco_commune
+    relation_type: LOCATED_IN
+    object_id: n_geo_piedmont
+    domain_id: geography
+    assertion_text: Barbaresco (commune) is a wine locality in Piedmont named in the
+      Barbaresco production-zone specification. For San Rocco Seno d’Elvio, only
+      the delimited part of the Alba frazione is included.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_neive_location
+    subject_id: n_geo_neive
+    relation_type: LOCATED_IN
+    object_id: n_geo_piedmont
+    domain_id: geography
+    assertion_text: Neive is a wine locality in Piedmont named in the Barbaresco
+      production-zone specification. For San Rocco Seno d’Elvio, only the
+      delimited part of the Alba frazione is included.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_treiso_location
+    subject_id: n_geo_treiso
+    relation_type: LOCATED_IN
+    object_id: n_geo_piedmont
+    domain_id: geography
+    assertion_text: Treiso is a wine locality in Piedmont named in the Barbaresco
+      production-zone specification. For San Rocco Seno d’Elvio, only the
+      delimited part of the Alba frazione is included.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_san_rocco_seno_d_elvio_location
+    subject_id: n_geo_san_rocco_seno_d_elvio
+    relation_type: LOCATED_IN
+    object_id: n_geo_piedmont
+    domain_id: geography
+    assertion_text: San Rocco Seno d’Elvio is a wine locality in Piedmont named in
+      the Barbaresco production-zone specification. For San Rocco Seno d’Elvio,
+      only the delimited part of the Alba frazione is included.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_castellina_uga_location
+    subject_id: n_geo_castellina_uga
+    relation_type: LOCATED_IN
+    object_id: n_geo_chianti_classico
+    domain_id: geography
+    assertion_text: Castellina is a delimited unità geografica aggiuntiva within
+      Chianti Classico. The reference point marks the named locality, not the
+      full UGA; this geography item makes no wine-labelling or vintage claim.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_castelnuovo_berardenga_uga_location
+    subject_id: n_geo_castelnuovo_berardenga_uga
+    relation_type: LOCATED_IN
+    object_id: n_geo_chianti_classico
+    domain_id: geography
+    assertion_text: Castelnuovo Berardenga is a delimited unità geografica
+      aggiuntiva within Chianti Classico. The reference point marks the named
+      locality, not the full UGA; this geography item makes no wine-labelling or
+      vintage claim.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_gaiole_uga_location
+    subject_id: n_geo_gaiole_uga
+    relation_type: LOCATED_IN
+    object_id: n_geo_chianti_classico
+    domain_id: geography
+    assertion_text: Gaiole is a delimited unità geografica aggiuntiva within Chianti
+      Classico. The reference point marks the named locality, not the full UGA;
+      this geography item makes no wine-labelling or vintage claim.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_greve_uga_location
+    subject_id: n_geo_greve_uga
+    relation_type: LOCATED_IN
+    object_id: n_geo_chianti_classico
+    domain_id: geography
+    assertion_text: Greve is a delimited unità geografica aggiuntiva within Chianti
+      Classico. The reference point marks the named locality, not the full UGA;
+      this geography item makes no wine-labelling or vintage claim.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_lamole_uga_location
+    subject_id: n_geo_lamole_uga
+    relation_type: LOCATED_IN
+    object_id: n_geo_chianti_classico
+    domain_id: geography
+    assertion_text: Lamole is a delimited unità geografica aggiuntiva within Chianti
+      Classico. The reference point marks the named locality, not the full UGA;
+      this geography item makes no wine-labelling or vintage claim.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_montefioralle_uga_location
+    subject_id: n_geo_montefioralle_uga
+    relation_type: LOCATED_IN
+    object_id: n_geo_chianti_classico
+    domain_id: geography
+    assertion_text: Montefioralle is a delimited unità geografica aggiuntiva within
+      Chianti Classico. The reference point marks the named locality, not the
+      full UGA; this geography item makes no wine-labelling or vintage claim.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_panzano_uga_location
+    subject_id: n_geo_panzano_uga
+    relation_type: LOCATED_IN
+    object_id: n_geo_chianti_classico
+    domain_id: geography
+    assertion_text: Panzano is a delimited unità geografica aggiuntiva within
+      Chianti Classico. The reference point marks the named locality, not the
+      full UGA; this geography item makes no wine-labelling or vintage claim.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_radda_uga_location
+    subject_id: n_geo_radda_uga
+    relation_type: LOCATED_IN
+    object_id: n_geo_chianti_classico
+    domain_id: geography
+    assertion_text: Radda is a delimited unità geografica aggiuntiva within Chianti
+      Classico. The reference point marks the named locality, not the full UGA;
+      this geography item makes no wine-labelling or vintage claim.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_san_casciano_uga_location
+    subject_id: n_geo_san_casciano_uga
+    relation_type: LOCATED_IN
+    object_id: n_geo_chianti_classico
+    domain_id: geography
+    assertion_text: San Casciano is a delimited unità geografica aggiuntiva within
+      Chianti Classico. The reference point marks the named locality, not the
+      full UGA; this geography item makes no wine-labelling or vintage claim.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_san_donato_in_poggio_uga_location
+    subject_id: n_geo_san_donato_in_poggio_uga
+    relation_type: LOCATED_IN
+    object_id: n_geo_chianti_classico
+    domain_id: geography
+    assertion_text: San Donato in Poggio is a delimited unità geografica aggiuntiva
+      within Chianti Classico. The reference point marks the named locality, not
+      the full UGA; this geography item makes no wine-labelling or vintage
+      claim.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_vagliagli_uga_location
+    subject_id: n_geo_vagliagli_uga
+    relation_type: LOCATED_IN
+    object_id: n_geo_chianti_classico
+    domain_id: geography
+    assertion_text: Vagliagli is a delimited unità geografica aggiuntiva within
+      Chianti Classico. The reference point marks the named locality, not the
+      full UGA; this geography item makes no wine-labelling or vintage claim.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_chianti_colli_aretini_location
+    subject_id: n_geo_chianti_colli_aretini
+    relation_type: LOCATED_IN
+    object_id: n_geo_chianti
+    domain_id: geography
+    assertion_text: Chianti Colli Aretini is located within Chianti. Its map point
+      is an explicitly named geographic reference, not a legal wine-area
+      boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_chianti_colli_fiorentini_location
+    subject_id: n_geo_chianti_colli_fiorentini
+    relation_type: LOCATED_IN
+    object_id: n_geo_chianti
+    domain_id: geography
+    assertion_text: Chianti Colli Fiorentini is located within Chianti. Its map
+      point is an explicitly named geographic reference, not a legal wine-area
+      boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_chianti_colli_senesi_location
+    subject_id: n_geo_chianti_colli_senesi
+    relation_type: LOCATED_IN
+    object_id: n_geo_chianti
+    domain_id: geography
+    assertion_text: Chianti Colli Senesi is located within Chianti. Its map point is
+      an explicitly named geographic reference, not a legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_chianti_colline_pisane_location
+    subject_id: n_geo_chianti_colline_pisane
+    relation_type: LOCATED_IN
+    object_id: n_geo_chianti
+    domain_id: geography
+    assertion_text: Chianti Colline Pisane is located within Chianti. Its map point
+      is an explicitly named geographic reference, not a legal wine-area
+      boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_chianti_montalbano_location
+    subject_id: n_geo_chianti_montalbano
+    relation_type: LOCATED_IN
+    object_id: n_geo_chianti
+    domain_id: geography
+    assertion_text: Chianti Montalbano is located within Chianti. Its map point is
+      an explicitly named geographic reference, not a legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_chianti_montespertoli_location
+    subject_id: n_geo_chianti_montespertoli
+    relation_type: LOCATED_IN
+    object_id: n_geo_chianti
+    domain_id: geography
+    assertion_text: Chianti Montespertoli is located within Chianti. Its map point
+      is an explicitly named geographic reference, not a legal wine-area
+      boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_chianti_rufina_location
+    subject_id: n_geo_chianti_rufina
+    relation_type: LOCATED_IN
+    object_id: n_geo_chianti
+    domain_id: geography
+    assertion_text: Chianti Rufina is located within Chianti. Its map point is an
+      explicitly named geographic reference, not a legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_chianti_terre_di_vinci_location
+    subject_id: n_geo_chianti_terre_di_vinci
+    relation_type: LOCATED_IN
+    object_id: n_geo_chianti
+    domain_id: geography
+    assertion_text: Chianti Terre di Vinci is located within Chianti. Its map point
+      is an explicitly named geographic reference, not a legal wine-area
+      boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_valpolicella_classico_location
+    subject_id: n_geo_valpolicella_classico
+    relation_type: LOCATED_IN
+    object_id: n_geo_valpolicella
+    domain_id: geography
+    assertion_text: Valpolicella Classico is located within Valpolicella. Its map
+      point is an explicitly named geographic reference, not a legal wine-area
+      boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_valpantena_location
+    subject_id: n_geo_valpantena
+    relation_type: LOCATED_IN
+    object_id: n_geo_valpolicella
+    domain_id: geography
+    assertion_text: Valpantena is located within Valpolicella. Its map point is an
+      explicitly named geographic reference, not a legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_fumane_location
+    subject_id: n_geo_fumane
+    relation_type: LOCATED_IN
+    object_id: n_geo_veneto
+    domain_id: geography
+    assertion_text: Fumane is a Veneto wine locality in the municipality named by
+      the Valpolicella Classico zone. The map marker is a locality reference,
+      not a wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_marano_di_valpolicella_location
+    subject_id: n_geo_marano_di_valpolicella
+    relation_type: LOCATED_IN
+    object_id: n_geo_veneto
+    domain_id: geography
+    assertion_text: Marano di Valpolicella is a Veneto wine locality in the
+      municipality named by the Valpolicella Classico zone. The map marker is a
+      locality reference, not a wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_negrar_location
+    subject_id: n_geo_negrar
+    relation_type: LOCATED_IN
+    object_id: n_geo_veneto
+    domain_id: geography
+    assertion_text: Negrar di Valpolicella is a Veneto wine locality in the
+      municipality named by the Valpolicella Classico zone. The map marker is a
+      locality reference, not a wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_sant_ambrogio_di_valpolicella_location
+    subject_id: n_geo_sant_ambrogio_di_valpolicella
+    relation_type: LOCATED_IN
+    object_id: n_geo_veneto
+    domain_id: geography
+    assertion_text: Sant’Ambrogio di Valpolicella is a Veneto wine locality in the
+      municipality named by the Valpolicella Classico zone. The map marker is a
+      locality reference, not a wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_san_pietro_in_cariano_location
+    subject_id: n_geo_san_pietro_in_cariano
+    relation_type: LOCATED_IN
+    object_id: n_geo_veneto
+    domain_id: geography
+    assertion_text: San Pietro in Cariano is a Veneto wine locality in the
+      municipality named by the Valpolicella Classico zone. The map marker is a
+      locality reference, not a wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_soave_classico_location
+    subject_id: n_geo_soave_classico
+    relation_type: LOCATED_IN
+    object_id: n_geo_soave
+    domain_id: geography
+    assertion_text: Soave Classico is located within Soave. Its map point is an
+      explicitly named geographic reference, not a legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_soave_colli_scaligeri_location
+    subject_id: n_geo_soave_colli_scaligeri
+    relation_type: LOCATED_IN
+    object_id: n_geo_soave
+    domain_id: geography
+    assertion_text: Soave Colli Scaligeri is located within Soave. Its map point is
+      an explicitly named geographic reference, not a legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_soave_commune_location
+    subject_id: n_geo_soave_commune
+    relation_type: LOCATED_IN
+    object_id: n_geo_veneto
+    domain_id: geography
+    assertion_text: Soave (commune) is located within Veneto. Its map point is an
+      explicitly named geographic reference, not a legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_monteforte_d_alpone_location
+    subject_id: n_geo_monteforte_d_alpone
+    relation_type: LOCATED_IN
+    object_id: n_geo_veneto
+    domain_id: geography
+    assertion_text: Monteforte d’Alpone is located within Veneto. Its map point is
+      an explicitly named geographic reference, not a legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_cartizze_location
+    subject_id: n_geo_cartizze
+    relation_type: LOCATED_IN
+    object_id: n_geo_conegliano_valdobbiadene
+    domain_id: geography
+    assertion_text: Cartizze is located within Conegliano Valdobbiadene Prosecco.
+      Its map point is an explicitly named geographic reference, not a legal
+      wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_conegliano_location
+    subject_id: n_geo_conegliano
+    relation_type: LOCATED_IN
+    object_id: n_geo_veneto
+    domain_id: geography
+    assertion_text: Conegliano is located within Veneto. Its map point is an
+      explicitly named geographic reference, not a legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_valdobbiadene_location
+    subject_id: n_geo_valdobbiadene
+    relation_type: LOCATED_IN
+    object_id: n_geo_veneto
+    domain_id: geography
+    assertion_text: Valdobbiadene is located within Veneto. Its map point is an
+      explicitly named geographic reference, not a legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_alto_adige_location
+    subject_id: n_geo_alto_adige
+    relation_type: LOCATED_IN
+    object_id: n_geo_trentino_alto_adige
+    domain_id: geography
+    assertion_text: Alto Adige / Südtirol is located within Trentino-Alto Adige. Its
+      map point is an explicitly named geographic reference, not a legal
+      wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_alto_adige_valle_isarco_location
+    subject_id: n_geo_alto_adige_valle_isarco
+    relation_type: LOCATED_IN
+    object_id: n_geo_alto_adige
+    domain_id: geography
+    assertion_text: Valle Isarco / Eisacktal is located within Alto Adige /
+      Südtirol. Its map point is an explicitly named geographic reference, not a
+      legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_alto_adige_val_venosta_location
+    subject_id: n_geo_alto_adige_val_venosta
+    relation_type: LOCATED_IN
+    object_id: n_geo_alto_adige
+    domain_id: geography
+    assertion_text: Val Venosta / Vinschgau is located within Alto Adige / Südtirol.
+      Its map point is an explicitly named geographic reference, not a legal
+      wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_alto_adige_terlano_location
+    subject_id: n_geo_alto_adige_terlano
+    relation_type: LOCATED_IN
+    object_id: n_geo_alto_adige
+    domain_id: geography
+    assertion_text: Terlano / Terlan is located within Alto Adige / Südtirol. Its
+      map point is an explicitly named geographic reference, not a legal
+      wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_alto_adige_merano_location
+    subject_id: n_geo_alto_adige_merano
+    relation_type: LOCATED_IN
+    object_id: n_geo_alto_adige
+    domain_id: geography
+    assertion_text: Merano / Meraner is located within Alto Adige / Südtirol. Its
+      map point is an explicitly named geographic reference, not a legal
+      wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_alto_adige_colli_bolzano_location
+    subject_id: n_geo_alto_adige_colli_bolzano
+    relation_type: LOCATED_IN
+    object_id: n_geo_alto_adige
+    domain_id: geography
+    assertion_text: Colli di Bolzano / Bozner Leiten is located within Alto Adige /
+      Südtirol. Its map point is an explicitly named geographic reference, not a
+      legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_alto_adige_santa_maddalena_location
+    subject_id: n_geo_alto_adige_santa_maddalena
+    relation_type: LOCATED_IN
+    object_id: n_geo_alto_adige
+    domain_id: geography
+    assertion_text: Santa Maddalena / St. Magdalener is located within Alto Adige /
+      Südtirol. Its map point is an explicitly named geographic reference, not a
+      legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_friuli_colli_orientali_location
+    subject_id: n_geo_friuli_colli_orientali
+    relation_type: LOCATED_IN
+    object_id: n_geo_friuli_venezia_giulia
+    domain_id: geography
+    assertion_text: Friuli Colli Orientali is located within Friuli Venezia Giulia.
+      Its map point is an explicitly named geographic reference, not a legal
+      wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_friuli_cialla_location
+    subject_id: n_geo_friuli_cialla
+    relation_type: LOCATED_IN
+    object_id: n_geo_friuli_colli_orientali
+    domain_id: geography
+    assertion_text: Cialla is located within Friuli Colli Orientali. Its map point
+      is an explicitly named geographic reference, not a legal wine-area
+      boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_friuli_rosazzo_subzones_location
+    subject_id: n_geo_friuli_rosazzo_subzones
+    relation_type: LOCATED_IN
+    object_id: n_geo_friuli_colli_orientali
+    domain_id: geography
+    assertion_text: The Ribolla Gialla di Rosazzo and Pignolo di Rosazzo
+      geographical subzones are in Friuli Colli Orientali. This study area
+      groups their common Rosazzo location; it is not a separate appellation or
+      a new legal subzone.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_friuli_schioppettino_prepotto_location
+    subject_id: n_geo_friuli_schioppettino_prepotto
+    relation_type: LOCATED_IN
+    object_id: n_geo_friuli_colli_orientali
+    domain_id: geography
+    assertion_text: Schioppettino di Prepotto is located within Friuli Colli
+      Orientali. Its map point is an explicitly named geographic reference, not
+      a legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_friuli_savorgnano_location
+    subject_id: n_geo_friuli_savorgnano
+    relation_type: LOCATED_IN
+    object_id: n_geo_friuli_colli_orientali
+    domain_id: geography
+    assertion_text: Savorgnano is located within Friuli Colli Orientali. Its map
+      point is an explicitly named geographic reference, not a legal wine-area
+      boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_friuli_refosco_faedis_location
+    subject_id: n_geo_friuli_refosco_faedis
+    relation_type: LOCATED_IN
+    object_id: n_geo_friuli_colli_orientali
+    domain_id: geography
+    assertion_text: Refosco di Faedis is located within Friuli Colli Orientali. Its
+      map point is an explicitly named geographic reference, not a legal
+      wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_alto_piemonte_location
+    subject_id: n_geo_alto_piemonte
+    relation_type: LOCATED_IN
+    object_id: n_geo_piedmont
+    domain_id: geography
+    assertion_text: Alto Piemonte is the northern Piedmont wine-study area
+      associated with Ghemme, Gattinara and the surrounding wine districts. It
+      is an informal geographical grouping, not a separate DOC or DOCG.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_nebbiolo_d_alba_location
+    subject_id: n_geo_nebbiolo_d_alba
+    relation_type: LOCATED_IN
+    object_id: n_geo_piedmont
+    domain_id: geography
+    assertion_text: Nebbiolo d’Alba is located within Piedmont. Its map point is an
+      explicitly named geographic reference, not a legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_barbera_del_monferrato_location
+    subject_id: n_geo_barbera_del_monferrato
+    relation_type: LOCATED_IN
+    object_id: n_geo_piedmont
+    domain_id: geography
+    assertion_text: Barbera del Monferrato is located within Piedmont. Its map point
+      is an explicitly named geographic reference, not a legal wine-area
+      boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_brachetto_d_acqui_location
+    subject_id: n_geo_brachetto_d_acqui
+    relation_type: LOCATED_IN
+    object_id: n_geo_piedmont
+    domain_id: geography
+    assertion_text: Brachetto d’Acqui is located within Piedmont. Its map point is
+      an explicitly named geographic reference, not a legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_boca_location
+    subject_id: n_geo_boca
+    relation_type: LOCATED_IN
+    object_id: n_geo_piedmont
+    domain_id: geography
+    assertion_text: Boca is located within Piedmont. Its map point is an explicitly
+      named geographic reference, not a legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_fara_location
+    subject_id: n_geo_fara
+    relation_type: LOCATED_IN
+    object_id: n_geo_piedmont
+    domain_id: geography
+    assertion_text: Fara is located within Piedmont. Its map point is an explicitly
+      named geographic reference, not a legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_lessona_location
+    subject_id: n_geo_lessona
+    relation_type: LOCATED_IN
+    object_id: n_geo_piedmont
+    domain_id: geography
+    assertion_text: Lessona is located within Piedmont. Its map point is an
+      explicitly named geographic reference, not a legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_bramaterra_location
+    subject_id: n_geo_bramaterra
+    relation_type: LOCATED_IN
+    object_id: n_geo_piedmont
+    domain_id: geography
+    assertion_text: Bramaterra is located within Piedmont. Its map point is an
+      explicitly named geographic reference, not a legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_sizzano_location
+    subject_id: n_geo_sizzano
+    relation_type: LOCATED_IN
+    object_id: n_geo_piedmont
+    domain_id: geography
+    assertion_text: Sizzano is located within Piedmont. Its map point is an
+      explicitly named geographic reference, not a legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_monferrato_location
+    subject_id: n_geo_monferrato
+    relation_type: LOCATED_IN
+    object_id: n_geo_piedmont
+    domain_id: geography
+    assertion_text: Monferrato is located within Piedmont. Its map point is an
+      explicitly named geographic reference, not a legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_rosso_di_montalcino_location
+    subject_id: n_geo_rosso_di_montalcino
+    relation_type: LOCATED_IN
+    object_id: n_geo_tuscany
+    domain_id: geography
+    assertion_text: Rosso di Montalcino is located within Tuscany. Its map point is
+      an explicitly named geographic reference, not a legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_bolgheri_sassicaia_location
+    subject_id: n_geo_bolgheri_sassicaia
+    relation_type: LOCATED_IN
+    object_id: n_geo_tuscany
+    domain_id: geography
+    assertion_text: Bolgheri Sassicaia is located within Tuscany. Its map point is
+      an explicitly named geographic reference, not a legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_maremma_toscana_location
+    subject_id: n_geo_maremma_toscana
+    relation_type: LOCATED_IN
+    object_id: n_geo_tuscany
+    domain_id: geography
+    assertion_text: Maremma Toscana is located within Tuscany. Its map point is an
+      explicitly named geographic reference, not a legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_bardolino_location
+    subject_id: n_geo_bardolino
+    relation_type: LOCATED_IN
+    object_id: n_geo_veneto
+    domain_id: geography
+    assertion_text: Bardolino is located within Veneto. Its map point is an
+      explicitly named geographic reference, not a legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_lugana_location
+    subject_id: n_geo_lugana
+    relation_type: LOCATED_IN
+    object_id: n_geo_italy
+    domain_id: geography
+    assertion_text: Lugana is located within Italy. Its map point is an explicitly
+      named geographic reference, not a legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_gambellara_location
+    subject_id: n_geo_gambellara
+    relation_type: LOCATED_IN
+    object_id: n_geo_veneto
+    domain_id: geography
+    assertion_text: Gambellara is located within Veneto. Its map point is an
+      explicitly named geographic reference, not a legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_breganze_location
+    subject_id: n_geo_breganze
+    relation_type: LOCATED_IN
+    object_id: n_geo_veneto
+    domain_id: geography
+    assertion_text: Breganze is located within Veneto. Its map point is an
+      explicitly named geographic reference, not a legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_prosecco_location
+    subject_id: n_geo_prosecco
+    relation_type: LOCATED_IN
+    object_id: n_geo_italy
+    domain_id: geography
+    assertion_text: Prosecco is located within Italy. Its map point is an explicitly
+      named geographic reference, not a legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_trentino_location
+    subject_id: n_geo_trentino
+    relation_type: LOCATED_IN
+    object_id: n_geo_trentino_alto_adige
+    domain_id: geography
+    assertion_text: Trentino is located within Trentino-Alto Adige. Its map point is
+      an explicitly named geographic reference, not a legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_trento_doc_location
+    subject_id: n_geo_trento_doc
+    relation_type: LOCATED_IN
+    object_id: n_geo_trentino_alto_adige
+    domain_id: geography
+    assertion_text: Trento is located within Trentino-Alto Adige. Its map point is
+      an explicitly named geographic reference, not a legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_teroldego_rotaliano_location
+    subject_id: n_geo_teroldego_rotaliano
+    relation_type: LOCATED_IN
+    object_id: n_geo_trentino_alto_adige
+    domain_id: geography
+    assertion_text: Teroldego Rotaliano is located within Trentino-Alto Adige. Its
+      map point is an explicitly named geographic reference, not a legal
+      wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_lago_di_caldaro_location
+    subject_id: n_geo_lago_di_caldaro
+    relation_type: LOCATED_IN
+    object_id: n_geo_trentino_alto_adige
+    domain_id: geography
+    assertion_text: Lago di Caldaro / Kalterersee is located within Trentino-Alto
+      Adige. Its map point is an explicitly named geographic reference, not a
+      legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_valtellina_superiore_location
+    subject_id: n_geo_valtellina_superiore
+    relation_type: LOCATED_IN
+    object_id: n_geo_lombardy
+    domain_id: geography
+    assertion_text: Valtellina Superiore is located within Lombardy. Its map point
+      is an explicitly named geographic reference, not a legal wine-area
+      boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_sforzato_valtellina_location
+    subject_id: n_geo_sforzato_valtellina
+    relation_type: LOCATED_IN
+    object_id: n_geo_lombardy
+    domain_id: geography
+    assertion_text: Sforzato di Valtellina is located within Lombardy. Its map point
+      is an explicitly named geographic reference, not a legal wine-area
+      boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_oltrepo_pavese_location
+    subject_id: n_geo_oltrepo_pavese
+    relation_type: LOCATED_IN
+    object_id: n_geo_lombardy
+    domain_id: geography
+    assertion_text: Oltrepò Pavese is located within Lombardy. Its map point is an
+      explicitly named geographic reference, not a legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_ramandolo_location
+    subject_id: n_geo_ramandolo
+    relation_type: LOCATED_IN
+    object_id: n_geo_friuli_venezia_giulia
+    domain_id: geography
+    assertion_text: Ramandolo is located within Friuli Venezia Giulia. Its map point
+      is an explicitly named geographic reference, not a legal wine-area
+      boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_rosazzo_location
+    subject_id: n_geo_rosazzo
+    relation_type: LOCATED_IN
+    object_id: n_geo_friuli_venezia_giulia
+    domain_id: geography
+    assertion_text: Rosazzo is located within Friuli Venezia Giulia. Its map point
+      is an explicitly named geographic reference, not a legal wine-area
+      boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_friuli_grave_location
+    subject_id: n_geo_friuli_grave
+    relation_type: LOCATED_IN
+    object_id: n_geo_friuli_venezia_giulia
+    domain_id: geography
+    assertion_text: Friuli Grave is located within Friuli Venezia Giulia. Its map
+      point is an explicitly named geographic reference, not a legal wine-area
+      boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_colli_orientali_picolit_location
+    subject_id: n_geo_colli_orientali_picolit
+    relation_type: LOCATED_IN
+    object_id: n_geo_friuli_venezia_giulia
+    domain_id: geography
+    assertion_text: Colli Orientali del Friuli Picolit is located within Friuli
+      Venezia Giulia. Its map point is an explicitly named geographic reference,
+      not a legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_lambrusco_sorbara_location
+    subject_id: n_geo_lambrusco_sorbara
+    relation_type: LOCATED_IN
+    object_id: n_geo_emilia_romagna
+    domain_id: geography
+    assertion_text: Lambrusco di Sorbara is located within Emilia-Romagna. Its map
+      point is an explicitly named geographic reference, not a legal wine-area
+      boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_lambrusco_grasparossa_location
+    subject_id: n_geo_lambrusco_grasparossa
+    relation_type: LOCATED_IN
+    object_id: n_geo_emilia_romagna
+    domain_id: geography
+    assertion_text: Lambrusco Grasparossa di Castelvetro is located within
+      Emilia-Romagna. Its map point is an explicitly named geographic reference,
+      not a legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_lambrusco_salamino_location
+    subject_id: n_geo_lambrusco_salamino
+    relation_type: LOCATED_IN
+    object_id: n_geo_emilia_romagna
+    domain_id: geography
+    assertion_text: Lambrusco Salamino di Santa Croce is located within
+      Emilia-Romagna. Its map point is an explicitly named geographic reference,
+      not a legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_romagna_albana_location
+    subject_id: n_geo_romagna_albana
+    relation_type: LOCATED_IN
+    object_id: n_geo_emilia_romagna
+    domain_id: geography
+    assertion_text: Romagna Albana is located within Emilia-Romagna. Its map point
+      is an explicitly named geographic reference, not a legal wine-area
+      boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_montefalco_sagrantino_location
+    subject_id: n_geo_montefalco_sagrantino
+    relation_type: LOCATED_IN
+    object_id: n_geo_umbria
+    domain_id: geography
+    assertion_text: Montefalco Sagrantino is located within Umbria. Its map point is
+      an explicitly named geographic reference, not a legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_torgiano_location
+    subject_id: n_geo_torgiano
+    relation_type: LOCATED_IN
+    object_id: n_geo_umbria
+    domain_id: geography
+    assertion_text: Torgiano is located within Umbria. Its map point is an
+      explicitly named geographic reference, not a legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_orvieto_location
+    subject_id: n_geo_orvieto
+    relation_type: LOCATED_IN
+    object_id: n_geo_italy
+    domain_id: geography
+    assertion_text: Orvieto is located within Italy. Its map point is an explicitly
+      named geographic reference, not a legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_verdicchio_matelica_location
+    subject_id: n_geo_verdicchio_matelica
+    relation_type: LOCATED_IN
+    object_id: n_geo_marche
+    domain_id: geography
+    assertion_text: Verdicchio di Matelica is located within Marche. Its map point
+      is an explicitly named geographic reference, not a legal wine-area
+      boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_conero_location
+    subject_id: n_geo_conero
+    relation_type: LOCATED_IN
+    object_id: n_geo_marche
+    domain_id: geography
+    assertion_text: Conero is located within Marche. Its map point is an explicitly
+      named geographic reference, not a legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_montepulciano_abruzzo_location
+    subject_id: n_geo_montepulciano_abruzzo
+    relation_type: LOCATED_IN
+    object_id: n_geo_abruzzo
+    domain_id: geography
+    assertion_text: Montepulciano d’Abruzzo is located within Abruzzo. Its map point
+      is an explicitly named geographic reference, not a legal wine-area
+      boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_trebbiano_abruzzo_location
+    subject_id: n_geo_trebbiano_abruzzo
+    relation_type: LOCATED_IN
+    object_id: n_geo_abruzzo
+    domain_id: geography
+    assertion_text: Trebbiano d’Abruzzo is located within Abruzzo. Its map point is
+      an explicitly named geographic reference, not a legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_cerasuolo_abruzzo_location
+    subject_id: n_geo_cerasuolo_abruzzo
+    relation_type: LOCATED_IN
+    object_id: n_geo_abruzzo
+    domain_id: geography
+    assertion_text: Cerasuolo d’Abruzzo is located within Abruzzo. Its map point is
+      an explicitly named geographic reference, not a legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_fiano_avellino_location
+    subject_id: n_geo_fiano_avellino
+    relation_type: LOCATED_IN
+    object_id: n_geo_campania
+    domain_id: geography
+    assertion_text: Fiano di Avellino is located within Campania. Its map point is
+      an explicitly named geographic reference, not a legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_greco_tufo_location
+    subject_id: n_geo_greco_tufo
+    relation_type: LOCATED_IN
+    object_id: n_geo_campania
+    domain_id: geography
+    assertion_text: Greco di Tufo is located within Campania. Its map point is an
+      explicitly named geographic reference, not a legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_vesuvio_location
+    subject_id: n_geo_vesuvio
+    relation_type: LOCATED_IN
+    object_id: n_geo_campania
+    domain_id: geography
+    assertion_text: Vesuvio is located within Campania. Its map point is an
+      explicitly named geographic reference, not a legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_aglianico_vulture_location
+    subject_id: n_geo_aglianico_vulture
+    relation_type: LOCATED_IN
+    object_id: n_geo_basilicata
+    domain_id: geography
+    assertion_text: Aglianico del Vulture is located within Basilicata. Its map
+      point is an explicitly named geographic reference, not a legal wine-area
+      boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_primitivo_manduria_location
+    subject_id: n_geo_primitivo_manduria
+    relation_type: LOCATED_IN
+    object_id: n_geo_puglia
+    domain_id: geography
+    assertion_text: Primitivo di Manduria is located within Puglia. Its map point is
+      an explicitly named geographic reference, not a legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_salice_salentino_location
+    subject_id: n_geo_salice_salentino
+    relation_type: LOCATED_IN
+    object_id: n_geo_puglia
+    domain_id: geography
+    assertion_text: Salice Salentino is located within Puglia. Its map point is an
+      explicitly named geographic reference, not a legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_castel_del_monte_location
+    subject_id: n_geo_castel_del_monte
+    relation_type: LOCATED_IN
+    object_id: n_geo_puglia
+    domain_id: geography
+    assertion_text: Castel del Monte is located within Puglia. Its map point is an
+      explicitly named geographic reference, not a legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_ciro_location
+    subject_id: n_geo_ciro
+    relation_type: LOCATED_IN
+    object_id: n_geo_calabria
+    domain_id: geography
+    assertion_text: Cirò is located within Calabria. Its map point is an explicitly
+      named geographic reference, not a legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_cerasuolo_vittoria_location
+    subject_id: n_geo_cerasuolo_vittoria
+    relation_type: LOCATED_IN
+    object_id: n_geo_sicily
+    domain_id: geography
+    assertion_text: Cerasuolo di Vittoria is located within Sicily. Its map point is
+      an explicitly named geographic reference, not a legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_marsala_location
+    subject_id: n_geo_marsala
+    relation_type: LOCATED_IN
+    object_id: n_geo_sicily
+    domain_id: geography
+    assertion_text: Marsala is located within Sicily. Its map point is an explicitly
+      named geographic reference, not a legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_pantelleria_location
+    subject_id: n_geo_pantelleria
+    relation_type: LOCATED_IN
+    object_id: n_geo_sicily
+    domain_id: geography
+    assertion_text: Pantelleria is located within Sicily. Its map point is an
+      explicitly named geographic reference, not a legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_faro_location
+    subject_id: n_geo_faro
+    relation_type: LOCATED_IN
+    object_id: n_geo_sicily
+    domain_id: geography
+    assertion_text: Faro is located within Sicily. Its map point is an explicitly
+      named geographic reference, not a legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_cannonau_sardegna_location
+    subject_id: n_geo_cannonau_sardegna
+    relation_type: LOCATED_IN
+    object_id: n_geo_sardinia
+    domain_id: geography
+    assertion_text: Cannonau di Sardegna is located within Sardinia. Its map point
+      is an explicitly named geographic reference, not a legal wine-area
+      boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_vermentino_gallura_location
+    subject_id: n_geo_vermentino_gallura
+    relation_type: LOCATED_IN
+    object_id: n_geo_sardinia
+    domain_id: geography
+    assertion_text: Vermentino di Gallura is located within Sardinia. Its map point
+      is an explicitly named geographic reference, not a legal wine-area
+      boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_vernaccia_oristano_location
+    subject_id: n_geo_vernaccia_oristano
+    relation_type: LOCATED_IN
+    object_id: n_geo_sardinia
+    domain_id: geography
+    assertion_text: Vernaccia di Oristano is located within Sardinia. Its map point
+      is an explicitly named geographic reference, not a legal wine-area
+      boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_cinque_terre_location
+    subject_id: n_geo_cinque_terre
+    relation_type: LOCATED_IN
+    object_id: n_geo_liguria
+    domain_id: geography
+    assertion_text: Cinque Terre is located within Liguria. Its map point is an
+      explicitly named geographic reference, not a legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_frascati_location
+    subject_id: n_geo_frascati
+    relation_type: LOCATED_IN
+    object_id: n_geo_lazio
+    domain_id: geography
+    assertion_text: Frascati is located within Lazio. Its map point is an explicitly
+      named geographic reference, not a legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_jerez_town_location
+    subject_id: n_geo_jerez_town
+    relation_type: LOCATED_IN
+    object_id: n_geo_andalusia
+    domain_id: geography
+    assertion_text: Jerez de la Frontera is an Andalusian municipality in the
+      current Marco de Jerez production and ageing area. The historic Sherry
+      Triangle does not represent the exclusive current ageing zone.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_el_puerto_santa_maria_location
+    subject_id: n_geo_el_puerto_santa_maria
+    relation_type: LOCATED_IN
+    object_id: n_geo_andalusia
+    domain_id: geography
+    assertion_text: El Puerto de Santa María is an Andalusian municipality in the
+      current Marco de Jerez production and ageing area. The historic Sherry
+      Triangle does not represent the exclusive current ageing zone.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_sanlucar_town_location
+    subject_id: n_geo_sanlucar_town
+    relation_type: LOCATED_IN
+    object_id: n_geo_andalusia
+    domain_id: geography
+    assertion_text: Sanlúcar de Barrameda is an Andalusian municipality in the
+      current Marco de Jerez production and ageing area. The historic Sherry
+      Triangle does not represent the exclusive current ageing zone.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_trebujena_location
+    subject_id: n_geo_trebujena
+    relation_type: LOCATED_IN
+    object_id: n_geo_andalusia
+    domain_id: geography
+    assertion_text: Trebujena is an Andalusian municipality in the current Marco de
+      Jerez production and ageing area. The historic Sherry Triangle does not
+      represent the exclusive current ageing zone.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_lebrija_location
+    subject_id: n_geo_lebrija
+    relation_type: LOCATED_IN
+    object_id: n_geo_andalusia
+    domain_id: geography
+    assertion_text: Lebrija is an Andalusian municipality in the current Marco de
+      Jerez production and ageing area. The historic Sherry Triangle does not
+      represent the exclusive current ageing zone.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_chipiona_location
+    subject_id: n_geo_chipiona
+    relation_type: LOCATED_IN
+    object_id: n_geo_andalusia
+    domain_id: geography
+    assertion_text: Chipiona is an Andalusian municipality in the current Marco de
+      Jerez production and ageing area. The historic Sherry Triangle does not
+      represent the exclusive current ageing zone.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_rota_location
+    subject_id: n_geo_rota
+    relation_type: LOCATED_IN
+    object_id: n_geo_andalusia
+    domain_id: geography
+    assertion_text: Rota is an Andalusian municipality in the current Marco de Jerez
+      production and ageing area. The historic Sherry Triangle does not
+      represent the exclusive current ageing zone.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_chiclana_location
+    subject_id: n_geo_chiclana
+    relation_type: LOCATED_IN
+    object_id: n_geo_andalusia
+    domain_id: geography
+    assertion_text: Chiclana de la Frontera is an Andalusian municipality in the
+      current Marco de Jerez production and ageing area. The historic Sherry
+      Triangle does not represent the exclusive current ageing zone.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_puerto_real_location
+    subject_id: n_geo_puerto_real
+    relation_type: LOCATED_IN
+    object_id: n_geo_andalusia
+    domain_id: geography
+    assertion_text: Puerto Real is an Andalusian municipality in the current Marco
+      de Jerez production and ageing area. The historic Sherry Triangle does not
+      represent the exclusive current ageing zone.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_san_jose_del_valle_location
+    subject_id: n_geo_san_jose_del_valle
+    relation_type: LOCATED_IN
+    object_id: n_geo_andalusia
+    domain_id: geography
+    assertion_text: San José del Valle is an Andalusian municipality in the current
+      Marco de Jerez production and ageing area. The historic Sherry Triangle
+      does not represent the exclusive current ageing zone.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_cava_comtats_barcelona_location
+    subject_id: n_geo_cava_comtats_barcelona
+    relation_type: LOCATED_IN
+    object_id: n_geo_cava
+    domain_id: geography
+    assertion_text: Comtats de Barcelona is located within Cava. Its map point is an
+      explicitly named geographic reference, not a legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_cava_valle_ebro_location
+    subject_id: n_geo_cava_valle_ebro
+    relation_type: LOCATED_IN
+    object_id: n_geo_cava
+    domain_id: geography
+    assertion_text: Valle del Ebro (Cava) is located within Cava. Its map point is
+      an explicitly named geographic reference, not a legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_cava_almendralejo_location
+    subject_id: n_geo_cava_almendralejo
+    relation_type: LOCATED_IN
+    object_id: n_geo_cava
+    domain_id: geography
+    assertion_text: Viñedos de Almendralejo is located within Cava. Its map point is
+      an explicitly named geographic reference, not a legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_cava_requena_location
+    subject_id: n_geo_cava_requena
+    relation_type: LOCATED_IN
+    object_id: n_geo_cava
+    domain_id: geography
+    assertion_text: Requena (Cava) is located within Cava. Its map point is an
+      explicitly named geographic reference, not a legal wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_cava_anoia_foix_location
+    subject_id: n_geo_cava_anoia_foix
+    relation_type: LOCATED_IN
+    object_id: n_geo_cava_comtats_barcelona
+    domain_id: geography
+    assertion_text: Valls d’Anoia-Foix is located within Comtats de Barcelona. Its
+      map point is an explicitly named geographic reference, not a legal
+      wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_cava_serra_mar_location
+    subject_id: n_geo_cava_serra_mar
+    relation_type: LOCATED_IN
+    object_id: n_geo_cava_comtats_barcelona
+    domain_id: geography
+    assertion_text: Serra de Mar is located within Comtats de Barcelona. Its map
+      point is an explicitly named geographic reference, not a legal wine-area
+      boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_cava_conca_gaia_location
+    subject_id: n_geo_cava_conca_gaia
+    relation_type: LOCATED_IN
+    object_id: n_geo_cava_comtats_barcelona
+    domain_id: geography
+    assertion_text: Conca del Gaià is located within Comtats de Barcelona. Its map
+      point is an explicitly named geographic reference, not a legal wine-area
+      boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_cava_serra_prades_location
+    subject_id: n_geo_cava_serra_prades
+    relation_type: LOCATED_IN
+    object_id: n_geo_cava_comtats_barcelona
+    domain_id: geography
+    assertion_text: Serra de Prades is located within Comtats de Barcelona. Its map
+      point is an explicitly named geographic reference, not a legal wine-area
+      boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_cava_pla_ponent_location
+    subject_id: n_geo_cava_pla_ponent
+    relation_type: LOCATED_IN
+    object_id: n_geo_cava_comtats_barcelona
+    domain_id: geography
+    assertion_text: Pla de Ponent is located within Comtats de Barcelona. Its map
+      point is an explicitly named geographic reference, not a legal wine-area
+      boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_cava_alto_ebro_location
+    subject_id: n_geo_cava_alto_ebro
+    relation_type: LOCATED_IN
+    object_id: n_geo_cava_valle_ebro
+    domain_id: geography
+    assertion_text: Alto Ebro is located within Valle del Ebro (Cava). Its map point
+      is an explicitly named geographic reference, not a legal wine-area
+      boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+  - id: ki_eac_cava_valle_cierzo_location
+    subject_id: n_geo_cava_valle_cierzo
+    relation_type: LOCATED_IN
+    object_id: n_geo_cava_valle_ebro
+    domain_id: geography
+    assertion_text: Valle del Cierzo is located within Valle del Ebro (Cava). Its
+      map point is an explicitly named geographic reference, not a legal
+      wine-area boundary.
+    verification_status: unverified
+    last_verified_at: 2026-09-26T12:00:00.000Z
+certification_knowledge_mappings:
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_valle_d_aosta_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_valle_d_aosta_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_liguria_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_liguria_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_trentino_alto_adige_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_trentino_alto_adige_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_emilia_romagna_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_emilia_romagna_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_umbria_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_umbria_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_lazio_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_lazio_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_abruzzo_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_abruzzo_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_molise_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_molise_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_puglia_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_puglia_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_basilicata_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_basilicata_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_calabria_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_calabria_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_sardinia_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_sardinia_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_barolo_commune_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_barolo_commune_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_castiglione_falletto_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_castiglione_falletto_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_serralunga_d_alba_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_serralunga_d_alba_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_la_morra_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_la_morra_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_monforte_d_alba_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_monforte_d_alba_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_verduno_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_verduno_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_novello_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_novello_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_grinzane_cavour_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_grinzane_cavour_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_diano_d_alba_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_diano_d_alba_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_cherasco_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_cherasco_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_roddi_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_roddi_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_barbaresco_commune_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_barbaresco_commune_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_neive_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_neive_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_treiso_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_treiso_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_san_rocco_seno_d_elvio_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_san_rocco_seno_d_elvio_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_castellina_uga_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_castellina_uga_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_castelnuovo_berardenga_uga_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_castelnuovo_berardenga_uga_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_gaiole_uga_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_gaiole_uga_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_greve_uga_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_greve_uga_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_lamole_uga_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_lamole_uga_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_montefioralle_uga_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_montefioralle_uga_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_panzano_uga_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_panzano_uga_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_radda_uga_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_radda_uga_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_san_casciano_uga_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_san_casciano_uga_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_san_donato_in_poggio_uga_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_san_donato_in_poggio_uga_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_vagliagli_uga_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_vagliagli_uga_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_chianti_colli_aretini_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_chianti_colli_aretini_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_chianti_colli_fiorentini_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_chianti_colli_fiorentini_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_chianti_colli_senesi_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_chianti_colli_senesi_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_chianti_colline_pisane_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_chianti_colline_pisane_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_chianti_montalbano_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_chianti_montalbano_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_chianti_montespertoli_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_chianti_montespertoli_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_chianti_rufina_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_chianti_rufina_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_chianti_terre_di_vinci_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_chianti_terre_di_vinci_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_valpolicella_classico_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_valpolicella_classico_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_valpantena_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_valpantena_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_fumane_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_fumane_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_marano_di_valpolicella_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_marano_di_valpolicella_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_negrar_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_negrar_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_sant_ambrogio_di_valpolicella_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_sant_ambrogio_di_valpolicella_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_san_pietro_in_cariano_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_san_pietro_in_cariano_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_soave_classico_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_soave_classico_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_soave_colli_scaligeri_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_soave_colli_scaligeri_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_soave_commune_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_soave_commune_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_monteforte_d_alpone_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_monteforte_d_alpone_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_cartizze_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_cartizze_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_conegliano_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_conegliano_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_valdobbiadene_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_valdobbiadene_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_alto_adige_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_alto_adige_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_alto_adige_valle_isarco_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_alto_adige_valle_isarco_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_alto_adige_val_venosta_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_alto_adige_val_venosta_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_alto_adige_terlano_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_alto_adige_terlano_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_alto_adige_merano_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_alto_adige_merano_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_alto_adige_colli_bolzano_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_alto_adige_colli_bolzano_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_alto_adige_santa_maddalena_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_alto_adige_santa_maddalena_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_friuli_colli_orientali_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_friuli_colli_orientali_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_friuli_cialla_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_friuli_cialla_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_friuli_rosazzo_subzones_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_friuli_rosazzo_subzones_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_friuli_schioppettino_prepotto_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_friuli_schioppettino_prepotto_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_friuli_savorgnano_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_friuli_savorgnano_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_friuli_refosco_faedis_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_friuli_refosco_faedis_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_alto_piemonte_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_alto_piemonte_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_nebbiolo_d_alba_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_nebbiolo_d_alba_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_barbera_del_monferrato_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_barbera_del_monferrato_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_brachetto_d_acqui_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_brachetto_d_acqui_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_boca_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_boca_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_fara_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_fara_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_lessona_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_lessona_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_bramaterra_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_bramaterra_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_sizzano_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_sizzano_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_monferrato_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_monferrato_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_rosso_di_montalcino_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_rosso_di_montalcino_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_bolgheri_sassicaia_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_bolgheri_sassicaia_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_maremma_toscana_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_maremma_toscana_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_bardolino_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_bardolino_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_lugana_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_lugana_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_gambellara_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_gambellara_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_breganze_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_breganze_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_prosecco_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_prosecco_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_trentino_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_trentino_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_trento_doc_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_trento_doc_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_teroldego_rotaliano_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_teroldego_rotaliano_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_lago_di_caldaro_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_lago_di_caldaro_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_valtellina_superiore_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_valtellina_superiore_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_sforzato_valtellina_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_sforzato_valtellina_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_oltrepo_pavese_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_oltrepo_pavese_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_ramandolo_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_ramandolo_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_rosazzo_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_rosazzo_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_friuli_grave_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_friuli_grave_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_colli_orientali_picolit_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_colli_orientali_picolit_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_lambrusco_sorbara_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_lambrusco_sorbara_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_lambrusco_grasparossa_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_lambrusco_grasparossa_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_lambrusco_salamino_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_lambrusco_salamino_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_romagna_albana_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_romagna_albana_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_montefalco_sagrantino_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_montefalco_sagrantino_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_torgiano_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_torgiano_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_orvieto_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_orvieto_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_verdicchio_matelica_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_verdicchio_matelica_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_conero_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_conero_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_montepulciano_abruzzo_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_montepulciano_abruzzo_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_trebbiano_abruzzo_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_trebbiano_abruzzo_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_cerasuolo_abruzzo_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_cerasuolo_abruzzo_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_fiano_avellino_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_fiano_avellino_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_greco_tufo_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_greco_tufo_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_vesuvio_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_vesuvio_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_aglianico_vulture_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_aglianico_vulture_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_primitivo_manduria_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_primitivo_manduria_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_salice_salentino_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_salice_salentino_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_castel_del_monte_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_castel_del_monte_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_ciro_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_ciro_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_cerasuolo_vittoria_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_cerasuolo_vittoria_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_marsala_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_marsala_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_pantelleria_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_pantelleria_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_faro_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_faro_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_cannonau_sardegna_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_cannonau_sardegna_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_vermentino_gallura_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_vermentino_gallura_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_vernaccia_oristano_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_vernaccia_oristano_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_cinque_terre_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_cinque_terre_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_frascati_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_frascati_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_jerez_town_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_jerez_town_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_el_puerto_santa_maria_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_el_puerto_santa_maria_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_sanlucar_town_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_sanlucar_town_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_trebujena_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_trebujena_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_lebrija_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_lebrija_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_chipiona_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_chipiona_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_rota_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_rota_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_chiclana_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_chiclana_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_puerto_real_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_puerto_real_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_san_jose_del_valle_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_san_jose_del_valle_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_cava_comtats_barcelona_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_cava_comtats_barcelona_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_cava_valle_ebro_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_cava_valle_ebro_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_cava_almendralejo_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_cava_almendralejo_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_cava_requena_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_cava_requena_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_cava_anoia_foix_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_cava_anoia_foix_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_cava_serra_mar_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_cava_serra_mar_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_cava_conca_gaia_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_cava_conca_gaia_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_cava_serra_prades_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_cava_serra_prades_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_cava_pla_ponent_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_cava_pla_ponent_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_cava_alto_ebro_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_cava_alto_ebro_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_eac_cava_valle_cierzo_location
+    minimum_depth: 2
+    importance: secondary
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_eac_cava_valle_cierzo_location
+    minimum_depth: 2
+    importance: secondary
+knowledge_item_citations:
+  - knowledge_item_id: ki_eac_valle_d_aosta_location
+    source_citation_id: src_eac_istat
+    locator: "Valle d’Aosta: production-area or geographic-unit section; locality
+      reference Aosta Valley."
+  - knowledge_item_id: ki_eac_liguria_location
+    source_citation_id: src_eac_istat
+    locator: "Liguria: production-area or geographic-unit section; locality
+      reference Liguria."
+  - knowledge_item_id: ki_eac_trentino_alto_adige_location
+    source_citation_id: src_eac_istat
+    locator: "Trentino-Alto Adige: production-area or geographic-unit section;
+      locality reference Trentino-Alto Adige/Südtirol."
+  - knowledge_item_id: ki_eac_emilia_romagna_location
+    source_citation_id: src_eac_istat
+    locator: "Emilia-Romagna: production-area or geographic-unit section; locality
+      reference Emilia-Romagna."
+  - knowledge_item_id: ki_eac_umbria_location
+    source_citation_id: src_eac_istat
+    locator: "Umbria: production-area or geographic-unit section; locality reference
+      Umbria."
+  - knowledge_item_id: ki_eac_lazio_location
+    source_citation_id: src_eac_istat
+    locator: "Lazio: production-area or geographic-unit section; locality reference
+      Lazio."
+  - knowledge_item_id: ki_eac_abruzzo_location
+    source_citation_id: src_eac_istat
+    locator: "Abruzzo: production-area or geographic-unit section; locality
+      reference Abruzzo."
+  - knowledge_item_id: ki_eac_molise_location
+    source_citation_id: src_eac_istat
+    locator: "Molise: production-area or geographic-unit section; locality reference
+      Molise."
+  - knowledge_item_id: ki_eac_puglia_location
+    source_citation_id: src_eac_istat
+    locator: "Puglia: production-area or geographic-unit section; locality reference
+      Apulia."
+  - knowledge_item_id: ki_eac_basilicata_location
+    source_citation_id: src_eac_istat
+    locator: "Basilicata: production-area or geographic-unit section; locality
+      reference Basilicata."
+  - knowledge_item_id: ki_eac_calabria_location
+    source_citation_id: src_eac_istat
+    locator: "Calabria: production-area or geographic-unit section; locality
+      reference Calabria."
+  - knowledge_item_id: ki_eac_sardinia_location
+    source_citation_id: src_eac_istat
+    locator: "Sardinia: production-area or geographic-unit section; locality
+      reference Sardinia."
+  - knowledge_item_id: ki_eac_barolo_commune_location
+    source_citation_id: src_eac_barolo
+    locator: "Barolo (commune): production-area or geographic-unit section; locality
+      reference Barolo."
+  - knowledge_item_id: ki_eac_castiglione_falletto_location
+    source_citation_id: src_eac_barolo
+    locator: "Castiglione Falletto: production-area or geographic-unit section;
+      locality reference Castiglione Falletto."
+  - knowledge_item_id: ki_eac_serralunga_d_alba_location
+    source_citation_id: src_eac_barolo
+    locator: "Serralunga d’Alba: production-area or geographic-unit section;
+      locality reference Serralunga d'Alba."
+  - knowledge_item_id: ki_eac_la_morra_location
+    source_citation_id: src_eac_barolo
+    locator: "La Morra: production-area or geographic-unit section; locality
+      reference La Morra."
+  - knowledge_item_id: ki_eac_monforte_d_alba_location
+    source_citation_id: src_eac_barolo
+    locator: "Monforte d’Alba: production-area or geographic-unit section; locality
+      reference Monforte d'Alba."
+  - knowledge_item_id: ki_eac_verduno_location
+    source_citation_id: src_eac_barolo
+    locator: "Verduno: production-area or geographic-unit section; locality
+      reference Verduno."
+  - knowledge_item_id: ki_eac_novello_location
+    source_citation_id: src_eac_barolo
+    locator: "Novello: production-area or geographic-unit section; locality
+      reference Novello."
+  - knowledge_item_id: ki_eac_grinzane_cavour_location
+    source_citation_id: src_eac_barolo
+    locator: "Grinzane Cavour: production-area or geographic-unit section; locality
+      reference Grinzane Cavour."
+  - knowledge_item_id: ki_eac_diano_d_alba_location
+    source_citation_id: src_eac_barolo
+    locator: "Diano d’Alba: production-area or geographic-unit section; locality
+      reference Diano d'Alba."
+  - knowledge_item_id: ki_eac_cherasco_location
+    source_citation_id: src_eac_barolo
+    locator: "Cherasco: production-area or geographic-unit section; locality
+      reference Cherasco."
+  - knowledge_item_id: ki_eac_roddi_location
+    source_citation_id: src_eac_barolo
+    locator: "Roddi: production-area or geographic-unit section; locality reference
+      Roddi."
+  - knowledge_item_id: ki_eac_barbaresco_commune_location
+    source_citation_id: src_eac_barbaresco
+    locator: "Barbaresco (commune): production-area or geographic-unit section;
+      locality reference Barbaresco."
+  - knowledge_item_id: ki_eac_neive_location
+    source_citation_id: src_eac_barbaresco
+    locator: "Neive: production-area or geographic-unit section; locality reference
+      Neive."
+  - knowledge_item_id: ki_eac_treiso_location
+    source_citation_id: src_eac_barbaresco
+    locator: "Treiso: production-area or geographic-unit section; locality reference
+      Treiso."
+  - knowledge_item_id: ki_eac_san_rocco_seno_d_elvio_location
+    source_citation_id: src_eac_barbaresco
+    locator: "San Rocco Seno d’Elvio: production-area or geographic-unit section;
+      locality reference San Rocco Seno d’Elvio."
+  - knowledge_item_id: ki_eac_castellina_uga_location
+    source_citation_id: src_eac_classico
+    locator: "Castellina: production-area or geographic-unit section; locality
+      reference Castellina in Chianti."
+  - knowledge_item_id: ki_eac_castelnuovo_berardenga_uga_location
+    source_citation_id: src_eac_classico
+    locator: "Castelnuovo Berardenga: production-area or geographic-unit section;
+      locality reference Castelnuovo Berardenga."
+  - knowledge_item_id: ki_eac_gaiole_uga_location
+    source_citation_id: src_eac_classico
+    locator: "Gaiole: production-area or geographic-unit section; locality reference
+      Gaiole in Chianti."
+  - knowledge_item_id: ki_eac_greve_uga_location
+    source_citation_id: src_eac_classico
+    locator: "Greve: production-area or geographic-unit section; locality reference
+      Greve in Chianti."
+  - knowledge_item_id: ki_eac_lamole_uga_location
+    source_citation_id: src_eac_classico
+    locator: "Lamole: production-area or geographic-unit section; locality reference
+      Lamole."
+  - knowledge_item_id: ki_eac_montefioralle_uga_location
+    source_citation_id: src_eac_classico
+    locator: "Montefioralle: production-area or geographic-unit section; locality
+      reference Montefioralle."
+  - knowledge_item_id: ki_eac_panzano_uga_location
+    source_citation_id: src_eac_classico
+    locator: "Panzano: production-area or geographic-unit section; locality
+      reference Panzano in Chianti."
+  - knowledge_item_id: ki_eac_radda_uga_location
+    source_citation_id: src_eac_classico
+    locator: "Radda: production-area or geographic-unit section; locality reference
+      Radda in Chianti."
+  - knowledge_item_id: ki_eac_san_casciano_uga_location
+    source_citation_id: src_eac_classico
+    locator: "San Casciano: production-area or geographic-unit section; locality
+      reference San Casciano in Val di Pesa."
+  - knowledge_item_id: ki_eac_san_donato_in_poggio_uga_location
+    source_citation_id: src_eac_classico
+    locator: "San Donato in Poggio: production-area or geographic-unit section;
+      locality reference San Donato in Poggio."
+  - knowledge_item_id: ki_eac_vagliagli_uga_location
+    source_citation_id: src_eac_classico
+    locator: "Vagliagli: production-area or geographic-unit section; locality
+      reference Vagliagli."
+  - knowledge_item_id: ki_eac_chianti_colli_aretini_location
+    source_citation_id: src_eac_chianti
+    locator: "Chianti Colli Aretini: production-area or geographic-unit section;
+      locality reference Arezzo."
+  - knowledge_item_id: ki_eac_chianti_colli_fiorentini_location
+    source_citation_id: src_eac_chianti
+    locator: "Chianti Colli Fiorentini: production-area or geographic-unit section;
+      locality reference Impruneta."
+  - knowledge_item_id: ki_eac_chianti_colli_senesi_location
+    source_citation_id: src_eac_chianti
+    locator: "Chianti Colli Senesi: production-area or geographic-unit section;
+      locality reference Siena."
+  - knowledge_item_id: ki_eac_chianti_colline_pisane_location
+    source_citation_id: src_eac_chianti
+    locator: "Chianti Colline Pisane: production-area or geographic-unit section;
+      locality reference Terricciola."
+  - knowledge_item_id: ki_eac_chianti_montalbano_location
+    source_citation_id: src_eac_chianti
+    locator: "Chianti Montalbano: production-area or geographic-unit section;
+      locality reference Carmignano."
+  - knowledge_item_id: ki_eac_chianti_montespertoli_location
+    source_citation_id: src_eac_chianti
+    locator: "Chianti Montespertoli: production-area or geographic-unit section;
+      locality reference Montespertoli."
+  - knowledge_item_id: ki_eac_chianti_rufina_location
+    source_citation_id: src_eac_chianti
+    locator: "Chianti Rufina: production-area or geographic-unit section; locality
+      reference Rufina."
+  - knowledge_item_id: ki_eac_chianti_terre_di_vinci_location
+    source_citation_id: src_eac_chianti
+    locator: "Chianti Terre di Vinci: production-area or geographic-unit section;
+      locality reference Vinci, Tuscany."
+  - knowledge_item_id: ki_eac_valpolicella_classico_location
+    source_citation_id: src_eac_valpolicella
+    locator: "Valpolicella Classico: production-area or geographic-unit section;
+      locality reference Fumane."
+  - knowledge_item_id: ki_eac_valpantena_location
+    source_citation_id: src_eac_valpolicella
+    locator: "Valpantena: production-area or geographic-unit section; locality
+      reference Valpantena."
+  - knowledge_item_id: ki_eac_fumane_location
+    source_citation_id: src_eac_valpolicella
+    locator: "Fumane: production-area or geographic-unit section; locality reference
+      Fumane."
+  - knowledge_item_id: ki_eac_marano_di_valpolicella_location
+    source_citation_id: src_eac_valpolicella
+    locator: "Marano di Valpolicella: production-area or geographic-unit section;
+      locality reference Marano di Valpolicella."
+  - knowledge_item_id: ki_eac_negrar_location
+    source_citation_id: src_eac_valpolicella
+    locator: "Negrar di Valpolicella: production-area or geographic-unit section;
+      locality reference Negrar."
+  - knowledge_item_id: ki_eac_sant_ambrogio_di_valpolicella_location
+    source_citation_id: src_eac_valpolicella
+    locator: "Sant’Ambrogio di Valpolicella: production-area or geographic-unit
+      section; locality reference Sant'Ambrogio di Valpolicella."
+  - knowledge_item_id: ki_eac_san_pietro_in_cariano_location
+    source_citation_id: src_eac_valpolicella
+    locator: "San Pietro in Cariano: production-area or geographic-unit section;
+      locality reference San Pietro in Cariano."
+  - knowledge_item_id: ki_eac_soave_classico_location
+    source_citation_id: src_eac_soave
+    locator: "Soave Classico: production-area or geographic-unit section; locality
+      reference Soave."
+  - knowledge_item_id: ki_eac_soave_colli_scaligeri_location
+    source_citation_id: src_eac_soave
+    locator: "Soave Colli Scaligeri: production-area or geographic-unit section;
+      locality reference Colognola ai Colli."
+  - knowledge_item_id: ki_eac_soave_commune_location
+    source_citation_id: src_eac_soave
+    locator: "Soave (commune): production-area or geographic-unit section; locality
+      reference Soave."
+  - knowledge_item_id: ki_eac_monteforte_d_alpone_location
+    source_citation_id: src_eac_soave
+    locator: "Monteforte d’Alpone: production-area or geographic-unit section;
+      locality reference Monteforte d'Alpone."
+  - knowledge_item_id: ki_eac_cartizze_location
+    source_citation_id: src_eac_cartizze
+    locator: "Cartizze: production-area or geographic-unit section; locality
+      reference Santo Stefano (Valdobbiadene)."
+  - knowledge_item_id: ki_eac_conegliano_location
+    source_citation_id: src_eac_cartizze
+    locator: "Conegliano: production-area or geographic-unit section; locality
+      reference Conegliano."
+  - knowledge_item_id: ki_eac_valdobbiadene_location
+    source_citation_id: src_eac_cartizze
+    locator: "Valdobbiadene: production-area or geographic-unit section; locality
+      reference Valdobbiadene."
+  - knowledge_item_id: ki_eac_alto_adige_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Register entry Alto Adige / Südtirol; listed administrative region(s).
+  - knowledge_item_id: ki_eac_alto_adige_valle_isarco_location
+    source_citation_id: src_eac_alto
+    locator: "Valle Isarco / Eisacktal: production-area or geographic-unit section;
+      locality reference Brixen."
+  - knowledge_item_id: ki_eac_alto_adige_val_venosta_location
+    source_citation_id: src_eac_alto
+    locator: "Val Venosta / Vinschgau: production-area or geographic-unit section;
+      locality reference Schlanders."
+  - knowledge_item_id: ki_eac_alto_adige_terlano_location
+    source_citation_id: src_eac_alto
+    locator: "Terlano / Terlan: production-area or geographic-unit section; locality
+      reference Terlan."
+  - knowledge_item_id: ki_eac_alto_adige_merano_location
+    source_citation_id: src_eac_alto
+    locator: "Merano / Meraner: production-area or geographic-unit section; locality
+      reference Merano."
+  - knowledge_item_id: ki_eac_alto_adige_colli_bolzano_location
+    source_citation_id: src_eac_alto
+    locator: "Colli di Bolzano / Bozner Leiten: production-area or geographic-unit
+      section; locality reference Rentsch (Bozen)."
+  - knowledge_item_id: ki_eac_alto_adige_santa_maddalena_location
+    source_citation_id: src_eac_alto
+    locator: "Santa Maddalena / St. Magdalener: production-area or geographic-unit
+      section; locality reference St. Magdalena (Bozen)."
+  - knowledge_item_id: ki_eac_friuli_colli_orientali_location
+    source_citation_id: src_eac_friuli
+    locator: "Friuli Colli Orientali: production-area or geographic-unit section;
+      locality reference Cividale del Friuli."
+  - knowledge_item_id: ki_eac_friuli_cialla_location
+    source_citation_id: src_eac_friuli
+    locator: "Cialla: production-area or geographic-unit section; locality reference
+      Cialla."
+  - knowledge_item_id: ki_eac_friuli_rosazzo_subzones_location
+    source_citation_id: src_eac_friuli
+    locator: "Rosazzo (Colli Orientali subzones): production-area or geographic-unit
+      section; locality reference Abbazia di Rosazzo."
+  - knowledge_item_id: ki_eac_friuli_schioppettino_prepotto_location
+    source_citation_id: src_eac_friuli
+    locator: "Schioppettino di Prepotto: production-area or geographic-unit section;
+      locality reference Prepotto."
+  - knowledge_item_id: ki_eac_friuli_savorgnano_location
+    source_citation_id: src_eac_friuli
+    locator: "Savorgnano: production-area or geographic-unit section; locality
+      reference Savorgnano del Torre."
+  - knowledge_item_id: ki_eac_friuli_refosco_faedis_location
+    source_citation_id: src_eac_friuli
+    locator: "Refosco di Faedis: production-area or geographic-unit section;
+      locality reference Faedis."
+  - knowledge_item_id: ki_eac_alto_piemonte_location
+    source_citation_id: src_eac_alto_piemonte
+    locator: "Alto Piemonte (wine area): production-area or geographic-unit section;
+      locality reference Ghemme."
+  - knowledge_item_id: ki_eac_nebbiolo_d_alba_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Register entry Nebbiolo d’Alba; listed administrative region(s).
+  - knowledge_item_id: ki_eac_barbera_del_monferrato_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Register entry Barbera del Monferrato; listed administrative region(s).
+  - knowledge_item_id: ki_eac_brachetto_d_acqui_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Register entry Brachetto d’Acqui; listed administrative region(s).
+  - knowledge_item_id: ki_eac_boca_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Register entry Boca; listed administrative region(s).
+  - knowledge_item_id: ki_eac_fara_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Register entry Fara; listed administrative region(s).
+  - knowledge_item_id: ki_eac_lessona_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Register entry Lessona; listed administrative region(s).
+  - knowledge_item_id: ki_eac_bramaterra_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Register entry Bramaterra; listed administrative region(s).
+  - knowledge_item_id: ki_eac_sizzano_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Register entry Sizzano; listed administrative region(s).
+  - knowledge_item_id: ki_eac_monferrato_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Register entry Monferrato; listed administrative region(s).
+  - knowledge_item_id: ki_eac_rosso_di_montalcino_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Register entry Rosso di Montalcino; listed administrative region(s).
+  - knowledge_item_id: ki_eac_bolgheri_sassicaia_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Register entry Bolgheri Sassicaia; listed administrative region(s).
+  - knowledge_item_id: ki_eac_maremma_toscana_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Register entry Maremma Toscana; listed administrative region(s).
+  - knowledge_item_id: ki_eac_bardolino_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Register entry Bardolino; listed administrative region(s).
+  - knowledge_item_id: ki_eac_lugana_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Register entry Lugana; listed administrative region(s).
+  - knowledge_item_id: ki_eac_gambellara_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Register entry Gambellara; listed administrative region(s).
+  - knowledge_item_id: ki_eac_breganze_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Register entry Breganze; listed administrative region(s).
+  - knowledge_item_id: ki_eac_prosecco_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Register entry Prosecco; listed administrative region(s).
+  - knowledge_item_id: ki_eac_trentino_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Register entry Trentino; listed administrative region(s).
+  - knowledge_item_id: ki_eac_trento_doc_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Register entry Trento; listed administrative region(s).
+  - knowledge_item_id: ki_eac_teroldego_rotaliano_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Register entry Teroldego Rotaliano; listed administrative region(s).
+  - knowledge_item_id: ki_eac_lago_di_caldaro_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Register entry Lago di Caldaro / Kalterersee; listed administrative
+      region(s).
+  - knowledge_item_id: ki_eac_valtellina_superiore_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Register entry Valtellina Superiore; listed administrative region(s).
+  - knowledge_item_id: ki_eac_sforzato_valtellina_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Register entry Sforzato di Valtellina; listed administrative region(s).
+  - knowledge_item_id: ki_eac_oltrepo_pavese_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Register entry Oltrepò Pavese; listed administrative region(s).
+  - knowledge_item_id: ki_eac_ramandolo_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Register entry Ramandolo; listed administrative region(s).
+  - knowledge_item_id: ki_eac_rosazzo_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Register entry Rosazzo; listed administrative region(s).
+  - knowledge_item_id: ki_eac_friuli_grave_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Register entry Friuli Grave; listed administrative region(s).
+  - knowledge_item_id: ki_eac_colli_orientali_picolit_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Register entry Colli Orientali del Friuli Picolit; listed
+      administrative region(s).
+  - knowledge_item_id: ki_eac_lambrusco_sorbara_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Register entry Lambrusco di Sorbara; listed administrative region(s).
+  - knowledge_item_id: ki_eac_lambrusco_grasparossa_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Register entry Lambrusco Grasparossa di Castelvetro; listed
+      administrative region(s).
+  - knowledge_item_id: ki_eac_lambrusco_salamino_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Register entry Lambrusco Salamino di Santa Croce; listed administrative
+      region(s).
+  - knowledge_item_id: ki_eac_romagna_albana_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Register entry Romagna Albana; listed administrative region(s).
+  - knowledge_item_id: ki_eac_montefalco_sagrantino_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Register entry Montefalco Sagrantino; listed administrative region(s).
+  - knowledge_item_id: ki_eac_torgiano_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Register entry Torgiano; listed administrative region(s).
+  - knowledge_item_id: ki_eac_orvieto_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Register entry Orvieto; listed administrative region(s).
+  - knowledge_item_id: ki_eac_verdicchio_matelica_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Register entry Verdicchio di Matelica; listed administrative region(s).
+  - knowledge_item_id: ki_eac_conero_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Register entry Conero; listed administrative region(s).
+  - knowledge_item_id: ki_eac_montepulciano_abruzzo_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Register entry Montepulciano d’Abruzzo; listed administrative region(s).
+  - knowledge_item_id: ki_eac_trebbiano_abruzzo_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Register entry Trebbiano d’Abruzzo; listed administrative region(s).
+  - knowledge_item_id: ki_eac_cerasuolo_abruzzo_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Register entry Cerasuolo d’Abruzzo; listed administrative region(s).
+  - knowledge_item_id: ki_eac_fiano_avellino_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Register entry Fiano di Avellino; listed administrative region(s).
+  - knowledge_item_id: ki_eac_greco_tufo_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Register entry Greco di Tufo; listed administrative region(s).
+  - knowledge_item_id: ki_eac_vesuvio_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Register entry Vesuvio; listed administrative region(s).
+  - knowledge_item_id: ki_eac_aglianico_vulture_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Register entry Aglianico del Vulture; listed administrative region(s).
+  - knowledge_item_id: ki_eac_primitivo_manduria_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Register entry Primitivo di Manduria; listed administrative region(s).
+  - knowledge_item_id: ki_eac_salice_salentino_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Register entry Salice Salentino; listed administrative region(s).
+  - knowledge_item_id: ki_eac_castel_del_monte_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Register entry Castel del Monte; listed administrative region(s).
+  - knowledge_item_id: ki_eac_ciro_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Register entry Cirò; listed administrative region(s).
+  - knowledge_item_id: ki_eac_cerasuolo_vittoria_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Register entry Cerasuolo di Vittoria; listed administrative region(s).
+  - knowledge_item_id: ki_eac_marsala_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Register entry Marsala; listed administrative region(s).
+  - knowledge_item_id: ki_eac_pantelleria_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Register entry Pantelleria; listed administrative region(s).
+  - knowledge_item_id: ki_eac_faro_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Register entry Faro; listed administrative region(s).
+  - knowledge_item_id: ki_eac_cannonau_sardegna_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Register entry Cannonau di Sardegna; listed administrative region(s).
+  - knowledge_item_id: ki_eac_vermentino_gallura_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Register entry Vermentino di Gallura; listed administrative region(s).
+  - knowledge_item_id: ki_eac_vernaccia_oristano_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Register entry Vernaccia di Oristano; listed administrative region(s).
+  - knowledge_item_id: ki_eac_cinque_terre_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Register entry Cinque Terre; listed administrative region(s).
+  - knowledge_item_id: ki_eac_frascati_location
+    source_citation_id: src_atlas_it_dop_2026
+    locator: Register entry Frascati; listed administrative region(s).
+  - knowledge_item_id: ki_eac_jerez_town_location
+    source_citation_id: src_eac_sherry
+    locator: "Jerez de la Frontera: production-area or geographic-unit section;
+      locality reference Jerez de la Frontera."
+  - knowledge_item_id: ki_eac_el_puerto_santa_maria_location
+    source_citation_id: src_eac_sherry
+    locator: "El Puerto de Santa María: production-area or geographic-unit section;
+      locality reference El Puerto de Santa María."
+  - knowledge_item_id: ki_eac_sanlucar_town_location
+    source_citation_id: src_eac_sherry
+    locator: "Sanlúcar de Barrameda: production-area or geographic-unit section;
+      locality reference Sanlúcar de Barrameda."
+  - knowledge_item_id: ki_eac_trebujena_location
+    source_citation_id: src_eac_sherry
+    locator: "Trebujena: production-area or geographic-unit section; locality
+      reference Trebujena."
+  - knowledge_item_id: ki_eac_lebrija_location
+    source_citation_id: src_eac_sherry
+    locator: "Lebrija: production-area or geographic-unit section; locality
+      reference Lebrija."
+  - knowledge_item_id: ki_eac_chipiona_location
+    source_citation_id: src_eac_sherry
+    locator: "Chipiona: production-area or geographic-unit section; locality
+      reference Chipiona."
+  - knowledge_item_id: ki_eac_rota_location
+    source_citation_id: src_eac_sherry
+    locator: "Rota: production-area or geographic-unit section; locality reference
+      Rota, Andalusia."
+  - knowledge_item_id: ki_eac_chiclana_location
+    source_citation_id: src_eac_sherry
+    locator: "Chiclana de la Frontera: production-area or geographic-unit section;
+      locality reference Chiclana de la Frontera."
+  - knowledge_item_id: ki_eac_puerto_real_location
+    source_citation_id: src_eac_sherry
+    locator: "Puerto Real: production-area or geographic-unit section; locality
+      reference Puerto Real."
+  - knowledge_item_id: ki_eac_san_jose_del_valle_location
+    source_citation_id: src_eac_sherry
+    locator: "San José del Valle: production-area or geographic-unit section;
+      locality reference San José del Valle."
+  - knowledge_item_id: ki_eac_cava_comtats_barcelona_location
+    source_citation_id: src_eac_cava
+    locator: "Comtats de Barcelona: production-area or geographic-unit section;
+      locality reference Sant Sadurní d’Anoia."
+  - knowledge_item_id: ki_eac_cava_valle_ebro_location
+    source_citation_id: src_eac_cava
+    locator: "Valle del Ebro (Cava): production-area or geographic-unit section;
+      locality reference Logroño."
+  - knowledge_item_id: ki_eac_cava_almendralejo_location
+    source_citation_id: src_eac_cava
+    locator: "Viñedos de Almendralejo: production-area or geographic-unit section;
+      locality reference Almendralejo."
+  - knowledge_item_id: ki_eac_cava_requena_location
+    source_citation_id: src_eac_cava
+    locator: "Requena (Cava): production-area or geographic-unit section; locality
+      reference Requena, Spain."
+  - knowledge_item_id: ki_eac_cava_anoia_foix_location
+    source_citation_id: src_eac_cava
+    locator: "Valls d’Anoia-Foix: production-area or geographic-unit section;
+      locality reference Vilafranca del Penedès."
+  - knowledge_item_id: ki_eac_cava_serra_mar_location
+    source_citation_id: src_eac_cava
+    locator: "Serra de Mar: production-area or geographic-unit section; locality
+      reference Alella."
+  - knowledge_item_id: ki_eac_cava_conca_gaia_location
+    source_citation_id: src_eac_cava
+    locator: "Conca del Gaià: production-area or geographic-unit section; locality
+      reference Vila-rodona."
+  - knowledge_item_id: ki_eac_cava_serra_prades_location
+    source_citation_id: src_eac_cava
+    locator: "Serra de Prades: production-area or geographic-unit section; locality
+      reference Vimbodí i Poblet."
+  - knowledge_item_id: ki_eac_cava_pla_ponent_location
+    source_citation_id: src_eac_cava
+    locator: "Pla de Ponent: production-area or geographic-unit section; locality
+      reference Lleida."
+  - knowledge_item_id: ki_eac_cava_alto_ebro_location
+    source_citation_id: src_eac_cava
+    locator: "Alto Ebro: production-area or geographic-unit section; locality
+      reference Haro."
+  - knowledge_item_id: ki_eac_cava_valle_cierzo_location
+    source_citation_id: src_eac_cava
+    locator: "Valle del Cierzo: production-area or geographic-unit section; locality
+      reference Cariñena."
+source_citations:
+  - id: src_eac_istat
+    kind: government_publication
+    title: Codici delle unità amministrative, aggiornamento 21 febbraio 2026
+    publisher: Istat
+    url: https://www.istat.it/classificazione/codici-dei-comuni-delle-province-e-delle-regioni/
+    jurisdiction: IT
+    accessed_on: 2026-09-26
+    document_identifier: Codici delle unità amministrative, aggiornamento 21 febbraio 2026
+  - id: src_eac_barolo
+    kind: legislation
+    title: Barolo DOCG, disciplinare consolidato 4 marzo 2026
+    publisher: MASAF
+    url: https://www.masaf.gov.it/flex/cm/pages/ServeAttachment.php/L/IT/D/1%252F1%252Ff%252FD.1d67b26ddf258a620c54/P/BLOB%3AID%3D24322/E/pdf?mode=download
+    jurisdiction: IT
+    accessed_on: 2026-09-26
+    document_identifier: Barolo DOCG, disciplinare consolidato 4 marzo 2026
+  - id: src_eac_barbaresco
+    kind: legislation
+    title: Barbaresco DOCG, disciplinare consolidato 13 luglio 2021
+    publisher: MASAF
+    url: https://www.masaf.gov.it/flex/cm/pages/ServeAttachment.php/L/IT/D/d%252Ff%252Fc%252FD.541a04d94cb951e58c1a/P/BLOB%3AID%3D17249/E/pdf?mode=download
+    jurisdiction: IT
+    accessed_on: 2026-09-26
+    document_identifier: Barbaresco DOCG, disciplinare consolidato 13 luglio 2021
+  - id: src_eac_classico
+    kind: legislation
+    title: Chianti Classico, disciplinare e UGAs, G.U. 1 luglio 2023
+    publisher: MASAF / Gazzetta Ufficiale
+    url: https://www.masaf.gov.it/flex/cm/pages/ServeAttachment.php/L/IT/D/1%252Fa%252F3%252FD.44b01b3b420b36ba8d22/P/BLOB%3AID%3D19090/E/pdf?mode=download
+    jurisdiction: IT
+    accessed_on: 2026-09-26
+    document_identifier: Chianti Classico, disciplinare e UGAs, G.U. 1 luglio 2023
+  - id: src_eac_chianti
+    kind: legislation
+    title: Chianti DOCG, modifica ordinaria 5 giugno 2026, G.U. 12 giugno 2026
+    publisher: Gazzetta Ufficiale
+    url: https://www.gazzettaufficiale.it/atto/vediMenuHTML?atto.codiceRedazionale=26A02927&atto.dataPubblicazioneGazzetta=2026-06-12&tipoSerie=serie_generale&tipoVigenza=originario
+    jurisdiction: IT
+    accessed_on: 2026-09-26
+    document_identifier: Chianti DOCG, modifica ordinaria 5 giugno 2026, G.U. 12 giugno 2026
+  - id: src_eac_valpolicella
+    kind: legislation
+    title: Valpolicella DOC, produzione e zone Classico e Valpantena
+    publisher: MASAF
+    url: https://www.masaf.gov.it/flex/cm/pages/ServeAttachment.php/L/IT/D/1%252F9%252F8%252FD.de597137377d2031a5b1/P/BLOB%3AID%3D20314/E/pdf?mode=download
+    jurisdiction: IT
+    accessed_on: 2026-09-26
+    document_identifier: Valpolicella DOC, produzione e zone Classico e Valpantena
+  - id: src_eac_soave
+    kind: legislation
+    title: Soave DOP, disciplinare consolidato 24 ottobre 2019
+    publisher: MASAF
+    url: https://www.masaf.gov.it/flex/cm/pages/ServeAttachment.php/L/IT/D/8%252F7%252F4%252FD.23ded3ebd89b0b969edf/P/BLOB%3AID%3D14701/E/pdf?mode=download
+    jurisdiction: IT
+    accessed_on: 2026-09-26
+    document_identifier: Soave DOP, disciplinare consolidato 24 ottobre 2019
+  - id: src_eac_cartizze
+    kind: regulator_register
+    title: Cartizze and the named Conegliano Valdobbiadene wine localities
+    publisher: Consorzio Conegliano Valdobbiadene Prosecco
+    url: https://www.prosecco.it/it/scheda-itinerario/il-pentagono-d-oro-del-cartizze/
+    jurisdiction: IT
+    accessed_on: 2026-09-26
+    document_identifier: Cartizze and the named Conegliano Valdobbiadene wine localities
+  - id: src_eac_alto
+    kind: regulator_register
+    title: Alto Adige DOC and its six geographical subzones
+    publisher: Consorzio Vini Alto Adige
+    url: https://www.suedtirolwein.com/unser-wein/herkunft-doc
+    jurisdiction: IT
+    accessed_on: 2026-09-26
+    document_identifier: Alto Adige DOC and its six geographical subzones
+  - id: src_eac_friuli
+    kind: legislation
+    title: Friuli Colli Orientali DOC, decreto 7 luglio 2025 e disciplinare
+      consolidato
+    publisher: MASAF
+    url: https://www.masaf.gov.it/flex/cm/pages/ServeBLOB.php/L/IT/IDPagina/23484
+    jurisdiction: IT
+    accessed_on: 2026-09-26
+    document_identifier: Friuli Colli Orientali DOC, decreto 7 luglio 2025 e
+      disciplinare consolidato
+  - id: src_eac_alto_piemonte
+    kind: government_publication
+    title: Northern Piedmont wine districts around Ghemme and Gattinara
+    publisher: Visit Piemonte, official regional tourism agency
+    url: https://www.visitpiemonte.com/en/destinations/novara-a-baroque-gem-surrounded-by-plains-and-rice-fields
+    jurisdiction: IT
+    accessed_on: 2026-09-26
+    document_identifier: Northern Piedmont wine districts around Ghemme and Gattinara
+  - id: src_eac_sherry
+    kind: regulator_register
+    title: "Marco de Jerez: ten production and ageing municipalities, 14 November
+      2025"
+    publisher: Consejo Regulador Jerez-Xérès-Sherry
+    url: https://www.sherry.wine/news/the-sherry-triangle-evolves-from-three-to-ten
+    jurisdiction: ES
+    accessed_on: 2026-09-26
+    document_identifier: "Marco de Jerez: ten production and ageing municipalities,
+      14 November 2025"
+  - id: src_eac_cava
+    kind: regulator_register
+    title: "Cava: four zones and seven subzones"
+    publisher: Consejo Regulador DOP Cava
+    url: https://www.cava.wine/en/origin-cava/4-zones/
+    jurisdiction: ES
+    accessed_on: 2026-09-26
+    document_identifier: "Cava: four zones and seven subzones"

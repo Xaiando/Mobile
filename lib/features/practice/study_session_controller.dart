@@ -222,6 +222,7 @@ class StudySessionController extends AsyncNotifier<StudySessionState?> {
             card.itemId,
             format.questionTemplateId,
             seed: ExercisePresenter.newSeed(random),
+            certificationId: session.certificationId,
           ),
       shownAt: utcNow(ref.read(clockProvider)),
     );

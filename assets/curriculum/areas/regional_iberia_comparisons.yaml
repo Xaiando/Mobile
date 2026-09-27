@@ -1,0 +1,1903 @@
+# Original still-wine regional comparisons; all await qualified review.
+# MCQ disabled: qualified site/style explanations and case actions permit defensible alternatives.
+# Dates record curation, not the start of these regional conditions.
+knowledge_nodes:
+  - id: n_reg_ib_principle_es_rioja_climate
+    node_type: production_principle
+    name: How do Atlantic and Mediterranean influences, elevation and aspect complicate a single Rioja
+      ripening prediction?
+  - id: n_reg_ib_point_rioja_gradient
+    node_type: learning_point
+    name: Rioja has an Atlantic-to-Mediterranean climate contrast
+  - id: n_reg_ib_point_rioja_topography
+    node_type: learning_point
+    name: Rioja mountains, altitude and aspect modify the regional gradient
+  - id: n_reg_ib_principle_es_rioja_styles
+    node_type: production_principle
+    name: Which grape and cellar differences matter when comparing a Rioja red with a Rioja white rather than
+      assuming one regional style?
+  - id: n_reg_ib_point_rioja_red_cellar
+    node_type: learning_point
+    name: Tempranillo fruit and maturation choices both matter in Rioja reds
+  - id: n_reg_ib_point_rioja_white_oak
+    node_type: learning_point
+    name: Rioja whites include fruit-led and oak-influenced expressions
+  - id: n_reg_ib_principle_es_ribera
+    node_type: production_principle
+    name: How do Ribera del Duero’s elevated continental sites create both ripening opportunities and
+      seasonal constraints?
+  - id: n_reg_ib_point_ribera_elevation
+    node_type: learning_point
+    name: Ribera elevation adds context beyond warm daytime conditions
+  - id: n_reg_ib_point_ribera_season
+    node_type: learning_point
+    name: Ribera dry summers and rigorous winters create a demanding season
+  - id: n_reg_ib_principle_es_galicia
+    node_type: production_principle
+    name: How do Albariño in Atlantic Rías Baixas and Mencía on Ribeira Sacra’s river terraces connect
+      growing conditions with different vineyard practices?
+  - id: n_reg_ib_point_rias_canopy_context
+    node_type: learning_point
+    name: Rías Baixas pergolas address humid Atlantic growing conditions
+  - id: n_reg_ib_point_sacra_terraces
+    node_type: learning_point
+    name: Ribeira Sacra Mencía comparisons need river-valley and terrace context
+  - id: n_reg_ib_principle_es_rueda
+    node_type: production_principle
+    name: How do Rueda’s setting and Verdejo’s sensory characteristics help explain a fresh white style
+      without fixing every wine’s profile?
+  - id: n_reg_ib_point_rueda_ripening
+    node_type: learning_point
+    name: Rueda elevation and day–night variation frame Verdejo ripening
+  - id: n_reg_ib_point_rueda_verdejo_style
+    node_type: learning_point
+    name: Verdejo combines fruit and herbal aromas with acidity
+  - id: n_reg_ib_principle_es_priorat_montsant
+    node_type: production_principle
+    name: Why should a Priorat–Montsant Garnatxa comparison examine access, vineyard conditions and
+      production controls instead of assuming a quality hierarchy?
+  - id: n_reg_ib_point_priorat_access
+    node_type: learning_point
+    name: Steep Priorat vineyards can restrict mechanisation
+  - id: n_reg_ib_point_montsant_controls
+    node_type: learning_point
+    name: Montsant comparisons can control harvest maturity and cellar treatment
+  - id: n_reg_ib_principle_es_levante
+    node_type: production_principle
+    name: How do Monastrell’s ripening demands in Jumilla and Yecla compare with Bobal’s expression in
+      elevated Utiel-Requena?
+  - id: n_reg_ib_point_levante_monastrell
+    node_type: learning_point
+    name: Monastrell’s long cycle needs a qualified hot-site harvest decision
+  - id: n_reg_ib_point_utiel_bobal
+    node_type: learning_point
+    name: Utiel-Requena elevation and Bobal broaden Levante red-wine comparisons
+  - id: n_reg_ib_principle_es_mancha_airen
+    node_type: production_principle
+    name: How can La Mancha’s Airén adaptation and fermentation choices explain fresh white wines despite
+      hot, dry growing conditions?
+  - id: n_reg_ib_point_mancha_adaptation
+    node_type: learning_point
+    name: Airén is adapted to La Mancha’s continental temperature and drought conditions
+  - id: n_reg_ib_point_mancha_ferment
+    node_type: learning_point
+    name: Temperature control can preserve Airén’s fresh aromatic expression
+  - id: n_reg_ib_principle_pt_douro_climate
+    node_type: production_principle
+    name: How do Atlantic shelter and the west–east climate gradient distinguish still-wine sites within the
+      Douro?
+  - id: n_reg_ib_point_douro_shelter
+    node_type: learning_point
+    name: Mountain shelter reduces Atlantic moderation in the Douro
+  - id: n_reg_ib_point_douro_gradient
+    node_type: learning_point
+    name: Douro Superior is generally hotter and drier than Baixo Corgo
+  - id: n_reg_ib_principle_pt_douro_still
+    node_type: production_principle
+    name: Which grape and terrain considerations matter when comparing Douro still reds rather than
+      transferring rules from Port?
+  - id: n_reg_ib_point_douro_blends
+    node_type: learning_point
+    name: Douro still reds frequently blend native varieties
+  - id: n_reg_ib_point_douro_terrain
+    node_type: learning_point
+    name: Douro steep terrain complicates vineyard work
+  - id: n_reg_ib_principle_pt_dao
+    node_type: production_principle
+    name: How do Dão’s mountain setting and Encruzado’s characteristics support a qualified regional
+      white-wine comparison?
+  - id: n_reg_ib_point_dao_mountains
+    node_type: learning_point
+    name: Dão mountains modify maritime and continental influences
+  - id: n_reg_ib_point_dao_encruzado
+    node_type: learning_point
+    name: Dão-associated Encruzado can combine structure with acidity
+  - id: n_reg_ib_principle_pt_bairrada
+    node_type: production_principle
+    name: How do Bairrada’s Atlantic conditions interact with Baga ripening and the structure of its still
+      reds?
+  - id: n_reg_ib_point_bairrada_baga_ripening
+    node_type: learning_point
+    name: Baga’s late ripening makes wet Bairrada seasons consequential
+  - id: n_reg_ib_point_baga_structure
+    node_type: learning_point
+    name: Well-ripened Baga can retain firm acidity and tannin
+  - id: n_reg_ib_principle_pt_vinho_verde
+    node_type: production_principle
+    name: Why do Atlantic Vinho Verde whites and sheltered Monção e Melgaço examples resist one uniform
+      regional style rule?
+  - id: n_reg_ib_point_verde_atlantic
+    node_type: learning_point
+    name: Vinho Verde’s Atlantic influence supports fresh aromatic whites
+  - id: n_reg_ib_point_verde_shelter
+    node_type: learning_point
+    name: Sheltered Monção e Melgaço can make fuller whites
+  - id: n_reg_ib_principle_pt_alentejo
+    node_type: production_principle
+    name: How do Alentejo’s hot, dry environment and cooler Portalegre sites broaden its still-wine style
+      possibilities?
+  - id: n_reg_ib_point_alentejo_heat
+    node_type: learning_point
+    name: Hot, dry Alentejo supports ripe styles from varied grapes
+  - id: n_reg_ib_point_alentejo_portalegre
+    node_type: learning_point
+    name: Portalegre’s Serra de São Mamede offers a cooler Alentejo contrast
+  - id: n_reg_ib_case_es_rioja_site
+    node_type: production_case
+    name: A class compares two Tempranillo-based Rioja reds from the same vintage with similar blend
+      composition and oak maturation. Records show that the western vineyard had a cooler ripening period
+      and later picking than the eastern vineyard; the western wine tastes fresher and less ripe. Design
+      an evidence-based explanation, with a reason, tradeoff and limitation. The regional labels alone
+      provide no quality ranking.
+  - id: n_reg_ib_point_case_es_rioja_site_action
+    node_type: learning_point
+    name: Compare recorded site conditions with harvest and sensory evidence
+  - id: n_reg_ib_point_case_es_rioja_site_reason
+    node_type: learning_point
+    name: The recorded cooler western period is consistent with Rioja’s broad gradient
+  - id: n_reg_ib_point_case_es_rioja_site_tradeoff
+    node_type: learning_point
+    name: A matched pair improves comparison but represents few sites
+  - id: n_reg_ib_point_case_es_rioja_site_limitation
+    node_type: learning_point
+    name: Check unrecorded vineyard and cellar variables before a causal claim
+  - id: n_reg_ib_case_es_priorat_price
+    node_type: production_case
+    name: A buyer compares a Priorat Garnatxa red from a steep parcel worked manually with a Montsant
+      Garnatxa red from a parcel where tractor access is possible. Both receive similar blind evaluations
+      for balance and persistence. The Priorat supplier documents higher labour cost per bottle and
+      proposes a higher selling price. Assess the proposal with an action, reason, tradeoff and
+      limitation; demand at the proposed price has not been measured.
+  - id: n_reg_ib_point_case_es_priorat_price_action
+    node_type: learning_point
+    name: Check cost evidence and test the proposed price with buyers
+  - id: n_reg_ib_point_case_es_priorat_price_reason
+    node_type: learning_point
+    name: Documented manual labour can raise the price needed to cover costs
+  - id: n_reg_ib_point_case_es_priorat_price_tradeoff
+    node_type: learning_point
+    name: Cost recovery may reduce competitiveness for comparable wines
+  - id: n_reg_ib_point_case_es_priorat_price_limitation
+    node_type: learning_point
+    name: Neither the two regions nor the two parcels establish a universal premium
+  - id: n_reg_ib_case_pt_white_design
+    node_type: production_case
+    name: A study group compares a structured Dão Encruzado fermented in barrel with a fresh, aromatic Vinho
+      Verde Loureiro fermented in stainless steel. The pair differs in grape and cellar treatment, and
+      vineyard records are available. Design a useful regional comparison, give a reason, and discuss a
+      tradeoff and limitation when explaining acidity, aroma and texture. Neither wine has an
+      independently established quality advantage.
+  - id: n_reg_ib_point_case_pt_white_design_action
+    node_type: learning_point
+    name: Separate site, grape and cellar variables in the Portuguese white comparison
+  - id: n_reg_ib_point_case_pt_white_design_reason
+    node_type: learning_point
+    name: Dão mountain settings and Atlantic Vinho Verde supply different contexts
+  - id: n_reg_ib_point_case_pt_white_design_tradeoff
+    node_type: learning_point
+    name: A vivid style contrast makes regional attribution less controlled
+  - id: n_reg_ib_point_case_pt_white_design_limitation
+    node_type: learning_point
+    name: The pair cannot define all Dão or Vinho Verde white styles
+  - id: n_reg_ib_case_pt_baga_inventory
+    node_type: production_case
+    name: A merchant’s customers prefer softer mature red wines. A young Bairrada Baga tastes firmly tannic,
+      while a Dão red blend already meets that preference. The Baga supplier proposes two years of bottle
+      storage but provides no mature sample. Both wines fit the purchase budget; storage would require
+      payment now, space and insurance before later sales. Assess the Baga option with an action, reason,
+      tradeoff and limitation without assuming it will mature successfully.
+  - id: n_reg_ib_point_case_pt_baga_inventory_action
+    node_type: learning_point
+    name: Request ageing evidence and budget the proposed storage before buying Baga
+  - id: n_reg_ib_point_case_pt_baga_inventory_reason
+    node_type: learning_point
+    name: Baga’s youthful structure offers conditional softening potential
+  - id: n_reg_ib_point_case_pt_baga_inventory_tradeoff
+    node_type: learning_point
+    name: Holding Baga delays sales and ties cash to stock
+  - id: n_reg_ib_point_case_pt_baga_inventory_limitation
+    node_type: learning_point
+    name: Vintage, wine condition and customer response make the storage outcome uncertain
+node_alternative_names:
+  - knowledge_node_id: n_reg_ib_point_rioja_gradient
+    name: Rioja west east climate gradient
+    kind: synonym
+  - knowledge_node_id: n_reg_ib_point_rioja_topography
+    name: Rioja topographic climate modifiers
+    kind: synonym
+  - knowledge_node_id: n_reg_ib_point_rioja_red_cellar
+    name: Rioja Tempranillo maturation choices
+    kind: synonym
+  - knowledge_node_id: n_reg_ib_point_rioja_white_oak
+    name: Rioja white optional oak influence
+    kind: synonym
+  - knowledge_node_id: n_reg_ib_point_ribera_elevation
+    name: Ribera elevated vineyard context
+    kind: synonym
+  - knowledge_node_id: n_reg_ib_point_ribera_season
+    name: Ribera continental seasonal constraints
+    kind: synonym
+  - knowledge_node_id: n_reg_ib_point_rias_canopy_context
+    name: Rias Baixas pergola humidity response
+    kind: synonym
+  - knowledge_node_id: n_reg_ib_point_sacra_terraces
+    name: Ribeira Sacra river terrace Mencia
+    kind: synonym
+  - knowledge_node_id: n_reg_ib_point_rueda_ripening
+    name: Rueda Verdejo diurnal context
+    kind: synonym
+  - knowledge_node_id: n_reg_ib_point_rueda_verdejo_style
+    name: Rueda Verdejo fruit herbs acidity
+    kind: synonym
+  - knowledge_node_id: n_reg_ib_point_priorat_access
+    name: Priorat steep vineyard access
+    kind: synonym
+  - knowledge_node_id: n_reg_ib_point_montsant_controls
+    name: Montsant matched vinification comparison
+    kind: synonym
+  - knowledge_node_id: n_reg_ib_point_levante_monastrell
+    name: Levante Monastrell harvest balance
+    kind: synonym
+  - knowledge_node_id: n_reg_ib_point_utiel_bobal
+    name: Utiel Requena Bobal contrast
+    kind: synonym
+  - knowledge_node_id: n_reg_ib_point_mancha_adaptation
+    name: La Mancha Airen climate adaptation
+    kind: synonym
+  - knowledge_node_id: n_reg_ib_point_mancha_ferment
+    name: La Mancha Airen controlled fermentation
+    kind: synonym
+  - knowledge_node_id: n_reg_ib_point_douro_shelter
+    name: Douro Atlantic mountain shelter
+    kind: synonym
+  - knowledge_node_id: n_reg_ib_point_douro_gradient
+    name: Douro west east rainfall gradient
+    kind: synonym
+  - knowledge_node_id: n_reg_ib_point_douro_blends
+    name: Douro still red blend context
+    kind: synonym
+  - knowledge_node_id: n_reg_ib_point_douro_terrain
+    name: Douro steep terrain work constraints
+    kind: synonym
+  - knowledge_node_id: n_reg_ib_point_dao_mountains
+    name: Dao mountain buffered sites
+    kind: synonym
+  - knowledge_node_id: n_reg_ib_point_dao_encruzado
+    name: Dao Encruzado structure acidity
+    kind: synonym
+  - knowledge_node_id: n_reg_ib_point_bairrada_baga_ripening
+    name: Bairrada Baga wet season risk
+    kind: synonym
+  - knowledge_node_id: n_reg_ib_point_baga_structure
+    name: Bairrada Baga tannin ageing potential
+    kind: synonym
+  - knowledge_node_id: n_reg_ib_point_verde_atlantic
+    name: Vinho Verde Atlantic white context
+    kind: synonym
+  - knowledge_node_id: n_reg_ib_point_verde_shelter
+    name: Moncao Melgaco sheltered white contrast
+    kind: synonym
+  - knowledge_node_id: n_reg_ib_point_alentejo_heat
+    name: Alentejo hot dry ripe styles
+    kind: synonym
+  - knowledge_node_id: n_reg_ib_point_alentejo_portalegre
+    name: Portalegre cooler Alentejo sites
+    kind: synonym
+  - knowledge_node_id: n_reg_ib_point_case_es_rioja_site_action
+    name: Compare Rioja site harvest sensory evidence
+    kind: synonym
+  - knowledge_node_id: n_reg_ib_point_case_es_rioja_site_reason
+    name: Rioja case climate consistency
+    kind: synonym
+  - knowledge_node_id: n_reg_ib_point_case_es_rioja_site_tradeoff
+    name: Rioja matched pair representativeness
+    kind: synonym
+  - knowledge_node_id: n_reg_ib_point_case_es_rioja_site_limitation
+    name: Rioja case residual production variables
+    kind: synonym
+  - knowledge_node_id: n_reg_ib_point_case_es_priorat_price_action
+    name: Priorat Montsant price cost demand test
+    kind: synonym
+  - knowledge_node_id: n_reg_ib_point_case_es_priorat_price_reason
+    name: Manual vineyard labour price requirement
+    kind: synonym
+  - knowledge_node_id: n_reg_ib_point_case_es_priorat_price_tradeoff
+    name: Priorat cost recovery competition tradeoff
+    kind: synonym
+  - knowledge_node_id: n_reg_ib_point_case_es_priorat_price_limitation
+    name: Priorat Montsant premium limit
+    kind: synonym
+  - knowledge_node_id: n_reg_ib_point_case_pt_white_design_action
+    name: Separate Dao Verde white variables
+    kind: synonym
+  - knowledge_node_id: n_reg_ib_point_case_pt_white_design_reason
+    name: Dao Verde site and grape rationale
+    kind: synonym
+  - knowledge_node_id: n_reg_ib_point_case_pt_white_design_tradeoff
+    name: Portuguese white vivid contrast confounding
+    kind: synonym
+  - knowledge_node_id: n_reg_ib_point_case_pt_white_design_limitation
+    name: Dao Verde white representativeness limit
+    kind: synonym
+  - knowledge_node_id: n_reg_ib_point_case_pt_baga_inventory_action
+    name: Baga purchase ageing cashflow evidence
+    kind: synonym
+  - knowledge_node_id: n_reg_ib_point_case_pt_baga_inventory_reason
+    name: Baga conditional tannin softening rationale
+    kind: synonym
+  - knowledge_node_id: n_reg_ib_point_case_pt_baga_inventory_tradeoff
+    name: Baga ageing inventory cash tradeoff
+    kind: synonym
+  - knowledge_node_id: n_reg_ib_point_case_pt_baga_inventory_limitation
+    name: Baga storage outcome evidence limit
+    kind: synonym
+knowledge_relations:
+  - subject_id: n_reg_ib_principle_es_rioja_climate
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_ib_point_rioja_gradient
+    valid_from: 2026-09-27
+  - subject_id: n_reg_ib_principle_es_rioja_climate
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_ib_point_rioja_topography
+    valid_from: 2026-09-27
+  - subject_id: n_reg_ib_principle_es_rioja_styles
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_ib_point_rioja_red_cellar
+    valid_from: 2026-09-27
+  - subject_id: n_reg_ib_principle_es_rioja_styles
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_ib_point_rioja_white_oak
+    valid_from: 2026-09-27
+  - subject_id: n_reg_ib_principle_es_ribera
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_ib_point_ribera_elevation
+    valid_from: 2026-09-27
+  - subject_id: n_reg_ib_principle_es_ribera
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_ib_point_ribera_season
+    valid_from: 2026-09-27
+  - subject_id: n_reg_ib_principle_es_galicia
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_ib_point_rias_canopy_context
+    valid_from: 2026-09-27
+  - subject_id: n_reg_ib_principle_es_galicia
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_ib_point_sacra_terraces
+    valid_from: 2026-09-27
+  - subject_id: n_reg_ib_principle_es_rueda
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_ib_point_rueda_ripening
+    valid_from: 2026-09-27
+  - subject_id: n_reg_ib_principle_es_rueda
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_ib_point_rueda_verdejo_style
+    valid_from: 2026-09-27
+  - subject_id: n_reg_ib_principle_es_priorat_montsant
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_ib_point_priorat_access
+    valid_from: 2026-09-27
+  - subject_id: n_reg_ib_principle_es_priorat_montsant
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_ib_point_montsant_controls
+    valid_from: 2026-09-27
+  - subject_id: n_reg_ib_principle_es_levante
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_ib_point_levante_monastrell
+    valid_from: 2026-09-27
+  - subject_id: n_reg_ib_principle_es_levante
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_ib_point_utiel_bobal
+    valid_from: 2026-09-27
+  - subject_id: n_reg_ib_principle_es_mancha_airen
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_ib_point_mancha_adaptation
+    valid_from: 2026-09-27
+  - subject_id: n_reg_ib_principle_es_mancha_airen
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_ib_point_mancha_ferment
+    valid_from: 2026-09-27
+  - subject_id: n_reg_ib_principle_pt_douro_climate
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_ib_point_douro_shelter
+    valid_from: 2026-09-27
+  - subject_id: n_reg_ib_principle_pt_douro_climate
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_ib_point_douro_gradient
+    valid_from: 2026-09-27
+  - subject_id: n_reg_ib_principle_pt_douro_still
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_ib_point_douro_blends
+    valid_from: 2026-09-27
+  - subject_id: n_reg_ib_principle_pt_douro_still
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_ib_point_douro_terrain
+    valid_from: 2026-09-27
+  - subject_id: n_reg_ib_principle_pt_dao
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_ib_point_dao_mountains
+    valid_from: 2026-09-27
+  - subject_id: n_reg_ib_principle_pt_dao
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_ib_point_dao_encruzado
+    valid_from: 2026-09-27
+  - subject_id: n_reg_ib_principle_pt_bairrada
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_ib_point_bairrada_baga_ripening
+    valid_from: 2026-09-27
+  - subject_id: n_reg_ib_principle_pt_bairrada
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_ib_point_baga_structure
+    valid_from: 2026-09-27
+  - subject_id: n_reg_ib_principle_pt_vinho_verde
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_ib_point_verde_atlantic
+    valid_from: 2026-09-27
+  - subject_id: n_reg_ib_principle_pt_vinho_verde
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_ib_point_verde_shelter
+    valid_from: 2026-09-27
+  - subject_id: n_reg_ib_principle_pt_alentejo
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_ib_point_alentejo_heat
+    valid_from: 2026-09-27
+  - subject_id: n_reg_ib_principle_pt_alentejo
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_ib_point_alentejo_portalegre
+    valid_from: 2026-09-27
+  - subject_id: n_reg_ib_case_es_rioja_site
+    relation_type: CASE_ACTION
+    object_id: n_reg_ib_point_case_es_rioja_site_action
+    valid_from: 2026-09-27
+  - subject_id: n_reg_ib_case_es_rioja_site
+    relation_type: CASE_REASON
+    object_id: n_reg_ib_point_case_es_rioja_site_reason
+    valid_from: 2026-09-27
+  - subject_id: n_reg_ib_case_es_rioja_site
+    relation_type: CASE_TRADEOFF
+    object_id: n_reg_ib_point_case_es_rioja_site_tradeoff
+    valid_from: 2026-09-27
+  - subject_id: n_reg_ib_case_es_rioja_site
+    relation_type: CASE_LIMITATION
+    object_id: n_reg_ib_point_case_es_rioja_site_limitation
+    valid_from: 2026-09-27
+  - subject_id: n_reg_ib_case_es_priorat_price
+    relation_type: CASE_ACTION
+    object_id: n_reg_ib_point_case_es_priorat_price_action
+    valid_from: 2026-09-27
+  - subject_id: n_reg_ib_case_es_priorat_price
+    relation_type: CASE_REASON
+    object_id: n_reg_ib_point_case_es_priorat_price_reason
+    valid_from: 2026-09-27
+  - subject_id: n_reg_ib_case_es_priorat_price
+    relation_type: CASE_TRADEOFF
+    object_id: n_reg_ib_point_case_es_priorat_price_tradeoff
+    valid_from: 2026-09-27
+  - subject_id: n_reg_ib_case_es_priorat_price
+    relation_type: CASE_LIMITATION
+    object_id: n_reg_ib_point_case_es_priorat_price_limitation
+    valid_from: 2026-09-27
+  - subject_id: n_reg_ib_case_pt_white_design
+    relation_type: CASE_ACTION
+    object_id: n_reg_ib_point_case_pt_white_design_action
+    valid_from: 2026-09-27
+  - subject_id: n_reg_ib_case_pt_white_design
+    relation_type: CASE_REASON
+    object_id: n_reg_ib_point_case_pt_white_design_reason
+    valid_from: 2026-09-27
+  - subject_id: n_reg_ib_case_pt_white_design
+    relation_type: CASE_TRADEOFF
+    object_id: n_reg_ib_point_case_pt_white_design_tradeoff
+    valid_from: 2026-09-27
+  - subject_id: n_reg_ib_case_pt_white_design
+    relation_type: CASE_LIMITATION
+    object_id: n_reg_ib_point_case_pt_white_design_limitation
+    valid_from: 2026-09-27
+  - subject_id: n_reg_ib_case_pt_baga_inventory
+    relation_type: CASE_ACTION
+    object_id: n_reg_ib_point_case_pt_baga_inventory_action
+    valid_from: 2026-09-27
+  - subject_id: n_reg_ib_case_pt_baga_inventory
+    relation_type: CASE_REASON
+    object_id: n_reg_ib_point_case_pt_baga_inventory_reason
+    valid_from: 2026-09-27
+  - subject_id: n_reg_ib_case_pt_baga_inventory
+    relation_type: CASE_TRADEOFF
+    object_id: n_reg_ib_point_case_pt_baga_inventory_tradeoff
+    valid_from: 2026-09-27
+  - subject_id: n_reg_ib_case_pt_baga_inventory
+    relation_type: CASE_LIMITATION
+    object_id: n_reg_ib_point_case_pt_baga_inventory_limitation
+    valid_from: 2026-09-27
+knowledge_items:
+  - id: ki_reg_ib_rioja_gradient
+    subject_id: n_reg_ib_principle_es_rioja_climate
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_ib_point_rioja_gradient
+    domain_id: geography
+    assertion_text: "Rioja combines Atlantic and Mediterranean influences: western areas generally have
+      stronger Atlantic influence, while eastern areas are warmer and drier. This frames a ripening
+      comparison without making every western site cooler than every eastern site."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:54:00.000Z
+  - id: ki_reg_ib_rioja_topography
+    subject_id: n_reg_ib_principle_es_rioja_climate
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_ib_point_rioja_topography
+    domain_id: geography
+    assertion_text: Rioja’s mountain barriers, vineyard elevation and aspect modify exposure and temperature
+      within the broad climate gradient. Compare the actual sites and vintage before attributing a wine’s
+      freshness or ripeness to its subregional name.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:54:00.000Z
+  - id: ki_reg_ib_rioja_red_cellar
+    subject_id: n_reg_ib_principle_es_rioja_styles
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_ib_point_rioja_red_cellar
+    domain_id: winemaking
+    assertion_text: Tempranillo is an established foundation of Rioja reds, but grape composition and
+      maturation choices alter the result. Oak can add spice or toast; neither the regional name nor a
+      ripe fruit profile establishes the exact barrel treatment or sensory quality.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:54:00.000Z
+  - id: ki_reg_ib_rioja_white_oak
+    subject_id: n_reg_ib_principle_es_rioja_styles
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_ib_point_rioja_white_oak
+    domain_id: winemaking
+    assertion_text: Rioja whites associated with Viura can show floral, citrus and white-fruit characters;
+      some receive oak treatment that adds different aromas and texture. Compare actual production
+      details rather than assuming all Rioja is red or all its whites are unoaked.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:54:00.000Z
+  - id: ki_reg_ib_ribera_elevation
+    subject_id: n_reg_ib_principle_es_ribera
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_ib_point_ribera_elevation
+    domain_id: geography
+    assertion_text: Ribera del Duero’s elevated plateau and river-valley vineyards must be considered
+      alongside its continental climate. A warm summer daytime reading alone does not describe the site’s
+      temperature variation or establish the finished red wine’s balance.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:54:00.000Z
+  - id: ki_reg_ib_ribera_season
+    subject_id: n_reg_ib_principle_es_ribera
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_ib_point_ribera_season
+    domain_id: geography
+    assertion_text: Ribera del Duero combines dry summers, long rigorous winters and substantial temperature
+      variation, with relatively late ripening described by the council. These conditions create a
+      seasonal constraint as well as ripening potential; vintage and vineyard decisions remain necessary
+      evidence.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:54:00.000Z
+  - id: ki_reg_ib_rias_canopy_context
+    subject_id: n_reg_ib_principle_es_galicia
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_ib_point_rias_canopy_context
+    domain_id: viticulture
+    assertion_text: Rías Baixas has strong Atlantic influence and established Albariño production.
+      Traditional pergolas raise foliage and grapes above damp ground and allow ventilation; this helps
+      explain the training choice, without guaranteeing freedom from fungal disease at every site.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:54:00.000Z
+  - id: ki_reg_ib_sacra_terraces
+    subject_id: n_reg_ib_principle_es_galicia
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_ib_point_sacra_terraces
+    domain_id: geography
+    assertion_text: Ribeira Sacra’s Miño and Sil river-valley terraces provide a contrasting setting to
+      coastal Rías Baixas. Mencía is an established red-wine association; differing valley climates and
+      individual vineyards prevent one uniform ripening or wine-style rule for the whole region.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:54:00.000Z
+  - id: ki_reg_ib_rueda_ripening
+    subject_id: n_reg_ib_principle_es_rueda
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_ib_point_rueda_ripening
+    domain_id: geography
+    assertion_text: Rueda’s elevated setting and marked day–night temperature variation form part of
+      Verdejo’s ripening environment. Assess those conditions with the vintage and picking decisions,
+      rather than treating latitude or daytime heat as a complete explanation.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:54:00.000Z
+  - id: ki_reg_ib_rueda_verdejo_style
+    subject_id: n_reg_ib_principle_es_rueda
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_ib_point_rueda_verdejo_style
+    domain_id: geography
+    assertion_text: Verdejo in Rueda is associated with fruit and herbal aromas and acidity.
+      These are useful sensory expectations for a regional comparison, while grape composition
+      and production details remain relevant; the description is not a guaranteed blind-origin test.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:54:00.000Z
+  - id: ki_reg_ib_priorat_access
+    subject_id: n_reg_ib_principle_es_priorat_montsant
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_ib_point_priorat_access
+    domain_id: viticulture
+    assertion_text: Priorat includes steep vineyards where access and slope restrict mechanisation and
+      require traditional manual operations. This is a plausible labour constraint to investigate; it
+      does not prove that every Priorat vineyard costs more or produces better wine than Montsant.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:54:00.000Z
+  - id: ki_reg_ib_montsant_controls
+    subject_id: n_reg_ib_principle_es_priorat_montsant
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_ib_point_montsant_controls
+    domain_id: winemaking
+    assertion_text: Montsant’s technical programme compares vineyard settings using Garnatxa and Carinyena;
+      one study selected similarly aged vines, harvested at comparable maturity and used the same
+      stainless-steel vinification without oak. Such controls reduce confounding, but do not prove that
+      one soil type causes a particular flavour.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:54:00.000Z
+  - id: ki_reg_ib_levante_monastrell
+    subject_id: n_reg_ib_principle_es_levante
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_ib_point_levante_monastrell
+    domain_id: viticulture
+    assertion_text: Monastrell is established in Jumilla and Yecla’s hot, relatively dry settings and has a
+      long ripening cycle. Jumilla’s council describes a balance between picking too early with vegetal
+      character and too late with lost freshness; a warm origin alone cannot set the right harvest date.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:54:00.000Z
+  - id: ki_reg_ib_utiel_bobal
+    subject_id: n_reg_ib_principle_es_levante
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_ib_point_utiel_bobal
+    domain_id: geography
+    assertion_text: Utiel-Requena’s elevated continental plateau, with day–night temperature variation,
+      provides a distinct Levante setting for Bobal. Its deep colour, body and natural acidity are useful
+      regional associations, but site and production decisions still determine the individual wine.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:54:00.000Z
+  - id: ki_reg_ib_mancha_adaptation
+    subject_id: n_reg_ib_principle_es_mancha_airen
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_ib_point_mancha_adaptation
+    domain_id: viticulture
+    assertion_text: Airén is an established La Mancha white variety adapted to the region’s continental cold
+      winters, hot summers and limited rainfall. Adaptation supplies growing context, but does not
+      guarantee sufficient water, a fixed yield or a particular quality level in every vineyard.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:54:00.000Z
+  - id: ki_reg_ib_mancha_ferment
+    subject_id: n_reg_ib_principle_es_mancha_airen
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_ib_point_mancha_ferment
+    domain_id: winemaking
+    assertion_text: Temperature-controlled fermentation is one route to fresh, aromatic young Airén whites
+      from La Mancha. The hot growing region does not require an oxidised or heavy style, and the cellar
+      technique alone is insufficient evidence of the finished wine’s quality.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:54:00.000Z
+  - id: ki_reg_ib_douro_shelter
+    subject_id: n_reg_ib_principle_pt_douro_climate
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_ib_point_douro_shelter
+    domain_id: geography
+    assertion_text: The Douro is sheltered from direct Atlantic influence by mountains including the Serra do
+      Marão, contributing to cold winters and hot summers. This supplies a still-wine growing context
+      without implying uniform heat or ripeness across every slope and elevation.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:54:00.000Z
+  - id: ki_reg_ib_douro_gradient
+    subject_id: n_reg_ib_principle_pt_douro_climate
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_ib_point_douro_gradient
+    domain_id: geography
+    assertion_text: Within the Douro, Baixo Corgo is generally cooler and wetter, while Douro Superior is
+      hotter and drier. This gradient helps organise a ripening and water-availability comparison, with
+      slope, elevation and the actual vintage still needed for a specific vineyard.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:54:00.000Z
+  - id: ki_reg_ib_douro_blends
+    subject_id: n_reg_ib_principle_pt_douro_still
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_ib_point_douro_blends
+    domain_id: geography
+    assertion_text: Douro still reds frequently blend native varieties such as Touriga Nacional, Touriga
+      Franca and Tinta Roriz, with varietal examples also made. Blend composition helps explain structure
+      and fruit expression; Port production methods must not be inferred from a Douro still-wine origin.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:54:00.000Z
+  - id: ki_reg_ib_douro_terrain
+    subject_id: n_reg_ib_principle_pt_douro_still
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_ib_point_douro_terrain
+    domain_id: viticulture
+    assertion_text: The Douro’s steep terrain and terrace configurations complicate vineyard operations such
+      as pruning, soil work and spraying. These constraints can affect labour requirements, but a
+      still-wine cost comparison needs actual access, equipment and cost records for the sites being
+      compared.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:54:00.000Z
+  - id: ki_reg_ib_dao_mountains
+    subject_id: n_reg_ib_principle_pt_dao
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_ib_point_dao_mountains
+    domain_id: geography
+    assertion_text: Dão’s surrounding mountains modify direct maritime and continental influences, while
+      varied vineyard elevations create different growing settings. The regional description therefore
+      needs a specific site and vintage before it can explain a wine’s ripeness or acidity.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:54:00.000Z
+  - id: ki_reg_ib_dao_encruzado
+    subject_id: n_reg_ib_principle_pt_dao
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_ib_point_dao_encruzado
+    domain_id: geography
+    assertion_text: Encruzado is strongly associated with Dão and can combine acidity with a structured
+      white-wine palate in varietal wines or blends. This supports comparison with lighter aromatic
+      whites, while harvest and cellar choices prevent a fixed richness or ageing rule.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:54:00.000Z
+  - id: ki_reg_ib_bairrada_baga_ripening
+    subject_id: n_reg_ib_principle_pt_bairrada
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_ib_point_bairrada_baga_ripening
+    domain_id: viticulture
+    assertion_text: Bairrada has a strong Atlantic influence and relatively mild, wet conditions; its
+      established Baga variety ripens late and is susceptible to rot in wet harvest periods. Suitable
+      exposure and the particular season matter, rather than assuming that all regional fruit reaches the
+      same maturity.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:54:00.000Z
+  - id: ki_reg_ib_baga_structure
+    subject_id: n_reg_ib_principle_pt_bairrada
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_ib_point_baga_structure
+    domain_id: geography
+    assertion_text: Well-ripened Baga can make deeply coloured reds with substantial acidity and tannin;
+      youthful examples may be astringent and can soften with suitable ageing. This is potential, not a
+      guarantee that every Bairrada red is Baga or every Baga wine benefits from prolonged storage.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:54:00.000Z
+  - id: ki_reg_ib_verde_atlantic
+    subject_id: n_reg_ib_principle_pt_vinho_verde
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_ib_point_verde_atlantic
+    domain_id: geography
+    assertion_text: Vinho Verde’s strong Atlantic influence, with substantial rainfall and moderate
+      temperatures, supplies context for fresh aromatic whites from grapes including Alvarinho and
+      Loureiro. The name does not establish that every wine is low in alcohol, lightly fizzy or made from
+      unripe fruit.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:54:00.000Z
+  - id: ki_reg_ib_verde_shelter
+    subject_id: n_reg_ib_principle_pt_vinho_verde
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_ib_point_verde_shelter
+    domain_id: geography
+    assertion_text: Monção e Melgaço is more sheltered from direct Atlantic influence than exposed Vinho
+      Verde sites and is associated with fuller whites with relatively higher alcohol. This is a useful
+      contrast, while grape, vintage and picking decisions still matter for the individual wine.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:54:00.000Z
+  - id: ki_reg_ib_alentejo_heat
+    subject_id: n_reg_ib_principle_pt_alentejo
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_ib_point_alentejo_heat
+    domain_id: geography
+    assertion_text: Alentejo’s hot, dry Mediterranean and continental influences provide context for ripe,
+      often fuller red styles from grapes such as Aragonez and Alicante Bouschet. These are associations
+      rather than a complete grape list or proof that every Alentejo wine is heavy or high in quality.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:54:00.000Z
+  - id: ki_reg_ib_alentejo_portalegre
+    subject_id: n_reg_ib_principle_pt_alentejo
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_reg_ib_point_alentejo_portalegre
+    domain_id: geography
+    assertion_text: Portalegre’s Serra de São Mamede setting offers cooler, higher sites within Alentejo
+      compared with warmer lowland settings. Compare the actual grape and cellar choices as well as
+      elevation before treating this contrast as an explanation of freshness or a regional quality
+      hierarchy.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:54:00.000Z
+  - id: ki_reg_ib_case_es_rioja_site_action
+    subject_id: n_reg_ib_case_es_rioja_site
+    relation_type: CASE_ACTION
+    object_id: n_reg_ib_point_case_es_rioja_site_action
+    domain_id: geography
+    assertion_text: Compare recorded temperatures and picking conditions with the wines’ acidity and fruit
+      expression. Use the cooler western-site premise as a possible explanation while checking elevation,
+      exposure and harvest choices rather than attributing everything to the labels.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:54:00.000Z
+  - id: ki_reg_ib_case_es_rioja_site_reason
+    subject_id: n_reg_ib_case_es_rioja_site
+    relation_type: CASE_REASON
+    object_id: n_reg_ib_point_case_es_rioja_site_reason
+    domain_id: geography
+    assertion_text: The cooler western period is consistent with Rioja’s broad Atlantic-to-Mediterranean
+      gradient and offers a plausible ripening contribution. Similar blend and oak treatment reduce two
+      competing explanations but do not make climate the only cause of the observed freshness.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:54:00.000Z
+  - id: ki_reg_ib_case_es_rioja_site_tradeoff
+    subject_id: n_reg_ib_case_es_rioja_site
+    relation_type: CASE_TRADEOFF
+    object_id: n_reg_ib_point_case_es_rioja_site_tradeoff
+    domain_id: geography
+    assertion_text: "Matching blend and maturation makes this pair more informative about growing conditions,
+      but sacrifices breadth: two sites cannot represent all Rioja. Add contrasting elevations or
+      vintages when the learning goal is to test the wider regional pattern."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:54:00.000Z
+  - id: ki_reg_ib_case_es_rioja_site_limitation
+    subject_id: n_reg_ib_case_es_rioja_site
+    relation_type: CASE_LIMITATION
+    object_id: n_reg_ib_point_case_es_rioja_site_limitation
+    domain_id: winemaking
+    assertion_text: Yield, fruit selection and other cellar decisions remain unrecorded. The sensory
+      difference supports a qualified explanation, not proof that the western label caused higher quality
+      or that an unknown fresher Rioja must come from the west.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:54:00.000Z
+  - id: ki_reg_ib_case_es_priorat_price_action
+    subject_id: n_reg_ib_case_es_priorat_price
+    relation_type: CASE_ACTION
+    object_id: n_reg_ib_point_case_es_priorat_price_action
+    domain_id: business
+    assertion_text: Check the documented labour and selling costs, then test the proposed price against
+      competing offers and the target buyer’s perceived value. A steep-site account helps explain costs;
+      similar sensory assessments do not establish identical required or achievable prices.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:54:00.000Z
+  - id: ki_reg_ib_case_es_priorat_price_reason
+    subject_id: n_reg_ib_case_es_priorat_price
+    relation_type: CASE_REASON
+    object_id: n_reg_ib_point_case_es_priorat_price_reason
+    domain_id: business
+    assertion_text: The stated higher labour cost can raise the price needed to cover costs despite similar
+      sensory evaluations. Priorat’s access constraints make the premise plausible, but only the supplied
+      parcel records establish that this pair actually has different unit costs.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:54:00.000Z
+  - id: ki_reg_ib_case_es_priorat_price_tradeoff
+    subject_id: n_reg_ib_case_es_priorat_price
+    relation_type: CASE_TRADEOFF
+    object_id: n_reg_ib_point_case_es_priorat_price_tradeoff
+    domain_id: business
+    assertion_text: A higher price may recover the producer’s costs but lose buyers who perceive comparable
+      value in the Montsant alternative. Market testing is needed to weigh cost recovery against
+      achievable demand; regional reputation cannot remove this tradeoff.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:54:00.000Z
+  - id: ki_reg_ib_case_es_priorat_price_limitation
+    subject_id: n_reg_ib_case_es_priorat_price
+    relation_type: CASE_LIMITATION
+    object_id: n_reg_ib_point_case_es_priorat_price_limitation
+    domain_id: business
+    assertion_text: This pair cannot establish that every Priorat wine costs more, tastes better or deserves
+      a fixed premium over Montsant. Different access, production choices, quality assessments and
+      customers would require a new cost and value comparison.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:54:00.000Z
+  - id: ki_reg_ib_case_pt_white_design_action
+    subject_id: n_reg_ib_case_pt_white_design
+    relation_type: CASE_ACTION
+    object_id: n_reg_ib_point_case_pt_white_design_action
+    domain_id: geography
+    assertion_text: Compare the site records and sensory observations while recording the different grapes
+      and the stated fermentation treatments separately. Add examples with closer grape and cellar
+      matches before trying to isolate a regional contribution to acidity, aroma or texture.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:54:00.000Z
+  - id: ki_reg_ib_case_pt_white_design_reason
+    subject_id: n_reg_ib_case_pt_white_design
+    relation_type: CASE_REASON
+    object_id: n_reg_ib_point_case_pt_white_design_reason
+    domain_id: geography
+    assertion_text: Dão’s mountain-buffered settings contrast with Vinho Verde’s strong Atlantic influence,
+      and Encruzado’s structured palate differs from a typical fresh aromatic white brief. These are
+      plausible contributors, while the specified barrel treatment is a separate production variable.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:54:00.000Z
+  - id: ki_reg_ib_case_pt_white_design_tradeoff
+    subject_id: n_reg_ib_case_pt_white_design
+    relation_type: CASE_TRADEOFF
+    object_id: n_reg_ib_point_case_pt_white_design_tradeoff
+    domain_id: winemaking
+    assertion_text: The pair makes the style contrast easy to discuss, but changing grape and fermentation
+      treatment together confounds a regional explanation. A more closely matched comparison improves
+      attribution while reducing the breadth of styles shown in this exercise.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:54:00.000Z
+  - id: ki_reg_ib_case_pt_white_design_limitation
+    subject_id: n_reg_ib_case_pt_white_design
+    relation_type: CASE_LIMITATION
+    object_id: n_reg_ib_point_case_pt_white_design_limitation
+    domain_id: geography
+    assertion_text: The pair cannot establish that all Dão whites are barrel-fermented and rich or all Vinho
+      Verde whites are light. Vinho Verde’s sheltered Monção e Melgaço can make fuller examples, and
+      actual wine records are needed before ranking quality or attributing texture to origin.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:54:00.000Z
+  - id: ki_reg_ib_case_pt_baga_inventory_action
+    subject_id: n_reg_ib_case_pt_baga_inventory
+    relation_type: CASE_ACTION
+    object_id: n_reg_ib_point_case_pt_baga_inventory_action
+    domain_id: business
+    assertion_text: Request a mature sample or credible wine-specific ageing record, compare it with the
+      customers’ preference, and budget the payment timing and stated storage costs before purchasing.
+      The ready-to-sell Dão blend is a comparison option, not proof of regional superiority.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:54:00.000Z
+  - id: ki_reg_ib_case_pt_baga_inventory_reason
+    subject_id: n_reg_ib_case_pt_baga_inventory
+    relation_type: CASE_REASON
+    object_id: n_reg_ib_point_case_pt_baga_inventory_reason
+    domain_id: geography
+    assertion_text: Well-ripened Baga can have substantial tannin and acidity and may soften with suitable
+      ageing, so delaying sale has a plausible style rationale. The young bottle’s structure alone does
+      not establish that this wine will become balanced or meet the customers’ preference after two
+      years.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:54:00.000Z
+  - id: ki_reg_ib_case_pt_baga_inventory_tradeoff
+    subject_id: n_reg_ib_case_pt_baga_inventory
+    relation_type: CASE_TRADEOFF
+    object_id: n_reg_ib_point_case_pt_baga_inventory_tradeoff
+    domain_id: business
+    assertion_text: Holding the Baga may produce a more suitable texture, but under the stated payment and
+      storage terms it delays sales and ties cash to inventory while adding costs. Selling the already
+      suitable Dão blend sooner forgoes that possible Baga development but releases cash earlier.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:54:00.000Z
+  - id: ki_reg_ib_case_pt_baga_inventory_limitation
+    subject_id: n_reg_ib_case_pt_baga_inventory
+    relation_type: CASE_LIMITATION
+    object_id: n_reg_ib_point_case_pt_baga_inventory_limitation
+    domain_id: business
+    assertion_text: Without wine-specific mature evidence, appropriate storage assurance and a customer
+      trial, the two-year result remains uncertain. General Baga ageing potential cannot guarantee
+      successful maturation, future demand or a price that recovers the added costs.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T05:54:00.000Z
+certification_knowledge_mappings:
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_ib_rioja_gradient
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_ib_rioja_gradient
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_ib_rioja_gradient
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_ib_rioja_topography
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_ib_rioja_topography
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_ib_rioja_topography
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_ib_rioja_red_cellar
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_ib_rioja_red_cellar
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_ib_rioja_red_cellar
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_ib_rioja_white_oak
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_ib_rioja_white_oak
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_ib_rioja_white_oak
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_ib_ribera_elevation
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_ib_ribera_elevation
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_ib_ribera_elevation
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_ib_ribera_season
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_ib_ribera_season
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_ib_ribera_season
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_ib_rias_canopy_context
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_ib_rias_canopy_context
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_ib_rias_canopy_context
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_ib_sacra_terraces
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_ib_sacra_terraces
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_ib_sacra_terraces
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_ib_rueda_ripening
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_ib_rueda_ripening
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_ib_rueda_ripening
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_ib_rueda_verdejo_style
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_ib_rueda_verdejo_style
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_ib_rueda_verdejo_style
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_ib_priorat_access
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_ib_priorat_access
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_ib_priorat_access
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_ib_montsant_controls
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_ib_montsant_controls
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_ib_montsant_controls
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_ib_levante_monastrell
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_ib_levante_monastrell
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_ib_levante_monastrell
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_ib_utiel_bobal
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_ib_utiel_bobal
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_ib_utiel_bobal
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_ib_mancha_adaptation
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_ib_mancha_adaptation
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_ib_mancha_adaptation
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_ib_mancha_ferment
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_ib_mancha_ferment
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_ib_mancha_ferment
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_ib_douro_shelter
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_ib_douro_shelter
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_ib_douro_shelter
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_ib_douro_gradient
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_ib_douro_gradient
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_ib_douro_gradient
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_ib_douro_blends
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_ib_douro_blends
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_ib_douro_blends
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_ib_douro_terrain
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_ib_douro_terrain
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_ib_douro_terrain
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_ib_dao_mountains
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_ib_dao_mountains
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_ib_dao_mountains
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_ib_dao_encruzado
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_ib_dao_encruzado
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_ib_dao_encruzado
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_ib_bairrada_baga_ripening
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_ib_bairrada_baga_ripening
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_ib_bairrada_baga_ripening
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_ib_baga_structure
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_ib_baga_structure
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_ib_baga_structure
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_ib_verde_atlantic
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_ib_verde_atlantic
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_ib_verde_atlantic
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_ib_verde_shelter
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_ib_verde_shelter
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_ib_verde_shelter
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_ib_alentejo_heat
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_ib_alentejo_heat
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_ib_alentejo_heat
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_ib_alentejo_portalegre
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_reg_ib_alentejo_portalegre
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_reg_ib_alentejo_portalegre
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_ib_case_es_rioja_site_action
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_ib_case_es_rioja_site_reason
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_ib_case_es_rioja_site_tradeoff
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_ib_case_es_rioja_site_limitation
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_ib_case_es_priorat_price_action
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_ib_case_es_priorat_price_reason
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_ib_case_es_priorat_price_tradeoff
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_ib_case_es_priorat_price_limitation
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_ib_case_pt_white_design_action
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_ib_case_pt_white_design_reason
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_ib_case_pt_white_design_tradeoff
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_ib_case_pt_white_design_limitation
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_ib_case_pt_baga_inventory_action
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_ib_case_pt_baga_inventory_reason
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_ib_case_pt_baga_inventory_tradeoff
+    importance: core
+    minimum_depth: 3
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_reg_ib_case_pt_baga_inventory_limitation
+    importance: core
+    minimum_depth: 3
+source_citations:
+  - id: src_reg_ib_rioja_geo
+    kind: reference_work
+    title: Geography and terroirs of Rioja
+    publisher: Consejo Regulador DOCa Rioja
+    jurisdiction: ES
+    url: https://riojawine.com/en-gb/blog/geography-and-terroirs-of-rioja/
+    document_identifier: Primary public regional educational reference, retrieved 27 September 2026;
+      qualitative conditions only, statistics, promotional rankings and complete legal grape lists unused
+    accessed_on: 2026-09-27
+  - id: src_reg_ib_rioja_styles
+    kind: reference_work
+    title: The taste of Rioja wine
+    publisher: Consejo Regulador DOCa Rioja
+    jurisdiction: ES
+    url: https://riojawine.com/en-gb/blog/the-taste-of-rioja-wine/
+    document_identifier: Primary public regional educational reference, retrieved 27 September 2026;
+      qualitative conditions only, statistics, promotional rankings and complete legal grape lists unused
+    accessed_on: 2026-09-27
+  - id: src_reg_ib_ribera_climate
+    kind: reference_work
+    title: "Clima: Ribera del Duero"
+    publisher: Consejo Regulador Ribera del Duero
+    jurisdiction: ES
+    url: https://www.riberadelduero.es/en/node/2208
+    document_identifier: Primary public regional educational reference, retrieved 27 September 2026;
+      qualitative conditions only, statistics, promotional rankings and complete legal grape lists unused
+    accessed_on: 2026-09-27
+  - id: src_reg_ib_ribera_altitude
+    kind: reference_work
+    title: "Altitud: Ribera del Duero"
+    publisher: Consejo Regulador Ribera del Duero
+    jurisdiction: ES
+    url: https://riberadelduero.es/mx/la-do-ribera-del-duero/altitud
+    document_identifier: Primary public regional educational reference, retrieved 27 September 2026;
+      qualitative conditions only, statistics, promotional rankings and complete legal grape lists unused
+    accessed_on: 2026-09-27
+  - id: src_reg_ib_rias_climate
+    kind: reference_work
+    title: ¿Cómo influye el clima en la vid y el vino?
+    publisher: Consejo Regulador DO Rías Baixas
+    jurisdiction: ES
+    url: https://doriasbaixas.com/como-influye-el-clima-en-la-vid-y-el-vino/
+    document_identifier: Primary public regional educational reference, retrieved 27 September 2026;
+      qualitative conditions only, statistics, promotional rankings and complete legal grape lists unused
+    accessed_on: 2026-09-27
+  - id: src_reg_ib_rias_canopy
+    kind: reference_work
+    title: "Cifras y cepas: El mundo del vino de la DO Rías Baixas en números"
+    publisher: Consejo Regulador DO Rías Baixas
+    jurisdiction: ES
+    url: https://doriasbaixas.com/cifras-y-cepas/
+    document_identifier: Primary public regional educational reference, retrieved 27 September 2026;
+      qualitative conditions only, statistics, promotional rankings and complete legal grape lists unused
+    accessed_on: 2026-09-27
+  - id: src_reg_ib_sacra_sites
+    kind: reference_work
+    title: "Regulatory Council figures: Ribeira Sacra"
+    publisher: Consejo Regulador DO Ribeira Sacra
+    jurisdiction: ES
+    url: https://ribeirasacra.org/datos-consejo-regulador/en
+    document_identifier: Primary public regional educational reference, retrieved 27 September 2026;
+      qualitative conditions only, statistics, promotional rankings and complete legal grape lists unused
+    accessed_on: 2026-09-27
+  - id: src_reg_ib_sacra_grapes
+    kind: reference_work
+    title: "Ribeira Sacra: información general 2017"
+    publisher: Consejo Regulador DO Ribeira Sacra
+    jurisdiction: ES
+    url: https://ribeirasacra.org/media/documentos/Ribeira%20Sacra%20Info.%20Gral.%202017.pdf
+    document_identifier: Council general reference, 2017; established Mencía association only, not current
+      rankings or statistics
+    accessed_on: 2026-09-27
+  - id: src_reg_ib_rueda_verdejo
+    kind: reference_work
+    title: Verdejo
+    publisher: Consejo Regulador DO Rueda
+    jurisdiction: ES
+    url: https://dorueda.com/verdejo/
+    document_identifier: Primary public regional educational reference, retrieved 27 September 2026;
+      qualitative conditions only, statistics, promotional rankings and complete legal grape lists unused
+    accessed_on: 2026-09-27
+  - id: src_reg_ib_priorat_sites
+    kind: reference_work
+    title: "Varietats: Priorat vineyards and grapes"
+    publisher: Consell Regulador DOQ Priorat
+    jurisdiction: ES
+    url: https://www.doqpriorat.org/varietats/
+    document_identifier: Primary public regional educational reference, retrieved 27 September 2026;
+      qualitative conditions only, statistics, promotional rankings and complete legal grape lists unused
+    accessed_on: 2026-09-27
+  - id: src_reg_ib_montsant_research
+    kind: reference_work
+    title: "Oficina tècnica: site and matched vinification studies"
+    publisher: Consell Regulador DO Montsant, INCAVI and VITEC
+    jurisdiction: ES
+    url: https://www.domontsant.com/oficina-tecnica/
+    document_identifier: Council technical programme with INCAVI and VITEC; matched vineyard and
+      microvinification methods, not soil-to-flavour proof
+    accessed_on: 2026-09-27
+  - id: src_reg_ib_jumilla_harvest
+    kind: reference_work
+    title: Harvesting & Winemaking
+    publisher: Consejo Regulador DOP Jumilla
+    jurisdiction: ES
+    url: https://jumilla.wine/en/harvesting-winemaking/
+    document_identifier: Primary public regional educational reference, retrieved 27 September 2026;
+      qualitative conditions only, statistics, promotional rankings and complete legal grape lists unused
+    accessed_on: 2026-09-27
+  - id: src_reg_ib_jumilla_grapes
+    kind: reference_work
+    title: Our grape varieties
+    publisher: Consejo Regulador DOP Jumilla
+    jurisdiction: ES
+    url: https://jumilla.wine/en/our-grape-varieties/
+    document_identifier: Primary public regional educational reference, retrieved 27 September 2026;
+      qualitative conditions only, statistics, promotional rankings and complete legal grape lists unused
+    accessed_on: 2026-09-27
+  - id: src_reg_ib_yecla_producer
+    kind: reference_work
+    title: La Tierra y los Viñedos
+    publisher: Bodegas Castaño
+    jurisdiction: ES
+    url: https://www.bodegascastano.com/es/la-tierra
+    document_identifier: Primary producer account of Yecla climate and Monastrell cultivation; quality and
+      mineral-flavour marketing unused
+    accessed_on: 2026-09-27
+  - id: src_reg_ib_utiel_climate
+    kind: reference_work
+    title: "Terroir: Utiel-Requena"
+    publisher: Consejo Regulador DO Utiel-Requena
+    jurisdiction: ES
+    url: https://utielrequena.org/en/our-do/terroir/
+    document_identifier: Primary public regional educational reference, retrieved 27 September 2026;
+      qualitative conditions only, statistics, promotional rankings and complete legal grape lists unused
+    accessed_on: 2026-09-27
+  - id: src_reg_ib_utiel_bobal
+    kind: reference_work
+    title: Bobal
+    publisher: Consejo Regulador DO Utiel-Requena
+    jurisdiction: ES
+    url: https://utielrequena.org/nuestra-do/uva-bobal/
+    document_identifier: Primary public regional educational reference, retrieved 27 September 2026;
+      qualitative conditions only, statistics, promotional rankings and complete legal grape lists unused
+    accessed_on: 2026-09-27
+  - id: src_reg_ib_mancha_airen
+    kind: reference_work
+    title: Videocata de vino airén
+    publisher: Consejo Regulador DO La Mancha
+    jurisdiction: ES
+    url: https://lamanchawines.com/videocata-de-vino-airen/
+    document_identifier: Council educational feature, 26 December 2016; qualitative Airén adaptation only
+    accessed_on: 2026-09-27
+  - id: src_reg_ib_mancha_ferment
+    kind: reference_work
+    title: Airén, sus retos y concursos
+    publisher: Consejo Regulador DO La Mancha
+    jurisdiction: ES
+    url: https://lamanchawines.com/7514-2/
+    document_identifier: Council feature, 4 May 2016; qualitative controlled-fermentation observation only,
+      not competition rules or current statistics
+    accessed_on: 2026-09-27
+  - id: src_reg_ib_douro_region
+    kind: reference_work
+    title: Porto and Douro
+    publisher: ViniPortugal / Wines of Portugal
+    jurisdiction: PT
+    url: https://winesofportugal.com/en/discover/wine-regions/porto-e-douro/
+    document_identifier: Primary public regional educational reference, retrieved 27 September 2026;
+      qualitative conditions only, statistics, promotional rankings and complete legal grape lists unused
+    accessed_on: 2026-09-27
+  - id: src_reg_ib_douro_still
+    kind: reference_work
+    title: "Wines: Douro wines"
+    publisher: Instituto dos Vinhos do Douro e do Porto
+    jurisdiction: PT
+    url: https://www.ivdp.pt/en/wines/douro-wines/wines/
+    document_identifier: Primary public regional educational reference, retrieved 27 September 2026;
+      qualitative conditions only, statistics, promotional rankings and complete legal grape lists unused
+    accessed_on: 2026-09-27
+  - id: src_reg_ib_douro_viti
+    kind: reference_work
+    title: Vine culture
+    publisher: Instituto dos Vinhos do Douro e do Porto
+    jurisdiction: PT
+    url: https://www.ivdp.pt/en/viticulture/vine-culture/
+    document_identifier: Primary public regional educational reference, retrieved 27 September 2026;
+      qualitative conditions only, statistics, promotional rankings and complete legal grape lists unused
+    accessed_on: 2026-09-27
+  - id: src_reg_ib_dao_region
+    kind: reference_work
+    title: Dão and Lafões
+    publisher: ViniPortugal / Wines of Portugal
+    jurisdiction: PT
+    url: https://winesofportugal.com/en/discover/wine-regions/dao-e-lafoes/
+    document_identifier: Primary public regional educational reference, retrieved 27 September 2026;
+      qualitative conditions only, statistics, promotional rankings and complete legal grape lists unused
+    accessed_on: 2026-09-27
+  - id: src_reg_ib_encruzado
+    kind: reference_work
+    title: Encruzado
+    publisher: ViniPortugal / Wines of Portugal
+    jurisdiction: PT
+    url: https://winesofportugal.com/en/portuguese-wines/grape-varieties/encruzado/
+    document_identifier: Primary public regional educational reference, retrieved 27 September 2026;
+      qualitative conditions only, statistics, promotional rankings and complete legal grape lists unused
+    accessed_on: 2026-09-27
+  - id: src_reg_ib_bairrada_region
+    kind: reference_work
+    title: Bairrada
+    publisher: ViniPortugal / Wines of Portugal
+    jurisdiction: PT
+    url: https://winesofportugal.com/en/discover/wine-regions/bairrada/
+    document_identifier: Primary public regional educational reference, retrieved 27 September 2026;
+      qualitative conditions only, statistics, promotional rankings and complete legal grape lists unused
+    accessed_on: 2026-09-27
+  - id: src_reg_ib_baga
+    kind: reference_work
+    title: Baga
+    publisher: ViniPortugal / Wines of Portugal
+    jurisdiction: PT
+    url: https://www.winesofportugal.com/en/portuguese-wines/grape-varieties/baga/
+    document_identifier: Primary public regional educational reference, retrieved 27 September 2026;
+      qualitative conditions only, statistics, promotional rankings and complete legal grape lists unused
+    accessed_on: 2026-09-27
+  - id: src_reg_ib_vinho_verde
+    kind: reference_work
+    title: Vinho Verde
+    publisher: ViniPortugal / Wines of Portugal
+    jurisdiction: PT
+    url: https://winesofportugal.com/en/discover/wine-regions/vinho-verde/
+    document_identifier: Primary public regional educational reference, retrieved 27 September 2026;
+      qualitative conditions only, statistics, promotional rankings and complete legal grape lists unused
+    accessed_on: 2026-09-27
+  - id: src_reg_ib_alentejo
+    kind: reference_work
+    title: Alentejo
+    publisher: ViniPortugal / Wines of Portugal
+    jurisdiction: PT
+    url: https://winesofportugal.com/en/discover/wine-regions/alentejo/
+    document_identifier: Primary public regional educational reference, retrieved 27 September 2026;
+      qualitative conditions only, statistics, promotional rankings and complete legal grape lists unused
+    accessed_on: 2026-09-27
+knowledge_item_citations:
+  - knowledge_item_id: ki_reg_ib_rioja_gradient
+    source_citation_id: src_reg_ib_rioja_geo
+    locator: Climate descriptions; qualified west–east comparison
+  - knowledge_item_id: ki_reg_ib_rioja_gradient
+    source_citation_id: src_reg_ib_rioja_styles
+    locator: Climate descriptions; qualified west–east comparison
+  - knowledge_item_id: ki_reg_ib_rioja_topography
+    source_citation_id: src_reg_ib_rioja_geo
+    locator: Topography, mountain protection, altitude and aspect; editorial comparison limit
+  - knowledge_item_id: ki_reg_ib_rioja_red_cellar
+    source_citation_id: src_reg_ib_rioja_styles
+    locator: Red wines; introductory variation by variety, age, barrel and producer
+  - knowledge_item_id: ki_reg_ib_rioja_white_oak
+    source_citation_id: src_reg_ib_rioja_styles
+    locator: White wines; oak applied to some whites; qualified texture inference
+  - knowledge_item_id: ki_reg_ib_ribera_elevation
+    source_citation_id: src_reg_ib_ribera_altitude
+    locator: Vineyard altitude and Duero valley; continental temperature variation
+  - knowledge_item_id: ki_reg_ib_ribera_elevation
+    source_citation_id: src_reg_ib_ribera_climate
+    locator: Vineyard altitude and Duero valley; continental temperature variation
+  - knowledge_item_id: ki_reg_ib_ribera_season
+    source_citation_id: src_reg_ib_ribera_climate
+    locator: Climate description; slow and late maturation; no automatic quality claim
+  - knowledge_item_id: ki_reg_ib_rias_canopy_context
+    source_citation_id: src_reg_ib_rias_climate
+    locator: Climate in Rías Baixas; Two vine-training systems; conditional management implication
+  - knowledge_item_id: ki_reg_ib_rias_canopy_context
+    source_citation_id: src_reg_ib_rias_canopy
+    locator: Climate in Rías Baixas; Two vine-training systems; conditional management implication
+  - knowledge_item_id: ki_reg_ib_sacra_terraces
+    source_citation_id: src_reg_ib_sacra_sites
+    locator: River-bank climate and terraces; 2017 general reference on Mencía, not current area statistics
+  - knowledge_item_id: ki_reg_ib_sacra_terraces
+    source_citation_id: src_reg_ib_sacra_grapes
+    locator: River-bank climate and terraces; 2017 general reference on Mencía, not current area statistics
+  - knowledge_item_id: ki_reg_ib_rueda_ripening
+    source_citation_id: src_reg_ib_rueda_verdejo
+    locator: Verdejo adaptation to Rueda; altitude and day–night variation
+  - knowledge_item_id: ki_reg_ib_rueda_verdejo_style
+    source_citation_id: src_reg_ib_rueda_verdejo
+    locator: Verdejo fruit and herbal aromas and acidity; editorial inference limit
+  - knowledge_item_id: ki_reg_ib_priorat_access
+    source_citation_id: src_reg_ib_priorat_sites
+    locator: Vineyard slopes, mechanical access and cultivation; qualified cost implication
+  - knowledge_item_id: ki_reg_ib_montsant_controls
+    source_citation_id: src_reg_ib_montsant_research
+    locator: VITEC vineyard selection and microvinification methods; inference limited to comparison design
+  - knowledge_item_id: ki_reg_ib_levante_monastrell
+    source_citation_id: src_reg_ib_jumilla_grapes
+    locator: Jumilla Monastrell and harvest balance; Castaño’s Yecla climate and later maturation account
+  - knowledge_item_id: ki_reg_ib_levante_monastrell
+    source_citation_id: src_reg_ib_jumilla_harvest
+    locator: Jumilla Monastrell and harvest balance; Castaño’s Yecla climate and later maturation account
+  - knowledge_item_id: ki_reg_ib_levante_monastrell
+    source_citation_id: src_reg_ib_yecla_producer
+    locator: Jumilla Monastrell and harvest balance; Castaño’s Yecla climate and later maturation account
+  - knowledge_item_id: ki_reg_ib_utiel_bobal
+    source_citation_id: src_reg_ib_utiel_climate
+    locator: Terroir temperature variation; Bobal wine character; qualified regional comparison
+  - knowledge_item_id: ki_reg_ib_utiel_bobal
+    source_citation_id: src_reg_ib_utiel_bobal
+    locator: Terroir temperature variation; Bobal wine character; qualified regional comparison
+  - knowledge_item_id: ki_reg_ib_mancha_adaptation
+    source_citation_id: src_reg_ib_mancha_airen
+    locator: Airén adaptation to continental climate; no area totals or quality ranking
+  - knowledge_item_id: ki_reg_ib_mancha_ferment
+    source_citation_id: src_reg_ib_mancha_ferment
+    locator: Subrayar el valor de la blanca airén; temperature control and aromatic freshness; no competition
+      rules
+  - knowledge_item_id: ki_reg_ib_douro_shelter
+    source_citation_id: src_reg_ib_douro_region
+    locator: Mountain shelter and regional climate; still-wine context only
+  - knowledge_item_id: ki_reg_ib_douro_gradient
+    source_citation_id: src_reg_ib_douro_region
+    locator: Baixo Corgo, Cima Corgo and Douro Superior climate; no Port classification claim
+  - knowledge_item_id: ki_reg_ib_douro_blends
+    source_citation_id: src_reg_ib_douro_still
+    locator: Douro red wines; native varieties, blends and varietal wines
+  - knowledge_item_id: ki_reg_ib_douro_terrain
+    source_citation_id: src_reg_ib_douro_viti
+    locator: Terrain and vine-culture operations; conditional commercial implication
+  - knowledge_item_id: ki_reg_ib_dao_mountains
+    source_citation_id: src_reg_ib_dao_region
+    locator: Surrounding mountain ranges, vineyard elevations and climate protection
+  - knowledge_item_id: ki_reg_ib_dao_encruzado
+    source_citation_id: src_reg_ib_dao_region
+    locator: Dão varieties; Encruzado sugar–acid balance, structure and blend or varietal use
+  - knowledge_item_id: ki_reg_ib_dao_encruzado
+    source_citation_id: src_reg_ib_encruzado
+    locator: Dão varieties; Encruzado sugar–acid balance, structure and blend or varietal use
+  - knowledge_item_id: ki_reg_ib_bairrada_baga_ripening
+    source_citation_id: src_reg_ib_bairrada_region
+    locator: Regional maritime conditions; Baga late maturity, sunshine requirement and wet-weather
+      susceptibility
+  - knowledge_item_id: ki_reg_ib_bairrada_baga_ripening
+    source_citation_id: src_reg_ib_baga
+    locator: Regional maritime conditions; Baga late maturity, sunshine requirement and wet-weather
+      susceptibility
+  - knowledge_item_id: ki_reg_ib_baga_structure
+    source_citation_id: src_reg_ib_bairrada_region
+    locator: Bairrada variety diversity; Baga thick skins, youthful structure and ageing potential
+  - knowledge_item_id: ki_reg_ib_baga_structure
+    source_citation_id: src_reg_ib_baga
+    locator: Bairrada variety diversity; Baga thick skins, youthful structure and ageing potential
+  - knowledge_item_id: ki_reg_ib_verde_atlantic
+    source_citation_id: src_reg_ib_vinho_verde
+    locator: Climate and white varieties; qualified limit on common stylistic assumptions
+  - knowledge_item_id: ki_reg_ib_verde_shelter
+    source_citation_id: src_reg_ib_vinho_verde
+    locator: Monção e Melgaço sheltered conditions and relative style contrast
+  - knowledge_item_id: ki_reg_ib_alentejo_heat
+    source_citation_id: src_reg_ib_alentejo
+    locator: Climate and red varieties; qualitative style description only
+  - knowledge_item_id: ki_reg_ib_alentejo_portalegre
+    source_citation_id: src_reg_ib_alentejo
+    locator: Portalegre and Serra de São Mamede; qualified within-region comparison
+  - knowledge_item_id: ki_reg_ib_case_es_rioja_site_action
+    source_citation_id: src_reg_ib_rioja_geo
+    locator: Regional gradient and topography; original case action with recorded conditions
+  - knowledge_item_id: ki_reg_ib_case_es_rioja_site_action
+    source_citation_id: src_reg_ib_rioja_styles
+    locator: Regional gradient and topography; original case action with recorded conditions
+  - knowledge_item_id: ki_reg_ib_case_es_rioja_site_reason
+    source_citation_id: src_reg_ib_rioja_geo
+    locator: Climate gradient and multiple wine-style influences; original inference from stated controls
+  - knowledge_item_id: ki_reg_ib_case_es_rioja_site_reason
+    source_citation_id: src_reg_ib_rioja_styles
+    locator: Climate gradient and multiple wine-style influences; original inference from stated controls
+  - knowledge_item_id: ki_reg_ib_case_es_rioja_site_tradeoff
+    source_citation_id: src_reg_ib_rioja_geo
+    locator: Within-region topographic variation; original comparison-design tradeoff
+  - knowledge_item_id: ki_reg_ib_case_es_rioja_site_tradeoff
+    source_citation_id: src_reg_ib_rioja_styles
+    locator: Within-region topographic variation; original comparison-design tradeoff
+  - knowledge_item_id: ki_reg_ib_case_es_rioja_site_limitation
+    source_citation_id: src_reg_ib_rioja_geo
+    locator: Viticultural practice and wine-style variation; original limitation on causal and blind-origin
+      claims
+  - knowledge_item_id: ki_reg_ib_case_es_rioja_site_limitation
+    source_citation_id: src_reg_ib_rioja_styles
+    locator: Viticultural practice and wine-style variation; original limitation on causal and blind-origin
+      claims
+  - knowledge_item_id: ki_reg_ib_case_es_priorat_price_action
+    source_citation_id: src_reg_ib_priorat_sites
+    locator: Steep vineyard access; know costs, research market and test prices; original case action
+  - knowledge_item_id: ki_reg_ib_case_es_priorat_price_action
+    source_citation_id: src_biz_au_pricing
+    locator: Steep vineyard access; know costs, research market and test prices; original case action
+  - knowledge_item_id: ki_reg_ib_case_es_priorat_price_reason
+    source_citation_id: src_reg_ib_priorat_sites
+    locator: Manual access constraint; break-even, margin and markup; original case arithmetic implication
+  - knowledge_item_id: ki_reg_ib_case_es_priorat_price_reason
+    source_citation_id: src_biz_victoria_pricing
+    locator: Manual access constraint; break-even, margin and markup; original case arithmetic implication
+  - knowledge_item_id: ki_reg_ib_case_es_priorat_price_tradeoff
+    source_citation_id: src_biz_au_pricing
+    locator: Cost-plus, competitor and value pricing; original case tradeoff
+  - knowledge_item_id: ki_reg_ib_case_es_priorat_price_limitation
+    source_citation_id: src_reg_ib_priorat_sites
+    locator: Priorat site variation; Montsant technical site comparisons; research customer value; inference
+      boundary
+  - knowledge_item_id: ki_reg_ib_case_es_priorat_price_limitation
+    source_citation_id: src_reg_ib_montsant_research
+    locator: Priorat site variation; Montsant technical site comparisons; research customer value; inference
+      boundary
+  - knowledge_item_id: ki_reg_ib_case_es_priorat_price_limitation
+    source_citation_id: src_biz_au_pricing
+    locator: Priorat site variation; Montsant technical site comparisons; research customer value; inference
+      boundary
+  - knowledge_item_id: ki_reg_ib_case_pt_white_design_action
+    source_citation_id: src_reg_ib_dao_region
+    locator: Dão and Vinho Verde growing settings and grape descriptions; original case comparison action
+  - knowledge_item_id: ki_reg_ib_case_pt_white_design_action
+    source_citation_id: src_reg_ib_encruzado
+    locator: Dão and Vinho Verde growing settings and grape descriptions; original case comparison action
+  - knowledge_item_id: ki_reg_ib_case_pt_white_design_action
+    source_citation_id: src_reg_ib_vinho_verde
+    locator: Dão and Vinho Verde growing settings and grape descriptions; original case comparison action
+  - knowledge_item_id: ki_reg_ib_case_pt_white_design_reason
+    source_citation_id: src_reg_ib_dao_region
+    locator: Mountain protection, Atlantic influence and Encruzado structure; stated barrel premise, not
+      regional rule
+  - knowledge_item_id: ki_reg_ib_case_pt_white_design_reason
+    source_citation_id: src_reg_ib_encruzado
+    locator: Mountain protection, Atlantic influence and Encruzado structure; stated barrel premise, not
+      regional rule
+  - knowledge_item_id: ki_reg_ib_case_pt_white_design_reason
+    source_citation_id: src_reg_ib_vinho_verde
+    locator: Mountain protection, Atlantic influence and Encruzado structure; stated barrel premise, not
+      regional rule
+  - knowledge_item_id: ki_reg_ib_case_pt_white_design_tradeoff
+    source_citation_id: src_reg_ib_dao_region
+    locator: Variety and regional diversity; original comparison-design tradeoff
+  - knowledge_item_id: ki_reg_ib_case_pt_white_design_tradeoff
+    source_citation_id: src_reg_ib_encruzado
+    locator: Variety and regional diversity; original comparison-design tradeoff
+  - knowledge_item_id: ki_reg_ib_case_pt_white_design_tradeoff
+    source_citation_id: src_reg_ib_vinho_verde
+    locator: Variety and regional diversity; original comparison-design tradeoff
+  - knowledge_item_id: ki_reg_ib_case_pt_white_design_limitation
+    source_citation_id: src_reg_ib_dao_region
+    locator: Varietal and blend use; Monção e Melgaço contrast; original inference limit
+  - knowledge_item_id: ki_reg_ib_case_pt_white_design_limitation
+    source_citation_id: src_reg_ib_encruzado
+    locator: Varietal and blend use; Monção e Melgaço contrast; original inference limit
+  - knowledge_item_id: ki_reg_ib_case_pt_white_design_limitation
+    source_citation_id: src_reg_ib_vinho_verde
+    locator: Varietal and blend use; Monção e Melgaço contrast; original inference limit
+  - knowledge_item_id: ki_reg_ib_case_pt_baga_inventory_action
+    source_citation_id: src_reg_ib_baga
+    locator: Baga ageing potential; manage inventory and plan cash flow; original purchasing action
+  - knowledge_item_id: ki_reg_ib_case_pt_baga_inventory_action
+    source_citation_id: src_biz_au_cashflow
+    locator: Baga ageing potential; manage inventory and plan cash flow; original purchasing action
+  - knowledge_item_id: ki_reg_ib_case_pt_baga_inventory_reason
+    source_citation_id: src_reg_ib_baga
+    locator: Young astringency and ageing development; qualified application to the stated wine
+  - knowledge_item_id: ki_reg_ib_case_pt_baga_inventory_tradeoff
+    source_citation_id: src_reg_ib_baga
+    locator: Conditional Baga development; manage inventory and cash-flow timing; original case tradeoff
+  - knowledge_item_id: ki_reg_ib_case_pt_baga_inventory_tradeoff
+    source_citation_id: src_biz_au_cashflow
+    locator: Conditional Baga development; manage inventory and cash-flow timing; original case tradeoff
+  - knowledge_item_id: ki_reg_ib_case_pt_baga_inventory_limitation
+    source_citation_id: src_reg_ib_baga
+    locator: Baga ripening and ageing conditions; inventory management and market testing; original case
+      limitation
+  - knowledge_item_id: ki_reg_ib_case_pt_baga_inventory_limitation
+    source_citation_id: src_biz_au_cashflow
+    locator: Baga ripening and ageing conditions; inventory management and market testing; original case
+      limitation
+  - knowledge_item_id: ki_reg_ib_case_pt_baga_inventory_limitation
+    source_citation_id: src_biz_au_pricing
+    locator: Baga ripening and ageing conditions; inventory management and market testing; original case
+      limitation

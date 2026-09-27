@@ -1,0 +1,30 @@
+# Original self-checked cases; one subject and four cited points per pool.
+question_templates:
+  - id: "qt_reg_fr_case_chardonnay_buy"
+    relation_type: "CASE_ACTION"
+    direction: "forward"
+    mode: "short_answer"
+    variant: "reg_fr_chardonnay_buy"
+    prompt_template: "A restaurant wants a fresh, dry Chardonnay with restrained oak for its main white-wine slot. It has current samples and producer details for a tank-matured Chablis, a barrel-influenced Meursault and a Mâconnais Chardonnay. All three quotes fit the purchase budget. Propose a defensible selection process, explain relevant regional and cellar contrasts, discuss one tradeoff and state a limitation. No sample tasting result is given."
+    parameters: {"scope_node_ids": ["n_reg_fr_case_chardonnay_buy"], "key_points": {"CASE_ACTION": "Defensible action", "CASE_REASON": "Mechanism and rationale", "CASE_TRADEOFF": "Tradeoff", "CASE_LIMITATION": "Limitation or follow-up"}}
+  - id: "qt_reg_fr_case_bordeaux_blend"
+    relation_type: "CASE_ACTION"
+    direction: "forward"
+    mode: "short_answer"
+    variant: "reg_fr_bordeaux_blend"
+    prompt_template: "A Bordeaux producer has two sound, ripe lots: Cabernet Sauvignon with marked tannic firmness and Merlot with a rounder texture. The target is a balanced red for drinking relatively young. Both lots are available for blending and no appellation-compliance decision is requested. Propose a defensible blending trial, explain the grape contributions, discuss a tradeoff and state a limitation. Do not assume a fixed Left Bank or Right Bank recipe."
+    parameters: {"scope_node_ids": ["n_reg_fr_case_bordeaux_blend"], "key_points": {"CASE_ACTION": "Defensible action", "CASE_REASON": "Mechanism and rationale", "CASE_TRADEOFF": "Tradeoff", "CASE_LIMITATION": "Limitation or follow-up"}}
+  - id: "qt_reg_fr_case_loire_list"
+    relation_type: "CASE_ACTION"
+    direction: "forward"
+    mode: "short_answer"
+    variant: "reg_fr_loire_list"
+    prompt_template: "A buyer needs one dry, fresh Loire white for a by-the-glass slot and one sweet Loire white for a dessert slot. Offers include a Centre-Loire Sauvignon, a Vouvray labelled sec and a Vouvray labelled moelleux. Current samples, cuvée specifications and landed quotes are available, but no tasting results are provided. Propose a defensible allocation process, explain why grape and origin alone are insufficient, discuss a tradeoff and give a limitation."
+    parameters: {"scope_node_ids": ["n_reg_fr_case_loire_list"], "key_points": {"CASE_ACTION": "Defensible action", "CASE_REASON": "Mechanism and rationale", "CASE_TRADEOFF": "Tradeoff", "CASE_LIMITATION": "Limitation or follow-up"}}
+  - id: "qt_reg_fr_case_rhone_cost"
+    relation_type: "CASE_ACTION"
+    direction: "forward"
+    mode: "short_answer"
+    variant: "reg_fr_rhone_cost"
+    prompt_template: "A supplier offers a northern Rhône Syrah from steep terraces and a southern Rhône Grenache-led blend from a site suited to mechanised work. Producer records attribute part of the higher northern quote to manual vineyard work. The restaurant needs an affordable, ripe-fruit red and can sample both. Explain a defensible buying process, the terrain and grape context, a cost/style tradeoff and a limitation. Do not assume all northern vineyards are steep or all southern sites are mechanisable."
+    parameters: {"scope_node_ids": ["n_reg_fr_case_rhone_cost"], "key_points": {"CASE_ACTION": "Defensible action", "CASE_REASON": "Mechanism and rationale", "CASE_TRADEOFF": "Tradeoff", "CASE_LIMITATION": "Limitation or follow-up"}}
