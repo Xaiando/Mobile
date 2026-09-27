@@ -9,23 +9,24 @@ questions:
     acceptable:
       - "100 percent agave uses only sugars of Agave tequilana Weber blue and is bottled at origin."
       - "The other category uses at least 51 percent of those sugars and up to 49 percent other reducing sugars, and it may be bottled outside the appellation."
-      - "That second category can still be tequila. The Council page does not audit the bottle in front of you."
+      - "The courtesy translation says that 49 percent may not be sugars from any species of agave."
+      - "That second category can still be tequila. The Diario Oficial was not opened, and the page does not audit the bottle in front of you."
     distractors:
       - { text: "Anything that is not 100 percent agave is illegal.", why_wrong: "The Council describes a second category that remains tequila when the sugar share and the other rules are met." }
       - { text: "Both categories may be bottled anywhere.", why_wrong: "Only the 100 percent category is stated as bottled at origin." }
-    sources: [src_somm_crt_tequila]
+    sources: [src_somm_crt_tequila, src_somm_nom_006_courtesy]
     mcq: disabled
   - id: q_somm_tequila_age
     outcome: "Refuse the conflicting one-year reposado card."
     prompt: "The English class card says reposado needs one year. What do you teach instead, and what do you leave unsettled?"
     acceptable:
-      - "The maturation paragraph says at least two months for reposado, one year for añejo, and three years for extra añejo."
-      - "Do not lock a 600-litre maximum from the cards, because those cards already contradict the paragraph."
-      - "The NOM text itself was not opened."
+      - "The Spanish page, the English maturation paragraph, and section 6.4 of the courtesy translation say at least two months for reposado, one year for añejo, and three years for extra añejo."
+      - "Six hundred litres is the cap for añejo and extra añejo in section 6.4. It is not stated for reposado."
+      - "Blanco may have been aged for less than two months. The Diario Oficial was not opened."
     distractors:
-      - { text: "Reposado and añejo are the same minimum because both cards say one year.", why_wrong: "The maturation paragraph on the same page separates two months from one year." }
-      - { text: "Blanco must also rest in oak.", why_wrong: "The page says blanco comes from the still and is adjusted only with water." }
-    sources: [src_somm_crt_tequila]
+      - { text: "Reposado and añejo are the same minimum because both English cards say one year.", why_wrong: "Those English cards conflict with the Spanish page and with section 6.4." }
+      - { text: "Blanco must rest in oak for two months.", why_wrong: "Section 4.36.1 allows less than two months. It does not require two months." }
+    sources: [src_somm_crt_tequila, src_somm_crt_tequila_es, src_somm_nom_006_courtesy]
     mcq: disabled
   - id: q_somm_marc_not_cognac
     outcome: "Keep grape marc spirit apart from Cognac."

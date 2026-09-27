@@ -24,7 +24,7 @@ Each of those five blocks has a comparison, a misconception, and two applied cas
 
 ## Coverage review (this course is not the whole sommelier gap)
 
-Reviewed after the extract file landed. The English tequila class card is not taught. The Spanish Council page, opened separately, agrees with the English maturation paragraph: reposado at least two months. Its añejo and extra añejo cards state 600 litres. Its reposado card does not. The courtesy PDF of NOM-006 and the gazette were not opened, so the further claim that the 49 percent cannot come from any agave stays unresolved.
+Reviewed after the extract file landed, then checked against pages opened here. The English tequila class card is not taught. The Spanish Council page and section 6.4 of the CRT courtesy translation of NOM-006-SCFI-2012 agree: reposado at least two months, añejo at least one year, extra añejo at least three years. The 600-litre cap is stated for añejo and extra añejo, not for reposado. Blanco, in section 4.36.1, has no additives, is adjusted with water, and may have been aged for less than two months. The same translation says the 49 percent of other sugars may not come from any species of agave, and that cold mixing, meaning another alcoholic beverage, is not permitted. The Diario Oficial text was not opened. The PDF is labeled a courtesy translation.
 
 Added from pages opened in this pass, still unregistered:
 

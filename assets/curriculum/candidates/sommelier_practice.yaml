@@ -206,7 +206,7 @@ knowledge_items:
     relation_type: PRINCIPLE_EXPLANATION
     object_id: n_somm_tequila_split
     domain_id: service
-    assertion_text: "The Council separates two categories. Tequila 100% agave is made from 100% of the sugars of Agave tequilana Weber blue and is bottled at origin. The category it calls Tequila uses at least 51% of the sugars of that agave and up to 49% other reducing sugars, and it may be bottled inside or outside the appellation. Both can be tequila. They are not the same category."
+    assertion_text: "The Council separates two categories. Tequila 100% agave is made from 100% of the sugars of Agave tequilana Weber blue and is bottled at origin. The category it calls Tequila uses at least 51% of the sugars of that agave and up to 49% other reducing sugars, and it may be bottled inside or outside the appellation. The CRT-hosted courtesy translation of NOM-006-SCFI-2012 says that 49% may not be sugars from any species of agave, and that the 51% may only be blue agave grown in the declaration territory. It also says cold mixing is not permitted, and it defines cold mixing as adding an alcoholic beverage other than tequila. Both categories can be tequila. They are not the same category. This is the courtesy translation, not the Diario Oficial, which was not opened."
     verification_status: unverified
     last_verified_at: "2026-09-27T23:59:00.000Z"
     mcq_disabled: true
@@ -215,7 +215,7 @@ knowledge_items:
     relation_type: PRINCIPLE_EXPLANATION
     object_id: n_somm_tequila_age
     domain_id: service
-    assertion_text: "The Spanish Council page and the English maturation paragraph agree. Reposado matures at least 2 months in contact with oak or holm oak, añejo at least 1 year, and extra añejo at least 3 years. The Spanish class cards give reposado those 2 months, in barricas or a pipón, and that card does not state 600 litres. The Spanish añejo and extra añejo cards do say oak or holm oak barrels of at most 600 litres. The English class cards are the conflict: they give reposado a minimum of 1 year, the same figure they give añejo. Do not teach the English cards. Blanco comes direct from the still and its alcohol is adjusted only with water. Joven is a blend of white tequila with reposado, añejo, or extra añejo. The 600-litre figure here is the Spanish class card, not a gazette transcription. A courtesy translation of the standard was not the source of this item."
+    assertion_text: "The Spanish Council page, the English maturation paragraph, and section 6.4 of the CRT courtesy translation of NOM-006 agree. Reposado is at least 2 months in oak or encino oak. Añejo is at least 1 year, and extra añejo at least 3 years, in containers whose maximum capacity is 600 litres. Section 6.4 does not put that 600-litre cap on reposado. The Spanish reposado card says barricas or a pipón and does not state 600 litres. The English class cards are the conflict: they give reposado a minimum of 1 year. Do not teach those cards. Section 4.36.1 says blanco, or silver, has no additives, its commercial strength is adjusted with water, and it may have been aged for less than two months. Do not teach that blanco never touched wood. Joven is a blend of white tequila with reposado, añejo, or extra añejo. The courtesy translation is not the Diario Oficial."
     verification_status: unverified
     last_verified_at: "2026-09-27T23:59:00.000Z"
     mcq_disabled: true
@@ -323,7 +323,7 @@ knowledge_items:
     relation_type: CASE_REASON
     object_id: n_somm_case_mix_reason
     domain_id: service
-    assertion_text: "The Council requires the 100% category to use only sugars of Agave tequilana Weber blue and to be bottled at origin. The other category may use up to 49% other reducing sugars and may be bottled outside the appellation."
+    assertion_text: "The Council requires the 100% category to use only sugars of Agave tequilana Weber blue and to be bottled at origin. The other category may use up to 49% other reducing sugars and may be bottled outside the appellation. The courtesy translation adds that those other sugars may not come from any species of agave."
     verification_status: unverified
     last_verified_at: "2026-09-27T23:59:00.000Z"
     mcq_disabled: true
@@ -368,7 +368,7 @@ knowledge_items:
     relation_type: CASE_TRADEOFF
     object_id: n_somm_case_card_tradeoff
     domain_id: service
-    assertion_text: "Do not throw out every barrel figure because the English card is wrong. The Spanish añejo and extra añejo cards state a maximum of 600 litres. The Spanish reposado card does not. Keep that distinction, and do not promote 600 litres to a rule for reposado."
+    assertion_text: "Do not throw out every barrel figure because the English card is wrong. Section 6.4 of the courtesy translation, and the Spanish añejo and extra añejo cards, state a maximum of 600 litres for those two classes. Reposado is not given that cap. Keep the distinction."
     verification_status: unverified
     last_verified_at: "2026-09-27T23:59:00.000Z"
     mcq_disabled: true
@@ -377,7 +377,7 @@ knowledge_items:
     relation_type: CASE_LIMITATION
     object_id: n_somm_case_card_limit
     domain_id: service
-    assertion_text: "NOM-006-SCFI-2012 was not opened. A later reading of the standard could resolve the conflict. Until then the conflict stays visible and the one-year reposado claim stays out."
+    assertion_text: "The courtesy translation hosted by the Council was opened. The Diario Oficial text of NOM-006 was not. Until that gazette is open, the two-month reposado rule and the 600-litre cap on añejo and extra añejo are the translation's wording, not a certified official-journal transcription. The one-year reposado card stays out."
     verification_status: unverified
     last_verified_at: "2026-09-27T23:59:00.000Z"
     mcq_disabled: true
@@ -948,6 +948,14 @@ source_citations:
     document_identifier: "Spanish page. Maturation paragraph and class cards. Not the gazette and not the courtesy translation of NOM-006."
     url: "https://www.crt.org.mx/nuestro-tequila/"
     accessed_on: "2026-09-27"
+  - id: src_somm_nom_006_courtesy
+    kind: government_publication
+    title: "NOM-006-SCFI-2012, courtesy English translation"
+    publisher: "Consejo Regulador del Tequila, hosting a translation of the Ministry of Economy standard"
+    jurisdiction: MX
+    document_identifier: "PDF labeled courtesy translation. Sections 4.36, 5.1.2, and 6.4. Not the Diario Oficial."
+    url: "https://www.crt.org.mx/wp-content/uploads/2024/01/NOM-006-SCFI-2012%20-%20INGLES.pdf"
+    accessed_on: "2026-09-27"
   - id: src_somm_inao_calvados
     kind: regulator_register
     title: "Calvados"
@@ -1110,3 +1118,8 @@ knowledge_item_citations:
   - { knowledge_item_id: ki_somm_case_card_reason, source_citation_id: src_somm_crt_tequila_es, locator: "Spanish maturation paragraph and class cards. Reposado two months. English cards are the conflict." }
   - { knowledge_item_id: ki_somm_case_card_tradeoff, source_citation_id: src_somm_crt_tequila_es, locator: "Spanish maturation paragraph and class cards. Reposado two months. English cards are the conflict." }
   - { knowledge_item_id: ki_somm_case_card_limit, source_citation_id: src_somm_crt_tequila_es, locator: "Spanish maturation paragraph and class cards. Reposado two months. English cards are the conflict." }
+  - { knowledge_item_id: ki_somm_tequila_split, source_citation_id: src_somm_nom_006_courtesy, locator: "Sections 5.1.2 and the fermentation rule: 49 percent may not be sugars from any agave. Cold mixing is not permitted." }
+  - { knowledge_item_id: ki_somm_case_mix_reason, source_citation_id: src_somm_nom_006_courtesy, locator: "The 49 percent may not come from any species of agave." }
+  - { knowledge_item_id: ki_somm_tequila_age, source_citation_id: src_somm_nom_006_courtesy, locator: "Sections 4.36.1 and 6.4. Reposado two months. Six hundred litres on añejo and extra añejo only. Blanco may be aged under two months." }
+  - { knowledge_item_id: ki_somm_case_card_tradeoff, source_citation_id: src_somm_nom_006_courtesy, locator: "Section 6.4 states 600 litres for añejo and extra añejo, not for reposado." }
+  - { knowledge_item_id: ki_somm_case_card_limit, source_citation_id: src_somm_nom_006_courtesy, locator: "Courtesy translation. The Diario Oficial was not opened." }
