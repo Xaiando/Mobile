@@ -1,0 +1,61 @@
+{
+  "corpus": "synthetic",
+  "not_evidence_of_recognition_accuracy": true,
+  "note": "Invented label strings. No real producer, LWIN, or barcode.",
+  "cases": [
+    {
+      "id": "syn_two_years",
+      "raw_text": "CHATEAU EXAMPLE 2016 2018 13.5%",
+      "expect": {
+        "vintage": null,
+        "non_vintage": false,
+        "abv": 13.5,
+        "producer": null,
+        "cuvee": null,
+        "appellation": null,
+        "warnings": ["multiple_year_tokens"]
+      }
+    },
+    {
+      "id": "syn_nv",
+      "raw_text": "CUVEE EXAMPLE NV",
+      "expect": {
+        "vintage": null,
+        "non_vintage": true,
+        "abv": null,
+        "producer": null,
+        "warnings": []
+      }
+    },
+    {
+      "id": "syn_percent_is_not_a_year",
+      "raw_text": "BOTTLE 2020 14%",
+      "expect": {
+        "vintage": 2020,
+        "abv": 14,
+        "producer": null,
+        "warnings": []
+      }
+    },
+    {
+      "id": "syn_obscured",
+      "raw_text": "",
+      "expect": {
+        "vintage": null,
+        "non_vintage": false,
+        "abv": null,
+        "producer": null,
+        "warnings": ["no_text"]
+      }
+    },
+    {
+      "id": "syn_alcohol_out_of_range",
+      "raw_text": "EXAMPLE 40%",
+      "expect": {
+        "abv": null,
+        "vintage": null,
+        "warnings": ["percent_not_offered"]
+      }
+    }
+  ]
+}

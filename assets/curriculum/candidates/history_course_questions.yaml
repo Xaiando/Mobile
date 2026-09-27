@@ -1,0 +1,70 @@
+# UNREGISTERED question handoff. Not an ingested question_templates file.
+# The runtime has no authored-distractor table for these rows. Do not pretend
+# they are learner-visible. Acceptable answers are phrases, not a single MCQ key.
+# status: authored, unregistered, unverified, SDK validation pending.
+questions:
+  - id: q_hcourse_oldest_split
+    outcome: "Separate a residue from an installation."
+    prompt: "A guest says the Areni-1 cave is the oldest wine. What distinction do you make, and what do you refuse to claim?"
+    acceptable:
+      - "Georgia, about 6000–5800 BC, is older chemical evidence of grape wine. Areni-1, around 4000 calibrated BCE, is a later production installation."
+      - "Do not claim that either paper found the first fermented drink in the world."
+    distractors:
+      - { text: "Areni is older because a winery is better evidence than a residue.", why_wrong: "The Georgian residues are earlier. Completeness is not the same as age." }
+      - { text: "Both papers prove wine was invented in one place.", why_wrong: "They report different evidence from different centuries. Neither closes the search." }
+    sources: [src_hist_pnas_georgia, src_hist_jas_areni]
+    mcq: disabled
+  - id: q_hcourse_rome_limit
+    outcome: "Say what Roman wine writing is not."
+    prompt: "Pliny ranks Falernian and Columella tells a farmer how to match a vine to a site. Which modern legal controls are not in those books?"
+    acceptable:
+      - "They do not fix a production area, a permitted grape list, a yield ceiling, or a minimum alcoholic strength."
+    distractors:
+      - { text: "Falernian was an appellation contrôlée.", why_wrong: "Pliny gives a literary ranking of his own day, not the 1935 French control." }
+      - { text: "Columella's climate advice is the EU wine-zone map.", why_wrong: "He gives husbandry. The EU zones and the definition of wine are a later regulation." }
+    sources: [src_hist_pliny_falernian, src_hcourse_columella, src_hist_code_vin_1935]
+    mcq: disabled
+  - id: q_hcourse_duty_boundary
+    outcome: "Distinguish a customs treaty from a demarcation."
+    prompt: "Why is it wrong to say the Methuen treaty created the Douro?"
+    acceptable:
+      - "The 1703 treaty cut the British duty on Portuguese wine. The 1756 charter created the Douro company and its demarcation."
+      - "Chianti in 1716 and Tokaj in 1737 were earlier delimited zones, so 1756 is not the first vineyard line."
+    distractors:
+      - { text: "The treaty drew the Douro boundary and defined Port.", why_wrong: "The opened treaty text is about duty and woollen cloth." }
+      - { text: "Nothing delimited a vineyard before 1756.", why_wrong: "The monuments inventory names Chianti and Tokaj earlier." }
+    sources: [src_hist_methuen, src_hist_douro_journal, src_hist_douro_monumentos]
+    mcq: disabled
+  - id: q_hcourse_three_names
+    outcome: "Keep three Napoleons apart."
+    prompt: "Give the date and the job of each Napoleon a wine student is likely to confuse."
+    acceptable:
+      - "1806, Napoleon I, Berlin Decree, a blockade of British trade."
+      - "1855, Napoleon III, a brokers' ranking of Médoc reds, Haut-Brion, and Sauternes and Barsac, not Saint-Émilion or Pomerol."
+      - "On a Cognac label, Napoleon means at least six years, on the youngest eau-de-vie."
+    distractors:
+      - { text: "Napoleon I published the 1855 classification.", why_wrong: "The Bordeaux.com account names Napoleon III and the 1855 exhibition." }
+      - { text: "A Cognac marked Napoleon was bottled for the emperor.", why_wrong: "The BNIC lists it as an ageing mention, not an imperial bottling." }
+    sources: [src_hist_berlin_decree, src_hist_bordeaux_1855, src_bev_cognac_bnic]
+    mcq: disabled
+  - id: q_hcourse_bubble
+    outcome: "Separate a dated paper from a later inventor story."
+    prompt: "A guest says Dom Pérignon invented Champagne. What can you say from the opened account, and what can you not say?"
+    acceptable:
+      - "Merrett described sugar and molasses making wine sparkling on 17 December 1662, before Pérignon's appointment."
+      - "The college account says his task included preventing bubbles. It does not survey every French archive."
+    distractors:
+      - { text: "The stars quotation is in the 1662 paper.", why_wrong: "That slogan is not part of the paper the college account cites." }
+      - { text: "No one in Champagne ever handled sparkling wine.", why_wrong: "The correction is about this inventor story, not a survey of every maker." }
+    sources: [src_hist_rcp_merrett]
+    mcq: disabled
+  - id: q_hcourse_scales
+    outcome: "Keep appellation law, repeal, and one tasting at different scales."
+    prompt: "Why does the 1976 Paris tasting not repeal Prohibition and not rewrite French appellation law?"
+    acceptable:
+      - "Repeal was the Twenty-first Amendment on 5 December 1933. Appellation conditions are in the French wine code tied to 30 July 1935. The tasting is one blind comparison on 24 May 1976."
+    distractors:
+      - { text: "The tasting is the legal basis of Napa Valley.", why_wrong: "The Smithsonian release records a tasting result, not a statute." }
+      - { text: "Repeal classified American wines.", why_wrong: "Repeal removed the Eighteenth Amendment. It is not the 1855 ranking and not an appellation decree." }
+    sources: [src_hist_paris_1976, src_hist_archives_repeal, src_hist_code_vin_1935]
+    mcq: disabled
