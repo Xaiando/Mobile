@@ -417,6 +417,18 @@ map_layers:
     source_citation_ids:
       - src_soave_uga_geonames_markers
     attribution: Contains GeoNames geographical data (CC BY 4.0, https://creativecommons.org/licenses/by/4.0/), retrieved 27 September 2026. Selected WGS84 locality and summit coordinates are reference markers, not Soave unit boundaries or official centroids.
+  - id: ml_alto_adige_uga_geonames_markers
+    display_name: Alto Adige settlement reference markers
+    geometry_kind: point
+    asset_path: assets/geography/alto_adige_uga_geonames_markers.topo.json
+    asset_sha256: e844dd29f714ff892365a78f2776e072b410c28e4ee22e22b9b9de753b4079b2
+    asset_bytes: 700
+    min_zoom: 4
+    max_zoom: 18
+    parent_layer_id: ml_world_countries
+    source_citation_ids:
+      - src_alto_adige_uga_geonames_markers
+    attribution: Contains GeoNames geographical data (CC BY 4.0, https://creativecommons.org/licenses/by/4.0/), retrieved 27 September 2026. Selected WGS84 settlement coordinates are reference markers, not Alto Adige unit boundaries or official centroids.
 node_geometries:
   - knowledge_node_id: n_geo_argentina
     map_layer_id: ml_world_countries
@@ -13540,3 +13552,48 @@ node_geometries:
     max_lat: 45.5093
     label_lon: 11.28075
     label_lat: 45.5093
+  - knowledge_node_id: n_geo_alto_adige_uga_buchholz
+    map_layer_id: ml_alto_adige_uga_geonames_markers
+    feature_key: n_geo_alto_adige_uga_buchholz
+    min_lon: 11.2424
+    min_lat: 46.24623
+    max_lon: 11.2424
+    max_lat: 46.24623
+    label_lon: 11.2424
+    label_lat: 46.24623
+  - knowledge_node_id: n_geo_alto_adige_uga_girlan
+    map_layer_id: ml_alto_adige_uga_geonames_markers
+    feature_key: n_geo_alto_adige_uga_girlan
+    min_lon: 11.28115
+    min_lat: 46.46329
+    max_lon: 11.28115
+    max_lat: 46.46329
+    label_lon: 11.28115
+    label_lat: 46.46329
+  - knowledge_node_id: n_geo_alto_adige_uga_gries
+    map_layer_id: ml_alto_adige_uga_geonames_markers
+    feature_key: n_geo_alto_adige_uga_gries
+    min_lon: 11.33333
+    min_lat: 46.51667
+    max_lon: 11.33333
+    max_lat: 46.51667
+    label_lon: 11.33333
+    label_lat: 46.51667
+  - knowledge_node_id: n_geo_alto_adige_uga_penon
+    map_layer_id: ml_alto_adige_uga_geonames_markers
+    feature_key: n_geo_alto_adige_uga_penon
+    min_lon: 11.20115
+    min_lat: 46.30188
+    max_lon: 11.20115
+    max_lat: 46.30188
+    label_lon: 11.20115
+    label_lat: 46.30188
+  - knowledge_node_id: n_geo_alto_adige_uga_rain
+    map_layer_id: ml_alto_adige_uga_geonames_markers
+    feature_key: n_geo_alto_adige_uga_rain
+    min_lon: 11.21286
+    min_lat: 46.30889
+    max_lon: 11.21286
+    max_lat: 46.30889
+    label_lon: 11.21286
+    label_lat: 46.30889

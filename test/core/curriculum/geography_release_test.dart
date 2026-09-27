@@ -73,6 +73,7 @@ void main() {
         'ml_new_world_americas_gazetteer_markers',
         'ml_soave_uga_wikidata_markers',
         'ml_soave_uga_geonames_markers',
+        'ml_alto_adige_uga_geonames_markers',
       ]);
       final featureKeys = <String>[];
       for (final layer in dataset.mapLayers) {
