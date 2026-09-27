@@ -12,7 +12,9 @@ import { createRequire } from 'node:module';
 const { chromium } = createRequire(import.meta.url)('playwright');
 const root = path.resolve(process.argv[2] ?? 'build/web');
 const output = path.resolve(process.argv[3] ?? 'build/app_ui_smoke');
-const startupTimeout = 120_000;
+// A clean browser installs and indexes the full bundled curriculum before the
+// router can reveal onboarding. The same work takes about two minutes on CI.
+const startupTimeout = 300_000;
 const actionTimeout = 12_000;
 const viewport = { width: 320, height: 780 };
 const types = {
