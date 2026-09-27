@@ -11,6 +11,20 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[3]
 COURSE = ROOT / "assets" / "curriculum" / "candidates" / "wine_history_course.yaml"
 QUESTIONS = ROOT / "assets" / "curriculum" / "candidates" / "history_course_questions.yaml"
+SOMM = ROOT / "assets" / "curriculum" / "candidates" / "sommelier_practice.yaml"
+SOMM_QUESTIONS = ROOT / "assets" / "curriculum" / "candidates" / "sommelier_practice_questions.yaml"
+WINE_LABEL_L4 = {
+    "ki_somm_label_sulfite",
+    "ki_somm_label_fish",
+    "ki_somm_case_so2_action",
+    "ki_somm_case_so2_reason",
+    "ki_somm_case_so2_tradeoff",
+    "ki_somm_case_so2_limit",
+    "ki_somm_case_fish_action",
+    "ki_somm_case_fish_reason",
+    "ki_somm_case_fish_tradeoff",
+    "ki_somm_case_fish_limit",
+}
 LABELS = ROOT / "docs" / "research" / "cellar-scan" / "synthetic_labels.json"
 RELEASE_SOURCES = [
     ROOT / "assets" / "curriculum" / "areas" / "wine_history.yaml",
@@ -57,6 +71,55 @@ def propose(raw: str) -> dict:
     }
 
 
+def check_sommelier(known: set[str]) -> int:
+    text = SOMM.read_text(encoding="utf-8")
+    ids = item_ids(text)
+    if len(ids) != len(set(ids)):
+        raise SystemExit("duplicate sommelier item id")
+    if len(ids) < 54:
+        raise SystemExit(f"sommelier course shrank to {len(ids)} items")
+    for banned in ("WSET_L1", "WSET_L2", "WSET_L3", "120°C", "Reinheitsgebot requires"):
+        if banned in text:
+            raise SystemExit(f"sommelier file contains {banned}")
+    if text.count("mcq_disabled: true") < len(ids):
+        raise SystemExit("a sommelier item lost mcq_disabled")
+    known = set(known)
+    known |= source_ids(SOMM)
+    cited = set(re.findall(r"source_citation_id: (src_[a-z0-9_]+)", text))
+    missing = cited - known
+    if missing:
+        raise SystemExit(f"unknown sommelier source ids: {sorted(missing)}")
+    release_urls = set()
+    for path in RELEASE_SOURCES:
+        release_urls |= set(re.findall(r'url: "([^"]+)"', path.read_text(encoding="utf-8")))
+    own_urls = re.findall(r'url: "([^"]+)"', text)
+    if len(own_urls) != len(set(own_urls)):
+        raise SystemExit("duplicate URL inside the sommelier candidate")
+    overlap = set(own_urls) & release_urls
+    if overlap:
+        raise SystemExit(f"sommelier candidate redefines a release URL: {sorted(overlap)}")
+    for item in ids:
+        if f"certification_id: CMS_CERTIFIED, knowledge_item_id: {item}," not in text:
+            raise SystemExit(f"{item} has no CMS mapping")
+        has_l4 = f"certification_id: WSET_L4, knowledge_item_id: {item}," in text
+        if item in WINE_LABEL_L4 and not has_l4:
+            raise SystemExit(f"{item} is a wine-label item and needs WSET_L4")
+        if item not in WINE_LABEL_L4 and has_l4:
+            raise SystemExit(f"{item} is not a wine-label item and must not use WSET_L4")
+        if f"knowledge_item_id: {item}, source_citation_id:" not in text:
+            raise SystemExit(f"{item} has no citation")
+    questions = SOMM_QUESTIONS.read_text(encoding="utf-8")
+    if questions.count("mcq: disabled") < 10:
+        raise SystemExit("sommelier question handoff lost MCQ bans")
+    q_sources = set(re.findall(r"src_[a-z0-9_]+", questions))
+    # The question file also contains the words in prose. Keep only id-shaped tokens
+    # that the questions list under sources. Unknown ids still fail.
+    unknown_q = {token for token in q_sources if token.startswith("src_")} - known
+    if unknown_q:
+        raise SystemExit(f"sommelier questions cite unknown sources: {sorted(unknown_q)}")
+    return len(ids)
+
+
 def main() -> None:
     text = COURSE.read_text(encoding="utf-8")
     ids = item_ids(text)
@@ -93,7 +156,9 @@ def main() -> None:
                         raise SystemExit(f"{case['id']} missing warning {warning}")
             elif got.get(key) != value:
                 raise SystemExit(f"{case['id']} {key}: got {got.get(key)!r} want {value!r}")
+    somm_count = check_sommelier(known)
     print(f"candidate history items: {len(ids)}")
+    print(f"candidate sommelier items: {somm_count}")
     print(f"synthetic label cases: {len(corpus['cases'])}")
     print("non-SDK candidate check: passed")
     print("not a Flutter test, not expert review, not an implemented scanner")

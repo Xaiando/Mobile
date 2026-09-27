@@ -11,7 +11,7 @@ This is an essential course, not all of world wine history. It does not add map 
 3. Distinguish a customs treaty from a vineyard demarcation.
 4. Keep three different uses of the name Napoleon apart.
 5. Explain why a marketing story about sparkling wine is not a production record.
-6. State what phylloxera does to vinifera roots and what the cited control is, without inventing the European arrival date.
+6. State what phylloxera does to vinifera roots and what the cited control is. The California page still has no year. An INRAE page states 1863–1893 for a very large part of the French vineyard, and the same sentence's claim that European varieties disappeared is not taught as a count.
 7. Connect appellation rules, the modern EU definition of wine, Prohibition, and one New World tasting.
 
 ## 1. Evidence is not a single "oldest"
@@ -74,7 +74,7 @@ Grape phylloxera is an aphid-like insect that feeds on the roots of Vitis vinife
 
 Why it matters now: own-rooted vinifera and grafted vinifera are different planting decisions where this insect is present. The page supports the biology and the control. It does not date the European epidemic.
 
-UNRESOLVED: the year phylloxera was identified in France. Do not teach 1863 from memory.
+The INRAE encyclopaedia page (published 27 April 2021, modified 22 May 2024) says that between 1863 and 1893 the insect destroyed a very large part of the French vineyard. The same sentence says it caused the disappearance of European grape varieties and vineyards. That second clause is not a count and is not taught as one. The introduction is hedged with "it seems." Grafting Vitis vinifera onto American rootstocks is one solution on that page. Sandy soil is another. Chemical control is said to have little or no effect, and no spray programme is taught. The California page still contributes no year. A press-release fraction was not opened for the candidate item.
 
 ## 7. Law, a ban, and one tasting
 
@@ -102,7 +102,7 @@ The seven outcomes above are taught with a comparison, a misconception, and, for
 
 - Medieval institutions and any quantified Gascon trade. Eleanor is unresolved.
 - Bottle glass, cork, and the shift from amphora to bottle. Not opened, so not taught.
-- The year and path of phylloxera in Europe. The biology is taught. The date is not.
+- A single inventor year, a census of lost varieties, and any press-release fraction for phylloxera. The INRAE range is taught with that limit. The California page still has no year.
 - Clos de Vougeot and other monastic vineyards. Unresolved.
 - Italian DOC in 1963. Unresolved.
 - A New World legal institution other than Prohibition and one tasting. Unresolved.
@@ -114,4 +114,4 @@ Those gaps do not make the taught distinctions false. They mean the course is no
 
 Opened and used: PNAS Georgia, Barnard Areni, Loeb Pliny, LacusCurtius Columella book 3, RCP Merrett, Douro journal and Portuguese monuments inventory, Fondation Napoléon Berlin Decree, Bordeaux.com 1855, BNIC Cognac ageing page, UC IPM phylloxera, Légifrance wine code at 25 November 1967, EUR-Lex 1308/2013 consolidation, US National Archives exhibit and Reagan Library amendment text, Smithsonian Judgment of Paris release, Wikisource Methuen text.
 
-Not used as facts: Eleanor, Italian DOC, the European phylloxera year, Clos de Vougeot. Those remain research tasks.
+Also opened for the phylloxera range: the INRAE aphid encyclopaedia page cited as `src_hcourse_inrae_phylloxera`. Not used as facts: Eleanor (a biography was extracted and does not mention wine), Italian DOC 1963, Clos de Vougeot, and the Wine Australia Act. Those extracts are not authored until the pages are opened again here.

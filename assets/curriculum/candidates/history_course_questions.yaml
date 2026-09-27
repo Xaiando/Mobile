@@ -68,3 +68,15 @@ questions:
       - { text: "Repeal classified American wines.", why_wrong: "Repeal removed the Eighteenth Amendment. It is not the 1855 ranking and not an appellation decree." }
     sources: [src_hist_paris_1976, src_hist_archives_repeal, src_hist_code_vin_1935]
     mcq: disabled
+  - id: q_hcourse_phylloxera_range
+    outcome: "Repeat the French range and refuse the census clause."
+    prompt: "A guest says phylloxera killed every European vine in 1863. What does the opened INRAE page support, and what does the California page still not say?"
+    acceptable:
+      - "The INRAE page says that between 1863 and 1893 the insect destroyed a very large part of the French vineyard."
+      - "The same sentence claims the disappearance of European grape varieties. Do not teach that clause as a count."
+      - "The University of California page still gives no European year."
+    distractors:
+      - { text: "1863 alone is the year the epidemic began and ended.", why_wrong: "The opened sentence is a range, 1863 to 1893, for a large part of the French vineyard." }
+      - { text: "The disappearance clause is a measured census.", why_wrong: "It is the same sentence's second claim and is not given a count." }
+    sources: [src_hcourse_inrae_phylloxera, src_hist_ucipm_phylloxera]
+    mcq: disabled

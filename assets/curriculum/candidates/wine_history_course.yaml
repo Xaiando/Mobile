@@ -49,6 +49,13 @@ knowledge_nodes:
   - { id: n_hcourse_case_bubble_tradeoff, node_type: learning_point, name: "Cellar work is not invention" }
   - { id: n_hcourse_case_bubble_limit, node_type: learning_point, name: "One account is not every archive" }
 
+  - { id: n_hcourse_phylloxera_year, node_type: learning_point, name: "1863 to 1893 is one page's French range" }
+  - { id: n_hcourse_case_phylloxera, node_type: production_case, name: "A guest says every European vine died in 1863" }
+  - { id: n_hcourse_case_phylloxera_action, node_type: learning_point, name: "Give the range and refuse the census" }
+  - { id: n_hcourse_case_phylloxera_reason, node_type: learning_point, name: "The disappearance clause is in the same sentence" }
+  - { id: n_hcourse_case_phylloxera_tradeoff, node_type: learning_point, name: "The French range can be repeated" }
+  - { id: n_hcourse_case_phylloxera_limit, node_type: learning_point, name: "One encyclopaedia page is not every history" }
+
 knowledge_relations:
   - { subject_id: n_hcourse_evidence, relation_type: PRINCIPLE_EXPLANATION, object_id: n_hcourse_evidence_residue, valid_from: "2026-09-27" }
   - { subject_id: n_hcourse_evidence, relation_type: PRINCIPLE_EXPLANATION, object_id: n_hcourse_evidence_later, valid_from: "2026-09-27" }
@@ -83,6 +90,12 @@ knowledge_relations:
   - { subject_id: n_hcourse_case_bubble, relation_type: CASE_REASON, object_id: n_hcourse_case_bubble_reason, valid_from: "2026-09-27" }
   - { subject_id: n_hcourse_case_bubble, relation_type: CASE_TRADEOFF, object_id: n_hcourse_case_bubble_tradeoff, valid_from: "2026-09-27" }
   - { subject_id: n_hcourse_case_bubble, relation_type: CASE_LIMITATION, object_id: n_hcourse_case_bubble_limit, valid_from: "2026-09-27" }
+
+  - { subject_id: n_hcourse_phylloxera, relation_type: PRINCIPLE_EXPLANATION, object_id: n_hcourse_phylloxera_year, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_case_phylloxera, relation_type: CASE_ACTION, object_id: n_hcourse_case_phylloxera_action, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_case_phylloxera, relation_type: CASE_REASON, object_id: n_hcourse_case_phylloxera_reason, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_case_phylloxera, relation_type: CASE_TRADEOFF, object_id: n_hcourse_case_phylloxera_tradeoff, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_case_phylloxera, relation_type: CASE_LIMITATION, object_id: n_hcourse_case_phylloxera_limit, valid_from: "2026-09-27" }
 
 knowledge_items:
   - id: ki_hcourse_evidence_residue
@@ -207,7 +220,7 @@ knowledge_items:
     relation_type: PRINCIPLE_EXPLANATION
     object_id: n_hcourse_phylloxera_limit
     domain_id: service
-    assertion_text: "The same page does not date the European epidemic. A year for the French outbreak is unresolved here and must not be taught from memory."
+    assertion_text: "The University of California page does not date the European epidemic. Do not take a year from that page or from memory. A separate INRAE page does state a French range, and that range is its own item, with the over-broad clause in the same sentence left untaught as a count."
     verification_status: unverified
     last_verified_at: "2026-09-27T23:59:00.000Z"
     mcq_disabled: true
@@ -383,6 +396,52 @@ knowledge_items:
     last_verified_at: "2026-09-27T23:59:00.000Z"
     mcq_disabled: true
 
+  - id: ki_hcourse_phylloxera_year
+    subject_id: n_hcourse_phylloxera
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_hcourse_phylloxera_year
+    domain_id: service
+    assertion_text: "An INRAE encyclopaedia page, published 27 April 2021 and modified 22 May 2024, says that between 1863 and 1893 the insect destroyed a very large part of the French vineyard. The same sentence also says this caused the disappearance of European grape varieties and vineyards. Do not teach that second clause as a count. The page hedges the introduction with the words it seems, and it names Vitis riparia. It calls grafting Vitis vinifera onto American rootstocks one solution, names sandy soil as another, and says chemical control has little or no effect. It does not give a spray programme. This range is not the University of California page, which still has no year."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_case_phylloxera_action
+    subject_id: n_hcourse_case_phylloxera
+    relation_type: CASE_ACTION
+    object_id: n_hcourse_case_phylloxera_action
+    domain_id: service
+    assertion_text: "Do not let the guest leave with 1863 as the year every European vine died. Give the INRAE range for a very large part of the French vineyard, and refuse the disappearance clause as a census."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_case_phylloxera_reason
+    subject_id: n_hcourse_case_phylloxera
+    relation_type: CASE_REASON
+    object_id: n_hcourse_case_phylloxera_reason
+    domain_id: service
+    assertion_text: "The range and the disappearance clause are one sentence. Quoting the date without the limit repeats the page's over-wide claim as if it had been measured."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_case_phylloxera_tradeoff
+    subject_id: n_hcourse_case_phylloxera
+    relation_type: CASE_TRADEOFF
+    object_id: n_hcourse_case_phylloxera_tradeoff
+    domain_id: service
+    assertion_text: "1863 to 1893 can be taught as that page's French range. Grafting onto American rootstocks remains the control already supported by the California page. Sandy soil is this INRAE page's other stated solution, not a planting plan."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_case_phylloxera_limit
+    subject_id: n_hcourse_case_phylloxera
+    relation_type: CASE_LIMITATION
+    object_id: n_hcourse_case_phylloxera_limit
+    domain_id: service
+    assertion_text: "One encyclopaedia page is not a census and not every history of the outbreak. The introduction is hedged. A press release that gives a different fraction was not opened for this item. The California page still contributes no year."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+
 certification_knowledge_mappings:
   - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_evidence_residue, importance: secondary, minimum_depth: 2 }
   - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_evidence_residue, importance: secondary, minimum_depth: 2 }
@@ -451,7 +510,26 @@ certification_knowledge_mappings:
   - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_case_bubble_limit, importance: secondary, minimum_depth: 2 }
   - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_case_bubble_limit, importance: secondary, minimum_depth: 2 }
 
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_phylloxera_year, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_phylloxera_year, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_case_phylloxera_action, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_case_phylloxera_action, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_case_phylloxera_reason, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_case_phylloxera_reason, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_case_phylloxera_tradeoff, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_case_phylloxera_tradeoff, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_case_phylloxera_limit, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_case_phylloxera_limit, importance: secondary, minimum_depth: 2 }
+
 source_citations:
+
+  - id: src_hcourse_inrae_phylloxera
+    kind: government_publication
+    title: "Daktulosphaira vitifoliae (Fitch 1851)"
+    publisher: "INRAE, Encyclopédie des pucerons"
+    document_identifier: "English page. Publication 27 April 2021. Modification 22 May 2024. By F. Duval, C. Buchard, J-C. Simon."
+    url: "https://eng-encyclopedie-pucerons.hub.inrae.fr/species/aphids/daktulosphaira-phylloxera/daktulosphaira-vitifoliae-fitch-1851"
+    accessed_on: "2026-09-27"
   - id: src_hcourse_columella
     kind: reference_work
     title: "Columella, De Re Rustica, book 3"
@@ -504,3 +582,9 @@ knowledge_item_citations:
   - { knowledge_item_id: ki_hcourse_case_bubble_reason, source_citation_id: src_hist_rcp_merrett, locator: "Paper date and later appointment." }
   - { knowledge_item_id: ki_hcourse_case_bubble_tradeoff, source_citation_id: src_hist_rcp_merrett, locator: "Cellar master is a separate claim." }
   - { knowledge_item_id: ki_hcourse_case_bubble_limit, source_citation_id: src_hist_rcp_merrett, locator: "One account, not every archive." }
+  - { knowledge_item_id: ki_hcourse_phylloxera_year, source_citation_id: src_hcourse_inrae_phylloxera, locator: "Agronomic impact: 1863 to 1893, French vineyard, and the uncounted disappearance clause." }
+  - { knowledge_item_id: ki_hcourse_case_phylloxera_action, source_citation_id: src_hcourse_inrae_phylloxera, locator: "Agronomic impact: 1863 to 1893, French vineyard, and the uncounted disappearance clause." }
+  - { knowledge_item_id: ki_hcourse_case_phylloxera_reason, source_citation_id: src_hcourse_inrae_phylloxera, locator: "Agronomic impact: 1863 to 1893, French vineyard, and the uncounted disappearance clause." }
+  - { knowledge_item_id: ki_hcourse_case_phylloxera_tradeoff, source_citation_id: src_hcourse_inrae_phylloxera, locator: "Agronomic impact: 1863 to 1893, French vineyard, and the uncounted disappearance clause." }
+  - { knowledge_item_id: ki_hcourse_case_phylloxera_limit, source_citation_id: src_hcourse_inrae_phylloxera, locator: "Agronomic impact: 1863 to 1893, French vineyard, and the uncounted disappearance clause." }
+  - { knowledge_item_id: ki_hcourse_phylloxera_year, source_citation_id: src_hist_ucipm_phylloxera, locator: "The California page still does not date Europe." }
