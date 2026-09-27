@@ -685,6 +685,8 @@ Four tasks share one pattern. Each turns the famous regions of one country group
 
 #### Q6 · Reasoning engine: climate, viticulture, production
 
+- **0.20.2 content continuation:** Four additional controlled climate/weather chains and 20 Diploma-only points cover frost protection, ripening malate and Botrytis risk. Eight conclusions now have independent reasoning coverage. Broader climate, cost comparisons, sustained written practice and qualified review remain open. [Evidence and checks](research/diploma-climate-reasoning-continuation.md).
+
 - **0.20.0 implementation:** The pure-core engine and four cited Diploma starter chains are implemented. Scheduling and coverage expose final targets only; current explicit contradictions, active-track membership, depth 4 and studied support are required. Correct answers credit the complete chain; wrong answers grade only its target. Cited feedback and completed-answer backups use the existing runtime. Broader climate/production content, sustained written practice and qualified review remain open. [Evidence and checks](research/diploma-reasoning-continuation.md). The [earlier Q6 audit](research/reasoning-engine-implementation-audit.md) retains its historical assessment.
 - **Objective.** Build the reasoning engine: path-pattern templates, chain enumeration, primary and supporting items, distractors that violate a principle, and chain grading ([question-system §7](design/question-system.md#7-principles-the-knowledge-behind-reasoning-formats), QF-5). Add climate, viticulture and production reasoning templates.
 - **Depends on.** F3. C5 supplies real principles, and fixtures suffice until then.
@@ -1117,7 +1119,7 @@ The user confirmed **Level 4 Diploma as the target for the whole study companion
 
 | Task | Status | Required result |
 |---|---|---|
-| DIP-1 | In progress; vineyard/winery foundations, fault/control cases and four causal-reasoning starter chains | Explain and evaluate vineyard and winery decisions, including their effect on style, quality and costs |
+| DIP-1 | In progress; vineyard/winery foundations, fault/control cases and eight causal-reasoning chains | Explain and evaluate vineyard and winery decisions, including their effect on style, quality and costs |
 | DIP-2 | In progress; 26 commercial principles and three conditional cases | Wine supply, demand, costs, business structures, distribution, markets and marketing |
 | DIP-3 | In progress; substantial atlas, regional comparisons/cases and diagnostic tasting foundations | Regional wine knowledge with linked geography, grapes, environment, production, law, business and analytical tasting |
 | DIP-4 | In progress; 38 method/style principles and five conditional cases | Sparkling-wine methods, styles, regions, labelling, business and tasting |
@@ -1127,6 +1129,8 @@ The user confirmed **Level 4 Diploma as the target for the whole study companion
 **Learner progress implemented in 0.11.0.** Home and the progress detail screen show Levels 1–4, available facts studied/mastered, unavailable mapped facts, next study actions and six Diploma topic groups. Current mastery requires spaced successful reviews and FSRS memory thresholds; failures and decay can reduce it. All level scopes remain incomplete. Independently reversible self-reported exam passes use existing backed-up settings. No schema migration or automatic qualification claim is introduced. [Behaviour and checks](wset-learner-progress.md).
 
 ### DIP-1 · Production reasoning
+
+**0.20.2 continuation:** Four climate/weather exercises add 20 Diploma-only points to D1 using the existing runtime. Conditional frost, malate and disease-risk mechanisms widen study support; they do not complete production reasoning or practical competence. [Evidence and limits](research/diploma-climate-reasoning-continuation.md).
 
 **0.20.0 continuation:** Four objective causal chains and 21 Diploma-only points introduce bounded vineyard/winery reasoning. The runtime is implemented; broad climate, cost and analytical coverage still needs authoring and qualified review. [Evidence and checks](research/diploma-reasoning-continuation.md).
 

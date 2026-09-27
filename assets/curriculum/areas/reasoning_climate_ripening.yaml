@@ -1,0 +1,360 @@
+# Original conditional climate/weather causal paths. All items remain unverified.
+# MCQ is disabled: these points require supplied controls and explicit cited contradictions.
+# WSET_L4-only; no map edges, type declarations or new recall templates.
+knowledge_nodes:
+  - id: "n_climate_ripen_malate_premise"
+    node_type: "causal_premise"
+    name: "During post-veraison ripening, one batch of berries is moderately warmer than a matched batch,
+      without heat injury. Measurements establish that its malate-consuming respiratory flux is higher over
+      the same interval. Starting malate amount, cultivar, developmental stage, crop load, carbon supply,
+      malate synthesis/import, other malate-consuming routes and berry volume are matched. Isolate that
+      respiratory difference; do not predict finished-wine pH."
+  - id: "n_climate_ripen_malate_respiration"
+    node_type: "causal_state"
+    name: "Greater use of berry malate as a respiratory substrate"
+  - id: "n_climate_ripen_malate_remaining"
+    node_type: "causal_state"
+    name: "Less malate remaining per berry through the isolated respiratory difference"
+  - id: "n_climate_ripen_malate_wrong_more"
+    node_type: "causal_state"
+    name: "More malate remaining per berry because respiratory malate consumption increased"
+  - id: "n_climate_ripen_malate_wrong_unchanged"
+    node_type: "causal_state"
+    name: "Unchanged malate per berry despite greater consumption and matched replenishment"
+  - id: "n_climate_ripen_malate_wrong_tartrate"
+    node_type: "causal_state"
+    name: "Necessary depletion of berry tartrate through the isolated malate respiratory pathway"
+  - id: "n_climate_ripen_botrytis_premise"
+    node_type: "causal_premise"
+    name: "Susceptible mature grapes carry viable Botrytis cinerea conidia. Compare longer berry-surface wetness
+      in a humid fruit zone with rapid surface drying, within a wetness-duration range conducive to
+      infection. Both treatments have moderate temperatures suitable for germination and infection. Host
+      stage, wounding, inoculum amount and disease controls are matched. Free water remains on berry
+      surfaces in the longer-wet treatment; no disease outcome has yet been observed."
+  - id: "n_climate_ripen_botrytis_conditions"
+    node_type: "causal_state"
+    name: "A more conducive wet-surface opportunity for Botrytis conidial germination and infection"
+  - id: "n_climate_ripen_botrytis_risk"
+    node_type: "causal_state"
+    name: "Greater Botrytis infection risk in the longer-wet treatment without guaranteed disease"
+  - id: "n_climate_ripen_botrytis_wrong_less"
+    node_type: "causal_state"
+    name: "Lower Botrytis infection risk caused by the longer conducive wetness period"
+  - id: "n_climate_ripen_botrytis_wrong_blocked"
+    node_type: "causal_state"
+    name: "Botrytis conidial germination blocked by sustained free water at a suitable temperature"
+  - id: "n_climate_ripen_botrytis_wrong_guaranteed"
+    node_type: "causal_state"
+    name: "Guaranteed Botrytis infection of every berry solely because surfaces stay wet longer"
+node_alternative_names:
+  - knowledge_node_id: "n_climate_ripen_malate_respiration"
+    name: "greater ripening malate use for respiration"
+    kind: "synonym"
+  - knowledge_node_id: "n_climate_ripen_malate_remaining"
+    name: "lower berry malate from isolated respiratory consumption"
+    kind: "synonym"
+  - knowledge_node_id: "n_climate_ripen_malate_wrong_more"
+    name: "more berry malate from greater respiratory consumption"
+    kind: "synonym"
+  - knowledge_node_id: "n_climate_ripen_malate_wrong_unchanged"
+    name: "unchanged berry malate despite extra consumption"
+    kind: "synonym"
+  - knowledge_node_id: "n_climate_ripen_malate_wrong_tartrate"
+    name: "mandatory tartrate loss through malate respiration"
+    kind: "synonym"
+  - knowledge_node_id: "n_climate_ripen_botrytis_conditions"
+    name: "wet berry surface supports Botrytis germination opportunity"
+    kind: "synonym"
+  - knowledge_node_id: "n_climate_ripen_botrytis_risk"
+    name: "higher Botrytis risk under conducive prolonged berry wetness"
+    kind: "synonym"
+  - knowledge_node_id: "n_climate_ripen_botrytis_wrong_less"
+    name: "lower Botrytis risk from conducive prolonged wetness"
+    kind: "synonym"
+  - knowledge_node_id: "n_climate_ripen_botrytis_wrong_blocked"
+    name: "free berry surface water blocks Botrytis germination"
+    kind: "synonym"
+  - knowledge_node_id: "n_climate_ripen_botrytis_wrong_guaranteed"
+    name: "certain infection of all berries after prolonged wetness"
+    kind: "synonym"
+knowledge_relations:
+  - subject_id: "n_climate_ripen_malate_premise"
+    relation_type: "CAUSES_STATE"
+    object_id: "n_climate_ripen_malate_respiration"
+    valid_from: "2026-09-27"
+  - subject_id: "n_climate_ripen_malate_respiration"
+    relation_type: "LEADS_TO"
+    object_id: "n_climate_ripen_malate_remaining"
+    valid_from: "2026-09-27"
+  - subject_id: "n_climate_ripen_malate_premise"
+    relation_type: "CONTRADICTS"
+    object_id: "n_climate_ripen_malate_wrong_more"
+    valid_from: "2026-09-27"
+  - subject_id: "n_climate_ripen_malate_premise"
+    relation_type: "CONTRADICTS"
+    object_id: "n_climate_ripen_malate_wrong_unchanged"
+    valid_from: "2026-09-27"
+  - subject_id: "n_climate_ripen_malate_premise"
+    relation_type: "CONTRADICTS"
+    object_id: "n_climate_ripen_malate_wrong_tartrate"
+    valid_from: "2026-09-27"
+  - subject_id: "n_climate_ripen_botrytis_premise"
+    relation_type: "CAUSES_STATE"
+    object_id: "n_climate_ripen_botrytis_conditions"
+    valid_from: "2026-09-27"
+  - subject_id: "n_climate_ripen_botrytis_conditions"
+    relation_type: "LEADS_TO"
+    object_id: "n_climate_ripen_botrytis_risk"
+    valid_from: "2026-09-27"
+  - subject_id: "n_climate_ripen_botrytis_premise"
+    relation_type: "CONTRADICTS"
+    object_id: "n_climate_ripen_botrytis_wrong_less"
+    valid_from: "2026-09-27"
+  - subject_id: "n_climate_ripen_botrytis_premise"
+    relation_type: "CONTRADICTS"
+    object_id: "n_climate_ripen_botrytis_wrong_blocked"
+    valid_from: "2026-09-27"
+  - subject_id: "n_climate_ripen_botrytis_premise"
+    relation_type: "CONTRADICTS"
+    object_id: "n_climate_ripen_botrytis_wrong_guaranteed"
+    valid_from: "2026-09-27"
+knowledge_items:
+  - id: "ki_climate_ripen_malate_respiration"
+    subject_id: "n_climate_ripen_malate_premise"
+    relation_type: "CAUSES_STATE"
+    object_id: "n_climate_ripen_malate_respiration"
+    domain_id: "viticulture"
+    assertion_text: "The supplied higher malate-consuming respiratory flux uses more berry malate as substrate;
+      warmth alone does not establish that response in every stage or thermal regime."
+    verification_status: "unverified"
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T13:38:31.811Z"
+  - id: "ki_climate_ripen_malate_remaining"
+    subject_id: "n_climate_ripen_malate_respiration"
+    relation_type: "LEADS_TO"
+    object_id: "n_climate_ripen_malate_remaining"
+    domain_id: "viticulture"
+    assertion_text: "With equal starting pools and matched replenishment and other losses, greater respiratory
+      consumption leaves less malate per berry. This isolated balance does not predict wine pH."
+    verification_status: "unverified"
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T13:38:31.811Z"
+  - id: "ki_climate_ripen_malate_contra_more"
+    subject_id: "n_climate_ripen_malate_premise"
+    relation_type: "CONTRADICTS"
+    object_id: "n_climate_ripen_malate_wrong_more"
+    domain_id: "viticulture"
+    assertion_text: "Respiratory malate consumption draws down its substrate; with replenishment matched,
+      increased consumption cannot produce a larger remaining malate pool."
+    verification_status: "unverified"
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T13:38:31.811Z"
+  - id: "ki_climate_ripen_malate_contra_unchanged"
+    subject_id: "n_climate_ripen_malate_premise"
+    relation_type: "CONTRADICTS"
+    object_id: "n_climate_ripen_malate_wrong_unchanged"
+    domain_id: "viticulture"
+    assertion_text: "The controlled balance excludes compensating malate inputs or losses: extra respiratory use
+      changes the remaining pool, contradicting an unchanged amount."
+    verification_status: "unverified"
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T13:38:31.811Z"
+  - id: "ki_climate_ripen_malate_contra_tartrate"
+    subject_id: "n_climate_ripen_malate_premise"
+    relation_type: "CONTRADICTS"
+    object_id: "n_climate_ripen_malate_wrong_tartrate"
+    domain_id: "viticulture"
+    assertion_text: "Malate respiration does not require tartrate depletion. In the controlled microvine study,
+      tartrate per berry was unaffected by the temperature treatment."
+    verification_status: "unverified"
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T13:38:31.811Z"
+  - id: "ki_climate_ripen_botrytis_conditions"
+    subject_id: "n_climate_ripen_botrytis_premise"
+    relation_type: "CAUSES_STATE"
+    object_id: "n_climate_ripen_botrytis_conditions"
+    domain_id: "viticulture"
+    assertion_text: "At the supplied suitable temperature, sustained free surface water provides a more
+      conducive germination and infection opportunity than rapid drying; humidity alone is not substituted
+      for wetness."
+    verification_status: "unverified"
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T13:38:31.811Z"
+  - id: "ki_climate_ripen_botrytis_risk"
+    subject_id: "n_climate_ripen_botrytis_conditions"
+    relation_type: "LEADS_TO"
+    object_id: "n_climate_ripen_botrytis_risk"
+    domain_id: "viticulture"
+    assertion_text: "With susceptible mature grapes and viable conidia supplied, the more conducive wet-surface
+      opportunity increases infection risk. It does not establish disease in every berry."
+    verification_status: "unverified"
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T13:38:31.811Z"
+  - id: "ki_climate_ripen_botrytis_contra_less"
+    subject_id: "n_climate_ripen_botrytis_premise"
+    relation_type: "CONTRADICTS"
+    object_id: "n_climate_ripen_botrytis_wrong_less"
+    domain_id: "viticulture"
+    assertion_text: "Controlled inoculated mature-berry experiments found greater infection with longer
+      conducive wetness. Matched host and inoculum conditions contradict reduced risk through that same
+      wetness mechanism."
+    verification_status: "unverified"
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T13:38:31.811Z"
+  - id: "ki_climate_ripen_botrytis_contra_blocked"
+    subject_id: "n_climate_ripen_botrytis_premise"
+    relation_type: "CONTRADICTS"
+    object_id: "n_climate_ripen_botrytis_wrong_blocked"
+    domain_id: "viticulture"
+    assertion_text: "Grape-derived conidia germinated with free water at suitable temperatures in the laboratory
+      study; sustained free water is not itself a germination block under the supplied conditions."
+    verification_status: "unverified"
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T13:38:31.811Z"
+  - id: "ki_climate_ripen_botrytis_contra_guaranteed"
+    subject_id: "n_climate_ripen_botrytis_premise"
+    relation_type: "CONTRADICTS"
+    object_id: "n_climate_ripen_botrytis_wrong_guaranteed"
+    domain_id: "viticulture"
+    assertion_text: "Infection varied among temperature/wetness combinations and did not reach every inoculated
+      berry even under a favorable long-wet treatment. Conducive weather does not guarantee universal
+      disease."
+    verification_status: "unverified"
+    mcq_disabled: true
+    last_verified_at: "2026-09-27T13:38:31.811Z"
+certification_knowledge_mappings:
+  - certification_id: "WSET_L4"
+    knowledge_item_id: "ki_climate_ripen_malate_respiration"
+    importance: "core"
+    minimum_depth: 3
+  - certification_id: "WSET_L4"
+    knowledge_item_id: "ki_climate_ripen_malate_remaining"
+    importance: "core"
+    minimum_depth: 4
+  - certification_id: "WSET_L4"
+    knowledge_item_id: "ki_climate_ripen_malate_contra_more"
+    importance: "secondary"
+    minimum_depth: 2
+  - certification_id: "WSET_L4"
+    knowledge_item_id: "ki_climate_ripen_malate_contra_unchanged"
+    importance: "secondary"
+    minimum_depth: 2
+  - certification_id: "WSET_L4"
+    knowledge_item_id: "ki_climate_ripen_malate_contra_tartrate"
+    importance: "secondary"
+    minimum_depth: 2
+  - certification_id: "WSET_L4"
+    knowledge_item_id: "ki_climate_ripen_botrytis_conditions"
+    importance: "core"
+    minimum_depth: 3
+  - certification_id: "WSET_L4"
+    knowledge_item_id: "ki_climate_ripen_botrytis_risk"
+    importance: "core"
+    minimum_depth: 4
+  - certification_id: "WSET_L4"
+    knowledge_item_id: "ki_climate_ripen_botrytis_contra_less"
+    importance: "secondary"
+    minimum_depth: 2
+  - certification_id: "WSET_L4"
+    knowledge_item_id: "ki_climate_ripen_botrytis_contra_blocked"
+    importance: "secondary"
+    minimum_depth: 2
+  - certification_id: "WSET_L4"
+    knowledge_item_id: "ki_climate_ripen_botrytis_contra_guaranteed"
+    importance: "secondary"
+    minimum_depth: 2
+source_citations:
+  - id: "src_climate_ripen_temperature_microvine"
+    kind: "academic"
+    title: "Temperature desynchronizes sugar and organic acid metabolism in ripening grapevine fruits and
+      remodels their transcriptome"
+    publisher: "BMC Plant Biology / Springer Nature"
+    document_identifier: "Rienth et al. 2016; BMC Plant Biology 16:164; doi:10.1186/s12870-016-0850-0"
+    url: "https://link.springer.com/article/10.1186/s12870-016-0850-0"
+    accessed_on: "2026-09-27"
+  - id: "src_climate_ripen_temperature_shiraz"
+    kind: "academic"
+    title: "Metabolic effects of elevated temperature on organic acid degradation in ripening Vitis vinifera
+      fruit"
+    publisher: "Journal of Experimental Botany / Oxford University Press; original open-access article in PubMed
+      Central"
+    document_identifier: "Sweetman et al. 2014; J Exp Bot 65(20):5975–5988; doi:10.1093/jxb/eru343"
+    url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC4203137/"
+    accessed_on: "2026-09-27"
+  - id: "src_climate_ripen_botrytis_germination"
+    kind: "academic"
+    title: "The effect of temperature and relative humidity on conidial germination of Botrytis cinerea"
+    publisher: "Pontificia Universidad Católica de Chile / Ciencia e Investigación Agraria (now International
+      Journal of Agriculture and Natural Resources)"
+    document_identifier: "Latorre and Rioja 2002; 29(2); doi:10.7764/rcia.v29i2.1318"
+    url: "https://analesliteraturachilena.letras.uc.cl/index.php/ijanr/article/view/37143"
+    accessed_on: "2026-09-27"
+  - id: "src_climate_ripen_botrytis_infection"
+    kind: "academic"
+    title: "Environmental Conditions Affect Botrytis cinerea Infection of Mature Grape Berries More Than the
+      Strain or Transposon Genotype"
+    publisher: "American Phytopathological Society / Phytopathology"
+    document_identifier: "Ciliberti, Fermaud, Roudet and Rossi 2015; Phytopathology 105(8):1090–1096;
+      doi:10.1094/PHYTO-10-14-0264-R"
+    url: "https://apsjournals.apsnet.org/doi/10.1094/PHYTO-10-14-0264-R"
+    accessed_on: "2026-09-27"
+knowledge_item_citations:
+  - knowledge_item_id: "ki_climate_ripen_malate_respiration"
+    source_citation_id: "src_climate_ripen_temperature_microvine"
+    locator: "Results, Temperature impact on berry physiology, Fig. 3 and Table 1; Discussion,
+      Temperature impact on primary metabolism; Conclusions: post-veraison malate breakdown, respiratory
+      interpretation and stage/carbon-status limits. Supplied comparison controls are editorial."
+  - knowledge_item_id: "ki_climate_ripen_malate_respiration"
+    source_citation_id: "src_climate_ripen_temperature_shiraz"
+    locator: "Discussion, Day and night heating and developmental stages; Regulation of malate degradation with
+      warming: respiratory use of malate, thermal-regime exceptions and alternative synthesis effects. The
+      measured respiratory response is an explicit exercise premise."
+  - knowledge_item_id: "ki_climate_ripen_malate_remaining"
+    source_citation_id: "src_climate_ripen_temperature_microvine"
+    locator: "Results, Temperature impact on berry physiology, Fig. 3 and Table 1; Discussion,
+      Temperature impact on primary metabolism; Conclusions: post-veraison malate breakdown, respiratory
+      interpretation and stage/carbon-status limits. Supplied comparison controls are editorial."
+  - knowledge_item_id: "ki_climate_ripen_malate_contra_more"
+    source_citation_id: "src_climate_ripen_temperature_microvine"
+    locator: "Results, Temperature impact on berry physiology, Fig. 3 and Table 1; Discussion,
+      Temperature impact on primary metabolism; Conclusions: post-veraison malate breakdown, respiratory
+      interpretation and stage/carbon-status limits. Supplied comparison controls are editorial."
+  - knowledge_item_id: "ki_climate_ripen_malate_contra_unchanged"
+    source_citation_id: "src_climate_ripen_temperature_microvine"
+    locator: "Results, Temperature impact on berry physiology, Fig. 3 and Table 1; Discussion,
+      Temperature impact on primary metabolism; Conclusions: post-veraison malate breakdown, respiratory
+      interpretation and stage/carbon-status limits. Supplied comparison controls are editorial."
+  - knowledge_item_id: "ki_climate_ripen_malate_contra_tartrate"
+    source_citation_id: "src_climate_ripen_temperature_microvine"
+    locator: "Results, Temperature impact on berry physiology, Table 1: tartrate per berry
+      unaffected by temperature, alongside more pronounced malate breakdown in warmer ripening conditions."
+  - knowledge_item_id: "ki_climate_ripen_botrytis_conditions"
+    source_citation_id: "src_climate_ripen_botrytis_germination"
+    locator: "Abstract: in-vitro grape-derived conidia, moderate suitable temperature and germination with free
+      water; high relative humidity alone did not replace free water in this experiment. Applied only to the
+      stated wet-surface conditions."
+  - knowledge_item_id: "ki_climate_ripen_botrytis_conditions"
+    source_citation_id: "src_climate_ripen_botrytis_infection"
+    locator: "Materials and Methods, Berry collection and preparation and Table 1; Results, Disease in berries
+      inoculated with conidia, Figs. 4–5; Discussion: mature-berry infection varies with wetness duration
+      and temperature and is not universal."
+  - knowledge_item_id: "ki_climate_ripen_botrytis_risk"
+    source_citation_id: "src_climate_ripen_botrytis_infection"
+    locator: "Materials and Methods, Berry collection and preparation and Table 1; Results, Disease in berries
+      inoculated with conidia, Figs. 4–5; Discussion: mature-berry infection varies with wetness duration
+      and temperature and is not universal."
+  - knowledge_item_id: "ki_climate_ripen_botrytis_contra_less"
+    source_citation_id: "src_climate_ripen_botrytis_infection"
+    locator: "Materials and Methods, Berry collection and preparation and Table 1; Results, Disease in berries
+      inoculated with conidia, Figs. 4–5; Discussion: mature-berry infection varies with wetness duration
+      and temperature and is not universal."
+  - knowledge_item_id: "ki_climate_ripen_botrytis_contra_blocked"
+    source_citation_id: "src_climate_ripen_botrytis_germination"
+    locator: "Abstract: in-vitro grape-derived conidia, moderate suitable temperature and germination with free
+      water; high relative humidity alone did not replace free water in this experiment. Applied only to the
+      stated wet-surface conditions."
+  - knowledge_item_id: "ki_climate_ripen_botrytis_contra_guaranteed"
+    source_citation_id: "src_climate_ripen_botrytis_infection"
+    locator: "Materials and Methods, Berry collection and preparation and Table 1; Results, Disease in berries
+      inoculated with conidia, Figs. 4–5; Discussion: mature-berry infection varies with wetness duration
+      and temperature and is not universal."

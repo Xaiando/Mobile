@@ -23,8 +23,8 @@
 #   overlapping climate types.
 # - Any change to any file of the release needs a new dataset_version.
 
-dataset_version: "0.20.1"
-published_at: "2026-09-27T20:00:00.000Z"
+dataset_version: "0.20.4"
+published_at: "2026-09-27T22:40:00.000Z"
 
 includes:
   - areas/foundations.yaml
@@ -56,6 +56,7 @@ includes:
   - areas/grapes.yaml
   - areas/france.yaml
   - areas/italy.yaml
+  - areas/vino_nobile_pievi.yaml
   - areas/eu.yaml
   - areas/germany.yaml
   - areas/austria.yaml
@@ -93,6 +94,10 @@ includes:
   - templates/regional_oceania_africa_depth_cases.yaml
   - templates/regional_china_cases.yaml
   - templates/reasoning.yaml
+  - areas/reasoning_climate_frost.yaml
+  - areas/reasoning_climate_ripening.yaml
+  - templates/reasoning_climate_frost.yaml
+  - templates/reasoning_climate_ripening.yaml
   - areas/france_atlas.yaml
   - areas/world_atlas.yaml
   - areas/central_europe_atlas.yaml

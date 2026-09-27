@@ -1,0 +1,156 @@
+# Vino Nobile di Montepulciano: nine of the twelve Pieve units with a
+# licensed locality reference. Sant'Ilario, Cerliana and Valardegna are in
+# the legal list and are intentionally absent until a point can be cited.
+# Markers are hamlets or named churches, not unit boundaries.
+# Argiano and Ciarliana are not current legal names.
+knowledge_nodes:
+  - { id: n_geo_pieve_ascianello, node_type: subregion, name: Ascianello }
+  - { id: n_geo_pieve_badia, node_type: subregion, name: Badia }
+  - { id: n_geo_pieve_caggiole, node_type: subregion, name: Caggiole }
+  - { id: n_geo_pieve_cervognano, node_type: subregion, name: Cervognano }
+  - { id: n_geo_pieve_gracciano, node_type: subregion, name: Gracciano }
+  - { id: n_geo_pieve_le_grazie, node_type: subregion, name: Le Grazie }
+  - { id: n_geo_pieve_san_biagio, node_type: subregion, name: San Biagio }
+  - { id: n_geo_pieve_sant_albino, node_type: subregion, name: Sant'Albino }
+  - { id: n_geo_pieve_valiano, node_type: subregion, name: Valiano }
+
+node_alternative_names:
+  - { knowledge_node_id: n_geo_pieve_badia, name: Abbadia, kind: synonym }
+  - { knowledge_node_id: n_geo_pieve_cervognano, name: Cervognano Montenero, kind: synonym }
+
+knowledge_relations:
+  - { subject_id: n_geo_pieve_ascianello, relation_type: LOCATED_IN, object_id: n_geo_vino_nobile_di_montepulciano, valid_from: "2025-02-17" }
+  - { subject_id: n_geo_pieve_badia, relation_type: LOCATED_IN, object_id: n_geo_vino_nobile_di_montepulciano, valid_from: "2025-02-17" }
+  - { subject_id: n_geo_pieve_caggiole, relation_type: LOCATED_IN, object_id: n_geo_vino_nobile_di_montepulciano, valid_from: "2025-02-17" }
+  - { subject_id: n_geo_pieve_cervognano, relation_type: LOCATED_IN, object_id: n_geo_vino_nobile_di_montepulciano, valid_from: "2025-02-17" }
+  - { subject_id: n_geo_pieve_gracciano, relation_type: LOCATED_IN, object_id: n_geo_vino_nobile_di_montepulciano, valid_from: "2025-02-17" }
+  - { subject_id: n_geo_pieve_le_grazie, relation_type: LOCATED_IN, object_id: n_geo_vino_nobile_di_montepulciano, valid_from: "2025-02-17" }
+  - { subject_id: n_geo_pieve_san_biagio, relation_type: LOCATED_IN, object_id: n_geo_vino_nobile_di_montepulciano, valid_from: "2025-02-17" }
+  - { subject_id: n_geo_pieve_sant_albino, relation_type: LOCATED_IN, object_id: n_geo_vino_nobile_di_montepulciano, valid_from: "2025-02-17" }
+  - { subject_id: n_geo_pieve_valiano, relation_type: LOCATED_IN, object_id: n_geo_vino_nobile_di_montepulciano, valid_from: "2025-02-17" }
+
+knowledge_items:
+  - id: ki_pieve_ascianello_location
+    subject_id: n_geo_pieve_ascianello
+    relation_type: LOCATED_IN
+    object_id: n_geo_vino_nobile_di_montepulciano
+    domain_id: geography
+    assertion_text: "Ascianello is one of the 12 additional geographical units that may follow the term Pieve on a Vino Nobile di Montepulciano label. The marker is the Ascianello hamlet in the municipality of Montepulciano, not the unit boundary."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T21:30:00.000Z"
+  - id: ki_pieve_badia_location
+    subject_id: n_geo_pieve_badia
+    relation_type: LOCATED_IN
+    object_id: n_geo_vino_nobile_di_montepulciano
+    domain_id: geography
+    assertion_text: "Badia is one of the 12 additional geographical units that may follow the term Pieve on a Vino Nobile di Montepulciano label. The marker is the Abbadia hamlet in Montepulciano, not the unit boundary."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T21:30:00.000Z"
+  - id: ki_pieve_caggiole_location
+    subject_id: n_geo_pieve_caggiole
+    relation_type: LOCATED_IN
+    object_id: n_geo_vino_nobile_di_montepulciano
+    domain_id: geography
+    assertion_text: "Caggiole is one of the 12 additional geographical units that may follow the term Pieve on a Vino Nobile di Montepulciano label. The marker is the Caggiole hamlet in the municipality of Montepulciano, not the unit boundary."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T21:30:00.000Z"
+  - id: ki_pieve_cervognano_location
+    subject_id: n_geo_pieve_cervognano
+    relation_type: LOCATED_IN
+    object_id: n_geo_vino_nobile_di_montepulciano
+    domain_id: geography
+    assertion_text: "Cervognano is one of the 12 additional geographical units that may follow the term Pieve on a Vino Nobile di Montepulciano label. The marker is the Cervognano Montenero hamlet in Montepulciano, not the unit boundary."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T21:30:00.000Z"
+  - id: ki_pieve_gracciano_location
+    subject_id: n_geo_pieve_gracciano
+    relation_type: LOCATED_IN
+    object_id: n_geo_vino_nobile_di_montepulciano
+    domain_id: geography
+    assertion_text: "Gracciano is one of the 12 additional geographical units that may follow the term Pieve on a Vino Nobile di Montepulciano label. The marker is the Gracciano hamlet in the municipality of Montepulciano, not Gracciano dell'Elsa and not the unit boundary."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T21:30:00.000Z"
+  - id: ki_pieve_le_grazie_location
+    subject_id: n_geo_pieve_le_grazie
+    relation_type: LOCATED_IN
+    object_id: n_geo_vino_nobile_di_montepulciano
+    domain_id: geography
+    assertion_text: "Le Grazie is one of the 12 additional geographical units that may follow the term Pieve on a Vino Nobile di Montepulciano label. The marker is the church of Santa Maria delle Grazie in Montepulciano, not the unit boundary."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T21:30:00.000Z"
+  - id: ki_pieve_san_biagio_location
+    subject_id: n_geo_pieve_san_biagio
+    relation_type: LOCATED_IN
+    object_id: n_geo_vino_nobile_di_montepulciano
+    domain_id: geography
+    assertion_text: "San Biagio is one of the 12 additional geographical units that may follow the term Pieve on a Vino Nobile di Montepulciano label. The marker is the church of San Biagio in Montepulciano, not the unit boundary."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T21:30:00.000Z"
+  - id: ki_pieve_sant_albino_location
+    subject_id: n_geo_pieve_sant_albino
+    relation_type: LOCATED_IN
+    object_id: n_geo_vino_nobile_di_montepulciano
+    domain_id: geography
+    assertion_text: "Sant'Albino is one of the 12 additional geographical units that may follow the term Pieve on a Vino Nobile di Montepulciano label. The marker is the Sant'Albino hamlet in the municipality of Montepulciano, not the unit boundary."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T21:30:00.000Z"
+  - id: ki_pieve_valiano_location
+    subject_id: n_geo_pieve_valiano
+    relation_type: LOCATED_IN
+    object_id: n_geo_vino_nobile_di_montepulciano
+    domain_id: geography
+    assertion_text: "Valiano is one of the 12 additional geographical units that may follow the term Pieve on a Vino Nobile di Montepulciano label. The marker is the Valiano hamlet in the municipality of Montepulciano, not the unit boundary."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T21:30:00.000Z"
+
+knowledge_item_prerequisites:
+  - { knowledge_item_id: ki_pieve_ascianello_location, prerequisite_item_id: ki_atlas_vino_nobile_di_montepulciano_location }
+  - { knowledge_item_id: ki_pieve_badia_location, prerequisite_item_id: ki_atlas_vino_nobile_di_montepulciano_location }
+  - { knowledge_item_id: ki_pieve_caggiole_location, prerequisite_item_id: ki_atlas_vino_nobile_di_montepulciano_location }
+  - { knowledge_item_id: ki_pieve_cervognano_location, prerequisite_item_id: ki_atlas_vino_nobile_di_montepulciano_location }
+  - { knowledge_item_id: ki_pieve_gracciano_location, prerequisite_item_id: ki_atlas_vino_nobile_di_montepulciano_location }
+  - { knowledge_item_id: ki_pieve_le_grazie_location, prerequisite_item_id: ki_atlas_vino_nobile_di_montepulciano_location }
+  - { knowledge_item_id: ki_pieve_san_biagio_location, prerequisite_item_id: ki_atlas_vino_nobile_di_montepulciano_location }
+  - { knowledge_item_id: ki_pieve_sant_albino_location, prerequisite_item_id: ki_atlas_vino_nobile_di_montepulciano_location }
+  - { knowledge_item_id: ki_pieve_valiano_location, prerequisite_item_id: ki_atlas_vino_nobile_di_montepulciano_location }
+
+certification_knowledge_mappings:
+  - { certification_id: WSET_L3, knowledge_item_id: ki_pieve_ascianello_location, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_pieve_ascianello_location, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_pieve_badia_location, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_pieve_badia_location, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_pieve_caggiole_location, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_pieve_caggiole_location, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_pieve_cervognano_location, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_pieve_cervognano_location, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_pieve_gracciano_location, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_pieve_gracciano_location, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_pieve_le_grazie_location, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_pieve_le_grazie_location, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_pieve_san_biagio_location, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_pieve_san_biagio_location, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_pieve_sant_albino_location, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_pieve_sant_albino_location, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_pieve_valiano_location, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_pieve_valiano_location, importance: secondary, minimum_depth: 2 }
+
+source_citations:
+  - id: src_vino_nobile_pievi
+    kind: legislation
+    title: "Vino Nobile di Montepulciano, approval of the Pieve geographical units"
+    publisher: "European Commission"
+    jurisdiction: EU
+    document_identifier: "C/2025/2742, communicated 17 February 2025"
+    url: "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=OJ:C_202502742"
+    accessed_on: "2026-09-27"
+
+knowledge_item_citations:
+  - { knowledge_item_id: ki_pieve_ascianello_location, source_citation_id: src_vino_nobile_pievi, locator: "Labelling of Pieve wines: additional geographical unit Ascianello. Locality reference Q18491433." }
+  - { knowledge_item_id: ki_pieve_badia_location, source_citation_id: src_vino_nobile_pievi, locator: "Labelling of Pieve wines: additional geographical unit Badia. Locality reference Q14526941 (Abbadia)." }
+  - { knowledge_item_id: ki_pieve_caggiole_location, source_citation_id: src_vino_nobile_pievi, locator: "Labelling of Pieve wines: additional geographical unit Caggiole. Locality reference Q3649627." }
+  - { knowledge_item_id: ki_pieve_cervognano_location, source_citation_id: src_vino_nobile_pievi, locator: "Labelling of Pieve wines: additional geographical unit Cervognano. Locality reference Q18491579 (Cervognano Montenero)." }
+  - { knowledge_item_id: ki_pieve_gracciano_location, source_citation_id: src_vino_nobile_pievi, locator: "Labelling of Pieve wines: additional geographical unit Gracciano. Locality reference Q16561529." }
+  - { knowledge_item_id: ki_pieve_le_grazie_location, source_citation_id: src_vino_nobile_pievi, locator: "Labelling of Pieve wines: additional geographical unit Le Grazie. Church reference Q3673973." }
+  - { knowledge_item_id: ki_pieve_san_biagio_location, source_citation_id: src_vino_nobile_pievi, locator: "Labelling of Pieve wines: additional geographical unit San Biagio. Church reference Q1883452." }
+  - { knowledge_item_id: ki_pieve_sant_albino_location, source_citation_id: src_vino_nobile_pievi, locator: "Labelling of Pieve wines: additional geographical unit Sant'Albino. Locality reference Q16600206." }
+  - { knowledge_item_id: ki_pieve_valiano_location, source_citation_id: src_vino_nobile_pievi, locator: "Labelling of Pieve wines: additional geographical unit Valiano. Locality reference Q4007955." }

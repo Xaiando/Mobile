@@ -1421,6 +1421,20 @@ layers:
       source: src_france_atlas_completion_reference_markers
     simplify: 100%
     quantization: 100000
+  - id: ml_vino_nobile_pievi_markers
+    asset: vino_nobile_pievi_markers.topo.json
+    display_name: Vino Nobile Pieve locality reference markers
+    geometry: point
+    zoom:
+      - 4
+      - 18
+    parent: ml_world_countries
+    sources:
+      - src_vino_nobile_pievi_markers
+    gazetteer:
+      source: src_vino_nobile_pievi_markers
+    simplify: 100%
+    quantization: 100000
   - id: ml_europe_atlas_completion_markers
     asset: europe_atlas_completion_markers.topo.json
     display_name: Italian and Spanish wine-area location markers

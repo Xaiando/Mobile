@@ -237,6 +237,18 @@ map_layers:
     source_citation_ids:
       - src_france_atlas_completion_reference_markers
     attribution: Location markers from Wikidata (CC0), retrieved 26 September 2026. Points indicate locations, not wine-area boundaries.
+  - id: ml_vino_nobile_pievi_markers
+    display_name: Vino Nobile Pieve locality reference markers
+    geometry_kind: point
+    asset_path: assets/geography/vino_nobile_pievi_markers.topo.json
+    asset_sha256: 548adbefcef305050895ea81cf982796fc66722c6e57997d4e69ce5eb522bad2
+    asset_bytes: 1178
+    min_zoom: 4
+    max_zoom: 18
+    parent_layer_id: ml_world_countries
+    source_citation_ids:
+      - src_vino_nobile_pievi_markers
+    attribution: Location markers from Wikidata (CC0), retrieved 27 September 2026. Points indicate hamlets or named churches in Montepulciano, not Pieve boundaries.
   - id: ml_europe_atlas_completion_markers
     display_name: Italian and Spanish wine-area location markers
     geometry_kind: point
@@ -6718,6 +6730,87 @@ node_geometries:
     max_lat: 47.847222
     label_lon: 3.810833
     label_lat: 47.847222
+  - knowledge_node_id: n_geo_pieve_ascianello
+    map_layer_id: ml_vino_nobile_pievi_markers
+    feature_key: n_geo_pieve_ascianello
+    min_lon: 11.79666
+    min_lat: 43.14014
+    max_lon: 11.79666
+    max_lat: 43.14014
+    label_lon: 11.79666
+    label_lat: 43.14014
+  - knowledge_node_id: n_geo_pieve_badia
+    map_layer_id: ml_vino_nobile_pievi_markers
+    feature_key: n_geo_pieve_badia
+    min_lon: 11.822222
+    min_lat: 43.145278
+    max_lon: 11.822222
+    max_lat: 43.145278
+    label_lon: 11.822222
+    label_lat: 43.145278
+  - knowledge_node_id: n_geo_pieve_caggiole
+    map_layer_id: ml_vino_nobile_pievi_markers
+    feature_key: n_geo_pieve_caggiole
+    min_lon: 11.80372
+    min_lat: 43.11605
+    max_lon: 11.80372
+    max_lat: 43.11605
+    label_lon: 11.80372
+    label_lat: 43.11605
+  - knowledge_node_id: n_geo_pieve_cervognano
+    map_layer_id: ml_vino_nobile_pievi_markers
+    feature_key: n_geo_pieve_cervognano
+    min_lon: 11.84317
+    min_lat: 43.09891
+    max_lon: 11.84317
+    max_lat: 43.09891
+    label_lon: 11.84317
+    label_lat: 43.09891
+  - knowledge_node_id: n_geo_pieve_gracciano
+    map_layer_id: ml_vino_nobile_pievi_markers
+    feature_key: n_geo_pieve_gracciano
+    min_lon: 11.826389
+    min_lat: 43.131667
+    max_lon: 11.826389
+    max_lat: 43.131667
+    label_lon: 11.826389
+    label_lat: 43.131667
+  - knowledge_node_id: n_geo_pieve_le_grazie
+    map_layer_id: ml_vino_nobile_pievi_markers
+    feature_key: n_geo_pieve_le_grazie
+    min_lon: 11.786434
+    min_lat: 43.108087
+    max_lon: 11.786434
+    max_lat: 43.108087
+    label_lon: 11.786434
+    label_lat: 43.108087
+  - knowledge_node_id: n_geo_pieve_san_biagio
+    map_layer_id: ml_vino_nobile_pievi_markers
+    feature_key: n_geo_pieve_san_biagio
+    min_lon: 11.77461
+    min_lat: 43.09077
+    max_lon: 11.77461
+    max_lat: 43.09077
+    label_lon: 11.77461
+    label_lat: 43.09077
+  - knowledge_node_id: n_geo_pieve_sant_albino
+    map_layer_id: ml_vino_nobile_pievi_markers
+    feature_key: n_geo_pieve_sant_albino
+    min_lon: 11.805833
+    min_lat: 43.071111
+    max_lon: 11.805833
+    max_lat: 43.071111
+    label_lon: 11.805833
+    label_lat: 43.071111
+  - knowledge_node_id: n_geo_pieve_valiano
+    map_layer_id: ml_vino_nobile_pievi_markers
+    feature_key: n_geo_pieve_valiano
+    min_lon: 11.902222
+    min_lat: 43.146111
+    max_lon: 11.902222
+    max_lat: 43.146111
+    label_lon: 11.902222
+    label_lat: 43.146111
   - knowledge_node_id: n_geo_abruzzo
     map_layer_id: ml_europe_atlas_completion_markers
     feature_key: n_geo_abruzzo

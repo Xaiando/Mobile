@@ -93,7 +93,7 @@ void main() {
 
   test('only final targets get reasoning availability and supports must be studied', () async {
     final pools = await targets();
-    expect(pools, hasLength(4));
+    expect(pools, hasLength(8));
     final planner = StudyPlanner(db, clock: time.clock);
     final before = await planner.cards('WSET_L4');
     expect(
@@ -151,7 +151,7 @@ void main() {
     }
   });
 
-  test('coverage counts only four depth-4 targets without counting support membership', () async {
+  test('coverage counts only eight depth-4 targets without counting support membership', () async {
     final checker = CoverageChecker(
       db,
       CoveragePolicy.parse(
@@ -162,10 +162,10 @@ void main() {
     final reasoned = coverage.items
         .where((i) => i.servedFormats.contains('reasoning'))
         .toList();
-    expect(reasoned, hasLength(4));
+    expect(reasoned, hasLength(8));
     expect(
       reasoned.where((i) => i.item.domainId == 'viticulture'),
-      hasLength(2),
+      hasLength(6),
     );
     expect(
       reasoned.where((i) => i.item.domainId == 'winemaking'),
