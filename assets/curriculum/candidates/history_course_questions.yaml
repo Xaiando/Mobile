@@ -80,3 +80,14 @@ questions:
       - { text: "The disappearance clause is a measured census.", why_wrong: "It is the same sentence's second claim and is not given a count." }
     sources: [src_hcourse_inrae_phylloxera, src_hist_ucipm_phylloxera]
     mcq: disabled
+  - id: q_hcourse_doc_article
+    outcome: "Teach Article 1 of the 1963 decree and stop where the page stopped."
+    prompt: "A guest says the 1963 Italian law invented the letters DOC. What can you say from the page that loaded?"
+    acceptable:
+      - "Article 1 of DPR 12 July 1963, n. 930, defines a denominazione di origine as a geographic name for wines whose character depends essentially on the vines and the natural environment."
+      - "The loaded view did not print DOC or DOCG, and it did not print the later articles. Do not describe those classes, and do not claim the letters are absent from the whole decree."
+    distractors:
+      - { text: "The loaded article uses the abbreviations DOC and DOCG.", why_wrong: "Article 1, as printed, says denominazione di origine and does not use those abbreviations." }
+      - { text: "The production zone can never include neighboring land.", why_wrong: "Article 1 allows neighboring land when its stated conditions, including ten years of marketing under the name, are met." }
+    sources: [src_hcourse_dpr_930]
+    mcq: disabled

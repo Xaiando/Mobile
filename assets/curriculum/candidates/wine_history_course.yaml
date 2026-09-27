@@ -56,6 +56,15 @@ knowledge_nodes:
   - { id: n_hcourse_case_phylloxera_tradeoff, node_type: learning_point, name: "The French range can be repeated" }
   - { id: n_hcourse_case_phylloxera_limit, node_type: learning_point, name: "One encyclopaedia page is not every history" }
 
+  - { id: n_hcourse_doc, node_type: production_principle, name: "What did the opened 1963 article define?" }
+  - { id: n_hcourse_doc_name, node_type: learning_point, name: "A geographic name tied to vines and environment" }
+  - { id: n_hcourse_doc_unread, node_type: learning_point, name: "This view stopped before any later article" }
+  - { id: n_hcourse_case_doc, node_type: production_case, name: "A guest says 1963 invented the letters DOC" }
+  - { id: n_hcourse_case_doc_action, node_type: learning_point, name: "Quote article 1 and stop" }
+  - { id: n_hcourse_case_doc_reason, node_type: learning_point, name: "The loaded text does not use those abbreviations" }
+  - { id: n_hcourse_case_doc_tradeoff, node_type: learning_point, name: "The definition can still be taught" }
+  - { id: n_hcourse_case_doc_limit, node_type: learning_point, name: "Unread articles are not a denial" }
+
 knowledge_relations:
   - { subject_id: n_hcourse_evidence, relation_type: PRINCIPLE_EXPLANATION, object_id: n_hcourse_evidence_residue, valid_from: "2026-09-27" }
   - { subject_id: n_hcourse_evidence, relation_type: PRINCIPLE_EXPLANATION, object_id: n_hcourse_evidence_later, valid_from: "2026-09-27" }
@@ -96,6 +105,13 @@ knowledge_relations:
   - { subject_id: n_hcourse_case_phylloxera, relation_type: CASE_REASON, object_id: n_hcourse_case_phylloxera_reason, valid_from: "2026-09-27" }
   - { subject_id: n_hcourse_case_phylloxera, relation_type: CASE_TRADEOFF, object_id: n_hcourse_case_phylloxera_tradeoff, valid_from: "2026-09-27" }
   - { subject_id: n_hcourse_case_phylloxera, relation_type: CASE_LIMITATION, object_id: n_hcourse_case_phylloxera_limit, valid_from: "2026-09-27" }
+
+  - { subject_id: n_hcourse_doc, relation_type: PRINCIPLE_EXPLANATION, object_id: n_hcourse_doc_name, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_doc, relation_type: PRINCIPLE_EXPLANATION, object_id: n_hcourse_doc_unread, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_case_doc, relation_type: CASE_ACTION, object_id: n_hcourse_case_doc_action, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_case_doc, relation_type: CASE_REASON, object_id: n_hcourse_case_doc_reason, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_case_doc, relation_type: CASE_TRADEOFF, object_id: n_hcourse_case_doc_tradeoff, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_case_doc, relation_type: CASE_LIMITATION, object_id: n_hcourse_case_doc_limit, valid_from: "2026-09-27" }
 
 knowledge_items:
   - id: ki_hcourse_evidence_residue
@@ -442,6 +458,61 @@ knowledge_items:
     last_verified_at: "2026-09-27T23:59:00.000Z"
     mcq_disabled: true
 
+  - id: ki_hcourse_doc_name
+    subject_id: n_hcourse_doc
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_hcourse_doc_name
+    domain_id: service
+    assertion_text: "The original-text view of DPR 12 July 1963, n. 930, printed Article 1. A denominazione di origine is a geographic name, or a geographic qualification, of the production zone, with or without a vine name or another indication, used for the wines of that origin whose characteristics depend essentially on the vines and the natural environment. The same article allows neighboring land into the zone when the natural conditions are analogous and, at the decree's entry into force, wines had already been marketed under that name for at least ten years, with analogous chemical, physical, and organoleptic characteristics, from the zone's traditional varieties and its generally used methods. The decree is titled as rules for mosti and vini. The Gazzetta cited on the page is n. 188 of 15 July 1963."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_doc_unread
+    subject_id: n_hcourse_doc
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_hcourse_doc_unread
+    domain_id: service
+    assertion_text: "The view that loaded stopped at Article 1. It did not print the abbreviations DOC or DOCG, and it did not print any later article that might divide the names. Those divisions are not taught from this opening. The full-act export failed."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_case_doc_action
+    subject_id: n_hcourse_case_doc
+    relation_type: CASE_ACTION
+    object_id: n_hcourse_case_doc_action
+    domain_id: service
+    assertion_text: "Do not tell the guest that the 1963 decree invented the letters DOC. Say what Article 1 defines, and say that this opening did not reach a later article."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_case_doc_reason
+    subject_id: n_hcourse_case_doc
+    relation_type: CASE_REASON
+    object_id: n_hcourse_case_doc_reason
+    domain_id: service
+    assertion_text: "Article 1 uses denominazione di origine for a geographic name tied to vines and environment. The loaded text does not contain the abbreviations the guest used."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_case_doc_tradeoff
+    subject_id: n_hcourse_case_doc
+    relation_type: CASE_TRADEOFF
+    object_id: n_hcourse_case_doc_tradeoff
+    domain_id: service
+    assertion_text: "The guest can still learn the 12 July 1963 date, the geographic-name definition, and the ten-year neighboring-land condition. Those are in the article that loaded."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_case_doc_limit
+    subject_id: n_hcourse_case_doc
+    relation_type: CASE_LIMITATION
+    object_id: n_hcourse_case_doc_limit
+    domain_id: service
+    assertion_text: "Not seeing an abbreviation in Article 1 does not prove it is absent from the unread articles. Do not describe semplice, controllata, or garantita until those articles are on the page. The full export failed."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+
 certification_knowledge_mappings:
   - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_evidence_residue, importance: secondary, minimum_depth: 2 }
   - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_evidence_residue, importance: secondary, minimum_depth: 2 }
@@ -520,8 +591,29 @@ certification_knowledge_mappings:
   - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_case_phylloxera_tradeoff, importance: secondary, minimum_depth: 2 }
   - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_case_phylloxera_limit, importance: secondary, minimum_depth: 2 }
   - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_case_phylloxera_limit, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_doc_name, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_doc_name, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_doc_unread, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_doc_unread, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_case_doc_action, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_case_doc_action, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_case_doc_reason, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_case_doc_reason, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_case_doc_tradeoff, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_case_doc_tradeoff, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_case_doc_limit, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_case_doc_limit, importance: secondary, minimum_depth: 2 }
 
 source_citations:
+
+  - id: src_hcourse_dpr_930
+    kind: legislation
+    title: "DPR 12 July 1963, n. 930, original-text view"
+    publisher: "Normattiva"
+    jurisdiction: IT
+    document_identifier: "Article 1 only. Gazzetta n. 188 of 15 July 1963. Full-act export failed. Text shown as in force 30 July 1963 to 10 May 2010."
+    url: "https://www.normattiva.it/atto/caricaDettaglioAtto?atto.dataPubblicazioneGazzetta=1963-07-15&atto.codiceRedazionale=063U0930&tipoDettaglio=originario"
+    accessed_on: "2026-09-27"
 
   - id: src_hcourse_inrae_phylloxera
     kind: government_publication
@@ -588,3 +680,9 @@ knowledge_item_citations:
   - { knowledge_item_id: ki_hcourse_case_phylloxera_tradeoff, source_citation_id: src_hcourse_inrae_phylloxera, locator: "Agronomic impact: 1863 to 1893, French vineyard, and the uncounted disappearance clause." }
   - { knowledge_item_id: ki_hcourse_case_phylloxera_limit, source_citation_id: src_hcourse_inrae_phylloxera, locator: "Agronomic impact: 1863 to 1893, French vineyard, and the uncounted disappearance clause." }
   - { knowledge_item_id: ki_hcourse_phylloxera_year, source_citation_id: src_hist_ucipm_phylloxera, locator: "The California page still does not date Europe." }
+  - { knowledge_item_id: ki_hcourse_doc_name, source_citation_id: src_hcourse_dpr_930, locator: "Article 1 as printed. Later articles were not on the loaded view." }
+  - { knowledge_item_id: ki_hcourse_doc_unread, source_citation_id: src_hcourse_dpr_930, locator: "Article 1 as printed. Later articles were not on the loaded view." }
+  - { knowledge_item_id: ki_hcourse_case_doc_action, source_citation_id: src_hcourse_dpr_930, locator: "Article 1 as printed. Later articles were not on the loaded view." }
+  - { knowledge_item_id: ki_hcourse_case_doc_reason, source_citation_id: src_hcourse_dpr_930, locator: "Article 1 as printed. Later articles were not on the loaded view." }
+  - { knowledge_item_id: ki_hcourse_case_doc_tradeoff, source_citation_id: src_hcourse_dpr_930, locator: "Article 1 as printed. Later articles were not on the loaded view." }
+  - { knowledge_item_id: ki_hcourse_case_doc_limit, source_citation_id: src_hcourse_dpr_930, locator: "Article 1 as printed. Later articles were not on the loaded view." }

@@ -90,7 +90,7 @@ Why it matters now: "the law", "the ban", and "California won" are three differe
 
 Misconception: repeal made American wine better, or the 1976 tasting rewrote French appellation law. Comparison: a statute, a constitutional ban and repeal, and a blind tasting.
 
-UNRESOLVED: the Italian DOC law of 12 July 1963. Not taught until the statute page is open.
+Article 1 of DPR 12 July 1963, n. 930, was printed on the Normattiva original-text view. It defines a denominazione di origine as a geographic name, with or without a vine name, for wines whose character depends essentially on the vines and the natural environment, and it allows neighboring land on stated conditions including ten years of prior marketing. That view stopped at Article 1. DOC, DOCG, semplice, controllata, and garantita are not taught from it. The full-act export failed.
 
 ## Practice
 
@@ -104,7 +104,7 @@ The seven outcomes above are taught with a comparison, a misconception, and, for
 - Bottle glass, cork, and the shift from amphora to bottle. Not opened, so not taught.
 - A single inventor year, a census of lost varieties, and any press-release fraction for phylloxera. The INRAE range is taught with that limit. The California page still has no year.
 - Clos de Vougeot and other monastic vineyards. Unresolved.
-- Italian DOC in 1963. Unresolved.
+- The classes inside DPR 930 after Article 1. Article 1 is taught. The later articles did not load.
 - A New World legal institution other than Prohibition and one tasting. Unresolved.
 - South America, South Africa, and Australia as producing countries. Not this course.
 
@@ -114,4 +114,4 @@ Those gaps do not make the taught distinctions false. They mean the course is no
 
 Opened and used: PNAS Georgia, Barnard Areni, Loeb Pliny, LacusCurtius Columella book 3, RCP Merrett, Douro journal and Portuguese monuments inventory, Fondation Napoléon Berlin Decree, Bordeaux.com 1855, BNIC Cognac ageing page, UC IPM phylloxera, Légifrance wine code at 25 November 1967, EUR-Lex 1308/2013 consolidation, US National Archives exhibit and Reagan Library amendment text, Smithsonian Judgment of Paris release, Wikisource Methuen text.
 
-Also opened for the phylloxera range: the INRAE aphid encyclopaedia page cited as `src_hcourse_inrae_phylloxera`. Not used as facts: Eleanor (a biography was extracted and does not mention wine), Italian DOC 1963, Clos de Vougeot, and the Wine Australia Act. Those extracts are not authored until the pages are opened again here.
+Also opened for the phylloxera range: the INRAE aphid encyclopaedia page cited as `src_hcourse_inrae_phylloxera`. Article 1 of DPR 930 is cited as `src_hcourse_dpr_930`. Not used as facts: Eleanor (a biography was extracted and does not mention wine), any article of DPR 930 after Article 1, Clos de Vougeot, and the Wine Australia Act.
