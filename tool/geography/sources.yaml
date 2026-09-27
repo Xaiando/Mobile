@@ -243,6 +243,18 @@ sources:
     license: CC0 1.0
     attribution: Location markers from Wikidata (CC0), retrieved 26 September 2026.
       Points indicate locations, not wine-area boundaries.
+  - id: src_vino_nobile_pievi_markers
+    title: Vino Nobile Pieve locality reference markers
+    publisher: Wikidata
+    url: https://www.wikidata.org/w/api.php?action=wbgetentities&ids=Q14526941|Q18491433|Q3649627|Q18491579|Q16561529|Q3673973|Q1883452|Q16600206|Q4007955&props=claims&format=json
+    file: vino_nobile_pievi_points.geojson
+    snapshot: vino_nobile_pievi_points.geojson
+    version: 2026-09-27 curated snapshot
+    retrieved: 2026-09-27
+    sha256: e84ee6bafbf101d1b360f0923f2c510690279ee718e653ef3cb4fc5cab30dd9e
+    license: CC0 1.0
+    attribution: Location markers from Wikidata (CC0), retrieved 27 September 2026.
+      Points indicate hamlets or named churches in Montepulciano, not Pieve boundaries.
   - id: src_europe_atlas_completion_markers
     title: Italian and Spanish wine-area location markers
     publisher: Wikidata
