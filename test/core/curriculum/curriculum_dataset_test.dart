@@ -56,11 +56,18 @@ void main() {
         dataset.relationTypes.map((t) => t.isSymmetric),
         everyElement(isFalse),
       );
+      final defaultTemplateIds = {
+        for (final raw in rowsOf(
+          flattenDataset(curriculumAssetPath),
+          'question_templates',
+        ).cast<Map<String, dynamic>>())
+          if (!raw.containsKey('variant') && !raw.containsKey('parameters'))
+            raw['id'] as String,
+      };
+      expect(defaultTemplateIds, isNotEmpty);
       expect([
         for (final t in dataset.questionTemplates)
-          if (t.mode != 'short_answer' && t.mode != 'reasoning' &&
-              t.id != 'qt_located_in_fwd_map_pair')
-            (t.variant, t.parameters),
+          if (defaultTemplateIds.contains(t.id)) (t.variant, t.parameters),
       ], everyElement(('', null)));
       final pair = dataset.questionTemplates.singleWhere(
         (t) => t.id == 'qt_located_in_fwd_map_pair',
@@ -80,11 +87,17 @@ void main() {
         (t) => t.id == 'qt_reason_water_chain',
       );
       expect(reasoning.variant, 'reason_water_chain');
-      final parameters = jsonDecode(reasoning.parameters!) as Map<String, dynamic>;
+      final parameters =
+          jsonDecode(reasoning.parameters!) as Map<String, dynamic>;
       expect(parameters['path_relation_types'], ['CAUSES_STATE', 'LEADS_TO']);
       expect(parameters['scope_node_ids'], ['n_reason_water_premise']);
-      expect(parameters['contrasts'], containsPair('ki_reason_water_assimilation',
-        containsPair('n_reason_water_premise', hasLength(3))));
+      expect(
+        parameters['contrasts'],
+        containsPair(
+          'ki_reason_water_assimilation',
+          containsPair('n_reason_water_premise', hasLength(3)),
+        ),
+      );
     });
 
     test('keeps every item unverified until expert review (D3)', () {
