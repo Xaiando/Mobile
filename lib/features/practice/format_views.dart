@@ -7,6 +7,7 @@ import 'formats/map_locate_view.dart';
 import 'formats/map_pair_view.dart';
 import 'formats/map_grape_view.dart';
 import 'formats/mcq_view.dart';
+import 'formats/numeric_view.dart';
 import 'formats/reasoning_view.dart';
 import 'formats/short_answer_view.dart';
 import 'formats/typed_view.dart';
@@ -61,6 +62,10 @@ final formatViewsProvider = Provider<Map<String, FormatView>>(
       expands: true,
     ),
     'typed': FormatView(icon: Icons.keyboard_outlined, builder: TypedView.new),
+    'numeric': FormatView(
+      icon: Icons.calculate_outlined,
+      builder: NumericView.new,
+    ),
     'reasoning': FormatView(
       icon: Icons.account_tree_outlined,
       builder: ReasoningView.new,

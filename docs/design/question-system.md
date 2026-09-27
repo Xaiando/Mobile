@@ -37,7 +37,7 @@ The **depth** column refines CM-6, and audit QF-6 records it. A track serves a f
 | `multiple_response` | Select all that apply | recognition | text → any number of options | all items of one complete set | a completeness assertion (§6) | 2 | Q2 |
 | `matching` | Matching | structured | two columns → pairs | 3–5 | a pool of items sharing a relation type in a scope | 2 | Q3 |
 | `ordering` | Ordering | structured | list → order | 3–6 | an order key: tier chain, process chain, quantity or latitude | 2 | Q3 |
-| `numeric` | Numeric or range answer | structured | text → number and unit | 1 | a quantity object with a unit and tolerance | 2 | Q4 |
+| `numeric` | Numeric or range answer | structured | text → number or interval and unit | 1 | current quantity object; authored exact/outer tolerance | 2 | built, forward (Q4); 21 existing ageing/survey facts |
 | `label` | Label interpretation, wine-list error spotting | structured | synthetic label or list → MCQ, typed or tap | 1–3 | label-term items and a label layout | 3 | Q5 |
 | `map_*` | Map and geography formats | spatial | see [geography.md](geography.md) §4 | 1–n | geometry for the answer or prompt node | 1–3 | `map_locate` and `map_identify` built (G4); the rest G5–G9 |
 | `reasoning` | Climate, viticulture and production reasoning | reasoning | premise → most plausible consequence | chain of 2–3 | principle relations reachable from the item (§7) | 4 | Q6 |
@@ -80,7 +80,7 @@ Every graded item gets exactly one `review_events` row, whichever format produce
 | short answer | each key point's item | After writing, the learner ticks the key points the answer covered. Ticked is Good; not ticked is Again. The text is stored in `answer_payload` and is never machine-graded in V0.1 (spec §T). |
 | MCQ, map identify, map locate | item | Right is Good; wrong is Again (FS-6). |
 | typed | item | An exact match after `normalizeName`, or an alternative name, is Good. One edit away on the normalized form is Hard. Anything else is Again. As built (QF-13): the answer type's words may be added or left out ("oceanic climate"); whole words of the answer that name nothing else ("frost" for *Spring frost*) are Hard; the name of any other node is Again. |
-| numeric | item | Within the template's exact band is Good, within the tolerance band is Hard, outside is Again. Legal minima are exact. A range answer is right when it falls inside the stated range. |
+| numeric | item | Inside the authored range expanded by exact_tolerance is Good; inside its total outer tolerance is Hard; outside is Again. Both widths default to zero, in canonical units, and outer tolerance must be at least exact_tolerance. Regulatory facts forbid nonzero widths. Legal minima require the exact lower endpoint; a larger permitted duration is a wrong answer. Nonlegal range answers must be ordered and fully contained. Celsius/Fahrenheit grading compares bounds in the submitted unit without widening them. |
 | multiple response | each item of the set | A correct option selected is Good, or Hard if the learner also selected a wrong option. A correct option missed is Again. |
 | matching | each pair's item | A right pair is Good; a wrong pair is Again. |
 | ordering | each element's item | Elements in the longest correctly ordered subsequence are Good; the rest are Again. |

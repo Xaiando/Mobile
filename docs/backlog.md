@@ -92,7 +92,7 @@ TASK-008 (tasting grids) and TASK-009 (journal integration) remain; they are T1�
 | Q1 | Typed recall and short written answers | F3 | 4 | ☑ |
 | Q2 | Multiple response and completeness assertions | F3 | 4 | ☐ |
 | Q3 | Matching and ordering | F3 | 4 | ☐ |
-| Q4 | Numeric and range answers | F3 | 4 | ☐ |
+| Q4 | Numeric and range answers | F3 | 4 | ◐ |
 | Q5 | Label interpretation and wine-list error spotting | F3 | 4 | ☐ |
 | Q6 | Reasoning engine: climate, viticulture, production | F3 | 4 | ◐ |
 | Q7 | Service and food-pairing scenarios | Q6, C5 | 5 | ☐ |
@@ -659,6 +659,7 @@ Four tasks share one pattern. Each turns the famous regions of one country group
 
 #### Q4 · Numeric and range answers
 
+- **Status.** Built in the isolated 0.20.7 continuation: objective forward numeric practice, exact legal minima, finite range inclusion, authored Good/Hard bands, existing Celsius/Fahrenheit preference, answer feedback and JSON review/backup payloads. Six templates serve 21 existing facts (ten ageing requirements and eleven dated survey quantities). Cited temperature/elevation/range lessons remain content work; technical fixtures do not establish topic coverage. See [implementation and checks](research/numeric-practice-continuation.md).
 - **Objective.** Accept numeric and range answers for quantity items: minimum ageing, service temperatures and elevations. Tolerance bands come from template parameters, and units are displayed as the learner prefers (°C or °F).
 - **Depends on.** F3.
 - **Modules.** `formats/numeric/`, its view, unit conversion.

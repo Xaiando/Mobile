@@ -1,0 +1,63 @@
+# Q4 numeric practice over existing cited quantity facts. This file adds
+# presentations, not facts. A minimum is the exact legal threshold, never
+# any larger permitted duration. Survey subjects retain their authored year.
+# Tolerances are widths in the canonical quantity unit: exact_tolerance is
+# the Good band; tolerance is the TOTAL outer Hard band, not an extra width.
+question_templates:
+  - id: qt_min_ageing_fwd_numeric
+    relation_type: MIN_AGEING
+    direction: forward
+    mode: numeric
+    variant: non_riserva
+    prompt_template: "What is the minimum total ageing period for non-Riserva {subject.name}, counted from 1 November of the harvest year?"
+    parameters:
+      scope_node_ids: [n_geo_barolo, n_geo_barbaresco]
+      exact_tolerance: 0
+      tolerance: 0
+  - id: qt_champagne_min_ageing_fwd_numeric
+    relation_type: MIN_AGEING
+    direction: forward
+    mode: numeric
+    variant: non_vintage
+    prompt_template: "What is the minimum ageing period from tirage before non-vintage {subject.name} may be sold?"
+    parameters:
+      scope_node_ids: [n_geo_champagne]
+      exact_tolerance: 0
+      tolerance: 0
+  - id: qt_winzersekt_lees_fwd_numeric
+    relation_type: MIN_AGEING
+    direction: forward
+    mode: numeric
+    variant: lees
+    prompt_template: "What is the minimum uninterrupted time on the lees before {subject.name} may be disgorged?"
+    parameters:
+      scope_node_ids: [n_wine_winzersekt]
+      exact_tolerance: 0
+      tolerance: 0
+  - id: qt_min_wood_ageing_fwd_numeric
+    relation_type: MIN_WOOD_AGEING
+    direction: forward
+    mode: numeric
+    prompt_template: "What is the minimum time {subject.name} must spend ageing in wood?"
+    parameters:
+      scope_node_ids: [n_geo_barolo, n_geo_barbaresco, n_geo_brunello_di_montalcino]
+      exact_tolerance: 0
+      tolerance: 0
+  - id: qt_tokaji_min_wood_ageing_fwd_numeric
+    relation_type: MIN_WOOD_AGEING
+    direction: forward
+    mode: numeric
+    variant: harvest_from_august_2025
+    prompt_template: "What is the minimum ageing time in wooden barrels for {subject.name} under the specification for grapes harvested from August 2025?"
+    parameters:
+      scope_node_ids: [n_wine_tokaji_aszu, n_wine_tokaji_szamorodni_dry, n_wine_tokaji_szamorodni_sweet]
+      exact_tolerance: 0
+      tolerance: 0
+  - id: qt_statistic_value_fwd_numeric
+    relation_type: STATISTIC_VALUE
+    direction: forward
+    mode: numeric
+    prompt_template: "What value does the cited survey report for {subject.name}?"
+    parameters:
+      exact_tolerance: 0
+      tolerance: 0
