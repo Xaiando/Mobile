@@ -92,3 +92,15 @@ questions:
       - { text: "The three 1963 names are the categories in force today.", why_wrong: "The current Normattiva view of Article 2 shows a repeal notice, not those names." }
     sources: [src_hcourse_dpr_930_compilation, src_hcourse_dpr_930_art2_current, src_hcourse_dpr_930]
     mcq: disabled
+  - id: q_hcourse_doc_now
+    outcome: "Place DOC and DOCG inside today's DOP class."
+    prompt: "A guest says a wine marked only DOC cannot be a DOP, because DOC was a 1963 abbreviation. What does the opened 2016 article say?"
+    acceptable:
+      - "Article 28 of law 12 December 2016, n. 238, classifies DOP into DOCG and DOC, and says those are Italy's traditional mentions for DOP wines."
+      - "The label may use DOC or DOCG alone or together with DOP. The 1963 article did not use the abbreviations."
+      - "IGT is the traditional mention for an IGP, not a third DOP. Not every Italian wine is a DOCG."
+    distractors:
+      - { text: "DOC and DOP are unrelated systems.", why_wrong: "Article 28 puts DOC and DOCG inside the DOP class." }
+      - { text: "A label must always print both DOC and DOP.", why_wrong: "The article allows the Italian abbreviation alone or together with the European expression." }
+    sources: [src_hcourse_l238_art28, src_hcourse_dpr_930_compilation]
+    mcq: disabled

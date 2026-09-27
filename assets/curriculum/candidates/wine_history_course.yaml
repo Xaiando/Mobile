@@ -76,6 +76,13 @@ knowledge_nodes:
 
   - { id: n_hcourse_doc_2010, node_type: learning_point, name: "The 2010 decree defined DOP and IGP, then was itself repealed" }
 
+  - { id: n_hcourse_doc_now, node_type: learning_point, name: "DOC and DOCG are traditional mentions for a DOP" }
+  - { id: n_hcourse_case_letters, node_type: production_case, name: "A guest says DOC is not a DOP" }
+  - { id: n_hcourse_case_letters_action, node_type: learning_point, name: "Put the abbreviation on the 2016 article" }
+  - { id: n_hcourse_case_letters_reason, node_type: learning_point, name: "Article 28 classifies DOP into DOC and DOCG" }
+  - { id: n_hcourse_case_letters_tradeoff, node_type: learning_point, name: "The label may show either wording" }
+  - { id: n_hcourse_case_letters_limit, node_type: learning_point, name: "Not every bottle is a DOCG" }
+
 knowledge_relations:
   - { subject_id: n_hcourse_evidence, relation_type: PRINCIPLE_EXPLANATION, object_id: n_hcourse_evidence_residue, valid_from: "2026-09-27" }
   - { subject_id: n_hcourse_evidence, relation_type: PRINCIPLE_EXPLANATION, object_id: n_hcourse_evidence_later, valid_from: "2026-09-27" }
@@ -133,6 +140,12 @@ knowledge_relations:
   - { subject_id: n_hcourse_case_repeal, relation_type: CASE_LIMITATION, object_id: n_hcourse_case_repeal_limit, valid_from: "2026-09-27" }
 
   - { subject_id: n_hcourse_doc, relation_type: PRINCIPLE_EXPLANATION, object_id: n_hcourse_doc_2010, valid_from: "2026-09-27" }
+
+  - { subject_id: n_hcourse_doc, relation_type: PRINCIPLE_EXPLANATION, object_id: n_hcourse_doc_now, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_case_letters, relation_type: CASE_ACTION, object_id: n_hcourse_case_letters_action, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_case_letters, relation_type: CASE_REASON, object_id: n_hcourse_case_letters_reason, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_case_letters, relation_type: CASE_TRADEOFF, object_id: n_hcourse_case_letters_tradeoff, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_case_letters, relation_type: CASE_LIMITATION, object_id: n_hcourse_case_letters_limit, valid_from: "2026-09-27" }
 
 knowledge_items:
   - id: ki_hcourse_evidence_residue
@@ -593,7 +606,7 @@ knowledge_items:
     relation_type: CASE_LIMITATION
     object_id: n_hcourse_case_repeal_limit
     domain_id: service
-    assertion_text: "Do not say Italy no longer has origin names. Article 1 of the 2010 decree defined a DOP and an IGP while that text was in force. The current view of the 2010 decree says it was abrogated by law 12 December 2016, n. 238, which was not opened. Article 4 of the 1963 compilation was blank."
+    assertion_text: "Do not say Italy no longer has origin names. Article 1 of the 2010 decree defined a DOP and an IGP while that text was in force. The current view of the 2010 decree says it was abrogated by law 12 December 2016, n. 238. Article 28 of that law is a separate item. Article 4 of the 1963 compilation was blank."
     verification_status: unverified
     last_verified_at: "2026-09-27T23:59:00.000Z"
     mcq_disabled: true
@@ -603,7 +616,53 @@ knowledge_items:
     relation_type: PRINCIPLE_EXPLANATION
     object_id: n_hcourse_doc_2010
     domain_id: service
-    assertion_text: "The original-text view of legislative decree 8 April 2010, n. 61, printed Article 1 and stopped. A denominazione di origine protetta is the geographic name of a particularly suited wine-growing zone, used for a quality and renowned product whose characteristics are connected essentially or exclusively to the natural environment and to human factors. An indicazione geografica protetta is the geographic name of a zone used for the product that comes from it and that has quality, reputation, and specific characteristics attributable to that zone. The page says that wording was in force from 11 May 2010 to 11 January 2017. It did not print a DOC or DOCG classification. The current Normattiva view of the same article says the provision was abrogated by law 12 December 2016, n. 238, with text in force from 12 January 2017. That 2016 law was not opened."
+    assertion_text: "The original-text view of legislative decree 8 April 2010, n. 61, printed Article 1 and stopped. A denominazione di origine protetta is the geographic name of a particularly suited wine-growing zone, used for a quality and renowned product whose characteristics are connected essentially or exclusively to the natural environment and to human factors. An indicazione geografica protetta is the geographic name of a zone used for the product that comes from it and that has quality, reputation, and specific characteristics attributable to that zone. The page says that wording was in force from 11 May 2010 to 11 January 2017. It did not print a DOC or DOCG classification. The current Normattiva view of the same article says the provision was abrogated by law 12 December 2016, n. 238. What that later law prints about DOC and DOCG is a separate item."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+
+  - id: ki_hcourse_doc_now
+    subject_id: n_hcourse_doc
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_hcourse_doc_now
+    domain_id: service
+    assertion_text: "Law 12 December 2016, n. 238, article 28, in the text the page marks in force from 12 January 2017, classifies DOP wines into denominazione di origine controllata e garantita (DOCG) and denominazione di origine controllata (DOC). It says those are the specific traditional mentions Italy uses for DOP wines. IGP includes indicazione geografica tipica (IGT). The abbreviations DOC, DOCG and IGT may appear on the label alone or together with DOP or IGP. Article 26 says the definitions of denominazione di origine and indicazione geografica are those in article 93 of Regulation (EU) No 1308/2013. The note on that page quotes the rule that grapes for an origin name come exclusively from the zone, and that a geographical indication may take at most 15 percent of its grapes from outside the zone. This is not the 1963 decree, and article 28 is not marked with a later amendment on the view that loaded. The act's header says the last update of the law was published on 14 May 2026."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_case_letters_action
+    subject_id: n_hcourse_case_letters
+    relation_type: CASE_ACTION
+    object_id: n_hcourse_case_letters_action
+    domain_id: service
+    assertion_text: "If a guest says DOC is not a DOP, point to article 28. DOC and DOCG are the Italian traditional mentions for DOP wines, and the label may use the Italian abbreviation alone or with DOP."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_case_letters_reason
+    subject_id: n_hcourse_case_letters
+    relation_type: CASE_REASON
+    object_id: n_hcourse_case_letters_reason
+    domain_id: service
+    assertion_text: "The 1963 article 2 did not use the abbreviations. The 2016 article 28 does, and it places DOC and DOCG inside the DOP class. Treating them as unrelated systems contradicts that article."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_case_letters_tradeoff
+    subject_id: n_hcourse_case_letters
+    relation_type: CASE_TRADEOFF
+    object_id: n_hcourse_case_letters_tradeoff
+    domain_id: service
+    assertion_text: "A label that says only DOC, or DOC together with DOP, can both fit article 28. Do not correct a bottle for choosing one of those two presentations."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_case_letters_limit
+    subject_id: n_hcourse_case_letters
+    relation_type: CASE_LIMITATION
+    object_id: n_hcourse_case_letters_limit
+    domain_id: service
+    assertion_text: "Article 28 does not say every Italian wine is a DOCG, and it does not inspect the bottle. IGT is the traditional mention for an IGP, not a third DOP. The page also allows other language mentions in Bolzano, Valle d'Aosta, and the Slovene-speaking provinces. Those mentions were not copied into a pronunciation guide."
     verification_status: unverified
     last_verified_at: "2026-09-27T23:59:00.000Z"
     mcq_disabled: true
@@ -714,8 +773,35 @@ certification_knowledge_mappings:
   - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_case_repeal_limit, importance: secondary, minimum_depth: 2 }
   - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_doc_2010, importance: secondary, minimum_depth: 2 }
   - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_doc_2010, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_doc_now, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_doc_now, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_case_letters_action, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_case_letters_action, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_case_letters_reason, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_case_letters_reason, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_case_letters_tradeoff, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_case_letters_tradeoff, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_case_letters_limit, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_case_letters_limit, importance: secondary, minimum_depth: 2 }
 
 source_citations:
+
+  - id: src_hcourse_l238_art28
+    kind: legislation
+    title: "Law 12 December 2016, n. 238, article 28"
+    publisher: "Normattiva"
+    jurisdiction: IT
+    document_identifier: "Text in force from 12 January 2017. Act header notes an update published 14 May 2026. Article 28 itself shows no later amendment marker."
+    url: "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:2016-12-12;238~art28"
+    accessed_on: "2026-09-27"
+  - id: src_hcourse_l238_art26
+    kind: legislation
+    title: "Law 12 December 2016, n. 238, article 26"
+    publisher: "Normattiva"
+    jurisdiction: IT
+    document_identifier: "Text in force from 12 January 2017. Points the definitions to article 93 of Regulation (EU) No 1308/2013 and quotes that article in a note."
+    url: "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:2016-12-12;238~art26"
+    accessed_on: "2026-09-27"
 
   - id: src_hcourse_dlgs_61_art1
     kind: legislation
@@ -847,3 +933,10 @@ knowledge_item_citations:
   - { knowledge_item_id: ki_hcourse_doc_2010, source_citation_id: src_hcourse_dlgs_61_current, locator: "Current Article 1: abrogated by law 238/2016." }
   - { knowledge_item_id: ki_hcourse_case_repeal_limit, source_citation_id: src_hcourse_dlgs_61_art1, locator: "Article 1 defined DOP and IGP." }
   - { knowledge_item_id: ki_hcourse_case_repeal_limit, source_citation_id: src_hcourse_dlgs_61_current, locator: "The 2010 decree is itself marked abrogated." }
+  - { knowledge_item_id: ki_hcourse_doc_now, source_citation_id: src_hcourse_l238_art28, locator: "DOP classified into DOCG and DOC. IGP includes IGT. Abbreviations may stand alone or with DOP or IGP." }
+  - { knowledge_item_id: ki_hcourse_case_letters_action, source_citation_id: src_hcourse_l238_art28, locator: "DOP classified into DOCG and DOC. IGP includes IGT. Abbreviations may stand alone or with DOP or IGP." }
+  - { knowledge_item_id: ki_hcourse_case_letters_reason, source_citation_id: src_hcourse_l238_art28, locator: "DOP classified into DOCG and DOC. IGP includes IGT. Abbreviations may stand alone or with DOP or IGP." }
+  - { knowledge_item_id: ki_hcourse_case_letters_tradeoff, source_citation_id: src_hcourse_l238_art28, locator: "DOP classified into DOCG and DOC. IGP includes IGT. Abbreviations may stand alone or with DOP or IGP." }
+  - { knowledge_item_id: ki_hcourse_case_letters_limit, source_citation_id: src_hcourse_l238_art28, locator: "DOP classified into DOCG and DOC. IGP includes IGT. Abbreviations may stand alone or with DOP or IGP." }
+  - { knowledge_item_id: ki_hcourse_doc_now, source_citation_id: src_hcourse_l238_art26, locator: "Definitions are those in article 93 of Regulation (EU) No 1308/2013. Note quotes the exclusive-grape and 85 percent rules." }
+  - { knowledge_item_id: ki_hcourse_doc_2010, source_citation_id: src_hcourse_l238_art28, locator: "Later classification of DOP into DOC and DOCG." }
