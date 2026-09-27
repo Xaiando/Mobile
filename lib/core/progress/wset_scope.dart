@@ -1,5 +1,8 @@
 import 'dart:convert';
 
+import 'wset_requirements.dart';
+import 'wset_practice_evidence.dart';
+
 /// App-owned coverage notes, separate from authored curriculum and exam results.
 class WsetScope {
   const WsetScope(this.levels);
@@ -36,6 +39,28 @@ class WsetScope {
       );
     }
     for (final level in levels) {
+      level.practice.validate();
+      if (level.certificationId != 'WSET_L3' &&
+          (level.practice.writtenReview || level.practice.pairedTasting)) {
+        throw const FormatException(
+          'Written and paired practice belong to Level 3',
+        );
+      }
+      final requirementIds = <String>{};
+      for (final requirement in level.requirements) {
+        requirement.validate();
+        if (!requirementIds.add(requirement.id)) {
+          throw FormatException(
+            'Duplicate teaching requirement: ${requirement.id}',
+          );
+        }
+      }
+      if (level.curriculumComplete &&
+          level.requirements.any((requirement) => !requirement.reviewed)) {
+        throw FormatException(
+          'Coverage contains unreviewed requirements: ${level.certificationId}',
+        );
+      }
       if (level.curriculumComplete &&
           (level.gaps.isNotEmpty ||
               level.units.any((unit) => unit.gap.isNotEmpty))) {
@@ -77,6 +102,8 @@ class WsetLevelScope {
     required this.gaps,
     required this.sourceUrl,
     this.units = const [],
+    this.requirements = const [],
+    this.practice = const WsetPracticeRequirements(),
   });
 
   final String certificationId;
@@ -85,6 +112,12 @@ class WsetLevelScope {
   final List<String> gaps;
   final String sourceUrl;
   final List<WsetUnitScope> units;
+  final List<WsetRequirement> requirements;
+  final WsetPracticeRequirements practice;
+
+  Set<String> get requiredItemIds => {
+    for (final requirement in requirements) ...requirement.itemIds,
+  };
 
   factory WsetLevelScope.fromJson(Map<String, dynamic> row) => WsetLevelScope(
     certificationId: row['certificationId'] as String,
@@ -96,6 +129,16 @@ class WsetLevelScope {
       for (final unit in row['units'] as List<dynamic>? ?? const [])
         WsetUnitScope.fromJson(unit as Map<String, dynamic>),
     ],
+    requirements: List.unmodifiable([
+      for (final requirement
+          in row['requirements'] as List<dynamic>? ?? const [])
+        WsetRequirement.fromJson(requirement as Map<String, dynamic>),
+    ]),
+    practice: row['practice'] == null
+        ? const WsetPracticeRequirements()
+        : WsetPracticeRequirements.fromJson(
+            row['practice'] as Map<String, dynamic>,
+          ),
   );
 }
 

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../app/learner_state.dart';
 import '../../core/feedback/feedback_providers.dart';
@@ -24,6 +25,11 @@ class PracticeScreen extends ConsumerWidget {
       appBar: AppBar(
         title: const Text('Practice'),
         actions: [
+          IconButton(
+            tooltip: 'Level rehearsal',
+            icon: const Icon(Icons.timer_outlined),
+            onPressed: () => context.push('/practice/rehearsal'),
+          ),
           if (exercise != null)
             IconButton(
               tooltip: 'Flag this question',

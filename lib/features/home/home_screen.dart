@@ -136,6 +136,37 @@ class _Dashboard extends StatelessWidget {
         ),
         const SizedBox(height: 16),
         const WsetProgressCard(),
+        const SizedBox(height: 12),
+        Card(
+          child: Column(
+            children: [
+              ListTile(
+                leading: const Icon(Icons.timer_outlined),
+                title: const Text('Level rehearsal'),
+                subtitle: const Text(
+                  'Timed original questions, saved answers and written self-review',
+                ),
+                onTap: () => context.push('/practice/rehearsal'),
+              ),
+              ListTile(
+                leading: const Icon(Icons.wine_bar_outlined),
+                title: const Text('Guided tasting and calibration'),
+                subtitle: const Text(
+                  'Record observations and support conclusions with evidence',
+                ),
+                onTap: () => context.push('/tasting/guided'),
+              ),
+              ListTile(
+                leading: const Icon(Icons.timer_outlined),
+                title: const Text('Level 3 paired tasting'),
+                subtitle: const Text(
+                  'Two blind wines, 30 minutes and saved observation evidence',
+                ),
+                onTap: () => context.push('/tasting/paired'),
+              ),
+            ],
+          ),
+        ),
         if (overview.changed.isNotEmpty) ...[
           const SizedBox(height: 16),
           Card(

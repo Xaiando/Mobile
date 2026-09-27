@@ -213,6 +213,41 @@ source_citations:
     attribution_text: Location markers from Wikidata (CC0), retrieved 27 September
       2026. Points indicate hamlets or named churches in Montepulciano, not
       Pieve boundaries.
+  - id: src_soave_uga_wikidata_markers
+    kind: dataset
+    title: Soave additional geographical unit settlement markers
+    publisher: Wikidata
+    document_identifier: 2026-09-27 curated snapshot
+    url: https://www.wikidata.org/w/api.php?action=wbgetentities&ids=Q3645230|Q18504312&props=claims&format=json
+    accessed_on: 2026-09-27
+    license: CC0 1.0
+    attribution_text: Location markers from Wikidata (CC0), retrieved 27 September
+      2026. Points indicate settlements in Soave municipalities, not
+      additional geographical unit boundaries.
+  - id: src_soave_uga_geonames_markers
+    kind: dataset
+    title: Soave additional geographical unit locality and summit markers
+    publisher: GeoNames
+    document_identifier: 2026-09-27 curated snapshot
+    url: https://download.geonames.org/export/dump/IT.zip
+    accessed_on: 2026-09-27
+    license: CC BY 4.0
+    attribution_text: Contains GeoNames geographical data (CC BY 4.0,
+      https://creativecommons.org/licenses/by/4.0/), retrieved 27 September
+      2026. Selected WGS84 locality and summit coordinates are reference
+      markers, not Soave unit boundaries or official centroids.
+  - id: src_alto_adige_uga_geonames_markers
+    kind: dataset
+    title: Alto Adige additional geographical unit settlement markers
+    publisher: GeoNames
+    document_identifier: 2026-09-27 curated snapshot of IT.zip
+    url: https://www.geonames.org/export/
+    accessed_on: 2026-09-27
+    license: CC BY 4.0
+    attribution_text: Contains GeoNames geographical data (CC BY 4.0,
+      https://creativecommons.org/licenses/by/4.0/), retrieved 27 September
+      2026. Selected WGS84 settlement coordinates are reference markers, not
+      Alto Adige unit boundaries or official centroids.
   - id: src_europe_atlas_completion_markers
     kind: dataset
     title: Italian and Spanish wine-area location markers

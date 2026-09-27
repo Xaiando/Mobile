@@ -6,6 +6,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:fsrs/fsrs.dart' as fsrs;
 import 'package:sommelier/core/curriculum/curriculum_dataset.dart';
 import 'package:sommelier/core/curriculum/curriculum_ingestion.dart';
+import 'package:sommelier/core/curriculum/name_normalizer.dart';
 import 'package:sommelier/core/database/app_database.dart';
 import 'package:sommelier/core/progress/wset_progress.dart';
 import 'package:sommelier/core/progress/wset_scope.dart';
@@ -30,9 +31,13 @@ void main() {
     'CASE_LIMITATION',
   };
   bool originalItem(String id) =>
-      const ['ki_vit_', 'ki_win_', 'ki_biz_', 'ki_srv_'].any(id.startsWith);
+      const ['ki_vit_', 'ki_win_', 'ki_biz_', 'ki_srv_'].any(id.startsWith) &&
+      !id.startsWith('ki_biz_models_') &&
+      !id.startsWith('ki_biz_routes_');
   bool originalCase(String id) =>
-      const ['qt_vit_', 'qt_win_', 'qt_biz_', 'qt_srv_'].any(id.startsWith);
+      const ['qt_vit_', 'qt_win_', 'qt_biz_', 'qt_srv_'].any(id.startsWith) &&
+      !id.startsWith('qt_biz_models_') &&
+      !id.startsWith('qt_biz_routes_');
   bool productOrFaultItem(String id) =>
       const ['ki_spark_', 'ki_fort_', 'ki_fault_'].any(id.startsWith);
   bool regionalItem(String id) => const [
@@ -117,43 +122,40 @@ void main() {
     },
   );
 
-  test(
-    'every authored case is served only with its own four-point rubric',
-    () async {
-      final templates = dataset.questionTemplates.where(
-        (t) =>
-            t.mode == 'short_answer' &&
-            t.relationType == 'CASE_ACTION' &&
-            originalCase(t.id),
+  test('every starter case is served only with its own four-point rubric after additions', () async {
+    final templates = dataset.questionTemplates.where(
+      (t) =>
+          t.mode == 'short_answer' &&
+          t.relationType == 'CASE_ACTION' &&
+          originalCase(t.id),
+    );
+    expect(templates, hasLength(15));
+    final pools = await db.select(db.exercisePools).get();
+    final poolItems = await db.select(db.exercisePoolItems).get();
+    for (final template in templates) {
+      final scope = ShortAnswerFormat.scopeNodeIdsOf(template)!;
+      expect(scope, hasLength(1));
+      final matching = pools
+          .where((p) => p.questionTemplateId == template.id)
+          .toList();
+      expect(matching, hasLength(1), reason: template.id);
+      final pool = matching.single;
+      expect(pool.scopeNodeId, scope.single);
+      final ids = poolItems
+          .where((i) => i.exercisePoolId == pool.id)
+          .map((i) => i.knowledgeItemId)
+          .toSet();
+      final rubric = dataset.knowledgeItems
+          .where((i) => ids.contains(i.id))
+          .toList();
+      expect(rubric, hasLength(4));
+      expect(rubric.map((i) => i.subjectId).toSet(), scope);
+      expect(
+        rubric.map((i) => i.relationType).toSet(),
+        relations.difference({'PRINCIPLE_EXPLANATION'}),
       );
-      expect(templates, hasLength(15));
-      final pools = await db.select(db.exercisePools).get();
-      final poolItems = await db.select(db.exercisePoolItems).get();
-      for (final template in templates) {
-        final scope = ShortAnswerFormat.scopeNodeIdsOf(template)!;
-        expect(scope, hasLength(1));
-        final matching = pools
-            .where((p) => p.questionTemplateId == template.id)
-            .toList();
-        expect(matching, hasLength(1), reason: template.id);
-        final pool = matching.single;
-        expect(pool.scopeNodeId, scope.single);
-        final ids = poolItems
-            .where((i) => i.exercisePoolId == pool.id)
-            .map((i) => i.knowledgeItemId)
-            .toSet();
-        final rubric = dataset.knowledgeItems
-            .where((i) => ids.contains(i.id))
-            .toList();
-        expect(rubric, hasLength(4));
-        expect(rubric.map((i) => i.subjectId).toSet(), scope);
-        expect(
-          rubric.map((i) => i.relationType).toSet(),
-          relations.difference({'PRINCIPLE_EXPLANATION'}),
-        );
-      }
-    },
-  );
+    }
+  });
 
   test('Diploma production and business progress includes new content without completing a level', () async {
     final scope = WsetScope.fromJson(
@@ -173,7 +175,7 @@ void main() {
     );
     expect(
       diploma.units.singleWhere((u) => u.scope.id == 'D2').counts.available,
-      38,
+      116,
     );
     expect(diploma.appLevelComplete, isFalse);
     expect(
@@ -280,6 +282,18 @@ void main() {
     'product, fault and regional terms are cited, mapped and answerable',
     () async {
       final presenter = ExercisePresenter(db, clock: time.clock);
+      final templatesById = {
+        for (final template in dataset.questionTemplates) template.id: template,
+      };
+      final typedTemplatesByItem = <String, List<String>>{};
+      for (final question in await db.select(db.questions).get()) {
+        final template = templatesById[question.questionTemplateId]!;
+        if (template.mode == 'typed' && template.direction == 'forward') {
+          typedTemplatesByItem
+              .putIfAbsent(question.knowledgeItemId, () => [])
+              .add(template.id);
+        }
+      }
       for (final prefix in [
         'ki_spark_',
         'ki_fort_',
@@ -345,9 +359,9 @@ void main() {
             ),
             isNotEmpty,
           );
-          final template = dataset.questionTemplates.singleWhere(
-            (t) => t.mode == 'typed' && t.relationType == item.relationType,
-          );
+          final servedTemplates = typedTemplatesByItem[item.id] ?? [];
+          expect(servedTemplates, hasLength(1), reason: item.id);
+          final template = templatesById[servedTemplates.single]!;
           final exercise = await presenter.present(
             item.id,
             template.id,
@@ -357,10 +371,53 @@ void main() {
             (a) => a.knowledgeNodeId == item.objectId,
           );
           expect(aliases, isNotEmpty, reason: item.id);
+          final cue = TypedFormat.itemCuesOf(template)?[item.id];
+          final responsiveAnswers = cue?.acceptedAnswers
+              .map(
+                (answer) =>
+                    TypedFormat.core(normalizeName(answer), exercise.typeWords),
+              )
+              .toSet();
+          if (cue != null) {
+            expect(exercise.prompt, cue.prompt, reason: item.id);
+            expect(
+              exercise.accepted.keys.toSet(),
+              responsiveAnswers,
+              reason: item.id,
+            );
+            for (final answer in cue.acceptedAnswers) {
+              expect(
+                const TypedFormat().grade(exercise, answer).single.rating,
+                fsrs.Rating.good,
+                reason: '${item.id}: authored response $answer',
+              );
+            }
+            final canonical = dataset.knowledgeNodes
+                .singleWhere((node) => node.id == item.objectId)
+                .name;
+            expect(exercise.canonicalAnswer, canonical, reason: item.id);
+            expect(
+              const TypedFormat().grade(exercise, canonical).single.rating,
+              responsiveAnswers!.contains(
+                    TypedFormat.core(
+                      normalizeName(canonical),
+                      exercise.typeWords,
+                    ),
+                  )
+                  ? fsrs.Rating.good
+                  : fsrs.Rating.again,
+              reason: '${item.id}: canonical title must answer the actual cue',
+            );
+          }
           for (final alias in aliases) {
             expect(
               const TypedFormat().grade(exercise, alias.name).single.rating,
-              fsrs.Rating.good,
+              cue == null ||
+                      responsiveAnswers!.contains(
+                        TypedFormat.core(alias.nameNorm, exercise.typeWords),
+                      )
+                  ? fsrs.Rating.good
+                  : fsrs.Rating.again,
               reason: '${item.id}: ${alias.name}',
             );
           }
@@ -499,10 +556,10 @@ void main() {
       clock: time.clock,
     ).snapshot();
     expect(snapshot.levels.map((level) => level.counts.mapped), [
-      0,
-      103,
-      2381,
-      2853,
+      132,
+      819,
+      3429,
+      3759,
     ]);
     final diploma = snapshot.levels.last;
     final unitIds = {
@@ -520,7 +577,7 @@ void main() {
     }
     expect(
       diploma.units.singleWhere((u) => u.scope.id == 'D2').counts.available,
-      38,
+      116,
     );
     expect(
       diploma.units.singleWhere((u) => u.scope.id == 'D3').scope.domains,
@@ -674,9 +731,35 @@ void main() {
             .minimumDepth,
         3,
       );
-      if (item.relationType != 'PRINCIPLE_EXPLANATION' ||
-          item.id.startsWith('ki_reg_cn_')) {
+      if (item.id.startsWith('ki_reg_cn_')) {
         expect(mappings.map((m) => m.certificationId), ['WSET_L4']);
+      } else if (item.relationType != 'PRINCIPLE_EXPLANATION') {
+        // Selected original case points now teach the required L3 decisions.
+        // Every promotion must be declared in the independently reviewed
+        // authoring evidence, while its Diploma depth remains unchanged.
+        final europe = jsonDecode(
+          File('docs/research/wset-regional-europe-evidence.json')
+              .readAsStringSync(),
+        ) as Map<String, dynamic>;
+        final production = jsonDecode(
+          File('docs/research/wset-general-production-evidence.json')
+              .readAsStringSync(),
+        ) as Map<String, dynamic>;
+        final allowed = <String>{
+          for (final row in europe['mapping_additions'] as List)
+            '${row['certification_id']}|${row['knowledge_item_id']}',
+          for (final id in production['case_point_ids'] as List) 'WSET_L3|$id',
+        };
+        for (final mapping in mappings.where(
+          (m) => m.certificationId != 'WSET_L4',
+        )) {
+          expect(
+            allowed,
+            contains('${mapping.certificationId}|${item.id}'),
+            reason: item.id,
+          );
+          expect(mapping.minimumDepth, lessThanOrEqualTo(2));
+        }
       } else if (const [
         'ki_reg_inc_',
         'ki_reg_isi_',
@@ -691,15 +774,15 @@ void main() {
         'ki_reg_sa_',
         'ki_reg_oa_',
       ].any(item.id.startsWith)) {
-        expect(mappings.map((m) => m.certificationId).toSet(), {
-          'WSET_L4',
-          'WSET_L3',
-          'CMS_CERTIFIED',
-        }, reason: 'regional foundations remain available on lower tracks');
+        expect(
+          mappings.map((m) => m.certificationId).toSet(),
+          containsAll({'WSET_L4', 'WSET_L3', 'CMS_CERTIFIED'}),
+          reason: 'regional foundations remain available on lower tracks',
+        );
         expect(
           mappings
               .where((m) => m.certificationId != 'WSET_L4')
-              .every((m) => m.minimumDepth == 2),
+              .every((m) => m.minimumDepth <= 2),
           isTrue,
         );
       }

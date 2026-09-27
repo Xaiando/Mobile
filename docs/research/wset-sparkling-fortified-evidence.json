@@ -1,0 +1,1785 @@
+{
+  "authored_at": "2026-09-27",
+  "scope_documents": [
+    {
+      "level": 2,
+      "version": "2026 Issue2.1",
+      "url": "https://www.wsetglobal.com/media/19132/wset_l2wines_specification_en_april2026_issue21.pdf",
+      "locator": "Learning outcome5, printed page14 / PDF page14"
+    },
+    {
+      "level": 3,
+      "version": "2022 Issue2; live linked edition checked27September2026",
+      "url": "https://www.wsetglobal.com/media/11731/wset_l3wines_specification_en_highres_may2022_issue2.pdf",
+      "locator": "Unit1 learning outcomes3–4, printed pages16–18 / PDF pages18–20"
+    }
+  ],
+  "counts": {
+    "new_learning_points": 77,
+    "new_profiles": 77,
+    "new_sources": 40,
+    "item_citations": 166,
+    "mapping_rows": 125,
+    "new_l3_case_mappings": 24
+  },
+  "semantic_review_required": true,
+  "completion_claim": false,
+  "notes": [
+    "Required geographic identities and served practice must be verified in the combined release.",
+    "Level2 includes the familiar Champagne/Asti/Prosecco/Cava/CapClassique/Port/Sherry styles, required label terms and bounded country sparkling examples from USA, Australia and New Zealand. Manzanilla and Palo Cortado and the wider named regional families remain required at Level3. Reserve Tawny is context within general Tawny study, not a separately required Level2 category. The Tasmania/Marlborough/Carneros lesson examples support country-level Level2 study without adding those particular regions as compulsory Level2 geographic families.",
+    "Madeira and other fortified appellations are optional for Award in Wines Level3 and are not added to the mandatory denominator.",
+    "General cost/finishing support is separated from region-specific cause; application is conditional, not a retail-price guarantee.",
+    "Current Asti DOCG law checked at MASAF consolidated decree 13 March 2026; classic white sweet Asti is the study example, not a universal guarantee for every current DOCG product.",
+    "Current Jerez and Manzanilla specifications are dated 21 May 2026 and include wine and liqueur-wine categories; classic fortified production routes are qualified.",
+    "All named sparkling families now have regional cost/quality applications rather than tank-versus-bottle cases used as a proxy for place evidence.",
+    "Final Level2 boundary: transfer, ancestral and carbonation are required only at Level3; optional mapped references are not required Level2 denominator rows.",
+    "Level2 USA/Australia/NewZealand sparkling context uses bounded ki_wset_sf_carneros_spark/ki_wset_sf_tasmania_spark/ki_wset_sf_marlborough_spark examples at core depth2; these specific region names are not new compulsory Level2 geographic families.",
+    "Reserve Tawny is contextual contrast inside the general Tawny lesson, not a separately required Level2 style family.",
+    "All40 new source jurisdiction fields now use the actual publisher country codes; Port research published at University of Trieste uses IT, while Portuguese producer and regulator references use PT."
+  ],
+  "families": [
+    {
+      "key": "champagne",
+      "required_scope_levels": [
+        2,
+        3
+      ],
+      "existing_geographic_node_ids": [
+        "n_geo_champagne",
+        "n_geo_montagne_de_reims",
+        "n_geo_cote_des_blancs",
+        "n_geo_vallee_de_la_marne",
+        "n_geo_cote_des_bar",
+        "n_geo_cote_de_sezanne"
+      ],
+      "pending_geographic_names": [],
+      "dimensions": {
+        "grapes_and_style": {
+          "regional_item_ids": [
+            "ki_wset_sf_champagne_grapes",
+            "ki_wset_sf_champagne_districts",
+            "ki_wset_sf_champagne_white_black"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_champagne_grapes",
+            "ki_wset_sf_champagne_districts",
+            "ki_wset_sf_champagne_white_black"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "growing_environment": {
+          "regional_item_ids": [
+            "ki_wset_sf_champagne_climate",
+            "ki_wset_sf_champagne_chalk"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_champagne_climate",
+            "ki_wset_sf_champagne_chalk"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "production": {
+          "regional_item_ids": [],
+          "transferable_support_item_ids": [
+            "ki_spark_traditional",
+            "ki_spark_tirage",
+            "ki_spark_white_press",
+            "ki_spark_press_fractions",
+            "ki_spark_multivintage",
+            "ki_spark_mlf_optional",
+            "ki_spark_autolysis",
+            "ki_spark_riddling",
+            "ki_spark_disgorgement",
+            "ki_spark_dosage"
+          ],
+          "item_ids": [
+            "ki_spark_traditional",
+            "ki_spark_tirage",
+            "ki_spark_white_press",
+            "ki_spark_press_fractions",
+            "ki_spark_multivintage",
+            "ki_spark_mlf_optional",
+            "ki_spark_autolysis",
+            "ki_spark_riddling",
+            "ki_spark_disgorgement",
+            "ki_spark_dosage"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "labels": {
+          "regional_item_ids": [
+            "ki_wset_sf_champagne_white_black",
+            "ki_wset_sf_champagne_cru",
+            "ki_wset_sf_champagne_vintage",
+            "ki_wset_sf_spark_sweetness"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_champagne_white_black",
+            "ki_wset_sf_champagne_cru",
+            "ki_wset_sf_champagne_vintage",
+            "ki_wset_sf_spark_sweetness"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "quality_price": {
+          "regional_item_ids": [
+            "ki_wset_sf_champagne_climate",
+            "ki_wset_sf_champagne_cost"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_champagne_climate",
+            "ki_wset_sf_champagne_cost"
+          ],
+          "scope_note": "Regional causal opportunity or style plus applicable production resource; do not classify price as proved by a generic mechanism alone."
+        }
+      }
+    },
+    {
+      "key": "cremant_alsace",
+      "required_scope_levels": [
+        3
+      ],
+      "existing_geographic_node_ids": [
+        "n_geo_cremant_d_alsace"
+      ],
+      "pending_geographic_names": [],
+      "dimensions": {
+        "grapes_and_style": {
+          "regional_item_ids": [
+            "ki_wset_sf_alsace_cremant"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_alsace_cremant"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "growing_environment": {
+          "regional_item_ids": [
+            "ki_reg_fe_alsace_shelter",
+            "ki_reg_fe_alsace_autumn"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_reg_fe_alsace_shelter",
+            "ki_reg_fe_alsace_autumn"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "production": {
+          "regional_item_ids": [],
+          "transferable_support_item_ids": [
+            "ki_spark_traditional",
+            "ki_spark_white_press",
+            "ki_spark_lees_style",
+            "ki_spark_dosage"
+          ],
+          "item_ids": [
+            "ki_spark_traditional",
+            "ki_spark_white_press",
+            "ki_spark_lees_style",
+            "ki_spark_dosage"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "labels": {
+          "regional_item_ids": [
+            "ki_wset_sf_alsace_cremant",
+            "ki_wset_sf_spark_sweetness"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_alsace_cremant",
+            "ki_wset_sf_spark_sweetness"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "quality_price": {
+          "regional_item_ids": [
+            "ki_wset_sf_cremant_cellar_cost"
+          ],
+          "transferable_support_item_ids": [
+            "ki_wset_prod_cost_cellar"
+          ],
+          "item_ids": [
+            "ki_wset_sf_cremant_cellar_cost",
+            "ki_wset_prod_cost_cellar"
+          ],
+          "scope_note": "Named regional causal explanation and separately identified transferable support; geography alone does not satisfy this dimension."
+        }
+      }
+    },
+    {
+      "key": "cremant_bourgogne",
+      "required_scope_levels": [
+        3
+      ],
+      "existing_geographic_node_ids": [
+        "n_geo_cremant_de_bourgogne"
+      ],
+      "pending_geographic_names": [],
+      "dimensions": {
+        "grapes_and_style": {
+          "regional_item_ids": [
+            "ki_wset_sf_bourgogne_cremant",
+            "ki_wset_sf_bourgogne_styles"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_bourgogne_cremant",
+            "ki_wset_sf_bourgogne_styles"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "growing_environment": {
+          "regional_item_ids": [
+            "ki_wset_sf_bourgogne_environment"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_bourgogne_environment"
+          ],
+          "scope_note": "Named regional causal explanation and separately identified transferable support; geography alone does not satisfy this dimension."
+        },
+        "production": {
+          "regional_item_ids": [
+            "ki_wset_sf_bourgogne_cremant"
+          ],
+          "transferable_support_item_ids": [
+            "ki_spark_traditional",
+            "ki_spark_lees_style",
+            "ki_spark_dosage"
+          ],
+          "item_ids": [
+            "ki_spark_traditional",
+            "ki_wset_sf_bourgogne_cremant",
+            "ki_spark_lees_style",
+            "ki_spark_dosage"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "labels": {
+          "regional_item_ids": [
+            "ki_wset_sf_bourgogne_cremant",
+            "ki_wset_sf_spark_sweetness"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_bourgogne_cremant",
+            "ki_wset_sf_spark_sweetness"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "quality_price": {
+          "regional_item_ids": [
+            "ki_wset_sf_cremant_cellar_cost"
+          ],
+          "transferable_support_item_ids": [
+            "ki_wset_prod_cost_cellar"
+          ],
+          "item_ids": [
+            "ki_wset_sf_cremant_cellar_cost",
+            "ki_wset_prod_cost_cellar"
+          ],
+          "scope_note": "Named regional causal explanation and separately identified transferable support; geography alone does not satisfy this dimension."
+        }
+      }
+    },
+    {
+      "key": "cremant_loire",
+      "required_scope_levels": [
+        3
+      ],
+      "existing_geographic_node_ids": [
+        "n_geo_cremant_de_loire"
+      ],
+      "pending_geographic_names": [],
+      "dimensions": {
+        "grapes_and_style": {
+          "regional_item_ids": [
+            "ki_wset_sf_loire_cremant"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_loire_cremant"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "growing_environment": {
+          "regional_item_ids": [
+            "ki_reg_fs_saumur_season",
+            "ki_reg_fs_saumur_water"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_reg_fs_saumur_season",
+            "ki_reg_fs_saumur_water"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "production": {
+          "regional_item_ids": [
+            "ki_wset_sf_loire_cremant"
+          ],
+          "transferable_support_item_ids": [
+            "ki_spark_traditional",
+            "ki_spark_lees_style",
+            "ki_spark_dosage"
+          ],
+          "item_ids": [
+            "ki_wset_sf_loire_cremant",
+            "ki_spark_traditional",
+            "ki_spark_lees_style",
+            "ki_spark_dosage"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "labels": {
+          "regional_item_ids": [
+            "ki_wset_sf_loire_cremant",
+            "ki_wset_sf_spark_sweetness"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_loire_cremant",
+            "ki_wset_sf_spark_sweetness"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "quality_price": {
+          "regional_item_ids": [
+            "ki_wset_sf_cremant_cellar_cost"
+          ],
+          "transferable_support_item_ids": [
+            "ki_wset_prod_cost_cellar"
+          ],
+          "item_ids": [
+            "ki_wset_sf_cremant_cellar_cost",
+            "ki_wset_prod_cost_cellar"
+          ],
+          "scope_note": "Named regional causal explanation and separately identified transferable support; geography alone does not satisfy this dimension."
+        }
+      }
+    },
+    {
+      "key": "saumur_sparkling",
+      "required_scope_levels": [
+        3
+      ],
+      "existing_geographic_node_ids": [
+        "n_geo_saumur"
+      ],
+      "pending_geographic_names": [],
+      "dimensions": {
+        "grapes_and_style": {
+          "regional_item_ids": [
+            "ki_wset_sf_saumur_spark"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_saumur_spark"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "growing_environment": {
+          "regional_item_ids": [
+            "ki_reg_fs_saumur_season",
+            "ki_reg_fs_saumur_water"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_reg_fs_saumur_season",
+            "ki_reg_fs_saumur_water"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "production": {
+          "regional_item_ids": [
+            "ki_wset_sf_saumur_spark"
+          ],
+          "transferable_support_item_ids": [
+            "ki_spark_traditional",
+            "ki_spark_lees_style",
+            "ki_spark_dosage"
+          ],
+          "item_ids": [
+            "ki_wset_sf_saumur_spark",
+            "ki_spark_traditional",
+            "ki_spark_lees_style",
+            "ki_spark_dosage"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "labels": {
+          "regional_item_ids": [
+            "ki_wset_sf_spark_sweetness"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_spark_sweetness"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "quality_price": {
+          "regional_item_ids": [
+            "ki_wset_sf_cremant_cellar_cost"
+          ],
+          "transferable_support_item_ids": [
+            "ki_wset_prod_cost_cellar"
+          ],
+          "item_ids": [
+            "ki_wset_sf_cremant_cellar_cost",
+            "ki_wset_prod_cost_cellar"
+          ],
+          "scope_note": "Named regional causal explanation and separately identified transferable support; geography alone does not satisfy this dimension."
+        }
+      }
+    },
+    {
+      "key": "vouvray_sparkling",
+      "required_scope_levels": [
+        3
+      ],
+      "existing_geographic_node_ids": [
+        "n_geo_vouvray"
+      ],
+      "pending_geographic_names": [],
+      "dimensions": {
+        "grapes_and_style": {
+          "regional_item_ids": [
+            "ki_wset_sf_vouvray_spark"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_vouvray_spark"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "growing_environment": {
+          "regional_item_ids": [
+            "ki_wset_sf_vouvray_environment"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_vouvray_environment"
+          ],
+          "scope_note": "Named regional causal explanation and separately identified transferable support; geography alone does not satisfy this dimension."
+        },
+        "production": {
+          "regional_item_ids": [
+            "ki_wset_sf_vouvray_spark"
+          ],
+          "transferable_support_item_ids": [
+            "ki_spark_traditional",
+            "ki_spark_lees_style",
+            "ki_spark_dosage"
+          ],
+          "item_ids": [
+            "ki_wset_sf_vouvray_spark",
+            "ki_spark_traditional",
+            "ki_spark_lees_style",
+            "ki_spark_dosage"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "labels": {
+          "regional_item_ids": [
+            "ki_wset_sf_vouvray_spark",
+            "ki_wset_sf_spark_sweetness"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_vouvray_spark",
+            "ki_wset_sf_spark_sweetness"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "quality_price": {
+          "regional_item_ids": [
+            "ki_wset_sf_cremant_cellar_cost"
+          ],
+          "transferable_support_item_ids": [
+            "ki_wset_prod_cost_cellar"
+          ],
+          "item_ids": [
+            "ki_wset_sf_cremant_cellar_cost",
+            "ki_wset_prod_cost_cellar"
+          ],
+          "scope_note": "Named regional causal explanation and separately identified transferable support; geography alone does not satisfy this dimension."
+        }
+      }
+    },
+    {
+      "key": "asti",
+      "required_scope_levels": [
+        2,
+        3
+      ],
+      "existing_geographic_node_ids": [
+        "n_geo_asti"
+      ],
+      "pending_geographic_names": [],
+      "dimensions": {
+        "grapes_and_style": {
+          "regional_item_ids": [
+            "ki_wset_sf_asti_grape",
+            "ki_wset_sf_asti_current"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_asti_grape",
+            "ki_wset_sf_asti_current"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "growing_environment": {
+          "regional_item_ids": [
+            "ki_wset_sf_asti_environment"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_asti_environment"
+          ],
+          "scope_note": "Named regional causal explanation and separately identified transferable support; geography alone does not satisfy this dimension."
+        },
+        "production": {
+          "regional_item_ids": [
+            "ki_wset_sf_asti_method",
+            "ki_wset_sf_asti_stop"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_asti_method",
+            "ki_wset_sf_asti_stop"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "labels": {
+          "regional_item_ids": [
+            "ki_wset_sf_asti_current",
+            "ki_wset_sf_spark_sweetness"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_asti_current",
+            "ki_wset_sf_spark_sweetness"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "quality_price": {
+          "regional_item_ids": [
+            "ki_wset_sf_asti_cost"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_asti_cost"
+          ],
+          "scope_note": "Named regional causal explanation and separately identified transferable support; geography alone does not satisfy this dimension."
+        }
+      }
+    },
+    {
+      "key": "prosecco",
+      "required_scope_levels": [
+        2,
+        3
+      ],
+      "existing_geographic_node_ids": [
+        "n_geo_prosecco"
+      ],
+      "pending_geographic_names": [],
+      "dimensions": {
+        "grapes_and_style": {
+          "regional_item_ids": [
+            "ki_wset_sf_prosecco_identity",
+            "ki_wset_sf_prosecco_style"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_prosecco_identity",
+            "ki_wset_sf_prosecco_style"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "growing_environment": {
+          "regional_item_ids": [
+            "ki_wset_sf_prosecco_environment"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_prosecco_environment"
+          ],
+          "scope_note": "Named regional causal explanation and separately identified transferable support; geography alone does not satisfy this dimension."
+        },
+        "production": {
+          "regional_item_ids": [
+            "ki_wset_sf_prosecco_style"
+          ],
+          "transferable_support_item_ids": [
+            "ki_spark_tank",
+            "ki_spark_tank_filter",
+            "ki_spark_counterpressure"
+          ],
+          "item_ids": [
+            "ki_wset_sf_prosecco_style",
+            "ki_spark_tank",
+            "ki_spark_tank_filter",
+            "ki_spark_counterpressure"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "labels": {
+          "regional_item_ids": [
+            "ki_wset_sf_prosecco_identity",
+            "ki_wset_sf_prosecco_labels"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_prosecco_identity",
+            "ki_wset_sf_prosecco_labels"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "quality_price": {
+          "regional_item_ids": [
+            "ki_wset_sf_prosecco_cost"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_prosecco_cost"
+          ],
+          "scope_note": "Named regional causal explanation and separately identified transferable support; geography alone does not satisfy this dimension."
+        }
+      }
+    },
+    {
+      "key": "conegliano_valdobbiadene",
+      "required_scope_levels": [
+        3
+      ],
+      "existing_geographic_node_ids": [
+        "n_geo_conegliano_valdobbiadene"
+      ],
+      "pending_geographic_names": [],
+      "dimensions": {
+        "grapes_and_style": {
+          "regional_item_ids": [
+            "ki_wset_sf_prosecco_style"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_prosecco_style"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "growing_environment": {
+          "regional_item_ids": [
+            "ki_wset_sf_prosecco_environment"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_prosecco_environment"
+          ],
+          "scope_note": "Named regional causal explanation and separately identified transferable support; geography alone does not satisfy this dimension."
+        },
+        "production": {
+          "regional_item_ids": [
+            "ki_wset_sf_prosecco_style"
+          ],
+          "transferable_support_item_ids": [
+            "ki_spark_tank",
+            "ki_spark_tank_filter"
+          ],
+          "item_ids": [
+            "ki_wset_sf_prosecco_style",
+            "ki_spark_tank",
+            "ki_spark_tank_filter"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "labels": {
+          "regional_item_ids": [
+            "ki_wset_sf_prosecco_hills",
+            "ki_wset_sf_prosecco_labels"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_prosecco_hills",
+            "ki_wset_sf_prosecco_labels"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "quality_price": {
+          "regional_item_ids": [
+            "ki_wset_sf_prosecco_hills",
+            "ki_wset_sf_prosecco_cost"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_prosecco_hills",
+            "ki_wset_sf_prosecco_cost"
+          ],
+          "scope_note": "Named regional causal explanation and separately identified transferable support; geography alone does not satisfy this dimension."
+        }
+      }
+    },
+    {
+      "key": "cava",
+      "required_scope_levels": [
+        2,
+        3
+      ],
+      "existing_geographic_node_ids": [
+        "n_geo_cava"
+      ],
+      "pending_geographic_names": [],
+      "dimensions": {
+        "grapes_and_style": {
+          "regional_item_ids": [
+            "ki_wset_sf_cava_grape_roles"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_cava_grape_roles"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "growing_environment": {
+          "regional_item_ids": [
+            "ki_wset_sf_cava_sites"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_cava_sites"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "production": {
+          "regional_item_ids": [
+            "ki_wset_sf_cava_aging"
+          ],
+          "transferable_support_item_ids": [
+            "ki_spark_traditional",
+            "ki_spark_riddling",
+            "ki_spark_disgorgement",
+            "ki_spark_dosage"
+          ],
+          "item_ids": [
+            "ki_spark_traditional",
+            "ki_spark_riddling",
+            "ki_spark_disgorgement",
+            "ki_spark_dosage",
+            "ki_wset_sf_cava_aging"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "labels": {
+          "regional_item_ids": [
+            "ki_wset_sf_cava_aging",
+            "ki_wset_sf_cava_guarda",
+            "ki_wset_sf_spark_sweetness"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_cava_aging",
+            "ki_wset_sf_cava_guarda",
+            "ki_wset_sf_spark_sweetness"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "quality_price": {
+          "regional_item_ids": [
+            "ki_wset_sf_cava_grape_roles",
+            "ki_wset_sf_cava_cost",
+            "ki_wset_sf_cava_guarda"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_cava_grape_roles",
+            "ki_wset_sf_cava_cost",
+            "ki_wset_sf_cava_guarda"
+          ],
+          "scope_note": "Regional causal opportunity or style plus applicable production resource; do not classify price as proved by a generic mechanism alone."
+        }
+      }
+    },
+    {
+      "key": "sekt_deutscher_sekt",
+      "required_scope_levels": [
+        3
+      ],
+      "existing_geographic_node_ids": [
+        "n_geo_germany"
+      ],
+      "pending_geographic_names": [],
+      "dimensions": {
+        "grapes_and_style": {
+          "regional_item_ids": [
+            "ki_wset_sf_sekt_method"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_sekt_method"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "growing_environment": {
+          "regional_item_ids": [
+            "ki_wset_sf_sekt_environment"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_sekt_environment"
+          ],
+          "scope_note": "Named regional causal explanation and separately identified transferable support; geography alone does not satisfy this dimension."
+        },
+        "production": {
+          "regional_item_ids": [
+            "ki_wset_sf_sekt_method"
+          ],
+          "transferable_support_item_ids": [
+            "ki_spark_tank",
+            "ki_spark_transfer_bottle",
+            "ki_spark_transfer_tank",
+            "ki_spark_traditional"
+          ],
+          "item_ids": [
+            "ki_wset_sf_sekt_method",
+            "ki_spark_tank",
+            "ki_spark_transfer_bottle",
+            "ki_spark_transfer_tank",
+            "ki_spark_traditional"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "labels": {
+          "regional_item_ids": [
+            "ki_wset_sf_sekt_origin",
+            "ki_wset_sf_spark_sweetness"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_sekt_origin",
+            "ki_wset_sf_spark_sweetness"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "quality_price": {
+          "regional_item_ids": [
+            "ki_wset_sf_sekt_cost"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_sekt_cost"
+          ],
+          "scope_note": "Named regional causal explanation and separately identified transferable support; geography alone does not satisfy this dimension."
+        }
+      }
+    },
+    {
+      "key": "cap_classique",
+      "required_scope_levels": [
+        2,
+        3
+      ],
+      "existing_geographic_node_ids": [
+        "n_geo_south_africa"
+      ],
+      "pending_geographic_names": [],
+      "dimensions": {
+        "grapes_and_style": {
+          "regional_item_ids": [
+            "ki_wset_sf_cap_style"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_cap_style"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "growing_environment": {
+          "regional_item_ids": [
+            "ki_wset_sf_cap_environment"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_cap_environment"
+          ],
+          "scope_note": "Named regional causal explanation and separately identified transferable support; geography alone does not satisfy this dimension."
+        },
+        "production": {
+          "regional_item_ids": [
+            "ki_wset_sf_cap_identity"
+          ],
+          "transferable_support_item_ids": [
+            "ki_spark_traditional",
+            "ki_spark_lees_style",
+            "ki_spark_dosage"
+          ],
+          "item_ids": [
+            "ki_wset_sf_cap_identity",
+            "ki_spark_traditional",
+            "ki_spark_lees_style",
+            "ki_spark_dosage"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "labels": {
+          "regional_item_ids": [
+            "ki_wset_sf_cap_identity",
+            "ki_wset_sf_spark_sweetness"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_cap_identity",
+            "ki_wset_sf_spark_sweetness"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "quality_price": {
+          "regional_item_ids": [
+            "ki_wset_sf_newworld_spark_cost"
+          ],
+          "transferable_support_item_ids": [
+            "ki_wset_prod_cost_cellar"
+          ],
+          "item_ids": [
+            "ki_wset_sf_newworld_spark_cost",
+            "ki_wset_prod_cost_cellar"
+          ],
+          "scope_note": "Named regional causal explanation and separately identified transferable support; geography alone does not satisfy this dimension."
+        }
+      }
+    },
+    {
+      "key": "tasmania_sparkling",
+      "required_scope_levels": [
+        3
+      ],
+      "existing_geographic_node_ids": [
+        "n_geo_tasmania"
+      ],
+      "pending_geographic_names": [],
+      "dimensions": {
+        "grapes_and_style": {
+          "regional_item_ids": [
+            "ki_wset_sf_tasmania_spark"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_tasmania_spark"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "growing_environment": {
+          "regional_item_ids": [
+            "ki_wset_sf_tasmania_spark",
+            "ki_reg_sh_tasmania_hazards"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_tasmania_spark",
+            "ki_reg_sh_tasmania_hazards"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "production": {
+          "regional_item_ids": [
+            "ki_wset_sf_tasmania_spark"
+          ],
+          "transferable_support_item_ids": [
+            "ki_spark_traditional",
+            "ki_spark_lees_style",
+            "ki_spark_dosage"
+          ],
+          "item_ids": [
+            "ki_wset_sf_tasmania_spark",
+            "ki_spark_traditional",
+            "ki_spark_lees_style",
+            "ki_spark_dosage"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "labels": {
+          "regional_item_ids": [
+            "ki_wset_sf_spark_sweetness"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_spark_sweetness"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "quality_price": {
+          "regional_item_ids": [
+            "ki_wset_sf_newworld_spark_cost"
+          ],
+          "transferable_support_item_ids": [
+            "ki_wset_prod_cost_cellar"
+          ],
+          "item_ids": [
+            "ki_wset_sf_newworld_spark_cost",
+            "ki_wset_prod_cost_cellar"
+          ],
+          "scope_note": "Named regional causal explanation and separately identified transferable support; geography alone does not satisfy this dimension."
+        }
+      }
+    },
+    {
+      "key": "yarra_sparkling",
+      "required_scope_levels": [
+        3
+      ],
+      "existing_geographic_node_ids": [
+        "n_geo_yarra_valley"
+      ],
+      "pending_geographic_names": [],
+      "dimensions": {
+        "grapes_and_style": {
+          "regional_item_ids": [
+            "ki_wset_sf_yarra_spark"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_yarra_spark"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "growing_environment": {
+          "regional_item_ids": [
+            "ki_wset_sf_yarra_spark",
+            "ki_reg_sh_yarra_mesoclimate"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_yarra_spark",
+            "ki_reg_sh_yarra_mesoclimate"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "production": {
+          "regional_item_ids": [
+            "ki_wset_sf_yarra_spark"
+          ],
+          "transferable_support_item_ids": [
+            "ki_spark_traditional",
+            "ki_spark_lees_style"
+          ],
+          "item_ids": [
+            "ki_wset_sf_yarra_spark",
+            "ki_spark_traditional",
+            "ki_spark_lees_style"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "labels": {
+          "regional_item_ids": [
+            "ki_wset_sf_spark_sweetness"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_spark_sweetness"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "quality_price": {
+          "regional_item_ids": [
+            "ki_wset_sf_newworld_spark_cost"
+          ],
+          "transferable_support_item_ids": [
+            "ki_wset_prod_cost_cellar"
+          ],
+          "item_ids": [
+            "ki_wset_sf_newworld_spark_cost",
+            "ki_wset_prod_cost_cellar"
+          ],
+          "scope_note": "Named regional causal explanation and separately identified transferable support; geography alone does not satisfy this dimension."
+        }
+      }
+    },
+    {
+      "key": "adelaide_hills_sparkling",
+      "required_scope_levels": [
+        3
+      ],
+      "existing_geographic_node_ids": [
+        "n_geo_adelaide_hills"
+      ],
+      "pending_geographic_names": [],
+      "dimensions": {
+        "grapes_and_style": {
+          "regional_item_ids": [
+            "ki_wset_sf_adelaide_spark"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_adelaide_spark"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "growing_environment": {
+          "regional_item_ids": [
+            "ki_wset_sf_adelaide_spark",
+            "ki_reg_oa_adelaide_warm_slopes"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_adelaide_spark",
+            "ki_reg_oa_adelaide_warm_slopes"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "production": {
+          "regional_item_ids": [
+            "ki_wset_sf_adelaide_spark"
+          ],
+          "transferable_support_item_ids": [
+            "ki_spark_traditional",
+            "ki_spark_lees_style"
+          ],
+          "item_ids": [
+            "ki_wset_sf_adelaide_spark",
+            "ki_spark_traditional",
+            "ki_spark_lees_style"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "labels": {
+          "regional_item_ids": [
+            "ki_wset_sf_spark_sweetness"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_spark_sweetness"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "quality_price": {
+          "regional_item_ids": [
+            "ki_wset_sf_newworld_spark_cost"
+          ],
+          "transferable_support_item_ids": [
+            "ki_wset_prod_cost_cellar"
+          ],
+          "item_ids": [
+            "ki_wset_sf_newworld_spark_cost",
+            "ki_wset_prod_cost_cellar"
+          ],
+          "scope_note": "Named regional causal explanation and separately identified transferable support; geography alone does not satisfy this dimension."
+        }
+      }
+    },
+    {
+      "key": "marlborough_sparkling",
+      "required_scope_levels": [
+        3
+      ],
+      "existing_geographic_node_ids": [
+        "n_geo_marlborough"
+      ],
+      "pending_geographic_names": [],
+      "dimensions": {
+        "grapes_and_style": {
+          "regional_item_ids": [
+            "ki_wset_sf_marlborough_spark"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_marlborough_spark"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "growing_environment": {
+          "regional_item_ids": [
+            "ki_wset_sf_marlborough_spark"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_marlborough_spark"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "production": {
+          "regional_item_ids": [
+            "ki_wset_sf_marlborough_spark"
+          ],
+          "transferable_support_item_ids": [
+            "ki_spark_traditional",
+            "ki_spark_lees_style"
+          ],
+          "item_ids": [
+            "ki_wset_sf_marlborough_spark",
+            "ki_spark_traditional",
+            "ki_spark_lees_style"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "labels": {
+          "regional_item_ids": [
+            "ki_wset_sf_spark_sweetness"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_spark_sweetness"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "quality_price": {
+          "regional_item_ids": [
+            "ki_wset_sf_newworld_spark_cost"
+          ],
+          "transferable_support_item_ids": [
+            "ki_wset_prod_cost_cellar"
+          ],
+          "item_ids": [
+            "ki_wset_sf_newworld_spark_cost",
+            "ki_wset_prod_cost_cellar"
+          ],
+          "scope_note": "Named regional causal explanation and separately identified transferable support; geography alone does not satisfy this dimension."
+        }
+      }
+    },
+    {
+      "key": "anderson_valley_sparkling",
+      "required_scope_levels": [
+        3
+      ],
+      "existing_geographic_node_ids": [
+        "n_geo_anderson_valley"
+      ],
+      "pending_geographic_names": [],
+      "dimensions": {
+        "grapes_and_style": {
+          "regional_item_ids": [
+            "ki_wset_sf_anderson_spark"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_anderson_spark"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "growing_environment": {
+          "regional_item_ids": [
+            "ki_wset_sf_anderson_spark"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_anderson_spark"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "production": {
+          "regional_item_ids": [
+            "ki_wset_sf_anderson_spark"
+          ],
+          "transferable_support_item_ids": [
+            "ki_spark_traditional",
+            "ki_spark_lees_style"
+          ],
+          "item_ids": [
+            "ki_wset_sf_anderson_spark",
+            "ki_spark_traditional",
+            "ki_spark_lees_style"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "labels": {
+          "regional_item_ids": [
+            "ki_wset_sf_spark_sweetness"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_spark_sweetness"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "quality_price": {
+          "regional_item_ids": [
+            "ki_wset_sf_newworld_spark_cost"
+          ],
+          "transferable_support_item_ids": [
+            "ki_wset_prod_cost_cellar"
+          ],
+          "item_ids": [
+            "ki_wset_sf_newworld_spark_cost",
+            "ki_wset_prod_cost_cellar"
+          ],
+          "scope_note": "Named regional causal explanation and separately identified transferable support; geography alone does not satisfy this dimension."
+        }
+      }
+    },
+    {
+      "key": "los_carneros_sparkling",
+      "required_scope_levels": [
+        3
+      ],
+      "existing_geographic_node_ids": [
+        "n_geo_los_carneros"
+      ],
+      "pending_geographic_names": [],
+      "dimensions": {
+        "grapes_and_style": {
+          "regional_item_ids": [
+            "ki_wset_sf_carneros_spark"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_carneros_spark"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "growing_environment": {
+          "regional_item_ids": [
+            "ki_wset_sf_carneros_spark"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_carneros_spark"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "production": {
+          "regional_item_ids": [
+            "ki_wset_sf_carneros_spark"
+          ],
+          "transferable_support_item_ids": [
+            "ki_spark_traditional",
+            "ki_spark_lees_style"
+          ],
+          "item_ids": [
+            "ki_wset_sf_carneros_spark",
+            "ki_spark_traditional",
+            "ki_spark_lees_style"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "labels": {
+          "regional_item_ids": [
+            "ki_wset_sf_spark_sweetness"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_spark_sweetness"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "quality_price": {
+          "regional_item_ids": [
+            "ki_wset_sf_newworld_spark_cost"
+          ],
+          "transferable_support_item_ids": [
+            "ki_wset_prod_cost_cellar"
+          ],
+          "item_ids": [
+            "ki_wset_sf_newworld_spark_cost",
+            "ki_wset_prod_cost_cellar"
+          ],
+          "scope_note": "Named regional causal explanation and separately identified transferable support; geography alone does not satisfy this dimension."
+        }
+      }
+    },
+    {
+      "key": "port",
+      "required_scope_levels": [
+        2,
+        3
+      ],
+      "existing_geographic_node_ids": [
+        "n_geo_douro",
+        "n_geo_baixo_corgo",
+        "n_geo_cima_corgo",
+        "n_geo_douro_superior"
+      ],
+      "pending_geographic_names": [],
+      "dimensions": {
+        "grapes_and_style": {
+          "regional_item_ids": [
+            "ki_wset_sf_port_grapes",
+            "ki_wset_sf_port_ruby_reserve",
+            "ki_wset_sf_port_tawny_labels"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_port_grapes",
+            "ki_wset_sf_port_ruby_reserve",
+            "ki_wset_sf_port_tawny_labels"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "growing_environment": {
+          "regional_item_ids": [
+            "ki_reg_ib_douro_shelter",
+            "ki_reg_ib_douro_gradient",
+            "ki_reg_ib_douro_terrain"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_reg_ib_douro_shelter",
+            "ki_reg_ib_douro_gradient",
+            "ki_reg_ib_douro_terrain"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "production": {
+          "regional_item_ids": [
+            "ki_wset_sf_port_short_extraction",
+            "ki_wset_sf_port_autovinifier",
+            "ki_wset_sf_port_mechanical"
+          ],
+          "transferable_support_item_ids": [
+            "ki_fort_port_sugar",
+            "ki_fort_port_stop",
+            "ki_fort_port_ruby",
+            "ki_fort_port_tawny",
+            "ki_fort_port_vintage",
+            "ki_fort_port_lbv"
+          ],
+          "item_ids": [
+            "ki_fort_port_sugar",
+            "ki_fort_port_stop",
+            "ki_wset_sf_port_short_extraction",
+            "ki_wset_sf_port_autovinifier",
+            "ki_wset_sf_port_mechanical",
+            "ki_fort_port_ruby",
+            "ki_fort_port_tawny",
+            "ki_fort_port_vintage",
+            "ki_fort_port_lbv"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "labels": {
+          "regional_item_ids": [
+            "ki_wset_sf_port_ruby_reserve",
+            "ki_wset_sf_port_tawny_labels",
+            "ki_wset_sf_port_age_label",
+            "ki_wset_sf_port_vintage_lbv"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_port_ruby_reserve",
+            "ki_wset_sf_port_tawny_labels",
+            "ki_wset_sf_port_age_label",
+            "ki_wset_sf_port_vintage_lbv"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "quality_price": {
+          "regional_item_ids": [
+            "ki_wset_sf_port_cost"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_port_cost"
+          ],
+          "scope_note": "Regional causal opportunity or style plus applicable production resource; do not classify price as proved by a generic mechanism alone."
+        }
+      },
+      "protected_wine_identity_node_id": "n_wine_type_wset_geo_porto",
+      "origin_item_ids": [
+        "ki_wset_geo_porto_origin"
+      ],
+      "geographic_identity_note": "Port/Porto protected wine identity is linked to Douro by RESERVED_FOR_REGION; Porto city is not substituted for the origin."
+    },
+    {
+      "key": "sherry",
+      "required_scope_levels": [
+        2,
+        3
+      ],
+      "existing_geographic_node_ids": [
+        "n_geo_jerez",
+        "n_geo_jerez_town",
+        "n_geo_manzanilla_sanlucar",
+        "n_geo_sanlucar_town"
+      ],
+      "pending_geographic_names": [],
+      "dimensions": {
+        "grapes_and_style": {
+          "regional_item_ids": [
+            "ki_wset_sf_sherry_grapes",
+            "ki_wset_sf_sherry_fino",
+            "ki_wset_sf_sherry_manzanilla",
+            "ki_wset_sf_sherry_amontillado_style",
+            "ki_wset_sf_sherry_oloroso_style",
+            "ki_wset_sf_sherry_palo_cortado",
+            "ki_wset_sf_sherry_pale_cream",
+            "ki_wset_sf_sherry_medium",
+            "ki_wset_sf_sherry_cream_style"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_sherry_grapes",
+            "ki_wset_sf_sherry_fino",
+            "ki_wset_sf_sherry_manzanilla",
+            "ki_wset_sf_sherry_amontillado_style",
+            "ki_wset_sf_sherry_oloroso_style",
+            "ki_wset_sf_sherry_palo_cortado",
+            "ki_wset_sf_sherry_pale_cream",
+            "ki_wset_sf_sherry_medium",
+            "ki_wset_sf_sherry_cream_style"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "growing_environment": {
+          "regional_item_ids": [
+            "ki_wset_sf_sherry_climate",
+            "ki_wset_sf_sherry_albariza",
+            "ki_wset_sf_sherry_manzanilla"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_sherry_climate",
+            "ki_wset_sf_sherry_albariza",
+            "ki_wset_sf_sherry_manzanilla"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "production": {
+          "regional_item_ids": [
+            "ki_wset_sf_sherry_current_route"
+          ],
+          "transferable_support_item_ids": [
+            "ki_fort_sherry_classify",
+            "ki_fort_sherry_flor_level",
+            "ki_fort_sherry_flor_ethanol",
+            "ki_fort_sherry_glycerol",
+            "ki_fort_sherry_solera",
+            "ki_fort_sherry_saca",
+            "ki_fort_sherry_refresh",
+            "ki_fort_sherry_px",
+            "ki_fort_sherry_cream"
+          ],
+          "item_ids": [
+            "ki_fort_sherry_classify",
+            "ki_fort_sherry_flor_level",
+            "ki_fort_sherry_flor_ethanol",
+            "ki_fort_sherry_glycerol",
+            "ki_fort_sherry_solera",
+            "ki_fort_sherry_saca",
+            "ki_fort_sherry_refresh",
+            "ki_fort_sherry_px",
+            "ki_fort_sherry_cream",
+            "ki_wset_sf_sherry_current_route"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "labels": {
+          "regional_item_ids": [
+            "ki_wset_sf_sherry_fino",
+            "ki_wset_sf_sherry_manzanilla",
+            "ki_wset_sf_sherry_amontillado_style",
+            "ki_wset_sf_sherry_oloroso_style",
+            "ki_wset_sf_sherry_palo_cortado",
+            "ki_wset_sf_sherry_pale_cream",
+            "ki_wset_sf_sherry_medium",
+            "ki_wset_sf_sherry_cream_style"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_sherry_fino",
+            "ki_wset_sf_sherry_manzanilla",
+            "ki_wset_sf_sherry_amontillado_style",
+            "ki_wset_sf_sherry_oloroso_style",
+            "ki_wset_sf_sherry_palo_cortado",
+            "ki_wset_sf_sherry_pale_cream",
+            "ki_wset_sf_sherry_medium",
+            "ki_wset_sf_sherry_cream_style"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "quality_price": {
+          "regional_item_ids": [
+            "ki_wset_sf_sherry_cost",
+            "ki_wset_sf_sherry_albariza"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_sherry_cost",
+            "ki_wset_sf_sherry_albariza"
+          ],
+          "scope_note": "Regional causal opportunity or style plus applicable production resource; do not classify price as proved by a generic mechanism alone."
+        }
+      }
+    },
+    {
+      "key": "muscat_beaumes_de_venise",
+      "required_scope_levels": [
+        3
+      ],
+      "existing_geographic_node_ids": [
+        "n_geo_muscat_de_beaumes_de_venise"
+      ],
+      "pending_geographic_names": [],
+      "dimensions": {
+        "grapes_and_style": {
+          "regional_item_ids": [
+            "ki_wset_sf_beaumes_origin",
+            "ki_wset_sf_beaumes_fresh"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_beaumes_origin",
+            "ki_wset_sf_beaumes_fresh"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "growing_environment": {
+          "regional_item_ids": [
+            "ki_wset_sf_beaumes_origin"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_beaumes_origin"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "production": {
+          "regional_item_ids": [
+            "ki_wset_sf_beaumes_fresh"
+          ],
+          "transferable_support_item_ids": [
+            "ki_fort_vdn_mutage"
+          ],
+          "item_ids": [
+            "ki_fort_vdn_mutage",
+            "ki_wset_sf_beaumes_fresh"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "labels": {
+          "regional_item_ids": [
+            "ki_wset_sf_beaumes_origin"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_beaumes_origin"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "quality_price": {
+          "regional_item_ids": [
+            "ki_wset_sf_beaumes_fresh",
+            "ki_wset_sf_beaumes_cost"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_beaumes_fresh",
+            "ki_wset_sf_beaumes_cost"
+          ],
+          "scope_note": "Regional causal opportunity or style plus applicable production resource; do not classify price as proved by a generic mechanism alone."
+        }
+      }
+    },
+    {
+      "key": "rutherglen_muscat",
+      "required_scope_levels": [
+        3
+      ],
+      "existing_geographic_node_ids": [
+        "n_geo_rutherglen_wine"
+      ],
+      "pending_geographic_names": [],
+      "dimensions": {
+        "grapes_and_style": {
+          "regional_item_ids": [
+            "ki_wset_sf_rutherglen_climate",
+            "ki_wset_sf_rutherglen_evolution",
+            "ki_wset_sf_rutherglen_tiers"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_rutherglen_climate",
+            "ki_wset_sf_rutherglen_evolution",
+            "ki_wset_sf_rutherglen_tiers"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "growing_environment": {
+          "regional_item_ids": [
+            "ki_wset_sf_rutherglen_climate"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_rutherglen_climate"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "production": {
+          "regional_item_ids": [
+            "ki_wset_sf_rutherglen_evolution"
+          ],
+          "transferable_support_item_ids": [
+            "ki_fort_ruth_sugar",
+            "ki_fort_ruth_casks",
+            "ki_fort_ruth_parcels"
+          ],
+          "item_ids": [
+            "ki_fort_ruth_sugar",
+            "ki_fort_ruth_casks",
+            "ki_fort_ruth_parcels",
+            "ki_wset_sf_rutherglen_evolution"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "labels": {
+          "regional_item_ids": [
+            "ki_wset_sf_rutherglen_tiers"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_rutherglen_tiers"
+          ],
+          "scope_note": "Exact explanation evidence; LOCATED_IN facts alone do not satisfy this dimension."
+        },
+        "quality_price": {
+          "regional_item_ids": [
+            "ki_wset_sf_rutherglen_evolution",
+            "ki_wset_sf_rutherglen_tiers"
+          ],
+          "transferable_support_item_ids": [],
+          "item_ids": [
+            "ki_wset_sf_rutherglen_evolution",
+            "ki_wset_sf_rutherglen_tiers"
+          ],
+          "scope_note": "Regional causal opportunity or style plus applicable production resource; do not classify price as proved by a generic mechanism alone."
+        }
+      }
+    }
+  ],
+  "methods": {
+    "traditional": [
+      "ki_spark_traditional",
+      "ki_spark_tirage",
+      "ki_spark_riddling",
+      "ki_spark_disgorgement",
+      "ki_spark_dosage"
+    ],
+    "transfer": [
+      "ki_spark_transfer_bottle",
+      "ki_spark_transfer_tank",
+      "ki_spark_transfer_lees"
+    ],
+    "tank": [
+      "ki_spark_tank",
+      "ki_spark_tank_filter",
+      "ki_spark_counterpressure"
+    ],
+    "ancestral": [
+      "ki_spark_ancestral",
+      "ki_spark_ancestral_disgorge"
+    ],
+    "asti": [
+      "ki_wset_sf_asti_method",
+      "ki_wset_sf_asti_stop"
+    ],
+    "carbonation": [
+      "ki_spark_carbonation",
+      "ki_spark_carbonation_fermentation"
+    ]
+  }
+}

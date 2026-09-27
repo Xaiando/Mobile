@@ -106,10 +106,11 @@ class StudySessionController extends AsyncNotifier<StudySessionState?> {
   Future<StudySessionState?> build() async => null;
 
   /// Plans a session for the active track and shows its first card.
-  Future<void> start() async {
+  Future<void> start({Set<String>? itemIds}) async {
+    final focus = itemIds == null ? null : Set<String>.of(itemIds);
     state = const AsyncLoading();
     final started = await AsyncValue.guard(() async {
-      final plan = await ref.read(studyPlannerProvider).plan();
+      final plan = await ref.read(studyPlannerProvider).plan(itemIds: focus);
       if (plan == null) return null;
       final session = StudySession(plan);
       return StudySessionState(session: session, turn: await _turn(session));

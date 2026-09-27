@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:fsrs/fsrs.dart' as fsrs;
 import 'package:sommelier/core/curriculum/curriculum_ingestion.dart';
@@ -26,10 +28,22 @@ void main() {
   });
   tearDown(() => db.close());
 
-  test('offers Level 3, Diploma and CMS Certified', () async {
-    final tracks = await profiles.selectableTracks();
-    expect(tracks.map((t) => t.id), ['CMS_CERTIFIED', 'WSET_L3', 'WSET_L4']);
-  });
+  test(
+    'offers Levels 1–4 and CMS Certified in organization/level order',
+    () async {
+      final tracks = await profiles.selectableTracks();
+      expect(tracks.map((t) => t.id), [
+        'CMS_CERTIFIED',
+        'WSET_L1',
+        'WSET_L2',
+        'WSET_L3',
+        'WSET_L4',
+      ]);
+      for (final id in ['WSET_L1', 'WSET_L2']) {
+        expect((await profiles.selectTrack(id)).activeCertificationId, id);
+      }
+    },
+  );
 
   test('has no profile until a track is chosen', () async {
     expect(await profiles.current(), isNull);
@@ -59,11 +73,38 @@ void main() {
     expect(profile.updatedAt, profile.createdAt);
   });
 
-  test('rejects tracks that are not selectable in V0.1', () async {
-    await expectLater(profiles.selectTrack('WSET_L2'), throwsArgumentError);
-    await expectLater(profiles.selectTrack('NO_SUCH'), throwsArgumentError);
-    expect(await profiles.current(), isNull);
-  });
+  test(
+    'rejects known unavailable and unknown tracks without a profile',
+    () async {
+      final fixtureDb = openTestDatabase();
+      try {
+        final fixture = minimalDataset();
+        rowOf(fixture, 'certifications', 'id', 'WSET_L2')['is_selectable'] =
+            false;
+        await CurriculumIngester(
+          fixtureDb,
+          clock: time.clock,
+        ).ingest(datasetOf(fixture));
+        final fixtureProfiles = LearnerProfiles(fixtureDb, clock: time.clock);
+        expect(
+          (await fixtureProfiles.selectableTracks()).map((track) => track.id),
+          isNot(contains('WSET_L2')),
+        );
+        await expectLater(
+          fixtureProfiles.selectTrack('WSET_L2'),
+          throwsArgumentError,
+        );
+        await expectLater(
+          fixtureProfiles.selectTrack('NO_SUCH'),
+          throwsArgumentError,
+        );
+        expect(await fixtureProfiles.current(), isNull);
+      } finally {
+        await fixtureDb.close();
+      }
+      expect(await profiles.current(), isNull);
+    },
+  );
 
   test('switching track neither resets nor forks memory (FS-12)', () async {
     await profiles.selectTrack('WSET_L3');
@@ -81,15 +122,20 @@ void main() {
 
   test('streams the profile as it changes', () async {
     final seen = <String?>[];
-    final subscription = profiles.watch().listen(
-      (profile) => seen.add(profile?.activeCertificationId),
-    );
-    await pumpEventQueue();
-    await profiles.selectTrack('WSET_L3');
-    await pumpEventQueue();
-    await profiles.selectTrack('CMS_CERTIFIED');
-    await pumpEventQueue();
-    await subscription.cancel();
-    expect(seen, [null, 'WSET_L3', 'CMS_CERTIFIED']);
+    final events = StreamIterator(profiles.watch());
+    try {
+      expect(await events.moveNext(), isTrue);
+      seen.add(events.current?.activeCertificationId);
+      expect(seen, [null]);
+      for (final id in ['WSET_L3', 'CMS_CERTIFIED']) {
+        await profiles.selectTrack(id);
+        expect(await events.moveNext(), isTrue);
+        expect(events.current?.activeCertificationId, id);
+        seen.add(events.current?.activeCertificationId);
+      }
+      expect(seen, [null, 'WSET_L3', 'CMS_CERTIFIED']);
+    } finally {
+      await events.cancel();
+    }
   });
 }

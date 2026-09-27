@@ -33,8 +33,15 @@ class WsetProgressCard extends ConsumerWidget {
             },
             const SizedBox(height: 8),
             const Text(
-              'Counts describe the available study material. Full level coverage is still being built.',
+              'Counts describe the available required study material. Topic mastery and practice activity are app study milestones; official exam results are recorded separately.',
             ),
+            if (progress case AsyncData(:final value))
+              if (value.levels.any(
+                (level) =>
+                    level.scope.certificationId == 'WSET_L4' &&
+                    !level.scope.curriculumComplete,
+              ))
+                const Text('Diploma coverage is still being built.'),
             const SizedBox(height: 8),
             TextButton.icon(
               onPressed: () => Navigator.of(context).push<void>(
@@ -66,17 +73,19 @@ class _LevelRow extends StatelessWidget {
         ),
         if (level.examPassed) const Text('Exam passed · self-reported'),
         Text(
-          level.counts.available == 0
+          level.milestoneCounts.available == 0
               ? 'Study material not yet available'
-              : '${level.counts.studied}/${level.counts.available} studied · '
-                    '${level.counts.mastered}/${level.counts.available} mastered',
+              : '${level.milestoneCounts.studied}/${level.milestoneCounts.available} studied · '
+                    '${level.milestoneCounts.mastered}/${level.milestoneCounts.available} mastered',
         ),
-        if (level.counts.unavailable > 0)
+        if (level.milestoneCounts.unavailable > 0)
           Text(
-            '${level.counts.unavailable} mapped facts are not yet available for practice.',
+            '${level.milestoneCounts.unavailable} required facts are not yet available for practice.',
           ),
         const SizedBox(height: 4),
-        LinearProgressIndicator(value: level.counts.masteredFraction ?? 0),
+        LinearProgressIndicator(
+          value: level.milestoneCounts.masteredFraction ?? 0,
+        ),
       ],
     ),
   );

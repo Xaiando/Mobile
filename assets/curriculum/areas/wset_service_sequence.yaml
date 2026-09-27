@@ -1,0 +1,72 @@
+# Original Level 3 service-sequence explanations; venue conventions can vary.
+knowledge_nodes:
+  - id: n_wset_sseq_principle_lineup
+    node_type: production_principle
+    name: What should guide the order of several wines?
+  - id: n_wset_sseq_point_lineup
+    node_type: learning_point
+    name: Consider intensity and texture when sequencing wines
+  - id: n_wset_sseq_principle_table
+    node_type: production_principle
+    name: What is a practical sequence for serving an ordered bottle?
+  - id: n_wset_sseq_point_table
+    node_type: learning_point
+    name: Confirm the wine and condition before full service
+knowledge_relations:
+  - subject_id: n_wset_sseq_principle_lineup
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_sseq_point_lineup
+    valid_from: 2026-09-27
+  - subject_id: n_wset_sseq_principle_table
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_sseq_point_table
+    valid_from: 2026-09-27
+knowledge_items:
+  - id: ki_wset_sseq_lineup
+    subject_id: n_wset_sseq_principle_lineup
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_sseq_point_lineup
+    domain_id: service
+    assertion_text: When serving several wines, a useful starting order moves from lighter, less intense examples towards fuller, more powerful ones. Consider aroma intensity, flavour and texture with the menu. Colour is a shortcut rather than a rule; a fuller white can follow a lighter red, and the planned food or a fragile mature bottle may justify a different order.
+    last_verified_at: 2026-09-27T00:00:00.000Z
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_wset_sseq_table
+    subject_id: n_wset_sseq_principle_table
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_sseq_point_table
+    domain_id: service
+    assertion_text: Confirm the ordered wine and vintage by presenting the label, prepare suitable glasses and temperature, and open the bottle safely. Offer a small tasting sample to check its condition before pouring the full servings. Investigate a suspected fault and replace faulty wine rather than continue pouring it. Complete service without overfilling the glasses; adapt the table's pouring order to the venue and guests.
+    last_verified_at: 2026-09-27T00:00:00.000Z
+    verification_status: unverified
+    mcq_disabled: true
+certification_knowledge_mappings:
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_sseq_lineup
+    importance: core
+    minimum_depth: 2
+    syllabus_ref: Unit 1 LO5 Range 1 - sequence of service
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_sseq_table
+    importance: core
+    minimum_depth: 2
+    syllabus_ref: Unit 1 LO5 Range 1 - sequence of service
+source_citations:
+  - id: src_wset_sseq_bordeaux
+    kind: reference_work
+    title: How to serve a wine properly
+    publisher: Conseil Interprofessionnel du Vin de Bordeaux
+    jurisdiction: FR
+    url: https://www.bordeaux.com/en/wine-tasting-basics/serve/
+    document_identifier: Living board educational page; order by intensity and texture, flexible colour order, assess fragile bottles
+    accessed_on: 2026-09-27
+knowledge_item_citations:
+  - knowledge_item_id: ki_wset_sseq_lineup
+    source_citation_id: src_wset_sseq_bordeaux
+    locator: Is there a recommended serving order; sommelier advice for fragile wines
+  - knowledge_item_id: ki_wset_sseq_table
+    source_citation_id: src_wset_srv_cms
+    locator: PDF pages 4-5 standard service; confirming and presenting the bottle, tasting pour, approval and full servings; original concise prose
+  - knowledge_item_id: ki_wset_sseq_table
+    source_citation_id: src_wset_sfault_common_faults
+    locator: Check smell and condition before the bottle is poured for the table; return suspected faulty wine

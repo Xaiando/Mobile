@@ -37,6 +37,7 @@ void main() {
       'typed',
       'short_answer',
       'reasoning',
+      'numeric',
     ]);
     final mcq = appFormats.require('mcq');
     final card = appFormats.require('flashcard');

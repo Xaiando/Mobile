@@ -41,11 +41,19 @@ void main() {
   }
 
   test('each track tastes with its own grid (T1)', () async {
+    expect(await tasting.gridFor('WSET_L1'), 'tg_structured');
+    expect(await tasting.gridFor('WSET_L2'), 'tg_structured');
     expect(await tasting.gridFor('WSET_L3'), 'tg_structured');
     expect(await tasting.gridFor('CMS_CERTIFIED'), 'tg_deductive');
     expect(
       [for (final g in await tasting.grids()) g.id],
-      ['tg_deductive', 'tg_structured'],
+      [
+        'tg_guided_wine_l1_v1',
+        'tg_guided_wine_l2_v1',
+        'tg_guided_wine_l3_v1',
+        'tg_deductive',
+        'tg_structured',
+      ],
     );
 
     final structured = await tasting.layout('tg_structured');

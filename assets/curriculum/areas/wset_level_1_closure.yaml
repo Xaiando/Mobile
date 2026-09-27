@@ -1,0 +1,345 @@
+# Original beginner closure lessons. Facts remain unverified; existing IDs and assertions preserved.
+knowledge_nodes:
+  - id: n_wset_l1_principle_white_route
+    node_type: production_principle
+    name: How would you explain typical white winemaking route?
+  - id: n_wset_l1_point_white_route
+    node_type: learning_point
+    name: Typical white winemaking route
+  - id: n_wset_l1_principle_red_route
+    node_type: production_principle
+    name: How would you explain typical red winemaking route?
+  - id: n_wset_l1_point_red_route
+    node_type: learning_point
+    name: Typical red winemaking route
+  - id: n_wset_l1_principle_rose_route
+    node_type: production_principle
+    name: How would you explain a short-contact rosé route?
+  - id: n_wset_l1_point_rose_route
+    node_type: learning_point
+    name: A short-contact rosé route
+  - id: n_wset_l1_principle_steps
+    node_type: production_principle
+    name: How would you explain crushing, draining, pressing and maturation?
+  - id: n_wset_l1_point_steps
+    node_type: learning_point
+    name: Crushing, draining, pressing and maturation
+  - id: n_wset_l1_principle_chianti_style
+    node_type: production_principle
+    name: "How would you explain chianti: a beginner style example?"
+  - id: n_wset_l1_point_chianti_style
+    node_type: learning_point
+    name: "Chianti: a beginner style example"
+  - id: n_wset_l1_principle_cotes_rhone_style
+    node_type: production_principle
+    name: "How would you explain red côtes du rhône: a beginner style example?"
+  - id: n_wset_l1_point_cotes_rhone_style
+    node_type: learning_point
+    name: "Red Côtes du Rhône: a beginner style example"
+  - id: n_wset_l1_principle_chateauneuf_style
+    node_type: production_principle
+    name: "How would you explain red châteauneuf-du-pape: a beginner style example?"
+  - id: n_wset_l1_point_chateauneuf_style
+    node_type: learning_point
+    name: "Red Châteauneuf-du-Pape: a beginner style example"
+  - id: n_wset_l1_principle_rioja_style
+    node_type: production_principle
+    name: "How would you explain red rioja: a beginner style example?"
+  - id: n_wset_l1_point_rioja_style
+    node_type: learning_point
+    name: "Red Rioja: a beginner style example"
+  - id: n_wset_l1_principle_climate_ripeness
+    node_type: production_principle
+    name: How would you explain cool and warm growing conditions?
+  - id: n_wset_l1_point_climate_ripeness
+    node_type: learning_point
+    name: Cool and warm growing conditions
+knowledge_relations:
+  - subject_id: n_wset_l1_principle_white_route
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_l1_point_white_route
+    valid_from: 2026-09-27
+  - subject_id: n_wset_l1_principle_red_route
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_l1_point_red_route
+    valid_from: 2026-09-27
+  - subject_id: n_wset_l1_principle_rose_route
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_l1_point_rose_route
+    valid_from: 2026-09-27
+  - subject_id: n_wset_l1_principle_steps
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_l1_point_steps
+    valid_from: 2026-09-27
+  - subject_id: n_wset_l1_principle_chianti_style
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_l1_point_chianti_style
+    valid_from: 2026-09-27
+  - subject_id: n_wset_l1_principle_cotes_rhone_style
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_l1_point_cotes_rhone_style
+    valid_from: 2026-09-27
+  - subject_id: n_wset_l1_principle_chateauneuf_style
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_l1_point_chateauneuf_style
+    valid_from: 2026-09-27
+  - subject_id: n_wset_l1_principle_rioja_style
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_l1_point_rioja_style
+    valid_from: 2026-09-27
+  - subject_id: n_wset_l1_principle_climate_ripeness
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_l1_point_climate_ripeness
+    valid_from: 2026-09-27
+knowledge_items:
+  - id: ki_wset_l1_white_route
+    subject_id: n_wset_l1_principle_white_route
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_l1_point_white_route
+    domain_id: winemaking
+    assertion_text: "For a typical white wine: harvest, crush if used, drain and press to separate juice from
+      skins, ferment the juice, mature as intended, then prepare and bottle. Whole-bunch pressing can omit
+      crushing; orange wines use a different skin-contact route."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_l1_red_route
+    subject_id: n_wset_l1_principle_red_route
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_l1_point_red_route
+    domain_id: winemaking
+    assertion_text: "For a typical red wine: harvest, crush if used, ferment with skins, drain the wine and press
+      the remaining solids, mature as intended, then prepare and bottle. Whole-berry or whole-bunch routes can
+      omit crushing, and pressing time varies."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_l1_rose_route
+    subject_id: n_wset_l1_principle_rose_route
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_l1_point_rose_route
+    domain_id: winemaking
+    assertion_text: A common rosé route is harvest, crush black grapes if used, allow brief skin contact, drain
+      and press off the skins, ferment the separated juice, mature briefly as intended, then prepare and
+      bottle. Direct pressing and other rosé routes also exist.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_l1_steps
+    subject_id: n_wset_l1_principle_steps
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_l1_point_steps
+    domain_id: winemaking
+    assertion_text: Crushing breaks berries to release juice; draining separates free liquid, while pressing
+      applies pressure to extract more liquid from solids. Fermentation converts sugar into alcohol and carbon
+      dioxide. Maturation holds the wine before release; bottling fills and closes its final bottle.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_l1_chianti_style
+    subject_id: n_wset_l1_principle_chianti_style
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_l1_point_chianti_style
+    domain_id: tasting
+    assertion_text: A typical young Chianti is a dry red with cherry or red-berry and sometimes floral character,
+      lively acidity and noticeable drying tannin. It is often medium-bodied; blending, site, extraction and
+      age change the profile, and mature tannins can soften.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_l1_cotes_rhone_style
+    subject_id: n_wset_l1_principle_cotes_rhone_style
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_l1_point_cotes_rhone_style
+    domain_id: tasting
+    assertion_text: A typical Grenache-led red Côtes du Rhône is dry, fruity and medium- to full-bodied, with red
+      fruit, warmth and sometimes spice. Syrah and Mourvèdre can add firmer structure. The blend, growing
+      conditions and winemaking affect the actual tannin and body.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_l1_chateauneuf_style
+    subject_id: n_wset_l1_principle_chateauneuf_style
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_l1_point_chateauneuf_style
+    domain_id: tasting
+    assertion_text: A typical red Châteauneuf-du-Pape is dry, Grenache-led and full-bodied, with ripe fruit,
+      spice, alcohol warmth and substantial structure. The blend and producer change its tannin texture and
+      flavour; age can bring more developed character. The appellation also makes white wines.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_l1_rioja_style
+    subject_id: n_wset_l1_principle_rioja_style
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_l1_point_rioja_style
+    domain_id: tasting
+    assertion_text: Tempranillo-led Rioja can show red or black fruit with drying tannin and medium to full body.
+      Young wines may emphasise fresh fruit; oak-matured styles can add vanilla or other wood-related
+      character and softer tannin. Maturation and blend matter; not every Rioja tastes of oak.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+  - id: ki_wset_l1_climate_ripeness
+    subject_id: n_wset_l1_principle_climate_ripeness
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_l1_point_climate_ripeness
+    domain_id: viticulture
+    assertion_text: Cool and warm describe relative growing-season temperatures. With the same variety and
+      suitable growing conditions, greater warmth often allows more ripening and sugar accumulation; more
+      grape sugar gives higher potential alcohol if fermented. Cooler sites often retain more acidity. Water
+      stress, extreme heat, harvest timing and local cooling can change this pattern.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T00:00:00.000Z
+certification_knowledge_mappings:
+  - certification_id: WSET_L1
+    knowledge_item_id: ki_wset_l1_white_route
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L1
+    knowledge_item_id: ki_wset_l1_red_route
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L1
+    knowledge_item_id: ki_wset_l1_rose_route
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L1
+    knowledge_item_id: ki_wset_l1_steps
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L1
+    knowledge_item_id: ki_wset_l1_chianti_style
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L1
+    knowledge_item_id: ki_wset_l1_cotes_rhone_style
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L1
+    knowledge_item_id: ki_wset_l1_chateauneuf_style
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L1
+    knowledge_item_id: ki_wset_l1_rioja_style
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L1
+    knowledge_item_id: ki_wset_l1_climate_ripeness
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L1
+    knowledge_item_id: ki_wset_srv_food_umami_bitter
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L1
+    knowledge_item_id: ki_wset_srv_food_umami_choice
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L1
+    knowledge_item_id: ki_wset_srv_food_intensity_match
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L1
+    knowledge_item_id: ki_wset_srv_food_intensity_preference
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L1
+    knowledge_item_id: ki_wset_taste_palate_flavours
+    importance: core
+    minimum_depth: 2
+source_citations:
+  - id: src_wset_l1_cotes_rhone
+    kind: reference_work
+    title: "AOC Côtes du Rhône: varieties and flavours"
+    publisher: Inter Rhône
+    url: https://www.vins-rhone.com/en/rhone-valley-vineyards/appellations/aoc-cotes-du-rhone
+    accessed_on: 2026-09-27
+    document_identifier: Varieties and flavours; current public primary source
+  - id: src_wset_l1_rose_routes
+    kind: reference_work
+    title: Types of rosé from around the world
+    publisher: Wine & Spirit Education Trust
+    url: https://www.wsetglobal.com/knowledge-centre/blog/2023/november/29/types-of-ros%C3%A9-from-around-the-world
+    accessed_on: 2026-09-27
+    document_identifier: 29 November 2023; direct pressing and short maceration paragraphs only; overbroad EU
+      blending statement excluded
+knowledge_item_citations:
+  - knowledge_item_id: ki_wset_l1_white_route
+    source_citation_id: src_wset_found_uga_fermentation
+    locator: "UGA process: white juice separation and fermentation; Rioja: maturation and bottling; elementary
+      comparison, no home recipes adopted"
+  - knowledge_item_id: ki_wset_l1_white_route
+    source_citation_id: src_wset_found_rioja_red
+    locator: "UGA process: white juice separation and fermentation; Rioja: maturation and bottling; elementary
+      comparison, no home recipes adopted"
+  - knowledge_item_id: ki_wset_l1_red_route
+    source_citation_id: src_wset_found_uga_fermentation
+    locator: "UGA red fermentation; Rioja winemaking: maceration, devatting/pressing, ageing, bottling"
+  - knowledge_item_id: ki_wset_l1_red_route
+    source_citation_id: src_wset_found_rioja_red
+    locator: "UGA red fermentation; Rioja winemaking: maceration, devatting/pressing, ageing, bottling"
+  - knowledge_item_id: ki_wset_l1_rose_route
+    source_citation_id: src_wset_found_wset_styles
+    locator: "WSET colour/style distinctions; UGA juice separation/fermentation; Rioja maturation and bottling:
+      original comparative route"
+  - knowledge_item_id: ki_wset_l1_rose_route
+    source_citation_id: src_wset_found_uga_fermentation
+    locator: "WSET colour/style distinctions; UGA juice separation/fermentation; Rioja maturation and bottling:
+      original comparative route"
+  - knowledge_item_id: ki_wset_l1_rose_route
+    source_citation_id: src_wset_found_rioja_red
+    locator: "WSET colour/style distinctions; UGA juice separation/fermentation; Rioja maturation and bottling:
+      original comparative route"
+  - knowledge_item_id: ki_wset_l1_steps
+    source_citation_id: src_wset_found_uga_fermentation
+    locator: UGA crushing, fermentation and bottling; Rioja devatting/pressing, ageing and bottling
+  - knowledge_item_id: ki_wset_l1_steps
+    source_citation_id: src_wset_found_rioja_red
+    locator: UGA crushing, fermentation and bottling; Rioja devatting/pressing, ageing and bottling
+  - knowledge_item_id: ki_wset_l1_chianti_style
+    source_citation_id: src_wset_found_chianti
+    locator: "Chianti sensory identikit; CMS public grape markers: Sangiovese section only, typical structure not
+      a guarantee"
+  - knowledge_item_id: ki_wset_l1_chianti_style
+    source_citation_id: src_wset_grape_cms_markers
+    locator: "Chianti sensory identikit; CMS public grape markers: Sangiovese section only, typical structure not
+      a guarantee"
+  - knowledge_item_id: ki_wset_l1_cotes_rhone_style
+    source_citation_id: src_wset_l1_cotes_rhone
+    locator: Côtes du Rhône Varieties and flavours; Grenache In the cellars; promotional health and
+      guaranteed-quality claims excluded
+  - knowledge_item_id: ki_wset_l1_cotes_rhone_style
+    source_citation_id: src_wset_grape_ir_grenache
+    locator: Côtes du Rhône Varieties and flavours; Grenache In the cellars; promotional health and
+      guaranteed-quality claims excluded
+  - knowledge_item_id: ki_wset_l1_chateauneuf_style
+    source_citation_id: src_reg_fs_chateauneuf
+    locator: Inter Rhône Châteauneuf-du-Pape red style and Grenache cellar characteristics; original typical
+      description
+  - knowledge_item_id: ki_wset_l1_chateauneuf_style
+    source_citation_id: src_wset_grape_ir_grenache
+    locator: Inter Rhône Châteauneuf-du-Pape red style and Grenache cellar characteristics; original typical
+      description
+  - knowledge_item_id: ki_wset_l1_rioja_style
+    source_citation_id: src_wset_grape_rioja_tempranillo
+    locator: "Tempranillo Aromas and Hints; Rioja red winemaking: younger versus ageing styles, oak maturation"
+  - knowledge_item_id: ki_wset_l1_rioja_style
+    source_citation_id: src_wset_found_rioja_red
+    locator: "Tempranillo Aromas and Hints; Rioja red winemaking: younger versus ageing styles, oak maturation"
+  - knowledge_item_id: ki_wset_l1_climate_ripeness
+    source_citation_id: src_wset_found_nmsu_phenology
+    locator: NMSU temperature/growth and ripening; UGA fermentation and Wine Recipes climate/sugar comparison;
+      WSET cool-climate acidity
+  - knowledge_item_id: ki_wset_l1_climate_ripeness
+    source_citation_id: src_wset_found_uga_fermentation
+    locator: NMSU temperature/growth and ripening; UGA fermentation and Wine Recipes climate/sugar comparison;
+      WSET cool-climate acidity
+  - knowledge_item_id: ki_wset_l1_climate_ripeness
+    source_citation_id: src_wset_found_wset_acid
+    locator: NMSU temperature/growth and ripening; UGA fermentation and Wine Recipes climate/sugar comparison;
+      WSET cool-climate acidity
+  - knowledge_item_id: ki_wset_l1_rose_route
+    source_citation_id: src_wset_l1_rose_routes
+    locator: "Types of rosé wine: styles and how they are made; direct pressing and short maceration paragraphs"

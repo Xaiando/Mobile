@@ -1,0 +1,93 @@
+# Original Level 3 advice closure; recommendations remain conditional on the person, dish and wine.
+knowledge_nodes:
+  - id: n_wset_sadvice_principle_food_bitterness
+    node_type: production_principle
+    name: How should bitterness in food and wine affect a recommendation?
+  - id: n_wset_sadvice_point_food_bitterness
+    node_type: learning_point
+    name: Assess existing bitterness and the drinker's tolerance
+  - id: n_wset_sadvice_principle_selection_context
+    node_type: production_principle
+    name: What should you establish before recommending wine for an occasion?
+  - id: n_wset_sadvice_point_selection_context
+    node_type: learning_point
+    name: Combine style, quality, occasion, budget and individual needs
+  - id: n_wset_sadvice_principle_complexity_fruitiness
+    node_type: production_principle
+    name: How do complexity and fruitiness differ in a food-and-wine choice?
+  - id: n_wset_sadvice_point_complexity_fruitiness
+    node_type: learning_point
+    name: Consider complexity and fruitiness separately from intensity
+knowledge_relations:
+  - subject_id: n_wset_sadvice_principle_food_bitterness
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_sadvice_point_food_bitterness
+    valid_from: 2026-09-27
+  - subject_id: n_wset_sadvice_principle_selection_context
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_sadvice_point_selection_context
+    valid_from: 2026-09-27
+  - subject_id: n_wset_sadvice_principle_complexity_fruitiness
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_sadvice_point_complexity_fruitiness
+    valid_from: 2026-09-27
+knowledge_items:
+  - id: ki_wset_sadvice_food_bitterness
+    subject_id: n_wset_sadvice_principle_food_bitterness
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_sadvice_point_food_bitterness
+    domain_id: service
+    assertion_text: Consider bitterness already present in a dish alongside bitterness from wine tannins or oak; bitterness differs from the drying sensation of astringency. Ask whether the guest enjoys or dislikes bitter flavours and trial the wine with the food. A less bitter, less tannic wine is a possible starting choice for someone who dislikes bitterness; it is not a guaranteed pairing for every dish or drinker.
+    last_verified_at: 2026-09-27T00:00:00.000Z
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_wset_sadvice_selection_context
+    subject_id: n_wset_sadvice_principle_selection_context
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_sadvice_point_selection_context
+    domain_id: service
+    assertion_text: Ask what the wine is for, the food if any, the budget and the person's preferred sweetness, weight and flavours. Also ask about sensitivities or disliked sensations, such as bitterness or chilli heat. Compare the available wines' quality and drinking condition with that brief, then explain a concrete reason for the choice. A celebration, an everyday meal and a gift can call for different choices; the highest price or familiar origin alone cannot establish the best fit.
+    last_verified_at: 2026-09-27T00:00:00.000Z
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_wset_sadvice_complexity_fruitiness
+    subject_id: n_wset_sadvice_principle_complexity_fruitiness
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_sadvice_point_complexity_fruitiness
+    domain_id: service
+    assertion_text: Wine complexity concerns the range and development of characters, while fruitiness concerns the presence of fruit aromas and flavours; neither is identical to flavour intensity. With an intense dish, compare whether the wine's character remains perceptible, including fruit and developed notes, and whether the combination suits the guest. A simple fruity wine and a complex mature wine can serve different briefs; additional complexity or oak does not automatically create a better food pairing.
+    last_verified_at: 2026-09-27T00:00:00.000Z
+    verification_status: unverified
+    mcq_disabled: true
+certification_knowledge_mappings:
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_sadvice_food_bitterness
+    importance: core
+    minimum_depth: 2
+    syllabus_ref: Unit 1 LO5 Ranges 1 and 3 - original recommendation context
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_sadvice_selection_context
+    importance: core
+    minimum_depth: 2
+    syllabus_ref: Unit 1 LO5 Ranges 1 and 3 - original recommendation context
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_sadvice_complexity_fruitiness
+    importance: core
+    minimum_depth: 2
+    syllabus_ref: Unit 1 LO5 Ranges 1 and 3 - original recommendation context
+knowledge_item_citations:
+  - knowledge_item_id: ki_wset_sadvice_food_bitterness
+    source_citation_id: src_wset_taste_tannin
+    locator: Wine tannin contributes both taste bitterness and tactile astringency; different sensations
+  - knowledge_item_id: ki_wset_sadvice_food_bitterness
+    source_citation_id: src_wset_srv_food
+    locator: Get to know your palate and food effects - personal taste and tolerance differ
+  - knowledge_item_id: ki_wset_sadvice_food_bitterness
+    source_citation_id: src_wset_close_l2_session
+    locator: Food and wine pairing exercise - bitterness sensitivity and negative interactions; no exercise or official wording reproduced
+  - knowledge_item_id: ki_wset_sadvice_selection_context
+    source_citation_id: src_wset_srv_food
+    locator: Individual preferences and perception guide recommendations
+  - knowledge_item_id: ki_wset_sadvice_complexity_fruitiness
+    source_citation_id: src_wset_srv_sweet
+    locator: Spices and intense flavours - complementary or contrasting choices both possible

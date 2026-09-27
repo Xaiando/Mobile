@@ -8,6 +8,8 @@ import '../database/app_database.dart';
 import '../study/study_planner.dart';
 import '../time/utc_clock.dart';
 import 'wset_scope.dart';
+import 'wset_requirements.dart';
+import 'wset_practice_evidence.dart';
 
 /// Counts current, mapped facts. A fact counts once, regardless of formats.
 class ProgressCounts {
@@ -57,6 +59,21 @@ class WsetUnitProgress {
   final ProgressCounts counts;
 }
 
+class WsetRequirementProgress {
+  const WsetRequirementProgress({
+    required this.requirement,
+    required this.counts,
+  });
+  final WsetRequirement requirement;
+  final ProgressCounts counts;
+
+  bool get complete =>
+      requirement.reviewed &&
+      counts.mapped > 0 &&
+      counts.unavailable == 0 &&
+      counts.mastered == counts.mapped;
+}
+
 class WsetLevelProgress {
   const WsetLevelProgress({
     required this.scope,
@@ -67,6 +84,10 @@ class WsetLevelProgress {
     required this.nextItems,
     required this.units,
     required this.unassigned,
+    this.requiredCounts,
+    this.optionalCounts,
+    this.requirements = const [],
+    this.practiceEvidence = const WsetPracticeEvidence(),
   });
 
   final WsetLevelScope scope;
@@ -79,12 +100,22 @@ class WsetLevelProgress {
   final List<ProgressSuggestion> nextItems;
   final List<WsetUnitProgress> units;
   final ProgressCounts unassigned;
+  final ProgressCounts? requiredCounts;
+  final ProgressCounts? optionalCounts;
+  final List<WsetRequirementProgress> requirements;
+  final WsetPracticeEvidence practiceEvidence;
+
+  /// Older scope fixtures without a requirement catalog retain their historic
+  /// counts. Published Levels 1–3 use an explicit required study denominator.
+  ProgressCounts get milestoneCounts => requiredCounts ?? counts;
 
   bool get appLevelComplete =>
       scope.curriculumComplete &&
-      counts.mapped > 0 &&
-      counts.unavailable == 0 &&
-      counts.mastered == counts.mapped;
+      milestoneCounts.mapped > 0 &&
+      milestoneCounts.unavailable == 0 &&
+      milestoneCounts.mastered == milestoneCounts.mapped &&
+      requirements.every((requirement) => requirement.complete) &&
+      practiceEvidence.satisfies(scope.practice);
 }
 
 class WsetProgressSnapshot {
@@ -187,6 +218,11 @@ class WsetProgressRepository {
               db.exercisePools,
               db.exercisePoolItems,
               db.schedulerConfigs,
+              db.tastingSessions,
+              db.tastingDescriptors,
+              db.tastingGrids,
+              db.tastingGridAttributes,
+              db.tastingGridValues,
             },
           )
           .watch()
@@ -256,7 +292,33 @@ class WsetProgressRepository {
     final installedItemIds = {
       for (final row in await itemQuery.get()) row.read(db.knowledgeItems.id)!,
     };
+    final installedItems = {
+      for (final item in await db.select(db.knowledgeItems).get())
+        item.id: item,
+    };
     for (final level in scope.levels) {
+      for (final requirement in level.requirements) {
+        for (final dimension in requirement.dimensions) {
+          for (final id in dimension.itemIds) {
+            final item = installedItems[id];
+            if (item == null) {
+              throw FormatException('Unknown requirement item: $id');
+            }
+            if (dimension.kind != 'location' &&
+                item.relationType == 'LOCATED_IN') {
+              throw FormatException(
+                'A map location cannot explain ${dimension.kind}: $id',
+              );
+            }
+            if (dimension.kind == 'location' &&
+                item.relationType != 'LOCATED_IN') {
+              throw FormatException(
+                'Location evidence must locate a place: $id',
+              );
+            }
+          }
+        }
+      }
       for (final unit in level.units) {
         for (final id in unit.itemIds) {
           if (!installedItemIds.contains(id)) {
@@ -318,8 +380,58 @@ class WsetProgressRepository {
             counts: count(mapped.where((item) => item.domainId == domain)),
           ),
       ];
+      ProgressCounts requirementCount(
+        Set<String> ids, {
+        WsetRequirement? requirement,
+      }) {
+        bool serves(String id) {
+          final card = cards[id];
+          if (card == null) return false;
+          if (requirement == null) {
+            return level.requirements
+                .where((row) => row.itemIds.contains(id))
+                .every(
+                  (row) => row.dimensions
+                      .where((dimension) => dimension.itemIds.contains(id))
+                      .every(
+                        (dimension) => card.formats.any(
+                          (format) => dimension.formats.contains(format.mode),
+                        ),
+                      ),
+                );
+          }
+          return requirement.dimensions
+              .where((dimension) => dimension.itemIds.contains(id))
+              .every(
+                (dimension) => card.formats.any(
+                  (format) => dimension.formats.contains(format.mode),
+                ),
+              );
+        }
+
+        final available = ids.where(serves).toSet();
+        return ProgressCounts(
+          mapped: ids.length,
+          available: available.length,
+          studied: available.where((id) => cards[id]!.state != null).length,
+          mastered: available.where(mastered.contains).length,
+          due: available.where((id) => cards[id]!.isDue(now)).length,
+        );
+      }
+
+      final requiredIds = level.requiredItemIds;
+      final requiredCounts = level.requirements.isEmpty
+          ? null
+          : requirementCount(requiredIds);
       final candidates =
-          cards.values.where((card) => !mastered.contains(card.itemId)).toList()
+          cards.values
+              .where(
+                (card) =>
+                    !mastered.contains(card.itemId) &&
+                    (level.requirements.isEmpty ||
+                        requiredIds.contains(card.itemId)),
+              )
+              .toList()
             ..sort((a, b) {
               int rank(StudyCard card) => card.isDue(now)
                   ? 0
@@ -395,6 +507,27 @@ class WsetProgressRepository {
               WsetUnitProgress(scope: unit, counts: count(assigned[unit.id]!)),
           ],
           unassigned: count(unassigned),
+          requiredCounts: requiredCounts,
+          optionalCounts: level.requirements.isEmpty
+              ? null
+              : count(mapped.where((item) => !requiredIds.contains(item.id))),
+          requirements: List.unmodifiable([
+            for (final requirement in level.requirements)
+              WsetRequirementProgress(
+                requirement: requirement,
+                counts: requirementCount(
+                  requirement.itemIds,
+                  requirement: requirement,
+                ),
+              ),
+          ]),
+          practiceEvidence: await WsetPracticeEvidenceReader(db).read(
+            int.parse(level.certificationId.substring(6)),
+            settings,
+            now: now,
+            currentItems: items.map((item) => item.id).toSet(),
+            mappedItems: mapped.map((item) => item.id).toSet(),
+          ),
         ),
       );
     }

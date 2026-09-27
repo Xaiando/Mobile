@@ -34,7 +34,21 @@ class TastingScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final sessions = ref.watch(tastingSessionsProvider);
     return Scaffold(
-      appBar: AppBar(title: const Text('Tasting')),
+      appBar: AppBar(
+        title: const Text('Tasting'),
+        actions: [
+          IconButton(
+            tooltip: 'Level 3 paired tasting',
+            icon: const Icon(Icons.timer_outlined),
+            onPressed: () => context.push('/tasting/paired'),
+          ),
+          IconButton(
+            tooltip: 'Guided tasting and calibration',
+            icon: const Icon(Icons.school_outlined),
+            onPressed: () => context.push('/tasting/guided'),
+          ),
+        ],
+      ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () => context.go('/tasting/new'),
         icon: const Icon(Icons.add),

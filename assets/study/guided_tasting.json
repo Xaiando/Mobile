@@ -1,0 +1,1279 @@
+{
+  "schemaVersion": 1,
+  "version": "1.0.0",
+  "levels": [
+    {
+      "level": 1,
+      "gridId": "tg_guided_wine_l1_v1",
+      "evidencePrompts": [
+        {
+          "id": "description",
+          "prompt": "Explain the observed aromas, tasted flavours, sweetness, acidity, tannin and body."
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "gridId": "tg_guided_wine_l2_v1",
+      "evidencePrompts": [
+        {
+          "id": "description",
+          "prompt": "Explain your appearance, aroma, structural and flavour observations using evidence."
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "gridId": "tg_guided_wine_l3_v1",
+      "evidencePrompts": [
+        {
+          "id": "description",
+          "prompt": "Support your description using observed aromas, flavours and structure."
+        },
+        {
+          "id": "quality",
+          "prompt": "Explain your quality judgement using specific balance, flavour persistence, strength and complexity evidence."
+        },
+        {
+          "id": "ageing",
+          "prompt": "Explain enjoyment now and possible development, including supporting structure and uncertainty."
+        }
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "id": "original_l1_fresh_white",
+      "level": 1,
+      "title": "Fresh white: aroma versus sweetness",
+      "description": "Original fictional training note. Wine colour: White. Aroma associations: Citrus, Apple or pear. Perceived sweetness: Dry. Mouthwatering acidity: High. Drying tannin amount: No noticeable tannin. Perceived weight: Light. Alcohol warmth: Low. Flavour associations: Citrus, Apple or pear.",
+      "itemIds": [
+        "ki_wset_taste_acidity",
+        "ki_wset_taste_tannin",
+        "ki_wset_taste_body"
+      ],
+      "referenceObservations": [
+        {
+          "attributeKey": "colour",
+          "valueKeys": [
+            "white"
+          ],
+          "explanation": "The scenario explicitly describes wine colour."
+        },
+        {
+          "attributeKey": "aromas",
+          "valueKeys": [
+            "citrus",
+            "orchard"
+          ],
+          "explanation": "The scenario explicitly describes aroma associations."
+        },
+        {
+          "attributeKey": "sweetness",
+          "valueKeys": [
+            "dry"
+          ],
+          "explanation": "The scenario explicitly describes perceived sweetness."
+        },
+        {
+          "attributeKey": "acidity",
+          "valueKeys": [
+            "high"
+          ],
+          "explanation": "The scenario explicitly describes mouthwatering acidity."
+        },
+        {
+          "attributeKey": "tannin",
+          "valueKeys": [
+            "none"
+          ],
+          "explanation": "The scenario explicitly describes drying tannin amount."
+        },
+        {
+          "attributeKey": "body",
+          "valueKeys": [
+            "light"
+          ],
+          "explanation": "The scenario explicitly describes perceived weight."
+        },
+        {
+          "attributeKey": "alcohol",
+          "valueKeys": [
+            "low"
+          ],
+          "explanation": "The scenario explicitly describes alcohol warmth."
+        },
+        {
+          "attributeKey": "flavours",
+          "valueKeys": [
+            "citrus",
+            "orchard"
+          ],
+          "explanation": "The scenario explicitly describes flavour associations."
+        }
+      ],
+      "criteria": [
+        {
+          "id": "structure",
+          "text": "Distinguish sweetness, mouthwatering acidity, drying tannin and body."
+        },
+        {
+          "id": "observations",
+          "text": "Support descriptors with the stated evidence without guessing a grape or origin."
+        }
+      ],
+      "feedback": "The bright fruit smells do not make the dry palate sweet. Its light weight and lively acidity suit its straightforward fresh character. These observations are discussion references, not marks for a physical unknown wine. Alternative conclusions need evidence."
+    },
+    {
+      "id": "original_l1_sweet_white",
+      "level": 1,
+      "title": "Sweet white: freshness with sweetness",
+      "description": "Original fictional training note. Wine colour: White. Aroma associations: Stone fruit, Flowers. Perceived sweetness: Noticeably sweet. Mouthwatering acidity: High. Drying tannin amount: No noticeable tannin. Perceived weight: Medium weight. Alcohol warmth: Low. Flavour associations: Stone fruit, Flowers.",
+      "itemIds": [
+        "ki_wset_taste_acidity",
+        "ki_wset_taste_tannin",
+        "ki_wset_taste_body"
+      ],
+      "referenceObservations": [
+        {
+          "attributeKey": "colour",
+          "valueKeys": [
+            "white"
+          ],
+          "explanation": "The scenario explicitly describes wine colour."
+        },
+        {
+          "attributeKey": "aromas",
+          "valueKeys": [
+            "stone",
+            "floral"
+          ],
+          "explanation": "The scenario explicitly describes aroma associations."
+        },
+        {
+          "attributeKey": "sweetness",
+          "valueKeys": [
+            "noticeable"
+          ],
+          "explanation": "The scenario explicitly describes perceived sweetness."
+        },
+        {
+          "attributeKey": "acidity",
+          "valueKeys": [
+            "high"
+          ],
+          "explanation": "The scenario explicitly describes mouthwatering acidity."
+        },
+        {
+          "attributeKey": "tannin",
+          "valueKeys": [
+            "none"
+          ],
+          "explanation": "The scenario explicitly describes drying tannin amount."
+        },
+        {
+          "attributeKey": "body",
+          "valueKeys": [
+            "middle"
+          ],
+          "explanation": "The scenario explicitly describes perceived weight."
+        },
+        {
+          "attributeKey": "alcohol",
+          "valueKeys": [
+            "low"
+          ],
+          "explanation": "The scenario explicitly describes alcohol warmth."
+        },
+        {
+          "attributeKey": "flavours",
+          "valueKeys": [
+            "stone",
+            "floral"
+          ],
+          "explanation": "The scenario explicitly describes flavour associations."
+        }
+      ],
+      "criteria": [
+        {
+          "id": "structure",
+          "text": "Distinguish sweetness, mouthwatering acidity, drying tannin and body."
+        },
+        {
+          "id": "observations",
+          "text": "Support descriptors with the stated evidence without guessing a grape or origin."
+        }
+      ],
+      "feedback": "The palate is sweet yet mouthwatering. Strong fruit and persistent pleasant flavour support a favourable quality argument; freshness can support development but does not guarantee it. These observations are discussion references, not marks for a physical unknown wine. Alternative conclusions need evidence."
+    },
+    {
+      "id": "original_l1_structured_red",
+      "level": 1,
+      "title": "Structured red: tannin and development",
+      "description": "Original fictional training note. Wine colour: Red. Aroma associations: Black fruit, Spice, Vanilla or toast. Perceived sweetness: Dry. Mouthwatering acidity: Moderate. Drying tannin amount: High. Perceived weight: Full. Alcohol warmth: High. Flavour associations: Black fruit, Spice, Vanilla or toast.",
+      "itemIds": [
+        "ki_wset_taste_acidity",
+        "ki_wset_taste_tannin",
+        "ki_wset_taste_body"
+      ],
+      "referenceObservations": [
+        {
+          "attributeKey": "colour",
+          "valueKeys": [
+            "red"
+          ],
+          "explanation": "The scenario explicitly describes wine colour."
+        },
+        {
+          "attributeKey": "aromas",
+          "valueKeys": [
+            "black_fruit",
+            "spice",
+            "oak"
+          ],
+          "explanation": "The scenario explicitly describes aroma associations."
+        },
+        {
+          "attributeKey": "sweetness",
+          "valueKeys": [
+            "dry"
+          ],
+          "explanation": "The scenario explicitly describes perceived sweetness."
+        },
+        {
+          "attributeKey": "acidity",
+          "valueKeys": [
+            "moderate"
+          ],
+          "explanation": "The scenario explicitly describes mouthwatering acidity."
+        },
+        {
+          "attributeKey": "tannin",
+          "valueKeys": [
+            "high"
+          ],
+          "explanation": "The scenario explicitly describes drying tannin amount."
+        },
+        {
+          "attributeKey": "body",
+          "valueKeys": [
+            "full"
+          ],
+          "explanation": "The scenario explicitly describes perceived weight."
+        },
+        {
+          "attributeKey": "alcohol",
+          "valueKeys": [
+            "high"
+          ],
+          "explanation": "The scenario explicitly describes alcohol warmth."
+        },
+        {
+          "attributeKey": "flavours",
+          "valueKeys": [
+            "black_fruit",
+            "spice",
+            "oak"
+          ],
+          "explanation": "The scenario explicitly describes flavour associations."
+        }
+      ],
+      "criteria": [
+        {
+          "id": "structure",
+          "text": "Distinguish sweetness, mouthwatering acidity, drying tannin and body."
+        },
+        {
+          "id": "observations",
+          "text": "Support descriptors with the stated evidence without guessing a grape or origin."
+        }
+      ],
+      "feedback": "Firm drying tannin differs from its moderate mouthwatering acidity. Concentrated fruit carries the warmth and structure; it may benefit from time, while the actual bottle and storage still matter. These observations are discussion references, not marks for a physical unknown wine. Alternative conclusions need evidence."
+    },
+    {
+      "id": "original_l2_fresh_white",
+      "level": 2,
+      "title": "Fresh white: aroma versus sweetness",
+      "description": "Original fictional training note. Wine colour: White. Aroma associations: Citrus, Apple or pear. Perceived sweetness: Dry. Mouthwatering acidity: High. Drying tannin amount: No noticeable tannin. Perceived weight: Light. Alcohol warmth: Low. Clarity: Clear. Colour depth: Pale. Colour shade: Straw. Condition to investigate: No suspected fault. Aroma strength: Clearly expressed. Development of character: Fresh character dominates. Flavour associations: Citrus, Apple or pear. Flavour strength: Clearly expressed. Pleasant flavour persistence: Sustained. Tannin texture: No noticeable tannin.",
+      "itemIds": [
+        "ki_wset_taste_acidity",
+        "ki_wset_taste_tannin",
+        "ki_wset_taste_body",
+        "ki_wset_taste_nose_intensity",
+        "ki_wset_taste_palate_finish"
+      ],
+      "referenceObservations": [
+        {
+          "attributeKey": "colour",
+          "valueKeys": [
+            "white"
+          ],
+          "explanation": "The scenario explicitly describes wine colour."
+        },
+        {
+          "attributeKey": "aromas",
+          "valueKeys": [
+            "citrus",
+            "orchard"
+          ],
+          "explanation": "The scenario explicitly describes aroma associations."
+        },
+        {
+          "attributeKey": "sweetness",
+          "valueKeys": [
+            "dry"
+          ],
+          "explanation": "The scenario explicitly describes perceived sweetness."
+        },
+        {
+          "attributeKey": "acidity",
+          "valueKeys": [
+            "high"
+          ],
+          "explanation": "The scenario explicitly describes mouthwatering acidity."
+        },
+        {
+          "attributeKey": "tannin",
+          "valueKeys": [
+            "none"
+          ],
+          "explanation": "The scenario explicitly describes drying tannin amount."
+        },
+        {
+          "attributeKey": "body",
+          "valueKeys": [
+            "light"
+          ],
+          "explanation": "The scenario explicitly describes perceived weight."
+        },
+        {
+          "attributeKey": "alcohol",
+          "valueKeys": [
+            "low"
+          ],
+          "explanation": "The scenario explicitly describes alcohol warmth."
+        },
+        {
+          "attributeKey": "clarity",
+          "valueKeys": [
+            "clear"
+          ],
+          "explanation": "The scenario explicitly describes clarity."
+        },
+        {
+          "attributeKey": "depth",
+          "valueKeys": [
+            "pale"
+          ],
+          "explanation": "The scenario explicitly describes colour depth."
+        },
+        {
+          "attributeKey": "hue",
+          "valueKeys": [
+            "straw"
+          ],
+          "explanation": "The scenario explicitly describes colour shade."
+        },
+        {
+          "attributeKey": "nose_condition",
+          "valueKeys": [
+            "sound"
+          ],
+          "explanation": "The scenario explicitly describes condition to investigate."
+        },
+        {
+          "attributeKey": "aroma_strength",
+          "valueKeys": [
+            "clear"
+          ],
+          "explanation": "The scenario explicitly describes aroma strength."
+        },
+        {
+          "attributeKey": "development",
+          "valueKeys": [
+            "fresh"
+          ],
+          "explanation": "The scenario explicitly describes development of character."
+        },
+        {
+          "attributeKey": "flavours",
+          "valueKeys": [
+            "citrus",
+            "orchard"
+          ],
+          "explanation": "The scenario explicitly describes flavour associations."
+        },
+        {
+          "attributeKey": "flavour_strength",
+          "valueKeys": [
+            "clear"
+          ],
+          "explanation": "The scenario explicitly describes flavour strength."
+        },
+        {
+          "attributeKey": "finish",
+          "valueKeys": [
+            "sustained"
+          ],
+          "explanation": "The scenario explicitly describes pleasant flavour persistence."
+        },
+        {
+          "attributeKey": "texture",
+          "valueKeys": [
+            "none"
+          ],
+          "explanation": "The scenario explicitly describes tannin texture."
+        }
+      ],
+      "criteria": [
+        {
+          "id": "structure",
+          "text": "Distinguish sweetness, mouthwatering acidity, drying tannin and body."
+        },
+        {
+          "id": "observations",
+          "text": "Support descriptors with the stated evidence without guessing a grape or origin."
+        },
+        {
+          "id": "detail",
+          "text": "Separate aroma strength, flavour character and pleasant finish; explain development from the given note."
+        }
+      ],
+      "feedback": "The bright fruit smells do not make the dry palate sweet. Its light weight and lively acidity suit its straightforward fresh character. These observations are discussion references, not marks for a physical unknown wine. Alternative conclusions need evidence."
+    },
+    {
+      "id": "original_l2_sweet_white",
+      "level": 2,
+      "title": "Sweet white: freshness with sweetness",
+      "description": "Original fictional training note. Wine colour: White. Aroma associations: Stone fruit, Flowers. Perceived sweetness: Noticeably sweet. Mouthwatering acidity: High. Drying tannin amount: No noticeable tannin. Perceived weight: Medium weight. Alcohol warmth: Low. Clarity: Clear. Colour depth: Moderate depth. Colour shade: Gold. Condition to investigate: No suspected fault. Aroma strength: Powerful. Development of character: Fresh character dominates. Flavour associations: Stone fruit, Flowers. Flavour strength: Powerful. Pleasant flavour persistence: Persistent. Tannin texture: No noticeable tannin.",
+      "itemIds": [
+        "ki_wset_taste_acidity",
+        "ki_wset_taste_tannin",
+        "ki_wset_taste_body",
+        "ki_wset_taste_nose_intensity",
+        "ki_wset_taste_palate_finish"
+      ],
+      "referenceObservations": [
+        {
+          "attributeKey": "colour",
+          "valueKeys": [
+            "white"
+          ],
+          "explanation": "The scenario explicitly describes wine colour."
+        },
+        {
+          "attributeKey": "aromas",
+          "valueKeys": [
+            "stone",
+            "floral"
+          ],
+          "explanation": "The scenario explicitly describes aroma associations."
+        },
+        {
+          "attributeKey": "sweetness",
+          "valueKeys": [
+            "noticeable"
+          ],
+          "explanation": "The scenario explicitly describes perceived sweetness."
+        },
+        {
+          "attributeKey": "acidity",
+          "valueKeys": [
+            "high"
+          ],
+          "explanation": "The scenario explicitly describes mouthwatering acidity."
+        },
+        {
+          "attributeKey": "tannin",
+          "valueKeys": [
+            "none"
+          ],
+          "explanation": "The scenario explicitly describes drying tannin amount."
+        },
+        {
+          "attributeKey": "body",
+          "valueKeys": [
+            "middle"
+          ],
+          "explanation": "The scenario explicitly describes perceived weight."
+        },
+        {
+          "attributeKey": "alcohol",
+          "valueKeys": [
+            "low"
+          ],
+          "explanation": "The scenario explicitly describes alcohol warmth."
+        },
+        {
+          "attributeKey": "clarity",
+          "valueKeys": [
+            "clear"
+          ],
+          "explanation": "The scenario explicitly describes clarity."
+        },
+        {
+          "attributeKey": "depth",
+          "valueKeys": [
+            "moderate"
+          ],
+          "explanation": "The scenario explicitly describes colour depth."
+        },
+        {
+          "attributeKey": "hue",
+          "valueKeys": [
+            "gold"
+          ],
+          "explanation": "The scenario explicitly describes colour shade."
+        },
+        {
+          "attributeKey": "nose_condition",
+          "valueKeys": [
+            "sound"
+          ],
+          "explanation": "The scenario explicitly describes condition to investigate."
+        },
+        {
+          "attributeKey": "aroma_strength",
+          "valueKeys": [
+            "powerful"
+          ],
+          "explanation": "The scenario explicitly describes aroma strength."
+        },
+        {
+          "attributeKey": "development",
+          "valueKeys": [
+            "fresh"
+          ],
+          "explanation": "The scenario explicitly describes development of character."
+        },
+        {
+          "attributeKey": "flavours",
+          "valueKeys": [
+            "stone",
+            "floral"
+          ],
+          "explanation": "The scenario explicitly describes flavour associations."
+        },
+        {
+          "attributeKey": "flavour_strength",
+          "valueKeys": [
+            "powerful"
+          ],
+          "explanation": "The scenario explicitly describes flavour strength."
+        },
+        {
+          "attributeKey": "finish",
+          "valueKeys": [
+            "persistent"
+          ],
+          "explanation": "The scenario explicitly describes pleasant flavour persistence."
+        },
+        {
+          "attributeKey": "texture",
+          "valueKeys": [
+            "none"
+          ],
+          "explanation": "The scenario explicitly describes tannin texture."
+        }
+      ],
+      "criteria": [
+        {
+          "id": "structure",
+          "text": "Distinguish sweetness, mouthwatering acidity, drying tannin and body."
+        },
+        {
+          "id": "observations",
+          "text": "Support descriptors with the stated evidence without guessing a grape or origin."
+        },
+        {
+          "id": "detail",
+          "text": "Separate aroma strength, flavour character and pleasant finish; explain development from the given note."
+        }
+      ],
+      "feedback": "The palate is sweet yet mouthwatering. Strong fruit and persistent pleasant flavour support a favourable quality argument; freshness can support development but does not guarantee it. These observations are discussion references, not marks for a physical unknown wine. Alternative conclusions need evidence."
+    },
+    {
+      "id": "original_l2_structured_red",
+      "level": 2,
+      "title": "Structured red: tannin and development",
+      "description": "Original fictional training note. Wine colour: Red. Aroma associations: Black fruit, Spice, Vanilla or toast. Perceived sweetness: Dry. Mouthwatering acidity: Moderate. Drying tannin amount: High. Perceived weight: Full. Alcohol warmth: High. Clarity: Clear. Colour depth: Deep. Colour shade: Ruby. Condition to investigate: No suspected fault. Aroma strength: Powerful. Development of character: Fresh character dominates. Flavour associations: Black fruit, Spice, Vanilla or toast. Flavour strength: Powerful. Pleasant flavour persistence: Persistent. Tannin texture: Firm or grippy.",
+      "itemIds": [
+        "ki_wset_taste_acidity",
+        "ki_wset_taste_tannin",
+        "ki_wset_taste_body",
+        "ki_wset_taste_nose_intensity",
+        "ki_wset_taste_palate_finish"
+      ],
+      "referenceObservations": [
+        {
+          "attributeKey": "colour",
+          "valueKeys": [
+            "red"
+          ],
+          "explanation": "The scenario explicitly describes wine colour."
+        },
+        {
+          "attributeKey": "aromas",
+          "valueKeys": [
+            "black_fruit",
+            "spice",
+            "oak"
+          ],
+          "explanation": "The scenario explicitly describes aroma associations."
+        },
+        {
+          "attributeKey": "sweetness",
+          "valueKeys": [
+            "dry"
+          ],
+          "explanation": "The scenario explicitly describes perceived sweetness."
+        },
+        {
+          "attributeKey": "acidity",
+          "valueKeys": [
+            "moderate"
+          ],
+          "explanation": "The scenario explicitly describes mouthwatering acidity."
+        },
+        {
+          "attributeKey": "tannin",
+          "valueKeys": [
+            "high"
+          ],
+          "explanation": "The scenario explicitly describes drying tannin amount."
+        },
+        {
+          "attributeKey": "body",
+          "valueKeys": [
+            "full"
+          ],
+          "explanation": "The scenario explicitly describes perceived weight."
+        },
+        {
+          "attributeKey": "alcohol",
+          "valueKeys": [
+            "high"
+          ],
+          "explanation": "The scenario explicitly describes alcohol warmth."
+        },
+        {
+          "attributeKey": "clarity",
+          "valueKeys": [
+            "clear"
+          ],
+          "explanation": "The scenario explicitly describes clarity."
+        },
+        {
+          "attributeKey": "depth",
+          "valueKeys": [
+            "deep"
+          ],
+          "explanation": "The scenario explicitly describes colour depth."
+        },
+        {
+          "attributeKey": "hue",
+          "valueKeys": [
+            "ruby"
+          ],
+          "explanation": "The scenario explicitly describes colour shade."
+        },
+        {
+          "attributeKey": "nose_condition",
+          "valueKeys": [
+            "sound"
+          ],
+          "explanation": "The scenario explicitly describes condition to investigate."
+        },
+        {
+          "attributeKey": "aroma_strength",
+          "valueKeys": [
+            "powerful"
+          ],
+          "explanation": "The scenario explicitly describes aroma strength."
+        },
+        {
+          "attributeKey": "development",
+          "valueKeys": [
+            "fresh"
+          ],
+          "explanation": "The scenario explicitly describes development of character."
+        },
+        {
+          "attributeKey": "flavours",
+          "valueKeys": [
+            "black_fruit",
+            "spice",
+            "oak"
+          ],
+          "explanation": "The scenario explicitly describes flavour associations."
+        },
+        {
+          "attributeKey": "flavour_strength",
+          "valueKeys": [
+            "powerful"
+          ],
+          "explanation": "The scenario explicitly describes flavour strength."
+        },
+        {
+          "attributeKey": "finish",
+          "valueKeys": [
+            "persistent"
+          ],
+          "explanation": "The scenario explicitly describes pleasant flavour persistence."
+        },
+        {
+          "attributeKey": "texture",
+          "valueKeys": [
+            "firm"
+          ],
+          "explanation": "The scenario explicitly describes tannin texture."
+        }
+      ],
+      "criteria": [
+        {
+          "id": "structure",
+          "text": "Distinguish sweetness, mouthwatering acidity, drying tannin and body."
+        },
+        {
+          "id": "observations",
+          "text": "Support descriptors with the stated evidence without guessing a grape or origin."
+        },
+        {
+          "id": "detail",
+          "text": "Separate aroma strength, flavour character and pleasant finish; explain development from the given note."
+        }
+      ],
+      "feedback": "Firm drying tannin differs from its moderate mouthwatering acidity. Concentrated fruit carries the warmth and structure; it may benefit from time, while the actual bottle and storage still matter. These observations are discussion references, not marks for a physical unknown wine. Alternative conclusions need evidence."
+    },
+    {
+      "id": "original_l3_fresh_white",
+      "level": 3,
+      "title": "Fresh white: aroma versus sweetness",
+      "description": "Original fictional training note. Wine colour: White. Aroma associations: Citrus, Apple or pear. Perceived sweetness: Dry. Mouthwatering acidity: High. Drying tannin amount: No noticeable tannin. Perceived weight: Light. Alcohol warmth: Low. Clarity: Clear. Colour depth: Pale. Colour shade: Straw. Condition to investigate: No suspected fault. Aroma strength: Clearly expressed. Development of character: Fresh character dominates. Flavour associations: Citrus, Apple or pear. Flavour strength: Clearly expressed. Pleasant flavour persistence: Sustained. Tannin texture: No noticeable tannin. The bright fruit smells do not make the dry palate sweet. Its light weight and lively acidity suit its straightforward fresh character.",
+      "itemIds": [
+        "ki_wset_taste_acidity",
+        "ki_wset_taste_tannin",
+        "ki_wset_taste_body",
+        "ki_wset_taste_nose_intensity",
+        "ki_wset_taste_palate_finish",
+        "ki_wset_taste_quality_balance",
+        "ki_wset_taste_quality_intensity",
+        "ki_wset_taste_ageing_now_future"
+      ],
+      "referenceObservations": [
+        {
+          "attributeKey": "colour",
+          "valueKeys": [
+            "white"
+          ],
+          "explanation": "The scenario explicitly describes wine colour."
+        },
+        {
+          "attributeKey": "aromas",
+          "valueKeys": [
+            "citrus",
+            "orchard"
+          ],
+          "explanation": "The scenario explicitly describes aroma associations."
+        },
+        {
+          "attributeKey": "sweetness",
+          "valueKeys": [
+            "dry"
+          ],
+          "explanation": "The scenario explicitly describes perceived sweetness."
+        },
+        {
+          "attributeKey": "acidity",
+          "valueKeys": [
+            "high"
+          ],
+          "explanation": "The scenario explicitly describes mouthwatering acidity."
+        },
+        {
+          "attributeKey": "tannin",
+          "valueKeys": [
+            "none"
+          ],
+          "explanation": "The scenario explicitly describes drying tannin amount."
+        },
+        {
+          "attributeKey": "body",
+          "valueKeys": [
+            "light"
+          ],
+          "explanation": "The scenario explicitly describes perceived weight."
+        },
+        {
+          "attributeKey": "alcohol",
+          "valueKeys": [
+            "low"
+          ],
+          "explanation": "The scenario explicitly describes alcohol warmth."
+        },
+        {
+          "attributeKey": "clarity",
+          "valueKeys": [
+            "clear"
+          ],
+          "explanation": "The scenario explicitly describes clarity."
+        },
+        {
+          "attributeKey": "depth",
+          "valueKeys": [
+            "pale"
+          ],
+          "explanation": "The scenario explicitly describes colour depth."
+        },
+        {
+          "attributeKey": "hue",
+          "valueKeys": [
+            "straw"
+          ],
+          "explanation": "The scenario explicitly describes colour shade."
+        },
+        {
+          "attributeKey": "nose_condition",
+          "valueKeys": [
+            "sound"
+          ],
+          "explanation": "The scenario explicitly describes condition to investigate."
+        },
+        {
+          "attributeKey": "aroma_strength",
+          "valueKeys": [
+            "clear"
+          ],
+          "explanation": "The scenario explicitly describes aroma strength."
+        },
+        {
+          "attributeKey": "development",
+          "valueKeys": [
+            "fresh"
+          ],
+          "explanation": "The scenario explicitly describes development of character."
+        },
+        {
+          "attributeKey": "flavours",
+          "valueKeys": [
+            "citrus",
+            "orchard"
+          ],
+          "explanation": "The scenario explicitly describes flavour associations."
+        },
+        {
+          "attributeKey": "flavour_strength",
+          "valueKeys": [
+            "clear"
+          ],
+          "explanation": "The scenario explicitly describes flavour strength."
+        },
+        {
+          "attributeKey": "finish",
+          "valueKeys": [
+            "sustained"
+          ],
+          "explanation": "The scenario explicitly describes pleasant flavour persistence."
+        },
+        {
+          "attributeKey": "texture",
+          "valueKeys": [
+            "none"
+          ],
+          "explanation": "The scenario explicitly describes tannin texture."
+        },
+        {
+          "attributeKey": "quality",
+          "valueKeys": [
+            "sound"
+          ],
+          "explanation": "The bright fruit smells do not make the dry palate sweet. Its light weight and lively acidity suit its straightforward fresh character."
+        },
+        {
+          "attributeKey": "readiness",
+          "valueKeys": [
+            "now"
+          ],
+          "explanation": "The bright fruit smells do not make the dry palate sweet. Its light weight and lively acidity suit its straightforward fresh character."
+        }
+      ],
+      "criteria": [
+        {
+          "id": "structure",
+          "text": "Distinguish sweetness, mouthwatering acidity, drying tannin and body."
+        },
+        {
+          "id": "observations",
+          "text": "Support descriptors with the stated evidence without guessing a grape or origin."
+        },
+        {
+          "id": "detail",
+          "text": "Separate aroma strength, flavour character and pleasant finish; explain development from the given note."
+        },
+        {
+          "id": "quality",
+          "text": "Explain quality with specific strengths and limitations, rather than body or intensity alone."
+        },
+        {
+          "id": "ageing",
+          "text": "Separate drinking now from future development and state uncertainty."
+        }
+      ],
+      "feedback": "The bright fruit smells do not make the dry palate sweet. Its light weight and lively acidity suit its straightforward fresh character. These observations are discussion references, not marks for a physical unknown wine. Alternative conclusions need evidence."
+    },
+    {
+      "id": "original_l3_sweet_white",
+      "level": 3,
+      "title": "Sweet white: freshness with sweetness",
+      "description": "Original fictional training note. Wine colour: White. Aroma associations: Stone fruit, Flowers. Perceived sweetness: Noticeably sweet. Mouthwatering acidity: High. Drying tannin amount: No noticeable tannin. Perceived weight: Medium weight. Alcohol warmth: Low. Clarity: Clear. Colour depth: Moderate depth. Colour shade: Gold. Condition to investigate: No suspected fault. Aroma strength: Powerful. Development of character: Fresh character dominates. Flavour associations: Stone fruit, Flowers. Flavour strength: Powerful. Pleasant flavour persistence: Persistent. Tannin texture: No noticeable tannin. The palate is sweet yet mouthwatering. Strong fruit and persistent pleasant flavour support a favourable quality argument; freshness can support development but does not guarantee it.",
+      "itemIds": [
+        "ki_wset_taste_acidity",
+        "ki_wset_taste_tannin",
+        "ki_wset_taste_body",
+        "ki_wset_taste_nose_intensity",
+        "ki_wset_taste_palate_finish",
+        "ki_wset_taste_quality_balance",
+        "ki_wset_taste_quality_intensity",
+        "ki_wset_taste_ageing_now_future"
+      ],
+      "referenceObservations": [
+        {
+          "attributeKey": "colour",
+          "valueKeys": [
+            "white"
+          ],
+          "explanation": "The scenario explicitly describes wine colour."
+        },
+        {
+          "attributeKey": "aromas",
+          "valueKeys": [
+            "stone",
+            "floral"
+          ],
+          "explanation": "The scenario explicitly describes aroma associations."
+        },
+        {
+          "attributeKey": "sweetness",
+          "valueKeys": [
+            "noticeable"
+          ],
+          "explanation": "The scenario explicitly describes perceived sweetness."
+        },
+        {
+          "attributeKey": "acidity",
+          "valueKeys": [
+            "high"
+          ],
+          "explanation": "The scenario explicitly describes mouthwatering acidity."
+        },
+        {
+          "attributeKey": "tannin",
+          "valueKeys": [
+            "none"
+          ],
+          "explanation": "The scenario explicitly describes drying tannin amount."
+        },
+        {
+          "attributeKey": "body",
+          "valueKeys": [
+            "middle"
+          ],
+          "explanation": "The scenario explicitly describes perceived weight."
+        },
+        {
+          "attributeKey": "alcohol",
+          "valueKeys": [
+            "low"
+          ],
+          "explanation": "The scenario explicitly describes alcohol warmth."
+        },
+        {
+          "attributeKey": "clarity",
+          "valueKeys": [
+            "clear"
+          ],
+          "explanation": "The scenario explicitly describes clarity."
+        },
+        {
+          "attributeKey": "depth",
+          "valueKeys": [
+            "moderate"
+          ],
+          "explanation": "The scenario explicitly describes colour depth."
+        },
+        {
+          "attributeKey": "hue",
+          "valueKeys": [
+            "gold"
+          ],
+          "explanation": "The scenario explicitly describes colour shade."
+        },
+        {
+          "attributeKey": "nose_condition",
+          "valueKeys": [
+            "sound"
+          ],
+          "explanation": "The scenario explicitly describes condition to investigate."
+        },
+        {
+          "attributeKey": "aroma_strength",
+          "valueKeys": [
+            "powerful"
+          ],
+          "explanation": "The scenario explicitly describes aroma strength."
+        },
+        {
+          "attributeKey": "development",
+          "valueKeys": [
+            "fresh"
+          ],
+          "explanation": "The scenario explicitly describes development of character."
+        },
+        {
+          "attributeKey": "flavours",
+          "valueKeys": [
+            "stone",
+            "floral"
+          ],
+          "explanation": "The scenario explicitly describes flavour associations."
+        },
+        {
+          "attributeKey": "flavour_strength",
+          "valueKeys": [
+            "powerful"
+          ],
+          "explanation": "The scenario explicitly describes flavour strength."
+        },
+        {
+          "attributeKey": "finish",
+          "valueKeys": [
+            "persistent"
+          ],
+          "explanation": "The scenario explicitly describes pleasant flavour persistence."
+        },
+        {
+          "attributeKey": "texture",
+          "valueKeys": [
+            "none"
+          ],
+          "explanation": "The scenario explicitly describes tannin texture."
+        },
+        {
+          "attributeKey": "quality",
+          "valueKeys": [
+            "strong"
+          ],
+          "explanation": "The palate is sweet yet mouthwatering. Strong fruit and persistent pleasant flavour support a favourable quality argument; freshness can support development but does not guarantee it."
+        },
+        {
+          "attributeKey": "readiness",
+          "valueKeys": [
+            "now_develop"
+          ],
+          "explanation": "The palate is sweet yet mouthwatering. Strong fruit and persistent pleasant flavour support a favourable quality argument; freshness can support development but does not guarantee it."
+        }
+      ],
+      "criteria": [
+        {
+          "id": "structure",
+          "text": "Distinguish sweetness, mouthwatering acidity, drying tannin and body."
+        },
+        {
+          "id": "observations",
+          "text": "Support descriptors with the stated evidence without guessing a grape or origin."
+        },
+        {
+          "id": "detail",
+          "text": "Separate aroma strength, flavour character and pleasant finish; explain development from the given note."
+        },
+        {
+          "id": "quality",
+          "text": "Explain quality with specific strengths and limitations, rather than body or intensity alone."
+        },
+        {
+          "id": "ageing",
+          "text": "Separate drinking now from future development and state uncertainty."
+        }
+      ],
+      "feedback": "The palate is sweet yet mouthwatering. Strong fruit and persistent pleasant flavour support a favourable quality argument; freshness can support development but does not guarantee it. These observations are discussion references, not marks for a physical unknown wine. Alternative conclusions need evidence."
+    },
+    {
+      "id": "original_l3_structured_red",
+      "level": 3,
+      "title": "Structured red: tannin and development",
+      "description": "Original fictional training note. Wine colour: Red. Aroma associations: Black fruit, Spice, Vanilla or toast. Perceived sweetness: Dry. Mouthwatering acidity: Moderate. Drying tannin amount: High. Perceived weight: Full. Alcohol warmth: High. Clarity: Clear. Colour depth: Deep. Colour shade: Ruby. Condition to investigate: No suspected fault. Aroma strength: Powerful. Development of character: Fresh character dominates. Flavour associations: Black fruit, Spice, Vanilla or toast. Flavour strength: Powerful. Pleasant flavour persistence: Persistent. Tannin texture: Firm or grippy. Firm drying tannin differs from its moderate mouthwatering acidity. Concentrated fruit carries the warmth and structure; it may benefit from time, while the actual bottle and storage still matter.",
+      "itemIds": [
+        "ki_wset_taste_acidity",
+        "ki_wset_taste_tannin",
+        "ki_wset_taste_body",
+        "ki_wset_taste_nose_intensity",
+        "ki_wset_taste_palate_finish",
+        "ki_wset_taste_quality_balance",
+        "ki_wset_taste_quality_intensity",
+        "ki_wset_taste_ageing_now_future"
+      ],
+      "referenceObservations": [
+        {
+          "attributeKey": "colour",
+          "valueKeys": [
+            "red"
+          ],
+          "explanation": "The scenario explicitly describes wine colour."
+        },
+        {
+          "attributeKey": "aromas",
+          "valueKeys": [
+            "black_fruit",
+            "spice",
+            "oak"
+          ],
+          "explanation": "The scenario explicitly describes aroma associations."
+        },
+        {
+          "attributeKey": "sweetness",
+          "valueKeys": [
+            "dry"
+          ],
+          "explanation": "The scenario explicitly describes perceived sweetness."
+        },
+        {
+          "attributeKey": "acidity",
+          "valueKeys": [
+            "moderate"
+          ],
+          "explanation": "The scenario explicitly describes mouthwatering acidity."
+        },
+        {
+          "attributeKey": "tannin",
+          "valueKeys": [
+            "high"
+          ],
+          "explanation": "The scenario explicitly describes drying tannin amount."
+        },
+        {
+          "attributeKey": "body",
+          "valueKeys": [
+            "full"
+          ],
+          "explanation": "The scenario explicitly describes perceived weight."
+        },
+        {
+          "attributeKey": "alcohol",
+          "valueKeys": [
+            "high"
+          ],
+          "explanation": "The scenario explicitly describes alcohol warmth."
+        },
+        {
+          "attributeKey": "clarity",
+          "valueKeys": [
+            "clear"
+          ],
+          "explanation": "The scenario explicitly describes clarity."
+        },
+        {
+          "attributeKey": "depth",
+          "valueKeys": [
+            "deep"
+          ],
+          "explanation": "The scenario explicitly describes colour depth."
+        },
+        {
+          "attributeKey": "hue",
+          "valueKeys": [
+            "ruby"
+          ],
+          "explanation": "The scenario explicitly describes colour shade."
+        },
+        {
+          "attributeKey": "nose_condition",
+          "valueKeys": [
+            "sound"
+          ],
+          "explanation": "The scenario explicitly describes condition to investigate."
+        },
+        {
+          "attributeKey": "aroma_strength",
+          "valueKeys": [
+            "powerful"
+          ],
+          "explanation": "The scenario explicitly describes aroma strength."
+        },
+        {
+          "attributeKey": "development",
+          "valueKeys": [
+            "fresh"
+          ],
+          "explanation": "The scenario explicitly describes development of character."
+        },
+        {
+          "attributeKey": "flavours",
+          "valueKeys": [
+            "black_fruit",
+            "spice",
+            "oak"
+          ],
+          "explanation": "The scenario explicitly describes flavour associations."
+        },
+        {
+          "attributeKey": "flavour_strength",
+          "valueKeys": [
+            "powerful"
+          ],
+          "explanation": "The scenario explicitly describes flavour strength."
+        },
+        {
+          "attributeKey": "finish",
+          "valueKeys": [
+            "persistent"
+          ],
+          "explanation": "The scenario explicitly describes pleasant flavour persistence."
+        },
+        {
+          "attributeKey": "texture",
+          "valueKeys": [
+            "firm"
+          ],
+          "explanation": "The scenario explicitly describes tannin texture."
+        },
+        {
+          "attributeKey": "quality",
+          "valueKeys": [
+            "strong"
+          ],
+          "explanation": "Firm drying tannin differs from its moderate mouthwatering acidity. Concentrated fruit carries the warmth and structure; it may benefit from time, while the actual bottle and storage still matter."
+        },
+        {
+          "attributeKey": "readiness",
+          "valueKeys": [
+            "needs_time"
+          ],
+          "explanation": "Firm drying tannin differs from its moderate mouthwatering acidity. Concentrated fruit carries the warmth and structure; it may benefit from time, while the actual bottle and storage still matter."
+        }
+      ],
+      "criteria": [
+        {
+          "id": "structure",
+          "text": "Distinguish sweetness, mouthwatering acidity, drying tannin and body."
+        },
+        {
+          "id": "observations",
+          "text": "Support descriptors with the stated evidence without guessing a grape or origin."
+        },
+        {
+          "id": "detail",
+          "text": "Separate aroma strength, flavour character and pleasant finish; explain development from the given note."
+        },
+        {
+          "id": "quality",
+          "text": "Explain quality with specific strengths and limitations, rather than body or intensity alone."
+        },
+        {
+          "id": "ageing",
+          "text": "Separate drinking now from future development and state uncertainty."
+        }
+      ],
+      "feedback": "Firm drying tannin differs from its moderate mouthwatering acidity. Concentrated fruit carries the warmth and structure; it may benefit from time, while the actual bottle and storage still matter. These observations are discussion references, not marks for a physical unknown wine. Alternative conclusions need evidence."
+    }
+  ]
+}

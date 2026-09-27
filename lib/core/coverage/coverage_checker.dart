@@ -422,6 +422,12 @@ final class _Areas {
   /// subject that is not a place is counted under its node type.
   Future<CoverageArea> _find(String nodeId) async {
     final node = _nodes[nodeId]!;
+    // Countries remain semantic coverage roots even when their map needs an
+    // outer continent/world frame. A containment signature is not a rule that
+    // every country must have a parent to count as placed.
+    if (node.nodeType == 'country') {
+      return CoverageArea(node.id, node.name);
+    }
     if (!_places.contains(node.nodeType)) {
       return CoverageArea.ofType(
         node.nodeType,
@@ -429,6 +435,24 @@ final class _Areas {
       );
     }
     final ancestors = await _ancestorsOf(nodeId);
+    final countries = ancestors.where((a) => a.nodeType == 'country');
+    if (countries.isNotEmpty) {
+      // Graph ancestors are nearest first. Ignore outer presentation frames
+      // when choosing the actual country and its policy-defined region.
+      final country = countries.first;
+      if (!_policy.regionalCountries.contains(country.id)) {
+        return CoverageArea(country.id, country.name);
+      }
+      if (country.depth == 1) return CoverageArea(node.id, node.name);
+      for (final region in ancestors.where(
+        (a) => a.depth == country.depth - 1,
+      )) {
+        if ((await _ancestorsOf(region.id)).any((a) => a.id == country.id)) {
+          return CoverageArea(region.id, region.name);
+        }
+      }
+      return CoverageArea.unplaced;
+    }
     if (ancestors.isEmpty) {
       return _placed.contains(node.nodeType)
           ? CoverageArea.unplaced

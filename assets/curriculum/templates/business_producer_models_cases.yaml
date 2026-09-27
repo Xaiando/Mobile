@@ -1,0 +1,31 @@
+# Original conditional producer-model cases, scoped to their full-premise subjects.
+# Written key points are learner-checked practice, not official assessment marks.
+question_templates:
+  - id: "qt_biz_models_contract_pilot_case"
+    relation_type: "CASE_ACTION"
+    direction: "forward"
+    mode: "short_answer"
+    variant: "biz_models_contract_pilot"
+    prompt_template: "Hypothetical grower: saleable grapes are available for a first small branded wine, but the grower has no cellar. Available finance covers the quoted custom-production service and planned selling activities, not an equipped new winery. An independently reviewed proposal confirms harvest capacity, separate lot tracking, agreed wine specifications, approval roles, delivery window and service charges. A sales plan is prepared, but repeat demand is unknown. Compare commissioning that first lot with immediately building a winery. Explain a defensible action, its producer-model reason, one control trade-off and a limitation. No actual prices, legal label claim or guaranteed sales are supplied."
+    parameters:
+      scope_node_ids:
+        - "n_biz_models_case_contract_pilot"
+      key_points:
+        CASE_ACTION: "Decision"
+        CASE_REASON: "Reason"
+        CASE_TRADEOFF: "Trade-off"
+        CASE_LIMITATION: "Limit or condition"
+  - id: "qt_biz_models_cooperative_pool_case"
+    relation_type: "CASE_ACTION"
+    direction: "forward"
+    mode: "short_answer"
+    variant: "biz_models_cooperative_pool"
+    prompt_template: "Hypothetical growers: several vineyard owners lack individual processing and marketing capacity. They explicitly prefer shared production and marketing resources over exclusive control of each grower's wine brand. A proposed cooperative has agreed fruit-acceptance standards, member capital contributions, democratic voting on shared production and sales policy, and a stated method for allocating any net pool proceeds after expenses. Each grower could instead buy a separate custom-production service and arrange an individual brand and sales effort. No sales or returns are guaranteed. Explain a defensible choice under those preferences, its reason, one ownership/control trade-off and a limit requiring review. These are supplied business assumptions, not rules for every cooperative."
+    parameters:
+      scope_node_ids:
+        - "n_biz_models_case_cooperative_pool"
+      key_points:
+        CASE_ACTION: "Decision"
+        CASE_REASON: "Reason"
+        CASE_TRADEOFF: "Trade-off"
+        CASE_LIMITATION: "Limit or condition"

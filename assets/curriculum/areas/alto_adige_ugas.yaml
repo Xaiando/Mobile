@@ -1,0 +1,95 @@
+# Five Alto Adige additional geographical units whose GeoNames name, or
+# alternate name, matches the legal unit and sits in the municipality
+# named by the 8 October 2024 decree. The other units stay unmapped.
+# Markers are not unit boundaries.
+knowledge_nodes:
+  - { id: n_geo_alto_adige_uga_buchholz, node_type: subregion, name: Buchholz }
+  - { id: n_geo_alto_adige_uga_girlan, node_type: subregion, name: Girlan }
+  - { id: n_geo_alto_adige_uga_gries, node_type: subregion, name: Gries }
+  - { id: n_geo_alto_adige_uga_penon, node_type: subregion, name: Penon }
+  - { id: n_geo_alto_adige_uga_rain, node_type: subregion, name: Rain }
+
+knowledge_relations:
+  - { subject_id: n_geo_alto_adige_uga_buchholz, relation_type: LOCATED_IN, object_id: n_geo_alto_adige, valid_from: "2024-10-17" }
+  - { subject_id: n_geo_alto_adige_uga_girlan, relation_type: LOCATED_IN, object_id: n_geo_alto_adige, valid_from: "2024-10-17" }
+  - { subject_id: n_geo_alto_adige_uga_gries, relation_type: LOCATED_IN, object_id: n_geo_alto_adige, valid_from: "2024-10-17" }
+  - { subject_id: n_geo_alto_adige_uga_penon, relation_type: LOCATED_IN, object_id: n_geo_alto_adige, valid_from: "2024-10-17" }
+  - { subject_id: n_geo_alto_adige_uga_rain, relation_type: LOCATED_IN, object_id: n_geo_alto_adige, valid_from: "2024-10-17" }
+
+knowledge_items:
+  - id: ki_alto_adige_uga_buchholz_location
+    subject_id: n_geo_alto_adige_uga_buchholz
+    relation_type: LOCATED_IN
+    object_id: n_geo_alto_adige
+    domain_id: geography
+    assertion_text: "Buchholz is an additional geographical unit that may follow Alto Adige, or Südtirol, on a label. The decree places it in Salorno. The marker is the Pochi settlement, whose GeoNames alternate name is Buchholz. It is not the Salurn-Pfatten unit, and it is not a boundary."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:55:00.000Z"
+  - id: ki_alto_adige_uga_girlan_location
+    subject_id: n_geo_alto_adige_uga_girlan
+    relation_type: LOCATED_IN
+    object_id: n_geo_alto_adige
+    domain_id: geography
+    assertion_text: "Girlan is an additional geographical unit that may follow Alto Adige, or Südtirol, on a label. The decree places it in Appiano. The marker is the Cornaiano settlement, whose GeoNames alternate name is Girlan. It is not the Girlan-Gschleier unit, and it is not a boundary."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:55:00.000Z"
+  - id: ki_alto_adige_uga_gries_location
+    subject_id: n_geo_alto_adige_uga_gries
+    relation_type: LOCATED_IN
+    object_id: n_geo_alto_adige
+    domain_id: geography
+    assertion_text: "Gries is an additional geographical unit that may follow Alto Adige, or Südtirol, on a label. The decree places it in Bolzano. The marker is the Gries settlement in Bolzano. It is not the Gries-Moritzing unit, and it is not a boundary."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:55:00.000Z"
+  - id: ki_alto_adige_uga_penon_location
+    subject_id: n_geo_alto_adige_uga_penon
+    relation_type: LOCATED_IN
+    object_id: n_geo_alto_adige
+    domain_id: geography
+    assertion_text: "Penon is an additional geographical unit that may follow Alto Adige, or Südtirol, on a label. The decree places it in Cortaccia. The marker is the Penone settlement, whose GeoNames alternate name is Penon. It is not Penon-Kofl or Penon-Hofstatt, and it is not a boundary."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:55:00.000Z"
+  - id: ki_alto_adige_uga_rain_location
+    subject_id: n_geo_alto_adige_uga_rain
+    relation_type: LOCATED_IN
+    object_id: n_geo_alto_adige
+    domain_id: geography
+    assertion_text: "Rain is an additional geographical unit that may follow Alto Adige, or Südtirol, on a label. The decree places it in Cortaccia. The marker is the Rain settlement in Cortaccia. It is not Goldrain in Laces, and it is not a boundary."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:55:00.000Z"
+
+knowledge_item_prerequisites:
+  - { knowledge_item_id: ki_alto_adige_uga_buchholz_location, prerequisite_item_id: ki_eac_alto_adige_location }
+  - { knowledge_item_id: ki_alto_adige_uga_girlan_location, prerequisite_item_id: ki_eac_alto_adige_location }
+  - { knowledge_item_id: ki_alto_adige_uga_gries_location, prerequisite_item_id: ki_eac_alto_adige_location }
+  - { knowledge_item_id: ki_alto_adige_uga_penon_location, prerequisite_item_id: ki_eac_alto_adige_location }
+  - { knowledge_item_id: ki_alto_adige_uga_rain_location, prerequisite_item_id: ki_eac_alto_adige_location }
+
+certification_knowledge_mappings:
+  - { certification_id: WSET_L3, knowledge_item_id: ki_alto_adige_uga_buchholz_location, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_alto_adige_uga_buchholz_location, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_alto_adige_uga_girlan_location, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_alto_adige_uga_girlan_location, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_alto_adige_uga_gries_location, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_alto_adige_uga_gries_location, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_alto_adige_uga_penon_location, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_alto_adige_uga_penon_location, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_alto_adige_uga_rain_location, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_alto_adige_uga_rain_location, importance: secondary, minimum_depth: 2 }
+
+source_citations:
+  - id: src_alto_adige_ugas
+    kind: legislation
+    title: "Alto Adige DOC, additional geographical units"
+    publisher: "Ministry of Agriculture, Food Sovereignty and Forests"
+    jurisdiction: IT
+    document_identifier: "Decree 8 October 2024, GU 17 October 2024, 24A05379, consolidated disciplinare article 7.2"
+    url: "https://www.gazzettaufficiale.it/atto/serie_generale/caricaArticolo?art.versione=1&art.idGruppo=0&art.flagTipoArticolo=1&art.codiceRedazionale=24A05379&art.idArticolo=7&art.idSottoArticolo=1&art.idSottoArticolo1=10&art.dataPubblicazioneGazzetta=2024-10-17&art.progressivo=0"
+    accessed_on: "2026-09-27"
+
+knowledge_item_citations:
+  - { knowledge_item_id: ki_alto_adige_uga_buchholz_location, source_citation_id: src_alto_adige_ugas, locator: "Article 7.2, Salorno: Buchholz. Settlement reference GeoNames 8953183, alternate name Buchholz." }
+  - { knowledge_item_id: ki_alto_adige_uga_girlan_location, source_citation_id: src_alto_adige_ugas, locator: "Article 7.2, Appiano: Girlan. Settlement reference GeoNames 3178078, alternate name Girlan." }
+  - { knowledge_item_id: ki_alto_adige_uga_gries_location, source_citation_id: src_alto_adige_ugas, locator: "Article 7.2, Bolzano: Gries, distinct from Gries-Moritzing. Settlement reference GeoNames 3175824." }
+  - { knowledge_item_id: ki_alto_adige_uga_penon_location, source_citation_id: src_alto_adige_ugas, locator: "Article 7.2, Cortaccia: Penon, distinct from Penon-Kofl and Penon-Hofstatt. Settlement reference GeoNames 3171238, alternate name Penon." }
+  - { knowledge_item_id: ki_alto_adige_uga_rain_location, source_citation_id: src_alto_adige_ugas, locator: "Article 7.2, Cortaccia: Rain. Settlement reference GeoNames 8953584. Not Goldrain." }

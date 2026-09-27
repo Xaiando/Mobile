@@ -1,0 +1,342 @@
+# Essential wine history, from the earliest cited grape-wine residues to the
+# current EU definition. Authored 27 September 2026. Every item is unverified.
+# These are study points, not a complete world history and not map boundaries.
+# None are mapped to WSET Levels 1–3. Codex owns those levels.
+knowledge_nodes:
+  - { id: n_hist_georgia_wine, node_type: production_principle, name: "What is the earliest cited chemical evidence of grape wine in the Near East?" }
+  - { id: n_hist_georgia_wine_point, node_type: learning_point, name: "Georgian Neolithic grape-wine residues" }
+  - { id: n_hist_areni_cave, node_type: production_principle, name: "What did Areni-1 add to the history of wine, and what did it not?" }
+  - { id: n_hist_areni_cave_point, node_type: learning_point, name: "Areni-1 wine installation, not the oldest residue" }
+  - { id: n_hist_pliny_falernian, node_type: production_principle, name: "How does Pliny rank Falernian in his own day?" }
+  - { id: n_hist_pliny_falernian_point, node_type: learning_point, name: "Pliny ranks Falernian in his own day" }
+  - { id: n_hist_merret_1662, node_type: production_principle, name: "Who documented sugar being added to make wine sparkling, and when?" }
+  - { id: n_hist_merret_1662_point, node_type: learning_point, name: "Merrett described sparkling wine in 1662" }
+  - { id: n_hist_perignon_myth, node_type: production_principle, name: "Did Dom Pérignon invent the sparkling method Merrett described?" }
+  - { id: n_hist_perignon_myth_point, node_type: learning_point, name: "Dom Pérignon is not the documented inventor" }
+  - { id: n_hist_douro_1756, node_type: production_principle, name: "What did the Douro charter of 1756 do, and what did it not?" }
+  - { id: n_hist_douro_1756_point, node_type: learning_point, name: "1756 Douro charter, not the first vineyard line" }
+  - { id: n_hist_berlin_1806, node_type: production_principle, name: "What was Napoleon I's Berlin Decree, in wine history?" }
+  - { id: n_hist_berlin_1806_point, node_type: learning_point, name: "Berlin Decree is a blockade, not a classification" }
+  - { id: n_hist_classement_1855, node_type: production_principle, name: "Who commissioned the 1855 Bordeaux ranking, and which wines did it cover?" }
+  - { id: n_hist_classement_1855_point, node_type: learning_point, name: "1855 ranking under Napoleon III" }
+  - { id: n_hist_phylloxera_graft, node_type: production_principle, name: "How is grape phylloxera controlled on Vitis vinifera?" }
+  - { id: n_hist_phylloxera_graft_point, node_type: learning_point, name: "Phylloxera is controlled by resistant rootstocks" }
+  - { id: n_hist_prohibition_18th, node_type: production_principle, name: "When did US national Prohibition take effect?" }
+  - { id: n_hist_prohibition_18th_point, node_type: learning_point, name: "Eighteenth Amendment national prohibition" }
+  - { id: n_hist_repeal_21st, node_type: production_principle, name: "What did the Twenty-first Amendment do to Prohibition?" }
+  - { id: n_hist_repeal_21st_point, node_type: learning_point, name: "Twenty-first Amendment repealed prohibition" }
+  - { id: n_hist_eu_wine_definition, node_type: production_principle, name: "What does current EU law mean by wine?" }
+  - { id: n_hist_eu_wine_definition_point, node_type: learning_point, name: "EU wine is fermented fresh grapes or must" }
+  - { id: n_hist_methuen_1703, node_type: production_principle, name: "What did the 1703 Methuen commercial treaty do for Portuguese wine?" }
+  - { id: n_hist_methuen_1703_point, node_type: learning_point, name: "Methuen cut the British duty on Portuguese wine" }
+  - { id: n_hist_aoc_1935, node_type: production_principle, name: "What production conditions define a French controlled appellation?" }
+  - { id: n_hist_aoc_1935_point, node_type: learning_point, name: "Controlled appellations fix area, grapes and yield" }
+  - { id: n_hist_paris_1976, node_type: production_principle, name: "What did the 1976 Paris tasting decide, and what did it not?" }
+  - { id: n_hist_paris_1976_point, node_type: learning_point, name: "1976 Paris tasting, not a permanent ranking" }
+
+knowledge_relations:
+  - { subject_id: n_hist_georgia_wine, relation_type: PRINCIPLE_EXPLANATION, object_id: n_hist_georgia_wine_point, valid_from: "2026-09-27" }
+  - { subject_id: n_hist_areni_cave, relation_type: PRINCIPLE_EXPLANATION, object_id: n_hist_areni_cave_point, valid_from: "2026-09-27" }
+  - { subject_id: n_hist_pliny_falernian, relation_type: PRINCIPLE_EXPLANATION, object_id: n_hist_pliny_falernian_point, valid_from: "2026-09-27" }
+  - { subject_id: n_hist_merret_1662, relation_type: PRINCIPLE_EXPLANATION, object_id: n_hist_merret_1662_point, valid_from: "2026-09-27" }
+  - { subject_id: n_hist_perignon_myth, relation_type: PRINCIPLE_EXPLANATION, object_id: n_hist_perignon_myth_point, valid_from: "2026-09-27" }
+  - { subject_id: n_hist_douro_1756, relation_type: PRINCIPLE_EXPLANATION, object_id: n_hist_douro_1756_point, valid_from: "2026-09-27" }
+  - { subject_id: n_hist_berlin_1806, relation_type: PRINCIPLE_EXPLANATION, object_id: n_hist_berlin_1806_point, valid_from: "2026-09-27" }
+  - { subject_id: n_hist_classement_1855, relation_type: PRINCIPLE_EXPLANATION, object_id: n_hist_classement_1855_point, valid_from: "2026-09-27" }
+  - { subject_id: n_hist_phylloxera_graft, relation_type: PRINCIPLE_EXPLANATION, object_id: n_hist_phylloxera_graft_point, valid_from: "2026-09-27" }
+  - { subject_id: n_hist_prohibition_18th, relation_type: PRINCIPLE_EXPLANATION, object_id: n_hist_prohibition_18th_point, valid_from: "2026-09-27" }
+  - { subject_id: n_hist_repeal_21st, relation_type: PRINCIPLE_EXPLANATION, object_id: n_hist_repeal_21st_point, valid_from: "2026-09-27" }
+  - { subject_id: n_hist_eu_wine_definition, relation_type: PRINCIPLE_EXPLANATION, object_id: n_hist_eu_wine_definition_point, valid_from: "2026-09-27" }
+  - { subject_id: n_hist_methuen_1703, relation_type: PRINCIPLE_EXPLANATION, object_id: n_hist_methuen_1703_point, valid_from: "2026-09-27" }
+  - { subject_id: n_hist_aoc_1935, relation_type: PRINCIPLE_EXPLANATION, object_id: n_hist_aoc_1935_point, valid_from: "2026-09-27" }
+  - { subject_id: n_hist_paris_1976, relation_type: PRINCIPLE_EXPLANATION, object_id: n_hist_paris_1976_point, valid_from: "2026-09-27" }
+
+knowledge_items:
+  - id: ki_hist_georgia_wine
+    subject_id: n_hist_georgia_wine
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_hist_georgia_wine_point
+    domain_id: service
+    assertion_text: "McGovern and colleagues report the earliest biomolecular evidence they obtained for grape wine in the Near East, about 6000–5800 BC, from pottery at Shulaveris Gora and Gadachrili Gora in Georgia. That is chemical evidence of grape wine, not a complete winery, and it does not prove no older fermented drink will be found."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hist_areni_cave
+    subject_id: n_hist_areni_cave
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_hist_areni_cave_point
+    domain_id: service
+    assertion_text: "Areni-1 in Armenia has installations and jars from around 4000 calibrated BCE, and malvidin on pottery from that production context. It is evidence of a wine-making installation. It is not the oldest wine residue: the Georgian grape-wine residues are older."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hist_pliny_falernian
+    subject_id: n_hist_pliny_falernian
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_hist_pliny_falernian_point
+    domain_id: service
+    assertion_text: "In Natural History book 14, Pliny says no wine of his own day ranked higher than Falernian. He describes a dry, a sweet and a light style, and a slope order of Caucinian on the hilltops, Faustian halfway up and Falernian at the bottom. This is a Roman literary ranking, not a modern appellation."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hist_merret_1662
+    subject_id: n_hist_merret_1662
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_hist_merret_1662_point
+    domain_id: service
+    assertion_text: "On 17 December 1662 Christopher Merrett told the Royal Society that English wine-coopers used large amounts of sugar and molasses to make wines brisk and sparkling. That is a documented description of deliberately making wine sparkling. It is not a distillation method."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hist_perignon_myth
+    subject_id: n_hist_perignon_myth
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_hist_perignon_myth_point
+    domain_id: service
+    assertion_text: "Pierre Pérignon became cellar master at Hautvillers after Merrett's 1662 paper. The Royal College of Physicians account says his task included preventing bubbles. That account does not make him the inventor of the method Merrett had already described, and the later slogan that he was tasting the stars is not part of the 1662 paper."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hist_douro_1756
+    subject_id: n_hist_douro_1756
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_hist_douro_1756_point
+    domain_id: service
+    assertion_text: "A royal charter of 10 September 1756 instituted the Companhia Geral da Agricultura das Vinhas do Alto Douro, under the future Marquis of Pombal, to control quality and prices and to demarcate the vineyards. The Portuguese monuments inventory notes earlier delimited zones, including Chianti in 1716 and Tokaj in 1737, so this charter is not the first line ever drawn around vines."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hist_berlin_1806
+    subject_id: n_hist_berlin_1806
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_hist_berlin_1806_point
+    domain_id: service
+    assertion_text: "Napoleon I's Berlin Decree of 21 November 1806 declared the British Isles blockaded and prohibited commerce and correspondence with them. It is a trade blockade. It is not a Bordeaux classification, and it is not the work of Napoleon III."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hist_classement_1855
+    subject_id: n_hist_classement_1855
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_hist_classement_1855_point
+    domain_id: service
+    assertion_text: "For the Paris Universal Exhibition of 1855, Napoleon III asked Bordeaux's brokers to rank the region's wines by reputation and by the prices of recent vintages. The ranking covers Médoc red wines, the Graves red wine Château Haut-Brion, and the sweet wines of Sauternes and Barsac. It does not include Saint-Émilion or Pomerol, and it was not commissioned by Napoleon I."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hist_phylloxera_graft
+    subject_id: n_hist_phylloxera_graft
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_hist_phylloxera_graft_point
+    domain_id: service
+    assertion_text: "Grape phylloxera is an aphid-like insect that feeds on the roots of Vitis vinifera and can stunt or kill the vine. University of California guidance treats resistant American rootstocks, including Vitis riparia, Vitis rupestris and their hybrids, as the effective control, and it does not treat insecticides as a complete remedy."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hist_prohibition_18th
+    subject_id: n_hist_prohibition_18th
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_hist_prohibition_18th_point
+    domain_id: service
+    assertion_text: "The US National Archives records the Eighteenth Amendment as passed by Congress on 18 December 1917 and ratified on 16 January 1919. National Prohibition then took effect on 16 January 1920. The same record says the Twenty-first Amendment later repealed it."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hist_repeal_21st
+    subject_id: n_hist_repeal_21st
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_hist_repeal_21st_point
+    domain_id: service
+    assertion_text: "The Twenty-first Amendment was passed by Congress on 20 February 1933 and ratified on 5 December 1933. Its first section repeals the Eighteenth Amendment. Its second section still prohibits transporting intoxicating liquors into a state in violation of that state's own law."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hist_eu_wine_definition
+    subject_id: n_hist_eu_wine_definition
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_hist_eu_wine_definition_point
+    domain_id: service
+    assertion_text: "In the consolidated text of Regulation (EU) No 1308/2013, wine means the product obtained exclusively from the total or partial alcoholic fermentation of fresh grapes, whether or not crushed, or of grape must. The ordinary minimum actual strength is 8.5 percent in zones A and B and 9 percent elsewhere, with a derogation to 4.5 percent for some protected wines, and total strength is normally not above 15 percent, with stated exceptions. Wine in that definition is not a distilled spirit."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hist_methuen_1703
+    subject_id: n_hist_methuen_1703
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_hist_methuen_1703_point
+    domain_id: service
+    assertion_text: "The commercial treaty concluded in Lisbon on 27 December 1703 admitted British woollen cloth into Portugal and admitted wine of Portuguese growth into Britain at a duty one third below the duty on the same measure of French wine, in peace or war. It is a customs treaty. It is not the 1756 Douro demarcation, and it does not by itself define Port."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hist_aoc_1935
+    subject_id: n_hist_aoc_1935
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_hist_aoc_1935_point
+    domain_id: service
+    assertion_text: "The French wine code, in the text published for 25 November 1967, records a category of controlled appellations of origin for wines and eaux-de-vie and ties that category to the decree of 30 July 1935. The stated conditions include the production area, the grape varieties, the yield per hectare, a minimum alcoholic strength from vinification without enrichment, and the methods of growing and making the wine."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hist_paris_1976
+    subject_id: n_hist_paris_1976
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_hist_paris_1976_point
+    domain_id: service
+    assertion_text: "On 24 May 1976 Steven Spurrier and Patricia Gallagher organized a blind tasting in Paris. Nine French judges compared six California Chardonnays with four white Burgundies, and six California Cabernet Sauvignons with four red Bordeaux. The Smithsonian records that the 1973 Chateau Montelena Chardonnay and the 1973 Stag's Leap Wine Cellars S.L.V. Cabernet Sauvignon scored first in their groups. That is the result of that tasting. It is not a permanent ranking of every wine."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+
+certification_knowledge_mappings:
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hist_georgia_wine, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hist_georgia_wine, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hist_areni_cave, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hist_areni_cave, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hist_pliny_falernian, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hist_pliny_falernian, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hist_merret_1662, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hist_merret_1662, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hist_perignon_myth, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hist_perignon_myth, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hist_douro_1756, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hist_douro_1756, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hist_berlin_1806, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hist_berlin_1806, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hist_classement_1855, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hist_classement_1855, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hist_phylloxera_graft, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hist_phylloxera_graft, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hist_prohibition_18th, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hist_prohibition_18th, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hist_repeal_21st, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hist_repeal_21st, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hist_eu_wine_definition, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hist_eu_wine_definition, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hist_methuen_1703, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hist_methuen_1703, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hist_aoc_1935, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hist_aoc_1935, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hist_paris_1976, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hist_paris_1976, importance: secondary, minimum_depth: 2 }
+
+source_citations:
+  - id: src_hist_pnas_georgia
+    kind: academic
+    title: "Early Neolithic wine of Georgia in the South Caucasus"
+    publisher: "Proceedings of the National Academy of Sciences"
+    document_identifier: "McGovern et al., PNAS 114, doi 10.1073/pnas.1714728114, 2017"
+    url: "https://www.pnas.org/doi/10.1073/pnas.1714728114"
+    accessed_on: "2026-09-27"
+  - id: src_hist_jas_areni
+    kind: academic
+    title: "Chemical evidence for wine production around 4000 BCE in the Late Chalcolithic Near Eastern highlands"
+    publisher: "Journal of Archaeological Science"
+    document_identifier: "Barnard et al., JAS 38(5), doi 10.1016/j.jas.2010.11.012, 2011"
+    url: "https://doi.org/10.1016/j.jas.2010.11.012"
+    accessed_on: "2026-09-27"
+  - id: src_hist_pliny_falernian
+    kind: reference_work
+    title: "Pliny the Elder, Natural History, book 14"
+    publisher: "Loeb Classical Library, Harvard University Press"
+    document_identifier: "LCL 370, pp. 228–229, Falernian ranking"
+    url: "https://www.loebclassics.com/view/pliny_elder-natural_history/1938/pb_LCL370.229.xml"
+    accessed_on: "2026-09-27"
+  - id: src_hist_rcp_merrett
+    kind: academic
+    title: "Christopher Merrett and the beginnings of champagne"
+    publisher: "Royal College of Physicians Museum"
+    document_identifier: "Merrett paper to the Royal Society, 17 December 1662"
+    url: "https://history.rcp.ac.uk/blog/christopher-merrett-and-beginnings-champagne"
+    accessed_on: "2026-09-27"
+  - id: src_hist_douro_journal
+    kind: academic
+    title: "Instituições da região demarcada do Douro"
+    publisher: "Revista Jurídica Portucalense"
+    document_identifier: "Albuquerque, no. 32, 2022; royal charter of 10 September 1756"
+    url: "https://revistas.rcaap.pt/juridica/article/view/28174/20627"
+    accessed_on: "2026-09-27"
+  - id: src_hist_douro_monumentos
+    kind: government_publication
+    title: "Marcos de Demarcação da Zona de Produção de Vinhos Generosos do Douro"
+    publisher: "Sistema de Informação para o Património Arquitetónico, Portugal"
+    document_identifier: "IPA.00006005; Chianti 1716 and Tokaj 1737 noted as earlier demarcations"
+    url: "http://www.monumentos.gov.pt/Site/APP_PagesUser/SIPA.aspx?id=6005"
+    accessed_on: "2026-09-27"
+  - id: src_hist_berlin_decree
+    kind: reference_work
+    title: "The Berlin Decree of November 21 1806"
+    publisher: "Fondation Napoléon"
+    document_identifier: "Imperial decree, Berlin, 21 November 1806, articles I and II"
+    url: "https://www.napoleon.org/en/history-of-the-two-empires/articles/the-berlin-decree-of-november-21-1806/"
+    accessed_on: "2026-09-27"
+  - id: src_hist_bordeaux_1855
+    kind: reference_work
+    title: "The 1855 Wines Classifications"
+    publisher: "Bordeaux.com, Conseil Interprofessionnel du Vin de Bordeaux"
+    document_identifier: "Paris Universal Exhibition 1855; Médoc, Haut-Brion, Sauternes and Barsac"
+    url: "https://www.bordeaux.com/en/classifications/classifications-1855/"
+    accessed_on: "2026-09-27"
+  - id: src_hist_ucipm_phylloxera
+    kind: academic
+    title: "Grape phylloxera"
+    publisher: "University of California Statewide IPM Program"
+    document_identifier: "Daktulosphaira vitifoliae; resistant rootstocks; updated May 2025"
+    url: "http://ipm.ucdavis.edu/PMG/GARDEN/FRUIT/PESTS/grapephylloxera.html"
+    accessed_on: "2026-09-27"
+  - id: src_hist_archives_amendments
+    kind: government_publication
+    title: "Constitution Day: the full U.S. Constitution virtual exhibit"
+    publisher: "National Archives Museum"
+    document_identifier: "Eighteenth Amendment, ratified 16 January 1919, in effect 16 January 1920; Twenty-first Amendment, ratified 5 December 1933"
+    url: "https://visit.archives.gov/whats-on/explore-exhibits/constitution-day-full-us-constitution-virtual-exhibit"
+    accessed_on: "2026-09-27"
+  - id: src_hist_archives_repeal
+    kind: government_publication
+    title: "Amendment XXI, repeal of Prohibition"
+    publisher: "Ronald Reagan Presidential Library, National Archives"
+    document_identifier: "Text of the Twenty-first Amendment; ratified 5 December 1933"
+    url: "https://reagan.blogs.archives.gov/2022/10/06/constitutional-amendments-series-amendment-xxi-repeal-of-prohibition/"
+    accessed_on: "2026-09-27"
+  - id: src_hist_methuen
+    kind: reference_work
+    title: "Tratado de Methuen"
+    publisher: "Wikisource"
+    document_identifier: "Commercial treaty concluded in Lisbon on 27 December 1703, articles I and II"
+    url: "https://pt.wikisource.org/wiki/Tratado_de_Methuen"
+    accessed_on: "2026-09-27"
+  - id: src_hist_code_vin_1935
+    kind: legislation
+    title: "Code du vin, text in force on 25 November 1967"
+    publisher: "Légifrance"
+    jurisdiction: FR
+    document_identifier: "LEGITEXT000006071657; controlled appellations and the decree of 30 July 1935"
+    url: "https://www.legifrance.gouv.fr/loda/id/LEGITEXT000006071657/1967-11-25"
+    accessed_on: "2026-09-27"
+  - id: src_hist_paris_1976
+    kind: government_publication
+    title: "Smithsonian commemorates the 40th anniversary of the Judgment of Paris"
+    publisher: "Smithsonian Institution"
+    document_identifier: "News release, 9 February 2016; tasting of 24 May 1976"
+    url: "https://www.si.edu/newsdesk/releases/smithsonian-commemorates-40th-anniversary-judgment-paris"
+    accessed_on: "2026-09-27"
+
+knowledge_item_citations:
+  - { knowledge_item_id: ki_hist_georgia_wine, source_citation_id: src_hist_pnas_georgia, locator: "Significance: earliest biomolecular evidence for grape wine from the Near East, ca. 6000–5800 BC, Georgia." }
+  - { knowledge_item_id: ki_hist_areni_cave, source_citation_id: src_hist_jas_areni, locator: "Abstract: installations around 4000 cal. BCE and malvidin." }
+  - { knowledge_item_id: ki_hist_areni_cave, source_citation_id: src_hist_pnas_georgia, locator: "The Georgian residues are the older chemical evidence of grape wine." }
+  - { knowledge_item_id: ki_hist_pliny_falernian, source_citation_id: src_hist_pliny_falernian, locator: "Book 14: Falernian rank, three styles, Caucinian, Faustian and Falernian." }
+  - { knowledge_item_id: ki_hist_merret_1662, source_citation_id: src_hist_rcp_merrett, locator: "17 December 1662, sugar and molasses to make wine brisk and sparkling." }
+  - { knowledge_item_id: ki_hist_perignon_myth, source_citation_id: src_hist_rcp_merrett, locator: "Pérignon appointed after the paper; task included preventing bubbles." }
+  - { knowledge_item_id: ki_hist_douro_1756, source_citation_id: src_hist_douro_journal, locator: "Royal charter of 10 September 1756 instituting the Companhia." }
+  - { knowledge_item_id: ki_hist_douro_1756, source_citation_id: src_hist_douro_monumentos, locator: "Chianti 1716 and Tokaj 1737 noted as earlier demarcations." }
+  - { knowledge_item_id: ki_hist_berlin_1806, source_citation_id: src_hist_berlin_decree, locator: "21 November 1806, articles I and II." }
+  - { knowledge_item_id: ki_hist_classement_1855, source_citation_id: src_hist_bordeaux_1855, locator: "Napoleon III, brokers, reputation and price; Médoc, Haut-Brion, Sauternes and Barsac." }
+  - { knowledge_item_id: ki_hist_phylloxera_graft, source_citation_id: src_hist_ucipm_phylloxera, locator: "Root-feeding insect; resistant American rootstocks are the effective control." }
+  - { knowledge_item_id: ki_hist_prohibition_18th, source_citation_id: src_hist_archives_amendments, locator: "Eighteenth Amendment dates and the later repeal." }
+  - { knowledge_item_id: ki_hist_repeal_21st, source_citation_id: src_hist_archives_amendments, locator: "Twenty-first Amendment, ratified 5 December 1933." }
+  - { knowledge_item_id: ki_hist_repeal_21st, source_citation_id: src_hist_archives_repeal, locator: "Section 1 repeals the Eighteenth Amendment; section 2 preserves state liquor laws." }
+  - { knowledge_item_id: ki_hist_eu_wine_definition, source_citation_id: src_eu_reg_1308_2013, locator: "Annex VII, Part II, point 1, wine, consolidated 18 March 2026." }
+  - { knowledge_item_id: ki_hist_methuen_1703, source_citation_id: src_hist_methuen, locator: "27 December 1703, articles I and II: cloth into Portugal, Portuguese wine at one third less duty than French wine." }
+  - { knowledge_item_id: ki_hist_aoc_1935, source_citation_id: src_hist_code_vin_1935, locator: "Controlled appellations; conditions of area, grapes, yield, minimum strength and methods; decree of 30 July 1935." }
+  - { knowledge_item_id: ki_hist_paris_1976, source_citation_id: src_hist_paris_1976, locator: "24 May 1976; Montelena Chardonnay and Stag's Leap Cabernet first in their groups." }

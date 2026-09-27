@@ -1,0 +1,811 @@
+knowledge_nodes:
+- id: n_wset_close_principle_red_ageing_colour
+  node_type: production_principle
+  name: How can the colour of a red wine change during bottle ageing?
+- id: n_wset_close_point_red_ageing_colour
+  node_type: learning_point
+  name: Red colour development
+- id: n_wset_close_principle_white_ageing_colour
+  node_type: production_principle
+  name: How can the colour of a white wine change during bottle ageing?
+- id: n_wset_close_point_white_ageing_colour
+  node_type: learning_point
+  name: White colour development
+- id: n_wset_close_principle_vintage_label
+  node_type: production_principle
+  name: Does a vintage year on a wine label identify harvest or bottling?
+- id: n_wset_close_point_vintage_label
+  node_type: learning_point
+  name: Harvest year
+- id: n_wset_close_principle_old_vine_label
+  node_type: production_principle
+  name: What does Vieilles vignes indicate, and what does it not guarantee?
+- id: n_wset_close_point_old_vine_label
+  node_type: learning_point
+  name: Old-vine wording
+- id: n_wset_close_principle_oiv_old_vine
+  node_type: production_principle
+  name: What old-vine definition did the OIV adopt in 2024?
+- id: n_wset_close_point_oiv_old_vine
+  node_type: learning_point
+  name: OIV recommended vine-age definition
+- id: n_wset_close_principle_oiv_old_vineyard
+  node_type: production_principle
+  name: How does the OIV distinguish an old vineyard from an individual old vine?
+- id: n_wset_close_point_oiv_old_vineyard
+  node_type: learning_point
+  name: Vineyard proportion
+- id: n_wset_close_principle_late_harvest_label
+  node_type: production_principle
+  name: What does late harvest or Vendanges Tardives tell you about the grapes?
+- id: n_wset_close_point_late_harvest_label
+  node_type: learning_point
+  name: Harvest timing and ripeness
+- id: n_wset_close_principle_gi_label
+  node_type: production_principle
+  name: How does a geographical indication differ from a grape name on a label?
+- id: n_wset_close_point_gi_label
+  node_type: learning_point
+  name: Origin versus variety
+- id: n_wset_close_principle_eu_wine_pdo
+  node_type: production_principle
+  name: What does PDO protect for wine in the European Union?
+- id: n_wset_close_point_eu_wine_pdo
+  node_type: learning_point
+  name: EU protected designation of origin
+- id: n_wset_close_principle_eu_wine_pgi
+  node_type: production_principle
+  name: How does PGI differ from PDO for wine in the European Union?
+- id: n_wset_close_point_eu_wine_pgi
+  node_type: learning_point
+  name: EU protected geographical indication
+- id: n_wset_close_principle_white_ripeness_flavour
+  node_type: production_principle
+  name: How can increasing grape ripeness affect white-wine fruit character?
+- id: n_wset_close_point_white_ripeness_flavour
+  node_type: learning_point
+  name: Conditional white fruit progression
+- id: n_wset_close_principle_black_ripeness_flavour
+  node_type: production_principle
+  name: How can increasing black-grape ripeness affect red-wine fruit character?
+- id: n_wset_close_point_black_ripeness_flavour
+  node_type: learning_point
+  name: Conditional red fruit progression
+- id: n_wset_close_principle_phenolic_maturity
+  node_type: production_principle
+  name: Why does sugar ripeness alone not establish tannin and flavour maturity?
+- id: n_wset_close_point_phenolic_maturity
+  node_type: learning_point
+  name: Different ripening measures
+- id: n_wset_close_principle_vine_wood
+  node_type: production_principle
+  name: How do a current shoot, one-year wood and permanent vine wood differ?
+- id: n_wset_close_point_vine_wood
+  node_type: learning_point
+  name: Seasonal and permanent structure
+- id: n_wset_close_principle_vine_green_parts
+  node_type: production_principle
+  name: Which green parts develop on a grapevine shoot during the growing season?
+- id: n_wset_close_point_vine_green_parts
+  node_type: learning_point
+  name: Green canopy and fruiting structures
+- id: n_wset_close_principle_oak_size
+  node_type: production_principle
+  name: Why can small and large oak vessels have different flavour effects?
+- id: n_wset_close_point_oak_size
+  node_type: learning_point
+  name: Oak contact per litre
+- id: n_wset_close_principle_oak_toast
+  node_type: production_principle
+  name: How does coopering toast affect oak character in wine?
+- id: n_wset_close_point_oak_toast
+  node_type: learning_point
+  name: Heating changes wood chemistry
+- id: n_wset_close_principle_blending_complexity
+  node_type: production_principle
+  name: How can blending add complexity rather than simply more volume?
+- id: n_wset_close_point_blending_complexity
+  node_type: learning_point
+  name: Complementary sensory layers
+- id: n_wset_close_principle_pump_over
+  node_type: production_principle
+  name: What does a pump over do during red-wine fermentation?
+- id: n_wset_close_point_pump_over
+  node_type: learning_point
+  name: Liquid over the cap
+- id: n_wset_close_principle_punch_down
+  node_type: production_principle
+  name: How does a punch down differ from a pump over?
+- id: n_wset_close_point_punch_down
+  node_type: learning_point
+  name: Submerging the cap
+knowledge_relations:
+- subject_id: n_wset_close_principle_red_ageing_colour
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_wset_close_point_red_ageing_colour
+  valid_from: '2026-09-27'
+- subject_id: n_wset_close_principle_white_ageing_colour
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_wset_close_point_white_ageing_colour
+  valid_from: '2026-09-27'
+- subject_id: n_wset_close_principle_vintage_label
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_wset_close_point_vintage_label
+  valid_from: '2026-09-27'
+- subject_id: n_wset_close_principle_old_vine_label
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_wset_close_point_old_vine_label
+  valid_from: '2026-09-27'
+- subject_id: n_wset_close_principle_oiv_old_vine
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_wset_close_point_oiv_old_vine
+  valid_from: '2026-09-27'
+- subject_id: n_wset_close_principle_oiv_old_vineyard
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_wset_close_point_oiv_old_vineyard
+  valid_from: '2026-09-27'
+- subject_id: n_wset_close_principle_late_harvest_label
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_wset_close_point_late_harvest_label
+  valid_from: '2026-09-27'
+- subject_id: n_wset_close_principle_gi_label
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_wset_close_point_gi_label
+  valid_from: '2026-09-27'
+- subject_id: n_wset_close_principle_eu_wine_pdo
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_wset_close_point_eu_wine_pdo
+  valid_from: '2026-09-27'
+- subject_id: n_wset_close_principle_eu_wine_pgi
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_wset_close_point_eu_wine_pgi
+  valid_from: '2026-09-27'
+- subject_id: n_wset_close_principle_white_ripeness_flavour
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_wset_close_point_white_ripeness_flavour
+  valid_from: '2026-09-27'
+- subject_id: n_wset_close_principle_black_ripeness_flavour
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_wset_close_point_black_ripeness_flavour
+  valid_from: '2026-09-27'
+- subject_id: n_wset_close_principle_phenolic_maturity
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_wset_close_point_phenolic_maturity
+  valid_from: '2026-09-27'
+- subject_id: n_wset_close_principle_vine_wood
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_wset_close_point_vine_wood
+  valid_from: '2026-09-27'
+- subject_id: n_wset_close_principle_vine_green_parts
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_wset_close_point_vine_green_parts
+  valid_from: '2026-09-27'
+- subject_id: n_wset_close_principle_oak_size
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_wset_close_point_oak_size
+  valid_from: '2026-09-27'
+- subject_id: n_wset_close_principle_oak_toast
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_wset_close_point_oak_toast
+  valid_from: '2026-09-27'
+- subject_id: n_wset_close_principle_blending_complexity
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_wset_close_point_blending_complexity
+  valid_from: '2026-09-27'
+- subject_id: n_wset_close_principle_pump_over
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_wset_close_point_pump_over
+  valid_from: '2026-09-27'
+- subject_id: n_wset_close_principle_punch_down
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_wset_close_point_punch_down
+  valid_from: '2026-09-27'
+knowledge_items:
+- id: ki_wset_close_red_ageing_colour
+  subject_id: n_wset_close_principle_red_ageing_colour
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_wset_close_point_red_ageing_colour
+  domain_id: tasting
+  assertion_text: A youthful red may show purple or ruby colours; development can introduce garnet or
+    tawny shades, particularly at the rim, and very old or oxidised wine may appear brown. Colour also
+    depends on the grape, production and storage, so it cannot establish an exact age or prove improved
+    quality.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-27T00:00:00.000Z'
+- id: ki_wset_close_white_ageing_colour
+  subject_id: n_wset_close_principle_white_ageing_colour
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_wset_close_point_white_ageing_colour
+  domain_id: tasting
+  assertion_text: A pale lemon-coloured white can become deeper gold as it develops; very old or oxidised
+    examples may acquire amber or brown tones. Initial colour, production and storage also matter, so
+    a deeper colour alone proves neither a precise bottle age nor beneficial development.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-27T00:00:00.000Z'
+- id: ki_wset_close_vintage_label
+  subject_id: n_wset_close_principle_vintage_label
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_wset_close_point_vintage_label
+  domain_id: geography
+  assertion_text: The vintage identifies the year the grapes were harvested, rather than the year the
+    wine was bottled or released. Local rules determine what proportion must come from that harvest. The
+    year alone does not establish quality; weather, place, grapes and production must be considered together.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-27T00:00:00.000Z'
+- id: ki_wset_close_old_vine_label
+  subject_id: n_wset_close_principle_old_vine_label
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_wset_close_point_old_vine_label
+  domain_id: viticulture
+  assertion_text: Vieilles vignes means old vines. Vine age can be relevant to yield and fruit character,
+    but the wording alone guarantees neither concentration nor quality. Definitions, certification and
+    enforceable labelling conditions differ by jurisdiction or scheme; check the producer and applicable
+    rules rather than assume one worldwide legal threshold.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-27T00:00:00.000Z'
+- id: ki_wset_close_oiv_old_vine
+  subject_id: n_wset_close_principle_oiv_old_vine
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_wset_close_point_oiv_old_vine
+  domain_id: viticulture
+  assertion_text: The OIV adopted a definition of an individual old vine with officially documented age
+    of at least 35 years; for a grafted plant, the scion–rootstock union must also have remained intact
+    for at least 35 years. This international recommendation does not automatically impose the same labelling
+    law in every country.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-27T00:00:00.000Z'
+- id: ki_wset_close_oiv_old_vineyard
+  subject_id: n_wset_close_principle_oiv_old_vineyard
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_wset_close_point_oiv_old_vineyard
+  domain_id: viticulture
+  assertion_text: In the OIV 2024 definition, an old vineyard is a homogeneous, continuous and legally
+    delimited vineyard parcel with at least 85% of its vines meeting the individual old-vine definition,
+    producing vitivinicultural products eligible for lawful certification by a competent authority.
+    A qualifying vine and a qualifying whole parcel are distinct; this recommendation is not an automatic
+    worldwide labelling permission.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-27T00:00:00.000Z'
+- id: ki_wset_close_late_harvest_label
+  subject_id: n_wset_close_principle_late_harvest_label
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_wset_close_point_late_harvest_label
+  domain_id: viticulture
+  assertion_text: Late harvest indicates grapes left on the vine for a later harvest, usually seeking
+    greater ripeness or concentration; Vendanges Tardives is the French wording. The term does not universally
+    require noble rot or guarantee the same finished sweetness. Named origins apply their own conditions,
+    and fermentation determines how much sugar remains.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-27T00:00:00.000Z'
+- id: ki_wset_close_gi_label
+  subject_id: n_wset_close_principle_gi_label
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_wset_close_point_gi_label
+  domain_id: geography
+  assertion_text: A wine geographical indication identifies an origin associated with the grapes and wine,
+    whereas a varietal name identifies a grape. An origin may also carry production rules, and the grape
+    need not appear on the label. Reading a named origin requires learning its permitted or characteristic
+    grapes and styles.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-27T00:00:00.000Z'
+- id: ki_wset_close_eu_wine_pdo
+  subject_id: n_wset_close_principle_eu_wine_pdo
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_wset_close_point_eu_wine_pdo
+  domain_id: geography
+  assertion_text: PDO means protected designation of origin. For EU wine, the grapes come exclusively
+    from the specified geographical area and the wine is produced there under its specification. The protected
+    name links the product to its place; it does not by itself certify that a taster will prefer it to
+    every PGI wine.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-27T00:00:00.000Z'
+- id: ki_wset_close_eu_wine_pgi
+  subject_id: n_wset_close_principle_eu_wine_pgi
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_wset_close_point_eu_wine_pgi
+  domain_id: geography
+  assertion_text: PGI means protected geographical indication. For EU wine, at least 85% of the grapes
+    come from the specified area and the wine is produced there under its specification, compared with
+    exclusively local grapes for PDO. These wine rules differ from the simpler one-production-stage explanation
+    used for many food products.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-27T00:00:00.000Z'
+- id: ki_wset_close_white_ripeness_flavour
+  subject_id: n_wset_close_principle_white_ripeness_flavour
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_wset_close_point_white_ripeness_flavour
+  domain_id: viticulture
+  assertion_text: 'For suitable varieties, less ripe fruit can suggest citrus or green/orchard-fruit character,
+    while riper fruit can suggest stone or tropical fruit and very ripe fruit may appear dried or cooked.
+    These are comparative tendencies: variety, site and winemaking matter, and every white grape does
+    not follow one identical sequence.'
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-27T00:00:00.000Z'
+- id: ki_wset_close_black_ripeness_flavour
+  subject_id: n_wset_close_principle_black_ripeness_flavour
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_wset_close_point_black_ripeness_flavour
+  domain_id: viticulture
+  assertion_text: Within a suitable variety, less ripe fruit may retain herbaceous or tart fruit character;
+    riper fruit can show fuller ripe-fruit character, and extra-ripe fruit may suggest dried or cooked
+    fruit. Red-fruit versus black-fruit associations also depend on variety and growing conditions; neither
+    colour descriptor is a universal ripeness measurement.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-27T00:00:00.000Z'
+- id: ki_wset_close_phenolic_maturity
+  subject_id: n_wset_close_principle_phenolic_maturity
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_wset_close_point_phenolic_maturity
+  domain_id: viticulture
+  assertion_text: Sugar accumulation, flavour development and seed/skin phenolic maturity need not progress
+    at the same rate. As seeds mature and brown, their tannins can become less extractable; skin and seed
+    observations help assess the intended red-wine style. No single Brix value, seed colour or taste proves
+    complete ripeness or guarantees a soft finished wine.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-27T00:00:00.000Z'
+- id: ki_wset_close_vine_wood
+  subject_id: n_wset_close_principle_vine_wood
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_wset_close_point_vine_wood
+  domain_id: viticulture
+  assertion_text: A shoot is current-season green growth. Mature portions become woody canes; a cane retained
+    from the previous growing season is one-year wood carrying buds for the next season. The trunk and
+    retained arms or cordons form older permanent structure. These parts are distinguished by age and
+    function, rather than treated as interchangeable stems.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-27T00:00:00.000Z'
+- id: ki_wset_close_vine_green_parts
+  subject_id: n_wset_close_principle_vine_green_parts
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_wset_close_point_vine_green_parts
+  domain_id: viticulture
+  assertion_text: Current green shoots carry leaves, buds and tendrils, together with inflorescences that
+    can develop into grape bunches. Leaves supply photosynthate through photosynthesis. Green seasonal
+    growth is distinct from the retained woody framework that supports growth in later years.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-27T00:00:00.000Z'
+- id: ki_wset_close_oak_size
+  subject_id: n_wset_close_principle_oak_size
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_wset_close_point_oak_size
+  domain_id: winemaking
+  assertion_text: For similarly shaped vessels with comparable wood, age, toast and contact time, a smaller
+    oak vessel exposes each litre of wine to more wood surface than a larger one, favouring greater extraction
+    of oak compounds. A large old vessel can therefore support maturation with little oak flavour; size
+    alone does not determine the result.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-27T00:00:00.000Z'
+- id: ki_wset_close_oak_toast
+  subject_id: n_wset_close_principle_oak_toast
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_wset_close_point_oak_toast
+  domain_id: winemaking
+  assertion_text: Heating oak during coopering changes the wood compounds available to the wine, altering
+    aromas such as toast or smoke and the character of oak tannins. Heating time and intensity, wood and
+    extraction conditions matter; a heavier toast is not simply more of every oak aroma and is not a quality
+    ranking.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-27T00:00:00.000Z'
+- id: ki_wset_close_blending_complexity
+  subject_id: n_wset_close_principle_blending_complexity
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_wset_close_point_blending_complexity
+  domain_id: winemaking
+  assertion_text: Blending components with complementary aromas, flavours or textures can create additional
+    sensory layers in the finished wine. Components may come from different varieties, parcels or vessels,
+    including the same variety. The aim differs from balancing acidity or maintaining a house style; adding
+    more components does not automatically improve complexity or quality.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-27T00:00:00.000Z'
+- id: ki_wset_close_pump_over
+  subject_id: n_wset_close_principle_pump_over
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_wset_close_point_pump_over
+  domain_id: winemaking
+  assertion_text: A pump over removes fermenting liquid from below the floating skin cap and returns it
+    over the cap, wetting the solids and renewing liquid–skin contact. This can aid extraction and redistribute
+    heat; oxygen exposure depends on the setup. Frequency and intensity are selected for the grapes and
+    intended style, rather than maximised automatically.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-27T00:00:00.000Z'
+- id: ki_wset_close_punch_down
+  subject_id: n_wset_close_principle_punch_down
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_wset_close_point_punch_down
+  domain_id: winemaking
+  assertion_text: A punch down pushes the floating skins down into the fermenting liquid instead of pumping
+    liquid over them. Renewed contact helps extract colour and tannin and manage the cap. The effect depends
+    on timing, force, frequency and fruit; either operation must be adapted to the desired wine rather
+    than assumed intrinsically gentler or better.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-27T00:00:00.000Z'
+source_citations:
+- id: src_wset_close_labels
+  kind: reference_work
+  title: 'How to read wine labels: common features on wine labels'
+  publisher: Wine & Spirit Education Trust
+  url: https://www.wsetglobal.com/knowledge-centre/blog/2019/how-to-read-wine-labels-part-one-common-features-on-wine-labels
+  document_identifier: 30 May 2019; GI, grape, vintage and vine-age headings only
+  accessed_on: '2026-09-27'
+- id: src_wset_close_oiv_old
+  kind: reference_work
+  title: Definitions and recommendations concerning old grapevines and old vineyards
+  publisher: International Organisation of Vine and Wine
+  url: https://www.oiv.int/fr/node/3806
+  document_identifier: OIV-VITI 703-2024; definition and harmonisation recommendation; not automatically
+    national law
+  accessed_on: '2026-09-27'
+- id: src_wset_close_l2_session
+  kind: reference_work
+  title: Level 2 Award in Wines public session plans
+  publisher: Wine & Spirit Education Trust
+  url: https://www.wsetglobal.com/media/13022/wset_l2wines_sessionplans_en_may2023_issue2.pdf
+  document_identifier: May 2023 Issue 2; elementary harvest/sweetness and French vocabulary only; current
+    2026 specification determines app scope
+  accessed_on: '2026-09-27'
+- id: src_wset_close_ttb_vintage
+  kind: reference_work
+  title: 'Wine Boot Camp Basics: Labeling'
+  publisher: US Alcohol and Tobacco Tax and Trade Bureau
+  url: https://www.ttb.gov/system/files/2025-12/Part_1.5_Labeling_--_FINAL.pdf
+  document_identifier: 2025; PDF page 34, Vintage Date and 27 CFR 4.27; different US appellation proportions
+    provide context only
+  accessed_on: '2026-09-27'
+- id: src_wset_close_civa_vt
+  kind: reference_work
+  title: 'Vendanges Tardives: AOC mention and delayed harvesting'
+  publisher: Conseil Interprofessionnel des Vins d’Alsace
+  url: https://www.vinsalsace.com/fr/gouts-et-couleurs/aoc/vendanges-tardives/
+  document_identifier: 'Primary AOC explanation: overripe grapes and delayed harvest; does not establish
+    a dry-VT claim or worldwide late-harvest rules'
+  accessed_on: '2026-09-27'
+- id: src_wset_close_eu_gi
+  kind: reference_work
+  title: Geographical indications and quality schemes explained
+  publisher: European Commission
+  url: https://agriculture.ec.europa.eu/farming/geographical-indications-and-quality-schemes/geographical-indications-and-quality-schemes-explained_en
+  document_identifier: PDO/PGI wine-specific sections; current page checked 27 September 2026
+  accessed_on: '2026-09-27'
+- id: src_wset_close_style
+  kind: reference_work
+  title: How to find a wine you’ll like
+  publisher: Wine & Spirit Education Trust
+  url: https://www.wsetglobal.com/knowledge-centre/blog/2025/how-to-find-a-wine-youll-like
+  document_identifier: 21 November 2025; conditional fruit-character comparisons only; no universal tannin,
+    price or old-vine-law claim adopted
+  accessed_on: '2026-09-27'
+- id: src_wset_close_geography
+  kind: reference_work
+  title: How does geography affect a wine’s style?
+  publisher: Wine & Spirit Education Trust
+  url: https://www.wsetglobal.com/knowledge-centre/blog/2021/august/24/how-does-geography-affect-a-wine-s-style
+  document_identifier: 24 August 2021; fruit-ripeness comparison only
+  accessed_on: '2026-09-27'
+- id: src_wset_close_bc_maturity
+  kind: reference_work
+  title: Fruit Sampling and Maturity
+  publisher: British Columbia Wine Grape Council
+  url: https://bpg.bcwgc.org/harvest-quality/fruit-sampling-and-maturity/
+  document_identifier: Grape Seeds and Aroma/Flavour and Phenolic Compounds; no universal numerical maturity
+    or extraction target adopted
+  accessed_on: '2026-09-27'
+- id: src_wset_close_isu_structure
+  kind: reference_work
+  title: How to Prune Grapevines in the Home Garden
+  publisher: Iowa State University Extension and Outreach
+  url: https://yardandgarden.extension.iastate.edu/how-to/how-prune-grapevines-home-garden
+  document_identifier: Randall Vos; reviewed January 2024; grapevine terminology and structural diagrams
+  accessed_on: '2026-09-27'
+- id: src_wset_close_cooper_volume
+  kind: reference_work
+  title: 'French oak barrel range: the volume effect'
+  publisher: Seguin Moreau
+  url: https://static1.squarespace.com/static/5ce302f4858d840001a7e524/t/5d1402e83cc1ff0001e996c7/1561592554884/french-oak-range.pdf
+  document_identifier: Original cooperage technical brochure, PDF page 4; physical surface/volume mechanism
+    only, not commercial quality promises
+  accessed_on: '2026-09-27'
+- id: src_wset_close_cooper
+  kind: reference_work
+  title: 'Wooden wine barrels: toast levels and models'
+  publisher: Seguin Moreau
+  url: https://www.seguin-moreau.fr/en/wine-ranges/barrels-wine/
+  document_identifier: Original cooperage R&D explanation, Toast levels; no product endorsements or dosing
+    instructions
+  accessed_on: '2026-09-27'
+- id: src_wset_close_blending
+  kind: reference_work
+  title: Why do we blend wine?
+  publisher: Wine & Spirit Education Trust
+  url: https://www.wsetglobal.com/knowledge-centre/blog/2024/why-do-we-blend-wine/
+  document_identifier: 8 April 2024; How are wines blended? and Enhance complexity only; regional legal
+    assertions excluded
+  accessed_on: '2026-09-27'
+- id: src_wset_close_cap
+  kind: reference_work
+  title: 'Cap Management: Punch Downs and Pump Overs'
+  publisher: Winemakers Research Exchange
+  url: https://winemakersresearchexchange.com/library/fermentation/cap-management-punch-downs-and-pump-overs/
+  document_identifier: Joy Ting; original research library description and cap-management definitions,
+    not universal trial prescription
+  accessed_on: '2026-09-27'
+knowledge_item_citations:
+- knowledge_item_id: ki_wset_close_red_ageing_colour
+  source_citation_id: src_wset_taste_concepts
+  locator: 'Printed page 11, Colour: red development and oxidation; general observations only'
+- knowledge_item_id: ki_wset_close_white_ageing_colour
+  source_citation_id: src_wset_taste_concepts
+  locator: 'Printed page 11, Colour: white development and oxidation; no tasting grid or assessment wording
+    reproduced'
+- knowledge_item_id: ki_wset_close_vintage_label
+  source_citation_id: src_wset_close_labels
+  locator: 'Vintage heading: harvest year and the role of weather'
+- knowledge_item_id: ki_wset_close_vintage_label
+  source_citation_id: src_wset_close_ttb_vintage
+  locator: 'PDF page 34, Vintage Date: harvest year and different named-appellation proportions; no US
+    percentage asserted worldwide'
+- knowledge_item_id: ki_wset_close_old_vine_label
+  source_citation_id: src_wset_close_labels
+  locator: 'Other terms: old vines / Vieilles vignes'
+- knowledge_item_id: ki_wset_close_old_vine_label
+  source_citation_id: src_wset_close_oiv_old
+  locator: 'OIV-VITI 703-2024: definitions and recommendations, not a universal national labelling law'
+- knowledge_item_id: ki_wset_close_oiv_old_vine
+  source_citation_id: src_wset_close_oiv_old
+  locator: 'OIV-VITI 703-2024: old-vine definition and harmonisation recommendation'
+- knowledge_item_id: ki_wset_close_oiv_old_vineyard
+  source_citation_id: src_wset_close_oiv_old
+  locator: 'OIV-VITI 703-2024: old-vineyard definition'
+- knowledge_item_id: ki_wset_close_late_harvest_label
+  source_citation_id: src_wset_close_civa_vt
+  locator: 'Vendanges Tardives AOC explanation: overripe berries, delayed harvest and concentration routes;
+    no dry-Alsace-VT claim made'
+- knowledge_item_id: ki_wset_close_late_harvest_label
+  source_citation_id: src_wset_close_l2_session
+  locator: 'PDF pages 29–31 and 44: separate late-harvest/botrytis options, residual sweetness versus
+    harvested sugar, and Vendanges Tardives vocabulary; original explanatory wording only'
+- knowledge_item_id: ki_wset_close_gi_label
+  source_citation_id: src_wset_close_labels
+  locator: Geographical Indication and Grape variety headings
+- knowledge_item_id: ki_wset_close_eu_wine_pdo
+  source_citation_id: src_wset_close_eu_gi
+  locator: 'Protected designation of origin: wine-specific origin and production rules'
+- knowledge_item_id: ki_wset_close_eu_wine_pgi
+  source_citation_id: src_wset_close_eu_gi
+  locator: 'Protected geographical indication: the wine-specific 85% rule, distinguished from food products'
+- knowledge_item_id: ki_wset_close_white_ripeness_flavour
+  source_citation_id: src_wset_close_style
+  locator: 'Where your wine comes from and Grape variety: broad climate/ripeness flavour tendencies'
+- knowledge_item_id: ki_wset_close_white_ripeness_flavour
+  source_citation_id: src_wset_close_geography
+  locator: 'Fruit ripeness: fresh versus very ripe/cooked character'
+- knowledge_item_id: ki_wset_close_black_ripeness_flavour
+  source_citation_id: src_wset_close_style
+  locator: 'Where your wine comes from: broad red-fruit/black-fruit/dried-fruit tendencies'
+- knowledge_item_id: ki_wset_close_black_ripeness_flavour
+  source_citation_id: src_wset_close_bc_maturity
+  locator: 'Aroma/Flavour and Phenolic Compounds: varietal character and herbaceousness'
+- knowledge_item_id: ki_wset_close_black_ripeness_flavour
+  source_citation_id: src_wset_close_geography
+  locator: 'Fruit ripeness: fresh versus very ripe/cooked character'
+- knowledge_item_id: ki_wset_close_phenolic_maturity
+  source_citation_id: src_wset_close_bc_maturity
+  locator: 'Grape Seeds and Aroma/Flavour and Phenolic Compounds: differing maturity rates and extractability'
+- knowledge_item_id: ki_wset_close_vine_wood
+  source_citation_id: src_wset_close_isu_structure
+  locator: 'Grapevine terminology: shoot, cane, arm and cordon'
+- knowledge_item_id: ki_wset_close_vine_green_parts
+  source_citation_id: src_wset_close_isu_structure
+  locator: 'Grapevine terminology: shoot with leaves, tendrils and clusters'
+- knowledge_item_id: ki_wset_close_vine_green_parts
+  source_citation_id: src_wset_found_nmsu_phenology
+  locator: Budburst, shoot growth, flowering and fruit set
+- knowledge_item_id: ki_wset_close_oak_size
+  source_citation_id: src_wset_close_cooper_volume
+  locator: 'Page 4, The volume effect: wood surface per litre decreases with increasing volume'
+- knowledge_item_id: ki_wset_close_oak_size
+  source_citation_id: src_win_oak
+  locator: Oak reuse and variables affecting extractable wood compounds
+- knowledge_item_id: ki_wset_close_oak_toast
+  source_citation_id: src_wset_close_cooper
+  locator: 'Toast levels: thermal change, aromatic substances and oak-tannin degradation'
+- knowledge_item_id: ki_wset_close_oak_toast
+  source_citation_id: src_win_oak
+  locator: Toasting and oak composition
+- knowledge_item_id: ki_wset_close_blending_complexity
+  source_citation_id: src_wset_close_blending
+  locator: How are wines blended? and Enhance complexity
+- knowledge_item_id: ki_wset_close_pump_over
+  source_citation_id: src_wset_close_cap
+  locator: 'Cap management: pump-over operation, contact and process variables'
+- knowledge_item_id: ki_wset_close_punch_down
+  source_citation_id: src_wset_close_cap
+  locator: 'Cap management: punch-down operation and variables'
+certification_knowledge_mappings:
+- certification_id: WSET_L2
+  knowledge_item_id: ki_wset_close_red_ageing_colour
+  importance: core
+  minimum_depth: 2
+- certification_id: WSET_L3
+  knowledge_item_id: ki_wset_close_red_ageing_colour
+  importance: core
+  minimum_depth: 2
+- certification_id: WSET_L2
+  knowledge_item_id: ki_wset_close_white_ageing_colour
+  importance: core
+  minimum_depth: 2
+- certification_id: WSET_L3
+  knowledge_item_id: ki_wset_close_white_ageing_colour
+  importance: core
+  minimum_depth: 2
+- certification_id: WSET_L2
+  knowledge_item_id: ki_wset_close_vintage_label
+  importance: core
+  minimum_depth: 2
+- certification_id: WSET_L3
+  knowledge_item_id: ki_wset_close_vintage_label
+  importance: core
+  minimum_depth: 2
+- certification_id: WSET_L2
+  knowledge_item_id: ki_wset_close_old_vine_label
+  importance: core
+  minimum_depth: 2
+- certification_id: WSET_L3
+  knowledge_item_id: ki_wset_close_old_vine_label
+  importance: core
+  minimum_depth: 2
+- certification_id: WSET_L2
+  knowledge_item_id: ki_wset_close_oiv_old_vine
+  importance: core
+  minimum_depth: 2
+- certification_id: WSET_L3
+  knowledge_item_id: ki_wset_close_oiv_old_vine
+  importance: core
+  minimum_depth: 2
+- certification_id: WSET_L3
+  knowledge_item_id: ki_wset_close_oiv_old_vineyard
+  importance: core
+  minimum_depth: 2
+- certification_id: WSET_L2
+  knowledge_item_id: ki_wset_close_late_harvest_label
+  importance: core
+  minimum_depth: 2
+- certification_id: WSET_L3
+  knowledge_item_id: ki_wset_close_late_harvest_label
+  importance: core
+  minimum_depth: 2
+- certification_id: WSET_L2
+  knowledge_item_id: ki_wset_close_gi_label
+  importance: core
+  minimum_depth: 2
+- certification_id: WSET_L3
+  knowledge_item_id: ki_wset_close_gi_label
+  importance: core
+  minimum_depth: 2
+- certification_id: WSET_L2
+  knowledge_item_id: ki_wset_close_eu_wine_pdo
+  importance: core
+  minimum_depth: 2
+- certification_id: WSET_L3
+  knowledge_item_id: ki_wset_close_eu_wine_pdo
+  importance: core
+  minimum_depth: 2
+- certification_id: WSET_L2
+  knowledge_item_id: ki_wset_close_eu_wine_pgi
+  importance: core
+  minimum_depth: 2
+- certification_id: WSET_L3
+  knowledge_item_id: ki_wset_close_eu_wine_pgi
+  importance: core
+  minimum_depth: 2
+- certification_id: WSET_L2
+  knowledge_item_id: ki_wset_close_white_ripeness_flavour
+  importance: core
+  minimum_depth: 2
+- certification_id: WSET_L3
+  knowledge_item_id: ki_wset_close_white_ripeness_flavour
+  importance: core
+  minimum_depth: 2
+- certification_id: WSET_L2
+  knowledge_item_id: ki_wset_close_black_ripeness_flavour
+  importance: core
+  minimum_depth: 2
+- certification_id: WSET_L3
+  knowledge_item_id: ki_wset_close_black_ripeness_flavour
+  importance: core
+  minimum_depth: 2
+- certification_id: WSET_L2
+  knowledge_item_id: ki_wset_close_phenolic_maturity
+  importance: core
+  minimum_depth: 2
+- certification_id: WSET_L3
+  knowledge_item_id: ki_wset_close_phenolic_maturity
+  importance: core
+  minimum_depth: 2
+- certification_id: WSET_L3
+  knowledge_item_id: ki_wset_close_vine_wood
+  importance: core
+  minimum_depth: 2
+- certification_id: WSET_L3
+  knowledge_item_id: ki_wset_close_vine_green_parts
+  importance: core
+  minimum_depth: 2
+- certification_id: WSET_L2
+  knowledge_item_id: ki_wset_close_oak_size
+  importance: core
+  minimum_depth: 2
+- certification_id: WSET_L3
+  knowledge_item_id: ki_wset_close_oak_size
+  importance: core
+  minimum_depth: 2
+- certification_id: WSET_L2
+  knowledge_item_id: ki_wset_close_oak_toast
+  importance: core
+  minimum_depth: 2
+- certification_id: WSET_L3
+  knowledge_item_id: ki_wset_close_oak_toast
+  importance: core
+  minimum_depth: 2
+- certification_id: WSET_L2
+  knowledge_item_id: ki_wset_close_blending_complexity
+  importance: core
+  minimum_depth: 2
+- certification_id: WSET_L3
+  knowledge_item_id: ki_wset_close_blending_complexity
+  importance: core
+  minimum_depth: 2
+- certification_id: WSET_L3
+  knowledge_item_id: ki_wset_close_pump_over
+  importance: core
+  minimum_depth: 2
+- certification_id: WSET_L3
+  knowledge_item_id: ki_wset_close_punch_down
+  importance: core
+  minimum_depth: 2
+- certification_id: WSET_L2
+  knowledge_item_id: ki_landwein_protection
+  importance: core
+  minimum_depth: 2
+- certification_id: WSET_L2
+  knowledge_item_id: ki_qualitaetswein_protection
+  importance: core
+  minimum_depth: 2
+- certification_id: WSET_L2
+  knowledge_item_id: ki_praedikatswein_protection
+  importance: core
+  minimum_depth: 2
+- certification_id: WSET_L2
+  knowledge_item_id: ki_wset_eu_alsace_vt_sgn
+  importance: core
+  minimum_depth: 2
+- certification_id: WSET_L2
+  knowledge_item_id: ki_wset_taste_ageing_not_all
+  importance: core
+  minimum_depth: 2
+- certification_id: WSET_L2
+  knowledge_item_id: ki_wset_taste_ageing_evolution
+  importance: core
+  minimum_depth: 2
+- certification_id: WSET_L2
+  knowledge_item_id: ki_wset_taste_ageing_uncertain
+  importance: core
+  minimum_depth: 2

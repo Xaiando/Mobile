@@ -1,0 +1,109 @@
+# Six Soave additional geographical units with a licensed point inside a
+# Soave municipality. The other 27 legal names stay unmapped. Markers are
+# not unit boundaries. Costalunga is not given the combined
+# Brognoligo-Costalunga point.
+knowledge_nodes:
+  - { id: n_geo_soave_uga_brognoligo, node_type: subregion, name: Brognoligo }
+  - { id: n_geo_soave_uga_castelcerino, node_type: subregion, name: Castelcerino }
+  - { id: n_geo_soave_uga_colombara, node_type: subregion, name: Colombara }
+  - { id: n_geo_soave_uga_duello, node_type: subregion, name: Duello }
+  - { id: n_geo_soave_uga_fitta, node_type: subregion, name: Fittà }
+  - { id: n_geo_soave_uga_ronca_monte_calvarina, node_type: subregion, name: "Roncà–Monte Calvarina" }
+
+knowledge_relations:
+  - { subject_id: n_geo_soave_uga_brognoligo, relation_type: LOCATED_IN, object_id: n_geo_soave, valid_from: "2019-11-04" }
+  - { subject_id: n_geo_soave_uga_castelcerino, relation_type: LOCATED_IN, object_id: n_geo_soave, valid_from: "2019-11-04" }
+  - { subject_id: n_geo_soave_uga_colombara, relation_type: LOCATED_IN, object_id: n_geo_soave, valid_from: "2019-11-04" }
+  - { subject_id: n_geo_soave_uga_duello, relation_type: LOCATED_IN, object_id: n_geo_soave, valid_from: "2019-11-04" }
+  - { subject_id: n_geo_soave_uga_fitta, relation_type: LOCATED_IN, object_id: n_geo_soave, valid_from: "2019-11-04" }
+  - { subject_id: n_geo_soave_uga_ronca_monte_calvarina, relation_type: LOCATED_IN, object_id: n_geo_soave, valid_from: "2019-11-04" }
+
+knowledge_items:
+  - id: ki_soave_uga_brognoligo_location
+    subject_id: n_geo_soave_uga_brognoligo
+    relation_type: LOCATED_IN
+    object_id: n_geo_soave
+    domain_id: geography
+    assertion_text: "Brognoligo is one of the 33 additional geographical units that may be named on a Soave, Soave Classico or Soave Colli Scaligeri label. The marker is the Brognoligo settlement in Monteforte d'Alpone. It is not the Costalunga unit, and it is not a boundary."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:20:00.000Z"
+  - id: ki_soave_uga_castelcerino_location
+    subject_id: n_geo_soave_uga_castelcerino
+    relation_type: LOCATED_IN
+    object_id: n_geo_soave
+    domain_id: geography
+    assertion_text: "Castelcerino is one of the 33 additional geographical units that may be named on a Soave, Soave Classico or Soave Colli Scaligeri label. The marker is the Castelcerino settlement in the municipality of Soave, not the unit boundary."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:20:00.000Z"
+  - id: ki_soave_uga_colombara_location
+    subject_id: n_geo_soave_uga_colombara
+    relation_type: LOCATED_IN
+    object_id: n_geo_soave
+    domain_id: geography
+    assertion_text: "Colombara is one of the 33 additional geographical units that may be named on a Soave, Soave Classico or Soave Colli Scaligeri label. The marker is the Colombara settlement in San Giovanni Ilarione, not a Colombara in another province and not the unit boundary."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:20:00.000Z"
+  - id: ki_soave_uga_duello_location
+    subject_id: n_geo_soave_uga_duello
+    relation_type: LOCATED_IN
+    object_id: n_geo_soave
+    domain_id: geography
+    assertion_text: "Duello is one of the 33 additional geographical units that may be named on a Soave, Soave Classico or Soave Colli Scaligeri label. The marker is the Duello settlement in Roncà, not the unit boundary."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:20:00.000Z"
+  - id: ki_soave_uga_fitta_location
+    subject_id: n_geo_soave_uga_fitta
+    relation_type: LOCATED_IN
+    object_id: n_geo_soave
+    domain_id: geography
+    assertion_text: "Fittà is one of the 33 additional geographical units that may be named on a Soave, Soave Classico or Soave Colli Scaligeri label. The marker is the Fittà settlement in the municipality of Soave, not the unit boundary."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:20:00.000Z"
+  - id: ki_soave_uga_ronca_monte_calvarina_location
+    subject_id: n_geo_soave_uga_ronca_monte_calvarina
+    relation_type: LOCATED_IN
+    object_id: n_geo_soave
+    domain_id: geography
+    assertion_text: "Roncà–Monte Calvarina is one Soave additional geographical unit, not two names. The marker is the Monte Calvarina summit in the municipality of Roncà, not the unit boundary."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:20:00.000Z"
+
+knowledge_item_prerequisites:
+  - { knowledge_item_id: ki_soave_uga_brognoligo_location, prerequisite_item_id: ki_atlas_soave_location }
+  - { knowledge_item_id: ki_soave_uga_castelcerino_location, prerequisite_item_id: ki_atlas_soave_location }
+  - { knowledge_item_id: ki_soave_uga_colombara_location, prerequisite_item_id: ki_atlas_soave_location }
+  - { knowledge_item_id: ki_soave_uga_duello_location, prerequisite_item_id: ki_atlas_soave_location }
+  - { knowledge_item_id: ki_soave_uga_fitta_location, prerequisite_item_id: ki_atlas_soave_location }
+  - { knowledge_item_id: ki_soave_uga_ronca_monte_calvarina_location, prerequisite_item_id: ki_atlas_soave_location }
+
+certification_knowledge_mappings:
+  - { certification_id: WSET_L3, knowledge_item_id: ki_soave_uga_brognoligo_location, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_soave_uga_brognoligo_location, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_soave_uga_castelcerino_location, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_soave_uga_castelcerino_location, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_soave_uga_colombara_location, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_soave_uga_colombara_location, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_soave_uga_duello_location, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_soave_uga_duello_location, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_soave_uga_fitta_location, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_soave_uga_fitta_location, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L3, knowledge_item_id: ki_soave_uga_ronca_monte_calvarina_location, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_soave_uga_ronca_monte_calvarina_location, importance: secondary, minimum_depth: 2 }
+
+source_citations:
+  - id: src_soave_ugas
+    kind: legislation
+    title: "Soave PDO, additional geographical units"
+    publisher: "European Commission"
+    jurisdiction: EU
+    document_identifier: "OJ C 72, 5 March 2020, pp. 36-37; Italian publication GU 4 November 2019"
+    url: "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:52020XC0305(04)"
+    accessed_on: "2026-09-27"
+
+knowledge_item_citations:
+  - { knowledge_item_id: ki_soave_uga_brognoligo_location, source_citation_id: src_soave_ugas, locator: "Additional geographical mention 1, Brognoligo. Settlement reference Q3645230 in Monteforte d'Alpone." }
+  - { knowledge_item_id: ki_soave_uga_castelcerino_location, source_citation_id: src_soave_ugas, locator: "Additional geographical mention 7, Castelcerino. Settlement reference Q18504312 in Soave." }
+  - { knowledge_item_id: ki_soave_uga_colombara_location, source_citation_id: src_soave_ugas, locator: "Additional geographical mention 9, Colombara. GeoNames 8962832 in San Giovanni Ilarione." }
+  - { knowledge_item_id: ki_soave_uga_duello_location, source_citation_id: src_soave_ugas, locator: "Additional geographical mention 16, Duello. GeoNames 8956774 in Roncà." }
+  - { knowledge_item_id: ki_soave_uga_fitta_location, source_citation_id: src_soave_ugas, locator: "Additional geographical mention 17, Fittà. GeoNames 8954880 in Soave." }
+  - { knowledge_item_id: ki_soave_uga_ronca_monte_calvarina_location, source_citation_id: src_soave_ugas, locator: "Additional geographical mention 27, Roncà - Monte Calvarina, one unit. Summit reference GeoNames 6949595." }

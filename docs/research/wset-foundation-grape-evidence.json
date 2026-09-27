@@ -1,0 +1,2570 @@
+{
+  "schema_version": 1,
+  "authored_on": "2026-09-27",
+  "scope_sources": [
+    {
+      "level": "WSET_L1",
+      "version": "June 2022 issue 1.2",
+      "url": "https://www.wsetglobal.com/media/11682/wset_l1wines_spec_en_jun2022_issue12.pdf"
+    },
+    {
+      "level": "WSET_L2",
+      "version": "2026 Issue 2.1",
+      "url": "https://www.wsetglobal.com/media/19132/wset_l2wines_specification_en_april2026_issue21.pdf"
+    }
+  ],
+  "coverage_claim": "Batch A covers the groups and grape lessons enumerated here. It is not a complete Level 1 or Level 2 qualification, an official endorsement, or expert verification. Regional wine-specific profiles, label terms, additional vineyard and production detail, sparkling/fortified styles and service are separate integration work.",
+  "study_inheritance": "L1 items are inherited by L2; L2 items are inherited by L3 and L4. No advanced items were lowered.",
+  "groups": [
+    {
+      "id": "l1_grape_anatomy",
+      "level": "WSET_L1",
+      "outcome": "LO1",
+      "label": "Grape skin and pulp; fermentation inputs",
+      "items": [
+        "ki_wset_found_grape_parts",
+        "ki_wset_found_grape_skin",
+        "ki_wset_found_grape_juice",
+        "ki_wset_found_pulp_composition"
+      ]
+    },
+    {
+      "id": "l1_vine_growth_environment",
+      "level": "WSET_L1",
+      "outcome": "LO1",
+      "label": "Annual growth, ripening and basic climate",
+      "items": [
+        "ki_wset_found_flower_to_fruit",
+        "ki_wset_found_ripening",
+        "ki_wset_found_annual_order",
+        "ki_wset_found_cool_warm",
+        "ki_wset_found_heat_light"
+      ]
+    },
+    {
+      "id": "l1_basic_winemaking",
+      "level": "WSET_L1",
+      "outcome": "LO1",
+      "label": "Alcoholic fermentation and basic white, red and rosé sequence",
+      "items": [
+        "ki_wset_found_fermentation",
+        "ki_wset_found_fermentation_sweetness",
+        "ki_wset_found_white_sequence",
+        "ki_wset_found_red_sequence",
+        "ki_wset_found_rose_sequence"
+      ]
+    },
+    {
+      "id": "l1_wine_types",
+      "level": "WSET_L1",
+      "outcome": "LO2",
+      "label": "Still, sparkling and fortified types",
+      "items": [
+        "ki_wset_found_still",
+        "ki_wset_found_sparkling",
+        "ki_wset_found_fortified"
+      ]
+    },
+    {
+      "id": "l1_wine_characteristics",
+      "level": "WSET_L1",
+      "outcome": "LO2",
+      "label": "Colour, sweetness, acidity, tannin, alcohol, body and aroma families",
+      "items": [
+        "ki_wset_found_colour",
+        "ki_wset_found_sweetness",
+        "ki_wset_found_acidity",
+        "ki_wset_found_tannin",
+        "ki_wset_found_alcohol",
+        "ki_wset_found_body",
+        "ki_wset_found_fruit_aromas",
+        "ki_wset_found_oak_aromas",
+        "ki_wset_found_other_aromas"
+      ]
+    },
+    {
+      "id": "l1_familiar_wines",
+      "level": "WSET_L1",
+      "outcome": "LO2",
+      "label": "Seventeen specified familiar wine examples",
+      "items": [
+        "ki_wset_found_familiar_sancerre",
+        "ki_wset_found_familiar_chablis",
+        "ki_wset_found_familiar_white_burgundy",
+        "ki_wset_found_familiar_red_burgundy",
+        "ki_wset_found_familiar_bordeaux",
+        "ki_wset_found_familiar_champagne",
+        "ki_wset_found_familiar_sauternes",
+        "ki_wset_found_familiar_white_zinfandel",
+        "ki_wset_found_familiar_beaujolais",
+        "ki_wset_found_familiar_cotes_rhone",
+        "ki_wset_found_familiar_chianti",
+        "ki_wset_found_familiar_rioja",
+        "ki_wset_found_familiar_chateauneuf",
+        "ki_wset_found_familiar_prosecco",
+        "ki_wset_found_familiar_cava",
+        "ki_wset_found_familiar_sherry",
+        "ki_wset_found_familiar_port"
+      ]
+    },
+    {
+      "id": "l2_grape_components",
+      "level": "WSET_L2",
+      "outcome": "LO1",
+      "label": "Seeds, stems, skin and pulp composition",
+      "items": [
+        "ki_wset_found_seeds_stems",
+        "ki_wset_found_skin_flavour",
+        "ki_wset_found_pulp_sampling",
+        "ki_wset_found_pulp_composition"
+      ]
+    },
+    {
+      "id": "l2_vine_resources",
+      "level": "WSET_L2",
+      "outcome": "LO1",
+      "label": "Warmth, light, water, nutrients and photosynthesis",
+      "items": [
+        "ki_wset_found_vine_resources",
+        "ki_wset_found_water_roots",
+        "ki_wset_found_nutrients",
+        "ki_wset_found_vine_canopy"
+      ]
+    },
+    {
+      "id": "l2_ripeness_harvest",
+      "level": "WSET_L2",
+      "outcome": "LO1",
+      "label": "Veraison, ripeness, sampling and harvest choices",
+      "items": [
+        "ki_wset_found_veraison",
+        "ki_wset_found_unripe",
+        "ki_wset_found_ripe_style",
+        "ki_wset_found_late_harvest_risk",
+        "ki_wset_found_sample_representative"
+      ]
+    },
+    {
+      "id": "l2_site_hazards",
+      "level": "WSET_L2",
+      "outcome": "LO1",
+      "label": "Site choice, slope, aspect, drainage and weather hazards",
+      "items": [
+        "ki_wset_found_site_climate",
+        "ki_wset_found_slope_air",
+        "ki_wset_found_aspect",
+        "ki_wset_found_soil_drainage",
+        "ki_wset_found_hail_heat"
+      ]
+    },
+    {
+      "id": "l2_vine_management",
+      "level": "WSET_L2",
+      "outcome": "LO1",
+      "label": "Training, pruning, weeds, canopy disease and crop load",
+      "items": [
+        "ki_wset_found_training",
+        "ki_wset_found_pruning",
+        "ki_wset_found_weeds",
+        "ki_wset_found_canopy_disease",
+        "ki_wset_found_crop_load"
+      ]
+    },
+    {
+      "id": "l2_concentrated_fruit",
+      "level": "WSET_L2",
+      "outcome": "LO1",
+      "label": "Late-picked, raisined, noble-rot and naturally frozen fruit",
+      "items": [
+        "ki_wset_found_concentrated_fruit",
+        "ki_wset_found_noble_rot",
+        "ki_wset_found_frozen_fruit"
+      ]
+    }
+  ],
+  "grapes": [
+    {
+      "id": "chardonnay",
+      "name": "Chardonnay",
+      "canonical_node_id": "n_grape_chardonnay",
+      "level1_items": [
+        "ki_wset_grape_chardonnay_beginner"
+      ],
+      "level2_outcome": "LO3",
+      "level2_items": [
+        "ki_wset_grape_chardonnay_profile",
+        "ki_wset_grape_chardonnay_variation"
+      ]
+    },
+    {
+      "id": "sauvignon_blanc",
+      "name": "Sauvignon Blanc",
+      "canonical_node_id": "n_grape_sauvignon_blanc",
+      "level1_items": [
+        "ki_wset_grape_sauvignon_blanc_beginner"
+      ],
+      "level2_outcome": "LO3",
+      "level2_items": [
+        "ki_wset_grape_sauvignon_blanc_profile",
+        "ki_wset_grape_sauvignon_blanc_variation"
+      ]
+    },
+    {
+      "id": "pinot_gris",
+      "name": "Pinot Gris / Pinot Grigio",
+      "canonical_node_id": "n_grape_pinot_gris",
+      "level1_items": [
+        "ki_wset_grape_pinot_gris_beginner"
+      ],
+      "level2_outcome": "LO3",
+      "level2_items": [
+        "ki_wset_grape_pinot_gris_profile",
+        "ki_wset_grape_pinot_gris_variation"
+      ]
+    },
+    {
+      "id": "riesling",
+      "name": "Riesling",
+      "canonical_node_id": "n_grape_riesling",
+      "level1_items": [
+        "ki_wset_grape_riesling_beginner"
+      ],
+      "level2_outcome": "LO3",
+      "level2_items": [
+        "ki_wset_grape_riesling_profile",
+        "ki_wset_grape_riesling_variation"
+      ]
+    },
+    {
+      "id": "cabernet_sauvignon",
+      "name": "Cabernet Sauvignon",
+      "canonical_node_id": "n_grape_cabernet_sauvignon",
+      "level1_items": [
+        "ki_wset_grape_cabernet_sauvignon_beginner"
+      ],
+      "level2_outcome": "LO3",
+      "level2_items": [
+        "ki_wset_grape_cabernet_sauvignon_profile",
+        "ki_wset_grape_cabernet_sauvignon_variation"
+      ]
+    },
+    {
+      "id": "merlot",
+      "name": "Merlot",
+      "canonical_node_id": "n_grape_merlot",
+      "level1_items": [
+        "ki_wset_grape_merlot_beginner"
+      ],
+      "level2_outcome": "LO3",
+      "level2_items": [
+        "ki_wset_grape_merlot_profile",
+        "ki_wset_grape_merlot_variation"
+      ]
+    },
+    {
+      "id": "pinot_noir",
+      "name": "Pinot Noir",
+      "canonical_node_id": "n_grape_pinot_noir",
+      "level1_items": [
+        "ki_wset_grape_pinot_noir_beginner"
+      ],
+      "level2_outcome": "LO3",
+      "level2_items": [
+        "ki_wset_grape_pinot_noir_profile",
+        "ki_wset_grape_pinot_noir_variation"
+      ]
+    },
+    {
+      "id": "syrah",
+      "name": "Syrah / Shiraz",
+      "canonical_node_id": "n_grape_syrah",
+      "level1_items": [
+        "ki_wset_grape_syrah_beginner"
+      ],
+      "level2_outcome": "LO3",
+      "level2_items": [
+        "ki_wset_grape_syrah_profile",
+        "ki_wset_grape_syrah_variation"
+      ]
+    },
+    {
+      "id": "gamay",
+      "name": "Gamay",
+      "canonical_node_id": "n_grape_gamay",
+      "level2_outcome": "LO4",
+      "level2_items": [
+        "ki_wset_grape_gamay_profile",
+        "ki_wset_grape_gamay_variation"
+      ]
+    },
+    {
+      "id": "grenache",
+      "name": "Grenache / Garnacha",
+      "canonical_node_id": "n_grape_grenache",
+      "level2_outcome": "LO4",
+      "level2_items": [
+        "ki_wset_grape_grenache_profile",
+        "ki_wset_grape_grenache_variation"
+      ]
+    },
+    {
+      "id": "tempranillo",
+      "name": "Tempranillo",
+      "canonical_node_id": "n_grape_tempranillo",
+      "level2_outcome": "LO4",
+      "level2_items": [
+        "ki_wset_grape_tempranillo_profile",
+        "ki_wset_grape_tempranillo_variation"
+      ]
+    },
+    {
+      "id": "nebbiolo",
+      "name": "Nebbiolo",
+      "canonical_node_id": "n_grape_nebbiolo",
+      "level2_outcome": "LO4",
+      "level2_items": [
+        "ki_wset_grape_nebbiolo_profile",
+        "ki_wset_grape_nebbiolo_variation"
+      ]
+    },
+    {
+      "id": "barbera",
+      "name": "Barbera",
+      "canonical_node_id": "n_grape_barbera",
+      "level2_outcome": "LO4",
+      "level2_items": [
+        "ki_wset_grape_barbera_profile",
+        "ki_wset_grape_barbera_variation",
+        "ki_wset_grape_barbera_berry_colour"
+      ]
+    },
+    {
+      "id": "sangiovese",
+      "name": "Sangiovese",
+      "canonical_node_id": "n_grape_sangiovese",
+      "level2_outcome": "LO4",
+      "level2_items": [
+        "ki_wset_grape_sangiovese_profile",
+        "ki_wset_grape_sangiovese_variation"
+      ]
+    },
+    {
+      "id": "corvina",
+      "name": "Corvina",
+      "canonical_node_id": "n_grape_corvina",
+      "level2_outcome": "LO4",
+      "level2_items": [
+        "ki_wset_grape_corvina_profile",
+        "ki_wset_grape_corvina_variation",
+        "ki_wset_grape_corvina_berry_colour"
+      ]
+    },
+    {
+      "id": "montepulciano",
+      "name": "Montepulciano",
+      "canonical_node_id": "n_grape_montepulciano",
+      "level2_outcome": "LO4",
+      "level2_items": [
+        "ki_wset_grape_montepulciano_profile",
+        "ki_wset_grape_montepulciano_variation",
+        "ki_wset_grape_montepulciano_berry_colour"
+      ]
+    },
+    {
+      "id": "zinfandel",
+      "name": "Zinfandel / Primitivo",
+      "canonical_node_id": "n_grape_zinfandel",
+      "level2_outcome": "LO4",
+      "level2_items": [
+        "ki_wset_grape_zinfandel_profile",
+        "ki_wset_grape_zinfandel_variation",
+        "ki_wset_grape_zinfandel_berry_colour",
+        "ki_wset_grape_zinfandel_identity"
+      ]
+    },
+    {
+      "id": "pinotage",
+      "name": "Pinotage",
+      "canonical_node_id": "n_grape_pinotage",
+      "level2_outcome": "LO4",
+      "level2_items": [
+        "ki_wset_grape_pinotage_profile",
+        "ki_wset_grape_pinotage_variation",
+        "ki_wset_grape_pinotage_berry_colour"
+      ]
+    },
+    {
+      "id": "carmenere",
+      "name": "Carménère",
+      "canonical_node_id": "n_grape_carmenere",
+      "level2_outcome": "LO4",
+      "level2_items": [
+        "ki_wset_grape_carmenere_profile",
+        "ki_wset_grape_carmenere_variation"
+      ]
+    },
+    {
+      "id": "malbec",
+      "name": "Malbec",
+      "canonical_node_id": "n_grape_malbec",
+      "level2_outcome": "LO4",
+      "level2_items": [
+        "ki_wset_grape_malbec_profile",
+        "ki_wset_grape_malbec_variation"
+      ]
+    },
+    {
+      "id": "chenin_blanc",
+      "name": "Chenin Blanc",
+      "canonical_node_id": "n_grape_chenin_blanc",
+      "level2_outcome": "LO4",
+      "level2_items": [
+        "ki_wset_grape_chenin_blanc_profile",
+        "ki_wset_grape_chenin_blanc_variation"
+      ]
+    },
+    {
+      "id": "semillon",
+      "name": "Sémillon",
+      "canonical_node_id": "n_grape_semillon",
+      "level2_outcome": "LO4",
+      "level2_items": [
+        "ki_wset_grape_semillon_profile",
+        "ki_wset_grape_semillon_variation"
+      ]
+    },
+    {
+      "id": "viognier",
+      "name": "Viognier",
+      "canonical_node_id": "n_grape_viognier",
+      "level2_outcome": "LO4",
+      "level2_items": [
+        "ki_wset_grape_viognier_profile",
+        "ki_wset_grape_viognier_variation"
+      ]
+    },
+    {
+      "id": "gewurztraminer",
+      "name": "Gewurztraminer",
+      "canonical_node_id": "n_grape_gewurztraminer",
+      "level2_outcome": "LO4",
+      "level2_items": [
+        "ki_wset_grape_gewurztraminer_profile",
+        "ki_wset_grape_gewurztraminer_variation"
+      ]
+    },
+    {
+      "id": "verdicchio",
+      "name": "Verdicchio",
+      "canonical_node_id": "n_grape_verdicchio",
+      "level2_outcome": "LO4",
+      "level2_items": [
+        "ki_wset_grape_verdicchio_profile",
+        "ki_wset_grape_verdicchio_variation",
+        "ki_wset_grape_verdicchio_berry_colour"
+      ]
+    },
+    {
+      "id": "cortese",
+      "name": "Cortese",
+      "canonical_node_id": "n_grape_cortese",
+      "level2_outcome": "LO4",
+      "level2_items": [
+        "ki_wset_grape_cortese_profile",
+        "ki_wset_grape_cortese_variation",
+        "ki_wset_grape_cortese_berry_colour"
+      ]
+    },
+    {
+      "id": "garganega",
+      "name": "Garganega",
+      "canonical_node_id": "n_grape_garganega",
+      "level2_outcome": "LO4",
+      "level2_items": [
+        "ki_wset_grape_garganega_profile",
+        "ki_wset_grape_garganega_variation",
+        "ki_wset_grape_garganega_berry_colour"
+      ]
+    },
+    {
+      "id": "fiano",
+      "name": "Fiano",
+      "canonical_node_id": "n_grape_fiano",
+      "level2_outcome": "LO4",
+      "level2_items": [
+        "ki_wset_grape_fiano_profile",
+        "ki_wset_grape_fiano_variation",
+        "ki_wset_grape_fiano_berry_colour"
+      ]
+    },
+    {
+      "id": "albarino",
+      "name": "Albariño",
+      "canonical_node_id": "n_grape_albarino",
+      "level2_outcome": "LO4",
+      "level2_items": [
+        "ki_wset_grape_albarino_profile",
+        "ki_wset_grape_albarino_variation"
+      ]
+    },
+    {
+      "id": "furmint",
+      "name": "Furmint",
+      "canonical_node_id": "n_grape_furmint",
+      "level2_outcome": "LO4",
+      "level2_items": [
+        "ki_wset_grape_furmint_profile",
+        "ki_wset_grape_furmint_variation"
+      ]
+    }
+  ],
+  "shared_items": [
+    "ki_wset_grape_descriptor_context"
+  ],
+  "lessons": [
+    {
+      "id": "ki_wset_found_grape_parts",
+      "file": "assets/curriculum/areas/wset_foundations.yaml",
+      "level": "WSET_L1",
+      "requirements": "L1 LO1 grape anatomy: skin and pulp",
+      "citations": [
+        {
+          "source_id": "src_wset_found_uga_fermentation",
+          "url": "https://extension.uga.edu/publications/detail.html?number=C717",
+          "locator": "Wine fermentation and steps for white and red wines"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_found_grape_skin",
+      "file": "assets/curriculum/areas/wset_foundations.yaml",
+      "level": "WSET_L1",
+      "requirements": "L1 LO1 skin role; L1 LO2 colour and tannin",
+      "citations": [
+        {
+          "source_id": "src_win_skin_contact",
+          "url": "https://www.awri.com.au/industry_support/winemaking_resources/winemaking-practices/winemaking-treatment-skin-contact/",
+          "locator": "Flavour and phenolic compounds in skins; white wine skin-contact trials"
+        },
+        {
+          "source_id": "src_wset_found_wset_styles",
+          "url": "https://www.wsetglobal.com/knowledge-centre/blog/2023/october/03/how-many-wine-types-and-styles-are-there",
+          "locator": "Still, sparkling and fortified wine; colour and body explanations"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_found_grape_juice",
+      "file": "assets/curriculum/areas/wset_foundations.yaml",
+      "level": "WSET_L1",
+      "requirements": "L1 LO1 pulp and fermentation ingredients",
+      "citations": [
+        {
+          "source_id": "src_wset_found_uga_fermentation",
+          "url": "https://extension.uga.edu/publications/detail.html?number=C717",
+          "locator": "Wine fermentation and steps for white and red wines"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_found_flower_to_fruit",
+      "file": "assets/curriculum/areas/wset_foundations.yaml",
+      "level": "WSET_L1",
+      "requirements": "L1 LO1 flowering and grape formation",
+      "citations": [
+        {
+          "source_id": "src_wset_found_nmsu_phenology",
+          "url": "https://pubs.nmsu.edu/_h/H338/",
+          "locator": "Annual growth cycle; effects of climatic factors; reproductive growth and development"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_found_ripening",
+      "file": "assets/curriculum/areas/wset_foundations.yaml",
+      "level": "WSET_L1",
+      "requirements": "L1 LO1 grape ripening",
+      "citations": [
+        {
+          "source_id": "src_wset_found_umn_ripeness",
+          "url": "https://blog-fruit-vegetable-ipm.extension.umn.edu/2024/08/madeline-wimmer-extension-educator-and.html",
+          "locator": "Berry ripening phases; representative sampling; sugar and acid measurements"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_found_annual_order",
+      "file": "assets/curriculum/areas/wset_foundations.yaml",
+      "level": "WSET_L1",
+      "requirements": "L1 LO1 annual flowering and ripening sequence",
+      "citations": [
+        {
+          "source_id": "src_wset_found_nmsu_phenology",
+          "url": "https://pubs.nmsu.edu/_h/H338/",
+          "locator": "Annual growth cycle; effects of climatic factors; reproductive growth and development"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_found_cool_warm",
+      "file": "assets/curriculum/areas/wset_foundations.yaml",
+      "level": "WSET_L1",
+      "requirements": "L1 LO1 cool and warm climate effects",
+      "citations": [
+        {
+          "source_id": "src_wset_found_wset_acid",
+          "url": "https://www.wsetglobal.com/knowledge-centre/blog/2026/understanding-acidity-in-wine",
+          "locator": "Salivation, sweetness balance, cool climate and acidity"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_found_heat_light",
+      "file": "assets/curriculum/areas/wset_foundations.yaml",
+      "level": "WSET_L1",
+      "requirements": "L1 LO1 suitable growing conditions",
+      "citations": [
+        {
+          "source_id": "src_wset_found_nmsu_phenology",
+          "url": "https://pubs.nmsu.edu/_h/H338/",
+          "locator": "Annual growth cycle; effects of climatic factors; reproductive growth and development"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_found_fermentation",
+      "file": "assets/curriculum/areas/wset_foundations.yaml",
+      "level": "WSET_L1",
+      "requirements": "L1 LO1 sugar, yeast, alcohol and carbon dioxide",
+      "citations": [
+        {
+          "source_id": "src_wset_found_uga_fermentation",
+          "url": "https://extension.uga.edu/publications/detail.html?number=C717",
+          "locator": "Wine fermentation and steps for white and red wines"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_found_fermentation_sweetness",
+      "file": "assets/curriculum/areas/wset_foundations.yaml",
+      "level": "WSET_L1",
+      "requirements": "L1 LO1 fermentation; L1 LO2 sweetness",
+      "citations": [
+        {
+          "source_id": "src_wset_found_oiv_special",
+          "url": "https://oiv.int/fr/standards/code-international-des-pratiques-oenologiques/part-i-definitions/special-wines",
+          "locator": "I.4.3 liqueur wine; I.4.6 sweet wines; I.4.7 icewine"
+        },
+        {
+          "source_id": "src_wset_found_wset_acid",
+          "url": "https://www.wsetglobal.com/knowledge-centre/blog/2026/understanding-acidity-in-wine",
+          "locator": "Salivation, sweetness balance, cool climate and acidity"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_found_white_sequence",
+      "file": "assets/curriculum/areas/wset_foundations.yaml",
+      "level": "WSET_L1",
+      "requirements": "L1 LO1 white wine process order",
+      "citations": [
+        {
+          "source_id": "src_wset_found_uga_fermentation",
+          "url": "https://extension.uga.edu/publications/detail.html?number=C717",
+          "locator": "Wine fermentation and steps for white and red wines"
+        },
+        {
+          "source_id": "src_win_skin_contact",
+          "url": "https://www.awri.com.au/industry_support/winemaking_resources/winemaking-practices/winemaking-treatment-skin-contact/",
+          "locator": "Flavour and phenolic compounds in skins; white wine skin-contact trials"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_found_red_sequence",
+      "file": "assets/curriculum/areas/wset_foundations.yaml",
+      "level": "WSET_L1",
+      "requirements": "L1 LO1 red wine process order",
+      "citations": [
+        {
+          "source_id": "src_wset_found_uga_fermentation",
+          "url": "https://extension.uga.edu/publications/detail.html?number=C717",
+          "locator": "Wine fermentation and steps for white and red wines"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_found_rose_sequence",
+      "file": "assets/curriculum/areas/wset_foundations.yaml",
+      "level": "WSET_L1",
+      "requirements": "L1 LO1 rosé wine process order",
+      "citations": [
+        {
+          "source_id": "src_wset_found_wset_styles",
+          "url": "https://www.wsetglobal.com/knowledge-centre/blog/2023/october/03/how-many-wine-types-and-styles-are-there",
+          "locator": "Still, sparkling and fortified wine; colour and body explanations"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_found_still",
+      "file": "assets/curriculum/areas/wset_foundations.yaml",
+      "level": "WSET_L1",
+      "requirements": "L1 LO2 still wine type",
+      "citations": [
+        {
+          "source_id": "src_wset_found_wset_styles",
+          "url": "https://www.wsetglobal.com/knowledge-centre/blog/2023/october/03/how-many-wine-types-and-styles-are-there",
+          "locator": "Still, sparkling and fortified wine; colour and body explanations"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_found_sparkling",
+      "file": "assets/curriculum/areas/wset_foundations.yaml",
+      "level": "WSET_L1",
+      "requirements": "L1 LO2 sparkling wine type",
+      "citations": [
+        {
+          "source_id": "src_wset_found_oiv_special",
+          "url": "https://oiv.int/fr/standards/code-international-des-pratiques-oenologiques/part-i-definitions/special-wines",
+          "locator": "I.4.3 liqueur wine; I.4.6 sweet wines; I.4.7 icewine"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_found_fortified",
+      "file": "assets/curriculum/areas/wset_foundations.yaml",
+      "level": "WSET_L1",
+      "requirements": "L1 LO2 fortified wine type",
+      "citations": [
+        {
+          "source_id": "src_wset_found_oiv_special",
+          "url": "https://oiv.int/fr/standards/code-international-des-pratiques-oenologiques/part-i-definitions/special-wines",
+          "locator": "I.4.3 liqueur wine; I.4.6 sweet wines; I.4.7 icewine"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_found_colour",
+      "file": "assets/curriculum/areas/wset_foundations.yaml",
+      "level": "WSET_L1",
+      "requirements": "L1 LO2 wine colour vocabulary",
+      "citations": [
+        {
+          "source_id": "src_wset_found_wset_styles",
+          "url": "https://www.wsetglobal.com/knowledge-centre/blog/2023/october/03/how-many-wine-types-and-styles-are-there",
+          "locator": "Still, sparkling and fortified wine; colour and body explanations"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_found_sweetness",
+      "file": "assets/curriculum/areas/wset_foundations.yaml",
+      "level": "WSET_L1",
+      "requirements": "L1 LO2 dry and sweet vocabulary",
+      "citations": [
+        {
+          "source_id": "src_wset_found_wa_intro",
+          "url": "https://www.australianwine.com/getcontentasset/b71a1ced-ae7b-47e5-9b4d-af188ac79d01/2a6464f5-7547-4f96-aacf-a0c3da1718f8/awd_introtowine_consumerguide.pdf?language=en-AU",
+          "locator": "Introduction to wine; structure and wine style; sweet wine production"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_found_acidity",
+      "file": "assets/curriculum/areas/wset_foundations.yaml",
+      "level": "WSET_L1",
+      "requirements": "L1 LO2 acidity vocabulary",
+      "citations": [
+        {
+          "source_id": "src_wset_found_wset_acid",
+          "url": "https://www.wsetglobal.com/knowledge-centre/blog/2026/understanding-acidity-in-wine",
+          "locator": "Salivation, sweetness balance, cool climate and acidity"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_found_tannin",
+      "file": "assets/curriculum/areas/wset_foundations.yaml",
+      "level": "WSET_L1",
+      "requirements": "L1 LO2 tannin vocabulary",
+      "citations": [
+        {
+          "source_id": "src_wset_found_wa_intro",
+          "url": "https://www.australianwine.com/getcontentasset/b71a1ced-ae7b-47e5-9b4d-af188ac79d01/2a6464f5-7547-4f96-aacf-a0c3da1718f8/awd_introtowine_consumerguide.pdf?language=en-AU",
+          "locator": "Introduction to wine; structure and wine style; sweet wine production"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_found_alcohol",
+      "file": "assets/curriculum/areas/wset_foundations.yaml",
+      "level": "WSET_L1",
+      "requirements": "L1 LO2 alcohol vocabulary",
+      "citations": [
+        {
+          "source_id": "src_wset_found_wa_intro",
+          "url": "https://www.australianwine.com/getcontentasset/b71a1ced-ae7b-47e5-9b4d-af188ac79d01/2a6464f5-7547-4f96-aacf-a0c3da1718f8/awd_introtowine_consumerguide.pdf?language=en-AU",
+          "locator": "Introduction to wine; structure and wine style; sweet wine production"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_found_body",
+      "file": "assets/curriculum/areas/wset_foundations.yaml",
+      "level": "WSET_L1",
+      "requirements": "L1 LO2 body vocabulary",
+      "citations": [
+        {
+          "source_id": "src_wset_found_wa_intro",
+          "url": "https://www.australianwine.com/getcontentasset/b71a1ced-ae7b-47e5-9b4d-af188ac79d01/2a6464f5-7547-4f96-aacf-a0c3da1718f8/awd_introtowine_consumerguide.pdf?language=en-AU",
+          "locator": "Introduction to wine; structure and wine style; sweet wine production"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_found_fruit_aromas",
+      "file": "assets/curriculum/areas/wset_foundations.yaml",
+      "level": "WSET_L1",
+      "requirements": "L1 LO2 fruit aroma vocabulary",
+      "citations": [
+        {
+          "source_id": "src_wset_found_wa_intro",
+          "url": "https://www.australianwine.com/getcontentasset/b71a1ced-ae7b-47e5-9b4d-af188ac79d01/2a6464f5-7547-4f96-aacf-a0c3da1718f8/awd_introtowine_consumerguide.pdf?language=en-AU",
+          "locator": "Introduction to wine; structure and wine style; sweet wine production"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_found_oak_aromas",
+      "file": "assets/curriculum/areas/wset_foundations.yaml",
+      "level": "WSET_L1",
+      "requirements": "L1 LO2 oak aroma vocabulary",
+      "citations": [
+        {
+          "source_id": "src_wset_found_wa_intro",
+          "url": "https://www.australianwine.com/getcontentasset/b71a1ced-ae7b-47e5-9b4d-af188ac79d01/2a6464f5-7547-4f96-aacf-a0c3da1718f8/awd_introtowine_consumerguide.pdf?language=en-AU",
+          "locator": "Introduction to wine; structure and wine style; sweet wine production"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_found_other_aromas",
+      "file": "assets/curriculum/areas/wset_foundations.yaml",
+      "level": "WSET_L1",
+      "requirements": "L1 LO2 other aroma vocabulary",
+      "citations": [
+        {
+          "source_id": "src_wset_found_wa_intro",
+          "url": "https://www.australianwine.com/getcontentasset/b71a1ced-ae7b-47e5-9b4d-af188ac79d01/2a6464f5-7547-4f96-aacf-a0c3da1718f8/awd_introtowine_consumerguide.pdf?language=en-AU",
+          "locator": "Introduction to wine; structure and wine style; sweet wine production"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_found_familiar_sancerre",
+      "file": "assets/curriculum/areas/wset_foundations.yaml",
+      "level": "WSET_L1",
+      "requirements": "L1 LO2 familiar wines: Sancerre",
+      "citations": [
+        {
+          "source_id": "src_wset_found_bivc_sancerre",
+          "url": "https://www.vins-centre-loire.com/files/Dossier-Wines_Centre-Loire_.pdf",
+          "locator": "AOC Sancerre; Sauvignon Blanc and Pinot Noir"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_found_familiar_chablis",
+      "file": "assets/curriculum/areas/wset_foundations.yaml",
+      "level": "WSET_L1",
+      "requirements": "L1 LO2 familiar wines: Chablis",
+      "citations": [
+        {
+          "source_id": "src_wset_found_bivb_chardonnay",
+          "url": "https://www.bourgogne-wines.com/wine-and-terroir/our-grape-varietals-our-colors/chardonnay/chardonnay-a-bourgogne-original-that-has-travelled-the-world%2C2797%2C10602.html",
+          "locator": "Chablis; Côte de Beaune; Côte Chalonnaise and Mâconnais"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_found_familiar_white_burgundy",
+      "file": "assets/curriculum/areas/wset_foundations.yaml",
+      "level": "WSET_L1",
+      "requirements": "L1 LO2 familiar wines: white Burgundy",
+      "citations": [
+        {
+          "source_id": "src_wset_found_bivb_chardonnay",
+          "url": "https://www.bourgogne-wines.com/wine-and-terroir/our-grape-varietals-our-colors/chardonnay/chardonnay-a-bourgogne-original-that-has-travelled-the-world%2C2797%2C10602.html",
+          "locator": "Chablis; Côte de Beaune; Côte Chalonnaise and Mâconnais"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_found_familiar_red_burgundy",
+      "file": "assets/curriculum/areas/wset_foundations.yaml",
+      "level": "WSET_L1",
+      "requirements": "L1 LO2 familiar wines: red Burgundy",
+      "citations": [
+        {
+          "source_id": "src_wset_found_wset_styles",
+          "url": "https://www.wsetglobal.com/knowledge-centre/blog/2023/october/03/how-many-wine-types-and-styles-are-there",
+          "locator": "Still, sparkling and fortified wine; colour and body explanations"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_found_familiar_bordeaux",
+      "file": "assets/curriculum/areas/wset_foundations.yaml",
+      "level": "WSET_L1",
+      "requirements": "L1 LO2 familiar wines: Bordeaux",
+      "citations": [
+        {
+          "source_id": "src_wset_found_civb_red",
+          "url": "https://www.bordeaux.com/en/choosing-a-wine/red/",
+          "locator": "Merlot and Cabernet Sauvignon structure and fruit"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_found_familiar_champagne",
+      "file": "assets/curriculum/areas/wset_foundations.yaml",
+      "level": "WSET_L1",
+      "requirements": "L1 LO2 familiar wines: Champagne",
+      "citations": [
+        {
+          "source_id": "src_wset_found_civc_faq",
+          "url": "https://www.champagne.fr/en/champagne-frequently-asked-questions",
+          "locator": "Champagne as sparkling wine; white Champagne from black grapes; second fermentation"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_found_familiar_sauternes",
+      "file": "assets/curriculum/areas/wset_foundations.yaml",
+      "level": "WSET_L1",
+      "requirements": "L1 LO2 familiar wines: Sauternes",
+      "citations": [
+        {
+          "source_id": "src_wset_found_civb_sauternes",
+          "url": "https://www.bordeaux.com/en/designations/graves-sauternes/sauternes",
+          "locator": "Sweet white wine style and Sémillon-led blends"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_found_familiar_white_zinfandel",
+      "file": "assets/curriculum/areas/wset_foundations.yaml",
+      "level": "WSET_L1",
+      "requirements": "L1 LO2 familiar wines: White Zinfandel",
+      "citations": [
+        {
+          "source_id": "src_wset_found_zap_styles",
+          "url": "https://zinfandel.org/resources/zinfandel-style/",
+          "locator": "White Zinfandel blush and red Zinfandel style range"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_found_familiar_beaujolais",
+      "file": "assets/curriculum/areas/wset_foundations.yaml",
+      "level": "WSET_L1",
+      "requirements": "L1 LO2 familiar wines: Beaujolais",
+      "citations": [
+        {
+          "source_id": "src_wset_found_beaujolais",
+          "url": "https://www.beaujolais.com/en/appellation/beaujolais/",
+          "locator": "Red and rosé Gamay; fresh fruit and tannin variation"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_found_familiar_cotes_rhone",
+      "file": "assets/curriculum/areas/wset_foundations.yaml",
+      "level": "WSET_L1",
+      "requirements": "L1 LO2 familiar wines: Côtes du Rhône",
+      "citations": [
+        {
+          "source_id": "src_fr_atlas_rhone",
+          "url": "https://www.vins-rhone.com/sites/vignoble/files/documentation/2026-04/INTER-RHONE-ENCYCLOPEDIE-2026-EN-BAT_0.pdf",
+          "locator": "Côtes du Rhône appellation; red, white and rosé styles"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_found_familiar_chianti",
+      "file": "assets/curriculum/areas/wset_foundations.yaml",
+      "level": "WSET_L1",
+      "requirements": "L1 LO2 familiar wines: Chianti",
+      "citations": [
+        {
+          "source_id": "src_wset_found_chianti",
+          "url": "https://www.consorziovinochianti.it/chianti-identikit/?lang=en",
+          "locator": "Chianti wine identity and Sangiovese"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_found_familiar_rioja",
+      "file": "assets/curriculum/areas/wset_foundations.yaml",
+      "level": "WSET_L1",
+      "requirements": "L1 LO2 familiar wines: Rioja",
+      "citations": [
+        {
+          "source_id": "src_wset_found_rioja_red",
+          "url": "https://riojawine.com/en-gb/the-designation/types-of-wine/red-wines/",
+          "locator": "Red varieties and range of red wine styles"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_found_familiar_chateauneuf",
+      "file": "assets/curriculum/areas/wset_foundations.yaml",
+      "level": "WSET_L1",
+      "requirements": "L1 LO2 familiar wines: Châteauneuf-du-Pape",
+      "citations": [
+        {
+          "source_id": "src_reg_fs_chateauneuf",
+          "url": "https://www.vins-rhone.com/fr/aoc-cru-des-cotes-du-rhone-chateauneuf-du-pape",
+          "locator": "Still red and white wines; associated varieties"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_found_familiar_prosecco",
+      "file": "assets/curriculum/areas/wset_foundations.yaml",
+      "level": "WSET_L1",
+      "requirements": "L1 LO2 familiar wines: Prosecco",
+      "citations": [
+        {
+          "source_id": "src_wset_found_prosecco",
+          "url": "https://www.prosecco.wine/en/prosecco/discover/types/",
+          "locator": "Spumante, frizzante, tranquillo and rosé; Glera"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_found_familiar_cava",
+      "file": "assets/curriculum/areas/wset_foundations.yaml",
+      "level": "WSET_L1",
+      "requirements": "L1 LO2 familiar wines: Cava",
+      "citations": [
+        {
+          "source_id": "src_wset_found_cava",
+          "url": "https://cava.wine/en/",
+          "locator": "Spanish sparkling wine and traditional method"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_found_familiar_sherry",
+      "file": "assets/curriculum/areas/wset_foundations.yaml",
+      "level": "WSET_L1",
+      "requirements": "L1 LO2 familiar wines: Sherry",
+      "citations": [
+        {
+          "source_id": "src_wset_found_sherry",
+          "url": "https://www.sherry.wine/news/abc-fortified-wines-jerez",
+          "locator": "Dry, naturally sweet and blended sweet Sherry families"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_found_familiar_port",
+      "file": "assets/curriculum/areas/wset_foundations.yaml",
+      "level": "WSET_L1",
+      "requirements": "L1 LO2 familiar wines: Port",
+      "citations": [
+        {
+          "source_id": "src_wset_found_port",
+          "url": "https://www.ivdp.pt/en/wines/port-wines/colour-sweetness/",
+          "locator": "Colour range and interruption of fermentation determining sweetness"
+        },
+        {
+          "source_id": "src_wset_found_port_fortification",
+          "url": "https://www.ivdp.pt/en/wines/glossary/",
+          "locator": "Fortified wine; grape brandy addition during fermentation in Port"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_found_seeds_stems",
+      "file": "assets/curriculum/areas/wset_foundations.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO1 grape anatomy: seeds and stems",
+      "citations": [
+        {
+          "source_id": "src_win_white_temperature",
+          "url": "https://extension.psu.edu/food-safety-and-quality/grape-and-wine-production/wine-production",
+          "locator": "Wine acidity and tannins; seeds, skins and stems"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_found_skin_flavour",
+      "file": "assets/curriculum/areas/wset_foundations.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO1 skin flavour and tannin; LO2 extraction link",
+      "citations": [
+        {
+          "source_id": "src_win_skin_contact",
+          "url": "https://www.awri.com.au/industry_support/winemaking_resources/winemaking-practices/winemaking-treatment-skin-contact/",
+          "locator": "Flavour and phenolic compounds in skins; white wine skin-contact trials"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_found_pulp_sampling",
+      "file": "assets/curriculum/areas/wset_foundations.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO1 pulp sugar and acids; harvest assessment",
+      "citations": [
+        {
+          "source_id": "src_wset_found_umn_ripeness",
+          "url": "https://blog-fruit-vegetable-ipm.extension.umn.edu/2024/08/madeline-wimmer-extension-educator-and.html",
+          "locator": "Berry ripening phases; representative sampling; sugar and acid measurements"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_found_vine_resources",
+      "file": "assets/curriculum/areas/wset_foundations.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO1 vine resources",
+      "citations": [
+        {
+          "source_id": "src_wset_found_uga_nutrition",
+          "url": "https://site.extension.uga.edu/viticulture/files/2018/01/Nutrition_GWP_Wolf.pdf",
+          "locator": "Nutrients essential for normal grapevine growth and development; air, water and soil"
+        },
+        {
+          "source_id": "src_wset_found_nmsu_phenology",
+          "url": "https://pubs.nmsu.edu/_h/H338/",
+          "locator": "Annual growth cycle; effects of climatic factors; reproductive growth and development"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_found_water_roots",
+      "file": "assets/curriculum/areas/wset_foundations.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO1 water, drought and irrigation",
+      "citations": [
+        {
+          "source_id": "src_wset_found_nmsu_water",
+          "url": "https://pubs.nmsu.edu/_circulars/CR483/",
+          "locator": "Water shortage and vine growth; irrigation"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_found_nutrients",
+      "file": "assets/curriculum/areas/wset_foundations.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO1 nutrients and vineyard practice",
+      "citations": [
+        {
+          "source_id": "src_wset_found_uga_nutrition",
+          "url": "https://site.extension.uga.edu/viticulture/files/2018/01/Nutrition_GWP_Wolf.pdf",
+          "locator": "Nutrients essential for normal grapevine growth and development; air, water and soil"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_found_vine_canopy",
+      "file": "assets/curriculum/areas/wset_foundations.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO1 sunlight and photosynthesis",
+      "citations": [
+        {
+          "source_id": "src_wset_found_nmsu_phenology",
+          "url": "https://pubs.nmsu.edu/_h/H338/",
+          "locator": "Annual growth cycle; effects of climatic factors; reproductive growth and development"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_found_veraison",
+      "file": "assets/curriculum/areas/wset_foundations.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO1 flowering, fruit set and veraison",
+      "citations": [
+        {
+          "source_id": "src_wset_found_umn_ripeness",
+          "url": "https://blog-fruit-vegetable-ipm.extension.umn.edu/2024/08/madeline-wimmer-extension-educator-and.html",
+          "locator": "Berry ripening phases; representative sampling; sugar and acid measurements"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_found_unripe",
+      "file": "assets/curriculum/areas/wset_foundations.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO1 unripe versus ripe components",
+      "citations": [
+        {
+          "source_id": "src_wset_found_umn_ripeness",
+          "url": "https://blog-fruit-vegetable-ipm.extension.umn.edu/2024/08/madeline-wimmer-extension-educator-and.html",
+          "locator": "Berry ripening phases; representative sampling; sugar and acid measurements"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_found_ripe_style",
+      "file": "assets/curriculum/areas/wset_foundations.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO1 ripe fruit and style; harvest",
+      "citations": [
+        {
+          "source_id": "src_wset_found_umn_ripeness",
+          "url": "https://blog-fruit-vegetable-ipm.extension.umn.edu/2024/08/madeline-wimmer-extension-educator-and.html",
+          "locator": "Berry ripening phases; representative sampling; sugar and acid measurements"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_found_late_harvest_risk",
+      "file": "assets/curriculum/areas/wset_foundations.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO1 extra-ripe fruit and harvest risk",
+      "citations": [
+        {
+          "source_id": "src_wset_found_nmsu_phenology",
+          "url": "https://pubs.nmsu.edu/_h/H338/",
+          "locator": "Annual growth cycle; effects of climatic factors; reproductive growth and development"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_found_sample_representative",
+      "file": "assets/curriculum/areas/wset_foundations.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO1 harvest timing and ripeness",
+      "citations": [
+        {
+          "source_id": "src_wset_found_umn_ripeness",
+          "url": "https://blog-fruit-vegetable-ipm.extension.umn.edu/2024/08/madeline-wimmer-extension-educator-and.html",
+          "locator": "Berry ripening phases; representative sampling; sugar and acid measurements"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_found_site_climate",
+      "file": "assets/curriculum/areas/wset_foundations.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO1 climate suitability",
+      "citations": [
+        {
+          "source_id": "src_biz_models_psu_vineyard",
+          "url": "https://extension.psu.edu/wine-grape-production",
+          "locator": "Site selection; drainage; rootstocks and climate matching"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_found_slope_air",
+      "file": "assets/curriculum/areas/wset_foundations.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO1 slope and cold-air effects",
+      "citations": [
+        {
+          "source_id": "src_biz_models_psu_vineyard",
+          "url": "https://extension.psu.edu/wine-grape-production",
+          "locator": "Site selection; drainage; rootstocks and climate matching"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_found_aspect",
+      "file": "assets/curriculum/areas/wset_foundations.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO1 slope aspect and sunlight",
+      "citations": [
+        {
+          "source_id": "src_biz_models_psu_vineyard",
+          "url": "https://extension.psu.edu/wine-grape-production",
+          "locator": "Site selection; drainage; rootstocks and climate matching"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_found_soil_drainage",
+      "file": "assets/curriculum/areas/wset_foundations.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO1 soil water and vine growth",
+      "citations": [
+        {
+          "source_id": "src_biz_models_psu_vineyard",
+          "url": "https://extension.psu.edu/wine-grape-production",
+          "locator": "Site selection; drainage; rootstocks and climate matching"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_found_hail_heat",
+      "file": "assets/curriculum/areas/wset_foundations.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO1 hail, sunlight and temperature hazards",
+      "citations": [
+        {
+          "source_id": "src_wset_found_wa_extremes",
+          "url": "https://www.wineaustralia.com/news/articles/drape-and-protect",
+          "locator": "Hail, sunburn, heatwave and bird damage; protection net trials"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_found_training",
+      "file": "assets/curriculum/areas/wset_foundations.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO1 vine training",
+      "citations": [
+        {
+          "source_id": "src_wset_found_psu_canopy",
+          "url": "https://extension.psu.edu/backyard-grape-growing",
+          "locator": "Site and cultivar selection; training; canopy and weed management"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_found_pruning",
+      "file": "assets/curriculum/areas/wset_foundations.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO1 pruning",
+      "citations": [
+        {
+          "source_id": "src_wset_found_umn_vines",
+          "url": "https://extension.umn.edu/garden-and-home/yard-and-garden/gardening-in-minnesota/growing-grapes-in-the-home-garden",
+          "locator": "Planting, annual pruning, pest and disease management"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_found_weeds",
+      "file": "assets/curriculum/areas/wset_foundations.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO1 weed management",
+      "citations": [
+        {
+          "source_id": "src_wset_found_psu_canopy",
+          "url": "https://extension.psu.edu/backyard-grape-growing",
+          "locator": "Site and cultivar selection; training; canopy and weed management"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_found_canopy_disease",
+      "file": "assets/curriculum/areas/wset_foundations.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO1 pest and disease management",
+      "citations": [
+        {
+          "source_id": "src_wset_found_psu_canopy",
+          "url": "https://extension.psu.edu/backyard-grape-growing",
+          "locator": "Site and cultivar selection; training; canopy and weed management"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_found_crop_load",
+      "file": "assets/curriculum/areas/wset_foundations.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO1 yield and ripening balance",
+      "citations": [
+        {
+          "source_id": "src_wset_found_nmsu_phenology",
+          "url": "https://pubs.nmsu.edu/_h/H338/",
+          "locator": "Annual growth cycle; effects of climatic factors; reproductive growth and development"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_found_concentrated_fruit",
+      "file": "assets/curriculum/areas/wset_foundations.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO1 raisined grapes",
+      "citations": [
+        {
+          "source_id": "src_wset_found_oiv_special",
+          "url": "https://oiv.int/fr/standards/code-international-des-pratiques-oenologiques/part-i-definitions/special-wines",
+          "locator": "I.4.3 liqueur wine; I.4.6 sweet wines; I.4.7 icewine"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_found_noble_rot",
+      "file": "assets/curriculum/areas/wset_foundations.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO1 botrytis-affected grapes",
+      "citations": [
+        {
+          "source_id": "src_wset_found_wa_intro",
+          "url": "https://www.australianwine.com/getcontentasset/b71a1ced-ae7b-47e5-9b4d-af188ac79d01/2a6464f5-7547-4f96-aacf-a0c3da1718f8/awd_introtowine_consumerguide.pdf?language=en-AU",
+          "locator": "Introduction to wine; structure and wine style; sweet wine production"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_found_frozen_fruit",
+      "file": "assets/curriculum/areas/wset_foundations.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO1 frozen grapes",
+      "citations": [
+        {
+          "source_id": "src_wset_found_oiv_special",
+          "url": "https://oiv.int/fr/standards/code-international-des-pratiques-oenologiques/part-i-definitions/special-wines",
+          "locator": "I.4.3 liqueur wine; I.4.6 sweet wines; I.4.7 icewine"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_found_pulp_composition",
+      "file": "assets/curriculum/areas/wset_foundations.yaml",
+      "level": "WSET_L1",
+      "requirements": "L1 LO1 grape pulp anatomy; L2 LO1 inherited grape components",
+      "citations": [
+        {
+          "source_id": "src_wset_found_ucd_pulp",
+          "url": "https://my.ucanr.edu/repository/fileaccess.cfm?article=95501&p=AAOEPD",
+          "locator": "Grape Berry Ripening: Pulp, slide/page 19; optimal berry composition for wine style, page 21"
+        },
+        {
+          "source_id": "src_wset_found_wsu_berry_water",
+          "url": "https://wine.wsu.edu/viticulture-enology-extension-news-spring-2013/",
+          "locator": "Water Economy in Grape Berries: water in berry fresh weight, sugars and acids"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_chardonnay_beginner",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L1",
+      "requirements": "L1 LO2 principal grape profile: Chardonnay; L2 LO3 inherited",
+      "citations": [
+        {
+          "source_id": "src_wset_grape_wa_chardonnay",
+          "url": "https://www.wineaustralia.com/market-insights/regions-and-varieties/chardonnay",
+          "locator": "Style spectrum; regional styles; oak, lees and malolactic conversion"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_sauvignon_blanc_beginner",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L1",
+      "requirements": "L1 LO2 principal grape profile: Sauvignon Blanc; L2 LO3 inherited",
+      "citations": [
+        {
+          "source_id": "src_wset_grape_nzw_sauvignon",
+          "url": "https://www.nzwine.com/en/winestyles/sauvignonblanc/?locale=en_NZ&page=1",
+          "locator": "Marlborough and regional Sauvignon Blanc style variation"
+        },
+        {
+          "source_id": "src_wset_grape_wset_sauvignon",
+          "url": "https://www.wsetglobal.com/knowledge-centre/blog/2020/may/01/understanding-grapes-spotlight-on-sauvignon-blanc",
+          "locator": "Acidity; herbaceous aromas; climate and ripening effects"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_pinot_gris_beginner",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L1",
+      "requirements": "L1 LO2 principal grape profile: Pinot Grigio or Pinot Gris; L2 LO3 inherited",
+      "citations": [
+        {
+          "source_id": "src_wset_grape_venezie_style",
+          "url": "https://dellevenezie.it/en/do-delle-venezie-official-page/",
+          "locator": "Fresh, fruity northeastern Italian style"
+        },
+        {
+          "source_id": "src_wset_grape_civa_pinot_gris",
+          "url": "https://www.vinsalsace.com/en/tastes-and-colours/grapes-varieties/light-or-full-bodied/pinot-gris-dalsace/",
+          "locator": "Tasting it: body, freshness, dried fruit and smoke"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_riesling_beginner",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L1",
+      "requirements": "L1 LO2 principal grape profile: Riesling; L2 LO3 inherited",
+      "citations": [
+        {
+          "source_id": "src_wset_grape_wa_riesling",
+          "url": "https://www.wineaustralia.com/market-insights/regions-and-varieties/riesling",
+          "locator": "Body, acidity, citrus, sweetness and regional expressions"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_cabernet_sauvignon_beginner",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L1",
+      "requirements": "L1 LO2 principal grape profile: Cabernet Sauvignon; L2 LO3 inherited",
+      "citations": [
+        {
+          "source_id": "src_wset_grape_wa_cabernet",
+          "url": "https://www.wineaustralia.com/market-insights/regions-and-varieties/cabernet-sauvignon",
+          "locator": "Body; Coonawarra, Margaret River and Langhorne Creek styles"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_merlot_beginner",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L1",
+      "requirements": "L1 LO2 principal grape profile: Merlot; L2 LO3 inherited",
+      "citations": [
+        {
+          "source_id": "src_reg_fr_merlot",
+          "url": "https://www.bordeaux.com/en/grape-varieties/merlot/",
+          "locator": "Fruit and texture; early ripening; moderate acidity; style spectrum and blends"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_pinot_noir_beginner",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L1",
+      "requirements": "L1 LO2 principal grape profile: Pinot Noir; L2 LO3 inherited",
+      "citations": [
+        {
+          "source_id": "src_wset_grape_wa_pinot_noir",
+          "url": "https://www.wineaustralia.com/market-insights/regions-and-varieties/pinot-noir",
+          "locator": "Body; red fruit; cool sites; whole-bunch and oak choices"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_syrah_beginner",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L1",
+      "requirements": "L1 LO2 principal grape profile: Syrah or Shiraz; L2 LO3 inherited",
+      "citations": [
+        {
+          "source_id": "src_wset_grape_wa_shiraz",
+          "url": "https://www.wineaustralia.com/market-insights/regions-and-varieties/shiraz",
+          "locator": "Shiraz/Syrah identity; body and region styles; oak, fresh styles and blends"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_chardonnay_profile",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO3 principal grape: Chardonnay structure and typical aroma",
+      "citations": [
+        {
+          "source_id": "src_wset_grape_wa_chardonnay",
+          "url": "https://www.wineaustralia.com/market-insights/regions-and-varieties/chardonnay",
+          "locator": "Style spectrum; regional styles; oak, lees and malolactic conversion"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_sauvignon_blanc_profile",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO3 principal grape: Sauvignon Blanc structure and typical aroma",
+      "citations": [
+        {
+          "source_id": "src_wset_grape_nzw_sauvignon",
+          "url": "https://www.nzwine.com/en/winestyles/sauvignonblanc/?locale=en_NZ&page=1",
+          "locator": "Marlborough and regional Sauvignon Blanc style variation"
+        },
+        {
+          "source_id": "src_wset_grape_wset_sauvignon",
+          "url": "https://www.wsetglobal.com/knowledge-centre/blog/2020/may/01/understanding-grapes-spotlight-on-sauvignon-blanc",
+          "locator": "Acidity; herbaceous aromas; climate and ripening effects"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_pinot_gris_profile",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO3 principal grape: Pinot Gris or Pinot Grigio structure and typical aroma",
+      "citations": [
+        {
+          "source_id": "src_wset_grape_civa_pinot_gris",
+          "url": "https://www.vinsalsace.com/en/tastes-and-colours/grapes-varieties/light-or-full-bodied/pinot-gris-dalsace/",
+          "locator": "Tasting it: body, freshness, dried fruit and smoke"
+        },
+        {
+          "source_id": "src_wset_grape_venezie_style",
+          "url": "https://dellevenezie.it/en/do-delle-venezie-official-page/",
+          "locator": "Fresh, fruity northeastern Italian style"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_riesling_profile",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO3 principal grape: Riesling structure and typical aroma",
+      "citations": [
+        {
+          "source_id": "src_wset_grape_wa_riesling",
+          "url": "https://www.wineaustralia.com/market-insights/regions-and-varieties/riesling",
+          "locator": "Body, acidity, citrus, sweetness and regional expressions"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_cabernet_sauvignon_profile",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO3 principal grape: Cabernet Sauvignon structure and typical aroma",
+      "citations": [
+        {
+          "source_id": "src_wset_grape_wa_cabernet",
+          "url": "https://www.wineaustralia.com/market-insights/regions-and-varieties/cabernet-sauvignon",
+          "locator": "Body; Coonawarra, Margaret River and Langhorne Creek styles"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_merlot_profile",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO3 principal grape: Merlot structure and typical aroma",
+      "citations": [
+        {
+          "source_id": "src_reg_fr_merlot",
+          "url": "https://www.bordeaux.com/en/grape-varieties/merlot/",
+          "locator": "Fruit and texture; early ripening; moderate acidity; style spectrum and blends"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_pinot_noir_profile",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO3 principal grape: Pinot Noir structure and typical aroma",
+      "citations": [
+        {
+          "source_id": "src_wset_grape_wa_pinot_noir",
+          "url": "https://www.wineaustralia.com/market-insights/regions-and-varieties/pinot-noir",
+          "locator": "Body; red fruit; cool sites; whole-bunch and oak choices"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_syrah_profile",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO3 principal grape: Syrah or Shiraz structure and typical aroma",
+      "citations": [
+        {
+          "source_id": "src_wset_grape_wa_shiraz",
+          "url": "https://www.wineaustralia.com/market-insights/regions-and-varieties/shiraz",
+          "locator": "Shiraz/Syrah identity; body and region styles; oak, fresh styles and blends"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_gamay_profile",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO4 regional grape: Gamay structure and typical aroma",
+      "citations": [
+        {
+          "source_id": "src_wset_found_beaujolais",
+          "url": "https://www.beaujolais.com/en/appellation/beaujolais/",
+          "locator": "Gamay Noir à Jus Blanc; red fruit, freshness, delicate tannin and site variation"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_grenache_profile",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO4 regional grape: Grenache or Garnacha structure and typical aroma",
+      "citations": [
+        {
+          "source_id": "src_wset_grape_ir_grenache",
+          "url": "https://www.vins-rhone.com/en/grenache-noir-grape-variety",
+          "locator": "Dry red and rosé wines; sweet fortified styles; grape character"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_tempranillo_profile",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO4 regional grape: Tempranillo structure and typical aroma",
+      "citations": [
+        {
+          "source_id": "src_wset_grape_rioja_tempranillo",
+          "url": "https://riojawine.com/en-us/the-designation/grape-varieties/tempranillo/",
+          "locator": "Red and black fruit; young wine; oak and bottle maturation"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_nebbiolo_profile",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO4 regional grape: Nebbiolo structure and typical aroma",
+      "citations": [
+        {
+          "source_id": "src_wset_grape_langhe_nebbiolo",
+          "url": "https://www.langhevini.it/en/i-vitigni-del-territorio/nebbiolo/",
+          "locator": "Early budding, late ripening, tannin-rich skins and site sensitivity"
+        },
+        {
+          "source_id": "src_wset_grape_cms_markers",
+          "url": "https://courtofmastersommeliers.org/wp-content/uploads/2026/02/Grape-Markers-25.2.pdf",
+          "locator": "Printed pages 8–9: Carménère, Nebbiolo and Sangiovese ONLY; erroneous Corvina section excluded"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_barbera_profile",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO4 regional grape: Barbera structure and typical aroma",
+      "citations": [
+        {
+          "source_id": "src_wset_grape_ivd_barbera",
+          "url": "https://vitisdb.it/varieties/pdf/979?extended=true",
+          "locator": "OIV 225 blue-black skin; wine technology: acidity, colour and wood maturation"
+        },
+        {
+          "source_id": "src_wset_grape_pinerolese_barbera",
+          "url": "https://consorziodocpinerolese.it/vitigni/barbera/",
+          "locator": "Blue-black berries; young, semi-sparkling, medium-bodied and wood-aged styles"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_sangiovese_profile",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO4 regional grape: Sangiovese structure and typical aroma",
+      "citations": [
+        {
+          "source_id": "src_wset_grape_chianti_sangiovese",
+          "url": "https://www.consorziovinochianti.it/il-sangiovese-e-la-sua-corte/",
+          "locator": "Black grape; aroma, maturity and style variation"
+        },
+        {
+          "source_id": "src_wset_grape_cms_markers",
+          "url": "https://courtofmastersommeliers.org/wp-content/uploads/2026/02/Grape-Markers-25.2.pdf",
+          "locator": "Printed pages 8–9: Carménère, Nebbiolo and Sangiovese ONLY; erroneous Corvina section excluded"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_corvina_profile",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO4 regional grape: Corvina structure and typical aroma",
+      "citations": [
+        {
+          "source_id": "src_wset_grape_valpo_grapes",
+          "url": "https://www.consorziovalpolicella.it/en/the-varieties/",
+          "locator": "Corvina structure, aroma and softness; distinguished from Corvinone"
+        },
+        {
+          "source_id": "src_reg_inc_valpolicella",
+          "url": "https://www.consorziovalpolicella.it/en/types-of-wines/vino-valpolicella-doc/",
+          "locator": "Fresh young red; cherry; structure and Superiore variation"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_montepulciano_profile",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO4 regional grape: Montepulciano structure and typical aroma",
+      "citations": [
+        {
+          "source_id": "src_wset_grape_abruzzo_montepulciano",
+          "url": "https://www.vinidabruzzo.it/wp-content/uploads/2024/02/Montepulciano-dAbruzzo-Disciplinare.pdf",
+          "locator": "Article 6, PDF page 5: red fruit, spice, full palate, tannin; maturation and colour"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_zinfandel_profile",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO4 regional grape: Zinfandel or Primitivo structure and typical aroma",
+      "citations": [
+        {
+          "source_id": "src_wset_found_zap_styles",
+          "url": "https://zinfandel.org/resources/zinfandel-style/",
+          "locator": "Red Zinfandel range and White Zinfandel blush contrast"
+        },
+        {
+          "source_id": "src_wset_grape_zap_sonoma",
+          "url": "https://zinfandel.org/region/sonoma-county/",
+          "locator": "Blackberry, pepper and other spice aromas"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_pinotage_profile",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO4 regional grape: Pinotage structure and typical aroma",
+      "citations": [
+        {
+          "source_id": "src_wset_grape_wosa_pinotage",
+          "url": "https://www.wosa.co.za/wosadocs/WINE_WISE_English.pdf",
+          "locator": "Chenin Blanc chapter, printed page 84; Pinotage chapter: berry/plum and maturation"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_carmenere_profile",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO4 regional grape: Carménère structure and typical aroma",
+      "citations": [
+        {
+          "source_id": "src_wset_grape_cms_markers",
+          "url": "https://courtofmastersommeliers.org/wp-content/uploads/2026/02/Grape-Markers-25.2.pdf",
+          "locator": "Printed pages 8–9: Carménère, Nebbiolo and Sangiovese ONLY; erroneous Corvina section excluded"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_malbec_profile",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO4 regional grape: Malbec structure and typical aroma",
+      "citations": [
+        {
+          "source_id": "src_wset_grape_woa_malbec",
+          "url": "https://blog.winesofargentina.com/destacadas/ten-key-descriptors-for-todays-malbec/",
+          "locator": "Fruit, flowers, body, freshness and tannin texture variation"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_chenin_blanc_profile",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO4 regional grape: Chenin Blanc structure and typical aroma",
+      "citations": [
+        {
+          "source_id": "src_wset_grape_wosa_pinotage",
+          "url": "https://www.wosa.co.za/wosadocs/WINE_WISE_English.pdf",
+          "locator": "Chenin Blanc chapter, printed page 84; Pinotage chapter: berry/plum and maturation"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_semillon_profile",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO4 regional grape: Sémillon structure and typical aroma",
+      "citations": [
+        {
+          "source_id": "src_wset_grape_wa_semillon",
+          "url": "https://www.wineaustralia.com/market-insights/regions-and-varieties/semillon",
+          "locator": "Hunter youthful high-acid dry style; bottle evolution; Barossa and blends"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_viognier_profile",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO4 regional grape: Viognier structure and typical aroma",
+      "citations": [
+        {
+          "source_id": "src_wset_grape_ir_viognier",
+          "url": "https://www.vins-rhone.com/en/viognier-grape-variety",
+          "locator": "Yellow fruit, spice and dried fruit; supple creamy structure; dry Condrieu"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_gewurztraminer_profile",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO4 regional grape: Gewurztraminer structure and typical aroma",
+      "citations": [
+        {
+          "source_id": "src_wset_grape_civa_gewurztraminer",
+          "url": "https://www.vinsalsace.com/en/gouts-et-couleurs/cepages/puissants-et-intenses/gewurztraminer-dalsace/",
+          "locator": "Lychee, rose, spice; full body and comparatively discreet freshness"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_verdicchio_profile",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO4 regional grape: Verdicchio structure and typical aroma",
+      "citations": [
+        {
+          "source_id": "src_wset_grape_imt_verdicchio",
+          "url": "https://www.imtdoc.it/verdicchio/index_en.html",
+          "locator": "White fruit, flowers, almond; fresh and more structured Riserva styles"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_cortese_profile",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO4 regional grape: Cortese structure and typical aroma",
+      "citations": [
+        {
+          "source_id": "src_wset_grape_gavi_cortese",
+          "url": "https://www.consorziogavi.com/en/gavi-docg-2/",
+          "locator": "Dry fresh palate; fruit, flowers, citrus, bitter almond; richer Riserva"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_garganega_profile",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO4 regional grape: Garganega structure and typical aroma",
+      "citations": [
+        {
+          "source_id": "src_wset_grape_soave_garganega",
+          "url": "https://www.ilsoave.com/wp-content/uploads/2023/05/Press-Kit-Soave-ENG-web.pdf",
+          "locator": "Garganega and Soave fruit, white flower and almond character"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_fiano_profile",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO4 regional grape: Fiano structure and typical aroma",
+      "citations": [
+        {
+          "source_id": "src_reg_isi_fiano",
+          "url": "https://consorziovinidirpinia.it/vini/fiano-di-avellino-docg-vino/",
+          "locator": "Acidity, medium structure, flowers, white fruit, hazelnut; steel, oak and age"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_albarino_profile",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO4 regional grape: Albariño structure and typical aroma",
+      "citations": [
+        {
+          "source_id": "src_wset_grape_rias_albarino",
+          "url": "https://www.riasbaixaswines.com/wp-content/uploads/2024/05/Media-Kit-09272023.pdf",
+          "locator": "Albariño fruit, acidity and regional variation"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_furmint_profile",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO4 regional grape: Furmint structure and typical aroma",
+      "citations": [
+        {
+          "source_id": "src_wset_grape_hunga_furmint",
+          "url": "https://bor.hu/en/furmint/",
+          "locator": "Full body, acidity, quince/peach/apricot; dry, sweet and botrytis styles"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_chardonnay_variation",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO3 principal grape: Chardonnay style variation",
+      "citations": [
+        {
+          "source_id": "src_wset_grape_wa_chardonnay",
+          "url": "https://www.wineaustralia.com/market-insights/regions-and-varieties/chardonnay",
+          "locator": "Style spectrum; regional styles; oak, lees and malolactic conversion"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_sauvignon_blanc_variation",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO3 principal grape: Sauvignon Blanc style variation",
+      "citations": [
+        {
+          "source_id": "src_wset_grape_nzw_sauvignon",
+          "url": "https://www.nzwine.com/en/winestyles/sauvignonblanc/?locale=en_NZ&page=1",
+          "locator": "Marlborough and regional Sauvignon Blanc style variation"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_pinot_gris_variation",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO3 principal grape: Pinot Gris or Pinot Grigio style variation",
+      "citations": [
+        {
+          "source_id": "src_wset_grape_venezie_types",
+          "url": "https://dellevenezie.it/en/types/",
+          "locator": "Still, ramato, sparkling and semi-sparkling styles; freshness and sweetness"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_riesling_variation",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO3 principal grape: Riesling style variation",
+      "citations": [
+        {
+          "source_id": "src_wset_grape_wa_riesling",
+          "url": "https://www.wineaustralia.com/market-insights/regions-and-varieties/riesling",
+          "locator": "Body, acidity, citrus, sweetness and regional expressions"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_cabernet_sauvignon_variation",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO3 principal grape: Cabernet Sauvignon style variation",
+      "citations": [
+        {
+          "source_id": "src_wset_grape_wa_cabernet",
+          "url": "https://www.wineaustralia.com/market-insights/regions-and-varieties/cabernet-sauvignon",
+          "locator": "Body; Coonawarra, Margaret River and Langhorne Creek styles"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_merlot_variation",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO3 principal grape: Merlot style variation",
+      "citations": [
+        {
+          "source_id": "src_reg_fr_merlot",
+          "url": "https://www.bordeaux.com/en/grape-varieties/merlot/",
+          "locator": "Fruit and texture; early ripening; moderate acidity; style spectrum and blends"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_pinot_noir_variation",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO3 principal grape: Pinot Noir style variation",
+      "citations": [
+        {
+          "source_id": "src_wset_grape_wa_pinot_noir",
+          "url": "https://www.wineaustralia.com/market-insights/regions-and-varieties/pinot-noir",
+          "locator": "Body; red fruit; cool sites; whole-bunch and oak choices"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_syrah_variation",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO3 principal grape: Syrah or Shiraz style variation",
+      "citations": [
+        {
+          "source_id": "src_wset_grape_wa_shiraz",
+          "url": "https://www.wineaustralia.com/market-insights/regions-and-varieties/shiraz",
+          "locator": "Shiraz/Syrah identity; body and region styles; oak, fresh styles and blends"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_gamay_variation",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO4 regional grape: Gamay style variation",
+      "citations": [
+        {
+          "source_id": "src_wset_grape_beaujolais_method",
+          "url": "https://www.beaujolais.com/wp-content/uploads/sites/2/2020/09/Carnet-Beaujolais-EN.pdf",
+          "locator": "Gamay; whole-berry fermentation and carbonic techniques"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_grenache_variation",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO4 regional grape: Grenache or Garnacha style variation",
+      "citations": [
+        {
+          "source_id": "src_wset_grape_ir_grenache",
+          "url": "https://www.vins-rhone.com/en/grenache-noir-grape-variety",
+          "locator": "Dry red and rosé wines; sweet fortified styles; grape character"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_tempranillo_variation",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO4 regional grape: Tempranillo style variation",
+      "citations": [
+        {
+          "source_id": "src_wset_grape_rioja_tempranillo",
+          "url": "https://riojawine.com/en-us/the-designation/grape-varieties/tempranillo/",
+          "locator": "Red and black fruit; young wine; oak and bottle maturation"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_nebbiolo_variation",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO4 regional grape: Nebbiolo style variation",
+      "citations": [
+        {
+          "source_id": "src_wset_grape_langhe_nebbiolo",
+          "url": "https://www.langhevini.it/en/i-vitigni-del-territorio/nebbiolo/",
+          "locator": "Early budding, late ripening, tannin-rich skins and site sensitivity"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_barbera_variation",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO4 regional grape: Barbera style variation",
+      "citations": [
+        {
+          "source_id": "src_wset_grape_pinerolese_barbera",
+          "url": "https://consorziodocpinerolese.it/vitigni/barbera/",
+          "locator": "Blue-black berries; young, semi-sparkling, medium-bodied and wood-aged styles"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_sangiovese_variation",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO4 regional grape: Sangiovese style variation",
+      "citations": [
+        {
+          "source_id": "src_wset_grape_chianti_sangiovese",
+          "url": "https://www.consorziovinochianti.it/il-sangiovese-e-la-sua-corte/",
+          "locator": "Black grape; aroma, maturity and style variation"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_corvina_variation",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO4 regional grape: Corvina style variation",
+      "citations": [
+        {
+          "source_id": "src_reg_inc_valpolicella",
+          "url": "https://www.consorziovalpolicella.it/en/types-of-wines/vino-valpolicella-doc/",
+          "locator": "Fresh young red; cherry; structure and Superiore variation"
+        },
+        {
+          "source_id": "src_reg_inc_amarone",
+          "url": "https://www.consorziovalpolicella.it/en/types-of-wines/amarone-della-valpolicella-docg/",
+          "locator": "Dried grapes; dry high-alcohol wine; wood ageing"
+        },
+        {
+          "source_id": "src_wset_grape_valpo_grapes",
+          "url": "https://www.consorziovalpolicella.it/en/the-varieties/",
+          "locator": "Corvina structure, aroma and softness; distinguished from Corvinone"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_montepulciano_variation",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO4 regional grape: Montepulciano style variation",
+      "citations": [
+        {
+          "source_id": "src_wset_grape_abruzzo_montepulciano",
+          "url": "https://www.vinidabruzzo.it/wp-content/uploads/2024/02/Montepulciano-dAbruzzo-Disciplinare.pdf",
+          "locator": "Article 6, PDF page 5: red fruit, spice, full palate, tannin; maturation and colour"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_zinfandel_variation",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO4 regional grape: Zinfandel or Primitivo style variation",
+      "citations": [
+        {
+          "source_id": "src_wset_found_zap_styles",
+          "url": "https://zinfandel.org/resources/zinfandel-style/",
+          "locator": "Red Zinfandel range and White Zinfandel blush contrast"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_pinotage_variation",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO4 regional grape: Pinotage style variation",
+      "citations": [
+        {
+          "source_id": "src_wset_grape_wosa_pinotage",
+          "url": "https://www.wosa.co.za/wosadocs/WINE_WISE_English.pdf",
+          "locator": "Chenin Blanc chapter, printed page 84; Pinotage chapter: berry/plum and maturation"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_carmenere_variation",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO4 regional grape: Carménère style variation",
+      "citations": [
+        {
+          "source_id": "src_wset_grape_chile_carmenere",
+          "url": "https://www.winesofchile.org/winegrowing-regions/",
+          "locator": "Carmenère: late ripening, dry ripening season, red fruit and spice"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_malbec_variation",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO4 regional grape: Malbec style variation",
+      "citations": [
+        {
+          "source_id": "src_wset_grape_woa_malbec",
+          "url": "https://blog.winesofargentina.com/destacadas/ten-key-descriptors-for-todays-malbec/",
+          "locator": "Fruit, flowers, body, freshness and tannin texture variation"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_chenin_blanc_variation",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO4 regional grape: Chenin Blanc style variation",
+      "citations": [
+        {
+          "source_id": "src_wset_grape_wosa_pinotage",
+          "url": "https://www.wosa.co.za/wosadocs/WINE_WISE_English.pdf",
+          "locator": "Chenin Blanc chapter, printed page 84; Pinotage chapter: berry/plum and maturation"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_semillon_variation",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO4 regional grape: Sémillon style variation",
+      "citations": [
+        {
+          "source_id": "src_wset_grape_wa_semillon",
+          "url": "https://www.wineaustralia.com/market-insights/regions-and-varieties/semillon",
+          "locator": "Hunter youthful high-acid dry style; bottle evolution; Barossa and blends"
+        },
+        {
+          "source_id": "src_wset_grape_civb_semillon",
+          "url": "https://www.bordeaux.com/en/grape-varieties/semillon/",
+          "locator": "Dry blends and sweet Bordeaux wine roles"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_viognier_variation",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO4 regional grape: Viognier style variation",
+      "citations": [
+        {
+          "source_id": "src_wset_grape_wa_viognier",
+          "url": "https://www.australianwine.com/our-wines/viognier",
+          "locator": "Style and Character: regional range, oaked and unoaked styles, blending"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_gewurztraminer_variation",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO4 regional grape: Gewurztraminer style variation",
+      "citations": [
+        {
+          "source_id": "src_wset_grape_civa_gewurztraminer",
+          "url": "https://www.vinsalsace.com/en/gouts-et-couleurs/cepages/puissants-et-intenses/gewurztraminer-dalsace/",
+          "locator": "Lychee, rose, spice; full body and comparatively discreet freshness"
+        },
+        {
+          "source_id": "src_wset_grape_civa_sgn",
+          "url": "https://www.vinsalsace.com/fr/gouts-et-couleurs/aoc/selection-de-grains-nobles/",
+          "locator": "Gewurztraminer and hand-picked noble-rot fruit in concentrated sweet wines"
+        },
+        {
+          "source_id": "src_wset_grape_civa_sgn_tasting",
+          "url": "https://www.vinsalsace.com/en/gouts-et-couleurs/cepages/selection-de-grains-nobles/selection-de-grains-nobles/",
+          "locator": "Nose and palate: over-ripe, honey, candied or cooked fruit; sweet concentrated style"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_verdicchio_variation",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO4 regional grape: Verdicchio style variation",
+      "citations": [
+        {
+          "source_id": "src_wset_grape_imt_verdicchio",
+          "url": "https://www.imtdoc.it/verdicchio/index_en.html",
+          "locator": "White fruit, flowers, almond; fresh and more structured Riserva styles"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_cortese_variation",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO4 regional grape: Cortese style variation",
+      "citations": [
+        {
+          "source_id": "src_wset_grape_gavi_cortese",
+          "url": "https://www.consorziogavi.com/en/gavi-docg-2/",
+          "locator": "Dry fresh palate; fruit, flowers, citrus, bitter almond; richer Riserva"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_garganega_variation",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO4 regional grape: Garganega style variation",
+      "citations": [
+        {
+          "source_id": "src_wset_grape_soave_garganega",
+          "url": "https://www.ilsoave.com/wp-content/uploads/2023/05/Press-Kit-Soave-ENG-web.pdf",
+          "locator": "Garganega and Soave fruit, white flower and almond character"
+        },
+        {
+          "source_id": "src_wset_grape_soave_recioto",
+          "url": "https://www.ilsoave.com/en/regulations/",
+          "locator": "Dried white grapes and sweet Recioto di Soave"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_fiano_variation",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO4 regional grape: Fiano style variation",
+      "citations": [
+        {
+          "source_id": "src_reg_isi_fiano",
+          "url": "https://consorziovinidirpinia.it/vini/fiano-di-avellino-docg-vino/",
+          "locator": "Acidity, medium structure, flowers, white fruit, hazelnut; steel, oak and age"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_albarino_variation",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO4 regional grape: Albariño style variation",
+      "citations": [
+        {
+          "source_id": "src_wset_grape_rias_albarino_cellar",
+          "url": "https://www.riasbaixaswines.com/about/vineyards-and-winemaking/",
+          "locator": "Malolactic choices, lees and selective oak use"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_furmint_variation",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO4 regional grape: Furmint style variation",
+      "citations": [
+        {
+          "source_id": "src_wset_grape_hunga_furmint",
+          "url": "https://bor.hu/en/furmint/",
+          "locator": "Full body, acidity, quince/peach/apricot; dry, sweet and botrytis styles"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_zinfandel_identity",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO4 Zinfandel/Primitivo identity",
+      "citations": [
+        {
+          "source_id": "src_wset_grape_ucd_zinfandel",
+          "url": "https://fps.ucdavis.edu/grapebook/winebook.cfm?chap=Zinfandel",
+          "locator": "DNA identity of Zinfandel and Primitivo; clonal variation caveat"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_descriptor_context",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO3/LO4 conditional grape-style interpretation",
+      "citations": [
+        {
+          "source_id": "src_wset_grape_wa_chardonnay",
+          "url": "https://www.wineaustralia.com/market-insights/regions-and-varieties/chardonnay",
+          "locator": "Style spectrum; regional styles; oak, lees and malolactic conversion"
+        },
+        {
+          "source_id": "src_wset_grape_wa_shiraz",
+          "url": "https://www.wineaustralia.com/market-insights/regions-and-varieties/shiraz",
+          "locator": "Shiraz/Syrah identity; body and region styles; oak, fresh styles and blends"
+        },
+        {
+          "source_id": "src_wset_grape_woa_malbec",
+          "url": "https://blog.winesofargentina.com/destacadas/ten-key-descriptors-for-todays-malbec/",
+          "locator": "Fruit, flowers, body, freshness and tannin texture variation"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_barbera_berry_colour",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO4 grape identity and berry colour: Barbera",
+      "citations": [
+        {
+          "source_id": "src_wset_grape_ivd_barbera",
+          "url": "https://vitisdb.it/varieties/pdf/979?extended=true",
+          "locator": "OIV 225 blue-black skin; wine technology: acidity, colour and wood maturation"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_corvina_berry_colour",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO4 grape identity and berry colour: Corvina",
+      "citations": [
+        {
+          "source_id": "src_wset_grape_italy_colour_cortese_corvina",
+          "url": "https://vitisdb.it/varieties/list?page=15",
+          "locator": "Cortese green-yellow skin; Corvina blue-black skin"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_montepulciano_berry_colour",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO4 grape identity and berry colour: Montepulciano",
+      "citations": [
+        {
+          "source_id": "src_wset_grape_italy_colour_register",
+          "url": "https://burc.regione.campania.it/eBurcWeb/directServlet?ATTACH_ID=212314&DOCUMENT_ID=00140879",
+          "locator": "Table VBN: Montepulciano and Primitivo black-berried varieties"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_zinfandel_berry_colour",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO4 grape identity and berry colour: Zinfandel",
+      "citations": [
+        {
+          "source_id": "src_wset_grape_italy_colour_register",
+          "url": "https://burc.regione.campania.it/eBurcWeb/directServlet?ATTACH_ID=212314&DOCUMENT_ID=00140879",
+          "locator": "Table VBN: Montepulciano and Primitivo black-berried varieties"
+        },
+        {
+          "source_id": "src_wset_grape_ucd_zinfandel",
+          "url": "https://fps.ucdavis.edu/grapebook/winebook.cfm?chap=Zinfandel",
+          "locator": "DNA identity of Zinfandel and Primitivo; clonal variation caveat"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_pinotage_berry_colour",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO4 grape identity and berry colour: Pinotage",
+      "citations": [
+        {
+          "source_id": "src_wset_grape_wosa_red",
+          "url": "https://www.wosa.co.za/The-Industry/Viticulture/Introduction/",
+          "locator": "Pinotage red grape; Pinot Noir and Cinsaut crossing"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_verdicchio_berry_colour",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO4 grape identity and berry colour: Verdicchio",
+      "citations": [
+        {
+          "source_id": "src_wset_grape_italy_colour_verdicchio",
+          "url": "https://www.regione.lazio.it/sites/default/files/documentazione/AGC_DD_G00384_15_01_2018.pdf",
+          "locator": "National code 254 Verdicchio bianco B."
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_cortese_berry_colour",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO4 grape identity and berry colour: Cortese",
+      "citations": [
+        {
+          "source_id": "src_wset_grape_italy_colour_cortese_corvina",
+          "url": "https://vitisdb.it/varieties/list?page=15",
+          "locator": "Cortese green-yellow skin; Corvina blue-black skin"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_garganega_berry_colour",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO4 grape identity and berry colour: Garganega",
+      "citations": [
+        {
+          "source_id": "src_wset_grape_italy_colour_garganega",
+          "url": "https://vitisdb.it/accessions/ampelography/16362",
+          "locator": "OIV descriptor 225 green-yellow berry skin"
+        }
+      ]
+    },
+    {
+      "id": "ki_wset_grape_fiano_berry_colour",
+      "file": "assets/curriculum/areas/wset_grape_profiles.yaml",
+      "level": "WSET_L2",
+      "requirements": "L2 LO4 grape identity and berry colour: Fiano",
+      "citations": [
+        {
+          "source_id": "src_wset_grape_irpinia_fiano_berry",
+          "url": "https://consorziovinidirpinia.it/vitigni/fiano-di-avellino-vitigno/",
+          "locator": "White grape; green-yellow to golden berry skin"
+        }
+      ]
+    }
+  ],
+  "source_id_reuse": {
+    "src_wset_found_psu_site": "src_biz_models_psu_vineyard",
+    "src_wset_found_psu_anatomy": "src_win_white_temperature",
+    "src_wset_found_awri_skin": "src_win_skin_contact",
+    "src_wset_found_rhone_atlas": "src_fr_atlas_rhone",
+    "src_wset_found_cdp": "src_reg_fs_chateauneuf",
+    "src_wset_grape_civb_merlot": "src_reg_fr_merlot",
+    "src_wset_grape_beaujolais_gamay": "src_wset_found_beaujolais",
+    "src_wset_grape_valpo_fresh": "src_reg_inc_valpolicella",
+    "src_wset_grape_valpo_amarone": "src_reg_inc_amarone",
+    "src_wset_grape_zap_style": "src_wset_found_zap_styles",
+    "src_wset_grape_irpinia_fiano": "src_reg_isi_fiano"
+  }
+}

@@ -17,7 +17,7 @@ The product specification's backlog (§P) has ten large tasks, seven of which ar
 
 **Historical atlas validation, release 0.9.0 (26 September 2026).** Release 0.9.0 retains the C6 core and maps 613 noncountry places across 18 countries, supported by 614 cited `LOCATED_IN` items. A unit with two parents has more than one location fact; these are not 614 distinct places. The atlas now includes major world wine areas, seven Chablis Grand Cru climats, ten selected Chablis Premier Cru climats and all 32 Côte d'Or Grand Cru appellations. `map_pair` asks for two to four named places and grades each location item; `map_grape` asks for one legally permitted area and uses only cited complete grape lists. These changes advance G8 and G10–G13, but do not complete their hierarchy, ordering, neighbour or complete-the-set objectives. Point markers are reference locations, and full Master-level or worldwide legal-appellation coverage remains open. See [geography coverage](research/geography-coverage.md). Local validation passes: 695 full-suite Flutter tests plus two additional French grape-grading tests, clean analysis, zero curriculum-lint errors, the coverage baseline, seven geography pipeline tests and reproducibility/containment checks. The earlier C6 validation remains recorded in its handoff; remote CI and expert review remain open.
 
-**Current local atlas progress, release 0.11.0.** The companion targets WSET Level 4 Diploma and now maps 1,423 noncountry places plus 20 country frames, with 1,424 cited location facts. This continuation adds 361 New World places, six dated NZ planting-rank maps and cumulative learner progress for Levels 1–4. Australia, Ontario/BC and California/Oregon/Washington have explicit closed name inventories; South Africa covers all districts and 101 of 102 wards, retaining Paardeberg South as an explicit missing licensed-reference target. Named-place and grape-combination maps share each fact’s review history. The full Diploma curriculum and other fine-region registers remain incomplete; exact sources and final validation are in the [geography inventory](research/geography-coverage.md) and [learner progress notes](wset-learner-progress.md).
+**Historical atlas progress, release 0.11.0.** The companion targets WSET Level 4 Diploma and now maps 1,423 noncountry places plus 20 country frames, with 1,424 cited location facts. This continuation adds 361 New World places, six dated NZ planting-rank maps and cumulative learner progress for Levels 1–4. Australia, Ontario/BC and California/Oregon/Washington have explicit closed name inventories; South Africa covers all districts and 101 of 102 wards, retaining Paardeberg South as an explicit missing licensed-reference target. Named-place and grape-combination maps share each fact’s review history. The full Diploma curriculum and other fine-region registers remain incomplete; exact sources and final validation are in the [geography inventory](research/geography-coverage.md) and [learner progress notes](wset-learner-progress.md).
 
 ---
 
@@ -56,6 +56,8 @@ TASK-008 (tasting grids) and TASK-009 (journal integration) remain; they are T1�
 
 ## 3. Task index
 
+**Current WSET scope update, 27 September 2026.** Level 1–3 teaching is implemented and semantically reviewed against the public Wines specifications. Levels 1–3 app study coverage is internally reviewed and its delivery gates pass. Learner milestones require mastery and recorded practice; official qualification and expert factual verification remain separate. Diploma remains incomplete. C2–C6 remain partial because their wider CMS/Diploma, finer atlas and qualified-review obligations are not closed by the Award in Wines work. S3 has implemented WSET practice while its CMS preset remains open. See the [completion plan](research/wset-1-3-completion-plan.md) and [delivery validation](research/wset-1-3-delivery-validation.md).
+
 **Status:** ☐ open · ◐ in progress · ☑ done. **Wave:** the planned wave (§4). A task may start earlier only when its dependencies are merged and it touches no hot spot owned in the running wave.
 
 | ID | Task | Depends on | Wave | Status |
@@ -68,10 +70,10 @@ TASK-008 (tasting grids) and TASK-009 (journal integration) remain; they are T1�
 | F4 | Presentation difficulty ladder | F3 | 4 | ☑ |
 | **C** | **Curriculum content and tooling** | | | |
 | C1 | Dataset modularization, authoring and verification tools | — | 1 | ☑ |
-| C2 | Content: France | C1, F2 | 3 | ☐ |
-| C3 | Content: Italy, Spain, Portugal and fortified wines | C1, F2 | 3 | ☐ |
-| C4 | Content: the New World | C1, F2 | 3 | ☐ |
-| C5 | Content: principles | C1 | 2 | ☐ |
+| C2 | Content: France | C1, F2 | 3 | ◐ |
+| C3 | Content: Italy, Spain, Portugal and fortified wines | C1, F2 | 3 | ◐ |
+| C4 | Content: the New World | C1, F2 | 3 | ◐ |
+| C5 | Content: principles | C1 | 2 | ◐ |
 | C6 | Content: Germany, Austria and the rest of Europe | C1 | 2 | ◐ |
 | C7 | Content: CMS Europe beverages, service and business core | C1, F2, SCOPE-1 | 3 | ☐ |
 | **G** | **Geography and maps** | | | |
@@ -92,7 +94,7 @@ TASK-008 (tasting grids) and TASK-009 (journal integration) remain; they are T1�
 | Q1 | Typed recall and short written answers | F3 | 4 | ☑ |
 | Q2 | Multiple response and completeness assertions | F3 | 4 | ☐ |
 | Q3 | Matching and ordering | F3 | 4 | ☐ |
-| Q4 | Numeric and range answers | F3 | 4 | ☐ |
+| Q4 | Numeric and range answers | F3 | 4 | ◐ |
 | Q5 | Label interpretation and wine-list error spotting | F3 | 4 | ☐ |
 | Q6 | Reasoning engine: climate, viticulture, production | F3 | 4 | ◐ |
 | Q7 | Service and food-pairing scenarios | Q6, C5 | 5 | ☐ |
@@ -112,7 +114,7 @@ TASK-008 (tasting grids) and TASK-009 (journal integration) remain; they are T1�
 | **S** | **Study experience and analytics (spec Phase 6)** | | | |
 | S1 | Study browser v2: atlas, search, focused and timed sessions | F3, G3 | 5 | ☐ |
 | S2 | Learner analytics | F1, F3 | 4 | ☐ |
-| S3 | Certification rehearsal presets | S1, Q1, Q7, Q8, T2, SCOPE-1 | 6 | ☐ |
+| S3 | Certification rehearsal presets | S1, Q1, Q7, Q8, T2, SCOPE-1 | 6 | ◐ |
 | **R** | **Quality and release** | | | |
 | R1 | Onboarding, settings, attributions, accessibility | — | 3 | ☑ |
 | R2 | Performance and scale | F3, G3 | 6 | ☐ |
@@ -196,7 +198,7 @@ For a learner preparing now, the [study tree](content/spaetburgunder-study-tree.
   - Fixture datasets for each metric and each gap rule.
   - Policy errors: an unknown relation type and a malformed threshold.
   - Ratchet behaviour: a drop fails, a rise passes, a new flashcard-only core item fails.
-  - A test that runs the checker on the bundled dataset for both selectable tracks.
+  - A test that runs the checker on the bundled dataset for all current selectable tracks.
 - **Parallel.** Yes. It adds new files only; it runs with C1, G1, G3 and J1.
 
 #### F2 · Schema v2: question system, geography, packs
@@ -360,7 +362,9 @@ For a learner preparing now, the [study tree](content/spaetburgunder-study-tree.
 
 #### C5 · Content: principles
 
-- **Status.** In progress through release 0.13.0: the preceding 182-point vineyard/winery/business/service module now has a further 173 points on sparkling, fortified wines, faults and diagnostic limits, including 15 additional conditional cases. Editorial WSET/CMS mappings retain foundation depth and Diploma-specific case depth. Food pairing, wider regional/product comparisons, analytical tasting, the Q6 reasoning engine and qualified review remain open. [Products and faults continuation](research/diploma-products-faults-continuation.md). The subsequent [regional continuation](research/diploma-regional-comparisons-continuation.md) adds 132 points and 12 cases for DIP-3.
+- **Current status, 27 September 2026.** The WSET Level 1–3 vineyard, winery, service, food-pairing, fault and analytical-tasting teaching is implemented and semantically reviewed. Point-specific recall, original written cases and bounded causal reasoning are installed. Levels 1–3 app study coverage is internally reviewed and its delivery gates pass. Learner milestones require mastery and recorded practice; official qualification and expert factual verification remain separate. Diploma remains incomplete. Broader Diploma/CMS comparisons and qualified fact review remain open. The older snapshot below records the earlier gaps rather than the current Award in Wines coverage.
+
+- **Historical status through release 0.13.0.** In progress: the preceding 182-point vineyard/winery/business/service module now has a further 173 points on sparkling, fortified wines, faults and diagnostic limits, including 15 additional conditional cases. Editorial WSET/CMS mappings retain foundation depth and Diploma-specific case depth. Food pairing, wider regional/product comparisons, analytical tasting, the Q6 reasoning engine and qualified review remain open. [Products and faults continuation](research/diploma-products-faults-continuation.md). The subsequent [regional continuation](research/diploma-regional-comparisons-continuation.md) adds 132 points and 12 cases for DIP-3.
 
 - **Objective.** Author the general knowledge that reasoning and scenario formats need ([question-system §7](design/question-system.md#7-principles-the-knowledge-behind-reasoning-formats)):
   - climate → style;
@@ -659,6 +663,7 @@ Four tasks share one pattern. Each turns the famous regions of one country group
 
 #### Q4 · Numeric and range answers
 
+- **Status.** Built in the isolated 0.20.7 continuation: objective forward numeric practice, exact legal minima, finite range inclusion, authored Good/Hard bands, existing Celsius/Fahrenheit preference, answer feedback and JSON review/backup payloads. Six templates serve 21 existing facts (ten ageing requirements and eleven dated survey quantities). Cited temperature/elevation/range lessons remain content work; technical fixtures do not establish topic coverage. See [implementation and checks](research/numeric-practice-continuation.md).
 - **Objective.** Accept numeric and range answers for quantity items: minimum ageing, service temperatures and elevations. Tolerance bands come from template parameters, and units are displayed as the learner prefers (°C or °F).
 - **Depends on.** F3.
 - **Modules.** `formats/numeric/`, its view, unit conversion.
@@ -1002,7 +1007,7 @@ The backlog was reviewed against the specification (§A–§T), the decision reg
 
 | Area | Found | Now in |
 |---|---|---|
-| Business domain (wine lists, pricing, cellar management) | 38 business points, including pricing, cash-flow and currency cases; wider commercial analysis remains open | C5, DIP-2 |
+| Business domain (wine lists, pricing, cellar management) | 70 foundation/case points, including pricing, cash-flow, currency, producer-model and routes-to-market cases; wider commercial analysis remains open | C5, DIP-2 |
 | Wine faults | Absent, but essential for service and tasting | C5, Q7 |
 | Spirits, beer and sake basics | Needed for the CMS tracks' breadth | C5 |
 | Age gate and age rating | Alcohol-related apps need a store age rating | R1, R3, L-24 |
@@ -1036,7 +1041,7 @@ The backlog was reviewed against the specification (§A–§T), the decision reg
 | Producer and vintage knowledge | Volatile, and raises trademark questions |
 | Several learner profiles | V0.1 is a single-learner app; `user_profiles` has one row by design (CM-9) |
 | Studying several tracks at once | PK-3 |
-| More selectable tracks (WSET Level 2; CMS Introductory and Advanced) | Mapping and content work after V0.1 (CM-1); Diploma is selectable with incomplete content |
+| More selectable tracks (CMS Introductory and Advanced) | Mapping and content work remains open (CM-1). WSET Levels 1–3, Diploma and CMS Certified are selectable; Diploma content remains incomplete. |
 | Streaks, goals and other motivation features | Product decision |
 | Automated ingestion of legal-text updates | Spec §T; curators update releases by hand (V-7, V-8) |
 | Images of grapes and leaves | No licensed images |
@@ -1086,7 +1091,8 @@ Research basis: [curriculum gap audit](research/curriculum-gap-audit.md) and [ce
 
 ### S3 · Certification rehearsal presets
 
-- **Objective.** Build examination-shaped practice presets for WSET L3 and CMS Europe Certified using original generated/authored exercises. This is rehearsal, not reproduction of proprietary exams.
+- **Objective.** Build examination-shaped practice presets for WSET Levels 1–3 and CMS Europe Certified using original generated/authored exercises. This is rehearsal, not reproduction of proprietary exams.
+- **Current status, 27 September 2026.** Partial: original WSET Level 1–3 rehearsals, saved written self-review at Level 3, guided tasting/calibration and timed two-wine practice are implemented. Their final delivery, regression and browser acceptance passed. The CMS-specific preset remains open; this does not complete the whole S3 task.
 - **Depends on.** S1, Q1, Q7, Q8 (the CMS preset's two-wine deduction), T2, and SCOPE-1 (the pinned scope metadata); richer formats are used when available.
 - **Modules.** study-session configuration, track metadata, learner-facing preset picker.
 - **Acceptance criteria.**
@@ -1115,18 +1121,18 @@ Until these gates pass, describe the app as a developing sommelier study compani
 
 ## 9. WSET Level 4 Diploma target (26 September 2026)
 
-The user confirmed **Level 4 Diploma as the target for the whole study companion**. This supersedes the earlier Level 3 completion boundary. Level 3 and CMS Certified remain available. Diploma inherits their relevant authored practice, but adding a selectable track or location questions does not complete the Diploma curriculum. The [pinned scope](../assets/curriculum/track_scope.yaml) and [gap audit](research/wset-level-4-gap-audit.md) use WSET's August 2025 Issue 1.4 specification. Labels below are editorial descriptions; the app does not reproduce WSET course material or official examination questions.
+The user confirmed **Level 4 Diploma as the target for the whole study companion**. This supersedes the earlier Level 3 completion boundary. WSET Levels 1–3, Diploma and CMS Certified are selectable. Levels 1–3 app study coverage is internally reviewed and its delivery gates pass. Learner milestones require mastery and recorded practice; official qualification and expert factual verification remain separate. Diploma remains incomplete. Diploma inherits relevant authored practice, but adding a selectable track or location questions does not complete the Diploma curriculum. The [pinned scope](../assets/curriculum/track_scope.yaml) and [gap audit](research/wset-level-4-gap-audit.md) use WSET's August 2025 Issue 1.4 specification. Labels below are editorial descriptions; the app does not reproduce WSET course material or official examination questions.
 
 | Task | Status | Required result |
 |---|---|---|
 | DIP-1 | In progress; vineyard/winery foundations, fault/control cases and eight causal-reasoning chains | Explain and evaluate vineyard and winery decisions, including their effect on style, quality and costs |
-| DIP-2 | In progress; 26 commercial principles and three conditional cases | Wine supply, demand, costs, business structures, distribution, markets and marketing |
+| DIP-2 | In progress; 42 commercial principles and seven conditional cases | Wine supply, demand, costs, business structures, distribution, markets and marketing |
 | DIP-3 | In progress; substantial atlas, regional comparisons/cases and diagnostic tasting foundations | Regional wine knowledge with linked geography, grapes, environment, production, law, business and analytical tasting |
 | DIP-4 | In progress; 38 method/style principles and five conditional cases | Sparkling-wine methods, styles, regions, labelling, business and tasting |
 | DIP-5 | In progress; 37 production/style principles and five conditional cases | Fortified-wine production, maturation, styles, regions, law, business and tasting |
 | DIP-6 | Open | Research planning, source evaluation, evidence management and original written argument |
 
-**Learner progress implemented in 0.11.0.** Home and the progress detail screen show Levels 1–4, available facts studied/mastered, unavailable mapped facts, next study actions and six Diploma topic groups. Current mastery requires spaced successful reviews and FSRS memory thresholds; failures and decay can reduce it. All level scopes remain incomplete. Independently reversible self-reported exam passes use existing backed-up settings. No schema migration or automatic qualification claim is introduced. [Behaviour and checks](wset-learner-progress.md).
+**Historical learner-progress snapshot, release 0.11.0.** Home and the progress detail screen show Levels 1–4, available facts studied/mastered, unavailable mapped facts, next study actions and six Diploma topic groups. Current mastery requires spaced successful reviews and FSRS memory thresholds; failures and decay can reduce it. All level scopes were incomplete in that snapshot. Independently reversible self-reported exam passes use existing backed-up settings. No schema migration or automatic qualification claim is introduced. [Behaviour and checks](wset-learner-progress.md).
 
 ### DIP-1 · Production reasoning
 
@@ -1142,9 +1148,11 @@ Build on C5 with cited vine physiology, climate and site, propagation and rootst
 
 ### DIP-2 · Wine business
 
+**0.20.5 continuation:** 16 producer-model/channel principles and four original four-point cases add 32 Diploma-only points. These compare ownership and outsourced production, cooperative resources, fulfilment and intermediary reach under explicit conditions. Current law, supply/demand evidence, numerical practice and wider marketing/commercial analysis remain unfinished. [Evidence and checks](research/diploma-business-channels-continuation.md).
+
 **0.12.0 continuation:** 26 business principles and three original four-point cases now cover selected costing/pricing, cash/inventory and exchange-rate decisions. Fictional arithmetic illustrates assumptions; numeric grading, fuller market/distribution/producer structures, law and comparative marketing are still open. All facts await qualified review.
 
-Author a business graph and original scenarios covering supply and demand, production and sales costs, pricing, currency risk, producer structures, intermediaries, retail and hospitality channels, market systems and marketing decisions. Use dated primary sources for current laws and costs, and explicitly hypothetical figures for arithmetic. Test unit handling, margin versus markup, stated assumptions, track isolation and source dates. No business-complete claim is allowed while the domain has no authored practice.
+Author a business graph and original scenarios covering supply and demand, production and sales costs, pricing, currency risk, producer structures, intermediaries, retail and hospitality channels, market systems and marketing decisions. Use dated primary sources for current laws and costs, and explicitly hypothetical figures for arithmetic. Test unit handling, margin versus markup, stated assumptions, track isolation and source dates. No business-complete claim is allowed while wider commercial scope and qualified review remain unfinished.
 
 ### DIP-3 · Regional analysis and tasting
 

@@ -48,6 +48,8 @@ void main() {
   test('the checker measures every selectable track (F1)', () {
     expect(tracks.map((t) => t.trackId), [
       'CMS_CERTIFIED',
+      'WSET_L1',
+      'WSET_L2',
       'WSET_L3',
       'WSET_L4',
     ]);

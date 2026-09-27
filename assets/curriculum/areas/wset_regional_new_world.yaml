@@ -1,0 +1,2645 @@
+# Original New World wine-region lessons; all await qualified review.
+knowledge_nodes:
+  - id: n_wset_nw_principle_california_variation
+    node_type: production_principle
+    name: Why does California on a label allow a wide range of Cabernet, Merlot, Chardonnay and Zinfandel styles?
+  - id: n_wset_nw_point_california_variation
+    node_type: learning_point
+    name: California contains warm and marine-cooled wine settings
+  - id: n_wset_nw_principle_napa_cabernet
+    node_type: production_principle
+    name: What style and cellar influence can Napa Valley Cabernet Sauvignon show?
+  - id: n_wset_nw_point_napa_cabernet
+    node_type: learning_point
+    name: Napa Cabernet can combine dark fruit and firm structure
+  - id: n_wset_nw_principle_napa_merlot
+    node_type: production_principle
+    name: How does Merlot contribute to Napa Valley wines?
+  - id: n_wset_nw_point_napa_merlot
+    node_type: learning_point
+    name: Napa Merlot has varietal and blending roles
+  - id: n_wset_nw_principle_napa_chardonnay
+    node_type: production_principle
+    name: Which choices explain different Napa Valley Chardonnay styles?
+  - id: n_wset_nw_point_napa_chardonnay
+    node_type: learning_point
+    name: Napa Chardonnay ranges from crisp to round
+  - id: n_wset_nw_principle_napa_sauvignon
+    node_type: production_principle
+    name: What explains freshness versus greater texture in Napa Sauvignon Blanc, including Fumé Blanc examples?
+  - id: n_wset_nw_point_napa_sauvignon
+    node_type: learning_point
+    name: Napa Sauvignon Blanc may be neutral-vessel or oak influenced
+  - id: n_wset_nw_principle_oakville_setting
+    node_type: production_principle
+    name: How do site conditions and grapes help explain oakville wines?
+  - id: n_wset_nw_point_oakville_setting
+    node_type: learning_point
+    name: Oakville combines warmth with southern marine moderation
+  - id: n_wset_nw_principle_rutherford_setting
+    node_type: production_principle
+    name: How do site conditions and grapes help explain rutherford wines?
+  - id: n_wset_nw_point_rutherford_setting
+    node_type: learning_point
+    name: Rutherford is warmer than southern Napa sites
+  - id: n_wset_nw_principle_calistoga_setting
+    node_type: production_principle
+    name: How do site conditions and grapes help explain calistoga wines?
+  - id: n_wset_nw_point_calistoga_setting
+    node_type: learning_point
+    name: Calistoga combines hot days and cool nights
+  - id: n_wset_nw_principle_stags_leap_setting
+    node_type: production_principle
+    name: How does Stags Leap District compare with other Napa growing settings?
+  - id: n_wset_nw_point_stags_leap_setting
+    node_type: learning_point
+    name: Stags Leap District receives bay cooling
+  - id: n_wset_nw_principle_howell_setting
+    node_type: production_principle
+    name: How does Howell Mountain compare with other Napa growing settings?
+  - id: n_wset_nw_point_howell_setting
+    node_type: learning_point
+    name: Howell Mountain vineyards lie above much valley fog
+  - id: n_wset_nw_principle_veeder_setting
+    node_type: production_principle
+    name: How does Mount Veeder compare with other Napa growing settings?
+  - id: n_wset_nw_point_veeder_setting
+    node_type: learning_point
+    name: Mount Veeder is a cooler mountain comparison
+  - id: n_wset_nw_principle_saint_helena_setting
+    node_type: production_principle
+    name: How does Saint Helena compare with other Napa growing settings?
+  - id: n_wset_nw_point_saint_helena_setting
+    node_type: learning_point
+    name: Saint Helena has less marine influence than southern Napa
+  - id: n_wset_nw_principle_sonoma_grape_sites
+    node_type: production_principle
+    name: How do Pinot Noir, Chardonnay, Cabernet and Merlot fit Sonoma’s varied settings?
+  - id: n_wset_nw_point_sonoma_grape_sites
+    node_type: learning_point
+    name: Sonoma wine grapes follow contrasting local settings
+  - id: n_wset_nw_principle_dry_creek_zinfandel
+    node_type: production_principle
+    name: Which signature grapes help distinguish Dry Creek Valley?
+  - id: n_wset_nw_point_dry_creek_zinfandel
+    node_type: learning_point
+    name: Dry Creek Valley is a Zinfandel and Sauvignon Blanc reference
+  - id: n_wset_nw_principle_sonoma_coast_setting
+    node_type: production_principle
+    name: Why should Sonoma Coast be assessed beyond a simple coast-equals-cold rule?
+  - id: n_wset_nw_point_sonoma_coast_setting
+    node_type: learning_point
+    name: Sonoma Coast contains varied marine-exposed sites
+  - id: n_wset_nw_principle_santa_maria_grapes
+    node_type: production_principle
+    name: Why are Pinot Noir and Chardonnay associated with Santa Maria Valley?
+  - id: n_wset_nw_point_santa_maria_grapes
+    node_type: learning_point
+    name: Santa Maria Valley is a marine-cooled Pinot and Chardonnay setting
+  - id: n_wset_nw_principle_mendocino_diversity
+    node_type: production_principle
+    name: Why is Mendocino County too broad to assign one grape or wine style?
+  - id: n_wset_nw_point_mendocino_diversity
+    node_type: learning_point
+    name: Mendocino County includes different grape-growing settings
+  - id: n_wset_nw_principle_san_luis_grapes
+    node_type: production_principle
+    name: How can San Luis Obispo County produce both cool-site and warmer-site wine grapes?
+  - id: n_wset_nw_point_san_luis_grapes
+    node_type: learning_point
+    name: San Luis Obispo County spans coastal and inland opportunities
+  - id: n_wset_nw_principle_lodi_style_choices
+    node_type: production_principle
+    name: How can production and fruit selection create contrasting Lodi Zinfandel styles?
+  - id: n_wset_nw_point_lodi_style_choices
+    node_type: learning_point
+    name: Lodi Zinfandel includes light and powerful styles
+  - id: n_wset_nw_principle_oregon_chardonnay_range
+    node_type: production_principle
+    name: Does Oregon Chardonnay always have the same weight or buttery character?
+  - id: n_wset_nw_point_oregon_chardonnay_range
+    node_type: learning_point
+    name: Oregon Chardonnay includes fresh and creamy examples
+  - id: n_wset_nw_principle_yakima_sites
+    node_type: production_principle
+    name: How does Yakima Valley’s internal climate variation affect grape choice?
+  - id: n_wset_nw_point_yakima_sites
+    node_type: learning_point
+    name: Yakima Valley includes cooler white and warmer red grape sites
+  - id: n_wset_nw_principle_finger_lakes_riesling
+    node_type: production_principle
+    name: Which wine styles should be expected from Finger Lakes Riesling?
+  - id: n_wset_nw_point_finger_lakes_riesling
+    node_type: learning_point
+    name: Finger Lakes Riesling covers a range of sweetness
+  - id: n_wset_nw_principle_usa_origin_scale
+    node_type: production_principle
+    name: How does a US county appellation differ from an American Viticultural Area?
+  - id: n_wset_nw_point_usa_origin_scale
+    node_type: learning_point
+    name: USA labels can identify a state, county or AVA
+  - id: n_wset_nw_principle_usa_ava_origin
+    node_type: production_principle
+    name: What does an AVA origin require under federal US wine labelling rules?
+  - id: n_wset_nw_point_usa_ava_origin
+    node_type: learning_point
+    name: AVA labelling has an 85 percent grape-origin requirement
+  - id: n_wset_nw_principle_ontario_icewine_selection
+    node_type: production_principle
+    name: Why is Ontario Icewine different from simply making a wine with residual sugar?
+  - id: n_wset_nw_point_ontario_icewine_selection
+    node_type: learning_point
+    name: Ontario Icewine uses naturally frozen fruit
+  - id: n_wset_nw_principle_ontario_icewine_style
+    node_type: production_principle
+    name: Which broad styles illustrate Ontario’s Vidal and Riesling Icewine?
+  - id: n_wset_nw_point_ontario_icewine_style
+    node_type: learning_point
+    name: Ontario Icewine combines sweetness with acidity
+  - id: n_wset_nw_principle_ontario_vqa_origins
+    node_type: production_principle
+    name: What origin distinction separates VQA Ontario from VQA Niagara Peninsula?
+  - id: n_wset_nw_point_ontario_vqa_origins
+    node_type: learning_point
+    name: Ontario VQA has distinct provincial and smaller-origin rules
+  - id: n_wset_nw_principle_bc_vqa_origin
+    node_type: production_principle
+    name: Is Ontario VQA legislation the origin rule for a BC VQA Okanagan wine?
+  - id: n_wset_nw_point_bc_vqa_origin
+    node_type: learning_point
+    name: BC VQA identifies British Columbia quality-wine certification
+  - id: n_wset_nw_principle_central_valley_reds
+    node_type: production_principle
+    name: How do Cabernet, Merlot and Carménère relate to Chile’s Central Valley?
+  - id: n_wset_nw_point_central_valley_reds
+    node_type: learning_point
+    name: Chile’s Central Valley includes several red-wine settings
+  - id: n_wset_nw_principle_central_valley_whites
+    node_type: production_principle
+    name: Can Central Valley on a Chilean Chardonnay or Sauvignon Blanc label determine one aroma or cellar style?
+  - id: n_wset_nw_point_central_valley_whites
+    node_type: learning_point
+    name: Central Valley white wines require grape and site evidence
+  - id: n_wset_nw_principle_casablanca_grapes
+    node_type: production_principle
+    name: How does the Pacific help explain Casablanca’s wine-grape associations?
+  - id: n_wset_nw_point_casablanca_grapes
+    node_type: learning_point
+    name: Casablanca’s marine cooling supports white grapes and Pinot
+  - id: n_wset_nw_principle_elqui_aridity
+    node_type: production_principle
+    name: Which environmental contrast matters when studying Elqui wine grapes?
+  - id: n_wset_nw_point_elqui_aridity
+    node_type: learning_point
+    name: Elqui combines dry sunny conditions with local cooling
+  - id: n_wset_nw_principle_leyda_coastal
+    node_type: production_principle
+    name: Why are San Antonio and Leyda useful comparisons with inland Aconcagua Valley?
+  - id: n_wset_nw_point_leyda_coastal
+    node_type: learning_point
+    name: San Antonio and Leyda are cool coastal comparisons
+  - id: n_wset_nw_principle_curico_maule_diversity
+    node_type: production_principle
+    name: Why should Curicó and Maule be studied beyond one warm Chilean red style?
+  - id: n_wset_nw_point_curico_maule_diversity
+    node_type: learning_point
+    name: Curicó and Maule contain varied red and white grape sites
+  - id: n_wset_nw_principle_chile_origin_hierarchy
+    node_type: production_principle
+    name: Which geographic levels organise Chile’s denominaciones de origen?
+  - id: n_wset_nw_point_chile_origin_hierarchy
+    node_type: learning_point
+    name: Chile’s wine DO system uses a defined hierarchy
+  - id: n_wset_nw_principle_chile_crosswise_terms
+    node_type: production_principle
+    name: How do Costa, Entre Cordilleras and Andes supplement Chile’s origin names?
+  - id: n_wset_nw_point_chile_crosswise_terms
+    node_type: learning_point
+    name: Costa, Entre Cordilleras and Andes add crosswise location information
+  - id: n_wset_nw_principle_mendoza_malbec_range
+    node_type: production_principle
+    name: Why is Mendoza Malbec more varied than one ripe dark-fruit profile?
+  - id: n_wset_nw_point_mendoza_malbec_range
+    node_type: learning_point
+    name: Mendoza Malbec includes contrasting site and cellar styles
+  - id: n_wset_nw_principle_argentina_malbec_contrasts
+    node_type: production_principle
+    name: How can Salta and Patagonia show different Malbec expressions?
+  - id: n_wset_nw_point_argentina_malbec_contrasts
+    node_type: learning_point
+    name: Northern and Patagonian Malbec are useful contrasts
+  - id: n_wset_nw_principle_cape_blend_meaning
+    node_type: production_principle
+    name: How does Cape Blend relate to Pinotage and other red varieties?
+  - id: n_wset_nw_point_cape_blend_meaning
+    node_type: learning_point
+    name: Cape Blend is a Pinotage-containing blended-red reference
+  - id: n_wset_nw_principle_elgin_sauvignon
+    node_type: production_principle
+    name: Which required white grape belongs alongside Elgin’s Chardonnay and Pinot Noir?
+  - id: n_wset_nw_point_elgin_sauvignon
+    node_type: learning_point
+    name: Elgin’s cooler later season also suits Sauvignon Blanc
+  - id: n_wset_nw_principle_durbanville_setting
+    node_type: production_principle
+    name: How do Durbanville’s conditions help explain its white and red grape range?
+  - id: n_wset_nw_point_durbanville_setting
+    node_type: learning_point
+    name: Durbanville combines hillsides with marine cooling
+  - id: n_wset_nw_principle_swartland_grapes
+    node_type: production_principle
+    name: Which required grapes illustrate Swartland’s wine range?
+  - id: n_wset_nw_point_swartland_grapes
+    node_type: learning_point
+    name: Swartland offers Chenin and varied reds
+  - id: n_wset_nw_principle_worcester_wine_context
+    node_type: production_principle
+    name: Why should Worcester’s grape-growing role be considered beyond bottled table wine?
+  - id: n_wset_nw_point_worcester_wine_context
+    node_type: learning_point
+    name: Worcester includes table-wine and brandy production
+  - id: n_wset_nw_principle_elim_cooling
+    node_type: production_principle
+    name: How does Elim extend the Cape South Coast grape comparison?
+  - id: n_wset_nw_point_elim_cooling
+    node_type: learning_point
+    name: Elim is a wind-cooled southern coastal setting
+  - id: n_wset_nw_principle_south_africa_wo_origin
+    node_type: production_principle
+    name: What does W.O. Stellenbosch or W.O. Robertson establish on a South African label?
+  - id: n_wset_nw_point_south_africa_wo_origin
+    node_type: learning_point
+    name: Wine of Origin identifies the source of all grapes
+  - id: n_wset_nw_principle_south_africa_wo_levels
+    node_type: production_principle
+    name: How do Wine of Origin area classes organise South African wine geography?
+  - id: n_wset_nw_point_south_africa_wo_levels
+    node_type: learning_point
+    name: Wine of Origin has units, regions, districts and wards
+  - id: n_wset_nw_principle_south_africa_estate
+    node_type: production_principle
+    name: How does South African estate wine differ from an origin name alone?
+  - id: n_wset_nw_point_south_africa_estate
+    node_type: learning_point
+    name: Estate wine ties grape-growing and production to a defined estate
+  - id: n_wset_nw_principle_murray_darling_irrigation
+    node_type: production_principle
+    name: Why is irrigation fundamental in Murray-Darling grape growing?
+  - id: n_wset_nw_point_murray_darling_irrigation
+    node_type: learning_point
+    name: Murray-Darling needs managed water in a hot dry setting
+  - id: n_wset_nw_principle_murray_darling_styles
+    node_type: production_principle
+    name: Which wine styles illustrate Murray-Darling production?
+  - id: n_wset_nw_point_murray_darling_styles
+    node_type: learning_point
+    name: Murray-Darling is an approachable fruit-led wine reference
+  - id: n_wset_nw_principle_riverland_styles
+    node_type: production_principle
+    name: Which examples illustrate Riverland’s warm-climate wine range?
+  - id: n_wset_nw_point_riverland_styles
+    node_type: learning_point
+    name: Riverland includes ripe reds and Chardonnay
+  - id: n_wset_nw_principle_riverina_sweet_exception
+    node_type: production_principle
+    name: How does Riverina’s sweet Semillon differ from ordinary dry wine production?
+  - id: n_wset_nw_point_riverina_sweet_exception
+    node_type: learning_point
+    name: Riverina can make both dry wines and botrytised Semillon
+  - id: n_wset_nw_principle_riverina_dry_styles
+    node_type: production_principle
+    name: Which dry wine styles belong alongside Riverina’s botrytised Semillon?
+  - id: n_wset_nw_point_riverina_dry_styles
+    node_type: learning_point
+    name: Riverina Chardonnay and Shiraz illustrate ripe dry styles
+  - id: n_wset_nw_principle_south_eastern_range
+    node_type: production_principle
+    name: What can South Eastern Australia tell a learner about Shiraz or Chardonnay style?
+  - id: n_wset_nw_point_south_eastern_range
+    node_type: learning_point
+    name: South Eastern Australia is a broad sourcing indication
+  - id: n_wset_nw_principle_inland_water_costs
+    node_type: production_principle
+    name: How do water and yield decisions affect inland Australian wine economics?
+  - id: n_wset_nw_point_inland_water_costs
+    node_type: learning_point
+    name: Inland water management affects cost without guaranteeing profit
+  - id: n_wset_nw_principle_barossa_gsm
+    node_type: production_principle
+    name: How does Grenache extend Barossa beyond its Shiraz reference?
+  - id: n_wset_nw_point_barossa_gsm
+    node_type: learning_point
+    name: Barossa Grenache may stand alone or join a red blend
+  - id: n_wset_nw_principle_barossa_semillon_range
+    node_type: production_principle
+    name: How can Barossa Valley Semillon differ from delicate Hunter Valley examples?
+  - id: n_wset_nw_point_barossa_semillon_range
+    node_type: learning_point
+    name: Barossa Semillon includes rich and fresher styles
+  - id: n_wset_nw_principle_clare_riesling_style
+    node_type: production_principle
+    name: What style is a useful reference for Clare Valley Riesling?
+  - id: n_wset_nw_point_clare_riesling_style
+    node_type: learning_point
+    name: Clare Riesling often combines citrus with firm acidity
+  - id: n_wset_nw_principle_eden_riesling_setting
+    node_type: production_principle
+    name: How does Eden Valley’s setting help distinguish its Riesling reference from warmer Barossa Valley reds?
+  - id: n_wset_nw_point_eden_riesling_setting
+    node_type: learning_point
+    name: Eden’s elevation supports a cooler Riesling comparison
+  - id: n_wset_nw_principle_margaret_merlot_blend
+    node_type: production_principle
+    name: How does Merlot contribute to Margaret River’s Cabernet reference?
+  - id: n_wset_nw_point_margaret_merlot_blend
+    node_type: learning_point
+    name: Margaret River Cabernet often has a Merlot blending partner
+  - id: n_wset_nw_principle_margaret_white_range
+    node_type: production_principle
+    name: Which choices explain the range of Margaret River Chardonnay and Sauvignon Blanc wines?
+  - id: n_wset_nw_point_margaret_white_range
+    node_type: learning_point
+    name: Margaret River whites include Chardonnay and lively Sauvignon blends
+  - id: n_wset_nw_principle_yarra_wine_range
+    node_type: production_principle
+    name: Which broad regional styles help explain Yarra Valley’s Pinot Noir and Chardonnay reference?
+  - id: n_wset_nw_point_yarra_wine_range
+    node_type: learning_point
+    name: Yarra Pinot and Chardonnay require site and cellar comparison
+  - id: n_wset_nw_principle_adelaide_chardonnay
+    node_type: production_principle
+    name: How does Adelaide Hills Chardonnay compare with a generic ripe inland Australian example?
+  - id: n_wset_nw_point_adelaide_chardonnay
+    node_type: learning_point
+    name: Adelaide Hills Chardonnay is a cool-site reference
+  - id: n_wset_nw_principle_hunter_shiraz_style
+    node_type: production_principle
+    name: How can Hunter Valley Shiraz differ from a simple very-full-bodied Australian stereotype?
+  - id: n_wset_nw_point_hunter_shiraz_style
+    node_type: learning_point
+    name: Hunter Shiraz can be medium bodied with developed savoury notes
+  - id: n_wset_nw_principle_mclaren_environment
+    node_type: production_principle
+    name: Which growing conditions matter for McLaren Vale’s red grape styles?
+  - id: n_wset_nw_point_mclaren_environment
+    node_type: learning_point
+    name: McLaren Vale combines Mediterranean warmth with sea influence
+  - id: n_wset_nw_principle_geelong_range
+    node_type: production_principle
+    name: How do Geelong’s sites and wines extend Victoria’s cool-climate comparison?
+  - id: n_wset_nw_point_geelong_range
+    node_type: learning_point
+    name: Geelong combines cool coastal and more continental sites
+  - id: n_wset_nw_principle_heathcote_shiraz
+    node_type: production_principle
+    name: Which grape and growing contrast help explain Heathcote wines?
+  - id: n_wset_nw_point_heathcote_shiraz
+    node_type: learning_point
+    name: Heathcote is a structured dark-fruit Shiraz reference
+  - id: n_wset_nw_principle_goulburn_heat_water
+    node_type: production_principle
+    name: How does Goulburn Valley’s setting relate to ripe red and white wines?
+  - id: n_wset_nw_point_goulburn_heat_water
+    node_type: learning_point
+    name: Goulburn Valley combines inland warmth and water moderation
+  - id: n_wset_nw_principle_great_southern_sites
+    node_type: production_principle
+    name: Why should Great Southern not be assigned one coastal climate?
+  - id: n_wset_nw_point_great_southern_sites
+    node_type: learning_point
+    name: Great Southern contains maritime and continental comparisons
+  - id: n_wset_nw_principle_great_southern_styles
+    node_type: production_principle
+    name: Which stylistic contrasts help identify Great Southern’s wine range?
+  - id: n_wset_nw_point_great_southern_styles
+    node_type: learning_point
+    name: Great Southern has lean Riesling and structured red references
+  - id: n_wset_nw_principle_australia_gi_levels
+    node_type: production_principle
+    name: How do Australian geographical indications organise origin names?
+  - id: n_wset_nw_point_australia_gi_levels
+    node_type: learning_point
+    name: Australian labels identify zones, regions and subregions
+  - id: n_wset_nw_principle_marlborough_sauvignon_style
+    node_type: production_principle
+    name: What is the broad regional reference for Marlborough Sauvignon Blanc?
+  - id: n_wset_nw_point_marlborough_sauvignon_style
+    node_type: learning_point
+    name: Marlborough Sauvignon combines vivid fruit and herbs
+  - id: n_wset_nw_principle_marlborough_chardonnay_range
+    node_type: production_principle
+    name: How does Marlborough Chardonnay vary with site and production?
+  - id: n_wset_nw_point_marlborough_chardonnay_range
+    node_type: learning_point
+    name: Marlborough Chardonnay includes oaked and unoaked expressions
+  - id: n_wset_nw_principle_marlborough_pinot_style
+    node_type: production_principle
+    name: Which wine style is a useful reference for Marlborough Pinot Noir?
+  - id: n_wset_nw_point_marlborough_pinot_style
+    node_type: learning_point
+    name: Marlborough Pinot is a fragrant structured-red comparison
+  - id: n_wset_nw_principle_marlborough_aromatics
+    node_type: production_principle
+    name: How do Pinot Gris and Riesling extend Marlborough beyond Sauvignon Blanc?
+  - id: n_wset_nw_point_marlborough_aromatics
+    node_type: learning_point
+    name: Marlborough aromatic whites span sweetness and weight
+  - id: n_wset_nw_principle_hawkes_cab_merlot
+    node_type: production_principle
+    name: Which grape and structure contrasts help explain Hawke’s Bay red blends?
+  - id: n_wset_nw_point_hawkes_cab_merlot
+    node_type: learning_point
+    name: Hawke’s Bay offers fleshy Merlot and structured Cabernet blends
+  - id: n_wset_nw_principle_hawkes_chardonnay
+    node_type: production_principle
+    name: Which broad style helps distinguish Hawke’s Bay Chardonnay?
+  - id: n_wset_nw_point_hawkes_chardonnay
+    node_type: learning_point
+    name: Hawke’s Bay Chardonnay is a rich but fresh white reference
+  - id: n_wset_nw_principle_hawkes_syrah_pinot_gris
+    node_type: production_principle
+    name: Which styles extend Hawke’s Bay beyond its Cabernet-family reds?
+  - id: n_wset_nw_point_hawkes_syrah_pinot_gris
+    node_type: learning_point
+    name: Hawke’s Bay also offers aromatic Syrah and Pinot Gris
+  - id: n_wset_nw_principle_martinborough_pinot_style
+    node_type: production_principle
+    name: Which style is a useful reference for Martinborough Pinot Noir?
+  - id: n_wset_nw_point_martinborough_pinot_style
+    node_type: learning_point
+    name: Martinborough Pinot can combine perfume and substantial texture
+  - id: n_wset_nw_principle_otago_pinot_style
+    node_type: production_principle
+    name: How does Central Otago’s varied continental setting relate to Pinot Noir style?
+  - id: n_wset_nw_point_otago_pinot_style
+    node_type: learning_point
+    name: Central Otago Pinot combines ripe fruit with structural freshness
+  - id: n_wset_nw_principle_otago_aromatics
+    node_type: production_principle
+    name: Which styles complement Central Otago Pinot Noir?
+  - id: n_wset_nw_point_otago_aromatics
+    node_type: learning_point
+    name: Central Otago aromatic whites are not uniformly dry
+  - id: n_wset_nw_principle_nelson_wine_styles
+    node_type: production_principle
+    name: Which stylistic contrasts illustrate Nelson’s regional wine range?
+  - id: n_wset_nw_point_nelson_wine_styles
+    node_type: learning_point
+    name: Nelson combines fragrant reds and fresh textured whites
+  - id: n_wset_nw_principle_gisborne_wine_styles
+    node_type: production_principle
+    name: Which wine styles illustrate Gisborne’s required Chardonnay and Pinot Gris references?
+  - id: n_wset_nw_point_gisborne_wine_styles
+    node_type: learning_point
+    name: Gisborne’s sunny setting supports expressive Chardonnay and aromatics
+  - id: n_wset_nw_principle_canterbury_style_range
+    node_type: production_principle
+    name: Why should Canterbury wines be compared by locality and grape?
+  - id: n_wset_nw_point_canterbury_style_range
+    node_type: learning_point
+    name: Canterbury includes varied Pinot and fresh white references
+  - id: n_wset_nw_principle_california_zinfandel_range
+    node_type: production_principle
+    name: How does California Zinfandel extend beyond one powerful red style?
+  - id: n_wset_nw_point_california_zinfandel_range
+    node_type: learning_point
+    name: California Zinfandel includes contrasting red and rosé styles
+knowledge_relations:
+  - subject_id: n_wset_nw_principle_california_variation
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_california_variation
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_napa_cabernet
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_napa_cabernet
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_napa_merlot
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_napa_merlot
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_napa_chardonnay
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_napa_chardonnay
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_napa_sauvignon
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_napa_sauvignon
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_oakville_setting
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_oakville_setting
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_rutherford_setting
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_rutherford_setting
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_calistoga_setting
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_calistoga_setting
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_stags_leap_setting
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_stags_leap_setting
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_howell_setting
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_howell_setting
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_veeder_setting
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_veeder_setting
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_saint_helena_setting
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_saint_helena_setting
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_sonoma_grape_sites
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_sonoma_grape_sites
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_dry_creek_zinfandel
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_dry_creek_zinfandel
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_sonoma_coast_setting
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_sonoma_coast_setting
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_santa_maria_grapes
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_santa_maria_grapes
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_mendocino_diversity
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_mendocino_diversity
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_san_luis_grapes
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_san_luis_grapes
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_lodi_style_choices
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_lodi_style_choices
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_oregon_chardonnay_range
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_oregon_chardonnay_range
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_yakima_sites
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_yakima_sites
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_finger_lakes_riesling
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_finger_lakes_riesling
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_usa_origin_scale
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_usa_origin_scale
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_usa_ava_origin
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_usa_ava_origin
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_ontario_icewine_selection
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_ontario_icewine_selection
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_ontario_icewine_style
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_ontario_icewine_style
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_ontario_vqa_origins
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_ontario_vqa_origins
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_bc_vqa_origin
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_bc_vqa_origin
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_central_valley_reds
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_central_valley_reds
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_central_valley_whites
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_central_valley_whites
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_casablanca_grapes
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_casablanca_grapes
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_elqui_aridity
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_elqui_aridity
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_leyda_coastal
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_leyda_coastal
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_curico_maule_diversity
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_curico_maule_diversity
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_chile_origin_hierarchy
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_chile_origin_hierarchy
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_chile_crosswise_terms
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_chile_crosswise_terms
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_mendoza_malbec_range
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_mendoza_malbec_range
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_argentina_malbec_contrasts
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_argentina_malbec_contrasts
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_cape_blend_meaning
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_cape_blend_meaning
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_elgin_sauvignon
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_elgin_sauvignon
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_durbanville_setting
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_durbanville_setting
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_swartland_grapes
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_swartland_grapes
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_worcester_wine_context
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_worcester_wine_context
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_elim_cooling
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_elim_cooling
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_south_africa_wo_origin
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_south_africa_wo_origin
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_south_africa_wo_levels
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_south_africa_wo_levels
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_south_africa_estate
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_south_africa_estate
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_murray_darling_irrigation
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_murray_darling_irrigation
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_murray_darling_styles
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_murray_darling_styles
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_riverland_styles
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_riverland_styles
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_riverina_sweet_exception
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_riverina_sweet_exception
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_riverina_dry_styles
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_riverina_dry_styles
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_south_eastern_range
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_south_eastern_range
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_inland_water_costs
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_inland_water_costs
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_barossa_gsm
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_barossa_gsm
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_barossa_semillon_range
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_barossa_semillon_range
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_clare_riesling_style
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_clare_riesling_style
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_eden_riesling_setting
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_eden_riesling_setting
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_margaret_merlot_blend
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_margaret_merlot_blend
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_margaret_white_range
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_margaret_white_range
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_yarra_wine_range
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_yarra_wine_range
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_adelaide_chardonnay
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_adelaide_chardonnay
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_hunter_shiraz_style
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_hunter_shiraz_style
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_mclaren_environment
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_mclaren_environment
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_geelong_range
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_geelong_range
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_heathcote_shiraz
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_heathcote_shiraz
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_goulburn_heat_water
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_goulburn_heat_water
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_great_southern_sites
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_great_southern_sites
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_great_southern_styles
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_great_southern_styles
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_australia_gi_levels
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_australia_gi_levels
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_marlborough_sauvignon_style
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_marlborough_sauvignon_style
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_marlborough_chardonnay_range
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_marlborough_chardonnay_range
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_marlborough_pinot_style
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_marlborough_pinot_style
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_marlborough_aromatics
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_marlborough_aromatics
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_hawkes_cab_merlot
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_hawkes_cab_merlot
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_hawkes_chardonnay
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_hawkes_chardonnay
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_hawkes_syrah_pinot_gris
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_hawkes_syrah_pinot_gris
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_martinborough_pinot_style
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_martinborough_pinot_style
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_otago_pinot_style
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_otago_pinot_style
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_otago_aromatics
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_otago_aromatics
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_nelson_wine_styles
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_nelson_wine_styles
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_gisborne_wine_styles
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_gisborne_wine_styles
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_canterbury_style_range
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_canterbury_style_range
+    valid_from: 1900-01-01
+  - subject_id: n_wset_nw_principle_california_zinfandel_range
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_california_zinfandel_range
+    valid_from: 1900-01-01
+knowledge_items:
+  - id: ki_wset_nw_california_variation
+    subject_id: n_wset_nw_principle_california_variation
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_california_variation
+    domain_id: viticulture
+    assertion_text: "California includes warm inland and marine-cooled vineyards. Sonoma illustrates this range:
+      Cabernet ripens in warmer areas, while Pinot Noir and Chardonnay suit cooler ones. A state label alone
+      cannot fix body or ripeness."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_napa_cabernet
+    subject_id: n_wset_nw_principle_napa_cabernet
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_napa_cabernet
+    domain_id: winemaking
+    assertion_text: Napa Cabernet Sauvignon can show black cherry, plum and currant with dense youthful structure.
+      Oak ageing can add spice; expression varies by site.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_napa_merlot
+    subject_id: n_wset_nw_principle_napa_merlot
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_napa_merlot
+    domain_id: winemaking
+    assertion_text: Napa Merlot may be bottled alone or blended with Cabernet, contributing softer fruit and body.
+      Ripe cherry and plum, texture and weight vary by site and cellar choices.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_napa_chardonnay
+    subject_id: n_wset_nw_principle_napa_chardonnay
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_napa_chardonnay
+    domain_id: winemaking
+    assertion_text: Napa Chardonnay ranges from crisp to rich. Barrel fermentation, lees stirring and malolactic
+      conversion can change texture and aromas; cooler Los Carneros supports slower ripening.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_napa_sauvignon
+    subject_id: n_wset_nw_principle_napa_sauvignon
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_napa_sauvignon
+    domain_id: geography
+    assertion_text: Napa Sauvignon Blanc often uses neutral vessels to preserve herbal and fruit character with
+      lively acidity. Some oak-fermented or aged examples have more texture and may be labelled Fumé Blanc.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_oakville_setting
+    subject_id: n_wset_nw_principle_oakville_setting
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_oakville_setting
+    domain_id: viticulture
+    assertion_text: Oakville is moderately warm, with morning fog and cooling from San Pablo Bay. Cabernet
+      Sauvignon and Merlot are important grapes; vineyard position still matters.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_rutherford_setting
+    subject_id: n_wset_nw_principle_rutherford_setting
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_rutherford_setting
+    domain_id: viticulture
+    assertion_text: Rutherford has a moderately warm growing setting, with less fog than Oakville. Cabernet
+      Sauvignon and Merlot are important; the regional name does not prescribe a wine flavour.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_calistoga_setting
+    subject_id: n_wset_nw_principle_calistoga_setting
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_calistoga_setting
+    domain_id: viticulture
+    assertion_text: Calistoga is among Napa’s warmer areas, with large daily temperature changes. Cabernet
+      Sauvignon, Zinfandel and Syrah suit its warmer sites.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_stags_leap_setting
+    subject_id: n_wset_nw_principle_stags_leap_setting
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_stags_leap_setting
+    domain_id: viticulture
+    assertion_text: Stags Leap District combines warmth from exposed slopes with afternoon bay breezes. Cabernet
+      Sauvignon is important; individual wines still reflect site and production choices.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_howell_setting
+    subject_id: n_wset_nw_principle_howell_setting
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_howell_setting
+    domain_id: viticulture
+    assertion_text: Howell Mountain’s higher vineyards sit above the valley fog and have relatively sunny
+      conditions. Cabernet Sauvignon and Merlot are important grape associations.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_veeder_setting
+    subject_id: n_wset_nw_principle_veeder_setting
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_veeder_setting
+    domain_id: viticulture
+    assertion_text: Mount Veeder has a cool-to-moderate mountain setting, with many vineyards above valley fog.
+      Its Cabernet Sauvignon and Merlot plantings differ climatically from the warm valley floor.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_saint_helena_setting
+    subject_id: n_wset_nw_principle_saint_helena_setting
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_saint_helena_setting
+    domain_id: viticulture
+    assertion_text: Saint Helena is a warm northern Napa setting with less marine influence than southern sites.
+      Cabernet Sauvignon, Merlot and Zinfandel are important grape associations.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_sonoma_grape_sites
+    subject_id: n_wset_nw_principle_sonoma_grape_sites
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_sonoma_grape_sites
+    domain_id: viticulture
+    assertion_text: Russian River Valley and Sonoma Coast are known for Pinot Noir and Chardonnay. Warmer
+      Alexander Valley suits Cabernet; Bennett Valley supplies a cooler Sonoma Merlot example. These are
+      associations, not exclusive planting rules.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_dry_creek_zinfandel
+    subject_id: n_wset_nw_principle_dry_creek_zinfandel
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_dry_creek_zinfandel
+    domain_id: viticulture
+    assertion_text: Dry Creek Valley is associated with Zinfandel and Sauvignon Blanc. Sonoma’s regional overview
+      describes concentrated Zinfandel examples; actual tannin, ripeness and oak need assessment.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_sonoma_coast_setting
+    subject_id: n_wset_nw_principle_sonoma_coast_setting
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_sonoma_coast_setting
+    domain_id: viticulture
+    assertion_text: Sonoma Coast has marine influence and varied elevations. Some vineyards receive sunshine above
+      fog; Pinot Noir and Chardonnay remain important, without identical ripening at every site.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_santa_maria_grapes
+    subject_id: n_wset_nw_principle_santa_maria_grapes
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_santa_maria_grapes
+    domain_id: viticulture
+    assertion_text: Santa Maria Valley’s ocean wind and fog provide a cool growing comparison within Santa Barbara
+      County. Pinot Noir and Chardonnay are flagship grapes.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_mendocino_diversity
+    subject_id: n_wset_nw_principle_mendocino_diversity
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_mendocino_diversity
+    domain_id: viticulture
+    assertion_text: Mendocino County includes Pinot Noir and Chardonnay as well as Cabernet Sauvignon, Merlot,
+      Zinfandel and Syrah. Its different coastal and inland growing areas require site-specific comparison.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_san_luis_grapes
+    subject_id: n_wset_nw_principle_san_luis_grapes
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_san_luis_grapes
+    domain_id: viticulture
+    assertion_text: San Luis Obispo County combines cool coastal valleys and marine breezes with inland hills.
+      Chardonnay, Pinot Noir, Zinfandel and Rhône varieties illustrate the range.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_lodi_style_choices
+    subject_id: n_wset_nw_principle_lodi_style_choices
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_lodi_style_choices
+    domain_id: winemaking
+    assertion_text: Lodi Zinfandel includes lighter fruit-led wines and riper, fuller, oak-influenced examples.
+      Vineyard selection and oak use help explain the range; an old-vine label alone cannot fix the style.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_oregon_chardonnay_range
+    subject_id: n_wset_nw_principle_oregon_chardonnay_range
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_oregon_chardonnay_range
+    domain_id: winemaking
+    assertion_text: Oregon Chardonnay ranges from fresh and tart to creamy examples. Its Willamette Valley
+      association does not make oak or malolactic conversion compulsory.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_yakima_sites
+    subject_id: n_wset_nw_principle_yakima_sites
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_yakima_sites
+    domain_id: viticulture
+    assertion_text: Cooler Yakima sites support Chardonnay and Riesling; warmer areas support Merlot, Cabernet
+      Sauvignon and Syrah. River water and aquifers supply irrigation in this dry growing setting.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_finger_lakes_riesling
+    subject_id: n_wset_nw_principle_finger_lakes_riesling
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_finger_lakes_riesling
+    domain_id: viticulture
+    assertion_text: Finger Lakes Riesling includes dry through sweet wines. Its cool-climate context and acidity
+      are important; the region name alone does not identify residual sugar.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_usa_origin_scale
+    subject_id: n_wset_nw_principle_usa_origin_scale
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_usa_origin_scale
+    domain_id: geography
+    assertion_text: A US state or county name identifies a political origin; an AVA identifies a delimited
+      viticultural area. Napa County and Napa Valley are different origin designations, with different federal
+      source requirements.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_usa_ava_origin
+    subject_id: n_wset_nw_principle_usa_ava_origin
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_usa_ava_origin
+    domain_id: geography
+    assertion_text: At least 85% of the grapes must come from the named AVA, and the wine must be fully finished
+      within the state or states containing it, subject to the regulation’s exceptions.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_ontario_icewine_selection
+    subject_id: n_wset_nw_principle_ontario_icewine_selection
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_ontario_icewine_selection
+    domain_id: winemaking
+    assertion_text: Ontario Icewine uses grapes frozen naturally on the vine and pressed while frozen,
+      concentrating the juice. Vidal and Riesling are important white-grape examples; this is a specific
+      concentrated-fruit process.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_ontario_icewine_style
+    subject_id: n_wset_nw_principle_ontario_icewine_style
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_ontario_icewine_style
+    domain_id: viticulture
+    assertion_text: Ontario’s Vidal and Riesling Icewines are sweet, concentrated wines with fruit aromas and
+      balancing acidity. They differ from dry table wines; individual grapes and production affect the aroma
+      profile.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_ontario_vqa_origins
+    subject_id: n_wset_nw_principle_ontario_vqa_origins
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_ontario_vqa_origins
+    domain_id: geography
+    assertion_text: VQA Ontario wine uses Ontario-grown grapes. Niagara Peninsula labelling requires at least 85%
+      Niagara Peninsula grapes, with the remainder from Ontario; named subappellations have stricter origin
+      requirements.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_bc_vqa_origin
+    subject_id: n_wset_nw_principle_bc_vqa_origin
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_bc_vqa_origin
+    domain_id: geography
+    assertion_text: BC VQA is governed by British Columbia’s regulation and requires British Columbia grape
+      origin. Okanagan Valley is a British Columbia geographical indication; Ontario’s VQA origin percentages
+      are a separate system.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_central_valley_reds
+    subject_id: n_wset_nw_principle_central_valley_reds
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_central_valley_reds
+    domain_id: viticulture
+    assertion_text: Central Valley includes Maipo and the Rapel zones Cachapoal and Colchagua, important for
+      Cabernet Sauvignon, Merlot and Carménère. Warm inland ripening and cooling influences vary, so the broad
+      origin does not fix body or ripeness.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_central_valley_whites
+    subject_id: n_wset_nw_principle_central_valley_whites
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_central_valley_whites
+    domain_id: viticulture
+    assertion_text: "Chardonnay and Sauvignon Blanc are Chilean white-wine references. Central Valley contains
+      varied sites: assess fruit maturity and cellar choices rather than infer one acidity, oak level or aroma
+      from this broad origin."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_casablanca_grapes
+    subject_id: n_wset_nw_principle_casablanca_grapes
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_casablanca_grapes
+    domain_id: viticulture
+    assertion_text: Casablanca’s marine cooling supports Sauvignon Blanc, Chardonnay and Pinot Noir. Compare
+      herbal or citrus white styles and red-fruited Pinot with actual harvest and cellar choices; cooling is
+      not a guarantee of identical acidity.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_elqui_aridity
+    subject_id: n_wset_nw_principle_elqui_aridity
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_elqui_aridity
+    domain_id: viticulture
+    assertion_text: Elqui is very dry and sunny, but coastal and higher sites differ from the warm interior. Syrah
+      and Sauvignon Blanc are regional associations; water supply and exposure need assessment.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_leyda_coastal
+    subject_id: n_wset_nw_principle_leyda_coastal
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_leyda_coastal
+    domain_id: viticulture
+    assertion_text: San Antonio, including Leyda, has Pacific cooling associated with Sauvignon Blanc, Chardonnay
+      and Pinot Noir. Inland Aconcagua Valley supplies a warmer red-grape contrast.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_curico_maule_diversity
+    subject_id: n_wset_nw_principle_curico_maule_diversity
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_curico_maule_diversity
+    domain_id: viticulture
+    assertion_text: Curicó has diverse sites and both Cabernet Sauvignon and Sauvignon Blanc associations. Maule
+      includes dry-farmed older vineyards alongside varied modern plantings; latitude alone cannot establish
+      production method.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_chile_origin_hierarchy
+    subject_id: n_wset_nw_principle_chile_origin_hierarchy
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_chile_origin_hierarchy
+    domain_id: geography
+    assertion_text: Chile’s wine zoning defines regions, subregions, zones and areas. Central Valley is a region;
+      Rapel is a subregion and Cachapoal and Colchagua are zones within it.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_chile_crosswise_terms
+    subject_id: n_wset_nw_principle_chile_crosswise_terms
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_chile_crosswise_terms
+    domain_id: geography
+    assertion_text: Costa, Entre Cordilleras and Andes are regulated additional geographic mentions for coastal,
+      intervening and Andean settings. They supplement the DO hierarchy; they do not identify a compulsory
+      grape or one quality tier.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_mendoza_malbec_range
+    subject_id: n_wset_nw_principle_mendoza_malbec_range
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_mendoza_malbec_range
+    domain_id: winemaking
+    assertion_text: Mendoza Malbec includes rounded, plum-and-violet Luján de Cuyo examples and fresher, firmer
+      Uco Valley expressions. Site, harvest and oak choices affect the result; the regional comparison is a
+      tendency.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_argentina_malbec_contrasts
+    subject_id: n_wset_nw_principle_argentina_malbec_contrasts
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_argentina_malbec_contrasts
+    domain_id: viticulture
+    assertion_text: Salta’s sunny high sites can produce dark-fruited, structured Malbec. Cooler, windy Patagonian
+      examples can be fresher and lighter. These tendencies require parcel and vintage evidence rather than a
+      fixed regional ranking.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_cape_blend_meaning
+    subject_id: n_wset_nw_principle_cape_blend_meaning
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_cape_blend_meaning
+    domain_id: geography
+    assertion_text: Cape Blend commonly describes a South African red blend with a meaningful Pinotage component
+      and other grapes. The Pinotage Association’s 2025 competition requires 30–70% Pinotage; those are that
+      competition’s rules.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_elgin_sauvignon
+    subject_id: n_wset_nw_principle_elgin_sauvignon
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_elgin_sauvignon
+    domain_id: viticulture
+    assertion_text: Elgin’s cooler, later-ripening setting supports Sauvignon Blanc as well as Chardonnay and
+      Pinot Noir. Assess harvest maturity and production when comparing fresh herbal and riper fruit
+      expressions.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_durbanville_setting
+    subject_id: n_wset_nw_principle_durbanville_setting
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_durbanville_setting
+    domain_id: viticulture
+    assertion_text: Durbanville’s varied hillside aspects and altitude receive marine cooling. Sauvignon Blanc,
+      Chardonnay and Merlot are important alongside other reds; one exposed parcel cannot describe the whole
+      ward.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_swartland_grapes
+    subject_id: n_wset_nw_principle_swartland_grapes
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_swartland_grapes
+    domain_id: viticulture
+    assertion_text: Swartland includes Chenin Blanc and Chardonnay, with Pinotage, Shiraz and Cabernet Sauvignon
+      among its reds. Bush vines are part of its production history, but trellises also occur.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_worcester_wine_context
+    subject_id: n_wset_nw_principle_worcester_wine_context
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_worcester_wine_context
+    domain_id: winemaking
+    assertion_text: Worcester is an important grape-growing and brandy-producing district. Its cellars also bottle
+      wines under their own labels; intended product and cellar route matter when assessing grape use.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_elim_cooling
+    subject_id: n_wset_nw_principle_elim_cooling
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_elim_cooling
+    domain_id: viticulture
+    assertion_text: Elim’s strong cooling summer winds support a very cool ripening comparison. Sauvignon Blanc is
+      important, with Semillon and Shiraz also associated with this coastal area.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_south_africa_wo_origin
+    subject_id: n_wset_nw_principle_south_africa_wo_origin
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_south_africa_wo_origin
+    domain_id: geography
+    assertion_text: A Wine of Origin designation confirms that all the grapes come from the named demarcated
+      production area. It provides origin evidence; it does not prescribe one grape or replace tasting the
+      wine.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_south_africa_wo_levels
+    subject_id: n_wset_nw_principle_south_africa_wo_levels
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_south_africa_wo_levels
+    domain_id: geography
+    assertion_text: The system uses geographical units, regions, districts and wards. Breede River Valley is a
+      region containing districts such as Worcester and Robertson; a ward is a smaller defined production
+      area.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_south_africa_estate
+    subject_id: n_wset_nw_principle_south_africa_estate
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_south_africa_estate
+    domain_id: geography
+    assertion_text: Estate wine comes from the defined estate’s grapes and is made and bottled there under the
+      scheme. This production identity is different from simply naming a district or ward.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_murray_darling_irrigation
+    subject_id: n_wset_nw_principle_murray_darling_irrigation
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_murray_darling_irrigation
+    domain_id: winemaking
+    assertion_text: Murray-Darling has hot conditions and little growing-season rain. Irrigation is essential to
+      support its vineyards; water availability, variety and intended yield affect management and cost.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_murray_darling_styles
+    subject_id: n_wset_nw_principle_murray_darling_styles
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_murray_darling_styles
+    domain_id: business
+    assertion_text: Murray-Darling Chardonnay, Shiraz and Cabernet commonly supply approachable, fruit-led wines
+      for early drinking at accessible prices. Origin does not prevent more ambitious wines or establish a
+      price for every bottle.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_riverland_styles
+    subject_id: n_wset_nw_principle_riverland_styles
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_riverland_styles
+    domain_id: viticulture
+    assertion_text: Riverland Shiraz can show plum and dark berries; Cabernet and Merlot fruit expression changes
+      with season. Chardonnay may be ripe and oak influenced, with actual cellar choices determining the
+      result.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_riverina_sweet_exception
+    subject_id: n_wset_nw_principle_riverina_sweet_exception
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_riverina_sweet_exception
+    domain_id: winemaking
+    assertion_text: Riverina’s hot summer suits ripe dry wines. Later-season humidity can favour noble rot in
+      selected Semillon, concentrating fruit for sweet wine; this requires suitable fruit and conditions.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_riverina_dry_styles
+    subject_id: n_wset_nw_principle_riverina_dry_styles
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_riverina_dry_styles
+    domain_id: viticulture
+    assertion_text: Riverina Chardonnay can be generously flavoured, with oak contributing to some examples.
+      Shiraz is another important grape; selected sweet Semillon does not define all wines from the region.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_south_eastern_range
+    subject_id: n_wset_nw_principle_south_eastern_range
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_south_eastern_range
+    domain_id: geography
+    assertion_text: South Eastern Australia is a broad GI containing many growing settings. Fruit-led Shiraz and
+      Chardonnay are useful examples; the name alone cannot establish one climate, maturity level, quality or
+      cellar method.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_inland_water_costs
+    subject_id: n_wset_nw_principle_inland_water_costs
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_inland_water_costs
+    domain_id: winemaking
+    assertion_text: Irrigation benchmarking in Riverland, Riverina and Sunraysia links water costs, yield,
+      varieties and management. Compare actual costs and fruit objectives; high output or water efficiency
+      alone does not ensure profit.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_barossa_gsm
+    subject_id: n_wset_nw_principle_barossa_gsm
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_barossa_gsm
+    domain_id: winemaking
+    assertion_text: Barossa’s Grenache may be varietal or blended with Shiraz and Mataro. Blending changes the
+      fruit, body and structure balance; Shiraz’s reputation does not make every Barossa red pure Shiraz.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_barossa_semillon_range
+    subject_id: n_wset_nw_principle_barossa_semillon_range
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_barossa_semillon_range
+    domain_id: winemaking
+    assertion_text: Barossa Valley Semillon has traditionally included rich, ripe, oak-influenced styles. Earlier
+      picking and avoiding oak can produce lighter, crisper wines; both styles belong in the comparison.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_clare_riesling_style
+    subject_id: n_wset_nw_principle_clare_riesling_style
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_clare_riesling_style
+    domain_id: viticulture
+    assertion_text: Clare Valley Riesling is commonly dry, with citrus and floral expression and firm acidity. Age
+      can add toast and developed complexity; producer, site and storage affect the result.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_eden_riesling_setting
+    subject_id: n_wset_nw_principle_eden_riesling_setting
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_eden_riesling_setting
+    domain_id: viticulture
+    assertion_text: Eden Valley’s elevated, varied terrain creates cooler growing conditions than many Barossa
+      Valley sites. Riesling is important; aspect and local conditions still affect ripening.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_margaret_merlot_blend
+    subject_id: n_wset_nw_principle_margaret_merlot_blend
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_margaret_merlot_blend
+    domain_id: winemaking
+    assertion_text: Margaret River Cabernet is often blended with Merlot. Medium-to-full body and cassis-like
+      fruit are regional references; blend proportion, harvest and production affect texture and style.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_margaret_white_range
+    subject_id: n_wset_nw_principle_margaret_white_range
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_margaret_white_range
+    domain_id: winemaking
+    assertion_text: Margaret River Chardonnay can combine intense fruit with lime-like acidity. Sauvignon
+      Blanc–Semillon blends range with ripeness, proportions and oak treatment; freshness and texture depend
+      on those choices.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_yarra_wine_range
+    subject_id: n_wset_nw_principle_yarra_wine_range
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_yarra_wine_range
+    domain_id: winemaking
+    assertion_text: Yarra Valley Pinot Noir often ranges from light to medium bodied with plum, strawberry or
+      cherry. Chardonnay can show peach, melon or fig; cellar choices create further variation.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_adelaide_chardonnay
+    subject_id: n_wset_nw_principle_adelaide_chardonnay
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_adelaide_chardonnay
+    domain_id: viticulture
+    assertion_text: Adelaide Hills Chardonnay commonly shows citrus, freshness and structured fruit. Cooler sites
+      are useful contrasts with warm inland examples; oak and malolactic conversion still depend on the
+      producer.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_hunter_shiraz_style
+    subject_id: n_wset_nw_principle_hunter_shiraz_style
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_hunter_shiraz_style
+    domain_id: viticulture
+    assertion_text: Young Hunter Shiraz is often medium bodied, with red and dark berries, spice and supple
+      tannin. Bottle age can bring earthy or leathery notes and smoother texture.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_mclaren_environment
+    subject_id: n_wset_nw_principle_mclaren_environment
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_mclaren_environment
+    domain_id: viticulture
+    assertion_text: McLaren Vale has a warm Mediterranean setting moderated by nearby water and local elevation.
+      Grenache, Shiraz and Cabernet are important; parcel and harvest choices explain variation within those
+      associations.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_geelong_range
+    subject_id: n_wset_nw_principle_geelong_range
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_geelong_range
+    domain_id: viticulture
+    assertion_text: Geelong’s water influence and long ripening season support Pinot Noir and Chardonnay. Northern
+      sites are more continental; Pinot can show plum or strawberry while Chardonnay weight varies by locality
+      and producer.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_heathcote_shiraz
+    subject_id: n_wset_nw_principle_heathcote_shiraz
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_heathcote_shiraz
+    domain_id: viticulture
+    assertion_text: Heathcote is known for rich, dark-fruited Shiraz with ripe tannin. Cooling southeasterly
+      airflow around the Mount Camel range moderates the warm setting; soil colour does not prove a specific
+      flavour.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_goulburn_heat_water
+    subject_id: n_wset_nw_principle_goulburn_heat_water
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_goulburn_heat_water
+    domain_id: winemaking
+    assertion_text: Goulburn Valley’s inland warmth is moderated locally by rivers and lakes, with irrigation
+      important. Shiraz and Chardonnay can show ripe fruit; oak use and bottle age alter the finished style.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_great_southern_sites
+    subject_id: n_wset_nw_principle_great_southern_sites
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_great_southern_sites
+    domain_id: viticulture
+    assertion_text: Great Southern’s coastal Denmark and Albany differ from more inland settings including Mount
+      Barker, Porongurup and Frankland River. Riesling, Cabernet, Shiraz and Chardonnay suit different sites;
+      coastal Pinot is another reference.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_great_southern_styles
+    subject_id: n_wset_nw_principle_great_southern_styles
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_great_southern_styles
+    domain_id: viticulture
+    assertion_text: Great Southern Riesling can be lean and citrus led. Cabernet may be structured and dark
+      fruited; Shiraz can show pepper and spice. Origin alone does not fix body, oak or ageing potential.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_australia_gi_levels
+    subject_id: n_wset_nw_principle_australia_gi_levels
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_australia_gi_levels
+    domain_id: geography
+    assertion_text: Australia registers zones, regions and subregions. Barossa is a zone containing Barossa Valley
+      and Eden Valley regions. Hunter Valley is a zone and Hunter is a region; the names are not
+      interchangeable.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_marlborough_sauvignon_style
+    subject_id: n_wset_nw_principle_marlborough_sauvignon_style
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_marlborough_sauvignon_style
+    domain_id: viticulture
+    assertion_text: Marlborough Sauvignon Blanc commonly combines vivid herbal and tropical fruit aromas with
+      fresh acidity. Subregion, harvest and cellar choices change intensity and texture; one aroma cannot
+      prove origin.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_marlborough_chardonnay_range
+    subject_id: n_wset_nw_principle_marlborough_chardonnay_range
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_marlborough_chardonnay_range
+    domain_id: winemaking
+    assertion_text: Marlborough Chardonnay can show citrus and stone fruit with structured freshness. It is made
+      in oaked and unoaked styles; assess the bottle rather than assign butter or vanilla from the region.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_marlborough_pinot_style
+    subject_id: n_wset_nw_principle_marlborough_pinot_style
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_marlborough_pinot_style
+    domain_id: viticulture
+    assertion_text: Marlborough Pinot Noir commonly has cherry and plum, with spice and a fine tannin frame.
+      Midweight examples are useful references, but site and extraction affect the finished wine.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_marlborough_aromatics
+    subject_id: n_wset_nw_principle_marlborough_aromatics
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_marlborough_aromatics
+    domain_id: viticulture
+    assertion_text: Marlborough Pinot Gris and Riesling include dry through sweet expressions, with leaner or
+      richer textures. Grape and producer information are needed to determine sweetness and body.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_hawkes_cab_merlot
+    subject_id: n_wset_nw_principle_hawkes_cab_merlot
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_hawkes_cab_merlot
+    domain_id: winemaking
+    assertion_text: Hawke’s Bay Merlot can contribute fleshy fruit, while Cabernet brings dark fruit and structure
+      to blends. Careful site choice and suitable seasons matter for these later-ripening reds.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_hawkes_chardonnay
+    subject_id: n_wset_nw_principle_hawkes_chardonnay
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_hawkes_chardonnay
+    domain_id: viticulture
+    assertion_text: Hawke’s Bay Chardonnay can be rich and full bodied, with acidity balancing the weight. Site
+      and cellar choices change the style; full body does not automatically indicate oak.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_hawkes_syrah_pinot_gris
+    subject_id: n_wset_nw_principle_hawkes_syrah_pinot_gris
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_hawkes_syrah_pinot_gris
+    domain_id: viticulture
+    assertion_text: Hawke’s Bay Syrah can be perfumed and spicy with supple tannin. Pinot Gris can show ripe
+      aromatic fruit and spice with greater weight; these are regional references, not fixed recipes.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_martinborough_pinot_style
+    subject_id: n_wset_nw_principle_martinborough_pinot_style
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_martinborough_pinot_style
+    domain_id: viticulture
+    assertion_text: Martinborough Pinot Noir can show fragrant fruit with fuller texture and structure. Its cool,
+      dry setting does not guarantee light tannin; producer and vintage still matter.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_otago_pinot_style
+    subject_id: n_wset_nw_principle_otago_pinot_style
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_otago_pinot_style
+    domain_id: viticulture
+    assertion_text: Central Otago Pinot can combine ripe fruit with taut structure. Hot days, cool nights and
+      varied subregions create contrasting expressions; cooler Gibbston and warmer Bannockburn are
+      comparisons, not rigid style rules.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_otago_aromatics
+    subject_id: n_wset_nw_principle_otago_aromatics
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_otago_aromatics
+    domain_id: viticulture
+    assertion_text: Central Otago Riesling and Pinot Gris include dry through sweet aromatic wines. Ripeness and
+      residual sugar vary; the continental region name alone cannot determine the sweetness.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_nelson_wine_styles
+    subject_id: n_wset_nw_principle_nelson_wine_styles
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_nelson_wine_styles
+    domain_id: viticulture
+    assertion_text: Nelson Pinot Noir can be perfumed with fine ripe tannin; Moutere and Waimea differ in weight.
+      Sauvignon Blanc may combine crisp fruit with texture, while Chardonnay and Pinot Gris add further
+      white-wine variety.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_gisborne_wine_styles
+    subject_id: n_wset_nw_principle_gisborne_wine_styles
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_gisborne_wine_styles
+    domain_id: viticulture
+    assertion_text: Sunny Gisborne is an important Chardonnay setting, producing fruity aromatic through more
+      intense examples. Pinot Gris can be rich and spicy; Merlot requires suitable sites and seasons.
+      Individual sweetness and oak still need evidence.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_canterbury_style_range
+    subject_id: n_wset_nw_principle_canterbury_style_range
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_canterbury_style_range
+    domain_id: viticulture
+    assertion_text: Canterbury Pinot Noir ranges from lighter fragrant wines to darker, fuller expressions.
+      Chardonnay, Pinot Gris and Sauvignon Blanc offer fresh white references; Waipara and cooler plains
+      differ in exposure and shelter.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+  - id: ki_wset_nw_california_zinfandel_range
+    subject_id: n_wset_nw_principle_california_zinfandel_range
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_nw_point_california_zinfandel_range
+    domain_id: winemaking
+    assertion_text: California Zinfandel includes ripe, spicy dry reds and sweeter White Zinfandel rosé. Lighter
+      red examples also occur; harvest and production determine weight, colour and sweetness.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T12:00:00.000Z
+certification_knowledge_mappings:
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_nw_california_variation
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_nw_napa_cabernet
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_nw_napa_merlot
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_nw_napa_chardonnay
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_nw_napa_sauvignon
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_reg_am_carneros_cooling
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_reg_am_upper_napa_warmth
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_nw_oakville_setting
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_nw_rutherford_setting
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_nw_calistoga_setting
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_nw_stags_leap_setting
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_nw_howell_setting
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_nw_veeder_setting
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_nw_saint_helena_setting
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_reg_am_russian_river_pinot
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_reg_am_alexander_cabernet
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_nw_sonoma_grape_sites
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_nw_dry_creek_zinfandel
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_nw_sonoma_coast_setting
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_reg_na_sta_rita_grapes
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_reg_na_happy_later_grapes
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_nw_santa_maria_grapes
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_nw_mendocino_diversity
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_nw_san_luis_grapes
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_nw_lodi_style_choices
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_reg_am_willamette_pinot
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_reg_am_rogue_diversity
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_nw_oregon_chardonnay_range
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_nw_yakima_sites
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_nw_finger_lakes_riesling
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_nw_usa_origin_scale
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_nw_usa_ava_origin
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_nw_ontario_icewine_selection
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_nw_ontario_icewine_style
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_nw_ontario_vqa_origins
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_nw_bc_vqa_origin
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_reg_am_maipo_cabernet
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_reg_am_colchagua_reds
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_nw_central_valley_reds
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_nw_central_valley_whites
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_reg_am_casablanca_low
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_reg_am_casablanca_high
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_nw_casablanca_grapes
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_nw_elqui_aridity
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_nw_leyda_coastal
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_nw_curico_maule_diversity
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_nw_chile_origin_hierarchy
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_nw_chile_crosswise_terms
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_reg_am_mendoza_temperature
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_reg_am_andes_irrigation
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_reg_am_argentina_methods
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_nw_mendoza_malbec_range
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_nw_argentina_malbec_contrasts
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_reg_sh_chenin_fresh
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_reg_sh_chenin_oak
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_nw_cape_blend_meaning
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_reg_sh_stellenbosch_heat
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_reg_sh_stellenbosch_aspect
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_reg_oa_constantia_aspects
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_reg_oa_constantia_assembly
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_reg_sh_elgin_ripening
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_reg_sh_hemel_maritime
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_nw_elgin_sauvignon
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_nw_durbanville_setting
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_nw_swartland_grapes
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_nw_worcester_wine_context
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_nw_elim_cooling
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_nw_south_africa_wo_origin
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_nw_south_africa_wo_levels
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_nw_south_africa_estate
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_nw_murray_darling_irrigation
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_nw_murray_darling_styles
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_nw_riverland_styles
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_nw_riverina_sweet_exception
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_nw_riverina_dry_styles
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_nw_south_eastern_range
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_nw_inland_water_costs
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_reg_sh_barossa_floor
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_reg_sh_eden_sites
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_nw_barossa_gsm
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_nw_barossa_semillon_range
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_reg_sh_eden_riesling
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_reg_sh_clare_cooling
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_nw_clare_riesling_style
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_nw_eden_riesling_setting
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_reg_sh_cab_maritime
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_reg_sh_cab_styles
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_nw_margaret_merlot_blend
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_nw_margaret_white_range
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_reg_sh_yarra_mesoclimate
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_reg_sh_mornington_maritime
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_nw_yarra_wine_range
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_reg_oa_adelaide_sauvignon
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_reg_oa_adelaide_warm_slopes
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_nw_adelaide_chardonnay
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_reg_oa_hunter_early
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_reg_oa_hunter_bottle
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_reg_oa_hunter_moderation
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_reg_oa_hunter_rain
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_nw_hunter_shiraz_style
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_reg_oa_mclaren_varietal_blend
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_nw_mclaren_environment
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_nw_geelong_range
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_nw_heathcote_shiraz
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_nw_goulburn_heat_water
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_nw_great_southern_sites
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_nw_great_southern_styles
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_nw_australia_gi_levels
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_reg_sh_marlborough_wairau
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_reg_sh_marlborough_awatere
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_nw_marlborough_sauvignon_style
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_nw_marlborough_chardonnay_range
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_nw_marlborough_pinot_style
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_nw_marlborough_aromatics
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_reg_sh_hawkes_reds
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_reg_sh_hawkes_cool
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_nw_hawkes_cab_merlot
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_nw_hawkes_chardonnay
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_nw_hawkes_syrah_pinot_gris
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_reg_sh_martinborough_setting
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_reg_sh_wairarapa_variation
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_nw_martinborough_pinot_style
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_reg_sh_otago_gibbston
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_reg_sh_otago_bannockburn
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_nw_otago_pinot_style
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_nw_otago_aromatics
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_nw_nelson_wine_styles
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_nw_gisborne_wine_styles
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_nw_canterbury_style_range
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L2
+    knowledge_item_id: ki_wset_nw_california_zinfandel_range
+    importance: core
+    minimum_depth: 2
+source_citations:
+  - id: src_wset_nw_napa_wine
+    kind: reference_work
+    title: "Napa Valley Vintners: regional grape and wine styles"
+    url: https://wine.napavintners.com/wine
+    publisher: Napa Valley Vintners
+    accessed_on: 2026-09-27
+  - id: src_wset_nw_ttb_origin
+    kind: reference_work
+    title: "US TTB: appellation of origin labelling"
+    url: https://www.ttb.gov/regulated-commodities/beverage-alcohol/wine/labeling-wine/wine-labeling-appellation-of-origin
+    publisher: Alcohol and Tobacco Tax and Trade Bureau, United States Department of the Treasury
+    accessed_on: 2026-09-27
+  - id: src_wset_nw_mendocino
+    kind: reference_work
+    title: "Mendocino Winegrowers: regional grapes and growing areas"
+    url: https://mendowine.com/press-facts-2/
+    publisher: Mendocino Winegrowers
+    accessed_on: 2026-09-27
+  - id: src_wset_nw_slo
+    kind: reference_work
+    title: "Wine Institute: San Luis Obispo County"
+    url: https://discovercaliforniawines.com/discover-california/central-coast/san-luis-obispo-county/
+    publisher: Wine Institute
+    accessed_on: 2026-09-27
+  - id: src_wset_nw_santa_maria
+    kind: reference_work
+    title: "Santa Barbara Vintners: Santa Maria Valley"
+    url: https://sbcountywines.com/portfolio_page/santa-maria-valley-2/
+    publisher: Santa Barbara Vintners
+    accessed_on: 2026-09-27
+  - id: src_wset_nw_lodi_style
+    kind: reference_work
+    title: "Lodi Winegrape Commission: Zinfandel styles (3 March 2020)"
+    url: https://www.lodiwine.com/blog/How-to-delineate-the-proliferating-styles-of-today-s-Lodi-Zinfandels
+    publisher: Lodi Winegrape Commission
+    accessed_on: 2026-09-27
+  - id: src_wset_nw_oregon_grapes
+    kind: reference_work
+    title: "Oregon Wine Board: wine varieties"
+    url: https://www.oregonwine.org/discover/oregon-wine-varieties/
+    publisher: Oregon Wine Board
+    accessed_on: 2026-09-27
+  - id: src_wset_nw_yakima
+    kind: reference_work
+    title: "Washington State Wine Commission: Yakima Valley"
+    url: https://www.washingtonwine.org/resource/yakima-valley-ava/
+    publisher: Washington State Wine Commission
+    accessed_on: 2026-09-27
+  - id: src_wset_nw_finger_riesling
+    kind: reference_work
+    title: "New York Wine and Grape Foundation: Riesling styles"
+    url: https://newyorkwines.org/trade/new-york-the-mecca-of-american-riesling/
+    publisher: New York Wine and Grape Foundation
+    accessed_on: 2026-09-27
+  - id: src_wset_nw_ontario_labels
+    kind: reference_work
+    title: "Ontario Wine Appellation Authority: wine categories and labelling"
+    url: https://vqaontario.ca/vqa-wine-program/wine-categories-and-labelling/
+    publisher: Ontario Wine Appellation Authority
+    accessed_on: 2026-09-27
+  - id: src_wset_nw_ontario_icewine
+    kind: reference_work
+    title: "Wine Country Ontario: Icewine"
+    url: https://winecountryontario.ca/icewine/
+    publisher: Wine Marketing Association of Ontario
+    accessed_on: 2026-09-27
+  - id: src_wset_nw_malbec_regions
+    kind: reference_work
+    title: "Wines of Argentina: four regional Malbec styles (14 April 2026)"
+    url: https://blog.winesofargentina.com/destacadas/argentine-malbec-4-styles/
+    publisher: Wines of Argentina
+    accessed_on: 2026-09-27
+  - id: src_wset_nw_za_wo
+    kind: reference_work
+    title: "Wines of South Africa: Wine of Origin scheme"
+    url: https://www.wosa.co.za/The-Industry/Wines-Of-Origin/Wine-Of-Origin-scheme/
+    publisher: Wines of South Africa
+    accessed_on: 2026-09-27
+  - id: src_wset_nw_cape_blend
+    kind: reference_work
+    title: "Pinotage Association: 2025 Cape Blend competition rules"
+    url: https://pinotage.co.za/wp-content/uploads/2025/07/CB-PinotageRose_rules_2025.pdf
+    publisher: Pinotage Association of South Africa
+    accessed_on: 2026-09-27
+  - id: src_wset_nw_geelong
+    kind: reference_work
+    title: "Wine Australia: geelong regional profile"
+    url: https://www.wineaustralia.com/market-insights/regions-and-varieties/victoria-wines/geelong
+    publisher: Wine Australia
+    accessed_on: 2026-09-27
+  - id: src_wset_nw_heathcote
+    kind: reference_work
+    title: "Wine Australia: heathcote regional profile"
+    url: https://www.wineaustralia.com/market-insights/regions-and-varieties/victoria-wines/heathcote
+    publisher: Wine Australia
+    accessed_on: 2026-09-27
+  - id: src_wset_nw_goulburn
+    kind: reference_work
+    title: "Wine Australia: goulburn valley regional profile"
+    url: https://www.wineaustralia.com/market-insights/regions-and-varieties/victoria-wines/goulburn-valley
+    publisher: Wine Australia
+    accessed_on: 2026-09-27
+  - id: src_wset_nw_great_southern
+    kind: reference_work
+    title: "Wine Australia: great southern regional profile"
+    url: https://www.wineaustralia.com/market-insights/regions-and-varieties/western-australia-wines/great-southern
+    publisher: Wine Australia
+    accessed_on: 2026-09-27
+  - id: src_wset_nw_riverland
+    kind: reference_work
+    title: "Wine Australia: riverland regional profile"
+    url: https://www.wineaustralia.com/market-insights/regions-and-varieties/south-australia-wines/riverland
+    publisher: Wine Australia
+    accessed_on: 2026-09-27
+  - id: src_wset_nw_riverina
+    kind: reference_work
+    title: "Wine Australia: riverina regional profile"
+    url: https://www.wineaustralia.com/market-insights/regions-and-varieties/new-south-wales-wines/riverina
+    publisher: Wine Australia
+    accessed_on: 2026-09-27
+  - id: src_wset_nw_murray_darling
+    kind: reference_work
+    title: "Wine Australia: murray darling regional profile"
+    url: https://www.wineaustralia.com/market-insights/regions-and-varieties/victoria-wines/murray-darling
+    publisher: Wine Australia
+    accessed_on: 2026-09-27
+  - id: src_wset_nw_au_water_costs
+    kind: reference_work
+    title: "Wine Australia: Murray Darling Basin irrigation benchmarking"
+    url: https://www.wineaustralia.com/research_and_innovation/projects/irrigation-benchmarking-in-the-murray-darling-basin
+    publisher: Wine Australia
+    accessed_on: 2026-09-27
+  - id: src_wset_nw_barossa_semillon
+    kind: reference_work
+    title: "Wine Australia: Barossa facilitator guide, Semillon styles"
+    url: https://www.wineaustralia.com/getmedia/d10198e8-c79a-495f-b937-d9f163bef80a/AWD_Barossa_FacilitatorGuide_1.pdf?ext=.pdf
+    publisher: Wine Australia
+    accessed_on: 2026-09-27
+knowledge_item_citations:
+  - knowledge_item_id: ki_wset_nw_california_variation
+    source_citation_id: src_reg_am_sonoma
+    locator: Overview; climate and marine influence; Sonoma is the named example, not a description of every
+      California vineyard.
+  - knowledge_item_id: ki_wset_nw_napa_cabernet
+    source_citation_id: src_wset_nw_napa_wine
+    locator: Cabernet Sauvignon; no fixed ageing duration, universal oak use or quality guarantee.
+  - knowledge_item_id: ki_wset_nw_napa_merlot
+    source_citation_id: src_wset_nw_napa_wine
+    locator: Merlot.
+  - knowledge_item_id: ki_wset_nw_napa_chardonnay
+    source_citation_id: src_wset_nw_napa_wine
+    locator: Chardonnay; choices are conditional, not mandatory practices.
+  - knowledge_item_id: ki_wset_nw_napa_sauvignon
+    source_citation_id: src_wset_nw_napa_wine
+    locator: Sauvignon Blanc; Fumé Blanc is a style association, not an origin or universal oak rule.
+  - knowledge_item_id: ki_wset_nw_oakville_setting
+    source_citation_id: src_reg_am_napa_regions
+    locator: oakville subappellation profile.
+  - knowledge_item_id: ki_wset_nw_rutherford_setting
+    source_citation_id: src_reg_am_napa_regions
+    locator: rutherford subappellation profile.
+  - knowledge_item_id: ki_wset_nw_calistoga_setting
+    source_citation_id: src_reg_am_napa_regions
+    locator: calistoga subappellation profile.
+  - knowledge_item_id: ki_wset_nw_stags_leap_setting
+    source_citation_id: src_reg_am_napa_regions
+    locator: Stags Leap District profile
+  - knowledge_item_id: ki_wset_nw_howell_setting
+    source_citation_id: src_reg_am_napa_regions
+    locator: Howell Mountain profile
+  - knowledge_item_id: ki_wset_nw_veeder_setting
+    source_citation_id: src_reg_am_napa_regions
+    locator: Mt. Veeder profile
+  - knowledge_item_id: ki_wset_nw_saint_helena_setting
+    source_citation_id: src_reg_am_napa_regions
+    locator: St. Helena profile
+  - knowledge_item_id: ki_wset_nw_sonoma_grape_sites
+    source_citation_id: src_reg_am_sonoma
+    locator: Overview; Alexander Valley, Bennett Valley, Russian River Valley and Sonoma Coast.
+  - knowledge_item_id: ki_wset_nw_dry_creek_zinfandel
+    source_citation_id: src_reg_am_sonoma
+    locator: Dry Creek Valley and overview; no assertion that every wine is concentrated.
+  - knowledge_item_id: ki_wset_nw_sonoma_coast_setting
+    source_citation_id: src_reg_am_sonoma
+    locator: Sonoma Coast; avoid universal rainfall, altitude or above-fog statements.
+  - knowledge_item_id: ki_wset_nw_santa_maria_grapes
+    source_citation_id: src_wset_nw_santa_maria
+    locator: Santa Maria Valley profile.
+  - knowledge_item_id: ki_wset_nw_mendocino_diversity
+    source_citation_id: src_wset_nw_mendocino
+    locator: "Regional press facts: grapes and wine-growing areas; county is distinct from Mendocino AVA."
+  - knowledge_item_id: ki_wset_nw_san_luis_grapes
+    source_citation_id: src_wset_nw_slo
+    locator: County overview; does not substitute SLO Coast AVA for the county.
+  - knowledge_item_id: ki_wset_nw_lodi_style_choices
+    source_citation_id: src_wset_nw_lodi_style
+    locator: Dated 2020 regional stylistic categories; no universal soil-to-flavour inference.
+  - knowledge_item_id: ki_wset_nw_oregon_chardonnay_range
+    source_citation_id: src_wset_nw_oregon_grapes
+    locator: Chardonnay section; production mechanisms are also taught in the sourced Chardonnay variation lesson.
+  - knowledge_item_id: ki_wset_nw_yakima_sites
+    source_citation_id: src_wset_nw_yakima
+    locator: Site variation and irrigation; do not apply one temperature to the whole valley.
+  - knowledge_item_id: ki_wset_nw_finger_lakes_riesling
+    source_citation_id: src_wset_nw_finger_riesling
+    locator: Riesling stylistic range; no quality ranking from promotional language.
+  - knowledge_item_id: ki_wset_nw_usa_origin_scale
+    source_citation_id: src_wset_nw_ttb_origin
+    locator: Political appellations and American Viticultural Areas.
+  - knowledge_item_id: ki_wset_nw_usa_ava_origin
+    source_citation_id: src_wset_nw_ttb_origin
+    locator: AVA source and finishing requirements; state law can add requirements.
+  - knowledge_item_id: ki_wset_nw_ontario_icewine_selection
+    source_citation_id: src_wset_nw_ontario_labels
+    locator: "Wine categories: Icewine; natural freezing rather than artificial concentration."
+  - knowledge_item_id: ki_wset_nw_ontario_icewine_style
+    source_citation_id: src_wset_nw_ontario_icewine
+    locator: Icewine overview; no fixed serving temperature or sweetness inferred for all Canadian wines.
+  - knowledge_item_id: ki_wset_nw_ontario_vqa_origins
+    source_citation_id: src_wset_nw_ontario_labels
+    locator: Origin appellations and subappellations; Ontario rules must not be generalised to British Columbia.
+  - knowledge_item_id: ki_wset_nw_bc_vqa_origin
+    source_citation_id: src_nwa_ca_bc
+    locator: "Wines of Marked Quality Regulation: BC VQA, grapes of British Columbia and geographical indications."
+  - knowledge_item_id: ki_wset_nw_central_valley_reds
+    source_citation_id: src_reg_am_chile
+    locator: Maipo, Cachapoal and Colchagua; political hierarchy separately supported by current Decreto 464.
+  - knowledge_item_id: ki_wset_nw_central_valley_whites
+    source_citation_id: src_wset_grape_chile_carmenere
+    locator: White grape overview; combined with explicit regional variability evidence, not a claim of uniform
+      Central Valley style.
+  - knowledge_item_id: ki_wset_nw_casablanca_grapes
+    source_citation_id: src_reg_am_chile
+    locator: Casablanca and regional cool-coastal grape associations; structural descriptors additionally anchored
+      to the required grape profiles.
+  - knowledge_item_id: ki_wset_nw_elqui_aridity
+    source_citation_id: src_reg_am_chile
+    locator: Elqui; no fixed temperature, irrigation prescription or guaranteed grape quality.
+  - knowledge_item_id: ki_wset_nw_leyda_coastal
+    source_citation_id: src_reg_am_chile
+    locator: Aconcagua, San Antonio and Leyda; precise legal levels are taught separately.
+  - knowledge_item_id: ki_wset_nw_curico_maule_diversity
+    source_citation_id: src_reg_am_chile
+    locator: Curicó and Maule; old-vine or dry-farmed examples are not universal regional requirements.
+  - knowledge_item_id: ki_wset_nw_chile_origin_hierarchy
+    source_citation_id: src_atlas_cl_zonation
+    locator: Decreto 464, Article 1; version 14 July 2026.
+  - knowledge_item_id: ki_wset_nw_chile_crosswise_terms
+    source_citation_id: src_atlas_cl_zonation
+    locator: Decreto 464, additional mentions and permitted comuna groupings, consolidated July 2026.
+  - knowledge_item_id: ki_wset_nw_mendoza_malbec_range
+    source_citation_id: src_wset_nw_malbec_regions
+    locator: Luján de Cuyo and Uco Valley; no automatic altitude-to-quality or limestone-to-flavour claim.
+  - knowledge_item_id: ki_wset_nw_argentina_malbec_contrasts
+    source_citation_id: src_wset_nw_malbec_regions
+    locator: Argentine Northwest and Patagonia.
+  - knowledge_item_id: ki_wset_nw_cape_blend_meaning
+    source_citation_id: src_wset_nw_cape_blend
+    locator: Page 1 and Class 1, rule 1.1; do not present the competition percentage as a universal statutory wine
+      rule.
+  - knowledge_item_id: ki_wset_nw_elgin_sauvignon
+    source_citation_id: src_diploma_za_olifants
+    locator: Elgin; grape-specific style variation is supported by the Sauvignon Blanc profile and variation lessons.
+  - knowledge_item_id: ki_wset_nw_durbanville_setting
+    source_citation_id: src_diploma_za_olifants
+    locator: Durbanville paragraph; official production-area classifications should use the current Wine and
+      Spirit Board register.
+  - knowledge_item_id: ki_wset_nw_swartland_grapes
+    source_citation_id: src_diploma_za_olifants
+    locator: Swartland; no claim that bush vines are compulsory or universally superior.
+  - knowledge_item_id: ki_wset_nw_worcester_wine_context
+    source_citation_id: src_diploma_za_olifants
+    locator: Worcester section; no assertion that all fruit is distilled or that a district name guarantees quality.
+  - knowledge_item_id: ki_wset_nw_elim_cooling
+    source_citation_id: src_diploma_za_olifants
+    locator: Elim; no guaranteed maturity or specific aroma from wind alone.
+  - knowledge_item_id: ki_wset_nw_south_africa_wo_origin
+    source_citation_id: src_wset_nw_za_wo
+    locator: Wine of Origin definition.
+  - knowledge_item_id: ki_wset_nw_south_africa_wo_levels
+    source_citation_id: src_wset_nw_za_wo
+    locator: Production area classes and Breede River Valley example.
+  - knowledge_item_id: ki_wset_nw_south_africa_estate
+    source_citation_id: src_wset_nw_za_wo
+    locator: Estate wine definition; no quality or price ranking inferred.
+  - knowledge_item_id: ki_wset_nw_murray_darling_irrigation
+    source_citation_id: src_wset_nw_murray_darling
+    locator: Climate; irrigation requirement.
+  - knowledge_item_id: ki_wset_nw_murray_darling_styles
+    source_citation_id: src_wset_nw_murray_darling
+    locator: Regional varietal summaries; low-to-mid price positioning is a tendency, not an assurance.
+  - knowledge_item_id: ki_wset_nw_riverland_styles
+    source_citation_id: src_wset_nw_riverland
+    locator: Varietal summaries and seasonal variation.
+  - knowledge_item_id: ki_wset_nw_riverina_sweet_exception
+    source_citation_id: src_wset_nw_riverina
+    locator: Semillon and climate; noble rot is conditional, not inevitable.
+  - knowledge_item_id: ki_wset_nw_riverina_dry_styles
+    source_citation_id: src_wset_nw_riverina
+    locator: Principal grapes, Chardonnay and Semillon sections.
+  - knowledge_item_id: ki_wset_nw_south_eastern_range
+    source_citation_id: src_atlas_au_gis
+    locator: "Australian GI register: South Eastern Australia zone; style references additionally use the explicit
+      inland-region lessons."
+  - knowledge_item_id: ki_wset_nw_inland_water_costs
+    source_citation_id: src_wset_nw_au_water_costs
+    locator: 2021–22 benchmarking project description and management findings; not a forecast of a current vintage
+      or grape price.
+  - knowledge_item_id: ki_wset_nw_barossa_gsm
+    source_citation_id: src_wset_nw_barossa_semillon
+    locator: "Barossa facilitator guide: Grenache and GSM; no mandatory blend proportions."
+  - knowledge_item_id: ki_wset_nw_barossa_semillon_range
+    source_citation_id: src_wset_nw_barossa_semillon
+    locator: "Barossa: best of the rest, Semillon section."
+  - knowledge_item_id: ki_wset_nw_clare_riesling_style
+    source_citation_id: src_reg_sh_clare
+    locator: Riesling varietal description; no fixed maturity or guaranteed ageing life.
+  - knowledge_item_id: ki_wset_nw_eden_riesling_setting
+    source_citation_id: src_reg_sh_eden
+    locator: Regional climate and Riesling; avoids treating altitude as a quality ranking.
+  - knowledge_item_id: ki_wset_nw_margaret_merlot_blend
+    source_citation_id: src_reg_sh_margaret
+    locator: Cabernet Sauvignon section; Merlot is a partner, not a compulsory component.
+  - knowledge_item_id: ki_wset_nw_margaret_white_range
+    source_citation_id: src_reg_sh_margaret
+    locator: Chardonnay and Semillon/Sauvignon Blanc.
+  - knowledge_item_id: ki_wset_nw_yarra_wine_range
+    source_citation_id: src_reg_sh_yarra
+    locator: Pinot Noir and Chardonnay summaries; production choices additionally anchored to required grape
+      variation lessons.
+  - knowledge_item_id: ki_wset_nw_adelaide_chardonnay
+    source_citation_id: src_reg_oa_adelaide
+    locator: Chardonnay and climate; no universal oak, acid concentration or quality ranking.
+  - knowledge_item_id: ki_wset_nw_hunter_shiraz_style
+    source_citation_id: src_reg_oa_hunter
+    locator: Shiraz; ageing depends on the particular wine and storage.
+  - knowledge_item_id: ki_wset_nw_mclaren_environment
+    source_citation_id: src_reg_oa_mclaren
+    locator: Climate and principal varieties.
+  - knowledge_item_id: ki_wset_nw_geelong_range
+    source_citation_id: src_wset_nw_geelong
+    locator: Climate, Chardonnay and Pinot Noir; individual flavour is not guaranteed.
+  - knowledge_item_id: ki_wset_nw_heathcote_shiraz
+    source_citation_id: src_wset_nw_heathcote
+    locator: Climate and Shiraz; no soil-to-flavour guarantee.
+  - knowledge_item_id: ki_wset_nw_goulburn_heat_water
+    source_citation_id: src_wset_nw_goulburn
+    locator: Climate and principal wine styles.
+  - knowledge_item_id: ki_wset_nw_great_southern_sites
+    source_citation_id: src_wset_nw_great_southern
+    locator: Climate and regional varieties; no separate requirement claim for those optional subregions.
+  - knowledge_item_id: ki_wset_nw_great_southern_styles
+    source_citation_id: src_wset_nw_great_southern
+    locator: Riesling, Cabernet and Shiraz summaries.
+  - knowledge_item_id: ki_wset_nw_australia_gi_levels
+    source_citation_id: src_atlas_au_gis
+    locator: Official GI hierarchy, South Australia and New South Wales entries.
+  - knowledge_item_id: ki_wset_nw_marlborough_sauvignon_style
+    source_citation_id: src_nwc_nz_marlborough
+    locator: Sauvignon Blanc and regional climate.
+  - knowledge_item_id: ki_wset_nw_marlborough_chardonnay_range
+    source_citation_id: src_nwc_nz_marlborough
+    locator: Chardonnay section.
+  - knowledge_item_id: ki_wset_nw_marlborough_pinot_style
+    source_citation_id: src_nwc_nz_marlborough
+    locator: Pinot Noir section.
+  - knowledge_item_id: ki_wset_nw_marlborough_aromatics
+    source_citation_id: src_nwc_nz_marlborough
+    locator: Aromatics section; not all regional whites are Sauvignon or dry.
+  - knowledge_item_id: ki_wset_nw_hawkes_cab_merlot
+    source_citation_id: src_reg_sh_hawkes
+    locator: Merlot and Cabernet-family reds; no guaranteed full ripeness.
+  - knowledge_item_id: ki_wset_nw_hawkes_chardonnay
+    source_citation_id: src_reg_sh_hawkes
+    locator: Chardonnay summary.
+  - knowledge_item_id: ki_wset_nw_hawkes_syrah_pinot_gris
+    source_citation_id: src_reg_sh_hawkes
+    locator: Syrah and Pinot Gris summaries.
+  - knowledge_item_id: ki_wset_nw_martinborough_pinot_style
+    source_citation_id: src_reg_sh_wairarapa
+    locator: Martinborough growing setting and Pinot Noir style.
+  - knowledge_item_id: ki_wset_nw_otago_pinot_style
+    source_citation_id: src_nwc_nz_otago
+    locator: Pinot Noir; Gibbston and Bannockburn climate contrast.
+  - knowledge_item_id: ki_wset_nw_otago_aromatics
+    source_citation_id: src_nwc_nz_otago
+    locator: Aromatics section.
+  - knowledge_item_id: ki_wset_nw_nelson_wine_styles
+    source_citation_id: src_reg_oa_nelson
+    locator: Pinot Noir, Sauvignon Blanc, Chardonnay and Pinot Gris summaries.
+  - knowledge_item_id: ki_wset_nw_gisborne_wine_styles
+    source_citation_id: src_reg_oa_gisborne
+    locator: Regional climate, Chardonnay, aromatics and Merlot.
+  - knowledge_item_id: ki_wset_nw_canterbury_style_range
+    source_citation_id: src_reg_oa_canterbury
+    locator: North Canterbury regional style and site examples; Canterbury GI and North Canterbury GI boundaries
+      are distinct.
+  - knowledge_item_id: ki_wset_nw_california_zinfandel_range
+    source_citation_id: src_wset_nw_napa_wine
+    locator: "Zinfandel: stylistic range and White Zinfandel; Napa is the explicit regional example."
+  - knowledge_item_id: ki_wset_nw_clare_riesling_style
+    source_citation_id: src_wset_grape_wa_riesling
+    locator: Australian Riesling regional dry styles, citrus character and bottle development; complements the
+      Clare Valley site profile.

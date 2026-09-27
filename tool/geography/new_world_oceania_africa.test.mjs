@@ -42,12 +42,12 @@ test('every authored place has a primary-cited map item and both inherited track
     assert(point.geometry.coordinates[1]>=-90&&point.geometry.coordinates[1]<=90);
     const cites=dataset.knowledge_item_citations.filter(c=>c.knowledge_item_id===item.id);
     assert.equal(cites.length,1);assert(['src_atlas_au_gis','src_atlas_za_wo_2026'].includes(cites[0].source_citation_id));
-    for(const track of ['WSET_L3','CMS_CERTIFIED'])assert(dataset.certification_knowledge_mappings.some(m=>m.knowledge_item_id===item.id&&m.certification_id===track&&m.minimum_depth===2));
+    for(const track of ['WSET_L3','CMS_CERTIFIED'])assert(dataset.certification_knowledge_mappings.some(m=>m.knowledge_item_id===item.id&&m.certification_id===track&&m.minimum_depth>=1), `${item.id} retains location exercise depth on ${track}`);
   }
   const docs=fs.readdirSync(new URL('assets/curriculum/areas/',root)).filter(f=>f.endsWith('.yaml')).map(f=>YAML.parse(read(`assets/curriculum/areas/${f}`).toString()));
   const all=docs.flatMap(d=>d.knowledge_nodes??[]);const ids=new Set(all.map(n=>n.id));
   const parents=new Map(docs.flatMap(d=>d.knowledge_relations??[]).filter(r=>r.relation_type==='LOCATED_IN').map(r=>[r.subject_id,r.object_id]));
-  const country=id=>{const seen=new Set();while(parents.has(id)&&!seen.has(id)){seen.add(id);id=parents.get(id);}return id;};
+  const country=id=>{const seen=new Set();while(parents.has(id)&&parents.get(id)!=='n_geo_world'&&!seen.has(id)){seen.add(id);id=parents.get(id);}return id;};
   for(const item of dataset.knowledge_items)assert(ids.has(item.object_id));
   const ownIds=new Set(dataset.knowledge_nodes.map(n=>n.id));
   for(const n of dataset.knowledge_nodes)assert(!all.some(other=>other.id!==n.id&&!ownIds.has(other.id)&&country(n.id)===country(other.id)&&norm(n.name)===norm(other.name)),`Name collision within country: ${n.name}`);

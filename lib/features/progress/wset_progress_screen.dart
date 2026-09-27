@@ -8,6 +8,9 @@ import '../../core/progress/progress_providers.dart';
 import '../../core/progress/wset_progress.dart';
 import '../../core/study/study_providers.dart';
 import '../practice/study_session_controller.dart';
+import '../rehearsal/rehearsal_screen.dart';
+import '../tasting_guidance/guided_tasting_screen.dart';
+import '../tasting_pair/tasting_pair_screen.dart';
 
 class WsetProgressScreen extends ConsumerWidget {
   const WsetProgressScreen({super.key});
@@ -96,13 +99,18 @@ class _LevelSectionState extends ConsumerState<_LevelSection> {
     }
   }
 
-  Future<void> _study(WsetLevelProgress target) async {
+  Future<void> _study(WsetLevelProgress target, {Set<String>? itemIds}) async {
     setState(() => _starting = true);
     try {
       await ref
           .read(learnerProfilesProvider)
           .selectTrack(target.scope.certificationId);
-      await ref.read(studySessionProvider.notifier).start();
+      final focus =
+          itemIds ??
+          (target.scope.requirements.isEmpty
+              ? null
+              : target.scope.requiredItemIds);
+      await ref.read(studySessionProvider.notifier).start(itemIds: focus);
       if (mounted) {
         final router = GoRouter.of(context);
         Navigator.of(context).pop();
@@ -121,10 +129,31 @@ class _LevelSectionState extends ConsumerState<_LevelSection> {
     }
   }
 
+  Future<void> _practice(Widget screen) async {
+    setState(() => _starting = true);
+    try {
+      await ref
+          .read(learnerProfilesProvider)
+          .selectTrack(widget.level.scope.certificationId);
+      if (mounted) {
+        await Navigator.of(context)
+            .push<void>(MaterialPageRoute(builder: (_) => screen));
+      }
+    } catch (error) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Practice could not open: $error')),
+        );
+      }
+    } finally {
+      if (mounted) setState(() => _starting = false);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final level = widget.level;
-    final counts = level.counts;
+    final counts = level.milestoneCounts;
     final theme = Theme.of(context);
     final target = level.selectable
         ? level
@@ -156,6 +185,13 @@ class _LevelSectionState extends ConsumerState<_LevelSection> {
               style: theme.textTheme.labelLarge,
             ),
             const SizedBox(height: 12),
+            if (level.requiredCounts != null) ...[
+              const Text('Required study topics'),
+              const Text(
+                'These bars use the lessons assigned to this level’s study requirements. Optional atlas and extension material are tracked separately.',
+              ),
+              const SizedBox(height: 8),
+            ],
             if (counts.available == 0)
               const Text(
                 'Study material not yet available. Progress starts when this level has material to practise.',
@@ -190,6 +226,47 @@ class _LevelSectionState extends ConsumerState<_LevelSection> {
                   '${counts.unavailable} cannot yet be practised. They are excluded from the available-material bars and still count as coverage gaps.',
                 ),
               ),
+            if (level.optionalCounts case final optional?) ...[
+              const SizedBox(height: 8),
+              Text(
+                'Optional material: ${optional.studied}/${optional.available} studied · ${optional.mastered} mastered. It does not block this level’s study milestone.',
+              ),
+            ],
+            if (level.requirements.isNotEmpty)
+              ExpansionTile(
+                tilePadding: EdgeInsets.zero,
+                title: Text(
+                  'Study requirements · ${level.requirements.where((row) => row.complete).length}/${level.requirements.length} mastered',
+                ),
+                children: [
+                  for (final row in level.requirements)
+                    ListTile(
+                      key: ValueKey(
+                        'wset_topic_${level.scope.certificationId}_${row.requirement.id}',
+                      ),
+                      contentPadding: EdgeInsets.zero,
+                      title: Text(row.requirement.title),
+                      subtitle: Text(
+                        '${row.counts.studied}/${row.counts.mapped} studied · ${row.counts.mastered} mastered · ${row.counts.unavailable} unavailable${row.requirement.reviewed ? '' : ' · scope review pending'}',
+                      ),
+                      leading: Icon(
+                        row.complete
+                            ? Icons.check_circle_outline
+                            : Icons.circle_outlined,
+                      ),
+                      trailing: row.counts.available > 0 && level.selectable
+                          ? const Icon(Icons.play_arrow)
+                          : null,
+                      onTap:
+                          _starting ||
+                              !level.selectable ||
+                              row.counts.available == 0
+                          ? null
+                          : () =>
+                                _study(level, itemIds: row.requirement.itemIds),
+                    ),
+                ],
+              ),
             CheckboxListTile(
               contentPadding: EdgeInsets.zero,
               value: level.examPassed,
@@ -202,6 +279,79 @@ class _LevelSectionState extends ConsumerState<_LevelSection> {
               ),
               controlAffinity: ListTileControlAffinity.leading,
             ),
+            if (!level.scope.practice.isEmpty) ...[
+              const SizedBox(height: 16),
+              Text('Recorded practice', style: theme.textTheme.titleMedium),
+              const Text(
+                'Participation and saved evidence are separate from fact memory. These activities do not award an official score or pass.',
+              ),
+              if (level.scope.practice.rehearsal)
+                Text(
+                  'Complete original rehearsals: ${level.practiceEvidence.rehearsals} · all multiple-choice questions answered',
+                ),
+              if (level.scope.practice.writtenReview)
+                Text(
+                  'Written rehearsals reviewed: ${level.practiceEvidence.writtenReviews} · four saved responses and explicit self-review',
+                ),
+              Text(
+                'Distinct calibration cases saved with evidence: ${level.practiceEvidence.calibrationCases}/${level.scope.practice.calibrationCases}',
+              ),
+              if (level.scope.practice.physicalWines > 0)
+                Text(
+                  'Physical wines described with evidence: ${level.practiceEvidence.physicalWines}/${level.scope.practice.physicalWines}',
+                ),
+              if (level.scope.practice.physicalWines == 0 &&
+                  !level.scope.practice.pairedTasting)
+                Text(
+                  'Optional physical wine practice: ${level.practiceEvidence.physicalWines} saved. Fictional calibration cases can complete this app practice requirement.',
+                ),
+              if (level.scope.practice.pairedTasting)
+                Text(
+                  'Two-wine practices fully described: ${level.practiceEvidence.pairedTastings} · both wines and their evidence completed',
+                ),
+              if (level.practiceEvidence.unreadableRecords > 0)
+                const Text(
+                  'Some saved practice records could not be read. Other valid history remains included.',
+                ),
+              if (level.selectable)
+                Wrap(
+                  spacing: 8,
+                  runSpacing: 8,
+                  children: [
+                    TextButton(
+                      onPressed: _starting
+                          ? null
+                          : () => _practice(
+                              RehearsalScreen(
+                                initialLevel: int.parse(
+                                  level.scope.certificationId.substring(6),
+                                ),
+                              ),
+                            ),
+                      child: const Text('Open rehearsal'),
+                    ),
+                    TextButton(
+                      onPressed: _starting
+                          ? null
+                          : () => _practice(
+                              GuidedTastingScreen(
+                                initialLevel: int.parse(
+                                  level.scope.certificationId.substring(6),
+                                ),
+                              ),
+                            ),
+                      child: const Text('Open guided tasting'),
+                    ),
+                    if (level.scope.practice.pairedTasting)
+                      TextButton(
+                        onPressed: _starting
+                            ? null
+                            : () => _practice(const TastingPairScreen()),
+                        child: const Text('Open two-wine practice'),
+                      ),
+                  ],
+                ),
+            ],
             if (level.nextItems.isNotEmpty) ...[
               const SizedBox(height: 8),
               Text('Next to study', style: theme.textTheme.titleMedium),

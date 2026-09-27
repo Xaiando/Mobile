@@ -30,6 +30,7 @@ void main() {
       'Burgundy',
       'Chablis wine area',
       'France',
+      'World',
     ]);
     final volnay = await graph.ancestors('n_geo_volnay');
     expect(
@@ -37,13 +38,14 @@ void main() {
       containsAll(['Côte de Beaune', 'Burgundy', 'France']),
     );
     expect(volnay.first.name, 'Côte de Beaune');
-    expect(volnay.last.name, 'France');
+    expect(volnay.last.name, 'World');
     expect(
       volnay.map((node) => node.depth).toList(),
       orderedEquals(volnay.map((node) => node.depth).toList()..sort()),
     );
     expect(volnay.singleWhere((node) => node.name == 'Burgundy').depth, 2);
-    expect(volnay.last.depth, 3);
+    expect(volnay.singleWhere((node) => node.name == 'France').depth, 3);
+    expect(volnay.last.depth, 4);
   });
 
   test('descendants walk down, nearest first', () async {
@@ -108,6 +110,7 @@ void main() {
       'Burgundy',
       'Chablis wine area',
       'France',
+      'World',
     ]);
   });
 

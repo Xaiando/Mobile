@@ -115,6 +115,36 @@ void main() {
     'short_answer',
   ];
 
+  test('numeric is structured practice for young and maturing items', () {
+    final numeric = appFormats.require('numeric');
+    expect(numeric.family, FormatFamily.structured);
+    expect(numeric.isObjective, isTrue);
+    final served = card(['mcq', 'flashcard', 'numeric']).formats;
+    expect(StudyPlanner.servedFormats(served, 1).map((f) => f.mode), ['mcq']);
+    expect(
+      StudyPlanner.servedFormats(served, 2).map((f) => f.mode),
+      contains('numeric'),
+    );
+    expect(draws(card(['mcq', 'flashcard', 'numeric'])).keys, ['mcq']);
+    for (final band in [MemoryBand.young, MemoryBand.maturing]) {
+      expect(
+        draws(card(['mcq', 'numeric'], band: band), ladder: noRandomDraw).keys,
+        ['numeric'],
+      );
+    }
+    expect(
+      draws(
+        card(
+          ['mcq', 'flashcard', 'numeric'],
+          band: MemoryBand.young,
+          last: 'numeric',
+        ),
+        ladder: noRandomDraw,
+      ).keys,
+      ['flashcard'],
+    );
+  });
+
   group('the bands (question-system §5)', () {
     test('follow stability: 7 and 30 days', () {
       expect(MemoryBand.of(null), MemoryBand.learning);

@@ -58,6 +58,7 @@ void main() {
         'ml_france_atlas_completion_markers',
         'ml_france_atlas_completion_cadastre_markers',
         'ml_france_atlas_completion_reference_markers',
+        'ml_vino_nobile_pievi_markers',
         'ml_europe_atlas_completion_markers',
         'ml_new_world_atlas_completion_markers',
         'ml_new_world_atlas_completion_gazetteer_markers',
@@ -70,6 +71,12 @@ void main() {
         'ml_new_world_oceania_africa_gazetteer_markers',
         'ml_new_world_americas_markers',
         'ml_new_world_americas_gazetteer_markers',
+        'ml_soave_uga_wikidata_markers',
+        'ml_soave_uga_geonames_markers',
+        'ml_alto_adige_uga_geonames_markers',
+        'ml_wset_required_gazetteer',
+        'ml_wset_required_ava',
+        'ml_world_land',
       ]);
       final featureKeys = <String>[];
       for (final layer in dataset.mapLayers) {

@@ -22,6 +22,14 @@ import 'package:sommelier/core/geography/hit_test.dart';
 import 'package:sommelier/core/geography/topojson.dart';
 import 'package:sommelier/core/geography/web_mercator.dart';
 import 'package:sommelier/core/questions/question_presenter.dart';
+import 'package:sommelier/core/questions/exercise_presenter.dart';
+import 'package:sommelier/core/questions/formats/map/map_exercise.dart';
+import 'package:sommelier/core/questions/formats/map_locate/map_locate_format.dart';
+import 'package:sommelier/core/progress/wset_progress.dart';
+import 'package:sommelier/core/progress/wset_scope.dart';
+import 'package:sommelier/core/rehearsal/rehearsal.dart';
+import 'package:sommelier/core/tasting_guidance/guided_tasting.dart';
+import 'package:sommelier/core/tasting_pair/tasting_pair.dart';
 import 'package:sommelier/core/study/learner_profile.dart';
 import 'package:sommelier/core/study/review_service.dart';
 import 'package:sommelier/core/study/scheduler_config.dart';
@@ -84,6 +92,7 @@ Future<void> main() async {
     // The map layers came in with the release: a layer asset parses, and a
     // map question about Chablis is framed (geography §5).
     result['mapLayers'] = await count(db, 'map_layers');
+    result['bundleMapLayers'] = bundle.mapLayers.length;
     final appellations = Topology.parse(
       utf8.decode(
         await readBundledAsset('assets/geography/fr_appellations.topo.json'),
@@ -92,25 +101,51 @@ Future<void> main() async {
     result['chablisFeature'] = appellations.objects.values.any(
       (features) => features.any((f) => f.id == 'n_geo_chablis'),
     );
-    result['chablisFrame'] = (await GeometryRepository(
-      db,
-    ).frameOf('n_geo_chablis'))?.parent.id;
-    // A tap on Chablis's label point hits Chablis (G4): the map question's
-    // hit test, in the browser.
+    final mapQuestion = await ExercisePresenter(db).present(
+      'ki_chablis_location',
+      'qt_located_in_fwd_map_locate',
+      seed: 7,
+    ) as MapExercise;
+    result['chablisFrame'] = mapQuestion.frame.parent.id;
+    // Use the quiz's actual candidates and overlap-aware answer conversion.
+    // A smaller appellation under the label cannot make its containing
+    // requested target unreachable (G4, GEO-16).
     final label = (await GeometryRepository(db)
         .labelPointsIn('ml_fr_appellations'))['n_geo_chablis']!;
     final shapes = GeoLayer.fromTopology(
       appellations,
       id: 'ml_fr_appellations',
     ).shapes;
-    result['chablisTap'] = const MapHitTester()
-        .hitTest(
-          shapes,
-          WebMercator.project(LonLat(label.lon, label.lat)),
-          20000,
-        )
-        .firstOrNull
-        ?.key;
+    final position = LonLat(label.lon, label.lat);
+    final hits = const MapHitTester().hitTest(
+      shapes.where((shape) => mapQuestion.candidateIds.contains(shape.key)),
+      WebMercator.project(position),
+      20000,
+    );
+    final box = mapQuestion.frame.box;
+    final mapAnswer = MapLocateAnswer.fromTap(
+      MapTap(
+        position: position,
+        hits: hits,
+        zoom: log(20000 / 256) / ln2,
+        visibleBounds: GeoBounds(
+          minLon: box.minLon,
+          minLat: box.minLat,
+          maxLon: box.maxLon,
+          maxLat: box.maxLat,
+        ),
+      ),
+      preferredNodeIds: mapQuestion.correctNodeIds,
+    );
+    result['chablisTap'] = mapAnswer.nodeId;
+    result['chablisTapInside'] = hits.any(
+      (hit) => hit.key == mapQuestion.nodeId && hit.kind == HitKind.inside,
+    );
+    result['chablisTapRating'] = const MapLocateFormat()
+        .grade(mapQuestion, mapAnswer)
+        .single
+        .rating
+        .name;
     result['relations'] = await count(db, 'knowledge_relations');
     // Phase 2: questions are generated during ingestion and presented with
     // a seed: four distinct options.
@@ -124,6 +159,189 @@ Future<void> main() async {
     // Phase 3: a learner picks a track, plans a session and answers a card.
     // The memory state must round-trip exactly: doubles and UTC instants.
     await ensureSchedulerConfig(db);
+    // All lower tracks and the actual original practice assets must work
+    // through the browser's WASM database, not only a native fixture.
+    final rehearsals = RehearsalRepository(
+      db,
+      bank: RehearsalBank.fromJson(
+        utf8.decode(await readBundledAsset('assets/study/wset_rehearsal.json')),
+      ),
+      random: Random(91),
+    );
+    final guidance = GuidedTastingRepository(
+      db,
+      bank: GuidedTastingBank.fromJson(
+        utf8.decode(await readBundledAsset('assets/study/guided_tasting.json')),
+      ),
+    );
+    final sizes = <int>[];
+    final memoryStatesBeforePractice = await count(db, 'review_states');
+    final memoryEventsBeforePractice = await count(db, 'review_events');
+    var calibrations = 0;
+    for (var level = 1; level <= 3; level++) {
+      await LearnerProfiles(db).selectTrack('WSET_L$level');
+      final attempt = await rehearsals.start(level);
+      sizes.add(attempt.mcqs.length);
+      if (level == 3) result['writtenPrompts'] = attempt.written.length;
+      await rehearsals.finish(attempt.id);
+      final calibration = guidance.bank.cases.firstWhere(
+        (c) => c.level == level,
+      );
+      final record = await guidance.start(level, caseId: calibration.id);
+      if (record.calibration?.id == calibration.id) calibrations++;
+      if (level == 1) {
+        // Use the fictional case's authored reference vocabulary to fill the
+        // complete real grid. Finishing exercises recorder completion inside
+        // guided completion; it provides no objective wine grade or card review.
+        final grid = await guidance.layout(record);
+        final required = grid.attributes.where((a) => a.attribute.isRequired);
+        for (final attribute in required) {
+          final reference = calibration.referenceObservations.singleWhere(
+            (observation) => observation.attributeKey == attribute.key,
+          );
+          await guidance.choose(
+            record.sessionId,
+            attribute.key,
+            attribute.isSingle
+                ? {reference.valueKeys.first}
+                : reference.valueKeys.toSet(),
+          );
+        }
+        for (final prompt in record.level.evidencePrompts) {
+          await guidance.evidence(
+            record.sessionId,
+            prompt.id,
+            'Original fictional evidence: ${calibration.description}',
+          );
+        }
+        final completed = await guidance.finish(record.sessionId);
+        result['calibrationFinished'] =
+            completed.isFinished && completed.calibration?.id == calibration.id;
+        result['calibrationRequiredObservationsComplete'] =
+            required.isNotEmpty &&
+            required.every(
+              (attribute) =>
+                  (completed.completedObservations[attribute.key] ?? <String>{})
+                      .isNotEmpty,
+            );
+        result['calibrationEvidenceComplete'] = record.level.evidencePrompts
+            .every(
+              (prompt) =>
+                  (completed.evidence[prompt.id] ?? '').trim().isNotEmpty,
+            );
+      }
+      await guidance.leaveCurrent();
+    }
+    result['rehearsalSizes'] = sizes.join(',');
+    result['calibrationsStarted'] = calibrations;
+    result['calibrationNoMemoryChanges'] =
+        await count(db, 'review_states') == memoryStatesBeforePractice &&
+        await count(db, 'review_events') == memoryEventsBeforePractice;
+    // Two detached physical observations must be created atomically on the
+    // actual WASM backend. This catches nested transaction failures that a
+    // native database alone cannot reproduce. Preserve a standalone draft.
+    final standalone = await guidance.start(3);
+    final standaloneGrid = await guidance.layout(standalone);
+    final standaloneAttribute = standaloneGrid.attributes.first;
+    final standaloneValue = standaloneAttribute.values.first.valueKey;
+    await guidance.choose(standalone.sessionId, standaloneAttribute.key, {
+      standaloneValue,
+    });
+    await guidance.evidence(
+      standalone.sessionId,
+      standalone.level.evidencePrompts.first.id,
+      'WASM standalone physical observation remains a separate draft.',
+    );
+    final standaloneObservations = await guidance.observations(standalone);
+    result['standaloneObservationStored'] =
+        standaloneObservations[standaloneAttribute.key]?.length == 1 &&
+        standaloneObservations[standaloneAttribute.key]!.contains(
+          standaloneValue,
+        );
+    final memoryStatesBeforePair = await count(db, 'review_states');
+    final memoryEventsBeforePair = await count(db, 'review_events');
+    final pairs = TastingPairRepository(db, guidance: guidance);
+    final pair = await pairs.start();
+    result['pairedWines'] = pair.wines.length;
+    result['pairedDistinctWines'] =
+        pair.wines.map((wine) => wine.sessionId).toSet().length == 2 &&
+        pair.wines.every((wine) => wine.sessionId != standalone.sessionId);
+    result['pairedDeadlineSeconds'] = pair.deadline
+        .difference(pair.startedAt)
+        .inSeconds;
+    result['pairedStandalonePreserved'] =
+        (await guidance.current())?.sessionId == standalone.sessionId;
+    final wine2 = pair.wines[1];
+    final evidencePrompt = wine2.level.evidencePrompts.first.id;
+    const pairedEvidence = 'WASM Wine 2 evidence stays separate from Wine 1.';
+    final pairAttribute = wine2.attributes.first;
+    final pairValue = pairAttribute.values.first.key;
+    await pairs.choose(pair.id, wine2.sessionId, pairAttribute.key, {
+      pairValue,
+    });
+    await pairs.evidence(
+      pair.id,
+      wine2.sessionId,
+      evidencePrompt,
+      pairedEvidence,
+    );
+    final savedPair = await pairs.read(pair.id);
+    result['pairedObservationStored'] =
+        savedPair.wines[1].observations[pairAttribute.key]?.length == 1 &&
+        savedPair.wines[1].observations[pairAttribute.key]!.contains(
+          pairValue,
+        ) &&
+        savedPair.wines[0].observations.isEmpty;
+    result['pairedWine2EvidenceRestored'] =
+        savedPair.wines[1].evidence[evidencePrompt] == pairedEvidence;
+    result['pairedWine1EvidenceEmpty'] = savedPair.wines[0].evidence.isEmpty;
+    final finishedPair = await pairs.finish(pair.id);
+    result['pairedFinished'] = finishedPair.isFinished;
+    result['pairedFinishReason'] = finishedPair.finishReason;
+    result['pairedCompletedWines'] = finishedPair.completeWineCount;
+    final detachedRecords = [
+      for (final wine in finishedPair.wines)
+        await guidance.read(wine.sessionId),
+    ];
+    result['pairedDetachedDrafts'] = detachedRecords.every(
+      (record) => record.level.level == 3 && !record.isFinished,
+    );
+    result['pairedCompletionOnly'] =
+        finishedPair.completeWineCount == 0 &&
+        !finishedPair.toJson().keys.any(
+          (key) => const {
+            'grade',
+            'score',
+            'pass',
+            'passed',
+            'rating',
+          }.contains(key),
+        );
+    result['pairedNoMemoryChanges'] =
+        await count(db, 'review_states') == memoryStatesBeforePair &&
+        await count(db, 'review_events') == memoryEventsBeforePair;
+    result['practiceNoMemoryChanges'] =
+        await count(db, 'review_states') == memoryStatesBeforePractice &&
+        await count(db, 'review_events') == memoryEventsBeforePractice;
+    final scope = WsetScope.fromJson(
+      utf8.decode(await readBundledAsset('assets/progress/wset_scope.json')),
+    );
+    final progress = await WsetProgressRepository(db, scope: scope).snapshot();
+    result['calibrationCompletedParticipation'] = progress.levels
+        .singleWhere((level) => level.scope.certificationId == 'WSET_L1')
+        .practiceEvidence
+        .calibrationCases;
+    result['pairedIncompleteActivity'] = progress.levels
+        .singleWhere((level) => level.scope.certificationId == 'WSET_L3')
+        .practiceEvidence
+        .pairedTastings;
+    result['requiredUnavailable'] = progress.levels
+        .take(3)
+        .fold<int>(0, (sum, level) => sum + level.requiredCounts!.unavailable);
+    result['lowerTracks'] = progress.levels
+        .take(3)
+        .where((l) => l.selectable)
+        .length;
     await LearnerProfiles(db).selectTrack('WSET_L3');
     final planner = StudyPlanner(db);
     final plan = (await planner.plan())!;

@@ -1,0 +1,50 @@
+{
+  "reviewedOn": "2026-09-27",
+  "pack": "assets/curriculum/areas/wset_service_advice_closure.yaml",
+  "lowestLevel": 3,
+  "semanticCompletionClaim": false,
+  "sourceScopeUrl": "https://www.wsetglobal.com/media/11731/wset_l3wines_specification_en_highres_may2022_issue2.pdf",
+  "sourceScopeLocator": "Unit 1 LO5 Ranges 1 and 3, printed19/PDF20",
+  "sourceDependency": "src_wset_sfault_l3_spec in wset_service_fault_closure.yaml (freeze/register both)",
+  "requirementRepairs": [
+    {
+      "id": "wine_service_pairing_preference",
+      "dimension": "service",
+      "certificationId": "WSET_L3",
+      "addItemIds": [
+        "ki_wset_sadvice_selection_context"
+      ]
+    },
+    {
+      "id": "wine_service_food_bitterness",
+      "dimension": "service",
+      "certificationId": "WSET_L3",
+      "addItemIds": [
+        "ki_wset_sadvice_food_bitterness",
+        "ki_wset_srv_food_umami_bitter",
+        "ki_wset_srv_food_salt_soft"
+      ]
+    },
+    {
+      "id": "wine_service_food_intensity",
+      "dimension": "service",
+      "certificationId": "WSET_L3",
+      "addItemIds": [
+        "ki_wset_sadvice_complexity_fruitiness"
+      ]
+    }
+  ],
+  "newItemIds": [
+    "ki_wset_sadvice_food_bitterness",
+    "ki_wset_sadvice_selection_context",
+    "ki_wset_sadvice_complexity_fruitiness"
+  ],
+  "newSources": 0,
+  "reviewCaveats": [
+    "No universal bitterness additivity or one perfect pairing is asserted.",
+    "Consider food bitterness itself; existing sweet/umami lessons describe changed wine bitterness instead.",
+    "Examples of occasion are app-authored, not official sample questions.",
+    "Complexity, fruitiness and intensity are distinct assessment considerations, not a forced ranking."
+  ]
+}
+

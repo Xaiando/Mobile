@@ -194,10 +194,12 @@ void main() {
       expect(await templatesOf('ki_barolo_min_ageing'), [
         'qt_min_ageing_fwd_flashcard',
         'qt_min_ageing_fwd_mcq',
+        'qt_min_ageing_fwd_numeric',
         'qt_min_ageing_rev_flashcard',
         'qt_min_ageing_rev_mcq',
       ]);
       expect(await templatesOf('ki_champagne_min_ageing'), [
+        'qt_champagne_min_ageing_fwd_numeric',
         'qt_min_ageing_fwd_flashcard',
         'qt_min_ageing_fwd_mcq',
       ]);

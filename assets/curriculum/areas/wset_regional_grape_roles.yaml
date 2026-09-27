@@ -1,0 +1,996 @@
+knowledge_nodes:
+  - id: n_grape_dornfelder
+    node_type: grape
+    name: Dornfelder
+  - id: n_grape_welschriesling
+    node_type: grape
+    name: Welschriesling
+  - id: n_grape_saint_laurent
+    node_type: grape
+    name: Saint Laurent (Sankt Laurent)
+  - id: n_grape_arinto
+    node_type: grape
+    name: Arinto
+  - id: n_grape_alfrocheiro
+    node_type: grape
+    name: Alfrocheiro
+  - id: n_grape_trincadeira
+    node_type: grape
+    name: Trincadeira (Tinta Amarela)
+  - id: n_grape_bonarda_argentina
+    node_type: grape
+    name: Bonarda (Argentina)
+  - id: n_grape_zweigelt
+    node_type: grape
+    name: Zweigelt
+  - id: n_wset_role_principle_dornfelder_style
+    node_type: production_principle
+    name: What styles and places should be associated with Dornfelder in Germany?
+  - id: n_wset_role_point_dornfelder_style
+    node_type: learning_point
+    name: Deep colour, fruit and different cellar choices
+  - id: n_wset_role_principle_dornfelder_vine
+    node_type: production_principle
+    name: Why does Dornfelder’s productive growth need management?
+  - id: n_wset_role_point_dornfelder_vine
+    node_type: learning_point
+    name: Productive growth and site selection
+  - id: n_wset_role_principle_welschriesling_dry
+    node_type: production_principle
+    name: How does Austrian Welschriesling contribute to a dry wine or blend?
+  - id: n_wset_role_point_welschriesling_dry
+    node_type: learning_point
+    name: Fresh acid-driven white style
+  - id: n_wset_role_principle_welschriesling_sweet
+    node_type: production_principle
+    name: Why can Welschriesling suit sweet Burgenland wines as well as simple dry whites?
+  - id: n_wset_role_point_welschriesling_sweet
+    node_type: learning_point
+    name: Sweet concentration balanced by acidity
+  - id: n_wset_role_principle_saint_laurent
+    node_type: production_principle
+    name: What does Saint Laurent contribute to Austrian red wine?
+  - id: n_wset_role_point_saint_laurent
+    node_type: learning_point
+    name: Morello fruit and velvety tannin
+  - id: n_wset_role_principle_arinto
+    node_type: production_principle
+    name: Why is Arinto a useful Portuguese white blending variety?
+  - id: n_wset_role_point_arinto
+    node_type: learning_point
+    name: Acid retention in warm conditions
+  - id: n_wset_role_principle_alfrocheiro
+    node_type: production_principle
+    name: What does Alfrocheiro contribute to Dão and warmer Portuguese blends?
+  - id: n_wset_role_point_alfrocheiro
+    node_type: learning_point
+    name: Colour, ripe tannins and acidity
+  - id: n_wset_role_principle_jaen_identity
+    node_type: production_principle
+    name: Which grape identity should be used for Portuguese Jaen in Dão?
+  - id: n_wset_role_point_jaen_identity
+    node_type: learning_point
+    name: Portuguese Jaen and Spanish Mencía
+  - id: n_wset_role_principle_jaen_blend
+    node_type: production_principle
+    name: How can Jaen complement a structured Dão red blend?
+  - id: n_wset_role_point_jaen_blend
+    node_type: learning_point
+    name: Fragrant softer contribution
+  - id: n_wset_role_principle_trincadeira_style
+    node_type: production_principle
+    name: What does Trincadeira add to Portuguese red blends?
+  - id: n_wset_role_point_trincadeira_style
+    node_type: learning_point
+    name: Raspberry, spice and acidity
+  - id: n_wset_role_principle_trincadeira_vine
+    node_type: production_principle
+    name: Why do hot dry sites and canopy control matter for Trincadeira?
+  - id: n_wset_role_point_trincadeira_vine
+    node_type: learning_point
+    name: Disease sensitivity and vigorous canopy
+  - id: n_wset_role_principle_bonarda_identity
+    node_type: production_principle
+    name: Why should Argentine Bonarda not be confused with every Italian Bonarda?
+  - id: n_wset_role_point_bonarda_identity
+    node_type: learning_point
+    name: Qualified Argentine identity
+  - id: n_wset_role_principle_bonarda_style
+    node_type: production_principle
+    name: What role does Bonarda play in Argentine wine styles?
+  - id: n_wset_role_point_bonarda_style
+    node_type: learning_point
+    name: Warm-region fruit and varied expressions
+  - id: n_wset_role_principle_petit_verdot
+    node_type: production_principle
+    name: How does Petit Verdot contribute to a Bordeaux blend?
+  - id: n_wset_role_point_petit_verdot
+    node_type: learning_point
+    name: Late ripening, colour and structural intensity
+  - id: n_wset_role_principle_graciano
+    node_type: production_principle
+    name: Why can Graciano be useful beside Tempranillo in Rioja?
+  - id: n_wset_role_point_graciano
+    node_type: learning_point
+    name: Aromatic lift, acidity and tannin
+  - id: n_wset_role_principle_mazuelo
+    node_type: production_principle
+    name: What structural role can Mazuelo play in a Rioja blend?
+  - id: n_wset_role_point_mazuelo
+    node_type: learning_point
+    name: Carignan acidity and tannin
+  - id: n_wset_role_principle_sarga_muskotaly
+    node_type: production_principle
+    name: What does Sárga Muskotály add to sweet Tokaj blends?
+  - id: n_wset_role_point_sarga_muskotaly
+    node_type: learning_point
+    name: Muscat perfume within sweet Tokaj
+  - id: n_wset_role_principle_blaufrankisch
+    node_type: production_principle
+    name: How does Blaufränkisch’s structure connect with Burgenland growing conditions?
+  - id: n_wset_role_point_blaufrankisch
+    node_type: learning_point
+    name: Late ripening, acidity and tannins
+  - id: n_wset_role_principle_zweigelt
+    node_type: production_principle
+    name: What style range and grape identity should be associated with Zweigelt?
+  - id: n_wset_role_point_zweigelt
+    node_type: learning_point
+    name: Cherry fruit and varying cellar routes
+  - id: n_wset_role_principle_saumur_champigny_identity
+    node_type: production_principle
+    name: How should Saumur-Champigny be distinguished from Saumur sparkling and white wines?
+  - id: n_wset_role_point_saumur_champigny_identity
+    node_type: learning_point
+    name: Cabernet Franc still red origin
+  - id: n_wset_role_principle_saumur_champigny_cellar
+    node_type: production_principle
+    name: How can Saumur-Champigny cellar choices explain a fruit-led or more developed red?
+  - id: n_wset_role_point_saumur_champigny_cellar
+    node_type: learning_point
+    name: Extraction and stock choices
+  - id: n_wset_role_principle_friuli_identity
+    node_type: production_principle
+    name: Which wine family is required when studying Friuli Colli Orientali whites?
+  - id: n_wset_role_point_friuli_identity
+    node_type: learning_point
+    name: Distinct northeastern DOC white range
+  - id: n_wset_role_principle_friuli_white_styles
+    node_type: production_principle
+    name: How can Pinot Grigio and Friulano explain contrasting Colli Orientali whites?
+  - id: n_wset_role_point_friuli_white_styles
+    node_type: learning_point
+    name: Texture and restrained aromatic differences
+  - id: n_wset_role_principle_friuli_cellar_cost
+    node_type: production_principle
+    name: How can steel and lees decisions explain Colli Orientali texture and costs?
+  - id: n_wset_role_point_friuli_cellar_cost
+    node_type: learning_point
+    name: Texture without mandatory new oak
+  - id: n_wset_role_principle_castilla_igp_identity
+    node_type: production_principle
+    name: What does Vino de la Tierra de Castilla y León establish on a label?
+  - id: n_wset_role_point_castilla_igp_identity
+    node_type: learning_point
+    name: Broad IGP and distinct narrower DO names
+  - id: n_wset_role_principle_castilla_environment
+    node_type: production_principle
+    name: What growing mechanisms help explain the broad Castilla y León IGP context?
+  - id: n_wset_role_point_castilla_environment
+    node_type: learning_point
+    name: High inland plateau and seasonal risks
+  - id: n_wset_role_principle_castilla_styles
+    node_type: production_principle
+    name: Why can two Castilla y León IGP wines differ greatly in style and cost?
+  - id: n_wset_role_point_castilla_styles
+    node_type: learning_point
+    name: Variety, colour and actual cellar choice
+knowledge_relations:
+  - subject_id: n_wset_role_principle_dornfelder_style
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_role_point_dornfelder_style
+    valid_from: 2026-09-27
+  - subject_id: n_wset_role_principle_dornfelder_vine
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_role_point_dornfelder_vine
+    valid_from: 2026-09-27
+  - subject_id: n_wset_role_principle_welschriesling_dry
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_role_point_welschriesling_dry
+    valid_from: 2026-09-27
+  - subject_id: n_wset_role_principle_welschriesling_sweet
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_role_point_welschriesling_sweet
+    valid_from: 2026-09-27
+  - subject_id: n_wset_role_principle_saint_laurent
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_role_point_saint_laurent
+    valid_from: 2026-09-27
+  - subject_id: n_wset_role_principle_arinto
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_role_point_arinto
+    valid_from: 2026-09-27
+  - subject_id: n_wset_role_principle_alfrocheiro
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_role_point_alfrocheiro
+    valid_from: 2026-09-27
+  - subject_id: n_wset_role_principle_jaen_identity
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_role_point_jaen_identity
+    valid_from: 2026-09-27
+  - subject_id: n_wset_role_principle_jaen_blend
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_role_point_jaen_blend
+    valid_from: 2026-09-27
+  - subject_id: n_wset_role_principle_trincadeira_style
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_role_point_trincadeira_style
+    valid_from: 2026-09-27
+  - subject_id: n_wset_role_principle_trincadeira_vine
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_role_point_trincadeira_vine
+    valid_from: 2026-09-27
+  - subject_id: n_wset_role_principle_bonarda_identity
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_role_point_bonarda_identity
+    valid_from: 2026-09-27
+  - subject_id: n_wset_role_principle_bonarda_style
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_role_point_bonarda_style
+    valid_from: 2026-09-27
+  - subject_id: n_wset_role_principle_petit_verdot
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_role_point_petit_verdot
+    valid_from: 2026-09-27
+  - subject_id: n_wset_role_principle_graciano
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_role_point_graciano
+    valid_from: 2026-09-27
+  - subject_id: n_wset_role_principle_mazuelo
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_role_point_mazuelo
+    valid_from: 2026-09-27
+  - subject_id: n_wset_role_principle_sarga_muskotaly
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_role_point_sarga_muskotaly
+    valid_from: 2026-09-27
+  - subject_id: n_wset_role_principle_blaufrankisch
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_role_point_blaufrankisch
+    valid_from: 2026-09-27
+  - subject_id: n_wset_role_principle_zweigelt
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_role_point_zweigelt
+    valid_from: 2026-09-27
+  - subject_id: n_wset_role_principle_saumur_champigny_identity
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_role_point_saumur_champigny_identity
+    valid_from: 2026-09-27
+  - subject_id: n_wset_role_principle_saumur_champigny_cellar
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_role_point_saumur_champigny_cellar
+    valid_from: 2026-09-27
+  - subject_id: n_wset_role_principle_friuli_identity
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_role_point_friuli_identity
+    valid_from: 2026-09-27
+  - subject_id: n_wset_role_principle_friuli_white_styles
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_role_point_friuli_white_styles
+    valid_from: 2026-09-27
+  - subject_id: n_wset_role_principle_friuli_cellar_cost
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_role_point_friuli_cellar_cost
+    valid_from: 2026-09-27
+  - subject_id: n_wset_role_principle_castilla_igp_identity
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_role_point_castilla_igp_identity
+    valid_from: 2026-09-27
+  - subject_id: n_wset_role_principle_castilla_environment
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_role_point_castilla_environment
+    valid_from: 2026-09-27
+  - subject_id: n_wset_role_principle_castilla_styles
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_role_point_castilla_styles
+    valid_from: 2026-09-27
+knowledge_items:
+  - id: ki_wset_role_dornfelder_style
+    subject_id: n_wset_role_principle_dornfelder_style
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_role_point_dornfelder_style
+    domain_id: geography
+    assertion_text: Dornfelder is important in Rheinhessen and the Pfalz. Its deeply coloured reds may
+      emphasise sour-cherry and dark-berry fruit for young drinking, or use wood maturation for a
+      more structured expression. It is commonly dry but other sweetness levels occur; colour alone
+      does not establish quality.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T18:00:00.000Z
+  - id: ki_wset_role_dornfelder_vine
+    subject_id: n_wset_role_principle_dornfelder_vine
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_role_point_dornfelder_vine
+    domain_id: geography
+    assertion_text: Dornfelder can crop heavily, so growers balance fruit load with ripening rather than
+      equating high yield with a fixed quality result. Loose bunches reduce rot susceptibility, but
+      frost-prone sites remain a concern. These vineyard decisions help explain variation beyond its
+      dark colour.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T18:00:00.000Z
+  - id: ki_wset_role_welschriesling_dry
+    subject_id: n_wset_role_principle_welschriesling_dry
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_role_point_welschriesling_dry
+    domain_id: geography
+    assertion_text: Welschriesling is a separate grape from Rhine Riesling. In Austria it can make fresh
+      dry whites with green-apple and citrus impressions and marked acidity; that acidity also
+      supports blends and sparkling bases. A similar grape name does not imply Riesling’s complete
+      aromatic or ageing profile.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T18:00:00.000Z
+  - id: ki_wset_role_welschriesling_sweet
+    subject_id: n_wset_role_principle_welschriesling_sweet
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_role_point_welschriesling_sweet
+    domain_id: geography
+    assertion_text: Late-harvest Welschriesling in Burgenland can make concentrated sweet wines while
+      retaining useful acidity. The harvest condition and sweet-wine route differ from a fresh
+      early-drinking dry example. Appropriate ripe or botrytised fruit and cellar decisions are
+      needed; the variety name alone does not prove sweetness.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T18:00:00.000Z
+  - id: ki_wset_role_saint_laurent
+    subject_id: n_wset_role_principle_saint_laurent
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_role_point_saint_laurent
+    domain_id: geography
+    assertion_text: Saint Laurent, called Sankt Laurent in Austria, is associated particularly with the
+      Thermenregion. It can bring berry, morello-cherry and plum aromas with velvety tannins to
+      varietal wines or blends. Demanding vineyard cultivation makes careful management important;
+      it should not simply be labelled Pinot Noir.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T18:00:00.000Z
+  - id: ki_wset_role_arinto
+    subject_id: n_wset_role_principle_arinto
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_role_point_arinto
+    domain_id: geography
+    assertion_text: Arinto, called Pedernã in Vinho Verde, is valued for marked acidity and restrained
+      apple and citrus aromas. It is important at Bucelas and can add freshness to warmer Alentejo
+      or Tejo blends. Its contribution explains a blend’s balance without requiring every Arinto
+      wine to be light or unoaked.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T18:00:00.000Z
+  - id: ki_wset_role_alfrocheiro
+    subject_id: n_wset_role_principle_alfrocheiro
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_role_point_alfrocheiro
+    domain_id: geography
+    assertion_text: Alfrocheiro is associated with Dão and has spread to southern Portuguese regions. It
+      can retain useful acidity in warm conditions while contributing colour, firm ripe tannins and
+      berry fruit. Vigorous growth and susceptibility to powdery mildew and botrytis mean that
+      vineyard management still affects the healthy fruit available.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T18:00:00.000Z
+  - id: ki_wset_role_jaen_identity
+    subject_id: n_wset_role_principle_jaen_identity
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_role_point_jaen_identity
+    domain_id: geography
+    assertion_text: Portugal’s IVV identifies Jaen as traditionally grown in Dão and lists Mencía in
+      Spain as its synonym. Use that identified grape when comparing Dão blends with Spanish Mencía
+      wines. A shared identity does not make regional styles identical, and it does not identify
+      every unrelated legal entry containing Jaén.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T18:00:00.000Z
+  - id: ki_wset_role_jaen_blend
+    subject_id: n_wset_role_principle_jaen_blend
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_role_point_jaen_blend
+    domain_id: geography
+    assertion_text: Jaen can contribute perfume and a softer, moderate structural expression alongside
+      Touriga Nacional and Alfrocheiro in Dão. IVV describes early ripening and relatively low
+      acidity, so ripeness, grape proportions and the other varieties matter to balance. Its
+      blending role is more informative than assuming every Dão red is pure Touriga Nacional.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T18:00:00.000Z
+  - id: ki_wset_role_trincadeira_style
+    subject_id: n_wset_role_principle_trincadeira_style
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_role_point_trincadeira_style
+    domain_id: geography
+    assertion_text: Trincadeira, called Tinta Amarela in the Douro, can bring colour, acidity and
+      raspberry, herbal or spicy complexity when ripe. It is an important Alentejo blending variety.
+      Under-ripe fruit may be overtly herbaceous, so the grape’s inclusion alone does not establish
+      a balanced finished wine.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T18:00:00.000Z
+  - id: ki_wset_role_trincadeira_vine
+    subject_id: n_wset_role_principle_trincadeira_vine
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_role_point_trincadeira_vine
+    domain_id: geography
+    assertion_text: Trincadeira grows vigorous foliage and is sensitive to rot and other vineyard
+      diseases. Hot, dry Alentejo and Tejo conditions reduce some wet-season disease pressures,
+      while canopy control helps healthy ripening. These mechanisms explain its regional suitability
+      without claiming that dry heat eliminates disease or that every year gives the same crop.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T18:00:00.000Z
+  - id: ki_wset_role_bonarda_identity
+    subject_id: n_wset_role_principle_bonarda_identity
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_role_point_bonarda_identity
+    domain_id: geography
+    assertion_text: Argentina’s Bonarda is the Corbeau/Douce Noir variety, also called Charbono, rather
+      than the different Italian grape names that caused the confusion. Use the qualified Argentine
+      identity when studying its wines; the word Bonarda by itself is insufficient for a
+      cross-country grape comparison.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T18:00:00.000Z
+  - id: ki_wset_role_bonarda_style
+    subject_id: n_wset_role_principle_bonarda_style
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_role_point_bonarda_style
+    domain_id: geography
+    assertion_text: Bonarda is important in warm, dry Mendoza and San Juan, where it can produce
+      approachable fruity reds and useful blending fruit. It also appears in more concentrated or
+      fresher producer-selected styles. Vineyard source, harvest and cellar choices should explain
+      that range instead of treating it as a lesser Malbec.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T18:00:00.000Z
+  - id: ki_wset_role_petit_verdot
+    subject_id: n_wset_role_principle_petit_verdot
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_role_point_petit_verdot
+    domain_id: geography
+    assertion_text: Petit Verdot is a late-ripening Bordeaux grape that can contribute deep colour, firm
+      tannins and spicy aromatic depth even at a small proportion in a blend. A suitable warm season
+      and site help it ripen. Using more does not automatically improve balance; the contribution
+      must suit the other components.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T18:00:00.000Z
+  - id: ki_wset_role_graciano
+    subject_id: n_wset_role_principle_graciano
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_role_point_graciano
+    domain_id: geography
+    assertion_text: Graciano can contribute pronounced acidity, colour, tannin and aromatic intensity to
+      Rioja red blends. It ripens late, so site warmth and season matter. Its contribution can
+      support a structured wine’s development, but successful ageing still depends on ripe fruit,
+      balance and cellar handling.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T18:00:00.000Z
+  - id: ki_wset_role_mazuelo
+    subject_id: n_wset_role_principle_mazuelo
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_role_point_mazuelo
+    domain_id: geography
+    assertion_text: Mazuelo is the Rioja name for Carignan. It can supply substantial acidity, tannin
+      and stable colour to a red blend. A small structural addition may complement Tempranillo’s
+      fruit, but extraction and proportions must preserve balance; legal authorisation alone does
+      not demonstrate that contribution in every bottle.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T18:00:00.000Z
+  - id: ki_wset_role_sarga_muskotaly
+    subject_id: n_wset_role_principle_sarga_muskotaly
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_role_point_sarga_muskotaly
+    domain_id: geography
+    assertion_text: Sárga Muskotály is Muscat Blanc à Petits Grains in Tokaj. Its pronounced varietal
+      perfume can add aromatic character to late-harvest or Aszú wines alongside Furmint and
+      Hárslevelű. The sweet route depends on fruit selection and production; an aromatic grape name
+      alone is not proof of residual sugar.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T18:00:00.000Z
+  - id: ki_wset_role_blaufrankisch
+    subject_id: n_wset_role_principle_blaufrankisch
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_role_point_blaufrankisch
+    domain_id: geography
+    assertion_text: Blaufränkisch is important in Burgenland, including Mittelburgenland, Leithaberg and
+      Eisenberg. Its late ripening benefits from a suitable warm season; dark-berry and spicy wines
+      can retain distinct acidity and firm tannins. Site and maturation affect the resulting
+      balance, rather than a single fixed style following the grape name.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T18:00:00.000Z
+  - id: ki_wset_role_zweigelt
+    subject_id: n_wset_role_principle_zweigelt
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_role_point_zweigelt
+    domain_id: geography
+    assertion_text: Zweigelt is an Austrian crossing of Blaufränkisch and Sankt Laurent. It can make
+      fresh cherry-fruited reds with a round palate or more structured, wood-matured examples, and
+      it is useful in blends. The parents identify the crossing; they do not force a single flavour,
+      tannin level or maturation choice.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T18:00:00.000Z
+  - id: ki_wset_role_saumur_champigny_identity
+    subject_id: n_wset_role_principle_saumur_champigny_identity
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_role_point_saumur_champigny_identity
+    domain_id: geography
+    assertion_text: Saumur-Champigny is a still red Loire origin associated with Cabernet Franc. Fruit,
+      floral impressions, freshness and a fine tannin texture are useful style tendencies. The
+      Champigny name should not be substituted for Chenin-based Saumur whites or Saumur sparkling;
+      related geography does not make their grape and production routes identical.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T18:00:00.000Z
+  - id: ki_wset_role_saumur_champigny_cellar
+    subject_id: n_wset_role_principle_saumur_champigny_cellar
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_role_point_saumur_champigny_cellar
+    domain_id: geography
+    assertion_text: For Saumur-Champigny Cabernet Franc, extraction should match the ripeness and
+      desired tannin texture. A young fruit-led release and a selected wine kept longer for
+      development pursue different objectives. Longer storage uses space and capital; it does not
+      guarantee better quality, and freshness, ripeness and balance must be assessed in the actual
+      wine.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T18:00:00.000Z
+  - id: ki_wset_role_friuli_identity
+    subject_id: n_wset_role_principle_friuli_identity
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_role_point_friuli_identity
+    domain_id: geography
+    assertion_text: Friuli Colli Orientali is a northeastern Italian DOC distinct from Friuli Grave and
+      Collio. Its white range includes Pinot Grigio, Sauvignon Blanc, Chardonnay and Friulano, so
+      the origin should not be reduced to one international grape. Read the complete origin and
+      grape to distinguish these styles.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T18:00:00.000Z
+  - id: ki_wset_role_friuli_white_styles
+    subject_id: n_wset_role_principle_friuli_white_styles
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_role_point_friuli_white_styles
+    domain_id: geography
+    assertion_text: Friuli Colli Orientali Pinot Grigio can be a dry white with body, or acquire a
+      copper tint through skin contact. Friulano often shows restrained floral or apple notes, a
+      rounded texture, moderate acidity and an almond-like finish. These are comparison tendencies,
+      not compulsory aromas for every producer or vintage.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T18:00:00.000Z
+  - id: ki_wset_role_friuli_cellar_cost
+    subject_id: n_wset_role_principle_friuli_cellar_cost
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_role_point_friuli_cellar_cost
+    domain_id: geography
+    assertion_text: A Friuli Colli Orientali Friulano example at La Viarte is fermented in
+      temperature-controlled steel and matured on fine lees. Such a route can preserve fruit while
+      influencing texture without requiring new-oak flavour. Fine-lees handling and storage use
+      resources; the regional name alone establishes neither a fixed oak treatment nor a retail
+      price.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T18:00:00.000Z
+  - id: ki_wset_role_castilla_igp_identity
+    subject_id: n_wset_role_principle_castilla_igp_identity
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_role_point_castilla_igp_identity
+    domain_id: geography
+    assertion_text: Vino de la Tierra de Castilla y León is a protected geographical indication covering
+      the broader autonomous region. It is distinct from narrower DO labels such as Ribera del Duero
+      or Toro. Read IGP origin separately from grape, colour, sweetness and oak treatment; the
+      category is not a tasting score.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T18:00:00.000Z
+  - id: ki_wset_role_castilla_environment
+    subject_id: n_wset_role_principle_castilla_environment
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_role_point_castilla_environment
+    domain_id: geography
+    assertion_text: "Much of Castilla y León is a high inland plateau with continental Mediterranean
+      conditions: cold winters, warm dry summers and late-frost risk. Site elevation and day–night
+      differences affect ripening, while limited rainfall makes water supply important. The broad
+      IGP spans varied sites, so these mechanisms should not erase local differences such as
+      Bierzo’s Atlantic influence."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T18:00:00.000Z
+  - id: ki_wset_role_castilla_styles
+    subject_id: n_wset_role_principle_castilla_styles
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_wset_role_point_castilla_styles
+    domain_id: geography
+    assertion_text: Castilla y León IGP includes white, rosé and red wines made from different
+      authorised grapes; it is not a synonym for Tempranillo red. Fruit-preserving white production,
+      skin extraction for reds and optional wood maturation pursue different styles. Wood and
+      storage can increase costs, while the broad origin label alone proves neither an oak route nor
+      a quality ranking.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-27T18:00:00.000Z
+certification_knowledge_mappings:
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_role_dornfelder_style
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_role_dornfelder_vine
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_role_welschriesling_dry
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_role_welschriesling_sweet
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_role_saint_laurent
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_role_arinto
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_role_alfrocheiro
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_role_jaen_identity
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_role_jaen_blend
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_role_trincadeira_style
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_role_trincadeira_vine
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_role_bonarda_identity
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_role_bonarda_style
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_role_petit_verdot
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_role_graciano
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_role_mazuelo
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_role_sarga_muskotaly
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_role_blaufrankisch
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_role_zweigelt
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_role_saumur_champigny_identity
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_role_saumur_champigny_cellar
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_role_friuli_identity
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_role_friuli_white_styles
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_role_friuli_cellar_cost
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_role_castilla_igp_identity
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_role_castilla_environment
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L3
+    knowledge_item_id: ki_wset_role_castilla_styles
+    importance: core
+    minimum_depth: 2
+source_citations:
+  - id: src_wset_role_dornfelder
+    kind: reference_work
+    title: "Dornfelder: growing conditions and cellar styles"
+    publisher: Deutsches Weininstitut
+    jurisdiction: DE
+    url: https://www.deutscheweine.de/rebsorte/87/dornfelder?newsletter-type=%2Fnewsletter%2Fnewsmailer
+    document_identifier: "Dornfelder: growing conditions and cellar styles"
+    accessed_on: 2026-09-27
+  - id: src_wset_role_welschriesling
+    kind: reference_work
+    title: "Welschriesling: dry, sparkling and late-harvest production"
+    publisher: Austrian Federal Ministry BMLUK
+    jurisdiction: AT
+    url: https://www.bmluk.gv.at/themen/lebensmittel/trad-lebensmittel/getraenke/welschriesling.html
+    document_identifier: "Welschriesling: dry, sparkling and late-harvest production"
+    accessed_on: 2026-09-27
+  - id: src_wset_role_austria_grapes
+    kind: reference_work
+    title: Austrian grape varieties small guide, 2019 English edition
+    publisher: Austrian Wine Marketing Board
+    jurisdiction: AT
+    url: https://www.austrianwine.com/fileadmin/user_upload/PDF/Broschueren/Rebsortenbroschuere_2019_EN.pdf
+    document_identifier: Austrian grape varieties small guide, 2019 English edition
+    accessed_on: 2026-09-27
+  - id: src_wset_role_arinto
+    kind: reference_work
+    title: "Arinto / Pedernã: acidity and regional applications"
+    publisher: ViniPortugal
+    jurisdiction: PT
+    url: https://winesofportugal.com/pt/vinhos-portugueses/castas/arinto/
+    document_identifier: "Arinto / Pedernã: acidity and regional applications"
+    accessed_on: 2026-09-27
+  - id: src_wset_role_alfrocheiro
+    kind: reference_work
+    title: "Alfrocheiro: Dão association and acid retention"
+    publisher: ViniPortugal
+    jurisdiction: PT
+    url: https://winesofportugal.com/en/portuguese-wines/grape-varieties/alfrocheiro/
+    document_identifier: "Alfrocheiro: Dão association and acid retention"
+    accessed_on: 2026-09-27
+  - id: src_wset_role_jaen_ivv
+    kind: regulator_register
+    title: "Jaen: Mencía synonym and enological characteristics, updated 19 February 2026"
+    publisher: Instituto da Vinha e do Vinho
+    jurisdiction: PT
+    url: https://www.ivv.gov.pt/casta/jaen/
+    document_identifier: "Jaen: Mencía synonym and enological characteristics, updated 19 February 2026"
+    accessed_on: 2026-09-27
+  - id: src_wset_role_portugal_blends
+    kind: reference_work
+    title: "Wines of Portugal guide, 2022: Dão red blend contributions"
+    publisher: ViniPortugal
+    jurisdiction: PT
+    url: https://www.winesofportugal.com/documents/173/BROCHURA_EN_2022_01_WEB.pdf
+    document_identifier: "Wines of Portugal guide, 2022: Dão red blend contributions"
+    accessed_on: 2026-09-27
+  - id: src_wset_role_trincadeira
+    kind: reference_work
+    title: "Trincadeira / Tinta Amarela: ripening, canopy and style"
+    publisher: ViniPortugal
+    jurisdiction: PT
+    url: https://winesofportugal.com/en/portuguese-wines/grape-varieties/trincadeira/
+    document_identifier: "Trincadeira / Tinta Amarela: ripening, canopy and style"
+    accessed_on: 2026-09-27
+  - id: src_wset_role_bonarda
+    kind: reference_work
+    title: "Argentine Bonarda: the resilient variety, 1 August 2024"
+    publisher: Wines of Argentina
+    jurisdiction: AR
+    url: https://blog.winesofargentina.com/destacadas/argentine-bonarda/
+    document_identifier: "Argentine Bonarda: the resilient variety, 1 August 2024"
+    accessed_on: 2026-09-27
+  - id: src_wset_role_bonarda_identity
+    kind: reference_work
+    title: "Six things about Argentine wine: Bonarda, Corbeau, Charbono and Douce Noir"
+    publisher: Wines of Argentina
+    jurisdiction: AR
+    url: https://blog.winesofargentina.com/es/noticias/trends/6-cosas-que-no-sabias-del-vino-argentino/
+    document_identifier: "Six things about Argentine wine: Bonarda, Corbeau, Charbono and Douce Noir"
+    accessed_on: 2026-09-27
+  - id: src_wset_role_petit_verdot
+    kind: reference_work
+    title: "Petit Verdot: late ripening and Bordeaux blend contribution"
+    publisher: CIVB Bordeaux
+    jurisdiction: FR
+    url: https://www.bordeaux.com/en/grape-varieties/petit-verdot/
+    document_identifier: "Petit Verdot: late ripening and Bordeaux blend contribution"
+    accessed_on: 2026-09-27
+  - id: src_wset_role_rioja_blends
+    kind: reference_work
+    title: "Rioja red varieties: Graciano and Mazuelo, 11 September 2023"
+    publisher: Consejo Regulador DOCa Rioja
+    jurisdiction: ES
+    url: https://riojawine.com/en-gb/blog/discover-the-rioja-red-grape-variety/
+    document_identifier: "Rioja red varieties: Graciano and Mazuelo, 11 September 2023"
+    accessed_on: 2026-09-27
+  - id: src_wset_role_tokaj_grapes
+    kind: reference_work
+    title: "Tokaj varieties: Sárgamuskotály identity and aromatic sweet uses"
+    publisher: Tokaj Wine Region Council
+    jurisdiction: HU
+    url: https://winesoftokaj.hu/hu/tokaji/szolo
+    document_identifier: "Tokaj varieties: Sárgamuskotály identity and aromatic sweet uses"
+    accessed_on: 2026-09-27
+  - id: src_wset_role_saumur_cf
+    kind: reference_work
+    title: Cabernet Franc, Saumur-Champigny identity and style
+    publisher: Syndicat des Vignerons de Saumur-Champigny
+    jurisdiction: FR
+    url: https://saumur-champigny.com/appellation/cabernet-franc/
+    document_identifier: Cabernet Franc, Saumur-Champigny identity and style
+    accessed_on: 2026-09-27
+  - id: src_wset_role_friuli_wines
+    kind: reference_work
+    title: Friuli Colli Orientali white wines and sensory profiles
+    publisher: Consorzio Colli Orientali del Friuli Venezia Giulia
+    jurisdiction: IT
+    url: https://www.colliorientali.com/en/the-consortium/wines/
+    document_identifier: Friuli Colli Orientali white wines and sensory profiles
+    accessed_on: 2026-09-27
+  - id: src_wset_role_friuli_cellar
+    kind: reference_work
+    title: "La Viarte Friulano 2023: Friuli Colli Orientali DOC, steel and fine lees"
+    publisher: La Viarte
+    jurisdiction: IT
+    url: https://laviarte.it/en/products/friulano-magnum
+    document_identifier: "La Viarte Friulano 2023: Friuli Colli Orientali DOC, steel and fine lees"
+    accessed_on: 2026-09-27
+  - id: src_wset_role_castilla_spec
+    kind: legislation
+    title: "Vino de la Tierra de Castilla y León specification, revision 0, 19 December 2011: broad
+      category and natural factors"
+    publisher: ITACYL Junta de Castilla y León
+    jurisdiction: ES
+    url: https://www.itacyl.es/documents/20143/0/PPCC%2BIGP%2BVTCYL%2B%282%29.pdf/dc9869da-3147-fa5a-273a-592a5e734187
+    document_identifier: "Vino de la Tierra de Castilla y León specification, revision 0, 19 December
+      2011: broad category and natural factors"
+    accessed_on: 2026-09-27
+  - id: src_wset_role_castilla_2019
+    kind: legislation
+    title: Castilla y León IGP regulation amendment, 27 September 2019
+    publisher: Boletín Oficial de Castilla y León
+    jurisdiction: ES
+    url: https://bocyl.jcyl.es/eli/es-cl/o/2019/09/27/agr930/
+    document_identifier: Castilla y León IGP regulation amendment, 27 September 2019
+    accessed_on: 2026-09-27
+knowledge_item_citations:
+  - knowledge_item_id: ki_wset_role_dornfelder_style
+    source_citation_id: src_wset_role_dornfelder
+    locator: Cultivation and significance; development and taste
+  - knowledge_item_id: ki_wset_role_dornfelder_vine
+    source_citation_id: src_wset_role_dornfelder
+    locator: Cultivation and significance
+  - knowledge_item_id: ki_wset_role_welschriesling_dry
+    source_citation_id: src_wset_role_welschriesling
+    locator: Method of production; taste and appearance
+  - knowledge_item_id: ki_wset_role_welschriesling_sweet
+    source_citation_id: src_wset_role_welschriesling
+    locator: Late harvesting in Burgenland; contrasting dry and richer Prädikat styles
+  - knowledge_item_id: ki_wset_role_welschriesling_sweet
+    source_citation_id: src_wset_role_austria_grapes
+    locator: Welschriesling sweet Beerenauslese and Trockenbeerenauslese styles
+  - knowledge_item_id: ki_wset_role_saint_laurent
+    source_citation_id: src_wset_role_austria_grapes
+    locator: Sankt Laurent section
+  - knowledge_item_id: ki_wset_role_arinto
+    source_citation_id: src_wset_role_arinto
+    locator: Sobre a casta Arinto
+  - knowledge_item_id: ki_wset_role_alfrocheiro
+    source_citation_id: src_wset_role_alfrocheiro
+    locator: Regional origin, enological profile and vineyard sensitivity
+  - knowledge_item_id: ki_wset_role_jaen_identity
+    source_citation_id: src_wset_role_jaen_ivv
+    locator: "Sinonímia: Mencía (Espanha); traditionally cultivated in Dão"
+  - knowledge_item_id: ki_wset_role_jaen_blend
+    source_citation_id: src_wset_role_portugal_blends
+    locator: Dão Touriga Nacional, Alfrocheiro and Jaen blend, printed page 21
+  - knowledge_item_id: ki_wset_role_jaen_blend
+    source_citation_id: src_wset_role_jaen_ivv
+    locator: Enological characteristics
+  - knowledge_item_id: ki_wset_role_trincadeira_style
+    source_citation_id: src_wset_role_trincadeira
+    locator: Ripeness, regional synonym and sensory profile
+  - knowledge_item_id: ki_wset_role_trincadeira_vine
+    source_citation_id: src_wset_role_trincadeira
+    locator: Growing characteristics and hot dry regional suitability
+  - knowledge_item_id: ki_wset_role_bonarda_identity
+    source_citation_id: src_wset_role_bonarda_identity
+    locator: "Bonarda para principiantes: Corbeau, Charbono or Douce Noir"
+  - knowledge_item_id: ki_wset_role_bonarda_style
+    source_citation_id: src_wset_role_bonarda
+    locator: Warm dry adaptation and range of modern producer styles
+  - knowledge_item_id: ki_wset_role_petit_verdot
+    source_citation_id: src_wset_role_petit_verdot
+    locator: Ripening cycle; in a blend; Left Bank and Graves growing context
+  - knowledge_item_id: ki_wset_role_graciano
+    source_citation_id: src_wset_role_rioja_blends
+    locator: Graciano section, late ripening and blend contribution
+  - knowledge_item_id: ki_wset_role_mazuelo
+    source_citation_id: src_wset_role_rioja_blends
+    locator: Mazuelo section
+  - knowledge_item_id: ki_wset_role_sarga_muskotaly
+    source_citation_id: src_wset_role_tokaj_grapes
+    locator: Sárgamuskotály identity and late-harvest or Aszú uses
+  - knowledge_item_id: ki_wset_role_blaufrankisch
+    source_citation_id: src_wset_role_austria_grapes
+    locator: Blaufränkisch section
+  - knowledge_item_id: ki_wset_role_zweigelt
+    source_citation_id: src_wset_role_austria_grapes
+    locator: Zweigelt section
+  - knowledge_item_id: ki_wset_role_saumur_champigny_identity
+    source_citation_id: src_wset_role_saumur_cf
+    locator: Cabernet Franc, l’âme des vins de Saumur-Champigny
+  - knowledge_item_id: ki_wset_role_saumur_champigny_identity
+    source_citation_id: src_fr_atlas_loire_guide
+    locator: Saumur-Champigny, printed page 71
+  - knowledge_item_id: ki_wset_role_saumur_champigny_cellar
+    source_citation_id: src_wset_role_saumur_cf
+    locator: Cabernet Franc sensory contribution
+  - knowledge_item_id: ki_wset_role_saumur_champigny_cellar
+    source_citation_id: src_fr_atlas_loire_guide
+    locator: Saumur-Champigny young drinking and selected ageing potential
+  - knowledge_item_id: ki_wset_role_friuli_identity
+    source_citation_id: src_eac_friuli
+    locator: Current consolidated DOC specification
+  - knowledge_item_id: ki_wset_role_friuli_identity
+    source_citation_id: src_wset_role_friuli_wines
+    locator: White wine headings and varietal profiles
+  - knowledge_item_id: ki_wset_role_friuli_white_styles
+    source_citation_id: src_wset_role_friuli_wines
+    locator: Pinot Grigio and Friulano profiles
+  - knowledge_item_id: ki_wset_role_friuli_cellar_cost
+    source_citation_id: src_wset_role_friuli_cellar
+    locator: 2023 Friulano, DOC Friuli Colli Orientali, winemaking
+  - knowledge_item_id: ki_wset_role_friuli_cellar_cost
+    source_citation_id: src_reg_inc_friuli
+    locator: Hillside and terraced regional vineyard context
+  - knowledge_item_id: ki_wset_role_castilla_igp_identity
+    source_citation_id: src_wset_role_castilla_spec
+    locator: Sections 1 and 4, protected name and geographic area
+  - knowledge_item_id: ki_wset_role_castilla_igp_identity
+    source_citation_id: src_wset_role_castilla_2019
+    locator: Regulation title and amendment
+  - knowledge_item_id: ki_wset_role_castilla_environment
+    source_citation_id: src_wset_role_castilla_spec
+    locator: "Section 7, natural factors: plateau, climate and precipitation"
+  - knowledge_item_id: ki_wset_role_castilla_styles
+    source_citation_id: src_wset_role_castilla_spec
+    locator: "Sections 2, 3 and 6: colours, winemaking and varieties"
+  - knowledge_item_id: ki_wset_role_welschriesling_dry
+    source_citation_id: src_wset_sf_riesling
+    locator: Welschriesling is distinct from Rhine Riesling
+  - knowledge_item_id: ki_wset_role_saumur_champigny_cellar
+    source_citation_id: src_wset_prod_planning
+    locator: Original regional application of cellar storage and winery cost planning
+  - knowledge_item_id: ki_wset_role_friuli_cellar_cost
+    source_citation_id: src_wset_prod_planning
+    locator: Original regional application of cellar storage and winery cost planning
+  - knowledge_item_id: ki_wset_role_castilla_styles
+    source_citation_id: src_wset_prod_planning
+    locator: Original regional application of cellar storage and winery cost planning

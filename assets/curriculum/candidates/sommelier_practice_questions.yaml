@@ -1,0 +1,172 @@
+# UNREGISTERED question handoff. Not an ingested question_templates file.
+# The runtime has no authored-distractor table for these rows.
+# Acceptable answers are phrases, not a single MCQ key.
+# status: authored, unregistered, unverified, SDK validation pending.
+questions:
+  - id: q_somm_tequila_split
+    outcome: "Separate the two tequila categories."
+    prompt: "A guest calls every tequila 100 percent agave. What is the other legal category, and what must you not conclude?"
+    acceptable:
+      - "100 percent agave uses only sugars of Agave tequilana Weber blue and is bottled at origin."
+      - "The other category uses at least 51 percent of those sugars and up to 49 percent other reducing sugars, and it may be bottled outside the appellation."
+      - "The courtesy translation says that 49 percent may not be sugars from any species of agave."
+      - "That second category can still be tequila. The Diario Oficial was not opened, and the page does not audit the bottle in front of you."
+    distractors:
+      - { text: "Anything that is not 100 percent agave is illegal.", why_wrong: "The Council describes a second category that remains tequila when the sugar share and the other rules are met." }
+      - { text: "Both categories may be bottled anywhere.", why_wrong: "Only the 100 percent category is stated as bottled at origin." }
+    sources: [src_somm_crt_tequila, src_somm_nom_006_courtesy]
+    mcq: disabled
+  - id: q_somm_tequila_age
+    outcome: "Refuse the conflicting one-year reposado card."
+    prompt: "The English class card says reposado needs one year. What do you teach instead, and what do you leave unsettled?"
+    acceptable:
+      - "The Spanish page, the English maturation paragraph, and section 6.4 of the courtesy translation say at least two months for reposado, one year for añejo, and three years for extra añejo."
+      - "Six hundred litres is the cap for añejo and extra añejo in section 6.4. It is not stated for reposado."
+      - "Blanco may have been aged for less than two months. The Diario Oficial was not opened."
+    distractors:
+      - { text: "Reposado and añejo are the same minimum because both English cards say one year.", why_wrong: "Those English cards conflict with the Spanish page and with section 6.4." }
+      - { text: "Blanco must rest in oak for two months.", why_wrong: "Section 4.36.1 allows less than two months. It does not require two months." }
+    sources: [src_somm_crt_tequila, src_somm_crt_tequila_es, src_somm_nom_006_courtesy]
+    mcq: disabled
+  - id: q_somm_marc_not_cognac
+    outcome: "Keep grape marc spirit apart from Cognac."
+    prompt: "A guest asked for a marc spirit and was poured Cognac. Why is that the wrong category answer?"
+    acceptable:
+      - "Adopted Annex I defines grape marc spirit from fermented grape marc, and wine spirit from wine or wine distillate."
+      - "Cognac, on the BNIC page, is an aged wine-spirit appellation."
+      - "The annex does not define grappa. Do not invent that definition."
+    distractors:
+      - { text: "Any grape distillate is wine spirit.", why_wrong: "Marc has its own category and its own raw material." }
+      - { text: "Cognac is the legal name of grape marc spirit.", why_wrong: "The BNIC rules cited here are about an aged wine spirit, not marc." }
+    sources: [src_bev_eu_spirits_2019, src_bev_cognac_bnic]
+    mcq: disabled
+  - id: q_somm_brandy_oak
+    outcome: "Compare generic brandy ageing with Cognac."
+    prompt: "Does six months in a small oak cask make a spirit Cognac? Give the two rules and the limit of the answer."
+    acceptable:
+      - "Adopted brandy may age six months in oak under 1,000 litres, or one year in oak of at least 1,000 litres, and its minimum strength is 36 percent."
+      - "The BNIC Cognac account requires at least two years on the youngest eau-de-vie and 40 percent at sale."
+      - "The adopted text may have been updated, and neither page proves the glass."
+    distractors:
+      - { text: "Generic brandy and Cognac use the same minimum age and strength.", why_wrong: "The opened figures are six months or one year and 36 percent, against two years and 40 percent." }
+      - { text: "A large cask needs only six months.", why_wrong: "The one-year rule is the one attached to receptacles of at least 1,000 litres." }
+    sources: [src_bev_eu_spirits_2019, src_bev_cognac_bnic]
+    mcq: disabled
+  - id: q_somm_yeast_names
+    outcome: "Use the paper's modern yeast names without a recipe."
+    prompt: "Which yeast does the opened paper assign to modern lager, which to ale, and what relationship does it state?"
+    acceptable:
+      - "Lager, in this paper, is a cold fermentation with Saccharomyces pastorianus."
+      - "Ale is a warmer fermentation with Saccharomyces cerevisiae."
+      - "S. pastorianus is a hybrid of S. cerevisiae and Saccharomyces eubayanus. No temperature is a law in this item."
+    distractors:
+      - { text: "Lager and ale are the same species.", why_wrong: "The paper assigns the hybrid to lager and S. cerevisiae to ale." }
+      - { text: "The paper gives a legal fermentation temperature.", why_wrong: "It contrasts cold and warmer. It does not enact a temperature." }
+    sources: [src_somm_fems_lager]
+    mcq: disabled
+  - id: q_somm_not_1602
+    outcome: "Keep the Hofbräuhaus date as a hypothesis."
+    prompt: "A guest says lager was invented at the Hofbräuhaus in 1602. What can you say from the paper, and what ordinance do you refuse to recite?"
+    acceptable:
+      - "1602 to 1615 is the paper's hypothesis for the hybrid, not a proven invention date."
+      - "The paper says bottom fermentation in parts of Bavaria was older."
+      - "Do not recite a 1516 ingredient list. That statute was not opened."
+    distractors:
+      - { text: "The paper proves lager began in 1602.", why_wrong: "The authors mark the Munich window as a hypothesis and describe earlier bottom fermentation." }
+      - { text: "Medieval bottom yeast was already pure S. pastorianus.", why_wrong: "The paper warns against reading the modern hybrid back onto earlier slurries." }
+    sources: [src_somm_fems_lager]
+    mcq: disabled
+  - id: q_somm_sulfite_threshold
+    outcome: "Read the sulphite line as a declaration threshold."
+    prompt: "A label says contains sulphites. What did Annex II require, and what did it not decide?"
+    acceptable:
+      - "Point 12 lists sulphur dioxide and sulphites at more than 10 mg/kg or 10 mg/litre of total SO2 in the product as ready for consumption."
+      - "That is not the maximum dose allowed in wine."
+      - "This file has not opened the wine sulphur-dioxide ceiling. Do not quote one from memory."
+    distractors:
+      - { text: "The line means the wine is at the highest legal sulphur level.", why_wrong: "The annex states a declaration threshold, not the wine ceiling." }
+      - { text: "Below 10 mg/litre the annex says the wine is safe.", why_wrong: "Silence below the threshold is not a safety finding." }
+    sources: [src_somm_eu_1169]
+    mcq: disabled
+  - id: q_somm_isinglass
+    outcome: "State the fining exception without clearing the guest."
+    prompt: "A guest with a fish allergy asks whether isinglass-fined wine must be declared as fish. What is the legal sentence, and what do you refuse to promise?"
+    acceptable:
+      - "Annex II excepts fish gelatine or isinglass used as a fining agent in beer and wine from the fish entry."
+      - "Do not tell the guest the wine is clinically safe. Offer another bottle or a producer confirmation."
+    distractors:
+      - { text: "The exception means no fish protein can remain.", why_wrong: "The sentence is about the allergen list, not a laboratory or clinical result." }
+      - { text: "Every fish ingredient in the meal is covered by the wine exception.", why_wrong: "The exception is limited to that fining use in beer and wine." }
+    sources: [src_somm_eu_1169]
+    mcq: disabled
+  - id: q_somm_refuse
+    outcome: "Apply section 141 only where it applies, and separate it from the health warning."
+    prompt: "A guest you judge to be drunk asks for another bottle in a restaurant in England. What must you not do, and what must you not claim about other countries?"
+    acceptable:
+      - "Do not knowingly sell or allow the sale. Section 141 makes that an offence for staff with authority to sell and for the stated licence holders."
+      - "The section does not define drunk, and its opened extent is England and Wales."
+      - "The WHO no-safe-level statement is a different claim. It does not write the offence."
+    distractors:
+      - { text: "The section defines drunk as a stated number of drinks.", why_wrong: "The opened section uses the word and does not define it." }
+      - { text: "The same section is the licensing offence in every country.", why_wrong: "The page marks the section for England and Wales." }
+    sources: [src_somm_licensing_141, src_bev_who_alcohol]
+    mcq: disabled
+  - id: q_somm_no_mechanism
+    outcome: "Explain astringency without inventing a fish rule."
+    prompt: "A guest wants the scientific reason a red wine tasted bitter with the fish. What can you say from the opened review, and what do you still refuse?"
+    acceptable:
+      - "Astringency, in the McRae and Kennedy review, is drying and puckering. It is generally thought to come from tannins interacting with salivary proteins. The exact mechanism is not settled, and precipitation is not always required."
+      - "The review does not say tannin binds fish protein, and it does not equate bitterness with astringency."
+      - "Change the wine if the guest dislikes the match. That change is not the one correct pour, and it does not cancel the alcohol warning."
+    distractors:
+      - { text: "Tannin binds fish protein, so the bitterness was chemically required.", why_wrong: "The opened review is about salivary proteins, not fish, and it separates bitterness from the drying sensation." }
+      - { text: "There is one correct replacement wine.", why_wrong: "The review explains a mouthfeel. It does not rank dishes or pours." }
+    sources: [src_somm_mcrae_astringency, src_bev_who_alcohol]
+    mcq: disabled
+  - id: q_somm_two_guests
+    outcome: "Keep a disagreement about astringency from becoming a winner."
+    prompt: "Two guests disagree about how drying the same red wine is. What does the review let you say?"
+    acceptable:
+      - "Salivary flow and the concentration of particular saliva proteins differ between people, and higher flow and higher concentrations generally reduce perceived astringency."
+      - "Do not tell one guest that the other is correct. The review did not test these two people."
+    distractors:
+      - { text: "One of them must be tasting the wine wrongly.", why_wrong: "The review treats the difference in saliva as a reason the sensation can differ." }
+      - { text: "Ethanol always makes a wine more astringent, so the stronger taster is right.", why_wrong: "The review says the ethanol reports do not agree." }
+    sources: [src_somm_mcrae_astringency]
+    mcq: disabled
+  - id: q_somm_tequila_spanish
+    outcome: "Use the Spanish page where the English card conflicts."
+    prompt: "The English class card says reposado needs one year. What do the Spanish page and the English maturation paragraph say, and where does 600 litres apply?"
+    acceptable:
+      - "Both say at least two months for reposado, one year for añejo, and three years for extra añejo."
+      - "The Spanish añejo and extra añejo cards say barrels of at most 600 litres. The Spanish reposado card does not."
+      - "That 600-litre figure is not a gazette transcription."
+    distractors:
+      - { text: "Throw out 600 litres because the English card is wrong.", why_wrong: "The English card is wrong about reposado's duration. The Spanish añejo cards still state 600 litres." }
+      - { text: "Reposado also requires a 600-litre barrel.", why_wrong: "The Spanish reposado card says barricas or a pipón and does not state 600 litres." }
+    sources: [src_somm_crt_tequila, src_somm_crt_tequila_es]
+    mcq: disabled
+  - id: q_somm_calvados_not_cider
+    outcome: "Separate Calvados from cider without inventing a strength or a commune count."
+    prompt: "A guest is offered cider as Calvados and repeats a commune count from the INAO note. What do you correct, and what do you refuse to add?"
+    acceptable:
+      - "On the INAO note, Calvados is an eau-de-vie of cider and perry, aged at least two years in oak."
+      - "The note prints two disagreeing area counts. Do not memorize either. Only the cahier is the legal text, and it was not opened."
+      - "Do not invent a minimum strength. The note does not state one."
+    distractors:
+      - { text: "Cider and Calvados are the same category because both use apples.", why_wrong: "The note's Calvados is the distillate. The registered UK cider rule is the fermented juice." }
+      - { text: "The narrative count of about 1,600 communes is the boundary.", why_wrong: "The same page's technical block gives a different count, and INAO says the product note is not the legal text." }
+    sources: [src_somm_inao_calvados, src_bev_uk_cider_2010]
+    mcq: disabled
+  - id: q_somm_armagnac_identity
+    outcome: "State Armagnac identity without the still path."
+    prompt: "What can you say from the BNIA distillation page about the usual still, the oak, and the sale strength, and what do you leave out?"
+    acceptable:
+      - "About 95 percent is the page's figure for a continuous copper Armagnac alambic. It is not a statute that every house uses only that still."
+      - "Ageing is in 400-litre oak pièces mostly from Gascony or Limousin. The sale minimum stated is 40 percent. Bottled Armagnac no longer ages."
+      - "Do not repeat the plate-by-plate path or the off-still strength band."
+    distractors:
+      - { text: "Armagnac oak is only Gascon.", why_wrong: "The page names Gascony or Limousin." }
+      - { text: "The plate path is part of the category rule to memorize.", why_wrong: "It is a process description and is not taught." }
+    sources: [src_somm_bnia_distillation]
+    mcq: disabled

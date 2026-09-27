@@ -5,6 +5,7 @@ import 'formats/map_locate/map_locate_format.dart';
 import 'formats/map_pair/map_pair_format.dart';
 import 'formats/map_grape/map_grape_format.dart';
 import 'formats/mcq/mcq_format.dart';
+import 'formats/numeric/numeric_format.dart';
 import 'formats/reasoning/reasoning_format.dart';
 import 'formats/short_answer/short_answer_format.dart';
 import 'formats/typed/typed_format.dart';
@@ -55,4 +56,5 @@ final appFormats = FormatRegistry(const [
   TypedFormat(),
   ShortAnswerFormat(),
   ReasoningFormat(),
+  NumericFormat(),
 ]);

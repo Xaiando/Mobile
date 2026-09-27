@@ -1,0 +1,395 @@
+{
+  "authored_at": "2026-09-27",
+  "scope_document": {
+    "version": "WSET Level 3 Award in Wines 2022 Issue 2, live-linked edition checked 27 September 2026",
+    "url": "https://www.wsetglobal.com/media/11731/wset_l3wines_specification_en_highres_may2022_issue2.pdf",
+    "locator": "Unit 1 LO2 Range 1–2, printed pages 12–14 / PDF pages 13–15"
+  },
+  "completion_claim": false,
+  "notes": [
+    "Original Level 3 explanations, not legal permission used as a substitute for style.",
+    "No history or non-wine content; existing expert-review requirement retained.",
+    "Portuguese Jaen is tied to existing Mencía by the Portuguese regulator’s explicit synonym field; distinct Ribera Pirulé (Jaén) is preserved.",
+    "Argentine Bonarda is qualified, distinct from Italian grapes bearing Bonarda names."
+  ],
+  "grape_roles": [
+    {
+      "key": "dorn",
+      "grape_node_id": "n_grape_dornfelder",
+      "display_name": "Dornfelder",
+      "required_scope_levels": [
+        3
+      ],
+      "regional_node_ids": [
+        "n_geo_germany",
+        "n_geo_rheinhessen",
+        "n_geo_pfalz"
+      ],
+      "item_ids": [
+        "ki_wset_role_dornfelder_style",
+        "ki_wset_role_dornfelder_vine"
+      ],
+      "dimensions": [
+        "grapes_and_style"
+      ],
+      "note": "Named grape contribution with actual growing or cellar context; PERMITS_GRAPE alone was rejected as explanatory evidence."
+    },
+    {
+      "key": "welsch",
+      "grape_node_id": "n_grape_welschriesling",
+      "display_name": "Welschriesling",
+      "required_scope_levels": [
+        3
+      ],
+      "regional_node_ids": [
+        "n_geo_austria",
+        "n_geo_burgenland"
+      ],
+      "item_ids": [
+        "ki_wset_role_welschriesling_dry",
+        "ki_wset_role_welschriesling_sweet"
+      ],
+      "dimensions": [
+        "grapes_and_style"
+      ],
+      "note": "Named grape contribution with actual growing or cellar context; PERMITS_GRAPE alone was rejected as explanatory evidence."
+    },
+    {
+      "key": "saint",
+      "grape_node_id": "n_grape_saint_laurent",
+      "display_name": "Saint Laurent",
+      "required_scope_levels": [
+        3
+      ],
+      "regional_node_ids": [
+        "n_geo_austria",
+        "n_geo_thermenregion"
+      ],
+      "item_ids": [
+        "ki_wset_role_saint_laurent"
+      ],
+      "dimensions": [
+        "grapes_and_style"
+      ],
+      "note": "Named grape contribution with actual growing or cellar context; PERMITS_GRAPE alone was rejected as explanatory evidence."
+    },
+    {
+      "key": "arinto",
+      "grape_node_id": "n_grape_arinto",
+      "display_name": "Arinto / Pedernã",
+      "required_scope_levels": [
+        3
+      ],
+      "regional_node_ids": [
+        "n_geo_portugal",
+        "n_geo_vinho_verde",
+        "n_geo_alentejo",
+        "n_geo_tejo"
+      ],
+      "item_ids": [
+        "ki_wset_role_arinto"
+      ],
+      "dimensions": [
+        "grapes_and_style"
+      ],
+      "note": "Named grape contribution with actual growing or cellar context; PERMITS_GRAPE alone was rejected as explanatory evidence."
+    },
+    {
+      "key": "alfro",
+      "grape_node_id": "n_grape_alfrocheiro",
+      "display_name": "Alfrocheiro",
+      "required_scope_levels": [
+        3
+      ],
+      "regional_node_ids": [
+        "n_geo_dao",
+        "n_geo_alentejo"
+      ],
+      "item_ids": [
+        "ki_wset_role_alfrocheiro"
+      ],
+      "dimensions": [
+        "grapes_and_style"
+      ],
+      "note": "Named grape contribution with actual growing or cellar context; PERMITS_GRAPE alone was rejected as explanatory evidence."
+    },
+    {
+      "key": "jaen",
+      "grape_node_id": "n_grape_mencia",
+      "display_name": "Jaen / Mencía",
+      "required_scope_levels": [
+        3
+      ],
+      "regional_node_ids": [
+        "n_geo_dao"
+      ],
+      "item_ids": [
+        "ki_wset_role_jaen_identity",
+        "ki_wset_role_jaen_blend"
+      ],
+      "dimensions": [
+        "grapes_and_style"
+      ],
+      "note": "Named grape contribution with actual growing or cellar context; PERMITS_GRAPE alone was rejected as explanatory evidence."
+    },
+    {
+      "key": "trinc",
+      "grape_node_id": "n_grape_trincadeira",
+      "display_name": "Trincadeira / Tinta Amarela",
+      "required_scope_levels": [
+        3
+      ],
+      "regional_node_ids": [
+        "n_geo_alentejo",
+        "n_geo_tejo",
+        "n_geo_douro"
+      ],
+      "item_ids": [
+        "ki_wset_role_trincadeira_style",
+        "ki_wset_role_trincadeira_vine"
+      ],
+      "dimensions": [
+        "grapes_and_style"
+      ],
+      "note": "Named grape contribution with actual growing or cellar context; PERMITS_GRAPE alone was rejected as explanatory evidence."
+    },
+    {
+      "key": "bonarda",
+      "grape_node_id": "n_grape_bonarda_argentina",
+      "display_name": "Bonarda (Argentina)",
+      "required_scope_levels": [
+        3
+      ],
+      "regional_node_ids": [
+        "n_geo_argentina",
+        "n_geo_mendoza",
+        "n_geo_san_juan_argentina"
+      ],
+      "item_ids": [
+        "ki_wset_role_bonarda_identity",
+        "ki_wset_role_bonarda_style"
+      ],
+      "dimensions": [
+        "grapes_and_style"
+      ],
+      "note": "Named grape contribution with actual growing or cellar context; PERMITS_GRAPE alone was rejected as explanatory evidence."
+    },
+    {
+      "key": "verdot",
+      "grape_node_id": "n_grape_petit_verdot",
+      "display_name": "Petit Verdot",
+      "required_scope_levels": [
+        3
+      ],
+      "regional_node_ids": [
+        "n_geo_bordeaux"
+      ],
+      "item_ids": [
+        "ki_wset_role_petit_verdot"
+      ],
+      "dimensions": [
+        "grapes_and_style"
+      ],
+      "note": "Named grape contribution with actual growing or cellar context; PERMITS_GRAPE alone was rejected as explanatory evidence."
+    },
+    {
+      "key": "graciano",
+      "grape_node_id": "n_grape_graciano",
+      "display_name": "Graciano",
+      "required_scope_levels": [
+        3
+      ],
+      "regional_node_ids": [
+        "n_geo_rioja"
+      ],
+      "item_ids": [
+        "ki_wset_role_graciano"
+      ],
+      "dimensions": [
+        "grapes_and_style"
+      ],
+      "note": "Named grape contribution with actual growing or cellar context; PERMITS_GRAPE alone was rejected as explanatory evidence."
+    },
+    {
+      "key": "mazuelo",
+      "grape_node_id": "n_grape_carignan",
+      "display_name": "Mazuelo / Carignan",
+      "required_scope_levels": [
+        3
+      ],
+      "regional_node_ids": [
+        "n_geo_rioja"
+      ],
+      "item_ids": [
+        "ki_wset_role_mazuelo"
+      ],
+      "dimensions": [
+        "grapes_and_style"
+      ],
+      "note": "Named grape contribution with actual growing or cellar context; PERMITS_GRAPE alone was rejected as explanatory evidence."
+    },
+    {
+      "key": "sarga",
+      "grape_node_id": "n_grape_muscat_blanc_a_petits_grains",
+      "display_name": "Sárga Muskotály",
+      "required_scope_levels": [
+        3
+      ],
+      "regional_node_ids": [
+        "n_geo_tokaj"
+      ],
+      "item_ids": [
+        "ki_wset_role_sarga_muskotaly"
+      ],
+      "dimensions": [
+        "grapes_and_style"
+      ],
+      "note": "Named grape contribution with actual growing or cellar context; PERMITS_GRAPE alone was rejected as explanatory evidence."
+    },
+    {
+      "key": "blau",
+      "grape_node_id": "n_grape_blaufrankisch",
+      "display_name": "Blaufränkisch",
+      "required_scope_levels": [
+        3
+      ],
+      "regional_node_ids": [
+        "n_geo_burgenland",
+        "n_geo_mittelburgenland",
+        "n_geo_leithaberg",
+        "n_geo_eisenberg"
+      ],
+      "item_ids": [
+        "ki_wset_role_blaufrankisch"
+      ],
+      "dimensions": [
+        "grapes_and_style"
+      ],
+      "note": "Named grape contribution with actual growing or cellar context; PERMITS_GRAPE alone was rejected as explanatory evidence."
+    },
+    {
+      "key": "zweigelt",
+      "grape_node_id": "n_grape_zweigelt",
+      "display_name": "Zweigelt",
+      "required_scope_levels": [
+        3
+      ],
+      "regional_node_ids": [
+        "n_geo_austria",
+        "n_geo_neusiedlersee"
+      ],
+      "item_ids": [
+        "ki_wset_role_zweigelt"
+      ],
+      "dimensions": [
+        "grapes_and_style"
+      ],
+      "note": "Named grape contribution with actual growing or cellar context; PERMITS_GRAPE alone was rejected as explanatory evidence."
+    }
+  ],
+  "regional_families": [
+    {
+      "key": "fr_saumur_champigny",
+      "required_scope_levels": [
+        3
+      ],
+      "regional_node_ids": [
+        "n_geo_saumur_champigny"
+      ],
+      "dimensions": {
+        "grapes_and_style": [
+          "ki_wset_role_saumur_champigny_identity"
+        ],
+        "growing_environment": [
+          "ki_reg_fs_saumur_season",
+          "ki_reg_fs_saumur_thermal",
+          "ki_reg_fs_saumur_water"
+        ],
+        "production": [
+          "ki_wset_role_saumur_champigny_cellar"
+        ],
+        "labels": [
+          "ki_wset_role_saumur_champigny_identity"
+        ],
+        "quality_price": [
+          "ki_wset_role_saumur_champigny_cellar"
+        ]
+      },
+      "transferable_support_item_ids": [
+        "ki_wset_prod_red_extraction_stages",
+        "ki_wset_prod_cost_cellar"
+      ]
+    },
+    {
+      "key": "it_friuli_colli_orientali",
+      "required_scope_levels": [
+        3
+      ],
+      "regional_node_ids": [
+        "n_geo_friuli_colli_orientali"
+      ],
+      "dimensions": {
+        "grapes_and_style": [
+          "ki_wset_role_friuli_identity",
+          "ki_wset_role_friuli_white_styles"
+        ],
+        "growing_environment": [
+          "ki_reg_inc_friuli_ponca",
+          "ki_reg_inc_friuli_position"
+        ],
+        "production": [
+          "ki_wset_role_friuli_cellar_cost"
+        ],
+        "labels": [
+          "ki_wset_role_friuli_identity"
+        ],
+        "quality_price": [
+          "ki_wset_role_friuli_cellar_cost"
+        ]
+      },
+      "transferable_support_item_ids": [
+        "ki_wset_prod_neutral_vessels",
+        "ki_wset_prod_cost_cellar",
+        "ki_win_lees_release"
+      ]
+    },
+    {
+      "key": "es_castilla_y_leon_igp",
+      "required_scope_levels": [
+        3
+      ],
+      "regional_node_ids": [
+        "n_geo_castilla_y_leon_igp"
+      ],
+      "dimensions": {
+        "grapes_and_style": [
+          "ki_wset_role_castilla_styles"
+        ],
+        "growing_environment": [
+          "ki_wset_role_castilla_environment"
+        ],
+        "production": [
+          "ki_wset_role_castilla_styles"
+        ],
+        "labels": [
+          "ki_wset_role_castilla_igp_identity"
+        ],
+        "quality_price": [
+          "ki_wset_role_castilla_styles"
+        ]
+      },
+      "transferable_support_item_ids": [
+        "ki_wset_prod_cost_cellar"
+      ]
+    }
+  ],
+  "reused_mapping_item_ids": [],
+  "counts": {
+    "new_learning_points": 27,
+    "new_profiles": 27,
+    "new_grape_nodes": 8,
+    "new_sources": 18,
+    "item_citations": 38,
+    "mapping_rows": 27
+  }
+}

@@ -15,3 +15,5 @@ web/sqlite3.wasm binary linguist-vendored=true
 # Map layers built by tool/geography: single-line TopoJSON whose SHA-256 the
 # manifest records, so never convert line endings; collapsed in diffs.
 assets/geography/*.topo.json -text linguist-generated=true
+# Pinned GeoJSON source snapshots have upstream LF bytes in their SHA-256.
+tool/geography/*.geojson text eol=lf

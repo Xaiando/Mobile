@@ -1,0 +1,2705 @@
+{
+  "schema_version": 1,
+  "authored_on": "2026-09-27",
+  "scope": {
+    "level": "WSET_L2",
+    "version": "2026 Issue 2.1",
+    "url": "https://www.wsetglobal.com/media/19132/wset_l2wines_specification_en_april2026_issue21.pdf",
+    "locators": [
+      "Printed page 9: LO3 principal eight structural and production influences",
+      "Printed pages 12–13: LO4 additional twenty-two structural characteristics and styles"
+    ]
+  },
+  "claim": "Original study closure for the 30 required grape profiles, with exact explanatory evidence. Subject to expert review; no official qualification or assessment certification claim.",
+  "existing_mapping_promotions_required": [
+    {
+      "level": "WSET_L2",
+      "importance": "core",
+      "minimum_depth": 2,
+      "knowledge_item_ids": [
+        "ki_win_oak_flavours",
+        "ki_win_oak_reuse",
+        "ki_win_mlf_conversion",
+        "ki_win_mlf_butter",
+        "ki_win_lees_release"
+      ],
+      "reason": "These five existing age-appropriate generic LO3 cellar mechanisms are currently Level 2 secondary. Parent owns the existing canonical mapping update; do not duplicate facts or mappings."
+    }
+  ],
+  "grapes": [
+    {
+      "grape_id": "chardonnay",
+      "label": "Chardonnay",
+      "required_group_id": "l2_grape_chardonnay",
+      "learning_outcome": "LO3",
+      "level": "WSET_L2",
+      "original_gap": "Existing profile and variation gave aromas/styles, but did not select all required finished-colour, tannin (black grapes), sugar/potential-alcohol and acid dimensions.",
+      "dimensions": {
+        "colour": [
+          "ki_wset_structure_chardonnay_structure"
+        ],
+        "potential_alcohol": [
+          "ki_wset_structure_chardonnay_structure",
+          "ki_wset_l1_climate_ripeness",
+          "ki_wset_found_fermentation"
+        ],
+        "acidity": [
+          "ki_wset_structure_chardonnay_structure",
+          "ki_wset_grape_chardonnay_profile"
+        ],
+        "aroma": [
+          "ki_wset_grape_chardonnay_profile",
+          "ki_wset_grape_chardonnay_variation"
+        ],
+        "environment": [
+          "ki_wset_structure_chardonnay_vineyard",
+          "ki_wset_l1_climate_ripeness"
+        ],
+        "harvest": [
+          "ki_wset_structure_chardonnay_vineyard",
+          "ki_wset_structure_chardonnay_structure",
+          "ki_wset_found_ripening"
+        ],
+        "production": [
+          "ki_wset_grape_chardonnay_variation",
+          "ki_wset_nw_napa_chardonnay",
+          "ki_reg_fr_chablis_mlf_acid",
+          "ki_wset_prod_neutral_vessels",
+          "ki_win_oak_flavours",
+          "ki_win_oak_variables",
+          "ki_win_oak_reuse",
+          "ki_wset_close_oak_size",
+          "ki_wset_close_oak_toast",
+          "ki_win_mlf_conversion",
+          "ki_win_mlf_butter",
+          "ki_win_lees_release",
+          "ki_wset_prod_blend_balance",
+          "ki_wset_prod_blend_consistency",
+          "ki_wset_close_blending_complexity"
+        ],
+        "bottle_ageing": [
+          "ki_wset_structure_chardonnay_ageing",
+          "ki_wset_close_white_ageing_colour",
+          "ki_wset_taste_ageing_evolution",
+          "ki_wset_taste_ageing_not_all",
+          "ki_wset_taste_ageing_uncertain"
+        ]
+      },
+      "existing_item_ids": [
+        "ki_wset_l1_climate_ripeness",
+        "ki_wset_found_fermentation",
+        "ki_wset_grape_chardonnay_profile",
+        "ki_wset_grape_chardonnay_variation",
+        "ki_wset_found_ripening",
+        "ki_wset_nw_napa_chardonnay",
+        "ki_reg_fr_chablis_mlf_acid",
+        "ki_wset_prod_neutral_vessels",
+        "ki_win_oak_flavours",
+        "ki_win_oak_variables",
+        "ki_win_oak_reuse",
+        "ki_wset_close_oak_size",
+        "ki_wset_close_oak_toast",
+        "ki_win_mlf_conversion",
+        "ki_win_mlf_butter",
+        "ki_win_lees_release",
+        "ki_wset_prod_blend_balance",
+        "ki_wset_prod_blend_consistency",
+        "ki_wset_close_blending_complexity",
+        "ki_wset_close_white_ageing_colour",
+        "ki_wset_taste_ageing_evolution",
+        "ki_wset_taste_ageing_not_all",
+        "ki_wset_taste_ageing_uncertain",
+        "ki_wset_grape_descriptor_context"
+      ],
+      "added_item_ids": [
+        "ki_wset_structure_chardonnay_structure",
+        "ki_wset_structure_chardonnay_vineyard",
+        "ki_wset_structure_chardonnay_ageing"
+      ],
+      "required_item_ids": [
+        "ki_wset_structure_chardonnay_structure",
+        "ki_wset_l1_climate_ripeness",
+        "ki_wset_found_fermentation",
+        "ki_wset_grape_chardonnay_profile",
+        "ki_wset_grape_chardonnay_variation",
+        "ki_wset_structure_chardonnay_vineyard",
+        "ki_wset_found_ripening",
+        "ki_wset_nw_napa_chardonnay",
+        "ki_reg_fr_chablis_mlf_acid",
+        "ki_wset_prod_neutral_vessels",
+        "ki_win_oak_flavours",
+        "ki_win_oak_variables",
+        "ki_win_oak_reuse",
+        "ki_wset_close_oak_size",
+        "ki_wset_close_oak_toast",
+        "ki_win_mlf_conversion",
+        "ki_win_mlf_butter",
+        "ki_win_lees_release",
+        "ki_wset_prod_blend_balance",
+        "ki_wset_prod_blend_consistency",
+        "ki_wset_close_blending_complexity",
+        "ki_wset_structure_chardonnay_ageing",
+        "ki_wset_close_white_ageing_colour",
+        "ki_wset_taste_ageing_evolution",
+        "ki_wset_taste_ageing_not_all",
+        "ki_wset_taste_ageing_uncertain",
+        "ki_wset_grape_descriptor_context"
+      ],
+      "berry_colour_alone_is_finished_colour_evidence": false
+    },
+    {
+      "grape_id": "sauvignon_blanc",
+      "label": "Sauvignon Blanc",
+      "required_group_id": "l2_grape_sauvignon_blanc",
+      "learning_outcome": "LO3",
+      "level": "WSET_L2",
+      "original_gap": "Existing profile and variation gave aromas/styles, but did not select all required finished-colour, tannin (black grapes), sugar/potential-alcohol and acid dimensions.",
+      "dimensions": {
+        "colour": [
+          "ki_wset_structure_sauvignon_blanc_structure"
+        ],
+        "potential_alcohol": [
+          "ki_wset_structure_sauvignon_blanc_structure",
+          "ki_wset_l1_climate_ripeness",
+          "ki_wset_found_fermentation"
+        ],
+        "acidity": [
+          "ki_wset_structure_sauvignon_blanc_structure",
+          "ki_wset_grape_sauvignon_blanc_profile"
+        ],
+        "aroma": [
+          "ki_wset_grape_sauvignon_blanc_profile",
+          "ki_wset_grape_sauvignon_blanc_variation"
+        ],
+        "environment": [
+          "ki_wset_structure_sauvignon_blanc_vineyard",
+          "ki_wset_l1_climate_ripeness"
+        ],
+        "harvest": [
+          "ki_wset_structure_sauvignon_blanc_vineyard",
+          "ki_wset_structure_sauvignon_blanc_structure",
+          "ki_wset_found_ripening"
+        ],
+        "production": [
+          "ki_wset_grape_sauvignon_blanc_variation",
+          "ki_wset_nw_napa_sauvignon",
+          "ki_wset_prod_neutral_vessels",
+          "ki_win_oak_flavours",
+          "ki_win_oak_variables",
+          "ki_win_oak_reuse",
+          "ki_wset_close_oak_size",
+          "ki_wset_close_oak_toast",
+          "ki_win_mlf_conversion",
+          "ki_win_mlf_butter",
+          "ki_win_lees_release",
+          "ki_wset_prod_blend_balance",
+          "ki_wset_prod_blend_consistency",
+          "ki_wset_close_blending_complexity"
+        ],
+        "bottle_ageing": [
+          "ki_wset_structure_sauvignon_blanc_ageing",
+          "ki_wset_close_white_ageing_colour",
+          "ki_wset_taste_ageing_evolution",
+          "ki_wset_taste_ageing_not_all",
+          "ki_wset_taste_ageing_uncertain"
+        ]
+      },
+      "existing_item_ids": [
+        "ki_wset_l1_climate_ripeness",
+        "ki_wset_found_fermentation",
+        "ki_wset_grape_sauvignon_blanc_profile",
+        "ki_wset_grape_sauvignon_blanc_variation",
+        "ki_wset_found_ripening",
+        "ki_wset_nw_napa_sauvignon",
+        "ki_wset_prod_neutral_vessels",
+        "ki_win_oak_flavours",
+        "ki_win_oak_variables",
+        "ki_win_oak_reuse",
+        "ki_wset_close_oak_size",
+        "ki_wset_close_oak_toast",
+        "ki_win_mlf_conversion",
+        "ki_win_mlf_butter",
+        "ki_win_lees_release",
+        "ki_wset_prod_blend_balance",
+        "ki_wset_prod_blend_consistency",
+        "ki_wset_close_blending_complexity",
+        "ki_wset_close_white_ageing_colour",
+        "ki_wset_taste_ageing_evolution",
+        "ki_wset_taste_ageing_not_all",
+        "ki_wset_taste_ageing_uncertain",
+        "ki_wset_grape_descriptor_context"
+      ],
+      "added_item_ids": [
+        "ki_wset_structure_sauvignon_blanc_structure",
+        "ki_wset_structure_sauvignon_blanc_vineyard",
+        "ki_wset_structure_sauvignon_blanc_ageing"
+      ],
+      "required_item_ids": [
+        "ki_wset_structure_sauvignon_blanc_structure",
+        "ki_wset_l1_climate_ripeness",
+        "ki_wset_found_fermentation",
+        "ki_wset_grape_sauvignon_blanc_profile",
+        "ki_wset_grape_sauvignon_blanc_variation",
+        "ki_wset_structure_sauvignon_blanc_vineyard",
+        "ki_wset_found_ripening",
+        "ki_wset_nw_napa_sauvignon",
+        "ki_wset_prod_neutral_vessels",
+        "ki_win_oak_flavours",
+        "ki_win_oak_variables",
+        "ki_win_oak_reuse",
+        "ki_wset_close_oak_size",
+        "ki_wset_close_oak_toast",
+        "ki_win_mlf_conversion",
+        "ki_win_mlf_butter",
+        "ki_win_lees_release",
+        "ki_wset_prod_blend_balance",
+        "ki_wset_prod_blend_consistency",
+        "ki_wset_close_blending_complexity",
+        "ki_wset_structure_sauvignon_blanc_ageing",
+        "ki_wset_close_white_ageing_colour",
+        "ki_wset_taste_ageing_evolution",
+        "ki_wset_taste_ageing_not_all",
+        "ki_wset_taste_ageing_uncertain",
+        "ki_wset_grape_descriptor_context"
+      ],
+      "berry_colour_alone_is_finished_colour_evidence": false
+    },
+    {
+      "grape_id": "pinot_gris",
+      "label": "Pinot Gris / Pinot Grigio",
+      "required_group_id": "l2_grape_pinot_gris",
+      "learning_outcome": "LO3",
+      "level": "WSET_L2",
+      "original_gap": "Existing profile and variation gave aromas/styles, but did not select all required finished-colour, tannin (black grapes), sugar/potential-alcohol and acid dimensions.",
+      "dimensions": {
+        "colour": [
+          "ki_wset_structure_pinot_gris_structure"
+        ],
+        "potential_alcohol": [
+          "ki_wset_structure_pinot_gris_structure",
+          "ki_wset_l1_climate_ripeness",
+          "ki_wset_found_fermentation"
+        ],
+        "acidity": [
+          "ki_wset_structure_pinot_gris_structure",
+          "ki_wset_grape_pinot_gris_profile"
+        ],
+        "aroma": [
+          "ki_wset_grape_pinot_gris_profile",
+          "ki_wset_grape_pinot_gris_variation"
+        ],
+        "environment": [
+          "ki_wset_structure_pinot_gris_vineyard",
+          "ki_wset_l1_climate_ripeness"
+        ],
+        "harvest": [
+          "ki_wset_structure_pinot_gris_vineyard",
+          "ki_wset_structure_pinot_gris_structure",
+          "ki_wset_found_ripening"
+        ],
+        "production": [
+          "ki_wset_grape_pinot_gris_variation",
+          "ki_wset_eu_delle_venezie_style",
+          "ki_wset_prod_neutral_vessels",
+          "ki_win_oak_flavours",
+          "ki_win_oak_variables",
+          "ki_win_oak_reuse",
+          "ki_wset_close_oak_size",
+          "ki_wset_close_oak_toast",
+          "ki_win_mlf_conversion",
+          "ki_win_mlf_butter",
+          "ki_win_lees_release",
+          "ki_wset_prod_blend_balance",
+          "ki_wset_prod_blend_consistency",
+          "ki_wset_close_blending_complexity"
+        ],
+        "bottle_ageing": [
+          "ki_wset_structure_pinot_gris_ageing",
+          "ki_wset_close_white_ageing_colour",
+          "ki_wset_taste_ageing_evolution",
+          "ki_wset_taste_ageing_not_all",
+          "ki_wset_taste_ageing_uncertain"
+        ]
+      },
+      "existing_item_ids": [
+        "ki_wset_l1_climate_ripeness",
+        "ki_wset_found_fermentation",
+        "ki_wset_grape_pinot_gris_profile",
+        "ki_wset_grape_pinot_gris_variation",
+        "ki_wset_found_ripening",
+        "ki_wset_eu_delle_venezie_style",
+        "ki_wset_prod_neutral_vessels",
+        "ki_win_oak_flavours",
+        "ki_win_oak_variables",
+        "ki_win_oak_reuse",
+        "ki_wset_close_oak_size",
+        "ki_wset_close_oak_toast",
+        "ki_win_mlf_conversion",
+        "ki_win_mlf_butter",
+        "ki_win_lees_release",
+        "ki_wset_prod_blend_balance",
+        "ki_wset_prod_blend_consistency",
+        "ki_wset_close_blending_complexity",
+        "ki_wset_close_white_ageing_colour",
+        "ki_wset_taste_ageing_evolution",
+        "ki_wset_taste_ageing_not_all",
+        "ki_wset_taste_ageing_uncertain",
+        "ki_wset_grape_descriptor_context"
+      ],
+      "added_item_ids": [
+        "ki_wset_structure_pinot_gris_structure",
+        "ki_wset_structure_pinot_gris_vineyard",
+        "ki_wset_structure_pinot_gris_ageing"
+      ],
+      "required_item_ids": [
+        "ki_wset_structure_pinot_gris_structure",
+        "ki_wset_l1_climate_ripeness",
+        "ki_wset_found_fermentation",
+        "ki_wset_grape_pinot_gris_profile",
+        "ki_wset_grape_pinot_gris_variation",
+        "ki_wset_structure_pinot_gris_vineyard",
+        "ki_wset_found_ripening",
+        "ki_wset_eu_delle_venezie_style",
+        "ki_wset_prod_neutral_vessels",
+        "ki_win_oak_flavours",
+        "ki_win_oak_variables",
+        "ki_win_oak_reuse",
+        "ki_wset_close_oak_size",
+        "ki_wset_close_oak_toast",
+        "ki_win_mlf_conversion",
+        "ki_win_mlf_butter",
+        "ki_win_lees_release",
+        "ki_wset_prod_blend_balance",
+        "ki_wset_prod_blend_consistency",
+        "ki_wset_close_blending_complexity",
+        "ki_wset_structure_pinot_gris_ageing",
+        "ki_wset_close_white_ageing_colour",
+        "ki_wset_taste_ageing_evolution",
+        "ki_wset_taste_ageing_not_all",
+        "ki_wset_taste_ageing_uncertain",
+        "ki_wset_grape_descriptor_context"
+      ],
+      "berry_colour_alone_is_finished_colour_evidence": false
+    },
+    {
+      "grape_id": "riesling",
+      "label": "Riesling",
+      "required_group_id": "l2_grape_riesling",
+      "learning_outcome": "LO3",
+      "level": "WSET_L2",
+      "original_gap": "Existing profile and variation gave aromas/styles, but did not select all required finished-colour, tannin (black grapes), sugar/potential-alcohol and acid dimensions.",
+      "dimensions": {
+        "colour": [
+          "ki_wset_structure_riesling_structure"
+        ],
+        "potential_alcohol": [
+          "ki_wset_structure_riesling_structure",
+          "ki_wset_l1_climate_ripeness",
+          "ki_wset_found_fermentation"
+        ],
+        "acidity": [
+          "ki_wset_structure_riesling_structure",
+          "ki_wset_grape_riesling_profile"
+        ],
+        "aroma": [
+          "ki_wset_grape_riesling_profile",
+          "ki_wset_grape_riesling_variation"
+        ],
+        "environment": [
+          "ki_wset_structure_riesling_vineyard",
+          "ki_wset_l1_climate_ripeness"
+        ],
+        "harvest": [
+          "ki_wset_structure_riesling_vineyard",
+          "ki_wset_structure_riesling_structure",
+          "ki_wset_found_ripening"
+        ],
+        "production": [
+          "ki_wset_grape_riesling_variation",
+          "ki_wset_nwa_clare_eden_riesling",
+          "ki_wset_prod_neutral_vessels",
+          "ki_win_oak_flavours",
+          "ki_win_oak_variables",
+          "ki_win_oak_reuse",
+          "ki_wset_close_oak_size",
+          "ki_wset_close_oak_toast",
+          "ki_win_mlf_conversion",
+          "ki_win_mlf_butter",
+          "ki_win_lees_release",
+          "ki_wset_prod_blend_balance",
+          "ki_wset_prod_blend_consistency",
+          "ki_wset_close_blending_complexity"
+        ],
+        "bottle_ageing": [
+          "ki_reg_sh_eden_riesling",
+          "ki_wset_nw_clare_riesling_style",
+          "ki_wset_close_white_ageing_colour",
+          "ki_wset_taste_ageing_evolution",
+          "ki_wset_taste_ageing_not_all",
+          "ki_wset_taste_ageing_uncertain"
+        ]
+      },
+      "existing_item_ids": [
+        "ki_wset_l1_climate_ripeness",
+        "ki_wset_found_fermentation",
+        "ki_wset_grape_riesling_profile",
+        "ki_wset_grape_riesling_variation",
+        "ki_wset_found_ripening",
+        "ki_wset_nwa_clare_eden_riesling",
+        "ki_wset_prod_neutral_vessels",
+        "ki_win_oak_flavours",
+        "ki_win_oak_variables",
+        "ki_win_oak_reuse",
+        "ki_wset_close_oak_size",
+        "ki_wset_close_oak_toast",
+        "ki_win_mlf_conversion",
+        "ki_win_mlf_butter",
+        "ki_win_lees_release",
+        "ki_wset_prod_blend_balance",
+        "ki_wset_prod_blend_consistency",
+        "ki_wset_close_blending_complexity",
+        "ki_reg_sh_eden_riesling",
+        "ki_wset_nw_clare_riesling_style",
+        "ki_wset_close_white_ageing_colour",
+        "ki_wset_taste_ageing_evolution",
+        "ki_wset_taste_ageing_not_all",
+        "ki_wset_taste_ageing_uncertain",
+        "ki_wset_grape_descriptor_context"
+      ],
+      "added_item_ids": [
+        "ki_wset_structure_riesling_structure",
+        "ki_wset_structure_riesling_vineyard"
+      ],
+      "required_item_ids": [
+        "ki_wset_structure_riesling_structure",
+        "ki_wset_l1_climate_ripeness",
+        "ki_wset_found_fermentation",
+        "ki_wset_grape_riesling_profile",
+        "ki_wset_grape_riesling_variation",
+        "ki_wset_structure_riesling_vineyard",
+        "ki_wset_found_ripening",
+        "ki_wset_nwa_clare_eden_riesling",
+        "ki_wset_prod_neutral_vessels",
+        "ki_win_oak_flavours",
+        "ki_win_oak_variables",
+        "ki_win_oak_reuse",
+        "ki_wset_close_oak_size",
+        "ki_wset_close_oak_toast",
+        "ki_win_mlf_conversion",
+        "ki_win_mlf_butter",
+        "ki_win_lees_release",
+        "ki_wset_prod_blend_balance",
+        "ki_wset_prod_blend_consistency",
+        "ki_wset_close_blending_complexity",
+        "ki_reg_sh_eden_riesling",
+        "ki_wset_nw_clare_riesling_style",
+        "ki_wset_close_white_ageing_colour",
+        "ki_wset_taste_ageing_evolution",
+        "ki_wset_taste_ageing_not_all",
+        "ki_wset_taste_ageing_uncertain",
+        "ki_wset_grape_descriptor_context"
+      ],
+      "berry_colour_alone_is_finished_colour_evidence": false
+    },
+    {
+      "grape_id": "cabernet_sauvignon",
+      "label": "Cabernet Sauvignon",
+      "required_group_id": "l2_grape_cabernet_sauvignon",
+      "learning_outcome": "LO3",
+      "level": "WSET_L2",
+      "original_gap": "Existing profile and variation gave aromas/styles, but did not select all required finished-colour, tannin (black grapes), sugar/potential-alcohol and acid dimensions.",
+      "dimensions": {
+        "colour": [
+          "ki_wset_structure_cabernet_sauvignon_structure"
+        ],
+        "potential_alcohol": [
+          "ki_wset_structure_cabernet_sauvignon_structure",
+          "ki_wset_l1_climate_ripeness",
+          "ki_wset_found_fermentation"
+        ],
+        "acidity": [
+          "ki_wset_structure_cabernet_sauvignon_structure",
+          "ki_wset_grape_cabernet_sauvignon_profile"
+        ],
+        "aroma": [
+          "ki_wset_grape_cabernet_sauvignon_profile",
+          "ki_wset_grape_cabernet_sauvignon_variation"
+        ],
+        "tannin": [
+          "ki_wset_structure_cabernet_sauvignon_structure",
+          "ki_wset_grape_cabernet_sauvignon_profile"
+        ],
+        "environment": [
+          "ki_wset_structure_cabernet_sauvignon_vineyard",
+          "ki_wset_l1_climate_ripeness"
+        ],
+        "harvest": [
+          "ki_wset_structure_cabernet_sauvignon_vineyard",
+          "ki_wset_structure_cabernet_sauvignon_structure",
+          "ki_wset_found_ripening"
+        ],
+        "production": [
+          "ki_wset_grape_cabernet_sauvignon_variation",
+          "ki_wset_nw_napa_cabernet",
+          "ki_wset_prod_neutral_vessels",
+          "ki_win_oak_flavours",
+          "ki_win_oak_variables",
+          "ki_win_oak_reuse",
+          "ki_wset_close_oak_size",
+          "ki_wset_close_oak_toast",
+          "ki_win_mlf_conversion",
+          "ki_win_mlf_butter",
+          "ki_win_lees_release",
+          "ki_wset_prod_blend_balance",
+          "ki_wset_prod_blend_consistency",
+          "ki_wset_close_blending_complexity"
+        ],
+        "bottle_ageing": [
+          "ki_wset_structure_cabernet_sauvignon_ageing",
+          "ki_wset_close_red_ageing_colour",
+          "ki_wset_taste_ageing_evolution",
+          "ki_wset_taste_ageing_not_all",
+          "ki_wset_taste_ageing_uncertain"
+        ]
+      },
+      "existing_item_ids": [
+        "ki_wset_l1_climate_ripeness",
+        "ki_wset_found_fermentation",
+        "ki_wset_grape_cabernet_sauvignon_profile",
+        "ki_wset_grape_cabernet_sauvignon_variation",
+        "ki_wset_found_ripening",
+        "ki_wset_nw_napa_cabernet",
+        "ki_wset_prod_neutral_vessels",
+        "ki_win_oak_flavours",
+        "ki_win_oak_variables",
+        "ki_win_oak_reuse",
+        "ki_wset_close_oak_size",
+        "ki_wset_close_oak_toast",
+        "ki_win_mlf_conversion",
+        "ki_win_mlf_butter",
+        "ki_win_lees_release",
+        "ki_wset_prod_blend_balance",
+        "ki_wset_prod_blend_consistency",
+        "ki_wset_close_blending_complexity",
+        "ki_wset_close_red_ageing_colour",
+        "ki_wset_taste_ageing_evolution",
+        "ki_wset_taste_ageing_not_all",
+        "ki_wset_taste_ageing_uncertain",
+        "ki_wset_grape_descriptor_context"
+      ],
+      "added_item_ids": [
+        "ki_wset_structure_cabernet_sauvignon_structure",
+        "ki_wset_structure_cabernet_sauvignon_vineyard",
+        "ki_wset_structure_cabernet_sauvignon_ageing"
+      ],
+      "required_item_ids": [
+        "ki_wset_structure_cabernet_sauvignon_structure",
+        "ki_wset_l1_climate_ripeness",
+        "ki_wset_found_fermentation",
+        "ki_wset_grape_cabernet_sauvignon_profile",
+        "ki_wset_grape_cabernet_sauvignon_variation",
+        "ki_wset_structure_cabernet_sauvignon_vineyard",
+        "ki_wset_found_ripening",
+        "ki_wset_nw_napa_cabernet",
+        "ki_wset_prod_neutral_vessels",
+        "ki_win_oak_flavours",
+        "ki_win_oak_variables",
+        "ki_win_oak_reuse",
+        "ki_wset_close_oak_size",
+        "ki_wset_close_oak_toast",
+        "ki_win_mlf_conversion",
+        "ki_win_mlf_butter",
+        "ki_win_lees_release",
+        "ki_wset_prod_blend_balance",
+        "ki_wset_prod_blend_consistency",
+        "ki_wset_close_blending_complexity",
+        "ki_wset_structure_cabernet_sauvignon_ageing",
+        "ki_wset_close_red_ageing_colour",
+        "ki_wset_taste_ageing_evolution",
+        "ki_wset_taste_ageing_not_all",
+        "ki_wset_taste_ageing_uncertain",
+        "ki_wset_grape_descriptor_context"
+      ],
+      "berry_colour_alone_is_finished_colour_evidence": false
+    },
+    {
+      "grape_id": "merlot",
+      "label": "Merlot",
+      "required_group_id": "l2_grape_merlot",
+      "learning_outcome": "LO3",
+      "level": "WSET_L2",
+      "original_gap": "Existing profile and variation gave aromas/styles, but did not select all required finished-colour, tannin (black grapes), sugar/potential-alcohol and acid dimensions.",
+      "dimensions": {
+        "colour": [
+          "ki_wset_structure_merlot_structure"
+        ],
+        "potential_alcohol": [
+          "ki_wset_structure_merlot_structure",
+          "ki_wset_l1_climate_ripeness",
+          "ki_wset_found_fermentation"
+        ],
+        "acidity": [
+          "ki_wset_structure_merlot_structure",
+          "ki_wset_grape_merlot_profile"
+        ],
+        "aroma": [
+          "ki_wset_grape_merlot_profile",
+          "ki_wset_grape_merlot_variation"
+        ],
+        "tannin": [
+          "ki_wset_structure_merlot_structure",
+          "ki_wset_grape_merlot_profile"
+        ],
+        "environment": [
+          "ki_wset_structure_merlot_vineyard",
+          "ki_wset_l1_climate_ripeness"
+        ],
+        "harvest": [
+          "ki_wset_structure_merlot_vineyard",
+          "ki_wset_structure_merlot_structure",
+          "ki_wset_found_ripening"
+        ],
+        "production": [
+          "ki_wset_grape_merlot_variation",
+          "ki_wset_origin_stellenbosch_merlot",
+          "ki_wset_prod_neutral_vessels",
+          "ki_win_oak_flavours",
+          "ki_win_oak_variables",
+          "ki_win_oak_reuse",
+          "ki_wset_close_oak_size",
+          "ki_wset_close_oak_toast",
+          "ki_win_mlf_conversion",
+          "ki_win_mlf_butter",
+          "ki_win_lees_release",
+          "ki_wset_prod_blend_balance",
+          "ki_wset_prod_blend_consistency",
+          "ki_wset_close_blending_complexity"
+        ],
+        "bottle_ageing": [
+          "ki_wset_structure_merlot_ageing",
+          "ki_wset_close_red_ageing_colour",
+          "ki_wset_taste_ageing_evolution",
+          "ki_wset_taste_ageing_not_all",
+          "ki_wset_taste_ageing_uncertain"
+        ]
+      },
+      "existing_item_ids": [
+        "ki_wset_l1_climate_ripeness",
+        "ki_wset_found_fermentation",
+        "ki_wset_grape_merlot_profile",
+        "ki_wset_grape_merlot_variation",
+        "ki_wset_found_ripening",
+        "ki_wset_origin_stellenbosch_merlot",
+        "ki_wset_prod_neutral_vessels",
+        "ki_win_oak_flavours",
+        "ki_win_oak_variables",
+        "ki_win_oak_reuse",
+        "ki_wset_close_oak_size",
+        "ki_wset_close_oak_toast",
+        "ki_win_mlf_conversion",
+        "ki_win_mlf_butter",
+        "ki_win_lees_release",
+        "ki_wset_prod_blend_balance",
+        "ki_wset_prod_blend_consistency",
+        "ki_wset_close_blending_complexity",
+        "ki_wset_close_red_ageing_colour",
+        "ki_wset_taste_ageing_evolution",
+        "ki_wset_taste_ageing_not_all",
+        "ki_wset_taste_ageing_uncertain",
+        "ki_wset_grape_descriptor_context"
+      ],
+      "added_item_ids": [
+        "ki_wset_structure_merlot_structure",
+        "ki_wset_structure_merlot_vineyard",
+        "ki_wset_structure_merlot_ageing"
+      ],
+      "required_item_ids": [
+        "ki_wset_structure_merlot_structure",
+        "ki_wset_l1_climate_ripeness",
+        "ki_wset_found_fermentation",
+        "ki_wset_grape_merlot_profile",
+        "ki_wset_grape_merlot_variation",
+        "ki_wset_structure_merlot_vineyard",
+        "ki_wset_found_ripening",
+        "ki_wset_origin_stellenbosch_merlot",
+        "ki_wset_prod_neutral_vessels",
+        "ki_win_oak_flavours",
+        "ki_win_oak_variables",
+        "ki_win_oak_reuse",
+        "ki_wset_close_oak_size",
+        "ki_wset_close_oak_toast",
+        "ki_win_mlf_conversion",
+        "ki_win_mlf_butter",
+        "ki_win_lees_release",
+        "ki_wset_prod_blend_balance",
+        "ki_wset_prod_blend_consistency",
+        "ki_wset_close_blending_complexity",
+        "ki_wset_structure_merlot_ageing",
+        "ki_wset_close_red_ageing_colour",
+        "ki_wset_taste_ageing_evolution",
+        "ki_wset_taste_ageing_not_all",
+        "ki_wset_taste_ageing_uncertain",
+        "ki_wset_grape_descriptor_context"
+      ],
+      "berry_colour_alone_is_finished_colour_evidence": false
+    },
+    {
+      "grape_id": "pinot_noir",
+      "label": "Pinot Noir",
+      "required_group_id": "l2_grape_pinot_noir",
+      "learning_outcome": "LO3",
+      "level": "WSET_L2",
+      "original_gap": "Existing profile and variation gave aromas/styles, but did not select all required finished-colour, tannin (black grapes), sugar/potential-alcohol and acid dimensions.",
+      "dimensions": {
+        "colour": [
+          "ki_wset_structure_pinot_noir_structure"
+        ],
+        "potential_alcohol": [
+          "ki_wset_structure_pinot_noir_structure",
+          "ki_wset_l1_climate_ripeness",
+          "ki_wset_found_fermentation"
+        ],
+        "acidity": [
+          "ki_wset_structure_pinot_noir_structure",
+          "ki_wset_grape_pinot_noir_profile"
+        ],
+        "aroma": [
+          "ki_wset_grape_pinot_noir_profile",
+          "ki_wset_grape_pinot_noir_variation"
+        ],
+        "tannin": [
+          "ki_wset_structure_pinot_noir_structure",
+          "ki_wset_grape_pinot_noir_profile"
+        ],
+        "environment": [
+          "ki_wset_structure_pinot_noir_vineyard",
+          "ki_wset_l1_climate_ripeness"
+        ],
+        "harvest": [
+          "ki_wset_structure_pinot_noir_vineyard",
+          "ki_wset_structure_pinot_noir_structure",
+          "ki_wset_found_ripening"
+        ],
+        "production": [
+          "ki_wset_grape_pinot_noir_variation",
+          "ki_wset_nwa_martinborough_pinot",
+          "ki_wset_prod_neutral_vessels",
+          "ki_win_oak_flavours",
+          "ki_win_oak_variables",
+          "ki_win_oak_reuse",
+          "ki_wset_close_oak_size",
+          "ki_wset_close_oak_toast",
+          "ki_win_mlf_conversion",
+          "ki_win_mlf_butter",
+          "ki_win_lees_release",
+          "ki_wset_prod_blend_balance",
+          "ki_wset_prod_blend_consistency",
+          "ki_wset_close_blending_complexity"
+        ],
+        "bottle_ageing": [
+          "ki_wset_origin_nuits_pinot",
+          "ki_wset_close_red_ageing_colour",
+          "ki_wset_taste_ageing_evolution",
+          "ki_wset_taste_ageing_not_all",
+          "ki_wset_taste_ageing_uncertain"
+        ]
+      },
+      "existing_item_ids": [
+        "ki_wset_l1_climate_ripeness",
+        "ki_wset_found_fermentation",
+        "ki_wset_grape_pinot_noir_profile",
+        "ki_wset_grape_pinot_noir_variation",
+        "ki_wset_found_ripening",
+        "ki_wset_nwa_martinborough_pinot",
+        "ki_wset_prod_neutral_vessels",
+        "ki_win_oak_flavours",
+        "ki_win_oak_variables",
+        "ki_win_oak_reuse",
+        "ki_wset_close_oak_size",
+        "ki_wset_close_oak_toast",
+        "ki_win_mlf_conversion",
+        "ki_win_mlf_butter",
+        "ki_win_lees_release",
+        "ki_wset_prod_blend_balance",
+        "ki_wset_prod_blend_consistency",
+        "ki_wset_close_blending_complexity",
+        "ki_wset_origin_nuits_pinot",
+        "ki_wset_close_red_ageing_colour",
+        "ki_wset_taste_ageing_evolution",
+        "ki_wset_taste_ageing_not_all",
+        "ki_wset_taste_ageing_uncertain",
+        "ki_wset_grape_descriptor_context"
+      ],
+      "added_item_ids": [
+        "ki_wset_structure_pinot_noir_structure",
+        "ki_wset_structure_pinot_noir_vineyard"
+      ],
+      "required_item_ids": [
+        "ki_wset_structure_pinot_noir_structure",
+        "ki_wset_l1_climate_ripeness",
+        "ki_wset_found_fermentation",
+        "ki_wset_grape_pinot_noir_profile",
+        "ki_wset_grape_pinot_noir_variation",
+        "ki_wset_structure_pinot_noir_vineyard",
+        "ki_wset_found_ripening",
+        "ki_wset_nwa_martinborough_pinot",
+        "ki_wset_prod_neutral_vessels",
+        "ki_win_oak_flavours",
+        "ki_win_oak_variables",
+        "ki_win_oak_reuse",
+        "ki_wset_close_oak_size",
+        "ki_wset_close_oak_toast",
+        "ki_win_mlf_conversion",
+        "ki_win_mlf_butter",
+        "ki_win_lees_release",
+        "ki_wset_prod_blend_balance",
+        "ki_wset_prod_blend_consistency",
+        "ki_wset_close_blending_complexity",
+        "ki_wset_origin_nuits_pinot",
+        "ki_wset_close_red_ageing_colour",
+        "ki_wset_taste_ageing_evolution",
+        "ki_wset_taste_ageing_not_all",
+        "ki_wset_taste_ageing_uncertain",
+        "ki_wset_grape_descriptor_context"
+      ],
+      "berry_colour_alone_is_finished_colour_evidence": false
+    },
+    {
+      "grape_id": "syrah",
+      "label": "Syrah / Shiraz",
+      "required_group_id": "l2_grape_syrah",
+      "learning_outcome": "LO3",
+      "level": "WSET_L2",
+      "original_gap": "Existing profile and variation gave aromas/styles, but did not select all required finished-colour, tannin (black grapes), sugar/potential-alcohol and acid dimensions.",
+      "dimensions": {
+        "colour": [
+          "ki_wset_structure_syrah_structure"
+        ],
+        "potential_alcohol": [
+          "ki_wset_structure_syrah_structure",
+          "ki_wset_l1_climate_ripeness",
+          "ki_wset_found_fermentation"
+        ],
+        "acidity": [
+          "ki_wset_structure_syrah_structure",
+          "ki_wset_grape_syrah_profile"
+        ],
+        "aroma": [
+          "ki_wset_grape_syrah_profile",
+          "ki_wset_grape_syrah_variation"
+        ],
+        "tannin": [
+          "ki_wset_structure_syrah_structure",
+          "ki_wset_grape_syrah_profile"
+        ],
+        "environment": [
+          "ki_wset_structure_syrah_vineyard",
+          "ki_wset_l1_climate_ripeness"
+        ],
+        "harvest": [
+          "ki_wset_structure_syrah_vineyard",
+          "ki_wset_structure_syrah_structure",
+          "ki_wset_found_ripening"
+        ],
+        "production": [
+          "ki_wset_grape_syrah_variation",
+          "ki_wset_prod_neutral_vessels",
+          "ki_win_oak_flavours",
+          "ki_win_oak_variables",
+          "ki_win_oak_reuse",
+          "ki_wset_close_oak_size",
+          "ki_wset_close_oak_toast",
+          "ki_win_mlf_conversion",
+          "ki_win_mlf_butter",
+          "ki_win_lees_release",
+          "ki_wset_prod_blend_balance",
+          "ki_wset_prod_blend_consistency",
+          "ki_wset_close_blending_complexity"
+        ],
+        "bottle_ageing": [
+          "ki_wset_nw_hunter_shiraz_style",
+          "ki_wset_close_red_ageing_colour",
+          "ki_wset_taste_ageing_evolution",
+          "ki_wset_taste_ageing_not_all",
+          "ki_wset_taste_ageing_uncertain"
+        ]
+      },
+      "existing_item_ids": [
+        "ki_wset_l1_climate_ripeness",
+        "ki_wset_found_fermentation",
+        "ki_wset_grape_syrah_profile",
+        "ki_wset_grape_syrah_variation",
+        "ki_wset_found_ripening",
+        "ki_wset_prod_neutral_vessels",
+        "ki_win_oak_flavours",
+        "ki_win_oak_variables",
+        "ki_win_oak_reuse",
+        "ki_wset_close_oak_size",
+        "ki_wset_close_oak_toast",
+        "ki_win_mlf_conversion",
+        "ki_win_mlf_butter",
+        "ki_win_lees_release",
+        "ki_wset_prod_blend_balance",
+        "ki_wset_prod_blend_consistency",
+        "ki_wset_close_blending_complexity",
+        "ki_wset_nw_hunter_shiraz_style",
+        "ki_wset_close_red_ageing_colour",
+        "ki_wset_taste_ageing_evolution",
+        "ki_wset_taste_ageing_not_all",
+        "ki_wset_taste_ageing_uncertain",
+        "ki_wset_grape_descriptor_context"
+      ],
+      "added_item_ids": [
+        "ki_wset_structure_syrah_structure",
+        "ki_wset_structure_syrah_vineyard"
+      ],
+      "required_item_ids": [
+        "ki_wset_structure_syrah_structure",
+        "ki_wset_l1_climate_ripeness",
+        "ki_wset_found_fermentation",
+        "ki_wset_grape_syrah_profile",
+        "ki_wset_grape_syrah_variation",
+        "ki_wset_structure_syrah_vineyard",
+        "ki_wset_found_ripening",
+        "ki_wset_prod_neutral_vessels",
+        "ki_win_oak_flavours",
+        "ki_win_oak_variables",
+        "ki_win_oak_reuse",
+        "ki_wset_close_oak_size",
+        "ki_wset_close_oak_toast",
+        "ki_win_mlf_conversion",
+        "ki_win_mlf_butter",
+        "ki_win_lees_release",
+        "ki_wset_prod_blend_balance",
+        "ki_wset_prod_blend_consistency",
+        "ki_wset_close_blending_complexity",
+        "ki_wset_nw_hunter_shiraz_style",
+        "ki_wset_close_red_ageing_colour",
+        "ki_wset_taste_ageing_evolution",
+        "ki_wset_taste_ageing_not_all",
+        "ki_wset_taste_ageing_uncertain",
+        "ki_wset_grape_descriptor_context"
+      ],
+      "berry_colour_alone_is_finished_colour_evidence": false
+    },
+    {
+      "grape_id": "gamay",
+      "label": "Gamay",
+      "required_group_id": "l2_grape_gamay",
+      "learning_outcome": "LO4",
+      "level": "WSET_L2",
+      "original_gap": "Existing profile and variation gave aromas/styles, but did not select all required finished-colour, tannin (black grapes), sugar/potential-alcohol and acid dimensions.",
+      "dimensions": {
+        "colour": [
+          "ki_wset_structure_gamay_structure"
+        ],
+        "potential_alcohol": [
+          "ki_wset_structure_gamay_structure",
+          "ki_wset_l1_climate_ripeness",
+          "ki_wset_found_fermentation"
+        ],
+        "acidity": [
+          "ki_wset_structure_gamay_structure",
+          "ki_wset_grape_gamay_profile"
+        ],
+        "aroma": [
+          "ki_wset_grape_gamay_profile",
+          "ki_wset_grape_gamay_variation"
+        ],
+        "tannin": [
+          "ki_wset_structure_gamay_structure",
+          "ki_wset_grape_gamay_profile"
+        ]
+      },
+      "existing_item_ids": [
+        "ki_wset_l1_climate_ripeness",
+        "ki_wset_found_fermentation",
+        "ki_wset_grape_gamay_profile",
+        "ki_wset_grape_gamay_variation",
+        "ki_wset_grape_descriptor_context"
+      ],
+      "added_item_ids": [
+        "ki_wset_structure_gamay_structure"
+      ],
+      "required_item_ids": [
+        "ki_wset_structure_gamay_structure",
+        "ki_wset_l1_climate_ripeness",
+        "ki_wset_found_fermentation",
+        "ki_wset_grape_gamay_profile",
+        "ki_wset_grape_gamay_variation",
+        "ki_wset_grape_descriptor_context"
+      ],
+      "berry_colour_alone_is_finished_colour_evidence": false
+    },
+    {
+      "grape_id": "grenache",
+      "label": "Grenache / Garnacha",
+      "required_group_id": "l2_grape_grenache",
+      "learning_outcome": "LO4",
+      "level": "WSET_L2",
+      "original_gap": "Existing profile and variation gave aromas/styles, but did not select all required finished-colour, tannin (black grapes), sugar/potential-alcohol and acid dimensions.",
+      "dimensions": {
+        "colour": [
+          "ki_wset_structure_grenache_structure"
+        ],
+        "potential_alcohol": [
+          "ki_wset_structure_grenache_structure",
+          "ki_wset_l1_climate_ripeness",
+          "ki_wset_found_fermentation"
+        ],
+        "acidity": [
+          "ki_wset_structure_grenache_structure",
+          "ki_wset_grape_grenache_profile"
+        ],
+        "aroma": [
+          "ki_wset_grape_grenache_profile",
+          "ki_wset_grape_grenache_variation"
+        ],
+        "tannin": [
+          "ki_wset_structure_grenache_structure",
+          "ki_wset_grape_grenache_profile"
+        ]
+      },
+      "existing_item_ids": [
+        "ki_wset_l1_climate_ripeness",
+        "ki_wset_found_fermentation",
+        "ki_wset_grape_grenache_profile",
+        "ki_wset_grape_grenache_variation",
+        "ki_wset_grape_descriptor_context"
+      ],
+      "added_item_ids": [
+        "ki_wset_structure_grenache_structure"
+      ],
+      "required_item_ids": [
+        "ki_wset_structure_grenache_structure",
+        "ki_wset_l1_climate_ripeness",
+        "ki_wset_found_fermentation",
+        "ki_wset_grape_grenache_profile",
+        "ki_wset_grape_grenache_variation",
+        "ki_wset_grape_descriptor_context"
+      ],
+      "berry_colour_alone_is_finished_colour_evidence": false
+    },
+    {
+      "grape_id": "tempranillo",
+      "label": "Tempranillo",
+      "required_group_id": "l2_grape_tempranillo",
+      "learning_outcome": "LO4",
+      "level": "WSET_L2",
+      "original_gap": "Existing profile and variation gave aromas/styles, but did not select all required finished-colour, tannin (black grapes), sugar/potential-alcohol and acid dimensions.",
+      "dimensions": {
+        "colour": [
+          "ki_wset_structure_tempranillo_structure"
+        ],
+        "potential_alcohol": [
+          "ki_wset_structure_tempranillo_structure",
+          "ki_wset_l1_climate_ripeness",
+          "ki_wset_found_fermentation"
+        ],
+        "acidity": [
+          "ki_wset_structure_tempranillo_structure",
+          "ki_wset_grape_tempranillo_profile"
+        ],
+        "aroma": [
+          "ki_wset_grape_tempranillo_profile",
+          "ki_wset_grape_tempranillo_variation"
+        ],
+        "tannin": [
+          "ki_wset_structure_tempranillo_structure",
+          "ki_wset_grape_tempranillo_profile"
+        ]
+      },
+      "existing_item_ids": [
+        "ki_wset_l1_climate_ripeness",
+        "ki_wset_found_fermentation",
+        "ki_wset_grape_tempranillo_profile",
+        "ki_wset_grape_tempranillo_variation",
+        "ki_wset_grape_descriptor_context"
+      ],
+      "added_item_ids": [
+        "ki_wset_structure_tempranillo_structure"
+      ],
+      "required_item_ids": [
+        "ki_wset_structure_tempranillo_structure",
+        "ki_wset_l1_climate_ripeness",
+        "ki_wset_found_fermentation",
+        "ki_wset_grape_tempranillo_profile",
+        "ki_wset_grape_tempranillo_variation",
+        "ki_wset_grape_descriptor_context"
+      ],
+      "berry_colour_alone_is_finished_colour_evidence": false
+    },
+    {
+      "grape_id": "nebbiolo",
+      "label": "Nebbiolo",
+      "required_group_id": "l2_grape_nebbiolo",
+      "learning_outcome": "LO4",
+      "level": "WSET_L2",
+      "original_gap": "Existing profile and variation gave aromas/styles, but did not select all required finished-colour, tannin (black grapes), sugar/potential-alcohol and acid dimensions.",
+      "dimensions": {
+        "colour": [
+          "ki_wset_structure_nebbiolo_structure"
+        ],
+        "potential_alcohol": [
+          "ki_wset_structure_nebbiolo_structure",
+          "ki_wset_l1_climate_ripeness",
+          "ki_wset_found_fermentation"
+        ],
+        "acidity": [
+          "ki_wset_structure_nebbiolo_structure",
+          "ki_wset_grape_nebbiolo_profile"
+        ],
+        "aroma": [
+          "ki_wset_grape_nebbiolo_profile",
+          "ki_wset_grape_nebbiolo_variation"
+        ],
+        "tannin": [
+          "ki_wset_structure_nebbiolo_structure",
+          "ki_wset_grape_nebbiolo_profile"
+        ]
+      },
+      "existing_item_ids": [
+        "ki_wset_l1_climate_ripeness",
+        "ki_wset_found_fermentation",
+        "ki_wset_grape_nebbiolo_profile",
+        "ki_wset_grape_nebbiolo_variation",
+        "ki_wset_grape_descriptor_context"
+      ],
+      "added_item_ids": [
+        "ki_wset_structure_nebbiolo_structure"
+      ],
+      "required_item_ids": [
+        "ki_wset_structure_nebbiolo_structure",
+        "ki_wset_l1_climate_ripeness",
+        "ki_wset_found_fermentation",
+        "ki_wset_grape_nebbiolo_profile",
+        "ki_wset_grape_nebbiolo_variation",
+        "ki_wset_grape_descriptor_context"
+      ],
+      "berry_colour_alone_is_finished_colour_evidence": false
+    },
+    {
+      "grape_id": "barbera",
+      "label": "Barbera",
+      "required_group_id": "l2_grape_barbera",
+      "learning_outcome": "LO4",
+      "level": "WSET_L2",
+      "original_gap": "Existing profile and variation gave aromas/styles, but did not select all required finished-colour, tannin (black grapes), sugar/potential-alcohol and acid dimensions.",
+      "dimensions": {
+        "colour": [
+          "ki_wset_structure_barbera_structure"
+        ],
+        "potential_alcohol": [
+          "ki_wset_structure_barbera_structure",
+          "ki_wset_l1_climate_ripeness",
+          "ki_wset_found_fermentation"
+        ],
+        "acidity": [
+          "ki_wset_structure_barbera_structure",
+          "ki_wset_grape_barbera_profile"
+        ],
+        "aroma": [
+          "ki_wset_grape_barbera_profile",
+          "ki_wset_grape_barbera_variation"
+        ],
+        "tannin": [
+          "ki_wset_structure_barbera_structure",
+          "ki_wset_grape_barbera_profile"
+        ]
+      },
+      "existing_item_ids": [
+        "ki_wset_l1_climate_ripeness",
+        "ki_wset_found_fermentation",
+        "ki_wset_grape_barbera_profile",
+        "ki_wset_grape_barbera_variation",
+        "ki_wset_grape_descriptor_context"
+      ],
+      "added_item_ids": [
+        "ki_wset_structure_barbera_structure"
+      ],
+      "required_item_ids": [
+        "ki_wset_structure_barbera_structure",
+        "ki_wset_l1_climate_ripeness",
+        "ki_wset_found_fermentation",
+        "ki_wset_grape_barbera_profile",
+        "ki_wset_grape_barbera_variation",
+        "ki_wset_grape_descriptor_context"
+      ],
+      "berry_colour_alone_is_finished_colour_evidence": false
+    },
+    {
+      "grape_id": "sangiovese",
+      "label": "Sangiovese",
+      "required_group_id": "l2_grape_sangiovese",
+      "learning_outcome": "LO4",
+      "level": "WSET_L2",
+      "original_gap": "Existing profile and variation gave aromas/styles, but did not select all required finished-colour, tannin (black grapes), sugar/potential-alcohol and acid dimensions.",
+      "dimensions": {
+        "colour": [
+          "ki_wset_structure_sangiovese_structure"
+        ],
+        "potential_alcohol": [
+          "ki_wset_structure_sangiovese_structure",
+          "ki_wset_l1_climate_ripeness",
+          "ki_wset_found_fermentation"
+        ],
+        "acidity": [
+          "ki_wset_structure_sangiovese_structure",
+          "ki_wset_grape_sangiovese_profile"
+        ],
+        "aroma": [
+          "ki_wset_grape_sangiovese_profile",
+          "ki_wset_grape_sangiovese_variation"
+        ],
+        "tannin": [
+          "ki_wset_structure_sangiovese_structure",
+          "ki_wset_grape_sangiovese_profile"
+        ]
+      },
+      "existing_item_ids": [
+        "ki_wset_l1_climate_ripeness",
+        "ki_wset_found_fermentation",
+        "ki_wset_grape_sangiovese_profile",
+        "ki_wset_grape_sangiovese_variation",
+        "ki_wset_grape_descriptor_context"
+      ],
+      "added_item_ids": [
+        "ki_wset_structure_sangiovese_structure"
+      ],
+      "required_item_ids": [
+        "ki_wset_structure_sangiovese_structure",
+        "ki_wset_l1_climate_ripeness",
+        "ki_wset_found_fermentation",
+        "ki_wset_grape_sangiovese_profile",
+        "ki_wset_grape_sangiovese_variation",
+        "ki_wset_grape_descriptor_context"
+      ],
+      "berry_colour_alone_is_finished_colour_evidence": false
+    },
+    {
+      "grape_id": "corvina",
+      "label": "Corvina",
+      "required_group_id": "l2_grape_corvina",
+      "learning_outcome": "LO4",
+      "level": "WSET_L2",
+      "original_gap": "Existing profile and variation gave aromas/styles, but did not select all required finished-colour, tannin (black grapes), sugar/potential-alcohol and acid dimensions.",
+      "dimensions": {
+        "colour": [
+          "ki_wset_structure_corvina_structure"
+        ],
+        "potential_alcohol": [
+          "ki_wset_structure_corvina_structure",
+          "ki_wset_l1_climate_ripeness",
+          "ki_wset_found_fermentation"
+        ],
+        "acidity": [
+          "ki_wset_structure_corvina_structure",
+          "ki_wset_grape_corvina_profile"
+        ],
+        "aroma": [
+          "ki_wset_grape_corvina_profile",
+          "ki_wset_grape_corvina_variation"
+        ],
+        "tannin": [
+          "ki_wset_structure_corvina_structure",
+          "ki_wset_grape_corvina_profile"
+        ]
+      },
+      "existing_item_ids": [
+        "ki_wset_l1_climate_ripeness",
+        "ki_wset_found_fermentation",
+        "ki_wset_grape_corvina_profile",
+        "ki_wset_grape_corvina_variation",
+        "ki_wset_grape_descriptor_context"
+      ],
+      "added_item_ids": [
+        "ki_wset_structure_corvina_structure"
+      ],
+      "required_item_ids": [
+        "ki_wset_structure_corvina_structure",
+        "ki_wset_l1_climate_ripeness",
+        "ki_wset_found_fermentation",
+        "ki_wset_grape_corvina_profile",
+        "ki_wset_grape_corvina_variation",
+        "ki_wset_grape_descriptor_context"
+      ],
+      "berry_colour_alone_is_finished_colour_evidence": false
+    },
+    {
+      "grape_id": "montepulciano",
+      "label": "Montepulciano",
+      "required_group_id": "l2_grape_montepulciano",
+      "learning_outcome": "LO4",
+      "level": "WSET_L2",
+      "original_gap": "Existing profile and variation gave aromas/styles, but did not select all required finished-colour, tannin (black grapes), sugar/potential-alcohol and acid dimensions.",
+      "dimensions": {
+        "colour": [
+          "ki_wset_structure_montepulciano_structure"
+        ],
+        "potential_alcohol": [
+          "ki_wset_structure_montepulciano_structure",
+          "ki_wset_l1_climate_ripeness",
+          "ki_wset_found_fermentation"
+        ],
+        "acidity": [
+          "ki_wset_structure_montepulciano_structure",
+          "ki_wset_grape_montepulciano_profile"
+        ],
+        "aroma": [
+          "ki_wset_grape_montepulciano_profile",
+          "ki_wset_grape_montepulciano_variation"
+        ],
+        "tannin": [
+          "ki_wset_structure_montepulciano_structure",
+          "ki_wset_grape_montepulciano_profile"
+        ]
+      },
+      "existing_item_ids": [
+        "ki_wset_l1_climate_ripeness",
+        "ki_wset_found_fermentation",
+        "ki_wset_grape_montepulciano_profile",
+        "ki_wset_grape_montepulciano_variation",
+        "ki_wset_grape_descriptor_context"
+      ],
+      "added_item_ids": [
+        "ki_wset_structure_montepulciano_structure"
+      ],
+      "required_item_ids": [
+        "ki_wset_structure_montepulciano_structure",
+        "ki_wset_l1_climate_ripeness",
+        "ki_wset_found_fermentation",
+        "ki_wset_grape_montepulciano_profile",
+        "ki_wset_grape_montepulciano_variation",
+        "ki_wset_grape_descriptor_context"
+      ],
+      "berry_colour_alone_is_finished_colour_evidence": false
+    },
+    {
+      "grape_id": "zinfandel",
+      "label": "Zinfandel / Primitivo",
+      "required_group_id": "l2_grape_zinfandel",
+      "learning_outcome": "LO4",
+      "level": "WSET_L2",
+      "original_gap": "Existing profile and variation gave aromas/styles, but did not select all required finished-colour, tannin (black grapes), sugar/potential-alcohol and acid dimensions.",
+      "dimensions": {
+        "colour": [
+          "ki_wset_structure_zinfandel_structure"
+        ],
+        "potential_alcohol": [
+          "ki_wset_structure_zinfandel_structure",
+          "ki_wset_l1_climate_ripeness",
+          "ki_wset_found_fermentation"
+        ],
+        "acidity": [
+          "ki_wset_structure_zinfandel_structure",
+          "ki_wset_grape_zinfandel_profile"
+        ],
+        "aroma": [
+          "ki_wset_grape_zinfandel_profile",
+          "ki_wset_grape_zinfandel_variation"
+        ],
+        "tannin": [
+          "ki_wset_structure_zinfandel_structure",
+          "ki_wset_grape_zinfandel_profile"
+        ]
+      },
+      "existing_item_ids": [
+        "ki_wset_l1_climate_ripeness",
+        "ki_wset_found_fermentation",
+        "ki_wset_grape_zinfandel_profile",
+        "ki_wset_grape_zinfandel_variation",
+        "ki_wset_grape_descriptor_context"
+      ],
+      "added_item_ids": [
+        "ki_wset_structure_zinfandel_structure"
+      ],
+      "required_item_ids": [
+        "ki_wset_structure_zinfandel_structure",
+        "ki_wset_l1_climate_ripeness",
+        "ki_wset_found_fermentation",
+        "ki_wset_grape_zinfandel_profile",
+        "ki_wset_grape_zinfandel_variation",
+        "ki_wset_grape_descriptor_context"
+      ],
+      "berry_colour_alone_is_finished_colour_evidence": false
+    },
+    {
+      "grape_id": "pinotage",
+      "label": "Pinotage",
+      "required_group_id": "l2_grape_pinotage",
+      "learning_outcome": "LO4",
+      "level": "WSET_L2",
+      "original_gap": "Existing profile and variation gave aromas/styles, but did not select all required finished-colour, tannin (black grapes), sugar/potential-alcohol and acid dimensions.",
+      "dimensions": {
+        "colour": [
+          "ki_wset_structure_pinotage_structure"
+        ],
+        "potential_alcohol": [
+          "ki_wset_structure_pinotage_structure",
+          "ki_wset_l1_climate_ripeness",
+          "ki_wset_found_fermentation"
+        ],
+        "acidity": [
+          "ki_wset_structure_pinotage_structure",
+          "ki_wset_grape_pinotage_profile"
+        ],
+        "aroma": [
+          "ki_wset_grape_pinotage_profile",
+          "ki_wset_grape_pinotage_variation"
+        ],
+        "tannin": [
+          "ki_wset_structure_pinotage_structure",
+          "ki_wset_grape_pinotage_profile"
+        ]
+      },
+      "existing_item_ids": [
+        "ki_wset_l1_climate_ripeness",
+        "ki_wset_found_fermentation",
+        "ki_wset_grape_pinotage_profile",
+        "ki_wset_grape_pinotage_variation",
+        "ki_wset_grape_descriptor_context"
+      ],
+      "added_item_ids": [
+        "ki_wset_structure_pinotage_structure"
+      ],
+      "required_item_ids": [
+        "ki_wset_structure_pinotage_structure",
+        "ki_wset_l1_climate_ripeness",
+        "ki_wset_found_fermentation",
+        "ki_wset_grape_pinotage_profile",
+        "ki_wset_grape_pinotage_variation",
+        "ki_wset_grape_descriptor_context"
+      ],
+      "berry_colour_alone_is_finished_colour_evidence": false
+    },
+    {
+      "grape_id": "carmenere",
+      "label": "Carménère",
+      "required_group_id": "l2_grape_carmenere",
+      "learning_outcome": "LO4",
+      "level": "WSET_L2",
+      "original_gap": "Existing profile and variation gave aromas/styles, but did not select all required finished-colour, tannin (black grapes), sugar/potential-alcohol and acid dimensions.",
+      "dimensions": {
+        "colour": [
+          "ki_wset_structure_carmenere_structure"
+        ],
+        "potential_alcohol": [
+          "ki_wset_structure_carmenere_structure",
+          "ki_wset_l1_climate_ripeness",
+          "ki_wset_found_fermentation"
+        ],
+        "acidity": [
+          "ki_wset_structure_carmenere_structure",
+          "ki_wset_grape_carmenere_profile"
+        ],
+        "aroma": [
+          "ki_wset_grape_carmenere_profile",
+          "ki_wset_grape_carmenere_variation"
+        ],
+        "tannin": [
+          "ki_wset_structure_carmenere_structure",
+          "ki_wset_grape_carmenere_profile"
+        ]
+      },
+      "existing_item_ids": [
+        "ki_wset_l1_climate_ripeness",
+        "ki_wset_found_fermentation",
+        "ki_wset_grape_carmenere_profile",
+        "ki_wset_grape_carmenere_variation",
+        "ki_wset_grape_descriptor_context"
+      ],
+      "added_item_ids": [
+        "ki_wset_structure_carmenere_structure"
+      ],
+      "required_item_ids": [
+        "ki_wset_structure_carmenere_structure",
+        "ki_wset_l1_climate_ripeness",
+        "ki_wset_found_fermentation",
+        "ki_wset_grape_carmenere_profile",
+        "ki_wset_grape_carmenere_variation",
+        "ki_wset_grape_descriptor_context"
+      ],
+      "berry_colour_alone_is_finished_colour_evidence": false
+    },
+    {
+      "grape_id": "malbec",
+      "label": "Malbec / Côt",
+      "required_group_id": "l2_grape_malbec",
+      "learning_outcome": "LO4",
+      "level": "WSET_L2",
+      "original_gap": "Existing profile and variation gave aromas/styles, but did not select all required finished-colour, tannin (black grapes), sugar/potential-alcohol and acid dimensions.",
+      "dimensions": {
+        "colour": [
+          "ki_wset_structure_malbec_structure"
+        ],
+        "potential_alcohol": [
+          "ki_wset_structure_malbec_structure",
+          "ki_wset_l1_climate_ripeness",
+          "ki_wset_found_fermentation"
+        ],
+        "acidity": [
+          "ki_wset_structure_malbec_structure",
+          "ki_wset_grape_malbec_profile"
+        ],
+        "aroma": [
+          "ki_wset_grape_malbec_profile",
+          "ki_wset_grape_malbec_variation"
+        ],
+        "tannin": [
+          "ki_wset_structure_malbec_structure",
+          "ki_wset_grape_malbec_profile"
+        ]
+      },
+      "existing_item_ids": [
+        "ki_wset_l1_climate_ripeness",
+        "ki_wset_found_fermentation",
+        "ki_wset_grape_malbec_profile",
+        "ki_wset_grape_malbec_variation",
+        "ki_wset_grape_descriptor_context"
+      ],
+      "added_item_ids": [
+        "ki_wset_structure_malbec_structure"
+      ],
+      "required_item_ids": [
+        "ki_wset_structure_malbec_structure",
+        "ki_wset_l1_climate_ripeness",
+        "ki_wset_found_fermentation",
+        "ki_wset_grape_malbec_profile",
+        "ki_wset_grape_malbec_variation",
+        "ki_wset_grape_descriptor_context"
+      ],
+      "berry_colour_alone_is_finished_colour_evidence": false
+    },
+    {
+      "grape_id": "chenin_blanc",
+      "label": "Chenin Blanc",
+      "required_group_id": "l2_grape_chenin_blanc",
+      "learning_outcome": "LO4",
+      "level": "WSET_L2",
+      "original_gap": "Existing profile and variation gave aromas/styles, but did not select all required finished-colour, tannin (black grapes), sugar/potential-alcohol and acid dimensions.",
+      "dimensions": {
+        "colour": [
+          "ki_wset_structure_chenin_blanc_structure"
+        ],
+        "potential_alcohol": [
+          "ki_wset_structure_chenin_blanc_structure",
+          "ki_wset_l1_climate_ripeness",
+          "ki_wset_found_fermentation"
+        ],
+        "acidity": [
+          "ki_wset_structure_chenin_blanc_structure",
+          "ki_wset_grape_chenin_blanc_profile"
+        ],
+        "aroma": [
+          "ki_wset_grape_chenin_blanc_profile",
+          "ki_wset_grape_chenin_blanc_variation"
+        ]
+      },
+      "existing_item_ids": [
+        "ki_wset_l1_climate_ripeness",
+        "ki_wset_found_fermentation",
+        "ki_wset_grape_chenin_blanc_profile",
+        "ki_wset_grape_chenin_blanc_variation",
+        "ki_wset_grape_descriptor_context"
+      ],
+      "added_item_ids": [
+        "ki_wset_structure_chenin_blanc_structure"
+      ],
+      "required_item_ids": [
+        "ki_wset_structure_chenin_blanc_structure",
+        "ki_wset_l1_climate_ripeness",
+        "ki_wset_found_fermentation",
+        "ki_wset_grape_chenin_blanc_profile",
+        "ki_wset_grape_chenin_blanc_variation",
+        "ki_wset_grape_descriptor_context"
+      ],
+      "berry_colour_alone_is_finished_colour_evidence": false
+    },
+    {
+      "grape_id": "semillon",
+      "label": "Sémillon",
+      "required_group_id": "l2_grape_semillon",
+      "learning_outcome": "LO4",
+      "level": "WSET_L2",
+      "original_gap": "Existing profile and variation gave aromas/styles, but did not select all required finished-colour, tannin (black grapes), sugar/potential-alcohol and acid dimensions.",
+      "dimensions": {
+        "colour": [
+          "ki_wset_structure_semillon_structure"
+        ],
+        "potential_alcohol": [
+          "ki_wset_structure_semillon_structure",
+          "ki_wset_l1_climate_ripeness",
+          "ki_wset_found_fermentation"
+        ],
+        "acidity": [
+          "ki_wset_structure_semillon_structure",
+          "ki_wset_grape_semillon_profile"
+        ],
+        "aroma": [
+          "ki_wset_grape_semillon_profile",
+          "ki_wset_grape_semillon_variation"
+        ]
+      },
+      "existing_item_ids": [
+        "ki_wset_l1_climate_ripeness",
+        "ki_wset_found_fermentation",
+        "ki_wset_grape_semillon_profile",
+        "ki_wset_grape_semillon_variation",
+        "ki_wset_grape_descriptor_context"
+      ],
+      "added_item_ids": [
+        "ki_wset_structure_semillon_structure"
+      ],
+      "required_item_ids": [
+        "ki_wset_structure_semillon_structure",
+        "ki_wset_l1_climate_ripeness",
+        "ki_wset_found_fermentation",
+        "ki_wset_grape_semillon_profile",
+        "ki_wset_grape_semillon_variation",
+        "ki_wset_grape_descriptor_context"
+      ],
+      "berry_colour_alone_is_finished_colour_evidence": false
+    },
+    {
+      "grape_id": "viognier",
+      "label": "Viognier",
+      "required_group_id": "l2_grape_viognier",
+      "learning_outcome": "LO4",
+      "level": "WSET_L2",
+      "original_gap": "Existing profile and variation gave aromas/styles, but did not select all required finished-colour, tannin (black grapes), sugar/potential-alcohol and acid dimensions.",
+      "dimensions": {
+        "colour": [
+          "ki_wset_structure_viognier_structure"
+        ],
+        "potential_alcohol": [
+          "ki_wset_structure_viognier_structure",
+          "ki_wset_l1_climate_ripeness",
+          "ki_wset_found_fermentation"
+        ],
+        "acidity": [
+          "ki_wset_structure_viognier_structure",
+          "ki_wset_grape_viognier_profile"
+        ],
+        "aroma": [
+          "ki_wset_grape_viognier_profile",
+          "ki_wset_grape_viognier_variation"
+        ]
+      },
+      "existing_item_ids": [
+        "ki_wset_l1_climate_ripeness",
+        "ki_wset_found_fermentation",
+        "ki_wset_grape_viognier_profile",
+        "ki_wset_grape_viognier_variation",
+        "ki_wset_grape_descriptor_context"
+      ],
+      "added_item_ids": [
+        "ki_wset_structure_viognier_structure"
+      ],
+      "required_item_ids": [
+        "ki_wset_structure_viognier_structure",
+        "ki_wset_l1_climate_ripeness",
+        "ki_wset_found_fermentation",
+        "ki_wset_grape_viognier_profile",
+        "ki_wset_grape_viognier_variation",
+        "ki_wset_grape_descriptor_context"
+      ],
+      "berry_colour_alone_is_finished_colour_evidence": false
+    },
+    {
+      "grape_id": "gewurztraminer",
+      "label": "Gewurztraminer",
+      "required_group_id": "l2_grape_gewurztraminer",
+      "learning_outcome": "LO4",
+      "level": "WSET_L2",
+      "original_gap": "Existing profile and variation gave aromas/styles, but did not select all required finished-colour, tannin (black grapes), sugar/potential-alcohol and acid dimensions.",
+      "dimensions": {
+        "colour": [
+          "ki_wset_structure_gewurztraminer_structure"
+        ],
+        "potential_alcohol": [
+          "ki_wset_structure_gewurztraminer_structure",
+          "ki_wset_l1_climate_ripeness",
+          "ki_wset_found_fermentation"
+        ],
+        "acidity": [
+          "ki_wset_structure_gewurztraminer_structure",
+          "ki_wset_grape_gewurztraminer_profile"
+        ],
+        "aroma": [
+          "ki_wset_grape_gewurztraminer_profile",
+          "ki_wset_grape_gewurztraminer_variation"
+        ]
+      },
+      "existing_item_ids": [
+        "ki_wset_l1_climate_ripeness",
+        "ki_wset_found_fermentation",
+        "ki_wset_grape_gewurztraminer_profile",
+        "ki_wset_grape_gewurztraminer_variation",
+        "ki_wset_grape_descriptor_context"
+      ],
+      "added_item_ids": [
+        "ki_wset_structure_gewurztraminer_structure"
+      ],
+      "required_item_ids": [
+        "ki_wset_structure_gewurztraminer_structure",
+        "ki_wset_l1_climate_ripeness",
+        "ki_wset_found_fermentation",
+        "ki_wset_grape_gewurztraminer_profile",
+        "ki_wset_grape_gewurztraminer_variation",
+        "ki_wset_grape_descriptor_context"
+      ],
+      "berry_colour_alone_is_finished_colour_evidence": false
+    },
+    {
+      "grape_id": "verdicchio",
+      "label": "Verdicchio",
+      "required_group_id": "l2_grape_verdicchio",
+      "learning_outcome": "LO4",
+      "level": "WSET_L2",
+      "original_gap": "Existing profile and variation gave aromas/styles, but did not select all required finished-colour, tannin (black grapes), sugar/potential-alcohol and acid dimensions.",
+      "dimensions": {
+        "colour": [
+          "ki_wset_structure_verdicchio_structure"
+        ],
+        "potential_alcohol": [
+          "ki_wset_structure_verdicchio_structure",
+          "ki_wset_l1_climate_ripeness",
+          "ki_wset_found_fermentation"
+        ],
+        "acidity": [
+          "ki_wset_structure_verdicchio_structure",
+          "ki_wset_grape_verdicchio_profile"
+        ],
+        "aroma": [
+          "ki_wset_grape_verdicchio_profile",
+          "ki_wset_grape_verdicchio_variation"
+        ]
+      },
+      "existing_item_ids": [
+        "ki_wset_l1_climate_ripeness",
+        "ki_wset_found_fermentation",
+        "ki_wset_grape_verdicchio_profile",
+        "ki_wset_grape_verdicchio_variation",
+        "ki_wset_grape_descriptor_context"
+      ],
+      "added_item_ids": [
+        "ki_wset_structure_verdicchio_structure"
+      ],
+      "required_item_ids": [
+        "ki_wset_structure_verdicchio_structure",
+        "ki_wset_l1_climate_ripeness",
+        "ki_wset_found_fermentation",
+        "ki_wset_grape_verdicchio_profile",
+        "ki_wset_grape_verdicchio_variation",
+        "ki_wset_grape_descriptor_context"
+      ],
+      "berry_colour_alone_is_finished_colour_evidence": false
+    },
+    {
+      "grape_id": "cortese",
+      "label": "Cortese",
+      "required_group_id": "l2_grape_cortese",
+      "learning_outcome": "LO4",
+      "level": "WSET_L2",
+      "original_gap": "Existing profile and variation gave aromas/styles, but did not select all required finished-colour, tannin (black grapes), sugar/potential-alcohol and acid dimensions.",
+      "dimensions": {
+        "colour": [
+          "ki_wset_structure_cortese_structure"
+        ],
+        "potential_alcohol": [
+          "ki_wset_structure_cortese_structure",
+          "ki_wset_l1_climate_ripeness",
+          "ki_wset_found_fermentation"
+        ],
+        "acidity": [
+          "ki_wset_structure_cortese_structure",
+          "ki_wset_grape_cortese_profile"
+        ],
+        "aroma": [
+          "ki_wset_grape_cortese_profile",
+          "ki_wset_grape_cortese_variation"
+        ]
+      },
+      "existing_item_ids": [
+        "ki_wset_l1_climate_ripeness",
+        "ki_wset_found_fermentation",
+        "ki_wset_grape_cortese_profile",
+        "ki_wset_grape_cortese_variation",
+        "ki_wset_grape_descriptor_context"
+      ],
+      "added_item_ids": [
+        "ki_wset_structure_cortese_structure"
+      ],
+      "required_item_ids": [
+        "ki_wset_structure_cortese_structure",
+        "ki_wset_l1_climate_ripeness",
+        "ki_wset_found_fermentation",
+        "ki_wset_grape_cortese_profile",
+        "ki_wset_grape_cortese_variation",
+        "ki_wset_grape_descriptor_context"
+      ],
+      "berry_colour_alone_is_finished_colour_evidence": false
+    },
+    {
+      "grape_id": "garganega",
+      "label": "Garganega",
+      "required_group_id": "l2_grape_garganega",
+      "learning_outcome": "LO4",
+      "level": "WSET_L2",
+      "original_gap": "Existing profile and variation gave aromas/styles, but did not select all required finished-colour, tannin (black grapes), sugar/potential-alcohol and acid dimensions.",
+      "dimensions": {
+        "colour": [
+          "ki_wset_structure_garganega_structure"
+        ],
+        "potential_alcohol": [
+          "ki_wset_structure_garganega_structure",
+          "ki_wset_l1_climate_ripeness",
+          "ki_wset_found_fermentation"
+        ],
+        "acidity": [
+          "ki_wset_structure_garganega_structure",
+          "ki_wset_grape_garganega_profile"
+        ],
+        "aroma": [
+          "ki_wset_grape_garganega_profile",
+          "ki_wset_grape_garganega_variation"
+        ]
+      },
+      "existing_item_ids": [
+        "ki_wset_l1_climate_ripeness",
+        "ki_wset_found_fermentation",
+        "ki_wset_grape_garganega_profile",
+        "ki_wset_grape_garganega_variation",
+        "ki_wset_grape_descriptor_context"
+      ],
+      "added_item_ids": [
+        "ki_wset_structure_garganega_structure"
+      ],
+      "required_item_ids": [
+        "ki_wset_structure_garganega_structure",
+        "ki_wset_l1_climate_ripeness",
+        "ki_wset_found_fermentation",
+        "ki_wset_grape_garganega_profile",
+        "ki_wset_grape_garganega_variation",
+        "ki_wset_grape_descriptor_context"
+      ],
+      "berry_colour_alone_is_finished_colour_evidence": false
+    },
+    {
+      "grape_id": "fiano",
+      "label": "Fiano",
+      "required_group_id": "l2_grape_fiano",
+      "learning_outcome": "LO4",
+      "level": "WSET_L2",
+      "original_gap": "Existing profile and variation gave aromas/styles, but did not select all required finished-colour, tannin (black grapes), sugar/potential-alcohol and acid dimensions.",
+      "dimensions": {
+        "colour": [
+          "ki_wset_structure_fiano_structure"
+        ],
+        "potential_alcohol": [
+          "ki_wset_structure_fiano_structure",
+          "ki_wset_l1_climate_ripeness",
+          "ki_wset_found_fermentation"
+        ],
+        "acidity": [
+          "ki_wset_structure_fiano_structure",
+          "ki_wset_grape_fiano_profile"
+        ],
+        "aroma": [
+          "ki_wset_grape_fiano_profile",
+          "ki_wset_grape_fiano_variation"
+        ]
+      },
+      "existing_item_ids": [
+        "ki_wset_l1_climate_ripeness",
+        "ki_wset_found_fermentation",
+        "ki_wset_grape_fiano_profile",
+        "ki_wset_grape_fiano_variation",
+        "ki_wset_grape_descriptor_context"
+      ],
+      "added_item_ids": [
+        "ki_wset_structure_fiano_structure"
+      ],
+      "required_item_ids": [
+        "ki_wset_structure_fiano_structure",
+        "ki_wset_l1_climate_ripeness",
+        "ki_wset_found_fermentation",
+        "ki_wset_grape_fiano_profile",
+        "ki_wset_grape_fiano_variation",
+        "ki_wset_grape_descriptor_context"
+      ],
+      "berry_colour_alone_is_finished_colour_evidence": false
+    },
+    {
+      "grape_id": "albarino",
+      "label": "Albariño / Alvarinho",
+      "required_group_id": "l2_grape_albarino",
+      "learning_outcome": "LO4",
+      "level": "WSET_L2",
+      "original_gap": "Existing profile and variation gave aromas/styles, but did not select all required finished-colour, tannin (black grapes), sugar/potential-alcohol and acid dimensions.",
+      "dimensions": {
+        "colour": [
+          "ki_wset_structure_albarino_structure"
+        ],
+        "potential_alcohol": [
+          "ki_wset_structure_albarino_structure",
+          "ki_wset_l1_climate_ripeness",
+          "ki_wset_found_fermentation"
+        ],
+        "acidity": [
+          "ki_wset_structure_albarino_structure",
+          "ki_wset_grape_albarino_profile"
+        ],
+        "aroma": [
+          "ki_wset_grape_albarino_profile",
+          "ki_wset_grape_albarino_variation"
+        ]
+      },
+      "existing_item_ids": [
+        "ki_wset_l1_climate_ripeness",
+        "ki_wset_found_fermentation",
+        "ki_wset_grape_albarino_profile",
+        "ki_wset_grape_albarino_variation",
+        "ki_wset_grape_descriptor_context"
+      ],
+      "added_item_ids": [
+        "ki_wset_structure_albarino_structure"
+      ],
+      "required_item_ids": [
+        "ki_wset_structure_albarino_structure",
+        "ki_wset_l1_climate_ripeness",
+        "ki_wset_found_fermentation",
+        "ki_wset_grape_albarino_profile",
+        "ki_wset_grape_albarino_variation",
+        "ki_wset_grape_descriptor_context"
+      ],
+      "berry_colour_alone_is_finished_colour_evidence": false
+    },
+    {
+      "grape_id": "furmint",
+      "label": "Furmint",
+      "required_group_id": "l2_grape_furmint",
+      "learning_outcome": "LO4",
+      "level": "WSET_L2",
+      "original_gap": "Existing profile and variation gave aromas/styles, but did not select all required finished-colour, tannin (black grapes), sugar/potential-alcohol and acid dimensions.",
+      "dimensions": {
+        "colour": [
+          "ki_wset_structure_furmint_structure"
+        ],
+        "potential_alcohol": [
+          "ki_wset_structure_furmint_structure",
+          "ki_wset_l1_climate_ripeness",
+          "ki_wset_found_fermentation"
+        ],
+        "acidity": [
+          "ki_wset_structure_furmint_structure",
+          "ki_wset_grape_furmint_profile"
+        ],
+        "aroma": [
+          "ki_wset_grape_furmint_profile",
+          "ki_wset_grape_furmint_variation"
+        ]
+      },
+      "existing_item_ids": [
+        "ki_wset_l1_climate_ripeness",
+        "ki_wset_found_fermentation",
+        "ki_wset_grape_furmint_profile",
+        "ki_wset_grape_furmint_variation",
+        "ki_wset_grape_descriptor_context"
+      ],
+      "added_item_ids": [
+        "ki_wset_structure_furmint_structure"
+      ],
+      "required_item_ids": [
+        "ki_wset_structure_furmint_structure",
+        "ki_wset_l1_climate_ripeness",
+        "ki_wset_found_fermentation",
+        "ki_wset_grape_furmint_profile",
+        "ki_wset_grape_furmint_variation",
+        "ki_wset_grape_descriptor_context"
+      ],
+      "berry_colour_alone_is_finished_colour_evidence": false
+    }
+  ],
+  "lessons": [
+    {
+      "knowledge_item_id": "ki_wset_structure_chardonnay_structure",
+      "grape_id": "chardonnay",
+      "kind": "structure",
+      "dimensions": [
+        "colour",
+        "potential_alcohol",
+        "acidity"
+      ],
+      "source_ids": [
+        "src_wset_structure_plantgrape_chardonnay",
+        "src_wset_found_wa_intro",
+        "src_wset_found_ucd_pulp"
+      ],
+      "supplied_assumptions": []
+    },
+    {
+      "knowledge_item_id": "ki_wset_structure_sauvignon_blanc_structure",
+      "grape_id": "sauvignon_blanc",
+      "kind": "structure",
+      "dimensions": [
+        "colour",
+        "potential_alcohol",
+        "acidity"
+      ],
+      "source_ids": [
+        "src_wset_grape_wset_sauvignon",
+        "src_wset_structure_plantgrape_sauvignon_blanc",
+        "src_wset_found_wa_intro",
+        "src_wset_found_ucd_pulp"
+      ],
+      "supplied_assumptions": []
+    },
+    {
+      "knowledge_item_id": "ki_wset_structure_pinot_gris_structure",
+      "grape_id": "pinot_gris",
+      "kind": "structure",
+      "dimensions": [
+        "colour",
+        "potential_alcohol",
+        "acidity"
+      ],
+      "source_ids": [
+        "src_wset_structure_plantgrape_pinot_gris",
+        "src_wset_grape_civa_pinot_gris",
+        "src_wset_role_friuli_wines"
+      ],
+      "supplied_assumptions": []
+    },
+    {
+      "knowledge_item_id": "ki_wset_structure_riesling_structure",
+      "grape_id": "riesling",
+      "kind": "structure",
+      "dimensions": [
+        "colour",
+        "potential_alcohol",
+        "acidity"
+      ],
+      "source_ids": [
+        "src_wset_structure_plantgrape_riesling",
+        "src_wset_found_wa_intro",
+        "src_wset_found_ucd_pulp",
+        "src_wset_grape_wa_riesling"
+      ],
+      "supplied_assumptions": []
+    },
+    {
+      "knowledge_item_id": "ki_wset_structure_cabernet_sauvignon_structure",
+      "grape_id": "cabernet_sauvignon",
+      "kind": "structure",
+      "dimensions": [
+        "colour",
+        "tannin",
+        "potential_alcohol",
+        "acidity"
+      ],
+      "source_ids": [
+        "src_wset_structure_plantgrape_cabernet_sauvignon",
+        "src_wset_close_l2_session",
+        "src_wset_found_ucd_pulp"
+      ],
+      "supplied_assumptions": []
+    },
+    {
+      "knowledge_item_id": "ki_wset_structure_merlot_structure",
+      "grape_id": "merlot",
+      "kind": "structure",
+      "dimensions": [
+        "colour",
+        "tannin",
+        "potential_alcohol",
+        "acidity"
+      ],
+      "source_ids": [
+        "src_wset_structure_plantgrape_merlot",
+        "src_reg_fr_merlot",
+        "src_wset_found_ucd_pulp"
+      ],
+      "supplied_assumptions": []
+    },
+    {
+      "knowledge_item_id": "ki_wset_structure_pinot_noir_structure",
+      "grape_id": "pinot_noir",
+      "kind": "structure",
+      "dimensions": [
+        "colour",
+        "tannin",
+        "potential_alcohol",
+        "acidity"
+      ],
+      "source_ids": [
+        "src_wset_structure_plantgrape_pinot_noir",
+        "src_wset_grape_cms_markers",
+        "src_wset_found_ucd_pulp"
+      ],
+      "supplied_assumptions": []
+    },
+    {
+      "knowledge_item_id": "ki_wset_structure_syrah_structure",
+      "grape_id": "syrah",
+      "kind": "structure",
+      "dimensions": [
+        "colour",
+        "tannin",
+        "potential_alcohol",
+        "acidity"
+      ],
+      "source_ids": [
+        "src_wset_structure_plantgrape_syrah",
+        "src_wset_grape_cms_markers",
+        "src_wset_found_ucd_pulp"
+      ],
+      "supplied_assumptions": []
+    },
+    {
+      "knowledge_item_id": "ki_wset_structure_gamay_structure",
+      "grape_id": "gamay",
+      "kind": "structure",
+      "dimensions": [
+        "colour",
+        "tannin",
+        "potential_alcohol",
+        "acidity"
+      ],
+      "source_ids": [
+        "src_wset_structure_plantgrape_gamay",
+        "src_reg_fe_gamay",
+        "src_wset_found_ucd_pulp"
+      ],
+      "supplied_assumptions": []
+    },
+    {
+      "knowledge_item_id": "ki_wset_structure_grenache_structure",
+      "grape_id": "grenache",
+      "kind": "structure",
+      "dimensions": [
+        "colour",
+        "tannin",
+        "potential_alcohol",
+        "acidity"
+      ],
+      "source_ids": [
+        "src_wset_structure_plantgrape_grenache",
+        "src_wset_grape_ir_grenache",
+        "src_wset_grape_cms_markers"
+      ],
+      "supplied_assumptions": []
+    },
+    {
+      "knowledge_item_id": "ki_wset_structure_tempranillo_structure",
+      "grape_id": "tempranillo",
+      "kind": "structure",
+      "dimensions": [
+        "colour",
+        "tannin",
+        "potential_alcohol",
+        "acidity"
+      ],
+      "source_ids": [
+        "src_wset_structure_plantgrape_tempranillo",
+        "src_wset_found_ucd_pulp"
+      ],
+      "supplied_assumptions": []
+    },
+    {
+      "knowledge_item_id": "ki_wset_structure_nebbiolo_structure",
+      "grape_id": "nebbiolo",
+      "kind": "structure",
+      "dimensions": [
+        "colour",
+        "tannin",
+        "potential_alcohol",
+        "acidity"
+      ],
+      "source_ids": [
+        "src_reg_inc_nebbiolo",
+        "src_wset_grape_cms_markers",
+        "src_wset_found_ucd_pulp"
+      ],
+      "supplied_assumptions": []
+    },
+    {
+      "knowledge_item_id": "ki_wset_structure_barbera_structure",
+      "grape_id": "barbera",
+      "kind": "structure",
+      "dimensions": [
+        "colour",
+        "tannin",
+        "potential_alcohol",
+        "acidity"
+      ],
+      "source_ids": [
+        "src_wset_structure_plantgrape_barbera",
+        "src_wset_structure_barbera_astimonferrato",
+        "src_wset_found_ucd_pulp"
+      ],
+      "supplied_assumptions": []
+    },
+    {
+      "knowledge_item_id": "ki_wset_structure_sangiovese_structure",
+      "grape_id": "sangiovese",
+      "kind": "structure",
+      "dimensions": [
+        "colour",
+        "tannin",
+        "potential_alcohol",
+        "acidity"
+      ],
+      "source_ids": [
+        "src_reg_inc_classico_research",
+        "src_wset_grape_chianti_sangiovese",
+        "src_wset_found_ucd_pulp"
+      ],
+      "supplied_assumptions": []
+    },
+    {
+      "knowledge_item_id": "ki_wset_structure_corvina_structure",
+      "grape_id": "corvina",
+      "kind": "structure",
+      "dimensions": [
+        "colour",
+        "tannin",
+        "potential_alcohol",
+        "acidity"
+      ],
+      "source_ids": [
+        "src_wset_structure_corvina_research",
+        "src_reg_inc_valpolicella",
+        "src_reg_inc_amarone"
+      ],
+      "supplied_assumptions": []
+    },
+    {
+      "knowledge_item_id": "ki_wset_structure_montepulciano_structure",
+      "grape_id": "montepulciano",
+      "kind": "structure",
+      "dimensions": [
+        "colour",
+        "tannin",
+        "potential_alcohol",
+        "acidity"
+      ],
+      "source_ids": [
+        "src_wset_grape_abruzzo_montepulciano",
+        "src_wset_structure_montepulciano_masciarelli",
+        "src_wset_found_ucd_pulp"
+      ],
+      "supplied_assumptions": []
+    },
+    {
+      "knowledge_item_id": "ki_wset_structure_zinfandel_structure",
+      "grape_id": "zinfandel",
+      "kind": "structure",
+      "dimensions": [
+        "colour",
+        "tannin",
+        "potential_alcohol",
+        "acidity"
+      ],
+      "source_ids": [
+        "src_wset_found_zap_styles",
+        "src_wset_structure_zinfandel_uneven_ripening"
+      ],
+      "supplied_assumptions": []
+    },
+    {
+      "knowledge_item_id": "ki_wset_structure_pinotage_structure",
+      "grape_id": "pinotage",
+      "kind": "structure",
+      "dimensions": [
+        "colour",
+        "tannin",
+        "potential_alcohol",
+        "acidity"
+      ],
+      "source_ids": [
+        "src_wset_grape_wosa_pinotage",
+        "src_wset_structure_pinotage_vinification",
+        "src_wset_structure_pinotage_southern_right_2020"
+      ],
+      "supplied_assumptions": []
+    },
+    {
+      "knowledge_item_id": "ki_wset_structure_carmenere_structure",
+      "grape_id": "carmenere",
+      "kind": "structure",
+      "dimensions": [
+        "colour",
+        "tannin",
+        "potential_alcohol",
+        "acidity"
+      ],
+      "source_ids": [
+        "src_wset_structure_plantgrape_carmenere",
+        "src_wset_found_ucd_pulp"
+      ],
+      "supplied_assumptions": []
+    },
+    {
+      "knowledge_item_id": "ki_wset_structure_malbec_structure",
+      "grape_id": "malbec",
+      "kind": "structure",
+      "dimensions": [
+        "colour",
+        "tannin",
+        "potential_alcohol",
+        "acidity"
+      ],
+      "source_ids": [
+        "src_wset_structure_plantgrape_malbec",
+        "src_wset_grape_woa_malbec",
+        "src_wset_found_ucd_pulp"
+      ],
+      "supplied_assumptions": []
+    },
+    {
+      "knowledge_item_id": "ki_wset_structure_chenin_blanc_structure",
+      "grape_id": "chenin_blanc",
+      "kind": "structure",
+      "dimensions": [
+        "colour",
+        "potential_alcohol",
+        "acidity"
+      ],
+      "source_ids": [
+        "src_wset_structure_plantgrape_chenin_blanc",
+        "src_wset_found_wa_intro",
+        "src_wset_grape_wosa_pinotage",
+        "src_wset_found_ucd_pulp"
+      ],
+      "supplied_assumptions": []
+    },
+    {
+      "knowledge_item_id": "ki_wset_structure_semillon_structure",
+      "grape_id": "semillon",
+      "kind": "structure",
+      "dimensions": [
+        "colour",
+        "potential_alcohol",
+        "acidity"
+      ],
+      "source_ids": [
+        "src_wset_structure_plantgrape_semillon",
+        "src_wset_found_wa_intro",
+        "src_wset_grape_wa_semillon",
+        "src_wset_found_ucd_pulp"
+      ],
+      "supplied_assumptions": []
+    },
+    {
+      "knowledge_item_id": "ki_wset_structure_viognier_structure",
+      "grape_id": "viognier",
+      "kind": "structure",
+      "dimensions": [
+        "colour",
+        "potential_alcohol",
+        "acidity"
+      ],
+      "source_ids": [
+        "src_wset_structure_plantgrape_viognier",
+        "src_wset_found_wa_intro",
+        "src_wset_found_ucd_pulp"
+      ],
+      "supplied_assumptions": []
+    },
+    {
+      "knowledge_item_id": "ki_wset_structure_gewurztraminer_structure",
+      "grape_id": "gewurztraminer",
+      "kind": "structure",
+      "dimensions": [
+        "colour",
+        "potential_alcohol",
+        "acidity"
+      ],
+      "source_ids": [
+        "src_wset_structure_plantgrape_gewurztraminer",
+        "src_wset_found_wa_intro",
+        "src_wset_found_ucd_pulp",
+        "src_wset_grape_civa_sgn_tasting"
+      ],
+      "supplied_assumptions": []
+    },
+    {
+      "knowledge_item_id": "ki_wset_structure_verdicchio_structure",
+      "grape_id": "verdicchio",
+      "kind": "structure",
+      "dimensions": [
+        "colour",
+        "potential_alcohol",
+        "acidity"
+      ],
+      "source_ids": [
+        "src_wset_structure_verdicchio_castelli_jesi",
+        "src_wset_found_ucd_pulp"
+      ],
+      "supplied_assumptions": []
+    },
+    {
+      "knowledge_item_id": "ki_wset_structure_cortese_structure",
+      "grape_id": "cortese",
+      "kind": "structure",
+      "dimensions": [
+        "colour",
+        "potential_alcohol",
+        "acidity"
+      ],
+      "source_ids": [
+        "src_wset_grape_gavi_cortese",
+        "src_wset_found_ucd_pulp"
+      ],
+      "supplied_assumptions": []
+    },
+    {
+      "knowledge_item_id": "ki_wset_structure_garganega_structure",
+      "grape_id": "garganega",
+      "kind": "structure",
+      "dimensions": [
+        "colour",
+        "potential_alcohol",
+        "acidity"
+      ],
+      "source_ids": [
+        "src_wset_structure_soave_qualitative",
+        "src_reg_inc_soave",
+        "src_wset_found_ucd_pulp"
+      ],
+      "supplied_assumptions": []
+    },
+    {
+      "knowledge_item_id": "ki_wset_structure_fiano_structure",
+      "grape_id": "fiano",
+      "kind": "structure",
+      "dimensions": [
+        "colour",
+        "potential_alcohol",
+        "acidity"
+      ],
+      "source_ids": [
+        "src_reg_isi_fiano",
+        "src_wset_found_ucd_pulp"
+      ],
+      "supplied_assumptions": []
+    },
+    {
+      "knowledge_item_id": "ki_wset_structure_albarino_structure",
+      "grape_id": "albarino",
+      "kind": "structure",
+      "dimensions": [
+        "colour",
+        "potential_alcohol",
+        "acidity"
+      ],
+      "source_ids": [
+        "src_wset_structure_plantgrape_albarino",
+        "src_wset_grape_rias_albarino",
+        "src_wset_found_ucd_pulp"
+      ],
+      "supplied_assumptions": []
+    },
+    {
+      "knowledge_item_id": "ki_wset_structure_furmint_structure",
+      "grape_id": "furmint",
+      "kind": "structure",
+      "dimensions": [
+        "colour",
+        "potential_alcohol",
+        "acidity"
+      ],
+      "source_ids": [
+        "src_wset_structure_plantgrape_furmint",
+        "src_wset_structure_furmint_grand_tokaj_2024",
+        "src_wset_found_ucd_pulp"
+      ],
+      "supplied_assumptions": []
+    },
+    {
+      "knowledge_item_id": "ki_wset_structure_chardonnay_vineyard",
+      "grape_id": "chardonnay",
+      "kind": "vineyard",
+      "dimensions": [
+        "environment",
+        "harvest"
+      ],
+      "source_ids": [
+        "src_wset_structure_plantgrape_chardonnay",
+        "src_wset_found_ucd_pulp"
+      ],
+      "supplied_assumptions": []
+    },
+    {
+      "knowledge_item_id": "ki_wset_structure_sauvignon_blanc_vineyard",
+      "grape_id": "sauvignon_blanc",
+      "kind": "vineyard",
+      "dimensions": [
+        "environment",
+        "harvest"
+      ],
+      "source_ids": [
+        "src_wset_structure_plantgrape_sauvignon_blanc",
+        "src_wset_grape_wset_sauvignon"
+      ],
+      "supplied_assumptions": []
+    },
+    {
+      "knowledge_item_id": "ki_wset_structure_pinot_gris_vineyard",
+      "grape_id": "pinot_gris",
+      "kind": "vineyard",
+      "dimensions": [
+        "environment",
+        "harvest"
+      ],
+      "source_ids": [
+        "src_wset_structure_plantgrape_pinot_gris",
+        "src_wset_grape_civa_sgn"
+      ],
+      "supplied_assumptions": []
+    },
+    {
+      "knowledge_item_id": "ki_wset_structure_riesling_vineyard",
+      "grape_id": "riesling",
+      "kind": "vineyard",
+      "dimensions": [
+        "environment",
+        "harvest"
+      ],
+      "source_ids": [
+        "src_wset_structure_plantgrape_riesling",
+        "src_ce_rheingau",
+        "src_wset_found_ucd_pulp"
+      ],
+      "supplied_assumptions": []
+    },
+    {
+      "knowledge_item_id": "ki_wset_structure_cabernet_sauvignon_vineyard",
+      "grape_id": "cabernet_sauvignon",
+      "kind": "vineyard",
+      "dimensions": [
+        "environment",
+        "harvest"
+      ],
+      "source_ids": [
+        "src_wset_structure_plantgrape_cabernet_sauvignon",
+        "src_wset_close_l2_session",
+        "src_wset_found_ucd_pulp"
+      ],
+      "supplied_assumptions": []
+    },
+    {
+      "knowledge_item_id": "ki_wset_structure_merlot_vineyard",
+      "grape_id": "merlot",
+      "kind": "vineyard",
+      "dimensions": [
+        "environment",
+        "harvest"
+      ],
+      "source_ids": [
+        "src_reg_fr_merlot",
+        "src_wset_structure_plantgrape_merlot",
+        "src_wset_found_ucd_pulp"
+      ],
+      "supplied_assumptions": []
+    },
+    {
+      "knowledge_item_id": "ki_wset_structure_pinot_noir_vineyard",
+      "grape_id": "pinot_noir",
+      "kind": "vineyard",
+      "dimensions": [
+        "environment",
+        "harvest"
+      ],
+      "source_ids": [
+        "src_wset_structure_plantgrape_pinot_noir",
+        "src_wset_found_ucd_pulp"
+      ],
+      "supplied_assumptions": []
+    },
+    {
+      "knowledge_item_id": "ki_wset_structure_syrah_vineyard",
+      "grape_id": "syrah",
+      "kind": "vineyard",
+      "dimensions": [
+        "environment",
+        "harvest"
+      ],
+      "source_ids": [
+        "src_wset_structure_plantgrape_syrah",
+        "src_wset_found_ucd_pulp"
+      ],
+      "supplied_assumptions": []
+    },
+    {
+      "knowledge_item_id": "ki_wset_structure_chardonnay_ageing",
+      "grape_id": "chardonnay",
+      "kind": "ageing",
+      "dimensions": [
+        "bottle_ageing"
+      ],
+      "source_ids": [
+        "src_wset_structure_wa_aged",
+        "src_wset_taste_ageing"
+      ],
+      "supplied_assumptions": []
+    },
+    {
+      "knowledge_item_id": "ki_wset_structure_sauvignon_blanc_ageing",
+      "grape_id": "sauvignon_blanc",
+      "kind": "ageing",
+      "dimensions": [
+        "bottle_ageing"
+      ],
+      "source_ids": [
+        "src_wset_grape_wset_sauvignon",
+        "src_wset_taste_ageing"
+      ],
+      "supplied_assumptions": []
+    },
+    {
+      "knowledge_item_id": "ki_wset_structure_pinot_gris_ageing",
+      "grape_id": "pinot_gris",
+      "kind": "conditional_ageing",
+      "dimensions": [
+        "bottle_ageing"
+      ],
+      "source_ids": [
+        "src_wset_structure_pinot_gris_scherb",
+        "src_wset_grape_civa_pinot_gris",
+        "src_wset_taste_ageing"
+      ],
+      "supplied_assumptions": [
+        "An Alsace Pinot Gris lot with sufficient flavour and acid balance suitable for keeping; not every named Pinot Gris shares that condition"
+      ]
+    },
+    {
+      "knowledge_item_id": "ki_wset_structure_cabernet_sauvignon_ageing",
+      "grape_id": "cabernet_sauvignon",
+      "kind": "ageing",
+      "dimensions": [
+        "bottle_ageing"
+      ],
+      "source_ids": [
+        "src_wset_structure_plantgrape_cabernet_sauvignon",
+        "src_wset_close_l2_session",
+        "src_wset_taste_ageing"
+      ],
+      "supplied_assumptions": []
+    },
+    {
+      "knowledge_item_id": "ki_wset_structure_merlot_ageing",
+      "grape_id": "merlot",
+      "kind": "ageing",
+      "dimensions": [
+        "bottle_ageing"
+      ],
+      "source_ids": [
+        "src_wset_close_l2_session",
+        "src_wset_taste_ageing"
+      ],
+      "supplied_assumptions": []
+    }
+  ]
+}

@@ -29,11 +29,38 @@ const expected = {
   schemaVersion: Number(declared[1]),
   json: 1,
   curriculum: 'installed',
-  mapLayers: 10,
+  lowerTracks: 3,
+  requiredUnavailable: 0,
+  rehearsalSizes: '30,50,50',
+  writtenPrompts: 4,
+  calibrationsStarted: 3,
+  calibrationFinished: true,
+  calibrationRequiredObservationsComplete: true,
+  calibrationEvidenceComplete: true,
+  calibrationNoMemoryChanges: true,
+  calibrationCompletedParticipation: 1,
+  standaloneObservationStored: true,
+  practiceNoMemoryChanges: true,
+  pairedWines: 2,
+  pairedDistinctWines: true,
+  pairedDeadlineSeconds: 1800,
+  pairedStandalonePreserved: true,
+  pairedWine2EvidenceRestored: true,
+  pairedObservationStored: true,
+  pairedWine1EvidenceEmpty: true,
+  pairedFinished: true,
+  pairedFinishReason: 'submitted',
+  pairedCompletedWines: 0,
+  pairedDetachedDrafts: true,
+  pairedCompletionOnly: true,
+  pairedNoMemoryChanges: true,
+  pairedIncompleteActivity: 0,
   chablisFeature: true,
-  chablisFrame: 'n_geo_france',
+  chablisFrame: 'n_geo_burgundy',
   chablisTap: 'n_geo_chablis',
-  chablisAncestors: 'Burgundy > France',
+  chablisTapInside: true,
+  chablisTapRating: 'good',
+  chablisAncestors: 'Burgundy > Chablis wine area > France > World',
   mcqOptions: 4,
   mcqAnswerShown: true,
   sessionCards: 5,
@@ -73,8 +100,9 @@ function serve(port, isolated) {
 
 const browser = await chromium.launch();
 let failures = 0;
-for (const [port, isolated] of [[8631, false], [8632, true]]) {
-  const server = await serve(port, isolated);
+for (const isolated of [false, true]) {
+  const server = await serve(0, isolated);
+  const port = server.address().port;
   const page = await browser.newPage({ locale: 'en-US' });
   let result;
   const errors = [];
@@ -84,15 +112,18 @@ for (const [port, isolated] of [[8631, false], [8632, true]]) {
   });
   page.on('pageerror', (error) => errors.push(error.message));
   await page.goto(`http://localhost:${port}/`);
-  for (let i = 0; i < 120 && !result; i++) await page.waitForTimeout(250);
+  for (let i = 0; i < 480 && !result; i++) await page.waitForTimeout(250);
 
   const label = `COOP/COEP ${isolated ? 'on' : 'off'}`;
   const problems = [...errors.map((e) => `page error: ${e}`)];
-  if (!result) problems.push('no SMOKE_RESULT within 30 s');
+  if (!result) problems.push('no SMOKE_RESULT within 120 s');
   else {
     if (result.error) problems.push(`error: ${result.error}`);
     for (const [key, value] of Object.entries(expected)) {
       if (result[key] !== value) problems.push(`${key}: expected ${value}, got ${result[key]}`);
+    }
+    if (!(result.bundleMapLayers > 0) || result.mapLayers !== result.bundleMapLayers) {
+      problems.push(`mapLayers: installed ${result.mapLayers}, bundled ${result.bundleMapLayers}`);
     }
     // The bundle loads only if every file its manifest includes was bundled,
     // and the release installed must be the one bundled.

@@ -27,6 +27,21 @@ void main() {
   });
 
   group('rejects', () {
+    test('distinct grid IDs cannot share one framework version', () {
+      final data = minimalDataset();
+      final first = {
+        'id': 'tg_original',
+        'framework': 'WSET_SAT',
+        'version': 'app_1',
+        'display_name': 'Original app grid',
+      };
+      rowsOf(data, 'tasting_grids').add(first);
+      rowsOf(
+        data,
+        'tasting_grids',
+      ).add({...first, 'id': 'tg_another_original_grid'});
+      expect(brokenRules(data), contains('duplicate-key'));
+    });
     test('a relation to a node that does not exist (§S.1)', () {
       final data = minimalDataset();
       rowsOf(data, 'knowledge_relations').add({

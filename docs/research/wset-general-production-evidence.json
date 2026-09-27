@@ -1,0 +1,976 @@
+{
+  "authored_at": "2026-09-27",
+  "frozen_at": "2026-09-27",
+  "scope_documents": [
+    {
+      "level": 2,
+      "version": "2026 Issue 2.1",
+      "url": "https://www.wsetglobal.com/media/19132/wset_l2wines_specification_en_april2026_issue21.pdf"
+    },
+    {
+      "level": 3,
+      "version": "2022 Issue 2, current live qualification link checked 27 September 2026",
+      "url": "https://www.wsetglobal.com/media/11731/wset_l3wines_specification_en_highres_may2022_issue2.pdf"
+    }
+  ],
+  "counts": {
+    "new_learning_points": 67,
+    "new_profiles": 67,
+    "new_sources": 38,
+    "citations": 102,
+    "new_mapping_rows": 132,
+    "reused_case_points": 44
+  },
+  "dimensions": [
+    {
+      "key": "vine_identity",
+      "required_scope_levels": [
+        3
+      ],
+      "level2_item_ids": [
+        "ki_vit_phylloxera_roots"
+      ],
+      "new_item_ids": [
+        "ki_wset_prod_species_variety",
+        "ki_wset_prod_clone_selection",
+        "ki_wset_prod_cross_hybrid",
+        "ki_wset_prod_graft_not_cross"
+      ],
+      "reused_item_ids": [
+        "ki_vit_phylloxera_roots"
+      ],
+      "scope_note": "Scope dimensions contain mechanisms; a named regional requirement must additionally cite a relevant regional causal or association fact."
+    },
+    {
+      "key": "annual_cycle",
+      "required_scope_levels": [
+        3
+      ],
+      "level2_item_ids": [
+        "ki_vit_current_shoots",
+        "ki_vit_two_seasons",
+        "ki_vit_flower_set",
+        "ki_vit_softening"
+      ],
+      "new_item_ids": [
+        "ki_wset_prod_dormancy_budburst"
+      ],
+      "reused_item_ids": [
+        "ki_wset_found_annual_order",
+        "ki_vit_current_shoots",
+        "ki_vit_two_seasons",
+        "ki_vit_flower_set",
+        "ki_vit_softening"
+      ],
+      "scope_note": "Scope dimensions contain mechanisms; a named regional requirement must additionally cite a relevant regional causal or association fact."
+    },
+    {
+      "key": "vine_needs",
+      "required_scope_levels": [
+        3
+      ],
+      "level2_item_ids": [
+        "ki_wset_found_vine_resources",
+        "ki_wset_found_water_roots",
+        "ki_wset_found_nutrients",
+        "ki_vit_photosynthesis"
+      ],
+      "new_item_ids": [],
+      "reused_item_ids": [
+        "ki_wset_found_vine_resources",
+        "ki_wset_found_water_roots",
+        "ki_wset_found_nutrients",
+        "ki_vit_photosynthesis"
+      ],
+      "scope_note": "Scope dimensions contain mechanisms; a named regional requirement must additionally cite a relevant regional causal or association fact."
+    },
+    {
+      "key": "berry_composition_ripeness",
+      "required_scope_levels": [
+        3
+      ],
+      "level2_item_ids": [
+        "ki_wset_found_seeds_stems",
+        "ki_vit_ripening_chemistry",
+        "ki_vit_multiple_measures",
+        "ki_vit_representative_samples"
+      ],
+      "new_item_ids": [],
+      "reused_item_ids": [
+        "ki_wset_found_pulp_composition",
+        "ki_wset_found_grape_skin",
+        "ki_wset_found_seeds_stems",
+        "ki_vit_ripening_chemistry",
+        "ki_vit_multiple_measures",
+        "ki_vit_representative_samples"
+      ],
+      "scope_note": "Scope dimensions contain mechanisms; a named regional requirement must additionally cite a relevant regional causal or association fact."
+    },
+    {
+      "key": "climate_types_weather",
+      "required_scope_levels": [
+        3
+      ],
+      "level2_item_ids": [
+        "ki_wset_prod_climate_weather"
+      ],
+      "new_item_ids": [
+        "ki_wset_prod_climate_types",
+        "ki_wset_prod_warmth_categories",
+        "ki_wset_prod_continental_diurnal",
+        "ki_wset_prod_climate_weather"
+      ],
+      "reused_item_ids": [
+        "ki_wset_found_cool_warm"
+      ],
+      "scope_note": "Scope dimensions contain mechanisms; a named regional requirement must additionally cite a relevant regional causal or association fact."
+    },
+    {
+      "key": "region_and_site_heat",
+      "required_scope_levels": [
+        3
+      ],
+      "level2_item_ids": [
+        "ki_wset_prod_latitude_altitude",
+        "ki_wset_found_aspect",
+        "ki_vit_cold_air",
+        "ki_wset_found_soil_drainage"
+      ],
+      "new_item_ids": [
+        "ki_wset_prod_latitude_altitude",
+        "ki_wset_prod_water_moderation",
+        "ki_wset_prod_site_fog",
+        "ki_wset_prod_soil_heat"
+      ],
+      "reused_item_ids": [
+        "ki_wset_found_aspect",
+        "ki_vit_cold_air",
+        "ki_wset_found_soil_drainage"
+      ],
+      "scope_note": "Scope dimensions contain mechanisms; a named regional requirement must additionally cite a relevant regional causal or association fact."
+    },
+    {
+      "key": "training_pruning_canopy_density",
+      "required_scope_levels": [
+        3
+      ],
+      "level2_item_ids": [
+        "ki_wset_found_training",
+        "ki_wset_found_pruning",
+        "ki_vit_airflow",
+        "ki_vit_exposure_limit",
+        "ki_vit_interior_shade"
+      ],
+      "new_item_ids": [
+        "ki_wset_prod_head_cordon",
+        "ki_wset_prod_spur_cane",
+        "ki_wset_prod_trellis_untrellis",
+        "ki_wset_prod_planting_density"
+      ],
+      "reused_item_ids": [
+        "ki_wset_found_training",
+        "ki_wset_found_pruning",
+        "ki_vit_airflow",
+        "ki_vit_exposure_limit",
+        "ki_vit_interior_shade"
+      ],
+      "scope_note": "Scope dimensions contain mechanisms; a named regional requirement must additionally cite a relevant regional causal or association fact."
+    },
+    {
+      "key": "yield_harvest",
+      "required_scope_levels": [
+        3
+      ],
+      "level2_item_ids": [
+        "ki_wset_prod_hand_machine",
+        "ki_vit_overcrop",
+        "ki_vit_not_min_yield"
+      ],
+      "new_item_ids": [
+        "ki_wset_prod_hand_machine",
+        "ki_wset_prod_harvest_whole_bunch",
+        "ki_wset_prod_harvest_cost_quality"
+      ],
+      "reused_item_ids": [
+        "ki_vit_overcrop",
+        "ki_vit_not_min_yield",
+        "ki_vit_style_gain",
+        "ki_vit_delay_risk"
+      ],
+      "scope_note": "Scope dimensions contain mechanisms; a named regional requirement must additionally cite a relevant regional causal or association fact."
+    },
+    {
+      "key": "frost_freeze_hail_animals",
+      "required_scope_levels": [
+        3
+      ],
+      "level2_item_ids": [
+        "ki_wset_prod_hazard_hail",
+        "ki_wset_prod_hazard_animals",
+        "ki_vit_radiation_inversion",
+        "ki_vit_advective_limit"
+      ],
+      "new_item_ids": [
+        "ki_wset_prod_frost_heaters",
+        "ki_wset_prod_winter_hilling",
+        "ki_wset_prod_hazard_hail",
+        "ki_wset_prod_hazard_animals"
+      ],
+      "reused_item_ids": [
+        "ki_vit_radiation_inversion",
+        "ki_vit_advective_limit",
+        "ki_vit_freezing_heat",
+        "ki_vit_continuous_water"
+      ],
+      "scope_note": "Scope dimensions contain mechanisms; a named regional requirement must additionally cite a relevant regional causal or association fact."
+    },
+    {
+      "key": "water_nutrients_sunburn",
+      "required_scope_levels": [
+        3
+      ],
+      "level2_item_ids": [
+        "ki_vit_stress_photo",
+        "ki_vit_ripening_canopy"
+      ],
+      "new_item_ids": [
+        "ki_wset_prod_irrigation_methods",
+        "ki_wset_prod_nutrition_test"
+      ],
+      "reused_item_ids": [
+        "ki_vit_plant_soil",
+        "ki_vit_stress_photo",
+        "ki_vit_ripening_canopy",
+        "ki_vit_late_leaf_burn"
+      ],
+      "scope_note": "Scope dimensions contain mechanisms; a named regional requirement must additionally cite a relevant regional causal or association fact."
+    },
+    {
+      "key": "pest_disease",
+      "required_scope_levels": [
+        3
+      ],
+      "level2_item_ids": [
+        "ki_vit_phylloxera_roots",
+        "ki_vit_nematode_species",
+        "ki_vit_powdery_inoculum",
+        "ki_vit_downy_moisture",
+        "ki_vit_botrytis_wet",
+        "ki_wset_found_canopy_disease"
+      ],
+      "new_item_ids": [
+        "ki_wset_prod_virus_bacteria",
+        "ki_wset_prod_conventional_ipm"
+      ],
+      "reused_item_ids": [
+        "ki_vit_phylloxera_roots",
+        "ki_vit_nematode_species",
+        "ki_vit_powdery_inoculum",
+        "ki_vit_downy_moisture",
+        "ki_vit_botrytis_wet",
+        "ki_wset_found_canopy_disease"
+      ],
+      "scope_note": "Scope dimensions contain mechanisms; a named regional requirement must additionally cite a relevant regional causal or association fact."
+    },
+    {
+      "key": "growing_approaches",
+      "required_scope_levels": [
+        3
+      ],
+      "level2_item_ids": [
+        "ki_wset_prod_organic"
+      ],
+      "new_item_ids": [
+        "ki_wset_prod_conventional_ipm",
+        "ki_wset_prod_sustainable",
+        "ki_wset_prod_organic",
+        "ki_wset_prod_organic_winery",
+        "ki_wset_prod_biodynamic"
+      ],
+      "reused_item_ids": [],
+      "scope_note": "Scope dimensions contain mechanisms; a named regional requirement must additionally cite a relevant regional causal or association fact."
+    },
+    {
+      "key": "sugar_concentration",
+      "required_scope_levels": [
+        3
+      ],
+      "level2_item_ids": [
+        "ki_wset_prod_dry_on_off_vine",
+        "ki_wset_found_concentrated_fruit",
+        "ki_wset_found_noble_rot",
+        "ki_wset_found_frozen_fruit"
+      ],
+      "new_item_ids": [
+        "ki_wset_prod_dry_on_off_vine"
+      ],
+      "reused_item_ids": [
+        "ki_wset_found_concentrated_fruit",
+        "ki_wset_found_noble_rot",
+        "ki_wset_found_frozen_fruit"
+      ],
+      "scope_note": "Scope dimensions contain mechanisms; a named regional requirement must additionally cite a relevant regional causal or association fact."
+    },
+    {
+      "key": "fermentation_oxygen_so2",
+      "required_scope_levels": [
+        3
+      ],
+      "level2_item_ids": [
+        "ki_win_alcoholic_products",
+        "ki_win_grape_sugars",
+        "ki_win_yeast_health",
+        "ki_win_oxygen_stage",
+        "ki_win_sulfur_forms"
+      ],
+      "new_item_ids": [],
+      "reused_item_ids": [
+        "ki_win_alcoholic_products",
+        "ki_win_grape_sugars",
+        "ki_win_yeast_health",
+        "ki_win_oxygen_stage",
+        "ki_win_sulfur_forms",
+        "ki_win_sulfur_ph"
+      ],
+      "scope_note": "Scope dimensions contain mechanisms; a named regional requirement must additionally cite a relevant regional causal or association fact."
+    },
+    {
+      "key": "must_adjustments",
+      "required_scope_levels": [
+        3
+      ],
+      "level2_item_ids": [
+        "ki_wset_prod_enrichment",
+        "ki_wset_prod_acidification",
+        "ki_wset_prod_deacidification"
+      ],
+      "new_item_ids": [
+        "ki_wset_prod_enrichment",
+        "ki_wset_prod_acidification",
+        "ki_wset_prod_deacidification",
+        "ki_wset_prod_adjustment_trials"
+      ],
+      "reused_item_ids": [],
+      "scope_note": "Scope dimensions contain mechanisms; a named regional requirement must additionally cite a relevant regional causal or association fact."
+    },
+    {
+      "key": "white_red_intake_routes",
+      "required_scope_levels": [
+        3
+      ],
+      "level2_item_ids": [
+        "ki_wset_prod_destem_crush",
+        "ki_wset_prod_juice_clarification",
+        "ki_wset_prod_red_press_timing",
+        "ki_win_skin_flavour",
+        "ki_win_press_fractions",
+        "ki_win_cap_contact"
+      ],
+      "new_item_ids": [
+        "ki_wset_prod_destem_crush",
+        "ki_wset_prod_juice_clarification",
+        "ki_wset_prod_racking_gross_lees",
+        "ki_wset_prod_red_extraction_stages",
+        "ki_wset_prod_red_press_timing"
+      ],
+      "reused_item_ids": [
+        "ki_wset_found_white_sequence",
+        "ki_wset_found_red_sequence",
+        "ki_win_skin_flavour",
+        "ki_win_press_fractions",
+        "ki_win_cap_contact"
+      ],
+      "scope_note": "Scope dimensions contain mechanisms; a named regional requirement must additionally cite a relevant regional causal or association fact."
+    },
+    {
+      "key": "whole_bunch_routes",
+      "required_scope_levels": [
+        3
+      ],
+      "level2_item_ids": [],
+      "new_item_ids": [
+        "ki_wset_prod_carbonic",
+        "ki_wset_prod_semi_carbonic",
+        "ki_wset_prod_whole_bunch_crushed"
+      ],
+      "reused_item_ids": [],
+      "scope_note": "Scope dimensions contain mechanisms; a named regional requirement must additionally cite a relevant regional causal or association fact."
+    },
+    {
+      "key": "rose_routes",
+      "required_scope_levels": [
+        3
+      ],
+      "level2_item_ids": [
+        "ki_wset_prod_rose_direct_short",
+        "ki_wset_prod_rose_blending"
+      ],
+      "new_item_ids": [
+        "ki_wset_prod_rose_direct_short",
+        "ki_wset_prod_rose_blending"
+      ],
+      "reused_item_ids": [
+        "ki_wset_found_rose_sequence"
+      ],
+      "scope_note": "Scope dimensions contain mechanisms; a named regional requirement must additionally cite a relevant regional causal or association fact."
+    },
+    {
+      "key": "sweet_routes",
+      "required_scope_levels": [
+        3
+      ],
+      "level2_item_ids": [
+        "ki_wset_prod_sweet_routes"
+      ],
+      "new_item_ids": [
+        "ki_wset_prod_sweet_routes",
+        "ki_wset_prod_arrest_chill",
+        "ki_wset_prod_sweet_stability"
+      ],
+      "reused_item_ids": [
+        "ki_wset_found_fermentation_sweetness"
+      ],
+      "scope_note": "Scope dimensions contain mechanisms; a named regional requirement must additionally cite a relevant regional causal or association fact."
+    },
+    {
+      "key": "maturation_mlf_lees_oak",
+      "required_scope_levels": [
+        3
+      ],
+      "level2_item_ids": [
+        "ki_wset_prod_neutral_vessels",
+        "ki_win_mlf_conversion",
+        "ki_win_mlf_organism",
+        "ki_win_mlf_butter",
+        "ki_win_oak_flavours",
+        "ki_win_oak_variables",
+        "ki_win_oak_reuse",
+        "ki_win_lees_release"
+      ],
+      "new_item_ids": [
+        "ki_wset_prod_neutral_vessels",
+        "ki_wset_prod_vessel_temperature",
+        "ki_wset_prod_oak_alternatives"
+      ],
+      "reused_item_ids": [
+        "ki_win_mlf_conversion",
+        "ki_win_mlf_organism",
+        "ki_win_mlf_butter",
+        "ki_win_oak_flavours",
+        "ki_win_oak_variables",
+        "ki_win_oak_reuse",
+        "ki_win_lees_release",
+        "ki_win_lees_stirring"
+      ],
+      "scope_note": "Scope dimensions contain mechanisms; a named regional requirement must additionally cite a relevant regional causal or association fact."
+    },
+    {
+      "key": "blending",
+      "required_scope_levels": [
+        3
+      ],
+      "level2_item_ids": [
+        "ki_wset_prod_blend_balance",
+        "ki_wset_prod_blend_consistency"
+      ],
+      "new_item_ids": [
+        "ki_wset_prod_blend_balance",
+        "ki_wset_prod_blend_consistency",
+        "ki_wset_prod_blend_trials"
+      ],
+      "reused_item_ids": [],
+      "scope_note": "Scope dimensions contain mechanisms; a named regional requirement must additionally cite a relevant regional causal or association fact."
+    },
+    {
+      "key": "clarification_stability",
+      "required_scope_levels": [
+        3
+      ],
+      "level2_item_ids": [
+        "ki_wset_prod_sedimentation_fining",
+        "ki_win_fining_mechanism",
+        "ki_win_bentonite",
+        "ki_win_tartrate_cooling"
+      ],
+      "new_item_ids": [
+        "ki_wset_prod_sedimentation_fining",
+        "ki_wset_prod_depth_surface",
+        "ki_wset_prod_clarity_stability"
+      ],
+      "reused_item_ids": [
+        "ki_win_fining_mechanism",
+        "ki_win_bentonite",
+        "ki_win_fining_trials",
+        "ki_win_filter_ratings",
+        "ki_win_packaging_hygiene",
+        "ki_win_tartrate_cooling",
+        "ki_win_stability_retest"
+      ],
+      "scope_note": "Scope dimensions contain mechanisms; a named regional requirement must additionally cite a relevant regional causal or association fact."
+    },
+    {
+      "key": "packaging_closures",
+      "required_scope_levels": [
+        3
+      ],
+      "level2_item_ids": [],
+      "new_item_ids": [
+        "ki_wset_prod_glass_pet_bib",
+        "ki_wset_prod_package_oxygen",
+        "ki_wset_prod_closure_types",
+        "ki_wset_prod_closure_performance"
+      ],
+      "reused_item_ids": [
+        "ki_win_packaging_hygiene"
+      ],
+      "scope_note": "Scope dimensions contain mechanisms; a named regional requirement must additionally cite a relevant regional causal or association fact."
+    },
+    {
+      "key": "quality_price",
+      "required_scope_levels": [
+        3
+      ],
+      "level2_item_ids": [
+        "ki_vit_not_min_yield"
+      ],
+      "new_item_ids": [
+        "ki_wset_prod_cost_land_establishment",
+        "ki_wset_prod_cost_yield",
+        "ki_wset_prod_cost_cellar",
+        "ki_wset_prod_price_chain"
+      ],
+      "reused_item_ids": [
+        "ki_vit_not_min_yield"
+      ],
+      "scope_note": "Scope dimensions contain mechanisms; a named regional requirement must additionally cite a relevant regional causal or association fact."
+    }
+  ],
+  "case_point_ids": [
+    "ki_vit_case_humid_canopy_action",
+    "ki_vit_case_humid_canopy_reason",
+    "ki_vit_case_humid_canopy_tradeoff",
+    "ki_vit_case_humid_canopy_limitation",
+    "ki_vit_case_late_deficit_action",
+    "ki_vit_case_late_deficit_reason",
+    "ki_vit_case_late_deficit_tradeoff",
+    "ki_vit_case_late_deficit_limitation",
+    "ki_vit_case_radiation_frost_action",
+    "ki_vit_case_radiation_frost_reason",
+    "ki_vit_case_radiation_frost_tradeoff",
+    "ki_vit_case_radiation_frost_limitation",
+    "ki_vit_case_rootstock_replant_action",
+    "ki_vit_case_rootstock_replant_reason",
+    "ki_vit_case_rootstock_replant_tradeoff",
+    "ki_vit_case_rootstock_replant_limitation",
+    "ki_vit_case_rain_harvest_action",
+    "ki_vit_case_rain_harvest_reason",
+    "ki_vit_case_rain_harvest_tradeoff",
+    "ki_vit_case_rain_harvest_limitation",
+    "ki_win_case_fresh_white_action",
+    "ki_win_case_fresh_white_reason",
+    "ki_win_case_fresh_white_tradeoff",
+    "ki_win_case_fresh_white_limitation",
+    "ki_win_case_hot_red_action",
+    "ki_win_case_hot_red_reason",
+    "ki_win_case_hot_red_tradeoff",
+    "ki_win_case_hot_red_limitation",
+    "ki_win_case_low_yan_action",
+    "ki_win_case_low_yan_reason",
+    "ki_win_case_low_yan_tradeoff",
+    "ki_win_case_low_yan_limitation",
+    "ki_win_case_difficult_mlf_action",
+    "ki_win_case_difficult_mlf_reason",
+    "ki_win_case_difficult_mlf_tradeoff",
+    "ki_win_case_difficult_mlf_limitation",
+    "ki_win_case_protein_white_action",
+    "ki_win_case_protein_white_reason",
+    "ki_win_case_protein_white_tradeoff",
+    "ki_win_case_protein_white_limitation",
+    "ki_win_case_sweet_bottling_action",
+    "ki_win_case_sweet_bottling_reason",
+    "ki_win_case_sweet_bottling_tradeoff",
+    "ki_win_case_sweet_bottling_limitation"
+  ],
+  "europe_dimension_repairs": [
+    {
+      "requirement_key": "fr_bordeaux_red",
+      "dimension": "quality_price",
+      "regional_item_ids": [
+        "ki_wset_eu_bordeaux_classification_quality"
+      ],
+      "transferable_support_item_ids": [
+        "ki_wset_prod_cost_cellar",
+        "ki_wset_prod_cost_yield",
+        "ki_wset_prod_price_chain"
+      ],
+      "semantic_review": "Ready for reputation/price and conditional cellar-cost application. Remove ki_reg_fr_case_bordeaux_blend_tradeoff from quality_price; it explains blend style, not price.",
+      "completion_claim": false
+    },
+    {
+      "requirement_key": "fr_bordeaux_white",
+      "dimension": "environment",
+      "regional_item_ids": [],
+      "transferable_support_item_ids": [
+        "ki_wset_prod_climate_types",
+        "ki_wset_prod_climate_weather"
+      ],
+      "semantic_review": "Pending: a named Bordeaux maritime/rainfall causal fact is still needed; a dated red-wine mildew account is not the complete white-wine environment explanation.",
+      "completion_claim": false
+    },
+    {
+      "requirement_key": "fr_bordeaux_white",
+      "dimension": "quality_price",
+      "regional_item_ids": [],
+      "transferable_support_item_ids": [
+        "ki_wset_prod_cost_cellar",
+        "ki_wset_prod_price_chain"
+      ],
+      "semantic_review": "Transferable support only; add a named dry Bordeaux white example contrasting steel/fresh production with barrel/lees maturation and its time, vessel and labour costs.",
+      "completion_claim": false
+    },
+    {
+      "requirement_key": "fr_chablis",
+      "dimension": "grapes",
+      "regional_item_ids": [
+        "ki_wset_found_familiar_chablis"
+      ],
+      "transferable_support_item_ids": [],
+      "semantic_review": "Named Chardonnay association supplies the missing grape dimension.",
+      "completion_claim": false
+    },
+    {
+      "requirement_key": "fr_hautes_chalonnaise",
+      "dimension": "quality_price",
+      "regional_item_ids": [
+        "ki_wset_eu_burgundy_origin_price",
+        "ki_reg_fr_hautes_plateaus"
+      ],
+      "transferable_support_item_ids": [
+        "ki_wset_prod_cost_yield",
+        "ki_wset_prod_cost_cellar"
+      ],
+      "semantic_review": "Reputation/origin evidence is available; altitude affects ripening but is not itself evidence of higher cost or a uniform lower price.",
+      "completion_claim": false
+    },
+    {
+      "requirement_key": "fr_loire_muscadet",
+      "dimension": "environment",
+      "regional_item_ids": [
+        "ki_reg_fs_muscadet_melon",
+        "ki_muscadet_sevre_et_maine_climate"
+      ],
+      "transferable_support_item_ids": [
+        "ki_wset_prod_climate_types"
+      ],
+      "semantic_review": "Named Atlantic environment references exist; require explanation of rainfall/ripening alongside site facts.",
+      "completion_claim": false
+    },
+    {
+      "requirement_key": "it_north_white",
+      "dimension": "quality_price",
+      "regional_item_ids": [
+        "ki_wset_eu_recioto_soave_selection"
+      ],
+      "transferable_support_item_ids": [
+        "ki_wset_prod_cost_yield",
+        "ki_wset_prod_cost_cellar",
+        "ki_wset_prod_price_chain"
+      ],
+      "semantic_review": "Recioto di Soave selection/drying/lower juice volume supplies a causal sweet-wine cost example; a cost comparison for other northern whites remains needed.",
+      "completion_claim": false
+    },
+    {
+      "requirement_key": "it_veneto",
+      "dimension": "environment",
+      "regional_item_ids": [],
+      "transferable_support_item_ids": [
+        "ki_wset_prod_climate_types",
+        "ki_wset_prod_latitude_altitude",
+        "ki_wset_prod_climate_weather"
+      ],
+      "semantic_review": "Pending: named Veneto lake/foothill/inland influences should be mapped from appropriate regional items; generic Italian geography is not sufficient.",
+      "completion_claim": false
+    },
+    {
+      "requirement_key": "it_abruzzo",
+      "dimension": "production",
+      "regional_item_ids": [
+        "ki_reg_isi_abruzzo_grapes_styles"
+      ],
+      "transferable_support_item_ids": [
+        "ki_wset_found_red_sequence",
+        "ki_wset_found_white_sequence",
+        "ki_wset_prod_rose_direct_short",
+        "ki_wset_prod_red_extraction_stages"
+      ],
+      "semantic_review": "Named Montepulciano/Cerasuolo/white reference plus basic routes supports the production distinction.",
+      "completion_claim": false
+    },
+    {
+      "requirement_key": "it_abruzzo",
+      "dimension": "quality_price",
+      "regional_item_ids": [],
+      "transferable_support_item_ids": [
+        "ki_wset_prod_cost_yield",
+        "ki_wset_prod_cost_cellar",
+        "ki_wset_prod_price_chain"
+      ],
+      "semantic_review": "Transferable support only; a named Abruzzo scale/mechanisation or maturation cost comparison still needs a source-backed regional example.",
+      "completion_claim": false
+    },
+    {
+      "requirement_key": "es_aragon",
+      "dimension": "quality_price",
+      "regional_item_ids": [],
+      "transferable_support_item_ids": [
+        "ki_wset_prod_cost_yield",
+        "ki_wset_prod_cost_land_establishment",
+        "ki_wset_prod_price_chain"
+      ],
+      "semantic_review": "Transferable support only; source-backed old-vine/site access/crop or cellar example still needed, without assuming all old vines yield less or taste better.",
+      "completion_claim": false
+    },
+    {
+      "requirement_key": "es_duero",
+      "dimension": "quality_price",
+      "regional_item_ids": [],
+      "transferable_support_item_ids": [
+        "ki_wset_prod_cost_yield",
+        "ki_wset_prod_cost_cellar",
+        "ki_wset_prod_price_chain"
+      ],
+      "semantic_review": "Transferable support only; named Ribera/Toro/Rueda origin, vineyard and maturation choices must supply a regional causal application.",
+      "completion_claim": false
+    },
+    {
+      "requirement_key": "es_northwest",
+      "dimension": "quality_price",
+      "regional_item_ids": [],
+      "transferable_support_item_ids": [
+        "ki_wset_prod_cost_land_establishment",
+        "ki_wset_prod_cost_cellar",
+        "ki_wset_prod_price_chain"
+      ],
+      "semantic_review": "Transferable support only; named Atlantic growing risk or vineyard access example plus actual production choices still needed.",
+      "completion_claim": false
+    },
+    {
+      "requirement_key": "es_levante",
+      "dimension": "production",
+      "regional_item_ids": [
+        "ki_reg_ib_levante_monastrell"
+      ],
+      "transferable_support_item_ids": [
+        "ki_wset_found_red_sequence",
+        "ki_wset_prod_red_extraction_stages",
+        "ki_wset_prod_blend_balance",
+        "ki_wset_prod_neutral_vessels"
+      ],
+      "semantic_review": "Generic red route can support named Monastrell context; add named still-white production where the grouped family includes Valencia wines.",
+      "completion_claim": false
+    },
+    {
+      "requirement_key": "es_levante",
+      "dimension": "quality_price",
+      "regional_item_ids": [],
+      "transferable_support_item_ids": [
+        "ki_wset_prod_cost_yield",
+        "ki_wset_prod_cost_cellar",
+        "ki_wset_prod_price_chain"
+      ],
+      "semantic_review": "Transferable support only; named mechanisation, crop or maturation cost example still needed.",
+      "completion_claim": false
+    },
+    {
+      "requirement_key": "es_castilla_mancha",
+      "dimension": "quality_price",
+      "regional_item_ids": [
+        "ki_reg_ib_mancha_ferment"
+      ],
+      "transferable_support_item_ids": [
+        "ki_wset_prod_vessel_temperature",
+        "ki_wset_prod_cost_land_establishment",
+        "ki_wset_prod_price_chain"
+      ],
+      "semantic_review": "Temperature-controlled Airén is a production fact, not sufficient regional cost evidence; a sourced scale/harvest/irrigation example remains needed.",
+      "completion_claim": false
+    },
+    {
+      "requirement_key": "pt_vinho_verde",
+      "dimension": "style",
+      "regional_item_ids": [
+        "ki_reg_ib_verde_atlantic",
+        "ki_reg_ib_verde_shelter"
+      ],
+      "transferable_support_item_ids": [],
+      "semantic_review": "Named styles and Monção e Melgaço contrast exist; avoid making every example low-alcohol or lightly fizzy.",
+      "completion_claim": false
+    },
+    {
+      "requirement_key": "pt_douro",
+      "dimension": "quality_price",
+      "regional_item_ids": [
+        "ki_reg_ib_douro_terrain"
+      ],
+      "transferable_support_item_ids": [
+        "ki_wset_prod_cost_land_establishment",
+        "ki_wset_prod_cost_yield",
+        "ki_wset_prod_price_chain"
+      ],
+      "semantic_review": "Named steep terraces/access constraints supply conditional vineyard labour-cost evidence. It does not fix market price.",
+      "completion_claim": false
+    },
+    {
+      "requirement_key": "pt_alentejo",
+      "dimension": "grapes",
+      "regional_item_ids": [
+        "ki_reg_ib_alentejo_heat"
+      ],
+      "transferable_support_item_ids": [],
+      "semantic_review": "Aragonez and Alicante Bouschet named association exists; attach exact legal allowed-grape facts separately if required by the label dimension.",
+      "completion_claim": false
+    },
+    {
+      "requirement_key": "pt_alentejo",
+      "dimension": "production",
+      "regional_item_ids": [],
+      "transferable_support_item_ids": [
+        "ki_wset_found_red_sequence",
+        "ki_wset_found_white_sequence",
+        "ki_wset_prod_red_extraction_stages",
+        "ki_wset_prod_neutral_vessels",
+        "ki_wset_prod_blend_balance"
+      ],
+      "semantic_review": "Basic cellar repair IDs supplied. A named Alentejo production example for contrasting styles is still needed.",
+      "completion_claim": false
+    },
+    {
+      "requirement_key": "pt_alentejo",
+      "dimension": "style",
+      "regional_item_ids": [
+        "ki_reg_ib_alentejo_heat",
+        "ki_reg_ib_alentejo_portalegre"
+      ],
+      "transferable_support_item_ids": [],
+      "semantic_review": "Named warm-site fuller-red context and cooler Portalegre contrast supply style context.",
+      "completion_claim": false
+    },
+    {
+      "requirement_key": "pt_alentejo",
+      "dimension": "quality_price",
+      "regional_item_ids": [],
+      "transferable_support_item_ids": [
+        "ki_wset_prod_cost_yield",
+        "ki_wset_prod_cost_cellar",
+        "ki_wset_prod_price_chain"
+      ],
+      "semantic_review": "Transferable support only; named scale/irrigation/access or maturation cost example still needed.",
+      "completion_claim": false
+    },
+    {
+      "requirement_key": "pt_lisboa",
+      "dimension": "quality_price",
+      "regional_item_ids": [
+        "ki_wset_eu_lisboa_atlantic"
+      ],
+      "transferable_support_item_ids": [
+        "ki_wset_prod_cost_yield",
+        "ki_wset_prod_price_chain"
+      ],
+      "semantic_review": "Cooling winds explain growing context, not price by themselves; a source-backed vineyard/cellar cost example remains needed.",
+      "completion_claim": false
+    },
+    {
+      "requirement_key": "de_nahe",
+      "dimension": "grapes",
+      "regional_item_ids": [
+        "ki_reg_de_nahe_site_variety"
+      ],
+      "transferable_support_item_ids": [],
+      "semantic_review": "Named Riesling and Pinot-family association exists; the principle does not promise identical style across soil types.",
+      "completion_claim": false
+    },
+    {
+      "requirement_key": "de_rheinhessen",
+      "dimension": "quality_price",
+      "regional_item_ids": [],
+      "transferable_support_item_ids": [
+        "ki_wset_prod_cost_land_establishment",
+        "ki_wset_prod_cost_cellar",
+        "ki_wset_prod_price_chain"
+      ],
+      "semantic_review": "Transferable support only; sourced site access/production-volume/cellar cost application still needed.",
+      "completion_claim": false
+    },
+    {
+      "requirement_key": "at_niederosterreich",
+      "dimension": "production",
+      "regional_item_ids": [],
+      "transferable_support_item_ids": [
+        "ki_wset_found_white_sequence",
+        "ki_win_white_cooling",
+        "ki_win_mlf_conversion",
+        "ki_win_lees_release",
+        "ki_wset_prod_neutral_vessels",
+        "ki_wset_prod_blend_balance"
+      ],
+      "semantic_review": "Basic white cellar mechanism repair IDs supplied. A named dry Riesling/Grüner production choice must still connect these mechanisms to the region.",
+      "completion_claim": false
+    },
+    {
+      "requirement_key": "at_niederosterreich",
+      "dimension": "quality_price",
+      "regional_item_ids": [],
+      "transferable_support_item_ids": [
+        "ki_wset_prod_cost_land_establishment",
+        "ki_wset_prod_cost_cellar",
+        "ki_wset_prod_price_chain"
+      ],
+      "semantic_review": "Transferable support only; a named Wachau terrace labour or comparative cellar-cost example remains needed.",
+      "completion_claim": false
+    },
+    {
+      "requirement_key": "at_burgenland",
+      "dimension": "quality_price",
+      "regional_item_ids": [
+        "ki_reg_ah_eisenberg_access"
+      ],
+      "transferable_support_item_ids": [
+        "ki_wset_prod_cost_land_establishment",
+        "ki_wset_prod_cost_cellar",
+        "ki_wset_prod_price_chain"
+      ],
+      "semantic_review": "Named Eisenberg steep/narrow plot access and hand-work gives conditional labour cost evidence within Burgenland.",
+      "completion_claim": false
+    },
+    {
+      "requirement_key": "gr_naoussa",
+      "dimension": "quality_price",
+      "regional_item_ids": [
+        "ki_reg_gr_naoussa_style_choices"
+      ],
+      "transferable_support_item_ids": [
+        "ki_wset_prod_cost_cellar",
+        "ki_wset_prod_price_chain"
+      ],
+      "semantic_review": "Named longer maceration/wood maturation gives the production choice; generic storage/wood cost mechanism permits conditional application, but a regional price premium is not established.",
+      "completion_claim": false
+    }
+  ],
+  "review_checklist": [
+    "Confirm all exact named-region associations and identities separately from general cellar support.",
+    "Finish conditional named regional quality/cost applications flagged transferable-only above.",
+    "Audit L2 grape-paired GI lists against the 2026 specification; regional-family grouping must not promote every L3 place into L2.",
+    "Complete required sparkling and fortified names, styles, production and labels; Madeira is optional in Wine L3.",
+    "Check actual question generation and served modes for every required evidence item, including case-point siblings.",
+    "Have qualified reviewers verify unverified facts and self-marked explanations; app study completion is not WSET qualification."
+  ],
+  "validation": {
+    "unknown_evidence_ids": [],
+    "sdk_tests": "Not run by author; root owns SDK and release integration",
+    "new_content_review_status": "unverified",
+    "legal_note": "Source explanations make no worldwide permission claim or numerical universal production limit.",
+    "structural_errors": [],
+    "yaml_sha256": "e4d0f62940f2a163402e15667c9328dc29d52adaf78e5358b5e5519f8c597c9c"
+  }
+}

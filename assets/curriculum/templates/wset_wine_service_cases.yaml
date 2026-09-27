@@ -1,0 +1,50 @@
+# Original self-assessed cases; no automatic prose marking.
+question_templates:
+  - id: qt_wset_srv_case_chilli
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: wset_srv_chilli
+    prompt_template: A guest dislikes strong chilli burn but enjoys fresh white wine. The dish has hot chilli,
+      herbs and no sweet sauce. Available samples include a high-alcohol dry white and a lower-alcohol lightly
+      sweet white. Recommend a trial, explain the mechanism, discuss a tradeoff and state what still needs
+      checking.
+    parameters:
+      scope_node_ids:
+        - n_wset_srv_case_chilli
+      key_points:
+        CASE_ACTION: Defensible recommendation
+        CASE_REASON: Sensory or service reason
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Condition or follow-up
+  - id: qt_wset_srv_case_dessert
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: wset_srv_dessert
+    prompt_template: A citrus pudding is clearly sweeter than a proposed dry aromatic white. A second sample is
+      sweet with refreshing acidity. Explain a sensible tasting comparison, a reason, a tradeoff and a limit
+      on predicting the outcome.
+    parameters:
+      scope_node_ids:
+        - n_wset_srv_case_dessert
+      key_points:
+        CASE_ACTION: Defensible recommendation
+        CASE_REASON: Sensory or service reason
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Condition or follow-up
+  - id: qt_wset_srv_case_older_red
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: wset_srv_older_red
+    prompt_template: An older red has visible sediment. The guest plans to drink it immediately; its fruit is
+      delicate in a clean glass. Explain your service choice, the reason, a tradeoff and a limitation.
+    parameters:
+      scope_node_ids:
+        - n_wset_srv_case_older_red
+      key_points:
+        CASE_ACTION: Defensible recommendation
+        CASE_REASON: Sensory or service reason
+        CASE_TRADEOFF: Tradeoff
+        CASE_LIMITATION: Condition or follow-up

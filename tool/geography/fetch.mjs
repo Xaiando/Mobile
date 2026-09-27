@@ -4,6 +4,7 @@
 //
 //   npm run fetch              download what is missing, then verify all
 //   npm run fetch -- --record  record the SHA-256 of sources marked PENDING
+//   npm run fetch -- --only=src_ne_countries  cache one pinned source for CI
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -87,9 +88,19 @@ function recordHash(id, hash) {
 }
 
 const { sources } = loadConfig();
+const onlyArguments = process.argv.slice(2).filter(
+  (argument) => argument === '--only' || argument.startsWith('--only='),
+);
+if (onlyArguments.length > 1 || onlyArguments[0] === '--only') {
+  throw new Error('Pass at most one source selector as --only=<source id>.');
+}
+const onlyId = onlyArguments[0]?.slice('--only='.length);
+if (onlyArguments.length && !sources.has(onlyId)) {
+  throw new Error(`Unknown geography source: ${onlyId}`);
+}
 fs.mkdirSync(cacheDir, { recursive: true });
 let failed = false;
-for (const source of sources.values()) {
+for (const source of onlyId ? [sources.get(onlyId)] : sources.values()) {
   const file = downloadPath(source);
   if (!fs.existsSync(file)) {
     if (source.snapshot) throw new Error(`${source.id}: missing checked-in snapshot ${source.snapshot}`);

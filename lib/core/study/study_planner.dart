@@ -384,17 +384,24 @@ class StudyPlanner {
   /// learning step is due, then due reviews by priority, then at most
   /// [newItems] new items (5 by default), prerequisites and core items
   /// first (TASK-005, A-2, P-4). Returns null without a track.
+  /// [itemIds] optionally focuses a topic; current mapping and format checks,
+  /// due ordering, new-item budgets and shared memory still apply.
   Future<StudyPlan?> plan({
     String? certificationId,
     int? sessionSize,
     int? newItems,
+    Set<String>? itemIds,
   }) async {
+    final focus = itemIds == null ? null : Set<String>.of(itemIds);
     final profile = await _profile();
     final track = certificationId ?? profile?.activeCertificationId;
     if (track == null) return null;
+    final available = await cards(track);
     return _planFrom(
       track,
-      await cards(track),
+      focus == null
+          ? available
+          : available.where((card) => focus.contains(card.itemId)).toList(),
       sessionSize: sessionSize ?? profile?.sessionSize ?? 15,
       newItems: newItems ?? profile?.newItemsPerSession ?? 5,
     );
