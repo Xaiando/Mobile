@@ -39,7 +39,7 @@ Each mapped unit is a `subregion` located in `n_geo_vino_nobile_di_montepulciano
 
 ## Held back
 
-Sant'Ilario, Cerliana and Valardegna had no Wikidata item that could be checked as a place inside Montepulciano on 27 September 2026. They are not given a guessed coordinate, the Montepulciano town centre, or a producer address. Argiano is not used as a stand-in for Sant'Ilario.
+Sant'Ilario, Cerliana and Valardegna had no Wikidata item that could be checked as a place inside Montepulciano on 27 September 2026. A second pass the same day searched the GeoNames Italy dump (`IT.zip` from download.geonames.org, CC BY 4.0). The dump has no populated place named Cerliana and none named Valardegna. Every Sant'Ilario in that dump is somewhere else: Livorno, Florence, Genoa, Latina, Potenza, Macerata, Reggio Emilia or Calabria. None is in the province of Siena. Those three units are not given a guessed coordinate, the Montepulciano town centre, a producer address, or another town's Sant'Ilario. Argiano is not used as a stand-in.
 
 ## Not claimed
 
