@@ -104,7 +104,7 @@ The seven outcomes above are taught with a comparison, a misconception, and, for
 - Bottle glass, cork, and the shift from amphora to bottle. Not opened, so not taught.
 - A single inventor year, a census of lost varieties, and any press-release fraction for phylloxera. The INRAE range is taught with that limit. The California page still has no year.
 - Clos de Vougeot and other monastic vineyards. Unresolved.
-- The classes inside DPR 930 after Article 1. Article 1 is taught. The later articles did not load.
+- Article 4 of DPR 930. The compilation leaves it blank and footnotes a 1994 repeal. The three names in Articles 2 and 3 are taught as 1963 text, not as the law in force. Article 1 of legislative decree 61/2010 defines DOP and IGP. The current view says that decree was abrogated by law 238/2016, which was not opened. DOC and DOCG were not on the loaded 2010 page.
 - A New World legal institution other than Prohibition and one tasting. Unresolved.
 - South America, South Africa, and Australia as producing countries. Not this course.
 

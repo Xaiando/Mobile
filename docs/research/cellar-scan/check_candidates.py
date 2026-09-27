@@ -25,6 +25,19 @@ WINE_LABEL_L4 = {
     "ki_somm_case_fish_tradeoff",
     "ki_somm_case_fish_limit",
 }
+ASTRINGENCY_L4 = {
+    "ki_somm_astr_mechanism",
+    "ki_somm_astr_not_food",
+    "ki_somm_astr_guests",
+    "ki_somm_case_steak_action",
+    "ki_somm_case_steak_reason",
+    "ki_somm_case_steak_tradeoff",
+    "ki_somm_case_steak_limit",
+    "ki_somm_case_two_action",
+    "ki_somm_case_two_reason",
+    "ki_somm_case_two_tradeoff",
+    "ki_somm_case_two_limit",
+}
 LABELS = ROOT / "docs" / "research" / "cellar-scan" / "synthetic_labels.json"
 RELEASE_SOURCES = [
     ROOT / "assets" / "curriculum" / "areas" / "wine_history.yaml",
@@ -78,7 +91,14 @@ def check_sommelier(known: set[str]) -> int:
         raise SystemExit("duplicate sommelier item id")
     if len(ids) < 54:
         raise SystemExit(f"sommelier course shrank to {len(ids)} items")
-    for banned in ("WSET_L1", "WSET_L2", "WSET_L3", "120°C", "Reinheitsgebot requires"):
+    for banned in (
+        "WSET_L1",
+        "WSET_L2",
+        "WSET_L3",
+        "120°C",
+        "Reinheitsgebot requires",
+        "no page opened for this file establishes a tannin",
+    ):
         if banned in text:
             raise SystemExit(f"sommelier file contains {banned}")
     if text.count("mcq_disabled: true") < len(ids):
@@ -102,10 +122,10 @@ def check_sommelier(known: set[str]) -> int:
         if f"certification_id: CMS_CERTIFIED, knowledge_item_id: {item}," not in text:
             raise SystemExit(f"{item} has no CMS mapping")
         has_l4 = f"certification_id: WSET_L4, knowledge_item_id: {item}," in text
-        if item in WINE_LABEL_L4 and not has_l4:
-            raise SystemExit(f"{item} is a wine-label item and needs WSET_L4")
-        if item not in WINE_LABEL_L4 and has_l4:
-            raise SystemExit(f"{item} is not a wine-label item and must not use WSET_L4")
+        if item in WINE_LABEL_L4 | ASTRINGENCY_L4 and not has_l4:
+            raise SystemExit(f"{item} needs WSET_L4")
+        if item not in WINE_LABEL_L4 | ASTRINGENCY_L4 and has_l4:
+            raise SystemExit(f"{item} must not use WSET_L4")
         if f"knowledge_item_id: {item}, source_citation_id:" not in text:
             raise SystemExit(f"{item} has no citation")
     questions = SOMM_QUESTIONS.read_text(encoding="utf-8")

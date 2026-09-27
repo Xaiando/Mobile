@@ -105,6 +105,21 @@ knowledge_nodes:
   - { id: n_somm_case_oakwood_tradeoff, node_type: learning_point, name: "Gascony can still be the larger share" }
   - { id: n_somm_case_oakwood_limit, node_type: learning_point, name: "Mostly is not a ban, and 95 percent is not a statute" }
 
+  - { id: n_somm_astr, node_type: production_principle, name: "What does the opened astringency review support?" }
+  - { id: n_somm_astr_mechanism, node_type: learning_point, name: "Drying and puckering, generally linked to saliva" }
+  - { id: n_somm_astr_not_food, node_type: learning_point, name: "Saliva protein is not a menu rule" }
+  - { id: n_somm_astr_guests, node_type: learning_point, name: "Two guests can differ" }
+  - { id: n_somm_case_steak, node_type: production_case, name: "A guest says only steak can match a tannic red" }
+  - { id: n_somm_case_steak_action, node_type: learning_point, name: "Refuse the only-steak rule" }
+  - { id: n_somm_case_steak_reason, node_type: learning_point, name: "The review never tested a dish" }
+  - { id: n_somm_case_steak_tradeoff, node_type: learning_point, name: "The guest may still drink the wine with steak" }
+  - { id: n_somm_case_steak_limit, node_type: learning_point, name: "Food protein was not the experiment" }
+  - { id: n_somm_case_two, node_type: production_case, name: "Two guests disagree about the same red wine" }
+  - { id: n_somm_case_two_action, node_type: learning_point, name: "Do not award the argument" }
+  - { id: n_somm_case_two_reason, node_type: learning_point, name: "Saliva differs" }
+  - { id: n_somm_case_two_tradeoff, node_type: learning_point, name: "You can still describe the wine" }
+  - { id: n_somm_case_two_limit, node_type: learning_point, name: "The review did not test these guests" }
+
 knowledge_relations:
   - { subject_id: n_somm_tequila, relation_type: PRINCIPLE_EXPLANATION, object_id: n_somm_tequila_plant, valid_from: "2026-09-27" }
   - { subject_id: n_somm_tequila, relation_type: PRINCIPLE_EXPLANATION, object_id: n_somm_tequila_place, valid_from: "2026-09-27" }
@@ -181,6 +196,18 @@ knowledge_relations:
   - { subject_id: n_somm_case_oakwood, relation_type: CASE_REASON, object_id: n_somm_case_oakwood_reason, valid_from: "2026-09-27" }
   - { subject_id: n_somm_case_oakwood, relation_type: CASE_TRADEOFF, object_id: n_somm_case_oakwood_tradeoff, valid_from: "2026-09-27" }
   - { subject_id: n_somm_case_oakwood, relation_type: CASE_LIMITATION, object_id: n_somm_case_oakwood_limit, valid_from: "2026-09-27" }
+
+  - { subject_id: n_somm_astr, relation_type: PRINCIPLE_EXPLANATION, object_id: n_somm_astr_mechanism, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_astr, relation_type: PRINCIPLE_EXPLANATION, object_id: n_somm_astr_not_food, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_astr, relation_type: PRINCIPLE_EXPLANATION, object_id: n_somm_astr_guests, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_steak, relation_type: CASE_ACTION, object_id: n_somm_case_steak_action, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_steak, relation_type: CASE_REASON, object_id: n_somm_case_steak_reason, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_steak, relation_type: CASE_TRADEOFF, object_id: n_somm_case_steak_tradeoff, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_steak, relation_type: CASE_LIMITATION, object_id: n_somm_case_steak_limit, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_two, relation_type: CASE_ACTION, object_id: n_somm_case_two_action, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_two, relation_type: CASE_REASON, object_id: n_somm_case_two_reason, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_two, relation_type: CASE_TRADEOFF, object_id: n_somm_case_two_tradeoff, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_two, relation_type: CASE_LIMITATION, object_id: n_somm_case_two_limit, valid_from: "2026-09-27" }
 
 knowledge_items:
   - id: ki_somm_tequila_plant
@@ -305,7 +332,7 @@ knowledge_items:
     relation_type: PRINCIPLE_EXPLANATION
     object_id: n_somm_service_pairing
     domain_id: service
-    assertion_text: "A guest who dislikes a match has a service problem. No page opened for this file establishes a tannin-and-protein rule or any other pairing mechanism, so do not invent one. Offer another wine. The sourced constraints here are the allergen declaration and, where section 141 applies, not knowingly selling to a person who is drunk. Changing the wine is not a claim that any amount of alcohol is safe."
+    assertion_text: "A guest who dislikes a match still has a service problem, and the astringency account is a separate item. Offer another wine. The allergen declaration and, where section 141 applies, the duty not to sell to a person who is drunk remain in force. Changing the wine is not a claim that any amount of alcohol is safe."
     verification_status: unverified
     last_verified_at: "2026-09-27T23:59:00.000Z"
     mcq_disabled: true
@@ -638,7 +665,7 @@ knowledge_items:
     relation_type: CASE_ACTION
     object_id: n_somm_case_pair_action
     domain_id: service
-    assertion_text: "Acknowledge that the match failed for this guest and pour something else. Do not supply a tannin-and-protein explanation, because no page opened for this file states one."
+    assertion_text: "Acknowledge the failed match and pour something else. If the guest asks why the red wine felt harsh, give the review's account of astringency and say it does not test this dish."
     verification_status: unverified
     last_verified_at: "2026-09-27T23:59:00.000Z"
     mcq_disabled: true
@@ -647,7 +674,7 @@ knowledge_items:
     relation_type: CASE_REASON
     object_id: n_somm_case_pair_reason
     domain_id: service
-    assertion_text: "A failed match is evidence about this glass and this dish for this guest. It is not evidence of a general chemical law. Inventing the law would make the answer sound more certain than the sources are."
+    assertion_text: "The 2011 review says astringency is generally thought to come from tannins interacting with salivary proteins. It says the exact mechanisms are not well understood. One guest's harsh match is not a new chemical law and is not a test of fish protein."
     verification_status: unverified
     last_verified_at: "2026-09-27T23:59:00.000Z"
     mcq_disabled: true
@@ -656,7 +683,7 @@ knowledge_items:
     relation_type: CASE_TRADEOFF
     object_id: n_somm_case_pair_tradeoff
     domain_id: service
-    assertion_text: "The guest can still get a useful change of wine. Service does not require a mechanism. What it must not do is pretend the mechanism was studied here."
+    assertion_text: "The guest can still get a different wine. The mechanism explains a mouthfeel. It does not choose the replacement, and it does not require the guest to accept the first glass."
     verification_status: unverified
     last_verified_at: "2026-09-27T23:59:00.000Z"
     mcq_disabled: true
@@ -665,7 +692,7 @@ knowledge_items:
     relation_type: CASE_LIMITATION
     object_id: n_somm_case_pair_limit
     domain_id: service
-    assertion_text: "A later paper could support a pairing mechanism. This file does not. Wine-list engineering, cellar inventory, and tableside opening steps are also absent until a non-syllabus page is opened. Changing the wine does not cancel the alcohol warning or, where it applies, section 141."
+    assertion_text: "The review is about salivary proteins, not a menu. Wine-list engineering, cellar inventory, and tableside opening steps are still unopened. Changing the wine does not cancel the alcohol warning or, where it applies, section 141."
     verification_status: unverified
     last_verified_at: "2026-09-27T23:59:00.000Z"
     mcq_disabled: true
@@ -851,6 +878,106 @@ knowledge_items:
     last_verified_at: "2026-09-27T23:59:00.000Z"
     mcq_disabled: true
 
+  - id: ki_somm_astr_mechanism
+    subject_id: n_somm_astr
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_somm_astr_mechanism
+    domain_id: service
+    assertion_text: "A 2011 review by McRae and Kennedy says astringency is the drying and puckering sensation in the mouth. It says the sensation is generally thought to come from wine tannins interacting with salivary proteins, then from aggregation and precipitation of those complexes, which increases friction. It also says the exact mechanisms are not well understood. A cited experiment found that soluble aggregates of hydrolysable tannins with gelatin were astringent, so precipitation is not always required. The review says tannin structure and amount, polysaccharides, residual sugar, acidity, and ethanol can change the sensation. Reports on ethanol do not agree: some found that higher ethanol lowered perceived astringency in model wines, and one report found an increase. Do not teach one ethanol direction as settled."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_astr_not_food
+    subject_id: n_somm_astr
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_somm_astr_not_food
+    domain_id: service
+    assertion_text: "The proteins in that account are salivary proteins. The review does not say that tannin binds the protein in meat or fish, and it does not name a correct dish. A harsh match is a reason to offer another wine. It is not proof that one food was chemically required."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_astr_guests
+    subject_id: n_somm_astr
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_somm_astr_guests
+    domain_id: service
+    assertion_text: "The same review says salivary flow and the concentration of particular saliva proteins differ between people, and that a higher flow and higher concentrations of those proteins generally reduce perceived astringency. Two guests can disagree about one glass. The review does not make either of them wrong."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_steak_action
+    subject_id: n_somm_case_steak
+    relation_type: CASE_ACTION
+    object_id: n_somm_case_steak_action
+    domain_id: service
+    assertion_text: "Do not agree that steak is the only match for a tannic red wine. Give the salivary-protein account, and say the review did not test a dish."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_steak_reason
+    subject_id: n_somm_case_steak
+    relation_type: CASE_REASON
+    object_id: n_somm_case_steak_reason
+    domain_id: service
+    assertion_text: "The opened review explains a mouthfeel through saliva. Turning that into a rule that red wine requires red meat adds a food the paper did not study."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_steak_tradeoff
+    subject_id: n_somm_case_steak
+    relation_type: CASE_TRADEOFF
+    object_id: n_somm_case_steak_tradeoff
+    domain_id: service
+    assertion_text: "The guest may still drink the wine with steak. The correction is the word only, not a ban on the combination they like."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_steak_limit
+    subject_id: n_somm_case_steak
+    relation_type: CASE_LIMITATION
+    object_id: n_somm_case_steak_limit
+    domain_id: service
+    assertion_text: "A later cheese-and-wine experiment was not opened for this item. Do not rank cheeses or claim that food fat was measured here. The ethanol reports still disagree."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_two_action
+    subject_id: n_somm_case_two
+    relation_type: CASE_ACTION
+    object_id: n_somm_case_two_action
+    domain_id: service
+    assertion_text: "Do not tell one guest that the other has the correct mouth. Say that the review expects perceived astringency to vary with saliva."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_two_reason
+    subject_id: n_somm_case_two
+    relation_type: CASE_REASON
+    object_id: n_somm_case_two_reason
+    domain_id: service
+    assertion_text: "Higher salivary flow and higher concentrations of particular saliva proteins generally reduce the sensation in the review's account. The guests are reporting perception, not failing a test."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_two_tradeoff
+    subject_id: n_somm_case_two
+    relation_type: CASE_TRADEOFF
+    object_id: n_somm_case_two_tradeoff
+    domain_id: service
+    assertion_text: "You can still describe the wine as tannic in the review's sense, drying and puckering, without declaring a winner between the guests."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_two_limit
+    subject_id: n_somm_case_two
+    relation_type: CASE_LIMITATION
+    object_id: n_somm_case_two_limit
+    domain_id: service
+    assertion_text: "The review did not sample these two people. A disagreement can also be about bitterness, which the review treats as a different route for small condensed tannins. Do not collapse the two words."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+
 certification_knowledge_mappings:
   - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_tequila_plant, importance: secondary, minimum_depth: 2 }
   - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_tequila_place, importance: secondary, minimum_depth: 2 }
@@ -937,8 +1064,38 @@ certification_knowledge_mappings:
   - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_oakwood_reason, importance: secondary, minimum_depth: 2 }
   - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_oakwood_tradeoff, importance: secondary, minimum_depth: 2 }
   - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_oakwood_limit, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_astr_mechanism, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_somm_astr_mechanism, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_astr_not_food, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_somm_astr_not_food, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_astr_guests, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_somm_astr_guests, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_steak_action, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_somm_case_steak_action, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_steak_reason, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_somm_case_steak_reason, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_steak_tradeoff, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_somm_case_steak_tradeoff, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_steak_limit, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_somm_case_steak_limit, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_two_action, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_somm_case_two_action, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_two_reason, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_somm_case_two_reason, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_two_tradeoff, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_somm_case_two_tradeoff, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_two_limit, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_somm_case_two_limit, importance: secondary, minimum_depth: 2 }
 
 source_citations:
+
+  - id: src_somm_mcrae_astringency
+    kind: academic
+    title: "Wine and grape tannin interactions with salivary proteins and their impact on astringency"
+    publisher: "Molecules"
+    document_identifier: "McRae and Kennedy, 2011, doi 10.3390/molecules16032348. Full text opened on PMC6259628. A review, not a menu."
+    url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC6259628/"
+    accessed_on: "2026-09-27"
 
   - id: src_somm_crt_tequila_es
     kind: regulator_register
@@ -1123,3 +1280,18 @@ knowledge_item_citations:
   - { knowledge_item_id: ki_somm_tequila_age, source_citation_id: src_somm_nom_006_courtesy, locator: "Sections 4.36.1 and 6.4. Reposado two months. Six hundred litres on añejo and extra añejo only. Blanco may be aged under two months." }
   - { knowledge_item_id: ki_somm_case_card_tradeoff, source_citation_id: src_somm_nom_006_courtesy, locator: "Section 6.4 states 600 litres for añejo and extra añejo, not for reposado." }
   - { knowledge_item_id: ki_somm_case_card_limit, source_citation_id: src_somm_nom_006_courtesy, locator: "Courtesy translation. The Diario Oficial was not opened." }
+  - { knowledge_item_id: ki_somm_astr_mechanism, source_citation_id: src_somm_mcrae_astringency, locator: "Abstract and sections 1, 2, and 5. Salivary proteins. Ethanol reports disagree." }
+  - { knowledge_item_id: ki_somm_astr_not_food, source_citation_id: src_somm_mcrae_astringency, locator: "Abstract and sections 1, 2, and 5. Salivary proteins. Ethanol reports disagree." }
+  - { knowledge_item_id: ki_somm_astr_guests, source_citation_id: src_somm_mcrae_astringency, locator: "Abstract and sections 1, 2, and 5. Salivary proteins. Ethanol reports disagree." }
+  - { knowledge_item_id: ki_somm_case_steak_action, source_citation_id: src_somm_mcrae_astringency, locator: "Abstract and sections 1, 2, and 5. Salivary proteins. Ethanol reports disagree." }
+  - { knowledge_item_id: ki_somm_case_steak_reason, source_citation_id: src_somm_mcrae_astringency, locator: "Abstract and sections 1, 2, and 5. Salivary proteins. Ethanol reports disagree." }
+  - { knowledge_item_id: ki_somm_case_steak_tradeoff, source_citation_id: src_somm_mcrae_astringency, locator: "Abstract and sections 1, 2, and 5. Salivary proteins. Ethanol reports disagree." }
+  - { knowledge_item_id: ki_somm_case_steak_limit, source_citation_id: src_somm_mcrae_astringency, locator: "Abstract and sections 1, 2, and 5. Salivary proteins. Ethanol reports disagree." }
+  - { knowledge_item_id: ki_somm_case_two_action, source_citation_id: src_somm_mcrae_astringency, locator: "Abstract and sections 1, 2, and 5. Salivary proteins. Ethanol reports disagree." }
+  - { knowledge_item_id: ki_somm_case_two_reason, source_citation_id: src_somm_mcrae_astringency, locator: "Abstract and sections 1, 2, and 5. Salivary proteins. Ethanol reports disagree." }
+  - { knowledge_item_id: ki_somm_case_two_tradeoff, source_citation_id: src_somm_mcrae_astringency, locator: "Abstract and sections 1, 2, and 5. Salivary proteins. Ethanol reports disagree." }
+  - { knowledge_item_id: ki_somm_case_two_limit, source_citation_id: src_somm_mcrae_astringency, locator: "Abstract and sections 1, 2, and 5. Salivary proteins. Ethanol reports disagree." }
+  - { knowledge_item_id: ki_somm_case_pair_action, source_citation_id: src_somm_mcrae_astringency, locator: "Astringency account. Not a test of the dish." }
+  - { knowledge_item_id: ki_somm_case_pair_reason, source_citation_id: src_somm_mcrae_astringency, locator: "Astringency account. Not a test of the dish." }
+  - { knowledge_item_id: ki_somm_case_pair_tradeoff, source_citation_id: src_somm_mcrae_astringency, locator: "Astringency account. Not a test of the dish." }
+  - { knowledge_item_id: ki_somm_case_pair_limit, source_citation_id: src_somm_mcrae_astringency, locator: "Astringency account. Not a test of the dish." }

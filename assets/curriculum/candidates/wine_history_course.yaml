@@ -65,6 +65,17 @@ knowledge_nodes:
   - { id: n_hcourse_case_doc_tradeoff, node_type: learning_point, name: "The definition can still be taught" }
   - { id: n_hcourse_case_doc_limit, node_type: learning_point, name: "Unread articles are not a denial" }
 
+  - { id: n_hcourse_doc_three, node_type: learning_point, name: "Three 1963 names, and no DOC abbreviation" }
+  - { id: n_hcourse_doc_semplice, node_type: learning_point, name: "Semplice is traditional grapes and local use" }
+  - { id: n_hcourse_doc_repeal, node_type: learning_point, name: "The current Normattiva view says the decree is abrogated" }
+  - { id: n_hcourse_case_repeal, node_type: production_case, name: "A guest treats the 1963 decree as today's code" }
+  - { id: n_hcourse_case_repeal_action, node_type: learning_point, name: "Date the categories and say they are not current" }
+  - { id: n_hcourse_case_repeal_reason, node_type: learning_point, name: "Two opened pages mark the repeal" }
+  - { id: n_hcourse_case_repeal_tradeoff, node_type: learning_point, name: "The 1963 distinction can still be studied" }
+  - { id: n_hcourse_case_repeal_limit, node_type: learning_point, name: "The 2016 law was not opened" }
+
+  - { id: n_hcourse_doc_2010, node_type: learning_point, name: "The 2010 decree defined DOP and IGP, then was itself repealed" }
+
 knowledge_relations:
   - { subject_id: n_hcourse_evidence, relation_type: PRINCIPLE_EXPLANATION, object_id: n_hcourse_evidence_residue, valid_from: "2026-09-27" }
   - { subject_id: n_hcourse_evidence, relation_type: PRINCIPLE_EXPLANATION, object_id: n_hcourse_evidence_later, valid_from: "2026-09-27" }
@@ -112,6 +123,16 @@ knowledge_relations:
   - { subject_id: n_hcourse_case_doc, relation_type: CASE_REASON, object_id: n_hcourse_case_doc_reason, valid_from: "2026-09-27" }
   - { subject_id: n_hcourse_case_doc, relation_type: CASE_TRADEOFF, object_id: n_hcourse_case_doc_tradeoff, valid_from: "2026-09-27" }
   - { subject_id: n_hcourse_case_doc, relation_type: CASE_LIMITATION, object_id: n_hcourse_case_doc_limit, valid_from: "2026-09-27" }
+
+  - { subject_id: n_hcourse_doc, relation_type: PRINCIPLE_EXPLANATION, object_id: n_hcourse_doc_three, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_doc, relation_type: PRINCIPLE_EXPLANATION, object_id: n_hcourse_doc_semplice, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_doc, relation_type: PRINCIPLE_EXPLANATION, object_id: n_hcourse_doc_repeal, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_case_repeal, relation_type: CASE_ACTION, object_id: n_hcourse_case_repeal_action, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_case_repeal, relation_type: CASE_REASON, object_id: n_hcourse_case_repeal_reason, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_case_repeal, relation_type: CASE_TRADEOFF, object_id: n_hcourse_case_repeal_tradeoff, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_case_repeal, relation_type: CASE_LIMITATION, object_id: n_hcourse_case_repeal_limit, valid_from: "2026-09-27" }
+
+  - { subject_id: n_hcourse_doc, relation_type: PRINCIPLE_EXPLANATION, object_id: n_hcourse_doc_2010, valid_from: "2026-09-27" }
 
 knowledge_items:
   - id: ki_hcourse_evidence_residue
@@ -472,7 +493,7 @@ knowledge_items:
     relation_type: PRINCIPLE_EXPLANATION
     object_id: n_hcourse_doc_unread
     domain_id: service
-    assertion_text: "The view that loaded stopped at Article 1. It did not print the abbreviations DOC or DOCG, and it did not print any later article that might divide the names. Those divisions are not taught from this opening. The full-act export failed."
+    assertion_text: "The Normattiva original-text view stopped at Article 1, and the full-act export failed. A separate compilation prints Articles 2 and 3 and leaves Article 4 blank. The three names are taught from that compilation, not from the Article 1 view. Neither Article 1 nor the printed Article 2 uses the abbreviations DOC or DOCG."
     verification_status: unverified
     last_verified_at: "2026-09-27T23:59:00.000Z"
     mcq_disabled: true
@@ -508,7 +529,81 @@ knowledge_items:
     relation_type: CASE_LIMITATION
     object_id: n_hcourse_case_doc_limit
     domain_id: service
-    assertion_text: "Not seeing an abbreviation in Article 1 does not prove it is absent from the unread articles. Do not describe semplice, controllata, or garantita until those articles are on the page. The full export failed."
+    assertion_text: "The compilation prints the three 1963 names and, in a footnote, says the decree was abrogated by legislative decree 8 April 2010, n. 61, subject to what that later act provides. Article 4 is blank on that page. Do not treat the 1963 names as the law in force, and do not recite an Article 4 procedure. What Article 1 of the 2010 decree actually printed is a separate item."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+
+  - id: ki_hcourse_doc_three
+    subject_id: n_hcourse_doc
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_hcourse_doc_three
+    domain_id: service
+    assertion_text: "A legal compilation of DPR 12 July 1963, n. 930, prints Article 2. It distinguishes denominazione di origine semplice, denominazione di origine controllata, and denominazione di origine controllata e garantita. Those are the words on the page. The abbreviations DOC and DOCG are not in that article. The compilation is not the Gazzetta PDF, and its footnote says the decree was later abrogated."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_doc_semplice
+    subject_id: n_hcourse_doc
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_hcourse_doc_semplice
+    domain_id: service
+    assertion_text: "Article 3 of that compilation says the semplice name designates wines from the traditional grape varieties of the corresponding production zones, vinified according to the local, fair, and constant uses of those zones. If no ministerial delimitation has been made, the zone is the whole municipal district to which the geographic name refers. Article 4, which the compilation's contents list as the recognition article, is blank. A footnote says Article 4 was abrogated by DPR 20 April 1994, n. 348. Do not invent the missing recognition procedure."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_doc_repeal
+    subject_id: n_hcourse_doc
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_hcourse_doc_repeal
+    domain_id: service
+    assertion_text: "The current Normattiva view of Article 2, opened separately, does not print the three names. It says the provision was abrogated by legislative decree 8 April 2010, n. 61, and it labels the text in force from 11 May 2010. The compilation's first footnote says the same repeal, subject to what that later act provides. Article 1 of that 2010 decree was opened separately and is its own item. It does not, on the view that loaded, classify DOC or DOCG."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_case_repeal_action
+    subject_id: n_hcourse_case_repeal
+    relation_type: CASE_ACTION
+    object_id: n_hcourse_case_repeal_action
+    domain_id: service
+    assertion_text: "If a guest says the 1963 decree is still the Italian wine code, separate the historical categories from the law in force. Name the three 1963 categories, then say the opened current view treats the provision as abrogated."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_case_repeal_reason
+    subject_id: n_hcourse_case_repeal
+    relation_type: CASE_REASON
+    object_id: n_hcourse_case_repeal_reason
+    domain_id: service
+    assertion_text: "The compilation prints the 1963 distinction and footnotes the 2010 repeal. The Normattiva page for Article 2 now shows the repeal notice rather than the three names."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_case_repeal_tradeoff
+    subject_id: n_hcourse_case_repeal
+    relation_type: CASE_TRADEOFF
+    object_id: n_hcourse_case_repeal_tradeoff
+    domain_id: service
+    assertion_text: "The guest can still learn what semplice meant in Article 3, including the default municipal zone. Historical study is not a claim that a bottle today is governed by the 1963 text."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_case_repeal_limit
+    subject_id: n_hcourse_case_repeal
+    relation_type: CASE_LIMITATION
+    object_id: n_hcourse_case_repeal_limit
+    domain_id: service
+    assertion_text: "Do not say Italy no longer has origin names. Article 1 of the 2010 decree defined a DOP and an IGP while that text was in force. The current view of the 2010 decree says it was abrogated by law 12 December 2016, n. 238, which was not opened. Article 4 of the 1963 compilation was blank."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+
+  - id: ki_hcourse_doc_2010
+    subject_id: n_hcourse_doc
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_hcourse_doc_2010
+    domain_id: service
+    assertion_text: "The original-text view of legislative decree 8 April 2010, n. 61, printed Article 1 and stopped. A denominazione di origine protetta is the geographic name of a particularly suited wine-growing zone, used for a quality and renowned product whose characteristics are connected essentially or exclusively to the natural environment and to human factors. An indicazione geografica protetta is the geographic name of a zone used for the product that comes from it and that has quality, reputation, and specific characteristics attributable to that zone. The page says that wording was in force from 11 May 2010 to 11 January 2017. It did not print a DOC or DOCG classification. The current Normattiva view of the same article says the provision was abrogated by law 12 December 2016, n. 238, with text in force from 12 January 2017. That 2016 law was not opened."
     verification_status: unverified
     last_verified_at: "2026-09-27T23:59:00.000Z"
     mcq_disabled: true
@@ -603,8 +698,58 @@ certification_knowledge_mappings:
   - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_case_doc_tradeoff, importance: secondary, minimum_depth: 2 }
   - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_case_doc_limit, importance: secondary, minimum_depth: 2 }
   - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_case_doc_limit, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_doc_three, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_doc_three, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_doc_semplice, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_doc_semplice, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_doc_repeal, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_doc_repeal, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_case_repeal_action, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_case_repeal_action, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_case_repeal_reason, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_case_repeal_reason, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_case_repeal_tradeoff, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_case_repeal_tradeoff, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_case_repeal_limit, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_case_repeal_limit, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_doc_2010, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_doc_2010, importance: secondary, minimum_depth: 2 }
 
 source_citations:
+
+  - id: src_hcourse_dlgs_61_art1
+    kind: legislation
+    title: "Legislative decree 8 April 2010, n. 61, Article 1, original-text view"
+    publisher: "Normattiva"
+    jurisdiction: IT
+    document_identifier: "Text in force 11 May 2010 to 11 January 2017. Article 1 only. Gazzetta n. 96 of 26 April 2010."
+    url: "https://www.normattiva.it/atto/caricaDettaglioAtto?atto.dataPubblicazioneGazzetta=2010-04-26&atto.codiceRedazionale=010G0082&tipoDettaglio=originario"
+    accessed_on: "2026-09-27"
+  - id: src_hcourse_dlgs_61_current
+    kind: legislation
+    title: "Legislative decree 8 April 2010, n. 61, Article 1, current view"
+    publisher: "Normattiva"
+    jurisdiction: IT
+    document_identifier: "Text in force from 12 January 2017. Abrogated by law 12 December 2016, n. 238. That law was not opened."
+    url: "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2010-04-08;61"
+    accessed_on: "2026-09-27"
+
+  - id: src_hcourse_dpr_930_compilation
+    kind: reference_work
+    title: "Compilation of DPR 12 July 1963, n. 930"
+    publisher: "Edizioni Europee"
+    jurisdiction: IT
+    document_identifier: "Private compilation. Prints Articles 2 and 3. Article 4 blank. Footnotes record repeal by DPR 348/1994 and D.Lgs. 61/2010. Not the Gazzetta PDF."
+    url: "https://www.edizionieuropee.it/law/html/25/zn4_08_008.html"
+    accessed_on: "2026-09-27"
+  - id: src_hcourse_dpr_930_art2_current
+    kind: legislation
+    title: "DPR 12 July 1963, n. 930, Article 2, current Normattiva view"
+    publisher: "Normattiva"
+    jurisdiction: IT
+    document_identifier: "Text in force from 11 May 2010. States abrogation by D.Lgs. 8 April 2010, n. 61. Does not print the three 1963 names."
+    url: "https://www.normattiva.it/uri-res/N2Ls?urn:nir:presidente.repubblica:decreto:1963-07-12;930~art2"
+    accessed_on: "2026-09-27"
 
   - id: src_hcourse_dpr_930
     kind: legislation
@@ -686,3 +831,19 @@ knowledge_item_citations:
   - { knowledge_item_id: ki_hcourse_case_doc_reason, source_citation_id: src_hcourse_dpr_930, locator: "Article 1 as printed. Later articles were not on the loaded view." }
   - { knowledge_item_id: ki_hcourse_case_doc_tradeoff, source_citation_id: src_hcourse_dpr_930, locator: "Article 1 as printed. Later articles were not on the loaded view." }
   - { knowledge_item_id: ki_hcourse_case_doc_limit, source_citation_id: src_hcourse_dpr_930, locator: "Article 1 as printed. Later articles were not on the loaded view." }
+  - { knowledge_item_id: ki_hcourse_doc_three, source_citation_id: src_hcourse_dpr_930_compilation, locator: "Articles 2 and 3 as printed. Article 4 blank." }
+  - { knowledge_item_id: ki_hcourse_doc_semplice, source_citation_id: src_hcourse_dpr_930_compilation, locator: "Articles 2 and 3 as printed. Article 4 blank." }
+  - { knowledge_item_id: ki_hcourse_case_repeal_tradeoff, source_citation_id: src_hcourse_dpr_930_compilation, locator: "Articles 2 and 3 as printed. Article 4 blank." }
+  - { knowledge_item_id: ki_hcourse_doc_repeal, source_citation_id: src_hcourse_dpr_930_art2_current, locator: "Current Article 2 view: abrogated by D.Lgs. 61/2010." }
+  - { knowledge_item_id: ki_hcourse_doc_repeal, source_citation_id: src_hcourse_dpr_930_compilation, locator: "Footnote 1 records the same repeal, subject to the later act." }
+  - { knowledge_item_id: ki_hcourse_case_repeal_action, source_citation_id: src_hcourse_dpr_930_art2_current, locator: "Current Article 2 view: abrogated by D.Lgs. 61/2010." }
+  - { knowledge_item_id: ki_hcourse_case_repeal_action, source_citation_id: src_hcourse_dpr_930_compilation, locator: "Footnote 1 records the same repeal, subject to the later act." }
+  - { knowledge_item_id: ki_hcourse_case_repeal_reason, source_citation_id: src_hcourse_dpr_930_art2_current, locator: "Current Article 2 view: abrogated by D.Lgs. 61/2010." }
+  - { knowledge_item_id: ki_hcourse_case_repeal_reason, source_citation_id: src_hcourse_dpr_930_compilation, locator: "Footnote 1 records the same repeal, subject to the later act." }
+  - { knowledge_item_id: ki_hcourse_case_repeal_limit, source_citation_id: src_hcourse_dpr_930_art2_current, locator: "Current Article 2 view: abrogated by D.Lgs. 61/2010." }
+  - { knowledge_item_id: ki_hcourse_case_repeal_limit, source_citation_id: src_hcourse_dpr_930_compilation, locator: "Footnote 1 records the same repeal, subject to the later act." }
+
+  - { knowledge_item_id: ki_hcourse_doc_2010, source_citation_id: src_hcourse_dlgs_61_art1, locator: "Article 1, DOP and IGP. View stopped there." }
+  - { knowledge_item_id: ki_hcourse_doc_2010, source_citation_id: src_hcourse_dlgs_61_current, locator: "Current Article 1: abrogated by law 238/2016." }
+  - { knowledge_item_id: ki_hcourse_case_repeal_limit, source_citation_id: src_hcourse_dlgs_61_art1, locator: "Article 1 defined DOP and IGP." }
+  - { knowledge_item_id: ki_hcourse_case_repeal_limit, source_citation_id: src_hcourse_dlgs_61_current, locator: "The 2010 decree is itself marked abrogated." }

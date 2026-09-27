@@ -112,16 +112,27 @@ questions:
     sources: [src_somm_licensing_141, src_bev_who_alcohol]
     mcq: disabled
   - id: q_somm_no_mechanism
-    outcome: "Refuse an unsourced pairing mechanism."
-    prompt: "A guest wants the scientific reason a red wine tasted bitter with the fish. What do you do, and what do you not invent?"
+    outcome: "Explain astringency without inventing a fish rule."
+    prompt: "A guest wants the scientific reason a red wine tasted bitter with the fish. What can you say from the opened review, and what do you still refuse?"
     acceptable:
-      - "Change the wine. No page opened for this file states a tannin-and-protein rule."
-      - "A later source might support a mechanism. This handoff does not."
-      - "The change of wine does not cancel the alcohol warning."
+      - "Astringency, in the McRae and Kennedy review, is drying and puckering. It is generally thought to come from tannins interacting with salivary proteins. The exact mechanism is not settled, and precipitation is not always required."
+      - "The review does not say tannin binds fish protein, and it does not equate bitterness with astringency."
+      - "Change the wine if the guest dislikes the match. That change is not the one correct pour, and it does not cancel the alcohol warning."
     distractors:
-      - { text: "Tannin binds fish protein, so the bitterness was chemically required.", why_wrong: "That mechanism was not on any page opened for this file." }
-      - { text: "There is one correct replacement wine.", why_wrong: "The sourced answer is to stop inventing a mechanism, not to crown a single pour." }
-    sources: [src_somm_eu_1169, src_bev_who_alcohol]
+      - { text: "Tannin binds fish protein, so the bitterness was chemically required.", why_wrong: "The opened review is about salivary proteins, not fish, and it separates bitterness from the drying sensation." }
+      - { text: "There is one correct replacement wine.", why_wrong: "The review explains a mouthfeel. It does not rank dishes or pours." }
+    sources: [src_somm_mcrae_astringency, src_bev_who_alcohol]
+    mcq: disabled
+  - id: q_somm_two_guests
+    outcome: "Keep a disagreement about astringency from becoming a winner."
+    prompt: "Two guests disagree about how drying the same red wine is. What does the review let you say?"
+    acceptable:
+      - "Salivary flow and the concentration of particular saliva proteins differ between people, and higher flow and higher concentrations generally reduce perceived astringency."
+      - "Do not tell one guest that the other is correct. The review did not test these two people."
+    distractors:
+      - { text: "One of them must be tasting the wine wrongly.", why_wrong: "The review treats the difference in saliva as a reason the sensation can differ." }
+      - { text: "Ethanol always makes a wine more astringent, so the stronger taster is right.", why_wrong: "The review says the ethanol reports do not agree." }
+    sources: [src_somm_mcrae_astringency]
     mcq: disabled
   - id: q_somm_tequila_spanish
     outcome: "Use the Spanish page where the English card conflicts."

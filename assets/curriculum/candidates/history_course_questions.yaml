@@ -81,13 +81,14 @@ questions:
     sources: [src_hcourse_inrae_phylloxera, src_hist_ucipm_phylloxera]
     mcq: disabled
   - id: q_hcourse_doc_article
-    outcome: "Teach Article 1 of the 1963 decree and stop where the page stopped."
-    prompt: "A guest says the 1963 Italian law invented the letters DOC. What can you say from the page that loaded?"
+    outcome: "Keep the 1963 names apart from the letters DOC and from today's code."
+    prompt: "A guest says the 1963 Italian law invented the letters DOC and that the decree is still the code in force. What can you say?"
     acceptable:
-      - "Article 1 of DPR 12 July 1963, n. 930, defines a denominazione di origine as a geographic name for wines whose character depends essentially on the vines and the natural environment."
-      - "The loaded view did not print DOC or DOCG, and it did not print the later articles. Do not describe those classes, and do not claim the letters are absent from the whole decree."
+      - "Article 2 of the opened compilation names semplice, controllata, and controllata e garantita. It does not use the abbreviations DOC or DOCG."
+      - "Article 3 says semplice means traditional varieties vinified by local, fair, and constant use. If no ministerial line exists, the zone is the whole municipal district of the name."
+      - "The current Normattiva view of Article 2 says the provision was abrogated by legislative decree 8 April 2010, n. 61. That 2010 act was not opened, so do not describe today's categories. Article 4 was blank."
     distractors:
-      - { text: "The loaded article uses the abbreviations DOC and DOCG.", why_wrong: "Article 1, as printed, says denominazione di origine and does not use those abbreviations." }
-      - { text: "The production zone can never include neighboring land.", why_wrong: "Article 1 allows neighboring land when its stated conditions, including ten years of marketing under the name, are met." }
-    sources: [src_hcourse_dpr_930]
+      - { text: "Article 2 uses the abbreviations DOC and DOCG.", why_wrong: "The printed article uses the three Italian phrases, not those abbreviations." }
+      - { text: "The three 1963 names are the categories in force today.", why_wrong: "The current Normattiva view of Article 2 shows a repeal notice, not those names." }
+    sources: [src_hcourse_dpr_930_compilation, src_hcourse_dpr_930_art2_current, src_hcourse_dpr_930]
     mcq: disabled
