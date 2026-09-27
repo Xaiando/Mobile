@@ -156,14 +156,36 @@ class TastingPractice {
   /// The database refuses a value of another grid, and a second value for
   /// a single-choice attribute.
   Future<void> choose(String id, String attributeKey, Set<String> values) =>
-      db.transaction(() async {
-        final session = await _session(id);
-        await _clear(id, attributeKey);
-        for (final value in values) {
-          await _add(session, attributeKey, value);
-        }
-        await _reopenIfUnanswered(session, attributeKey);
-      });
+      db.transaction(() => _choose(id, attributeKey, values));
+
+  /// Replaces an observation inside a guided or paired operation's transaction.
+  /// Its caller owns the commit, including any linked saved snapshot.
+  Future<void> chooseInTransaction(
+    String id,
+    String attributeKey,
+    Set<String> values,
+  ) async {
+    // Pinned Drift 2.35 exposes no public transaction-state getter. Check the
+    // current database's zone-resolved executor before touching observations.
+    // ignore: invalid_use_of_internal_member
+    if (db.resolvedEngine.executor is! TransactionExecutor) {
+      throw StateError('Joined observation writes require a transaction.');
+    }
+    await _choose(id, attributeKey, values);
+  }
+
+  Future<void> _choose(
+    String id,
+    String attributeKey,
+    Set<String> values,
+  ) async {
+    final session = await _session(id);
+    await _clear(id, attributeKey);
+    for (final value in values) {
+      await _add(session, attributeKey, value);
+    }
+    await _reopenIfUnanswered(session, attributeKey);
+  }
 
   /// Chooses [valueKey] of [attributeKey] in session [id], or clears it.
   /// Choosing a single choice's value replaces the one before; a multiple

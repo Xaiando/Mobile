@@ -12,7 +12,7 @@ The candidate **app 0.3.0+16 / dataset 0.23.0** bundles 119 registered curriculu
 | 2 | 442 | 752 |
 | 3 | 888 | 1,625 |
 
-These are cumulative app requirement groups, not official syllabus or examination counts. The [final outcome audit](research/wset-levels-1-3-final-outcome-audit.md) found no remaining mandatory instructional or exact-reference gap in this snapshot. Level 1–3 coverage completion metadata and final release acceptance are pending until the final delivery, regression and browser gates pass.
+These are cumulative app requirement groups, not official syllabus or examination counts. The [final outcome audit](research/wset-levels-1-3-final-outcome-audit.md) found no remaining mandatory instructional or exact-reference gap in this snapshot. Levels 1–3 app study coverage is internally reviewed and its delivery gates pass. Learner milestones require mastery and recorded practice; official qualification and expert factual verification remain separate. Diploma remains incomplete.
 
 ## Required and optional material
 

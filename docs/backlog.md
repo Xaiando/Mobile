@@ -56,7 +56,7 @@ TASK-008 (tasting grids) and TASK-009 (journal integration) remain; they are T1�
 
 ## 3. Task index
 
-**Current WSET scope update, 27 September 2026.** Level 1–3 teaching is implemented and semantically reviewed against the public Wines specifications. Level 1–3 coverage metadata awaits final delivery, regression and browser acceptance; Diploma remains incomplete. C2–C6 remain partial because their wider CMS/Diploma, finer atlas and qualified-review obligations are not closed by the Award in Wines work. S3 has implemented WSET practice while its CMS preset remains open. See the [completion plan](research/wset-1-3-completion-plan.md) and [delivery validation](research/wset-1-3-delivery-validation.md).
+**Current WSET scope update, 27 September 2026.** Level 1–3 teaching is implemented and semantically reviewed against the public Wines specifications. Levels 1–3 app study coverage is internally reviewed and its delivery gates pass. Learner milestones require mastery and recorded practice; official qualification and expert factual verification remain separate. Diploma remains incomplete. C2–C6 remain partial because their wider CMS/Diploma, finer atlas and qualified-review obligations are not closed by the Award in Wines work. S3 has implemented WSET practice while its CMS preset remains open. See the [completion plan](research/wset-1-3-completion-plan.md) and [delivery validation](research/wset-1-3-delivery-validation.md).
 
 **Status:** ☐ open · ◐ in progress · ☑ done. **Wave:** the planned wave (§4). A task may start earlier only when its dependencies are merged and it touches no hot spot owned in the running wave.
 
@@ -362,7 +362,7 @@ For a learner preparing now, the [study tree](content/spaetburgunder-study-tree.
 
 #### C5 · Content: principles
 
-- **Current status, 27 September 2026.** The WSET Level 1–3 vineyard, winery, service, food-pairing, fault and analytical-tasting teaching is implemented and semantically reviewed. Point-specific recall, original written cases and bounded causal reasoning are installed. Level 1–3 coverage metadata awaits final delivery, regression and browser acceptance; Diploma remains incomplete. Broader Diploma/CMS comparisons and qualified fact review remain open. The older snapshot below records the earlier gaps rather than the current Award in Wines coverage.
+- **Current status, 27 September 2026.** The WSET Level 1–3 vineyard, winery, service, food-pairing, fault and analytical-tasting teaching is implemented and semantically reviewed. Point-specific recall, original written cases and bounded causal reasoning are installed. Levels 1–3 app study coverage is internally reviewed and its delivery gates pass. Learner milestones require mastery and recorded practice; official qualification and expert factual verification remain separate. Diploma remains incomplete. Broader Diploma/CMS comparisons and qualified fact review remain open. The older snapshot below records the earlier gaps rather than the current Award in Wines coverage.
 
 - **Historical status through release 0.13.0.** In progress: the preceding 182-point vineyard/winery/business/service module now has a further 173 points on sparkling, fortified wines, faults and diagnostic limits, including 15 additional conditional cases. Editorial WSET/CMS mappings retain foundation depth and Diploma-specific case depth. Food pairing, wider regional/product comparisons, analytical tasting, the Q6 reasoning engine and qualified review remain open. [Products and faults continuation](research/diploma-products-faults-continuation.md). The subsequent [regional continuation](research/diploma-regional-comparisons-continuation.md) adds 132 points and 12 cases for DIP-3.
 
@@ -1092,7 +1092,7 @@ Research basis: [curriculum gap audit](research/curriculum-gap-audit.md) and [ce
 ### S3 · Certification rehearsal presets
 
 - **Objective.** Build examination-shaped practice presets for WSET Levels 1–3 and CMS Europe Certified using original generated/authored exercises. This is rehearsal, not reproduction of proprietary exams.
-- **Current status, 27 September 2026.** Partial: original WSET Level 1–3 rehearsals, saved written self-review at Level 3, guided tasting/calibration and timed two-wine practice are implemented. Their final delivery, regression and browser acceptance remain pending. The CMS-specific preset remains open; this does not complete the whole S3 task.
+- **Current status, 27 September 2026.** Partial: original WSET Level 1–3 rehearsals, saved written self-review at Level 3, guided tasting/calibration and timed two-wine practice are implemented. Their final delivery, regression and browser acceptance passed. The CMS-specific preset remains open; this does not complete the whole S3 task.
 - **Depends on.** S1, Q1, Q7, Q8 (the CMS preset's two-wine deduction), T2, and SCOPE-1 (the pinned scope metadata); richer formats are used when available.
 - **Modules.** study-session configuration, track metadata, learner-facing preset picker.
 - **Acceptance criteria.**
@@ -1121,7 +1121,7 @@ Until these gates pass, describe the app as a developing sommelier study compani
 
 ## 9. WSET Level 4 Diploma target (26 September 2026)
 
-The user confirmed **Level 4 Diploma as the target for the whole study companion**. This supersedes the earlier Level 3 completion boundary. WSET Levels 1–3, Diploma and CMS Certified are selectable. Level 1–3 coverage metadata awaits final delivery, regression and browser acceptance; Diploma remains incomplete. Diploma inherits relevant authored practice, but adding a selectable track or location questions does not complete the Diploma curriculum. The [pinned scope](../assets/curriculum/track_scope.yaml) and [gap audit](research/wset-level-4-gap-audit.md) use WSET's August 2025 Issue 1.4 specification. Labels below are editorial descriptions; the app does not reproduce WSET course material or official examination questions.
+The user confirmed **Level 4 Diploma as the target for the whole study companion**. This supersedes the earlier Level 3 completion boundary. WSET Levels 1–3, Diploma and CMS Certified are selectable. Levels 1–3 app study coverage is internally reviewed and its delivery gates pass. Learner milestones require mastery and recorded practice; official qualification and expert factual verification remain separate. Diploma remains incomplete. Diploma inherits relevant authored practice, but adding a selectable track or location questions does not complete the Diploma curriculum. The [pinned scope](../assets/curriculum/track_scope.yaml) and [gap audit](research/wset-level-4-gap-audit.md) use WSET's August 2025 Issue 1.4 specification. Labels below are editorial descriptions; the app does not reproduce WSET course material or official examination questions.
 
 | Task | Status | Required result |
 |---|---|---|

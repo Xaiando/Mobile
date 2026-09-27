@@ -324,10 +324,9 @@ class TastingPairRepository {
         final started = utcNow(clock);
         final wines = <TastingPairWine>[];
         for (var index = 0; index < 2; index++) {
-          final record = await guidance.start(
+          final record = await guidance.startDetachedInTransaction(
             3,
             journalEntryId: journalEntryIds?[index],
-            makeCurrent: false,
           );
           final grid = await guidance.layout(record);
           wines.add(
@@ -399,7 +398,7 @@ class TastingPairRepository {
     (wine['observations'] as Map)[attributeKey] = values.toList();
     // Validate against the original snapshot before touching legacy tables.
     TastingPairWine.fromJson(wine);
-    await guidance.choose(sessionId, attributeKey, values);
+    await guidance.chooseInTransaction(sessionId, attributeKey, values);
   });
   Future<TastingPairAttempt> evidence(
     String id,
@@ -409,7 +408,7 @@ class TastingPairRepository {
   ) => _change(id, sessionId, (wine) async {
     (wine['evidence'] as Map)[promptId] = text;
     TastingPairWine.fromJson(wine);
-    await guidance.evidence(sessionId, promptId, text);
+    await guidance.evidenceInTransaction(sessionId, promptId, text);
   });
   Future<TastingPairAttempt> finish(String id) => db.transaction(() async {
     var attempt = await _expire(await _load(id));

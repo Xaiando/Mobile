@@ -1,7 +1,9 @@
 import 'dart:convert';
 import 'dart:math';
 
-import 'package:drift/native.dart' show SqliteException;
+import 'package:drift/drift.dart'
+    show ApplyInterceptor, QueryExecutor, QueryInterceptor, TransactionExecutor;
+import 'package:drift/native.dart' show NativeDatabase, SqliteException;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:sommelier/core/backup/user_data_backup.dart';
 import 'package:sommelier/core/database/app_database.dart';
@@ -19,8 +21,10 @@ void main() {
   late TestClock time;
   late GuidedTastingRepository guidance;
   late TastingPairRepository repository;
+  late _TransactionCounter transactions;
   setUp(() async {
-    db = openTestDatabase();
+    transactions = _TransactionCounter();
+    db = AppDatabase(NativeDatabase.memory().interceptWith(transactions));
     time = TestClock(t0);
     await seedCurriculum(db);
     await seedSchedulerConfig(db);
@@ -353,6 +357,168 @@ void main() {
     expect(await guidance.history(), isEmpty);
   });
 
+  test(
+    'detached creation rejects a caller without a transaction before writing',
+    () async {
+      final settingsBefore = await db.select(db.userSettings).get();
+      transactions.reset();
+      await expectLater(
+        guidance.startDetachedInTransaction(3),
+        throwsStateError,
+      );
+      expect(transactions.begun, 0);
+      expect(await db.select(db.tastingSessions).get(), isEmpty);
+      expect(await db.select(db.userSettings).get(), settingsBefore);
+    },
+  );
+
+  test('pair creation commits both wines with one transaction and no child savepoints', () async {
+    transactions.reset();
+    final attempt = await repository.start();
+    expect(transactions.begun, 1);
+    expect(transactions.committed, 1);
+    expect(transactions.rolledBack, 0);
+    expect(attempt.wines.map((wine) => wine.sessionId).toSet(), hasLength(2));
+    expect(
+      attempt.deadline.difference(attempt.startedAt),
+      const Duration(minutes: 30),
+    );
+    expect(await db.select(db.tastingSessions).get(), hasLength(2));
+    expect((await repository.current())!.id, attempt.id);
+    expect(
+      (await guidance.history()).map((row) => row.sessionId).toSet(),
+      attempt.wines.map((wine) => wine.sessionId).toSet(),
+    );
+  });
+
+  test(
+    'detached creation rejects a transaction belonging to another database',
+    () async {
+      final other = openTestDatabase();
+      final settingsBefore = await db.select(db.userSettings).get();
+      transactions.reset();
+      try {
+        await expectLater(
+          other.transaction(() => guidance.startDetachedInTransaction(3)),
+          throwsStateError,
+        );
+      } finally {
+        await other.close();
+      }
+      expect(transactions.begun, 0);
+      expect(await db.select(db.tastingSessions).get(), isEmpty);
+      expect(await db.select(db.userSettings).get(), settingsBefore);
+    },
+  );
+
+  test('late parent failure rolls back both detached wines and their saved snapshots', () async {
+    final settingsBefore = await db.select(db.userSettings).get();
+    transactions.reset();
+    await expectLater(
+      db.transaction<void>(() async {
+        await guidance.startDetachedInTransaction(3);
+        await guidance.startDetachedInTransaction(3);
+        expect(await db.select(db.tastingSessions).get(), hasLength(2));
+        throw StateError('Failure after both detached wines were created.');
+      }),
+      throwsStateError,
+    );
+    expect(transactions.begun, 1);
+    expect(transactions.committed, 0);
+    expect(transactions.rolledBack, 1);
+    expect(await db.select(db.tastingSessions).get(), isEmpty);
+    expect(await db.select(db.userSettings).get(), settingsBefore);
+    expect(await guidance.history(), isEmpty);
+    expect(await repository.current(), isNull);
+  });
+
+  test('paired observations, evidence and finishing each use one atomic transaction', () async {
+    final attempt = await repository.start();
+    final wine = attempt.wines.first;
+    transactions.reset();
+    await repository.choose(attempt.id, wine.sessionId, 'sweetness', {'dry'});
+    expect(transactions.begun, 1);
+    expect(transactions.committed, 1);
+    expect(transactions.rolledBack, 0);
+    expect(await guidance.observations(await guidance.read(wine.sessionId)), {
+      'sweetness': {'dry'},
+    });
+
+    transactions.reset();
+    await repository.evidence(
+      attempt.id,
+      wine.sessionId,
+      'quality',
+      'Observed paired evidence.',
+    );
+    expect(transactions.begun, 1);
+    expect(transactions.committed, 1);
+    expect(transactions.rolledBack, 0);
+    expect(
+      (await guidance.read(wine.sessionId)).evidence['quality'],
+      'Observed paired evidence.',
+    );
+    expect(
+      (await repository.read(attempt.id)).wines.first.evidence['quality'],
+      'Observed paired evidence.',
+    );
+
+    transactions.reset();
+    final finished = await repository.finish(attempt.id);
+    expect(transactions.begun, 1);
+    expect(transactions.committed, 1);
+    expect(transactions.rolledBack, 0);
+    expect(finished.isFinished, isTrue);
+    expect(finished.completeWineCount, 0);
+  });
+
+  test(
+    'a rejected pair snapshot rolls back its linked observations and evidence',
+    () async {
+      final attempt = await repository.start();
+      final wine = attempt.wines.first;
+      final settingsBefore = await db.select(db.userSettings).get();
+      await db.customStatement('''CREATE TEMP TRIGGER reject_pair_snapshot
+      BEFORE UPDATE ON user_settings
+      WHEN NEW.name LIKE 'wset_tasting_pair_attempt_v1_%'
+      BEGIN SELECT RAISE(ABORT, 'fixture pair snapshot failure'); END;''');
+      try {
+        transactions.reset();
+        await expectLater(
+          repository.choose(attempt.id, wine.sessionId, 'sweetness', {'dry'}),
+          throwsA(isA<SqliteException>()),
+        );
+        expect(transactions.begun, 1);
+        expect(transactions.committed, 0);
+        expect(transactions.rolledBack, 1);
+        expect(await db.select(db.tastingDescriptors).get(), isEmpty);
+
+        transactions.reset();
+        await expectLater(
+          repository.evidence(
+            attempt.id,
+            wine.sessionId,
+            'quality',
+            'This must roll back.',
+          ),
+          throwsA(isA<SqliteException>()),
+        );
+        expect(transactions.begun, 1);
+        expect(transactions.committed, 0);
+        expect(transactions.rolledBack, 1);
+        expect(await db.select(db.userSettings).get(), settingsBefore);
+      } finally {
+        await db.customStatement('DROP TRIGGER reject_pair_snapshot');
+      }
+      expect((await guidance.read(wine.sessionId)).evidence, isEmpty);
+      expect(
+        (await repository.read(attempt.id)).wines.first.observations,
+        isEmpty,
+      );
+      expect((await repository.read(attempt.id)).wines.first.evidence, isEmpty);
+    },
+  );
+
   test('saved pair rejects invalid timelines, duplicate wines and mismatched identities', () async {
     final attempt = await repository.start();
     Map<String, dynamic> copy() =>
@@ -457,4 +623,34 @@ void main() {
       expect((await repository.history()).single.finishReason, 'expired');
     },
   );
+}
+
+class _TransactionCounter extends QueryInterceptor {
+  int begun = 0;
+  int committed = 0;
+  int rolledBack = 0;
+
+  void reset() {
+    begun = 0;
+    committed = 0;
+    rolledBack = 0;
+  }
+
+  @override
+  TransactionExecutor beginTransaction(QueryExecutor parent) {
+    begun++;
+    return super.beginTransaction(parent);
+  }
+
+  @override
+  Future<void> commitTransaction(TransactionExecutor inner) async {
+    await super.commitTransaction(inner);
+    committed++;
+  }
+
+  @override
+  Future<void> rollbackTransaction(TransactionExecutor inner) async {
+    await super.rollbackTransaction(inner);
+    rolledBack++;
+  }
 }

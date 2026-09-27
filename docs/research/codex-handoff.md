@@ -1,4 +1,12 @@
-# Local continuation handoff — 26 September 2026
+# Local continuation handoff — 28 September 2026
+
+**Current WSET Levels 1–3 delivery:** The [completion plan](wset-1-3-completion-plan.md) and [measured validation](wset-1-3-delivery-validation.md) supersede the older checkpoints below. Branch `codex/wset-levels-1-3-completion` has app dataset `0.23.0` / app `0.3.0+16`, 119 registered curriculum includes, 3,781 unverified facts and 38 map layers. The three internally reviewed required study catalogs cover 49/442/888 topic rows and 132/752/1,625 distinct facts for Levels 1/2/3. The learner sees separate required and optional progress, with saved rehearsal, guided tasting, paired tasting and self-reported exam outcomes. App study milestones still require the learner's own mastery and recorded practice; this is not an official WSET qualification or qualified factual review. Diploma remains incomplete.
+
+The repaired full Flutter suite passed 1,018 checks before a bounded paired-web transaction fix; 67 affected tasting checks passed after it, and 42 progress checks passed after metadata enablement. The final enabled release builds, exact 163-asset/two-runtime-pin checks, five-track coverage ratchet, both Chromium database storage modes and all nine actual UI stages pass. An earlier paired start stall and failed pre-repair tests remain documented in validation, with no claim of a post-fix full-suite rerun. The linked plan records external device/CI limits and the remaining PR receipt.
+
+**Grok boundary:** Grok's 15 wine-history and 22 other-beverage facts are registered, while the later 57-history/85-beverage candidate courses and cellar-scan proposal remain unregistered. Grok owns that side mission and may continue it independently; those candidates must be researched, validated and registered separately. China stays Diploma-only in analytical lessons, with eight optional atlas references in lower tracks at the user's request. Do not promote Grok candidates or assert Master of Wine/Diploma completion from this Level 1–3 delivery.
+
+## Historical continuation record
 
 **Latest local continuation:** [Q4 numeric practice in 0.20.7](numeric-practice-continuation.md), on `codex/numeric-quantity-practice` from completed business commit `b95c59a`. It adds objective numeric/range handling, exact legal minima, authored bands, Celsius/Fahrenheit preference and safe review payloads, with six templates over 21 existing facts. No facts, maps, mappings, scope completion flags or schema change. Grok owns Soave/Alto Adige separately; reconcile actual merged versions, counts and coverage before publishing. The managed checkout and shared coordination note record the handoff. Full Diploma coverage and qualified review remain unfinished.
 

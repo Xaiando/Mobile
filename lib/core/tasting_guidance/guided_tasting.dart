@@ -1,7 +1,8 @@
 import 'dart:convert';
 
 import 'package:clock/clock.dart';
-import 'package:drift/drift.dart' show StringExpressionOperators;
+import 'package:drift/drift.dart'
+    show StringExpressionOperators, TransactionExecutor;
 
 import '../curriculum/knowledge_graph.dart';
 import '../database/app_database.dart';
@@ -390,7 +391,46 @@ class GuidedTastingRepository {
     String? caseId,
     String? journalEntryId,
     bool makeCurrent = true,
-  }) => db.transaction(() async {
+  }) => db.transaction(
+    () => _create(
+      level,
+      caseId: caseId,
+      journalEntryId: journalEntryId,
+      makeCurrent: makeCurrent,
+    ),
+  );
+
+  /// Creates a physical wine inside the caller's existing transaction without
+  /// changing the standalone guided selection. Paired creation owns one commit
+  /// for both wines, their saved snapshots and the selected pair.
+  ///
+  /// The explicit guard prevents callers from leaving partial records when no
+  /// transaction is active. Avoiding child savepoints also prevents the pinned
+  /// web executor from completing its navigator-lock future more than once.
+  Future<GuidedTastingRecord> startDetachedInTransaction(
+    int level, {
+    String? journalEntryId,
+  }) async {
+    _requireTransaction();
+    return _create(level, journalEntryId: journalEntryId, makeCurrent: false);
+  }
+
+  void _requireTransaction() {
+    // Pinned Drift 2.35 exposes no public transaction-state getter. Its
+    // zone-resolved executor belongs to this database and is checked before any
+    // query/write; keep this check covered when changing the Drift version.
+    // ignore: invalid_use_of_internal_member
+    if (db.resolvedEngine.executor is! TransactionExecutor) {
+      throw StateError('Joined guided tasting writes require a transaction.');
+    }
+  }
+
+  Future<GuidedTastingRecord> _create(
+    int level, {
+    String? caseId,
+    String? journalEntryId,
+    required bool makeCurrent,
+  }) async {
     final definition = bank.levels.singleWhere((l) => l.level == level);
     final profile = await (db.select(
       db.userProfiles,
@@ -428,23 +468,56 @@ class GuidedTastingRepository {
     await _save(record);
     if (makeCurrent) await _put(currentKey, record.sessionId);
     return record;
-  });
+  }
 
   Future<GuidedTastingRecord> choose(
     String id,
     String attributeKey,
     Set<String> values,
-  ) => db.transaction(() async {
+  ) => db.transaction(() => _choose(id, attributeKey, values));
+
+  /// Updates a paired wine's legacy observations within the pair's transaction.
+  Future<GuidedTastingRecord> chooseInTransaction(
+    String id,
+    String attributeKey,
+    Set<String> values,
+  ) async {
+    _requireTransaction();
+    return _choose(id, attributeKey, values);
+  }
+
+  Future<GuidedTastingRecord> _choose(
+    String id,
+    String attributeKey,
+    Set<String> values,
+  ) async {
     final record = await _load(id);
     if (record.isFinished) throw StateError('This guided tasting is finished.');
-    await practice.choose(id, attributeKey, values);
+    await practice.chooseInTransaction(id, attributeKey, values);
     return record;
-  });
+  }
+
   Future<GuidedTastingRecord> evidence(
     String id,
     String promptId,
     String text,
-  ) => db.transaction(() async {
+  ) => db.transaction(() => _writeEvidence(id, promptId, text));
+
+  /// Saves a paired wine's guided evidence within the pair's transaction.
+  Future<GuidedTastingRecord> evidenceInTransaction(
+    String id,
+    String promptId,
+    String text,
+  ) async {
+    _requireTransaction();
+    return _writeEvidence(id, promptId, text);
+  }
+
+  Future<GuidedTastingRecord> _writeEvidence(
+    String id,
+    String promptId,
+    String text,
+  ) async {
     final record = await _load(id);
     if (record.isFinished) throw StateError('This guided tasting is finished.');
     if (text.length > 20000) {
@@ -455,7 +528,8 @@ class GuidedTastingRepository {
     final changed = GuidedTastingRecord.fromJson(row);
     await _save(changed);
     return changed;
-  });
+  }
+
   Future<GuidedTastingRecord> finish(String id) => db.transaction(() async {
     var record = await _load(id);
     if (record.isFinished) return record;

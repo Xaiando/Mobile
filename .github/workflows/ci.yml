@@ -180,3 +180,12 @@ jobs:
           npx playwright install --with-deps chromium
       - name: Run the smoke test in headless Chromium
         run: node tool/web_smoke/run.mjs build/web_smoke
+      - name: Run the release app UI smoke test in headless Chromium
+        run: node tool/web_smoke/app_ui.mjs build/web build/app_ui_smoke
+      - name: Preserve failed app UI screenshots and diagnostics
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: web-app-ui-smoke-failure
+          path: build/app_ui_smoke
+          if-no-files-found: ignore

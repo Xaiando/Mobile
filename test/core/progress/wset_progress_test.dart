@@ -369,12 +369,26 @@ void main() {
     },
   );
 
-  test('bundled scope stays incomplete and has six valid Diploma groups', () {
+  test('bundled Levels 1–3 are reviewed; Diploma keeps six open groups', () {
     final scope = WsetScope.fromJson(
       File('assets/progress/wset_scope.json').readAsStringSync(),
     );
     expect(scope.levels, hasLength(4));
-    expect(scope.levels.every((level) => !level.curriculumComplete), isTrue);
+    expect(
+      scope.levels.take(3).every((level) => level.curriculumComplete),
+      isTrue,
+    );
+    expect(
+      scope.levels
+          .take(3)
+          .every(
+            (level) =>
+                level.gaps.isEmpty &&
+                level.requirements.every((requirement) => requirement.reviewed),
+          ),
+      isTrue,
+    );
+    expect(scope.levels.last.curriculumComplete, isFalse);
     expect(scope.levels.last.units.map((unit) => unit.id), [
       'D1',
       'D2',
@@ -392,9 +406,13 @@ void main() {
         File('assets/progress/wset_scope.json').readAsStringSync(),
       ) as Map<String, dynamic>;
       final levels = json['levels'] as List<dynamic>;
-      (levels.first as Map<String, dynamic>)['curriculumComplete'] = true;
+      final firstLevel = levels.first as Map<String, dynamic>;
+      final firstRequirement =
+          (firstLevel['requirements'] as List).first as Map<String, dynamic>;
+      firstRequirement['reviewed'] = false;
       expect(() => WsetScope.fromJson(jsonEncode(json)), throwsFormatException);
-      (levels.first as Map<String, dynamic>)['curriculumComplete'] = false;
+      firstRequirement['reviewed'] = true;
+      firstLevel['curriculumComplete'] = false;
       final units =
           (levels.last as Map<String, dynamic>)['units'] as List<dynamic>;
       (units.last as Map<String, dynamic>)['id'] = 'D1';

@@ -14,69 +14,71 @@ Grok separately owns essential wine history from Areni 1 through the present, in
 
 ## Working state and safeguards
 
-- Branch: `codex/wset-levels-1-3-completion` in the existing managed checkout, from numeric `6ca7bc1`, business `b95c59a` and merged base `b551996`.
-- Grok's completed Soave and Alto Adige work (`b66d5d3`, `3bf6a21`) is being integrated. Source merge conflicts are resolved; release summaries, aggregate tests and baseline remain to be reconciled and validated.
-- Combined pre-authoring source baseline: 2,896 facts; Level 1 zero; cumulative Level 2 103; Level 3 2,392; CMS 2,400. These are content counts, not course completion denominators.
-- Provisional dataset 0.21.0 and app 0.3.0+15. Reconcile against actual parallel releases before publication.
+- Branch: `codex/wset-levels-1-3-completion` in `C:\Users\Kaged\.codex\worktrees\diploma-climate-reasoning\Sommelier study companion`. Integrated checkpoints are `575f12b` and `ccf61fd`; final acceptance and handoff remain in progress.
+- Numeric/business, Grok's completed Soave and Alto Adige, and its registered history/other-beverage work are integrated. The ancestral numeric `6ca7bc1`, business `b95c59a`, merged base `b551996`, Soave `b66d5d3` and Alto Adige `3bf6a21` references remain historical provenance, not outstanding integration tasks.
+- Current measured candidate: **dataset 0.23.0 / app 0.3.0+16**, 119 includes, 3,781 facts and 38 map layers. Cumulative mapped inventories are L1 132, L2 819, L3 3,429, Diploma 3,759 and CMS Certified 2,548; these include optional material.
+- Required Level 1/2/3 selections are 49/442/888 topic rows and 132/752/1,625 distinct facts. Exact semantic selection is accepted in the [final outcome audit](wset-levels-1-3-final-outcome-audit.md); the counts alone do not close delivery.
+- Historical pre-authoring baseline: 2,896 facts; Level 1 zero; cumulative Level 2 103; Level 3 2,392; CMS 2,400. The initial provisional dataset 0.21.0 / app 0.3.0+15 is superseded by the candidate above. Those earlier counts and versions are retained for preservation comparisons.
 - Preserve prior maps and their licensed bytes/attributions; preserve the 704 Diploma D3 IDs, all previous business/reasoning material, China's eight optional atlas references and Diploma-only analysis, schema compatibility and shared FSRS memory.
-- Preserve the shared checkout's five pre-existing dirty files. Root alone performs Git integration and sequential Dart/Flutter validation. Agents own disjoint paths and do not run the SDK.
+- Preserve the user work represented by the five pre-existing dirty files at task start; the root's integrated preservation comparison records the result. Root alone performs Git integration and sequential Dart/Flutter validation. Agents own disjoint paths and do not run the SDK.
 - Retain existing tasting grids and saved vocabulary; new teaching/calibration grids or versions append rather than redefine saved keys. New persistent practice must be backed up and migration-safe.
+- The pinned completion helper has enabled internal Level 1–3 coverage/topic-review metadata on the reviewed scope, ledger and cue hashes while preserving Diploma. It cannot grant learner mastery or official credentials. Final post-enable local browser/build acceptance passes; remote CI, PR and release handoff remain open.
 
 ## Task ledger
 
-States: open, active, implemented (review/tests pending), passed. A task is passed only when its explicit acceptance evidence is recorded. Fact counts alone cannot close a task.
+States: open, active, implemented (remaining gate stated), passed. A content task marked passed has exact scope/source review evidence; it does not imply a passing final full suite or release. Focused passes and final regression are distinguished below. Fact counts alone cannot close a task.
 
 | ID | Task and concrete acceptance evidence | Owner | State |
 |---|---|---|---|
-| W01 | Verify current official L1/L2/L3 specifications, dates and assessment shape; pin direct URLs | research + critic | passed |
-| W02 | Integrate numeric/business and completed Soave/Alto Adige; preserve all ancestor content and pins | root | active |
-| W03 | Build original granular outcome/topic matrix with exact lesson IDs, learning dimensions and practice evidence | root + researchers | active |
-| W04 | Independently challenge matrix sufficiency, required vs optional topics and atlas-only matches | critic | active |
-| W05 | Snapshot pre-authoring facts, mappings, scope, source bytes and legacy tasting data for preservation comparisons | root | passed |
-| W10 | Dedicated L1 introductory pack: wine types/styles, grape components, growing/ripening and basic production | research | implemented |
-| W11 | L1 required common grape/style profiles and named wine examples at beginner depth | research | implemented |
-| W12 | L1 storage, temperature, glassware, still/sparkling opening, preservation and faults | content | implemented |
-| W13 | L1 food interactions and safe/responsible service; conditional examples, not universal pairings | content | implemented |
-| W14 | L1 tasting description practice and original 30-question rehearsal delivery | runtime + root | active |
-| W20 | L2 eight principal grape profiles: structure, typical aromas, environment and production effects | research | implemented |
-| W21 | L2 all required regional grapes, with canonical nodes/aliases and basic style lessons | research | implemented |
-| W22 | L2 required GIs and regional style comparisons: complete named scope with proper explanatory evidence | content | active |
-| W23 | L2 growing/production/maturation decisions and quality/style effects; remap existing suitable lessons | content | active |
-| W24 | L2 sparkling and fortified methods, required examples and style labels | content | open |
-| W25 | L2 origin/style/quality label terms, service, storage, food interactions and wine faults | content | active |
-| W26 | L2 tasting-description practice and original 50-question rehearsal delivery | runtime + root | active |
-| W30 | L3 vine cycle, climate/weather/soil, site selection and ripening factors | content + critic | active |
-| W31 | L3 vineyard management, training/pruning, hazards, pests/diseases and production approaches | content + critic | active |
-| W32 | L3 white/red/rosé/sweet routes, adjustments, extraction/fermentation choices and style implications | content + critic | active |
-| W33 | L3 maturation/blending/clarification/stability, packaging/closures and cost/quality implications | content + critic | active |
-| W34 | L3 France: required region/GI names, grapes, environment, cellar choices, style, quality/price and labels | critic + content | implemented |
-| W35 | L3 Italy: same explanatory dimensions for every required region/style; distinguish laws from typicity | critic + content | implemented |
-| W36 | L3 Spain/Portugal: required region/styles/labels and their explanatory dimensions | critic + content | implemented |
-| W37 | L3 Germany/Austria/Hungary/Greece: required region/styles/labels and explanatory dimensions | critic + content | implemented |
-| W38 | L3 North/South America: required region/grape/style and growing/production/quality-price links | critic + content | active |
-| W39 | L3 Australia/New Zealand/South Africa: same required regional explanatory dimensions | critic + content | active |
-| W40 | L3 sparkling regions/methods/labels, including genuine category and named-place omissions | critic + content | active |
-| W41 | L3 fortified regions/methods/styles/labels and quality/price links | critic + content | active |
-| W42 | L3 wine service/storage, recommendations, food interactions, faults and responsible consumption | content | implemented |
-| W43 | L3 written explanation cases: original prompts, saved prose, clear criteria, delayed feedback and self-review | runtime + root | implemented |
-| W44 | L3 tasting: structured observation, aroma/flavour development, quality/ageing evidence and calibration | runtime + content | implemented |
-| W45 | Required geography omissions: defensible names/aliases and licensed reference geometry, never invented boundaries | root + critic | active |
-| W50 | L1/L2 selectable tracks with scoped cumulative membership and no advanced-content leakage | root + debugger | implemented |
+| W01 | Three current direct specification URLs/version dates and assessment shape pinned in the [outcome audit](wset-levels-1-3-final-outcome-audit.md) | research + critic | passed |
+| W02 | Integrated checkpoints `575f12b`/`ccf61fd`; all baseline assertions/nodes/relations, legacy grids, Diploma selectors and licensed pins retained in [delivery validation](wset-1-3-delivery-validation.md) | root | passed; release W66 remains |
+| W03 | Exact topic/dimension/item/practice matrix in [required-study evidence](wset-required-study-evidence.json); current progress asset matches it | root + researchers | passed |
+| W04 | Actual assertion/level/required-vs-optional challenge and repairs in the [Level 1 review](wset-level-1-closure-re-review.md), [Level 2–3 review](wset-level-2-3-catalog-independent-review.md) and [final audit](wset-levels-1-3-final-outcome-audit.md) | critic | passed |
+| W05 | Immutable 2,896-fact pre-authoring source/mapping/geometry/grid/runtime snapshot; preservation outcome in [delivery validation](wset-1-3-delivery-validation.md) | root | passed |
+| W10 | L1 anatomy/growth/fermentation and complete qualified white/red/rosé routes, checked in the [closure re-review](wset-level-1-closure-re-review.md) | research | passed |
+| W11 | Eight beginner grapes and seventeen named familiar examples plus missing sensory contexts; [Level 1 re-review](wset-level-1-closure-re-review.md) | research | passed |
+| W12 | Storage/preservation, style-sensitive temperature, clean glassware, controlled opening and faults; [Level 1 re-review](wset-level-1-closure-re-review.md) | content | passed |
+| W13 | Food interactions including umami/intensity and safe/responsible service without universal pairing/health claims; [Level 1 re-review](wset-level-1-closure-re-review.md) | content | passed |
+| W14 | 30-question/45-minute original preset, complete L1 flavours/structure grid and three original calibrations; [bank](wset-rehearsal-bank.md) and [delivery review](wset-runtime-final-independent-review.md) | runtime + root | passed measured native, affected and final enabled browser delivery; Level 1 calibration participation persists without FSRS credit |
+| W20 | Principal eight have selected colour/acid/tannin/potential-alcohol/aroma, vineyard/harvest/cellar/ageing evidence; [grape evidence](wset-grape-structure-evidence.json) and independent [catalog review](wset-level-2-3-catalog-independent-review.md) | research | passed |
+| W21 | All thirty required grape structures and profiles, distinct canonical identities and bounded variation; [catalog review](wset-level-2-3-catalog-independent-review.md) | research | passed |
+| W22 | All 149 named grape/origin combinations have actual association/style evidence beside location; final [origin closure](wset-origin-final-closure-evidence.json) and [independent review](wset-level-2-3-catalog-independent-review.md) | content | passed |
+| W23 | Exact growing/production/maturation mechanisms and appropriate reused mappings; [general outcome review](wset-outcomes-final-independent-review.md) | content | passed |
+| W24 | Required L2 traditional/tank/Asti, country/named sparkling and Port/Sherry examples; advanced methods retained outside L2 required scope; [SF review](wset-sparkling-fortified-independent-review.md) and final [catalog review](wset-level-2-3-catalog-independent-review.md) | content | passed |
+| W25 | Required label mechanisms, storage/service/faults and food contexts; [outcome review](wset-outcomes-final-independent-review.md) and [catalog review](wset-level-2-3-catalog-independent-review.md) | content | passed |
+| W26 | 50-question/60-minute original preset, L2 descriptor/evidence grid and three calibrations; [bank](wset-rehearsal-bank.md) and [delivery review](wset-runtime-final-independent-review.md) | runtime + root | passed measured native, affected and final enabled nine-stage UI delivery with loaded-navigation visual QA |
+| W30 | Vine cycle/resources/site/environment/ripening, with genuine mechanisms; [general outcome review](wset-outcomes-final-independent-review.md) | content + critic | passed |
+| W31 | Vine identity/parts/rootstocks, training/pruning, crop/canopy, hazards/pests/diseases and production approaches; [general outcome review](wset-outcomes-final-independent-review.md) | content + critic | passed |
+| W32 | Intake/extraction/fermentation/whole-bunch/red/white/rosé/sweet/concentration/adjustment routes and limits; [general outcome review](wset-outcomes-final-independent-review.md) | content + critic | passed |
+| W33 | MLF/lees/oak/blending/clarification/stability/packages/closures and actual cost mechanisms; [general outcome review](wset-outcomes-final-independent-review.md) | content + critic | passed |
+| W34 | France dimensions including repaired villages, Condrieu, Saumur-Champigny and appellation distinctions; [catalog review](wset-level-2-3-catalog-independent-review.md) | critic + content | passed |
+| W35 | Italy dimensions including Friuli Colli Orientali, exact named styles and current legal/typical distinction; [catalog review](wset-level-2-3-catalog-independent-review.md) | critic + content | passed |
+| W36 | Spain/Portugal regional mechanisms and labels including Castilla y León and actual grape-role contributions; [outcome review](wset-outcomes-final-independent-review.md) and [catalog review](wset-level-2-3-catalog-independent-review.md) | critic + content | passed |
+| W37 | Germany/Austria/Hungary/Greece regional dimensions and formerly missing grape contributions; [catalog review](wset-level-2-3-catalog-independent-review.md) | critic + content | passed |
+| W38 | Americas named region/style/environment/cellar/label/cost explanations; bounded scenarios rather than universal practices; [NW evidence](wset-regional-new-world-evidence.json), [applications](wset-new-world-applications-evidence.json), independent [catalog review](wset-level-2-3-catalog-independent-review.md) | critic + content | passed |
+| W39 | Australia/NZ/South Africa same exact required dimensions and bounded applications; [NW evidence](wset-regional-new-world-evidence.json), [applications](wset-new-world-applications-evidence.json), [catalog review](wset-level-2-3-catalog-independent-review.md) | critic + content | passed |
+| W40 | Required sparkling methods/families/labels, current legal qualifiers and actual places; [SF review](wset-sparkling-fortified-independent-review.md) and [catalog review](wset-level-2-3-catalog-independent-review.md) | critic + content | passed |
+| W41 | Required fortified origins/routes/styles/labels/cost links, no mandatory Madeira promotion; [SF review](wset-sparkling-fortified-independent-review.md) and [catalog review](wset-level-2-3-catalog-independent-review.md) | critic + content | passed |
+| W42 | Advice/bitterness/complexity/occasion/tolerance, expanded faults and actual table/multiple-wine sequence; [catalog review](wset-level-2-3-catalog-independent-review.md) | content | passed |
+| W43 | Twelve original saved extended prompts/52 selected criteria, deferred feedback and explicit self-review; [bank](wset-rehearsal-bank.md) and [delivery review](wset-runtime-final-independent-review.md) | runtime + root | passed; pre-fix full Flutter, post-fix affected and final enabled browser delivery verified |
+| W44 | Original observation/calibration, quality/readiness/ageing evidence and timed two-wine practice; [final outcome audit](wset-levels-1-3-final-outcome-audit.md) and [delivery review](wset-runtime-final-independent-review.md) | runtime + content | passed; enabled WASM both modes and nine-stage UI verify calibration/paired physical evidence without false grading |
+| W45 | Exact identities/levels and licensed reference geometries in [geography evidence](wset-required-geography-evidence.json); 38 reproducible layers and eighteen checks recorded in [delivery validation](wset-1-3-delivery-validation.md) | root + critic | passed; enabled Chablis frame/tap verified in both browser modes |
+| W50 | Five selectable tracks with explicit cumulative membership, no broad advanced lowering; scoped required-point serving in [delivery review](wset-runtime-final-independent-review.md), 13 focused cue checks and full Flutter pass | root + debugger | passed track/scope and final enabled browser evidence |
 | W51 | Responsive five-track picker at phone widths and large text sizes | debugger | passed |
-| W52 | Searchable Study with domain/topic focus, empty/reset states and retained item sources/memory | debugger | passed |
-| W53 | Requirement-based progress with explicit required vs optional material and separate rehearsal/tasting evidence | root | implemented |
-| W54 | Original level rehearsal presets/timers/answer persistence and deferred feedback | runtime + root | implemented |
-| W55 | Tasting calibration/evidence UI; retain legacy sessions and support physical practice notes | runtime + root | implemented |
-| W56 | Backup/restore, reset/erase, expiry/currentness, duplicate submission and cross-level memory safeguards | debugger + root | active |
-| W60 | Independent source/content review: all required dimensions, cautious sensory claims and current legal context | reviewer | active |
-| W61 | Lint, scope/coverage ratchets, targeted content/runtime/widget/backup tests and clean analysis | root | active |
-| W62 | Broader/full regression run; repair failures, then rerun the affected gates against frozen source | root | open |
-| W63 | Fresh release web build, bundled-asset/pinned-runtime checks and narrow-screen smoke | root | open |
-| W64 | Final outcome audit: zero required study topics still open, no atlas-only explanation credit | critic + root | open |
-| W65 | Update learner completion metadata from measured outcome audit; retain explicit expert-review and exam distinctions | root | open |
-| W66 | Commit coherent integration, record exact handoff for Grok and remaining external review/device checks | root | open |
-| W67 | Shared-topic typed practice: uniquely targeted original cues, responsive accepted phrases, primary-only grading and independent cue review | research + critic + debugger | active |
-| W68 | Written explanation pools: current served members of the selected track only, with a valid single-point scoped exercise | debugger + root | active |
+| W52 | Searchable focused Study/source/memory widget checks and actual 320-pixel browser search/filter/no-results/reset stage 03 pass | debugger | passed |
+| W53 | Required-vs-optional/current mastery/topic-review/practice/independent exam declarations; enabled browser progress 132/752/1,625 and focused requirement entry pass stage 04; Level 1–3 internal metadata enabled by pinned helper | root | passed progress semantics and post-enable browser receipt |
+| W54 | Original saved presets/deadlines/snapshots/deferred feedback and explicit self-review; enabled browser stages 05–06 prove answer/timer restoration and ended-draft/new-attempt separation | runtime + root | passed rehearsal delivery |
+| W55 | Original grids/calibrations/physical notes/paired practice, legacy vocabulary retained; enabled browser restores guided and separate physical-wine evidence | runtime + root | passed guided and paired delivery in UI and both WASM modes |
+| W56 | Snapshot/currentness/expiry/duplicate-save/backup/erase/corruption/cross-level safeguards; pre-fix full native suite, post-fix 67 affected tests and enabled browser restore rehearsal/guided/paired evidence | debugger + root | passed measured delivery; historical paired lock repaired |
+| W60 | Independent source/scope/qualifier reviews completed; exact decisions consolidated in [final outcome audit](wset-levels-1-3-final-outcome-audit.md); factual expert verification remains separate | reviewer | passed |
+| W61 | Post-fix full analyzer clean, lint zero errors/three existing warnings, strict coverage baseline pass; 67 affected tasting tests pass; post-enable progress 42/0 and analyzer clean; pre-fix full Flutter suite passed 1,018/0 | root | passed measured local source/coverage gates; remote CI remains W66 |
+| W62 | Pre-fix repaired complete Flutter run finished **1,018 passed, zero failed**; post-fix affected tasting run finished **67 passed, zero failed**; post-enable progress **42/0**; historical first run 1,009/9 and focused 44/1 retained | root | passed measured regression scope; no post-fix full-suite claim; remote CI remains W66 |
+| W63 | Enabled probe/normal builds pass with 163 exact assets and two runtime pins; real WASM both COOP modes `ok` with requiredUnavailable 0, calibration and paired writes; enabled normal UI stages 01–09 `ok:true` at 320 px with loaded-navigation screenshots and no browser errors | root | passed final local browser/build gates |
+| W64 | [Final outcome audit](wset-levels-1-3-final-outcome-audit.md) finds no remaining mandatory teaching/exact-reference gap or atlas-only explanatory credit | critic + root | passed semantic audit |
+| W65 | Root's pinned helper succeeded: Level 1–3 curriculum-complete and requirement-reviewed metadata true for 49/442/888 rows and 132/752/1,625 facts, resolved gaps `[]`; Diploma unchanged. Post-enable progress 42/0, analyzer, exact builds/assets and both final browser gates pass | root | passed enabled local delivery/metadata gate |
+| W66 | Integration checkpoints and final enabled local acceptance exist; remote CI/PR receipt, release commit/handoff and precise Grok ownership note remain | root | active; final handoff pending |
+| W67 | 522 original cues independently read beside assertions; all 520 required shared points covered. All 13 focused cue/delivery/grading checks and the pre-paired-fix 1,018-test full Flutter run pass; [cue review](wset-typed-point-cue-independent-review.md) | research + critic + debugger | passed current cue source and final enabled local delivery |
+| W68 | Current served members of selected track only, studied advanced/expired siblings excluded, valid single-point exercise and no unintended review; 13 focused checks and pre-paired-fix full Flutter run pass | debugger + root | passed current written-pool source and final enabled local delivery |
 
 ## Evidence matrix rules
 
@@ -100,13 +102,27 @@ Implementation and review findings are appended below as batches finish. Unresol
 
 ## Current findings
 
+- Semantic authoring and independent outcome review are complete. The [final audit](wset-levels-1-3-final-outcome-audit.md) and [Level 2–3 review](wset-level-2-3-catalog-independent-review.md) read actual lessons and selected evidence, not just counts. Thirty grape structures, principal-eight vineyard/cellar/ageing dimensions, 149 named grape/origin pairs, regional applications, 22 sparkling/fortified families and final service/fault/sequence contexts are represented.
+- Required and optional scopes remain separate. China, Madeira, numeric OIV enrichment, finer atlas detail and Grok's history/beverage strand cannot satisfy the mandatory Wines denominator. Diploma remains incomplete. App study/mastery/participation and self-reported exam declarations are distinct from official qualification and qualified factual verification.
+- Rehearsal version `2026.09.27-original.4` has 220 original MCQs, eligible L1/L2/L3 pools of 65/190/220, twelve extended cases and 52 criteria. All exact links fall within their selected required sets. Three original guided grids/nine calibrations preserve legacy vocabulary; Level 3 adds timed two-wine practice.
+- Shared-subject false credit and out-of-track written pools are repaired. Cue asset hash is `ff182ac7d0cdc3ae07641662e34aa266ce11efa04640d79bfea1b5a7fcdeb615`; all 522 finite prompts/answers received independent review. Thirteen bundled delivery/grading/scoping checks and the 1,018-test full Flutter run pass on the pre-paired-fix source.
+- Analysis is clean; curriculum lint has zero errors and three existing curator warnings: uncurated effective dates, structural relations and unverified factual items. Coverage measures all five tracks with zero known gaps and zero flashcard-only facts, preserving or improving the earlier track metrics.
+- The first completed candidate whole-suite run ended **1,009 passed and nine failed**. The repair-focused run ended **44 passed and one Study-search fixture failure**; the corrected isolated fixture passed. The repaired complete Flutter run then finished **1,018 passed, zero failed** in 54:05 before the bounded paired fix. Post-fix affected tasting tests now pass **67/0**; this is not a claim that the entire 1,018-test suite reran after the fix.
+- Post-fix probe and normal web builds both succeed with **163 exact assets and two runtime pins**. Real WASM probes pass with COOP/COEP off and on: release 0.23.0, 38 map layers, zero unavailable required facts, completed Level 1 calibration and persisted two-wine paired evidence. The normal phone-width UI reports all nine stages `ok:true`, including five tracks, Study search/progress, saved rehearsal/guided evidence, separate physical-wine drafts, paired reload and narrow navigation.
+- The former stage-08 paired-web lock is repaired in the pre-enable and final enabled runs. The pinned helper has enabled internal Level 1–3 curriculum-complete and requirement-reviewed metadata for 49/442/888 topic rows and 132/752/1,625 facts, with gaps `[]`; Diploma is unchanged. Post-enable progress tests pass 42/0, analyzer and fresh builds pass, and exact 163-asset/two-pin verification passes. `build/wset-browser-storage-enabled.log` reports both COOP modes `ok` with zero required unavailable, one completed Level 1 calibration participation without FSRS writes, separate paired drafts/observations/evidence/timer and a correct Chablis map frame/tap. `build/app_ui_smoke_enabled/result.json` reports all nine stages `ok:true` at 320 px, with loaded-navigation screenshots, required in-progress counts 132/752/1,625 and no page/console/request errors. Only remote CI/PR receipt and release handoff remain open.
+- The [final outcome audit](wset-levels-1-3-final-outcome-audit.md) snapshots scope SHA-256 `fc8695102c71f5aa1c0f3b226235460a21ae4866a32e53860c8203a1856257fb` and evidence SHA-256 `db4f6a106a17712b0b85357a87c4d73f981f612e43af2047a68e207bb64295a6`. Root's completion helper verifies these exact inputs before changing review/coverage metadata; the final distributed bundle must then match the newly enabled source.
+
+## Initial discovery findings — historical
+
+These findings describe the early task state. The closed semantic work above supersedes their outstanding-topic wording; they are retained to explain why the work was undertaken.
+
 - Grok's assessment correctly identifies the high atlas share, but absence of a `HAS_SOIL` row does not itself prove absence of teaching: original regional explanation items already cover Bordeaux gravel/clay and Hautes-Côtes comparisons.
 - Some individual cru/history depth suggestions exceed the mandatory L3 scope. Genuine named omissions and weak categories still need closure; the critic's direct specification comparison determines these.
 - All five learner tracks are selectable. The new beginner foundation/grape packs install successfully and supply dedicated Level 1/2 lessons. Their independent content review remains open.
 - Official Level2 currently links Issue2.1 (2026); the app must not silently build against an obsolete outline. Full exact source/version findings follow in W01/W03.
 - Persisted timed rehearsal, delayed written self-review, guided calibration and two-wine Level 3 practice are implemented. Focused restart/expiry/snapshot/backup checks pass; the real rehearsal bank and complete required-topic catalog are still being finished.
 
-## Validated implementation checkpoint — 27 September 2026
+## Historical validated implementation checkpoint — 27 September 2026
 
 Official scope is pinned to Level 1 June 2022 Issue 1.2, Level 2 2026 Issue 2.1 and Level 3 May 2022 Issue 2. The ignored immutable source baseline captures all 2,896 prior facts, mappings, licensed map bytes, legacy grids, schema and dependency/runtime pins. W01/W05 are closed with that evidence. Responsive five-track selection and focused Study search pass their narrow/large-text widget checks (W51/W52).
 
@@ -116,7 +132,7 @@ Practice progress now distinguishes shared fact memory from original rehearsal p
 
 The paired core and UI checks pass; the timer, ended state and errors remain visible above scrolling observations. Full analysis, complete suite and final asset/build verification await a final source freeze. No partial checkpoint closes W64–W66.
 
-## Final semantic review and delivery repairs
+## Historical semantic review and initial delivery repairs
 
 The independent scope refresh finds no remaining required Level 1–3 instructional topic gap after 43 explicit grape-structure lessons, the final service and regional-role closures, 149 Level 2 grape/origin pairs and 22 Level 3 sparkling/fortified families. The catalog selects 49/442/888 topic rows and 132/752/1,625 distinct required facts. This is semantic acceptance; runtime gates remain open.
 
@@ -125,3 +141,36 @@ Final integration includes Grok's registered fifteen history and twenty-two othe
 The coverage ratchet exposed actual delivery weaknesses and therefore refused a baseline update. Exact introductory explanatory mappings were depth 1, preventing generated typed/written recall at depth 2; those precise mappings are raised without making optional material compulsory. Fifty-two older location recall floors are restored after an overly broad promotion had lowered them. Six protected-origin labels now serve their existing typed recall. Prior baseline metrics are retained while repairs are validated.
 
 W67/W68 address two additional correctness defects: a broad shared-subject typed answer could accept one sibling phrase but credit a different primary fact; and a written explanation pool could choose an unavailable sibling outside its track. Original point-specific cues and scoped written membership close those defects without changing the facts, legal multi-answer behaviour or qualified-review status. Full regression was interrupted after 159 passing checks and the confirmed coverage failure; it is not recorded as a passing full suite. Complete acceptance will run after these repairs freeze.
+
+## Current acceptance execution and remaining work
+
+This section supersedes the historical running-state text above. It records the measured candidate and the remaining concrete gates; it is not a second authoring plan.
+
+| Gate/evidence | Measured result at this checkpoint | What can close it |
+|---|---|---|
+| Semantic content/source scope | Final Level 1–3 outcome audit complete; exact scope and ledger fingerprints recorded above | Closed for this frozen selection; revisit only if lessons, mappings or selected dimensions change |
+| Point-specific and written-pool focused acceptance | `build/wset-point-cue-acceptance.log`: 13 passed, `All tests passed!`; actual 522 cues and scoped point delivery exercised | Focused acceptance closed; W67/W68 remain part of the repaired full regression |
+| First complete candidate regression | `build/wset-acceptance-full-regression.log`: 1,009 passed, nine failed, `Some tests failed` | Historical failed run; never cite it as a whole-suite pass |
+| Affected repair focus | `build/wset-acceptance-repair-focus.log`: 44 passed, one Study-search fixture failed | Repair evidence for the passing affected cases; remaining fixture retested separately |
+| Corrected search fixture | `build/wset-study-search-repair.log`: one passed, `All tests passed!` | Isolated fixture closed; actual browser text focus remains a different open check |
+| Repaired complete regression | `build/wset-acceptance-full-green.log`: terminal 1,018 passed/zero failed, `All tests passed!`, 54:05 | PASS for source before bounded paired fix; do not describe as a post-fix full suite |
+| Post-fix affected tasting regression | `build/wset-tasting-transaction-tests.log`: 67 passed/zero failed, `All tests passed!` | PASS for the bounded paired/calibration repair; full 1,018-test receipt predates this change |
+| Analysis/lint | `build/wset-transaction-final-analysis.log`: no issues; `build/wset-transaction-final-lint.log`: zero errors/three existing curator warnings; post-enable full analyzer again clean | PASS for fixed and enabled source; warnings do not confer expert factual verification |
+| Coverage baseline | `build/wset-transaction-final-coverage.json`: strict five-track baseline passes with zero known gaps | PASS for post-fix selected scope; exact served evidence still governs semantic coverage |
+| Fresh app/probe builds | `build/wset-release-fixed-build.log` and `build/wset-probe-fixed-build.log` succeed before metadata enablement; fresh enabled normal and probe builds also pass with 163 exact assets and two runtime pins | PASS for final enabled source build and exact asset verification |
+| Real UI stages 01–09 | `build/app_ui_smoke_enabled/result.json`: all nine stages `ok:true` at 320 × 780; loaded-navigation screenshots, five tracks, Study in-progress required counts 132/752/1,625, saved rehearsal/guided/paired evidence, five narrow destinations, no page/console/request errors | PASS for final enabled real UI and visual timing |
+| Paired web repair | Former stage-08 lock remains a historical failed receipt; enabled normal UI and both WASM modes restore separate physical-wine drafts, observations, evidence and deadline without grading an incomplete pair | PASS for final enabled paired browser delivery |
+| Storage and serving probe | `build/wset-browser-storage-enabled.log`: both COOP/COEP modes `ok`, 38 layers, zero required unavailable, correct Chablis frame/tap, Level 1 calibration participation once without FSRS memory, distinct paired evidence/timer | PASS for final enabled WASM storage/serving in both modes |
+| Completion metadata | Pinned helper succeeded: Level 1–3 complete/reviewed true, gaps `[]` for 49/442/888 required rows and 132/752/1,625 facts; Diploma unchanged. Post-enable progress 42/0 and analyzer/build/asset/browser verification pass | PASS for enabled internal metadata and local distributed browser bundle |
+| Final release/handoff | Candidate integration checkpoints `575f12b`/`ccf61fd` and final enabled local acceptance receipts exist | Remote CI/PR receipt, commit/release identity, external limits and Grok handoff pending |
+
+The nine failures in the first completed candidate suite are preserved in its log. Their affected areas were production curriculum expectations, European mappings, tasting teaching mappings, map framing, selectable-track inventories/rejection/streaming, legacy versus appended tasting grids, and Study badges/search. They were not silently discarded. The repaired focused run left one Study fixture failure; its isolated correction passed. The 1,018-test complete rerun proves those assembled repairs coexist before the later paired-web code change.
+
+Remaining actions are deliberately specific:
+
+1. **W61/W62:** retain the 1,018/0 pre-fix complete Flutter run, 67/0 post-fix affected tasting run and 42/0 post-enable progress run as distinct receipts. Full post-enable analyzer, zero-error lint and strict five-track ratchet pass. These close measured local regression/source gates without claiming a post-fix full-suite rerun; any later source change requires an appropriate new check.
+2. **W63:** final enabled normal/probe builds serve 163 exact assets and two runtime pins. Both COOP/COEP WASM browser modes and all nine actual UI stages pass, including the loaded stage-09 navigation screenshots, separate paired wines, restored timer/evidence and no false activity credit. Keep their final source fingerprints in the release record.
+3. **W64/W65:** the pinned helper enabled only Level 1–3 internal coverage/topic review, cleared resolved gaps and left Diploma, factual verification, learner reviews/practice and exam declarations unchanged. Post-enable source, progress, builds, assets and browser checks close the local metadata/delivery gate; preserve the three optional authoring-cache skips and existing curator warnings in the handoff.
+4. **W66:** obtain remote CI/PR acceptance and record the final commit/release identity, source fingerprints and Grok handoff. Distinguish finished Level 1–3 app study coverage from unfinished Diploma, qualified factual review, official courses/tasting/examinations and external device checks. Preserve Grok's unregistered candidates without claiming them complete.
+
+No remaining authoring batch is queued for mandatory Level 1–3 teaching. Any new contradiction discovered during delivery is a specific reopened defect, not permission to replace the required evidence with optional atlas counts. Root owns the remaining W66 remote CI/PR and handoff work.

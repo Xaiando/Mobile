@@ -1,6 +1,8 @@
 import 'dart:convert';
 
-import 'package:drift/native.dart' show SqliteException;
+import 'package:drift/drift.dart'
+    show ApplyInterceptor, QueryExecutor, QueryInterceptor, TransactionExecutor;
+import 'package:drift/native.dart' show NativeDatabase, SqliteException;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:sommelier/core/backup/user_data_backup.dart';
 import 'package:sommelier/core/database/app_database.dart';
@@ -17,8 +19,10 @@ void main() {
   late AppDatabase db;
   late TestClock time;
   late GuidedTastingRepository repository;
+  late _TransactionCounter transactions;
   setUp(() async {
-    db = openTestDatabase();
+    transactions = _TransactionCounter();
+    db = AppDatabase(NativeDatabase.memory().interceptWith(transactions));
     time = TestClock(t0);
     await seedCurriculum(db);
     await seedSchedulerConfig(db);
@@ -83,6 +87,154 @@ void main() {
     }
     return repository.finish(record.sessionId);
   }
+
+  test('guided writes, finishing and legacy reconciliation each use one transaction', () async {
+    final record = await repository.start(1);
+    transactions.reset();
+    await repository.choose(record.sessionId, 'sweetness', {'dry'});
+    expect(transactions.begun, 1);
+    expect(transactions.committed, 1);
+    expect(transactions.rolledBack, 0);
+
+    transactions.reset();
+    await repository.evidence(
+      record.sessionId,
+      'description',
+      'Dry palate evidence.',
+    );
+    expect(transactions.begun, 1);
+    expect(transactions.committed, 1);
+    expect(transactions.rolledBack, 0);
+
+    transactions.reset();
+    final finished = await repository.finish(record.sessionId);
+    expect(transactions.begun, 1);
+    expect(transactions.committed, 1);
+    expect(transactions.rolledBack, 0);
+    expect(finished.isFinished, isTrue);
+
+    await repository.practice.choose(record.sessionId, 'aromas', {'citrus'});
+    transactions.reset();
+    final reopened = (await repository.current())!;
+    expect(transactions.begun, 1);
+    expect(transactions.committed, 1);
+    expect(transactions.rolledBack, 0);
+    expect(reopened.isFinished, isFalse);
+    expect(reopened.completedObservations, isEmpty);
+    expect(reopened.evidence['description'], 'Dry palate evidence.');
+  });
+
+  test('joined guided and observation writes reject missing or foreign transactions', () async {
+    final record = await repository.start(1);
+    final settingsBefore = await db.select(db.userSettings).get();
+    transactions.reset();
+    await expectLater(
+      repository.chooseInTransaction(record.sessionId, 'sweetness', {'dry'}),
+      throwsStateError,
+    );
+    await expectLater(
+      repository.evidenceInTransaction(
+        record.sessionId,
+        'description',
+        'Outside transaction.',
+      ),
+      throwsStateError,
+    );
+    await expectLater(
+      repository.practice.chooseInTransaction(record.sessionId, 'sweetness', {
+        'dry',
+      }),
+      throwsStateError,
+    );
+    final other = openTestDatabase();
+    try {
+      await expectLater(
+        other.transaction(
+          () => repository.chooseInTransaction(record.sessionId, 'sweetness', {
+            'dry',
+          }),
+        ),
+        throwsStateError,
+      );
+      await expectLater(
+        other.transaction(
+          () => repository.evidenceInTransaction(
+            record.sessionId,
+            'description',
+            'Foreign transaction.',
+          ),
+        ),
+        throwsStateError,
+      );
+      await expectLater(
+        other.transaction(
+          () => repository.practice.chooseInTransaction(
+            record.sessionId,
+            'sweetness',
+            {'dry'},
+          ),
+        ),
+        throwsStateError,
+      );
+    } finally {
+      await other.close();
+    }
+    expect(transactions.begun, 0);
+    expect(await db.select(db.tastingDescriptors).get(), isEmpty);
+    expect(await db.select(db.userSettings).get(), settingsBefore);
+  });
+
+  test('failed guided observation replacement retains the previous value atomically', () async {
+    final record = await repository.start(1);
+    await repository.choose(record.sessionId, 'sweetness', {'dry'});
+    transactions.reset();
+    await expectLater(
+      repository.choose(record.sessionId, 'sweetness', {'unknown'}),
+      throwsA(isA<SqliteException>()),
+    );
+    expect(transactions.begun, 1);
+    expect(transactions.committed, 0);
+    expect(transactions.rolledBack, 1);
+    expect(await repository.observations(record), {
+      'sweetness': {'dry'},
+    });
+  });
+
+  test(
+    'failed guided completion snapshot rolls back legacy completion',
+    () async {
+      final record = await repository.start(1);
+      await repository.choose(record.sessionId, 'sweetness', {'dry'});
+      await repository.evidence(
+        record.sessionId,
+        'description',
+        'Observed evidence.',
+      );
+      final settingsBefore = await db.select(db.userSettings).get();
+      await db.customStatement('''CREATE TEMP TRIGGER reject_guided_completion
+      BEFORE UPDATE ON user_settings
+      WHEN NEW.name LIKE 'guided_tasting_record_v1_%'
+      BEGIN SELECT RAISE(ABORT, 'fixture guided snapshot failure'); END;''');
+      try {
+        transactions.reset();
+        await expectLater(
+          repository.finish(record.sessionId),
+          throwsA(isA<SqliteException>()),
+        );
+        expect(transactions.begun, 1);
+        expect(transactions.committed, 0);
+        expect(transactions.rolledBack, 1);
+        expect(
+          (await repository.session(record.sessionId)).completedAt,
+          isNull,
+        );
+        expect(await db.select(db.userSettings).get(), settingsBefore);
+      } finally {
+        await db.customStatement('DROP TRIGGER reject_guided_completion');
+      }
+      expect((await repository.read(record.sessionId)).isFinished, isFalse);
+    },
+  );
 
   test('imported unknown calibration vocabulary is recoverable without changing raw snapshots', () async {
     final corrupt = <String, String>{};
@@ -449,4 +601,34 @@ void main() {
     await repository.start(1);
     expect(await repository.history(), hasLength(2));
   });
+}
+
+class _TransactionCounter extends QueryInterceptor {
+  int begun = 0;
+  int committed = 0;
+  int rolledBack = 0;
+
+  void reset() {
+    begun = 0;
+    committed = 0;
+    rolledBack = 0;
+  }
+
+  @override
+  TransactionExecutor beginTransaction(QueryExecutor parent) {
+    begun++;
+    return super.beginTransaction(parent);
+  }
+
+  @override
+  Future<void> commitTransaction(TransactionExecutor inner) async {
+    await super.commitTransaction(inner);
+    committed++;
+  }
+
+  @override
+  Future<void> rollbackTransaction(TransactionExecutor inner) async {
+    await super.rollbackTransaction(inner);
+    rolledBack++;
+  }
 }

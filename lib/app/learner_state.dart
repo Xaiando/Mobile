@@ -19,7 +19,7 @@ final learnerProfileProvider = StreamProvider<UserProfile?>((ref) async* {
   yield* ref.watch(learnerProfilesProvider).watch();
 });
 
-/// The tracks on offer: WSET Level 3 and CMS Certified (spec §N).
+/// The selectable WSET Levels 1–4 and CMS Certified study tracks.
 final selectableTracksProvider = FutureProvider<List<Certification>>((
   ref,
 ) async {
