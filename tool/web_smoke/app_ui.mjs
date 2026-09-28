@@ -267,12 +267,22 @@ try {
       if (!fs.existsSync(file) || !fs.statSync(file).isFile()) {
         response.writeHead(404); response.end(); return;
       }
-      response.writeHead(200, {
+      const headers = {
         'Content-Type': types[path.extname(file)] ?? 'application/octet-stream',
         'Cross-Origin-Opener-Policy': 'same-origin',
         'Cross-Origin-Embedder-Policy': 'require-corp',
         'Cache-Control': 'no-store',
-      });
+      };
+      // Flutter fetches this tiny manifest again after every reload. Send its
+      // body and EOF together so Chromium does not see a successful response
+      // header while the separate file stream has yet to deliver the body.
+      if (path.relative(root, file).split(path.sep).join('/') === 'assets/FontManifest.json') {
+        const bytes = fs.readFileSync(file);
+        response.writeHead(200, { ...headers, 'Content-Length': bytes.length });
+        response.end(bytes);
+        return;
+      }
+      response.writeHead(200, headers);
       fs.createReadStream(file).on('error', () => response.destroy()).pipe(response);
     } catch {
       response.writeHead(400); response.end();
@@ -468,7 +478,8 @@ try {
     await page.waitForTimeout(5000);
     await reload();
     await visible('Home', startupTimeout);
-    assert(await selected(named('WSET Level 2')), 'Selected track did not survive reload.');
+    await until(() => selected(named('WSET Level 2')),
+      'Selected track did not survive reload.', 30_000);
     await openHomeAction('Level rehearsal', 'WSET practice');
     const after = await secondsRemaining();
     assert(after < rehearsalRemaining &&

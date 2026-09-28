@@ -129,6 +129,33 @@ source_citations:
     license: CC0 1.0
     attribution_text: Location markers from Wikidata (CC0), retrieved 26 September
       2026. Points indicate locations, not wine-area boundaries.
+  - id: src_cms_eastern_europe_markers
+    kind: dataset
+    title: Bulgaria and Romania wine-district named-settlement orientation markers
+    publisher: GeoNames
+    document_identifier: Curated records from BG.zip and RO.zip retrieved 2026-09-28
+    url: https://download.geonames.org/export/dump/BG.zip
+    accessed_on: 2026-09-28
+    license: CC BY 4.0
+    attribution_text: Contains GeoNames Bulgarian and Romanian geographical data (CC BY 4.0), retrieved 28 September 2026. Named WGS84 settlement references locate wine districts, not legal boundaries or official centroids.
+  - id: src_cms_greece_markers
+    kind: dataset
+    title: Greek Certified wine-area orientation markers
+    publisher: GeoNames
+    document_identifier: Curated records from GR.zip retrieved 2026-09-28
+    url: https://download.geonames.org/export/dump/GR.zip
+    accessed_on: 2026-09-28
+    license: CC BY 4.0
+    attribution_text: Contains GeoNames Greek geographical data (CC BY 4.0), retrieved 28 September 2026. Named WGS84 orientation references locate regions, peninsula, mountain and city, not PDO boundaries or official centroids.
+  - id: src_cms_loire_geonames_markers
+    kind: dataset
+    title: Loire Certified appellation named-municipality orientation markers
+    publisher: GeoNames
+    document_identifier: Curated exact FR.zip settlement records retrieved 2026-09-28
+    url: https://download.geonames.org/export/dump/FR.zip
+    accessed_on: 2026-09-28
+    license: CC BY 4.0
+    attribution_text: Contains GeoNames data, licensed CC BY 4.0. Named municipality references are not appellation centroids or wine boundaries.
   - id: src_france_champagne_markers
     kind: dataset
     title: Champagne traditional wine-area location markers

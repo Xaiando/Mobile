@@ -17,8 +17,8 @@ map_layers:
     display_name: Countries
     geometry_kind: area
     asset_path: assets/geography/world_countries.topo.json
-    asset_sha256: 062c792516ac2dd71a5f00884aaca39d3d3d886134f3469e292e4ed804cfdfb5
-    asset_bytes: 347293
+    asset_sha256: 47af093d38af91b43c811f9e60ee54f474ff8d39f24fdc53a1b8eb0296ea1839
+    asset_bytes: 347336
     min_zoom: 0
     max_zoom: 10
     parent_layer_id: null
@@ -165,6 +165,42 @@ map_layers:
     source_citation_ids:
       - src_central_europe_atlas_markers
     attribution: Location markers from Wikidata (CC0), retrieved 26 September 2026. Points indicate locations, not wine-area boundaries.
+  - id: ml_cms_eastern_europe_markers
+    display_name: Bulgaria and Romania wine-district orientation markers
+    geometry_kind: point
+    asset_path: assets/geography/cms_eastern_europe_markers.topo.json
+    asset_sha256: 78d00879f3653276338c194d4ece1228d4b289ffbb9d8671a724c10b2eb00719
+    asset_bytes: 1125
+    min_zoom: 4
+    max_zoom: 18
+    parent_layer_id: ml_world_countries
+    source_citation_ids:
+      - src_cms_eastern_europe_markers
+    attribution: Contains GeoNames Bulgarian and Romanian geographical data (CC BY 4.0), retrieved 28 September 2026. Named WGS84 settlement references locate wine districts, not legal boundaries or official centroids.
+  - id: ml_cms_greece_markers
+    display_name: Greek Certified geography orientation markers
+    geometry_kind: point
+    asset_path: assets/geography/cms_greece_markers.topo.json
+    asset_sha256: f34eeaf5aeaf4858c036929f5419baabc62485331066e3a2f8e4293e280c393b
+    asset_bytes: 636
+    min_zoom: 4
+    max_zoom: 18
+    parent_layer_id: ml_world_countries
+    source_citation_ids:
+      - src_cms_greece_markers
+    attribution: Contains GeoNames Greek geographical data (CC BY 4.0), retrieved 28 September 2026. Named WGS84 orientation references locate regions, peninsula, mountain and city, not PDO boundaries or official centroids.
+  - id: ml_cms_loire_markers
+    display_name: Loire Certified appellation orientation markers
+    geometry_kind: point
+    asset_path: assets/geography/cms_loire_markers.topo.json
+    asset_sha256: 159f0ae797bdca887b17dd44399cf01484f185c01d1bd2cedf689314b9b6d501
+    asset_bytes: 443
+    min_zoom: 4
+    max_zoom: 18
+    parent_layer_id: ml_world_countries
+    source_citation_ids:
+      - src_cms_loire_geonames_markers
+    attribution: Contains GeoNames data, licensed CC BY 4.0. Named municipality references are not appellation centroids or wine boundaries.
   - id: ml_france_champagne_markers
     display_name: Champagne traditional wine-area location markers
     geometry_kind: point
@@ -493,6 +529,15 @@ node_geometries:
     max_lat: 49.001123
     label_lon: 14.125417
     label_lat: 47.584834
+  - knowledge_node_id: n_geo_bulgaria
+    map_layer_id: ml_world_countries
+    feature_key: n_geo_bulgaria
+    min_lon: 22.344043
+    min_lat: 41.243555
+    max_lon: 28.585352
+    max_lat: 44.237793
+    label_lon: 25.214801
+    label_lat: 42.624868
   - knowledge_node_id: n_geo_canada
     map_layer_id: ml_world_countries
     feature_key: n_geo_canada
@@ -601,6 +646,15 @@ node_geometries:
     max_lat: 42.137402
     label_lon: -8.257078
     label_lat: 39.461154
+  - knowledge_node_id: n_geo_romania
+    map_layer_id: ml_world_countries
+    feature_key: n_geo_romania
+    min_lon: 20.241797
+    min_lat: 43.670801
+    max_lon: 29.705859
+    max_lat: 48.263477
+    label_lon: 24.973309
+    label_lat: 45.8527
   - knowledge_node_id: n_geo_south_africa
     map_layer_id: ml_world_countries
     feature_key: n_geo_south_africa
@@ -5650,6 +5704,159 @@ node_geometries:
     max_lat: 49.658889
     label_lon: 6.59
     label_lat: 49.658889
+  - knowledge_node_id: n_geo_cotnari
+    map_layer_id: ml_cms_eastern_europe_markers
+    feature_key: n_geo_cotnari
+    min_lon: 26.98333
+    min_lat: 47.35
+    max_lon: 26.98333
+    max_lat: 47.35
+    label_lon: 26.98333
+    label_lat: 47.35
+  - knowledge_node_id: n_geo_danubian_plain_bg
+    map_layer_id: ml_cms_eastern_europe_markers
+    feature_key: n_geo_danubian_plain_bg
+    min_lon: 24.61666
+    min_lat: 43.41791
+    max_lon: 24.61666
+    max_lat: 43.41791
+    label_lon: 24.61666
+    label_lat: 43.41791
+  - knowledge_node_id: n_geo_dealu_mare
+    map_layer_id: ml_cms_eastern_europe_markers
+    feature_key: n_geo_dealu_mare
+    min_lon: 26.23333
+    min_lat: 44.98333
+    max_lon: 26.23333
+    max_lat: 44.98333
+    label_lon: 26.23333
+    label_lat: 44.98333
+  - knowledge_node_id: n_geo_lyubimets_pdo
+    map_layer_id: ml_cms_eastern_europe_markers
+    feature_key: n_geo_lyubimets_pdo
+    min_lon: 26.08115
+    min_lat: 41.84432
+    max_lon: 26.08115
+    max_lat: 41.84432
+    label_lon: 26.08115
+    label_lat: 41.84432
+  - knowledge_node_id: n_geo_melnik_pdo
+    map_layer_id: ml_cms_eastern_europe_markers
+    feature_key: n_geo_melnik_pdo
+    min_lon: 23.28333
+    min_lat: 41.56667
+    max_lon: 23.28333
+    max_lat: 41.56667
+    label_lon: 23.28333
+    label_lat: 41.56667
+  - knowledge_node_id: n_geo_murfatlar
+    map_layer_id: ml_cms_eastern_europe_markers
+    feature_key: n_geo_murfatlar
+    min_lon: 28.41667
+    min_lat: 44.18333
+    max_lon: 28.41667
+    max_lat: 44.18333
+    label_lon: 28.41667
+    label_lat: 44.18333
+  - knowledge_node_id: n_geo_recas
+    map_layer_id: ml_cms_eastern_europe_markers
+    feature_key: n_geo_recas
+    min_lon: 21.50083
+    min_lat: 45.79889
+    max_lon: 21.50083
+    max_lat: 45.79889
+    label_lon: 21.50083
+    label_lat: 45.79889
+  - knowledge_node_id: n_geo_tarnave
+    map_layer_id: ml_cms_eastern_europe_markers
+    feature_key: n_geo_tarnave
+    min_lon: 24.35
+    min_lat: 46.16667
+    max_lon: 24.35
+    max_lat: 46.16667
+    label_lon: 24.35
+    label_lat: 46.16667
+  - knowledge_node_id: n_geo_thracian_lowlands_bg
+    map_layer_id: ml_cms_eastern_europe_markers
+    feature_key: n_geo_thracian_lowlands_bg
+    min_lon: 24.75001
+    min_lat: 42.15387
+    max_lon: 24.75001
+    max_lat: 42.15387
+    label_lon: 24.75001
+    label_lat: 42.15387
+  - knowledge_node_id: n_geo_achaea
+    map_layer_id: ml_cms_greece_markers
+    feature_key: n_geo_achaea
+    min_lon: 22
+    min_lat: 38.13333
+    max_lon: 22
+    max_lat: 38.13333
+    label_lon: 22
+    label_lat: 38.13333
+  - knowledge_node_id: n_geo_halkidiki
+    map_layer_id: ml_cms_greece_markers
+    feature_key: n_geo_halkidiki
+    min_lon: 23.5
+    min_lat: 40.41667
+    max_lon: 23.5
+    max_lat: 40.41667
+    label_lon: 23.5
+    label_lat: 40.41667
+  - knowledge_node_id: n_geo_patra
+    map_layer_id: ml_cms_greece_markers
+    feature_key: n_geo_patra
+    min_lon: 21.73508
+    min_lat: 38.2462
+    max_lon: 21.73508
+    max_lat: 38.2462
+    label_lon: 21.73508
+    label_lat: 38.2462
+  - knowledge_node_id: n_geo_sithonia
+    map_layer_id: ml_cms_greece_markers
+    feature_key: n_geo_sithonia
+    min_lon: 23.86828
+    min_lat: 40.09788
+    max_lon: 23.86828
+    max_lat: 40.09788
+    label_lon: 23.86828
+    label_lat: 40.09788
+  - knowledge_node_id: n_geo_slopes_of_meliton
+    map_layer_id: ml_cms_greece_markers
+    feature_key: n_geo_slopes_of_meliton
+    min_lon: 23.83333
+    min_lat: 40.06667
+    max_lon: 23.83333
+    max_lat: 40.06667
+    label_lon: 23.83333
+    label_lat: 40.06667
+  - knowledge_node_id: n_geo_cheverny
+    map_layer_id: ml_cms_loire_markers
+    feature_key: n_geo_cheverny
+    min_lon: 1.45951
+    min_lat: 47.50079
+    max_lon: 1.45951
+    max_lat: 47.50079
+    label_lon: 1.45951
+    label_lat: 47.50079
+  - knowledge_node_id: n_geo_orleans_aoc
+    map_layer_id: ml_cms_loire_markers
+    feature_key: n_geo_orleans_aoc
+    min_lon: 1.90407
+    min_lat: 47.90248
+    max_lon: 1.90407
+    max_lat: 47.90248
+    label_lon: 1.90407
+    label_lat: 47.90248
+  - knowledge_node_id: n_geo_saint_pourcain
+    map_layer_id: ml_cms_loire_markers
+    feature_key: n_geo_saint_pourcain
+    min_lon: 3.28931
+    min_lat: 46.30748
+    max_lon: 3.28931
+    max_lat: 46.30748
+    label_lon: 3.28931
+    label_lat: 46.30748
   - knowledge_node_id: n_geo_cote_des_bar
     map_layer_id: ml_france_champagne_markers
     feature_key: n_geo_cote_des_bar

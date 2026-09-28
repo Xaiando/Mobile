@@ -1,0 +1,283 @@
+# Three smaller Loire appellations named as Certified Sommelier examples in
+# the CMS Europe 2026/27 syllabus. The map points are sourced municipality
+# references, not appellation centroids or legal wine-area boundaries.
+# All new factual items await qualified expert review.
+knowledge_nodes:
+  - id: n_geo_saint_pourcain
+    node_type: appellation
+    name: Saint-Pourçain
+  - id: n_geo_cheverny
+    node_type: appellation
+    name: Cheverny
+  - id: n_geo_orleans_aoc
+    node_type: appellation
+    name: Orléans (AOC)
+  - id: n_cms_loire_principle_saint_pourcain_wines
+    node_type: production_principle
+    name: What wine colours and characteristic grape blends does Saint-Pourçain AOC produce?
+  - id: n_cms_loire_point_saint_pourcain_red_rose
+    node_type: learning_point
+    name: Saint-Pourçain red and rosé wines, with Gamay and Pinot Noir in reds
+  - id: n_cms_loire_point_saint_pourcain_white
+    node_type: learning_point
+    name: Saint-Pourçain white blends Chardonnay with Tressallier
+  - id: n_cms_loire_principle_cheverny_wines
+    node_type: production_principle
+    name: What wine colours and characteristic grape blends does Cheverny AOC produce?
+  - id: n_cms_loire_point_cheverny_red_rose
+    node_type: learning_point
+    name: Cheverny dry red and rosé wines, with Gamay and Pinot Noir in reds
+  - id: n_cms_loire_point_cheverny_white
+    node_type: learning_point
+    name: Cheverny dry white blends Sauvignon and Chardonnay
+  - id: n_cms_loire_principle_orleans_wines
+    node_type: production_principle
+    name: What wine colours and characteristic grape blends does Orléans AOC produce?
+  - id: n_cms_loire_point_orleans_red_rose
+    node_type: learning_point
+    name: Orléans dry red and rosé wines, with Meunier and Pinot Noir in reds
+  - id: n_cms_loire_point_orleans_white
+    node_type: learning_point
+    name: Orléans dry white is predominantly Chardonnay
+
+node_alternative_names:
+  - knowledge_node_id: n_geo_saint_pourcain
+    name: Saint-Pourcain
+    kind: spelling_variant
+  - knowledge_node_id: n_geo_orleans_aoc
+    name: Orléans
+    kind: synonym
+
+knowledge_relations:
+  - subject_id: n_geo_saint_pourcain
+    relation_type: LOCATED_IN
+    object_id: n_geo_loire_valley
+    valid_from: 2026-09-28
+  - subject_id: n_geo_cheverny
+    relation_type: LOCATED_IN
+    object_id: n_geo_loire_valley
+    valid_from: 2026-09-28
+  - subject_id: n_geo_orleans_aoc
+    relation_type: LOCATED_IN
+    object_id: n_geo_loire_valley
+    valid_from: 2026-09-28
+  - subject_id: n_cms_loire_principle_saint_pourcain_wines
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_cms_loire_point_saint_pourcain_red_rose
+    valid_from: 2026-09-28
+  - subject_id: n_cms_loire_principle_saint_pourcain_wines
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_cms_loire_point_saint_pourcain_white
+    valid_from: 2026-09-28
+  - subject_id: n_cms_loire_principle_cheverny_wines
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_cms_loire_point_cheverny_red_rose
+    valid_from: 2026-09-28
+  - subject_id: n_cms_loire_principle_cheverny_wines
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_cms_loire_point_cheverny_white
+    valid_from: 2026-09-28
+  - subject_id: n_cms_loire_principle_orleans_wines
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_cms_loire_point_orleans_red_rose
+    valid_from: 2026-09-28
+  - subject_id: n_cms_loire_principle_orleans_wines
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_cms_loire_point_orleans_white
+    valid_from: 2026-09-28
+
+knowledge_items:
+  - id: ki_cms_loire_saint_pourcain_location
+    subject_id: n_geo_saint_pourcain
+    relation_type: LOCATED_IN
+    object_id: n_geo_loire_valley
+    domain_id: geography
+    assertion_text: Saint-Pourçain is a protected wine appellation in Allier's Bourbonnais, in the wider Loire wine region; its designated area spans 19 communes, including Saint-Pourçain-sur-Sioule.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-28T08:00:00.000Z
+  - id: ki_cms_loire_cheverny_location
+    subject_id: n_geo_cheverny
+    relation_type: LOCATED_IN
+    object_id: n_geo_loire_valley
+    domain_id: geography
+    assertion_text: Cheverny is a protected wine appellation south of Blois in Loir-et-Cher, in the Loire wine region. The named town is an orientation reference, not the appellation boundary.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-28T08:00:00.000Z
+  - id: ki_cms_loire_orleans_location
+    subject_id: n_geo_orleans_aoc
+    relation_type: LOCATED_IN
+    object_id: n_geo_loire_valley
+    domain_id: geography
+    assertion_text: Orléans is a protected wine appellation along the Loire in Loiret; its designated area includes the commune of Orléans, but the municipality marker is not a vineyard boundary.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-28T08:00:00.000Z
+  - id: ki_cms_loire_saint_pourcain_red_rose
+    subject_id: n_cms_loire_principle_saint_pourcain_wines
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_cms_loire_point_saint_pourcain_red_rose
+    domain_id: geography
+    assertion_text: Saint-Pourçain AOC produces still red, rosé and white wines. Its reds use Gamay and Pinot Noir; the INAO describes red as the largest share of production.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-28T08:00:00.000Z
+  - id: ki_cms_loire_saint_pourcain_white
+    subject_id: n_cms_loire_principle_saint_pourcain_wines
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_cms_loire_point_saint_pourcain_white
+    domain_id: geography
+    assertion_text: Saint-Pourçain AOC white wines blend Chardonnay with Tressallier, the local name for Sacy.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-28T08:00:00.000Z
+  - id: ki_cms_loire_cheverny_red_rose
+    subject_id: n_cms_loire_principle_cheverny_wines
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_cms_loire_point_cheverny_red_rose
+    domain_id: geography
+    assertion_text: Cheverny AOC produces dry still red, rosé and white wines. Its reds blend Gamay and Pinot Noir.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-28T08:00:00.000Z
+  - id: ki_cms_loire_cheverny_white
+    subject_id: n_cms_loire_principle_cheverny_wines
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_cms_loire_point_cheverny_white
+    domain_id: geography
+    assertion_text: Cheverny AOC dry white wines blend Sauvignon and Chardonnay.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-28T08:00:00.000Z
+  - id: ki_cms_loire_orleans_red_rose
+    subject_id: n_cms_loire_principle_orleans_wines
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_cms_loire_point_orleans_red_rose
+    domain_id: geography
+    assertion_text: Orléans AOC produces dry still red, rosé and white wines. Its reds blend Meunier (Pinot Meunier) and Pinot Noir.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-28T08:00:00.000Z
+  - id: ki_cms_loire_orleans_white
+    subject_id: n_cms_loire_principle_orleans_wines
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_cms_loire_point_orleans_white
+    domain_id: geography
+    assertion_text: Orléans AOC dry white wines are predominantly Chardonnay.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-28T08:00:00.000Z
+
+certification_knowledge_mappings:
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_cms_loire_saint_pourcain_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_cms_loire_cheverny_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_cms_loire_orleans_location
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_cms_loire_saint_pourcain_red_rose
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_cms_loire_saint_pourcain_white
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_cms_loire_cheverny_red_rose
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_cms_loire_cheverny_white
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_cms_loire_orleans_red_rose
+    importance: core
+    minimum_depth: 2
+  - certification_id: CMS_CERTIFIED
+    knowledge_item_id: ki_cms_loire_orleans_white
+    importance: core
+    minimum_depth: 2
+
+source_citations:
+  - id: src_cms_loire_inao_saint_pourcain
+    kind: regulator_register
+    title: Saint-Pourçain AOC geographical area
+    publisher: Institut national de l'origine et de la qualité
+    jurisdiction: FR
+    url: https://www.inao.gouv.fr/node/8847
+    accessed_on: 2026-09-28
+  - id: src_cms_loire_inao_cheverny
+    kind: regulator_register
+    title: Cheverny AOC geographical area
+    publisher: Institut national de l'origine et de la qualité
+    jurisdiction: FR
+    url: https://www.inao.gouv.fr/node/37962/printable/print
+    accessed_on: 2026-09-28
+  - id: src_cms_loire_inao_orleans
+    kind: regulator_register
+    title: Orléans AOC geographical area
+    publisher: Institut national de l'origine et de la qualité
+    jurisdiction: FR
+    url: https://www.inao.gouv.fr/node/7774
+    accessed_on: 2026-09-28
+  - id: src_cms_loire_inao_saint_pourcain_wines
+    kind: regulator_register
+    title: Saint-Pourçain AOC wines
+    publisher: Institut national de l'origine et de la qualité
+    jurisdiction: FR
+    url: https://www.inao.gouv.fr/node/35434/printable/print
+    accessed_on: 2026-09-28
+  - id: src_cms_loire_inao_orleans_wines
+    kind: regulator_register
+    title: Orléans AOC wines
+    publisher: Institut national de l'origine et de la qualité
+    jurisdiction: FR
+    url: https://inao.gouv.fr/node/2212/printable/print
+    accessed_on: 2026-09-28
+
+knowledge_item_citations:
+  - knowledge_item_id: ki_cms_loire_saint_pourcain_location
+    source_citation_id: src_cms_loire_inao_saint_pourcain
+    locator: Geographical area, 19 Allier communes including Saint-Pourçain-sur-Sioule
+  - knowledge_item_id: ki_cms_loire_saint_pourcain_location
+    source_citation_id: src_fr_atlas_loire_guide
+    locator: Loire appellation guide, Auvergne and Saint-Pourçain section
+  - knowledge_item_id: ki_cms_loire_cheverny_location
+    source_citation_id: src_cms_loire_inao_cheverny
+    locator: Product and territory; geographical area south of Blois in Loir-et-Cher
+  - knowledge_item_id: ki_cms_loire_cheverny_location
+    source_citation_id: src_fr_atlas_loire_guide
+    locator: Cheverny appellation in Loire guide
+  - knowledge_item_id: ki_cms_loire_orleans_location
+    source_citation_id: src_cms_loire_inao_orleans
+    locator: Geographical area, 13 Loiret communes including Orléans
+  - knowledge_item_id: ki_cms_loire_orleans_location
+    source_citation_id: src_fr_atlas_loire_guide
+    locator: Orléans appellation in Loire guide
+  - knowledge_item_id: ki_cms_loire_saint_pourcain_red_rose
+    source_citation_id: src_cms_loire_inao_saint_pourcain_wines
+    locator: Le produit; red, rosé and white production and red grape blend
+  - knowledge_item_id: ki_cms_loire_saint_pourcain_white
+    source_citation_id: src_cms_loire_inao_saint_pourcain_wines
+    locator: Le produit and Le saviez-vous; Chardonnay and Tressallier (Sacy)
+  - knowledge_item_id: ki_cms_loire_cheverny_red_rose
+    source_citation_id: src_cms_loire_inao_cheverny
+    locator: Le produit and Arômes et saveurs; dry wine colours and red blend
+  - knowledge_item_id: ki_cms_loire_cheverny_white
+    source_citation_id: src_cms_loire_inao_cheverny
+    locator: Arômes et saveurs; Sauvignon and Chardonnay white blend
+  - knowledge_item_id: ki_cms_loire_orleans_red_rose
+    source_citation_id: src_cms_loire_inao_orleans_wines
+    locator: Le produit; dry wine colours and Pinot Meunier–Pinot Noir red blend
+  - knowledge_item_id: ki_cms_loire_orleans_white
+    source_citation_id: src_cms_loire_inao_orleans_wines
+    locator: Le produit; predominantly Chardonnay white wine

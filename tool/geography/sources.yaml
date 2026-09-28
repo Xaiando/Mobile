@@ -137,6 +137,42 @@ sources:
     license: CC0 1.0
     attribution: Location markers from Wikidata (CC0), retrieved 26 September 2026. Points indicate locations, not
       wine-area boundaries.
+  - id: src_cms_eastern_europe_markers
+    title: Bulgaria and Romania wine-district named-settlement orientation markers
+    publisher: GeoNames
+    url: https://download.geonames.org/export/dump/BG.zip
+    file: cms_eastern_europe_points.geojson
+    snapshot: cms_eastern_europe_points.geojson
+    version: Curated records from BG.zip and RO.zip retrieved 2026-09-28
+    retrieved: 2026-09-28
+    sha256: a695729f83c44a5657714f38b620efcbe4e7b28a948a21052d1d4b688a9af390
+    license: CC BY 4.0
+    attribution: Contains GeoNames Bulgarian and Romanian geographical data (CC BY 4.0), retrieved 28 September 2026.
+      Named WGS84 settlement references locate wine districts, not legal boundaries or official centroids.
+  - id: src_cms_greece_markers
+    title: Greek Certified wine-area orientation markers
+    publisher: GeoNames
+    url: https://download.geonames.org/export/dump/GR.zip
+    file: cms_greece_points.geojson
+    snapshot: cms_greece_points.geojson
+    version: Curated records from GR.zip retrieved 2026-09-28
+    retrieved: 2026-09-28
+    sha256: e29c73a03bcb871b806793c8bf233a54614834f4fa16ca6a743950bd2be3600e
+    license: CC BY 4.0
+    attribution: Contains GeoNames Greek geographical data (CC BY 4.0), retrieved 28 September 2026.
+      Named WGS84 orientation references locate regions, peninsula, mountain and city, not PDO boundaries or official centroids.
+  - id: src_cms_loire_geonames_markers
+    title: Loire Certified appellation named-municipality orientation markers
+    publisher: GeoNames
+    url: https://download.geonames.org/export/dump/FR.zip
+    file: cms_loire_points.geojson
+    snapshot: cms_loire_points.geojson
+    version: Curated exact FR.zip settlement records retrieved 2026-09-28
+    retrieved: 2026-09-28
+    sha256: 7be06c2468fa36941cc86b932e2ea4ed618e2c03c12d16c31883384cbdd17e51
+    license: CC BY 4.0
+    attribution: Contains GeoNames data, licensed CC BY 4.0. Named municipality references are not appellation
+      centroids or wine boundaries.
   - id: src_france_champagne_markers
     title: Champagne traditional wine-area location markers
     publisher: IGN and Wikidata

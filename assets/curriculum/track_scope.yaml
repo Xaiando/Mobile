@@ -1955,6 +1955,12 @@ tracks:
         covers:
           within:
             - n_geo_loire_valley
+            - n_geo_saint_pourcain
+            - n_geo_cheverny
+            - n_geo_orleans_aoc
+            - n_cms_loire_principle_saint_pourcain_wines
+            - n_cms_loire_principle_cheverny_wines
+            - n_cms_loire_principle_orleans_wines
             - n_reg_fr_principle_loire_white_styles
             - n_reg_fr_principle_centre_sites
             - n_reg_fr_case_loire_list
@@ -2172,6 +2178,11 @@ tracks:
         covers:
           within:
             - n_geo_greece
+            - n_geo_halkidiki
+            - n_geo_sithonia
+            - n_geo_slopes_of_meliton
+            - n_geo_achaea
+            - n_geo_patra
             - n_reg_gr_principle_naoussa_sites
             - n_reg_gr_principle_naoussa_styles
             - n_reg_gr_principle_amyndeon_context
@@ -2196,6 +2207,8 @@ tracks:
         covers:
           within:
             - n_geo_hungary
+            - n_geo_bulgaria
+            - n_geo_romania
             - n_wine_tokaji_eszencia
             - n_wine_tokaji_aszu
             - n_wine_tokaji_szamorodni_dry
@@ -2459,35 +2472,27 @@ tracks:
         covers: {domains: [tasting]}
         tasks: [T1, T2, Q8]
 
-      # Editorial enrichment; not a required Jura wine objective on this track.
-      - id: cms_certified.regional.jura_support
-        label: Optional Jura regional comparison support
-        required: false
+      - id: cms_certified.jura
+        label: Jura wine regions, grapes and styles
         covers:
           within:
+            - n_geo_jura
             - n_reg_fe_principle_jura_climate_sites
             - n_reg_fe_principle_jura_white_grapes
             - n_reg_fe_principle_jura_red_grapes
             - n_reg_fe_principle_jura_ouillage
             - n_reg_fe_principle_jura_patient_wines
-            - n_reg_fe_case_jura_white_comparison
-            - n_reg_fe_case_jura_maturation_cash
           relation_types:
+            - LOCATED_IN
             - PRINCIPLE_EXPLANATION
-            - CASE_ACTION
-            - CASE_REASON
-            - CASE_TRADEOFF
-            - CASE_LIMITATION
-        tasks:
-          - DIP-3
-          - C2
+        tasks: [C2]
 
       # Supporting atlas places, without adding required syllabus objectives.
       - id: cms_certified.atlas.additional_places
         label: Additional wine places for atlas study
         required: false
         covers:
-          within: [n_geo_jura, n_geo_savoie_region, n_geo_corsica, n_geo_switzerland, n_geo_georgia, n_geo_lebanon]
+          within: [n_geo_savoie_region, n_geo_corsica, n_geo_switzerland, n_geo_georgia, n_geo_lebanon]
           relation_types: [LOCATED_IN]
         tasks: [G10, G12, G13]
 

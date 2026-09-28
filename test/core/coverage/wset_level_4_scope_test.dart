@@ -266,37 +266,68 @@ void main() {
           reason: 'authored analysis joins existing map context',
         );
       }
+      final level3Jura = scope.tracks['WSET_L3']!.objectives.singleWhere(
+        (o) => o.id.endsWith('.regional.jura_support'),
+      );
+      expect(level3Jura.isRequired, isFalse);
+      expect(level3Jura.tasks, contains('DIP-3'));
+      expect(
+        level3Jura.covers!.within.every((node) => node.startsWith('n_reg_fe_')),
+        isTrue,
+        reason: 'optional analytical support has explicit subjects',
+      );
+      final level3JuraIds = {
+        for (final row in rowsOf(data, 'knowledge_items'))
+          if (level3Jura.covers!.within.contains(row['subject_id'])) row['id'],
+      };
+      final level3Mappings = rowsOf(data, 'certification_knowledge_mappings')
+          .where(
+            (row) =>
+                row['certification_id'] == 'WSET_L3' &&
+                level3JuraIds.contains(row['knowledge_item_id']),
+          );
+      expect(level3Mappings, isNotEmpty);
+      expect(
+        level3Mappings.every((row) => row['importance'] == 'secondary'),
+        isTrue,
+        reason: 'editorial Jura enrichment is not Level 3 core coverage',
+      );
+
+      final certifiedJura = scope.tracks['CMS_CERTIFIED']!.objectives
+          .singleWhere((o) => o.id == 'cms_certified.jura');
+      expect(certifiedJura.isRequired, isTrue);
+      expect(certifiedJura.tasks, contains('C2'));
+      expect(
+        certifiedJura.covers!.within,
+        containsAll([
+          'n_geo_jura',
+          'n_reg_fe_principle_jura_climate_sites',
+          'n_reg_fe_principle_jura_white_grapes',
+          'n_reg_fe_principle_jura_red_grapes',
+          'n_reg_fe_principle_jura_ouillage',
+          'n_reg_fe_principle_jura_patient_wines',
+        ]),
+      );
+      expect(
+        certifiedJura.covers!.relationTypes,
+        containsAll(['LOCATED_IN', 'PRINCIPLE_EXPLANATION']),
+      );
+      final certifiedJuraIds = {
+        for (final row in rowsOf(data, 'knowledge_items'))
+          if (certifiedJura.covers!.within.contains(row['subject_id']))
+            row['id'],
+      };
+      expect(
+        rowsOf(data, 'certification_knowledge_mappings').where(
+          (row) =>
+              row['certification_id'] == 'CMS_CERTIFIED' &&
+              certifiedJuraIds.contains(row['knowledge_item_id']),
+        ),
+        isNotEmpty,
+      );
+
       for (final trackId in ['WSET_L3', 'CMS_CERTIFIED']) {
         final track = scope.tracks[trackId]!;
-        final optionalJura = track.objectives.singleWhere(
-          (o) => o.id.endsWith('.regional.jura_support'),
-        );
-        expect(optionalJura.isRequired, isFalse);
-        expect(optionalJura.tasks, contains('DIP-3'));
-        expect(
-          optionalJura.covers!.within.every(
-            (node) => node.startsWith('n_reg_fe_'),
-          ),
-          isTrue,
-          reason: 'optional analytical support has explicit subjects',
-        );
-        final juraIds = {
-          for (final row in rowsOf(data, 'knowledge_items'))
-            if (optionalJura.covers!.within.contains(row['subject_id']))
-              row['id'],
-        };
-        final supportingMappings =
-            rowsOf(data, 'certification_knowledge_mappings').where(
-              (row) =>
-                  row['certification_id'] == trackId &&
-                  juraIds.contains(row['knowledge_item_id']),
-            );
-        expect(supportingMappings, isNotEmpty);
-        expect(
-          supportingMappings.every((row) => row['importance'] == 'secondary'),
-          isTrue,
-          reason: 'editorial Jura enrichment is not lower-track core coverage',
-        );
         final atlas = track.objectives.singleWhere(
           (o) => o.id.endsWith('.atlas.additional_places'),
         );

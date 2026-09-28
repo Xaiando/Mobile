@@ -11,17 +11,28 @@ knowledge_nodes:
   - { id: n_geo_nemea, node_type: appellation, name: Nemea }
   - { id: n_geo_naoussa, node_type: appellation, name: Naoussa }
   - { id: n_geo_santorini, node_type: appellation, name: Santorini }
+  - { id: n_geo_halkidiki, node_type: region, name: Halkidiki }
+  - { id: n_geo_sithonia, node_type: subregion, name: Sithonia }
+  - { id: n_geo_slopes_of_meliton, node_type: appellation, name: Slopes of Meliton }
+  - { id: n_geo_achaea, node_type: region, name: Achaea }
+  - { id: n_geo_patra, node_type: appellation, name: Patra (PDO) }
   - { id: n_grape_agiorgitiko, node_type: grape, name: Agiorgitiko }
   - { id: n_grape_xinomavro, node_type: grape, name: Xinomavro }
   - { id: n_grape_assyrtiko, node_type: grape, name: Assyrtiko }
   - { id: n_grape_aidani, node_type: grape, name: Aidani }
   - { id: n_grape_athiri, node_type: grape, name: Athiri }
+  - { id: n_grape_roditis, node_type: grape, name: Roditis }
+  - { id: n_grape_limnio, node_type: grape, name: Limnio }
 
 node_alternative_names:
   - { knowledge_node_id: n_geo_greece, name: Hellas, kind: synonym }
   - { knowledge_node_id: n_geo_peloponnese, name: Peloponnesus, kind: spelling_variant }
   - { knowledge_node_id: n_geo_macedonia, name: Macedonia, kind: synonym }
   - { knowledge_node_id: n_geo_naoussa, name: Naousa, kind: spelling_variant }
+  - { knowledge_node_id: n_geo_halkidiki, name: Chalkidiki, kind: spelling_variant }
+  - { knowledge_node_id: n_geo_slopes_of_meliton, name: Plagies Melitona, kind: synonym }
+  - { knowledge_node_id: n_geo_achaea, name: Achaia, kind: spelling_variant }
+  - { knowledge_node_id: n_geo_patra, name: Patras, kind: synonym }
   - { knowledge_node_id: n_grape_agiorgitiko, name: Aghiorghitiko, kind: spelling_variant }
   - { knowledge_node_id: n_grape_assyrtiko, name: Assirtiko, kind: spelling_variant }
 
@@ -32,6 +43,11 @@ knowledge_relations:
   - { subject_id: n_geo_nemea, relation_type: LOCATED_IN, object_id: n_geo_peloponnese, valid_from: "1900-01-01" }
   - { subject_id: n_geo_naoussa, relation_type: LOCATED_IN, object_id: n_geo_macedonia, valid_from: "1900-01-01" }
   - { subject_id: n_geo_santorini, relation_type: LOCATED_IN, object_id: n_geo_cyclades, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_halkidiki, relation_type: LOCATED_IN, object_id: n_geo_macedonia, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_sithonia, relation_type: LOCATED_IN, object_id: n_geo_halkidiki, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_slopes_of_meliton, relation_type: LOCATED_IN, object_id: n_geo_sithonia, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_achaea, relation_type: LOCATED_IN, object_id: n_geo_peloponnese, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_patra, relation_type: LOCATED_IN, object_id: n_geo_achaea, valid_from: "1900-01-01" }
   - { subject_id: n_geo_nemea, relation_type: PERMITS_GRAPE, object_id: n_grape_agiorgitiko, valid_from: "1900-01-01" }
   - { subject_id: n_geo_naoussa, relation_type: PERMITS_GRAPE, object_id: n_grape_xinomavro, valid_from: "1900-01-01" }
   - { subject_id: n_geo_santorini, relation_type: PERMITS_GRAPE, object_id: n_grape_assyrtiko, valid_from: "1900-01-01" }
@@ -43,6 +59,15 @@ knowledge_relations:
   # Vinsanto also permits small quantities of Moschato lefko/aspro (Muscat
   # Blanc à Petits Grains). The generic grape prompt covers the whole PDO.
   - { subject_id: n_geo_santorini, relation_type: PERMITS_GRAPE, object_id: n_grape_muscat_blanc_a_petits_grains, valid_from: "1900-01-01" }
+  # Section 6 of each Greek PDO technical file supplies the complete grape
+  # list used for the bounded map-grape exercise below.
+  - { subject_id: n_geo_slopes_of_meliton, relation_type: PERMITS_GRAPE, object_id: n_grape_assyrtiko, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_slopes_of_meliton, relation_type: PERMITS_GRAPE, object_id: n_grape_roditis, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_slopes_of_meliton, relation_type: PERMITS_GRAPE, object_id: n_grape_athiri, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_slopes_of_meliton, relation_type: PERMITS_GRAPE, object_id: n_grape_cabernet_sauvignon, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_slopes_of_meliton, relation_type: PERMITS_GRAPE, object_id: n_grape_cabernet_franc, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_slopes_of_meliton, relation_type: PERMITS_GRAPE, object_id: n_grape_limnio, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_patra, relation_type: PERMITS_GRAPE, object_id: n_grape_roditis, valid_from: "1900-01-01" }
   # Berry colours only filter distractors; these are not new study items.
   - { subject_id: n_grape_agiorgitiko, relation_type: HAS_BERRY_COLOUR, object_id: n_colour_black, valid_from: "1900-01-01" }
   - { subject_id: n_grape_xinomavro, relation_type: HAS_BERRY_COLOUR, object_id: n_colour_black, valid_from: "1900-01-01" }
@@ -93,6 +118,67 @@ knowledge_items:
     domain_id: geography
     assertion_text: "Santorini PDO is in the Cyclades; its delimited area comprises the islands of Thira and Thirasia."
     last_verified_at: "2026-09-26T08:00:00.000Z"
+  - id: ki_halkidiki_location
+    subject_id: n_geo_halkidiki
+    relation_type: LOCATED_IN
+    object_id: n_geo_macedonia
+    domain_id: geography
+    assertion_text: "Halkidiki, including its Sithonia peninsula, lies in the Greek wine region of Macedonia."
+    verification_status: unverified
+    last_verified_at: "2026-09-28T08:00:00.000Z"
+  - id: ki_sithonia_location
+    subject_id: n_geo_sithonia
+    relation_type: LOCATED_IN
+    object_id: n_geo_halkidiki
+    domain_id: geography
+    assertion_text: "Sithonia is a peninsula of Halkidiki and contains the slopes of Mount Meliton."
+    verification_status: unverified
+    last_verified_at: "2026-09-28T08:00:00.000Z"
+  - id: ki_slopes_of_meliton_location
+    subject_id: n_geo_slopes_of_meliton
+    relation_type: LOCATED_IN
+    object_id: n_geo_sithonia
+    domain_id: geography
+    assertion_text: "Slopes of Meliton PDO is around Neos Marmaras on Sithonia in Halkidiki."
+    verification_status: unverified
+    last_verified_at: "2026-09-28T08:00:00.000Z"
+  - id: ki_achaea_location
+    subject_id: n_geo_achaea
+    relation_type: LOCATED_IN
+    object_id: n_geo_peloponnese
+    domain_id: geography
+    assertion_text: "Achaea is a wine-growing area in the northern Peloponnese."
+    verification_status: unverified
+    last_verified_at: "2026-09-28T08:00:00.000Z"
+  - id: ki_patra_location
+    subject_id: n_geo_patra
+    relation_type: LOCATED_IN
+    object_id: n_geo_achaea
+    domain_id: geography
+    assertion_text: "Patra PDO covers specified communities in Achaea, including places around Patras, Aigio and Akrata."
+    verification_status: unverified
+    last_verified_at: "2026-09-28T08:00:00.000Z"
+  - id: ki_slopes_of_meliton_assyrtiko
+    subject_id: n_geo_slopes_of_meliton
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_assyrtiko
+    domain_id: geography
+    assertion_text: "The Slopes of Meliton PDO technical file lists Assyrtiko among its wine grapes; the PDO describes dry white and dry red wines."
+    verification_status: unverified
+    last_verified_at: "2026-09-28T08:00:00.000Z"
+  - id: ki_patra_roditis
+    subject_id: n_geo_patra
+    relation_type: PERMITS_GRAPE
+    object_id: n_grape_roditis
+    domain_id: geography
+    assertion_text: "The Patra PDO technical file lists Roditis for white wines, which may be dry, medium-dry or medium-sweet."
+    # Wines of Greece describes Roditis as pink-skinned:
+    # https://winesofgreece.org/varieties/roditis/
+    # The catalog lacks three safe same-colour MCQ distractors.
+    # Map, typed and flashcard practice remain available.
+    mcq_disabled: true
+    verification_status: unverified
+    last_verified_at: "2026-09-28T08:00:00.000Z"
   - id: ki_nemea_grape
     subject_id: n_geo_nemea
     relation_type: PERMITS_GRAPE
@@ -119,11 +205,27 @@ knowledge_item_prerequisites:
   - { knowledge_item_id: ki_nemea_location, prerequisite_item_id: ki_peloponnese_location }
   - { knowledge_item_id: ki_naoussa_location, prerequisite_item_id: ki_macedonia_location }
   - { knowledge_item_id: ki_santorini_location, prerequisite_item_id: ki_cyclades_location }
+  - { knowledge_item_id: ki_halkidiki_location, prerequisite_item_id: ki_macedonia_location }
+  - { knowledge_item_id: ki_sithonia_location, prerequisite_item_id: ki_halkidiki_location }
+  - { knowledge_item_id: ki_slopes_of_meliton_location, prerequisite_item_id: ki_sithonia_location }
+  - { knowledge_item_id: ki_achaea_location, prerequisite_item_id: ki_peloponnese_location }
+  - { knowledge_item_id: ki_patra_location, prerequisite_item_id: ki_achaea_location }
+  - { knowledge_item_id: ki_slopes_of_meliton_assyrtiko, prerequisite_item_id: ki_slopes_of_meliton_location }
+  - { knowledge_item_id: ki_patra_roditis, prerequisite_item_id: ki_patra_location }
   - { knowledge_item_id: ki_nemea_grape, prerequisite_item_id: ki_nemea_location }
   - { knowledge_item_id: ki_naoussa_grape, prerequisite_item_id: ki_naoussa_location }
   - { knowledge_item_id: ki_santorini_grape, prerequisite_item_id: ki_santorini_location }
 
 certification_knowledge_mappings:
+  # CMS Europe 2026/27 Introductory syllabus p.15 names both principal wines
+  # and asks for principal regions on a map; Certified inherits these items.
+  - { certification_id: CMS_INTRODUCTORY, knowledge_item_id: ki_macedonia_location, importance: secondary, minimum_depth: 1 }
+  - { certification_id: CMS_INTRODUCTORY, knowledge_item_id: ki_peloponnese_location, importance: secondary, minimum_depth: 1 }
+  - { certification_id: CMS_INTRODUCTORY, knowledge_item_id: ki_halkidiki_location, importance: secondary, minimum_depth: 1 }
+  - { certification_id: CMS_INTRODUCTORY, knowledge_item_id: ki_sithonia_location, importance: secondary, minimum_depth: 1 }
+  - { certification_id: CMS_INTRODUCTORY, knowledge_item_id: ki_slopes_of_meliton_location, importance: core, minimum_depth: 1 }
+  - { certification_id: CMS_INTRODUCTORY, knowledge_item_id: ki_achaea_location, importance: secondary, minimum_depth: 1 }
+  - { certification_id: CMS_INTRODUCTORY, knowledge_item_id: ki_patra_location, importance: core, minimum_depth: 1 }
   - { certification_id: WSET_L3, knowledge_item_id: ki_peloponnese_location, importance: secondary, minimum_depth: 2 }
   - { certification_id: WSET_L3, knowledge_item_id: ki_macedonia_location, importance: secondary, minimum_depth: 2 }
   - { certification_id: WSET_L3, knowledge_item_id: ki_cyclades_location, importance: secondary, minimum_depth: 2 }
@@ -142,8 +244,56 @@ certification_knowledge_mappings:
   - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_nemea_grape, importance: core, minimum_depth: 2 }
   - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_naoussa_grape, importance: core, minimum_depth: 2 }
   - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_santorini_grape, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_slopes_of_meliton_assyrtiko, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_patra_roditis, importance: core, minimum_depth: 2 }
+
+relation_set_assertions:
+  - node_id: n_geo_slopes_of_meliton
+    relation_type: PERMITS_GRAPE
+    direction: forward
+    member_node_type: grape
+    valid_from: "1900-01-01"
+    source_citation_id: src_gr_slopes_of_meliton_spec
+    locator: "Section 6, pp. 5-6: Assyrtiko, Cabernet Sauvignon, Roditis, Cabernet Franc, Limnio and Athiri; complete wine-grape list"
+  - node_id: n_geo_patra
+    relation_type: PERMITS_GRAPE
+    direction: forward
+    member_node_type: grape
+    valid_from: "1900-01-01"
+    source_citation_id: src_gr_patra_spec
+    locator: "Section 6, p. 6: Roditis; complete wine-grape list"
 
 source_citations:
+  - id: src_gr_slopes_of_meliton_spec
+    kind: regulator_register
+    title: "Slopes of Meliton PDO technical file"
+    publisher: "Hellenic Ministry of Rural Development and Food"
+    jurisdiction: GR
+    document_identifier: "PDO-GR-A1096; section 5, delimited area"
+    url: "https://www.minagric.gr/images/stories/docs/agrotis/POP-PGE/TEXNIKOI%20FAKELOI%20OINON%20POP-PGE%20ENGLISH/PDO%2026/Technical%20file%20related%20to%20PDO%2026%20Plagies%20Melitona.pdf"
+    accessed_on: "2026-09-28"
+  - id: src_gr_patra_spec
+    kind: regulator_register
+    title: "Patra PDO technical file"
+    publisher: "Hellenic Ministry of Rural Development and Food"
+    jurisdiction: GR
+    document_identifier: "PDO-GR-A1239; section 5, delimited area"
+    url: "https://www.minagric.gr/images/stories/docs/agrotis/POP-PGE/TEXNIKOI%20FAKELOI%20OINON%20POP-PGE%20ENGLISH/PDO%2024/Technical%20file%20related%20to%20PDO%2024%20Patra.pdf"
+    accessed_on: "2026-09-28"
+  - id: src_gr_halkidiki_geography
+    kind: reference_work
+    title: "Halkidiki: Sithonia and the slopes of Mount Meliton"
+    publisher: "Wines of Greece"
+    jurisdiction: GR
+    url: "https://winesofgreece.org/regions/halkidiki/"
+    accessed_on: "2026-09-28"
+  - id: src_gr_achaea_geography
+    kind: reference_work
+    title: "Achaia: northern Peloponnese vineyards"
+    publisher: "Wines of Greece"
+    jurisdiction: GR
+    url: "https://winesofgreece.org/regions/achaia/"
+    accessed_on: "2026-09-28"
   - id: src_gr_nemea_spec
     kind: regulator_register
     title: "Nemea PDO product specification"
@@ -207,6 +357,15 @@ source_citations:
     accessed_on: "2026-09-26"
 
 knowledge_item_citations:
+  - { knowledge_item_id: ki_halkidiki_location, source_citation_id: src_gr_slopes_of_meliton_spec, locator: "Section 5: Neos Marmaras, Sithonia, Halkidiki; section 7: Macedonia and Halkidiki" }
+  - { knowledge_item_id: ki_halkidiki_location, source_citation_id: src_gr_halkidiki_geography, locator: "Halkidiki region and Mount Meliton in Sithonia" }
+  - { knowledge_item_id: ki_sithonia_location, source_citation_id: src_gr_slopes_of_meliton_spec, locator: "Section 5: delimited area around Neos Marmaras on Sithonia" }
+  - { knowledge_item_id: ki_sithonia_location, source_citation_id: src_gr_halkidiki_geography, locator: "Sithonia peninsula and Mount Meliton slopes" }
+  - { knowledge_item_id: ki_slopes_of_meliton_location, source_citation_id: src_gr_slopes_of_meliton_spec, locator: "Section 5: delimited area includes Neos Marmaras in Sithonia, Halkidiki" }
+  - { knowledge_item_id: ki_achaea_location, source_citation_id: src_gr_achaea_geography, locator: "Achaea vineyards in the northern Peloponnese" }
+  - { knowledge_item_id: ki_patra_location, source_citation_id: src_gr_patra_spec, locator: "Section 5: specified semi-mountainous Achaea communities, including Patras, Aigio and Akrata" }
+  - { knowledge_item_id: ki_slopes_of_meliton_assyrtiko, source_citation_id: src_gr_slopes_of_meliton_spec, locator: "Sections 2 and 6: dry white and dry red PDO wines; Assyrtiko in the wine-grape list" }
+  - { knowledge_item_id: ki_patra_roditis, source_citation_id: src_gr_patra_spec, locator: "Sections 2 and 6: dry, medium-dry and medium-sweet white PDO wines; Roditis in the wine-grape list" }
   - { knowledge_item_id: ki_peloponnese_location, source_citation_id: src_gr_nemea_spec, locator: "Sections 5 and 7: delimited area and geographical link" }
   - { knowledge_item_id: ki_peloponnese_location, source_citation_id: src_gr_nemea_geography, locator: "Vines, wine and oenotourism in the Peloponnese; southern Greece" }
   - { knowledge_item_id: ki_macedonia_location, source_citation_id: src_gr_naoussa_spec, locator: "Sections 5 and 7: Imathia and Macedonia" }

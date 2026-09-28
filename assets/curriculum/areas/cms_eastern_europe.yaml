@@ -1,0 +1,183 @@
+# CMS Certified Eastern Europe: Bulgaria and Romania district anchors and grapes.
+# PGI/PDO names are legal designations; point markers are named settlement
+# references, never legal boundaries. All items await qualified review.
+
+knowledge_nodes:
+  - { id: n_geo_bulgaria, node_type: country, name: Bulgaria }
+  - { id: n_geo_romania, node_type: country, name: Romania }
+  - { id: n_geo_danubian_plain_bg, node_type: appellation, name: Danubian Plain (Bulgaria) }
+  - { id: n_geo_thracian_lowlands_bg, node_type: appellation, name: Thracian Lowlands }
+  - { id: n_geo_melnik_pdo, node_type: appellation, name: Melnik (Bulgaria) }
+  - { id: n_geo_lyubimets_pdo, node_type: appellation, name: Lyubimets }
+  - { id: n_geo_tarnave, node_type: appellation, name: Târnave }
+  - { id: n_geo_cotnari, node_type: appellation, name: Cotnari }
+  - { id: n_geo_dealu_mare, node_type: appellation, name: Dealu Mare }
+  - { id: n_geo_murfatlar, node_type: appellation, name: Murfatlar }
+  - { id: n_geo_recas, node_type: appellation, name: Recaș }
+  - { id: n_grape_gamza, node_type: grape, name: Gamza }
+  - { id: n_grape_mavrud, node_type: grape, name: Mavrud }
+  - { id: n_grape_shiroka_melnishka_loza, node_type: grape, name: Shiroka Melnishka Loza }
+  - { id: n_grape_feteasca_regala, node_type: grape, name: Fetească Regală }
+  - { id: n_grape_grasa_de_cotnari, node_type: grape, name: Grasă de Cotnari }
+  - { id: n_grape_feteasca_neagra, node_type: grape, name: Fetească Neagră }
+  # Exact legal variety labels from the Lyubimets and Cotnari specifications.
+  # Names are kept separate where synonym equivalence has not been curated.
+  - { id: n_grape_traminer_bg, node_type: grape, name: Traminer }
+  - { id: n_grape_muscat_ottonel, node_type: grape, name: Muscat Ottonel }
+  - { id: n_grape_tamyanka, node_type: grape, name: Tamyanka }
+  - { id: n_grape_pamid, node_type: grape, name: Pamid }
+  - { id: n_grape_evmolpia, node_type: grape, name: Evmolpia }
+  - { id: n_grape_trakiiska_slava, node_type: grape, name: Trakiiska Slava }
+  - { id: n_grape_rubin_bg, node_type: grape, name: Rubin }
+  - { id: n_grape_ranna_melnishka_loza, node_type: grape, name: Ranna Melnishka Loza }
+  - { id: n_grape_melnishki_rubin, node_type: grape, name: Melnishki Rubin }
+  - { id: n_grape_francusa, node_type: grape, name: Frâncușă }
+  - { id: n_grape_feteasca_alba, node_type: grape, name: Fetească Albă }
+  - { id: n_grape_traminer_roz, node_type: grape, name: Traminer Roz }
+  - { id: n_grape_tamaioasa_romaneasca, node_type: grape, name: Tămâioasă Românească }
+  - { id: n_grape_busuioaca_de_bohotin, node_type: grape, name: Busuioacă de Bohotin }
+
+node_alternative_names:
+  - { knowledge_node_id: n_geo_danubian_plain_bg, name: Dunavska Ravnina, kind: synonym }
+  - { knowledge_node_id: n_geo_thracian_lowlands_bg, name: Thracian Valley, kind: synonym }
+  - { knowledge_node_id: n_geo_melnik_pdo, name: Мелник, kind: spelling_variant }
+  - { knowledge_node_id: n_geo_recas, name: Recaş, kind: spelling_variant }
+  - { knowledge_node_id: n_grape_gamza, name: Kadarka, kind: synonym }
+  - { knowledge_node_id: n_grape_shiroka_melnishka_loza, name: Broad-Leafed Melnik Vine, kind: synonym }
+  - { knowledge_node_id: n_grape_feteasca_regala, name: Feteasca Regala, kind: spelling_variant }
+  - { knowledge_node_id: n_grape_grasa_de_cotnari, name: Grasa de Cotnari, kind: spelling_variant }
+  - { knowledge_node_id: n_grape_feteasca_neagra, name: Feteasca Neagra, kind: spelling_variant }
+
+knowledge_relations:
+  - { subject_id: n_geo_danubian_plain_bg, relation_type: LOCATED_IN, object_id: n_geo_bulgaria, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_thracian_lowlands_bg, relation_type: LOCATED_IN, object_id: n_geo_bulgaria, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_melnik_pdo, relation_type: LOCATED_IN, object_id: n_geo_bulgaria, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_lyubimets_pdo, relation_type: LOCATED_IN, object_id: n_geo_bulgaria, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_tarnave, relation_type: LOCATED_IN, object_id: n_geo_romania, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_cotnari, relation_type: LOCATED_IN, object_id: n_geo_romania, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_dealu_mare, relation_type: LOCATED_IN, object_id: n_geo_romania, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_murfatlar, relation_type: LOCATED_IN, object_id: n_geo_romania, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_recas, relation_type: LOCATED_IN, object_id: n_geo_romania, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_danubian_plain_bg, relation_type: PERMITS_GRAPE, object_id: n_grape_gamza, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_lyubimets_pdo, relation_type: PERMITS_GRAPE, object_id: n_grape_mavrud, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_melnik_pdo, relation_type: PERMITS_GRAPE, object_id: n_grape_shiroka_melnishka_loza, valid_from: "2023-12-07" }
+  - { subject_id: n_geo_tarnave, relation_type: PERMITS_GRAPE, object_id: n_grape_feteasca_regala, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_cotnari, relation_type: PERMITS_GRAPE, object_id: n_grape_grasa_de_cotnari, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_dealu_mare, relation_type: PERMITS_GRAPE, object_id: n_grape_feteasca_neagra, valid_from: "1900-01-01" }
+  # Complete Lyubimets PDO §5 union: five white and fourteen red/rosé grapes.
+  # Mavrud is the authored study item above; these eighteen are structural.
+  - { subject_id: n_geo_lyubimets_pdo, relation_type: PERMITS_GRAPE, object_id: n_grape_chardonnay, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_lyubimets_pdo, relation_type: PERMITS_GRAPE, object_id: n_grape_traminer_bg, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_lyubimets_pdo, relation_type: PERMITS_GRAPE, object_id: n_grape_sauvignon_blanc, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_lyubimets_pdo, relation_type: PERMITS_GRAPE, object_id: n_grape_muscat_ottonel, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_lyubimets_pdo, relation_type: PERMITS_GRAPE, object_id: n_grape_tamyanka, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_lyubimets_pdo, relation_type: PERMITS_GRAPE, object_id: n_grape_cabernet_sauvignon, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_lyubimets_pdo, relation_type: PERMITS_GRAPE, object_id: n_grape_merlot, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_lyubimets_pdo, relation_type: PERMITS_GRAPE, object_id: n_grape_pamid, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_lyubimets_pdo, relation_type: PERMITS_GRAPE, object_id: n_grape_syrah, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_lyubimets_pdo, relation_type: PERMITS_GRAPE, object_id: n_grape_cabernet_franc, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_lyubimets_pdo, relation_type: PERMITS_GRAPE, object_id: n_grape_evmolpia, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_lyubimets_pdo, relation_type: PERMITS_GRAPE, object_id: n_grape_trakiiska_slava, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_lyubimets_pdo, relation_type: PERMITS_GRAPE, object_id: n_grape_rubin_bg, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_lyubimets_pdo, relation_type: PERMITS_GRAPE, object_id: n_grape_shiroka_melnishka_loza, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_lyubimets_pdo, relation_type: PERMITS_GRAPE, object_id: n_grape_pinot_noir, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_lyubimets_pdo, relation_type: PERMITS_GRAPE, object_id: n_grape_ranna_melnishka_loza, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_lyubimets_pdo, relation_type: PERMITS_GRAPE, object_id: n_grape_melnishki_rubin, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_lyubimets_pdo, relation_type: PERMITS_GRAPE, object_id: n_grape_petit_verdot, valid_from: "1900-01-01" }
+  # Complete Cotnari DOC §IV union across still, aromatic sparkling and petiant
+  # categories: eleven unique varieties. Grasă is the authored study item.
+  - { subject_id: n_geo_cotnari, relation_type: PERMITS_GRAPE, object_id: n_grape_francusa, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_cotnari, relation_type: PERMITS_GRAPE, object_id: n_grape_feteasca_alba, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_cotnari, relation_type: PERMITS_GRAPE, object_id: n_grape_chardonnay, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_cotnari, relation_type: PERMITS_GRAPE, object_id: n_grape_sauvignon_blanc, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_cotnari, relation_type: PERMITS_GRAPE, object_id: n_grape_pinot_gris, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_cotnari, relation_type: PERMITS_GRAPE, object_id: n_grape_traminer_roz, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_cotnari, relation_type: PERMITS_GRAPE, object_id: n_grape_tamaioasa_romaneasca, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_cotnari, relation_type: PERMITS_GRAPE, object_id: n_grape_muscat_ottonel, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_cotnari, relation_type: PERMITS_GRAPE, object_id: n_grape_feteasca_neagra, valid_from: "1900-01-01" }
+  - { subject_id: n_geo_cotnari, relation_type: PERMITS_GRAPE, object_id: n_grape_busuioaca_de_bohotin, valid_from: "1900-01-01" }
+  - { subject_id: n_grape_gamza, relation_type: HAS_BERRY_COLOUR, object_id: n_colour_black, valid_from: "1900-01-01" }
+  - { subject_id: n_grape_mavrud, relation_type: HAS_BERRY_COLOUR, object_id: n_colour_black, valid_from: "1900-01-01" }
+  - { subject_id: n_grape_shiroka_melnishka_loza, relation_type: HAS_BERRY_COLOUR, object_id: n_colour_black, valid_from: "1900-01-01" }
+  - { subject_id: n_grape_feteasca_regala, relation_type: HAS_BERRY_COLOUR, object_id: n_colour_white, valid_from: "1900-01-01" }
+  - { subject_id: n_grape_grasa_de_cotnari, relation_type: HAS_BERRY_COLOUR, object_id: n_colour_white, valid_from: "1900-01-01" }
+  - { subject_id: n_grape_feteasca_neagra, relation_type: HAS_BERRY_COLOUR, object_id: n_colour_black, valid_from: "1900-01-01" }
+
+relation_set_assertions:
+  - node_id: n_geo_lyubimets_pdo
+    relation_type: PERMITS_GRAPE
+    direction: forward
+    member_node_type: grape
+    valid_from: "2026-09-28"
+    source_citation_id: src_cms_bg_lyubimets_spec
+    locator: "Section 5: complete permitted wine-grape list, 5 white and 14 red/rosé varieties"
+  - node_id: n_geo_cotnari
+    relation_type: PERMITS_GRAPE
+    direction: forward
+    member_node_type: grape
+    valid_from: "2026-09-28"
+    source_citation_id: src_cms_ro_cotnari_spec
+    locator: "Section IV, p. 5: complete permitted-grape union across listed wine categories, 11 unique varieties"
+
+knowledge_items:
+  - { id: ki_cms_bg_danubian_location, subject_id: n_geo_danubian_plain_bg, relation_type: LOCATED_IN, object_id: n_geo_bulgaria, domain_id: geography, assertion_text: "The Danubian Plain PGI covers named localities in northern Bulgaria; Pleven is a reference town within its listed area.", verification_status: unverified, last_verified_at: "2026-09-28T08:50:00.000Z" }
+  - { id: ki_cms_bg_thracian_location, subject_id: n_geo_thracian_lowlands_bg, relation_type: LOCATED_IN, object_id: n_geo_bulgaria, domain_id: geography, assertion_text: "Thracian Lowlands is one of Bulgaria's two protected wine PGIs, rather than one of its many smaller PDOs.", verification_status: unverified, last_verified_at: "2026-09-28T08:50:00.000Z" }
+  - { id: ki_cms_bg_melnik_location, subject_id: n_geo_melnik_pdo, relation_type: LOCATED_IN, object_id: n_geo_bulgaria, domain_id: geography, assertion_text: "The Melnik PDO's delimited production area includes named settlements around Sandanski, Petrich, Strumyani and Kresna in southwestern Bulgaria; the Sandanski town marker is a reference point.", verification_status: unverified, last_verified_at: "2026-09-28T08:50:00.000Z" }
+  - { id: ki_cms_bg_lyubimets_location, subject_id: n_geo_lyubimets_pdo, relation_type: LOCATED_IN, object_id: n_geo_bulgaria, domain_id: geography, assertion_text: "The Lyubimets PDO is a Bulgarian designation whose delimited production area includes Lyubimets and other Haskovo-region settlements.", verification_status: unverified, last_verified_at: "2026-09-28T08:50:00.000Z" }
+  - { id: ki_cms_ro_tarnave_location, subject_id: n_geo_tarnave, relation_type: LOCATED_IN, object_id: n_geo_romania, domain_id: geography, assertion_text: "Târnave DOC belongs to Romania's Transylvanian Plateau wine region; Mediaș is a named subdesignation and map reference.", verification_status: unverified, last_verified_at: "2026-09-28T08:50:00.000Z" }
+  - { id: ki_cms_ro_cotnari_location, subject_id: n_geo_cotnari, relation_type: LOCATED_IN, object_id: n_geo_romania, domain_id: geography, assertion_text: "Cotnari DOC belongs to Romania's Moldavian Hills wine region.", verification_status: unverified, last_verified_at: "2026-09-28T08:50:00.000Z" }
+  - { id: ki_cms_ro_dealu_mare_location, subject_id: n_geo_dealu_mare, relation_type: LOCATED_IN, object_id: n_geo_romania, domain_id: geography, assertion_text: "Dealu Mare DOC belongs to Romania's Muntenia and Oltenia Hills wine region; Urlați is one of its named subdesignations and a map reference.", verification_status: unverified, last_verified_at: "2026-09-28T08:50:00.000Z" }
+  - { id: ki_cms_ro_murfatlar_location, subject_id: n_geo_murfatlar, relation_type: LOCATED_IN, object_id: n_geo_romania, domain_id: geography, assertion_text: "Murfatlar DOC belongs to Romania's Dobrogea Hills wine region.", verification_status: unverified, last_verified_at: "2026-09-28T08:50:00.000Z" }
+  - { id: ki_cms_ro_recas_location, subject_id: n_geo_recas, relation_type: LOCATED_IN, object_id: n_geo_romania, domain_id: geography, assertion_text: "Recaș DOC belongs to Romania's Banat wine region.", verification_status: unverified, last_verified_at: "2026-09-28T08:50:00.000Z" }
+  - { id: ki_cms_bg_danubian_gamza, subject_id: n_geo_danubian_plain_bg, relation_type: PERMITS_GRAPE, object_id: n_grape_gamza, domain_id: geography, assertion_text: "The Danubian Plain PGI lists Gamza, also called Kadarka, among its authorised wine grapes.", verification_status: unverified, last_verified_at: "2026-09-28T08:50:00.000Z" }
+  - { id: ki_cms_bg_lyubimets_mavrud, subject_id: n_geo_lyubimets_pdo, relation_type: PERMITS_GRAPE, object_id: n_grape_mavrud, domain_id: geography, assertion_text: "The Lyubimets PDO specification lists Mavrud for red and rosé wines.", verification_status: unverified, last_verified_at: "2026-09-28T08:50:00.000Z" }
+  - { id: ki_cms_bg_melnik_shiroka, subject_id: n_geo_melnik_pdo, relation_type: PERMITS_GRAPE, object_id: n_grape_shiroka_melnishka_loza, domain_id: geography, assertion_text: "The approved Melnik PDO specification lists Shiroka Melnishka Loza for red and rosé wines; this does not mean every Melnik wine uses it.", verification_status: unverified, last_verified_at: "2026-09-28T08:50:00.000Z" }
+  - { id: ki_cms_ro_tarnave_feteasca_regala, subject_id: n_geo_tarnave, relation_type: PERMITS_GRAPE, object_id: n_grape_feteasca_regala, domain_id: geography, assertion_text: "The Târnave DOC specification includes Fetească Regală and describes it as a representative wine grape of the district.", verification_status: unverified, last_verified_at: "2026-09-28T08:50:00.000Z" }
+  - { id: ki_cms_ro_cotnari_grasa, subject_id: n_geo_cotnari, relation_type: PERMITS_GRAPE, object_id: n_grape_grasa_de_cotnari, domain_id: geography, assertion_text: "The Cotnari DOC specification includes Grasă de Cotnari among its wine grapes.", verification_status: unverified, last_verified_at: "2026-09-28T08:50:00.000Z" }
+  - { id: ki_cms_ro_dealu_mare_feteasca_neagra, subject_id: n_geo_dealu_mare, relation_type: PERMITS_GRAPE, object_id: n_grape_feteasca_neagra, domain_id: geography, assertion_text: "The Dealu Mare DOC specification permits Fetească Neagră for red and rosé wine.", verification_status: unverified, last_verified_at: "2026-09-28T08:50:00.000Z" }
+
+certification_knowledge_mappings:
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_bg_danubian_location, importance: core, minimum_depth: 3 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_bg_thracian_location, importance: core, minimum_depth: 3 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_bg_melnik_location, importance: core, minimum_depth: 3 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_bg_lyubimets_location, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_ro_tarnave_location, importance: core, minimum_depth: 3 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_ro_cotnari_location, importance: core, minimum_depth: 3 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_ro_dealu_mare_location, importance: core, minimum_depth: 3 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_ro_murfatlar_location, importance: core, minimum_depth: 3 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_ro_recas_location, importance: core, minimum_depth: 3 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_bg_danubian_gamza, importance: core, minimum_depth: 3 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_bg_lyubimets_mavrud, importance: core, minimum_depth: 3 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_bg_melnik_shiroka, importance: core, minimum_depth: 3 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_ro_tarnave_feteasca_regala, importance: core, minimum_depth: 3 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_ro_cotnari_grasa, importance: core, minimum_depth: 3 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_ro_dealu_mare_feteasca_neagra, importance: core, minimum_depth: 3 }
+
+source_citations:
+  - { id: src_cms_bg_pgi_ministry, kind: government_publication, title: "Bulgaria's two protected geographical indications for wine", publisher: Bulgarian Ministry of Agriculture and Food, jurisdiction: BG, document_identifier: "Ministry wine-region announcement, 11 September 2022", url: "https://www.mzh.government.bg/bg/press-center/novini/poveche-vidimost-na-blgarskite-vineni-destinacii-i/", accessed_on: "2026-09-28" }
+  - { id: src_cms_bg_danubian_eu, kind: regulator_register, title: "Danubian Plain PGI approved standard amendment and single document", publisher: European Commission, jurisdiction: EU, document_identifier: "OJ C/2023/915; PGI-BG-A1538-AM02", url: "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:52023XC00915", accessed_on: "2026-09-28" }
+  - { id: src_cms_bg_melnik_eu, kind: regulator_register, title: "Melnik PDO amended single document", publisher: European Commission, jurisdiction: EU, document_identifier: "OJ C 272, 1 August 2023; approved by Regulation (EU) 2023/2536", url: "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:JOC_2023_272_R_0006", accessed_on: "2026-09-28" }
+  - { id: src_cms_bg_melnik_approval, kind: legislation, title: "Approval of Union amendments to Melnik PDO", publisher: European Commission, jurisdiction: EU, document_identifier: "Commission Implementing Regulation (EU) 2023/2536", url: "https://eur-lex.europa.eu/eli/reg_impl/2023/2536/oj/eng", accessed_on: "2026-09-28" }
+  - { id: src_cms_bg_lyubimets_spec, kind: regulator_register, title: "Lyubimets PDO product specification", publisher: Bulgarian Executive Agency on Vine and Wine, jurisdiction: BG, document_identifier: "PDO Lyubimets specification; EU Interreg-hosted copy", url: "https://enodata.dionysosvine.eu/sites/default/files/2022-02/zonesh-pdo-lyubimets-bg.pdf", accessed_on: "2026-09-28" }
+  - { id: src_cms_ro_doc_register, kind: regulator_register, title: "Romanian wine regions and controlled designations of origin", publisher: National Office of Vine and Wine Products (ONVPV), jurisdiction: RO, document_identifier: "DOC list under Ministerial Order 247/2012", url: "https://www.onvpv.ro/ro/doc/generalitati", accessed_on: "2026-09-28" }
+  - { id: src_cms_ro_tarnave_spec, kind: regulator_register, title: "Târnave DOC product specification", publisher: National Office of Vine and Wine Products (ONVPV), jurisdiction: RO, document_identifier: "Târnave specification, amendment request 1154/22.05.2017", url: "https://www.onvpv.ro/sites/default/files/caiet_de_sarcini_doc_tarnave_modif_cf_cererii_1154_22.05.2017_no_track_changes_0.pdf", accessed_on: "2026-09-28" }
+  - { id: src_cms_ro_cotnari_spec, kind: regulator_register, title: "Cotnari DOC product specification", publisher: National Office of Vine and Wine Products (ONVPV), jurisdiction: RO, document_identifier: "Cotnari specification, amendment request 1316/10.07.2024", url: "https://www.onvpv.ro/sites/default/files/caiet_sarcini_doc_cotnari_aprobat_rue_1913_2021_categorii_modif_cf_cerere_1316_10.07.2024.pdf", accessed_on: "2026-09-28" }
+  - { id: src_cms_ro_dealu_mare_spec, kind: regulator_register, title: "Dealu Mare DOC product specification", publisher: National Office of Vine and Wine Products (ONVPV), jurisdiction: RO, document_identifier: "Dealu Mare specification, modification request 1996/01.10.2020 and notification 945/12.05.2022", url: "https://www.onvpv.ro/sites/default/files/caiet_sarcini_doc_dealu_mare_modif_cf_cererii_1996_01.10.2020_toate_categ_cf_notific_945_din_12.05.2022_4.pdf", accessed_on: "2026-09-28" }
+
+knowledge_item_citations:
+  - { knowledge_item_id: ki_cms_bg_danubian_location, source_citation_id: src_cms_bg_danubian_eu, locator: "Single document, sections 1, 2 and 6; northern Bulgarian locality list includes Pleven" }
+  - { knowledge_item_id: ki_cms_bg_thracian_location, source_citation_id: src_cms_bg_pgi_ministry, locator: "Paragraph identifying the two PGIs, Thracian Lowlands and Danubian Plain" }
+  - { knowledge_item_id: ki_cms_bg_melnik_location, source_citation_id: src_cms_bg_melnik_eu, locator: "Single document, section 6, Sandanski/Petrich/Strumyani/Kresna locality lists" }
+  - { knowledge_item_id: ki_cms_bg_lyubimets_location, source_citation_id: src_cms_bg_lyubimets_spec, locator: "Sections 1 and 3, delimited Lyubimets and Haskovo localities" }
+  - { knowledge_item_id: ki_cms_ro_tarnave_location, source_citation_id: src_cms_ro_doc_register, locator: "DOC list, Regiunea Viticolă a Podişului Transilvaniei; Târnave/Mediaş" }
+  - { knowledge_item_id: ki_cms_ro_cotnari_location, source_citation_id: src_cms_ro_doc_register, locator: "DOC list, Regiunea Viticolă a Dealurilor Moldovei; Cotnari" }
+  - { knowledge_item_id: ki_cms_ro_dealu_mare_location, source_citation_id: src_cms_ro_doc_register, locator: "DOC list, Regiunea Viticolă a Dealurilor Munteniei şi Olteniei; Dealu Mare/Urlaţi" }
+  - { knowledge_item_id: ki_cms_ro_murfatlar_location, source_citation_id: src_cms_ro_doc_register, locator: "DOC list, Regiunea Viticolă a Colinelor Dobrogei; Murfatlar" }
+  - { knowledge_item_id: ki_cms_ro_recas_location, source_citation_id: src_cms_ro_doc_register, locator: "DOC list, Regiunea Viticolă a Banatului; Recaş" }
+  - { knowledge_item_id: ki_cms_bg_danubian_gamza, source_citation_id: src_cms_bg_danubian_eu, locator: "Single document, section 7, Gamza–Kadarka" }
+  - { knowledge_item_id: ki_cms_bg_lyubimets_mavrud, source_citation_id: src_cms_bg_lyubimets_spec, locator: "Section 5, red and rosé wine grape varieties; Мавруд" }
+  - { knowledge_item_id: ki_cms_bg_melnik_shiroka, source_citation_id: src_cms_bg_melnik_eu, locator: "Single document, sections 4 and 7, Shiroka Melnishka Loza" }
+  - { knowledge_item_id: ki_cms_bg_melnik_shiroka, source_citation_id: src_cms_bg_melnik_approval, locator: "Article 1 approves the published specification amendments" }
+  - { knowledge_item_id: ki_cms_ro_tarnave_feteasca_regala, source_citation_id: src_cms_ro_tarnave_spec, locator: "Section II, p. 3, representative Fetească Regală; grape list in section IV" }
+  - { knowledge_item_id: ki_cms_ro_cotnari_grasa, source_citation_id: src_cms_ro_cotnari_spec, locator: "Grasă de Cotnari variety and wine description" }
+  - { knowledge_item_id: ki_cms_ro_dealu_mare_feteasca_neagra, source_citation_id: src_cms_ro_dealu_mare_spec, locator: "Section IV, red/rosé grape list, Fetească Neagră" }
