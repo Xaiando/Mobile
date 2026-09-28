@@ -46,6 +46,45 @@ let context;
 let page;
 let origin;
 let stageName = 'startup';
+const inflightRequests = new Set();
+let lastNetworkActivityAt = Date.now();
+let mainFrameId;
+let currentDocumentLoaderId;
+const fontRequests = new Map();
+const fontNetworkEvents = [];
+let serverManifestCount = 0;
+function blocksReload(request) { return request.url() !== `${origin}/drift_worker.js`; }
+function recordFontEvent(kind, details = {}) {
+  fontNetworkEvents.push({ at: new Date().toISOString(), stage: stageName, kind, ...details });
+}
+function fontRequestsFor(loaderId) {
+  return [...fontRequests.values()].filter(request => request.loaderId === loaderId);
+}
+async function waitForFontManifest(loaderId, phase) {
+  assert(loaderId, `No document loader while waiting for FontManifest before ${phase}.`);
+  const deadline = Date.now() + 30_000;
+  while (Date.now() < deadline) {
+    const requests = fontRequestsFor(loaderId);
+    if (requests.some(request => request.failure ||
+        (request.finished && request.status !== 200))) break;
+    if (requests.length > 0 && requests.every(request => request.finished)) return;
+    await page.waitForTimeout(75);
+  }
+  throw new Error(`FontManifest did not finish for ${phase}, loader ${loaderId}: ` +
+    JSON.stringify(fontRequestsFor(loaderId)));
+}
+async function waitForTransientRequests(phase) {
+  const deadline = Date.now() + 30_000;
+  while (Date.now() < deadline) {
+    if (inflightRequests.size === 0 && Date.now() - lastNetworkActivityAt >= 500) {
+      break;
+    }
+    await page.waitForTimeout(75);
+  }
+  assert(inflightRequests.size === 0 && Date.now() - lastNetworkActivityAt >= 500,
+    `Requests stayed active before ${phase}: ${[...inflightRequests]
+      .map(request => request.url()).join(', ')}`);
+}
 
 function assert(condition, message) {
   if (!condition) throw new Error(message);
@@ -176,8 +215,28 @@ async function enableAccessibility(timeout = startupTimeout) {
 }
 async function reload() {
   const deadline = Date.now() + startupTimeout;
+  const outgoingLoader = currentDocumentLoaderId;
+  // A quiet interval can precede Flutter's deferred font-manifest fetch. Its
+  // response body must finish on this document before navigation can cancel it.
+  await waitForFontManifest(outgoingLoader, 'outgoing document');
+  // Finish the current document's asset requests before intentionally unloading
+  // it. Otherwise Chromium can cancel a late Flutter font-manifest fetch and
+  // report ERR_ABORTED even though the app itself completed every UI stage.
+  await waitForTransientRequests('reload');
+  recordFontEvent('reload-start', { loaderId: outgoingLoader });
   await page.reload({ waitUntil: 'domcontentloaded', timeout: startupTimeout });
+  await until(() => currentDocumentLoaderId && currentDocumentLoaderId !== outgoingLoader,
+    'Reload did not create a new main-document loader.', 30_000);
+  recordFontEvent('reload-domcontentloaded', { loaderId: currentDocumentLoaderId });
   await enableAccessibility(Math.max(1, deadline - Date.now()));
+  await waitForFontManifest(currentDocumentLoaderId, 'incoming document');
+}
+function assertNoBrowserErrors() {
+  assert(result.pageErrors.length === 0, `Uncaught browser errors: ${result.pageErrors.join('\n')}`);
+  assert(result.consoleErrors.length === 0, `Browser console errors: ${result.consoleErrors.join('\n')}`);
+  assert(result.blockedExternalRequests.length === 0,
+    `Build attempted external resources: ${result.blockedExternalRequests.join('\n')}`);
+  assert(result.failedRequests.length === 0, `Failed requests: ${JSON.stringify(result.failedRequests)}`);
 }
 async function navigation(label) {
   // Exclude the plain AppBar title by using the destination's interactive role.
@@ -252,12 +311,33 @@ try {
       if (!fs.existsSync(file) || !fs.statSync(file).isFile()) {
         response.writeHead(404); response.end(); return;
       }
-      response.writeHead(200, {
+      const headers = {
         'Content-Type': types[path.extname(file)] ?? 'application/octet-stream',
         'Cross-Origin-Opener-Policy': 'same-origin',
         'Cross-Origin-Embedder-Policy': 'require-corp',
         'Cache-Control': 'no-store',
-      });
+      };
+      // Flutter fetches this tiny manifest again after every reload. Send its
+      // body and EOF together so Chromium does not see a successful response
+      // header while the separate file stream has yet to deliver the body.
+      if (path.relative(root, file).split(path.sep).join('/') === 'assets/FontManifest.json') {
+        const bytes = fs.readFileSync(file);
+        const serverRequestId = ++serverManifestCount;
+        recordFontEvent('server-received', { serverRequestId });
+        response.once('finish', () => recordFontEvent('server-finished', {
+          serverRequestId,
+        }));
+        response.once('close', () => recordFontEvent('server-closed', {
+          serverRequestId, bodyFinished: response.writableFinished,
+        }));
+        // This public asset must revalidate on reload. Chromium can report a
+        // streamed no-store fetch as ERR_ABORTED even after receiving its body.
+        response.writeHead(200, { ...headers, 'Cache-Control': 'no-cache',
+          'Content-Length': bytes.length });
+        response.end(bytes);
+        return;
+      }
+      response.writeHead(200, headers);
       fs.createReadStream(file).on('error', () => response.destroy()).pipe(response);
     } catch {
       response.writeHead(400); response.end();
@@ -272,24 +352,94 @@ try {
   // A new context is a fresh profile. Its same-origin storage persists across
   // reloads in this run, but cannot modify the user's existing browser profile.
   context = await browser.newContext({ viewport, locale: 'en-US', reducedMotion: 'reduce', serviceWorkers: 'block' });
-  await context.route('**/*', async route => {
-    const url = route.request().url();
-    if (url.startsWith(`${origin}/`) || url.startsWith('data:') || url.startsWith('blob:')) {
-      await route.continue();
-    } else {
-      result.blockedExternalRequests.push(url);
-      await route.abort('blockedbyclient');
-    }
+  // The route matcher skips our asynchronous route.continue() callback for
+  // same-origin assets. Playwright still disables cache when routing is on;
+  // external requests remain blocked and recorded by the unchanged gate.
+  await context.route(url => {
+    const target = String(url);
+    return !target.startsWith(`${origin}/`) && !target.startsWith('data:') &&
+      !target.startsWith('blob:');
+  }, async route => {
+    result.blockedExternalRequests.push(route.request().url());
+    await route.abort('blockedbyclient');
   });
   page = await context.newPage();
+  const network = await context.newCDPSession(page);
+  await network.send('Network.enable');
+  mainFrameId = (await network.send('Page.getFrameTree')).frameTree.frame.id;
+  network.on('Network.requestWillBeSent', event => {
+    if (event.type === 'Document' && event.frameId === mainFrameId &&
+        event.request.url.startsWith(`${origin}/`)) {
+      currentDocumentLoaderId = event.loaderId;
+      recordFontEvent('document-start', { loaderId: event.loaderId,
+        requestId: event.requestId, wallTime: event.wallTime,
+        timestamp: event.timestamp });
+    }
+    if (event.request.url === `${origin}/assets/FontManifest.json`) {
+      fontRequests.set(event.requestId, {
+        requestId: event.requestId, loaderId: event.loaderId,
+        startedAt: new Date().toISOString(), wallTime: event.wallTime,
+        timestamp: event.timestamp,
+      });
+      recordFontEvent('font-start', { requestId: event.requestId,
+        loaderId: event.loaderId });
+    }
+  });
+  network.on('Network.responseReceived', event => {
+    const request = fontRequests.get(event.requestId);
+    if (request) {
+      request.status = event.response.status;
+      recordFontEvent('font-response', { requestId: event.requestId,
+        loaderId: request.loaderId, status: request.status,
+        timestamp: event.timestamp });
+    }
+  });
+  network.on('Network.loadingFinished', event => {
+    const request = fontRequests.get(event.requestId);
+    if (request) {
+      request.finished = true;
+      recordFontEvent('font-finished', { requestId: event.requestId,
+        loaderId: request.loaderId, timestamp: event.timestamp });
+    }
+  });
+  network.on('Network.loadingFailed', event => {
+    const request = fontRequests.get(event.requestId);
+    if (request) {
+      request.failure = event.errorText;
+      recordFontEvent('font-failed', { requestId: event.requestId,
+        loaderId: request.loaderId, errorText: event.errorText,
+        canceled: event.canceled, timestamp: event.timestamp });
+    }
+  });
   page.setDefaultTimeout(actionTimeout);
   page.on('pageerror', error => result.pageErrors.push(String(error)));
   page.on('console', message => {
     if (message.type() === 'error') result.consoleErrors.push(message.text());
   });
-  page.on('requestfailed', request => result.failedRequests.push({
-    url: request.url(), failure: request.failure()?.errorText,
-  }));
+  page.on('request', request => {
+    // Drift's dedicated worker script stays open for its lifetime in Chromium.
+    // Still record any failure, but do not wait for it to finish before reload.
+    if (blocksReload(request)) {
+      inflightRequests.add(request);
+      lastNetworkActivityAt = Date.now();
+    }
+  });
+  page.on('requestfinished', request => {
+    if (blocksReload(request)) {
+      inflightRequests.delete(request);
+      lastNetworkActivityAt = Date.now();
+    }
+  });
+  page.on('requestfailed', request => {
+    if (blocksReload(request)) {
+      inflightRequests.delete(request);
+      lastNetworkActivityAt = Date.now();
+    }
+    result.failedRequests.push({
+      url: request.url(), failure: request.failure()?.errorText,
+      stage: stageName, at: new Date().toISOString(),
+    });
+  });
 
   await stage('01-onboarding', async () => {
     const deadline = Date.now() + startupTimeout;
@@ -432,7 +582,8 @@ try {
     await page.waitForTimeout(5000);
     await reload();
     await visible('Home', startupTimeout);
-    assert(await selected(named('WSET Level 2')), 'Selected track did not survive reload.');
+    await until(() => selected(named('WSET Level 2')),
+      'Selected track did not survive reload.', 30_000);
     await openHomeAction('Level rehearsal', 'WSET practice');
     const after = await secondsRemaining();
     assert(after < rehearsalRemaining &&
@@ -593,11 +744,47 @@ try {
     assert(!bodyOverflow, 'The page overflows horizontally at 320 pixels.');
     result.assertions.narrowDestinations = 5;
   });
-  assert(result.pageErrors.length === 0, `Uncaught browser errors: ${result.pageErrors.join('\n')}`);
-  assert(result.consoleErrors.length === 0, `Browser console errors: ${result.consoleErrors.join('\n')}`);
-  assert(result.blockedExternalRequests.length === 0,
-    `Build attempted external resources: ${result.blockedExternalRequests.join('\n')}`);
-  assert(result.failedRequests.length === 0, `Failed requests: ${JSON.stringify(result.failedRequests)}`);
+  await stage('10-cellar-manual-label-scan', async () => {
+    await tap('Log a wine');
+    await page.getByRole('heading', { name: 'Log a wine' })
+      .waitFor({ state: 'visible', timeout: actionTimeout });
+    await top();
+    const producer = page.getByRole('textbox', { name: 'Producer', exact: true });
+    const vintage = page.getByRole('textbox', { name: 'Vintage', exact: true });
+    const transcript = page.getByRole('textbox', {
+      name: /Recognized or manually transcribed label text/,
+    });
+    await replaceText(producer, 'Web Estate');
+    await replaceText(transcript, 'Web Estate 2019 13.5%');
+    await top();
+    assert(await readText(vintage) === '',
+      'A label clue filled the vintage before the learner accepted it.');
+    assert(await readText(transcript) === 'Web Estate 2019 13.5%',
+      'Scrolling discarded the temporary label transcription.');
+    await tap('Use vintage 2019');
+    await tap('Use 13.5% alcohol');
+    const chooserPromise = page.waitForEvent('filechooser', { timeout: actionTimeout });
+    await tap('Choose label');
+    const chooser = await chooserPromise;
+    await chooser.setFiles({ name: 'label.png', mimeType: 'image/png',
+      buffer: fs.readFileSync(path.join(root, 'favicon.png')) });
+    await reveal(page.getByRole('img', { name: 'New label' }));
+    await top();
+    assert(await readText(vintage) === '2019',
+      'The accepted vintage did not reach the journal form.');
+    await tap('Save');
+    await until(() => page.url().includes('/cellar/') &&
+      !page.url().includes('/cellar/new'),
+    'The confirmed cellar draft did not open its saved entry.', 30_000);
+    await visible('Web Estate');
+    await visible('2019');
+    await reveal(page.getByRole('img', { name: /Your photos Label photo/ }));
+    result.assertions.manualLabelProposalSaved = true;
+    result.assertions.webLabelPhotoSaved = true;
+  });
+  await waitForFontManifest(currentDocumentLoaderId, 'final document');
+  await waitForTransientRequests('final browser check');
+  assertNoBrowserErrors();
   result.ok = true;
 } catch (error) {
   result.failedStage = stageName;
@@ -611,12 +798,45 @@ try {
       path.join(output, 'failure-accessibility.txt'), snapshot)).catch(() => {});
   }
 } finally {
-  result.finishedAt = new Date().toISOString();
   // Close only the server and browser owned by this run. No port/process kill.
-  await context?.close().catch(() => {});
-  await browser?.close().catch(() => {});
-  if (server) await new Promise(resolve => server.close(resolve));
+  const teardownFailures = [];
+  try {
+    await context?.close();
+  } catch (error) {
+    teardownFailures.push(`Browser context close failed: ${error?.stack ?? String(error)}`);
+  }
+  try {
+    await browser?.close();
+  } catch (error) {
+    teardownFailures.push(`Browser close failed: ${error?.stack ?? String(error)}`);
+  }
+  if (server) {
+    try {
+      await new Promise((resolve, reject) => server.close(error =>
+        error ? reject(error) : resolve()));
+    } catch (error) {
+      teardownFailures.push(`Smoke server close failed: ${error?.stack ?? String(error)}`);
+    }
+  }
+  try {
+    assertNoBrowserErrors();
+  } catch (error) {
+    teardownFailures.push(error?.stack ?? String(error));
+  }
+  if (teardownFailures.length > 0) {
+    result.teardownError = teardownFailures.join('\n');
+    if (result.ok) {
+      result.ok = false;
+      result.failedStage = stageName;
+      result.error = result.teardownError;
+    }
+  }
+  result.finishedAt = new Date().toISOString();
   fs.writeFileSync(path.join(output, 'result.json'), `${JSON.stringify(result, null, 2)}\n`);
+  fs.writeFileSync(path.join(output, 'font-network.json'), `${JSON.stringify({
+    currentDocumentLoaderId, requests: [...fontRequests.values()],
+    events: fontNetworkEvents,
+  }, null, 2)}\n`);
 }
 console.log(`APP_UI_SMOKE_RESULT ${JSON.stringify(result)}`);
 if (!result.ok) process.exitCode = 1;

@@ -195,9 +195,9 @@ knowledge_items:
     relation_type: PRINCIPLE_EXPLANATION
     object_id: n_bev_cider_perry_point
     domain_id: service
-    assertion_text: "The Alcoholic Liquor Duties (Definition of Cider) Order 2010 uses cider to mean cider or perry: a drink above 1.2 percent and below 8.5 percent alcohol, obtained by fermenting apple or pear juice, subject to the juice conditions in that order. It is a UK excise definition, not a world definition of every farmhouse cider, and it does not make cider a distilled spirit."
+    assertion_text: "Under the UK Finance (No. 2) Act 2023, section 44 excludes drinks at 1.2 percent alcohol or less from its alcohol-duty categories. Schedule 6 defines cider from fermented apple or pear juice, subject to permitted-addition and juice-content requirements, at less than 8.5 percent alcohol. Pear-based perry can therefore fall within the UK cider duty category. This is not a world definition of cider, and cider is not a distilled spirit."
     verification_status: unverified
-    last_verified_at: "2026-09-27T23:59:00.000Z"
+    last_verified_at: "2026-09-28T00:00:00.000Z"
     mcq_disabled: true
   - id: ki_bev_sake_polish
     subject_id: n_bev_sake_polish
@@ -344,14 +344,14 @@ source_citations:
     document_identifier: "Cask-conditioned beer definition, November 2020 text"
     url: "https://aberdeencamra.org.uk/wp-content/uploads/2024/07/CAMRA-Definitions-of-Real-Ale-November-2020.pdf"
     accessed_on: "2026-09-27"
-  - id: src_bev_uk_cider_2010
+  - id: src_bev_uk_cider_2023
     kind: legislation
-    title: "The Alcoholic Liquor Duties (Definition of Cider) Order 2010"
-    publisher: "Statute Law Database, United Kingdom"
+    title: "Finance (No. 2) Act 2023"
+    publisher: "UK Parliament"
     jurisdiction: GB
-    document_identifier: "SI 2010/1914, amending Alcoholic Liquor Duties Act 1979 section 1(6)"
-    url: "https://www.legislation.gov.uk/uksi/2010/1914"
-    accessed_on: "2026-09-27"
+    document_identifier: "2023 c. 30, section 44(2) and Schedule 6 paragraphs 5-7, in force 1 August 2023"
+    url: "https://www.legislation.gov.uk/ukpga/2023/30/pdfs/ukpga_20230030_en.pdf"
+    accessed_on: "2026-09-28"
   - id: src_bev_sake_nta
     kind: government_publication
     title: "清酒の製法品質表示基準の概要"
@@ -398,7 +398,7 @@ knowledge_item_citations:
   - { knowledge_item_id: ki_bev_cognac_mentions, source_citation_id: src_bev_cognac_bnic, locator: "VS 2, VSOP 4, Napoleon 6, XO 10, XXO 14." }
   - { knowledge_item_id: ki_bev_cognac_fine_champagne, source_citation_id: src_bev_cognac_bnic, locator: "Fine Champagne: Grande Champagne at least 50 percent, the rest Petite Champagne." }
   - { knowledge_item_id: ki_bev_cask_ale, source_citation_id: src_bev_camra_cask, locator: "Cask-conditioned beer: conditions in the cask and is served at atmospheric pressure." }
-  - { knowledge_item_id: ki_bev_cider_perry, source_citation_id: src_bev_uk_cider_2010, locator: "Cider or perry, above 1.2 percent and below 8.5 percent, from apple or pear juice." }
+  - { knowledge_item_id: ki_bev_cider_perry, source_citation_id: src_bev_uk_cider_2023, locator: "Section 44(2): over 1.2 percent for alcohol duty; Schedule 6 paragraphs 5-7: cider from apple or pear juice, under 8.5 percent, with addition and juice-content conditions." }
   - { knowledge_item_id: ki_bev_sake_polish, source_citation_id: src_bev_sake_nta, locator: "Rice-polishing ratio is the percentage of brown rice remaining." }
   - { knowledge_item_id: ki_bev_sake_junmai, source_citation_id: src_bev_sake_nta, locator: "Junmai ingredients and the 2003 deletion of the 70 percent ceiling; koji rice at least 15 percent." }
   - { knowledge_item_id: ki_bev_sake_ginjo, source_citation_id: src_bev_sake_nta, locator: "Ginjo 60 percent or less; daiginjo 50 percent or less; junmai classes have no added alcohol." }

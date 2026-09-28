@@ -83,10 +83,13 @@ Future<void> main() async {
     // Phase 1: the bundled dataset hydrates the database on first launch.
     // Loading it reads the manifest and every file it includes; ingesting
     // it checks every map layer's asset against its SHA-256 (G2).
+    debugPrint('SMOKE_STAGE loading bundled curriculum');
     final ingester = CurriculumIngester(db, assets: readBundledAsset);
     final bundle = await loadBundledCurriculum();
     result['bundle'] = bundle.version;
+    debugPrint('SMOKE_STAGE installing bundled curriculum');
     result['curriculum'] = (await ingester.ensureCurrent(bundle)).name;
+    debugPrint('SMOKE_STAGE curriculum installed');
     result['release'] = (await ingester.installedRelease())?.version;
     result['nodes'] = await count(db, 'knowledge_nodes');
     // The map layers came in with the release: a layer asset parses, and a
@@ -178,6 +181,7 @@ Future<void> main() async {
     final memoryStatesBeforePractice = await count(db, 'review_states');
     final memoryEventsBeforePractice = await count(db, 'review_events');
     var calibrations = 0;
+    debugPrint('SMOKE_STAGE starting level 1-3 practice');
     for (var level = 1; level <= 3; level++) {
       await LearnerProfiles(db).selectTrack('WSET_L$level');
       final attempt = await rehearsals.start(level);
@@ -323,6 +327,7 @@ Future<void> main() async {
     result['practiceNoMemoryChanges'] =
         await count(db, 'review_states') == memoryStatesBeforePractice &&
         await count(db, 'review_events') == memoryEventsBeforePractice;
+    debugPrint('SMOKE_STAGE practice and paired tastings complete');
     final scope = WsetScope.fromJson(
       utf8.decode(await readBundledAsset('assets/progress/wset_scope.json')),
     );
@@ -343,6 +348,7 @@ Future<void> main() async {
         .where((l) => l.selectable)
         .length;
     await LearnerProfiles(db).selectTrack('WSET_L3');
+    debugPrint('SMOKE_STAGE starting card review');
     final planner = StudyPlanner(db);
     final plan = (await planner.plan())!;
     result['sessionCards'] = plan.cards.length;
@@ -396,6 +402,7 @@ Future<void> main() async {
             entry('00000000-0000-4000-8000-000000000002', DateTime.now()),
           ),
     );
+    debugPrint('SMOKE_STAGE card review and database checks complete');
     await db.close();
   } catch (error) {
     result['error'] = '$error';

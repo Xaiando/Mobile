@@ -1,0 +1,563 @@
+# CMS beverage fundamentals and applied service cases. These are educational
+# category and presentation facts, not a claim of professional certification.
+# No WSET Levels 1-3 or Diploma mappings; every item remains unverified.
+knowledge_nodes:
+  - { id: n_somm_basic_beer, node_type: production_principle, name: "What are beer's basic ingredients and glass-quality checks?" }
+  - { id: n_somm_basic_beer_ingredients, node_type: learning_point, name: "Malt, water, hops and yeast are a useful starting vocabulary" }
+  - { id: n_somm_basic_beer_glass, node_type: learning_point, name: "A beer-clean glass has no foam-killing residue" }
+  - { id: n_somm_basic_cider, node_type: production_principle, name: "How do cider and perry differ?" }
+  - { id: n_somm_basic_cider_perry, node_type: learning_point, name: "Apple cider and pear perry are fermented drinks" }
+  - { id: n_somm_basic_sake, node_type: production_principle, name: "How is sake made and served?" }
+  - { id: n_somm_basic_sake_parallel, node_type: learning_point, name: "Koji and yeast work in parallel" }
+  - { id: n_somm_basic_sake_temperature, node_type: learning_point, name: "Chilled, room-temperature and warm service are choices" }
+  - { id: n_somm_basic_cigar, node_type: production_principle, name: "What do Habano shape and size terms describe?" }
+  - { id: n_somm_basic_cigar_shape, node_type: learning_point, name: "Parejo is straight-sided and figurado is shaped" }
+  - { id: n_somm_basic_cigar_gauge, node_type: learning_point, name: "Ring gauge and vitola names describe size" }
+  - { id: n_somm_basic_liqueur, node_type: production_principle, name: "What does the EU liqueur category require?" }
+  - { id: n_somm_basic_liqueur_identity, node_type: learning_point, name: "Liqueur is a sweetened spirit-drink category" }
+  - { id: n_somm_basic_liqueur_exception, node_type: learning_point, name: "The common sugar minimum has specified exceptions" }
+  - { id: n_somm_basic_aperitif, node_type: production_principle, name: "How do vermouth and bitter spirit drinks differ?" }
+  - { id: n_somm_basic_aperitif_wine, node_type: learning_point, name: "EU aromatised wine is built from grapevine products" }
+  - { id: n_somm_basic_aperitif_vermouth, node_type: learning_point, name: "Vermouth's characteristic taste uses Artemisia" }
+  - { id: n_somm_basic_aperitif_bitter, node_type: learning_point, name: "An EU bitter spirit drink is a separate category" }
+  - { id: n_somm_case_clean_glass, node_type: production_case, name: "A draught beer loses its foam in a marked glass" }
+  - { id: n_somm_case_clean_glass_action, node_type: learning_point, name: "Replace the glass and check the next pour" }
+  - { id: n_somm_case_clean_glass_reason, node_type: learning_point, name: "Residue can destroy beer foam" }
+  - { id: n_somm_case_clean_glass_tradeoff, node_type: learning_point, name: "A persistent problem may have another cause" }
+  - { id: n_somm_case_clean_glass_limit, node_type: learning_point, name: "A glass check is not a draught-system diagnosis" }
+  - { id: n_somm_case_perry, node_type: production_case, name: "A guest asks for perry and is offered apple cider" }
+  - { id: n_somm_case_perry_action, node_type: learning_point, name: "Offer a pear-fermented perry if available" }
+  - { id: n_somm_case_perry_reason, node_type: learning_point, name: "The fruit names identify different drinks" }
+  - { id: n_somm_case_perry_tradeoff, node_type: learning_point, name: "Some UK duty language groups cider and perry" }
+  - { id: n_somm_case_perry_limit, node_type: learning_point, name: "Do not infer the bottle's sweetness from the category" }
+  - { id: n_somm_case_sake_temp, node_type: production_case, name: "A guest says all sake must be served hot" }
+  - { id: n_somm_case_sake_temp_action, node_type: learning_point, name: "Offer a temperature choice" }
+  - { id: n_somm_case_sake_temp_reason, node_type: learning_point, name: "Temperature changes the same sake's expression" }
+  - { id: n_somm_case_sake_temp_tradeoff, node_type: learning_point, name: "Warm service is a valid option, not the only one" }
+  - { id: n_somm_case_sake_temp_limit, node_type: learning_point, name: "Ask preference and assess the actual bottle" }
+  - { id: n_somm_case_shape, node_type: production_case, name: "A guest calls a tapered Piramide a straight-sided parejo" }
+  - { id: n_somm_case_shape_action, node_type: learning_point, name: "Explain the Habanos shape vocabulary" }
+  - { id: n_somm_case_shape_reason, node_type: learning_point, name: "A Piramide is a figurado on the producer page" }
+  - { id: n_somm_case_shape_tradeoff, node_type: learning_point, name: "Market and factory names may differ" }
+  - { id: n_somm_case_shape_limit, node_type: learning_point, name: "Shape is not a health or quality guarantee" }
+  - { id: n_somm_case_liqueur, node_type: production_case, name: "A guest calls any fifteen-percent spirit a liqueur" }
+  - { id: n_somm_case_liqueur_action, node_type: learning_point, name: "Check the legal category beyond strength" }
+  - { id: n_somm_case_liqueur_reason, node_type: learning_point, name: "EU liqueur also has sweetening and ingredient rules" }
+  - { id: n_somm_case_liqueur_tradeoff, node_type: learning_point, name: "The common sugar floor has exceptions" }
+  - { id: n_somm_case_liqueur_limit, node_type: learning_point, name: "Category text cannot authenticate an unknown bottle" }
+  - { id: n_somm_case_vermouth, node_type: production_case, name: "A guest is told vermouth and bitter spirit are the same category" }
+  - { id: n_somm_case_vermouth_action, node_type: learning_point, name: "Separate aromatised wine from spirit drink" }
+  - { id: n_somm_case_vermouth_reason, node_type: learning_point, name: "The EU places them under different rules" }
+  - { id: n_somm_case_vermouth_tradeoff, node_type: learning_point, name: "Both may taste bitter or be used as aperitifs" }
+  - { id: n_somm_case_vermouth_limit, node_type: learning_point, name: "The name alone cannot classify another bottle" }
+
+knowledge_relations:
+  - { subject_id: n_somm_basic_beer, relation_type: PRINCIPLE_EXPLANATION, object_id: n_somm_basic_beer_ingredients, valid_from: "2026-09-28" }
+  - { subject_id: n_somm_basic_beer, relation_type: PRINCIPLE_EXPLANATION, object_id: n_somm_basic_beer_glass, valid_from: "2026-09-28" }
+  - { subject_id: n_somm_basic_cider, relation_type: PRINCIPLE_EXPLANATION, object_id: n_somm_basic_cider_perry, valid_from: "2026-09-28" }
+  - { subject_id: n_somm_basic_sake, relation_type: PRINCIPLE_EXPLANATION, object_id: n_somm_basic_sake_parallel, valid_from: "2026-09-28" }
+  - { subject_id: n_somm_basic_sake, relation_type: PRINCIPLE_EXPLANATION, object_id: n_somm_basic_sake_temperature, valid_from: "2026-09-28" }
+  - { subject_id: n_somm_basic_cigar, relation_type: PRINCIPLE_EXPLANATION, object_id: n_somm_basic_cigar_shape, valid_from: "2026-09-28" }
+  - { subject_id: n_somm_basic_cigar, relation_type: PRINCIPLE_EXPLANATION, object_id: n_somm_basic_cigar_gauge, valid_from: "2026-09-28" }
+  - { subject_id: n_somm_basic_liqueur, relation_type: PRINCIPLE_EXPLANATION, object_id: n_somm_basic_liqueur_identity, valid_from: "2026-09-28" }
+  - { subject_id: n_somm_basic_liqueur, relation_type: PRINCIPLE_EXPLANATION, object_id: n_somm_basic_liqueur_exception, valid_from: "2026-09-28" }
+  - { subject_id: n_somm_basic_aperitif, relation_type: PRINCIPLE_EXPLANATION, object_id: n_somm_basic_aperitif_wine, valid_from: "2026-09-28" }
+  - { subject_id: n_somm_basic_aperitif, relation_type: PRINCIPLE_EXPLANATION, object_id: n_somm_basic_aperitif_vermouth, valid_from: "2026-09-28" }
+  - { subject_id: n_somm_basic_aperitif, relation_type: PRINCIPLE_EXPLANATION, object_id: n_somm_basic_aperitif_bitter, valid_from: "2026-09-28" }
+  - { subject_id: n_somm_case_clean_glass, relation_type: CASE_ACTION, object_id: n_somm_case_clean_glass_action, valid_from: "2026-09-28" }
+  - { subject_id: n_somm_case_clean_glass, relation_type: CASE_REASON, object_id: n_somm_case_clean_glass_reason, valid_from: "2026-09-28" }
+  - { subject_id: n_somm_case_clean_glass, relation_type: CASE_TRADEOFF, object_id: n_somm_case_clean_glass_tradeoff, valid_from: "2026-09-28" }
+  - { subject_id: n_somm_case_clean_glass, relation_type: CASE_LIMITATION, object_id: n_somm_case_clean_glass_limit, valid_from: "2026-09-28" }
+  - { subject_id: n_somm_case_perry, relation_type: CASE_ACTION, object_id: n_somm_case_perry_action, valid_from: "2026-09-28" }
+  - { subject_id: n_somm_case_perry, relation_type: CASE_REASON, object_id: n_somm_case_perry_reason, valid_from: "2026-09-28" }
+  - { subject_id: n_somm_case_perry, relation_type: CASE_TRADEOFF, object_id: n_somm_case_perry_tradeoff, valid_from: "2026-09-28" }
+  - { subject_id: n_somm_case_perry, relation_type: CASE_LIMITATION, object_id: n_somm_case_perry_limit, valid_from: "2026-09-28" }
+  - { subject_id: n_somm_case_sake_temp, relation_type: CASE_ACTION, object_id: n_somm_case_sake_temp_action, valid_from: "2026-09-28" }
+  - { subject_id: n_somm_case_sake_temp, relation_type: CASE_REASON, object_id: n_somm_case_sake_temp_reason, valid_from: "2026-09-28" }
+  - { subject_id: n_somm_case_sake_temp, relation_type: CASE_TRADEOFF, object_id: n_somm_case_sake_temp_tradeoff, valid_from: "2026-09-28" }
+  - { subject_id: n_somm_case_sake_temp, relation_type: CASE_LIMITATION, object_id: n_somm_case_sake_temp_limit, valid_from: "2026-09-28" }
+  - { subject_id: n_somm_case_shape, relation_type: CASE_ACTION, object_id: n_somm_case_shape_action, valid_from: "2026-09-28" }
+  - { subject_id: n_somm_case_shape, relation_type: CASE_REASON, object_id: n_somm_case_shape_reason, valid_from: "2026-09-28" }
+  - { subject_id: n_somm_case_shape, relation_type: CASE_TRADEOFF, object_id: n_somm_case_shape_tradeoff, valid_from: "2026-09-28" }
+  - { subject_id: n_somm_case_shape, relation_type: CASE_LIMITATION, object_id: n_somm_case_shape_limit, valid_from: "2026-09-28" }
+  - { subject_id: n_somm_case_liqueur, relation_type: CASE_ACTION, object_id: n_somm_case_liqueur_action, valid_from: "2026-09-28" }
+  - { subject_id: n_somm_case_liqueur, relation_type: CASE_REASON, object_id: n_somm_case_liqueur_reason, valid_from: "2026-09-28" }
+  - { subject_id: n_somm_case_liqueur, relation_type: CASE_TRADEOFF, object_id: n_somm_case_liqueur_tradeoff, valid_from: "2026-09-28" }
+  - { subject_id: n_somm_case_liqueur, relation_type: CASE_LIMITATION, object_id: n_somm_case_liqueur_limit, valid_from: "2026-09-28" }
+  - { subject_id: n_somm_case_vermouth, relation_type: CASE_ACTION, object_id: n_somm_case_vermouth_action, valid_from: "2026-09-28" }
+  - { subject_id: n_somm_case_vermouth, relation_type: CASE_REASON, object_id: n_somm_case_vermouth_reason, valid_from: "2026-09-28" }
+  - { subject_id: n_somm_case_vermouth, relation_type: CASE_TRADEOFF, object_id: n_somm_case_vermouth_tradeoff, valid_from: "2026-09-28" }
+  - { subject_id: n_somm_case_vermouth, relation_type: CASE_LIMITATION, object_id: n_somm_case_vermouth_limit, valid_from: "2026-09-28" }
+
+knowledge_items:
+  - id: ki_somm_basic_beer_ingredients
+    subject_id: n_somm_basic_beer
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_somm_basic_beer_ingredients
+    domain_id: service
+    assertion_text: "The Brewers Association's beginner course identifies malted barley, water, hops and yeast as four key beer ingredients. The selection and use of ingredients helps create different styles. This is a useful starting vocabulary, not a world law requiring every beer to contain only those four things."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_somm_basic_beer_glass
+    subject_id: n_somm_basic_beer
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_somm_basic_beer_glass
+    domain_id: service
+    assertion_text: "The Brewers Association's draught-beer retail manual starts with a freshly cleaned glass free of visible soil, foam-killing residues and lingering cleaner or sanitizer aromas. A marked or greasy glass can impair foam or aroma; check the glass before treating the beer itself as faulty. This is trade service guidance, not a diagnosis of a specific draught system."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_somm_basic_cider_perry
+    subject_id: n_somm_basic_cider
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_somm_basic_cider_perry
+    domain_id: service
+    assertion_text: "The National Association of Cider Makers describes cider as fermented apple juice and perry as fermented juice from particular pear varieties. It says 'pear cider' is an alternative term for perry, and both drinks can have different styles. This trade description does not replace a jurisdiction's excise or labelling definition and does not tell you whether an individual bottle is dry or sweet."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_somm_basic_sake_parallel
+    subject_id: n_somm_basic_sake
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_somm_basic_sake_parallel
+    domain_id: service
+    assertion_text: "The Japan Sake and Shochu Makers Association describes sake as a fermented drink made from rice, koji and water. Koji helps turn rice starch into sugar while yeast turns the sugar into alcohol in the same mash; this is multiple parallel fermentation. Sake is therefore not distilled rice spirit or grape wine."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_somm_basic_sake_temperature
+    subject_id: n_somm_basic_sake
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_somm_basic_sake_temperature
+    domain_id: service
+    assertion_text: "The Japan Sake and Shochu Makers Association presents chilled, room-temperature and warmed sake as service choices. Temperature can change the flavours and aromas perceived in the same sake. Its illustrative ranges are chilled 8–15°C, room temperature 15–25°C and warmed 40–50°C; they are not a rule that every sake must be hot."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_somm_basic_cigar_shape
+    subject_id: n_somm_basic_cigar
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_somm_basic_cigar_shape
+    domain_id: service
+    assertion_text: "On Habanos' shapes page, parejo describes a straight-sided cigar. Its Piramide, popularly called a torpedo, is a figurado with a tapered head and shoulders; a double figurado is pointed at both ends. These are shape terms on the Habanos catalogue, not proof of protected origin, quality or safety."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_somm_basic_cigar_gauge
+    subject_id: n_somm_basic_cigar
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_somm_basic_cigar_gauge
+    domain_id: service
+    assertion_text: "Habanos states that ring gauge measures cigar diameter in sixty-fourths of an inch. A vitola de galera is its factory size name, while vitola de salida is the market name on a box; these need not match, and the same market name can describe different sizes across brands. A size name does not establish tobacco safety."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_somm_basic_liqueur_identity
+    subject_id: n_somm_basic_liqueur
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_somm_basic_liqueur_identity
+    domain_id: service
+    assertion_text: "In the consolidated EU spirit-drink regulation, Annex I category 33 describes liqueur as a sweetened spirit drink made using agricultural alcohol, an agricultural distillate or one or more spirit drinks, plus flavouring, agricultural products or foodstuffs. Its minimum strength is 15% vol. Strength alone does not make an unknown drink a liqueur, and this is the EU category rather than a world definition."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_somm_basic_liqueur_exception
+    subject_id: n_somm_basic_liqueur
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_somm_basic_liqueur_exception
+    domain_id: service
+    assertion_text: "The same EU category uses at least 100 grams per litre of sweetening products, expressed as invert sugar, in the ordinary case. It expressly gives lower 70- and 80-gram exceptions for specified cherry and plant-flavoured liqueurs. Do not teach 100 grams as a universal floor, infer a bottle's sweetness from its name alone, or apply this EU text worldwide."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_somm_basic_aperitif_wine
+    subject_id: n_somm_basic_aperitif
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_somm_basic_aperitif_wine
+    domain_id: service
+    assertion_text: "Under Regulation (EU) No 251/2014, aromatised wine is a flavoured wine-sector product in which the specified grapevine products make up at least 75% of total volume. Alcohol may be added. This EU wine-based category is distinct from the spirit-drink categories in Regulation (EU) 2019/787; 'aperitif' by itself does not determine the legal category."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_somm_basic_aperitif_vermouth
+    subject_id: n_somm_basic_aperitif
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_somm_basic_aperitif_vermouth
+    domain_id: service
+    assertion_text: "The vermouth description in Annex II of Regulation (EU) No 251/2014 is an aromatised wine to which alcohol may have been added and whose characteristic taste has been obtained using appropriate substances of Artemisia species. Vermouth is therefore an aromatised wine category in this EU framework, not simply any bitter spirit."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_somm_basic_aperitif_bitter
+    subject_id: n_somm_basic_aperitif
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_somm_basic_aperitif_bitter
+    domain_id: service
+    assertion_text: "In Annex I category 30 of Regulation (EU) 2019/787, a bitter-tasting spirit drink or bitter is a predominantly bitter spirit drink made by flavouring agricultural alcohol, an agricultural distillate or both. Its minimum strength is 15% vol. This category differs from vermouth's aromatised-wine framework; a bitter flavour alone does not classify an unexamined bottle."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_somm_case_clean_glass_action
+    subject_id: n_somm_case_clean_glass
+    relation_type: CASE_ACTION
+    object_id: n_somm_case_clean_glass_action
+    domain_id: service
+    assertion_text: "Offer a fresh draught sample in a freshly cleaned beer glass and check whether the foam problem recurs. Do not dismiss the guest's observation."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_somm_case_clean_glass_reason
+    subject_id: n_somm_case_clean_glass
+    relation_type: CASE_REASON
+    object_id: n_somm_case_clean_glass_reason
+    domain_id: service
+    assertion_text: "The Brewers Association manual says grease and other residues can destroy beer foam and that a beer-clean glass is free of lingering cleaner aromas."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_somm_case_clean_glass_tradeoff
+    subject_id: n_somm_case_clean_glass
+    relation_type: CASE_TRADEOFF
+    object_id: n_somm_case_clean_glass_tradeoff
+    domain_id: service
+    assertion_text: "If the problem recurs in a clean glass, investigate the dispense system or beer condition instead of assuming the glass was the only cause."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_somm_case_clean_glass_limit
+    subject_id: n_somm_case_clean_glass
+    relation_type: CASE_LIMITATION
+    object_id: n_somm_case_clean_glass_limit
+    domain_id: service
+    assertion_text: "The manual's glass-cleanliness section supports this first check; it cannot diagnose the particular tap or batch without further inspection."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_somm_case_perry_action
+    subject_id: n_somm_case_perry
+    relation_type: CASE_ACTION
+    object_id: n_somm_case_perry_action
+    domain_id: service
+    assertion_text: "Explain that the requested perry is fermented pear juice and offer a perry or 'pear cider' bottle if one is actually available; do not quietly substitute apple cider."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_somm_case_perry_reason
+    subject_id: n_somm_case_perry
+    relation_type: CASE_REASON
+    object_id: n_somm_case_perry_reason
+    domain_id: service
+    assertion_text: "The cider-makers' association distinguishes fermented apple cider from pear perry and notes that 'pear cider' is another term used for perry."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_somm_case_perry_tradeoff
+    subject_id: n_somm_case_perry
+    relation_type: CASE_TRADEOFF
+    object_id: n_somm_case_perry_tradeoff
+    domain_id: service
+    assertion_text: "The UK Finance (No. 2) Act 2023 can group qualifying apple- and pear-juice drinks under 'cider' for alcohol duty; that does not erase the useful apple-versus-pear distinction in a guest conversation."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_somm_case_perry_limit
+    subject_id: n_somm_case_perry
+    relation_type: CASE_LIMITATION
+    object_id: n_somm_case_perry_limit
+    domain_id: service
+    assertion_text: "The category alone does not establish whether a particular bottle is dry, sweet, still or sparkling. Check its label and actual stock rather than inventing those details."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_somm_case_sake_temp_action
+    subject_id: n_somm_case_sake_temp
+    relation_type: CASE_ACTION
+    object_id: n_somm_case_sake_temp_action
+    domain_id: service
+    assertion_text: "Ask the guest's preference and offer a sensible chilled, room-temperature or warmed tasting choice rather than claiming all sake must be hot."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_somm_case_sake_temp_reason
+    subject_id: n_somm_case_sake_temp
+    relation_type: CASE_REASON
+    object_id: n_somm_case_sake_temp_reason
+    domain_id: service
+    assertion_text: "The Japan Sake and Shochu Makers Association lists all three service ranges and explains that temperature changes flavour and aroma in the same sake."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_somm_case_sake_temp_tradeoff
+    subject_id: n_somm_case_sake_temp
+    relation_type: CASE_TRADEOFF
+    object_id: n_somm_case_sake_temp_tradeoff
+    domain_id: service
+    assertion_text: "Warming may bring out a different character; it remains a valid option when the guest wants it. Chilled service is also possible and is not a defect."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_somm_case_sake_temp_limit
+    subject_id: n_somm_case_sake_temp
+    relation_type: CASE_LIMITATION
+    object_id: n_somm_case_sake_temp_limit
+    domain_id: service
+    assertion_text: "The three ranges are illustrative, not a guarantee that the particular bottle or diner will prefer a temperature. A production class on the label does not by itself require hot service."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_somm_case_shape_action
+    subject_id: n_somm_case_shape
+    relation_type: CASE_ACTION
+    object_id: n_somm_case_shape_action
+    domain_id: service
+    assertion_text: "Explain, without arguing over a market nickname, that Habanos calls the tapered Piramide a figurado and uses parejo for straight-sided shapes."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_somm_case_shape_reason
+    subject_id: n_somm_case_shape
+    relation_type: CASE_REASON
+    object_id: n_somm_case_shape_reason
+    domain_id: service
+    assertion_text: "The Habanos shapes page explicitly places its Piramide after the straight-sided examples and labels it a figurado."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_somm_case_shape_tradeoff
+    subject_id: n_somm_case_shape
+    relation_type: CASE_TRADEOFF
+    object_id: n_somm_case_shape_tradeoff
+    domain_id: service
+    assertion_text: "The same catalogue distinguishes factory vitola de galera from market vitola de salida and says market names can vary by brand; use the observed shape as well as the printed name."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_somm_case_shape_limit
+    subject_id: n_somm_case_shape
+    relation_type: CASE_LIMITATION
+    object_id: n_somm_case_shape_limit
+    domain_id: service
+    assertion_text: "Shape and ring gauge do not establish protected origin, quality or safety. The registered tobacco-harm warning still applies to all cigars."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_somm_case_liqueur_action
+    subject_id: n_somm_case_liqueur
+    relation_type: CASE_ACTION
+    object_id: n_somm_case_liqueur_action
+    domain_id: service
+    assertion_text: "Check the bottle's actual legal name and available product information before calling it an EU liqueur. Fifteen percent alcohol is a floor for that category, not a complete definition; an ingredient list may not be available on the bottle."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_somm_case_liqueur_reason
+    subject_id: n_somm_case_liqueur
+    relation_type: CASE_REASON
+    object_id: n_somm_case_liqueur_reason
+    domain_id: service
+    assertion_text: "Annex I category 33 of the EU spirit-drink regulation requires a sweetened product from specified agricultural alcohol, distillate or spirit bases with flavouring, food or agricultural products, in addition to the minimum alcoholic strength."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_somm_case_liqueur_tradeoff
+    subject_id: n_somm_case_liqueur
+    relation_type: CASE_TRADEOFF
+    object_id: n_somm_case_liqueur_tradeoff
+    domain_id: service
+    assertion_text: "Do not turn the ordinary 100-gram-per-litre sweetening floor into a universal test: category 33 specifies 70- and 80-gram exceptions for certain liqueurs."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_somm_case_liqueur_limit
+    subject_id: n_somm_case_liqueur
+    relation_type: CASE_LIMITATION
+    object_id: n_somm_case_liqueur_limit
+    domain_id: service
+    assertion_text: "A regulation describes a category, not the unexamined bottle. Do not infer its exact sweetness or make a claim about other jurisdictions from this EU text."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_somm_case_vermouth_action
+    subject_id: n_somm_case_vermouth
+    relation_type: CASE_ACTION
+    object_id: n_somm_case_vermouth_action
+    domain_id: service
+    assertion_text: "Explain that the EU rules describe vermouth under aromatised wines and bitter-tasting spirit drink under spirit drinks. Check the products' actual labels instead of calling them the same legal category."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_somm_case_vermouth_reason
+    subject_id: n_somm_case_vermouth
+    relation_type: CASE_REASON
+    object_id: n_somm_case_vermouth_reason
+    domain_id: service
+    assertion_text: "Regulation (EU) No 251/2014 puts vermouth in its aromatised-wine list, permits added alcohol and requires characteristic Artemisia flavouring; Regulation (EU) 2019/787 category 30 defines a separate bitter-tasting spirit drink."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_somm_case_vermouth_tradeoff
+    subject_id: n_somm_case_vermouth
+    relation_type: CASE_TRADEOFF
+    object_id: n_somm_case_vermouth_tradeoff
+    domain_id: service
+    assertion_text: "Both products can be discussed as aperitif choices and may have bitter flavours; sharing a use or sensory term does not merge their EU legal categories."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_somm_case_vermouth_limit
+    subject_id: n_somm_case_vermouth
+    relation_type: CASE_LIMITATION
+    object_id: n_somm_case_vermouth_limit
+    domain_id: service
+    assertion_text: "These are EU definitions, not a worldwide naming rule or an inspection of the particular bottles. The label and product specification must settle a borderline case."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+
+certification_knowledge_mappings:
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_basic_beer_ingredients, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_basic_beer_glass, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_basic_cider_perry, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_basic_sake_parallel, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_basic_sake_temperature, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_basic_cigar_shape, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_basic_cigar_gauge, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_basic_liqueur_identity, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_basic_liqueur_exception, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_basic_aperitif_wine, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_basic_aperitif_vermouth, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_basic_aperitif_bitter, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_clean_glass_action, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_clean_glass_reason, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_clean_glass_tradeoff, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_clean_glass_limit, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_perry_action, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_perry_reason, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_perry_tradeoff, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_perry_limit, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_sake_temp_action, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_sake_temp_reason, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_sake_temp_tradeoff, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_sake_temp_limit, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_shape_action, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_shape_reason, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_shape_tradeoff, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_shape_limit, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_liqueur_action, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_liqueur_reason, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_liqueur_tradeoff, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_liqueur_limit, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_vermouth_action, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_vermouth_reason, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_vermouth_tradeoff, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_vermouth_limit, importance: secondary, minimum_depth: 2 }
+
+source_citations:
+  - id: src_somm_basic_beer_ingredients
+    kind: reference_work
+    title: Beer Ingredients
+    publisher: Brewers Association
+    jurisdiction: US
+    document_identifier: Beginner course description and public learning outcomes; four key ingredients, not an exclusive recipe or law
+    url: https://www.brewersassociation.org/online-courses/beer-ingredients/
+    accessed_on: "2026-09-28"
+  - id: src_somm_basic_beer_glass
+    kind: reference_work
+    title: Draught Beer Quality Manual for Retailers
+    publisher: Brewers Association
+    jurisdiction: US
+    document_identifier: Retailer edition, Glassware Cleanliness, page 16; trade best practice
+    url: https://cdn.brewersassociation.org/wp-content/uploads/2022/04/04193712/BP22-DBQMR-FINAL.pdf
+    accessed_on: "2026-09-28"
+  - id: src_somm_basic_cider_perry
+    kind: reference_work
+    title: What is Cider and Perry?
+    publisher: National Association of Cider Makers
+    jurisdiction: GB
+    document_identifier: Trade description of fermented apple cider and pear perry; not a statutory definition
+    url: https://cideruk.com/what-is-cider-and-perry/
+    accessed_on: "2026-09-28"
+  - id: src_somm_basic_sake_process
+    kind: reference_work
+    title: How is Sake Made?
+    publisher: Japan Sake and Shochu Makers Association
+    jurisdiction: JP
+    document_identifier: Basic explanation of koji and multiple parallel fermentation
+    url: https://japansake.or.jp/sake/en/basic/how-is-sake-made/
+    accessed_on: "2026-09-28"
+  - id: src_somm_basic_sake_service
+    kind: reference_work
+    title: How to Serve Sake
+    publisher: Japan Sake and Shochu Makers Association
+    jurisdiction: JP
+    document_identifier: Three illustrative service temperature ranges, not a mandate for every sake
+    url: https://japansake.or.jp/sake/en/basic/how-to-serve-sake/
+    accessed_on: "2026-09-28"
+  - id: src_somm_basic_habanos_shapes
+    kind: reference_work
+    title: Principal shapes and sizes
+    publisher: Habanos S.A.
+    jurisdiction: CU
+    document_identifier: Manufacturer and denomination-holder catalogue of parejo, figurado, ring gauge and vitola names
+    url: https://www.habanos.com/en/principal-shapes-sizes/
+    accessed_on: "2026-09-28"
+  - id: src_somm_basic_eu_liqueur
+    kind: legislation
+    title: Regulation (EU) 2019/787, consolidated text
+    publisher: European Union
+    jurisdiction: EU
+    document_identifier: Annex I category 33, consolidated 13 May 2024 view; check later amendments before current-law use
+    url: https://eur-lex.europa.eu/eli/reg/2019/787/2024-05-13
+    accessed_on: "2026-09-28"
+  - id: src_somm_basic_eu_aromatised_wine
+    kind: legislation
+    title: Regulation (EU) No 251/2014, consolidated text
+    publisher: European Union
+    jurisdiction: EU
+    document_identifier: Article 3(2) and Annex II A(3) vermouth, optional added alcohol and characteristic Artemisia; consolidated 18 March 2026 view, check amendments before current-law use
+    url: https://eur-lex.europa.eu/eli/reg/2014/251/2026-03-18/eng
+    accessed_on: "2026-09-28"
+
+knowledge_item_citations:
+  - { knowledge_item_id: ki_somm_basic_beer_ingredients, source_citation_id: src_somm_basic_beer_ingredients, locator: "Learning Outcomes: four key beer ingredients and styles." }
+  - { knowledge_item_id: ki_somm_basic_beer_glass, source_citation_id: src_somm_basic_beer_glass, locator: "Glassware Cleanliness, page 16: soil, foam-killing residues and lingering aromas." }
+  - { knowledge_item_id: ki_somm_basic_cider_perry, source_citation_id: src_somm_basic_cider_perry, locator: "What is Cider and Perry: fermented apple juice; pear varieties; pear cider term." }
+  - { knowledge_item_id: ki_somm_basic_sake_parallel, source_citation_id: src_somm_basic_sake_process, locator: "Multiple parallel fermentation: koji saccharifies as yeast ferments." }
+  - { knowledge_item_id: ki_somm_basic_sake_temperature, source_citation_id: src_somm_basic_sake_service, locator: "Temperature: chilled 8-15, room 15-25, warmed 40-50 Celsius." }
+  - { knowledge_item_id: ki_somm_basic_cigar_shape, source_citation_id: src_somm_basic_habanos_shapes, locator: "Principal shapes and sizes: parejo, Piramide figurado, Double Figurado." }
+  - { knowledge_item_id: ki_somm_basic_cigar_gauge, source_citation_id: src_somm_basic_habanos_shapes, locator: "Principal shapes and sizes: ring gauge, vitola de galera and de salida." }
+  - { knowledge_item_id: ki_somm_basic_liqueur_identity, source_citation_id: src_somm_basic_eu_liqueur, locator: "Annex I category 33(a)(ii) and (b): ingredients and 15 percent minimum." }
+  - { knowledge_item_id: ki_somm_basic_liqueur_exception, source_citation_id: src_somm_basic_eu_liqueur, locator: "Annex I category 33(a)(i): 100 g/l ordinary minimum and 70/80 g/l exceptions." }
+  - { knowledge_item_id: ki_somm_basic_aperitif_wine, source_citation_id: src_somm_basic_eu_aromatised_wine, locator: "Article 3(1)-(2): aromatised-wine categories and 75% grapevine products." }
+  - { knowledge_item_id: ki_somm_basic_aperitif_vermouth, source_citation_id: src_somm_basic_eu_aromatised_wine, locator: "Annex II A(3): vermouth may include added alcohol and requires characteristic Artemisia flavouring." }
+  - { knowledge_item_id: ki_somm_basic_aperitif_bitter, source_citation_id: src_somm_basic_eu_liqueur, locator: "Annex I category 30: bitter-tasting spirit drink and 15% minimum." }
+  - { knowledge_item_id: ki_somm_case_clean_glass_action, source_citation_id: src_somm_basic_beer_glass, locator: "Glassware Cleanliness, page 16." }
+  - { knowledge_item_id: ki_somm_case_clean_glass_reason, source_citation_id: src_somm_basic_beer_glass, locator: "Glassware Cleanliness, page 16." }
+  - { knowledge_item_id: ki_somm_case_clean_glass_tradeoff, source_citation_id: src_somm_basic_beer_glass, locator: "Glassware Cleanliness is a first check, not a diagnosis of all quality faults." }
+  - { knowledge_item_id: ki_somm_case_clean_glass_limit, source_citation_id: src_somm_basic_beer_glass, locator: "Glassware Cleanliness scope." }
+  - { knowledge_item_id: ki_somm_case_perry_action, source_citation_id: src_somm_basic_cider_perry, locator: "Cider and perry trade descriptions." }
+  - { knowledge_item_id: ki_somm_case_perry_reason, source_citation_id: src_somm_basic_cider_perry, locator: "Cider and perry trade descriptions." }
+  - { knowledge_item_id: ki_somm_case_perry_tradeoff, source_citation_id: src_bev_uk_cider_2023, locator: "Schedule 6 paragraphs 5-7: duty-category cider may be made from apple or pear juice; scope limited to UK duty." }
+  - { knowledge_item_id: ki_somm_case_perry_limit, source_citation_id: src_somm_basic_cider_perry, locator: "Different styles; no bottle-specific sweetness or carbonation rule." }
+  - { knowledge_item_id: ki_somm_case_sake_temp_action, source_citation_id: src_somm_basic_sake_service, locator: "Temperature choices and serving ranges." }
+  - { knowledge_item_id: ki_somm_case_sake_temp_reason, source_citation_id: src_somm_basic_sake_service, locator: "The same sake can taste different at another temperature." }
+  - { knowledge_item_id: ki_somm_case_sake_temp_tradeoff, source_citation_id: src_somm_basic_sake_service, locator: "Chilled, room and warmed categories." }
+  - { knowledge_item_id: ki_somm_case_sake_temp_limit, source_citation_id: src_somm_basic_sake_service, locator: "Illustrative categories, not a bottle-specific requirement." }
+  - { knowledge_item_id: ki_somm_case_shape_action, source_citation_id: src_somm_basic_habanos_shapes, locator: "Piramide/torpedo example after parejos." }
+  - { knowledge_item_id: ki_somm_case_shape_reason, source_citation_id: src_somm_basic_habanos_shapes, locator: "Piramide is a figurado." }
+  - { knowledge_item_id: ki_somm_case_shape_tradeoff, source_citation_id: src_somm_basic_habanos_shapes, locator: "Factory and market vitola names can differ." }
+  - { knowledge_item_id: ki_somm_case_shape_limit, source_citation_id: src_somm_basic_habanos_shapes, locator: "Shape and size definitions, not health or quality claims." }
+  - { knowledge_item_id: ki_somm_case_shape_limit, source_citation_id: src_bev_who_tobacco, locator: "Registered tobacco harm source; no safe level." }
+  - { knowledge_item_id: ki_somm_case_liqueur_action, source_citation_id: src_somm_basic_eu_liqueur, locator: "Annex I category 33: more conditions than minimum ABV." }
+  - { knowledge_item_id: ki_somm_case_liqueur_reason, source_citation_id: src_somm_basic_eu_liqueur, locator: "Annex I category 33(a)-(b): base, added ingredients and minimum ABV." }
+  - { knowledge_item_id: ki_somm_case_liqueur_tradeoff, source_citation_id: src_somm_basic_eu_liqueur, locator: "Annex I category 33(a)(i): lower sugar exceptions." }
+  - { knowledge_item_id: ki_somm_case_liqueur_limit, source_citation_id: src_somm_basic_eu_liqueur, locator: "Annex I category 33: EU legal category, not inspection of a bottle." }
+  - { knowledge_item_id: ki_somm_case_vermouth_action, source_citation_id: src_somm_basic_eu_aromatised_wine, locator: "Article 3 and Annex II(3): vermouth is aromatised wine." }
+  - { knowledge_item_id: ki_somm_case_vermouth_action, source_citation_id: src_somm_basic_eu_liqueur, locator: "Annex I category 30: bitter-tasting spirit drink." }
+  - { knowledge_item_id: ki_somm_case_vermouth_reason, source_citation_id: src_somm_basic_eu_aromatised_wine, locator: "Annex II A(3): optional added alcohol and characteristic Artemisia for vermouth." }
+  - { knowledge_item_id: ki_somm_case_vermouth_reason, source_citation_id: src_somm_basic_eu_liqueur, locator: "Annex I category 30: bitter-tasting spirit drink." }
+  - { knowledge_item_id: ki_somm_case_vermouth_tradeoff, source_citation_id: src_somm_basic_eu_aromatised_wine, locator: "Annex II(3): aromatised-wine category." }
+  - { knowledge_item_id: ki_somm_case_vermouth_tradeoff, source_citation_id: src_somm_basic_eu_liqueur, locator: "Annex I category 30: spirit-drink category." }
+  - { knowledge_item_id: ki_somm_case_vermouth_limit, source_citation_id: src_somm_basic_eu_aromatised_wine, locator: "Article 3 scope; EU definition, not bottle inspection." }
+  - { knowledge_item_id: ki_somm_case_vermouth_limit, source_citation_id: src_somm_basic_eu_liqueur, locator: "Annex I category 30 scope." }

@@ -1,14 +1,17 @@
 import 'dart:convert';
 import 'dart:math';
+import 'dart:typed_data';
 
 import 'package:drift/drift.dart' show driftRuntimeOptions;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:fsrs/fsrs.dart' as fsrs;
+import 'package:image/image.dart' as image;
 import 'package:sommelier/core/backup/user_data_backup.dart';
 import 'package:sommelier/core/curriculum/curriculum_ingestion.dart';
 import 'package:sommelier/core/database/app_database.dart';
 import 'package:sommelier/core/feedback/question_feedback.dart';
 import 'package:sommelier/core/journal/wine_journal.dart';
+import 'package:sommelier/core/journal/journal_photo_store.dart';
 import 'package:sommelier/core/questions/question_presenter.dart';
 import 'package:sommelier/core/settings/user_settings.dart';
 import 'package:sommelier/core/study/learner_profile.dart';
@@ -89,6 +92,13 @@ void main() {
           ),
           nodeIds: {'n_geo_chablis'},
         );
+    await JournalPhotoStore(db, clock: time.clock, random: Random(seed)).put(
+      entryId: wine.id,
+      kind: PhotoKind.label,
+      bytes: Uint8List.fromList(
+        image.encodePng(image.Image(width: 2, height: 2)),
+      ),
+    );
     final tasting = TastingPractice(
       db,
       clock: time.clock,
@@ -155,6 +165,7 @@ void main() {
     final json = await backup.exportJson();
     final document = jsonDecode(json) as Map<String, Object?>;
     expect(document['format'], 'sommelier-user-data');
+    expect(document['format_version'], 2);
     expect(document['schema_version'], db.schemaVersion);
     expect(document['curriculum_release'], bundledDataset().version);
     expect(document['exported_at'], '2026-10-01T09:00:00.000Z');
@@ -166,7 +177,175 @@ void main() {
       (summary.reviews, summary.wines, summary.tastings, summary.flags),
       (2, 1, 1, 1),
     );
+    expect(summary.photos, 1);
     expect(await contents(other), before);
+  });
+
+  test(
+    'photo export includes the full byte-limit boundary and refuses more',
+    () async {
+      final journal = WineJournal(db, clock: time.clock, random: Random(1));
+      final first = await journal.create(
+        const JournalDraft(producerName: 'First capacity wine'),
+      );
+      final second = await journal.create(
+        const JournalDraft(producerName: 'Second capacity wine'),
+      );
+
+      // SQL zeroblobs exercise the backup's byte budget without constructing
+      // several enormous test images or duplicating their bytes in Dart.
+      Future<void> addPhoto(
+        int number,
+        String entryId,
+        String kind,
+        int size,
+      ) => db.customStatement(
+        'INSERT INTO wine_journal_photos '
+        '(id, wine_journal_entry_id, kind, mime_type, photo_bytes, created_at) '
+        'VALUES (?, ?, ?, ?, zeroblob(?), ?)',
+        [
+          '00000000-0000-4000-8000-${number.toString().padLeft(12, '0')}',
+          entryId,
+          kind,
+          'image/png',
+          size,
+          '2026-10-01T09:00:00.000Z',
+        ],
+      );
+
+      const fullPhoto = JournalPhotoStore.maxBytes;
+      await addPhoto(1, first.id, 'label', fullPhoto);
+      await addPhoto(2, first.id, 'glass', fullPhoto);
+      await addPhoto(3, second.id, 'label', fullPhoto);
+      expect(fullPhoto * 3, UserDataBackup.maxExportPhotoBytes);
+
+      final document = await backup.export();
+      final tables = document['tables']! as Map<String, Object?>;
+      final exported = tables['wine_journal_photos']! as List<Object?>;
+      expect(exported, hasLength(3));
+      for (final row in exported) {
+        final photo = row! as Map<String, Object?>;
+        expect(photo['photo_bytes'], isA<String>());
+        expect((photo['photo_bytes']! as String).length, 11184812);
+      }
+
+      await addPhoto(4, second.id, 'glass', 1);
+      Future<(int, int)> photoStats() async {
+        final row = await db
+            .customSelect(
+              'SELECT COUNT(*) AS photo_count, '
+              'SUM(length(photo_bytes)) AS total_bytes '
+              'FROM wine_journal_photos',
+            )
+            .getSingle();
+        return (row.read<int>('photo_count'), row.read<int>('total_bytes'));
+      }
+
+      final before = await photoStats();
+      expect(before, (4, UserDataBackup.maxExportPhotoBytes + 1));
+      final tooLarge = isA<BackupException>().having(
+        (error) => error.message,
+        'message',
+        allOf(contains('24 MiB'), contains('will not leave photos out')),
+      );
+      await expectLater(backup.export(), throwsA(tooLarge));
+      await expectLater(backup.exportJson(), throwsA(tooLarge));
+      expect(
+        await photoStats(),
+        before,
+        reason: 'export must not alter photos',
+      );
+    },
+  );
+
+  test('a format-1 backup keeps its legacy photo reference', () async {
+    await study(db);
+    await db.customStatement(
+      "UPDATE wine_journal_entries SET photo_ref = 'legacy-opaque'",
+    );
+    final document =
+        jsonDecode(await backup.exportJson()) as Map<String, Object?>;
+    document['format_version'] = 1;
+    document['schema_version'] = 4;
+    final tables = document['tables']! as Map<String, Object?>;
+    tables.remove('wine_journal_photos');
+
+    final other = await freshDatabase();
+    addTearDown(other.close);
+    final summary = await UserDataBackup(
+      other,
+      clock: time.clock,
+    ).import(jsonEncode(document));
+    expect(summary.photos, 0);
+    expect(
+      (await other.select(other.wineJournalEntries).getSingle()).photoRef,
+      'legacy-opaque',
+    );
+    expect(await other.select(other.wineJournalPhotos).get(), isEmpty);
+  });
+
+  test('missing or null table arrays cannot erase existing data', () async {
+    await study(db);
+    final before = await contents(db);
+    final exported = await backup.exportJson();
+    final notABackup = isA<BackupException>().having(
+      (error) => error.message,
+      'message',
+      'This file is not a Sommelier backup.',
+    );
+
+    for (final version in [1, 2]) {
+      for (final table in [
+        'review_events',
+        if (version == 2) 'wine_journal_photos',
+      ]) {
+        expect(before[table], isNotEmpty, reason: '$table has data to lose');
+        for (final missing in [true, false]) {
+          final document = jsonDecode(exported) as Map<String, Object?>;
+          document['format_version'] = version;
+          final tables = document['tables']! as Map<String, Object?>;
+          if (version == 1) {
+            document['schema_version'] = 4;
+            tables.remove('wine_journal_photos');
+          }
+          if (missing) {
+            tables.remove(table);
+          } else {
+            tables[table] = null;
+          }
+          final caseName =
+              'format $version $table '
+              '${missing ? 'missing' : 'null'}';
+          await expectLater(
+            backup.import(jsonEncode(document)),
+            throwsA(notABackup),
+            reason: caseName,
+          );
+          expect(await contents(db), before, reason: caseName);
+        }
+      }
+    }
+  });
+
+  test('a corrupt photo refuses import before replacing any rows', () async {
+    await study(db);
+    final before = await contents(db);
+    final document =
+        jsonDecode(await backup.exportJson()) as Map<String, Object?>;
+    final tables = document['tables']! as Map<String, Object?>;
+    final photos = tables['wine_journal_photos']! as List<Object?>;
+    final photo = photos.single! as Map<String, Object?>;
+    for (final bad in [
+      '%%%not-base64',
+      base64Encode([1, 2, 3]),
+    ]) {
+      photo['photo_bytes'] = bad;
+      await expectLater(
+        backup.import(jsonEncode(document)),
+        throwsA(isA<BackupException>()),
+      );
+      expect(await contents(db), before);
+    }
   });
 
   test('an import replaces everything, the review log included', () async {
@@ -222,7 +401,7 @@ void main() {
       'tables': <String, Object?>{},
     };
     for (final change in <void Function(Map<String, Object?>)>[
-      (d) => d['format_version'] = 2,
+      (d) => d['format_version'] = 3,
       (d) => d['schema_version'] = db.schemaVersion + 1,
       (d) => d['tables'] = {'wine_cellar_bins': <Object?>[]},
       (d) => d['tables'] = {

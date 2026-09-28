@@ -63,6 +63,23 @@ void main() {
     await tester.pumpAndSettle();
   }
 
+  /// Journal writes cross the SQLite event loop. Wait for the actual saved
+  /// row before asserting the route, rather than assuming one UI pump is
+  /// enough for a duplicate check and transaction.
+  Future<void> waitForEntry(
+    WidgetTester tester,
+    bool Function(WineJournalEntry) matches,
+  ) async {
+    await tester.runAsync(
+      () =>
+          WineJournal(db)
+              .watchAll()
+              .firstWhere((entries) => entries.any(matches))
+              .timeout(const Duration(seconds: 10)),
+    );
+    await tester.pumpAndSettle();
+  }
+
   testApp('logs a wine, links it to the curriculum and lists it', (
     tester,
   ) async {
@@ -83,6 +100,10 @@ void main() {
     expect(tester.widget<FilterChip>(nebbiolo).selected, isFalse);
 
     await tap(tester, find.widgetWithText(TextButton, 'Save'));
+    await waitForEntry(
+      tester,
+      (entry) => entry.producerName == 'Example Producer',
+    );
     expect(find.text('Example Producer'), findsWidgets);
     expect(find.widgetWithText(Chip, 'Barolo'), findsOneWidget);
     expect(find.widgetWithText(Chip, 'Nebbiolo'), findsNothing);
@@ -111,9 +132,11 @@ void main() {
       find.widgetWithText(FilterChip, 'Barolo · appellation'),
       findsNothing,
     );
+    await reveal(tester, find.text('Clear'), delta: -200);
     await tap(tester, find.text('Clear'));
     expect(find.text('No tasting date'), findsOneWidget);
     await tap(tester, find.widgetWithText(TextButton, 'Save'));
+    await waitForEntry(tester, (entry) => entry.appellationText == 'Chablis');
 
     final entry = (await tester.runAsync(
       () => WineJournal(db).watchAll().first,
@@ -153,11 +176,98 @@ void main() {
     await type(tester, 'Producer', 'New name');
     await tap(tester, find.byTooltip('5 of 5'));
     await tap(tester, find.widgetWithText(TextButton, 'Save'));
+    await waitForEntry(tester, (entry) => entry.producerName == 'New name');
     expect(find.text('New name'), findsWidgets);
     expect(find.bySemanticsLabel('Rated 5 of 5'), findsOneWidget);
 
     await tap(tester, find.byTooltip('Delete'));
     await tap(tester, find.widgetWithText(FilledButton, 'Delete'));
     expect(find.text('Your wine journal'), findsOneWidget);
+  });
+
+  testApp('label text only fills clues the learner accepts', (tester) async {
+    await launch(tester);
+    await tap(tester, find.text('Log a wine'));
+    await type(tester, 'Producer', 'Transcript Estate');
+    final raw = find.widgetWithText(
+      TextField,
+      'Recognized or manually transcribed label text',
+    );
+    await reveal(tester, raw);
+    await tester.enterText(raw, 'Transcript Estate 2019 13.5%');
+    await tester.pumpAndSettle();
+
+    final vintage = find.widgetWithText(TextField, 'Vintage');
+    final abv = find.widgetWithText(TextField, 'Alcohol %');
+    await reveal(tester, vintage, delta: -200);
+    expect(tester.widget<TextField>(vintage).controller!.text, isEmpty);
+    expect(tester.widget<TextField>(abv).controller!.text, isEmpty);
+
+    await reveal(tester, find.text('Use vintage 2019'));
+    await tap(tester, find.text('Use vintage 2019'));
+    await tap(tester, find.text('Use 13.5% alcohol'));
+    await tap(tester, find.widgetWithText(TextButton, 'Save'));
+    await waitForEntry(
+      tester,
+      (entry) =>
+          entry.producerName == 'Transcript Estate' &&
+          entry.vintage == 2019 &&
+          entry.abvPercent == 13.5,
+    );
+  });
+
+  testApp('keeps transcribed label text while scrolling through the editor', (
+    tester,
+  ) async {
+    await launch(tester);
+    await tap(tester, find.text('Log a wine'));
+    final raw = find.widgetWithText(
+      TextField,
+      'Recognized or manually transcribed label text',
+    );
+    await reveal(tester, raw);
+    await tester.enterText(raw, 'Estate 2019 13.5%');
+    await tester.pumpAndSettle();
+    expect(find.text('Use vintage 2019'), findsOneWidget);
+
+    await reveal(
+      tester,
+      find.widgetWithText(TextField, 'Producer'),
+      delta: -350,
+    );
+    await reveal(tester, raw, delta: 350);
+    expect(tester.widget<TextField>(raw).controller!.text, 'Estate 2019 13.5%');
+    expect(find.text('Use vintage 2019'), findsOneWidget);
+    expect(find.text('Use 13.5% alcohol'), findsOneWidget);
+  });
+
+  testApp('warns before saving a separate duplicate', (tester) async {
+    await tester.runAsync(
+      () => WineJournal(db).create(
+        const JournalDraft(producerName: 'Repeated Estate', vintage: 2020),
+      ),
+    );
+    await launch(tester);
+    await tap(tester, find.text('Log a wine'));
+    await type(tester, 'Producer', 'Repeated Estate');
+    await type(tester, 'Vintage', '2020');
+    await tap(tester, find.widgetWithText(TextButton, 'Save'));
+    expect(find.text('Similar wine already logged'), findsOneWidget);
+    await tap(tester, find.widgetWithText(TextButton, 'Review'));
+    final before = await tester.runAsync(
+      () => WineJournal(db).watchAll().first,
+    );
+    expect(before, hasLength(1));
+
+    await tap(tester, find.widgetWithText(TextButton, 'Save'));
+    await tap(tester, find.widgetWithText(FilledButton, 'Save separate entry'));
+    await tester.runAsync(
+      () =>
+          WineJournal(db)
+              .watchAll()
+              .firstWhere((entries) => entries.length == 2)
+              .timeout(const Duration(seconds: 10)),
+    );
+    await tester.pumpAndSettle();
   });
 }

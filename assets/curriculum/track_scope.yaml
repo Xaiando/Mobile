@@ -40,18 +40,137 @@ tracks:
       # Unit 1: the factors behind a wine's style, quality and price.
       - id: wset_l3.vine_and_climate
         label: The vine and its growth cycle, and how climate, weather and soil shape the grape
-        covers: {relation_types: [HAS_CLIMATE, HAS_SOIL]}
+        covers:
+          within:
+            - n_wset_prod_principle_species_variety
+            - n_wset_prod_principle_clone_selection
+            - n_wset_prod_principle_cross_hybrid
+            - n_wset_close_principle_vine_wood
+            - n_wset_close_principle_vine_green_parts
+            - n_wset_found_principle_vine_resources
+            - n_wset_prod_principle_dormancy_budburst
+            - n_vit_principle_flowering
+            - n_vit_principle_veraison
+            - n_wset_found_principle_ripening
+            - n_wset_found_principle_pulp_composition
+            - n_wset_found_principle_seeds_stems
+            - n_wset_found_principle_grape_skin
+            - n_wset_found_principle_skin_flavour
+            - n_wset_prod_principle_climate_types
+            - n_wset_prod_principle_warmth_categories
+            - n_wset_prod_principle_latitude_altitude
+            - n_wset_prod_principle_water_moderation
+            - n_wset_prod_principle_continental_diurnal
+            - n_wset_prod_principle_site_fog
+            - n_wset_prod_principle_climate_weather
+            - n_wset_prod_principle_soil_heat
+            - n_wset_found_principle_aspect
+            - n_wset_found_principle_soil_drainage
+            - n_wset_found_principle_nutrients
         tasks: [C5]
       - id: wset_l3.vineyard_practice
         label: Vineyard management, from training and pruning to hazards, pests and diseases
-        covers: {relation_types: [SUSCEPTIBLE_TO]}
+        covers:
+          within:
+            - n_wset_prod_principle_head_cordon
+            - n_wset_prod_principle_spur_cane
+            - n_wset_prod_principle_trellis_untrellis
+            - n_wset_prod_principle_planting_density
+            - n_vit_principle_fruit_zone
+            - n_wset_prod_principle_hand_machine
+            - n_vit_principle_harvest_maturity
+            - n_wset_prod_principle_harvest_whole_bunch
+            - n_vit_principle_harvest_delay
+            - n_wset_prod_principle_frost_heaters
+            - n_vit_principle_frost_types
+            - n_vit_principle_sprinkler_frost
+            - n_wset_prod_principle_winter_hilling
+            - n_wset_prod_principle_hazard_hail
+            - n_wset_prod_principle_irrigation_methods
+            - n_vit_principle_water_deficit
+            - n_wset_prod_principle_nutrition_test
+            - n_vit_principle_rootstock_choice
+            - n_wset_prod_principle_hazard_animals
+            - n_vit_principle_powdery_risk
+            - n_vit_principle_downy_risk
+            - n_vit_principle_botrytis_risk
+            - n_wset_prod_principle_virus_bacteria
+            - n_wset_found_principle_noble_rot
+            - n_wset_prod_principle_dry_on_off_vine
+            - n_wset_found_principle_frozen_fruit
+            - n_wset_prod_principle_conventional_ipm
+            - n_wset_prod_principle_sustainable
+            - n_wset_prod_principle_organic
+            - n_wset_prod_principle_biodynamic
         tasks: [C5]
       - id: wset_l3.winemaking
         label: Fermentation and the making of white, red, rosé and sweet wines
+        covers:
+          within:
+            - n_win_principle_alcoholic_products
+            - n_win_principle_grape_sugars
+            - n_win_principle_yeast_health
+            - n_win_principle_oxygen_active
+            - n_win_principle_oxygen_stage
+            - n_win_principle_sulfur_forms
+            - n_wset_prod_principle_vessel_temperature
+            - n_win_principle_white_cooling
+            - n_win_principle_red_heat
+            - n_win_principle_mlf_conversion
+            - n_win_principle_machine_contact
+            - n_win_principle_rot_sort
+            - n_wset_prod_principle_destem_crush
+            - n_win_principle_gentle_press
+            - n_win_principle_skin_flavour
+            - n_win_principle_warm_skin
+            - n_win_principle_press_fractions
+            - n_wset_prod_principle_juice_clarification
+            - n_wset_prod_principle_racking_gross_lees
+            - n_wset_prod_principle_red_extraction_stages
+            - n_win_principle_cap_contact
+            - n_win_principle_colour_tannin
+            - n_wset_close_principle_pump_over
+            - n_wset_close_principle_punch_down
+            - n_wset_prod_principle_red_press_timing
+            - n_wset_prod_principle_carbonic
+            - n_wset_prod_principle_semi_carbonic
+            - n_wset_prod_principle_whole_bunch_crushed
+            - n_wset_prod_principle_rose_direct_short
+            - n_wset_prod_principle_rose_blending
+            - n_wset_prod_principle_sweet_routes
+            - n_wset_prod_principle_dry_on_off_vine
+            - n_wset_found_principle_noble_rot
+            - n_wset_found_principle_frozen_fruit
+            - n_wset_prod_principle_sweet_stability
+            - n_wset_prod_principle_arrest_chill
+            - n_wset_prod_principle_enrichment
+            - n_wset_prod_principle_acidification
+            - n_wset_prod_principle_deacidification
         tasks: [C5]
       - id: wset_l3.maturation_and_finishing
         label: Maturation, blending, clarification, stabilisation, packaging and closures
-        covers: {relation_types: [MIN_AGEING, MIN_WOOD_AGEING]}
+        covers:
+          within:
+            - n_win_principle_oak_variables
+            - n_win_principle_oak_reuse
+            - n_wset_prod_principle_neutral_vessels
+            - n_win_principle_lees_release
+            - n_wset_prod_principle_oak_alternatives
+            - n_wset_close_principle_red_ageing_colour
+            - n_wset_close_principle_white_ageing_colour
+            - n_wset_prod_principle_blend_balance
+            - n_wset_prod_principle_blend_consistency
+            - n_wset_close_principle_blending_complexity
+            - n_wset_prod_principle_sedimentation_fining
+            - n_wset_prod_principle_depth_surface
+            - n_win_principle_fining_mechanism
+            - n_win_principle_tartrate_cooling
+            - n_wset_prod_principle_clarity_stability
+            - n_win_principle_packaging_hygiene
+            - n_wset_prod_principle_glass_pet_bib
+            - n_wset_prod_principle_package_oxygen
+            - n_wset_prod_principle_closure_types
+            - n_wset_prod_principle_closure_performance
         tasks: [C5]
 
       # The still wines of the principal regions.
@@ -538,6 +657,14 @@ tracks:
         tasks: [C2, C3, C4, C6, Q5]
       - id: wset_l3.commerce
         label: How costs and market forces shape a wine's price
+        covers:
+          within:
+            - n_wset_prod_principle_cost_land_establishment
+            - n_wset_prod_principle_cost_yield
+            - n_wset_prod_principle_cost_cellar
+            - n_wset_prod_principle_price_chain
+            - n_biz_cost_plus
+            - n_biz_price_review
         tasks: [C5]
 
       # Sparkling and fortified wines.
@@ -658,6 +785,12 @@ tracks:
       # Advice to customers and staff.
       - id: wset_l3.advice.recommendations
         label: Recommending wines, and explaining the choice
+        covers:
+          within:
+            - n_wset_sadvice_principle_selection_context
+            - n_wset_srv_principle_pairing_preference
+            - n_wset_srv_case_chilli
+            - n_wset_srv_case_dessert
         tasks: [C5, Q7]
       - id: wset_l3.advice.storage_and_service
         label: Storing and serving wine
@@ -665,12 +798,38 @@ tracks:
         tasks: [C5]
       - id: wset_l3.advice.faults
         label: Common wine faults
+        covers:
+          within:
+            - n_wset_srv_principle_faults
+            - n_wset_sfault_principle_reduction
+            - n_wset_sfault_principle_high_so2
+            - n_wset_sfault_principle_out_of_condition
+            - n_fault_principle_brett_ep
+            - n_fault_principle_brett_eg
         tasks: [C5]
       - id: wset_l3.advice.food_pairing
         label: The principles of pairing food and wine
+        covers:
+          within:
+            - n_wset_srv_principle_pairing_preference
+            - n_wset_srv_principle_food_sweet
+            - n_wset_srv_principle_food_acid
+            - n_wset_srv_principle_food_salt
+            - n_wset_srv_principle_food_umami
+            - n_wset_srv_principle_food_fat
+            - n_wset_srv_principle_food_chilli
+            - n_wset_srv_principle_food_intensity
+            - n_wset_sadvice_principle_food_bitterness
+            - n_wset_sadvice_principle_complexity_fruitiness
+            - n_wset_srv_case_chilli
+            - n_wset_srv_case_dessert
         tasks: [C5, Q7]
       - id: wset_l3.advice.social_and_health
         label: The social and health effects of drinking too much
+        covers:
+          within:
+            - n_wset_srv_principle_responsible
+            - n_wset_srv_principle_responsible_context
         tasks: [C5]
 
       # Unit 2: tasting.
@@ -1955,6 +2114,12 @@ tracks:
         covers:
           within:
             - n_geo_loire_valley
+            - n_geo_saint_pourcain
+            - n_geo_cheverny
+            - n_geo_orleans_aoc
+            - n_cms_loire_principle_saint_pourcain_wines
+            - n_cms_loire_principle_cheverny_wines
+            - n_cms_loire_principle_orleans_wines
             - n_reg_fr_principle_loire_white_styles
             - n_reg_fr_principle_centre_sites
             - n_reg_fr_case_loire_list
@@ -2172,6 +2337,11 @@ tracks:
         covers:
           within:
             - n_geo_greece
+            - n_geo_halkidiki
+            - n_geo_sithonia
+            - n_geo_slopes_of_meliton
+            - n_geo_achaea
+            - n_geo_patra
             - n_reg_gr_principle_naoussa_sites
             - n_reg_gr_principle_naoussa_styles
             - n_reg_gr_principle_amyndeon_context
@@ -2196,6 +2366,8 @@ tracks:
         covers:
           within:
             - n_geo_hungary
+            - n_geo_bulgaria
+            - n_geo_romania
             - n_wine_tokaji_eszencia
             - n_wine_tokaji_aszu
             - n_wine_tokaji_szamorodni_dry
@@ -2373,15 +2545,66 @@ tracks:
         tasks: [C3]
       - id: cms_certified.spirits
         label: Distillation and the principal spirits
+        covers:
+          within:
+            - n_bev_spirit_separate
+            - n_bev_rum_cane
+            - n_bev_gin_juniper
+            - n_bev_vodka_neutral
+            - n_bev_scotch_rules
+            - n_bev_scotch_malt
+            - n_bev_scotch_age_statement
+            - n_bev_bourbon_corn
+            - n_bev_bourbon_straight
+            - n_bev_cognac_minimum
+            - n_bev_cognac_mentions
+            - n_bev_cognac_fine_champagne
+            - n_somm_tequila
+            - n_somm_grape
+            - n_somm_calvados
+            - n_somm_armagnac
+            - n_somm_case_mix
+            - n_somm_case_card
+            - n_somm_case_marc
+            - n_somm_case_oak
+            - n_somm_case_cider
+            - n_somm_case_count
+            - n_somm_case_plates
+            - n_somm_case_oakwood
         tasks: [C7]
       - id: cms_certified.liqueurs_and_aperitifs
         label: Liqueurs, aperitif wines and bitters
+        covers:
+          within:
+            - n_somm_basic_liqueur
+            - n_somm_basic_aperitif
+            - n_somm_case_liqueur
+            - n_somm_case_vermouth
         tasks: [C7]
       - id: cms_certified.beer_and_cider
         label: Beer and cider
+        covers:
+          within:
+            - n_bev_cask_ale
+            - n_bev_cider_perry
+            - n_somm_beer
+            - n_somm_case_yeast
+            - n_somm_case_date
+            - n_somm_basic_beer
+            - n_somm_basic_cider
+            - n_somm_case_clean_glass
+            - n_somm_case_perry
         tasks: [C7]
       - id: cms_certified.sake
         label: Sake, its production, types and label terms
+        covers:
+          within:
+            - n_bev_sake_polish
+            - n_bev_sake_junmai
+            - n_bev_sake_ginjo
+            - n_bev_sake_honjozo
+            - n_somm_basic_sake
+            - n_somm_case_sake_temp
         tasks: [C7]
 
       # Principles, service and business.
@@ -2390,7 +2613,26 @@ tracks:
         covers: {domains: [viticulture, winemaking]}
         tasks: [C5]
       - id: cms_certified.food_pairing
-        label: Pairing food with wine and other drinks
+        label: Pairing food with wine
+        covers:
+          within:
+            - n_wset_srv_principle_pairing_preference
+            - n_wset_srv_principle_food_sweet
+            - n_wset_srv_principle_food_acid
+            - n_wset_srv_principle_food_salt
+            - n_wset_srv_principle_food_umami
+            - n_wset_srv_principle_food_fat
+            - n_wset_srv_principle_food_chilli
+            - n_wset_srv_principle_food_intensity
+            - n_wset_srv_case_chilli
+            - n_wset_srv_case_dessert
+            - n_somm_case_pair
+            - n_cms_pairing_cooking
+            - n_cms_pairing_vinegar
+            - n_cms_pairing_chocolate
+            - n_cms_pairing_caramel
+            - n_cms_pairing_case_oysters
+            - n_cms_pairing_case_chocolate
         tasks: [C5, C7, Q7]
       - id: cms_certified.business
         label: Bottle sizes, calculations, pricing, inventory and wine lists
@@ -2408,35 +2650,27 @@ tracks:
         covers: {domains: [tasting]}
         tasks: [T1, T2, Q8]
 
-      # Editorial enrichment; not a required Jura wine objective on this track.
-      - id: cms_certified.regional.jura_support
-        label: Optional Jura regional comparison support
-        required: false
+      - id: cms_certified.jura
+        label: Jura wine regions, grapes and styles
         covers:
           within:
+            - n_geo_jura
             - n_reg_fe_principle_jura_climate_sites
             - n_reg_fe_principle_jura_white_grapes
             - n_reg_fe_principle_jura_red_grapes
             - n_reg_fe_principle_jura_ouillage
             - n_reg_fe_principle_jura_patient_wines
-            - n_reg_fe_case_jura_white_comparison
-            - n_reg_fe_case_jura_maturation_cash
           relation_types:
+            - LOCATED_IN
             - PRINCIPLE_EXPLANATION
-            - CASE_ACTION
-            - CASE_REASON
-            - CASE_TRADEOFF
-            - CASE_LIMITATION
-        tasks:
-          - DIP-3
-          - C2
+        tasks: [C2]
 
       # Supporting atlas places, without adding required syllabus objectives.
       - id: cms_certified.atlas.additional_places
         label: Additional wine places for atlas study
         required: false
         covers:
-          within: [n_geo_jura, n_geo_savoie_region, n_geo_corsica, n_geo_switzerland, n_geo_georgia, n_geo_lebanon]
+          within: [n_geo_savoie_region, n_geo_corsica, n_geo_switzerland, n_geo_georgia, n_geo_lebanon]
           relation_types: [LOCATED_IN]
         tasks: [G10, G12, G13]
 

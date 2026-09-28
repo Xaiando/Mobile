@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -5,10 +7,13 @@ import 'package:go_router/go_router.dart';
 import '../../app/startup.dart';
 import '../../core/database/app_database.dart';
 import '../../core/journal/journal_matcher.dart';
+import '../../core/journal/journal_photo_store.dart';
 import '../../core/journal/journal_providers.dart';
 import '../../core/journal/wine_journal.dart';
 import '../../core/time/time_providers.dart';
 import '../../core/time/utc_clock.dart';
+import 'journal_photo_strip.dart';
+import 'journal_scan_section.dart';
 
 /// The names the journal can link to, once the curriculum is installed.
 final _matcherProvider = FutureProvider<JournalMatcher>((ref) async {
@@ -58,6 +63,8 @@ class _JournalEditorState extends ConsumerState<JournalEditor> {
   bool _loaded = false;
   bool _saving = false;
   List<String> _problems = const [];
+  final _pendingPhotos = <PhotoKind, Uint8List>{};
+  final _removedPhotos = <PhotoKind>{};
 
   bool get _isNew => widget.id == null;
 
@@ -143,7 +150,46 @@ class _JournalEditorState extends ConsumerState<JournalEditor> {
       'Alcohol is a number, such as 13.5.',
   ];
 
+  Future<bool> _allowSeparateEntry(JournalDraft draft) async {
+    final producer = (draft.producerName ?? '').trim().toLowerCase();
+    if (producer.isEmpty) return true;
+    final cuvee = (draft.cuveeName ?? '').trim().toLowerCase();
+    final journal = ref.read(wineJournalProvider);
+    final entries = await journal.entries();
+    final duplicates = entries.where(
+      (entry) =>
+          entry.id != widget.id &&
+          (entry.producerName ?? '').trim().toLowerCase() == producer &&
+          (entry.cuveeName ?? '').trim().toLowerCase() == cuvee &&
+          entry.vintage == draft.vintage &&
+          entry.isNonVintage == draft.isNonVintage,
+    );
+    if (duplicates.isEmpty || !mounted) return true;
+    return await showDialog<bool>(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: const Text('Similar wine already logged'),
+            content: const Text(
+              'The same producer, cuvée and vintage are already in your '
+              'cellar. Keep this as a separate tasting entry?',
+            ),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(context, false),
+                child: const Text('Review'),
+              ),
+              FilledButton(
+                onPressed: () => Navigator.pop(context, true),
+                child: const Text('Save separate entry'),
+              ),
+            ],
+          ),
+        ) ??
+        false;
+  }
+
   Future<void> _save() async {
+    if (_saving) return;
     final draft = _draft();
     final problems = [..._typingProblems(), ...draft.problems];
     if (problems.isNotEmpty) {
@@ -151,27 +197,45 @@ class _JournalEditorState extends ConsumerState<JournalEditor> {
       return;
     }
     setState(() => _saving = true);
-    final journal = ref.read(wineJournalProvider);
-    // Only the links on show: those the text suggests, and those kept.
-    final shown = {
-      ...?ref
-          .read(_matcherProvider)
-          .value
-          ?.suggest(draft)
-          .map((suggestion) => suggestion.node.id),
-      ..._kept.keys,
-    };
-    final links = _linked.intersection(shown);
     try {
-      final entry = _isNew
-          ? await journal.create(draft, nodeIds: links)
-          : await journal.update(widget.id!, draft, nodeIds: links);
+      if (!await _allowSeparateEntry(draft)) {
+        if (mounted) setState(() => _saving = false);
+        return;
+      }
+      if (!mounted) return;
+      final journal = ref.read(wineJournalProvider);
+      // Only the links on show: those the text suggests, and those kept.
+      final shown = {
+        ...?ref
+            .read(_matcherProvider)
+            .value
+            ?.suggest(draft)
+            .map((suggestion) => suggestion.node.id),
+        ..._kept.keys,
+      };
+      final links = _linked.intersection(shown);
+      final entry = await journal.saveWithPhotos(
+        draft,
+        id: widget.id,
+        nodeIds: links,
+        photos: _pendingPhotos,
+        removedKinds: _removedPhotos,
+      );
       if (mounted) context.go('/cellar/${entry.id}');
     } on JournalDraftException catch (error) {
-      setState(() {
-        _problems = error.problems;
-        _saving = false;
-      });
+      if (mounted) {
+        setState(() {
+          _problems = error.problems;
+          _saving = false;
+        });
+      }
+    } catch (error) {
+      if (mounted) {
+        setState(() {
+          _problems = ['The entry could not be saved: $error'];
+          _saving = false;
+        });
+      }
     }
   }
 
@@ -357,6 +421,72 @@ class _JournalEditorState extends ConsumerState<JournalEditor> {
       ),
       const SizedBox(height: 8),
       field(_notes, 'Tasting notes', maxLines: 4),
+      const Divider(height: 24),
+      JournalScanSection(
+        onPicked: (kind, bytes) => setState(() {
+          _pendingPhotos[kind] = bytes;
+          _removedPhotos.remove(kind);
+        }),
+        onVintage: (year) => setState(() {
+          _isNonVintage = false;
+          _vintage.text = year.toString();
+        }),
+        onNonVintage: () => setState(() {
+          _isNonVintage = true;
+          _vintage.clear();
+        }),
+        onAbv: (abv) => setState(() => _abv.text = abv.toString()),
+      ),
+      if (_pendingPhotos.isNotEmpty) ...[
+        const SizedBox(height: 8),
+        Wrap(
+          spacing: 12,
+          runSpacing: 12,
+          children: [
+            for (final kind in _pendingPhotos.keys)
+              SizedBox(
+                width: 140,
+                child: Column(
+                  children: [
+                    Image.memory(
+                      _pendingPhotos[kind]!,
+                      width: 140,
+                      height: 140,
+                      fit: BoxFit.cover,
+                    ),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Text(
+                            kind == PhotoKind.label ? 'New label' : 'New glass',
+                          ),
+                        ),
+                        IconButton(
+                          tooltip: 'Discard new ${kind.name} photo',
+                          onPressed: () =>
+                              setState(() => _pendingPhotos.remove(kind)),
+                          icon: const Icon(Icons.close),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+          ],
+        ),
+      ],
+      if (!_isNew) ...[
+        const SizedBox(height: 8),
+        for (final photo
+            in ref.watch(journalPhotosProvider(widget.id!)).value ??
+                const <JournalPhoto>[])
+          if (!_pendingPhotos.containsKey(photo.kind) &&
+              !_removedPhotos.contains(photo.kind))
+            JournalPhotoTile(
+              photo: photo,
+              onRemove: () => setState(() => _removedPhotos.add(photo.kind)),
+            ),
+      ],
       const Divider(height: 24),
       Text('Link to your studies', style: theme.textTheme.titleSmall),
       const SizedBox(height: 4),

@@ -1,0 +1,86 @@
+# Original CMS beverage case rehearsals. Learners assess their own explanation;
+# the app must not automatically certify professional service performance.
+question_templates:
+  - id: qt_somm_practice_case_general
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: somm_practice_general
+    prompt_template: "{subject.name}. How would you respond, and what evidence or uncertainty matters most?"
+    parameters:
+      scope_node_ids:
+        - n_somm_case_mix
+        - n_somm_case_card
+        - n_somm_case_marc
+        - n_somm_case_oak
+        - n_somm_case_yeast
+        - n_somm_case_date
+        - n_somm_case_so2
+        - n_somm_case_fish
+        - n_somm_case_drunk
+        - n_somm_case_pair
+        - n_somm_case_cider
+        - n_somm_case_count
+        - n_somm_case_plates
+        - n_somm_case_oakwood
+        - n_somm_case_steak
+        - n_somm_case_two
+      key_points:
+        CASE_ACTION: Defensible response
+        CASE_REASON: Cited category or sensory reason
+        CASE_TRADEOFF: Tradeoff or alternative
+        CASE_LIMITATION: Limit of the source or decision
+  - id: qt_somm_practice_clean_glass
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: somm_practice_clean_glass
+    prompt_template: "A draught beer's foam collapses quickly in a marked glass. How would you investigate and respond to the guest?"
+    parameters:
+      scope_node_ids: [n_somm_case_clean_glass]
+      key_points: {CASE_ACTION: Response, CASE_REASON: Glass-quality reason, CASE_TRADEOFF: Other possible cause, CASE_LIMITATION: Limit}
+  - id: qt_somm_practice_perry
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: somm_practice_perry
+    prompt_template: "A guest asks for perry, but the offered drink is apple cider. How would you explain the drinks and decide what to offer?"
+    parameters:
+      scope_node_ids: [n_somm_case_perry]
+      key_points: {CASE_ACTION: Response, CASE_REASON: Fruit distinction, CASE_TRADEOFF: Duty-language caveat, CASE_LIMITATION: Bottle check}
+  - id: qt_somm_practice_sake_temp
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: somm_practice_sake_temp
+    prompt_template: "A guest says all sake must be served hot. How would you discuss serving this bottle?"
+    parameters:
+      scope_node_ids: [n_somm_case_sake_temp]
+      key_points: {CASE_ACTION: Response, CASE_REASON: Temperature reason, CASE_TRADEOFF: Warm option, CASE_LIMITATION: Bottle-specific limit}
+  - id: qt_somm_practice_shape
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: somm_practice_shape
+    prompt_template: "A tapered Habanos Piramide is described as a straight-sided parejo. How would you explain its shape and naming to the guest?"
+    parameters:
+      scope_node_ids: [n_somm_case_shape]
+      key_points: {CASE_ACTION: Response, CASE_REASON: Habanos shape, CASE_TRADEOFF: Name variation, CASE_LIMITATION: Limit}
+  - id: qt_somm_practice_liqueur
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: somm_practice_liqueur
+    prompt_template: "A guest calls every fifteen-percent spirit a liqueur. How would you assess that claim for a bottle on your list?"
+    parameters:
+      scope_node_ids: [n_somm_case_liqueur]
+      key_points: {CASE_ACTION: Response, CASE_REASON: Category conditions, CASE_TRADEOFF: Exceptions, CASE_LIMITATION: Bottle-specific limit}
+  - id: qt_somm_practice_vermouth
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: somm_practice_vermouth
+    prompt_template: "A guest says vermouth and bitter-tasting spirit drink are one EU category. How would you compare them for the guest?"
+    parameters:
+      scope_node_ids: [n_somm_case_vermouth]
+      key_points: {CASE_ACTION: Response, CASE_REASON: Legal categories, CASE_TRADEOFF: Shared use or taste, CASE_LIMITATION: Bottle-specific limit}

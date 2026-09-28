@@ -578,6 +578,23 @@ CREATE TABLE wine_journal_entries (
 );
 CREATE INDEX wine_journal_entries_by_tasted_on ON wine_journal_entries (tasted_on);
 
+-- Private, sanitised journal images. The legacy photo_ref column above is
+-- retained for old backups; new images use one opaque key per entry and kind.
+-- Keeping the bytes in SQLite makes journal deletion and backup atomic on
+-- native and web without exposing a file-system path.
+CREATE TABLE wine_journal_photos (
+  id                     TEXT     NOT NULL PRIMARY KEY
+    CHECK (length(id) = 36 AND id NOT GLOB '*[^0-9a-f-]*'),
+  wine_journal_entry_id  TEXT     NOT NULL REFERENCES wine_journal_entries (id) ON DELETE CASCADE,
+  kind                   TEXT     NOT NULL CHECK (kind IN ('label', 'glass')),
+  mime_type              TEXT     NOT NULL CHECK (mime_type IN ('image/jpeg', 'image/png')),
+  photo_bytes            BLOB     NOT NULL CHECK (length(photo_bytes) BETWEEN 1 AND 8388608),
+  created_at             DATETIME NOT NULL
+    CHECK (strftime('%Y-%m-%dT%H:%M:%fZ', created_at) IS created_at),
+  UNIQUE (wine_journal_entry_id, kind)
+);
+CREATE INDEX wine_journal_photos_by_entry ON wine_journal_photos (wine_journal_entry_id);
+
 CREATE TABLE wine_journal_entry_nodes (
   wine_journal_entry_id  TEXT NOT NULL REFERENCES wine_journal_entries (id) ON DELETE CASCADE,
   knowledge_node_id      TEXT NOT NULL REFERENCES knowledge_nodes (id),

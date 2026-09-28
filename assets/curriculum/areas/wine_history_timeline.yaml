@@ -1,0 +1,678 @@
+# Additional chronological wine-history evidence, from Greek vessels to the 2026 OIV report.
+# The registered Areni-1, Pliny, Napoleon and later core remains in wine_history.yaml.
+# Every item is unverified, is secondary enrichment and stays off WSET Levels 1-3.
+knowledge_nodes:
+  - { id: n_htime_greek_symposium, node_type: production_principle, name: "What does a Greek krater show about wine service?" }
+  - { id: n_htime_greek_symposium_krater, node_type: learning_point, name: "A Greek wine-mixing vessel around 550 BCE" }
+  - { id: n_htime_roman_trade, node_type: production_principle, name: "What does a Roman wine transport vessel show?" }
+  - { id: n_htime_roman_trade_amphora, node_type: learning_point, name: "Roman amphorae moved wine" }
+  - { id: n_htime_burgundy_medieval, node_type: production_principle, name: "How did medieval institutions shape the Burgundy vineyard?" }
+  - { id: n_htime_burgundy_medieval_abbeys, node_type: learning_point, name: "Benedictine and Cistercian vineyard work" }
+  - { id: n_htime_burgundy_medieval_clos, node_type: learning_point, name: "The Cistercian clos and cellar model" }
+  - { id: n_htime_aquitaine, node_type: production_principle, name: "What can the 1152 Aquitaine marriage support about Bordeaux?" }
+  - { id: n_htime_aquitaine_trade, node_type: learning_point, name: "1152 is a trade-history link, not a volume" }
+  - { id: n_htime_ducal_rule, node_type: production_principle, name: "How should the 1395 Burgundy grape rule be described?" }
+  - { id: n_htime_ducal_rule_gamay, node_type: learning_point, name: "Philip the Bold's 1395 land rule" }
+  - { id: n_htime_vessels, node_type: production_principle, name: "What do surviving wine vessels prove across centuries?" }
+  - { id: n_htime_vessels_glass1650, node_type: learning_point, name: "A surviving English wine bottle, about 1650-1660" }
+  - { id: n_htime_vessels_cork1730, node_type: learning_point, name: "A surviving corked English wine bottle, 1730" }
+  - { id: n_htime_cape, node_type: production_principle, name: "How did Cape wine begin in the surviving industry account?" }
+  - { id: n_htime_cape_station, node_type: learning_point, name: "The Cape provisioning station, 1652" }
+  - { id: n_htime_cape_first1659, node_type: learning_point, name: "First Cape-grape wine recorded, 1659" }
+  - { id: n_htime_australia_origins, node_type: production_principle, name: "What happened first in Australian vine history?" }
+  - { id: n_htime_australia_origins_first1788, node_type: learning_point, name: "First Fleet vines planted, 1788" }
+  - { id: n_htime_australia_origins_busby1832, node_type: learning_point, name: "Busby's collection widened plant material, 1832" }
+  - { id: n_htime_south_america, node_type: production_principle, name: "How did South American vine histories develop?" }
+  - { id: n_htime_south_america_colonial, node_type: learning_point, name: "Argentine wine predates modern Malbec" }
+  - { id: n_htime_south_america_malbec1853, node_type: learning_point, name: "Mendoza's 1853 agricultural-school proposal" }
+  - { id: n_htime_revolution, node_type: production_principle, name: "What changed hands after the French Revolution in Burgundy?" }
+  - { id: n_htime_revolution_owners, node_type: learning_point, name: "Clergy and noble vineyards were redistributed" }
+  - { id: n_htime_pasteur, node_type: production_principle, name: "What did Pasteur's work change in nineteenth-century wine?" }
+  - { id: n_htime_pasteur_fermentation, node_type: learning_point, name: "Fermentation depends on living ferments" }
+  - { id: n_htime_pasteur_wine_disease, node_type: learning_point, name: "Wine faults and preservation, 1863-1865" }
+  - { id: n_htime_modern_origin, node_type: production_principle, name: "How did modern New World origin controls emerge?" }
+  - { id: n_htime_modern_origin_cape_wo, node_type: learning_point, name: "Cape Wine of Origin was formulated then instituted" }
+  - { id: n_htime_modern_origin_usa_ava, node_type: learning_point, name: "Augusta predates Napa Valley as a US AVA" }
+  - { id: n_htime_modern_origin_australia_gi, node_type: learning_point, name: "Australia has a statutory GI determination process" }
+  - { id: n_htime_present, node_type: production_principle, name: "What recent evidence shows wine history is continuing?" }
+  - { id: n_htime_present_chile2024, node_type: learning_point, name: "Chile announced new varieties and origin designations in 2024" }
+  - { id: n_htime_present_oiv2024, node_type: learning_point, name: "OIV's 2024 agroecology recommendations" }
+  - { id: n_htime_present_oiv2026, node_type: learning_point, name: "OIV's 2026 report describes the 2025 sector" }
+  - { id: n_htime_case_greek_roman_vessels, node_type: production_case, name: "A guest treats Greek kraters and Roman amphorae as the same wine vessel" }
+  - { id: n_htime_case_greek_roman_vessels_action, node_type: learning_point, name: "Name each object's date and job" }
+  - { id: n_htime_case_greek_roman_vessels_reason, node_type: learning_point, name: "Service and transport are different evidence" }
+  - { id: n_htime_case_greek_roman_vessels_tradeoff, node_type: learning_point, name: "Compare the periods without generalizing" }
+  - { id: n_htime_case_greek_roman_vessels_limit, node_type: learning_point, name: "Do not infer first use or a shipment" }
+  - { id: n_htime_case_vessel_story, node_type: production_case, name: "A guest says Roman wine was always sold in corked glass bottles" }
+  - { id: n_htime_case_vessel_story_action, node_type: learning_point, name: "Compare the surviving containers" }
+  - { id: n_htime_case_vessel_story_reason, node_type: learning_point, name: "Three artifacts do different evidentiary work" }
+  - { id: n_htime_case_vessel_story_tradeoff, node_type: learning_point, name: "Keep the comparison useful but narrow" }
+  - { id: n_htime_case_vessel_story_limit, node_type: learning_point, name: "Do not infer an invention date" }
+  - { id: n_htime_case_newworld_names, node_type: production_case, name: "A guest says the 1976 Paris tasting created Napa Valley and Cape origin law" }
+  - { id: n_htime_case_newworld_names_action, node_type: learning_point, name: "Separate tastings and legal systems" }
+  - { id: n_htime_case_newworld_names_reason, node_type: learning_point, name: "Each record answers a different question" }
+  - { id: n_htime_case_newworld_names_tradeoff, node_type: learning_point, name: "Mention Australia without equating every regime" }
+  - { id: n_htime_case_newworld_names_limit, node_type: learning_point, name: "Do not infer quality from legal registration" }
+
+knowledge_relations:
+  - { subject_id: n_htime_greek_symposium, relation_type: PRINCIPLE_EXPLANATION, object_id: n_htime_greek_symposium_krater, valid_from: "2026-09-28" }
+  - { subject_id: n_htime_roman_trade, relation_type: PRINCIPLE_EXPLANATION, object_id: n_htime_roman_trade_amphora, valid_from: "2026-09-28" }
+  - { subject_id: n_htime_burgundy_medieval, relation_type: PRINCIPLE_EXPLANATION, object_id: n_htime_burgundy_medieval_abbeys, valid_from: "2026-09-28" }
+  - { subject_id: n_htime_burgundy_medieval, relation_type: PRINCIPLE_EXPLANATION, object_id: n_htime_burgundy_medieval_clos, valid_from: "2026-09-28" }
+  - { subject_id: n_htime_aquitaine, relation_type: PRINCIPLE_EXPLANATION, object_id: n_htime_aquitaine_trade, valid_from: "2026-09-28" }
+  - { subject_id: n_htime_ducal_rule, relation_type: PRINCIPLE_EXPLANATION, object_id: n_htime_ducal_rule_gamay, valid_from: "2026-09-28" }
+  - { subject_id: n_htime_vessels, relation_type: PRINCIPLE_EXPLANATION, object_id: n_htime_vessels_glass1650, valid_from: "2026-09-28" }
+  - { subject_id: n_htime_vessels, relation_type: PRINCIPLE_EXPLANATION, object_id: n_htime_vessels_cork1730, valid_from: "2026-09-28" }
+  - { subject_id: n_htime_cape, relation_type: PRINCIPLE_EXPLANATION, object_id: n_htime_cape_station, valid_from: "2026-09-28" }
+  - { subject_id: n_htime_cape, relation_type: PRINCIPLE_EXPLANATION, object_id: n_htime_cape_first1659, valid_from: "2026-09-28" }
+  - { subject_id: n_htime_australia_origins, relation_type: PRINCIPLE_EXPLANATION, object_id: n_htime_australia_origins_first1788, valid_from: "2026-09-28" }
+  - { subject_id: n_htime_australia_origins, relation_type: PRINCIPLE_EXPLANATION, object_id: n_htime_australia_origins_busby1832, valid_from: "2026-09-28" }
+  - { subject_id: n_htime_south_america, relation_type: PRINCIPLE_EXPLANATION, object_id: n_htime_south_america_colonial, valid_from: "2026-09-28" }
+  - { subject_id: n_htime_south_america, relation_type: PRINCIPLE_EXPLANATION, object_id: n_htime_south_america_malbec1853, valid_from: "2026-09-28" }
+  - { subject_id: n_htime_revolution, relation_type: PRINCIPLE_EXPLANATION, object_id: n_htime_revolution_owners, valid_from: "2026-09-28" }
+  - { subject_id: n_htime_pasteur, relation_type: PRINCIPLE_EXPLANATION, object_id: n_htime_pasteur_fermentation, valid_from: "2026-09-28" }
+  - { subject_id: n_htime_pasteur, relation_type: PRINCIPLE_EXPLANATION, object_id: n_htime_pasteur_wine_disease, valid_from: "2026-09-28" }
+  - { subject_id: n_htime_modern_origin, relation_type: PRINCIPLE_EXPLANATION, object_id: n_htime_modern_origin_cape_wo, valid_from: "2026-09-28" }
+  - { subject_id: n_htime_modern_origin, relation_type: PRINCIPLE_EXPLANATION, object_id: n_htime_modern_origin_usa_ava, valid_from: "2026-09-28" }
+  - { subject_id: n_htime_modern_origin, relation_type: PRINCIPLE_EXPLANATION, object_id: n_htime_modern_origin_australia_gi, valid_from: "2026-09-28" }
+  - { subject_id: n_htime_present, relation_type: PRINCIPLE_EXPLANATION, object_id: n_htime_present_chile2024, valid_from: "2026-09-28" }
+  - { subject_id: n_htime_present, relation_type: PRINCIPLE_EXPLANATION, object_id: n_htime_present_oiv2024, valid_from: "2026-09-28" }
+  - { subject_id: n_htime_present, relation_type: PRINCIPLE_EXPLANATION, object_id: n_htime_present_oiv2026, valid_from: "2026-09-28" }
+  - { subject_id: n_htime_case_greek_roman_vessels, relation_type: CASE_ACTION, object_id: n_htime_case_greek_roman_vessels_action, valid_from: "2026-09-28" }
+  - { subject_id: n_htime_case_greek_roman_vessels, relation_type: CASE_REASON, object_id: n_htime_case_greek_roman_vessels_reason, valid_from: "2026-09-28" }
+  - { subject_id: n_htime_case_greek_roman_vessels, relation_type: CASE_TRADEOFF, object_id: n_htime_case_greek_roman_vessels_tradeoff, valid_from: "2026-09-28" }
+  - { subject_id: n_htime_case_greek_roman_vessels, relation_type: CASE_LIMITATION, object_id: n_htime_case_greek_roman_vessels_limit, valid_from: "2026-09-28" }
+  - { subject_id: n_htime_case_vessel_story, relation_type: CASE_ACTION, object_id: n_htime_case_vessel_story_action, valid_from: "2026-09-28" }
+  - { subject_id: n_htime_case_vessel_story, relation_type: CASE_REASON, object_id: n_htime_case_vessel_story_reason, valid_from: "2026-09-28" }
+  - { subject_id: n_htime_case_vessel_story, relation_type: CASE_TRADEOFF, object_id: n_htime_case_vessel_story_tradeoff, valid_from: "2026-09-28" }
+  - { subject_id: n_htime_case_vessel_story, relation_type: CASE_LIMITATION, object_id: n_htime_case_vessel_story_limit, valid_from: "2026-09-28" }
+  - { subject_id: n_htime_case_newworld_names, relation_type: CASE_ACTION, object_id: n_htime_case_newworld_names_action, valid_from: "2026-09-28" }
+  - { subject_id: n_htime_case_newworld_names, relation_type: CASE_REASON, object_id: n_htime_case_newworld_names_reason, valid_from: "2026-09-28" }
+  - { subject_id: n_htime_case_newworld_names, relation_type: CASE_TRADEOFF, object_id: n_htime_case_newworld_names_tradeoff, valid_from: "2026-09-28" }
+  - { subject_id: n_htime_case_newworld_names, relation_type: CASE_LIMITATION, object_id: n_htime_case_newworld_names_limit, valid_from: "2026-09-28" }
+
+knowledge_items:
+  - id: ki_htime_greek_symposium_krater
+    subject_id: n_htime_greek_symposium
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_htime_greek_symposium_krater
+    domain_id: service
+    assertion_text: "The Metropolitan Museum of Art dates an Attic terracotta column-krater attributed to Lydos to about 550 BCE and describes the krater as a vessel in which wine was diluted with water at a Greek symposium. It documents pre-Roman wine service, not the invention of mixing wine or the way every Greek drank."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_htime_roman_trade_amphora
+    subject_id: n_htime_roman_trade
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_htime_roman_trade_amphora
+    domain_id: service
+    assertion_text: "The Metropolitan Museum of Art dates its Roman terracotta transport amphora to the late first through mid-second century CE and says this type was frequently used to export wine. The object shows a transport technology and distribution, not a modern bottle, a DOC, or the recipe for every Roman wine."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_htime_burgundy_medieval_abbeys
+    subject_id: n_htime_burgundy_medieval
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_htime_burgundy_medieval_abbeys
+    domain_id: service
+    assertion_text: "UNESCO connects the High Medieval Burgundy Climats to Benedictine and Cistercian orders and the Valois dukes. The present parcel system accumulated over time; no single monk drew all the modern legal boundaries."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_htime_burgundy_medieval_clos
+    subject_id: n_htime_burgundy_medieval
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_htime_burgundy_medieval_clos
+    domain_id: service
+    assertion_text: "The Burgundy Climats historical account links Cistercian self-sufficient production with an enclosed plot and cellar model, using Clos de Vougeot in the twelfth century as its example. This is a dated model, not a claim that its current château was entirely built in one year."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_htime_aquitaine_trade
+    subject_id: n_htime_aquitaine
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_htime_aquitaine_trade
+    domain_id: service
+    assertion_text: "Bordeaux's wine council dates the union of Eleanor of Aquitaine and Henry Plantagenet to 1152 and connects it to Bordeaux wine's outward history. The page gives no shipment volume and does not show that the marriage created the vineyard or a modern appellation."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_htime_ducal_rule_gamay
+    subject_id: n_htime_ducal_rule
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_htime_ducal_rule_gamay
+    domain_id: service
+    assertion_text: "The Burgundy Climats timeline says Philip the Bold banned Gamay on his lands in 1395 in favour of Pinot noir. This was a ducal rule tied to his lands, not a universal prohibition of Gamay or a present-day AOC specification."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_htime_vessels_glass1650
+    subject_id: n_htime_vessels
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_htime_vessels_glass1650
+    domain_id: service
+    assertion_text: "Corning Museum of Glass holds a dark-green English wine bottle with an applied seal dated about 1650-1660. It establishes a surviving glass wine vessel by that period; it does not date the first glass bottle or prove that all wine then travelled in bottles."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_htime_vessels_cork1730
+    subject_id: n_htime_vessels
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_htime_vessels_cork1730
+    domain_id: service
+    assertion_text: "Corning Museum of Glass holds an English wine bottle dated 1730 with liquid, a cork, a foil seal and a paper label. It documents this combination in one surviving object, not the invention of cork closure or a universal replacement of casks."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_htime_cape_station
+    subject_id: n_htime_cape
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_htime_cape_station
+    domain_id: service
+    assertion_text: "Wines of South Africa links the Cape wine industry to the Dutch East India Company's provisioning station established in 1652. The station is context for later planting, not a claim that Cape wine was already made that year."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_htime_cape_first1659
+    subject_id: n_htime_cape
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_htime_cape_first1659
+    domain_id: service
+    assertion_text: "Wines of South Africa cites Jan van Riebeeck's diary for wine made from Cape-grown grapes on 2 February 1659. The date is the account's first recorded Cape-grape wine, not the first wine ever made in Africa."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_htime_australia_origins_first1788
+    subject_id: n_htime_australia_origins
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_htime_australia_origins_first1788
+    domain_id: service
+    assertion_text: "Wine Australia says First Fleet vines were planted at Sydney Cove in 1788. This dates an early planting, not a successful commercial vintage or the first use of grapevine in the Pacific."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_htime_australia_origins_busby1832
+    subject_id: n_htime_australia_origins
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_htime_australia_origins_busby1832
+    domain_id: service
+    assertion_text: "Wine Australia's old-vines guide dates the arrival of James Busby's significant collection of European vine cuttings to 1832; its New South Wales page explains how his collection spread to other Australian regions. This is later than the First Fleet planting and is not the same event."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_htime_south_america_colonial
+    subject_id: n_htime_south_america
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_htime_south_america_colonial
+    domain_id: service
+    assertion_text: "The Government of Argentina traces wine production to the colonial period in Santiago del Estero and says vines had reached several other provinces by 1598. The country's wine history therefore did not begin with Malbec in the nineteenth century."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_htime_south_america_malbec1853
+    subject_id: n_htime_south_america
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_htime_south_america_malbec1853
+    domain_id: service
+    assertion_text: "An Argentine government account dates a proposed Mendoza agricultural school to 17 April 1853 and credits Michel Aime Pouget with introducing European varieties including Malbec. The date marks a proposal and introduction context, not the first grape grown in Argentina."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_htime_revolution_owners
+    subject_id: n_htime_revolution
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_htime_revolution_owners
+    domain_id: service
+    assertion_text: "The Burgundy Climats historical account says vineyards belonging to clergy and nobility were confiscated during the French Revolution and later bought by merchants, traders and other producers. Ownership changed, but the source does not say every old parcel boundary vanished."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_htime_pasteur_fermentation
+    subject_id: n_htime_pasteur
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_htime_pasteur_fermentation
+    domain_id: service
+    assertion_text: "Institut Pasteur dates Pasteur's fermentation research to 1857-1862 and reports his conclusion that alcoholic fermentation is due to a living ferment. This is a microbiological explanation, not a claim that Pasteur invented wine or fermentation."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_htime_pasteur_wine_disease
+    subject_id: n_htime_pasteur
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_htime_pasteur_wine_disease
+    domain_id: service
+    assertion_text: "Institut Pasteur says Napoleon III asked Pasteur in 1863 to study wine diseases and records his wine-preservation patent of 11 April 1865. Pasteur linked spoilage to microbial contaminants and developed a heat-preservation process; the institution says this method is rarely used for wine today because it can affect taste."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_htime_modern_origin_cape_wo
+    subject_id: n_htime_modern_origin
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_htime_modern_origin_cape_wo
+    domain_id: service
+    assertion_text: "Wines of South Africa says Wine of Origin legislation was formulated in 1972 and the certification scheme was officially instituted in 1973. The two dates describe stages of one system; neither is a first Cape vintage."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_htime_modern_origin_usa_ava
+    subject_id: n_htime_modern_origin
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_htime_modern_origin_usa_ava
+    domain_id: service
+    assertion_text: "The US regulator's establishment list dates Augusta, Missouri to 20 June 1980 and Napa Valley to 28 January 1981. Augusta heads that AVA list. The 1976 Paris tasting is a tasting, not the rule that established either AVA."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_htime_modern_origin_australia_gi
+    subject_id: n_htime_modern_origin
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_htime_modern_origin_australia_gi
+    domain_id: service
+    assertion_text: "Part VIB of the Wine Australia Act 2013, in the 21 February 2025 compilation, establishes a Geographical Indications Committee and empowers it to determine Australian regional or local wine GIs. The act's short title is not a claim that all Australian GIs were first created in 2013."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_htime_present_chile2024
+    subject_id: n_htime_present
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_htime_present_chile2024
+    domain_id: service
+    assertion_text: "Chile's agriculture-policy office reported a July 2024 announcement to add varieties and origin designations to decree 464. It recorded proposed or admissible changes; the announcement alone does not prove that a named bottle already exists or replace the legal text."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_htime_present_oiv2024
+    subject_id: n_htime_present
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_htime_present_oiv2024
+    domain_id: service
+    assertion_text: "The OIV adopted resolution OIV-VITI 680-2024 with agroecological principles for winegrowing, including biodiversity, soil health and adaptation to climate change. This is an international recommendation, not a claim that every vineyard follows it."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_htime_present_oiv2026
+    subject_id: n_htime_present
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_htime_present_oiv2026
+    domain_id: service
+    assertion_text: "On 12 May 2026 the OIV reported on the 2025 world wine sector. It cited a third consecutive low-production vintage, climate events in both hemispheres, weaker consumption and trade-policy pressures. Those are dated observations, not a prediction for every future harvest."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_htime_case_greek_roman_vessels_action
+    subject_id: n_htime_case_greek_roman_vessels
+    relation_type: CASE_ACTION
+    object_id: n_htime_case_greek_roman_vessels_action
+    domain_id: service
+    assertion_text: "Identify the Met's Greek krater of about 550 BCE as a wine-and-water mixing vessel for a symposium. Identify its late first- to mid-second-century CE Roman amphora as a transport vessel resembling a type frequently used to export wine."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_htime_case_greek_roman_vessels_reason
+    subject_id: n_htime_case_greek_roman_vessels
+    relation_type: CASE_REASON
+    object_id: n_htime_case_greek_roman_vessels_reason
+    domain_id: service
+    assertion_text: "The Greek catalog explains a way to serve wine at a symposium; the Roman catalog describes a transport type. The records support different functions for the two vessels."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_htime_case_greek_roman_vessels_tradeoff
+    subject_id: n_htime_case_greek_roman_vessels
+    relation_type: CASE_TRADEOFF
+    object_id: n_htime_case_greek_roman_vessels_tradeoff
+    domain_id: service
+    assertion_text: "The dated objects make a useful pre-Roman-to-Roman comparison of wine service and distribution, but they do not measure how common either vessel or practice was."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_htime_case_greek_roman_vessels_limit
+    subject_id: n_htime_case_greek_roman_vessels
+    relation_type: CASE_LIMITATION
+    object_id: n_htime_case_greek_roman_vessels_limit
+    domain_id: service
+    assertion_text: "Neither object dates the first wine dilution, the invention of a krater or an amphora, or the beginning of wine trade. The Roman object's resemblance to an export type does not establish what this particular vessel carried."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_htime_case_vessel_story_action
+    subject_id: n_htime_case_vessel_story
+    relation_type: CASE_ACTION
+    object_id: n_htime_case_vessel_story_action
+    domain_id: service
+    assertion_text: "Separate a Roman transport amphora from a surviving English glass bottle of about 1650-1660 and a corked English bottle of 1730. Give each artifact its own date."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_htime_case_vessel_story_reason
+    subject_id: n_htime_case_vessel_story
+    relation_type: CASE_REASON
+    object_id: n_htime_case_vessel_story_reason
+    domain_id: service
+    assertion_text: "The Met identifies an amphora used to move wine; Corning catalogs glass and corked-glass vessels from later periods. A surviving example establishes use by its date, not a world-wide first."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_htime_case_vessel_story_tradeoff
+    subject_id: n_htime_case_vessel_story
+    relation_type: CASE_TRADEOFF
+    object_id: n_htime_case_vessel_story_tradeoff
+    domain_id: service
+    assertion_text: "The three objects let a learner contrast pottery transport and later glass packaging, but do not measure the percentage of wine carried in any vessel type."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_htime_case_vessel_story_limit
+    subject_id: n_htime_case_vessel_story
+    relation_type: CASE_LIMITATION
+    object_id: n_htime_case_vessel_story_limit
+    domain_id: service
+    assertion_text: "Neither museum catalog dates the first cork, the first wine bottle, or the disappearance of casks. Say only what those cataloged objects document."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_htime_case_newworld_names_action
+    subject_id: n_htime_case_newworld_names
+    relation_type: CASE_ACTION
+    object_id: n_htime_case_newworld_names_action
+    domain_id: service
+    assertion_text: "Give the 1976 Paris tasting as one blind comparison, the 1972-1973 Cape Wine of Origin sequence, and the US regulator's 1980 Augusta and 1981 Napa Valley AVA dates."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_htime_case_newworld_names_reason
+    subject_id: n_htime_case_newworld_names
+    relation_type: CASE_REASON
+    object_id: n_htime_case_newworld_names_reason
+    domain_id: service
+    assertion_text: "A tasting compares selected wines on a day; Wine of Origin and AVA records concern protected geographical names. The chronology itself rules out the tasting creating the earlier Cape scheme."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_htime_case_newworld_names_tradeoff
+    subject_id: n_htime_case_newworld_names
+    relation_type: CASE_TRADEOFF
+    object_id: n_htime_case_newworld_names_tradeoff
+    domain_id: service
+    assertion_text: "Australia's later statutory GI process is another origin-name system. Its 2013 Act title should not be used as the founding date for every Australian region."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_htime_case_newworld_names_limit
+    subject_id: n_htime_case_newworld_names
+    relation_type: CASE_LIMITATION
+    object_id: n_htime_case_newworld_names_limit
+    domain_id: service
+    assertion_text: "A protected origin name identifies a regulated place. It does not, by itself, rank all wines from that place or reproduce the judges' 1976 scores."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+
+certification_knowledge_mappings:
+  - { certification_id: WSET_L4, knowledge_item_id: ki_htime_greek_symposium_krater, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_htime_greek_symposium_krater, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_htime_roman_trade_amphora, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_htime_roman_trade_amphora, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_htime_burgundy_medieval_abbeys, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_htime_burgundy_medieval_abbeys, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_htime_burgundy_medieval_clos, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_htime_burgundy_medieval_clos, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_htime_aquitaine_trade, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_htime_aquitaine_trade, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_htime_ducal_rule_gamay, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_htime_ducal_rule_gamay, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_htime_vessels_glass1650, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_htime_vessels_glass1650, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_htime_vessels_cork1730, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_htime_vessels_cork1730, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_htime_cape_station, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_htime_cape_station, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_htime_cape_first1659, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_htime_cape_first1659, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_htime_australia_origins_first1788, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_htime_australia_origins_first1788, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_htime_australia_origins_busby1832, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_htime_australia_origins_busby1832, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_htime_south_america_colonial, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_htime_south_america_colonial, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_htime_south_america_malbec1853, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_htime_south_america_malbec1853, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_htime_revolution_owners, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_htime_revolution_owners, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_htime_pasteur_fermentation, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_htime_pasteur_fermentation, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_htime_pasteur_wine_disease, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_htime_pasteur_wine_disease, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_htime_modern_origin_cape_wo, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_htime_modern_origin_cape_wo, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_htime_modern_origin_usa_ava, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_htime_modern_origin_usa_ava, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_htime_modern_origin_australia_gi, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_htime_modern_origin_australia_gi, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_htime_present_chile2024, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_htime_present_chile2024, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_htime_present_oiv2024, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_htime_present_oiv2024, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_htime_present_oiv2026, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_htime_present_oiv2026, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_htime_case_greek_roman_vessels_action, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_htime_case_greek_roman_vessels_action, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_htime_case_greek_roman_vessels_reason, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_htime_case_greek_roman_vessels_reason, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_htime_case_greek_roman_vessels_tradeoff, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_htime_case_greek_roman_vessels_tradeoff, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_htime_case_greek_roman_vessels_limit, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_htime_case_greek_roman_vessels_limit, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_htime_case_vessel_story_action, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_htime_case_vessel_story_action, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_htime_case_vessel_story_reason, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_htime_case_vessel_story_reason, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_htime_case_vessel_story_tradeoff, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_htime_case_vessel_story_tradeoff, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_htime_case_vessel_story_limit, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_htime_case_vessel_story_limit, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_htime_case_newworld_names_action, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_htime_case_newworld_names_action, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_htime_case_newworld_names_reason, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_htime_case_newworld_names_reason, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_htime_case_newworld_names_tradeoff, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_htime_case_newworld_names_tradeoff, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_htime_case_newworld_names_limit, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_htime_case_newworld_names_limit, importance: secondary, minimum_depth: 2 }
+
+source_citations:
+  - id: src_htime_met_greek_krater
+    kind: reference_work
+    title: "Terracotta column-krater, object 31.11.11"
+    publisher: "The Metropolitan Museum of Art"
+    document_identifier: "Attic vessel attributed to Lydos, circa 550 BCE; catalog describes wine diluted with water at a Greek symposium"
+    url: "https://www.metmuseum.org/art/collection/search/253349"
+    accessed_on: "2026-09-28"
+  - id: src_htime_met_amphora
+    kind: reference_work
+    title: "Terracotta transport amphora, object 74.51.355"
+    publisher: "The Metropolitan Museum of Art"
+    document_identifier: "late 1st to mid-2nd century CE; Roman wine transport amphora"
+    url: "https://www.metmuseum.org/art/collection/search/239940"
+    accessed_on: "2026-09-28"
+  - id: src_htime_unesco_climats
+    kind: reference_work
+    title: "The Climats, terroirs of Burgundy"
+    publisher: "UNESCO World Heritage Centre"
+    document_identifier: "World Heritage property 1425; Outstanding Universal Value"
+    url: "https://whc.unesco.org/en/list/1425"
+    accessed_on: "2026-09-28"
+  - id: src_htime_climats_timeline
+    kind: reference_work
+    title: "Historic timeline of the Burgundy Climats"
+    publisher: "Association des Climats du vignoble de Bourgogne"
+    document_identifier: "Middle Ages, 1395, French Revolution and later trade sections"
+    url: "https://www.climats-bourgogne.com/en/historic-timeline_50.html"
+    accessed_on: "2026-09-28"
+  - id: src_htime_bordeaux_1152
+    kind: reference_work
+    title: "Les 10 anecdotes à sortir sur les vins de Bordeaux"
+    publisher: "Conseil Interprofessionnel du Vin de Bordeaux"
+    document_identifier: "1152 marriage and Bordeaux's outward wine history; no trade-volume claim"
+    url: "https://www.bordeaux.com/fr/Journal/Education/10-anecdotes-sur-les-vins-de-Bordeaux-pour-l-apero"
+    accessed_on: "2026-09-28"
+  - id: src_htime_cmog_1650
+    kind: reference_work
+    title: "Wine Bottle with Seal, accession 71.2.5"
+    publisher: "Corning Museum of Glass"
+    document_identifier: "English dark-green glass object dated about 1650-1660"
+    url: "https://glasscollection.cmog.org/objects/10921/wine-bottle-with-seal"
+    accessed_on: "2026-09-28"
+  - id: src_htime_cmog_1730
+    kind: reference_work
+    title: "Wine Bottle with Cork and Foil Seal, accession 68.2.11"
+    publisher: "Corning Museum of Glass"
+    document_identifier: "English glass object dated 1730; cork, foil, paper label and liquid"
+    url: "https://glasscollection.cmog.org/objects/12994/bottle"
+    accessed_on: "2026-09-28"
+  - id: src_htime_wosa_cape
+    kind: reference_work
+    title: "Three Centuries of Cape Wine"
+    publisher: "Wines of South Africa"
+    document_identifier: "Cape station 1652, first Cape wine 2 February 1659"
+    url: "https://www.wosa.co.za/the-industry/history/three-centuries-of-cape-wine/"
+    accessed_on: "2026-09-28"
+  - id: src_htime_wosa_origin
+    kind: reference_work
+    title: "Wine of Origin: Introduction"
+    publisher: "Wines of South Africa"
+    document_identifier: "1972 formulation and 1973 official institution of Wine of Origin"
+    url: "https://www.wosa.co.za/The-Industry/Wines-Of-Origin/Introduction/"
+    accessed_on: "2026-09-28"
+  - id: src_htime_australia_nsw
+    kind: government_publication
+    title: "New South Wales: birthplace of Australian wine"
+    publisher: "Wine Australia"
+    document_identifier: "First Fleet vines planted Sydney Cove 1788; later Busby collection"
+    url: "https://www.wineaustralia.com/market-insights/regions-and-varieties/new-south-wales-wines"
+    accessed_on: "2026-09-28"
+  - id: src_htime_australia_oldvines
+    kind: government_publication
+    title: "Australia's Old Vines: Educator Guide"
+    publisher: "Wine Australia"
+    document_identifier: "Brief history: first vines 1788, Busby cuttings 1832"
+    url: "https://www.wineaustralia.com/getmedia/df3ca7e9-0743-4036-abf5-be7c129a6589/AWD-Old-Vines-Educator-Guide.pdf?ext=.pdf"
+    accessed_on: "2026-09-28"
+  - id: src_htime_argentina_history
+    kind: government_publication
+    title: "Vino argentino: Parte de nuestra historia"
+    publisher: "Government of Argentina"
+    document_identifier: "Colonial-era production and spread by 1598"
+    url: "https://www.argentina.gob.ar/pais/vino"
+    accessed_on: "2026-09-28"
+  - id: src_htime_argentina_malbec
+    kind: government_publication
+    title: "Malbec, tu casa siempre fue la Argentina"
+    publisher: "Government of Argentina"
+    document_identifier: "17 April 1853 Mendoza school proposal and Michel Aime Pouget"
+    url: "https://www.argentina.gob.ar/noticias/malbec-tu-casa-siempre-fue-la-argentina-0"
+    accessed_on: "2026-09-28"
+  - id: src_htime_pasteur_fermentation
+    kind: reference_work
+    title: "The early years 1847-1862"
+    publisher: "Institut Pasteur"
+    document_identifier: "Fermentation section: 1857-1862 work on alcoholic fermentation and living ferments"
+    url: "https://www.pasteur.fr/en/about-us/early-years-1847-1862"
+    accessed_on: "2026-09-28"
+  - id: src_htime_pasteur_wine
+    kind: reference_work
+    title: "Louis Pasteur: a universal legacy"
+    publisher: "Institut Pasteur"
+    document_identifier: "Diseases in wine and pasteurization sections: Napoleon III's 1863 request and 11 April 1865 preservation patent"
+    url: "https://www.pasteur.fr/en/whats-new/latest-news/features/louis-pasteur-universal-legacy"
+    accessed_on: "2026-09-28"
+  - id: src_htime_ttb_avas
+    kind: regulator_register
+    title: "List of AVAs by Establishment Date"
+    publisher: "US Alcohol and Tobacco Tax and Trade Bureau"
+    document_identifier: "Augusta, Missouri 20 June 1980; Napa Valley 28 January 1981; page updated 24 March 2026"
+    url: "https://www.ttb.gov/regulated-commodities/beverage-alcohol/wine/ava-establishment-dates"
+    accessed_on: "2026-09-28"
+  - id: src_htime_australia_gi
+    kind: legislation
+    title: "Wine Australia Act 2013, compilation 42"
+    publisher: "Federal Register of Legislation, Australia"
+    document_identifier: "Compilation in force 21 February 2025; Part VIB sections 40N, 40P, 40Q"
+    url: "https://www.legislation.gov.au/C2004A02362/2025-02-21/2025-02-21/text/original/epub/OEBPS/document_1/document_1.html"
+    accessed_on: "2026-09-28"
+  - id: src_htime_chile_2024
+    kind: government_publication
+    title: "Announcement on new wine varieties and origin designations"
+    publisher: "Chile Office of Agricultural Studies and Policies"
+    document_identifier: "29 July 2024; announces additions to decree 464, not proof of a bottled wine"
+    url: "https://www.odepa.gob.cl/publicaciones/noticias/agro-en-la-prensa/ministro-valenzuela-anuncia-incorporacion-de-nuevas-variedades-y-nuevas-denominaciones-de-origen-para-el-vino-chileno"
+    accessed_on: "2026-09-28"
+  - id: src_htime_oiv_agro
+    kind: government_publication
+    title: "OIV-VITI 680-2024 recommendations for agroecology"
+    publisher: "International Organisation of Vine and Wine"
+    document_identifier: "Resolution 2024, in force; principles and climate adaptation"
+    url: "https://www.oiv.int/node/3804"
+    accessed_on: "2026-09-28"
+  - id: src_htime_oiv_2025
+    kind: government_publication
+    title: "State of the world wine sector in 2025"
+    publisher: "International Organisation of Vine and Wine"
+    document_identifier: "News release 12 May 2026; 2025 sector data, production and demand"
+    url: "https://www.oiv.int/node/4879"
+    accessed_on: "2026-09-28"
+
+knowledge_item_citations:
+  - { knowledge_item_id: ki_htime_greek_symposium_krater, source_citation_id: src_htime_met_greek_krater, locator: "Object Information: ca. 550 BCE, object 31.11.11; opening text: wine diluted in a krater at a Greek symposium." }
+  - { knowledge_item_id: ki_htime_roman_trade_amphora, source_citation_id: src_htime_met_amphora, locator: "Relevant dated section or catalog object; see document identifier." }
+  - { knowledge_item_id: ki_htime_burgundy_medieval_abbeys, source_citation_id: src_htime_unesco_climats, locator: "Relevant dated section or catalog object; see document identifier." }
+  - { knowledge_item_id: ki_htime_burgundy_medieval_clos, source_citation_id: src_htime_climats_timeline, locator: "Relevant dated section or catalog object; see document identifier." }
+  - { knowledge_item_id: ki_htime_aquitaine_trade, source_citation_id: src_htime_bordeaux_1152, locator: "Relevant dated section or catalog object; see document identifier." }
+  - { knowledge_item_id: ki_htime_ducal_rule_gamay, source_citation_id: src_htime_climats_timeline, locator: "Relevant dated section or catalog object; see document identifier." }
+  - { knowledge_item_id: ki_htime_vessels_glass1650, source_citation_id: src_htime_cmog_1650, locator: "Relevant dated section or catalog object; see document identifier." }
+  - { knowledge_item_id: ki_htime_vessels_cork1730, source_citation_id: src_htime_cmog_1730, locator: "Relevant dated section or catalog object; see document identifier." }
+  - { knowledge_item_id: ki_htime_cape_station, source_citation_id: src_htime_wosa_cape, locator: "Relevant dated section or catalog object; see document identifier." }
+  - { knowledge_item_id: ki_htime_cape_first1659, source_citation_id: src_htime_wosa_cape, locator: "Relevant dated section or catalog object; see document identifier." }
+  - { knowledge_item_id: ki_htime_australia_origins_first1788, source_citation_id: src_htime_australia_nsw, locator: "Relevant dated section or catalog object; see document identifier." }
+  - { knowledge_item_id: ki_htime_australia_origins_busby1832, source_citation_id: src_htime_australia_oldvines, locator: "Relevant dated section or catalog object; see document identifier." }
+  - { knowledge_item_id: ki_htime_australia_origins_busby1832, source_citation_id: src_htime_australia_nsw, locator: "Relevant dated section or catalog object; see document identifier." }
+  - { knowledge_item_id: ki_htime_south_america_colonial, source_citation_id: src_htime_argentina_history, locator: "Relevant dated section or catalog object; see document identifier." }
+  - { knowledge_item_id: ki_htime_south_america_malbec1853, source_citation_id: src_htime_argentina_malbec, locator: "Relevant dated section or catalog object; see document identifier." }
+  - { knowledge_item_id: ki_htime_revolution_owners, source_citation_id: src_htime_climats_timeline, locator: "Relevant dated section or catalog object; see document identifier." }
+  - { knowledge_item_id: ki_htime_pasteur_fermentation, source_citation_id: src_htime_pasteur_fermentation, locator: "Relevant dated section or catalog object; see document identifier." }
+  - { knowledge_item_id: ki_htime_pasteur_wine_disease, source_citation_id: src_htime_pasteur_wine, locator: "Relevant dated section or catalog object; see document identifier." }
+  - { knowledge_item_id: ki_htime_modern_origin_cape_wo, source_citation_id: src_htime_wosa_origin, locator: "Relevant dated section or catalog object; see document identifier." }
+  - { knowledge_item_id: ki_htime_modern_origin_usa_ava, source_citation_id: src_htime_ttb_avas, locator: "Relevant dated section or catalog object; see document identifier." }
+  - { knowledge_item_id: ki_htime_modern_origin_australia_gi, source_citation_id: src_htime_australia_gi, locator: "Relevant dated section or catalog object; see document identifier." }
+  - { knowledge_item_id: ki_htime_present_chile2024, source_citation_id: src_htime_chile_2024, locator: "Relevant dated section or catalog object; see document identifier." }
+  - { knowledge_item_id: ki_htime_present_oiv2024, source_citation_id: src_htime_oiv_agro, locator: "Relevant dated section or catalog object; see document identifier." }
+  - { knowledge_item_id: ki_htime_present_oiv2026, source_citation_id: src_htime_oiv_2025, locator: "Relevant dated section or catalog object; see document identifier." }
+  - { knowledge_item_id: ki_htime_case_greek_roman_vessels_action, source_citation_id: src_htime_met_greek_krater, locator: "Object Information: ca. 550 BCE; opening text: symposium krater for diluting wine." }
+  - { knowledge_item_id: ki_htime_case_greek_roman_vessels_action, source_citation_id: src_htime_met_amphora, locator: "Object Information: late 1st-mid-2nd century CE; opening text: transport type frequently used to export wine." }
+  - { knowledge_item_id: ki_htime_case_greek_roman_vessels_reason, source_citation_id: src_htime_met_greek_krater, locator: "Opening text: wine service at a Greek symposium." }
+  - { knowledge_item_id: ki_htime_case_greek_roman_vessels_reason, source_citation_id: src_htime_met_amphora, locator: "Opening text: Roman wine-transport type." }
+  - { knowledge_item_id: ki_htime_case_greek_roman_vessels_tradeoff, source_citation_id: src_htime_met_greek_krater, locator: "One dated Greek mixing vessel, not a frequency survey." }
+  - { knowledge_item_id: ki_htime_case_greek_roman_vessels_tradeoff, source_citation_id: src_htime_met_amphora, locator: "One dated Roman transport vessel, not a frequency survey." }
+  - { knowledge_item_id: ki_htime_case_greek_roman_vessels_limit, source_citation_id: src_htime_met_greek_krater, locator: "The catalog dates this object and describes its function, not the invention of dilution or kraters." }
+  - { knowledge_item_id: ki_htime_case_greek_roman_vessels_limit, source_citation_id: src_htime_met_amphora, locator: "The catalog says this object resembles a wine-export type; it does not state what it carried." }
+  - { knowledge_item_id: ki_htime_case_vessel_story_action, source_citation_id: src_htime_met_amphora, locator: "Relevant dated section or catalog object; see document identifier." }
+  - { knowledge_item_id: ki_htime_case_vessel_story_action, source_citation_id: src_htime_cmog_1650, locator: "Relevant dated section or catalog object; see document identifier." }
+  - { knowledge_item_id: ki_htime_case_vessel_story_action, source_citation_id: src_htime_cmog_1730, locator: "Relevant dated section or catalog object; see document identifier." }
+  - { knowledge_item_id: ki_htime_case_vessel_story_reason, source_citation_id: src_htime_met_amphora, locator: "Relevant dated section or catalog object; see document identifier." }
+  - { knowledge_item_id: ki_htime_case_vessel_story_reason, source_citation_id: src_htime_cmog_1650, locator: "Relevant dated section or catalog object; see document identifier." }
+  - { knowledge_item_id: ki_htime_case_vessel_story_reason, source_citation_id: src_htime_cmog_1730, locator: "Relevant dated section or catalog object; see document identifier." }
+  - { knowledge_item_id: ki_htime_case_vessel_story_tradeoff, source_citation_id: src_htime_met_amphora, locator: "Relevant dated section or catalog object; see document identifier." }
+  - { knowledge_item_id: ki_htime_case_vessel_story_tradeoff, source_citation_id: src_htime_cmog_1650, locator: "Relevant dated section or catalog object; see document identifier." }
+  - { knowledge_item_id: ki_htime_case_vessel_story_tradeoff, source_citation_id: src_htime_cmog_1730, locator: "Relevant dated section or catalog object; see document identifier." }
+  - { knowledge_item_id: ki_htime_case_vessel_story_limit, source_citation_id: src_htime_cmog_1650, locator: "Relevant dated section or catalog object; see document identifier." }
+  - { knowledge_item_id: ki_htime_case_vessel_story_limit, source_citation_id: src_htime_cmog_1730, locator: "Relevant dated section or catalog object; see document identifier." }
+  - { knowledge_item_id: ki_htime_case_newworld_names_action, source_citation_id: src_htime_wosa_origin, locator: "Relevant dated section or catalog object; see document identifier." }
+  - { knowledge_item_id: ki_htime_case_newworld_names_action, source_citation_id: src_htime_ttb_avas, locator: "Relevant dated section or catalog object; see document identifier." }
+  - { knowledge_item_id: ki_htime_case_newworld_names_action, source_citation_id: src_hist_paris_1976, locator: "24 May 1976 Paris tasting; one comparison, not an origin law." }
+  - { knowledge_item_id: ki_htime_case_newworld_names_reason, source_citation_id: src_htime_wosa_origin, locator: "Relevant dated section or catalog object; see document identifier." }
+  - { knowledge_item_id: ki_htime_case_newworld_names_reason, source_citation_id: src_htime_ttb_avas, locator: "Relevant dated section or catalog object; see document identifier." }
+  - { knowledge_item_id: ki_htime_case_newworld_names_reason, source_citation_id: src_hist_paris_1976, locator: "24 May 1976 Paris tasting; one comparison, not an origin law." }
+  - { knowledge_item_id: ki_htime_case_newworld_names_tradeoff, source_citation_id: src_htime_australia_gi, locator: "Relevant dated section or catalog object; see document identifier." }
+  - { knowledge_item_id: ki_htime_case_newworld_names_limit, source_citation_id: src_htime_ttb_avas, locator: "Relevant dated section or catalog object; see document identifier." }
+  - { knowledge_item_id: ki_htime_case_newworld_names_limit, source_citation_id: src_htime_wosa_origin, locator: "Relevant dated section or catalog object; see document identifier." }
+  - { knowledge_item_id: ki_htime_case_newworld_names_limit, source_citation_id: src_hist_paris_1976, locator: "24 May 1976 Paris tasting; one comparison, not an origin law." }

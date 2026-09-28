@@ -513,6 +513,22 @@ final cases = <CrudCase>[
     delete: ['DELETE FROM wine_journal_entries WHERE id = ${_uuid(10)}'],
   ),
   CrudCase(
+    'wine_journal_photos',
+    scope: Scope.user,
+    create: [
+      _journal(12),
+      "INSERT INTO wine_journal_photos VALUES (${_uuid(13)}, ${_uuid(12)}, 'label', 'image/png', X'00', $_ts)",
+    ],
+    where: 'id = ${_uuid(13)}',
+    update:
+        "UPDATE wine_journal_photos SET kind = 'glass' WHERE id = ${_uuid(13)}",
+    whereUpdated: "id = ${_uuid(13)} AND kind = 'glass'",
+    delete: [
+      'DELETE FROM wine_journal_photos WHERE id = ${_uuid(13)}',
+      'DELETE FROM wine_journal_entries WHERE id = ${_uuid(12)}',
+    ],
+  ),
+  CrudCase(
     'wine_journal_entry_nodes',
     scope: Scope.user,
     create: [
@@ -586,7 +602,7 @@ void main() {
         .map((row) => row.read<String>('name'))
         .get();
     expect(cases.map((c) => c.table).toSet(), tables.toSet());
-    expect(tables, hasLength(40));
+    expect(tables, hasLength(41));
   });
 
   test('a reset or import may delete the review log, never update it '

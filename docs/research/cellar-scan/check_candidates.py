@@ -43,6 +43,7 @@ RELEASE_SOURCES = [
     ROOT / "assets" / "curriculum" / "areas" / "wine_history.yaml",
     ROOT / "assets" / "curriculum" / "areas" / "sommelier_beverages.yaml",
     ROOT / "assets" / "curriculum" / "areas" / "eu.yaml",
+    ROOT / "assets" / "curriculum" / "areas" / "wset_wine_service.yaml",
 ]
 
 
@@ -181,7 +182,7 @@ def main() -> None:
     print(f"candidate sommelier items: {somm_count}")
     print(f"synthetic label cases: {len(corpus['cases'])}")
     print("non-SDK candidate check: passed")
-    print("not a Flutter test, not expert review, not an implemented scanner")
+    print("not a Flutter scanner integration test or expert review")
 
 
 if __name__ == "__main__":

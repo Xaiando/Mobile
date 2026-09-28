@@ -1,0 +1,1298 @@
+# CMS beverage and service practice; include in a new dataset release.
+# CMS_CERTIFIED follows the Europe 2026/27 track in track_scope.yaml. These
+# explanations supply beverage identity and service reasoning, not an official
+# examination or performance assessment. Exam pages are not fact sources.
+# No WSET Level 1–3 mappings. WSET_L4 is limited to wine-label and
+# astringency items already selected by the original candidate.
+# Reuses src_bev_eu_spirits_2019, src_bev_cognac_bnic, and src_wset_srv_who_cancer.
+# Do not copy those URLs into this file. All items unverified.
+# mcq_disabled because several careful wordings can be right.
+# All facts are unverified; content and runtime validation remain required.
+knowledge_nodes:
+  - { id: n_somm_tequila, node_type: production_principle, name: "What must be true before a bottle is tequila?" }
+  - { id: n_somm_tequila_plant, node_type: learning_point, name: "Blue agave, the appellation, and the strength band" }
+  - { id: n_somm_tequila_place, node_type: learning_point, name: "The Council's account of the 1974 area" }
+  - { id: n_somm_tequila_split, node_type: learning_point, name: "100 percent and the 51 percent category are different" }
+  - { id: n_somm_tequila_age, node_type: learning_point, name: "Use the maturation paragraph, not the conflicting card" }
+  - { id: n_somm_tequila_other, node_type: learning_point, name: "Another agave liquor is not tequila" }
+  - { id: n_somm_grape, node_type: production_principle, name: "How do wine spirit, grape marc, and Cognac differ?" }
+  - { id: n_somm_grape_wine, node_type: learning_point, name: "Wine spirit is distilled from wine" }
+  - { id: n_somm_grape_marc, node_type: learning_point, name: "Grape marc spirit is not wine spirit" }
+  - { id: n_somm_grape_cognac, node_type: learning_point, name: "Generic brandy ageing is not Cognac" }
+  - { id: n_somm_beer, node_type: production_principle, name: "What do the modern beer-yeast names prove?" }
+  - { id: n_somm_beer_species, node_type: learning_point, name: "Lager yeast in this paper is a hybrid" }
+  - { id: n_somm_beer_hypothesis, node_type: learning_point, name: "1602 is a hypothesis, not an invention date" }
+  - { id: n_somm_label, node_type: production_principle, name: "What does an allergen line require, and what does it not prove?" }
+  - { id: n_somm_label_sulfite, node_type: learning_point, name: "Sulphites over 10 milligrams must be declared" }
+  - { id: n_somm_label_fish, node_type: learning_point, name: "The isinglass exception is not a medical clearance" }
+  - { id: n_somm_service, node_type: production_principle, name: "Which service limits are sourced, and which are not?" }
+  - { id: n_somm_service_offence, node_type: learning_point, name: "England and Wales: do not knowingly sell to a drunk person" }
+  - { id: n_somm_service_pairing, node_type: learning_point, name: "Do not invent a pairing mechanism" }
+  - { id: n_somm_case_mix, node_type: production_case, name: "A guest treats every tequila as 100 percent agave" }
+  - { id: n_somm_case_mix_action, node_type: learning_point, name: "Separate the two categories" }
+  - { id: n_somm_case_mix_reason, node_type: learning_point, name: "Origin bottling and the sugar share are the split" }
+  - { id: n_somm_case_mix_tradeoff, node_type: learning_point, name: "The 51 percent category can still be legal tequila" }
+  - { id: n_somm_case_mix_limit, node_type: learning_point, name: "The page does not audit this bottle" }
+  - { id: n_somm_case_card, node_type: production_case, name: "A guest ages reposado from the English class card" }
+  - { id: n_somm_case_card_action, node_type: learning_point, name: "Refuse the one-year reposado figure" }
+  - { id: n_somm_case_card_reason, node_type: learning_point, name: "The maturation paragraph says two months" }
+  - { id: n_somm_case_card_tradeoff, node_type: learning_point, name: "Do not lock the card's barrel volume either" }
+  - { id: n_somm_case_card_limit, node_type: learning_point, name: "The standard itself was not opened" }
+  - { id: n_somm_case_marc, node_type: production_case, name: "A guest is poured Cognac when they asked for a marc spirit" }
+  - { id: n_somm_case_marc_action, node_type: learning_point, name: "Say the raw materials differ" }
+  - { id: n_somm_case_marc_reason, node_type: learning_point, name: "Marc is fermented grape marc, not wine" }
+  - { id: n_somm_case_marc_tradeoff, node_type: learning_point, name: "Both are grape-derived spirits" }
+  - { id: n_somm_case_marc_limit, node_type: learning_point, name: "The annex does not define grappa" }
+  - { id: n_somm_case_oak, node_type: production_case, name: "A guest calls six months in small oak Cognac" }
+  - { id: n_somm_case_oak_action, node_type: learning_point, name: "Keep generic brandy apart from Cognac" }
+  - { id: n_somm_case_oak_reason, node_type: learning_point, name: "The ageing floors and the sale strengths differ" }
+  - { id: n_somm_case_oak_tradeoff, node_type: learning_point, name: "A Cognac can also meet a generic description" }
+  - { id: n_somm_case_oak_limit, node_type: learning_point, name: "Neither page authenticates the glass" }
+  - { id: n_somm_case_yeast, node_type: production_case, name: "A guest says beer is one yeast" }
+  - { id: n_somm_case_yeast_action, node_type: learning_point, name: "Give the two modern names" }
+  - { id: n_somm_case_yeast_reason, node_type: learning_point, name: "The paper assigns them to different fermentations" }
+  - { id: n_somm_case_yeast_tradeoff, node_type: learning_point, name: "A hybrid still has an ale-yeast parent" }
+  - { id: n_somm_case_yeast_limit, node_type: learning_point, name: "One review is not every brewery" }
+  - { id: n_somm_case_date, node_type: production_case, name: "A guest says lager was invented in 1602" }
+  - { id: n_somm_case_date_action, node_type: learning_point, name: "Call 1602 a hypothesis" }
+  - { id: n_somm_case_date_reason, node_type: learning_point, name: "The paper itself says bottom fermentation was older" }
+  - { id: n_somm_case_date_tradeoff, node_type: learning_point, name: "The place can stay in the story as a proposal" }
+  - { id: n_somm_case_date_limit, node_type: learning_point, name: "Do not teach a purity-law text from this paper" }
+  - { id: n_somm_case_so2, node_type: production_case, name: "A guest reads contains sulphites as a maximum dose" }
+  - { id: n_somm_case_so2_action, node_type: learning_point, name: "Call it a declaration threshold" }
+  - { id: n_somm_case_so2_reason, node_type: learning_point, name: "The annex says more than 10 milligrams" }
+  - { id: n_somm_case_so2_tradeoff, node_type: learning_point, name: "The line still matters to the guest" }
+  - { id: n_somm_case_so2_limit, node_type: learning_point, name: "The wine ceiling is a different regulation" }
+  - { id: n_somm_case_fish, node_type: production_case, name: "A guest with a fish allergy asks about isinglass" }
+  - { id: n_somm_case_fish_action, node_type: learning_point, name: "State the exception and do not clear the wine" }
+  - { id: n_somm_case_fish_reason, node_type: learning_point, name: "The annex excepts that fining use from the fish entry" }
+  - { id: n_somm_case_fish_tradeoff, node_type: learning_point, name: "Offer another bottle rather than a medical answer" }
+  - { id: n_somm_case_fish_limit, node_type: learning_point, name: "Labelling law is not clinical advice" }
+  - { id: n_somm_case_drunk, node_type: production_case, name: "A drunk guest in England asks for another bottle" }
+  - { id: n_somm_case_drunk_action, node_type: learning_point, name: "Do not knowingly make the sale" }
+  - { id: n_somm_case_drunk_reason, node_type: learning_point, name: "Section 141 is the offence, not a health slogan" }
+  - { id: n_somm_case_drunk_tradeoff, node_type: learning_point, name: "The statute does not define drunk" }
+  - { id: n_somm_case_drunk_limit, node_type: learning_point, name: "The section is not a world rule" }
+  - { id: n_somm_case_pair, node_type: production_case, name: "A guest demands the scientific reason a match failed" }
+  - { id: n_somm_case_pair_action, node_type: learning_point, name: "Change the wine and skip the unsourced mechanism" }
+  - { id: n_somm_case_pair_reason, node_type: learning_point, name: "No opened page here states a tannin rule" }
+  - { id: n_somm_case_pair_tradeoff, node_type: learning_point, name: "A preference can be met without a theory" }
+  - { id: n_somm_case_pair_limit, node_type: learning_point, name: "A later source could support a mechanism" }
+
+  - { id: n_somm_calvados, node_type: production_principle, name: "What is Calvados on the INAO note, and what count is not?" }
+  - { id: n_somm_calvados_distillate, node_type: learning_point, name: "A distillate of cider and perry, aged two years" }
+  - { id: n_somm_calvados_area, node_type: learning_point, name: "The note's two area counts disagree" }
+  - { id: n_somm_case_cider, node_type: production_case, name: "A guest is poured cider and told it is Calvados" }
+  - { id: n_somm_case_cider_action, node_type: learning_point, name: "Name the distillate, not the cider" }
+  - { id: n_somm_case_cider_reason, node_type: learning_point, name: "INAO ages the spirit for two years in oak" }
+  - { id: n_somm_case_cider_tradeoff, node_type: learning_point, name: "The fruit can be the same" }
+  - { id: n_somm_case_cider_limit, node_type: learning_point, name: "This note states no sale strength" }
+  - { id: n_somm_case_count, node_type: production_case, name: "A guest memorizes one commune count" }
+  - { id: n_somm_case_count_action, node_type: learning_point, name: "Refuse both counts" }
+  - { id: n_somm_case_count_reason, node_type: learning_point, name: "The same note prints two different areas" }
+  - { id: n_somm_case_count_tradeoff, node_type: learning_point, name: "The department names can still be discussed as the note" }
+  - { id: n_somm_case_count_limit, node_type: learning_point, name: "Only the cahier is the legal text" }
+  - { id: n_somm_armagnac, node_type: production_principle, name: "What may be said about Armagnac without describing a still?" }
+  - { id: n_somm_armagnac_identity, node_type: learning_point, name: "A continuous still for most, and 40 percent at sale" }
+  - { id: n_somm_armagnac_oak, node_type: learning_point, name: "The oak is not only Gascon" }
+  - { id: n_somm_case_plates, node_type: production_case, name: "A guest asks for the plate-by-plate method" }
+  - { id: n_somm_case_plates_action, node_type: learning_point, name: "Do not repeat the still path" }
+  - { id: n_somm_case_plates_reason, node_type: learning_point, name: "The page's path is a process, not the lesson" }
+  - { id: n_somm_case_plates_tradeoff, node_type: learning_point, name: "The 95 percent figure can still be stated" }
+  - { id: n_somm_case_plates_limit, node_type: learning_point, name: "This page is not the cahier" }
+  - { id: n_somm_case_oakwood, node_type: production_case, name: "A guest says Armagnac oak is only Gascon" }
+  - { id: n_somm_case_oakwood_action, node_type: learning_point, name: "Name both forests and the sale strength" }
+  - { id: n_somm_case_oakwood_reason, node_type: learning_point, name: "The page says mostly Gascony or Limousin" }
+  - { id: n_somm_case_oakwood_tradeoff, node_type: learning_point, name: "Gascony can still be the larger share" }
+  - { id: n_somm_case_oakwood_limit, node_type: learning_point, name: "Mostly is not a ban, and 95 percent is not a statute" }
+
+  - { id: n_somm_astr, node_type: production_principle, name: "What does the opened astringency review support?" }
+  - { id: n_somm_astr_mechanism, node_type: learning_point, name: "Drying and puckering, generally linked to saliva" }
+  - { id: n_somm_astr_not_food, node_type: learning_point, name: "Saliva protein is not a menu rule" }
+  - { id: n_somm_astr_guests, node_type: learning_point, name: "Two guests can differ" }
+  - { id: n_somm_case_steak, node_type: production_case, name: "A guest says only steak can match a tannic red" }
+  - { id: n_somm_case_steak_action, node_type: learning_point, name: "Refuse the only-steak rule" }
+  - { id: n_somm_case_steak_reason, node_type: learning_point, name: "The review never tested a dish" }
+  - { id: n_somm_case_steak_tradeoff, node_type: learning_point, name: "The guest may still drink the wine with steak" }
+  - { id: n_somm_case_steak_limit, node_type: learning_point, name: "Food protein was not the experiment" }
+  - { id: n_somm_case_two, node_type: production_case, name: "Two guests disagree about the same red wine" }
+  - { id: n_somm_case_two_action, node_type: learning_point, name: "Do not award the argument" }
+  - { id: n_somm_case_two_reason, node_type: learning_point, name: "Saliva differs" }
+  - { id: n_somm_case_two_tradeoff, node_type: learning_point, name: "You can still describe the wine" }
+  - { id: n_somm_case_two_limit, node_type: learning_point, name: "The review did not test these guests" }
+
+knowledge_relations:
+  - { subject_id: n_somm_tequila, relation_type: PRINCIPLE_EXPLANATION, object_id: n_somm_tequila_plant, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_tequila, relation_type: PRINCIPLE_EXPLANATION, object_id: n_somm_tequila_place, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_tequila, relation_type: PRINCIPLE_EXPLANATION, object_id: n_somm_tequila_split, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_tequila, relation_type: PRINCIPLE_EXPLANATION, object_id: n_somm_tequila_age, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_tequila, relation_type: PRINCIPLE_EXPLANATION, object_id: n_somm_tequila_other, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_grape, relation_type: PRINCIPLE_EXPLANATION, object_id: n_somm_grape_wine, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_grape, relation_type: PRINCIPLE_EXPLANATION, object_id: n_somm_grape_marc, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_grape, relation_type: PRINCIPLE_EXPLANATION, object_id: n_somm_grape_cognac, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_beer, relation_type: PRINCIPLE_EXPLANATION, object_id: n_somm_beer_species, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_beer, relation_type: PRINCIPLE_EXPLANATION, object_id: n_somm_beer_hypothesis, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_label, relation_type: PRINCIPLE_EXPLANATION, object_id: n_somm_label_sulfite, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_label, relation_type: PRINCIPLE_EXPLANATION, object_id: n_somm_label_fish, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_service, relation_type: PRINCIPLE_EXPLANATION, object_id: n_somm_service_offence, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_service, relation_type: PRINCIPLE_EXPLANATION, object_id: n_somm_service_pairing, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_mix, relation_type: CASE_ACTION, object_id: n_somm_case_mix_action, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_mix, relation_type: CASE_REASON, object_id: n_somm_case_mix_reason, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_mix, relation_type: CASE_TRADEOFF, object_id: n_somm_case_mix_tradeoff, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_mix, relation_type: CASE_LIMITATION, object_id: n_somm_case_mix_limit, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_card, relation_type: CASE_ACTION, object_id: n_somm_case_card_action, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_card, relation_type: CASE_REASON, object_id: n_somm_case_card_reason, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_card, relation_type: CASE_TRADEOFF, object_id: n_somm_case_card_tradeoff, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_card, relation_type: CASE_LIMITATION, object_id: n_somm_case_card_limit, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_marc, relation_type: CASE_ACTION, object_id: n_somm_case_marc_action, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_marc, relation_type: CASE_REASON, object_id: n_somm_case_marc_reason, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_marc, relation_type: CASE_TRADEOFF, object_id: n_somm_case_marc_tradeoff, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_marc, relation_type: CASE_LIMITATION, object_id: n_somm_case_marc_limit, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_oak, relation_type: CASE_ACTION, object_id: n_somm_case_oak_action, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_oak, relation_type: CASE_REASON, object_id: n_somm_case_oak_reason, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_oak, relation_type: CASE_TRADEOFF, object_id: n_somm_case_oak_tradeoff, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_oak, relation_type: CASE_LIMITATION, object_id: n_somm_case_oak_limit, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_yeast, relation_type: CASE_ACTION, object_id: n_somm_case_yeast_action, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_yeast, relation_type: CASE_REASON, object_id: n_somm_case_yeast_reason, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_yeast, relation_type: CASE_TRADEOFF, object_id: n_somm_case_yeast_tradeoff, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_yeast, relation_type: CASE_LIMITATION, object_id: n_somm_case_yeast_limit, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_date, relation_type: CASE_ACTION, object_id: n_somm_case_date_action, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_date, relation_type: CASE_REASON, object_id: n_somm_case_date_reason, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_date, relation_type: CASE_TRADEOFF, object_id: n_somm_case_date_tradeoff, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_date, relation_type: CASE_LIMITATION, object_id: n_somm_case_date_limit, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_so2, relation_type: CASE_ACTION, object_id: n_somm_case_so2_action, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_so2, relation_type: CASE_REASON, object_id: n_somm_case_so2_reason, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_so2, relation_type: CASE_TRADEOFF, object_id: n_somm_case_so2_tradeoff, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_so2, relation_type: CASE_LIMITATION, object_id: n_somm_case_so2_limit, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_fish, relation_type: CASE_ACTION, object_id: n_somm_case_fish_action, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_fish, relation_type: CASE_REASON, object_id: n_somm_case_fish_reason, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_fish, relation_type: CASE_TRADEOFF, object_id: n_somm_case_fish_tradeoff, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_fish, relation_type: CASE_LIMITATION, object_id: n_somm_case_fish_limit, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_drunk, relation_type: CASE_ACTION, object_id: n_somm_case_drunk_action, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_drunk, relation_type: CASE_REASON, object_id: n_somm_case_drunk_reason, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_drunk, relation_type: CASE_TRADEOFF, object_id: n_somm_case_drunk_tradeoff, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_drunk, relation_type: CASE_LIMITATION, object_id: n_somm_case_drunk_limit, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_pair, relation_type: CASE_ACTION, object_id: n_somm_case_pair_action, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_pair, relation_type: CASE_REASON, object_id: n_somm_case_pair_reason, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_pair, relation_type: CASE_TRADEOFF, object_id: n_somm_case_pair_tradeoff, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_pair, relation_type: CASE_LIMITATION, object_id: n_somm_case_pair_limit, valid_from: "2026-09-27" }
+
+  - { subject_id: n_somm_calvados, relation_type: PRINCIPLE_EXPLANATION, object_id: n_somm_calvados_distillate, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_calvados, relation_type: PRINCIPLE_EXPLANATION, object_id: n_somm_calvados_area, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_cider, relation_type: CASE_ACTION, object_id: n_somm_case_cider_action, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_cider, relation_type: CASE_REASON, object_id: n_somm_case_cider_reason, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_cider, relation_type: CASE_TRADEOFF, object_id: n_somm_case_cider_tradeoff, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_cider, relation_type: CASE_LIMITATION, object_id: n_somm_case_cider_limit, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_count, relation_type: CASE_ACTION, object_id: n_somm_case_count_action, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_count, relation_type: CASE_REASON, object_id: n_somm_case_count_reason, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_count, relation_type: CASE_TRADEOFF, object_id: n_somm_case_count_tradeoff, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_count, relation_type: CASE_LIMITATION, object_id: n_somm_case_count_limit, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_armagnac, relation_type: PRINCIPLE_EXPLANATION, object_id: n_somm_armagnac_identity, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_armagnac, relation_type: PRINCIPLE_EXPLANATION, object_id: n_somm_armagnac_oak, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_plates, relation_type: CASE_ACTION, object_id: n_somm_case_plates_action, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_plates, relation_type: CASE_REASON, object_id: n_somm_case_plates_reason, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_plates, relation_type: CASE_TRADEOFF, object_id: n_somm_case_plates_tradeoff, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_plates, relation_type: CASE_LIMITATION, object_id: n_somm_case_plates_limit, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_oakwood, relation_type: CASE_ACTION, object_id: n_somm_case_oakwood_action, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_oakwood, relation_type: CASE_REASON, object_id: n_somm_case_oakwood_reason, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_oakwood, relation_type: CASE_TRADEOFF, object_id: n_somm_case_oakwood_tradeoff, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_oakwood, relation_type: CASE_LIMITATION, object_id: n_somm_case_oakwood_limit, valid_from: "2026-09-27" }
+
+  - { subject_id: n_somm_astr, relation_type: PRINCIPLE_EXPLANATION, object_id: n_somm_astr_mechanism, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_astr, relation_type: PRINCIPLE_EXPLANATION, object_id: n_somm_astr_not_food, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_astr, relation_type: PRINCIPLE_EXPLANATION, object_id: n_somm_astr_guests, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_steak, relation_type: CASE_ACTION, object_id: n_somm_case_steak_action, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_steak, relation_type: CASE_REASON, object_id: n_somm_case_steak_reason, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_steak, relation_type: CASE_TRADEOFF, object_id: n_somm_case_steak_tradeoff, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_steak, relation_type: CASE_LIMITATION, object_id: n_somm_case_steak_limit, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_two, relation_type: CASE_ACTION, object_id: n_somm_case_two_action, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_two, relation_type: CASE_REASON, object_id: n_somm_case_two_reason, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_two, relation_type: CASE_TRADEOFF, object_id: n_somm_case_two_tradeoff, valid_from: "2026-09-27" }
+  - { subject_id: n_somm_case_two, relation_type: CASE_LIMITATION, object_id: n_somm_case_two_limit, valid_from: "2026-09-27" }
+
+knowledge_items:
+  - id: ki_somm_tequila_plant
+    subject_id: n_somm_tequila
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_somm_tequila_plant
+    domain_id: service
+    assertion_text: "The Tequila Regulatory Council's English page says a beverage is tequila only if it is produced in the areas authorized by the appellation, made from Agave tequilana Weber blue variety, and has an alcoholic content between 35% and 55% Alc. Vol. The page names NOM-006-SCFI-2012 as the standard. This item does not transcribe that standard and does not give cooking temperatures or a distillation procedure."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_tequila_place
+    subject_id: n_somm_tequila
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_somm_tequila_place
+    domain_id: service
+    assertion_text: "The Council's appellation page says the area is 181 municipalities in Jalisco, Michoacán, Guanajuato, Nayarit, and Tamaulipas, and that the General Declaration of Protection was published on 9 December 1974. That is the Council's account of the declaration, not a transcription of the Official Gazette."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_tequila_split
+    subject_id: n_somm_tequila
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_somm_tequila_split
+    domain_id: service
+    assertion_text: "The Council separates two categories. Tequila 100% agave is made from 100% of the sugars of Agave tequilana Weber blue and is bottled at origin. The category it calls Tequila uses at least 51% of the sugars of that agave and up to 49% other reducing sugars, and it may be bottled inside or outside the appellation. The CRT-hosted courtesy translation of NOM-006-SCFI-2012 says that 49% may not be sugars from any species of agave, and that the 51% may only be blue agave grown in the declaration territory. It also says cold mixing is not permitted, and it defines cold mixing as adding an alcoholic beverage other than tequila. Both categories can be tequila. They are not the same category. This is the courtesy translation, not the Diario Oficial, which was not opened."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_tequila_age
+    subject_id: n_somm_tequila
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_somm_tequila_age
+    domain_id: service
+    assertion_text: "The Spanish Council page, the English maturation paragraph, and section 6.4 of the CRT courtesy translation of NOM-006 agree. Reposado is at least 2 months in oak or encino oak. Añejo is at least 1 year, and extra añejo at least 3 years, in containers whose maximum capacity is 600 litres. Section 6.4 does not put that 600-litre cap on reposado. The Spanish reposado card says barricas or a pipón and does not state 600 litres. The English class cards are the conflict: they give reposado a minimum of 1 year. Do not teach those cards. Section 4.36.1 says blanco, or silver, has no additives, its commercial strength is adjusted with water, and it may have been aged for less than two months. Do not teach that blanco never touched wood. Joven is a blend of white tequila with reposado, añejo, or extra añejo. The courtesy translation is not the Diario Oficial."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_tequila_other
+    subject_id: n_somm_tequila
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_somm_tequila_other
+    domain_id: service
+    assertion_text: "The Council says that if there is no label it is not tequila, and that agave liquors, agave spirits, and agave elixirs are not tequila. The word agave does not by itself make a bottle tequila."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_grape_wine
+    subject_id: n_somm_grape
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_somm_grape_wine
+    domain_id: service
+    assertion_text: "In the adopted Annex I of Regulation (EU) 2019/787, wine spirit is produced exclusively by distillation at less than 86% vol. of wine, of wine fortified for distillation, or of wine distillate distilled at less than 86% vol. It has at least 125 grams of volatile substances per hectolitre of 100% vol. alcohol, no more than 200 grams of methanol per hectolitre of 100% vol. alcohol, and a minimum strength of 37.5% vol. No alcohol is added and it is not flavoured. These are category rules, not a method to copy. The adopted text may since have been updated."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_grape_marc
+    subject_id: n_somm_grape
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_somm_grape_marc
+    domain_id: service
+    assertion_text: "In that adopted annex, grape marc spirit is produced exclusively from grape marc fermented and distilled, either directly by water vapour or after water has been added. Every distillation is below 86% vol., and the first is in the presence of the marc. Lees may be added up to 25 kg per 100 kg of marc, and alcohol from the lees must not exceed 35% of the alcohol in the finished product. Volatile substances are at least 140 grams per hectolitre of 100% vol. alcohol, methanol is at most 1,000 grams per hectolitre, and the minimum strength is 37.5% vol. No alcohol is added. It is not flavoured, without precluding traditional methods. Caramel may be added only to adjust colour. Sweetening may round the taste, but the finished product must not exceed 20 grams of sweetening products per litre, expressed as invert sugar. It is not wine spirit. The annex does not define the name grappa. These figures are category rules, not a still to build."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_grape_cognac
+    subject_id: n_somm_grape
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_somm_grape_cognac
+    domain_id: service
+    assertion_text: "Adopted Annex I makes brandy, or Weinbrand, from wine spirit. Wine distillate may be added only if it was distilled below 94.8% vol. and is no more than 50% of the finished product's alcohol. Brandy matures at least one year in oak receptacles of at least 1,000 litres, or six months in oak casks below 1,000 litres. Its minimum strength is 36% vol. No alcohol is added and it is not flavoured, without precluding traditional methods. Caramel may adjust colour only. Sweetening must not exceed 35 grams per litre as invert sugar. The BNIC account of Cognac is stricter and different: the youngest eau-de-vie spends at least two years in oak, and the spirit is sold at a minimum of 40% vol. Six months in small oak can satisfy generic brandy and still not be Cognac. The 94.8% figure is a legal ceiling on that optional distillate, not a target."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_beer_species
+    subject_id: n_somm_beer
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_somm_beer_species
+    domain_id: service
+    assertion_text: "The 2023 FEMS Yeast Research paper uses the modern names this way: lager beer is made by a cold fermentation with Saccharomyces pastorianus, and ale is fermented at warmer temperatures with Saccharomyces cerevisiae. It states that S. pastorianus is a hybrid of S. cerevisiae and cold-tolerant Saccharomyces eubayanus. That is a species contrast, not a fermentation schedule and not a temperature law."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_beer_hypothesis
+    subject_id: n_somm_beer
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_somm_beer_hypothesis
+    domain_id: service
+    assertion_text: "The same paper proposes, as a hypothesis, that the hybrid formed at the Munich Hofbräuhaus between 1602 and 1615. It also says bottom fermentation in parts of Bavaria was older than that date, and that modern species names should not be read back onto medieval yeast slurries. Do not teach 1602 as the invention of lager. The paper mentions the 1516 Bavarian purity ordinance in its historical narrative. This item does not transcribe that ordinance and does not treat it as current beer law."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_label_sulfite
+    subject_id: n_somm_label
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_somm_label_sulfite
+    domain_id: service
+    assertion_text: "Revised Annex II of Regulation (EU) No 1169/2011, as published on legislation.gov.uk, lists sulphur dioxide and sulphites where the concentration is more than 10 mg/kg or 10 mg/litre of total SO2, calculated for the product as proposed ready for consumption or as reconstituted. That is a declaration threshold. It is not the maximum sulphur dioxide allowed in wine, and it does not say that a lower level is safe. The page reports no known outstanding UK effects on this annex. It is the UK publication of the EU regulation, not a check of every member-state text."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_label_fish
+    subject_id: n_somm_label
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_somm_label_fish
+    domain_id: service
+    assertion_text: "The same annex lists fish and products thereof, then excepts fish gelatine or isinglass used as a fining agent in beer and wine. The exception concerns the allergen list. It is not a clinical guarantee that no fish protein remains, and it is not a reason to dismiss a guest who reports a fish allergy."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_service_offence
+    subject_id: n_somm_service
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_somm_service_offence
+    domain_id: service
+    assertion_text: "Section 141 of the Licensing Act 2003, marked for England and Wales, makes it an offence, on relevant premises, knowingly to sell or attempt to sell alcohol to a person who is drunk, or to allow that sale. The opened subsection applies to staff with authority to sell the alcohol, the premises-licence holder, the designated premises supervisor, a club member or officer who is present and can prevent the sale, and the premises user for a temporary event. Supply of alcohol by a club to a member is covered as a sale is covered. The penalty stated is a fine not exceeding level 3 on the standard scale. The section does not define drunk. The page says it is up to date with changes in force on or before 27 September 2026 and also lists changes to the section that are not yet applied. It is not a rule for every country. The World Health Organization statement that there is no safe level of alcohol is a separate claim. It does not write this offence, and this offence does not replace that warning."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_service_pairing
+    subject_id: n_somm_service
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_somm_service_pairing
+    domain_id: service
+    assertion_text: "A guest who dislikes a match still has a service problem, and the astringency account is a separate item. Offer another wine. The allergen declaration and, where section 141 applies, the duty not to sell to a person who is drunk remain in force. Changing the wine is not a claim that any amount of alcohol is safe."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_mix_action
+    subject_id: n_somm_case_mix
+    relation_type: CASE_ACTION
+    object_id: n_somm_case_mix_action
+    domain_id: service
+    assertion_text: "Tell the guest that a bottle labelled only as tequila is not, on that word alone, the 100% agave category. Ask which category is in the glass before treating them as the same thing."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_mix_reason
+    subject_id: n_somm_case_mix
+    relation_type: CASE_REASON
+    object_id: n_somm_case_mix_reason
+    domain_id: service
+    assertion_text: "The Council requires the 100% category to use only sugars of Agave tequilana Weber blue and to be bottled at origin. The other category may use up to 49% other reducing sugars and may be bottled outside the appellation. The courtesy translation adds that those other sugars may not come from any species of agave."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_mix_tradeoff
+    subject_id: n_somm_case_mix
+    relation_type: CASE_TRADEOFF
+    object_id: n_somm_case_mix_tradeoff
+    domain_id: service
+    assertion_text: "Do not tell the guest the 51% category is fake. The Council still calls it tequila when the sugar share, the agave variety, the place, and the strength are met."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_mix_limit
+    subject_id: n_somm_case_mix
+    relation_type: CASE_LIMITATION
+    object_id: n_somm_case_mix_limit
+    domain_id: service
+    assertion_text: "The Council pages explain the categories. They do not inspect the bottle on the table, and this item does not confirm a NOM number that has not been read."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_card_action
+    subject_id: n_somm_case_card
+    relation_type: CASE_ACTION
+    object_id: n_somm_case_card_action
+    domain_id: service
+    assertion_text: "Do not agree that reposado means at least one year. The English class card says that. The English maturation paragraph and the Spanish Council page both say at least two months."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_card_reason
+    subject_id: n_somm_case_card
+    relation_type: CASE_REASON
+    object_id: n_somm_case_card_reason
+    domain_id: service
+    assertion_text: "The conflict is inside the English page. Its maturation paragraph matches the Spanish page: two months, one year, and three years. Only the English class card collapses reposado and añejo onto one year."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_card_tradeoff
+    subject_id: n_somm_case_card
+    relation_type: CASE_TRADEOFF
+    object_id: n_somm_case_card_tradeoff
+    domain_id: service
+    assertion_text: "Do not throw out every barrel figure because the English card is wrong. Section 6.4 of the courtesy translation, and the Spanish añejo and extra añejo cards, state a maximum of 600 litres for those two classes. Reposado is not given that cap. Keep the distinction."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_card_limit
+    subject_id: n_somm_case_card
+    relation_type: CASE_LIMITATION
+    object_id: n_somm_case_card_limit
+    domain_id: service
+    assertion_text: "The courtesy translation hosted by the Council was opened. The Diario Oficial text of NOM-006 was not. Until that gazette is open, the two-month reposado rule and the 600-litre cap on añejo and extra añejo are the translation's wording, not a certified official-journal transcription. The one-year reposado card stays out."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_marc_action
+    subject_id: n_somm_case_marc
+    relation_type: CASE_ACTION
+    object_id: n_somm_case_marc_action
+    domain_id: service
+    assertion_text: "Do not serve Cognac as if it answered a request for a grape-marc spirit. Say that one category starts from wine and the other from fermented grape marc, and ask which the guest wants."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_marc_reason
+    subject_id: n_somm_case_marc
+    relation_type: CASE_REASON
+    object_id: n_somm_case_marc_reason
+    domain_id: service
+    assertion_text: "Adopted Annex I defines wine spirit from wine, wine fortified for distillation, or wine distillate. Grape marc spirit is defined from fermented grape marc. Cognac, on the BNIC page, is an aged wine-spirit appellation, not the marc category."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_marc_tradeoff
+    subject_id: n_somm_case_marc
+    relation_type: CASE_TRADEOFF
+    object_id: n_somm_case_marc_tradeoff
+    domain_id: service
+    assertion_text: "Both drinks are grape-derived spirits, so the guest is not asking for an unrelated category such as a grain whisky. The correction is the raw material, not a claim that one is more authentic in the abstract."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_marc_limit
+    subject_id: n_somm_case_marc
+    relation_type: CASE_LIMITATION
+    object_id: n_somm_case_marc_limit
+    domain_id: service
+    assertion_text: "The annex does not define grappa, Armagnac, or Calvados. Do not fill those names from memory. The adopted text may have been updated, and neither page proves what is in the glass."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_oak_action
+    subject_id: n_somm_case_oak
+    relation_type: CASE_ACTION
+    object_id: n_somm_case_oak_action
+    domain_id: service
+    assertion_text: "Correct the guest. Six months in an oak cask under 1,000 litres can meet the adopted brandy rule. It does not meet the BNIC Cognac minimum of two years on the youngest eau-de-vie."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_oak_reason
+    subject_id: n_somm_case_oak
+    relation_type: CASE_REASON
+    object_id: n_somm_case_oak_reason
+    domain_id: service
+    assertion_text: "Generic brandy's minimum strength in the adopted annex is 36% vol. The BNIC states 40% vol. at sale for Cognac, and age stops at bottling. The numbers answer different questions."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_oak_tradeoff
+    subject_id: n_somm_case_oak
+    relation_type: CASE_TRADEOFF
+    object_id: n_somm_case_oak_tradeoff
+    domain_id: service
+    assertion_text: "A Cognac can satisfy the generic idea of brandy and still be a geographical indication with its own floor. Do not say brandy and Cognac are unrelated, and do not say they are the same rule."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_oak_limit
+    subject_id: n_somm_case_oak
+    relation_type: CASE_LIMITATION
+    object_id: n_somm_case_oak_limit
+    domain_id: service
+    assertion_text: "The BNIC page is the interprofession account used in the registered pack, not a reading of every line of the 2026 order. The adopted EU text may have changed. Neither source tastes the glass."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_yeast_action
+    subject_id: n_somm_case_yeast
+    relation_type: CASE_ACTION
+    object_id: n_somm_case_yeast_action
+    domain_id: service
+    assertion_text: "Separate the modern names. In this paper, ale fermentation uses Saccharomyces cerevisiae and lager fermentation uses Saccharomyces pastorianus. Do not answer with one yeast for every beer."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_yeast_reason
+    subject_id: n_somm_case_yeast
+    relation_type: CASE_REASON
+    object_id: n_somm_case_yeast_reason
+    domain_id: service
+    assertion_text: "The paper says S. pastorianus is the hybrid used for bottom-fermented lager and that it came from S. cerevisiae and Saccharomyces eubayanus. Ale, in the modern sense it uses, is the warmer fermentation with S. cerevisiae."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_yeast_tradeoff
+    subject_id: n_somm_case_yeast
+    relation_type: CASE_TRADEOFF
+    object_id: n_somm_case_yeast_tradeoff
+    domain_id: service
+    assertion_text: "The hybrid has an ale-yeast parent, so the guest is right that S. cerevisiae is in the lager story. That parentage does not make every beer the same fermentation."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_yeast_limit
+    subject_id: n_somm_case_yeast
+    relation_type: CASE_LIMITATION
+    object_id: n_somm_case_yeast_limit
+    domain_id: service
+    assertion_text: "The paper warns against reading modern species back into historical slurries. It does not survey every beer style, and it does not set a legal fermentation temperature."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_date_action
+    subject_id: n_somm_case_date
+    relation_type: CASE_ACTION
+    object_id: n_somm_case_date_action
+    domain_id: service
+    assertion_text: "Do not let the guest leave with 1602 as the year lager was invented. Call the Hofbräuhaus dates the paper's hypothesis about the hybrid, and say bottom fermentation was already being described earlier."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_date_reason
+    subject_id: n_somm_case_date
+    relation_type: CASE_REASON
+    object_id: n_somm_case_date_reason
+    domain_id: service
+    assertion_text: "The abstract proposes hybridization around the start of the 17th century and a plausible Munich window of 1602 to 1615. The same paper says Bavarian bottom fermentation preceded that window by centuries and could have used mixed yeasts."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_date_tradeoff
+    subject_id: n_somm_case_date
+    relation_type: CASE_TRADEOFF
+    object_id: n_somm_case_date_tradeoff
+    domain_id: service
+    assertion_text: "The Munich story can still be repeated as the authors' proposal, with the word hypothesis attached. Stripping the word is what makes the claim false to the paper."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_date_limit
+    subject_id: n_somm_case_date
+    relation_type: CASE_LIMITATION
+    object_id: n_somm_case_date_limit
+    domain_id: service
+    assertion_text: "Do not add an ingredient list for the 1516 purity ordinance from this narrative. The statute was not opened, and the paper is not a current world beer law."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_so2_action
+    subject_id: n_somm_case_so2
+    relation_type: CASE_ACTION
+    object_id: n_somm_case_so2_action
+    domain_id: service
+    assertion_text: "Tell the guest that contains sulphites, under this annex, means the total SO2 is above the declaration threshold. Do not say the wine is at the maximum legal dose."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_so2_reason
+    subject_id: n_somm_case_so2
+    relation_type: CASE_REASON
+    object_id: n_somm_case_so2_reason
+    domain_id: service
+    assertion_text: "Annex II point 12 names sulphur dioxide and sulphites at more than 10 mg/kg or 10 mg/litre of total SO2 in the product as ready for consumption. A declaration rule is not a ceiling."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_so2_tradeoff
+    subject_id: n_somm_case_so2
+    relation_type: CASE_TRADEOFF
+    object_id: n_somm_case_so2_tradeoff
+    domain_id: service
+    assertion_text: "Take the guest's concern seriously and offer a wine whose label they can read. Correcting the legal meaning is not a reason to wave the line away."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_so2_limit
+    subject_id: n_somm_case_so2
+    relation_type: CASE_LIMITATION
+    object_id: n_somm_case_so2_limit
+    domain_id: service
+    assertion_text: "This file has not opened the regulation that sets maximum sulphur dioxide in wine. Do not quote 150 or 200 milligrams from memory. Below 10 mg/litre is not declared by this point, and that silence is not a safety clearance."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_fish_action
+    subject_id: n_somm_case_fish
+    relation_type: CASE_ACTION
+    object_id: n_somm_case_fish_action
+    domain_id: service
+    assertion_text: "Say that this annex excepts isinglass used as a fining agent in beer and wine from the fish allergen entry. Then do not tell the guest the wine is safe for them. Offer a wine the producer can confirm, or another drink."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_fish_reason
+    subject_id: n_somm_case_fish
+    relation_type: CASE_REASON
+    object_id: n_somm_case_fish_reason
+    domain_id: service
+    assertion_text: "Point 4 of the annex lists fish and products thereof and excepts fish gelatine or isinglass used as a fining agent in beer and wine. The sentence is about mandatory information, not about a medical test."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_fish_tradeoff
+    subject_id: n_somm_case_fish
+    relation_type: CASE_TRADEOFF
+    object_id: n_somm_case_fish_tradeoff
+    domain_id: service
+    assertion_text: "A guest can still refuse the wine. The labelling exception does not oblige them to drink it, and the sommelier does not become their clinician by quoting the annex."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_fish_limit
+    subject_id: n_somm_case_fish
+    relation_type: CASE_LIMITATION
+    object_id: n_somm_case_fish_limit
+    domain_id: service
+    assertion_text: "The exception is narrow. It does not cover every fish product in a dish, and it does not say the wine contains no fish protein. Other countries' allergen rules were not opened."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_drunk_action
+    subject_id: n_somm_case_drunk
+    relation_type: CASE_ACTION
+    object_id: n_somm_case_drunk_action
+    domain_id: service
+    assertion_text: "If the premises are in England or Wales and the guest is drunk, do not knowingly sell or allow the sale of another alcoholic drink. Offer water or a soft drink, and do not turn the refusal into a lecture that quotes a pass mark."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_drunk_reason
+    subject_id: n_somm_case_drunk
+    relation_type: CASE_REASON
+    object_id: n_somm_case_drunk_reason
+    domain_id: service
+    assertion_text: "Section 141 makes that knowing sale an offence for staff with authority to sell, the premises-licence holder, the designated premises supervisor, a club officer who can prevent the sale, and the premises user for a temporary event. The World Health Organization's no-safe-level statement is a health warning. It is not the text of the offence."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_drunk_tradeoff
+    subject_id: n_somm_case_drunk
+    relation_type: CASE_TRADEOFF
+    object_id: n_somm_case_drunk_tradeoff
+    domain_id: service
+    assertion_text: "The section does not define drunk, so the difficult judgment is whether this guest meets the word. That gap does not authorize a sale once the person is judged to be drunk. It also does not make every cheerful guest an offence."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_drunk_limit
+    subject_id: n_somm_case_drunk
+    relation_type: CASE_LIMITATION
+    object_id: n_somm_case_drunk_limit
+    domain_id: service
+    assertion_text: "The extent on the opened page is England and Wales. Do not apply this section in Scotland, Northern Ireland, or another country without that country's text. The page lists amendments not yet applied. Refusing the sale is not a medical diagnosis."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_pair_action
+    subject_id: n_somm_case_pair
+    relation_type: CASE_ACTION
+    object_id: n_somm_case_pair_action
+    domain_id: service
+    assertion_text: "Acknowledge the failed match and pour something else. If the guest asks why the red wine felt harsh, give the review's account of astringency and say it does not test this dish."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_pair_reason
+    subject_id: n_somm_case_pair
+    relation_type: CASE_REASON
+    object_id: n_somm_case_pair_reason
+    domain_id: service
+    assertion_text: "The 2011 review says astringency is generally thought to come from tannins interacting with salivary proteins. It says the exact mechanisms are not well understood. One guest's harsh match is not a new chemical law and is not a test of fish protein."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_pair_tradeoff
+    subject_id: n_somm_case_pair
+    relation_type: CASE_TRADEOFF
+    object_id: n_somm_case_pair_tradeoff
+    domain_id: service
+    assertion_text: "The guest can still get a different wine. The mechanism explains a mouthfeel. It does not choose the replacement, and it does not require the guest to accept the first glass."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_pair_limit
+    subject_id: n_somm_case_pair
+    relation_type: CASE_LIMITATION
+    object_id: n_somm_case_pair_limit
+    domain_id: service
+    assertion_text: "The review is about salivary proteins, not a menu. Wine-list engineering, cellar inventory, and tableside opening steps are still unopened. Changing the wine does not cancel the alcohol warning or, where it applies, section 141."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+
+  - id: ki_somm_calvados_distillate
+    subject_id: n_somm_calvados
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_somm_calvados_distillate
+    domain_id: service
+    assertion_text: "The INAO product note defines Calvados as an eau-de-vie made from cider apples and perry pears. The spirit is obtained by distilling cider and perry, then aged at least 2 years in oak casks. The same note says distillation may be a repasse, which it explains as a double distillation, or continuous in a column still. That sentence is the permission, not a description of how to run either still. The note does not state a minimum alcoholic strength. This Calvados is not the fermented cider. The UK Finance (No. 2) Act 2023 is a separate duty instrument: section 44 and Schedule 6 cover qualifying fermented apple- or pear-juice cider above 1.2 percent and below 8.5 percent alcohol; they do not define Calvados."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_calvados_area
+    subject_id: n_somm_calvados
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_somm_calvados_area
+    domain_id: service
+    assertion_text: "The same INAO note prints two area descriptions that do not match. The narrative says about 1,600 communes, across a large part of former Basse-Normandie (Manche, Calvados, and Orne) and part of Eure, Seine-Maritime, Mayenne, Sarthe, and Oise. The technical block says 1,566 communes wholly and 228 in part, and it adds Eure-et-Loir. INAO warns that only the cahier des charges, and texts published in the Journal officiel, have legal value. Do not memorize either commune count from this note. The note lists 230 cider-apple varieties and 121 perry-pear varieties for this Calvados. It does not, on this product page, give the ageing rule for Pays d'Auge or Domfrontais."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_cider_action
+    subject_id: n_somm_case_cider
+    relation_type: CASE_ACTION
+    object_id: n_somm_case_cider_action
+    domain_id: service
+    assertion_text: "Do not let a glass of cider stand in for Calvados. Say that, on the INAO note, Calvados is the distillate of cider and perry, aged at least two years in oak."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_cider_reason
+    subject_id: n_somm_case_cider
+    relation_type: CASE_REASON
+    object_id: n_somm_case_cider_reason
+    domain_id: service
+    assertion_text: "Under the UK Finance (No. 2) Act 2023, qualifying cider is fermented apple or pear juice in the alcohol-duty strength band. Calvados on the INAO note is instead a distillate aged at least two years in oak."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_cider_tradeoff
+    subject_id: n_somm_case_cider
+    relation_type: CASE_TRADEOFF
+    object_id: n_somm_case_cider_tradeoff
+    domain_id: service
+    assertion_text: "The fruit can be the same cider apples and perry pears. Sharing a raw material does not make the fermented drink and the aged distillate one category."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_cider_limit
+    subject_id: n_somm_case_cider
+    relation_type: CASE_LIMITATION
+    object_id: n_somm_case_cider_limit
+    domain_id: service
+    assertion_text: "The INAO note states no minimum strength for Calvados. Do not supply 40 percent from another site. The UK cider band is not French appellation law, and this note is not the cahier des charges."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_count_action
+    subject_id: n_somm_case_count
+    relation_type: CASE_ACTION
+    object_id: n_somm_case_count_action
+    domain_id: service
+    assertion_text: "If a guest repeats about 1,600 communes, or 1,566 plus 228, do not confirm either figure. Say the INAO note contains both and tells the reader that only the cahier is authoritative."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_count_reason
+    subject_id: n_somm_case_count
+    relation_type: CASE_REASON
+    object_id: n_somm_case_count_reason
+    domain_id: service
+    assertion_text: "The narrative count and the technical count are on one product page, and the department lists do not match: the technical block adds Eure-et-Loir. A page that disagrees with itself is not a boundary to memorize."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_count_tradeoff
+    subject_id: n_somm_case_count
+    relation_type: CASE_TRADEOFF
+    object_id: n_somm_case_count_tradeoff
+    domain_id: service
+    assertion_text: "The guest can still learn that the note places the appellation across several Norman and neighbouring departments. That is a description of the note, not a surveyed line."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_count_limit
+    subject_id: n_somm_case_count
+    relation_type: CASE_LIMITATION
+    object_id: n_somm_case_count_limit
+    domain_id: service
+    assertion_text: "The cahier linked from the page was not opened. Pays d'Auge and Domfrontais are named in the page's list of other texts and are not given ageing rules here. No map in this app is drawn from either commune count."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_armagnac_identity
+    subject_id: n_somm_armagnac
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_somm_armagnac_identity
+    domain_id: service
+    assertion_text: "The BNIA distillation page says most Armagnac, about 95 percent, is obtained in a continuous copper Armagnac alambic, and that distillation runs in winter up to 31 March of the year after the harvest, a date an annual decree has sometimes brought forward. The page states a minimum of 40 percent vol. for consumption. A vintage on this page is exclusively the harvest year, and once bottled the spirit no longer ages. The same page describes the still plate by plate and states an off-still strength band. Those process details are not taught. About 95 percent is the page's figure, not a statute that every house uses only that still. This page is not the cahier des charges."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_armagnac_oak
+    subject_id: n_somm_armagnac
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_somm_armagnac_oak
+    domain_id: service
+    assertion_text: "The same page says Armagnac ages in pièces of 400 litres, mostly from the forests of Gascony or Limousin. Mostly is not only. Do not teach that Armagnac oak is exclusively Gascon. The page does not make that oak a world rule for other brandies."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_plates_action
+    subject_id: n_somm_case_plates
+    relation_type: CASE_ACTION
+    object_id: n_somm_case_plates_action
+    domain_id: service
+    assertion_text: "Do not walk the guest through the plates, the boiler, or the off-still strength band. Say that the BNIA page attributes about 95 percent of Armagnac to a continuous copper alambic, and stop at that identity."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_plates_reason
+    subject_id: n_somm_case_plates
+    relation_type: CASE_REASON
+    object_id: n_somm_case_plates_reason
+    domain_id: service
+    assertion_text: "The plate path and the strength band tell someone how the apparatus is run. The study claim is which still the interprofession says is usual, not how to copy it."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_plates_tradeoff
+    subject_id: n_somm_case_plates
+    relation_type: CASE_TRADEOFF
+    object_id: n_somm_case_plates_tradeoff
+    domain_id: service
+    assertion_text: "The guest can still learn the 95 percent figure, the winter calendar with its movable 31 March limit, the 40 percent sale minimum, and that a bottled Armagnac does not keep ageing. None of those requires the plate path."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_plates_limit
+    subject_id: n_somm_case_plates
+    relation_type: CASE_LIMITATION
+    object_id: n_somm_case_plates_limit
+    domain_id: service
+    assertion_text: "The BNIA page is not the specification, and it does not say the other 5 percent is forbidden. A 1972 authorization for a second still type was not on this page and is not taught. Cognac's still, if it has one legal form, was not opened here."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_oakwood_action
+    subject_id: n_somm_case_oakwood
+    relation_type: CASE_ACTION
+    object_id: n_somm_case_oakwood_action
+    domain_id: service
+    assertion_text: "Correct the guest. The opened page says 400-litre oak pièces mostly from Gascony or Limousin, and a minimum of 40 percent vol. for consumption. It does not say Gascon oak alone."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_oakwood_reason
+    subject_id: n_somm_case_oakwood
+    relation_type: CASE_REASON
+    object_id: n_somm_case_oakwood_reason
+    domain_id: service
+    assertion_text: "Limousin is named beside Gascony. Dropping Limousin turns the page's mostly into a rule the page does not state."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_oakwood_tradeoff
+    subject_id: n_somm_case_oakwood
+    relation_type: CASE_TRADEOFF
+    object_id: n_somm_case_oakwood_tradeoff
+    domain_id: service
+    assertion_text: "Gascony can still be part of the usual answer. The correction is the word only."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_oakwood_limit
+    subject_id: n_somm_case_oakwood
+    relation_type: CASE_LIMITATION
+    object_id: n_somm_case_oakwood_limit
+    domain_id: service
+    assertion_text: "Mostly is not a percentage of barrels, and 40 percent is the page's sale minimum, not a reading of every decree. The page does not define Cognac's oak."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+
+  - id: ki_somm_astr_mechanism
+    subject_id: n_somm_astr
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_somm_astr_mechanism
+    domain_id: service
+    assertion_text: "A 2011 review by McRae and Kennedy says astringency is the drying and puckering sensation in the mouth. It says the sensation is generally thought to come from wine tannins interacting with salivary proteins, then from aggregation and precipitation of those complexes, which increases friction. It also says the exact mechanisms are not well understood. A cited experiment found that soluble aggregates of hydrolysable tannins with gelatin were astringent, so precipitation is not always required. The review says tannin structure and amount, polysaccharides, residual sugar, acidity, and ethanol can change the sensation. Reports on ethanol do not agree: some found that higher ethanol lowered perceived astringency in model wines, and one report found an increase. Do not teach one ethanol direction as settled."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_astr_not_food
+    subject_id: n_somm_astr
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_somm_astr_not_food
+    domain_id: service
+    assertion_text: "The proteins in that account are salivary proteins. The review does not say that tannin binds the protein in meat or fish, and it does not name a correct dish. A harsh match is a reason to offer another wine. It is not proof that one food was chemically required."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_astr_guests
+    subject_id: n_somm_astr
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_somm_astr_guests
+    domain_id: service
+    assertion_text: "The same review says salivary flow and the concentration of particular saliva proteins differ between people, and that a higher flow and higher concentrations of those proteins generally reduce perceived astringency. Two guests can disagree about one glass. The review does not make either of them wrong."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_steak_action
+    subject_id: n_somm_case_steak
+    relation_type: CASE_ACTION
+    object_id: n_somm_case_steak_action
+    domain_id: service
+    assertion_text: "Do not agree that steak is the only match for a tannic red wine. Give the salivary-protein account, and say the review did not test a dish."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_steak_reason
+    subject_id: n_somm_case_steak
+    relation_type: CASE_REASON
+    object_id: n_somm_case_steak_reason
+    domain_id: service
+    assertion_text: "The opened review explains a mouthfeel through saliva. Turning that into a rule that red wine requires red meat adds a food the paper did not study."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_steak_tradeoff
+    subject_id: n_somm_case_steak
+    relation_type: CASE_TRADEOFF
+    object_id: n_somm_case_steak_tradeoff
+    domain_id: service
+    assertion_text: "The guest may still drink the wine with steak. The correction is the word only, not a ban on the combination they like."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_steak_limit
+    subject_id: n_somm_case_steak
+    relation_type: CASE_LIMITATION
+    object_id: n_somm_case_steak_limit
+    domain_id: service
+    assertion_text: "A later cheese-and-wine experiment was not opened for this item. Do not rank cheeses or claim that food fat was measured here. The ethanol reports still disagree."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_two_action
+    subject_id: n_somm_case_two
+    relation_type: CASE_ACTION
+    object_id: n_somm_case_two_action
+    domain_id: service
+    assertion_text: "Do not tell one guest that the other has the correct mouth. Say that the review expects perceived astringency to vary with saliva."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_two_reason
+    subject_id: n_somm_case_two
+    relation_type: CASE_REASON
+    object_id: n_somm_case_two_reason
+    domain_id: service
+    assertion_text: "Higher salivary flow and higher concentrations of particular saliva proteins generally reduce the sensation in the review's account. The guests are reporting perception, not failing a test."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_two_tradeoff
+    subject_id: n_somm_case_two
+    relation_type: CASE_TRADEOFF
+    object_id: n_somm_case_two_tradeoff
+    domain_id: service
+    assertion_text: "You can still describe the wine as tannic in the review's sense, drying and puckering, without declaring a winner between the guests."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_somm_case_two_limit
+    subject_id: n_somm_case_two
+    relation_type: CASE_LIMITATION
+    object_id: n_somm_case_two_limit
+    domain_id: service
+    assertion_text: "The review did not sample these two people. A disagreement can also be about bitterness, which the review treats as a different route for small condensed tannins. Do not collapse the two words."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+
+certification_knowledge_mappings:
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_tequila_plant, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_tequila_place, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_tequila_split, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_tequila_age, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_tequila_other, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_grape_wine, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_grape_marc, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_grape_cognac, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_beer_species, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_beer_hypothesis, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_label_sulfite, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_somm_label_sulfite, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_label_fish, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_somm_label_fish, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_service_offence, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_service_pairing, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_mix_action, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_mix_reason, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_mix_tradeoff, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_mix_limit, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_card_action, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_card_reason, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_card_tradeoff, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_card_limit, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_marc_action, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_marc_reason, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_marc_tradeoff, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_marc_limit, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_oak_action, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_oak_reason, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_oak_tradeoff, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_oak_limit, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_yeast_action, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_yeast_reason, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_yeast_tradeoff, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_yeast_limit, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_date_action, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_date_reason, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_date_tradeoff, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_date_limit, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_so2_action, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_somm_case_so2_action, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_so2_reason, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_somm_case_so2_reason, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_so2_tradeoff, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_somm_case_so2_tradeoff, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_so2_limit, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_somm_case_so2_limit, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_fish_action, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_somm_case_fish_action, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_fish_reason, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_somm_case_fish_reason, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_fish_tradeoff, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_somm_case_fish_tradeoff, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_fish_limit, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_somm_case_fish_limit, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_drunk_action, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_drunk_reason, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_drunk_tradeoff, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_drunk_limit, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_pair_action, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_pair_reason, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_pair_tradeoff, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_pair_limit, importance: secondary, minimum_depth: 2 }
+
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_calvados_distillate, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_calvados_area, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_cider_action, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_cider_reason, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_cider_tradeoff, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_cider_limit, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_count_action, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_count_reason, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_count_tradeoff, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_count_limit, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_armagnac_identity, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_armagnac_oak, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_plates_action, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_plates_reason, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_plates_tradeoff, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_plates_limit, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_oakwood_action, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_oakwood_reason, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_oakwood_tradeoff, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_oakwood_limit, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_astr_mechanism, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_somm_astr_mechanism, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_astr_not_food, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_somm_astr_not_food, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_astr_guests, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_somm_astr_guests, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_steak_action, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_somm_case_steak_action, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_steak_reason, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_somm_case_steak_reason, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_steak_tradeoff, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_somm_case_steak_tradeoff, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_steak_limit, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_somm_case_steak_limit, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_two_action, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_somm_case_two_action, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_two_reason, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_somm_case_two_reason, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_two_tradeoff, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_somm_case_two_tradeoff, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_somm_case_two_limit, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_somm_case_two_limit, importance: secondary, minimum_depth: 2 }
+
+source_citations:
+
+  - id: src_somm_mcrae_astringency
+    kind: academic
+    title: "Wine and grape tannin interactions with salivary proteins and their impact on astringency"
+    publisher: "Molecules"
+    document_identifier: "McRae and Kennedy, 2011, doi 10.3390/molecules16032348. Full text opened on PMC6259628. A review, not a menu."
+    url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC6259628/"
+    accessed_on: "2026-09-27"
+
+  - id: src_somm_crt_tequila_es
+    kind: regulator_register
+    title: "Nuestro Tequila"
+    publisher: "Consejo Regulador del Tequila"
+    jurisdiction: MX
+    document_identifier: "Spanish page. Maturation paragraph and class cards. Not the gazette and not the courtesy translation of NOM-006."
+    url: "https://www.crt.org.mx/nuestro-tequila/"
+    accessed_on: "2026-09-27"
+  - id: src_somm_nom_006_courtesy
+    kind: government_publication
+    title: "NOM-006-SCFI-2012, courtesy English translation"
+    publisher: "Consejo Regulador del Tequila, hosting a translation of the Ministry of Economy standard"
+    jurisdiction: MX
+    document_identifier: "PDF labeled courtesy translation. Sections 4.36, 5.1.2, and 6.4. Not the Diario Oficial."
+    url: "https://www.crt.org.mx/wp-content/uploads/2024/01/NOM-006-SCFI-2012%20-%20INGLES.pdf"
+    accessed_on: "2026-09-27"
+  - id: src_somm_inao_calvados
+    kind: regulator_register
+    title: "Calvados"
+    publisher: "Institut national de l'origine et de la qualité"
+    jurisdiction: FR
+    document_identifier: "Product note. INAO says only the cahier des charges and Journal officiel texts have legal value. Cahier not opened."
+    url: "https://www.inao.gouv.fr/produit/calvados-17614"
+    accessed_on: "2026-09-27"
+  - id: src_somm_bnia_distillation
+    kind: regulator_register
+    title: "Distillation and ageing"
+    publisher: "Bureau National Interprofessionnel de l'Armagnac"
+    jurisdiction: FR
+    document_identifier: "Identity only. Plate path and off-still strength band on the page were not copied."
+    url: "https://www.armagnac.fr/distillation-and-ageing"
+    accessed_on: "2026-09-27"
+  - id: src_somm_crt_tequila
+    kind: regulator_register
+    title: "Our Tequila"
+    publisher: "Consejo Regulador del Tequila"
+    jurisdiction: MX
+    document_identifier: "English page citing NOM-006-SCFI-2012. Maturation paragraph and class cards disagree on reposado. Standard text not opened."
+    url: "https://www.crt.org.mx/en/our-tequila/"
+    accessed_on: "2026-09-27"
+  - id: src_somm_crt_appellation
+    kind: regulator_register
+    title: "Tequila appellation of origin"
+    publisher: "Consejo Regulador del Tequila"
+    jurisdiction: MX
+    document_identifier: "Council account of 181 municipalities and the declaration of 9 December 1974. Not a gazette transcription."
+    url: "https://www.crt.org.mx/en/appellation-of-origin/"
+    accessed_on: "2026-09-27"
+  - id: src_somm_eu_1169
+    kind: legislation
+    title: "Regulation (EU) No 1169/2011, Annex II"
+    publisher: "European Union, revised text on legislation.gov.uk"
+    jurisdiction: EU
+    document_identifier: "Revised Annex II. Point 12 sulphites. Point 4 isinglass exception. UK publication, no known outstanding effects on this annex."
+    url: "https://www.legislation.gov.uk/eur/2011/1169/annex/II"
+    accessed_on: "2026-09-27"
+  - id: src_somm_licensing_141
+    kind: legislation
+    title: "Licensing Act 2003, section 141"
+    publisher: "Statute Law Database, United Kingdom"
+    jurisdiction: GB
+    document_identifier: "England and Wales. Revised text stated as up to date on or before 27 September 2026. Further changes listed as not yet applied."
+    url: "https://www.legislation.gov.uk/ukpga/2003/17/section/141"
+    accessed_on: "2026-09-27"
+  - id: src_somm_fems_lager
+    kind: academic
+    title: "A new hypothesis for the origin of the lager yeast Saccharomyces pastorianus"
+    publisher: "FEMS Yeast Research"
+    document_identifier: "Hutzler and others, 2023, doi 10.1093/femsyr/foad023. Full text opened on PMC10133815. Hypothesis, not a statute."
+    url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC10133815/"
+    accessed_on: "2026-09-27"
+
+knowledge_item_citations:
+  - { knowledge_item_id: ki_somm_tequila_plant, source_citation_id: src_somm_crt_tequila, locator: "Categories, classes, maturation paragraph, and the conflicting English class cards." }
+  - { knowledge_item_id: ki_somm_tequila_place, source_citation_id: src_somm_crt_appellation, locator: "181 municipalities, five states, declaration of 9 December 1974." }
+  - { knowledge_item_id: ki_somm_tequila_split, source_citation_id: src_somm_crt_tequila, locator: "Categories, classes, maturation paragraph, and the conflicting English class cards." }
+  - { knowledge_item_id: ki_somm_tequila_age, source_citation_id: src_somm_crt_tequila, locator: "Categories, classes, maturation paragraph, and the conflicting English class cards." }
+  - { knowledge_item_id: ki_somm_tequila_other, source_citation_id: src_somm_crt_tequila, locator: "Categories, classes, maturation paragraph, and the conflicting English class cards." }
+  - { knowledge_item_id: ki_somm_grape_wine, source_citation_id: src_bev_eu_spirits_2019, locator: "Adopted Annex I, wine spirit and grape marc spirit." }
+  - { knowledge_item_id: ki_somm_grape_marc, source_citation_id: src_bev_eu_spirits_2019, locator: "Adopted Annex I, wine spirit and grape marc spirit." }
+  - { knowledge_item_id: ki_somm_grape_cognac, source_citation_id: src_bev_eu_spirits_2019, locator: "Adopted Annex I, brandy: oak ageing and 36 percent minimum strength." }
+  - { knowledge_item_id: ki_somm_grape_cognac, source_citation_id: src_bev_cognac_bnic, locator: "Youngest eau-de-vie at least two years; 40 percent at sale." }
+  - { knowledge_item_id: ki_somm_beer_species, source_citation_id: src_somm_fems_lager, locator: "Abstract and the historical-patterns section. Hypothesis, not an invention date." }
+  - { knowledge_item_id: ki_somm_beer_hypothesis, source_citation_id: src_somm_fems_lager, locator: "Abstract and the historical-patterns section. Hypothesis, not an invention date." }
+  - { knowledge_item_id: ki_somm_label_sulfite, source_citation_id: src_somm_eu_1169, locator: "Annex II point 12, more than 10 mg/kg or 10 mg/litre total SO2." }
+  - { knowledge_item_id: ki_somm_label_fish, source_citation_id: src_somm_eu_1169, locator: "Annex II point 4, isinglass exception for beer and wine." }
+  - { knowledge_item_id: ki_somm_service_offence, source_citation_id: src_somm_licensing_141, locator: "Section 141, England and Wales, knowing sale to a person who is drunk." }
+  - { knowledge_item_id: ki_somm_service_offence, source_citation_id: src_wset_srv_who_cancer, locator: "Separate health statement: no established safe threshold." }
+  - { knowledge_item_id: ki_somm_service_pairing, source_citation_id: src_somm_eu_1169, locator: "Allergen declaration is a sourced constraint. The annex states no tannin mechanism." }
+  - { knowledge_item_id: ki_somm_service_pairing, source_citation_id: src_somm_licensing_141, locator: "Where it applies, do not knowingly sell to a person who is drunk." }
+  - { knowledge_item_id: ki_somm_service_pairing, source_citation_id: src_wset_srv_who_cancer, locator: "Changing the wine is not a claim that any amount is safe." }
+  - { knowledge_item_id: ki_somm_case_mix_action, source_citation_id: src_somm_crt_tequila, locator: "Categories, classes, maturation paragraph, and the conflicting English class cards." }
+  - { knowledge_item_id: ki_somm_case_mix_reason, source_citation_id: src_somm_crt_tequila, locator: "Categories, classes, maturation paragraph, and the conflicting English class cards." }
+  - { knowledge_item_id: ki_somm_case_mix_tradeoff, source_citation_id: src_somm_crt_tequila, locator: "Categories, classes, maturation paragraph, and the conflicting English class cards." }
+  - { knowledge_item_id: ki_somm_case_mix_limit, source_citation_id: src_somm_crt_tequila, locator: "Categories, classes, maturation paragraph, and the conflicting English class cards." }
+  - { knowledge_item_id: ki_somm_case_card_action, source_citation_id: src_somm_crt_tequila, locator: "Categories, classes, maturation paragraph, and the conflicting English class cards." }
+  - { knowledge_item_id: ki_somm_case_card_reason, source_citation_id: src_somm_crt_tequila, locator: "Categories, classes, maturation paragraph, and the conflicting English class cards." }
+  - { knowledge_item_id: ki_somm_case_card_tradeoff, source_citation_id: src_somm_crt_tequila, locator: "Categories, classes, maturation paragraph, and the conflicting English class cards." }
+  - { knowledge_item_id: ki_somm_case_card_limit, source_citation_id: src_somm_crt_tequila, locator: "Categories, classes, maturation paragraph, and the conflicting English class cards." }
+  - { knowledge_item_id: ki_somm_case_marc_action, source_citation_id: src_bev_eu_spirits_2019, locator: "Adopted Annex I, wine spirit and grape marc spirit." }
+  - { knowledge_item_id: ki_somm_case_marc_action, source_citation_id: src_bev_cognac_bnic, locator: "Cognac is an aged wine-spirit appellation, not the marc category." }
+  - { knowledge_item_id: ki_somm_case_marc_reason, source_citation_id: src_bev_eu_spirits_2019, locator: "Adopted Annex I, wine spirit and grape marc spirit." }
+  - { knowledge_item_id: ki_somm_case_marc_reason, source_citation_id: src_bev_cognac_bnic, locator: "Cognac is an aged wine-spirit appellation, not the marc category." }
+  - { knowledge_item_id: ki_somm_case_marc_tradeoff, source_citation_id: src_bev_eu_spirits_2019, locator: "Adopted Annex I, wine spirit and grape marc spirit." }
+  - { knowledge_item_id: ki_somm_case_marc_tradeoff, source_citation_id: src_bev_cognac_bnic, locator: "Cognac is an aged wine-spirit appellation, not the marc category." }
+  - { knowledge_item_id: ki_somm_case_marc_limit, source_citation_id: src_bev_eu_spirits_2019, locator: "Adopted Annex I, wine spirit and grape marc spirit." }
+  - { knowledge_item_id: ki_somm_case_marc_limit, source_citation_id: src_bev_cognac_bnic, locator: "Cognac is an aged wine-spirit appellation, not the marc category." }
+  - { knowledge_item_id: ki_somm_case_oak_action, source_citation_id: src_bev_eu_spirits_2019, locator: "Adopted Annex I, brandy: oak ageing and 36 percent minimum strength." }
+  - { knowledge_item_id: ki_somm_case_oak_action, source_citation_id: src_bev_cognac_bnic, locator: "Youngest eau-de-vie at least two years; 40 percent at sale." }
+  - { knowledge_item_id: ki_somm_case_oak_reason, source_citation_id: src_bev_eu_spirits_2019, locator: "Adopted Annex I, brandy: oak ageing and 36 percent minimum strength." }
+  - { knowledge_item_id: ki_somm_case_oak_reason, source_citation_id: src_bev_cognac_bnic, locator: "Youngest eau-de-vie at least two years; 40 percent at sale." }
+  - { knowledge_item_id: ki_somm_case_oak_tradeoff, source_citation_id: src_bev_eu_spirits_2019, locator: "Adopted Annex I, brandy: oak ageing and 36 percent minimum strength." }
+  - { knowledge_item_id: ki_somm_case_oak_tradeoff, source_citation_id: src_bev_cognac_bnic, locator: "Youngest eau-de-vie at least two years; 40 percent at sale." }
+  - { knowledge_item_id: ki_somm_case_oak_limit, source_citation_id: src_bev_eu_spirits_2019, locator: "Adopted Annex I, brandy: oak ageing and 36 percent minimum strength." }
+  - { knowledge_item_id: ki_somm_case_oak_limit, source_citation_id: src_bev_cognac_bnic, locator: "Youngest eau-de-vie at least two years; 40 percent at sale." }
+  - { knowledge_item_id: ki_somm_case_yeast_action, source_citation_id: src_somm_fems_lager, locator: "Abstract and the historical-patterns section. Hypothesis, not an invention date." }
+  - { knowledge_item_id: ki_somm_case_yeast_reason, source_citation_id: src_somm_fems_lager, locator: "Abstract and the historical-patterns section. Hypothesis, not an invention date." }
+  - { knowledge_item_id: ki_somm_case_yeast_tradeoff, source_citation_id: src_somm_fems_lager, locator: "Abstract and the historical-patterns section. Hypothesis, not an invention date." }
+  - { knowledge_item_id: ki_somm_case_yeast_limit, source_citation_id: src_somm_fems_lager, locator: "Abstract and the historical-patterns section. Hypothesis, not an invention date." }
+  - { knowledge_item_id: ki_somm_case_date_action, source_citation_id: src_somm_fems_lager, locator: "Abstract and the historical-patterns section. Hypothesis, not an invention date." }
+  - { knowledge_item_id: ki_somm_case_date_reason, source_citation_id: src_somm_fems_lager, locator: "Abstract and the historical-patterns section. Hypothesis, not an invention date." }
+  - { knowledge_item_id: ki_somm_case_date_tradeoff, source_citation_id: src_somm_fems_lager, locator: "Abstract and the historical-patterns section. Hypothesis, not an invention date." }
+  - { knowledge_item_id: ki_somm_case_date_limit, source_citation_id: src_somm_fems_lager, locator: "Abstract and the historical-patterns section. Hypothesis, not an invention date." }
+  - { knowledge_item_id: ki_somm_case_so2_action, source_citation_id: src_somm_eu_1169, locator: "Annex II point 12, more than 10 mg/kg or 10 mg/litre total SO2." }
+  - { knowledge_item_id: ki_somm_case_so2_reason, source_citation_id: src_somm_eu_1169, locator: "Annex II point 12, more than 10 mg/kg or 10 mg/litre total SO2." }
+  - { knowledge_item_id: ki_somm_case_so2_tradeoff, source_citation_id: src_somm_eu_1169, locator: "Annex II point 12, more than 10 mg/kg or 10 mg/litre total SO2." }
+  - { knowledge_item_id: ki_somm_case_so2_limit, source_citation_id: src_somm_eu_1169, locator: "Annex II point 12, more than 10 mg/kg or 10 mg/litre total SO2." }
+  - { knowledge_item_id: ki_somm_case_fish_action, source_citation_id: src_somm_eu_1169, locator: "Annex II point 4, isinglass exception for beer and wine." }
+  - { knowledge_item_id: ki_somm_case_fish_reason, source_citation_id: src_somm_eu_1169, locator: "Annex II point 4, isinglass exception for beer and wine." }
+  - { knowledge_item_id: ki_somm_case_fish_tradeoff, source_citation_id: src_somm_eu_1169, locator: "Annex II point 4, isinglass exception for beer and wine." }
+  - { knowledge_item_id: ki_somm_case_fish_limit, source_citation_id: src_somm_eu_1169, locator: "Annex II point 4, isinglass exception for beer and wine." }
+  - { knowledge_item_id: ki_somm_case_drunk_action, source_citation_id: src_somm_licensing_141, locator: "Section 141, England and Wales, knowing sale to a person who is drunk." }
+  - { knowledge_item_id: ki_somm_case_drunk_action, source_citation_id: src_wset_srv_who_cancer, locator: "Separate health statement: no established safe threshold." }
+  - { knowledge_item_id: ki_somm_case_drunk_reason, source_citation_id: src_somm_licensing_141, locator: "Section 141, England and Wales, knowing sale to a person who is drunk." }
+  - { knowledge_item_id: ki_somm_case_drunk_reason, source_citation_id: src_wset_srv_who_cancer, locator: "Separate health statement: no established safe threshold." }
+  - { knowledge_item_id: ki_somm_case_drunk_tradeoff, source_citation_id: src_somm_licensing_141, locator: "Section 141, England and Wales, knowing sale to a person who is drunk." }
+  - { knowledge_item_id: ki_somm_case_drunk_tradeoff, source_citation_id: src_wset_srv_who_cancer, locator: "Separate health statement: no established safe threshold." }
+  - { knowledge_item_id: ki_somm_case_drunk_limit, source_citation_id: src_somm_licensing_141, locator: "Section 141, England and Wales, knowing sale to a person who is drunk." }
+  - { knowledge_item_id: ki_somm_case_drunk_limit, source_citation_id: src_wset_srv_who_cancer, locator: "Separate health statement: no established safe threshold." }
+  - { knowledge_item_id: ki_somm_case_pair_action, source_citation_id: src_somm_eu_1169, locator: "Allergen declaration is a sourced constraint. The annex states no tannin mechanism." }
+  - { knowledge_item_id: ki_somm_case_pair_action, source_citation_id: src_somm_licensing_141, locator: "Where it applies, do not knowingly sell to a person who is drunk." }
+  - { knowledge_item_id: ki_somm_case_pair_action, source_citation_id: src_wset_srv_who_cancer, locator: "Changing the wine is not a claim that any amount is safe." }
+  - { knowledge_item_id: ki_somm_case_pair_reason, source_citation_id: src_somm_eu_1169, locator: "Allergen declaration is a sourced constraint. The annex states no tannin mechanism." }
+  - { knowledge_item_id: ki_somm_case_pair_reason, source_citation_id: src_somm_licensing_141, locator: "Where it applies, do not knowingly sell to a person who is drunk." }
+  - { knowledge_item_id: ki_somm_case_pair_reason, source_citation_id: src_wset_srv_who_cancer, locator: "Changing the wine is not a claim that any amount is safe." }
+  - { knowledge_item_id: ki_somm_case_pair_tradeoff, source_citation_id: src_somm_eu_1169, locator: "Allergen declaration is a sourced constraint. The annex states no tannin mechanism." }
+  - { knowledge_item_id: ki_somm_case_pair_tradeoff, source_citation_id: src_somm_licensing_141, locator: "Where it applies, do not knowingly sell to a person who is drunk." }
+  - { knowledge_item_id: ki_somm_case_pair_tradeoff, source_citation_id: src_wset_srv_who_cancer, locator: "Changing the wine is not a claim that any amount is safe." }
+  - { knowledge_item_id: ki_somm_case_pair_limit, source_citation_id: src_somm_eu_1169, locator: "Allergen declaration is a sourced constraint. The annex states no tannin mechanism." }
+  - { knowledge_item_id: ki_somm_case_pair_limit, source_citation_id: src_somm_licensing_141, locator: "Where it applies, do not knowingly sell to a person who is drunk." }
+  - { knowledge_item_id: ki_somm_case_pair_limit, source_citation_id: src_wset_srv_who_cancer, locator: "Changing the wine is not a claim that any amount is safe." }
+  - { knowledge_item_id: ki_somm_calvados_distillate, source_citation_id: src_somm_inao_calvados, locator: "INAO product note. Not the cahier des charges." }
+  - { knowledge_item_id: ki_somm_calvados_area, source_citation_id: src_somm_inao_calvados, locator: "INAO product note. Not the cahier des charges." }
+  - { knowledge_item_id: ki_somm_case_cider_action, source_citation_id: src_somm_inao_calvados, locator: "INAO product note. Not the cahier des charges." }
+  - { knowledge_item_id: ki_somm_case_cider_reason, source_citation_id: src_somm_inao_calvados, locator: "INAO product note. Not the cahier des charges." }
+  - { knowledge_item_id: ki_somm_case_cider_tradeoff, source_citation_id: src_somm_inao_calvados, locator: "INAO product note. Not the cahier des charges." }
+  - { knowledge_item_id: ki_somm_case_cider_limit, source_citation_id: src_somm_inao_calvados, locator: "INAO product note. Not the cahier des charges." }
+  - { knowledge_item_id: ki_somm_case_count_action, source_citation_id: src_somm_inao_calvados, locator: "INAO product note. Not the cahier des charges." }
+  - { knowledge_item_id: ki_somm_case_count_reason, source_citation_id: src_somm_inao_calvados, locator: "INAO product note. Not the cahier des charges." }
+  - { knowledge_item_id: ki_somm_case_count_tradeoff, source_citation_id: src_somm_inao_calvados, locator: "INAO product note. Not the cahier des charges." }
+  - { knowledge_item_id: ki_somm_case_count_limit, source_citation_id: src_somm_inao_calvados, locator: "INAO product note. Not the cahier des charges." }
+  - { knowledge_item_id: ki_somm_armagnac_identity, source_citation_id: src_somm_bnia_distillation, locator: "BNIA distillation and ageing page. Process path not taught." }
+  - { knowledge_item_id: ki_somm_armagnac_oak, source_citation_id: src_somm_bnia_distillation, locator: "BNIA distillation and ageing page. Process path not taught." }
+  - { knowledge_item_id: ki_somm_case_plates_action, source_citation_id: src_somm_bnia_distillation, locator: "BNIA distillation and ageing page. Process path not taught." }
+  - { knowledge_item_id: ki_somm_case_plates_reason, source_citation_id: src_somm_bnia_distillation, locator: "BNIA distillation and ageing page. Process path not taught." }
+  - { knowledge_item_id: ki_somm_case_plates_tradeoff, source_citation_id: src_somm_bnia_distillation, locator: "BNIA distillation and ageing page. Process path not taught." }
+  - { knowledge_item_id: ki_somm_case_plates_limit, source_citation_id: src_somm_bnia_distillation, locator: "BNIA distillation and ageing page. Process path not taught." }
+  - { knowledge_item_id: ki_somm_case_oakwood_action, source_citation_id: src_somm_bnia_distillation, locator: "BNIA distillation and ageing page. Process path not taught." }
+  - { knowledge_item_id: ki_somm_case_oakwood_reason, source_citation_id: src_somm_bnia_distillation, locator: "BNIA distillation and ageing page. Process path not taught." }
+  - { knowledge_item_id: ki_somm_case_oakwood_tradeoff, source_citation_id: src_somm_bnia_distillation, locator: "BNIA distillation and ageing page. Process path not taught." }
+  - { knowledge_item_id: ki_somm_case_oakwood_limit, source_citation_id: src_somm_bnia_distillation, locator: "BNIA distillation and ageing page. Process path not taught." }
+  - { knowledge_item_id: ki_somm_calvados_distillate, source_citation_id: src_bev_uk_cider_2023, locator: "Section 44(2) and Schedule 6 paragraphs 5-7: qualifying fermented cider, not a Calvados definition." }
+  - { knowledge_item_id: ki_somm_case_cider_reason, source_citation_id: src_bev_uk_cider_2023, locator: "Section 44(2) and Schedule 6 paragraphs 5-7: apple- or pear-juice cider in the UK duty category." }
+  - { knowledge_item_id: ki_somm_tequila_age, source_citation_id: src_somm_crt_tequila_es, locator: "Spanish maturation paragraph and class cards. Reposado two months. English cards are the conflict." }
+  - { knowledge_item_id: ki_somm_case_card_action, source_citation_id: src_somm_crt_tequila_es, locator: "Spanish maturation paragraph and class cards. Reposado two months. English cards are the conflict." }
+  - { knowledge_item_id: ki_somm_case_card_reason, source_citation_id: src_somm_crt_tequila_es, locator: "Spanish maturation paragraph and class cards. Reposado two months. English cards are the conflict." }
+  - { knowledge_item_id: ki_somm_case_card_tradeoff, source_citation_id: src_somm_crt_tequila_es, locator: "Spanish maturation paragraph and class cards. Reposado two months. English cards are the conflict." }
+  - { knowledge_item_id: ki_somm_case_card_limit, source_citation_id: src_somm_crt_tequila_es, locator: "Spanish maturation paragraph and class cards. Reposado two months. English cards are the conflict." }
+  - { knowledge_item_id: ki_somm_tequila_split, source_citation_id: src_somm_nom_006_courtesy, locator: "Sections 5.1.2 and the fermentation rule: 49 percent may not be sugars from any agave. Cold mixing is not permitted." }
+  - { knowledge_item_id: ki_somm_case_mix_reason, source_citation_id: src_somm_nom_006_courtesy, locator: "The 49 percent may not come from any species of agave." }
+  - { knowledge_item_id: ki_somm_tequila_age, source_citation_id: src_somm_nom_006_courtesy, locator: "Sections 4.36.1 and 6.4. Reposado two months. Six hundred litres on añejo and extra añejo only. Blanco may be aged under two months." }
+  - { knowledge_item_id: ki_somm_case_card_tradeoff, source_citation_id: src_somm_nom_006_courtesy, locator: "Section 6.4 states 600 litres for añejo and extra añejo, not for reposado." }
+  - { knowledge_item_id: ki_somm_case_card_limit, source_citation_id: src_somm_nom_006_courtesy, locator: "Courtesy translation. The Diario Oficial was not opened." }
+  - { knowledge_item_id: ki_somm_astr_mechanism, source_citation_id: src_somm_mcrae_astringency, locator: "Abstract and sections 1, 2, and 5. Salivary proteins. Ethanol reports disagree." }
+  - { knowledge_item_id: ki_somm_astr_not_food, source_citation_id: src_somm_mcrae_astringency, locator: "Abstract and sections 1, 2, and 5. Salivary proteins. Ethanol reports disagree." }
+  - { knowledge_item_id: ki_somm_astr_guests, source_citation_id: src_somm_mcrae_astringency, locator: "Abstract and sections 1, 2, and 5. Salivary proteins. Ethanol reports disagree." }
+  - { knowledge_item_id: ki_somm_case_steak_action, source_citation_id: src_somm_mcrae_astringency, locator: "Abstract and sections 1, 2, and 5. Salivary proteins. Ethanol reports disagree." }
+  - { knowledge_item_id: ki_somm_case_steak_reason, source_citation_id: src_somm_mcrae_astringency, locator: "Abstract and sections 1, 2, and 5. Salivary proteins. Ethanol reports disagree." }
+  - { knowledge_item_id: ki_somm_case_steak_tradeoff, source_citation_id: src_somm_mcrae_astringency, locator: "Abstract and sections 1, 2, and 5. Salivary proteins. Ethanol reports disagree." }
+  - { knowledge_item_id: ki_somm_case_steak_limit, source_citation_id: src_somm_mcrae_astringency, locator: "Abstract and sections 1, 2, and 5. Salivary proteins. Ethanol reports disagree." }
+  - { knowledge_item_id: ki_somm_case_two_action, source_citation_id: src_somm_mcrae_astringency, locator: "Abstract and sections 1, 2, and 5. Salivary proteins. Ethanol reports disagree." }
+  - { knowledge_item_id: ki_somm_case_two_reason, source_citation_id: src_somm_mcrae_astringency, locator: "Abstract and sections 1, 2, and 5. Salivary proteins. Ethanol reports disagree." }
+  - { knowledge_item_id: ki_somm_case_two_tradeoff, source_citation_id: src_somm_mcrae_astringency, locator: "Abstract and sections 1, 2, and 5. Salivary proteins. Ethanol reports disagree." }
+  - { knowledge_item_id: ki_somm_case_two_limit, source_citation_id: src_somm_mcrae_astringency, locator: "Abstract and sections 1, 2, and 5. Salivary proteins. Ethanol reports disagree." }
+  - { knowledge_item_id: ki_somm_case_pair_action, source_citation_id: src_somm_mcrae_astringency, locator: "Astringency account. Not a test of the dish." }
+  - { knowledge_item_id: ki_somm_case_pair_reason, source_citation_id: src_somm_mcrae_astringency, locator: "Astringency account. Not a test of the dish." }
+  - { knowledge_item_id: ki_somm_case_pair_tradeoff, source_citation_id: src_somm_mcrae_astringency, locator: "Astringency account. Not a test of the dish." }
+  - { knowledge_item_id: ki_somm_case_pair_limit, source_citation_id: src_somm_mcrae_astringency, locator: "Astringency account. Not a test of the dish." }

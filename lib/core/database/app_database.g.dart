@@ -16117,6 +16117,445 @@ class WineJournalEntriesCompanion extends UpdateCompanion<WineJournalEntry> {
   }
 }
 
+class WineJournalPhotos extends Table
+    with TableInfo<WineJournalPhotos, WineJournalPhoto> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  WineJournalPhotos(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL PRIMARY KEY CHECK (length(id) = 36 AND id NOT GLOB \'*[^0-9a-f-]*\')',
+  );
+  static const VerificationMeta _wineJournalEntryIdMeta =
+      const VerificationMeta('wineJournalEntryId');
+  late final GeneratedColumn<String> wineJournalEntryId =
+      GeneratedColumn<String>(
+        'wine_journal_entry_id',
+        aliasedName,
+        false,
+        type: DriftSqlType.string,
+        requiredDuringInsert: true,
+        $customConstraints:
+            'NOT NULL REFERENCES wine_journal_entries(id)ON DELETE CASCADE',
+      );
+  static const VerificationMeta _kindMeta = const VerificationMeta('kind');
+  late final GeneratedColumn<String> kind = GeneratedColumn<String>(
+    'kind',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL CHECK (kind IN (\'label\', \'glass\'))',
+  );
+  static const VerificationMeta _mimeTypeMeta = const VerificationMeta(
+    'mimeType',
+  );
+  late final GeneratedColumn<String> mimeType = GeneratedColumn<String>(
+    'mime_type',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+    $customConstraints:
+        'NOT NULL CHECK (mime_type IN (\'image/jpeg\', \'image/png\'))',
+  );
+  static const VerificationMeta _photoBytesMeta = const VerificationMeta(
+    'photoBytes',
+  );
+  late final GeneratedColumn<Uint8List> photoBytes = GeneratedColumn<Uint8List>(
+    'photo_bytes',
+    aliasedName,
+    false,
+    type: DriftSqlType.blob,
+    requiredDuringInsert: true,
+    $customConstraints:
+        'NOT NULL CHECK (length(photo_bytes) BETWEEN 1 AND 8388608)',
+  );
+  static const VerificationMeta _createdAtMeta = const VerificationMeta(
+    'createdAt',
+  );
+  late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+    $customConstraints: 'NOT NULL CHECK (strftime(\'%Y-%m-%dT%H:%M:%fZ\', created_at) IS created_at)',
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    wineJournalEntryId,
+    kind,
+    mimeType,
+    photoBytes,
+    createdAt,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'wine_journal_photos';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<WineJournalPhoto> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('wine_journal_entry_id')) {
+      context.handle(
+        _wineJournalEntryIdMeta,
+        wineJournalEntryId.isAcceptableOrUnknown(
+          data['wine_journal_entry_id']!,
+          _wineJournalEntryIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_wineJournalEntryIdMeta);
+    }
+    if (data.containsKey('kind')) {
+      context.handle(
+        _kindMeta,
+        kind.isAcceptableOrUnknown(data['kind']!, _kindMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_kindMeta);
+    }
+    if (data.containsKey('mime_type')) {
+      context.handle(
+        _mimeTypeMeta,
+        mimeType.isAcceptableOrUnknown(data['mime_type']!, _mimeTypeMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_mimeTypeMeta);
+    }
+    if (data.containsKey('photo_bytes')) {
+      context.handle(
+        _photoBytesMeta,
+        photoBytes.isAcceptableOrUnknown(data['photo_bytes']!, _photoBytesMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_photoBytesMeta);
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(
+        _createdAtMeta,
+        createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_createdAtMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  List<Set<GeneratedColumn>> get uniqueKeys => [
+    {wineJournalEntryId, kind},
+  ];
+  @override
+  WineJournalPhoto map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return WineJournalPhoto(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      wineJournalEntryId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}wine_journal_entry_id'],
+      )!,
+      kind: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}kind'],
+      )!,
+      mimeType: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}mime_type'],
+      )!,
+      photoBytes: attachedDatabase.typeMapping.read(
+        DriftSqlType.blob,
+        data['${effectivePrefix}photo_bytes'],
+      )!,
+      createdAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}created_at'],
+      )!,
+    );
+  }
+
+  @override
+  WineJournalPhotos createAlias(String alias) {
+    return WineJournalPhotos(attachedDatabase, alias);
+  }
+
+  @override
+  List<String> get customConstraints => const [
+    'UNIQUE(wine_journal_entry_id, kind)',
+  ];
+  @override
+  bool get dontWriteConstraints => true;
+}
+
+class WineJournalPhoto extends DataClass
+    implements Insertable<WineJournalPhoto> {
+  final String id;
+  final String wineJournalEntryId;
+  final String kind;
+  final String mimeType;
+  final Uint8List photoBytes;
+  final DateTime createdAt;
+  const WineJournalPhoto({
+    required this.id,
+    required this.wineJournalEntryId,
+    required this.kind,
+    required this.mimeType,
+    required this.photoBytes,
+    required this.createdAt,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    map['wine_journal_entry_id'] = Variable<String>(wineJournalEntryId);
+    map['kind'] = Variable<String>(kind);
+    map['mime_type'] = Variable<String>(mimeType);
+    map['photo_bytes'] = Variable<Uint8List>(photoBytes);
+    map['created_at'] = Variable<DateTime>(createdAt);
+    return map;
+  }
+
+  WineJournalPhotosCompanion toCompanion(bool nullToAbsent) {
+    return WineJournalPhotosCompanion(
+      id: Value(id),
+      wineJournalEntryId: Value(wineJournalEntryId),
+      kind: Value(kind),
+      mimeType: Value(mimeType),
+      photoBytes: Value(photoBytes),
+      createdAt: Value(createdAt),
+    );
+  }
+
+  factory WineJournalPhoto.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return WineJournalPhoto(
+      id: serializer.fromJson<String>(json['id']),
+      wineJournalEntryId: serializer.fromJson<String>(
+        json['wine_journal_entry_id'],
+      ),
+      kind: serializer.fromJson<String>(json['kind']),
+      mimeType: serializer.fromJson<String>(json['mime_type']),
+      photoBytes: serializer.fromJson<Uint8List>(json['photo_bytes']),
+      createdAt: serializer.fromJson<DateTime>(json['created_at']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'wine_journal_entry_id': serializer.toJson<String>(wineJournalEntryId),
+      'kind': serializer.toJson<String>(kind),
+      'mime_type': serializer.toJson<String>(mimeType),
+      'photo_bytes': serializer.toJson<Uint8List>(photoBytes),
+      'created_at': serializer.toJson<DateTime>(createdAt),
+    };
+  }
+
+  WineJournalPhoto copyWith({
+    String? id,
+    String? wineJournalEntryId,
+    String? kind,
+    String? mimeType,
+    Uint8List? photoBytes,
+    DateTime? createdAt,
+  }) => WineJournalPhoto(
+    id: id ?? this.id,
+    wineJournalEntryId: wineJournalEntryId ?? this.wineJournalEntryId,
+    kind: kind ?? this.kind,
+    mimeType: mimeType ?? this.mimeType,
+    photoBytes: photoBytes ?? this.photoBytes,
+    createdAt: createdAt ?? this.createdAt,
+  );
+  WineJournalPhoto copyWithCompanion(WineJournalPhotosCompanion data) {
+    return WineJournalPhoto(
+      id: data.id.present ? data.id.value : this.id,
+      wineJournalEntryId: data.wineJournalEntryId.present
+          ? data.wineJournalEntryId.value
+          : this.wineJournalEntryId,
+      kind: data.kind.present ? data.kind.value : this.kind,
+      mimeType: data.mimeType.present ? data.mimeType.value : this.mimeType,
+      photoBytes: data.photoBytes.present
+          ? data.photoBytes.value
+          : this.photoBytes,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('WineJournalPhoto(')
+          ..write('id: $id, ')
+          ..write('wineJournalEntryId: $wineJournalEntryId, ')
+          ..write('kind: $kind, ')
+          ..write('mimeType: $mimeType, ')
+          ..write('photoBytes: $photoBytes, ')
+          ..write('createdAt: $createdAt')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    wineJournalEntryId,
+    kind,
+    mimeType,
+    $driftBlobEquality.hash(photoBytes),
+    createdAt,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is WineJournalPhoto &&
+          other.id == this.id &&
+          other.wineJournalEntryId == this.wineJournalEntryId &&
+          other.kind == this.kind &&
+          other.mimeType == this.mimeType &&
+          $driftBlobEquality.equals(other.photoBytes, this.photoBytes) &&
+          other.createdAt == this.createdAt);
+}
+
+class WineJournalPhotosCompanion extends UpdateCompanion<WineJournalPhoto> {
+  final Value<String> id;
+  final Value<String> wineJournalEntryId;
+  final Value<String> kind;
+  final Value<String> mimeType;
+  final Value<Uint8List> photoBytes;
+  final Value<DateTime> createdAt;
+  final Value<int> rowid;
+  const WineJournalPhotosCompanion({
+    this.id = const Value.absent(),
+    this.wineJournalEntryId = const Value.absent(),
+    this.kind = const Value.absent(),
+    this.mimeType = const Value.absent(),
+    this.photoBytes = const Value.absent(),
+    this.createdAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  WineJournalPhotosCompanion.insert({
+    required String id,
+    required String wineJournalEntryId,
+    required String kind,
+    required String mimeType,
+    required Uint8List photoBytes,
+    required DateTime createdAt,
+    this.rowid = const Value.absent(),
+  }) : id = Value(id),
+       wineJournalEntryId = Value(wineJournalEntryId),
+       kind = Value(kind),
+       mimeType = Value(mimeType),
+       photoBytes = Value(photoBytes),
+       createdAt = Value(createdAt);
+  static Insertable<WineJournalPhoto> custom({
+    Expression<String>? id,
+    Expression<String>? wineJournalEntryId,
+    Expression<String>? kind,
+    Expression<String>? mimeType,
+    Expression<Uint8List>? photoBytes,
+    Expression<DateTime>? createdAt,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (wineJournalEntryId != null)
+        'wine_journal_entry_id': wineJournalEntryId,
+      if (kind != null) 'kind': kind,
+      if (mimeType != null) 'mime_type': mimeType,
+      if (photoBytes != null) 'photo_bytes': photoBytes,
+      if (createdAt != null) 'created_at': createdAt,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  WineJournalPhotosCompanion copyWith({
+    Value<String>? id,
+    Value<String>? wineJournalEntryId,
+    Value<String>? kind,
+    Value<String>? mimeType,
+    Value<Uint8List>? photoBytes,
+    Value<DateTime>? createdAt,
+    Value<int>? rowid,
+  }) {
+    return WineJournalPhotosCompanion(
+      id: id ?? this.id,
+      wineJournalEntryId: wineJournalEntryId ?? this.wineJournalEntryId,
+      kind: kind ?? this.kind,
+      mimeType: mimeType ?? this.mimeType,
+      photoBytes: photoBytes ?? this.photoBytes,
+      createdAt: createdAt ?? this.createdAt,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (wineJournalEntryId.present) {
+      map['wine_journal_entry_id'] = Variable<String>(wineJournalEntryId.value);
+    }
+    if (kind.present) {
+      map['kind'] = Variable<String>(kind.value);
+    }
+    if (mimeType.present) {
+      map['mime_type'] = Variable<String>(mimeType.value);
+    }
+    if (photoBytes.present) {
+      map['photo_bytes'] = Variable<Uint8List>(photoBytes.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<DateTime>(createdAt.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('WineJournalPhotosCompanion(')
+          ..write('id: $id, ')
+          ..write('wineJournalEntryId: $wineJournalEntryId, ')
+          ..write('kind: $kind, ')
+          ..write('mimeType: $mimeType, ')
+          ..write('photoBytes: $photoBytes, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
 class WineJournalEntryNodes extends Table
     with TableInfo<WineJournalEntryNodes, WineJournalEntryNode> {
   @override
@@ -17341,6 +17780,11 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     'wine_journal_entries_by_tasted_on',
     'CREATE INDEX wine_journal_entries_by_tasted_on ON wine_journal_entries (tasted_on)',
   );
+  late final WineJournalPhotos wineJournalPhotos = WineJournalPhotos(this);
+  late final Index wineJournalPhotosByEntry = Index(
+    'wine_journal_photos_by_entry',
+    'CREATE INDEX wine_journal_photos_by_entry ON wine_journal_photos (wine_journal_entry_id)',
+  );
   late final WineJournalEntryNodes wineJournalEntryNodes =
       WineJournalEntryNodes(this);
   late final Index wineJournalEntryNodesByNode = Index(
@@ -17747,6 +18191,8 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     questionFlagsByItem,
     wineJournalEntries,
     wineJournalEntriesByTastedOn,
+    wineJournalPhotos,
+    wineJournalPhotosByEntry,
     wineJournalEntryNodes,
     wineJournalEntryNodesByNode,
     tastingSessions,
@@ -17879,6 +18325,13 @@ abstract class _$AppDatabase extends GeneratedDatabase {
         limitUpdateKind: UpdateKind.delete,
       ),
       result: [],
+    ),
+    WritePropagation(
+      on: TableUpdateQuery.onTableName(
+        'wine_journal_entries',
+        limitUpdateKind: UpdateKind.delete,
+      ),
+      result: [TableUpdate('wine_journal_photos', kind: UpdateKind.delete)],
     ),
     WritePropagation(
       on: TableUpdateQuery.onTableName(
@@ -35218,6 +35671,29 @@ final class $WineJournalEntriesReferences
         BaseReferences<_$AppDatabase, WineJournalEntries, WineJournalEntry> {
   $WineJournalEntriesReferences(super.$_db, super.$_table, super.$_typedResult);
 
+  static MultiTypedResultKey<WineJournalPhotos, List<WineJournalPhoto>>
+  _wineJournalPhotosRefsTable(
+    _$AppDatabase db,
+  ) => MultiTypedResultKey.fromTable(
+    db.wineJournalPhotos,
+    aliasName:
+        'wine_journal_entries__id__wine_journal_photos__wine_journal_entry_id',
+  );
+
+  $WineJournalPhotosProcessedTableManager get wineJournalPhotosRefs {
+    final manager = $WineJournalPhotosTableManager($_db, $_db.wineJournalPhotos)
+        .filter(
+          (f) => f.wineJournalEntryId.id.sqlEquals($_itemColumn<String>('id')!),
+        );
+
+    final cache = $_typedResult.readTableOrNull(
+      _wineJournalPhotosRefsTable($_db),
+    );
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: cache),
+    );
+  }
+
   static MultiTypedResultKey<WineJournalEntryNodes, List<WineJournalEntryNode>>
   _wineJournalEntryNodesRefsTable(_$AppDatabase db) =>
       MultiTypedResultKey.fromTable(
@@ -35342,6 +35818,31 @@ class $WineJournalEntriesFilterComposer
     column: $table.updatedAt,
     builder: (column) => ColumnFilters(column),
   );
+
+  Expression<bool> wineJournalPhotosRefs(
+    Expression<bool> Function($WineJournalPhotosFilterComposer f) f,
+  ) {
+    final $WineJournalPhotosFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.wineJournalPhotos,
+      getReferencedColumn: (t) => t.wineJournalEntryId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $WineJournalPhotosFilterComposer(
+            $db: $db,
+            $table: $db.wineJournalPhotos,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
 
   Expression<bool> wineJournalEntryNodesRefs(
     Expression<bool> Function($WineJournalEntryNodesFilterComposer f) f,
@@ -35537,6 +36038,31 @@ class $WineJournalEntriesAnnotationComposer
   GeneratedColumn<DateTime> get updatedAt =>
       $composableBuilder(column: $table.updatedAt, builder: (column) => column);
 
+  Expression<T> wineJournalPhotosRefs<T extends Object>(
+    Expression<T> Function($WineJournalPhotosAnnotationComposer a) f,
+  ) {
+    final $WineJournalPhotosAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.id,
+      referencedTable: $db.wineJournalPhotos,
+      getReferencedColumn: (t) => t.wineJournalEntryId,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $WineJournalPhotosAnnotationComposer(
+            $db: $db,
+            $table: $db.wineJournalPhotos,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return f(composer);
+  }
+
   Expression<T> wineJournalEntryNodesRefs<T extends Object>(
     Expression<T> Function($WineJournalEntryNodesAnnotationComposer a) f,
   ) {
@@ -35602,6 +36128,7 @@ class $WineJournalEntriesTableManager
           (WineJournalEntry, $WineJournalEntriesReferences),
           WineJournalEntry,
           PrefetchHooks Function({
+            bool wineJournalPhotosRefs,
             bool wineJournalEntryNodesRefs,
             bool tastingSessionsRefs,
           })
@@ -35695,18 +36222,41 @@ class $WineJournalEntriesTableManager
               .toList(),
           prefetchHooksCallback:
               ({
+                wineJournalPhotosRefs = false,
                 wineJournalEntryNodesRefs = false,
                 tastingSessionsRefs = false,
               }) {
                 return PrefetchHooks(
                   db: db,
                   explicitlyWatchedTables: [
+                    if (wineJournalPhotosRefs) db.wineJournalPhotos,
                     if (wineJournalEntryNodesRefs) db.wineJournalEntryNodes,
                     if (tastingSessionsRefs) db.tastingSessions,
                   ],
                   addJoins: null,
                   getPrefetchedDataCallback: (items) async {
                     return [
+                      if (wineJournalPhotosRefs)
+                        await $_getPrefetchedData<
+                          WineJournalEntry,
+                          WineJournalEntries,
+                          WineJournalPhoto
+                        >(
+                          currentTable: table,
+                          referencedTable: $WineJournalEntriesReferences
+                              ._wineJournalPhotosRefsTable(db),
+                          managerFromTypedResult: (p0) =>
+                              $WineJournalEntriesReferences(
+                                db,
+                                table,
+                                p0,
+                              ).wineJournalPhotosRefs,
+                          referencedItemsForCurrentItem:
+                              (item, referencedItems) => referencedItems.where(
+                                (e) => e.wineJournalEntryId == item.id,
+                              ),
+                          typedResults: items,
+                        ),
                       if (wineJournalEntryNodesRefs)
                         await $_getPrefetchedData<
                           WineJournalEntry,
@@ -35770,9 +36320,348 @@ typedef $WineJournalEntriesProcessedTableManager =
       (WineJournalEntry, $WineJournalEntriesReferences),
       WineJournalEntry,
       PrefetchHooks Function({
+        bool wineJournalPhotosRefs,
         bool wineJournalEntryNodesRefs,
         bool tastingSessionsRefs,
       })
+    >;
+typedef $WineJournalPhotosCreateCompanionBuilder =
+    WineJournalPhotosCompanion Function({
+      required String id,
+      required String wineJournalEntryId,
+      required String kind,
+      required String mimeType,
+      required Uint8List photoBytes,
+      required DateTime createdAt,
+      Value<int> rowid,
+    });
+typedef $WineJournalPhotosUpdateCompanionBuilder =
+    WineJournalPhotosCompanion Function({
+      Value<String> id,
+      Value<String> wineJournalEntryId,
+      Value<String> kind,
+      Value<String> mimeType,
+      Value<Uint8List> photoBytes,
+      Value<DateTime> createdAt,
+      Value<int> rowid,
+    });
+
+final class $WineJournalPhotosReferences
+    extends BaseReferences<_$AppDatabase, WineJournalPhotos, WineJournalPhoto> {
+  $WineJournalPhotosReferences(super.$_db, super.$_table, super.$_typedResult);
+
+  static WineJournalEntries _wineJournalEntryIdTable(_$AppDatabase db) =>
+      db.wineJournalEntries.createAlias(
+        'wine_journal_photos__wine_journal_entry_id__wine_journal_entries__id',
+      );
+
+  $WineJournalEntriesProcessedTableManager get wineJournalEntryId {
+    final $_column = $_itemColumn<String>('wine_journal_entry_id')!;
+
+    final manager = $WineJournalEntriesTableManager(
+      $_db,
+      $_db.wineJournalEntries,
+    ).filter((f) => f.id.sqlEquals($_column));
+    final item = $_typedResult.readTableOrNull(_wineJournalEntryIdTable($_db));
+    if (item == null) return manager;
+    return ProcessedTableManager(
+      manager.$state.copyWith(prefetchedData: [item]),
+    );
+  }
+}
+
+class $WineJournalPhotosFilterComposer
+    extends Composer<_$AppDatabase, WineJournalPhotos> {
+  $WineJournalPhotosFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get kind => $composableBuilder(
+    column: $table.kind,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get mimeType => $composableBuilder(
+    column: $table.mimeType,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<Uint8List> get photoBytes => $composableBuilder(
+    column: $table.photoBytes,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  $WineJournalEntriesFilterComposer get wineJournalEntryId {
+    final $WineJournalEntriesFilterComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.wineJournalEntryId,
+      referencedTable: $db.wineJournalEntries,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $WineJournalEntriesFilterComposer(
+            $db: $db,
+            $table: $db.wineJournalEntries,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $WineJournalPhotosOrderingComposer
+    extends Composer<_$AppDatabase, WineJournalPhotos> {
+  $WineJournalPhotosOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get kind => $composableBuilder(
+    column: $table.kind,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get mimeType => $composableBuilder(
+    column: $table.mimeType,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<Uint8List> get photoBytes => $composableBuilder(
+    column: $table.photoBytes,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  $WineJournalEntriesOrderingComposer get wineJournalEntryId {
+    final $WineJournalEntriesOrderingComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.wineJournalEntryId,
+      referencedTable: $db.wineJournalEntries,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $WineJournalEntriesOrderingComposer(
+            $db: $db,
+            $table: $db.wineJournalEntries,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $WineJournalPhotosAnnotationComposer
+    extends Composer<_$AppDatabase, WineJournalPhotos> {
+  $WineJournalPhotosAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get kind =>
+      $composableBuilder(column: $table.kind, builder: (column) => column);
+
+  GeneratedColumn<String> get mimeType =>
+      $composableBuilder(column: $table.mimeType, builder: (column) => column);
+
+  GeneratedColumn<Uint8List> get photoBytes => $composableBuilder(
+    column: $table.photoBytes,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<DateTime> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+
+  $WineJournalEntriesAnnotationComposer get wineJournalEntryId {
+    final $WineJournalEntriesAnnotationComposer composer = $composerBuilder(
+      composer: this,
+      getCurrentColumn: (t) => t.wineJournalEntryId,
+      referencedTable: $db.wineJournalEntries,
+      getReferencedColumn: (t) => t.id,
+      builder:
+          (
+            joinBuilder, {
+            $addJoinBuilderToRootComposer,
+            $removeJoinBuilderFromRootComposer,
+          }) => $WineJournalEntriesAnnotationComposer(
+            $db: $db,
+            $table: $db.wineJournalEntries,
+            $addJoinBuilderToRootComposer: $addJoinBuilderToRootComposer,
+            joinBuilder: joinBuilder,
+            $removeJoinBuilderFromRootComposer:
+                $removeJoinBuilderFromRootComposer,
+          ),
+    );
+    return composer;
+  }
+}
+
+class $WineJournalPhotosTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          WineJournalPhotos,
+          WineJournalPhoto,
+          $WineJournalPhotosFilterComposer,
+          $WineJournalPhotosOrderingComposer,
+          $WineJournalPhotosAnnotationComposer,
+          $WineJournalPhotosCreateCompanionBuilder,
+          $WineJournalPhotosUpdateCompanionBuilder,
+          (WineJournalPhoto, $WineJournalPhotosReferences),
+          WineJournalPhoto,
+          PrefetchHooks Function({bool wineJournalEntryId})
+        > {
+  $WineJournalPhotosTableManager(_$AppDatabase db, WineJournalPhotos table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $WineJournalPhotosFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $WineJournalPhotosOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $WineJournalPhotosAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> id = const Value.absent(),
+                Value<String> wineJournalEntryId = const Value.absent(),
+                Value<String> kind = const Value.absent(),
+                Value<String> mimeType = const Value.absent(),
+                Value<Uint8List> photoBytes = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => WineJournalPhotosCompanion(
+                id: id,
+                wineJournalEntryId: wineJournalEntryId,
+                kind: kind,
+                mimeType: mimeType,
+                photoBytes: photoBytes,
+                createdAt: createdAt,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String id,
+                required String wineJournalEntryId,
+                required String kind,
+                required String mimeType,
+                required Uint8List photoBytes,
+                required DateTime createdAt,
+                Value<int> rowid = const Value.absent(),
+              }) => WineJournalPhotosCompanion.insert(
+                id: id,
+                wineJournalEntryId: wineJournalEntryId,
+                kind: kind,
+                mimeType: mimeType,
+                photoBytes: photoBytes,
+                createdAt: createdAt,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<WineJournalPhotos, WineJournalPhoto>(table),
+                  $WineJournalPhotosReferences(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: ({wineJournalEntryId = false}) {
+            return PrefetchHooks(
+              db: db,
+              explicitlyWatchedTables: [],
+              addJoins:
+                  <
+                    T extends TableManagerState<
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic,
+                      dynamic
+                    >
+                  >(state) {
+                    if (wineJournalEntryId) {
+                      state = state.withJoin(
+                        currentTable: table,
+                        currentColumn: table.wineJournalEntryId,
+                        referencedTable: $WineJournalPhotosReferences
+                            ._wineJournalEntryIdTable(db),
+                        referencedColumn: $WineJournalPhotosReferences
+                            ._wineJournalEntryIdTable(db)
+                            .id,
+                      ) as T;
+                    }
+
+                    return state;
+                  },
+              getPrefetchedDataCallback: (items) async {
+                return [];
+              },
+            );
+          },
+        ),
+      );
+}
+
+typedef $WineJournalPhotosProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      WineJournalPhotos,
+      WineJournalPhoto,
+      $WineJournalPhotosFilterComposer,
+      $WineJournalPhotosOrderingComposer,
+      $WineJournalPhotosAnnotationComposer,
+      $WineJournalPhotosCreateCompanionBuilder,
+      $WineJournalPhotosUpdateCompanionBuilder,
+      (WineJournalPhoto, $WineJournalPhotosReferences),
+      WineJournalPhoto,
+      PrefetchHooks Function({bool wineJournalEntryId})
     >;
 typedef $WineJournalEntryNodesCreateCompanionBuilder =
     WineJournalEntryNodesCompanion Function({
@@ -36865,6 +37754,8 @@ class $AppDatabaseManager {
       $QuestionFlagsTableManager(_db, _db.questionFlags);
   $WineJournalEntriesTableManager get wineJournalEntries =>
       $WineJournalEntriesTableManager(_db, _db.wineJournalEntries);
+  $WineJournalPhotosTableManager get wineJournalPhotos =>
+      $WineJournalPhotosTableManager(_db, _db.wineJournalPhotos);
   $WineJournalEntryNodesTableManager get wineJournalEntryNodes =>
       $WineJournalEntryNodesTableManager(_db, _db.wineJournalEntryNodes);
   $TastingSessionsTableManager get tastingSessions =>

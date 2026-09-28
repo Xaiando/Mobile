@@ -1,10 +1,15 @@
+import 'dart:typed_data';
+
 import 'package:clock/clock.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:image/image.dart' as image;
 import 'package:sommelier/core/database/app_database.dart';
+import 'package:sommelier/core/journal/journal_photo_store.dart';
 import 'package:sommelier/core/journal/wine_journal.dart';
 import 'package:sommelier/core/tasting/tasting_practice.dart';
 import 'package:sommelier/core/time/time_providers.dart';
+import 'package:sommelier/features/cellar/journal_photo_strip.dart';
 
 import '../support/app_fixture.dart';
 import '../support/fixture.dart';
@@ -180,11 +185,20 @@ void main() {
     tester,
   ) async {
     await launch(tester);
-    await tester.runAsync(
+    final wine = await tester.runAsync(
       () => WineJournal(db).create(
         const JournalDraft(
           producerName: 'Example Producer',
           appellationText: 'Chablis',
+        ),
+      ),
+    );
+    await tester.runAsync(
+      () => JournalPhotoStore(db).put(
+        entryId: wine!.id,
+        kind: PhotoKind.label,
+        bytes: Uint8List.fromList(
+          image.encodePng(image.Image(width: 2, height: 2)),
         ),
       ),
     );
@@ -204,6 +218,7 @@ void main() {
     await tap(tester, find.text('Notes and wine'));
     expect(find.text('The wine is revealed when you finish.'), findsOneWidget);
     expect(find.textContaining('Example Producer'), findsNothing);
+    expect(find.byType(JournalPhotoStrip), findsNothing);
 
     // One write at a time: each one wakes the screen's queries, which run
     // on the test's fake clock and must finish before the next write.
@@ -226,6 +241,7 @@ void main() {
     }
     await tap(tester, find.byKey(const ValueKey('tasting-step-finish')));
     expect(find.text('The wine was Example Producer'), findsOneWidget);
+    expect(find.byType(JournalPhotoStrip), findsOneWidget);
 
     await tap(tester, find.text('The wine was Example Producer'));
     expect(find.text('Tastings'), findsOneWidget);

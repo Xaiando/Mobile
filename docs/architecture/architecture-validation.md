@@ -269,7 +269,7 @@ The grid vocabulary depends on the legal review in audit D10. The schema does no
 | J-1 | A `journal_entry_node(entry_id, node_id, role)` junction (roles: appellation, region, grape…). The raw text entered is kept alongside. | One entry has several grapes. The spec gives single foreign keys. |
 | J-2 | Linking uses typeahead pickers bound to nodes, backed by a normalized `node_alias` table (case, diacritics, AOC/DOCG suffixes). Fuzzy matching is deferred. | Deterministic matching (audit JRNL-2). |
 | J-3 | The priority influence goes through the `J` term (A-5). | Phase 5's acceptance criterion needs it. |
-| J-4 | A nullable `photo_path` column exists from v1, with no capture UI unless D6 changes. `image_picker` 1.2.3 resolves on all targets. | Avoids a schema migration later, as §K asks. |
+| J-4 | The original nullable column is `photo_ref`, not `photo_path`. Schema v5 keeps it for old rows and adds private `wine_journal_photos` BLOB children for label and glass images. | Preserve old backups and avoid public file paths while allowing two images per entry. |
 | J-5 | Episodic flashcards are deferred. | They need review state for user-created items, and V0.1 scope does not include them. |
 
 ---

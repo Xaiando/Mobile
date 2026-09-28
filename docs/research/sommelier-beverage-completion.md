@@ -1,0 +1,27 @@
+# Sommelier beverage continuation — integration handoff
+
+28 September 2026. The app already registers 22 CMS beverage points in
+`assets/curriculum/areas/sommelier_beverages.yaml`. This continuation has two
+area files and one case template file, registered in dataset 0.24.1.
+Root owns the release/version, objective mapping, validation, coverage
+baseline and Git integration.
+
+| File | New item rows | Scope |
+| --- | ---: | --- |
+| `assets/curriculum/areas/sommelier_practice.yaml` | 85 | Grok's 21 main explanations and 16 four-part cases, copied from the unregistered candidate; CMS only except its existing 21 wine-label/astringency Level 4 mappings |
+| `assets/curriculum/areas/sommelier_beverage_basics.yaml` | 36 | Twelve core statements and six four-part cases, all CMS only |
+| `assets/curriculum/templates/sommelier_practice_cases.yaml` | Seven templates | One subject-labelled template for the 16 Grok cases and six case-specific, self-assessed short answers |
+
+The new teaching covers the [Brewers Association's four beer ingredients](https://www.brewersassociation.org/online-courses/beer-ingredients/) and its [retailer glass-quality guidance](https://cdn.brewersassociation.org/wp-content/uploads/2022/04/04193712/BP22-DBQMR-FINAL.pdf); the [National Association of Cider Makers' apple-cider and pear-perry distinction](https://cideruk.com/what-is-cider-and-perry/); the [Japan Sake and Shochu Makers Association's parallel fermentation](https://japansake.or.jp/sake/en/basic/how-is-sake-made/) and [three temperature choices](https://japansake.or.jp/sake/en/basic/how-to-serve-sake/); and [Habanos' parejo, figurado, ring-gauge and vitola vocabulary](https://www.habanos.com/en/principal-shapes-sizes/). The six cases turn these and the spirit categories into guest-facing comparisons with an action, reason, tradeoff and limit. Cigar shape never cancels the registered tobacco-harm warning.
+
+The [EUR-Lex consolidated spirit-drinks view](https://eur-lex.europa.eu/eli/reg/2019/787/2024-05-13) supplies category 33 liqueur, including the ordinary sugar floor and its exceptions, and category 30 bitter-tasting spirit drink. [Regulation (EU) No 251/2014's 18 March 2026 consolidated view](https://eur-lex.europa.eu/eli/reg/2014/251/2026-03-18/eng) supplies the separate aromatised-wine framework: vermouth may have added alcohol, while its characteristic flavour must derive from appropriate Artemisia substances. These are EU definitions, not global category claims. The cited consolidated texts are documentation views; a later law update requires a new source check. The original Grok candidate retains its narrower source qualifications for tequila, Cognac, Armagnac, Calvados, beer yeast, allergen declarations, service refusal and astringency.
+
+This pack does not repeat the app's WSET wine-service sequences, wine pairing, faults or preservation. It also does not copy an examination grid, supply a home-distillation method, promise allergy or health safety, or treat a legal category as proof about an unopened bottle. Every new row is `verification_status: unverified` and `mcq_disabled: true`. The user receives a self-assessed explanation question, not an automatically graded professional judgement. The 14 older Grok question rows in `assets/curriculum/candidates/sommelier_practice_questions.yaml` remain an unregistered editorial handoff; the seven `question_templates` above are the runtime-ready exercises.
+
+The source identifier `src_bev_who_alcohol` in Grok's candidate was stale on the WSET branch. It is now `src_wset_srv_who_cancer` in the area copy and both original candidate files, with no duplicate WHO URL. No source ID or URL is duplicated across the area files. There is no WSET Level 1–3 mapping in either area. The project pins `CMS_CERTIFIED` to CMS Europe 2026/27; Grok's earlier prose referred to CMS Americas only for a general scope argument, so the pinned Europe objectives are the integration authority. The local CMS scope now selects 56 spirits, 13 liqueur and aperitif, 23 beer and cider, and 10 sake items; each objective is represented, while all of these items remain secondary rather than a claim of professional certification.
+
+Python checks found 121 unique item IDs, each with a relation, CMS mapping and citation; all remain unverified with MCQ disabled. The 36 new items have 36 CMS mappings and 41 citations. Seven distinct short-answer templates cover 22 scoped four-part cases. The registered release passes curriculum lint with zero errors and coverage validation with zero known gaps. The cumulative mapped inventories are now CMS Certified 2,756 and WSET Level 4 3,867; WSET Levels 1–3 remain 132, 819 and 3,429. These gates do not replace a qualified factual review.
+
+Wine-list operations, cellar inventory, cocktail recommendations, and performed tableside service remain outside this authored beverage basics pack. The cellar photo/OCR scanner is implemented separately in this release; its acceptance contract is in `docs/research/history-beverage-scanner-completion-plan.md`. The existing `docs/research/sommelier-cellar-and-service-gaps.md` describes the earlier 0.22.0 state and should not be read as a current assessment of the WSET wine-service additions in 0.23.0.
+
+The UK duty-category cider facts now cite [Finance (No. 2) Act 2023, section 44 and Schedule 6](https://www.legislation.gov.uk/ukpga/2023/30/pdfs/ukpga_20230030_en.pdf). This current duty category does not override the guest-facing distinction between apple cider and pear perry.

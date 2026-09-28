@@ -1,0 +1,160 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "node": "n_geo_halkidiki",
+        "node_id": "n_geo_halkidiki",
+        "name": "Halkidiki",
+        "parent_node_id": "n_geo_macedonia",
+        "country_node_id": "n_geo_greece",
+        "point_role": "qualified administrative orientation reference",
+        "point_place_name": "Nomós Chalkidikís",
+        "source_url": "https://www.geonames.org/735804/",
+        "source_coordinate_url": "https://download.geonames.org/export/dump/GR.zip",
+        "source_file_sha256": "e71b24a515472009a99156fc059b1fa9df1e20048e3231698dea64516bafee1c",
+        "geonames_id": "735804",
+        "geonames_feature_class": "A",
+        "geonames_feature_code": "ADM2",
+        "geonames_admin1_code": "ESYE12",
+        "geonames_modified_on": "2019-06-02",
+        "retrieved_on": "2026-09-28",
+        "license": "CC-BY-4.0",
+        "attribution": "Contains GeoNames GR data, licensed CC BY 4.0; selected WGS84 orientation references only.",
+        "label_note": "The Halkidiki regional-unit reference locates the parent area; it is not a wine-region boundary."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.5,
+          40.41667
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node": "n_geo_sithonia",
+        "node_id": "n_geo_sithonia",
+        "name": "Sithonia",
+        "parent_node_id": "n_geo_halkidiki",
+        "country_node_id": "n_geo_greece",
+        "point_role": "qualified peninsula orientation reference",
+        "point_place_name": "Chersónisos Sithonías",
+        "source_url": "https://www.geonames.org/734264/",
+        "source_coordinate_url": "https://download.geonames.org/export/dump/GR.zip",
+        "source_file_sha256": "e71b24a515472009a99156fc059b1fa9df1e20048e3231698dea64516bafee1c",
+        "geonames_id": "734264",
+        "geonames_feature_class": "T",
+        "geonames_feature_code": "PEN",
+        "geonames_admin1_code": "ESYE12",
+        "geonames_modified_on": "2020-07-07",
+        "retrieved_on": "2026-09-28",
+        "license": "CC-BY-4.0",
+        "attribution": "Contains GeoNames GR data, licensed CC BY 4.0; selected WGS84 orientation references only.",
+        "label_note": "The Sithonia peninsula reference locates the landform; it is not a vineyard or PDO boundary."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.86828,
+          40.09788
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node": "n_geo_slopes_of_meliton",
+        "node_id": "n_geo_slopes_of_meliton",
+        "name": "Slopes of Meliton",
+        "parent_node_id": "n_geo_sithonia",
+        "country_node_id": "n_geo_greece",
+        "point_role": "qualified named-peak orientation reference",
+        "point_place_name": "Melítonas",
+        "source_url": "https://www.geonames.org/735219/",
+        "source_coordinate_url": "https://download.geonames.org/export/dump/GR.zip",
+        "source_file_sha256": "e71b24a515472009a99156fc059b1fa9df1e20048e3231698dea64516bafee1c",
+        "geonames_id": "735219",
+        "geonames_feature_class": "T",
+        "geonames_feature_code": "PK",
+        "geonames_admin1_code": "ESYE12",
+        "geonames_modified_on": "2012-01-17",
+        "retrieved_on": "2026-09-28",
+        "license": "CC-BY-4.0",
+        "attribution": "Contains GeoNames GR data, licensed CC BY 4.0; selected WGS84 orientation references only.",
+        "label_note": "Mount Meliton is a named terrain reference near the PDO vineyards, not their legal centroid or boundary."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.83333,
+          40.06667
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node": "n_geo_achaea",
+        "node_id": "n_geo_achaea",
+        "name": "Achaea",
+        "parent_node_id": "n_geo_peloponnese",
+        "country_node_id": "n_geo_greece",
+        "point_role": "qualified regional orientation reference",
+        "point_place_name": "Achaea",
+        "source_url": "https://www.geonames.org/265712/",
+        "source_coordinate_url": "https://download.geonames.org/export/dump/GR.zip",
+        "source_file_sha256": "e71b24a515472009a99156fc059b1fa9df1e20048e3231698dea64516bafee1c",
+        "geonames_id": "265712",
+        "geonames_feature_class": "L",
+        "geonames_feature_code": "RGN",
+        "geonames_admin1_code": "ESYE23",
+        "geonames_modified_on": "2015-09-06",
+        "retrieved_on": "2026-09-28",
+        "license": "CC-BY-4.0",
+        "attribution": "Contains GeoNames GR data, licensed CC BY 4.0; selected WGS84 orientation references only.",
+        "label_note": "The Achaea named-region reference locates the parent area; it is not a wine-region boundary."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          22,
+          38.13333
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "node": "n_geo_patra",
+        "node_id": "n_geo_patra",
+        "name": "Patra",
+        "parent_node_id": "n_geo_achaea",
+        "country_node_id": "n_geo_greece",
+        "point_role": "qualified named-city orientation reference",
+        "point_place_name": "Pátra",
+        "source_url": "https://www.geonames.org/255683/",
+        "source_coordinate_url": "https://download.geonames.org/export/dump/GR.zip",
+        "source_file_sha256": "e71b24a515472009a99156fc059b1fa9df1e20048e3231698dea64516bafee1c",
+        "geonames_id": "255683",
+        "geonames_feature_class": "P",
+        "geonames_feature_code": "PPLA",
+        "geonames_admin1_code": "ESYE23",
+        "geonames_modified_on": "2026-08-30",
+        "retrieved_on": "2026-09-28",
+        "license": "CC-BY-4.0",
+        "attribution": "Contains GeoNames GR data, licensed CC BY 4.0; selected WGS84 orientation references only.",
+        "label_note": "The city of Patra is a named reference for the wider PDO, not its legal centroid or boundary."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.73508,
+          38.2462
+        ]
+      }
+    }
+  ]
+}

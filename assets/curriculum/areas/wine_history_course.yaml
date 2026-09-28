@@ -1,0 +1,942 @@
+# Expanded wine-history course. Register only in a new dataset release.
+# Resolves source ids already defined in areas/wine_history.yaml and
+# areas/sommelier_beverages.yaml, plus src_hcourse_columella below.
+# Do not copy those existing URLs into this file. All items unverified.
+# No WSET Level 1–3 mappings. mcq_disabled because several wordings can be right.
+knowledge_nodes:
+  - { id: n_hcourse_evidence, node_type: production_principle, name: "How should a claim about the oldest wine be split?" }
+  - { id: n_hcourse_evidence_residue, node_type: learning_point, name: "A residue is not a winery" }
+  - { id: n_hcourse_evidence_later, node_type: learning_point, name: "Areni is a later installation" }
+  - { id: n_hcourse_rome, node_type: production_principle, name: "What can Roman wine writing show, and what can it not?" }
+  - { id: n_hcourse_rome_rank, node_type: learning_point, name: "Pliny distinguishes Falernian styles and slope sites" }
+  - { id: n_hcourse_rome_site, node_type: learning_point, name: "Columella matches vine to site" }
+  - { id: n_hcourse_rome_not_law, node_type: learning_point, name: "Roman advice is not an appellation" }
+  - { id: n_hcourse_commerce, node_type: production_principle, name: "How do the Methuen treaty and the Douro charter differ?" }
+  - { id: n_hcourse_commerce_duty, node_type: learning_point, name: "Methuen is a duty, not a boundary" }
+  - { id: n_hcourse_commerce_charter, node_type: learning_point, name: "Douro 1756 is not the first line" }
+  - { id: n_hcourse_names, node_type: production_principle, name: "Which three Napoleons matter in wine?" }
+  - { id: n_hcourse_names_blockade, node_type: learning_point, name: "1806 is a blockade" }
+  - { id: n_hcourse_names_list, node_type: learning_point, name: "1855 is Napoleon III's list" }
+  - { id: n_hcourse_names_age, node_type: learning_point, name: "Cognac Napoleon is six years" }
+  - { id: n_hcourse_sparkling, node_type: production_principle, name: "What records the sparkling method, and what does not?" }
+  - { id: n_hcourse_sparkling_paper, node_type: learning_point, name: "Merrett's 1662 paper" }
+  - { id: n_hcourse_sparkling_myth, node_type: learning_point, name: "Perignon is not that paper's inventor" }
+  - { id: n_hcourse_phylloxera, node_type: production_principle, name: "What does the opened phylloxera page support?" }
+  - { id: n_hcourse_phylloxera_root, node_type: learning_point, name: "Rootstocks, not a cure-all spray" }
+  - { id: n_hcourse_phylloxera_limit, node_type: learning_point, name: "No European year from that page" }
+  - { id: n_hcourse_modern, node_type: production_principle, name: "How do appellation law, Prohibition, and the 1976 tasting differ in scale?" }
+  - { id: n_hcourse_modern_aoc, node_type: learning_point, name: "A name can be legally controlled" }
+  - { id: n_hcourse_modern_ban, node_type: learning_point, name: "Repeal is not a quality law" }
+  - { id: n_hcourse_modern_tasting, node_type: learning_point, name: "1976 is one tasting" }
+  - { id: n_hcourse_case_oldest, node_type: production_case, name: "A guest says Areni is the oldest wine" }
+  - { id: n_hcourse_case_oldest_action, node_type: learning_point, name: "Split residue from installation" }
+  - { id: n_hcourse_case_oldest_reason, node_type: learning_point, name: "The papers measure different things" }
+  - { id: n_hcourse_case_oldest_tradeoff, node_type: learning_point, name: "A press phrase is not the paper" }
+  - { id: n_hcourse_case_oldest_limit, node_type: learning_point, name: "Neither paper closes the search" }
+  - { id: n_hcourse_case_napoleon, node_type: production_case, name: "A guest treats every Napoleon as one event" }
+  - { id: n_hcourse_case_napoleon_action, node_type: learning_point, name: "Separate the three uses" }
+  - { id: n_hcourse_case_napoleon_reason, node_type: learning_point, name: "Each use has its own date and job" }
+  - { id: n_hcourse_case_napoleon_tradeoff, node_type: learning_point, name: "An age word is not an authentication" }
+  - { id: n_hcourse_case_napoleon_limit, node_type: learning_point, name: "Naming the word does not prove the bottle" }
+  - { id: n_hcourse_case_boundary, node_type: production_case, name: "A guest says Methuen created the Douro" }
+  - { id: n_hcourse_case_boundary_action, node_type: learning_point, name: "Separate tax from demarcation" }
+  - { id: n_hcourse_case_boundary_reason, node_type: learning_point, name: "1703 and 1756 solve different problems" }
+  - { id: n_hcourse_case_boundary_tradeoff, node_type: learning_point, name: "Earlier lines already existed" }
+  - { id: n_hcourse_case_boundary_limit, node_type: learning_point, name: "The charter is not today's map" }
+  - { id: n_hcourse_case_bubble, node_type: production_case, name: "A guest credits Dom Perignon with inventing Champagne" }
+  - { id: n_hcourse_case_bubble_action, node_type: learning_point, name: "Do not credit him with Merrett's method" }
+  - { id: n_hcourse_case_bubble_reason, node_type: learning_point, name: "The paper is earlier than his appointment" }
+  - { id: n_hcourse_case_bubble_tradeoff, node_type: learning_point, name: "Cellar work is not invention" }
+  - { id: n_hcourse_case_bubble_limit, node_type: learning_point, name: "One account is not every archive" }
+
+  - { id: n_hcourse_phylloxera_year, node_type: learning_point, name: "1863 to 1893 is one page's French range" }
+  - { id: n_hcourse_case_phylloxera, node_type: production_case, name: "A guest says every European vine died in 1863" }
+  - { id: n_hcourse_case_phylloxera_action, node_type: learning_point, name: "Give the range and refuse the census" }
+  - { id: n_hcourse_case_phylloxera_reason, node_type: learning_point, name: "The disappearance clause is in the same sentence" }
+  - { id: n_hcourse_case_phylloxera_tradeoff, node_type: learning_point, name: "The French range can be repeated" }
+  - { id: n_hcourse_case_phylloxera_limit, node_type: learning_point, name: "One encyclopaedia page is not every history" }
+
+  - { id: n_hcourse_doc, node_type: production_principle, name: "What did the opened 1963 article define?" }
+  - { id: n_hcourse_doc_name, node_type: learning_point, name: "A geographic name tied to vines and environment" }
+  - { id: n_hcourse_doc_unread, node_type: learning_point, name: "This view stopped before any later article" }
+  - { id: n_hcourse_case_doc, node_type: production_case, name: "A guest says 1963 invented the letters DOC" }
+  - { id: n_hcourse_case_doc_action, node_type: learning_point, name: "Quote article 1 and stop" }
+  - { id: n_hcourse_case_doc_reason, node_type: learning_point, name: "The loaded text does not use those abbreviations" }
+  - { id: n_hcourse_case_doc_tradeoff, node_type: learning_point, name: "The definition can still be taught" }
+  - { id: n_hcourse_case_doc_limit, node_type: learning_point, name: "Unread articles are not a denial" }
+
+  - { id: n_hcourse_doc_three, node_type: learning_point, name: "Three 1963 names, and no DOC abbreviation" }
+  - { id: n_hcourse_doc_semplice, node_type: learning_point, name: "Semplice is traditional grapes and local use" }
+  - { id: n_hcourse_doc_repeal, node_type: learning_point, name: "The current Normattiva view says the decree is abrogated" }
+  - { id: n_hcourse_case_repeal, node_type: production_case, name: "A guest treats the 1963 decree as today's code" }
+  - { id: n_hcourse_case_repeal_action, node_type: learning_point, name: "Date the categories and say they are not current" }
+  - { id: n_hcourse_case_repeal_reason, node_type: learning_point, name: "Two opened pages mark the repeal" }
+  - { id: n_hcourse_case_repeal_tradeoff, node_type: learning_point, name: "The 1963 distinction can still be studied" }
+  - { id: n_hcourse_case_repeal_limit, node_type: learning_point, name: "The later law is cited separately" }
+
+  - { id: n_hcourse_doc_2010, node_type: learning_point, name: "The 2010 decree defined DOP and IGP, then was itself repealed" }
+
+  - { id: n_hcourse_doc_now, node_type: learning_point, name: "DOC and DOCG are traditional mentions for a DOP" }
+  - { id: n_hcourse_case_letters, node_type: production_case, name: "A guest says DOC is not a DOP" }
+  - { id: n_hcourse_case_letters_action, node_type: learning_point, name: "Put the abbreviation on the 2016 article" }
+  - { id: n_hcourse_case_letters_reason, node_type: learning_point, name: "Article 28 classifies DOP into DOC and DOCG" }
+  - { id: n_hcourse_case_letters_tradeoff, node_type: learning_point, name: "The label may show either wording" }
+  - { id: n_hcourse_case_letters_limit, node_type: learning_point, name: "Not every bottle is a DOCG" }
+
+knowledge_relations:
+  - { subject_id: n_hcourse_evidence, relation_type: PRINCIPLE_EXPLANATION, object_id: n_hcourse_evidence_residue, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_evidence, relation_type: PRINCIPLE_EXPLANATION, object_id: n_hcourse_evidence_later, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_rome, relation_type: PRINCIPLE_EXPLANATION, object_id: n_hcourse_rome_rank, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_rome, relation_type: PRINCIPLE_EXPLANATION, object_id: n_hcourse_rome_site, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_rome, relation_type: PRINCIPLE_EXPLANATION, object_id: n_hcourse_rome_not_law, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_commerce, relation_type: PRINCIPLE_EXPLANATION, object_id: n_hcourse_commerce_duty, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_commerce, relation_type: PRINCIPLE_EXPLANATION, object_id: n_hcourse_commerce_charter, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_names, relation_type: PRINCIPLE_EXPLANATION, object_id: n_hcourse_names_blockade, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_names, relation_type: PRINCIPLE_EXPLANATION, object_id: n_hcourse_names_list, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_names, relation_type: PRINCIPLE_EXPLANATION, object_id: n_hcourse_names_age, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_sparkling, relation_type: PRINCIPLE_EXPLANATION, object_id: n_hcourse_sparkling_paper, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_sparkling, relation_type: PRINCIPLE_EXPLANATION, object_id: n_hcourse_sparkling_myth, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_phylloxera, relation_type: PRINCIPLE_EXPLANATION, object_id: n_hcourse_phylloxera_root, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_phylloxera, relation_type: PRINCIPLE_EXPLANATION, object_id: n_hcourse_phylloxera_limit, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_modern, relation_type: PRINCIPLE_EXPLANATION, object_id: n_hcourse_modern_aoc, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_modern, relation_type: PRINCIPLE_EXPLANATION, object_id: n_hcourse_modern_ban, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_modern, relation_type: PRINCIPLE_EXPLANATION, object_id: n_hcourse_modern_tasting, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_case_oldest, relation_type: CASE_ACTION, object_id: n_hcourse_case_oldest_action, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_case_oldest, relation_type: CASE_REASON, object_id: n_hcourse_case_oldest_reason, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_case_oldest, relation_type: CASE_TRADEOFF, object_id: n_hcourse_case_oldest_tradeoff, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_case_oldest, relation_type: CASE_LIMITATION, object_id: n_hcourse_case_oldest_limit, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_case_napoleon, relation_type: CASE_ACTION, object_id: n_hcourse_case_napoleon_action, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_case_napoleon, relation_type: CASE_REASON, object_id: n_hcourse_case_napoleon_reason, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_case_napoleon, relation_type: CASE_TRADEOFF, object_id: n_hcourse_case_napoleon_tradeoff, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_case_napoleon, relation_type: CASE_LIMITATION, object_id: n_hcourse_case_napoleon_limit, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_case_boundary, relation_type: CASE_ACTION, object_id: n_hcourse_case_boundary_action, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_case_boundary, relation_type: CASE_REASON, object_id: n_hcourse_case_boundary_reason, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_case_boundary, relation_type: CASE_TRADEOFF, object_id: n_hcourse_case_boundary_tradeoff, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_case_boundary, relation_type: CASE_LIMITATION, object_id: n_hcourse_case_boundary_limit, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_case_bubble, relation_type: CASE_ACTION, object_id: n_hcourse_case_bubble_action, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_case_bubble, relation_type: CASE_REASON, object_id: n_hcourse_case_bubble_reason, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_case_bubble, relation_type: CASE_TRADEOFF, object_id: n_hcourse_case_bubble_tradeoff, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_case_bubble, relation_type: CASE_LIMITATION, object_id: n_hcourse_case_bubble_limit, valid_from: "2026-09-27" }
+
+  - { subject_id: n_hcourse_phylloxera, relation_type: PRINCIPLE_EXPLANATION, object_id: n_hcourse_phylloxera_year, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_case_phylloxera, relation_type: CASE_ACTION, object_id: n_hcourse_case_phylloxera_action, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_case_phylloxera, relation_type: CASE_REASON, object_id: n_hcourse_case_phylloxera_reason, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_case_phylloxera, relation_type: CASE_TRADEOFF, object_id: n_hcourse_case_phylloxera_tradeoff, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_case_phylloxera, relation_type: CASE_LIMITATION, object_id: n_hcourse_case_phylloxera_limit, valid_from: "2026-09-27" }
+
+  - { subject_id: n_hcourse_doc, relation_type: PRINCIPLE_EXPLANATION, object_id: n_hcourse_doc_name, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_doc, relation_type: PRINCIPLE_EXPLANATION, object_id: n_hcourse_doc_unread, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_case_doc, relation_type: CASE_ACTION, object_id: n_hcourse_case_doc_action, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_case_doc, relation_type: CASE_REASON, object_id: n_hcourse_case_doc_reason, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_case_doc, relation_type: CASE_TRADEOFF, object_id: n_hcourse_case_doc_tradeoff, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_case_doc, relation_type: CASE_LIMITATION, object_id: n_hcourse_case_doc_limit, valid_from: "2026-09-27" }
+
+  - { subject_id: n_hcourse_doc, relation_type: PRINCIPLE_EXPLANATION, object_id: n_hcourse_doc_three, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_doc, relation_type: PRINCIPLE_EXPLANATION, object_id: n_hcourse_doc_semplice, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_doc, relation_type: PRINCIPLE_EXPLANATION, object_id: n_hcourse_doc_repeal, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_case_repeal, relation_type: CASE_ACTION, object_id: n_hcourse_case_repeal_action, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_case_repeal, relation_type: CASE_REASON, object_id: n_hcourse_case_repeal_reason, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_case_repeal, relation_type: CASE_TRADEOFF, object_id: n_hcourse_case_repeal_tradeoff, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_case_repeal, relation_type: CASE_LIMITATION, object_id: n_hcourse_case_repeal_limit, valid_from: "2026-09-27" }
+
+  - { subject_id: n_hcourse_doc, relation_type: PRINCIPLE_EXPLANATION, object_id: n_hcourse_doc_2010, valid_from: "2026-09-27" }
+
+  - { subject_id: n_hcourse_doc, relation_type: PRINCIPLE_EXPLANATION, object_id: n_hcourse_doc_now, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_case_letters, relation_type: CASE_ACTION, object_id: n_hcourse_case_letters_action, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_case_letters, relation_type: CASE_REASON, object_id: n_hcourse_case_letters_reason, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_case_letters, relation_type: CASE_TRADEOFF, object_id: n_hcourse_case_letters_tradeoff, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_case_letters, relation_type: CASE_LIMITATION, object_id: n_hcourse_case_letters_limit, valid_from: "2026-09-27" }
+
+knowledge_items:
+  - id: ki_hcourse_evidence_residue
+    subject_id: n_hcourse_evidence
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_hcourse_evidence_residue
+    domain_id: service
+    assertion_text: "The Georgian finds are chemical residues of grape wine in pottery, about 6000–5800 BC. A residue does not show a press, a vat, and storage jars used together, and it does not prove that no older fermented drink exists."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_evidence_later
+    subject_id: n_hcourse_evidence
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_hcourse_evidence_later
+    domain_id: service
+    assertion_text: "Areni-1 is an installation with jars from around 4000 calibrated BCE and malvidin in that production context. It is later than the Georgian residues. It is not the oldest wine merely because the installation is more complete."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_rome_rank
+    subject_id: n_hcourse_rome
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_hcourse_rome_rank
+    domain_id: service
+    assertion_text: "Pliny ranks Falernian as the highest wine of his own day and distinguishes a dry, a sweet, and a light style, with Caucinian, Faustian, and Falernian named by place on the slope. That is one author's ranking, not a modern appellation."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_rome_site
+    subject_id: n_hcourse_rome
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_hcourse_rome_site
+    domain_id: service
+    assertion_text: "Columella says the vine responds to care except in icy cold and burning heat, and that the farmer should match the variety to the place: mist and frost on level ground, drought and wind on a hillside, a slender vine on fat land, a prolific vine on lean land. He treats climate as a stronger influence than the soil choice alone, and he says cuttings from another district are less at home than stock raised on the farm. One vintage does not prove a vine."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_rome_not_law
+    subject_id: n_hcourse_rome
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_hcourse_rome_not_law
+    domain_id: service
+    assertion_text: "Neither Pliny's ranking nor Columella's husbandry fixes a production area, a grape list, a yield, or a minimum strength. Those controls appear in the later French appellation rules and in the EU definition of wine, not in these Roman books."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_commerce_duty
+    subject_id: n_hcourse_commerce
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_hcourse_commerce_duty
+    domain_id: service
+    assertion_text: "The treaty of 27 December 1703 cut the British duty on Portuguese wine to one third below the duty on the same measure of French wine, in peace or war, and admitted British woollen cloth into Portugal. It did not demarcate the Douro and it did not define Port."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_commerce_charter
+    subject_id: n_hcourse_commerce
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_hcourse_commerce_charter
+    domain_id: service
+    assertion_text: "The charter of 10 September 1756 created a company to control Douro quality and prices and to demarcate vineyards. Chianti in 1716 and Tokaj in 1737 are earlier delimited zones on the Portuguese monuments inventory, so 1756 is not the first vineyard line, and the charter is not today's boundary."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_names_blockade
+    subject_id: n_hcourse_names
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_hcourse_names_blockade
+    domain_id: service
+    assertion_text: "Napoleon I's Berlin Decree of 21 November 1806 blockaded the British Isles and banned commerce with them. It is not a wine classification."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_names_list
+    subject_id: n_hcourse_names
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_hcourse_names_list
+    domain_id: service
+    assertion_text: "The 1855 ranking was requested by Napoleon III. Brokers used reputation and recent prices. It covers Médoc reds, Haut-Brion, and Sauternes and Barsac. It does not cover Saint-Émilion or Pomerol, and it was not commissioned by Napoleon I."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_names_age
+    subject_id: n_hcourse_names
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_hcourse_names_age
+    domain_id: service
+    assertion_text: "On the BNIC list, Napoleon on a Cognac is an ageing mention of at least six years, counted on the youngest eau-de-vie. It is not Napoleon I, not Napoleon III, and not the 1855 classification."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_sparkling_paper
+    subject_id: n_hcourse_sparkling
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_hcourse_sparkling_paper
+    domain_id: service
+    assertion_text: "On 17 December 1662 Merrett described English wine-coopers adding sugar and molasses to make wine brisk and sparkling. That is a production note. It is not a distillation method and it is not a claim that no one else ever made a wine referment."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_sparkling_myth
+    subject_id: n_hcourse_sparkling
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_hcourse_sparkling_myth
+    domain_id: service
+    assertion_text: "Pérignon became cellar master at Hautvillers after Merrett's paper. The Royal College of Physicians account says his task included preventing bubbles. That account does not make him the inventor of the method in the 1662 paper, and the stars slogan is not in that paper."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_phylloxera_root
+    subject_id: n_hcourse_phylloxera
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_hcourse_phylloxera_root
+    domain_id: service
+    assertion_text: "Phylloxera feeds on the roots of Vitis vinifera and can stunt or kill the vine. The opened University of California page treats resistant American rootstocks, including Vitis riparia, Vitis rupestris, and their hybrids, as the effective control, and it does not treat insecticides as a complete remedy."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_phylloxera_limit
+    subject_id: n_hcourse_phylloxera
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_hcourse_phylloxera_limit
+    domain_id: service
+    assertion_text: "The University of California page does not date the European epidemic. Do not take a year from that page or from memory. A separate INRAE page does state a French range, and that range is its own item, with the over-broad clause in the same sentence left untaught as a count."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_modern_aoc
+    subject_id: n_hcourse_modern
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_hcourse_modern_aoc
+    domain_id: service
+    assertion_text: "The French wine code as published for 25 November 1967 ties controlled appellations for wines and eaux-de-vie to the decree of 30 July 1935. The stated conditions include area, grapes, yield per hectare, a minimum strength from vinification without enrichment, and methods of growing and making. A controlled name is not a promise that every bottle tastes the same. EU wine, in the 18 March 2026 consolidation of Regulation 1308/2013, is the alcoholic fermentation of fresh grapes or grape must, not a distillate."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_modern_ban
+    subject_id: n_hcourse_modern
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_hcourse_modern_ban
+    domain_id: service
+    assertion_text: "US national Prohibition took effect on 16 January 1920 and the Twenty-first Amendment repealed the Eighteenth on 5 December 1933. Repeal restored a legal trade. It did not enact a quality classification, and section 2 still lets a state bar transport of intoxicating liquor into that state."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_modern_tasting
+    subject_id: n_hcourse_modern
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_hcourse_modern_tasting
+    domain_id: service
+    assertion_text: "On 24 May 1976 a blind tasting in Paris placed the 1973 Chateau Montelena Chardonnay and the 1973 Stag's Leap Wine Cellars S.L.V. Cabernet first in their groups. That result does not rewrite appellation law, does not explain Prohibition, and is not a permanent ranking of every wine."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_case_oldest_action
+    subject_id: n_hcourse_case_oldest
+    relation_type: CASE_ACTION
+    object_id: n_hcourse_case_oldest_action
+    domain_id: service
+    assertion_text: "Tell the guest that Georgia is the older chemical evidence and that Areni-1 is a later production installation. Do not answer with a single oldest wine."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_case_oldest_reason
+    subject_id: n_hcourse_case_oldest
+    relation_type: CASE_REASON
+    object_id: n_hcourse_case_oldest_reason
+    domain_id: service
+    assertion_text: "The Georgian paper reports residues about 6000–5800 BC. The Areni paper reports installations around 4000 calibrated BCE. The dates and the kinds of evidence are both different."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_case_oldest_tradeoff
+    subject_id: n_hcourse_case_oldest
+    relation_type: CASE_TRADEOFF
+    object_id: n_hcourse_case_oldest_tradeoff
+    domain_id: service
+    assertion_text: "A shorter reply is easier for the guest, but collapsing the two papers teaches the misconception the question was meant to correct."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_case_oldest_limit
+    subject_id: n_hcourse_case_oldest
+    relation_type: CASE_LIMITATION
+    object_id: n_hcourse_case_oldest_limit
+    domain_id: service
+    assertion_text: "Neither paper proves that no older grape wine will be found. The reply is about the evidence in hand, not a final history of fermentation."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_case_napoleon_action
+    subject_id: n_hcourse_case_napoleon
+    relation_type: CASE_ACTION
+    object_id: n_hcourse_case_napoleon_action
+    domain_id: service
+    assertion_text: "Ask which Napoleon the guest means, then match it: the 1806 blockade, the 1855 ranking, or the Cognac age mention of at least six years."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_case_napoleon_reason
+    subject_id: n_hcourse_case_napoleon
+    relation_type: CASE_REASON
+    object_id: n_hcourse_case_napoleon_reason
+    domain_id: service
+    assertion_text: "The three uses have different dates, different actors, and different jobs. Treating them as one event answers a question the guest did not separate."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_case_napoleon_tradeoff
+    subject_id: n_hcourse_case_napoleon
+    relation_type: CASE_TRADEOFF
+    object_id: n_hcourse_case_napoleon_tradeoff
+    domain_id: service
+    assertion_text: "Stopping to split the name slows service, but a single answer will be wrong for at least two of the three uses."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_case_napoleon_limit
+    subject_id: n_hcourse_case_napoleon
+    relation_type: CASE_LIMITATION
+    object_id: n_hcourse_case_napoleon_limit
+    domain_id: service
+    assertion_text: "Knowing that Cognac Napoleon means at least six years does not authenticate the bottle, the house, or the vintage."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_case_boundary_action
+    subject_id: n_hcourse_case_boundary
+    relation_type: CASE_ACTION
+    object_id: n_hcourse_case_boundary_action
+    domain_id: service
+    assertion_text: "Correct the guest: the 1703 treaty is a British duty preference, and the 1756 charter is the Douro company demarcation."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_case_boundary_reason
+    subject_id: n_hcourse_case_boundary
+    relation_type: CASE_REASON
+    object_id: n_hcourse_case_boundary_reason
+    domain_id: service
+    assertion_text: "A lower customs rate can shift trade without mapping vineyards. A demarcation company is a later and different instrument."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_case_boundary_tradeoff
+    subject_id: n_hcourse_case_boundary
+    relation_type: CASE_TRADEOFF
+    object_id: n_hcourse_case_boundary_tradeoff
+    domain_id: service
+    assertion_text: "Calling 1756 the first regulated Douro company can be defended from the charter. Calling it the first vineyard line cannot, because Chianti 1716 and Tokaj 1737 are earlier delimited zones on the inventory used here."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_case_boundary_limit
+    subject_id: n_hcourse_case_boundary
+    relation_type: CASE_LIMITATION
+    object_id: n_hcourse_case_boundary_limit
+    domain_id: service
+    assertion_text: "Neither document fixes the modern Douro boundary or the modern definition of Port."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_case_bubble_action
+    subject_id: n_hcourse_case_bubble
+    relation_type: CASE_ACTION
+    object_id: n_hcourse_case_bubble_action
+    domain_id: service
+    assertion_text: "Do not credit Pérignon with inventing the sugared sparkling method Merrett described in 1662. Say the inventor story is later than that paper and is not what the college account of his task supports."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_case_bubble_reason
+    subject_id: n_hcourse_case_bubble
+    relation_type: CASE_REASON
+    object_id: n_hcourse_case_bubble_reason
+    domain_id: service
+    assertion_text: "The dated paper is 17 December 1662. Pérignon's appointment is later. The college account says the task included preventing bubbles."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_case_bubble_tradeoff
+    subject_id: n_hcourse_case_bubble
+    relation_type: CASE_TRADEOFF
+    object_id: n_hcourse_case_bubble_tradeoff
+    domain_id: service
+    assertion_text: "He can still be discussed as a cellar master. That is a different claim from inventing the sparkling method."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_case_bubble_limit
+    subject_id: n_hcourse_case_bubble
+    relation_type: CASE_LIMITATION
+    object_id: n_hcourse_case_bubble_limit
+    domain_id: service
+    assertion_text: "This correction uses the 1662 paper and one institutional history. It does not survey every French archive, and it does not say no one in Champagne worked on bubbles."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+
+  - id: ki_hcourse_phylloxera_year
+    subject_id: n_hcourse_phylloxera
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_hcourse_phylloxera_year
+    domain_id: service
+    assertion_text: "An INRAE encyclopaedia page, published 27 April 2021 and modified 22 May 2024, says that between 1863 and 1893 the insect destroyed a very large part of the French vineyard. The same sentence also says this caused the disappearance of European grape varieties and vineyards. Do not teach that second clause as a count. The page hedges the introduction with the words it seems, and it names Vitis riparia. It calls grafting Vitis vinifera onto American rootstocks one solution, names sandy soil as another, and says chemical control has little or no effect. It does not give a spray programme. This range is not the University of California page, which still has no year."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_case_phylloxera_action
+    subject_id: n_hcourse_case_phylloxera
+    relation_type: CASE_ACTION
+    object_id: n_hcourse_case_phylloxera_action
+    domain_id: service
+    assertion_text: "Do not let the guest leave with 1863 as the year every European vine died. Give the INRAE range for a very large part of the French vineyard, and refuse the disappearance clause as a census."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_case_phylloxera_reason
+    subject_id: n_hcourse_case_phylloxera
+    relation_type: CASE_REASON
+    object_id: n_hcourse_case_phylloxera_reason
+    domain_id: service
+    assertion_text: "The range and the disappearance clause are one sentence. Quoting the date without the limit repeats the page's over-wide claim as if it had been measured."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_case_phylloxera_tradeoff
+    subject_id: n_hcourse_case_phylloxera
+    relation_type: CASE_TRADEOFF
+    object_id: n_hcourse_case_phylloxera_tradeoff
+    domain_id: service
+    assertion_text: "1863 to 1893 can be taught as that page's French range. Grafting onto American rootstocks remains the control already supported by the California page. Sandy soil is this INRAE page's other stated solution, not a planting plan."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_case_phylloxera_limit
+    subject_id: n_hcourse_case_phylloxera
+    relation_type: CASE_LIMITATION
+    object_id: n_hcourse_case_phylloxera_limit
+    domain_id: service
+    assertion_text: "One encyclopaedia page is not a census and not every history of the outbreak. The introduction is hedged. A press release that gives a different fraction was not opened for this item. The California page still contributes no year."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+
+  - id: ki_hcourse_doc_name
+    subject_id: n_hcourse_doc
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_hcourse_doc_name
+    domain_id: service
+    assertion_text: "The original-text view of DPR 12 July 1963, n. 930, printed Article 1. A denominazione di origine is a geographic name, or a geographic qualification, of the production zone, with or without a vine name or another indication, used for the wines of that origin whose characteristics depend essentially on the vines and the natural environment. The same article allows neighboring land into the zone when the natural conditions are analogous and, at the decree's entry into force, wines had already been marketed under that name for at least ten years, with analogous chemical, physical, and organoleptic characteristics, from the zone's traditional varieties and its generally used methods. The decree is titled as rules for mosti and vini. The Gazzetta cited on the page is n. 188 of 15 July 1963."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_doc_unread
+    subject_id: n_hcourse_doc
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_hcourse_doc_unread
+    domain_id: service
+    assertion_text: "The Normattiva original-text view stopped at Article 1, and the full-act export failed. A separate compilation prints Articles 2 and 3 and leaves Article 4 blank. The three names are taught from that compilation, not from the Article 1 view. Neither Article 1 nor the printed Article 2 uses the abbreviations DOC or DOCG."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_case_doc_action
+    subject_id: n_hcourse_case_doc
+    relation_type: CASE_ACTION
+    object_id: n_hcourse_case_doc_action
+    domain_id: service
+    assertion_text: "Do not tell the guest that the 1963 decree invented the letters DOC. Say what Article 1 defines, and say that this opening did not reach a later article."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_case_doc_reason
+    subject_id: n_hcourse_case_doc
+    relation_type: CASE_REASON
+    object_id: n_hcourse_case_doc_reason
+    domain_id: service
+    assertion_text: "Article 1 uses denominazione di origine for a geographic name tied to vines and environment. The loaded text does not contain the abbreviations the guest used."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_case_doc_tradeoff
+    subject_id: n_hcourse_case_doc
+    relation_type: CASE_TRADEOFF
+    object_id: n_hcourse_case_doc_tradeoff
+    domain_id: service
+    assertion_text: "The guest can still learn the 12 July 1963 date, the geographic-name definition, and the ten-year neighboring-land condition. Those are in the article that loaded."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_case_doc_limit
+    subject_id: n_hcourse_case_doc
+    relation_type: CASE_LIMITATION
+    object_id: n_hcourse_case_doc_limit
+    domain_id: service
+    assertion_text: "The compilation prints the three 1963 names and, in a footnote, says the decree was abrogated by legislative decree 8 April 2010, n. 61, subject to what that later act provides. Article 4 is blank on that page. Do not treat the 1963 names as the law in force, and do not recite an Article 4 procedure. What Article 1 of the 2010 decree actually printed is a separate item."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+
+  - id: ki_hcourse_doc_three
+    subject_id: n_hcourse_doc
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_hcourse_doc_three
+    domain_id: service
+    assertion_text: "A legal compilation of DPR 12 July 1963, n. 930, prints Article 2. It distinguishes denominazione di origine semplice, denominazione di origine controllata, and denominazione di origine controllata e garantita. Those are the words on the page. The abbreviations DOC and DOCG are not in that article. The compilation is not the Gazzetta PDF, and its footnote says the decree was later abrogated."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_doc_semplice
+    subject_id: n_hcourse_doc
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_hcourse_doc_semplice
+    domain_id: service
+    assertion_text: "Article 3 of that compilation says the semplice name designates wines from the traditional grape varieties of the corresponding production zones, vinified according to the local, fair, and constant uses of those zones. If no ministerial delimitation has been made, the zone is the whole municipal district to which the geographic name refers. Article 4, which the compilation's contents list as the recognition article, is blank. A footnote says Article 4 was abrogated by DPR 20 April 1994, n. 348. Do not invent the missing recognition procedure."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_doc_repeal
+    subject_id: n_hcourse_doc
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_hcourse_doc_repeal
+    domain_id: service
+    assertion_text: "The current Normattiva view of Article 2, opened separately, does not print the three names. It says the provision was abrogated by legislative decree 8 April 2010, n. 61, and it labels the text in force from 11 May 2010. The compilation's first footnote says the same repeal, subject to what that later act provides. Article 1 of that 2010 decree was opened separately and is its own item. It does not, on the view that loaded, classify DOC or DOCG."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_case_repeal_action
+    subject_id: n_hcourse_case_repeal
+    relation_type: CASE_ACTION
+    object_id: n_hcourse_case_repeal_action
+    domain_id: service
+    assertion_text: "If a guest says the 1963 decree is still the Italian wine code, separate the historical categories from the law in force. Name the three 1963 categories, then say the opened current view treats the provision as abrogated."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_case_repeal_reason
+    subject_id: n_hcourse_case_repeal
+    relation_type: CASE_REASON
+    object_id: n_hcourse_case_repeal_reason
+    domain_id: service
+    assertion_text: "The compilation prints the 1963 distinction and footnotes the 2010 repeal. The Normattiva page for Article 2 now shows the repeal notice rather than the three names."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_case_repeal_tradeoff
+    subject_id: n_hcourse_case_repeal
+    relation_type: CASE_TRADEOFF
+    object_id: n_hcourse_case_repeal_tradeoff
+    domain_id: service
+    assertion_text: "The guest can still learn what semplice meant in Article 3, including the default municipal zone. Historical study is not a claim that a bottle today is governed by the 1963 text."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_case_repeal_limit
+    subject_id: n_hcourse_case_repeal
+    relation_type: CASE_LIMITATION
+    object_id: n_hcourse_case_repeal_limit
+    domain_id: service
+    assertion_text: "Do not say Italy no longer has origin names. Article 1 of the 2010 decree defined a DOP and an IGP while that text was in force. The current view of the 2010 decree says it was abrogated by law 12 December 2016, n. 238. Article 28 of that law is a separate item. Article 4 of the 1963 compilation was blank."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+
+  - id: ki_hcourse_doc_2010
+    subject_id: n_hcourse_doc
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_hcourse_doc_2010
+    domain_id: service
+    assertion_text: "The original-text view of legislative decree 8 April 2010, n. 61, printed Article 1 and stopped. A denominazione di origine protetta is the geographic name of a particularly suited wine-growing zone, used for a quality and renowned product whose characteristics are connected essentially or exclusively to the natural environment and to human factors. An indicazione geografica protetta is the geographic name of a zone used for the product that comes from it and that has quality, reputation, and specific characteristics attributable to that zone. The page says that wording was in force from 11 May 2010 to 11 January 2017. It did not print a DOC or DOCG classification. The current Normattiva view of the same article says the provision was abrogated by law 12 December 2016, n. 238. What that later law prints about DOC and DOCG is a separate item."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+
+  - id: ki_hcourse_doc_now
+    subject_id: n_hcourse_doc
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_hcourse_doc_now
+    domain_id: service
+    assertion_text: "Law 12 December 2016, n. 238, article 28, in the text the page marks in force from 12 January 2017, classifies DOP wines into denominazione di origine controllata e garantita (DOCG) and denominazione di origine controllata (DOC). It says those are the specific traditional mentions Italy uses for DOP wines. IGP includes indicazione geografica tipica (IGT). The abbreviations DOC, DOCG and IGT may appear on the label alone or together with DOP or IGP. Article 26 says the definitions of denominazione di origine and indicazione geografica are those in article 93 of Regulation (EU) No 1308/2013. The note on that page quotes the rule that grapes for an origin name come exclusively from the zone, and that a geographical indication may take at most 15 percent of its grapes from outside the zone. This is not the 1963 decree, and article 28 is not marked with a later amendment on the view that loaded. The act's header says the last update of the law was published on 14 May 2026."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_case_letters_action
+    subject_id: n_hcourse_case_letters
+    relation_type: CASE_ACTION
+    object_id: n_hcourse_case_letters_action
+    domain_id: service
+    assertion_text: "If a guest says DOC is not a DOP, point to article 28. DOC and DOCG are the Italian traditional mentions for DOP wines, and the label may use the Italian abbreviation alone or with DOP."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_case_letters_reason
+    subject_id: n_hcourse_case_letters
+    relation_type: CASE_REASON
+    object_id: n_hcourse_case_letters_reason
+    domain_id: service
+    assertion_text: "The 1963 article 2 did not use the abbreviations. The 2016 article 28 does, and it places DOC and DOCG inside the DOP class. Treating them as unrelated systems contradicts that article."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_case_letters_tradeoff
+    subject_id: n_hcourse_case_letters
+    relation_type: CASE_TRADEOFF
+    object_id: n_hcourse_case_letters_tradeoff
+    domain_id: service
+    assertion_text: "A label that says only DOC, or DOC together with DOP, can both fit article 28. Do not correct a bottle for choosing one of those two presentations."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_case_letters_limit
+    subject_id: n_hcourse_case_letters
+    relation_type: CASE_LIMITATION
+    object_id: n_hcourse_case_letters_limit
+    domain_id: service
+    assertion_text: "Article 28 does not say every Italian wine is a DOCG, and it does not inspect the bottle. IGT is the traditional mention for an IGP, not a third DOP. The page also allows other language mentions in Bolzano, Valle d'Aosta, and the Slovene-speaking provinces. Those mentions were not copied into a pronunciation guide."
+    verification_status: unverified
+    last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+
+certification_knowledge_mappings:
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_evidence_residue, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_evidence_residue, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_evidence_later, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_evidence_later, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_rome_rank, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_rome_rank, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_rome_site, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_rome_site, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_rome_not_law, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_rome_not_law, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_commerce_duty, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_commerce_duty, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_commerce_charter, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_commerce_charter, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_names_blockade, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_names_blockade, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_names_list, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_names_list, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_names_age, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_names_age, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_sparkling_paper, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_sparkling_paper, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_sparkling_myth, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_sparkling_myth, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_phylloxera_root, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_phylloxera_root, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_phylloxera_limit, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_phylloxera_limit, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_modern_aoc, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_modern_aoc, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_modern_ban, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_modern_ban, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_modern_tasting, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_modern_tasting, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_case_oldest_action, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_case_oldest_action, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_case_oldest_reason, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_case_oldest_reason, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_case_oldest_tradeoff, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_case_oldest_tradeoff, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_case_oldest_limit, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_case_oldest_limit, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_case_napoleon_action, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_case_napoleon_action, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_case_napoleon_reason, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_case_napoleon_reason, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_case_napoleon_tradeoff, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_case_napoleon_tradeoff, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_case_napoleon_limit, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_case_napoleon_limit, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_case_boundary_action, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_case_boundary_action, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_case_boundary_reason, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_case_boundary_reason, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_case_boundary_tradeoff, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_case_boundary_tradeoff, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_case_boundary_limit, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_case_boundary_limit, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_case_bubble_action, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_case_bubble_action, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_case_bubble_reason, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_case_bubble_reason, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_case_bubble_tradeoff, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_case_bubble_tradeoff, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_case_bubble_limit, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_case_bubble_limit, importance: secondary, minimum_depth: 2 }
+
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_phylloxera_year, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_phylloxera_year, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_case_phylloxera_action, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_case_phylloxera_action, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_case_phylloxera_reason, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_case_phylloxera_reason, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_case_phylloxera_tradeoff, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_case_phylloxera_tradeoff, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_case_phylloxera_limit, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_case_phylloxera_limit, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_doc_name, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_doc_name, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_doc_unread, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_doc_unread, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_case_doc_action, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_case_doc_action, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_case_doc_reason, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_case_doc_reason, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_case_doc_tradeoff, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_case_doc_tradeoff, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_case_doc_limit, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_case_doc_limit, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_doc_three, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_doc_three, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_doc_semplice, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_doc_semplice, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_doc_repeal, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_doc_repeal, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_case_repeal_action, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_case_repeal_action, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_case_repeal_reason, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_case_repeal_reason, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_case_repeal_tradeoff, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_case_repeal_tradeoff, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_case_repeal_limit, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_case_repeal_limit, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_doc_2010, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_doc_2010, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_doc_now, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_doc_now, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_case_letters_action, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_case_letters_action, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_case_letters_reason, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_case_letters_reason, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_case_letters_tradeoff, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_case_letters_tradeoff, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_case_letters_limit, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_case_letters_limit, importance: secondary, minimum_depth: 2 }
+
+source_citations:
+
+  - id: src_hcourse_l238_art28
+    kind: legislation
+    title: "Law 12 December 2016, n. 238, article 28"
+    publisher: "Normattiva"
+    jurisdiction: IT
+    document_identifier: "Text in force from 12 January 2017. Act header notes an update published 14 May 2026. Article 28 itself shows no later amendment marker."
+    url: "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:2016-12-12;238~art28"
+    accessed_on: "2026-09-27"
+  - id: src_hcourse_l238_art26
+    kind: legislation
+    title: "Law 12 December 2016, n. 238, article 26"
+    publisher: "Normattiva"
+    jurisdiction: IT
+    document_identifier: "Text in force from 12 January 2017. Points the definitions to article 93 of Regulation (EU) No 1308/2013 and quotes that article in a note."
+    url: "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:2016-12-12;238~art26"
+    accessed_on: "2026-09-27"
+
+  - id: src_hcourse_dlgs_61_art1
+    kind: legislation
+    title: "Legislative decree 8 April 2010, n. 61, Article 1, original-text view"
+    publisher: "Normattiva"
+    jurisdiction: IT
+    document_identifier: "Text in force 11 May 2010 to 11 January 2017. Article 1 only. Gazzetta n. 96 of 26 April 2010."
+    url: "https://www.normattiva.it/atto/caricaDettaglioAtto?atto.dataPubblicazioneGazzetta=2010-04-26&atto.codiceRedazionale=010G0082&tipoDettaglio=originario"
+    accessed_on: "2026-09-27"
+  - id: src_hcourse_dlgs_61_current
+    kind: legislation
+    title: "Legislative decree 8 April 2010, n. 61, Article 1, current view"
+    publisher: "Normattiva"
+    jurisdiction: IT
+    document_identifier: "Text in force from 12 January 2017. Abrogated by law 12 December 2016, n. 238. Articles 26 and 28 of that later law are cited separately."
+    url: "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2010-04-08;61"
+    accessed_on: "2026-09-27"
+
+  - id: src_hcourse_dpr_930_compilation
+    kind: reference_work
+    title: "Compilation of DPR 12 July 1963, n. 930"
+    publisher: "Edizioni Europee"
+    jurisdiction: IT
+    document_identifier: "Private compilation. Prints Articles 2 and 3. Article 4 blank. Footnotes record repeal by DPR 348/1994 and D.Lgs. 61/2010. Not the Gazzetta PDF."
+    url: "https://www.edizionieuropee.it/law/html/25/zn4_08_008.html"
+    accessed_on: "2026-09-27"
+  - id: src_hcourse_dpr_930_art2_current
+    kind: legislation
+    title: "DPR 12 July 1963, n. 930, Article 2, current Normattiva view"
+    publisher: "Normattiva"
+    jurisdiction: IT
+    document_identifier: "Text in force from 11 May 2010. States abrogation by D.Lgs. 8 April 2010, n. 61. Does not print the three 1963 names."
+    url: "https://www.normattiva.it/uri-res/N2Ls?urn:nir:presidente.repubblica:decreto:1963-07-12;930~art2"
+    accessed_on: "2026-09-27"
+
+  - id: src_hcourse_dpr_930
+    kind: legislation
+    title: "DPR 12 July 1963, n. 930, original-text view"
+    publisher: "Normattiva"
+    jurisdiction: IT
+    document_identifier: "Article 1 only. Gazzetta n. 188 of 15 July 1963. Full-act export failed. Text shown as in force 30 July 1963 to 10 May 2010."
+    url: "https://www.normattiva.it/atto/caricaDettaglioAtto?atto.dataPubblicazioneGazzetta=1963-07-15&atto.codiceRedazionale=063U0930&tipoDettaglio=originario"
+    accessed_on: "2026-09-27"
+
+  - id: src_hcourse_inrae_phylloxera
+    kind: government_publication
+    title: "Daktulosphaira vitifoliae (Fitch 1851)"
+    publisher: "INRAE, Encyclopédie des pucerons"
+    document_identifier: "English page. Publication 27 April 2021. Modification 22 May 2024. By F. Duval, C. Buchard, J-C. Simon."
+    url: "https://eng-encyclopedie-pucerons.hub.inrae.fr/species/aphids/daktulosphaira-phylloxera/daktulosphaira-vitifoliae-fitch-1851"
+    accessed_on: "2026-09-27"
+  - id: src_hcourse_columella
+    kind: reference_work
+    title: "Columella, De Re Rustica, book 3"
+    publisher: "LacusCurtius, reproducing the Loeb Classical Library translation of 1941"
+    document_identifier: "Public-domain English text, book 3 sections 1–2 and 4, opened 27 September 2026"
+    url: "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Columella/de_Re_Rustica/3*.html"
+    accessed_on: "2026-09-27"
+
+knowledge_item_citations:
+  - { knowledge_item_id: ki_hcourse_evidence_residue, source_citation_id: src_hist_pnas_georgia, locator: "Significance, about 6000–5800 BC, Georgia." }
+  - { knowledge_item_id: ki_hcourse_evidence_later, source_citation_id: src_hist_jas_areni, locator: "Installations around 4000 cal. BCE." }
+  - { knowledge_item_id: ki_hcourse_evidence_later, source_citation_id: src_hist_pnas_georgia, locator: "Older chemical evidence." }
+  - { knowledge_item_id: ki_hcourse_rome_rank, source_citation_id: src_hist_pliny_falernian, locator: "Book 14, Falernian rank and slope names." }
+  - { knowledge_item_id: ki_hcourse_rome_site, source_citation_id: src_hcourse_columella, locator: "Book 3.1–3.2 and 3.4: site, climate, and cuttings." }
+  - { knowledge_item_id: ki_hcourse_rome_not_law, source_citation_id: src_hcourse_columella, locator: "Husbandry, not a legal appellation." }
+  - { knowledge_item_id: ki_hcourse_rome_not_law, source_citation_id: src_hist_code_vin_1935, locator: "Later control of area, grapes, yield, and methods." }
+  - { knowledge_item_id: ki_hcourse_commerce_duty, source_citation_id: src_hist_methuen, locator: "27 December 1703, articles I and II." }
+  - { knowledge_item_id: ki_hcourse_commerce_charter, source_citation_id: src_hist_douro_journal, locator: "Charter of 10 September 1756." }
+  - { knowledge_item_id: ki_hcourse_commerce_charter, source_citation_id: src_hist_douro_monumentos, locator: "Chianti 1716 and Tokaj 1737." }
+  - { knowledge_item_id: ki_hcourse_names_blockade, source_citation_id: src_hist_berlin_decree, locator: "21 November 1806, articles I and II." }
+  - { knowledge_item_id: ki_hcourse_names_list, source_citation_id: src_hist_bordeaux_1855, locator: "Napoleon III, brokers, Médoc, Haut-Brion, Sauternes and Barsac." }
+  - { knowledge_item_id: ki_hcourse_names_age, source_citation_id: src_bev_cognac_bnic, locator: "Napoleon ageing mention, at least 6 years." }
+  - { knowledge_item_id: ki_hcourse_sparkling_paper, source_citation_id: src_hist_rcp_merrett, locator: "17 December 1662." }
+  - { knowledge_item_id: ki_hcourse_sparkling_myth, source_citation_id: src_hist_rcp_merrett, locator: "Appointment and task after the paper." }
+  - { knowledge_item_id: ki_hcourse_phylloxera_root, source_citation_id: src_hist_ucipm_phylloxera, locator: "Root feeding and resistant rootstocks." }
+  - { knowledge_item_id: ki_hcourse_phylloxera_limit, source_citation_id: src_hist_ucipm_phylloxera, locator: "Page does not date the European outbreak." }
+  - { knowledge_item_id: ki_hcourse_modern_aoc, source_citation_id: src_hist_code_vin_1935, locator: "Decree of 30 July 1935 and the stated conditions." }
+  - { knowledge_item_id: ki_hcourse_modern_aoc, source_citation_id: src_eu_reg_1308_2013, locator: "Annex VII, Part II, point 1." }
+  - { knowledge_item_id: ki_hcourse_modern_ban, source_citation_id: src_hist_archives_amendments, locator: "Effective 16 January 1920; repeal 5 December 1933." }
+  - { knowledge_item_id: ki_hcourse_modern_ban, source_citation_id: src_hist_archives_repeal, locator: "Section 2, state transport." }
+  - { knowledge_item_id: ki_hcourse_modern_tasting, source_citation_id: src_hist_paris_1976, locator: "24 May 1976, Montelena and Stag's Leap." }
+  - { knowledge_item_id: ki_hcourse_case_oldest_action, source_citation_id: src_hist_pnas_georgia, locator: "Residue evidence." }
+  - { knowledge_item_id: ki_hcourse_case_oldest_action, source_citation_id: src_hist_jas_areni, locator: "Installation evidence." }
+  - { knowledge_item_id: ki_hcourse_case_oldest_reason, source_citation_id: src_hist_pnas_georgia, locator: "About 6000–5800 BC." }
+  - { knowledge_item_id: ki_hcourse_case_oldest_reason, source_citation_id: src_hist_jas_areni, locator: "Around 4000 cal. BCE." }
+  - { knowledge_item_id: ki_hcourse_case_oldest_tradeoff, source_citation_id: src_hist_jas_areni, locator: "Do not collapse the two claims." }
+  - { knowledge_item_id: ki_hcourse_case_oldest_limit, source_citation_id: src_hist_pnas_georgia, locator: "Not a proof that nothing older exists." }
+  - { knowledge_item_id: ki_hcourse_case_napoleon_action, source_citation_id: src_hist_berlin_decree, locator: "1806." }
+  - { knowledge_item_id: ki_hcourse_case_napoleon_action, source_citation_id: src_hist_bordeaux_1855, locator: "1855." }
+  - { knowledge_item_id: ki_hcourse_case_napoleon_action, source_citation_id: src_bev_cognac_bnic, locator: "Age mention." }
+  - { knowledge_item_id: ki_hcourse_case_napoleon_reason, source_citation_id: src_hist_bordeaux_1855, locator: "Different job from the blockade." }
+  - { knowledge_item_id: ki_hcourse_case_napoleon_tradeoff, source_citation_id: src_bev_cognac_bnic, locator: "Six-year floor, youngest eau-de-vie." }
+  - { knowledge_item_id: ki_hcourse_case_napoleon_limit, source_citation_id: src_bev_cognac_bnic, locator: "An age word is not an authentication." }
+  - { knowledge_item_id: ki_hcourse_case_boundary_action, source_citation_id: src_hist_methuen, locator: "1703 duty." }
+  - { knowledge_item_id: ki_hcourse_case_boundary_action, source_citation_id: src_hist_douro_journal, locator: "1756 charter." }
+  - { knowledge_item_id: ki_hcourse_case_boundary_reason, source_citation_id: src_hist_methuen, locator: "Tax, not a map." }
+  - { knowledge_item_id: ki_hcourse_case_boundary_tradeoff, source_citation_id: src_hist_douro_monumentos, locator: "Chianti 1716 and Tokaj 1737." }
+  - { knowledge_item_id: ki_hcourse_case_boundary_limit, source_citation_id: src_hist_douro_journal, locator: "Not the modern boundary." }
+  - { knowledge_item_id: ki_hcourse_case_bubble_action, source_citation_id: src_hist_rcp_merrett, locator: "Do not credit Pérignon with the 1662 method." }
+  - { knowledge_item_id: ki_hcourse_case_bubble_reason, source_citation_id: src_hist_rcp_merrett, locator: "Paper date and later appointment." }
+  - { knowledge_item_id: ki_hcourse_case_bubble_tradeoff, source_citation_id: src_hist_rcp_merrett, locator: "Cellar master is a separate claim." }
+  - { knowledge_item_id: ki_hcourse_case_bubble_limit, source_citation_id: src_hist_rcp_merrett, locator: "One account, not every archive." }
+  - { knowledge_item_id: ki_hcourse_phylloxera_year, source_citation_id: src_hcourse_inrae_phylloxera, locator: "Agronomic impact: 1863 to 1893, French vineyard, and the uncounted disappearance clause." }
+  - { knowledge_item_id: ki_hcourse_case_phylloxera_action, source_citation_id: src_hcourse_inrae_phylloxera, locator: "Agronomic impact: 1863 to 1893, French vineyard, and the uncounted disappearance clause." }
+  - { knowledge_item_id: ki_hcourse_case_phylloxera_reason, source_citation_id: src_hcourse_inrae_phylloxera, locator: "Agronomic impact: 1863 to 1893, French vineyard, and the uncounted disappearance clause." }
+  - { knowledge_item_id: ki_hcourse_case_phylloxera_tradeoff, source_citation_id: src_hcourse_inrae_phylloxera, locator: "Agronomic impact: 1863 to 1893, French vineyard, and the uncounted disappearance clause." }
+  - { knowledge_item_id: ki_hcourse_case_phylloxera_limit, source_citation_id: src_hcourse_inrae_phylloxera, locator: "Agronomic impact: 1863 to 1893, French vineyard, and the uncounted disappearance clause." }
+  - { knowledge_item_id: ki_hcourse_phylloxera_year, source_citation_id: src_hist_ucipm_phylloxera, locator: "The California page still does not date Europe." }
+  - { knowledge_item_id: ki_hcourse_doc_name, source_citation_id: src_hcourse_dpr_930, locator: "Article 1 as printed. Later articles were not on the loaded view." }
+  - { knowledge_item_id: ki_hcourse_doc_unread, source_citation_id: src_hcourse_dpr_930, locator: "Article 1 as printed. Later articles were not on the loaded view." }
+  - { knowledge_item_id: ki_hcourse_case_doc_action, source_citation_id: src_hcourse_dpr_930, locator: "Article 1 as printed. Later articles were not on the loaded view." }
+  - { knowledge_item_id: ki_hcourse_case_doc_reason, source_citation_id: src_hcourse_dpr_930, locator: "Article 1 as printed. Later articles were not on the loaded view." }
+  - { knowledge_item_id: ki_hcourse_case_doc_tradeoff, source_citation_id: src_hcourse_dpr_930, locator: "Article 1 as printed. Later articles were not on the loaded view." }
+  - { knowledge_item_id: ki_hcourse_case_doc_limit, source_citation_id: src_hcourse_dpr_930, locator: "Article 1 as printed. Later articles were not on the loaded view." }
+  - { knowledge_item_id: ki_hcourse_doc_three, source_citation_id: src_hcourse_dpr_930_compilation, locator: "Articles 2 and 3 as printed. Article 4 blank." }
+  - { knowledge_item_id: ki_hcourse_doc_semplice, source_citation_id: src_hcourse_dpr_930_compilation, locator: "Articles 2 and 3 as printed. Article 4 blank." }
+  - { knowledge_item_id: ki_hcourse_case_repeal_tradeoff, source_citation_id: src_hcourse_dpr_930_compilation, locator: "Articles 2 and 3 as printed. Article 4 blank." }
+  - { knowledge_item_id: ki_hcourse_doc_repeal, source_citation_id: src_hcourse_dpr_930_art2_current, locator: "Current Article 2 view: abrogated by D.Lgs. 61/2010." }
+  - { knowledge_item_id: ki_hcourse_doc_repeal, source_citation_id: src_hcourse_dpr_930_compilation, locator: "Footnote 1 records the same repeal, subject to the later act." }
+  - { knowledge_item_id: ki_hcourse_case_repeal_action, source_citation_id: src_hcourse_dpr_930_art2_current, locator: "Current Article 2 view: abrogated by D.Lgs. 61/2010." }
+  - { knowledge_item_id: ki_hcourse_case_repeal_action, source_citation_id: src_hcourse_dpr_930_compilation, locator: "Footnote 1 records the same repeal, subject to the later act." }
+  - { knowledge_item_id: ki_hcourse_case_repeal_reason, source_citation_id: src_hcourse_dpr_930_art2_current, locator: "Current Article 2 view: abrogated by D.Lgs. 61/2010." }
+  - { knowledge_item_id: ki_hcourse_case_repeal_reason, source_citation_id: src_hcourse_dpr_930_compilation, locator: "Footnote 1 records the same repeal, subject to the later act." }
+  - { knowledge_item_id: ki_hcourse_case_repeal_limit, source_citation_id: src_hcourse_dpr_930_art2_current, locator: "Current Article 2 view: abrogated by D.Lgs. 61/2010." }
+  - { knowledge_item_id: ki_hcourse_case_repeal_limit, source_citation_id: src_hcourse_dpr_930_compilation, locator: "Footnote 1 records the same repeal, subject to the later act." }
+
+  - { knowledge_item_id: ki_hcourse_doc_2010, source_citation_id: src_hcourse_dlgs_61_art1, locator: "Article 1, DOP and IGP. View stopped there." }
+  - { knowledge_item_id: ki_hcourse_doc_2010, source_citation_id: src_hcourse_dlgs_61_current, locator: "Current Article 1: abrogated by law 238/2016." }
+  - { knowledge_item_id: ki_hcourse_case_repeal_limit, source_citation_id: src_hcourse_dlgs_61_art1, locator: "Article 1 defined DOP and IGP." }
+  - { knowledge_item_id: ki_hcourse_case_repeal_limit, source_citation_id: src_hcourse_dlgs_61_current, locator: "The 2010 decree is itself marked abrogated." }
+  - { knowledge_item_id: ki_hcourse_doc_now, source_citation_id: src_hcourse_l238_art28, locator: "DOP classified into DOCG and DOC. IGP includes IGT. Abbreviations may stand alone or with DOP or IGP." }
+  - { knowledge_item_id: ki_hcourse_case_letters_action, source_citation_id: src_hcourse_l238_art28, locator: "DOP classified into DOCG and DOC. IGP includes IGT. Abbreviations may stand alone or with DOP or IGP." }
+  - { knowledge_item_id: ki_hcourse_case_letters_reason, source_citation_id: src_hcourse_l238_art28, locator: "DOP classified into DOCG and DOC. IGP includes IGT. Abbreviations may stand alone or with DOP or IGP." }
+  - { knowledge_item_id: ki_hcourse_case_letters_tradeoff, source_citation_id: src_hcourse_l238_art28, locator: "DOP classified into DOCG and DOC. IGP includes IGT. Abbreviations may stand alone or with DOP or IGP." }
+  - { knowledge_item_id: ki_hcourse_case_letters_limit, source_citation_id: src_hcourse_l238_art28, locator: "DOP classified into DOCG and DOC. IGP includes IGT. Abbreviations may stand alone or with DOP or IGP." }
+  - { knowledge_item_id: ki_hcourse_doc_now, source_citation_id: src_hcourse_l238_art26, locator: "Definitions are those in article 93 of Regulation (EU) No 1308/2013. Note quotes the exclusive-grape and 85 percent rules." }
+  - { knowledge_item_id: ki_hcourse_doc_2010, source_citation_id: src_hcourse_l238_art28, locator: "Later classification of DOP into DOC and DOCG." }

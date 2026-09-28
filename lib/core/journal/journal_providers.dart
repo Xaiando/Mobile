@@ -4,6 +4,7 @@ import '../database/app_database.dart';
 import '../database/database_providers.dart';
 import '../time/time_providers.dart';
 import 'journal_matcher.dart';
+import 'journal_photo_store.dart';
 import 'wine_journal.dart';
 
 final wineJournalProvider = Provider<WineJournal>(
@@ -31,4 +32,13 @@ final journalLinksProvider = StreamProvider.family<List<KnowledgeNode>, String>(
 /// The names the journal can link, loaded once the curriculum is in.
 final journalMatcherProvider = FutureProvider<JournalMatcher>(
   (ref) => JournalMatcher.load(ref.watch(appDatabaseProvider)),
+);
+
+final journalPhotoStoreProvider = Provider<JournalPhotoStore>(
+  (ref) => JournalPhotoStore(ref.watch(appDatabaseProvider)),
+);
+
+/// Photo metadata only. Image bytes are fetched for visible entry views.
+final journalPhotosProvider = StreamProvider.family<List<JournalPhoto>, String>(
+  (ref, id) => ref.watch(journalPhotoStoreProvider).watchForEntry(id),
 );

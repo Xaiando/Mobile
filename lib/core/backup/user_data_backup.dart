@@ -6,10 +6,11 @@ import 'package:drift/drift.dart';
 import '../curriculum/curriculum_catalog.dart';
 import '../database/app_database.dart';
 import '../database/user_data_rewrites.dart';
+import '../journal/journal_photo_store.dart';
 import '../study/scheduler_config.dart';
 import '../time/utc_clock.dart';
 
-/// Why a backup cannot be imported, in words for the learner.
+/// Why a backup cannot be imported or exported, in words for the learner.
 class BackupException implements Exception {
   const BackupException(this.message);
 
@@ -27,6 +28,7 @@ class ImportSummary {
 
   int get reviews => rowsByTable['review_events'] ?? 0;
   int get wines => rowsByTable['wine_journal_entries'] ?? 0;
+  int get photos => rowsByTable['wine_journal_photos'] ?? 0;
   int get tastings => rowsByTable['tasting_sessions'] ?? 0;
   int get flags => rowsByTable['question_flags'] ?? 0;
 }
@@ -44,7 +46,12 @@ class UserDataBackup {
   final Clock _clock;
 
   static const format = 'sommelier-user-data';
-  static const formatVersion = 1;
+  static const formatVersion = 2;
+
+  // Export currently holds the image BLOBs, their base64 strings, the JSON
+  // string, and the UTF-8 file bytes in memory at once. Keep that peak
+  // bounded until the file-saving path can stream its output.
+  static const maxExportPhotoBytes = 24 * 1024 * 1024;
 
   /// Every user table, parents first. An import inserts rows in this order
   /// and deletes them in reverse, so every foreign key holds throughout.
@@ -57,6 +64,7 @@ class UserDataBackup {
     'review_event_options',
     'question_flags',
     'wine_journal_entries',
+    'wine_journal_photos',
     'wine_journal_entry_nodes',
     'tasting_sessions',
     'tasting_descriptors',
@@ -82,8 +90,26 @@ class UserDataBackup {
     'does not have. Update the app, then import it again.',
   );
 
-  /// Every user table's rows, with the versions that wrote them.
-  Future<Map<String, Object?>> export() async {
+  /// Every user table's rows, with the versions that wrote them. An export
+  /// above [maxExportPhotoBytes] fails before any BLOBs are loaded rather
+  /// than silently leaving photos out of the backup.
+  Future<Map<String, Object?>> export() => db.transaction(() async {
+    // Check before reading any rows. The read transaction keeps the sum and
+    // the exported rows on the same database snapshot.
+    final totalPhotoBytes =
+        (await db
+                .customSelect(
+                  'SELECT COALESCE(SUM(length(photo_bytes)), 0) AS total_bytes '
+                  'FROM wine_journal_photos',
+                )
+                .getSingle())
+            .read<int>('total_bytes');
+    if (totalPhotoBytes > maxExportPhotoBytes) {
+      throw const BackupException(
+        'Your journal photos exceed the 24 MiB backup limit. The app will not '
+        'leave photos out of a backup. Remove some journal photos and try again.',
+      );
+    }
     final release = await CurriculumCatalog(db).installedRelease();
     return {
       'format': format,
@@ -93,16 +119,25 @@ class UserDataBackup {
       'exported_at': utcNow(_clock).toIso8601String(),
       'tables': {for (final table in tables) table: await _rows(table)},
     };
-  }
+  });
 
-  /// The export as indented JSON, which a curator can read.
+  /// The export as unencrypted JSON. It includes personal journal photos and
+  /// should be kept private unless the learner chooses to share it.
   Future<String> exportJson() async =>
       const JsonEncoder.withIndent('  ').convert(await export());
 
   Future<List<Map<String, Object?>>> _rows(String table) async => [
     for (final row
         in await db.customSelect('SELECT * FROM "$table" ORDER BY rowid').get())
-      row.data,
+      if (table == 'wine_journal_photos')
+        {
+          for (final cell in row.data.entries)
+            cell.key: cell.key == 'photo_bytes'
+                ? base64Encode(cell.value! as Uint8List)
+                : cell.value,
+        }
+      else
+        row.data,
   ];
 
   /// Replaces all of the learner's data with the backup in [json]. It runs
@@ -121,32 +156,62 @@ class UserDataBackup {
     final version = decoded['format_version'];
     if (version is! int) throw _notABackup;
     final schemaVersion = decoded['schema_version'];
-    if (version > formatVersion ||
+    if (version < 1 ||
+        version > formatVersion ||
         (schemaVersion is int && schemaVersion > db.schemaVersion)) {
       throw _newer;
     }
     final data = decoded['tables'];
     if (data is! Map<String, Object?>) throw _notABackup;
-    if (data.keys.any((table) => !tables.contains(table))) throw _newer;
+    final expectedTables = {
+      for (final table in tables)
+        if (version != 1 || table != 'wine_journal_photos') table,
+    };
+    if (data.keys.any((table) => !expectedTables.contains(table))) {
+      throw _newer;
+    }
 
     final rowsOf = <String, List<Map<String, Object?>>>{};
     for (final table in tables) {
-      final rows = data[table] ?? const <Object?>[];
+      // Only format 1 may omit photos. A present null is never an empty table.
+      final rows = data.containsKey(table) ? data[table] : const <Object?>[];
       if (rows is! List<Object?>) throw _notABackup;
       final columns = await _columns(table);
-      rowsOf[table] = [
-        for (final row in rows)
-          if (row is Map<String, Object?> &&
-              row.values.every((v) => v is String || v is num || v == null))
-            row
-          else
-            throw _notABackup,
-      ];
+      final parsed = <Map<String, Object?>>[];
+      for (final row in rows) {
+        if (row is! Map<String, Object?> ||
+            !row.values.every((v) => v is String || v is num || v == null)) {
+          throw _notABackup;
+        }
+        final copy = Map<String, Object?>.of(row);
+        if (table == 'wine_journal_photos') {
+          final mime = copy['mime_type'];
+          final encoded = copy['photo_bytes'];
+          if (mime is! String || encoded is! String) throw _notABackup;
+          final Uint8List bytes;
+          try {
+            bytes = base64Decode(encoded);
+            JournalPhotoStore.validateStoredPhoto(mime, bytes);
+          } on FormatException {
+            throw _notABackup;
+          } on PhotoStoreException {
+            throw _notABackup;
+          }
+          copy['photo_bytes'] = bytes;
+        }
+        parsed.add(copy);
+      }
+      rowsOf[table] = parsed;
       if (rowsOf[table]!.any(
         (row) => row.keys.any((c) => !columns.contains(c)),
       )) {
         throw _newer;
       }
+    }
+    // Keep this after column validation so unknown columns still report that
+    // the backup needs a newer app, even if another table is absent.
+    if (expectedTables.any((table) => !data.containsKey(table))) {
+      throw _notABackup;
     }
     await _replace(rowsOf);
     return ImportSummary({

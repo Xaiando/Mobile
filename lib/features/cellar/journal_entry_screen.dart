@@ -7,6 +7,7 @@ import '../../core/journal/journal_providers.dart';
 import '../../core/tasting/tasting_providers.dart';
 import '../tasting/tasting_screen.dart';
 import 'cellar_screen.dart';
+import 'journal_photo_strip.dart';
 
 /// One journal entry: what was written, and the knowledge it is linked to.
 class JournalEntryScreen extends ConsumerWidget {
@@ -131,6 +132,7 @@ class _EntryView extends ConsumerWidget {
             entry.abvPercent == null ? null : '${entry.abvPercent} %',
           ),
           fact('Notes', entry.tastingNotes),
+          JournalPhotoStrip(entry.id),
           const Divider(height: 32),
           Text('Linked to your studies', style: theme.textTheme.titleSmall),
           const SizedBox(height: 8),
