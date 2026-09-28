@@ -46,6 +46,9 @@ let context;
 let page;
 let origin;
 let stageName = 'startup';
+const inflightRequests = new Set();
+let lastNetworkActivityAt = Date.now();
+function blocksReload(request) { return request.url() !== `${origin}/drift_worker.js`; }
 
 function assert(condition, message) {
   if (!condition) throw new Error(message);
@@ -176,6 +179,18 @@ async function enableAccessibility(timeout = startupTimeout) {
 }
 async function reload() {
   const deadline = Date.now() + startupTimeout;
+  // Finish the current document's asset requests before intentionally unloading
+  // it. Otherwise Chromium can cancel a late Flutter font-manifest fetch and
+  // report ERR_ABORTED even though the app itself completed every UI stage.
+  const drainDeadline = Date.now() + 30_000;
+  while (Date.now() < drainDeadline) {
+    if (inflightRequests.size === 0 && Date.now() - lastNetworkActivityAt >= 500) {
+      break;
+    }
+    await page.waitForTimeout(75);
+  }
+  assert(inflightRequests.size === 0 && Date.now() - lastNetworkActivityAt >= 500,
+    `Requests stayed active before reload: ${[...inflightRequests].map(request => request.url()).join(', ')}`);
   await page.reload({ waitUntil: 'domcontentloaded', timeout: startupTimeout });
   await enableAccessibility(Math.max(1, deadline - Date.now()));
 }
@@ -287,9 +302,30 @@ try {
   page.on('console', message => {
     if (message.type() === 'error') result.consoleErrors.push(message.text());
   });
-  page.on('requestfailed', request => result.failedRequests.push({
-    url: request.url(), failure: request.failure()?.errorText,
-  }));
+  page.on('request', request => {
+    // Drift's dedicated worker script stays open for its lifetime in Chromium.
+    // Still record any failure, but do not wait for it to finish before reload.
+    if (blocksReload(request)) {
+      inflightRequests.add(request);
+      lastNetworkActivityAt = Date.now();
+    }
+  });
+  page.on('requestfinished', request => {
+    if (blocksReload(request)) {
+      inflightRequests.delete(request);
+      lastNetworkActivityAt = Date.now();
+    }
+  });
+  page.on('requestfailed', request => {
+    if (blocksReload(request)) {
+      inflightRequests.delete(request);
+      lastNetworkActivityAt = Date.now();
+    }
+    result.failedRequests.push({
+      url: request.url(), failure: request.failure()?.errorText,
+      stage: stageName, at: new Date().toISOString(),
+    });
+  });
 
   await stage('01-onboarding', async () => {
     const deadline = Date.now() + startupTimeout;
