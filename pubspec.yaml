@@ -27,6 +27,8 @@ dependencies:
   image: ^4.10.1
   # Camera on supported mobile devices; gallery/file selection elsewhere.
   image_picker: ^1.2.3
+  # Identify the app-owned picker cache before removing temporary source photos.
+  path_provider: ^2.1.6
   # On-device label text proposals on Android/iOS only.
   google_mlkit_text_recognition: ^0.17.1
 

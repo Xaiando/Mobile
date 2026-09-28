@@ -703,7 +703,7 @@ knowledge_items:
     relation_type: PRINCIPLE_EXPLANATION
     object_id: n_somm_calvados_distillate
     domain_id: service
-    assertion_text: "The INAO product note defines Calvados as an eau-de-vie made from cider apples and perry pears. The spirit is obtained by distilling cider and perry, then aged at least 2 years in oak casks. The same note says distillation may be a repasse, which it explains as a double distillation, or continuous in a column still. That sentence is the permission, not a description of how to run either still. The note does not state a minimum alcoholic strength. This Calvados is not the fermented cider. The UK excise definition of cider, already in the registered pack, is a different instrument: cider or perry above 1.2 percent and below 8.5 percent, from apple or pear juice."
+    assertion_text: "The INAO product note defines Calvados as an eau-de-vie made from cider apples and perry pears. The spirit is obtained by distilling cider and perry, then aged at least 2 years in oak casks. The same note says distillation may be a repasse, which it explains as a double distillation, or continuous in a column still. That sentence is the permission, not a description of how to run either still. The note does not state a minimum alcoholic strength. This Calvados is not the fermented cider. The UK Finance (No. 2) Act 2023 is a separate duty instrument: section 44 and Schedule 6 cover qualifying fermented apple- or pear-juice cider above 1.2 percent and below 8.5 percent alcohol; they do not define Calvados."
     verification_status: unverified
     last_verified_at: "2026-09-27T23:59:00.000Z"
     mcq_disabled: true
@@ -730,7 +730,7 @@ knowledge_items:
     relation_type: CASE_REASON
     object_id: n_somm_case_cider_reason
     domain_id: service
-    assertion_text: "Cider, in the UK excise definition already registered, is the fermented apple or pear juice inside a strength band. Distillation and two years in oak are what the INAO note adds before the name Calvados."
+    assertion_text: "Under the UK Finance (No. 2) Act 2023, qualifying cider is fermented apple or pear juice in the alcohol-duty strength band. Calvados on the INAO note is instead a distillate aged at least two years in oak."
     verification_status: unverified
     last_verified_at: "2026-09-27T23:59:00.000Z"
     mcq_disabled: true
@@ -1269,8 +1269,8 @@ knowledge_item_citations:
   - { knowledge_item_id: ki_somm_case_oakwood_reason, source_citation_id: src_somm_bnia_distillation, locator: "BNIA distillation and ageing page. Process path not taught." }
   - { knowledge_item_id: ki_somm_case_oakwood_tradeoff, source_citation_id: src_somm_bnia_distillation, locator: "BNIA distillation and ageing page. Process path not taught." }
   - { knowledge_item_id: ki_somm_case_oakwood_limit, source_citation_id: src_somm_bnia_distillation, locator: "BNIA distillation and ageing page. Process path not taught." }
-  - { knowledge_item_id: ki_somm_calvados_distillate, source_citation_id: src_bev_uk_cider_2010, locator: "UK excise cider is the fermented juice, not this distillate." }
-  - { knowledge_item_id: ki_somm_case_cider_reason, source_citation_id: src_bev_uk_cider_2010, locator: "Cider or perry above 1.2 percent and below 8.5 percent." }
+  - { knowledge_item_id: ki_somm_calvados_distillate, source_citation_id: src_bev_uk_cider_2023, locator: "Section 44(2) and Schedule 6 paragraphs 5-7: qualifying fermented cider, not a Calvados definition." }
+  - { knowledge_item_id: ki_somm_case_cider_reason, source_citation_id: src_bev_uk_cider_2023, locator: "Section 44(2) and Schedule 6 paragraphs 5-7: apple- or pear-juice cider in the UK duty category." }
   - { knowledge_item_id: ki_somm_tequila_age, source_citation_id: src_somm_crt_tequila_es, locator: "Spanish maturation paragraph and class cards. Reposado two months. English cards are the conflict." }
   - { knowledge_item_id: ki_somm_case_card_action, source_citation_id: src_somm_crt_tequila_es, locator: "Spanish maturation paragraph and class cards. Reposado two months. English cards are the conflict." }
   - { knowledge_item_id: ki_somm_case_card_reason, source_citation_id: src_somm_crt_tequila_es, locator: "Spanish maturation paragraph and class cards. Reposado two months. English cards are the conflict." }

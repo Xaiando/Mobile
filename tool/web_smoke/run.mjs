@@ -100,23 +100,43 @@ function serve(port, isolated) {
 
 const browser = await chromium.launch();
 let failures = 0;
+const timeoutMs = 240_000;
 for (const isolated of [false, true]) {
   const server = await serve(0, isolated);
   const port = server.address().port;
   const page = await browser.newPage({ locale: 'en-US' });
   let result;
+  let lastStage = 'browser navigation';
   const errors = [];
+  const networkIssues = [];
+  const startedAt = Date.now();
   page.on('console', (message) => {
     const text = message.text();
     if (text.startsWith('SMOKE_RESULT ')) result = JSON.parse(text.slice(13));
+    if (text.startsWith('SMOKE_STAGE ')) {
+      lastStage = text.slice(12);
+      console.log(`     COOP/COEP ${isolated ? 'on' : 'off'} +${Math.round((Date.now() - startedAt) / 1000)}s: ${lastStage}`);
+    }
   });
   page.on('pageerror', (error) => errors.push(error.message));
+  page.on('requestfailed', (request) => {
+    networkIssues.push(`request failed: ${request.url()} (${request.failure()?.errorText ?? 'unknown'})`);
+  });
+  page.on('response', (response) => {
+    if (response.status() >= 400) {
+      networkIssues.push(`HTTP ${response.status()}: ${response.url()}`);
+    }
+  });
   await page.goto(`http://localhost:${port}/`);
-  for (let i = 0; i < 480 && !result; i++) await page.waitForTimeout(250);
+  while (!result && Date.now() - startedAt < timeoutMs) {
+    await page.waitForTimeout(250);
+  }
 
   const label = `COOP/COEP ${isolated ? 'on' : 'off'}`;
   const problems = [...errors.map((e) => `page error: ${e}`)];
-  if (!result) problems.push('no SMOKE_RESULT within 120 s');
+  if (!result) {
+    problems.push(`no SMOKE_RESULT within ${timeoutMs / 1000} s; last observed stage: ${lastStage}`);
+  }
   else {
     if (result.error) problems.push(`error: ${result.error}`);
     for (const [key, value] of Object.entries(expected)) {
@@ -140,6 +160,9 @@ for (const isolated of [false, true]) {
   }
   console.log(`${problems.length ? 'FAIL' : 'ok  '} ${label}: ${JSON.stringify(result)}`);
   for (const problem of problems) console.log(`     ${problem}`);
+  if (problems.length) {
+    for (const issue of networkIssues) console.log(`     network diagnostic: ${issue}`);
+  }
   failures += problems.length ? 1 : 0;
   await page.close();
   server.close();

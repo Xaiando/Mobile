@@ -2373,15 +2373,66 @@ tracks:
         tasks: [C3]
       - id: cms_certified.spirits
         label: Distillation and the principal spirits
+        covers:
+          within:
+            - n_bev_spirit_separate
+            - n_bev_rum_cane
+            - n_bev_gin_juniper
+            - n_bev_vodka_neutral
+            - n_bev_scotch_rules
+            - n_bev_scotch_malt
+            - n_bev_scotch_age_statement
+            - n_bev_bourbon_corn
+            - n_bev_bourbon_straight
+            - n_bev_cognac_minimum
+            - n_bev_cognac_mentions
+            - n_bev_cognac_fine_champagne
+            - n_somm_tequila
+            - n_somm_grape
+            - n_somm_calvados
+            - n_somm_armagnac
+            - n_somm_case_mix
+            - n_somm_case_card
+            - n_somm_case_marc
+            - n_somm_case_oak
+            - n_somm_case_cider
+            - n_somm_case_count
+            - n_somm_case_plates
+            - n_somm_case_oakwood
         tasks: [C7]
       - id: cms_certified.liqueurs_and_aperitifs
         label: Liqueurs, aperitif wines and bitters
+        covers:
+          within:
+            - n_somm_basic_liqueur
+            - n_somm_basic_aperitif
+            - n_somm_case_liqueur
+            - n_somm_case_vermouth
         tasks: [C7]
       - id: cms_certified.beer_and_cider
         label: Beer and cider
+        covers:
+          within:
+            - n_bev_cask_ale
+            - n_bev_cider_perry
+            - n_somm_beer
+            - n_somm_case_yeast
+            - n_somm_case_date
+            - n_somm_basic_beer
+            - n_somm_basic_cider
+            - n_somm_case_clean_glass
+            - n_somm_case_perry
         tasks: [C7]
       - id: cms_certified.sake
         label: Sake, its production, types and label terms
+        covers:
+          within:
+            - n_bev_sake_polish
+            - n_bev_sake_junmai
+            - n_bev_sake_ginjo
+            - n_bev_sake_honjozo
+            - n_somm_basic_sake
+            - n_somm_case_sake_temp
         tasks: [C7]
 
       # Principles, service and business.

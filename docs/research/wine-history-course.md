@@ -1,6 +1,6 @@
 # Essential wine-history course
 
-Teaching notes for the expanded course in `assets/curriculum/areas/wine_history_course.yaml`, registered in dataset 0.24.0. The companion chronological additions are in `assets/curriculum/areas/wine_history_timeline.yaml` and [their source log](wine-history-timeline-sources.md). Every factual claim is cited, but all new items remain unverified pending qualified review. Claims marked UNRESOLVED are not taught as facts.
+Teaching notes for the expanded course in `assets/curriculum/areas/wine_history_course.yaml`, registered in dataset 0.24.1. The companion chronological additions are in `assets/curriculum/areas/wine_history_timeline.yaml` and [their source log](wine-history-timeline-sources.md). Every factual claim is cited, but all new items remain unverified pending qualified review. Claims marked UNRESOLVED are not taught as facts.
 
 This is an essential course, not all of world wine history. It does not add map pins.
 

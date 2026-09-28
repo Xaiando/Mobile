@@ -10,7 +10,7 @@ import '../journal/journal_photo_store.dart';
 import '../study/scheduler_config.dart';
 import '../time/utc_clock.dart';
 
-/// Why a backup cannot be imported, in words for the learner.
+/// Why a backup cannot be imported or exported, in words for the learner.
 class BackupException implements Exception {
   const BackupException(this.message);
 
@@ -47,6 +47,11 @@ class UserDataBackup {
 
   static const format = 'sommelier-user-data';
   static const formatVersion = 2;
+
+  // Export currently holds the image BLOBs, their base64 strings, the JSON
+  // string, and the UTF-8 file bytes in memory at once. Keep that peak
+  // bounded until the file-saving path can stream its output.
+  static const maxExportPhotoBytes = 24 * 1024 * 1024;
 
   /// Every user table, parents first. An import inserts rows in this order
   /// and deletes them in reverse, so every foreign key holds throughout.
@@ -85,8 +90,26 @@ class UserDataBackup {
     'does not have. Update the app, then import it again.',
   );
 
-  /// Every user table's rows, with the versions that wrote them.
-  Future<Map<String, Object?>> export() async {
+  /// Every user table's rows, with the versions that wrote them. An export
+  /// above [maxExportPhotoBytes] fails before any BLOBs are loaded rather
+  /// than silently leaving photos out of the backup.
+  Future<Map<String, Object?>> export() => db.transaction(() async {
+    // Check before reading any rows. The read transaction keeps the sum and
+    // the exported rows on the same database snapshot.
+    final totalPhotoBytes =
+        (await db
+                .customSelect(
+                  'SELECT COALESCE(SUM(length(photo_bytes)), 0) AS total_bytes '
+                  'FROM wine_journal_photos',
+                )
+                .getSingle())
+            .read<int>('total_bytes');
+    if (totalPhotoBytes > maxExportPhotoBytes) {
+      throw const BackupException(
+        'Your journal photos exceed the 24 MiB backup limit. The app will not '
+        'leave photos out of a backup. Remove some journal photos and try again.',
+      );
+    }
     final release = await CurriculumCatalog(db).installedRelease();
     return {
       'format': format,
@@ -96,7 +119,7 @@ class UserDataBackup {
       'exported_at': utcNow(_clock).toIso8601String(),
       'tables': {for (final table in tables) table: await _rows(table)},
     };
-  }
+  });
 
   /// The export as unencrypted JSON. It includes personal journal photos and
   /// should be kept private unless the learner chooses to share it.

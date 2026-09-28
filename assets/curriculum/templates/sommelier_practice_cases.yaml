@@ -6,7 +6,7 @@ question_templates:
     direction: forward
     mode: short_answer
     variant: somm_practice_general
-    prompt_template: "For {subject.name}, give a useful response, a cited reason, a tradeoff, and a limit on what the evidence establishes."
+    prompt_template: "{subject.name}. How would you respond, and what evidence or uncertainty matters most?"
     parameters:
       scope_node_ids:
         - n_somm_case_mix
@@ -35,7 +35,7 @@ question_templates:
     direction: forward
     mode: short_answer
     variant: somm_practice_clean_glass
-    prompt_template: "A draught beer's foam collapses quickly in a marked glass. Describe your first service check, why it matters, another possible cause, and what you cannot diagnose yet."
+    prompt_template: "A draught beer's foam collapses quickly in a marked glass. How would you investigate and respond to the guest?"
     parameters:
       scope_node_ids: [n_somm_case_clean_glass]
       key_points: {CASE_ACTION: Response, CASE_REASON: Glass-quality reason, CASE_TRADEOFF: Other possible cause, CASE_LIMITATION: Limit}
@@ -44,7 +44,7 @@ question_templates:
     direction: forward
     mode: short_answer
     variant: somm_practice_perry
-    prompt_template: "A guest asks for perry, but the offered drink is apple cider. Explain the correction, the fruit distinction, why a UK duty category may group the names, and what you must check about the actual bottle."
+    prompt_template: "A guest asks for perry, but the offered drink is apple cider. How would you explain the drinks and decide what to offer?"
     parameters:
       scope_node_ids: [n_somm_case_perry]
       key_points: {CASE_ACTION: Response, CASE_REASON: Fruit distinction, CASE_TRADEOFF: Duty-language caveat, CASE_LIMITATION: Bottle check}
@@ -53,7 +53,7 @@ question_templates:
     direction: forward
     mode: short_answer
     variant: somm_practice_sake_temp
-    prompt_template: "A guest says all sake must be served hot. Offer a choice, explain how temperature can change the same sake, acknowledge a warm option, and name a bottle-specific uncertainty."
+    prompt_template: "A guest says all sake must be served hot. How would you discuss serving this bottle?"
     parameters:
       scope_node_ids: [n_somm_case_sake_temp]
       key_points: {CASE_ACTION: Response, CASE_REASON: Temperature reason, CASE_TRADEOFF: Warm option, CASE_LIMITATION: Bottle-specific limit}
@@ -62,7 +62,7 @@ question_templates:
     direction: forward
     mode: short_answer
     variant: somm_practice_shape
-    prompt_template: "A tapered Habanos Piramide is described as a straight-sided parejo. Explain the shape term, distinguish factory and market names, and say what shape does not prove."
+    prompt_template: "A tapered Habanos Piramide is described as a straight-sided parejo. How would you explain its shape and naming to the guest?"
     parameters:
       scope_node_ids: [n_somm_case_shape]
       key_points: {CASE_ACTION: Response, CASE_REASON: Habanos shape, CASE_TRADEOFF: Name variation, CASE_LIMITATION: Limit}
@@ -71,7 +71,7 @@ question_templates:
     direction: forward
     mode: short_answer
     variant: somm_practice_liqueur
-    prompt_template: "A guest calls every fifteen-percent spirit a liqueur. Use the EU category to explain the missing conditions, its sugar-floor exceptions, and what the rule cannot tell you about an unexamined bottle."
+    prompt_template: "A guest calls every fifteen-percent spirit a liqueur. How would you assess that claim for a bottle on your list?"
     parameters:
       scope_node_ids: [n_somm_case_liqueur]
       key_points: {CASE_ACTION: Response, CASE_REASON: Category conditions, CASE_TRADEOFF: Exceptions, CASE_LIMITATION: Bottle-specific limit}
@@ -80,7 +80,7 @@ question_templates:
     direction: forward
     mode: short_answer
     variant: somm_practice_vermouth
-    prompt_template: "A guest says vermouth and bitter-tasting spirit drink are one EU category. Explain their different legal bases, why both may be discussed as aperitifs, and what the product label still has to establish."
+    prompt_template: "A guest says vermouth and bitter-tasting spirit drink are one EU category. How would you compare them for the guest?"
     parameters:
       scope_node_ids: [n_somm_case_vermouth]
       key_points: {CASE_ACTION: Response, CASE_REASON: Legal categories, CASE_TRADEOFF: Shared use or taste, CASE_LIMITATION: Bottle-specific limit}

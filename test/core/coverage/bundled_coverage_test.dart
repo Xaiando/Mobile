@@ -112,6 +112,27 @@ void main() {
     }
   });
 
+  test('CMS beverage objectives select their authored lessons', () {
+    final scope = TrackScopeManifest.parse(
+      File(scopePath).readAsStringSync(),
+      path: scopePath,
+    ).tracks['CMS_CERTIFIED']!;
+    final cms = tracks.singleWhere((track) => track.trackId == 'CMS_CERTIFIED');
+    final objectives = {
+      for (final coverage in objectiveCoverage(scope, cms))
+        coverage.objective.id: coverage,
+    };
+    for (final id in [
+      'cms_certified.spirits',
+      'cms_certified.liqueurs_and_aperitifs',
+      'cms_certified.beer_and_cider',
+      'cms_certified.sake',
+    ]) {
+      expect(objectives[id]!.status, ObjectiveStatus.represented, reason: id);
+      expect(objectives[id]!.items, greaterThan(0), reason: id);
+    }
+  });
+
   test('the bundled release keeps the committed coverage baseline', () {
     final baseline = CoverageBaseline.parse(
       File(baselinePath).readAsStringSync(),

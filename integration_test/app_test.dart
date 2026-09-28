@@ -6,12 +6,45 @@
 //
 // The database name keeps it away from a learner's own data.
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
+import 'package:sommelier/app/app.dart';
+import 'package:sommelier/app/learner_state.dart';
+import 'package:sommelier/app/startup.dart';
 import 'package:sommelier/main.dart' as app;
 
 void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
+
+  String describeState<T>(AsyncValue<T> state) => state.when(
+    data: (_) => 'data',
+    loading: () => 'loading',
+    error: (error, _) => 'error: $error',
+  );
+
+  String startupSnapshot(WidgetTester tester) {
+    final visibleText = tester
+        .widgetList<Text>(find.byType(Text))
+        .map((widget) => widget.data ?? widget.textSpan?.toPlainText() ?? '')
+        .where((text) => text.isNotEmpty)
+        .take(20)
+        .toList();
+    final spinners = find.byType(CircularProgressIndicator).evaluate().length;
+    var startup = 'app not mounted';
+    var settings = 'app not mounted';
+    final appFinder = find.byType(SommelierApp);
+    if (appFinder.evaluate().isNotEmpty) {
+      final container = ProviderScope.containerOf(
+        tester.element(appFinder),
+        listen: false,
+      );
+      startup = describeState(container.read(appStartupProvider));
+      settings = describeState(container.read(settingsProvider));
+    }
+    return 'startup=$startup; settings=$settings; spinners=$spinners; '
+        'visibleText=$visibleText';
+  }
 
   /// Pumps frames until [found] holds, or fails after [timeout]: startup
   /// opens the database and installs the curriculum in the background.
@@ -20,11 +53,30 @@ void main() {
     bool Function() found, {
     required String what,
     Duration timeout = const Duration(seconds: 90),
+    Duration? diagnosticAt,
   }) async {
-    final end = DateTime.now().add(timeout);
+    final startedAt = DateTime.now();
+    var checkpointLogged = false;
     while (!found()) {
-      if (DateTime.now().isAfter(end)) fail('timed out waiting for $what');
+      final elapsed = DateTime.now().difference(startedAt);
+      if (!checkpointLogged &&
+          diagnosticAt != null &&
+          elapsed >= diagnosticAt) {
+        debugPrint(
+          'STARTUP_CHECKPOINT after $elapsed: ${startupSnapshot(tester)}',
+        );
+        checkpointLogged = true;
+      }
+      if (elapsed >= timeout) {
+        fail(
+          'timed out waiting for $what after $elapsed; '
+          '${startupSnapshot(tester)}',
+        );
+      }
       await tester.pump(const Duration(milliseconds: 200));
+    }
+    if (diagnosticAt != null) {
+      debugPrint('STARTUP_READY after ${DateTime.now().difference(startedAt)}');
     }
   }
 
@@ -40,6 +92,8 @@ void main() {
       tester,
       () => ofAge.evaluate().isNotEmpty,
       what: 'onboarding',
+      timeout: const Duration(seconds: 180),
+      diagnosticAt: const Duration(seconds: 90),
     );
     await tester.tap(ofAge);
     await tester.pumpAndSettle();

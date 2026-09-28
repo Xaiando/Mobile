@@ -185,7 +185,7 @@ knowledge_items:
     relation_type: PRINCIPLE_EXPLANATION
     object_id: n_somm_basic_aperitif_vermouth
     domain_id: service
-    assertion_text: "The vermouth description in Annex II of Regulation (EU) No 251/2014 is an aromatised wine whose characteristic taste has been obtained using appropriate substances of Artemisia species. Vermouth is therefore an aromatised wine category in this EU framework, not simply any bitter spirit."
+    assertion_text: "The vermouth description in Annex II of Regulation (EU) No 251/2014 is an aromatised wine to which alcohol may have been added and whose characteristic taste has been obtained using appropriate substances of Artemisia species. Vermouth is therefore an aromatised wine category in this EU framework, not simply any bitter spirit."
     last_verified_at: "2026-09-28T00:00:00.000Z"
     verification_status: unverified
     mcq_disabled: true
@@ -257,7 +257,7 @@ knowledge_items:
     relation_type: CASE_TRADEOFF
     object_id: n_somm_case_perry_tradeoff
     domain_id: service
-    assertion_text: "A UK excise definition can group cider and perry under 'cider' for duty; that does not erase the useful apple-versus-pear distinction in a guest conversation."
+    assertion_text: "The UK Finance (No. 2) Act 2023 can group qualifying apple- and pear-juice drinks under 'cider' for alcohol duty; that does not erase the useful apple-versus-pear distinction in a guest conversation."
     last_verified_at: "2026-09-28T00:00:00.000Z"
     verification_status: unverified
     mcq_disabled: true
@@ -392,7 +392,7 @@ knowledge_items:
     relation_type: CASE_REASON
     object_id: n_somm_case_vermouth_reason
     domain_id: service
-    assertion_text: "Regulation (EU) No 251/2014 puts vermouth in its aromatised-wine list with characteristic Artemisia flavouring; Regulation (EU) 2019/787 category 30 defines a separate bitter-tasting spirit drink."
+    assertion_text: "Regulation (EU) No 251/2014 puts vermouth in its aromatised-wine list, permits added alcohol and requires characteristic Artemisia flavouring; Regulation (EU) 2019/787 category 30 defines a separate bitter-tasting spirit drink."
     last_verified_at: "2026-09-28T00:00:00.000Z"
     verification_status: unverified
     mcq_disabled: true
@@ -515,8 +515,8 @@ source_citations:
     title: Regulation (EU) No 251/2014, consolidated text
     publisher: European Union
     jurisdiction: EU
-    document_identifier: Article 3(2) and Annex II vermouth; consolidated 8 December 2023 view, check amendments before current-law use
-    url: https://eur-lex.europa.eu/eli/reg/2014/251/2023-12-08/eng
+    document_identifier: Article 3(2) and Annex II A(3) vermouth, optional added alcohol and characteristic Artemisia; consolidated 18 March 2026 view, check amendments before current-law use
+    url: https://eur-lex.europa.eu/eli/reg/2014/251/2026-03-18/eng
     accessed_on: "2026-09-28"
 
 knowledge_item_citations:
@@ -530,7 +530,7 @@ knowledge_item_citations:
   - { knowledge_item_id: ki_somm_basic_liqueur_identity, source_citation_id: src_somm_basic_eu_liqueur, locator: "Annex I category 33(a)(ii) and (b): ingredients and 15 percent minimum." }
   - { knowledge_item_id: ki_somm_basic_liqueur_exception, source_citation_id: src_somm_basic_eu_liqueur, locator: "Annex I category 33(a)(i): 100 g/l ordinary minimum and 70/80 g/l exceptions." }
   - { knowledge_item_id: ki_somm_basic_aperitif_wine, source_citation_id: src_somm_basic_eu_aromatised_wine, locator: "Article 3(1)-(2): aromatised-wine categories and 75% grapevine products." }
-  - { knowledge_item_id: ki_somm_basic_aperitif_vermouth, source_citation_id: src_somm_basic_eu_aromatised_wine, locator: "Annex II(3): vermouth and Artemisia." }
+  - { knowledge_item_id: ki_somm_basic_aperitif_vermouth, source_citation_id: src_somm_basic_eu_aromatised_wine, locator: "Annex II A(3): vermouth may include added alcohol and requires characteristic Artemisia flavouring." }
   - { knowledge_item_id: ki_somm_basic_aperitif_bitter, source_citation_id: src_somm_basic_eu_liqueur, locator: "Annex I category 30: bitter-tasting spirit drink and 15% minimum." }
   - { knowledge_item_id: ki_somm_case_clean_glass_action, source_citation_id: src_somm_basic_beer_glass, locator: "Glassware Cleanliness, page 16." }
   - { knowledge_item_id: ki_somm_case_clean_glass_reason, source_citation_id: src_somm_basic_beer_glass, locator: "Glassware Cleanliness, page 16." }
@@ -538,7 +538,7 @@ knowledge_item_citations:
   - { knowledge_item_id: ki_somm_case_clean_glass_limit, source_citation_id: src_somm_basic_beer_glass, locator: "Glassware Cleanliness scope." }
   - { knowledge_item_id: ki_somm_case_perry_action, source_citation_id: src_somm_basic_cider_perry, locator: "Cider and perry trade descriptions." }
   - { knowledge_item_id: ki_somm_case_perry_reason, source_citation_id: src_somm_basic_cider_perry, locator: "Cider and perry trade descriptions." }
-  - { knowledge_item_id: ki_somm_case_perry_tradeoff, source_citation_id: src_bev_uk_cider_2010, locator: "UK excise cider includes perry; scope limited to UK duty." }
+  - { knowledge_item_id: ki_somm_case_perry_tradeoff, source_citation_id: src_bev_uk_cider_2023, locator: "Schedule 6 paragraphs 5-7: duty-category cider may be made from apple or pear juice; scope limited to UK duty." }
   - { knowledge_item_id: ki_somm_case_perry_limit, source_citation_id: src_somm_basic_cider_perry, locator: "Different styles; no bottle-specific sweetness or carbonation rule." }
   - { knowledge_item_id: ki_somm_case_sake_temp_action, source_citation_id: src_somm_basic_sake_service, locator: "Temperature choices and serving ranges." }
   - { knowledge_item_id: ki_somm_case_sake_temp_reason, source_citation_id: src_somm_basic_sake_service, locator: "The same sake can taste different at another temperature." }
@@ -555,7 +555,7 @@ knowledge_item_citations:
   - { knowledge_item_id: ki_somm_case_liqueur_limit, source_citation_id: src_somm_basic_eu_liqueur, locator: "Annex I category 33: EU legal category, not inspection of a bottle." }
   - { knowledge_item_id: ki_somm_case_vermouth_action, source_citation_id: src_somm_basic_eu_aromatised_wine, locator: "Article 3 and Annex II(3): vermouth is aromatised wine." }
   - { knowledge_item_id: ki_somm_case_vermouth_action, source_citation_id: src_somm_basic_eu_liqueur, locator: "Annex I category 30: bitter-tasting spirit drink." }
-  - { knowledge_item_id: ki_somm_case_vermouth_reason, source_citation_id: src_somm_basic_eu_aromatised_wine, locator: "Annex II(3): Artemisia vermouth." }
+  - { knowledge_item_id: ki_somm_case_vermouth_reason, source_citation_id: src_somm_basic_eu_aromatised_wine, locator: "Annex II A(3): optional added alcohol and characteristic Artemisia for vermouth." }
   - { knowledge_item_id: ki_somm_case_vermouth_reason, source_citation_id: src_somm_basic_eu_liqueur, locator: "Annex I category 30: bitter-tasting spirit drink." }
   - { knowledge_item_id: ki_somm_case_vermouth_tradeoff, source_citation_id: src_somm_basic_eu_aromatised_wine, locator: "Annex II(3): aromatised-wine category." }
   - { knowledge_item_id: ki_somm_case_vermouth_tradeoff, source_citation_id: src_somm_basic_eu_liqueur, locator: "Annex I category 30: spirit-drink category." }

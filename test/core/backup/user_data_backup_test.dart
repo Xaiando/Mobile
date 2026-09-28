@@ -181,6 +181,83 @@ void main() {
     expect(await contents(other), before);
   });
 
+  test(
+    'photo export includes the full byte-limit boundary and refuses more',
+    () async {
+      final journal = WineJournal(db, clock: time.clock, random: Random(1));
+      final first = await journal.create(
+        const JournalDraft(producerName: 'First capacity wine'),
+      );
+      final second = await journal.create(
+        const JournalDraft(producerName: 'Second capacity wine'),
+      );
+
+      // SQL zeroblobs exercise the backup's byte budget without constructing
+      // several enormous test images or duplicating their bytes in Dart.
+      Future<void> addPhoto(
+        int number,
+        String entryId,
+        String kind,
+        int size,
+      ) => db.customStatement(
+        'INSERT INTO wine_journal_photos '
+        '(id, wine_journal_entry_id, kind, mime_type, photo_bytes, created_at) '
+        'VALUES (?, ?, ?, ?, zeroblob(?), ?)',
+        [
+          '00000000-0000-4000-8000-${number.toString().padLeft(12, '0')}',
+          entryId,
+          kind,
+          'image/png',
+          size,
+          '2026-10-01T09:00:00.000Z',
+        ],
+      );
+
+      const fullPhoto = JournalPhotoStore.maxBytes;
+      await addPhoto(1, first.id, 'label', fullPhoto);
+      await addPhoto(2, first.id, 'glass', fullPhoto);
+      await addPhoto(3, second.id, 'label', fullPhoto);
+      expect(fullPhoto * 3, UserDataBackup.maxExportPhotoBytes);
+
+      final document = await backup.export();
+      final tables = document['tables']! as Map<String, Object?>;
+      final exported = tables['wine_journal_photos']! as List<Object?>;
+      expect(exported, hasLength(3));
+      for (final row in exported) {
+        final photo = row! as Map<String, Object?>;
+        expect(photo['photo_bytes'], isA<String>());
+        expect((photo['photo_bytes']! as String).length, 11184812);
+      }
+
+      await addPhoto(4, second.id, 'glass', 1);
+      Future<(int, int)> photoStats() async {
+        final row = await db
+            .customSelect(
+              'SELECT COUNT(*) AS photo_count, '
+              'SUM(length(photo_bytes)) AS total_bytes '
+              'FROM wine_journal_photos',
+            )
+            .getSingle();
+        return (row.read<int>('photo_count'), row.read<int>('total_bytes'));
+      }
+
+      final before = await photoStats();
+      expect(before, (4, UserDataBackup.maxExportPhotoBytes + 1));
+      final tooLarge = isA<BackupException>().having(
+        (error) => error.message,
+        'message',
+        allOf(contains('24 MiB'), contains('will not leave photos out')),
+      );
+      await expectLater(backup.export(), throwsA(tooLarge));
+      await expectLater(backup.exportJson(), throwsA(tooLarge));
+      expect(
+        await photoStats(),
+        before,
+        reason: 'export must not alter photos',
+      );
+    },
+  );
+
   test('a format-1 backup keeps its legacy photo reference', () async {
     await study(db);
     await db.customStatement(

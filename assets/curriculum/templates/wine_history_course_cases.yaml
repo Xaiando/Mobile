@@ -51,7 +51,7 @@ question_templates:
     direction: forward
     mode: short_answer
     variant: hist_italy_1963
-    prompt_template: "A guest says the 1963 Italian decree invented the printed abbreviations DOC and DOCG. Separate the words in the historical article from today's traditional mentions and explain the source-view limit."
+    prompt_template: "A guest says the 1963 Italian decree invented the printed abbreviations DOC and DOCG. Explain what the opened historical sources establish, why they cannot establish today's law, and the source-view limit."
     parameters:
       scope_node_ids: [n_hcourse_case_doc]
       key_points: {CASE_ACTION: Historical wording, CASE_REASON: Article evidence, CASE_TRADEOFF: Useful definition, CASE_LIMITATION: Loaded-view limit}

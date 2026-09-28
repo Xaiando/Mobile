@@ -218,7 +218,23 @@ void main() {
           ),
         ),
       );
-      expect(out, contains('| planned: C7 |'));
+      // These CMS beverage objectives now have authored lessons. Keep the
+      // report accountable for both their exact counts and their status.
+      for (final entry in const {
+        'cms_certified.spirits': 56,
+        'cms_certified.liqueurs_and_aperitifs': 13,
+        'cms_certified.beer_and_cider': 23,
+        'cms_certified.sake': 10,
+      }.entries) {
+        final row = RegExp(
+          r'\| `' +
+              RegExp.escape(entry.key) +
+              r'` [^|]+\| ' +
+              '${entry.value}' +
+              r' \| \d+ \| \d+ \| represented \|',
+        );
+        expect(out, contains(row), reason: entry.key);
+      }
       expect(out, contains('excluded: The practical examination'));
 
       final (_, json) = await run(['--format', 'json', '--track', 'WSET_L3']);

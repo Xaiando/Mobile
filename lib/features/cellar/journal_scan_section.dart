@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -5,6 +7,7 @@ import 'package:image_picker/image_picker.dart';
 import '../../core/journal/journal_photo_store.dart';
 import '../../core/journal/label_proposal.dart';
 import 'label_ocr.dart';
+import 'picker_temp_cleanup.dart';
 
 /// Picks private photos and offers conservative, explicitly accepted label
 /// clues. OCR text and the original picker path never enter the journal DB.
@@ -53,14 +56,23 @@ class _JournalScanSectionState extends State<JournalScanSection>
   Future<void> _recoverInterruptedPick() async {
     try {
       final result = await _picker.retrieveLostData();
-      if (!mounted) return;
-      if (result.files?.isNotEmpty ?? false) {
+      final files = result.files ?? const <XFile>[];
+      if (!mounted) {
+        for (final file in files) {
+          unawaited(_discardPickerFile(file));
+        }
+        return;
+      }
+      if (files.isNotEmpty) {
         setState(() {
-          _recovered = result.files!.first;
+          _recovered = files.first;
           _message =
               'A photo selection was interrupted. Choose where to use '
               'the recovered photo, or dismiss it.';
         });
+        for (final file in files.skip(1)) {
+          unawaited(_discardPickerFile(file));
+        }
       }
     } catch (_) {
       // Recovery is optional; the normal picker remains available.
@@ -69,8 +81,21 @@ class _JournalScanSectionState extends State<JournalScanSection>
 
   @override
   void dispose() {
+    if (_recovered case final file?) {
+      unawaited(_discardPickerFile(file));
+    }
     _raw.dispose();
     super.dispose();
+  }
+
+  Future<void> _discardPickerFile(XFile file) async {
+    if (_mobileOcr) await removePickedTemporaryPhoto(file.path);
+  }
+
+  void _dismissRecovered() {
+    final file = _recovered;
+    setState(() => _recovered = null);
+    if (file != null) unawaited(_discardPickerFile(file));
   }
 
   Future<void> _pick(PhotoKind kind, ImageSource source) async {
@@ -85,11 +110,18 @@ class _JournalScanSectionState extends State<JournalScanSection>
           'Camera capture is unavailable on this device. Choose a photo.',
         );
       }
+      // Android's gallery picker copies into app cache. Its optional resize
+      // creates a second EXIF-bearing cache file while returning only one
+      // path, so let the bounded journal sanitizer do the resizing instead.
+      final androidGallery =
+          !kIsWeb &&
+          defaultTargetPlatform == TargetPlatform.android &&
+          source == ImageSource.gallery;
       final file = await _picker.pickImage(
         source: source,
-        maxWidth: 3000,
-        maxHeight: 3000,
-        imageQuality: 90,
+        maxWidth: androidGallery ? null : 3000,
+        maxHeight: androidGallery ? null : 3000,
+        imageQuality: androidGallery ? 100 : 90,
       );
       if (file != null) await _acceptFile(kind, file);
     } on PhotoStoreException catch (error) {
@@ -109,7 +141,16 @@ class _JournalScanSectionState extends State<JournalScanSection>
     }
   }
 
-  Future<void> _acceptFile(PhotoKind kind, XFile file) async {
+  Future<void> _acceptFile(PhotoKind kind, XFile file) => _mobileOcr
+      ? withPickedTemporaryPhoto(file.path, () => _readPickedPhoto(kind, file))
+      : _readPickedPhoto(kind, file);
+
+  Future<void> _readPickedPhoto(PhotoKind kind, XFile file) async {
+    // Android gallery images are now read at source resolution. Reject a
+    // large picker copy before allocating its full contents in Dart.
+    if (await file.length() > JournalPhotoStore.maxImportBytes) {
+      throw const PhotoStoreException('Choose a photo smaller than 24 MB.');
+    }
     final sanitized = JournalPhotoStore.sanitize(await file.readAsBytes());
     if (!mounted) return;
     widget.onPicked(kind, sanitized);
@@ -137,10 +178,14 @@ class _JournalScanSectionState extends State<JournalScanSection>
   Future<void> _useRecovered(PhotoKind kind) async {
     final file = _recovered;
     if (file == null || _busy) return;
-    setState(() => _busy = true);
+    // Processing owns this temporary file now and deletes it in its finally
+    // block, even if decoding or OCR fails. Do not offer a stale retry path.
+    setState(() {
+      _busy = true;
+      _recovered = null;
+    });
     try {
       await _acceptFile(kind, file);
-      if (mounted) setState(() => _recovered = null);
     } on PhotoStoreException catch (error) {
       if (mounted) setState(() => _message = error.message);
     } catch (_) {
@@ -226,9 +271,7 @@ class _JournalScanSectionState extends State<JournalScanSection>
                 child: const Text('Use as glass'),
               ),
               TextButton(
-                onPressed: _busy
-                    ? null
-                    : () => setState(() => _recovered = null),
+                onPressed: _busy ? null : _dismissRecovered,
                 child: const Text('Dismiss'),
               ),
             ],

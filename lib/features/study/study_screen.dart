@@ -389,8 +389,6 @@ const _wineHistoryMoments = <_WineHistoryMoment>[
   _WineHistoryMoment('napoleon-i', '1806', 'Napoleon I and the blockade', [
     'ki_hist_berlin_1806',
     'ki_hcourse_names_blockade',
-    'ki_hcourse_names_age',
-    'n_hcourse_case_napoleon',
   ]),
   _WineHistoryMoment('busby', '1832', 'Busby’s Australian cuttings', [
     'ki_htime_australia_origins_busby1832',
@@ -456,6 +454,10 @@ const _wineHistoryMoments = <_WineHistoryMoment>[
   ]),
   _WineHistoryMoment('oiv-current', '2026', 'The current wine sector', [
     'ki_htime_present_oiv2026',
+  ]),
+  _WineHistoryMoment('names-today', 'Today', 'Napoleon on Cognac labels', [
+    'ki_hcourse_names_age',
+    'n_hcourse_case_napoleon',
   ]),
 ];
 
