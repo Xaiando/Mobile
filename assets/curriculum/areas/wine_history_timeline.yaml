@@ -1,7 +1,9 @@
-# Additional chronological wine-history evidence, from Roman vessels to the 2026 OIV report.
+# Additional chronological wine-history evidence, from Greek vessels to the 2026 OIV report.
 # The registered Areni-1, Pliny, Napoleon and later core remains in wine_history.yaml.
 # Every item is unverified, is secondary enrichment and stays off WSET Levels 1-3.
 knowledge_nodes:
+  - { id: n_htime_greek_symposium, node_type: production_principle, name: "What does a Greek krater show about wine service?" }
+  - { id: n_htime_greek_symposium_krater, node_type: learning_point, name: "A Greek wine-mixing vessel around 550 BCE" }
   - { id: n_htime_roman_trade, node_type: production_principle, name: "What does a Roman wine transport vessel show?" }
   - { id: n_htime_roman_trade_amphora, node_type: learning_point, name: "Roman amphorae moved wine" }
   - { id: n_htime_burgundy_medieval, node_type: production_principle, name: "How did medieval institutions shape the Burgundy vineyard?" }
@@ -36,6 +38,11 @@ knowledge_nodes:
   - { id: n_htime_present_chile2024, node_type: learning_point, name: "Chile announced new varieties and origin designations in 2024" }
   - { id: n_htime_present_oiv2024, node_type: learning_point, name: "OIV's 2024 agroecology recommendations" }
   - { id: n_htime_present_oiv2026, node_type: learning_point, name: "OIV's 2026 report describes the 2025 sector" }
+  - { id: n_htime_case_greek_roman_vessels, node_type: production_case, name: "A guest treats Greek kraters and Roman amphorae as the same wine vessel" }
+  - { id: n_htime_case_greek_roman_vessels_action, node_type: learning_point, name: "Name each object's date and job" }
+  - { id: n_htime_case_greek_roman_vessels_reason, node_type: learning_point, name: "Service and transport are different evidence" }
+  - { id: n_htime_case_greek_roman_vessels_tradeoff, node_type: learning_point, name: "Compare the periods without generalizing" }
+  - { id: n_htime_case_greek_roman_vessels_limit, node_type: learning_point, name: "Do not infer first use or a shipment" }
   - { id: n_htime_case_vessel_story, node_type: production_case, name: "A guest says Roman wine was always sold in corked glass bottles" }
   - { id: n_htime_case_vessel_story_action, node_type: learning_point, name: "Compare the surviving containers" }
   - { id: n_htime_case_vessel_story_reason, node_type: learning_point, name: "Three artifacts do different evidentiary work" }
@@ -48,6 +55,7 @@ knowledge_nodes:
   - { id: n_htime_case_newworld_names_limit, node_type: learning_point, name: "Do not infer quality from legal registration" }
 
 knowledge_relations:
+  - { subject_id: n_htime_greek_symposium, relation_type: PRINCIPLE_EXPLANATION, object_id: n_htime_greek_symposium_krater, valid_from: "2026-09-28" }
   - { subject_id: n_htime_roman_trade, relation_type: PRINCIPLE_EXPLANATION, object_id: n_htime_roman_trade_amphora, valid_from: "2026-09-28" }
   - { subject_id: n_htime_burgundy_medieval, relation_type: PRINCIPLE_EXPLANATION, object_id: n_htime_burgundy_medieval_abbeys, valid_from: "2026-09-28" }
   - { subject_id: n_htime_burgundy_medieval, relation_type: PRINCIPLE_EXPLANATION, object_id: n_htime_burgundy_medieval_clos, valid_from: "2026-09-28" }
@@ -70,6 +78,10 @@ knowledge_relations:
   - { subject_id: n_htime_present, relation_type: PRINCIPLE_EXPLANATION, object_id: n_htime_present_chile2024, valid_from: "2026-09-28" }
   - { subject_id: n_htime_present, relation_type: PRINCIPLE_EXPLANATION, object_id: n_htime_present_oiv2024, valid_from: "2026-09-28" }
   - { subject_id: n_htime_present, relation_type: PRINCIPLE_EXPLANATION, object_id: n_htime_present_oiv2026, valid_from: "2026-09-28" }
+  - { subject_id: n_htime_case_greek_roman_vessels, relation_type: CASE_ACTION, object_id: n_htime_case_greek_roman_vessels_action, valid_from: "2026-09-28" }
+  - { subject_id: n_htime_case_greek_roman_vessels, relation_type: CASE_REASON, object_id: n_htime_case_greek_roman_vessels_reason, valid_from: "2026-09-28" }
+  - { subject_id: n_htime_case_greek_roman_vessels, relation_type: CASE_TRADEOFF, object_id: n_htime_case_greek_roman_vessels_tradeoff, valid_from: "2026-09-28" }
+  - { subject_id: n_htime_case_greek_roman_vessels, relation_type: CASE_LIMITATION, object_id: n_htime_case_greek_roman_vessels_limit, valid_from: "2026-09-28" }
   - { subject_id: n_htime_case_vessel_story, relation_type: CASE_ACTION, object_id: n_htime_case_vessel_story_action, valid_from: "2026-09-28" }
   - { subject_id: n_htime_case_vessel_story, relation_type: CASE_REASON, object_id: n_htime_case_vessel_story_reason, valid_from: "2026-09-28" }
   - { subject_id: n_htime_case_vessel_story, relation_type: CASE_TRADEOFF, object_id: n_htime_case_vessel_story_tradeoff, valid_from: "2026-09-28" }
@@ -80,6 +92,15 @@ knowledge_relations:
   - { subject_id: n_htime_case_newworld_names, relation_type: CASE_LIMITATION, object_id: n_htime_case_newworld_names_limit, valid_from: "2026-09-28" }
 
 knowledge_items:
+  - id: ki_htime_greek_symposium_krater
+    subject_id: n_htime_greek_symposium
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_htime_greek_symposium_krater
+    domain_id: service
+    assertion_text: "The Metropolitan Museum of Art dates an Attic terracotta column-krater attributed to Lydos to about 550 BCE and describes the krater as a vessel in which wine was diluted with water at a Greek symposium. It documents pre-Roman wine service, not the invention of mixing wine or the way every Greek drank."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
   - id: ki_htime_roman_trade_amphora
     subject_id: n_htime_roman_trade
     relation_type: PRINCIPLE_EXPLANATION
@@ -278,6 +299,42 @@ knowledge_items:
     last_verified_at: "2026-09-28T00:00:00.000Z"
     verification_status: unverified
     mcq_disabled: true
+  - id: ki_htime_case_greek_roman_vessels_action
+    subject_id: n_htime_case_greek_roman_vessels
+    relation_type: CASE_ACTION
+    object_id: n_htime_case_greek_roman_vessels_action
+    domain_id: service
+    assertion_text: "Identify the Met's Greek krater of about 550 BCE as a wine-and-water mixing vessel for a symposium. Identify its late first- to mid-second-century CE Roman amphora as a transport vessel resembling a type frequently used to export wine."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_htime_case_greek_roman_vessels_reason
+    subject_id: n_htime_case_greek_roman_vessels
+    relation_type: CASE_REASON
+    object_id: n_htime_case_greek_roman_vessels_reason
+    domain_id: service
+    assertion_text: "The Greek catalog explains a way to serve wine at a symposium; the Roman catalog describes a transport type. The records support different functions for the two vessels."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_htime_case_greek_roman_vessels_tradeoff
+    subject_id: n_htime_case_greek_roman_vessels
+    relation_type: CASE_TRADEOFF
+    object_id: n_htime_case_greek_roman_vessels_tradeoff
+    domain_id: service
+    assertion_text: "The dated objects make a useful pre-Roman-to-Roman comparison of wine service and distribution, but they do not measure how common either vessel or practice was."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
+  - id: ki_htime_case_greek_roman_vessels_limit
+    subject_id: n_htime_case_greek_roman_vessels
+    relation_type: CASE_LIMITATION
+    object_id: n_htime_case_greek_roman_vessels_limit
+    domain_id: service
+    assertion_text: "Neither object dates the first wine dilution, the invention of a krater or an amphora, or the beginning of wine trade. The Roman object's resemblance to an export type does not establish what this particular vessel carried."
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+    verification_status: unverified
+    mcq_disabled: true
   - id: ki_htime_case_vessel_story_action
     subject_id: n_htime_case_vessel_story
     relation_type: CASE_ACTION
@@ -352,6 +409,8 @@ knowledge_items:
     mcq_disabled: true
 
 certification_knowledge_mappings:
+  - { certification_id: WSET_L4, knowledge_item_id: ki_htime_greek_symposium_krater, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_htime_greek_symposium_krater, importance: secondary, minimum_depth: 2 }
   - { certification_id: WSET_L4, knowledge_item_id: ki_htime_roman_trade_amphora, importance: secondary, minimum_depth: 2 }
   - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_htime_roman_trade_amphora, importance: secondary, minimum_depth: 2 }
   - { certification_id: WSET_L4, knowledge_item_id: ki_htime_burgundy_medieval_abbeys, importance: secondary, minimum_depth: 2 }
@@ -396,6 +455,14 @@ certification_knowledge_mappings:
   - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_htime_present_oiv2024, importance: secondary, minimum_depth: 2 }
   - { certification_id: WSET_L4, knowledge_item_id: ki_htime_present_oiv2026, importance: secondary, minimum_depth: 2 }
   - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_htime_present_oiv2026, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_htime_case_greek_roman_vessels_action, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_htime_case_greek_roman_vessels_action, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_htime_case_greek_roman_vessels_reason, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_htime_case_greek_roman_vessels_reason, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_htime_case_greek_roman_vessels_tradeoff, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_htime_case_greek_roman_vessels_tradeoff, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_htime_case_greek_roman_vessels_limit, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_htime_case_greek_roman_vessels_limit, importance: secondary, minimum_depth: 2 }
   - { certification_id: WSET_L4, knowledge_item_id: ki_htime_case_vessel_story_action, importance: secondary, minimum_depth: 2 }
   - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_htime_case_vessel_story_action, importance: secondary, minimum_depth: 2 }
   - { certification_id: WSET_L4, knowledge_item_id: ki_htime_case_vessel_story_reason, importance: secondary, minimum_depth: 2 }
@@ -414,6 +481,13 @@ certification_knowledge_mappings:
   - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_htime_case_newworld_names_limit, importance: secondary, minimum_depth: 2 }
 
 source_citations:
+  - id: src_htime_met_greek_krater
+    kind: reference_work
+    title: "Terracotta column-krater, object 31.11.11"
+    publisher: "The Metropolitan Museum of Art"
+    document_identifier: "Attic vessel attributed to Lydos, circa 550 BCE; catalog describes wine diluted with water at a Greek symposium"
+    url: "https://www.metmuseum.org/art/collection/search/253349"
+    accessed_on: "2026-09-28"
   - id: src_htime_met_amphora
     kind: reference_work
     title: "Terracotta transport amphora, object 74.51.355"
@@ -549,6 +623,7 @@ source_citations:
     accessed_on: "2026-09-28"
 
 knowledge_item_citations:
+  - { knowledge_item_id: ki_htime_greek_symposium_krater, source_citation_id: src_htime_met_greek_krater, locator: "Object Information: ca. 550 BCE, object 31.11.11; opening text: wine diluted in a krater at a Greek symposium." }
   - { knowledge_item_id: ki_htime_roman_trade_amphora, source_citation_id: src_htime_met_amphora, locator: "Relevant dated section or catalog object; see document identifier." }
   - { knowledge_item_id: ki_htime_burgundy_medieval_abbeys, source_citation_id: src_htime_unesco_climats, locator: "Relevant dated section or catalog object; see document identifier." }
   - { knowledge_item_id: ki_htime_burgundy_medieval_clos, source_citation_id: src_htime_climats_timeline, locator: "Relevant dated section or catalog object; see document identifier." }
@@ -572,6 +647,14 @@ knowledge_item_citations:
   - { knowledge_item_id: ki_htime_present_chile2024, source_citation_id: src_htime_chile_2024, locator: "Relevant dated section or catalog object; see document identifier." }
   - { knowledge_item_id: ki_htime_present_oiv2024, source_citation_id: src_htime_oiv_agro, locator: "Relevant dated section or catalog object; see document identifier." }
   - { knowledge_item_id: ki_htime_present_oiv2026, source_citation_id: src_htime_oiv_2025, locator: "Relevant dated section or catalog object; see document identifier." }
+  - { knowledge_item_id: ki_htime_case_greek_roman_vessels_action, source_citation_id: src_htime_met_greek_krater, locator: "Object Information: ca. 550 BCE; opening text: symposium krater for diluting wine." }
+  - { knowledge_item_id: ki_htime_case_greek_roman_vessels_action, source_citation_id: src_htime_met_amphora, locator: "Object Information: late 1st-mid-2nd century CE; opening text: transport type frequently used to export wine." }
+  - { knowledge_item_id: ki_htime_case_greek_roman_vessels_reason, source_citation_id: src_htime_met_greek_krater, locator: "Opening text: wine service at a Greek symposium." }
+  - { knowledge_item_id: ki_htime_case_greek_roman_vessels_reason, source_citation_id: src_htime_met_amphora, locator: "Opening text: Roman wine-transport type." }
+  - { knowledge_item_id: ki_htime_case_greek_roman_vessels_tradeoff, source_citation_id: src_htime_met_greek_krater, locator: "One dated Greek mixing vessel, not a frequency survey." }
+  - { knowledge_item_id: ki_htime_case_greek_roman_vessels_tradeoff, source_citation_id: src_htime_met_amphora, locator: "One dated Roman transport vessel, not a frequency survey." }
+  - { knowledge_item_id: ki_htime_case_greek_roman_vessels_limit, source_citation_id: src_htime_met_greek_krater, locator: "The catalog dates this object and describes its function, not the invention of dilution or kraters." }
+  - { knowledge_item_id: ki_htime_case_greek_roman_vessels_limit, source_citation_id: src_htime_met_amphora, locator: "The catalog says this object resembles a wine-export type; it does not state what it carried." }
   - { knowledge_item_id: ki_htime_case_vessel_story_action, source_citation_id: src_htime_met_amphora, locator: "Relevant dated section or catalog object; see document identifier." }
   - { knowledge_item_id: ki_htime_case_vessel_story_action, source_citation_id: src_htime_cmog_1650, locator: "Relevant dated section or catalog object; see document identifier." }
   - { knowledge_item_id: ki_htime_case_vessel_story_action, source_citation_id: src_htime_cmog_1730, locator: "Relevant dated section or catalog object; see document identifier." }

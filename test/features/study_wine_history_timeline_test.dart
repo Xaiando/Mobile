@@ -52,12 +52,53 @@ void main() {
         find.byKey(const ValueKey('study-wine-history-timeline')),
         findsOneWidget,
       );
+      final timeline = tester.widget<ListView>(
+        find.byKey(const ValueKey('study-wine-history-timeline')),
+      );
+      final sections = [
+        for (final card
+            in (timeline.childrenDelegate as SliverChildListDelegate).children
+                .whereType<Card>())
+          (card.child! as ExpansionTile).key,
+      ];
+      int sectionIndex(String id) =>
+          sections.indexOf(ValueKey('study-history-$id'));
+      for (final id in [
+        'early-evidence',
+        'greek-symposium',
+        'roman',
+        'italy-1963',
+        'cape-wo',
+        'ava',
+        'italy-2010',
+        'gi',
+        'italy-2016',
+        'chile-oiv',
+      ]) {
+        expect(sectionIndex(id), greaterThanOrEqualTo(0), reason: id);
+      }
+      expect(
+        sectionIndex('early-evidence'),
+        lessThan(sectionIndex('greek-symposium')),
+      );
+      expect(sectionIndex('greek-symposium'), lessThan(sectionIndex('roman')));
+      expect(sectionIndex('italy-1963'), lessThan(sectionIndex('cape-wo')));
+      expect(sectionIndex('ava'), lessThan(sectionIndex('italy-2010')));
+      expect(sectionIndex('italy-2010'), lessThan(sectionIndex('gi')));
+      expect(sectionIndex('gi'), lessThan(sectionIndex('italy-2016')));
+      expect(sectionIndex('italy-2016'), lessThan(sectionIndex('chile-oiv')));
       final early = find.byKey(const ValueKey('study-history-early-evidence'));
+      final greek = find.byKey(const ValueKey('study-history-greek-symposium'));
       final roman = find.byKey(const ValueKey('study-history-roman'));
       expect(early, findsOneWidget);
+      expect(greek, findsOneWidget);
       expect(roman, findsOneWidget);
       expect(
         tester.getTopLeft(early).dy,
+        lessThan(tester.getTopLeft(greek).dy),
+      );
+      expect(
+        tester.getTopLeft(greek).dy,
         lessThan(tester.getTopLeft(roman).dy),
       );
 

@@ -18,12 +18,16 @@ class JournalScanSection extends StatefulWidget {
     required this.onVintage,
     required this.onNonVintage,
     required this.onAbv,
+    this.picker,
+    this.recognizeText,
   });
 
   final void Function(PhotoKind, Uint8List) onPicked;
   final void Function(int) onVintage;
   final VoidCallback onNonVintage;
   final void Function(double) onAbv;
+  final ImagePicker? picker;
+  final Future<String> Function(String path)? recognizeText;
 
   @override
   State<JournalScanSection> createState() => _JournalScanSectionState();
@@ -31,8 +35,10 @@ class JournalScanSection extends StatefulWidget {
 
 class _JournalScanSectionState extends State<JournalScanSection>
     with AutomaticKeepAliveClientMixin<JournalScanSection> {
-  final _picker = ImagePicker();
+  late final ImagePicker _picker;
   final _raw = TextEditingController();
+  bool _rawFromOcr = false;
+  int _manualEditRevision = 0;
   bool _busy = false;
   String? _message;
   XFile? _recovered;
@@ -48,6 +54,7 @@ class _JournalScanSectionState extends State<JournalScanSection>
   @override
   void initState() {
     super.initState();
+    _picker = widget.picker ?? ImagePicker();
     if (!kIsWeb && defaultTargetPlatform == TargetPlatform.android) {
       _recoverInterruptedPick();
     }
@@ -154,22 +161,41 @@ class _JournalScanSectionState extends State<JournalScanSection>
     final sanitized = JournalPhotoStore.sanitize(await file.readAsBytes());
     if (!mounted) return;
     widget.onPicked(kind, sanitized);
-    if (kind != PhotoKind.label || !_mobileOcr) return;
+    if (!mounted) return;
+    if (kind != PhotoKind.label) return;
+    // The new photo has been accepted. An untouched transcript from the old
+    // label must not keep offering its vintage and alcohol clues if OCR fails.
+    setState(() {
+      if (_rawFromOcr) _raw.clear();
+      _rawFromOcr = false;
+    });
+    if (!_mobileOcr && widget.recognizeText == null) return;
+    final editRevision = _manualEditRevision;
     try {
-      final recognized = await recognizeLabelText(file.path);
+      final recognized = await (widget.recognizeText ?? recognizeLabelText)(
+        file.path,
+      );
       if (!mounted) return;
-      _raw.text = recognized;
       setState(() {
-        _message = recognized.trim().isEmpty
-            ? 'No label text was recognized. Enter it below if useful.'
-            : 'Review the recognized text. Use only the clues you confirm.';
+        if (_manualEditRevision != editRevision ||
+            _raw.text.trim().isNotEmpty) {
+          _message = 'Photo added. Your label text changes were kept.';
+        } else {
+          _raw.text = recognized;
+          _rawFromOcr = recognized.trim().isNotEmpty;
+          _message = recognized.trim().isEmpty
+              ? 'No label text was recognized. Enter it below if useful.'
+              : 'Review the recognized text. Use only the clues you confirm.';
+        }
       });
     } catch (_) {
       if (mounted) {
         setState(
-          () => _message =
-              'Photo added. Text recognition was unavailable; enter label '
-              'text below if useful.',
+          () => _message = _raw.text.trim().isNotEmpty
+              ? 'Photo added. Text recognition was unavailable; your '
+                    'label text was kept.'
+              : 'Photo added. Text recognition was unavailable; enter '
+                    'label text below if useful.',
         );
       }
     }
@@ -286,7 +312,10 @@ class _JournalScanSectionState extends State<JournalScanSection>
         TextField(
           controller: _raw,
           maxLines: 3,
-          onChanged: (_) => setState(() {}),
+          onChanged: (_) => setState(() {
+            _rawFromOcr = false;
+            _manualEditRevision++;
+          }),
           decoration: const InputDecoration(
             border: OutlineInputBorder(),
             labelText: 'Recognized or manually transcribed label text',

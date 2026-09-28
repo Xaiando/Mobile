@@ -94,14 +94,14 @@ Article 1 of DPR 12 July 1963, n. 930, was printed on the Normattiva original-te
 
 ## Practice
 
-The registered graph holds explanation points and eight applied cases, including the oldest-wine claim, the three Napoleons, demarcation versus duty, and the sparkling inventor story. Model answers are the case rows. Single-answer multiple choice is disabled because a short reply can be right in more than one wording. The candidate question bank in `history_course_questions.yaml` is an editorial handoff; ten scoped runtime short-answer templates, including two from the companion, are ingested instead.
+The expanded-course graph holds explanation points and eight applied cases, including the oldest-wine claim, the three Napoleons, demarcation versus duty, and the sparkling inventor story. The chronological companion adds three cases, including a Greek symposium krater versus a later Roman transport amphora. Model answers are the case rows. Single-answer multiple choice is disabled because a short reply can be right in more than one wording. The candidate question bank in `history_course_questions.yaml` is an editorial handoff; eleven scoped runtime short-answer templates are ingested instead.
 
 ## Coverage review
 
 The seven outcomes above are taught with a comparison, a misconception, and, for four of them, an applied case. What is still too shallow or absent, even if every row were valid:
 
 - Medieval institutions are covered by UNESCO and Burgundy heritage material in the chronological companion. Quantified Gascon trade remains unresolved.
-- Roman amphora and surviving seventeenth- and eighteenth-century glass/cork vessels are covered by museum object records in the chronological companion. Their dates do not prove when every container type was invented or replaced.
+- A Greek krater dated about 550 BCE documents wine diluted at a symposium; a later Roman amphora documents a wine-transport type. Surviving seventeenth- and eighteenth-century glass/cork vessels add packaging examples. These museum objects do not prove when each practice or container type was invented or replaced.
 - A single inventor year, a census of lost varieties, and any press-release fraction for phylloxera. The INRAE range is taught with that limit. The California page still has no year.
 - The chronological companion now covers Clos de Vougeot as a twelfth-century Cistercian vineyard and cellar model. Its exact building chronology remains unresolved.
 - Article 4 of DPR 930 remains unresolved: the compilation leaves it blank and footnotes a 1994 repeal. The three names in Articles 2 and 3 are taught as 1963 text, not as law in force. The opened 2016 Articles 26 and 28 are treated separately.

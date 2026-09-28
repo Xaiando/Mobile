@@ -1,0 +1,315 @@
+# CMS Certified pairing practice. Cases are conditional applications, not universal menu rules.
+knowledge_nodes:
+  - { id: n_cms_pairing_cooking, node_type: production_principle, name: "How can cooking and the finished plate change a wine recommendation?" }
+  - { id: n_cms_pairing_point_browning, node_type: learning_point, name: "Browning changes the food's aroma" }
+  - { id: n_cms_pairing_point_preparation, node_type: learning_point, name: "Compare preparation and seasoning, not the food name alone" }
+  - { id: n_cms_pairing_point_sauce, node_type: learning_point, name: "A sauce or condiment may set the dominant flavour" }
+  - { id: n_cms_pairing_vinegar, node_type: production_principle, name: "How should a sharp vinegar accompaniment affect a wine choice?" }
+  - { id: n_cms_pairing_point_vinegar, node_type: learning_point, name: "Assess the acidity of the finished bite" }
+  - { id: n_cms_pairing_chocolate, node_type: production_principle, name: "Why is a chocolate dessert a difficult match for dry wine?" }
+  - { id: n_cms_pairing_point_chocolate, node_type: learning_point, name: "Chocolate sweetness can change the wine's apparent fruit and bitterness" }
+  - { id: n_cms_pairing_caramel, node_type: production_principle, name: "What should be checked with salted caramel?" }
+  - { id: n_cms_pairing_point_caramel, node_type: learning_point, name: "Consider both sweetness and salt before recommending a wine" }
+  - id: n_cms_pairing_case_oysters
+    node_type: production_case
+    name: >-
+      A guest who likes crisp dry white wine orders oysters with a lemon-and-vinegar
+      accompaniment. Assess a Muscadet trial for the finished bite and the guest.
+  - { id: n_cms_pairing_point_oysters_action, node_type: learning_point, name: "Trial Muscadet with the dressed oyster" }
+  - { id: n_cms_pairing_point_oysters_reason, node_type: learning_point, name: "The sharp accompaniment informs the choice" }
+  - { id: n_cms_pairing_point_oysters_tradeoff, node_type: learning_point, name: "Champagne is another sourced option" }
+  - { id: n_cms_pairing_point_oysters_limitation, node_type: learning_point, name: "Taste the actual dressing and ask the guest" }
+  - id: n_cms_pairing_case_chocolate
+    node_type: production_case
+    name: >-
+      A guest who enjoys fortified wine orders a high-cocoa chocolate tart with
+      salted caramel. Assess a tentative Tawny Port trial for the finished bite.
+  - { id: n_cms_pairing_point_chocolate_action, node_type: learning_point, name: "Trial a small taste of Tawny Port with the tart" }
+  - { id: n_cms_pairing_point_chocolate_reason, node_type: learning_point, name: "High-cocoa chocolate and Tawny Port are a sourced possibility" }
+  - { id: n_cms_pairing_point_chocolate_tradeoff, node_type: learning_point, name: "Dessert sweetness and salt can pull perception in different directions" }
+  - { id: n_cms_pairing_point_chocolate_limitation, node_type: learning_point, name: "This exact tart-and-wine combination was not tested by the cited sources" }
+
+knowledge_relations:
+  - { subject_id: n_cms_pairing_cooking, relation_type: PRINCIPLE_EXPLANATION, object_id: n_cms_pairing_point_browning, valid_from: "2026-09-28" }
+  - { subject_id: n_cms_pairing_cooking, relation_type: PRINCIPLE_EXPLANATION, object_id: n_cms_pairing_point_preparation, valid_from: "2026-09-28" }
+  - { subject_id: n_cms_pairing_cooking, relation_type: PRINCIPLE_EXPLANATION, object_id: n_cms_pairing_point_sauce, valid_from: "2026-09-28" }
+  - { subject_id: n_cms_pairing_vinegar, relation_type: PRINCIPLE_EXPLANATION, object_id: n_cms_pairing_point_vinegar, valid_from: "2026-09-28" }
+  - { subject_id: n_cms_pairing_chocolate, relation_type: PRINCIPLE_EXPLANATION, object_id: n_cms_pairing_point_chocolate, valid_from: "2026-09-28" }
+  - { subject_id: n_cms_pairing_caramel, relation_type: PRINCIPLE_EXPLANATION, object_id: n_cms_pairing_point_caramel, valid_from: "2026-09-28" }
+  - { subject_id: n_cms_pairing_case_oysters, relation_type: CASE_ACTION, object_id: n_cms_pairing_point_oysters_action, valid_from: "2026-09-28" }
+  - { subject_id: n_cms_pairing_case_oysters, relation_type: CASE_REASON, object_id: n_cms_pairing_point_oysters_reason, valid_from: "2026-09-28" }
+  - { subject_id: n_cms_pairing_case_oysters, relation_type: CASE_TRADEOFF, object_id: n_cms_pairing_point_oysters_tradeoff, valid_from: "2026-09-28" }
+  - { subject_id: n_cms_pairing_case_oysters, relation_type: CASE_LIMITATION, object_id: n_cms_pairing_point_oysters_limitation, valid_from: "2026-09-28" }
+  - { subject_id: n_cms_pairing_case_chocolate, relation_type: CASE_ACTION, object_id: n_cms_pairing_point_chocolate_action, valid_from: "2026-09-28" }
+  - { subject_id: n_cms_pairing_case_chocolate, relation_type: CASE_REASON, object_id: n_cms_pairing_point_chocolate_reason, valid_from: "2026-09-28" }
+  - { subject_id: n_cms_pairing_case_chocolate, relation_type: CASE_TRADEOFF, object_id: n_cms_pairing_point_chocolate_tradeoff, valid_from: "2026-09-28" }
+  - { subject_id: n_cms_pairing_case_chocolate, relation_type: CASE_LIMITATION, object_id: n_cms_pairing_point_chocolate_limitation, valid_from: "2026-09-28" }
+
+knowledge_items:
+  - id: ki_cms_pairing_browning
+    subject_id: n_cms_pairing_cooking
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_cms_pairing_point_browning
+    domain_id: service
+    assertion_text: >-
+      High-heat browning can add toasted or roasted aromas to food. Before carrying
+      over a wine suggestion from a gently cooked version, assess whether those
+      new flavours now lead the finished dish; browning alone does not prescribe a wine.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+  - id: ki_cms_pairing_preparation
+    subject_id: n_cms_pairing_cooking
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_cms_pairing_point_preparation
+    domain_id: service
+    assertion_text: >-
+      Preparation and seasoning can change the useful pairing brief. WSET suggests
+      aromatic Sauvignon Blanc for stronger-flavoured smoked salmon, but Chablis
+      for grilled sea bass with lemon. These are different fish dishes, not a
+      controlled comparison of one ingredient cooked two ways; assess each plate.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+  - id: ki_cms_pairing_sauce
+    subject_id: n_cms_pairing_cooking
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_cms_pairing_point_sauce
+    domain_id: service
+    assertion_text: >-
+      Check the finished sauce and condiments as well as the central ingredient.
+      They can supply the strongest flavour or acid on the plate and change which
+      wine is worth trialling. Ask how the dish will actually be served.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+  - id: ki_cms_pairing_vinegar
+    subject_id: n_cms_pairing_vinegar
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_cms_pairing_point_vinegar
+    domain_id: service
+    assertion_text: >-
+      With oysters dressed in sharp lemon or vinegar, WSET suggests high-acid
+      Muscadet or Champagne. Use that as a starting choice for the dressed oyster,
+      then check how much condiment the guest uses and which style they prefer.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+  - id: ki_cms_pairing_chocolate
+    subject_id: n_cms_pairing_chocolate
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_cms_pairing_point_chocolate
+    domain_id: service
+    assertion_text: >-
+      Chocolate's sweetness can mute a dry wine's fruit and make it seem more
+      bitter or hollow. WSET offers sweet Ruby or Tawny Port and Recioto as
+      possibilities with high-cocoa chocolate, not guaranteed matches for every
+      chocolate dessert or guest.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+  - id: ki_cms_pairing_caramel
+    subject_id: n_cms_pairing_caramel
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_cms_pairing_point_caramel
+    domain_id: service
+    assertion_text: >-
+      In a salted-caramel dessert, evaluate sweetness and salt separately: sweet
+      food can make a wine seem drier and more bitter, while salt can soften
+      perceived bitterness. This combines WSET's general sensory guidance; it
+      does not establish a particular wine as the correct salted-caramel match.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+  - id: ki_cms_pairing_oysters_action
+    subject_id: n_cms_pairing_case_oysters
+    relation_type: CASE_ACTION
+    object_id: n_cms_pairing_point_oysters_action
+    domain_id: service
+    assertion_text: >-
+      Offer the guest a small trial of Muscadet alongside an oyster with the
+      intended amount of lemon-and-vinegar accompaniment.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+  - id: ki_cms_pairing_oysters_reason
+    subject_id: n_cms_pairing_case_oysters
+    relation_type: CASE_REASON
+    object_id: n_cms_pairing_point_oysters_reason
+    domain_id: service
+    assertion_text: >-
+      WSET explains that tangy lemon or vinegar with oysters can soften a
+      high-acid Muscadet's perceived acidity. This links the finished bite to
+      a wine choice that respects the guest's crisp, dry-white preference.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+  - id: ki_cms_pairing_oysters_tradeoff
+    subject_id: n_cms_pairing_case_oysters
+    relation_type: CASE_TRADEOFF
+    object_id: n_cms_pairing_point_oysters_tradeoff
+    domain_id: service
+    assertion_text: >-
+      Champagne is another WSET-suggested option for the tangy oyster. It may
+      suit a guest who wants sparkling wine, while Muscadet follows this guest's
+      request for a crisp still white; neither is automatically superior.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+  - id: ki_cms_pairing_oysters_limitation
+    subject_id: n_cms_pairing_case_oysters
+    relation_type: CASE_LIMITATION
+    object_id: n_cms_pairing_point_oysters_limitation
+    domain_id: service
+    assertion_text: >-
+      Ask whether the guest will use the sharp dressing and taste the actual
+      bite with the available wine if possible. WSET's example does not prove
+      every oyster preparation or every bottle of Muscadet will please this guest.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+  - id: ki_cms_pairing_chocolate_action
+    subject_id: n_cms_pairing_case_chocolate
+    relation_type: CASE_ACTION
+    object_id: n_cms_pairing_point_chocolate_action
+    domain_id: service
+    assertion_text: >-
+      If a sample is available, trial a small pour of Tawny Port with a bite of
+      the high-cocoa chocolate tart and its salted caramel, then ask the guest
+      how the combination tastes.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+  - id: ki_cms_pairing_chocolate_reason
+    subject_id: n_cms_pairing_case_chocolate
+    relation_type: CASE_REASON
+    object_id: n_cms_pairing_point_chocolate_reason
+    domain_id: service
+    assertion_text: >-
+      Sweet food can make a dry wine seem less fruity and more bitter, so WSET
+      suggests sweet Tawny Port as a possible partner for high-cocoa chocolate.
+      The salted-caramel topping changes the bite and still needs tasting.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+  - id: ki_cms_pairing_chocolate_tradeoff
+    subject_id: n_cms_pairing_case_chocolate
+    relation_type: CASE_TRADEOFF
+    object_id: n_cms_pairing_point_chocolate_tradeoff
+    domain_id: service
+    assertion_text: >-
+      The tart's sweetness could still make the wine seem drier or less fruity;
+      its salt could soften bitterness. Compare both effects rather than relying
+      on Tawny Port's sweetness alone.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+  - id: ki_cms_pairing_chocolate_limitation
+    subject_id: n_cms_pairing_case_chocolate
+    relation_type: CASE_LIMITATION
+    object_id: n_cms_pairing_point_chocolate_limitation
+    domain_id: service
+    assertion_text: >-
+      The cited WSET sources discuss high-cocoa chocolate, sweet wine, and the
+      sensory effects of sweetness and salt separately. They do not test this
+      exact chocolate tart with salted caramel and Tawny Port; keep the proposed
+      pairing tentative and respond to the guest's tasting result.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+
+certification_knowledge_mappings:
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_pairing_browning, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_pairing_preparation, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_pairing_sauce, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_pairing_vinegar, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_pairing_chocolate, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_pairing_caramel, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_pairing_oysters_action, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_pairing_oysters_reason, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_pairing_oysters_tradeoff, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_pairing_oysters_limitation, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_pairing_chocolate_action, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_pairing_chocolate_reason, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_pairing_chocolate_tradeoff, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_pairing_chocolate_limitation, importance: core, minimum_depth: 2 }
+
+source_citations:
+  - id: src_cms_pairing_guide
+    kind: reference_work
+    title: Food and Wine Matching
+    publisher: Court of Master Sommeliers Europe
+    document_identifier: Educational guide; PDF pages 2 and 6; preference, cooking impact and dominant sauces
+    url: https://courtofmastersommeliers.org/wp-content/uploads/2022/11/Food-and-Wine-1.pdf
+    accessed_on: "2026-09-28"
+  - id: src_cms_pairing_wset_easter
+    kind: reference_work
+    title: A guide to Easter food & wine pairings
+    publisher: Wine & Spirit Education Trust
+    document_identifier: 26 March 2024; fish preparation, sauce, chocolate and fortified-wine examples
+    url: https://www.wsetglobal.com/knowledge-centre/blog/2024/march/26/a-guide-to-easter-food-wine-pairings
+    accessed_on: "2026-09-28"
+  - id: src_cms_pairing_wset_browning
+    kind: reference_work
+    title: Why does my stout taste like chocolate?
+    publisher: Wine & Spirit Education Trust
+    document_identifier: 14 March 2025; Maillard reaction in toasted bread and seared steak
+    url: https://www.wsetglobal.com/knowledge-centre/blog/2025/the-mystery-of-chocolate-aromas-in-stout-explained
+    accessed_on: "2026-09-28"
+
+knowledge_item_citations:
+  - { knowledge_item_id: ki_cms_pairing_browning, source_citation_id: src_cms_pairing_wset_browning, locator: "High-heat Maillard examples: toasted bread and seared steak; aromatic change, not a wine rule" }
+  - { knowledge_item_id: ki_cms_pairing_browning, source_citation_id: src_cms_pairing_guide, locator: "PDF p. 6, cooking method and its impact on flavour and wine match" }
+  - { knowledge_item_id: ki_cms_pairing_preparation, source_citation_id: src_cms_pairing_wset_easter, locator: "Fish examples: smoked salmon with aromatic Sauvignon Blanc; grilled sea bass with lemon and Chablis" }
+  - { knowledge_item_id: ki_cms_pairing_preparation, source_citation_id: src_cms_pairing_guide, locator: "PDF p. 6, cooking method and strongest flavour on the finished plate" }
+  - { knowledge_item_id: ki_cms_pairing_sauce, source_citation_id: src_cms_pairing_guide, locator: "PDF p. 6, sauces and condiments may dominate the food's flavour" }
+  - { knowledge_item_id: ki_cms_pairing_sauce, source_citation_id: src_cms_pairing_wset_easter, locator: "The Main Meal, sauce paragraph: sauce may be the strongest flavour" }
+  - { knowledge_item_id: ki_cms_pairing_vinegar, source_citation_id: src_wset_srv_food, locator: "Oysters with tangy lemon or vinegar accompaniment: high-acid Muscadet or Champagne as examples" }
+  - { knowledge_item_id: ki_cms_pairing_vinegar, source_citation_id: src_cms_pairing_guide, locator: "PDF pp. 2, 6, guest preference and condiment impact" }
+  - { knowledge_item_id: ki_cms_pairing_chocolate, source_citation_id: src_cms_pairing_wset_easter, locator: "Chocolate discussion: sweetness can mask fruit and expose bitterness; high-cocoa chocolate with sweet Port or Recioto is tentative" }
+  - { knowledge_item_id: ki_cms_pairing_caramel, source_citation_id: src_wset_srv_sweet, locator: "Winter pairing article: sweet food and salt's separate effects; salted caramel is an analogy, not a wine trial" }
+  - { knowledge_item_id: ki_cms_pairing_oysters_action, source_citation_id: src_wset_srv_food, locator: "Oysters with lemon/vinegar: Muscadet as a cited candidate; case specifies a guest preference" }
+  - { knowledge_item_id: ki_cms_pairing_oysters_reason, source_citation_id: src_wset_srv_food, locator: "Oysters with tangy lemon/vinegar: food acidity softens the perceived acidity of high-acid Muscadet; guest preference is in the original case" }
+  - { knowledge_item_id: ki_cms_pairing_oysters_tradeoff, source_citation_id: src_wset_srv_food, locator: "Oysters with tangy accompaniment: Muscadet or Champagne, not a unique match" }
+  - { knowledge_item_id: ki_cms_pairing_oysters_limitation, source_citation_id: src_wset_srv_food, locator: "Pairing article treats the oyster example as a suggestion, and preferences vary" }
+  - { knowledge_item_id: ki_cms_pairing_oysters_limitation, source_citation_id: src_cms_pairing_guide, locator: "PDF pp. 2, 6, guest preference and actual condiment can change a match" }
+  - { knowledge_item_id: ki_cms_pairing_chocolate_action, source_citation_id: src_cms_pairing_wset_easter, locator: "High-cocoa chocolate with sweet Tawny Port is a tentative suggestion; salted caramel added by this original case" }
+  - { knowledge_item_id: ki_cms_pairing_chocolate_reason, source_citation_id: src_cms_pairing_wset_easter, locator: "Sweet foods reduce dry-wine fruit and expose bitterness; high-cocoa chocolate and sweet Tawny Port are a possibility, with no tested tart recipe" }
+  - { knowledge_item_id: ki_cms_pairing_chocolate_reason, source_citation_id: src_wset_srv_sweet, locator: "Sweet food can make wine seem less fruity, drier and bitter; salted-caramel topping remains an application to be tasted" }
+  - { knowledge_item_id: ki_cms_pairing_chocolate_tradeoff, source_citation_id: src_wset_srv_sweet, locator: "Sweet food can make wine seem drier or more bitter; salt can soften bitterness" }
+  - { knowledge_item_id: ki_cms_pairing_chocolate_limitation, source_citation_id: src_cms_pairing_wset_easter, locator: "High-cocoa chocolate/Port example does not include the constructed salted-caramel tart" }
+  - { knowledge_item_id: ki_cms_pairing_chocolate_limitation, source_citation_id: src_wset_srv_sweet, locator: "General sweetness and salt effects, not a test of the constructed tart-and-Port match" }
+
+question_templates:
+  - id: qt_cms_pairing_case_oysters
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: cms_pairing_oysters
+    prompt_template: >-
+      A guest who likes crisp dry white wine orders oysters with a lemon-and-vinegar
+      accompaniment. Explain how you would assess Muscadet as a first wine to trial
+      with the dressed oyster and this guest.
+    parameters:
+      scope_node_ids: [n_cms_pairing_case_oysters]
+      key_points:
+        CASE_ACTION: Conditional wine recommendation
+        CASE_REASON: Dish-and-wine reason
+        CASE_TRADEOFF: Alternative or tradeoff
+        CASE_LIMITATION: Condition or tasting follow-up
+  - id: qt_cms_pairing_case_chocolate
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: cms_pairing_chocolate
+    prompt_template: >-
+      A guest who enjoys fortified wine orders a high-cocoa chocolate tart with
+      salted caramel. Explain how you would assess Tawny Port as a tentative wine
+      trial with this tart and topping.
+    parameters:
+      scope_node_ids: [n_cms_pairing_case_chocolate]
+      key_points:
+        CASE_ACTION: Conditional wine recommendation
+        CASE_REASON: Dish-and-wine reason
+        CASE_TRADEOFF: Sensory tradeoff
+        CASE_LIMITATION: Limit of the tested source example

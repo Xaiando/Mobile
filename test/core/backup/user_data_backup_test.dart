@@ -284,6 +284,49 @@ void main() {
     expect(await other.select(other.wineJournalPhotos).get(), isEmpty);
   });
 
+  test('missing or null table arrays cannot erase existing data', () async {
+    await study(db);
+    final before = await contents(db);
+    final exported = await backup.exportJson();
+    final notABackup = isA<BackupException>().having(
+      (error) => error.message,
+      'message',
+      'This file is not a Sommelier backup.',
+    );
+
+    for (final version in [1, 2]) {
+      for (final table in [
+        'review_events',
+        if (version == 2) 'wine_journal_photos',
+      ]) {
+        expect(before[table], isNotEmpty, reason: '$table has data to lose');
+        for (final missing in [true, false]) {
+          final document = jsonDecode(exported) as Map<String, Object?>;
+          document['format_version'] = version;
+          final tables = document['tables']! as Map<String, Object?>;
+          if (version == 1) {
+            document['schema_version'] = 4;
+            tables.remove('wine_journal_photos');
+          }
+          if (missing) {
+            tables.remove(table);
+          } else {
+            tables[table] = null;
+          }
+          final caseName =
+              'format $version $table '
+              '${missing ? 'missing' : 'null'}';
+          await expectLater(
+            backup.import(jsonEncode(document)),
+            throwsA(notABackup),
+            reason: caseName,
+          );
+          expect(await contents(db), before, reason: caseName);
+        }
+      }
+    }
+  });
+
   test('a corrupt photo refuses import before replacing any rows', () async {
     await study(db);
     final before = await contents(db);

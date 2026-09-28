@@ -235,17 +235,69 @@ void main() {
         );
         expect(out, contains(row), reason: entry.key);
       }
+      expect(
+        out,
+        contains(
+          RegExp(
+            r'\| `cms_certified\.food_pairing` [^|]+\| 43 \| 39 \| \d+ '
+            r'\| represented \|',
+          ),
+        ),
+      );
       expect(out, contains('excluded: The practical examination'));
+
+      final (_, cmsJson) = await run([
+        '--format',
+        'json',
+        '--track',
+        'CMS_CERTIFIED',
+      ]);
+      final cms =
+          ((jsonDecode(cmsJson) as Map)['tracks'] as List).single as Map;
+      final pairing = ((cms['scope'] as Map)['objectives'] as List)
+          .cast<Map<String, dynamic>>()
+          .singleWhere(
+            (objective) => objective['id'] == 'cms_certified.food_pairing',
+          );
+      expect(pairing['items'], 43);
+      expect(pairing['core'], 39);
+      expect(pairing['status'], 'represented');
 
       final (_, json) = await run(['--format', 'json', '--track', 'WSET_L3']);
       final track = ((jsonDecode(json) as Map)['tracks'] as List).single as Map;
       final scope = track['scope'] as Map;
       expect((scope['source'] as Map)['version'], '2022, Issue 2');
       final objectives = scope['objectives'] as List;
+      expect(objectives, hasLength(44));
       expect(
-        objectives.map((o) => (o as Map)['status']).toSet(),
-        containsAll(['represented', 'planned']),
+        objectives.where((o) => (o as Map)['required'] == true),
+        hasLength(42),
       );
+      // "Represented" means at least one authored item is linked; the exact
+      // requirement ledger separately audits semantic teaching coverage.
+      expect(objectives.map((o) => (o as Map)['status']).toSet(), {
+        'represented',
+      });
+      final byId = {
+        for (final objective in objectives)
+          (objective as Map)['id'] as String: objective,
+      };
+      for (final entry in const {
+        'wset_l3.vine_and_climate': 27,
+        'wset_l3.vineyard_practice': 40,
+        'wset_l3.winemaking': 39,
+        'wset_l3.maturation_and_finishing': 20,
+        'wset_l3.commerce': 6,
+        'wset_l3.advice.recommendations': 11,
+        'wset_l3.advice.faults': 9,
+        'wset_l3.advice.food_pairing': 27,
+        'wset_l3.advice.social_and_health': 5,
+      }.entries) {
+        final objective = byId[entry.key] as Map;
+        expect(objective['items'], entry.value, reason: entry.key);
+        expect(objective['core'], entry.value, reason: entry.key);
+        expect(objective['status'], 'represented', reason: entry.key);
+      }
     });
 
     test(

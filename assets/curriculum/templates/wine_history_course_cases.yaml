@@ -10,6 +10,15 @@ question_templates:
     parameters:
       scope_node_ids: [n_hcourse_case_oldest]
       key_points: {CASE_ACTION: Distinction, CASE_REASON: Dated evidence, CASE_TRADEOFF: Useful comparison, CASE_LIMITATION: Evidence limit}
+  - id: qt_hist_case_greek_roman_vessels
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: hist_greek_roman_vessels
+    prompt_template: "A guest treats a Greek krater and a Roman amphora as the same kind of wine vessel. Give each museum object's date and job, then name two conclusions the objects cannot support."
+    parameters:
+      scope_node_ids: [n_htime_case_greek_roman_vessels]
+      key_points: {CASE_ACTION: Dates and functions, CASE_REASON: Different evidence, CASE_TRADEOFF: Useful comparison, CASE_LIMITATION: Evidence limits}
   - id: qt_hist_case_napoleon_names
     relation_type: CASE_ACTION
     direction: forward

@@ -329,6 +329,12 @@ const _wineHistoryMoments = <_WineHistoryMoment>[
       'n_hcourse_case_oldest',
     ],
   ),
+  _WineHistoryMoment(
+    'greek-symposium',
+    'c. 550 BCE',
+    'Greek wine at the symposium',
+    ['n_htime_greek_symposium', 'n_htime_case_greek_roman_vessels'],
+  ),
   _WineHistoryMoment('roman', 'Roman era', 'Vineyards and wine trade', [
     'ki_hist_pliny_falernian',
     'n_hcourse_rome',
@@ -427,11 +433,12 @@ const _wineHistoryMoments = <_WineHistoryMoment>[
     'ki_hist_aoc_1935',
     'ki_hcourse_modern_aoc',
   ]),
-  _WineHistoryMoment('italy', '1963–2016', 'Italian origin law', [
-    'n_hcourse_doc',
+  _WineHistoryMoment('italy-1963', '1963', 'Italian origin-law categories', [
+    'ki_hcourse_doc_name',
+    'ki_hcourse_doc_unread',
+    'ki_hcourse_doc_three',
+    'ki_hcourse_doc_semplice',
     'n_hcourse_case_doc',
-    'n_hcourse_case_repeal',
-    'n_hcourse_case_letters',
   ]),
   _WineHistoryMoment('cape-wo', '1972–1973', 'Cape Wine of Origin', [
     'ki_htime_modern_origin_cape_wo',
@@ -444,9 +451,18 @@ const _wineHistoryMoments = <_WineHistoryMoment>[
     'ki_htime_modern_origin_usa_ava',
     'n_htime_case_newworld_names',
   ]),
+  _WineHistoryMoment('italy-2010', '2010', 'Italian origin-law reform', [
+    'ki_hcourse_doc_repeal',
+    'ki_hcourse_doc_2010',
+    'n_hcourse_case_repeal',
+  ]),
   _WineHistoryMoment('gi', '2013 onward', 'Modern geographic indications', [
     'ki_hist_eu_wine_definition',
     'ki_htime_modern_origin_australia_gi',
+  ]),
+  _WineHistoryMoment('italy-2016', '2016', 'Italian DOC, DOCG and IGT law', [
+    'ki_hcourse_doc_now',
+    'n_hcourse_case_letters',
   ]),
   _WineHistoryMoment('chile-oiv', '2024', 'Chile and OIV sustainability work', [
     'ki_htime_present_chile2024',

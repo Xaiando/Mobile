@@ -163,17 +163,18 @@ class UserDataBackup {
     }
     final data = decoded['tables'];
     if (data is! Map<String, Object?>) throw _notABackup;
-    if (data.keys.any((table) => !tables.contains(table))) throw _newer;
-    if (version == 1 && data.containsKey('wine_journal_photos')) {
+    final expectedTables = {
+      for (final table in tables)
+        if (version != 1 || table != 'wine_journal_photos') table,
+    };
+    if (data.keys.any((table) => !expectedTables.contains(table))) {
       throw _newer;
-    }
-    if (version == 2 && !data.containsKey('wine_journal_photos')) {
-      throw _notABackup;
     }
 
     final rowsOf = <String, List<Map<String, Object?>>>{};
     for (final table in tables) {
-      final rows = data[table] ?? const <Object?>[];
+      // Only format 1 may omit photos. A present null is never an empty table.
+      final rows = data.containsKey(table) ? data[table] : const <Object?>[];
       if (rows is! List<Object?>) throw _notABackup;
       final columns = await _columns(table);
       final parsed = <Map<String, Object?>>[];
@@ -206,6 +207,11 @@ class UserDataBackup {
       )) {
         throw _newer;
       }
+    }
+    // Keep this after column validation so unknown columns still report that
+    // the backup needs a newer app, even if another table is absent.
+    if (expectedTables.any((table) => !data.containsKey(table))) {
+      throw _notABackup;
     }
     await _replace(rowsOf);
     return ImportSummary({
