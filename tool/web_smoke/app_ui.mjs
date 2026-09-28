@@ -330,7 +330,10 @@ try {
         response.once('close', () => recordFontEvent('server-closed', {
           serverRequestId, bodyFinished: response.writableFinished,
         }));
-        response.writeHead(200, { ...headers, 'Content-Length': bytes.length });
+        // This public asset must revalidate on reload. Chromium can report a
+        // streamed no-store fetch as ERR_ABORTED even after receiving its body.
+        response.writeHead(200, { ...headers, 'Cache-Control': 'no-cache',
+          'Content-Length': bytes.length });
         response.end(bytes);
         return;
       }
