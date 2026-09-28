@@ -22,7 +22,7 @@ class AppDatabase extends _$AppDatabase {
   Future<void> ensureOpen() => customSelect('SELECT 1').get();
 
   @override
-  int get schemaVersion => 4;
+  int get schemaVersion => 5;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -32,6 +32,7 @@ class AppDatabase extends _$AppDatabase {
       from1To2: _from1To2,
       from2To3: _from2To3,
       from3To4: _from3To4,
+      from4To5: _from4To5,
     ),
     beforeOpen: (details) async {
       // SQLite enforces foreign keys only when asked, per connection. They
@@ -122,4 +123,11 @@ Future<void> _from3To4(Migrator m, Schema4 schema) async {
     await m.drop(trigger);
     await m.create(trigger);
   }
+}
+
+/// Schema v5: private journal label and glass images, stored as BLOBs so
+/// deleting an entry cascades to its photos on every platform.
+Future<void> _from4To5(Migrator m, Schema5 schema) async {
+  await m.createTable(schema.wineJournalPhotos);
+  await m.create(schema.wineJournalPhotosByEntry);
 }

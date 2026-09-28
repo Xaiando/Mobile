@@ -1,6 +1,6 @@
 # Essential wine-history course
 
-Unregistered teaching text for release work after 0.22.0. It is not learner-visible until the candidate graph in `assets/curriculum/candidates/wine_history_course.yaml` is included. Every factual sentence below is tied to a source already opened for the 0.22.0 pack or, for Columella, opened on 27 September 2026. Claims marked UNRESOLVED are not taught as facts.
+Teaching notes for the expanded course in `assets/curriculum/areas/wine_history_course.yaml`, registered in dataset 0.24.0. The companion chronological additions are in `assets/curriculum/areas/wine_history_timeline.yaml` and [their source log](wine-history-timeline-sources.md). Every factual claim is cited, but all new items remain unverified pending qualified review. Claims marked UNRESOLVED are not taught as facts.
 
 This is an essential course, not all of world wine history. It does not add map pins.
 
@@ -44,7 +44,7 @@ Why it matters now: "the English market" and "the first demarcation" get fused i
 
 Misconception: the Methuen treaty created the Douro. Comparison: 1703 changes the tax; 1756 creates an institution with a demarcation.
 
-UNRESOLVED: Eleanor of Aquitaine and any volume of Gascon trade. Not taught until a page is open.
+The 1152 Eleanor of Aquitaine/Bordeaux link is covered narrowly in the chronological companion from the Bordeaux wine council's page. A volume of Gascon trade remains unresolved; no shipment figure is taught.
 
 ## 4. Three Napoleons
 
@@ -90,28 +90,28 @@ Why it matters now: "the law", "the ban", and "California won" are three differe
 
 Misconception: repeal made American wine better, or the 1976 tasting rewrote French appellation law. Comparison: a statute, a constitutional ban and repeal, and a blind tasting.
 
-Article 1 of DPR 12 July 1963, n. 930, was printed on the Normattiva original-text view. It defines a denominazione di origine as a geographic name, with or without a vine name, for wines whose character depends essentially on the vines and the natural environment, and it allows neighboring land on stated conditions including ten years of prior marketing. That view stopped at Article 1. DOC, DOCG, semplice, controllata, and garantita are not taught from it. The full-act export failed.
+Article 1 of DPR 12 July 1963, n. 930, was printed on the Normattiva original-text view. It defines a denominazione di origine as a geographic name, with or without a vine name, for wines whose character depends essentially on the vines and the natural environment, and it allows neighboring land on stated conditions including ten years of prior marketing. That view stopped at Article 1. A separate legal compilation printed Articles 2 and 3, including the historical names semplice, controllata and controllata e garantita; its Article 4 was blank. The opened original text of legislative decree 61/2010 Article 1 defines DOP and IGP while that decree was in force. The current view marks it repealed by law 238/2016. Opened Articles 26 and 28 of that later law place DOC and DOCG as Italian traditional mentions for DOP wines and IGT for IGP. Do not read the present abbreviations into the printed 1963 Article 2.
 
 ## Practice
 
-The candidate graph holds explanation points and four applied cases: the oldest-wine claim, the three Napoleons, demarcation versus duty, and the sparkling inventor story. Model answers are the case rows. Single-answer multiple choice is disabled because a short reply can be right in more than one wording. The question bank in `history_course_questions.yaml` is a handoff, not an ingested format.
+The registered graph holds explanation points and eight applied cases, including the oldest-wine claim, the three Napoleons, demarcation versus duty, and the sparkling inventor story. Model answers are the case rows. Single-answer multiple choice is disabled because a short reply can be right in more than one wording. The candidate question bank in `history_course_questions.yaml` is an editorial handoff; ten scoped runtime short-answer templates, including two from the companion, are ingested instead.
 
 ## Coverage review
 
 The seven outcomes above are taught with a comparison, a misconception, and, for four of them, an applied case. What is still too shallow or absent, even if every row were valid:
 
-- Medieval institutions and any quantified Gascon trade. Eleanor is unresolved.
-- Bottle glass, cork, and the shift from amphora to bottle. Not opened, so not taught.
+- Medieval institutions are covered by UNESCO and Burgundy heritage material in the chronological companion. Quantified Gascon trade remains unresolved.
+- Roman amphora and surviving seventeenth- and eighteenth-century glass/cork vessels are covered by museum object records in the chronological companion. Their dates do not prove when every container type was invented or replaced.
 - A single inventor year, a census of lost varieties, and any press-release fraction for phylloxera. The INRAE range is taught with that limit. The California page still has no year.
-- Clos de Vougeot and other monastic vineyards. Unresolved.
-- Article 4 of DPR 930. The compilation leaves it blank and footnotes a 1994 repeal. The three names in Articles 2 and 3 are taught as 1963 text, not as the law in force. Article 1 of legislative decree 61/2010 defines DOP and IGP. The current view says that decree was abrogated by law 238/2016, which was not opened. DOC and DOCG were not on the loaded 2010 page.
-- A New World legal institution other than Prohibition and one tasting. Unresolved.
-- South America, South Africa, and Australia as producing countries. Not this course.
+- The chronological companion now covers Clos de Vougeot as a twelfth-century Cistercian vineyard and cellar model. Its exact building chronology remains unresolved.
+- Article 4 of DPR 930 remains unresolved: the compilation leaves it blank and footnotes a 1994 repeal. The three names in Articles 2 and 3 are taught as 1963 text, not as law in force. The opened 2016 Articles 26 and 28 are treated separately.
+- New World institutions now have dated Cape Wine of Origin, US AVA and Australian GI examples in the companion. Those systems are not equated.
+- South America, South Africa and Australia now have introductory dated milestones in the companion. These are not comprehensive national histories.
 
-Those gaps do not make the taught distinctions false. They mean the course is not finished history.
+Those limits do not make the taught distinctions false. This is a source-bounded survey of essential wine-history milestones, not a claim to enumerate every event or replace qualified factual review.
 
 ## Source review status
 
 Opened and used: PNAS Georgia, Barnard Areni, Loeb Pliny, LacusCurtius Columella book 3, RCP Merrett, Douro journal and Portuguese monuments inventory, Fondation Napoléon Berlin Decree, Bordeaux.com 1855, BNIC Cognac ageing page, UC IPM phylloxera, Légifrance wine code at 25 November 1967, EUR-Lex 1308/2013 consolidation, US National Archives exhibit and Reagan Library amendment text, Smithsonian Judgment of Paris release, Wikisource Methuen text.
 
-Also opened for the phylloxera range: the INRAE aphid encyclopaedia page cited as `src_hcourse_inrae_phylloxera`. Article 1 of DPR 930 is cited as `src_hcourse_dpr_930`. Not used as facts: Eleanor (a biography was extracted and does not mention wine), any article of DPR 930 after Article 1, Clos de Vougeot, and the Wine Australia Act.
+Also opened for the phylloxera range: the INRAE aphid encyclopaedia page cited as `src_hcourse_inrae_phylloxera`. Article 1 of DPR 930 is cited as `src_hcourse_dpr_930`; the separately opened compilation supports Articles 2 and 3, and the separately opened 2016 law supports the present traditional mentions. Eleanor's biography alone did not support a wine claim; the companion cites the Bordeaux wine council for a narrower 1152 trade-history connection. Clos de Vougeot is treated as a twelfth-century model from the Burgundy Climats site, without resolving its conflicting building dates. The Australian GI claim is cited directly from a Federal Register compilation.

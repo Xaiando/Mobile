@@ -109,21 +109,33 @@ class _YourDataSectionState extends ConsumerState<YourDataSection> {
     }
   }
 
-  Future<void> _export() => _run(() async {
-    final json = await ref.read(userDataBackupProvider).exportJson();
-    final today = localToday(ref.read(clockProvider));
-    final saved = await ref
-        .read(backupFilesProvider)
-        .save('sommelier-backup-$today.json', utf8.encode(json));
-    if (saved) _say('Your data is saved.');
-  });
+  Future<void> _export() async {
+    final go = await _confirm(
+      title: 'Export a private backup?',
+      body:
+          'The file includes your study progress, journal, label and glass '
+          'photos, tastings, flags and settings. It is unencrypted JSON: '
+          'anyone with the file can read it. Save it somewhere private.',
+      action: 'Choose a location',
+    );
+    if (!go) return;
+    await _run(() async {
+      final json = await ref.read(userDataBackupProvider).exportJson();
+      final today = localToday(ref.read(clockProvider));
+      final saved = await ref
+          .read(backupFilesProvider)
+          .save('sommelier-backup-$today.json', utf8.encode(json));
+      if (saved) _say('Your data is saved.');
+    });
+  }
 
   Future<void> _import() async {
     final go = await _confirm(
       title: 'Import a backup?',
       body:
           'Importing replaces all your data on this device with the '
-          "backup's: your progress, journal, tastings, flags and settings.",
+          "backup's: your progress, journal, label and glass photos, "
+          'tastings, flags and settings.',
       action: 'Choose a file',
     );
     if (!go) return;
@@ -169,9 +181,9 @@ class _YourDataSectionState extends ConsumerState<YourDataSection> {
     final go = await _confirm(
       title: 'Erase all your data?',
       body:
-          'Your progress, journal, tastings, flags and settings are deleted '
-          'from this device, and the app starts again as new. Export your '
-          'data first to keep a copy.',
+          'Your progress, journal, label and glass photos, tastings, flags '
+          'and settings are deleted from this device, and the app starts '
+          'again as new. Export your data first to keep a copy.',
       action: 'Erase',
     );
     if (!go) return;
@@ -190,8 +202,8 @@ class _YourDataSectionState extends ConsumerState<YourDataSection> {
           leading: const Icon(Icons.upload_file_outlined),
           title: const Text('Export your data'),
           subtitle: const Text(
-            'A file with your progress, journal, tastings, flags and '
-            'settings.',
+            'An unencrypted file with your progress, journal photos, '
+            'tastings, flags and settings.',
           ),
           enabled: !_busy,
           onTap: _export,
@@ -209,8 +221,7 @@ class _YourDataSectionState extends ConsumerState<YourDataSection> {
           subtitle: Text(
             flags == 0
                 ? 'None yet. Flag a question in Practice if something is off.'
-                : '$flags flagged. They travel in your export, so you can '
-                      'send them to the curators.',
+                : '$flags flagged. They are included in your private backup.',
           ),
         ),
         ListTile(

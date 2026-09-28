@@ -1,7 +1,7 @@
 name: sommelier
 description: "Sommelier study app: spaced repetition, tasting practice and a wine journal."
 publish_to: 'none'
-version: 0.3.0+16
+version: 0.4.0+17
 
 environment:
   sdk: ^3.13.0
@@ -23,6 +23,12 @@ dependencies:
   go_router: ^18.0.1
   yaml: ^3.1.4
   file_picker: 13.1.0
+  # Cellar label photos are decoded/re-encoded locally to remove metadata.
+  image: ^4.10.1
+  # Camera on supported mobile devices; gallery/file selection elsewhere.
+  image_picker: ^1.2.3
+  # On-device label text proposals on Android/iOS only.
+  google_mlkit_text_recognition: ^0.17.1
 
 dev_dependencies:
   build_runner: ^2.16.1

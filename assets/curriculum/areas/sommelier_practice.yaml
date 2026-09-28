@@ -1,12 +1,13 @@
-# UNREGISTERED candidate. Not in curriculum.yaml includes. Not learner-visible.
-# CMS mapping is scope, justified by the opened Certified Sommelier examination
-# page: theory covers beverage, and hospitality may ask about spirits and
-# food-and-wine discussion. That page is not a source for the facts below.
-# No WSET Level 1–3 mappings. WSET_L4 is used only for the wine-label items.
+# CMS beverage and service practice; include in a new dataset release.
+# CMS_CERTIFIED follows the Europe 2026/27 track in track_scope.yaml. These
+# explanations supply beverage identity and service reasoning, not an official
+# examination or performance assessment. Exam pages are not fact sources.
+# No WSET Level 1–3 mappings. WSET_L4 is limited to wine-label and
+# astringency items already selected by the original candidate.
 # Reuses src_bev_eu_spirits_2019, src_bev_cognac_bnic, and src_wset_srv_who_cancer.
 # Do not copy those URLs into this file. All items unverified.
 # mcq_disabled because several careful wordings can be right.
-# status: authored, unregistered, unverified, SDK validation pending.
+# All facts are unverified; content and runtime validation remain required.
 knowledge_nodes:
   - { id: n_somm_tequila, node_type: production_principle, name: "What must be true before a bottle is tequila?" }
   - { id: n_somm_tequila_plant, node_type: learning_point, name: "Blue agave, the appellation, and the strength band" }

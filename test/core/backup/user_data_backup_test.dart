@@ -1,14 +1,17 @@
 import 'dart:convert';
 import 'dart:math';
+import 'dart:typed_data';
 
 import 'package:drift/drift.dart' show driftRuntimeOptions;
 import 'package:flutter_test/flutter_test.dart';
 import 'package:fsrs/fsrs.dart' as fsrs;
+import 'package:image/image.dart' as image;
 import 'package:sommelier/core/backup/user_data_backup.dart';
 import 'package:sommelier/core/curriculum/curriculum_ingestion.dart';
 import 'package:sommelier/core/database/app_database.dart';
 import 'package:sommelier/core/feedback/question_feedback.dart';
 import 'package:sommelier/core/journal/wine_journal.dart';
+import 'package:sommelier/core/journal/journal_photo_store.dart';
 import 'package:sommelier/core/questions/question_presenter.dart';
 import 'package:sommelier/core/settings/user_settings.dart';
 import 'package:sommelier/core/study/learner_profile.dart';
@@ -89,6 +92,13 @@ void main() {
           ),
           nodeIds: {'n_geo_chablis'},
         );
+    await JournalPhotoStore(db, clock: time.clock, random: Random(seed)).put(
+      entryId: wine.id,
+      kind: PhotoKind.label,
+      bytes: Uint8List.fromList(
+        image.encodePng(image.Image(width: 2, height: 2)),
+      ),
+    );
     final tasting = TastingPractice(
       db,
       clock: time.clock,
@@ -155,6 +165,7 @@ void main() {
     final json = await backup.exportJson();
     final document = jsonDecode(json) as Map<String, Object?>;
     expect(document['format'], 'sommelier-user-data');
+    expect(document['format_version'], 2);
     expect(document['schema_version'], db.schemaVersion);
     expect(document['curriculum_release'], bundledDataset().version);
     expect(document['exported_at'], '2026-10-01T09:00:00.000Z');
@@ -166,7 +177,55 @@ void main() {
       (summary.reviews, summary.wines, summary.tastings, summary.flags),
       (2, 1, 1, 1),
     );
+    expect(summary.photos, 1);
     expect(await contents(other), before);
+  });
+
+  test('a format-1 backup keeps its legacy photo reference', () async {
+    await study(db);
+    await db.customStatement(
+      "UPDATE wine_journal_entries SET photo_ref = 'legacy-opaque'",
+    );
+    final document =
+        jsonDecode(await backup.exportJson()) as Map<String, Object?>;
+    document['format_version'] = 1;
+    document['schema_version'] = 4;
+    final tables = document['tables']! as Map<String, Object?>;
+    tables.remove('wine_journal_photos');
+
+    final other = await freshDatabase();
+    addTearDown(other.close);
+    final summary = await UserDataBackup(
+      other,
+      clock: time.clock,
+    ).import(jsonEncode(document));
+    expect(summary.photos, 0);
+    expect(
+      (await other.select(other.wineJournalEntries).getSingle()).photoRef,
+      'legacy-opaque',
+    );
+    expect(await other.select(other.wineJournalPhotos).get(), isEmpty);
+  });
+
+  test('a corrupt photo refuses import before replacing any rows', () async {
+    await study(db);
+    final before = await contents(db);
+    final document =
+        jsonDecode(await backup.exportJson()) as Map<String, Object?>;
+    final tables = document['tables']! as Map<String, Object?>;
+    final photos = tables['wine_journal_photos']! as List<Object?>;
+    final photo = photos.single! as Map<String, Object?>;
+    for (final bad in [
+      '%%%not-base64',
+      base64Encode([1, 2, 3]),
+    ]) {
+      photo['photo_bytes'] = bad;
+      await expectLater(
+        backup.import(jsonEncode(document)),
+        throwsA(isA<BackupException>()),
+      );
+      expect(await contents(db), before);
+    }
   });
 
   test('an import replaces everything, the review log included', () async {
@@ -222,7 +281,7 @@ void main() {
       'tables': <String, Object?>{},
     };
     for (final change in <void Function(Map<String, Object?>)>[
-      (d) => d['format_version'] = 2,
+      (d) => d['format_version'] = 3,
       (d) => d['schema_version'] = db.schemaVersion + 1,
       (d) => d['tables'] = {'wine_cellar_bins': <Object?>[]},
       (d) => d['tables'] = {

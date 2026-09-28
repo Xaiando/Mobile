@@ -1,0 +1,286 @@
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
+
+import '../../core/journal/journal_photo_store.dart';
+import '../../core/journal/label_proposal.dart';
+import 'label_ocr.dart';
+
+/// Picks private photos and offers conservative, explicitly accepted label
+/// clues. OCR text and the original picker path never enter the journal DB.
+class JournalScanSection extends StatefulWidget {
+  const JournalScanSection({
+    super.key,
+    required this.onPicked,
+    required this.onVintage,
+    required this.onNonVintage,
+    required this.onAbv,
+  });
+
+  final void Function(PhotoKind, Uint8List) onPicked;
+  final void Function(int) onVintage;
+  final VoidCallback onNonVintage;
+  final void Function(double) onAbv;
+
+  @override
+  State<JournalScanSection> createState() => _JournalScanSectionState();
+}
+
+class _JournalScanSectionState extends State<JournalScanSection>
+    with AutomaticKeepAliveClientMixin<JournalScanSection> {
+  final _picker = ImagePicker();
+  final _raw = TextEditingController();
+  bool _busy = false;
+  String? _message;
+  XFile? _recovered;
+
+  @override
+  bool get wantKeepAlive => true;
+
+  bool get _mobileOcr =>
+      !kIsWeb &&
+      (defaultTargetPlatform == TargetPlatform.android ||
+          defaultTargetPlatform == TargetPlatform.iOS);
+
+  @override
+  void initState() {
+    super.initState();
+    if (!kIsWeb && defaultTargetPlatform == TargetPlatform.android) {
+      _recoverInterruptedPick();
+    }
+  }
+
+  Future<void> _recoverInterruptedPick() async {
+    try {
+      final result = await _picker.retrieveLostData();
+      if (!mounted) return;
+      if (result.files?.isNotEmpty ?? false) {
+        setState(() {
+          _recovered = result.files!.first;
+          _message =
+              'A photo selection was interrupted. Choose where to use '
+              'the recovered photo, or dismiss it.';
+        });
+      }
+    } catch (_) {
+      // Recovery is optional; the normal picker remains available.
+    }
+  }
+
+  @override
+  void dispose() {
+    _raw.dispose();
+    super.dispose();
+  }
+
+  Future<void> _pick(PhotoKind kind, ImageSource source) async {
+    if (_busy) return;
+    setState(() {
+      _busy = true;
+      _message = null;
+    });
+    try {
+      if (!_picker.supportsImageSource(source)) {
+        throw const PhotoStoreException(
+          'Camera capture is unavailable on this device. Choose a photo.',
+        );
+      }
+      final file = await _picker.pickImage(
+        source: source,
+        maxWidth: 3000,
+        maxHeight: 3000,
+        imageQuality: 90,
+      );
+      if (file != null) await _acceptFile(kind, file);
+    } on PhotoStoreException catch (error) {
+      if (mounted) {
+        setState(() => _message = error.message);
+      }
+    } catch (_) {
+      if (mounted) {
+        setState(
+          () => _message =
+              'Photo could not be added. Check photo permissions and try '
+              'again, or enter the label details manually.',
+        );
+      }
+    } finally {
+      if (mounted) setState(() => _busy = false);
+    }
+  }
+
+  Future<void> _acceptFile(PhotoKind kind, XFile file) async {
+    final sanitized = JournalPhotoStore.sanitize(await file.readAsBytes());
+    if (!mounted) return;
+    widget.onPicked(kind, sanitized);
+    if (kind != PhotoKind.label || !_mobileOcr) return;
+    try {
+      final recognized = await recognizeLabelText(file.path);
+      if (!mounted) return;
+      _raw.text = recognized;
+      setState(() {
+        _message = recognized.trim().isEmpty
+            ? 'No label text was recognized. Enter it below if useful.'
+            : 'Review the recognized text. Use only the clues you confirm.';
+      });
+    } catch (_) {
+      if (mounted) {
+        setState(
+          () => _message =
+              'Photo added. Text recognition was unavailable; enter label '
+              'text below if useful.',
+        );
+      }
+    }
+  }
+
+  Future<void> _useRecovered(PhotoKind kind) async {
+    final file = _recovered;
+    if (file == null || _busy) return;
+    setState(() => _busy = true);
+    try {
+      await _acceptFile(kind, file);
+      if (mounted) setState(() => _recovered = null);
+    } on PhotoStoreException catch (error) {
+      if (mounted) setState(() => _message = error.message);
+    } catch (_) {
+      if (mounted) {
+        setState(
+          () => _message =
+              'The recovered photo could not be used. Choose another photo.',
+        );
+      }
+    } finally {
+      if (mounted) setState(() => _busy = false);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    super.build(context);
+    final theme = Theme.of(context);
+    final proposal = LabelProposal.fromRecognizedText(_raw.text);
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text('Cellar photos and label scan', style: theme.textTheme.titleSmall),
+        const SizedBox(height: 4),
+        Text(
+          'Photos stay on this device and are included in an unencrypted '
+          'backup if you export one. A scan only '
+          'suggests a vintage or alcohol level; enter and verify the wine '
+          'name yourself. Large JPEG or PNG photos are reduced before saving; '
+          'the original is not kept.',
+          style: theme.textTheme.bodySmall,
+        ),
+        const SizedBox(height: 8),
+        Wrap(
+          spacing: 8,
+          runSpacing: 4,
+          children: [
+            OutlinedButton.icon(
+              onPressed: _busy
+                  ? null
+                  : () => _pick(PhotoKind.label, ImageSource.gallery),
+              icon: const Icon(Icons.photo_library_outlined),
+              label: const Text('Choose label'),
+            ),
+            if (_mobileOcr)
+              OutlinedButton.icon(
+                onPressed: _busy
+                    ? null
+                    : () => _pick(PhotoKind.label, ImageSource.camera),
+                icon: const Icon(Icons.camera_alt_outlined),
+                label: const Text('Scan label'),
+              ),
+            OutlinedButton.icon(
+              onPressed: _busy
+                  ? null
+                  : () => _pick(PhotoKind.glass, ImageSource.gallery),
+              icon: const Icon(Icons.photo_library_outlined),
+              label: const Text('Choose glass'),
+            ),
+            if (_mobileOcr)
+              OutlinedButton.icon(
+                onPressed: _busy
+                    ? null
+                    : () => _pick(PhotoKind.glass, ImageSource.camera),
+                icon: const Icon(Icons.camera_alt_outlined),
+                label: const Text('Photograph glass'),
+              ),
+          ],
+        ),
+        if (_busy) const LinearProgressIndicator(),
+        if (_recovered != null) ...[
+          const SizedBox(height: 8),
+          const Text('Recovered photo'),
+          Wrap(
+            spacing: 8,
+            children: [
+              TextButton(
+                onPressed: _busy ? null : () => _useRecovered(PhotoKind.label),
+                child: const Text('Use as label'),
+              ),
+              TextButton(
+                onPressed: _busy ? null : () => _useRecovered(PhotoKind.glass),
+                child: const Text('Use as glass'),
+              ),
+              TextButton(
+                onPressed: _busy
+                    ? null
+                    : () => setState(() => _recovered = null),
+                child: const Text('Dismiss'),
+              ),
+            ],
+          ),
+        ],
+        if (_message != null)
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 8),
+            child: Text(_message!, style: theme.textTheme.bodySmall),
+          ),
+        const SizedBox(height: 8),
+        TextField(
+          controller: _raw,
+          maxLines: 3,
+          onChanged: (_) => setState(() {}),
+          decoration: const InputDecoration(
+            border: OutlineInputBorder(),
+            labelText: 'Recognized or manually transcribed label text',
+            helperText: 'Temporary until you leave this editor',
+          ),
+        ),
+        const SizedBox(height: 8),
+        if (_raw.text.trim().isNotEmpty) ...[
+          Wrap(
+            spacing: 8,
+            runSpacing: 4,
+            children: [
+              if (proposal.vintage case final year?)
+                ActionChip(
+                  label: Text('Use vintage $year'),
+                  onPressed: () => widget.onVintage(year),
+                ),
+              if (proposal.isNonVintage)
+                ActionChip(
+                  label: const Text('Use non-vintage'),
+                  onPressed: widget.onNonVintage,
+                ),
+              if (proposal.abvPercent case final abv?)
+                ActionChip(
+                  label: Text('Use $abv% alcohol'),
+                  onPressed: () => widget.onAbv(abv),
+                ),
+            ],
+          ),
+          if (proposal.warnings.isNotEmpty)
+            Text(
+              'Ambiguous or unsupported label text was not filled in. '
+              'Check years, percentages and names yourself.',
+              style: theme.textTheme.bodySmall,
+            ),
+        ],
+      ],
+    );
+  }
+}

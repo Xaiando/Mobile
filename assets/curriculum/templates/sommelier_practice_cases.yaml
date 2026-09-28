@@ -1,0 +1,86 @@
+# Original CMS beverage case rehearsals. Learners assess their own explanation;
+# the app must not automatically certify professional service performance.
+question_templates:
+  - id: qt_somm_practice_case_general
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: somm_practice_general
+    prompt_template: "For {subject.name}, give a useful response, a cited reason, a tradeoff, and a limit on what the evidence establishes."
+    parameters:
+      scope_node_ids:
+        - n_somm_case_mix
+        - n_somm_case_card
+        - n_somm_case_marc
+        - n_somm_case_oak
+        - n_somm_case_yeast
+        - n_somm_case_date
+        - n_somm_case_so2
+        - n_somm_case_fish
+        - n_somm_case_drunk
+        - n_somm_case_pair
+        - n_somm_case_cider
+        - n_somm_case_count
+        - n_somm_case_plates
+        - n_somm_case_oakwood
+        - n_somm_case_steak
+        - n_somm_case_two
+      key_points:
+        CASE_ACTION: Defensible response
+        CASE_REASON: Cited category or sensory reason
+        CASE_TRADEOFF: Tradeoff or alternative
+        CASE_LIMITATION: Limit of the source or decision
+  - id: qt_somm_practice_clean_glass
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: somm_practice_clean_glass
+    prompt_template: "A draught beer's foam collapses quickly in a marked glass. Describe your first service check, why it matters, another possible cause, and what you cannot diagnose yet."
+    parameters:
+      scope_node_ids: [n_somm_case_clean_glass]
+      key_points: {CASE_ACTION: Response, CASE_REASON: Glass-quality reason, CASE_TRADEOFF: Other possible cause, CASE_LIMITATION: Limit}
+  - id: qt_somm_practice_perry
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: somm_practice_perry
+    prompt_template: "A guest asks for perry, but the offered drink is apple cider. Explain the correction, the fruit distinction, why a UK duty category may group the names, and what you must check about the actual bottle."
+    parameters:
+      scope_node_ids: [n_somm_case_perry]
+      key_points: {CASE_ACTION: Response, CASE_REASON: Fruit distinction, CASE_TRADEOFF: Duty-language caveat, CASE_LIMITATION: Bottle check}
+  - id: qt_somm_practice_sake_temp
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: somm_practice_sake_temp
+    prompt_template: "A guest says all sake must be served hot. Offer a choice, explain how temperature can change the same sake, acknowledge a warm option, and name a bottle-specific uncertainty."
+    parameters:
+      scope_node_ids: [n_somm_case_sake_temp]
+      key_points: {CASE_ACTION: Response, CASE_REASON: Temperature reason, CASE_TRADEOFF: Warm option, CASE_LIMITATION: Bottle-specific limit}
+  - id: qt_somm_practice_shape
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: somm_practice_shape
+    prompt_template: "A tapered Habanos Piramide is described as a straight-sided parejo. Explain the shape term, distinguish factory and market names, and say what shape does not prove."
+    parameters:
+      scope_node_ids: [n_somm_case_shape]
+      key_points: {CASE_ACTION: Response, CASE_REASON: Habanos shape, CASE_TRADEOFF: Name variation, CASE_LIMITATION: Limit}
+  - id: qt_somm_practice_liqueur
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: somm_practice_liqueur
+    prompt_template: "A guest calls every fifteen-percent spirit a liqueur. Use the EU category to explain the missing conditions, its sugar-floor exceptions, and what the rule cannot tell you about an unexamined bottle."
+    parameters:
+      scope_node_ids: [n_somm_case_liqueur]
+      key_points: {CASE_ACTION: Response, CASE_REASON: Category conditions, CASE_TRADEOFF: Exceptions, CASE_LIMITATION: Bottle-specific limit}
+  - id: qt_somm_practice_vermouth
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: somm_practice_vermouth
+    prompt_template: "A guest says vermouth and bitter-tasting spirit drink are one EU category. Explain their different legal bases, why both may be discussed as aperitifs, and what the product label still has to establish."
+    parameters:
+      scope_node_ids: [n_somm_case_vermouth]
+      key_points: {CASE_ACTION: Response, CASE_REASON: Legal categories, CASE_TRADEOFF: Shared use or taste, CASE_LIMITATION: Bottle-specific limit}

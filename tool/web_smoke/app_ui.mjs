@@ -593,6 +593,44 @@ try {
     assert(!bodyOverflow, 'The page overflows horizontally at 320 pixels.');
     result.assertions.narrowDestinations = 5;
   });
+  await stage('10-cellar-manual-label-scan', async () => {
+    await tap('Log a wine');
+    await page.getByRole('heading', { name: 'Log a wine' })
+      .waitFor({ state: 'visible', timeout: actionTimeout });
+    await top();
+    const producer = page.getByRole('textbox', { name: 'Producer', exact: true });
+    const vintage = page.getByRole('textbox', { name: 'Vintage', exact: true });
+    const transcript = page.getByRole('textbox', {
+      name: /Recognized or manually transcribed label text/,
+    });
+    await replaceText(producer, 'Web Estate');
+    await replaceText(transcript, 'Web Estate 2019 13.5%');
+    await top();
+    assert(await readText(vintage) === '',
+      'A label clue filled the vintage before the learner accepted it.');
+    assert(await readText(transcript) === 'Web Estate 2019 13.5%',
+      'Scrolling discarded the temporary label transcription.');
+    await tap('Use vintage 2019');
+    await tap('Use 13.5% alcohol');
+    const chooserPromise = page.waitForEvent('filechooser', { timeout: actionTimeout });
+    await tap('Choose label');
+    const chooser = await chooserPromise;
+    await chooser.setFiles({ name: 'label.png', mimeType: 'image/png',
+      buffer: fs.readFileSync(path.join(root, 'favicon.png')) });
+    await reveal(page.getByRole('img', { name: 'New label' }));
+    await top();
+    assert(await readText(vintage) === '2019',
+      'The accepted vintage did not reach the journal form.');
+    await tap('Save');
+    await until(() => page.url().includes('/cellar/') &&
+      !page.url().includes('/cellar/new'),
+    'The confirmed cellar draft did not open its saved entry.', 30_000);
+    await visible('Web Estate');
+    await visible('2019');
+    await reveal(page.getByRole('img', { name: /Your photos Label photo/ }));
+    result.assertions.manualLabelProposalSaved = true;
+    result.assertions.webLabelPhotoSaved = true;
+  });
   assert(result.pageErrors.length === 0, `Uncaught browser errors: ${result.pageErrors.join('\n')}`);
   assert(result.consoleErrors.length === 0, `Browser console errors: ${result.consoleErrors.join('\n')}`);
   assert(result.blockedExternalRequests.length === 0,

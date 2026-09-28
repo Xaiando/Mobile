@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../core/database/app_database.dart';
 import '../../core/journal/journal_providers.dart';
+import '../cellar/journal_photo_strip.dart';
 import '../../core/tasting/tasting_practice.dart';
 import '../../core/tasting/tasting_providers.dart';
 import '../cellar/cellar_screen.dart';
@@ -471,6 +472,10 @@ class _Summary extends ConsumerWidget {
               onTap: () => context.go('/cellar/${wine.id}'),
             ),
           ),
+        if (wine != null) ...[
+          const SizedBox(height: 12),
+          JournalPhotoStrip(wine.id),
+        ],
         for (final section in grid.sections) ...[
           Padding(
             padding: const EdgeInsets.only(top: 24, bottom: 8),

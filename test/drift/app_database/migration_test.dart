@@ -220,4 +220,38 @@ void main() {
       expect(await count('review_events'), 0);
     });
   });
+
+  test(
+    'v4 to v5 keeps the legacy journal reference and adds private photos',
+    () async {
+      final schema = await verifier.schemaAt(4);
+      const entryId = '00000000-0000-4000-8000-0000000000aa';
+      const photoId = '00000000-0000-4000-8000-0000000000bb';
+      schema.rawDatabase.execute(
+        'INSERT INTO wine_journal_entries '
+        '(id, producer_name, photo_ref, created_at, updated_at) VALUES '
+        "('$entryId', 'Example', 'legacy-key', "
+        "'2026-09-24T08:30:00.000Z', '2026-09-24T08:30:00.000Z')",
+      );
+      final db = AppDatabase(schema.newConnection());
+      addTearDown(db.close);
+      await verifier.migrateAndValidate(db, 5);
+      expect(
+        (await db.select(db.wineJournalEntries).getSingle()).photoRef,
+        'legacy-key',
+      );
+      await db.customStatement(
+        'INSERT INTO wine_journal_photos '
+        '(id, wine_journal_entry_id, kind, mime_type, photo_bytes, created_at) '
+        "VALUES ('$photoId', '$entryId', 'label', 'image/png', X'01', "
+        "'2026-09-24T08:30:00.000Z')",
+      );
+      expect(await db.select(db.wineJournalPhotos).get(), hasLength(1));
+      await db.customStatement(
+        "DELETE FROM wine_journal_entries WHERE id = '$entryId'",
+      );
+      expect(await db.select(db.wineJournalPhotos).get(), isEmpty);
+      expect(await db.customSelect('PRAGMA foreign_key_check').get(), isEmpty);
+    },
+  );
 }

@@ -115,6 +115,10 @@ void main() {
     await launch(tester);
 
     await setting(tester, 'Export your data');
+    expect(find.textContaining('unencrypted JSON'), findsOneWidget);
+    expect(find.textContaining('label and glass photos'), findsOneWidget);
+    expect(files.saved, isNull);
+    await tap(tester, find.widgetWithText(FilledButton, 'Choose a location'));
     expect(find.text('Your data is saved.'), findsOneWidget);
     expect(files.savedName, 'sommelier-backup-2026-10-01.json');
     final exported =

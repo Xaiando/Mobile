@@ -317,7 +317,7 @@ void main() {
         'WSET_L1': 132,
         'WSET_L2': 819,
         'WSET_L3': 3429,
-        'CMS_CERTIFIED': 2548,
+        'CMS_CERTIFIED': 2756,
       }.entries) {
         final mappings = await planner.effectiveMappings(entry.key);
         expect(mappings, hasLength(entry.value), reason: entry.key);
@@ -377,7 +377,7 @@ void main() {
         132,
         819,
         3429,
-        3759,
+        3867,
       ]);
       expect(
         snapshot.levels.every(

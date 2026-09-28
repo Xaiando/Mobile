@@ -6,6 +6,7 @@ import 'package:drift/drift.dart';
 import '../curriculum/curriculum_catalog.dart';
 import '../database/app_database.dart';
 import '../database/user_data_rewrites.dart';
+import '../journal/journal_photo_store.dart';
 import '../study/scheduler_config.dart';
 import '../time/utc_clock.dart';
 
@@ -27,6 +28,7 @@ class ImportSummary {
 
   int get reviews => rowsByTable['review_events'] ?? 0;
   int get wines => rowsByTable['wine_journal_entries'] ?? 0;
+  int get photos => rowsByTable['wine_journal_photos'] ?? 0;
   int get tastings => rowsByTable['tasting_sessions'] ?? 0;
   int get flags => rowsByTable['question_flags'] ?? 0;
 }
@@ -44,7 +46,7 @@ class UserDataBackup {
   final Clock _clock;
 
   static const format = 'sommelier-user-data';
-  static const formatVersion = 1;
+  static const formatVersion = 2;
 
   /// Every user table, parents first. An import inserts rows in this order
   /// and deletes them in reverse, so every foreign key holds throughout.
@@ -57,6 +59,7 @@ class UserDataBackup {
     'review_event_options',
     'question_flags',
     'wine_journal_entries',
+    'wine_journal_photos',
     'wine_journal_entry_nodes',
     'tasting_sessions',
     'tasting_descriptors',
@@ -95,14 +98,23 @@ class UserDataBackup {
     };
   }
 
-  /// The export as indented JSON, which a curator can read.
+  /// The export as unencrypted JSON. It includes personal journal photos and
+  /// should be kept private unless the learner chooses to share it.
   Future<String> exportJson() async =>
       const JsonEncoder.withIndent('  ').convert(await export());
 
   Future<List<Map<String, Object?>>> _rows(String table) async => [
     for (final row
         in await db.customSelect('SELECT * FROM "$table" ORDER BY rowid').get())
-      row.data,
+      if (table == 'wine_journal_photos')
+        {
+          for (final cell in row.data.entries)
+            cell.key: cell.key == 'photo_bytes'
+                ? base64Encode(cell.value! as Uint8List)
+                : cell.value,
+        }
+      else
+        row.data,
   ];
 
   /// Replaces all of the learner's data with the backup in [json]. It runs
@@ -121,27 +133,51 @@ class UserDataBackup {
     final version = decoded['format_version'];
     if (version is! int) throw _notABackup;
     final schemaVersion = decoded['schema_version'];
-    if (version > formatVersion ||
+    if (version < 1 ||
+        version > formatVersion ||
         (schemaVersion is int && schemaVersion > db.schemaVersion)) {
       throw _newer;
     }
     final data = decoded['tables'];
     if (data is! Map<String, Object?>) throw _notABackup;
     if (data.keys.any((table) => !tables.contains(table))) throw _newer;
+    if (version == 1 && data.containsKey('wine_journal_photos')) {
+      throw _newer;
+    }
+    if (version == 2 && !data.containsKey('wine_journal_photos')) {
+      throw _notABackup;
+    }
 
     final rowsOf = <String, List<Map<String, Object?>>>{};
     for (final table in tables) {
       final rows = data[table] ?? const <Object?>[];
       if (rows is! List<Object?>) throw _notABackup;
       final columns = await _columns(table);
-      rowsOf[table] = [
-        for (final row in rows)
-          if (row is Map<String, Object?> &&
-              row.values.every((v) => v is String || v is num || v == null))
-            row
-          else
-            throw _notABackup,
-      ];
+      final parsed = <Map<String, Object?>>[];
+      for (final row in rows) {
+        if (row is! Map<String, Object?> ||
+            !row.values.every((v) => v is String || v is num || v == null)) {
+          throw _notABackup;
+        }
+        final copy = Map<String, Object?>.of(row);
+        if (table == 'wine_journal_photos') {
+          final mime = copy['mime_type'];
+          final encoded = copy['photo_bytes'];
+          if (mime is! String || encoded is! String) throw _notABackup;
+          final Uint8List bytes;
+          try {
+            bytes = base64Decode(encoded);
+            JournalPhotoStore.validateStoredPhoto(mime, bytes);
+          } on FormatException {
+            throw _notABackup;
+          } on PhotoStoreException {
+            throw _notABackup;
+          }
+          copy['photo_bytes'] = bytes;
+        }
+        parsed.add(copy);
+      }
+      rowsOf[table] = parsed;
       if (rowsOf[table]!.any(
         (row) => row.keys.any((c) => !columns.contains(c)),
       )) {

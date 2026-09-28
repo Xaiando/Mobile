@@ -1,0 +1,93 @@
+# Original self-reviewed history cases. Answers are checked against cited key points
+# by the learner; the app does not automatically grade historical prose.
+question_templates:
+  - id: qt_hist_case_oldest_evidence
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: hist_oldest_evidence
+    prompt_template: "A guest calls Areni-1 the oldest wine. Explain the difference between an archaeological production installation and an earlier chemical residue. State what neither paper can prove."
+    parameters:
+      scope_node_ids: [n_hcourse_case_oldest]
+      key_points: {CASE_ACTION: Distinction, CASE_REASON: Dated evidence, CASE_TRADEOFF: Useful comparison, CASE_LIMITATION: Evidence limit}
+  - id: qt_hist_case_napoleon_names
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: hist_napoleon_names
+    prompt_template: "A guest sees Napoleon on a Cognac list and asks whether Napoleon classified Bordeaux in 1855. Untangle the 1806 decree, the 1855 list and the Cognac ageing word."
+    parameters:
+      scope_node_ids: [n_hcourse_case_napoleon]
+      key_points: {CASE_ACTION: Three uses, CASE_REASON: Dates and roles, CASE_TRADEOFF: Label meaning, CASE_LIMITATION: Authentication limit}
+  - id: qt_hist_case_douro_treaty
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: hist_douro_treaty
+    prompt_template: "A table says the Methuen treaty drew the Douro boundary. Put the treaty and charter in date order, identify their different jobs and explain why neither is today's map by itself."
+    parameters:
+      scope_node_ids: [n_hcourse_case_boundary]
+      key_points: {CASE_ACTION: Distinction, CASE_REASON: Commercial mechanism, CASE_TRADEOFF: Earlier delimitations, CASE_LIMITATION: Modern boundary limit}
+  - id: qt_hist_case_sparkling_paper
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: hist_sparkling_paper
+    prompt_template: "A guest says Dom Pérignon single-handedly invented sparkling wine. Give the dated paper trail and say what the opened account can and cannot establish."
+    parameters:
+      scope_node_ids: [n_hcourse_case_bubble]
+      key_points: {CASE_ACTION: Correct attribution, CASE_REASON: Chronology, CASE_TRADEOFF: Cellar work, CASE_LIMITATION: Archive limit}
+  - id: qt_hist_case_phylloxera_range
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: hist_phylloxera_range
+    prompt_template: "A guest says phylloxera killed every European vine in 1863. Explain the French range supported by the cited page, the rootstock response and the limit of its disappearance claim."
+    parameters:
+      scope_node_ids: [n_hcourse_case_phylloxera]
+      key_points: {CASE_ACTION: Correct scope, CASE_REASON: Source wording, CASE_TRADEOFF: Useful date range, CASE_LIMITATION: Census limit}
+  - id: qt_hist_case_italy_1963
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: hist_italy_1963
+    prompt_template: "A guest says the 1963 Italian decree invented the printed abbreviations DOC and DOCG. Separate the words in the historical article from today's traditional mentions and explain the source-view limit."
+    parameters:
+      scope_node_ids: [n_hcourse_case_doc]
+      key_points: {CASE_ACTION: Historical wording, CASE_REASON: Article evidence, CASE_TRADEOFF: Useful definition, CASE_LIMITATION: Loaded-view limit}
+  - id: qt_hist_case_italy_repeal
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: hist_italy_repeal
+    prompt_template: "A guest uses a 1963 category as if it were the current Italian wine code. Date the historical category, identify the repeal evidence and say where the current DOC and DOCG statement belongs."
+    parameters:
+      scope_node_ids: [n_hcourse_case_repeal]
+      key_points: {CASE_ACTION: Date the claim, CASE_REASON: Repeal evidence, CASE_TRADEOFF: Historical value, CASE_LIMITATION: Current-law boundary}
+  - id: qt_hist_case_italy_letters
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: hist_italy_letters
+    prompt_template: "A guest says a label printed DOC alone cannot describe a DOP wine. Use the cited 2016 article to explain the class, the permitted wording and the limits of what the label proves."
+    parameters:
+      scope_node_ids: [n_hcourse_case_letters]
+      key_points: {CASE_ACTION: Correct class, CASE_REASON: Article 28, CASE_TRADEOFF: Label wording, CASE_LIMITATION: Bottle limit}
+  - id: qt_hist_case_vessel_story
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: hist_vessel_story
+    prompt_template: "A guest assumes Roman wine always moved in corked glass bottles. Compare one Roman amphora with the museum's later English bottles, then name two conclusions the objects cannot support."
+    parameters:
+      scope_node_ids: [n_htime_case_vessel_story]
+      key_points: {CASE_ACTION: Vessel comparison, CASE_REASON: Artifact evidence, CASE_TRADEOFF: Useful sequence, CASE_LIMITATION: Invention-date limit}
+  - id: qt_hist_case_newworld_origin
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: hist_newworld_origin
+    prompt_template: "A guest says the 1976 Paris tasting created Napa Valley and Cape Wine of Origin. Put the tasting, Cape scheme and first listed US AVA in their separate categories and date order."
+    parameters:
+      scope_node_ids: [n_htime_case_newworld_names]
+      key_points: {CASE_ACTION: Separate events, CASE_REASON: Historical order, CASE_TRADEOFF: Other GI system, CASE_LIMITATION: Quality-ranking limit}

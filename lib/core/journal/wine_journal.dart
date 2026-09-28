@@ -6,6 +6,7 @@ import 'package:drift/drift.dart';
 import '../database/app_database.dart';
 import '../database/uuid.dart';
 import '../time/utc_clock.dart';
+import 'journal_photo_store.dart';
 
 /// What a learner writes about one wine (spec §J, backlog J1). Every field
 /// is optional, but an entry must name its wine somehow.
@@ -147,27 +148,73 @@ class WineJournal {
     db.wineJournalEntries,
   )..where((e) => e.id.equals(id))).getSingleOrNull();
 
+  Future<List<WineJournalEntry>> entries() =>
+      db.select(db.wineJournalEntries).get();
+
+  /// Saves the journal fields, links, and private photo changes together.
+  /// Picked images must have been sanitised before the learner confirms the
+  /// draft. The method revalidates them before writing any row.
+  Future<WineJournalEntry> saveWithPhotos(
+    JournalDraft draft, {
+    String? id,
+    Set<String> nodeIds = const {},
+    Map<PhotoKind, Uint8List> photos = const {},
+    Set<PhotoKind> removedKinds = const {},
+  }) async {
+    final store = JournalPhotoStore(db, clock: _clock, random: random);
+    // Read the visible photo metadata before opening the write transaction.
+    final existingPhotos = id != null && removedKinds.isNotEmpty
+        ? await store.watchForEntry(id).first
+        : const <JournalPhoto>[];
+    final keysToDelete = [
+      for (final photo in existingPhotos)
+        if (removedKinds.contains(photo.kind)) photo.key,
+    ];
+    return db.transaction(() async {
+      final saved = id == null
+          ? await createInTransaction(draft, nodeIds: nodeIds)
+          : await updateInTransaction(id, draft, nodeIds: nodeIds);
+      if (photos.isNotEmpty) {
+        await store.putBatchInTransaction(
+          entryId: saved.id,
+          photos: photos,
+          alreadySanitized: true,
+        );
+      }
+      for (final key in keysToDelete) {
+        await store.delete(key);
+      }
+      return saved;
+    });
+  }
+
   /// Saves a new entry, linked to [nodeIds].
   Future<WineJournalEntry> create(
+    JournalDraft draft, {
+    Set<String> nodeIds = const {},
+  }) => db.transaction(() => createInTransaction(draft, nodeIds: nodeIds));
+
+  /// The same write under a caller-owned transaction, for an atomic journal
+  /// and photo save. Calling [create] inside another transaction can stall
+  /// the web database's navigator lock.
+  Future<WineJournalEntry> createInTransaction(
     JournalDraft draft, {
     Set<String> nodeIds = const {},
   }) async {
     _check(draft);
     final id = newUuid(random);
     final now = utcNow(_clock);
-    return db.transaction(() async {
-      await db
-          .into(db.wineJournalEntries)
-          .insert(
-            draft._columns().copyWith(
-              id: Value(id),
-              createdAt: Value(now),
-              updatedAt: Value(now),
-            ),
-          );
-      await _link(id, nodeIds);
-      return (await entry(id))!;
-    });
+    await db
+        .into(db.wineJournalEntries)
+        .insert(
+          draft._columns().copyWith(
+            id: Value(id),
+            createdAt: Value(now),
+            updatedAt: Value(now),
+          ),
+        );
+    await _link(id, nodeIds);
+    return (await entry(id))!;
   }
 
   /// Replaces entry [id]'s fields with [draft], and its links with
@@ -176,37 +223,47 @@ class WineJournal {
     String id,
     JournalDraft draft, {
     Set<String>? nodeIds,
+  }) => db.transaction(() => updateInTransaction(id, draft, nodeIds: nodeIds));
+
+  /// Replaces an entry inside a caller-owned transaction.
+  Future<WineJournalEntry> updateInTransaction(
+    String id,
+    JournalDraft draft, {
+    Set<String>? nodeIds,
   }) async {
     _check(draft);
-    return db.transaction(() async {
-      final existing = await entry(id);
-      if (existing == null) {
-        throw ArgumentError.value(id, 'id', 'is no journal entry');
-      }
-      final now = utcNow(_clock);
-      await (db.update(
-        db.wineJournalEntries,
-      )..where((e) => e.id.equals(id))).write(
-        draft._columns().copyWith(
-          // The schema requires updated_at >= created_at, even if the
-          // device clock was set back.
-          updatedAt: Value(
-            now.isBefore(existing.createdAt) ? existing.createdAt : now,
-          ),
+    final existing = await entry(id);
+    if (existing == null) {
+      throw ArgumentError.value(id, 'id', 'is no journal entry');
+    }
+    final now = utcNow(_clock);
+    await (db.update(
+      db.wineJournalEntries,
+    )..where((e) => e.id.equals(id))).write(
+      draft._columns().copyWith(
+        // The schema requires updated_at >= created_at, even if the
+        // device clock was set back.
+        updatedAt: Value(
+          now.isBefore(existing.createdAt) ? existing.createdAt : now,
         ),
-      );
-      if (nodeIds != null) await _link(id, nodeIds);
-      return (await entry(id))!;
-    });
+      ),
+    );
+    if (nodeIds != null) await _link(id, nodeIds);
+    return (await entry(id))!;
   }
 
   /// Deletes entry [id] and its links. A tasting session of the wine keeps
   /// its notes and loses only the link (schema: ON DELETE SET NULL).
-  Future<void> delete(String id) => db.transaction(() async {
+  Future<void> delete(String id) =>
+      db.transaction(() => deleteInTransaction(id));
+
+  /// Deletes the journal row and its private photo children under an outer
+  /// transaction, when a caller needs to combine this with other writes.
+  Future<void> deleteInTransaction(String id) async {
     await (db.delete(
       db.wineJournalEntries,
     )..where((e) => e.id.equals(id))).go();
-  });
+  }
 
   /// The knowledge nodes entry [id] is linked to, by name.
   Stream<List<KnowledgeNode>> watchLinkedNodes(String id) =>

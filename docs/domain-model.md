@@ -1,8 +1,8 @@
-# Canonical Domain Model — Sommelier Study App (schema v4)
+# Canonical Domain Model — Sommelier Study App (schema v5)
 
 | | |
 |---|---|
-| **Date** | 2026-09-24; schema v2 on 2026-09-25 (backlog F2); schemas v3 and v4 (R1) |
+| **Date** | 2026-09-24; schema v2 on 2026-09-25 (backlog F2); schemas v3 and v4 (R1); schema v5 on 2026-09-28 (journal photos) |
 | **Status** | **Canonical.** Where earlier documents name or shape an entity differently, this document wins. [architecture-audit.md](architecture-audit.md) has been aligned with it. |
 | **Executable form** | [`lib/core/database/schema.drift`](../lib/core/database/schema.drift): 40 tables, 72 indexes, 86 triggers. The app compiles it with Drift, and it is also valid plain SQLite (§9). |
 | **Scope** | Every entity V0.1 needs, including the 14 required ones: Certification, CurriculumDomain, KnowledgeNode, KnowledgeRelation, KnowledgeItem, CertificationKnowledgeMapping, SourceCitation, QuestionTemplate, Question, ReviewState, ReviewEvent, TastingSession, TastingDescriptor, WineJournalEntry |
@@ -448,6 +448,14 @@ erDiagram
         text wine_journal_entry_id PK,FK
         text knowledge_node_id PK,FK
     }
+    WineJournalPhoto {
+        text id PK "opaque UUID"
+        text wine_journal_entry_id FK
+        text kind "label or glass; unique per entry"
+        text mime_type "JPEG or PNG"
+        blob photo_bytes "private, up to 8 MiB"
+        datetime created_at
+    }
     TastingSession {
         text id PK "UUID"
         text tasting_grid_id FK
@@ -464,6 +472,7 @@ erDiagram
         text value_key PK,FK
     }
     WineJournalEntry ||--o{ WineJournalEntryNode : "linked by"
+    WineJournalEntry ||--o{ WineJournalPhoto : "owns; cascade delete"
     KnowledgeNode ||--o{ WineJournalEntryNode : "matched in"
     WineJournalEntry |o--o{ TastingSession : "tasted in"
     TastingGrid ||--o{ TastingSession : "used by"
@@ -656,8 +665,12 @@ A logged bottle (§D, §J).
 
 - **Key:** `id` (UUID).
 - The raw text the user typed (`appellation_text`, `grapes_text`) is kept. Links to canonical nodes are stored separately in `WineJournalEntryNode`, and their role (appellation, grape…) is derived from the node's type.
-- `photo_ref` is an opaque key for a future photo store, not a file path. There is no capture UI in V0.1 (D6).
+- `photo_ref` remains a nullable legacy key so older rows and format-1 backups are not rewritten. New label and glass images use `WineJournalPhoto`; neither key is a public file path.
 - **Database-enforced:** non-vintage excludes a vintage; ranges for vintage, ABV and rating (rating 1–5, P-3).
+
+#### WineJournalPhoto (`wine_journal_photos`), user (schema v5)
+
+One private image per journal entry and kind. Its opaque UUID identifies the BLOB, and `UNIQUE(wine_journal_entry_id, kind)` permits one label and one glass image. The service accepts JPEG/PNG, bakes orientation, discards EXIF and other metadata, and limits stored bytes to 8 MiB. Deleting the journal entry cascades to both images. Backup format 2 carries their bytes as base64 within the JSON table rows; format-1 files still import with no new photo rows. A malformed or metadata-bearing photo in a format-2 import is refused before replacement.
 
 ### 4.2 Supporting entities
 
@@ -685,6 +698,7 @@ A logged bottle (§D, §J).
 | SchedulerConfig (`scheduler_configs`) | user | Versioned FSRS parameters. Exactly 21 weights, checked by JSON CHECKs |
 | ReviewEventOption (`review_event_options`) | user, append-only | The options shown in a presentation, in display order |
 | WineJournalEntryNode (`wine_journal_entry_nodes`) | user | Links a journal entry to its matched nodes; deleted with the entry |
+| WineJournalPhoto (`wine_journal_photos`) | user | Private label/glass BLOBs with opaque IDs; deleted with the journal entry (schema v5) |
 | UserSetting (`user_settings`) | user | One setting per name: the appearance, the temperature unit, when the learner confirmed their age and finished onboarding (schema v3, DL-6) |
 | QuestionFlag (`question_flags`) | user | A question the learner flagged as wrong, unclear or outdated, with a note; kept on the device and exported, never sent (schema v3) |
 | CurriculumIngestion (`curriculum_ingestions`) | system | The curriculum write lock (§2, rule 1) |
@@ -912,7 +926,7 @@ Normalizing the model revised the following. [architecture-audit.md](architectur
 
 Everything below was run on 2026-09-24 against Flutter 3.47.5 / Dart 3.13.4, and again for schema v2 on 2026-09-25.
 
-- **Plain SQLite:** `schema.drift` (v4) loads as-is: 40 tables, 72 indexes, 86 triggers (81 curriculum guards, 4 append-only, 1 single-selection). Schema v1 had 31 tables, 57 indexes and 68 triggers.
+- **Historical v4 verification:** `schema.drift` had 40 tables, 72 indexes and 86 triggers (81 curriculum guards, 4 append-only, 1 single-selection). Schema v1 had 31 tables, 57 indexes and 68 triggers. Schema v5 adds the private photo table and its entry index; those historical counts do not describe v5.
 - **Drift:** the same file compiles as a `.drift` file with drift_dev 2.35.0 and **zero warnings**, using `sql: {dialect: sqlite, options: {version: "3.45", modules: [json1]}}` and `store_date_time_values_as_text: true`. The 37 generated row classes carry exactly the entity names of this document.
 - **Native behaviour** (SQLite 3.53.4 through Drift), 18 tests, all passing:
   - the curriculum rejects writes outside ingestion
