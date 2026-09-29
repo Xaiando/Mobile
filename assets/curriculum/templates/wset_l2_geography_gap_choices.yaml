@@ -1,0 +1,224 @@
+# Item-specific, source-linked Level 2 geography practice. Qualified review pending.
+question_templates:
+  - id: qt_wset_l2_geography_principle_choices
+    relation_type: PRINCIPLE_EXPLANATION
+    direction: forward
+    mode: authored_choice
+    variant: l2_geography_principle
+    prompt_template: "{subject.name}"
+    parameters:
+      item_choices:
+        ki_reg_fe_alsace_autumn:
+          prompt: "An Alsace site has warm autumn days and cool nights. Which inference is sound?"
+          options: ["The autumn pattern fixes the exact harvest date for every producer", "Acidity must fall before full ripeness", "The pattern can support extended ripening and freshness", "Every variety will ripen at the same pace"]
+          correctIndex: 2
+          explanation: "The regional body connects the autumn day-night contrast with slow ripening and retained acidity; site and vintage still matter."
+          sourceCitationId: src_reg_fe_alsace_climate
+        ki_reg_fe_alsace_late_fruit:
+          prompt: "Which expectation is best supported by the cited Alsace Vendanges Tardives style example?"
+          options: ["Concentrated ripe fruit and a rich sweet-acid palate", "A legally guaranteed dessert pairing for every cuvée", "The same residual sugar in every bottle", "Only dry citrus and light body"]
+          correctIndex: 0
+          explanation: "The Alsace wine body illustrates a rich late-harvest palate; the individual wine still needs checking."
+          sourceCitationId: src_reg_fe_late_harvest
+        ki_reg_fe_alsace_pinot_blanc:
+          prompt: "A buyer compares Alsace Pinot Blanc with Pinot Gris. Which starting contrast fits the regional profiles?"
+          options: ["Pinot Blanc must always have more palate weight than Pinot Gris in every vintage", "Pinot Blanc is always sweet and Pinot Gris always dry", "Both have identical weight whenever grown together", "Pinot Blanc is often lighter and more restrained in fruit"]
+          correctIndex: 3
+          explanation: "The Pinot Blanc profile describes subtle fruit and a light palate; actual weight and sweetness vary by wine."
+          sourceCitationId: src_reg_fe_pinot_blanc
+        ki_reg_fe_alsace_riesling:
+          prompt: "Which description is a useful Alsace Riesling expectation without claiming a blind-origin proof?"
+          options: ["Soft acidity with unavoidable tropical sweetness", "Citrus and floral character with vivid acidity", "A fixed level of residual sugar across producers", "No fruit or floral notes once grapes ripen"]
+          correctIndex: 1
+          explanation: "The Alsace wine body describes citrus, floral notes and a lively acidic frame, not a universal sweetness."
+          sourceCitationId: src_reg_fe_riesling
+        ki_reg_fr_nuits_pinot:
+          prompt: "A learner says Côte de Nuits makes only red wine. Which correction is accurate?"
+          options: ["The area produces white Chardonnay almost exclusively and has no red Pinot Noir", "Its red wines cannot use Pinot Noir", "Red Pinot Noir predominates, but some whites are made", "White and red output must be equal"]
+          correctIndex: 2
+          explanation: "The Bourgogne wine body describes the Côte de Nuits as mainly red while noting selected white wines."
+          sourceCitationId: src_reg_fr_nuits
+        ki_reg_fr_rhone_south_blends:
+          prompt: "Which red-grape pattern helps distinguish the southern Rhône from a Syrah-focused northern comparison?"
+          options: ["Grenache commonly works with Syrah and Mourvèdre", "Only Pinot Noir is authorised in the south", "Mourvèdre is absent from Mediterranean vineyards", "Every southern wine has one compulsory blend ratio"]
+          correctIndex: 0
+          explanation: "The Rhône wine body identifies Grenache and Mourvèdre in the Mediterranean south, often with Syrah; blends vary."
+          sourceCitationId: src_reg_fr_rhone_terroirs
+        ki_reg_inc_brunello_maturation:
+          prompt: "For wines from Montalcino, which comparison reflects the consortium's stated aims?"
+          options: ["Rosso di Montalcino is always held for longer maturation than Brunello", "Both names require identical maturation", "Brunello is intended solely for immediate drinking", "Brunello is associated with longer ageing than youthful Rosso"]
+          correctIndex: 3
+          explanation: "The consortium contrasts age-oriented Brunello with a younger Rosso style; an individual bottle may already be ready."
+          sourceCitationId: src_reg_inc_montalcino
+        ki_reg_inc_chianti_separate:
+          prompt: "Why keep Chianti Classico and Chianti distinct in a label comparison?"
+          options: ["Classico is simply an optional premium price tier available to any generic Chianti producer", "Classico has a separate production code and geographic identity", "Every Chianti producer may print Classico at will", "The two names mean identical protected territories"]
+          correctIndex: 1
+          explanation: "The Classico production code records its autonomous identity rather than a general quality ranking."
+          sourceCitationId: src_reg_inc_classico_code
+        ki_reg_inc_classico_heartland:
+          prompt: "A wine label says Chianti Classico. Which geographic association is most useful?"
+          options: ["The historic territory between Florence and Siena", "All vineyard sites throughout the entire Tuscany administrative region", "Only the coastal Maremma zone", "A site entirely within the city of Florence"]
+          correctIndex: 0
+          explanation: "The Chianti Classico consortium places its production territory across the Florence and Siena provinces."
+          sourceCitationId: src_reg_inc_classico_zone
+        ki_reg_inc_jesi_air:
+          prompt: "What geographic influences does the Castelli di Jesi producer body identify?"
+          options: ["Only inland desert winds", "A closed valley with no sea influence", "Mountain air alongside Adriatic winds", "Permanent lake fog throughout summer"]
+          correctIndex: 2
+          explanation: "Its territorial account describes both mountain air and Adriatic influence; site differences remain."
+          sourceCitationId: src_reg_inc_verdicchio
+        ki_reg_sh_cab_styles:
+          prompt: "Both Margaret River and Coonawarra Cabernet can show dark fruit and substantial body. What follows?"
+          options: ["Dark fruit and Cabernet tannin securely prove a Coonawarra origin without any other evidence", "Oak ageing is forbidden in Margaret River", "Their Cabernet styles can never overlap", "Style alone cannot securely identify which region made the wine"]
+          correctIndex: 3
+          explanation: "Wine Australia describes overlapping Cabernet features in the two regions; site and cellar context are needed."
+          sourceCitationId: src_reg_sh_margaret
+        ki_wset_eu_alsace_gc_origin:
+          prompt: "What does an Alsace Grand Cru site name principally identify?"
+          options: ["One uniform grape and wine-style rule shared across all 51 named Grand Cru sites", "A delimited named site with its own requirements", "Any wine made throughout the Alsace region", "A sweetness level independent of the cuvée"]
+          correctIndex: 1
+          explanation: "The Alsace regional body presents the Grands Crus as separately named terroirs with site-specific rules."
+          sourceCitationId: src_wset_eu_alsace_gc
+        ki_wset_eu_beaujolais_nouveau_identity:
+          prompt: "A bottle says Beaujolais Nouveau. Which reading is correct?"
+          options: ["It names an early-release wine of Beaujolais or Beaujolais-Villages", "It names one of the ten Beaujolais crus", "It guarantees that every Gamay wine from all Beaujolais appellations must be drunk immediately", "It denotes a separate grape from Gamay"]
+          correctIndex: 0
+          explanation: "The Beaujolais wine body limits Nouveau to the two named appellations and contrasts it with ageworthy wines."
+          sourceCitationId: src_wset_eu_beaujolais_nouveau
+        ki_wset_eu_bordeaux_superieur_identity:
+          prompt: "Which reading of Bordeaux Supérieur is safer than assuming it always means dry white?"
+          options: ["It is merely a grape variety rather than a legally protected regional wine appellation", "It names only sparkling wine", "It is an appellation covering red and sweet white wines", "It guarantees a single sweetness across colours"]
+          correctIndex: 2
+          explanation: "The protected Bordeaux Supérieur identity includes red and sweet-white categories; read the colour and full label."
+          sourceCitationId: src_wset_l2_geo_bdx_superieur_styles
+        ki_wset_eu_delle_venezie_identity:
+          prompt: "A Pinot Grigio label says Delle Venezie DOC. Which geographic interpretation is sound?"
+          options: ["It means grapes must come only from Veneto", "It covers every protected and unprotected wine made anywhere within northeastern Italy", "It is the administrative name of Friuli", "Its production area spans Veneto, Friuli Venezia Giulia and Trento"]
+          correctIndex: 3
+          explanation: "The DOC's own account places the denomination across these northeastern territories."
+          sourceCitationId: src_wset_grape_venezie_style
+        ki_wset_eu_delle_venezie_style:
+          prompt: "Which is a useful, qualified study expectation for Delle Venezie Pinot Grigio?"
+          options: ["All Delle Venezie Pinot Grigio bottles must be heavily oaked and sweet, regardless of category", "Fresh fruit-led whites are common, but permitted styles vary", "The DOC allows no sparkling or ramato styles", "Every bottle has identical weight and acidity"]
+          correctIndex: 1
+          explanation: "The DOC describes a fresh Pinot Grigio reference and lists multiple permitted wine types."
+          sourceCitationId: src_wset_eu_delle_venezie_types
+        ki_wset_eu_fr_vin_de_france:
+          prompt: "A label reads Vin de France with a grape variety and vintage. What origin claim does that name make?"
+          options: ["French provenance without a protected regional indication", "A named and delimited French AOP vineyard with its own production rules", "An IGP area defined by a local appellation", "A guarantee the wine came from one commune"]
+          correctIndex: 0
+          explanation: "The French consumer authority distinguishes Vin de France provenance from protected AOP and IGP regional names."
+          sourceCitationId: src_wset_eu_fr_labels
+        ki_wset_eu_maconnais_white_names:
+          prompt: "Which Mâconnais label reading avoids assuming every Mâcon wine is white?"
+          options: ["Every wine labelled Mâcon, Mâcon-Villages, Pouilly-Fuissé and Saint-Véran must be Chardonnay white", "Pouilly-Fuissé is primarily a Gamay red", "Mâcon-Villages is a red-only name", "Named white appellations use Chardonnay; broader Mâcon can include Gamay reds"]
+          correctIndex: 3
+          explanation: "Bourgogne's regional account links Chardonnay with the white names and also notes Gamay reds in the wider Mâconnais."
+          sourceCitationId: src_wset_eu_maconnais
+        ki_wset_eu_rioja_generico:
+          prompt: "A Rioja has no Crianza, Reserva or Gran Reserva ageing term. Which conclusion is defensible?"
+          options: ["It must be entirely unoaked in every case without any exceptions", "It must have failed a quality test", "It belongs to the broader Genérico category", "It must be sweet and low in alcohol"]
+          correctIndex: 2
+          explanation: "The Rioja wine body's label guide describes Genérico as broader than a mandatory unoaked Joven style."
+          sourceCitationId: src_wset_eu_rioja_labels
+        ki_wset_nw_cape_blend_meaning:
+          prompt: "How should a learner interpret Cape Blend in the cited South African context?"
+          options: ["A single-variety Cabernet Sauvignon wine", "A red blend with a meaningful Pinotage component", "A universal legal requirement for exactly half Pinotage", "A white blend based on Chenin Blanc"]
+          correctIndex: 1
+          explanation: "The Pinotage Association uses Cape Blend for Pinotage-containing red blends; its contest percentages are not universal law."
+          sourceCitationId: src_wset_nw_cape_blend
+        ki_wset_nw_south_eastern_range:
+          prompt: "South Eastern Australia appears on a wine label. What does the GI alone tell you?"
+          options: ["One exact vineyard climate and quality grade", "A mandatory oak regime for Chardonnay", "That every Shiraz bearing the broad GI must come from one consistently cool coastal vineyard", "A broad sourcing area rather than one fixed wine style"]
+          correctIndex: 3
+          explanation: "Wine Australia's register defines a broad GI; grape and style examples require more specific evidence."
+          sourceCitationId: src_atlas_au_gis
+        ki_wset_ofinal_recioto_corvina:
+          prompt: "Which statement connects Corvina and Recioto della Valpolicella accurately?"
+          options: ["Recioto is a sweet dried-grape red in a blend family that can include Corvina", "Recioto must be made from pure Corvina, without Corvinone, Rondinella or any other permitted variety", "Recioto is an unfortified dry white from Soave", "Drying requires all Recioto to finish completely dry"]
+          correctIndex: 0
+          explanation: "The production specification permits Corvina or Corvinone with Rondinella and defines a sweet dried-grape style."
+          sourceCitationId: src_wset_geo_recioto_valpo_spec_2023
+        ki_wset_origin_priorat_grenache:
+          prompt: "Which pairing of grapes and production context suits a Priorat red?"
+          options: ["Pinot Noir and Gamay under compulsory carbonic maceration across all vineyards in the denomination", "Sangiovese only, with no skin contact", "Grenache and Carignan, with ripeness and maceration shaping structure", "Sauvignon Blanc and Albariño, harvested before colour change"]
+          correctIndex: 2
+          explanation: "The Priorat DOQ identifies Grenache and Carignan as leading grapes; winemaking and site modify the outcome."
+          sourceCitationId: src_wset_origin_priorat
+        ki_wset_origin_stellenbosch_merlot:
+          prompt: "A learner says Stellenbosch makes only Cabernet Sauvignon. Which evidence corrects this?"
+          options: ["Merlot is prohibited in Stellenbosch", "A documented Stellenbosch Merlot bottling exists", "Every local Merlot must be blended with Cabernet", "The region is reserved for white grapes"]
+          correctIndex: 1
+          explanation: "Meerlust's Stellenbosch Merlot technical sheet documents the local grape and a specific dry red style."
+          sourceCitationId: src_wset_origin_stellenbosch
+        ki_wset_origin_western_cape_chardonnay:
+          prompt: "What does Western Cape on a Chardonnay label allow you to infer about oak treatment?"
+          options: ["All Chardonnay wines from every Western Cape subregion spend an identical period in new oak barrels", "Barrel fermentation is banned throughout the region", "All examples undergo identical malolactic conversion", "It does not settle oak use; unoaked and richer styles both occur"]
+          correctIndex: 3
+          explanation: "Wines of South Africa describes an oaked-to-unoaked range; the Robertson example uses steel and lees without barrel ageing."
+          sourceCitationId: src_wset_grape_wosa_pinotage
+  - id: qt_wset_l2_geography_protection_choices
+    relation_type: PROTECTED_AS
+    direction: forward
+    mode: authored_choice
+    variant: l2_geography_protection
+    prompt_template: "{subject.name}"
+    parameters:
+      item_choices:
+        ki_landwein_protection:
+          prompt: "Under Germany's Wine Act, which geographic-protection category describes Landwein?"
+          options: ["A PDO wine after the more demanding Prädikatswein official quality test", "An unprotected table-wine name", "A protected geographical indication (PGI)", "A named VDP estate classification"]
+          correctIndex: 2
+          explanation: "Section 2(25) of the Wine Act defines Landwein as wine with a protected geographical indication."
+          sourceCitationId: src_de_weing
+        ki_praedikatswein_protection:
+          prompt: "What protection and testing does Germany's Wine Act associate with Prädikatswein?"
+          options: ["PDO wine with an official quality test and stricter requirements than Qualitätswein", "PGI wine with no official quality test", "An unprotected term defined only by the grape on the label, with no geographic origin or official quality test", "A regional term for every imported wine"]
+          correctIndex: 0
+          explanation: "Section 2(27) defines Prädikatswein as a tested PDO wine with additional minimum requirements."
+          sourceCitationId: src_de_weing
+        ki_qualitaetswein_protection:
+          prompt: "What does the German statutory definition of Qualitätswein include?"
+          options: ["PGI status without the analytical or sensory quality testing required for the statutory term", "An origin-free wine with a vintage claim", "A VDP category rather than a legal wine term", "PDO status and official analytical and sensory testing"]
+          correctIndex: 3
+          explanation: "Section 2(24) of the Wine Act defines Qualitätswein as PDO wine subject to official quality testing."
+          sourceCitationId: src_de_weing
+  - id: qt_wset_l2_geography_origin_choices
+    relation_type: RESERVED_FOR_REGION
+    direction: forward
+    mode: authored_choice
+    variant: l2_geography_origin
+    prompt_template: "{subject.name}"
+    parameters:
+      item_choices:
+        ki_wset_geo_alsace_grand_cru_origin:
+          prompt: "A bottle bears a specific Alsace Grand Cru name. Which geographic reading is right?"
+          options: ["All 51 Alsace Grand Cru names refer to one undivided vineyard polygon across the whole region", "The name points to one separately delimited Alsace site", "It means any vineyard in the whole Alsace region", "It names an Austrian vineyard classification"]
+          correctIndex: 1
+          explanation: "Alsace Grand Cru names are separately delimited protected sites, not one shared polygon."
+          sourceCitationId: src_fr_completion_alsace_spec_2025
+        ki_wset_geo_amarone_della_valpolicella_origin:
+          prompt: "Which origin does Amarone della Valpolicella DOCG identify?"
+          options: ["The wider Chianti area in Tuscany", "Any Italian region where the Corvina grape can be cultivated or sourced", "The delimited Valpolicella area of Veneto", "The city of Verona without vineyards"]
+          correctIndex: 2
+          explanation: "The Amarone specification names the protected wine and delimits grape production in Valpolicella."
+          sourceCitationId: src_wset_geo_amarone_spec_2023
+        ki_wset_geo_porto_origin:
+          prompt: "Where must grapes for protected Port or Porto originate?"
+          options: ["The demarcated Douro region", "Any Porto city vineyard", "All Portuguese wine regions equally", "The nearby Vinho Verde region only"]
+          correctIndex: 0
+          explanation: "The Portuguese statute reserves Porto to qualifying wines from the demarcated Douro region."
+          sourceCitationId: src_wset_geo_douro_statute_2020
+        ki_wset_geo_recioto_della_valpolicella_origin:
+          prompt: "Which geographic relationship does Recioto della Valpolicella DOCG have?"
+          options: ["It is named for a separate Tuscan commune with no connection to Veneto's Valpolicella area", "Its grapes must come from Soave vineyards", "It is a generic term for any Italian sweet red", "It is a protected Valpolicella-area wine origin"]
+          correctIndex: 3
+          explanation: "The DOCG specification delimits its production area within Valpolicella."
+          sourceCitationId: src_wset_geo_recioto_valpo_spec_2023
+        ki_wset_geo_recioto_di_soave_origin:
+          prompt: "What does the protected name Recioto di Soave point to geographically?"
+          options: ["The Valpolicella area used for Amarone", "The Soave production area of Veneto", "A city in Portugal's Douro", "All of northeastern Italy without delimitation"]
+          correctIndex: 1
+          explanation: "The Recioto di Soave specification ties the protected name to the Soave grape-production area."
+          sourceCitationId: src_wset_geo_recioto_soave_spec_2019
