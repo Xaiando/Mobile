@@ -140,7 +140,7 @@ void main() {
   });
 
   test(
-    '40 choices ingest and serve without changing map-only gap taxonomy',
+    '40 choices ingest and serve with complete Level 3 geography practice',
     () async {
       final db = openTestDatabase();
       addTearDown(db.close);
@@ -178,7 +178,7 @@ void main() {
         (row) => row.id == 'geography',
       );
       expect(geography.counts[CoverageMetric.core], 1060);
-      expect(geography.counts[CoverageMetric.coreUsefulPractice], 1025);
+      expect(geography.counts[CoverageMetric.coreUsefulPractice], 1060);
       for (final id in _expectedIds) {
         final row = audit.items.singleWhere((item) => item.id == id);
         expect(row.hasUsefulPractice, isTrue, reason: id);
@@ -189,10 +189,10 @@ void main() {
             item.isCore &&
             !item.hasUsefulPractice,
       );
-      expect(remaining, hasLength(35));
+      expect(remaining, isEmpty);
       expect(
         remaining.where((item) => item.item.relationType == 'LOCATED_IN'),
-        hasLength(35),
+        isEmpty,
       );
       expect(
         remaining.where(

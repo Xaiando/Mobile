@@ -1,0 +1,222 @@
+# A second, source-linked objective family for 35 WSET Level 3 core
+# LOCATED_IN facts that already have click-map practice. Each item asks for
+# a bounded geographic parent; the existing map formats remain active.
+question_templates:
+  - id: qt_wset_l3_geography_location_clues_35
+    relation_type: LOCATED_IN
+    direction: forward
+    mode: authored_choice
+    variant: wset_l3_geography_location_clue
+    prompt_template: '{subject.name}'
+    parameters:
+      item_choices:
+        ki_wset_geo_alentejano_igp_location:
+          prompt: "An Alentejano IGP bottle is associated with the Alentejo wine area around Évora and Beja. Which national wine register applies?"
+          options: ["Portugal", "Spain", "France", "Slovenia"]
+          correctIndex: 0
+          explanation: "Portugal's IVV places the Alentejo region and its geographical indication within the Portuguese wine system."
+          sourceCitationId: src_atlas_pt_alentejo_subregions
+        ki_wset_geo_austria_world_location:
+          prompt: "On a political map, which Alpine country lies north of Italy and south of Germany, extending east toward Hungary?"
+          options: ["Hungary", "Austria", "Slovakia", "Switzerland"]
+          correctIndex: 1
+          explanation: "Natural Earth's country outlines place Austria between Germany and Italy, with Hungary to its east."
+          sourceCitationId: src_ne_countries
+        ki_wset_geo_bordeaux_superieur_location:
+          prompt: "An INAO entry adds the Supérieur qualifier to a Gironde base appellation. Under which broad wine-region heading should it be filed?"
+          options: ["Burgundy", "Champagne", "Bordeaux", "Provence"]
+          correctIndex: 2
+          explanation: "INAO records Bordeaux Supérieur as a designation in the Bordeaux geographical area."
+          sourceCitationId: src_wset_eu_bdx_superieur
+        ki_wset_geo_bourgogne_aoc_location:
+          prompt: "INAO records a regional AOC spanning Yonne, Côte-d'Or and Saône-et-Loire. Which country administers it?"
+          options: ["Germany", "Austria", "Italy", "France"]
+          correctIndex: 3
+          explanation: "The INAO Bourgogne specification and commune-area record place the AOC in France."
+          sourceCitationId: src_inao_cdc_bourgogne
+        ki_wset_geo_bourgogne_cote_chalonnaise_location:
+          prompt: "A shipping brief groups Côte Chalonnaise's Rully, Mercurey and Givry south of the Côte de Beaune. Which larger French wine region contains that corridor?"
+          options: ["Burgundy", "Jura", "Beaujolais", "Alsace"]
+          correctIndex: 0
+          explanation: "The Bourgogne wine board locates the Côte Chalonnaise, including Rully, Mercurey and Givry, south of the Côte de Beaune within Burgundy."
+          sourceCitationId: src_fr_atlas_bivb_areas
+        ki_wset_geo_bourgogne_cote_d_or_location:
+          prompt: "A Côte d'Or wine strip runs from Dijon past the Côte de Nuits and Côte de Beaune toward Maranges. Which parent French wine region does it cross?"
+          options: ["Loire Valley", "Burgundy", "Alsace", "Beaujolais"]
+          correctIndex: 1
+          explanation: "The Bourgogne wine board describes the Côte d'Or appellation area from Dijon toward Maranges within Burgundy."
+          sourceCitationId: src_fr_atlas_bivb_areas
+        ki_wset_geo_bourgogne_hautes_cotes_de_beaune_location:
+          prompt: "An atlas groups the Hautes Côtes de Beaune with the Côte de Beaune near Meursault. Which wider French wine region contains both areas?"
+          options: ["Champagne", "Jura", "Burgundy", "Beaujolais"]
+          correctIndex: 2
+          explanation: "The Bourgogne wine board groups the Hautes Côtes de Beaune and Côte de Beaune within Burgundy."
+          sourceCitationId: src_fr_atlas_bivb_areas
+        ki_wset_geo_bourgogne_hautes_cotes_de_nuits_location:
+          prompt: "A wine-area guide groups the Hautes Côtes de Nuits with Côte de Nuits and nearby Côte de Beaune. Which wider French region contains them?"
+          options: ["Alsace", "Loire Valley", "Jura", "Burgundy"]
+          correctIndex: 3
+          explanation: "The Bourgogne wine board groups the Hautes Côtes de Nuits, Côte de Nuits and Côte de Beaune within Burgundy."
+          sourceCitationId: src_fr_atlas_bivb_areas
+        ki_wset_geo_cabernet_d_anjou_location:
+          prompt: "An INAO Cabernet rosé appellation is associated with the vineyards around Angers and Saumur. Which Loire subregion groups it?"
+          options: ["Anjou-Saumur", "Touraine", "Centre-Loire", "Nantais"]
+          correctIndex: 0
+          explanation: "INAO's Cabernet d'Anjou geographical area lies in the Anjou-Saumur part of the Loire."
+          sourceCitationId: src_wset_eu_cabernet_anjou
+        ki_wset_geo_calatayud_location:
+          prompt: "A national protected-wine list files Calatayud DO under Aragón. Which country issued that list?"
+          options: ["France", "Spain", "Italy", "Greece"]
+          correctIndex: 1
+          explanation: "Spain's agriculture ministry lists Calatayud among the protected names of Aragón."
+          sourceCitationId: src_wset_eu_es_register
+        ki_wset_geo_castilla_y_leon_igp_location:
+          prompt: "A Spanish wine register groups Ribera del Duero, Rueda and an IGP sharing their autonomous-community heading. Which heading is it?"
+          options: ["Cataluña", "Castilla-La Mancha", "Castilla y León", "Comunidad Valenciana"]
+          correctIndex: 2
+          explanation: "The ministry register files IGP Castilla y León beneath the same autonomous-community heading as Ribera del Duero and Rueda."
+          sourceCitationId: src_wset_eu_es_register
+        ki_wset_geo_cote_de_sezanne_location:
+          prompt: "A regional committee groups the Côte de Sézanne with Montagne de Reims and Côte des Blancs. Which wine region is being mapped?"
+          options: ["Burgundy", "Languedoc", "Loire Valley", "Champagne"]
+          correctIndex: 3
+          explanation: "Comité Champagne identifies Côte de Sézanne as one of the Champagne vineyard areas."
+          sourceCitationId: src_fr_atlas_champagne_areas
+        ki_wset_geo_cotes_de_gascogne_location:
+          prompt: "An IGP production area covers Gascon communes in Gers, Landes and Lot-et-Garonne. Which broad French wine-study region contains it?"
+          options: ["Southwest France", "Loire Valley", "Southern Rhône", "Languedoc-Roussillon"]
+          correctIndex: 0
+          explanation: "INAO's Côtes de Gascogne specification locates the IGP across Gascon departments in southwest France."
+          sourceCitationId: src_wset_geo_gascogne
+        ki_wset_geo_cremant_de_bourgogne_location:
+          prompt: "INAO lists a Crémant AOP over communes in Yonne, Côte-d'Or and Saône-et-Loire. Which national appellation system contains it?"
+          options: ["Germany", "France", "Austria", "Italy"]
+          correctIndex: 1
+          explanation: "INAO places Crémant de Bourgogne in the French AOP system and lists its geographical area."
+          sourceCitationId: src_wset_geo_cremant_bourgogne
+        ki_wset_geo_cremant_de_loire_location:
+          prompt: "A sparkling appellation includes vineyards in Maine-et-Loire and Indre-et-Loire along a western European river. Which country certifies it?"
+          options: ["Portugal", "Germany", "France", "Spain"]
+          correctIndex: 2
+          explanation: "InterLoire describes the geographical area of Crémant de Loire within France's Loire vineyards."
+          sourceCitationId: src_wset_geo_cremant_loire
+        ki_wset_geo_deidesheim_location:
+          prompt: "Deidesheim lies on the Deutsche Weinstraße near Forst below the Pfälzerwald. Which German wine region contains it?"
+          options: ["Mosel", "Nahe", "Rheingau", "Pfalz"]
+          correctIndex: 3
+          explanation: "Deutsches Weininstitut places Deidesheim along the wine road in the Pfalz region."
+          sourceCitationId: src_reg_de_pfalz
+        ki_wset_geo_dolcetto_d_alba_location:
+          prompt: "A Dolcetto DOC centred on Alba belongs to the northern Italian Langhe area. Which regional chapter should hold it?"
+          options: ["Piedmont", "Veneto", "Campania", "Tuscany"]
+          correctIndex: 0
+          explanation: "The Langhe consortium locates Dolcetto d'Alba in Piedmont's Alba and Langhe production area."
+          sourceCitationId: src_wset_geo_dolcetto_alba
+        ki_wset_geo_forst_pfalz_location:
+          prompt: "Forst an der Weinstraße sits near Deidesheim east of the Pfälzerwald. Which German wine region contains the village?"
+          options: ["Mosel", "Pfalz", "Nahe", "Baden"]
+          correctIndex: 1
+          explanation: "Forst's municipality locates the wine village in the Pfalz."
+          sourceCitationId: src_wset_geo_forst
+        ki_wset_geo_greece_world_location:
+          prompt: "Which country occupies a southern Balkan peninsula and island groups in the Aegean Sea, east of the Ionian Sea?"
+          options: ["Croatia", "Albania", "Greece", "Turkey"]
+          correctIndex: 2
+          explanation: "Natural Earth's boundaries and coastlines show mainland Greece and its Aegean islands between the two seas."
+          sourceCitationId: src_ne_countries
+        ki_wset_geo_la_mancha_do_location:
+          prompt: "Spain's wine register places the La Mancha DO with Almansa and Valdepeñas under which autonomous-community heading?"
+          options: ["Extremadura", "Castilla y León", "Comunidad Valenciana", "Castilla-La Mancha"]
+          correctIndex: 3
+          explanation: "The agriculture ministry groups all three named DOs under Castilla-La Mancha."
+          sourceCitationId: src_wset_eu_es_register
+        ki_wset_geo_mendocino_county_location:
+          prompt: "TTB lists Anderson Valley and Mendocino Ridge AVAs in the same North Coast county. Which US state contains that county?"
+          options: ["California", "Oregon", "Washington", "New York"]
+          correctIndex: 0
+          explanation: "The TTB AVA list places Anderson Valley and Mendocino Ridge in Mendocino County, California."
+          sourceCitationId: src_atlas_us_avas
+        ki_wset_geo_muscat_de_beaumes_de_venise_location:
+          prompt: "A Muscat vin doux naturel appellation sits near Beaumes-de-Venise in the southern Rhône's Vaucluse area. Which country holds it?"
+          options: ["Italy", "France", "Germany", "Spain"]
+          correctIndex: 1
+          explanation: "Inter Rhône locates Muscat de Beaumes-de-Venise in the French Rhône vineyards."
+          sourceCitationId: src_wset_sf_beaumes
+        ki_wset_geo_napa_county_location:
+          prompt: "TTB entries for Atlas Peak and Coombsville both name Napa as their county. Which US state contains it?"
+          options: ["Oregon", "Washington", "California", "New York"]
+          correctIndex: 2
+          explanation: "TTB's established-AVA list locates both named AVAs in Napa County, California."
+          sourceCitationId: src_atlas_us_avas
+        ki_wset_geo_nierstein_location:
+          prompt: "Nierstein and its Roter Hang vineyards lie along the Rhine in which German wine region?"
+          options: ["Rheingau", "Württemberg", "Pfalz", "Rheinhessen"]
+          correctIndex: 3
+          explanation: "Deutsches Weininstitut describes Nierstein's Rhine-side setting within Rheinhessen."
+          sourceCitationId: src_reg_de_rheinhessen
+        ki_wset_geo_penedes_location:
+          prompt: "A protected-wine register places Penedès DO under Cataluña alongside Montsant and Priorat. Which country issued the register?"
+          options: ["Spain", "France", "Italy", "Greece"]
+          correctIndex: 0
+          explanation: "Spain's agriculture ministry lists Penedès among the protected Catalan wine names."
+          sourceCitationId: src_wset_eu_es_register
+        ki_wset_geo_rose_d_anjou_location:
+          prompt: "An INAO rosé appellation centred on Angers belongs to which named middle-Loire subregion?"
+          options: ["Touraine", "Anjou-Saumur", "Centre-Loire", "Nantais"]
+          correctIndex: 1
+          explanation: "INAO's Rosé d'Anjou area lies in the Anjou-Saumur part of the Loire."
+          sourceCitationId: src_wset_geo_rose_anjou
+        ki_wset_geo_rose_de_loire_location:
+          prompt: "An INAO rosé AOP spans several departments along a French river, including Maine-et-Loire and Indre-et-Loire. Which parent valley?"
+          options: ["Mosel Valley", "Rhône Valley", "Loire Valley", "Douro Valley"]
+          correctIndex: 2
+          explanation: "The Rosé de Loire specification places its production area across Loire-valley departments."
+          sourceCitationId: src_wset_geo_rose_loire
+        ki_wset_geo_san_luis_obispo_county_location:
+          prompt: "TTB's Edna Valley and Paso Robles entries both name San Luis Obispo as their county. Which US state contains it?"
+          options: ["Oregon", "New York", "Washington", "California"]
+          correctIndex: 3
+          explanation: "The TTB AVA list places Edna Valley and Paso Robles in San Luis Obispo County, California."
+          sourceCitationId: src_atlas_us_avas
+        ki_wset_geo_schlossbockelheim_location:
+          prompt: "A German wine handbook places Schlossböckelheim at the transition between the middle and upper sections of one river wine region. Which region?"
+          options: ["Nahe", "Mosel", "Pfalz", "Ahr"]
+          correctIndex: 0
+          explanation: "Deutsches Weininstitut's handbook places Schlossböckelheim at the boundary of the middle and upper Nahe."
+          sourceCitationId: src_ce_districts
+        ki_wset_geo_sicilia_doc_location:
+          prompt: "A ministry record describes a DOC across the Italian island that contains Palermo and Etna. Which island region should an atlas use?"
+          options: ["Corsica", "Sicily", "Sardinia", "Crete"]
+          correctIndex: 1
+          explanation: "MASAF records Sicilia DOC as a protected designation on Sicily."
+          sourceCitationId: src_wset_eu_sicilia_register
+        ki_wset_geo_terre_siciliane_igt_location:
+          prompt: "An IGT name covers wine from the Italian island containing Palermo, Catania and Trapani. Which island region is intended?"
+          options: ["Sardinia", "Corsica", "Sicily", "Crete"]
+          correctIndex: 2
+          explanation: "MASAF's Terre Siciliane IGT record locates the indication on Sicily."
+          sourceCitationId: src_wset_eu_terre_siciliane
+        ki_wset_geo_toscana_igt_location:
+          prompt: "A regional Italian IGT spans provinces including Siena, Florence and Grosseto. Which wine region does it cover?"
+          options: ["Marche", "Piedmont", "Campania", "Tuscany"]
+          correctIndex: 3
+          explanation: "Regione Toscana's wine-indication reference places the Toscana IGT across Tuscan provinces."
+          sourceCitationId: src_wset_geo_toscana
+        ki_wset_geo_valdepenas_location:
+          prompt: "Spain's register groups Valdepeñas DO with La Mancha rather than Ribera del Duero. Which autonomous community holds it?"
+          options: ["Castilla-La Mancha", "Comunidad Valenciana", "Castilla y León", "Extremadura"]
+          correctIndex: 0
+          explanation: "The agriculture ministry files Valdepeñas under Castilla-La Mancha."
+          sourceCitationId: src_wset_eu_es_register
+        ki_wset_geo_valencia_do_location:
+          prompt: "A Spanish protected-wine list groups Alicante and Utiel-Requena with a DO named for the regional capital. Which coastal autonomous-community heading is it?"
+          options: ["Andalucía", "Valencia", "Cataluña", "Extremadura"]
+          correctIndex: 1
+          explanation: "The agriculture ministry lists Alicante, Utiel-Requena and Valencia DO beneath its Valencia heading."
+          sourceCitationId: src_wset_eu_es_register
+        ki_wset_geo_yecla_location:
+          prompt: "A wine DO appears in Murcia's official listing beside Bullas. Which country issued that protected-name list?"
+          options: ["Italy", "Portugal", "Spain", "France"]
+          correctIndex: 2
+          explanation: "Spain's agriculture ministry lists Yecla and Bullas under Murcia."
+          sourceCitationId: src_wset_eu_es_register

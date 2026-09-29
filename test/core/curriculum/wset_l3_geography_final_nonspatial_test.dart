@@ -152,65 +152,60 @@ void main() {
     },
   );
 
-  test(
-    '11 choices serve Level 3 and leave only spatial gaps after regional cases',
-    () async {
-      final db = openTestDatabase();
-      addTearDown(db.close);
-      final generation = await CurriculumIngester(
-        db,
-        clock: Clock.fixed(DateTime.utc(2026, 9, 29, 16)),
-      ).ingest(dataset);
-      final generated = (await db.select(db.questions).get()).where(
-        (question) => _templateIds.contains(question.questionTemplateId),
-      );
-      expect(generated, hasLength(11));
+  test('11 choices serve Level 3 and complete objective geography after regional cases and location clues', () async {
+    final db = openTestDatabase();
+    addTearDown(db.close);
+    final generation = await CurriculumIngester(
+      db,
+      clock: Clock.fixed(DateTime.utc(2026, 9, 29, 16)),
+    ).ingest(dataset);
+    final generated = (await db.select(db.questions).get()).where(
+      (question) => _templateIds.contains(question.questionTemplateId),
+    );
+    expect(generated, hasLength(11));
+    expect(
+      generated.map((question) => question.knowledgeItemId).toSet(),
+      expectedIds,
+    );
+    final cards = {
+      for (final card in await StudyPlanner(db).cards('WSET_L3'))
+        card.itemId: card,
+    };
+    for (final id in expectedIds) {
       expect(
-        generated.map((question) => question.knowledgeItemId).toSet(),
-        expectedIds,
+        cards[id]?.formats.map((format) => format.mode).toSet(),
+        containsAll({'authored_choice', 'typed', 'flashcard'}),
+        reason: id,
       );
-      final cards = {
-        for (final card in await StudyPlanner(db).cards('WSET_L3'))
-          card.itemId: card,
-      };
-      for (final id in expectedIds) {
-        expect(
-          cards[id]?.formats.map((format) => format.mode).toSet(),
-          containsAll({'authored_choice', 'typed', 'flashcard'}),
-          reason: id,
-        );
-      }
+    }
 
-      final audit = await CoverageChecker(
-        db,
-        CoveragePolicy.parse(
-          File('assets/curriculum/coverage_policy.yaml').readAsStringSync(),
-        ),
-      ).check('WSET_L3', on: '2026-09-29', skipped: generation.skipped);
-      final geography = audit.domains.singleWhere(
-        (row) => row.id == 'geography',
-      );
-      expect(geography.counts[CoverageMetric.core], 1060);
-      expect(geography.counts[CoverageMetric.coreUsefulPractice], 1025);
-      for (final id in expectedIds) {
-        final row = audit.items.singleWhere((item) => item.id == id);
-        expect(row.hasUsefulPractice, isTrue, reason: id);
-      }
-      final remaining = audit.items.where(
-        (item) =>
-            item.item.domainId == 'geography' &&
-            item.isCore &&
-            !item.hasUsefulPractice,
-      );
-      expect(remaining, hasLength(35));
-      expect(
-        remaining.where((item) => item.item.relationType == 'LOCATED_IN'),
-        hasLength(35),
-      );
-      expect(
-        remaining.where((item) => item.item.relationType.startsWith('CASE_')),
-        isEmpty,
-      );
-    },
-  );
+    final audit = await CoverageChecker(
+      db,
+      CoveragePolicy.parse(
+        File('assets/curriculum/coverage_policy.yaml').readAsStringSync(),
+      ),
+    ).check('WSET_L3', on: '2026-09-29', skipped: generation.skipped);
+    final geography = audit.domains.singleWhere((row) => row.id == 'geography');
+    expect(geography.counts[CoverageMetric.core], 1060);
+    expect(geography.counts[CoverageMetric.coreUsefulPractice], 1060);
+    for (final id in expectedIds) {
+      final row = audit.items.singleWhere((item) => item.id == id);
+      expect(row.hasUsefulPractice, isTrue, reason: id);
+    }
+    final remaining = audit.items.where(
+      (item) =>
+          item.item.domainId == 'geography' &&
+          item.isCore &&
+          !item.hasUsefulPractice,
+    );
+    expect(remaining, isEmpty);
+    expect(
+      remaining.where((item) => item.item.relationType == 'LOCATED_IN'),
+      isEmpty,
+    );
+    expect(
+      remaining.where((item) => item.item.relationType.startsWith('CASE_')),
+      isEmpty,
+    );
+  });
 }
