@@ -274,7 +274,7 @@ void main() {
   );
 
   test(
-    '864 cited choices are generated and served across WSET and CMS tracks',
+    '904 cited choices are generated and served across WSET and CMS tracks',
     () async {
       final db = openTestDatabase();
       try {
@@ -299,7 +299,7 @@ void main() {
                   template.id == 'qt_d5f_authored_choice',
             )
             .toList();
-        expect(templates, hasLength(38));
+        expect(templates, hasLength(40));
         final expectedIds = {
           for (final template in templates)
             ...((jsonDecode(template.parameters!)
@@ -414,6 +414,12 @@ void main() {
         final l3ViticultureIds = idsForTemplate(
           'qt_wset_l3_viticulture_application_40',
         );
+        final l3TastingIds = idsForTemplate(
+          'qt_wset_l3_tasting_application_23',
+        );
+        final l3ServiceIds = idsForTemplate(
+          'qt_wset_l3_service_application_17',
+        );
         final diplomaBusinessIds = idsForTemplate(
           'qt_wset_d2_business_application_29',
         );
@@ -433,6 +439,8 @@ void main() {
           ...winemakingDepthIds,
           ...l3ApplicationIds,
           ...l3ViticultureIds,
+          ...l3TastingIds,
+          ...l3ServiceIds,
           ...diplomaBusinessIds,
           ...d3RegionalIds,
           ...d4RegionalIds,
@@ -448,7 +456,7 @@ void main() {
           {'ki_reg_ib_rias_canopy_context', 'ki_reg_oa_hunter_rain'},
           reason: 'Regional and viticulture prompts share two cited items',
         );
-        expect(expectedIds, hasLength(861));
+        expect(expectedIds, hasLength(901));
         expect(levelOneIds, hasLength(132));
         expect(levelTwoIds, hasLength(248));
         expect(sharedGrapeIds, hasLength(52));
@@ -461,6 +469,8 @@ void main() {
         expect(winemakingDepthIds, hasLength(37));
         expect(l3ApplicationIds, hasLength(40));
         expect(l3ViticultureIds, hasLength(40));
+        expect(l3TastingIds, hasLength(23));
+        expect(l3ServiceIds, hasLength(17));
         expect(diplomaBusinessIds, hasLength(29));
         expect(d3RegionalIds, hasLength(19));
         expect(d4RegionalIds, hasLength(24));
@@ -477,7 +487,7 @@ void main() {
                OR t.id = 'qt_d5f_authored_choice')
         ORDER BY q.knowledge_item_id
       ''').get();
-        expect(rows, hasLength(864));
+        expect(rows, hasLength(904));
         final actual = {
           for (final row in rows)
             row.read<String>('knowledge_item_id'): row.read<String>(
