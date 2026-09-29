@@ -1,0 +1,849 @@
+# Original Diploma D5 category, place and business decisions. Primary-source bounded; expert review pending.
+# No origin, named style or category is treated as a guarantee of quality or price.
+knowledge_nodes:
+- id: n_d5f_principle_port_gradient
+  node_type: production_principle
+  name: How does the Douro rainfall gradient qualify a Port site comparison?
+- id: n_d5f_point_port_gradient
+  node_type: learning_point
+  name: Rainfall generally decreases eastwards; compare actual site water conditions
+- id: n_d5f_principle_port_terraces
+  node_type: production_principle
+  name: Why can a steep Douro planting create a distinct establishment-cost decision?
+- id: n_d5f_point_port_terraces
+  node_type: learning_point
+  name: Very steep slopes may need terrace construction
+- id: n_d5f_principle_port_beneficio
+  node_type: production_principle
+  name: Why is Douro grape production not identical to authorised Port volume?
+- id: n_d5f_point_port_beneficio
+  node_type: learning_point
+  name: Vineyard authorisation and benefício constrain Port-designated must
+- id: n_d5f_principle_sherry_press
+  node_type: production_principle
+  name: How can Sherry pressing fractions affect a biological-versus-oxidative allocation?
+- id: n_d5f_point_sherry_press
+  node_type: learning_point
+  name: Primera yema is suited to flor; segunda yema often suits oxidative ageing
+- id: n_d5f_principle_sherry_manzanilla
+  node_type: production_principle
+  name: What distinguishes the origin and ageing of Manzanilla from a generic Fino offer?
+- id: n_d5f_point_sherry_manzanilla
+  node_type: learning_point
+  name: Manzanilla undergoes biological ageing in Sanlúcar de Barrameda
+- id: n_d5f_principle_sherry_vos
+  node_type: production_principle
+  name: What does V.O.S. certify in a solera-based Sherry?
+- id: n_d5f_point_sherry_vos
+  node_type: learning_point
+  name: An approved released batch with average age over twenty years
+- id: n_d5f_principle_madeira_tinta
+  node_type: production_principle
+  name: Why is a list of four classic white Madeira names not a complete variety inventory?
+- id: n_d5f_point_madeira_tinta
+  node_type: learning_point
+  name: Tinta Negra is also used for Madeira
+- id: n_d5f_principle_madeira_sweetness
+  node_type: production_principle
+  name: How should Sercial and Malvasia style descriptions guide a Madeira tasting brief?
+- id: n_d5f_point_madeira_sweetness
+  node_type: learning_point
+  name: Sercial is associated with dry Madeira; Malvasia with sweet Madeira
+- id: n_d5f_principle_madeira_categories
+  node_type: production_principle
+  name: How should an age-indicated Madeira blend be distinguished from a dated category?
+- id: n_d5f_point_madeira_categories
+  node_type: learning_point
+  name: The IVBAM catalogue separates blends with age indication from dated Colheita and Frasqueira
+- id: n_d5f_principle_vdn_muscat
+  node_type: production_principle
+  name: Which Muscat grapes are relevant to Muscat de Rivesaltes?
+- id: n_d5f_point_vdn_muscat
+  node_type: learning_point
+  name: Muscat à Petits Grains and Muscat d'Alexandrie
+- id: n_d5f_principle_vdn_maury
+  node_type: production_principle
+  name: What style distinction separates Maury Grenat from Maury Tuilé?
+- id: n_d5f_point_vdn_maury
+  node_type: learning_point
+  name: Grenat is fruit-led; Tuilé develops in an oxidative environment
+- id: n_d5f_principle_vdn_banyuls_style
+  node_type: production_principle
+  name: Why do Rimage and Traditionnel Banyuls imply different maturation directions?
+- id: n_d5f_point_vdn_banyuls_style
+  node_type: learning_point
+  name: Rimage is protected from air; Traditionnel develops with air contact
+- id: n_d5f_principle_vdn_banyuls_labour
+  node_type: production_principle
+  name: Why can a Banyuls vineyard have a distinct labour-cost constraint?
+- id: n_d5f_point_vdn_banyuls_labour
+  node_type: learning_point
+  name: Steep, walled terrain often prevents mechanisation
+- id: n_d5f_principle_ruth_variety
+  node_type: production_principle
+  name: Which variety is behind the Muscat of Rutherglen category?
+- id: n_d5f_point_ruth_variety
+  node_type: learning_point
+  name: Muscat à Petits Grains Rouge, locally Brown Muscat
+- id: n_d5f_principle_ruth_hang
+  node_type: production_principle
+  name: What trade-off follows extended hang time for Rutherglen Muscat grapes?
+- id: n_d5f_point_ruth_hang
+  node_type: learning_point
+  name: Higher sugar and flavour potential with late-season weather and rot exposure
+- id: n_d5f_principle_ruth_tiers
+  node_type: production_principle
+  name: How should the four Muscat of Rutherglen tiers be interpreted?
+- id: n_d5f_point_ruth_tiers
+  node_type: learning_point
+  name: Association classification combines complexity, richness, age and intensity
+- id: n_d5f_case_port_offer
+  node_type: production_case
+  name: How should the port offer decision be evaluated?
+- id: n_d5f_point_case_port_offer_action
+  node_type: learning_point
+  name: Request current samples, bottling details and landed quotes before choosing a category
+- id: n_d5f_point_case_port_offer_reason
+  node_type: learning_point
+  name: Contrast multi-harvest age-indicated Tawny with single-harvest cask-aged Colheita
+- id: n_d5f_point_case_port_offer_tradeoff
+  node_type: learning_point
+  name: Compare the quoted cask-age inventory cost and expected stock turnover
+- id: n_d5f_point_case_port_offer_limitation
+  node_type: learning_point
+  name: Neither label supplies tasting quality, bottle condition or local demand
+- id: n_d5f_case_sherry_vos_stock
+  node_type: production_case
+  name: How should the sherry vos stock decision be evaluated?
+- id: n_d5f_point_case_sherry_vos_stock_action
+  node_type: learning_point
+  name: Reduce the proposed V.O.S. saca to at most about 71.4 L before further checks
+- id: n_d5f_point_case_sherry_vos_stock_reason
+  node_type: learning_point
+  name: A 100 L withdrawal leaves only 1,400 L, less than twenty times the sold volume
+- id: n_d5f_point_case_sherry_vos_stock_tradeoff
+  node_type: learning_point
+  name: Retain more long-aged stock in exchange for a smaller immediate release
+- id: n_d5f_point_case_sherry_vos_stock_limitation
+  node_type: learning_point
+  name: The volume arithmetic does not itself certify the batch's age or tasting quality
+- id: n_d5f_case_fortified_list
+  node_type: production_case
+  name: How should the fortified list decision be evaluated?
+- id: n_d5f_point_case_fortified_list_action
+  node_type: learning_point
+  name: Sample the Maury Tuilé and Rutherglen Muscat against the brief, while checking actual sweetness and quotes
+- id: n_d5f_point_case_fortified_list_reason
+  node_type: learning_point
+  name: Sercial is a dry Madeira lead while the other two are stronger sweet mature leads
+- id: n_d5f_point_case_fortified_list_tradeoff
+  node_type: learning_point
+  name: The single slot forces a choice between oxidative Grenache character and mature Muscat richness
+- id: n_d5f_point_case_fortified_list_limitation
+  node_type: learning_point
+  name: No label or regional description replaces current tasting, sweetness specification and landed margin
+knowledge_relations:
+- subject_id: n_d5f_principle_port_gradient
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_d5f_point_port_gradient
+  valid_from: '1900-01-01'
+- subject_id: n_d5f_principle_port_terraces
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_d5f_point_port_terraces
+  valid_from: '1900-01-01'
+- subject_id: n_d5f_principle_port_beneficio
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_d5f_point_port_beneficio
+  valid_from: '1900-01-01'
+- subject_id: n_d5f_principle_sherry_press
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_d5f_point_sherry_press
+  valid_from: '1900-01-01'
+- subject_id: n_d5f_principle_sherry_manzanilla
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_d5f_point_sherry_manzanilla
+  valid_from: '1900-01-01'
+- subject_id: n_d5f_principle_sherry_vos
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_d5f_point_sherry_vos
+  valid_from: '1900-01-01'
+- subject_id: n_d5f_principle_madeira_tinta
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_d5f_point_madeira_tinta
+  valid_from: '1900-01-01'
+- subject_id: n_d5f_principle_madeira_sweetness
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_d5f_point_madeira_sweetness
+  valid_from: '1900-01-01'
+- subject_id: n_d5f_principle_madeira_categories
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_d5f_point_madeira_categories
+  valid_from: '1900-01-01'
+- subject_id: n_d5f_principle_vdn_muscat
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_d5f_point_vdn_muscat
+  valid_from: '1900-01-01'
+- subject_id: n_d5f_principle_vdn_maury
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_d5f_point_vdn_maury
+  valid_from: '1900-01-01'
+- subject_id: n_d5f_principle_vdn_banyuls_style
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_d5f_point_vdn_banyuls_style
+  valid_from: '1900-01-01'
+- subject_id: n_d5f_principle_vdn_banyuls_labour
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_d5f_point_vdn_banyuls_labour
+  valid_from: '1900-01-01'
+- subject_id: n_d5f_principle_ruth_variety
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_d5f_point_ruth_variety
+  valid_from: '1900-01-01'
+- subject_id: n_d5f_principle_ruth_hang
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_d5f_point_ruth_hang
+  valid_from: '1900-01-01'
+- subject_id: n_d5f_principle_ruth_tiers
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_d5f_point_ruth_tiers
+  valid_from: '1900-01-01'
+- subject_id: n_d5f_case_port_offer
+  relation_type: CASE_ACTION
+  object_id: n_d5f_point_case_port_offer_action
+  valid_from: '1900-01-01'
+- subject_id: n_d5f_case_port_offer
+  relation_type: CASE_REASON
+  object_id: n_d5f_point_case_port_offer_reason
+  valid_from: '1900-01-01'
+- subject_id: n_d5f_case_port_offer
+  relation_type: CASE_TRADEOFF
+  object_id: n_d5f_point_case_port_offer_tradeoff
+  valid_from: '1900-01-01'
+- subject_id: n_d5f_case_port_offer
+  relation_type: CASE_LIMITATION
+  object_id: n_d5f_point_case_port_offer_limitation
+  valid_from: '1900-01-01'
+- subject_id: n_d5f_case_sherry_vos_stock
+  relation_type: CASE_ACTION
+  object_id: n_d5f_point_case_sherry_vos_stock_action
+  valid_from: '1900-01-01'
+- subject_id: n_d5f_case_sherry_vos_stock
+  relation_type: CASE_REASON
+  object_id: n_d5f_point_case_sherry_vos_stock_reason
+  valid_from: '1900-01-01'
+- subject_id: n_d5f_case_sherry_vos_stock
+  relation_type: CASE_TRADEOFF
+  object_id: n_d5f_point_case_sherry_vos_stock_tradeoff
+  valid_from: '1900-01-01'
+- subject_id: n_d5f_case_sherry_vos_stock
+  relation_type: CASE_LIMITATION
+  object_id: n_d5f_point_case_sherry_vos_stock_limitation
+  valid_from: '1900-01-01'
+- subject_id: n_d5f_case_fortified_list
+  relation_type: CASE_ACTION
+  object_id: n_d5f_point_case_fortified_list_action
+  valid_from: '1900-01-01'
+- subject_id: n_d5f_case_fortified_list
+  relation_type: CASE_REASON
+  object_id: n_d5f_point_case_fortified_list_reason
+  valid_from: '1900-01-01'
+- subject_id: n_d5f_case_fortified_list
+  relation_type: CASE_TRADEOFF
+  object_id: n_d5f_point_case_fortified_list_tradeoff
+  valid_from: '1900-01-01'
+- subject_id: n_d5f_case_fortified_list
+  relation_type: CASE_LIMITATION
+  object_id: n_d5f_point_case_fortified_list_limitation
+  valid_from: '1900-01-01'
+knowledge_items:
+- id: ki_d5f_port_gradient
+  subject_id: n_d5f_principle_port_gradient
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_d5f_point_port_gradient
+  domain_id: winemaking
+  assertion_text: IVDP describes a broad decrease in rainfall eastwards through the Douro; sub-region alone does not establish
+    a parcel's water status or final wine quality.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-29T00:00:00.000Z'
+- id: ki_d5f_port_terraces
+  subject_id: n_d5f_principle_port_terraces
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_d5f_point_port_terraces
+  domain_id: winemaking
+  assertion_text: IVDP says very steep Douro slopes must be shaped into terraces before planting, creating a site preparation
+    requirement that should be costed rather than assumed for every Douro parcel.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-29T00:00:00.000Z'
+- id: ki_d5f_port_beneficio
+  subject_id: n_d5f_principle_port_beneficio
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_d5f_point_port_beneficio
+  domain_id: winemaking
+  assertion_text: IVDP distinguishes vineyards authorised for Port and the benefício allocation from all land under vines;
+    a grower cannot assume every harvested litre is eligible for Port.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-29T00:00:00.000Z'
+- id: ki_d5f_sherry_press
+  subject_id: n_d5f_principle_sherry_press
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_d5f_point_sherry_press
+  domain_id: winemaking
+  assertion_text: The Consejo describes primera yema must as suited to biological ageing and more structured segunda yema
+    must as better suited to oxidative development; final allocation still requires base-wine assessment.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-29T00:00:00.000Z'
+- id: ki_d5f_sherry_manzanilla
+  subject_id: n_d5f_principle_sherry_manzanilla
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_d5f_point_sherry_manzanilla
+  domain_id: winemaking
+  assertion_text: The Consejo identifies Manzanilla as Palomino wine aged under flor in Sanlúcar de Barrameda; a flor-aged
+    wine from another Jerez town cannot be relabelled Manzanilla merely because its method resembles Fino.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-29T00:00:00.000Z'
+- id: ki_d5f_sherry_vos
+  subject_id: n_d5f_principle_sherry_vos
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_d5f_point_sherry_vos
+  domain_id: winemaking
+  assertion_text: The Consejo says V.O.S. certification is granted to an individual saca with average age over twenty years,
+    rather than proving that each drop or all future releases under a brand is exactly twenty years old.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-29T00:00:00.000Z'
+- id: ki_d5f_madeira_tinta
+  subject_id: n_d5f_principle_madeira_tinta
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_d5f_point_madeira_tinta
+  domain_id: winemaking
+  assertion_text: IVBAM lists Tinta Negra among the principal varieties used for Madeira alongside Sercial, Verdelho, Boal,
+    Malvasia and Terrantez; the four classic style names are not the only grape sources used.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-29T00:00:00.000Z'
+- id: ki_d5f_madeira_sweetness
+  subject_id: n_d5f_principle_madeira_sweetness
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_d5f_point_madeira_sweetness
+  domain_id: winemaking
+  assertion_text: IVBAM describes Sercial Madeira as a dry style and Malvasia Madeira as a sweet style; a buyer must still
+    confirm the individual wine's category, condition and suitability.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-29T00:00:00.000Z'
+- id: ki_d5f_madeira_categories
+  subject_id: n_d5f_principle_madeira_categories
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_d5f_point_madeira_categories
+  domain_id: winemaking
+  assertion_text: IVBAM presents blends with an age indication separately from the date-specific Colheita and Frasqueira categories;
+    an age number on a blend is not a harvest year.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-29T00:00:00.000Z'
+- id: ki_d5f_vdn_muscat
+  subject_id: n_d5f_principle_vdn_muscat
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_d5f_point_vdn_muscat
+  domain_id: winemaking
+  assertion_text: INAO identifies both Muscat à Petits Grains and Muscat d'Alexandrie for Muscat de Rivesaltes; grape identity
+    alone does not determine the finished blend or its quality.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-29T00:00:00.000Z'
+- id: ki_d5f_vdn_maury
+  subject_id: n_d5f_principle_vdn_maury
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_d5f_point_vdn_maury
+  domain_id: winemaking
+  assertion_text: CIVR describes Maury Grenat with dark-fruit notes and Maury Tuilé with oxidative maturation and dried-fruit,
+    cacao and coffee notes; the named styles should not be treated as interchangeable.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-29T00:00:00.000Z'
+- id: ki_d5f_vdn_banyuls_style
+  subject_id: n_d5f_principle_vdn_banyuls_style
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_d5f_point_vdn_banyuls_style
+  domain_id: winemaking
+  assertion_text: INAO describes red Banyuls Rimage as protected from air to retain fruit, while contact with air develops
+    the amber or tuilé traditional profile; this is a style contrast, not a universal quality ranking.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-29T00:00:00.000Z'
+- id: ki_d5f_vdn_banyuls_labour
+  subject_id: n_d5f_principle_vdn_banyuls_labour
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_d5f_point_vdn_banyuls_labour
+  domain_id: winemaking
+  assertion_text: INAO describes the Banyuls vineyard as steep schist with extensive walls and says its rugged terrain prevents
+    mechanisation; that supports a labour-cost consideration, not a claim that every bottle commands a premium.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-29T00:00:00.000Z'
+- id: ki_d5f_ruth_variety
+  subject_id: n_d5f_principle_ruth_variety
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_d5f_point_ruth_variety
+  domain_id: winemaking
+  assertion_text: Winemakers of Rutherglen identifies Muscat à Petits Grains Rouge, locally Rutherglen Brown Muscat, as the
+    grape for its classified Muscat; Muscadelle is a separate fortified local style.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-29T00:00:00.000Z'
+- id: ki_d5f_ruth_hang
+  subject_id: n_d5f_principle_ruth_hang
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_d5f_point_ruth_hang
+  domain_id: winemaking
+  assertion_text: The Rutherglen growers' association describes prolonged ripening and shrivelling to build sugar and flavour,
+    with exposure to botrytis and early autumn rain; later picking is a risk-managed choice, not a quality guarantee.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-29T00:00:00.000Z'
+- id: ki_d5f_ruth_tiers
+  subject_id: n_d5f_principle_ruth_tiers
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_d5f_point_ruth_tiers
+  domain_id: winemaking
+  assertion_text: The regional association describes Rutherglen, Classic, Grand and Rare as a progression of richness, complexity,
+    age and intensity; age is only one factor and the classification is distinct from the geographical indication boundary.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-29T00:00:00.000Z'
+- id: ki_d5f_case_port_offer_action
+  subject_id: n_d5f_case_port_offer
+  relation_type: CASE_ACTION
+  object_id: n_d5f_point_case_port_offer_action
+  domain_id: winemaking
+  assertion_text: A defensible purchase needs the actual wines and landed terms, not a category ranking.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-29T00:00:00.000Z'
+- id: ki_d5f_case_port_offer_reason
+  subject_id: n_d5f_case_port_offer
+  relation_type: CASE_REASON
+  object_id: n_d5f_point_case_port_offer_reason
+  domain_id: winemaking
+  assertion_text: IVDP describes Colheita as a single-vintage cask-aged Tawny-style category, unlike usual blended age-indicated
+    Tawny.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-29T00:00:00.000Z'
+- id: ki_d5f_case_port_offer_tradeoff
+  subject_id: n_d5f_case_port_offer
+  relation_type: CASE_TRADEOFF
+  object_id: n_d5f_point_case_port_offer_tradeoff
+  domain_id: winemaking
+  assertion_text: A longer-held stock may tie up inventory; compare actual supplier quotes and demand rather than presume
+    category price.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-29T00:00:00.000Z'
+- id: ki_d5f_case_port_offer_limitation
+  subject_id: n_d5f_case_port_offer
+  relation_type: CASE_LIMITATION
+  object_id: n_d5f_point_case_port_offer_limitation
+  domain_id: winemaking
+  assertion_text: IVDP category descriptions identify production route; they do not establish the better current restaurant
+    purchase.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-29T00:00:00.000Z'
+- id: ki_d5f_case_sherry_vos_stock_action
+  subject_id: n_d5f_case_sherry_vos_stock
+  relation_type: CASE_ACTION
+  object_id: n_d5f_point_case_sherry_vos_stock_action
+  domain_id: winemaking
+  assertion_text: With 1,500 L before withdrawal, x can be no more than 1,500 divided by 21, or about 71.4 L, if 20x must
+    remain.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-29T00:00:00.000Z'
+- id: ki_d5f_case_sherry_vos_stock_reason
+  subject_id: n_d5f_case_sherry_vos_stock
+  relation_type: CASE_REASON
+  object_id: n_d5f_point_case_sherry_vos_stock_reason
+  domain_id: winemaking
+  assertion_text: The Consejo states that one litre sold as V.O.S. requires at least twenty litres remaining in the corresponding
+    system.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-29T00:00:00.000Z'
+- id: ki_d5f_case_sherry_vos_stock_tradeoff
+  subject_id: n_d5f_case_sherry_vos_stock
+  relation_type: CASE_TRADEOFF
+  object_id: n_d5f_point_case_sherry_vos_stock_tradeoff
+  domain_id: winemaking
+  assertion_text: The inventory ratio restricts immediate volume; no retail-price consequence follows without costs and demand.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-29T00:00:00.000Z'
+- id: ki_d5f_case_sherry_vos_stock_limitation
+  subject_id: n_d5f_case_sherry_vos_stock
+  relation_type: CASE_LIMITATION
+  object_id: n_d5f_point_case_sherry_vos_stock_limitation
+  domain_id: winemaking
+  assertion_text: The Consejo grants certification to each individual saca after assessment of average age and quality.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-29T00:00:00.000Z'
+- id: ki_d5f_case_fortified_list_action
+  subject_id: n_d5f_case_fortified_list
+  relation_type: CASE_ACTION
+  object_id: n_d5f_point_case_fortified_list_action
+  domain_id: winemaking
+  assertion_text: CIVR describes oxidative Maury Tuilé and the Rutherglen association describes rich classified Muscat; compare
+    actual samples and terms.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-29T00:00:00.000Z'
+- id: ki_d5f_case_fortified_list_reason
+  subject_id: n_d5f_case_fortified_list
+  relation_type: CASE_REASON
+  object_id: n_d5f_point_case_fortified_list_reason
+  domain_id: winemaking
+  assertion_text: IVBAM describes Sercial Madeira as dry; CIVR and Rutherglen describe the other relevant styles.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-29T00:00:00.000Z'
+- id: ki_d5f_case_fortified_list_tradeoff
+  subject_id: n_d5f_case_fortified_list
+  relation_type: CASE_TRADEOFF
+  object_id: n_d5f_point_case_fortified_list_tradeoff
+  domain_id: winemaking
+  assertion_text: Maury Tuilé and mature Rutherglen Muscat offer different production and flavour directions; listing one
+    forgoes the other.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-29T00:00:00.000Z'
+- id: ki_d5f_case_fortified_list_limitation
+  subject_id: n_d5f_case_fortified_list
+  relation_type: CASE_LIMITATION
+  object_id: n_d5f_point_case_fortified_list_limitation
+  domain_id: winemaking
+  assertion_text: The style descriptions guide a shortlist but do not establish the best individual bottle or selling price.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-29T00:00:00.000Z'
+certification_knowledge_mappings:
+- certification_id: WSET_L4
+  knowledge_item_id: ki_d5f_port_gradient
+  importance: core
+  minimum_depth: 2
+- certification_id: WSET_L4
+  knowledge_item_id: ki_d5f_port_terraces
+  importance: core
+  minimum_depth: 2
+- certification_id: WSET_L4
+  knowledge_item_id: ki_d5f_port_beneficio
+  importance: core
+  minimum_depth: 2
+- certification_id: WSET_L4
+  knowledge_item_id: ki_d5f_sherry_press
+  importance: core
+  minimum_depth: 2
+- certification_id: WSET_L4
+  knowledge_item_id: ki_d5f_sherry_manzanilla
+  importance: core
+  minimum_depth: 2
+- certification_id: WSET_L4
+  knowledge_item_id: ki_d5f_sherry_vos
+  importance: core
+  minimum_depth: 2
+- certification_id: WSET_L4
+  knowledge_item_id: ki_d5f_madeira_tinta
+  importance: core
+  minimum_depth: 2
+- certification_id: WSET_L4
+  knowledge_item_id: ki_d5f_madeira_sweetness
+  importance: core
+  minimum_depth: 2
+- certification_id: WSET_L4
+  knowledge_item_id: ki_d5f_madeira_categories
+  importance: core
+  minimum_depth: 2
+- certification_id: WSET_L4
+  knowledge_item_id: ki_d5f_vdn_muscat
+  importance: core
+  minimum_depth: 2
+- certification_id: WSET_L4
+  knowledge_item_id: ki_d5f_vdn_maury
+  importance: core
+  minimum_depth: 2
+- certification_id: WSET_L4
+  knowledge_item_id: ki_d5f_vdn_banyuls_style
+  importance: core
+  minimum_depth: 2
+- certification_id: WSET_L4
+  knowledge_item_id: ki_d5f_vdn_banyuls_labour
+  importance: core
+  minimum_depth: 2
+- certification_id: WSET_L4
+  knowledge_item_id: ki_d5f_ruth_variety
+  importance: core
+  minimum_depth: 2
+- certification_id: WSET_L4
+  knowledge_item_id: ki_d5f_ruth_hang
+  importance: core
+  minimum_depth: 2
+- certification_id: WSET_L4
+  knowledge_item_id: ki_d5f_ruth_tiers
+  importance: core
+  minimum_depth: 2
+- certification_id: WSET_L4
+  knowledge_item_id: ki_d5f_case_port_offer_action
+  importance: core
+  minimum_depth: 3
+- certification_id: WSET_L4
+  knowledge_item_id: ki_d5f_case_port_offer_reason
+  importance: core
+  minimum_depth: 3
+- certification_id: WSET_L4
+  knowledge_item_id: ki_d5f_case_port_offer_tradeoff
+  importance: core
+  minimum_depth: 3
+- certification_id: WSET_L4
+  knowledge_item_id: ki_d5f_case_port_offer_limitation
+  importance: core
+  minimum_depth: 3
+- certification_id: WSET_L4
+  knowledge_item_id: ki_d5f_case_sherry_vos_stock_action
+  importance: core
+  minimum_depth: 3
+- certification_id: WSET_L4
+  knowledge_item_id: ki_d5f_case_sherry_vos_stock_reason
+  importance: core
+  minimum_depth: 3
+- certification_id: WSET_L4
+  knowledge_item_id: ki_d5f_case_sherry_vos_stock_tradeoff
+  importance: core
+  minimum_depth: 3
+- certification_id: WSET_L4
+  knowledge_item_id: ki_d5f_case_sherry_vos_stock_limitation
+  importance: core
+  minimum_depth: 3
+- certification_id: WSET_L4
+  knowledge_item_id: ki_d5f_case_fortified_list_action
+  importance: core
+  minimum_depth: 3
+- certification_id: WSET_L4
+  knowledge_item_id: ki_d5f_case_fortified_list_reason
+  importance: core
+  minimum_depth: 3
+- certification_id: WSET_L4
+  knowledge_item_id: ki_d5f_case_fortified_list_tradeoff
+  importance: core
+  minimum_depth: 3
+- certification_id: WSET_L4
+  knowledge_item_id: ki_d5f_case_fortified_list_limitation
+  importance: core
+  minimum_depth: 3
+source_citations:
+- id: src_d5_ivdp_region
+  kind: reference_work
+  title: Characteristics of the Douro Demarcated Region
+  publisher: Instituto dos Vinhos do Douro e Porto
+  jurisdiction: PT
+  url: https://www.ivdp.pt/en/viticulture/region/characteristics-of-the-region/
+  document_identifier: Primary regulator or regional association technical description; current living page unless dated in
+    title
+  accessed_on: '2026-09-29'
+- id: src_d5_sherry_press
+  kind: reference_work
+  title: Vinification
+  publisher: Consejo Regulador de Jerez-Xérès-Sherry
+  jurisdiction: ES
+  url: https://www.sherry.wine/sherry-wine/production/vinification
+  document_identifier: Primary regulator or regional association technical description; current living page unless dated in
+    title
+  accessed_on: '2026-09-29'
+- id: src_d5_sherry_age
+  kind: reference_work
+  title: Special Categories of Sherry Wines
+  publisher: Consejo Regulador de Jerez-Xérès-Sherry
+  jurisdiction: ES
+  url: https://www.sherry.wine/sherry-wine/special-categories
+  document_identifier: Primary regulator or regional association technical description; current living page unless dated in
+    title
+  accessed_on: '2026-09-29'
+- id: src_d5_madeira_grapes
+  kind: reference_work
+  title: Madeira wine grape varieties
+  publisher: Instituto do Vinho, do Bordado e do Artesanato da Madeira
+  jurisdiction: PT
+  url: https://vinhomadeira.com/o-vinho-madeira/castas
+  document_identifier: Primary regulator or regional association technical description; current living page unless dated in
+    title
+  accessed_on: '2026-09-29'
+- id: src_d5_madeira_food
+  kind: reference_work
+  title: Madeira wine and food matching
+  publisher: Instituto do Vinho, do Bordado e do Artesanato da Madeira
+  jurisdiction: PT
+  url: https://vinhomadeira.com/o-vinho-madeira/consumir/foodmatching
+  document_identifier: Primary regulator or regional association technical description; current living page unless dated in
+    title
+  accessed_on: '2026-09-29'
+- id: src_d5_madeira_types
+  kind: reference_work
+  title: Types of Madeira wine
+  publisher: Instituto do Vinho, do Bordado e do Artesanato da Madeira
+  jurisdiction: PT
+  url: https://vinhomadeira.com/o-vinho-madeira/tipos-categorias
+  document_identifier: Primary regulator or regional association technical description; current living page unless dated in
+    title
+  accessed_on: '2026-09-29'
+- id: src_d5_inao_muscat
+  kind: reference_work
+  title: Muscat de Rivesaltes product description
+  publisher: Institut national de l'origine et de la qualité
+  jurisdiction: FR
+  url: https://www.inao.gouv.fr/node/1892/printable/pdf
+  document_identifier: Primary regulator or regional association technical description; current living page unless dated in
+    title
+  accessed_on: '2026-09-29'
+- id: src_d5_civr_maury
+  kind: reference_work
+  title: AOP Maury
+  publisher: Conseil Interprofessionnel des Vins du Roussillon
+  jurisdiction: FR
+  url: https://www.roussillon.wine/vins-et-terroirs/nos-aoc-et-igp/aop-maury-doux/
+  document_identifier: Primary regulator or regional association technical description; current living page unless dated in
+    title
+  accessed_on: '2026-09-29'
+- id: src_d5_inao_banyuls
+  kind: reference_work
+  title: Banyuls product description
+  publisher: Institut national de l'origine et de la qualité
+  jurisdiction: FR
+  url: https://www.inao.gouv.fr/node/33845/printable/pdf
+  document_identifier: Primary regulator or regional association technical description; current living page unless dated in
+    title
+  accessed_on: '2026-09-29'
+- id: src_d5_ruth_topaque
+  kind: reference_work
+  title: Topaque of Rutherglen
+  publisher: Winemakers of Rutherglen
+  jurisdiction: AU
+  url: https://winemakers.com.au/topaque-of-rutherglen/
+  document_identifier: Primary regulator or regional association technical description; current living page unless dated in
+    title
+  accessed_on: '2026-09-29'
+- id: src_d5_ruth_gi
+  kind: reference_work
+  title: Rutherglen Geographical Indication
+  publisher: Wine Australia
+  jurisdiction: AU
+  url: https://www.wineaustralia.com/labelling/register-of-protected-gis-and-other-terms/geographical-indications/rutherglen
+  document_identifier: Primary regulator or regional association technical description; current living page unless dated in
+    title
+  accessed_on: '2026-09-29'
+knowledge_item_citations:
+- knowledge_item_id: ki_d5f_port_gradient
+  source_citation_id: src_d5_ivdp_region
+  locator: 'Climate: precipitation from Barqueiros towards the Spanish border'
+- knowledge_item_id: ki_d5f_port_terraces
+  source_citation_id: src_reg_ib_douro_viti
+  locator: 'Vine Culture: very steep slopes and terrace preparation'
+- knowledge_item_id: ki_d5f_port_beneficio
+  source_citation_id: src_reg_ib_douro_viti
+  locator: 'Vine Culture: authorised Port area, scoring and benefício'
+- knowledge_item_id: ki_d5f_sherry_press
+  source_citation_id: src_d5_sherry_press
+  locator: 'Vinification: primera yema and segunda yema suitability'
+- knowledge_item_id: ki_d5f_sherry_manzanilla
+  source_citation_id: src_wset_sf_manzanilla
+  locator: 'Production and Ageing: Sanlúcar bodegas and flor'
+- knowledge_item_id: ki_d5f_sherry_vos
+  source_citation_id: src_d5_sherry_age
+  locator: 'Certification of Age: individual lots, average age over 20 years'
+- knowledge_item_id: ki_d5f_madeira_tinta
+  source_citation_id: src_d5_madeira_grapes
+  locator: 'Castas: principal varieties in Madeira'
+- knowledge_item_id: ki_d5f_madeira_sweetness
+  source_citation_id: src_d5_madeira_food
+  locator: 'Foodmatching: Sercial or Seco; Malvasia or Doce'
+- knowledge_item_id: ki_d5f_madeira_categories
+  source_citation_id: src_d5_madeira_types
+  locator: 'Traditional designations: blends with age indications; wines with specific date'
+- knowledge_item_id: ki_d5f_vdn_muscat
+  source_citation_id: src_d5_inao_muscat
+  locator: 'Product description: two Muscat varieties'
+- knowledge_item_id: ki_d5f_vdn_maury
+  source_citation_id: src_d5_civr_maury
+  locator: 'Couleurs et styles: Grenat and Tuilé'
+- knowledge_item_id: ki_d5f_vdn_banyuls_style
+  source_citation_id: src_d5_inao_banyuls
+  locator: 'Arômes et saveurs: rimage protected from air versus air-contact traditional styles'
+- knowledge_item_id: ki_d5f_vdn_banyuls_labour
+  source_citation_id: src_d5_inao_banyuls
+  locator: 'Un produit, un territoire: walls and hand work'
+- knowledge_item_id: ki_d5f_ruth_variety
+  source_citation_id: src_wset_sf_muscat_aged
+  locator: 'Viticulture & Winemaking: named Muscat grape'
+- knowledge_item_id: ki_d5f_ruth_hang
+  source_citation_id: src_wset_sf_muscat_aged
+  locator: 'Viticulture & Winemaking: extended hang and risks'
+- knowledge_item_id: ki_d5f_ruth_tiers
+  source_citation_id: src_wset_sf_muscat_aged
+  locator: 'Muscat of Rutherglen Classification: four descriptions and age as one factor'
+- knowledge_item_id: ki_d5f_case_port_offer_action
+  source_citation_id: src_fort_port_categories
+  locator: 'Special Categories: age-indicated Tawny and Colheita comparisons'
+- knowledge_item_id: ki_d5f_case_port_offer_reason
+  source_citation_id: src_fort_port_categories
+  locator: 'Tawny Style: age-indicated blend and single-harvest Colheita'
+- knowledge_item_id: ki_d5f_case_port_offer_tradeoff
+  source_citation_id: src_fort_port_categories
+  locator: 'Tawny Style: extended wood maturation; inventory-cost consequence is conditional'
+- knowledge_item_id: ki_d5f_case_port_offer_limitation
+  source_citation_id: src_fort_port_categories
+  locator: 'Special Categories: category descriptions, not current bottle or market assessment'
+- knowledge_item_id: ki_d5f_case_sherry_vos_stock_action
+  source_citation_id: src_d5_sherry_age
+  locator: 'The Quota System: at least twenty litres remain per litre sold as V.O.S.'
+- knowledge_item_id: ki_d5f_case_sherry_vos_stock_reason
+  source_citation_id: src_d5_sherry_age
+  locator: 'The Quota System: stock-to-release ratio for over-twenty-year Sherry'
+- knowledge_item_id: ki_d5f_case_sherry_vos_stock_tradeoff
+  source_citation_id: src_d5_sherry_age
+  locator: 'The Quota System: sales require corresponding mature stock retained'
+- knowledge_item_id: ki_d5f_case_sherry_vos_stock_limitation
+  source_citation_id: src_d5_sherry_age
+  locator: 'Tasting Committee: each individual saca undergoes age and quality assessment'
+- knowledge_item_id: ki_d5f_case_fortified_list_action
+  source_citation_id: src_d5_civr_maury
+  locator: 'Couleurs et styles: oxidative Maury Tuilé profile'
+- knowledge_item_id: ki_d5f_case_fortified_list_action
+  source_citation_id: src_wset_sf_muscat_aged
+  locator: 'Muscat of Rutherglen Classification: mature rich styles'
+- knowledge_item_id: ki_d5f_case_fortified_list_reason
+  source_citation_id: src_d5_madeira_food
+  locator: 'Foodmatching: Sercial or Seco'
+- knowledge_item_id: ki_d5f_case_fortified_list_reason
+  source_citation_id: src_d5_civr_maury
+  locator: 'Couleurs et styles: Maury Tuilé'
+- knowledge_item_id: ki_d5f_case_fortified_list_reason
+  source_citation_id: src_wset_sf_muscat_aged
+  locator: 'Muscat of Rutherglen Classification: richer older tiers'
+- knowledge_item_id: ki_d5f_case_fortified_list_tradeoff
+  source_citation_id: src_wset_sf_muscat_aged
+  locator: 'Muscat of Rutherglen Classification: age, richness and complexity'
+- knowledge_item_id: ki_d5f_case_fortified_list_tradeoff
+  source_citation_id: src_d5_civr_maury
+  locator: 'Couleurs et styles: Maury Tuilé oxidative notes'
+- knowledge_item_id: ki_d5f_case_fortified_list_limitation
+  source_citation_id: src_d5_madeira_food
+  locator: 'Foodmatching: style descriptions do not decide an individual purchase'
+- knowledge_item_id: ki_d5f_ruth_variety
+  source_citation_id: src_d5_ruth_topaque
+  locator: 'Topaque: Muscadelle grape identity'
+- knowledge_item_id: ki_d5f_ruth_tiers
+  source_citation_id: src_d5_ruth_gi
+  locator: Rutherglen geographical indication boundary, separate from association style tiers

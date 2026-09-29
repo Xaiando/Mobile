@@ -1,0 +1,188 @@
+# Source-bounded D5 decisions with four distinct options per item.
+question_templates:
+- id: qt_d5f_authored_choice
+  relation_type: PRINCIPLE_EXPLANATION
+  direction: forward
+  mode: authored_choice
+  variant: d5f_category_decisions
+  prompt_template: '{subject.name}'
+  parameters:
+    item_choices:
+      ki_d5f_port_gradient:
+        prompt: Two Douro vineyard offers are otherwise comparable, one in Baixo Corgo and one in Douro Superior. What should
+          the buyer investigate first when assessing water risk?
+        options:
+        - Annual rainfall and vineyard water status at each site
+        - Use Baixo Corgo's regional average as both parcels' measured rainfall
+        - Treat Douro Superior's position alone as proof of drought stress
+        - Use one rainy harvest as proof that the east-west gradient has disappeared
+        correctIndex: 0
+        explanation: IVDP describes an eastward decline in rainfall; assess actual sites before inferring grape or wine outcomes.
+        sourceCitationId: src_d5_ivdp_region
+      ki_d5f_port_terraces:
+        prompt: An estate budgets two new Douro parcels. One is very steep and unprepared; the other is already plantable.
+          Which additional cost belongs in the steep parcel's estimate?
+        options:
+        - Budget identical establishment work because both parcels share the Douro GI
+        - Land shaping and terrace preparation before planting
+        - Cost only extra spirit for the steep site before the vines are planted
+        - Assume terrace walls eliminate the need to cost vineyard access
+        correctIndex: 1
+        explanation: IVDP identifies terrace preparation as a need on very steep slopes; cost does not itself establish quality
+          or selling price.
+        sourceCitationId: src_reg_ib_douro_viti
+      ki_d5f_port_beneficio:
+        prompt: A grower estimates a larger harvest on an existing Douro property. Before projecting extra Port sales, what
+          information is essential?
+        options:
+        - Last year's benefício multiplied automatically by this year's larger crop
+        - The property's total Douro harvest, counting every litre as Port
+        - The vineyard's Port eligibility and current benefício allocation
+        - The parcel's A-F score alone, taken as the current authorised Port volume
+        correctIndex: 2
+        explanation: The IVDP separates total vine area and authorised Port volume through its vineyard assessment and benefício
+          process.
+        sourceCitationId: src_reg_ib_douro_viti
+      ki_d5f_sherry_press:
+        prompt: A Jerez cellar has separate primera-yema and segunda-yema Palomino lots. Which initial allocation follows
+          the Consejo's stated tendency?
+        options:
+        - Segunda yema to flor because extra solids always favour flor
+        - Primera yema to oxidative maturation because gentle pressing prevents flor
+        - Blend both fractions first to guarantee uniform biological ageing
+        - Primera yema to flor trials; segunda yema to oxidative trials
+        correctIndex: 3
+        explanation: The Consejo links first-press must to biological potential and second-press structure to oxidative potential,
+          subject to classification tasting.
+        sourceCitationId: src_d5_sherry_press
+      ki_d5f_sherry_manzanilla:
+        prompt: 'A merchant tastes two flor-aged Palomino wines: one aged in Sanlúcar, the other aged in Jerez. Which statement
+          about a Manzanilla claim is supportable?'
+        options:
+        - The Sanlúcar-aged lot meets the distinctive ageing-location premise; the rest still needs verification
+        - The Jerez-aged lot qualifies if its grapes were grown near Sanlúcar
+        - Both qualify if tasters detect similarly saline flor aromas
+        - Either qualifies if the cellar is coastal, regardless of its town
+        correctIndex: 0
+        explanation: The Consejo ties Manzanilla identity to biological ageing in Sanlúcar; other requirements still need
+          checking.
+        sourceCitationId: src_wset_sf_manzanilla
+      ki_d5f_sherry_vos:
+        prompt: A supplier shows a V.O.S. seal on a Sherry saca. Which inference is justified?
+        options:
+        - Every molecule in the bottle is from one 20-year-old harvest
+        - The certified released lot has the required average age and approval
+        - Every future release of that brand is automatically certified
+        - The wine must be sweet because of its age
+        correctIndex: 1
+        explanation: Consejo certification applies to the specific withdrawn batch and its assessed average age.
+        sourceCitationId: src_d5_sherry_age
+      ki_d5f_madeira_tinta:
+        prompt: A buyer rejects a Madeira simply because its specification lists Tinta Negra instead of Sercial, Verdelho,
+          Boal or Malvasia. What is the correct first response?
+        options:
+        - Treat Tinta Negra as a dryness term rather than a grape
+        - Treat Tinta Negra as another name for Sercial
+        - Recognise Tinta Negra as a used Madeira variety and assess the stated style and sample
+        - Reject it because IVBAM lists only the four classic white varieties
+        correctIndex: 2
+        explanation: IVBAM includes Tinta Negra; variety alone is insufficient to infer style or quality.
+        sourceCitationId: src_d5_madeira_grapes
+      ki_d5f_madeira_sweetness:
+        prompt: A tasting panel asks for one dry aperitif-style Madeira and one sweet dessert-style Madeira. Which pair best
+          matches IVBAM's examples?
+        options:
+        - Malvasia for dry and Sercial for sweet
+        - Boal for bone dry and Verdelho for the sweetest
+        - Any two bottles, because named styles say nothing about sweetness
+        - Sercial for dry and Malvasia for sweet
+        correctIndex: 3
+        explanation: IVBAM associates Sercial with dry and Malvasia with sweet Madeira; taste and specifications remain necessary.
+        sourceCitationId: src_d5_madeira_food
+      ki_d5f_madeira_categories:
+        prompt: A distributor files a Madeira labelled 10 years old as a single-harvest bottling. What correction follows
+          IVBAM's category list?
+        options:
+        - Treat the age indication as a blend category, not a harvest year
+        - Replace 10 years old with a Colheita vintage without further evidence
+        - Infer the wine was bottled exactly ten years after picking
+        - Infer a Sercial grape from the age indication alone
+        correctIndex: 0
+        explanation: IVBAM separates age-indicated blends from date-specific Madeira categories.
+        sourceCitationId: src_d5_madeira_types
+      ki_d5f_vdn_muscat:
+        prompt: A Roussillon buyer is checking a Muscat de Rivesaltes lot. Which stated variety pairing is consistent with
+          INAO's description?
+        options:
+        - Muscat à Petits Grains and Grenache Blanc
+        - Muscat à Petits Grains and Muscat d'Alexandrie
+        - Muscat d'Alexandrie and Muscadelle
+        - Muscat Ottonel and Muscat d'Alexandrie
+        correctIndex: 1
+        explanation: INAO identifies the two Muscats used for this appellation; the actual blend still needs checking.
+        sourceCitationId: src_d5_inao_muscat
+      ki_d5f_vdn_maury:
+        prompt: A menu brief asks for a mature, oxidative Grenache-based VDN with dried-fruit and cocoa notes. Which Maury
+          label is the stronger initial shortlist?
+        options:
+        - Maury Grenat, because the term requires oxidation
+        - Maury Blanc, because it is always red Grenache
+        - Maury Tuilé, subject to tasting the actual wine
+        - Any Muscat de Rivesaltes, because Maury style is irrelevant
+        correctIndex: 2
+        explanation: CIVR links the Tuilé style with oxidative maturation and the requested note family.
+        sourceCitationId: src_d5_civr_maury
+      ki_d5f_vdn_banyuls_style:
+        prompt: A buyer needs a Banyuls retaining cherry-like fruit rather than a developed nutty profile. Which label is
+          the more direct first lead?
+        options:
+        - Traditionnel rancio, because its age preserves primary fruit
+        - Any Banyuls Grand Cru, because category always fixes fruitiness
+        - Hors d'âge, because air contact is prohibited
+        - Rimage, while still checking the particular bottle
+        correctIndex: 3
+        explanation: INAO contrasts air-protected Rimage fruit with more oxidative traditional styles.
+        sourceCitationId: src_d5_inao_banyuls
+      ki_d5f_vdn_banyuls_labour:
+        prompt: A cooperative compares a steep walled Banyuls parcel with a machine-accessible site. Which cost assumption
+          is most defensible?
+        options:
+        - More hand work on the steep site should be costed, then price tested
+        - Apply the machine-harvest budget from the accessible site to both parcels
+        - Treat appellation status as a fixed selling price that covers any labour cost
+        - Assume the walls remove the need for additional vineyard handling
+        correctIndex: 0
+        explanation: INAO reports that rugged Banyuls terrain prevents mechanisation; price remains a separate market decision.
+        sourceCitationId: src_d5_inao_banyuls
+      ki_d5f_ruth_variety:
+        prompt: A new staff member equates Rutherglen Muscat with Rutherglen Topaque. Which grape identity corrects the mix-up?
+        options:
+        - Rutherglen Muscat uses Muscadelle while Topaque uses Brown Muscat
+        - Rutherglen Muscat uses Muscat à Petits Grains Rouge; Topaque is different
+        - Both categories use Brown Muscat but differ only by cask age
+        - Both categories use Muscadelle but differ only by sweetness
+        correctIndex: 1
+        explanation: The regional association identifies Brown Muscat as Muscat à Petits Grains Rouge; Topaque is distinct.
+        sourceCitationId: src_wset_sf_muscat_aged
+      ki_d5f_ruth_hang:
+        prompt: A grower leaves Brown Muscat longer to increase sugar concentration. Which simultaneous monitoring priority
+          follows the regional association's account?
+        options:
+        - Only sugar, because dry autumn weather removes harvest risk
+        - Only cask evaporation, because it can replace grape ripeness
+        - Botrytis and autumn rain while fruit remains on the vine
+        - A fixed harvest date for every grower irrespective of seasonal conditions
+        correctIndex: 2
+        explanation: Extended ripening can increase sugar but exposes the crop to rot and autumn weather.
+        sourceCitationId: src_wset_sf_muscat_aged
+      ki_d5f_ruth_tiers:
+        prompt: A producer has an old Muscat parcel and proposes calling it Rare solely because of its age. Which review is
+          needed?
+        options:
+        - Accept Rare automatically when a single barrel passes an age threshold
+        - Treat the Rutherglen GI alone as certification of Rare status
+        - Use the word Rare whenever the grape is Brown Muscat
+        - Assess the finished blend against the association's richness, complexity and intensity criteria
+        correctIndex: 3
+        explanation: The association says age is only one factor in the tiered classification; origin is a separate question.
+        sourceCitationId: src_wset_sf_muscat_aged
