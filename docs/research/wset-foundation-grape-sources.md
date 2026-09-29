@@ -907,6 +907,7 @@ WSET_L2; L2 LO4 grape identity and berry colour: Zinfandel.
 
 - [`src_wset_grape_italy_colour_register`: Regional register of wine grape varieties](https://burc.regione.campania.it/eBurcWeb/directServlet?ATTACH_ID=212314&DOCUMENT_ID=00140879) — Table VBN: Montepulciano and Primitivo black-berried varieties.
 - [`src_wset_grape_ucd_zinfandel`: Winegrape varieties in California: Zinfandel](https://fps.ucdavis.edu/grapebook/winebook.cfm?chap=Zinfandel) — DNA identity of Zinfandel and Primitivo; clonal variation caveat.
+- [`src_wset_grape_ucd_primitivo_identity_skin`: Grape Variety: Primitivo](https://fps.ucdavis.edu/FGRfamilies.cfm?varietyid=1200) — Primitivo registry: Zinfandel synonym and DNA identity; Berry Color Black.
 
 ### ki_wset_grape_pinotage_berry_colour
 

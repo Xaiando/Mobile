@@ -549,7 +549,7 @@ try {
       assert(!label.includes('App study milestone complete'),
         `Fresh learner incorrectly has a completed milestone while viewing ${level}.`);
       const expectedMilestone = metadata.curriculumComplete
-        ? 'App study milestone in progress' : 'Full level coverage incomplete';
+        ? 'Required study milestone in progress' : 'App study scope incomplete';
       assert(label.includes(expectedMilestone),
         `${level} progress does not reflect its bundled curriculum coverage flag.`);
       result.assertions.requiredProgress.push({ level, requiredFacts: requiredIds.size });

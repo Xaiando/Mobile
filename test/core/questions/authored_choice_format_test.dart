@@ -454,26 +454,29 @@ void main() {
           ...d4RegionalIds,
           ...d5FortifiedIds,
         });
-        expect(d3RegionalIds.intersection(remainingWinemakingIds), {
-          'ki_reg_oa_robertson_unwooded',
-        }, reason: 'The Level 2 and Diploma prompts use the same cited item');
+        expect(
+          d3RegionalIds.intersection(remainingWinemakingIds),
+          isEmpty,
+          reason: 'Diploma regional choices use distinct cited items',
+        );
         expect(
           d3RegionalIds.intersection(
             idsForTemplate('qt_wset_l2_viticulture_gap_choices'),
           ),
-          {'ki_reg_ib_rias_canopy_context', 'ki_reg_oa_hunter_rain'},
-          reason: 'Regional and viticulture prompts share two cited items',
+          isEmpty,
+          reason: 'Diploma and Level 2 viticulture choices remain distinct',
         );
-        expect(d3RegionalIds.intersection(l3GeographyIds), {
-          'ki_reg_ib_ribera_elevation',
-          'ki_reg_ib_rueda_ripening',
-          'ki_reg_ib_dao_mountains',
-        }, reason: 'Regional Diploma and Level 3 prompts share cited items');
-        expect(d3RegionalIds.intersection(l3GeographyIds2), {
-          'ki_reg_ib_sacra_terraces',
-          'ki_reg_ib_dao_encruzado',
-        }, reason: 'Diploma and Level 3 regional prompts share two items');
-        expect(expectedIds, hasLength(980));
+        expect(
+          d3RegionalIds.intersection(l3GeographyIds),
+          isEmpty,
+          reason: 'Diploma and Level 3 geography choices remain distinct',
+        );
+        expect(
+          d3RegionalIds.intersection(l3GeographyIds2),
+          isEmpty,
+          reason: 'Diploma and Level 3 geography choices remain distinct',
+        );
+        expect(expectedIds, hasLength(988));
         expect(levelOneIds, hasLength(132));
         expect(levelTwoIds, hasLength(256));
         expect(sharedGrapeIds, hasLength(52));

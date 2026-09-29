@@ -283,19 +283,19 @@ void main() {
           (objective as Map)['id'] as String: objective,
       };
       for (final entry in const {
-        'wset_l3.vine_and_climate': 27,
-        'wset_l3.vineyard_practice': 40,
-        'wset_l3.winemaking': 39,
-        'wset_l3.maturation_and_finishing': 20,
-        'wset_l3.commerce': 6,
-        'wset_l3.advice.recommendations': 11,
-        'wset_l3.advice.faults': 9,
-        'wset_l3.advice.food_pairing': 27,
-        'wset_l3.advice.social_and_health': 5,
+        'wset_l3.vine_and_climate': (27, 27),
+        'wset_l3.vineyard_practice': (44, 41),
+        'wset_l3.winemaking': (43, 40),
+        'wset_l3.maturation_and_finishing': (20, 20),
+        'wset_l3.commerce': (6, 6),
+        'wset_l3.advice.recommendations': (11, 11),
+        'wset_l3.advice.faults': (9, 9),
+        'wset_l3.advice.food_pairing': (27, 27),
+        'wset_l3.advice.social_and_health': (5, 5),
       }.entries) {
         final objective = byId[entry.key] as Map;
-        expect(objective['items'], entry.value, reason: entry.key);
-        expect(objective['core'], entry.value, reason: entry.key);
+        expect(objective['items'], entry.value.$1, reason: entry.key);
+        expect(objective['core'], entry.value.$2, reason: entry.key);
         expect(objective['status'], 'represented', reason: entry.key);
       }
     });
