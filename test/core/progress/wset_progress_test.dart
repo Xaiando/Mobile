@@ -8,6 +8,8 @@ import 'package:sommelier/core/backup/user_data_backup.dart';
 import 'package:sommelier/core/database/app_database.dart';
 import 'package:sommelier/core/database/curriculum_writes.dart';
 import 'package:sommelier/core/diploma_tasting/diploma_tasting_flight.dart';
+import 'package:sommelier/core/diploma_written/diploma_written.dart';
+import 'package:sommelier/core/diploma_research/diploma_research.dart';
 import 'package:sommelier/core/progress/wset_progress.dart';
 import 'package:sommelier/core/progress/wset_scope.dart';
 import 'package:sommelier/core/study/learner_profile.dart';
@@ -295,6 +297,56 @@ void main() {
     );
   });
 
+  test('D1 written review appears as participation, not a pass', () async {
+    await LearnerProfiles(db, clock: time.clock).selectTrack('WSET_L4');
+    final writing = DiplomaWrittenRepository(
+      db,
+      bank: DiplomaWrittenBank.fromJson(
+        File('assets/study/diploma_written_practice.json').readAsStringSync(),
+      ),
+      clock: time.clock,
+      random: Random(29),
+    );
+    final d1 = await writing.start('D1');
+    for (final question in d1.questions) {
+      await writing.answer(
+        d1.id,
+        question.id,
+        'Reasoned ${question.id} response.',
+      );
+    }
+    await writing.finish(d1.id);
+    for (final question in d1.questions) {
+      await writing.review(
+        d1.id,
+        question.id,
+        {},
+        'I would add more evidence.',
+      );
+    }
+    progress = WsetProgressRepository(
+      db,
+      scope: testScope(
+        units: [
+          for (var unit = 1; unit <= 6; unit++)
+            WsetUnitScope(
+              id: 'D$unit',
+              title: 'Unit $unit',
+              gap: 'Further study remains.',
+              domains: const [],
+            ),
+        ],
+      ),
+      clock: time.clock,
+    );
+    final diploma = (await progress.snapshot()).levels.last;
+    expect(diploma.units[0].writtenPractices, 1);
+    expect(diploma.units[1].writtenPractices, 0);
+    expect(diploma.examPassed, isFalse);
+    expect(diploma.appLevelComplete, isFalse);
+    expect(await db.select(db.reviewEvents).get(), isEmpty);
+  });
+
   test('D4 physical flights count only as unit participation', () async {
     await db.writeCurriculum(
       () => runSql(db, [
@@ -508,6 +560,32 @@ void main() {
       'D5',
       'D6',
     ]);
+  });
+
+  test('D6 saved research draft is participation, not a unit result', () async {
+    progress = WsetProgressRepository(
+      db,
+      clock: time.clock,
+      scope: testScope(
+        units: [
+          for (var i = 1; i <= 6; i++)
+            WsetUnitScope(id: 'D$i', title: 'Unit $i', gap: ''),
+        ],
+      ),
+    );
+    final initial = await level(4);
+    expect(initial.units.last.researchDraftSaved, isFalse);
+    await LearnerProfiles(db, clock: time.clock).selectTrack('WSET_L4');
+    final research = DiplomaResearchRepository(db, clock: time.clock);
+    await research.start();
+    expect((await level(4)).units.last.researchDraftSaved, isFalse);
+    await research.updateText('title', 'My research topic');
+    final later = await level(4);
+    expect(later.units.last.researchDraftSaved, isTrue);
+    expect(later.appLevelComplete, isFalse);
+    expect(later.examPassed, isFalse);
+    expect(await db.select(db.reviewEvents).get(), isEmpty);
+    expect((await level(3)).units, isEmpty);
   });
 
   test(
