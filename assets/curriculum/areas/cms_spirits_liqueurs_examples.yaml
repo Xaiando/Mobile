@@ -1,0 +1,499 @@
+# CMS Europe 2026/27, printed pp. 24-25: Introductory distillation principle;
+# Certified named-spirit identification and liqueur-family recommendation.
+# The Introductory principle is inherited by the selectable Certified track.
+# Producer examples describe specific products, never a whole flavour family.
+# All assertions await qualified review.
+knowledge_nodes:
+  - { id: n_cms_example_distillation, node_type: production_principle, name: "What does distillation do after fermentation?" }
+  - { id: n_cms_example_distillation_point, node_type: learning_point, name: "Fermented liquid is heated, separated and condensed" }
+  - { id: n_cms_example_islay, node_type: production_principle, name: "How should an Islay Scotch label be understood?" }
+  - { id: n_cms_example_islay_point, node_type: learning_point, name: "Islay is a Scotch Whisky region associated with peat" }
+  - { id: n_cms_example_mezcal, node_type: production_principle, name: "How do Mezcal and Tequila standards differ?" }
+  - { id: n_cms_example_mezcal_point, node_type: learning_point, name: "The two Mexican designations specify different agave requirements" }
+  - { id: n_cms_example_grappa, node_type: production_principle, name: "What is Grappa's raw material and protected identity?" }
+  - { id: n_cms_example_grappa_point, node_type: learning_point, name: "Grappa illustrates the grape marc spirit category" }
+  - { id: n_cms_example_fruit_eau_de_vie, node_type: production_principle, name: "What identifies a fruit eau-de-vie?" }
+  - { id: n_cms_example_fruit_eau_de_vie_point, node_type: learning_point, name: "Kirsch illustrates the EU fruit-spirit category" }
+  - { id: n_cms_example_liqueur_families, node_type: production_principle, name: "Which named products illustrate missing liqueur flavour families?" }
+  - { id: n_cms_example_chambord, node_type: learning_point, name: "Chambord illustrates a berry-led fruit liqueur" }
+  - { id: n_cms_example_frangelico, node_type: learning_point, name: "Frangelico illustrates a hazelnut liqueur" }
+  - { id: n_cms_example_st_germain, node_type: learning_point, name: "St-Germain illustrates an elderflower liqueur" }
+  - { id: n_cms_example_baileys, node_type: learning_point, name: "Baileys Original illustrates an Irish cream liqueur" }
+  - { id: n_cms_example_agave_case, node_type: production_case, name: "A guest requests Mezcal but the list has only Tequila" }
+  - { id: n_cms_example_agave_action, node_type: learning_point, name: "Explain the substitution and ask whether it suits the guest" }
+  - { id: n_cms_example_agave_reason, node_type: learning_point, name: "Their agave-source standards differ" }
+  - { id: n_cms_example_agave_tradeoff, node_type: learning_point, name: "A Tequila may suit a flavour request without becoming Mezcal" }
+  - { id: n_cms_example_agave_limit, node_type: learning_point, name: "Check the bottle and do not infer smoke from designation" }
+  - { id: n_cms_example_marc_case, node_type: production_case, name: "A guest requests Grappa but is offered cherry eau-de-vie" }
+  - { id: n_cms_example_marc_action, node_type: learning_point, name: "Offer labelled Grappa if stocked or explain the alternative" }
+  - { id: n_cms_example_marc_reason, node_type: learning_point, name: "Grape marc and fermented cherry are different bases" }
+  - { id: n_cms_example_marc_tradeoff, node_type: learning_point, name: "An alternative spirit changes the requested category" }
+  - { id: n_cms_example_marc_limit, node_type: learning_point, name: "The standards cannot authenticate an unlabelled bottle" }
+  - { id: n_cms_example_liqueur_case, node_type: production_case, name: "A guest wants a floral liqueur and is offered Irish cream" }
+  - { id: n_cms_example_liqueur_action, node_type: learning_point, name: "Ask about flavour and check a stocked floral example" }
+  - { id: n_cms_example_liqueur_reason, node_type: learning_point, name: "St-Germain and Baileys Original use different flavour materials" }
+  - { id: n_cms_example_liqueur_tradeoff, node_type: learning_point, name: "Berry and hazelnut examples answer other preferences" }
+  - { id: n_cms_example_liqueur_limit, node_type: learning_point, name: "Check stock, current label and dietary needs" }
+
+knowledge_relations:
+  - { subject_id: n_cms_example_distillation, relation_type: PRINCIPLE_EXPLANATION, object_id: n_cms_example_distillation_point, valid_from: "2026-09-29" }
+  - { subject_id: n_cms_example_islay, relation_type: PRINCIPLE_EXPLANATION, object_id: n_cms_example_islay_point, valid_from: "2026-09-29" }
+  - { subject_id: n_cms_example_mezcal, relation_type: PRINCIPLE_EXPLANATION, object_id: n_cms_example_mezcal_point, valid_from: "2026-09-29" }
+  - { subject_id: n_cms_example_grappa, relation_type: PRINCIPLE_EXPLANATION, object_id: n_cms_example_grappa_point, valid_from: "2026-09-29" }
+  - { subject_id: n_cms_example_fruit_eau_de_vie, relation_type: PRINCIPLE_EXPLANATION, object_id: n_cms_example_fruit_eau_de_vie_point, valid_from: "2026-09-29" }
+  - { subject_id: n_cms_example_liqueur_families, relation_type: PRINCIPLE_EXPLANATION, object_id: n_cms_example_chambord, valid_from: "2026-09-29" }
+  - { subject_id: n_cms_example_liqueur_families, relation_type: PRINCIPLE_EXPLANATION, object_id: n_cms_example_frangelico, valid_from: "2026-09-29" }
+  - { subject_id: n_cms_example_liqueur_families, relation_type: PRINCIPLE_EXPLANATION, object_id: n_cms_example_st_germain, valid_from: "2026-09-29" }
+  - { subject_id: n_cms_example_liqueur_families, relation_type: PRINCIPLE_EXPLANATION, object_id: n_cms_example_baileys, valid_from: "2026-09-29" }
+  - { subject_id: n_cms_example_agave_case, relation_type: CASE_ACTION, object_id: n_cms_example_agave_action, valid_from: "2026-09-29" }
+  - { subject_id: n_cms_example_agave_case, relation_type: CASE_REASON, object_id: n_cms_example_agave_reason, valid_from: "2026-09-29" }
+  - { subject_id: n_cms_example_agave_case, relation_type: CASE_TRADEOFF, object_id: n_cms_example_agave_tradeoff, valid_from: "2026-09-29" }
+  - { subject_id: n_cms_example_agave_case, relation_type: CASE_LIMITATION, object_id: n_cms_example_agave_limit, valid_from: "2026-09-29" }
+  - { subject_id: n_cms_example_marc_case, relation_type: CASE_ACTION, object_id: n_cms_example_marc_action, valid_from: "2026-09-29" }
+  - { subject_id: n_cms_example_marc_case, relation_type: CASE_REASON, object_id: n_cms_example_marc_reason, valid_from: "2026-09-29" }
+  - { subject_id: n_cms_example_marc_case, relation_type: CASE_TRADEOFF, object_id: n_cms_example_marc_tradeoff, valid_from: "2026-09-29" }
+  - { subject_id: n_cms_example_marc_case, relation_type: CASE_LIMITATION, object_id: n_cms_example_marc_limit, valid_from: "2026-09-29" }
+  - { subject_id: n_cms_example_liqueur_case, relation_type: CASE_ACTION, object_id: n_cms_example_liqueur_action, valid_from: "2026-09-29" }
+  - { subject_id: n_cms_example_liqueur_case, relation_type: CASE_REASON, object_id: n_cms_example_liqueur_reason, valid_from: "2026-09-29" }
+  - { subject_id: n_cms_example_liqueur_case, relation_type: CASE_TRADEOFF, object_id: n_cms_example_liqueur_tradeoff, valid_from: "2026-09-29" }
+  - { subject_id: n_cms_example_liqueur_case, relation_type: CASE_LIMITATION, object_id: n_cms_example_liqueur_limit, valid_from: "2026-09-29" }
+
+knowledge_items:
+  - id: ki_cms_example_distillation
+    subject_id: n_cms_example_distillation
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_cms_example_distillation_point
+    domain_id: service
+    assertion_text: "At Introductory level, distillation follows fermentation: a fermented liquid is heated, separated and condensed. The European Commission describes this sequence for Irish Whiskey wash and distinguishes pot and column methods. The principle alone cannot predict a specific bottle's flavour."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-29T00:00:00.000Z"
+  - id: ki_cms_example_islay
+    subject_id: n_cms_example_islay
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_cms_example_islay_point
+    domain_id: service
+    assertion_text: "The Scotch Whisky Association lists Islay among five Scotch Whisky regions and describes it as an island famous for heavily peated whiskies. Bruichladdich describes its own Islay single-malt range as unpeated. Islay therefore identifies a region, not a rule that every Islay bottling must taste smoky."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-29T00:00:00.000Z"
+  - id: ki_cms_example_mezcal
+    subject_id: n_cms_example_mezcal
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_cms_example_mezcal_point
+    domain_id: service
+    assertion_text: "Mexico's Mezcal NOM defines a 100% maguey or agave distilled beverage and permits qualifying Agave species grown in its protected area. The Tequila NOM specifies Agave tequilana Weber blue variety as its agave source. These are distinct protected names; neither designation alone establishes a bottle's smoky flavour."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-29T00:00:00.000Z"
+  - id: ki_cms_example_grappa
+    subject_id: n_cms_example_grappa
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_cms_example_grappa_point
+    domain_id: service
+    assertion_text: "Italy's Grappa geographical-indication technical sheet identifies it as grape marc spirit and describes Italian production requirements. EU Annex I category 6 distinguishes grape marc spirit from wine spirit. Grappa is not a synonym for every grape distillate."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-29T00:00:00.000Z"
+  - id: ki_cms_example_fruit_eau_de_vie
+    subject_id: n_cms_example_fruit_eau_de_vie
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_cms_example_fruit_eau_de_vie_point
+    domain_id: service
+    assertion_text: "EU Annex I category 9 fruit spirit is made by fermenting and distilling fresh fleshy fruit or its must, berries, or vegetables; kirsch is an allowed name for cherry spirit. A fruit eau-de-vie example is thus different in base material from grape marc spirit. The category does not prescribe an individual bottle's exact aroma."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-29T00:00:00.000Z"
+  - id: ki_cms_example_chambord
+    subject_id: n_cms_example_liqueur_families
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_cms_example_chambord
+    domain_id: service
+    assertion_text: "Chambord's producer describes a berry infusion involving blackberries, raspberries and blackcurrants, later blended with other flavours. It is a berry-led fruit-liqueur example, not evidence that all fruit liqueurs use the same berries or infusion method."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-29T00:00:00.000Z"
+  - id: ki_cms_example_frangelico
+    subject_id: n_cms_example_liqueur_families
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_cms_example_frangelico
+    domain_id: service
+    assertion_text: "Frangelico's producer identifies Italian hazelnuts as its main flavour source, alongside cocoa, vanilla and coffee notes. It is a nut-flavour liqueur example, not a guarantee about a guest's allergies or the ingredients of other nut liqueurs."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-29T00:00:00.000Z"
+  - id: ki_cms_example_st_germain
+    subject_id: n_cms_example_liqueur_families
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_cms_example_st_germain
+    domain_id: service
+    assertion_text: "St-Germain's producer describes fresh elderflower blossoms and maceration for its liqueur. It is a flower-flavour example; a floral recommendation still depends on the actual stocked product and the guest's preference."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-29T00:00:00.000Z"
+  - id: ki_cms_example_baileys
+    subject_id: n_cms_example_liqueur_families
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_cms_example_baileys
+    domain_id: service
+    assertion_text: "The maker describes Baileys Original Irish Cream as containing Irish whiskey and spirits, Irish dairy cream, and chocolate and vanilla flavours. It offers a cream-liqueur example beyond the fruit, nut and flower examples; do not present this product as dairy-free or infer every cream liqueur's recipe from it."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-29T00:00:00.000Z"
+  - id: ki_cms_example_agave_action
+    subject_id: n_cms_example_agave_case
+    relation_type: CASE_ACTION
+    object_id: n_cms_example_agave_action
+    domain_id: service
+    assertion_text: "If a guest requests Mezcal but the list has only Tequila, explain that they are distinct Mexican designations and ask whether the available Tequila would meet the guest's preference instead of presenting it as Mezcal."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-29T00:00:00.000Z"
+  - id: ki_cms_example_agave_reason
+    subject_id: n_cms_example_agave_case
+    relation_type: CASE_REASON
+    object_id: n_cms_example_agave_reason
+    domain_id: service
+    assertion_text: "The Tequila NOM specifies blue Agave tequilana Weber as its agave source. The Mezcal NOM permits qualifying Agave species in its protected area and requires the species used to be named on the label. They should not be treated as interchangeable names."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-29T00:00:00.000Z"
+  - id: ki_cms_example_agave_tradeoff
+    subject_id: n_cms_example_agave_case
+    relation_type: CASE_TRADEOFF
+    object_id: n_cms_example_agave_tradeoff
+    domain_id: service
+    assertion_text: "A particular Tequila might suit the guest's flavour request, but substituting it changes the requested designation. Ask about the desired taste instead of assuming all Mezcal is smoky or all Tequila is alike."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-29T00:00:00.000Z"
+  - id: ki_cms_example_agave_limit
+    subject_id: n_cms_example_agave_case
+    relation_type: CASE_LIMITATION
+    object_id: n_cms_example_agave_limit
+    domain_id: service
+    assertion_text: "Check the current bottle label and actual stock. The NOMs define categories and labelling, but they do not establish an individual bottle's sensory profile or the guest's preference."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-29T00:00:00.000Z"
+  - id: ki_cms_example_marc_action
+    subject_id: n_cms_example_marc_case
+    relation_type: CASE_ACTION
+    object_id: n_cms_example_marc_action
+    domain_id: service
+    assertion_text: "For a guest asking for Grappa, offer a labelled Grappa if stocked. If offering kirsch instead, say clearly that it is a cherry fruit spirit rather than the requested grape marc spirit."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-29T00:00:00.000Z"
+  - id: ki_cms_example_marc_reason
+    subject_id: n_cms_example_marc_case
+    relation_type: CASE_REASON
+    object_id: n_cms_example_marc_reason
+    domain_id: service
+    assertion_text: "Italy's Grappa technical sheet identifies it as grape marc spirit, while EU fruit-spirit rules identify kirsch as cherry spirit. Fermented grape press residue and fermented cherries are different raw materials."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-29T00:00:00.000Z"
+  - id: ki_cms_example_marc_tradeoff
+    subject_id: n_cms_example_marc_case
+    relation_type: CASE_TRADEOFF
+    object_id: n_cms_example_marc_tradeoff
+    domain_id: service
+    assertion_text: "If Grappa is unavailable, a fruit eau-de-vie or another grape marc spirit is an alternative only after the guest agrees; identify the category and raw-material change rather than using the names as synonyms."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-29T00:00:00.000Z"
+  - id: ki_cms_example_marc_limit
+    subject_id: n_cms_example_marc_case
+    relation_type: CASE_LIMITATION
+    object_id: n_cms_example_marc_limit
+    domain_id: service
+    assertion_text: "A geographical-indication technical sheet and category definitions cannot authenticate an unlabelled bottle or confirm restaurant stock. Check the actual label and availability before naming an individual spirit."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-29T00:00:00.000Z"
+  - id: ki_cms_example_liqueur_action
+    subject_id: n_cms_example_liqueur_case
+    relation_type: CASE_ACTION
+    object_id: n_cms_example_liqueur_action
+    domain_id: service
+    assertion_text: "For a guest asking for a floral liqueur, ask about flavour and serving preference, then check whether St-Germain is stocked as an elderflower example. Do not call Baileys Original a floral substitute simply because both are liqueurs."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-29T00:00:00.000Z"
+  - id: ki_cms_example_liqueur_reason
+    subject_id: n_cms_example_liqueur_case
+    relation_type: CASE_REASON
+    object_id: n_cms_example_liqueur_reason
+    domain_id: service
+    assertion_text: "St-Germain's maker identifies elderflowers; Baileys Original's maker identifies dairy cream, whiskey and chocolate and vanilla flavours. The two named products answer different flavour requests."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-29T00:00:00.000Z"
+  - id: ki_cms_example_liqueur_tradeoff
+    subject_id: n_cms_example_liqueur_case
+    relation_type: CASE_TRADEOFF
+    object_id: n_cms_example_liqueur_tradeoff
+    domain_id: service
+    assertion_text: "If the guest changes preference after discussion, Chambord provides a berry-led example and Frangelico a hazelnut-led example if stocked. Those are alternatives to a floral request, not evidence that all fruit or nut liqueurs share their recipes."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-29T00:00:00.000Z"
+  - id: ki_cms_example_liqueur_limit
+    subject_id: n_cms_example_liqueur_case
+    relation_type: CASE_LIMITATION
+    object_id: n_cms_example_liqueur_limit
+    domain_id: service
+    assertion_text: "Confirm current stock, product label and any dietary needs before service. A producer's flavour description does not certify another brand's ingredients or establish allergy safety; Baileys Original specifically contains dairy cream."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-29T00:00:00.000Z"
+
+certification_knowledge_mappings:
+  # The distillation principle is on the CMS Introductory column and inherited
+  # into the selectable Certified study track. Named examples are Certified.
+  - { certification_id: CMS_INTRODUCTORY, knowledge_item_id: ki_cms_example_distillation, importance: core, minimum_depth: 1 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_example_islay, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_example_mezcal, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_example_grappa, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_example_fruit_eau_de_vie, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_example_chambord, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_example_frangelico, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_example_st_germain, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_example_baileys, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_example_agave_action, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_example_agave_reason, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_example_agave_tradeoff, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_example_agave_limit, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_example_marc_action, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_example_marc_reason, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_example_marc_tradeoff, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_example_marc_limit, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_example_liqueur_action, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_example_liqueur_reason, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_example_liqueur_tradeoff, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_example_liqueur_limit, importance: core, minimum_depth: 2 }
+
+source_citations:
+  - { id: src_cms_example_ec_irish_gi, kind: regulator_register, title: "Irish Whiskey GI: production", publisher: "European Commission", jurisdiction: EU, document_identifier: "Production section: fermentation, pot and column methods, heating, separation and condensation", url: "https://agriculture.ec.europa.eu/farming/geographical-indications-and-quality-schemes/geographical-indications-food-and-drink/irish-whiskey-gi_en", accessed_on: "2026-09-29" }
+  - { id: src_cms_example_swa_regions, kind: reference_work, title: "Scotch Whisky Regions", publisher: "Scotch Whisky Association", jurisdiction: UK, document_identifier: "Five Scotch Whisky regions; Islay section", url: "https://www.scotch-whisky.org.uk/discover-scotch/enjoying-scotch/scotch-whisky-regions/", accessed_on: "2026-09-29" }
+  - { id: src_cms_example_swa_faq, kind: reference_work, title: "Scotch Whisky FAQs", publisher: "Scotch Whisky Association", jurisdiction: UK, document_identifier: "Regional-name protection and 'Some Scotch Whiskies have a smoky flavour' entries", url: "https://www.scotch-whisky.org.uk/discover-scotch/faqs/", accessed_on: "2026-09-29" }
+  - { id: src_cms_example_bruichladdich_faq, kind: reference_work, title: "Bruichladdich Distillery FAQs", publisher: "Bruichladdich Distillery", jurisdiction: UK, document_identifier: "About our Islay single malts: unpeated Bruichladdich alongside peated ranges", url: "https://www.bruichladdich.com/pages/faqs", accessed_on: "2026-09-29" }
+  - { id: src_cms_example_mezcal_nom, kind: regulator_register, title: "NOM-070-SCFI-2016, Bebidas alcohólicas-Mezcal-Especificaciones", publisher: "Secretaría de Economía, Mexico", jurisdiction: MX, document_identifier: "Current-status register marks NOM-070 vigente; standard sections 3.14, 3.17, 4.1 and 6.1", url: "https://platiica.economia.gob.mx/wp-content/uploads/sites/2/PDF_Normas_Publicas/070scfi2017.pdf", accessed_on: "2026-09-29" }
+  - { id: src_cms_example_tequila_nom, kind: regulator_register, title: "NOM-006-SCFI-2012, Bebidas alcohólicas-Tequila-Especificaciones", publisher: "Secretaría de Economía, Mexico", jurisdiction: MX, document_identifier: "Current-status register marks NOM-006 vigente; standard sections 4.2, 4.36 and 5.1", url: "https://sidof.segob.gob.mx/notas/docFuente/5282165", accessed_on: "2026-09-29" }
+  - { id: src_cms_example_eu_spirits_annex, kind: regulator_register, title: "Regulation (EU) 2019/787, Annex I", publisher: "European Union", jurisdiction: EU, document_identifier: "Consolidated view 13 May 2024; categories 4, 6 and 9 for wine, grape marc and fruit spirits", url: "https://eur-lex.europa.eu/eli/reg/2019/787", accessed_on: "2026-09-29" }
+  - { id: src_cms_example_grappa_italian_file, kind: regulator_register, title: "Grappa geographical-indication technical sheet, Annex A", publisher: "Italian Ministry of Agriculture (MASAF)", jurisdiction: IT, document_identifier: "Decree 5389 of 1 August 2011, Annex A, section 1 and section 2(a)", url: "https://www.masaf.gov.it/flex/cm/pages/ServeAttachment.php/L/IT/D/9%252F6%252F2%252FD.4ad8a42a037391ad7e03/P/BLOB%3AID%3D4065/E/pdf", accessed_on: "2026-09-29" }
+  - { id: src_cms_example_chambord_maker, kind: reference_work, title: "Our Magnifique Process", publisher: "Chambord", jurisdiction: FR, document_identifier: "The Stages: berry infusions and final blend", url: "https://www.chambordliqueur.com/our-magnifique-process/", accessed_on: "2026-09-29" }
+  - { id: src_cms_example_frangelico_maker, kind: reference_work, title: "About Frangelico", publisher: "Frangelico", jurisdiction: IT, document_identifier: "About and How It Is Made Possible: hazelnuts and flavouring", url: "https://frangelico.com/en-us/about/", accessed_on: "2026-09-29" }
+  - { id: src_cms_example_st_germain_maker, kind: reference_work, title: "St-Germain FAQ", publisher: "St-Germain", jurisdiction: FR, document_identifier: "What is St-Germain? and How is St-Germain Made?", url: "https://www.stgermainliqueur.com/us/en/faq/", accessed_on: "2026-09-29" }
+  - { id: src_cms_example_baileys_maker, kind: reference_work, title: "Baileys Original Irish Cream", publisher: "Baileys", jurisdiction: IE, document_identifier: "Baileys Original Irish Cream product description", url: "https://www.baileys.com/en-ie", accessed_on: "2026-09-29" }
+
+knowledge_item_citations:
+  - { knowledge_item_id: ki_cms_example_distillation, source_citation_id: src_cms_example_ec_irish_gi, locator: "Production: fermented wash, pot/column, heated, separated and condensed" }
+  - { knowledge_item_id: ki_cms_example_islay, source_citation_id: src_cms_example_swa_regions, locator: "Five regions list and Islay section: island famous for peated whiskies" }
+  - { knowledge_item_id: ki_cms_example_islay, source_citation_id: src_cms_example_swa_faq, locator: "Regional-name entry identifies Islay as geography; smoke entry says some Scotch Whiskies are smoky" }
+  - { knowledge_item_id: ki_cms_example_islay, source_citation_id: src_cms_example_bruichladdich_faq, locator: "About our Islay single malts: producer explicitly identifies an unpeated Islay range" }
+  - { knowledge_item_id: ki_cms_example_mezcal, source_citation_id: src_cms_example_mezcal_nom, locator: "NOM-070 sections 3.14, 3.17 and 4.1: Agave definition, Mezcal definition and qualifying area" }
+  - { knowledge_item_id: ki_cms_example_mezcal, source_citation_id: src_cms_example_tequila_nom, locator: "NOM-006 sections 4.2 and 4.36: blue Agave tequilana Weber and Tequila definition" }
+  - { knowledge_item_id: ki_cms_example_grappa, source_citation_id: src_cms_example_grappa_italian_file, locator: "Annex A sections 1 and 2(a): Grappa category and requirements for the Italian GI" }
+  - { knowledge_item_id: ki_cms_example_grappa, source_citation_id: src_cms_example_eu_spirits_annex, locator: "Annex I categories 4 and 6: wine spirit versus grape marc spirit" }
+  - { knowledge_item_id: ki_cms_example_fruit_eau_de_vie, source_citation_id: src_cms_example_eu_spirits_annex, locator: "Annex I categories 6 and 9: grape marc and fruit spirit; kirsch name" }
+  - { knowledge_item_id: ki_cms_example_chambord, source_citation_id: src_cms_example_chambord_maker, locator: "The Stages: blackberries, raspberries, blackcurrants and later flavour blend" }
+  - { knowledge_item_id: ki_cms_example_frangelico, source_citation_id: src_cms_example_frangelico_maker, locator: "About and How It Is Made Possible: hazelnut, cocoa, vanilla and coffee" }
+  - { knowledge_item_id: ki_cms_example_st_germain, source_citation_id: src_cms_example_st_germain_maker, locator: "FAQ: elderflower blossoms and maceration" }
+  - { knowledge_item_id: ki_cms_example_baileys, source_citation_id: src_cms_example_baileys_maker, locator: "Baileys Original Irish Cream description: whiskey, spirits, dairy cream, chocolate and vanilla" }
+  - { knowledge_item_id: ki_cms_example_agave_action, source_citation_id: src_cms_example_mezcal_nom, locator: "NOM-070 section 3.17 defines the Mezcal designation" }
+  - { knowledge_item_id: ki_cms_example_agave_action, source_citation_id: src_cms_example_tequila_nom, locator: "NOM-006 section 4.36 defines the Tequila designation" }
+  - { knowledge_item_id: ki_cms_example_agave_reason, source_citation_id: src_cms_example_mezcal_nom, locator: "NOM-070 sections 3.14, 4.1 and 6.1(g): qualifying agaves and species labelling" }
+  - { knowledge_item_id: ki_cms_example_agave_reason, source_citation_id: src_cms_example_tequila_nom, locator: "NOM-006 section 4.2: blue Agave tequilana Weber" }
+  - { knowledge_item_id: ki_cms_example_agave_tradeoff, source_citation_id: src_cms_example_mezcal_nom, locator: "NOM-070 section 3.17: sensory character varies with agave and production factors" }
+  - { knowledge_item_id: ki_cms_example_agave_tradeoff, source_citation_id: src_cms_example_tequila_nom, locator: "NOM-006 defines a separate Tequila designation" }
+  - { knowledge_item_id: ki_cms_example_agave_limit, source_citation_id: src_cms_example_mezcal_nom, locator: "NOM-070 sections 3.17 and 6.1: product variability and label information" }
+  - { knowledge_item_id: ki_cms_example_marc_action, source_citation_id: src_cms_example_grappa_italian_file, locator: "Annex A section 1: Grappa identified as grape marc spirit" }
+  - { knowledge_item_id: ki_cms_example_marc_action, source_citation_id: src_cms_example_eu_spirits_annex, locator: "Annex I category 9: kirsch as cherry spirit" }
+  - { knowledge_item_id: ki_cms_example_marc_reason, source_citation_id: src_cms_example_grappa_italian_file, locator: "Annex A section 1: Grappa grape marc spirit category" }
+  - { knowledge_item_id: ki_cms_example_marc_reason, source_citation_id: src_cms_example_eu_spirits_annex, locator: "Annex I categories 6 and 9 distinguish grape marc from fruit spirit" }
+  - { knowledge_item_id: ki_cms_example_marc_tradeoff, source_citation_id: src_cms_example_eu_spirits_annex, locator: "Annex I categories 6 and 9 identify different spirit bases" }
+  - { knowledge_item_id: ki_cms_example_marc_limit, source_citation_id: src_cms_example_grappa_italian_file, locator: "Annex A technical specification does not identify a particular bottle or restaurant stock" }
+  - { knowledge_item_id: ki_cms_example_liqueur_action, source_citation_id: src_cms_example_st_germain_maker, locator: "FAQ identifies the floral elderflower product" }
+  - { knowledge_item_id: ki_cms_example_liqueur_action, source_citation_id: src_cms_example_baileys_maker, locator: "Baileys Original description identifies a cream product" }
+  - { knowledge_item_id: ki_cms_example_liqueur_reason, source_citation_id: src_cms_example_st_germain_maker, locator: "FAQ identifies elderflower blossoms" }
+  - { knowledge_item_id: ki_cms_example_liqueur_reason, source_citation_id: src_cms_example_baileys_maker, locator: "Baileys Original description identifies dairy cream, chocolate and vanilla" }
+  - { knowledge_item_id: ki_cms_example_liqueur_tradeoff, source_citation_id: src_cms_example_chambord_maker, locator: "The Stages: berry ingredients" }
+  - { knowledge_item_id: ki_cms_example_liqueur_tradeoff, source_citation_id: src_cms_example_frangelico_maker, locator: "About: hazelnut flavour" }
+  - { knowledge_item_id: ki_cms_example_liqueur_limit, source_citation_id: src_cms_example_baileys_maker, locator: "Baileys Original specifically contains dairy cream; current bottle must be checked" }
+
+question_templates:
+  - id: qt_cms_example_recognition
+    relation_type: PRINCIPLE_EXPLANATION
+    direction: forward
+    mode: authored_choice
+    variant: cms_spirit_liqueur_examples
+    prompt_template: "{subject.name}"
+    parameters:
+      item_choices:
+        ki_cms_example_distillation:
+          prompt: A learner equates fermentation with distillation. Which correction matches the Irish Whiskey GI explanation?
+          options:
+            - After fermentation, the wash is heated, separated and condensed.
+            - After maturation, yeast changes spirit back into fermented wash.
+            - During pressing, grape solids become bottled whiskey directly.
+            - During service, filtration changes still wine into whiskey.
+          correctIndex: 0
+          explanation: The Commission describes fermented wash moving into a distinct heating, separation and condensation stage.
+          sourceCitationId: src_cms_example_ec_irish_gi
+        ki_cms_example_islay:
+          prompt: A guest asks for a Scotch from Islay. Which statement is supported by the Scotch Whisky Association?
+          options:
+            - Islay is a Scotch style that legally requires peat smoke.
+            - Islay is a Scotch region on an island associated with peated whisky.
+            - Islay is a Scotch category requiring triple distillation.
+            - Islay is a Scotch region that includes all Scottish islands.
+          correctIndex: 1
+          explanation: Islay is one of the five Scotch Whisky regions; the SWA describes the island as famous for peated whiskies.
+          sourceCitationId: src_cms_example_swa_regions
+        ki_cms_example_mezcal:
+          prompt: A guest asks what the Mexican Mezcal standard allows. Which answer fits that standard?
+          options:
+            - Only blue Weber agave, as specified for Tequila.
+            - Any Agave species, regardless of where it grows.
+            - Qualifying Agave species grown in the protected Mezcal area.
+            - Only agave grown in Jalisco, for every Mezcal.
+          correctIndex: 2
+          explanation: NOM-070 permits qualifying Agave species grown in the protected area and requires species identification on the bottle.
+          sourceCitationId: src_cms_example_mezcal_nom
+        ki_cms_example_grappa:
+          prompt: Which category does the cited Italian technical sheet assign to Grappa?
+          options:
+            - Fruit spirit, from fermented cherries.
+            - Wine spirit, from distilled wine.
+            - Nut liqueur, from hazelnuts.
+            - Grape marc spirit, from grape press residue.
+          correctIndex: 3
+          explanation: Italy's GI technical sheet identifies Grappa as a grape marc spirit.
+          sourceCitationId: src_cms_example_grappa_italian_file
+        ki_cms_example_fruit_eau_de_vie:
+          prompt: A guest asks for a cherry eau-de-vie. Which EU fruit-spirit name matches that base?
+          options:
+            - Kirsch, from fermented cherries.
+            - Grappa, from fermented grape marc.
+            - Cognac, from distilled grape wine.
+            - Frangelico, from infused hazelnuts.
+          correctIndex: 0
+          explanation: EU Annex I permits kirsch as a name for cherry fruit spirit, distinct from grape marc spirit.
+          sourceCitationId: src_cms_example_eu_spirits_annex
+        ki_cms_example_chambord:
+          prompt: A guest wants a berry-led liqueur. Which listed producer example matches that request?
+          options:
+            - Baileys Original, described through Irish dairy cream.
+            - Chambord, described through several berry infusions.
+            - Frangelico, described through Italian hazelnuts.
+            - St-Germain, described through elderflower blossoms.
+          correctIndex: 1
+          explanation: Chambord describes infusions involving blackberries, raspberries and blackcurrants.
+          sourceCitationId: src_cms_example_chambord_maker
+        ki_cms_example_frangelico:
+          prompt: Which named liqueur is the maker's hazelnut-led example for a nut-flavour request?
+          options:
+            - St-Germain, with elderflower blossoms.
+            - Chambord, with mixed berry infusions.
+            - Frangelico, with Italian hazelnuts.
+            - Baileys Original, with Irish dairy cream.
+          correctIndex: 2
+          explanation: Frangelico identifies Italian hazelnuts as a central flavour source; check the bottle for dietary needs.
+          sourceCitationId: src_cms_example_frangelico_maker
+        ki_cms_example_st_germain:
+          prompt: Which named liqueur is the maker's floral example for an elderflower request?
+          options:
+            - Chambord, built around berry infusions.
+            - Frangelico, built around hazelnuts.
+            - Baileys Original, built around cream.
+            - St-Germain, built around elderflowers.
+          correctIndex: 3
+          explanation: St-Germain's FAQ identifies elderflower blossoms and describes a maceration step.
+          sourceCitationId: src_cms_example_st_germain_maker
+        ki_cms_example_baileys:
+          prompt: Which named example must not be presented as dairy-free on the maker's current description?
+          options:
+            - Baileys Original, which includes Irish dairy cream.
+            - St-Germain, which describes elderflower blossoms.
+            - Chambord, which describes several berry infusions.
+            - Frangelico, which describes Italian hazelnuts.
+          correctIndex: 0
+          explanation: Baileys Original explicitly includes Irish dairy cream; still confirm the current bottle and guest needs.
+          sourceCitationId: src_cms_example_baileys_maker
+  - id: qt_cms_example_scenario_choice
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: authored_choice
+    variant: cms_spirit_liqueur_service
+    prompt_template: "{subject.name}"
+    parameters:
+      item_choices:
+        ki_cms_example_agave_action:
+          prompt: A guest requests Mezcal, but the list offers only Tequila. What should the server do first?
+          options:
+            - Present Tequila as Mezcal because both names involve agave.
+            - Promise every Mezcal is smoky and dismiss the request.
+            - Explain the names differ and ask before substituting.
+            - Pour a clear spirit without checking its actual label.
+          correctIndex: 2
+          explanation: Mezcal has its own defined, labelled designation; verify stock and seek the guest's agreement before a different offer.
+          sourceCitationId: src_cms_example_mezcal_nom
+        ki_cms_example_marc_action:
+          prompt: A guest asks for Grappa. Which category should the server check on a labelled bottle?
+          options:
+            - French fruit spirit made from cherries.
+            - Generic wine spirit made from wine.
+            - Cream liqueur made with dairy.
+            - Grape marc spirit named Grappa.
+          correctIndex: 3
+          explanation: Italy's GI technical sheet identifies Grappa as grape marc spirit; check the specific label and stock.
+          sourceCitationId: src_cms_example_grappa_italian_file
+        ki_cms_example_liqueur_action:
+          prompt: A guest requests a floral liqueur. Which first recommendation is grounded in the cited maker account?
+          options:
+            - Check whether St-Germain elderflower is stocked and suits the guest.
+            - Assume Baileys Original is floral because it is a liqueur.
+            - Promise any hazelnut liqueur has an elderflower profile.
+            - Offer any berry liqueur without asking about preference.
+          correctIndex: 0
+          explanation: St-Germain's maker identifies elderflower blossoms; any recommendation also needs a stock and preference check.
+          sourceCitationId: src_cms_example_st_germain_maker
+  - id: qt_cms_example_case_agave
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: cms_agave_substitution
+    prompt_template: >-
+      A guest asks for Mezcal, but your current list has only Tequila. How do
+      you explain the distinction, offer a conditional alternative and check
+      the bottle and guest preference without assuming either tastes smoky?
+    parameters:
+      scope_node_ids: [n_cms_example_agave_case]
+      key_points: {CASE_ACTION: Guest response, CASE_REASON: Agave standard, CASE_TRADEOFF: Conditional alternative, CASE_LIMITATION: Bottle check}
+  - id: qt_cms_example_case_marc
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: cms_marc_fruit_substitution
+    prompt_template: >-
+      A guest asks for Grappa but a colleague offers cherry eau-de-vie. Explain
+      the raw-material distinction, propose a response if Grappa is unavailable
+      and state what must be checked before naming a bottle.
+    parameters:
+      scope_node_ids: [n_cms_example_marc_case]
+      key_points: {CASE_ACTION: Guest response, CASE_REASON: Distinct bases, CASE_TRADEOFF: Agreed alternative, CASE_LIMITATION: Label check}
+  - id: qt_cms_example_case_liqueur
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: cms_liqueur_families
+    prompt_template: >-
+      A guest requests a floral liqueur but is offered Baileys Original.
+      Identify a floral example, compare its flavour source with the cream
+      example, offer berry or nut alternatives only if desired, and state the
+      stock, label and dietary checks before service.
+    parameters:
+      scope_node_ids: [n_cms_example_liqueur_case]
+      key_points: {CASE_ACTION: Floral response, CASE_REASON: Product ingredients, CASE_TRADEOFF: Other flavour families, CASE_LIMITATION: Stock and dietary check}

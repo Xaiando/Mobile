@@ -274,7 +274,7 @@ void main() {
   );
 
   test(
-    '565 cited Level 1–3 questions are generated and served across domains',
+    '577 cited WSET and CMS questions are generated and served across domains',
     () async {
       final db = openTestDatabase();
       try {
@@ -289,7 +289,7 @@ void main() {
         final templates = await (db.select(
           db.questionTemplates,
         )..where((row) => row.mode.equals('authored_choice'))).get();
-        expect(templates, hasLength(23));
+        expect(templates, hasLength(25));
         final expectedIds = {
           for (final template in templates)
             ...((jsonDecode(template.parameters!)
@@ -331,6 +331,10 @@ void main() {
         };
         final europeIds = idsForTemplate('qt_wset_europe_application_67');
         final newWorldIds = idsForTemplate('qt_wset_new_world_application_16');
+        final cmsExampleIds = {
+          ...idsForTemplate('qt_cms_example_recognition'),
+          ...idsForTemplate('qt_cms_example_scenario_choice'),
+        };
         final winemakingSharedIds = idsForTemplate(
           'qt_wset_winemaking_shared_application_9',
         );
@@ -344,16 +348,18 @@ void main() {
           ...sharedGrapeIds,
           ...europeIds,
           ...newWorldIds,
+          ...cmsExampleIds,
           ...winemakingSharedIds,
           ...winemakingL3Ids,
           ...l3ApplicationIds,
         });
-        expect(expectedIds, hasLength(565));
+        expect(expectedIds, hasLength(577));
         expect(levelOneIds, hasLength(132));
         expect(levelTwoIds, hasLength(172));
         expect(sharedGrapeIds, hasLength(32));
         expect(europeIds, hasLength(67));
         expect(newWorldIds, hasLength(16));
+        expect(cmsExampleIds, hasLength(12));
         expect(winemakingSharedIds, hasLength(9));
         expect(winemakingL3Ids, hasLength(12));
         expect(l3ApplicationIds, hasLength(40));
@@ -364,7 +370,7 @@ void main() {
         JOIN knowledge_items i ON i.id = q.knowledge_item_id
         WHERE t.mode = 'authored_choice' ORDER BY q.knowledge_item_id
       ''').get();
-        expect(rows, hasLength(565));
+        expect(rows, hasLength(577));
         final actual = {
           for (final row in rows)
             row.read<String>('knowledge_item_id'): row.read<String>(
@@ -385,6 +391,10 @@ void main() {
         };
         final levelThreeCards = {
           for (final card in await StudyPlanner(db).cards('WSET_L3'))
+            card.itemId: card,
+        };
+        final cmsCards = {
+          for (final card in await StudyPlanner(db).cards('CMS_CERTIFIED'))
             card.itemId: card,
         };
         expect(
@@ -439,6 +449,8 @@ void main() {
                     ? levelTwoCards[id]
                     : sharedGrapeIds.contains(id)
                     ? levelTwoCards[id]
+                    : cmsExampleIds.contains(id)
+                    ? cmsCards[id]
                     : levelThreeCards[id])
                 ?.formats
                 .map((format) => format.mode),

@@ -221,8 +221,8 @@ void main() {
       // These CMS beverage objectives now have authored lessons. Keep the
       // report accountable for both their exact counts and their status.
       for (final entry in const {
-        'cms_certified.spirits': 63,
-        'cms_certified.liqueurs_and_aperitifs': 20,
+        'cms_certified.spirits': 76,
+        'cms_certified.liqueurs_and_aperitifs': 28,
         'cms_certified.beer_and_cider': 56,
         'cms_certified.sake': 10,
       }.entries) {
