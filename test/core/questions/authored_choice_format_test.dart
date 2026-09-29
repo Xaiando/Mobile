@@ -385,7 +385,7 @@ void main() {
                   template.id == 'qt_d5f_authored_choice',
             )
             .toList();
-        expect(templates, hasLength(76));
+        expect(templates, hasLength(77));
         final expectedIds = {
           for (final template in templates)
             ...((jsonDecode(template.parameters!)
