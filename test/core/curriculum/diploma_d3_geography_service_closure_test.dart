@@ -247,20 +247,20 @@ void main() {
           reason: id,
         );
       }
-    for (final id in [
-      'ki_reg_am_case_california_sites_reason',
-      'ki_fault_case_hot_delivery_action',
-    ]) {
-      expect(
-        cards[id]!.formats.map((format) => format.mode).toSet(),
-        containsAll({'short_answer', 'typed'}),
-        reason: id,
-      );
-      expect(
-        audit.items.singleWhere((row) => row.id == id).servedFormats,
-        contains('case_criteria'),
-        reason: id,
-      );
+      for (final id in [
+        'ki_reg_am_case_california_sites_reason',
+        'ki_fault_case_hot_delivery_action',
+      ]) {
+        expect(
+          cards[id]!.formats.map((format) => format.mode).toSet(),
+          containsAll({'short_answer', 'typed'}),
+          reason: id,
+        );
+        expect(
+          audit.items.singleWhere((row) => row.id == id).servedFormats,
+          contains('case_criteria'),
+          reason: id,
+        );
       }
     },
   );
