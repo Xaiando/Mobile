@@ -1,0 +1,176 @@
+# Original D4/D5 authored choices and self-check cases.
+question_templates:
+- id: qt_d4d5_product_choice
+  relation_type: PRINCIPLE_EXPLANATION
+  direction: forward
+  mode: authored_choice
+  variant: d4d5_product_distinction
+  prompt_template: '{subject.name}'
+  parameters:
+    item_choices:
+      ki_d4d5_bourgogne_base:
+        prompt: A grower diverts a Burgundy parcel from still wine to Crémant de Bourgogne. Which harvest and
+          cellar brief has direct support?
+        options:
+        - Pick earlier for acidity, then plan a second fermentation in bottle
+        - Pick only after still-wine grapes and rely on sweet dosage for acid balance
+        - Keep the same harvest target but add gas after the wine is packaged
+        - Use Chardonnay exclusively and avoid a second fermentation
+        correctIndex: 0
+        explanation: The Bourgogne body describes an earlier harvest for acid retention and bottle fermentation;
+          it also lists several permitted grapes.
+        sourceCitationId: src_d4d5_bourgogne
+      ki_d4d5_saumur_bottle:
+        prompt: A buyer is told a proposed Saumur mousseux is made by tank second fermentation. What should
+          be checked first?
+        options:
+        - Whether Chenin from the left bank changes the published method rule for every Saumur bottle
+        - Its eligibility, because Saumur mousseux requires bottle second fermentation
+        - Whether the wine is white, since rosé Saumur is always tank-fermented
+        - Its price, since an expensive offer can override the production rule
+        correctIndex: 1
+        explanation: The published Saumur specification requires the second fermentation in bottle.
+        sourceCitationId: src_d4d5_saumur_law
+      ki_d4d5_trento_riserva:
+        prompt: A Trento DOC producer budgets a new Riserva. Which minimum cellar-time assumption matches the
+          association's published categories?
+        options:
+        - Nine months on lees, because all sparkling PDOs share one international minimum
+        - Fifteen months on lees, identical to non-vintage regardless of the Riserva designation
+        - At least thirty-six months on lees before the Riserva release
+        - No lees ageing if the vintage is printed on the label
+        correctIndex: 2
+        explanation: The Trento DOC Institute lists a 36-month minimum on lees for Riserva; the category does
+          not itself score the finished wine.
+        sourceCitationId: src_d4d5_trento
+      ki_d4d5_sorbara_dry:
+        prompt: A guest requests a fresh, dry red sparkling wine. Why should a sommelier inspect a Sorbara
+          bottle rather than dismiss all Lambrusco?
+        options:
+        - The appellation makes every Sorbara rich, dark and sweet, without any dry version
+        - All Sorbara is artificially carbonated still wine and never legitimately described as dry
+        - The term Lambrusco automatically means demi-sec regardless of the producer's label
+        - Sorbara can be light red and dry; confirm the bottle's sweetness
+        correctIndex: 3
+        explanation: The consortium lists dry Sorbara and a light-coloured, fresh style; the exact bottle still
+          needs checking.
+        sourceCitationId: src_d4d5_lambrusco
+      ki_d4d5_grasparossa_body:
+        prompt: A restaurant compares Sorbara and Grasparossa di Castelvetro for a richer red sparkling slot.
+          Which starting comparison is supported?
+        options:
+        - Try Grasparossa for relatively more body and tannin, then taste the offers
+        - Choose Sorbara solely because its paler colour always signals higher tannin
+        - Treat both DOC names as one grape and one sweetness level
+        - Assume Grasparossa must be still rather than sparkling
+        correctIndex: 0
+        explanation: The consortium contrasts Grasparossa's fuller, more tannic tendency with Sorbara's lighter
+          profile.
+        sourceCitationId: src_d4d5_lambrusco
+      ki_d4d5_palo_route:
+        prompt: A Jerez cellar identifies an unusually fine flor-aged lot after sobretabla for Palo Cortado.
+          Which next route follows the Consejo description?
+        options:
+        - Continue under flor indefinitely, since a Palo Cortado must never enter oxidative ageing
+        - Re-fortify and direct the selected lot into oxidative ageing
+        - Add Pedro Ximénez until sweetness alone supplies the defining Palo Cortado classification
+        - Bottle it as a young Fino, even though the cellar has decided on oxidative development
+        correctIndex: 1
+        explanation: The Consejo describes re-fortification above 17% and oxidative ageing after selection.
+        sourceCitationId: src_wset_sf_palo_cortado
+      ki_d4d5_palo_dry:
+        prompt: A customer says a dark, rounded Palo Cortado must be sweet. Which service response is defensible?
+        options:
+        - Dark Sherry is sweet by definition
+        - Describe it as a sweet Pedro Ximénez blend by definition
+        - Explain that Palo Cortado is a dry Sherry despite its body
+        - Claim it is lower in alcohol than all Fino and Manzanilla
+        correctIndex: 2
+        explanation: The Consejo lists Palo Cortado as a dry wine; body and colour are not sweetness measures.
+        sourceCitationId: src_wset_sf_palo_cortado
+      ki_d4d5_lbv_vintage:
+        prompt: Two Ports carry the same harvest year, one LBV and one Vintage. Which maturation distinction
+          should a buyer communicate?
+        options:
+        - LBV is always a multi-harvest Tawny while Vintage alone comes from one harvest
+        - Vintage must spend at least seven full years in small wood before any bottling
+        - Both are necessarily released after the same time in cask
+        - LBV is bottled after four to six years, Vintage after two to three
+        correctIndex: 3
+        explanation: IVDP states both are single-harvest Ruby styles with different pre-bottling holding periods.
+        sourceCitationId: src_fort_port_categories
+      ki_d4d5_colheita_cask:
+        prompt: A buyer sees a harvest year on both a Colheita and a Vintage Port. Which category distinction
+          matters most?
+        options:
+        - Colheita is a single-harvest Tawny with at least seven years in cask
+        - A dated Colheita must be a Ruby Port aged mainly in bottle after a short cask period
+        - Vintage and Colheita mean the same maturation route
+        - The year guarantees identical sweetness and serving temperature
+        correctIndex: 0
+        explanation: IVDP describes Colheita as a wood-aged single-harvest Tawny, unlike the Vintage Ruby route.
+        sourceCitationId: src_fort_port_categories
+      ki_d4d5_white_port_age:
+        prompt: A wine list editor claims every White Port is young, pale and made only for immediate aperitif
+          service. What correction is supported?
+        options:
+        - Only red Port can be wood-aged or carry an age indication
+        - IVDP also recognises aged White Port and White Colheita categories
+        - White Port with a date must actually be Madeira
+        - The word white guarantees a lower alcohol level than Ruby Port
+        correctIndex: 1
+        explanation: IVDP explicitly lists wood-aged White Port with age indications and White Colheita.
+        sourceCitationId: src_fort_port_categories
+- id: qt_d4d5_case_italian_list
+  relation_type: CASE_ACTION
+  direction: forward
+  mode: short_answer
+  variant: d4d5_italian_list
+  prompt_template: A restaurant can add one Italian sparkling by-the-glass slot. It has a dry Sorbara and a
+    Trento DOC Riserva on offer, but no samples, landed quotes or sales forecast. Make a conditional shortlist,
+    compare the category mechanisms, give a stock or style tradeoff, and identify the missing decision evidence.
+  parameters:
+    scope_node_ids:
+    - n_d4d5_case_italian_list
+    key_points:
+      CASE_ACTION: Defensible action or calculation
+      CASE_REASON: Mechanism and rationale
+      CASE_TRADEOFF: Opportunity cost or alternative
+      CASE_LIMITATION: Unproven premise or next check
+- id: qt_d4d5_case_port_release
+  relation_type: CASE_ACTION
+  direction: forward
+  mode: short_answer
+  variant: d4d5_port_release
+  prompt_template: A hotel needs a dated Port for near-term service and is offered LBV, Vintage and Colheita
+    from one harvest. There are no samples, cellar records or prices. Recommend a buying process, explain the
+    maturation distinction, identify an inventory tradeoff and state what the labels cannot prove.
+  parameters:
+    scope_node_ids:
+    - n_d4d5_case_port_release
+    key_points:
+      CASE_ACTION: Defensible action or calculation
+      CASE_REASON: Mechanism and rationale
+      CASE_TRADEOFF: Opportunity cost or alternative
+      CASE_LIMITATION: Unproven premise or next check
+- id: qt_d4d5_case_criteria
+  relation_type: CASE_ACTION
+  direction: forward
+  mode: case_criteria
+  variant: d4d5_product_case_criteria
+  prompt_template: '{subject.name}'
+  parameters:
+    scope_node_ids:
+    - n_d4d5_case_italian_list
+    - n_d4d5_case_port_release
+    distractors:
+      n_d4d5_case_italian_list:
+      - summary: Select Riserva because the ageing category proves a higher blind-tasting score
+        explanation: The Trento DOC category fixes a production minimum, while sensory fit and margin for the offered bottle are unmeasured.
+      - summary: Treat the offered dry Sorbara as a sweet dessert wine without checking its label
+        explanation: The consortium lists dry Sorbara styles and the premise already describes this offer as dry; the actual bottle still needs tasting.
+      n_d4d5_case_port_release:
+      - summary: Choose Vintage for immediate service because all dated Ports mature on one route
+        explanation: IVDP distinguishes earlier-bottled Vintage, later-bottled LBV and cask-aged Colheita; a shared harvest year does not decide readiness.
+      - summary: Call Colheita a youthful Ruby Port because its label displays a harvest year
+        explanation: IVDP classifies Colheita as a single-harvest Tawny that spends at least seven years in cask.
