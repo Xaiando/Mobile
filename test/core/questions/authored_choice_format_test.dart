@@ -138,15 +138,6 @@ void main() {
 
   test('Level 3 viticulture principle choices avoid length clues and keep item citations', () {
     final data = flattenDataset('assets/curriculum/curriculum.yaml');
-    final template = rowOf(
-      data,
-      'question_templates',
-      'id',
-      'qt_wset_l3_viticulture_principle_closure_40',
-    );
-    final choices =
-        (template['parameters'] as Map<String, dynamic>)['item_choices']
-            as Map<String, dynamic>;
     final linkedCitations = <String, Set<String>>{};
     for (final row in rowsOf(data, 'knowledge_item_citations')) {
       final citation = row as Map<String, dynamic>;
@@ -154,31 +145,46 @@ void main() {
           .putIfAbsent(citation['knowledge_item_id'] as String, () => {})
           .add(citation['source_citation_id'] as String);
     }
-    expect(choices, hasLength(40));
-    final answerPositions = [0, 0, 0, 0];
-    for (final entry in choices.entries) {
-      final choice = entry.value as Map<String, dynamic>;
-      final options = (choice['options'] as List).cast<String>();
-      final answerIndex = choice['correctIndex'] as int;
-      expect(options, hasLength(4), reason: entry.key);
-      expect(options.toSet(), hasLength(4), reason: entry.key);
-      expect(answerIndex, inInclusiveRange(0, 3), reason: entry.key);
-      expect(
-        linkedCitations[entry.key],
-        contains(choice['sourceCitationId']),
-        reason: entry.key,
-      );
-      final lengths = options.map((option) => option.length).toList();
-      expect(
-        lengths[answerIndex] == lengths.reduce(max) &&
-            lengths.where((length) => length == lengths[answerIndex]).length ==
-                1,
-        isFalse,
-        reason: '${entry.key} should not reveal its key by unique length',
-      );
-      answerPositions[answerIndex]++;
+    final allIds = <String>{};
+    for (final templateId in [
+      'qt_wset_l3_viticulture_principle_closure_40',
+      'qt_wset_l3_viticulture_principle_closure_next_40',
+    ]) {
+      final template = rowOf(data, 'question_templates', 'id', templateId);
+      final choices =
+          (template['parameters'] as Map<String, dynamic>)['item_choices']
+              as Map<String, dynamic>;
+      expect(choices, hasLength(40), reason: templateId);
+      expect(allIds.intersection(choices.keys.toSet()), isEmpty);
+      allIds.addAll(choices.keys);
+      final answerPositions = [0, 0, 0, 0];
+      for (final entry in choices.entries) {
+        final choice = entry.value as Map<String, dynamic>;
+        final options = (choice['options'] as List).cast<String>();
+        final answerIndex = choice['correctIndex'] as int;
+        expect(options, hasLength(4), reason: entry.key);
+        expect(options.toSet(), hasLength(4), reason: entry.key);
+        expect(answerIndex, inInclusiveRange(0, 3), reason: entry.key);
+        expect(
+          linkedCitations[entry.key],
+          contains(choice['sourceCitationId']),
+          reason: entry.key,
+        );
+        final lengths = options.map((option) => option.length).toList();
+        expect(
+          lengths[answerIndex] == lengths.reduce(max) &&
+              lengths
+                      .where((length) => length == lengths[answerIndex])
+                      .length ==
+                  1,
+          isFalse,
+          reason: '${entry.key} should not reveal its key by unique length',
+        );
+        answerPositions[answerIndex]++;
+      }
+      expect(answerPositions, [10, 10, 10, 10], reason: templateId);
     }
-    expect(answerPositions, [10, 10, 10, 10]);
+    expect(allIds, hasLength(80));
   });
 
   test(
@@ -319,7 +325,7 @@ void main() {
   );
 
   test(
-    '1209 cited choices are generated and served across WSET and CMS tracks',
+    '1249 cited choices are generated and served across WSET and CMS tracks',
     () async {
       final db = openTestDatabase();
       try {
@@ -344,7 +350,7 @@ void main() {
                   template.id == 'qt_d5f_authored_choice',
             )
             .toList();
-        expect(templates, hasLength(58));
+        expect(templates, hasLength(59));
         final expectedIds = {
           for (final template in templates)
             ...((jsonDecode(template.parameters!)
@@ -464,6 +470,9 @@ void main() {
         final l3ViticulturePrincipleIds = idsForTemplate(
           'qt_wset_l3_viticulture_principle_closure_40',
         );
+        final l3ViticulturePrincipleNextIds = idsForTemplate(
+          'qt_wset_l3_viticulture_principle_closure_next_40',
+        );
         final l3ViticultureGeneralIds = idsForTemplate(
           'qt_wset_l3_viticulture_general_22',
         );
@@ -513,6 +522,7 @@ void main() {
           ...l3ApplicationIds,
           ...l3ViticultureIds,
           ...l3ViticulturePrincipleIds,
+          ...l3ViticulturePrincipleNextIds,
           ...l3ViticultureGeneralIds,
           ...l3TastingIds,
           ...l3ServiceIds,
@@ -545,7 +555,7 @@ void main() {
           'ki_reg_ib_sacra_terraces',
           'ki_reg_ib_dao_encruzado',
         }, reason: 'Diploma and Level 3 regional prompts share two items');
-        expect(expectedIds, hasLength(1201));
+        expect(expectedIds, hasLength(1241));
         expect(levelOneIds, hasLength(132));
         expect(levelTwoIds, hasLength(309));
         expect(sharedGrapeIds, hasLength(52));
@@ -561,8 +571,13 @@ void main() {
         expect(l3ApplicationIds, hasLength(40));
         expect(l3ViticultureIds, hasLength(40));
         expect(l3ViticulturePrincipleIds, hasLength(40));
+        expect(l3ViticulturePrincipleNextIds, hasLength(40));
         expect(
           l3ViticulturePrincipleIds.intersection(l3ViticultureIds),
+          isEmpty,
+        );
+        expect(
+          l3ViticulturePrincipleNextIds.intersection(l3ViticulturePrincipleIds),
           isEmpty,
         );
         expect(l3ViticultureGeneralIds, hasLength(22));
@@ -589,7 +604,7 @@ void main() {
                OR t.id = 'qt_d5f_authored_choice')
         ORDER BY q.knowledge_item_id
       ''').get();
-        expect(rows, hasLength(1209));
+        expect(rows, hasLength(1249));
         final actual = {
           for (final row in rows)
             row.read<String>('knowledge_item_id'): row.read<String>(
@@ -737,6 +752,7 @@ void main() {
               l3ApplicationIds.contains(id) ||
               l3ViticultureIds.contains(id) ||
               l3ViticulturePrincipleIds.contains(id) ||
+              l3ViticulturePrincipleNextIds.contains(id) ||
               l3ViticultureGeneralIds.contains(id) ||
               l3GeographyIds.contains(id) ||
               l3GeographyIds2.contains(id)) {

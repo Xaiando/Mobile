@@ -1,0 +1,410 @@
+# Further item-specific WSET Level 3 viticulture choices; existing facts remain unverified.
+question_templates:
+- id: qt_wset_l3_viticulture_principle_closure_next_40
+  relation_type: PRINCIPLE_EXPLANATION
+  direction: forward
+  mode: authored_choice
+  variant: wset_l3_viticulture_principle_closure_next_40
+  prompt_template: '{subject.name}'
+  parameters:
+    item_choices:
+      ki_reg_am_templeton_ripening:
+        prompt: A Paso Robles buyer compares the Templeton Gap with a warmer inland block. Which harvest inference fits the cooler gap?
+        options:
+        - It can extend ripening for Pinot Noir or Chardonnay, subject to site and year
+        - It forces identical harvest dates for every Chardonnay block despite differences in aspect and vintage
+        - It makes vineyard exposure irrelevant once the grapes reach veraison
+        - It proves any Pinot Noir grown there must taste lighter than inland wine
+        correctIndex: 0
+        explanation: Templeton Gap's cooler setting can lengthen ripening opportunities for Chardonnay and Pinot Noir, without fixing a harvest date or finished style.
+        sourceCitationId: src_reg_am_paso
+      ki_reg_fr_rhone_south_varied:
+        prompt: Two southern Rhône vineyards differ sharply in slope and exposure. What does the regional climate label miss?
+        options:
+        - Mediterranean influence means every vineyard is a flat, hot plain
+        - Hills, terraces and plains create meaningful local site differences
+        - Southern Rhône sites have no variation in water or sunlight
+        - A warm-region label proves each wine has the same ripeness and body
+        correctIndex: 1
+        explanation: Mediterranean influence is broad context; terrain ranges from plains to hills and terraces, so actual sites need comparison.
+        sourceCitationId: src_reg_fr_rhone_terroirs
+      ki_reg_fs_gigondas_soils:
+        prompt: A Gigondas grower compares alluvial clay-sandy terraces with marl-limestone hillside terraces. Which assessment is best supported?
+        options:
+        - Treat all terraces as having identical water access despite their different soil profiles
+        - Use the hillside rock name as proof of a mineral taste in every finished wine
+        - Compare permeability and surface-debris effects on infiltration by parcel
+        - Infer the same soil moisture every season because the vineyards share one appellation
+        correctIndex: 2
+        explanation: Gigondas has distinct permeable alluvial and hillside profiles; surface material can help rain infiltrate, but parcel water remains variable.
+        sourceCitationId: src_reg_fs_gigondas
+      ki_reg_fs_madiran_tannat:
+        prompt: A late-ripening Madiran Tannat lot is intended for a firm red wine. What should be checked before assuming the structure?
+        options:
+        - Only the variety name, which fixes tannin maturity in all years
+        - Its label category, which determines grape polyphenol concentration
+        - A calendar date, because late grapes cannot ripen before November
+        - Fruit maturity alongside Tannat's polyphenol-rich tendency
+        correctIndex: 3
+        explanation: Tannat's late cycle and polyphenol richness frame potential structure; actual maturity is needed to judge the fruit.
+        sourceCitationId: src_reg_fs_madiran_grapes
+      ki_reg_fs_monbazillac_selection:
+        prompt: A Monbazillac grower sees morning mist followed by sun. Which picking approach uses the possible noble-rot opportunity?
+        options:
+        - Select suitable concentrated berries in successive passes as conditions allow
+        - Harvest every rotten berry together because any rot is beneficial
+        - Assume regular mist and sunshine guarantee the same sweetness in every vineyard and every year
+        - Pick only before mist arrives so no berry develops concentration
+        correctIndex: 0
+        explanation: Alternating mist and sunshine can favour noble rot, but successive selective harvests depend on actual berry condition.
+        sourceCitationId: src_reg_fs_monbazillac
+      ki_reg_fs_pacherenc_harvest:
+        prompt: How do harvest aims differ between a fresh dry Pacherenc and a sweet example using on-vine passerillage?
+        options:
+        - Both styles require identical concentration and picking even when one aims for fresh dry fruit
+        - The sweet style seeks concentrated fruit with acidity, often by manual picking
+        - The dry style requires the longest possible dehydration on the vine
+        - Passerillage prevents any need to assess the remaining acidity
+        correctIndex: 1
+        explanation: The regional brief distinguishes fresh dry fruit from sweet wines made with on-vine concentration and balancing acidity.
+        sourceCitationId: src_reg_fs_pacherenc
+      ki_reg_fs_roussanne_sensitivity:
+        prompt: Roussanne can add floral character to a Rhône white. What vineyard risk should a grower still monitor?
+        options:
+        - Its name guarantees aromatic intensity even from damaged bunches
+        - Its pairing with Marsanne makes all fungal infection impossible
+        - Powdery mildew and grey rot can compromise fruit condition
+        - Floral aromas prove the grape always reaches full maturity early
+        correctIndex: 2
+        explanation: Roussanne is susceptible to powdery mildew and grey rot; grape health matters to any intended style.
+        sourceCitationId: src_reg_fs_roussanne
+      ki_reg_fs_saumur_water:
+        prompt: What physical water role can porous Saumur-Champigny tuffeau play in a relevant vineyard?
+        options:
+        - It releases limestone flavour directly into Cabernet Franc juice
+        - It guarantees enough water in every drought without checking roots
+        - It excludes all rainwater while keeping the root zone permanently wet
+        - It can absorb water when wet and release it gradually as soils dry
+        correctIndex: 3
+        explanation: The appellation describes porous tuffeau storing and releasing water while also draining, without a flavour-transfer or drought guarantee.
+        sourceCitationId: src_reg_fs_saumur_tuffeau
+      ki_reg_isi_cannonau_measures:
+        prompt: A Cannonau grower has one sugar reading near harvest. What else is needed to judge berry maturity?
+        options:
+        - Acidity, pH and phenolic ripeness, because they need not track sugar exactly
+        - Only a sugar-to-acid index, which fixes every biochemical change
+        - The appellation name, which replaces individual berry sampling
+        - Sugar alone, because acidity and phenolics change in a fixed ratio at every vineyard
+        correctIndex: 0
+        explanation: The Sardinian research considers sugar, total acidity, pH and phenolic ripeness; a single index cannot settle a harvest decision.
+        sourceCitationId: src_reg_isi_cannonau
+      ki_reg_isi_gallura_wind:
+        prompt: Gallura has regular wind and marked day-night temperature variation. What can a grower infer from that setting?
+        options:
+        - The wind directly adds a salty flavour to each finished white wine
+        - Wind and temperature variation affect conditions, but fruit still needs assessment
+        - Regular wind eliminates fungal and weather risk throughout the season at every exposed parcel
+        - Day-night variation means every vineyard receives the same heat sum
+        correctIndex: 1
+        explanation: Gallura's wind and diurnal range are growing-condition context, not guarantees of fruit health or a literal salt taste.
+        sourceCitationId: src_reg_isi_gallura
+      ki_reg_isi_taurasi_late:
+        prompt: A Taurasi Aglianico parcel is still ripening in autumn. What is the relevant site check?
+        options:
+        - Southern latitude guarantees Aglianico ripens fully even with a cool autumn and poor exposure
+        - All autumn harvests must use the same extraction and oak regime
+        - Exposure and season length must support the late-ripening variety
+        - The appellation name fixes harvest maturity in every vintage
+        correctIndex: 2
+        explanation: Taurasi's Aglianico is late-ripening, so site exposure and the actual autumn season matter.
+        sourceCitationId: src_reg_isi_taurasi
+      ki_reg_isi_vulture_shared:
+        prompt: Taurasi and the Vulture area both cultivate Aglianico. Which comparison is defensible?
+        options:
+        - Shared grape means identical ripening dates, soil exposure and finished wine in both areas
+        - Aglianico ripens early in Vulture but cannot ripen in Taurasi
+        - Only winemaking, never site, explains any difference between the areas
+        - Late ripening matters in both, while their sites and cellar choices can differ
+        correctIndex: 3
+        explanation: Aglianico gives a shared late-ripening question, but does not make the two regions equivalent.
+        sourceCitationId: src_reg_isi_vulture
+      ki_reg_na_lodi_loose_selection:
+        prompt: A Lodi grower compares looser Primitivo selections with tightly packed Zinfandel selections. Which risk might differ?
+        options:
+        - Bunch compactness can affect rot pressure, though monitoring remains necessary
+        - Every Primitivo selection is immune to rot even when bunches are wet and site conditions are poor
+        - Cluster shape has no relevance to fruit health in wet weather
+        - The clone name alone predicts an identical harvest in every vintage
+        correctIndex: 0
+        explanation: The 2018 Lodi account associates looser, longer clusters with lower rot pressure, not guaranteed freedom from disease.
+        sourceCitationId: src_reg_na_lodi_selection
+      ki_reg_na_niagara_soil_moisture:
+        prompt: A Niagara Escarpment site has water-holding clay loam and natural slope drainage. What should a grower assess?
+        options:
+        - Natural slope drainage proves deep clay-loam root zones cannot retain useful moisture
+        - Retained moisture and drainage together at the actual root zone
+        - Limestone in the soil guarantees a limestone taste in the wine
+        - Groundwater input makes rainfall and slope position irrelevant
+        correctIndex: 1
+        explanation: Niagara bench soils may both hold water and drain downslope; their balance is a physical site question.
+        sourceCitationId: src_reg_na_niagara_bench
+      ki_reg_na_red_mountain_air:
+        prompt: A Red Mountain grower cites Yakima River airflow during a frost-prone period. What is the limited inference?
+        options:
+        - Nearby river airflow prevents frost across every Red Mountain block during every weather event
+        - Only summer sunlight, never local air movement, affects site climate
+        - Airflow and moderation can reduce some risk, while weather and exposure matter
+        - A river nearby makes a vineyard warmer than all other Washington sites
+        correctIndex: 2
+        explanation: The Washington Wine Commission describes river moderation and airflow as a site advantage, not universal frost protection.
+        sourceCitationId: src_reg_na_red_mountain
+      ki_reg_na_red_mountain_sun:
+        prompt: A Red Mountain planting plan favours Cabernet Sauvignon. What site feature supports that choice?
+        options:
+        - East-facing shade that removes the summer ripening period
+        - Frequent summer rain that replaces irrigation throughout the AVA
+        - A cold coastal fog belt covering every southwest-facing slope
+        - Broad southwest-facing slopes with strong summer sunshine
+        correctIndex: 3
+        explanation: Red Mountain's warm southwest-facing slopes favour red grapes, especially Cabernet Sauvignon, without guaranteeing each wine's quality.
+        sourceCitationId: src_reg_na_red_mountain
+      ki_reg_na_santa_cruz_east:
+        prompt: How does the inland eastern side of the Santa Cruz Mountains generally compare with exposed coastal ridges?
+        options:
+        - It tends to be warmer and less windy, with several red-grape associations
+        - It receives stronger marine fog and ocean wind on every inland parcel than exposed coastal ridges
+        - It has no Cabernet, Merlot or Zinfandel plantings by definition
+        - It fixes one ripening date for all vineyards regardless of elevation
+        correctIndex: 0
+        explanation: The regional account associates warmer, less windy eastern sites with Cabernet, Merlot and Zinfandel, subject to parcel variation.
+        sourceCitationId: src_reg_na_santa_cruz
+      ki_reg_na_slh_morning_aspect:
+        prompt: Why can an east-facing Santa Lucia Highlands bench get both sunshine and maritime cooling?
+        options:
+        - East-facing slopes cannot receive direct sun in the morning
+        - Morning sun precedes the usual afternoon wind and fog
+        - Cooling winds arrive only in winter after harvest ends
+        - A cool-region designation means bunches receive almost no sun
+        correctIndex: 1
+        explanation: The benches face east into morning sunshine while afternoon maritime airflow brings cooling.
+        sourceCitationId: src_reg_na_slh_climate
+      ki_reg_oa_paarl_fairview:
+        prompt: Fairview has trellised Shiraz and Pinotage at warm Paarl sites, plus an older bush-vine Pinotage block. What does this example show?
+        options:
+        - Warm Paarl vineyards must all use bush vines and no irrigation
+        - Every Paarl grower must use the same drip irrigation regardless of vine age or training system
+        - Training and supplemental water can vary even within one producer
+        - Trellising prevents Pinotage from being grown in warm conditions
+        correctIndex: 2
+        explanation: Fairview reports several training and irrigation practices on its own vineyards; they cannot be generalized to all Paarl.
+        sourceCitationId: src_reg_oa_fairview_sites
+      ki_reg_sa_biobio_weather:
+        prompt: A Bío-Bío lot comes from a cool, windy, rainy season. What should the grower check before picking?
+        options:
+        - Only the latitude, which fixes maturity and fruit soundness
+        - The regional climate label, which guarantees high acidity alone
+        - Whether a drier Chilean region has already finished harvest
+        - Fruit health and maturity against the intended wine style
+        correctIndex: 3
+        explanation: Cool, wet and windy context raises both ripening and health questions; the particular fruit must be assessed.
+        sourceCitationId: src_vit_sampling
+      ki_reg_sa_peumo_vintage:
+        prompt: After abundant winter rain at Peumo in 2024, vine growth strengthened. How did the grower respond in that reported vintage?
+        options:
+        - More leaf removal and shoot pruning, while reducing irrigation
+        - More irrigation to force the same canopy size as a dry year
+        - No canopy work because deep clay always restrains vegetative growth
+        - A permanent regional rule requiring identical pruning every year
+        correctIndex: 0
+        explanation: Concha y Toro's dated account reports extra foliage and shoot work with less irrigation after a wetter winter; this is a vintage response.
+        sourceCitationId: src_reg_sa_peumo_2024
+      ki_wset_apply_bordeaux_maritime:
+        prompt: A Bordeaux producer compares sites near the estuary with parcels farther inland. Which climate distinction merits checking?
+        options:
+        - Maritime temperature moderation always grows stronger at inland sites farther from the estuary
+        - Atlantic and river moderation can weaken inland, while autumn weather varies
+        - Bordeaux's climate label guarantees dry, sound fruit in every vintage
+        - Estuary proximity makes rainfall and disease assessment unnecessary
+        correctIndex: 1
+        explanation: The Atlantic and waterways moderate Bordeaux, but influence varies with location and vintage; fruit condition still matters.
+        sourceCitationId: src_wset_apply_bordeaux_climate
+      ki_wset_apply_muscadet_rainfall:
+        prompt: Wet weather raises fungal pressure in a Nantais Melon vineyard. Which management response addresses the risk?
+        options:
+        - Assume ocean proximity ensures sound grapes without checking canopy, drainage or wet-season disease
+        - Wait for identical acidity to appear in every Muscadet vintage
+        - Improve drainage and monitor disease and fruit health before picking
+        - Harvest solely by regional label without looking at berries
+        correctIndex: 2
+        explanation: UC IPM links wet conditions with downy mildew and recommends effective soil drainage; fruit condition still governs a particular harvest.
+        sourceCitationId: src_vit_downy
+      ki_wset_apply_veneto_local_cooling:
+        prompt: A Valpolicella grower compares a Garda-influenced parcel with an inland plain. What is the sound planning assumption?
+        options:
+        - All Veneto vineyards receive identical lake moderation and hill breezes regardless of distance or elevation
+        - Local cooling removes any need to assess hail or grape disease
+        - The plain always ripens later than all lake-influenced hills
+        - Lake moderation and hill-valley breezes vary with the actual site
+        correctIndex: 3
+        explanation: Lake Garda and local breezes create spatial differences in Valpolicella; neither all Veneto sites nor all seasons are equally cooled.
+        sourceCitationId: src_wset_apply_valpo_climate
+      ki_wset_eu_penedes_sites:
+        prompt: A Penedès estate farms coastal and higher inland vineyards. What should it compare before choosing grapes and harvest dates?
+        options:
+        - Elevation and exposure under the broad Mediterranean influence
+        - A single region-wide ripening date independent of vineyard position
+        - Oak and lees handling as proof that both vineyards have the same climate
+        - Only the appellation name, since coastal and inland sites are identical
+        correctIndex: 0
+        explanation: Penedès includes coastal, inland and different-elevation sites; the actual growing conditions guide selection and harvest.
+        sourceCitationId: src_wset_eu_penedes
+      ki_wset_eu_toro_climate:
+        prompt: At high, dry continental Toro, a red block accumulates sugar quickly. What balances the harvest decision?
+        options:
+        - Maximise sugar accumulation without checking potential alcohol, fruit ripeness or tannin extraction
+        - Check actual ripeness against strong sun, altitude and temperature swings
+        - Altitude proves the fruit can never over-ripen in strong sun
+        - Use one fixed extraction plan for every vineyard and vintage
+        correctIndex: 1
+        explanation: Toro's council documents its high, dry continental setting and strong sun; ripeness should be judged on the actual fruit, not heat alone.
+        sourceCitationId: src_wset_eu_toro_site
+      ki_wset_eu_trentino_sites:
+        prompt: Why should a Trentino grower avoid one harvest schedule for a Lake Garda valley and an elevated terrace?
+        options:
+        - Both valley and elevated terrace sites have identical heat and exposure because they share a region
+        - Altitude and exposure matter only after the wine is bottled
+        - Mountains, lake influence and elevation create different growing conditions
+        - A regional name fixes grape selection and maturity for all parcels
+        correctIndex: 2
+        explanation: Trentino spans lake-influenced valleys and higher sites, so grape choice and picking need the parcel context.
+        sourceCitationId: src_wset_eu_trentino
+      ki_wset_eu_vino_nobile_site:
+        prompt: Vino Nobile vineyards have sandy, clay-rich and mixed hillside soils. Which comparison is justified?
+        options:
+        - The town name fixes identical ripeness, tannin and oak in every finished wine regardless of site
+        - Hill soils directly transfer their mineral taste to every bottle
+        - All plots ripen on one day because the appellation is shared
+        - Site and harvest can vary; extraction and maturation further shape style
+        correctIndex: 3
+        explanation: Differing hills and soils affect growing conditions, while cellar choices also influence tannin and oak expression.
+        sourceCitationId: src_wset_eu_vino_nobile
+      ki_wset_nw_curico_maule_diversity:
+        prompt: A sales rep claims Maule's latitude proves all its vineyards are dry-farmed. What is the best correction?
+        options:
+        - Maule includes old dry-farmed blocks and other plantings; verify each site's method
+        - Shared latitude proves every Maule block uses the same irrigation and training practice
+        - Curicó grows only Sauvignon Blanc, so its Cabernet cannot come from that region
+        - Latitude alone establishes vine age and whether a vineyard has installed drip lines
+        correctIndex: 0
+        explanation: Curicó and Maule contain diverse sites and farming histories; latitude alone does not determine irrigation or vine age.
+        sourceCitationId: src_reg_am_chile
+      ki_wset_nw_durbanville_setting:
+        prompt: Durbanville vineyards differ in altitude and hillside aspect. What should be checked before treating the ward as uniformly cool?
+        options:
+        - One Sauvignon Blanc parcel's wine style as proof for all vineyards
+        - Actual marine exposure and position of each site
+        - Only the ward name, which fixes the same wind at every elevation
+        - Whether Chardonnay and Merlot are forbidden throughout the ward
+        correctIndex: 1
+        explanation: Durbanville receives marine cooling across varied hillsides; actual aspect and altitude qualify broad grape-site statements.
+        sourceCitationId: src_diploma_za_olifants
+      ki_wset_nw_elim_cooling:
+        prompt: What is the key growing-condition contrast for Elim against warmer inland South African vineyards?
+        options:
+        - Its coastal setting prevents any summer wind
+        - Every Elim red must mature earlier than the same grape inland because the coast receives more sunshine
+        - Strong cooling summer winds create a very cool ripening context
+        - The region's name determines one grape and excludes all others
+        correctIndex: 2
+        explanation: Elim's strong summer winds moderate ripening; Sauvignon Blanc is prominent but Semillon and Shiraz also occur.
+        sourceCitationId: src_diploma_za_olifants
+      ki_wset_nw_elqui_aridity:
+        prompt: A grower compares coastal Elqui with a warmer inland Elqui site. What needs separate assessment despite regional aridity?
+        options:
+        - Only the grape name, since all exposures receive identical cooling
+        - A fixed harvest date because sunshine removes site differences
+        - Whether every vineyard is rain-fed without any water planning
+        - Water supply and exposure at the individual vineyard
+        correctIndex: 3
+        explanation: Elqui is dry and sunny, yet coastal and higher sites differ from the interior; water and exposure remain key.
+        sourceCitationId: src_reg_am_chile
+      ki_wset_nw_geelong_range:
+        prompt: A buyer expects all Geelong Pinot Noir to ripen alike. What local distinction should challenge that assumption?
+        options:
+        - Water influence and a more continental north produce different site conditions
+        - The variety name guarantees the same strawberry aroma at every site
+        - A long regional ripening season removes any need to compare coastal and northern vineyard positions
+        - Geelong's Chardonnay plantings determine Pinot Noir harvest timing
+        correctIndex: 0
+        explanation: Geelong has water influence but more continental northern sites, making ripening and expression locality-dependent.
+        sourceCitationId: src_wset_nw_geelong
+      ki_wset_nw_howell_setting:
+        prompt: Howell Mountain Cabernet grows on high Napa sites often above valley fog. What does that imply for site assessment?
+        options:
+        - Fog covers mountain and valley vineyards identically all day
+        - High sites can receive more sunshine than foggy valley-floor sites
+        - High elevation guarantees Cabernet ripeness regardless of fog, exposure and vintage conditions
+        - The mountain setting rules out Merlot plantings entirely
+        correctIndex: 1
+        explanation: Howell Mountain's elevated sites can stand above valley fog, but sunshine and grape association do not guarantee maturity.
+        sourceCitationId: src_reg_am_napa_regions
+      ki_wset_nw_leyda_coastal:
+        prompt: Why might a Leyda or San Antonio site suit Sauvignon Blanc, Chardonnay or Pinot Noir compared with inland Aconcagua?
+        options:
+        - Pacific distance is irrelevant to ripening in the region
+        - Inland Aconcagua is always cooler than the coast in every season
+        - Coastal Pacific cooling gives a distinct growing context
+        - The regional name guarantees the finished wine's sweetness
+        correctIndex: 2
+        explanation: San Antonio and Leyda are Pacific-influenced; inland Aconcagua offers a warmer contrast, though each parcel still varies.
+        sourceCitationId: src_reg_am_chile
+      ki_wset_nw_mendocino_diversity:
+        prompt: Mendocino County grows both Pinot Noir and Cabernet Sauvignon. Why is one county-wide harvest expectation weak?
+        options:
+        - Pinot Noir and Cabernet Sauvignon are the same cultivar
+        - Every vineyard in the county lies in the same cool coastal climate with no inland heat
+        - Appellation boundaries fix identical soil and weather
+        - Its coastal and inland zones have different growing conditions
+        correctIndex: 3
+        explanation: Mendocino contains contrasting coastal and inland vineyards and several grape varieties; a county label alone cannot set harvest conditions.
+        sourceCitationId: src_wset_nw_mendocino
+      ki_wset_nw_santa_maria_grapes:
+        prompt: A Santa Maria Valley grower wants a site context for Pinot Noir and Chardonnay. Which condition is relevant?
+        options:
+        - Ocean wind and fog contribute to a cool growing setting
+        - Inland desert heat reaches every vineyard without moderation
+        - The valley is sheltered from any Pacific airflow all season
+        - Fog proves both grapes will have the same final wine style
+        correctIndex: 0
+        explanation: Santa Maria's ocean wind and fog make it a cool contrast within Santa Barbara County, associated with Pinot Noir and Chardonnay.
+        sourceCitationId: src_wset_nw_santa_maria
+      ki_wset_nw_sonoma_coast_setting:
+        prompt: Why can two Sonoma Coast Pinot Noir vineyards experience different ripening despite a shared marine region?
+        options:
+        - Every vineyard lies below fog and receives identical daylight
+        - Elevation and position can put one site in sunshine above fog
+        - Marine influence erases every local temperature difference
+        - Pinot Noir fixes the harvest date regardless of site exposure
+        correctIndex: 1
+        explanation: Sonoma Coast has varied elevations and fog exposure; some sites gain sun above the fog layer.
+        sourceCitationId: src_reg_am_sonoma
+      ki_wset_nw_veeder_setting:
+        prompt: A Mount Veeder Cabernet parcel sits above valley fog. How should it be compared with a warm Napa floor site?
+        options:
+        - Treat mountain and valley as the same temperature and fog regime
+        - Assume higher elevation always produces higher sugar and alcohol than the warmer Napa floor
+        - Compare the cool-to-moderate mountain exposure with the valley floor
+        - Ignore site climate because both plant Cabernet Sauvignon
+        correctIndex: 2
+        explanation: Mount Veeder's mountain setting and fog position differ from the warm valley floor even with the same grape.
+        sourceCitationId: src_reg_am_napa_regions
+      ki_wset_nw_yakima_sites:
+        prompt: A Yakima Valley grower compares cooler foothill blocks with warmer central-basin sites. Which plan fits the regional evidence?
+        options:
+        - Use identical grape choices and dry farming across every site
+        - Assume Riesling needs the warmest blocks and Syrah only the coolest
+        - Treat the river as irrelevant to irrigation in the dry valley
+        - Match grapes to site warmth and plan river or aquifer irrigation
+        correctIndex: 3
+        explanation: Cooler Yakima sites support Chardonnay and Riesling; warmer ones support red grapes, with river and aquifer water used for irrigation.
+        sourceCitationId: src_wset_nw_yakima
