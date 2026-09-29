@@ -58,6 +58,7 @@ class DiplomaTastingPrompt {
 class DiplomaTastingUnit {
   DiplomaTastingUnit.fromJson(Map<String, dynamic> row)
     : unitId = row['unitId'] as String,
+      sessionId = (row['sessionId'] as String?) ?? row['unitId'] as String,
       title = row['title'] as String,
       wineKind = row['wineKind'] as String,
       evidencePrompts = [
@@ -66,10 +67,18 @@ class DiplomaTastingUnit {
       ],
       comparisonPrompt = row['comparisonPrompt'] as String,
       selfReviewPrompt = row['selfReviewPrompt'] as String {
-    if (!const {'D4', 'D5'}.contains(unitId) ||
+    if (!const {'D3', 'D4', 'D5'}.contains(unitId) ||
+        (unitId == 'D3'
+            ? !const {'D3_1', 'D3_2'}.contains(sessionId)
+            : sessionId != unitId) ||
         title.trim().isEmpty ||
         title.length > 100 ||
-        wineKind != (unitId == 'D4' ? 'sparkling' : 'fortified') ||
+        wineKind !=
+            (switch (unitId) {
+              'D3' => 'still',
+              'D4' => 'sparkling',
+              _ => 'fortified',
+            }) ||
         evidencePrompts.length != _requiredPromptIds.length ||
         evidencePrompts
             .map((p) => p.id)
@@ -87,8 +96,10 @@ class DiplomaTastingUnit {
   }
 
   final String unitId;
+  final String sessionId;
   final String title;
   final String wineKind;
+  int get wineCount => unitId == 'D3' ? 6 : 3;
   final List<DiplomaTastingPrompt> evidencePrompts;
   final String comparisonPrompt;
   final String selfReviewPrompt;
@@ -108,8 +119,14 @@ class DiplomaTastingBank {
     ];
     if (version.trim().isEmpty ||
         version.length > 40 ||
-        units.length != 2 ||
-        units.map((unit) => unit.unitId).toSet().length != 2) {
+        units.length != 4 ||
+        units.map((unit) => unit.sessionId).toSet().length != 4 ||
+        !units.map((unit) => unit.sessionId).toSet().containsAll({
+          'D3_1',
+          'D3_2',
+          'D4',
+          'D5',
+        })) {
       throw const FormatException('Invalid Diploma tasting prompt bank.');
     }
   }
@@ -119,8 +136,8 @@ class DiplomaTastingBank {
   late final List<DiplomaTastingUnit> units;
 
   DiplomaTastingUnit unit(String id) => units.singleWhere(
-    (unit) => unit.unitId == id,
-    orElse: () => throw ArgumentError.value(id, 'unitId'),
+    (unit) => unit.sessionId == id,
+    orElse: () => throw ArgumentError.value(id, 'sessionId'),
   );
 }
 
@@ -274,6 +291,7 @@ class DiplomaTastingFlight {
   DiplomaTastingFlight.fromJson(Map<String, dynamic> row)
     : id = row['id'] as String,
       unitId = row['unitId'] as String,
+      sessionId = (row['sessionId'] as String?) ?? row['unitId'] as String,
       bankVersion = row['bankVersion'] as String,
       gridId = row['gridId'] as String,
       startedAt = _savedUtc(row['startedAt']),
@@ -295,11 +313,14 @@ class DiplomaTastingFlight {
           : _savedUtc(row['selfReviewedAt']) {
     if (row['schemaVersion'] != 1 ||
         !_uuid.hasMatch(id) ||
-        !const {'D4', 'D5'}.contains(unitId) ||
+        !const {'D3', 'D4', 'D5'}.contains(unitId) ||
+        (unitId == 'D3'
+            ? !const {'D3_1', 'D3_2'}.contains(sessionId)
+            : sessionId != unitId) ||
         bankVersion.trim().isEmpty ||
         bankVersion.length > 40 ||
         gridId != 'tg_structured' ||
-        wines.length != 3 ||
+        wines.length != (unitId == 'D3' ? 6 : 3) ||
         wines.any(
           (wine) =>
               jsonEncode(wine.attributes.map((a) => a.toJson()).toList()) !=
@@ -333,6 +354,7 @@ class DiplomaTastingFlight {
 
   final String id;
   final String unitId;
+  final String sessionId;
   final String bankVersion;
   final String gridId;
   final DateTime startedAt;
@@ -348,9 +370,10 @@ class DiplomaTastingFlight {
 
   bool get isFinished => completedAt != null;
   bool get isSubmitted => finishReason == 'submitted';
+  int get wineCount => wines.length;
   int get completeWineCount => wines.where((wine) => wine.isComplete).length;
   bool get readyToReview =>
-      completeWineCount == 3 &&
+      completeWineCount == wineCount &&
       reflection.trim().isNotEmpty &&
       selfReview.trim().isNotEmpty;
   bool get readyToSubmit => readyToReview && selfReviewedAt != null;
@@ -369,6 +392,7 @@ class DiplomaTastingFlight {
     'schemaVersion': 1,
     'id': id,
     'unitId': unitId,
+    if (sessionId != unitId) 'sessionId': sessionId,
     'bankVersion': bankVersion,
     'gridId': gridId,
     'startedAt': startedAt.toIso8601String(),
@@ -384,7 +408,7 @@ class DiplomaTastingFlight {
   };
 }
 
-/// Three untimed real-wine observations, isolated from Levels 1–3 tastings.
+/// Untimed real-wine observations, isolated from Levels 1–3 tastings.
 class DiplomaTastingFlightRepository {
   DiplomaTastingFlightRepository(
     this.db, {
@@ -453,8 +477,8 @@ class DiplomaTastingFlightRepository {
     final id = await _setting(currentKey(unitId));
     if (id == null) return null;
     final flight = await _load(id);
-    if (flight.unitId != unitId) {
-      throw const FormatException('Diploma tasting pointer has wrong unit.');
+    if (flight.sessionId != unitId) {
+      throw const FormatException('Diploma tasting pointer has wrong session.');
     }
     return flight.isFinished ? null : flight;
   }
@@ -462,7 +486,9 @@ class DiplomaTastingFlightRepository {
   Future<DiplomaTastingFlight> start(String unitId) => db.transaction(() async {
     final unit = bank.unit(unitId);
     if (await current(unitId) case final active?) {
-      throw StateError('Resume or abandon the saved ${active.unitId} flight.');
+      throw StateError(
+        'Resume or abandon the saved ${active.sessionId} flight.',
+      );
     }
     final profile = await (db.select(
       db.userProfiles,
@@ -489,7 +515,8 @@ class DiplomaTastingFlightRepository {
     final flight = DiplomaTastingFlight.fromJson({
       'schemaVersion': 1,
       'id': id,
-      'unitId': unitId,
+      'unitId': unit.unitId,
+      if (unit.sessionId != unit.unitId) 'sessionId': unit.sessionId,
       'bankVersion': bank.version,
       'gridId': bank.gridId,
       'startedAt': now.toIso8601String(),
@@ -497,7 +524,7 @@ class DiplomaTastingFlightRepository {
       'completedAt': null,
       'finishReason': null,
       'wines': [
-        for (var i = 0; i < 3; i++)
+        for (var i = 0; i < unit.wineCount; i++)
           {
             'physicallyTasted': false,
             'attributes': attributes,
@@ -520,11 +547,11 @@ class DiplomaTastingFlightRepository {
   Future<DiplomaTastingFlight> resume(String id) => db.transaction(() async {
     final flight = await _load(id);
     if (flight.isFinished) return flight;
-    final active = await current(flight.unitId);
+    final active = await current(flight.sessionId);
     if (active != null && active.id != id) {
       throw StateError('Resume or abandon the other saved flight first.');
     }
-    await _put(currentKey(flight.unitId), id);
+    await _put(currentKey(flight.sessionId), id);
     return flight;
   });
 
@@ -550,10 +577,11 @@ class DiplomaTastingFlightRepository {
   });
 
   static Map<String, dynamic> _wine(Map<String, dynamic> row, int index) {
-    if (index < 0 || index >= 3) {
-      throw RangeError.range(index, 0, 2, 'wineIndex');
+    final wines = row['wines'] as List;
+    if (index < 0 || index >= wines.length) {
+      throw RangeError.range(index, 0, wines.length - 1, 'wineIndex');
     }
-    return _map((row['wines'] as List)[index]);
+    return _map(wines[index]);
   }
 
   Future<DiplomaTastingFlight> acknowledgePhysical(
@@ -601,16 +629,17 @@ class DiplomaTastingFlightRepository {
   Future<DiplomaTastingFlight> saveSelfReview(String id, String text) =>
       _change(id, (row) => row['selfReview'] = text);
 
-  Future<DiplomaTastingFlight> markSelfReviewed(String id) =>
-      _change(id, (row) {
-        final flight = DiplomaTastingFlight.fromJson(row);
-        if (!flight.readyToReview) {
-          throw StateError(
-            'Taste and describe all three wines, then compare and review them.',
-          );
-        }
-        row['selfReviewedAt'] = utcNow(clock).toIso8601String();
-      }, resetReview: false);
+  Future<DiplomaTastingFlight> markSelfReviewed(String id) => _change(id, (
+    row,
+  ) {
+    final flight = DiplomaTastingFlight.fromJson(row);
+    if (!flight.readyToReview) {
+      throw StateError(
+        'Taste and describe all ${flight.wineCount} wines, then compare and review them.',
+      );
+    }
+    row['selfReviewedAt'] = utcNow(clock).toIso8601String();
+  }, resetReview: false);
 
   Future<DiplomaTastingFlight> finish(String id) => db.transaction(() async {
     final flight = await _load(id);
@@ -620,7 +649,7 @@ class DiplomaTastingFlightRepository {
     }
     if (!flight.readyToSubmit) {
       throw StateError(
-        'Complete three physical wines, their observations and evidence, '
+        'Complete ${flight.wineCount} physical wines, their observations and evidence, '
         'the comparison, and your self-review before recording this flight.',
       );
     }
@@ -632,7 +661,7 @@ class DiplomaTastingFlightRepository {
     row['finishReason'] = 'submitted';
     final finished = DiplomaTastingFlight.fromJson(row);
     await _save(finished);
-    await _deleteCurrentIfMatches(flight.unitId, id);
+    await _deleteCurrentIfMatches(flight.sessionId, id);
     return finished;
   });
 
@@ -650,7 +679,7 @@ class DiplomaTastingFlightRepository {
     row['finishReason'] = 'abandoned';
     final finished = DiplomaTastingFlight.fromJson(row);
     await _save(finished);
-    await _deleteCurrentIfMatches(flight.unitId, id);
+    await _deleteCurrentIfMatches(flight.sessionId, id);
     return finished;
   });
 
@@ -677,7 +706,7 @@ class DiplomaTastingFlightRepository {
           throw const FormatException('Diploma tasting key mismatch.');
         }
         flight.validateAt(utcNow(clock));
-        if (flight.unitId == unitId) entries.add(flight);
+        if (flight.sessionId == unitId) entries.add(flight);
       } catch (_) {
         // Parsing only: the database query above remains outside this catch.
         unreadableCount++;

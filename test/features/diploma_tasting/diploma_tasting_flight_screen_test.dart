@@ -165,6 +165,43 @@ void main() {
     expect(tester.takeException(), isNull);
   });
 
+  testApp('D3 session presents six blind still-wine steps and comparison', (
+    tester,
+  ) async {
+    await showScreen(tester, 'D3_1');
+    expect(find.textContaining('six actual still wines'), findsOneWidget);
+    expect(
+      find.textContaining('six other wines in the second session'),
+      findsOneWidget,
+    );
+    expect(
+      find.textContaining('reference answers are supplied before'),
+      findsOneWidget,
+    );
+    await tester.tap(find.byKey(const ValueKey('diploma-flight-start')));
+    await settle(tester);
+    expect(find.text('Wine 1 of 6'), findsOneWidget);
+    expect(find.byKey(const ValueKey('diploma-flight-step-5')), findsOneWidget);
+    expect(find.byKey(const ValueKey('diploma-flight-step-6')), findsOneWidget);
+    await tester.tap(find.byKey(const ValueKey('diploma-flight-step-5')));
+    await settle(tester);
+    expect(find.text('Wine 6 of 6'), findsOneWidget);
+    await tester.tap(find.byKey(const ValueKey('diploma-flight-step-6')));
+    await settle(tester);
+    expect(find.text('Complete physical wines: 0 of 6'), findsOneWidget);
+    expect(find.text('6-wine comparison'), findsOneWidget);
+    expect(
+      find.textContaining('not a tasting score or exam result'),
+      findsOneWidget,
+    );
+    expect(find.textContaining('Reveal'), findsNothing);
+    expect(
+      (await tester.runAsync(() => repository.current('D3_1')))!.wines,
+      hasLength(6),
+    );
+    expect(tester.takeException(), isNull);
+  });
+
   testApp('switching wines retains physically tasted observations and prose', (
     tester,
   ) async {

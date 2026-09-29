@@ -30,7 +30,7 @@ Future<void> _readyToFinish(
   DiplomaTastingFlightRepository repository,
   DiplomaTastingFlight flight,
 ) async {
-  for (var index = 0; index < 3; index++) {
+  for (var index = 0; index < flight.wineCount; index++) {
     await repository.acknowledgePhysical(flight.id, index, true);
     await repository.choose(flight.id, index, 'sweetness', {'dry'});
     for (final prompt in flight.wines[index].prompts) {
@@ -44,7 +44,7 @@ Future<void> _readyToFinish(
   }
   await repository.saveReflection(
     flight.id,
-    'The three wines differed in balance and flavour persistence.',
+    'The wines differed in balance and flavour persistence.',
   );
   await repository.saveSelfReview(
     flight.id,
@@ -91,7 +91,12 @@ void main() {
   tearDown(() => db.close());
 
   test('prompt bank and start remain restricted to Level 4', () async {
-    expect(bank.units.map((unit) => unit.unitId), ['D4', 'D5']);
+    expect(bank.units.map((unit) => unit.sessionId), [
+      'D3_1',
+      'D3_2',
+      'D4',
+      'D5',
+    ]);
     expect(bank.gridId, 'tg_structured');
     await LearnerProfiles(db, clock: time.clock).selectTrack('WSET_L3');
     await expectLater(repository.start('D4'), throwsStateError);
@@ -101,6 +106,11 @@ void main() {
     final fortified = await repository.start('D5');
     expect(sparkling.wines, hasLength(3));
     expect(fortified.wines, hasLength(3));
+    expect(
+      sparkling.toJson().containsKey('sessionId'),
+      isFalse,
+      reason: 'legacy D4 and D5 snapshot shape stays compatible',
+    );
     expect(sparkling.wines.every((wine) => !wine.physicallyTasted), isTrue);
     expect(sparkling.wines.first.attributes.map((a) => a.key), [
       'sweetness',
@@ -119,6 +129,127 @@ void main() {
     );
     await expectLater(repository.start('D4'), throwsStateError);
   });
+
+  test(
+    'two D3 sessions use six still wines and keep drafts separate',
+    () async {
+      final first = await repository.start('D3_1');
+      final second = await repository.start('D3_2');
+      expect(first.unitId, 'D3');
+      expect(second.unitId, 'D3');
+      expect(first.sessionId, 'D3_1');
+      expect(second.sessionId, 'D3_2');
+      expect(first.wines, hasLength(6));
+      expect(second.wines, hasLength(6));
+      expect(
+        first.wines.first.prompts.first.prompt,
+        isNot(second.wines.first.prompts.first.prompt),
+      );
+      expect(first.toJson().containsKey('sessionId'), isTrue);
+      expect(first.toJson().containsKey('wineIdentity'), isFalse);
+      expect(first.wines.first.toJson().containsKey('identity'), isFalse);
+      final d3BankRows =
+          (jsonDecode(_bankText()) as Map<String, dynamic>)['units']
+              as List<dynamic>;
+      for (final raw in d3BankRows.cast<Map<String, dynamic>>().where(
+        (row) => row['unitId'] == 'D3',
+      )) {
+        expect(raw.keys, isNot(contains('wineIdentities')));
+        expect(raw.keys, isNot(contains('referenceAnswers')));
+      }
+      await repository.acknowledgePhysical(first.id, 5, true);
+      await repository.saveEvidence(
+        first.id,
+        5,
+        'description',
+        'Observed a still wine.',
+      );
+      await expectLater(
+        repository.acknowledgePhysical(first.id, 6, true),
+        throwsRangeError,
+      );
+      expect(
+        (await repository.current('D3_1'))!.wines[5].physicallyTasted,
+        isTrue,
+      );
+      expect(
+        (await repository.current('D3_2'))!.wines[5].physicallyTasted,
+        isFalse,
+      );
+      expect(await db.select(db.reviewEvents).get(), isEmpty);
+    },
+  );
+
+  test(
+    'D3 participation needs all six wines and both distinct sessions',
+    () async {
+      final first = await repository.start('D3_1');
+      for (var index = 0; index < 5; index++) {
+        await repository.acknowledgePhysical(first.id, index, true);
+        await repository.choose(first.id, index, 'sweetness', {'dry'});
+        for (final prompt in first.wines[index].prompts) {
+          await repository.saveEvidence(
+            first.id,
+            index,
+            prompt.id,
+            'Observed ${prompt.id}.',
+          );
+        }
+      }
+      await repository.saveReflection(first.id, 'Compared the wines.');
+      await repository.saveSelfReview(first.id, 'Reviewed uncertainty.');
+      await expectLater(
+        repository.markSelfReviewed(first.id),
+        throwsStateError,
+      );
+      await expectLater(repository.finish(first.id), throwsStateError);
+      await repository.acknowledgePhysical(first.id, 5, true);
+      await repository.choose(first.id, 5, 'sweetness', {'dry'});
+      for (final prompt in first.wines[5].prompts) {
+        await repository.saveEvidence(
+          first.id,
+          5,
+          prompt.id,
+          'Observed ${prompt.id}.',
+        );
+      }
+      await repository.markSelfReviewed(first.id);
+      await repository.finish(first.id);
+      expect(
+        (await repository.historyWithDiagnostics('D3_1'))
+            .entries
+            .single
+            .isSubmitted,
+        isTrue,
+      );
+      expect(
+        (await repository.historyWithDiagnostics('D3_2')).entries,
+        isEmpty,
+      );
+      await _complete(repository, await repository.start('D3_1'));
+      var evidence = DiplomaTastingEvidenceReader.read(
+        await _settings(db),
+        now: time.now,
+      );
+      expect(evidence.d3Sessions, {
+        'D3_1',
+      }, reason: 'a repeat cannot fill session 2');
+      await _complete(repository, await repository.start('D3_2'));
+      evidence = DiplomaTastingEvidenceReader.read(
+        await _settings(db),
+        now: time.now,
+      );
+      expect(evidence.d3Sessions, {'D3_1', 'D3_2'});
+      expect(evidence.forUnit('D3'), 2);
+      expect(evidence.d4Flights, 0);
+      expect(evidence.d5Flights, 0);
+      expect(await db.select(db.reviewEvents).get(), isEmpty);
+      expect(
+        (await _settings(db)).keys.any((key) => key.startsWith('exam_pass_')),
+        isFalse,
+      );
+    },
+  );
 
   test(
     'choices and prose validate against the saved grid and resume',
@@ -356,17 +487,17 @@ void main() {
     'flight settings round-trip in backup and survive progress reset',
     () async {
       await _complete(repository, await repository.start('D4'));
+      await _complete(repository, await repository.start('D3_1'));
       final backup = UserDataBackup(db, clock: time.clock);
       expect(UserDataBackup.formatVersion, 2);
       final json = await backup.exportJson();
       await backup.resetProgress();
-      expect(
-        DiplomaTastingEvidenceReader.read(
-          await _settings(db),
-          now: time.now,
-        ).d4Flights,
-        1,
+      final afterReset = DiplomaTastingEvidenceReader.read(
+        await _settings(db),
+        now: time.now,
       );
+      expect(afterReset.d4Flights, 1);
+      expect(afterReset.d3Sessions, {'D3_1'});
 
       final restored = openTestDatabase();
       try {
@@ -374,21 +505,19 @@ void main() {
         await _seedDiploma(restored);
         final restoredBackup = UserDataBackup(restored, clock: time.clock);
         await restoredBackup.import(json);
-        expect(
-          DiplomaTastingEvidenceReader.read(
-            await _settings(restored),
-            now: time.now,
-          ).d4Flights,
-          1,
+        final restoredEvidence = DiplomaTastingEvidenceReader.read(
+          await _settings(restored),
+          now: time.now,
         );
+        expect(restoredEvidence.d4Flights, 1);
+        expect(restoredEvidence.d3Sessions, {'D3_1'});
         await restoredBackup.eraseAll();
-        expect(
-          DiplomaTastingEvidenceReader.read(
-            await _settings(restored),
-            now: time.now,
-          ).d4Flights,
-          0,
+        final erasedEvidence = DiplomaTastingEvidenceReader.read(
+          await _settings(restored),
+          now: time.now,
         );
+        expect(erasedEvidence.d4Flights, 0);
+        expect(erasedEvidence.d3Sessions, isEmpty);
       } finally {
         await restored.close();
       }

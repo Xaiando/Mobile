@@ -1156,6 +1156,8 @@ Author a business graph and original scenarios covering supply and demand, produ
 
 ### DIP-3 · Regional analysis and tasting
 
+**Physical tasting practice continuation:** The [August 2025 WSET Level 4 specification](https://www.wsetglobal.com/media/17609/wset_l4wines_specification_en_august-2025.pdf) lists two separate D3 blind tastings of six wines each. The app now offers two distinct, untimed six-still-wine sessions with saved grid observations, evidence, comparison and self-review. Progress counts each session once and does not turn participation into a tasting score, unit pass or official assessment. A learner supplies the physical wines; the app has no reference bottle identities or expert calibration, so true blind identity reveal and assessed accuracy remain open.
+
 **0.19.0 continuation:** 44 Diploma-only China points add 14 comparisons and four cases, assigned explicitly to D3. Chinese country coverage now has eight preserved map facts and 44 analytical facts. Full regional depth, law, commercial evidence, tasting and qualified review remain open. [Evidence and checks](research/diploma-china-continuation.md).
 
 **0.18.0 continuation:** 132 points add 42 paired explanations and 12 original cases for the United States, Canada, Chile, Argentina, Australia, New Zealand and South Africa, explicitly assigned to D3. The 84 foundations support lower tracks at depth 2, with secondary mappings where appropriate. China, wider regional/product depth, current law, commercial evidence, analytical tasting and qualified review remain open. [Evidence and checks](research/diploma-new-world-depth-continuation.md).

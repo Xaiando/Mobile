@@ -251,7 +251,7 @@ void main() {
     );
   });
 
-  test('D4 physical flights count only as unit participation', () async {
+  test('D3 and D4 physical flights count only as unit participation', () async {
     await db.writeCurriculum(
       () => runSql(db, [
         "INSERT INTO tasting_grids VALUES ('tg_structured', 'WSET_SAT', '1.0', 'Structured tasting')",
@@ -271,6 +271,23 @@ void main() {
     );
     final d4 = await flights.start('D4');
     await flights.start('D5');
+    final d3 = await flights.start('D3_1');
+    for (var wine = 0; wine < d3.wineCount; wine++) {
+      await flights.acknowledgePhysical(d3.id, wine, true);
+      await flights.choose(d3.id, wine, 'sweetness', {'dry'});
+      for (final prompt in d3.wines[wine].prompts) {
+        await flights.saveEvidence(
+          d3.id,
+          wine,
+          prompt.id,
+          'Observed physical still wine ${wine + 1}.',
+        );
+      }
+    }
+    await flights.saveReflection(d3.id, 'Compared six still wines.');
+    await flights.saveSelfReview(d3.id, 'Reviewed the six conclusions.');
+    await flights.markSelfReviewed(d3.id);
+    await flights.finish(d3.id);
     for (var wine = 0; wine < 3; wine++) {
       await flights.acknowledgePhysical(d4.id, wine, true);
       await flights.choose(d4.id, wine, 'sweetness', {'dry'});
@@ -307,6 +324,8 @@ void main() {
     );
     final snapshot = await progress.snapshot();
     final diploma = snapshot.levels.last;
+    expect(diploma.units[2].physicalFlights, 1);
+    expect(diploma.units[2].physicalSessions, {'D3_1'});
     expect(diploma.units[3].physicalFlights, 1);
     expect(diploma.units[4].physicalFlights, 0, reason: 'D5 is still a draft');
     expect(await flights.current('D5'), isNotNull);

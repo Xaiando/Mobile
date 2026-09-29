@@ -412,6 +412,31 @@ class _LevelSectionState extends ConsumerState<_LevelSection> {
                             Text(
                               '${unit.counts.unavailable} mapped facts are not yet available.',
                             ),
+                          if (unit.scope.id == 'D3') ...[
+                            const SizedBox(height: 8),
+                            Text(
+                              'Six-wine physical sessions recorded: ${unit.physicalFlights} of 2. '
+                              'These are self-reviewed participation, not a tasting score or exam pass.',
+                              key: const ValueKey('wset_unit_physical_D3'),
+                            ),
+                            for (var session = 1; session <= 2; session++)
+                              TextButton(
+                                key: ValueKey(
+                                  'wset_unit_physical_open_D3_$session',
+                                ),
+                                onPressed: _starting || !level.selectable
+                                    ? null
+                                    : () => _practice(
+                                        DiplomaTastingFlightScreen(
+                                          unitId: 'D3_$session',
+                                        ),
+                                      ),
+                                child: Text(
+                                  'Open D3 six-wine session $session · '
+                                  '${unit.physicalSessions.contains('D3_$session') ? 'recorded' : 'not yet recorded'}',
+                                ),
+                              ),
+                          ],
                           if (unit.scope.id == 'D4' ||
                               unit.scope.id == 'D5') ...[
                             const SizedBox(height: 8),

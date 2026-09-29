@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../core/diploma_tasting/diploma_tasting_flight.dart';
 import '../../core/diploma_tasting/diploma_tasting_flight_providers.dart';
 
-/// Untimed notes on three wines physically tasted by the learner.
+/// Untimed notes on physical wines tasted by the learner.
 /// Nothing here guesses an answer or certifies a WSET examination result.
 class DiplomaTastingFlightScreen extends ConsumerStatefulWidget {
   const DiplomaTastingFlightScreen({super.key, required this.unitId});
@@ -237,7 +237,7 @@ class _DiplomaTastingFlightScreenState
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Wine ${index + 1} of 3',
+          'Wine ${index + 1} of ${flight.wineCount}',
           style: Theme.of(context).textTheme.titleLarge,
         ),
         const SizedBox(height: 8),
@@ -246,7 +246,11 @@ class _DiplomaTastingFlightScreenState
           value: wine.physicallyTasted,
           contentPadding: EdgeInsets.zero,
           title: Text(
-            'I physically tasted this ${flight.unitId == 'D4' ? 'sparkling' : 'fortified'} wine',
+            'I physically tasted this ${switch (flight.unitId) {
+              'D3' => 'still',
+              'D4' => 'sparkling',
+              _ => 'fortified',
+            }} wine',
           ),
           subtitle: const Text(
             'A described example or imagined wine does not count.',
@@ -348,7 +352,9 @@ class _DiplomaTastingFlightScreenState
     children: [
       Text('Compare and review', style: Theme.of(context).textTheme.titleLarge),
       const SizedBox(height: 8),
-      Text('Complete physical wines: ${flight.completeWineCount} of 3'),
+      Text(
+        'Complete physical wines: ${flight.completeWineCount} of ${flight.wineCount}',
+      ),
       const SizedBox(height: 12),
       TextFormField(
         key: const ValueKey('diploma-flight-comparison'),
@@ -358,7 +364,7 @@ class _DiplomaTastingFlightScreenState
         maxLines: 6,
         maxLength: 4000,
         decoration: InputDecoration(
-          labelText: 'Three-wine comparison',
+          labelText: '${flight.wineCount}-wine comparison',
           helperText: flight.comparisonPrompt,
           alignLabelWithHint: true,
           border: const OutlineInputBorder(),
@@ -398,8 +404,8 @@ class _DiplomaTastingFlightScreenState
         ),
       ),
       const SizedBox(height: 8),
-      const Text(
-        'Recording a flight means you documented three real wines and '
+      Text(
+        'Recording a flight means you documented ${flight.wineCount} real wines and '
         'reviewed your reasoning. It is not a tasting score or exam result.',
       ),
       const SizedBox(height: 12),
@@ -428,14 +434,14 @@ class _DiplomaTastingFlightScreenState
           contentPadding: EdgeInsets.zero,
           title: Text(
             flight.isSubmitted
-                ? 'Three-wine physical practice recorded'
+                ? '${flight.wineCount}-wine physical practice recorded'
                 : flight.finishReason == 'abandoned'
                 ? 'Abandoned flight'
                 : 'Saved draft',
           ),
           subtitle: Text(
             '${flight.startedAt.toLocal().toString().split('.').first} · '
-            '${flight.completeWineCount} of 3 wines',
+            '${flight.completeWineCount} of ${flight.wineCount} wines',
           ),
           trailing: !flight.isFinished && _flight == null
               ? TextButton(
@@ -453,8 +459,17 @@ class _DiplomaTastingFlightScreenState
 
   @override
   Widget build(BuildContext context) {
-    final unit = widget.unitId == 'D4' ? 'Sparkling' : 'Fortified';
+    final unit = switch (widget.unitId) {
+      'D3_1' || 'D3_2' => 'Still',
+      'D4' => 'Sparkling',
+      _ => 'Fortified',
+    };
     final wineKind = unit.toLowerCase();
+    final isD3 = widget.unitId == 'D3_1' || widget.unitId == 'D3_2';
+    final wineCountWord = isD3 ? 'six' : 'three';
+    final sessionTitle = isD3
+        ? 'D3 session ${widget.unitId == 'D3_1' ? 1 : 2}'
+        : widget.unitId;
     final flight = _flight;
     return PopScope(
       canPop: _allowPop,
@@ -462,17 +477,23 @@ class _DiplomaTastingFlightScreenState
         if (!didPop) _leave(result);
       },
       child: Scaffold(
-        appBar: AppBar(title: Text('${widget.unitId} $unit tasting practice')),
+        appBar: AppBar(title: Text('$sessionTitle $unit tasting practice')),
         body: _loading
             ? const Center(child: CircularProgressIndicator())
             : ListView(
                 padding: const EdgeInsets.all(16),
                 children: [
                   Text(
-                    'Taste three actual $wineKind wines and record what you observe. '
+                    'Taste $wineCountWord actual $wineKind wines and record what you observe. '
                     'This untimed exercise supports the Diploma tasting outcome; '
                     'your notes and self-review are private practice evidence.',
                   ),
+                  if (isD3)
+                    const Text(
+                      'Use six different still wines in this session and six other '
+                      'wines in the second session. No bottle identities or '
+                      'reference answers are supplied before you submit.',
+                    ),
                   if (_error != null) ...[
                     const SizedBox(height: 12),
                     Text(
@@ -515,24 +536,28 @@ class _DiplomaTastingFlightScreenState
                           : () => _action(
                               (repository) => repository.start(widget.unitId),
                             ),
-                      child: Text('Start three-wine $wineKind flight'),
+                      child: Text('Start $wineCountWord-wine $wineKind flight'),
                     ),
                   ] else ...[
                     Wrap(
                       spacing: 8,
                       runSpacing: 8,
                       children: [
-                        for (var i = 0; i < 4; i++)
+                        for (var i = 0; i <= flight.wineCount; i++)
                           ChoiceChip(
                             key: ValueKey('diploma-flight-step-$i'),
-                            label: Text(i == 3 ? 'Compare' : 'Wine ${i + 1}'),
+                            label: Text(
+                              i == flight.wineCount
+                                  ? 'Compare'
+                                  : 'Wine ${i + 1}',
+                            ),
                             selected: _step == i,
                             onSelected: (_) => _goToStep(i),
                           ),
                       ],
                     ),
                     const SizedBox(height: 16),
-                    if (_step < 3)
+                    if (_step < flight.wineCount)
                       _wineStep(flight, _step)
                     else
                       _comparisonStep(flight),
