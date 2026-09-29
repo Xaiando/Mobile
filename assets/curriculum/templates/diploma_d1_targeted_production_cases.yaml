@@ -1,0 +1,96 @@
+# Original, bounded D1 choices and self-reviewed decisions; no official marking.
+question_templates:
+  - id: qt_d1target_case_vineyard
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: d1target_vineyard
+    prompt_template: "A dry hillside block loses topsoil in heavy rain. A vigour map shows two zones, but no soil-water or fruit measurements have been taken. Compare a regenerative floor-cover trial with a precision intervention: recommend a bounded first step, explain its mechanism, discuss water, style, quality and cost tradeoffs, and name the evidence needed before scaling."
+    parameters:
+      scope_node_ids: [n_d1target_case_vineyard]
+      key_points: {CASE_ACTION: Pilot and measure, CASE_REASON: Soil and zone mechanism, CASE_TRADEOFF: Water quality and cost, CASE_LIMITATION: Unknown site outcomes}
+  - id: qt_d1target_case_nolo
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: d1target_nolo
+    prompt_template: "An importer asks for a very low-alcohol white at a fixed retail ceiling. The cellar has sound base wine but no post-reduction sensory or stability data. Compare a supervised alcohol-reduction trial with simply making a label promise: justify the route, the likely style and cost consequences, and the tests and legal checks still needed."
+    parameters:
+      scope_node_ids: [n_d1target_case_nolo]
+      key_points: {CASE_ACTION: Sound-wine supervised pilot, CASE_REASON: Separation and style, CASE_TRADEOFF: Sensory stability and cost, CASE_LIMITATION: Measured and legal checks}
+  - id: qt_d1target_case_qc
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: d1target_qc
+    prompt_template: "A new filler shows a contamination signal, and one pallet has an incomplete lot link. Sales want immediate release. Set out a hygiene, HACCP, ISO and traceability response. Explain which decisions require site evidence, the quality and cost consequences of a hold, and why neither every defect nor the word ISO proves a certified food-safety CCP."
+    parameters:
+      scope_node_ids: [n_d1target_case_qc]
+      key_points: {CASE_ACTION: Hold investigate trace, CASE_REASON: Hygiene and hazard controls, CASE_TRADEOFF: Delay versus exposure, CASE_LIMITATION: No automatic CCP or certificate}
+  - id: qt_d1target_case_pack
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: d1target_pack
+    prompt_template: "A distant-market buyer wants a lighter pack for an early-drinking white. Compare local glass bottling with controlled bulk shipment and destination filling into a lighter format. Evaluate oxygen, temperature, shelf life, style, quality and full cost, then name the trials and records needed before committing."
+    parameters:
+      scope_node_ids: [n_d1target_case_pack]
+      key_points: {CASE_ACTION: Compare validated routes, CASE_REASON: Oxygen and transport mechanisms, CASE_TRADEOFF: Landed cost and shelf life, CASE_LIMITATION: No universal ranking}
+  - id: qt_d1target_choices
+    relation_type: PRINCIPLE_EXPLANATION
+    direction: forward
+    mode: authored_choice
+    variant: d1target_decisions
+    prompt_template: "{subject.name}"
+    parameters:
+      item_choices:
+        ki_d1target_regen_water:
+          prompt: "A grower wants permanent under-vine cover in a dry block. Which first decision best follows the research?"
+          options:
+            - "Trial species and timing while measuring vine water status and yield."
+            - "Sow every row permanently because all cover raises wine quality."
+            - "Choose the deepest-rooting cover without checking irrigation."
+            - "Remove every cover crop because no vine can tolerate competition."
+          correctIndex: 0
+          explanation: "AWRI reports soil benefits and possible vine competition. The local water and fruit response must decide the fit."
+          sourceCitationId: src_d1target_awri_cover
+        ki_d1target_precision_zones:
+          prompt: "A canopy map marks two vigour zones. What can precision viticulture responsibly do next?"
+          options:
+            - "Rank wines from the map without tasting or sampling."
+            - "Field-check soil and vine conditions, then trial zone-specific action."
+            - "Apply the same extra water to both zones regardless of cause."
+            - "Certify the higher-vigour zone as a higher-quality origin."
+          correctIndex: 1
+          explanation: "Wine Australia's project uses maps to locate variability and inform site checks, not to certify cause or quality."
+          sourceCitationId: src_d1target_wa_precision
+        ki_d1target_nolo_route:
+          prompt: "A sound finished wine needs a lower alcohol level. Which trial fits the OIV's described practice?"
+          options:
+            - "Use a faulted base wine so separation conceals the defect."
+            - "Print a low-alcohol label before measuring the final wine."
+            - "Use supervised vacuum or membrane separation and verify the result."
+            - "Assume stopping fermentation always yields a dry very-low-alcohol wine."
+          correctIndex: 2
+          explanation: "OIV-OENO 394A-2012 describes supervised separations on sound wine, with product definitions still governing strength."
+          sourceCitationId: src_d1target_oiv_dealc
+        ki_d1target_qc_haccp:
+          prompt: "After a possible packaging-line contamination, which statement correctly distinguishes hygiene from HACCP?"
+          options:
+            - "A fault automatically makes every filler step a certified CCP."
+            - "An ISO logo replaces winery cleaning and testing records."
+            - "Finished-wine tasting alone proves food-safety control."
+            - "Maintain hygiene prerequisites, then analyse hazards and site controls."
+          correctIndex: 3
+          explanation: "OIV's wine-safety guide requires hygiene prerequisites and a process-specific hazard analysis before selecting CCPs."
+          sourceCitationId: src_d1target_oiv_haccp
+        ki_d1target_pack_barrier:
+          prompt: "An early-drinking white may move from glass to a lighter format. What must the cellar establish first?"
+          options:
+            - "Package oxygen, wine stability and intended shelf life for the actual format."
+            - "That any lighter package always protects wine better than glass."
+            - "That freight savings alone establish the wine's sensory quality."
+            - "That the same closure works for glass, PET and bag-in-box."
+          correctIndex: 0
+          explanation: "AWRI's manufacturing guidance calls for oxygen management and format-specific shelf-life validation."
+          sourceCitationId: src_wset_prod_package
