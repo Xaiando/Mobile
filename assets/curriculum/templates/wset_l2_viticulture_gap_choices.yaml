@@ -1,0 +1,416 @@
+# Original, cited WSET Level 2 viticulture practice; qualified review pending.
+source_citations:
+- id: src_l2vit_awri_selective_hand
+  kind: reference_work
+  title: Managing late season wet weather
+  publisher: Australian Wine Research Institute
+  document_identifier: AWRI eBulletin, 20 January 2016
+  url: https://www.awri.com.au/information_services/ebulletin/2016/01/20/managing-late-season-wet-weather/
+  accessed_on: '2026-09-29'
+knowledge_item_citations:
+- knowledge_item_id: ki_wset_prod_hand_machine
+  source_citation_id: src_l2vit_awri_selective_hand
+  locator: 'Other options: selective hand harvesting under variable fruit condition'
+question_templates:
+- id: qt_wset_l2_viticulture_gap_choices
+  relation_type: PRINCIPLE_EXPLANATION
+  direction: forward
+  mode: authored_choice
+  variant: l2_viticulture_gap
+  prompt_template: '{subject.name}'
+  parameters:
+    item_choices:
+      ki_reg_ah_tokaj_aszu_selection:
+        prompt: In Tokaj, what does selecting aszú berries often demand compared with one ripe-fruit harvest?
+        options:
+        - A single machine pass once all bunches are uniformly dry
+        - Picking every bunch before the first berries shrivel
+        - Repeated selective passes as suitable berries develop
+        - Waiting until every berry on a vine has noble rot
+        correctIndex: 2
+        explanation: Aszú berries can develop in waves, so pickers leave other fruit to develop and return;
+          the number of passes varies.
+        sourceCitationId: src_reg_ah_tokaj_grapes
+      ki_reg_ah_tokaj_autumn:
+        prompt: Which autumn sequence can favour noble rot and concentration in Tokaj?
+        options:
+        - Dry weather throughout, with no period of humid infection
+        - Humidity around ripe berries followed by drying weather
+        - Continuous rain after infection until picking
+        - Spring frost followed by a uniformly dry summer
+        correctIndex: 1
+        explanation: Humidity can permit infection of ripe berries; later drying helps them shrivel rather
+          than simply rot.
+        sourceCitationId: src_reg_ah_tokaj_vine
+      ki_reg_ah_tokaj_furmint:
+        prompt: Which description is the better starting point for Furmint in Tokaj?
+        options:
+        - Marked acidity with relatively restrained varietal perfume
+        - Low acidity with an intense Muscat-like perfume
+        - Only floral sweetness, regardless of site or harvest style
+        - No acid structure once it becomes fully ripe
+        correctIndex: 0
+        explanation: The regional profile associates Furmint with marked acidity and fairly restrained apple,
+          pear or citrus character.
+        sourceCitationId: src_reg_ah_tokaj_grapes
+      ki_reg_ah_tokaj_hars:
+        prompt: Against Furmint, what contrast does the Tokaj regional account draw for Hárslevelű?
+        options:
+        - Harder acidity and less aroma in every Tokaj vintage
+        - A requirement to make only sweet Tokaj wine
+        - An identical flavour profile at equal ripeness
+        - A softer, more aromatic floral or honey profile
+        correctIndex: 3
+        explanation: Hárslevelű is described as softer and more aromatic; finished wine also depends on ripeness
+          and production.
+        sourceCitationId: src_reg_ah_tokaj_grapes
+      ki_reg_fm_rose_ripeness:
+        prompt: A Provence producer targets a fresh rosé. What should guide its picking decision?
+        options:
+        - The latest red-wine harvest date, whatever the fruit condition
+        - The intended alcohol–acidity balance and grape condition
+        - The earliest possible date, even if berries remain unripe
+        - The highest sugar value regardless of acidity
+        correctIndex: 1
+        explanation: The regional body describes rosé harvest as often earlier, timed for the intended alcohol
+          and acid balance.
+        sourceCitationId: src_reg_fm_provence_vines
+      ki_reg_ib_priorat_access:
+        prompt: What practical constraint can a steep Priorat coster impose on vineyard work?
+        options:
+        - A mandatory switch to machine harvesting
+        - A guarantee of higher wine quality than nearby regions
+        - Restricted machinery access and greater manual work
+        - An absence of any need for erosion management
+        correctIndex: 2
+        explanation: The DOQ describes some steep sites as inaccessible to machinery; this is a labour constraint,
+          not a quality score.
+        sourceCitationId: src_reg_ib_priorat_sites
+      ki_reg_ib_rias_canopy_context:
+        prompt: Why can a traditional pergola suit humid Atlantic Rías Baixas vineyards?
+        options:
+        - It raises fruit and foliage and can improve ventilation
+        - It removes all fungal-disease risk without further work
+        - It keeps bunches against damp ground for warmth
+        - It makes grape ripeness independent of local weather
+        correctIndex: 0
+        explanation: Lifting the canopy and allowing air movement are reasons for the training choice; disease
+          risk remains site-dependent.
+        sourceCitationId: src_reg_ib_rias_canopy
+      ki_reg_inc_barbera_timing:
+        prompt: Which Piedmont harvest sequence is described as typical by the local consortium?
+        options:
+        - Barbera always precedes Dolcetto by one fixed month
+        - Both varieties must be picked on the same date
+        - Dolcetto is harvested only after winter dormancy
+        - Dolcetto often precedes the later Barbera harvest
+        correctIndex: 3
+        explanation: The consortium gives September for Dolcetto and late September to early October for Barbera
+          as typical periods.
+        sourceCitationId: src_reg_inc_barbera
+      ki_reg_inc_classico_altitude:
+        prompt: All else equal, how can a higher Chianti Classico site differ from a warmer lower site?
+        options:
+        - Its Sangiovese must always reach higher sugar first
+        - Altitude eliminates the effect of exposure
+        - Its fruit may reach comparable ripeness later
+        - Elevation fixes the same harvest date each year
+        correctIndex: 2
+        explanation: Cooler conditions associated with elevation can slow development; exposure and season
+          still matter.
+        sourceCitationId: src_reg_inc_chianti_sites
+      ki_reg_inc_garganega_later:
+        prompt: Which Garganega trait matters when comparing it with Trebbiano di Soave?
+        options:
+        - Later ripening and relatively loose bunches useful for drying
+        - Earlier ripening and a need for uniformly compact bunches
+        - A requirement to harvest it before Trebbiano in every single year
+        - A guarantee that drying never needs sorting or airflow
+        correctIndex: 0
+        explanation: The Soave consortium notes Garganega’s later ripening and loose bunch form; decisions
+          depend on the crop.
+        sourceCitationId: src_reg_inc_soave
+      ki_reg_inc_nebbiolo_cycle:
+        prompt: Why does Nebbiolo pose both spring and autumn site questions in the Langhe?
+        options:
+        - It buds late and ripens before the summer begins
+        - It can bud early yet need a long season to ripen
+        - It remains dormant through all spring frost periods
+        - It ripens so early that autumn exposure never matters
+        correctIndex: 1
+        explanation: Early budbreak can expose young growth to spring cold, while late ripening makes end-season
+          conditions relevant.
+        sourceCitationId: src_reg_inc_nebbiolo
+      ki_reg_inc_nebbiolo_site:
+        prompt: Two Langhe Nebbiolo parcels have the same grape. What else should be checked before predicting
+          style?
+        options:
+        - Only the spelling of the grape on the label
+        - A universal village rank that fixes every flavour
+        - The bottle shape without vineyard information
+        - Exposure, temperature and soil-water conditions
+        correctIndex: 3
+        explanation: The consortium describes Nebbiolo as sensitive to local growing conditions; variety alone
+          does not fix outcome.
+        sourceCitationId: src_reg_inc_nebbiolo
+      ki_reg_na_happy_later_grapes:
+        prompt: Why is Happy Canyon a useful contrast with western Santa Barbara sites for grape choice?
+        options:
+        - Inland warmth can suit later-ripening Bordeaux grapes
+        - Its sea fog makes Cabernet impossible in every season
+        - Its climate is identical to all western marine sites
+        - Its appellation name proves full maturity each year
+        correctIndex: 0
+        explanation: The regional profile links a warmer inland setting with Cabernet and related varieties,
+          without guaranteeing ripeness.
+        sourceCitationId: src_reg_na_happy
+      ki_reg_na_sta_rita_grapes:
+        prompt: Which site-and-grape pairing best fits the Sta. Rita Hills regional description?
+        options:
+        - Inland desert heat with late-picked Zinfandel as the sole grape
+        - Permanent mountain snow with only Riesling plantings
+        - Marine fog and airflow with Pinot Noir and Chardonnay
+        - Warm valley-floor fog exclusion with only Cabernet
+        correctIndex: 2
+        explanation: Pacific influence, morning fog and afternoon airflow support the area’s Pinot Noir and
+          Chardonnay association.
+        sourceCitationId: src_reg_na_sta_rita
+      ki_reg_oa_hunter_rain:
+        prompt: Rain is forecast during a Hunter Semillon harvest. Which decision process is strongest?
+        options:
+        - Pick every block solely because the forecast mentions rain in the district
+        - Sample maturity and health, then weigh rain and picking capacity
+        - Wait for a fixed calendar date without testing fruit maturity
+        - Use only last year’s sugar figure to judge readiness
+        correctIndex: 1
+        explanation: Harvest timing should join representative fruit measurements and health with weather and
+          labour constraints.
+        sourceCitationId: src_vit_sampling
+      ki_wset_apply_sauternes_environment:
+        prompt: Which condition sequence can help ripe Sauternes fruit develop useful noble rot?
+        options:
+        - A consistently dry season with no fungal infection
+        - Persistent wetness without a drying interval
+        - Continuous frost throughout the harvest
+        - Morning humidity followed by drier sunny periods
+        correctIndex: 3
+        explanation: The Ciron/Garonne setting can create mist and later sun; persistent wetness risks destructive
+          rot.
+        sourceCitationId: src_wset_found_civb_sauternes
+      ki_wset_close_oiv_old_vine:
+        prompt: Under the OIV’s 2024 recommendation, what documents an individual old vine?
+        options:
+        - A winery’s tasting note calling its fruit concentrated in one vintage
+        - Any bottle with the words Vieilles vignes
+        - At least 35 documented years; graft union intact if grafted
+        - A minimum of 35 years of barrel ageing for its wine
+        correctIndex: 2
+        explanation: The OIV recommendation uses documented age and, for grafted vines, an intact union for
+          that period.
+        sourceCitationId: src_wset_close_oiv_old
+      ki_wset_close_old_vine_label:
+        prompt: What can the words Vieilles vignes alone establish across all wine jurisdictions?
+        options:
+        - An old-vine claim, without a universal quality or age rule
+        - A legally identical minimum age in every wine country worldwide
+        - A blind-tasting score above younger-vine wines
+        - A mandatory low-yield limit for every labelled wine
+        correctIndex: 0
+        explanation: The wording means old vines, but legal definitions and quality outcomes cannot be inferred
+          globally from it.
+        sourceCitationId: src_wset_close_oiv_old
+      ki_wset_eu_gavi_vineyard:
+        prompt: What should a Gavi grower check when managing Cortese on hilly sites?
+        options:
+        - That all producers use the same pruning and cellar regime
+        - Canopy exposure and crop level while targeting sound ripe fruit
+        - Whether Cortese should be replaced with a red grape throughout Gavi
+        - Only the slope name, with no fruit maturity assessment
+        correctIndex: 1
+        explanation: The consortium describes hilly Cortese growing and vineyard choices that help balance
+          ripeness and freshness.
+        sourceCitationId: src_wset_eu_gavi
+      ki_wset_found_nutrients:
+        prompt: A vineyard adviser finds weak vines. What is the soundest first fertiliser decision?
+        options:
+        - Apply the highest nutrient dose used by any nearby grower
+        - Add nitrogen regardless of soil and vine observations
+        - Assume all weak growth proves a nutrient deficiency
+        - Assess the site and vine before choosing any addition
+        correctIndex: 3
+        explanation: Minerals are essential, but plant and site diagnosis should guide additions rather than
+          routine excess.
+        sourceCitationId: src_wset_found_uga_nutrition
+      ki_wset_found_seeds_stems:
+        prompt: Besides skins, which grape parts can add tannin if extraction includes them?
+        options:
+        - Grape seeds and stems
+        - Only the clear pulp
+        - Only the juice water
+        - Only the yeast sediment
+        correctIndex: 0
+        explanation: Seeds and stems contain tannins; whether they contribute to wine depends on inclusion
+          and extraction.
+        sourceCitationId: src_win_white_temperature
+      ki_wset_found_site_climate:
+        prompt: A grower chooses a variety and rootstock for a new vineyard. What site match matters?
+        options:
+        - The label font and closure colour
+        - The winery’s barrel supplier only
+        - Cold tolerance, ripening season and disease pressure
+        - A grape name without climate, soil or weather review
+        correctIndex: 2
+        explanation: Site selection should account for climate, ripening time, cold sensitivity and disease
+          conditions.
+        sourceCitationId: src_biz_models_psu_vineyard
+      ki_wset_found_skin_flavour:
+        prompt: Why might a winemaker trial different skin-contact times with the same grapes?
+        options:
+        - Only pulp water can move into the wine
+        - Skin flavour and phenolics can extract at different rates
+        - Skin contact fixes the wine’s legal origin
+        - Longer contact always improves the finished wine style for any grape
+        correctIndex: 1
+        explanation: Grape skins carry flavour and phenolic material; contact conditions affect extraction
+          and style.
+        sourceCitationId: src_win_skin_contact
+      ki_wset_found_slope_air:
+        prompt: Why can a suitable sloped vineyard reduce one kind of frost exposure?
+        options:
+        - It generates heat inside every vine at night
+        - It prevents all frost regardless of terrain
+        - It makes the air warmer solely by increasing sunlight
+        - Dense cold air can drain away instead of pooling
+        correctIndex: 3
+        explanation: Good air drainage lets cold air move downslope, though local terrain still governs frost
+          risk.
+        sourceCitationId: src_biz_models_psu_vineyard
+      ki_wset_found_vine_resources:
+        prompt: Which set contains the basic resources a vine uses to grow and ripen fruit?
+        options:
+        - Oak, yeast, sulphur and bottle oxygen
+        - Only rainfall and warmth, without light
+        - Light, warmth, water, nutrients and carbon dioxide
+        - Sugar supplied from the winery and extra barrel tannin
+        correctIndex: 2
+        explanation: Photosynthesis and normal growth need light, carbon dioxide, water and nutrients under
+          suitable warmth.
+        sourceCitationId: src_wset_found_nmsu_phenology
+      ki_wset_nw_calistoga_setting:
+        prompt: Which site description helps explain Calistoga’s association with Cabernet, Zinfandel and Syrah?
+        options:
+        - Warm Napa days and cooler nights over the growing season
+        - The coolest Pacific-facing coastal position in California
+        - Year-round fog that prevents black grapes from ripening
+        - Uniform cool temperatures throughout the growing season
+        correctIndex: 0
+        explanation: Napa Valley Vintners describes Calistoga as warm with pronounced day–night shifts.
+        sourceCitationId: src_reg_am_napa_regions
+      ki_wset_nw_central_valley_whites:
+        prompt: What does a broad Chilean Central Valley label alone tell a buyer about a Chardonnay?
+        options:
+        - Its exact oak regime and harvest sugar
+        - Its vineyard acidity in every vintage
+        - That it must taste identical to the local Sauvignon Blanc
+        - Too little to fix one aroma, acidity or cellar style
+        correctIndex: 3
+        explanation: Central Valley includes varied sites; grape, parcel and cellar evidence are needed before
+          a style prediction.
+        sourceCitationId: src_wset_grape_chile_carmenere
+      ki_wset_nw_eden_riesling_setting:
+        prompt: How can Eden Valley’s setting inform a Riesling comparison with warmer Barossa sites?
+        options:
+        - Elevation forces all wines to be sweet
+        - Elevated terrain can provide cooler ripening conditions
+        - Eden and Barossa sites have identical temperatures
+        - Altitude removes differences among vineyard slopes and aspects
+        correctIndex: 1
+        explanation: Wine Australia describes Eden’s higher, varied terrain and cooler setting; each parcel
+          still differs.
+        sourceCitationId: src_reg_sh_eden
+      ki_wset_nw_oakville_setting:
+        prompt: Which influence moderates Oakville despite its moderately warm Napa position?
+        options:
+        - An inland desert monsoon at harvest
+        - Permanent snow cover on valley-floor vines
+        - Morning fog and cooling linked to San Pablo Bay
+        - A total absence of marine air during the season
+        correctIndex: 2
+        explanation: Napa Valley Vintners describes fog and bay influence alongside Oakville’s warmth.
+        sourceCitationId: src_reg_am_napa_regions
+      ki_wset_nw_otago_pinot_style:
+        prompt: Why should a Central Otago Pinot Noir description allow variation within the region?
+        options:
+        - Gibbston and Bannockburn have contrasting local conditions
+        - All subregions are equally warm and dry
+        - The Pinot Noir grape cancels all site effects
+        - The region legally requires one identical flavour profile in every vintage
+        correctIndex: 0
+        explanation: New Zealand Winegrowers contrasts cooler Gibbston with warmer Bannockburn in a diverse
+          region.
+        sourceCitationId: src_nwc_nz_otago
+      ki_wset_nw_rutherford_setting:
+        prompt: Compared with Oakville, what does the Napa Valley regional profile suggest about Rutherford?
+        options:
+        - More persistent fog and a much cooler climate everywhere
+        - A setting too cold for Cabernet Sauvignon
+        - The same vineyard temperature and fog on every parcel
+        - Generally less fog in a moderately warm setting
+        correctIndex: 3
+        explanation: The Napa profile describes Rutherford as moderately warm with less fog; individual sites
+          still vary.
+        sourceCitationId: src_reg_am_napa_regions
+      ki_wset_nw_sonoma_grape_sites:
+        prompt: Which Sonoma comparison best uses local site conditions rather than a county-wide rule?
+        options:
+        - All Sonoma subregions have the same grape and temperature
+        - Cooler Coast Pinot/Chardonnay; warmer Alexander Cabernet
+        - Alexander Valley excludes black grapes while the Coast is uniformly hot
+        - Only one grape may be grown anywhere in Sonoma County
+        correctIndex: 1
+        explanation: Sonoma Winegrape Commission describes contrasting local settings and grape associations.
+        sourceCitationId: src_reg_am_sonoma
+      ki_wset_prod_dry_on_off_vine:
+        prompt: What is the main concentration mechanism when ripe grapes dry on or off the vine?
+        options:
+        - New grape sugar is made after the berries are picked
+        - Drying converts all acid into alcohol before pressing
+        - Water loss leaves the remaining juice more concentrated
+        - More juice is created by each berry during the drying period
+        correctIndex: 2
+        explanation: Drying removes water and concentrates the remaining juice; sorting and airflow can affect
+          soundness.
+        sourceCitationId: src_wset_prod_drying
+      ki_wset_prod_hand_machine:
+        prompt: A producer needs selective berries from unevenly ripe bunches. Which harvest choice best fits?
+        options:
+        - Hand picking permits selection, at a likely labour cost
+        - Machine harvesting selects each berry individually
+        - Both methods require exactly the same staffing and time
+        - Harvest method cannot affect selectivity or speed
+        correctIndex: 0
+        explanation: AWRI describes selective hand harvest as a possible response when fruit condition varies;
+          its labour cost remains a case decision.
+        sourceCitationId: src_l2vit_awri_selective_hand
+      ki_wset_prod_hazard_animals:
+        prompt: Which protection pair addresses ripening-fruit losses from birds and deer?
+        options:
+        - More nitrogen for birds and extra irrigation for deer
+        - Pruning cuts for birds and oak barrels for deer
+        - Early bottling for birds and leaf removal for deer
+        - Fruit netting for birds and suitable fencing for deer
+        correctIndex: 3
+        explanation: Penn State describes netting and fencing as exclusion tools; maintenance and design still
+          matter.
+        sourceCitationId: src_wset_found_psu_canopy
+      ki_wset_prod_latitude_altitude:
+        prompt: Why can two vineyard sites at different latitude or elevation ripen at different rates?
+        options:
+        - Latitude fixes grape flavour regardless of weather
+        - Seasonal light and heat differ, while elevation often cools
+        - Higher elevation always increases growing temperature
+        - Regional averages determine every parcel’s exact grape ripeness
+        correctIndex: 1
+        explanation: Latitude affects seasonal radiation and heat; elevation commonly cools, modified by exposure
+          and air movement.
+        sourceCitationId: src_wset_prod_site

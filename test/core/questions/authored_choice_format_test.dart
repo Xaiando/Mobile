@@ -274,7 +274,7 @@ void main() {
   );
 
   test(
-    '751 cited choices are generated and served across WSET and CMS tracks',
+    '787 cited choices are generated and served across WSET and CMS tracks',
     () async {
       final db = openTestDatabase();
       try {
@@ -299,7 +299,7 @@ void main() {
                   template.id == 'qt_d5f_authored_choice',
             )
             .toList();
-        expect(templates, hasLength(35));
+        expect(templates, hasLength(36));
         final expectedIds = {
           for (final template in templates)
             ...((jsonDecode(template.parameters!)
@@ -433,9 +433,16 @@ void main() {
         expect(d3RegionalIds.intersection(remainingWinemakingIds), {
           'ki_reg_oa_robertson_unwooded',
         }, reason: 'The Level 2 and Diploma prompts use the same cited item');
-        expect(expectedIds, hasLength(750));
+        expect(
+          d3RegionalIds.intersection(
+            idsForTemplate('qt_wset_l2_viticulture_gap_choices'),
+          ),
+          {'ki_reg_ib_rias_canopy_context', 'ki_reg_oa_hunter_rain'},
+          reason: 'Regional and viticulture prompts share two cited items',
+        );
+        expect(expectedIds, hasLength(784));
         expect(levelOneIds, hasLength(132));
-        expect(levelTwoIds, hasLength(212));
+        expect(levelTwoIds, hasLength(248));
         expect(sharedGrapeIds, hasLength(52));
         expect(europeIds, hasLength(67));
         expect(newWorldIds, hasLength(16));
@@ -460,7 +467,7 @@ void main() {
                OR t.id = 'qt_d5f_authored_choice')
         ORDER BY q.knowledge_item_id
       ''').get();
-        expect(rows, hasLength(751));
+        expect(rows, hasLength(787));
         final actual = {
           for (final row in rows)
             row.read<String>('knowledge_item_id'): row.read<String>(
