@@ -59,12 +59,16 @@ class WsetUnitProgress {
     required this.scope,
     required this.counts,
     this.physicalFlights = 0,
+    this.physicalSessions = const {},
   });
   final WsetUnitScope scope;
   final ProgressCounts counts;
 
-  /// Saved three-actual-wine practice, not a tasting grade or unit pass.
+  /// Saved physical-wine practice, not a tasting grade or unit pass.
   final int physicalFlights;
+
+  /// Distinct six-wine D3 sessions submitted by the learner.
+  final Set<String> physicalSessions;
 }
 
 class WsetRequirementProgress {
@@ -522,6 +526,10 @@ class WsetProgressRepository {
                 physicalFlights: level.certificationId == 'WSET_L4'
                     ? diplomaTasting.forUnit(unit.id)
                     : 0,
+                physicalSessions:
+                    level.certificationId == 'WSET_L4' && unit.id == 'D3'
+                    ? diplomaTasting.d3Sessions
+                    : const {},
               ),
           ],
           unassigned: count(unassigned),

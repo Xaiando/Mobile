@@ -1,8 +1,38 @@
 {
   "schemaVersion": 1,
-  "version": "1.0.0",
+  "version": "1.1.0",
   "gridId": "tg_structured",
   "units": [
+    {
+      "unitId": "D3",
+      "sessionId": "D3_1",
+      "title": "Still wines · session 1: structure and origin",
+      "wineKind": "still",
+      "evidencePrompts": [
+        {"id": "description", "prompt": "Describe the appearance, aromas, flavours and structure you observed in this still wine. Keep sensory evidence separate from a possible origin."},
+        {"id": "quality", "prompt": "Explain your quality judgement using observed balance, intensity, complexity and finish."},
+        {"id": "ageing", "prompt": "Explain whether this wine could benefit from bottle ageing, and identify the sensory evidence and limits behind your view."},
+        {"id": "style_clues", "prompt": "Which observations might support a grape, climate or regional hypothesis? Give at least one plausible alternative."},
+        {"id": "uncertainty", "prompt": "Which inference about this wine is least secure, and what further observation would test it?"}
+      ],
+      "comparisonPrompt": "Compare all six still wines through their observed acidity, body, tannin where relevant, flavour development, quality and ageing potential. Explain which contrasts might support different growing environments without treating them as proof of origin.",
+      "selfReviewPrompt": "Review all six assessments. Which conclusions are supported by the strongest sensory evidence, and which need another explanation or a further tasting?"
+    },
+    {
+      "unitId": "D3",
+      "sessionId": "D3_2",
+      "title": "Still wines · session 2: style and production",
+      "wineKind": "still",
+      "evidencePrompts": [
+        {"id": "description", "prompt": "Record the appearance, aromas, flavours and structure of this still wine as you observed them in the glass."},
+        {"id": "quality", "prompt": "Justify the quality level from the wine's balance, concentration, complexity and finish rather than a guessed label or price."},
+        {"id": "ageing", "prompt": "State a drinking-window judgement and the evidence for development or decline in this particular wine."},
+        {"id": "style_clues", "prompt": "What sensory clues might reflect grape growing or winemaking choices? Separate the observation from each possible production explanation."},
+        {"id": "uncertainty", "prompt": "Identify a competing style or production explanation and say what evidence would distinguish it."}
+      ],
+      "comparisonPrompt": "Compare all six still wines for fruit character, structural balance, possible production effects, quality and ageing potential. Explain similarities and differences with evidence from each glass.",
+      "selfReviewPrompt": "Revisit the six wine notes after comparison. Which production or style inferences became stronger, which remain tentative, and why?"
+    },
     {
       "unitId": "D4",
       "title": "Sparkling wines",
