@@ -8,6 +8,7 @@ import '../../app/startup.dart';
 import '../../core/database/app_database.dart';
 import '../../core/journal/journal_matcher.dart';
 import '../../core/journal/journal_photo_store.dart';
+import '../../core/journal/label_proposal.dart';
 import '../../core/journal/journal_providers.dart';
 import '../../core/journal/wine_journal.dart';
 import '../../core/time/time_providers.dart';
@@ -74,7 +75,14 @@ class _JournalEditorState extends ConsumerState<JournalEditor> {
   @override
   void initState() {
     super.initState();
-    for (final controller in [_producer, _cuvee, _appellation, _grapes]) {
+    for (final controller in [
+      _producer,
+      _cuvee,
+      _appellation,
+      _grapes,
+      _vintage,
+      _abv,
+    ]) {
       controller.addListener(() => setState(() {}));
     }
     if (_isNew) {
@@ -347,7 +355,9 @@ class _JournalEditorState extends ConsumerState<JournalEditor> {
                       ),
                     ),
                   ),
-                Expanded(child: _form(theme, suggestions, kept, field)),
+                Expanded(
+                  child: _form(theme, matcher, suggestions, kept, field),
+                ),
               ],
             ),
     );
@@ -355,6 +365,7 @@ class _JournalEditorState extends ConsumerState<JournalEditor> {
 
   Widget _form(
     ThemeData theme,
+    JournalMatcher? matcher,
     List<NodeSuggestion> suggestions,
     List<KnowledgeNode> kept,
     Widget Function(
@@ -441,6 +452,16 @@ class _JournalEditorState extends ConsumerState<JournalEditor> {
       field(_notes, 'Tasting notes', maxLines: 4),
       const Divider(height: 24),
       JournalScanSection(
+        matcher: matcher,
+        occupiedFields: {
+          if (_producer.text.trim().isNotEmpty) LabelField.producer,
+          if (_cuvee.text.trim().isNotEmpty) LabelField.cuvee,
+          if (_appellation.text.trim().isNotEmpty) LabelField.appellation,
+          if (_grapes.text.trim().isNotEmpty) LabelField.grapes,
+          if (_vintage.text.trim().isNotEmpty || _isNonVintage)
+            LabelField.vintage,
+          if (_abv.text.trim().isNotEmpty) LabelField.abv,
+        },
         recovery: ref.read(journalScanRecoveryProvider),
         recoveryReady: ref.read(appStartupProvider.future).then((_) {}),
         onBusyChanged: (busy) {
@@ -456,15 +477,39 @@ class _JournalEditorState extends ConsumerState<JournalEditor> {
           _removedPhotos.remove(kind);
           _selectedRecovered[kind] = id;
         }),
-        onVintage: (year) => setState(() {
-          _isNonVintage = false;
-          _vintage.text = year.toString();
-        }),
-        onNonVintage: () => setState(() {
-          _isNonVintage = true;
-          _vintage.clear();
-        }),
-        onAbv: (abv) => setState(() => _abv.text = abv.toString()),
+        onProducer: (producer) {
+          if (_producer.text.trim().isEmpty) {
+            setState(() => _producer.text = producer);
+          }
+        },
+        onCuvee: (cuvee) {
+          if (_cuvee.text.trim().isEmpty) setState(() => _cuvee.text = cuvee);
+        },
+        onAppellation: (place) {
+          if (_appellation.text.trim().isEmpty) {
+            setState(() => _appellation.text = place);
+          }
+        },
+        onGrapes: (grapes) {
+          if (_grapes.text.trim().isEmpty) {
+            setState(() => _grapes.text = grapes);
+          }
+        },
+        onVintage: (year) {
+          if (_vintage.text.trim().isEmpty && !_isNonVintage) {
+            setState(() => _vintage.text = year.toString());
+          }
+        },
+        onNonVintage: () {
+          if (_vintage.text.trim().isEmpty && !_isNonVintage) {
+            setState(() => _isNonVintage = true);
+          }
+        },
+        onAbv: (abv) {
+          if (_abv.text.trim().isEmpty) {
+            setState(() => _abv.text = abv.toString());
+          }
+        },
       ),
       if (_pendingPhotos.isNotEmpty) ...[
         const SizedBox(height: 8),

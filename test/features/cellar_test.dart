@@ -216,6 +216,51 @@ void main() {
     );
   });
 
+  testApp('full-label clues fill only accepted, still-empty fields', (
+    tester,
+  ) async {
+    await launch(tester);
+    await tap(tester, find.text('Log a wine'));
+    await type(tester, 'Producer', 'Hand typed estate');
+    final raw = find.widgetWithText(
+      TextField,
+      'Recognized or manually transcribed label text',
+    );
+    await reveal(tester, raw);
+    await tester.enterText(
+      raw,
+      'Producer: Scanned Estate\nCuvée Réserve\nBarolo DOCG\n'
+      'Grapes: Nebbiolo\n2020\n14%',
+    );
+    await tester.pumpAndSettle();
+
+    final producerChip = find.ancestor(
+      of: find.text('Use producer Scanned Estate'),
+      matching: find.byType(ActionChip),
+    );
+    expect(tester.widget<ActionChip>(producerChip).onPressed, isNull);
+    for (final label in [
+      'Use cuvée Réserve',
+      'Use region Barolo',
+      'Use grapes Nebbiolo',
+      'Use vintage 2020',
+      'Use 14.0% alcohol',
+    ]) {
+      await tap(tester, find.text(label));
+    }
+    await tap(tester, find.widgetWithText(TextButton, 'Save'));
+    await waitForEntry(
+      tester,
+      (entry) =>
+          entry.producerName == 'Hand typed estate' &&
+          entry.cuveeName == 'Réserve' &&
+          entry.appellationText == 'Barolo' &&
+          entry.grapesText == 'Nebbiolo' &&
+          entry.vintage == 2020 &&
+          entry.abvPercent == 14,
+    );
+  });
+
   testApp('keeps transcribed label text while scrolling through the editor', (
     tester,
   ) async {
