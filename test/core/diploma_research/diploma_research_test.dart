@@ -249,4 +249,188 @@ void main() {
       throwsFormatException,
     );
   });
+
+  test('unknown imported fields remain unreadable and recoverable', () async {
+    final started = await repository.start();
+    final sourceId = (await repository.addSource()).sources.single.id;
+    final claimId = (await repository.addClaim()).claims.single.id;
+    await repository.setClaimSource(claimId, sourceId, true);
+    final valid = (await repository.load()).workspace!.toJson();
+    final source = Map<String, dynamic>.from(
+      (valid['sources'] as List).single as Map,
+    );
+    final claim = Map<String, dynamic>.from(
+      (valid['claims'] as List).single as Map,
+    );
+    expect(
+      () => DiplomaResearchWorkspace.fromJson({
+        ...valid,
+        'sources': [
+          {...source, 'futureSourceNote': 'keep me'},
+        ],
+      }),
+      throwsFormatException,
+    );
+    expect(
+      () => DiplomaResearchWorkspace.fromJson({
+        ...valid,
+        'claims': [
+          {...claim, 'futureClaimNote': 'keep me'},
+        ],
+      }),
+      throwsFormatException,
+    );
+    final raw = jsonEncode({...valid, 'futureDraftSection': 'keep me'});
+    await db
+        .into(db.userSettings)
+        .insertOnConflictUpdate(
+          UserSetting(
+            name: DiplomaResearchRepository.settingKey,
+            value: raw,
+            updatedAt: time.now,
+          ),
+        );
+    expect((await repository.load()).unreadable, isTrue);
+    await expectLater(
+      repository.updateText('title', 'Would drop a future field'),
+      throwsFormatException,
+    );
+    expect((await _settings(db))[DiplomaResearchRepository.settingKey], raw);
+    await repository.archiveUnreadable();
+    final settings = await _settings(db);
+    expect(
+      settings.entries
+          .singleWhere(
+            (entry) =>
+                entry.key.startsWith(DiplomaResearchRepository.recoveryPrefix),
+          )
+          .value,
+      raw,
+    );
+    expect((await repository.start()).id, isNot(started.id));
+  });
+
+  test(
+    'backup import preserves an unknown D6 field for explicit recovery',
+    () async {
+      await repository.start();
+      await repository.updateText('draft', 'Keep this draft.');
+      final document = jsonDecode(
+        await UserDataBackup(db, clock: time.clock).exportJson(),
+      ) as Map<String, dynamic>;
+      final tables = document['tables'] as Map<String, dynamic>;
+      final saved = (tables['user_settings'] as List)
+          .cast<Map<String, dynamic>>()
+          .singleWhere(
+            (row) => row['name'] == DiplomaResearchRepository.settingKey,
+          );
+      final importedRaw = jsonEncode({
+        ...jsonDecode(saved['value'] as String) as Map<String, dynamic>,
+        'futureDraftSection': 'Preserve this content.',
+      });
+      saved['value'] = importedRaw;
+
+      final copyDb = openTestDatabase();
+      try {
+        await seedCurriculum(copyDb);
+        await _seedL4(copyDb);
+        await UserDataBackup(
+          copyDb,
+          clock: time.clock,
+        ).import(jsonEncode(document));
+        final copy = DiplomaResearchRepository(copyDb, clock: time.clock);
+        expect((await copy.load()).unreadable, isTrue);
+        await expectLater(
+          copy.updateText('draft', 'Unsafe edit'),
+          throwsFormatException,
+        );
+        expect(
+          (await _settings(copyDb))[DiplomaResearchRepository.settingKey],
+          importedRaw,
+        );
+        await copy.archiveUnreadable();
+        final recovered = await _settings(copyDb);
+        expect(
+          recovered.entries
+              .singleWhere(
+                (entry) => entry.key.startsWith(
+                  DiplomaResearchRepository.recoveryPrefix,
+                ),
+              )
+              .value,
+          importedRaw,
+        );
+      } finally {
+        await copyDb.close();
+      }
+    },
+  );
+
+  test('maximum escaped D6 fields survive the 64 MiB backup path', () async {
+    final row = (await repository.start()).toJson();
+    const escaped = '\u0000';
+    row['title'] = escaped * 240;
+    row['brief'] = escaped * 4000;
+    row['outline'] = escaped * 10000;
+    row['subquestions'] = escaped * 10000;
+    row['draft'] = escaped * 60000;
+    row['sources'] = [
+      for (var index = 0; index < 40; index++)
+        {
+          'id': '00000000-0000-4000-8000-${index.toString().padLeft(12, '0')}',
+          'citation': escaped * 1000,
+          'url': escaped * 1200,
+          'date': escaped * 80,
+          'scopeMethod': escaped * 2000,
+          'strength': escaped * 2000,
+          'limitation': escaped * 2000,
+        },
+    ];
+    row['claims'] = [
+      for (var index = 0; index < 40; index++)
+        {
+          'id': '10000000-0000-4000-8000-${index.toString().padLeft(12, '0')}',
+          'statement': escaped * 2500,
+          'sourceIds': [
+            for (var source = 0; source < 40; source++)
+              '00000000-0000-4000-8000-${source.toString().padLeft(12, '0')}',
+          ],
+          'counterevidence': escaped * 2500,
+          'conclusion': escaped * 2500,
+        },
+    ];
+    final raw = jsonEncode(row);
+    expect(raw.length, greaterThan(4 * 1024 * 1024));
+    expect(raw.length, lessThan(maxDiplomaResearchSnapshotCharacters));
+    expect(() => DiplomaResearchWorkspace.fromJson(row), returnsNormally);
+    await db
+        .into(db.userSettings)
+        .insertOnConflictUpdate(
+          UserSetting(
+            name: DiplomaResearchRepository.settingKey,
+            value: raw,
+            updatedAt: time.now,
+          ),
+        );
+    final backup = await UserDataBackup(db, clock: time.clock).exportJson();
+    expect(
+      utf8.encode(backup).length,
+      lessThan(UserDataBackup.maxBackupFileBytes),
+    );
+    final copyDb = openTestDatabase();
+    try {
+      await seedCurriculum(copyDb);
+      await _seedL4(copyDb);
+      await UserDataBackup(copyDb, clock: time.clock).import(backup);
+      final copy = DiplomaResearchRepository(copyDb, clock: time.clock);
+      final restored = (await copy.load()).workspace!;
+      expect(restored.draft.length, 60000);
+      expect(restored.sources, hasLength(40));
+      expect(restored.claims, hasLength(40));
+      expect(restored.claims.last.sourceIds, hasLength(40));
+      expect(restored.toJson(), row);
+    } finally {
+      await copyDb.close();
+    }
+  });
 }

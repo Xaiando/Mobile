@@ -185,4 +185,55 @@ void main() {
     );
     expect(tester.takeException(), isNull);
   });
+
+  testApp('back navigation waits for the last queued edit', (tester) async {
+    final delayed = _DelayedResearchRepository(
+      db,
+      clock: time.clock,
+      random: Random(37),
+    );
+    repository = delayed;
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: [
+          diplomaResearchRepositoryProvider.overrideWith(
+            (ref) async => repository,
+          ),
+          researchCopyFilesProvider.overrideWithValue(copies),
+        ],
+        child: MaterialApp(
+          home: Builder(
+            builder: (context) => Scaffold(
+              body: FilledButton(
+                onPressed: () => Navigator.of(context).push(
+                  MaterialPageRoute<void>(
+                    builder: (_) => const DiplomaResearchScreen(),
+                  ),
+                ),
+                child: const Text('Open research'),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+    await tester.tap(find.text('Open research'));
+    await settle(tester);
+    await tester.tap(find.byKey(const ValueKey('d6-start')));
+    await settle(tester);
+    delayed.holdTextSave = Completer<void>();
+    await tester.enterText(
+      find.byKey(const ValueKey('d6-title')),
+      'Save before leaving',
+    );
+    await tester.binding.handlePopRoute();
+    await tester.pump();
+    expect(find.byType(DiplomaResearchScreen), findsOneWidget);
+    expect(find.byKey(const ValueKey('d6-saving')), findsOneWidget);
+    delayed.holdTextSave!.complete();
+    await settle(tester);
+    expect(find.byType(DiplomaResearchScreen), findsNothing);
+    expect((await repository.load()).workspace!.title, 'Save before leaving');
+    expect(tester.takeException(), isNull);
+  });
 }

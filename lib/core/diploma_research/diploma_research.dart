@@ -10,7 +10,10 @@ import '../time/utc_clock.dart';
 final _uuid = RegExp(
   r'^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$',
 );
-const maxDiplomaResearchSnapshotCharacters = 240000;
+// The field and record limits below permit roughly 800,000 unescaped
+// characters. Leave room for JSON escaping while still rejecting oversized
+// imported values before decoding them.
+const maxDiplomaResearchSnapshotCharacters = 5 * 1024 * 1024;
 const _maxSources = 40;
 const _maxClaims = 40;
 
@@ -21,6 +24,10 @@ const researchChecks = <String, String>{
   'references': 'Check citations and reference list for consistency',
   'revision': 'Revise the argument and proofread the exported copy',
 };
+
+// A future field must be archived as raw data, never dropped by toJson on edit.
+bool _hasExactKeys(Map<String, dynamic> row, Set<String> keys) =>
+    row.length == keys.length && row.keys.toSet().containsAll(keys);
 
 Map<String, dynamic> _map(Object? value) {
   if (value is! Map) throw const FormatException('Invalid research record.');
@@ -54,7 +61,18 @@ class ResearchSource {
       scopeMethod = _text(row, 'scopeMethod', 2000),
       strength = _text(row, 'strength', 2000),
       limitation = _text(row, 'limitation', 2000) {
-    if (!_uuid.hasMatch(id)) throw const FormatException('Invalid source ID.');
+    if (!_hasExactKeys(row, const {
+          'id',
+          'citation',
+          'url',
+          'date',
+          'scopeMethod',
+          'strength',
+          'limitation',
+        }) ||
+        !_uuid.hasMatch(id)) {
+      throw const FormatException('Invalid research source.');
+    }
   }
 
   final String id;
@@ -93,7 +111,14 @@ class ResearchClaim {
       sourceIds = Set<String>.from(row['sourceIds'] as List),
       counterevidence = _text(row, 'counterevidence', 2500),
       conclusion = _text(row, 'conclusion', 2500) {
-    if (!_uuid.hasMatch(id) ||
+    if (!_hasExactKeys(row, const {
+          'id',
+          'statement',
+          'sourceIds',
+          'counterevidence',
+          'conclusion',
+        }) ||
+        !_uuid.hasMatch(id) ||
         (row['sourceIds'] as List).length != sourceIds.length ||
         sourceIds.any((sourceId) => !_uuid.hasMatch(sourceId))) {
       throw const FormatException('Invalid claim links.');
@@ -141,7 +166,21 @@ class DiplomaResearchWorkspace {
           ResearchClaim.fromJson(_map(value)),
       ],
       checks = Map<String, bool>.from(row['checks'] as Map) {
-    if (row['schemaVersion'] != 1 ||
+    if (!_hasExactKeys(row, const {
+          'schemaVersion',
+          'id',
+          'createdAt',
+          'updatedAt',
+          'title',
+          'brief',
+          'outline',
+          'subquestions',
+          'draft',
+          'sources',
+          'claims',
+          'checks',
+        }) ||
+        row['schemaVersion'] != 1 ||
         !_uuid.hasMatch(id) ||
         updatedAt.isBefore(createdAt) ||
         sources.length > _maxSources ||
