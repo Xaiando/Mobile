@@ -1,0 +1,119 @@
+# Original D1 cellar decisions mapped only to Diploma. Sources describe mechanisms,
+# not guaranteed sensory outcomes, legal permission in every market or exam answers.
+# All assertions await qualified subject review.
+knowledge_nodes:
+  - {id: n_d1method_hyper, node_type: production_principle, name: "When should white-must hyperoxidation occur, and why?"}
+  - {id: n_d1method_hyper_point, node_type: learning_point, name: "Oxidise must phenolics before clarification and fermentation"}
+  - {id: n_d1method_hyper_risk, node_type: production_principle, name: "Why reconsider hyperoxidation when Botrytis is present?"}
+  - {id: n_d1method_hyper_risk_point, node_type: learning_point, name: "Laccase can intensify unwanted oxidation"}
+  - {id: n_d1method_flotation, node_type: production_principle, name: "How does flotation clarify grape juice?"}
+  - {id: n_d1method_flotation_point, node_type: learning_point, name: "Gas lifts suspended solids before fermentation"}
+  - {id: n_d1method_flotation_gas, node_type: production_principle, name: "Why does flotation gas choice matter?"}
+  - {id: n_d1method_flotation_gas_point, node_type: learning_point, name: "Air and nitrogen create different oxygen exposure"}
+  - {id: n_d1method_flash, node_type: production_principle, name: "What does flash detente change in a red-wine production plan?"}
+  - {id: n_d1method_flash_point, node_type: learning_point, name: "Faster extraction can shorten skin-contact time"}
+  - {id: n_d1method_microox, node_type: production_principle, name: "What separates micro-oxygenation from an uncontrolled oxygen dose?"}
+  - {id: n_d1method_microox_point, node_type: learning_point, name: "Add oxygen below the wine's consumption rate"}
+  - {id: n_d1method_oak_pieces, node_type: production_principle, name: "What can oak pieces contribute during wine maturation?"}
+  - {id: n_d1method_oak_pieces_point, node_type: learning_point, name: "Wood-derived constituents without a barrel vessel"}
+  - {id: n_d1method_oak_compare, node_type: production_principle, name: "Why are oak pieces not equivalent to barrel ageing?"}
+  - {id: n_d1method_oak_compare_point, node_type: learning_point, name: "Barrel ageing also changes oxygen exposure and evaporation"}
+  - {id: n_d1method_case_white, node_type: production_case, name: "White juice requires rapid clarification after rot pressure"}
+  - {id: n_d1method_case_white_action, node_type: learning_point, name: "Trial protected flotation after sorting and fruit assessment"}
+  - {id: n_d1method_case_white_reason, node_type: learning_point, name: "Gas lifts solids while nitrogen limits added oxygen"}
+  - {id: n_d1method_case_white_tradeoff, node_type: learning_point, name: "Speed and tank capacity trade against equipment and style"}
+  - {id: n_d1method_case_white_limit, node_type: learning_point, name: "Botrytis risk and final wine need direct testing"}
+  - {id: n_d1method_case_red, node_type: production_case, name: "Red-wine maturation needs wood character and colour control"}
+  - {id: n_d1method_case_red_action, node_type: learning_point, name: "Compare barrel with oak-piece and controlled-oxygen trials"}
+  - {id: n_d1method_case_red_reason, node_type: learning_point, name: "Wood extraction and oxygen exposure are distinct mechanisms"}
+  - {id: n_d1method_case_red_tradeoff, node_type: learning_point, name: "Tank options may save barrel cost but alter the style"}
+  - {id: n_d1method_case_red_limit, node_type: learning_point, name: "Monitor the actual wine; neither process guarantees quality"}
+
+knowledge_relations:
+  - {subject_id: n_d1method_hyper, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d1method_hyper_point, valid_from: 2026-09-29}
+  - {subject_id: n_d1method_hyper_risk, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d1method_hyper_risk_point, valid_from: 2026-09-29}
+  - {subject_id: n_d1method_flotation, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d1method_flotation_point, valid_from: 2026-09-29}
+  - {subject_id: n_d1method_flotation_gas, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d1method_flotation_gas_point, valid_from: 2026-09-29}
+  - {subject_id: n_d1method_flash, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d1method_flash_point, valid_from: 2026-09-29}
+  - {subject_id: n_d1method_microox, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d1method_microox_point, valid_from: 2026-09-29}
+  - {subject_id: n_d1method_oak_pieces, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d1method_oak_pieces_point, valid_from: 2026-09-29}
+  - {subject_id: n_d1method_oak_compare, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d1method_oak_compare_point, valid_from: 2026-09-29}
+  - {subject_id: n_d1method_case_white, relation_type: CASE_ACTION, object_id: n_d1method_case_white_action, valid_from: 2026-09-29}
+  - {subject_id: n_d1method_case_white, relation_type: CASE_REASON, object_id: n_d1method_case_white_reason, valid_from: 2026-09-29}
+  - {subject_id: n_d1method_case_white, relation_type: CASE_TRADEOFF, object_id: n_d1method_case_white_tradeoff, valid_from: 2026-09-29}
+  - {subject_id: n_d1method_case_white, relation_type: CASE_LIMITATION, object_id: n_d1method_case_white_limit, valid_from: 2026-09-29}
+  - {subject_id: n_d1method_case_red, relation_type: CASE_ACTION, object_id: n_d1method_case_red_action, valid_from: 2026-09-29}
+  - {subject_id: n_d1method_case_red, relation_type: CASE_REASON, object_id: n_d1method_case_red_reason, valid_from: 2026-09-29}
+  - {subject_id: n_d1method_case_red, relation_type: CASE_TRADEOFF, object_id: n_d1method_case_red_tradeoff, valid_from: 2026-09-29}
+  - {subject_id: n_d1method_case_red, relation_type: CASE_LIMITATION, object_id: n_d1method_case_red_limit, valid_from: 2026-09-29}
+
+knowledge_items:
+  - {id: ki_d1method_hyper, subject_id: n_d1method_hyper, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d1method_hyper_point, domain_id: winemaking, assertion_text: "Hyperoxidation deliberately adds oxygen to white must before clarification and fermentation. Oxidised phenolics can polymerise and be removed during clarification, lowering later browning potential; this is not a direction to oxidise the finished wine.", verification_status: unverified, mcq_disabled: true, last_verified_at: "2026-09-29T18:40:00.000Z"}
+  - {id: ki_d1method_hyper_risk, subject_id: n_d1method_hyper_risk, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d1method_hyper_risk_point, domain_id: winemaking, assertion_text: "AWRI advises against routine hyperoxidation when Botrytis is present because its laccase can drive broader, aggressive oxidation. Assess and sort the fruit rather than assume deliberate air exposure improves every white must.", verification_status: unverified, mcq_disabled: true, last_verified_at: "2026-09-29T18:40:00.000Z"}
+  - {id: ki_d1method_flotation, subject_id: n_d1method_flotation, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d1method_flotation_point, domain_id: winemaking, assertion_text: "Flotation introduces gas into juice so bubbles carry suspended particles upward for removal before fermentation. It can clarify more quickly than chilled settling, but must still be matched to the desired juice-solids level and available equipment.", verification_status: unverified, mcq_disabled: true, last_verified_at: "2026-09-29T18:40:00.000Z"}
+  - {id: ki_d1method_flotation_gas, subject_id: n_d1method_flotation_gas, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d1method_flotation_gas_point, domain_id: winemaking, assertion_text: "Nitrogen flotation limits added oxygen; flotation with air can promote oxidation and phenolic precipitation. Gas choice is therefore a style and risk decision as well as a clarification decision, not proof that either gas always produces better wine.", verification_status: unverified, mcq_disabled: true, last_verified_at: "2026-09-29T18:40:00.000Z"}
+  - {id: ki_d1method_flash, subject_id: n_d1method_flash, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d1method_flash_point, domain_id: winemaking, assertion_text: "Flash detente heats red-grape must then applies vacuum; rapid water vaporisation disrupts grape tissue and speeds extraction before fermentation. It can shorten skin-contact and fermenter time, but the sensory profile may change and needs a trial against the intended style.", verification_status: unverified, mcq_disabled: true, last_verified_at: "2026-09-29T18:40:00.000Z"}
+  - {id: ki_d1method_microox, subject_id: n_d1method_microox, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d1method_microox_point, domain_id: winemaking, assertion_text: "Micro-oxygenation meters oxygen into wine more slowly than the treated wine consumes it, so oxygen should not accumulate. In a suitable red wine it can support pigment stabilisation and maturation, but requires monitoring of wine condition and oxygen exposure.", verification_status: unverified, mcq_disabled: true, last_verified_at: "2026-09-29T18:40:00.000Z"}
+  - {id: ki_d1method_oak_pieces, subject_id: n_d1method_oak_pieces, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d1method_oak_pieces_point, domain_id: winemaking, assertion_text: "Pieces of oak wood can introduce selected wood constituents to wine. Their use is a separate choice from ageing in a wooden vessel; the cellar must also check the rules and label requirements that apply in the intended market.", verification_status: unverified, mcq_disabled: true, last_verified_at: "2026-09-29T18:40:00.000Z"}
+  - {id: ki_d1method_oak_compare, subject_id: n_d1method_oak_compare, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d1method_oak_compare_point, domain_id: winemaking, assertion_text: "A small oak barrel supplies wood constituents while also allowing controlled oxygen exchange and some evaporation during maturation. Oak pieces in an inert tank mainly address wood extraction; matching barrel character may require separate oxygen management and cannot be assumed equivalent.", verification_status: unverified, mcq_disabled: true, last_verified_at: "2026-09-29T18:40:00.000Z"}
+  - {id: ki_d1method_case_white_action, subject_id: n_d1method_case_white, relation_type: CASE_ACTION, object_id: n_d1method_case_white_action, domain_id: winemaking, assertion_text: "Assess and sort the rot-affected intake, then run a small protected-flotation comparison for the sound white juice instead of applying hyperoxidation to the entire lot.", verification_status: unverified, mcq_disabled: true, last_verified_at: "2026-09-29T18:40:00.000Z"}
+  - {id: ki_d1method_case_white_reason, subject_id: n_d1method_case_white, relation_type: CASE_REASON, object_id: n_d1method_case_white_reason, domain_id: winemaking, assertion_text: "Flotation raises suspended solids with gas; nitrogen limits oxygen input while a Botrytis/laccase risk makes deliberate juice oxidation a poor default.", verification_status: unverified, mcq_disabled: true, last_verified_at: "2026-09-29T18:40:00.000Z"}
+  - {id: ki_d1method_case_white_tradeoff, subject_id: n_d1method_case_white, relation_type: CASE_TRADEOFF, object_id: n_d1method_case_white_tradeoff, domain_id: winemaking, assertion_text: "Rapid flotation may save tank time and chilling energy, but equipment, fining aids, foam control and a changed solids level can affect cost and wine style.", verification_status: unverified, mcq_disabled: true, last_verified_at: "2026-09-29T18:40:00.000Z"}
+  - {id: ki_d1method_case_white_limit, subject_id: n_d1method_case_white, relation_type: CASE_LIMITATION, object_id: n_d1method_case_white_limit, domain_id: winemaking, assertion_text: "Test the actual juice and finished trial wine for oxidation, clarity and sensory fit; sorting and nitrogen do not erase every risk from affected fruit.", verification_status: unverified, mcq_disabled: true, last_verified_at: "2026-09-29T18:40:00.000Z"}
+  - {id: ki_d1method_case_red_action, subject_id: n_d1method_case_red, relation_type: CASE_ACTION, object_id: n_d1method_case_red_action, domain_id: winemaking, assertion_text: "Compare a barrel lot with controlled tank trials of oak pieces and, only if suitable, monitored micro-oxygenation; define the intended red-wine profile first.", verification_status: unverified, mcq_disabled: true, last_verified_at: "2026-09-29T18:40:00.000Z"}
+  - {id: ki_d1method_case_red_reason, subject_id: n_d1method_case_red, relation_type: CASE_REASON, object_id: n_d1method_case_red_reason, domain_id: winemaking, assertion_text: "Wood extraction and slow oxygen supply are separable effects. OIV describes wood pieces for oak constituents, barrels for gradual oxygenation and wood extraction, and micro-oxygenation for oxygen input below consumption.", verification_status: unverified, mcq_disabled: true, last_verified_at: "2026-09-29T18:40:00.000Z"}
+  - {id: ki_d1method_case_red_tradeoff, subject_id: n_d1method_case_red, relation_type: CASE_TRADEOFF, object_id: n_d1method_case_red_tradeoff, domain_id: winemaking, assertion_text: "Tank-based wood and oxygen control may lower barrel inventory and handling cost, but extraction, evaporation and oxygen kinetics may yield a different sensory result.", verification_status: unverified, mcq_disabled: true, last_verified_at: "2026-09-29T18:40:00.000Z"}
+  - {id: ki_d1method_case_red_limit, subject_id: n_d1method_case_red, relation_type: CASE_LIMITATION, object_id: n_d1method_case_red_limit, domain_id: winemaking, assertion_text: "Monitor oxygen, colour, aroma and palate in each trial, and check local use and labelling rules. No oak or oxygen treatment guarantees barrel equivalence or wine quality.", verification_status: unverified, mcq_disabled: true, last_verified_at: "2026-09-29T18:40:00.000Z"}
+
+certification_knowledge_mappings:
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d1method_hyper, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d1method_hyper_risk, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d1method_flotation, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d1method_flotation_gas, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d1method_flash, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d1method_microox, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d1method_oak_pieces, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d1method_oak_compare, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d1method_case_white_action, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d1method_case_white_reason, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d1method_case_white_tradeoff, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d1method_case_white_limit, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d1method_case_red_action, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d1method_case_red_reason, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d1method_case_red_tradeoff, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d1method_case_red_limit, importance: core, minimum_depth: 3}
+
+source_citations:
+  - {id: src_d1method_awri_hyper, kind: reference_work, title: "Winemaking treatment – Hyperoxidation", publisher: "Australian Wine Research Institute", document_identifier: "Living technical reference; background and potential risks", url: "https://www.awri.com.au/industry_support/winemaking_resources/winemaking-practices/winemaking-treatment-hyperoxidation/", accessed_on: 2026-09-29}
+  - {id: src_d1method_awri_flotation, kind: reference_work, title: "Winemaking treatment – Juice clarification by flotation", publisher: "Australian Wine Research Institute", document_identifier: "Living technical reference; process, benefits and risks", url: "https://www.awri.com.au/industry_support/winemaking_resources/winemaking-practices/winemaking-treatment-juice-clarification-by-flotation/", accessed_on: 2026-09-29}
+  - {id: src_d1method_awri_flash, kind: reference_work, title: "Managing the impact of vintage advancement and compression", publisher: "Australian Wine Research Institute", document_identifier: "Project 4.1.1; red extraction and fermenter capacity", url: "https://www.awri.com.au/research_and_development/2017-2025-rde-plan-projects/project-4-1-1/", accessed_on: 2026-09-29}
+  - {id: src_d1method_awri_flash_mechanism, kind: academic, title: "Applications of flash detente for red wine style differentiation", publisher: "Wine & Viticulture Journal; authors at University of Adelaide and AWRI", document_identifier: "Ntuli et al., Autumn 2022, volume 38 number 2, pp. 20-24", url: "https://www.awri.com.au/files/attachment/s2288-flash-detente/", accessed_on: 2026-09-29}
+  - {id: src_d1method_oiv_microox, kind: reference_work, title: "Oxygenation of wines", publisher: "International Organisation of Vine and Wine", document_identifier: "International Code of Oenological Practices II.3.5.5", url: "https://www.oiv.int/node/2574/download/pdf", accessed_on: 2026-09-29}
+  - {id: src_d1method_oiv_oak, kind: reference_work, title: "Usage of pieces of oak wood in winemaking", publisher: "International Organisation of Vine and Wine", document_identifier: "International Code of Oenological Practices II.3.5.12.2", url: "https://www.oiv.int/node/2584/download/pdf", accessed_on: 2026-09-29}
+  - {id: src_d1method_oiv_barrel, kind: reference_work, title: "Ageing in small capacity wooden containers", publisher: "International Organisation of Vine and Wine", document_identifier: "International Code of Oenological Practices II.3.5.12.1", url: "https://www.oiv.int/standards/international-code-of-oenological-practices/part-ii-oenological-treatments-and-practices/wines/ageing-in-small-capacity-wooden-containers", accessed_on: 2026-09-29}
+  - {id: src_d1method_awri_barrel_alt, kind: reference_work, title: "Evaluating alternatives to barrel maturation", publisher: "Australian Wine Research Institute", document_identifier: "Project 3.4.3; barrel wood, evaporation, oxygen and alternative technology", url: "https://www.awri.com.au/research_and_development/rde-plan/projects/project-3-4-3/", accessed_on: 2026-09-29}
+
+knowledge_item_citations:
+  - {knowledge_item_id: ki_d1method_hyper, source_citation_id: src_d1method_awri_hyper, locator: "Background and practical considerations: oxidation before fermentation and phenolic removal."}
+  - {knowledge_item_id: ki_d1method_hyper_risk, source_citation_id: src_d1method_awri_hyper, locator: "Potential risks: Botrytis laccase and advice against hyperoxidation."}
+  - {knowledge_item_id: ki_d1method_flotation, source_citation_id: src_d1method_awri_flotation, locator: "Background and practical considerations: gas separation, time and energy."}
+  - {knowledge_item_id: ki_d1method_flotation_gas, source_citation_id: src_d1method_awri_flotation, locator: "Practical and logistical considerations: nitrogen versus air trials."}
+  - {knowledge_item_id: ki_d1method_flash, source_citation_id: src_d1method_awri_flash, locator: "Project 4.1.1: red ferment capacity, rapid extraction and sensory tradeoff."}
+  - {knowledge_item_id: ki_d1method_flash, source_citation_id: src_d1method_awri_flash_mechanism, locator: "Printed p. 20, introduction: heating, vacuum, tissue disruption and extraction; pp. 21-24 sensory comparisons."}
+  - {knowledge_item_id: ki_d1method_microox, source_citation_id: src_d1method_oiv_microox, locator: "II.3.5.5, objectives and prescriptions a/e: red colour and oxygen-consumption rate."}
+  - {knowledge_item_id: ki_d1method_oak_pieces, source_citation_id: src_d1method_oiv_oak, locator: "II.3.5.12.2: wood constituents, species and prescribed conditions."}
+  - {knowledge_item_id: ki_d1method_oak_compare, source_citation_id: src_d1method_oiv_barrel, locator: "II.3.5.12.1, objectives b and prescriptions e/f: oxygen and wood in a vessel."}
+  - {knowledge_item_id: ki_d1method_oak_compare, source_citation_id: src_d1method_oiv_oak, locator: "II.3.5.12.2, objective: oak-wood constituents."}
+  - {knowledge_item_id: ki_d1method_oak_compare, source_citation_id: src_d1method_awri_barrel_alt, locator: "Project summary: barrel wood extraction, evaporation and gentle oxygenation."}
+  - {knowledge_item_id: ki_d1method_case_white_action, source_citation_id: src_d1method_awri_hyper, locator: "Potential risks: Botrytis caveat."}
+  - {knowledge_item_id: ki_d1method_case_white_action, source_citation_id: src_win_botrytis, locator: "Managing Botrytis-infected fruit: sorting and segregation options."}
+  - {knowledge_item_id: ki_d1method_case_white_reason, source_citation_id: src_d1method_awri_flotation, locator: "Background and practical considerations: gas and solids separation."}
+  - {knowledge_item_id: ki_d1method_case_white_tradeoff, source_citation_id: src_d1method_awri_flotation, locator: "Benefits, equipment and potential risks."}
+  - {knowledge_item_id: ki_d1method_case_white_limit, source_citation_id: src_d1method_awri_hyper, locator: "Potential risks: Botrytis laccase; texture considerations."}
+  - {knowledge_item_id: ki_d1method_case_red_action, source_citation_id: src_d1method_oiv_barrel, locator: "II.3.5.12.1, objectives: barrel effects."}
+  - {knowledge_item_id: ki_d1method_case_red_action, source_citation_id: src_d1method_awri_barrel_alt, locator: "Project summary: evaluate lower-cost maturation alternatives against barrel processes."}
+  - {knowledge_item_id: ki_d1method_case_red_reason, source_citation_id: src_d1method_oiv_microox, locator: "II.3.5.5: oxygen consumption and red maturation."}
+  - {knowledge_item_id: ki_d1method_case_red_reason, source_citation_id: src_d1method_oiv_oak, locator: "II.3.5.12.2: wood-piece purpose."}
+  - {knowledge_item_id: ki_d1method_case_red_reason, source_citation_id: src_d1method_oiv_barrel, locator: "II.3.5.12.1: controlled oxygenation and wood in barrel ageing."}
+  - {knowledge_item_id: ki_d1method_case_red_tradeoff, source_citation_id: src_d1method_awri_barrel_alt, locator: "Project summary: barrel costs, evaporation and alternative technologies."}
+  - {knowledge_item_id: ki_d1method_case_red_limit, source_citation_id: src_d1method_oiv_microox, locator: "II.3.5.5, prescriptions: monitor the wine and avoid oxygen accumulation."}

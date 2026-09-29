@@ -1,0 +1,130 @@
+# Original source-keyed decisions and self-reviewed cases; not an exam mark scheme.
+question_templates:
+  - id: qt_d1method_case_white
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: d1method_white_juice
+    prompt_template: "A white-wine cellar has one day to clear a large juice intake after wet harvest conditions. Some bunches show Botrytis, and management proposes using air flotation as a universal hyperoxidation shortcut. Compare a protected flotation trial with deliberate juice oxidation. Recommend what to assess first, explain the mechanisms, identify style and cost tradeoffs, and state what the trials cannot prove."
+    parameters:
+      scope_node_ids: [n_d1method_case_white]
+      key_points: {CASE_ACTION: Assess sort and trial, CASE_REASON: Clarification versus oxidation, CASE_TRADEOFF: Capacity and sensory tradeoff, CASE_LIMITATION: Test actual juice and wine}
+  - id: qt_d1method_case_red
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: d1method_red_maturation
+    prompt_template: "A red-wine producer wants oak character and stable colour, but barrel capacity is limited. Compare small-barrel maturation with an inert-tank trial using oak pieces and controlled micro-oxygenation. Explain which mechanisms overlap and which do not, the likely cost and style tradeoffs, and the measurements needed before extending the trial. Do not assume the tank wine will copy the barrel wine."
+    parameters:
+      scope_node_ids: [n_d1method_case_red]
+      key_points: {CASE_ACTION: Compare bounded trials, CASE_REASON: Wood versus oxygen effects, CASE_TRADEOFF: Cost and sensory variation, CASE_LIMITATION: No guaranteed equivalence}
+  - id: qt_d1method_case_criteria
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: case_criteria
+    variant: d1method_cellar_criteria
+    prompt_template: "{subject.name}"
+    parameters:
+      scope_node_ids: [n_d1method_case_white, n_d1method_case_red]
+      scenario_prompts:
+        n_d1method_case_white: "A white-wine cellar has one day to clear a large juice intake after wet harvest conditions. Some bunches show Botrytis, and management proposes using air flotation as a universal hyperoxidation shortcut. Compare a protected flotation trial with deliberate juice oxidation. Recommend what to assess first, explain the mechanisms, identify style and cost tradeoffs, and state what the trials cannot prove."
+        n_d1method_case_red: "A red-wine producer wants oak character and stable colour, but barrel capacity is limited. Compare small-barrel maturation with an inert-tank trial using oak pieces and controlled micro-oxygenation. Explain which mechanisms overlap and which do not, the likely cost and style tradeoffs, and the measurements needed before extending the trial. Do not assume the tank wine will copy the barrel wine."
+      distractors:
+        n_d1method_case_white:
+          - summary: "Air-float every rot-affected lot because deliberate oxidation always prevents later faults"
+            explanation: "AWRI cautions against hyperoxidation when Botrytis and laccase are present; the case requires fruit assessment and a bounded trial, not a universal oxidation rule."
+          - summary: "Assume nitrogen flotation removes every oxidation and sensory risk from the juice"
+            explanation: "Nitrogen reduces introduced oxygen during flotation, but fruit condition, remaining solids and later handling still require direct analysis and tasting."
+        n_d1method_case_red:
+          - summary: "Treat oak pieces as an automatic replacement for barrel oxygen exchange and evaporation"
+            explanation: "The OIV describes wood pieces for wood constituents; AWRI separates wood extraction, evaporation and gentle oxygenation as distinct barrel effects."
+          - summary: "Add oxygen without monitoring because more red colour proves that oxidation is harmless"
+            explanation: "OIV micro-oxygenation requires oxygen input below consumption and sensory monitoring; excessive exposure can damage aroma even if colour changes."
+  - id: qt_d1method_choices
+    relation_type: PRINCIPLE_EXPLANATION
+    direction: forward
+    mode: authored_choice
+    variant: d1method_cellar_choices
+    prompt_template: "{subject.name}"
+    parameters:
+      item_choices:
+        ki_d1method_hyper:
+          prompt: "A sound white must has excess bitter phenolics. When can controlled hyperoxidation help?"
+          options:
+            - "Expose bottled wine to air after final filtration."
+            - "Add air to wine after the desired aroma has developed."
+            - "Oxidise must, then clarify away the browned solids."
+            - "Seal the unclarified must and retain every suspended solid."
+          correctIndex: 2
+          explanation: "AWRI and the OIV describe white-must oxidation before clarification, allowing browned phenolics to precipitate and be removed."
+          sourceCitationId: src_d1method_awri_hyper
+        ki_d1method_hyper_risk:
+          prompt: "A white juice contains fruit affected by Botrytis. What changes the hyperoxidation decision?"
+          options:
+            - "Botrytis removes the need to inspect grape condition."
+            - "Laccase heightens oxidation; assess and sort first."
+            - "Sulfur dioxide reliably deactivates every laccase enzyme."
+            - "Forced air exposure guarantees a fresher finished wine."
+          correctIndex: 1
+          explanation: "AWRI specifically cautions against hyperoxidation in Botrytis-affected seasons because laccase expands the oxidation risk."
+          sourceCitationId: src_d1method_awri_hyper
+        ki_d1method_flotation:
+          prompt: "A producer needs to clarify white juice quickly before inoculation. What does flotation do?"
+          options:
+            - "Gas bubbles raise suspended solids for removal."
+            - "Barrel pores supply slow oxygen during wine maturation."
+            - "Freezing removes water from finished wine."
+            - "A membrane strips alcohol after fermentation."
+          correctIndex: 0
+          explanation: "AWRI describes flotation as gas-assisted separation of suspended juice solids, often faster than cold settling."
+          sourceCitationId: src_d1method_awri_flotation
+        ki_d1method_flotation_gas:
+          prompt: "Two white-juice flotation trials use air and nitrogen. Which comparison matters?"
+          options:
+            - "Both gases necessarily oxidise the juice to precisely the same extent."
+            - "Neither gas can change the must's phenolic handling."
+            - "Nitrogen adds more oxygen than the same air treatment."
+            - "Air may promote phenolic oxidation; nitrogen limits oxygen input."
+          correctIndex: 3
+          explanation: "AWRI reports different phenolic and sensory outcomes for air and nitrogen flotation; neither gas is universally superior."
+          sourceCitationId: src_d1method_awri_flotation
+        ki_d1method_flash:
+          prompt: "A red-wine cellar has a fermenter-capacity bottleneck. Why trial flash detente?"
+          options:
+            - "It guarantees the original slow-maceration sensory profile."
+            - "Heat and vacuum speed extraction and may shorten time on skins."
+            - "It removes all need for a later fermentation vessel."
+            - "It is a substitute for checking ripeness at harvest."
+          correctIndex: 1
+          explanation: "The AWRI-hosted study describes heat followed by vacuum and tissue disruption; rapid extraction can reduce skin-contact time but alter sensory style."
+          sourceCitationId: src_d1method_awri_flash_mechanism
+        ki_d1method_microox:
+          prompt: "A suitable red wine is being considered for micro-oxygenation. Which control defines the method?"
+          options:
+            - "Keep dissolved oxygen rising throughout every treatment."
+            - "Add one oxygen pulse at bottling."
+            - "Add oxygen more slowly than the wine consumes it."
+            - "Assume oak chips determine the oxygen dose by themselves."
+          correctIndex: 2
+          explanation: "The OIV specifies oxygen input below the wine's consumption rate so oxygen does not accumulate."
+          sourceCitationId: src_d1method_oiv_microox
+        ki_d1method_oak_pieces:
+          prompt: "What is the direct objective when oak pieces are put in contact with a wine?"
+          options:
+            - "To reproduce every evaporation effect of a barrel."
+            - "To guarantee a cellar's wine qualifies for an oak label."
+            - "To replace tests for oxidation and microbial stability."
+            - "To transfer selected constituents from oak wood."
+          correctIndex: 3
+          explanation: "The OIV describes oak pieces as a route to wood constituents. Legal use and labelling require market-specific checks."
+          sourceCitationId: src_d1method_oiv_oak
+        ki_d1method_oak_compare:
+          prompt: "A producer compares a small oak barrel with oak pieces in an inert tank. What remains different?"
+          options:
+            - "Barrel maturation also brings oxygen exchange and evaporation."
+            - "Oak pieces automatically equal the barrel's oxygen supply."
+            - "A barrel cannot transfer any wood-derived compounds."
+            - "A neutral tank necessarily gives more evaporation than oak."
+          correctIndex: 0
+          explanation: "OIV barrel guidance includes gradual oxygenation and wood extraction; oak pieces address wood transfer but do not themselves duplicate the vessel."
+          sourceCitationId: src_d1method_oiv_barrel
