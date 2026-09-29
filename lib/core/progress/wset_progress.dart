@@ -7,6 +7,7 @@ import '../curriculum/knowledge_graph.dart';
 import '../database/app_database.dart';
 import '../diploma_tasting/diploma_tasting_evidence.dart';
 import '../diploma_written/diploma_written_evidence.dart';
+import '../diploma_research/diploma_research_evidence.dart';
 import '../study/study_planner.dart';
 import '../time/utc_clock.dart';
 import 'wset_scope.dart';
@@ -61,6 +62,7 @@ class WsetUnitProgress {
     required this.counts,
     this.physicalFlights = 0,
     this.writtenPractices = 0,
+    this.researchDraftSaved = false,
   });
   final WsetUnitScope scope;
   final ProgressCounts counts;
@@ -70,6 +72,9 @@ class WsetUnitProgress {
 
   /// Reviewed D1/D2 prose participation, never an examiner mark or pass.
   final int writtenPractices;
+
+  /// Learner-owned D6 formative draft, not an assessed assignment or pass.
+  final bool researchDraftSaved;
 }
 
 class WsetRequirementProgress {
@@ -298,6 +303,10 @@ class WsetProgressRepository {
       now: now,
     );
     final diplomaWritten = DiplomaWrittenEvidenceReader.read(
+      settings,
+      now: now,
+    );
+    final researchDraftSaved = DiplomaResearchEvidenceReader.hasSavedDraft(
       settings,
       now: now,
     );
@@ -534,6 +543,10 @@ class WsetProgressRepository {
                 writtenPractices: level.certificationId == 'WSET_L4'
                     ? diplomaWritten.forUnit(unit.id)
                     : 0,
+                researchDraftSaved:
+                    level.certificationId == 'WSET_L4' &&
+                    unit.id == 'D6' &&
+                    researchDraftSaved,
               ),
           ],
           unassigned: count(unassigned),
