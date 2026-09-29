@@ -1136,6 +1136,8 @@ The user confirmed **Level 4 Diploma as the target for the whole study companion
 
 ### DIP-1 · Production reasoning
 
+**Written-practice continuation:** An original 90-minute D1 preset now saves three production explanations across environment, vineyard choices and winemaking, followed by criterion-led self-review. The [August 2025 WSET Level 4 specification](https://www.wsetglobal.com/media/17609/wset_l4wines_specification_en_august-2025.pdf) gives D1 an open-response 90-minute assessment; this app activity is formative participation, not a reproduced paper, examiner mark or unit pass. Qualified feedback and wider production depth remain open.
+
 **0.20.2 continuation:** Four climate/weather exercises add 20 Diploma-only points to D1 using the existing runtime. Conditional frost, malate and disease-risk mechanisms widen study support; they do not complete production reasoning or practical competence. [Evidence and limits](research/diploma-climate-reasoning-continuation.md).
 
 **0.20.0 continuation:** Four objective causal chains and 21 Diploma-only points introduce bounded vineyard/winery reasoning. The runtime is implemented; broad climate, cost and analytical coverage still needs authoring and qualified review. [Evidence and checks](research/diploma-reasoning-continuation.md).
@@ -1147,6 +1149,8 @@ The user confirmed **Level 4 Diploma as the target for the whole study companion
 Build on C5 with cited vine physiology, climate and site, propagation and rootstocks, soil and water management, canopy decisions, hazards, harvest, fermentation, extraction, maturation, finishing, packaging, faults and quality control. Author original explanation, comparison and evaluation exercises with evidence-linked rubrics. Recall questions alone do not meet the acceptance criteria. Test that scenarios preserve relevant conditions, support more than one defensible decision when appropriate, and link reviews to the knowledge actually assessed.
 
 ### DIP-2 · Wine business
+
+**Written-practice continuation:** An original 60-minute D2 preset saves explanations on price pressures, producer/routes to market and marketing, then asks the learner to review each response against original criteria. Progress counts fully self-reviewed attempts as participation only. The WSET specification gives D2 an open-response 60-minute assessment; expert calibration, numerical practice and broader current business evidence remain open.
 
 **0.20.5 continuation:** 16 producer-model/channel principles and four original four-point cases add 32 Diploma-only points. These compare ownership and outsourced production, cooperative resources, fulfilment and intermediary reach under explicit conditions. Current law, supply/demand evidence, numerical practice and wider marketing/commercial analysis remain unfinished. [Evidence and checks](research/diploma-business-channels-continuation.md).
 

@@ -9,6 +9,7 @@ import '../../core/progress/wset_progress.dart';
 import '../../core/study/study_providers.dart';
 import '../practice/study_session_controller.dart';
 import '../diploma_tasting/diploma_tasting_flight_screen.dart';
+import '../diploma_written/diploma_written_screen.dart';
 import '../rehearsal/rehearsal_screen.dart';
 import '../tasting_guidance/guided_tasting_screen.dart';
 import '../tasting_pair/tasting_pair_screen.dart';
@@ -412,6 +413,33 @@ class _LevelSectionState extends ConsumerState<_LevelSection> {
                             Text(
                               '${unit.counts.unavailable} mapped facts are not yet available.',
                             ),
+                          if (unit.scope.id == 'D1' ||
+                              unit.scope.id == 'D2') ...[
+                            const SizedBox(height: 8),
+                            Text(
+                              'Written practices self-reviewed: ${unit.writtenPractices}. '
+                              'These are participation, not examiner marks or unit passes.',
+                              key: ValueKey(
+                                'wset_unit_written_${unit.scope.id}',
+                              ),
+                            ),
+                            TextButton(
+                              key: ValueKey(
+                                'wset_unit_written_open_${unit.scope.id}',
+                              ),
+                              onPressed: _starting || !level.selectable
+                                  ? null
+                                  : () => _practice(
+                                      DiplomaWrittenScreen(
+                                        unitId: unit.scope.id,
+                                      ),
+                                    ),
+                              child: Text(
+                                'Open ${unit.scope.id} '
+                                '${unit.scope.id == 'D1' ? '90' : '60'}-minute writing',
+                              ),
+                            ),
+                          ],
                           if (unit.scope.id == 'D4' ||
                               unit.scope.id == 'D5') ...[
                             const SizedBox(height: 8),
