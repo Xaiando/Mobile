@@ -1968,6 +1968,10 @@ tracks:
             - n_fort_principle_sherry_px
             - n_fort_principle_sherry_cream
             - n_fort_case_flor_oxygen
+            - n_d5f_principle_sherry_press
+            - n_d5f_principle_sherry_manzanilla
+            - n_d5f_principle_sherry_vos
+            - n_d5f_case_sherry_vos_stock
         tasks: [DIP-5, C3, G11]
       - id: wset_l4.fortified.port
         label: Study Port through its places and wines
@@ -1983,6 +1987,10 @@ tracks:
             - n_fort_principle_port_colheita
             - n_fort_principle_port_white_dry
             - n_fort_case_port_fruit
+            - n_d5f_principle_port_gradient
+            - n_d5f_principle_port_terraces
+            - n_d5f_principle_port_beneficio
+            - n_d5f_case_port_offer
         tasks: [DIP-5, C3, G11]
       - id: wset_l4.fortified.madeira
         label: Study Madeira through its places and wines
@@ -1996,6 +2004,10 @@ tracks:
             - n_fort_principle_madeira_concentration
             - n_fort_principle_madeira_locations
             - n_fort_case_madeira_slow
+            - n_d5f_principle_madeira_tinta
+            - n_d5f_principle_madeira_sweetness
+            - n_d5f_principle_madeira_categories
+            - n_d5f_case_fortified_list
         tasks: [DIP-5, C3]
       - id: wset_l4.fortified.france
         label: Compare French fortified sweet-wine contexts
@@ -2012,6 +2024,11 @@ tracks:
             - n_fort_principle_vdn_young
             - n_fort_principle_vdn_oxidative
             - n_fort_case_vdn_fresh
+            - n_d5f_principle_vdn_muscat
+            - n_d5f_principle_vdn_maury
+            - n_d5f_principle_vdn_banyuls_style
+            - n_d5f_principle_vdn_banyuls_labour
+            - n_d5f_case_fortified_list
         tasks: [DIP-5, C2, G10]
       - id: wset_l4.fortified.australia
         label: Study Rutherglen's fortified Muscat context
@@ -2025,6 +2042,10 @@ tracks:
             - n_fort_principle_ruth_classification
             - n_fort_principle_ruth_youthful_blend
             - n_fort_case_ruth_balance
+            - n_d5f_principle_ruth_variety
+            - n_d5f_principle_ruth_hang
+            - n_d5f_principle_ruth_tiers
+            - n_d5f_case_fortified_list
         tasks: [DIP-5, C4, G13]
       - id: wset_l4.fortified.production_and_market
         label: Compare fortified-wine cellar decisions and their market consequences
@@ -2072,6 +2093,25 @@ tracks:
             - n_fort_case_madeira_slow
             - n_fort_case_vdn_fresh
             - n_fort_case_ruth_balance
+            - n_d5f_principle_port_gradient
+            - n_d5f_principle_port_terraces
+            - n_d5f_principle_port_beneficio
+            - n_d5f_case_port_offer
+            - n_d5f_principle_sherry_press
+            - n_d5f_principle_sherry_manzanilla
+            - n_d5f_principle_sherry_vos
+            - n_d5f_case_sherry_vos_stock
+            - n_d5f_principle_madeira_tinta
+            - n_d5f_principle_madeira_sweetness
+            - n_d5f_principle_madeira_categories
+            - n_d5f_case_fortified_list
+            - n_d5f_principle_vdn_muscat
+            - n_d5f_principle_vdn_maury
+            - n_d5f_principle_vdn_banyuls_style
+            - n_d5f_principle_vdn_banyuls_labour
+            - n_d5f_principle_ruth_variety
+            - n_d5f_principle_ruth_hang
+            - n_d5f_principle_ruth_tiers
           relation_types:
             - PRINCIPLE_EXPLANATION
             - CASE_ACTION

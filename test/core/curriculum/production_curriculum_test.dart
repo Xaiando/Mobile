@@ -560,7 +560,7 @@ void main() {
       132,
       829,
       3439,
-      4012,
+      4040,
     ]);
     final diploma = snapshot.levels.last;
     final unitIds = {
@@ -568,7 +568,7 @@ void main() {
     };
     for (final entry in {
       'D4': ['ki_spark_', 'ki_d4nw_', 'ki_d4depth_'],
-      'D5': ['ki_fort_'],
+      'D5': ['ki_fort_', 'ki_d5f_'],
     }.entries) {
       final ids = dataset.knowledgeItems
           .where((i) => entry.value.any(i.id.startsWith))

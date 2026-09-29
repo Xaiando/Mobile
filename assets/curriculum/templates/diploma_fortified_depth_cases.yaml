@@ -1,0 +1,52 @@
+# Self-check rubrics for three bounded D5 written cases; these do not assess the Diploma exam.
+question_templates:
+- id: qt_d5f_case_port_offer
+  relation_type: CASE_ACTION
+  direction: forward
+  mode: short_answer
+  variant: d5f_port_offer
+  prompt_template: A restaurant can carry one mature Port. A supplier offers a multi-harvest 20-year-old Tawny and a dated
+    Colheita; both fit the shelf space, but no current tasting or landed quote is supplied. Recommend a buying process, explain
+    the category distinction, identify a stock or cost tradeoff, and state one evidence limit. Do not infer that the vintage
+    date or age indication proves the better wine.
+  parameters:
+    scope_node_ids:
+    - n_d5f_case_port_offer
+    key_points:
+      CASE_ACTION: Defensible action or calculation
+      CASE_REASON: Mechanism and rationale
+      CASE_TRADEOFF: Opportunity cost or alternative
+      CASE_LIMITATION: Unproven premise or next check
+- id: qt_d5f_case_sherry_vos_stock
+  relation_type: CASE_ACTION
+  direction: forward
+  mode: short_answer
+  variant: d5f_sherry_vos_stock
+  prompt_template: A Jerez house has 1,500 L in a qualifying solera and proposes a 100 L V.O.S. saca. For this exercise assume
+    no other withdrawals or replenishment and the Consejo rule of at least 20 L remaining for each 1 L sold. Should it release
+    all 100 L as V.O.S.? Give the maximum theoretical withdrawal, the inventory tradeoff and one other certification limit.
+  parameters:
+    scope_node_ids:
+    - n_d5f_case_sherry_vos_stock
+    key_points:
+      CASE_ACTION: Defensible action or calculation
+      CASE_REASON: Mechanism and rationale
+      CASE_TRADEOFF: Opportunity cost or alternative
+      CASE_LIMITATION: Unproven premise or next check
+- id: qt_d5f_case_fortified_list
+  relation_type: CASE_ACTION
+  direction: forward
+  mode: short_answer
+  variant: d5f_fortified_list
+  prompt_template: A restaurant has one new dessert-wine slot and wants a strongly sweet, mature fortified style. It can sample
+    a Sercial Madeira, a Maury Tuilé and a classified Rutherglen Muscat, but has no present tasting scores, residual-sugar
+    specs or landed prices. Identify a sensible shortlist and process, explain the styles, give one assortment tradeoff and
+    one limit. Do not rank quality from origin alone.
+  parameters:
+    scope_node_ids:
+    - n_d5f_case_fortified_list
+    key_points:
+      CASE_ACTION: Defensible action or calculation
+      CASE_REASON: Mechanism and rationale
+      CASE_TRADEOFF: Opportunity cost or alternative
+      CASE_LIMITATION: Unproven premise or next check

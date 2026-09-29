@@ -274,7 +274,7 @@ void main() {
   );
 
   test(
-    '675 cited choices are generated and served across WSET and CMS tracks',
+    '691 cited choices are generated and served across WSET and CMS tracks',
     () async {
       final db = openTestDatabase();
       try {
@@ -295,10 +295,11 @@ void main() {
                   template.id.startsWith('qt_wset_') ||
                   template.id.startsWith('qt_cms_example_') ||
                   template.id == 'qt_d3rt_regional_choice' ||
-                  template.id == 'qt_d4depth_regional_choices',
+                  template.id == 'qt_d4depth_regional_choices' ||
+                  template.id == 'qt_d5f_authored_choice',
             )
             .toList();
-        expect(templates, hasLength(29));
+        expect(templates, hasLength(30));
         final expectedIds = {
           for (final template in templates)
             ...((jsonDecode(template.parameters!)
@@ -361,6 +362,7 @@ void main() {
         );
         final d3RegionalIds = idsForTemplate('qt_d3rt_regional_choice');
         final d4RegionalIds = idsForTemplate('qt_d4depth_regional_choices');
+        final d5FortifiedIds = idsForTemplate('qt_d5f_authored_choice');
         final earlierLevelThreeIds = expectedIds.difference({
           ...levelOneIds,
           ...levelTwoIds,
@@ -375,8 +377,9 @@ void main() {
           ...diplomaBusinessIds,
           ...d3RegionalIds,
           ...d4RegionalIds,
+          ...d5FortifiedIds,
         });
-        expect(expectedIds, hasLength(675));
+        expect(expectedIds, hasLength(691));
         expect(levelOneIds, hasLength(132));
         expect(levelTwoIds, hasLength(172));
         expect(sharedGrapeIds, hasLength(32));
@@ -390,6 +393,7 @@ void main() {
         expect(diplomaBusinessIds, hasLength(29));
         expect(d3RegionalIds, hasLength(19));
         expect(d4RegionalIds, hasLength(24));
+        expect(d5FortifiedIds, hasLength(16));
         expect(earlierLevelThreeIds, hasLength(85));
         final rows = await db.customSelect('''
         SELECT q.knowledge_item_id, i.domain_id FROM questions q
@@ -398,10 +402,11 @@ void main() {
         WHERE t.mode = 'authored_choice'
           AND (t.id GLOB 'qt_wset_*' OR t.id GLOB 'qt_cms_example_*'
                OR t.id = 'qt_d3rt_regional_choice'
-               OR t.id = 'qt_d4depth_regional_choices')
+               OR t.id = 'qt_d4depth_regional_choices'
+               OR t.id = 'qt_d5f_authored_choice')
         ORDER BY q.knowledge_item_id
       ''').get();
-        expect(rows, hasLength(675));
+        expect(rows, hasLength(691));
         final actual = {
           for (final row in rows)
             row.read<String>('knowledge_item_id'): row.read<String>(
@@ -473,6 +478,13 @@ void main() {
           }
         }
         for (final id in expectedIds) {
+          if (d5FortifiedIds.contains(id)) {
+            expect(
+              levelFourCards[id]?.formats.map((format) => format.mode),
+              contains('authored_choice'),
+              reason: 'Diploma D5: $id',
+            );
+          }
           if (d4RegionalIds.contains(id)) {
             expect(
               levelFourCards[id]?.formats.map((format) => format.mode),
@@ -538,6 +550,8 @@ void main() {
                     : d3RegionalIds.contains(id)
                     ? levelFourCards[id]
                     : d4RegionalIds.contains(id)
+                    ? levelFourCards[id]
+                    : d5FortifiedIds.contains(id)
                     ? levelFourCards[id]
                     : levelThreeCards[id])
                 ?.formats
