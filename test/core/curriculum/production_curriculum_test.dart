@@ -557,9 +557,9 @@ void main() {
     ).snapshot();
     expect(snapshot.levels.map((level) => level.counts.mapped), [
       132,
-      819,
-      3429,
-      3911,
+      829,
+      3439,
+      3921,
     ]);
     final diploma = snapshot.levels.last;
     final unitIds = {

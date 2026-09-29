@@ -481,10 +481,10 @@ void main() {
     test('32 actual recalls affect only D2 and preserve lower tracks and incomplete levels', () async {
       for (final entry in {
         'WSET_L1': 132,
-        'WSET_L2': 819,
-        'WSET_L3': 3429,
+        'WSET_L2': 829,
+        'WSET_L3': 3439,
         'CMS_CERTIFIED': 2878,
-        'WSET_L4': 3911,
+        'WSET_L4': 3921,
       }.entries) {
         final mappings = await planner.effectiveMappings(entry.key);
         expect(mappings, hasLength(entry.value), reason: entry.key);
@@ -529,9 +529,9 @@ void main() {
       );
       expect(snapshot.levels.map((level) => level.counts.mapped).toList(), [
         132,
-        819,
-        3429,
-        3911,
+        829,
+        3439,
+        3921,
       ]);
       expect(
         snapshot.levels.take(3).map((level) => level.counts.studied),
