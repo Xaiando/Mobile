@@ -188,10 +188,14 @@ void main() {
     await tester.tap(find.byKey(const ValueKey('diploma-written-start')));
     await settle(tester);
     final first = (await tester.runAsync(() => repository.current('D1')))!;
-    final proseKey = ValueKey('diploma-written-prose-${first.questions.first.id}');
+    final proseKey = ValueKey(
+      'diploma-written-prose-${first.questions.first.id}',
+    );
     await tester.enterText(find.byKey(proseKey), 'Earlier private response');
     await settle(tester);
-    await tester.ensureVisible(find.byKey(const ValueKey('diploma-written-finish')));
+    await tester.ensureVisible(
+      find.byKey(const ValueKey('diploma-written-finish')),
+    );
     await tester.tap(find.byKey(const ValueKey('diploma-written-finish')));
     await settle(tester);
     await tester.ensureVisible(find.text('Choose another attempt'));
@@ -202,7 +206,10 @@ void main() {
     final second = (await tester.runAsync(() => repository.current('D1')))!;
     expect(second.id, isNot(first.id));
     expect(second.prose, isEmpty);
-    expect(tester.widget<TextFormField>(find.byKey(proseKey)).initialValue, isEmpty);
+    expect(
+      tester.widget<TextFormField>(find.byKey(proseKey)).initialValue,
+      isEmpty,
+    );
     expect(tester.takeException(), isNull);
   });
 }
