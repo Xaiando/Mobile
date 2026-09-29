@@ -255,7 +255,9 @@ async function selected(locator) {
 async function chooseTrack(label) {
   await top();
   const chip = named(label);
-  await (await reveal(chip)).click();
+  // Track chips precede the Home content. Under a busy browser the large
+  // top() wheel can still be settling; keep searching toward the chips.
+  await (await reveal(chip, { direction: -1 })).click();
   const deadline = Date.now() + actionTimeout;
   while (!await selected(chip) && Date.now() < deadline) {
     await page.waitForTimeout(100);
