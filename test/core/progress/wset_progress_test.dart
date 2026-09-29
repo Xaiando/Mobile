@@ -9,6 +9,7 @@ import 'package:sommelier/core/database/app_database.dart';
 import 'package:sommelier/core/database/curriculum_writes.dart';
 import 'package:sommelier/core/diploma_tasting/diploma_tasting_flight.dart';
 import 'package:sommelier/core/diploma_written/diploma_written.dart';
+import 'package:sommelier/core/diploma_research/diploma_research.dart';
 import 'package:sommelier/core/progress/wset_progress.dart';
 import 'package:sommelier/core/progress/wset_scope.dart';
 import 'package:sommelier/core/study/learner_profile.dart';
@@ -559,6 +560,32 @@ void main() {
       'D5',
       'D6',
     ]);
+  });
+
+  test('D6 saved research draft is participation, not a unit result', () async {
+    progress = WsetProgressRepository(
+      db,
+      clock: time.clock,
+      scope: testScope(
+        units: [
+          for (var i = 1; i <= 6; i++)
+            WsetUnitScope(id: 'D$i', title: 'Unit $i', gap: ''),
+        ],
+      ),
+    );
+    final initial = await level(4);
+    expect(initial.units.last.researchDraftSaved, isFalse);
+    await LearnerProfiles(db, clock: time.clock).selectTrack('WSET_L4');
+    final research = DiplomaResearchRepository(db, clock: time.clock);
+    await research.start();
+    expect((await level(4)).units.last.researchDraftSaved, isFalse);
+    await research.updateText('title', 'My research topic');
+    final later = await level(4);
+    expect(later.units.last.researchDraftSaved, isTrue);
+    expect(later.appLevelComplete, isFalse);
+    expect(later.examPassed, isFalse);
+    expect(await db.select(db.reviewEvents).get(), isEmpty);
+    expect((await level(3)).units, isEmpty);
   });
 
   test(

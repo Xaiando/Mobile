@@ -10,6 +10,7 @@ import '../../core/study/study_providers.dart';
 import '../practice/study_session_controller.dart';
 import '../diploma_tasting/diploma_tasting_flight_screen.dart';
 import '../diploma_written/diploma_written_screen.dart';
+import '../diploma_research/diploma_research_screen.dart';
 import '../rehearsal/rehearsal_screen.dart';
 import '../tasting_guidance/guided_tasting_screen.dart';
 import '../tasting_pair/tasting_pair_screen.dart';
@@ -459,6 +460,25 @@ class _LevelSectionState extends ConsumerState<_LevelSection> {
                                 'Open ${unit.scope.id} '
                                 '${unit.scope.id == 'D1' ? '90' : '60'}-minute writing',
                               ),
+                            ),
+                          ],
+                          if (level.scope.certificationId == 'WSET_L4' &&
+                              unit.scope.id == 'D6') ...[
+                            const SizedBox(height: 8),
+                            Text(
+                              unit.researchDraftSaved
+                                  ? 'Research workspace: a private draft is saved. This is participation, not an assessed assignment or unit pass.'
+                                  : 'Research workspace: no draft saved yet. This does not determine an official D6 result.',
+                              key: const ValueKey('wset_unit_research_D6'),
+                            ),
+                            TextButton(
+                              key: const ValueKey('wset_unit_research_open_D6'),
+                              onPressed: _starting || !level.selectable
+                                  ? null
+                                  : () => _practice(
+                                      const DiplomaResearchScreen(),
+                                    ),
+                              child: const Text('Open D6 research workspace'),
                             ),
                           ],
                           if (unit.scope.id == 'D4' ||
