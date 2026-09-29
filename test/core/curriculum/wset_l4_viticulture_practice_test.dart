@@ -141,9 +141,9 @@ void main() {
       }
     }
     expect(choices, hasLength(51));
-    expect(uniquelyLongest, lessThanOrEqualTo(10));
-    expect(uniquelyShortest, lessThanOrEqualTo(6));
-    expect(lengthRanks, everyElement(lessThanOrEqualTo(20)));
+    expect(uniquelyLongest, inInclusiveRange(4, 12));
+    expect(uniquelyShortest, inInclusiveRange(4, 12));
+    expect(lengthRanks, everyElement(inInclusiveRange(8, 18)));
   });
 
   test(

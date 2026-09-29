@@ -31,15 +31,21 @@ void main() {
       .toList();
   final businessIds = business.map((item) => item.id).toSet();
   const authoredBusinessIds = {
+    'ki_biz_models_cooperative_pool',
+    'ki_biz_models_grape_purchase',
+    'ki_biz_models_integration',
     'ki_biz_models_vineyard_commitment',
     'ki_biz_models_custom_capacity',
     'ki_biz_models_custom_scope',
     'ki_biz_models_cooperative_control',
     'ki_biz_models_bulk_purchase',
     'ki_biz_routes_dtc_resources',
+    'ki_biz_routes_dtc_records',
     'ki_biz_routes_downstream_sales',
     'ki_biz_routes_service_scope',
     'ki_biz_routes_partner_fit',
+    'ki_biz_routes_ontrade_fit',
+    'ki_biz_routes_retail_access',
     'ki_biz_routes_reviewable_roles',
   };
   final nodes = {for (final node in dataset.knowledgeNodes) node.id: node};
