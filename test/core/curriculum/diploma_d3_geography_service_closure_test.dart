@@ -109,6 +109,7 @@ void main() {
       for (final citation in dataset.sourceCitations) citation.id: citation.url,
     };
     final answers = <int, int>{};
+    final lengthRanks = <int, int>{};
     for (final entry in choices.entries) {
       final id = entry.key;
       final choice = entry.value as Map<String, dynamic>;
@@ -127,11 +128,32 @@ void main() {
       expect(answer, inInclusiveRange(0, 3), reason: id);
       expect(choice['prompt'], isNotEmpty, reason: id);
       expect(choice['explanation'], isNotEmpty, reason: id);
+      final keyedLength = options[answer].length;
+      final distractors = [
+        for (var index = 0; index < options.length; index++)
+          if (index != answer) options[index],
+      ];
+      final lengthRank = distractors
+          .where((option) => option.length < keyedLength)
+          .length;
+      lengthRanks[lengthRank] = (lengthRanks[lengthRank] ?? 0) + 1;
+      final absoluteCue = RegExp(
+        r'\b(?:all|always|every|must|never|guarantees?|necessarily|automatically|only)\b',
+        caseSensitive: false,
+      );
+      expect(
+        distractors.where(absoluteCue.hasMatch).length,
+        lessThanOrEqualTo(1),
+        reason: '$id needs plausible distractors beyond absolute wording',
+      );
       expect(citations, contains((id, citationId)), reason: id);
       expect(Uri.parse(sourceUrls[citationId]!).scheme, 'https', reason: id);
       answers[answer] = (answers[answer] ?? 0) + 1;
     }
     expect(answers, {0: 6, 1: 6, 2: 6, 3: 6});
+    for (final rank in [0, 1, 2, 3]) {
+      expect(lengthRanks[rank], inInclusiveRange(4, 8));
+    }
   });
 
   test('10 full case pools retain four cited decision roles', () {
@@ -247,20 +269,20 @@ void main() {
           reason: id,
         );
       }
-    for (final id in [
-      'ki_reg_am_case_california_sites_reason',
-      'ki_fault_case_hot_delivery_action',
-    ]) {
-      expect(
-        cards[id]!.formats.map((format) => format.mode).toSet(),
-        containsAll({'short_answer', 'typed'}),
-        reason: id,
-      );
-      expect(
-        audit.items.singleWhere((row) => row.id == id).servedFormats,
-        contains('case_criteria'),
-        reason: id,
-      );
+      for (final id in [
+        'ki_reg_am_case_california_sites_reason',
+        'ki_fault_case_hot_delivery_action',
+      ]) {
+        expect(
+          cards[id]!.formats.map((format) => format.mode).toSet(),
+          containsAll({'short_answer', 'typed'}),
+          reason: id,
+        );
+        expect(
+          audit.items.singleWhere((row) => row.id == id).servedFormats,
+          contains('case_criteria'),
+          reason: id,
+        );
       }
     },
   );

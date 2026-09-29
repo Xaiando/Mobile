@@ -1,0 +1,281 @@
+# Diploma D3 production comparisons. China remains Diploma-only; these are
+# narrow producer/research examples, not countrywide or legal generalisations.
+question_templates:
+  - id: qt_wset_l4_winemaking_principles_regional_27
+    relation_type: PRINCIPLE_EXPLANATION
+    direction: forward
+    mode: authored_choice
+    variant: wset_l4_winemaking_principles_regional
+    prompt_template: '{subject.name}'
+    parameters:
+      item_choices:
+        ki_reg_ah_vienna_joint:
+          prompt: How does Vienna's traditional Gemischter Satz differ from blending finished single-variety wines?
+          options:
+            - Field-mixed grapes are harvested and processed together
+            - Separate single-variety wines are blended after maturation, and field planting has no role in harvest processing
+            - A single grape is processed twice under different yeast regimes
+            - A red and a white finished wine are blended before packaging
+          correctIndex: 0
+          explanation: The Viennese field-mix approach combines grapes in vineyard and harvest processing rather than only blending separately completed wines.
+          sourceCitationId: src_reg_ah_vienna
+        ki_reg_cn_ningxia_deficit_chemistry:
+          prompt: A Ningxia irrigation trial finds differences in grape amino acids and wine volatiles. What does this establish?
+          options:
+            - The irrigation dose maximising measured precursors and volatiles establishes the preferred sensory target in this Ningxia trial
+            - A measured composition response that needs wine-style assessment before a preference claim
+            - The reported volatile measurements show that each compound exceeded sensory detection threshold in the finished wines
+            - That less irrigation must raise quality regardless of site
+          correctIndex: 1
+          explanation: The experiment measured precursor and volatile differences; those measurements alone do not prove a preferred taste or universally optimal water treatment.
+          sourceCitationId: src_reg_cn_rdi
+        ki_reg_cn_shandong_blend:
+          prompt: What does Long Dai's Cabernet Sauvignon, Marselan and Cabernet Franc red blend show?
+          options:
+            - This blend defines Shandong's grape rules
+            - The same blend used by every estate in the province
+            - A dated producer example of selected multi-grape blending, not a regional rule
+            - That each variety was harvested and fermented together
+          correctIndex: 2
+          explanation: Long Dai's published blend is evidence of one producer's choices, not a legal or province-wide recipe.
+          sourceCitationId: src_reg_cn_long_practice
+        ki_reg_cn_shandong_marselan_extraction:
+          prompt: A winery compares Long Dai's published Marselan handling with its Bordeaux-variety approach. What is the sound lesson?
+          options:
+            - The published Marselan handling is the prescribed extraction intensity for new lots regardless of grape ripeness
+            - Gentle Marselan extraction establishes low tannin and equivalent balance despite different ripeness and intended styles
+            - All grapes require one cap-management regime
+            - A producer may adapt extraction to grape and product, then assess the actual wine
+          correctIndex: 3
+          explanation: Long Dai describes gentler Marselan extraction alongside traditional methods for other varieties; the final wine must still be assessed.
+          sourceCitationId: src_reg_cn_long_practice
+        ki_reg_cn_shandong_separate_ferments:
+          prompt: Why might Long Dai ferment small lots separately in temperature-controlled steel vats?
+          options:
+            - Separate lots preserve blending choices, without proving superior quality by themselves
+            - Steel vats make fruit origin irrelevant to the finished blend
+            - Small tanks guarantee every lot the same aroma
+            - Small steel vats prevent later blending
+          correctIndex: 0
+          explanation: The producer's small-lot approach keeps components available for later selection; tank size and material do not establish quality.
+          sourceCitationId: src_reg_cn_long_practice
+        ki_reg_cn_xinjiang_shade_style:
+          prompt: A Manas shading trial changes ripening and wine compounds. Which result should be reported carefully?
+          options:
+            - The shaded Manas treatment is the consumer-preferred wine because delayed sugar accumulation at matched dates proves superior quality
+            - Shading delayed ripening; preference remains untested
+            - Both treatments had identical acidity and aroma chemistry
+            - The trial proves a shading rule for every Xinjiang variety
+          correctIndex: 1
+          explanation: The study found delayed ripening at matched dates and other composition effects, while respective-harvest soluble solids did not differ significantly.
+          sourceCitationId: src_reg_cn_shade
+        ki_reg_cn_yunnan_2017_blend:
+          prompt: Ao Yun's published 2017 blend includes five red grapes. What conclusion is justified?
+          options:
+            - Every Yunnan wine contains those five grapes
+            - The 2017 proportions are a binding production formula for later Ao Yun vintages, regardless of crop variation or style decisions
+            - One dated blend, not the regional grape recipe
+            - The grape list establishes the wine's retail price
+          correctIndex: 2
+          explanation: The five-grape 2017 record is one producer and vintage example, not a general rule for Yunnan.
+          sourceCitationId: src_reg_cn_aoyun_production
+        ki_reg_fe_jura_jaune_time:
+          prompt: A buyer asks why Vin Jaune can tie up cellar resources. Which process is relevant?
+          options:
+            - Rapid pasteurisation of Chardonnay before bottling
+            - A brief cold tank fermentation without maturation, followed by immediate release to avoid evaporation losses
+            - Drying grapes before pressing as for Vin de Paille
+            - Prolonged Savagnin maturation without topping up beneath a yeast veil
+          correctIndex: 3
+          explanation: Vin Jaune uses lengthy non-topped Savagnin ageing under a surface yeast veil; time and evaporation can affect cost.
+          sourceCitationId: src_fr_atlas_jura
+        ki_reg_fe_jura_non_topped:
+          prompt: A sound Jura white shows deliberate oxidative notes. Which production detail should be checked?
+          options:
+            - Check for deliberate non-topped barrel ageing
+            - Whether Jura's regional rules prescribe non-topped ageing for a white wine like this one
+            - Whether Chardonnay's participation excludes a Savagnin-driven non-topped white expression
+            - Whether all oxidative aromas appeared only after sale, ruling out deliberate non-topped maturation without reviewing cellar records
+          correctIndex: 0
+          explanation: Non-topped whites can be an intentional Jura expression using Savagnin alone or with Chardonnay, subject to actual cellar and condition evidence.
+          sourceCitationId: src_fr_atlas_jura
+        ki_reg_fe_jura_paille_drying:
+          prompt: Which sequence distinguishes Jura Vin de Paille from Vin Jaune?
+          options:
+            - Mature a finished dry Savagnin wine beneath a surface veil before harvesting and drying the next vintage's selected grapes
+            - Dry selected grapes, then press and ferment sweet wine
+            - Inject carbon dioxide into still wine and bottle at pressure
+            - Ferment finished dry Chardonnay on Amarone pomace
+          correctIndex: 1
+          explanation: Vin de Paille begins with grape drying before fermentation; Vin Jaune is a different maturation route.
+          sourceCitationId: src_reg_fe_jura_grapes
+        ki_reg_fe_jura_topped:
+          prompt: A Jura white is described as ouillé. What cellar action does this identify?
+          options:
+            - Leaving a deliberate air space for surface-veil development
+            - Drying the grapes in a ventilated room before pressing
+            - Replacing evaporated barrel wine during maturation
+            - Adding dosage to a finished sparkling bottle
+          correctIndex: 2
+          explanation: Ouillage is topping up evaporative loss; Jura Chardonnay and Savagnin can appear in topped-up white styles.
+          sourceCitationId: src_fr_atlas_jura
+        ki_reg_gr_kotsifali_softness:
+          prompt: A Cretan red blending trial pairs Kotsifali with Mandilaria. What role can Kotsifali play?
+          options:
+            - Kotsifali is the firmer, darker component
+            - Guarantee every blend is ready to drink immediately
+            - Fix a legally required blending ratio
+            - Add aromatic roundness and relatively softer tannin and acidity to a firmer component
+          correctIndex: 3
+          explanation: The national grape profile describes Kotsifali as relatively pale, aromatic and soft in structure, often paired with Mandilaria.
+          sourceCitationId: src_reg_gr_kotsifali
+        ki_reg_gr_liatiko_dry_expression:
+          prompt: A pale dry Liatiko has ripe-fruit aromas and a full palate. Which interpretation is defensible?
+          options:
+            - Pale colour can coexist with substance, and ripe aroma does not by itself establish residual sugar
+            - Pale colour proves the wine is thin and unripe
+            - Dried-fruit aromas alone establish dessert-level residual sugar, regardless of a dry label or a measurement
+            - A fuller palate means it must be heavily tannic
+          correctIndex: 0
+          explanation: Dry Liatiko can be pale yet full and fruit-rich; sweetness and tannin need direct evidence.
+          sourceCitationId: src_reg_gr_liatiko_profile
+        ki_reg_gr_mandilaria_structure:
+          prompt: A Cretan producer trials Mandilaria with softer Kotsifali. Why compare proportions rather than maximise Mandilaria?
+          options:
+            - Mandilaria contributes no structural difference
+            - It can deepen colour and firm tannin, but balance depends on components and style
+            - More tannin automatically improves quality
+            - One precise Mandilaria-to-Kotsifali ratio is required for Cretan reds, independent of tannin and acidity balance
+          correctIndex: 1
+          explanation: Mandilaria's colour and tannin can complement Kotsifali, yet more extraction or proportion is not inherently better.
+          sourceCitationId: src_reg_gr_kotsifali
+        ki_reg_gr_moschofilero_white:
+          prompt: A learner sees reddish-grey Moschofilero berries and assumes a sweet rosé. What correction is supported?
+          options:
+            - Berry-skin colour fixes residual sugar
+            - Pink skins require a sweet rosé
+            - Moschofilero can yield floral, lively-acid dry whites despite its coloured skins
+            - Rose-petal aroma proves a wine was sweetened
+          correctIndex: 2
+          explanation: The national profile describes coloured Moschofilero berries and aromatic dry white Mantinia expressions; skin colour or perfume is not a sweetness test.
+          sourceCitationId: src_reg_gr_mantinia
+        ki_reg_gr_robola_handling:
+          prompt: A fresh dry Robola is planned from a drought-affected parcel. Which vineyard and cellar concern matters?
+          options:
+            - Using an inert steel tank to ferment Robola resolves its oxidation risk during later handling and storage
+            - Island origin guarantees fruit water balance
+            - Drought sensitivity ceases to matter at picking, while vessel material alone prevents the wine from oxidising
+            - Assess water status and protect the oxidation-prone wine through handling and storage
+          correctIndex: 3
+          explanation: The national profile identifies Robola drought sensitivity and oxidation risk; vessel choice alone does not settle either.
+          sourceCitationId: src_reg_gr_robola
+        ki_reg_gr_samos_dry_muscat:
+          prompt: Samos High Peaks smells floral and fruity. Why should a buyer still check its sweetness?
+          options:
+            - The cooperative lists this elevated-terrace Muscat in its dry collection
+            - Muscat perfume proves dessert-level sugar
+            - Every Samos Muscat has the same sweet-wine designation, so aromatic intensity establishes the bottle's residual sugar
+            - Vineyard altitude prevents aromatic development
+          correctIndex: 0
+          explanation: High Peaks is a documented dry aromatic Muscat example; perfume does not establish a sweet style.
+          sourceCitationId: src_reg_gr_samos_dry
+        ki_reg_gr_vidiano_palate:
+          prompt: A Vidiano sample has apricot aroma and a fuller creamy palate. What should a student avoid assuming?
+          options:
+            - That creamy texture must reflect a documented Vidiano regional profile, regardless of cellar handling or the individual wine
+            - That texture alone proves oak or MLF
+            - That a lighter Vilana could provide a useful comparison
+            - That tasting evidence is needed for the particular wine
+          correctIndex: 1
+          explanation: The Cretan profile associates Vidiano with apricot and body; texture alone cannot identify the cellar technique.
+          sourceCitationId: src_reg_gr_vidiano
+        ki_reg_gr_vilana_palate:
+          prompt: A class compares Vilana with fuller Vidiano. Which Vilana expectation is appropriately qualified?
+          options:
+            - Vilana is always sweeter and more oak-influenced
+            - Vilana and Vidiano have identical regional profiles
+            - Vilana can be lighter with lemon-scented freshness, while ripeness and vinification can change a bottle
+            - Vilana's citrus profile proves a Peza origin and lower body than any Vidiano in blind tasting, regardless of ripeness
+          correctIndex: 2
+          explanation: Wines of Crete describes a lighter, lemon-fresh Vilana profile; it is not a definitive origin or quality test.
+          sourceCitationId: src_reg_gr_vilana
+        ki_reg_inc_ripasso_pomace:
+          prompt: Which production sequence describes Valpolicella Ripasso rather than Amarone?
+          options:
+            - Dry grape bunches, then make a wine directly from the dried fruit
+            - Blend a finished wine with neutral spirit before ageing
+            - Ferment freshly pressed white juice under a yeast veil
+            - Referment Valpolicella on Amarone pomace
+          correctIndex: 3
+          explanation: Ripasso uses existing Valpolicella wine with Amarone or Recioto pomace, unlike direct dried-grape Amarone production.
+          sourceCitationId: src_reg_inc_amarone
+        ki_reg_inc_ripasso_structure:
+          prompt: A basic Valpolicella wine undergoes Ripasso. Which outcome is possible but still bottle-dependent?
+          options:
+            - Additional alcohol, phenolics and extract relative to the base wine
+            - Refermentation preserves the base wine's original alcohol and extract, even when pomace contains fermentable material
+            - Refermentation's extra alcohol and phenolics establish superior balance without assessing the base wine
+            - A fixed quality rank over every Amarone
+          correctIndex: 0
+          explanation: The extra process can raise alcohol and extract, but starting wine and choices determine final balance.
+          sourceCitationId: src_reg_inc_ripasso
+        ki_reg_na_long_island_cab_franc_style:
+          prompt: A Long Island Cabernet Franc varies from fruit-led to vegetal. Which evidence would help explain the difference?
+          options:
+            - The Long Island origin alone establishes that vineyard canopy and fruit maturity were equivalent for both wines
+            - Canopy and fruit-maturity records alongside tasting
+            - A bell-pepper note as proof of poor quality
+            - A red-fruit note as a unique origin marker
+          correctIndex: 1
+          explanation: The New York grape profile links Cabernet Franc expression with vineyard practices; aroma alone cannot prove origin or quality.
+          sourceCitationId: src_reg_na_ny_grapes
+        ki_reg_oa_mclaren_gentle_cap:
+          prompt: Yangarra's 2024 Grenache record uses gentle cap wetting and some extended skin contact. What does that pairing show?
+          options:
+            - Long skin contact proves daily extraction was forceful, regardless of how the cap was wetted in this 2024 lot
+            - Gentle cap handling proves a wine has no tannin
+            - Daily cap wetting and total skin-contact time differ
+            - One producer's regime is mandatory for all McLaren Vale Grenache
+          correctIndex: 2
+          explanation: The documented lot combines gentle daily wetting with longer contact for some parcels; evaluate the whole extraction record.
+          sourceCitationId: src_reg_oa_yangarra_old
+        ki_reg_oa_mclaren_whole_berries:
+          prompt: A producer says its 2024 Old Vine Grenache retained destemmed intact berries. What should not be inferred?
+          options:
+            - Some berries remained intact during fermentation
+            - The named vintage proves that intact destemmed berries retained stems as whole bunches throughout fermentation
+            - Stainless steel was part of the fermentation route
+            - That whole berries necessarily meant whole bunches with stems
+          correctIndex: 3
+          explanation: The record describes gentle destemming with intact and crushed berries; whole-berry and whole-bunch handling are different.
+          sourceCitationId: src_reg_oa_yangarra_old
+        ki_reg_oa_pinotage_oak_comparison:
+          prompt: Fairview's two 2018 Pinotages differ in new-oak share and maturation time. What can that comparison establish?
+          options:
+            - Documented cellar choices, without isolating their sensory effect from different sites and handling
+            - The Pinotage with a higher new-oak share had better sensory quality, since barrel records isolate oak's effect
+            - A controlled comparison in which only oak age changed while vineyard origin, maturity and handling remained identical
+            - The same production cost and market premium for both
+          correctIndex: 0
+          explanation: The producer records show different maturation choices but also other differences, so oak is not an isolated causal variable.
+          sourceCitationId: src_reg_oa_fairview18
+        ki_reg_sa_itata_skin_time:
+          prompt: An Itata Muscat spends extended time on skins, then moves to another jar. Which stages should the production note distinguish?
+          options:
+            - Skin fermentation and post-transfer ageing are one continuous process with identical extraction despite the move to a second jar
+            - Skin-contact maceration through fermentation and MLF, then later maturation after transfer
+            - Jar material alone determines the finished texture
+            - Skin contact begins only after the wine is bottled
+          correctIndex: 1
+          explanation: The documented 2018 wine remained with skins for an extended period before transfer to a second jar for further ageing.
+          sourceCitationId: src_reg_sa_itata_tinajas
+        ki_reg_sa_itata_wholeberries:
+          prompt: De Martino's 2018 Viejas Tinajas Muscat was made from destemmed whole berries in clay jars. Which contrast is valid?
+          options:
+            - It was fermented as clarified juice without skins
+            - Destemmed whole berries are equivalent to whole bunches with intact stems during a skin-contact clay-jar fermentation
+            - Whole-berry skin-contact fermentation differs from separating juice before white fermentation
+            - The vessel proves the wine's quality without tasting
+          correctIndex: 2
+          explanation: The producer describes intact destemmed berries and native-yeast fermentation in tinajas, a distinct handling route from pressed-juice fermentation.
+          sourceCitationId: src_reg_sa_itata_tinajas
