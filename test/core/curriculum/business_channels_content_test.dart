@@ -30,6 +30,18 @@ void main() {
       .where((item) => _businessItem(item.id))
       .toList();
   final businessIds = business.map((item) => item.id).toSet();
+  const authoredBusinessIds = {
+    'ki_biz_models_vineyard_commitment',
+    'ki_biz_models_custom_capacity',
+    'ki_biz_models_custom_scope',
+    'ki_biz_models_cooperative_control',
+    'ki_biz_models_bulk_purchase',
+    'ki_biz_routes_dtc_resources',
+    'ki_biz_routes_downstream_sales',
+    'ki_biz_routes_service_scope',
+    'ki_biz_routes_partner_fit',
+    'ki_biz_routes_reviewable_roles',
+  };
   final nodes = {for (final node in dataset.knowledgeNodes) node.id: node};
   final sources = {
     for (final source in dataset.sourceCitations) source.id: source,
@@ -320,6 +332,7 @@ void main() {
           expect(recallTemplates[id]!.keys.toSet(), {
             'flashcard',
             'typed',
+            if (authoredBusinessIds.contains(id)) 'authored_choice',
           }, reason: id);
         }
         final pools = await db.select(db.exercisePools).get();
@@ -483,8 +496,8 @@ void main() {
         'WSET_L1': 132,
         'WSET_L2': 829,
         'WSET_L3': 3439,
-        'CMS_CERTIFIED': 2878,
-        'WSET_L4': 3921,
+        'CMS_CERTIFIED': 2897,
+        'WSET_L4': 3972,
       }.entries) {
         final mappings = await planner.effectiveMappings(entry.key);
         expect(mappings, hasLength(entry.value), reason: entry.key);
@@ -513,7 +526,7 @@ void main() {
       expect(diploma.scope.curriculumComplete, isFalse);
       final d2 = diploma.units.singleWhere((unit) => unit.scope.id == 'D2');
       expect(d2.counts.studied, 32);
-      expect(d2.counts.available, 116);
+      expect(d2.counts.available, 119);
       expect(d2.scope.gap, isNotEmpty);
       for (final unit in diploma.units.where((unit) => unit.scope.id != 'D2')) {
         expect(unit.counts.studied, 0, reason: unit.scope.id);
@@ -525,13 +538,13 @@ void main() {
             .singleWhere((unit) => unit.scope.id == 'D3')
             .scope
             .itemIds,
-        hasLength(704),
+        hasLength(720),
       );
       expect(snapshot.levels.map((level) => level.counts.mapped).toList(), [
         132,
         829,
         3439,
-        3921,
+        3972,
       ]);
       expect(
         snapshot.levels.take(3).map((level) => level.counts.studied),
