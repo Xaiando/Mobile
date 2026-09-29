@@ -274,7 +274,7 @@ void main() {
   );
 
   test(
-    '980 cited choices are generated and served across WSET and CMS tracks',
+    '988 cited choices are generated and served across WSET and CMS tracks',
     () async {
       final db = openTestDatabase();
       try {
@@ -299,7 +299,7 @@ void main() {
                   template.id == 'qt_d5f_authored_choice',
             )
             .toList();
-        expect(templates, hasLength(42));
+        expect(templates, hasLength(44));
         final expectedIds = {
           for (final template in templates)
             ...((jsonDecode(template.parameters!)
@@ -473,9 +473,9 @@ void main() {
           'ki_reg_ib_sacra_terraces',
           'ki_reg_ib_dao_encruzado',
         }, reason: 'Diploma and Level 3 regional prompts share two items');
-        expect(expectedIds, hasLength(972));
+        expect(expectedIds, hasLength(980));
         expect(levelOneIds, hasLength(132));
-        expect(levelTwoIds, hasLength(248));
+        expect(levelTwoIds, hasLength(256));
         expect(sharedGrapeIds, hasLength(52));
         expect(europeIds, hasLength(67));
         expect(newWorldIds, hasLength(16));
@@ -506,7 +506,7 @@ void main() {
                OR t.id = 'qt_d5f_authored_choice')
         ORDER BY q.knowledge_item_id
       ''').get();
-        expect(rows, hasLength(980));
+        expect(rows, hasLength(988));
         final actual = {
           for (final row in rows)
             row.read<String>('knowledge_item_id'): row.read<String>(
