@@ -1,0 +1,68 @@
+# Optional, cited practice. Written cases are self-reviewed against four
+# evidence roles; a correct choice does not certify practical service.
+question_templates:
+  - id: qt_enrich_sake_food_case
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: enrich_sake_food
+    prompt_template: "Your list has a delicate sake and a richer sake with roasted aromas. A guest orders delicate steamed fish and assertively grilled vegetables. Recommend an initial pairing, explain the principle, and state why the guest might choose differently."
+    parameters:
+      scope_node_ids: [n_enrich_case_sake_pairing]
+      key_points: {CASE_ACTION: Stock-based response, CASE_REASON: Intensity and aroma, CASE_TRADEOFF: Preference or temperature, CASE_LIMITATION: No guaranteed match}
+  - id: qt_enrich_cigar_care_case
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: enrich_cigar_care
+    prompt_template: "A box is claimed to contain Habanos but has been kept in a kitchen fridge. An adult guest asks for table preparation. How would you check the claim, handle storage and decide whether to prepare one? Include the health and venue limits."
+    parameters:
+      scope_node_ids: [n_enrich_case_cigar_service]
+      key_points: {CASE_ACTION: Verification and conditional service, CASE_REASON: Fridge and care evidence, CASE_TRADEOFF: Decline or defer, CASE_LIMITATION: Product and health limits}
+  - id: qt_enrich_egypt_evidence_case
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: enrich_egypt_evidence
+    prompt_template: "A guest calls Areni-1, an Amarna wine inscription and a Greek krater three ancient appellation laws. Put the three dated examples in order, describe what each records, and say which 'first' or modern-law claims they cannot establish."
+    parameters:
+      scope_node_ids: [n_enrich_case_ancient_evidence]
+      key_points: {CASE_ACTION: Order and evidence types, CASE_REASON: Source-specific claims, CASE_TRADEOFF: Provenance versus law, CASE_LIMITATION: No first or continuity claim}
+  - id: qt_enrich_cited_choices
+    relation_type: PRINCIPLE_EXPLANATION
+    direction: forward
+    mode: authored_choice
+    variant: enrich_cited_choices
+    prompt_template: "{subject.name}"
+    parameters:
+      item_choices:
+        ki_enrich_sake_pairing_intensity:
+          prompt: "The stocked sake is described as delicate and the dish is lightly flavoured. Which pairing approach does the sake trade guide suggest trying first?"
+          options:
+            - "Pair by matching the sake's intensity to the dish."
+            - "Pair by requiring the sake to be sweeter than the dish."
+            - "Pair by serving every sake hot regardless of the dish."
+            - "Pair by choosing only the sake's polishing percentage."
+          correctIndex: 0
+          explanation: "The JSS guide offers intensity matching as a starting approach, then leaves the actual pairing to the drink and guest."
+          sourceCitationId: src_enrich_jss_pairing
+        ki_enrich_cigar_service_storage:
+          prompt: "Which care plan follows Habanos' own guidance for a box claimed to contain Habanos?"
+          options:
+            - "Keep it in a kitchen fridge and accept fluctuating humidity."
+            - "Keep it in direct sunlight and add water before each sale."
+            - "Use a monitored humidor near 16–18°C and 65–70% RH."
+            - "Use a freezer as everyday storage at any humidity."
+          correctIndex: 2
+          explanation: "Habanos gives a steady 16–18°C and 65–70% RH range and says a household fridge is too dry and can impart smells."
+          sourceCitationId: src_enrich_habanos_storage
+        ki_enrich_amarna_labels_content:
+          prompt: "What may an Amarna wine-jar inscription record, according to UCL's catalog?"
+          options:
+            - "A modern legal PDO, a grape clone and a bottle barcode."
+            - "A production year, a vintner and a named vineyard."
+            - "A Greek symposium recipe, a krater and a serving cup."
+            - "A Roman export tax, a ship and a customs office."
+          correctIndex: 1
+          explanation: "UCL describes Amarna wine labels with a production year, a vintner and a vineyard; this does not make them modern appellation law."
+          sourceCitationId: src_enrich_ucl_amarna_labels
