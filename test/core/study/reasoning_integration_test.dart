@@ -93,7 +93,7 @@ void main() {
 
   test('only final targets get reasoning availability and supports must be studied', () async {
     final pools = await targets();
-    expect(pools, hasLength(8));
+    expect(pools, hasLength(10));
     final planner = StudyPlanner(db, clock: time.clock);
     final before = await planner.cards('WSET_L4');
     expect(
@@ -133,7 +133,32 @@ void main() {
         );
       }
     }
-    for (final track in ['WSET_L3', 'CMS_CERTIFIED']) {
+    const sharedTargets = {
+      'ki_wset_reason_frost_clusters',
+      'ki_wset_reason_ferment_ethanol',
+    };
+    for (final track in ['WSET_L2', 'WSET_L3']) {
+      final trackCards = await planner.cards(track);
+      expect(
+        trackCards
+            .where((c) => c.formats.any((f) => f.mode == 'reasoning'))
+            .map((c) => c.itemId)
+            .toSet(),
+        sharedTargets,
+      );
+      for (final pool in pools.where(
+        (p) => sharedTargets.contains(p.read<String>('knowledge_item_id')),
+      )) {
+        final exercise = await presenter.present(
+          pool.read<String>('knowledge_item_id'),
+          pool.read<String>('question_template_id'),
+          seed: 71,
+          certificationId: track,
+        ) as ReasoningExercise;
+        expect(exercise.itemIds.toSet(), (await chain(pool)).toSet());
+      }
+    }
+    for (final track in ['CMS_CERTIFIED']) {
       expect(
         (await planner.cards(track))
             .every((c) => c.formats.every((f) => f.mode != 'reasoning')),
@@ -151,25 +176,25 @@ void main() {
     }
   });
 
-  test('coverage counts only eight depth-4 targets without counting support membership', () async {
+  test('coverage counts only ten depth-4 targets without counting support membership', () async {
     final checker = CoverageChecker(
       db,
       CoveragePolicy.parse(
         File('assets/curriculum/coverage_policy.yaml').readAsStringSync(),
       ),
     );
-    final coverage = await checker.check('WSET_L4', on: '2026-09-27');
+    final coverage = await checker.check('WSET_L4', on: '2026-10-01');
     final reasoned = coverage.items
         .where((i) => i.servedFormats.contains('reasoning'))
         .toList();
-    expect(reasoned, hasLength(8));
+    expect(reasoned, hasLength(10));
     expect(
       reasoned.where((i) => i.item.domainId == 'viticulture'),
-      hasLength(6),
+      hasLength(7),
     );
     expect(
       reasoned.where((i) => i.item.domainId == 'winemaking'),
-      hasLength(2),
+      hasLength(3),
     );
     final pools = await targets();
     for (final pool in pools) {
