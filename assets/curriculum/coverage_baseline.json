@@ -1,6 +1,6 @@
 {
   "about": "Question coverage baseline (backlog F1, audit COV-3). The build fails when a metric falls below it or a blocking gap is not in known_gaps. Regenerate the metrics with dart run tool/coverage_report.dart --update-baseline; edit known_gaps by hand.",
-  "release": "0.24.13",
+  "release": "0.24.14",
   "on": "2026-09-29",
   "tracks": {
     "CMS_CERTIFIED": {
@@ -156,12 +156,12 @@
       }
     },
     "WSET_L2": {
-      "total": {"items": 829, "core": 748, "testable": 829, "flashcard_only": 0, "useful_practice": 545, "recall": 713, "recognition": 547, "spatial": 115, "structured": 0, "reasoning": 2, "core_flashcard_only": 0, "core_useful_practice": 537, "core_reasoning": 2},
+      "total": {"items": 829, "core": 748, "testable": 829, "flashcard_only": 0, "useful_practice": 560, "recall": 713, "recognition": 562, "spatial": 115, "structured": 0, "reasoning": 2, "core_flashcard_only": 0, "core_useful_practice": 552, "core_reasoning": 2},
       "domains": {
         "business": {
-          "total": {"items": 15, "core": 15, "testable": 15, "flashcard_only": 0, "useful_practice": 0, "recall": 15, "recognition": 0, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 0, "core_reasoning": 0},
+          "total": {"items": 15, "core": 15, "testable": 15, "flashcard_only": 0, "useful_practice": 15, "recall": 15, "recognition": 15, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 15, "core_reasoning": 0},
           "areas": {
-            "type:production_principle": {"items": 15, "core": 15, "testable": 15, "flashcard_only": 0, "useful_practice": 0, "recall": 15, "recognition": 0, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 0, "core_reasoning": 0}
+            "type:production_principle": {"items": 15, "core": 15, "testable": 15, "flashcard_only": 0, "useful_practice": 15, "recall": 15, "recognition": 15, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 15, "core_reasoning": 0}
           }
         },
         "geography": {
@@ -237,13 +237,13 @@
       }
     },
     "WSET_L3": {
-      "total": {"items": 3439, "core": 2232, "testable": 3439, "flashcard_only": 0, "useful_practice": 2265, "recall": 3328, "recognition": 2250, "spatial": 1673, "structured": 21, "reasoning": 2, "core_flashcard_only": 0, "core_useful_practice": 1221, "core_reasoning": 2},
+      "total": {"items": 3439, "core": 2232, "testable": 3439, "flashcard_only": 0, "useful_practice": 2291, "recall": 3328, "recognition": 2276, "spatial": 1673, "structured": 21, "reasoning": 2, "core_flashcard_only": 0, "core_useful_practice": 1247, "core_reasoning": 2},
       "domains": {
         "business": {
-          "total": {"items": 100, "core": 99, "testable": 100, "flashcard_only": 0, "useful_practice": 1, "recall": 100, "recognition": 1, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 1, "core_reasoning": 0},
+          "total": {"items": 100, "core": 99, "testable": 100, "flashcard_only": 0, "useful_practice": 27, "recall": 100, "recognition": 27, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 27, "core_reasoning": 0},
           "areas": {
             "type:production_case": {"items": 39, "core": 39, "testable": 39, "flashcard_only": 0, "useful_practice": 0, "recall": 39, "recognition": 0, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 0, "core_reasoning": 0},
-            "type:production_principle": {"items": 61, "core": 60, "testable": 61, "flashcard_only": 0, "useful_practice": 1, "recall": 61, "recognition": 1, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 1, "core_reasoning": 0}
+            "type:production_principle": {"items": 61, "core": 60, "testable": 61, "flashcard_only": 0, "useful_practice": 27, "recall": 61, "recognition": 27, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 27, "core_reasoning": 0}
           }
         },
         "geography": {
@@ -367,13 +367,13 @@
       }
     },
     "WSET_L4": {
-      "total": {"items": 3921, "core": 2653, "testable": 3921, "flashcard_only": 0, "useful_practice": 2273, "recall": 3810, "recognition": 2250, "spatial": 1673, "structured": 21, "reasoning": 10, "core_flashcard_only": 0, "core_useful_practice": 1229, "core_reasoning": 10},
+      "total": {"items": 3921, "core": 2653, "testable": 3921, "flashcard_only": 0, "useful_practice": 2299, "recall": 3810, "recognition": 2276, "spatial": 1673, "structured": 21, "reasoning": 10, "core_flashcard_only": 0, "core_useful_practice": 1255, "core_reasoning": 10},
       "domains": {
         "business": {
-          "total": {"items": 229, "core": 229, "testable": 229, "flashcard_only": 0, "useful_practice": 1, "recall": 229, "recognition": 1, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 1, "core_reasoning": 0},
+          "total": {"items": 229, "core": 229, "testable": 229, "flashcard_only": 0, "useful_practice": 27, "recall": 229, "recognition": 27, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 27, "core_reasoning": 0},
           "areas": {
             "type:production_case": {"items": 117, "core": 117, "testable": 117, "flashcard_only": 0, "useful_practice": 0, "recall": 117, "recognition": 0, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 0, "core_reasoning": 0},
-            "type:production_principle": {"items": 112, "core": 112, "testable": 112, "flashcard_only": 0, "useful_practice": 1, "recall": 112, "recognition": 1, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 1, "core_reasoning": 0}
+            "type:production_principle": {"items": 112, "core": 112, "testable": 112, "flashcard_only": 0, "useful_practice": 27, "recall": 112, "recognition": 27, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 27, "core_reasoning": 0}
           }
         },
         "geography": {
