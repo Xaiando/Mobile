@@ -208,7 +208,7 @@ class WsetPracticeEvidenceReader {
             attempt.isFinished &&
             !attempt.abandoned &&
             !attempt.completedAt!.isAfter(now) &&
-            attempt.completeWineCount == 2) {
+            attempt.hasWhiteAndRedWines) {
           paired++;
         }
       }

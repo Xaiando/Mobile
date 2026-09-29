@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "2026.09.27-original.4",
+  "version": "2026.09.29-original.5",
   "levels": [
     {
       "level": 1,
@@ -38,6 +38,11 @@
         "sparkling": 5,
         "fortified": 5,
         "service": 4
+      },
+      "writtenBlueprint": {
+        "still": 2,
+        "service": 1,
+        "sparkling_fortified": 1
       }
     }
   ],
@@ -8373,6 +8378,7 @@
   "written": [
     {
       "id": "written_grape_to_style",
+      "blueprintGroup": "still",
       "prompt": "Two Chardonnay wines use equally sound fruit: one is pressed promptly and fermented cool in steel; the other receives selected oak and lees contact, with MLF allowed. Explain how these choices can change aroma, texture and acidity. State what you cannot conclude about quality from the vessel alone.",
       "levels": [
         3
@@ -8418,6 +8424,7 @@
     },
     {
       "id": "written_bordeaux_ripening",
+      "blueprintGroup": "still",
       "prompt": "Explain how the ripening timing and structural roles of Merlot and Cabernet Sauvignon can inform a Bordeaux red blend. Discuss why a vineyard or blend percentage alone cannot predict the final wine’s balance.",
       "levels": [
         3
@@ -8458,6 +8465,7 @@
     },
     {
       "id": "written_sparkling_methods",
+      "blueprintGroup": "sparkling_fortified",
       "prompt": "A producer wants a fresh aromatic sparkling wine; another wants bottle-lees development. Compare conventional tank and traditional methods, then explain how tirage, sediment removal and dosage perform different jobs.",
       "levels": [
         3
@@ -8506,6 +8514,7 @@
     },
     {
       "id": "written_port_styles",
+      "blueprintGroup": "sparkling_fortified",
       "prompt": "Compare a fruit-led Ruby-style Port with a cask-matured Tawny-style Port. Explain the role of fortification timing, the contrasting maturation aims and why drinking readiness cannot be inferred solely from the word Port.",
       "levels": [
         3
@@ -8544,6 +8553,7 @@
     },
     {
       "id": "written_sherry_ageing",
+      "blueprintGroup": "sparkling_fortified",
       "prompt": "Explain how biological and oxidative ageing can produce different dry Sherry characters. Include flor’s requirements and metabolism, the Amontillado sequence and why rich texture does not prove a sweet Oloroso.",
       "levels": [
         3
@@ -8582,6 +8592,7 @@
     },
     {
       "id": "written_site_water",
+      "blueprintGroup": "still",
       "prompt": "Two vineyards share a variety but differ in available water, canopy density and crop relative to leaf area. Explain how you would assess vine resources, canopy health and harvest maturity. Do not assume the lower yield automatically proves better wine.",
       "levels": [
         3
@@ -8626,6 +8637,7 @@
     },
     {
       "id": "written_sweet_wine_routes",
+      "blueprintGroup": "still",
       "prompt": "Compare concentration by grape drying, suitable noble rot and naturally frozen icewine fruit. Explain why fruit concentration alone does not fix finished sweetness, using Amarone and Recioto as the contrast.",
       "levels": [
         3
@@ -8663,6 +8675,7 @@
     },
     {
       "id": "written_burgundy_origin",
+      "blueprintGroup": "still",
       "prompt": "A merchant compares a regional Bourgogne, a village Premier Cru and a named Grand Cru. Explain the origin information and possible volume/demand effects of these labels, then distinguish them from Bordeaux estate classification and actual tasting quality.",
       "levels": [
         3
@@ -8707,6 +8720,7 @@
     },
     {
       "id": "written_food_and_service",
+      "blueprintGroup": "service",
       "prompt": "A guest dislikes chilli burn but accepts light sweetness. A hot, herb-led dish has no sweet sauce. Compare a high-alcohol dry white and a lower-alcohol lightly sweet white as trial pairings. Explain the mechanism, a tradeoff and checks still needed.",
       "levels": [
         3
@@ -8744,6 +8758,7 @@
     },
     {
       "id": "written_old_red_service",
+      "blueprintGroup": "service",
       "prompt": "An older red has visible sediment and delicate fruit in a clean glass. It will be drunk immediately. Explain how you would separate sediment, manage oxygen exposure and check whether decanting remains appropriate.",
       "levels": [
         3
@@ -8781,6 +8796,7 @@
     },
     {
       "id": "written_tokaj_selection",
+      "blueprintGroup": "still",
       "prompt": "In a Tokaj block, qualified assessment distinguishes suitable shrivelled berries, healthy fruit and damaging decay. A drying window is forecast after humidity. Explain selection for an Aszú-style lot, the environmental sequence, labour and the limits of the forecast.",
       "levels": [
         3
@@ -8818,6 +8834,7 @@
     },
     {
       "id": "written_region_and_quality",
+      "blueprintGroup": "still",
       "prompt": "A comparison pairs a fuller wood-matured Dão Encruzado with a fresh Vinho Verde white of another grape. Explain plausible grape/site/cellar contributions, why the comparison cannot isolate region alone, and how to improve it.",
       "levels": [
         3

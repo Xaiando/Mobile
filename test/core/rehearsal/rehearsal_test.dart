@@ -105,6 +105,27 @@ void main() {
     },
   );
 
+  test('an undersupplied written topic blocks the Level 3 preset', () async {
+    await LearnerProfiles(db, clock: time.clock).selectTrack('WSET_L3');
+    final bank =
+        jsonDecode(jsonEncode(rehearsalFixtureMap())) as Map<String, dynamic>;
+    (bank['levels'] as List)[2]['writtenBlueprint'] = {
+      'still': 2,
+      'service': 1,
+      'sparkling_fortified': 1,
+    };
+    for (final question in bank['written'] as List) {
+      question['blueprintGroup'] = 'still';
+    }
+    repository = RehearsalRepository(
+      db,
+      bank: RehearsalBank.fromJson(jsonEncode(bank)),
+      clock: time.clock,
+    );
+    await expectLater(repository.start(3), throwsStateError);
+    expect(await repository.current(), isNull);
+  });
+
   test(
     'active track, expired links and unmapped links gate sampling',
     () async {
@@ -580,6 +601,16 @@ void main() {
     badBlueprint['levels'][0]['blueprint']['service'] = 5;
     expect(
       () => RehearsalBank.fromJson(jsonEncode(badBlueprint)),
+      throwsFormatException,
+    );
+    final badWrittenBlueprint =
+        jsonDecode(jsonEncode(rehearsalFixtureMap())) as Map<String, dynamic>;
+    badWrittenBlueprint['levels'][2]['writtenBlueprint'] = {
+      'still': 2,
+      'service': 1,
+    };
+    expect(
+      () => RehearsalBank.fromJson(jsonEncode(badWrittenBlueprint)),
       throwsFormatException,
     );
   });

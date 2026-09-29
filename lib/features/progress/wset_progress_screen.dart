@@ -329,7 +329,7 @@ class _LevelSectionState extends ConsumerState<_LevelSection> {
                 ),
               if (level.scope.practice.pairedTasting)
                 Text(
-                  'Two-wine practices fully described: ${level.practiceEvidence.pairedTastings} · both wines and their evidence completed',
+                  'White-and-red two-wine practices fully described: ${level.practiceEvidence.pairedTastings} · both wines and their evidence completed',
                 ),
               if (level.practiceEvidence.unreadableRecords > 0)
                 const Text(

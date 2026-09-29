@@ -95,6 +95,10 @@ void main() {
     );
     await visible(tester, find.textContaining('Both share 30 minutes'));
     expect(find.textContaining('Both share 30 minutes'), findsOneWidget);
+    expect(
+      find.textContaining('one white and one red, in either order'),
+      findsOneWidget,
+    );
     await visible(tester, find.byKey(const ValueKey('tasting-pair-start')));
     expect(tester.takeException(), isNull);
   });
