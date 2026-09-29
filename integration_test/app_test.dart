@@ -98,8 +98,12 @@ void main() {
     await tester.tap(ofAge);
     await tester.pumpAndSettle();
     await tester.tap(find.text('Continue'));
-    await tester.pumpAndSettle();
-    await tester.tap(find.text('Continue'));
+    await pumpUntil(
+      tester,
+      () => find.text('How it works').evaluate().isNotEmpty,
+      what: 'the How it works step',
+    );
+    await tester.tap(find.widgetWithText(FilledButton, 'Continue'));
     await tester.pumpAndSettle();
 
     final track = find.text('WSET Level 3');
