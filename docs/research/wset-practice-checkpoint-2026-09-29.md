@@ -1,6 +1,6 @@
 # WSET practice and release checkpoint — 29 September 2026
 
-This is a measured app-content checkpoint for release `0.24.28`, not a WSET
+This is a measured app-content checkpoint for release `0.24.29`, not a WSET
 qualification claim. The release's mapped core is an editorial study plan;
 the official awards also require their own assessments. A useful-practice
 item has a served objective question and two format families. A place can
@@ -10,20 +10,20 @@ that two-family metric.
 | Track | Core with useful practice | Core still outside metric |
 | --- | ---: | ---: |
 | WSET Level 1 | 132 / 132 | 0 |
-| WSET Level 2 | 684 / 748 | 64 |
-| WSET Level 3 | 1,538 / 2,232 | 694 |
-| WSET Level 4 | 1,628 / 2,766 | 1,138 |
-| CMS Certified | 963 / 1,242 | 279 |
+| WSET Level 2 | 692 / 748 | 56 |
+| WSET Level 3 | 1,546 / 2,232 | 686 |
+| WSET Level 4 | 1,636 / 2,766 | 1,130 |
+| CMS Certified | 966 / 1,242 | 276 |
 
-The Level 2 gaps are 56 geography, three tasting, one viticulture and four
-winemaking. Twenty geography location facts already serve map questions;
+The Level 2 gaps are all geography. Twenty location facts already serve map questions;
 they lack a second *family*, not a clickable location. The other geography
 gaps need source-bounded origin, grape, label or regional reasoning. The eight
-non-geography gaps are being addressed separately. Level 2 business and
-service mapped core are already 15/15 and 61/61 useful.
+non-geography gaps were closed in this release. Level 2 business, service,
+tasting, viticulture and winemaking mapped core are now 15/15, 61/61,
+158/158, 115/115 and 123/123 useful respectively.
 
-Level 3's remaining gaps are 262 winemaking, 165 geography, 159 viticulture,
-69 business, 24 service and 15 tasting. Fifty-four geography location facts
+Level 3's remaining gaps are 258 winemaking, 165 geography, 158 viticulture,
+69 business, 24 service and 12 tasting. Fifty-four geography location facts
 already have spatial questions. Conditional four-role cases need their own
 reasoning or written practice rather than a generic single-answer choice.
 Prioritize a disjoint winemaking/viticulture batch, business decisions, and
@@ -33,7 +33,7 @@ core mapping or relax the useful-practice rule simply to improve the count.
 
 This branch adds cited choice batches for shared grape profiles, Level 2
 viticulture and winemaking, and Level 3 viticulture, winemaking, tasting,
-service and regional geography. The aggregate format regression counts 980
+service and regional geography. The aggregate format regression counts 988
 authored-choice rows, including intentional second prompts on eight facts
 shared with Diploma D3. Local affected tests, curriculum lint, coverage
 ratchet and static analysis pass. Curriculum lint still reports three
