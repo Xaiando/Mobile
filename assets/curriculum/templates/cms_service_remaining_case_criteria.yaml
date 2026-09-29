@@ -1,0 +1,94 @@
+# Objective CMS Certified service case practice. Assertions remain expert-unverified.
+# Pairings are conditional; producer/style references do not certify stock or labels.
+question_templates:
+  - id: qt_cms_service_remaining_case_criteria_7
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: case_criteria
+    variant: cms_service_remaining_case_criteria
+    prompt_template: "{subject.name}"
+    parameters:
+      scope_node_ids:
+        - n_cms_beer_case_cask
+        - n_cms_beer_case_pair
+        - n_cms_beer_case_belgian
+        - n_cms_pairing_case_oysters
+        - n_cms_pairing_case_chocolate
+        - n_cms_irish_case
+        - n_cms_liqueur_case
+      scenario_prompts:
+        n_cms_beer_case_cask: >-
+          A cask has just arrived and has been moved repeatedly. A guest asks
+          for it immediately. Explain the service decision, why live cask
+          condition matters, a packaged alternative, and which actual cellar,
+          clarity, temperature and service checks still control the pour.
+        n_cms_beer_case_pair: >-
+          A guest wants beer with a strongly spiced curry but has not described
+          the heat level or preferred beer. Suggest a tentative beer to trial,
+          explain intensity and complement or contrast, compare bitterness and
+          sweetness tradeoffs, and check the actual dish and beer before service.
+        n_cms_beer_case_belgian: >-
+          A guest calls a dark Belgian Dubbel a Tripel because it is strong.
+          Explain the two BJCP reference profiles, ask which character the
+          guest wants, and check the actual producer and bottle before
+          assigning a style or promising its flavour.
+        n_cms_pairing_case_oysters: >-
+          A guest who prefers crisp dry still white wine orders oysters with
+          lemon and vinegar. Assess a Muscadet trial with a dressed oyster,
+          explain the acidity interaction, mention an alternative such as
+          Champagne only if wanted, and respect the actual condiment and
+          guest preference before claiming a match.
+        n_cms_pairing_case_chocolate: >-
+          A guest who enjoys fortified wine orders a high-cocoa chocolate
+          tart with salted caramel. Assess Tawny Port as a tentative trial,
+          explain the effect of sweet food on a dry wine, consider the salt
+          and topping tradeoff, and avoid claiming the source tested this
+          exact tart and bottle.
+        n_cms_irish_case: >-
+          A guest assumes Single Pot Still Irish Whiskey means Single Malt.
+          Explain the published Irish technical-file barley distinction,
+          offer a comparison of actual labelled and stocked bottles if
+          available, and avoid predicting an exact flavour for every bottle
+          from the geographical indication.
+        n_cms_liqueur_case: >-
+          A guest asks for an herbal liqueur but is offered an orange liqueur.
+          Compare maker descriptions of Green Chartreuse and Cointreau,
+          explain why shared extraction methods do not make their flavour
+          profiles equivalent, and verify guest preference, stocked label
+          and dietary details before service.
+      distractors:
+        n_cms_beer_case_cask:
+          - summary: "Tap and pour the newly moved cask immediately because a fitted tap proves it is settled"
+            explanation: "CAMRA describes cask beer as live and needing condition and settling; tap fitting alone does not establish clarity, temperature or readiness of this cask."
+          - summary: "Apply a universal fixed settling interval and promise a clear pour without inspecting this cask"
+            explanation: "A general cask guide does not establish a safe fixed time for the actual cask; cellar condition, movement, clarity and service method still need checking."
+        n_cms_beer_case_pair:
+          - summary: "Select beer solely by alcohol strength and ignore the curry's flavour intensity and heat"
+            explanation: "The Brewers Association guide assesses flavour intensity and complement or contrast; ABV alone does not test the dish's spice, bitterness or the guest's taste."
+          - summary: "Promise one illustrated beer style matches every strongly spiced curry regardless of sauce and guest preference"
+            explanation: "The guide offers pairing principles and examples, not a guaranteed universal match; heat, sweetness, bitterness and the actual beer can change the result."
+        n_cms_beer_case_belgian:
+          - summary: "Call every strong dark Belgian beer a Tripel based on alcohol strength alone"
+            explanation: "BJCP 2021 distinguishes the typically pale, dry Tripel reference from the darker, maltier Dubbel; strength alone cannot settle the actual bottle style."
+          - summary: "Treat the BJCP competition profile as certification of this producer's bottle and exact flavour"
+            explanation: "BJCP publishes reference descriptions for judging styles, not a legal certification or sensory guarantee for an unexamined stocked bottle."
+        n_cms_pairing_case_oysters:
+          - summary: "Promise Muscadet is uniquely best for every oyster regardless of lemon, vinegar and guest taste"
+            explanation: "WSET offers Muscadet and Champagne as possible matches; the condiment's acid and individual preference can change the outcome, so taste the dressed oyster."
+          - summary: "Ignore the guest's still-white preference and the dressing acidity because oysters determine one mandatory wine"
+            explanation: "The WSET example relates wine and food acidity, while CMS service guidance values guest preference; neither source prescribes a mandatory wine."
+        n_cms_pairing_case_chocolate:
+          - summary: "Guarantee Tawny Port suits this exact salted-caramel tart because a general chocolate example mentions Port"
+            explanation: "WSET presents a tentative chocolate and Port idea, not a test of this tart, its salt and caramel topping, or the stocked Tawny bottle."
+          - summary: "Ignore the topping and serve a dry wine because chocolate sweetness cannot alter wine bitterness"
+            explanation: "WSET explains that sweet food can make wine seem drier and more bitter; salt and the actual topping also need a tasting check."
+        n_cms_irish_case:
+          - summary: "Equate Single Pot Still and Single Malt because both Irish varieties may use copper pot stills"
+            explanation: "The published Irish Whiskey technical file separates the barley bills: pot-still whiskey uses malted and unmalted barley, whereas malt whiskey uses malted barley."
+          - summary: "Promise every bottle in each Irish variety has one exact flavour solely from its geographical indication"
+            explanation: "The technical file describes production and broad characteristics; distillery, casks and the actual labelled bottle affect the sensory outcome."
+        n_cms_liqueur_case:
+          - summary: "Offer Cointreau as an herbal equivalent because both makers distil botanical material"
+            explanation: "Chartreuse describes an herbal botanical recipe, while Cointreau identifies orange peels; a shared extraction method does not make the requested flavour equivalent."
+          - summary: "Infer the stocked bottle's ingredients and dietary suitability from a generic maker description"
+            explanation: "Maker product pages identify examples but cannot confirm this venue's bottle, current label, full ingredients or the guest's dietary requirements."

@@ -46,20 +46,26 @@ void main() {
         final mappings = dataset.certificationKnowledgeMappings
             .where((row) => row.knowledgeItemId == item.id)
             .toList();
-        expect(mappings, hasLength(1), reason: item.id);
-        expect(mappings.single.importance, 'core', reason: item.id);
-        expect(
-          mappings.single.certificationId,
-          item.id == 'ki_cms_example_distillation'
-              ? 'CMS_INTRODUCTORY'
-              : 'CMS_CERTIFIED',
-          reason: item.id,
-        );
-        expect(
-          mappings.single.minimumDepth,
-          item.id == 'ki_cms_example_distillation' ? 1 : 2,
-          reason: item.id,
-        );
+        if (item.id == 'ki_cms_example_distillation') {
+          expect(mappings, hasLength(2), reason: item.id);
+          final byTrack = {
+            for (final row in mappings) row.certificationId: row,
+          };
+          expect(byTrack.keys.toSet(), {'CMS_INTRODUCTORY', 'CMS_CERTIFIED'});
+          expect(byTrack['CMS_INTRODUCTORY']!.importance, 'core');
+          expect(byTrack['CMS_INTRODUCTORY']!.minimumDepth, 1);
+          expect(byTrack['CMS_CERTIFIED']!.importance, 'core');
+          expect(byTrack['CMS_CERTIFIED']!.minimumDepth, 2);
+        } else {
+          expect(mappings, hasLength(1), reason: item.id);
+          expect(mappings.single.importance, 'core', reason: item.id);
+          expect(
+            mappings.single.certificationId,
+            'CMS_CERTIFIED',
+            reason: item.id,
+          );
+          expect(mappings.single.minimumDepth, 2, reason: item.id);
+        }
       }
 
       final scope = TrackScopeManifest.parse(

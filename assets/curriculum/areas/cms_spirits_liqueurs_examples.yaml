@@ -307,9 +307,11 @@ knowledge_items:
     last_verified_at: "2026-09-29T00:00:00.000Z"
 
 certification_knowledge_mappings:
-  # The distillation principle is on the CMS Introductory column and inherited
-  # into the selectable Certified study track. Named examples are Certified.
+  # Introductory retains recognition at depth 1. The Certified override adds
+  # ordinary forward recall at depth 2 for the same distillation principle.
+  # Named spirit and liqueur examples remain Certified.
   - { certification_id: CMS_INTRODUCTORY, knowledge_item_id: ki_cms_example_distillation, importance: core, minimum_depth: 1 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_example_distillation, importance: core, minimum_depth: 2 }
   - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_example_islay, importance: core, minimum_depth: 2 }
   - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_example_mezcal, importance: core, minimum_depth: 2 }
   - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_example_grappa, importance: core, minimum_depth: 2 }

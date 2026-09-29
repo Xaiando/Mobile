@@ -1,0 +1,342 @@
+# CMS Certified application choices for 33 existing source-linked principles.
+# Reference styles, producer examples and pairing suggestions retain their limits.
+# The separate inherited distillation item gains no duplicate facts or templates.
+question_templates:
+  - id: qt_cms_service_remaining_principles_33
+    relation_type: PRINCIPLE_EXPLANATION
+    direction: forward
+    mode: authored_choice
+    variant: cms_service_remaining_principles_33
+    prompt_template: '{subject.name}'
+    parameters:
+      item_choices:
+        ki_cms_beer_mash:
+          prompt: "A trainee calls the mash tun the place where yeast makes beer alcoholic. Which correction describes its role in basic malt brewing?"
+          options:
+            - "Warm water and crushed malt allow enzymes to convert starch into sugars."
+            - "Cooling and fresh yeast allow the grain starch to turn directly into alcohol."
+            - "Boiling and added hops turn the grain's alcohol into fermentable sugar."
+            - "Warm water and crushed malt allow live yeast to produce the finished beer."
+          correctIndex: 0
+          explanation: "In the basic brewing sequence, mashing makes sugars available through malt enzymes. Yeast fermentation is a later stage."
+          sourceCitationId: src_cms_beer_brewing
+        ki_cms_beer_wort:
+          prompt: "Before a brewery tour, a server confuses wort with finished beer. Which sequence should the server describe?"
+          options:
+            - "Separate alcoholic beer from grain, boil it, then add yeast before serving."
+            - "Separate sweet wort from grain, boil it, then cool it before fermentation."
+            - "Separate sweet wort from grain, ferment it, then boil it to preserve yeast."
+            - "Separate grain from fermented wort, cool it, then mash it before packaging."
+          correctIndex: 1
+          explanation: "Wort is the sweet liquid from the grain. The cited outline uses boiling, cooling and fermentation; it does not prescribe every brewery's layout."
+          sourceCitationId: src_cms_beer_camra_process
+        ki_cms_beer_hops:
+          prompt: "A menu gives a hop variety and a bitterness number but no tasting note. What can the sommelier responsibly tell the guest?"
+          options:
+            - "They establish its citrus aroma regardless of addition timing or beer recipe."
+            - "They establish the balance and perceived bitterness without tasting the actual beer."
+            - "They give clues to bitterness and aroma; also assess the actual finished beer."
+            - "They identify hop bitterness alone, since kettle hops cannot contribute aroma."
+          correctIndex: 2
+          explanation: "Hop additions can contribute bitterness, flavour and aroma. A variety name or bitterness value does not describe the entire finished beer."
+          sourceCitationId: src_cms_beer_brewing
+        ki_cms_beer_hop_types:
+          prompt: "A buyer compares Saaz and Cascade for a beer-list explanation. Which description follows BarthHaas without promising an identical result in every beer?"
+          options:
+            - "Saaz offers fruitier citrus-like clues, while Cascade offers mild spicy-woody clues."
+            - "Saaz and Cascade provide the same aroma because both are aroma varieties."
+            - "Saaz and Cascade determine the complete beer aroma independently of hopping time."
+            - "Saaz offers mild spicy-woody clues, while Cascade offers fruitier citrus-like clues."
+          correctIndex: 3
+          explanation: "The merchant profiles distinguish these varieties. Crop, product form, addition timing and the rest of the beer still matter."
+          sourceCitationId: src_cms_beer_hop_varieties
+        ki_cms_beer_yeast:
+          prompt: "A learner asks how cooled wort becomes alcoholic beer. Which account identifies fermentation rather than mashing or conditioning?"
+          options:
+            - "Yeast converts fermentable sugars in cooled wort into alcohol and carbon dioxide."
+            - "Malt enzymes convert cooled wort's starch directly into alcohol and carbon dioxide."
+            - "Hop oils convert wort sugars into alcohol while the yeast controls bitterness."
+            - "Carbon dioxide converts cooled wort's sugars into alcohol when yeast is removed."
+          correctIndex: 0
+          explanation: "Yeast acts on fermentable sugars after cooling. Ale or lager yeast is only one influence on the finished beer."
+          sourceCitationId: src_cms_beer_brewing
+        ki_cms_beer_ale_lager:
+          prompt: "A guest thinks all dark beers are ales and all pale beers are lagers. Which response uses the AHA examples appropriately?"
+          options:
+            - "Ale and lager describe colour categories; dark examples belong to ale."
+            - "Ale and lager describe fermentation traditions; colour does not establish either."
+            - "Ale and lager describe quality grades; lager is always the lighter grade."
+            - "Ale and lager describe alcohol bands; pale strong beers all become lager."
+          correctIndex: 1
+          explanation: "AHA lists porter and stout among ale examples and Pilsner and Bock among lager examples. Those examples are not universal colour rules."
+          sourceCitationId: src_cms_beer_brewing
+        ki_cms_beer_porter_stout:
+          prompt: "A guest wants to compare English Porter and Irish Stout. Which contrast reflects the cited BJCP reference descriptions?"
+          options:
+            - "Porter usually has stronger coffee-like roast; Irish Stout excludes roasted malt character."
+            - "Porter is defined by fresh citrus fruit; Irish Stout is defined by sweet orchard fruit."
+            - "Porter can show chocolate and restrained roast; Irish Stout often has stronger coffee-like roast."
+            - "Porter and Irish Stout must share identical roast intensity because both are dark beers."
+          correctIndex: 2
+          explanation: "The reference styles offer useful tendencies. Historical and commercial examples vary, so neither name guarantees a particular flavour."
+          sourceCitationId: src_cms_beer_bjcp_2021
+        ki_cms_beer_wheat_fruit:
+          prompt: "A server promises that every wheat beer tastes of banana and every fruit beer is sweet. Which correction is useful?"
+          options:
+            - "Treat every wheat beer as German Weissbier and every fruit beer as sweet."
+            - "Treat every wheat beer as Belgian Witbier and every fruit beer as sour."
+            - "Use wheat content to establish fruit sweetness before checking the base beer."
+            - "Check the wheat-beer tradition, plus the fruit beer's base and actual ingredients."
+          correctIndex: 3
+          explanation: "BJCP differentiates German Weissbier yeast character from Belgian Witbier's typical spices. Fruit beer is broader than one sweetness or acidity profile."
+          sourceCitationId: src_cms_beer_bjcp_2021
+        ki_cms_beer_cask_live:
+          prompt: "A new server describes cask-conditioned ale as any beer poured from a barrel. Which feature should be added?"
+          options:
+            - "Live yeast develops condition in the cellar; stable storage and clean service lines matter."
+            - "The barrel supplies the carbonation, so yeast activity and cellar handling are irrelevant."
+            - "The barrel guarantees pasteurisation, so clean lines replace any need for temperature control."
+            - "The barrel guarantees added carbon dioxide, so undisturbed cellar storage prevents all spoilage."
+          correctIndex: 0
+          explanation: "CAMRA describes continuing yeast conditioning, gentle carbonation without injected CO2, stable cellar conditions and careful handling."
+          sourceCitationId: src_cms_beer_camra_cask
+        ki_cms_beer_cask_terms:
+          prompt: "The cellar checklist lists stillaging, venting and tapping. Which account separates those jobs?"
+          options:
+            - "Rest the cask on stillage, vent through the keystone, tap through the shive."
+            - "Rest the cask on stillage, vent through the shive, tap through the keystone."
+            - "Rest the cask on the shive, vent through the tap, seal the keystone."
+            - "Rest the cask on the keystone, tap the shive, then vent the stillage."
+          correctIndex: 1
+          explanation: "CAMRA's glossary distinguishes the frame, venting opening and dispense opening. It does not prescribe one timing schedule for all casks."
+          sourceCitationId: src_cms_beer_camra_terms
+        ki_cms_beer_package:
+          prompt: "A supplier sends canned beer without production details. Which conclusion is justified by its package alone?"
+          options:
+            - "A can establishes pasteurisation, so ongoing package fermentation can be ruled out."
+            - "A can establishes sterile filtration, so fermentable sugar cannot remain in the beer."
+            - "A can does not establish stabilisation method; verify whether fermentation can continue."
+            - "A can establishes live conditioning, so it must be treated like cask ale."
+          correctIndex: 2
+          explanation: "Beer may be stabilised or retain live yeast. The Brewers Association describes controls for unwanted fermentation and excess package pressure."
+          sourceCitationId: src_cms_beer_package_safety
+        ki_cms_cider_apples:
+          prompt: "A guest assumes cider made with bittersweet apples must taste sweet. What should the server explain?"
+          options:
+            - "Apple types describe final sweetness levels; bittersweet apples guarantee a sweet cider."
+            - "Apple types describe carbonation levels; bittersharp apples guarantee a sparkling cider."
+            - "Apple types describe alcohol levels; table apples guarantee a low-alcohol cider."
+            - "Apple types describe acid and tannin contributions; final sweetness also needs assessment."
+          correctIndex: 3
+          explanation: "BJCP uses apple characteristics to explain fruit contributions. Fermentation and production decisions still influence the finished drink's sweetness."
+          sourceCitationId: src_cms_cider_bjcp_2025
+        ki_cms_cider_press:
+          prompt: "A learner asks where yeast fits into the NACM production outline. Which account puts extraction and fermentation in the right order?"
+          options:
+            - "Sort and mill apples, press their juice, then ferment it with yeast."
+            - "Sort and mill apples, ferment their intact skins, then press out spirit."
+            - "Distil apple juice, then add yeast to ferment the finished cider."
+            - "Sort and mill apples, carbonate their juice, then yeast removes the alcohol."
+          correctIndex: 0
+          explanation: "NACM describes milling and pressing for juice extraction before fermentation by wild or introduced yeast, followed by later production stages."
+          sourceCitationId: src_cms_cider_nacm_process
+        ki_cms_cider_practice:
+          prompt: "A guest says a cloudy cider can only use fresh-pressed juice and a clear canned cider must use concentrate. Which response is supported?"
+          options:
+            - "Haze establishes fresh fruit origin, while a can establishes reconstituted concentrate."
+            - "Haze and packaging do not establish fruit source; check the actual production details."
+            - "Clarity establishes reconstituted concentrate, while a bottle establishes fresh-pressed juice."
+            - "Packaging establishes fruit source because UK duty definitions require those visual differences."
+          correctIndex: 1
+          explanation: "NACM describes both haze and filtration. HMRC permits concentrated or reconstituted juice within its UK duty definition of cider; appearance is not proof of the recipe."
+          sourceCitationId: src_cms_cider_hmrc_guidance
+        ki_cms_cider_style:
+          prompt: "A cider tasting sheet lists sweetness and carbonation separately. Why is that approach useful?"
+          options:
+            - "A cider's sweetness establishes carbonation, so separate entries only repeat information."
+            - "A cider's carbonation establishes sweetness, so still examples must all be dry."
+            - "Assess cider sweetness and carbonation separately; one does not establish the other."
+            - "A cider's name legally fixes both attributes, so the tasting entries certify origin."
+          correctIndex: 2
+          explanation: "BJCP's 2025 judging framework treats sweetness and carbonation as distinct attributes. Its categories are not universal legal classifications."
+          sourceCitationId: src_cms_cider_bjcp_2025
+        ki_cms_belgian_wit:
+          prompt: "Two wheat beers are described as Belgian Witbier and German Weissbier. Which aromatic contrast matches BJCP's reference styles?"
+          options:
+            - "Witbier emphasises banana-and-clove yeast character; Weissbier commonly requires citrus-spice additions."
+            - "Witbier requires coffee-like roast character; Weissbier commonly adds citrus-spice notes."
+            - "Witbier and Weissbier must have identical aromatics because both include wheat."
+            - "Witbier commonly adds citrus-spice notes; Weissbier emphasises banana-and-clove yeast character."
+          correctIndex: 3
+          explanation: "Typical Witbier coriander and orange-peel character contrasts with Weissbier's yeast-derived banana and clove. These are guide descriptions, not composition tests."
+          sourceCitationId: src_cms_beer_bjcp_2021
+        ki_cms_belgian_dubbel_tripel:
+          prompt: "A guest reads Dubbel and Tripel as twice and three times a standard alcohol level. Which comparison is useful?"
+          options:
+            - "Compare dark-fruit malty Dubbel with strong pale spicy-fruity Tripel; check each beer."
+            - "Multiply the brewery's standard strength by two for Dubbel and three for Tripel."
+            - "Compare pale citrus-dry Dubbel with dark-fruit Tripel; their names set exact strength."
+            - "Compare both beers by multiplication alone because the style names prescribe equal flavour."
+          correctIndex: 0
+          explanation: "BJCP describes different reference profiles, including colour and finish. The names do not define a simple alcohol multiplier."
+          sourceCitationId: src_cms_beer_bjcp_2021
+        ki_cms_belgian_saison:
+          prompt: "A guest has only tried one dark Saison and expects every Saison to taste the same. What can a server usefully say?"
+          options:
+            - "Dark colour and sweetness are compulsory features; strength and yeast character cannot vary."
+            - "Dryness and fruity-peppery yeast character are reference clues; colour and strength can vary."
+            - "Pale colour and low strength are compulsory features; darker examples cannot follow the style."
+            - "Peppery character guarantees added peppercorns; the fermentation profile is otherwise irrelevant."
+          correctIndex: 1
+          explanation: "BJCP's Saison reference is dry, refreshing and fruity-peppery, with variation in colour and strength. The actual producer's beer remains the relevant drink."
+          sourceCitationId: src_cms_beer_bjcp_2021
+        ki_cms_beer_food_intensity:
+          prompt: "A delicate steamed dish is overwhelmed by a forceful beer during a trial. Which adjustment follows the Brewers Association's starting principle?"
+          options:
+            - "Try a stronger beer and judge intensity solely by the beer's alcohol content."
+            - "Keep the forceful beer and choose solely by similarity of food and beer colour."
+            - "Try a less intense beer and reassess how the actual dish and drink work together."
+            - "Keep the forceful beer and ignore the dish's flavour because style pairing is fixed."
+          correctIndex: 2
+          explanation: "Compare flavour intensity on both sides. Alcohol, malt, bitterness and other features contribute; no style prescription guarantees balance."
+          sourceCitationId: src_cms_beer_food_guide
+        ki_cms_beer_food_link:
+          prompt: "A beer recommendation mentions a roasted flavour link and carbonation beside a rich dish. Which pairing approach is being applied?"
+          options:
+            - "Combine matching colours with a contrast established solely by the beer's country."
+            - "Combine identical ingredients with a contrast established solely by glass shape."
+            - "Combine equal alcohol levels with a contrast established solely by beer temperature."
+            - "Combine a complementary flavour link with a contrast relevant to the finished dish."
+          correctIndex: 3
+          explanation: "The guide considers flavour harmonies and contrasts involving richness, carbonation, bitterness and other qualities. Explain the features that matter in the actual match."
+          sourceCitationId: src_cms_beer_food_guide
+        ki_cms_beer_food_trial:
+          prompt: "The guide recommends a beer style, but the guest dislikes its bitterness and the sauce has changed. What is the useful next step?"
+          options:
+            - "Reassess preference and the finished plate, then trial a suitable actual beer."
+            - "Retain the recommended style and remove discussion of the guest's bitterness preference."
+            - "Retain the recommended style and judge the dish from its main ingredient alone."
+            - "Replace the dish with the guide's example and assume every bottle tastes alike."
+          correctIndex: 0
+          explanation: "Brewers Association pairings are suggestions. Guest response, sauce, sweetness, spice and the particular beer can change the result."
+          sourceCitationId: src_cms_beer_food_guide
+        ki_cms_irish_origin:
+          prompt: "A restaurant labels a whiskey 'Irish' merely because its recipe uses barley. What production-and-origin check does the cited technical file require?"
+          options:
+            - "Republic-of-Ireland production only and at least three years in wooden casks up to 700 litres."
+            - "Island-of-Ireland production and at least three years in wooden casks up to 700 litres."
+            - "Island-of-Ireland production and at least two years in wooden casks of any capacity."
+            - "Irish-style cereal ingredients anywhere and at least three years in wooden casks up to 700 litres."
+          correctIndex: 1
+          explanation: "The file covers the island including Northern Ireland and specifies origin and maturation conditions. Barley or a flavour impression alone does not establish Irish Whiskey."
+          sourceCitationId: src_cms_irish_file
+        ki_cms_irish_pot_malt:
+          prompt: "A server equates the category Pot Still Irish Whiskey with Malt Irish Whiskey because both use pot stills. What distinction should be explained?"
+          options:
+            - "The Irish categories differ only in maturation vessel: wooden casks versus stainless-steel tanks."
+            - "The Irish categories differ only in number of distillations: always two versus always three."
+            - "The Irish categories differ in cereal use: malted plus unmalted barley versus malted barley."
+            - "The Irish categories differ only in production location: Northern Ireland versus the Republic."
+          correctIndex: 2
+          explanation: "The technical file distinguishes the named categories by materials and production rules. Shared copper pot equipment does not make them synonyms."
+          sourceCitationId: src_cms_irish_file
+        ki_cms_irish_blend:
+          prompt: "An Irish Whiskey is labelled blended but gives no component percentages. Which statement can the server support?"
+          options:
+            - "Irish Pot Still, Malt and Grain varieties must be combined in equal thirds."
+            - "Irish and Scotch varieties must be combined because blended means two countries."
+            - "Irish Malt and Grain varieties must be combined with at least half Scotch."
+            - "Irish Pot Still, Malt and Grain varieties can be combined; proportions need product details."
+          correctIndex: 3
+          explanation: "The file allows combining Irish varieties as Blended Irish Whiskey. The category name does not specify a bottle's component proportions."
+          sourceCitationId: src_cms_irish_file
+        ki_cms_liqueur_orange:
+          prompt: "A guest asks how Cointreau gets its orange character. Which explanation follows this producer's process?"
+          options:
+            - "Sweet and bitter orange peels are selected and used in a distillation process."
+            - "Sweet and bitter orange peels ferment by themselves into the finished liqueur."
+            - "Sweet and bitter orange peels define every liqueur regardless of flavour family."
+            - "Sweet and bitter orange peels colour an unflavoured spirit without contributing aroma."
+          correctIndex: 0
+          explanation: "Cointreau describes peel selection, assembly and distillation. This citrus example does not establish how every liqueur is flavoured."
+          sourceCitationId: src_cms_liqueur_cointreau
+        ki_cms_liqueur_herbal:
+          prompt: "The team assumes herbal liqueurs get colour exclusively from distillation. How does Green Chartreuse's producer description qualify that claim?"
+          options:
+            - "Distillation obtains colour; fermentation alone extracts the plant components and aroma."
+            - "Distillation obtains aroma; different macerations extract plant components and colour."
+            - "Distillation eliminates botanical aroma; artificial colouring then supplies the herbal flavour."
+            - "Distillation and maceration are interchangeable names for one colourless filtering stage."
+          correctIndex: 1
+          explanation: "Chartreuse describes botanical ingredients, aroma distillation and multiple macerations. It describes this product rather than a universal liqueur recipe."
+          sourceCitationId: src_cms_liqueur_chartreuse
+        ki_cms_liqueur_compare:
+          prompt: "Both Cointreau and Green Chartreuse involve distillation. A guest wants citrus rather than herbal character. What should guide the recommendation?"
+          options:
+            - "Ask about alcohol alone; a shared method means both products have the same citrus profile."
+            - "Ask about bottle colour alone; a shared method makes ingredient differences irrelevant."
+            - "Ask about flavour and the actual product; a shared method does not equate their profiles."
+            - "Ask about serving size alone; a shared method makes either product interchangeable."
+          correctIndex: 2
+          explanation: "The producers describe orange-peel and botanical families respectively. Distillation alone cannot identify a drink's dominant flavour or the guest's preferred product."
+          sourceCitationId: src_cms_liqueur_cointreau
+        ki_cms_pairing_browning:
+          prompt: "A chef changes a gently cooked ingredient to a deeply browned version. What should happen before carrying over the wine recommendation?"
+          options:
+            - "Carry over the same wine because the named central ingredient has not changed."
+            - "Choose a darker wine automatically because browning determines the required wine colour."
+            - "Choose a sweeter wine automatically because browning removes all savoury flavours."
+            - "Assess the new toasted or roasted aromas and how they lead the finished dish."
+          correctIndex: 3
+          explanation: "Browning can change aromatic character. Cooking method and the strongest flavour on the actual plate guide a trial; browning alone prescribes no wine."
+          sourceCitationId: src_cms_pairing_guide
+        ki_cms_pairing_preparation:
+          prompt: "The list pairs smoked salmon with Sauvignon Blanc and grilled sea bass with lemon with Chablis. Which lesson can those cited examples support?"
+          options:
+            - "Preparation and seasoning matter, though the two fish dishes are not a controlled comparison."
+            - "Cooking alone caused the different matches, since the examples use exactly the same fish."
+            - "Every smoked fish requires Sauvignon Blanc, regardless of sauce or guest preference."
+            - "Every grilled fish requires Chablis, regardless of seasoning or the particular wine."
+          correctIndex: 0
+          explanation: "WSET offers distinct fish-dish examples. Assess the finished plate instead of turning those suggestions into universal cooking-method rules."
+          sourceCitationId: src_cms_pairing_wset_easter
+        ki_cms_pairing_sauce:
+          prompt: "A roast dish now comes with a sharp, intensely flavoured sauce. What is the most useful pairing check?"
+          options:
+            - "Choose by the roast ingredient alone because sauce cannot change a wine match."
+            - "Assess whether sauce or condiments dominate the finished plate before choosing a wine."
+            - "Choose by the cooking time alone because condiments affect texture but not flavour."
+            - "Choose by wine colour alone because acidity in sauce does not influence the pairing."
+          correctIndex: 1
+          explanation: "The CMS guide identifies sauces and condiments as possible dominant factors. Learn how the dish will actually be served."
+          sourceCitationId: src_cms_pairing_guide
+        ki_cms_pairing_vinegar:
+          prompt: "A guest orders oysters with a sharp lemon-and-vinegar dressing. Which starting approach follows the cited WSET advice?"
+          options:
+            - "Trial a low-acid option because sharp dressing increases every wine's apparent acidity."
+            - "Trial a sweet option exclusively because vinegar removes all acidity from the oyster."
+            - "Trial a high-acid option with the dressed oyster, then assess balance and preference."
+            - "Trial any familiar oyster wine without considering the dressing's strength or the guest."
+          correctIndex: 2
+          explanation: "WSET suggests high-acid examples such as Muscadet or Champagne for tangy accompaniments. Taste the actual finished bite; a suggestion is not a guarantee."
+          sourceCitationId: src_wset_srv_food
+        ki_cms_pairing_chocolate:
+          prompt: "A high-cocoa chocolate dessert makes a dry wine seem less fruity and more bitter. Which explanation should inform a new trial?"
+          options:
+            - "Chocolate guarantees a wine fault; open another dry bottle without considering dessert sweetness."
+            - "Food sweetness makes all dry wines sweeter; ignore bitterness when changing the match."
+            - "Chocolate aroma fixes the wine style; recommend solely by matching dark colour."
+            - "Food sweetness can change wine perception; assess a sweeter option with the actual dessert."
+          correctIndex: 3
+          explanation: "WSET explains that sweetness can reduce apparent fruit and expose bitterness. Its sweet fortified-wine examples remain tentative matches."
+          sourceCitationId: src_cms_pairing_wset_easter
+        ki_cms_pairing_caramel:
+          prompt: "A guest orders salted caramel and asks whether its salt guarantees a dry-wine match. What should the adviser assess?"
+          options:
+            - "Both sweetness and salt, followed by a trial with the dessert and the guest."
+            - "Salt alone, because it fully cancels any sweetness effect on the wine's perception."
+            - "Sweetness alone, because salt cannot affect apparent wine acidity or bitterness."
+            - "Caramel colour alone, because darker dessert colour fixes the appropriate wine style."
+          correctIndex: 0
+          explanation: "WSET discusses distinct sweetness and salt effects. Salted caramel illustrates a contrast; the source does not test or guarantee this particular dessert-and-wine pairing."
+          sourceCitationId: src_wset_srv_sweet
