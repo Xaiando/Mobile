@@ -156,7 +156,7 @@ void main() {
       ).every((row) => row.hasUsefulPractice),
       isTrue,
     );
-    expect(report.counts[CoverageMetric.coreUsefulPractice], 2456);
+    expect(report.counts[CoverageMetric.coreUsefulPractice], 2549);
   });
 
   test('the full cash-flow premise is served and each role is graded', () async {
