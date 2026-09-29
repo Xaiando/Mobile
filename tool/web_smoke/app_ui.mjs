@@ -666,6 +666,7 @@ try {
     assert(before > 1700 && before <= 1800, 'Incorrect paired tasting duration.');
     await tap('Wine 2');
     await visible(/^Wine 2 · saved original grid /);
+    await top();
     const white = page.getByRole('checkbox', { name: 'White', exact: true });
     await tap('White');
     await until(() => selected(white), 'Wine 2 colour observation did not save.');
