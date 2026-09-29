@@ -721,7 +721,7 @@ knowledge_items:
     relation_type: PRINCIPLE_EXPLANATION
     object_id: n_wset_prod_point_warmth_categories
     domain_id: viticulture
-    assertion_text: Cool, moderate, warm and hot describe growing-season temperature conditions. Maritime, continental and Mediterranean describe broader seasonal patterns; a maritime site need not always be cool.
+    assertion_text: Cool, moderate, warm and hot describe relative growing-season warmth, which can be assessed through accumulated heat. Maritime, continental and Mediterranean describe broader seasonal patterns; a maritime site need not always be cool.
     verification_status: unverified
     mcq_disabled: true
     last_verified_at: 2026-09-27T17:00:00.000Z
@@ -766,7 +766,7 @@ knowledge_items:
     relation_type: PRINCIPLE_EXPLANATION
     object_id: n_wset_prod_point_climate_weather
     domain_id: viticulture
-    assertion_text: Climate describes longer-term patterns; weather is the actual sequence of heat, rain, wind and frost in a season. Harvest condition and style may differ between vintages within the same region.
+    assertion_text: Climate describes longer-term patterns; weather is the actual sequence of heat, rain, wind and frost in a season. Yield and fruit quality may differ between vintages within the same region.
     verification_status: unverified
     mcq_disabled: true
     last_verified_at: 2026-09-27T17:00:00.000Z
@@ -1820,14 +1820,62 @@ source_citations:
     url: https://cals.cornell.edu/news/2026/07/resource-announcement-disease-resistant-grape-breeding-website
     document_identifier: Disease-resistant grape breeding resource
     accessed_on: 2026-09-27
-  - id: src_wset_prod_climate
+  - id: src_wset_prod_climate_consumer
     kind: reference_work
-    title: "Foundations of Australian wine: facilitator guide"
-    publisher: Wine Australia
+    title: "Foundations of Australian wine: consumer guide"
+    publisher: "Wine Australia"
     jurisdiction: International educational context
-    url: https://www.wineaustralia.com/getmedia/dd749185-c0a1-4211-aab0-8ef7a2c23f9d/AWD_Foundations_FacilitatorGuide.pdf?ext=.pdf
-    document_identifier: "Foundations of Australian wine: facilitator guide"
-    accessed_on: 2026-09-27
+    url: https://www.australianwine.com/getcontentasset/642ea7db-827c-4059-ba70-f659999bf556/2a6464f5-7547-4f96-aacf-a0c3da1718f8/awd_foundations_consumerguide.pdf?language=en-AU
+    document_identifier: "Foundations of Australian wine: consumer guide"
+    accessed_on: 2026-09-29
+  - id: src_wset_prod_mediterranean_metoffice
+    kind: government_publication
+    title: "Climate zones"
+    publisher: "UK Met Office"
+    jurisdiction: International educational context
+    url: https://weather.metoffice.gov.uk/climate/climate-explained/climate-zones
+    document_identifier: "Climate zones"
+    accessed_on: 2026-09-29
+  - id: src_wset_prod_warm_maritime
+    kind: reference_work
+    title: "Assessing clonal variability in Chardonnay and Shiraz for future climate change"
+    publisher: "South Australian Research and Development Institute (SARDI)"
+    jurisdiction: International educational context
+    url: https://www.wineaustralia.com/getmedia/c3337b82-a9bc-4e99-9327-a3b0b84a4db1/SAR1303-Final-Report.pdf
+    document_identifier: "Assessing clonal variability in Chardonnay and Shiraz for future climate change"
+    accessed_on: 2026-09-29
+  - id: src_wset_prod_heat_winkler_ucce
+    kind: reference_work
+    title: "Heat Stress Mitigation and Strategies: Protecting Grapevines from Extreme Weather"
+    publisher: "University of California Cooperative Extension"
+    jurisdiction: International educational context
+    url: https://ucanr.edu/sites/default/files/2026-02/UCCE_Heat%20Stress_Compressed.pdf
+    document_identifier: "Heat Stress Mitigation and Strategies: Protecting Grapevines from Extreme Weather"
+    accessed_on: 2026-09-29
+  - id: src_wset_prod_diurnal_bom
+    kind: government_publication
+    title: "About Pacific Climate Extreme Indices: diurnal temperature range"
+    publisher: "Australian Bureau of Meteorology"
+    jurisdiction: International educational context
+    url: https://www.bom.gov.au/climate/pccsp/about-pi-extreme-indices.shtml
+    document_identifier: "About Pacific Climate Extreme Indices: diurnal temperature range"
+    accessed_on: 2026-09-29
+  - id: src_wset_prod_latitude_weather_noaa
+    kind: government_publication
+    title: "What's the Difference Between Weather and Climate?"
+    publisher: "NOAA National Environmental Satellite, Data, and Information Service"
+    jurisdiction: International educational context
+    url: https://www.nesdis.noaa.gov/about/k-12-education/understanding-our-planet/whats-the-difference-between-weather-and-climate
+    document_identifier: "What's the Difference Between Weather and Climate?"
+    accessed_on: 2026-09-29
+  - id: src_wset_prod_vineyard_variability
+    kind: reference_work
+    title: "Vineyard management: vineyards are variable in both space and time"
+    publisher: "Wine Australia"
+    jurisdiction: International educational context
+    url: https://www.wineaustralia.com/growing-making/vineyard-management
+    document_identifier: "Vineyard management: vineyards are variable in both space and time"
+    accessed_on: 2026-09-29
   - id: src_wset_prod_site
     kind: reference_work
     title: "Chapter 4: vineyard site selection"
@@ -2122,20 +2170,38 @@ knowledge_item_citations:
     source_citation_id: src_biz_models_psu_vineyard
     locator: Grape species, cultivars, grafting and vineyard establishment
   - knowledge_item_id: ki_wset_prod_climate_types
-    source_citation_id: src_wset_prod_climate
-    locator: "Foundations of Australian wine: facilitator guide"
+    source_citation_id: src_wset_prod_climate_consumer
+    locator: "PDF pp. 18–19, Continentality and the three grape-growing climate types"
+  - knowledge_item_id: ki_wset_prod_climate_types
+    source_citation_id: src_wset_prod_mediterranean_metoffice
+    locator: "Mediterranean climate: dry summers and mild, wet winters"
   - knowledge_item_id: ki_wset_prod_warmth_categories
-    source_citation_id: src_wset_prod_climate
-    locator: "Foundations of Australian wine: facilitator guide"
+    source_citation_id: src_wset_prod_heat_winkler_ucce
+    locator: "PDF pp. 8–9, Winkler Index: growing-degree-day heat classes"
+  - knowledge_item_id: ki_wset_prod_warmth_categories
+    source_citation_id: src_wset_prod_climate_consumer
+    locator: "PDF p. 18, continental, maritime and Mediterranean seasonal patterns"
+  - knowledge_item_id: ki_wset_prod_warmth_categories
+    source_citation_id: src_wset_prod_warm_maritime
+    locator: "PDF p. 17, section 6.1.1 Regional climate: warm maritime trial sites"
   - knowledge_item_id: ki_wset_prod_continental_diurnal
-    source_citation_id: src_wset_prod_climate
-    locator: "Foundations of Australian wine: facilitator guide"
+    source_citation_id: src_wset_prod_climate_consumer
+    locator: "PDF p. 18, Continentality: winter-to-summer temperature difference"
+  - knowledge_item_id: ki_wset_prod_continental_diurnal
+    source_citation_id: src_wset_prod_diurnal_bom
+    locator: "Extreme Temperature Indices: Diurnal temperature range (DTR)"
   - knowledge_item_id: ki_wset_prod_latitude_altitude
     source_citation_id: src_wset_prod_site
-    locator: "Chapter 4: vineyard site selection"
+    locator: "Climate and Topography; Maximum Summer Temperatures; Short-term Temperature Records"
   - knowledge_item_id: ki_wset_prod_latitude_altitude
-    source_citation_id: src_wset_prod_climate
-    locator: "Foundations of Australian wine: facilitator guide"
+    source_citation_id: src_wset_prod_climate_consumer
+    locator: "PDF p. 16, Key factors influencing climate: latitude and altitude"
+  - knowledge_item_id: ki_wset_prod_latitude_altitude
+    source_citation_id: src_wset_prod_latitude_weather_noaa
+    locator: "Climate Is Regional and Long-Term: solar angle and seasonal day length by latitude"
+  - knowledge_item_id: ki_wset_prod_latitude_altitude
+    source_citation_id: src_reg_oa_adelaide
+    locator: "Climate: cool regional average and warmer west-facing Cabernet sites"
   - knowledge_item_id: ki_wset_prod_water_moderation
     source_citation_id: src_wset_prod_site
     locator: "Chapter 4: vineyard site selection"
@@ -2143,8 +2209,14 @@ knowledge_item_citations:
     source_citation_id: src_wset_prod_site
     locator: "Chapter 4: vineyard site selection"
   - knowledge_item_id: ki_wset_prod_climate_weather
-    source_citation_id: src_wset_prod_climate
-    locator: "Foundations of Australian wine: facilitator guide"
+    source_citation_id: src_wset_prod_climate_consumer
+    locator: "PDF p. 20, Australia's grape-growing seasons: weather and harvest timing"
+  - knowledge_item_id: ki_wset_prod_climate_weather
+    source_citation_id: src_wset_prod_latitude_weather_noaa
+    locator: "The Short Answer; Climate Is Regional and Long-Term"
+  - knowledge_item_id: ki_wset_prod_climate_weather
+    source_citation_id: src_wset_prod_vineyard_variability
+    locator: "Vineyards are variable in both space and time: weather, yield and fruit quality"
   - knowledge_item_id: ki_wset_prod_soil_heat
     source_citation_id: src_wset_prod_site
     locator: "Chapter 4: vineyard site selection"

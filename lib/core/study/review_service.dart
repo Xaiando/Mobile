@@ -75,7 +75,9 @@ class ReviewService {
     QuestionOption selected, {
     Duration? responseTime,
   }) async {
-    if (!question.isMultipleChoice) {
+    // This legacy helper writes node-ID foreign keys. Literal authored
+    // choices must pass through recordExercise and its answer_payload.
+    if (question.mode != 'mcq') {
       throw ArgumentError.value(
         question.questionTemplateId,
         'question',

@@ -1,0 +1,220 @@
+# Cited WSET Level 2 styles, origins, production, and vineyard practice.
+question_templates:
+  - id: qt_wset_l2_authored_remaining
+    relation_type: PRINCIPLE_EXPLANATION
+    direction: forward
+    mode: authored_choice
+    variant: l2_remaining_styles_origins_production
+    prompt_template: "{subject.name}"
+    parameters:
+      item_choices:
+        ki_wset_close_eu_wine_pdo:
+          prompt: "For an EU wine with a PDO, where must its grapes originate?"
+          options: ["Exclusively within the specified geographical area", "At least half from any EU member state", "Anywhere, if the wine is bottled in the named area", "From any area using the same grape variety"]
+          correctIndex: 0
+          explanation: "The European Commission says wine PDO grapes come exclusively from the specified area."
+          sourceCitationId: src_wset_close_eu_gi
+        ki_wset_close_eu_wine_pgi:
+          prompt: "What minimum share of grapes must come from the specified geographical area for an EU wine PGI?"
+          options: ["25%", "50%", "85%", "100% in every case"]
+          correctIndex: 2
+          explanation: "The European Commission specifies a minimum of 85% for EU wine PGIs."
+          sourceCitationId: src_wset_close_eu_gi
+        ki_wset_close_gi_label:
+          prompt: "On a wine label, what does a geographical indication identify?"
+          options: ["The winery's bottle size", "A named origin associated with production rules", "The grape's genetic clone", "The year of bottling"]
+          correctIndex: 1
+          explanation: "WSET describes a GI as indicating where the grapes were grown; EU GIs can also set variety and production rules."
+          sourceCitationId: src_wset_close_labels
+        ki_wset_close_vintage_label:
+          prompt: "What does the vintage year on a wine label normally refer to?"
+          options: ["The year of bottling", "The year of release", "The year the barrel was made", "The year the grapes were harvested"]
+          correctIndex: 3
+          explanation: "WSET identifies vintage as the harvest year, subject to local labelling rules."
+          sourceCitationId: src_wset_close_labels
+        ki_wset_close_late_harvest_label:
+          prompt: "What does an Alsace Vendanges Tardives designation indicate about the grapes?"
+          options: ["They were picked before normal harvest", "They were harvested late at particularly high sugar richness", "They were grown only for sparkling wine", "They were dried after pressing"]
+          correctIndex: 1
+          explanation: "The Alsace wine body describes delayed picking and particularly high sugar richness at harvest."
+          sourceCitationId: src_wset_close_civa_vt
+        ki_wset_close_white_ripeness_flavour:
+          prompt: "Which broad white-wine flavour shift often accompanies warmer-climate ripening?"
+          options: ["From citrus/orchard fruit toward stone/tropical fruit", "From tropical fruit toward only citrus fruit", "From fruit toward unavoidable cork taint", "No potential change in fruit character"]
+          correctIndex: 0
+          explanation: "WSET gives a broad, qualified contrast of citrus/orchard fruit in cooler climates and stone/tropical fruit in warmer climates."
+          sourceCitationId: src_wset_close_style
+        ki_wset_close_black_ripeness_flavour:
+          prompt: "Which broad red-wine fruit contrast does WSET associate with cooler versus warmer climates?"
+          options: ["Black fruit in cooler sites; citrus in warmer sites", "Only floral notes in both", "Red berries more often in cooler sites; black or dried fruit more often in warmer sites", "Every warm-site red tastes identical"]
+          correctIndex: 2
+          explanation: "WSET presents red-berry versus black/dried-fruit character as a broad tendency, not a guarantee."
+          sourceCitationId: src_wset_close_style
+        ki_wset_close_phenolic_maturity:
+          prompt: "Why can a red-wine grower assess seeds as well as grape sugar near harvest?"
+          options: ["Seed colour directly measures alcohol", "Seed maturity can develop at a different rate from sugar and affect tannin extraction", "Brown seeds always prove a finished wine will be soft", "Only seeds determine acidity"]
+          correctIndex: 1
+          explanation: "British Columbia's grower guide says seeds mature separately from sugar and browning can make tannins less extractable."
+          sourceCitationId: src_wset_close_bc_maturity
+        ki_wset_close_oak_size:
+          prompt: "All else similar, why might a larger oak barrel give less overt oak flavour per litre?"
+          options: ["It has more wood surface per litre", "It stops all oxygen transfer", "It has less wood surface per litre of wine", "It changes the grape variety"]
+          correctIndex: 2
+          explanation: "Seguin Moreau explains that increasing barrel volume reduces wood surface relative to wine volume and can reduce intense woody flavour."
+          sourceCitationId: src_wset_close_cooper_volume
+        ki_wset_close_oak_toast:
+          prompt: "What does coopering toast do to oak before wine ageing?"
+          options: ["It alters wood compounds, including aroma precursors and tannins", "It turns the wine into a fortified wine", "It guarantees the highest quality level", "It removes every wood-derived aroma"]
+          correctIndex: 0
+          explanation: "Seguin Moreau describes heat creating volatile aromatic substances and changing oak tannins; intensity and duration shape the outcome."
+          sourceCitationId: src_wset_close_cooper
+        ki_wset_grape_verdicchio_profile:
+          prompt: "Which tasting combination fits the Marche wine body's description of Verdicchio?"
+          options: ["Blackcurrant, pepper and high red-wine tannin", "White-fleshed fruit, citrus, flowers and an almond hint", "Only neutral aromas and no freshness", "Smoke and leather without fruit"]
+          correctIndex: 1
+          explanation: "The regional body lists white-fleshed fruit, citrus, flowers, freshness and an almond finish."
+          sourceCitationId: src_wset_grape_imt_verdicchio
+        ki_wset_grape_verdicchio_variation:
+          prompt: "Which pair of Verdicchio expressions does the Marche wine body describe?"
+          options: ["Only a single sweet style", "Only carbonated red wine", "Only a young style incapable of ageing", "Fresh balanced wine and fuller Riserva that can gain complexity"]
+          correctIndex: 3
+          explanation: "The regional body describes fresh Verdicchio as well as more structured, ageworthy Riserva."
+          sourceCitationId: src_wset_grape_imt_verdicchio
+        ki_wset_grape_zinfandel_identity:
+          prompt: "What did genetic research establish about Zinfandel and Primitivo?"
+          options: ["They share the same DNA profile despite clonal differences", "They are unrelated species", "Primitivo is a white mutation of Zinfandel", "They have identical vineyard performance in every trial"]
+          correctIndex: 0
+          explanation: "UC Davis reports the shared DNA profile and also documents meaningful differences among selections."
+          sourceCitationId: src_wset_grape_ucd_zinfandel
+        ki_wset_grape_montepulciano_profile:
+          prompt: "Which profile is consistent with the Montepulciano d'Abruzzo production specification?"
+          options: ["Pale white wine with no fruit", "Dry red with ripe red-fruit and spice aromas and some tannin", "Sweet flor-aged white Sherry", "Sparkling wine made only from Chardonnay"]
+          correctIndex: 1
+          explanation: "The official specification describes ruby red wine with ripe red fruit, spice and a full, lightly tannic palate."
+          sourceCitationId: src_wset_grape_abruzzo_montepulciano
+        ki_wset_prod_hazard_hail:
+          prompt: "After hail splits ripening grape skins, what immediate vineyard risk increases?"
+          options: ["The grapes become immune to rot", "All acid disappears", "Infection by Botrytis and other rots", "The wine automatically becomes sparkling"]
+          correctIndex: 2
+          explanation: "NSW DPI notes that hail damage can split berry skins and raise the risk of rot; nets may reduce, not eliminate, damage."
+          sourceCitationId: src_wset_prod_hail
+        ki_wset_prod_organic:
+          prompt: "Which statement about EU organic production is accurate?"
+          options: ["All pest control is prohibited", "Artificial pesticides are unrestricted", "No inputs ever require approval", "Certain substances for pest or disease control are permitted only after approval"]
+          correctIndex: 3
+          explanation: "The European Commission describes restricted inputs and an approval system for substances used against pests and disease."
+          sourceCitationId: src_wset_prod_organic
+        ki_wset_sf_champagne_grapes:
+          prompt: "Which trio are the main Champagne grape varieties?"
+          options: ["Chardonnay, Pinot Noir and Meunier", "Sauvignon Blanc, Merlot and Syrah", "Glera, Chenin Blanc and Malbec", "Riesling, Grenache and Sémillon"]
+          correctIndex: 0
+          explanation: "France's consumer regulator names Chardonnay, Pinot Noir and Pinot Meunier as the three principal varieties."
+          sourceCitationId: src_wset_sf_champagne_labels
+        ki_wset_sf_champagne_vintage:
+          prompt: "What must the grapes in a vintage Champagne bearing a harvest year have in common?"
+          options: ["They all came from one grape variety", "They all came from the stated harvest year", "They all came from one single vineyard", "They were all grown outside Champagne"]
+          correctIndex: 1
+          explanation: "France's consumer regulator says 100% of grapes in a millésimé Champagne come from the indicated harvest year."
+          sourceCitationId: src_wset_sf_champagne_labels
+        ki_wset_sf_spark_sweetness:
+          prompt: "Under the Cava sweetness categories, which label is sweeter than Brut?"
+          options: ["Brut Nature", "Extra Brut", "Extra Dry", "Zero Dosage"]
+          correctIndex: 2
+          explanation: "The Cava specification places Brut below 12 g/L and Extra Seco (Extra Dry) at 12–17 g/L."
+          sourceCitationId: src_wset_sf_cava_spec
+        ki_wset_sf_cap_identity:
+          prompt: "What defines South African Cap Classique production?"
+          options: ["Carbon dioxide injected into still wine", "Second fermentation in bottle", "A mandatory single Chardonnay vineyard", "Fortification before fermentation ends"]
+          correctIndex: 1
+          explanation: "The Cap Classique Producers Association defines the category through bottle second fermentation."
+          sourceCitationId: src_wset_sf_cap_classique
+        ki_wset_sf_port_ruby_reserve:
+          prompt: "Which profile does the Port institute give for Reserve Ruby?"
+          options: ["Pale colour and flor-derived almond", "Deep colour, ripe fruit and present tannins", "Mandatory six years in small wood casks", "A single-vineyard vintage year on every bottle"]
+          correctIndex: 1
+          explanation: "IVDP describes Ruby Reserve as an approved blend with intense colour, ripe fruit and tannins."
+          sourceCitationId: src_wset_sf_port_current
+        ki_wset_sf_port_tawny_labels:
+          prompt: "Which feature can you safely infer from a Reserve Tawny Port label?"
+          options: ["A selected wood-aged Tawny category", "An exact ten-year wood-age statement", "A single-harvest Tawny category", "A guarantee of identical maturity to every age-indicated Tawny"]
+          correctIndex: 0
+          explanation: "Reserve Tawny is a selected wood-aged category. A basic Tawny name alone does not promise the concentration or maturation of an age-indicated Tawny."
+          sourceCitationId: src_wset_sf_port_current
+        ki_wset_sf_port_vintage_lbv:
+          prompt: "How does Late Bottled Vintage Port differ from Vintage Port in bottling timing?"
+          options: ["LBV is bottled later after a single harvest", "LBV always combines multiple harvests", "Vintage Port must be bottled after LBV", "LBV is never fortified"]
+          correctIndex: 0
+          explanation: "IVDP identifies LBV as wine from one harvest bottled later than Vintage Port."
+          sourceCitationId: src_wset_sf_port_current
+        ki_wset_sf_sherry_grapes:
+          prompt: "Which grape is the principal source of familiar dry Sherry bases?"
+          options: ["Pinot Noir", "Glera", "Palomino", "Touriga Nacional"]
+          correctIndex: 2
+          explanation: "The Sherry regulatory council names Palomino as the favoured regional variety; PX and Moscatel also have distinct roles."
+          sourceCitationId: src_wset_sf_sherry_vine
+        ki_wset_sf_sherry_fino:
+          prompt: "Why can a Fino Sherry be dry despite fortification?"
+          options: ["Its Palomino must ferments completely before fortification for flor ageing", "Spirit always removes all residual sugar chemically", "It is made by injecting carbon dioxide", "It is sweetened with PX before fermentation"]
+          correctIndex: 0
+          explanation: "The Sherry council describes total Palomino fermentation followed by fortification to favour flor."
+          sourceCitationId: src_wset_sf_fino
+        ki_wset_sf_sherry_pale_cream:
+          prompt: "What is a typical route to a pale, sweet Pale Cream Sherry?"
+          options: ["Blend red Port with cream", "Sweeten a biologically aged Fino or Manzanilla base with rectified concentrated grape must", "Stop Palomino fermentation with injected gas", "Age only under oxidative conditions without sweetener"]
+          correctIndex: 1
+          explanation: "The Sherry council describes a flor-aged base sweetened with concentrated rectified must, preserving pale colour."
+          sourceCitationId: src_wset_sf_pale_cream
+        ki_wset_sf_sherry_medium:
+          prompt: "How is Medium Sherry generally assembled?"
+          options: ["By blending a dry aged Sherry base with naturally sweet wine or grape-derived sweetener", "By removing all sweetness from PX", "Only by fermenting black grapes in bottle", "By adding hops to Fino"]
+          correctIndex: 0
+          explanation: "The Sherry council describes aged generoso bases, often Amontillado-like, blended with naturally sweet wine or concentrated must."
+          sourceCitationId: src_wset_sf_medium
+        ki_wset_sf_sherry_cream_style:
+          prompt: "Which production combination fits Cream Sherry?"
+          options: ["Dry biologically aged Fino alone", "Unfortified Chardonnay with barrel ageing", "Oxidatively aged Sherry, often Oloroso, blended with a sweet component such as PX", "A dry sparkling wine with no dosage"]
+          correctIndex: 2
+          explanation: "The Sherry council describes Cream as an oxidative aged blend, commonly based on Oloroso and sweetened with PX or another grape-derived component."
+          sourceCitationId: src_fort_sherry_cream
+        ki_wset_sf_marlborough_spark:
+          prompt: "Which grapes dominate classic traditional-method sparkling examples from Marlborough?"
+          options: ["Cabernet Sauvignon and Merlot", "Pinot Noir and Chardonnay", "Sauvignon Blanc and Sémillon exclusively", "Nebbiolo and Barbera"]
+          correctIndex: 1
+          explanation: "New Zealand Wine describes traditional-method sparkling from Pinot Noir and Chardonnay, with Marlborough a major production centre."
+          sourceCitationId: src_wset_sf_nz_spark
+        ki_wset_sf_carneros_spark:
+          prompt: "Why can Los Carneros suit Pinot Noir and Chardonnay for sparkling bases?"
+          options: ["Hot inland nights force rapid sugar accumulation", "It has no fog or marine influence", "It is legally required to use only Cabernet Sauvignon", "San Pablo Bay breezes and fog support relatively cool, even ripening"]
+          correctIndex: 3
+          explanation: "Domaine Carneros describes the area's Bay breezes, lingering fog and slow ripening of Chardonnay and Pinot Noir."
+          sourceCitationId: src_wset_sf_carneros
+        ki_wset_origin_provence_grenache:
+          prompt: "What can Grenache contribute to a Côtes de Provence La Londe rosé blend?"
+          options: ["Red-fruit aromas and palate breadth", "Flor-derived almond from biological ageing", "The bubbles from bottle fermentation", "Mandatory high residual sugar"]
+          correctIndex: 0
+          explanation: "The Provence wine body lists Grenache for La Londe rosés and describes its young red-fruit aromas and breadth."
+          sourceCitationId: src_wset_origin_provence
+        ki_wset_origin_barbera_asti:
+          prompt: "Which grape is associated with the Barbera d'Asti DOCG red-wine origin?"
+          options: ["Meunier", "Barbera", "Palomino", "Glera"]
+          correctIndex: 1
+          explanation: "Valoritalia identifies Barbera d'Asti as a red DOCG in Asti and Alessandria where Barbera is especially widespread."
+          sourceCitationId: src_wset_origin_barbera
+        ki_wset_origin_carneros_pinot:
+          prompt: "Which statement about Los Carneros is supported by a local producer example?"
+          options: ["It produces only sparkling wine", "It cannot ripen Pinot Noir", "It also produces still Pinot Noir", "Every Pinot Noir must have identical barrel treatment"]
+          correctIndex: 2
+          explanation: "Domaine Carneros documents an estate still Pinot Noir; that example does not prescribe all Carneros wines."
+          sourceCitationId: src_wset_origin_carneros
+        ki_wset_origin_puligny_chardonnay:
+          prompt: "Which grape is used for almost all white Puligny-Montrachet village wine?"
+          options: ["Chardonnay", "Sauvignon Blanc", "Palomino", "Viognier"]
+          correctIndex: 0
+          explanation: "The Bourgogne regional appellation sheet lists almost all Puligny-Montrachet whites as Chardonnay and notes small red Pinot Noir production."
+          sourceCitationId: src_wset_origin_puligny
+        ki_wset_origin_beaune_pinot:
+          prompt: "What should a learner infer when a Beaune appellation wine is red?"
+          options: ["It must be Chardonnay because Beaune lies in the Côte de Beaune", "It is a Pinot Noir expression; Beaune also makes some Chardonnay whites", "It must be a fortified wine", "It must come from Champagne"]
+          correctIndex: 1
+          explanation: "The Bourgogne wine body describes Beaune's red Pinot Noir reputation and rarer Chardonnay whites."
+          sourceCitationId: src_wset_origin_beaune

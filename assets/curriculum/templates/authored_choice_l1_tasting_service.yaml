@@ -1,0 +1,140 @@
+question_templates:
+- id: qt_wset_l1_authored_tasting_service
+  relation_type: PRINCIPLE_EXPLANATION
+  direction: forward
+  mode: authored_choice
+  variant: l1_tasting_service
+  prompt_template: '{subject.name}'
+  parameters:
+    item_choices:
+      ki_wset_found_sweetness:
+        prompt: A grape wine smells of ripe peach. Which observation demonstrates sweetness rather than fruit
+          aroma?
+        options:
+        - Its golden colour in the glass
+        - A sweet taste on the palate
+        - Its peach smell before sipping
+        - A vanilla smell associated with oak
+        correctIndex: 1
+        explanation: A wine can smell fruity yet taste dry; sweetness is assessed by tasting, not by fruit
+          aroma alone.
+        sourceCitationId: src_wset_found_wa_intro
+      ki_wset_found_tannin:
+        prompt: Which mouth sensation most directly suggests tannin in a wine?
+        options:
+        - Mouth-watering salivation
+        - Warming in the throat
+        - A drying grip on the gums
+        - Sugar sweetness on the finish
+        correctIndex: 2
+        explanation: Tannin can feel drying and astringent, unlike mouth-watering acidity or alcohol warmth.
+        sourceCitationId: src_wset_found_wa_intro
+      ki_wset_found_alcohol:
+        prompt: When tasting wine, which sensation most directly suggests alcohol?
+        options:
+        - Warmth in the mouth and throat
+        - A sweet finish that proves residual sugar
+        - Mouth-watering acidity
+        - A drying grip on the gums
+        correctIndex: 0
+        explanation: Alcohol can give a warming sensation; other wine components cause sweetness, salivation
+          or drying grip.
+        sourceCitationId: src_wset_found_wa_intro
+      ki_wset_found_body:
+        prompt: What does a taster mean by describing a wine as full-bodied?
+        options:
+        - The wine has a deep colour
+        - The wine must contain much residual sugar
+        - The wine has spent many years in bottle
+        - The wine feels weighty and full in the mouth
+        correctIndex: 3
+        explanation: Body describes perceived weight or fullness in the mouth, not colour, age or sweetness
+          alone.
+        sourceCitationId: src_wset_found_wa_intro
+      ki_wset_found_fruit_aromas:
+        prompt: A taster reports green-apple aroma in a grape wine. What does that mean?
+        options:
+        - Apple fruit was blended into the fermented wine
+        - The wine has an aroma reminiscent of green apple
+        - The wine has a reliably high residual sugar level
+        - The wine was aged in applewood barrels
+        correctIndex: 1
+        explanation: Fruit words in a tasting note describe perceived aroma compounds; they do not imply the
+          literal fruit was added.
+        sourceCitationId: src_wset_taste_aroma_chemistry
+      ki_wset_found_oak_aromas:
+        prompt: Which group of aromas can oak maturation contribute to wine?
+        options:
+        - Fresh apple, pear and citrus
+        - Sourness, salivation and sharp acidity
+        - Vanilla, toast and spice
+        - A drying grip without any aroma
+        correctIndex: 2
+        explanation: Oak maturation can add vanilla, toast and spice notes; their strength varies with oak
+          use.
+        sourceCitationId: src_wset_found_wa_intro
+      ki_wset_srv_storage_dark:
+        prompt: Why is a dark place preferred for storing unopened wine?
+        options:
+        - Darkness raises the wine's alcohol level
+        - Strong light can warm wine and cause unwanted chemical changes
+        - Bright light prevents oxidation
+        - Darkness guarantees that every wine improves with age
+        correctIndex: 1
+        explanation: Strong light can heat stored wine and trigger changes that damage its character.
+        sourceCitationId: src_wset_srv_temperature
+      ki_wset_srv_red_temperature:
+        prompt: Using WSET Level 1's service-temperature descriptions, how should a full-bodied red wine be
+          served?
+        options:
+        - Well chilled
+        - Lightly chilled
+        - Room temperature
+        - Chilled
+        correctIndex: 2
+        explanation: WSET describes full-bodied red service as room temperature in the wine-service sense;
+          its public service guide places that cool-room range around 15–18°C, below many heated rooms.
+        sourceCitationId: src_wset_srv_temperature
+      ki_wset_srv_spark_control:
+        prompt: While loosening the wire cage on a chilled bottle of Champagne, what should the server do?
+        options:
+        - Release the cork so the pressure escapes quickly
+        - Shake the bottle to loosen the cork
+        - Keep a firm hand on the cork and point the bottle away from people
+        - Point the bottle neck toward a guest while turning it
+        correctIndex: 2
+        explanation: Control the cork throughout opening and keep the bottle pointed away from people.
+        sourceCitationId: src_wset_srv_champagne
+      ki_wset_srv_preserve_gas:
+        prompt: How can an appropriate inert-gas system help preserve an opened still wine?
+        options:
+        - It pumps air out of the bottle like a vacuum device
+        - It limits oxygen contact by creating a protective gas layer
+        - It restores aromas already lost to oxidation
+        - It restarts fermentation to replace lost flavour
+        correctIndex: 1
+        explanation: An inert-gas layer can limit the wine's exposure to oxygen; it does not reverse existing
+          deterioration.
+        sourceCitationId: src_wset_srv_preserve
+      ki_wset_srv_food_sweet_dry:
+        prompt: After a bite of sweet dessert, how may a dry wine seem compared with tasting it alone?
+        options:
+        - Sweeter and more fruity
+        - Lower in actual alcohol
+        - Chemically lower in sugar
+        - Drier, less fruity and more bitter
+        correctIndex: 3
+        explanation: Sweet food commonly reduces perceived wine sweetness and fruitiness and can increase
+          perceived bitterness.
+        sourceCitationId: src_wset_srv_sweet
+      ki_wset_srv_food_umami_bitter:
+        prompt: What common effect can pronounced umami in food have on a tannic wine?
+        options:
+        - It can seem more bitter and less fruity
+        - Its tannins are chemically removed
+        - It must seem sweeter and fruitier
+        - Its actual acidity increases
+        correctIndex: 0
+        explanation: Umami-rich food can make wine seem more bitter and less fruity, especially when the wine
+          is tannic.
+        sourceCitationId: src_wset_srv_umami

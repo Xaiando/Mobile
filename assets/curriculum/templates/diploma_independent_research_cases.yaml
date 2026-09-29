@@ -1,0 +1,43 @@
+# Fictional practice packets, unrelated to any current D6 assignment title.
+# Short-answer self-check exposes four evidence roles; it does not grade D6 work.
+question_templates:
+  - id: qt_d6_case_channel_evidence
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: d6_channel_evidence
+    prompt_template: >-
+      Fictional practice packet, not an issued WSET title. Assess the statement
+      "direct wine demand rose across Region A". A voluntary group of 18 wineries
+      reports more website orders in 2025 than in 2024; it does not include cellar-door
+      sales or wineries outside the group. A trade article repeats the group's headline
+      without new data. A retailer reports flat sales in ten shops over a different
+      period; it does not measure direct orders. Plan the inquiry, state what the
+      evidence can support, weigh a competing reading, and identify a needed check.
+    parameters:
+      scope_node_ids: [n_d6_case_channel_evidence]
+      key_points:
+        CASE_ACTION: Inquiry and bounded claim
+        CASE_REASON: Source relationship
+        CASE_TRADEOFF: Evidence comparison
+        CASE_LIMITATION: Limit and next check
+  - id: qt_d6_case_campaign_argument
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: d6_campaign_argument
+    prompt_template: >-
+      Fictional practice packet, not an issued WSET title. A regional export campaign
+      ran from January to June. Seven participating wineries report increased orders
+      afterward. Four non-participating wineries also report an increase, but their
+      starting volumes and customer channels differ. A draft conclusion says the
+      campaign caused the participating wineries' growth. Build a short argument
+      outline that uses the supplied evidence, considers a rival explanation,
+      qualifies the conclusion and names a test that would strengthen it.
+    parameters:
+      scope_node_ids: [n_d6_case_campaign_argument]
+      key_points:
+        CASE_ACTION: Qualified conclusion
+        CASE_REASON: Supporting and contrary evidence
+        CASE_TRADEOFF: Rival explanation
+        CASE_LIMITATION: Needed comparison

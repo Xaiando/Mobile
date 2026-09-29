@@ -741,7 +741,8 @@ knowledge_items:
     relation_type: PRINCIPLE_EXPLANATION
     object_id: n_wset_srv_point_foil
     domain_id: service
-    assertion_text: Remove the upper foil and clean the neck before drawing the cork; keep the bottle steady.
+    assertion_text: Cut the foil below the second lip and remove it; wipe the top of the cork before drawing it,
+      then wipe the bottle top again before pouring.
     verification_status: unverified
     mcq_disabled: true
     last_verified_at: 2026-09-27T00:00:00.000Z
@@ -750,8 +751,8 @@ knowledge_items:
     relation_type: PRINCIPLE_EXPLANATION
     object_id: n_wset_srv_point_corkscrew
     domain_id: service
-    assertion_text: Centre the spiral in the cork and use the lever to draw it gently; avoid driving through the
-      cork into the wine.
+    assertion_text: Insert the corkscrew worm just off centre, twist slowly until its tip is just short of the
+      cork's bottom, then lever the cork out gently.
     verification_status: unverified
     mcq_disabled: true
     last_verified_at: 2026-09-27T00:00:00.000Z
@@ -866,7 +867,8 @@ knowledge_items:
     relation_type: PRINCIPLE_EXPLANATION
     object_id: n_wset_srv_point_preserve_check
     domain_id: service
-    assertion_text: "Preservation cannot guarantee a fixed usable life: assess the opened bottle again before serving it."
+    assertion_text: Opening a bottle starts loss of aroma and flavour; preservation can delay deterioration but
+      does not guarantee indefinite freshness.
     verification_status: unverified
     mcq_disabled: true
     last_verified_at: 2026-09-27T00:00:00.000Z
@@ -942,8 +944,8 @@ knowledge_items:
     relation_type: PRINCIPLE_EXPLANATION
     object_id: n_wset_srv_point_fault_recheck
     domain_id: service
-    assertion_text: Check glass cleanliness and compare a fresh sample or replacement bottle; explain the concern
-      without insisting on one aroma threshold.
+    assertion_text: When wine seems faulty, swirl and smell it, then taste if needed; people differ in sensitivity
+      to off aromas, so respond to the concern without insisting on a universal threshold.
     verification_status: unverified
     mcq_disabled: true
     last_verified_at: 2026-09-27T00:00:00.000Z
@@ -1984,10 +1986,10 @@ knowledge_item_citations:
     locator: Original concise lesson; see named section of source
   - knowledge_item_id: ki_wset_srv_foil
     source_citation_id: src_wset_srv_cms
-    locator: Original concise lesson; see named section of source
+    locator: Service Standards 24.1, pp. 3–4, foil cut and cork/bottle wipe sequence
   - knowledge_item_id: ki_wset_srv_corkscrew
     source_citation_id: src_wset_srv_cms
-    locator: Original concise lesson; see named section of source
+    locator: Service Standards 24.1, p. 3, worm just off centre and gentle lever extraction
   - knowledge_item_id: ki_wset_srv_cork_fragile
     source_citation_id: src_wset_srv_tools
     locator: Original concise lesson; see named section of source
@@ -1997,6 +1999,9 @@ knowledge_item_citations:
   - knowledge_item_id: ki_wset_srv_cork_taint_distinct
     source_citation_id: src_fault_faults_overview
     locator: Original concise lesson; see named section of source
+  - knowledge_item_id: ki_wset_srv_cork_taint_distinct
+    source_citation_id: src_wset_sfault_common_faults
+    locator: Cork pieces are not TCA taint; assess aroma and flavour separately
   - knowledge_item_id: ki_wset_srv_spark_chill
     source_citation_id: src_wset_srv_champagne
     locator: Original concise lesson; see named section of source
@@ -2042,15 +2047,27 @@ knowledge_item_citations:
   - knowledge_item_id: ki_wset_srv_fault_cork
     source_citation_id: src_fault_faults_overview
     locator: Original concise lesson; see named section of source
+  - knowledge_item_id: ki_wset_srv_fault_cork
+    source_citation_id: src_wset_sfault_common_faults
+    locator: Cork taint; musty or damp-cardboard aromas and muted fruit
   - knowledge_item_id: ki_wset_srv_fault_oxidation
     source_citation_id: src_fault_faults_overview
     locator: Original concise lesson; see named section of source
+  - knowledge_item_id: ki_wset_srv_fault_oxidation
+    source_citation_id: src_wset_sfault_common_faults
+    locator: Oxidation; faded fruit, bruised apple and deliberately oxidative styles
   - knowledge_item_id: ki_wset_srv_fault_va
     source_citation_id: src_fault_faults_overview
     locator: Original concise lesson; see named section of source
+  - knowledge_item_id: ki_wset_srv_fault_va
+    source_citation_id: src_wset_sfault_common_faults
+    locator: Volatile acidity; vinegar or nail-polish aromas at higher levels
   - knowledge_item_id: ki_wset_srv_fault_recheck
     source_citation_id: src_fault_faults_overview
     locator: Original concise lesson; see named section of source
+  - knowledge_item_id: ki_wset_srv_fault_recheck
+    source_citation_id: src_wset_sfault_common_faults
+    locator: Swirl, smell and taste when needed; variable sensitivity to off aromas
   - knowledge_item_id: ki_wset_srv_pairing_person
     source_citation_id: src_wset_srv_food
     locator: Original concise lesson; see named section of source
@@ -2072,6 +2089,12 @@ knowledge_item_citations:
   - knowledge_item_id: ki_wset_srv_food_salt_soft
     source_citation_id: src_wset_srv_food
     locator: Original concise lesson; see named section of source
+  - knowledge_item_id: ki_wset_srv_food_salt_soft
+    source_citation_id: src_wset_srv_sweet
+    locator: Winter pairing guide, Salt; perceived acidity and bitterness may soften
+  - knowledge_item_id: ki_wset_srv_food_salt_soft
+    source_citation_id: src_wset_srv_umami
+    locator: Food-and-wine guide; salt can enhance perceived fruit character
   - knowledge_item_id: ki_wset_srv_food_salt_not_rule
     source_citation_id: src_wset_srv_food
     locator: Original concise lesson; see named section of source
@@ -2087,9 +2110,15 @@ knowledge_item_citations:
   - knowledge_item_id: ki_wset_srv_food_fat_fresh
     source_citation_id: src_wset_srv_food
     locator: Original concise lesson; see named section of source
+  - knowledge_item_id: ki_wset_srv_food_fat_fresh
+    source_citation_id: src_wset_srv_sweet
+    locator: Winter pairing guide, Foods high in fat; acidity can refresh the palate
   - knowledge_item_id: ki_wset_srv_food_fat_complete
     source_citation_id: src_wset_srv_food
     locator: Original concise lesson; see named section of source
+  - knowledge_item_id: ki_wset_srv_food_fat_complete
+    source_citation_id: src_cms_pairing_guide
+    locator: Food and Wine, pp. 4–6; fat, sauces and condiments affect the match
   - knowledge_item_id: ki_wset_srv_food_chilli_alcohol
     source_citation_id: src_wset_srv_spice
     locator: Original concise lesson; see named section of source

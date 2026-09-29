@@ -1,0 +1,565 @@
+question_templates:
+- id: qt_wset_l3_authored_regional_geography_50
+  relation_type: PRINCIPLE_EXPLANATION
+  direction: forward
+  mode: authored_choice
+  variant: l3_cited_regional_geography
+  prompt_template: '{subject.name}'
+  parameters:
+    item_choices:
+      ki_reg_am_aconcagua_coast:
+        prompt: A buyer compares coastal Aconcagua fruit with the valley's inland red tradition. Which coastal
+          group is best supported?
+        options:
+        - Chardonnay, Sauvignon Blanc and Pinot Noir
+        - Cabernet Sauvignon, Carménère and Merlot
+        - País and Moscatel de Alejandría
+        - Syrah and Sauvignon Blanc as the principal pair
+        correctIndex: 0
+        explanation: Wines of Chile describes Chardonnay, Sauvignon Blanc and Pinot Noir thriving in coastal
+          Aconcagua, against an inland red-variety tradition.
+        sourceCitationId: src_reg_am_chile
+      ki_reg_am_maipo_cabernet:
+        prompt: For a Maipo regional brief, which climate and grape pairing matches the Chilean wine body?
+        options:
+        - Coastal fog and Chardonnay
+        - Hot dry summers and Cabernet Sauvignon
+        - Cool windy summers and Pinot Noir
+        - Arid mountain sites and Syrah
+        correctIndex: 1
+        explanation: Maipo has hot, dry summers and Cabernet Sauvignon is its main planted variety in the
+          regional profile.
+        sourceCitationId: src_reg_am_chile
+      ki_reg_am_casablanca_low:
+        prompt: A producer selects a lower, cooler Casablanca parcel. Which grape pair is most consistent
+          with the cited regional profile?
+        options:
+        - Merlot and Syrah
+        - Cabernet Sauvignon and Carménère
+        - Sauvignon Blanc and Chardonnay
+        - País and Moscatel de Alejandría
+        correctIndex: 2
+        explanation: The profile associates lower, cooler Casablanca sites with Sauvignon Blanc and Chardonnay.
+        sourceCitationId: src_reg_am_chile
+      ki_reg_am_casablanca_high:
+        prompt: In Casablanca, which site comparison explains why Merlot and Syrah can be grown on some higher
+          parcels?
+        options:
+        - Higher parcels are cooler and more frost-prone than the valley floor
+        - Merlot and Syrah are associated only with the lower cool sites
+        - The higher sites have the same thermal conditions as the lower ones
+        - Some higher parcels are warmer and frost-free relative to lower, cooler sites
+        correctIndex: 3
+        explanation: Wines of Chile explicitly describes higher, warmer, frost-free elevations for Merlot
+          and Syrah.
+        sourceCitationId: src_reg_am_chile
+      ki_reg_am_limari_chardonnay:
+        prompt: Which setting best fits a coastal Limarí Chardonnay parcel?
+        options:
+        - Maritime influence and morning Camanchaca fog in a semi-arid valley
+        - Humid Mediterranean weather and País plantings
+        - Hot inland summer sites without morning fog
+        - Cool rainy southern sites with Riesling as the main variety
+        correctIndex: 0
+        explanation: The Chilean regional page links coastal Limarí Chardonnay with maritime influence, semi-aridity
+          and morning Camanchaca fog.
+        sourceCitationId: src_reg_am_chile
+      ki_reg_am_colchagua_reds:
+        prompt: For a Colchagua red-wine site, what effect does Wines of Chile attribute to interacting Pacific
+          and Andean breezes?
+        options:
+        - They cool the valley and shorten the ripening period
+        - They warm the valley and extend the ripening period
+        - They warm the valley and shorten the ripening period
+        - They cool the valley and extend the ripening period
+        correctIndex: 3
+        explanation: The Chilean regional body says the breezes cool Colchagua and extend ripening, helping
+          grapes retain acidity.
+        sourceCitationId: src_reg_am_chile
+      ki_reg_sa_elqui_grapes:
+        prompt: A merchant wants one red and one white association for Elqui. Which pair is cited?
+        options:
+        - Syrah and Chardonnay
+        - Pinot Noir and Riesling
+        - Syrah and Sauvignon Blanc
+        - Carménère and Moscatel de Alejandría
+        correctIndex: 2
+        explanation: The Chilean regional body names Syrah among reds and Sauvignon Blanc among whites for
+          Elqui.
+        sourceCitationId: src_reg_am_chile
+      ki_reg_sa_elqui_dry:
+        prompt: Which broad climate contrast between Elqui and Itata is supported by the Chilean regional
+          descriptions?
+        options:
+        - Both are humid Mediterranean, with Elqui the cooler one
+        - Elqui is humid Mediterranean while Itata is arid
+        - Both are described as similarly arid northern valleys
+        - Elqui is arid; Itata is cooler and humid Mediterranean
+        correctIndex: 3
+        explanation: The regional body calls Elqui arid and describes Itata as cooler, humid Mediterranean.
+        sourceCitationId: src_reg_am_chile
+      ki_reg_sa_biobio_grapes:
+        prompt: Which two whites does Wines of Chile explicitly identify as suitable south of the Bío-Bío
+          River?
+        options:
+        - Chardonnay and Riesling
+        - Sauvignon Blanc and Chardonnay
+        - Moscatel de Alejandría and Chardonnay
+        - Sauvignon Blanc and Riesling
+        correctIndex: 3
+        explanation: The Bío-Bío profile highlights Chardonnay and Pinot Noir more generally, then specifically
+          names Sauvignon Blanc and Riesling south of the river.
+        sourceCitationId: src_reg_am_chile
+      ki_reg_oa_canterbury_waipara:
+        prompt: Which Waipara site assessment follows the North Canterbury profile?
+        options:
+        - The hills increase nor'wester exposure and make Waipara cooler than the plains
+        - The hills offer some shelter and warmth, while the drying nor'wester can still challenge vines
+        - The plains, rather than hills, are described as providing Waipara shelter
+        - The northwesterly wind means surrounding hills cannot modify conditions
+        correctIndex: 1
+        explanation: The page describes protective hills and a slightly warmer setting, but also the drying
+          nor'wester.
+        sourceCitationId: src_reg_oa_canterbury
+      ki_reg_oa_canterbury_plains:
+        prompt: Which comparison best describes the Canterbury Plains relative to Waipara?
+        options:
+        - Steep hills with clay soils and greater warmth than Waipara
+        - Flat alluvium but warmer than Waipara with poor drainage
+        - Predominantly flat, free-draining shallow gravels and slightly cooler
+        - Protected valley hills with the region's warmest slopes
+        correctIndex: 2
+        explanation: The New Zealand regional page describes predominantly flat or gently contoured plains,
+          shallow free-draining gravels and a slightly cooler climate.
+        sourceCitationId: src_reg_oa_canterbury
+      ki_reg_oa_nelson_moutere:
+        prompt: A Nelson Pinot Noir site lies in the Moutere Hills. Which regional context is most appropriate?
+        options:
+        - Cooler and drier than Waimea, with mainly stony alluvium
+        - Similar temperatures but far less rain than Waimea and sandy soils
+        - Warmer and drier than Waimea, with a uniformly light Pinot style
+        - Slightly warmer and wetter than Waimea, with gravel-threaded clay and structured Pinot examples
+        correctIndex: 3
+        explanation: New Zealand Winegrowers describes Moutere as slightly warmer and wetter than Waimea,
+          with gravel-threaded clay and structured Pinot Noir.
+        sourceCitationId: src_reg_oa_nelson
+      ki_reg_oa_nelson_waimea:
+        prompt: Which observation is a sound starting point for comparing a Waimea Plains wine with a Moutere
+          wine?
+        options:
+        - Waimea has stony alluvium and maritime moderation, with generally lighter, fresher tendencies
+        - Warmer and wetter than Moutere, with clay-rich hill soils
+        - Waimea is generally heavier and richer than Moutere because of warmer hill sites
+        - Waimea lacks maritime moderation and has the same soils as Moutere
+        correctIndex: 0
+        explanation: The regional page describes Waimea's stony alluvial soils, maritime influence and lighter,
+          fresher tendency relative to Moutere.
+        sourceCitationId: src_reg_oa_nelson
+      ki_reg_oa_gisborne_manutuke:
+        prompt: Which Manutuke parcel description fits the Gisborne regional profile?
+        options:
+        - A warmer inland area of sloping clay and silt west of the city
+        - A coastal area with Chardonnay on well-drained sandy sites and heavier clay farther west
+        - A northern river escarpment with limestone-influenced topsoil
+        - A coastal area where Chardonnay is absent and all vines occupy clay
+        correctIndex: 1
+        explanation: The New Zealand profile describes coastal Manutuke Chardonnay on well-drained sandy sites
+          and heavier clay toward western hills.
+        sourceCitationId: src_reg_oa_gisborne
+      ki_reg_sh_marlborough_wairau:
+        prompt: Which Wairau Valley site–mesoclimate pairing is described by NZ Wine?
+        options:
+        - 'Stony riverbed: late ripening; coast: warmer inland air'
+        - 'Stony riverbed: late ripening; coast: sea-breeze moderation'
+        - 'Stony riverbed: early ripening; coast: warmer inland air'
+        - 'Stony riverbed: early ripening; coast: sea-breeze moderation'
+        correctIndex: 3
+        explanation: NZ Wine describes barren stony Wairau sites as early ripening and coastal sites as moderated
+          by sea breezes.
+        sourceCitationId: src_nwc_nz_marlborough
+      ki_reg_sh_marlborough_awatere:
+        prompt: Which contrast best fits Awatere relative to Wairau in the Marlborough regional profile?
+        options:
+        - Awatere is generally warmer, wetter and less windy than Wairau
+        - Awatere has only low coastal sites with no elevation
+        - Awatere is cooler but wetter and more sheltered than Wairau
+        - Awatere is generally cooler, drier and windier, often with elevated sites
+        correctIndex: 3
+        explanation: The New Zealand wine body describes Awatere as cooler, drier, windier and often elevated.
+        sourceCitationId: src_nwc_nz_marlborough
+      ki_reg_sh_otago_gibbston:
+        prompt: Why might a Gibbston Pinot Noir parcel ripen later than another Central Otago parcel?
+        options:
+        - Gibbston is the highest, cooler subregion and tends to ripen later
+        - Gibbston is among the warmest and driest sites and is often harvested first
+        - Gibbston sits at lower altitude than Bannockburn with a warmer climate
+        - Gibbston usually ripens before neighbouring subregions because of its higher elevation
+        correctIndex: 0
+        explanation: The Central Otago profile identifies Gibbston as its highest subregion, cooler and later
+          ripening.
+        sourceCitationId: src_nwc_nz_otago
+      ki_reg_sh_otago_bannockburn:
+        prompt: A producer expects an earlier Central Otago harvest. Which subregional setting supports that
+          expectation?
+        options:
+        - The high, cool Gibbston setting
+        - A warmer, drier Bannockburn site
+        - The wetter, cooler Wanaka setting
+        - An elevated Alexandra site with a cooler aspect
+        correctIndex: 1
+        explanation: Bannockburn contains some of Central Otago's warmest, driest sites and can harvest earlier
+          than cooler subregions.
+        sourceCitationId: src_nwc_nz_otago
+      ki_reg_sh_hawkes_reds:
+        prompt: For a Hawke's Bay red-blend brief, which regional setting is described by NZ Wine?
+        options:
+        - Temperate sunshine with uniform clay and peat lowlands
+        - Temperate sunshine with gravel beds and alluvial terraces
+        - Frequent coastal rain with gravel beds and alluvial terraces
+        - Hot continental summers with uniform clay and peat lowlands
+        correctIndex: 1
+        explanation: NZ Wine describes a sunny temperate climate and free-draining alluvial plains and gravel
+          terraces, alongside red blends and Syrah.
+        sourceCitationId: src_reg_sh_hawkes
+      ki_reg_sh_hawkes_cool:
+        prompt: "A buyer compares coastal Chardonnay with cooler inland Pinot Noir from Hawke's Bay. Which assessment fits the regional profile?"
+        options:
+        - "Both are plausible; exposure settles their final styles before harvest choices are known."
+        - "Both are plausible; picking settles their final styles without checking site exposure."
+        - "Both are plausible; compare each site and picking decision before predicting style."
+        - "Both are plausible; regional climate settles their relative ripeness without vineyard evidence."
+        correctIndex: 2
+        explanation: "New Zealand Winegrowers describes coastal and higher sites suited to whites and cooler inland Pinot Noir potential; site and picking evidence are both needed before assigning style."
+        sourceCitationId: src_reg_sh_hawkes
+      ki_reg_de_baden_kaiserstuhl_warm:
+        prompt: How should the Kaiserstuhl be used in a comparison of Baden vineyard temperatures?
+        options:
+        - As a notably warm Baden example, without treating the long region as climatically uniform
+        - As a cooler representative of every Baden area
+        - As evidence that northern Baden is warmer than all southern districts
+        - As a fixed-temperature proxy for all nine Baden areas
+        correctIndex: 0
+        explanation: DWI calls Kaiserstuhl among Germany's warmest places while describing Baden's nine areas
+          as climatically varied.
+        sourceCitationId: src_ce_baden
+      ki_reg_de_baden_grape_context:
+        prompt: "Which selected northern and southern Baden grape associations does the German Wine Institute describe?"
+        options:
+        - "North: Riesling, Rivaner and Schwarzriesling; farther south: Pinot family, with Gutedel in Markgräflerland."
+        - "North: Riesling, Pinot and Gutedel; farther south: Rivaner, with Schwarzriesling in Markgräflerland."
+        - "North: Rivaner, Gutedel and Schwarzriesling; farther south: Riesling, with Pinot in Markgräflerland."
+        - "North: Riesling, Rivaner and Pinot; farther south: Gutedel, with Schwarzriesling in Markgräflerland."
+        correctIndex: 0
+        explanation: "The German Wine Institute gives selected northern Riesling, Rivaner and Schwarzriesling associations, stronger Pinot-family associations farther south, and Gutedel in Markgräflerland. These do not form a legal grape list."
+        sourceCitationId: src_ce_baden
+      ki_reg_de_rheingau_riesling_exposure:
+        prompt: Which site feature helps frame the Rheingau Riesling ripening context?
+        options:
+        - A north-facing coastal plain gives a short growing season
+        - The westward Rhine bend removes favourable slope exposures
+        - The Rhine bend and south-facing stony slopes accompany a long Riesling ripening period
+        - Riesling here ripens mainly on shaded flat valley floors
+        correctIndex: 2
+        explanation: DWI describes the Rhine bend, south-facing stony slopes and Riesling's long ripening
+          period.
+        sourceCitationId: src_ce_rheingau
+      ki_reg_de_rheingau_assmannshausen_red:
+        prompt: Which red variety does the German Wine Institute specifically associate with Assmannshausen?
+        options:
+        - Dornfelder
+        - Portugieser
+        - Spätburgunder
+        - Lemberger
+        correctIndex: 2
+        explanation: DWI explicitly names Assmannshausen for Spätburgunder, also known as Pinot Noir.
+        sourceCitationId: src_ce_rheingau
+      ki_reg_de_nahe_shelter:
+        prompt: Which geographic feature does the German Wine Institute specifically cite as shielding the
+          Nahe from cold wind?
+        options:
+        - The high Hunsrück beyond the valley
+        - The lower Nahe valley beside vineyards
+        - The porphyry outcrops above the river
+        - The slate slopes beside the tributaries
+        correctIndex: 0
+        explanation: DWI explicitly attributes shelter from cold winds to the high Hunsrück; its soil descriptions
+          serve a different point.
+        sourceCitationId: src_reg_de_nahe
+      ki_reg_de_nahe_site_variety:
+        prompt: Two Nahe vineyards sit on different geological settings. Which statement best reflects the
+          regional evidence?
+        options:
+        - Slate alone, with little geological variation
+        - Only limestone and a single red variety
+        - Slate, porphyry, loess and loam occur, with Riesling and Pinot-family plantings
+        - Porphyry and loam absent despite diverse Pinot plantings
+        correctIndex: 2
+        explanation: DWI lists slate, volcanic porphyry, loess and loam and describes Riesling and Pinot-family
+          plantings.
+        sourceCitationId: src_reg_de_nahe
+      ki_reg_de_pfalz_forest_shelter:
+        prompt: Which physical feature does the German Wine Institute name as sheltering Pfalz vineyards?
+        options:
+        - The Haardt's east-facing vineyard slopes
+        - The Rhine plain east of the vineyards
+        - The Pfälzerwald behind the Haardt
+        - The alluvial fans along the Rhine plain
+        correctIndex: 2
+        explanation: DWI describes the Pfalz winegrowing area as bordered and protected by the Pfälzerwald.
+        sourceCitationId: src_reg_de_pfalz
+      ki_reg_de_pfalz_grape_style_range:
+        prompt: "Which grape range helps explain why a Pfalz wine needs a variety and cellar check before predicting its style?"
+        options:
+        - "Riesling and white Pinot, but not red Pinot; compare the actual grape and cellar choices."
+        - "Riesling and red Pinot, but not white Pinot; compare the actual grape and cellar choices."
+        - "Riesling with white and red Pinot; compare the actual grape and cellar choices."
+        - "White and red Pinot without Riesling; compare the actual grape and cellar choices."
+        correctIndex: 2
+        explanation: "The German Wine Institute names Riesling, white Pinot varieties and red Spätburgunder in Pfalz. Their range means a regional name alone cannot settle a bottle's variety or cellar treatment."
+        sourceCitationId: src_reg_de_pfalz
+      ki_reg_de_rheinhessen_shelter:
+        prompt: Which regional climate description should inform a Rheinhessen vineyard comparison?
+        options:
+        - An exposed Atlantic coast with wet summers and cold winters
+        - Western uplands offer shelter, with relatively low rainfall, warm summers and mild winters
+        - The western uplands increase rainfall and shorten the season
+        - The region is sheltered but has persistently cold summers and severe winters
+        correctIndex: 1
+        explanation: DWI describes western mountain shelter, relatively little precipitation, warm summers
+          and mild winters.
+        sourceCitationId: src_reg_de_rheinhessen
+      ki_reg_de_rheinhessen_terrain:
+        prompt: "Two Rheinhessen vineyards lie on a Rhine terrace and a rolling hill. How should style be inferred?"
+        options:
+        - "Treat the terrace setting as sufficient exposure evidence, then inspect the hill."
+        - "Compare each parcel's terrain and exposure before inferring ripeness or style."
+        - "Treat the hill setting as sufficient exposure evidence, then inspect the terrace."
+        - "Use the regional climate description to assign similar ripeness, then inspect soils."
+        correctIndex: 1
+        explanation: "The German Wine Institute describes varied Rheinhessen terrain; neither a terrace, hill nor regional climate summary establishes both parcels’ exposure, ripeness or style."
+        sourceCitationId: src_reg_de_rheinhessen
+      ki_reg_ib_rioja_gradient:
+        prompt: A Rioja grower compares western and eastern sites. Which broad influence gradient is documented?
+        options:
+        - East is more Atlantic and west more Mediterranean
+        - Atlantic influence is strongest in both the east and west
+        - The Mediterranean influence is absent from the eastern area
+        - West has stronger Atlantic influence and east stronger Mediterranean influence
+        correctIndex: 3
+        explanation: The Rioja control board describes greater Atlantic influence in the west and Mediterranean
+          influence in the east.
+        sourceCitationId: src_reg_ib_rioja_geo
+      ki_reg_ib_rioja_topography:
+        prompt: Two Rioja vineyards in the same broad zone give wines with different freshness. Which comparison
+          best tests a site explanation?
+        options:
+        - Use the shared zone name as sufficient evidence of their site climates
+        - Use soil colour as a proxy for both temperature and exposure
+        - Use regional mean rainfall instead of local exposure records
+        - Compare both altitude and aspect before assigning a zone effect
+        correctIndex: 3
+        explanation: The Rioja control board identifies altitude, slope, orientation, and local microclimate
+          as relevant factors within its broad Atlantic–Mediterranean gradient.
+        sourceCitationId: src_reg_ib_rioja_geo
+      ki_reg_ib_douro_shelter:
+        prompt: What limits direct Atlantic influence on Douro vineyards according to Wines of Portugal?
+        options:
+        - The terraces cut into the Douro's schist slopes
+        - The Serra do Marão in the mountainous west
+        - The Douro River's west-to-east valley corridor
+        - The elevated vineyards near the Spanish border
+        correctIndex: 1
+        explanation: Wines of Portugal identifies the Serra do Marão as the mountain barrier protecting the
+          Douro from Atlantic influence.
+        sourceCitationId: src_reg_ib_douro_region
+      ki_reg_ib_douro_gradient:
+        prompt: A Douro producer compares Baixo Corgo with Douro Superior. Which broad contrast is supported?
+        options:
+        - Baixo Corgo is hotter and drier than Douro Superior
+        - Cima Corgo has exactly the same rain as both adjacent subregions
+        - Baixo Corgo is cooler and rainier; Douro Superior is hotter and drier
+        - Douro Superior is the coolest and rainiest subregion
+        correctIndex: 2
+        explanation: The regional page identifies Baixo Corgo as the coolest and rainiest subregion and Douro
+          Superior as the hottest and driest.
+        sourceCitationId: src_reg_ib_douro_region
+      ki_reg_ib_alentejo_heat:
+        prompt: Which broad Alentejo growing context is described by Wines of Portugal?
+        options:
+        - A cool Atlantic setting with abundant summer rainfall
+        - A mountain climate with wet summers and mild days
+        - A cool maritime climate without continental influence
+        - Hot, dry Mediterranean conditions with strong continental influence
+        correctIndex: 3
+        explanation: The regional page explicitly describes Alentejo as hot and dry Mediterranean with strong
+          continental influence.
+        sourceCitationId: src_reg_ib_alentejo
+      ki_reg_ib_alentejo_portalegre:
+        prompt: A wine buyer finds an Alentejo wine from Portalegre. Which local context could help explain
+          a fresher expression?
+        options:
+        - Serra de São Mamede slopes and their distinctive local microclimate
+        - Warmer lowland vineyards in southern Alentejo
+        - Stronger direct Atlantic exposure along the coast
+        - The hottest and driest interior sites of Douro Superior
+        correctIndex: 0
+        explanation: Wines of Portugal singles out the Serra de São Mamede slopes and a distinct local microclimate
+          within Alentejo.
+        sourceCitationId: src_reg_ib_alentejo
+      ki_reg_ib_verde_atlantic:
+        prompt: Which climate description best fits the broad Vinho Verde region?
+        options:
+        - Warm dry summers with little maritime influence
+        - Strong Atlantic influence, cool temperatures and abundant rainfall
+        - Mountain shelter and hot continental summers
+        - Coastal fog with semi-arid annual rainfall
+        correctIndex: 1
+        explanation: Wines of Portugal describes Vinho Verde's strong Atlantic influence, cool temperatures
+          and abundant rain.
+        sourceCitationId: src_reg_ib_vinho_verde
+      ki_reg_ib_verde_shelter:
+        prompt: How does Monção e Melgaço differ from more Atlantic-exposed Vinho Verde sites?
+        options:
+        - It is more directly exposed to Atlantic air and produces only lighter wines
+        - It has identical exposure and body to coastal Vinho Verde sites
+        - It is sheltered from direct Atlantic influence and can produce fuller wines with higher alcohol
+        - It is warmer because it lies outside the northwestern region
+        correctIndex: 2
+        explanation: The regional page describes Monção e Melgaço as sheltered from direct Atlantic influence
+          and associated with fuller, higher-alcohol wines.
+        sourceCitationId: src_reg_ib_vinho_verde
+      ki_wset_eu_lisboa_atlantic:
+        prompt: How does Wines of Portugal contrast coastal and inland Lisboa vineyards?
+        options:
+        - 'Coast: sheltered and Mediterranean; inland: stronger Atlantic influence'
+        - 'Coast: stronger Atlantic influence; inland: more Mediterranean shelter'
+        - 'Coast: stronger Atlantic influence; inland: equally exposed to ocean winds'
+        - 'Coast: sheltered from Atlantic wind; inland: directly exposed to the sea'
+        correctIndex: 1
+        explanation: The Lisboa profile contrasts strong coastal Atlantic influence with inland sites sheltered
+          by mountains and having a transitional Mediterranean climate.
+        sourceCitationId: src_wset_eu_lisboa
+      ki_wset_eu_lisboa_blends:
+        prompt: "A buyer sees only 'Lisboa' on two wine briefs. Which style inference is supported?"
+        options:
+        - "Native and international grapes are possible; infer one common blend before checking sweetness and oak."
+        - "Native and international whites and reds are possible; check each wine's grapes, sweetness and oak."
+        - "Native and international grapes are possible; infer a common oak regime before checking blends and sweetness."
+        - "Native and international grapes are possible; infer a common sweetness level before checking blends and oak."
+        correctIndex: 1
+        explanation: "Wines of Portugal describes varied Lisboa whites and reds from native and international grapes; the broad label does not determine their blend, sweetness or oak treatment."
+        sourceCitationId: src_wset_eu_lisboa
+      ki_reg_isi_etna_north:
+        prompt: A vineyard on Etna's northern slope is compared with one on the eastern slope. Which northern
+          association is documented?
+        options:
+        - Dominant Carricante with the strongest rain and wind exposure
+        - A relatively cold, mountain-protected setting where Nerello Mascalese is prominent
+        - A hot sea-facing slope without mountain shelter
+        - A south-western slope with the strongest sun and lower rain
+        correctIndex: 1
+        explanation: The Etna consortium describes the northern slope as cold, protected by surrounding mountains
+          and strongly associated with Nerello Mascalese.
+        sourceCitationId: src_reg_isi_etna
+      ki_reg_isi_etna_east:
+        prompt: Which Etna eastern-slope context best supports a Carricante vineyard brief?
+        options:
+        - A protected northern slope focused on Nerello Mascalese
+        - The drier south-western slope farthest from the sea
+        - It faces the Ionian Sea, has more rain and wind exposure, and Carricante is dominant
+        - A warmer inland terrace with little wind and dominant Nerello Cappuccio
+        correctIndex: 2
+        explanation: The consortium describes eastern Etna as sea-facing, exposed to rain and wind, and dominated
+          by Carricante.
+        sourceCitationId: src_reg_isi_etna
+      ki_reg_isi_etna_factors:
+        prompt: Two Etna vineyards share elevation but ripen differently. Which records best test the consortium's
+          named site drivers?
+        options:
+        - Aspect plus sun, rain, wind and temperature by vineyard
+        - An Etna-wide seasonal average of sun, rain, wind and temperature
+        - A lava-flow map and vintage summary without parcel weather
+        - Post-fermentation acidity and colour for the two wines
+        correctIndex: 0
+        explanation: The Etna consortium names orientation, sunlight, rainfall, ventilation, and temperature
+          range as site differentiators, so parcel-level observations are needed.
+        sourceCitationId: src_reg_isi_etna
+      ki_reg_isi_etna_human:
+        prompt: Which records test both grape and producer contributions before attributing two Etna wines'
+          differences solely to volcanic site?
+        options:
+        - Volcanic soil, elevation and slope records
+        - Aspect, rainfall and wind records at harvest
+        - Variety, contrada and vinification records
+        - Latitude, lava-flow and terrace-height records
+        correctIndex: 2
+        explanation: The consortium names grape varieties, differences among contrade, and human choices;
+          the other records concern site alone.
+        sourceCitationId: src_reg_isi_etna
+      ki_reg_sh_martinborough_setting:
+        prompt: Which setting is a sound starting point for assessing Martinborough Pinot Noir?
+        options:
+        - Warm humid coastal sites with deep clay soils
+        - A cool, dry climate and free-draining soils
+        - Cool wet plains with little drainage
+        - Warm inland river terraces without Pinot Noir
+        correctIndex: 1
+        explanation: The regional profile describes Martinborough as cool and dry with free-draining soils
+          and established Pinot Noir.
+        sourceCitationId: src_reg_sh_wairarapa
+      ki_reg_sh_wairarapa_variation:
+        prompt: Why is a Martinborough site an incomplete proxy for all Wairarapa vineyards?
+        options:
+        - Martinborough alone represents every Wairarapa mesoclimate
+        - Masterton and Gladstone have identical frost and terrace settings
+        - Masterton has frost and marked day-night range, while Gladstone has cooler river terraces
+        - Gladstone has Masterton's early-morning frost pattern without other differences
+        correctIndex: 2
+        explanation: The New Zealand page contrasts Masterton frost and hot days with Gladstone's cooler,
+          free-draining river terraces.
+        sourceCitationId: src_reg_sh_wairarapa
+      ki_reg_am_carneros_cooling:
+        prompt: Which pathway does Napa Valley Vintners cite for marine breezes cooling Carneros?
+        options:
+        - Through the Napa mountains and across Lake Hennessey
+        - Along the Napa River from Calistoga toward the bay
+        - Over Mount St Helena and down the eastern slopes
+        - Through the Golden Gate and across San Pablo Bay
+        correctIndex: 3
+        explanation: Napa Valley Vintners says marine breezes pass through the Golden Gate and across San
+          Pablo Bay to cool Carneros.
+        sourceCitationId: src_reg_am_napa
+      ki_reg_am_upper_napa_warmth:
+        prompt: How do summer conditions generally change farther up Napa Valley, away from the strongest
+          marine moderation?
+        options:
+        - Pacific influence lessens and summers become warmer, though hills and elevation still matter
+        - Pacific moderation strengthens farther up the valley
+        - Upper-valley summers are cooler than Carneros because marine breezes intensify
+        - Hills and elevation cease to affect mesoclimate farther north
+        correctIndex: 0
+        explanation: Napa Valley Vintners describes less Pacific influence and warmer summers farther up the
+          valley, with exposure and elevation causing further variation.
+        sourceCitationId: src_reg_am_napa
+      ki_reg_am_eola_wind:
+        prompt: Which air pathway does Oregon Wine identify as cooling Eola-Amity Hills in late-summer afternoons?
+        options:
+        - Marine air diverted north around the Coast Range
+        - Pacific air entering via the Van Duzer Corridor
+        - Warm air funnelled inland from the Cascade foothills
+        - Marine air entering through the lower Columbia Valley
+        correctIndex: 1
+        explanation: The Oregon Wine Board identifies the Van Duzer Corridor, a Coast Range gap, as the route
+          for cool Pacific air.
+        sourceCitationId: src_reg_am_eola
+      ki_reg_am_eola_grapes:
+        prompt: Which pair appears together in Oregon Wine's predominant Eola-Amity Hills variety list?
+        options:
+        - Pinot noir and Chardonnay
+        - Pinot gris and Chardonnay
+        - Pinot noir and Sauvignon blanc
+        - Pinot gris and Sauvignon blanc
+        correctIndex: 0
+        explanation: Oregon Wine lists Pinot noir, Chardonnay, Riesling, and Gamay noir as predominant Eola-Amity
+          Hills varieties.
+        sourceCitationId: src_reg_am_eola

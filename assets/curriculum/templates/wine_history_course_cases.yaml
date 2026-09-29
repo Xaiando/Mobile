@@ -19,6 +19,15 @@ question_templates:
     parameters:
       scope_node_ids: [n_htime_case_greek_roman_vessels]
       key_points: {CASE_ACTION: Dates and functions, CASE_REASON: Different evidence, CASE_TRADEOFF: Useful comparison, CASE_LIMITATION: Evidence limits}
+  - id: qt_hist_case_rome_not_appellation
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: hist_rome_not_appellation
+    prompt_template: "A guest treats Pliny's Falernian ranking and Columella's vine advice as appellation law. What are those passages, and which later controls do they not set?"
+    parameters:
+      scope_node_ids: [n_hcourse_case_rome_limit]
+      key_points: {CASE_ACTION: Roman evidence, CASE_REASON: Later legal controls}
   - id: qt_hist_case_napoleon_names
     relation_type: CASE_ACTION
     direction: forward
@@ -55,6 +64,15 @@ question_templates:
     parameters:
       scope_node_ids: [n_hcourse_case_phylloxera]
       key_points: {CASE_ACTION: Correct scope, CASE_REASON: Source wording, CASE_TRADEOFF: Useful date range, CASE_LIMITATION: Census limit}
+  - id: qt_hist_case_three_scales
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: hist_three_scales
+    prompt_template: "A guest says the 1976 Paris tasting repealed US Prohibition and replaced French appellation law. Put the repeal, cited appellation decree, and tasting in their proper roles."
+    parameters:
+      scope_node_ids: [n_hcourse_case_scales]
+      key_points: {CASE_ACTION: Legal chronology, CASE_REASON: Tasting limit}
   - id: qt_hist_case_italy_1963
     relation_type: CASE_ACTION
     direction: forward
@@ -69,10 +87,19 @@ question_templates:
     direction: forward
     mode: short_answer
     variant: hist_italy_repeal
-    prompt_template: "A guest uses a 1963 category as if it were the current Italian wine code. Date the historical category, identify the repeal evidence and say where the current DOC and DOCG statement belongs."
+    prompt_template: "A guest says the 1963 Italian article printed DOC and DOCG and still governs that classification. What categories did its Article 2 actually name, and what does the current view of that article say?"
     parameters:
       scope_node_ids: [n_hcourse_case_repeal]
-      key_points: {CASE_ACTION: Date the claim, CASE_REASON: Repeal evidence, CASE_TRADEOFF: Historical value, CASE_LIMITATION: Current-law boundary}
+      key_points: {CASE_ACTION: Article 2 wording, CASE_REASON: Repeal evidence}
+  - id: qt_hist_case_italy_semplice_source
+    relation_type: CASE_TRADEOFF
+    direction: forward
+    mode: short_answer
+    variant: hist_italy_semplice_source
+    prompt_template: "What did the opened compilation's Article 3 say about denominazione di origine semplice, and where must you stop when using that historical source for a current label?"
+    parameters:
+      scope_node_ids: [n_hcourse_case_repeal]
+      key_points: {CASE_TRADEOFF: Historical definition, CASE_LIMITATION: Source and current-law limit}
   - id: qt_hist_case_italy_letters
     relation_type: CASE_ACTION
     direction: forward

@@ -1,0 +1,379 @@
+# Cited WSET Level 2 principal-grape and origin choices.
+question_templates:
+- id: qt_wset_l2_grape_expansion_35
+  relation_type: PRINCIPLE_EXPLANATION
+  direction: forward
+  mode: authored_choice
+  variant: l2_principal_grapes_origin_styles
+  prompt_template: '{subject.name}'
+  parameters:
+    item_choices:
+      ki_wset_nw_hawkes_chardonnay:
+        prompt: Which Hawke's Bay Chardonnay profile does New Zealand Winegrowers highlight?
+        options:
+        - Full body with fine acidity and richness
+        - Full body with soft acidity and firm tannins
+        - Light body with high acid and lean fruit
+        - Medium body with oak as the defining feature
+        correctIndex: 0
+        explanation: New Zealand Winegrowers describes Hawke's Bay Chardonnay as full-bodied and rich, with finely tuned acidity.
+        sourceCitationId: src_reg_sh_hawkes
+      ki_wset_nw_marlborough_chardonnay_range:
+        prompt: Which styles are documented for Marlborough Chardonnay?
+        options:
+        - Fortified and dry styles with baked apple and honey
+        - Oaked and unoaked styles with stone fruit and citrus
+        - Oaked but never unoaked, with stone fruit and citrus
+        - Unoaked but never oaked, with green fruit and herbs
+        correctIndex: 1
+        explanation: New Zealand Winegrowers describes oaked and unoaked Marlborough Chardonnay with citrus and stone-fruit
+          character.
+        sourceCitationId: src_nwc_nz_marlborough
+      ki_wset_nw_napa_chardonnay:
+        prompt: Which cellar choice can help make a richer Napa Chardonnay?
+        options:
+        - Early harvesting followed by steel fermentation
+        - Malolactic conversion prevented in the cellar
+        - Barrel fermentation combined with lees stirring
+        - Cool steel fermentation without lees stirring
+        correctIndex: 2
+        explanation: Napa Valley Vintners identifies barrel fermentation, lees stirring and malolactic fermentation as stylistic
+          options for Chardonnay.
+        sourceCitationId: src_wset_nw_napa_wine
+      ki_wset_nw_oregon_chardonnay_range:
+        prompt: Which style range does the Oregon Wine Board describe for Chardonnay?
+        options:
+        - Lean and herbal through to overtly sweet
+        - Floral and delicate through to strongly oaked
+        - Citrus-led and light through to highly tannic
+        - Fresh and tart through to a creamy style
+        correctIndex: 3
+        explanation: The Oregon Wine Board explicitly describes this style range for Chardonnay.
+        sourceCitationId: src_wset_nw_oregon_grapes
+      ki_wset_structure_chardonnay_structure:
+        prompt: At suitable ripeness, which grape balance can Chardonnay achieve?
+        options:
+        - High sugar while retaining useful acidity
+        - High sugar with very little acidity
+        - Low sugar despite suitable ripeness
+        - Low sugar paired with very little acidity
+        correctIndex: 0
+        explanation: Plantgrape reports that Chardonnay berries can reach high sugar levels while retaining important acidity.
+        sourceCitationId: src_wset_structure_plantgrape_chardonnay
+      ki_wset_structure_chardonnay_vineyard:
+        prompt: Which Mediterranean site risk does Plantgrape specifically warn Chardonnay growers to avoid?
+        options:
+        - Sites with prolonged summer rainfall
+        - Sites with excessively intense drought
+        - Sites with frequent hail during spring
+        - Sites with persistent summer sea fog
+        correctIndex: 1
+        explanation: Plantgrape specifically advises avoiding situations of overly intense drought for Chardonnay in Mediterranean
+          zones.
+        sourceCitationId: src_wset_structure_plantgrape_chardonnay
+      ki_reg_fe_alsace_pinot_gris:
+        prompt: Which palate profile does the Alsace wine council describe for Pinot Gris?
+        options:
+        - Full body with assertive red-wine tannins
+        - Light body with sharp green-fruit acidity
+        - Full body and roundness with acid lift
+        - Light body and delicacy with acid lift
+        correctIndex: 2
+        explanation: CIVA describes Alsace Pinot Gris with weight, roundness and an acidic structure that balances its richness.
+        sourceCitationId: src_reg_fe_pinot_gris
+      ki_wset_structure_pinot_gris_structure:
+        prompt: Which structural tendency does Plantgrape give for ripe Pinot Gris?
+        options:
+        - Low sugar potential; moderate-high acidity
+        - High sugar potential; acidity remains high
+        - Low sugar potential; consistently low acidity
+        - High sugar potential; low-to-moderate acidity
+        correctIndex: 3
+        explanation: Plantgrape describes high sugar-accumulation potential and low-to-medium acidity for Pinot Gris.
+        sourceCitationId: src_wset_structure_plantgrape_pinot_gris
+      ki_wset_structure_pinot_gris_vineyard:
+        prompt: Which fruit route can make a concentrated sweet Alsace Pinot Gris?
+        options:
+        - Late-picked, noble-rot-selected berries
+        - Early-picked healthy fruit fermented dry
+        - Unripe berries pressed and fermented dry
+        - Ripe fruit pressed for a lean dry white
+        correctIndex: 0
+        explanation: CIVA describes late, hand-picked noble-rot fruit, including Pinot Gris, for concentrated Sélection de
+          Grains Nobles wines.
+        sourceCitationId: src_wset_grape_civa_sgn
+      ki_wset_structure_pinot_noir_structure:
+        prompt: Compared with Cabernet Sauvignon, which pattern often fits Pinot Noir?
+        options:
+        - Deeper ruby colour and firmer tannin
+        - Lighter ruby colour and lower tannin
+        - Lighter ruby colour and firmer tannin
+        - Deeper ruby colour and gentler tannin
+        correctIndex: 1
+        explanation: The Court of Master Sommeliers markers contrast Pinot Noir's lighter ruby and lower tannin with Cabernet
+          Sauvignon's deeper colour and firmer tannin.
+        sourceCitationId: src_wset_grape_cms_markers
+      ki_wset_structure_pinot_noir_vineyard:
+        prompt: Which hot-site outcome does Plantgrape particularly note for Pinot Noir?
+        options:
+        - Delayed ripening with firm, undamaged berries
+        - Rapid ripening with acidity remaining very high
+        - Rapid ripening with sunburn and berry shrivel
+        - Delayed ripening with no berry damage from heat
+        correctIndex: 2
+        explanation: Plantgrape notes fast maturation, sunburn risk and berry shrivelling for Pinot Noir in hot climates.
+        sourceCitationId: src_wset_structure_plantgrape_pinot_noir
+      ki_reg_am_russian_river_pinot:
+        prompt: Which influence cools Russian River Valley and extends Pinot Noir ripening?
+        options:
+        - Strong daytime warmth from sheltered inland air
+        - Consistent summer rain from mountain storms
+        - Hot nights with no cooling from the Pacific
+        - Pacific fog moving in during the growing season
+        correctIndex: 3
+        explanation: Sonoma County Winegrowers associates Pinot Noir with Russian River Valley and describes its cooling Pacific
+          fog.
+        sourceCitationId: src_reg_am_sonoma
+      ki_reg_am_willamette_pinot:
+        prompt: Which red grape is identified as the Willamette Valley flagship?
+        options:
+        - Pinot Noir
+        - Gamay Noir
+        - Malbec
+        - Merlot
+        correctIndex: 0
+        explanation: The Oregon Wine Board names Pinot Noir the flagship Willamette Valley grape.
+        sourceCitationId: src_reg_am_willamette
+      ki_wset_structure_sauvignon_blanc_ageing:
+        prompt: Which cellar influence can add vanilla or smoke to Sauvignon Blanc before bottle ageing?
+        options:
+        - Gentle pressing of the grapes
+        - Maturation inside oak barrels
+        - Cool steel maturation
+        - Earlier fruit picking
+        correctIndex: 1
+        explanation: WSET describes oak barrels adding vanilla, clove and smoke to Sauvignon Blanc; those aromas are not proof
+          of bottle age.
+        sourceCitationId: src_wset_grape_wset_sauvignon
+      ki_wset_structure_sauvignon_blanc_structure:
+        prompt: "Two suitable Sauvignon Blanc lots are picked at different ripeness and fermented dry. Which structural comparison is supported?"
+        options:
+        - "The earlier lot tends to have less acidity and more sugar than the riper lot."
+        - "Both lots must have identical sugar and acid because they share a grape variety."
+        - "The earlier lot tends to retain more acidity and less sugar; the riper lot can yield more alcohol."
+        - "Herbaceous aroma alone proves the earlier lot contains more residual sugar."
+        correctIndex: 2
+        explanation: "The ripeness comparison concerns acidity and fermentable sugar; a riper dry-fermented lot can yield more alcohol, while aroma alone does not establish sweetness."
+        sourceCitationId: src_wset_structure_wa_winegrape_assessment
+      ki_wset_structure_sauvignon_blanc_vineyard:
+        prompt: What can greater sunlight on Sauvignon Blanc bunches do to their green character?
+        options:
+        - Increase green notes and favour lean fruit expression
+        - Reduce green notes and favour leaner-fruit expression
+        - Increase green notes and favour riper-fruit expression
+        - Reduce green notes and favour a riper fruit expression
+        correctIndex: 3
+        explanation: WSET explains that sun exposure reduces the green-bell-pepper compound and can shift expression toward
+          riper fruit.
+        sourceCitationId: src_wset_grape_wset_sauvignon
+      ki_reg_de_mosel_riesling_energy:
+        prompt: Why can a well-exposed site matter for Mosel Riesling?
+        options:
+        - Riesling ripens slowly and benefits from site energy
+        - Riesling ripens early and benefits from warmer sites
+        - Riesling ripens slowly and requires permanent shade
+        - Riesling ripens early and requires constant shading
+        correctIndex: 0
+        explanation: The German Wine Institute describes Riesling as slow-ripening and demanding suitable site energy, with
+          steep stony slopes useful in northern regions.
+        sourceCitationId: src_reg_de_riesling
+      ki_wset_structure_riesling_structure:
+        prompt: Which palate tendency is common to dry Riesling examples?
+        options:
+        - Gentle acidity with a neutral, quite light profile
+        - Marked acidity with an aromatic white-wine profile
+        - Gentle acidity with an aromatic white-wine profile
+        - Marked acidity with a fairly neutral white profile
+        correctIndex: 1
+        explanation: Plantgrape describes dry Riesling as aromatic and lively with high acid balance.
+        sourceCitationId: src_wset_structure_plantgrape_riesling
+      ki_wset_structure_riesling_vineyard:
+        prompt: Which fruit condition can support a concentrated sweet Riesling route?
+        options:
+        - Healthy fruit picked before full ripeness
+        - Healthy fruit picked at moderate ripeness
+        - Over-ripeness or selected noble-rot fruit
+        - Low-sugar fruit with considerable acidity
+        correctIndex: 2
+        explanation: Plantgrape identifies over-ripeness and noble rot as routes to sweet Riesling wine.
+        sourceCitationId: src_wset_structure_plantgrape_riesling
+      ki_reg_fr_cabernet_gravel:
+        prompt: Which Bordeaux sites does the wine council particularly associate with Cabernet Sauvignon?
+        options:
+        - Cool clay in Pomerol and Fronsac
+        - Chalky soils in Sauternes and Barsac
+        - Deep sand across Entre-deux-Mers
+        - Warm gravelly Médoc and Graves sites
+        correctIndex: 3
+        explanation: Bordeaux.com highlights Cabernet Sauvignon on warm gravelly Left Bank soils, especially Médoc and Graves.
+        sourceCitationId: src_reg_fr_cabernet
+      ki_reg_fr_cabernet_late:
+        prompt: Which relative harvest order does Bordeaux.com report?
+        options:
+        - Cabernet Sauvignon usually follows Merlot
+        - Merlot usually follows Cabernet Sauvignon
+        - Both grapes always ripen together
+        - Harvest order is fixed by variety
+        correctIndex: 0
+        explanation: The Bordeaux wine council identifies Cabernet Sauvignon as late ripening, generally picked 7–12 days
+          after Merlot.
+        sourceCitationId: src_reg_fr_cabernet
+      ki_reg_fr_cabernet_structure:
+        prompt: What does Cabernet Sauvignon commonly add to a Bordeaux blend?
+        options:
+        - A lean structure without colour or body
+        - Tannic backbone with depth and structure
+        - Round fruit character and softer texture
+        - Low tannin together with high sweetness
+        correctIndex: 1
+        explanation: Bordeaux.com describes Cabernet Sauvignon as supplying tannic structure, depth and power to blends.
+        sourceCitationId: src_reg_fr_cabernet
+      ki_wset_nw_napa_cabernet:
+        prompt: Which youthful Napa Cabernet Sauvignon profile is described by the vintners?
+        options:
+        - A gentle structure with raspberry and peach fruit
+        - Light structure with citrus and green apple fruit
+        - A dense, youthful structure with currant and plum
+        - Supple structure with strawberry and cherry fruit
+        correctIndex: 2
+        explanation: Napa Valley Vintners describes dense youthful Cabernet with black fruits including currant, cherry and
+          plum.
+        sourceCitationId: src_wset_nw_napa_wine
+      ki_wset_structure_cabernet_sauvignon_structure:
+        prompt: Which structure can Cabernet Sauvignon show at suitable ripeness?
+        options:
+        - Pale colour with a gentle tannic structure
+        - Deep colour with a gentle tannic structure
+        - Pale colour with a substantial tannic structure
+        - Deep colour with a substantial tannic structure
+        correctIndex: 3
+        explanation: Plantgrape describes good Cabernet Sauvignon maturity as giving sustained colour and a substantial tannic
+          structure.
+        sourceCitationId: src_wset_structure_plantgrape_cabernet_sauvignon
+      ki_wset_structure_cabernet_sauvignon_vineyard:
+        prompt: What is a likely risk when Cabernet Sauvignon fruit lacks sufficient maturity?
+        options:
+        - Vegetal aromas with firm tannin
+        - Dark fruit with soft, ripe tannin
+        - Jammy fruit with rounded tannin
+        - Dried fruit with soft ripe tannin
+        correctIndex: 0
+        explanation: Plantgrape links satisfactory Cabernet Sauvignon maturity with more complex aromas rather than vegetal
+          character; its wine can be strongly tannic.
+        sourceCitationId: src_wset_structure_plantgrape_cabernet_sauvignon
+      ki_reg_fr_merlot_clay:
+        prompt: Which Bordeaux soil settings does Bordeaux.com list for Merlot?
+        options:
+        - Granite and schist-derived soil
+        - Clay-limestone and gravel soils
+        - Chalk-rich and volcanic ash soils
+        - Basalt-rich and coarse sand soils
+        correctIndex: 1
+        explanation: Bordeaux.com lists both clay-limestone and gravel soils for Merlot; it especially associates the grape
+          with Saint-Émilion, Pomerol and Fronsac.
+        sourceCitationId: src_reg_fr_merlot
+      ki_reg_fr_merlot_early:
+        prompt: Which Bordeaux grape generally ripens first in a Merlot–Cabernet Sauvignon comparison?
+        options:
+        - Both ripen on exactly the same date
+        - Neither grape ripens before October
+        - Merlot before Cabernet Sauvignon
+        - Cabernet Sauvignon before Merlot
+        correctIndex: 2
+        explanation: Bordeaux.com describes Merlot as early ripening and Cabernet Sauvignon as usually harvested after Merlot.
+        sourceCitationId: src_reg_fr_merlot
+      ki_reg_fr_merlot_roundness:
+        prompt: What can Merlot contribute alongside Cabernet Sauvignon in a Bordeaux blend?
+        options:
+        - Firmer tannin and a leaner texture
+        - Brighter acidity and a lean texture
+        - Lower colour and a lighter texture
+        - A rounded and supple palate texture
+        correctIndex: 3
+        explanation: Bordeaux.com describes Merlot as rounded and supple, complementing Cabernet Sauvignon's structure.
+        sourceCitationId: src_reg_fr_merlot
+      ki_wset_nw_hawkes_cab_merlot:
+        prompt: Which grape-role contrast fits the Hawke's Bay producer description?
+        options:
+        - 'Merlot: fleshy fruit; Cabernet: dark fruit and structure'
+        - 'Merlot: dark fruit and structure; Cabernet: fleshy fruit'
+        - 'Merlot: crisp citrus; Cabernet: dark fruit and structure'
+        - 'Merlot: fleshy fruit; Cabernet: red fruit and low tannin'
+        correctIndex: 0
+        explanation: New Zealand Winegrowers describes fleshy Merlot and dark-fruited, structured Cabernet Sauvignon in Hawke's
+          Bay.
+        sourceCitationId: src_reg_sh_hawkes
+      ki_wset_nw_margaret_merlot_blend:
+        prompt: Which partner is often blended with Margaret River Cabernet Sauvignon?
+        options:
+        - Sangiovese
+        - Merlot
+        - Pinot Noir
+        - Malbec
+        correctIndex: 1
+        explanation: Wine Australia describes Margaret River Cabernet Sauvignon as often blended with Merlot.
+        sourceCitationId: src_reg_sh_margaret
+      ki_wset_nw_napa_merlot:
+        prompt: Which blending role for Napa Merlot do Napa Valley Vintners describe?
+        options:
+        - Adding firm tannin and deep colour to Pinot Noir
+        - Adding bright acidity and lightness to Zinfandel
+        - Adding body and soft fruit to Cabernet Sauvignon
+        - Adding floral aromas and a lighter body to Syrah
+        correctIndex: 2
+        explanation: Napa Valley Vintners describes Merlot as adding body and soft fruit to Cabernet Sauvignon blends; it
+          can also be a varietal red wine.
+        sourceCitationId: src_wset_nw_napa_wine
+      ki_wset_structure_merlot_structure:
+        prompt: Which structural profile can ripe Merlot show?
+        options:
+        - Deep colour with firm tannin and high acidity
+        - Pale colour with soft tannin and high acidity
+        - Pale colour, firm tannin and moderate acidity
+        - Deep colour, supple tannin and modest acidity
+        correctIndex: 3
+        explanation: Plantgrape describes Merlot as richly coloured, relatively low in acidity and structured with supple
+          tannin.
+        sourceCitationId: src_wset_structure_plantgrape_merlot
+      ki_reg_fr_rhone_north_syrah:
+        prompt: Which grape is emblematic of the northern Rhône red-wine association?
+        options:
+        - Syrah
+        - Gamay
+        - Merlot
+        - Malbec
+        correctIndex: 0
+        explanation: The Côtes du Rhône growers' site calls Syrah the emblematic northern Rhône grape while describing its
+          wider use in blends.
+        sourceCitationId: src_reg_fr_rhone_terroirs
+      ki_wset_structure_syrah_structure:
+        prompt: "A deeply coloured, tannic Syrah reaches maturity. Which acidity inference is justified?"
+        options:
+        - "Its deep colour indicates high acidity even after full ripening."
+        - "Its acidity can be relatively low despite colour and tannin; assess it independently."
+        - "Its substantial tannin offsets acid loss as grapes ripen."
+        - "Its dark colour indicates higher acidity than a cooler-site Syrah."
+        correctIndex: 1
+        explanation: "Plantgrape describes intense colour and substantial tannin in Syrah while acidity can be relatively low at maturity; neither colour nor tannin establishes acidity."
+        sourceCitationId: src_wset_structure_plantgrape_syrah
+      ki_wset_nw_hunter_shiraz_style:
+        prompt: Which profile does Wine Australia give for young Hunter Valley Shiraz?
+        options:
+        - Light body, red fruit, citrus and no tannin
+        - Medium body, leather and rather firm tannin
+        - Medium body, berries, spice and soft tannin
+        - Full body, black fruit, oak and hard tannin
+        correctIndex: 2
+        explanation: Wine Australia describes young Hunter Shiraz as medium-bodied with berry fruit, spice and soft tannin;
+          bottle age can add earthy notes.
+        sourceCitationId: src_reg_oa_hunter

@@ -31,6 +31,7 @@ The **depth** column refines CM-6, and audit QF-6 records it. A track serves a f
 |---|---|---|---|---|---|---|---|
 | `flashcard` | Simple recall | recall | text → self-graded reveal | 1 | a template | 2 | built |
 | `mcq` | Multiple choice | recognition | text → 1 of 4 options | 1 | ≥ 3 valid distractors (QG-12) | 1 | built |
+| `authored_choice` | Per-item authored choice | recognition | cited item prompt → 1 of 4 literal alternatives | 1 | four distinct phrases, explicit correct index, explanation and linked source citation | 1 | built for five WSET Level 1 foundation items |
 | *reverse* | Reverse recall | recall / recognition | the object asks for the subject | 1 | reverse-safe or distinctive (QG-3) | 3 | built for flashcard and MCQ |
 | `typed` | Typed recall | recall | text → typed answer, graded by name matching | 1 | answer names and alternative names | 2 | built, forward (Q1) |
 | `short_answer` | Short written answer (spec §T) | recall | an "explain" prompt → free text, then a self-check against key points | 2–4, one per key point | key points that are items (principles, facts) | 2 (QF-14) | built: appellation profiles, multi-point vineyard explanations and scoped decision cases (Q1/DIP-1/DIP-2) |
@@ -59,7 +60,7 @@ The **depth** column refines CM-6, and audit QF-6 records it. A track serves a f
 | Family | Trains | Graded | Formats |
 |---|---|---|---|
 | recall | producing an answer from memory | self-graded or objective | flashcard, typed, short answer, episodic, reverse recall |
-| recognition | choosing among plausible answers | objective | MCQ, multiple response, map identify |
+| recognition | choosing among plausible answers | objective | MCQ, authored choice, multiple response, map identify |
 | spatial | knowing where things are and how places relate | objective | every `map_*` format |
 | structured | relations among several facts, quantities and terms | objective | matching, ordering, numeric, label |
 | reasoning | applying principles to reach a conclusion | objective | reasoning, scenario, tasting deduction, cross-domain |
@@ -79,6 +80,7 @@ Every graded item gets exactly one `review_events` row, whichever format produce
 | flashcard | item | The learner grades 1–4 (FS-6). |
 | short answer | each key point's item | After writing, the learner ticks the key points the answer covered. Ticked is Good; not ticked is Again. The text is stored in `answer_payload` and is never machine-graded in V0.1 (spec §T). |
 | MCQ, map identify, map locate | item | Right is Good; wrong is Again (FS-6). |
+| authored choice | the named item only | Right is Good; wrong is Again. The four shown literal phrases, chosen and correct indexes, prompt, explanation and item-linked citation ID go in `answer_payload`; no literal choice is written to a node-ID foreign key. |
 | typed | item | An exact match after `normalizeName`, or an alternative name, is Good. One edit away on the normalized form is Hard. Anything else is Again. As built (QF-13): the answer type's words may be added or left out ("oceanic climate"); whole words of the answer that name nothing else ("frost" for *Spring frost*) are Hard; the name of any other node is Again. |
 | numeric | item | Inside the authored range expanded by exact_tolerance is Good; inside its total outer tolerance is Hard; outside is Again. Both widths default to zero, in canonical units, and outer tolerance must be at least exact_tolerance. Regulatory facts forbid nonzero widths. Legal minima require the exact lower endpoint; a larger permitted duration is a wrong answer. Nonlegal range answers must be ordered and fully contained. Celsius/Fahrenheit grading compares bounds in the submitted unit without widening them. |
 | multiple response | each item of the set | A correct option selected is Good, or Hard if the learner also selected a wrong option. A correct option missed is Again. |
@@ -115,6 +117,8 @@ Two variety rules apply: never repeat the item's last format when another is ser
 ## 6. Closed-world safeguards
 
 A missing relation does not make a statement false (QG-11). Formats that assert *absence* need explicit support (QF-8):
+
+An `authored_choice` template names each eligible item in `item_choices`. Its four alternatives and correct index are written for that item and checked against an existing citation of the same item. It does not generate graph-node distractors or turn off `mcq_disabled`; generic MCQs remain suppressed for principles with potentially defensible alternatives. Only generated and track-served authored choices count toward daily-study recognition and useful-practice coverage. The separate WSET rehearsal bank does not update FSRS.
 
 - **Completeness assertions.** Multiple response, "tap all" maps and odd-one-out need a `relation_set_assertions` row. It states that the members recorded for a node, a relation type, a direction and a member node type are the complete set from a date, and cites the source (QF-9). A forward set is the node's objects; a reverse set, its subjects, such as the crus located in Beaujolais. Example: the Champagne cahier des charges lists seven permitted varieties, so a multiple-response question may ask for all seven.
 - **Ranked statistics.** Questions such as "the most important regions for Spätburgunder" use reified statistic nodes (`n_stat_*`) holding a planted area or a share, from a cited survey with a survey date. They never rely on a missing relation.

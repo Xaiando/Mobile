@@ -240,6 +240,28 @@ void main() {
     },
   );
 
+  testApp('Diploma D4 and D5 show separate physical practice entry points', (
+    tester,
+  ) async {
+    await screen(tester);
+    final scrollable = find.byType(Scrollable).first;
+    for (final unit in ['D4', 'D5']) {
+      await tester.scrollUntilVisible(
+        find.text('$unit · Unit ${unit.substring(1)}'),
+        300,
+        scrollable: scrollable,
+      );
+      await tap(tester, find.text('$unit · Unit ${unit.substring(1)}'));
+      expect(find.byKey(ValueKey('wset_unit_physical_$unit')), findsOneWidget);
+      expect(
+        find.byKey(ValueKey('wset_unit_physical_open_$unit')),
+        findsOneWidget,
+      );
+    }
+    expect(find.text('App study milestone complete'), findsNothing);
+    expect(tester.takeException(), isNull);
+  });
+
   testApp(
     'Home opens progress and its study action starts the selected cumulative level',
     (tester) async {

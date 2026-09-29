@@ -1,10 +1,12 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../core/curriculum/curriculum_providers.dart';
+import '../core/backup/user_data_backup.dart';
 import '../core/database/database_providers.dart';
 import '../core/database/storage_durability.dart';
 import '../core/study/scheduler_config.dart';
 import '../core/time/time_providers.dart';
+import '../features/cellar/journal_scan_recovery_provider.dart';
 
 /// Opens the database (running migrations), brings the bundled curriculum
 /// into it (spec §O, Phase 1), seeds the FSRS scheduler configuration
@@ -14,6 +16,12 @@ import '../core/time/time_providers.dart';
 final appStartupProvider = FutureProvider<StorageDurability>((ref) async {
   final database = ref.watch(appDatabaseProvider);
   await database.ensureOpen();
+  final recovery = ref.watch(journalScanRecoveryProvider);
+  await UserDataBackup(
+    database,
+    discardLostPickerData: recovery.discardLostAfterErase,
+  ).resumePendingRecoveredScanErase();
+  await recovery.recoverAtStartup();
   final dataset = await ref.watch(curriculumSourceProvider)();
   await ref.watch(curriculumIngesterProvider).ensureCurrent(dataset);
   await ensureSchedulerConfig(database, clock: ref.watch(clockProvider));

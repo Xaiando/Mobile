@@ -1125,6 +1125,14 @@ certification_knowledge_mappings:
     importance: core
     minimum_depth: 2
 source_citations:
+  - id: src_wset_structure_wa_winegrape_assessment
+    kind: reference_work
+    title: "Winegrape Assessment in the Vineyard and at the Winery"
+    publisher: Grape and Wine Research & Development Corporation / Wine Australia archive
+    jurisdiction: AU
+    url: https://www.wineaustralia.com/getmedia/9a026278-cfaa-400c-8bc4-4526ed46c354/WFA-01-01
+    document_identifier: Final report WFA01/01, August 2003; section 7.1.1 on maturity measures
+    accessed_on: 2026-09-29
   - id: src_wset_structure_plantgrape_sauvignon_blanc
     kind: reference_work
     title: "Plantgrape: Sauvignon B"
@@ -1432,6 +1440,9 @@ knowledge_item_citations:
     source_citation_id: src_wset_found_ucd_pulp
     locator: "Assessments of Ripeness: sugar and acid evaluation; potential alcohol derives from fermentable
       sugar, not a fixed grape-name score"
+  - knowledge_item_id: ki_wset_structure_sauvignon_blanc_structure
+    source_citation_id: src_wset_structure_wa_winegrape_assessment
+    locator: "Section 7.1.1, printed pp. 11–12: sugar/TSS rises with maturity as TA tends to fall; Baumé indicates potential alcohol if fermented completely"
   - knowledge_item_id: ki_wset_structure_pinot_gris_structure
     source_citation_id: src_wset_structure_plantgrape_pinot_gris
     locator: "Potentialités technologiques: cultivar sugar/acid/colour/structure observations; qualifications

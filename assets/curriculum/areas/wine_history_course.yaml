@@ -11,6 +11,9 @@ knowledge_nodes:
   - { id: n_hcourse_rome_rank, node_type: learning_point, name: "Pliny distinguishes Falernian styles and slope sites" }
   - { id: n_hcourse_rome_site, node_type: learning_point, name: "Columella matches vine to site" }
   - { id: n_hcourse_rome_not_law, node_type: learning_point, name: "Roman advice is not an appellation" }
+  - { id: n_hcourse_case_rome_limit, node_type: production_case, name: "A guest treats Roman wine writing as appellation law" }
+  - { id: n_hcourse_case_rome_action, node_type: learning_point, name: "Separate ranking and husbandry from law" }
+  - { id: n_hcourse_case_rome_reason, node_type: learning_point, name: "Name the later legal controls" }
   - { id: n_hcourse_commerce, node_type: production_principle, name: "How do the Methuen treaty and the Douro charter differ?" }
   - { id: n_hcourse_commerce_duty, node_type: learning_point, name: "Methuen is a duty, not a boundary" }
   - { id: n_hcourse_commerce_charter, node_type: learning_point, name: "Douro 1756 is not the first line" }
@@ -28,6 +31,9 @@ knowledge_nodes:
   - { id: n_hcourse_modern_aoc, node_type: learning_point, name: "A name can be legally controlled" }
   - { id: n_hcourse_modern_ban, node_type: learning_point, name: "Repeal is not a quality law" }
   - { id: n_hcourse_modern_tasting, node_type: learning_point, name: "1976 is one tasting" }
+  - { id: n_hcourse_case_scales, node_type: production_case, name: "A guest makes the 1976 tasting a repeal and an appellation law" }
+  - { id: n_hcourse_case_scales_action, node_type: learning_point, name: "Keep the 1933 repeal and 1935 decree in their roles" }
+  - { id: n_hcourse_case_scales_reason, node_type: learning_point, name: "One 1976 tasting changed neither law" }
   - { id: n_hcourse_case_oldest, node_type: production_case, name: "A guest says Areni is the oldest wine" }
   - { id: n_hcourse_case_oldest_action, node_type: learning_point, name: "Split residue from installation" }
   - { id: n_hcourse_case_oldest_reason, node_type: learning_point, name: "The papers measure different things" }
@@ -69,10 +75,10 @@ knowledge_nodes:
   - { id: n_hcourse_doc_semplice, node_type: learning_point, name: "Semplice is traditional grapes and local use" }
   - { id: n_hcourse_doc_repeal, node_type: learning_point, name: "The current Normattiva view says the decree is abrogated" }
   - { id: n_hcourse_case_repeal, node_type: production_case, name: "A guest treats the 1963 decree as today's code" }
-  - { id: n_hcourse_case_repeal_action, node_type: learning_point, name: "Date the categories and say they are not current" }
+  - { id: n_hcourse_case_repeal_action, node_type: learning_point, name: "Article 2 spells out three categories, not DOC abbreviations" }
   - { id: n_hcourse_case_repeal_reason, node_type: learning_point, name: "Two opened pages mark the repeal" }
-  - { id: n_hcourse_case_repeal_tradeoff, node_type: learning_point, name: "The 1963 distinction can still be studied" }
-  - { id: n_hcourse_case_repeal_limit, node_type: learning_point, name: "The later law is cited separately" }
+  - { id: n_hcourse_case_repeal_tradeoff, node_type: learning_point, name: "Article 3 defines semplice and its default municipal zone" }
+  - { id: n_hcourse_case_repeal_limit, node_type: learning_point, name: "The compilation and later law have separate limits" }
 
   - { id: n_hcourse_doc_2010, node_type: learning_point, name: "The 2010 decree defined DOP and IGP, then was itself repealed" }
 
@@ -89,6 +95,8 @@ knowledge_relations:
   - { subject_id: n_hcourse_rome, relation_type: PRINCIPLE_EXPLANATION, object_id: n_hcourse_rome_rank, valid_from: "2026-09-27" }
   - { subject_id: n_hcourse_rome, relation_type: PRINCIPLE_EXPLANATION, object_id: n_hcourse_rome_site, valid_from: "2026-09-27" }
   - { subject_id: n_hcourse_rome, relation_type: PRINCIPLE_EXPLANATION, object_id: n_hcourse_rome_not_law, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_case_rome_limit, relation_type: CASE_ACTION, object_id: n_hcourse_case_rome_action, valid_from: "2026-09-28" }
+  - { subject_id: n_hcourse_case_rome_limit, relation_type: CASE_REASON, object_id: n_hcourse_case_rome_reason, valid_from: "2026-09-28" }
   - { subject_id: n_hcourse_commerce, relation_type: PRINCIPLE_EXPLANATION, object_id: n_hcourse_commerce_duty, valid_from: "2026-09-27" }
   - { subject_id: n_hcourse_commerce, relation_type: PRINCIPLE_EXPLANATION, object_id: n_hcourse_commerce_charter, valid_from: "2026-09-27" }
   - { subject_id: n_hcourse_names, relation_type: PRINCIPLE_EXPLANATION, object_id: n_hcourse_names_blockade, valid_from: "2026-09-27" }
@@ -101,6 +109,8 @@ knowledge_relations:
   - { subject_id: n_hcourse_modern, relation_type: PRINCIPLE_EXPLANATION, object_id: n_hcourse_modern_aoc, valid_from: "2026-09-27" }
   - { subject_id: n_hcourse_modern, relation_type: PRINCIPLE_EXPLANATION, object_id: n_hcourse_modern_ban, valid_from: "2026-09-27" }
   - { subject_id: n_hcourse_modern, relation_type: PRINCIPLE_EXPLANATION, object_id: n_hcourse_modern_tasting, valid_from: "2026-09-27" }
+  - { subject_id: n_hcourse_case_scales, relation_type: CASE_ACTION, object_id: n_hcourse_case_scales_action, valid_from: "2026-09-28" }
+  - { subject_id: n_hcourse_case_scales, relation_type: CASE_REASON, object_id: n_hcourse_case_scales_reason, valid_from: "2026-09-28" }
   - { subject_id: n_hcourse_case_oldest, relation_type: CASE_ACTION, object_id: n_hcourse_case_oldest_action, valid_from: "2026-09-27" }
   - { subject_id: n_hcourse_case_oldest, relation_type: CASE_REASON, object_id: n_hcourse_case_oldest_reason, valid_from: "2026-09-27" }
   - { subject_id: n_hcourse_case_oldest, relation_type: CASE_TRADEOFF, object_id: n_hcourse_case_oldest_tradeoff, valid_from: "2026-09-27" }
@@ -192,6 +202,24 @@ knowledge_items:
     assertion_text: "Neither Pliny's ranking nor Columella's husbandry fixes a production area, a grape list, a yield, or a minimum strength. Those controls appear in the later French appellation rules and in the EU definition of wine, not in these Roman books."
     verification_status: unverified
     last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_case_rome_action
+    subject_id: n_hcourse_case_rome_limit
+    relation_type: CASE_ACTION
+    object_id: n_hcourse_case_rome_action
+    domain_id: service
+    assertion_text: "Describe Pliny's Falernian ranking as a writer's comparison of wines and Columella's vine-and-site advice as husbandry. Neither opened passage defines a controlled appellation. Do not turn these two accounts into a claim about every rule in Roman law."
+    verification_status: unverified
+    last_verified_at: "2026-09-28T22:30:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_case_rome_reason
+    subject_id: n_hcourse_case_rome_limit
+    relation_type: CASE_REASON
+    object_id: n_hcourse_case_rome_reason
+    domain_id: service
+    assertion_text: "The opened Roman passages do not fix a delimited production area, a permitted-grape list, a yield ceiling, or a minimum alcoholic strength. The cited French wine code as published for 25 November 1967 ties those later controlled-appellation conditions to the decree of 30 July 1935. Do not project that code into the Roman books or claim this historical view proves current French law."
+    verification_status: unverified
+    last_verified_at: "2026-09-28T22:30:00.000Z"
     mcq_disabled: true
   - id: ki_hcourse_commerce_duty
     subject_id: n_hcourse_commerce
@@ -300,6 +328,24 @@ knowledge_items:
     assertion_text: "On 24 May 1976 a blind tasting in Paris placed the 1973 Chateau Montelena Chardonnay and the 1973 Stag's Leap Wine Cellars S.L.V. Cabernet first in their groups. That result does not rewrite appellation law, does not explain Prohibition, and is not a permanent ranking of every wine."
     verification_status: unverified
     last_verified_at: "2026-09-27T23:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_case_scales_action
+    subject_id: n_hcourse_case_scales
+    relation_type: CASE_ACTION
+    object_id: n_hcourse_case_scales_action
+    domain_id: service
+    assertion_text: "Keep the legal events separate: the Twenty-first Amendment repealed US national Prohibition on 5 December 1933, while the cited French wine code as published for 25 November 1967 ties controlled-appellation conditions to the decree of 30 July 1935. The repeal restored legal trade; the French rules governed protected names. Neither event was a tasting result, and this historical code view is not a statement of all current French law."
+    verification_status: unverified
+    last_verified_at: "2026-09-28T22:30:00.000Z"
+    mcq_disabled: true
+  - id: ki_hcourse_case_scales_reason
+    subject_id: n_hcourse_case_scales
+    relation_type: CASE_REASON
+    object_id: n_hcourse_case_scales_reason
+    domain_id: service
+    assertion_text: "The Paris event of 24 May 1976 was one blind comparison, in which two 1973 California wines placed first in their groups. That result did not repeal US Prohibition, enact French appellation conditions, or establish a permanent ranking of all wines."
+    verification_status: unverified
+    last_verified_at: "2026-09-28T22:30:00.000Z"
     mcq_disabled: true
   - id: ki_hcourse_case_oldest_action
     subject_id: n_hcourse_case_oldest
@@ -579,7 +625,7 @@ knowledge_items:
     relation_type: CASE_ACTION
     object_id: n_hcourse_case_repeal_action
     domain_id: service
-    assertion_text: "If a guest says the 1963 decree is still the Italian wine code, separate the historical categories from the law in force. Name the three 1963 categories, then say the opened current view treats the provision as abrogated."
+    assertion_text: "Article 2 of the opened 1963 compilation spells out denominazione di origine semplice, denominazione di origine controllata, and denominazione di origine controllata e garantita. It does not print the DOC or DOCG abbreviations. Present those words as historical text, not as proof that this provision still governs a bottle today."
     verification_status: unverified
     last_verified_at: "2026-09-27T23:59:00.000Z"
     mcq_disabled: true
@@ -597,7 +643,7 @@ knowledge_items:
     relation_type: CASE_TRADEOFF
     object_id: n_hcourse_case_repeal_tradeoff
     domain_id: service
-    assertion_text: "The guest can still learn what semplice meant in Article 3, including the default municipal zone. Historical study is not a claim that a bottle today is governed by the 1963 text."
+    assertion_text: "Article 3 of the opened compilation says semplice covers the traditional grape varieties of the corresponding zones, vinified according to their local, fair, and constant uses. Without a ministerial delimitation, the zone is the whole municipal district named. This historical definition does not itself decide the classification of a bottle today."
     verification_status: unverified
     last_verified_at: "2026-09-27T23:59:00.000Z"
     mcq_disabled: true
@@ -606,7 +652,7 @@ knowledge_items:
     relation_type: CASE_LIMITATION
     object_id: n_hcourse_case_repeal_limit
     domain_id: service
-    assertion_text: "Do not say Italy no longer has origin names. Article 1 of the 2010 decree defined a DOP and an IGP while that text was in force. The current view of the 2010 decree says it was abrogated by law 12 December 2016, n. 238. Article 28 of that law is a separate item. Article 4 of the 1963 compilation was blank."
+    assertion_text: "The 1963 text used here is a compilation, not the Gazzetta original, and its Article 4 is blank. Article 1 of the 2010 decree was opened separately and defined DOP and IGP while in force; its current view says that decree was abrogated by law 12 December 2016, n. 238. The separately opened Article 28 of that law classifies DOC and DOCG as traditional mentions for DOP wines. Do not say the 2010 act was never opened, that Italy lost origin names, or that the 1963 categories are today's code."
     verification_status: unverified
     last_verified_at: "2026-09-27T23:59:00.000Z"
     mcq_disabled: true
@@ -678,6 +724,10 @@ certification_knowledge_mappings:
   - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_rome_site, importance: secondary, minimum_depth: 2 }
   - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_rome_not_law, importance: secondary, minimum_depth: 2 }
   - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_rome_not_law, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_case_rome_action, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_case_rome_action, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_case_rome_reason, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_case_rome_reason, importance: secondary, minimum_depth: 2 }
   - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_commerce_duty, importance: secondary, minimum_depth: 2 }
   - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_commerce_duty, importance: secondary, minimum_depth: 2 }
   - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_commerce_charter, importance: secondary, minimum_depth: 2 }
@@ -702,6 +752,10 @@ certification_knowledge_mappings:
   - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_modern_ban, importance: secondary, minimum_depth: 2 }
   - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_modern_tasting, importance: secondary, minimum_depth: 2 }
   - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_modern_tasting, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_case_scales_action, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_case_scales_action, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_case_scales_reason, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_case_scales_reason, importance: secondary, minimum_depth: 2 }
   - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_case_oldest_action, importance: secondary, minimum_depth: 2 }
   - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_hcourse_case_oldest_action, importance: secondary, minimum_depth: 2 }
   - { certification_id: WSET_L4, knowledge_item_id: ki_hcourse_case_oldest_reason, importance: secondary, minimum_depth: 2 }
@@ -869,6 +923,11 @@ knowledge_item_citations:
   - { knowledge_item_id: ki_hcourse_rome_site, source_citation_id: src_hcourse_columella, locator: "Book 3.1–3.2 and 3.4: site, climate, and cuttings." }
   - { knowledge_item_id: ki_hcourse_rome_not_law, source_citation_id: src_hcourse_columella, locator: "Husbandry, not a legal appellation." }
   - { knowledge_item_id: ki_hcourse_rome_not_law, source_citation_id: src_hist_code_vin_1935, locator: "Later control of area, grapes, yield, and methods." }
+  - { knowledge_item_id: ki_hcourse_case_rome_action, source_citation_id: src_hist_pliny_falernian, locator: "Book 14, Falernian ranking and styles; this is a literary description." }
+  - { knowledge_item_id: ki_hcourse_case_rome_action, source_citation_id: src_hcourse_columella, locator: "Book 3.1–3.2 and 3.4, advice on vine and site." }
+  - { knowledge_item_id: ki_hcourse_case_rome_reason, source_citation_id: src_hist_pliny_falernian, locator: "The cited Falernian ranking passage does not set appellation conditions." }
+  - { knowledge_item_id: ki_hcourse_case_rome_reason, source_citation_id: src_hcourse_columella, locator: "The cited husbandry passages do not set appellation conditions." }
+  - { knowledge_item_id: ki_hcourse_case_rome_reason, source_citation_id: src_hist_code_vin_1935, locator: "Later controls include area, grapes, yield, minimum strength, and methods; historical code view." }
   - { knowledge_item_id: ki_hcourse_commerce_duty, source_citation_id: src_hist_methuen, locator: "27 December 1703, articles I and II." }
   - { knowledge_item_id: ki_hcourse_commerce_charter, source_citation_id: src_hist_douro_journal, locator: "Charter of 10 September 1756." }
   - { knowledge_item_id: ki_hcourse_commerce_charter, source_citation_id: src_hist_douro_monumentos, locator: "Chianti 1716 and Tokaj 1737." }
@@ -884,6 +943,12 @@ knowledge_item_citations:
   - { knowledge_item_id: ki_hcourse_modern_ban, source_citation_id: src_hist_archives_amendments, locator: "Effective 16 January 1920; repeal 5 December 1933." }
   - { knowledge_item_id: ki_hcourse_modern_ban, source_citation_id: src_hist_archives_repeal, locator: "Section 2, state transport." }
   - { knowledge_item_id: ki_hcourse_modern_tasting, source_citation_id: src_hist_paris_1976, locator: "24 May 1976, Montelena and Stag's Leap." }
+  - { knowledge_item_id: ki_hcourse_case_scales_action, source_citation_id: src_hist_archives_amendments, locator: "Twenty-first Amendment, repeal on 5 December 1933." }
+  - { knowledge_item_id: ki_hcourse_case_scales_action, source_citation_id: src_hist_archives_repeal, locator: "Repeal and the remaining state-transport provision." }
+  - { knowledge_item_id: ki_hcourse_case_scales_action, source_citation_id: src_hist_code_vin_1935, locator: "Code published for 25 November 1967 ties controlled-appellation conditions to 30 July 1935 decree." }
+  - { knowledge_item_id: ki_hcourse_case_scales_reason, source_citation_id: src_hist_paris_1976, locator: "24 May 1976 blind tasting and its two group winners; a comparison rather than legislation." }
+  - { knowledge_item_id: ki_hcourse_case_scales_reason, source_citation_id: src_hist_archives_amendments, locator: "The repeal occurred in 1933, before the tasting." }
+  - { knowledge_item_id: ki_hcourse_case_scales_reason, source_citation_id: src_hist_code_vin_1935, locator: "The cited appellation conditions predate the tasting." }
   - { knowledge_item_id: ki_hcourse_case_oldest_action, source_citation_id: src_hist_pnas_georgia, locator: "Residue evidence." }
   - { knowledge_item_id: ki_hcourse_case_oldest_action, source_citation_id: src_hist_jas_areni, locator: "Installation evidence." }
   - { knowledge_item_id: ki_hcourse_case_oldest_reason, source_citation_id: src_hist_pnas_georgia, locator: "About 6000–5800 BC." }
@@ -922,17 +987,17 @@ knowledge_item_citations:
   - { knowledge_item_id: ki_hcourse_case_repeal_tradeoff, source_citation_id: src_hcourse_dpr_930_compilation, locator: "Articles 2 and 3 as printed. Article 4 blank." }
   - { knowledge_item_id: ki_hcourse_doc_repeal, source_citation_id: src_hcourse_dpr_930_art2_current, locator: "Current Article 2 view: abrogated by D.Lgs. 61/2010." }
   - { knowledge_item_id: ki_hcourse_doc_repeal, source_citation_id: src_hcourse_dpr_930_compilation, locator: "Footnote 1 records the same repeal, subject to the later act." }
-  - { knowledge_item_id: ki_hcourse_case_repeal_action, source_citation_id: src_hcourse_dpr_930_art2_current, locator: "Current Article 2 view: abrogated by D.Lgs. 61/2010." }
-  - { knowledge_item_id: ki_hcourse_case_repeal_action, source_citation_id: src_hcourse_dpr_930_compilation, locator: "Footnote 1 records the same repeal, subject to the later act." }
+  - { knowledge_item_id: ki_hcourse_case_repeal_action, source_citation_id: src_hcourse_dpr_930_compilation, locator: "Article 2 spells out three categories without DOC/DOCG abbreviations." }
   - { knowledge_item_id: ki_hcourse_case_repeal_reason, source_citation_id: src_hcourse_dpr_930_art2_current, locator: "Current Article 2 view: abrogated by D.Lgs. 61/2010." }
   - { knowledge_item_id: ki_hcourse_case_repeal_reason, source_citation_id: src_hcourse_dpr_930_compilation, locator: "Footnote 1 records the same repeal, subject to the later act." }
   - { knowledge_item_id: ki_hcourse_case_repeal_limit, source_citation_id: src_hcourse_dpr_930_art2_current, locator: "Current Article 2 view: abrogated by D.Lgs. 61/2010." }
-  - { knowledge_item_id: ki_hcourse_case_repeal_limit, source_citation_id: src_hcourse_dpr_930_compilation, locator: "Footnote 1 records the same repeal, subject to the later act." }
+  - { knowledge_item_id: ki_hcourse_case_repeal_limit, source_citation_id: src_hcourse_dpr_930_compilation, locator: "Historical compilation, not Gazzetta original; Article 4 blank and repeal footnote." }
 
   - { knowledge_item_id: ki_hcourse_doc_2010, source_citation_id: src_hcourse_dlgs_61_art1, locator: "Article 1, DOP and IGP. View stopped there." }
   - { knowledge_item_id: ki_hcourse_doc_2010, source_citation_id: src_hcourse_dlgs_61_current, locator: "Current Article 1: abrogated by law 238/2016." }
   - { knowledge_item_id: ki_hcourse_case_repeal_limit, source_citation_id: src_hcourse_dlgs_61_art1, locator: "Article 1 defined DOP and IGP." }
   - { knowledge_item_id: ki_hcourse_case_repeal_limit, source_citation_id: src_hcourse_dlgs_61_current, locator: "The 2010 decree is itself marked abrogated." }
+  - { knowledge_item_id: ki_hcourse_case_repeal_limit, source_citation_id: src_hcourse_l238_art28, locator: "The separate 2016 Article 28 classifies DOC and DOCG as traditional DOP mentions." }
   - { knowledge_item_id: ki_hcourse_doc_now, source_citation_id: src_hcourse_l238_art28, locator: "DOP classified into DOCG and DOC. IGP includes IGT. Abbreviations may stand alone or with DOP or IGP." }
   - { knowledge_item_id: ki_hcourse_case_letters_action, source_citation_id: src_hcourse_l238_art28, locator: "DOP classified into DOCG and DOC. IGP includes IGT. Abbreviations may stand alone or with DOP or IGP." }
   - { knowledge_item_id: ki_hcourse_case_letters_reason, source_citation_id: src_hcourse_l238_art28, locator: "DOP classified into DOCG and DOC. IGP includes IGT. Abbreviations may stand alone or with DOP or IGP." }

@@ -55,7 +55,14 @@ void main() {
       contains('physical problem'),
     );
     expect(facts['ki_wset_srv_crystals'], contains('do not by themselves'));
-    expect(facts['ki_wset_srv_preserve_check'], contains('cannot guarantee'));
+    expect(
+      facts['ki_wset_srv_preserve_check'],
+      contains('Opening a bottle starts loss of aroma and flavour'),
+    );
+    expect(
+      facts['ki_wset_srv_preserve_check'],
+      contains('does not guarantee indefinite freshness'),
+    );
     expect(facts['ki_wset_srv_spark_no_vacuum'], contains('flatten'));
     expect(facts['ki_wset_srv_alcohol_wine_not_health'], contains('risk-free'));
   });

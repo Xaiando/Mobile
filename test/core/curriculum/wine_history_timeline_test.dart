@@ -83,14 +83,97 @@ void main() {
           reason: item.id,
         );
       }
-      expect(
-        dataset.knowledgeNodes
-            .singleWhere((node) => node.id == 'n_hcourse_case_repeal_limit')
-            .name,
-        'The later law is cited separately',
-      );
     },
   );
+
+  test('Italian origin-law case separates the 1963, 2010 and 2016 texts', () {
+    final caseItems = dataset.knowledgeItems
+        .where((item) => item.subjectId == 'n_hcourse_case_repeal')
+        .toList();
+    expect(caseItems, hasLength(4));
+    final byRole = {for (final item in caseItems) item.relationType: item};
+    expect(byRole.keys.toSet(), caseRoles.toSet());
+    expect(
+      byRole['CASE_ACTION']!.assertionText,
+      allOf(
+        contains('1963 compilation'),
+        contains('denominazione di origine semplice'),
+        contains('does not print the DOC or DOCG abbreviations'),
+      ),
+    );
+    expect(
+      byRole['CASE_REASON']!.assertionText,
+      allOf(contains('2010 repeal'), contains('repeal notice')),
+    );
+    expect(
+      byRole['CASE_TRADEOFF']!.assertionText,
+      allOf(
+        contains('Article 3 of the opened compilation'),
+        contains('traditional grape varieties'),
+        contains('whole municipal district'),
+      ),
+    );
+
+    final limit = byRole['CASE_LIMITATION']!;
+    expect(limit.id, 'ki_hcourse_case_repeal_limit');
+    expect(limit.objectId, 'n_hcourse_case_repeal_limit');
+    expect(
+      dataset.knowledgeNodes
+          .singleWhere((node) => node.id == limit.objectId)
+          .name,
+      'The compilation and later law have separate limits',
+    );
+    expect(
+      limit.assertionText,
+      allOf(
+        contains('1963 text used here is a compilation'),
+        contains('Article 4 is blank'),
+        contains('Article 1 of the 2010 decree'),
+        contains('defined DOP and IGP'),
+        contains('abrogated by law 12 December 2016, n. 238'),
+        contains('Article 28'),
+        contains('classifies DOC and DOCG as traditional mentions for DOP wines'),
+      ),
+    );
+    expect(
+      dataset.knowledgeItemCitations
+          .where((citation) => citation.knowledgeItemId == limit.id)
+          .map((citation) => citation.sourceCitationId)
+          .toSet(),
+      {
+        'src_hcourse_dpr_930_art2_current',
+        'src_hcourse_dpr_930_compilation',
+        'src_hcourse_dlgs_61_art1',
+        'src_hcourse_dlgs_61_current',
+        'src_hcourse_l238_art28',
+      },
+    );
+
+    final decree2010 = dataset.knowledgeItems.singleWhere(
+      (item) => item.id == 'ki_hcourse_doc_2010',
+    );
+    expect(
+      decree2010.assertionText,
+      allOf(
+        contains('printed Article 1 and stopped'),
+        contains('denominazione di origine protetta'),
+        contains('indicazione geografica protetta'),
+        contains('did not print a DOC or DOCG classification'),
+      ),
+    );
+    final law2016 = dataset.knowledgeItems.singleWhere(
+      (item) => item.id == 'ki_hcourse_doc_now',
+    );
+    expect(
+      law2016.assertionText,
+      allOf(
+        contains('Law 12 December 2016, n. 238, article 28'),
+        contains('denominazione di origine controllata e garantita (DOCG)'),
+        contains('denominazione di origine controllata (DOC)'),
+        contains('traditional mentions Italy uses for DOP wines'),
+      ),
+    );
+  });
 
   test(
     'Greek and Roman vessels generate a four-point short-answer case',

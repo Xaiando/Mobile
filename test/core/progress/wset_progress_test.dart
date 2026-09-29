@@ -1,13 +1,16 @@
 import 'dart:convert';
 import 'dart:io';
+import 'dart:math';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:fsrs/fsrs.dart' as fsrs;
 import 'package:sommelier/core/backup/user_data_backup.dart';
 import 'package:sommelier/core/database/app_database.dart';
 import 'package:sommelier/core/database/curriculum_writes.dart';
+import 'package:sommelier/core/diploma_tasting/diploma_tasting_flight.dart';
 import 'package:sommelier/core/progress/wset_progress.dart';
 import 'package:sommelier/core/progress/wset_scope.dart';
+import 'package:sommelier/core/study/learner_profile.dart';
 import 'package:sommelier/core/study/review_service.dart';
 
 import '../../support/fixture.dart';
@@ -246,6 +249,70 @@ void main() {
           result.unassigned.mapped,
       result.counts.mapped,
     );
+  });
+
+  test('D4 physical flights count only as unit participation', () async {
+    await db.writeCurriculum(
+      () => runSql(db, [
+        "INSERT INTO tasting_grids VALUES ('tg_structured', 'WSET_SAT', '1.0', 'Structured tasting')",
+        "INSERT INTO tasting_grid_attributes VALUES ('tg_structured', 'sweetness', 'Taste', 'Sweetness', 1, 'single', 1)",
+        "INSERT INTO tasting_grid_values VALUES ('tg_structured', 'sweetness', 'dry', 'Dry', 1, NULL)",
+      ]),
+    );
+    await LearnerProfiles(db, clock: time.clock).selectTrack('WSET_L4');
+    final bank = DiplomaTastingBank.fromJson(
+      File('assets/study/diploma_tasting_flights.json').readAsStringSync(),
+    );
+    final flights = DiplomaTastingFlightRepository(
+      db,
+      bank: bank,
+      clock: time.clock,
+      random: Random(11),
+    );
+    final d4 = await flights.start('D4');
+    await flights.start('D5');
+    for (var wine = 0; wine < 3; wine++) {
+      await flights.acknowledgePhysical(d4.id, wine, true);
+      await flights.choose(d4.id, wine, 'sweetness', {'dry'});
+      for (final prompt in d4.wines[wine].prompts) {
+        await flights.saveEvidence(
+          d4.id,
+          wine,
+          prompt.id,
+          'Observed physical sparkling wine ${wine + 1}.',
+        );
+      }
+    }
+    await flights.saveReflection(d4.id, 'Compared the three real wines.');
+    await flights.saveSelfReview(
+      d4.id,
+      'Reviewed what each observation supports.',
+    );
+    await flights.markSelfReviewed(d4.id);
+    await flights.finish(d4.id);
+    progress = WsetProgressRepository(
+      db,
+      scope: testScope(
+        units: [
+          for (var unit = 1; unit <= 6; unit++)
+            WsetUnitScope(
+              id: 'D$unit',
+              title: 'Unit $unit',
+              gap: 'Practice in progress.',
+              domains: const [],
+            ),
+        ],
+      ),
+      clock: time.clock,
+    );
+    final snapshot = await progress.snapshot();
+    final diploma = snapshot.levels.last;
+    expect(diploma.units[3].physicalFlights, 1);
+    expect(diploma.units[4].physicalFlights, 0, reason: 'D5 is still a draft');
+    expect(await flights.current('D5'), isNotNull);
+    expect(diploma.appLevelComplete, isFalse);
+    expect(diploma.examPassed, isFalse);
+    expect(snapshot.levels.first.units, isEmpty);
   });
 
   test(

@@ -1,6 +1,7 @@
 import 'package:drift/drift.dart' show DataClass;
 
 import '../questions/format_registry.dart';
+import '../questions/formats/authored_choice/authored_choice_format.dart';
 import '../questions/formats/short_answer/short_answer_format.dart';
 import '../questions/formats/reasoning/reasoning_format.dart';
 import '../questions/formats/typed/typed_format.dart';
@@ -1059,6 +1060,9 @@ class _Validator {
         if (t.mode == 'typed' && problems.isEmpty) {
           _typedCueReferences(t);
         }
+        if (t.mode == AuthoredChoiceFormat.formatId && problems.isEmpty) {
+          _authoredChoiceReferences(t);
+        }
       }
       for (final match in placeholder.allMatches(t.promptTemplate)) {
         if (!templatePlaceholders.contains(match[0])) {
@@ -1133,6 +1137,53 @@ class _Validator {
         error(
           'template-parameters',
           '${template.id}: item_cues names $id, which has no supporting relation',
+          row: row,
+        );
+      }
+    }
+  }
+
+  /// An authored choice must grade the named cited fact, rather than create
+  /// a silent question for an ID typo or a different relation type.
+  void _authoredChoiceReferences(QuestionTemplate template) {
+    final cues = AuthoredChoiceFormat.itemChoicesOf(template);
+    final row = _ref('question_templates', template);
+    final cited = <String, Set<String>>{};
+    for (final citation in d.knowledgeItemCitations) {
+      cited
+          .putIfAbsent(citation.knowledgeItemId, () => {})
+          .add(citation.sourceCitationId);
+    }
+    for (final entry in cues.entries) {
+      final id = entry.key;
+      final item = items[id];
+      if (item == null) {
+        error(
+          'template-parameters',
+          '${template.id}: item_choices names $id, which is no knowledge item',
+          row: row,
+        );
+        continue;
+      }
+      if (item.relationType != template.relationType) {
+        error(
+          'template-parameters',
+          '${template.id}: item_choices names $id with relation ${item.relationType}, not ${template.relationType}',
+          row: row,
+        );
+      }
+      final triple = '${item.subjectId} ${item.relationType} ${item.objectId}';
+      if (!relations.containsKey(triple)) {
+        error(
+          'template-parameters',
+          '${template.id}: item_choices names $id without a supporting relation',
+          row: row,
+        );
+      }
+      if (!(cited[id]?.contains(entry.value.sourceCitationId) ?? false)) {
+        error(
+          'template-parameters',
+          '${template.id}: item_choices names $id with ${entry.value.sourceCitationId}, which is not cited by this item',
           row: row,
         );
       }

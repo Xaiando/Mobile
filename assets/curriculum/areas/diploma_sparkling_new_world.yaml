@@ -1,0 +1,419 @@
+# Original D4 New World comparisons. Regional descriptions and dated market data
+# support analysis, not a claim that a GI guarantees method, taste, quality or price.
+# These items await qualified review. No legal boundary is inferred from a marker.
+knowledge_nodes:
+  - id: n_d4nw_principle_au_south_australia
+    node_type: production_principle
+    name: How do Adelaide Hills site and method choices qualify a South Australian sparkling comparison?
+  - id: n_d4nw_point_au_south_australia
+    node_type: learning_point
+    name: Elevated cooler sites support sparkling bases, but method and site still require evidence
+  - id: n_d4nw_principle_au_victoria
+    node_type: production_principle
+    name: Why does Victoria not describe one sparkling-wine climate or style?
+  - id: n_d4nw_point_au_victoria
+    node_type: learning_point
+    name: Victorian regions differ; Yarra is one cool-climate example
+  - id: n_d4nw_principle_au_tasmania
+    node_type: production_principle
+    name: What do cool conditions explain and fail to explain in Tasmanian sparkling wine?
+  - id: n_d4nw_point_au_tasmania
+    node_type: learning_point
+    name: Acidity and bottle-fermented potential coexist with frost and site risk
+  - id: n_d4nw_principle_au_sea_label
+    node_type: production_principle
+    name: What can South Eastern Australia on a sparkling label establish?
+  - id: n_d4nw_point_au_sea_label
+    node_type: learning_point
+    name: Broad protected origin allows multi-region sourcing but does not state method
+  - id: n_d4nw_principle_nz_regions
+    node_type: production_principle
+    name: How might Marlborough, Hawke's Bay and Central Otago sparkling bases differ?
+  - id: n_d4nw_point_nz_regions
+    node_type: learning_point
+    name: Compare sunshine, weight and diurnal range without assigning one national taste
+  - id: n_d4nw_principle_nz_method
+    node_type: production_principle
+    name: Why must New Zealand sparkling method be read separately from origin?
+  - id: n_d4nw_point_nz_method
+    node_type: learning_point
+    name: Traditional Pinot Noir and Chardonnay are prominent, not exhaustive
+  - id: n_d4nw_principle_za_association
+    node_type: production_principle
+    name: What does the Cap Classique association communicate about category and method?
+  - id: n_d4nw_point_za_association
+    node_type: learning_point
+    name: A South African bottle-fermented category and producer association
+  - id: n_d4nw_principle_za_variation
+    node_type: production_principle
+    name: Which evidence is still needed to compare two Cap Classique wines?
+  - id: n_d4nw_point_za_variation
+    node_type: learning_point
+    name: Grape source, lees time and dosage can vary within the category
+  - id: n_d4nw_principle_us_california
+    node_type: production_principle
+    name: Why does California sparkling require a narrower origin and production brief?
+  - id: n_d4nw_point_us_california
+    node_type: learning_point
+    name: Many producers and varieties; Chardonnay and Pinot Noir are prominent, not exclusive
+  - id: n_d4nw_principle_us_oregon
+    node_type: production_principle
+    name: What does a Willamette Valley traditional-method example prove about Oregon sparkling wine?
+  - id: n_d4nw_point_us_oregon
+    node_type: learning_point
+    name: Bottle-fermented Oregon examples exist without defining every Oregon bottle
+  - id: n_d4nw_principle_us_washington
+    node_type: production_principle
+    name: How should Washington's climate and irrigation inform sparkling-base selection?
+  - id: n_d4nw_point_us_washington
+    node_type: learning_point
+    name: Warm days, cool nights and water management demand site and harvest evidence
+  - id: n_d4nw_principle_chile_coast_method
+    node_type: production_principle
+    name: Why can Chilean coastal sparkling wines differ by both origin and method?
+  - id: n_d4nw_point_chile_coast_method
+    node_type: learning_point
+    name: Pacific moderation and separate tank or bottle routes influence outcomes
+  - id: n_d4nw_principle_argentina_market
+    node_type: production_principle
+    name: How should a dated Argentine sparkling market figure be used?
+  - id: n_d4nw_point_argentina_market
+    node_type: learning_point
+    name: Mendoza dominated a measured 2023 flow; the figure is not a timeless style rule
+  - id: n_d4nw_principle_argentina_terms
+    node_type: production_principle
+    name: How do current Argentine sparkling and Pet Nat definitions differ?
+  - id: n_d4nw_point_argentina_terms
+    node_type: learning_point
+    name: A second closed-vessel fermentation differs from continuous grape-sugar fermentation
+  - id: n_d4nw_case_australian_offer
+    node_type: production_case
+    name: A buyer compares a Tasmania traditional-method offer with a South Eastern Australia tank-method offer.
+      The first costs more and has a documented longer lees period; the second meets the price ceiling.
+      Neither has been tasted by the buying panel. The list brief asks for fresh fruit and some lees
+      complexity, and there is room to trial both. Recommend the next decision, rationale, tradeoff and
+      missing evidence without treating origin or production cost as a quality score.
+  - id: n_d4nw_point_case_australian_offer_action
+    node_type: learning_point
+    name: Trial both Australian offers against the style and price brief before listing
+  - id: n_d4nw_point_case_australian_offer_reason
+    node_type: learning_point
+    name: Label, method and maturation suggest hypotheses, not the panel's sensory result
+  - id: n_d4nw_point_case_australian_offer_tradeoff
+    node_type: learning_point
+    name: A comparative trial uses samples and time before a purchase commitment
+  - id: n_d4nw_point_case_australian_offer_limitation
+    node_type: learning_point
+    name: Supply, actual sensory balance and landed margin remain unmeasured
+
+knowledge_relations:
+  - {subject_id: n_d4nw_principle_au_south_australia, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d4nw_point_au_south_australia, valid_from: 2026-09-28}
+  - {subject_id: n_d4nw_principle_au_victoria, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d4nw_point_au_victoria, valid_from: 2026-09-28}
+  - {subject_id: n_d4nw_principle_au_tasmania, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d4nw_point_au_tasmania, valid_from: 2026-09-28}
+  - {subject_id: n_d4nw_principle_au_sea_label, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d4nw_point_au_sea_label, valid_from: 2026-09-28}
+  - {subject_id: n_d4nw_principle_nz_regions, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d4nw_point_nz_regions, valid_from: 2026-09-28}
+  - {subject_id: n_d4nw_principle_nz_method, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d4nw_point_nz_method, valid_from: 2026-09-28}
+  - {subject_id: n_d4nw_principle_za_association, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d4nw_point_za_association, valid_from: 2026-09-28}
+  - {subject_id: n_d4nw_principle_za_variation, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d4nw_point_za_variation, valid_from: 2026-09-28}
+  - {subject_id: n_d4nw_principle_us_california, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d4nw_point_us_california, valid_from: 2026-09-28}
+  - {subject_id: n_d4nw_principle_us_oregon, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d4nw_point_us_oregon, valid_from: 2026-09-28}
+  - {subject_id: n_d4nw_principle_us_washington, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d4nw_point_us_washington, valid_from: 2026-09-28}
+  - {subject_id: n_d4nw_principle_chile_coast_method, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d4nw_point_chile_coast_method, valid_from: 2026-09-28}
+  - {subject_id: n_d4nw_principle_argentina_market, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d4nw_point_argentina_market, valid_from: 2026-09-28}
+  - {subject_id: n_d4nw_principle_argentina_terms, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d4nw_point_argentina_terms, valid_from: 2026-09-28}
+  - {subject_id: n_d4nw_case_australian_offer, relation_type: CASE_ACTION, object_id: n_d4nw_point_case_australian_offer_action, valid_from: 2026-09-28}
+  - {subject_id: n_d4nw_case_australian_offer, relation_type: CASE_REASON, object_id: n_d4nw_point_case_australian_offer_reason, valid_from: 2026-09-28}
+  - {subject_id: n_d4nw_case_australian_offer, relation_type: CASE_TRADEOFF, object_id: n_d4nw_point_case_australian_offer_tradeoff, valid_from: 2026-09-28}
+  - {subject_id: n_d4nw_case_australian_offer, relation_type: CASE_LIMITATION, object_id: n_d4nw_point_case_australian_offer_limitation, valid_from: 2026-09-28}
+
+knowledge_items:
+  - id: ki_d4nw_au_south_australia
+    subject_id: n_d4nw_principle_au_south_australia
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_d4nw_point_au_south_australia
+    domain_id: winemaking
+    assertion_text: Adelaide Hills altitude creates cooler sites where Chardonnay and Pinot Noir can retain useful acidity for sparkling bases. Compare site, picking date, method and lees handling before inferring style, quality or price from South Australia alone.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-28T00:00:00.000Z
+  - id: ki_d4nw_au_victoria
+    subject_id: n_d4nw_principle_au_victoria
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_d4nw_point_au_victoria
+    domain_id: winemaking
+    assertion_text: Victoria includes contrasting climates and sparkling styles. Yarra Valley supplies a cool-site Chardonnay and Pinot Noir example, but a broad Victoria origin alone cannot establish grape source conditions, fermentation route or a uniform fresh profile. Request a narrower site and production record for comparison.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-28T00:00:00.000Z
+  - id: ki_d4nw_au_tasmania
+    subject_id: n_d4nw_principle_au_tasmania
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_d4nw_point_au_tasmania
+    domain_id: winemaking
+    assertion_text: Tasmania's cool conditions can yield Chardonnay and Pinot Noir bases with natural acidity suited to traditional-method wine. Spring frost and site or vintage variation can affect yield and ripeness, so an island origin does not guarantee the same quality each year. Bottle lees time and selection also affect cost and character.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-28T00:00:00.000Z
+  - id: ki_d4nw_au_sea_label
+    subject_id: n_d4nw_principle_au_sea_label
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_d4nw_point_au_sea_label
+    domain_id: winemaking
+    assertion_text: South Eastern Australia is a protected GI spanning all of New South Wales, Victoria and Tasmania and parts of South Australia and Queensland. It may accommodate fruit from several smaller GIs within it. The broad claim alone does not identify a cool vineyard, grape, sparkling method or quality tier; compare the actual sourcing and production specification.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-28T00:00:00.000Z
+  - id: ki_d4nw_nz_regions
+    subject_id: n_d4nw_principle_nz_regions
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_d4nw_point_nz_regions
+    domain_id: winemaking
+    assertion_text: Marlborough is a major New Zealand sparkling source; its cool climate and sunshine can support crisp, defined fruit. Hawke's Bay can provide weightier base wines, while Central Otago's marked day-night range offers another balance of freshness and depth. These are regional tendencies, not guarantees for a particular bottle.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-28T00:00:00.000Z
+  - id: ki_d4nw_nz_method
+    subject_id: n_d4nw_principle_nz_method
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_d4nw_point_nz_method
+    domain_id: winemaking
+    assertion_text: Traditional-method Pinot Noir and Chardonnay form a prominent New Zealand sparkling route, with bottle lees ageing able to add savoury complexity to fruit and acidity. The national category also spans diverse styles and regions, so establish method, grape blend and maturation rather than infer them from New Zealand on a label.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-28T00:00:00.000Z
+  - id: ki_d4nw_za_association
+    subject_id: n_d4nw_principle_za_association
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_d4nw_point_za_association
+    domain_id: winemaking
+    assertion_text: The Cap Classique Producers Association promotes South African sparkling wines made by traditional bottle fermentation. That association and method distinguish the category from simply carbonated wine; they do not specify one district, grape mix, price or achieved sensory quality.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-28T00:00:00.000Z
+  - id: ki_d4nw_za_variation
+    subject_id: n_d4nw_principle_za_variation
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_d4nw_point_za_variation
+    domain_id: winemaking
+    assertion_text: Cap Classique's common bottle-fermented route can produce different outcomes according to base-wine source and balance, blend, time on lees and dosage. Compare these recorded choices and a tasting before claiming that an example is more mature, better or necessarily more expensive than another.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-28T00:00:00.000Z
+  - id: ki_d4nw_us_california
+    subject_id: n_d4nw_principle_us_california
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_d4nw_point_us_california
+    domain_id: winemaking
+    assertion_text: California has many sparkling producers and styles. Chardonnay and Pinot Noir are traditional grapes, but other varieties occur. Cooler-source examples such as Carneros and Anderson Valley warrant narrower site analysis; a California origin alone does not demonstrate traditional method, lees time or a single style or price.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-28T00:00:00.000Z
+  - id: ki_d4nw_us_oregon
+    subject_id: n_d4nw_principle_us_oregon
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_d4nw_point_us_oregon
+    domain_id: winemaking
+    assertion_text: Willamette Valley producers document traditional-method sparkling wines from Pinot Noir, Chardonnay and sometimes Pinot Blanc. This demonstrates an Oregon production route, not a rule for all Oregon sparkling wine. Establish the particular wine's base fruit, bottle-fermentation and lees record before judging style or cost.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-28T00:00:00.000Z
+  - id: ki_d4nw_us_washington
+    subject_id: n_d4nw_principle_us_washington
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_d4nw_point_us_washington
+    domain_id: winemaking
+    assertion_text: Washington's eastern vineyards commonly have long warm days, cool nights and managed irrigation. Those conditions can support ripe fruit while retaining acidity, but sparkling-base suitability depends on site, season and an appropriately early harvest. Traditional-method producers exist; neither Washington nor Columbia Valley alone specifies method or flavour.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-28T00:00:00.000Z
+  - id: ki_d4nw_chile_coast_method
+    subject_id: n_d4nw_principle_chile_coast_method
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_d4nw_point_chile_coast_method
+    domain_id: winemaking
+    assertion_text: Wines of Chile identifies Pacific-cooled Limari, Casablanca and Leyda among sparkling contexts and describes both tank and traditional bottle-fermentation routes. Coastal moderation can support acidity, while the two routes may emphasise fresher fruit or more lees complexity. Compare fruit source, method and maturation rather than assign one Chilean style.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-28T00:00:00.000Z
+  - id: ki_d4nw_argentina_market
+    subject_id: n_d4nw_principle_argentina_market
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_d4nw_point_argentina_market
+    domain_id: winemaking
+    assertion_text: An Argentine wine authority report found Mendoza accounted for most sparkling wine dispatched to Argentina's domestic market in 2023, while smaller volumes came from several other provinces. This dated commercial evidence makes Mendoza a useful study anchor; it does not establish today's share, fruit origin, method or style for an individual bottle.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-28T00:00:00.000Z
+  - id: ki_d4nw_argentina_terms
+    subject_id: n_d4nw_principle_argentina_terms
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_d4nw_point_argentina_terms
+    domain_id: winemaking
+    assertion_text: Argentina's INV digest effective from January 2026 defines sparkling wine by carbon dioxide from a second alcoholic fermentation in a closed vessel, with at least four atmospheres at 20 C. Its lightly sparkling Pet Nat definition instead concerns continuous fermentation of remaining grape sugar and one to three atmospheres. Method and pressure terms should not be treated as interchangeable or inferred from province.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-28T00:00:00.000Z
+  - id: ki_d4nw_case_australian_offer_action
+    subject_id: n_d4nw_case_australian_offer
+    relation_type: CASE_ACTION
+    object_id: n_d4nw_point_case_australian_offer_action
+    domain_id: winemaking
+    assertion_text: Keep both offers for a controlled panel tasting against the requested fresh-fruit and lees-complexity brief, then check the landed price and supply. Do not select the Tasmania bottle solely because its origin and lees time sound premium, or the broad-GI bottle solely because it fits the price ceiling.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-28T00:00:00.000Z
+  - id: ki_d4nw_case_australian_offer_reason
+    subject_id: n_d4nw_case_australian_offer
+    relation_type: CASE_REASON
+    object_id: n_d4nw_point_case_australian_offer_reason
+    domain_id: winemaking
+    assertion_text: Regional origin, tank or bottle fermentation and lees time are evidence for likely style and cost mechanisms, but the missing sensory trial and commercial figures determine whether either wine meets this list's actual brief.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-28T00:00:00.000Z
+  - id: ki_d4nw_case_australian_offer_tradeoff
+    subject_id: n_d4nw_case_australian_offer
+    relation_type: CASE_TRADEOFF
+    object_id: n_d4nw_point_case_australian_offer_tradeoff
+    domain_id: winemaking
+    assertion_text: A side-by-side trial consumes samples and staff time and postpones the immediate purchase; it can prevent a costlier mismatch between the brief and the selected wine.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-28T00:00:00.000Z
+  - id: ki_d4nw_case_australian_offer_limitation
+    subject_id: n_d4nw_case_australian_offer
+    relation_type: CASE_LIMITATION
+    object_id: n_d4nw_point_case_australian_offer_limitation
+    domain_id: winemaking
+    assertion_text: The scenario provides no panel results, volumes, landed margins or supplier terms. Even a preferred sample cannot be listed responsibly until those points are checked; neither offer establishes the normal style of its whole GI.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: 2026-09-28T00:00:00.000Z
+
+certification_knowledge_mappings:
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d4nw_au_south_australia, importance: core, minimum_depth: 2}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d4nw_au_victoria, importance: core, minimum_depth: 2}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d4nw_au_tasmania, importance: core, minimum_depth: 2}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d4nw_au_sea_label, importance: core, minimum_depth: 2}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d4nw_nz_regions, importance: core, minimum_depth: 2}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d4nw_nz_method, importance: core, minimum_depth: 2}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d4nw_za_association, importance: core, minimum_depth: 2}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d4nw_za_variation, importance: core, minimum_depth: 2}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d4nw_us_california, importance: core, minimum_depth: 2}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d4nw_us_oregon, importance: core, minimum_depth: 2}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d4nw_us_washington, importance: core, minimum_depth: 2}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d4nw_chile_coast_method, importance: core, minimum_depth: 2}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d4nw_argentina_market, importance: core, minimum_depth: 2}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d4nw_argentina_terms, importance: core, minimum_depth: 2}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d4nw_case_australian_offer_action, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d4nw_case_australian_offer_reason, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d4nw_case_australian_offer_tradeoff, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d4nw_case_australian_offer_limitation, importance: core, minimum_depth: 3}
+
+source_citations:
+  - id: src_d4nw_awri_sensory
+    kind: academic
+    title: Practical sensory evaluation considerations
+    publisher: Australian Wine Research Institute
+    jurisdiction: AU
+    url: https://www.awri.com.au/industry_support/winemaking_resources/sensory_assessment/considerations/
+    document_identifier: Commercial tasting, difference before preference and independent tasters
+    accessed_on: 2026-09-28
+  - id: src_d4nw_au_victoria
+    kind: reference_work
+    title: Victoria wine regional profile
+    publisher: Wine Australia
+    jurisdiction: AU
+    url: https://www.wineaustralia.com/market-insights/regions-and-varieties/victoria-wines
+    document_identifier: Victoria regional profile
+    accessed_on: 2026-09-28
+  - id: src_d4nw_au_multi_gi
+    kind: reference_work
+    title: Making multiple Australian GI claims
+    publisher: Wine Australia
+    jurisdiction: AU
+    url: https://www.wineaustralia.com/news/articles/making-multiple-gi-claims
+    document_identifier: Multiple GI claims and South Eastern Australia example
+    accessed_on: 2026-09-28
+  - id: src_d4nw_za_cap
+    kind: reference_work
+    title: About Cap Classique Producers Association
+    publisher: Cap Classique Producers Association
+    jurisdiction: ZA
+    url: https://www.capclassique.co.za/about.html
+    document_identifier: Association and traditional-method description
+    accessed_on: 2026-09-28
+  - id: src_d4nw_us_california
+    kind: reference_work
+    title: California sparkling wine fact sheet
+    publisher: Wine Institute
+    jurisdiction: US
+    url: https://wineinstitute.org/our-industry/statistics/wine-fact-sheets/sparkling-wine-champagne
+    document_identifier: California sparkling wine overview
+    accessed_on: 2026-09-28
+  - id: src_d4nw_us_oregon
+    kind: reference_work
+    title: Oregon Wine Board sparkling producer examples
+    publisher: Oregon Wine Board
+    jurisdiction: US
+    url: https://www.oregonwine.org/wineries/corollary-wines/
+    document_identifier: Willamette Valley traditional-method producer profile
+    accessed_on: 2026-09-28
+  - id: src_d4nw_us_washington_spark
+    kind: reference_work
+    title: Washington traditional-method producer interview
+    publisher: Washington State Wine Commission
+    jurisdiction: US
+    url: https://www.washingtonwine.org/winemaker-series-tirriddis/
+    document_identifier: Tirriddis sparkling method
+    accessed_on: 2026-09-28
+  - id: src_d4nw_chile_spark
+    kind: reference_work
+    title: Chilean sparkling regions and methods
+    publisher: Wines of Chile
+    jurisdiction: CL
+    url: https://www.winesofchile.org/pt/lets-make-a-toast-to-summer-with-the-freshness-of-chilean-sparkling-wines/
+    document_identifier: Chilean sparkling regions and methods
+    accessed_on: 2026-09-28
+  - id: src_d4nw_argentina_report
+    kind: government_publication
+    title: Informe Vino Espumoso 2023
+    publisher: Instituto Nacional de Vitivinicultura
+    jurisdiction: AR
+    url: https://www.argentina.gob.ar/sites/default/files/2018/12/vino_espumoso_2023_una_-_rev-1.pdf
+    document_identifier: October 2024 report, domestic market and province tables
+    accessed_on: 2026-09-28
+  - id: src_d4nw_argentina_digest
+    kind: legislation
+    title: INV Resolution 37/2025 normative digest
+    publisher: Instituto Nacional de Vitivinicultura
+    jurisdiction: AR
+    url: https://www.argentina.gob.ar/normativa/nacional/resoluci%C3%B3n-37-2025-419909/texto
+    document_identifier: Definitions 1.8 and 1.22, effective 2026-01-01
+    accessed_on: 2026-09-28
+
+knowledge_item_citations:
+  - {knowledge_item_id: ki_d4nw_au_south_australia, source_citation_id: src_reg_oa_adelaide, locator: "Cool altitude, Chardonnay and Pinot Noir"}
+  - {knowledge_item_id: ki_d4nw_au_victoria, source_citation_id: src_d4nw_au_victoria, locator: "Victorian climate diversity and Yarra example"}
+  - {knowledge_item_id: ki_d4nw_au_tasmania, source_citation_id: src_reg_sh_tasmania, locator: "Cool climate, sparkling grapes and frost risks"}
+  - {knowledge_item_id: ki_d4nw_au_sea_label, source_citation_id: src_atlas_au_gis, locator: "South Eastern Australia protected-zone definition"}
+  - {knowledge_item_id: ki_d4nw_au_sea_label, source_citation_id: src_d4nw_au_multi_gi, locator: "Larger GI can contain multi-region blends"}
+  - {knowledge_item_id: ki_d4nw_nz_regions, source_citation_id: src_wset_sf_nz_spark, locator: "Marlborough, Hawke's Bay and Central Otago regional styles"}
+  - {knowledge_item_id: ki_d4nw_nz_method, source_citation_id: src_wset_sf_nz_spark, locator: "Predominant traditional-method Pinot Noir and Chardonnay and varied styles"}
+  - {knowledge_item_id: ki_d4nw_za_association, source_citation_id: src_d4nw_za_cap, locator: "Association promotes South African bottle-fermented sparkling wines"}
+  - {knowledge_item_id: ki_d4nw_za_variation, source_citation_id: src_d4nw_za_cap, locator: "Shared bottle-fermentation category"}
+  - {knowledge_item_id: ki_d4nw_za_variation, source_citation_id: src_wset_sf_cap_directory, locator: "Producer examples with grape and maturation differences"}
+  - {knowledge_item_id: ki_d4nw_us_california, source_citation_id: src_d4nw_us_california, locator: "Many producers and varieties, Chardonnay and Pinot Noir"}
+  - {knowledge_item_id: ki_d4nw_us_california, source_citation_id: src_wset_sf_carneros, locator: "Carneros bay-moderated example"}
+  - {knowledge_item_id: ki_d4nw_us_california, source_citation_id: src_wset_sf_anderson, locator: "Anderson Valley sparkling context"}
+  - {knowledge_item_id: ki_d4nw_us_oregon, source_citation_id: src_d4nw_us_oregon, locator: "Willamette Valley traditional-method producer and varieties"}
+  - {knowledge_item_id: ki_d4nw_us_washington, source_citation_id: src_reg_am_washington, locator: "Diurnal change, acidity and irrigation"}
+  - {knowledge_item_id: ki_d4nw_us_washington, source_citation_id: src_d4nw_us_washington_spark, locator: "Washington traditional-method producer example"}
+  - {knowledge_item_id: ki_d4nw_chile_coast_method, source_citation_id: src_d4nw_chile_spark, locator: "Coastal Limari, Casablanca and Leyda and tank versus bottle methods"}
+  - {knowledge_item_id: ki_d4nw_argentina_market, source_citation_id: src_d4nw_argentina_report, locator: "2023 domestic-market province table, page 4"}
+  - {knowledge_item_id: ki_d4nw_argentina_terms, source_citation_id: src_d4nw_argentina_digest, locator: "Definitions 1.8 and 1.22 in current digest"}
+  - {knowledge_item_id: ki_d4nw_case_australian_offer_action, source_citation_id: src_atlas_au_gis, locator: "Broad South Eastern Australia origin does not identify vineyard or method"}
+  - {knowledge_item_id: ki_d4nw_case_australian_offer_action, source_citation_id: src_reg_sh_tasmania, locator: "Tasmania traditional-method context; case decision is original"}
+  - {knowledge_item_id: ki_d4nw_case_australian_offer_reason, source_citation_id: src_reg_sh_tasmania, locator: "Tasmania sparkling and bottle-method context; inference is original"}
+  - {knowledge_item_id: ki_d4nw_case_australian_offer_tradeoff, source_citation_id: src_d4nw_awri_sensory, locator: "Commercial tastings use controlled, independent comparisons; cost and delay are original case tradeoffs"}
+  - {knowledge_item_id: ki_d4nw_case_australian_offer_limitation, source_citation_id: src_d4nw_awri_sensory, locator: "Establish a sensory difference before preference; missing commercial figures are original case limits"}

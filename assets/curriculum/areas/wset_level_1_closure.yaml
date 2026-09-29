@@ -119,9 +119,10 @@ knowledge_items:
     relation_type: PRINCIPLE_EXPLANATION
     object_id: n_wset_l1_point_rose_route
     domain_id: winemaking
-    assertion_text: A common rosé route is harvest, crush black grapes if used, allow brief skin contact, drain
-      and press off the skins, ferment the separated juice, mature briefly as intended, then prepare and
-      bottle. Direct pressing and other rosé routes also exist.
+    assertion_text: In the simplified short-maceration rosé sequence, black grapes are crushed, fermentation
+      begins with brief skin contact, and the pink fermenting liquid is drained before fermentation continues
+      apart from the skins; the wine is then matured as intended and bottled. Another valid route separates
+      pink juice before fermentation, and direct pressing also exists.
     verification_status: unverified
     mcq_disabled: true
     last_verified_at: 2026-09-27T00:00:00.000Z
@@ -285,6 +286,9 @@ knowledge_item_citations:
     locator: "WSET colour/style distinctions; UGA juice separation/fermentation; Rioja maturation and bottling:
       original comparative route"
   - knowledge_item_id: ki_wset_l1_rose_route
+    source_citation_id: src_wset_found_colour_of_wine
+    locator: Brief contact with black-grape skins; separate pink juice before fermentation
+  - knowledge_item_id: ki_wset_l1_rose_route
     source_citation_id: src_wset_found_uga_fermentation
     locator: "WSET colour/style distinctions; UGA juice separation/fermentation; Rioja maturation and bottling:
       original comparative route"
@@ -343,3 +347,6 @@ knowledge_item_citations:
   - knowledge_item_id: ki_wset_l1_rose_route
     source_citation_id: src_wset_l1_rose_routes
     locator: "Types of rosé wine: styles and how they are made; direct pressing and short maceration paragraphs"
+  - knowledge_item_id: ki_wset_l1_rose_route
+    source_citation_id: src_wset_close_l2_session
+    locator: "Page 27, Short maceration: fermentation starts with skins, then pink fermenting wine is drained"

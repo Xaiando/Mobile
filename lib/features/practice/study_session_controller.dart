@@ -101,6 +101,7 @@ class StudySessionState {
 /// The state is null when no session is running.
 class StudySessionController extends AsyncNotifier<StudySessionState?> {
   var _busy = false;
+  var _advancing = false;
 
   @override
   Future<StudySessionState?> build() async => null;
@@ -149,16 +150,24 @@ class StudySessionController extends AsyncNotifier<StudySessionState?> {
 
   /// Moves to the next card after an answer.
   Future<void> next() async {
-    if (state.hasError) return;
+    if (_advancing || state.hasError) return;
     final current = state.value;
     if (current == null || !(current.turn?.isAnswered ?? true)) return;
-    final moved = await AsyncValue.guard(
-      () async => StudySessionState(
-        session: current.session,
-        turn: await _turn(current.session),
-      ),
-    );
-    if (_isCurrent(current.session)) state = moved;
+    _advancing = true;
+    try {
+      final moved = await AsyncValue.guard(
+        () async => StudySessionState(
+          session: current.session,
+          turn: await _turn(current.session),
+        ),
+      );
+      if (_isCurrent(current.session) &&
+          identical(state.value?.turn, current.turn)) {
+        state = moved;
+      }
+    } finally {
+      _advancing = false;
+    }
   }
 
   /// Leaves the session. Answers already given are saved.

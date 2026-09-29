@@ -1,0 +1,185 @@
+question_templates:
+- id: qt_wset_l1_authored_geography
+  relation_type: PRINCIPLE_EXPLANATION
+  direction: forward
+  mode: authored_choice
+  variant: l1_familiar_places
+  prompt_template: '{subject.name}'
+  parameters:
+    item_choices:
+      ki_wset_found_familiar_beaujolais:
+        prompt: Which grape is the familiar source of red Beaujolais?
+        options:
+        - Gamay
+        - Pinot Noir
+        - Syrah
+        - Cabernet Sauvignon
+        correctIndex: 0
+        explanation: Red Beaujolais is made from Gamay; site and producer still affect its structure.
+        sourceCitationId: src_wset_found_beaujolais
+      ki_wset_found_familiar_bordeaux:
+        prompt: Which pair commonly appears in a red Bordeaux blend, with one adding fruit and suppleness
+          and the other tannic structure?
+        options:
+        - Glera and Pinot Gris
+        - Merlot and Cabernet Sauvignon
+        - Gamay and Chenin Blanc
+        - Sangiovese and Nebbiolo
+        correctIndex: 1
+        explanation: Merlot can add fruit and supple texture while Cabernet Sauvignon contributes tannic structure;
+          proportions vary.
+        sourceCitationId: src_wset_found_civb_red
+      ki_wset_found_familiar_cava:
+        prompt: Which description identifies Cava's country and the source of its bubbles?
+        options:
+        - Portugal; dissolved gas added before bottling
+        - France; fermentation only in a tank
+        - Spain; a second fermentation in the bottle
+        - Italy; bubbles from the first fermentation in an open vat
+        correctIndex: 2
+        explanation: Cava is Spanish sparkling wine made by the traditional method, with the second fermentation
+          in the bottle.
+        sourceCitationId: src_wset_found_cava
+      ki_wset_found_familiar_champagne:
+        prompt: Where is Champagne from, and how does the familiar wine develop its bubbles?
+        options:
+        - Champagne in France; a second fermentation in the bottle
+        - Bordeaux in France; carbonation of still wine
+        - Piedmont in Italy; only tank fermentation
+        - Catalonia in Spain; first fermentation in the bottle
+        correctIndex: 0
+        explanation: Champagne is the French regional sparkling wine whose bubbles develop through a second
+          fermentation in the bottle.
+        sourceCitationId: src_wset_found_civc_faq
+      ki_wset_found_familiar_chateauneuf:
+        prompt: Which choice describes the familiar red Châteauneuf-du-Pape example?
+        options:
+        - Still red from the southern Rhône
+        - Sparkling red from the northern Rhône
+        - Still red from the western Loire
+        - Fortified red from the Douro Valley
+        correctIndex: 0
+        explanation: Inter Rhône locates Châteauneuf-du-Pape in the southern Rhône and identifies it as an
+          appellation for still red and white wines.
+        sourceCitationId: src_reg_fs_chateauneuf
+      ki_wset_found_familiar_chianti:
+        prompt: Which grape and Italian region are central to Chianti?
+        options:
+        - Nebbiolo and Piedmont
+        - Sangiovese and Tuscany
+        - Glera and Veneto
+        - Pinot Grigio and Trentino
+        correctIndex: 1
+        explanation: Chianti is a Tuscan red wine centred on Sangiovese; blends and maturation can change
+          the result.
+        sourceCitationId: src_wset_found_chianti
+      ki_wset_found_familiar_cotes_rhone:
+        prompt: Which statement describes a familiar red Côtes du Rhône while respecting the region's other
+          colours?
+        options:
+        - It is always a sweet white made only from Sémillon
+        - It is a Burgundy Pinot Noir and cannot be blended
+        - It is often a Grenache-Syrah blend; white and rosé also exist
+        - It is a Spanish bottle-fermented sparkling wine
+        correctIndex: 2
+        explanation: A familiar red Côtes du Rhône often uses Grenache and Syrah, but the appellation also
+          has white and rosé wines.
+        sourceCitationId: src_fr_atlas_rhone
+      ki_wset_found_familiar_port:
+        prompt: Which method and style range is characteristic of Port?
+        options:
+        - Grape spirit follows full fermentation; only red styles qualify
+        - Grape spirit stops fermentation; colours and sweetness vary
+        - Bottle fermentation adds bubbles; sweetness is fixed
+        - Air-drying concentrates grapes; colours are fixed
+        correctIndex: 1
+        explanation: IVDP describes stopping fermentation with grape brandy and a range of Port colours and
+          sweetness levels.
+        sourceCitationId: src_fort_port_intro
+      ki_wset_found_familiar_prosecco:
+        prompt: Which grape and country identify the usual Prosecco example?
+        options:
+        - Chardonnay from France
+        - Glera from Italy
+        - Riesling from Germany
+        - Chenin Blanc from South Africa
+        correctIndex: 1
+        explanation: The usual Italian Prosecco example is based on Glera; styles can differ in pressure and
+          sweetness.
+        sourceCitationId: src_wset_found_prosecco
+      ki_wset_found_familiar_red_burgundy:
+        prompt: Which grape is the central familiar example for red Burgundy?
+        options:
+        - Gamay
+        - Merlot
+        - Sangiovese
+        - Pinot Noir
+        correctIndex: 3
+        explanation: Pinot Noir is the central red Burgundy example, though site and winemaking change its
+          style.
+        sourceCitationId: src_wset_found_bivb_pinot_noir
+      ki_wset_found_familiar_rioja:
+        prompt: Which grape is especially associated with red Rioja?
+        options:
+        - Tempranillo
+        - Sauvignon Blanc
+        - Glera
+        - Gamay
+        correctIndex: 0
+        explanation: Tempranillo is a major red Rioja grape; young and mature Rioja styles differ.
+        sourceCitationId: src_wset_found_rioja_red
+      ki_wset_found_familiar_sancerre:
+        prompt: Which grape makes white Sancerre?
+        options:
+        - Chenin Blanc
+        - Sauvignon Blanc
+        - Pinot Noir
+        - Cabernet Sauvignon
+        correctIndex: 1
+        explanation: The Centre-Loire producer dossier identifies white Sancerre with Sauvignon Blanc; Sancerre
+          red and rosé use Pinot Noir.
+        sourceCitationId: src_wset_found_bivc_sancerre
+      ki_wset_found_familiar_sauternes:
+        prompt: Which type of wine is Sauternes?
+        options:
+        - Dry white Bordeaux
+        - Sweet red Bordeaux
+        - Sweet white Bordeaux
+        - Sparkling white Bordeaux
+        correctIndex: 2
+        explanation: The Bordeaux wine council describes Sauternes as a sweet white appellation, with Sémillon
+          a principal grape.
+        sourceCitationId: src_wset_found_civb_sauternes
+      ki_wset_found_familiar_sherry:
+        prompt: Which pair shows that Sherry can range from dry to naturally sweet?
+        options:
+        - Fino and Manzanilla
+        - Cream and Pedro Ximénez
+        - Fino and Pedro Ximénez
+        - Amontillado and Oloroso
+        correctIndex: 2
+        explanation: The Sherry Consejo identifies Fino as dry and Pedro Ximénez as a naturally sweet Sherry
+          style.
+        sourceCitationId: src_wset_found_sherry
+      ki_wset_found_familiar_white_burgundy:
+        prompt: Which grape is the central white Burgundy example across styles from Chablis to the Côte de
+          Beaune?
+        options:
+        - Chardonnay
+        - Pinot Noir
+        - Cabernet Sauvignon
+        - Gamay
+        correctIndex: 0
+        explanation: Chardonnay is central to white Burgundy; site and oak use produce diverse styles.
+        sourceCitationId: src_wset_found_bivb_chardonnay
+      ki_wset_found_familiar_white_zinfandel:
+        prompt: Which description fits the familiar commercial White Zinfandel style?
+        options:
+        - A dry white wine from a white grape
+        - A rosé from Zinfandel that often has noticeable sweetness
+        - A bottle-fermented sparkling wine from Chardonnay
+        - A fortified red wine made from Port grapes
+        correctIndex: 1
+        explanation: White Zinfandel is a pink wine from Zinfandel; the familiar commercial example is often
+          sweet.
+        sourceCitationId: src_wset_found_zap_styles

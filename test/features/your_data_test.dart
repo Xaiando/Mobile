@@ -1,9 +1,11 @@
+import 'dart:collection';
 import 'dart:convert';
 
 import 'package:clock/clock.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:sommelier/core/backup/user_data_backup.dart';
 import 'package:sommelier/core/database/app_database.dart';
 import 'package:sommelier/core/journal/wine_journal.dart';
 import 'package:sommelier/core/time/time_providers.dart';
@@ -29,6 +31,23 @@ class _Files implements BackupFiles {
 
   @override
   Future<List<int>?> open() async => toOpen;
+}
+
+/// Reports a large picked file without allocating it. The UI must inspect
+/// length before trying to decode any byte of this list.
+class _OversizedBytes extends ListBase<int> {
+  @override
+  int get length => UserDataBackup.maxBackupFileBytes + 1;
+
+  @override
+  set length(int value) => throw UnsupportedError('read only');
+
+  @override
+  int operator [](int index) => throw StateError('bytes were read');
+
+  @override
+  void operator []=(int index, int value) =>
+      throw UnsupportedError('read only');
 }
 
 /// Backlog R1: Settings → Your data, and flagging a question.
@@ -167,6 +186,22 @@ void main() {
       await tap(tester, find.widgetWithText(FilledButton, 'Choose a file'));
       expect(find.text('This file is not a Sommelier backup.'), findsOneWidget);
     }
+    expect(await producers(tester), ['Kept Producer']);
+  });
+
+  testApp('rejects an oversized picked backup before reading its bytes', (
+    tester,
+  ) async {
+    await tester.runAsync(
+      () =>
+          WineJournal(db)
+              .create(const JournalDraft(producerName: 'Kept Producer')),
+    );
+    await launch(tester);
+    files.toOpen = _OversizedBytes();
+    await setting(tester, 'Import a backup');
+    await tap(tester, find.widgetWithText(FilledButton, 'Choose a file'));
+    expect(find.textContaining('64 MiB file limit'), findsOneWidget);
     expect(await producers(tester), ['Kept Producer']);
   });
 

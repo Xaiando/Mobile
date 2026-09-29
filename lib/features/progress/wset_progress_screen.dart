@@ -8,6 +8,7 @@ import '../../core/progress/progress_providers.dart';
 import '../../core/progress/wset_progress.dart';
 import '../../core/study/study_providers.dart';
 import '../practice/study_session_controller.dart';
+import '../diploma_tasting/diploma_tasting_flight_screen.dart';
 import '../rehearsal/rehearsal_screen.dart';
 import '../tasting_guidance/guided_tasting_screen.dart';
 import '../tasting_pair/tasting_pair_screen.dart';
@@ -411,6 +412,32 @@ class _LevelSectionState extends ConsumerState<_LevelSection> {
                             Text(
                               '${unit.counts.unavailable} mapped facts are not yet available.',
                             ),
+                          if (unit.scope.id == 'D4' ||
+                              unit.scope.id == 'D5') ...[
+                            const SizedBox(height: 8),
+                            Text(
+                              'Three-wine physical practices recorded: ${unit.physicalFlights}. '
+                              'These are self-reviewed participation, not a tasting score or exam pass.',
+                              key: ValueKey(
+                                'wset_unit_physical_${unit.scope.id}',
+                              ),
+                            ),
+                            TextButton(
+                              key: ValueKey(
+                                'wset_unit_physical_open_${unit.scope.id}',
+                              ),
+                              onPressed: _starting || !level.selectable
+                                  ? null
+                                  : () => _practice(
+                                      DiplomaTastingFlightScreen(
+                                        unitId: unit.scope.id,
+                                      ),
+                                    ),
+                              child: Text(
+                                'Open ${unit.scope.id} three-wine practice',
+                              ),
+                            ),
+                          ],
                         ],
                       ),
                     ),

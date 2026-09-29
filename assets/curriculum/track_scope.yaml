@@ -1763,15 +1763,38 @@ tracks:
         tasks: [DIP-4, G13]
       - id: wset_l4.sparkling.americas
         label: Compare sparkling-wine contexts in the Americas
+        covers:
+          within:
+            - n_d4nw_principle_us_california
+            - n_d4nw_principle_us_oregon
+            - n_d4nw_principle_us_washington
+            - n_d4nw_principle_chile_coast_method
+            - n_d4nw_principle_argentina_market
+            - n_d4nw_principle_argentina_terms
         tasks: [DIP-4, C4]
       - id: wset_l4.sparkling.south_africa
         label: Study South African bottle-fermented sparkling wines
+        covers:
+          within:
+            - n_d4nw_principle_za_association
+            - n_d4nw_principle_za_variation
         tasks: [DIP-4, C4]
       - id: wset_l4.sparkling.australia
         label: Compare Australian sparkling-wine contexts
+        covers:
+          within:
+            - n_d4nw_principle_au_south_australia
+            - n_d4nw_principle_au_victoria
+            - n_d4nw_principle_au_tasmania
+            - n_d4nw_principle_au_sea_label
+            - n_d4nw_case_australian_offer
         tasks: [DIP-4, C4]
       - id: wset_l4.sparkling.new_zealand
         label: Study New Zealand sparkling-wine contexts
+        covers:
+          within:
+            - n_d4nw_principle_nz_regions
+            - n_d4nw_principle_nz_method
         tasks: [DIP-4, C4]
       - id: wset_l4.sparkling.production
         label: Compare ways to create and finish sparkling wines
@@ -1987,12 +2010,29 @@ tracks:
         label: Practise evidence-based conclusions from fortified-wine tasting
         tasks: [DIP-5, T1, T2, Q8, S3]
 
-      # D6: future research support; no copied assignment or auto-marking claim.
+      # D6: original research practice; no copied assignment or auto-marking claim.
       - id: wset_l4.research.evidence
         label: Plan an inquiry and evaluate competing wine-related evidence
+        covers:
+          within:
+            - n_d6_principle_brief
+            - n_d6_principle_question
+            - n_d6_principle_provenance
+            - n_d6_principle_origin
+            - n_d6_principle_claim
+            - n_d6_principle_comparable
+            - n_d6_case_channel_evidence
+          relation_types: [PRINCIPLE_EXPLANATION, CASE_ACTION, CASE_REASON, CASE_TRADEOFF, CASE_LIMITATION]
         tasks: [DIP-6]
       - id: wset_l4.research.argument
         label: Build a referenced written argument and revise it critically
+        covers:
+          within:
+            - n_d6_principle_counter
+            - n_d6_principle_structure
+            - n_d6_principle_reference
+            - n_d6_case_campaign_argument
+          relation_types: [PRINCIPLE_EXPLANATION, CASE_ACTION, CASE_REASON, CASE_TRADEOFF, CASE_LIMITATION]
         tasks: [DIP-6]
 
   CMS_CERTIFIED:
@@ -2547,6 +2587,8 @@ tracks:
         label: Distillation and the principal spirits
         covers:
           within:
+            - n_cms_irish_whiskey
+            - n_cms_irish_case
             - n_bev_spirit_separate
             - n_bev_rum_cane
             - n_bev_gin_juniper
@@ -2576,6 +2618,8 @@ tracks:
         label: Liqueurs, aperitif wines and bitters
         covers:
           within:
+            - n_cms_liqueur_extraction
+            - n_cms_liqueur_case
             - n_somm_basic_liqueur
             - n_somm_basic_aperitif
             - n_somm_case_liqueur
@@ -2585,6 +2629,15 @@ tracks:
         label: Beer and cider
         covers:
           within:
+            - n_cms_beer_brewhouse
+            - n_cms_beer_style_compare
+            - n_cms_beer_condition
+            - n_cms_cider_process
+            - n_cms_belgian_styles
+            - n_cms_beer_food
+            - n_cms_beer_case_cask
+            - n_cms_beer_case_pair
+            - n_cms_beer_case_belgian
             - n_bev_cask_ale
             - n_bev_cider_perry
             - n_somm_beer

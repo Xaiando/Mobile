@@ -20,7 +20,8 @@ Future<T> withPickedTemporaryPhoto<T>(
   }
 }
 
-/// Returns false if [path] is outside app temporary storage or cleanup fails.
+/// Returns true if the copy was removed or is already absent. Returns false
+/// if an existing [path] is outside app temporary storage or cleanup fails.
 /// Resolving both paths prevents a symlink in the cache from deleting a user
 /// file elsewhere. A failed best-effort delete must not hide a scan error.
 Future<bool> removePickedTemporaryPhoto(
@@ -30,6 +31,8 @@ Future<bool> removePickedTemporaryPhoto(
   String? applicationDocumentsDirectoryPath,
 }) async {
   try {
+    // Erase retry can encounter a cache file already removed before a crash.
+    if (!await File(path).exists()) return true;
     final temporary = temporaryDirectoryPath == null
         ? await getTemporaryDirectory()
         : Directory(temporaryDirectoryPath);

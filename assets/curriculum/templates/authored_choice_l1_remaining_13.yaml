@@ -1,0 +1,152 @@
+question_templates:
+- id: qt_wset_l1_authored_remaining_13
+  relation_type: PRINCIPLE_EXPLANATION
+  direction: forward
+  mode: authored_choice
+  variant: l1_remaining_core
+  prompt_template: '{subject.name}'
+  parameters:
+    item_choices:
+      ki_wset_found_sparkling:
+        prompt: What causes the bubbles seen when a sparkling wine is uncorked and poured?
+        options:
+        - Its colour changes on contact with air
+        - Dissolved carbon dioxide is released from the wine
+        - Residual sugar turns directly into bubbles in the glass
+        - The glass adds gas to the wine
+        correctIndex: 1
+        explanation: The OIV describes sparkling-wine effervescence on uncorking as the release of carbon
+          dioxide; sweetness and colour are separate features.
+        sourceCitationId: src_wset_found_oiv_sparkling
+      ki_wset_srv_cork_taint_distinct:
+        prompt: A cork crumbles into a glass. What can you conclude about cork taint?
+        options:
+        - Yes; fragments demonstrate TCA exposure
+        - No; judge the wine's aroma and flavour
+        - Yes; physical pieces prove musty flavour
+        - No; physical pieces rule out any taint
+        correctIndex: 1
+        explanation: WSET distinguishes floating cork fragments from TCA taint, which is assessed through
+          the wine's aroma and flavour.
+        sourceCitationId: src_wset_sfault_common_faults
+      ki_wset_srv_fault_cork:
+        prompt: Which observation is a reason to investigate cork-type taint in a wine?
+        options:
+        - A musty or damp-cardboard note with muted fruit
+        - A bright red colour by itself
+        - A visible cork fragment with no aroma change
+        - A chilled bottle by itself
+        correctIndex: 0
+        explanation: WSET describes cork taint as potentially musty or damp-cardboard-like and capable of
+          dulling fruit; TCA can originate beyond the cork.
+        sourceCitationId: src_wset_sfault_common_faults
+      ki_wset_srv_fault_oxidation:
+        prompt: A young fresh Pinot Grigio has faded fruit and bruised-apple notes. Which fault is most likely?
+        options:
+        - Oxidation
+        - Reduction
+        - Cork taint
+        - Brettanomyces
+        correctIndex: 0
+        explanation: WSET identifies loss of fruit and bruised-apple notes as signs of unwanted oxidation
+          in a young wine meant to be fresh.
+        sourceCitationId: src_wset_sfault_common_faults
+      ki_wset_srv_fault_recheck:
+        prompt: A guest detects a faint musty note that a server cannot smell. What is an appropriate response?
+        options:
+        - Dismiss it because the server detects no fault
+        - Swirl, smell, and take the concern seriously
+        - Check only whether the cork has visible crumbs
+        - Judge the bottle solely by its colour and price
+        correctIndex: 1
+        explanation: WSET says people differ in sensitivity to faint off aromas and recommends swirling, smelling
+          and, if needed, tasting the wine.
+        sourceCitationId: src_wset_sfault_common_faults
+      ki_wset_srv_fault_va:
+        prompt: Which aroma pair can suggest excessive volatile acidity rather than a normal low level?
+        options:
+        - Fresh apple and pear
+        - Vanilla and toast
+        - Vinegar or nail-polish remover
+        - Rose and violet
+        correctIndex: 2
+        explanation: WSET notes that volatile acidity can be undetectable at low concentration, but high levels
+          may smell of vinegar or nail polish.
+        sourceCitationId: src_wset_sfault_common_faults
+      ki_wset_srv_food_fat_complete:
+        prompt: A rich, fatty dish also has a sharp sauce. What should guide a wine recommendation?
+        options:
+        - Only the fat content
+        - Only the dish's colour
+        - Only the grape name on the menu
+        - The fat and the sauce or seasoning together
+        correctIndex: 3
+        explanation: WSET advises considering the dish's base components, including acidic dressings and other
+          accompaniments, rather than selecting a wine from one ingredient alone.
+        sourceCitationId: src_wset_srv_food
+      ki_wset_srv_food_fat_fresh:
+        prompt: How can fat in a dish change the way a tannic wine feels?
+        options:
+        - It can make the wine seem smoother
+        - It chemically removes all tannin
+        - It always turns the wine sweet
+        - It creates bubbles in a still wine
+        correctIndex: 0
+        explanation: WSET's fatty-cheese and steak examples describe food fat softening the perception of
+          an astringent, tannic wine.
+        sourceCitationId: src_wset_srv_food
+      ki_wset_srv_food_salt_soft:
+        prompt: After a salty bite, what can happen to a wine's perceived acidity or bitterness?
+        options:
+        - They must increase in every wine
+        - They can seem softer
+        - The wine's actual alcohol disappears
+        - The wine becomes sparkling
+        correctIndex: 1
+        explanation: WSET notes that salt can soften perceived acidity and bitterness; individual response
+          can vary.
+        sourceCitationId: src_wset_srv_sweet
+      ki_wset_srv_pairing_perception:
+        prompt: Why taste the same wine before and after a bite of food when judging a pairing?
+        options:
+        - The food must change the wine's measured composition
+        - The bottle label becomes more accurate after eating
+        - Food can change how the unchanged wine is perceived
+        - The wine's grape variety changes between sips
+        correctIndex: 2
+        explanation: WSET explains that food can make the same wine taste different through perception, without
+          changing the liquid itself.
+        sourceCitationId: src_wset_srv_food
+      ki_wset_srv_pairing_person:
+        prompt: A conventional pairing is a style the diner dislikes. What is a better next step?
+        options:
+        - Offer the conventional match once more
+        - Ask which wine styles the diner enjoys
+        - Choose the most expensive listed bottle
+        - Choose the house wine without asking
+        correctIndex: 1
+        explanation: WSET recommends starting with a wine the person enjoys because personal preference can
+          outweigh a textbook match.
+        sourceCitationId: src_wset_srv_food
+      ki_wset_srv_preserve_check:
+        prompt: What can a preservation step reasonably do after a wine is opened?
+        options:
+        - Delay deterioration without guaranteeing indefinite freshness
+        - Restore aromas already lost without guaranteeing indefinite freshness
+        - Prevent further deterioration and guarantee unchanged flavour
+        - Recover the wine's original character after oxygen exposure
+        correctIndex: 0
+        explanation: Opening starts loss of aroma and flavour. Preservation can delay deterioration, but it
+          cannot guarantee indefinite freshness.
+        sourceCitationId: src_wset_srv_preserve
+      ki_wset_taste_aroma_not_ingredient:
+        prompt: A wine smells of peach. What does the descriptor tell you?
+        options:
+        - It resembles peach; peach need not be present
+        - It confirms peach was added during fermentation
+        - It confirms residual sugar from peach fruit
+        - It identifies peach juice as the grape variety
+        correctIndex: 0
+        explanation: WSET explains that a familiar aroma can reflect shared aroma compounds rather than the
+          literal presence of that fruit.
+        sourceCitationId: src_wset_taste_aroma_chemistry

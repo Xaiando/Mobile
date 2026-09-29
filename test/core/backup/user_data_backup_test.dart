@@ -26,6 +26,7 @@ void main() {
   late AppDatabase db;
   late TestClock time;
   late UserDataBackup backup;
+  late int stagedCleanupCalls;
 
   Future<AppDatabase> freshDatabase() async {
     final fresh = openTestDatabase();
@@ -43,7 +44,14 @@ void main() {
   setUp(() async {
     time = TestClock(DateTime.utc(2026, 10, 1, 9));
     db = await freshDatabase();
-    backup = UserDataBackup(db, clock: time.clock);
+    stagedCleanupCalls = 0;
+    backup = UserDataBackup(
+      db,
+      clock: time.clock,
+      clearRecoveredScans: () async {
+        stagedCleanupCalls++;
+      },
+    );
   });
   tearDown(() => db.close());
 
@@ -156,6 +164,32 @@ void main() {
     }
   });
 
+  test('picked and saved file guards share the JSON byte ceiling', () {
+    const limit = UserDataBackup.maxBackupFileBytes;
+    UserDataBackup.checkPickedFileSize(limit);
+    UserDataBackup.checkSavedFileSize(limit);
+    expect(
+      () => UserDataBackup.checkPickedFileSize(limit + 1),
+      throwsA(
+        isA<BackupException>().having(
+          (error) => error.message,
+          'message',
+          contains('Nothing was imported'),
+        ),
+      ),
+    );
+    expect(
+      () => UserDataBackup.checkSavedFileSize(limit + 1),
+      throwsA(
+        isA<BackupException>().having(
+          (error) => error.message,
+          'message',
+          contains('will not leave data out'),
+        ),
+      ),
+    );
+  });
+
   test('export then import round-trips every user table (R1)', () async {
     await study(db);
     final before = await contents(db);
@@ -255,6 +289,149 @@ void main() {
         before,
         reason: 'export must not alter photos',
       );
+    },
+  );
+
+  test('row capacity is symmetric and rejects before replacing data', () async {
+    await study(db);
+    final before = await contents(db);
+    final rowCount = before.values.fold<int>(
+      0,
+      (sum, rows) => sum + rows.length,
+    );
+    final json = await backup.exportJson();
+    final document = jsonDecode(json) as Map<String, Object?>;
+    final tables = document['tables']! as Map<String, Object?>;
+    final wines = tables['wine_journal_entries']! as List<Object?>;
+    (wines.single! as Map<String, Object?>)['producer_name'] = 'Wrong wine';
+    final changed = jsonEncode(document);
+    final tooFew = UserDataBackup(db, clock: time.clock, maxRows: rowCount - 1);
+    await expectLater(
+      tooFew.export(),
+      throwsA(
+        isA<BackupException>().having(
+          (error) => error.message,
+          'message',
+          contains('${rowCount - 1}'),
+        ),
+      ),
+    );
+    await expectLater(
+      tooFew.import(changed),
+      throwsA(
+        isA<BackupException>().having(
+          (error) => error.message,
+          'message',
+          contains('Nothing was imported'),
+        ),
+      ),
+    );
+    expect(await contents(db), before);
+
+    final atBoundary = UserDataBackup(db, clock: time.clock, maxRows: rowCount);
+    expect((await atBoundary.export())['format'], UserDataBackup.format);
+    final summary = await atBoundary.import(json);
+    expect(summary.wines, 1);
+    expect(await contents(db), before);
+  });
+
+  test('aggregate photo capacity is symmetric and preserves rows', () async {
+    await study(db);
+    final wine = (await db.select(db.wineJournalEntries).getSingle()).id;
+    await JournalPhotoStore(db, clock: time.clock, random: Random(3)).put(
+      entryId: wine,
+      kind: PhotoKind.glass,
+      bytes: Uint8List.fromList(
+        image.encodePng(image.Image(width: 2, height: 2)),
+      ),
+    );
+    final before = await contents(db);
+    final photoBytes =
+        (await db
+                .customSelect(
+                  'SELECT SUM(length(photo_bytes)) AS total_bytes '
+                  'FROM wine_journal_photos',
+                )
+                .getSingle())
+            .read<int>('total_bytes');
+    final json = await backup.exportJson();
+    final document = jsonDecode(json) as Map<String, Object?>;
+    final tables = document['tables']! as Map<String, Object?>;
+    final wines = tables['wine_journal_entries']! as List<Object?>;
+    (wines.single! as Map<String, Object?>)['producer_name'] = 'Wrong wine';
+
+    final tooFew = UserDataBackup(
+      db,
+      clock: time.clock,
+      maxPhotoBytes: photoBytes - 1,
+    );
+    final photoLimit = isA<BackupException>().having(
+      (error) => error.message,
+      'message',
+      contains('${photoBytes - 1} bytes'),
+    );
+    await expectLater(tooFew.export(), throwsA(photoLimit));
+    await expectLater(tooFew.import(jsonEncode(document)), throwsA(photoLimit));
+    expect(await contents(db), before);
+
+    final atBoundary = UserDataBackup(
+      db,
+      clock: time.clock,
+      maxPhotoBytes: photoBytes,
+    );
+    expect((await atBoundary.export())['format'], UserDataBackup.format);
+    final summary = await atBoundary.import(json);
+    expect(summary.photos, 2);
+    expect(await contents(db), before);
+  });
+
+  test(
+    'JSON byte capacity is symmetric and keeps an existing database',
+    () async {
+      await study(db);
+      await db.customStatement(
+        "UPDATE wine_journal_entries SET producer_name = 'Cuvée été'",
+      );
+      final before = await contents(db);
+      final json = await backup.exportJson();
+      final fileBytes = utf8.encode(json).length;
+      expect(fileBytes, greaterThan(json.length));
+
+      final tooFew = UserDataBackup(
+        db,
+        clock: time.clock,
+        maxFileBytes: fileBytes - 1,
+      );
+      await expectLater(
+        tooFew.exportJson(),
+        throwsA(
+          isA<BackupException>().having(
+            (error) => error.message,
+            'message',
+            contains('will not leave data out'),
+          ),
+        ),
+      );
+      await expectLater(
+        tooFew.import(json),
+        throwsA(
+          isA<BackupException>().having(
+            (error) => error.message,
+            'message',
+            contains('Nothing was imported'),
+          ),
+        ),
+      );
+      expect(await contents(db), before);
+
+      final atBoundary = UserDataBackup(
+        db,
+        clock: time.clock,
+        maxFileBytes: fileBytes,
+      );
+      expect(await atBoundary.exportJson(), json);
+      await atBoundary.import(json);
+      expect(await contents(db), before);
     },
   );
 
@@ -454,6 +631,7 @@ void main() {
     final seen = expectLater(states, emitsInOrder([2, 0]));
 
     await backup.resetProgress();
+    expect(stagedCleanupCalls, 0);
     await seen;
     final after = await contents(db);
     for (final table in UserDataBackup.tables) {
@@ -481,7 +659,30 @@ void main() {
 
   test('erasing everything leaves a fresh install', () async {
     await study(db);
+    backup = UserDataBackup(
+      db,
+      clock: time.clock,
+      clearRecoveredScans: () async {
+        // Pending photo cleanup must follow the completed database rewrite.
+        final saved = await contents(db);
+        for (final table in UserDataBackup.tables) {
+          expect(
+            saved[table],
+            table == 'scheduler_configs' || table == 'user_settings'
+                ? hasLength(1)
+                : isEmpty,
+            reason: table,
+          );
+        }
+        expect(
+          saved['user_settings']!.single['name'],
+          UserDataBackup.recoveredScanErasePendingSetting,
+        );
+        stagedCleanupCalls++;
+      },
+    );
     await backup.eraseAll();
+    expect(stagedCleanupCalls, 1);
     final after = await contents(db);
     for (final table in UserDataBackup.tables) {
       expect(
@@ -491,5 +692,95 @@ void main() {
       );
     }
     expect((await LearnerSettings(db).current()).isOnboarded, isFalse);
+  });
+
+  test(
+    'interrupted scan erase persists intent and finishes after restart',
+    () async {
+      await study(db);
+      final preEraseBackup = await backup.exportJson();
+      var discardCalls = 0;
+      backup = UserDataBackup(
+        db,
+        clock: time.clock,
+        discardLostPickerData: () async => discardCalls++,
+        clearRecoveredScans: () async => throw StateError('disk unavailable'),
+      );
+      await expectLater(backup.eraseAll(), throwsA(isA<BackupException>()));
+      expect(discardCalls, 1);
+      expect((await LearnerSettings(db).current()).isOnboarded, isFalse);
+      final exported = await backup.export();
+      expect(
+        (exported['tables']! as Map<String, Object?>)['user_settings'],
+        isEmpty,
+      );
+      await expectLater(
+        backup.import(preEraseBackup),
+        throwsA(isA<BackupException>()),
+      );
+      expect((await LearnerSettings(db).current()).isOnboarded, isFalse);
+      expect(
+        await (db.select(db.userSettings)..where(
+              (row) => row.name.equals(
+                UserDataBackup.recoveredScanErasePendingSetting,
+              ),
+            ))
+            .getSingleOrNull(),
+        isNotNull,
+      );
+
+      final restarted = UserDataBackup(
+        db,
+        clock: time.clock,
+        discardLostPickerData: () async => discardCalls++,
+        clearRecoveredScans: () async {
+          // Deleting files is attempted while the durable erase marker exists.
+          expect(
+            await (db.select(db.userSettings)..where(
+                  (row) => row.name.equals(
+                    UserDataBackup.recoveredScanErasePendingSetting,
+                  ),
+                ))
+                .getSingleOrNull(),
+            isNotNull,
+          );
+          stagedCleanupCalls++;
+        },
+      );
+      await restarted.resumePendingRecoveredScanErase();
+      await restarted.resumePendingRecoveredScanErase();
+      expect(discardCalls, 3);
+      expect(stagedCleanupCalls, 1);
+      expect(
+        await (db.select(db.userSettings)..where(
+              (row) => row.name.equals(
+                UserDataBackup.recoveredScanErasePendingSetting,
+              ),
+            ))
+            .getSingleOrNull(),
+        isNull,
+      );
+    },
+  );
+
+  test('failed picker discard leaves erase marker for retry', () async {
+    await study(db);
+    backup = UserDataBackup(
+      db,
+      clock: time.clock,
+      discardLostPickerData: () async => throw StateError('picker unavailable'),
+      clearRecoveredScans: () async => stagedCleanupCalls++,
+    );
+    await expectLater(backup.eraseAll(), throwsA(isA<BackupException>()));
+    expect(stagedCleanupCalls, 0);
+    expect(
+      await (db.select(db.userSettings)..where(
+            (row) => row.name.equals(
+              UserDataBackup.recoveredScanErasePendingSetting,
+            ),
+          ))
+          .getSingleOrNull(),
+      isNotNull,
+    );
   });
 }

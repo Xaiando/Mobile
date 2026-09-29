@@ -27,6 +27,32 @@ class _QueuedPicker extends ImagePicker {
   }) async => _files.removeAt(0);
 }
 
+class _RecordingPicker extends ImagePicker {
+  final calls =
+      <({ImageSource source, double? width, double? height, int? quality})>[];
+
+  @override
+  bool supportsImageSource(ImageSource source) => true;
+
+  @override
+  Future<XFile?> pickImage({
+    required ImageSource source,
+    double? maxWidth,
+    double? maxHeight,
+    int? imageQuality,
+    CameraDevice preferredCameraDevice = CameraDevice.rear,
+    bool requestFullMetadata = true,
+  }) async {
+    calls.add((
+      source: source,
+      width: maxWidth,
+      height: maxHeight,
+      quality: imageQuality,
+    ));
+    return null;
+  }
+}
+
 XFile _label(String name) => XFile.fromData(
   Uint8List.fromList(image.encodePng(image.Image(width: 2, height: 2))),
   path: name,
@@ -99,6 +125,33 @@ void _scanTestWidgets(String description, WidgetTesterCallback body) {
 }
 
 void main() {
+  testWidgets('Android camera and gallery avoid native image resizing', (
+    tester,
+  ) async {
+    final previousPlatform = debugDefaultTargetPlatformOverride;
+    debugDefaultTargetPlatformOverride = TargetPlatform.android;
+    try {
+      final picker = _RecordingPicker();
+      await _showScan(
+        tester,
+        picker: picker,
+        recognizeText: (_) async => '',
+        onPicked: (_, _) {},
+      );
+
+      await tester.tap(find.text('Scan label'));
+      await _waitForScan(tester);
+      await _chooseLabel(tester);
+
+      expect(picker.calls, [
+        (source: ImageSource.camera, width: null, height: null, quality: 100),
+        (source: ImageSource.gallery, width: null, height: null, quality: 100),
+      ]);
+    } finally {
+      debugDefaultTargetPlatformOverride = previousPlatform;
+    }
+  });
+
   _scanTestWidgets(
     'a replacement label clears old OCR clues when its OCR fails',
     (tester) async {

@@ -6,7 +6,8 @@ import '../database/app_database.dart';
 import 'exercise.dart';
 import 'question_generator.dart';
 
-/// One answer option: a node, shown by its name.
+/// One answer option. Graph MCQs use a real node ID; authored choices use
+/// transient option keys and persist their literal text only in JSON payloads.
 class QuestionOption {
   const QuestionOption(this.nodeId, this.name);
 
@@ -45,13 +46,14 @@ class PresentedQuestion implements Exercise {
   /// `forward` or `reverse`.
   final String direction;
 
-  /// `mcq` or `flashcard`.
+  /// `mcq`, `authored_choice`, or `flashcard`.
   final String mode;
   @override
   final String prompt;
   final QuestionOption answer;
 
-  /// Four options in display order for an MCQ; empty for a flashcard.
+  /// Four options in display order for an MCQ or authored choice; empty for
+  /// a flashcard.
   final List<QuestionOption> options;
 
   /// The item's assertion, shown after answering.
@@ -71,7 +73,7 @@ class PresentedQuestion implements Exercise {
   @override
   List<String> get itemIds => [knowledgeItemId];
 
-  bool get isMultipleChoice => mode == 'mcq';
+  bool get isMultipleChoice => mode == 'mcq' || mode == 'authored_choice';
 
   /// The answer's position in [options], or -1 for a flashcard.
   int get correctIndex => options.indexOf(answer);

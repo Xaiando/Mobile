@@ -1,0 +1,397 @@
+# Cited Level 3 New World regional application choices.
+question_templates:
+- id: qt_wset_l3_new_world_expansion_35
+  relation_type: PRINCIPLE_EXPLANATION
+  direction: forward
+  mode: authored_choice
+  variant: l3_new_world_application_35
+  prompt_template: '{subject.name}'
+  parameters:
+    item_choices:
+      ki_reg_sh_barossa_floor:
+        prompt: A Shiraz buyer compares Barossa Valley sites. Which contrast matches Wine Australia?
+        options:
+        - Warmer valley floor; cooler surrounding hills
+        - Cooler valley floor; warmer surrounding hills
+        - Warmer valley floor; equally warm surrounding hills
+        - Cooler valley floor; equally cool surrounding hills
+        correctIndex: 0
+        explanation: Wine Australia describes warmer valley-floor conditions for ripe, full-bodied Shiraz
+          and cooler sites in surrounding hills.
+        sourceCitationId: src_reg_sh_barossa
+      ki_reg_sh_eden_sites:
+        prompt: Compared with Barossa Valley, which Eden Valley site assessment is supported?
+        options:
+        - Warmer overall; altitude and aspect still vary by site
+        - Cooler overall; altitude and aspect still vary by site
+        - Cooler overall; altitude and aspect are uniform by site
+        - Warmer overall; altitude and aspect are uniform by site
+        correctIndex: 1
+        explanation: Wine Australia presents Eden Valley as generally cooler than Barossa Valley and notes
+          site variation from altitude, aspect and slope.
+        sourceCitationId: src_reg_sh_eden
+      ki_reg_sh_clare_cooling:
+        prompt: Which Clare Valley combination helps explain retained acidity despite warm summer days?
+        options:
+        - Warm nights and warming breezes
+        - Warm nights and cooling breezes
+        - Cool nights and cooling breezes
+        - Cool nights and warming breezes
+        correctIndex: 2
+        explanation: Wine Australia's Clare Valley profile pairs warm summer days with cooling breezes and
+          marked day-night temperature variation.
+        sourceCitationId: src_reg_sh_clare
+      ki_reg_sh_eden_riesling:
+        prompt: Which Eden Valley Riesling development does Wine Australia describe?
+        options:
+        - Young toast; later lime and marmalade
+        - Young lime; later toast and green apple
+        - Young marmalade; later lime and toast
+        - Young lime; later toast and marmalade
+        correctIndex: 3
+        explanation: The Eden Valley profile describes lime-led young Riesling and toasty, marmalade-like
+          notes with age.
+        sourceCitationId: src_reg_sh_eden
+      ki_reg_sh_yarra_mesoclimate:
+        prompt: A Yarra Valley Pinot Noir producer compares two vineyards. Which mesoclimate claim fits?
+        options:
+        - Altitude and aspect both modify vineyard mesoclimate
+        - Altitude modifies mesoclimate; aspect has little effect
+        - Aspect modifies mesoclimate; altitude has little effect
+        - Altitude and aspect have little mesoclimate effect
+        correctIndex: 0
+        explanation: Wine Australia describes Yarra Valley mesoclimate variation with altitude and aspect;
+          the valley is not thermally uniform.
+        sourceCitationId: src_reg_sh_yarra
+      ki_reg_sh_mornington_maritime:
+        prompt: Which Mornington Peninsula brief best fits the regional profile?
+        options:
+        - Continental and uniform, with Pinot Noir and Chardonnay
+        - Maritime and varied, with Pinot Noir and Chardonnay
+        - Continental but varied, with Pinot Noir and Chardonnay
+        - Maritime and even, with Pinot Noir and Chardonnay
+        correctIndex: 1
+        explanation: Wine Australia identifies strong maritime influence and site variation on Mornington
+          Peninsula, where Pinot Noir and Chardonnay are established.
+        sourceCitationId: src_reg_sh_mornington
+      ki_reg_sh_tasmania_chardonnay:
+        prompt: Which Tasmania grape-style pairing is most consistent with Wine Australia's profile?
+        options:
+        - Low-acid Chardonnay; powerful Pinot Noir
+        - Low-acid Chardonnay; delicate Pinot Noir
+        - High-acid Chardonnay; delicate Pinot Noir
+        - High-acid Chardonnay; powerful Pinot Noir
+        correctIndex: 2
+        explanation: The Tasmania profile connects cool conditions with naturally acidic Chardonnay and relatively
+          delicate Pinot Noir examples.
+        sourceCitationId: src_reg_sh_tasmania
+      ki_reg_oa_hunter_early:
+        prompt: A grower wants classic delicate Hunter Semillon. Which harvest observation is relevant?
+        options:
+        - Late picking can give ripe flavour at low sugar
+        - Late picking can give unripe flavour at high sugar
+        - Early picking can give unripe flavour at high sugar
+        - Early picking can give ripe flavour at low sugar
+        correctIndex: 3
+        explanation: Wine Australia describes Hunter Semillon picked early with ripe flavour at relatively
+          low sugar, supporting a delicate dry style.
+        sourceCitationId: src_reg_oa_hunter
+      ki_reg_oa_hunter_bottle:
+        prompt: A mature Hunter Semillon has toast notes. Which production history remains consistent with
+          Thomas Wines?
+        options:
+        - Steel-fermented; without oak; toast after bottle age
+        - Steel-fermented; with new oak; toast after bottle age
+        - Barrel-fermented; with oak; toast after bottle age
+        - Steel-fermented; without oak; toast before bottle age
+        correctIndex: 0
+        explanation: Thomas Wines describes a classic unoaked stainless-steel Hunter Semillon that develops
+          toast and honey with bottle age.
+        sourceCitationId: src_reg_oa_hunter_producer
+      ki_reg_oa_mclaren_varietal_blend:
+        prompt: A buyer compares McLaren Vale Grenache routes. Which pair does Wine Australia document?
+        options:
+        - Varietal Grenache and Bordeaux-style blends
+        - Varietal Grenache wines and GSM blends
+        - Fortified Grenache and Bordeaux-style blends
+        - Fortified Grenache and GSM blends
+        correctIndex: 1
+        explanation: Wine Australia documents both single-varietal Grenache and Grenache-Shiraz-Mourvedre
+          blends in McLaren Vale.
+        sourceCitationId: src_reg_oa_mclaren
+      ki_reg_oa_adelaide_warm_slopes:
+        prompt: Which Adelaide Hills exposure does Wine Australia note can be warm enough for Cabernet Sauvignon?
+        options:
+        - Southern east-facing slopes
+        - Southern west-facing slopes
+        - Northern west-facing slopes
+        - Northern east-facing slopes
+        correctIndex: 2
+        explanation: The Adelaide Hills profile notes some northern west-facing slopes warm enough for Cabernet
+          Sauvignon within a generally cool, hilly region.
+        sourceCitationId: src_reg_oa_adelaide
+      ki_wset_nw_murray_darling_irrigation:
+        prompt: Which rainfall and irrigation combination fits Murray-Darling?
+        options:
+        - High rainfall; irrigation is optional
+        - High rainfall; irrigation is essential
+        - Low rainfall; irrigation is optional
+        - Low rainfall; irrigation is essential
+        correctIndex: 3
+        explanation: Wine Australia's Murray-Darling profile describes hot conditions, little growing-season
+          rain and essential vineyard irrigation.
+        sourceCitationId: src_wset_nw_murray_darling
+      ki_wset_nw_riverina_sweet_exception:
+        prompt: Under favourable late-season conditions, which Riverina route can produce sweet wine?
+        options:
+        - Selected Semillon affected by noble rot
+        - Selected Semillon protected from noble rot
+        - Selected Shiraz affected by noble rot
+        - Selected Shiraz protected from noble rot
+        correctIndex: 0
+        explanation: Wine Australia describes selected Riverina Semillon left for favourable later humidity
+          and noble rot, which concentrates juice for dessert wine.
+        sourceCitationId: src_wset_nw_riverina
+      ki_wset_nw_great_southern_sites:
+        prompt: Which coastal-to-inland Great Southern contrast matches Wine Australia?
+        options:
+        - Mount Barker/Frankland coastal; Denmark inland
+        - Denmark/Albany coastal; Mount Barker inland
+        - Denmark/Mount Barker coastal; Albany inland
+        - Albany/Frankland coastal; Porongurup inland
+        correctIndex: 1
+        explanation: Wine Australia contrasts coastal Denmark and Albany with more inland Great Southern settings
+          including Mount Barker, Porongurup and Frankland River.
+        sourceCitationId: src_wset_nw_great_southern
+      ki_wset_nw_heathcote_shiraz:
+        prompt: Which regional combination helps explain Heathcote Shiraz in Wine Australia's account?
+        options:
+        - Cool setting; no local airflow; delicate fruit
+        - Warm setting; no local airflow; dark fruit
+        - Warm setting; cooling airflow; ripe dark fruit
+        - Cool setting; cooling airflow; delicate fruit
+        correctIndex: 2
+        explanation: Wine Australia describes a warm Heathcote setting moderated by southeasterly airflow
+          and Shiraz with rich dark fruit and ripe tannin.
+        sourceCitationId: src_wset_nw_heathcote
+      ki_reg_sh_stellenbosch_heat:
+        prompt: Which Stellenbosch Cabernet setting fits the cited regional account?
+        options:
+        - Warm sunshine with no marine moderation
+        - Cool sunshine with no marine moderation
+        - Cool sunshine with sea-breeze moderation
+        - Warm sunshine with sea-breeze moderation
+        correctIndex: 3
+        explanation: The Stellenbosch Cabernet account pairs warmth and sunshine for ripening with sea breezes
+          that moderate heat at exposed sites.
+        sourceCitationId: src_reg_sh_stellenbosch
+      ki_reg_sh_stellenbosch_aspect:
+        prompt: Why can two Stellenbosch Cabernet sites ripen differently within the same region?
+        options:
+        - Aspect/slope affect sun and breezes; slope/soil affect drainage
+        - Aspect/slope leave sun fixed; slope/soil affect drainage
+        - Aspect/slope affect sun and breezes; slope/soil leave drainage unchanged
+        - Aspect/slope leave sun and breezes unchanged; slope/soil leave drainage unchanged
+        correctIndex: 0
+        explanation: The brochure links aspect and slope to sun and sea-breeze exposure, and slope and soil
+          to drainage and nutrition.
+        sourceCitationId: src_reg_sh_stellenbosch
+      ki_reg_sh_swartland_variation:
+        prompt: Which Swartland climate comparison is supported by the regional producer account?
+        options:
+        - Malmesbury is cool; no sites gain Atlantic or altitude cooling
+        - Malmesbury is hot; some sites gain Atlantic or altitude cooling
+        - Malmesbury is cool; some sites gain Atlantic or altitude cooling
+        - Malmesbury is hot; no sites gain Atlantic or altitude cooling
+        correctIndex: 1
+        explanation: The Swartland account describes hot, dry Malmesbury settings and sites moderated by Atlantic
+          breezes or elevation.
+        sourceCitationId: src_reg_sh_swartland
+      ki_reg_sh_swartland_shade:
+        prompt: What fruit-protection mechanism does the cited Swartland bush-vine account describe?
+        options:
+        - Leaf removal exposes fruit to summer sun
+        - Leaf removal shades fruit from summer sun
+        - A leafy bush-vine canopy shades fruit from summer sun
+        - A leafy bush-vine canopy exposes grapes to summer sun
+        correctIndex: 2
+        explanation: Wines of South Africa's Swartland account describes a bush-vine canopy shading grapes
+          from intense summer sun.
+        sourceCitationId: src_reg_sh_bush_shade
+      ki_reg_sh_elgin_ripening:
+        prompt: Which Elgin environment and ripening effect does the regional body describe?
+        options:
+        - Elevated, coastal cooling; faster ripening and lower acid
+        - Low, inland warming; longer ripening and higher acid
+        - Low, inland warming; faster ripening and lower acid
+        - Elevated coastal cooling; longer ripening, higher acid
+        correctIndex: 3
+        explanation: Wines of Elgin links elevated terrain and coastal cooling with extended ripening and
+          acidity retention.
+        sourceCitationId: src_reg_sh_elgin
+      ki_reg_sh_hemel_maritime:
+        prompt: Which Walker Bay description fits Hemel-en-Aarde's own regional guide?
+        options:
+        - Ocean winds; Pinot Noir and Chardonnay focus
+        - Interior heat; Pinot Noir and Chardonnay focus
+        - Ocean winds; Cabernet and Chenin Blanc focus
+        - Interior heat; Cabernet and Chenin Blanc focus
+        correctIndex: 0
+        explanation: The Hemel-en-Aarde guide describes ocean and summer-wind moderation, with Pinot Noir
+          and Chardonnay a local focus.
+        sourceCitationId: src_reg_sh_hemel
+      ki_reg_sh_chenin_fresh:
+        prompt: Which pair of South African Chenin Blanc style examples appears in the association's range?
+        options:
+        - Fresh grapefruit and herbs; rich peach and apricot
+        - Fresh apple and lime; rich baked pineapple and marmalade
+        - Fresh grapefruit and herbs; rich baked pineapple and marmalade
+        - Fresh apple and lime; rich peach and apricot
+        correctIndex: 1
+        explanation: The Chenin Blanc Association contrasts a fresh style with green apple and lime against
+          a rich style with baked pineapple and marmalade.
+        sourceCitationId: src_reg_sh_chenin
+      ki_reg_sh_chenin_oak:
+        prompt: Which cellar route does the Chenin Blanc Association link with fuller, richer styles?
+        options:
+        - Barrel fermentation; a richer expression
+        - Barrel fermentation; a lean expression
+        - Cool tank fermentation; a richer expression
+        - Cool tank fermentation; a lighter expression
+        correctIndex: 0
+        explanation: The Chenin Blanc Association identifies barrel fermentation among routes to richer, more
+          complex Chenin; the source does not make oak a quality certificate.
+        sourceCitationId: src_reg_sh_chenin
+      ki_reg_oa_constantia_aspects:
+        prompt: In Klein Constantia's farming account, which Sauvignon site generally ripens earlier?
+        options:
+        - South-facing slopes before east-facing slopes
+        - West-facing slopes before south-facing slopes
+        - North-facing slopes before west-facing slopes
+        - East-facing slopes before south-facing slopes
+        correctIndex: 3
+        explanation: Klein Constantia reports earlier-ripening east-facing Sauvignon sites and later south-facing
+          sites, with shadow extending ripening in some blocks.
+        sourceCitationId: src_reg_oa_constantia
+      ki_reg_oa_paarl_water_sites:
+        prompt: Which Paarl irrigation contrast does Wines of South Africa describe?
+        options:
+        - 'Valley: extra irrigation; some slopes: no irrigation'
+        - 'Valley: no irrigation; some slopes: extra irrigation'
+        - 'Valley: extra irrigation; some slopes: extra irrigation'
+        - 'Valley: no irrigation; some slopes: no irrigation'
+        correctIndex: 0
+        explanation: WOSA contrasts supplementary irrigation on hot Paarl valley land with some better water-retaining
+          eastern slope sites that may need none.
+        sourceCitationId: src_diploma_za_olifants
+      ki_reg_oa_robertson_water:
+        prompt: Which Robertson climate and water pattern matches Wines of South Africa?
+        options:
+        - Lower rain; cooling wind; rainfall dominates
+        - Lower rain; cooling wind; Breede River water matters
+        - Higher rain; cooling wind; Breede River water matters
+        - Higher rain; cooling wind; rainfall supplies most water
+        correctIndex: 1
+        explanation: WOSA describes Robertson's warm, lower-rainfall setting with cooling south-easterly winds
+          and a Breede River water context.
+        sourceCitationId: src_diploma_za_olifants
+      ki_wset_nw_south_africa_wo_levels:
+        prompt: In South Africa's Wine of Origin scheme, which ordering runs from broader to smaller named
+          origin-area classes?
+        options:
+        - Region > geographical unit > district > ward
+        - Geographical unit > district > region > ward
+        - Geographical unit > region > district > ward
+        - Geographical unit > region > ward > district
+        correctIndex: 2
+        explanation: Wines of South Africa lists geographical units, regions, districts and wards by scale;
+          this does not mean every ward must sit within a district.
+        sourceCitationId: src_wset_nw_za_wo
+      ki_reg_am_mendoza_temperature:
+        prompt: For Catena's Adrianna vineyard, what does elevation support compared with warmer lower sites?
+        options:
+        - Higher temperature, without an automatic quality ranking
+        - Higher temperature, with an automatic quality ranking
+        - Moderated temperature, with an automatic quality ranking
+        - Moderated temperature; quality still needs assessment
+        correctIndex: 3
+        explanation: Catena Institute describes temperature moderation at Adrianna's high Gualtallary site;
+          the linked assertion does not rank quality from altitude alone.
+        sourceCitationId: src_reg_am_adrianna
+      ki_reg_am_andes_irrigation:
+        prompt: Which climate and water-source pair matches many Argentine mountain wine valleys?
+        options:
+        - Arid valleys; Andean meltwater irrigation
+        - Arid valleys; summer rainfall is sufficient
+        - Humid valleys; Andean meltwater irrigation
+        - Humid valleys; summer rain is sufficient
+        correctIndex: 0
+        explanation: Wines of Argentina identifies Andean meltwater as a principal irrigation source in arid
+          mountain wine valleys.
+        sourceCitationId: src_reg_am_argentina_water
+      ki_reg_am_argentina_methods:
+        prompt: Which irrigation-method statement matches Wines of Argentina's overview?
+        options:
+        - 'Flood and spray: both named in overview'
+        - 'Flood and drip: both named in overview'
+        - 'Drip and spray: both named in overview'
+        - 'Flood and drip: neither named in overview'
+        correctIndex: 1
+        explanation: The Wines of Argentina overview documents flood and drip irrigation without establishing
+          one optimum for every vineyard.
+        sourceCitationId: src_reg_am_argentina_water
+      ki_reg_am_patagonia_latitude:
+        prompt: Which two broad temperature factors does Patagonia Argentina describe?
+        options:
+        - Warmer southward; elevation has no effect
+        - Warmer southward; elevation also matters
+        - Cooler southward; elevation also matters
+        - Cooler southward; elevation has no effect
+        correctIndex: 2
+        explanation: The Patagonia regional climate account describes a cooler southward trend while elevation
+          also changes local temperature.
+        sourceCitationId: src_reg_am_patagonia
+      ki_reg_am_patagonia_evaporation:
+        prompt: Which paired conditions call for a water-supply check at a cool eastern Patagonia site?
+        options:
+        - Humid sites and strong regional winds
+        - Arid sites and calm regional weather
+        - Humid sites and calm regional weather
+        - Arid sites and strong regional winds
+        correctIndex: 3
+        explanation: The cited climate research describes arid, windy eastern Patagonia with strong evaporative
+          conditions; cool air alone does not remove water demand.
+        sourceCitationId: src_reg_am_patagonia_wind
+      ki_reg_sa_torrontes_riojano:
+        prompt: Which Salta grape-place association does Wines of Argentina explicitly name?
+        options:
+        - Torrontes Riojano in the Calchaqui valleys
+        - Torrontes Riojano in the Pedernal valley
+        - Torrontes Sanjuanino in the Calchaqui valleys
+        - Torrontes Sanjuanino in the Pedernal valley
+        correctIndex: 0
+        explanation: Wines of Argentina associates Torrontes Riojano with the Calchaqui valleys in the northwest;
+          aroma alone does not certify origin.
+        sourceCitationId: src_reg_sa_salta
+      ki_reg_sa_sanjuan_valleys:
+        prompt: Which within-San Juan growing contrast does Wines of Argentina describe?
+        options:
+        - Tulum cool and dry; Pedernal warm and dry
+        - Tulum warm and dry; Pedernal cooler and dry
+        - Tulum warm and wet; Pedernal cooler and wet
+        - Tulum cool and wet; Pedernal warmer and wet
+        correctIndex: 1
+        explanation: Wines of Argentina calls Tulum warm and dry and Pedernal cooler and dry, so San Juan
+          has more than one ripening context.
+        sourceCitationId: src_reg_sa_sanjuan
+      ki_wset_nw_argentina_malbec_contrasts:
+        prompt: Which Salta-Patagonia Malbec contrast is presented as a tendency by Wines of Argentina?
+        options:
+        - Salta lighter and fresher; Patagonia darker and firmer
+        - Salta lighter and firmer; Patagonia darker and fresher
+        - Salta darker and firmer; Patagonia lighter and fresher
+        - Salta darker and fresher; Patagonia lighter and firmer
+        correctIndex: 2
+        explanation: Wines of Argentina describes sunny high Salta sites with structured dark-fruited Malbec
+          and cooler windy Patagonia with potentially fresher, lighter examples.
+        sourceCitationId: src_wset_nw_malbec_regions

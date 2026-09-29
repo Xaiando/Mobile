@@ -1,0 +1,286 @@
+# Cited WSET Level 2 grape, place, and style practice.
+question_templates:
+  - id: qt_wset_l2_authored_grape_place_style
+    relation_type: PRINCIPLE_EXPLANATION
+    direction: forward
+    mode: authored_choice
+    variant: l2_grape_place_style
+    prompt_template: "{subject.name}"
+    parameters:
+      item_choices:
+        ki_wset_grape_sauvignon_blanc_profile:
+          prompt: "Which profile best fits a cooler New Zealand Sauvignon Blanc site?"
+          options: ["High acidity with gooseberry or capsicum", "Low acidity with dried fig and cocoa", "Sweetness and honey from every harvest", "Firm red-wine tannin with black cherry"]
+          correctIndex: 0
+          explanation: "The New Zealand wine body contrasts cooler, high-acid, herbaceous Sauvignon Blanc with riper-fruited examples from warmer sites."
+          sourceCitationId: src_wset_grape_nzw_sauvignon
+        ki_wset_grape_sauvignon_blanc_variation:
+          prompt: "Two New Zealand Sauvignon Blanc parcels differ in ripeness. Which comparison best fits the cited profile?"
+          options:
+          - "Cooler fruit must be fuller and tropical; riper fruit must be leaner and herbal."
+          - "Cooler fruit may be more herbaceous; riper fruit may yield a fuller style, with subregional balance varying."
+          - "Fruit and herbal balance cannot vary within Marlborough."
+          - "Riper Sauvignon Blanc must be sweet while cooler fruit must be dry."
+          correctIndex: 1
+          explanation: "New Zealand Winegrowers describes cooler herbaceous and riper fuller Sauvignon Blanc expressions, with varying fruit and herbal balance among Marlborough sites."
+          sourceCitationId: src_wset_grape_nzw_sauvignon
+        ki_wset_grape_riesling_profile:
+          prompt: "Which tasting pair is a useful starting point for Australian Riesling?"
+          options: ["Soft acidity and blackcurrant", "Firm tannin and leather", "High acidity and lemon or lime", "Low acidity and coconut from obligatory oak"]
+          correctIndex: 2
+          explanation: "Wine Australia describes lemon/lime character and high natural acidity in Australian Riesling."
+          sourceCitationId: src_wset_grape_wa_riesling
+        ki_wset_grape_riesling_variation:
+          prompt: Which sweetness distribution does Wine Australia describe for Australian Riesling?
+          options:
+          - Sweet dominates; dry and off-dry occur less often
+          - Off-dry dominates; dry and sweet occur less often
+          - Dry, off-dry and sweet are produced in equal shares
+          - Dry dominates; off-dry and sweet examples also occur
+          correctIndex: 3
+          explanation: Wine Australia describes the vast majority of Australian Riesling as dry while recognising off-dry and sweeter styles.
+          sourceCitationId: src_wset_grape_wa_riesling
+        ki_wset_grape_merlot_profile:
+          prompt: "Which combination is consistent with the Bordeaux wine body's description of Merlot?"
+          options: ["Cherry or plum fruit and a supple texture", "Lime, petrol and no red fruit", "Pronounced bubbles and biscuit from bottle fermentation", "A required smoky aroma from oak in every wine"]
+          correctIndex: 0
+          explanation: "Bordeaux's Merlot profile describes cherry, plum or fig fruit, moderate acidity and supple texture; concentration can vary."
+          sourceCitationId: src_reg_fr_merlot
+        ki_wset_grape_merlot_variation:
+          prompt: "What can Cabernet Sauvignon add when blended with supple Bordeaux Merlot?"
+          options: ["Guaranteed sweetness", "Firmer structure and tannin", "Sparkling pressure", "A mandatory white-wine colour"]
+          correctIndex: 1
+          explanation: "The Bordeaux wine body describes Cabernet Sauvignon as adding structure and tannin to Merlot-led blends."
+          sourceCitationId: src_reg_fr_merlot
+        ki_wset_grape_gamay_profile:
+          prompt: "Which profile best fits a typical young red Beaujolais made from Gamay?"
+          options: ["Heavy oak, no fruit and high tannin by rule", "Sweetness and high alcohol by rule", "Fresh red fruit and relatively delicate tannin", "Lemon, honey and no red colour"]
+          correctIndex: 2
+          explanation: "The Beaujolais body describes red Gamay wines as fruity and fresh with delicate tannins, while some sites can yield more structure."
+          sourceCitationId: src_wset_found_beaujolais
+        ki_wset_grape_grenache_profile:
+          prompt: "Which feature can Grenache Noir contribute to a dry southern Rhône red?"
+          options: ["Bottle-fermented bubbles", "A guaranteed pale white colour", "Only herbal green-pepper notes", "Ripe fruit and a rounded, supple palate"]
+          correctIndex: 3
+          explanation: "Inter Rhône describes Grenache Noir as fruity and rounded; blend and ripeness alter the final wine."
+          sourceCitationId: src_wset_grape_ir_grenache
+        ki_wset_grape_grenache_variation:
+          prompt: "Which range of Rhône wine styles can use Grenache Noir?"
+          options: ["Dry reds, rosés and sweet fortified wines", "Only dry white table wines", "Only traditional-method sparkling wines", "Only sweet wines with no dry examples"]
+          correctIndex: 0
+          explanation: "Inter Rhône lists Grenache Noir in dry red and rosé wines and in sweet fortified styles; the grape alone does not decide sweetness."
+          sourceCitationId: src_wset_grape_ir_grenache
+        ki_wset_grape_tempranillo_profile:
+          prompt: "Which aroma contrast can occur between youthful and matured Rioja Tempranillo?"
+          options: ["Young wines must smell of vanilla; maturation removes fruit", "Young wines may show plum or strawberry; matured wines can add vanilla or cocoa", "Both stages must smell only of citrus", "Maturation always creates bubbles and sweetness"]
+          correctIndex: 1
+          explanation: "The Rioja regulatory body describes plum, strawberry and floral notes in young Tempranillo and vanilla, cocoa or liquorice with ageing."
+          sourceCitationId: src_wset_grape_rioja_tempranillo
+        ki_wset_grape_tempranillo_variation:
+          prompt: "How can maturation change a youthful, fruit-led Rioja Tempranillo?"
+          options:
+          - "It guarantees higher residual sugar in every wine."
+          - "It prevents wood- and bottle-derived aromas from developing."
+          - "It can add wood- and bottle-derived complexity to youthful fruit."
+          - "It makes every wine equally intense regardless of the original fruit."
+          correctIndex: 2
+          explanation: "Rioja describes youthful Tempranillo fruit and additional complexity after wood and bottle maturation; intensity remains wine-specific."
+          sourceCitationId: src_wset_grape_rioja_tempranillo
+        ki_wset_grape_nebbiolo_variation:
+          prompt: "Why are suitable, sun-exposed Piedmont sites important for Nebbiolo?"
+          options: ["The variety ripens before all other red grapes", "The grape cannot develop tannin", "Sun exposure guarantees sweetness", "Nebbiolo ripens relatively late and needs suitable conditions to mature"]
+          correctIndex: 3
+          explanation: "The Langhe wine consortium describes Nebbiolo as late ripening and sensitive to site, with favorable exposure needed for maturity."
+          sourceCitationId: src_wset_grape_langhe_nebbiolo
+        ki_wset_grape_zinfandel_profile:
+          prompt: "Which aroma pairing is documented for Sonoma County red Zinfandel?"
+          options: ["Blackberry with pepper or spice", "Lime with petrol only", "Green apple with sea salt only", "Rosewater with lychee only"]
+          correctIndex: 0
+          explanation: "The Zinfandel association describes Sonoma expressions with blackberry and pepper, anise or other spice notes."
+          sourceCitationId: src_wset_grape_zap_sonoma
+        ki_wset_grape_zinfandel_variation:
+          prompt: Which ZAP-listed Zinfandel style is a blush wine with residual sugar?
+          options:
+          - Zinfandel Rosé
+          - White Zinfandel
+          - Zinfandel Table Wine
+          - Zinfandel Port
+          correctIndex: 1
+          explanation: ZAP describes White Zinfandel as a pink wine that is not fermented dry, unlike its dry Zinfandel Rosé; it also lists red table wine and fortified Port styles.
+          sourceCitationId: src_wset_found_zap_styles
+        ki_wset_grape_malbec_profile:
+          prompt: "Which description fits the range of Argentine Malbec described by Wines of Argentina?"
+          options: ["It is invariably a white sparkling wine", "It can never show floral aromas", "Fruit character is common, while floral notes and freshness vary with site", "All regions produce exactly the same tannin and fruit profile"]
+          correctIndex: 2
+          explanation: "Wines of Argentina identifies fruit across regions, with floral and fresher profiles especially associated with cooler or higher sites."
+          sourceCitationId: src_wset_grape_woa_malbec
+        ki_wset_grape_malbec_variation:
+          prompt: "How can a cooler, elevated Argentine Malbec differ from a warmer-site example?"
+          options: ["It must be sweet and fortified", "It cannot be red", "It always has lower acidity and more jammy fruit", "It may retain more freshness and floral character"]
+          correctIndex: 3
+          explanation: "Wines of Argentina contrasts warmer-site prune or jam notes with fresher, often floral expressions from cooler high sites."
+          sourceCitationId: src_wset_grape_woa_malbec
+        ki_wset_grape_pinot_gris_profile:
+          prompt: "Which description is consistent with fuller Alsace Pinot Gris?"
+          options: ["Dried apricot, honey or smoky notes with a broad palate", "Blackcurrant and firm red tannin", "Only neutral, colourless, low-acid wine", "Obligatory bubbles from a second fermentation"]
+          correctIndex: 0
+          explanation: "The Alsace wine body describes Pinot Gris with dried fruit, apricot, honey and smoky nuances and an ample palate."
+          sourceCitationId: src_wset_grape_civa_pinot_gris
+        ki_wset_grape_pinot_gris_variation:
+          prompt: Which still-and-sparkling colour range appears in Delle Venezie's Pinot Grigio list?
+          options:
+          - 'Still: white only; sparkling: white or ramato'
+          - 'Still: white or ramato; sparkling: white or ramato'
+          - 'Still: white or ramato; sparkling: white only'
+          - 'Still: white only; sparkling: white only'
+          correctIndex: 1
+          explanation: The Delle Venezie consortium lists both white and copper-coloured ramato forms for still and sparkling Pinot Grigio.
+          sourceCitationId: src_wset_grape_venezie_types
+        ki_wset_grape_barbera_profile:
+          prompt: "Which comparison of fresh and riper Barbera fits the cited profile?"
+          options:
+          - "Fresh wine tends to be pale and low-acid; richer ripe wine can suit wood maturation."
+          - "Fresh wine retains acidity and colour; richer wine depends on less-ripe fruit for wood suitability."
+          - "Fresh wine retains acidity and colour; richer ripe wine can suit wood maturation."
+          - "Fresh wine retains acidity and colour; richer ripe wine is unsuited to wood maturation."
+          correctIndex: 2
+          explanation: "Barbera retains notable acidity and colour in a fresh medium-bodied style; richer ripe wines can be suitable for wood maturation."
+          sourceCitationId: src_wset_grape_pinerolese_barbera
+        ki_wset_grape_barbera_variation:
+          prompt: Which Barbera style sequence is explicitly listed by the Pinerolese consortium?
+          options:
+          - Young wood-aged red, medium-bodied frizzante, ripe still red
+          - Young frizzante, medium-bodied white, ripe wood-aged red
+          - Young still red, medium-bodied wood-aged red, ripe frizzante
+          - Young frizzante, medium-bodied still red, ripe wood-aged red
+          correctIndex: 3
+          explanation: Pinerolese describes youthful frizzante Barbera, medium-bodied still red Barbera, and richer red wine from riper grapes with wood ageing.
+          sourceCitationId: src_wset_grape_pinerolese_barbera
+        ki_wset_grape_sangiovese_profile:
+          prompt: "Which combination is consistent with the Chianti consortium's Sangiovese profile?"
+          options: ["Cherry or plum fruit, marked acidity and tannin", "Citrus, no tannin and compulsory sweetness", "Gooseberry, no red colour and bubbles", "Only raisin character from dried grapes"]
+          correctIndex: 0
+          explanation: "The Chianti consortium describes cherry and plum among Sangiovese fruit notes and emphasises acidity and tannic structure."
+          sourceCitationId: src_wset_grape_chianti_sangiovese
+        ki_wset_grape_sangiovese_variation:
+          prompt: Which range of Sangiovese red wines does the Chianti consortium describe?
+          options:
+          - One uniform profile despite different sites or maturation choices
+          - Fruit-led everyday reds and concentrated, ageworthy reds
+          - Only ageworthy reds, with no simpler everyday expression
+          - Only youthful everyday reds, with no long-lived expression
+          correctIndex: 1
+          explanation: The Chianti consortium describes both approachable everyday Sangiovese and more concentrated, long-lived red wines.
+          sourceCitationId: src_wset_grape_chianti_sangiovese
+        ki_wset_grape_fiano_profile:
+          prompt: "Which tasting combination fits Fiano di Avellino according to its consortium?"
+          options: ["Heavy red tannin and blackcurrant", "No acidity and mandatory sweetness", "Marked acidity, white fruit or flowers and a hazelnut note", "Only green pepper and sharp bubbles"]
+          correctIndex: 2
+          explanation: "The Irpinia consortium describes Fiano di Avellino with marked acidity, white fruit or floral notes and hazelnut character."
+          sourceCitationId: src_reg_isi_fiano
+        ki_wset_grape_fiano_variation:
+          prompt: According to the Irpinia consortium, how can vessel choice shape Fiano di Avellino?
+          options:
+          - Steel adds structure; wood chiefly preserves floral freshness
+          - Steel and wood necessarily give the same fresh aroma profile
+          - Steel removes floral notes; wood removes structural weight
+          - Steel favours freshness; wood can add structure and complexity
+          correctIndex: 3
+          explanation: The Irpinia consortium says steel helps preserve Fiano's floral freshness while some wood use can add structure and complexity.
+          sourceCitationId: src_reg_isi_fiano
+        ki_wset_grape_cortese_profile:
+          prompt: "Which profile fits a typical Gavi made from Cortese?"
+          options: ["Dry and fresh, with white flowers, citrus or bitter almond", "Deep red with mandatory high tannin", "Sweet and fortified by definition", "Aromatic only because of required new oak"]
+          correctIndex: 0
+          explanation: "The Gavi consortium describes a dry, fresh Cortese wine with fruit, white flowers, citrus and bitter-almond hints."
+          sourceCitationId: src_wset_grape_gavi_cortese
+        ki_wset_grape_cortese_variation:
+          prompt: "How can Gavi Riserva differ from a youthful Gavi?"
+          options: ["It must be made from Sangiovese", "It can be fuller and more complex while retaining freshness", "It is always red and sparkling", "It loses the Cortese grape identity"]
+          correctIndex: 1
+          explanation: "The Gavi consortium describes Riserva as fuller and richer, with developed complexity, while remaining a fresh Cortese white."
+          sourceCitationId: src_wset_grape_gavi_cortese
+        ki_wset_grape_viognier_profile:
+          prompt: "Which description is consistent with dry northern Rhône Viognier?"
+          options: ["A red wine with blackcurrant and high tannin", "A guaranteed sweet wine because its palate is creamy", "Aromatic yellow fruit and spice with a supple, creamy texture", "An austere wine that cannot show fruit"]
+          correctIndex: 2
+          explanation: "Inter Rhône describes Viognier's yellow-fruit, spice and dried-fruit bouquet and creamy texture while listing still dry white wines."
+          sourceCitationId: src_wset_grape_ir_viognier
+        ki_wset_grape_semillon_profile:
+          prompt: What can happen as classic dry Hunter Valley Sémillon ages in bottle?
+          options:
+          - Lemony youth becomes honeyed only after new-oak ageing
+          - Fig and toast mark youth; lemon appears only with bottle age
+          - High-acid youth loses all freshness immediately after bottling
+          - Lemony youth can gain fig, toast and honey without oak
+          correctIndex: 3
+          explanation: Wine Australia describes young Hunter Valley Sémillon as light, lemony and high in acidity; bottle age can bring fig, toast and honey notes without oak.
+          sourceCitationId: src_wset_grape_wa_semillon
+        ki_wset_grape_semillon_variation:
+          prompt: "Which contrast illustrates why Sémillon wines can differ in style?"
+          options:
+          - "Dry Sémillon-Sauvignon Blanc blends and sweet Bordeaux; botrytis can concentrate fruit for the sweet style."
+          - "Dry Sémillon-Sauvignon Blanc blends and sweet Bordeaux; botrytis reduces sugar in the sweet style."
+          - "Dry Sémillon-Sauvignon Blanc blends and sweet Bordeaux; oak supplies the sugar in the sweet style."
+          - "Dry Sémillon-Sauvignon Blanc blends and sweet Bordeaux; blending with Sauvignon Blanc itself makes the sweet style."
+          correctIndex: 0
+          explanation: "Bordeaux describes Sémillon in dry Sauvignon Blanc blends and sweet wines; botrytis can concentrate sugars in grapes used for sweet styles."
+          sourceCitationId: src_wset_grape_civb_semillon
+        ki_wset_origin_condrieu_viognier:
+          prompt: "Which grape is the signature white variety of Condrieu in the northern Rhône?"
+          options: ["Marsanne", "Viognier", "Grenache Blanc", "Chardonnay"]
+          correctIndex: 1
+          explanation: "Inter Rhône identifies Condrieu with Viognier and describes its dry aromatic white-wine style."
+          sourceCitationId: src_wset_grape_ir_viognier
+        ki_wset_origin_touraine_sauvignon:
+          prompt: "Which grape is the core of still white AOP Touraine?"
+          options: ["Melon de Bourgogne", "Chenin Blanc", "Sauvignon Blanc", "Albariño"]
+          correctIndex: 2
+          explanation: "The Touraine appellation body states that Touraine blanc is made from Sauvignon Blanc; sparkling Touraine follows different grape rules."
+          sourceCitationId: src_wset_origin_touraine
+        ki_wset_origin_rioja_garnacha:
+          prompt: "In Rioja, which contribution from Garnacha is documented by its regulatory body?"
+          options: ["A guaranteed high-acid white colour", "A mandatory sparkling mousse", "Only green-apple character", "Ripe red fruit or plum and a rounded palate"]
+          correctIndex: 3
+          explanation: "Rioja's regulatory body describes Garnacha's red-fruit and dried-plum aromas and a rounded, intense red-wine expression."
+          sourceCitationId: src_wset_origin_rioja
+        ki_wset_origin_ribera_tempranillo:
+          prompt: "Which name refers to Ribera del Duero's principal red grape?"
+          options: ["Tinto Fino, a local name for Tempranillo", "Glera, a local name for Tempranillo", "Parellada, a local name for Cabernet Sauvignon", "Albillo Mayor, a local name for Pinot Noir"]
+          correctIndex: 0
+          explanation: "The Ribera del Duero regulatory body identifies Tempranillo, locally Tinto Fino or Tinta del País, as its principal red variety."
+          sourceCitationId: src_wset_origin_ribera
+        ki_wset_origin_gevrey_pinot:
+          prompt: "Which pairing accurately locates Gevrey-Chambertin and its wine colour/grape?"
+          options: ["Côte de Beaune; white Chardonnay only", "Côte de Nuits; red Pinot Noir", "Mâconnais; red Gamay only", "Chablis; white Sauvignon Blanc"]
+          correctIndex: 1
+          explanation: "The Bourgogne wine board places Gevrey-Chambertin in the Côte de Nuits and lists red Pinot Noir exclusively."
+          sourceCitationId: src_wset_origin_gevrey
+        ki_wset_origin_nuits_pinot:
+          prompt: What does the Bourgogne wine board report for Nuits-Saint-Georges?
+          options:
+          - Mostly white Chardonnay, with rare red Pinot Noir
+          - Mostly red Gamay, with rare white Chardonnay
+          - Mostly red Pinot Noir, with rare white Chardonnay
+          - Mostly white Aligoté, with rare red Pinot Noir
+          correctIndex: 2
+          explanation: The Bourgogne wine board says Nuits-Saint-Georges is overwhelmingly red Pinot Noir but also produces a small amount of white Chardonnay.
+          sourceCitationId: src_wset_origin_nuits
+        ki_wset_origin_pommard_pinot:
+          prompt: "Which wine is permitted under the Pommard village appellation described by the Bourgogne wine board?"
+          options: ["Sweet white Riesling", "Red Cabernet Sauvignon", "White Chardonnay", "Red Pinot Noir"]
+          correctIndex: 3
+          explanation: "The Bourgogne wine board lists Pommard as a Côte de Beaune appellation for red Pinot Noir only."
+          sourceCitationId: src_wset_origin_pommard
+        ki_wset_origin_meursault_chardonnay:
+          prompt: "Which statement accurately describes Meursault production?"
+          options: ["White Chardonnay dominates, though a little red Pinot Noir is also made", "Only red Pinot Noir is allowed", "It is a Sauvignon Blanc appellation in the Loire", "It requires all wines to be sparkling"]
+          correctIndex: 0
+          explanation: "The Bourgogne wine board lists Meursault as overwhelmingly white Chardonnay with a small red Pinot Noir production."
+          sourceCitationId: src_wset_origin_meursault
+        ki_wset_origin_cava_basic_style:
+          prompt: "Which three white grapes form the classic Cava blend described by its regulatory body?"
+          options: ["Sauvignon Blanc, Sémillon and Muscadelle", "Macabeo, Xarel·lo and Parellada", "Chardonnay, Chenin Blanc and Riesling", "Glera, Garganega and Fiano"]
+          correctIndex: 1
+          explanation: "The Cava regulatory body names Macabeo, Xarel·lo and Parellada as the traditional three-grape blend; other grapes and styles are also authorised."
+          sourceCitationId: src_wset_sf_cava_grapes
