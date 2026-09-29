@@ -1,0 +1,490 @@
+# Original Level 3 geography comparisons; qualified review pending.
+question_templates:
+- id: qt_wset_l3_geography_remaining_principles_40
+  relation_type: PRINCIPLE_EXPLANATION
+  direction: forward
+  mode: authored_choice
+  variant: l3_geography_remaining_principles
+  prompt_template: '{subject.name}'
+  parameters:
+    item_choices:
+      ki_reg_de_franken_silvaner_palate:
+        prompt: A buyer compares a Franken Silvaner with a highly aromatic white. Which starting expectation
+          fits the regional and grape profiles?
+        options:
+        - Subtle herbal or gooseberry notes with relatively mild acidity
+        - Prominent Muscat perfume with high acidity and a light body
+        - Ripe tropical fruit with marked oak and a full, oily texture in Franken
+        - Black-fruit spice with medium tannin and a red-wine finish
+        correctIndex: 0
+        explanation: The German wine institute links Silvaner strongly with Franken and describes restrained
+          aroma and relatively mild acidity; bottle style still varies.
+        sourceCitationId: src_reg_de_silvaner
+      ki_reg_fe_beaujolais_chardonnay:
+        prompt: A trainee applies a red Beaujolais whole-bunch method to every white Beaujolais. Which correction
+          is supported?
+        options:
+        - Gamay semi-carbonic fermentation followed by red-wine pressing
+        - Pressed Chardonnay fermented in tank or wood, often with lees maturation
+        - Chardonnay skin fermentation to build an extraction-driven, red-style tannic palate
+        - Direct pressing followed by the red Gamay maceration sequence
+        correctIndex: 1
+        explanation: The Beaujolais wine body describes pressed Chardonnay, variable fermentation vessels and
+          common lees maturation, not one compulsory cellar route.
+        sourceCitationId: src_reg_fe_chardonnay
+      ki_reg_fe_beaujolais_hills:
+        prompt: Two Beaujolais Gamay parcels share a regional name but sit on different slopes. What should
+          the vineyard brief compare first?
+        options:
+        - The shared regional name as a proxy for slope and solar exposure of both parcels
+        - The winery location as a proxy for both vineyard elevations
+        - The actual slope and exposure of each parcel within the hilly landscape
+        - The same harvest date before inspecting aspect or topography
+        correctIndex: 2
+        explanation: The Beaujolais wine body places the vineyards among hills between the Massif Central foothills
+          and Saône plain; actual slope and exposure need checking.
+        sourceCitationId: src_reg_fe_beaujolais_landscape
+      ki_reg_fm_languedoc_mediterranean:
+        prompt: A grower writes a first-pass risk note for a Languedoc parcel before site records arrive. Which
+          regional starting point is defensible?
+        options:
+        - Cool oceanic summers call for shelter from persistent summer rain
+        - Alpine growing conditions call for a short snow-free season
+        - High summer rainfall makes drainage the initial regional concern
+        - Hot dry summers call for local ripening and water supply planning
+        correctIndex: 3
+        explanation: The Languedoc AOC body describes predominantly Mediterranean conditions and hot dry summers;
+          the parcel and season still determine the result.
+        sourceCitationId: src_reg_fm_languedoc
+      ki_reg_fm_languedoc_west:
+        prompt: A supplier calls Cabardès and Limoux indistinguishable from the warmest Mediterranean end of
+          Languedoc. Which correction matters?
+        options:
+        - The western examples can combine oceanic and Mediterranean influences
+        - Cabardès and Limoux share the driest coastal pattern nearest the Mediterranean sea
+        - The western sites are shaped mainly by high Alpine cold air
+        - Oceanic influence occurs only east of the warm Mediterranean zone
+        correctIndex: 0
+        explanation: The Languedoc AOC body distinguishes Cabardès and Limoux in the west for mixed oceanic
+          and Mediterranean influences.
+        sourceCitationId: src_reg_fm_languedoc
+      ki_reg_fm_larzac_soils:
+        prompt: A Terrasses du Larzac brief claims one named rock type proves a particular flavour and superior
+          quality. Which revision is sound?
+        options:
+        - Use one limestone profile to describe both plateau and terrace parcels
+        - Compare each site soil and grape mix, not a fixed rock-to-flavour rule
+        - Rank all parcels by a predetermined schist-over-sandstone hierarchy
+        - Map each rock name to a fixed mineral aroma in the finished wine
+        correctIndex: 1
+        explanation: The appellation body records varied soils and Grenache, Mourvèdre, Syrah and Carignan associations;
+          it does not establish a literal mineral flavour.
+        sourceCitationId: src_reg_fm_larzac
+      ki_reg_fm_pic_syrah:
+        prompt: A buyer is comparing Pic Saint Loup reds and asks which grape pattern the regional account supports.
+          Which is the best starting point?
+        options:
+        - Pinot Noir leads, supported by Chardonnay for the red blend
+        - Grenache Blanc leads, with Syrah permitted only in the white wine
+        - Syrah is prominent, with Grenache and Mourvèdre also important
+        - Cabernet Sauvignon leads, followed by Merlot and Cabernet Franc
+        correctIndex: 2
+        explanation: The Pic Saint Loup body emphasises Syrah and also identifies Grenache and Mourvèdre; the
+          actual blend needs its producer record.
+        sourceCitationId: src_reg_fm_pic_saint_loup
+      ki_reg_fm_roussillon_colours:
+        prompt: A shop lists every Côtes du Roussillon bottle as a Grenache-based red. Which stock-check corrects
+          the category error?
+        options:
+        - Check red and rosé still wines; classify the whites as fortified
+        - Check white and red still wines; exclude the region’s rosé from this appellation
+        - Treat the name as a sweet-wine category rather than a still AOC
+        - Check colour and blend; still white, rosé and red wines are included
+        correctIndex: 3
+        explanation: The Roussillon wine body lists white, rosé and red still Côtes du Roussillon and different
+          associated grapes by colour.
+        sourceCitationId: src_reg_fm_cotes_roussillon
+      ki_reg_fm_roussillon_seasons:
+        prompt: A colleague says Roussillon is sunny, so rainfall timing cannot matter to vineyard water supply.
+          Which assessment fits the regional profile?
+        options:
+        - Hot summers and spring–autumn rain require site water checks
+        - Summer rain dominates the season, reducing water planning in spring
+        - Winter snow supplies the main vineyard water in coastal parcels
+        - Rain concentrates in the dry season and weakens summer heat
+        correctIndex: 0
+        explanation: The Roussillon body describes Mediterranean heat and spring–autumn rainfall within a varied
+          mountain-bounded setting.
+        sourceCitationId: src_reg_fm_roussillon
+      ki_reg_fm_villages_red:
+        prompt: A list pairs Côtes du Roussillon Villages with broader Côtes du Roussillon. Which interpretation
+          avoids a false quality rule?
+        options:
+        - A white still-wine origin distinguished by a required dry style
+        - A red still-wine origin, not a guaranteed rank above the broader AOC name
+        - A rosé-only subdivision of the broader Côtes du Roussillon AOC in this area
+        - A compulsory top quality tier for every Côtes du Roussillon wine
+        correctIndex: 1
+        explanation: The regional wine body describes Côtes du Roussillon Villages as red still wine with associated
+          grapes and varied sites, not a universal score.
+        sourceCitationId: src_reg_fm_roussillon_villages
+      ki_reg_fs_lirac_variation:
+        prompt: Two Lirac suppliers describe different sites. Which field observation is plausible before judging
+          either finished wine?
+        options:
+        - Granite slopes dominate a high-altitude left-bank Lirac vineyard
+        - Loess plains define the area without alluvial or sandy terraces
+        - Limestone plateaus and pebbly or sandy terraces can both occur
+        - Volcanic scree replaces the limestone and pebbles of the Rhône
+        correctIndex: 2
+        explanation: Inter Rhône describes Lirac on the Gard side with limestone, pebbly alluvium and sandier
+          terraces; wine style needs more evidence.
+        sourceCitationId: src_reg_fs_lirac
+      ki_reg_fs_muscadet_melon:
+        prompt: A restaurant asks for a Muscadet grape and climate starting point without a promise about every
+          vintage. Which answer is useful?
+        options:
+        - Chenin Blanc in the inland Saumur area, with acidity to inspect
+        - Sauvignon Blanc in the oceanic Nantais, with acidity to inspect
+        - Folle Blanche as Muscadet’s principal grape, with acidity to inspect
+        - Melon de Bourgogne in oceanic Nantais; assess each bottle's acidity
+        correctIndex: 3
+        explanation: The Muscadet body identifies Melon de Bourgogne in the Nantais; site, picking and cellar
+          choices modify the actual wine.
+        sourceCitationId: src_reg_fs_muscadet_grape
+      ki_reg_fs_pacherenc_grapes:
+        prompt: A supplier says Gros and Petit Manseng each make only one Pacherenc style by law. Which correction
+          matches the regional descriptions?
+        options:
+        - Gros often suits dry whites; Petit sweet wines, but neither exclusively
+        - Petit mainly dry and Gros mainly sweet; the tendency is reversed for Pacherenc
+        - Both are red grapes, with Petit used for red Madiran blending
+        - Gros serves fortified wine and Petit is reserved for sparkling
+        correctIndex: 0
+        explanation: The Madiran–Pacherenc body presents these as tendencies within white blends, not exclusive
+          grape-to-style permissions.
+        sourceCitationId: src_reg_fs_madiran_grapes
+      ki_reg_isi_frappato_expression:
+        prompt: A Cerasuolo di Vittoria blending note contrasts Frappato with Nero d’Avola. Which sensory contribution
+          is a reasonable expectation?
+        options:
+        - Frappato tends toward heavier tannin than the Nero d’Avola portion here
+        - Frappato can add lighter colour and floral fruit beside Nero d’Avola
+        - Frappato provides the deepest black colour in this red blend
+        - Frappato is a white variety balancing Nero d’Avola’s tannin
+        correctIndex: 1
+        explanation: The consortium describes Frappato’s lighter colour and floral-fruit profile alongside Nero
+          d’Avola’s stronger body; final balance varies.
+        sourceCitationId: src_reg_isi_vittoria
+      ki_reg_isi_salice_context:
+        prompt: A Salice Salentino vineyard briefing mentions Negroamaro and proximity to the sea. Which inference
+          stays within the consortium account?
+        options:
+        - Sea air produces a single ripening date across all Salice sites
+        - Negroamaro is associated with inland Piedmont rather than Salice
+        - Sea air can moderate climate, but actual Salice parcels still differ
+        - Coastal influence transfers a literal saline taste into the grapes grown there
+        correctIndex: 2
+        explanation: The Salice Salentino consortium identifies Negroamaro and climate moderation by the sea,
+          without a uniform-site or literal salt-flavour claim.
+        sourceCitationId: src_reg_isi_salice_territory
+      ki_reg_isi_vulture_setting:
+        prompt: A buyer compares Aglianico del Vulture with Taurasi and equates volcanic geology with a guaranteed
+          wine aroma. Which note is defensible?
+        options:
+        - Vulture’s volcanic setting places it inside Taurasi’s Irpinia DOCG in Campania
+        - Volcanic rock proves a smoky flavour independent of winemaking
+        - Aglianico del Vulture is an Etna origin on Sicily’s eastern slope
+        - Vulture's extinct volcano is site context, not proof of a mineral aroma
+        correctIndex: 3
+        explanation: The Vulture consortium locates its vineyards around an extinct volcano in Basilicata; geology
+          alone does not determine wine aroma.
+        sourceCitationId: src_reg_isi_vulture
+      ki_wset_eu_greece_three_grapes:
+        prompt: A three-region Greek wine flight needs the correct regional grape starting points. Which pairing
+          is coherent?
+        options:
+        - Naoussa–Xinomavro, Nemea–Agiorgitiko and Santorini–Assyrtiko
+        - Naoussa–Assyrtiko, Nemea–Xinomavro and Santorini–Agiorgitiko
+        - Naoussa–Agiorgitiko, Nemea–Assyrtiko and Santorini–Xinomavro
+        - Naoussa–Xinomavro, Nemea–Assyrtiko and Santorini–Agiorgitiko
+        correctIndex: 0
+        explanation: Wines of Greece associates the three places with distinct principal grapes; site and production
+          still shape the individual wine.
+        sourceCitationId: src_wset_eu_greece_origins
+      ki_wset_role_alfrocheiro:
+        prompt: A warm-site Dão grower values Alfrocheiro for a blend but is planning disease monitoring. Which
+          balanced brief fits?
+        options:
+        - It softens acidity and colour while reducing the need for site care
+        - It can retain acidity and colour but needs canopy and disease care
+        - It adds colour but ripens only where long, humid summers occur
+        - It can retain acidity but is naturally resistant to common rots
+        correctIndex: 1
+        explanation: Wines of Portugal describes Alfrocheiro’s acidity and colour contribution as well as vigorous
+          growth and disease sensitivity.
+        sourceCitationId: src_wset_role_alfrocheiro
+      ki_wset_role_arinto:
+        prompt: A buyer encounters Pedernã on a Vinho Verde grape note and Arinto in a Bucelas or Alentejo blend.
+          Which link is useful?
+        options:
+        - Pedernã is Alvarinho; its soft acidity is prized in warmer blends
+        - Pedernã is Loureiro; its tannin structures the Bucelas reds
+        - Pedernã is Arinto; marked acidity can freshen warmer-region blends
+        - Pedernã is Verdelho; its low acidity rounds out Douro reds made from it
+        correctIndex: 2
+        explanation: Wines of Portugal gives Pedernã as an Arinto name and identifies its acidity and regional
+          blending role.
+        sourceCitationId: src_wset_role_arinto
+      ki_wset_role_blaufrankisch:
+        prompt: A Burgenland estate considers a late-ripening red grape for a warm site. Which grape-and-style
+          note matches the Austrian profile?
+        options:
+        - Zweigelt is the late-ripening grape that gives Leithaberg its spice
+        - Blaufränkisch ripens early and gives pale, low-acid red wines
+        - Sankt Laurent is the parent grape known for this late-ripening profile
+        - Blaufränkisch can retain acidity and tannin with ripe dark-berry spice
+        correctIndex: 3
+        explanation: Austrian Wine describes Blaufränkisch in Burgenland, its late ripening and its acidity
+          and tannin; season and maturation still matter.
+        sourceCitationId: src_wset_role_austria_grapes
+      ki_wset_role_bonarda_identity:
+        prompt: An importer equates Argentine Bonarda with every Italian grape carrying the Bonarda name. What
+          correction is supported?
+        options:
+        - Argentine Bonarda is Corbeau or Douce Noir, also known as Charbono
+        - Argentine Bonarda is Croatina, the grape also called Bonarda Piemontese
+        - Argentine Bonarda is Barbera, brought directly from Piedmont
+        - Argentine Bonarda is Malbec under a regional Argentine synonym
+        correctIndex: 0
+        explanation: Wines of Argentina describes the genetic identification of Argentine Bonarda as Corbeau/Douce
+          Noir/Charbono, distinct from the Italian-name confusion.
+        sourceCitationId: src_wset_role_bonarda_identity
+      ki_wset_role_bonarda_style:
+        prompt: A restaurant buyer calls Argentine Bonarda only a cheap substitute for Malbec. Which sourcing
+          note is more accurate?
+        options:
+        - Cool alpine sites are its main setting, producing pale lean reds
+        - Warm-region Bonarda can make fruity reds and varied producer styles
+        - Its main role is as a sweet white variety in Argentine blends
+        - Warm sites lead to pale reds with uniformly low fruit expression in Argentina
+        correctIndex: 1
+        explanation: Wines of Argentina describes Bonarda’s warm-region adaptation and a range from young fruity
+          to more developed producer styles.
+        sourceCitationId: src_wset_role_bonarda
+      ki_wset_role_castilla_environment:
+        prompt: A vineyard plan treats the whole Castilla y León IGP as one low-altitude maritime site. Which
+          risk note should replace that assumption?
+        options:
+        - Low coastal vineyards face persistent maritime summer rain
+        - The valley floor has tropical humidity and mild frost-free winters
+        - High plateau sites face frost, dry summers and water constraints
+        - High elevation removes the need to consider spring frost risk
+        correctIndex: 2
+        explanation: The IGP specification describes plateau elevation, continental Mediterranean conditions,
+          frost risk and limited rainfall; local sites vary.
+        sourceCitationId: src_wset_role_castilla_spec
+      ki_wset_role_castilla_igp_identity:
+        prompt: A label says Vino de la Tierra de Castilla y León. How should a learner compare it with Ribera
+          del Duero or Toro DO?
+        options:
+        - A Ribera del Duero ageing term for longer oak-matured reds
+        - A narrow Toro DO subzone restricted to red Tempranillo
+        - A formal sensory quality grade placed above the two named regional DO wines
+        - A broad IGP origin, distinct from narrower DOs and a quality grade
+        correctIndex: 3
+        explanation: The Castilla y León IGP specification names the broader protected origin and delimited
+          area; the label is not a sensory ranking.
+        sourceCitationId: src_wset_role_castilla_spec
+      ki_wset_role_dornfelder_style:
+        prompt: A shop compares a young Dornfelder with a wood-matured example from Germany. Which distinction
+          is supported?
+        options:
+        - Deep colour can accompany fruit-led or wood-matured German red styles
+        - Deep colour signals wood maturity rather than a grape tendency
+        - The young style is pale and lacks the fruit seen after wood ageing in Germany
+        - Wood maturation removes the grape’s characteristic deep colour
+        correctIndex: 0
+        explanation: The German wine institute describes both fruit-led young and wood-matured Dornfelder styles;
+          colour alone is not a quality measure.
+        sourceCitationId: src_wset_role_dornfelder
+      ki_wset_role_friuli_identity:
+        prompt: A buyer files every Friuli Colli Orientali white as Pinot Grigio from Friuli Grave. Which correction
+          is appropriate?
+        options:
+        - A Valpolicella subzone centred on Corvina and Amarone reds of Veneto
+        - A distinct DOC with several white grapes, including local Friulano
+        - An IGP on Sardinia whose leading white is Vermentino
+        - A DOCG in Piemonte where Nebbiolo is the required white
+        correctIndex: 1
+        explanation: The DOC specification and consortium list Friuli Colli Orientali as its own origin with
+          a range of white grape names.
+        sourceCitationId: src_wset_role_friuli_wines
+      ki_wset_role_friuli_white_styles:
+        prompt: A tasting note treats Friuli Colli Orientali Pinot Grigio and Friulano as the same compulsory
+          style. Which contrast is safer?
+        options:
+        - Pinot Grigio is opaque red; Friulano is a light sparkling wine from the DOC
+        - Friulano is the region’s main black grape for tannic reds
+        - Pinot Grigio may be copper-tinted; Friulano rounded and almond-like
+        - The two whites share a fixed greenish colour and neutral aroma
+        correctIndex: 2
+        explanation: The regional consortium describes copper-toned Pinot Grigio variants and a rounded Friulano
+          tendency; these are not universal bottle rules.
+        sourceCitationId: src_wset_role_friuli_wines
+      ki_wset_role_graciano:
+        prompt: A Rioja blending trial adds late-ripening Graciano to Tempranillo. Which contribution is plausible
+          if the fruit ripens?
+        options:
+        - Low acidity and pale colour, useful for softening a Rioja blend
+        - Early ripening and neutral aroma, reducing a blend’s tannin
+        - A white-wine freshness role without red colour or tannin
+        - Acidity, colour, tannin and aroma if fruit and proportion suit
+        correctIndex: 3
+        explanation: Rioja’s regulatory body describes Graciano as late-ripening and contributing acidity, colour,
+          tannin and aromas to blends.
+        sourceCitationId: src_wset_role_rioja_blends
+      ki_wset_role_jaen_blend:
+        prompt: A Dão red blend lists Touriga Nacional, Alfrocheiro and Jaen. Which role should the blender
+          test for Jaen?
+        options:
+        - Jaen adds perfume and softer structure; blend for suitable acid balance
+        - Jaen supplies the firmest tannin and highest acidity in the Dão red blend
+        - Jaen chiefly adds dark colour while eliminating floral perfume
+        - Jaen replaces the other two grapes in a pure-varietal Dão rule
+        correctIndex: 0
+        explanation: Wines of Portugal and IVV describe Jaen in Dão blends, its early ripening and relatively
+          low acidity; actual proportions matter.
+        sourceCitationId: src_wset_role_jaen_ivv
+      ki_wset_role_jaen_identity:
+        prompt: A Dão buyer sees Jaen and compares it with Spanish Mencía. Which identity statement is supported
+          without equating their wine styles?
+        options:
+        - Jaen is Touriga Nacional under its Spanish regional name
+        - Jaen and Mencía are synonyms; local wine styles may still differ
+        - Jaen is Alfrocheiro under a Dão synonym used in Spain
+        - Jaen is Tinta Roriz under a Portuguese synonym for Tempranillo today
+        correctIndex: 1
+        explanation: Portugal’s IVV lists Mencía as a Spanish synonym of Jaen and records Jaen’s Dão association;
+          site and cellar differences remain.
+        sourceCitationId: src_wset_role_jaen_ivv
+      ki_wset_role_mazuelo:
+        prompt: A Rioja red blend includes Mazuelo. Which note avoids treating the name as a separate grape
+          from Carignan?
+        options:
+        - Mazuelo is Graciano and chiefly lowers acidity in red Rioja blends
+        - Mazuelo is Tempranillo under an old Rioja village synonym
+        - Mazuelo is Carignan and can add acidity, tannin and stable colour
+        - Mazuelo is Garnacha and produces a pale white-wine blend
+        correctIndex: 2
+        explanation: The Rioja wine body identifies Mazuelo with Carignan and its structural contributions;
+          proportion and extraction still matter.
+        sourceCitationId: src_wset_role_rioja_blends
+      ki_wset_role_petit_verdot:
+        prompt: A Bordeaux blender considers a small lot of Petit Verdot after a suitably warm season. What
+          contribution is plausible?
+        options:
+        - An early-ripening grape that adds little colour or tannin
+        - A white blending grape that raises acidity but lightens colour
+        - A softening grape used chiefly to remove firm tannin from Merlot in Bordeaux
+        - Colour, firm tannin and spice even at a modest share of the red blend
+        correctIndex: 3
+        explanation: The Bordeaux wine body describes late-ripening Petit Verdot, firm tannins, colour and aromatic
+          impact even at small shares.
+        sourceCitationId: src_wset_role_petit_verdot
+      ki_wset_role_saint_laurent:
+        prompt: An Austrian wine list groups Sankt Laurent with Pinot Noir as if they were one grape. Which
+          correction fits the Austrian profile?
+        options:
+        - A distinct red grape linked to Thermenregion and berry/cherry notes
+        - A Pinot Noir clone whose Austrian wines share Pinot’s profile in the Thermenregion
+        - A white grape chiefly associated with crisp Wachau blends
+        - A Zweigelt synonym whose parentage dictates one red style
+        correctIndex: 0
+        explanation: Austrian Wine treats Sankt Laurent as a distinct grape with a Thermenregion association
+          and a range of wine expressions.
+        sourceCitationId: src_wset_role_austria_grapes
+      ki_wset_role_sarga_muskotaly:
+        prompt: A Tokaj selection contains Sárga Muskotály. Which conclusion respects its grape identity and
+          the difference between dry and sweet routes?
+        options:
+        - Muscat of Alexandria used for neutral dry white wines within Tokaj’s main blends
+        - Muscat Blanc à Petits Grains; its aromatic wines may be made dry or sweet
+        - Hárslevelű under an aromatic local name used only for Aszú
+        - Furmint under its regional name used for Tokaj base wines
+        correctIndex: 1
+        explanation: The Tokaj wine body identifies Sárga Muskotály with Muscat Blanc à Petits Grains and describes
+          both dry aromatic and sweet-wine uses.
+        sourceCitationId: src_wset_role_tokaj_grapes
+      ki_wset_role_saumur_champigny_identity:
+        prompt: A Loire wine list places Saumur-Champigny under Chenin white or sparkling Saumur. Which classification
+          is more accurate?
+        options:
+        - A sparkling Chenin origin named for a red-wine village
+        - A still Pinot Noir origin distinct from the broader Saumur AOC in Anjou
+        - A still Cabernet Franc red origin, distinct from other Saumur styles
+        - A sweet Chenin origin that excludes Loire Cabernet Franc
+        correctIndex: 2
+        explanation: The Saumur-Champigny producer body centres Cabernet Franc in its still reds; the wider
+          Saumur area includes different wine routes.
+        sourceCitationId: src_wset_role_saumur_cf
+      ki_wset_role_trincadeira_style:
+        prompt: An Alentejo red blend includes Trincadeira. Which tasting hypothesis should be checked against
+          fruit ripeness?
+        options:
+        - Underripe fruit reduces herbal notes while ripe fruit amplifies them here
+        - The grape chiefly contributes pale colour and tropical-fruit aroma
+        - Ripe fruit loses acidity and spice while underripe fruit gains jam
+        - Ripe fruit brings acidity and spice; underripe fruit may taste herbal
+        correctIndex: 3
+        explanation: Wines of Portugal describes the ripe and underripe expressions of Trincadeira, also called
+          Tinta Amarela in the Douro.
+        sourceCitationId: src_wset_role_trincadeira
+      ki_wset_role_trincadeira_vine:
+        prompt: A Tejo grower assumes hot dry conditions make Trincadeira disease-free. Which vineyard plan
+          is safer?
+        options:
+        - Manage vigorous foliage growth and rot risk at warm, dry sites
+        - Ignore vigorous foliage and focus only on cellar temperature
+        - Encourage a dense canopy because it suppresses fungal rot risk
+        - Use a fixed disease plan regardless of canopy or seasonal rain
+        correctIndex: 0
+        explanation: Wines of Portugal notes Trincadeira’s vigorous growth and rot sensitivity alongside its
+          suitability for warmer, drier sites.
+        sourceCitationId: src_wset_role_trincadeira
+      ki_wset_role_welschriesling_dry:
+        prompt: An Austrian buyer reads Welschriesling and assumes it is Rhine Riesling. Which correction and
+          style note are useful?
+        options:
+        - A Rhine Riesling clone for high-acid wines with the same ageing profile
+        - A separate grape for fresh acidic dry whites with apple or citrus
+        - A sweet-only Muscat crossing unrelated to fresh dry wine styles
+        - A Burgenland red grape used for firm tannic blends
+        correctIndex: 1
+        explanation: The Austrian government profile describes dry Welschriesling with acidity and fruit; its
+          name does not make it Rhine Riesling.
+        sourceCitationId: src_wset_role_welschriesling
+      ki_wset_role_welschriesling_sweet:
+        prompt: A merchant sees a Burgenland late-harvest Welschriesling beside a fresh dry example. What explains
+          the style difference?
+        options:
+        - The same harvest route yields both styles through extra oak ageing
+        - Dry grapes become sweet after fermentation by lees stirring
+        - Late-harvest fruit can yield sweet wine while retaining acidity
+        - A later bottle age converts dry Welschriesling into a sweet style
+        correctIndex: 2
+        explanation: The Austrian government and wine body describe both dry and late-harvest sweet Welschriesling,
+          with harvest condition central to the contrast.
+        sourceCitationId: src_wset_role_welschriesling
+      ki_wset_role_zweigelt:
+        prompt: A learner uses Zweigelt’s parentage to predict one compulsory wine style. Which corrected account
+          fits Austrian Wine?
+        options:
+        - A Blaufränkisch–Pinot Noir cross with red styles fixed by parentage
+        - A Sankt Laurent–Riesling cross used chiefly for aromatic whites
+        - A Pinot Noir clone tied to a single Austrian red style
+        - A Blaufränkisch–Sankt Laurent cross with diverse red styles
+        correctIndex: 3
+        explanation: Austrian Wine identifies the crossing and a range from young fruit-led to stronger wood-matured
+          wines; parentage is not a style rule.
+        sourceCitationId: src_wset_role_austria_grapes

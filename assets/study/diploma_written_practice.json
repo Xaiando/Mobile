@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "version": "1.0.0",
+  "units": [
+    {
+      "unitId": "D1",
+      "title": "Wine production",
+      "durationSeconds": 5400,
+      "questions": [
+        {
+          "id": "d1_environment",
+          "prompt": "A producer can plant the same variety on a cool, exposed slope or a warmer, sheltered valley floor. Explain how site conditions could change vine growth, berry ripening and the resulting wine. State what further site information you would need before choosing.",
+          "criteria": [
+            {"id": "site", "text": "I named relevant temperature, light, water or soil differences rather than assuming the sites differ in every respect."},
+            {"id": "vine", "text": "I linked those conditions to vine growth, ripening or grape components with a causal explanation."},
+            {"id": "wine", "text": "I connected likely grape differences to possible wine style without treating an outcome as certain."},
+            {"id": "limits", "text": "I identified missing evidence or hazards that might change the site decision."}
+          ]
+        },
+        {
+          "id": "d1_vineyard",
+          "prompt": "A vineyard manager faces a dry growing season and recurring spring frost. Propose a practical management plan for a stated quality and price target. Compare at least two options and explain their costs, benefits and limits.",
+          "criteria": [
+            {"id": "target", "text": "I made the desired grape or wine outcome and price constraints explicit."},
+            {"id": "options", "text": "I considered distinct water and frost responses, including when each would be used."},
+            {"id": "tradeoffs", "text": "I evaluated effects on yield, ripeness, quality and cost instead of listing techniques."},
+            {"id": "limits", "text": "I stated an assumption or local constraint that could alter the recommendation."}
+          ]
+        },
+        {
+          "id": "d1_winery",
+          "prompt": "A winery receives sound but unevenly ripe fruit and wants a fresh, mid-priced wine. Compare suitable processing, fermentation and finishing choices. Explain likely effects on style, quality and cost, and identify a relevant fault-control check.",
+          "criteria": [
+            {"id": "fruit", "text": "I addressed the fruit condition and distinguished options appropriate to the wine style I chose."},
+            {"id": "process", "text": "I explained how selected processing and fermentation choices could change the wine."},
+            {"id": "economics", "text": "I weighed quality and price implications, including at least one trade-off."},
+            {"id": "control", "text": "I named a relevant fault or stability risk and explained a practical control or check."}
+          ]
+        }
+      ]
+    },
+    {
+      "unitId": "D2",
+      "title": "Wine business",
+      "durationSeconds": 3600,
+      "questions": [
+        {
+          "id": "d2_price",
+          "prompt": "A fictional exporter quotes a wine to an importer whose currency has weakened while shipping and packaging costs rise. Explain how supply, demand and the main costs could affect the final selling price. Propose two responses and state their commercial risks.",
+          "criteria": [
+            {"id": "drivers", "text": "I separated supply or demand pressure from production, transport, import and sales costs."},
+            {"id": "currency", "text": "I explained how a currency movement or contract term could change the buyer's cost."},
+            {"id": "responses", "text": "I compared at least two credible commercial responses and who bears each risk."},
+            {"id": "assumptions", "text": "I stated assumptions or missing figures rather than inventing a precise margin."}
+          ]
+        },
+        {
+          "id": "d2_route",
+          "prompt": "A small grower is choosing between an independent importer, direct-to-consumer sales and a co-operative route for a new market. Evaluate how producer model and route to market affect control, reach, cost and commercial risk. Recommend a route for stated conditions.",
+          "criteria": [
+            {"id": "models", "text": "I distinguished the business roles and who owns production, marketing or sales decisions."},
+            {"id": "channels", "text": "I compared reach, margin, capital needs and operational burdens of more than one route."},
+            {"id": "market", "text": "I recognised a market or legal condition that could change which routes are possible."},
+            {"id": "decision", "text": "I justified a recommendation against the grower's stated priorities and uncertainties."}
+          ]
+        },
+        {
+          "id": "d2_marketing",
+          "prompt": "A fictional winery is launching a premium still wine to a clearly defined audience. Outline a marketing approach from audience and positioning through product, price, placement, promotion and people. Explain how you would test whether the plan works.",
+          "criteria": [
+            {"id": "audience", "text": "I defined a plausible audience and differentiated the wine's proposed position."},
+            {"id": "mix", "text": "I connected product, price, placement, promotion and people to that audience rather than listing them."},
+            {"id": "constraints", "text": "I addressed a budget, channel or regulatory constraint affecting execution."},
+            {"id": "evaluation", "text": "I proposed observable measures and a way to adjust the plan if results differ from expectations."}
+          ]
+        }
+      ]
+    }
+  ]
+}

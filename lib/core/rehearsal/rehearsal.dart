@@ -114,6 +114,7 @@ class RehearsalWritten {
     : id = row['id'] as String,
       prompt = row['prompt'] as String,
       levels = List<int>.from(row['levels'] as List),
+      blueprintGroup = row['blueprintGroup'] as String?,
       criteria = [
         for (final c in row['criteria'] as List)
           RehearsalCriterion(Map<String, dynamic>.from(c as Map)),
@@ -123,6 +124,7 @@ class RehearsalWritten {
         levels.length != 1 ||
         levels.single != 3 ||
         criteria.isEmpty ||
+        (blueprintGroup != null && blueprintGroup!.trim().isEmpty) ||
         criteria.map((c) => c.id).toSet().length != criteria.length) {
       throw const FormatException('Invalid written rehearsal question');
     }
@@ -130,12 +132,16 @@ class RehearsalWritten {
   final String id;
   final String prompt;
   final List<int> levels;
+
+  /// Optional for saved attempts created before written blueprint sampling.
+  final String? blueprintGroup;
   final List<RehearsalCriterion> criteria;
   Set<String> get itemIds => {for (final c in criteria) ...c.itemIds};
   Map<String, dynamic> toJson() => {
     'id': id,
     'prompt': prompt,
     'levels': levels,
+    if (blueprintGroup != null) 'blueprintGroup': blueprintGroup,
     'criteria': [for (final c in criteria) c.toJson()],
   };
 }
@@ -158,12 +164,14 @@ class RehearsalPreset {
     this.writtenCount,
     this.durationSeconds, {
     this.blueprint = const {},
+    this.writtenBlueprint = const {},
   });
   final int level;
   final int mcqCount;
   final int writtenCount;
   final int durationSeconds;
   final Map<String, int> blueprint;
+  final Map<String, int> writtenBlueprint;
 }
 
 class RehearsalBank {
@@ -185,6 +193,9 @@ class RehearsalBank {
           row['durationSeconds'] as int,
           blueprint: Map<String, int>.from(
             row['blueprint'] as Map? ?? const {},
+          ),
+          writtenBlueprint: Map<String, int>.from(
+            row['writtenBlueprint'] as Map? ?? const {},
           ),
         ),
     ];
@@ -215,6 +226,20 @@ class RehearsalBank {
                   p.mcqCount),
     )) {
       throw const FormatException('Invalid rehearsal blueprint counts');
+    }
+    if (presets.any(
+      (p) =>
+          p.writtenBlueprint.isNotEmpty &&
+          (p.writtenBlueprint.entries.any(
+                (e) => e.key.trim().isEmpty || e.value <= 0,
+              ) ||
+              p.writtenBlueprint.values.fold(
+                    0,
+                    (int sum, value) => sum + value,
+                  ) !=
+                  p.writtenCount),
+    )) {
+      throw const FormatException('Invalid written rehearsal blueprint counts');
     }
     mcqs = [
       for (final row in json['mcqs'] as List)
@@ -472,12 +497,29 @@ class RehearsalRepository {
     final eligibleMcqs = bank.mcqs
         .where((q) => q.levels.contains(level) && linked(q.itemIds))
         .toList();
-    final written =
-        bank.written
-            .where((q) => q.levels.contains(level) && linked(q.itemIds))
-            .toList()
-          ..shuffle(random);
     final preset = bank.presets.singleWhere((p) => p.level == level);
+    final eligibleWritten = bank.written
+        .where((q) => q.levels.contains(level) && linked(q.itemIds))
+        .toList();
+    final written = <RehearsalWritten>[];
+    if (preset.writtenBlueprint.isEmpty) {
+      eligibleWritten.shuffle(random);
+      written.addAll(eligibleWritten.take(preset.writtenCount));
+    } else {
+      for (final bucket in preset.writtenBlueprint.entries) {
+        final pool =
+            eligibleWritten
+                .where((q) => q.blueprintGroup == bucket.key)
+                .toList()
+              ..shuffle(random);
+        if (pool.length < bucket.value) {
+          throw StateError(
+            'Not enough current written questions for the ${bucket.key} practice topic.',
+          );
+        }
+        written.addAll(pool.take(bucket.value));
+      }
+    }
     final mcqs = <RehearsalMcq>[];
     if (preset.blueprint.isEmpty) {
       eligibleMcqs.shuffle(random);
@@ -528,9 +570,7 @@ class RehearsalRepository {
             ]..shuffle(random)),
           },
       ],
-      'written': [
-        for (final q in written.take(preset.writtenCount)) q.toJson(),
-      ],
+      'written': [for (final q in written) q.toJson()],
       'answers': <String, String>{},
       'prose': <String, String>{},
       'selfAssessment': <String, List<String>>{},

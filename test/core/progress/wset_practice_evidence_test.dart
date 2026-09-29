@@ -248,9 +248,30 @@ void main() {
     final first = await pairs.start();
     await pairs.finish(first.id);
     expect((await evidence(3)).pairedTastings, 0);
+    final sameColour = await pairs.start();
+    for (final wine in sameColour.wines) {
+      await pairs.choose(sameColour.id, wine.sessionId, 'sweetness', {'dry'});
+      await pairs.choose(sameColour.id, wine.sessionId, 'colour', {'white'});
+      for (final prompt in wine.level.evidencePrompts) {
+        await pairs.evidence(
+          sameColour.id,
+          wine.sessionId,
+          prompt.id,
+          'Observed structural and flavour evidence.',
+        );
+      }
+    }
+    final savedSameColour = await pairs.finish(sameColour.id);
+    expect(savedSameColour.completeWineCount, 2);
+    expect(savedSameColour.hasWhiteAndRedWines, isFalse);
+    expect((await evidence(3)).pairedTastings, 0);
     final complete = await pairs.start();
-    for (final wine in complete.wines) {
+    for (var index = 0; index < complete.wines.length; index++) {
+      final wine = complete.wines[index];
       await pairs.choose(complete.id, wine.sessionId, 'sweetness', {'dry'});
+      await pairs.choose(complete.id, wine.sessionId, 'colour', {
+        index == 0 ? 'white' : 'red',
+      });
       for (final prompt in wine.level.evidencePrompts) {
         await pairs.evidence(
           complete.id,
@@ -260,7 +281,18 @@ void main() {
         );
       }
     }
-    await pairs.finish(complete.id);
+    final savedComplete = await pairs.finish(complete.id);
+    expect(savedComplete.hasWhiteAndRedWines, isTrue);
+    expect(
+      TastingPairAttempt.fromJson({
+        ...savedComplete.toJson(),
+        'wines': [
+          for (final wine in savedComplete.wines.reversed) wine.toJson(),
+        ],
+      }).hasWhiteAndRedWines,
+      isTrue,
+      reason: 'The white and red glasses may be tasted in either order.',
+    );
     expect((await evidence(3)).pairedTastings, 1);
     expect(
       (await evidence(3)).physicalWines,

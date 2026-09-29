@@ -1,0 +1,293 @@
+# Forty-seven source-linked Level 3 sparkling and fortified regional production
+# decisions. Original bounded practice on existing expert-unverified assertions.
+question_templates:
+- id: qt_wset_l3_winemaking_special_principles_47
+  relation_type: PRINCIPLE_EXPLANATION
+  direction: forward
+  mode: authored_choice
+  variant: wset_l3_winemaking_special_principles_47
+  prompt_template: '{subject.name}'
+  parameters:
+    item_choices:
+      ki_wset_sf_adelaide_spark:
+        prompt: "An Adelaide Hills producer selects elevated Chardonnay and Pinot Noir parcels for a traditional-method cuvée. Which harvest aim best explains the selection?"
+        options: ["Pick balanced fruit with acidity for a fresh base wine", "Wait for still-wine sugar to reduce final dosage needs", "Seek maximum skin colour before pressing the two base grapes", "Use elevation as evidence of a fixed bottle lees-ageing period"]
+        correctIndex: 0
+        explanation: "The Adelaide Hills regional body links cool elevated sites with sparkling Chardonnay and Pinot Noir; harvest timing and subsequent bottle maturation remain separate decisions."
+        sourceCitationId: src_wset_sf_adelaide_spark
+      ki_wset_sf_alsace_cremant:
+        prompt: "A buyer compares white Crémant d’Alsace with a rosé from the same house. Which grape and method brief is consistent with the regional account?"
+        options: ["White requires Riesling alone; rosé gets colour from dosage", "White may include Pinot Blanc; Pinot Noir supplies rosé", "White depends on Pinot Noir; rosé needs Muscat fruit", "White is tank-fermented; rosé undergoes bottle fermentation"]
+        correctIndex: 1
+        explanation: "The Alsace wine body describes Pinot Blanc as a significant white Crémant grape and Pinot Noir as the basis for rosé, with bottle secondary fermentation."
+        sourceCitationId: src_wset_sf_alsace_spark
+      ki_wset_sf_anderson_spark:
+        prompt: "An Anderson Valley grower offers Pinot Noir for sparkling base wine after a foggy, cool season. What should the winemaker check before accepting it?"
+        options: ["Whether the fog has supplied the required lees character", "Whether the appellation requires bottle secondary fermentation", "Actual sugar and acidity against the intended base-wine target", "The colour of the final wine as a proxy for ripeness"]
+        correctIndex: 2
+        explanation: "Anderson Valley's Pacific influence can support fresh Pinot Noir and Chardonnay, but fruit balance and method still require lot-specific assessment."
+        sourceCitationId: src_wset_sf_anderson
+      ki_wset_sf_asti_cost:
+        prompt: "An Asti producer compares a classic aromatic tank-fermented lot with a bottle-aged project. Which cost forecast is soundest?"
+        options: ["Tank production removes the need for controlled chilling and filtration", "Sweetness fixes the selling price independently of vineyard work", "Bottle ageing saves space while fruit is preserved", "Tank handling may save storage but needs pressure equipment"]
+        correctIndex: 3
+        explanation: "The Asti body describes the classic aromatic route; avoiding extended bottle ageing can save inventory time, while controlled tank and pressure-bottling capacity still cost money."
+        sourceCitationId: src_wset_sf_asti
+      ki_wset_sf_asti_current:
+        prompt: "A 2026 Asti DOCG label says Brut Nature. A trainee insists Asti must be sweet and stopped after one tank fermentation. Which correction follows the current specification?"
+        options: ["The DOCG permits drier styles and more than the classic route", "Brut Nature is a grape name rather than a sweetness category", "The label identifies a traditional bottle route by itself", "Asti DOCG refers to still Moscato rather than sparkling wine too"]
+        correctIndex: 0
+        explanation: "The Italian ministry's March 2026 consolidated Asti specification permits a range from Brut Nature to sweet and includes different authorised production routes."
+        sourceCitationId: src_wset_sf_asti_2026
+      ki_wset_sf_asti_environment:
+        prompt: "Two Moscato Bianco blocks in the Asti zone have different hillside exposures. Which decision best addresses base-fruit quality for an aromatic wine?"
+        options: ["Use one harvest date because DOCG sites share a climate", "Monitor each slope's ripeness and fruit condition separately", "Choose the steepest parcel because its sugar is prescribed", "Assign aroma intensity from tank size rather than fruit status"]
+        correctIndex: 1
+        explanation: "The Asti specification describes the hilly growing area and Moscato Bianco; exposure and season affect ripeness, while slope also changes the labour required."
+        sourceCitationId: src_wset_sf_asti_2026
+      ki_wset_sf_beaumes_cost:
+        prompt: "A Muscat de Beaumes-de-Venise estate budgets repeated hand picks to collect ripe aromatic bunches. What is the defensible price implication?"
+        options: ["Several passes reduce labour because the fruit is sorted in situ", "A sweet fortified label itself establishes the retail margin", "Selective harvest raises labour input; price needs market context", "Hand picking confirms that the wine requires long oxidative ageing"]
+        correctIndex: 2
+        explanation: "Inter Rhône describes multiple hand harvest passes for ripeness; added labour is a plausible cost driver, without determining final quality or price on its own."
+        sourceCitationId: src_wset_sf_beaumes
+      ki_wset_sf_beaumes_fresh:
+        prompt: "A buyer wants youthful Muscat de Beaumes-de-Venise with floral freshness instead of a mature rancio profile. Which production brief fits?"
+        options: ["Extend warm oxidative cask storage after fortification over years", "Allow fermentation to dryness before sweetness is adjusted", "Keep fermented wine open to air to intensify fresh flowers", "Stop fermentation by mutage and protect fruit during finishing"]
+        correctIndex: 3
+        explanation: "Inter Rhône's Muscat account and the VDN process distinguish retained grape sugar by mutage from the separate choice to mature a wine oxidatively."
+        sourceCitationId: src_wset_sf_beaumes
+      ki_wset_sf_beaumes_origin:
+        prompt: "A list pairs sweet Muscat de Beaumes-de-Venise with a dry red Beaumes-de-Venise. Which explanation keeps the two protected identities clear?"
+        options: ["The Muscat wine is a sweet fortified local-Muscat expression", "Both labels specify a dry red blend from the same grape mix", "The sweet wine is a red produced by adding sugar after ageing", "The red appellation specifies the fortified Muscat style"]
+        correctIndex: 0
+        explanation: "Inter Rhône identifies the Muscat de Beaumes-de-Venise sweet fortified appellation around Beaumes and Aubignan as distinct from the area's dry red appellation."
+        sourceCitationId: src_wset_sf_beaumes
+      ki_wset_sf_bourgogne_cremant:
+        prompt: "A Bourgogne grower diverts Chardonnay and Pinot Noir from still wine into a Crémant base. Which adjustment is most coherent with the sparkling aim?"
+        options: ["Harvest later for higher alcohol before bottle fermentation", "Pick for acidity and moderate sugar, then bottle-ferment", "Press for skin colour, then remove it by filtration", "Replace secondary fermentation with still-wine barrel ageing"]
+        correctIndex: 1
+        explanation: "The Crémant de Bourgogne producers identify Chardonnay and Pinot Noir among key grapes and describe a bottle-fermented route that benefits from a fresh base."
+        sourceCitationId: src_wset_sf_bourgogne_grapes
+      ki_wset_sf_bourgogne_environment:
+        prompt: "A Crémant de Bourgogne house sources base fruit from northern Bourgogne and farther south near Beaujolais. Which harvest plan respects the appellation's breadth?"
+        options: ["Apply a common date because both sources bear the same name", "Use bottle pressure as the vineyard ripeness measurement", "Track exposure and acidity before setting each pick date", "Assume the southern source needs greater final dosage"]
+        correctIndex: 2
+        explanation: "The Crémant de Bourgogne press dossier describes a broad production area; site and season differences require parcel-specific maturity checks for sparkling base wine."
+        sourceCitationId: src_wset_sf_bourgogne_press
+      ki_wset_sf_bourgogne_styles:
+        prompt: "A house offers a fresh Crémant de Bourgogne and a longer-lees-aged bottling. How should a buyer explain the style difference before pricing them?"
+        options: ["Treat the longer-aged bottle as an automatic quality verdict", "Infer the dosage level from the length of cellar storage", "Attribute the difference to the appellation's grape restriction", "Compare blend, press fraction, lees time and finishing choice"]
+        correctIndex: 3
+        explanation: "The Bourgogne wine board describes multiple vinification and maturation choices; longer inventory time can add complexity and cost but does not settle preference."
+        sourceCitationId: src_wset_sf_bourgogne_make
+      ki_wset_sf_cap_environment:
+        prompt: "A South African Cap Classique producer reviews inland and coastal vineyard lots for a new base wine. Which inference from the method name is justified?"
+        options: ["Neither site is implied; test acidity and maturity in each lot", "Cap Classique grapes must come from the coastal vineyard parcel", "The method identifies the inland vineyard as less suitable", "Both lots share a fixed harvest date set by the category"]
+        correctIndex: 0
+        explanation: "Wines of South Africa discusses Cap Classique harvest decisions across different environments; earlier picking can retain acidity, while the method term does not locate a site."
+        sourceCitationId: src_wset_sf_cap_harvest
+      ki_wset_sf_cava_aging:
+        prompt: "A Cava buyer sees de Guarda, Reserva, Gran Reserva and Paraje Calificado. Which minimum bottle-age sequence matches the current protected categories?"
+        options: ["6, 12, 24 and 36 months respectively", "9, 18, 30 and 36 months respectively", "9, 15, 24 and 30 months respectively", "12, 18, 24 and 48 months respectively"]
+        correctIndex: 1
+        explanation: "The current Cava PDO specification and DO Cava guide prescribe minimum periods from tirage to disgorgement of 9, 18, 30 and 36 months for these categories."
+        sourceCitationId: src_wset_sf_cava_spec
+      ki_wset_sf_cava_cost:
+        prompt: "A Cava house holds a Gran Reserva longer on lees than its basic de Guarda release. Which budget line should the manager inspect first?"
+        options: ["A reduced need to handle sediment after fermentation", "An age category that sets a fixed retail premium", "Bottle storage, stock time and disgorgement work", "A lower grape requirement from the older-vineyard rules"]
+        correctIndex: 2
+        explanation: "The Cava rules require bottle fermentation, ageing and disgorgement; the longer storage period ties up stock and capacity, with price still dependent on other factors."
+        sourceCitationId: src_wset_sf_cava_spec
+      ki_wset_sf_cava_guarda:
+        prompt: "A grower proposes five-year-old conventionally farmed vines for a 2025-harvest Cava Reserva. What is the key Guarda Superior issue?"
+        options: ["Reserva has no source-vineyard condition once ageing is met", "Organic status matters but vineyard age is a tasting term", "The fruit qualifies if a long lees period compensates", "Certified organic and minimum-ten-year vines are required"]
+        correctIndex: 3
+        explanation: "The Cava specification requires Guarda Superior vineyards for Reserva and above to be at least ten years old and certified organic from the 2025 harvest."
+        sourceCitationId: src_wset_sf_cava_spec
+      ki_wset_sf_cava_sites:
+        prompt: "A tasting compares Cava bases from Penedès and another registered zone. Which statement about origin and ripening is defensible?"
+        options: ["Cava spans separate zones; assess each site's fruit balance", "Cava origin is a single compact Penedès vineyard area", "The protected name fixes one Mediterranean harvest climate", "Differences in acidity establish a different bubble method route"]
+        correctIndex: 0
+        explanation: "DO Cava lists four production zones rather than a single contiguous vineyard; elevation, site and harvest choices influence sparkling-base balance."
+        sourceCitationId: src_eac_cava
+      ki_wset_sf_champagne_cost:
+        prompt: "A Champagne producer explains a premium beyond grape cost. Which combination of production and market factors is plausible?"
+        options: ["Mechanised harvest and fixed public selling prices", "Hand harvest, selective pressing, bottle stock and demand", "Early bottle release without storage and uniform market pricing", "Residual sugar alone, without cellar or vineyard expenditure"]
+        correctIndex: 1
+        explanation: "The Champagne interprofessional body documents pressing and bottle maturation; manual harvest and tied-up stock add resources, while demand affects the eventual price."
+        sourceCitationId: src_spark_pressing
+      ki_wset_sf_champagne_cru:
+        prompt: "A Champagne label reads Grand Cru. A guest asks whether this guarantees a single-site wine and the best taste. Which answer is accurate?"
+        options: ["It names a plot with fixed cellar maturation", "It promises a unanimous tasting preference over Premier Cru", "It refers to commune origin; selection still matters", "It identifies the grape and dosage but leaves origin open"]
+        correctIndex: 2
+        explanation: "Champagne's official FAQ explains that cru status relates to historically qualifying communes; it is not a single vineyard rating or a tasting verdict."
+        sourceCitationId: src_wset_found_civc_faq
+      ki_wset_sf_champagne_districts:
+        prompt: "A blender seeks complementary Champagne base lots from several districts. Which grape association is a useful starting expectation rather than an exclusive rule?"
+        options: ["Meunier from Côte des Blancs and Chardonnay from Côte des Bar", "Pinot Noir from Côte de Sézanne and Meunier from Reims", "Chardonnay from Vallée de la Marne and Pinot Noir from Sézanne", "Chardonnay from Côte des Blancs; Meunier from Marne valley"]
+        correctIndex: 3
+        explanation: "The Champagne regional guide associates Chardonnay strongly with Côte des Blancs and Meunier with Vallée de la Marne, while actual blends can cross districts."
+        sourceCitationId: src_fr_atlas_champagne_areas
+      ki_wset_sf_champagne_white_black:
+        prompt: "A white Champagne is labelled Blanc de Noirs. What should a server say about the grape material without implying a red wine?"
+        options: ["It comes from dark-skinned Pinot Noir and/or Meunier", "It is made from white grapes with a dark bottle wrap", "It is a red sparkling Pinot with colour removed by dosage", "It requires Chardonnay blended with a small red-wine portion"]
+        correctIndex: 0
+        explanation: "Champagne's official FAQ defines Blanc de Noirs as made from black-skinned grapes and Blanc de Blancs from white grapes; pressing permits pale juice."
+        sourceCitationId: src_wset_found_civc_faq
+      ki_wset_sf_cremant_cellar_cost:
+        prompt: "A French sparkling producer compares a short-lees Crémant with a longer-held cuvée. Which cost and style estimate is defensible?"
+        options: ["Longer lees contact removes riddling and disgorgement work", "Longer holding may add complexity while tying up inventory", "Crémant origin alone establishes a uniform cellar-age cost", "A quick release needs more bottle storage than an aged lot"]
+        correctIndex: 1
+        explanation: "Regional Crémant accounts describe bottle fermentation and maturation; extra time can change style and storage costs, while the appellation alone does not fix price."
+        sourceCitationId: src_wset_sf_bourgogne_press
+      ki_wset_sf_loire_cremant:
+        prompt: "A buyer needs a Crémant de Loire rosé for a Chenin-led sparkling flight. Which production note is sound?"
+        options: ["The appellation is confined to Touraine and excludes red grapes", "Chenin determines rosé colour without any red-grape source", "The appellation spans several zones and uses bottle fermentation", "The style is a tank-fermented wine from a single Chenin district"]
+        correctIndex: 2
+        explanation: "InterLoire's appellation guide covers Crémant de Loire across Anjou, Saumur and Touraine, with Chenin among its grapes and traditional bottle fermentation."
+        sourceCitationId: src_fr_atlas_loire_guide
+      ki_wset_sf_newworld_spark_cost:
+        prompt: "A buyer compares traditional-method sparkling wine from Tasmania and California. Which price analysis is more reliable than assuming the cooler region wins?"
+        options: ["Use latitude to set the lees-ageing cost of both wines", "Infer final quality from a regional name before tasting", "Treat bottle fermentation as proof of equal vineyard expense", "Compare base-fruit source, cellar time, scale and demand"]
+        correctIndex: 3
+        explanation: "Wine Australia's sparkling guide describes cool base-fruit sourcing and production variation; maturation and scale affect costs, while region name alone cannot set quality or price."
+        sourceCitationId: src_wset_sf_au_spark
+      ki_wset_sf_port_age_label:
+        prompt: "A guest interprets 20 Years Old Tawny Port as a single harvest from twenty years ago. Which cellar explanation corrects the reading?"
+        options: ["It is a wood-aged blend targeted to a twenty-year character", "It is a dated vintage wine bottled after twenty years in cask", "It contains equal shares of ten- and thirty-year wines", "It is a bottle-aged Ruby whose oldest component sets the label"]
+        correctIndex: 0
+        explanation: "The IVDP describes age-indicated Tawny as blended to show the sensory character of the stated age, including categories beyond forty years; it is not a vintage date."
+        sourceCitationId: src_wset_sf_port_current
+      ki_wset_sf_port_autovinifier:
+        prompt: "During a short Port fermentation, an autovinifier cycles juice over the skins. What drives that circulation in the described design?"
+        options: ["The rise in cellar humidity moves liquid through a siphon", "Pressure from fermentation gas powers the recirculation", "Oak-barrel pressure is transferred into the vessel", "A punch-down plate forces skins below the liquid"]
+        correctIndex: 1
+        explanation: "The cited technical study describes a gas-pressure autovinifier: carbon dioxide generated during fermentation drives liquid recirculation for skin extraction."
+        sourceCitationId: src_wset_sf_port_automatic
+      ki_wset_sf_port_cost:
+        prompt: "A Port producer compares young Ruby with an age-indicated Tawny from steep Douro sites. Which cost comparison is sensible?"
+        options: ["The young Ruby carries greater evaporation loss by definition", "Mechanised extraction removes equipment and labour budgets", "Long Tawny holding adds cellar stock and evaporation exposure", "A steep Douro source sets the same retail price for both"]
+        correctIndex: 2
+        explanation: "IVDP describes demanding Douro vineyard work, while Tawny maturation holds stock in cask with volume loss; market demand still shapes the final selling price."
+        sourceCitationId: src_wset_sf_port_vine
+      ki_wset_sf_port_grapes:
+        prompt: "A Port blender has Touriga Nacional, Touriga Franca and Tinta Roriz lots with differing aroma and structure. Which blending rationale fits the region?"
+        options: ["Choose a single grape so the protected name remains valid", "Blend to neutralise skin-derived colour before fortifying", "Use varieties interchangeably because their tannin is uniform", "Combine complementary fruit, floral and structural traits"]
+        correctIndex: 3
+        explanation: "Taylor's Port production account describes key Douro grapes and blending their complementary properties; the protected style does not require one variety."
+        sourceCitationId: src_wset_sf_port_taylor
+      ki_wset_sf_port_mechanical:
+        prompt: "A winery replaces foot treading with a robotic lagar for Port extraction. Which trial result would justify keeping the machine?"
+        options: ["Comparable extraction with controllable pressure and labour", "A consistently superior wine due to the automated equipment", "A finished Tawny profile produced during the short fermentation", "Elimination of maintenance and cellar-monitoring requirements"]
+        correctIndex: 0
+        explanation: "The robotic-lagar study evaluates mechanical extraction and process control as substitutes for some manual treading; finished balance must still be assessed."
+        sourceCitationId: src_wset_sf_port_robotic
+      ki_wset_sf_prosecco_cost:
+        prompt: "Two Glera sparklers use tank fermentation, but one draws on steep Conegliano Valdobbiadene vineyards. Which price comparison is credible?"
+        options: ["Equal tank method implies equal vineyard labour per bottle", "Steep hand-worked fruit may add cost despite tank efficiency", "DOCG origin establishes a fixed mark-up above DOC bottlings", "The hill-grown bottle needs extended individual lees storage"]
+        correctIndex: 1
+        explanation: "The Conegliano Valdobbiadene consortium describes labour-intensive steep slopes; tank production may be efficient, but vineyard source and market factors still differ."
+        sourceCitationId: src_wset_sf_prosecco_academy
+      ki_wset_sf_prosecco_environment:
+        prompt: "A Prosecco producer expects a warm summer followed by cooler nights. Which Glera harvest concern follows from the regional climate account?"
+        options: ["Warmth itself supplies the carbon dioxide for the final wine", "Night cooling makes fruit condition irrelevant to the blend", "Check aroma development and acidity as the season changes", "Use Alpine shelter to infer the final dosage category"]
+        correctIndex: 2
+        explanation: "The Prosecco production rules describe temperate growing conditions with Alpine and Adriatic influence; harvest timing balances Glera ripeness and freshness."
+        sourceCitationId: src_wset_sf_prosecco_rules
+      ki_wset_sf_prosecco_hills:
+        prompt: "A buyer attributes Conegliano Valdobbiadene Prosecco Superiore's higher production expense entirely to its tank fermentation. What factor merits attention?"
+        options: ["The requirement for individual bottle riddling on each lot", "The appellation's mandatory long bottle lees ageing", "A prescribed price supplement for the DOCG name", "Steep slopes that demand extensive vineyard hand work"]
+        correctIndex: 3
+        explanation: "The DOCG consortium describes steep, diverse hills and labour-intensive vineyard work, which can raise grape-growing cost independently of tank fermentation."
+        sourceCitationId: src_wset_sf_prosecco_academy
+      ki_wset_sf_rutherglen_climate:
+        prompt: "A Rutherglen Muscat parcel stays healthy into a long, dry autumn. Which fruit and process sequence best fits the regional style?"
+        options: ["Brown Muscat may concentrate sugar, then stop fermentation", "Cool rainy autumn keeps berries dilute until dry fermentation", "Pinot Noir loses colour, then dosage creates Muscat aroma", "Early harvest limits sugar, followed by bottle fermentation"]
+        correctIndex: 0
+        explanation: "Wine Australia's Rutherglen profile and the Muscat regional guide describe hot-season ripening, possible berry shrivelling and fortification that retains grape sugar."
+        sourceCitationId: src_wset_sf_rutherglen
+      ki_wset_sf_rutherglen_tiers:
+        prompt: "A sommelier compares Classic, Grand and Rare Rutherglen Muscat. How should the tier progression be introduced?"
+        options: ["As single-vintage wines at prescribed exact ages", "As blends with rising mature richness and complexity", "As sweetness bands determined by residual sugar alone", "As a ranking of vineyards without a role for cellar stocks"]
+        correctIndex: 1
+        explanation: "The Muscat of Rutherglen regional body describes four style tiers, from Rutherglen through Rare, with broadly rising concentration and mature complexity from blending."
+        sourceCitationId: src_wset_sf_muscat_brochure
+      ki_wset_sf_saumur_spark:
+        prompt: "A Saumur sparkling producer chooses a Chenin-led acidic base and ages it in limestone cellars. Which further decision may shape the finished palate?"
+        options: ["The soil name fixes sweetness once the grapes are pressed", "Chenin makes dosage and lees maturation redundant", "Blend, lees duration and dosage remain consequential", "Limestone ageing replaces bottle secondary fermentation"]
+        correctIndex: 2
+        explanation: "InterLoire describes Saumur's Chenin-based traditional sparkling route and cellar setting; blending, lees time and dosage influence the finished balance."
+        sourceCitationId: src_fr_atlas_loire_guide
+      ki_wset_sf_sekt_cost:
+        prompt: "A German buyer compares inexpensive tank Sekt and an estate Winzersekt. Which budget difference is likely for the latter?"
+        options: ["Less bottle handling because second fermentation stays in tank", "A statutory retail premium arising from the Sekt name", "Reduced inventory time because yeast contact is omitted", "Bottle fermentation, lees storage and sediment removal"]
+        correctIndex: 3
+        explanation: "The German Wine Institute describes Winzersekt's traditional bottle fermentation and at least nine months on lees, with riddling and disgorgement operations."
+        sourceCitationId: src_wset_sf_winzersekt
+      ki_wset_sf_sekt_environment:
+        prompt: "A grower in a northern German Riesling site targets a sparkling base rather than a ripe still wine. Which site-and-harvest reasoning is sound?"
+        options: ["Sunny exposure helps ripening; pick while acidity suits the base", "High acidity proves the wine came from imported Sekt grapes", "The Sekt label identifies the site's slope and its full growing season", "A late still-wine harvest is needed for a Riesling base"]
+        correctIndex: 0
+        explanation: "The German Wine Institute describes Riesling's slow ripening and acidity; exposed sites and harvest timing can provide a fresh German sparkling base."
+        sourceCitationId: src_wset_sf_riesling
+      ki_wset_sf_sekt_method:
+        prompt: "A restaurant groups all Sekt with a Winzersekt labelled traditional bottle fermentation. Which cellar distinction should the staff retain?"
+        options: ["Sekt follows the estate's bottle route by definition", "Winzersekt specifies that bottle route; broader Sekt varies", "Winzersekt means carbonation after a finished still wine", "The Riesling grape mandates one secondary-fermentation method"]
+        correctIndex: 1
+        explanation: "DWI's Sekt guide distinguishes broader Sekt production routes from Winzersekt, which it defines through traditional bottle fermentation and estate production."
+        sourceCitationId: src_ce_districts
+      ki_wset_sf_sekt_origin:
+        prompt: "A sparkling label says Deutscher Sekt, while another simply says Sekt bottled in Germany. Which origin inference is valid?"
+        options: ["Both labels establish the same specified-region grape origin", "The bottling address establishes German grape origin", "Deutscher Sekt points to German base wine; Sekt does not", "Deutscher Sekt also certifies traditional bottle fermentation"]
+        correctIndex: 2
+        explanation: "The German Wine Institute's Sekt guide states that Deutscher Sekt is made in Germany from German base wine; Sekt alone does not make that origin claim."
+        sourceCitationId: src_ce_districts
+      ki_wset_sf_sherry_climate:
+        prompt: "A Jerez grower faces a spell of hot, dry Levante after a milder Atlantic Poniente period. Which vineyard response is relevant?"
+        options: ["Treat both winds as the same moisture influence", "Infer the later flor maturation route from wind direction alone", "Increase cellar ullage to counter vineyard dryness", "Review water stress and grape condition during Levante"]
+        correctIndex: 3
+        explanation: "The Sherry regulatory council describes the moderating moist Poniente and drying Levante in the hot Jerez area; cellar ageing choices remain separate."
+        sourceCitationId: src_wset_sf_sherry_vine
+      ki_wset_sf_sherry_cost:
+        prompt: "A Sherry house considers extending cask maturation for a solera bottling. Which cost projection should be included?"
+        options: ["Additional stock time, cask care and evaporation loss", "Immediate release because a solera removes cellar ageing", "A single-vintage label replacing blending operations", "An appellation-fixed retail price covering the extra time"]
+        correctIndex: 0
+        explanation: "The Sherry council describes dynamic cask ageing, withdrawals and refreshment; longer maturation keeps inventory in cellar and exposes it to evaporative loss."
+        sourceCitationId: src_fort_sherry_ageing
+      ki_wset_sf_sherry_current_route:
+        prompt: "A trainee says every protected dry Jerez wine must receive grape spirit. Which response reflects the current 2026 specification?"
+        options: ["Dry Jerez is outside the protected specification", "Wine and liqueur-wine routes are included; check the lot", "Spirit is mandatory for dry styles but absent from sweet styles", "The label's flor or oxidative term proves the exact spirit addition"]
+        correctIndex: 1
+        explanation: "The 2026 Jerez specification includes wine and liqueur-wine categories; traditional fortification remains common, but an individual dry protected wine's route needs verification."
+        sourceCitationId: src_es_iberian_jerez_spec
+      ki_wset_sf_sherry_manzanilla:
+        prompt: "A buyer compares Fino from Jerez and Manzanilla from Sanlúcar. What additional place-and-ageing link should inform the latter's explanation?"
+        options: ["Manzanilla is an oxidative sweet style made in Jerez", "Sanlúcar origin matters but biological ageing is optional", "Sanlúcar's humid maritime setting supports flor ageing", "The river setting requires higher dosage after maturation"]
+        correctIndex: 2
+        explanation: "The Sherry council identifies Manzanilla as dry biologically aged wine in Sanlúcar, where Atlantic, river and wetland influences favour flor."
+        sourceCitationId: src_wset_sf_manzanilla
+      ki_wset_sf_sherry_palo_cortado:
+        prompt: "A customer asks whether Palo Cortado is a sweet accidental blend. Which cellar description is better grounded?"
+        options: ["A sweet Fino made by adding concentrated grape must", "A biologically aged wine kept under uninterrupted flor", "A red wine with bottle-aged oxidative character", "A dry wine with oxidative maturation after early flor"]
+        correctIndex: 3
+        explanation: "The Sherry council describes Palo Cortado as dry, with an initial biological phase followed by oxidative ageing and an Amontillado-like nose with Oloroso body."
+        sourceCitationId: src_wset_sf_palo_cortado
+      ki_wset_sf_vouvray_environment:
+        prompt: "A Vouvray Chenin estate weighs a sweet still harvest against a sparkling base in a favourable autumn. Which allocation follows from the two style objectives?"
+        options: ["Reserve ripe fruit for sweet wine; pick fresh base fruit", "Pick both lots at the same sugar because region fixes style", "Use more sugar to secure bubbles before tirage", "Let oceanic influence replace parcel-level maturity checks"]
+        correctIndex: 0
+        explanation: "InterLoire describes Vouvray's variable vintage conditions and both still and sparkling Chenin; harvest decisions differ for concentrated sweet fruit and fresh sparkling base."
+        sourceCitationId: src_fr_atlas_loire_guide
+      ki_wset_sf_vouvray_spark:
+        prompt: "A diner sees Vouvray on a list and assumes it is sweet still wine. Which production detail must be checked for a sparkling bottling?"
+        options: ["Whether Chenin had red-grape skin contact", "Bottle fermentation, lees age and finished sweetness", "Whether the appellation name sets a minimum oak-barrel age", "The still-wine harvest sugar as the finished dosage figure"]
+        correctIndex: 1
+        explanation: "InterLoire describes traditional-method Chenin sparkling Vouvray alongside still styles; lees and dosage influence a particular bottle's character and sweetness."
+        sourceCitationId: src_fr_atlas_loire_guide
+      ki_wset_sf_yarra_spark:
+        prompt: "A Yarra Valley producer offers Chardonnay and Pinot Noir from cooler sites for a traditional sparkling cuvée. What should the blender assess next?"
+        options: ["Assume the valley name guarantees identical acid in each lot", "Wait for high still-red ripeness in the Pinot Noir base", "Measure the lots' maturity and acidity before blending", "Infer lees-ageing time from the grape names alone"]
+        correctIndex: 2
+        explanation: "Wine Australia's sparkling guide identifies cool Yarra Chardonnay and Pinot Noir sources; grape selection and later bottle maturation determine the actual cuvée."
+        sourceCitationId: src_wset_sf_au_spark

@@ -1,0 +1,410 @@
+# Forty bounded, source-linked Level 3 production decisions. Pending qualified review.
+question_templates:
+- id: qt_wset_l3_winemaking_principle_closure_40
+  relation_type: PRINCIPLE_EXPLANATION
+  direction: forward
+  mode: authored_choice
+  variant: wset_l3_winemaking_principle_closure_40
+  prompt_template: '{subject.name}'
+  parameters:
+    item_choices:
+      ki_fault_chemical_oxidation:
+        prompt: A finished wine develops acetaldehyde after phenolics react with oxygen. Which intermediate can connect the two changes?
+        options:
+        - Carbon dioxide produced by residual yeast
+        - Hydrogen peroxide formed during phenolic oxidation
+        - Malic acid later released during bacterial fermentation
+        - Glycerol produced during primary fermentation
+        correctIndex: 1
+        explanation: Iowa State describes hydrogen peroxide from phenolic oxidation as a route to ethanol oxidation and acetaldehyde; this is distinct from enzymatic must browning.
+        sourceCitationId: src_fault_oxidation_dangers
+      ki_fault_mercaptans:
+        prompt: A cellar note calls a volatile sulfur compound a mercaptan. Which chemical family does that name identify?
+        options:
+        - Aldehydes with a carbonyl group
+        - Esters with an oxygen linkage
+        - Thiols with a sulfhydryl group
+        - Phenols with an aromatic ring
+        correctIndex: 2
+        explanation: AWRI identifies mercaptans as thiols containing an SH group; thiols can be unwanted sulfur notes or desirable aroma compounds, depending on the compound.
+        sourceCitationId: src_fault_sulfur
+      ki_fort_madeira_concentration:
+        prompt: A Madeira cask loses volume during warm maturation. What change can evaporation cause in the wine that remains?
+        options:
+        - Non-volatile constituents can become more concentrated
+        - The evaporated fraction later replaces the lost grape sugar
+        - The remaining wine automatically becomes less intense
+        - The wine regains volume through later oxidation
+        correctIndex: 0
+        explanation: The Madeira wine institute describes volume loss during warm cask ageing; loss of liquid can concentrate constituents left behind, requiring cellar management.
+        sourceCitationId: src_fort_madeira_practices
+      ki_fort_madeira_locations:
+        prompt: A canteiro-aged Madeira is losing volume rapidly in a warm warehouse. Which cellar move addresses the cited loss mechanism?
+        options:
+        - Move every cask to a hotter upper level
+        - Leave the cask open to renew oxygen contact
+        - Reduce vessel size to enlarge surface exposure
+        - Move casks to cooler storage or larger vessels
+        correctIndex: 3
+        explanation: The Madeira practice reference describes moving maturing wine to cooler areas and sometimes larger vessels to manage evaporative losses.
+        sourceCitationId: src_fort_madeira_practices
+      ki_fort_madeira_rest:
+        prompt: A Madeira lot has completed estufagem. What remains before it is judged ready for bottling?
+        options:
+        - Immediate bottling directly while the wine remains hot
+        - A resting period followed by finishing assessment
+        - Another grape harvest blended into every lot
+        - A second alcoholic fermentation in bottle
+        correctIndex: 1
+        explanation: IVBAM describes a resting stage after heating and later assessment and finishing; the end of estufagem is not itself a bottling verdict.
+        sourceCitationId: src_fort_madeira_process
+      ki_fort_port_colheita:
+        prompt: A buyer compares Colheita Port with a usual aged Tawny blend. Which vintage-and-ageing description fits Colheita?
+        options:
+        - Multiple harvest years, matured mainly in bottle
+        - Multiple harvest years, matured mainly in cask
+        - One harvest year, matured in cask before release
+        - One harvest year, bottled before any cask ageing
+        correctIndex: 2
+        explanation: IVDP distinguishes single-harvest Colheita in the cask-aged Tawny family from the usual multi-year Tawny blend.
+        sourceCitationId: src_fort_port_intro
+      ki_fort_port_lbv:
+        prompt: Two LBV Ports have different producer bottling guidance. Which conclusion about later bottle development is safest?
+        options:
+        - Most are ready on purchase; some can develop further
+        - Every LBV needs decades in bottle before opening
+        - Bottle development depends only on the printed vintage year
+        - No LBV can change after the bottling date
+        correctIndex: 0
+        explanation: IVDP says most LBV is ready when purchased while some continues to develop in bottle, so check the particular wine's guidance.
+        sourceCitationId: src_fort_port_categories
+      ki_fort_port_sugar:
+        prompt: A Port producer wants to retain more natural grape sugar. Which production decision most directly sets that residual-sugar level?
+        options:
+        - The colour of the cask used after fermentation
+        - The age of the finished bottle at service
+        - The number of vineyards in the final blend
+        - The time grape spirit interrupts fermentation
+        correctIndex: 3
+        explanation: IVDP explains that adding grape spirit stops fermentation; its timing changes how much grape sugar has already fermented.
+        sourceCitationId: src_fort_port_intro
+      ki_fort_port_vintage:
+        prompt: A single-harvest Port is selected for substantial post-release evolution. Which maturation route fits Vintage Port?
+        options:
+        - Long cask ageing alone replaces later bottle development
+        - Continuous transfer between solera age scales
+        - Relatively early bottling followed by bottle ageing
+        - Warm estufagem before long barrel maturation
+        correctIndex: 2
+        explanation: IVDP describes Vintage Port as developing substantially in bottle after early bottling, unlike cask-developed Tawny styles released ready to drink.
+        sourceCitationId: src_fort_port_categories
+      ki_fort_port_white_dry:
+        prompt: A White Port lot is intended to finish drier. What does allowing fermentation to continue longer before fortification do?
+        options:
+        - Adds more grape sugar during spirit addition
+        - Converts more grape sugar before it is stopped
+        - Prevents yeast from consuming any grape sugar at all
+        - Makes cask evaporation the only sugar control
+        correctIndex: 1
+        explanation: IVDP describes longer fermentation for drier White Port; more grape sugar is consumed before spirit stops the fermentation.
+        sourceCitationId: src_fort_port_making
+      ki_fort_ruth_casks:
+        prompt: In Chambers' cited Rutherglen Muscat process, which vessel choice supports maturation without making new-oak flavour the chief aim?
+        options:
+        - Newly charred small barrels for strong oak extract
+        - Sealed steel tanks without cask ageing
+        - Bottles used instead of a cask maturation stage
+        - Old, large casks used for the ageing period
+        correctIndex: 3
+        explanation: The Chambers technical sheet states that its Rutherglen Muscat is transferred to old, large casks for ageing; this is a producer example.
+        sourceCitationId: src_fort_rutherglen_making
+      ki_fort_ruth_classification:
+        prompt: A Rutherglen Muscat has spent many years in cask. Why is age alone insufficient to assign its regional style tier?
+        options:
+        - Richness, complexity and flavour intensity also matter
+        - The oldest cask always becomes the top category
+        - Only grape colour determines its final classification
+        - Classification uses bottle shape instead of wine style
+        correctIndex: 0
+        explanation: Chambers describes a progression in richness, complexity and flavour intensity, with age a clue rather than the sole classification test.
+        sourceCitationId: src_fort_rutherglen_classes
+      ki_fort_ruth_parcels:
+        prompt: Chambers keeps Rutherglen Muscat vineyard and vintage lots apart at first. What blending opportunity does this preserve?
+        options:
+        - Force every parcel into a single-vintage release
+        - Assess separate parcels before composing a blend
+        - Ensure all parcels receive identical cask ageing
+        - Remove the need to taste individual cask samples
+        correctIndex: 1
+        explanation: The Chambers technical sheet describes individual parcels and later bench trials; separation permits selection for a final blend.
+        sourceCitationId: src_fort_rutherglen_making
+      ki_fort_ruth_spirit:
+        prompt: Why does Chambers use neutral grape spirit when stopping partial fermentation of its Rutherglen Muscat?
+        options:
+        - To create new-oak spice in the wine
+        - To restart yeast fermentation after the cask stage
+        - To retain an expressive Muscat-fruit character
+        - To remove all of the grapes' remaining natural sugar
+        correctIndex: 2
+        explanation: Chambers describes neutral spirit stopping fermentation while allowing Muscat fruit to remain expressive; it is a producer-specific technique.
+        sourceCitationId: src_fort_rutherglen_making
+      ki_fort_ruth_sugar:
+        prompt: Which paired choices explain the natural sweetness of the Chambers Rutherglen Muscat described in its technical sheet?
+        options:
+        - Ripe high-sugar grapes and partial fermentation
+        - Low-sugar grapes and fermentation to dryness
+        - Dry base wine and a later sugarless cask topping-up
+        - Early-harvest fruit and full sugar conversion
+        correctIndex: 0
+        explanation: Chambers cites ripe, high-sugar fruit and only partial fermentation before fortification, leaving substantial natural grape sugar.
+        sourceCitationId: src_fort_rutherglen_making
+      ki_fort_ruth_youthful_blend:
+        prompt: What is Pfeiffer's stated blending aim for its foundation Rutherglen Muscat bottling?
+        options:
+        - Emphasise mature oxidative notes over young aromas
+        - Retain only one harvest's varietal expression
+        - Highlight new-oak spice over Muscat fruit character
+        - Balance fresh youthful fruit with cask complexity
+        correctIndex: 3
+        explanation: Pfeiffer describes blending cask-aged parcels for youthful freshness alongside complexity and concentration; this is its house style.
+        sourceCitationId: src_fort_rutherglen_pfeiffer
+      ki_fort_sherry_acetaldehyde:
+        prompt: A flor-aged Sherry shows a pungent aroma associated with biological ageing. Which compound is linked to flor metabolism?
+        options:
+        - Malic acid from the grapes
+        - Potassium bitartrate crystals
+        - Anthocyanins from red skins
+        - Acetaldehyde formed by flor
+        correctIndex: 3
+        explanation: The Sherry Consejo explains that flor metabolism forms acetaldehyde, which contributes to the pungent aroma of biologically aged wine.
+        sourceCitationId: src_fort_sherry_flor1
+      ki_fort_sherry_amontillado:
+        prompt: A Sherry begins ageing under flor and later continues without that veil. Which style follows this sequence?
+        options:
+        - Fino with flor protection throughout the ageing period
+        - Amontillado with biological then oxidative ageing
+        - Oloroso with biological ageing only
+        - Pedro Ximenez with bottle fermentation
+        correctIndex: 1
+        explanation: The Sherry Consejo describes Amontillado as undergoing biological ageing first, followed by an oxidative phase.
+        sourceCitationId: src_fort_sherry_amontillado
+      ki_fort_sherry_cream:
+        prompt: Which blending route commonly gives Cream Sherry its sweetness?
+        options:
+        - Mix Fino with a dry, unfortified white wine
+        - Add carbonation to an unsweetened Oloroso
+        - Blend an oxidatively aged dry wine with sweet wine
+        - Let flor ferment every last gram of sugar in the final wine
+        correctIndex: 2
+        explanation: The Sherry Consejo describes a common Cream route combining oxidatively aged dry wine, often Oloroso, with a naturally sweet component such as PX.
+        sourceCitationId: src_fort_sherry_cream
+      ki_fort_sherry_flor_ethanol:
+        prompt: During Sherry's biological ageing, flor uses oxygen to oxidise which wine alcohol into acetaldehyde?
+        options:
+        - Ethanol already present in the wine
+        - Glycerol from the grape skins
+        - Methanol added during fortification
+        - Lactic acid from malolactic conversion
+        correctIndex: 0
+        explanation: The Sherry Consejo describes flor using ethanol and oxygen to form acetaldehyde; that process differs from yeast sugar fermentation.
+        sourceCitationId: src_fort_sherry_flor1
+      ki_fort_sherry_glycerol:
+        prompt: A biologically aged Sherry tastes comparatively lean. Which flor activity can contribute to that texture?
+        options:
+        - Flor makes glycerol from new grape sugar
+        - Flor consumes some of the wine's glycerol
+        - Flor precipitates all grape tannins as tartrate
+        - Flor converts alcohol directly into grape sugar
+        correctIndex: 1
+        explanation: The Sherry Consejo notes that flor consumes glycerol among other wine components, helping explain the leaner impression of biological ageing.
+        sourceCitationId: src_fort_sherry_flor1
+      ki_fort_sherry_px:
+        prompt: A Pedro Ximenez Sherry maker wants concentrated sugar before pressing. Which grape treatment is used in the cited route?
+        options:
+        - Freeze dry wine after yeast fermentation
+        - Warm the finished wine in a sealed tank
+        - Blend dry base with sparkling wine
+        - Sun-dry ripe grapes towards raisins
+        correctIndex: 3
+        explanation: The Sherry Consejo describes asoleo, sun-drying ripe PX grapes to concentrate sugars before pressing and fortification.
+        sourceCitationId: src_fort_sherry_px
+      ki_fort_sherry_saca:
+        prompt: A Sherry solera is being prepared for bottling. From which age scale is the saca taken?
+        options:
+        - The newest criadera before it enters the system
+        - A random blend taken evenly from every criadera
+        - The oldest solera scale before replenishment
+        - Fresh base wine before cask ageing
+        correctIndex: 2
+        explanation: The Sherry Consejo describes saca from the oldest solera scale, then replenishment from progressively younger criaderas.
+        sourceCitationId: src_fort_sherry_ageing
+      ki_fort_sherry_solera:
+        prompt: What is the blending purpose of partial withdrawals and refreshments in a criaderas-and-solera system?
+        options:
+        - Combine wines across successive ageing stages
+        - Preserve each harvest in a separate sealed bottle
+        - Remove oxygen by single filling
+        - Produce carbonation through second fermentation
+        correctIndex: 0
+        explanation: The Sherry Consejo describes partial saca and rocío moving wine among age scales, mixing stages and supporting a consistent house expression.
+        sourceCitationId: src_fort_sherry_ageing
+      ki_fort_sherry_ullage:
+        prompt: A butt intended for flor ageing is left partly unfilled. What does that air space make possible?
+        options:
+        - Full suppression of all yeast at the surface
+        - A wine surface with oxygen access for flor
+        - Immediate carbonation from retained gas
+        - Complete removal of evaporative losses
+        correctIndex: 1
+        explanation: The Sherry Consejo describes partly filled butts giving flor a wine surface and oxygen access; filling to the brim would undermine this aim.
+        sourceCitationId: src_fort_sherry_ageing
+      ki_fort_vdn_marc:
+        prompt: In a red Roussillon VDN, spirit is added while skins remain, followed by further maceration. What does this route favour?
+        options:
+        - Removing all red-skin pigment before fermentation
+        - Protecting the juice from every phenolic compound
+        - Extracting colour, flavour and structure on the marc
+        - Creating bubbles from a second fermentation stage in bottle
+        correctIndex: 2
+        explanation: CIVR describes mutage on the marc and later maceration in the fortified medium as a way to develop colour and structure.
+        sourceCitationId: src_fort_vdn_process
+      ki_fort_vdn_young:
+        prompt: A Muscat de Rivesaltes is planned for fresh, early release. Which maturation aim best fits that brief?
+        options:
+        - Seek long oxidative ageing for walnut aromas
+        - Maximise air exposure to darken its colour
+        - Extend warm cask ageing over years before bottling
+        - Preserve the grape's youthful aromatic profile
+        correctIndex: 3
+        explanation: CIVR contrasts young Muscat de Rivesaltes with oxidative VDN maturation; early bottling can preserve a fresh Muscat expression.
+        sourceCitationId: src_fort_vdn_process
+      ki_spark_agitation:
+        prompt: A sparkling bottle is shaken after opening and loses fizz quickly. What has the agitation accelerated?
+        options:
+        - Escape of dissolved carbon dioxide from wine
+        - Creation of new gas from residual grape sugar
+        - Conversion of gas into dissolved tartaric acid
+        - Loss of yeast lees through the closed bottle
+        correctIndex: 0
+        explanation: Iowa State explains that agitation releases dissolved CO2; the visible bubbles are gas leaving solution.
+        sourceCitationId: src_spark_carbon_dioxide
+      ki_spark_ancestral:
+        prompt: An ancestral-method wine is bottled before its original fermentation has finished. Where do its bubbles come from?
+        options:
+        - A separate tirage fermentation after the first one ends
+        - The original fermentation continuing in the bottle
+        - External CO2 injected into dry still base wine
+        - Oxidative cask ageing before wine is transferred
+        correctIndex: 1
+        explanation: Troon's ancestral-method example is bottled with fermentation still underway, retaining the CO2 from that original fermentation.
+        sourceCitationId: src_spark_ancestral
+      ki_spark_ancestral_disgorge:
+        prompt: An ancestral-method wine has completed its original fermentation in bottle. Which finishing step is compatible with a documented producer example?
+        options:
+        - Tank filtration before any bottle fermentation begins
+        - Riddling prohibited once bottle fermentation ends
+        - Hand disgorgement after a period on bottle lees
+        - Injected carbonation before disgorgement begins
+        correctIndex: 2
+        explanation: Troon documents hand disgorgement after bottle ageing in its ancestral-method wine, so retained sediment is not inherent to the method.
+        sourceCitationId: src_spark_ancestral
+      ki_spark_base_alcohol:
+        prompt: A sparkling producer plans a second alcoholic fermentation. Why might it choose a lower-alcohol base wine?
+        options:
+        - The base needs no grape acidity
+        - Later filtration removes all of the original alcohol
+        - Bottle ageing converts most alcohol into sugar
+        - The second fermentation will add some alcohol
+        correctIndex: 3
+        explanation: Wolf Blass describes base-wine selection before secondary fermentation; that later fermentation increases alcohol, so the base target allows for it.
+        sourceCitationId: src_spark_base_wine
+      ki_spark_carbonation:
+        prompt: What supplies the fizz in a wine made by direct force carbonation?
+        options:
+        - Carbon dioxide introduced from an external supply
+        - CO2 from an obligatory later bottle yeast fermentation
+        - CO2 made only by malolactic bacteria in cask
+        - Gas extracted from grape skins during pressing
+        correctIndex: 0
+        explanation: Iowa State describes carbonation as introducing CO2 directly into wine, unlike capturing gas from a new alcoholic fermentation.
+        sourceCitationId: src_spark_carbon_dioxide
+      ki_spark_carbonation_fermentation:
+        prompt: A finished still base wine is force-carbonated. Which step is not required by carbonation itself?
+        options:
+        - Adding gas under pressure to the wine
+        - Conducting another alcoholic fermentation
+        - Retaining dissolved CO2 before service
+        - Packaging the sparkling wine in bottle afterward
+        correctIndex: 1
+        explanation: Directly adding CO2 does not itself require a second yeast fermentation; any earlier lees character depends on prior base-wine handling.
+        sourceCitationId: src_spark_carbon_dioxide
+      ki_spark_multivintage:
+        prompt: A sparkling house wants complementary base-wine characters from more than one harvest. Which blend permits that?
+        options:
+        - A bottling made from one declared harvest only, in bottle
+        - A cask topped with wine from one harvest only
+        - A non-vintage blend using multiple harvest years
+        - A base wine made without any blending trials
+        correctIndex: 2
+        explanation: Wolf Blass contrasts single-vintage and non-vintage blends; non-vintage production can combine base wines from different years.
+        sourceCitationId: src_spark_base_wine
+      ki_spark_tank_filter:
+        prompt: A clear tank-method sparkling wine has completed its second fermentation in bulk. How is yeast commonly removed before bottling?
+        options:
+        - Riddle and disgorge each filled bottle
+        - Leave the yeast in the final clear bottle
+        - Let every cask settle without separation
+        - Filter the wine while it is still in bulk
+        correctIndex: 3
+        explanation: Australian Wine describes filtration before tank-method bottling; individual-bottle riddling is not part of that clear tank route.
+        sourceCitationId: src_spark_australian_methods
+      ki_spark_transfer_bottle:
+        prompt: A producer chooses the transfer method for sparkling wine. Where does its second fermentation occur before bulk finishing?
+        options:
+        - Only in a pressurised fermentation tank
+        - In individual bottles before transfer to tank
+        - In an open still-wine vat before bottling
+        - In casks after the finished wine is disgorged
+        correctIndex: 1
+        explanation: Australian Wine describes bottle secondary fermentation followed by transfer to tank for finishing in the transfer method.
+        sourceCitationId: src_spark_australian_methods
+      ki_spark_transfer_lees:
+        prompt: A transfer-method wine is moved from bottles into tank for finishing. What earlier maturation feature can it retain?
+        options:
+        - Lees contact during its bottle-ageing stage
+        - A compulsory solera ageing stage in cask
+        - Ancestral fermentation left unfinished
+        - Carbonation injected after transfer to tank
+        correctIndex: 0
+        explanation: Australian Wine describes transfer after bottle lees ageing; later bulk finishing does not undo that earlier contact.
+        sourceCitationId: src_spark_australian_methods
+      ki_wset_close_pump_over:
+        prompt: A red-wine cap floats above the fermenting liquid. Which operation describes a pump over?
+        options:
+        - Push skins down mechanically into the liquid
+        - Drain all wine and discard the floating solids early
+        - Draw liquid from below and return it over the cap
+        - Inject CO2 through the cap to end fermentation
+        correctIndex: 2
+        explanation: The Winemakers Research Exchange describes drawing fermenting liquid from below and passing it over the cap, renewing liquid-skin contact.
+        sourceCitationId: src_wset_close_cap
+      ki_wset_close_punch_down:
+        prompt: A winemaker wants to renew red-skin contact without pumping liquid over the top. Which cap operation fits?
+        options:
+        - Transfer clear wine away from the floating cap
+        - Press all skins immediately before fermentation starts
+        - Filter the must while skins float above it
+        - Push the floating cap down into fermenting liquid
+        correctIndex: 3
+        explanation: The Winemakers Research Exchange distinguishes punch-down submersion from circulating liquid over the cap; extraction depends on timing and intensity.
+        sourceCitationId: src_wset_close_cap
+      ki_reg_fr_climat_separate:
+        prompt: A Bourgogne producer compares fruit from two named Climats. Which cellar practice best preserves their site comparison?
+        options:
+        - Combine all fruit before recording its source
+        - Vinify each Climat separately before assessing blends
+        - Assign the same sensory quality to every parcel
+        - Use one barrel type as proof of identical terroir between sites
+        correctIndex: 1
+        explanation: BIVB describes separate Climat vinification; vintage and producer choices still affect how the sites are expressed.
+        sourceCitationId: src_reg_fr_climats

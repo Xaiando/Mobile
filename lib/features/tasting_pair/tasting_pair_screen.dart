@@ -260,7 +260,7 @@ class _TastingPairScreenState extends ConsumerState<TastingPairScreen> {
                       ],
                       if (attempt == null) ...[
                         const Text(
-                          'Prepare two wines with their identities hidden. Label the glasses Wine 1 and Wine 2. Both share 30 minutes; the timer continues when the app is closed.',
+                          'Prepare two still wines with their identities hidden: one white and one red, in either order. Label the glasses Wine 1 and Wine 2. Both share 30 minutes; the timer continues when the app is closed. Other pairs remain useful practice, but only a completed white-and-red pair counts toward the Level 3 app milestone.',
                         ),
                         const SizedBox(height: 16),
                         FilledButton(
@@ -279,6 +279,12 @@ class _TastingPairScreenState extends ConsumerState<TastingPairScreen> {
                           Text(
                             '${attempt.completeWineCount} of 2 wines have every required observation and evidence prompt. This records completeness only.',
                           ),
+                          if (attempt.completeWineCount == 2)
+                            Text(
+                              attempt.hasWhiteAndRedWines
+                                  ? 'This recorded white-and-red pair counts toward the Level 3 app practice milestone.'
+                                  : 'This pair remains saved practice. The Level 3 app practice milestone needs one recorded white wine and one recorded red wine.',
+                            ),
                           const Text(
                             'Review whether your quality and ageing conclusions follow from your observations. An educator or tasting partner can discuss the physical wines with you.',
                           ),

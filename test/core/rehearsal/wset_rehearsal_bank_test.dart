@@ -38,6 +38,7 @@ void main() {
       'service': 4,
     },
   };
+  const writtenBlueprint = {'still': 2, 'service': 1, 'sparkling_fortified': 1};
 
   test('original bank has distinct sourced questions and self-assessed written evidence', () {
     expect(bank.mcqs.length, inInclusiveRange(180, 220));
@@ -207,6 +208,10 @@ void main() {
     );
     for (final preset in bank.presets) {
       expect(preset.blueprint, blueprints[preset.level]);
+      expect(
+        preset.writtenBlueprint,
+        preset.level == 3 ? writtenBlueprint : isEmpty,
+      );
       for (final bucket in preset.blueprint.entries) {
         expect(
           bank.mcqs
@@ -214,6 +219,13 @@ void main() {
               .length,
           greaterThanOrEqualTo(bucket.value),
           reason: '${preset.level}:${bucket.key}',
+        );
+      }
+      for (final bucket in preset.writtenBlueprint.entries) {
+        expect(
+          bank.written.where((q) => q.blueprintGroup == bucket.key).length,
+          greaterThanOrEqualTo(bucket.value),
+          reason: 'L${preset.level} written ${bucket.key}',
         );
       }
     }
@@ -276,6 +288,17 @@ void main() {
           );
         }
         expect(counts, blueprints[level]);
+        if (level == 3) {
+          final writtenCounts = <String, int>{};
+          for (final question in attempt.written) {
+            writtenCounts.update(
+              question.blueprintGroup!,
+              (n) => n + 1,
+              ifAbsent: () => 1,
+            );
+          }
+          expect(writtenCounts, writtenBlueprint);
+        }
         await repository.finish(attempt.id);
       }
     }

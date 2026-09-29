@@ -1,0 +1,231 @@
+# Source-linked Level 3 vineyard decisions on existing general-production items.
+# Each keyed answer is limited to the cited assertion; all facts remain unverified.
+question_templates:
+- id: qt_wset_l3_viticulture_general_22
+  relation_type: PRINCIPLE_EXPLANATION
+  direction: forward
+  mode: authored_choice
+  variant: wset_l3_viticulture_general_22
+  prompt_template: '{subject.name}'
+  parameters:
+    item_choices:
+      ki_wset_prod_species_variety:
+        prompt: A trainee calls Chardonnay and Cabernet Sauvignon two different vine species. What correction should the grower make?
+        options:
+        - Both are Vitis vinifera varieties chosen for site and wine goals
+        - Both are rootstock species rather than fruiting wine varieties
+        - Chardonnay is a species while Cabernet Sauvignon is a cultivar
+        - The two names describe one clone with different training systems
+        correctIndex: 0
+        explanation: Vitis vinifera is the species; Chardonnay and Cabernet Sauvignon are varieties within it, so cultivar choice still matters.
+        sourceCitationId: src_biz_models_psu_vineyard
+      ki_wset_prod_cross_hybrid:
+        prompt: A breeder crosses two Vitis vinifera varieties and contrasts that with a cross between vine species. Which terms fit?
+        options:
+        - The first is grafting and the second is a rootstock pruning method with no new seedling
+        - The first is an intraspecific crossing; the second is an interspecific hybrid
+        - Both are interspecific hybrids because each has two named parents
+        - Both are clones because seedlings retain the exact parental genotype
+        correctIndex: 1
+        explanation: A same-species sexual cross is intraspecific; combining different vine species is an interspecific hybrid.
+        sourceCitationId: src_wset_prod_hybrid
+      ki_wset_prod_graft_not_cross:
+        prompt: A Cabernet Sauvignon scion is grafted onto a disease-resistant rootstock. What happened to the fruiting variety?
+        options:
+        - It became a new seedling variety combining both parents genetically
+        - It became the rootstock variety when the graft union healed
+        - It remains Cabernet Sauvignon because grafting joins plant parts
+        - It changed to a hybrid species as soon as the vines were planted
+        correctIndex: 2
+        explanation: Grafting physically joins a scion and rootstock; it does not breed a new seedling or erase the scion variety.
+        sourceCitationId: src_biz_models_psu_vineyard
+      ki_wset_prod_climate_types:
+        prompt: A site has dry summers, comparatively mild wet winters, and no claim about its heat-sum category. Which broad seasonal pattern fits?
+        options:
+        - Continental because dry summers always imply severe freezing winters
+        - Maritime because all coastal places have wet summers
+        - Cool because winter rain fixes growing-season temperature
+        - Mediterranean, subject to the site's actual local conditions
+        correctIndex: 3
+        explanation: The Mediterranean pattern commonly combines dry summers and milder wetter winters; growing-season warmth is a separate description.
+        sourceCitationId: src_wset_prod_mediterranean_metoffice
+      ki_wset_prod_warmth_categories:
+        prompt: A coastal vineyard has moderate seasonal temperature swings but a warm growing-season heat sum. Which description is coherent?
+        options:
+        - Maritime and warm describe different climate dimensions
+        - Maritime automatically proves a cool growing season
+        - Warmth categories replace any need to describe seasonality
+        - A warm site must have a continental seasonal pattern
+        correctIndex: 0
+        explanation: Maritime describes a seasonal influence, whereas warm describes relative growing-season heat; both can apply together.
+        sourceCitationId: src_wset_prod_climate_consumer
+      ki_wset_prod_continental_diurnal:
+        prompt: A vineyard records a large day-to-night temperature range during harvest but lacks winter observations. What can the analyst conclude?
+        options:
+        - The large diurnal range proves a continental annual climate in every year
+        - Diurnal range is known, but annual continentality is not established
+        - The site must have the same temperature every season
+        - Day-to-night observations determine winter rainfall directly
+        correctIndex: 1
+        explanation: Diurnal range compares daytime and nighttime temperature; continentality concerns seasonal temperatures over the year.
+        sourceCitationId: src_wset_prod_diurnal_bom
+      ki_wset_prod_water_moderation:
+        prompt: Two otherwise similar sites differ because one lies beside a large lake. Which temperature comparison is most defensible?
+        options:
+        - The lakeside site must always produce a riper wine in every vintage
+        - The lake removes all spring frost risk regardless of airflow
+        - Nearby water may moderate extremes; currents and winds also matter
+        - Inland land heats and cools more slowly than a large lake
+        correctIndex: 2
+        explanation: Large water bodies change temperature more slowly than land and can moderate nearby extremes, but local winds and currents remain relevant.
+        sourceCitationId: src_wset_prod_water_climate
+      ki_wset_prod_site_fog:
+        prompt: Morning fog persists into midday in one vineyard and clears quickly in another. What should the site assessment consider?
+        options:
+        - Fog guarantees ripe fruit because humidity raises the heat sum
+        - Fog removes fungal risk even if clusters remain damp throughout the entire day
+        - Fog proves both sites will receive identical sunlight at harvest
+        - Persistent fog may reduce heat and light while keeping fruit humid
+        correctIndex: 3
+        explanation: Fog can delay warming and ripening while increasing humidity; persistence and subsequent drying affect the actual risk.
+        sourceCitationId: src_wset_prod_fog
+      ki_wset_prod_soil_heat:
+        prompt: A visitor claims that a named stony soil guarantees a specific fruit flavour. Which vineyard inference is safer?
+        options:
+        - Stones and moisture may influence heat, but soil name does not fix flavour
+        - Every pale stony soil produces the same aroma in every grape variety and vintage
+        - Soil temperature cannot influence vine development at any season
+        - Stone colour alone establishes the final wine's ripeness and style
+        correctIndex: 0
+        explanation: Soil properties can affect heat absorption and vine development; they cannot alone guarantee a wine's sensory result.
+        sourceCitationId: src_wset_prod_site
+      ki_wset_prod_trellis_untrellis:
+        prompt: A grower wants shoot positioning for airflow and machine access in a vigorous block. What does a trellis add?
+        options:
+        - It changes the vine's species through the wire-and-post training system once established
+        - Wires support and position shoots; the design still depends on site and work
+        - It eliminates pruning and canopy decisions once vines are mature
+        - It makes every row density and irrigation option equally suitable
+        correctIndex: 1
+        explanation: Trellis wires support shoot positioning for exposure, airflow and access, while the suitable system depends on vigour and operations.
+        sourceCitationId: src_wset_found_psu_canopy
+      ki_wset_prod_planting_density:
+        prompt: A dry vineyard proposes closer row spacing solely to increase quality. What must the plan also account for?
+        options:
+        - Competition is irrelevant once vines share the same cultivar
+        - Machinery width matters only after wine fermentation begins
+        - Water, vigour, training and equipment access affect the result
+        - Denser planting guarantees a better wine regardless of water or final yield
+        correctIndex: 2
+        explanation: More vines increase establishment work, while competition and row access depend on water supply, vigour, training and machinery.
+        sourceCitationId: src_biz_models_psu_vineyard
+      ki_wset_prod_winter_hilling:
+        prompt: A cold-climate grower mounds soil over graft unions before a severe winter. What hazard does this target?
+        options:
+        - Sunburn of already harvested grape bunches in late autumn
+        - Powdery mildew on shoots that have not emerged yet
+        - Spring frost of new shoots regardless of whether winter is severe
+        - Winter cold injury at the graft union, separate from shoot frost
+        correctIndex: 3
+        explanation: Hilling soil insulates the graft union against winter cold; spring frost injury to emerging shoots is a different hazard.
+        sourceCitationId: src_wset_prod_winter
+      ki_wset_prod_virus_bacteria:
+        prompt: Several vines show weak growth and a systemic pathogen is suspected. Which response respects the diagnostic uncertainty?
+        options:
+        - Diagnose first, then use clean stock, removal or vector controls as appropriate
+        - Apply one fungicide to every virus and bacterium without identifying either or the affected tissue
+        - Keep infected propagation wood because symptoms vanish after grafting
+        - Assume every weak vine has the same pathogen and nutrient status
+        correctIndex: 0
+        explanation: Systemic disease responses depend on pathogen evidence; clean propagation material, removal and vector or root management have different roles.
+        sourceCitationId: src_wset_prod_ipm
+      ki_wset_prod_conventional_ipm:
+        prompt: A conventional vineyard finds a pest but wants to avoid routine blanket spraying. Which programme matches integrated pest management?
+        options:
+        - Spray every block every week regardless of pest monitoring or local permission
+        - Monitor risk and combine cultural, biological and targeted controls
+        - Ban all cultural controls because synthetic products are allowed
+        - Apply an unregistered product if it is cheaper than scouting
+        correctIndex: 1
+        explanation: Integrated pest management monitors pest risk and combines cultural, biological and carefully targeted chemical controls under local rules.
+        sourceCitationId: src_wset_prod_ipm
+      ki_wset_prod_sustainable:
+        prompt: A winery describes water, worker safety, energy and economic viability in its vineyard plan. How should the claim be assessed?
+        options:
+        - It is automatically an organic certification because water and worker safety are monitored
+        - It concerns only yield per hectare, never people or resources
+        - It spans environmental, social and economic practice, distinct from organic
+        - It proves that the finished wine has a superior sensory score
+        correctIndex: 2
+        explanation: Sustainability schemes address environmental, worker/community and economic performance; they are distinct from organic certification.
+        sourceCitationId: src_wset_prod_sustainable
+      ki_wset_prod_organic_winery:
+        prompt: A producer says organic grapes make every finished wine sulphite-free. Which response follows the cited EU rules?
+        options:
+        - Organic rules apply only to spraying vines, never to cellar practices
+        - Organic status permits every additive if organically farmed grapes were used at harvest
+        - Any detectable sulphite automatically proves conventional production
+        - Organic wine has cellar rules and may contain permitted limited sulphites
+        correctIndex: 3
+        explanation: EU organic wine rules also govern cellar processes and additives and allow limited sulphites; organic does not mean sulphite-free.
+        sourceCitationId: src_wset_prod_organic
+      ki_wset_prod_biodynamic:
+        prompt: A biodynamic certificate appears on a label. What does it substantiate without making a sensory promise?
+        options:
+        - Compliance with specified farm preparations and management standards
+        - A guaranteed blind-tasting score above conventionally grown wine in every vintage
+        - That every vineyard follows the same universal organic-only law
+        - That fermentation cannot use yeast or any cellar intervention
+        correctIndex: 0
+        explanation: The certifier's biodynamic standard concerns farm management and preparations; certification alone does not prove wine quality.
+        sourceCitationId: src_wset_prod_biodynamic
+      ki_wset_prod_harvest_whole_bunch:
+        prompt: A cellar plans intact-bunch carbonic fermentation but the proposed harvester strips individual berries. What must be reconciled?
+        options:
+        - The fruiting variety must change before harvest can begin
+        - Harvest and intake must supply intact bunches for that process
+        - Berry-only intake automatically becomes whole-bunch in a press
+        - Carbonic fermentation requires new oak barrels for every batch
+        correctIndex: 1
+        explanation: Whole-bunch carbonic fermentation needs intact clusters at intake; ordinary berry-removing machine harvest does not supply them.
+        sourceCitationId: src_wset_prod_carbonic
+      ki_wset_prod_harvest_cost_quality:
+        prompt: A grower compares hand selection with a fast machine harvest. Which conclusion avoids a blanket quality ranking?
+        options:
+        - Machine harvest always lowers wine quality whatever the fruit condition
+        - Hand picking always costs less than machine harvesting in every site
+        - Hand selection may enable passes; speed and cost can favour machinery
+        - Picking method alone fixes the price before the grapes are assessed
+        correctIndex: 2
+        explanation: Hand work can permit selective passes but needs labour; machines can reduce labour and speed collection, while fruit condition and style remain decisive.
+        sourceCitationId: src_wset_prod_harvest_cost
+      ki_wset_prod_irrigation_methods:
+        prompt: A dry block has limited water and wants to apply it close to vine rows. Which system best matches that aim?
+        options:
+        - Flood irrigation because it never wets the whole surface
+        - Overhead sprinklers because they target only one narrow root zone in a dry block
+        - No irrigation because all dry blocks legally prohibit it
+        - Drip lines, subject to soil, equipment and local permission
+        correctIndex: 3
+        explanation: Drip targets water near vines; choosing among drip, sprinkler and surface flow also requires soil, water and legal checks.
+        sourceCitationId: src_wset_prod_irrigation
+      ki_wset_prod_nutrition_test:
+        prompt: Vines grow weakly, but the cause is unknown. What should precede a large fertiliser application?
+        options:
+        - Compare soil and vine-tissue evidence with other possible causes
+        - Assume more nutrients will always increase fruit quality directly
+        - Ignore vine symptoms and apply the same rate every year
+        - Conclude that low vigour proves a virus without testing
+        correctIndex: 0
+        explanation: Soil and tissue testing helps distinguish nutrient shortage from other causes; unnecessary fertiliser may increase unwanted vigour.
+        sourceCitationId: src_biz_models_psu_vineyard
+      ki_wset_prod_dormancy_budburst:
+        prompt: A vine survived winter but a spring freeze follows budburst. Which tissue distinction matters to the grower?
+        options:
+        - No green shoot can be injured because woody buds survived winter
+        - Emerging green shoots face a different risk from dormant wood or grafts
+        - Spring frost affects only wine already in fermentation tanks
+        - A severe winter freeze and a spring frost always injure identical tissues
+        correctIndex: 1
+        explanation: Dormant buds and perennial wood endure winter differently from vulnerable green shoots that emerge at budburst.
+        sourceCitationId: src_vit_frost_ncsu

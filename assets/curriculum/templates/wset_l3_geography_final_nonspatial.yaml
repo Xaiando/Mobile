@@ -1,0 +1,145 @@
+# Level 3 geography comparisons left after the first 40-choice batch.
+# Current legal labels remain expert-unverified and are phrased narrowly.
+question_templates:
+- id: qt_wset_l3_geography_remaining_8_principles
+  relation_type: PRINCIPLE_EXPLANATION
+  direction: forward
+  mode: authored_choice
+  variant: l3_geography_final_principles
+  prompt_template: '{subject.name}'
+  parameters:
+    item_choices:
+      ki_reg_fe_beaujolais_parcels:
+        prompt: A Beaujolais merchant says a detailed soil survey gives every cru a fixed mineral flavour. Which use of the survey is defensible?
+        options:
+        - Compare parcel conditions and vineyard choices before predicting a wine
+        - Translate each mapped rock class into a matching mineral aroma on a label
+        - Use the cru name as a substitute for separate parcel soil records
+        - Rank the appellations solely by their share of granite parcels
+        correctIndex: 0
+        explanation: The Beaujolais wine body describes a large Sigales and Rhône agriculture chamber field survey with substantial soil variation. It supports parcel assessment, not direct rock-flavour transfer or a universal quality rank.
+        sourceCitationId: src_reg_fe_beaujolais_soils
+      ki_reg_fs_anjou_oceanic:
+        prompt: Two Anjou Chenin plots share an oceanic regional climate, but one is a notably dry hillside. What vineyard comparison follows?
+        options:
+        - Use the same rainfall forecast for both because the region is oceanic
+        - Expect mild regional seasons, then inspect each site's dry microclimate
+        - Treat both sites as semi-continental Saumur because they share a river
+        - Infer sugar and acidity from the oceanic name before visiting the plots
+        correctIndex: 1
+        explanation: InterLoire describes Anjou's oceanic influence, mild winters, sunny summers and local dry microclimates. A regional climate label cannot settle conditions in both plots.
+        sourceCitationId: src_reg_fs_loire_climates
+      ki_reg_fs_saumur_season:
+        prompt: A buyer compares Anjou and Saumur but assumes the Atlantic influence is identical at both sites. Which first correction is supported?
+        options:
+        - Saumur receives stronger westerlies, making it more oceanic than Anjou
+        - Saumur's hill shelter removes seasonal variation across its vineyards
+        - Hills slow westerlies near Saumur; seasonal contrast can be stronger
+        - Saumur lies outside Loire influence and has an alpine climate
+        correctIndex: 2
+        explanation: InterLoire contrasts Anjou's oceanic setting with Saumur's semi-oceanic climate and more marked seasonal variation as hills slow westerly winds. Individual exposure still matters.
+        sourceCitationId: src_reg_fs_loire_climates
+      ki_reg_isi_salice_styles:
+        prompt: A list needs one structured red and one lighter option from Salice Salentino. Which pair should the buyer assess?
+        options:
+        - Rosato for the most tannic role and rosso for a pale aperitif
+        - Rosso and rosato as the same extraction and tannin target
+        - Rosato only if a higher legal quality tier appears on its DOC label
+        - Rosso for structure, rosato for freshness; taste the actual wines
+        correctIndex: 3
+        explanation: The Salice Salentino consortium contrasts a fuller red with a fresher rosato; the published DOC specification describes separate red and rosato profiles. The categories do not rank every bottle.
+        sourceCitationId: src_reg_isi_salice_styles
+      ki_wset_role_castilla_styles:
+        prompt: A retailer treats every Castilla y León IGP wine as an oak-aged Tempranillo red. Which stock brief fits the protected origin?
+        options:
+        - Check white, rosé and red categories; grape and cellar routes vary
+        - List Tempranillo reds while moving the white wines to separate DOs
+        - Classify the rosé as a sparkling style with required wood ageing
+        - Read the IGP name as an oak-ageing tier and sensory quality rank
+        correctIndex: 0
+        explanation: The Castilla y León IGP specification includes multiple wine colours and authorised white and red grapes. It describes young and wood-aged expressions rather than one compulsory Tempranillo or oak route.
+        sourceCitationId: src_wset_role_castilla_spec
+      ki_wset_role_dornfelder_vine:
+        prompt: A Dornfelder grower has a heavy crop and a proposed frost-prone block. What vineyard plan best follows the grape profile?
+        options:
+        - Maximise crop load because deep colour proves full fruit ripeness
+        - Manage crop for ripening and avoid the frost-prone planting site
+        - Seek compact bunches because they reduce fruit-rot pressure
+        - Shift planting to stony sand to satisfy its main soil preference
+        correctIndex: 1
+        explanation: The German wine institute notes Dornfelder's tendency to high yields, common crop reduction, loose bunches with less rot risk, and unsuitability for very frost-prone or sandy/stonier sites.
+        sourceCitationId: src_wset_role_dornfelder
+      ki_wset_role_friuli_cellar_cost:
+        prompt: A buyer sees La Viarte Friulano from Friuli Colli Orientali fermented in steel and kept on fine lees before bottling. Which price and style inference is sound?
+        options:
+        - Steel fermentation proves the wine has no storage or handling inputs later
+        - The DOC name requires new oak, fixing the finished retail price
+        - Lees and storage use resources without implying new-oak aroma or price
+        - Fine lees turn the Friulano into a red wine with oak tannins
+        correctIndex: 2
+        explanation: La Viarte specifies temperature-controlled steel and six months on fine lees for this example. Wine Australia treats winery inputs and capital as cost-planning factors; neither the producer example nor the DOC name fixes an oak treatment or retail price.
+        sourceCitationId: src_wset_role_friuli_cellar
+      ki_wset_role_saumur_champigny_cellar:
+        prompt: A Saumur-Champigny producer considers a fresh early release and a selected Cabernet Franc for longer development. Which cellar brief is defensible?
+        options:
+        - Increase extraction from underripe fruit so storage will remove green tannin
+        - Keep both wines alike because the appellation fixes style
+        - Use long storage as proof of superior quality without tasting the lot
+        - Match extraction to ripeness and style, then cost the storage choice
+        correctIndex: 3
+        explanation: Saumur-Champigny and InterLoire describe youthful fruit-led and selected longer-lived styles. Extraction, fruit maturity and the cost of keeping inventory require a real lot and business plan; longer storage is not a quality guarantee.
+        sourceCitationId: src_wset_role_saumur_cf
+- id: qt_wset_l3_geography_gg_awarder
+  relation_type: AWARDED_BY
+  direction: forward
+  mode: authored_choice
+  variant: l3_geography_origin_classification
+  prompt_template: '{subject.name}'
+  parameters:
+    item_choices:
+      ki_grosses_gewaechs_awarder:
+        prompt: Under Germany's Weinverordnung §30, which body is named for the statutory “Großes Gewächs” quality mark, apart from transitional use of older rules?
+        options:
+        - The committee for classification of first and great sites
+        - The VDP private member association acting as sole statutory body
+        - The German Wine Institute as federal wine regulator
+        - The German Agricultural Society through its Weinsiegel award
+        correctIndex: 0
+        explanation: Section 30 names the Komitee – Klassifikation Erster und Großer Lagen in Deutschland e. V. for the mark, subject to approved rules. Section 54(23) preserves older-rule use through the 2030 vintage or until those rules take effect sooner, with compliant stocks saleable until exhausted.
+        sourceCitationId: src_de_weinv
+- id: qt_wset_l3_geography_vdp_private
+  relation_type: PRIVATE_CLASSIFICATION_OF
+  direction: forward
+  mode: authored_choice
+  variant: l3_geography_origin_classification
+  prompt_template: '{subject.name}'
+  parameters:
+    item_choices:
+      ki_vdp_grosses_gewaechs_private:
+        prompt: A German wine list says VDP.GROSSES GEWÄCHS from VDP.GROSSE LAGE. How should that wording be explained beside the statutory “Großes Gewächs” mark?
+        options:
+        - A regional PDO award from the German Agricultural Society
+        - Dry wine from a VDP classified site under the private VDP rules
+        - A legal vineyard rank granted directly by every federal state itself
+        - A sweet Prädikat tier that supersedes the site classification
+        correctIndex: 1
+        explanation: VDP says dry wine from VDP.GROSSE LAGE is VDP.GROSSES GEWÄCHS, and expressly calls its classification private. Germany's §30 separately names a statutory “Großes Gewächs” mark administered by the classification committee.
+        sourceCitationId: src_de_vdp_classification
+- id: qt_wset_l3_geography_ripasso_origin
+  relation_type: RESERVED_FOR_REGION
+  direction: forward
+  mode: authored_choice
+  variant: l3_geography_origin_classification
+  prompt_template: '{subject.name}'
+  parameters:
+    item_choices:
+      ki_wset_geo_valpolicella_ripasso_origin:
+        prompt: A map trainee searches for a town called “Valpolicella Ripasso.” What does the protected name actually identify?
+        options:
+        - A separate municipality in Veneto outside the Valpolicella zone in Italy
+        - A DOCG town inside the Franciacorta production area of Lombardia
+        - A DOC wine from the Valpolicella area of Veneto, not another town
+        - A grape variety planted only in the commune of Negrar
+        correctIndex: 2
+        explanation: The Italian production specification names Valpolicella Ripasso DOC and delimits its grape area in the Valpolicella hills of Verona province, Veneto. Ripasso is part of the wine designation, not a separate map settlement.
+        sourceCitationId: src_wset_geo_ripasso_spec_2023

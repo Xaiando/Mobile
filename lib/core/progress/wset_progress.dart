@@ -8,6 +8,8 @@ import '../coverage/coverage_formats.dart';
 import '../coverage/generated_coverage_formats.dart';
 import '../database/app_database.dart';
 import '../diploma_tasting/diploma_tasting_evidence.dart';
+import '../diploma_written/diploma_written_evidence.dart';
+import '../diploma_research/diploma_research_evidence.dart';
 import '../study/study_planner.dart';
 import '../time/utc_clock.dart';
 import 'wset_scope.dart';
@@ -73,12 +75,20 @@ class WsetUnitProgress {
     required this.scope,
     required this.counts,
     this.physicalFlights = 0,
+    this.writtenPractices = 0,
+    this.researchDraftSaved = false,
   });
   final WsetUnitScope scope;
   final ProgressCounts counts;
 
   /// Saved three-actual-wine practice, not a tasting grade or unit pass.
   final int physicalFlights;
+
+  /// Reviewed D1/D2 prose participation, never an examiner mark or pass.
+  final int writtenPractices;
+
+  /// Learner-owned D6 formative draft, not an assessed assignment or pass.
+  final bool researchDraftSaved;
 }
 
 class WsetRequirementProgress {
@@ -314,6 +324,14 @@ class WsetProgressRepository {
       settings,
       now: now,
     );
+    final diplomaWritten = DiplomaWrittenEvidenceReader.read(
+      settings,
+      now: now,
+    );
+    final researchDraftSaved = DiplomaResearchEvidenceReader.hasSavedDraft(
+      settings,
+      now: now,
+    );
     final events = <String, List<ReviewEvent>>{};
     for (final event in await db.select(db.reviewEvents).get()) {
       if (!event.reviewedAt.isAfter(now)) {
@@ -383,7 +401,7 @@ class WsetProgressRepository {
         for (final card in await _planner.cards(level.certificationId))
           if (card.formats.isNotEmpty) card.itemId: card,
       };
-      final generated = generatedFormats.forMappedItems(mappings.keys.toSet());
+      final generated = generatedFormats.forMappedItems(mappings);
       final coreItems = mapped.where(
         (item) => mappings[item.id]?.importance == 'core',
       );
@@ -559,6 +577,13 @@ class WsetProgressRepository {
                 physicalFlights: level.certificationId == 'WSET_L4'
                     ? diplomaTasting.forUnit(unit.id)
                     : 0,
+                writtenPractices: level.certificationId == 'WSET_L4'
+                    ? diplomaWritten.forUnit(unit.id)
+                    : 0,
+                researchDraftSaved:
+                    level.certificationId == 'WSET_L4' &&
+                    unit.id == 'D6' &&
+                    researchDraftSaved,
               ),
           ],
           unassigned: count(unassigned),

@@ -9,6 +9,7 @@ import '../curriculum/reasoning_paths.dart';
 import '../database/app_database.dart';
 import '../questions/exercise_format.dart';
 import '../questions/format_registry.dart';
+import '../questions/formats/case_criteria/case_criteria_format.dart';
 import '../questions/formats/reasoning/reasoning_format.dart';
 import '../time/utc_clock.dart';
 import 'format_ladder.dart';
@@ -293,6 +294,11 @@ class StudyPlanner {
       mappedItems: mappings.keys.toSet(),
       studiedItems: states.keys.toSet(),
     );
+    final readyCaseCriteria = await _readyCaseCriteriaTemplates(
+      currentItems: {for (final item in items) item.id},
+      mappings: mappings,
+      studiedItems: states.keys.toSet(),
+    );
     final lastTemplates = await _lastTemplates();
     final scheduler = await _scheduler();
     final staleCutoff = staleBefore(now);
@@ -339,8 +345,16 @@ class StudyPlanner {
       final available = formats[item.id]
           ?.where(
             (format) =>
-                format.mode != ReasoningFormat.formatId ||
-                readyReasoning.contains((item.id, format.questionTemplateId)),
+                (format.mode != ReasoningFormat.formatId ||
+                    readyReasoning.contains((
+                      item.id,
+                      format.questionTemplateId,
+                    ))) &&
+                (format.mode != CaseCriteriaFormat.formatId ||
+                    readyCaseCriteria.contains((
+                      item.id,
+                      format.questionTemplateId,
+                    ))),
           )
           .toList();
       if (mapping == null || available == null || available.isEmpty) continue;
@@ -710,6 +724,61 @@ class StudyPlanner {
             entry.value.last.read<String>('knowledge_item_id'),
             entry.value.last.read<String>('question_template_id'),
           ),
+    };
+  }
+
+  /// A case-rubric exercise assesses all four roles together, so it is
+  /// offered only when every role is current and mapped at its required
+  /// depth and the other three have already been studied. One planned new
+  /// item may then join a complete rubric without bypassing the new budget.
+  Future<Set<(String, String)>> _readyCaseCriteriaTemplates({
+    required Set<String> currentItems,
+    required Map<String, EffectiveMapping> mappings,
+    required Set<String> studiedItems,
+  }) async {
+    final rows = await db
+        .customSelect(
+          '''
+      SELECT p.id, p.question_template_id, i.knowledge_item_id
+      FROM exercise_pools p
+      JOIN question_templates t ON t.id = p.question_template_id
+      JOIN exercise_pool_items i ON i.exercise_pool_id = p.id
+      WHERE t.mode = ?1
+      ORDER BY p.id, i.rank
+    ''',
+          variables: [const Variable(CaseCriteriaFormat.formatId)],
+          readsFrom: {
+            db.exercisePools,
+            db.exercisePoolItems,
+            db.questionTemplates,
+          },
+        )
+        .get();
+    final pools = <int, List<QueryRow>>{};
+    for (final row in rows) {
+      pools.putIfAbsent(row.read<int>('id'), () => []).add(row);
+    }
+    return {
+      for (final pool in pools.values)
+        if (pool.length == 4 &&
+            pool.every((row) {
+              final id = row.read<String>('knowledge_item_id');
+              return currentItems.contains(id) &&
+                  (mappings[id]?.minimumDepth ?? 0) >= 2;
+            }))
+          for (final row in pool)
+            if (pool.every(
+              (other) =>
+                  other.read<String>('knowledge_item_id') ==
+                      row.read<String>('knowledge_item_id') ||
+                  studiedItems.contains(
+                    other.read<String>('knowledge_item_id'),
+                  ),
+            ))
+              (
+                row.read<String>('knowledge_item_id'),
+                row.read<String>('question_template_id'),
+              ),
     };
   }
 }

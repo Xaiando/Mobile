@@ -9,6 +9,8 @@ import '../../core/progress/wset_progress.dart';
 import '../../core/study/study_providers.dart';
 import '../practice/study_session_controller.dart';
 import '../diploma_tasting/diploma_tasting_flight_screen.dart';
+import '../diploma_written/diploma_written_screen.dart';
+import '../diploma_research/diploma_research_screen.dart';
 import '../rehearsal/rehearsal_screen.dart';
 import '../tasting_guidance/guided_tasting_screen.dart';
 import '../tasting_pair/tasting_pair_screen.dart';
@@ -329,7 +331,7 @@ class _LevelSectionState extends ConsumerState<_LevelSection> {
                 ),
               if (level.scope.practice.pairedTasting)
                 Text(
-                  'Two-wine practices fully described: ${level.practiceEvidence.pairedTastings} · both wines and their evidence completed',
+                  'White-and-red two-wine practices fully described: ${level.practiceEvidence.pairedTastings} · both wines and their evidence completed',
                 ),
               if (level.practiceEvidence.unreadableRecords > 0)
                 const Text(
@@ -433,6 +435,52 @@ class _LevelSectionState extends ConsumerState<_LevelSection> {
                             Text(
                               '${unit.counts.unavailable} mapped facts are not yet available.',
                             ),
+                          if (unit.scope.id == 'D1' ||
+                              unit.scope.id == 'D2') ...[
+                            const SizedBox(height: 8),
+                            Text(
+                              'Written practices self-reviewed: ${unit.writtenPractices}. '
+                              'These are participation, not examiner marks or unit passes.',
+                              key: ValueKey(
+                                'wset_unit_written_${unit.scope.id}',
+                              ),
+                            ),
+                            TextButton(
+                              key: ValueKey(
+                                'wset_unit_written_open_${unit.scope.id}',
+                              ),
+                              onPressed: _starting || !level.selectable
+                                  ? null
+                                  : () => _practice(
+                                      DiplomaWrittenScreen(
+                                        unitId: unit.scope.id,
+                                      ),
+                                    ),
+                              child: Text(
+                                'Open ${unit.scope.id} '
+                                '${unit.scope.id == 'D1' ? '90' : '60'}-minute writing',
+                              ),
+                            ),
+                          ],
+                          if (level.scope.certificationId == 'WSET_L4' &&
+                              unit.scope.id == 'D6') ...[
+                            const SizedBox(height: 8),
+                            Text(
+                              unit.researchDraftSaved
+                                  ? 'Research workspace: a private draft is saved. This is participation, not an assessed assignment or unit pass.'
+                                  : 'Research workspace: no draft saved yet. This does not determine an official D6 result.',
+                              key: const ValueKey('wset_unit_research_D6'),
+                            ),
+                            TextButton(
+                              key: const ValueKey('wset_unit_research_open_D6'),
+                              onPressed: _starting || !level.selectable
+                                  ? null
+                                  : () => _practice(
+                                      const DiplomaResearchScreen(),
+                                    ),
+                              child: const Text('Open D6 research workspace'),
+                            ),
+                          ],
                           if (unit.scope.id == 'D4' ||
                               unit.scope.id == 'D5') ...[
                             const SizedBox(height: 8),

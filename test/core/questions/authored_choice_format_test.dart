@@ -136,6 +136,92 @@ void main() {
     expect(container.read(formatViewsProvider)['authored_choice'], isNotNull);
   });
 
+  test('Level 3 viticulture principle choices avoid length clues and keep item citations', () {
+    final data = flattenDataset('assets/curriculum/curriculum.yaml');
+    final linkedCitations = <String, Set<String>>{};
+    for (final row in rowsOf(data, 'knowledge_item_citations')) {
+      final citation = row as Map<String, dynamic>;
+      linkedCitations
+          .putIfAbsent(citation['knowledge_item_id'] as String, () => {})
+          .add(citation['source_citation_id'] as String);
+    }
+    final sources = {
+      for (final row in rowsOf(data, 'source_citations'))
+        (row as Map<String, dynamic>)['id'] as String: row,
+    };
+    const finalPrincipleIds = {
+      'ki_wset_nw_canterbury_style_range',
+      'ki_wset_nw_dry_creek_zinfandel',
+      'ki_wset_nw_finger_lakes_riesling',
+      'ki_wset_nw_gisborne_wine_styles',
+      'ki_wset_nw_great_southern_styles',
+      'ki_wset_nw_hawkes_syrah_pinot_gris',
+      'ki_wset_nw_marlborough_aromatics',
+      'ki_wset_nw_nelson_wine_styles',
+      'ki_wset_nw_ontario_icewine_style',
+      'ki_wset_nw_otago_aromatics',
+      'ki_wset_nw_riverina_dry_styles',
+      'ki_wset_nw_riverland_styles',
+      'ki_wset_nw_saint_helena_setting',
+      'ki_wset_nw_san_luis_grapes',
+      'ki_wset_nw_stags_leap_setting',
+      'ki_wset_nw_swartland_grapes',
+    };
+    final allIds = <String>{};
+    const principleTemplateCounts = {
+      'qt_wset_l3_viticulture_principle_closure_40': 40,
+      'qt_wset_l3_viticulture_principle_closure_next_40': 40,
+      'qt_wset_l3_viticulture_principle_final_16': 16,
+    };
+    for (final entry in principleTemplateCounts.entries) {
+      final template = rowOf(data, 'question_templates', 'id', entry.key);
+      final choices =
+          (template['parameters'] as Map<String, dynamic>)['item_choices']
+              as Map<String, dynamic>;
+      expect(choices, hasLength(entry.value), reason: entry.key);
+      if (entry.value == 16) {
+        expect(choices.keys.toSet(), finalPrincipleIds);
+      }
+      expect(allIds.intersection(choices.keys.toSet()), isEmpty);
+      allIds.addAll(choices.keys);
+      final answerPositions = [0, 0, 0, 0];
+      for (final entry in choices.entries) {
+        final choice = entry.value as Map<String, dynamic>;
+        final options = (choice['options'] as List).cast<String>();
+        final answerIndex = choice['correctIndex'] as int;
+        expect(options, hasLength(4), reason: entry.key);
+        expect(options.toSet(), hasLength(4), reason: entry.key);
+        expect(answerIndex, inInclusiveRange(0, 3), reason: entry.key);
+        expect(
+          linkedCitations[entry.key],
+          contains(choice['sourceCitationId']),
+          reason: entry.key,
+        );
+        if (finalPrincipleIds.contains(entry.key)) {
+          final source = sources[choice['sourceCitationId']];
+          expect(source?['url'], startsWith('https://'), reason: entry.key);
+        }
+        final lengths = options.map((option) => option.length).toList();
+        expect(
+          lengths[answerIndex] == lengths.reduce(max) &&
+              lengths
+                      .where((length) => length == lengths[answerIndex])
+                      .length ==
+                  1,
+          isFalse,
+          reason: '${entry.key} should not reveal its key by unique length',
+        );
+        answerPositions[answerIndex]++;
+      }
+      expect(
+        answerPositions,
+        everyElement(entry.value ~/ 4),
+        reason: entry.key,
+      );
+    }
+    expect(allIds, hasLength(96));
+  });
+
   test(
     'authored choice rejects malformed or uncited item-specific options',
     () {
@@ -274,7 +360,7 @@ void main() {
   );
 
   test(
-    '988 cited choices are generated and served across WSET and CMS tracks',
+    '1532 cited choices are generated and served across WSET and CMS tracks',
     () async {
       final db = openTestDatabase();
       try {
@@ -299,7 +385,7 @@ void main() {
                   template.id == 'qt_d5f_authored_choice',
             )
             .toList();
-        expect(templates, hasLength(44));
+        expect(templates, hasLength(73));
         final expectedIds = {
           for (final template in templates)
             ...((jsonDecode(template.parameters!)
@@ -393,6 +479,7 @@ void main() {
         final europeIds = idsForTemplate('qt_wset_europe_application_67');
         final newWorldIds = idsForTemplate('qt_wset_new_world_application_16');
         final businessIds = idsForTemplate('qt_wset_business_application_26');
+        final l3BusinessGapIds = idsForTemplate('qt_wset_l3_business_gap_30');
         final cmsExampleIds = {
           for (final template in templates)
             if (template.id.startsWith('qt_cms_example_'))
@@ -410,9 +497,37 @@ void main() {
         final winemakingDepthIds = idsForTemplate(
           'qt_wset_winemaking_l3_depth_37',
         );
+        final winemakingGapIds = idsForTemplate('qt_wset_l3_winemaking_gap_40');
+        final l3WinemakingRegionalIds = idsForTemplate(
+          'qt_wset_l3_winemaking_regional_principles_54',
+        );
+        final l3WinemakingSpecialIds = idsForTemplate(
+          'qt_wset_l3_winemaking_special_principles_47',
+        );
+        final l3WinemakingFirstClosureIds = idsForTemplate(
+          'qt_wset_l3_winemaking_principle_closure_40',
+        );
         final l3ApplicationIds = idsForTemplate('qt_wset_l3_application_40');
         final l3ViticultureIds = idsForTemplate(
           'qt_wset_l3_viticulture_application_40',
+        );
+        final l3ViticulturePrincipleIds = idsForTemplate(
+          'qt_wset_l3_viticulture_principle_closure_40',
+        );
+        final l3ViticulturePrincipleNextIds = idsForTemplate(
+          'qt_wset_l3_viticulture_principle_closure_next_40',
+        );
+        final l3ViticulturePrincipleFinalIds = idsForTemplate(
+          'qt_wset_l3_viticulture_principle_final_16',
+        );
+        final l3ViticultureCaseIds = {
+          ...idsForTemplate('qt_wset_l3_viticulture_case_action_choice'),
+          ...idsForTemplate('qt_wset_l3_viticulture_case_limitation_choice'),
+          ...idsForTemplate('qt_wset_l3_viticulture_case_reason_choice'),
+          ...idsForTemplate('qt_wset_l3_viticulture_case_tradeoff_choice'),
+        };
+        final l3ViticultureGeneralIds = idsForTemplate(
+          'qt_wset_l3_viticulture_general_22',
         );
         final l3TastingIds = idsForTemplate(
           'qt_wset_l3_tasting_application_23',
@@ -420,11 +535,38 @@ void main() {
         final l3ServiceIds = idsForTemplate(
           'qt_wset_l3_service_application_17',
         );
+        final l3TastingClosureIds = idsForTemplate(
+          'qt_wset_l3_tasting_fault_closure_12',
+        );
+        final l3ServicePrincipleClosureIds = idsForTemplate(
+          'qt_wset_l3_service_principle_closure_8',
+        );
+        final l3ServiceCaseClosureIds = {
+          ...idsForTemplate('qt_wset_l3_service_case_action_closure_4'),
+          ...idsForTemplate('qt_wset_l3_service_case_reason_closure_4'),
+          ...idsForTemplate('qt_wset_l3_service_case_tradeoff_closure_4'),
+          ...idsForTemplate('qt_wset_l3_service_case_limitation_closure_4'),
+        };
         final l3GeographyIds = idsForTemplate(
           'qt_wset_l3_geography_gap_scenarios',
         );
         final l3GeographyIds2 = idsForTemplate(
           'qt_wset_l3_geography_gap_scenarios_2',
+        );
+        final l3RemainingPrincipleIds = idsForTemplate(
+          'qt_wset_l3_geography_remaining_principles_40',
+        );
+        final l3FinalGeographyIds = {
+          ...idsForTemplate('qt_wset_l3_geography_remaining_8_principles'),
+          ...idsForTemplate('qt_wset_l3_geography_gg_awarder'),
+          ...idsForTemplate('qt_wset_l3_geography_vdp_private'),
+          ...idsForTemplate('qt_wset_l3_geography_ripasso_origin'),
+        };
+        final l3LocationClueIds = idsForTemplate(
+          'qt_wset_l3_geography_location_clues_35',
+        );
+        final l3WinemakingPrincipleIds = idsForTemplate(
+          'qt_wset_l3_winemaking_principle_closure_40',
         );
         final diplomaBusinessIds = idsForTemplate(
           'qt_wset_d2_business_application_29',
@@ -439,16 +581,32 @@ void main() {
           ...europeIds,
           ...newWorldIds,
           ...businessIds,
+          ...l3BusinessGapIds,
           ...cmsExampleIds,
           ...winemakingSharedIds,
           ...winemakingL3Ids,
           ...winemakingDepthIds,
+          ...winemakingGapIds,
+          ...l3WinemakingRegionalIds,
+          ...l3WinemakingSpecialIds,
           ...l3ApplicationIds,
           ...l3ViticultureIds,
+          ...l3ViticulturePrincipleIds,
+          ...l3ViticulturePrincipleNextIds,
+          ...l3ViticulturePrincipleFinalIds,
+          ...l3ViticultureCaseIds,
+          ...l3ViticultureGeneralIds,
           ...l3TastingIds,
           ...l3ServiceIds,
+          ...l3TastingClosureIds,
+          ...l3ServicePrincipleClosureIds,
+          ...l3ServiceCaseClosureIds,
           ...l3GeographyIds,
           ...l3GeographyIds2,
+          ...l3RemainingPrincipleIds,
+          ...l3FinalGeographyIds,
+          ...l3LocationClueIds,
+          ...l3WinemakingPrincipleIds,
           ...diplomaBusinessIds,
           ...d3RegionalIds,
           ...d4RegionalIds,
@@ -476,23 +634,61 @@ void main() {
           isEmpty,
           reason: 'Diploma and Level 3 geography choices remain distinct',
         );
-        expect(expectedIds, hasLength(988));
+        expect(expectedIds, hasLength(1532));
         expect(levelOneIds, hasLength(132));
-        expect(levelTwoIds, hasLength(256));
+        expect(levelTwoIds, hasLength(309));
         expect(sharedGrapeIds, hasLength(52));
         expect(europeIds, hasLength(67));
         expect(newWorldIds, hasLength(16));
         expect(businessIds, hasLength(26));
+        expect(l3BusinessGapIds, hasLength(30));
         expect(cmsExampleIds, hasLength(12));
         expect(winemakingSharedIds, hasLength(9));
         expect(winemakingL3Ids, hasLength(12));
         expect(winemakingDepthIds, hasLength(37));
+        expect(winemakingGapIds, hasLength(40));
+        expect(l3WinemakingRegionalIds, hasLength(54));
+        expect(l3WinemakingSpecialIds, hasLength(47));
+        expect(
+          l3WinemakingSpecialIds.intersection(l3WinemakingRegionalIds),
+          isEmpty,
+        );
+        expect(
+          l3WinemakingSpecialIds.intersection(l3WinemakingFirstClosureIds),
+          isEmpty,
+        );
+        expect(l3WinemakingSpecialIds.intersection(winemakingGapIds), isEmpty);
+        expect(
+          l3WinemakingRegionalIds.intersection(l3WinemakingFirstClosureIds),
+          isEmpty,
+        );
+        expect(l3WinemakingRegionalIds.intersection(winemakingGapIds), isEmpty);
         expect(l3ApplicationIds, hasLength(40));
         expect(l3ViticultureIds, hasLength(40));
+        expect(l3ViticulturePrincipleIds, hasLength(40));
+        expect(l3ViticulturePrincipleNextIds, hasLength(40));
+        expect(l3ViticulturePrincipleFinalIds, hasLength(16));
+        expect(l3ViticultureCaseIds, hasLength(40));
+        expect(
+          l3ViticulturePrincipleIds.intersection(l3ViticultureIds),
+          isEmpty,
+        );
+        expect(
+          l3ViticulturePrincipleNextIds.intersection(l3ViticulturePrincipleIds),
+          isEmpty,
+        );
+        expect(l3ViticultureGeneralIds, hasLength(22));
         expect(l3TastingIds, hasLength(23));
         expect(l3ServiceIds, hasLength(17));
+        expect(l3TastingClosureIds, hasLength(12));
+        expect(l3ServicePrincipleClosureIds, hasLength(8));
+        expect(l3ServiceCaseClosureIds, hasLength(16));
         expect(l3GeographyIds, hasLength(36));
         expect(l3GeographyIds2, hasLength(40));
+        expect(l3RemainingPrincipleIds, hasLength(40));
+        expect(l3FinalGeographyIds, hasLength(11));
+        expect(l3LocationClueIds, hasLength(35));
+        expect(l3WinemakingPrincipleIds, hasLength(40));
         expect(diplomaBusinessIds, hasLength(29));
         expect(d3RegionalIds, hasLength(19));
         expect(d4RegionalIds, hasLength(24));
@@ -509,7 +705,7 @@ void main() {
                OR t.id = 'qt_d5f_authored_choice')
         ORDER BY q.knowledge_item_id
       ''').get();
-        expect(rows, hasLength(988));
+        expect(rows, hasLength(1532));
         final actual = {
           for (final row in rows)
             row.read<String>('knowledge_item_id'): row.read<String>(
@@ -652,10 +848,19 @@ void main() {
           if (europeIds.contains(id) ||
               winemakingL3Ids.contains(id) ||
               winemakingDepthIds.contains(id) ||
+              l3BusinessGapIds.contains(id) ||
+              winemakingGapIds.contains(id) ||
               l3ApplicationIds.contains(id) ||
               l3ViticultureIds.contains(id) ||
+              l3ViticulturePrincipleIds.contains(id) ||
+              l3ViticulturePrincipleNextIds.contains(id) ||
+              l3ViticulturePrincipleFinalIds.contains(id) ||
+              l3ViticultureCaseIds.contains(id) ||
+              l3ViticultureGeneralIds.contains(id) ||
               l3GeographyIds.contains(id) ||
-              l3GeographyIds2.contains(id)) {
+              l3GeographyIds2.contains(id) ||
+              l3RemainingPrincipleIds.contains(id) ||
+              l3FinalGeographyIds.contains(id)) {
             expect(
               levelThreeCards[id]?.formats.map((format) => format.mode),
               contains('authored_choice'),

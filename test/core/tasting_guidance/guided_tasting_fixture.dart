@@ -71,6 +71,10 @@ Future<void> seedGuidedTastingGrids(AppDatabase db) => db.writeCurriculum(
       "INSERT INTO tasting_grids VALUES ('tg_guided_wine_l${level}_v1','WSET_SAT','l${level}_v1','Original guided wine Level $level')",
       "INSERT INTO tasting_grid_attributes VALUES ('tg_guided_wine_l${level}_v1','sweetness','Taste','Sweetness',1,'single',1), ('tg_guided_wine_l${level}_v1','aromas','Smell','Aromas',2,'multi',0)",
       "INSERT INTO tasting_grid_values VALUES ('tg_guided_wine_l${level}_v1','sweetness','dry','Dry',1,NULL), ('tg_guided_wine_l${level}_v1','sweetness','off_dry','Off-dry',2,NULL), ('tg_guided_wine_l${level}_v1','aromas','citrus','Citrus fruit',1,NULL)",
+      if (level == 3) ...[
+        "INSERT INTO tasting_grid_attributes VALUES ('tg_guided_wine_l3_v1','colour','Appearance','Wine colour',3,'single',0)",
+        "INSERT INTO tasting_grid_values VALUES ('tg_guided_wine_l3_v1','colour','white','White',1,NULL), ('tg_guided_wine_l3_v1','colour','rose','Rosé',2,NULL), ('tg_guided_wine_l3_v1','colour','red','Red',3,NULL)",
+      ],
     ],
   ]),
 );

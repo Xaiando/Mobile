@@ -1,0 +1,131 @@
+# Original scenario choices for twelve remaining Level 3 tasting-fault facts.
+# These are app-authored prompts; the cited facts remain unverified.
+question_templates:
+  - id: qt_wset_l3_tasting_fault_closure_12
+    relation_type: PRINCIPLE_EXPLANATION
+    direction: forward
+    mode: authored_choice
+    variant: wset_l3_tasting_fault_closure_12
+    prompt_template: '{subject.name}'
+    parameters:
+      item_choices:
+        ki_fault_brett_eg:
+          prompt: A barrel-aged red smells smoky and spicy. Which interpretation keeps the cause open?
+          options:
+            - 4-EG can add those notes, but toasted oak can overlap
+            - Smoke and spice prove live Brett cells are present in this bottle
+            - Only 4-EP can cause smoky and spicy notes
+            - The aroma proves the wine has never seen oak
+          correctIndex: 0
+          explanation: AWRI associates 4-EG with smoke and spice but notes overlap with oak character.
+          sourceCitationId: src_fault_brett_faq
+        ki_fault_brett_ep:
+          prompt: A wine smells medicinal, like sticking plaster. What does that observation support?
+          options:
+            - An exact count of living Brett cells in this bottle
+            - A possible 4-EP association, not proof of live yeast
+            - A certain diagnosis of oxidation from one descriptor
+            - A fixed rejection threshold for every wine style
+          correctIndex: 1
+          explanation: A 4-EP-associated descriptor is a sensory clue, not a microbiological test.
+          sourceCitationId: src_fault_brett_faq
+        ki_fault_brett_masking:
+          prompt: Two wines have a similar measured 4-EP level, but one seems more affected. Why can this happen?
+          options:
+            - The measurement proves that both must smell identical
+            - Only bottle age determines every Brett threshold
+            - Matrix and other compounds can change perception
+            - A similar figure proves neither contains volatile phenols
+          correctIndex: 2
+          explanation: Wine components can mask or enhance Brett-related character, so one concentration is not a universal sensory boundary.
+          sourceCitationId: src_fault_brett_faq
+        ki_fault_brett_misdiagnosis:
+          prompt: A savoury sample is immediately called Brett-affected. Which check would best challenge that shortcut?
+          options:
+            - Treat savouriness itself as a unique Brett marker
+            - Reject oxidation and smoke taint without assessment
+            - Assume every sulfur note originates with Brett
+            - Compare sulfur, oxidation and smoke possibilities
+          correctIndex: 3
+          explanation: AWRI records several conditions confused with Brett; assess the wine rather than infer one cause from savouriness.
+          sourceCitationId: src_fault_brett_faq
+        ki_fault_mousy_delay:
+          prompt: A wine smells clean at first, but a taster suspects mousiness. Which tasting observation matters?
+          options:
+            - Recheck the delayed aftertaste, not only the first sniff
+            - Rule it out because the initial nose seemed clean before tasting
+            - Judge only the wine's visible colour and clarity
+            - Assume every taster perceives it at the same moment
+          correctIndex: 0
+          explanation: Mousy character may emerge after tasting and can take time to become perceptible.
+          sourceCitationId: src_fault_mousiness
+        ki_fault_mousy_ph:
+          prompt: Why can a mousy character appear retronasally after wine enters the mouth?
+          options:
+            - The wine's acidity destroys those compounds
+            - Higher mouth pH can make the compounds aroma-active
+            - Swirling the glass neutralises the wine's acidity in seconds
+            - Chilling the sample raises its pH toward neutral
+          correctIndex: 1
+          explanation: AWRI explains that the relevant compounds are less aroma-active at wine pH and can emerge as pH rises in the mouth.
+          sourceCitationId: src_fault_mousiness
+        ki_fault_mousy_sensitivity:
+          prompt: One assessor cannot detect a suspected mousy note. What is a sensible next step?
+          options:
+            - Declare the wine sound because one taster is insensitive
+            - Report an exact concentration from the first impression
+            - Include an assessor known to perceive that character
+            - Heat the wine until everyone agrees
+          correctIndex: 2
+          explanation: Sensitivity to mousiness varies; a known sensitive taster can provide useful additional evidence.
+          sourceCitationId: src_fault_mousiness
+        ki_fault_musty_alternatives:
+          prompt: A wine has an earthy, musty impression. Which conclusion avoids overdiagnosis?
+          options:
+            - TCA is certain because all mustiness is cork taint
+            - It cannot be a wine taint if the cork looks undamaged
+            - It proves the bottle contains no other earthy compounds
+            - Other compounds can overlap; test the TCA hypothesis
+          correctIndex: 3
+          explanation: Geosmin, methylisoborneol and other compounds can give earthy or musty impressions.
+          sourceCitationId: src_fault_oak_taints
+        ki_fault_tca_fruit:
+          prompt: A normally fruit-led wine seems unusually flat, without obvious mustiness. What remains worth checking?
+          options:
+            - Compare a sound bottle; TCA can suppress fruit
+            - Exclude TCA unless mustiness appears
+            - Infer the grape from the absence of fruit alone
+            - Call it quality bottle ageing without comparison
+          correctIndex: 0
+          explanation: TCA can mute desirable fruit before an obvious musty descriptor is identified.
+          sourceCitationId: src_fault_taints
+        ki_fault_threshold_limits:
+          prompt: A published odour threshold is applied to a different wine and panel. What is the limitation?
+          options:
+            - The number proves universal rejection
+            - Thresholds depend on test, matrix and assessors
+            - The result can be treated as a universal legal limit
+            - A threshold makes interacting compounds irrelevant
+          correctIndex: 1
+          explanation: Sensory detection thresholds are conditional on method, wine matrix and assessors.
+          sourceCitationId: src_fault_sensory_thresholds
+        ki_fault_threshold_rejection:
+          prompt: A panel can detect a difference at one concentration. What does that alone say about acceptability?
+          options:
+            - It proves all consumers reject the wine at that level
+            - It establishes a legally universal fault boundary
+            - Detection and rejection are different measurements
+            - It means no lower concentration can be perceived
+          correctIndex: 2
+          explanation: Detection asks whether a difference is perceptible; rejection asks whether it is acceptable.
+          sourceCitationId: src_fault_faults_overview
+        ki_fault_va_analysis:
+          prompt: A sample smells of nail-polish-like ethyl acetate. Why is a volatile-acidity result not the same measurement?
+          options:
+            - Ethyl acetate is the only acid measured in the volatile-acidity test
+            - The VA result directly counts every aroma ester
+            - The ester smell proves the VA number is incorrect
+            - VA measures volatile acids; ethyl acetate is an ester
+          correctIndex: 3
+          explanation: VA analysis principally concerns volatile acids; ethyl acetate may shape aroma but is chemically distinct.
+          sourceCitationId: src_fault_faults_overview

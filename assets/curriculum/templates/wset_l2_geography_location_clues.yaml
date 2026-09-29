@@ -1,0 +1,132 @@
+# Second practice family for mapped Level 2 places. These clues ask the learner
+# to reason from a shape, neighbour, register entry, or label type; map tapping
+# and map identification remain available for each item.
+question_templates:
+  - id: qt_wset_l2_geography_location_clues
+    relation_type: LOCATED_IN
+    direction: forward
+    mode: authored_choice
+    variant: l2_geography_location_clue
+    prompt_template: "{subject.name}"
+    parameters:
+      item_choices:
+        ki_burgundy_location:
+          prompt: "A French appellation account places vineyards in Yonne, Côte-d'Or and Saône-et-Loire. Which wine region does this span?"
+          options: ["Champagne", "Burgundy", "Bordeaux", "Alsace"]
+          correctIndex: 1
+          explanation: "INAO's Bourgogne account identifies those departments across the Burgundy vineyard area."
+          sourceCitationId: src_inao_cdc_bourgogne
+        ki_wset_geo_argentina_world_location:
+          prompt: "Which national outline forms the Atlantic-facing side of Chile's long eastern border in southern South America?"
+          options: ["Argentina", "Uruguay", "Venezuela", "Bolivia"]
+          correctIndex: 0
+          explanation: "The Natural Earth country outlines place Argentina east of Chile and against the South Atlantic."
+          sourceCitationId: src_ne_countries
+        ki_wset_geo_australia_world_location:
+          prompt: "On a world map, which national mainland lies south of Indonesia and west of the Tasman Sea?"
+          options: ["New Zealand", "Indonesia", "Australia", "Argentina"]
+          correctIndex: 2
+          explanation: "Natural Earth's outlines show the Australian mainland south of Indonesia and across the Tasman Sea from New Zealand."
+          sourceCitationId: src_ne_countries
+        ki_wset_geo_canada_world_location:
+          prompt: "Which country's outline lies north of the contiguous United States and reaches both the Atlantic and Pacific?"
+          options: ["Mexico", "Canada", "Norway", "Iceland"]
+          correctIndex: 1
+          explanation: "Natural Earth's country boundaries place Canada north of the contiguous US with both ocean frontages."
+          sourceCitationId: src_ne_countries
+        ki_wset_geo_catalunya_do_location:
+          prompt: "A buyer sees Catalunya DO in the EU protected-name list. Which national origin should the label be filed under?"
+          options: ["France", "Portugal", "Italy", "Spain"]
+          correctIndex: 3
+          explanation: "Spain's official protected-wine list records Catalunya as a Spanish DO."
+          sourceCitationId: src_wset_eu_es_register
+        ki_wset_geo_chile_world_location:
+          prompt: "Which country is the long, narrow Pacific-coast outline west of Argentina?"
+          options: ["Peru", "Chile", "Brazil", "Uruguay"]
+          correctIndex: 1
+          explanation: "The Natural Earth outline shows Chile along the Pacific to Argentina's west."
+          sourceCitationId: src_ne_countries
+        ki_wset_geo_delle_venezie_location:
+          prompt: "Delle Venezie DOC covers Veneto, Friuli Venezia Giulia and Trento. Which country is its national origin?"
+          options: ["Austria", "Spain", "Italy", "Croatia"]
+          correctIndex: 2
+          explanation: "The Delle Venezie DOC producer body locates its denomination across these Italian territories."
+          sourceCitationId: src_wset_grape_venezie_style
+        ki_wset_geo_france_world_location:
+          prompt: "Which country's outline lies west of Germany, north of Spain, and touches both the Atlantic and Mediterranean?"
+          options: ["France", "Italy", "Portugal", "Belgium"]
+          correctIndex: 0
+          explanation: "Natural Earth's country outlines show these relative positions and coastlines for France."
+          sourceCitationId: src_ne_countries
+        ki_wset_geo_germany_world_location:
+          prompt: "Which country's outline lies east of France, west of Poland, and reaches the North Sea?"
+          options: ["Austria", "Belgium", "Denmark", "Germany"]
+          correctIndex: 3
+          explanation: "Natural Earth's boundaries and coastlines place Germany between France and Poland with a North Sea coast."
+          sourceCitationId: src_ne_countries
+        ki_wset_geo_hungary_world_location:
+          prompt: "Which landlocked country lies east of Austria and west of Romania on the world map?"
+          options: ["Poland", "Hungary", "Croatia", "Slovakia"]
+          correctIndex: 1
+          explanation: "Natural Earth's country outlines place landlocked Hungary between Austria and Romania."
+          sourceCitationId: src_ne_countries
+        ki_wset_geo_italy_world_location:
+          prompt: "Which country's mainland forms the long peninsula extending south of the Alps into the Mediterranean?"
+          options: ["Spain", "Greece", "Italy", "Turkey"]
+          correctIndex: 2
+          explanation: "Natural Earth's outlines identify the Italian peninsula south of the Alpine arc."
+          sourceCitationId: src_ne_countries
+        ki_wset_geo_navarra_do_location:
+          prompt: "A Spanish DO spans vineyards near Pamplona in the north and the Ebro in the south. Which autonomous-community heading holds it?"
+          options: ["Aragón", "La Rioja", "Cataluña", "Navarra"]
+          correctIndex: 3
+          explanation: "The Navarra DO body describes vineyards near Pamplona down to the Ebro; Spain's protected-wine list files the DO under Navarra."
+          sourceCitationId: src_wset_l2_geo_navarra_body
+        ki_wset_geo_new_zealand_world_location:
+          prompt: "Which wine-producing country appears as two main islands southeast of Australia across the Tasman Sea?"
+          options: ["New Zealand", "South Africa", "Indonesia", "Japan"]
+          correctIndex: 0
+          explanation: "Natural Earth's outlines show New Zealand's two main islands to Australia's southeast."
+          sourceCitationId: src_ne_countries
+        ki_wset_geo_pays_doc_location:
+          prompt: "A legal notice identifies Pays d'Oc as an IGP. Under which country's protected-indication system does this wine label sit?"
+          options: ["Italy", "Spain", "Portugal", "France"]
+          correctIndex: 3
+          explanation: "The EU notice records Pays d'Oc as a French protected geographical indication."
+          sourceCitationId: src_wset_geo_pays_doc
+        ki_wset_geo_portugal_world_location:
+          prompt: "Which country occupies the Atlantic-facing western side of the Iberian Peninsula and borders Spain?"
+          options: ["Portugal", "Paraguay", "France", "Ireland"]
+          correctIndex: 0
+          explanation: "Natural Earth's outlines place Portugal on western Iberia beside Spain."
+          sourceCitationId: src_ne_countries
+        ki_wset_geo_santa_barbara_county_location:
+          prompt: "A label says Santa Barbara County. Which geographic reading keeps the county appellation distinct from a named AVA?"
+          options: ["An Oregon AVA", "A California county appellation", "A Washington county appellation", "A California grape variety"]
+          correctIndex: 1
+          explanation: "TTB lists Santa Barbara County among California county appellations and treats counties and AVAs as distinct origin types."
+          sourceCitationId: src_wset_l2_geo_ttb_county_chart
+        ki_wset_geo_sonoma_county_location:
+          prompt: "A label says Sonoma County rather than a named AVA. Which origin category should a learner record?"
+          options: ["A Washington county appellation", "An Oregon grape variety", "A California county appellation", "A Chilean valley"]
+          correctIndex: 2
+          explanation: "TTB lists Sonoma County as a California county appellation; county and AVA are distinct origin categories."
+          sourceCitationId: src_wset_l2_geo_ttb_county_chart
+        ki_wset_geo_south_africa_world_location:
+          prompt: "Which country's outline occupies Africa's southern tip between Atlantic and Indian Ocean coasts?"
+          options: ["Sierra Leone", "Mozambique", "South Africa", "Madagascar"]
+          correctIndex: 2
+          explanation: "Natural Earth's outlines show South Africa at the southern tip with both ocean frontages."
+          sourceCitationId: src_ne_countries
+        ki_wset_geo_spain_world_location:
+          prompt: "Which country's mainland occupies most of Iberia south of France and east of Portugal?"
+          options: ["France", "Portugal", "Italy", "Spain"]
+          correctIndex: 3
+          explanation: "Natural Earth's boundaries show Spain across most of the Iberian Peninsula beside Portugal."
+          sourceCitationId: src_ne_countries
+        ki_wset_geo_united_states_world_location:
+          prompt: "Which country has a contiguous mainland between Canada and Mexico, with Pacific and Atlantic coasts?"
+          options: ["United States", "United Kingdom", "Canada", "Australia"]
+          correctIndex: 0
+          explanation: "Natural Earth's country outlines place the contiguous United States between Canada and Mexico."
+          sourceCitationId: src_ne_countries

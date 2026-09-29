@@ -1,0 +1,127 @@
+# Complete, source-linked four-role rubrics for the remaining Level 3
+# business-case gaps. The case premises and response summaries are existing
+# expert-unverified curriculum nodes and items.
+question_templates:
+  - id: qt_wset_l3_business_case_criteria_19
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: case_criteria
+    variant: wset_l3_business_case_criteria_19
+    prompt_template: '{subject.name}'
+    parameters:
+      scope_node_ids:
+        - n_reg_ah_case_tokaj_berry_selection
+        - n_reg_ah_case_tokaj_maturation_cash
+        - n_reg_de_case_baden_pinot_cellar_trial
+        - n_reg_de_case_mosel_steep_budget
+        - n_reg_fe_case_alsace_dry_aromatic
+        - n_reg_fe_case_beaujolais_berry_handling
+        - n_reg_fm_case_picpoul_harvest
+        - n_reg_fr_case_chardonnay_buy
+        - n_reg_fr_case_loire_list
+        - n_reg_fr_case_rhone_cost
+        - n_reg_fs_case_loire_muscadet_inventory
+        - n_reg_fs_case_southwest_sweet_process
+        - n_reg_gr_case_nemea_customer
+        - n_reg_gr_case_santorini_training
+        - n_reg_ib_case_es_priorat_price
+        - n_reg_ib_case_pt_baga_inventory
+        - n_reg_inc_case_nebbiolo_list
+        - n_reg_inc_case_white_slots
+        - n_reg_isi_case_etna_price
+      distractors:
+        n_reg_ah_case_tokaj_berry_selection:
+          - summary: Collect wet decayed berries with noble-rot fruit to maximise one sweet lot
+            explanation: The qualified assessment separates damaging decay from suitable shrivelling; humidity does not make every affected berry useful.
+          - summary: Postpone every pass until forecast rain has established the final yield
+            explanation: Only a short drying window is supplied, and later usable fruit is uncertain; waiting does not settle present suitability.
+        n_reg_ah_case_tokaj_maturation_cash:
+          - summary: Extend the whole lot because more oak contact always increases sale value
+            explanation: The desired sensory change and buyer premium are unconfirmed, while the optional extension delays receipts and adds costs.
+          - summary: Use projected accounting profit as cash available for storage and wages
+            explanation: Profit does not establish payment timing or cash on hand under the case's delayed buyer terms.
+        n_reg_de_case_baden_pinot_cellar_trial:
+          - summary: Scale the barrel route because vanilla alone fulfils the cherry-fruit brief
+            explanation: The tank trial already meets the stated fruit brief; the extra wood note is not evidence of better customer fit.
+          - summary: Cost barrel and tank handling equally because both started from one lot
+            explanation: The supplied records say barrel and handling expenses are higher for the oak route.
+        n_reg_de_case_mosel_steep_budget:
+          - summary: Set a premium for every steep Mosel lot before a buyer test
+            explanation: The recorded working cost affects the recovery target but does not establish demand at a higher price.
+          - summary: Use difficult access as direct evidence of superior sensory quality
+            explanation: Access can increase labour; no finished-wine advantage is supplied by terrain alone.
+        n_reg_fe_case_alsace_dry_aromatic:
+          - summary: Assign the aromatic Gewurztraminer to the dry slot from grape name alone
+            explanation: Aromatic character does not establish residual sweetness or fit with the restaurant's stated dry brief.
+          - summary: Infer the candidate's sweetness from perfume without specifications or tasting
+            explanation: The case provides specifications and samples precisely because aroma does not prove dryness.
+        n_reg_fe_case_beaujolais_berry_handling:
+          - summary: Crush the intact lot before trial because carbonic handling requires broken berries
+            explanation: Intact berries are relevant to the intended intracellular component; the two lots need their own handling trials.
+          - summary: Assume intact-fruit purchase cost guarantees a matching shelf premium
+            explanation: Extra handling cost is documented, but neither sensory benefit nor customer willingness to pay is guaranteed.
+        n_reg_fm_case_picpoul_harvest:
+          - summary: Harvest both blocks on one date using the regional name as the sole evidence
+            explanation: The premise supplies distinct block conditions; representative sampling is needed before fixing either date.
+          - summary: Ignore acid and flavour once a single sugar sample reaches its target
+            explanation: One reading cannot establish the combined balance or represent both Picpoul blocks.
+        n_reg_fr_case_chardonnay_buy:
+          - summary: List the barrel-influenced Meursault from village reputation alone
+            explanation: The buyer requests restrained oak, and no sample result establishes which offered wine best fits.
+          - summary: Treat each cellar route as proof of the finished sample style without tasting
+            explanation: Region and vessel details guide comparison but cannot replace the available current samples.
+        n_reg_fr_case_loire_list:
+          - summary: Use the Vouvray name alone to decide which offer is dry
+            explanation: The sec and moelleux labels and current cuvée specifications provide the relevant sweetness evidence.
+          - summary: Allocate the Centre-Loire Sauvignon to dessert because it is aromatic
+            explanation: Aroma does not make the stated dry, fresh candidate suitable for a sweet dessert slot.
+        n_reg_fr_case_rhone_cost:
+          - summary: Pay the northern quote as a quality premium because manual work is documented
+            explanation: Hand work can explain cost but does not prove that the wine better fits the restaurant's value brief.
+          - summary: Assume all southern Rhône vineyards permit machines and have the same cost
+            explanation: Machine suitability is supplied for one site, not established for every southern vineyard.
+        n_reg_fs_case_loire_muscadet_inventory:
+          - summary: Commit the full fuller-Muscadet volume because lees contact guarantees demand
+            explanation: The trial supplies a palate contrast, not customer acceptance or a safe order size.
+          - summary: Exclude holding time and occupied capacity from the cash forecast
+            explanation: Later release postpones receipts and occupies production capacity under this case's plan.
+        n_reg_fs_case_southwest_sweet_process:
+          - summary: Rank noble-rot wine above passerillé wine for every sweet-wine offer
+            explanation: Both methods can meet the given balanced brief; the two actual wines need comparison.
+          - summary: Accept any premium equal to extra hand-picking cost without buyer testing
+            explanation: Cost recovery does not establish customer value or demand at the proposed price.
+        n_reg_gr_case_nemea_customer:
+          - summary: Order the whole young Nemea allocation from one panel result without a demand trial
+            explanation: Present panel fit supports a bounded order, not a forecast of future demand or cash needs.
+          - summary: Assume every Agiorgitiko has the same extraction and oak treatment
+            explanation: The grape can support different styles; the actual candidate's process and trial matter.
+        n_reg_gr_case_santorini_training:
+          - summary: Convert every basket-trained vine immediately because trellising must save labour
+            explanation: Upfront cost, wind protection and local crop response are untested for the proposed change.
+          - summary: Exclude wind exposure and trial crop performance from the training decision
+            explanation: Kouloura has a protective function; a pilot must assess the intended alternative at this site.
+        n_reg_ib_case_es_priorat_price:
+          - summary: Raise the quote by a fixed amount solely because DOQ Priorat is named
+            explanation: An origin name does not specify this parcel's cost, the finished wine's quality or buyer demand.
+          - summary: Infer higher sensory quality from manual-work cost despite the case comparison
+            explanation: The supplied labour expense can affect cost recovery, not automatically the wine's sensory rating.
+        n_reg_ib_case_pt_baga_inventory:
+          - summary: Buy the full Baga stock because cellar ageing always improves readiness and price
+            explanation: Development is conditional on the actual wine and vintage, and demand for the later release is unknown.
+          - summary: Treat delayed release as costless because the wine is already purchased
+            explanation: Holding stock ties up cash and delays sales even after its purchase is paid.
+        n_reg_inc_case_nebbiolo_list:
+          - summary: Choose Barolo for immediate listing because the name proves readiness
+            explanation: The actual Nebbiolo samples and vintages must be assessed against the current-drinking brief.
+          - summary: Use commune reputation instead of available samples to set the list price
+            explanation: Reputation alone does not establish this bottle's readiness or customer value.
+        n_reg_inc_case_white_slots:
+          - summary: Assign Orvieto to the dessert slot without checking finished sweetness
+            explanation: Blend identity does not fix the offered cuvée's sweetness or suitability for dessert.
+          - summary: Identify an exact central Italian origin from aroma and skip producer details
+            explanation: Aroma alone cannot authenticate the named wine or replace its specification and tasting.
+        n_reg_isi_case_etna_price:
+          - summary: Approve the premium because terrace expense automatically raises demand
+            explanation: Higher production cost can change the recovery target but customer response remains untested.
+          - summary: Treat similar panel scores as proof both wines have identical production cost
+            explanation: Sensory evaluations do not erase the documented difference in terrace and hand-work expenses.

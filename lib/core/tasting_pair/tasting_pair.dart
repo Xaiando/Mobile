@@ -193,6 +193,21 @@ class TastingPairAttempt {
   bool get isFinished => completedAt != null;
   bool get abandoned => finishReason == 'abandoned';
   int get completeWineCount => wines.where((w) => w.isComplete).length;
+
+  /// Self-recorded colours only; the app cannot verify an unknown physical wine.
+  bool get hasWhiteAndRedWines {
+    if (completeWineCount != 2) return false;
+    String? colour(TastingPairWine wine) {
+      final values = wine.observations['colour'];
+      return values?.length == 1 ? values!.single : null;
+    }
+
+    final first = colour(wines[0]);
+    final second = colour(wines[1]);
+    return (first == 'white' && second == 'red') ||
+        (first == 'red' && second == 'white');
+  }
+
   Duration remaining(DateTime now) {
     final utc = now.toUtc();
     final left = deadline.difference(utc.isBefore(startedAt) ? startedAt : utc);

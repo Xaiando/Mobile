@@ -1,0 +1,42 @@
+# Five complete regional decision cases not included in the business-case
+# criteria pool. All four roles and their item-specific citations pre-exist.
+question_templates:
+  - id: qt_wset_l3_geography_case_criteria_5
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: case_criteria
+    variant: wset_l3_geography_case_criteria_5
+    prompt_template: '{subject.name}'
+    parameters:
+      scope_node_ids:
+        - n_reg_inc_case_valpolicella_buy
+        - n_reg_isi_case_aglianico_comparison
+        - n_reg_ib_case_es_rioja_site
+        - n_reg_ib_case_pt_white_design
+        - n_reg_de_case_riesling_sweetness_evidence
+      distractors:
+        n_reg_inc_case_valpolicella_buy:
+          - summary: Rank Ripasso first because added concentration must better fit the fresh moderate-weight brief
+            explanation: Ripasso can add weight and extract; the brief favours freshness and moderate weight, so the actual samples must be compared.
+          - summary: Select the least expensive of the three Valpolicella categories without tasting because all quotes meet budget
+            explanation: Budget eligibility does not establish any cuvée's freshness, weight or alcohol balance, and the case supplies no tasting results.
+        n_reg_isi_case_aglianico_comparison:
+          - summary: Identify the more tannic blind glass as Taurasi because Vulture Aglianico cannot show substantial tannin
+            explanation: Both glasses are stated to have substantial tannin and share Aglianico; tannin alone cannot identify either origin.
+          - summary: Attribute every difference in the Aglianico pair to region while disregarding their different maturation records
+            explanation: Vineyard and maturation regimes both differ, so the two bottles cannot isolate one regional cause of their sensory differences.
+        n_reg_ib_case_es_rioja_site:
+          - summary: Use the cooler western harvest record to declare western Rioja categorically higher in quality
+            explanation: The records offer a qualified explanation for this pair's freshness, not a quality ranking across Rioja sites or wines.
+          - summary: Treat similar blend and oak as complete controls and omit yield, selection and harvest choices from comparison
+            explanation: Similar blend and oak reduce two competing explanations; other vineyard and cellar variables remain unrecorded.
+        n_reg_ib_case_pt_white_design:
+          - summary: Attribute the Encruzado's barrel texture entirely to Dão origin despite its stated barrel fermentation
+            explanation: The pair changes region, grape and cellar treatment together; barrel fermentation cannot be ignored when explaining texture.
+          - summary: Define every Dão white as rich and every Vinho Verde white as light from these two unmatched samples
+            explanation: One deliberately contrasting pair cannot define either region's full white-wine range or establish a quality order.
+        n_reg_de_case_riesling_sweetness_evidence:
+          - summary: Assign the Mosel sample to sweet and the Rheingau sample to dry from the supplier's regional shorthand
+            explanation: Riesling spans dry and sweet styles, and neither quote includes the current wine's sugar analysis or palate assessment.
+          - summary: Infer each Riesling's residual sugar from acidity and fruit aroma without requesting producer specifications
+            explanation: Acidity and fruit aroma do not quantify sugar; the available specifications and comparable samples are needed for the lesson.

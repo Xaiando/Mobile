@@ -1,0 +1,168 @@
+# Source-linked four-role matching for complete Level 3 winemaking cases.
+# The original written prompts remain available; these rubrics add independently
+# graded objective practice. All underlying assertions await expert review.
+question_templates:
+  - id: qt_wset_l3_winemaking_case_criteria_16
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: case_criteria
+    variant: wset_l3_winemaking_case_criteria_16
+    prompt_template: '{subject.name}'
+    parameters:
+      scenario_prompts:
+        n_win_case_fresh_white: >-
+          Sound white grapes are intended for a delicate, fresh style. A trial with prolonged warm skin
+          contact produces an astringent wine. Propose a more suitable extraction plan for the next
+          batch, explain its mechanism, and discuss a tradeoff and a limitation. Other defensible plans
+          may exist.
+        n_win_case_hot_red: >-
+          A sound red must is fermenting rapidly and its temperature keeps rising. Cooling capacity is
+          limited, and the winemaker wants moderate tannin rather than maximum extraction. Propose an
+          immediate temperature-management response, its rationale, one tradeoff and a limit. Do not
+          assume that simply making the cap cooler will solve the problem.
+        n_win_case_low_yan: >-
+          Before inoculation, a high-sugar juice tests low in yeast-assimilable nitrogen. The producer
+          wants complete fermentation and proposes adding a large unmeasured DAP dose. Give a more
+          defensible nutrition plan, why it helps, a tradeoff and a limitation.
+        n_win_case_difficult_mlf: >-
+          A dry white wine is intended to undergo MLF for acid and texture adjustment. It has low pH, is
+          held cold and has substantial total sulfur dioxide. Inoculation has not given measurable
+          malic-acid decline. Propose a defensible response, explain why, and identify a tradeoff and
+          limitation. Do not assume warming alone guarantees completion.
+        n_win_case_protein_white: >-
+          A clear finished white blend fails a controlled heat-stability test. The producer wants to
+          bottle without a later haze but also preserve aroma and minimise wine loss. Propose a suitable
+          trial and treatment, its mechanism, a tradeoff and a limitation.
+        n_win_case_sweet_bottling: >-
+          A wine with fermentable residual sugar is ready for bottling. It looks clear after cross-flow
+          filtration, but the proposed final membrane has only a nominal rating and its integrity is
+          untested. The filling line has uncertain cleaning records. Propose a defensible packaging
+          plan, why it is needed, a tradeoff and a limitation.
+        n_spark_case_fruit_tank: >-
+          A producer has aromatic base wine and an available pressure-tank line. The target is a fresh,
+          youthful sparkling style with rapid release; pronounced mature lees character is not required.
+          Propose a defensible production method, explain why it suits the target, and discuss a
+          tradeoff and a limitation. A method name alone does not establish wine quality.
+        n_spark_case_transfer_batch: >-
+          A sparkling producer wants bottle fermentation and bottle lees ageing. Its individual-bottle
+          finishing capacity is limited, but a suitable pressure-tank filtration and filling line is
+          available. The product has no appellation requirement to stay in its fermentation bottle.
+          Propose a defensible finishing approach, its rationale, a tradeoff and a limitation.
+        n_spark_case_dosage_trial: >-
+          A disgorged sparkling blend has completed the producer’s planned lees ageing. The team is
+          comparing neutral and characterful dosage wines and different sweetness levels before sealing.
+          Propose a defensible trial, explain why dosage choice matters, and identify a tradeoff and a
+          limitation. Do not treat tirage and dosage as interchangeable.
+        n_fort_case_port_fruit: >-
+          A producer wants a Port with youthful red-fruit character and deep colour. A trial dominated
+          by extensively oxidatively aged cask parcels tastes too nutty and mature. Propose a different
+          maturation and selection direction, explain why, and give a tradeoff and a limitation. Do not
+          assume every fruit-led Port is ready to drink immediately.
+        n_fort_case_flor_oxygen: >-
+          A sound Sherry is intended to continue biological ageing, but its flor has weakened. The
+          cellar team proposes filling every butt completely to exclude all oxygen. Propose a more
+          defensible response, explain the mechanism, and identify a tradeoff and limitation. Several
+          causes of weak flor are possible.
+        n_fort_case_ruth_balance: >-
+          A producer is blending a foundation Rutherglen Muscat intended to balance fresh raisin fruit
+          with some mature complexity. A trial dominated by very concentrated old parcels overwhelms
+          that aim. Propose a blending response, explain why, and give a tradeoff and limitation. Do not
+          assign a classification from age alone.
+      scope_node_ids:
+        - n_win_case_fresh_white
+        - n_win_case_hot_red
+        - n_win_case_low_yan
+        - n_win_case_difficult_mlf
+        - n_win_case_protein_white
+        - n_win_case_sweet_bottling
+        - n_spark_case_fruit_tank
+        - n_spark_case_transfer_batch
+        - n_spark_case_dosage_trial
+        - n_fort_case_port_fruit
+        - n_fort_case_flor_oxygen
+        - n_fort_case_ruth_balance
+        - n_reg_fr_case_bordeaux_blend
+        - n_reg_isi_case_fiano_cellar_choice
+        - n_reg_fm_case_rose_selection
+        - n_reg_fs_case_southwest_madiran_extraction
+      distractors:
+        n_win_case_fresh_white:
+          - summary: Lengthen warm skin contact to soften the trial wine's astringency
+            explanation: The warm, prolonged contact already produced unwanted astringency; more extraction conflicts with this delicate-style brief.
+          - summary: Use one astringent trial to ban every white skin-contact treatment
+            explanation: The result is conditional on this fruit, time and temperature; a controlled shorter contact may suit a different batch or style.
+        n_win_case_hot_red:
+          - summary: Cool only the cap while ignoring the rising fermenting-liquid temperature
+            explanation: The premise identifies a rising must temperature; cap cooling alone does not establish control of the fermenting liquid or yeast heat risk.
+          - summary: Allow the ferment to heat further because maximum tannin is the stated goal
+            explanation: The winemaker wants moderate tannin, and uncontrolled heat threatens fermentation health as well as extraction control.
+        n_win_case_low_yan:
+          - summary: Add one large DAP dose without considering measured YAN or yeast needs
+            explanation: The case supplies a YAN test precisely to guide an appropriate early nutrition plan; an unmeasured dose can create excess and miss other needs.
+          - summary: Defer all nutrient decisions until the high-sugar fermentation is nearly dry
+            explanation: Nutrient uptake may be ineffective late in fermentation, so waiting can miss the opportunity to support the growing yeast population.
+        n_win_case_difficult_mlf:
+          - summary: Warm the wine once and assume malolactic conversion is complete
+            explanation: Low pH and sulfur dioxide remain possible inhibitors; completion requires measured malic-acid decline, not temperature alone.
+          - summary: Add more sulfur dioxide to restart the inhibited malolactic bacteria
+            explanation: Sulfur dioxide is among the conditions suppressing bacterial activity in this case; increasing it is not a restart strategy.
+        n_win_case_protein_white:
+          - summary: Bottle the clear blend despite its failed controlled heat-stability test
+            explanation: Apparent clarity before bottling does not exclude a later protein haze; the failed test calls for a measured stability response.
+          - summary: Apply the highest available bentonite dose without a trial to protect aroma
+            explanation: Excess fining can cause avoidable wine loss and sensory stripping; the actual blend needs a trial for an effective dose.
+        n_win_case_sweet_bottling:
+          - summary: Treat visual clarity and a nominal membrane rating as proof of sterile filling
+            explanation: Clarity does not prove microbial removal, and an untested nominal membrane cannot establish integrity or final-bottle security.
+          - summary: Ignore the filling line because filtration removes all later contamination routes
+            explanation: Organisms can be introduced downstream of the filter; uncertain cleaning records make the line a separate control point.
+        n_spark_case_fruit_tank:
+          - summary: Require extended bottle lees ageing to preserve the requested youthful profile
+            explanation: The brief prioritises fresh aromatic character and rapid release, while prolonged bottle maturation develops a different profile.
+          - summary: Bottle without pressure control because tank fermentation permanently fixes the gas
+            explanation: Carbon dioxide can be lost during filtration and filling; a suitable counter-pressure process still matters to the finished wine.
+        n_spark_case_transfer_batch:
+          - summary: Disgorge every bottle individually before choosing bulk transfer finishing
+            explanation: This restores the individual-bottle sediment work the transfer route was meant to replace under the stated capacity limit.
+          - summary: Transfer the sparkling wine without pressure control because bottle gas cannot escape
+            explanation: Moving and filtering sparkling wine can lose dissolved gas; the available pressure equipment is part of the feasible route.
+        n_spark_case_dosage_trial:
+          - summary: Let the original tirage decision determine final dosage without a trial
+            explanation: Tirage supports secondary fermentation, whereas post-disgorgement dosage determines finishing sweetness and can change aroma.
+          - summary: Use a strongly flavoured dosage to recreate years of absent lees maturation
+            explanation: Dosage can change the finishing profile, but it cannot reproduce the earlier time-dependent lees ageing process.
+        n_fort_case_port_fruit:
+          - summary: Build the youthful red-fruit blend around the most oxidatively aged cask parcels
+            explanation: The existing trial from those parcels tasted too nutty and mature for the specified Ruby-style fruit target.
+          - summary: Infer identical release readiness for every fruit-led Port from its style name
+            explanation: Fruit-led styles include wines with different bottle-development expectations; the actual category and wine still matter.
+        n_fort_case_flor_oxygen:
+          - summary: Fill the Sherry butt to the rim so flor receives no air at its surface
+            explanation: Flor uses oxygen at the wine surface during biological ageing; eliminating the air space conflicts with the intended process.
+          - summary: Restore flor by air space alone without checking refreshment or cellar conditions
+            explanation: Oxygen access is necessary but does not settle nutrient supply, temperature, humidity or yeast condition in this weakened-flor case.
+        n_fort_case_ruth_balance:
+          - summary: Make the old concentrated parcels dominate because age guarantees foundation balance
+            explanation: The premise says that very concentrated old parcels overwhelmed the intended balance of freshness and mature complexity.
+          - summary: Assign the Rutherglen category solely from the blend's calculated average age
+            explanation: Richness, intensity and complexity of the finished blend also matter; an age calculation alone cannot settle the style category.
+        n_reg_fr_case_bordeaux_blend:
+          - summary: Copy a fixed bank-based Cabernet-to-Merlot ratio without tasting these lots
+            explanation: The case supplies ripe lots with different texture and an early-drinking target; coded blend trials test their actual balance.
+          - summary: Maximise the firmer Cabernet lot because tannin proves immediate readiness
+            explanation: Marked tannic firmness may work against the stated young-drinking brief; neither grape name nor structure guarantees readiness.
+        n_reg_isi_case_fiano_cellar_choice:
+          - summary: Select the oak-dominant Fiano because more oak proves greater quality
+            explanation: The supplied customers prefer the fresh floral style; pronounced oak is a different expression, not evidence of better fit.
+          - summary: Use this one split-lot result to prescribe steel fermentation for every Fiano vintage
+            explanation: One fruit lot and customer panel cannot establish the ideal treatment across producers, barrel choices or harvests.
+        n_reg_fm_case_rose_selection:
+          - summary: Choose the darker maceration trial because deeper colour proves better rosé balance
+            explanation: Both trials already meet the balance and freshness brief, while customers have asked for the paler result.
+          - summary: Declare direct pressing universally best for Provence after one fruit-lot trial
+            explanation: This controlled comparison supports a conditional choice for the stated buyers, not a quality rule for every fruit or customer.
+        n_reg_fs_case_southwest_madiran_extraction:
+          - summary: Prefer the darkest and firmest Tannat lot as proof of young-drinking fit
+            explanation: The restaurant favours the less astringent short-contact lot, and the darker wine had no better balance rating.
+          - summary: Guarantee the longer-contact lot will age better without mature samples
+            explanation: Additional tannin and colour do not establish future development here; the case supplies no mature comparison.
