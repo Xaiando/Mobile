@@ -114,6 +114,38 @@ void main() {
     expect(answerPositions, [15, 15, 15, 13]);
   });
 
+  test('vineyard choices do not disclose the key through answer length', () {
+    final choices =
+        (rawTemplates[principle.id]!['parameters']
+                as Map<String, dynamic>)['item_choices']
+            as Map<String, dynamic>;
+    final lengthRanks = [0, 0, 0, 0];
+    var uniquelyLongest = 0;
+    var uniquelyShortest = 0;
+    for (final entry in choices.entries) {
+      final cue = entry.value as Map<String, dynamic>;
+      final lengths = (cue['options'] as List)
+          .cast<String>()
+          .map((option) => option.length)
+          .toList();
+      final answerLength = lengths[cue['correctIndex'] as int];
+      final ordered = [...lengths]..sort();
+      lengthRanks[ordered.indexOf(answerLength)]++;
+      if (answerLength == ordered.last &&
+          lengths.where((length) => length == answerLength).length == 1) {
+        uniquelyLongest++;
+      }
+      if (answerLength == ordered.first &&
+          lengths.where((length) => length == answerLength).length == 1) {
+        uniquelyShortest++;
+      }
+    }
+    expect(choices, hasLength(51));
+    expect(uniquelyLongest, lessThanOrEqualTo(10));
+    expect(uniquelyShortest, lessThanOrEqualTo(6));
+    expect(lengthRanks, everyElement(lessThanOrEqualTo(20)));
+  });
+
   test(
     'four distinct vineyard cases offer complete source-linked decisions',
     () async {

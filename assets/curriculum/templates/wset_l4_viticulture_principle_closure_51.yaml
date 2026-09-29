@@ -26,7 +26,7 @@ question_templates:
           quality test is missing?
         options:
         - Assume a darker map colour proves a higher sensory score and price.
-        - Compare zone-specific savings or fruit value with mapping and extra-pass costs, then assess the wines.
+        - Compare zone costs with savings or wine value before splitting lots.
         - Count mapping as free after purchase and ignore added harvest passes.
         - Blend all fruit before checking whether the mapped zones differ in the field.
         correctIndex: 1
@@ -55,7 +55,7 @@ question_templates:
         - Only berries individually selected for aszú can make any Tokaj wine.
         - A fixed botrytis percentage is required for every dry Hárslevelű lot.
         - Delay until all berries shrivel even if health and the dry-wine balance deteriorate.
-        - Ripe, healthy fruit assessed for the dry wine, without waiting for aszú concentration.
+        - Pick ripe, healthy fruit for a dry wine, not berries selected for aszú.
         correctIndex: 3
         explanation: Dry Tokaj production can target ripe, healthy Furmint or Hárslevelű fruit rather than wait
           for the concentrated berries sought for aszú. Harvest timing follows the intended style, maturity and
@@ -65,7 +65,7 @@ question_templates:
         prompt: A buyer uses Helan foothill sunshine as proof of a premium red. What can the climate claim actually
           support?
         options:
-        - It supplies growing-season context; parcel maturity and wine quality still need evidence.
+        - Sunshine is context; test this parcel's maturity and resulting wine quality.
         - Sunshine alone determines tannin, alcohol and market price for every parcel.
         - Abundant sun removes any need to monitor canopy or fruit condition.
         - Sun hours establish an identical harvest date for all Ningxia cultivars.
@@ -92,7 +92,7 @@ question_templates:
         options:
         - Apply the surveyed burial depth to every Chinese vineyard in every winter.
         - Infer that buried vines never suffer cold damage or spring handling loss.
-        - Consider burial as a local cold-protection practice and determine depth and timing on site.
+        - Burial is a local cold measure; set its depth and timing for this new site.
         - Dismiss burial as impossible because the practice was documented only once.
         correctIndex: 2
         explanation: Research based on a March 2019 Hongsibu survey describes burying vines for winter cold protection.
@@ -105,7 +105,7 @@ question_templates:
         - Only the lowest first-year labour quote, because canopy form cannot change.
         - Maximum shoot crowding, because denser canopies always improve grapes.
         - A universal north-south row direction independent of local site constraints.
-        - A canopy arrangement that supports exposure and the crop alongside burial work.
+        - Canopy exposure and crop balance must work with winter lay-down in Ningxia.
         correctIndex: 3
         explanation: The Ningxia training study treats convenient winter lay-down and fruit exposure as linked design
           questions. Low or slanting trunks can aid burial operations, but a training choice must also consider
@@ -115,7 +115,7 @@ question_templates:
         prompt: A Yuquanying Cabernet Gernischt training trial reports berry and canopy differences. Which inference
           stays within the evidence?
         options:
-        - The trial showed site-, cultivar- and vintage-specific responses, not proven better finished wine.
+        - This single trial shows berry effects, not superior finished-wine taste.
         - The measured berry differences establish all Ningxia wines' sensory ranking.
         - Canopy density cannot respond to trunk form if the cultivar stays the same.
         - One trial proves slant trunks eliminate every winter-protection cost.
@@ -129,8 +129,7 @@ question_templates:
           did that trial document?
         options:
         - Stronger deficits raised yield in every treatment without changing acid.
-        - Compared with full irrigation, stronger deficits reduced yield and berry weight as well as titratable
-          acidity.
+        - In that trial, stronger deficits cut yield, berry mass and titratable acid.
         - The experimental dose is the required irrigation prescription for all Ningxia sites.
         - Water saving in the trial proves superior finished-wine quality at every deficit.
         correctIndex: 1
@@ -144,7 +143,7 @@ question_templates:
         options:
         - Heavy rain guarantees enough accessible root-zone water for the rest of the season.
         - Rain cannot cause terrace damage where vines also need irrigation.
-        - Stormwater may damage terraces yet fail to remain usable when vines later need water.
+        - Typhoon rain can damage terraces yet fail to supply later vine needs.
         - A regional typhoon report determines the water status of every estate parcel.
         correctIndex: 2
         explanation: Long Dai’s Shandong account describes typhoons bringing rain and potential terrace damage.
@@ -157,7 +156,7 @@ question_templates:
         - One storage pond proves a permanent sufficient supply in all dry years.
         - Water stored from monsoon rain cannot later be used by a drip system.
         - All Shandong vineyards must build identical ponds to make sound wine.
-        - Retained runoff can be one local supply option, subject to dependable inflow and demand.
+        - Stored runoff may help dry-year drip; test inflow and demand on site.
         correctIndex: 3
         explanation: Long Dai’s 2022–23 sustainability account describes retaining monsoon runoff in a pond for
           occasional drip support in the driest years. This is an estate water-storage example, not a promise of
@@ -166,7 +165,7 @@ question_templates:
       ki_reg_cn_shandong_terrace_work:
         prompt: Long Dai reports heterogeneous terraced lots. Which operating response fits that description?
         options:
-        - Adapt labour and suitable machinery to parcel differences before costing the work.
+        - Fit labour and machinery to each terrace lot before costing the work.
         - Use one machine setting and crew estimate regardless of terrace access.
         - Read a fixed flavour from terrace geometry without tasting the wine.
         - Assume terraced lots cannot require any hand work if they are planted to grapes.
@@ -179,7 +178,7 @@ question_templates:
         prompt: A phenology model fits one Chinese region. How should it be used in another cultivar and region?
         options:
         - Transfer it unchanged because air temperature predicts every cultivar equally.
-        - Validate its growth-stage predictions locally before relying on transferred parameters.
+        - Validate model predictions for the new cultivar and site before local use.
         - Treat the model's fit at one site as a guaranteed safe harvest date elsewhere.
         - Discard all temperature observations because local validation is impossible.
         correctIndex: 1
@@ -192,7 +191,7 @@ question_templates:
         options:
         - Burial makes bud temperature identical to station air at all depths.
         - The comparison specifies one universally safe spring uncovering date.
-        - Buried buds experience soil conditions, so covering and uncovering can shift prediction.
+        - Buried buds feel soil temperature; uncovering can shift budburst timing.
         - Soil temperature matters only after shoots have fully ripened in autumn.
         correctIndex: 2
         explanation: The comparison explains that buried buds experience soil rather than station-air temperatures
@@ -205,7 +204,7 @@ question_templates:
         - Photosynthesis and yield both rose because radiation fell.
         - Cooler bunches proved all resulting wines superior in blind tasting.
         - Shade changed neither bunch temperature nor crop output in the trial.
-        - Lower photosynthesis and yield accompanied the cooler bunch-zone treatment.
+        - Cooling shade also reduced photosynthesis and yield in that trial.
         correctIndex: 3
         explanation: In the 2018 Manas trial, partial canopy shading reduced radiation and bunch-zone temperature,
           but also photosynthesis and yield. Cooler exposure therefore came with a crop-output tradeoff in that
@@ -215,7 +214,7 @@ question_templates:
         prompt: A Shihezi winter trial compares tarpaulin and insulating blanket at different heights. What mattered
           thermally?
         options:
-        - Cover material and airspace configuration; the blanket performed better in that local comparison.
+        - The blanket insulated better locally; cover height also affected protection.
         - Only the calendar month, with no effect from material or cover height.
         - Tarpaulin always gave better insulation across all heights and sites.
         - Cover colour alone guaranteed survival in every future winter.
@@ -243,7 +242,7 @@ question_templates:
         options:
         - It rose proportionally with every increase in fertiliser input.
         - The vines obtained no nitrogen from the soil in any treatment.
-        - It did not differ significantly among treatments; much uptake came from soil nitrogen.
+        - Uptake did not differ significantly; soil supplied much of vine nitrogen.
         - The experiment established a universal fertiliser dose for all Chinese soils.
         correctIndex: 2
         explanation: In the 2018 Xinjiang trial, total vine nitrogen uptake did not differ significantly among treatments,
@@ -256,8 +255,7 @@ question_templates:
         - Apply the highest nitrogen dose because it had the highest utilisation fraction.
         - Treat every reported contrast as statistically significant across all sites.
         - Ignore irrigation because water input could not affect fertiliser utilisation.
-        - Evaluate irrigation and nutrition together; measured use fractions varied and did not simply rise with
-          nitrogen dose.
+        - Water and nitrogen need joint trials; more fertiliser did not ensure better uptake.
         correctIndex: 3
         explanation: At the same nitrogen input, the trial’s higher irrigation treatment had a higher measured fertilizer-nitrogen
           utilization fraction. The highest nitrogen input had a lower measured fraction than the lowest input and
@@ -267,7 +265,7 @@ question_templates:
       ki_reg_cn_yunnan_village_temperature:
         prompt: Ao Yun compares Xidang and Adong village sites. Which conclusion respects the estate's evidence?
         options:
-        - Its lower southwest-facing Xidang is warmest and higher northwest-facing Adong coolest, with factors combined.
+        - Xidang was warmest, Adong coolest; elevation and aspect varied together.
         - Elevation alone was experimentally isolated as the sole cause of the temperature difference.
         - Both villages have identical exposures and therefore identical ripening.
         - The producer's two sites define a national rule for every Yunnan vineyard.
@@ -280,7 +278,7 @@ question_templates:
         prompt: An Ao Yun parcel has mountain shade and cool nights. Which harvest approach follows?
         options:
         - Set its date from national latitude without observing grapes.
-        - Assess that parcel and season; reduced sun and cooler nights can lengthen its ripening period.
+        - Assess local shade and cool nights before setting this parcel's pick date.
         - Assume all mountain shade prevents grapes from ripening at any elevation.
         - Pick every Yunnan block together because cool nights erase site differences.
         correctIndex: 1
@@ -294,7 +292,7 @@ question_templates:
         options:
         - The rain alone caused every measured difference across both regions.
         - A single season proves the drip change improved all future vintages.
-        - Several factors changed; more seasons are needed before attributing an outcome to one cause.
+        - Several factors changed; one season cannot isolate the cause.
         - Differing block vigour cannot confound a regional comparison.
         correctIndex: 2
         explanation: Grace reports ripening-period rain in Shanxi and both drip changes and differing block vigour
@@ -306,7 +304,7 @@ question_templates:
         - No disease pressure because all rain arrived after harvest.
         - A guaranteed quality increase in every appellation from wetter soils.
         - Identical crop losses in every vineyard regardless of disease management.
-        - Strong mildew pressure, with implications for vineyard work and crop potential.
+        - Persistent spring rain brought strong mildew pressure in Bordeaux 2024.
         correctIndex: 3
         explanation: CIVB reports persistent spring rain and strong mildew pressure in Bordeaux in 2024, illustrating
           why weather can change vineyard work and crop potential.
@@ -314,7 +312,7 @@ question_templates:
       ki_reg_fr_vintage_window:
         prompt: Some Bordeaux 2024 Cabernet Sauvignon benefited from an early-October calm. What is the sound lesson?
         options:
-        - That dated window helped some producers; judge future harvests by their own fruit and weather.
+        - An early-October calm helped some; it is not a universal pick date.
         - Always delay all Bordeaux Cabernet until October in every vintage.
         - A regional report proves that every block had the same ripeness on one day.
         - The calm means spring disease pressure had never existed.
@@ -338,7 +336,7 @@ question_templates:
         options:
         - It is an early-ripening grape that requires the coolest wettest parcel.
         - A Trousseau label guarantees full ripeness and higher quality in every year.
-        - It ripens later and can develop fruit and spice there, subject to season and site.
+        - Later-ripening Trousseau favours warmer Jura sites for full development.
         - Lighter soils directly create a fixed mineral flavour in all finished wines.
         correctIndex: 2
         explanation: Later-ripening Trousseau favours warmer, lighter Jura sites and can give fruit/spice expressions.
@@ -350,7 +348,7 @@ question_templates:
         - A pale palate proves the grape ripens early without warm sites.
         - All Trollinger is heavily tannic and cannot show delicate fruit.
         - The regional name guarantees identical ripeness regardless of exposure.
-        - The wine may be light, yet the variety ripens late and needs suitable warmth.
+        - A light red may come from late-ripening Trollinger needing warmth.
         correctIndex: 3
         explanation: Trollinger is a Württemberg red association that ripens late and needs suitable warmth. DWI
           commonly describes light, fresh reds with pale colour and delicate fruit; a lighter palate does not mean
@@ -359,7 +357,7 @@ question_templates:
       ki_reg_de_wuerttemberg_lemberger_season:
         prompt: Which site concern fits Lemberger in Württemberg?
         options:
-        - Early budding raises spring exposure and late ripening favours warm, sheltered sites.
+        - Early budburst and late ripening favour warm, sheltered Lemberger sites.
         - Late budding removes spring-frost exposure from every vineyard.
         - The variety's name fixes extraction and tannin in every bottle.
         - It requires no warmth because it is harvested before other red grapes.
@@ -373,7 +371,7 @@ question_templates:
           decision illustrates that year?
         options:
         - Harvest every parcel on one date because the region has a single weather pattern.
-        - Prioritise mature parcels and fruit at greater damage risk, while treating it as a dated example.
+        - In 2022, prioritise mature Amyndeon parcels and those at damage risk.
         - The year's damage proves cooler sites never face disease or hail.
         - Wait until all fruit is damaged because only then can maturity be assessed.
         correctIndex: 1
@@ -387,7 +385,7 @@ question_templates:
         options:
         - Elevation guarantees a fixed harvest date and no weather damage.
         - The plateau is uniformly hotter than every nearby lowland site.
-        - Cooler conditions can slow ripening, while spring hail and frost still require monitoring.
+        - Cool plateau conditions can slow ripening; monitor hail and frost.
         - A cooler season makes parcel-level fruit assessment unnecessary.
         correctIndex: 2
         explanation: Mantinia’s elevated plateau has Mediterranean conditions with continental influences. Cooler
@@ -401,7 +399,7 @@ question_templates:
         - Assign a fixed labour cost from the word terrace without surveying access.
         - Assume every terrace gives superior sensory quality to every un-terraced site.
         - Ignore the small-berried white Muscat and harvest by island-wide calendar alone.
-        - Consider access, elevation and breezes, then measure parcel fruit and labour needs.
+        - Assess terrace access and fruit; neither labour nor quality is fixed by origin.
         correctIndex: 3
         explanation: Samos’s cooperative describes small-berried white Muscat on mountainous sites and narrow dry-stone
           terraces, with sea breezes and varying elevation. These features matter for access, fruit assessment and
@@ -411,7 +409,7 @@ question_templates:
       ki_reg_inc_alto_adige_variation:
         prompt: A producer wants one Alto Adige ripening prediction from the regional name. What is missing?
         options:
-        - The chosen variety and site's elevation, topography and local climate.
+        - Variety, elevation, slope and local climate differ among Alto Adige sites.
         - 'Nothing: all Alto Adige slopes receive identical temperature and exposure.'
         - Only the municipality name, which fixes sugar and acid across all vintages.
         - The finished wine's closure, which determines the vineyard's ripening date.
@@ -425,7 +423,7 @@ question_templates:
           lower site?
         options:
         - The stony upper soil must always be wetter than the clay-rich lower soil.
-        - The upper site may dry; the lower may retain excess water, so measure both.
+        - Upper stony slopes may dry; lower clay sites may retain too much water.
         - All lower clay sites drain fastest and never waterlog.
         - Either position guarantees premium Sangiovese without fruit assessment.
         correctIndex: 1
@@ -438,7 +436,7 @@ question_templates:
         options:
         - Select any clone because Sangiovese genotype cannot affect vineyard response.
         - Use one rootstock across all soils regardless of water or vigour.
-        - Evaluate plant material against the site's environment; grape identity alone does not fix performance.
+        - Choose Sangiovese clone and stock for this site's growing conditions.
         - Treat the project as proof that one planting will make the best wine in every vintage.
         correctIndex: 2
         explanation: The Chianti Classico 2000 project compared clonal behaviour and rootstock suitability. Sangiovese
@@ -462,7 +460,7 @@ question_templates:
         prompt: Many Amador growers dry farm sandy-clay loams with decomposed granite. What should a new grower
           verify?
         options:
-        - The block's stored soil water and seasonal vine response before assuming irrigation is unnecessary.
+        - Test this block's water reserve and vine response before dry farming.
         - Every Amador parcel has the same water reserve in every drought year.
         - Dry farming proves that vine roots cannot access stored rainwater.
         - Decomposed granite automatically gives a fixed mineral aroma in all wines.
@@ -475,7 +473,7 @@ question_templates:
         prompt: A visitor assumes all old Amador vines use one training system. What does the regional account show?
         options:
         - Only head training is permitted in every block regardless of access.
-        - Head-trained spur-pruned vines and bilateral cordon or vertical-trellis systems both occur.
+        - Both head-trained and trellised systems occur in Amador vineyards today.
         - A vertical trellis proves its grapes are from young vines and inferior.
         - Training type can be deduced from the county name without inspecting the vineyard.
         correctIndex: 1
@@ -526,7 +524,7 @@ question_templates:
           support?
         options:
         - Either cover gives guaranteed protection against every cold event.
-        - Compare locally suitable winter-cover options and monitor cultivar and site outcomes.
+        - Compare County winter covers by cultivar, site and monitored bud outcomes.
         - Only geotextiles can insulate vines; soil has never been used there.
         - One producer account sets a mandatory cover method for all Ontario vineyards.
         correctIndex: 1
@@ -540,7 +538,7 @@ question_templates:
         options:
         - Buried buds can never break, so uncovering can wait without crop risk.
         - Uncover on one fixed date even if shoot development differs by block.
-        - Bud sensitivity and handling damage rise with development; weigh weather and bud stage.
+        - Use bud stage and weather to time spring uncovering and limit shoot damage.
         - Soil covering removes all risk of damage to emerging shoots during handling.
         correctIndex: 2
         explanation: Ontario’s spring-vineyard guidance warns that swelling buds become more cold-sensitive, handling
@@ -554,7 +552,7 @@ question_templates:
         - Its water is always frozen through summer and prevents grape maturation.
         - The lake guarantees all varieties ripen equally across all nearby sites.
         - Its depth proves the finished wine has a specific fruit aroma.
-        - It can warm rapidly in summer and help extend a growing season, subject to parcel records.
+        - Shallow Erie warms rapidly and can support a long growing season.
         correctIndex: 3
         explanation: The Lake Erie North Shore overview describes shallow water warming rapidly in summer and a
           long growing season that supports grape maturation. This heat context differs from a generic assumption
@@ -578,7 +576,7 @@ question_templates:
           is safe?
         options:
         - Stop all disease scouting because wind prevents every infection.
-        - Use airflow as one risk factor but still monitor each canopy and season.
+        - Wind can lower disease pressure; keep scouting this site each season.
         - Treat an organic reputation as proof that no spores can occur.
         - Wind makes bunch wetness and canopy density irrelevant under rain.
         correctIndex: 1
@@ -592,7 +590,7 @@ question_templates:
         options:
         - Every shaded parcel must ripen Cabernet Sauvignon as quickly as the sunniest slope.
         - Riesling is only suitable on the hottest south-facing sites in the valley.
-        - Riesling or Gamay may suit cooler shade, while Cabernet varieties favour warmer exposure.
+        - Shade may suit Riesling or Gamay; warmer slopes may suit Cabernet varieties.
         - Exposure cannot influence suitability because the whole valley has warm summers.
         correctIndex: 2
         explanation: The regional overview associates cooler shaded Similkameen sites with Riesling or Gamay and
@@ -605,7 +603,7 @@ question_templates:
         - Only Cabernet Sauvignon grows in the northern valley.
         - Every northern Riesling is dry and has the same acidity.
         - A northern location determines all bottle sweetness and oak use.
-        - Riesling among aromatic whites and Pinot Noir are associated with cooler reaches.
+        - Cooler northern Okanagan sites can suit Riesling and Pinot Noir.
         correctIndex: 3
         explanation: The Okanagan overview associates its cooler northern reaches with aromatic whites including
           Riesling and with Pinot Noir. This is a selected grape-site comparison within the valley; it does not
@@ -614,7 +612,7 @@ question_templates:
       ki_reg_na_okanagan_warm_cabernet:
         prompt: A buyer considers Cabernet Sauvignon from warmer Okanagan sites near Osoyoos. What remains to check?
         options:
-        - Parcel exposure and fruit maturity; warm-site association is not a guaranteed harvest or quality tier.
+        - Assess parcel heat and Cabernet maturity; warmth is no quality guarantee.
         - The warmer location guarantees identical tannin and flavour in every wine.
         - Cabernet cannot ripen anywhere in the Okanagan despite this regional account.
         - The regional name proves every vintage is warmer than the previous one.
@@ -629,7 +627,7 @@ question_templates:
           conclude?
         options:
         - Every Itata vineyard is unirrigated because one producer's site was.
-        - It documents one cool maritime, winter-rain site; other southern parcels still need water assessment.
+        - One rainfed Itata Muscat site does not define all southern vineyards.
         - A rainfed site cannot produce grapes because winter rain never enters soil.
         - The sheet establishes identical crop yield in all vintages and vineyards.
         correctIndex: 1
@@ -639,12 +637,11 @@ question_templates:
           needs no irrigation.
         sourceCitationId: src_reg_sa_itata_tinajas
       ki_reg_sa_maule_trial_storage:
-        prompt: A ten-site Maule Carignan study contrasts low-storage sites with Caliboro. What was observed?
+        prompt: In a ten-site Maule Carignan study, what did several low-storage sites show?
         options:
-        - Every site had identical water storage and yield despite its profile.
+        - All sites yielded equally despite differences in their soil profiles.
         - Low water holding capacity always proves higher finished-wine quality.
-        - Lower holding capacity aligned with high sugars and lower productivity; greater storage with higher yield
-          and berry weight.
+        - Several low-storage Maule sites had high sugars and lower productivity.
         - Caliboro's greater water storage necessarily produced lower berry weight.
         correctIndex: 2
         explanation: A ten-site study of rainfed Maule Carignan in 2015 found relatively low water-holding capacity
