@@ -1,0 +1,171 @@
+# Remaining Level 3 core viticulture principles: regional grape and site examples.
+# The source-linked assertions remain unverified pending expert review.
+question_templates:
+- id: qt_wset_l3_viticulture_principle_final_16
+  relation_type: PRINCIPLE_EXPLANATION
+  direction: forward
+  mode: authored_choice
+  variant: wset_l3_viticulture_principle_final_16
+  prompt_template: '{subject.name}'
+  parameters:
+    item_choices:
+      ki_wset_nw_canterbury_style_range:
+        prompt: A North Canterbury list includes a delicate Pinot Noir and a darker, fuller one. Which regional reading best explains why both can fit?
+        options:
+        - Pinot Noir varies from fragrant to fuller styles; sheltered Waipara and cooler plains differ
+        - Canterbury Pinot Noir has one fixed colour and body because all sites share the same exposure
+        - The cooler Canterbury Plains make Chardonnay and Pinot Gris impossible to grow commercially
+        - Waipara is necessarily cooler than every open plain, so it must make only lighter red wines
+        correctIndex: 0
+        explanation: North Canterbury includes sheltered Waipara and cooler plains, and its Pinot Noir spans perfumed to darker expressions; site and wine evidence still matter.
+        sourceCitationId: src_reg_oa_canterbury
+      ki_wset_nw_dry_creek_zinfandel:
+        prompt: A buyer sees Dry Creek Valley Zinfandel beside Sauvignon Blanc. Which statement uses the regional association without inventing a bottle's tannin or oak?
+        options:
+        - Sauvignon Blanc is the valley's only relevant grape, so a Zinfandel label is implausible
+        - Both grapes are signatures; assess the particular Zinfandel's ripeness, tannin and oak
+        - Every Dry Creek Zinfandel is heavily oaked and has identical tannin regardless of producer
+        - Sonoma's coastal influence fixes the same light red style in every Dry Creek vineyard
+        correctIndex: 1
+        explanation: Dry Creek Valley is associated with Zinfandel and Sauvignon Blanc, but finished structure and oak are wine-specific.
+        sourceCitationId: src_reg_am_sonoma
+      ki_wset_nw_finger_lakes_riesling:
+        prompt: A Finger Lakes Riesling bottle has no sweetness cue on the front label. Which expectation is justified by the region alone?
+        options:
+        - It must be bone dry because the Finger Lakes has a cool climate and natural acidity
+        - It must be sweet because Riesling from lake-influenced sites retains acidity
+        - Dry through sweet are possible; check the specific wine for residual sugar
+        - Its colour reveals the exact sugar level even before the bottle is opened
+        correctIndex: 2
+        explanation: Finger Lakes Riesling spans dry to sweet styles; the region name alone does not determine residual sugar.
+        sourceCitationId: src_wset_nw_finger_riesling
+      ki_wset_nw_gisborne_wine_styles:
+        prompt: Which mixed Gisborne order respects the region's grape and style range while leaving bottle details open?
+        options:
+        - Every Gisborne Chardonnay is identical and all Merlot ripens easily in every season
+        - Pinot Gris is absent and Chardonnay is restricted to a single lean, unoaked profile
+        - Merlot is the universal flagship while Chardonnay cannot develop fruit concentration
+        - Chardonnay spans fruit-led to intense; Pinot Gris can be rich; Merlot needs sites
+        correctIndex: 3
+        explanation: Gisborne's sunny setting supports varied Chardonnay and Pinot Gris styles; Merlot is more site- and season-dependent.
+        sourceCitationId: src_reg_oa_gisborne
+      ki_wset_nw_great_southern_styles:
+        prompt: A Great Southern tasting includes Riesling, Cabernet Sauvignon and Shiraz. Which set of regional reference points is defensible?
+        options:
+        - Lean citrus Riesling, structured Cabernet and peppery Shiraz, subject to the wine
+        - Richly sweet Riesling, pale Cabernet and neutral Shiraz are required throughout the region
+        - Coastal and inland subregions have identical temperatures and produce one fixed style
+        - The region's name determines oak use and bottle ageability without a producer or vintage
+        correctIndex: 0
+        explanation: Wine Australia's regional profile gives these reference styles, while its varied sites and cellar choices prevent a fixed bottle prediction.
+        sourceCitationId: src_wset_nw_great_southern
+      ki_wset_nw_hawkes_syrah_pinot_gris:
+        prompt: What is a defensible comparison between Hawke's Bay Syrah and Pinot Gris for a study tasting?
+        options:
+        - Syrah is always highly tannic and Pinot Gris must be light, bone dry and neutral
+        - Syrah may be perfumed, spicy and supple; Pinot Gris can be richer and spiced
+        - Pinot Gris has no aromatic expression there, while Syrah is made only as a sweet wine
+        - The region's sunshine fixes exact alcohol, sweetness and oak for both varieties
+        correctIndex: 1
+        explanation: New Zealand Wine describes supple spicy Syrah and aromatic, weightier Pinot Gris as regional tendencies, not guaranteed recipes.
+        sourceCitationId: src_reg_sh_hawkes
+      ki_wset_nw_marlborough_aromatics:
+        prompt: A merchant labels every Marlborough Riesling and Pinot Gris as dry and light. Which correction follows from the regional evidence?
+        options:
+        - These varieties are grown only as sparkling base wine in Marlborough
+        - Only Sauvignon Blanc has variable sweetness; the aromatics have one fixed style
+        - Aromatic wines can run dry to sweet and taut to lush; verify producer and bottle
+        - Sweetness is determined solely by the grape name, irrespective of production choices
+        correctIndex: 2
+        explanation: Marlborough's aromatic range includes dry to sweet and leaner to richer wines, so labels and producer detail matter.
+        sourceCitationId: src_nwc_nz_marlborough
+      ki_wset_nw_nelson_wine_styles:
+        prompt: Why could a Nelson list include a weightier Moutere Pinot Noir and a lighter Waimea example alongside textured Sauvignon Blanc?
+        options:
+        - Nelson's two subregions have identical conditions, so any weight difference is impossible
+        - Pinot Noir cannot develop ripe tannin in Nelson, and Sauvignon Blanc is never textured
+        - Chardonnay and Pinot Gris are absent, leaving just one white and one red wine style
+        - Moutere and Waimea differ; Nelson also offers textured Sauvignon and varied whites
+        correctIndex: 3
+        explanation: New Zealand Wine distinguishes Moutere's richer tendency from Waimea's fresher one and describes several Nelson white styles.
+        sourceCitationId: src_reg_oa_nelson
+      ki_wset_nw_ontario_icewine_style:
+        prompt: A guest confuses Ontario Vidal Icewine with dry Riesling. Which comparison is supportable without claiming identical aromas?
+        options:
+        - Vidal and Riesling Icewines are sweet and concentrated with balancing acidity
+        - Icewine is dry because pressing frozen grapes removes their sugar rather than their water
+        - Vidal and Riesling yield identical acidity and fruit character in every Ontario bottle
+        - Ontario's Icewine style can be inferred to contain no residual sugar from its cold harvest
+        correctIndex: 0
+        explanation: Frozen-grape pressing yields concentrated sweet Icewine; Riesling generally has more acidity than Vidal, while aromas need bottle assessment.
+        sourceCitationId: src_wset_nw_ontario_icewine
+      ki_wset_nw_otago_aromatics:
+        prompt: Two Central Otago aromatic whites differ in sweetness. Which inference fits Riesling and Pinot Gris there?
+        options:
+        - A continental region name proves both wines have exactly the same residual sugar
+        - Riesling and Pinot Gris span dry to sweet; verify each wine's residual sugar
+        - Central Otago aromatics must all be dry because the region is known for Pinot Noir
+        - Pinot Gris is not grown there and therefore cannot appear on a regional list
+        correctIndex: 1
+        explanation: Central Otago's aromatic range runs from austerely dry to sweet; origin alone does not set sweetness.
+        sourceCitationId: src_nwc_nz_otago
+      ki_wset_nw_riverina_dry_styles:
+        prompt: A Riverina shelf contains Chardonnay and Shiraz beside late-harvest Semillon. Which regional expectation avoids treating every wine as dessert wine?
+        options:
+        - Semillon's noble-rot specialty means the region cannot produce dry Chardonnay
+        - Riverina makes only one grape variety, so Chardonnay and Shiraz must be mislabelled
+        - Chardonnay and Shiraz matter; Chardonnay may see oak; selected Semillon is sweet
+        - Oak is mandatory for every Riverina wine because the region is warm and irrigated
+        correctIndex: 2
+        explanation: Wine Australia identifies Chardonnay and Shiraz among the main varieties and describes selected Botrytis Semillon separately.
+        sourceCitationId: src_wset_nw_riverina
+      ki_wset_nw_riverland_styles:
+        prompt: Which note for a Riverland flight fits the region while allowing vintage and winemaking variation?
+        options:
+        - Every Cabernet and Merlot has identical fruit in warm and cooler years
+        - Shiraz is uncommon; only lean Chardonnay is produced without any oak use
+        - Oak is an unavoidable natural taste of every Riverland Chardonnay grape
+        - Shiraz may show plum; Chardonnay can be ripe or oak-influenced
+        correctIndex: 3
+        explanation: Wine Australia describes these regional tendencies but notes vintage-dependent Cabernet/Merlot fruit and optional oak use in Chardonnay.
+        sourceCitationId: src_wset_nw_riverland
+      ki_wset_nw_saint_helena_setting:
+        prompt: A northern Napa buyer compares St. Helena with a foggier southern site. Which site-and-grape inference is justified?
+        options:
+        - St. Helena is generally warmer with less fog or wind; Cabernet, Merlot and Zinfandel fit
+        - St. Helena is the bay's coolest nested AVA, planted mainly to Pinot Noir and Chardonnay
+        - Marine fog necessarily reaches every St. Helena block for the same duration each morning
+        - Its warm setting proves identical tannin and alcohol in every Cabernet from the AVA
+        correctIndex: 0
+        explanation: Napa Valley Vintners describes St. Helena's protected warm valley setting and lists these grapes; individual wines vary.
+        sourceCitationId: src_reg_am_napa_regions
+      ki_wset_nw_san_luis_grapes:
+        prompt: A student says all San Luis Obispo County wines should taste like cool coastal Pinot Noir. Which response fits the county's range?
+        options:
+        - Inland hills have exactly the same marine cooling as every coastal valley block
+        - Coastal and inland sites differ; Pinot, Chardonnay, Zinfandel and Rhône grapes occur
+        - Zinfandel and Rhône varieties are absent because the county includes coastal valleys
+        - The county grows only red varieties, so Chardonnay cannot be part of its wine range
+        correctIndex: 1
+        explanation: Wine Institute identifies marine-cooled valleys and inland hills plus these several grape associations.
+        sourceCitationId: src_wset_nw_slo
+      ki_wset_nw_stags_leap_setting:
+        prompt: Stags Leap District Cabernet is being compared with another Napa Cabernet. Which growing-condition summary is justified before tasting?
+        options:
+        - The AVA is cold all afternoon and Cabernet Sauvignon is not a principal variety
+        - Warm rock exposure removes every marine influence and guarantees one finished style
+        - Warmth from surrounding rock meets afternoon marine winds; Cabernet is important
+        - Napa's regional name fixes tannin, oak and ageing potential for every producer
+        correctIndex: 2
+        explanation: Napa Valley Vintners describes Stags Leap's warm rock and afternoon marine cooling and lists Cabernet Sauvignon; wine details need evidence.
+        sourceCitationId: src_reg_am_napa_regions
+      ki_wset_nw_swartland_grapes:
+        prompt: A Swartland grower offers Chenin Blanc, Shiraz and Pinotage from both bush and trellised sites. Which conclusion matches the regional account?
+        options:
+        - Swartland permits only bush vines, with no trellising or Chardonnay plantings
+        - Chenin is absent; Cabernet and Pinotage are the only regional grapes
+        - All reds have one robust style and all whites must be sweet because of the warm summer
+        - Chenin and Chardonnay join reds; bush vines have history, while trellising occurs
+        correctIndex: 3
+        explanation: Wines of South Africa lists Chenin, Chardonnay, Pinotage, Shiraz and Cabernet and notes increasing trellising alongside bush-vine history.
+        sourceCitationId: src_diploma_za_olifants
