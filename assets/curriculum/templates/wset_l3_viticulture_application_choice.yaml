@@ -1,0 +1,454 @@
+question_templates:
+- id: qt_wset_l3_viticulture_application_40
+  relation_type: PRINCIPLE_EXPLANATION
+  direction: forward
+  mode: authored_choice
+  variant: wset_l3_viticulture_application_40
+  prompt_template: '{subject.name}'
+  parameters:
+    item_choices:
+      ki_vit_current_shoots:
+        prompt: A grower counts the fruit-bearing growth this season. Which wood carries the bunches?
+        options:
+        - New shoots emerging from buds on last season's wood
+        - Last season's mature canes directly, without current-season shoots
+        - Roots that grew after winter pruning
+        - Only lateral shoots formed after harvest
+        correctIndex: 0
+        explanation: Grapevine bunches form on current-season shoots arising from buds on previous-season wood.
+        sourceCitationId: src_vit_phenology
+      ki_vit_two_seasons:
+        prompt: A shaded canopy has poor bud fruitfulness next year. When was the potential for those flower clusters
+          first established?
+        options:
+        - Only after next year's berries begin to soften and change colour
+        - In buds developing during the preceding growing season
+        - During next year's winter pruning alone
+        - Only when flowers are fertilized next year
+        correctIndex: 1
+        explanation: Buds initiate potential inflorescences in one growing season and bear fruiting shoots in the
+          next.
+        sourceCitationId: src_vit_phenology
+      ki_vit_spring_reserves:
+        prompt: Budburst begins before a full leaf canopy is active. What supplies much of the early growth demand?
+        options:
+        - Sugar newly made by the unopened buds
+        - Sugar imported from nearby vines through the soil
+        - Carbohydrate reserves in perennial vine tissues
+        - Sugar released from berries left after harvest
+        correctIndex: 2
+        explanation: Stored carbohydrates in roots and wood support early growth before the canopy can meet demand.
+        sourceCitationId: src_vit_reserves
+      ki_vit_postharvest_reserves:
+        prompt: After picking, leaves remain healthy and photosynthetically active. Why can this matter for next
+          spring?
+        options:
+        - It prevents all flower initiation until budburst
+        - It converts every remaining berry into a new bud
+        - It removes the need to replenish root reserves before spring budburst
+        - It helps replenish carbohydrate reserves for future growth
+        correctIndex: 3
+        explanation: Active postharvest foliage can rebuild reserves drawn on during the following spring.
+        sourceCitationId: src_vit_reserves
+      ki_vit_photosynthesis:
+        prompt: A canopy-management plan aims to keep functional leaves exposed to light. What do those leaves supply?
+        options:
+        - Photosynthetic carbohydrates for growth, fruit and reserves
+        - Rootstock resistance to every soil pest
+        - Mineral nutrients made directly from sunlight
+        - Carbon dioxide and soluble minerals transferred directly to the berries
+        correctIndex: 0
+        explanation: Light-exposed leaves photosynthesize carbohydrates used throughout the vine.
+        sourceCitationId: src_vit_canopy
+      ki_vit_interior_shade:
+        prompt: Two vines have equal leaf counts, but one has a dense multilayer canopy. Why may its interior leaves
+          contribute less?
+        options:
+        - Their number means each receives more light
+        - Outer foliage intercepts much of the incoming light
+        - Interior leaves redirect intercepted light into the bunch zone after sunset
+        - Their position changes the grape variety
+        correctIndex: 1
+        explanation: A larger leaf count is not automatically greater useful photosynthesis when interior leaves
+          are deeply shaded.
+        sourceCitationId: src_vit_canopy
+      ki_vit_flower_set:
+        prompt: A block carried many flowers but fewer berries than forecast. Which distinction explains the gap?
+        options:
+        - Every flower automatically becomes a berry after pollen reaches its stigma
+        - Berry count is fixed at dormant pruning
+        - Fruit set depends on successful development after flowering
+        - Cluster count cannot change after budburst
+        correctIndex: 2
+        explanation: Only successfully fertilized flowers that develop into berries contribute to final fruit set.
+        sourceCitationId: src_vit_phenology
+      ki_vit_flowering_water:
+        prompt: A grower wants to impose a strong irrigation deficit while vines are flowering. Which risk should
+          be checked first?
+        options:
+        - Excess vegetative growth and a larger crop with no fruit-set penalty
+        - A guaranteed increase in berry count
+        - Loss of rootstock pest resistance
+        - Reduced fruit set and berries per bunch
+        correctIndex: 3
+        explanation: Water stress at flowering and fruit set can reduce the berries retained and thus yield.
+        sourceCitationId: src_vit_rdi
+      ki_vit_softening:
+        prompt: A white cultivar's berries begin softening without turning red. Which stage is this compatible with?
+        options:
+        - Veraison, whose colour change depends on skin type
+        - Dormancy, when berries cease developing
+        - Flowering, when fertilized flowers first begin forming small berries
+        - Budburst, before shoots expand
+        correctIndex: 0
+        explanation: Softening marks veraison; visible pigmentation differs between white and coloured cultivars.
+        sourceCitationId: src_vit_phenology
+      ki_vit_ripening_chemistry:
+        prompt: Ripening samples show rising sugar and falling acidity. What should guide the picking decision?
+        options:
+        - A universal sugar threshold for every intended style
+        - The changing balance against the intended wine style
+        - The earliest date another region has harvested
+        - Acidity alone, ignoring sugar and fruit condition
+        correctIndex: 1
+        explanation: Ripening commonly raises sugars and lowers acidity, but harvest timing depends on the target
+          style and fruit.
+        sourceCitationId: src_vit_phenology
+      ki_vit_phylloxera_roots:
+        prompt: A susceptible vinifera scion is planted where phylloxera is present. Which planting choice protects
+          its roots?
+        options:
+        - Plant the scion on its own roots and alter only the trellis
+        - Use any rootstock without checking site suitability
+        - Graft to an appropriate phylloxera-resistant rootstock
+        - Delay pruning until after veraison
+        correctIndex: 2
+        explanation: Resistant rootstock protects susceptible vine roots, while rootstock selection still depends
+          on site conditions.
+        sourceCitationId: src_vit_phylloxera
+      ki_vit_nematode_species:
+        prompt: A replant survey identifies a specific parasitic nematode. How should rootstock resistance be assessed?
+        options:
+        - Assume every resistant rootstock controls every nematode
+        - Select by grape flavour alone without soil findings
+        - Ignore the identified species and use a familiar rootstock from a different vineyard
+        - Match documented rootstock resistance to the specific nematode found
+        correctIndex: 3
+        explanation: Resistance differs by rootstock and nematode; the local species matters.
+        sourceCitationId: src_vit_nematodes
+      ki_vit_plant_soil:
+        prompt: Soil moisture readings look adequate, but vines appear stressed. Which evidence would best complete
+          the irrigation assessment?
+        options:
+        - A vine water-status measurement alongside soil monitoring
+        - Repeat soil readings and infer the vine is unstressed because water remains in the profile
+        - The colour of an unrelated wine label
+        - A fixed irrigation volume copied from another site
+        correctIndex: 0
+        explanation: Plant and soil measurements complement one another because soil moisture alone may not reflect
+          vine stress.
+        sourceCitationId: src_vit_water_status
+      ki_vit_pressure_chamber:
+        prompt: A viticulturist uses a pressure chamber on sampled vine leaves. What is being estimated?
+        options:
+        - Berry sugar concentration without extracting juice or sampling any fruit
+        - Leaf or stem water potential under a consistent protocol
+        - The number of viable flower buds next year
+        - Soil pH without taking a soil sample
+        correctIndex: 1
+        explanation: A pressure chamber provides a plant-based water-potential reading; sampling method and timing
+          matter.
+        sourceCitationId: src_vit_water_status
+      ki_vit_stress_photo:
+        prompt: A prolonged severe water deficit continues into ripening. Why may this undermine fruit development?
+        options:
+        - It can raise leaf photosynthesis and accelerate sugar accumulation indefinitely
+        - It makes carbohydrate reserves irrelevant
+        - It can suppress photosynthesis and sugar development
+        - It replaces the need to evaluate the canopy
+        correctIndex: 2
+        explanation: Severe stress can impair leaf function, ripening and reserve replenishment.
+        sourceCitationId: src_vit_rdi
+      ki_vit_ripening_canopy:
+        prompt: At veraison, an irrigation plan seeks sufficient ripening without restarting vigorous lateral growth.
+          What is the balanced aim?
+        options:
+        - Keep every leaf fully water-stressed through harvest
+        - Maximize new lateral shoots through harvest to expand the canopy's green leaf area
+        - Ignore the canopy once berry colour changes
+        - Maintain functioning leaves without needless new vigour
+        correctIndex: 3
+        explanation: Post-veraison water management seeks a healthy canopy for ripening while avoiding excess vegetative
+          growth.
+        sourceCitationId: src_vit_rdi
+      ki_vit_rdi_window:
+        prompt: A vigorous irrigated block is targeted for regulated deficit irrigation. Which timing fits a common
+          use of RDI?
+        options:
+        - A controlled deficit after fruit set and before veraison
+        - An uncontrolled deficit during flowering and fruit set before crop potential is known
+        - A permanent deficit from budburst through dormancy
+        - A deficit imposed only after all fruit is picked
+        correctIndex: 0
+        explanation: A controlled fruit-set-to-veraison window can restrain excess shoot growth where site conditions
+          permit.
+        sourceCitationId: src_vit_rdi
+      ki_vit_rdi_soil:
+        prompt: An RDI plan cannot establish a predictable deficit because rain keeps the root zone wet. What is
+          the central limitation?
+        options:
+        - RDI requires grape berries to remain dry
+        - The soil cannot dry and rewet on the intended schedule
+        - RDI is impossible whenever vines are grafted to a drought-tolerant rootstock
+        - The trellis must be replaced before each irrigation
+        correctIndex: 1
+        explanation: RDI needs manageable root-zone drying and rewetting; persistent rain or slow soil response
+          weakens control.
+        sourceCitationId: src_vit_rdi_limits
+      ki_vit_airflow:
+        prompt: A humid block has dense foliage around compact bunches. What is a plausible benefit of selectively
+          opening the fruit zone?
+        options:
+        - Eliminate every future infection regardless of weather
+        - Increase water on bunch surfaces after rain
+        - Improve airflow and drying around the fruit
+        - Stop all need to inspect the crop
+        correctIndex: 2
+        explanation: Selective leaf removal can improve drying and spray penetration, reducing a favourable rot
+          microclimate.
+        sourceCitationId: src_vit_leaf_removal
+      ki_vit_exposure_limit:
+        prompt: A hot vineyard's afternoon-facing bunches would be fully exposed by a proposed leaf-removal pass.
+          What is the principal caution?
+        options:
+        - Retained shade always prevents any ripening
+        - More exposed fruit can never alter temperature
+        - Afternoon exposure guarantees less disease
+        - Excessive exposure may cause berry sunburn
+        correctIndex: 3
+        explanation: Fruit-zone exposure should be adjusted to cultivar, weather and aspect; hot afternoon sun can
+          burn berries.
+        sourceCitationId: src_vit_leaf_removal
+      ki_vit_prebloom_set:
+        prompt: Heavy leaf removal before bloom is proposed for a compact-cluster cultivar. Which yield effect must
+          be considered?
+        options:
+        - Lower carbohydrate supply to flowers may reduce fruit set
+        - Fruit set is already complete before bloom
+        - The practice makes each flower develop more than one berry, raising crop load
+        - The practice affects only next year's rootstock
+        correctIndex: 0
+        explanation: Early removal can reduce fruit set and bunch weight; whether that is desirable depends on the
+          crop goal.
+        sourceCitationId: src_vit_leaf_removal
+      ki_vit_late_leaf_burn:
+        prompt: Shaded berries are abruptly exposed by heavy leaf removal late in summer. What risk rises?
+        options:
+        - Immediate phylloxera infestation
+        - Sunburn of fruit that has not acclimated
+        - Retarded flowering in the current crop
+        - Complete prevention of berry dehydration
+        correctIndex: 1
+        explanation: Late sudden exposure can burn shade-grown berries; earlier moderate exposure supports acclimation.
+        sourceCitationId: src_vit_leaf_removal
+      ki_vit_cold_air:
+        prompt: A new site has a hollow behind a solid barrier below its vine rows. Why inspect cold-air drainage
+          there?
+        options:
+        - A barrier below the rows always increases sunlight enough to offset night-time cooling
+        - Frost only forms at the highest point of a slope
+        - Cold air may pool around vines on radiation-frost nights
+        - Drainage affects soil water but cannot affect frost
+        correctIndex: 2
+        explanation: Cold air can accumulate in low pockets when flow is obstructed, increasing radiation-frost
+          exposure.
+        sourceCitationId: src_vit_frost
+      ki_vit_saturated_soil:
+        prompt: Vines on a frequently waterlogged block show root decline. Which site change addresses the stated
+          disease risk?
+        options:
+        - Increase irrigation frequency so roots never dry between applications
+        - Shade the berries to prevent infection of the roots
+        - Keep standing water to exclude soil pathogens
+        - Improve drainage to reduce conditions favouring Phytophthora
+        correctIndex: 3
+        explanation: Saturated, poorly drained soils favour Phytophthora root disease; drainage differs from simply
+          adding water.
+        sourceCitationId: src_vit_waterlogging
+      ki_vit_radiation_inversion:
+        prompt: A wind machine is considered for a still, clear frost night. What atmospheric feature makes it useful?
+        options:
+        - Warmer air above colder vineyard air that can be mixed down
+        - Colder air above warmer vines that must be mixed downward before sunrise
+        - Rainfall that the fan converts into ice insulation
+        - A strong regional wind carrying colder air throughout
+        correctIndex: 0
+        explanation: Radiation frost can create a near-ground temperature inversion; wind machines mix the warmer
+          layer down.
+        sourceCitationId: src_vit_frost
+      ki_vit_advective_limit:
+        prompt: A forecast calls for a windy advective freeze with no usable inversion. What does this imply for
+          a wind machine?
+        options:
+        - It creates enough warm air at vine height even when the whole air mass is cold
+        - It is poorly suited because there is no warmer layer to mix
+        - It works only if leaves are removed first
+        - It is more effective than in a calm radiation frost
+        correctIndex: 1
+        explanation: Wind machines rely on a warmer inversion layer, which a windy advective freeze may lack.
+        sourceCitationId: src_vit_frost
+      ki_vit_freezing_heat:
+        prompt: In a suitable frost event, why can continuously applied overhead water protect vine tissues?
+        options:
+        - The water dries the buds before the cold arrives
+        - A one-time ice coat keeps releasing enough heat overnight after sprinklers stop
+        - Freezing water releases heat while application continues
+        - Water prevents air temperatures from changing anywhere
+        correctIndex: 2
+        explanation: Latent heat released as water freezes is the protection mechanism; continuous operation is
+          essential.
+        sourceCitationId: src_vit_frost_ncsu
+      ki_vit_continuous_water:
+        prompt: A frost-sprinkler design has unreliable water pressure overnight. Why is this a critical weakness?
+        options:
+        - More pressure is needed only after sunrise
+        - Coverage matters only before ice forms, so pressure can safely drop overnight
+        - Interruption will improve the freezing heat effect
+        - Protection depends on uniform continuous water supply
+        correctIndex: 3
+        explanation: Frost sprinklers need sufficient, uniform water throughout the protection period; interruption
+          can fail the crop.
+        sourceCitationId: src_vit_frost_ncsu
+      ki_vit_powdery_inoculum:
+        prompt: Powdery mildew was severe last season. Why monitor and manage early infection this spring?
+        options:
+        - Overwintered inoculum can seed later disease spread
+        - The pathogen cannot persist between growing seasons
+        - Early infection protects fruit from later infection
+        - Only berries picked after harvest carry inoculum
+        correctIndex: 0
+        explanation: Powdery mildew can overwinter in buds or fruiting bodies, and early infections multiply inoculum.
+        sourceCitationId: src_vit_powdery
+      ki_vit_powdery_resistance:
+        prompt: A grower changes fungicide brands but keeps the same mode of action for powdery mildew. What remains
+          the concern?
+        options:
+        - Brand changes eliminate resistance risk even when active chemistry is unchanged
+        - Repeated mode of action can select less-sensitive populations
+        - Resistance only develops from canopy leaf removal
+        - Mode of action matters only after harvest
+        correctIndex: 1
+        explanation: Resistance management considers effective modes of action, not brand names alone.
+        sourceCitationId: src_vit_powdery
+      ki_vit_downy_moisture:
+        prompt: A vineyard repeatedly wets its canopy during a humid period. Which disease risk is especially consistent
+          with that exposure?
+        options:
+        - Phylloxera populations rise because wet foliage supports feeding on leaves
+        - Nematode feeding on leaves
+        - Downy mildew favoured by wet foliage
+        - Sunburn from sudden fruit exposure
+        correctIndex: 2
+        explanation: Rain, humidity and wet surfaces favour downy mildew development and spread.
+        sourceCitationId: src_vit_downy
+      ki_vit_downy_preventive:
+        prompt: A preventive downy mildew spray covered old leaves, then rapid shoot growth followed. What must
+          be reassessed?
+        options:
+        - Whether the old leaves have changed cultivar
+        - Whether older treated leaves remain dry despite newly emerged uncoated shoots
+        - Whether flowering has automatically stopped
+        - Whether new tissue remains unprotected by the earlier coverage
+        correctIndex: 3
+        explanation: Preventive coverage protects treated tissue before infection; subsequent growth is not automatically
+          covered.
+        sourceCitationId: src_vit_downy
+      ki_vit_botrytis_wet:
+        prompt: A compact bunch sits in a persistently damp, dense canopy. Which management aim follows from the
+          Botrytis risk?
+        options:
+        - Improve fruit-zone drying without overexposing the crop
+        - Keep bunches wet to suppress the fungus
+        - Increase dense shade because Botrytis is expected to infect only sun-exposed fruit
+        - Stop observing fruit once veraison begins
+        correctIndex: 0
+        explanation: Wet conditions and dense damp canopies favour Botrytis; selective opening may reduce the risk.
+        sourceCitationId: src_vit_botrytis
+      ki_vit_botrytis_injury:
+        prompt: A block has frequent bird-pecked berries before wet weather. Why does fruit protection matter for
+          rot control?
+        options:
+        - Wounds eliminate fungal entry points
+        - Skin damage can open entry routes for Botrytis and decay
+        - Birds convert all berry sugar to alcohol
+        - Intact berries are always more infected than broken berries
+        correctIndex: 1
+        explanation: Bird, insect and mechanical wounds can let decay organisms enter berries.
+        sourceCitationId: src_vit_botrytis
+      ki_vit_overcrop:
+        prompt: A weak vine carries a crop large relative to its effective canopy. Which consequence is most plausible?
+        options:
+        - Faster ripening because every extra bunch adds leaf area
+        - More reserves because fruit has no carbohydrate demand
+        - Slower ripening and weaker reserve replenishment
+        - Guaranteed quality improvement from higher yield
+        correctIndex: 2
+        explanation: Excess crop load relative to vine capacity can strain ripening and replenishment of reserves.
+        sourceCitationId: src_vit_balance
+      ki_vit_not_min_yield:
+        prompt: A grower suggests removing nearly all bunches solely to obtain the best quality. What is the sounder
+          decision basis?
+        options:
+        - The lowest possible yield is always the best target
+        - Yield is unrelated to vine capacity or intended style if bunches are thinned late
+        - Remove the same crop fraction from every block
+        - Balance crop load with canopy capacity and production goals
+        correctIndex: 3
+        explanation: Vine balance, not minimum yield by itself, guides crop adjustment.
+        sourceCitationId: src_vit_balance
+      ki_vit_multiple_measures:
+        prompt: A picking decision is being made from one Brix result. What additional evidence is most useful?
+        options:
+        - Acidity, pH, sensory ripeness and intended style trends
+        - The highest Brix reading from one exposed berry plus the calendar date
+        - The calendar date without fruit measurements
+        - The colour of the previous vintage's label
+        correctIndex: 0
+        explanation: Sugar, acidity, pH and sensory measures together inform maturity for the target wine.
+        sourceCitationId: src_vit_maturity
+      ki_vit_representative_samples:
+        prompt: A sampler picks only attractive sunlit bunches from the vineyard edge. How should the next sampling
+          round improve?
+        options:
+        - Continue selecting only the ripest visible berries to track an early picking date
+        - Include representative site variation on a repeatable route
+        - Sample only berries that have fallen to the ground
+        - Replace all samples with the previous vintage's average
+        correctIndex: 1
+        explanation: Comparable samples across vineyard variation give more reliable ripening trends than selected
+          exposed fruit.
+        sourceCitationId: src_vit_sampling
+      ki_vit_style_gain:
+        prompt: A grower considers leaving healthy fruit hanging longer for a fuller red style. What is the potential
+          gain?
+        options:
+        - Harvest delay automatically prevents all weather risk
+        - Extra hang time always lowers sugar concentration while protecting fruit from rain
+        - Further flavour, aroma or colour development if conditions allow
+        - The wine becomes sweeter without any ripening change
+        correctIndex: 2
+        explanation: Longer hang time can advance flavour and colour for some styles, subject to fruit and weather
+          conditions.
+        sourceCitationId: src_vit_phenology
+      ki_vit_delay_risk:
+        prompt: Fruit already meets the intended style, but wet weather is forecast and someone proposes waiting
+          only for higher Brix. What is the key trade-off?
+        options:
+        - Later picking has no effect on crop condition
+        - Every extra Brix point proves better balance
+        - Wet weather removes disease and shrivel risk once berries reach target sugar
+        - Delay can raise disease and weather losses without net quality gain
+        correctIndex: 3
+        explanation: Extended hang time raises exposure to disease, weather and shrivel; sugar alone does not settle
+          quality.
+        sourceCitationId: src_vit_phenology

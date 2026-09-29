@@ -274,7 +274,7 @@ void main() {
   );
 
   test(
-    '824 cited choices are generated and served across WSET and CMS tracks',
+    '864 cited choices are generated and served across WSET and CMS tracks',
     () async {
       final db = openTestDatabase();
       try {
@@ -299,7 +299,7 @@ void main() {
                   template.id == 'qt_d5f_authored_choice',
             )
             .toList();
-        expect(templates, hasLength(37));
+        expect(templates, hasLength(38));
         final expectedIds = {
           for (final template in templates)
             ...((jsonDecode(template.parameters!)
@@ -411,6 +411,9 @@ void main() {
           'qt_wset_winemaking_l3_depth_37',
         );
         final l3ApplicationIds = idsForTemplate('qt_wset_l3_application_40');
+        final l3ViticultureIds = idsForTemplate(
+          'qt_wset_l3_viticulture_application_40',
+        );
         final diplomaBusinessIds = idsForTemplate(
           'qt_wset_d2_business_application_29',
         );
@@ -429,6 +432,7 @@ void main() {
           ...winemakingL3Ids,
           ...winemakingDepthIds,
           ...l3ApplicationIds,
+          ...l3ViticultureIds,
           ...diplomaBusinessIds,
           ...d3RegionalIds,
           ...d4RegionalIds,
@@ -444,7 +448,7 @@ void main() {
           {'ki_reg_ib_rias_canopy_context', 'ki_reg_oa_hunter_rain'},
           reason: 'Regional and viticulture prompts share two cited items',
         );
-        expect(expectedIds, hasLength(821));
+        expect(expectedIds, hasLength(861));
         expect(levelOneIds, hasLength(132));
         expect(levelTwoIds, hasLength(248));
         expect(sharedGrapeIds, hasLength(52));
@@ -456,6 +460,7 @@ void main() {
         expect(winemakingL3Ids, hasLength(12));
         expect(winemakingDepthIds, hasLength(37));
         expect(l3ApplicationIds, hasLength(40));
+        expect(l3ViticultureIds, hasLength(40));
         expect(diplomaBusinessIds, hasLength(29));
         expect(d3RegionalIds, hasLength(19));
         expect(d4RegionalIds, hasLength(24));
@@ -472,7 +477,7 @@ void main() {
                OR t.id = 'qt_d5f_authored_choice')
         ORDER BY q.knowledge_item_id
       ''').get();
-        expect(rows, hasLength(824));
+        expect(rows, hasLength(864));
         final actual = {
           for (final row in rows)
             row.read<String>('knowledge_item_id'): row.read<String>(
@@ -615,7 +620,8 @@ void main() {
           if (europeIds.contains(id) ||
               winemakingL3Ids.contains(id) ||
               winemakingDepthIds.contains(id) ||
-              l3ApplicationIds.contains(id)) {
+              l3ApplicationIds.contains(id) ||
+              l3ViticultureIds.contains(id)) {
             expect(
               levelThreeCards[id]?.formats.map((format) => format.mode),
               contains('authored_choice'),
