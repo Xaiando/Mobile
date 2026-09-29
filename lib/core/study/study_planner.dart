@@ -278,7 +278,10 @@ class StudyPlanner {
   ///
   /// An item qualifies when its relation is in force, no item supersedes it
   /// (FS-13), the track maps it (CM-4), and a question exists for it.
-  Future<List<StudyCard>> cards(String certificationId) async {
+  Future<List<StudyCard>> cards(
+    String certificationId, {
+    Set<String>? formatModes,
+  }) async {
     final now = utcNow(_clock);
     final today = localToday(_clock);
     final mappings = await effectiveMappings(certificationId);
@@ -344,7 +347,12 @@ class StudyPlanner {
           )
           .toList();
       if (mapping == null || available == null || available.isEmpty) continue;
-      final served = servedFormats(available, mapping.minimumDepth);
+      final eligible = servedFormats(available, mapping.minimumDepth);
+      final served = formatModes == null
+          ? eligible
+          : eligible
+                .where((format) => formatModes.contains(format.mode))
+                .toList();
       if (served.isEmpty) continue;
       final state = states[item.id];
       final r = retrievability(state);
@@ -391,12 +399,13 @@ class StudyPlanner {
     int? sessionSize,
     int? newItems,
     Set<String>? itemIds,
+    Set<String>? formatModes,
   }) async {
     final focus = itemIds == null ? null : Set<String>.of(itemIds);
     final profile = await _profile();
     final track = certificationId ?? profile?.activeCertificationId;
     if (track == null) return null;
-    final available = await cards(track);
+    final available = await cards(track, formatModes: formatModes);
     return _planFrom(
       track,
       focus == null

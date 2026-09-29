@@ -427,6 +427,79 @@ void main() {
   );
 
   test(
+    'bounded grape set requires every correct mapped area and no wrong area',
+    () async {
+      final variants = <MapExercise>[];
+      for (var seed = 1; seed < 40; seed += 4) {
+        variants.add(
+          await presenter.present('ki_chablis_grape', grapeTemplate, seed: seed)
+              as MapExercise,
+        );
+      }
+      expect(
+        variants.any((variant) => variant.selectAll),
+        isTrue,
+        reason: variants
+            .map(
+              (variant) =>
+                  '${variant.candidateIds} => ${variant.correctNodeIds}',
+            )
+            .join('; '),
+      );
+      final exercise = variants.firstWhere((variant) => variant.selectAll);
+      expect(exercise.itemIds, ['ki_chablis_grape']);
+      expect(exercise.prompt, contains('every marked wine area'));
+      expect(exercise.correctNodeIds.length, greaterThanOrEqualTo(2));
+      final wrong = exercise.candidateIds
+          .difference(exercise.correctNodeIds)
+          .first;
+      final exact = MapMultiLocateAnswer([
+        for (final id in exercise.correctNodeIds) MapLocateAnswer.fromList(id),
+      ]);
+      final partial = MapMultiLocateAnswer([
+        MapLocateAnswer.fromList(exercise.correctNodeIds.first),
+      ]);
+      final extra = MapMultiLocateAnswer([
+        ...exact.selections,
+        MapLocateAnswer.fromList(wrong),
+      ]);
+
+      expect(presenter.grade(exercise, exact).single.rating, fsrs.Rating.good);
+      expect(
+        presenter.grade(exercise, partial).single.rating,
+        fsrs.Rating.again,
+      );
+      expect(presenter.grade(exercise, extra).single.rating, fsrs.Rating.again);
+      expect(
+        () => presenter.grade(
+          exercise,
+          const MapMultiLocateAnswer([
+            MapLocateAnswer.fromList('n_geo_not_on_this_map'),
+          ]),
+        ),
+        throwsArgumentError,
+      );
+      await ReviewService(
+        db,
+        clock: time.clock,
+        schedulerFactory: unfuzzedScheduler,
+      ).recordExercise(exercise, presenter.grade(exercise, exact));
+      final event = await db.select(db.reviewEvents).getSingle();
+      expect(event.knowledgeItemId, exercise.primaryItemId);
+      final payload = jsonDecode(event.answerPayload!) as Map<String, dynamic>;
+      expect(
+        payload['selected_nodes'],
+        hasLength(exercise.correctNodeIds.length),
+      );
+      expect(
+        payload['accepted_nodes'],
+        hasLength(exercise.correctNodeIds.length),
+      );
+      expect(payload['selections'], hasLength(exercise.correctNodeIds.length));
+    },
+  );
+
+  test(
     'a positive permission without a current complete union is not a target',
     () async {
       await db.writeCurriculum(

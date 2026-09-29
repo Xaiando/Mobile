@@ -18,14 +18,42 @@ class MapGrapeView extends ConsumerStatefulWidget {
 class _MapGrapeViewState extends ConsumerState<MapGrapeView> {
   var _list = false;
   var _miss = false;
+  final _selections = <String, MapLocateAnswer>{};
+
+  void _toggle(MapLocateAnswer answer) {
+    final id = answer.nodeId;
+    if (id == null) {
+      setState(() => _miss = true);
+      return;
+    }
+    setState(() {
+      if (_selections.containsKey(id)) {
+        _selections.remove(id);
+      } else {
+        _selections[id] = answer;
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     final turn = widget.turn;
     final exercise = turn.exercise as MapExercise;
     final controller = ref.read(studySessionProvider.notifier);
-    final chosen = (turn.answer as MapLocateAnswer?)?.nodeId;
+    final chosen = switch (turn.answer) {
+      MapLocateAnswer(:final nodeId) => nodeId,
+      _ => null,
+    };
     final correct = exercise.correctNodeIds.contains(chosen);
+    final selected = switch (turn.answer) {
+      MapMultiLocateAnswer(:final selections) => {
+        for (final answer in selections) ?answer.nodeId,
+      },
+      _ => _selections.keys.toSet(),
+    };
+    final setCorrect =
+        selected.length == exercise.correctNodeIds.length &&
+        selected.containsAll(exercise.correctNodeIds);
     final names = exercise.names.entries.toList()
       ..sort((a, b) => a.value.compareTo(b.value));
     return Column(
@@ -37,17 +65,26 @@ class _MapGrapeViewState extends ConsumerState<MapGrapeView> {
             exercise: exercise,
             revealed: turn.isAnswered,
             highlights: {
+              if (!turn.isAnswered && exercise.selectAll)
+                for (final id in selected) id: MapHighlight.focus,
               if (turn.isAnswered)
                 for (final id in exercise.correctNodeIds)
                   id: MapHighlight.correct,
               if (turn.isAnswered && chosen != null && !correct)
                 chosen: MapHighlight.incorrect,
+              if (turn.isAnswered && exercise.selectAll)
+                for (final id in selected.difference(exercise.correctNodeIds))
+                  id: MapHighlight.incorrect,
             },
             onTap: turn.isAnswered
                 ? null
                 : (tap) {
                     if (tap.hit == null) {
                       setState(() => _miss = true);
+                      return;
+                    }
+                    if (exercise.selectAll) {
+                      _toggle(MapLocateAnswer.fromTap(tap));
                       return;
                     }
                     controller.submit(
@@ -67,8 +104,10 @@ class _MapGrapeViewState extends ConsumerState<MapGrapeView> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 if (!turn.isAnswered) ...[
-                  const Text(
-                    'Select one location. More than one may be correct.',
+                  Text(
+                    exercise.selectAll
+                        ? 'Select every correct marked location, then check your set.'
+                        : 'Select one location. More than one may be correct.',
                   ),
                   if (_miss)
                     const Text('Select one of the marked study locations.'),
@@ -89,12 +128,31 @@ class _MapGrapeViewState extends ConsumerState<MapGrapeView> {
                       children: [
                         for (final MapEntry(key: id, value: name) in names)
                           OutlinedButton(
-                            onPressed: () =>
-                                controller.submit(MapLocateAnswer.fromList(id)),
-                            child: Text(name),
+                            onPressed: () => exercise.selectAll
+                                ? _toggle(MapLocateAnswer.fromList(id))
+                                : controller.submit(
+                                    MapLocateAnswer.fromList(id),
+                                  ),
+                            child: Text(
+                              exercise.selectAll && selected.contains(id)
+                                  ? '✓ $name'
+                                  : name,
+                            ),
                           ),
                       ],
                     ),
+                  if (exercise.selectAll) ...[
+                    const SizedBox(height: 8),
+                    Text('${selected.length} selected'),
+                    FilledButton(
+                      onPressed: selected.isEmpty
+                          ? null
+                          : () => controller.submit(
+                              MapMultiLocateAnswer(_selections.values.toList()),
+                            ),
+                      child: const Text('Check locations'),
+                    ),
+                  ],
                 ] else ...[
                   Card(
                     child: Padding(
@@ -103,7 +161,11 @@ class _MapGrapeViewState extends ConsumerState<MapGrapeView> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            correct
+                            exercise.selectAll
+                                ? setCorrect
+                                      ? 'Correct: all ${selected.length} locations found.'
+                                      : 'The complete set of accepted wine areas is marked.'
+                                : correct
                                 ? 'Correct: ${exercise.names[chosen]}'
                                 : 'The accepted wine areas are marked.',
                             style: Theme.of(context).textTheme.titleMedium,
