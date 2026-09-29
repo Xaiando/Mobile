@@ -1,0 +1,68 @@
+# Original, source-cited D4 practice. Expert review pending.
+question_templates:
+- id: qt_d4depth_case_champagne_house
+  relation_type: CASE_ACTION
+  direction: forward
+  mode: short_answer
+  variant: d4depth_champagne_house
+  prompt_template: A Champagne house wants its non-vintage Brut to remain recognisable after a warm harvest. It
+    has older reserve wines but limited cellar space; a sales team also wants more vintage-labelled stock immediately.
+    Recommend a blending and release decision, explain why, give a commercial tradeoff and state what evidence is
+    still missing.
+  parameters:
+    scope_node_ids:
+    - n_d4depth_case_champagne_house
+    key_points:
+      CASE_ACTION: Defensible action
+      CASE_REASON: Source-grounded rationale
+      CASE_TRADEOFF: Resource or alternative cost
+      CASE_LIMITATION: Missing evidence or uncertainty
+- id: qt_d4depth_case_cava_upgrade
+  relation_type: CASE_ACTION
+  direction: forward
+  mode: short_answer
+  variant: d4depth_cava_upgrade
+  prompt_template: A Cava producer wants to launch a 2025-harvest Guarda Superior Reserva. Its base wine has good
+    acidity and 18 months of cellar capacity, but some contracted vineyards are not certified organic. Recommend
+    the next category and sourcing decision, explain why, give a tradeoff and name missing evidence.
+  parameters:
+    scope_node_ids:
+    - n_d4depth_case_cava_upgrade
+    key_points:
+      CASE_ACTION: Defensible action
+      CASE_REASON: Source-grounded rationale
+      CASE_TRADEOFF: Resource or alternative cost
+      CASE_LIMITATION: Missing evidence or uncertainty
+- id: qt_d4depth_case_rive_offer
+  relation_type: CASE_ACTION
+  direction: forward
+  mode: short_answer
+  variant: d4depth_rive_offer
+  prompt_template: A restaurant compares a costly Conegliano Valdobbiadene Rive Extra Brut with a lower-priced broad
+    Prosecco DOC Extra Dry for a fruit-led aperitif. The Rive offer provides named origin and hand-harvest documentation,
+    but the team has tasted neither. Recommend a listing trial, explain the style and label rationale, give a tradeoff
+    and identify missing evidence.
+  parameters:
+    scope_node_ids:
+    - n_d4depth_case_rive_offer
+    key_points:
+      CASE_ACTION: Defensible action
+      CASE_REASON: Source-grounded rationale
+      CASE_TRADEOFF: Resource or alternative cost
+      CASE_LIMITATION: Missing evidence or uncertainty
+- id: qt_d4depth_case_british_frost
+  relation_type: CASE_ACTION
+  direction: forward
+  mode: short_answer
+  variant: d4depth_british_frost
+  prompt_template: An English traditional-method producer needs to promise stable non-vintage supply for two years.
+    Budburst is early and spring frost risk has increased; existing reserve stocks are modest. Recommend a production
+    and sales commitment, explain why, give a tradeoff and state what remains unknown.
+  parameters:
+    scope_node_ids:
+    - n_d4depth_case_british_frost
+    key_points:
+      CASE_ACTION: Defensible action
+      CASE_REASON: Source-grounded rationale
+      CASE_TRADEOFF: Resource or alternative cost
+      CASE_LIMITATION: Missing evidence or uncertainty

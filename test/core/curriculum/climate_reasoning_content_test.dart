@@ -377,7 +377,7 @@ void main() {
         132,
         829,
         3439,
-        3972,
+        4012,
       ]);
       expect(
         snapshot.levels.every(
