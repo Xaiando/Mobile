@@ -2904,6 +2904,54 @@ certification_knowledge_mappings:
     importance: core
     minimum_depth: 2
 source_citations:
+  - id: src_wset_eu_delle_venezie_types
+    kind: reference_work
+    title: Pinot Grigio DOC Delle Venezie permitted wine types
+    publisher: Consorzio vini DOC delle Venezie
+    jurisdiction: IT
+    url: https://dellevenezie.it/pinot-grigio/le-tipologie/
+    document_identifier: Primary public reference checked 29 September 2026; original educational synthesis
+    accessed_on: 2026-09-29
+  - id: src_wset_eu_calatayud_extreme_vineyard
+    kind: regulator_register
+    title: Calatayud extreme vineyard setting
+    publisher: DOP Calatayud
+    jurisdiction: ES
+    url: https://www.calatayudwine.com/en/extreme-vineyard/
+    document_identifier: Primary public reference checked 29 September 2026; original educational synthesis
+    accessed_on: 2026-09-29
+  - id: src_wset_eu_spanish_elevation_acidity
+    kind: government_publication
+    title: From Plateau to Volcano - Spain's High-Elevation Wines
+    publisher: ICEX Foods and Wines from Spain
+    jurisdiction: ES
+    url: https://www.foodswinesfromspain.com/en/wine/articles/2026/September/from-plateau-to-volcano--spain-s-wines-at-elevation
+    document_identifier: Primary official-trade synthesis checked 29 September 2026; elevation effect is conditional, not a site measurement
+    accessed_on: 2026-09-29
+  - id: src_wset_eu_chablis_premier_cru_group
+    kind: reference_work
+    title: Chablis and Chablis Premier Cru appellation sheet
+    publisher: Bourgogne Wine Board (BIVB)
+    jurisdiction: FR
+    url: https://www.bourgogne-wines.com/nos-vins-nos-terroirs/la-bourgogne-et-ses-appellations/gallery_files/site/321/402/29684/29787.pdf
+    document_identifier: Primary BIVB PDF checked 29 September 2026; page 4 lists the Montée de Tonnerre grouping
+    accessed_on: 2026-09-29
+  - id: src_wset_eu_pays_oc_varietal_list
+    kind: reference_work
+    title: Pays d'Oc IGP varietal wine list
+    publisher: Inter Oc
+    jurisdiction: FR
+    url: https://www.paysdoc-wines.com/wp-content/uploads/2021/06/IGP-PAYS-OC-press-release-April2021.pdf
+    document_identifier: Primary producer-body press release checked 29 September 2026; names Merlot and Chardonnay varietal wines
+    accessed_on: 2026-09-29
+  - id: src_wset_eu_terre_siciliane_eu
+    kind: legislation
+    title: Terre Siciliane IGP consolidated single-document amendment, 2025/C 5421
+    publisher: Official Journal of the European Union
+    jurisdiction: EU
+    url: https://eur-lex.europa.eu/eli/C/2025/5421/oj/eng
+    document_identifier: Primary legal notice checked 29 September 2026; publicly indexed text establishes colour and sweetness range
+    accessed_on: 2026-09-29
   - id: src_wset_eu_fr_aoc
     kind: regulator_register
     title: "AOP and AOC: meaning and production specifications"
@@ -3066,10 +3114,10 @@ source_citations:
     accessed_on: 2026-09-27
   - id: src_wset_eu_terre_siciliane
     kind: legislation
-    title: Terre Siciliane production specification
+    title: Terre Siciliane IGT consolidated specification landing page
     publisher: MASAF
     jurisdiction: IT
-    url: https://www.masaf.gov.it/flex/cm/pages/ServeAttachment.php/L/IT/D/1%252Fe%252Fb%252FD.71bd75dc36837ba8dd16/P/BLOB%3AID%3D23264/E/pdf?mode=download
+    url: https://www.masaf.gov.it/flex/cm/pages/ServeBLOB.php/L/IT/IDPagina/23264
     document_identifier: Primary public reference checked 27 September 2026; original educational synthesis; promotional rankings and production statistics unused
     accessed_on: 2026-09-27
   - id: src_wset_eu_rioja_labels
@@ -3138,10 +3186,10 @@ source_citations:
     accessed_on: 2026-09-27
   - id: src_wset_eu_pt_labels
     kind: reference_work
-    title: Portuguese wine-label glossary
+    title: Portuguese certified wine origin categories
     publisher: ViniPortugal
     jurisdiction: PT
-    url: https://winesofportugal.com/en/portuguese-wines/glossary/
+    url: https://winesofportugal.com/en/portuguese-wines/certified-wines/
     document_identifier: Primary public reference checked 27 September 2026; original educational synthesis; promotional rankings and production statistics unused
     accessed_on: 2026-09-27
   - id: src_wset_eu_lisboa
@@ -3354,10 +3402,10 @@ source_citations:
     accessed_on: 2026-09-27
   - id: src_wset_eu_collio
     kind: regulator_register
-    title: "Collio: vineyard identity and varietal wines"
+    title: Collio DOC denomination and permitted varieties
     publisher: Consorzio Tutela Vini Collio
     jurisdiction: IT
-    url: https://www.collio.it/
+    url: https://www.collio.it/en/i-valori-del-collio/
     document_identifier: Primary public reference checked 27 September 2026; original educational synthesis; no promotional quality rankings or production statistics used
     accessed_on: 2026-09-27
   - id: src_wset_eu_minervois
@@ -3385,6 +3433,33 @@ source_citations:
     document_identifier: Primary public reference checked 27 September 2026; original educational synthesis; no promotional quality rankings or production statistics used
     accessed_on: 2026-09-27
 knowledge_item_citations:
+  - knowledge_item_id: ki_wset_eu_greece_pdo_origin
+    source_citation_id: src_reg_gr_assyrtiko
+    locator: Assyrtiko originated on Santorini and is now grown throughout Greece
+  - knowledge_item_id: ki_wset_eu_delle_venezie_style
+    source_citation_id: src_wset_eu_delle_venezie_types
+    locator: Still, ramato, sparkling and semi-sparkling Pinot Grigio types are listed
+  - knowledge_item_id: ki_wset_eu_calatayud_altitude
+    source_citation_id: src_wset_eu_calatayud_extreme_vineyard
+    locator: Calatayud vineyards occupy high sites with wide day-night temperature variation and slow ripening
+  - knowledge_item_id: ki_wset_eu_calatayud_altitude
+    source_citation_id: src_wset_eu_spanish_elevation_acidity
+    locator: Higher sites may preserve acidity and freshness, including Calatayud examples
+  - knowledge_item_id: ki_wset_eu_pt_doc_igp
+    source_citation_id: src_atlas_pt_regions
+    locator: Government mapping distinguishes bounded Portuguese IGP and DOP regions
+  - knowledge_item_id: ki_wset_eu_burgundy_premier_cru
+    source_citation_id: src_wset_eu_chablis_premier_cru_group
+    locator: Montée de Tonnerre is a principal Premier Cru name covering eligible associated climats
+  - knowledge_item_id: ki_wset_eu_recioto_soave_selection
+    source_citation_id: src_wset_grape_soave_recioto
+    locator: Recioto fruit is dried before pressing; grape-to-wine yield is limited to 40 or 42 percent by type
+  - knowledge_item_id: ki_wset_eu_pays_oc_varieties
+    source_citation_id: src_wset_eu_pays_oc_varietal_list
+    locator: Pays d'Oc IGP producer material names both Merlot and Chardonnay varietal wines
+  - knowledge_item_id: ki_wset_eu_terre_siciliane_styles
+    source_citation_id: src_wset_eu_terre_siciliane_eu
+    locator: Terre Siciliane IGP includes white, red, rosé, late-harvest and passito categories
   - knowledge_item_id: ki_wset_eu_fr_aoc_identity
     source_citation_id: src_wset_eu_fr_aoc
     locator: AOC and AOP protect a named origin
@@ -3735,9 +3810,6 @@ knowledge_item_citations:
     locator: Friuli Grave produces varietal whites and reds
   - knowledge_item_id: ki_wset_eu_collio_white_identity
     source_citation_id: src_wset_eu_collio
-    locator: Collio is strongly associated with white wines
-  - knowledge_item_id: ki_wset_eu_collio_white_identity
-    source_citation_id: src_reg_inc_friuli
     locator: Collio is strongly associated with white wines
   - knowledge_item_id: ki_wset_eu_languedoc_red_blends
     source_citation_id: src_wset_eu_minervois

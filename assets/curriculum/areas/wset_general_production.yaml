@@ -1804,6 +1804,14 @@ certification_knowledge_mappings:
     importance: core
     minimum_depth: 2
 source_citations:
+  - id: src_wset_prod_red_maceration
+    kind: reference_work
+    title: Winemaking treatment - extended post-fermentation maceration
+    publisher: Australian Wine Research Institute
+    jurisdiction: International educational context
+    url: https://www.awri.com.au/industry_support/winemaking_resources/winemaking-practices/winemaking-treatment-extended-post-fermentation-maceration/
+    document_identifier: Opening paragraph and length-of-contact discussion, checked 29 September 2026
+    accessed_on: 2026-09-29
   - id: src_wset_prod_clone
     kind: reference_work
     title: Nomenclature for grape clones and selections
@@ -2033,16 +2041,16 @@ source_citations:
     title: Blending and mixing or preparation of the cuvee
     publisher: International Organisation of Vine and Wine
     jurisdiction: International educational context
-    url: https://oiv.int/index.php/fr/standards/code-international-des-pratiques-oenologiques/part-ii-oenological-treatments-and-practices/wines/blending-and-mixing-or-preparation-of-the-cuvee
+    url: https://www.oiv.int/standards/international-code-of-oenological-practices/part-ii-oenological-treatments-and-practices/wines/blending-and-mixing-or-preparation-of-the-cuvee
     document_identifier: Blending and mixing or preparation of the cuvee
     accessed_on: 2026-09-27
   - id: src_wset_prod_consistency
     kind: reference_work
-    title: "Grenache consumer guide: blending and consistency"
+    title: "Australian Grenache and blends: Educator guide"
     publisher: Wine Australia
     jurisdiction: International educational context
-    url: https://www.australianwine.com/getcontentasset/b7b5f877-15cf-46d0-929d-c67d43f78860/2a6464f5-7547-4f96-aacf-a0c3da1718f8/awd_grenache_consumerguide.pdf?language=en-AU
-    document_identifier: "Grenache consumer guide: blending and consistency"
+    url: https://www.wineaustralia.com/getmedia/751c19a1-106f-4312-928f-9994e918a7ab/104098-Grenache-and-Blends-Educator-Guide.pdf?ext=.pdf
+    document_identifier: "PDF page 28, To blend or not to blend? Vintage consistency and proportions"
     accessed_on: 2026-09-27
   - id: src_wset_prod_filter
     kind: reference_work
@@ -2157,6 +2165,9 @@ source_citations:
     document_identifier: "Sound vitivinicultural practices to minimise ochratoxin A: drying wine grapes"
     accessed_on: 2026-09-27
 knowledge_item_citations:
+  - knowledge_item_id: ki_wset_prod_red_press_timing
+    source_citation_id: src_wset_prod_red_maceration
+    locator: Red skins and seeds may remain in contact after fermentation before pressing; contact time affects phenolic extraction
   - knowledge_item_id: ki_wset_prod_species_variety
     source_citation_id: src_biz_models_psu_vineyard
     locator: Grape species, cultivars, grafting and vineyard establishment

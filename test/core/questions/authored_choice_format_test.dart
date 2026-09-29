@@ -274,7 +274,7 @@ void main() {
   );
 
   test(
-    '391 cited Level 1–3 questions are generated and served across domains',
+    '495 cited Level 1–3 questions are generated and served across domains',
     () async {
       final db = openTestDatabase();
       try {
@@ -289,7 +289,7 @@ void main() {
         final templates = await (db.select(
           db.questionTemplates,
         )..where((row) => row.mode.equals('authored_choice'))).get();
-        expect(templates, hasLength(17));
+        expect(templates, hasLength(21));
         final expectedIds = {
           for (final template in templates)
             ...((jsonDecode(template.parameters!)
@@ -321,23 +321,47 @@ void main() {
                       as Map<String, dynamic>)
                   .keys,
         };
-        final levelThreeIds = expectedIds.difference({
+        Set<String> idsForTemplate(String templateId) => {
+          for (final template in templates)
+            if (template.id == templateId)
+              ...((jsonDecode(template.parameters!)
+                          as Map<String, dynamic>)['item_choices']
+                      as Map<String, dynamic>)
+                  .keys,
+        };
+        final europeIds = idsForTemplate('qt_wset_europe_application_67');
+        final newWorldIds = idsForTemplate('qt_wset_new_world_application_16');
+        final winemakingSharedIds = idsForTemplate(
+          'qt_wset_winemaking_shared_application_9',
+        );
+        final winemakingL3Ids = idsForTemplate(
+          'qt_wset_winemaking_l3_application_12',
+        );
+        final earlierLevelThreeIds = expectedIds.difference({
           ...levelOneIds,
           ...levelTwoIds,
           ...sharedGrapeIds,
+          ...europeIds,
+          ...newWorldIds,
+          ...winemakingSharedIds,
+          ...winemakingL3Ids,
         });
-        expect(expectedIds, hasLength(391));
+        expect(expectedIds, hasLength(495));
         expect(levelOneIds, hasLength(132));
         expect(levelTwoIds, hasLength(142));
         expect(sharedGrapeIds, hasLength(32));
-        expect(levelThreeIds, hasLength(85));
+        expect(europeIds, hasLength(67));
+        expect(newWorldIds, hasLength(16));
+        expect(winemakingSharedIds, hasLength(9));
+        expect(winemakingL3Ids, hasLength(12));
+        expect(earlierLevelThreeIds, hasLength(85));
         final rows = await db.customSelect('''
         SELECT q.knowledge_item_id, i.domain_id FROM questions q
         JOIN question_templates t ON t.id = q.question_template_id
         JOIN knowledge_items i ON i.id = q.knowledge_item_id
         WHERE t.mode = 'authored_choice' ORDER BY q.knowledge_item_id
       ''').get();
-        expect(rows, hasLength(391));
+        expect(rows, hasLength(495));
         final actual = {
           for (final row in rows)
             row.read<String>('knowledge_item_id'): row.read<String>(
@@ -360,13 +384,28 @@ void main() {
           for (final card in await StudyPlanner(db).cards('WSET_L3'))
             card.itemId: card,
         };
+        expect(
+          europeIds.where(levelTwoCards.containsKey),
+          hasLength(26),
+          reason: 'Only the Level 2-scope European applications are shared',
+        );
         for (final id in expectedIds) {
-          if (sharedGrapeIds.contains(id)) {
+          if (sharedGrapeIds.contains(id) ||
+              newWorldIds.contains(id) ||
+              winemakingSharedIds.contains(id) ||
+              (europeIds.contains(id) && levelTwoCards.containsKey(id))) {
             expect(
               levelTwoCards[id]?.formats.map((format) => format.mode),
               contains('authored_choice'),
               reason: 'Level 2: $id',
             );
+            expect(
+              levelThreeCards[id]?.formats.map((format) => format.mode),
+              contains('authored_choice'),
+              reason: 'Level 3: $id',
+            );
+          }
+          if (europeIds.contains(id) || winemakingL3Ids.contains(id)) {
             expect(
               levelThreeCards[id]?.formats.map((format) => format.mode),
               contains('authored_choice'),

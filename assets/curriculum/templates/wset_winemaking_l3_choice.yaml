@@ -1,0 +1,153 @@
+# Source-bounded winemaking application choices; pending qualified verification.
+question_templates:
+- id: qt_wset_winemaking_l3_application_12
+  relation_type: PRINCIPLE_EXPLANATION
+  direction: forward
+  mode: authored_choice
+  variant: wset_winemaking_l3_application_12
+  prompt_template: '{subject.name}'
+  parameters:
+    item_choices:
+      ki_win_bentonite:
+        prompt: A bottled white is at risk of protein haze. Which proposed treatment addresses that specific
+          risk?
+        options:
+        - Chill the wine to precipitate potassium bitartrate
+        - Fine with bentonite and confirm protein stability
+        - Sterile-filter the wine to remove viable yeast cells
+        - Use gelatine to soften its harsh grape-seed tannin
+        correctIndex: 1
+        explanation: AWRI describes bentonite as a negatively charged clay used to remove proteins that
+          could form haze; its effective rate should be trialled.
+        sourceCitationId: src_win_fining
+      ki_win_cap_contact:
+        prompt: A winemaker increases cap contact during a red fermentation. Which outcome must be judged
+          against the intended style?
+        options:
+        - Colour and tannin extraction may both change
+        - The wine must become smoother as contact rises
+        - Tannin extraction must stop once colour peaks
+        - Only colour can change; tannin cannot be extracted
+        correctIndex: 0
+        explanation: AWRI links cap-contact duration and extent to phenolic extraction. More contact can
+          alter both colour and tannin and is not automatically better for the intended style.
+        sourceCitationId: src_win_temperature
+      ki_win_colour_tannin:
+        prompt: Red-wine colour extraction has peaked, but skin contact continues. Which later change
+          remains plausible?
+        options:
+        - Further tannin extraction without further colour gain
+        - Further colour gain with tannin extraction already ended
+        - Equal new colour and tannin extraction at every stage
+        - Immediate loss of all tannin once colour has peaked
+        correctIndex: 0
+        explanation: In the AWRI summary of studied fermentations, maximum colour is reached before maximum
+          tannin; longer contact may still change tannin.
+        sourceCitationId: src_win_temperature
+      ki_win_fining_mechanism:
+        prompt: A winemaker adds a fining agent to soften harsh astringency. Which mechanism is relevant?
+        options:
+        - Cooling precipitates target compounds as tartrates
+        - The agent binds selected targets for later removal
+        - Racking ferments astringent tannin into alcohol
+        - Aeration converts harsh tannin into yeast nutrients
+        correctIndex: 1
+        explanation: AWRI describes chemical or physical interaction between fining agent and wine components,
+          forming separable complexes that may reduce astringency.
+        sourceCitationId: src_win_fining
+      ki_win_gentle_press:
+        prompt: Delicate white fruit arrives intact and low in rot. Why choose prompt, gentle pressing?
+        options:
+        - To increase seed and skin phenolics before fermentation
+        - To induce white-skin fermentation within the press
+        - To accelerate malolactic conversion in the juice
+        - To limit phenolic extraction before the juice ferments
+        correctIndex: 3
+        explanation: Limiting skin and seed contact can support a delicate white profile; AWRI contrasts
+          conventional pressed whites with extended skin-contact amber wines.
+        sourceCitationId: src_win_amber
+      ki_win_mlf_inhibitors:
+        prompt: A white base wine has low pH, cool temperature and appreciable SO2. How should an MLF
+          strain be chosen?
+        options:
+        - Use pH alone; cool conditions offset SO2 inhibition
+        - Assess combined wine conditions against strain tolerance
+        - Use SO2 alone; pH has little separate effect on MLF
+        - Use alcohol alone; temperature can be adjusted later
+        correctIndex: 1
+        explanation: AWRI identifies low pH, cool temperature, sulfur dioxide and alcohol as interacting
+          stresses; starter tolerance must match the combined wine conditions.
+        sourceCitationId: src_win_white_mlf
+      ki_win_mlf_monitor:
+        prompt: A red wine stops showing visible bubbles after yeast fermentation. What evidence best
+          tracks later MLF?
+        options:
+        - A change in titratable acidity without acid identities
+        - A fading CO2 stream after primary fermentation ends
+        - A rising pH without direct measurement of malic acid
+        - Direct analysis of falling malic and rising lactic acid
+        correctIndex: 3
+        explanation: AWRI recommends analysing malic and lactic acid to monitor MLF; absence of bubbles
+          does not establish that bacterial conversion is complete.
+        sourceCitationId: src_win_mlf
+      ki_win_tartrate_cooling:
+        prompt: A finished white wine is cooled before bottling and potassium bitartrate crystals form.
+          What risk is addressed?
+        options:
+        - A future protein haze, if bentonite is omitted
+        - A later tartrate deposit, after crystals are removed
+        - A later yeast refermentation, if residual sugar remains
+        - A future cork taint after low-temperature storage
+        correctIndex: 1
+        explanation: Cooling reduces potassium bitartrate solubility and promotes crystallisation before
+          packaging; that is tartrate, not protein or microbial, stability.
+        sourceCitationId: src_win_tartrate
+      ki_win_yeast_heat:
+        prompt: A warm red ferment accelerates while cooling capacity is limited. Why is intervention
+          warranted?
+        options:
+        - Higher heat converts all tannin to stable red pigment
+        - Higher heat prevents extraction from skins and seeds
+        - Higher heat makes added yeast nutrients unnecessary
+        - Rising heat may impair yeast and stall fermentation
+        correctIndex: 3
+        explanation: AWRI notes the positive feedback between higher temperature and fermentation rate;
+          extremes can harm yeast and increase stuck-fermentation risk.
+        sourceCitationId: src_win_temperature
+      ki_win_red_heat:
+        prompt: Two red tanks have equal cooling capacity, but fermentation accelerates in one. Why can
+          the faster tank become harder to cool?
+        options:
+        - More sugar is dissolved, absorbing more ambient heat
+        - Faster fermentation generates more heat per unit time
+        - More colour extraction always raises the wine boiling point
+        - Faster fermentation prevents the cap from retaining heat
+        correctIndex: 1
+        explanation: 'AWRI describes a positive feedback loop: faster fermentation generates heat, and
+          limited cooling allows the temperature to climb further. This is the heat-generation mechanism,
+          distinct from the separate risk that extreme heat harms yeast.'
+        sourceCitationId: src_win_temperature
+      ki_win_press_fractions:
+        prompt: A delicate white yields free-run and later press juice. Why keep the two fractions apart
+          at first?
+        options:
+        - Assess whether press juice adds texture or unwanted bitterness
+        - Reserve press juice only for wines undergoing malolactic change
+        - Assume both fractions have identical phenolic character
+        - Blend both immediately before their differences can be tasted
+        correctIndex: 0
+        explanation: AWRI identifies separate treatment of free-run and press fractions as a way to manage
+          phenolics and avoid unwanted coarseness while preserving a blending choice.
+        sourceCitationId: src_win_amber
+      ki_win_mlf_stability:
+        prompt: A wine completes malolactic conversion before bottling. Why can this support microbial
+          stability without guaranteeing it?
+        options:
+        - It removes all fermentable sugar; microbes then lack fuel
+        - It generates enough sulfur dioxide to protect the wine
+        - It removes malic acid; other spoilage risks still remain
+        - It precipitates tartrate crystals with viable bacteria
+        correctIndex: 2
+        explanation: AWRI explains that completed MLF removes malic acid, a later microbial substrate.
+          The wine still needs broader hygiene and stability controls.
+        sourceCitationId: src_win_mlf

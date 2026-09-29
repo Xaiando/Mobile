@@ -1,0 +1,198 @@
+# Source-bounded New World application choices; pending qualified verification.
+question_templates:
+- id: qt_wset_new_world_application_16
+  relation_type: PRINCIPLE_EXPLANATION
+  direction: forward
+  mode: authored_choice
+  variant: wset_new_world_application
+  prompt_template: '{subject.name}'
+  parameters:
+    item_choices:
+      ki_wset_nw_california_variation:
+        prompt: A California producer compares a marine-cooled Sonoma block with a warmer inland block.
+          Which site allocation is the strongest starting point?
+        options:
+        - Cooler Pinot Noir/Chardonnay; warmer Cabernet Sauvignon
+        - Cooler Cabernet Sauvignon/Merlot; warmer Pinot Noir
+        - Cooler Zinfandel/Cabernet; warmer Pinot Noir/Chardonnay
+        - Cooler Syrah/Cabernet; warmer Riesling/Chardonnay
+        correctIndex: 0
+        explanation: Sonoma County Winegrowers describes cooling on western and southern sites and warmer
+          inland settings. Match grapes to the actual block; a California label alone does not fix style.
+        sourceCitationId: src_reg_am_sonoma
+      ki_wset_nw_napa_sauvignon:
+        prompt: Two Napa Sauvignon Blanc lots target fruit clarity and wood-influenced texture respectively.
+          Which vessel pairing best fits the Vintners account?
+        options:
+        - Oak for both fruit clarity and neutral-vessel freshness
+        - Neutral for fruit clarity; oak for wood-influenced texture
+        - Oak for fruit clarity; neutral for wood-influenced texture
+        - Neutral for both fruit clarity and wood-influenced texture
+        correctIndex: 1
+        explanation: Napa Valley Vintners describes neutral fermentation for varietal Sauvignon Blanc
+          and some oak-fermented or aged Fumé Blanc examples with more layered texture.
+        sourceCitationId: src_wset_nw_napa_wine
+      ki_wset_nw_central_valley_reds:
+        prompt: Which trio does Wines of Chile emphasize as major red-wine references across Maipo and
+          the two Rapel valleys?
+        options:
+        - Cabernet Sauvignon, País and Cinsault
+        - Carmenère, Syrah and Pinot Noir
+        - Merlot, Pinotage and Tempranillo
+        - Cabernet Sauvignon, Merlot and Carmenère
+        correctIndex: 3
+        explanation: Wines of Chile lists Cabernet Sauvignon, Merlot and Carmenère in Maipo and the two
+          Rapel valleys. Site and producer still determine the actual wine.
+        sourceCitationId: src_reg_am_chile
+      ki_wset_nw_casablanca_grapes:
+        prompt: Which Casablanca planting/site association best fits Wines of Chile?
+        options:
+        - 'Cool lower blocks: Sauvignon Blanc/Chardonnay; Pinot Noir planted'
+        - 'Cool lower blocks: Cabernet/Carmenère; Pinot Noir also planted'
+        - 'Warm upper blocks: Sauvignon Blanc/Chardonnay; Pinot Noir absent'
+        - 'Warm upper blocks: Cabernet/Carmenère; Chardonnay absent'
+        correctIndex: 0
+        explanation: Wines of Chile identifies Casablanca as Pacific-cooled, with Sauvignon Blanc and
+          Chardonnay prominent and Pinot Noir also planted; actual site and harvest still matter.
+        sourceCitationId: src_reg_am_chile
+      ki_wset_nw_barossa_semillon_range:
+        prompt: Which Barossa Valley Semillon style contrast appears in Wine Australia’s education guide?
+        options:
+        - Traditional sparkling/dry; modern fortified/sweet
+        - Traditional fortified/sweet; modern sparkling/dry
+        - Traditional richer/oaked; modern lighter/crisper
+        - Traditional lighter/unoaked; modern richer/oaked
+        correctIndex: 2
+        explanation: Wine Australia’s Barossa education guide contrasts traditional rich, oak-aged Semillon
+          with more recent lighter, crisper styles. Neither is compulsory.
+        sourceCitationId: src_wset_nw_barossa_semillon
+      ki_wset_nw_clare_riesling_style:
+        prompt: A sommelier compares young and well-stored older Clare Valley Rieslings. Which progression
+          is a plausible regional reference?
+        options:
+        - Honey and toast in youth; fresh lime appears only with age
+        - Lime in youth; bottle age must make the wine sweet
+        - Lime in youth; bottle age must add new-oak vanilla
+        - Lime in youth; honey and toast may emerge with age
+        correctIndex: 3
+        explanation: Wine Australia describes youthful citrus in Clare Riesling and possible honey, toast
+          and lemon-curd notes with bottle age. The result depends on the bottle and storage; sweetness
+          or new-oak flavour does not follow automatically.
+        sourceCitationId: src_wset_nw_clare_guide
+      ki_wset_nw_margaret_white_range:
+        prompt: Which three variables does Wine Australia explicitly name for Margaret River Semillon–Sauvignon
+          Blanc blend diversity?
+        options:
+        - Fermentation vessel, bottle shape and closure
+        - Blend proportions, ripeness and oak treatment
+        - Blend proportions, yeast strain and bottle age
+        - Site altitude, harvest time and lees contact
+        correctIndex: 1
+        explanation: Wine Australia names blend proportions, ripeness and oak as drivers of Margaret River
+          Semillon–Sauvignon Blanc style variation.
+        sourceCitationId: src_reg_sh_margaret
+      ki_wset_nw_yarra_wine_range:
+        prompt: A Yarra Valley tasting includes Pinot Noir and Chardonnay. Which reference pair fits Wine
+          Australia’s regional profile?
+        options:
+        - Pinot Noir with fig/melon; Chardonnay with plum/cherry
+        - Pinot Noir with raisin/prune; Chardonnay with blackberry/pepper
+        - Pinot Noir with plum/cherry; Chardonnay with peach/melon
+        - Pinot Noir with cassis/black pepper; Chardonnay with quince/honey
+        correctIndex: 2
+        explanation: Wine Australia describes light-to-medium Pinot Noir with plum, strawberry or cherry
+          and Chardonnay with white peach, melon or fig. The profile is a starting point, not a blind-identification
+          rule.
+        sourceCitationId: src_reg_sh_yarra
+      ki_wset_nw_adelaide_chardonnay:
+        prompt: Which Adelaide Hills climate and Chardonnay-acidity relationship is supported?
+        options:
+        - Warm low-altitude sites; good natural acidity
+        - Cool high-altitude sites; reliably low acidity
+        - Warm low-altitude sites; reliably low acidity
+        - Cool high-altitude sites; good natural acidity
+        correctIndex: 3
+        explanation: Wine Australia describes a cool, high-altitude Adelaide Hills climate and medium-weight
+          Chardonnay with good natural acidity. Cellar methods remain producer choices.
+        sourceCitationId: src_reg_oa_adelaide
+      ki_wset_nw_mclaren_environment:
+        prompt: A McLaren Vale buyer compares vineyards with different exposure to the nearby ocean. Which
+          inference fits Wine Australia?
+        options:
+        - Ocean cooling varies by site and can change grape suitability
+        - Ocean cooling is uniform and fixes grape suitability everywhere
+        - Ocean warming varies by site and can change grape suitability
+        - Ocean warming is uniform and fixes grape suitability everywhere
+        correctIndex: 0
+        explanation: Wine Australia describes ocean cooling that creates mesoclimate differences in McLaren
+          Vale; exposure to or protection from that influence affects grape suitability. The profile alone
+          does not specify an identical climate for every vineyard.
+        sourceCitationId: src_reg_oa_mclaren
+      ki_wset_nw_marlborough_sauvignon_style:
+        prompt: A Marlborough Sauvignon Blanc smells herbaceous and tropical. What does that observation
+          establish?
+        options:
+        - A profile outside Marlborough; subregion unresolved
+        - A profile outside Marlborough; Wairau proven
+        - A regional reference profile; subregion unresolved
+        - A regional reference profile; Awatere proven
+        correctIndex: 2
+        explanation: New Zealand Winegrowers describes herbaceous and tropical Marlborough Sauvignon Blanc
+          plus varied subregions. Aroma alone does not prove a subregion, sugar level or technique.
+        sourceCitationId: src_nwc_nz_marlborough
+      ki_wset_nw_marlborough_pinot_style:
+        prompt: Which Marlborough Pinot Noir tasting profile fits New Zealand Winegrowers?
+        options:
+        - Dark cassis and black pepper, full weight and firm tannins
+        - Lime and passionfruit, light weight and negligible tannins
+        - Raisin and chocolate, heavy weight and marked sweetness
+        - Dark cherry and plum, spice, midweight and fine tannins
+        correctIndex: 3
+        explanation: New Zealand Winegrowers describes Marlborough Pinot Noir with cherry, plum, red fruit,
+          spice, midweight body and fine tannins. Individual wines may vary.
+        sourceCitationId: src_nwc_nz_marlborough
+      ki_wset_nw_martinborough_pinot_style:
+        prompt: Which site and Pinot Noir profile fits Martinborough and Wairarapa?
+        options:
+        - Cool, dry site; perfumed fruit, texture and depth
+        - Cool, wet site; jammy fruit, texture and depth
+        - Warm, dry site; perfumed fruit, thin structure
+        - Warm, wet site; jammy fruit, thin structure
+        correctIndex: 0
+        explanation: New Zealand Winegrowers describes cool, dry Martinborough and Wairarapa Pinot Noir
+          with perfumed fruit, texture and depth. A cool origin does not dictate one tannin level.
+        sourceCitationId: src_reg_sh_wairarapa
+      ki_wset_nwa_western_cape_environment:
+        prompt: Which climate combination helps interpret Western Cape vineyards?
+        options:
+        - Summer rain; cooling sea breezes; variable terrain
+        - Summer rain; warming sea breezes; uniform terrain
+        - Winter rain; cooling sea breezes; variable terrain
+        - Winter rain; warming sea breezes; uniform terrain
+        correctIndex: 2
+        explanation: Wines of South Africa describes Mediterranean rainfall, coastal sea breezes and mountain
+          effects. Compare the actual site; broad origin does not guarantee one temperature or water supply.
+        sourceCitationId: src_wset_nwa_za_climate
+      ki_wset_nw_elgin_sauvignon:
+        prompt: Which Elgin setting and grape association does Wines of South Africa describe?
+        options:
+        - Warm lowland; earlier ripening; Sauvignon Blanc
+        - Cool highland; earlier ripening; Cabernet Sauvignon
+        - Warm lowland; later ripening; Cabernet Sauvignon
+        - Cool highland; later ripening; Sauvignon Blanc
+        correctIndex: 3
+        explanation: Wines of South Africa describes high-lying, cool-climate Elgin as later ripening
+          and lists Sauvignon Blanc with Chardonnay and Pinot Noir. The finished aroma still depends on
+          harvest and production.
+        sourceCitationId: src_diploma_za_olifants
+      ki_wset_nw_california_zinfandel_range:
+        prompt: Which Zinfandel style pairing does Napa Valley Vintners document?
+        options:
+        - Dry red Zinfandel; slightly sweet rosé White Zinfandel
+        - Sweet red Zinfandel; dry rosé White Zinfandel
+        - Dry rosé Zinfandel; slightly sweet red White Zinfandel
+        - Sweet rosé Zinfandel; dry white White Zinfandel
+        correctIndex: 0
+        explanation: Napa Valley Vintners describes dry red Zinfandel, lighter reds and the slightly sweet
+          White Zinfandel rosé rendition; the label style needs confirmation.
+        sourceCitationId: src_wset_nw_napa_wine
