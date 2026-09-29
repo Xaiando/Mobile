@@ -360,7 +360,7 @@ void main() {
   );
 
   test(
-    '1561 cited choices are generated and served across WSET and CMS tracks',
+    '1619 cited choices are generated and served across WSET and CMS tracks',
     () async {
       final db = openTestDatabase();
       try {
@@ -385,7 +385,7 @@ void main() {
                   template.id == 'qt_d5f_authored_choice',
             )
             .toList();
-        expect(templates, hasLength(74));
+        expect(templates, hasLength(76));
         final expectedIds = {
           for (final template in templates)
             ...((jsonDecode(template.parameters!)
@@ -574,6 +574,13 @@ void main() {
         final diplomaBusinessPrincipleIds = idsForTemplate(
           'qt_wset_l4_business_principle_choice_29',
         );
+        final l4ViticulturePrincipleIds = idsForTemplate(
+          'qt_wset_l4_viticulture_principle_closure_51',
+        );
+        final l4ViticultureCausalIds = {
+          ...idsForTemplate('qt_wset_l4_viticulture_causal_causes_state'),
+          ...idsForTemplate('qt_wset_l4_viticulture_causal_leads_to'),
+        };
         final d3RegionalIds = idsForTemplate('qt_d3rt_regional_choice');
         final d4RegionalIds = idsForTemplate('qt_d4depth_regional_choices');
         final d5FortifiedIds = idsForTemplate('qt_d5f_authored_choice');
@@ -612,6 +619,8 @@ void main() {
           ...l3WinemakingPrincipleIds,
           ...diplomaBusinessIds,
           ...diplomaBusinessPrincipleIds,
+          ...l4ViticulturePrincipleIds,
+          ...l4ViticultureCausalIds,
           ...d3RegionalIds,
           ...d4RegionalIds,
           ...d5FortifiedIds,
@@ -638,7 +647,7 @@ void main() {
           isEmpty,
           reason: 'Diploma and Level 3 geography choices remain distinct',
         );
-        expect(expectedIds, hasLength(1561));
+        expect(expectedIds, hasLength(1619));
         expect(levelOneIds, hasLength(132));
         expect(levelTwoIds, hasLength(309));
         expect(sharedGrapeIds, hasLength(52));
@@ -695,7 +704,16 @@ void main() {
         expect(l3WinemakingPrincipleIds, hasLength(40));
         expect(diplomaBusinessIds, hasLength(29));
         expect(diplomaBusinessPrincipleIds, hasLength(29));
-        expect(diplomaBusinessIds.intersection(diplomaBusinessPrincipleIds), isEmpty);
+        expect(
+          diplomaBusinessIds.intersection(diplomaBusinessPrincipleIds),
+          isEmpty,
+        );
+        expect(l4ViticulturePrincipleIds, hasLength(51));
+        expect(l4ViticultureCausalIds, hasLength(7));
+        expect(
+          l4ViticulturePrincipleIds.intersection(l4ViticultureCausalIds),
+          isEmpty,
+        );
         expect(d3RegionalIds, hasLength(19));
         expect(d4RegionalIds, hasLength(24));
         expect(d5FortifiedIds, hasLength(16));
@@ -711,7 +729,7 @@ void main() {
                OR t.id = 'qt_d5f_authored_choice')
         ORDER BY q.knowledge_item_id
       ''').get();
-        expect(rows, hasLength(1561));
+        expect(rows, hasLength(1619));
         final actual = {
           for (final row in rows)
             row.read<String>('knowledge_item_id'): row.read<String>(
@@ -836,6 +854,14 @@ void main() {
               expect(cmsCards.containsKey(id), isFalse, reason: id);
             }
           }
+          if (l4ViticulturePrincipleIds.contains(id) ||
+              l4ViticultureCausalIds.contains(id)) {
+            expect(
+              levelFourCards[id]?.formats.map((format) => format.mode),
+              contains('authored_choice'),
+              reason: 'Diploma viticulture: $id',
+            );
+          }
           if (sharedGrapeIds.contains(id) ||
               newWorldIds.contains(id) ||
               winemakingSharedIds.contains(id) ||
@@ -882,6 +908,9 @@ void main() {
                     ? levelTwoCards[id]
                     : cmsExampleIds.contains(id)
                     ? cmsCards[id]
+                    : l4ViticulturePrincipleIds.contains(id) ||
+                          l4ViticultureCausalIds.contains(id)
+                    ? levelFourCards[id]
                     : diplomaBusinessIds.contains(id)
                     ? levelFourCards[id]
                     : diplomaBusinessPrincipleIds.contains(id)

@@ -1,0 +1,36 @@
+# Four bounded D1/D3 vineyard decisions with cited four-role evidence.
+# Their scenario premises are hypothetical and all underlying facts await review.
+question_templates:
+  - id: qt_wset_l4_viticulture_case_criteria_4
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: case_criteria
+    variant: wset_l4_viticulture_case_criteria_4
+    prompt_template: '{subject.name}'
+    parameters:
+      scope_node_ids:
+        - n_d1target_case_vineyard
+        - n_d3rt_case_bairrada_rain
+        - n_d3rt_case_otago_frost
+        - n_reg_isi_case_cannonau_harvest
+      distractors:
+        n_d1target_case_vineyard:
+          - summary: Sow permanent cover on the entire dry slope because a vigour map proves both water sufficiency and higher wine quality
+            explanation: A map identifies variation, not water reserve or its cause; under-vine cover can compete for scarce water, so a measured local trial is needed.
+          - summary: Treat the expected erosion benefit as proof that a zone-separated wine will earn a premium without measuring fruit or buyers
+            explanation: Erosion control and commercial wine value are different outcomes; grape composition, finished wine and market response are still unknown.
+        n_d3rt_case_bairrada_rain:
+          - summary: Combine ripe sound parcel A with damaged parcel B before checking B's post-rain fruit health
+            explanation: The scenario supplies different maturity and damage states; combining lots may compromise the sound fruit before B is assessed or sorted.
+          - summary: Pay a second crew automatically because sorted Baga from parcel B is guaranteed to command a premium
+            explanation: Sorting adds cost, while B's later health, sensory quality and buyer demand are explicitly unknown.
+        n_d3rt_case_otago_frost:
+          - summary: Lease Gibbston solely because its cooler site must produce higher-quality Pinot Noir than Bannockburn
+            explanation: Cooler and later ripening is a site tendency, not a universal quality ranking; the supplied comparison also has frost and cost differences.
+          - summary: Choose Bannockburn from one warmer trial vintage without comparing rent, fruit records or repeat-season conditions
+            explanation: Different-season fruit cannot isolate site effects; the higher rent and multi-season ripening evidence belong in the lease decision.
+        n_reg_isi_case_cannonau_harvest:
+          - summary: Pick both Cannonau blocks on one date because matching sugar readings prove matching acidity and phenolic maturity
+            explanation: Temperature and site conditions can shift acids and phenolics independently of sugar; the scenario omits the further block-specific tests.
+          - summary: Delay both blocks until maximum sugar because more hang time cannot affect acid balance or fruit health
+            explanation: Later picking changes sugar and acid exposure and may carry condition risks; the intended balanced dry red needs more than a sugar maximum.
