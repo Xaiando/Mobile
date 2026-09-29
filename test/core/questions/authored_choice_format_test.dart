@@ -325,7 +325,7 @@ void main() {
   );
 
   test(
-    '1249 cited choices are generated and served across WSET and CMS tracks',
+    '1289 cited choices are generated and served across WSET and CMS tracks',
     () async {
       final db = openTestDatabase();
       try {
@@ -350,7 +350,7 @@ void main() {
                   template.id == 'qt_d5f_authored_choice',
             )
             .toList();
-        expect(templates, hasLength(59));
+        expect(templates, hasLength(63));
         final expectedIds = {
           for (final template in templates)
             ...((jsonDecode(template.parameters!)
@@ -473,6 +473,12 @@ void main() {
         final l3ViticulturePrincipleNextIds = idsForTemplate(
           'qt_wset_l3_viticulture_principle_closure_next_40',
         );
+        final l3ViticultureCaseIds = {
+          ...idsForTemplate('qt_wset_l3_viticulture_case_action_choice'),
+          ...idsForTemplate('qt_wset_l3_viticulture_case_limitation_choice'),
+          ...idsForTemplate('qt_wset_l3_viticulture_case_reason_choice'),
+          ...idsForTemplate('qt_wset_l3_viticulture_case_tradeoff_choice'),
+        };
         final l3ViticultureGeneralIds = idsForTemplate(
           'qt_wset_l3_viticulture_general_22',
         );
@@ -523,6 +529,7 @@ void main() {
           ...l3ViticultureIds,
           ...l3ViticulturePrincipleIds,
           ...l3ViticulturePrincipleNextIds,
+          ...l3ViticultureCaseIds,
           ...l3ViticultureGeneralIds,
           ...l3TastingIds,
           ...l3ServiceIds,
@@ -555,7 +562,7 @@ void main() {
           'ki_reg_ib_sacra_terraces',
           'ki_reg_ib_dao_encruzado',
         }, reason: 'Diploma and Level 3 regional prompts share two items');
-        expect(expectedIds, hasLength(1241));
+        expect(expectedIds, hasLength(1281));
         expect(levelOneIds, hasLength(132));
         expect(levelTwoIds, hasLength(309));
         expect(sharedGrapeIds, hasLength(52));
@@ -572,6 +579,7 @@ void main() {
         expect(l3ViticultureIds, hasLength(40));
         expect(l3ViticulturePrincipleIds, hasLength(40));
         expect(l3ViticulturePrincipleNextIds, hasLength(40));
+        expect(l3ViticultureCaseIds, hasLength(40));
         expect(
           l3ViticulturePrincipleIds.intersection(l3ViticultureIds),
           isEmpty,
@@ -604,7 +612,7 @@ void main() {
                OR t.id = 'qt_d5f_authored_choice')
         ORDER BY q.knowledge_item_id
       ''').get();
-        expect(rows, hasLength(1249));
+        expect(rows, hasLength(1289));
         final actual = {
           for (final row in rows)
             row.read<String>('knowledge_item_id'): row.read<String>(
@@ -753,6 +761,7 @@ void main() {
               l3ViticultureIds.contains(id) ||
               l3ViticulturePrincipleIds.contains(id) ||
               l3ViticulturePrincipleNextIds.contains(id) ||
+              l3ViticultureCaseIds.contains(id) ||
               l3ViticultureGeneralIds.contains(id) ||
               l3GeographyIds.contains(id) ||
               l3GeographyIds2.contains(id)) {

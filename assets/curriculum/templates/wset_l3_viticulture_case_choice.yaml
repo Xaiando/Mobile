@@ -1,0 +1,435 @@
+# Objective practice for the distinct action, reason, tradeoff and limitation
+# relations in existing Level 3 viticulture cases. The mapped facts stay unverified.
+question_templates:
+- id: qt_wset_l3_viticulture_case_action_choice
+  relation_type: CASE_ACTION
+  direction: forward
+  mode: authored_choice
+  variant: wset_l3_viticulture_case_action
+  prompt_template: '{subject.name}'
+  parameters:
+    item_choices:
+      ki_reg_ah_case_tokaj_selection_action:
+        prompt: In the Tokaj case, desirable shrivelled berries, healthy fruit and damaging decay are all present. What should the harvest manager do during the short drying window?
+        options:
+        - Separate fruit by the qualified assessment, pick selectively, handle lots apart and reassess what remains
+        - Combine every berry into one sweet-wine lot because all fruit has shared the river humidity
+        - Discard the healthy fruit and pick every visibly affected berry without checking its condition
+        - Wait for all fruit in the block to rot before picking, despite the confirmed damaging decay and renewed rain
+        correctIndex: 0
+        explanation: Select suitable aszú berries separately from healthy and damaged fruit, use the drying window and reassess later fruit rather than treating every affected berry alike.
+        sourceCitationId: src_reg_ah_tokaj_vine
+      ki_reg_fm_case_picpoul_harvest_action:
+        prompt: Two Picpoul blocks show equal sugar but different acidity and flavour, with unrepresentative samples. What is the next harvest-assessment action?
+        options:
+        - Set one date now because matching sugar readings prove both blocks are equally ready
+        - Resample exposures by block for sugar, acid, pH, flavour and health; weigh forecast and dry-white aim
+        - Pick the lagoon-facing block first solely because sea proximity fixes its acid level
+        - Delay both blocks until sugar doubles, despite their different acidity and no shaded-fruit or forecast checks
+        correctIndex: 1
+        explanation: Representative block and exposure sampling supplies the missing chemistry and flavour evidence for potentially separate dates.
+        sourceCitationId: src_vit_sampling
+      ki_reg_fs_case_rhone_harvest_water_action:
+        prompt: Syrah has reached its target, Grenache has not, and Grenache water constraint worsens. How should the proposed common date be handled?
+        options:
+        - Pick both immediately because Syrah's result proves Grenache is mature too
+        - Delay both automatically until Grenache reaches target regardless of Syrah condition or worsening water stress
+        - Assess each block's fruit and water status separately before setting dates, seeking advice as needed
+        - Irrigate Grenache at a fixed dose because the case establishes permission and water need
+        correctIndex: 2
+        explanation: The recorded ripeness and water constraint differ by block; drought adaptation cannot replace their actual assessment.
+        sourceCitationId: src_reg_fs_rhone_water
+      ki_reg_gr_case_santorini_training_action:
+        prompt: A Santorini consultant proposes replacing all working kouloura baskets with a tall trellis to save pruning time. What action is defensible now?
+        options:
+        - Convert every row before harvest because forecast labour savings prove equal crop protection
+        - Reject every future trellis trial because the basket is universally best on all sites
+        - Compare pruning hours alone, without measuring wind damage, fruit or conversion cost
+        - Keep working baskets and trial a limited trellis comparison of wind, fruit, balance and cost
+        correctIndex: 3
+        explanation: A measured local comparison can test the labour claim without abandoning protection on the whole exposed parcel.
+        sourceCitationId: src_reg_gr_santo_training
+      ki_reg_inc_case_sangiovese_plots_action:
+        prompt: One Chianti Classico Sangiovese plot develops later than a lower, more vigorous plot. What is the harvest-monitoring action?
+        options:
+        - Track each plot against the same balance target before assigning potentially separate dates
+        - Pick both on the lower plot's first suitable day because they share a variety, despite observed timing differences
+        - Pick the stony higher plot first solely because its soil drains more quickly
+        - Stop assessing fruit once both plots are healthy because ripeness is established
+        correctIndex: 0
+        explanation: The observed timing difference calls for separate measurements against the intended target, not one automatic date.
+        sourceCitationId: src_reg_inc_chianti_sites
+      ki_vit_case_humid_canopy_action:
+        prompt: After fruit set, a dense grape fruit zone remains humid. Which intervention opens it while retaining crop support?
+        options:
+        - Remove every leaf from every vine until all bunches have direct afternoon sun
+        - Selectively remove fruit-zone leaves while retaining enough functional canopy
+        - Increase shade around every bunch so humidity remains constant after rain
+        - Leave canopy unchanged because dense foliage always prevents bunch rot
+        correctIndex: 1
+        explanation: Selective fruit-zone leaf removal can open the canopy without stripping the photosynthetic leaf area needed for the crop.
+        sourceCitationId: src_vit_leaf_removal
+      ki_vit_case_late_deficit_action:
+        prompt: After veraison, wilting leaves signal severe stress in a hot dry root zone. What action supports continued ripening?
+        options:
+        - Maintain the deficit until every leaf wilts because stress always improves fruit
+        - Apply one universal irrigation volume without measuring vine or soil status
+        - Restore enough water for leaf function, guided by measured vine and soil conditions
+        - Flood the block to maximize lateral shoots even if canopy function is already adequate
+        correctIndex: 2
+        explanation: Avoid prolonging severe stress; water should sustain canopy function at a measured, site-appropriate level.
+        sourceCitationId: src_vit_rdi
+      ki_vit_case_radiation_frost_action:
+        prompt: Budbreak frost occurs on a calm night with a measured warm-air inversion. Which active option fits that mechanism?
+        options:
+        - Assume the same result from any wind machine during a windy advective freeze without a warm layer
+        - Run sprinklers without checking water availability or application continuity
+        - Do nothing because a warm layer above means buds at ground level are warm
+        - Use a correctly positioned wind machine to draw warmer inversion air downward
+        correctIndex: 3
+        explanation: With usable warmer air aloft during radiation frost, a wind machine may warm the cold vine zone.
+        sourceCitationId: src_vit_frost
+      ki_vit_case_rain_harvest_action:
+        prompt: Fruit is near target maturity but already injured, with prolonged rain forecast. What harvest action is defensible?
+        options:
+        - Consider bringing forward the vulnerable block's harvest after checking its current condition
+        - Keep all injured bunches hanging throughout the prolonged rain because wetness prevents Botrytis
+        - Pick every vineyard now regardless of its maturity, injury or intended style
+        - Treat one acceptable sugar reading as proof the entire crop is ready
+        correctIndex: 0
+        explanation: For fruit close to target, an earlier pick can reduce wet-weather bunch-rot exposure, subject to fruit assessment.
+        sourceCitationId: src_vit_botrytis
+      ki_vit_case_rootstock_replant_action:
+        prompt: A phylloxera-affected block also has nematodes and limited water. What is the defensible replanting action?
+        options:
+        - Replant susceptible vinifera on its own roots and rely only on pesticide eradication
+        - Use clean grafted vines on a resistant stock chosen after checking the other site constraints
+        - Select any phylloxera-resistant stock without testing whether nematodes or limited water make it unsuitable
+        - Keep diseased planting material because grafting cannot affect root injury
+        correctIndex: 1
+        explanation: Resistant roots address phylloxera injury, while clean material and the site's nematode and water constraints guide stock selection.
+        sourceCitationId: src_vit_phylloxera
+- id: qt_wset_l3_viticulture_case_limitation_choice
+  relation_type: CASE_LIMITATION
+  direction: forward
+  mode: authored_choice
+  variant: wset_l3_viticulture_case_limitation
+  prompt_template: '{subject.name}'
+  parameters:
+    item_choices:
+      ki_reg_ah_case_tokaj_selection_limitation:
+        prompt: After qualified Tokaj fruit sorting, what remains unknown before promising an Aszú lot size or later picking pass?
+        options:
+        - River humidity establishes the exact volume of desirable berries in every parcel
+        - Sorting once proves all healthy berries will shrivel successfully even if renewed rain interrupts drying
+        - Category quantities and the actual drying outcome still govern viable yield and staffing
+        - Any forecast drying window confirms a universal harvest schedule for all fruit
+        correctIndex: 2
+        explanation: The case lacks fruit-category quantities and an observed drying outcome, so neither yield nor a successful later pass is guaranteed.
+        sourceCitationId: src_reg_ah_tokaj_vine
+      ki_reg_fm_case_picpoul_harvest_limitation:
+        prompt: The two Picpoul blocks have equal sugar but incomplete sampling. Which limit prevents a shared harvest date now?
+        options:
+        - Piquepoul Blanc's acidity tendency proves both blocks have identical flavour readiness
+        - Lagoon proximity alone identifies the optimum date for the plateau and Piochs
+        - A single morning sample establishes berry health and forecast risk for every exposed and shaded bunch
+        - Missing pH, representative exposures, fruit-health and forecast evidence remain material
+        correctIndex: 3
+        explanation: The supplied samples do not cover exposures or give pH, fruit health and weather outlook; variety or location cannot fill those gaps.
+        sourceCitationId: src_vit_sampling
+      ki_reg_fs_case_rhone_harvest_water_limitation:
+        prompt: Syrah is at target and Grenache water constraint worsens. Which information gap limits a final date or irrigation order?
+        options:
+        - Water-status values, forecast, site records and sensory fruit checks are still missing
+        - Drought adaptation supplies a legal right to irrigate at any dose without a site or rule assessment
+        - Syrah's target result proves the Grenache block has the same water status
+        - One cultivar name specifies the final quality outcome for both wines
+        correctIndex: 0
+        explanation: The case supports separate assessment, not a precise harvest prescription, guaranteed quality or irrigation entitlement.
+        sourceCitationId: src_reg_fs_rhone_water
+      ki_reg_gr_case_santorini_training_limitation:
+        prompt: What is missing before the Santorini grower can claim a full switch to tall trellises improves this parcel?
+        options:
+        - The consultant's quoted conversion cost, which is already supplied in the case
+        - Measured labour, repeated wind and crop outcomes, wine balance and buyer response
+        - A regional grape name, since Assyrtiko alone establishes the best training system
+        - Proof that all baskets on the island produce exactly the same fruit quality
+        correctIndex: 1
+        explanation: No local performance trial or commercial evidence establishes the trellis's net outcome, let alone universal superiority.
+        sourceCitationId: src_reg_gr_santo_training
+      ki_reg_inc_case_sangiovese_plots_limitation:
+        prompt: The higher Chianti plot develops later and the lower plot is more vigorous. What cannot yet be fixed from these observations?
+        options:
+        - The fact that the plots are at different elevations in the given case
+        - The fact that both plots currently have healthy Sangiovese fruit before chemistry is measured
+        - Sugar, acidity, phenolic maturity or an optimum picking date for either plot
+        - The observation that the lower plot has shown earlier development
+        correctIndex: 2
+        explanation: Developmental observations are useful but do not replace fruit chemistry and maturity checks for a harvest date.
+        sourceCitationId: src_reg_inc_classico_research
+      ki_vit_case_humid_canopy_limitation:
+        prompt: Why should the leaf-removal plan for the humid fruit zone not become a universal strip-every-leaf recipe?
+        options:
+        - Leaf removal can never change airflow or bunch drying after fruit set
+        - Every grape cultivar has identical sunburn sensitivity and training in the current climate
+        - Disease pressure is always independent of canopy and local climate
+        - Extent depends on cultivar, training, timing, climate and disease pressure
+        correctIndex: 3
+        explanation: The appropriate exposure is conditional; removing every leaf can create avoidable risks on some parcels.
+        sourceCitationId: src_vit_leaf_removal
+      ki_vit_case_late_deficit_limitation:
+        prompt: Wilting follows a hot dry period after veraison. What limits a precise irrigation dose from this symptom alone?
+        options:
+        - Vine water status, soil moisture, roots and growth stage still need assessment
+        - Wilting always proves exactly the same soil deficit in every rootstock at every growth stage
+        - The weather automatically grants one universal irrigation volume
+        - Sugar readings alone fully quantify root-zone available water
+        correctIndex: 0
+        explanation: Plant-based water measurements and soil and rooting context are needed; a visible symptom is not a universal dosing rule.
+        sourceCitationId: src_vit_water_status
+      ki_vit_case_radiation_frost_limitation:
+        prompt: A wind machine is proposed for budbreak frost. In which situation should the inversion-based benefit not be assumed?
+        options:
+        - A calm radiation frost with a measured warm layer above the vines
+        - A windy advective freeze with no accessible warmer inversion air
+        - A still site where cold air pools and warmer air is measured aloft
+        - A radiation night after confirming machine position and air layers
+        correctIndex: 1
+        explanation: Wind machines depend on mixing accessible warmer inversion air downward; an advective freeze may lack that layer.
+        sourceCitationId: src_vit_frost
+      ki_vit_case_rain_harvest_limitation:
+        prompt: Injured fruit is close to the planned style's target, with rain coming. What check still limits an immediate picking decision?
+        options:
+        - One sugar reading proves acid, flavour and colour maturity are all suitable
+        - Forecast rain makes the intended wine style irrelevant to fruit assessment
+        - Representative sugar, pH, titratable acidity and sensory-maturity trends
+        - All injured grapes must be picked at once regardless of their current state
+        correctIndex: 2
+        explanation: Fruit should be sampled against the intended style; acceptable sugar alone does not establish the whole harvest decision.
+        sourceCitationId: src_vit_maturity
+      ki_vit_case_rootstock_replant_limitation:
+        prompt: A rootstock resists phylloxera at a replant site that also has nematodes. What further evidence is needed?
+        options:
+        - A label saying phylloxera resistance, which guarantees resistance to all soil pests
+        - Only the scion variety, because nematode species have identical host interactions
+        - Whether nearby vines look healthy, with no nematode identification needed
+        - The local nematode species and stock-specific resistance to those pests
+        correctIndex: 3
+        explanation: Phylloxera resistance does not imply resistance to every nematode; species-specific site testing guides selection.
+        sourceCitationId: src_vit_nematodes
+- id: qt_wset_l3_viticulture_case_reason_choice
+  relation_type: CASE_REASON
+  direction: forward
+  mode: authored_choice
+  variant: wset_l3_viticulture_case_reason
+  prompt_template: '{subject.name}'
+  parameters:
+    item_choices:
+      ki_reg_ah_case_tokaj_selection_reason:
+        prompt: Why can the Tokaj manager not treat all humidity-affected berries as equivalent Aszú fruit?
+        options:
+        - Useful noble rot needs infection followed by drying and concentration; the case also has damaging decay
+        - River humidity converts every wet or damaged berry into suitable concentrated Aszú fruit
+        - Healthy berries and decayed berries have identical condition once they share a parcel
+        - A drying forecast removes the need to distinguish shrivelled from damaged berries even after qualified assessment confirms decay
+        correctIndex: 0
+        explanation: Suitable noble rot combines humid initiation with subsequent drying; the case expressly separates desirable shrivelling from harmful decay.
+        sourceCitationId: src_reg_ah_tokaj_vine
+      ki_reg_de_case_mosel_steep_budget_reason:
+        prompt: The steep Mosel Riesling block costs more in recorded hours and access, with no quality difference shown. What explains the cost without assuming quality?
+        options:
+        - Riesling always commands a profitable premium on steep slopes before anyone tastes the wine or tests demand
+        - Steep access requires more manual work, while labour alone says nothing about final wine merit
+        - Slope steepness lowers harvest expense because machines can enter every terrace
+        - Current comparable ripeness proves the steeper wine will be more complex
+        correctIndex: 1
+        explanation: Steep Mosel vineyards demand hand labour and difficult access, but the case contains no sensory or market evidence of a better wine.
+        sourceCitationId: src_reg_de_mosel
+      ki_reg_fm_case_picpoul_harvest_reason:
+        prompt: Why is equal sugar in the two Picpoul blocks insufficient evidence for one harvest date?
+        options:
+        - Both blocks have the same exposure to the lagoon and northern relief by definition
+        - Sugar readings always fix pH, acidity and flavour development in one ratio despite different site exposures
+        - Their maritime exposures and measured acid and flavour differ, with positions unsampled
+        - Piquepoul Blanc retains no acidity, so only sugar can guide dry-white balance
+        correctIndex: 2
+        explanation: Different site exposures and the supplied acid/flavour results show that matching sugar is not matching overall readiness.
+        sourceCitationId: src_reg_fm_picpoul
+      ki_reg_fs_case_rhone_harvest_water_reason:
+        prompt: Why does Grenache's drought adaptation fail to justify the same picking date as ready Syrah?
+        options:
+        - Drought adaptation proves Grenache has already achieved Syrah's target
+        - Both grapes necessarily share one maturity cycle in southern Rhône
+        - Water constraint cannot affect a drought-adapted grape even as site measurements worsen
+        - The actual Grenache samples lag and its water constraint worsens despite that tendency
+        correctIndex: 3
+        explanation: Variety tendencies cannot overrule the different recorded target results and water stress in these trial blocks.
+        sourceCitationId: src_reg_fs_rhone_water
+      ki_reg_gr_case_santorini_training_reason:
+        prompt: Why is pruning-hour savings alone weak evidence for replacing Santorini kouloura baskets?
+        options:
+        - Low baskets shelter exposed bunches from wind; a tall system changes that protection
+        - Taller trellises have already shown equal fruit protection on the stated parcel without any local wind trial
+        - Santorini's wind is too weak to interact with vine training or fruit health
+        - Baskets exist only for appearance and never affect vineyard conditions
+        correctIndex: 0
+        explanation: Basket training is a physical response to strong wind, so labour claims must be weighed against untested crop exposure.
+        sourceCitationId: src_reg_gr_santo_training
+      ki_reg_inc_case_nebbiolo_list_reason:
+        prompt: In the blind Barolo versus Barbaresco list comparison, why should the buyer ask about sites and vintage?
+        options:
+        - Every Barolo is necessarily firmer and less ready than every Barbaresco regardless of producer, site or vintage
+        - Nebbiolo responds to exposure and growing conditions, so regional labels alone cannot rank readiness
+        - A higher Barolo quote proves better sensory quality for drinking this year
+        - The shared variety makes producer and vintage information irrelevant
+        correctIndex: 1
+        explanation: Nebbiolo's response to site and vintage undermines a universal label-based readiness claim, especially before tasting.
+        sourceCitationId: src_reg_inc_nebbiolo
+      ki_reg_inc_case_sangiovese_plots_reason:
+        prompt: Which site mechanism can help explain later development on the higher stony Chianti plot?
+        options:
+        - Clay always makes a higher plot ripen first despite differences in aspect, soil depth and actual measurements
+        - Stony soil directly changes grapes into a fixed mineral flavour
+        - A cooler higher-site cycle may delay development, subject to exposure and checks
+        - Shared Sangiovese means altitude and exposure cannot affect timing
+        correctIndex: 2
+        explanation: The observations fit a cooler higher site and earlier lower site, while local exposure and fruit measurements remain relevant.
+        sourceCitationId: src_reg_inc_chianti_sites
+      ki_reg_isi_case_aglianico_comparison_reason:
+        prompt: Taurasi and Vulture Aglianico samples are both tannic, but vineyards and maturation differ. What mechanism should the study group compare?
+        options:
+        - Tannin intensity alone identifies which glass is Taurasi without site records
+        - A shared grape makes site and cellar choices irrelevant to the finished wines
+        - Late ripening in both means every vineyard receives the same autumn weather
+        - Growing-season conditions plus extraction and wood choices can affect tannin
+        correctIndex: 3
+        explanation: Both regions use late-ripening Aglianico, while actual site and cellar records can help explain texture without proving origin from tannin alone.
+        sourceCitationId: src_reg_isi_taurasi
+      ki_vit_case_humid_canopy_reason:
+        prompt: Why can selective leaf removal reduce bunch-rot pressure in the dense humid fruit zone?
+        options:
+        - It increases airflow, drying and spray access around bunches
+        - It makes every berry immune to fungal infection in wet weather
+        - It seals the bunch zone so moisture cannot escape after rain
+        - It replaces any need to assess the cultivar or current disease pressure
+        correctIndex: 0
+        explanation: Opening the fruit zone improves air movement and drying, reducing conditions favourable to bunch rot.
+        sourceCitationId: src_vit_leaf_removal
+      ki_vit_case_late_deficit_reason:
+        prompt: Why avoid prolonging severe water stress after veraison when leaves are wilting?
+        options:
+        - Severe stress increases photosynthesis and makes stored reserves unnecessary
+        - Lost leaf function can impair sugar development and carbohydrate reserves
+        - Wilting proves the berries have reached every possible ripeness target
+        - More water always stimulates desirable fruit maturity without any tradeoff
+        correctIndex: 1
+        explanation: Severe water deficit can depress photosynthesis, limiting fruit development and later reserve replenishment.
+        sourceCitationId: src_vit_rdi
+      ki_vit_case_radiation_frost_reason:
+        prompt: Why might a wind machine help on this calm budbreak night with a measured inversion?
+        options:
+        - It generates heat inside each grapevine without moving air
+        - It cools the vine zone to delay budburst after the frost begins
+        - It moves warmer inversion air down toward the colder buds
+        - It works by creating a warmer air layer during every advective freeze
+        correctIndex: 2
+        explanation: A wind machine mixes the accessible warmer air above with colder vine-zone air during radiation frost.
+        sourceCitationId: src_vit_frost
+      ki_vit_case_rain_harvest_reason:
+        prompt: Why can delaying injured, nearly ripe fruit through prolonged rain increase crop risk?
+        options:
+        - Wet conditions prevent Botrytis development on all damaged berries even when their skins are injured
+        - Injured berries become less susceptible to decay as rain continues
+        - One acceptable sugar reading proves all fruit will remain sound
+        - Moisture favours Botrytis and wounds offer entry for decay organisms
+        correctIndex: 3
+        explanation: Rain and damaged skins make bunch rot more likely, so extra hang time can lose usable fruit.
+        sourceCitationId: src_vit_botrytis
+      ki_vit_case_rootstock_replant_reason:
+        prompt: Why use a suitable resistant root system when replanting the phylloxera-affected block?
+        options:
+        - Phylloxera feeds on susceptible roots; resistance addresses that injury mechanism
+        - A resistant rootstock eliminates the need to test local nematodes or water supply
+        - Pesticide eradication always restores susceptible own-rooted vinifera permanently
+        - Phylloxera damage concerns only the leaves and never the root system
+        correctIndex: 0
+        explanation: Phylloxera attacks susceptible roots and can stunt or kill vines; grafted resistant roots address the damage.
+        sourceCitationId: src_vit_phylloxera
+- id: qt_wset_l3_viticulture_case_tradeoff_choice
+  relation_type: CASE_TRADEOFF
+  direction: forward
+  mode: authored_choice
+  variant: wset_l3_viticulture_case_tradeoff
+  prompt_template: '{subject.name}'
+  parameters:
+    item_choices:
+      ki_reg_fs_case_rhone_harvest_water_tradeoff:
+        prompt: The Rhône grower considers picking Syrah and Grenache separately. Which tradeoff follows from their recorded differences?
+        options:
+        - One operation always gives both blocks the best maturity without scheduling costs despite the different target results
+        - Separate passes add scheduling work, while waiting may improve Grenache maturity but extend water stress
+        - Picking Grenache immediately avoids every water risk and proves it meets the stated target
+        - Delaying Syrah until Grenache is ready has no possible effect on the already-ready Syrah fruit
+        correctIndex: 1
+        explanation: Separate harvests cost coordination; extra Grenache hang time may align maturity but carries the observed worsening water constraint.
+        sourceCitationId: src_reg_fs_rhone_water
+      ki_reg_inc_case_sangiovese_plots_tradeoff:
+        prompt: The higher Chianti plot is stony and later; the lower clay-rich plot is more vigorous. What water-management tradeoff needs measurement?
+        options:
+        - Both plots must receive an identical water treatment because the variety is shared
+        - Stony upper soil always has excess moisture while lower clay never retains water
+        - Upper-plot stress and lower-plot excess moisture may call for different responses
+        - Altitude alone determines a universal irrigation volume for both Sangiovese plots
+        correctIndex: 2
+        explanation: The upper site may face water stress while the clay-rich lower one may hold excess moisture; measurements should guide each response.
+        sourceCitationId: src_reg_inc_chianti_sites
+      ki_vit_case_humid_canopy_tradeoff:
+        prompt: Fruit-zone leaf removal may dry humid bunches. What downside should the grower weigh where afternoon sun is hot?
+        options:
+        - Greater exposure cannot affect berry temperature or sunburn in any cultivar
+        - Retaining shade always increases fungal risk more than any other factor
+        - Removing leaves makes spray penetration worse while guaranteeing cool fruit
+        - More air and light may lower rot pressure but raise heat and sunburn risk
+        correctIndex: 3
+        explanation: Exposure can improve drying yet overexpose berries, so hot-side shade may be worth retaining.
+        sourceCitationId: src_vit_leaf_removal
+      ki_vit_case_late_deficit_tradeoff:
+        prompt: Water is needed to restore wilted leaves after veraison. Which tradeoff should set the target, rather than simply adding as much as possible?
+        options:
+        - Maintain leaf function without stimulating excessive lateral growth
+        - Keep stress severe because any restored photosynthesis harms ripening
+        - Apply maximum water because vigorous laterals always improve fruit balance
+        - Stop measuring after one irrigation because vine response is fixed
+        correctIndex: 0
+        explanation: Relief from severe stress supports the crop, but overwatering can drive unwanted vegetative growth.
+        sourceCitationId: src_vit_rdi
+      ki_vit_case_radiation_frost_tradeoff:
+        prompt: A wind machine may protect buds during a measured radiation-frost inversion. What cost side belongs in that decision?
+        options:
+        - Wind machines operate silently and without expense in all vineyards
+        - Operating cost and noise must be weighed against expected crop protection
+        - Frost protection guarantees a higher wine price regardless of weather
+        - Every neighbour receives identical benefits, so site impact is irrelevant
+        correctIndex: 1
+        explanation: Wind-machine operation carries economic and noise impacts alongside potential crop-risk reduction.
+        sourceCitationId: src_vit_frost
+      ki_vit_case_rain_harvest_tradeoff:
+        prompt: Injured fruit is nearly ripe and rain is forecast. What does an earlier harvest give up in exchange for lower rot exposure?
+        options:
+        - Any need to check whether berries have enough sugar for the intended style
+        - A guaranteed quality premium that the forecast already establishes
+        - Possible further flavour, aroma or colour development from extra hang time
+        - All water and disease risk on blocks that were not harvested early
+        correctIndex: 2
+        explanation: Earlier picking may sacrifice additional maturity, whereas continued hang time risks rain-related crop deterioration.
+        sourceCitationId: src_vit_phenology
+      ki_vit_case_rootstock_replant_tradeoff:
+        prompt: A phylloxera-resistant rootstock is being selected for a dry, nematode-affected site. What other vine-performance tradeoff matters?
+        options:
+        - Resistance guarantees identical vigour and crop capacity across all stocks on a water-limited site
+        - Rootstock choice changes only the name of the fruiting scion variety
+        - Every nematode-resistant stock must be unsuitable for a dry site
+        - Stock-induced vigour affects canopy and crop capacity as well as resistance
+        correctIndex: 3
+        explanation: The stock influences vine balance, so pest resistance must be assessed with vigour and the site's water resources.
+        sourceCitationId: src_vit_balance
