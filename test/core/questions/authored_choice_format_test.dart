@@ -274,7 +274,7 @@ void main() {
   );
 
   test(
-    '525 cited Level 1–3 questions are generated and served across domains',
+    '565 cited Level 1–3 questions are generated and served across domains',
     () async {
       final db = openTestDatabase();
       try {
@@ -289,7 +289,7 @@ void main() {
         final templates = await (db.select(
           db.questionTemplates,
         )..where((row) => row.mode.equals('authored_choice'))).get();
-        expect(templates, hasLength(22));
+        expect(templates, hasLength(23));
         final expectedIds = {
           for (final template in templates)
             ...((jsonDecode(template.parameters!)
@@ -337,6 +337,7 @@ void main() {
         final winemakingL3Ids = idsForTemplate(
           'qt_wset_winemaking_l3_application_12',
         );
+        final l3ApplicationIds = idsForTemplate('qt_wset_l3_application_40');
         final earlierLevelThreeIds = expectedIds.difference({
           ...levelOneIds,
           ...levelTwoIds,
@@ -345,8 +346,9 @@ void main() {
           ...newWorldIds,
           ...winemakingSharedIds,
           ...winemakingL3Ids,
+          ...l3ApplicationIds,
         });
-        expect(expectedIds, hasLength(525));
+        expect(expectedIds, hasLength(565));
         expect(levelOneIds, hasLength(132));
         expect(levelTwoIds, hasLength(172));
         expect(sharedGrapeIds, hasLength(32));
@@ -354,6 +356,7 @@ void main() {
         expect(newWorldIds, hasLength(16));
         expect(winemakingSharedIds, hasLength(9));
         expect(winemakingL3Ids, hasLength(12));
+        expect(l3ApplicationIds, hasLength(40));
         expect(earlierLevelThreeIds, hasLength(85));
         final rows = await db.customSelect('''
         SELECT q.knowledge_item_id, i.domain_id FROM questions q
@@ -361,7 +364,7 @@ void main() {
         JOIN knowledge_items i ON i.id = q.knowledge_item_id
         WHERE t.mode = 'authored_choice' ORDER BY q.knowledge_item_id
       ''').get();
-        expect(rows, hasLength(525));
+        expect(rows, hasLength(565));
         final actual = {
           for (final row in rows)
             row.read<String>('knowledge_item_id'): row.read<String>(
@@ -389,6 +392,21 @@ void main() {
           hasLength(26),
           reason: 'Only the Level 2-scope European applications are shared',
         );
+        final sharedL3ApplicationIds = l3ApplicationIds
+            .where(levelTwoCards.containsKey)
+            .toSet();
+        expect(
+          sharedL3ApplicationIds,
+          hasLength(15),
+          reason: 'Only existing Level 2 core facts inherit this batch',
+        );
+        for (final id in sharedL3ApplicationIds) {
+          expect(
+            levelTwoCards[id]?.formats.map((format) => format.mode),
+            contains('authored_choice'),
+            reason: 'Level 2: $id',
+          );
+        }
         for (final id in expectedIds) {
           if (sharedGrapeIds.contains(id) ||
               newWorldIds.contains(id) ||
@@ -405,7 +423,9 @@ void main() {
               reason: 'Level 3: $id',
             );
           }
-          if (europeIds.contains(id) || winemakingL3Ids.contains(id)) {
+          if (europeIds.contains(id) ||
+              winemakingL3Ids.contains(id) ||
+              l3ApplicationIds.contains(id)) {
             expect(
               levelThreeCards[id]?.formats.map((format) => format.mode),
               contains('authored_choice'),

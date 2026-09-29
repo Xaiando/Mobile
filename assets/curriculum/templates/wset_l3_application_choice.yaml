@@ -1,0 +1,448 @@
+question_templates:
+- id: qt_wset_l3_application_40
+  relation_type: PRINCIPLE_EXPLANATION
+  direction: forward
+  mode: authored_choice
+  variant: wset_l3_application_40
+  prompt_template: '{subject.name}'
+  parameters:
+    item_choices:
+      ki_reg_fr_chablis_cool:
+        prompt: A Chablis grower is planning for a cool spring. Which local hazard especially needs monitoring?
+        options:
+        - Spring frost around emerging shoots
+        - Autumn drought before vine dormancy
+        - Summer heat during berry set
+        - Winter rain during flowering
+        correctIndex: 0
+        explanation: The Bourgogne wine board describes northern Chablis as semi-continental and especially exposed
+          to spring frost.
+        sourceCitationId: src_reg_fr_climate
+      ki_reg_fr_macon_warm:
+        prompt: Why might a Mâconnais block ripen before a comparable block farther north in Bourgogne?
+        options:
+        - Stronger Atlantic cooling and more rainfall
+        - Stronger southern warmth and less rainfall
+        - More valley fog and less sunlight
+        - Higher latitude and a shorter growing season
+        correctIndex: 1
+        explanation: The southern Mâconnais receives warmer, drier Mediterranean influence; the comparison is a
+          tendency, not a fixed harvest date.
+        sourceCitationId: src_reg_fr_climate
+      ki_reg_fr_cote_aspect:
+        prompt: Two Bourgogne hillside plots have different exposures. Which site evidence is relevant to ripening?
+        options:
+        - Only the appellation printed on each label
+        - Only the distance to the nearest village
+        - Sun exposure and drainage on each slope
+        - Only the age of the cellar vessels
+        correctIndex: 2
+        explanation: The Bourgogne board links slope and aspect to sunlight and drainage; actual plot conditions
+          still require assessment.
+        sourceCitationId: src_reg_fr_climate
+      ki_reg_fr_centre_sauvignon:
+        prompt: A Centre-Loire Sauvignon shows citrus, herb and floral notes. Which conclusion best follows?
+        options:
+        - They prove retained grape sugar
+        - They establish flint as the vineyard's only soil
+        - They require extended fermentation in new oak
+        - They fit the grape's regional aroma range
+        correctIndex: 3
+        explanation: The Centre-Loire growers describe a broad Sauvignon aroma range; aroma alone does not establish
+          sugar, soil or vessel.
+        sourceCitationId: src_reg_fr_centre_sauvignon
+      ki_reg_fr_vouvray_range:
+        prompt: A customer asks if an unspecified Vouvray is dry. What is the sound regional answer?
+        options:
+        - 'Check the cuvée: dry to sweet styles exist'
+        - 'Assume dry: sugar is never permitted'
+        - 'Assume sweet: fermentation always stops early'
+        - 'Assume sparkling: every bottle has a second ferment'
+        correctIndex: 0
+        explanation: Vouvray Chenin is produced in dry through sweet and sparkling styles; the regional name alone
+          does not settle the bottle's style.
+        sourceCitationId: src_reg_fr_vouvray_styles
+      ki_reg_fe_alsace_shelter:
+        prompt: Why is Alsace generally drier than its western position might suggest?
+        options:
+        - The Jura shelter vineyards from eastern moisture
+        - The Vosges shelter vineyards from western moisture
+        - The Alps shelter vineyards from southern moisture
+        - The Black Forest shelters vineyards from western rain
+        correctIndex: 1
+        explanation: The Alsace growers identify shelter by the Vosges and low rainfall; weather still differs by
+          year and site.
+        sourceCitationId: src_reg_fe_alsace_climate
+      ki_reg_fe_alsace_muscat_dry:
+        prompt: An Alsace Muscat smells strongly of fresh grapes. How should a dry-wine brief be checked?
+        options:
+        - Assume sweetness because its nose is grapey
+        - Assume added sugar because its nose is grapey
+        - Check sweetness; aromatic Muscat can be dry
+        - Assume fortification because its nose is grapey
+        correctIndex: 2
+        explanation: The Alsace growers describe aromatic Muscat that is dry on the palate. Fragrance is not residual
+          sugar.
+        sourceCitationId: src_reg_fe_muscat
+      ki_reg_fe_beaujolais_intact:
+        prompt: In a semi-carbonic Beaujolais vat, what occurs in intact berries above fermenting juice?
+        options:
+        - Yeast fermentation in the CO2-rich upper layer
+        - Acetic acid fermentation in the CO2-rich upper layer
+        - Oxidative ageing in the CO2-rich upper layer
+        - Intracellular change in the CO2-rich upper layer
+        correctIndex: 3
+        explanation: The Beaujolais board describes intracellular change in intact fruit above yeast-fermenting
+          juice; it does not finish the wine's fermentation.
+        sourceCitationId: src_reg_fe_beaujolais_vinification
+      ki_reg_fs_muscadet_lees:
+        prompt: A Muscadet producer extends fine-lees contact. Which style change is a reasonable aim?
+        options:
+        - More palate fullness and complexity
+        - More residual sugar from renewed growth
+        - More tannin from red-grape skins
+        - More alcohol from bottled fermentation
+        correctIndex: 0
+        explanation: The Nantes wine federation links fine-lees maturation with fullness and complexity; its duration
+          changes style without proving quality.
+        sourceCitationId: src_reg_fs_muscadet_lees
+      ki_reg_fs_chinon_grapes:
+        prompt: Which fruit and colour plan is consistent with Chinon's own regional description?
+        options:
+        - Chenin red, with some Cabernet Franc white
+        - Cabernet Franc red, with some Chenin white
+        - Sauvignon Blanc red, with some Gamay white
+        - Gamay red, with some Sauvignon Blanc white
+        correctIndex: 1
+        explanation: The Chinon syndicate describes Cabernet Franc reds and rosés plus small pockets of dry Chenin
+          whites.
+        sourceCitationId: src_reg_fs_chinon
+      ki_reg_fr_beaune_mix:
+        prompt: A buyer compares Pommard with Meursault. Which Côte de Beaune contrast is useful?
+        options:
+        - Pommard is a white reference; Meursault a red one
+        - Both names denote only sparkling Chardonnay
+        - Pommard is a red reference; Meursault a white one
+        - Both names denote only sweet Chenin Blanc
+        correctIndex: 2
+        explanation: The Bourgogne board places Pinot Noir districts including Pommard and Chardonnay-rich areas
+          from Meursault southward.
+        sourceCitationId: src_reg_fr_beaune
+      ki_reg_fs_syrah_timing:
+        prompt: Which site proposal suits the Rhône board's description of Syrah?
+        options:
+        - A hotter hollow, with ripeness assumed from latitude
+        - A flooded flat, with harvest fixed before flowering
+        - A shaded valley with maturity judged by colour
+        - A cooler slope, with ripeness checked in season
+        correctIndex: 3
+        explanation: Inter Rhône describes Syrah as relatively early ripening and favouring cooler slopes; actual
+          fruit still determines harvest.
+        sourceCitationId: src_reg_fs_syrah
+      ki_reg_fm_rose_direct:
+        prompt: For a pale Provence rosé, how does direct pressing differ from pre-fermentation maceration?
+        options:
+        - It presses without a separate pre-maceration period
+        - It ferments skins before pressing the finished wine
+        - It adds red wine after the white wine is finished
+        - It removes all possibility of colour from skins
+        correctIndex: 0
+        explanation: The Provence wine body describes direct pressing as an early separation that generally gives
+          less colour than maceration; pressing can still extract colour.
+        sourceCitationId: src_reg_fm_rose
+      ki_reg_fm_bandol_late:
+        prompt: A Bandol grower is assessing Mourvèdre near harvest. Which concern fits the grape's timing?
+        options:
+        - Assume very early maturity from its coastal origin
+        - Allow for late ripening while checking actual fruit
+        - Harvest before véraison to preserve acidity
+        - Ignore sunlight because the variety never ripens late
+        correctIndex: 1
+        explanation: Bandol's growers identify Mourvèdre as late ripening; sunlight, site and current season affect
+          the decision.
+        sourceCitationId: src_reg_fm_bandol
+      ki_reg_de_mosel_steep_work:
+        prompt: A Mosel producer budgets a new planting on steep terraces. Which cost factor is most relevant?
+        options:
+        - More harvester passes where access is difficult
+        - Much less trellis maintenance where access is difficult
+        - More manual vineyard work where access is difficult
+        - Less transport planning where access is difficult
+        correctIndex: 2
+        explanation: German Wine Institute describes demanding work on steep Mosel sites; a selling premium cannot
+          simply be assumed.
+        sourceCitationId: src_reg_de_mosel
+      ki_reg_gr_nemea_altitude:
+        prompt: Two Agiorgitiko parcels lie at different elevations in Nemea. What should the grower compare?
+        options:
+        - Their position in a mandated quality tier
+        - Their official Grand Cru classification
+        - Their compulsory identical harvest date
+        - Their ripening timing and fruit condition
+        correctIndex: 3
+        explanation: Wines of Greece describes elevation variation in Nemea and its effect on ripening; altitude
+          is not a three-tier quality ranking.
+        sourceCitationId: src_reg_gr_nemea
+      ki_reg_gr_santorini_kouloura:
+        prompt: Why might a Santorini Assyrtiko grower use basket-shaped kouloura training?
+        options:
+        - To shelter bunches from strong island winds
+        - To immerse bunches in volcanic groundwater
+        - To support a tall mechanically harvested canopy
+        - To guarantee noble rot in every vintage
+        correctIndex: 0
+        explanation: SantoWines describes low basket-trained vines protecting bunches in Santorini's windy environment.
+        sourceCitationId: src_reg_gr_santo_training
+      ki_reg_ib_rioja_red_cellar:
+        prompt: A Rioja red shows fruit and spice. What must be checked before attributing the spice to oak?
+        options:
+        - The regional name without a cellar record
+        - The particular wine's barrel and sensory evidence
+        - The grape variety without the wine's cellar record
+        - The fruit ripeness without the wine's cellar record
+        correctIndex: 1
+        explanation: Rioja reds often rely on Tempranillo and can vary in maturation; region and fruit do not prove
+          exact barrel treatment.
+        sourceCitationId: src_reg_ib_rioja_styles
+      ki_reg_ib_ribera_season:
+        prompt: Why is one hot summer afternoon insufficient to describe Ribera del Duero's climate?
+        options:
+        - Its maritime climate keeps every season equally warm
+        - Its winter warmth removes all cold-weather risk
+        - Its continental climate has large temperature swings
+        - Its annual rainfall falls evenly in every season
+        correctIndex: 2
+        explanation: The Ribera del Duero council describes dry summers, long cold winters and pronounced temperature
+          extremes.
+        sourceCitationId: src_reg_ib_ribera_climate
+      ki_reg_ib_rueda_verdejo_style:
+        prompt: Which profile is a useful starting expectation for a Rueda Verdejo comparison?
+        options:
+        - Dense tannin and red-berry fruit
+        - Flor character and pronounced salinity
+        - Oxidative nut character and low acidity
+        - Fruit, herbal notes and fresh acidity
+        correctIndex: 3
+        explanation: The Rueda council describes Verdejo's fruit, herb and acidity; a particular wine still needs
+          tasting.
+        sourceCitationId: src_reg_ib_rueda_verdejo
+      ki_reg_ib_douro_blends:
+        prompt: A Douro red table wine lists Touriga Nacional and Tinta Roriz. Which production inference is safe?
+        options:
+        - It may blend local grapes without Port fortification
+        - It must be fortified before fermentation is complete
+        - It must age beneath flor in a partly filled cask
+        - It must be sweetened after bottle fermentation
+        correctIndex: 0
+        explanation: The Port institute describes still Douro reds using native blends; Douro origin does not require
+          Port production.
+        sourceCitationId: src_reg_ib_douro_still
+      ki_reg_isi_taurasi_tannin:
+        prompt: A Taurasi producer considers a longer red maceration for Aglianico. What should guide the choice?
+        options:
+        - Maximum extraction regardless of the fruit's condition
+        - Tannin extraction balanced against the actual fruit
+        - A fixed contact time identical for every vineyard
+        - An automatic stop once the colour first appears
+        correctIndex: 1
+        explanation: Irpinia's consortium describes structured, tannic Aglianico; extraction and ageing should serve
+          balance, not an automatic maximum.
+        sourceCitationId: src_reg_isi_taurasi
+      ki_reg_isi_etna_labour:
+        prompt: A producer assesses the cost of an Etna terrace parcel. Which variable deserves direct measurement?
+        options:
+        - A uniform vineyard cost imposed on all Etna plots
+        - A guaranteed premium price from volcanic origin
+        - Manual access and maintenance required by that slope
+        - A fixed grape yield set by the height of the volcano
+        correctIndex: 2
+        explanation: The Etna consortium describes demanding terraced slopes; actual work and costs must be measured
+          at the parcel.
+        sourceCitationId: src_reg_isi_etna
+      ki_reg_am_washington_diurnal:
+        prompt: Eastern Washington has warm summer days. Which other factor helps explain its grape balance?
+        options:
+        - Humid tropical nights that remove acidity
+        - Permanent maritime cloud that stops ripening
+        - Winter frost that adds sugar after harvest
+        - Cooler nights that can help retain acidity
+        correctIndex: 3
+        explanation: Washington Wine describes long warm days with cool nights; latitude alone does not imply uniformly
+          cool summers.
+        sourceCitationId: src_reg_am_washington
+      ki_reg_oa_hunter_moderation:
+        prompt: A Hunter Valley grower calls the region warm. What moderating evidence should also be considered?
+        options:
+        - Cloud, rain and gentle sea-breeze effects
+        - Permanent snow cover throughout harvest
+        - A complete absence of coastal air movement
+        - A uniformly arid growing season every year
+        correctIndex: 0
+        explanation: Wine Australia describes cloud cover, rainfall and sea breezes alongside Hunter warmth and
+          humidity.
+        sourceCitationId: src_reg_oa_hunter
+      ki_reg_ib_levante_monastrell:
+        prompt: A Jumilla Monastrell block has reached target sugar, but flavours remain green. What matters next?
+        options:
+        - Pick immediately because sugar fixes flavour maturity
+        - Assess flavour, acidity and weather before picking
+        - Wait automatically until every berry is raisined
+        - Ignore fruit health because Monastrell is late ripening
+        correctIndex: 1
+        explanation: Jumilla's council describes a long Monastrell cycle and the risk of both early green fruit
+          and overlate loss of freshness.
+        sourceCitationId: src_reg_ib_jumilla_harvest
+      ki_reg_isi_primitivo_early:
+        prompt: A Puglia grower compares Primitivo with later varieties. What planning assumption is useful?
+        options:
+        - Expect late ripening; use last year's calendar
+        - Expect fixed ripening; use the PDO's first date
+        - Expect early ripening; verify this year's fruit
+        - Expect uniform ripening; omit vineyard samples
+        correctIndex: 2
+        explanation: The Puglia regional profile links Primitivo's name to early maturation; the harvest still depends
+          on site and season.
+        sourceCitationId: src_reg_isi_primitivo
+      ki_wset_prod_spur_cane:
+        prompt: A vineyard changes from spur to replacement-cane pruning. What retained wood changes?
+        options:
+        - Short two-year cordons replace long one-year canes
+        - Green current-year shoots replace all dormant wood
+        - Long permanent arms replace the rootstock trunk
+        - Long one-year canes replace short one-year spurs
+        correctIndex: 3
+        explanation: Penn State Extension contrasts short spurs with longer one-year fruiting canes retained and
+          renewed in dormant pruning.
+        sourceCitationId: src_wset_prod_pruning
+      ki_wset_prod_head_cordon:
+        prompt: A training plan retains permanent arms along a wire. Which framework is described?
+        options:
+        - Cordon training, with fruiting positions on arms
+        - Head training, with all fruiting growth at the top
+        - Cane pruning, with arms renewed every dormant year
+        - Bush training, with arms below the soil
+        correctIndex: 0
+        explanation: Penn State Extension distinguishes the retained arms of a cordon from fruiting growth grouped
+          around a head.
+        sourceCitationId: src_wset_prod_pruning
+      ki_wset_prod_clone_selection:
+        prompt: A nursery offers two selections of the same grape variety. What should guide the choice?
+        options:
+        - Only the number printed after each clone name
+        - Documented health and local field performance
+        - Only a promise that any selection improves wine
+        - Only the oldest selection in the nursery list
+        correctIndex: 1
+        explanation: UC Davis describes distinct selections, disease testing and field evaluation; a clone number
+          alone is not a performance guarantee.
+        sourceCitationId: src_wset_prod_clone
+      ki_wset_prod_frost_heaters:
+        prompt: A grower considers active protection during an inversion frost. Which action supplies heat?
+        options:
+        - Wind machines moving existing warm air
+        - Canopy trimming exposing the young shoots
+        - Heaters adding warm air near the vines
+        - Delayed pruning after the frost has passed
+        correctIndex: 2
+        explanation: NC State Extension distinguishes heaters that add heat from wind machines that redistribute
+          available warm air; conditions and cost matter.
+        sourceCitationId: src_vit_frost_ncsu
+      ki_wset_prod_red_extraction_stages:
+        prompt: A winemaker keeps a red wine on skins after alcoholic fermentation. Which stage is this?
+        options:
+        - Cold soaking before fermentation
+        - Cap management during active fermentation
+        - Fine-lees contact after skins are removed
+        - Extended maceration after fermentation
+        correctIndex: 3
+        explanation: Extended maceration retains skins after alcoholic fermentation; it can change tannin and is
+          a style decision.
+        sourceCitationId: src_wset_prod_red_maceration
+      ki_wset_prod_carbonic:
+        prompt: What happens first to intact grapes placed in carbon dioxide for carbonic maceration?
+        options:
+        - Intracellular change produces some alcohol and aroma
+        - Flor converts all grape sugar into acetaldehyde
+        - A finished wine forms without later yeast fermentation
+        - Oxygen oxidises all berries before they are crushed
+        correctIndex: 0
+        explanation: AWRI describes an intracellular phase in intact berries; ordinary yeast fermentation subsequently
+          completes the wine.
+        sourceCitationId: src_wset_prod_carbonic
+      ki_wset_prod_blend_trials:
+        prompt: A winemaker blends two dry lots with different structures. What is a legitimate aim?
+        options:
+        - Hide a known microbiological alteration
+        - Improve the finished wine's sensory balance
+        - Avoid checking the finished wine's composition
+        - Replace a geographical origin with a new one
+        correctIndex: 1
+        explanation: The OIV lists desired sensory balance as a reason to blend and prohibits concealing a microbiological
+          or chemical alteration.
+        sourceCitationId: src_wset_prod_blend
+      ki_wset_sf_champagne_chalk:
+        prompt: How can porous chalk help a Champagne vine through dry summer weather?
+        options:
+        - It traps all rain at the surface and blocks deep roots
+        - It converts limestone directly into grape sugar
+        - It drains excess water yet stores a usable reserve
+        - It removes the need to assess individual sites
+        correctIndex: 2
+        explanation: Comité Champagne describes chalk as porous and water-storing, while local soils and vine conditions
+          still vary.
+        sourceCitationId: src_wset_sf_champagne_soil
+      ki_wset_sf_prosecco_identity:
+        prompt: A Prosecco DOC label is being explained. Which origin-and-grape statement is correct?
+        options:
+        - Glera is the protected origin; Prosecco is its main grape
+        - Prosecco is only a hilly DOCG; Glera is its main grape
+        - Prosecco is the protected origin; Pinot Grigio is its main grape
+        - Prosecco is the protected origin; Glera is its main grape
+        correctIndex: 3
+        explanation: The Prosecco DOC rules specify its northeastern Italian origin and a blend of at least 85%
+          Glera.
+        sourceCitationId: src_wset_sf_prosecco_rules
+      ki_wset_sf_cava_grape_roles:
+        prompt: A Cava producer wants more body in a traditional three-grape blend. Which component helps?
+        options:
+        - Xarel·lo supplies body and structure
+        - Parellada supplies body and structure
+        - Macabeo supplies body and structure
+        - Trepat supplies body and structure
+        correctIndex: 0
+        explanation: The Cava DO describes Xarel·lo as contributing body and structure, with Parellada adding freshness
+          and finesse.
+        sourceCitationId: src_wset_sf_cava_grapes
+      ki_wset_sf_port_short_extraction:
+        prompt: Why does red Port production call for efficient colour and tannin extraction early?
+        options:
+        - Late fortification follows long extraction
+        - Early fortification ends a short extraction window
+        - Biological ageing replaces a short extraction window
+        - Bottle fermentation replaces a short extraction window
+        correctIndex: 1
+        explanation: Taylor's explains that early fortification retains sugar and shortens extraction time; treading
+          or mechanical methods address it.
+        sourceCitationId: src_wset_sf_port_taylor
+      ki_wset_sf_sherry_albariza:
+        prompt: How does Jerez albariza help vines through a dry growing season?
+        options:
+        - It supplies daily rain from the Atlantic sea
+        - It replaces water with grape sugar in roots
+        - It stores winter rainfall for later vine use
+        - It prevents all evaporation from vine leaves
+        correctIndex: 2
+        explanation: The Sherry Consejo describes albariza's ability to retain winter moisture for vines during
+          dry months.
+        sourceCitationId: src_wset_sf_sherry_vine
+      ki_wset_sf_rutherglen_evolution:
+        prompt: A Rutherglen Muscat lot spends years in cask. Which development is expected?
+        options:
+        - Evaporation dilutes the wine and preserves fresh fruit
+        - Flor consumes grape sugar and prevents oxidation
+        - Cold storage removes fruit sugar and cask aroma
+        - Evaporation concentrates; oxidation adds mature notes
+        correctIndex: 3
+        explanation: Rutherglen's regional body links cask ageing and evaporation with concentrated, oxidative dried-fruit
+          character.
+        sourceCitationId: src_wset_sf_muscat_aged
