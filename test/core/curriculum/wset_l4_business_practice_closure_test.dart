@@ -75,8 +75,7 @@ void main() {
     for (final entry in scenarioPrompts.entries) {
       final written = dataset.questionTemplates.singleWhere((row) {
         if (row.mode != 'short_answer') return false;
-        final parameters =
-            jsonDecode(row.parameters!) as Map<String, dynamic>;
+        final parameters = jsonDecode(row.parameters!) as Map<String, dynamic>;
         return (parameters['scope_node_ids'] as List?)?.contains(entry.key) ??
             false;
       });
@@ -113,7 +112,11 @@ void main() {
         );
         expect(mapping.importance, 'core', reason: item.id);
         final served = report.items.singleWhere((row) => row.id == item.id);
-        expect(served.servedFormats, contains('case_criteria'), reason: item.id);
+        expect(
+          served.servedFormats,
+          contains('case_criteria'),
+          reason: item.id,
+        );
         expect(served.hasUsefulPractice, isTrue, reason: item.id);
       }
     }
@@ -122,6 +125,7 @@ void main() {
   test('29 principle choices are distinct and cite their own assertions', () {
     expect(choices, hasLength(29));
     expect(choices.values.map((cue) => cue.prompt).toSet(), hasLength(29));
+    final correctAnswerLengthRanks = List<int>.filled(4, 0);
     for (final entry in choices.entries) {
       final item = items[entry.key]!;
       final cue = entry.value;
@@ -132,6 +136,15 @@ void main() {
       expect(sourceUrls[cue.sourceCitationId], startsWith('https://'));
       expect(cue.options, hasLength(4));
       expect(cue.options.map(normalizeName).toSet(), hasLength(4));
+      final answerLength = cue.options[cue.correctIndex].length;
+      final distractorLengths = [
+        for (var index = 0; index < cue.options.length; index++)
+          if (index != cue.correctIndex) cue.options[index].length,
+      ];
+      final rank = distractorLengths
+          .where((length) => length < answerLength)
+          .length;
+      correctAnswerLengthRanks[rank]++;
       expect(cue.prompt, contains('?'));
       expect(cue.explanation, isNotEmpty);
       final mapping = dataset.certificationKnowledgeMappings.singleWhere(
@@ -144,71 +157,95 @@ void main() {
       expect(served.servedFormats, contains('authored_choice'));
       expect(served.hasUsefulPractice, isTrue);
     }
-  });
-
-  test('the complete business domain gains useful practice without new facts', () {
-    final business = report.domains.singleWhere((row) => row.id == 'business');
-    expect(business.counts[CoverageMetric.core], 236);
-    expect(business.counts[CoverageMetric.coreUsefulPractice], 236);
-    expect(
-      report.items.where(
-        (row) => row.item.domainId == 'business' && row.isCore,
-      ).every((row) => row.hasUsefulPractice),
-      isTrue,
-    );
-    expect(report.counts[CoverageMetric.coreUsefulPractice], 2549);
-  });
-
-  test('the full cash-flow premise is served and each role is graded', () async {
-    const id = 'ki_biz_case_cellar_cash_action';
-    final presenter = ExercisePresenter(db, clock: time.clock);
-    final exercise = await presenter.present(id, caseTemplate.id, seed: 12)
-        as CaseCriteriaExercise;
-    expect(exercise.prompt, contains('Supplier bills fall due'));
-    expect(exercise.options, hasLength(6));
-    expect(exercise.criteria, hasLength(4));
-    for (final criterion in exercise.criteria) {
-      expect(criterion.sources, isNotEmpty);
-      expect(criterion.sources.first.url, startsWith('https://'));
+    for (final count in correctAnswerLengthRanks) {
+      expect(
+        count,
+        inInclusiveRange(4, 11),
+        reason: 'Correct answer length rank must not reveal the key',
+      );
     }
-    final correct = {
-      for (final criterion in exercise.criteria)
-        criterion.role: criterion.itemId,
-    };
-    expect(
-      presenter
-          .grade(exercise, CaseCriteriaResponse(correct))
-          .every((grade) => grade.rating == fsrs.Rating.good),
-      isTrue,
-    );
-    final falseClaim = exercise.options.firstWhere(
-      (option) => option.explanation != null,
-    );
-    final graded = presenter.grade(
-      exercise,
-      CaseCriteriaResponse({...correct, 'CASE_ACTION': falseClaim.id}),
-    );
-    expect(
-      graded.singleWhere((row) => row.itemId == id).rating,
-      fsrs.Rating.again,
-    );
   });
 
-  test('a worked principle choice is presented and graded by its answer', () async {
-    const id = 'ki_biz_gross_margin';
-    final presenter = ExercisePresenter(db, clock: time.clock);
-    final exercise = await presenter.present(id, choiceTemplate.id, seed: 12)
-        as AuthoredChoiceQuestion;
-    expect(exercise.options, hasLength(4));
-    expect(exercise.answer.name, contains('Net sales'));
-    expect(exercise.sourceCitationId, 'src_biz_victoria_pricing');
-    expect(
-      presenter.grade(exercise, exercise.answer).single.rating,
-      fsrs.Rating.good,
-    );
-    final wrong = exercise.options.firstWhere(
-      (option) => option != exercise.answer,
-    );
-    expect(presenter.grade(exercise, wrong).single.rating, fsrs.Rating.again);
-  });
+  test(
+    'the complete business domain gains useful practice without new facts',
+    () {
+      final business = report.domains.singleWhere(
+        (row) => row.id == 'business',
+      );
+      expect(business.counts[CoverageMetric.core], 236);
+      expect(business.counts[CoverageMetric.coreUsefulPractice], 236);
+      expect(
+        report.items
+            .where((row) => row.item.domainId == 'business' && row.isCore)
+            .every((row) => row.hasUsefulPractice),
+        isTrue,
+      );
+      expect(report.counts[CoverageMetric.coreUsefulPractice], 2549);
+    },
+  );
+
+  test(
+    'the full cash-flow premise is served and each role is graded',
+    () async {
+      const id = 'ki_biz_case_cellar_cash_action';
+      final presenter = ExercisePresenter(db, clock: time.clock);
+      final exercise = await presenter.present(
+        id,
+        caseTemplate.id,
+        seed: 12,
+      ) as CaseCriteriaExercise;
+      expect(exercise.prompt, contains('Supplier bills fall due'));
+      expect(exercise.options, hasLength(6));
+      expect(exercise.criteria, hasLength(4));
+      for (final criterion in exercise.criteria) {
+        expect(criterion.sources, isNotEmpty);
+        expect(criterion.sources.first.url, startsWith('https://'));
+      }
+      final correct = {
+        for (final criterion in exercise.criteria)
+          criterion.role: criterion.itemId,
+      };
+      expect(
+        presenter
+            .grade(exercise, CaseCriteriaResponse(correct))
+            .every((grade) => grade.rating == fsrs.Rating.good),
+        isTrue,
+      );
+      final falseClaim = exercise.options.firstWhere(
+        (option) => option.explanation != null,
+      );
+      final graded = presenter.grade(
+        exercise,
+        CaseCriteriaResponse({...correct, 'CASE_ACTION': falseClaim.id}),
+      );
+      expect(
+        graded.singleWhere((row) => row.itemId == id).rating,
+        fsrs.Rating.again,
+      );
+    },
+  );
+
+  test(
+    'a worked principle choice is presented and graded by its answer',
+    () async {
+      const id = 'ki_biz_gross_margin';
+      final presenter = ExercisePresenter(db, clock: time.clock);
+      final exercise = await presenter.present(
+        id,
+        choiceTemplate.id,
+        seed: 12,
+      ) as AuthoredChoiceQuestion;
+      expect(exercise.options, hasLength(4));
+      expect(exercise.answer.name, contains('Net sales'));
+      expect(exercise.sourceCitationId, 'src_biz_victoria_pricing');
+      expect(
+        presenter.grade(exercise, exercise.answer).single.rating,
+        fsrs.Rating.good,
+      );
+      final wrong = exercise.options.firstWhere(
+        (option) => option != exercise.answer,
+      );
+      expect(presenter.grade(exercise, wrong).single.rating, fsrs.Rating.again);
+    },
+  );
 }

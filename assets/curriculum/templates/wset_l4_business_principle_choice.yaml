@@ -13,7 +13,7 @@ question_templates:
           prompt: A wine's gross profit is 40 units and its net sales are 100. Which denominator gives its gross margin percentage?
           options:
             - Cost of goods sold, giving 66.7%
-            - Net sales, giving 40%
+            - Net sales (40/100 = 40%)
             - Opening inventory, giving an inventory ratio
             - Current liabilities, giving a liquidity ratio
           correctIndex: 1
@@ -24,7 +24,7 @@ question_templates:
           options:
             - 160 units, by adding sales and cost
             - 60 units, equal to cost of goods sold
-            - 40 units, before deducting other operating expenses
+            - 40 units before other expenses
             - 40 units, after every business expense and tax
           correctIndex: 2
           explanation: Gross profit is 100 less 60. Other expenses have not been supplied, so this is not net profit.
@@ -45,7 +45,7 @@ question_templates:
             - Selling price, giving 33.3% markup
             - Current assets, giving a liquidity measure
             - Average inventory, giving turnover
-            - Cost, giving 50% markup
+            - Cost (5/10 gives 50% markup)
           correctIndex: 3
           explanation: Markup is the 5-unit excess over the 10-unit cost. Dividing by selling price would calculate margin instead.
           sourceCitationId: src_biz_victoria_pricing
@@ -84,7 +84,7 @@ question_templates:
           options:
             - Profit proves all cash is already in the bank
             - Cash flow must equal profit if sales are recorded
-            - Profit and cash can differ because receipt and payment timing differ
+            - Receipts may lag profit, leaving cash short today
             - An unpaid invoice is the same as a paid receipt
           correctIndex: 2
           explanation: Income recognition and the timing of money received or paid are distinct.
@@ -125,7 +125,7 @@ question_templates:
             - A supplier price list alone
             - An annual profit figure alone
             - A forecast of future demand alone
-            - A physical count reconciled to inventory records
+            - Count and reconcile stock
           correctIndex: 3
           explanation: Physical stocktaking tests recorded inventory against actual bottles and can reveal discrepancies or slow stock.
           sourceCitationId: src_biz_au_cashflow
@@ -133,7 +133,7 @@ question_templates:
           prompt: Which potential benefit can a winery tasting room provide, while still requiring operating resources?
           options:
             - A guaranteed purchase from every visitor
-            - Customer contact and a chance to build repeat relationships
+            - Build customer relationships
             - An automatic exemption from fulfilment work
             - Proof that all other channels are unprofitable
           correctIndex: 1
@@ -142,7 +142,7 @@ question_templates:
         ki_biz_working_capital:
           prompt: Current assets are 90 units and current liabilities are 70. What is working capital, and what does that alone prove about tomorrow's cash?
           options:
-            - 20 units; it does not prove every immediate payment is covered by cash
+            - 20 units; cash may be short
             - 160 units; it proves all invoices can be paid immediately
             - 20 units; it is identical to cash at bank
             - 70 units; it excludes all non-cash current assets
@@ -154,7 +154,7 @@ question_templates:
           options:
             - A past student's topic, even when the issued title differs
             - An app practice packet treated as the current official title
-            - The issued title and its current assignment brief
+            - The issued title and the current written assignment brief
             - A fixed citation style inferred from an unrelated course
           correctIndex: 2
           explanation: The issued title and current brief define the task; practice cases are not issued titles.
@@ -162,7 +162,7 @@ question_templates:
         ki_d6_research_claim:
           prompt: A source measures website orders and its author claims regional demand rose. How should the researcher record this?
           options:
-            - Separate the measured result, the author's wider claim and the researcher's inference
+            - Separate the measured result, author claim and inference
             - Rewrite the author's claim as a measured regional fact
             - Treat the researcher's interpretation as a direct quotation
             - Discard the measurement because the author's conclusion is broader
@@ -173,7 +173,7 @@ question_templates:
           prompt: One report counts winery website orders; another counts shop sales in a different year. What is needed before calling them contradictory?
           options:
             - A more emphatic headline for each report
-            - Comparable period, place, population, channel and measure
+            - Align scope, period, channel and measure
             - Proof that both reports mention wine
             - A numerical average of their different totals
           correctIndex: 1
@@ -185,7 +185,7 @@ question_templates:
             - Hide the counterevidence to keep the argument concise
             - Cite it without examining its quality or relevance
             - Declare all evidence equally decisive regardless of scope
-            - Test the rival explanation and qualify or revise the conclusion
+            - Test rivals and qualify the claim
           correctIndex: 3
           explanation: A sound argument weighs relevant contrary evidence and adjusts the strength of its claim.
           sourceCitationId: src_d6_leeds_argument
@@ -215,14 +215,14 @@ question_templates:
             - Replace the title with a more interesting unrelated question
             - Collect sources before identifying any claim or scope
             - Treat every wine market and period as equally necessary
-            - Derive bounded subquestions that still answer the issued title
+            - Frame bounded subquestions that answer the issued title
           correctIndex: 3
           explanation: Place, period, actors and relationships can structure the inquiry while the assigned title remains controlling.
           sourceCitationId: src_d6_leeds_argument
         ki_d6_research_reference:
           prompt: What lets a reader distinguish a source's finding from the researcher's own wine-market analysis?
           options:
-            - Traceable citations for sourced claims and clear separation of original analysis
+            - Cite sources for each claim
             - One bibliography entry without links between claims and sources
             - Unattributed paraphrase when the source is widely known
             - A single fixed style regardless of the assignment brief
@@ -233,7 +233,7 @@ question_templates:
           prompt: Which paragraph most clearly turns a sourced wine-market observation into an argument?
           options:
             - A list of quotations with no claim or explanation
-            - A claim with evidence, a reason that evidence bears on it, and a limit or counterreading
+            - A claim, supporting evidence, reasoning and a limitation
             - A conclusion with no reference to the evidence used
             - Repetition of the source headline as the researcher's finding
           correctIndex: 1
@@ -263,7 +263,7 @@ question_templates:
           prompt: What follows commercially from Ao Yun's account of manual work in steep mountain vineyards?
           options:
             - Every Yunnan wine has the same labour cost and selling price
-            - Manual vineyard work can affect staffing and cost planning, without proving a universal premium
+            - Manual work informs labour cost, not all regional prices
             - A multi-grape blend removes the need for harvest labour
             - The producer account is a current regional wage survey
           correctIndex: 1
@@ -274,7 +274,7 @@ question_templates:
           options:
             - A statutory denomination that guarantees a buyer for every member
             - An individual winery label without shared promotion
-            - A private collective brand with collaborative image work, not guaranteed demand
+            - A private collective brand with shared image promotion
             - Proof that every member wine tastes and costs the same
           correctIndex: 2
           explanation: VIGNO presents a private collective identity and promotion; it is not a statutory origin or sales guarantee.
