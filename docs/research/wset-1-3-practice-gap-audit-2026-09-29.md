@@ -1,5 +1,7 @@
 # WSET Levels 1–3: practical-question and geography gaps after 0.24.6
 
+Historical snapshot: batch 1's 62-item estimate predates later registered choices. The [0.24.12 grape practice review](wset-grape-profile-structure-practice-review-2026-09-29.md) re-measures 32 already served at 0.24.9, 10 more served by PR29, and the final 20 in this batch. Other figures below retain their 0.24.6 audit meaning.
+
 Read-only audit of the current checkout, 29 September 2026. Official scope: [WSET Level 1 specification, Issue 1.2](https://www.wsetglobal.com/media/11682/wset_l1wines_spec_en_jun2022_issue12.pdf), [Level 2 specification, April 2026 Issue 2.1](https://www.wsetglobal.com/media/19132/wset_l2wines_specification_en_april2026_issue21.pdf), and [Level 3 specification, May 2022 Issue 2](https://www.wsetglobal.com/media/11731/wset_l3wines_specification_en_highres_may2022_issue2.pdf). The app's coverage targets and item counts are its own study metrics, not WSET exam or certification results.
 
 ## Measured position

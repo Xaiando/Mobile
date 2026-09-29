@@ -1,0 +1,43 @@
+# Original source-bounded practice for shared Level 2 and Level 3 grape facts.
+# Each choice is tied to one cited item; generic MCQ remains disabled.
+question_templates:
+- id: qt_wset_shared_grape_profiles_remaining_3
+  relation_type: PRINCIPLE_EXPLANATION
+  direction: forward
+  mode: authored_choice
+  variant: wset_shared_grape_profiles_remaining
+  prompt_template: '{subject.name}'
+  parameters:
+    item_choices:
+      ki_wset_grape_montepulciano_variation:
+        prompt: Two Montepulciano d'Abruzzo wines are both fruit-led when young; one spends longer in wood and bottle. Which difference is compatible with the DOC description?
+        options:
+        - Wood must erase all red-fruit character
+        - Bottle age turns a red wine green-yellow
+        - Subtle wood influence and a ruby-to-garnet shift can emerge
+        - Maturation legally requires retained sweetness
+        correctIndex: 2
+        explanation: The DOC specification allows fruit and spice, wood-influenced maturation and a garnet tendency with age; neither oak intensity nor sweetness is fixed.
+        sourceCitationId: src_wset_grape_abruzzo_montepulciano
+
+      ki_wset_grape_pinotage_variation:
+        prompt: A Pinotage's berry and plum fruit remains visible, but barrel maturation adds a toasted note. Which attribution best fits the South African wine guide?
+        options:
+        - Toast proves the berries had residual sugar
+        - Plum fruit proves the barrels were never used
+        - Toast intensity is fixed by the Pinotage grape name
+        - Oak can add toast while grape fruit remains
+        correctIndex: 3
+        explanation: Wine Wise describes Pinotage's berry/plum profile and cellar-dependent maturation notes. Its aroma guide attributes toast to oak; neither cue alone fixes every wine's style.
+        sourceCitationId: src_wset_grape_wosa_pinotage
+
+      ki_wset_grape_descriptor_context:
+        prompt: Two Australian Chardonnays differ in acidity and texture. Which conclusion follows from Wine Australia's regional and cellar-style account?
+        options:
+        - The grape name alone fixes both wines' acidity and body
+        - Site and choices such as oak, lees and malolactic conversion can shift style
+        - Any texture difference proves one wine is a different grape
+        - A richer body proves every grape was harvested at identical ripeness
+        correctIndex: 1
+        explanation: Wine Australia describes a Chardonnay style spectrum shaped by place and cellar decisions; grape profiles are tendencies, not bottle specifications.
+        sourceCitationId: src_wset_grape_wa_chardonnay

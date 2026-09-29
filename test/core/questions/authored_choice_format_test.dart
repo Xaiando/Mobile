@@ -274,7 +274,7 @@ void main() {
   );
 
   test(
-    '691 cited choices are generated and served across WSET and CMS tracks',
+    '711 cited choices are generated and served across WSET and CMS tracks',
     () async {
       final db = openTestDatabase();
       try {
@@ -299,7 +299,7 @@ void main() {
                   template.id == 'qt_d5f_authored_choice',
             )
             .toList();
-        expect(templates, hasLength(30));
+        expect(templates, hasLength(33));
         final expectedIds = {
           for (final template in templates)
             ...((jsonDecode(template.parameters!)
@@ -339,6 +339,31 @@ void main() {
                       as Map<String, dynamic>)
                   .keys,
         };
+        final remainingGrapeIds = {
+          ...idsForTemplate('qt_wset_shared_grape_profiles_remaining_3'),
+          ...idsForTemplate('qt_wset_shared_grape_berry_colour_remaining_9'),
+          ...idsForTemplate('qt_wset_shared_grape_structure_remaining_8'),
+        };
+        expect(remainingGrapeIds, hasLength(20));
+        expect(sharedGrapeIds, containsAll(remainingGrapeIds));
+        final remainingTemplates = templates.where(
+          (template) =>
+              template.id.contains('_remaining_') &&
+              template.id.startsWith('qt_wset_shared_grape_'),
+        );
+        final newChoiceBlocks = remainingTemplates.expand((template) {
+          final parameters =
+              jsonDecode(template.parameters!) as Map<String, dynamic>;
+          return (parameters['item_choices'] as Map<String, dynamic>).values;
+        }).cast<Map<String, dynamic>>();
+        final answerPositions = [0, 1, 2, 3]
+            .map(
+              (index) => newChoiceBlocks
+                  .where((choice) => choice['correctIndex'] == index)
+                  .length,
+            )
+            .toList();
+        expect(answerPositions, everyElement(5));
         final europeIds = idsForTemplate('qt_wset_europe_application_67');
         final newWorldIds = idsForTemplate('qt_wset_new_world_application_16');
         final businessIds = idsForTemplate('qt_wset_business_application_26');
@@ -379,10 +404,10 @@ void main() {
           ...d4RegionalIds,
           ...d5FortifiedIds,
         });
-        expect(expectedIds, hasLength(691));
+        expect(expectedIds, hasLength(711));
         expect(levelOneIds, hasLength(132));
         expect(levelTwoIds, hasLength(172));
-        expect(sharedGrapeIds, hasLength(32));
+        expect(sharedGrapeIds, hasLength(52));
         expect(europeIds, hasLength(67));
         expect(newWorldIds, hasLength(16));
         expect(businessIds, hasLength(26));
@@ -406,7 +431,7 @@ void main() {
                OR t.id = 'qt_d5f_authored_choice')
         ORDER BY q.knowledge_item_id
       ''').get();
-        expect(rows, hasLength(691));
+        expect(rows, hasLength(711));
         final actual = {
           for (final row in rows)
             row.read<String>('knowledge_item_id'): row.read<String>(

@@ -1,0 +1,108 @@
+# Source-bounded berry-skin classification, separate from finished-wine colour.
+question_templates:
+- id: qt_wset_shared_grape_berry_colour_remaining_9
+  relation_type: HAS_BERRY_COLOUR
+  direction: forward
+  mode: authored_choice
+  variant: wset_shared_grape_berry_colour_remaining
+  prompt_template: '{subject.name}'
+  parameters:
+    item_choices:
+      ki_wset_grape_barbera_berry_colour:
+        prompt: A Barbera wine appears pale after a particular cellar treatment. What does the ampelographic description still say about its grapes?
+        options:
+        - Their skins must be green-yellow
+        - Finished-wine paleness changes the cultivar's skin class
+        - Barbera remains a black-berried variety
+        - Barbera is classified by the wine's residual sugar
+        correctIndex: 2
+        explanation: The ampelographic record identifies Barbera's blue-black berry skin. Wine appearance can vary with production and does not reclassify the grape.
+        sourceCitationId: src_wset_grape_ivd_barbera
+
+      ki_wset_grape_corvina_berry_colour:
+        prompt: A light red Corvina wine is used as an example in class. Which statement correctly separates berry skin from finished-wine intensity?
+        options:
+        - Pale wine requires a white-berried Corvina clone
+        - Corvina's skin class depends on time in barrel
+        - Corvina must always produce an opaque wine
+        - Corvina is black-berried even when a wine looks light
+        correctIndex: 3
+        explanation: The vitisDB variety list describes Corvina's blue-black berries; that classification is distinct from a wine's extraction and appearance.
+        sourceCitationId: src_wset_grape_italy_colour_cortese_corvina
+
+      ki_wset_grape_montepulciano_berry_colour:
+        prompt: In the Italian regional register, which skin-colour class applies to Montepulciano even though a finished wine's colour can age toward garnet?
+        options:
+        - Black-berried variety
+        - White-berried variety
+        - Grey-berried variety
+        - Classification set by wine age
+        correctIndex: 0
+        explanation: The regional register places Montepulciano among black-berried wine grapes; a wine's later hue does not change berry-skin classification.
+        sourceCitationId: src_wset_grape_italy_colour_register
+
+      ki_wset_grape_zinfandel_berry_colour:
+        prompt: UC Davis records the DNA identity of Zinfandel and Primitivo. Which berry colour does its variety registry assign to this grape?
+        options:
+        - Green-yellow, the white-berried class
+        - Black, the red-wine grape class
+        - Grey, the pink-skinned class
+        - Undefined because the two names differ
+        correctIndex: 1
+        explanation: The UC Davis registry identifies Zinfandel with Primitivo and lists its berry colour as black. Synonyms and clonal differences do not change the skin-colour class.
+        sourceCitationId: src_wset_grape_ucd_primitivo_identity_skin
+
+      ki_wset_grape_pinotage_berry_colour:
+        prompt: A pale Pinotage rosé is poured. Which grape classification remains correct in the South African wine authority's variety list?
+        options:
+        - A white grape because the wine is pale
+        - A grey grape because it is a rosé
+        - A red/black-berried wine grape
+        - A skin-colour class determined by the alcohol level
+        correctIndex: 2
+        explanation: Wines of South Africa lists Pinotage among red-wine grapes; the finished rosé colour is a separate winemaking observation.
+        sourceCitationId: src_wset_grape_wosa_red
+
+      ki_wset_grape_verdicchio_berry_colour:
+        prompt: A Verdicchio wine deepens in colour with development. Which grape category remains listed for Verdicchio bianco in the regional vine register?
+        options:
+        - Black-berried
+        - Red-berried
+        - Grey-berried
+        - White-berried
+        correctIndex: 3
+        explanation: The regional vine register names Verdicchio bianco B., a white-berried variety; bottle colour is not a berry-skin classification.
+        sourceCitationId: src_wset_grape_italy_colour_verdicchio
+
+      ki_wset_grape_cortese_berry_colour:
+        prompt: The same vitisDB list describes Cortese and Corvina. Which skin-colour pairing is accurate?
+        options:
+        - Cortese green-yellow; Corvina blue-black
+        - Cortese blue-black; Corvina green-yellow
+        - Both blue-black
+        - Both green-yellow
+        correctIndex: 0
+        explanation: The source lists green-yellow berry skin for Cortese and blue-black for Corvina; finished wines can vary in visible colour.
+        sourceCitationId: src_wset_grape_italy_colour_cortese_corvina
+
+      ki_wset_grape_garganega_berry_colour:
+        prompt: Garganega may yield a deep-coloured sweet Recioto. What does its ampelographic berry-skin entry identify?
+        options:
+        - Blue-black berries, because the wine is rich
+        - Green-yellow berries, the white-grape class
+        - Grey berries, determined by drying
+        - Skin class changes with fermentation length
+        correctIndex: 1
+        explanation: The vitisDB ampelography lists green-yellow Garganega berry skin. Drying or fermentation can change the wine, not the cultivar's skin class.
+        sourceCitationId: src_wset_grape_italy_colour_garganega
+
+      ki_wset_grape_fiano_berry_colour:
+        prompt: A Fiano di Avellino white wine becomes golden in bottle. How does the Irpinia consortium describe Fiano's berries?
+        options:
+        - Blue-black, changing to white during ageing
+        - Grey, with class set by bottle age
+        - Green-yellow to golden, from a white grape
+        - Red, with colour removed in pressing
+        correctIndex: 2
+        explanation: The Irpinia consortium identifies Fiano as a white grape with green-yellow to golden berries. Bottle development does not alter berry identity.
+        sourceCitationId: src_wset_grape_irpinia_fiano_berry
