@@ -1,0 +1,529 @@
+# Original Level 3 production decisions on existing, source-cited facts.
+# Each premise is a bounded teaching scenario; every answer awaits expert review.
+question_templates:
+- id: qt_wset_winemaking_l3_depth_37
+  relation_type: PRINCIPLE_EXPLANATION
+  direction: forward
+  mode: authored_choice
+  variant: wset_winemaking_l3_depth_37
+  prompt_template: '{subject.name}'
+  parameters:
+    item_choices:
+      ki_win_amber_style:
+        prompt: >-
+          A white-grape lot is fermented on its skins for an amber-wine brief.
+          Which treatment is central to that style?
+        options:
+        - Extended contact between white-grape juice and skins during fermentation
+        - Adding caramel colour to otherwise conventionally pressed white wine
+        - Holding clear white juice in a closed tank without any skin material
+        - Deliberately oxidising a finished white until its fruit aroma and acidity fade
+        correctIndex: 0
+        explanation: >-
+          AWRI describes amber wine as white grapes fermented on skins. The contact
+          changes phenolics and texture; oxidation alone does not define the style.
+        sourceCitationId: src_win_amber
+      ki_win_dap_scope:
+        prompt: >-
+          A low-YAN must receives diammonium phosphate. What nutritional limitation
+          should the cellar still assess?
+        options:
+        - DAP contributes only oxygen and no assimilable nitrogen
+        - DAP supplies nitrogen but not the full micronutrient needs of yeast
+        - DAP removes glucose while leaving fructose for the yeast
+        - DAP replaces the need to monitor temperature and fermentation rate throughout the ferment
+        correctIndex: 1
+        explanation: >-
+          AWRI distinguishes the nitrogen supplied by DAP from vitamins and other
+          nutrients needed for robust fermentation; the dose follows the must's needs.
+        sourceCitationId: src_win_yan
+      ki_win_filter_ratings:
+        prompt: >-
+          A sweet wine needs a validated microbial-removal step. Which filter claim
+          needs further evidence before the cellar treats it as an absolute barrier?
+        options:
+        - The filter has an integrity test and a specified absolute rating for microorganisms
+        - The bottling line was cleaned after its last production run
+        - The cross-flow unit has only a nominal pore-size rating and no integrity test
+        - The final wine was tasted after a bench filtration trial
+        correctIndex: 2
+        explanation: >-
+          AWRI warns that a nominal rating is not equivalent to an integrity-tested
+          absolute membrane for microbial removal, even when the nominal pore size is small.
+        sourceCitationId: src_win_filtration
+      ki_win_fining_trials:
+        prompt: >-
+          A red lot is too astringent, but its fruit character must remain prominent. Which fining
+          trial design best protects that brief?
+        options:
+        - Add the strongest available dose to the whole tank immediately without any bench trial
+        - Judge only whether a treated sample becomes visually brighter
+        - Compare different agents without retaining an untreated reference
+        - Compare several doses with an untreated control for astringency and fruit loss
+        correctIndex: 3
+        explanation: >-
+          AWRI recommends laboratory fining trials to find the minimum useful
+          treatment while checking for unintended sensory or colour changes.
+        sourceCitationId: src_win_fining
+      ki_win_grape_sugars:
+        prompt: >-
+          A wine still contains measurable fructose after glucose has declined.
+          Which conclusion follows for the fermenting yeast?
+        options:
+        - Fermentable grape sugar remains; yeast health still matters
+        - Only non-fermentable sugar remains, so completion is certain
+        - Fructose has already become malic acid through MLF
+        - Fructose can be removed only by potassium bitartrate cooling
+        correctIndex: 0
+        explanation: >-
+          AWRI identifies glucose and fructose as the principal grape sugars used in
+          alcoholic fermentation. Residual fructose does not guarantee a healthy yeast finish.
+        sourceCitationId: src_win_fermentation
+      ki_win_laccase:
+        prompt: >-
+          Damaging Botrytis fruit enters a white press. Why is sulfur dioxide alone
+          an incomplete answer to the oxidation risk?
+        options:
+        - It converts laccase directly into fermentable sugar
+        - Botrytis laccase can remain active in the presence of oxygen
+        - It guarantees laccase removal only after malolactic conversion
+        - Botrytis affects texture but cannot promote juice oxidation
+        correctIndex: 1
+        explanation: >-
+          AWRI describes Botrytis laccase as an oxidation hazard that sulfur dioxide
+          does not inactivate; fruit sorting and oxygen management remain relevant.
+        sourceCitationId: src_win_botrytis
+      ki_win_late_nutrients:
+        prompt: >-
+          A ferment with rising alcohol slows near dryness. Why is a large late
+          nutrient addition an unreliable first response?
+        options:
+        - Added nitrogen immediately removes alcohol from the tank
+        - Ethanol causes all remaining sugars to precipitate as tartrate
+        - Yeast may take up nutrients poorly under late ethanol stress
+        - Nutrients can function only before grape crushing starts
+        correctIndex: 2
+        explanation: >-
+          AWRI notes that uptake and benefit from nitrogen additions decline late
+          in fermentation as ethanol and stress rise; diagnose the cause rather than assume rescue.
+        sourceCitationId: src_win_yan
+      ki_win_lees_stirring:
+        prompt: >-
+          A cellar proposes daily bâtonnage solely to increase a white wine's
+          complexity. What should a trial monitor as a tradeoff?
+        options:
+        - Whether stirring permanently removes every viable microbe
+        - Whether stirring fixes the wine's grape variety expression
+        - Whether stirring makes sulfur dioxide unnecessary
+        - Watch oxygen exposure and reductive sulfur character
+        correctIndex: 3
+        explanation: >-
+          AWRI describes lees-stirring risks on both sides of oxygen management:
+          too little can favour sulfur characters, while too much can favour oxidation.
+        sourceCitationId: src_win_lees
+      ki_win_machine_contact:
+        prompt: >-
+          A machine-harvested white parcel arrives with many broken berries on a
+          warm day. Which intake plan addresses its specific risk?
+        options:
+        - Cool fruit, process promptly, and check skin-contact extraction
+        - Hold the fruit warm overnight to make all extraction predictable
+        - Reject machine harvest as inherently unsuitable for white wine
+        - Add new oak before separating the juice from the skins
+        correctIndex: 0
+        explanation: >-
+          AWRI identifies unplanned juice-skin contact when berries are broken.
+          Cool, prompt handling manages extraction without condemning the harvest method.
+        sourceCitationId: src_win_skin_contact
+      ki_win_mlf_organism:
+        prompt: >-
+          A cellar selects an Oenococcus oeni culture for a red wine. What process
+          is that organism being used to conduct?
+        options:
+        - Yeast conversion of grape sugar to ethanol and carbon dioxide
+        - Bacterial conversion of malic acid toward lactic acid
+        - Precipitation of unstable potassium bitartrate crystals
+        - Enzymatic removal of haze-forming grape proteins
+        correctIndex: 1
+        explanation: >-
+          AWRI identifies O. oeni as the principal bacterium used for MLF, the
+          malic-to-lactic conversion. Suitable strains still need viable wine conditions.
+        sourceCitationId: src_win_mlf
+      ki_win_oxygen_active:
+        prompt: >-
+          A high-sugar ferment is active but yeast vitality is under review.
+          What can carefully timed oxygen contribute to the yeast?
+        options:
+        - It lowers sugar directly without the need for yeast or fermentation
+        - It converts malic acid into lactic acid by itself
+        - It supports synthesis of membrane components for ethanol tolerance
+        - It guarantees protection against all spoilage organisms
+        correctIndex: 2
+        explanation: >-
+          AWRI explains that managed oxygen during active fermentation can help
+          yeast form sterols and unsaturated fatty acids for healthy membranes.
+        sourceCitationId: src_win_oxygen
+      ki_win_oxygen_stage:
+        prompt: >-
+          A cellar's oxygen policy for active fermentation is being copied
+          unchanged to mature, finished wine. What is the best response?
+        options:
+        - Oxygen is equally beneficial to every wine at every stage of production
+        - Oxygen should always be excluded even from active yeast
+        - Finished wine cannot brown or support microbial growth
+        - Reassess by stage, wine condition and intended maturation style
+        correctIndex: 3
+        explanation: >-
+          AWRI distinguishes useful oxygen during fermentation or chosen
+          maturation from unwanted oxidation and microbial growth later.
+        sourceCitationId: src_win_oxygen
+      ki_win_packaging_hygiene:
+        prompt: >-
+          A sweet wine passes an integrity-tested membrane, then crosses a
+          poorly cleaned filler. What risk remains?
+        options:
+        - Post-filter contamination before the bottle is sealed
+        - Guaranteed tartrate crystals because the membrane passed
+        - Loss of all acidity from the clean membrane surface
+        - Immediate malolactic completion inside every bottle
+        correctIndex: 0
+        explanation: >-
+          AWRI warns that filtration cannot prevent microorganisms from entering
+          the wine downstream through inadequately cleaned packaging equipment.
+        sourceCitationId: src_win_packaging
+      ki_win_rot_sort:
+        prompt: >-
+          A dry, fresh white is the brief, but one harvested block has damaging
+          bunch rot. Which fruit-selection response fits the brief?
+        options:
+        - Include every moulded bunch because noble rot is always beneficial
+        - Sort or selectively pick to exclude badly affected fruit
+        - Extend warm skin contact to convert the rot into acidity
+        - Replace fruit inspection with a higher fermentation temperature
+        correctIndex: 1
+        explanation: >-
+          AWRI differentiates damaging Botrytis from deliberately selected
+          noble-rot fruit; sorting limits the former entering this wine.
+        sourceCitationId: src_win_botrytis
+      ki_win_skin_flavour:
+        prompt: >-
+          A ripe white lot is bland after immediate pressing. Which controlled
+          trial could add texture while creating an extraction tradeoff?
+        options:
+        - Remove all skins before tasting the fruit
+        - Add sugar solely to increase the finished wine's phenolics
+        - Compare brief juice-skin contact with a pressed control
+        - Cold-stabilise the wine to extract grape-skin aroma
+        correctIndex: 2
+        explanation: >-
+          AWRI describes flavour and viscosity gains from controlled skin
+          contact, balanced against possible astringency or herbaceous extraction.
+        sourceCitationId: src_win_skin_contact
+      ki_win_stability_retest:
+        prompt: >-
+          Two wines each passed a cold-stability check, then are blended and
+          complete MLF. Which pre-bottling conclusion is justified?
+        options:
+        - Their separate passes prove the final blend stable
+        - Only the bottle closure determines later crystal formation
+        - Malic-to-lactic conversion cannot affect the tartrate balance
+        - Recheck the final composition for tartrate instability
+        correctIndex: 3
+        explanation: >-
+          AWRI explains that blending and MLF can alter pH and potassium
+          bitartrate behaviour; earlier component results do not certify the final wine.
+        sourceCitationId: src_win_tartrate
+      ki_win_sulfur_forms:
+        prompt: >-
+          A lab sheet reports only total SO2 for two finished wines. What extra
+          information is needed to compare their protection?
+        options:
+        - Free SO2 and wine pH, not the total figure alone
+        - Only the number of months since the last racking
+        - Only whether the wines used natural or technical cork
+        - Total sugar alone, regardless of microbial status
+        correctIndex: 0
+        explanation: >-
+          AWRI distinguishes free from bound SO2; the protective molecular
+          fraction also depends on pH and the wine's condition.
+        sourceCitationId: src_win_sulfur
+      ki_win_sulfur_ph:
+        prompt: >-
+          Two wines have the same measured free SO2, but one has higher pH.
+          Which protection comparison is sound?
+        options:
+        - The higher-pH wine necessarily has more molecular SO2
+        - The higher-pH wine has a smaller molecular SO2 fraction
+        - Equal free SO2 guarantees identical antimicrobial action
+        - pH matters only before grapes have been pressed
+        correctIndex: 1
+        explanation: >-
+          AWRI links increasing pH at the same free SO2 to a lower molecular
+          fraction, so one free-SO2 target cannot be assumed suitable for both wines.
+        sourceCitationId: src_win_sulfur
+      ki_win_warm_skin:
+        prompt: >-
+          A white-grape skin-contact trial is repeated at a warmer temperature,
+          with fruit and duration held similar. Which risk should be checked?
+        options:
+        - Slower phenolic extraction and lower astringency are guaranteed
+        - Complete removal of all skin-derived flavours is guaranteed
+        - Faster phenolic extraction may increase coarse astringency
+        - Warmer contact makes fruit-condition checks unnecessary
+        correctIndex: 2
+        explanation: >-
+          AWRI reports greater phenolic extraction at warmer skin-contact
+          temperatures; actual outcome also depends on time, fruit and handling.
+        sourceCitationId: src_win_skin_contact
+      ki_win_white_cooling:
+        prompt: >-
+          An aromatic white is fermenting cleanly, but its tank temperature is
+          rising. Why consider moderate cooling?
+        options:
+        - To guarantee that fermentation stops with residual sugar
+        - To convert grape acids into sweet flavour compounds
+        - To extract more seed tannin from the pressed juice
+        - To help retain delicate aroma while keeping yeast active
+        correctIndex: 3
+        explanation: >-
+          AWRI links cooler fermentation with retaining delicate white-wine
+          aroma, provided the yeast can still ferment reliably.
+        sourceCitationId: src_win_white_temperature
+      ki_win_yan_measure:
+        prompt: >-
+          Two musts have similar sugar but different nutrient histories.
+          What evidence best guides their separate nutrient plans?
+        options:
+        - Measure YAN in each must before choosing nutrient additions
+        - Assume identical DAP needs from the sugar result alone
+        - Wait until both fermentations stop before checking nitrogen
+        - Set the same dose solely from the grape variety name
+        correctIndex: 0
+        explanation: >-
+          AWRI recommends YAN measurement because musts and yeast strains
+          differ; a uniform nutrient dose can under- or over-supply a ferment.
+        sourceCitationId: src_win_yan
+      ki_win_yan_risk:
+        prompt: >-
+          A very ripe must begins fermentation with low measured YAN.
+          Which problem should the winemaker anticipate and monitor?
+        options:
+        - Sugar will disappear without a viable yeast population if the ferment is warm
+        - Yeast stress and a sluggish or stuck ferment are more likely
+        - Nitrogen will automatically rise as alcohol accumulates
+        - Low YAN guarantees lower acidity but no fermentation risk
+        correctIndex: 1
+        explanation: >-
+          AWRI identifies inadequate YAN as a fermentation-completion risk,
+          especially where a high-sugar must places a heavy demand on yeast.
+        sourceCitationId: src_win_yan
+      ki_win_yeast_health:
+        prompt: >-
+          A difficult must was inoculated at the correct rate, yet fermentation
+          slows before dryness. Which diagnostic premise is sound?
+        options:
+        - Inoculation proves every yeast cell remains viable
+        - Sugar conversion no longer depends on the yeast population
+        - Check yeast health and conditions, not inoculation alone
+        - A slow ferment proves malolactic bacteria consumed the glucose
+        correctIndex: 2
+        explanation: >-
+          AWRI stresses that sufficient, metabolically healthy yeast and
+          suitable conditions are needed to consume fermentable grape sugars.
+        sourceCitationId: src_win_fermentation
+      ki_wset_prod_adjustment_trials:
+        prompt: >-
+          Two white musts start at similar titratable acidity. A winemaker plans
+          the same acid addition to both. Which check is most defensible?
+        options:
+        - Assume their final pH and taste will match
+        - Use the addition only after both wines have been bottled
+        - Judge acidity by colour, without measuring or tasting
+        - Run separate pH, acidity and sensory bench trials
+        correctIndex: 3
+        explanation: >-
+          AWRI describes buffering and acid composition as reasons equal additions
+          can yield different responses; trials also precede final stability assessment.
+        sourceCitationId: src_wset_prod_acid
+      ki_wset_prod_arrest_chill:
+        prompt: >-
+          A ferment is chilled while fermentable grape sugar remains. What
+          additional issue matters if the wine is to be bottled sweet?
+        options:
+        - Viable yeast may resume fermentation when the wine warms
+        - Chilling converts every remaining sugar into non-fermentable acid
+        - Chilling permanently sterilises the cellar's filling equipment
+        - The wine can be assumed stable once visible bubbles stop
+        correctIndex: 0
+        explanation: >-
+          AWRI explains that retained sugar remains a microbial substrate;
+          cooling interrupts activity but yeast removal and packaging controls matter.
+        sourceCitationId: src_wset_prod_filter
+      ki_wset_prod_clarity_stability:
+        prompt: >-
+          A finished white looks brilliantly clear, yet contains residual sugar.
+          Which bottling decision follows from its appearance alone?
+        options:
+        - It needs no microbiological assessment because it is bright
+        - 'Check viable cells and packaging controls; clarity is not enough'
+        - It must contain potassium bitartrate crystals invisible to sight
+        - It has necessarily completed malolactic fermentation
+        correctIndex: 1
+        explanation: >-
+          AWRI notes that visually clear wine can still contain viable microbes;
+          appropriate filtration and hygienic packaging must be evaluated.
+        sourceCitationId: src_win_packaging
+      ki_wset_prod_closure_performance:
+        prompt: >-
+          A buyer wants one closure specified for every wine in a portfolio.
+          Which evidence argues for testing the choice by product and style?
+        options:
+        - All corks and all screwcaps have identical oxygen transfer in practice
+        - Closures alone determine whether every wine improves with age
+        - Oxygen transmission and sealing consistency differ among closures
+        - A closure choice can correct an unstable or contaminated wine
+        correctIndex: 2
+        explanation: >-
+          AWRI closure trials show different and variable oxygen transfer and
+          resulting wine development; the wine and storage target still matter.
+        sourceCitationId: src_wset_prod_closure_types
+      ki_wset_prod_closure_types:
+        prompt: >-
+          Four closure samples are on a bench. Which classification is
+          technically consistent with their materials and construction?
+        options:
+        - Screwcap is moulded grape bark; natural cork is threaded metal with a liner
+        - Synthetic cork is cut from oak; technical cork is plain glass
+        - Technical cork is untreated cork bark; screwcap is solid polymer
+        - Natural cork is cut bark; technical cork uses processed cork elements
+        correctIndex: 3
+        explanation: >-
+          AWRI distinguishes natural cork, composite or technical cork,
+          synthetic polymer closures and threaded screwcaps in closure trials.
+        sourceCitationId: src_wset_prod_closure_types
+      ki_wset_prod_depth_surface:
+        prompt: >-
+          A cellar proposes replacing its final integrity-tested membrane with
+          a coarse depth filter because both are called filtration. What is missing?
+        options:
+        - Evidence that the replacement meets the intended microbial-removal aim
+        - Evidence that the depth filter adds new oak compounds to the wine
+        - Proof that surface filtration cannot retain microorganisms under any conditions
+        - Proof that a bright wine can contain no viable cells
+        correctIndex: 0
+        explanation: >-
+          AWRI distinguishes depth and membrane filtration and says filter
+          selection and integrity must match the microbiological target.
+        sourceCitationId: src_wset_prod_filter
+      ki_wset_prod_glass_pet_bib:
+        prompt: >-
+          A fresh, early-drinking wine is considered for glass, PET and
+          bag-in-box. Which comparison is relevant before selecting a package?
+        options:
+        - Price alone proves the wine's sensory quality in each format
+        - Weight, breakage, oxygen barrier and dispensing requirements
+        - Material name alone proves equal shelf life under every condition
+        - Bag-in-box always excludes oxygen after its first serving
+        correctIndex: 1
+        explanation: >-
+          AWRI packaging guidance compares physical handling, oxygen
+          protection and use patterns; package design and filling also affect suitability.
+        sourceCitationId: src_wset_prod_package
+      ki_wset_prod_oak_alternatives:
+        prompt: >-
+          A wine held in stainless steel receives permitted toasted oak pieces.
+          What should a barrel comparison acknowledge?
+        options:
+        - Oak pieces cannot contribute any wood-derived compounds
+        - Oak pieces reproduce a barrel's oxygen exchange and geometry exactly
+        - Wood flavour may develop, but vessel oxygen effects can differ
+        - Barrel geometry alone determines wine sweetness
+        correctIndex: 2
+        explanation: >-
+          Oak pieces can supply wood compounds, but Iowa State's technical
+          account and OIV vessel guidance distinguish extraction from barrel maturation.
+        sourceCitationId: src_win_oak
+      ki_wset_prod_package_oxygen:
+        prompt: >-
+          Two bag-in-box suppliers quote different barrier specifications for
+          the same wine. Which selection rule follows?
+        options:
+        - All bags have identical oxygen ingress, so ignore the specification
+        - Oxygen pickup at filling cannot affect either package
+        - The cheaper bag always has the longest storage life
+        - Compare construction, filling oxygen and intended storage period
+        correctIndex: 3
+        explanation: >-
+          AWRI packaging guidance treats oxygen ingress as dependent on
+          container construction and filling practice, not material name alone.
+        sourceCitationId: src_wset_prod_package
+      ki_wset_prod_racking_gross_lees:
+        prompt: >-
+          A white has settled heavy post-fermentation material. The winemaker
+          also wants some fine-lees texture. Which plan distinguishes the two?
+        options:
+        - Rack off gross lees, then assess retaining suitable fine lees
+        - Retain every sediment layer because all lees behave identically
+        - Remove all settled material only after it becomes tartrate
+        - Add more gross lees to guarantee a clean, fruit-led style
+        correctIndex: 0
+        explanation: >-
+          AWRI differentiates removing heavy gross lees from intentional
+          maturation on selected fine yeast lees; condition and style guide the choice.
+        sourceCitationId: src_win_lees
+      ki_wset_prod_semi_carbonic:
+        prompt: >-
+          In a tank of mostly intact red bunches, lower fruit breaks and juice
+          begins fermenting. What is happening above that juice?
+        options:
+        - Only malolactic conversion occurs throughout all berries
+        - CO2 from yeast fermentation surrounds berries with intracellular change
+        - No yeast fermentation can occur until all bunches are pressed and the juice moves
+        - Oxygen is required for carbonic reactions inside intact berries
+        correctIndex: 1
+        explanation: >-
+          AWRI explains semi-carbonic conditions as yeast fermentation in the
+          lower juice generating CO2 while intact fruit undergoes intracellular change.
+        sourceCitationId: src_wset_prod_carbonic
+      ki_wset_prod_sweet_stability:
+        prompt: >-
+          A wine is back-sweetened shortly before packaging. Which stability
+          question must be reopened?
+        options:
+        - Whether all sugar has become non-fermentable through a brief period of chilling
+        - Whether its empty bottle has enough oxygen for yeast growth
+        - Whether viable yeast could ferment the added sugar after filling
+        - Whether malic acid has precipitated as potassium bitartrate
+        correctIndex: 2
+        explanation: >-
+          AWRI warns that sweetening after filtration can reintroduce a
+          fermentable substrate and organisms; yeast control and line hygiene matter.
+        sourceCitationId: src_win_packaging
+      ki_wset_prod_vessel_temperature:
+        prompt: >-
+          A cellar moves a red ferment from steel to an insulated concrete
+          vessel of different size. What should its temperature plan reconsider?
+        options:
+        - Only the grape variety name, since vessel material and geometry cannot alter heat loss
+        - Only the label design, since ferment heat is externally supplied
+        - Only its oak aroma, since heat production stops in concrete
+        - Surface area, insulation and available cooling versus generated heat
+        correctIndex: 3
+        explanation: >-
+          AWRI describes fermentation heat and cooling capacity as determinants
+          of temperature control; vessel geometry and material alter heat removal.
+        sourceCitationId: src_win_temperature
+      ki_wset_prod_whole_bunch_crushed:
+        prompt: >-
+          A red ferment combines intact bunches with crushed fruit. What should
+          a tasting explanation avoid claiming?
+        options:
+        - That whole bunch inclusion proves every berry underwent full carbonic maceration
+        - That stems can influence texture when intact bunches are included
+        - That yeast can ferment juice released from crushed fruit
+        - That the intact-berry share depends only on the label and never on vat management
+        correctIndex: 0
+        explanation: >-
+          AWRI describes carbonic conditions as requiring intact fruit in a
+          CO2-rich setting; a mixed whole-bunch/crushed vat also has ordinary fermentation.
+        sourceCitationId: src_wset_prod_carbonic

@@ -1,0 +1,24 @@
+# WSET Level 3 winemaking practice: 37 bounded decisions
+
+Release `0.24.12` adds one authored-choice template on **37 existing, cited Level 3 core facts** that had no useful practice at the PR 31 base (`0.24.11`). It serves 23 original production principles and 14 production, finishing or packaging principles. All have `PRINCIPLE_EXPLANATION` relations and `mcq_disabled: true`, so the questions supply curated, item-specific choices without enabling generic distractors. None of these 37 IDs is Level 2 **core**. Level 2 core winemaking is being handled separately; some of the original principles remain Level 2 secondary references.
+
+Questions use a stated wine, material or production constraint before asking for a response: warm broken berries at intake, damaged Botrytis for a fresh white, high-sugar/low-YAN must, timed oxygen for active yeast, a changed blend before bottling, a post-filter filler, or mixed whole bunch and crushed fruit. A keyed response is defensible in its premise; it is not a universal recipe or an assertion about a named commercial producer. Answers rotate across all four positions (10/9/9/9), and none is uniquely the longest or shortest option. Each explanation points to the same primary-source citation already linked to the underlying knowledge item. These are original formative questions, not WSET examination questions.
+
+## Primary-source audit
+
+The [WSET Level 3 Wines specification, 2022 Issue 2](https://www.wsetglobal.com/media/11731/wset_l3wines_specification_en_highres_may2022_issue2.pdf) gives the study scope; the technical answers are grounded in the existing item citations and checked against these primary materials:
+
+| Decisions in this batch | Primary evidence |
+| --- | --- |
+| White juice/skin contact, temperature, machine-harvest handling and amber style | [AWRI, skin-contact treatment](https://www.awri.com.au/industry_support/winemaking_resources/winemaking-practices/winemaking-treatment-skin-contact/) |
+| YAN measurement, nutrient timing and the limits of DAP | [AWRI, yeast-assimilable nitrogen](https://www.awri.com.au/industry_support/winemaking_resources/wine_fermentation/yan/) |
+| Heat generation and vessel-specific cooling | [AWRI, fermentation temperature](https://www.awri.com.au/industry_support/winemaking_resources/winemaking-practices/fermentation-temperature/) |
+| Nominal versus absolute ratings and residual-sugar packaging risk | [AWRI, filtration and microbial removal](https://www.awri.com.au/industry_support/winemaking_resources/storage-and-packaging/pre-packaging-preparation/filtration-physical-removal-of-microorganisms/) and [AWRI, packaging microbiological stability](https://www.awri.com.au/wp-content/uploads/2015/05/1704-tran-et-al-WVJ-30-2-2015.pdf) |
+| Free versus bound SO2, pH and the protective molecular fraction | [AWRI, sulfur dioxide](https://www.awri.com.au/industry_support/winemaking_resources/fining-stabilities/microbiological/avoidance/sulfur_dioxide/) |
+| Final-blend tartrate retesting after blending or MLF | [AWRI, potassium instability](https://www.awri.com.au/industry_support/winemaking_resources/fining-stabilities/hazes_and_deposits/potassium_instability/) |
+| Closure construction and variable oxygen transmission | [AWRI closure trial](https://www.awri.com.au/information_services/media-releases/2001/07/12/first-results-of-the-awri-wine-bottle-closure-trial-published-12-july-2001/) and [AWRI closure OTR fact sheet](https://www.awri.com.au/wp-content/uploads/2019/03/oxygen-transmission-rate.pdf) |
+| Effects of wood pieces versus a maturation vessel | [Iowa State University Extension, oak wood composition](https://www.extension.iastate.edu/wine/oak-wood-composition) and [OIV, small wooden containers](https://www.oiv.int/standards/international-code-of-oenological-practices/part-ii-oenological-treatments-and-practices/wines/ageing-in-small-capacity-wooden-containers) |
+
+Additional item-specific citations for Botrytis, Oenococcus, lees stirring, fining, carbonic fermentation and packaging are retained on the original knowledge items; the new template refers to those source IDs directly. The source's technical detail has been condensed into bounded teaching choices, without legal numerical limits or proprietary exam language.
+
+The strict coverage baseline now measures WSET Level 3 useful **core** practice at **1,256/2,228**, up from **1,219/2,228**. In the winemaking domain it rises **113/449 → 150/449**. Level 2 useful core remains **535/744**; CMS Certified useful core remains **812/1,221**. This is practice coverage within the app, not official completion or exam readiness. **299 Level 3 winemaking core facts still lack useful practice**, and all 4,125 bundled facts retain `unverified` status until qualified educator review. No expert review is implied by primary-source checking.
