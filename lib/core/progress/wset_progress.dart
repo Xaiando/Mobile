@@ -8,6 +8,7 @@ import '../coverage/coverage_formats.dart';
 import '../coverage/generated_coverage_formats.dart';
 import '../database/app_database.dart';
 import '../diploma_tasting/diploma_tasting_evidence.dart';
+import '../diploma_written/diploma_written_evidence.dart';
 import '../study/study_planner.dart';
 import '../time/utc_clock.dart';
 import 'wset_scope.dart';
@@ -73,12 +74,16 @@ class WsetUnitProgress {
     required this.scope,
     required this.counts,
     this.physicalFlights = 0,
+    this.writtenPractices = 0,
   });
   final WsetUnitScope scope;
   final ProgressCounts counts;
 
   /// Saved three-actual-wine practice, not a tasting grade or unit pass.
   final int physicalFlights;
+
+  /// Reviewed D1/D2 prose participation, never an examiner mark or pass.
+  final int writtenPractices;
 }
 
 class WsetRequirementProgress {
@@ -311,6 +316,10 @@ class WsetProgressRepository {
         row.name: row.value,
     };
     final diplomaTasting = DiplomaTastingEvidenceReader.read(
+      settings,
+      now: now,
+    );
+    final diplomaWritten = DiplomaWrittenEvidenceReader.read(
       settings,
       now: now,
     );
@@ -558,6 +567,9 @@ class WsetProgressRepository {
                 counts: count(assigned[unit.id]!),
                 physicalFlights: level.certificationId == 'WSET_L4'
                     ? diplomaTasting.forUnit(unit.id)
+                    : 0,
+                writtenPractices: level.certificationId == 'WSET_L4'
+                    ? diplomaWritten.forUnit(unit.id)
                     : 0,
               ),
           ],

@@ -8,6 +8,7 @@ import 'package:sommelier/core/backup/user_data_backup.dart';
 import 'package:sommelier/core/database/app_database.dart';
 import 'package:sommelier/core/database/curriculum_writes.dart';
 import 'package:sommelier/core/diploma_tasting/diploma_tasting_flight.dart';
+import 'package:sommelier/core/diploma_written/diploma_written.dart';
 import 'package:sommelier/core/progress/wset_progress.dart';
 import 'package:sommelier/core/progress/wset_scope.dart';
 import 'package:sommelier/core/study/learner_profile.dart';
@@ -293,6 +294,56 @@ void main() {
           result.unassigned.mapped,
       result.counts.mapped,
     );
+  });
+
+  test('D1 written review appears as participation, not a pass', () async {
+    await LearnerProfiles(db, clock: time.clock).selectTrack('WSET_L4');
+    final writing = DiplomaWrittenRepository(
+      db,
+      bank: DiplomaWrittenBank.fromJson(
+        File('assets/study/diploma_written_practice.json').readAsStringSync(),
+      ),
+      clock: time.clock,
+      random: Random(29),
+    );
+    final d1 = await writing.start('D1');
+    for (final question in d1.questions) {
+      await writing.answer(
+        d1.id,
+        question.id,
+        'Reasoned ${question.id} response.',
+      );
+    }
+    await writing.finish(d1.id);
+    for (final question in d1.questions) {
+      await writing.review(
+        d1.id,
+        question.id,
+        {},
+        'I would add more evidence.',
+      );
+    }
+    progress = WsetProgressRepository(
+      db,
+      scope: testScope(
+        units: [
+          for (var unit = 1; unit <= 6; unit++)
+            WsetUnitScope(
+              id: 'D$unit',
+              title: 'Unit $unit',
+              gap: 'Further study remains.',
+              domains: const [],
+            ),
+        ],
+      ),
+      clock: time.clock,
+    );
+    final diploma = (await progress.snapshot()).levels.last;
+    expect(diploma.units[0].writtenPractices, 1);
+    expect(diploma.units[1].writtenPractices, 0);
+    expect(diploma.examPassed, isFalse);
+    expect(diploma.appLevelComplete, isFalse);
+    expect(await db.select(db.reviewEvents).get(), isEmpty);
   });
 
   test('D4 physical flights count only as unit participation', () async {

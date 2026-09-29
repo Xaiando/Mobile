@@ -263,6 +263,31 @@ void main() {
     expect(tester.takeException(), isNull);
   });
 
+  testApp('Diploma D1 and D2 expose separate formative writing presets', (
+    tester,
+  ) async {
+    await screen(tester);
+    final scrollable = find.byType(Scrollable).first;
+    for (final unit in ['D1', 'D2']) {
+      await tester.scrollUntilVisible(
+        find.text('$unit · Unit ${unit.substring(1)}'),
+        300,
+        scrollable: scrollable,
+      );
+      await tap(tester, find.text('$unit · Unit ${unit.substring(1)}'));
+      expect(find.byKey(ValueKey('wset_unit_written_$unit')), findsOneWidget);
+      expect(
+        find.byKey(ValueKey('wset_unit_written_open_$unit')),
+        findsOneWidget,
+      );
+      expect(
+        find.textContaining('not examiner marks or unit passes'),
+        findsWidgets,
+      );
+    }
+    expect(tester.takeException(), isNull);
+  });
+
   testApp(
     'Home opens progress and its study action starts the selected cumulative level',
     (tester) async {
