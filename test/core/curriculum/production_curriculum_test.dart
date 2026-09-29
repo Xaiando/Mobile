@@ -560,7 +560,7 @@ void main() {
       132,
       829,
       3439,
-      4111,
+      4127,
     ]);
     final diploma = snapshot.levels.last;
     final unitIds = {
@@ -577,6 +577,7 @@ void main() {
         'ki_d4d5_sorbara_',
         'ki_d4d5_grasparossa_',
         'ki_d4d5_case_italian_',
+        'ki_d45taste_sparkling_',
       ],
       'D5': [
         'ki_fort_',
@@ -586,6 +587,8 @@ void main() {
         'ki_d4d5_colheita_',
         'ki_d4d5_white_port_',
         'ki_d4d5_case_port_',
+        'ki_d45taste_sherry_',
+        'ki_d45taste_port_',
       ],
     }.entries) {
       final ids = dataset.knowledgeItems

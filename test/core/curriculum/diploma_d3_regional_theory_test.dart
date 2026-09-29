@@ -23,7 +23,7 @@ void main() {
       .where((item) => item.id.startsWith('ki_d3rt_case_'))
       .toList();
 
-  test('19 new regional choices use unique existing cited core facts', () {
+  test('19 regional choices use cited facts in allowed templates', () {
     expect(validateDataset(dataset).errors, isEmpty);
     expect(choiceTemplate.mode, 'authored_choice');
     expect(choices, hasLength(19));
@@ -31,7 +31,11 @@ void main() {
       for (final citation in dataset.knowledgeItemCitations)
         (citation.knowledgeItemId, citation.sourceCitationId),
     };
-    final counts = <String, int>{};
+    const dualRoutedFacts = {
+      'ki_reg_oa_adelaide_m3_sources',
+      'ki_reg_sa_itata_grapes',
+    };
+    final templatesByItem = <String, List<String>>{};
     for (final template in dataset.questionTemplates.where(
       (template) => template.mode == 'authored_choice',
     )) {
@@ -39,7 +43,7 @@ void main() {
           jsonDecode(template.parameters!) as Map<String, dynamic>;
       for (final id
           in (parameters['item_choices'] as Map<String, dynamic>).keys) {
-        counts.update(id, (count) => count + 1, ifAbsent: () => 1);
+        (templatesByItem[id] ??= <String>[]).add(template.id);
       }
     }
     final itemsById = {
@@ -52,11 +56,13 @@ void main() {
       expect(item.verificationStatus, 'unverified', reason: id);
       expect(item.mcqDisabled, isTrue, reason: id);
       expect(
-        counts[id],
-        id == 'ki_reg_oa_adelaide_m3_sources' || id == 'ki_reg_sa_itata_grapes'
-            ? 2
-            : 1,
-        reason: 'duplicate authored question for $id',
+        templatesByItem[id],
+        unorderedEquals({
+          'qt_d3rt_regional_choice',
+          if (dualRoutedFacts.contains(id))
+            'qt_d3_geography_principle_closure_24',
+        }),
+        reason: 'authored choices use only the allowed templates for $id',
       );
       expect(choice['options'], hasLength(4), reason: id);
       expect(

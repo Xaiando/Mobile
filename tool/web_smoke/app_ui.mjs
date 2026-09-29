@@ -667,7 +667,9 @@ try {
     await tap('Wine 2');
     await visible(/^Wine 2 · saved original grid /);
     const white = page.getByRole('checkbox', { name: 'White', exact: true });
-    await tap('White');
+    // Changing wine preserves the lazy form scroll offset. Search toward
+    // its colour controls so a retained lower offset cannot hide White.
+    await tap('White', { direction: -1 });
     await until(() => selected(white), 'Wine 2 colour observation did not save.');
     const evidence = page.getByRole('textbox', { name: 'Your evidence' }).first();
     const wine2Evidence = 'UI smoke Wine 2 evidence: keep this distinct from Wine 1.';

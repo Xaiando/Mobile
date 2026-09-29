@@ -1,0 +1,59 @@
+# Objective role matching for four cited CMS Certified service cases.
+# The existing item assertions remain expert-unverified. This is practice,
+# not an official CMS mark scheme or product/allergen certification.
+question_templates:
+  - id: qt_cms_example_case_criteria_4
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: case_criteria
+    variant: cms_spirits_liqueurs_case_criteria
+    prompt_template: "{subject.name}"
+    parameters:
+      scope_node_ids:
+        - n_cms_example_agave_case
+        - n_cms_example_marc_case
+        - n_cms_example_liqueur_case
+        - n_cms_example_egg_case
+      scenario_prompts:
+        n_cms_example_agave_case: >-
+          A guest asks for Mezcal, but the current list has only Tequila. The
+          guest has not said which flavour they seek. Decide how to explain the
+          designations, whether to offer a conditional alternative, and what
+          to check on the stocked bottle before making a sensory promise.
+        n_cms_example_marc_case: >-
+          A guest asks for Grappa, but a colleague suggests a cherry
+          eau-de-vie. The restaurant has not yet checked its bottles. Explain
+          the raw-material distinction, when a different spirit may be
+          offered, and what the label and stock check can establish.
+        n_cms_example_liqueur_case: >-
+          A guest requests a floral liqueur, but a colleague proposes
+          Baileys Original. Discuss an elderflower example and the different
+          cream profile, then consider berry or hazelnut only if the guest
+          changes preference. State the stock, label and dietary checks.
+        n_cms_example_egg_case: >-
+          A guest wants a rich dessert liqueur beyond fruit, nut and flower.
+          Zwarte Kip Advocaat is on the menu, but the bottle has not been
+          checked and the guest asks about eggs. Decide on a conditional offer,
+          explain the egg-led example, distinguish a cream alternative, and
+          state why the CMS study heading cannot establish allergy safety.
+      distractors:
+        n_cms_example_agave_case:
+          - summary: "Present any stocked Tequila as Mezcal because both Mexican names describe agave spirits"
+            explanation: "NOM-070 and NOM-006 define distinct designations; a Tequila may be offered only as a clearly identified alternative after the guest agrees."
+          - summary: "Promise the guest every Mezcal is smoky and choose a substitute without checking its bottle"
+            explanation: "The Mezcal standard permits variation by agave and production; neither designation proves the sensory character or stock of a particular bottle."
+        n_cms_example_marc_case:
+          - summary: "Call the offered cherry eau-de-vie Grappa because both spirits may be served after dinner"
+            explanation: "The Italian Grappa GI identifies grape marc spirit, while EU Annex I identifies kirsch as a cherry fruit spirit; a similar service occasion does not merge categories."
+          - summary: "Treat any distilled grape wine as labelled Grappa without checking the actual bottle"
+            explanation: "The EU separates wine spirit from grape marc spirit, and the Italian GI specification cannot authenticate an unlabelled restaurant bottle."
+        n_cms_example_liqueur_case:
+          - summary: "Recommend Baileys Original as floral solely because it is also sold as a liqueur"
+            explanation: "The makers describe St-Germain through elderflowers and Baileys Original through dairy cream and other flavours; the shared liqueur name does not establish a floral fit."
+          - summary: "Promise the hazelnut alternative is safe for every dietary request based on its flavour name"
+            explanation: "Frangelico's producer description identifies a flavour example, not a complete allergy or ingredient certification for the current stocked bottle."
+        n_cms_example_egg_case:
+          - summary: "Treat the CMS non-classified study heading as proof that Zwarte Kip contains no egg"
+            explanation: "Lucas Bols explicitly describes Zwarte Kip as an egg liqueur, while the CMS heading is a study grouping rather than an ingredient or allergy rule."
+          - summary: "Replace the Advocaat with Baileys and promise equivalent ingredients without a label check"
+            explanation: "The makers describe an egg-led Advocaat and a different dairy-cream liqueur; neither description proves current stock, full ingredients or guest suitability."

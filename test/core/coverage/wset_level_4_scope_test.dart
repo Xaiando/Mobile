@@ -14,6 +14,7 @@ import 'package:sommelier/core/curriculum/curriculum_ingestion.dart';
 import 'package:sommelier/core/database/app_database.dart';
 import 'package:sommelier/core/database/database_providers.dart';
 import 'package:sommelier/core/database/storage_durability.dart';
+import 'package:sommelier/core/progress/wset_scope.dart';
 import 'package:sommelier/core/study/learner_profile.dart';
 import 'package:sommelier/core/study/study_planner.dart';
 import 'package:sommelier/core/time/utc_clock.dart';
@@ -195,11 +196,14 @@ void main() {
         'wset_l4.sparkling.tasting',
         'wset_l4.fortified.tasting',
       ]) {
-        expect(measured[id]!.status, ObjectiveStatus.planned, reason: id);
+        expect(measured[id]!.status, ObjectiveStatus.represented, reason: id);
+        expect(measured[id]!.items, 8, reason: id);
+        expect(measured[id]!.core, 8, reason: id);
+        expect(measured[id]!.usefulPractice, 8, reason: id);
         expect(
-          measured[id]!.items,
-          0,
-          reason: 'a backlog entry is not authored content',
+          measured[id]!.objective.tasks,
+          isNotEmpty,
+          reason: 'authored sensory cases do not establish physical accuracy',
         );
       }
       for (final id in [
@@ -345,9 +349,33 @@ void main() {
         measured.values.where(
           (objective) => objective.status == ObjectiveStatus.planned,
         ),
-        isNotEmpty,
-        reason: 'zero missing objectives means accounted scope, not six completed units',
+        isEmpty,
+        reason:
+            'both formerly planned tasting objectives now have authored cases',
       );
+      final progress = WsetScope.fromJson(
+        File('assets/progress/wset_scope.json').readAsStringSync(),
+      );
+      final diploma = progress.levels.singleWhere(
+        (level) => level.certificationId == 'WSET_L4',
+      );
+      expect(diploma.curriculumComplete, isFalse);
+      expect(diploma.gaps, isNotEmpty);
+      expect(diploma.units.map((unit) => unit.id).toSet(), {
+        'D1',
+        'D2',
+        'D3',
+        'D4',
+        'D5',
+        'D6',
+      });
+      for (final unit in diploma.units) {
+        expect(
+          unit.gap,
+          isNotEmpty,
+          reason: 'represented objectives do not complete ${unit.id}',
+        );
+      }
     },
   );
 }

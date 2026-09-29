@@ -1955,6 +1955,11 @@ tracks:
         tasks: [DIP-4, DIP-2]
       - id: wset_l4.sparkling.tasting
         label: Practise evidence-based conclusions from sparkling-wine tasting
+        covers:
+          within:
+            - n_d45taste_case_sparkling_lees
+            - n_d45taste_case_sparkling_quality
+          relation_types: [CASE_ACTION, CASE_REASON, CASE_TRADEOFF, CASE_LIMITATION]
         tasks: [DIP-4, T1, T2, Q8, S3]
 
       # D5: places are separated from fortified-wine styles and business facts.
@@ -2137,6 +2142,11 @@ tracks:
         tasks: [DIP-5, DIP-2, C5]
       - id: wset_l4.fortified.tasting
         label: Practise evidence-based conclusions from fortified-wine tasting
+        covers:
+          within:
+            - n_d45taste_case_sherry_sweetness
+            - n_d45taste_case_port_development
+          relation_types: [CASE_ACTION, CASE_REASON, CASE_TRADEOFF, CASE_LIMITATION]
         tasks: [DIP-5, T1, T2, Q8, S3]
 
       # D6: original research practice; no copied assignment or auto-marking claim.

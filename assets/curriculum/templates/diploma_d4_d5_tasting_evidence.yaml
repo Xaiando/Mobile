@@ -1,0 +1,121 @@
+# Original sensory-evidence reasoning rehearsals; matching criteria does not grade a palate.
+question_templates:
+  - id: qt_d45taste_written_sparkling_lees
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: d45taste_written_sparkling_lees
+    prompt_template: >-
+      Hypothetical sparkling comparison: two blind-coded wines are freshly poured at the same
+      temperature into matching clean glasses. Sample A shows pear and green apple, brisk acidity, a
+      light texture and a short fruit finish. Sample B shows lemon, toasted bread and hazelnut, a
+      creamier texture, retained freshness and a longer layered finish. No appellation, grape,
+      production record, maturation time or price is supplied. Explain a defensible development or
+      method hypothesis, the sensory reason, a competing interpretation or style trade-off, and a
+      limit on quality or origin claims. These invented notes are a reasoning exercise; more than
+      one qualified conclusion may be justified.
+    parameters:
+      scope_node_ids: [n_d45taste_case_sparkling_lees]
+      key_points:
+        CASE_ACTION: Evidence-based conclusion
+        CASE_REASON: Sensory and source reasoning
+        CASE_TRADEOFF: Competing interpretation or preference
+        CASE_LIMITATION: Identification or development limit
+  - id: qt_d45taste_written_sparkling_quality
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: d45taste_written_sparkling_quality
+    prompt_template: >-
+      Hypothetical sparkling quality review: the same panel tastes two blind-coded samples twice,
+      using fresh pours, matching clean glasses and one serving temperature. Sample C has vigorous
+      bubbles and bright fruit initially, but acidity dominates the palate and the finish quickly
+      becomes only heat. Sample D has gentler mousse, clear citrus and nutty flavours, acidity
+      integrated with fruit, and a persistent flavour finish. No faults are recorded. A colleague
+      calls C better because it bubbles more and guarantees D will improve for ten years. Explain a
+      justified comparative judgement, its evidence, a preference or readiness trade-off, and what
+      remains unknown. These invented notes do not measure your palate or establish an official
+      quality grade.
+    parameters:
+      scope_node_ids: [n_d45taste_case_sparkling_quality]
+      key_points:
+        CASE_ACTION: Evidence-based conclusion
+        CASE_REASON: Sensory and source reasoning
+        CASE_TRADEOFF: Competing interpretation or preference
+        CASE_LIMITATION: Identification or development limit
+  - id: qt_d45taste_written_sherry_sweetness
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: d45taste_written_sherry_sweetness
+    prompt_template: >-
+      Hypothetical fortified comparison: two coded Sherry samples are presented at the same
+      temperature. Sample E is chestnut-coloured with walnut and orange-peel aromas, a rounded body,
+      marked alcohol and a dry palate. Sample F is dark brown with raisin and caramel aromas,
+      pronounced sweetness and a viscous texture. Both have persistent flavour; their labels, exact
+      categories and cellar records are withheld. A diner wants nutty complexity without pronounced
+      sweetness, and a colleague says every dark, full-bodied Sherry must be sweet. Explain a
+      provisional selection, the sensory reason, a preference or alternative trade-off, and an
+      identification or ageing limitation. The observations are invented, not a blind tasting
+      result.
+    parameters:
+      scope_node_ids: [n_d45taste_case_sherry_sweetness]
+      key_points:
+        CASE_ACTION: Evidence-based conclusion
+        CASE_REASON: Sensory and source reasoning
+        CASE_TRADEOFF: Competing interpretation or preference
+        CASE_LIMITATION: Identification or development limit
+  - id: qt_d45taste_written_port_development
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: d45taste_written_port_development
+    prompt_template: >-
+      Hypothetical Port development comparison: sample G is deep ruby with intense blackberry and
+      cherry flavours, firm tannin, sweetness and a long fruit finish. Sample H is tawny-gold with
+      dried-fruit and nut aromas, a smooth texture, sweetness and a long developed-flavour finish.
+      The panel finds the alcohol integrated in both. Labels, harvest years, bottling dates,
+      filtration and storage records are withheld. A learner calls H an exact twenty-year-old Tawny
+      and says both samples should be cellared for another decade. Explain a cautious development
+      and readiness comparison, the sensory reason, an enjoyment or ageing trade-off, and the
+      information still required. These sample notes and claims are invented.
+    parameters:
+      scope_node_ids: [n_d45taste_case_port_development]
+      key_points:
+        CASE_ACTION: Evidence-based conclusion
+        CASE_REASON: Sensory and source reasoning
+        CASE_TRADEOFF: Competing interpretation or preference
+        CASE_LIMITATION: Identification or development limit
+  - id: qt_d45taste_case_criteria_4
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: case_criteria
+    variant: d45taste_case_criteria_4
+    prompt_template: '{subject.name}'
+    parameters:
+      scope_node_ids:
+        - n_d45taste_case_sparkling_lees
+        - n_d45taste_case_sparkling_quality
+        - n_d45taste_case_sherry_sweetness
+        - n_d45taste_case_port_development
+      distractors:
+        n_d45taste_case_sparkling_lees:
+          - summary: "Identify B as Champagne with at least three years on lees from its bread aroma"
+            explanation: "Bread-like aromas are compatible with a maturation hypothesis but cannot authenticate origin or measure a specific duration; the case supplies neither."
+          - summary: "Declare A lower quality solely because its notes lack bread and hazelnut"
+            explanation: "A fruit-led style is not automatically inferior. Quality and style fit require the full tasting evidence, not the presence of two developed descriptors."
+        n_d45taste_case_sparkling_quality:
+          - summary: "Rank C higher because more vigorous bubbles determine sparkling quality"
+            explanation: "The packet supplies contrary balance and finish evidence. Bubble quantity alone does not justify the whole-wine quality conclusion."
+          - summary: "Guarantee D will improve for exactly ten years because it has fresh acidity"
+            explanation: "Freshness can inform an ageing discussion, but the case supplies no storage history, bottle condition or evidence for a fixed ten-year promise."
+        n_d45taste_case_sherry_sweetness:
+          - summary: "Reject E as unsuitable for a dry request because chestnut colour means sugar"
+            explanation: "The packet explicitly describes E as dry, and the Consejo's dry Palo Cortado provides a counterexample to the colour-means-sugar claim."
+          - summary: "Authenticate E as Palo Cortado and F as Pedro Ximénez from these descriptors alone"
+            explanation: "The source supplies category context, not proof of either coded sample's identity. Comparable descriptors and sweetness levels do not authenticate exact categories."
+        n_d45taste_case_port_development:
+          - summary: "Assign H a twenty-year age indication because nut aromas and tawny colour prove it"
+            explanation: "Broad maturation descriptors do not specify an exact marketed age indication; the packet withholds the label and records."
+          - summary: "Recommend ten more years in bottle for both because all fortified wines improve"
+            explanation: "The recommendation ignores category-dependent readiness and bottle development. Neither fortification nor these notes guarantee future improvement for both samples."
