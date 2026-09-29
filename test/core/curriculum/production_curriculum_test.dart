@@ -560,14 +560,14 @@ void main() {
       132,
       829,
       3439,
-      3972,
+      4012,
     ]);
     final diploma = snapshot.levels.last;
     final unitIds = {
       for (final unit in scope.levels.last.units) unit.id: unit.itemIds.toSet(),
     };
     for (final entry in {
-      'D4': ['ki_spark_', 'ki_d4nw_'],
+      'D4': ['ki_spark_', 'ki_d4nw_', 'ki_d4depth_'],
       'D5': ['ki_fort_'],
     }.entries) {
       final ids = dataset.knowledgeItems

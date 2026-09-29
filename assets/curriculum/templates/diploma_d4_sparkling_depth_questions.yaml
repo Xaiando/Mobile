@@ -1,0 +1,263 @@
+# Original, source-cited D4 practice. Expert review pending.
+question_templates:
+- id: qt_d4depth_regional_choices
+  relation_type: PRINCIPLE_EXPLANATION
+  direction: forward
+  mode: authored_choice
+  variant: d4depth_regional
+  prompt_template: '{subject.name}'
+  parameters:
+    item_choices:
+      ki_d4depth_champ_reserve:
+        prompt: A house wants a recognizable non-vintage Champagne through variable harvests. Which choice best
+          supports that aim?
+        options:
+        - Use reserve wines from earlier years in the blend
+        - Use only the newest harvest and print no vintage
+        - Replace bottle fermentation with tank carbonation
+        - Add dosage instead of deciding the base blend
+        correctIndex: 0
+        explanation: Reserve wines expand the blending palette across years; a consistent style still needs tasting
+          and stock management.
+        sourceCitationId: src_d4depth_champ_houses
+      ki_d4depth_champ_vintage:
+        prompt: A buyer sees a year on Champagne and a higher price. Which explanation is defensible?
+        options:
+        - The year is a bottling date and fixes sweetness
+        - The grapes are from that harvest, with at least three years of cellar ageing
+        - The year means the wine is rosé and hand-riddled
+        - The year proves a higher tasting score than non-vintage
+        correctIndex: 1
+        explanation: The year indicates the harvest; the current minimum cellar period is longer for vintage.
+        sourceCitationId: src_wset_found_civc_faq
+      ki_d4depth_champ_rose:
+        prompt: A supplier says rosé Champagne must be made by bleeding pink juice from skins. What correction fits
+          the appellation?
+        options:
+        - Only pink dosage can make rosé Champagne
+        - Rosé Champagne can also be assembled with red Champagne wine
+        - All rosé Champagne is tank-fermented
+        - Rosé Champagne must be sweet
+        correctIndex: 1
+        explanation: Comité Champagne describes maceration and red-wine blending as two permitted routes.
+        sourceCitationId: src_wset_found_civc_faq
+      ki_d4depth_alsace_grapes:
+        prompt: Which buying question avoids treating Crémant d’Alsace as one uniform blend?
+        options:
+        - Ask which permitted grapes and blend are used
+        - Assume every bottle is pure Pinot Blanc
+        - Assume all rosé versions are made from Riesling
+        - Choose by the word Crémant as a quality score
+        correctIndex: 0
+        explanation: The interprofessional body describes different varietal roles within the appellation.
+        sourceCitationId: src_d4depth_alsace_aoc
+      ki_d4depth_alsace_harvest:
+        prompt: A Crémant d’Alsace grower budgets harvest labour. Which production requirement matters?
+        options:
+        - All fruit can be machine-picked and crushed in transit
+        - Whole bunches must be hand-picked and pressed uncrushed
+        - Only the finished sparkling wine must be handled by hand
+        - The grapes must dry before pressing
+        correctIndex: 1
+        explanation: The official production description requires manual whole-bunch harvest and intact pressing.
+        sourceCitationId: src_d4depth_alsace_process
+      ki_d4depth_loire_variety:
+        prompt: A list has Vouvray sparkling and Crémant de Loire. Which comparison is strongest?
+        options:
+        - Both necessarily share the same grape blend
+        - Vouvray can centre Chenin; Crémant de Loire can blend several grapes
+        - Vouvray must use tank fermentation while Crémant uses bottle
+        - Neither needs a grape or method check
+        correctIndex: 1
+        explanation: The regional body identifies Chenin Vouvray and multi-variety Crémant within Loire sparkling.
+        sourceCitationId: src_d4depth_loire_style
+      ki_d4depth_cava_age:
+        prompt: A merchant needs a Cava with at least 30 months of ageing by category. Which label fits?
+        options:
+        - Cava de Guarda
+        - Cava Reserva
+        - Cava Gran Reserva
+        - Any Cava Brut
+        correctIndex: 2
+        explanation: Gran Reserva has a 30-month minimum under current D.O. Cava category guidance.
+        sourceCitationId: src_d4depth_cava_categories
+      ki_d4depth_cava_grapes:
+        prompt: A producer seeks more structure in a classic Cava base blend. Which grape is the cited candidate?
+        options:
+        - Xarel-lo
+        - Trepat
+        - Pinot Meunier
+        - Glera
+        correctIndex: 0
+        explanation: D.O. Cava describes Xarel-lo as contributing body and structure to classic blends.
+        sourceCitationId: src_wset_sf_cava_grapes
+      ki_d4depth_cava_organic:
+        prompt: A 2025-harvest Reserva Cava proposal uses uncertified grapes. What is the issue?
+        options:
+        - Only rosé Cava needs certified fruit
+        - Guarda Superior requires certified organic vineyard sourcing from 2025
+        - Organic rules apply only to Champagne
+        - The 18-month ageing period substitutes for vineyard certification
+        correctIndex: 1
+        explanation: The current D.O. Cava statement ties the higher category to organic certified vineyards from
+          2025.
+        sourceCitationId: src_d4depth_cava_organic
+      ki_d4depth_cava_paraje:
+        prompt: A Cava has spent 36 months on lees but fruit came from unrelated sites. Can ageing alone make it
+          Paraje Calificado?
+        options:
+        - Yes, 36 months is the only condition
+        - Yes, if the dosage is Brut
+        - No, designated-site and production conditions also apply
+        - No, Paraje Calificado requires tank fermentation
+        correctIndex: 2
+        explanation: The current D.O. Cava description specifies origin and production controls beyond ageing.
+        sourceCitationId: src_d4depth_cava_paraje
+      ki_d4depth_prosecco_tank:
+        prompt: A buyer wants a fresh, floral Conegliano Valdobbiadene style. Which production route is described
+          by its consortium?
+        options:
+        - Second fermentation in an autoclave
+        - Carbonation after oxidative barrel ageing
+        - Fortification before disgorgement
+        - Mandatory ten-year bottle lees maturation
+        correctIndex: 0
+        explanation: The consortium links its autoclave method with preservation of Glera perfume.
+        sourceCitationId: src_wset_sf_prosecco_academy
+      ki_d4depth_prosecco_rive:
+        prompt: A Prosecco DOCG Rive offer costs more than a broad DOCG blend. Which check fits the label?
+        options:
+        - Verify named local origin, hand harvest and vintage
+        - Assume the wine had bottle fermentation
+        - Assume Cartizze and Rive are identical
+        - Assume a higher blind-tasting score from the word Rive
+        correctIndex: 0
+        explanation: The Rive category narrows origin and carries hand-harvest and vintage requirements.
+        sourceCitationId: src_d4depth_prosecco_rive
+      ki_d4depth_prosecco_rose:
+        prompt: A winery schedules Prosecco DOC Rosé and standard white DOC. Which requirement differs?
+        options:
+        - Rosé omits Glera
+        - Rosé uses red-vinified Pinot Nero and at least 60 days of second fermentation
+        - Rosé must age 36 months in bottle
+        - White DOC must use red-vinified Pinot Nero
+        correctIndex: 1
+        explanation: The DOC consortium sets a Pinot Nero blend and 60-day sparkling process for Rosé.
+        sourceCitationId: src_d4depth_prosecco_doc
+      ki_d4depth_franciacorta_method:
+        prompt: A supplier describes tank-fermented wine as Franciacorta DOCG. What is the central conflict?
+        options:
+        - Franciacorta requires secondary fermentation in bottle
+        - Franciacorta requires Muscat as the main grape
+        - Franciacorta cannot be dry
+        - Franciacorta must be sparkling red
+        correctIndex: 0
+        explanation: The DOCG regulation reserves Franciacorta for bottle-fermented, disgorged wine.
+        sourceCitationId: src_d4depth_franciacorta_rules
+      ki_d4depth_franciacorta_saten:
+        prompt: A buyer seeks a softer mousse within Franciacorta. Which labelled style merits a trial?
+        options:
+        - Satèn
+        - Any Rosé solely because it is pink
+        - Every Pas Dosé regardless of pressure
+        - A tank-fermented Franciacorta
+        correctIndex: 0
+        explanation: Satèn is the lower-pressure white-grape style described in the DOCG rules.
+        sourceCitationId: src_d4depth_franciacorta_rules
+      ki_d4depth_asti_moscato:
+        prompt: A guest expects full-pressure Asti Spumante but the bottle says Moscato d’Asti. Which distinction
+          matters?
+        options:
+        - Moscato d’Asti has fermentation stopped around 5% and lower pressure
+        - Moscato d’Asti must be dry and aged on lees for five years
+        - Moscato d’Asti is made by adding spirit
+        - The labels describe identical pressure and alcohol
+        correctIndex: 0
+        explanation: The Asti consortium explains the arrested fermentation and lower pressure.
+        sourceCitationId: src_d4depth_asti_moscato
+      ki_d4depth_sekt_winemaker:
+        prompt: A buyer needs a German bottle-fermented Sekt. Which term is the clearest starting point?
+        options:
+        - Winzersekt
+        - Any Sekt regardless of label
+        - Perlwein with added carbon dioxide
+        - A wine labelled only trocken
+        correctIndex: 0
+        explanation: The German Wine Institute specifies traditional bottle fermentation for Winzersekt.
+        sourceCitationId: src_d4depth_sekt_institute
+      ki_d4depth_sekt_vdp:
+        prompt: A supplier invokes VDP.SEKT.PRESTIGE to justify longer inventory time. Which claim is supported?
+        options:
+        - It requires at least 36 months on lees
+        - It is identical to all Sekt b.A.
+        - It allows carbonation instead of fermentation
+        - It guarantees the best blind-tasting score
+        correctIndex: 0
+        explanation: VDP lists a 36-month lees minimum for its Prestige tier.
+        sourceCitationId: src_d4depth_sekt_vdp
+      ki_d4depth_britain_variety:
+        prompt: A guest asks whether every Welsh or English sparkling wine uses the Champagne trio. Which response
+          is accurate?
+        options:
+        - Yes, the trio is mandatory for every bottle
+        - No, traditional-method trio blends are prominent but other grapes and styles exist
+        - No, all examples are carbonated Bacchus
+        - Yes, the climate fixes one recipe
+        correctIndex: 1
+        explanation: WineGB identifies both classic varieties and alternative sparkling routes.
+        sourceCitationId: src_d4depth_british_style
+      ki_d4depth_britain_frost:
+        prompt: A British producer promises a fixed sparkling release despite spring frost risk. Which planning
+          issue should a buyer raise?
+        options:
+        - Ask how budburst, frost protection and reserve stocks affect volume
+        - Assume frost only changes dosage
+        - Assume a cool climate guarantees identical yields
+        - Ignore vineyard risk because wine is bottle-fermented
+        correctIndex: 0
+        explanation: WineGB links budburst to frost management and reports reserves as one route to multi-vintage
+          consistency.
+        sourceCitationId: src_d4depth_british_frost
+      ki_d4depth_au_shiraz:
+        prompt: Two Australian Sparkling Shiraz bottles differ in price. Which check is essential before attributing
+          it to method?
+        options:
+        - Verify their actual sparkling method, dosage and ageing
+        - Assume both are traditional method
+        - Assume both have no tannin
+        - Assume all sparkling reds are sweet
+        correctIndex: 0
+        explanation: Wine Australia documents several production methods and styles for sparkling Shiraz.
+        sourceCitationId: src_d4depth_au_shiraz
+      ki_d4depth_nz_aromatic:
+        prompt: A New Zealand producer proposes a fruit-led sparkling Sauvignon Blanc. Which method comparison is
+          useful?
+        options:
+        - Compare tank against bottle routes for fruit and lees character
+        - Assume every New Zealand sparkling is traditional method
+        - Assume Sauvignon Blanc cannot be sparkling
+        - Infer a superior score from tank production
+        correctIndex: 0
+        explanation: The national trade textbook documents aromatic sparkling styles and multiple methods.
+        sourceCitationId: src_d4depth_nz_textbook
+      ki_d4depth_za_chenin:
+        prompt: A buyer assumes every Cap Classique is Chardonnay and Pinot Noir. What is the useful correction?
+        options:
+        - Chenin Blanc has also been used, so check the actual blend
+        - Cap Classique must contain Glera
+        - Cap Classique is always carbonated
+        - The grape blend is legally identical to Champagne
+        correctIndex: 0
+        explanation: The producer association records the Chenin origin and current diversity of grapes.
+        sourceCitationId: src_d4depth_za_history
+      ki_d4depth_us_blend:
+        prompt: A California Blanc de Blancs has extra texture despite a steel-led base. Which documented choice
+          could explain it?
+        options:
+        - Blend some barrel-fermented or malolactic base lots
+        - Assume added spirit before bottling
+        - Assume all California Blanc de Blancs use tank carbonation
+        - Treat origin alone as the explanation
+        correctIndex: 0
+        explanation: The producer technical sheet describes selective barrel and malolactic lots in its cuvée.
+        sourceCitationId: src_d4depth_us_schramsberg
