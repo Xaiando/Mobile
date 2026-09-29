@@ -1,0 +1,169 @@
+# Original source-keyed decisions and self-reviewed cases; not an exam mark scheme.
+question_templates:
+  - id: qt_d1vp_case_vines
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: d1vp_vine_renewal
+    prompt_template: "A healthy mature block needs a different fruiting cultivar in some rows and replacements in several gaps. The grower also wants to conserve valued variation from an old block; the site's phylloxera status is uncertain. Compare topworking, layering, nursery replanting and massal selection. Recommend the first assessments, explain which choice solves which problem, state practical tradeoffs and identify what appearance alone cannot prove."
+    parameters:
+      scope_node_ids: [n_d1vp_case_vines]
+      key_points: {CASE_ACTION: Map viable trunks gaps and planting material, CASE_REASON: Graft versus layer versus selection, CASE_TRADEOFF: Labour time and establishment, CASE_LIMITATION: Test health and own-rooted phylloxera risk}
+  - id: qt_d1vp_case_smoke
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: d1vp_fire_smoke
+    prompt_template: "A fire crossed one part of a vineyard; another unburnt block received smoke before harvest. Build separate assessments for vine survival and smoke risk. Include immediate vineyard actions, fruit sampling, interpretation and a small-lot ferment where possible. Explain the time and cost tradeoff and why an apparently clean early tasting is insufficient."
+    parameters:
+      scope_node_ids: [n_d1vp_case_smoke]
+      key_points: {CASE_ACTION: Restore water audit and sample, CASE_REASON: Physical injury versus smoke compounds, CASE_TRADEOFF: Evidence costs time, CASE_LIMITATION: Bound markers and sensory uncertainty}
+  - id: qt_d1vp_case_pack
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: d1vp_packaging_trial
+    prompt_template: "A fresh white wine may be sold in a pouch, aluminium can or glass bottle with a glass stopper. Distribution could take months. Design a small comparative packaging trial that accounts for wine-specific compatibility, oxygen and sensory change. Compare transport and shelf-life tradeoffs, and explain why the material name alone cannot establish an ageing claim."
+    parameters:
+      scope_node_ids: [n_d1vp_case_pack]
+      key_points: {CASE_ACTION: Trial filled packages, CASE_REASON: Distinct interfaces and failure routes, CASE_TRADEOFF: Weight and shelf life, CASE_LIMITATION: No universal performance claim}
+  - id: qt_d1vp_case_criteria
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: case_criteria
+    variant: d1vp_criteria
+    prompt_template: "{subject.name}"
+    parameters:
+      scope_node_ids: [n_d1vp_case_vines, n_d1vp_case_smoke, n_d1vp_case_pack]
+      scenario_prompts:
+        n_d1vp_case_vines: "A healthy mature block needs a different fruiting cultivar in some rows and replacements in several gaps. The grower also wants to conserve valued variation from an old block; the site's phylloxera status is uncertain. Compare topworking, layering, nursery replanting and massal selection. Recommend the first assessments, explain which choice solves which problem, state practical tradeoffs and identify what appearance alone cannot prove."
+        n_d1vp_case_smoke: "A fire crossed one part of a vineyard; another unburnt block received smoke before harvest. Build separate assessments for vine survival and smoke risk. Include immediate vineyard actions, fruit sampling, interpretation and a small-lot ferment where possible. Explain the time and cost tradeoff and why an apparently clean early tasting is insufficient."
+        n_d1vp_case_pack: "A fresh white wine may be sold in a pouch, aluminium can or glass bottle with a glass stopper. Distribution could take months. Design a small comparative packaging trial that accounts for wine-specific compatibility, oxygen and sensory change. Compare transport and shelf-life tradeoffs, and explain why the material name alone cannot establish an ageing claim."
+      distractors:
+        n_d1vp_case_vines:
+          - {summary: "Topwork every trunk, including those showing damage, because mature roots always survive", explanation: "Topworking depends on a viable existing vine; structural and health assessment comes first."}
+          - {summary: "Use untested old-vine cuttings because massal selection guarantees virus-free diversity", explanation: "IFV cautions that massal selection without sanitary testing can transfer important virus diseases."}
+        n_d1vp_case_smoke:
+          - {summary: "Use smoke-marker tests as the only measure of whether burnt vine trunks can recover", explanation: "Direct fire damage requires a separate audit of vine tissue, irrigation and infrastructure."}
+          - {summary: "Release all unburnt fruit after a clean early smell, without testing bound precursors", explanation: "AWRI advises marker analysis including glycosides and interpretation against background."}
+        n_d1vp_case_pack:
+          - {summary: "Assign one shelf-life number to every pouch because all plastic films are identical", explanation: "AWRI says information on pouch performance is limited; the actual film and filled wine need trials."}
+          - {summary: "Skip compatibility trials because aluminium and glass themselves are impermeable", explanation: "Can liner/seam and glass-stopper sealing ring/bottle fit govern the actual package."}
+  - id: qt_d1vp_choices
+    relation_type: PRINCIPLE_EXPLANATION
+    direction: forward
+    mode: authored_choice
+    variant: d1vp_decisions
+    prompt_template: "{subject.name}"
+    parameters:
+      item_choices:
+        ki_d1vp_topwork:
+          prompt: "A sound established vineyard needs a new fruiting cultivar. Which option retains its roots?"
+          options:
+            - "Graft the new scion onto the viable standing vine."
+            - "Bury a neighbouring cane into every existing trunk."
+            - "Freeze the old vines before changing their cultivar."
+            - "Select bunches at harvest and keep the old scion."
+          correctIndex: 0
+          explanation: "UC Cooperative Extension describes grafting over a sound established vine to change its fruiting variety."
+          sourceCitationId: src_d1vp_uc_graft
+        ki_d1vp_layer:
+          prompt: "A grower uses a long cane from a neighbouring vine to fill a planting gap. What defines layering?"
+          options:
+            - "The cane is severed before it contacts the soil."
+            - "The cane roots while attached to its parent vine."
+            - "The neighbour is replaced with nursery rootstock."
+            - "The new scion is grafted to the old trunk head."
+          correctIndex: 1
+          explanation: "UC Davis describes a buried cane fed by its parent vine until it forms roots and can be detached."
+          sourceCitationId: src_d1vp_uc_propagation
+        ki_d1vp_massal:
+          prompt: "A grower propagates cuttings from several selected old vines. Which selection method is this?"
+          options:
+            - "A single-clone multiplication from one mother vine."
+            - "A graft made only onto mature existing trunks."
+            - "Massal selection from a chosen vine population."
+            - "A laboratory freeze of harvested grape berries."
+          correctIndex: 2
+          explanation: "IFV defines massal selection as sampling and propagating shoots from selected plants in a plot."
+          sourceCitationId: src_d1vp_ifv_selection
+        ki_d1vp_massal_health:
+          prompt: "What additional step matters when old-vine cuttings are chosen by appearance?"
+          options:
+            - "Assume old vines are automatically free of viruses."
+            - "Skip records if the cuttings all look vigorous."
+            - "Use grafting to erase every virus in the scion."
+            - "Screen the source material for important viruses."
+          correctIndex: 3
+          explanation: "IFV warns that unscreened massal material can transmit fanleaf and leafroll viruses."
+          sourceCitationId: src_d1vp_ifv_selection
+        ki_d1vp_fire:
+          prompt: "After flames cross a vineyard, what should the grower assess first?"
+          options:
+            - "Water access, vine injury and damaged infrastructure."
+            - "Only the grape's free volatile phenol level, without inspecting vine damage."
+            - "Whether a new closure improves wine ageing."
+            - "Whether every nearby unburnt row must be removed."
+          correctIndex: 0
+          explanation: "AWRI recommends restoring irrigation and auditing direct vine and infrastructure damage."
+          sourceCitationId: src_d1vp_awri_fire
+        ki_d1vp_smoke:
+          prompt: "An unburnt vineyard received smoke before harvest. What gives a better risk assessment?"
+          options:
+            - "Judge only whether one fresh berry smells smoky during a quick field tasting."
+            - "Measure volatile phenols and glycosides in sampled fruit."
+            - "Assume no direct burn means no possible smoke effect."
+            - "Use canopy colour as a quantitative smoke marker."
+          correctIndex: 1
+          explanation: "AWRI calls for grape analysis of both marker classes and interpretation against background."
+          sourceCitationId: src_d1vp_awri_smoke
+        ki_d1vp_cryo:
+          prompt: "What is cryoextraction in the OIV's harvested-grape guidance?"
+          options:
+            - "Leave grapes to freeze naturally on the vine before a frozen harvest."
+            - "Freeze the finished wine after fermentation and remove ice later."
+            - "Artificially freeze harvested grapes, then press them."
+            - "Warm must before using a vacuum extractor."
+          correctIndex: 2
+          explanation: "The OIV specifies freezing harvested grapes in a cold room or with liquid nitrogen, then pressing for concentrated must."
+          sourceCitationId: src_d1vp_oiv_cryo
+        ki_d1vp_ice:
+          prompt: "Which distinction is essential before calling a wine ice wine under the OIV definition?"
+          options:
+            - "The harvested grapes were chilled with nitrogen after leaving the vineyard."
+            - "The must was concentrated after fermentation in a winery freezing tank."
+            - "The berries were dried on indoor racks."
+            - "The grapes froze on the vine and were pressed frozen."
+          correctIndex: 3
+          explanation: "OIV distinguishes naturally frozen vineyard fruit from artificial cryoextraction; local labelling rules still need checking."
+          sourceCitationId: src_d1vp_oiv_ice
+        ki_d1vp_pouch:
+          prompt: "A wine pouch is proposed for a six-month distribution route. What is the sound first decision?"
+          options:
+            - "Test the filled film-and-seal system over the route."
+            - "Assign every pouch the same ageing period, irrespective of film or wine."
+            - "Assume plastic never absorbs the aroma compounds of this particular wine."
+            - "Ignore oxygen because the pack is light."
+          correctIndex: 0
+          explanation: "AWRI reports limited pouch performance information and calls for pack- and wine-specific evaluation."
+          sourceCitationId: src_d1vp_awri_pack
+        ki_d1vp_can:
+          prompt: "What makes a low-oxygen aluminium can unsuitable for some wines despite its barrier?"
+          options:
+            - "The can necessarily admits more oxygen than glass."
+            - "A faulty liner or seam can expose wine to metal."
+            - "All white wines are legally barred from cans."
+            - "Every can has a fixed multiyear shelf life."
+          correctIndex: 1
+          explanation: "AWRI details liner and double-seam defects, corrosion and hydrogen sulfide risks."
+          sourceCitationId: src_d1vp_awri_can
+        ki_d1vp_glass:
+          prompt: "A winery switches to a glass stopper. What must its trial include?"
+          options:
+            - "Only the stopper's bulk glass composition, ignoring its ring and bottle."
+            - "Only a claim that glass is impermeable, without checking closure fit."
+            - "Bottle-neck fit, sealing ring and filled-pack oxygen."
+            - "The pouch film used for another wine."
+          correctIndex: 2
+          explanation: "Vinolok describes a bottle, stopper, sealing ring and capsule system; the assembled package needs evaluation."
+          sourceCitationId: src_d1vp_vinolok
