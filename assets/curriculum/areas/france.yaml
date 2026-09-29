@@ -449,9 +449,11 @@ knowledge_item_prerequisites:
 # CM-6: 1 recognize (MCQ), 2 also forward recall, 3 also reverse recall.
 certification_knowledge_mappings:
   # Foundations, visible to every higher level through the track chains
-  - { certification_id: WSET_L2, knowledge_item_id: ki_chablis_grape, importance: core, minimum_depth: 1 }
-  - { certification_id: WSET_L2, knowledge_item_id: ki_champagne_chardonnay, importance: core, minimum_depth: 1 }
-  - { certification_id: WSET_L2, knowledge_item_id: ki_champagne_pinot_noir, importance: core, minimum_depth: 1 }
+  # Level 2 asks learners to connect Chardonnay with Chablis and the leading
+  # sparkling grapes with Champagne; recall at depth 2 is a useful study aim.
+  - { certification_id: WSET_L2, knowledge_item_id: ki_chablis_grape, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L2, knowledge_item_id: ki_champagne_chardonnay, importance: core, minimum_depth: 2 }
+  - { certification_id: WSET_L2, knowledge_item_id: ki_champagne_pinot_noir, importance: core, minimum_depth: 2 }
   - { certification_id: WSET_L2, knowledge_item_id: ki_champagne_method, importance: core, minimum_depth: 2 }
   - { certification_id: CMS_INTRODUCTORY, knowledge_item_id: ki_chablis_grape, importance: core, minimum_depth: 1 }
   - { certification_id: CMS_INTRODUCTORY, knowledge_item_id: ki_champagne_method, importance: core, minimum_depth: 1 }

@@ -1755,6 +1755,28 @@ source_citations:
     document_identifier: Decreto-Lei 97/2020, 16 November 2020
     url: https://diariodarepublica.pt/dr/detalhe/decreto-lei/97-2020-148599584
     accessed_on: 2026-09-27
+  - id: src_wset_l2_geo_ttb_county_chart
+    kind: regulator_register
+    title: Authorized appellations of origin - U.S. counties
+    publisher: Alcohol and Tobacco Tax and Trade Bureau
+    jurisdiction: US
+    document_identifier: TTB county appellation chart, California entries, 1 July 2004
+    url: https://www.ttb.gov/system/files?file=images%2Fpdfs%2Fus_by_county_state.pdf
+    accessed_on: 2026-09-29
+  - id: src_wset_l2_geo_ca_counties
+    kind: government_publication
+    title: Counties in California census regions
+    publisher: California Complete Count Office
+    jurisdiction: US
+    url: https://census.ca.gov/regions/
+    accessed_on: 2026-09-29
+  - id: src_wset_l2_geo_navarra_body
+    kind: reference_work
+    title: Navarra Denomination of Origin - geographic overview
+    publisher: Consejo Regulador de la Denominación de Origen Navarra
+    jurisdiction: ES
+    url: https://navarrawine.com/en/d-o-navarra/
+    accessed_on: 2026-09-29
 knowledge_item_citations:
   - knowledge_item_id: ki_wset_geo_napa_county_location
     source_citation_id: src_atlas_us_avas
@@ -1762,6 +1784,15 @@ knowledge_item_citations:
   - knowledge_item_id: ki_wset_geo_sonoma_county_location
     source_citation_id: src_atlas_us_avas
     locator: Sonoma County; geographical area or listed regional context
+  - knowledge_item_id: ki_wset_geo_sonoma_county_location
+    source_citation_id: src_wset_l2_geo_ttb_county_chart
+    locator: California county appellations table, Sonoma County
+  - knowledge_item_id: ki_wset_geo_sonoma_county_location
+    source_citation_id: src_wset_nw_ttb_origin
+    locator: County and AVA are distinct appellation-of-origin categories
+  - knowledge_item_id: ki_wset_geo_sonoma_county_location
+    source_citation_id: src_wset_l2_geo_ca_counties
+    locator: Region 2, Sonoma among California counties
   - knowledge_item_id: ki_wset_geo_mendocino_county_location
     source_citation_id: src_atlas_us_avas
     locator: Mendocino County; geographical area or listed regional context
@@ -1771,6 +1802,15 @@ knowledge_item_citations:
   - knowledge_item_id: ki_wset_geo_santa_barbara_county_location
     source_citation_id: src_atlas_us_avas
     locator: Santa Barbara County; geographical area or listed regional context
+  - knowledge_item_id: ki_wset_geo_santa_barbara_county_location
+    source_citation_id: src_wset_l2_geo_ttb_county_chart
+    locator: California county appellations table, Santa Barbara County
+  - knowledge_item_id: ki_wset_geo_santa_barbara_county_location
+    source_citation_id: src_wset_nw_ttb_origin
+    locator: County and AVA are distinct appellation-of-origin categories
+  - knowledge_item_id: ki_wset_geo_santa_barbara_county_location
+    source_citation_id: src_wset_l2_geo_ca_counties
+    locator: Region 5, Santa Barbara among California counties
   - knowledge_item_id: ki_wset_geo_bourgogne_aoc_location
     source_citation_id: src_inao_cdc_bourgogne
     locator: Bourgogne (AOC); geographical area or listed regional context
@@ -1822,6 +1862,9 @@ knowledge_item_citations:
   - knowledge_item_id: ki_wset_geo_navarra_do_location
     source_citation_id: src_wset_eu_es_register
     locator: Navarra (DO); geographical area or listed regional context
+  - knowledge_item_id: ki_wset_geo_navarra_do_location
+    source_citation_id: src_wset_l2_geo_navarra_body
+    locator: Geographic overview, vineyards near Pamplona to the Ebro
   - knowledge_item_id: ki_wset_geo_calatayud_location
     source_citation_id: src_wset_eu_es_register
     locator: Calatayud (DO); geographical area or listed regional context
