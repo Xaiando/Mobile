@@ -360,7 +360,7 @@ void main() {
   );
 
   test(
-    '1391 cited choices are generated and served across WSET and CMS tracks',
+    '1431 cited choices are generated and served across WSET and CMS tracks',
     () async {
       final db = openTestDatabase();
       try {
@@ -385,7 +385,7 @@ void main() {
                   template.id == 'qt_d5f_authored_choice',
             )
             .toList();
-        expect(templates, hasLength(70));
+        expect(templates, hasLength(71));
         final expectedIds = {
           for (final template in templates)
             ...((jsonDecode(template.parameters!)
@@ -556,6 +556,9 @@ void main() {
         final l3LocationClueIds = idsForTemplate(
           'qt_wset_l3_geography_location_clues_35',
         );
+        final l3WinemakingPrincipleIds = idsForTemplate(
+          'qt_wset_l3_winemaking_principle_closure_40',
+        );
         final diplomaBusinessIds = idsForTemplate(
           'qt_wset_d2_business_application_29',
         );
@@ -592,6 +595,7 @@ void main() {
           ...l3RemainingPrincipleIds,
           ...l3FinalGeographyIds,
           ...l3LocationClueIds,
+          ...l3WinemakingPrincipleIds,
           ...diplomaBusinessIds,
           ...d3RegionalIds,
           ...d4RegionalIds,
@@ -616,7 +620,7 @@ void main() {
           'ki_reg_ib_sacra_terraces',
           'ki_reg_ib_dao_encruzado',
         }, reason: 'Diploma and Level 3 regional prompts share two items');
-        expect(expectedIds, hasLength(1383));
+        expect(expectedIds, hasLength(1423));
         expect(levelOneIds, hasLength(132));
         expect(levelTwoIds, hasLength(309));
         expect(sharedGrapeIds, hasLength(52));
@@ -654,6 +658,7 @@ void main() {
         expect(l3RemainingPrincipleIds, hasLength(40));
         expect(l3FinalGeographyIds, hasLength(11));
         expect(l3LocationClueIds, hasLength(35));
+        expect(l3WinemakingPrincipleIds, hasLength(40));
         expect(diplomaBusinessIds, hasLength(29));
         expect(d3RegionalIds, hasLength(19));
         expect(d4RegionalIds, hasLength(24));
@@ -670,7 +675,7 @@ void main() {
                OR t.id = 'qt_d5f_authored_choice')
         ORDER BY q.knowledge_item_id
       ''').get();
-        expect(rows, hasLength(1391));
+        expect(rows, hasLength(1431));
         final actual = {
           for (final row in rows)
             row.read<String>('knowledge_item_id'): row.read<String>(
