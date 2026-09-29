@@ -1,0 +1,375 @@
+# Bounded WSET Level 3 business and price decisions on existing cited principles.
+# All choices remain expert-unverified.
+question_templates:
+- id: qt_wset_l3_business_gap_30
+  relation_type: PRINCIPLE_EXPLANATION
+  direction: forward
+  mode: authored_choice
+  variant: wset_l3_business_gap_30
+  prompt_template: '{subject.name}'
+  parameters:
+    item_choices:
+      ki_biz_mixed_cost:
+        prompt: A mobile bottling contract charges 4,000 units per season plus 0.30 per bottle. The
+          plan rises from 10,000 to 12,000 bottles. How should the extra 2,000 bottles enter a break-even
+          estimate?
+        options:
+        - Keep the 4,000 fixed component and add 600 units of volume cost
+        - Treat the entire 7,000-unit original bill as a new fixed charge
+        - Add 4,600 units by charging the retainer again with the new bottles
+        - Hold the 10,000-bottle total cost unchanged at the larger volume
+        correctIndex: 0
+        explanation: SBA separates semi-variable charges into fixed and volume-dependent parts. At
+          the stated rate the extra 2,000 bottles add 600 units, with the retainer unchanged.
+        sourceCitationId: src_biz_sba_planning
+      ki_biz_price_review:
+        prompt: Glass and freight costs rise after a winery set its annual trade list. What is the
+          soundest price-review step?
+        options:
+        - Apply last year's percentage markup to the old unit cost without updating inputs
+        - Recalculate unit cost and margin, then test customer value against rival offers
+        - Increase every SKU by the same percentage as glass, regardless of its packaging share
+        - Assume a higher production cost automatically creates equal willingness to pay
+        correctIndex: 1
+        explanation: Australian Government pricing guidance calls for current costs and market/customer
+          value. A historic markup does not preserve the same margin after inputs change.
+        sourceCitationId: src_biz_au_pricing
+      ki_reg_ah_eisenberg_access:
+        prompt: An Eisenberg grower compares a narrow steep parcel with a mechanisable block. What
+          belongs in the parcel budget?
+        options:
+        - Assign a fixed regional labour surcharge without observing either parcel
+        - Treat steepness as proof that the finished wine earns a premium
+        - Record hand-work and access hours before inferring a cost difference
+        - Use the mechanisable block's labour hours for both parcels
+        correctIndex: 2
+        explanation: The Eisenberg DAC body describes steep, stony, narrow vineyards often worked
+          by hand; the producer still needs actual labour records for a cost comparison.
+        sourceCitationId: src_reg_ah_eisenberg
+      ki_reg_fm_collioure_work:
+        prompt: A Collioure grower maintains terraces that machines cannot easily enter. Which cost
+          comparison is defensible?
+        options:
+        - Rank the finished wine as higher quality from steepness alone
+        - Allocate the same mechanisation cost to every hillside parcel
+        - Capitalise terrace upkeep but omit recurring repair and hand-work hours
+        - Include measured terrace maintenance and manual work in the lot budget
+        correctIndex: 3
+        explanation: The historical INAO specification describes rarely mechanisable terraces; extra
+          work can affect costs, while quality needs separate wine evidence.
+        sourceCitationId: src_reg_fm_collioure
+      ki_reg_fm_rose_cooling:
+        prompt: A Provence rosé team proposes pre-dawn picking to deliver cooler fruit. Which whole-budget
+          comparison is strongest?
+        options:
+        - Compare lower cooling energy with the actual night labour and logistics costs
+        - Assume the cooler fruit makes every harvest shift cheaper after paying night labour
+        - Budget no cooling after early picking, without measuring fruit temperature
+        - Use wine colour alone to decide whether early picking saves money
+        correctIndex: 0
+        explanation: CIVP notes that early-picked fruit needs less energy to cool. Net savings still
+          depend on the producer's labour, equipment and transport.
+        sourceCitationId: src_reg_fm_provence_vines
+      ki_reg_isi_etna_market:
+        prompt: An Etna producer documents extra terrace labour and proposes a higher release price.
+          What additional evidence is needed?
+        options:
+        - Assume higher terrace cost proves both better wine and higher demand
+        - Test target buyers and rival offers alongside cost-recovery price
+        - Set price solely from production cost and ignore customer response
+        - Copy the region's highest shelf price without comparing the wines
+        correctIndex: 1
+        explanation: Australian Government pricing guidance separates cost recovery from the price
+          customers may accept. The supplied Etna labour cost is not itself demand evidence.
+        sourceCitationId: src_biz_au_pricing
+      ki_reg_sa_mendoza_capacity:
+        prompt: A Mendoza winemaker faces Cabernet and Malbec lots ready in the same short window,
+          as described by one producer in 2020. What operational plan addresses the constraint?
+        options:
+        - Assume grape readiness will always stagger across varieties and years
+        - Allocate cellar tanks solely by variety reputation, ignoring intake timing
+        - Schedule harvest, press and fermentation capacity for overlapping intake
+        - Apply the 2020 harvest dates unchanged to every later vintage
+        correctIndex: 2
+        explanation: The 2020 Wines of Argentina report records a producer's compressed harvest.
+          The lesson is to plan capacity for the actual vintage, not to reuse historic dates.
+        sourceCitationId: src_reg_sa_mendoza_2020
+      ki_reg_sh_price_costs:
+        prompt: Two Australian regional wines receive similar tasting assessments, but one lot has
+          documented higher production and delivery cost. Which pricing input changes?
+        options:
+        - The higher-cost wine must be sensorially superior to the other
+        - Both wines must have one shelf price because the tasting results align
+        - Customer willingness to pay rises automatically with the producer's bill
+        - Its cost-recovery floor may rise; sale price still needs market testing
+        correctIndex: 3
+        explanation: Australian Government guidance treats production and selling cost as pricing
+          inputs, while customer value and competing offers constrain the achievable price.
+        sourceCitationId: src_biz_au_pricing
+      ki_reg_sh_price_demand:
+        prompt: A buyer claims a famous regional name alone supports a fixed premium. Which test
+          best checks the claim?
+        options:
+        - Compare buyer responses and competing offers at that price
+        - Use the appellation name as a substitute for buyer research
+        - Increase price until it matches the costliest regional competitor
+        - Assume every customer values regional reputation equally
+        correctIndex: 0
+        explanation: Australian Government pricing advice includes customer perceptions and alternatives.
+          A name can aid positioning but does not determine a universal premium.
+        sourceCitationId: src_biz_au_pricing
+      ki_spark_automated_riddling:
+        prompt: A traditional-method cellar has a large bottle run and limited hand-turning labour.
+          What process choice addresses sediment collection?
+        options:
+        - Skip sediment collection because the bottles will be disgorged later
+        - Automate riddling while still moving sediment to the bottle neck
+        - Move wine to a pressure tank before its bottle fermentation finishes
+        - Add more tirage sugar so the sediment dissolves in the bottle
+        correctIndex: 1
+        explanation: Comité Champagne describes mechanical riddling of bottles; hand turning is not
+          essential to move the sediment toward the neck.
+        sourceCitationId: src_spark_riddling
+      ki_wset_nw_murray_darling_styles:
+        prompt: A buyer wants a soft, fruit-led red for early release at an accessible shelf price.
+          Which Murray-Darling sourcing inference is bounded?
+        options:
+        - Every Murray-Darling red must be sold in the lowest price band
+        - The region cannot produce a more ambitious wine than the requested style
+        - Shiraz or Cabernet can fit the brief, but taste and quote the actual lot
+        - Buy by regional style alone without checking the offered vintage
+        correctIndex: 2
+        explanation: Wine Australia describes approachable, fruit-led Shiraz and Cabernet in lower
+          to mid-price ranges, without fixing the style or price of every bottle.
+        sourceCitationId: src_wset_nw_murray_darling
+      ki_wset_nwa_argentina_diverse_cost:
+        prompt: A buyer compares a windy Patagonia plot with an easier-access Argentine alternative.
+          Which budget question matters before assuming Patagonia costs more?
+        options:
+        - Use regional averages without checking wind exposure or the site's access
+        - Assume wind exposure always improves fruit and removes protection costs
+        - Set the retail premium from the Patagonia name without testing demand
+        - Check the stated shelter, labour and equipment needs of each actual plot
+        correctIndex: 3
+        explanation: Wines of Argentina documents Patagonia's wind context. Site-specific protection
+          and operating inputs, not the name, determine the case budget.
+        sourceCitationId: src_reg_sa_patagonia
+      ki_wset_nwa_breede_cost:
+        prompt: A Worcester Chenin lot needs water delivery; a Robertson Chardonnay is assigned early
+          neutral-vessel release. Which planning comparison respects both briefs?
+        options:
+        - Cost the Chenin's water and Chardonnay's actual cellar route separately
+        - Assign new-barrel cost to both because they share the Breede River Valley
+        - Use the regional name to infer which finished wine tastes better
+        - Use only cellar purchases because vineyard water was budgeted last year
+        correctIndex: 0
+        explanation: Wine Australia's whole-business planning approach costs actual growing and cellar
+          inputs. Neither common regional origin nor the stated costs ranks quality.
+        sourceCitationId: src_wset_prod_planning
+      ki_wset_nwa_canterbury_cost:
+        prompt: Wet-weather sorting removes 10% of a Canterbury Riesling lot while picking and cellar
+          costs stay fixed. What happens to cost per saleable litre?
+        options:
+        - It falls because sorting increases the number of saleable litres
+        - It rises because fixed spending is spread over less saleable fruit
+        - It stays fixed because the rejected fruit still counted at harvest
+        - It becomes a selling price rather than a production cost
+        correctIndex: 1
+        explanation: The supplied yield loss reduces the saleable denominator. Penn State Extension
+          supports tracking production and financial inputs; no wine-quality gain is established.
+        sourceCitationId: src_biz_models_psu_business
+      ki_wset_nwa_chile_aconcagua_cost:
+        prompt: A cellar compares an Aconcagua Cabernet assigned purchased oak with a Leyda Sauvignon
+          Blanc assigned early release. How should it allocate the added barrel bill?
+        options:
+        - Spread the barrel bill across both wines because both are Chilean
+        - Assign it to Leyda because coastal origins always need more wood
+        - Charge barrels to Cabernet and assess each wine's buyer value
+        - Treat purchased oak as proof the Cabernet will sell for more
+        correctIndex: 2
+        explanation: Penn State Extension's winery business resources support lot-specific input
+          budgeting. The supplied wood purchase belongs to the Cabernet plan, not a regional hierarchy.
+        sourceCitationId: src_biz_models_psu_business
+      ki_wset_nwa_chile_north_cost:
+        prompt: An Elqui Syrah parcel requires water delivery while a Limarí Chardonnay is proposed
+          for longer wood maturation. What should the owner cost?
+        options:
+        - Only latitude, because it fixes the cost of both northern wines
+        - Purchased barrels for both lots regardless of the stated style plan
+        - Only harvest labour, leaving water and cellar time out of the budget
+        - The Syrah's water service and the Chardonnay's wood and holding
+        correctIndex: 3
+        explanation: Wine Australia recommends aligning vineyard and winemaking inputs with the intended
+          style and market. The two specified expense routes are separate.
+        sourceCitationId: src_wset_prod_planning
+      ki_wset_nwa_chile_south_cost:
+        prompt: 'Three Chilean lots have different plans: early-release Curicó Sauvignon, selected
+          Maule Cabernet, and longer-held Cachapoal Carmenère. Which cost sheet is usable?'
+        options:
+        - Assign selection and reduced usable yield to Maule, holding to Cachapoal
+        - Pool all extra costs into Curicó because its release date comes first and its sales pay
+          early
+        - Assign the same cellar-holding cost to all three by country of origin
+        - Skip yield accounting for Maule because rejected fruit was harvested
+        correctIndex: 0
+        explanation: Penn State Extension's winery-management material supports costing by actual
+          inputs and output. The supplied selection and holding belong to different lots.
+        sourceCitationId: src_biz_models_psu_business
+      ki_wset_nwa_coast_cost:
+        prompt: Comparable Santa Barbara and Monterey Chardonnay lots begin with equal costs. Monterey
+          requires extra sorting and longer lees holding. Which change belongs in its case budget?
+        options:
+        - Charge the extra sorting to Santa Barbara because both are coastal
+        - Add sorting labour, account for lower saleable fruit, and price vessel time
+        - Keep equal unit cost because initial grape purchases were equal and both lots are coastal
+        - Treat lees holding as free because the vessel is already owned
+        correctIndex: 1
+        explanation: The specified Monterey work raises labour, reduces usable output and uses capacity.
+          Penn State Extension's business planning resources support these input checks.
+        sourceCitationId: src_biz_models_psu_business
+      ki_wset_nwa_coastal_region_cost:
+        prompt: A South African Coastal Region plan pairs Paarl water delivery, Durbanville fruit
+          selection and Swartland extended holding. Which allocation is defensible?
+        options:
+        - Spread all three inputs equally because the lots share one broad region
+        - Charge holding to Durbanville because it has the smallest usable crop
+        - Budget water, sorting and longer holding against their respective lots
+        - Use each district name as a substitute for tracking its actual costs
+        correctIndex: 2
+        explanation: The supplied operations are lot-specific. Penn State Extension advises finance
+          and production planning; regional grouping cannot replace an input budget.
+        sourceCitationId: src_biz_models_psu_business
+      ki_wset_nwa_finger_lakes_cost:
+        prompt: Two Finger Lakes Rieslings have the same initial crop cost. One needs extra sorting,
+          retains sugar and releases six months later. What should its manager add to the plan?
+        options:
+        - Only the sweeter wine's higher target shelf price as a cost
+        - No extra cost, because both lots began with equal crop spend
+        - Only the sugar level, because later release has no cash effect
+        - Sorting, stability care and holding time before testing demand
+        correctIndex: 3
+        explanation: Penn State Extension's winery business resources support tracking production
+          and carrying costs. A sweeter, later wine needs stability and market checks, not an assumed
+          premium.
+        sourceCitationId: src_biz_models_psu_business
+      ki_wset_nwa_gisborne_cost:
+        prompt: A Gisborne Chardonnay reserve lot requires extra selection and six new barrels; a
+          fruit-led lot uses neutral tanks. What determines whether the reserve route is worth funding?
+        options:
+        - Cost its labour and barrels, then test the wine and target buyers
+        - Assume the warmer origin makes the barrel route better by definition
+        - Treat new barrels as free once the purchase order has been placed
+        - Set a premium equal to barrel cost without checking customer value
+        correctIndex: 0
+        explanation: Penn State Extension's winery-management resources support cost and market planning.
+          The supplied extra inputs warrant a budget and sensory-demand check.
+        sourceCitationId: src_biz_models_psu_business
+      ki_wset_nwa_lodi_cost:
+        prompt: A Lodi Zinfandel block has uneven ripeness. Selective hand passes cost more than
+          one sweep but may reject less suitable fruit. Which appraisal is sound?
+        options:
+        - Assume more passes always yield higher quality and a fixed premium
+        - Compare picking hours, usable output and wine result before price
+        - Ignore picking labour because all vines are the same variety
+        - Apply the single-pass cost to both options regardless of staffing
+        correctIndex: 1
+        explanation: Penn State Extension supports tracking labour and usable crop in wine-business
+          plans. Extra selection is a cost, not a guaranteed quality or price uplift.
+        sourceCitationId: src_biz_models_psu_business
+      ki_wset_nwa_nelson_cost:
+        prompt: A Nelson Pinot Gris producer considers twelve extra weeks on lees in the only free
+          tank. A contracted incoming lot arrives in eight weeks. What must the plan include?
+        options:
+        - Only lees-stirring labour because the existing tank is owned
+        - No cost change because both Pinot Gris routes fill equal bottles
+        - A capacity solution or forgone intake, plus later cash receipts
+        - A certain quality premium for the wine with longer lees time
+        correctIndex: 2
+        explanation: Penn State Extension's business planning approach includes finance and production
+          capacity. In this supplied case, holding blocks another use and delays sale.
+        sourceCitationId: src_biz_models_psu_business
+      ki_wset_nwa_niagara_cost:
+        prompt: A Niagara producer pays 24,000 units for harvest and pressing. Naturally frozen fruit
+          yields 1,000 saleable litres versus 2,000 in an ordinary-harvest plan with the same stated
+          spend. What is the frozen route's cost per litre?
+        options:
+        - 12 units per litre because the ordinary lot yields 2,000 litres
+        - 48 units per litre by counting both vintages' 24,000-unit costs
+        - 36 units per litre by adding both unit costs
+        - 24 units per litre, before other processing and selling costs
+        correctIndex: 3
+        explanation: Wine Country Ontario documents Icewine's frozen-fruit process. In the hypothetical
+          figures, 24,000 divided by 1,000 litres is 24 per litre; this is not a real price.
+        sourceCitationId: src_wset_nw_ontario_icewine
+      ki_wset_nwa_okanagan_cost:
+        prompt: Two comparable Okanagan Cabernet lots are available; only one has ripe tannin that
+          integrated with new oak in a trial. How should scarce barrel capacity be allocated?
+        options:
+        - Consider the responsive lot, costing wood and later sale against demand
+        - Put both lots into new oak because the region has warm southern sites
+        - Choose the unresponsive lot because oak will necessarily repair green tannin
+        - Allocate by the regional name without reviewing the actual trials
+        correctIndex: 0
+        explanation: The supplied trial and barrel constraint support a lot-specific decision. Penn
+          State Extension's planning guidance connects cellar inputs with market viability.
+        sourceCitationId: src_biz_models_psu_business
+      ki_wset_nwa_washington_cost:
+        prompt: A Washington vineyard needs irrigation to reach the specified fruit target. Which
+          recurring expenses should its owner record?
+        options:
+        - Only wine packaging, because irrigation belongs outside grape cost
+        - Water delivery, energy and maintenance for the actual system
+        - A standard regional water charge without checking system use
+        - No operating expense once the initial pipes are installed
+        correctIndex: 1
+        explanation: Washington State Wine Commission describes irrigation in its dry growing context;
+          the vineyard must budget the operating inputs actually used.
+        sourceCitationId: src_reg_am_washington
+      ki_wset_prod_cost_cellar:
+        prompt: A winery compares early tank release with a longer small-barrel programme for the
+          same base wine. Which cost categories change?
+        options:
+        - Only the grape purchase, because post-fermentation choices are free
+        - Only the tasting-panel fee, because the same wine volume is held
+        - Barrel purchase or upkeep, handling and occupied cellar capacity
+        - No costs unless the final bottle count changes
+        correctIndex: 2
+        explanation: Wine Australia's whole-business planning links cellar input choices and longer
+          holding to cost and margin decisions; style fit remains separate.
+        sourceCitationId: src_wset_prod_planning
+      ki_wset_prod_cost_land_establishment:
+        prompt: A grower proposes a new steep vineyard that will not deliver a mature crop immediately.
+          What must the investment plan recognise?
+        options:
+        - Defer establishment spending until the first crop is bottled
+        - A guaranteed premium for difficulty of access, before tasting any wine
+        - Record planting cost only after full production and omit financing during establishment
+        - Land access, planting and trellis spending before saleable crop receipts
+        correctIndex: 3
+        explanation: Penn State Extension notes high vineyard establishment costs and the need to
+          assess market demand before investment. The crop and receipts lag the initial spend.
+        sourceCitationId: src_biz_models_psu_vineyard
+      ki_wset_prod_cost_yield:
+        prompt: A vineyard incurs 120,000 units of comparable annual cost. Saleable grapes fall from
+          10,000 to 8,000 kg after selection. What happens to cost per saleable kg?
+        options:
+        - It rises from 12 to 15 units/kg without proving better quality
+        - It falls from 15 to 12 units because fewer grapes need handling
+        - It stays at 12 units because selected fruit still counts as yield
+        - It becomes the shelf price of the finished wine automatically
+        correctIndex: 0
+        explanation: Wine Australia encourages grape-growing cost estimates. The same 120,000 units
+          over 8,000 saleable kilograms gives 15 per kg, not a quality result.
+        sourceCitationId: src_wset_prod_planning
+      ki_wset_prod_price_chain:
+        prompt: A retailer quotes a shelf price far above a winery's ex-cellar receipt. Which explanation
+          should a buyer check before treating the difference as extra wine quality?
+        options:
+        - Vineyard purchase cost alone, treating distribution as part of quality
+        - Packaging, transport, taxes and channel margins alongside demand
+        - Only cellar inputs, assuming every retail channel has equal margins
+        - The assumption that every retail margin reflects sensory quality
+        correctIndex: 1
+        explanation: Wine Australia describes pricing and margins across the supply chain. Shelf
+          price includes downstream cost and market positioning, not only wine production quality.
+        sourceCitationId: src_wset_prod_planning

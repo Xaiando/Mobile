@@ -274,7 +274,7 @@ void main() {
   );
 
   test(
-    '1139 cited choices are generated and served across WSET and CMS tracks',
+    '1169 cited choices are generated and served across WSET and CMS tracks',
     () async {
       final db = openTestDatabase();
       try {
@@ -299,7 +299,7 @@ void main() {
                   template.id == 'qt_d5f_authored_choice',
             )
             .toList();
-        expect(templates, hasLength(56));
+        expect(templates, hasLength(57));
         final expectedIds = {
           for (final template in templates)
             ...((jsonDecode(template.parameters!)
@@ -393,6 +393,7 @@ void main() {
         final europeIds = idsForTemplate('qt_wset_europe_application_67');
         final newWorldIds = idsForTemplate('qt_wset_new_world_application_16');
         final businessIds = idsForTemplate('qt_wset_business_application_26');
+        final l3BusinessGapIds = idsForTemplate('qt_wset_l3_business_gap_30');
         final cmsExampleIds = {
           for (final template in templates)
             if (template.id.startsWith('qt_cms_example_'))
@@ -455,6 +456,7 @@ void main() {
           ...europeIds,
           ...newWorldIds,
           ...businessIds,
+          ...l3BusinessGapIds,
           ...cmsExampleIds,
           ...winemakingSharedIds,
           ...winemakingL3Ids,
@@ -494,13 +496,14 @@ void main() {
           'ki_reg_ib_sacra_terraces',
           'ki_reg_ib_dao_encruzado',
         }, reason: 'Diploma and Level 3 regional prompts share two items');
-        expect(expectedIds, hasLength(1131));
+        expect(expectedIds, hasLength(1161));
         expect(levelOneIds, hasLength(132));
         expect(levelTwoIds, hasLength(309));
         expect(sharedGrapeIds, hasLength(52));
         expect(europeIds, hasLength(67));
         expect(newWorldIds, hasLength(16));
         expect(businessIds, hasLength(26));
+        expect(l3BusinessGapIds, hasLength(30));
         expect(cmsExampleIds, hasLength(12));
         expect(winemakingSharedIds, hasLength(9));
         expect(winemakingL3Ids, hasLength(12));
@@ -532,7 +535,7 @@ void main() {
                OR t.id = 'qt_d5f_authored_choice')
         ORDER BY q.knowledge_item_id
       ''').get();
-        expect(rows, hasLength(1139));
+        expect(rows, hasLength(1169));
         final actual = {
           for (final row in rows)
             row.read<String>('knowledge_item_id'): row.read<String>(
@@ -675,6 +678,7 @@ void main() {
           if (europeIds.contains(id) ||
               winemakingL3Ids.contains(id) ||
               winemakingDepthIds.contains(id) ||
+              l3BusinessGapIds.contains(id) ||
               winemakingGapIds.contains(id) ||
               l3ApplicationIds.contains(id) ||
               l3ViticultureIds.contains(id) ||
