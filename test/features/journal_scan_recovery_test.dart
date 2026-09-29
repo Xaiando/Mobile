@@ -64,7 +64,8 @@ class _MemoryStorage extends RecoveredScanStorage {
   }
 
   @override
-  Future<bool> pickerPathExists(String path) async => pickerPaths.contains(path);
+  Future<bool> pickerPathExists(String path) async =>
+      pickerPaths.contains(path);
 
   @override
   Future<void> completeLostResult() async {

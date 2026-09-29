@@ -32,10 +32,10 @@ question_templates:
       ki_wset_srv_fault_cork:
         prompt: Which observation is a reason to investigate cork-type taint in a wine?
         options:
-        - A musty or damp-cardboard note with muted fruit
-        - A bright red colour by itself
-        - A visible cork fragment with no aroma change
-        - A chilled bottle by itself
+        - "A musty or damp-cardboard note with muted fruit"
+        - "A bright red colour in a clean-smelling young wine"
+        - "A cork fragment while the wine still smells fresh"
+        - "A chilled bottle with fresh, clear fruit aroma"
         correctIndex: 0
         explanation: WSET describes cork taint as potentially musty or damp-cardboard-like and capable of
           dulling fruit; TCA can originate beyond the cork.
@@ -54,10 +54,10 @@ question_templates:
       ki_wset_srv_fault_recheck:
         prompt: A guest detects a faint musty note that a server cannot smell. What is an appropriate response?
         options:
-        - Dismiss it because the server detects no fault
-        - Swirl, smell, and take the concern seriously
-        - Check only whether the cork has visible crumbs
-        - Judge the bottle solely by its colour and price
+        - "Dismiss the concern after smelling the glass once"
+        - "Swirl, smell, and take the concern seriously"
+        - "Inspect the cork for crumbs and ignore the aroma"
+        - "Judge the bottle from its colour and retail price"
         correctIndex: 1
         explanation: WSET says people differ in sensitivity to faint off aromas and recommends swirling, smelling
           and, if needed, tasting the wine.
@@ -76,10 +76,10 @@ question_templates:
       ki_wset_srv_food_fat_complete:
         prompt: A rich, fatty dish also has a sharp sauce. What should guide a wine recommendation?
         options:
-        - Only the fat content
-        - Only the dish's colour
-        - Only the grape name on the menu
-        - The fat and the sauce or seasoning together
+        - "Fat and wine colour, without tasting the sharp sauce"
+        - "Sauce sharpness and bottle price, without the dish's fat"
+        - "Dish colour and grape name, without its seasoning or sauce"
+        - "Fat, sauce sharpness and seasoning considered together"
         correctIndex: 3
         explanation: WSET advises considering the dish's base components, including acidic dressings and other
           accompaniments, rather than selecting a wine from one ingredient alone.
@@ -87,21 +87,21 @@ question_templates:
       ki_wset_srv_food_fat_fresh:
         prompt: How can fat in a dish change the way a tannic wine feels?
         options:
-        - It can make the wine seem smoother
-        - It chemically removes all tannin
-        - It always turns the wine sweet
-        - It creates bubbles in a still wine
+        - "It can soften the wine's tannic grip"
+        - "It can raise the wine's measured tannin content"
+        - "It can make the wine's fruit chemically sweeter"
+        - "It can create bubbles in a still red wine"
         correctIndex: 0
         explanation: WSET's fatty-cheese and steak examples describe food fat softening the perception of
           an astringent, tannic wine.
         sourceCitationId: src_wset_srv_food
       ki_wset_srv_food_salt_soft:
-        prompt: After a salty bite, what can happen to a wine's perceived acidity or bitterness?
+        prompt: "After a salty bite, which paired perceived change does the cited guidance describe as common?"
         options:
-        - They must increase in every wine
-        - They can seem softer
-        - The wine's actual alcohol disappears
-        - The wine becomes sparkling
+        - "Both may seem stronger after the bite"
+        - "Both can seem softer after the bite"
+        - "Acidity may rise while bitterness softens"
+        - "Bitterness may rise while acidity softens"
         correctIndex: 1
         explanation: WSET notes that salt can soften perceived acidity and bitterness; individual response
           can vary.
@@ -131,10 +131,10 @@ question_templates:
       ki_wset_srv_preserve_check:
         prompt: What can a preservation step reasonably do after a wine is opened?
         options:
-        - Delay deterioration without guaranteeing indefinite freshness
-        - Restore aromas already lost without guaranteeing indefinite freshness
-        - Prevent further deterioration and guarantee unchanged flavour
-        - Recover the wine's original character after oxygen exposure
+        - "Slow deterioration for a limited time, depending on the wine"
+        - "Restore aromas that oxidation has already diminished"
+        - "Keep the wine at its initial character for many months"
+        - "Reverse chemical changes from earlier oxygen exposure"
         correctIndex: 0
         explanation: Opening starts loss of aroma and flavour. Preservation can delay deterioration, but it
           cannot guarantee indefinite freshness.

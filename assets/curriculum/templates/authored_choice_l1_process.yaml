@@ -54,10 +54,10 @@ question_templates:
       ki_wset_found_pulp_composition:
         prompt: Which pair of grape-pulp measurements helps a grower judge ripeness for a target wine style?
         options:
-        - Bottle weight and closure length
-        - Sugar and acid levels
-        - Label colour and bottle shape
-        - Cork density and cellar humidity
+        - "Berry diameter and fully developed seed colour"
+        - "Sugar concentration and acid level"
+        - "Pulp volume and berry weight at harvest"
+        - "Skin thickness and cluster length at harvest"
         correctIndex: 1
         explanation: Grape pulp contains sugars and acids, whose levels help guide a style-dependent harvest
           decision.
@@ -65,10 +65,10 @@ question_templates:
       ki_wset_found_ripening:
         prompt: What generally happens to grape sugar and acid as berries ripen after veraison?
         options:
-        - Sugar decreases while acid always rises
-        - Both become fixed at veraison
-        - Sugar usually rises while acid usually falls
-        - Both disappear before harvest
+        - "Sugar falls steadily while acidity rises toward harvest"
+        - "Sugar stays steady while acidity rises"
+        - "Sugar generally rises while acidity falls"
+        - "Sugar and acidity both rise steadily"
         correctIndex: 2
         explanation: The broad trend is more sugar and less acid, though cultivar, weather and picking date
           matter.
@@ -77,10 +77,10 @@ question_templates:
         prompt: With the same grape variety and otherwise suitable conditions, what can greater growing-season
           warmth often allow?
         options:
-        - More ripening and sugar, which can raise potential alcohol
-        - No ripening until after harvest
-        - A guarantee of lower potential alcohol
-        - The same sugar level regardless of harvest date
+        - "More sugar accumulation and potentially more alcohol"
+        - "Less sugar accumulation and inevitably more acidity"
+        - "Sugar remains fixed when the variety stays the same"
+        - "Flowering shifts later while ripeness stays unchanged"
         correctIndex: 0
         explanation: More warmth can increase ripeness and sugar, but extreme heat, water stress and harvest
           timing may change the pattern.
@@ -88,10 +88,10 @@ question_templates:
       ki_wset_found_fermentation_sweetness:
         prompt: How can a finished wine retain sweetness from grape sugar?
         options:
-        - Yeast must consume every available sugar
-        - Oak always creates new grape sugar
-        - Sweetness is determined by wine colour
-        - Some sugar remains unconsumed when fermentation ends
+        - "Complete sugar consumption leaves acid to produce sweetness"
+        - "Oak maturation converts wood compounds into new grape sugar"
+        - "Bottle ageing produces new grape sugar after fermentation"
+        - "Some grape sugar remains after fermentation"
         correctIndex: 3
         explanation: Residual sugar can remain if fermentation does not consume all sugar; acidity changes
           how sweet it tastes.
@@ -99,10 +99,10 @@ question_templates:
       ki_wset_found_fortified:
         prompt: What distinguishes a fortified wine in production?
         options:
-        - It must undergo a second fermentation in the bottle
-        - Spirit or alcohol of grape origin is added
-        - It is fermented only from apples
-        - It must always be sweet and red
+        - "A second fermentation makes it sparkling before bottling"
+        - "Grape-origin spirit is added to grape must or wine"
+        - "An apple-based ferment is converted to wine by added spirit"
+        - "Spirit addition turns it into a sweet red style"
         correctIndex: 1
         explanation: Fortification adds grape-origin spirit or alcohol; sweetness still varies by style and
           timing.
@@ -131,10 +131,10 @@ question_templates:
       ki_wset_found_red_sequence:
         prompt: Which sequence is typical for making red wine from black grapes?
         options:
-        - Remove skins, ferment clear juice, add red colour from oak
-        - Bottle the unfermented juice, then press
-        - Ferment apples before adding grape skins
-        - Ferment with skins, then separate wine from solids
+        - "Separate skins first, ferment clear juice, then add red colour"
+        - "Bottle the must before fermentation and press it afterward"
+        - "Ferment black grapes without skins, then age on spent skins"
+        - "Ferment with black-grape skins, then separate wine from solids"
         correctIndex: 3
         explanation: Most red wines ferment with black-grape skins before draining and pressing separate wine
           from solids.
@@ -142,10 +142,10 @@ question_templates:
       ki_wset_found_rose_sequence:
         prompt: Which route can make a pink rosé from black grapes?
         options:
-        - Long skin fermentation until the wine is fully red
-        - Brief skin contact, then separate the pink juice and ferment without skins
-        - Add a red label to white wine
-        - Fortify the must before any colour extraction
+        - "Ferment black grapes on skins until a deep red develops, then bottle"
+        - "Give black grapes brief skin contact, then ferment pink juice without skins"
+        - "Ferment clear juice, then rely on bottle ageing to turn it pink"
+        - "Distil black-grape must before drawing off the pink juice"
         correctIndex: 1
         explanation: A common rosé route extracts some colour briefly, then ferments separated juice; other
           rosé routes also exist.
@@ -153,10 +153,10 @@ question_templates:
       ki_wset_found_white_sequence:
         prompt: For most white wines, when is juice separated from skins?
         options:
-        - Only after years of bottle age
-        - After a full red-wine skin fermentation
-        - By pressing before the juice ferments
-        - Never; white wine always ferments with skins
+        - "After years of maturation with white-grape skins"
+        - "After a full red-style skin fermentation"
+        - "By pressing before the juice ferments"
+        - "After white juice ferments with skins to completion"
         correctIndex: 2
         explanation: Most white wines ferment juice separated from skins by pressing, though skin-contact
           exceptions exist.
@@ -164,10 +164,10 @@ question_templates:
       ki_wset_l1_red_route:
         prompt: Which cellar route best fits a typical red wine while allowing producer variation?
         options:
-        - Harvest, ferment with skins, drain and press, mature, bottle
-        - Harvest, bottle sweet juice, then ferment in the glass
-        - Harvest, remove all skins before any red colour develops, bottle
-        - Harvest, distil the wine into spirit before fermentation
+        - "Harvest, ferment with skins, drain and press, then mature and bottle"
+        - "Harvest, press off skins, ferment clear juice, mature, bottle"
+        - "Harvest, ferment with skins, bottle before draining solids"
+        - "Harvest, press off skins, bottle juice, ferment after sale"
         correctIndex: 0
         explanation: A typical red route includes skin fermentation, separation from solids, maturation and
           bottling; crushing and pressing details vary.
@@ -175,10 +175,10 @@ question_templates:
       ki_wset_l1_rose_route:
         prompt: Which order matches WSET's simplified short-maceration rosé sequence?
         options:
-        - Ferment white grapes without skins, then add colour after bottling
-        - Crush black grapes, begin fermentation with skins, drain pink wine, mature and bottle
-        - Crush black grapes, distil the juice, then bottle it without fermentation
-        - Finish a full red wine, remove its tannins, then press and bottle
+        - "Crush black grapes, draw off pale juice before fermentation, then mature and bottle"
+        - "Crush black grapes, start skin fermentation, drain pink wine, then mature and bottle"
+        - "Crush black grapes, press off pink juice before fermentation, then mature and bottle"
+        - "Crush black grapes, ferment on skins to a deep red, then dilute and bottle"
         correctIndex: 1
         explanation: WSET's educator plan begins alcoholic fermentation with crushed black grapes and drains
           the fermenting pink wine from the skins after a few hours. Fermentation then continues apart from
@@ -199,10 +199,10 @@ question_templates:
       ki_wset_l1_white_route:
         prompt: Which production order is typical for most white wines?
         options:
-        - Harvest, ferment with black-grape skins, drain red wine, bottle
-        - Harvest, bottle unfermented juice, then add yeast
-        - Harvest, separate juice from skins, ferment juice, then bottle
-        - Harvest, distil the juice, then carbonate
+        - "Harvest, ferment on black-grape skins, press, then bottle"
+        - "Harvest, keep white juice on skins through fermentation, then bottle"
+        - "Harvest, separate juice from skins, ferment juice, mature, then bottle"
+        - "Harvest, ferment whole bunches with skins, press, then bottle"
         correctIndex: 2
         explanation: Most white routes press or drain juice away from skins before fermentation; whole-bunch
           and skin-contact variations exist.

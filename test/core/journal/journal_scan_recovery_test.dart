@@ -284,7 +284,10 @@ void main() {
       expect(first.warning, contains('needs device cleanup'));
       expect(await first.pending(), isEmpty);
       expect(await original.exists(), isTrue);
-      await expectLater(firstStorage.pendingPickerCachePaths(), throwsStateError);
+      await expectLater(
+        firstStorage.pendingPickerCachePaths(),
+        throwsStateError,
+      );
 
       var cleanupCalls = 0;
       final restartedStorage = RecoveredScanStorage(

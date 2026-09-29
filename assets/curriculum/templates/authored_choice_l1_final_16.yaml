@@ -10,10 +10,10 @@ question_templates:
       ki_wset_srv_alcohol_driving:
         prompt: Why is an alcohol-free choice sensible for a guest who will drive?
         options:
-        - Alcohol has no connection with road injury
-        - Alcohol increases road-injury risk
-        - Wine removes the effect of earlier drinks
-        - A higher wine price cancels alcohol's effects
+        - "Choosing a lower-strength wine removes driving risk"
+        - "Alcohol increases the chance of road injuries"
+        - "A meal offsets the driving effects of alcohol"
+        - "Higher-priced wine reduces risk from the same alcohol"
         correctIndex: 1
         explanation: WHO identifies road traffic crashes among alcohol-related injuries; offering an alcohol-free
           choice avoids adding alcohol before driving.
@@ -21,10 +21,10 @@ question_templates:
       ki_wset_srv_alcohol_individual:
         prompt: Why should a server avoid promising that one amount of alcohol is safe for every guest?
         options:
-        - Risk depends only on the bottle label
-        - All people respond identically to alcohol
-        - Risk varies with amount, drinking pattern, health and context
-        - Wine quality determines each person's safe limit
+        - "Risk depends mainly on a bottle's price and vintage"
+        - "A fixed number of drinks affects each guest similarly"
+        - "Risk varies with amount, pattern, health and context"
+        - "Wine quality predicts each guest's tolerance reliably"
         correctIndex: 2
         explanation: WHO says alcohol risk depends on how much and how often a person drinks, their health
           and personal factors, and the drinking context.
@@ -32,10 +32,10 @@ question_templates:
       ki_wset_srv_alcohol_pregnancy:
         prompt: Why offer an alcohol-free option to a pregnant guest?
         options:
-        - Alcohol exposure during pregnancy can harm fetal development
-        - Wine during pregnancy has no alcohol-related risk
-        - Only spirits can affect fetal development
-        - A wine's vintage removes the risk
+        - "Alcohol exposure can harm fetal development during pregnancy"
+        - "Small wine servings are known to avoid fetal effects"
+        - "Switching from wine to spirits removes fetal exposure"
+        - "Choosing aged wine removes fetal alcohol exposure"
         correctIndex: 0
         explanation: WHO associates alcohol use during pregnancy with fetal alcohol spectrum disorders and
           other pregnancy harms.
@@ -66,10 +66,10 @@ question_templates:
         prompt: When opening a cork-closed still-wine bottle with a spiral corkscrew, what helps avoid pushing
           through the cork?
         options:
-        - Twist the spiral completely through the cork into the wine
-        - Use the foil knife to force the cork downward
-        - Stop the spiral just before the cork's base, then lever gently
-        - Pull with a sudden jerk before the spiral grips
+        - "Drive the spiral through the cork, then pull sharply"
+        - "Angle the spiral into the neck and push the cork down"
+        - "Stop the spiral near the cork base, then lever gently"
+        - "Stop halfway through the cork, then twist the bottle"
         correctIndex: 2
         explanation: The CMS standard says to stop twisting just before the cork's bottom and lever it out
           gently.
@@ -77,10 +77,10 @@ question_templates:
       ki_wset_srv_food_acid_choice:
         prompt: A tomato-rich dish has pronounced acidity. Which wine is a useful starting point?
         options:
-        - A wine with enough acidity to stay fresh beside the dish
-        - A low-acid wine chosen only because its colour matches
-        - A wine chosen solely by its bottle shape
-        - A wine with no acidity by definition
+        - "Choose a wine with enough acidity to stay fresh beside the dish"
+        - "Choose a softer wine mainly because its colour matches the food"
+        - "Choose a high-tannin wine to neutralise the tomato acid"
+        - "Choose a low-acid wine so the sauce supplies the acidity"
         correctIndex: 0
         explanation: WSET notes that acidic food lowers perceived wine acidity, so a higher-acid wine can
           retain freshness where a low-acid wine seems flat.
@@ -110,10 +110,10 @@ question_templates:
       ki_wset_taste_alcohol:
         prompt: Beyond warmth, what can alcohol contribute to a wine's mouthfeel?
         options:
-        - A guarantee of strong floral aroma
-        - The wine's exact red colour
-        - A sense of weight
-        - A compulsory drying grip from tannin
+        - "A firm, drying grip on the gums"
+        - "A sharper, mouthwatering sensation"
+        - "A fuller, weightier mouthfeel"
+        - "A rough, grainy texture from sediment"
         correctIndex: 2
         explanation: WSET's mouthfeel guide names both warmth and weight as contributions from alcohol.
         sourceCitationId: src_wset_taste_mouthfeel
@@ -131,10 +131,10 @@ question_templates:
       ki_wset_taste_conditions_temperature:
         prompt: For a fair side-by-side sensory comparison of similar wines, what should be kept comparable?
         options:
-        - Only bottle price
-        - Only label design
-        - Only the grape's place name
-        - Serving temperature
+        - "The prices printed on the shop's shelf labels"
+        - "The colours used on their bottle labels"
+        - "The wording of their grape-place names"
+        - "The serving temperatures of both samples"
         correctIndex: 3
         explanation: The OIV sensory-analysis guide says products of the same type in one session should be
           evaluated at the same temperature.
@@ -142,10 +142,10 @@ question_templates:
       ki_wset_taste_sequence_colour:
         prompt: At the appearance stage of a tasting note, which observation belongs first?
         options:
-        - A guaranteed grape identity from the label
-        - The colour actually visible in the glass
-        - The final food pairing before tasting
-        - A score copied from a critic
+        - "The grape variety assumed from its colour"
+        - "The colour actually visible in the glass"
+        - "The final food pairing before tasting"
+        - "A critic's score copied onto the sheet"
         correctIndex: 1
         explanation: WSET places appearance before nose and palate in its tasting sequence; observed colour
           belongs to that appearance step.
@@ -153,10 +153,10 @@ question_templates:
       ki_wset_taste_sequence_note:
         prompt: Why make brief, consistent notes while tasting several wines?
         options:
-        - To prove every wine is from the same region
-        - To replace the need to smell or taste
-        - To remember and compare differences between wines
-        - To convert an aroma impression into a legal grape declaration
+        - "To infer the region without checking the wine"
+        - "To replace smelling with written descriptions"
+        - "To remember and compare differences between wines"
+        - "To turn each aroma into a legal grape declaration"
         correctIndex: 2
         explanation: WSET recommends keeping notes so tasters can remember and compare the differences they
           notice.
@@ -164,10 +164,10 @@ question_templates:
       ki_wset_taste_sweetness:
         prompt: In a systematic tasting note, where should perceived sweetness be recorded?
         options:
-        - As its own palate observation
-        - Only in the appearance description
-        - Only in the aroma list before sipping
-        - Only as the bottle's retail price
+        - "As a separate sensation tasted on the palate"
+        - "As a colour judgement made before smelling"
+        - "As an aroma judgement made before sipping"
+        - "As the wine's listed price on the bottle"
         correctIndex: 0
         explanation: WSET treats sweetness as a palate structure observation, separate from appearance and
           aroma descriptions.

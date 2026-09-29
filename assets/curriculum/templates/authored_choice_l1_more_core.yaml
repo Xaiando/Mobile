@@ -10,10 +10,10 @@ question_templates:
       ki_wset_grape_cabernet_sauvignon_beginner:
         prompt: Which description can fit a typical Cabernet Sauvignon red wine?
         options:
-        - A light white with no tannin
-        - A medium- to full-bodied red with firm tannins and possible blackcurrant fruit
-        - A sweet sparkling wine made only from white grapes
-        - A red that must be low in tannin and pale in colour
+        - "A light red with bright cherry fruit and notably gentle tannins"
+        - "A medium- to full-bodied red with black fruit and firm tannins"
+        - "A full-bodied white with ripe tropical fruit and a soft texture"
+        - "A medium-bodied red with strawberry fruit and very soft tannins"
         correctIndex: 1
         explanation: Cabernet Sauvignon commonly makes structured, medium- to full-bodied reds; blackcurrant
           is one possible fruit note. Region changes the expression.
@@ -21,54 +21,54 @@ question_templates:
       ki_wset_grape_chardonnay_beginner:
         prompt: Which statement best reflects the range of Chardonnay styles?
         options:
-        - Every Chardonnay must be strongly oaked
-        - Only cool regions can make Chardonnay
-        - Chardonnay is always a red wine with firm tannin
-        - It can be a fresh, lighter white or a fuller, riper white; oak use varies
+        - "It varies in body, with oak ageing required for fuller styles"
+        - "It varies in body, but warm vineyards exclude fresh styles"
+        - "It varies in body, with red and white styles both common"
+        - "It ranges from fresh and light to full and ripe; oak use varies"
         correctIndex: 3
         explanation: Chardonnay's body and fruit profile vary with growing conditions, and the winemaker may
           use oak or make an unoaked style.
         sourceCitationId: src_wset_grape_wa_chardonnay
       ki_wset_grape_merlot_beginner:
-        prompt: Which tasting note could describe a Merlot-based red?
+        prompt: "Which tasting note best matches the cited common Merlot profile?"
         options:
-        - Cherry or plum fruit with a rounded texture
-        - Lime zest in a high-acid white with no red grapes
-        - Only smoke and no fruit in every example
-        - A guarantee of vigorous bubbles and high sweetness
+        - "A red with cherry or plum fruit and a rounded texture"
+        - "A white with citrus fruit and a crisp, lean texture"
+        - "A red with floral aromas and a sharply tart texture"
+        - "A sparkling red with fine bubbles and a featherweight texture"
         correctIndex: 0
         explanation: Bordeaux's grape profile describes Merlot with cherry and plum notes and a supple, rounded
           texture, while its red styles vary in weight.
         sourceCitationId: src_reg_fr_merlot
       ki_wset_grape_pinot_gris_beginner:
-        prompt: Which description could fit a Pinot Gris d'Alsace?
+        prompt: "Which description best matches the cited Alsace Pinot Gris profile?"
         options:
-        - A black-grape red with compulsory heavy tannin
-        - A white that must always be light and lean
-        - A rich, full-bodied white with weight and a rounded palate
-        - A wine that must be sparkling because of its grape name
+        - "A lean, light-bodied white with a narrow, sharp palate"
+        - "A brisk, high-acid white with a delicate citrus palate"
+        - "A rounded, full-bodied white with a broad, weighty palate"
+        - "A lightly coloured red with a firm, tannic palate"
         correctIndex: 2
         explanation: The Alsace regional source describes Pinot Gris d'Alsace as an ample, rounded and full-bodied
           white.
         sourceCitationId: src_wset_grape_civa_pinot_gris
       ki_wset_grape_pinot_noir_beginner:
-        prompt: Which profile is often associated with a still red Pinot Noir?
+        prompt: "Which profile best matches Wine Australia's common still Pinot Noir description?"
         options:
-        - A white with no red-fruit character
-        - A light- to medium-bodied red with cherry or strawberry fruit
-        - A fortified red whose sweetness is compulsory
-        - A wine that must always be full-bodied and strongly tannic
+        - "A full-bodied red with dark blackcurrant fruit and firm tannins"
+        - "A light- to medium-bodied red with cherry or strawberry fruit"
+        - "A full-bodied red with dark plum fruit and rounded tannins"
+        - "A light-bodied white with lime fruit and high acidity"
         correctIndex: 1
         explanation: Wine Australia describes still red Pinot Noir as often light to medium in body, with
           cherry and strawberry fruit; examples vary.
         sourceCitationId: src_wset_grape_wa_pinot_noir
       ki_wset_grape_riesling_beginner:
-        prompt: Which statement about Riesling is accurate?
+        prompt: "Which profile best matches Wine Australia's common Riesling description?"
         options:
-        - It is a black grape used only for red wine
-        - It must taste sweet in every bottle
-        - It has low acidity by definition
-        - It can make citrus-scented, high-acid white wine in dry or sweeter styles
+        - "A low-acid white with citrus fruit in dry or sweet styles"
+        - "A high-acid white with dark-berry fruit in dry styles"
+        - "A high-acid white that must be sweet and heavily oaked"
+        - "A high-acid white with citrus fruit in dry or sweet styles"
         correctIndex: 3
         explanation: Wine Australia describes Riesling as typically high-acid with vibrant citrus fruit and
           notes both dry and sweeter styles.
@@ -109,20 +109,20 @@ question_templates:
       ki_wset_srv_sparkling_glass:
         prompt: Which glass shape does Comité Champagne recommend to show Champagne's aromas and bubbles?
         options:
-        - A flat, wide coupe
-        - A completely sealed vessel
-        - A tall, bulbous tulip that narrows at the top
-        - An opaque cup with no visible bowl
+        - "A shallow coupe with a broad, open bowl"
+        - "A narrow flute with straight sides and a tight opening"
+        - "A tall tulip with a broad bowl and tapered rim"
+        - "A rounded balloon with a wide, open rim"
         correctIndex: 2
         explanation: The Comité recommends a tall, bulbous, tulip-shaped glass with a narrower top.
         sourceCitationId: src_wset_srv_champagne
       ki_wset_srv_spark_stopper:
         prompt: How should an unfinished bottle of Champagne be kept for later service?
         options:
-        - Leave it open on the table
-        - Place a spoon in its neck and store it warm
-        - Use a still-wine vacuum pump to pull out the bubbles
-        - Fit a purpose-made sparkling-wine stopper and keep it cool
+        - "Reinsert the original cork and leave the bottle on a sideboard"
+        - "Cover the neck with foil and keep the bottle in a fridge"
+        - "Apply a still-wine vacuum stopper and keep it in a fridge"
+        - "Use a sparkling-wine stopper and keep the bottle cool"
         correctIndex: 3
         explanation: Comité Champagne recommends a special sparkling-wine stopper and cool storage; a spoon
           does not preserve bubbles.
@@ -130,10 +130,10 @@ question_templates:
       ki_wset_srv_preserve_cool:
         prompt: How should an opened bottle of still red wine be stored if some remains?
         options:
-        - Reclose it and refrigerate it to slow oxidation
-        - Leave it uncorked beside a heater
-        - Keep it warm because only white wine can be refrigerated
-        - Freeze it solid before each later pour
+        - "Reclose the bottle and refrigerate it to slow oxidation"
+        - "Leave the bottle open in a cool dining room overnight"
+        - "Keep it warm because white wine benefits more from chilling"
+        - "Freeze the remaining wine before each later serving"
         correctIndex: 0
         explanation: WSET advises refrigerating recorked opened red as well as white wine; cooler temperatures
           slow oxidation.
@@ -141,20 +141,20 @@ question_templates:
       ki_wset_srv_preserve_vacuum:
         prompt: What does a still-wine vacuum preservation device do?
         options:
-        - Adds new fruit flavour to aged wine
-        - Removes some air before the bottle is resealed
-        - Creates bubbles through a second fermentation
-        - Raises the wine's alcohol level
+        - "Adds inert gas above the wine before resealing"
+        - "Removes some bottle air before resealing"
+        - "Tops up the bottle with still wine before sealing"
+        - "Chills the wine quickly before resealing"
         correctIndex: 1
         explanation: A vacuum pump reduces the air in an opened still-wine bottle and helps delay deterioration.
         sourceCitationId: src_wset_srv_preserve
       ki_wset_srv_preserve_air:
         prompt: Why can transferring leftover still wine to a smaller, sealed bottle help preserve it?
         options:
-        - The smaller bottle removes all acids
-        - It guarantees the wine will improve for years
-        - It leaves less air space around the wine
-        - It converts the wine to a sparkling style
+        - "The smaller bottle lowers its temperature without chilling"
+        - "The smaller bottle promotes ageing over several years"
+        - "It leaves less air space around the remaining wine"
+        - "The smaller bottle increases contact with fresh air"
         correctIndex: 2
         explanation: A smaller sealed bottle reduces the volume of air above leftover wine and therefore its
           oxygen exposure.
@@ -162,10 +162,10 @@ question_templates:
       ki_wset_srv_spark_no_vacuum:
         prompt: Why avoid using a still-wine vacuum pump on an opened sparkling wine?
         options:
-        - It can remove dissolved gas and leave the wine flat
-        - It makes the wine sweeter by adding sugar
-        - It turns the wine red
-        - It raises the serving temperature automatically
+        - "It can draw off dissolved gas and flatten the bubbles"
+        - "It can force extra gas in and make the bubbles harsh"
+        - "It can add oxygen to the wine and restart fermentation"
+        - "It can chill the wine so much that bubbles disappear"
         correctIndex: 0
         explanation: WSET warns that a vacuum pump can pull the bubbles out of sparkling wine.
         sourceCitationId: src_wset_srv_preserve
@@ -195,10 +195,10 @@ question_templates:
       ki_wset_srv_red_cold:
         prompt: A full-bodied red has been served too cold. What is a gentle way to warm it?
         options:
-        - Place its bottle on a radiator
-        - Add hot water to the glass
-        - Hold the bowl of the glass in your hands
-        - Shake the glass until the wine foams
+        - "Warm the bottle beside a radiator for a few minutes"
+        - "Add warm water to the wine in the glass"
+        - "Warm the glass gently between your hands"
+        - "Set the glass under a strong lamp for several minutes"
         correctIndex: 2
         explanation: WSET suggests warming the bowl gently in the hands and warns against sudden extreme heat.
         sourceCitationId: src_wset_srv_temperature
@@ -215,10 +215,10 @@ question_templates:
       ki_wset_taste_aroma_train:
         prompt: Which exercise can help a beginner recognise wine aromas?
         options:
-        - Compare familiar smells and several wines side by side
-        - Memorise bottle prices instead of smelling
-        - Taste only one wine and avoid comparison
-        - Read a grape name and assume every aroma is present
+        - "Compare familiar smells and several wines side by side"
+        - "Smell a single wine, then rely on its back label"
+        - "Memorise grape names without smelling the samples"
+        - "Guess aromas from bottle price before smelling"
         correctIndex: 0
         explanation: WSET recommends smelling familiar things and comparing contrasting wines side by side
           to build aroma recognition.
@@ -226,10 +226,10 @@ question_templates:
       ki_wset_taste_palate_flavours:
         prompt: In a tasting note, how should fruit-flavour intensity be recorded?
         options:
-        - As a direct measure of the wine's sugar level
-        - As a direct measure of the wine's tannin level
-        - Separately from structural sensations
-        - As a direct measure of the wine's alcohol level
+        - "Treat fruit intensity as the wine's measured sugar level"
+        - "Treat fruit intensity as the wine's measured tannin level"
+        - "Record fruit intensity apart from sweetness, acid and body"
+        - "Treat fruit intensity as the wine's measured alcohol level"
         correctIndex: 2
         explanation: WSET separates the identification and intensity of flavours from structural components
           such as acidity, tannin and alcohol.
@@ -247,10 +247,10 @@ question_templates:
       ki_wset_taste_sweet_acid_balance:
         prompt: A sweet wine still makes the mouth water. Which conclusion fits?
         options:
-        - Sweetness means the wine has lost its acidity
-        - Mouthwatering indicates sugar rather than acid
-        - High acidity means the wine cannot taste sweet
-        - Sweetness and high acidity can occur together
+        - "Sweetness removes the wine's mouthwatering acidity"
+        - "Mouthwatering comes from sugar rather than acid"
+        - "High acidity prevents the wine from tasting sweet"
+        - "Sweetness and high acidity can occur together"
         correctIndex: 3
         explanation: WSET explains that high residual sugar can balance high acidity, which can still make
           the mouth water.
@@ -258,10 +258,10 @@ question_templates:
       ki_wset_taste_conditions_bias:
         prompt: To reduce expectation bias in a blind practice tasting, when should a taster record observations?
         options:
-        - Before learning the wine's identity
-        - Only after reading the producer's tasting note
-        - Only after seeing a critic's score
-        - After choosing the preferred grape from the label
+        - "Before learning the wine's identity"
+        - "After reading the producer's tasting note"
+        - "After seeing the wine's critic score"
+        - "After checking the grape named on the label"
         correctIndex: 0
         explanation: The Australian Wine Research Institute advises assessing a wine without prior identity
           cues, then retasting after its identity is revealed.

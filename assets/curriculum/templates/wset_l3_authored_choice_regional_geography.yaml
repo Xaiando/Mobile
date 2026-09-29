@@ -48,7 +48,7 @@ question_templates:
         - Higher parcels are cooler and more frost-prone than the valley floor
         - Merlot and Syrah are associated only with the lower cool sites
         - The higher sites have the same thermal conditions as the lower ones
-        - Some higher parcels are warmer and frost-free relative to lower, cooler sites
+        - Higher parcels can be warmer and less frost-prone than cooler low sites
         correctIndex: 3
         explanation: Wines of Chile explicitly describes higher, warmer, frost-free elevations for Merlot
           and Syrah.
@@ -56,7 +56,7 @@ question_templates:
       ki_reg_am_limari_chardonnay:
         prompt: Which setting best fits a coastal Limarí Chardonnay parcel?
         options:
-        - Maritime influence and morning Camanchaca fog in a semi-arid valley
+        - Sea influence and morning Camanchaca fog in semi-arid Limarí
         - Humid Mediterranean weather and País plantings
         - Hot inland summer sites without morning fog
         - Cool rainy southern sites with Riesling as the main variety
@@ -113,8 +113,8 @@ question_templates:
       ki_reg_oa_canterbury_waipara:
         prompt: Which Waipara site assessment follows the North Canterbury profile?
         options:
-        - The hills increase nor'wester exposure and make Waipara cooler than the plains
-        - The hills offer some shelter and warmth, while the drying nor'wester can still challenge vines
+        - The hills increase nor'wester exposure and make Waipara cooler than the open plains
+        - The hills add shelter and warmth, though a drying nor'wester can still affect vines
         - The plains, rather than hills, are described as providing Waipara shelter
         - The northwesterly wind means surrounding hills cannot modify conditions
         correctIndex: 1
@@ -126,7 +126,7 @@ question_templates:
         options:
         - Steep hills with clay soils and greater warmth than Waipara
         - Flat alluvium but warmer than Waipara with poor drainage
-        - Predominantly flat, free-draining shallow gravels and slightly cooler
+        - Flat, free-draining shallow gravels in a slightly cooler climate
         - Protected valley hills with the region's warmest slopes
         correctIndex: 2
         explanation: The New Zealand regional page describes predominantly flat or gently contoured plains,
@@ -135,10 +135,10 @@ question_templates:
       ki_reg_oa_nelson_moutere:
         prompt: A Nelson Pinot Noir site lies in the Moutere Hills. Which regional context is most appropriate?
         options:
-        - Cooler and drier than Waimea, with mainly stony alluvium
-        - Similar temperatures but far less rain than Waimea and sandy soils
-        - Warmer and drier than Waimea, with a uniformly light Pinot style
-        - Slightly warmer and wetter than Waimea, with gravel-threaded clay and structured Pinot examples
+        - Cooler and drier than Waimea, with river stones and a leaner Pinot tendency
+        - Warmer and wetter than Waimea, with sandy soils and uniformly light Pinot
+        - Warmer and drier than Waimea, with clay soils and uniformly light Pinot
+        - Slightly warmer and wetter than Waimea; gravel-threaded clay; Pinot can show structure
         correctIndex: 3
         explanation: New Zealand Winegrowers describes Moutere as slightly warmer and wetter than Waimea,
           with gravel-threaded clay and structured Pinot Noir.
@@ -147,7 +147,7 @@ question_templates:
         prompt: Which observation is a sound starting point for comparing a Waimea Plains wine with a Moutere
           wine?
         options:
-        - Waimea has stony alluvium and maritime moderation, with generally lighter, fresher tendencies
+        - Waimea's stony alluvium and maritime influence tend toward lighter, fresher wines
         - Warmer and wetter than Moutere, with clay-rich hill soils
         - Waimea is generally heavier and richer than Moutere because of warmer hill sites
         - Waimea lacks maritime moderation and has the same soils as Moutere
@@ -158,10 +158,10 @@ question_templates:
       ki_reg_oa_gisborne_manutuke:
         prompt: Which Manutuke parcel description fits the Gisborne regional profile?
         options:
-        - A warmer inland area of sloping clay and silt west of the city
-        - A coastal area with Chardonnay on well-drained sandy sites and heavier clay farther west
-        - A northern river escarpment with limestone-influenced topsoil
-        - A coastal area where Chardonnay is absent and all vines occupy clay
+        - A warm inland district west of Gisborne, with Chardonnay on sloping clay and silt
+        - A coastal Chardonnay area with well-drained sand and heavier clay farther west
+        - A northern river escarpment with Chardonnay on limestone-influenced topsoil
+        - A coastal Chardonnay area with heavy clay near the sea and sand farther west
         correctIndex: 1
         explanation: The New Zealand profile describes coastal Manutuke Chardonnay on well-drained sandy sites
           and heavier clay toward western hills.
@@ -183,7 +183,7 @@ question_templates:
         - Awatere is generally warmer, wetter and less windy than Wairau
         - Awatere has only low coastal sites with no elevation
         - Awatere is cooler but wetter and more sheltered than Wairau
-        - Awatere is generally cooler, drier and windier, often with elevated sites
+        - Awatere is cooler, drier and windier, often with elevated sites
         correctIndex: 3
         explanation: The New Zealand wine body describes Awatere as cooler, drier, windier and often elevated.
         sourceCitationId: src_nwc_nz_marlborough
@@ -234,10 +234,10 @@ question_templates:
       ki_reg_de_baden_kaiserstuhl_warm:
         prompt: How should the Kaiserstuhl be used in a comparison of Baden vineyard temperatures?
         options:
-        - As a notably warm Baden example, without treating the long region as climatically uniform
-        - As a cooler representative of every Baden area
-        - As evidence that northern Baden is warmer than all southern districts
-        - As a fixed-temperature proxy for all nine Baden areas
+        - As a notably warm Baden example while the long region's districts vary in climate
+        - As a cool Baden benchmark that represents the region's southern districts
+        - As evidence that northern Baden is consistently warmer than its southern districts
+        - As one temperature proxy that can represent all nine climatically similar Baden areas
         correctIndex: 0
         explanation: DWI calls Kaiserstuhl among Germany's warmest places while describing Baden's nine areas
           as climatically varied.
@@ -255,10 +255,10 @@ question_templates:
       ki_reg_de_rheingau_riesling_exposure:
         prompt: Which site feature helps frame the Rheingau Riesling ripening context?
         options:
-        - A north-facing coastal plain gives a short growing season
-        - The westward Rhine bend removes favourable slope exposures
-        - The Rhine bend and south-facing stony slopes accompany a long Riesling ripening period
-        - Riesling here ripens mainly on shaded flat valley floors
+        - The Rhine bend creates mostly north-facing slopes and a short Riesling season
+        - The westward Rhine bend removes the sunny slope exposure needed for Riesling
+        - The Rhine bend's south-facing slopes support long Riesling ripening
+        - The bend leaves Riesling chiefly on shaded valley floors with a short season
         correctIndex: 2
         explanation: DWI describes the Rhine bend, south-facing stony slopes and Riesling's long ripening
           period.
@@ -289,10 +289,10 @@ question_templates:
         prompt: Two Nahe vineyards sit on different geological settings. Which statement best reflects the
           regional evidence?
         options:
-        - Slate alone, with little geological variation
-        - Only limestone and a single red variety
-        - Slate, porphyry, loess and loam occur, with Riesling and Pinot-family plantings
-        - Porphyry and loam absent despite diverse Pinot plantings
+        - Slate and loess occur, but porphyry and Pinot-family plantings are absent throughout Nahe
+        - Limestone and loam occur, but slate and Riesling plantings are absent
+        - Slate, porphyry, loess and loam occur with Riesling and Pinot-family plantings
+        - Porphyry and loam occur, but neither slate nor loess appears in the area
         correctIndex: 2
         explanation: DWI lists slate, volcanic porphyry, loess and loam and describes Riesling and Pinot-family
           plantings.
@@ -321,7 +321,7 @@ question_templates:
         prompt: Which regional climate description should inform a Rheinhessen vineyard comparison?
         options:
         - An exposed Atlantic coast with wet summers and cold winters
-        - Western uplands offer shelter, with relatively low rainfall, warm summers and mild winters
+        - Western uplands shelter the region; rain is low, summers warm and winters mild
         - The western uplands increase rainfall and shorten the season
         - The region is sheltered but has persistently cold summers and severe winters
         correctIndex: 1
@@ -341,10 +341,10 @@ question_templates:
       ki_reg_ib_rioja_gradient:
         prompt: A Rioja grower compares western and eastern sites. Which broad influence gradient is documented?
         options:
-        - East is more Atlantic and west more Mediterranean
-        - Atlantic influence is strongest in both the east and west
-        - The Mediterranean influence is absent from the eastern area
-        - West has stronger Atlantic influence and east stronger Mediterranean influence
+        - Eastern Rioja is more Atlantic, while western Rioja has stronger Mediterranean influence
+        - Western and eastern Rioja are equally Atlantic, with no Mediterranean contrast
+        - Western Rioja is Atlantic, while eastern Rioja lacks Mediterranean influence
+        - Western Rioja is more Atlantic, while eastern Rioja is more Mediterranean
         correctIndex: 3
         explanation: The Rioja control board describes greater Atlantic influence in the west and Mediterranean
           influence in the east.
@@ -389,7 +389,7 @@ question_templates:
         - A cool Atlantic setting with abundant summer rainfall
         - A mountain climate with wet summers and mild days
         - A cool maritime climate without continental influence
-        - Hot, dry Mediterranean conditions with strong continental influence
+        - Hot, dry Mediterranean weather with continental influence
         correctIndex: 3
         explanation: The regional page explicitly describes Alentejo as hot and dry Mediterranean with strong
           continental influence.
@@ -398,8 +398,8 @@ question_templates:
         prompt: A wine buyer finds an Alentejo wine from Portalegre. Which local context could help explain
           a fresher expression?
         options:
-        - Serra de São Mamede slopes and their distinctive local microclimate
-        - Warmer lowland vineyards in southern Alentejo
+        - Cooler, higher Serra de São Mamede slopes with a distinct local microclimate
+        - Warmer lowland vineyards in southern Alentejo, away from the Serra de São Mamede slopes
         - Stronger direct Atlantic exposure along the coast
         - The hottest and driest interior sites of Douro Superior
         correctIndex: 0
@@ -409,10 +409,10 @@ question_templates:
       ki_reg_ib_verde_atlantic:
         prompt: Which climate description best fits the broad Vinho Verde region?
         options:
-        - Warm dry summers with little maritime influence
-        - Strong Atlantic influence, cool temperatures and abundant rainfall
-        - Mountain shelter and hot continental summers
-        - Coastal fog with semi-arid annual rainfall
+        - Warm, dry inland summers with weak Atlantic influence and little seasonal rain
+        - Strong Atlantic influence with moderate temperatures and abundant rainfall
+        - Hot continental summers behind mountain shelter from most Atlantic weather
+        - A foggy but semi-arid coast where annual rainfall remains relatively low
         correctIndex: 1
         explanation: Wines of Portugal describes Vinho Verde's strong Atlantic influence, cool temperatures
           and abundant rain.
@@ -420,10 +420,10 @@ question_templates:
       ki_reg_ib_verde_shelter:
         prompt: How does Monção e Melgaço differ from more Atlantic-exposed Vinho Verde sites?
         options:
-        - It is more directly exposed to Atlantic air and produces only lighter wines
-        - It has identical exposure and body to coastal Vinho Verde sites
-        - It is sheltered from direct Atlantic influence and can produce fuller wines with higher alcohol
-        - It is warmer because it lies outside the northwestern region
+        - It receives more direct Atlantic air, tending toward lighter and lower-alcohol wines
+        - It shares the coast's direct Atlantic exposure and a similarly light body range
+        - It has less direct Atlantic influence and can give fuller, higher-alcohol wines
+        - It is warmer because it lies beyond northwestern Portugal's Atlantic-influenced area
         correctIndex: 2
         explanation: The regional page describes Monção e Melgaço as sheltered from direct Atlantic influence
           and associated with fuller, higher-alcohol wines.
@@ -453,10 +453,10 @@ question_templates:
         prompt: A vineyard on Etna's northern slope is compared with one on the eastern slope. Which northern
           association is documented?
         options:
-        - Dominant Carricante with the strongest rain and wind exposure
-        - A relatively cold, mountain-protected setting where Nerello Mascalese is prominent
-        - A hot sea-facing slope without mountain shelter
-        - A south-western slope with the strongest sun and lower rain
+        - A wet, sea-facing slope where Carricante dominates and wind exposure is strongest
+        - A relatively cold, mountain-protected slope where Nerello Mascalese is prominent
+        - A hot, sea-facing slope without mountain shelter, planted chiefly to Nerello
+        - A sunny south-western slope with less rain and greater heat, focused on Nerello
         correctIndex: 1
         explanation: The Etna consortium describes the northern slope as cold, protected by surrounding mountains
           and strongly associated with Nerello Mascalese.
@@ -466,7 +466,7 @@ question_templates:
         options:
         - A protected northern slope focused on Nerello Mascalese
         - The drier south-western slope farthest from the sea
-        - It faces the Ionian Sea, has more rain and wind exposure, and Carricante is dominant
+        - Ionian Sea exposure brings more rain and wind; Carricante is dominant
         - A warmer inland terrace with little wind and dominant Nerello Cappuccio
         correctIndex: 2
         explanation: The consortium describes eastern Etna as sea-facing, exposed to rain and wind, and dominated
@@ -512,7 +512,7 @@ question_templates:
         options:
         - Martinborough alone represents every Wairarapa mesoclimate
         - Masterton and Gladstone have identical frost and terrace settings
-        - Masterton has frost and marked day-night range, while Gladstone has cooler river terraces
+        - Masterton has frost and day-night range; Gladstone has cooler river terraces
         - Gladstone has Masterton's early-morning frost pattern without other differences
         correctIndex: 2
         explanation: The New Zealand page contrasts Masterton frost and hot days with Gladstone's cooler,
@@ -533,9 +533,9 @@ question_templates:
         prompt: How do summer conditions generally change farther up Napa Valley, away from the strongest
           marine moderation?
         options:
-        - Pacific influence lessens and summers become warmer, though hills and elevation still matter
+        - Pacific moderation weakens northward, though hills and elevation still shape warmth
         - Pacific moderation strengthens farther up the valley
-        - Upper-valley summers are cooler than Carneros because marine breezes intensify
+        - Upper-valley summers are cooler than Carneros because marine breezes intensify northward
         - Hills and elevation cease to affect mesoclimate farther north
         correctIndex: 0
         explanation: Napa Valley Vintners describes less Pacific influence and warmer summers farther up the

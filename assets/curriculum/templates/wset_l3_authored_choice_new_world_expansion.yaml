@@ -23,9 +23,9 @@ question_templates:
         prompt: Compared with Barossa Valley, which Eden Valley site assessment is supported?
         options:
         - Warmer overall; altitude and aspect still vary by site
-        - Cooler overall; altitude and aspect still vary by site
-        - Cooler overall; altitude and aspect are uniform by site
-        - Warmer overall; altitude and aspect are uniform by site
+        - Cooler overall; altitude, aspect and slope still vary by site
+        - Cooler overall; sites share one altitude and aspect
+        - Warmer overall; sites share one altitude and aspect
         correctIndex: 1
         explanation: Wine Australia presents Eden Valley as generally cooler than Barossa Valley and notes
           site variation from altitude, aspect and slope.
@@ -55,7 +55,7 @@ question_templates:
       ki_reg_sh_yarra_mesoclimate:
         prompt: A Yarra Valley Pinot Noir producer compares two vineyards. Which mesoclimate claim fits?
         options:
-        - Altitude and aspect both modify vineyard mesoclimate
+        - Altitude and aspect both modify mesoclimate
         - Altitude modifies mesoclimate; aspect has little effect
         - Aspect modifies mesoclimate; altitude has little effect
         - Altitude and aspect have little mesoclimate effect
@@ -67,7 +67,7 @@ question_templates:
         prompt: Which Mornington Peninsula brief best fits the regional profile?
         options:
         - Continental and uniform, with Pinot Noir and Chardonnay
-        - Maritime and varied, with Pinot Noir and Chardonnay
+        - Maritime, varied; Pinot Noir and Chardonnay
         - Continental but varied, with Pinot Noir and Chardonnay
         - Maritime and even, with Pinot Noir and Chardonnay
         correctIndex: 1
@@ -79,7 +79,7 @@ question_templates:
         options:
         - Low-acid Chardonnay; powerful Pinot Noir
         - Low-acid Chardonnay; delicate Pinot Noir
-        - High-acid Chardonnay; delicate Pinot Noir
+        - Naturally high-acid Chardonnay; delicate Pinot Noir
         - High-acid Chardonnay; powerful Pinot Noir
         correctIndex: 2
         explanation: The Tasmania profile connects cool conditions with naturally acidic Chardonnay and relatively
@@ -112,9 +112,9 @@ question_templates:
         prompt: A buyer compares McLaren Vale Grenache routes. Which pair does Wine Australia document?
         options:
         - Varietal Grenache and Bordeaux-style blends
-        - Varietal Grenache wines and GSM blends
+        - Varietal Grenache; GSM blends
         - Fortified Grenache and Bordeaux-style blends
-        - Fortified Grenache and GSM blends
+        - Fortified Grenache; Grenache-Shiraz-Merlot blends
         correctIndex: 1
         explanation: Wine Australia documents both single-varietal Grenache and Grenache-Shiraz-Mourvedre
           blends in McLaren Vale.
@@ -166,8 +166,8 @@ question_templates:
       ki_wset_nw_heathcote_shiraz:
         prompt: Which regional combination helps explain Heathcote Shiraz in Wine Australia's account?
         options:
-        - Cool setting; no local airflow; delicate fruit
-        - Warm setting; no local airflow; dark fruit
+        - Cool setting; warming airflow; delicate fruit
+        - Warm setting; warming airflow; dark fruit
         - Warm setting; cooling airflow; ripe dark fruit
         - Cool setting; cooling airflow; delicate fruit
         correctIndex: 2
@@ -177,10 +177,10 @@ question_templates:
       ki_reg_sh_stellenbosch_heat:
         prompt: Which Stellenbosch Cabernet setting fits the cited regional account?
         options:
-        - Warm sunshine with no marine moderation
-        - Cool sunshine with no marine moderation
-        - Cool sunshine with sea-breeze moderation
-        - Warm sunshine with sea-breeze moderation
+        - Warmth and sunlight aid ripening; sea breezes raise heat
+        - Shade and cool weather aid ripening; sea breezes raise heat
+        - Shade and cool weather aid ripening; sea breezes moderate heat
+        - Warmth and sunlight aid ripening; sea breezes moderate heat
         correctIndex: 3
         explanation: The Stellenbosch Cabernet account pairs warmth and sunshine for ripening with sea breezes
           that moderate heat at exposed sites.
@@ -199,10 +199,10 @@ question_templates:
       ki_reg_sh_swartland_variation:
         prompt: Which Swartland climate comparison is supported by the regional producer account?
         options:
-        - Malmesbury is cool; no sites gain Atlantic or altitude cooling
-        - Malmesbury is hot; some sites gain Atlantic or altitude cooling
-        - Malmesbury is cool; some sites gain Atlantic or altitude cooling
-        - Malmesbury is hot; no sites gain Atlantic or altitude cooling
+        - Hot Malmesbury summers; Atlantic winds and altitude tend to warm vines
+        - Hot Malmesbury summers; Atlantic winds and altitude can cool vines
+        - Cool Malmesbury summers; Atlantic winds and altitude tend to warm vines
+        - Cool Malmesbury summers; Atlantic winds and altitude can cool vines
         correctIndex: 1
         explanation: The Swartland account describes hot, dry Malmesbury settings and sites moderated by Atlantic
           breezes or elevation.
@@ -254,7 +254,7 @@ question_templates:
       ki_reg_sh_chenin_oak:
         prompt: Which cellar route does the Chenin Blanc Association link with fuller, richer styles?
         options:
-        - Barrel fermentation; a richer expression
+        - Barrel fermentation; a richer, more complex expression
         - Barrel fermentation; a lean expression
         - Cool tank fermentation; a richer expression
         - Cool tank fermentation; a lighter expression
@@ -263,12 +263,12 @@ question_templates:
           complex Chenin; the source does not make oak a quality certificate.
         sourceCitationId: src_reg_sh_chenin
       ki_reg_oa_constantia_aspects:
-        prompt: In Klein Constantia's farming account, which Sauvignon site generally ripens earlier?
+        prompt: Which combined Sauvignon ripening pattern does Klein Constantia report?
         options:
-        - South-facing slopes before east-facing slopes
-        - West-facing slopes before south-facing slopes
-        - North-facing slopes before west-facing slopes
-        - East-facing slopes before south-facing slopes
+        - South-facing before east-facing; afternoon shadow extends ripening
+        - South-facing before east-facing; afternoon shadow shortens ripening
+        - East-facing before south-facing; afternoon shadow shortens ripening
+        - East-facing before south-facing; afternoon shadow extends ripening
         correctIndex: 3
         explanation: Klein Constantia reports earlier-ripening east-facing Sauvignon sites and later south-facing
           sites, with shadow extending ripening in some blocks.
@@ -341,15 +341,15 @@ question_templates:
           one optimum for every vineyard.
         sourceCitationId: src_reg_am_argentina_water
       ki_reg_am_patagonia_latitude:
-        prompt: Which two broad temperature factors does Patagonia Argentina describe?
+        prompt: Which two broad temperature factors apply across Patagonia?
         options:
-        - Warmer southward; elevation has no effect
+        - Warmer southward; elevation generally cools
         - Warmer southward; elevation also matters
         - Cooler southward; elevation also matters
-        - Cooler southward; elevation has no effect
+        - Cooler southward; elevation generally warms
         correctIndex: 2
-        explanation: The Patagonia regional climate account describes a cooler southward trend while elevation
-          also changes local temperature.
+        explanation: Patagonia's official climate page describes broad southward cooling; Wines of Argentina
+          explains that elevation also changes local temperature.
         sourceCitationId: src_reg_am_patagonia
       ki_reg_am_patagonia_evaporation:
         prompt: Which paired conditions call for a water-supply check at a cool eastern Patagonia site?

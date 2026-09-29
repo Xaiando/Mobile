@@ -278,7 +278,8 @@ class JournalScanRecovery {
     await _finishLostResult(unresolved: wasUnresolved || unresolved);
     if (failed > 0) {
       if (unresolved) {
-        warning = 'Some interrupted photos could not be recovered. '
+        warning =
+            'Some interrupted photos could not be recovered. '
             '$_manualCleanupWarning';
       } else {
         warning ??= isImage

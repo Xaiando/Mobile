@@ -20,11 +20,8 @@ import '../support/fixture.dart';
 import '../support/study_fixture.dart';
 
 class _GatedExercisePresenter extends ExercisePresenter {
-  _GatedExercisePresenter(
-    super.db,
-    TestClock time,
-    FormatRegistry formats,
-  ) : super(clock: time.clock, formats: formats);
+  _GatedExercisePresenter(super.db, TestClock time, FormatRegistry formats)
+    : super(clock: time.clock, formats: formats);
 
   Completer<void>? gate;
   int calls = 0;
@@ -132,7 +129,11 @@ void main() {
     final secondNext = controller().next();
     try {
       expect(presenter.calls, 2, reason: 'start and one next presentation');
-      expect(current()!.turn, same(answeredTurn), reason: 'presentation is held');
+      expect(
+        current()!.turn,
+        same(answeredTurn),
+        reason: 'presentation is held',
+      );
     } finally {
       presenter.gate!.complete();
       await Future.wait([firstNext, secondNext]);

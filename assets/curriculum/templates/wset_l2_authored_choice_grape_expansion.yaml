@@ -11,7 +11,7 @@ question_templates:
       ki_wset_nw_hawkes_chardonnay:
         prompt: Which Hawke's Bay Chardonnay profile does New Zealand Winegrowers highlight?
         options:
-        - Full body with fine acidity and richness
+        - Full-bodied, rich, with fine acidity
         - Full body with soft acidity and firm tannins
         - Light body with high acid and lean fruit
         - Medium body with oak as the defining feature
@@ -21,10 +21,10 @@ question_templates:
       ki_wset_nw_marlborough_chardonnay_range:
         prompt: Which styles are documented for Marlborough Chardonnay?
         options:
-        - Fortified and dry styles with baked apple and honey
-        - Oaked and unoaked styles with stone fruit and citrus
-        - Oaked but never unoaked, with stone fruit and citrus
-        - Unoaked but never oaked, with green fruit and herbs
+        - "Fortified and dry styles with baked apple and honey"
+        - "Oaked and unoaked styles with stone fruit and citrus"
+        - "Oaked and sweet styles with stone fruit and citrus"
+        - "Unoaked and fortified styles with green fruit and herbs"
         correctIndex: 1
         explanation: New Zealand Winegrowers describes oaked and unoaked Marlborough Chardonnay with citrus and stone-fruit
           character.
@@ -64,7 +64,7 @@ question_templates:
         prompt: Which Mediterranean site risk does Plantgrape specifically warn Chardonnay growers to avoid?
         options:
         - Sites with prolonged summer rainfall
-        - Sites with excessively intense drought
+        - Sites exposed to severe drought
         - Sites with frequent hail during spring
         - Sites with persistent summer sea fog
         correctIndex: 1
@@ -116,20 +116,20 @@ question_templates:
       ki_wset_structure_pinot_noir_vineyard:
         prompt: Which hot-site outcome does Plantgrape particularly note for Pinot Noir?
         options:
-        - Delayed ripening with firm, undamaged berries
-        - Rapid ripening with acidity remaining very high
-        - Rapid ripening with sunburn and berry shrivel
-        - Delayed ripening with no berry damage from heat
+        - "Delayed ripening with firm, undamaged berries"
+        - "Rapid ripening with acidity remaining very high"
+        - "Rapid ripening, sunburn and berry shrivel"
+        - "Delayed ripening with thicker skins and higher acidity"
         correctIndex: 2
         explanation: Plantgrape notes fast maturation, sunburn risk and berry shrivelling for Pinot Noir in hot climates.
         sourceCitationId: src_wset_structure_plantgrape_pinot_noir
       ki_reg_am_russian_river_pinot:
         prompt: Which influence cools Russian River Valley and extends Pinot Noir ripening?
         options:
-        - Strong daytime warmth from sheltered inland air
-        - Consistent summer rain from mountain storms
-        - Hot nights with no cooling from the Pacific
-        - Pacific fog moving in during the growing season
+        - "Strong daytime warmth from sheltered inland air"
+        - "Consistent summer rain from mountain storms"
+        - "Cooler nights driven by continental air flow"
+        - "Pacific fog moving in during the growing season"
         correctIndex: 3
         explanation: Sonoma County Winegrowers associates Pinot Noir with Russian River Valley and describes its cooling Pacific
           fog.
@@ -158,10 +158,10 @@ question_templates:
       ki_wset_structure_sauvignon_blanc_structure:
         prompt: "Two suitable Sauvignon Blanc lots are picked at different ripeness and fermented dry. Which structural comparison is supported?"
         options:
-        - "The earlier lot tends to have less acidity and more sugar than the riper lot."
-        - "Both lots must have identical sugar and acid because they share a grape variety."
-        - "The earlier lot tends to retain more acidity and less sugar; the riper lot can yield more alcohol."
-        - "Herbaceous aroma alone proves the earlier lot contains more residual sugar."
+        - "Earlier fruit tends to retain less acidity and more sugar; riper fruit can give less alcohol."
+        - "Earlier fruit tends to retain more acidity and more sugar; riper fruit can give less alcohol."
+        - "Earlier fruit tends to retain more acidity and less sugar; riper fruit can give more alcohol."
+        - "Earlier fruit tends to retain less acidity and less sugar; riper fruit can give more alcohol."
         correctIndex: 2
         explanation: "The ripeness comparison concerns acidity and fermentable sugar; a riper dry-fermented lot can yield more alcohol, while aroma alone does not establish sweetness."
         sourceCitationId: src_wset_structure_wa_winegrape_assessment
@@ -191,7 +191,7 @@ question_templates:
         prompt: Which palate tendency is common to dry Riesling examples?
         options:
         - Gentle acidity with a neutral, quite light profile
-        - Marked acidity with an aromatic white-wine profile
+        - Marked acidity with an aromatic, lively dry-wine profile
         - Gentle acidity with an aromatic white-wine profile
         - Marked acidity with a fairly neutral white profile
         correctIndex: 1
@@ -202,7 +202,7 @@ question_templates:
         options:
         - Healthy fruit picked before full ripeness
         - Healthy fruit picked at moderate ripeness
-        - Over-ripeness or selected noble-rot fruit
+        - Over-ripeness or selected noble-rot berries
         - Low-sugar fruit with considerable acidity
         correctIndex: 2
         explanation: Plantgrape identifies over-ripeness and noble rot as routes to sweet Riesling wine.
@@ -220,10 +220,10 @@ question_templates:
       ki_reg_fr_cabernet_late:
         prompt: Which relative harvest order does Bordeaux.com report?
         options:
-        - Cabernet Sauvignon usually follows Merlot
-        - Merlot usually follows Cabernet Sauvignon
-        - Both grapes always ripen together
-        - Harvest order is fixed by variety
+        - "Cabernet Sauvignon usually follows Merlot"
+        - "Merlot usually follows Cabernet Sauvignon"
+        - "Merlot and Cabernet often reach maturity together"
+        - "Harvest order is fixed by variety"
         correctIndex: 0
         explanation: The Bordeaux wine council identifies Cabernet Sauvignon as late ripening, generally picked 7–12 days
           after Merlot.
@@ -243,7 +243,7 @@ question_templates:
         options:
         - A gentle structure with raspberry and peach fruit
         - Light structure with citrus and green apple fruit
-        - A dense, youthful structure with currant and plum
+        - A dense, youthful structure with currant and plum fruit
         - Supple structure with strawberry and cherry fruit
         correctIndex: 2
         explanation: Napa Valley Vintners describes dense youthful Cabernet with black fruits including currant, cherry and
@@ -359,20 +359,20 @@ question_templates:
       ki_wset_structure_syrah_structure:
         prompt: "A deeply coloured, tannic Syrah reaches maturity. Which acidity inference is justified?"
         options:
-        - "Its deep colour indicates high acidity even after full ripening."
-        - "Its acidity can be relatively low despite colour and tannin; assess it independently."
-        - "Its substantial tannin offsets acid loss as grapes ripen."
-        - "Its dark colour indicates higher acidity than a cooler-site Syrah."
+        - "Its colour and tannin imply high acidity once the grapes have fully ripened."
+        - "Its colour and tannin do not prove high acidity; acidity may be relatively low."
+        - "Its firm tannin indicates high acidity when the grapes reach maturity."
+        - "Its deep colour implies higher acidity than a Syrah from a comparable but cooler site."
         correctIndex: 1
         explanation: "Plantgrape describes intense colour and substantial tannin in Syrah while acidity can be relatively low at maturity; neither colour nor tannin establishes acidity."
         sourceCitationId: src_wset_structure_plantgrape_syrah
       ki_wset_nw_hunter_shiraz_style:
         prompt: Which profile does Wine Australia give for young Hunter Valley Shiraz?
         options:
-        - Light body, red fruit, citrus and no tannin
-        - Medium body, leather and rather firm tannin
-        - Medium body, berries, spice and soft tannin
-        - Full body, black fruit, oak and hard tannin
+        - "Light body, red fruit, bright acidity and gentle tannin"
+        - "Medium body, leather and rather firm tannin"
+        - "Medium body, berries, spice and soft tannin"
+        - "Full body, black fruit, oak and hard tannin"
         correctIndex: 2
         explanation: Wine Australia describes young Hunter Shiraz as medium-bodied with berry fruit, spice and soft tannin;
           bottle age can add earthy notes.

@@ -132,7 +132,9 @@ void main() {
         contains('defined DOP and IGP'),
         contains('abrogated by law 12 December 2016, n. 238'),
         contains('Article 28'),
-        contains('classifies DOC and DOCG as traditional mentions for DOP wines'),
+        contains(
+          'classifies DOC and DOCG as traditional mentions for DOP wines',
+        ),
       ),
     );
     expect(

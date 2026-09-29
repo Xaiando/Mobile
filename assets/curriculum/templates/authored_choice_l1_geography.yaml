@@ -21,10 +21,10 @@ question_templates:
         prompt: Which pair commonly appears in a red Bordeaux blend, with one adding fruit and suppleness
           and the other tannic structure?
         options:
-        - Glera and Pinot Gris
-        - Merlot and Cabernet Sauvignon
-        - Gamay and Chenin Blanc
-        - Sangiovese and Nebbiolo
+        - "Sangiovese and Cabernet Sauvignon"
+        - "Merlot and Cabernet Sauvignon"
+        - "Tempranillo and Cabernet Sauvignon"
+        - "Nebbiolo and Merlot"
         correctIndex: 1
         explanation: Merlot can add fruit and supple texture while Cabernet Sauvignon contributes tannic structure;
           proportions vary.
@@ -32,10 +32,10 @@ question_templates:
       ki_wset_found_familiar_cava:
         prompt: Which description identifies Cava's country and the source of its bubbles?
         options:
-        - Portugal; dissolved gas added before bottling
-        - France; fermentation only in a tank
-        - Spain; a second fermentation in the bottle
-        - Italy; bubbles from the first fermentation in an open vat
+        - "Portugal; dissolved gas added before bottling"
+        - "France; second fermentation in a pressurised tank"
+        - "Spain; a second fermentation in the bottle"
+        - "Italy; bubbles from fermentation in an open vat"
         correctIndex: 2
         explanation: Cava is Spanish sparkling wine made by the traditional method, with the second fermentation
           in the bottle.
@@ -43,10 +43,10 @@ question_templates:
       ki_wset_found_familiar_champagne:
         prompt: Where is Champagne from, and how does the familiar wine develop its bubbles?
         options:
-        - Champagne in France; a second fermentation in the bottle
-        - Bordeaux in France; carbonation of still wine
-        - Piedmont in Italy; only tank fermentation
-        - Catalonia in Spain; first fermentation in the bottle
+        - "Champagne, France; second fermentation in the bottle"
+        - "Bordeaux, France; second fermentation in a tank"
+        - "Piedmont, Italy; carbonation of a still wine"
+        - "Catalonia, Spain; second fermentation in the bottle"
         correctIndex: 0
         explanation: Champagne is the French regional sparkling wine whose bubbles develop through a second
           fermentation in the bottle.
@@ -77,10 +77,10 @@ question_templates:
         prompt: Which statement describes a familiar red Côtes du Rhône while respecting the region's other
           colours?
         options:
-        - It is always a sweet white made only from Sémillon
-        - It is a Burgundy Pinot Noir and cannot be blended
-        - It is often a Grenache-Syrah blend; white and rosé also exist
-        - It is a Spanish bottle-fermented sparkling wine
+        - "It can blend Grenache and Syrah; rosé exists, but white does not"
+        - "It can blend Pinot Noir and Gamay; white and rosé also exist"
+        - "It can blend Grenache and Syrah; white and rosé also exist"
+        - "It can blend Grenache and Syrah; white exists, but rosé does not"
         correctIndex: 2
         explanation: A familiar red Côtes du Rhône often uses Grenache and Syrah, but the appellation also
           has white and rosé wines.
@@ -88,10 +88,10 @@ question_templates:
       ki_wset_found_familiar_port:
         prompt: Which method and style range is characteristic of Port?
         options:
-        - Grape spirit follows full fermentation; only red styles qualify
-        - Grape spirit stops fermentation; colours and sweetness vary
-        - Bottle fermentation adds bubbles; sweetness is fixed
-        - Air-drying concentrates grapes; colours are fixed
+        - "Grape spirit follows full fermentation; the range stays red"
+        - "Grape spirit stops fermentation; colours and sweetness vary"
+        - "Bottle fermentation adds bubbles; sweetness stays fixed"
+        - "Grape drying concentrates sugar; styles stay one colour"
         correctIndex: 1
         explanation: IVDP describes stopping fermentation with grape brandy and a range of Port colours and
           sweetness levels.
@@ -175,10 +175,10 @@ question_templates:
       ki_wset_found_familiar_white_zinfandel:
         prompt: Which description fits the familiar commercial White Zinfandel style?
         options:
-        - A dry white wine from a white grape
-        - A rosé from Zinfandel that often has noticeable sweetness
-        - A bottle-fermented sparkling wine from Chardonnay
-        - A fortified red wine made from Port grapes
+        - "A dry red made from Zinfandel, usually with oak influence"
+        - "A pink wine from Zinfandel, often with noticeable sweetness"
+        - "A pale white made from Chardonnay, often served chilled"
+        - "A fortified Zinfandel, usually with added grape spirit"
         correctIndex: 1
         explanation: White Zinfandel is a pink wine from Zinfandel; the familiar commercial example is often
           sweet.

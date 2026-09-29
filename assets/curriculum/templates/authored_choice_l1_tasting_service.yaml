@@ -43,10 +43,10 @@ question_templates:
       ki_wset_found_body:
         prompt: What does a taster mean by describing a wine as full-bodied?
         options:
-        - The wine has a deep colour
-        - The wine must contain much residual sugar
-        - The wine has spent many years in bottle
-        - The wine feels weighty and full in the mouth
+        - "The wine feels warm at the back of the throat"
+        - "The wine leaves a dry, gripping feel on the gums"
+        - "The wine tastes bright and makes the mouth water"
+        - "The wine feels weighty and full across the palate"
         correctIndex: 3
         explanation: Body describes perceived weight or fullness in the mouth, not colour, age or sweetness
           alone.
@@ -65,10 +65,10 @@ question_templates:
       ki_wset_found_oak_aromas:
         prompt: Which group of aromas can oak maturation contribute to wine?
         options:
-        - Fresh apple, pear and citrus
-        - Sourness, salivation and sharp acidity
-        - Vanilla, toast and spice
-        - A drying grip without any aroma
+        - "Citrus, apple and pear aromas"
+        - "Grass, herbs and green-bell-pepper aromas"
+        - "Vanilla, toast and sweet-spice aromas"
+        - "Plum, cherry and blackcurrant aromas"
         correctIndex: 2
         explanation: Oak maturation can add vanilla, toast and spice notes; their strength varies with oak
           use.
@@ -76,10 +76,10 @@ question_templates:
       ki_wset_srv_storage_dark:
         prompt: Why is a dark place preferred for storing unopened wine?
         options:
-        - Darkness raises the wine's alcohol level
-        - Strong light can warm wine and cause unwanted chemical changes
-        - Bright light prevents oxidation
-        - Darkness guarantees that every wine improves with age
+        - "It keeps a cork wet even when the bottle stands upright"
+        - "Strong light can heat wine and drive unwanted changes"
+        - "It prevents sediment forming during bottle ageing"
+        - "It protects fruit by lowering the room's humidity"
         correctIndex: 1
         explanation: Strong light can heat stored wine and trigger changes that damage its character.
         sourceCitationId: src_wset_srv_temperature
@@ -98,20 +98,20 @@ question_templates:
       ki_wset_srv_spark_control:
         prompt: While loosening the wire cage on a chilled bottle of Champagne, what should the server do?
         options:
-        - Release the cork so the pressure escapes quickly
-        - Shake the bottle to loosen the cork
-        - Keep a firm hand on the cork and point the bottle away from people
-        - Point the bottle neck toward a guest while turning it
+        - "Release the cork while holding the neck toward the table"
+        - "Shake the bottle while the wire keeps the cork in place"
+        - "Restrain the cork and aim the bottle away from everyone"
+        - "Point the neck toward a guest but keep the wire on"
         correctIndex: 2
         explanation: Control the cork throughout opening and keep the bottle pointed away from people.
         sourceCitationId: src_wset_srv_champagne
       ki_wset_srv_preserve_gas:
         prompt: How can an appropriate inert-gas system help preserve an opened still wine?
         options:
-        - It pumps air out of the bottle like a vacuum device
-        - It limits oxygen contact by creating a protective gas layer
-        - It restores aromas already lost to oxidation
-        - It restarts fermentation to replace lost flavour
+        - "It removes bottle air completely by creating a strong vacuum"
+        - "It limits oxygen contact under a protective gas layer"
+        - "It reverses aroma loss caused by earlier oxidation"
+        - "It adds carbon dioxide and turns the wine sparkling"
         correctIndex: 1
         explanation: An inert-gas layer can limit the wine's exposure to oxygen; it does not reverse existing
           deterioration.
@@ -119,10 +119,10 @@ question_templates:
       ki_wset_srv_food_sweet_dry:
         prompt: After a bite of sweet dessert, how may a dry wine seem compared with tasting it alone?
         options:
-        - Sweeter and more fruity
-        - Lower in actual alcohol
-        - Chemically lower in sugar
-        - Drier, less fruity and more bitter
+        - "Sweeter and fruitier, with less bitterness"
+        - "Sweeter, less fruity and more bitter"
+        - "Less sweet, fruitier and less bitter"
+        - "Less sweet, less fruity and more bitter"
         correctIndex: 3
         explanation: Sweet food commonly reduces perceived wine sweetness and fruitiness and can increase
           perceived bitterness.
@@ -130,10 +130,10 @@ question_templates:
       ki_wset_srv_food_umami_bitter:
         prompt: What common effect can pronounced umami in food have on a tannic wine?
         options:
-        - It can seem more bitter and less fruity
-        - Its tannins are chemically removed
-        - It must seem sweeter and fruitier
-        - Its actual acidity increases
+        - "More bitter and less fruity on the palate"
+        - "Less bitter and more fruity on the palate"
+        - "Sweeter and less tannic on the palate"
+        - "Less acidic and more aromatic on the nose"
         correctIndex: 0
         explanation: Umami-rich food can make wine seem more bitter and less fruity, especially when the wine
           is tannic.

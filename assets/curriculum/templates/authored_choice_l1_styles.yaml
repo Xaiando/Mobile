@@ -8,12 +8,12 @@ question_templates:
   parameters:
     item_choices:
       ki_wset_l1_chianti_style:
-        prompt: Which tasting note could fit a young Chianti?
+        prompt: "Which profile best matches a typical young Chianti?"
         options:
-        - A sweet white with no tannin
-        - A dry red with red-berry or violet notes and noticeable tannin
-        - A bottle-fermented sparkling white with no red-fruit character
-        - A fortified red whose sweetness is guaranteed
+        - "A dry white with citrus fruit, lively acid and little tannin"
+        - "A dry, medium-bodied red with red fruit, lively acid and drying tannin"
+        - "A dry red with black fruit, low acid and soft tannin"
+        - "A sweet red with dried fruit, low acid and soft tannin"
         correctIndex: 1
         explanation: A young Chianti is commonly dry and red, with berry or violet character and tannin; age
           and producer change the profile.
@@ -21,10 +21,10 @@ question_templates:
       ki_wset_l1_cotes_rhone_style:
         prompt: In a Grenache-led red Côtes du Rhône blend, what can Syrah or Mourvèdre add?
         options:
-        - A guarantee that the wine is sweet
-        - Carbon dioxide from a second bottle fermentation
-        - Firmer structure and spicy character
-        - A change from red to white wine
+        - "Noticeable sweetness from retained grape sugar"
+        - "More fizz from a second bottle fermentation"
+        - "Firmer tannic structure and spicy notes"
+        - "A change to a white-wine colour and style"
         correctIndex: 2
         explanation: The Rhône body describes Grenache as contributing fruit and warmth, while Syrah and Mourvèdre
           can add spice and firm structure.

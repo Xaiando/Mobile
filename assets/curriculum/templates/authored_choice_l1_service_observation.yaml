@@ -10,10 +10,10 @@ question_templates:
       ki_wset_srv_bottle_identity:
         prompt: Before opening a selected bottle at the table, what should the server confirm with the guest?
         options:
-        - Only the bottle's weight
-        - The producer and vintage shown on the bottle
-        - Only the glass shape
-        - The guest's preferred corkscrew brand
+        - "The chosen region and price but not the vintage"
+        - "The producer, wine name and vintage shown on the bottle"
+        - "The server's preferred opening tool and glassmaker"
+        - "The bottle's weight and its capsule colour"
         correctIndex: 1
         explanation: The Court of Master Sommeliers service standard calls for presenting the label and reconfirming
           the wine's producer and vintage before opening.
@@ -30,12 +30,12 @@ question_templates:
           removing the foil and wiping the cork top.
         sourceCitationId: src_wset_srv_cms
       ki_wset_srv_glass_clean:
-        prompt: What should be checked before placing wine glasses for guests?
+        prompt: "Which glass condition helps prevent residues or odours from distorting wine?"
         options:
-        - That each glass is clean and free from odour
-        - That every glass contains a scented polish
-        - That fingerprints are visible on the bowl
-        - That the wine label matches the glass maker
+        - "Each glass is clean and free of unwanted odour"
+        - "Each glass has been polished with scented cloth"
+        - "Each glass bears the same producer's logo"
+        - "Each glass has been chilled below room temperature"
         correctIndex: 0
         explanation: The CMS service standard specifies clean, odour-free glassware so the wine is not distorted
           by residues or smells.
@@ -67,10 +67,10 @@ question_templates:
       ki_wset_srv_storage_provenance:
         prompt: Which set best checks an older bottle's prior care and present condition?
         options:
-        - Storage history, leakage and fill level
-        - Bottle shape, glass weight and foil colour
-        - Producer name, grape variety and retail price
-        - Capsule design, label art and cork brand
+        - "Past storage, fill level and signs of leakage"
+        - "Producer reputation, grape name and list price"
+        - "Bottle weight, capsule artwork and glass tint"
+        - "Retail source, label design and original price paid"
         correctIndex: 0
         explanation: Court of Master Sommeliers standards say to ask how older bottles were stored and inspect
           leakage and ullage.
@@ -98,13 +98,12 @@ question_templates:
           older cork.
         sourceCitationId: src_wset_srv_tools
       ki_wset_srv_food_acid_soft:
-        prompt: A tomato-rich dish has noticeable acidity. How may it affect the acidity of a wine tasted
-          with it?
+        prompt: "Which common effect can an acidic tomato dish have on wine's perceived acidity?"
         options:
-        - It chemically removes all acids from the wine
-        - It can make the wine seem less acidic
-        - It guarantees the wine tastes sweeter than dessert wine
-        - It has no possible effect on wine perception
+        - "It may make the wine's acidity feel sharper"
+        - "It may make the wine's acidity feel softer"
+        - "It may make the wine's acidity vanish entirely"
+        - "It may raise the wine's measured acid level"
         correctIndex: 1
         explanation: WSET notes that acidic foods can reduce the perceived acidity of wine; a low-acid wine
           may then seem flat.
@@ -132,22 +131,22 @@ question_templates:
           drinks can avoid amplifying the burn.
         sourceCitationId: src_wset_srv_spice
       ki_wset_srv_food_chilli_sweet:
-        prompt: How can a touch of sweetness in wine affect the heat of a chilli dish?
+        prompt: "According to the cited WSET advice, what can a touch of wine sweetness do to perceived chilli heat?"
         options:
-        - It raises the wine's tannin content
-        - It makes the chilli chemically disappear
-        - It necessarily increases the burn
-        - It can soften the perceived heat
+        - "It makes the chilli seem hotter by adding capsaicin"
+        - "It eliminates the chilli heat by removing capsaicin"
+        - "It makes the wine's tannins neutralise chilli heat"
+        - "It can soften the heat some diners perceive"
         correctIndex: 3
         explanation: WSET notes that some residual sweetness can calm the perceived intensity of chilli heat.
         sourceCitationId: src_wset_srv_spice
       ki_wset_srv_food_chilli_tannin:
-        prompt: For a very hot chilli dish, which tannin level may feel more comfortable?
+        prompt: "Which approach to tannin is a useful starting point for a very hot chilli dish?"
         options:
-        - The strongest tannin available, because spice always softens it
-        - Lower tannin, because hot spice can make tannins feel harsher
-        - Tannin level is irrelevant to any spicy pairing
-        - A red wine whose tannins have been replaced by sugar
+        - "Increase tannin to counter the hot spice"
+        - "Favor lower tannin because chilli can make grip harsher"
+        - "Judge tannin from the label's colour rather than the wine"
+        - "Leave tannin out of the decision and focus on body"
         correctIndex: 1
         explanation: WSET warns that tannins can feel harsh with hot spice and suggests lower-tannin drinks
           in that context.
@@ -166,21 +165,21 @@ question_templates:
       ki_wset_srv_food_intensity_match:
         prompt: A dish has strong seasoning and sauce. What wine characteristic helps it remain noticeable?
         options:
-        - Enough flavour intensity to stand beside the dish
-        - The weakest possible aroma regardless of preference
-        - A low fill level in the bottle
-        - A guarantee that the wine and food are the same colour
+        - "Enough flavour intensity to stand beside the dish"
+        - "Less fruit intensity so the seasoning becomes clearer"
+        - "A lower alcohol level regardless of wine flavour"
+        - "Matching the wine colour to the sauce colour"
         correctIndex: 0
         explanation: WSET notes that strongly flavoured food can overwhelm delicate wine, so consider wine
           intensity alongside the dish.
         sourceCitationId: src_wset_srv_umami
       ki_wset_srv_storage_closure:
-        prompt: For longer storage, how may a conventional natural-cork bottle be positioned?
+        prompt: "Which conventional position keeps a natural cork in contact with wine during longer storage?"
         options:
-        - Always upside down with the neck submerged in water
-        - On its side so the cork stays in contact with wine
-        - Upright only because every cork must dry out
-        - Directly in sunlight to strengthen the cork
+        - "Upright so wine stays away from the natural cork"
+        - "On its side so the cork stays in contact with wine"
+        - "Tilted so wine pools at the base away from the cork"
+        - "With its cork removed so bottle pressure can equalise"
         correctIndex: 1
         explanation: WSET advises side storage for cork-closed bottles to keep corks moist; screwcap bottles
           can stand upright.
@@ -188,10 +187,10 @@ question_templates:
       ki_wset_srv_temp_masking:
         prompt: Why allow a very cold white wine to warm slightly before judging it?
         options:
-        - Cold always increases its actual sugar
-        - Warming creates new grape aromas from nothing
-        - Over-chilling can mask flavours
-        - Its colour cannot be seen below 6°C
+        - "Slight warming can create new grape sugar in the glass"
+        - "Cold can chemically turn residual sugar into acidity"
+        - "Very low serving temperature can mask aroma and flavour"
+        - "The wine's colour becomes visible when it warms"
         correctIndex: 2
         explanation: WSET cautions that temperatures below about 6°C can mask flavour in white, rosé and sparkling
           wines.
@@ -221,10 +220,10 @@ question_templates:
       ki_wset_found_colour:
         prompt: If a wine is described as white, rosé or red, what is being described?
         options:
-        - Its exact sugar level
-        - Its colour family
-        - Its guaranteed age
-        - Whether it is sparkling
+        - "The wine's residual sugar level"
+        - "The wine's visual colour family"
+        - "The age printed on its label"
+        - "The presence or absence of bubbles"
         correctIndex: 1
         explanation: WSET uses white, rosé and red as colour categories; sweetness and bubbles are separate
           style features.
@@ -232,10 +231,10 @@ question_templates:
       ki_wset_found_other_aromas:
         prompt: Besides fruit and oak, which kind of note may appear in a wine description?
         options:
-        - Only the bottle's glass type
-        - Only its retail price
-        - Floral or herbal impressions
-        - Only the length of its cork
+        - "Apple and pear impressions"
+        - "Vanilla and toasted-wood impressions"
+        - "Floral or herbal impressions"
+        - "Blackberry and citrus impressions"
         correctIndex: 2
         explanation: Wine Australia's introductory guide includes floral and herbal wine descriptors alongside
           fruit and oak examples.
@@ -254,10 +253,10 @@ question_templates:
       ki_wset_taste_aroma_observe:
         prompt: Which beginner tasting-note approach is sound when smelling a wine?
         options:
-        - Describe familiar aromas actually perceived in the glass
-        - Copy a producer's aroma list without smelling
-        - Name a grape from one smell with certainty
-        - Assume every wine must show the same spice notes
+        - "Describe familiar aromas actually smelled in the wine"
+        - "Copy a producer's aroma list before smelling the wine"
+        - "Name the grape with certainty from one smell"
+        - "Assume the same aroma profile before smelling"
         correctIndex: 0
         explanation: WSET recommends building aroma recognition from familiar smells and noting what the individual
           taster perceives.
@@ -265,10 +264,10 @@ question_templates:
       ki_wset_taste_conditions_glass:
         prompt: Which setup helps reduce interference in a practice tasting?
         options:
-        - A perfumed glass under strongly coloured lighting
-        - A clean, odour-free glass in neutral light
-        - A glass with detergent residue beside strong cooking smells
-        - An opaque glass with no chance to inspect appearance
+        - "A scented glass under otherwise neutral light"
+        - "A clean, odour-free glass in neutral light"
+        - "A clean glass beside strongly scented food"
+        - "A cloudy glass beneath colour-changing light"
         correctIndex: 1
         explanation: The OIV sensory-analysis guide calls for neutral-coloured surroundings and glasses checked
           for odours before use.
