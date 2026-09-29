@@ -1,0 +1,270 @@
+# Source-bounded WSET business and quality-price application choices; pending qualified verification.
+question_templates:
+- id: qt_wset_business_application_26
+  relation_type: PRINCIPLE_EXPLANATION
+  direction: forward
+  mode: authored_choice
+  variant: wset_business_application
+  prompt_template: '{subject.name}'
+  parameters:
+    item_choices:
+      ki_wset_apply_sauternes_selection_cost:
+        prompt: "A Sauternes plan costs €24,000 for 1,200 saleable litres. Successive selective passes add €6,000 and leave 1,000 saleable litres; other costs are fixed. What is the revised production cost per litre?"
+        options:
+        - "€30 per litre: €30,000 divided by 1,000 saleable litres of wine."
+        - "€20 per litre: the original €24,000 divided by 1,200 litres."
+        - "€24 per litre: the original €24,000 divided by the new 1,000 litres."
+        - "€25 per litre: the new €30,000 divided by the old 1,200 litres."
+        correctIndex: 0
+        explanation: "The supplied harvest change raises total cost to €30,000 and reduces saleable output to 1,000 litres, or €30 per litre. CIVB documents successive selective hand-picking; these illustrative figures do not determine wine quality or selling price."
+        sourceCitationId: src_wset_found_civb_sauternes
+      ki_wset_nwa_california_cost:
+        prompt: "Comparable California Chardonnay routes cost €8/L for fruit-led early release and €11/L for purchased new oak plus later sale. A buyer offers €12/L for either after finding no preference in a trial. Which production margin is larger before shared selling costs?"
+        options:
+        - "Oak-held: €4/L versus €1/L for early release."
+        - "Early release: €4/L versus €1/L for the oak-held route."
+        - "Equal at €4/L because both wines have the same quoted sale price."
+        - "Early release: €12/L because shared selling costs are excluded."
+        correctIndex: 1
+        explanation: "At the supplied buyer price, €12−€8 is €4/L and €12−€11 is €1/L before shared selling costs. Added wood and holding reduce this particular margin; the exercise does not generalise about California quality or market prices."
+        sourceCitationId: src_biz_models_psu_business
+      ki_wset_nwa_cape_cool_cost:
+        prompt: "One purchased-oak vessel is available. Buyers ordered a fresh aromatic Constantia Sauvignon Blanc and a textured Elgin Chardonnay. Trials show oak blunts the Sauvignon fruit but gives the Chardonnay the requested texture. How should the vessel be allocated?"
+        options:
+        - "Use oak for the Constantia Sauvignon Blanc and release the Elgin Chardonnay early."
+        - "Use oak for both sequentially, delaying the Sauvignon Blanc beyond its ordered release."
+        - "Use oak for the Elgin Chardonnay and release the Constantia Sauvignon Blanc early as ordered."
+        - "Use neutral vessels for both, leaving the requested Chardonnay texture untested in the sale lot."
+        correctIndex: 2
+        explanation: "The supplied trials and buyer briefs support allocating the single wood vessel to the Chardonnay while keeping the Sauvignon fresh and on time. This is not a quality ranking of Constantia and Elgin."
+        sourceCitationId: src_biz_models_psu_business
+      ki_wset_nwa_chile_central_cost:
+        prompt: "A Chilean cost sheet pools three lots. Supplied Maipo Cabernet has selection labour and rejected fruit; Colchagua Carmenère uses purchased wood and longer holding; a Central Valley red releases early. Which correction preserves each lot's production cost?"
+        options:
+        - "Spread the purchased wood over all three lots because the winery owns the barrels."
+        - "Reduce the saleable-volume denominator for all three lots by Maipo's rejected-fruit share."
+        - "Keep Maipo's original saleable volume and add only picker hours to its numerator."
+        - "Assign selection and lower usable yield to Maipo, wood and holding to Colchagua, and the early-release costs to the Central Valley lot."
+        correctIndex: 3
+        explanation: "Direct costs and usable output follow the supplied lot, not a GI hierarchy. Selection changes Maipo's labour and denominator; wood and holding belong to the specified Colchagua route. Each lot's eventual selling price needs separate market evidence."
+        sourceCitationId: src_wset_prod_planning
+      ki_wset_nwa_chile_coastal_cost:
+        prompt: "Two equal-volume Casablanca Sauvignon Blanc lots are ready. Early bottling frees the only chilled tank in four weeks; a lees-held route occupies it for twelve. A contracted incoming lot needs that tank in six weeks. Which incremental constraint belongs in the lees-route decision?"
+        options:
+        - "The replacement tank or forgone contracted intake, plus cash delayed by the later sale."
+        - "Only extra lees handling: equal wine volumes make the tank schedule irrelevant."
+        - "Only the purchase price of the tank: owned capacity has no competing use."
+        - "Only reduced Sauvignon Blanc yield: the two existing lots have equal volume."
+        correctIndex: 0
+        explanation: "The longer route blocks the only tank when the contracted lot arrives, so replacement capacity or a lost opportunity must be evaluated; later sale delays cash. Equal current volume does not remove those costs."
+        sourceCitationId: src_biz_models_psu_business
+      ki_wset_nwa_hawkes_cost:
+        prompt: "A Hawke's Bay Merlot/Cabernet barrel-and-holding plan costs €3/L more than early release. A buyer's firm offer for the tasted later wine is only €2/L higher. With other terms unchanged, what happens to production margin?"
+        options:
+        - "The later route has €2/L more margin because its offer is higher."
+        - "The later route has €1/L less margin under this offer for this buyer."
+        - "The later route has €3/L less margin because only its extra cost matters."
+        - "Both routes have the same margin because the buyer tasted both wines."
+        correctIndex: 1
+        explanation: "The incremental offer of €2/L minus the incremental wood-and-holding cost of €3/L gives €1/L less margin for this buyer. A different buyer or sensory result would require a new decision; this is not a regional price rule."
+        sourceCitationId: src_biz_models_psu_business
+      ki_wset_nwa_marlborough_cost:
+        prompt: "A Marlborough Sauvignon Blanc cuvée is sorted more heavily, then held eight extra weeks on lees. To bottle the same number of cases as the early-release lot, the producer buys replacement fruit for berries rejected at sorting. Which extra inputs belong in its budget?"
+        options:
+        - "Replacement fruit and sorting labour, with no cellar-capacity allowance."
+        - "Eight weeks of cellar capacity only, because case output matches early release."
+        - "Replacement fruit, sorting labour and eight weeks of cellar capacity."
+        - "Sorting labour and cellar capacity, but no replacement-fruit allowance."
+        correctIndex: 2
+        explanation: "Equal finished case count does not erase the purchased fruit needed to replace rejects. The specified cuvée also uses sorting labour and eight weeks of capacity; whether its texture suits buyers remains a separate test."
+        sourceCitationId: src_biz_models_psu_business
+      ki_wset_nwa_martinborough_cost:
+        prompt: "Equal-volume Martinborough Pinot Noir lots differ: one is planned for extra hand selection, purchased wood and later release. Finance claims equal bottled volume means equal total cost. Which budget revision is needed?"
+        options:
+        - "Add wood only: equal bottled volume makes the selection labour and delay common to both."
+        - "Add selection and wood, but omit the cost of cellar space occupied until later sale."
+        - "Use the region's usual shelf price as the cost difference between the two production plans."
+        - "Add selection labour, wood and holding despite equal bottled output."
+        correctIndex: 3
+        explanation: "The specified selection, purchased wood and holding are separate commitments even if both plans ultimately bottle equal volumes. A price assumption cannot replace an input budget or show the wines are equally balanced."
+        sourceCitationId: src_biz_models_psu_business
+      ki_wset_nwa_mendoza_cost:
+        prompt: "Comparable Mendoza Malbec lots are proposed for hand selection and purchased-oak holding or fruit-led early release. Which line-item comparison is complete before the producer commits to the longer route?"
+        options:
+        - "Include selection labour, purchased wood and holding; check fruit and tannin."
+        - "Include wood and inventory time, but omit selection because both lots use Malbec."
+        - "Include selection and wood, but omit the cost of financing longer-held stock."
+        - "Allocate the extra production inputs evenly to both lots because both are from Mendoza."
+        correctIndex: 0
+        explanation: "Selection, wood and time are distinct costs of the supplied longer route. The regional name does not allocate those costs, and the sensory trial and buyers decide whether the additional route fits."
+        sourceCitationId: src_biz_models_psu_business
+      ki_wset_nwa_napa_cost:
+        prompt: "A Napa Cabernet producer has budget for one purchased-new-barrel lot. A trial finds lot A has ripe fruit and tannin that integrate with wood; lot B has thin fruit and harsh green tannin that the wood trial does not resolve. Which lot merits the longer oak-held plan under this brief?"
+        options:
+        - "Lot B, because new oak corrects the green tannin even though its trial did not."
+        - "Lot A, subject to costing its barrels and later sale against demand."
+        - "Both lots, because the Napa AVA warrants doubling the stated barrel budget."
+        - "Neither lot, because the trial evidence cannot distinguish their fruit and tannin response."
+        correctIndex: 1
+        explanation: "The supplied trial supports considering lot A for the wood-led brief while lot B's tested problem remains. Barrel and holding costs and buyer demand still need evaluation; Napa origin does not decide the allocation."
+        sourceCitationId: src_biz_models_psu_business
+      ki_wset_nwa_oregon_cost:
+        prompt: "A Willamette Valley Chardonnay's wood-and-lees route needs €2,000 of purchased wood and €1,000 of holding expense. It also occupies the only vessel that could earn €3,000 of confirmed contribution from another lot. What is the route's incremental economic cost under these assumptions?"
+        options:
+        - "€3,000: wood and holding only, excluding the vessel's competing use."
+        - "€5,000: wood and displaced contribution, excluding holding expense."
+        - "€6,000: wood, holding and the displaced €3,000 contribution in this case."
+        - "€3,000: the other lot's contribution only, treating wood and holding as sunk."
+        correctIndex: 2
+        explanation: "The supplied direct costs total €3,000 and the forgone use of the vessel adds €3,000 of opportunity cost. The €6,000 comparison is case-specific; taste and demand still decide whether the route is worthwhile."
+        sourceCitationId: src_biz_models_psu_business
+      ki_wset_nwa_otago_cost:
+        prompt: "For a supplied Central Otago vineyard, frost protection would cost €7,000 in equipment use, energy and labour this season. The manager estimates €9,000 of crop loss avoided on average. What is the estimated net benefit before other effects?"
+        options:
+        - "€9,000 net benefit: the avoided loss already includes all protection costs."
+        - "€7,000 net benefit: protection spending itself is the expected return."
+        - "€16,000 net benefit: add protection spending to avoided crop loss."
+        - "An expected €2,000 net benefit if the loss estimate holds."
+        correctIndex: 3
+        explanation: "Under the supplied estimate, €9,000 avoided loss less €7,000 protection cost is €2,000 expected net benefit before other effects. Actual frost, fruit and price may differ; the region itself guarantees none of them."
+        sourceCitationId: src_biz_models_psu_vineyard
+      ki_wset_nwa_sonoma_cost:
+        prompt: "A Sonoma Pinot Noir lot costs €8,000 before extra sorting. Sorting adds €1,000 of labour and leaves 800 kg of sound fruit from 1,000 kg delivered. What is cost per kilogram of usable fruit under these supplied figures?"
+        options:
+        - "€11.25/kg: €9,000 divided by 800 kg of usable fruit."
+        - "€9/kg: €9,000 divided by all 1,000 kg delivered."
+        - "€10/kg: the original €8,000 divided by 800 kg of usable fruit."
+        - "€8/kg: the original €8,000 divided by all 1,000 kg delivered."
+        correctIndex: 0
+        explanation: "The revised cost is €9,000 and only 800 kg remain usable, giving €11.25/kg before winemaking. Hand sorting aims for sound fruit, but this calculation neither proves a superior wine nor establishes a premium."
+        sourceCitationId: src_biz_models_psu_business
+      ki_wset_nwa_stellenbosch_cost:
+        prompt: "A Stellenbosch Cabernet plan rejects part of the crop during selection and buys new barrels; a fruit-led plan uses the comparable lot. Which adjustment belongs in the selected lot's unit-cost estimate?"
+        options:
+        - "Add new-wood cost but divide by all delivered fruit, including the rejected berries."
+        - "Spread its higher labour and new-wood cost over the smaller usable output."
+        - "Reduce the usable-output denominator but leave extra selection labour outside cost."
+        - "Allocate selection labour to the fruit-led lot and wood to the selected lot."
+        correctIndex: 1
+        explanation: "The supplied selection both adds work and lowers usable output; purchased new wood is another input for that lot. This raises cost per usable unit without proving better ripeness or a premium."
+        sourceCitationId: src_biz_models_psu_business
+      ki_wset_nwa_western_cape_cost:
+        prompt: "A Western Cape Chenin Blanc buyer orders a fresh fruit-led wine this season. A trial of the proposed lees-and-purchased-oak route gives more texture but masks the fruit this buyer requested and delays sale. Which route fits the known order?"
+        options:
+        - "Release the oak-and-lees lot at the same price, accepting its delayed cash recovery."
+        - "Blend the routes before another tasting and assume the fruit profile will be restored."
+        - "Release the tested fruit-led lot early; reserve the costlier route for a separately supported brief."
+        - "Hold the fruit-led lot too, so both wines incur the same inventory cost."
+        correctIndex: 2
+        explanation: "The supplied buyer brief and trial favour the early fruit-led wine. Lees and oak can add texture, but wood and delayed sale require a matching style and customer, not a presumed quality premium."
+        sourceCitationId: src_biz_models_psu_business
+      ki_wset_apply_bordeaux_white_cost:
+        prompt: "A dry Bordeaux white producer has two tested lots for a by-the-glass buyer: early release retains the requested fresh fruit; new barrels, lees work and later sale add texture but mute that freshness. The buyer offers the same price for either. Which lot fits the order and preserves production margin?"
+        options:
+        - "Quote the longer route at the same price because its extra texture offsets any margin loss."
+        - "Quote the longer route at a higher price without first obtaining the buyer's agreement."
+        - "Blend the lots without a new trial, assuming freshness and cost will average favourably."
+        - "Quote the early-release lot; the longer route adds costs without meeting this buyer's stated style."
+        correctIndex: 3
+        explanation: "For this supplied tasting and fixed buyer offer, the early-release wine fits the fresh brief and avoids extra wood, handling and holding costs. Other buyers may value texture; the case does not rank Bordeaux whites generally."
+        sourceCitationId: src_wset_prod_planning
+      ki_wset_apply_north_italian_white_cost:
+        prompt: "A Soave buyer wants a fresh release. A trial of longer lees holding dulls that lot's freshness, and holding would occupy the tank needed for another order. What should the producer do for this brief?"
+        options:
+        - "Release the tested fresh lot early and reserve the tank for the other order."
+        - "Hold the Soave longer and assume the buyer will value the changed texture."
+        - "Move the Soave into purchased oak without a new trial to free the tank."
+        - "Delay the other order while treating its lost capacity as irrelevant to the Soave plan."
+        correctIndex: 0
+        explanation: "The supplied sensory trial misses the fresh brief and the scarce tank has a competing use. Early release fits this case; lees holding can suit another tested style, but time alone is not a benefit."
+        sourceCitationId: src_wset_prod_planning
+      ki_wset_apply_abruzzo_cost:
+        prompt: "A fruit-led Montepulciano d'Abruzzo early release is compared with a later barrel-held lot. A budget includes barrel purchase but leaves both the extra storage and tasting trial blank. What is still needed before choosing the longer route?"
+        options:
+        - "Add holding cost but use the grape name instead of a trial to judge style fit."
+        - "Add holding cost and trial fruit/tannin fit against the buyer's style brief."
+        - "Taste the barrel lot but keep the delayed cellar use outside the budget."
+        - "Move the barrel charge to the early-release lot so both route totals appear equal."
+        correctIndex: 1
+        explanation: "The stated later route uses purchased barrels and cellar time; both cost and changed flavour/tannin must fit the actual fruit and market. The grape variety does not require this maturation."
+        sourceCitationId: src_wset_prod_planning
+      ki_wset_apply_aragon_cost:
+        prompt: "Two comparable Calatayud Garnacha plots each cost €12,000 for the year. One yields 1,200 saleable litres; stricter selection leaves the other with 960 litres. How much higher is the selected plot's cost per litre, before any quality judgement?"
+        options:
+        - "20% higher: €12.00/L instead of €10.00/L."
+        - "€2.50 lower: €7.50/L instead of €10.00/L."
+        - "25% higher: €12.50/L instead of €10.00/L for this plot."
+        - "Unchanged at €10.00/L because the annual costs are equal."
+        correctIndex: 2
+        explanation: "€12,000/1,200 L is €10/L; €12,000/960 L is €12.50/L, a 25% increase. Lower usable output raises unit cost here, but does not establish concentration, quality or price."
+        sourceCitationId: src_wset_prod_planning
+      ki_wset_apply_duero_cost:
+        prompt: "A Toro Tinta de Toro lot could sell young or mature in purchased oak. The buyer asks for fruit expression; an oak trial adds smoothness but reduces the requested fruit. Which recommendation follows from that specific trial?"
+        options:
+        - "Offer the oak lot at the same quote, accepting lower fruit expression and added cost."
+        - "Hold both lots in oak, then blend without another buyer trial to restore fruit."
+        - "Delay the young lot too, even though its fruit-led style is already the requested one."
+        - "Offer the young fruit-led lot to this buyer; seek a different brief before paying for the oak route."
+        correctIndex: 3
+        explanation: "For the supplied buyer and trial, young release fits the requested fruit expression and avoids extra wood and time. Oak may suit another suitable lot or buyer; it is not an automatic price tier."
+        sourceCitationId: src_wset_prod_planning
+      ki_wset_apply_northwest_cost:
+        prompt: "A supplied Rías Baixas pergola plot requires €2,000 extra hand work. The Albariño from it is then held on lees for €1,000 of added cellar capacity cost. How should the two increments be recorded?"
+        options:
+        - "€2,000 as vineyard labour and €1,000 as separate cellar holding in the ledger."
+        - "All €3,000 as vineyard labour because the lees-held wine came from a pergola."
+        - "All €3,000 as cellar holding because both costs belong to the finished wine."
+        - "€1,000 as vineyard labour and €2,000 as cellar holding, reversing the activities."
+        correctIndex: 0
+        explanation: "The supplied repeated hand work belongs to growing cost; the later lees hold is a distinct cellar-capacity cost. Keeping them separate prevents the pergola site from being credited or blamed for the cellar choice."
+        sourceCitationId: src_biz_models_psu_vineyard
+      ki_wset_apply_levante_cost:
+        prompt: "A Jumilla Monastrell is proposed for harvest selection, new oak and later sale instead of fruit-led early release. The budget records barrel purchase but still uses the pre-selection bottled volume and early-release date. Which correction is most complete?"
+        options:
+        - "Lower the volume forecast but keep the early-sale cash date for the later route."
+        - "Lower the usable-volume forecast and add holding cost before judging the wine and buyers."
+        - "Add holding cost but keep the pre-selection volume for unit-cost calculation."
+        - "Move the new-barrel charge to the early-release route to offset selection losses."
+        correctIndex: 1
+        explanation: "The supplied selected lot can produce fewer saleable units, and later release ties up stock after the new-wood purchase. The corrected budget still needs sensory and demand evidence before any premium is assumed."
+        sourceCitationId: src_wset_prod_planning
+      ki_wset_apply_mancha_cost:
+        prompt: "An accessible, machine-suitable La Mancha Airén plot must be picked before a forecast storm. The available hand crew needs three days, but a contracted machine can finish tonight; inspection finds the fruit suitable for that method. Which harvest plan best fits the stated deadline and fresh style?"
+        options:
+        - "Use the hand crew over three days to avoid machinery cost, despite the stated deadline."
+        - "Postpone picking until after the storm so the method can be chosen without a time constraint."
+        - "Use the machine tonight; include hire cost and verify fruit condition at intake."
+        - "Use the machine tonight but omit hire cost because fewer pickers are needed."
+        correctIndex: 2
+        explanation: "On this supplied suitable site, the machine meets the deadline with fewer pickers, but its hire cost and resulting fruit still matter. The choice does not imply mechanisation is best for every Airén vineyard."
+        sourceCitationId: src_wset_prod_harvest_cost
+      ki_wset_apply_alentejo_cost:
+        prompt: "A producer has a €7,000 vineyard labour-and-equipment ceiling. An easier Alentejo plot has a firm €6,000 quote; a more demanding Portalegre hillside has an €8,000 quote. Buyers want freshness, but neither fruit lot has been trialled. Which plan is feasible now without revised funding?"
+        options:
+        - "Commit to the €8,000 hillside because elevation itself covers the €1,000 budget gap."
+        - "Record the hillside at €7,000 and defer its extra €1,000 until the wine sells."
+        - "Treat both plots as within budget because their later cellar holding could be identical."
+        - "Use the €6,000 plot for the current budget; revisit the hillside after a trial or new funding."
+        correctIndex: 3
+        explanation: "The supplied quotes make only the €6,000 plot feasible under the current €7,000 vineyard ceiling. A cooler hillside might suit a fresh style, but actual fruit, equipment cost and buyer value still need evidence."
+        sourceCitationId: src_wset_prod_planning
+      ki_wset_apply_lisboa_cost:
+        prompt: "After wet weather a Lisboa lot needs repeated sorting, loses part of its delivered fruit and may be held for a later blend. The budget includes sorting wages but uses all delivered grapes and an early-sale date. Which two entries must change?"
+        options:
+        - "Forecast output from sound fruit and cash from the later sale."
+        - "Use only sound fruit for output but keep the early-sale date for the held blend."
+        - "Move the sale date later but leave rejected grapes in the usable-output forecast."
+        - "Assign the sorting wages to the unaffected early-release lot to equalize margins."
+        correctIndex: 0
+        explanation: "Rejected fruit cannot be counted as usable volume, and the specified longer-held blend postpones cash. Neither wet coastal conditions nor the Lisboa name fixes its eventual quality or selling price."
+        sourceCitationId: src_wset_prod_planning
+      ki_wset_apply_rheinhessen_cost:
+        prompt: "A Rheinhessen Grauburgunder buyer specifies fresh fruit and clear acidity. In a trial, steel meets that brief; purchased small oak dominates fruit and the buyer offers no extra price. Which vessel plan fits this lot?"
+        options:
+        - "Use purchased small oak because the barrique label offsets the changed fruit profile."
+        - "Use steel and avoid the unsupported oak purchase and longer hold for the stated buyer."
+        - "Use purchased small oak and hold longer, assuming the buyer's unchanged offer covers it."
+        - "Buy the oak but blend it into the steel lot without trialling the final blend."
+        correctIndex: 1
+        explanation: "The supplied tasting and buyer offer favour steel for this fresh brief. Wood can change flavour and cost; the result does not ban oak for other Grauburgunder lots."
+        sourceCitationId: src_wset_prod_planning
