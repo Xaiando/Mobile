@@ -1,0 +1,100 @@
+# Objective, cited four-role decisions complement the existing written cases.
+# The distractors are conditional on each original scenario and do not grade
+# the learner's separate prose response.
+question_templates:
+  - id: qt_d3_geography_case_criteria_8
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: case_criteria
+    variant: d3_geography_case_criteria
+    prompt_template: '{subject.name}'
+    parameters:
+      scope_node_ids:
+        - n_reg_am_case_california_sites
+        - n_reg_am_case_chile_white
+        - n_reg_am_case_pacific_northwest
+        - n_reg_gr_case_north_comparison
+        - n_reg_sh_case_au_cabernet_price
+        - n_reg_sh_case_au_shiraz_selection
+        - n_reg_sh_case_nz_white_comparison
+        - n_reg_sh_case_za_chenin_purchasing
+      scenario_prompts:
+        n_reg_sh_case_nz_white_comparison: >-
+          A study group compares an Awatere Valley Marlborough Sauvignon Blanc fermented
+          in stainless steel for a fresh fruit-led style with a Hawke's Bay Chardonnay
+          fermented in barrel for a fuller style. The wines differ in both grape and cellar
+          treatment. Design a regional comparison, give a rationale, and discuss a tradeoff
+          and a limit on attributing their sensory differences to place.
+      distractors:
+        n_reg_am_case_california_sites:
+          - summary: Put both grapes on the cheaper upper Napa parcel because the fruit quote settles style fit
+            explanation: The lower quote does not establish the fresh Pinot Noir target in a warmer parcel; both site and finished-wine evidence matter.
+          - summary: Contract both sites from their appellation names without trial fruit or vintage records
+            explanation: Marine exposure provides context, but the offered parcels and seasons must be checked before committing.
+        n_reg_am_case_chile_white:
+          - summary: Buy the warmer inland sample solely for its lower quote despite the stated freshness target
+            explanation: The inland sample is fuller and riper while the coastal sample meets the buyer's freshness brief; price is only one constraint.
+          - summary: Promise mineral flavour and freshness from the coastal soil and region without tasting
+            explanation: The case supplies sample evidence for freshness, not direct soil-to-flavour proof or a guarantee for future lots.
+        n_reg_am_case_pacific_northwest:
+          - summary: Order the larger Columbia Cabernet volume on unit price alone before checking sales and storage
+            explanation: A cheaper unit quote can still tie up more inventory; customer fit, volume and cash matter.
+          - summary: Promise identical wine quality from the two regions because both lie at northern latitude
+            explanation: Their growing contexts differ and latitude does not certify the finished wines; assess samples and producer records.
+        n_reg_gr_case_north_comparison:
+          - summary: Attribute this pair's tannin difference only to Naoussa clay and Amyndeon sand
+            explanation: Vintage, extraction and barrel regime all differ in the premise, so soil texture is not an isolated cause.
+          - summary: Guarantee the same regional texture contrast in every future Xinomavro vintage
+            explanation: One unmatched pair cannot establish a stable regional rule or future sensory outcome.
+        n_reg_sh_case_au_cabernet_price:
+          - summary: Set the higher price because Margaret River origin alone proves greater sensory quality
+            explanation: The wines have similar stated sensory evaluation and no origin name establishes an automatic price premium.
+          - summary: Recover all higher producer costs in retail price without testing customer willingness to pay
+            explanation: Costs affect the recovery target, while channel margin and market response determine whether a proposed premium works.
+        n_reg_sh_case_au_shiraz_selection:
+          - summary: Call the Eden wine pepper-dominant from its high-site origin before tasting it
+            explanation: The regional reference specifically cautions that Eden Shiraz need not be pepper-dominant.
+          - summary: Treat similar maturation as proof that climate alone caused every sensory difference
+            explanation: Matching vintage and maturation reduces confounding, but vineyard and other production variables remain.
+        n_reg_sh_case_nz_white_comparison:
+          - summary: Assign the entire fruit and texture difference to regional climate while ignoring grape and barrel use
+            explanation: Variety and fermentation vessel differ at the same time as origin, so the pair cannot isolate place.
+          - summary: Define every Marlborough and Hawke's Bay white by these two contrasting samples
+            explanation: Both regions make diverse whites; two deliberately different wines do not establish exhaustive regional styles.
+        n_reg_sh_case_za_chenin_purchasing:
+          - summary: Buy the fuller barrel wine as inherently better despite the customers' fresh-style brief
+            explanation: Greater texture from barrel treatment is a style difference, not independent evidence of superior quality or customer fit.
+          - summary: Declare Stellenbosch Chenin invariably fresh and Swartland Chenin invariably rich from one pair
+            explanation: The two wines also differ in cellar treatment; one comparison cannot define either origin's range.
+  - id: qt_d3_service_fault_case_criteria_2
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: case_criteria
+    variant: d3_service_fault_case_criteria
+    prompt_template: '{subject.name}'
+    parameters:
+      scope_node_ids:
+        - n_fault_case_hot_delivery
+        - n_fault_case_lit_display
+      scenario_prompts:
+        n_fault_case_hot_delivery: >-
+          A wine delivery experienced a recorded hot period in transit, and a few cork-sealed
+          bottles show leakage. The same lot has holdback samples stored under known conditions.
+          Propose an evidence-based assessment before sale, explain the heat and package
+          mechanisms, weigh investigation costs, and state why leakage alone cannot settle quality.
+        n_fault_case_lit_display: >-
+          Clear-bottle white wines spent weeks in a bright retail window. Some now show
+          cabbage-like character absent from protected stock. Propose a display and stock
+          response, explain a possible light-related mechanism, weigh presentation against
+          protection, and state what comparison is needed before assigning the aroma's cause.
+      distractors:
+        n_fault_case_hot_delivery:
+          - summary: Dispose of the entire shipment solely because a few closures leaked
+            explanation: Leakage indicates package stress but does not prove sensory damage in every bottle; compare the suspect stock with holdbacks.
+          - summary: Sell all intact-closure bottles without testing because they show no visible leakage
+            explanation: Heat may affect wine without visible package movement; physical, sensory and suitable chemical evidence should inform disposition.
+        n_fault_case_lit_display:
+          - summary: Keep sale bottles in strong light because window visibility outweighs the reported aroma
+            explanation: Ongoing light exposure risks further damage; protected sale stock and an alternative display are more defensible.
+          - summary: Identify lightstrike as the sole cause from a cabbage descriptor without comparing protected bottles
+            explanation: Several volatile sulfur compounds can share descriptors; compare affected and protected stock and exposure history.
