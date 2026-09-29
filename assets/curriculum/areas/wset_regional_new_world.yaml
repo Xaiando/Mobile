@@ -2239,6 +2239,14 @@ certification_knowledge_mappings:
     importance: core
     minimum_depth: 2
 source_citations:
+  - id: src_wset_nw_clare_guide
+    kind: reference_work
+    title: Clare Valley facilitator guide, Riesling styles and ageing
+    publisher: Wine Australia
+    jurisdiction: AU
+    url: https://www.wineaustralia.com/getmedia/4e36319a-3d5d-49ac-96d1-0a2be185ee93/AWD_ClareValley_FacilitatorGuide_1.pdf?ext=.pdf
+    document_identifier: Primary educational guide checked 29 September 2026; Riesling section
+    accessed_on: 2026-09-29
   - id: src_wset_nw_napa_wine
     kind: reference_work
     title: "Napa Valley Vintners: regional grape and wine styles"
@@ -2378,6 +2386,9 @@ source_citations:
     publisher: Wine Australia
     accessed_on: 2026-09-27
 knowledge_item_citations:
+  - knowledge_item_id: ki_wset_nw_clare_riesling_style
+    source_citation_id: src_wset_nw_clare_guide
+    locator: Clare Valley Riesling moves from youthful citrus to honey and toast with suitable bottle age
   - knowledge_item_id: ki_wset_nw_california_variation
     source_citation_id: src_reg_am_sonoma
     locator: Overview; climate and marine influence; Sonoma is the named example, not a description of every

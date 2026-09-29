@@ -1,0 +1,119 @@
+# Source-bounded winemaking application choices; pending qualified verification.
+question_templates:
+- id: qt_wset_winemaking_shared_application_9
+  relation_type: PRINCIPLE_EXPLANATION
+  direction: forward
+  mode: authored_choice
+  variant: wset_winemaking_shared_application_9
+  prompt_template: '{subject.name}'
+  parameters:
+    item_choices:
+      ki_wset_prod_acidification:
+        prompt: A white must tastes flat because its acidity is low. What is the likely aim of a permitted
+          acid adjustment?
+        options:
+        - Increase freshness by raising the must acidity
+        - Soften acidity through malolactic conversion
+        - Raise sweetness by stopping yeast fermentation
+        - Add texture by extending contact with fine lees
+        correctIndex: 0
+        explanation: Permitted acid addition can raise acidity and perceived freshness. The exact pH and
+          titratable-acidity response depends on the must and is a more technical assessment.
+        sourceCitationId: src_wset_prod_acid
+      ki_wset_prod_blend_balance:
+        prompt: Two eligible red-wine lots differ in acidity and tannin. Which blending aim matches the
+          OIV code?
+        options:
+        - Combine equal volumes to preserve each lot's identity
+        - Mix altered wine into sound wine to conceal its fault
+        - Seek a final profile with better-balanced components
+        - Match colour alone without considering palate balance
+        correctIndex: 2
+        explanation: The OIV includes desired sensory and better-balanced characteristics among permitted
+          blending aims. It prohibits using blending to conceal chemical or microbiological alteration.
+        sourceCitationId: src_wset_prod_blend
+      ki_wset_prod_blend_consistency:
+        prompt: A house red should remain recognisable across vintages, although the available lots differ
+          each year. What should its blending plan allow?
+        options:
+        - Adjust eligible lot proportions toward the house style
+        - Repeat last year's volumes despite changed lots
+        - Blend unsound wine until faults become less obvious
+        - Set ratios before assessing the new vintage lots
+        correctIndex: 0
+        explanation: Wine Australia explains that blending can maintain a house style even as vintage
+          conditions change; the proportions used may therefore need to change.
+        sourceCitationId: src_wset_prod_consistency
+      ki_wset_prod_neutral_vessels:
+        prompt: A Chardonnay producer matures wine in stainless steel instead of new oak. Which vessel
+          effect does this avoid?
+        options:
+        - Adding vanilla-like aromas from new barrel wood
+        - Allowing any oxygen contact during wine handling
+        - Allowing malolactic conversion in the stored wine
+        - Preserving fruit-derived aromas from the grapes
+        correctIndex: 0
+        explanation: New oak can contribute wood-derived aroma compounds such as vanillin and lactones.
+          Stainless steel does not contribute those compounds; handling and other cellar choices still
+          affect the wine.
+        sourceCitationId: src_win_oak
+      ki_wset_prod_red_press_timing:
+        prompt: A red must has finished fermenting on its skins. What changes directly when the producer
+          presses it now?
+        options:
+        - The wine leaves its skins, limiting further contact
+        - The remaining grape sugar becomes new alcohol
+        - The finished wine loses all previously extracted tannin
+        - The press fraction fixes the final blend proportions
+        correctIndex: 0
+        explanation: AWRI describes post-fermentation red maceration as continued contact with skins and
+          seeds before pressing. Pressing separates the wine from those solids and limits further contact
+          extraction.
+        sourceCitationId: src_wset_prod_red_maceration
+      ki_wset_prod_rose_blending:
+        prompt: A producer proposes blending red and white wines to make rosé. Which statement is defensible?
+        options:
+        - Every still-wine appellation permits the same blending route
+        - Permission varies by category and jurisdiction; check the rules
+        - The colour proves that short maceration occurred before blending
+        - A sparkling rosé cannot be made with red-and-white blending
+        correctIndex: 1
+        explanation: The OIV notes that red-and-white blending is not permitted for rosé in many countries
+          but has exceptions; the legal category must be checked.
+        sourceCitationId: src_wset_prod_rose
+      ki_wset_prod_rose_direct_short:
+        prompt: What distinguishes short maceration from direct pressing in a black-grape rosé?
+        options:
+        - Direct pressing extends skin contact through fermentation
+        - Short maceration begins after alcoholic fermentation
+        - Direct pressing ferments intact black berries first
+        - Short maceration holds juice with skins before pressing
+        correctIndex: 3
+        explanation: Both are recognised rosé routes. Short maceration deliberately extends juice-skin
+          contact before separation; direct pressing extracts limited colour during pressing.
+        sourceCitationId: src_wset_prod_rose
+      ki_wset_prod_sweet_routes:
+        prompt: A still wine has fermented fully dry, but the producer wants actual sugar in the finished
+          wine. Which step could work where permitted?
+        options:
+        - Chill the finished wine to preserve its former grape sugar
+        - Enrich the must to raise potential alcohol before fermenting
+        - Add a permitted sweetening component after fermentation
+        - Reduce acidity until ripe fruit aroma tastes sweet enough
+        correctIndex: 2
+        explanation: Once the wine has fermented dry, original residual sugar cannot be retained retroactively.
+          Where permitted, a sweetening component can be added; enrichment before fermentation instead
+          raises potential alcohol.
+        sourceCitationId: src_wset_prod_enrichment
+      ki_win_alcoholic_products:
+        prompt: Yeast consumes grape sugar during alcoholic fermentation. Which pair names its principal
+          products?
+        options:
+        - Alcohol and lactic acid
+        - Carbon dioxide and tartaric acid
+        - Alcohol and carbon dioxide
+        - Lactic acid and oxygen
+        correctIndex: 2
+        explanation: Wine yeast chiefly turns grape sugars into alcohol and carbon dioxide. Other by-products
+          can affect aroma and composition.
+        sourceCitationId: src_win_fermentation

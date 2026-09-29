@@ -1,0 +1,783 @@
+# Source-bounded regional application choices; pending qualified verification.
+question_templates:
+- id: qt_wset_europe_application_67
+  relation_type: PRINCIPLE_EXPLANATION
+  direction: forward
+  mode: authored_choice
+  variant: wset_europe_application
+  prompt_template: '{subject.name}'
+  parameters:
+    item_choices:
+      ki_wset_eu_fr_aoc_identity:
+        prompt: On a French wine label, how are AOC and AOP related?
+        options:
+        - AOC is France's traditional PDO term; AOP is the EU term
+        - AOC is France's traditional PGI term; AOP is the EU PDO term
+        - AOC ranks a French estate; AOP names its protected wine origin
+        - AOC names a village site; AOP names the broader wine region
+        correctIndex: 0
+        explanation: INAO treats AOC as the French national appellation terminology and AOP as its European
+          protected-origin counterpart. A named appellation carries a delimited origin and specification.
+        sourceCitationId: src_wset_eu_fr_aoc
+      ki_wset_eu_fr_igp_identity:
+        prompt: A French bottle bears the Pays d'Oc IGP name. Which interpretation is supported?
+        options:
+        - It is an AOP appellation with a single permitted grape variety
+        - It is a protected geographical indication with an origin specification
+        - It is a Vin de France category that does not name a region
+        - It is a producer-owned region brand outside protected-origin rules
+        correctIndex: 1
+        explanation: INAO describes IGP as a protected geographical indication linked to origin, reputation
+          or characteristics and governed by a specification. Pays d'Oc is an IGP example.
+        sourceCitationId: src_wset_eu_fr_igp
+      ki_wset_eu_burgundy_regional_village:
+        prompt: Bourgogne and Gevrey-Chambertin appear on two bottles. How do their named origins compare?
+        options:
+        - Both are village appellations with different permitted colours
+        - Gevrey-Chambertin is regional; Bourgogne is village-level
+        - Both are regional appellations with commune names on the back label
+        - Bourgogne is regional; Gevrey-Chambertin is village-level
+        correctIndex: 3
+        explanation: The Bourgogne wine board distinguishes regional AOCs from village AOCs named for
+          communes. A label does not by itself grade every bottle's quality.
+        sourceCitationId: src_wset_eu_burgundy_hierarchy
+      ki_wset_eu_it_doc_docg:
+        prompt: What do DOC and DOCG names identify on Italian wine labels?
+        options:
+        - Italian PDO terms tied to denomination-specific rules
+        - Italian PGI terms tied to broad geographical claims
+        - Producer classifications awarded across an entire region
+        - Compulsory oak-ageing stages applied across Italian DOCs
+        correctIndex: 0
+        explanation: Italy's agriculture ministry describes DOC and DOCG as traditional terms for wines
+          with a protected designation of origin. Each denomination has its own specification.
+        sourceCitationId: src_wset_eu_it_origin
+      ki_wset_eu_it_igt:
+        prompt: An Italian wine uses the traditional term IGT. Which interpretation is accurate?
+        options:
+        - The traditional Italian term for a regulated PDO wine
+        - The traditional Italian term for a regulated PGI wine
+        - An unprotected national origin category with no specification
+        - A category for wine matured longer than all DOC wines
+        correctIndex: 1
+        explanation: The Italian agriculture ministry states that IGT is the traditional term for IGP
+          wine. It remains geographically protected; the term alone does not rank the taste of individual
+          bottles.
+        sourceCitationId: src_wset_eu_it_origin
+      ki_wset_eu_gavi_cortese:
+        prompt: A still dry white is labelled Gavi DOCG. Which grape-and-origin interpretation fits?
+        options:
+        - Cortese is the grape; Gavi names the Piedmont origin
+        - Garganega is the grape; Gavi names a Veneto origin
+        - Arneis is the grape; Gavi names a Piedmont origin
+        - Cortese is the grape; Gavi names a Trentino origin
+        correctIndex: 0
+        explanation: The Gavi consorzio identifies Gavi, or Cortese di Gavi, as a Piedmont white-wine
+          denomination made from Cortese. Other categories can be sparkling, so the prompt specifies still
+          dry.
+        sourceCitationId: src_wset_eu_gavi
+      ki_wset_eu_recioto_amarone_contrast:
+        prompt: Recioto della Valpolicella and Amarone both use dried grapes. What chiefly distinguishes
+          their usual finished sweetness?
+        options:
+        - Recioto ferments dry; Amarone retains more residual sugar
+        - Recioto retains more sugar; Amarone ferments toward dry
+        - Both remain sweet because appassimento preserves all sugar
+        - Both ferment dry; appassimento changes alcohol alone
+        correctIndex: 1
+        explanation: The Valpolicella consorzio describes both as appassimento wines, with Recioto fermentation
+          stopped to preserve sweetness and Amarone made dry. Drying alone cannot identify residual sugar.
+        sourceCitationId: src_reg_inc_amarone
+      ki_wset_eu_rioja_label_quality:
+        prompt: A guest assumes any Rioja Gran Reserva must be better than any generic Rioja. What is
+          the sound response?
+        options:
+        - The category describes maturation; compare bottles for quality
+        - Gran Reserva carries a higher guaranteed blind-tasting score
+        - The generic seal bars extended ageing by individual producers
+        - Both seals prescribe identical minimum maturation periods
+        correctIndex: 0
+        explanation: Rioja's academy presents ageing categories as style routes, not a simple quality
+          scale. Wine balance, intensity, complexity and length still require individual assessment.
+        sourceCitationId: src_wset_eu_rioja_labels
+      ki_wset_eu_de_predicate_sweetness:
+        prompt: A German Riesling says Spätlese but shows no sweetness term. What can the Prädikat itself
+          tell you?
+        options:
+        - It grades finished sweetness, irrespective of grape ripeness
+        - It grades grape ripeness, not finished residual sugar
+        - It grades the producer's cellar ageing before release
+        - It grades vineyard origin and does not concern ripeness
+        correctIndex: 1
+        explanation: The German Wine Institute defines Prädikat by grape ripeness and minimum must weight.
+          Finished sweetness also depends on fermentation and any permitted taste term.
+        sourceCitationId: src_wset_eu_de_predicates
+      ki_wset_eu_de_trocken_halbtrocken:
+        prompt: A German label includes trocken or halbtrocken. What do these words principally address?
+        options:
+        - Harvest-must categories measured before fermentation begins
+        - Origin categories separating PDO from PGI wines
+        - Finished-wine sugar categories with acid-dependent limits
+        - Bottle-age categories regulating cellar time before release
+        correctIndex: 2
+        explanation: The German Wine Institute describes trocken as dry and halbtrocken as off-dry, with
+          residual-sugar limits that depend partly on acidity. These are finished-wine taste terms.
+        sourceCitationId: src_wset_eu_de_sweetness
+      ki_wset_eu_tokaj_dry_sweet:
+        prompt: Two wines are labelled Tokaj Furmint and Tokaji Aszú. Which conclusion follows from those
+          names?
+        options:
+        - Tokaj Furmint denotes late-harvest sweet wine by law
+        - Tokaji Aszú is made from dry Furmint with no botrytis
+        - Both names indicate dry Furmint aged for different periods
+        - Dry Furmint and sweet botrytised Aszú both occur in Tokaj
+        correctIndex: 3
+        explanation: Wines of Tokaj describes dry Furmint alongside sweet Aszú made using individually
+          selected noble-rot berries. Regional origin or grape alone does not establish sweetness.
+        sourceCitationId: src_reg_ah_tokaj_grapes
+      ki_wset_eu_bordeaux_sweet_white:
+        prompt: Why can a classic Sauternes or Barsac white be richly sweet yet balanced?
+        options:
+        - Botrytis concentrates sugar; acidity helps balance the sweetness
+        - Late harvest alone defines both AOCs; botrytis is excluded by law
+        - Malolactic conversion leaves residual sugar and adds acidity
+        - Fortification stops fermentation and fixes the wine's sugar
+        correctIndex: 0
+        explanation: Bordeaux's wine board describes noble rot concentrating Sémillon berries for the
+          sweet wines of Sauternes and Barsac; retained sugar gives sweetness while acidity is needed
+          for balance.
+        sourceCitationId: src_wset_eu_bdx_cellar
+      ki_wset_eu_bordeaux_superieur_evaluation:
+        prompt: Bordeaux Supérieur and Bordeaux appear on two bottles. What can the word Supérieur safely
+          establish by itself?
+        options:
+        - It proves the wine belongs to a classified Bordeaux estate
+        - It proves a longer oak-ageing period than every Bordeaux AOC
+        - It follows a separate Bordeaux Supérieur appellation specification
+        - It gives a higher official tasting grade than plain Bordeaux
+        correctIndex: 2
+        explanation: Bordeaux Supérieur has its own regulated requirements. Individual producer, vintage
+          and sensory quality still need assessment; the word alone is not a bottle-by-bottle quality
+          ranking.
+        sourceCitationId: src_wset_eu_bdx_superieur
+      ki_wset_eu_bordeaux_classification_quality:
+        prompt: A classified Bordeaux estate releases two different vintages. What does the classification
+          establish about their sensory quality?
+        options:
+        - The estate rank carries one official tasting grade into each vintage
+        - The rank affects reputation; each vintage still needs assessment
+        - Classification is re-awarded to each vintage after sensory review
+        - The estate rank overrides vintage conditions in quality assessment
+        correctIndex: 1
+        explanation: Classification concerns an estate or regulated ranking, while vintage, viticulture
+          and cellar choices still influence each wine. The label cannot replace tasting the bottle.
+        sourceCitationId: src_wset_eu_bdx_classification
+      ki_wset_eu_burgundy_origin_price:
+        prompt: Why might a reputed Grand Cru Bourgogne wine command more than a broad regional wine,
+          without guaranteeing every bottle is better?
+        options:
+        - Grand Cru prices are fixed by appellation rules, across producers
+        - Regional Bourgogne is barred from maturing before its release
+        - Smaller supply and site reputation can raise price, not ensure quality
+        - Grand Cru status changes the grape species and raises grape cost
+        correctIndex: 2
+        explanation: Bourgogne's origin hierarchy narrows the named site. Scarcity and reputation may
+          influence price, but label rank alone does not resolve every producer or vintage comparison.
+        sourceCitationId: src_wset_eu_burgundy_hierarchy
+      ki_wset_eu_cote_rotie_work:
+        prompt: A Côte-Rôtie producer farms very steep, narrow terraces. What is the most defensible cost
+          implication?
+        options:
+        - Vineyard labour per hectare when machinery access is constrained
+        - Winery cooperage per litre because slope determines barrel use
+        - Bottle glass per litre because slope determines package weight
+        - Export freight per case because slope determines destination
+        correctIndex: 0
+        explanation: The Rhône wine board describes Côte-Rôtie's steep slopes and terraces. Access and
+          manual work can raise costs, without guaranteeing sensory quality or demand.
+        sourceCitationId: src_wset_eu_cote_rotie
+      ki_wset_eu_pays_oc_varieties:
+        prompt: A producer has separate Merlot red and Chardonnay white lots in Pays d’Oc. Which label
+          route may be available?
+        options:
+        - Merlot may use Pays d’Oc; Chardonnay needs Vin de France
+        - Both may use Pays d’Oc, subject to each wine’s IGP rules
+        - Chardonnay may use Pays d’Oc; Merlot needs Vin de France
+        - Both need Languedoc AOP rather than the Pays d’Oc IGP
+        correctIndex: 1
+        explanation: The Pays d'Oc producer body lists Merlot and Chardonnay among many permitted varieties,
+          in single-variety or blended wines. Origin does not fix one aroma or winemaking profile.
+        sourceCitationId: src_wset_eu_pays_oc_varietal_list
+      ki_wset_eu_recioto_soave_selection:
+        prompt: A producer selects Garganega bunches for Recioto di Soave and dries them before pressing.
+          Which consequence is plausible?
+        options:
+        - Drying creates extra press juice and therefore lowers unit cost
+        - Selection and drying avoid the need to monitor fruit condition
+        - Selection and lower juice yield can increase production cost
+        - Drying fixes a higher official sensory grade than dry Soave
+        correctIndex: 2
+        explanation: The Soave consorzio describes Garganega's suitability for air drying and Recioto's
+          constrained yield. Extra handling and reduced juice can affect cost, not an automatic quality
+          ranking.
+        sourceCitationId: src_wset_grape_soave_recioto
+      ki_wset_eu_catalunya_styles:
+        prompt: A wine is labelled Catalunya DO. Which prediction best respects the appellation's range?
+        options:
+        - It covers reds alone, from a fixed Tempranillo-led grape list
+        - It covers white and red, but its rosés require a separate IGP
+        - It covers white, rosé and red from only international grapes
+        - It covers white, rosé and red from local and international grapes
+        correctIndex: 3
+        explanation: The Catalunya DO authority lists many permitted white and red grapes, including Tempranillo,
+          Garnacha, Carignan, Cabernet Sauvignon, Merlot and Chardonnay, across different wine colours.
+        sourceCitationId: src_wset_eu_catalunya
+      ki_wset_eu_es_do_doca:
+        prompt: On Spanish wine labels, what do DO and DOCa principally signal?
+        options:
+        - Traditional PDO-origin terms with denomination-specific rules
+        - Traditional PGI-origin terms with denomination-specific rules
+        - Maturation categories used by every Spanish wine denomination
+        - Estate rankings issued to producers within every Spanish region
+        correctIndex: 0
+        explanation: Spain's agriculture ministry lists Denominación de Origen and Denominación de Origen
+          Calificada as traditional terms for wines under DOP protection, rather than grapes or sweetness
+          categories.
+        sourceCitationId: src_wset_eu_es_register
+      ki_wset_eu_es_vino_tierra:
+        prompt: A Spanish wine label says Vino de la Tierra de Castilla y León. What does Vino de la Tierra
+          mean?
+        options:
+        - A traditional PDO term with narrower appellation boundaries
+        - A traditional PGI term with regulated geographical origin
+        - A Vin de España term without a protected regional origin
+        - A maturation term for wine held at least two years in barrel
+        correctIndex: 1
+        explanation: Spain's agriculture ministry assigns Vino de la Tierra to IGP wines. The example
+          names an origin, with its own specification, rather than a universal grape or cellar method.
+        sourceCitationId: src_wset_eu_es_register
+      ki_wset_eu_navarra_varieties:
+        prompt: A guest knows Navarra for Garnacha rosé. What else should they expect from the region?
+        options:
+        - Navarra includes reds and whites as well as Garnacha rosé
+        - Navarra permits Garnacha rosé but no still red appellation wine
+        - Navarra permits red and rosé but excludes Chardonnay whites
+        - Navarra is limited to Garnacha rosé and sweet fortified wine
+        correctIndex: 0
+        explanation: Navarra's wine authority shows Garnacha rosés alongside red and white examples using
+          Tempranillo, Cabernet Sauvignon, Merlot and Chardonnay.
+        sourceCitationId: src_wset_eu_navarra_wines
+      ki_wset_eu_it_classico_origin:
+        prompt: What does Classico indicate in a permitted Italian wine designation such as Chianti Classico?
+        options:
+        - A compulsory oak-ageing grade used across Italian PDO wines
+        - A delimited historic production area with its own rules
+        - A tasting rank that each vintage must earn before bottling
+        - A producer-owned brand for the highest village vineyard
+        correctIndex: 1
+        explanation: The Chianti Classico consortium traces Classico to the original delimited Chianti
+          territory, now an independent appellation from Chianti. The word is about origin.
+        sourceCitationId: src_wset_eu_chianti_classico_zone
+      ki_wset_eu_it_riserva_maturation:
+        prompt: Chianti Classico Riserva and Annata differ. What does Riserva most safely establish?
+        options:
+        - It names a specific higher-altitude Chianti Classico vineyard
+        - It guarantees higher sensory quality than any Annata bottle
+        - It meets extra maturation rules set for that denomination
+        - It requires the same new-oak regimen in every Italian DOC
+        correctIndex: 2
+        explanation: The Chianti Classico consorzio lists a longer minimum maturation for Riserva than
+          Annata. Riserva requirements depend on the particular appellation; the word does not set one
+          national oak recipe.
+        sourceCitationId: src_wset_eu_chianti_classico_types
+      ki_wset_eu_languedoc_red_blends:
+        prompt: Which red blend is a credible starting association for Minervois or Corbières?
+        options:
+        - Cabernet Sauvignon, Merlot, Cabernet Franc and Petit Verdot
+        - Pinot Noir, Gamay, Cabernet Franc and Mondeuse in equal shares
+        - Grenache Blanc, Marsanne, Roussanne and Bourboulenc
+        - Syrah, Grenache, Mourvèdre and Carignan in varied shares
+        correctIndex: 3
+        explanation: The Minervois and Corbières appellation bodies list these Mediterranean red grapes.
+          Site and producer decisions still change the finished wine's fruit, structure and body.
+        sourceCitationId: src_wset_eu_minervois
+      ki_wset_eu_minervois_corbieres_colours:
+        prompt: A buyer assumes every Minervois or Corbières bottle is red. What correction is supported?
+        options:
+        - Both appellations can produce red, rosé and white wines
+        - Minervois permits red only; Corbières adds rosé and white
+        - Corbières permits red only; Minervois adds rosé and white
+        - Both appellations permit red and rosé, but exclude white
+        correctIndex: 0
+        explanation: Both appellation bodies list red, rosé and white wines. Their whites can include
+          Grenache Blanc, Marsanne, Roussanne and Bourboulenc, while actual blends vary.
+        sourceCitationId: src_wset_eu_corbieres
+      ki_wset_eu_bourgogne_cote_or_level:
+        prompt: Bourgogne Côte d'Or appears on a label. Where does it sit in the appellation hierarchy?
+        options:
+        - Regional Bourgogne with an added geographical name
+        - A village appellation covering all of the Côte d'Or
+        - A Premier Cru designation shared by several villages
+        - A Grand Cru appellation spanning both Côte d'Or slopes
+        correctIndex: 0
+        explanation: Bourgogne Côte d'Or is a geographically narrowed regional Bourgogne denomination,
+          rather than a village, Premier Cru or Grand Cru appellation.
+        sourceCitationId: src_wset_eu_bourgogne_cote_or
+      ki_wset_eu_burgundy_hautes_level:
+        prompt: What do Bourgogne Hautes Côtes de Nuits and Bourgogne Hautes Côtes de Beaune indicate
+          on a wine label?
+        options:
+        - Village appellations for vineyards above Nuits and Beaune
+        - Regional Bourgogne wines with added geographical names
+        - Premier Cru areas spanning the Nuits and Beaune districts
+        - Grand Cru sites shared between Nuits and Beaune villages
+        correctIndex: 1
+        explanation: The Bourgogne appellation permits these further geographical names within the regional
+          AOC; they are distinct from village appellations.
+        sourceCitationId: src_inao_cdc_bourgogne
+      ki_wset_eu_montagny_chardonnay:
+        prompt: What is the likely grape and colour of a dry Montagny from the Côte Chalonnaise?
+        options:
+        - Chenin Blanc white
+        - Sauvignon Blanc white
+        - Chardonnay white
+        - Viognier white
+        correctIndex: 2
+        explanation: The Bourgogne wine board identifies Montagny as a Chardonnay white appellation with
+          both village and Premier Cru wines.
+        sourceCitationId: src_wset_eu_montagny
+      ki_wset_eu_rose_anjou_style:
+        prompt: A guest asks for Rosé d'Anjou. Which style is a sound starting association?
+        options:
+        - A dry Loire rosé with Cabernet Franc grapes prominent
+        - A sweet sparkling Loire rosé with Chenin prominent
+        - A dry Loire rosé with Pinot Noir prominent
+        - An often off-dry Loire rosé with Grolleau prominent
+        correctIndex: 3
+        explanation: The Loire wine body's appellation guide associates Rosé d'Anjou with fruity, softer
+          rosé and Grolleau, under a protected named origin.
+        sourceCitationId: src_fr_atlas_loire_guide
+      ki_wset_eu_cabernet_anjou_style:
+        prompt: How does Cabernet d'Anjou differ from a dry red Chinon?
+        options:
+        - An often off-dry Cabernet-based rosé from Anjou
+        - A dry Cabernet-based rosé from the Chinon vineyards
+        - A dry Cabernet-based red from Anjou vineyards
+        - An off-dry Grolleau-based rosé from Anjou
+        correctIndex: 0
+        explanation: INAO describes Cabernet d'Anjou as a rosé from Cabernet Franc and Cabernet Sauvignon
+          with residual sweetness; Chinon is a distinct appellation often associated with dry Cabernet
+          Franc red.
+        sourceCitationId: src_wset_eu_cabernet_anjou
+      ki_wset_eu_rose_loire_style:
+        prompt: A guest specifically wants a dry Loire rosé. Which named appellation best fits the request?
+        options:
+        - Cabernet d'Anjou
+        - Rosé de Loire
+        - Rosé d'Anjou
+        - Coteaux du Layon
+        correctIndex: 1
+        explanation: The Loire wine body's guide distinguishes dry Rosé de Loire from the sweeter Rosé
+          d'Anjou and Cabernet d'Anjou styles.
+        sourceCitationId: src_fr_atlas_loire_guide
+      ki_wset_eu_tavel_identity:
+        prompt: What does a Tavel appellation label establish about wine colour?
+        options:
+        - A Rhône appellation allowing red and white wines
+        - A Rhône appellation devoted to still white wine
+        - A Rhône appellation limited to still rosé wine
+        - A Rhône appellation reserved for sparkling rosé
+        correctIndex: 2
+        explanation: INAO identifies Tavel as a protected Rhône appellation for rosé wine made from a
+          Grenache-based blend.
+        sourceCitationId: src_wset_eu_tavel
+      ki_wset_eu_tavel_style:
+        prompt: A Tavel looks deeper pink than a very pale rosé. What is the safest sensory inference?
+        options:
+        - Expect added sweetness because more colour means more sugar
+        - Expect higher quality because colour indicates ripeness
+        - Expect oak flavours because colour indicates barrel ageing
+        - May be fuller bodied; colour cannot confirm sweetness
+        correctIndex: 3
+        explanation: INAO describes Tavel as a structured rosé; maceration, varieties and producer decisions
+          affect colour and body. Appearance alone cannot certify sweetness or quality.
+        sourceCitationId: src_wset_eu_tavel
+      ki_wset_eu_gascogne_dry_white:
+        prompt: Which local grape does the Côtes de Gascogne wine body single out for citrus and exotic-fruit
+          aromas in dry whites?
+        options:
+        - Colombard
+        - Gros Manseng
+        - Ugni Blanc
+        - Sauvignon Blanc
+        correctIndex: 0
+        explanation: The Côtes de Gascogne wine body identifies Colombard as a common source of lively
+          citrus and exotic-fruit character in dry whites, often blended with Ugni Blanc and other grapes.
+        sourceCitationId: src_wset_eu_gascogne
+      ki_wset_eu_gascogne_manseng:
+        prompt: Which statement best describes sweetness in Côtes de Gascogne IGP whites?
+        options:
+        - Dry whites qualify, but sweet Manseng whites use another IGP
+        - Dry whites and sweet Manseng whites both fall within the IGP
+        - Sweet whites qualify, but dry Colombard whites use another IGP
+        - Only dry whites qualify when Gros Manseng appears in a blend
+        correctIndex: 1
+        explanation: The Côtes de Gascogne wine body describes both dry white blends and sweet or mellow
+          wines based on Gros and Petit Manseng.
+        sourceCitationId: src_wset_eu_gascogne
+      ki_wset_eu_dolcetto_alba_style:
+        prompt: A customer expects Dolcetto d'Alba to taste sweet because of its name. Which correction
+          fits the usual style?
+        options:
+        - Usually off-dry red; Dolcetto requires detectable residual sugar
+        - Usually sweet red; Dolcetto signals late-harvest production
+        - Usually dry red; Dolcetto's name does not imply sweetness
+        - Usually fortified red; Dolcetto signals a high-alcohol style
+        correctIndex: 2
+        explanation: The Langhe consorzio explains that the grape's sweet-sounding name comes from berry
+          flesh, while its wines are dry. The name alone does not denote a dessert wine.
+        sourceCitationId: src_reg_inc_dolcetto
+      ki_wset_eu_vino_nobile_sangiovese:
+        prompt: In Vino Nobile di Montepulciano, what does Montepulciano identify?
+        options:
+        - An Abruzzo town; Montepulciano is locally Prugnolo Gentile
+        - A Tuscan grape; Montepulciano is locally Prugnolo Gentile
+        - A Tuscan town; Nebbiolo is locally Prugnolo Gentile
+        - A Tuscan town; Sangiovese is locally Prugnolo Gentile
+        correctIndex: 3
+        explanation: The Vino Nobile consorzio identifies its Montepulciano origin and locally named Sangiovese.
+          This is distinct from Montepulciano d'Abruzzo, where Montepulciano is the grape.
+        sourceCitationId: src_wset_eu_vino_nobile
+      ki_wset_eu_sicilia_terre_identity:
+        prompt: Sicilia DOC and Terre Siciliane IGT both appear on Sicilian bottles. How are they related?
+        options:
+        - 'Two protections: Sicilia DOC is PDO, Terre Siciliane IGT is PGI'
+        - 'Two separate protections: Sicilia DOC is PGI, Terre Siciliane IGT is PDO'
+        - 'One protection: Terre Siciliane IGT is a named Sicilia DOC subzone'
+        - 'One protection: Sicilia DOC is a named Terre Siciliane IGT subzone'
+        correctIndex: 0
+        explanation: Italy's agriculture ministry lists Sicilia DOC and Terre Siciliane IGT separately.
+          Their traditional terms map to different European protected-origin categories and specifications.
+        sourceCitationId: src_wset_eu_sicilia_register
+      ki_wset_eu_terre_siciliane_styles:
+        prompt: A bottle is labelled Terre Siciliane IGT. What can the name alone tell you about sweetness
+          and colour?
+        options:
+        - White and red wines are possible; rosé needs a different IGT
+        - White, red and rosé are possible; sweetness is not fixed
+        - Dry red and rosé wines are possible; whites need Sicilia DOC
+        - Only sweet whites are possible; dry wines need Sicilia DOC
+        correctIndex: 1
+        explanation: The Terre Siciliane specification spans multiple colours and categories, including
+          passito and late harvest. Read the cuvée information before inferring sweetness.
+        sourceCitationId: src_wset_eu_terre_siciliane_eu
+      ki_wset_eu_calatayud_garnacha:
+        prompt: Which Calatayud red grape does Spain’s trade agency particularly highlight for fully mature
+          fruit and new red-wine styles?
+        options:
+        - Garnacha in ripe-fruited Calatayud reds
+        - Tempranillo in ripe-fruited Calatayud reds
+        - Monastrell in ripe-fruited Calatayud reds
+        - Bobal in ripe-fruited Calatayud reds
+        correctIndex: 0
+        explanation: Spain's trade agency identifies mature Garnacha as central to Calatayud reds; vine
+          age, yields and cellar choices still change concentration and style.
+        sourceCitationId: src_wset_eu_calatayud
+      ki_wset_eu_calatayud_altitude:
+        prompt: A high Calatayud Garnacha site is compared with a hotter low site. Which climate effect
+          is a reasonable possibility, not a fixed harvest rule?
+        options:
+        - Warmer nights, slower ripening and lower acidity retention
+        - Cooler nights, slower ripening and better acidity retention
+        - Warmer nights, faster ripening and better acidity retention
+        - Cooler nights, faster ripening and lower acidity retention
+        correctIndex: 1
+        explanation: ICEX reports elevated Calatayud vineyards; its high-elevation wine guidance explains
+          the potential for cooler nights and acidity retention. Aspect and season still matter.
+        sourceCitationId: src_wset_eu_spanish_elevation_acidity
+      ki_wset_eu_carinena_identity:
+        prompt: A bottle says Cariñena PDO. Which reading distinguishes the protected origin from the
+          grape of the same name?
+        options:
+        - Cariñena names the grape; Calatayud is the origin
+        - Cariñena names the grape; Garnacha is the origin
+        - Cariñena names the origin; Garnacha may be used
+        - Cariñena names the origin; only Carignan may be used
+        correctIndex: 2
+        explanation: The Cariñena PDO wine body distinguishes the protected origin from the grape sharing
+          its name and identifies Garnacha as central to its red wines.
+        sourceCitationId: src_wset_eu_carinena
+      ki_wset_eu_carinena_style_range:
+        prompt: Which young-versus-aged Cariñena PDO red contrast does its producer body describe?
+        options:
+        - Young barrel-led; aged with fresh-fruit simplicity
+        - Young fruit-led; aged with the same primary profile
+        - Young barrel-led; aged without maturation influence
+        - Young fruit-led; aged with barrel-and-bottle complexity
+        correctIndex: 3
+        explanation: The Cariñena PDO authority lists young and aged red expressions. The label establishes
+          origin, not one mandated oak or fruit profile.
+        sourceCitationId: src_wset_eu_carinena
+      ki_wset_eu_bierzo_mencia:
+        prompt: Which red/white grape pairing best matches the Bierzo regulatory council’s main regional
+          associations?
+        options:
+        - Mencía red and Godello white
+        - Tempranillo red and Godello white
+        - Mencía red and Airén white
+        - Garnacha red and Airén white
+        correctIndex: 0
+        explanation: Bierzo's regulatory council identifies Mencía as its main red grape and Godello as
+          a major white grape. Aroma alone cannot prove origin.
+        sourceCitationId: src_wset_eu_bierzo
+      ki_wset_eu_bierzo_cellar:
+        prompt: Two Bierzo Mencía reds share vineyard fruit but differ in tannin and oak notes. Which
+          cellar pair should be checked first?
+        options:
+        - Closure type and label format
+        - Skin extraction and wood maturation
+        - Pressing pressure and filtration medium
+        - Yeast strain and bottling date
+        correctIndex: 1
+        explanation: Wines from Spain's Bierzo account shows that Mencía styles vary with vineyard and
+          cellar work; the appellation name alone does not fix texture.
+        sourceCitationId: src_wset_eu_bierzo_mencia
+      ki_wset_eu_valencia_reds:
+        prompt: Which two black-grape names does Valencia PDO foreground among its red and rosé varieties?
+        options:
+        - Monastrell and Cabernet Franc
+        - Mencía and Cabernet Franc
+        - Monastrell and Garnacha Tintorera
+        - Mencía and Garnacha Tintorera
+        correctIndex: 2
+        explanation: Valencia's PDO authority lists Monastrell, Garnacha Tintorera and a range of other
+          black grapes; the specific blend and cellar method still matter.
+        sourceCitationId: src_wset_eu_valencia
+      ki_wset_eu_valencia_whites:
+        prompt: Valencia PDO also produces whites and rosés. Which white-grape pair does its authority
+          foreground?
+        options:
+        - Merseguera and Godello
+        - Airén and Verdil
+        - Airén and Godello
+        - Merseguera and Verdil
+        correctIndex: 3
+        explanation: The Valencia PDO authority lists white and rosé categories and these white-grape
+          associations, under a distinct protected origin.
+        sourceCitationId: src_wset_eu_valencia
+      ki_wset_eu_valdepenas_identity:
+        prompt: Which origin and grape pairing identifies Valdepeñas DO in Spain’s trade-agency account?
+        options:
+        - Distinct Castilla-La Mancha DO; Cencibel red and Airén white
+        - Same designation as La Mancha DO; Cencibel red and Airén white
+        - Distinct Castilla-La Mancha DO; Mencía red and Godello white
+        - Distinct Rioja DO; Cencibel red and Airén white
+        correctIndex: 0
+        explanation: Spain's trade agency identifies Valdepeñas as a distinct DO in Castilla-La Mancha,
+          with Tempranillo/Cencibel central to reds and Airén present in whites.
+        sourceCitationId: src_wset_eu_valdepenas
+      ki_wset_eu_valdepenas_climate:
+        prompt: A Valdepeñas producer faces a hot, dry season. Which vineyard-and-cellar response best
+          preserves options for balance?
+        options:
+        - Pick solely by calendar date; set one fixed fermentation temperature
+        - Monitor fruit maturity and water; manage fermentation temperature
+        - Monitor fruit maturity and water; set one fixed fermentation temperature
+        - Pick solely by calendar date; manage fermentation temperature
+        correctIndex: 1
+        explanation: Valdepeñas has a warm, dry growing setting; ripening and temperature choices can
+          affect the wine, without the origin name dictating a single outcome.
+        sourceCitationId: src_wset_eu_valdepenas
+      ki_wset_eu_pt_doc_igp:
+        prompt: How do Portugal’s DOC and Vinho Regional labels map to EU origin categories?
+        options:
+        - DOC is DOP; Vinho Regional is DOP under EU origin rules
+        - DOC is IGP; Vinho Regional is IGP under EU origin rules
+        - DOC is DOP; Vinho Regional is IGP under EU origin rules
+        - DOC is IGP; Vinho Regional is DOP under EU origin rules
+        correctIndex: 2
+        explanation: Wines of Portugal maps DOC to DOP and Vinho Regional to IGP. Both are regulated origin
+          categories, not a universal individual-wine quality score.
+        sourceCitationId: src_wset_eu_pt_labels
+      ki_wset_eu_alentejo_alentejano:
+        prompt: Which comparison fits the Alentejo DOC and Alentejano IGP origin schemes?
+        options:
+        - Alentejano IGP has defined DOC subregions; Alentejo DOC covers a broader area
+        - Both names denote the same eight Alentejo DOC subregions and rules
+        - Alentejano IGP is one village inside the Alentejo DOC area
+        - Alentejo DOC has defined subregions; Alentejano IGP covers a broader area
+        correctIndex: 3
+        explanation: Portugal's IVV identifies eight Alentejo DOP subregions and a broader Alentejano
+          IGP area with more flexible grape and style options.
+        sourceCitationId: src_atlas_pt_alentejo_subregions
+      ki_wset_eu_at_dac_meaning:
+        prompt: What does DAC on a Weinviertel regional wine label stand for?
+        options:
+        - Districtus Austriae Controllatus
+        - Districtus Austriae Classificatus
+        - Denominatio Austriae Controllatus
+        - Districtus Austriae Communalis
+        correctIndex: 0
+        explanation: Weinviertel DAC explains the acronym and its protected regional profile. Weinviertel's
+          Grüner Veltliner rule is specific to that DAC rather than every Austrian region.
+        sourceCitationId: src_wset_eu_weinviertel_dac
+      ki_wset_eu_at_dac_other_wines:
+        prompt: A wine from a DAC region fails that DAC’s grape or style rule. Which label route can remain
+          possible if its separate conditions are met?
+        options:
+        - Use any Austrian village name without checking geographic origin
+        - Use an eligible broader Austrian origin without the DAC name
+        - Use the same DAC name after changing only the marketing text
+        - Use a neighbouring DAC name after changing the cellar technique
+        correctIndex: 1
+        explanation: Austrian origin and DAC regulations set conditions for each protected label. A nonconforming
+          wine may use an eligible broader designation, subject to its own rules.
+        sourceCitationId: src_at_weing_21
+      ki_wset_eu_greece_pdo_origin:
+        prompt: A bottle names Assyrtiko but no Santorini PDO. What is the safe origin conclusion?
+        options:
+        - It names a grape that may be grown on Santorini or elsewhere in Greece
+        - It names the Santorini PDO even if the vineyards are elsewhere in Greece
+        - It names a PGI covering all Greek islands and their offshore vineyards
+        - It names a protected regional style that producers may use across Greece
+        correctIndex: 0
+        explanation: Greece's PDO and PGI names protect specified origins; Assyrtiko is a grape grown
+          beyond Santorini. Read the protected designation separately.
+        sourceCitationId: src_reg_gr_assyrtiko
+      ki_wset_eu_es_vino_pago:
+        prompt: What distinguishes Spain's traditional Vino de Pago term from an ordinary vineyard brand
+          name?
+        options:
+        - A Vino de la Tierra region covering many independent estates
+        - A DOCa region whose name any estate inside the region may use
+        - A PDO term for a delimited estate with its own specification
+        - A vineyard brand that can be put on any wine from the wider DO
+        correctIndex: 2
+        explanation: Spain's agriculture ministry lists Vino de Pago among traditional terms for protected-designation
+          wines. A brand or vineyard mention alone is not equivalent.
+        sourceCitationId: src_wset_eu_es_register
+      ki_wset_eu_chalonnaise_colours:
+        prompt: A guest assumes every Côte Chalonnaise appellation is a red Pinot Noir. Which correction
+          is valid?
+        options:
+        - Rully is red-only, while Montagny also makes Chardonnay whites
+        - Rully is white-only, while Montagny also makes Pinot Noir reds
+        - Rully makes reds and whites, while Montagny makes Pinot Noir reds
+        - Rully makes red and white wines; Montagny makes Chardonnay white
+        correctIndex: 3
+        explanation: Bourgogne appellation sheets distinguish Rully's Pinot Noir reds and Chardonnay whites
+          from Montagny's Chardonnay whites. Other Côte Chalonnaise names likewise need individual checking.
+        sourceCitationId: src_wset_eu_rully
+      ki_wset_eu_chalonnaise_site:
+        prompt: Two red Rully wines differ in tannin and readiness. What should be assessed before blaming
+          the appellation name alone?
+        options:
+        - Site ripeness plus extraction and maturation choices for each red wine
+        - Site ripeness alone; Rully regulations set extraction and oak treatment
+        - Cellar maturation alone; all Rully sites yield the same grape ripeness
+        - Appellation category alone; Rully Premier Cru fixes tannin and readiness
+        correctIndex: 0
+        explanation: Rully has varying slopes and soils; ripeness and red-wine cellar choices can alter
+          texture. The appellation name does not dictate one identical body or maturity.
+        sourceCitationId: src_wset_eu_rully
+      ki_wset_eu_saint_veran_style:
+        prompt: Which wine is a suitable starting expectation for Saint-Véran in the southern Mâconnais?
+        options:
+        - A dry Sauvignon Blanc white with herbal fruit and pronounced acidity
+        - A dry Chardonnay white with ripe fruit, texture and fresh acidity
+        - A sweet Chardonnay white with botrytis notes and marked residual sugar
+        - A dry Aligoté white with neutral fruit and very light texture
+        correctIndex: 1
+        explanation: The Bourgogne wine board describes Saint-Véran as a Chardonnay white origin. Site
+          and winemaking can change the balance of ripe fruit, roundness and freshness.
+        sourceCitationId: src_wset_eu_saint_veran
+      ki_wset_eu_frascati_white_blend:
+        prompt: A Frascati Superiore producer lists Malvasia di Candia, Malvasia del Lazio, Trebbiano
+          Toscano and Grechetto. What does this example illustrate?
+        options:
+        - The required recipe for every Frascati Superiore producer
+        - The required recipe for every white-wine denomination in Lazio
+        - One producer's white-grape example, not a fixed DOCG recipe
+        - A list of white grapes expressly barred from Frascati Superiore
+        correctIndex: 2
+        explanation: The cited Frascati Superiore producer gives this particular white blend. It is evidence
+          of a regional grape association, not a universal appellation formula.
+        sourceCitationId: src_wset_eu_frascati_producer
+      ki_wset_eu_toro_grapes:
+        prompt: Which statement best characterizes Toro red wines?
+        options:
+        - Toro reds are based on Bobal, with Tinta de Toro allowed only in rosé
+        - Toro reds are based on Garnacha, with Tinta de Toro barred from the DO
+        - Toro reds require Cabernet Sauvignon, but may add local Tempranillo
+        - Tinta de Toro is local Tempranillo; Garnacha-led DO reds also exist
+        correctIndex: 3
+        explanation: The Toro regulatory council lists Tinta de Toro and Garnacha-led reds, both in youthful
+          and matured versions; the origin does not mandate one oak flavour.
+        sourceCitationId: src_wset_eu_toro_red
+      ki_wset_eu_penedes_varieties:
+        prompt: Penedès is often associated with sparkling wine. What else does the protected origin include?
+        options:
+        - Still whites, reds and rosés from local and international grape varieties
+        - Still whites and reds, with rosés restricted to wines labelled Catalunya DO
+        - Rosés and sparklers, with still whites restricted to Catalunya DO
+        - Still reds and sparklers, with Xarel-lo whites restricted to Cava DO
+        correctIndex: 0
+        explanation: The Penedès wine authority lists varied still-wine colours, Xarel-lo and other local
+          grapes alongside Chardonnay and red international varieties; the region is broader than a Cava
+          association.
+        sourceCitationId: src_wset_eu_penedes
+      ki_wset_eu_at_qualitaetswein:
+        prompt: What does Austrian Qualitätswein establish in relation to DAC?
+        options:
+        - A national quality tier that does not require a protected regional origin
+        - A protected-origin quality tier; DAC further specifies a regional profile
+        - A harvest-ripeness category used only for late-harvest Austrian wine
+        - An estate ranking assigned after comparative sensory judging by region
+        correctIndex: 1
+        explanation: Austrian Wine distinguishes Qualitätswein's approved protected origin from DAC's
+          additional region-typical style requirements.
+        sourceCitationId: src_wset_eu_austrian_categories
+      ki_wset_eu_at_predikatswein:
+        prompt: How does Austrian Prädikatswein add information to Qualitätswein?
+        options:
+        - A smaller DAC zone established by a regional origin rule
+        - A red-wine oak category established by a cellar-ageing rule
+        - Extra grape-ripeness or harvest conditions, such as Spätlese
+        - A varietal category established by a single-grape rule
+        correctIndex: 2
+        explanation: Austrian Wine describes Prädikatswein as Qualitätswein meeting additional ripeness
+          or harvest-method conditions. These terms differ from DAC origin profiles.
+        sourceCitationId: src_wset_eu_austrian_categories
+      ki_wset_eu_trentino_varieties:
+        prompt: Which grape range illustrates Trentino rather than a single-variety stereotype?
+        options:
+        - Nosiola, Marzemino and Teroldego, with no still Chardonnay wines
+        - Nosiola and Teroldego, with Marzemino restricted to Alto Adige
+        - Chardonnay and Marzemino, with Teroldego restricted to Piemonte
+        - Nosiola, Marzemino and Teroldego alongside Chardonnay
+        correctIndex: 3
+        explanation: Trentino's wine consortium lists these local and international grapes. Chardonnay
+          may appear in still or sparkling wine, so its name alone does not establish method.
+        sourceCitationId: src_wset_eu_trentino
+      ki_wset_eu_friuli_grave_varieties:
+        prompt: A bottle says Friuli Grave DOC. Which range of varieties is plausible?
+        options:
+        - Pinot Grigio, Friulano, Sauvignon and Chardonnay whites plus red wines
+        - Pinot Grigio and Sauvignon whites, but Friulano reserved for Collio DOC
+        - Pinot Grigio and Chardonnay whites, but red varieties reserved for Collio
+        - Friulano and Sauvignon whites, but Pinot Grigio excluded from Friuli Grave
+        correctIndex: 0
+        explanation: The Friuli Grave consorzio lists several named white varietal wines and red varieties
+          under its own DOC. The complete label gives more information than Friuli alone.
+        sourceCitationId: src_wset_eu_friuli_grave
+      ki_wset_eu_collio_white_identity:
+        prompt: What does Collio DOC most usefully signal within Friuli-Venezia Giulia?
+        options:
+        - An IGP covering all Friuli-Venezia Giulia, not a delimited hill DOC
+        - A separate hill DOC known for Friulano and Pinot Grigio whites
+        - A subzone of Friuli Grave, using the same flat vineyard area
+        - A Veneto DOC spanning several provinces beyond Friuli-Venezia Giulia
+        correctIndex: 1
+        explanation: The Collio consorzio describes a separate hill appellation where white varieties
+          are prominent; producers and cellar methods still yield varied textures.
+        sourceCitationId: src_wset_eu_collio
