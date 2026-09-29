@@ -10,6 +10,7 @@ import 'package:sommelier/core/coverage/coverage_policy.dart';
 import 'package:sommelier/core/curriculum/curriculum_ingestion.dart';
 import 'package:sommelier/core/curriculum/curriculum_validator.dart';
 import 'package:sommelier/core/database/app_database.dart';
+import 'package:sommelier/core/questions/exercise_format.dart';
 import 'package:sommelier/core/questions/exercise_presenter.dart';
 import 'package:sommelier/core/questions/formats/case_criteria/case_criteria_format.dart';
 import 'package:sommelier/core/study/study_planner.dart';
@@ -246,6 +247,20 @@ void main() {
       expect(geography.counts[CoverageMetric.core], 1110);
       expect(geography.counts[CoverageMetric.coreUsefulPractice], 1110);
       expect(geography.counts[CoverageMetric.spatial], 1673);
+      final coreLocations = audit.items.where(
+        (row) =>
+            row.isCore &&
+            row.item.domainId == 'geography' &&
+            row.item.relationType == 'LOCATED_IN',
+      );
+      expect(coreLocations, isNotEmpty);
+      expect(
+        coreLocations.where(
+          (row) => !row.families.contains(FormatFamily.spatial),
+        ),
+        isEmpty,
+        reason: 'every core place-location fact must retain map-click practice',
+      );
       expect(service.counts[CoverageMetric.core], 110);
       expect(service.counts[CoverageMetric.coreUsefulPractice], 110);
       expect(
