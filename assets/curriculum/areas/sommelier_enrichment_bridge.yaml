@@ -1,0 +1,346 @@
+# Optional sommelier enrichment, not WSET Wines or a CMS Certified exam claim.
+# Sake pairing and Habano service are attributed to their trade associations;
+# the Egyptian bridge describes surviving evidence, not a first-wine legend.
+# All assertions remain unverified pending an independent subject review.
+knowledge_nodes:
+  - { id: n_enrich_sake_pairing, node_type: production_principle, name: "How can a sommelier begin a sake and food pairing?" }
+  - { id: n_enrich_sake_pairing_intensity, node_type: learning_point, name: "Compare the intensity and aroma of both" }
+  - { id: n_enrich_sake_pairing_temperature, node_type: learning_point, name: "Temperature and contrast are options, not guarantees" }
+  - { id: n_enrich_case_sake_pairing, node_type: production_case, name: "A guest wants one sake for delicate fish and grilled vegetables" }
+  - { id: n_enrich_case_sake_pairing_action, node_type: learning_point, name: "Offer a choice between the actual stocked sakes" }
+  - { id: n_enrich_case_sake_pairing_reason, node_type: learning_point, name: "Intensity and roasted aromas guide a first trial" }
+  - { id: n_enrich_case_sake_pairing_tradeoff, node_type: learning_point, name: "Preference can outweigh a matching rule" }
+  - { id: n_enrich_case_sake_pairing_limit, node_type: learning_point, name: "A pairing suggestion is not a guaranteed result" }
+  - { id: n_enrich_cigar_service, node_type: production_principle, name: "How do you identify, care for and present a claimed Habano?" }
+  - { id: n_enrich_cigar_service_identity, node_type: learning_point, name: "A Habanos code checks only a claimed Habano" }
+  - { id: n_enrich_cigar_service_storage, node_type: learning_point, name: "Habanos gives a monitored storage range" }
+  - { id: n_enrich_cigar_service_preparation, node_type: learning_point, name: "Cutting and lighting are optional service choices" }
+  - { id: n_enrich_case_cigar_service, node_type: production_case, name: "A claimed Habano box is kept in a fridge before table service" }
+  - { id: n_enrich_case_cigar_service_action, node_type: learning_point, name: "Verify the claim and offer suitable storage and permitted service" }
+  - { id: n_enrich_case_cigar_service_reason, node_type: learning_point, name: "A fridge and an unchecked seal do different jobs" }
+  - { id: n_enrich_case_cigar_service_tradeoff, node_type: learning_point, name: "A guest can decline or choose a different service" }
+  - { id: n_enrich_case_cigar_service_limit, node_type: learning_point, name: "Storage and cutting do not make tobacco safe" }
+  - { id: n_enrich_amarna_labels, node_type: production_principle, name: "What can Amarna wine-jar inscriptions establish?" }
+  - { id: n_enrich_amarna_labels_content, node_type: learning_point, name: "Some Amarna labels name a year, vintner and vineyard" }
+  - { id: n_enrich_amarna_labels_object, node_type: learning_point, name: "One British Museum fragment identifies a dated estate wine" }
+  - { id: n_enrich_case_ancient_evidence, node_type: production_case, name: "A guest calls Areni, Amarna and a Greek krater three appellation laws" }
+  - { id: n_enrich_case_ancient_evidence_action, node_type: learning_point, name: "Separate installation, inscription and service vessel" }
+  - { id: n_enrich_case_ancient_evidence_reason, node_type: learning_point, name: "The objects support different historical claims" }
+  - { id: n_enrich_case_ancient_evidence_tradeoff, node_type: learning_point, name: "Provenance words are useful without being modern appellations" }
+  - { id: n_enrich_case_ancient_evidence_limit, node_type: learning_point, name: "No object proves the first wine or an unbroken legal system" }
+
+knowledge_relations:
+  - { subject_id: n_enrich_sake_pairing, relation_type: PRINCIPLE_EXPLANATION, object_id: n_enrich_sake_pairing_intensity, valid_from: "2026-09-29" }
+  - { subject_id: n_enrich_sake_pairing, relation_type: PRINCIPLE_EXPLANATION, object_id: n_enrich_sake_pairing_temperature, valid_from: "2026-09-29" }
+  - { subject_id: n_enrich_case_sake_pairing, relation_type: CASE_ACTION, object_id: n_enrich_case_sake_pairing_action, valid_from: "2026-09-29" }
+  - { subject_id: n_enrich_case_sake_pairing, relation_type: CASE_REASON, object_id: n_enrich_case_sake_pairing_reason, valid_from: "2026-09-29" }
+  - { subject_id: n_enrich_case_sake_pairing, relation_type: CASE_TRADEOFF, object_id: n_enrich_case_sake_pairing_tradeoff, valid_from: "2026-09-29" }
+  - { subject_id: n_enrich_case_sake_pairing, relation_type: CASE_LIMITATION, object_id: n_enrich_case_sake_pairing_limit, valid_from: "2026-09-29" }
+  - { subject_id: n_enrich_cigar_service, relation_type: PRINCIPLE_EXPLANATION, object_id: n_enrich_cigar_service_identity, valid_from: "2026-09-29" }
+  - { subject_id: n_enrich_cigar_service, relation_type: PRINCIPLE_EXPLANATION, object_id: n_enrich_cigar_service_storage, valid_from: "2026-09-29" }
+  - { subject_id: n_enrich_cigar_service, relation_type: PRINCIPLE_EXPLANATION, object_id: n_enrich_cigar_service_preparation, valid_from: "2026-09-29" }
+  - { subject_id: n_enrich_case_cigar_service, relation_type: CASE_ACTION, object_id: n_enrich_case_cigar_service_action, valid_from: "2026-09-29" }
+  - { subject_id: n_enrich_case_cigar_service, relation_type: CASE_REASON, object_id: n_enrich_case_cigar_service_reason, valid_from: "2026-09-29" }
+  - { subject_id: n_enrich_case_cigar_service, relation_type: CASE_TRADEOFF, object_id: n_enrich_case_cigar_service_tradeoff, valid_from: "2026-09-29" }
+  - { subject_id: n_enrich_case_cigar_service, relation_type: CASE_LIMITATION, object_id: n_enrich_case_cigar_service_limit, valid_from: "2026-09-29" }
+  - { subject_id: n_enrich_amarna_labels, relation_type: PRINCIPLE_EXPLANATION, object_id: n_enrich_amarna_labels_content, valid_from: "2026-09-29" }
+  - { subject_id: n_enrich_amarna_labels, relation_type: PRINCIPLE_EXPLANATION, object_id: n_enrich_amarna_labels_object, valid_from: "2026-09-29" }
+  - { subject_id: n_enrich_case_ancient_evidence, relation_type: CASE_ACTION, object_id: n_enrich_case_ancient_evidence_action, valid_from: "2026-09-29" }
+  - { subject_id: n_enrich_case_ancient_evidence, relation_type: CASE_REASON, object_id: n_enrich_case_ancient_evidence_reason, valid_from: "2026-09-29" }
+  - { subject_id: n_enrich_case_ancient_evidence, relation_type: CASE_TRADEOFF, object_id: n_enrich_case_ancient_evidence_tradeoff, valid_from: "2026-09-29" }
+  - { subject_id: n_enrich_case_ancient_evidence, relation_type: CASE_LIMITATION, object_id: n_enrich_case_ancient_evidence_limit, valid_from: "2026-09-29" }
+
+knowledge_items:
+  - id: ki_enrich_sake_pairing_intensity
+    subject_id: n_enrich_sake_pairing
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_enrich_sake_pairing_intensity
+    domain_id: service
+    assertion_text: "The Japan Sake and Shochu Makers Association suggests starting with the relative intensity of both sake and food: delicate with delicate, rich with rich. It also suggests matching aromas, such as a roasted note in a sake with grilled or stewed food. These are pairing approaches, not a promise that any category name predicts the taste of a particular bottle."
+    verification_status: unverified
+    last_verified_at: "2026-09-29T10:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_enrich_sake_pairing_temperature
+    subject_id: n_enrich_sake_pairing
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_enrich_sake_pairing_temperature
+    domain_id: service
+    assertion_text: "The same trade-association guide gives temperature and contrast as other pairing options: chilled sake with chilled dishes, warm sake with warm dishes, or a sweet sake against an acidic or bitter dish. A sommelier should ask the guest's preference and test the actual sake and dish instead of claiming one mandatory pairing."
+    verification_status: unverified
+    last_verified_at: "2026-09-29T10:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_enrich_case_sake_pairing_action
+    subject_id: n_enrich_case_sake_pairing
+    relation_type: CASE_ACTION
+    object_id: n_enrich_case_sake_pairing_action
+    domain_id: service
+    assertion_text: "If the listed options are a delicate sake and a richer sake with roasted aromas, offer the delicate one as a first trial with the delicate fish and the richer roasted one with assertively grilled vegetables. Describe the two bottles to the guest and ask which direction they prefer; do not present either match as compulsory."
+    verification_status: unverified
+    last_verified_at: "2026-09-29T10:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_enrich_case_sake_pairing_reason
+    subject_id: n_enrich_case_sake_pairing
+    relation_type: CASE_REASON
+    object_id: n_enrich_case_sake_pairing_reason
+    domain_id: service
+    assertion_text: "The trade-association guide proposes matching intensity and echoing an aroma, including a roasted sake note with stewed or grilled food. Those features justify a starting comparison for these stated dishes and bottles, rather than a universal fish or vegetable rule."
+    verification_status: unverified
+    last_verified_at: "2026-09-29T10:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_enrich_case_sake_pairing_tradeoff
+    subject_id: n_enrich_case_sake_pairing
+    relation_type: CASE_TRADEOFF
+    object_id: n_enrich_case_sake_pairing_tradeoff
+    domain_id: service
+    assertion_text: "One guest may prefer a contrasting taste or a different serving temperature. The guide includes contrast and temperature as options, so explain the recommendation and let the guest choose, including one sake for both dishes if that is their preference."
+    verification_status: unverified
+    last_verified_at: "2026-09-29T10:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_enrich_case_sake_pairing_limit
+    subject_id: n_enrich_case_sake_pairing
+    relation_type: CASE_LIMITATION
+    object_id: n_enrich_case_sake_pairing_limit
+    domain_id: service
+    assertion_text: "The source describes general pairing ideas, not the taste of these hypothetical stocked bottles or this guest's reaction. Verify the actual list and food preparation, and avoid promising that the proposed match will work for everyone."
+    verification_status: unverified
+    last_verified_at: "2026-09-29T10:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_enrich_cigar_service_identity
+    subject_id: n_enrich_cigar_service
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_enrich_cigar_service_identity
+    domain_id: service
+    assertion_text: "Habanos' official authenticity tool can check the code on packaging claimed to be a Habano. It is a check for that protected product, not a universal identification system for non-Cuban cigars; a band, dark wrapper or shape alone does not authenticate a claimed Habano. Check the maker's own evidence for another cigar rather than applying a Habanos code to it."
+    verification_status: unverified
+    last_verified_at: "2026-09-29T10:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_enrich_cigar_service_storage
+    subject_id: n_enrich_cigar_service
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_enrich_cigar_service_storage
+    domain_id: service
+    assertion_text: "Habanos recommends storing its cigars at 16–18°C and 65–70% relative humidity with conditions kept steady. Its guidance says a household refrigerator is dry and can pass on smells, so a monitored humidor is the appropriate comparison for a claimed Habano. These are Habanos' product-care targets, not a statutory rule for every cigar."
+    verification_status: unverified
+    last_verified_at: "2026-09-29T10:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_enrich_cigar_service_preparation
+    subject_id: n_enrich_cigar_service
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_enrich_cigar_service_preparation
+    domain_id: service
+    assertion_text: "For a Habano where service is lawful and wanted, Habanos describes a cut just above the cap seam to retain the wrapper while opening a draw, and an odourless flame for lighting. Ask before any preparation, respect the venue's smoke-free rules, and do not imply that careful cutting, lighting or lack of inhalation makes tobacco safe; the WHO states all tobacco use and second-hand smoke exposure are harmful."
+    verification_status: unverified
+    last_verified_at: "2026-09-29T10:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_enrich_case_cigar_service_action
+    subject_id: n_enrich_case_cigar_service
+    relation_type: CASE_ACTION
+    object_id: n_enrich_case_cigar_service_action
+    domain_id: service
+    assertion_text: "Check the box's Habanos verification code if the seller claims protected origin, explain that the kitchen fridge is not Habanos' recommended storage, and offer suitable monitored humidor care if available. Confirm the guest wants any preparation and that local and venue rules allow it before cutting or lighting at a table."
+    verification_status: unverified
+    last_verified_at: "2026-09-29T10:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_enrich_case_cigar_service_reason
+    subject_id: n_enrich_case_cigar_service
+    relation_type: CASE_REASON
+    object_id: n_enrich_case_cigar_service_reason
+    domain_id: service
+    assertion_text: "The official code tool addresses the claimed Habano identity; the manufacturer's storage page says a refrigerator is dry and transmits smells. The separate service page describes a cap-preserving cut and odourless flame, while the WHO warns that tobacco and second-hand smoke remain harmful."
+    verification_status: unverified
+    last_verified_at: "2026-09-29T10:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_enrich_case_cigar_service_tradeoff
+    subject_id: n_enrich_case_cigar_service
+    relation_type: CASE_TRADEOFF
+    object_id: n_enrich_case_cigar_service_tradeoff
+    domain_id: service
+    assertion_text: "If compliant storage or permitted smoking space is unavailable, explain that limit and offer to leave the cigar unprepared; the guest may decline service. The manufacturer's cutting method is an option for an adult guest who requests it, not a reason to bypass venue policy or expose others to smoke."
+    verification_status: unverified
+    last_verified_at: "2026-09-29T10:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_enrich_case_cigar_service_limit
+    subject_id: n_enrich_case_cigar_service
+    relation_type: CASE_LIMITATION
+    object_id: n_enrich_case_cigar_service_limit
+    domain_id: service
+    assertion_text: "A packaging-code lookup does not establish the cigar's present condition or prove that a different maker's cigar is a Habano. The Habanos care guidance is product-specific. WHO's harm statement still applies; neither storage nor service makes tobacco or second-hand smoke safe."
+    verification_status: unverified
+    last_verified_at: "2026-09-29T10:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_enrich_amarna_labels_content
+    subject_id: n_enrich_amarna_labels
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_enrich_amarna_labels_content
+    domain_id: service
+    assertion_text: "University College London's Digital Egypt catalog describes Amarna wine labels as inscriptions on amphora shoulders that can name a production year, a vintner and a vineyard. Amarna belongs to Akhenaten's fourteenth-century BCE period. These are surviving records of wine provenance, not a modern appellation law or proof that wine began in Egypt."
+    verification_status: unverified
+    last_verified_at: "2026-09-29T10:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_enrich_amarna_labels_object
+    subject_id: n_enrich_amarna_labels
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_enrich_amarna_labels_object
+    domain_id: service
+    assertion_text: "The British Museum's Egyptian collection note describes inscribed pottery fragment EA 59337 as identifying a regnal year 6 wine from the Aten estate on the western river and naming the head vintner. This is one fragmentary label, not a complete surviving filled jar, a first-vintage claim or a certified geographic indication."
+    verification_status: unverified
+    last_verified_at: "2026-09-29T10:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_enrich_case_ancient_evidence_action
+    subject_id: n_enrich_case_ancient_evidence
+    relation_type: CASE_ACTION
+    object_id: n_enrich_case_ancient_evidence_action
+    domain_id: service
+    assertion_text: "Distinguish Areni-1's wine-production installation around 4000 calibrated BCE, Amarna's fourteenth-century BCE written wine provenance and the Met's Greek symposium krater of about 550 BCE. Put them in that order and name installation, inscription and service vessel, rather than calling all three appellation laws."
+    verification_status: unverified
+    last_verified_at: "2026-09-29T10:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_enrich_case_ancient_evidence_reason
+    subject_id: n_enrich_case_ancient_evidence
+    relation_type: CASE_REASON
+    object_id: n_enrich_case_ancient_evidence_reason
+    domain_id: service
+    assertion_text: "Areni's excavated installation supports a production setting, the Amarna inscriptions support labelled years and provenance, and the Greek krater catalog describes wine-and-water service. Each source addresses a different type of surviving evidence."
+    verification_status: unverified
+    last_verified_at: "2026-09-29T10:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_enrich_case_ancient_evidence_tradeoff
+    subject_id: n_enrich_case_ancient_evidence
+    relation_type: CASE_TRADEOFF
+    object_id: n_enrich_case_ancient_evidence_tradeoff
+    domain_id: service
+    assertion_text: "The Amarna estate and vineyard words make a useful bridge from production evidence to recorded provenance, but they should be described as ancient inscriptions rather than projected backwards as today's PDO, DOC or AVA systems."
+    verification_status: unverified
+    last_verified_at: "2026-09-29T10:59:00.000Z"
+    mcq_disabled: true
+  - id: ki_enrich_case_ancient_evidence_limit
+    subject_id: n_enrich_case_ancient_evidence
+    relation_type: CASE_LIMITATION
+    object_id: n_enrich_case_ancient_evidence_limit
+    domain_id: service
+    assertion_text: "None of these artifacts proves the first wine, the first use of a label, how all people drank, or an unbroken legal chain to modern origin designations. The dates are dates of the cited contexts or objects, not invention dates."
+    verification_status: unverified
+    last_verified_at: "2026-09-29T10:59:00.000Z"
+    mcq_disabled: true
+
+certification_knowledge_mappings:
+  # Secondary study enrichment only. No WSET Wines mapping for sake or cigars.
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_enrich_sake_pairing_intensity, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_enrich_sake_pairing_temperature, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_enrich_case_sake_pairing_action, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_enrich_case_sake_pairing_reason, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_enrich_case_sake_pairing_tradeoff, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_enrich_case_sake_pairing_limit, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_enrich_cigar_service_identity, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_enrich_cigar_service_storage, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_enrich_cigar_service_preparation, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_enrich_case_cigar_service_action, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_enrich_case_cigar_service_reason, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_enrich_case_cigar_service_tradeoff, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_enrich_case_cigar_service_limit, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_enrich_amarna_labels_content, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_enrich_amarna_labels_content, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_enrich_amarna_labels_object, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_enrich_amarna_labels_object, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_enrich_case_ancient_evidence_action, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_enrich_case_ancient_evidence_action, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_enrich_case_ancient_evidence_reason, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_enrich_case_ancient_evidence_reason, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_enrich_case_ancient_evidence_tradeoff, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_enrich_case_ancient_evidence_tradeoff, importance: secondary, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_enrich_case_ancient_evidence_limit, importance: secondary, minimum_depth: 2 }
+  - { certification_id: WSET_L4, knowledge_item_id: ki_enrich_case_ancient_evidence_limit, importance: secondary, minimum_depth: 2 }
+
+source_citations:
+  - id: src_enrich_jss_pairing
+    kind: reference_work
+    title: "Basic Sake Food Pairings"
+    publisher: "Japan Sake and Shochu Makers Association"
+    document_identifier: "Basic guide: flavour intensity, aroma, temperature and contrast"
+    url: "https://japansake.or.jp/sake/en/basic/sake-food-pairing/"
+    accessed_on: "2026-09-29"
+  - id: src_enrich_habanos_auth
+    kind: reference_work
+    title: "Authenticity Check"
+    publisher: "Habanos, S.A."
+    jurisdiction: CU
+    document_identifier: "Packaging seal and code for checking a claimed Habano"
+    url: "https://www.habanos.com/en/authenticity-check/"
+    accessed_on: "2026-09-29"
+  - id: src_enrich_habanos_storage
+    kind: reference_work
+    title: "Keeping Habanos"
+    publisher: "Habanos, S.A."
+    jurisdiction: CU
+    document_identifier: "The right conditions and humidors: 16–18°C, 65–70% RH, and refrigerator warning"
+    url: "https://www.habanos.com/en/keeping-habanos/"
+    accessed_on: "2026-09-29"
+  - id: src_enrich_habanos_service
+    kind: reference_work
+    title: "Choosing, cutting, lighting and smoking"
+    publisher: "Habanos, S.A."
+    jurisdiction: CU
+    document_identifier: "Cutting and lighting sections: cap seam and odourless flame"
+    url: "https://www.habanos.com/en/choosing-cutting-lighting-and-smoking/"
+    accessed_on: "2026-09-29"
+  - id: src_enrich_ucl_amarna_labels
+    kind: reference_work
+    title: "Amarna: wine labels"
+    publisher: "University College London, Digital Egypt"
+    jurisdiction: EG
+    document_identifier: "Amarna labels: year, vintner, vineyard, and examples"
+    url: "https://www.ucl.ac.uk/museums-static/digitalegypt/amarna/winelabels.html"
+    accessed_on: "2026-09-29"
+  - id: src_enrich_ucl_amarna_period
+    kind: reference_work
+    title: "Amarna"
+    publisher: "University College London, Digital Egypt"
+    jurisdiction: EG
+    document_identifier: "Akhenaten around 1351–1334 BCE; Amarna founded in regnal year six"
+    url: "https://www.ucl.ac.uk/museums-static/digitalegypt/amarna/index.html"
+    accessed_on: "2026-09-29"
+  - id: src_enrich_bm_ea59337
+    kind: reference_work
+    title: "The collection: Amarna wine labels"
+    publisher: "British Museum, Egypt and Sudan Newsletter 6 (2019)"
+    jurisdiction: EG
+    document_identifier: "EA 59337: regnal year six, Aten estate, western river and head vintner"
+    url: "https://www.britishmuseum.org/sites/default/files/2020-06/British-Museum_Egypt_Sudan_Newsletter6_2019_0.pdf"
+    accessed_on: "2026-09-29"
+
+knowledge_item_citations:
+  - { knowledge_item_id: ki_enrich_sake_pairing_intensity, source_citation_id: src_enrich_jss_pairing, locator: "Basic rules: match flavour intensity and aroma; roasted aroma example." }
+  - { knowledge_item_id: ki_enrich_sake_pairing_temperature, source_citation_id: src_enrich_jss_pairing, locator: "Basic rules: match temperature and contrast tastes." }
+  - { knowledge_item_id: ki_enrich_case_sake_pairing_action, source_citation_id: src_enrich_jss_pairing, locator: "Match intensity and aroma; proposed application to the stated hypothetical menu." }
+  - { knowledge_item_id: ki_enrich_case_sake_pairing_reason, source_citation_id: src_enrich_jss_pairing, locator: "Match flavour intensity and aroma sections." }
+  - { knowledge_item_id: ki_enrich_case_sake_pairing_tradeoff, source_citation_id: src_enrich_jss_pairing, locator: "Temperature and contrast are additional options, not mandatory matches." }
+  - { knowledge_item_id: ki_enrich_case_sake_pairing_limit, source_citation_id: src_enrich_jss_pairing, locator: "The guide gives approaches but does not assess these hypothetical bottles or guest." }
+  - { knowledge_item_id: ki_enrich_cigar_service_identity, source_citation_id: src_enrich_habanos_auth, locator: "Authenticity Check tool and packaging-code scope." }
+  - { knowledge_item_id: ki_enrich_cigar_service_identity, source_citation_id: src_bev_habanos_intro, locator: "Protected Habanos denomination is product-specific." }
+  - { knowledge_item_id: ki_enrich_cigar_service_storage, source_citation_id: src_enrich_habanos_storage, locator: "The right conditions and Humidors: range and refrigerator warning." }
+  - { knowledge_item_id: ki_enrich_cigar_service_preparation, source_citation_id: src_enrich_habanos_service, locator: "Cutting and Lighting: preserve cap and use odourless flame." }
+  - { knowledge_item_id: ki_enrich_cigar_service_preparation, source_citation_id: src_bev_who_tobacco, locator: "All tobacco use and second-hand smoke are harmful." }
+  - { knowledge_item_id: ki_enrich_case_cigar_service_action, source_citation_id: src_enrich_habanos_auth, locator: "Check packaging code for a claimed Habano." }
+  - { knowledge_item_id: ki_enrich_case_cigar_service_action, source_citation_id: src_enrich_habanos_storage, locator: "Humidor and refrigerator guidance." }
+  - { knowledge_item_id: ki_enrich_case_cigar_service_reason, source_citation_id: src_enrich_habanos_auth, locator: "Code-check scope." }
+  - { knowledge_item_id: ki_enrich_case_cigar_service_reason, source_citation_id: src_enrich_habanos_storage, locator: "Fridge and humidor comparison." }
+  - { knowledge_item_id: ki_enrich_case_cigar_service_reason, source_citation_id: src_enrich_habanos_service, locator: "Cap-preserving cut and odourless flame." }
+  - { knowledge_item_id: ki_enrich_case_cigar_service_reason, source_citation_id: src_bev_who_tobacco, locator: "Tobacco and second-hand smoke remain harmful." }
+  - { knowledge_item_id: ki_enrich_case_cigar_service_tradeoff, source_citation_id: src_enrich_habanos_service, locator: "Selection and preparation are consumer choices, not requirements." }
+  - { knowledge_item_id: ki_enrich_case_cigar_service_tradeoff, source_citation_id: src_bev_who_tobacco, locator: "Second-hand smoke harm supports respecting smoke-free spaces." }
+  - { knowledge_item_id: ki_enrich_case_cigar_service_limit, source_citation_id: src_enrich_habanos_auth, locator: "A code checks the claimed Habano, not storage quality or other cigar types." }
+  - { knowledge_item_id: ki_enrich_case_cigar_service_limit, source_citation_id: src_bev_who_tobacco, locator: "All tobacco use and second-hand smoke exposure are harmful." }
+  - { knowledge_item_id: ki_enrich_amarna_labels_content, source_citation_id: src_enrich_ucl_amarna_labels, locator: "Wine labels describe year, vintner and vineyard; examples include regnal years." }
+  - { knowledge_item_id: ki_enrich_amarna_labels_content, source_citation_id: src_enrich_ucl_amarna_period, locator: "Amarna and Akhenaten dated to around 1351–1334 BCE." }
+  - { knowledge_item_id: ki_enrich_amarna_labels_object, source_citation_id: src_enrich_bm_ea59337, locator: "The collection: EA 59337's content, origin and head vintner." }
+  - { knowledge_item_id: ki_enrich_case_ancient_evidence_action, source_citation_id: src_hist_jas_areni, locator: "Areni production installation around 4000 calibrated BCE." }
+  - { knowledge_item_id: ki_enrich_case_ancient_evidence_action, source_citation_id: src_enrich_ucl_amarna_labels, locator: "Amarna wine inscription content." }
+  - { knowledge_item_id: ki_enrich_case_ancient_evidence_action, source_citation_id: src_enrich_ucl_amarna_period, locator: "Amarna period in the fourteenth century BCE." }
+  - { knowledge_item_id: ki_enrich_case_ancient_evidence_action, source_citation_id: src_htime_met_greek_krater, locator: "Greek symposium krater dated about 550 BCE." }
+  - { knowledge_item_id: ki_enrich_case_ancient_evidence_reason, source_citation_id: src_hist_jas_areni, locator: "Installation evidence." }
+  - { knowledge_item_id: ki_enrich_case_ancient_evidence_reason, source_citation_id: src_enrich_ucl_amarna_labels, locator: "Written year, vintner and vineyard evidence." }
+  - { knowledge_item_id: ki_enrich_case_ancient_evidence_reason, source_citation_id: src_htime_met_greek_krater, locator: "Service-vessel evidence." }
+  - { knowledge_item_id: ki_enrich_case_ancient_evidence_tradeoff, source_citation_id: src_enrich_ucl_amarna_labels, locator: "Ancient provenance wording, without a modern legal category." }
+  - { knowledge_item_id: ki_enrich_case_ancient_evidence_limit, source_citation_id: src_hist_jas_areni, locator: "Dated production context, not a first-wine claim." }
+  - { knowledge_item_id: ki_enrich_case_ancient_evidence_limit, source_citation_id: src_enrich_ucl_amarna_labels, locator: "Dated inscriptions, not a first-label claim." }
+  - { knowledge_item_id: ki_enrich_case_ancient_evidence_limit, source_citation_id: src_htime_met_greek_krater, locator: "Dated service vessel, not an invention date." }

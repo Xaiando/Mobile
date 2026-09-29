@@ -284,9 +284,16 @@ void main() {
         'ki_wset_found_familiar_chablis': 'geography',
         'ki_wset_srv_storage_cool': 'service',
       };
-      final templates = await (db.select(
+      final allTemplates = await (db.select(
         db.questionTemplates,
       )..where((row) => row.mode.equals('authored_choice'))).get();
+      final templates = allTemplates
+          .where(
+            (template) =>
+                template.id.startsWith('qt_wset_') ||
+                template.id.startsWith('qt_cms_example_'),
+          )
+          .toList();
       expect(templates, hasLength(26));
       final expectedIds = {
         for (final template in templates)
@@ -373,7 +380,9 @@ void main() {
         SELECT q.knowledge_item_id, i.domain_id FROM questions q
         JOIN question_templates t ON t.id = q.question_template_id
         JOIN knowledge_items i ON i.id = q.knowledge_item_id
-        WHERE t.mode = 'authored_choice' ORDER BY q.knowledge_item_id
+        WHERE t.mode = 'authored_choice'
+          AND (t.id GLOB 'qt_wset_*' OR t.id GLOB 'qt_cms_example_*')
+        ORDER BY q.knowledge_item_id
       ''').get();
       expect(rows, hasLength(603));
       final actual = {
