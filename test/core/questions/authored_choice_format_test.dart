@@ -360,7 +360,7 @@ void main() {
   );
 
   test(
-    '1532 cited choices are generated and served across WSET and CMS tracks',
+    '1561 cited choices are generated and served across WSET and CMS tracks',
     () async {
       final db = openTestDatabase();
       try {
@@ -385,7 +385,7 @@ void main() {
                   template.id == 'qt_d5f_authored_choice',
             )
             .toList();
-        expect(templates, hasLength(73));
+        expect(templates, hasLength(74));
         final expectedIds = {
           for (final template in templates)
             ...((jsonDecode(template.parameters!)
@@ -571,6 +571,9 @@ void main() {
         final diplomaBusinessIds = idsForTemplate(
           'qt_wset_d2_business_application_29',
         );
+        final diplomaBusinessPrincipleIds = idsForTemplate(
+          'qt_wset_l4_business_principle_choice_29',
+        );
         final d3RegionalIds = idsForTemplate('qt_d3rt_regional_choice');
         final d4RegionalIds = idsForTemplate('qt_d4depth_regional_choices');
         final d5FortifiedIds = idsForTemplate('qt_d5f_authored_choice');
@@ -608,6 +611,7 @@ void main() {
           ...l3LocationClueIds,
           ...l3WinemakingPrincipleIds,
           ...diplomaBusinessIds,
+          ...diplomaBusinessPrincipleIds,
           ...d3RegionalIds,
           ...d4RegionalIds,
           ...d5FortifiedIds,
@@ -634,7 +638,7 @@ void main() {
           isEmpty,
           reason: 'Diploma and Level 3 geography choices remain distinct',
         );
-        expect(expectedIds, hasLength(1532));
+        expect(expectedIds, hasLength(1561));
         expect(levelOneIds, hasLength(132));
         expect(levelTwoIds, hasLength(309));
         expect(sharedGrapeIds, hasLength(52));
@@ -690,6 +694,8 @@ void main() {
         expect(l3LocationClueIds, hasLength(35));
         expect(l3WinemakingPrincipleIds, hasLength(40));
         expect(diplomaBusinessIds, hasLength(29));
+        expect(diplomaBusinessPrincipleIds, hasLength(29));
+        expect(diplomaBusinessIds.intersection(diplomaBusinessPrincipleIds), isEmpty);
         expect(d3RegionalIds, hasLength(19));
         expect(d4RegionalIds, hasLength(24));
         expect(d5FortifiedIds, hasLength(16));
@@ -705,7 +711,7 @@ void main() {
                OR t.id = 'qt_d5f_authored_choice')
         ORDER BY q.knowledge_item_id
       ''').get();
-        expect(rows, hasLength(1532));
+        expect(rows, hasLength(1561));
         final actual = {
           for (final row in rows)
             row.read<String>('knowledge_item_id'): row.read<String>(
@@ -877,6 +883,8 @@ void main() {
                     : cmsExampleIds.contains(id)
                     ? cmsCards[id]
                     : diplomaBusinessIds.contains(id)
+                    ? levelFourCards[id]
+                    : diplomaBusinessPrincipleIds.contains(id)
                     ? levelFourCards[id]
                     : d3RegionalIds.contains(id)
                     ? levelFourCards[id]

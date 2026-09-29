@@ -1,0 +1,301 @@
+# Item-specific Diploma business and research decisions. Existing cited assertions
+# remain unverified, and case figures/dated reports are not current market data.
+question_templates:
+  - id: qt_wset_l4_business_principle_choice_29
+    relation_type: PRINCIPLE_EXPLANATION
+    direction: forward
+    mode: authored_choice
+    variant: wset_l4_business_principle_choice_29
+    prompt_template: '{subject.name}'
+    parameters:
+      item_choices:
+        ki_biz_gross_margin:
+          prompt: A wine's gross profit is 40 units and its net sales are 100. Which denominator gives its gross margin percentage?
+          options:
+            - Cost of goods sold, giving 66.7%
+            - Net sales, giving 40%
+            - Opening inventory, giving an inventory ratio
+            - Current liabilities, giving a liquidity ratio
+          correctIndex: 1
+          explanation: Gross margin divides gross profit by net sales; markup instead uses cost as its base.
+          sourceCitationId: src_biz_victoria_pricing
+        ki_biz_gross_profit:
+          prompt: A wine business reports net sales of 100 units and cost of goods sold of 60. What gross profit follows from these stated figures?
+          options:
+            - 160 units, by adding sales and cost
+            - 60 units, equal to cost of goods sold
+            - 40 units, before deducting other operating expenses
+            - 40 units, after every business expense and tax
+          correctIndex: 2
+          explanation: Gross profit is 100 less 60. Other expenses have not been supplied, so this is not net profit.
+          sourceCitationId: src_biz_victoria_pricing
+        ki_biz_inventory_turnover:
+          prompt: For the same accounting period, cost of sales is 120 units and average inventory carried at cost is 30. Which turnover calculation is comparable?
+          options:
+            - 120 divided by 30, or four turns
+            - Sales revenue divided by 30, even when only cost figures are comparable
+            - 30 divided by 120, or four turns
+            - Closing stock divided by opening stock, regardless of cost of sales
+          correctIndex: 0
+          explanation: Cost of sales divided by average cost-valued inventory is four; sales revenue uses a different valuation basis.
+          sourceCitationId: src_biz_sec_statements
+        ki_biz_markup:
+          prompt: A bottle costs 10 units and sells for 15. Which base gives its markup percentage?
+          options:
+            - Selling price, giving 33.3% markup
+            - Current assets, giving a liquidity measure
+            - Average inventory, giving turnover
+            - Cost, giving 50% markup
+          correctIndex: 3
+          explanation: Markup is the 5-unit excess over the 10-unit cost. Dividing by selling price would calculate margin instead.
+          sourceCitationId: src_biz_victoria_pricing
+        ki_biz_models_cooperative_pool:
+          prompt: Several growers lack individual processing and marketing capacity. What can a producer cooperative offer, without promising commercial success?
+          options:
+            - Shared processing and marketing resources, subject to member terms and demand
+            - A guarantee that every member sells at the same profitable price
+            - Exclusive brand decisions for every member without shared governance
+            - An exemption from all production and distribution costs
+          correctIndex: 0
+          explanation: A cooperative can pool functions; its structure alone does not guarantee sales, returns or exclusive control.
+          sourceCitationId: src_biz_models_usda_services
+        ki_biz_models_grape_purchase:
+          prompt: A brand buys grapes instead of owning vineyards. What work remains to be arranged if it intends to sell finished wine?
+          options:
+            - No cellar work, because purchased grapes are already wine
+            - Winemaking and later services, whether in its own or a contracted facility
+            - Vineyard ownership for the purchased parcel
+            - Automatic certification of the finished wine's quality
+          correctIndex: 1
+          explanation: Fruit purchase supplies grapes; it does not automatically provide wine production or guarantee the result.
+          sourceCitationId: src_biz_models_psu_business
+        ki_biz_models_integration:
+          prompt: What is the operational opportunity when one business grows grapes and makes its wine?
+          options:
+            - It can coordinate vineyard and cellar decisions within one enterprise
+            - It has proven that its wine will be better than a specialist producer's
+            - It no longer needs to manage vineyard or cellar costs
+            - It can infer customer demand from ownership structure alone
+          correctIndex: 0
+          explanation: Combined roles allow coordination; ownership is not a quality or demand guarantee.
+          sourceCitationId: src_biz_models_psu_business
+        ki_biz_profit_cash:
+          prompt: A winery shows accounting profit, but customer invoices remain unpaid. What follows about its cash position?
+          options:
+            - Profit proves all cash is already in the bank
+            - Cash flow must equal profit if sales are recorded
+            - Profit and cash can differ because receipt and payment timing differ
+            - An unpaid invoice is the same as a paid receipt
+          correctIndex: 2
+          explanation: Income recognition and the timing of money received or paid are distinct.
+          sourceCitationId: src_biz_sec_statements
+        ki_biz_routes_dtc_records:
+          prompt: A winery keeps cellar-door, club and website contacts in separate records. Which capability could a joined customer record improve?
+          options:
+            - Automatic proof that all visitors will buy again
+            - Cross-channel follow-up and understanding of the same customer's contacts
+            - Elimination of customer-service and fulfilment work
+            - Conversion of retailer customers into owned winery records without consent
+          correctIndex: 1
+          explanation: Joined records can aid follow-up across direct touchpoints; they do not guarantee repeat demand.
+          sourceCitationId: src_biz_routes_wine_australia_dtc
+        ki_biz_routes_ontrade_fit:
+          prompt: A winery wants a restaurant account to keep reordering after its first listing. What should it test with that buyer?
+          options:
+            - Only whether the wine fits on the printed list once
+            - Whether a large social-media audience guarantees restaurant sales
+            - Wine and food fit, useful staff information and reliable replenishment
+            - Whether every restaurant must buy the same number of bottles
+          correctIndex: 2
+          explanation: Restaurant fit and workable service support a continuing account; a listing alone is insufficient.
+          sourceCitationId: src_biz_routes_psu_restaurants
+        ki_biz_routes_retail_access:
+          prompt: A retailer offers to sell a winery's bottles in its shops and website. What comparison should the winery make?
+          options:
+            - Outlet reach and customer fit against negotiated trade terms
+            - The retailer's consumer price alone as the winery's net receipt
+            - Guaranteed direct access to all retailer customer records
+            - A universal claim that retail is better than direct selling
+          correctIndex: 0
+          explanation: Retail offers reach through the retailer's customer interface, subject to the actual trade terms and target fit.
+          sourceCitationId: src_biz_routes_wine_australia_paths
+        ki_biz_stocktake:
+          prompt: A cellar's sales register lists bottles, but staff need to verify what is actually on the shelves. Which check addresses that question?
+          options:
+            - A supplier price list alone
+            - An annual profit figure alone
+            - A forecast of future demand alone
+            - A physical count reconciled to inventory records
+          correctIndex: 3
+          explanation: Physical stocktaking tests recorded inventory against actual bottles and can reveal discrepancies or slow stock.
+          sourceCitationId: src_biz_au_cashflow
+        ki_biz_tasting_room_relationship:
+          prompt: Which potential benefit can a winery tasting room provide, while still requiring operating resources?
+          options:
+            - A guaranteed purchase from every visitor
+            - Customer contact and a chance to build repeat relationships
+            - An automatic exemption from fulfilment work
+            - Proof that all other channels are unprofitable
+          correctIndex: 1
+          explanation: A tasting room can develop a winery-customer relationship; visits and later sales remain uncertain.
+          sourceCitationId: src_biz_psu_tasting_room
+        ki_biz_working_capital:
+          prompt: Current assets are 90 units and current liabilities are 70. What is working capital, and what does that alone prove about tomorrow's cash?
+          options:
+            - 20 units; it does not prove every immediate payment is covered by cash
+            - 160 units; it proves all invoices can be paid immediately
+            - 20 units; it is identical to cash at bank
+            - 70 units; it excludes all non-cash current assets
+          correctIndex: 0
+          explanation: Working capital is 90 minus 70. Current assets may include receivables and stock, not only available cash.
+          sourceCitationId: src_biz_sec_statements
+        ki_d6_research_brief:
+          prompt: Before planning a Diploma research assignment, what should control its scope and presentation?
+          options:
+            - A past student's topic, even when the issued title differs
+            - An app practice packet treated as the current official title
+            - The issued title and its current assignment brief
+            - A fixed citation style inferred from an unrelated course
+          correctIndex: 2
+          explanation: The issued title and current brief define the task; practice cases are not issued titles.
+          sourceCitationId: src_d6_leeds_brief
+        ki_d6_research_claim:
+          prompt: A source measures website orders and its author claims regional demand rose. How should the researcher record this?
+          options:
+            - Separate the measured result, the author's wider claim and the researcher's inference
+            - Rewrite the author's claim as a measured regional fact
+            - Treat the researcher's interpretation as a direct quotation
+            - Discard the measurement because the author's conclusion is broader
+          correctIndex: 0
+          explanation: Keeping observation, source interpretation and one's own inference distinct prevents unwarranted expansion of evidence.
+          sourceCitationId: src_d6_leeds_read
+        ki_d6_research_comparable:
+          prompt: One report counts winery website orders; another counts shop sales in a different year. What is needed before calling them contradictory?
+          options:
+            - A more emphatic headline for each report
+            - Comparable period, place, population, channel and measure
+            - Proof that both reports mention wine
+            - A numerical average of their different totals
+          correctIndex: 1
+          explanation: Different channels and time periods can explain apparently conflicting results without a real like-for-like disagreement.
+          sourceCitationId: src_d6_leeds_read
+        ki_d6_research_counter:
+          prompt: A preferred explanation for wine orders has credible counterevidence. What should the researcher do?
+          options:
+            - Hide the counterevidence to keep the argument concise
+            - Cite it without examining its quality or relevance
+            - Declare all evidence equally decisive regardless of scope
+            - Test the rival explanation and qualify or revise the conclusion
+          correctIndex: 3
+          explanation: A sound argument weighs relevant contrary evidence and adjusts the strength of its claim.
+          sourceCitationId: src_d6_leeds_argument
+        ki_d6_research_origin:
+          prompt: Two articles repeat one producer survey's claim. How many independent measurements do those articles establish?
+          options:
+            - Two, because the publisher names differ
+            - None, because surveys can never be used
+            - One underlying survey, whose coverage still needs inspection
+            - Three, because the survey and two articles each count separately
+          correctIndex: 2
+          explanation: Repetition does not create independent corroboration; trace the claim to the underlying data and its limits.
+          sourceCitationId: src_d6_leeds_evaluate
+        ki_d6_research_provenance:
+          prompt: Which appraisal best tests whether a source supports a particular wine-industry claim?
+          options:
+            - Publisher name alone, without checking the measure
+            - Author, purpose, date, method, underlying evidence and fit to the question
+            - The number of shares its headline received
+            - Whether its conclusion agrees with the intended argument
+          correctIndex: 1
+          explanation: Source credibility and relevance require inspection of evidence, method and scope, not a prestigious name alone.
+          sourceCitationId: src_d6_leeds_evaluate
+        ki_d6_research_question:
+          prompt: An issued research title is broad. How should a learner make an inquiry manageable?
+          options:
+            - Replace the title with a more interesting unrelated question
+            - Collect sources before identifying any claim or scope
+            - Treat every wine market and period as equally necessary
+            - Derive bounded subquestions that still answer the issued title
+          correctIndex: 3
+          explanation: Place, period, actors and relationships can structure the inquiry while the assigned title remains controlling.
+          sourceCitationId: src_d6_leeds_argument
+        ki_d6_research_reference:
+          prompt: What lets a reader distinguish a source's finding from the researcher's own wine-market analysis?
+          options:
+            - Traceable citations for sourced claims and clear separation of original analysis
+            - One bibliography entry without links between claims and sources
+            - Unattributed paraphrase when the source is widely known
+            - A single fixed style regardless of the assignment brief
+          correctIndex: 0
+          explanation: Record enough source and location detail to trace findings, while following the current brief's presentation rules.
+          sourceCitationId: src_d6_leeds_cite
+        ki_d6_research_structure:
+          prompt: Which paragraph most clearly turns a sourced wine-market observation into an argument?
+          options:
+            - A list of quotations with no claim or explanation
+            - A claim with evidence, a reason that evidence bears on it, and a limit or counterreading
+            - A conclusion with no reference to the evidence used
+            - Repetition of the source headline as the researcher's finding
+          correctIndex: 1
+          explanation: Analysis connects a bounded claim to relevant evidence and its limitations rather than listing facts.
+          sourceCitationId: src_d6_leeds_argument
+        ki_reg_cn_grace_2025_logistics:
+          prompt: Grace Vineyard reported Shanxi and Ningxia harvest operations in 2025. Which inference fits a dated producer report?
+          options:
+            - Shanxi always harvests before Ningxia in every future year
+            - Every Chinese winery shares Grace's reception and crew schedule
+            - Its 2025 sequence illustrates serial crew and separate lot coordination, not a permanent regional rule
+            - A dated harvest schedule proves the wines' later commercial prices
+          correctIndex: 2
+          explanation: The reported sequence is specific to Grace's 2025 operations and does not set a timeless regional order.
+          sourceCitationId: src_reg_cn_grace
+        ki_reg_cn_hongsibu_cost:
+          prompt: Why does a Hongsibu vineyard business comparison include winter burial operations?
+          options:
+            - They add annual handling cost and can hinder mechanisation
+            - They eliminate labour cost after the first season
+            - They prove every local wine commands a higher price
+            - They replace the need to measure any other production cost
+          correctIndex: 0
+          explanation: The cited study identifies burial as a recurring cost and mechanisation obstacle; it does not establish a price premium.
+          sourceCitationId: src_reg_cn_hongsibu
+        ki_reg_cn_yunnan_manual_work:
+          prompt: What follows commercially from Ao Yun's account of manual work in steep mountain vineyards?
+          options:
+            - Every Yunnan wine has the same labour cost and selling price
+            - Manual vineyard work can affect staffing and cost planning, without proving a universal premium
+            - A multi-grape blend removes the need for harvest labour
+            - The producer account is a current regional wage survey
+          correctIndex: 1
+          explanation: The producer describes its operation; the manual constraint matters for planning but does not fix other producers' prices.
+          sourceCitationId: src_reg_cn_aoyun_production
+        ki_reg_sa_maule_collective:
+          prompt: How should a buyer describe VIGNO's Maule old-vine Carignan initiative?
+          options:
+            - A statutory denomination that guarantees a buyer for every member
+            - An individual winery label without shared promotion
+            - A private collective brand with collaborative image work, not guaranteed demand
+            - Proof that every member wine tastes and costs the same
+          correctIndex: 2
+          explanation: VIGNO presents a private collective identity and promotion; it is not a statutory origin or sales guarantee.
+          sourceCitationId: src_reg_sa_vigno
+        ki_spark_gas_cost:
+          prompt: A tank-fermented sparkling wine has its fermentation bubbles. Why might processing still require purchased carbon dioxide?
+          options:
+            - To keep headspace pressure during handling and transfer
+            - Because fermentation cannot produce any carbon dioxide
+            - To replace all wine inside the pressure tank
+            - Because every tank wine must receive added gas as its only source of bubbles
+          correctIndex: 0
+          explanation: Fermentation produces dissolved gas, while processing headspaces may still consume bought carbon dioxide.
+          sourceCitationId: src_spark_gas_recovery
+        ki_spark_gas_return:
+          prompt: During suitable sparkling pressure filtration, how can the two tank headspaces reduce bought gas use?
+          options:
+            - Vent all displaced gas and refill both tanks from purchased cylinders
+            - Ignore pressure because the wine already contains bubbles
+            - Return gas displaced from the receiving tank to the emptying tank's headspace
+            - Transfer the wine without monitoring either vessel's pressure
+          correctIndex: 2
+          explanation: A controlled return path reuses displaced headspace gas instead of supplying all replacement gas anew.
+          sourceCitationId: src_spark_gas_recovery
