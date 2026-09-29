@@ -1,0 +1,411 @@
+# Source-linked, item-specific WSET Level 3 viticulture decisions.
+# The distractors test mechanisms and limits without changing the mapped facts.
+question_templates:
+- id: qt_wset_l3_viticulture_principle_closure_40
+  relation_type: PRINCIPLE_EXPLANATION
+  direction: forward
+  mode: authored_choice
+  variant: wset_l3_viticulture_principle_closure_40
+  prompt_template: '{subject.name}'
+  parameters:
+    item_choices:
+      ki_wset_close_oiv_old_vineyard:
+        prompt: A parcel has many old individual vines. Which parcel requirement matches the OIV old-vineyard definition?
+        options:
+        - A homogeneous, continuous, legally delimited parcel with at least 85% qualifying old vines
+        - Any parcel with one old vine and a wine labelled old vine by its producer
+        - A continuous certified parcel where only half of all planted vines individually qualify as old
+        - A parcel of any age if its wine is certified by a national authority
+        correctIndex: 0
+        explanation: The OIV distinguishes a qualifying individual vine from a legally delimited old vineyard with at least 85% qualifying vines; its recommendation does not grant worldwide labelling permission.
+        sourceCitationId: src_wset_close_oiv_old
+      ki_wset_close_vine_green_parts:
+        prompt: A grower separates this season's green growth from the retained framework. Which part supplies photosynthate for vine growth?
+        options:
+        - Last year's cane before its buds produce new leaves
+        - Leaves on current green shoots exposed to light
+        - The permanent trunk without any attached foliage
+        - Tendrils alone, after they attach to a wire
+        correctIndex: 1
+        explanation: Current shoots bear leaves and other green organs; active leaves photosynthesize, while retained woody parts support later growth.
+        sourceCitationId: src_wset_found_nmsu_phenology
+      ki_wset_close_vine_wood:
+        prompt: After winter pruning, a grower retains a cane that grew last summer. How does it differ from the trunk and cordon?
+        options:
+        - It is current-season green growth, while trunk and cordon are older permanent structure
+        - It is a permanent root whose buds initiate inflorescences
+        - It is one-year wood bearing buds; trunk and cordon are older structure
+        - It is the inflorescence that becomes this year's bunch
+        correctIndex: 2
+        explanation: A shoot becomes a woody cane after its growing season; the retained one-year cane carries buds, unlike older permanent trunk and cordons.
+        sourceCitationId: src_wset_close_isu_structure
+      ki_reg_ah_kamptal_soils:
+        prompt: One Kamptal parcel has shallow brown earth over gneiss and another deeper loess-rich soil. What should a planting assessment compare first?
+        options:
+        - The rock names as guaranteed predictors of flavour intensity
+        - Whether either soil automatically produces a superior wine
+        - Only the regional appellation, because soil depth and texture are uniform across vineyards
+        - Soil depth and texture because they affect the growing conditions
+        correctIndex: 3
+        explanation: Kamptal includes variable-depth gneiss-derived soils and loess or clay-rich profiles; assess the actual root zone rather than infer flavour from a rock label.
+        sourceCitationId: src_reg_ah_kamptal
+      ki_reg_ah_kremstal_water:
+        prompt: In a dry summer, how would the Kremstal committee's Frechau-Sandgrube loess and shallow Grillenparz profiles differ?
+        options:
+        - Deep silty loess stores more water, while shallow stony soil is more drought-prone
+        - Both soils retain enough summer water because the district's rainfall offsets shallow rooting
+        - Grillenparz's shallow stones guarantee greater root-zone water storage
+        - Frechau-Sandgrube loses all rain immediately because loess is silty
+        correctIndex: 0
+        explanation: The named deep silty loess profile retains water strongly; the shallow stony profile is susceptible to summer drought.
+        sourceCitationId: src_reg_ah_kremstal
+      ki_reg_ah_mittel_water:
+        prompt: A Blaufränkisch grower in Mittelburgenland finds deep heavy loam at one site and sandier ground nearby. Which water-management conclusion follows?
+        options:
+        - Pannonian influence removes the need to assess either profile
+        - Deep loam can store water, but local variation and seasonal supply still matter
+        - Every sandy parcel holds more water than every deep loam parcel
+        - Sheltering hills give every parcel the same drought response regardless of its soil profile
+        correctIndex: 1
+        explanation: Deep loam is an important water store in this sheltered, eastern-influenced district, but its varied soils do not remove site-specific drought risk.
+        sourceCitationId: src_reg_ah_mittelburgenland
+      ki_reg_ah_wachau_walls:
+        prompt: Why might a Wachau grower maintain dry-stone walls on a steep vineyard even when upkeep is costly?
+        options:
+        - Walls guarantee a higher sensory score than any flat vineyard
+        - Walls replace all need for erosion monitoring during heavy rain
+        - They retain slope soil and reduce erosion while requiring skilled labour
+        - They make each narrow terrace mechanically accessible and remove the need for manual work
+        correctIndex: 2
+        explanation: The dry-stone terraces help hold soil on Wachau slopes, but building and maintaining them adds skilled work rather than proving wine quality.
+        sourceCitationId: src_reg_ah_wachau_walls
+      ki_reg_ah_weinviertel_gv:
+        prompt: A Weinviertel Grüner Veltliner lot is still developing in early autumn. Which inference is most defensible?
+        options:
+        - Its regional name proves a sweet finished wine
+        - Its grape name fixes body and picking date without tasting fruit
+        - Grüner Veltliner matures before summer ends whenever the district carries a DAC label
+        - Relatively late ripening makes autumn conditions and fruit checks relevant
+        correctIndex: 3
+        explanation: Grüner Veltliner is central to Weinviertel and relatively late-ripening, yet site and harvest decisions determine the actual style.
+        sourceCitationId: src_reg_ah_weinviertel_gv
+      ki_reg_de_ahr_fruehburgunder_timing:
+        prompt: An Ahr producer grows both Frühburgunder and Spätburgunder. Which harvest-timing comparison is supported?
+        options:
+        - Frühburgunder generally reaches maturity earlier, but soundness must still be checked
+        - Earlier autumn maturity guarantees Frühburgunder avoids spring frost and makes sweeter wine
+        - Spätburgunder must be picked first because its name means late
+        - The two are guaranteed to mature on the same date in every year
+        correctIndex: 0
+        explanation: The earlier-ripening Frühburgunder changes the comparison with Spätburgunder; it does not guarantee frost avoidance, fruit health or style.
+        sourceCitationId: src_reg_de_ahr
+      ki_reg_de_ahr_steep_red_work:
+        prompt: A producer budgets Spätburgunder from a steep Ahr parcel. Which cost assumption is best grounded in the site?
+        options:
+        - Slope alone guarantees a profitable premium price
+        - Vine care and harvest can demand more manual labour
+        - Steepness eliminates pruning and hand work
+        - The slope itself proves more complex flavour than all level sites
+        correctIndex: 1
+        explanation: Ahr's steep red-wine vineyards can require demanding manual work; neither quality nor selling premium follows automatically.
+        sourceCitationId: src_reg_de_ahr
+      ki_reg_de_mosel_elbling_berries:
+        prompt: An upper-Mosel Elbling block reaches maturity early. Why should the grower still monitor its berry health?
+        options:
+        - Early maturity thickens its skins enough to block all fungi
+        - Disease monitoring matters only after sparkling-wine production begins
+        - Thin skins can remain vulnerable to fungal pressure
+        - Its light style proves no disease can affect the fruit
+        correctIndex: 2
+        explanation: Elbling is early-ripening and thin-skinned, so fruit health still needs monitoring despite its light, fresh wine association.
+        sourceCitationId: src_reg_de_elbling
+      ki_reg_fe_alsace_cover:
+        prompt: An Alsace hillside manager considers managed ground cover. Which benefit and limitation fit the practice?
+        options:
+        - It guarantees enough vine water during a dry season because cover crops release water to roots
+        - It eliminates all labour needed to manage soil on slopes
+        - It guarantees a higher quality wine than bare soil
+        - It can protect soil and limit erosion, while water outcomes need site checks
+        correctIndex: 3
+        explanation: Managed cover can help retain soil and water on Alsace slopes, but plot and seasonal water conditions determine the net effect.
+        sourceCitationId: src_reg_fe_alsace_work
+      ki_reg_fe_alsace_foliage:
+        prompt: Why might an Alsace grower raise the vine's foliage higher above the ground?
+        options:
+        - To improve sun exposure and reduce some frost damage, not all frost risk
+        - To make the vine independent of sunlight during ripening
+        - To guarantee frost-free buds because all cold air stays below any raised canopy
+        - To convert winter rain directly into berry sugar
+        correctIndex: 0
+        explanation: Higher foliage can improve exposure and limit some frost damage, but canopy height is not complete frost protection.
+        sourceCitationId: src_reg_fe_alsace_climate
+      ki_reg_fm_collioure_erosion:
+        prompt: A Collioure slope has dry summers but intense rain in spring or autumn. Why maintain its terraces?
+        options:
+        - Schist guarantees a mineral flavour if terraces are dry
+        - Terraces help hold steep-slope soil against episodic erosion
+        - The coastal setting makes intense spring rain run off harmlessly without moving terrace soil
+        - Summer dryness means erosion cannot occur in other seasons
+        correctIndex: 1
+        explanation: Steep Côte Vermeille terrain can erode in heavy seasonal rain; terraces retain soil without implying a wine-quality or mineral-flavour guarantee.
+        sourceCitationId: src_reg_fm_collioure
+      ki_reg_fm_faugeres_targeted:
+        prompt: What does Faugères' pheromone-dispenser strategy aim to interrupt?
+        options:
+        - All fungal infection regardless of weather or canopy
+        - Female moth feeding on mature grape skins
+        - Male moths locating females, reducing later pest damage
+        - Every insect species in the vineyard without monitoring
+        correctIndex: 2
+        explanation: The targeted pheromone method confuses male moths seeking mates; the grower still needs pest surveillance.
+        sourceCitationId: src_reg_fm_faugeres_moths
+      ki_reg_fm_faugeres_water:
+        prompt: A Faugères grower sees vine roots entering fissured schist. What is the useful water interpretation?
+        options:
+        - Schist minerals are directly converted into a slate taste in every wine
+        - Fissures eliminate drought risk regardless of root depth
+        - All schist parcels have identical available water
+        - Fissures can give roots access to water, subject to the actual site
+        correctIndex: 3
+        explanation: Fissures can improve physical access to water; they do not establish drought immunity or a mineral flavour transfer.
+        sourceCitationId: src_reg_fm_faugeres
+      ki_reg_fm_picpoul_variety:
+        prompt: A Picpoul de Pinet grower assesses Piquepoul Blanc near the Thau lagoon. Which ripening expectation is supported?
+        options:
+        - Its relatively long cycle can retain pronounced acidity at maturity
+        - Its relatively late cycle removes acidity by the same calendar date in every vintage
+        - The appellation name fixes the exact picking day each year
+        - Its grapes mature before flowering finishes in nearby parcels
+        correctIndex: 0
+        explanation: The syndicate describes Piquepoul Blanc's long, relatively late cycle and pronounced acidity; actual fruit still determines picking.
+        sourceCitationId: src_reg_fm_picpoul
+      ki_reg_fm_roussillon_wind:
+        prompt: A dry northerly Tramontane blows through a Roussillon vineyard. How might it change disease management?
+        options:
+        - It removes fungal risk for the season even if later rain restores canopy humidity
+        - Lower humidity can reduce some disease pressure, with monitoring still needed
+        - It converts wet spring soils into permanently dry bedrock
+        - It guarantees sound berries despite any subsequent rain
+        correctIndex: 1
+        explanation: Dry wind may lessen humidity-related disease pressure, but local weather and fruit condition still require surveillance.
+        sourceCitationId: src_reg_fm_roussillon
+      ki_reg_fr_centre_microclimates:
+        prompt: Two Centre-Loire Sauvignon parcels in one appellation ripen differently. Which site factor plausibly explains this?
+        options:
+        - Appellation membership makes all exposures climatically identical
+        - Only the grape name determines ripening, regardless of terrain
+        - Hillsides, plateaus and aspect create differing microclimates
+        - All local hillsides receive the same sunlight and airflow
+        correctIndex: 2
+        explanation: Centre-Loire terrain and exposure vary within appellations, creating microclimates relevant to ripening and expression.
+        sourceCitationId: src_reg_fr_centre_terroirs
+      ki_reg_fr_centre_slow:
+        prompt: A Centre-Loire producer says its setting supports slow Sauvignon ripening and freshness. What should a buyer infer about the harvest date?
+        options:
+        - The regional climate fixes one harvest week for every aspect and every vintage
+        - Slower ripening means fruit condition never needs sampling
+        - Freshness proves the grapes were harvested before veraison
+        - Regional conditions give context; the date still depends on site and year
+        correctIndex: 3
+        explanation: The regional climate and soils can support slow ripening, but no fixed picking timetable follows from that description.
+        sourceCitationId: src_reg_fr_centre_sauvignon
+      ki_reg_fr_climat_site:
+        prompt: Two Bourgogne Pinot Noir sites are named as different Climats. What makes it useful to distinguish them?
+        options:
+        - The Climat name guarantees a sensory ranking independently of vintage
+        - Pinot Noir erases every difference in soil, exposure and available water
+        - Climat is another word for a clone with no fixed vineyard location
+        - Each named plot has its own geology, water conditions and exposure
+        correctIndex: 3
+        explanation: A Bourgogne Climat denotes a particular vineyard plot; shared variety does not make site conditions identical.
+        sourceCitationId: src_reg_fr_climats
+      ki_reg_fr_rhone_terraces:
+        prompt: A northern Rhône producer plans work on a steep, narrow terrace. What operational effect should it budget for?
+        options:
+        - Restricted access and demanding vineyard labour on that terrain
+        - Narrow terraces make machine access easier than on level land and reduce hand labour
+        - A guaranteed premium for every bottle from a sloped site
+        - The same labour requirement for every northern Rhône vineyard
+        correctIndex: 0
+        explanation: Many northern Rhône vineyards occupy steep narrow terraces that complicate work; the constraint belongs to the actual terrain.
+        sourceCitationId: src_reg_fr_rhone_terroirs
+      ki_reg_fs_cahors_causses:
+        prompt: A Cahors Causses parcel has shallow stony clay-limestone above fissured rock. What needs checking before judging vine water access?
+        options:
+        - The plateau name alone, because limestone fissures and marl cannot vary across parcels
+        - Actual soil depth and whether roots can use fissures or marl variations
+        - Limestone colour as proof of a fixed wine flavour
+        - The wine's appellation tier as a measure of available water
+        correctIndex: 1
+        explanation: The Causses include shallow stony profiles and variable marl; fissures and root depth affect physical water access.
+        sourceCitationId: src_reg_fs_cahors
+      ki_reg_fs_grenache_water:
+        prompt: Grenache tolerates many dry, windy southern Rhône sites. What is the sound response during a very dry season?
+        options:
+        - Assume its drought reputation replaces water checks even on shallow, dry parcels
+        - Infer vine water status solely from the grape name
+        - Assess the parcel's water constraint despite that adaptation
+        - Replace water observations with regional label prestige
+        correctIndex: 2
+        explanation: Grenache's drought adaptation is a tendency, not immunity; local water constraint still needs assessment.
+        sourceCitationId: src_reg_fs_rhone_water
+      ki_reg_fs_jurancon_cycle:
+        prompt: Petit and Gros Manseng have early budbreak and late maturity at a Jurançon estate. Which planning implication follows?
+        options:
+        - The long season requires a sweet style because neither Manseng can be picked for dry wine
+        - Their budbreak and harvest dates are identical by definition
+        - Trellising is unnecessary once the grapes begin ripening
+        - A long vineyard cycle needs support and harvest monitoring without fixing sweetness
+        correctIndex: 3
+        explanation: The estate describes substantial trellising for the Mansengs' long cycle and makes both dry and sweet wines.
+        sourceCitationId: src_reg_fs_jurancon_vines
+      ki_reg_fs_layon_selection:
+        prompt: A Coteaux du Layon Villages grower plans successive Chenin picking passes. Which condition should guide selection?
+        options:
+        - Berry concentration on exposed, ventilated slopes, with or without noble rot
+        - Noble rot on every berry, so concentrated sound berries without it must be discarded
+        - A fixed harvest date unrelated to berry condition
+        - Valley-floor shade as proof that all bunches ripen evenly
+        correctIndex: 0
+        explanation: Selective passes target concentrated berries on suitable slopes; the regional body describes concentration both with and without noble rot.
+        sourceCitationId: src_reg_fs_layon
+      ki_reg_gr_assyrtiko_acidity:
+        prompt: A dry, hot Greek site grows Assyrtiko. Which outcome is plausible despite the heat?
+        options:
+        - Every white from a hot site loses acid at the same rate regardless of cultivar or maturity
+        - Assyrtiko can retain acidity while giving substantial body and alcohol
+        - The cultivar cannot experience heat or water stress
+        - Acidity alone establishes the wine's final balance without tasting
+        correctIndex: 1
+        explanation: Assyrtiko is noted for acidity in hot dry settings alongside body and alcohol; actual fruit and wine balance still vary.
+        sourceCitationId: src_reg_gr_assyrtiko
+      ki_reg_gr_xinomavro_late_weather:
+        prompt: A cold, rainy year slows Xinomavro in Imathia. What trade-off should a harvest decision address?
+        options:
+        - A late-ripening grape has no weather exposure after veraison
+        - Its usual tannic character proves it is already ripe
+        - Waiting may improve maturity but increases time exposed to poor weather
+        - A fixed calendar date is safer than fruit assessment even when late rain threatens the crop
+        correctIndex: 2
+        explanation: Late Xinomavro is vulnerable in cold rainy years; harvest decisions balance maturity against continued weather risk.
+        sourceCitationId: src_reg_gr_imathia
+      ki_reg_ib_mancha_adaptation:
+        prompt: Airén is established in La Mancha's continental conditions. What does this adaptation tell a grower?
+        options:
+        - Airén's adaptation fixes yield and adequate water even in an exceptionally dry year
+        - All winters there are mild and every summer is wet
+        - The cultivar guarantees a quality grade regardless of management
+        - It suits cold winters, hot summers and limited rain, but parcels still differ
+        correctIndex: 3
+        explanation: Airén's regional adaptation is relevant to climate suitability but does not guarantee water supply, yield or wine quality.
+        sourceCitationId: src_reg_ib_mancha_airen
+      ki_reg_isi_cannonau_temperature:
+        prompt: A Cannonau vineyard experiences a warmer ripening period. Which measurements may shift according to Sardinian agrometeorological research?
+        options:
+        - Sugar, malic acid, phenolics and aroma development
+        - Temperature changes only sugar, while berry acidity and phenolics remain independent
+        - Soil depth, but never the composition of berries
+        - A universal ideal harvest date for all vineyards
+        correctIndex: 0
+        explanation: Temperature influences several ripening components in Cannonau; the grower still needs vintage and fruit observations to set picking.
+        sourceCitationId: src_reg_isi_cannonau
+      ki_reg_isi_fiano_local_moderation:
+        prompt: Why might two Fiano di Avellino hillside parcels see different summer heat at the vine?
+        options:
+        - The DOCG name gives all hillside sites identical day-night temperatures and summer peaks
+        - Exposure, day-night variation and nearby woodland can moderate peaks differently
+        - Woodland fixes both parcels to one temperature regardless of slope
+        - The variety's name determines local night temperature
+        correctIndex: 1
+        explanation: The consortium describes hills, pronounced diurnal variation and terrain or woodland moderation; exposure and vintage still matter.
+        sourceCitationId: src_reg_isi_fiano
+      ki_reg_am_finger_autumn:
+        prompt: In a Finger Lakes autumn, what can the nearby lake do for a vineyard as land temperatures fall?
+        options:
+        - Cool faster than nearby land in autumn and stop ripening on every lakeshore block
+        - Prevent all subsequent frost events around the lake
+        - Release relative warmth as its water cools more slowly, extending opportunity
+        - Fix the same harvest date on both shores and all slopes
+        correctIndex: 2
+        explanation: Lake water cools more slowly than land in autumn and can moderate adjacent sites; cold risk is not eliminated.
+        sourceCitationId: src_reg_am_finger
+      ki_reg_am_finger_spring:
+        prompt: In a Finger Lakes spring, how may lake proximity alter budburst and frost exposure?
+        options:
+        - Slow spring warming forces earlier budburst in every nearby block and removes frost risk
+        - Lake effects make every type of spring frost impossible
+        - The lake has no effect until after harvest
+        - Slow-warming water can delay nearby budburst and reduce some frost exposure
+        correctIndex: 3
+        explanation: Spring water warms more slowly than land, delaying development near the lake in some sites and reducing exposure to some frosts.
+        sourceCitationId: src_reg_am_finger
+      ki_reg_am_malbec_uv:
+        prompt: High-altitude Mendoza research finds more UV-B at an experimental Malbec vineyard. Which conclusion follows for berry assessment?
+        options:
+        - UV-B can affect phenolics, but site response and wine quality still need evaluation
+        - More UV-B guarantees higher wine quality because all berry phenolic responses are identical
+        - UV-B has no possible influence on berry composition
+        - Vineyard elevation alone fixes fermentation outcomes
+        correctIndex: 0
+        explanation: Catena and university work links high-altitude UV-B with changes in Malbec berry phenolics; that is not a quality guarantee.
+        sourceCitationId: src_reg_am_adrianna
+      ki_reg_am_washington_irrigation:
+        prompt: Why does a Columbia Valley grower usually plan irrigation although Washington also has a wet maritime west?
+        options:
+        - The Pacific climate supplies equal rain to every side of the mountains
+        - The Cascades and Olympics create a rain shadow in eastern Washington
+        - Irrigation is used only to prevent winter frost in every eastern vineyard
+        - The Columbia Valley receives more summer rain than the coastal west
+        correctIndex: 1
+        explanation: Mountain rain shadow reduces rainfall in Columbia Valley, making irrigation necessary in most eastern Washington vineyards.
+        sourceCitationId: src_reg_am_washington
+      ki_reg_na_lodi_canopy_air:
+        prompt: At Lodi's TruLux block, a grower thins shoots and removes some leaves. What is the targeted canopy effect?
+        options:
+        - Complete removal of all leaves so bunches never photosynthesize
+        - Guaranteed mould control with the same removal rate in every vintage
+        - More bunch-zone air and some light to reduce mould or rot pressure
+        - Elimination of all need to assess weather and canopy density
+        correctIndex: 2
+        explanation: The reported shoot and leaf work aimed to increase air movement and bunch light; its extent is a site and season decision.
+        sourceCitationId: src_reg_na_lodi_canopy
+      ki_reg_na_niagara_slope_air:
+        prompt: On a clear, calm Niagara radiation-frost night, why can a bench above a slope bottom be advantageous?
+        options:
+        - On calm nights, cold air collects above the bench while the lower slope remains warm
+        - The bench prevents all advective and radiation frosts
+        - Frost risk is unrelated to air pathways or slope
+        - Dense cold air can drain downslope while warmer air replaces it above
+        correctIndex: 3
+        explanation: Niagara's technical account describes downhill cold-air drainage on radiation-frost nights; site pathways still need assessment.
+        sourceCitationId: src_reg_na_niagara_air
+      ki_reg_na_santa_cruz_coastal:
+        prompt: What should a Santa Cruz Mountains grower check before comparing an ocean-facing ridge with an inland parcel?
+        options:
+        - Exposure to coastal breeze and fog alongside elevation and the chosen variety
+        - Whether coastal soil necessarily transfers a mineral taste to the grapes
+        - The regional name proves ocean-facing ridges and inland parcels receive identical fog
+        - The vineyard's distance from a winery, which fixes berry ripeness
+        correctIndex: 0
+        explanation: Exposed coastal ridges receive breeze and fog and support Pinot Noir and Chardonnay; actual exposure differs from inland sites.
+        sourceCitationId: src_reg_na_santa_cruz
+      ki_reg_sa_peumo_water:
+        prompt: A Peumo Carmenère grower compares deep clay near the Cachapoal with a shallower parcel. Why might the deep site support a late harvest cycle?
+        options:
+        - Clay transfers a fixed flavour into every grape
+        - Its moisture storage can sustain vine activity longer
+        - Clay guarantees ripe fruit despite any weather or management
+        - A deeper soil eliminates the need to monitor vine water
+        correctIndex: 1
+        explanation: Peumo's deep moisture-retaining clay offers a physical water reserve through Carmenère's relatively late season, without fixing flavour or ripeness.
+        sourceCitationId: src_reg_sa_peumo
+      ki_reg_sa_salta_canopy:
+        prompt: A Calchaquí Valley grower wants freshness without overripeness under strong sunshine. What vineyard decision merits attention?
+        options:
+        - Assume regional sunshine sets identical maturity in every lot
+        - Strip every leaf because all shade prevents sugar accumulation
+        - Manage foliage and monitor actual berry development
+        - Use the regional name alone to select a fixed picking date
+        correctIndex: 2
+        explanation: A local producer links good foliage management with avoiding overripeness; the grower still judges the individual lot.
+        sourceCitationId: src_reg_sa_salta
