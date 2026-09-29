@@ -1,0 +1,277 @@
+# Original Diploma D2 decisions on market evidence and measurable marketing.
+# All case numbers and markets are hypothetical; expert review is outstanding.
+knowledge_nodes:
+  - id: n_d2_paired_shifts
+    node_type: production_principle
+    name: Why does a smaller wine crop not fix the price direction when demand also weakens?
+  - id: n_d2_paired_shifts_point
+    node_type: learning_point
+    name: Compare the size of both shifts before inferring a price direction
+  - id: n_d2_market_stock_context
+    node_type: production_principle
+    name: What must a buyer check before calling a low global wine vintage a shortage in one category?
+  - id: n_d2_market_stock_context_point
+    node_type: learning_point
+    name: Check category demand, available stock and supply in the relevant market
+  - id: n_d2_competitor_baseline
+    node_type: production_principle
+    name: What market comparison should precede a new wine's promotional positioning?
+  - id: n_d2_competitor_baseline_point
+    node_type: learning_point
+    name: Compare the target offer with buyer needs and relevant competitors
+  - id: n_d2_target_sample
+    node_type: production_principle
+    name: Why can a winery's existing club response mislead a restaurant-market launch?
+  - id: n_d2_target_sample_point
+    node_type: learning_point
+    name: Test the offer with intended buyers beyond the current customer base
+  - id: n_d2_marketing_objective
+    node_type: production_principle
+    name: How should a wine marketing objective be made assessable?
+  - id: n_d2_marketing_objective_point
+    node_type: learning_point
+    name: State a relevant measure, baseline or target, and review date
+  - id: n_d2_campaign_review
+    node_type: production_principle
+    name: How should a wine business judge a promotional activity against its objective?
+  - id: n_d2_campaign_review_point
+    node_type: learning_point
+    name: Compare measured target-customer response with budget and goal
+  - id: n_d2_case_supply_and_demand
+    node_type: production_case
+    name: >-
+      Hypothetical wine merchant: a region's next vintage is 15% smaller, while its existing
+      bottled stock is available and orders from the merchant's restaurant accounts have also
+      slowed. A supplier asks for a 15% price increase solely because of the vintage loss.
+      No category-wide demand, stock age, competing supply, supplier cost or price elasticity
+      is supplied. Explain a defensible buying or pricing decision, why both market sides
+      matter, a commercial trade-off and a limitation. More than one approach may be justified.
+  - id: n_d2_case_supply_and_demand_action_point
+    node_type: learning_point
+    name: Check stock and account demand before accepting a fixed price rise
+  - id: n_d2_case_supply_and_demand_reason_point
+    node_type: learning_point
+    name: Smaller harvest and weaker orders can move price in opposing directions
+  - id: n_d2_case_supply_and_demand_tradeoff_point
+    node_type: learning_point
+    name: Secure needed volume against holding slow-moving stock at a higher cost
+  - id: n_d2_case_supply_and_demand_limitation_point
+    node_type: learning_point
+    name: Supplied percentages do not establish the market clearing price
+  - id: n_d2_case_market_launch
+    node_type: production_case
+    name: >-
+      Hypothetical winery: it plans a dry white wine for independent restaurant by-the-glass
+      lists. Its wine-club survey praises a gift carton, but no restaurant buyer has assessed
+      the format, price or service plan. A rival offers a similarly styled wine at a known
+      list price. The winery has a fixed promotional budget and wants repeat restaurant
+      orders within six months. No pilot response or net return is supplied. Explain a
+      defensible market test and objective, the evidence reason, a budget or positioning
+      trade-off and a limitation. More than one approach may be justified.
+  - id: n_d2_case_market_launch_action_point
+    node_type: learning_point
+    name: Test restaurant fit and set a dated repeat-order measure
+  - id: n_d2_case_market_launch_reason_point
+    node_type: learning_point
+    name: Club approval does not establish restaurant demand or offer fit
+  - id: n_d2_case_market_launch_tradeoff_point
+    node_type: learning_point
+    name: Allocate scarce budget between buyer trial, offer changes and promotion
+  - id: n_d2_case_market_launch_limitation_point
+    node_type: learning_point
+    name: A competitor quote and pilot interest do not prove future repeat sales
+knowledge_relations:
+  - {subject_id: n_d2_paired_shifts, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d2_paired_shifts_point, valid_from: 2026-09-29}
+  - {subject_id: n_d2_market_stock_context, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d2_market_stock_context_point, valid_from: 2026-09-29}
+  - {subject_id: n_d2_competitor_baseline, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d2_competitor_baseline_point, valid_from: 2026-09-29}
+  - {subject_id: n_d2_target_sample, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d2_target_sample_point, valid_from: 2026-09-29}
+  - {subject_id: n_d2_marketing_objective, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d2_marketing_objective_point, valid_from: 2026-09-29}
+  - {subject_id: n_d2_campaign_review, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d2_campaign_review_point, valid_from: 2026-09-29}
+  - {subject_id: n_d2_case_supply_and_demand, relation_type: CASE_ACTION, object_id: n_d2_case_supply_and_demand_action_point, valid_from: 2026-09-29}
+  - {subject_id: n_d2_case_supply_and_demand, relation_type: CASE_REASON, object_id: n_d2_case_supply_and_demand_reason_point, valid_from: 2026-09-29}
+  - {subject_id: n_d2_case_supply_and_demand, relation_type: CASE_TRADEOFF, object_id: n_d2_case_supply_and_demand_tradeoff_point, valid_from: 2026-09-29}
+  - {subject_id: n_d2_case_supply_and_demand, relation_type: CASE_LIMITATION, object_id: n_d2_case_supply_and_demand_limitation_point, valid_from: 2026-09-29}
+  - {subject_id: n_d2_case_market_launch, relation_type: CASE_ACTION, object_id: n_d2_case_market_launch_action_point, valid_from: 2026-09-29}
+  - {subject_id: n_d2_case_market_launch, relation_type: CASE_REASON, object_id: n_d2_case_market_launch_reason_point, valid_from: 2026-09-29}
+  - {subject_id: n_d2_case_market_launch, relation_type: CASE_TRADEOFF, object_id: n_d2_case_market_launch_tradeoff_point, valid_from: 2026-09-29}
+  - {subject_id: n_d2_case_market_launch, relation_type: CASE_LIMITATION, object_id: n_d2_case_market_launch_limitation_point, valid_from: 2026-09-29}
+knowledge_items:
+  - id: ki_d2_paired_shifts
+    subject_id: n_d2_paired_shifts
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_d2_paired_shifts_point
+    domain_id: business
+    assertion_text: If wine supply and demand both contract, the price direction cannot be inferred from the supply change alone; it depends on the relative shifts and responsiveness. Lower traded quantity does not itself determine the new price.
+    verification_status: unverified
+    last_verified_at: '2026-09-29T10:00:00.000Z'
+    mcq_disabled: true
+  - id: ki_d2_market_stock_context
+    subject_id: n_d2_market_stock_context
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_d2_market_stock_context_point
+    domain_id: business
+    assertion_text: The OIV's 2025 world-sector assessment describes another low-output year alongside weaker consumption and gradual stock adjustment, rather than a general shortage. A buying decision for a particular wine should check its relevant market, available inventory and buyer demand instead of inferring scarcity from the global crop alone.
+    verification_status: unverified
+    last_verified_at: '2026-09-29T10:00:00.000Z'
+    mcq_disabled: true
+  - id: ki_d2_competitor_baseline
+    subject_id: n_d2_competitor_baseline
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_d2_competitor_baseline_point
+    domain_id: business
+    assertion_text: Before positioning a proposed wine, examine target-buyer needs and comparable competitors' products, pricing, channels and communication. A rival's price alone does not establish the offer's fit or the buyer's willingness to purchase.
+    verification_status: unverified
+    last_verified_at: '2026-09-29T10:00:00.000Z'
+    mcq_disabled: true
+  - id: ki_d2_target_sample
+    subject_id: n_d2_target_sample
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_d2_target_sample_point
+    domain_id: business
+    assertion_text: Existing customer records and feedback can inform research but may not represent an intended new wine-buyer segment. Test the offer with the intended buyers, and where practical include noncustomers or competitors' customers, before generalising existing-club preferences to restaurant demand.
+    verification_status: unverified
+    last_verified_at: '2026-09-29T10:00:00.000Z'
+    mcq_disabled: true
+  - id: ki_d2_marketing_objective
+    subject_id: n_d2_marketing_objective
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_d2_marketing_objective_point
+    domain_id: business
+    assertion_text: A wine marketing objective should identify a relevant target and measurable result within a stated period, with a baseline or comparison where needed to assess change; an activity such as posting advertisements is not by itself an outcome objective.
+    verification_status: unverified
+    last_verified_at: '2026-09-29T10:00:00.000Z'
+    mcq_disabled: true
+  - id: ki_d2_campaign_review
+    subject_id: n_d2_campaign_review
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_d2_campaign_review_point
+    domain_id: business
+    assertion_text: State the intended audience, activity, expected cost, response measure and review date for a promotion. Compare its measured outcome with the objective and budget before repeating or revising it; exposure or initial enquiries alone need not establish profitable repeat wine sales.
+    verification_status: unverified
+    last_verified_at: '2026-09-29T10:00:00.000Z'
+    mcq_disabled: true
+  - id: ki_d2_case_supply_and_demand_action
+    subject_id: n_d2_case_supply_and_demand
+    relation_type: CASE_ACTION
+    object_id: n_d2_case_supply_and_demand_action_point
+    domain_id: business
+    assertion_text: Compare existing and incoming stock, recent restaurant orders, alternative supply and quoted terms before committing to the proposed 15% rise or a volume. A smaller trial, negotiated terms or a justified purchase can each be defensible with fuller evidence.
+    verification_status: unverified
+    last_verified_at: '2026-09-29T10:00:00.000Z'
+    mcq_disabled: true
+  - id: ki_d2_case_supply_and_demand_reason
+    subject_id: n_d2_case_supply_and_demand
+    relation_type: CASE_REASON
+    object_id: n_d2_case_supply_and_demand_reason_point
+    domain_id: business
+    assertion_text: In the stated scenario, a smaller vintage tends to restrict incoming supply while slower restaurant orders suggest weaker demand; both can affect traded quantity and price. The crop-loss percentage alone is not a price-change equation.
+    verification_status: unverified
+    last_verified_at: '2026-09-29T10:00:00.000Z'
+    mcq_disabled: true
+  - id: ki_d2_case_supply_and_demand_tradeoff
+    subject_id: n_d2_case_supply_and_demand
+    relation_type: CASE_TRADEOFF
+    object_id: n_d2_case_supply_and_demand_tradeoff_point
+    domain_id: business
+    assertion_text: Reserving incoming wine may protect availability if demand recovers, while taking too much at a higher cost may tie up cash beside the stated existing stock. The balance depends on order evidence, inventory and terms.
+    verification_status: unverified
+    last_verified_at: '2026-09-29T10:00:00.000Z'
+    mcq_disabled: true
+  - id: ki_d2_case_supply_and_demand_limitation
+    subject_id: n_d2_case_supply_and_demand
+    relation_type: CASE_LIMITATION
+    object_id: n_d2_case_supply_and_demand_limitation_point
+    domain_id: business
+    assertion_text: The 15% crop decline and slower restaurant orders do not reveal the relative market-wide shifts, inventories, substitutes or responsiveness needed to calculate the new market price or a justified merchant margin.
+    verification_status: unverified
+    last_verified_at: '2026-09-29T10:00:00.000Z'
+    mcq_disabled: true
+  - id: ki_d2_case_market_launch_action
+    subject_id: n_d2_case_market_launch
+    relation_type: CASE_ACTION
+    object_id: n_d2_case_market_launch_action_point
+    domain_id: business
+    assertion_text: Interview or trial with suitable restaurant buyers about format, list price and service, then set a time-bound repeat-order measure for a small launch before scaling promotion. The exact target should reflect the winery's baseline and capacity.
+    verification_status: unverified
+    last_verified_at: '2026-09-29T10:00:00.000Z'
+    mcq_disabled: true
+  - id: ki_d2_case_market_launch_reason
+    subject_id: n_d2_case_market_launch
+    relation_type: CASE_REASON
+    object_id: n_d2_case_market_launch_reason_point
+    domain_id: business
+    assertion_text: Club respondents selected a gift carton as existing consumers, but restaurant buyers have different purchasing and service tasks. Their stated preference cannot be projected as restaurant demand without target-market evidence.
+    verification_status: unverified
+    last_verified_at: '2026-09-29T10:00:00.000Z'
+    mcq_disabled: true
+  - id: ki_d2_case_market_launch_tradeoff
+    subject_id: n_d2_case_market_launch
+    relation_type: CASE_TRADEOFF
+    object_id: n_d2_case_market_launch_tradeoff_point
+    domain_id: business
+    assertion_text: A fixed promotional budget could fund target-buyer tasting, format or service changes, or broader advertising. A focused trial spends some budget on evidence and offer fit before broad reach, but reaches fewer potential accounts initially.
+    verification_status: unverified
+    last_verified_at: '2026-09-29T10:00:00.000Z'
+    mcq_disabled: true
+  - id: ki_d2_case_market_launch_limitation
+    subject_id: n_d2_case_market_launch
+    relation_type: CASE_LIMITATION
+    object_id: n_d2_case_market_launch_limitation_point
+    domain_id: business
+    assertion_text: A known rival list price and a small buyer pilot do not establish all future account orders, net return or the best full-market price. Review actual response and costs before generalising beyond the test.
+    verification_status: unverified
+    last_verified_at: '2026-09-29T10:00:00.000Z'
+    mcq_disabled: true
+certification_knowledge_mappings:
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d2_paired_shifts, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d2_market_stock_context, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d2_competitor_baseline, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d2_target_sample, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d2_marketing_objective, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d2_campaign_review, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d2_case_supply_and_demand_action, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d2_case_supply_and_demand_reason, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d2_case_supply_and_demand_tradeoff, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d2_case_supply_and_demand_limitation, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d2_case_market_launch_action, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d2_case_market_launch_reason, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d2_case_market_launch_tradeoff, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d2_case_market_launch_limitation, importance: core, minimum_depth: 3}
+source_citations:
+  - id: src_d2_oiv_world_2025
+    kind: reference_work
+    title: State of the World Wine Sector in 2025
+    publisher: International Organisation of Vine and Wine
+    document_identifier: May 2026, page 6, 2025 production, consumption and stock balance; accessed 29 September 2026
+    url: https://www.oiv.int/sites/default/files/documents/OIV-State_of_the_World_Wine_Sector_in_2025_0.pdf
+    accessed_on: 2026-09-29
+  - id: src_d2_au_market_research
+    kind: government_publication
+    title: Do market research
+    publisher: Australian Government business.gov.au
+    document_identifier: Customer, competitor and product research guidance; accessed 29 September 2026
+    url: https://business.gov.au/marketing-and-advertising/do-market-research
+    accessed_on: 2026-09-29
+  - id: src_d2_au_marketing_plan
+    kind: government_publication
+    title: Develop your marketing plan
+    publisher: Australian Government business.gov.au
+    document_identifier: Market, SMART objectives, activity budget and results review guidance; accessed 29 September 2026
+    url: https://business.gov.au/planning/business-plans/develop-your-marketing-plan
+    accessed_on: 2026-09-29
+knowledge_item_citations:
+  - {knowledge_item_id: ki_d2_paired_shifts, source_citation_id: src_d2_fed_supply_demand, locator: 'Figure 7 and accompanying text on simultaneous lower supply and demand with conditional price'}
+  - {knowledge_item_id: ki_d2_market_stock_context, source_citation_id: src_d2_oiv_world_2025, locator: 'Page 6, 2025 low production, weaker consumption and gradual stock adjustment'}
+  - {knowledge_item_id: ki_d2_competitor_baseline, source_citation_id: src_d2_au_market_research, locator: 'Sections 1 and 5, customer needs and competitor product, price, target and communication research'}
+  - {knowledge_item_id: ki_d2_target_sample, source_citation_id: src_d2_au_market_research, locator: 'Section 3, research with own customers, competitors'' customers and nonbuyers; existing customer data'}
+  - {knowledge_item_id: ki_d2_marketing_objective, source_citation_id: src_d2_au_marketing_plan, locator: 'Tip 3, SMART goals and measurable sales example'}
+  - {knowledge_item_id: ki_d2_campaign_review, source_citation_id: src_d2_au_marketing_plan, locator: 'Tips 4-6, audience, channel, estimated cost, timing, budget and results review'}
+  - {knowledge_item_id: ki_d2_case_supply_and_demand_action, source_citation_id: src_d2_oiv_world_2025, locator: 'Page 6, market balance includes output, demand and stock adjustment'}
+  - {knowledge_item_id: ki_d2_case_supply_and_demand_reason, source_citation_id: src_d2_fed_supply_demand, locator: 'Figure 7, paired decreases in supply and demand'}
+  - {knowledge_item_id: ki_d2_case_supply_and_demand_tradeoff, source_citation_id: src_d2_oiv_world_2025, locator: 'Page 6, stock adjustment and lower demand during a low-output period'}
+  - {knowledge_item_id: ki_d2_case_supply_and_demand_tradeoff, source_citation_id: src_biz_au_cashflow, locator: 'Inventory and cash-flow planning guidance'}
+  - {knowledge_item_id: ki_d2_case_supply_and_demand_limitation, source_citation_id: src_d2_fed_supply_demand, locator: 'Figure 7, price depends on relative shifts and responsiveness'}
+  - {knowledge_item_id: ki_d2_case_market_launch_action, source_citation_id: src_d2_au_marketing_plan, locator: 'Tips 1, 3 and 4, target research, measurable objectives and planned activities'}
+  - {knowledge_item_id: ki_d2_case_market_launch_reason, source_citation_id: src_d2_au_market_research, locator: 'Section 3, research intended customers beyond existing customer data'}
+  - {knowledge_item_id: ki_d2_case_market_launch_tradeoff, source_citation_id: src_d2_au_marketing_plan, locator: 'Tip 5, marketing budget and activities contributing to goals'}
+  - {knowledge_item_id: ki_d2_case_market_launch_limitation, source_citation_id: src_d2_au_market_research, locator: 'Sections 4 and 6, product testing and action from research findings'}
