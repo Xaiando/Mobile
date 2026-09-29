@@ -133,6 +133,47 @@ void main() {
     }
   });
 
+  test('Diploma D2 objectives include the applied business mechanisms', () {
+    final scope = TrackScopeManifest.parse(
+      File(scopePath).readAsStringSync(),
+      path: scopePath,
+    ).tracks['WSET_L4']!;
+    final diploma = tracks.singleWhere((track) => track.trackId == 'WSET_L4');
+    final objectives = {
+      for (final objective in scope.objectives) objective.id: objective,
+    };
+    final itemById = {for (final item in diploma.items) item.id: item};
+    expect(
+      objectives['wset_l4.business.economics']!.covers!.matches(
+        itemById['ki_d2_supply_demand_shift']!,
+      ),
+      isTrue,
+    );
+    expect(
+      objectives['wset_l4.business.economics']!.covers!.matches(
+        itemById['ki_d2_import_cost_stack']!,
+      ),
+      isTrue,
+    );
+    for (final id in [
+      'ki_biz_models_custom_capacity',
+      'ki_biz_routes_service_scope',
+      'ki_biz_routes_case_dtc_capacity_action',
+    ]) {
+      expect(
+        objectives['wset_l4.business.routes']!.covers!.matches(itemById[id]!),
+        isTrue,
+        reason: id,
+      );
+    }
+    expect(
+      objectives['wset_l4.business.marketing']!.covers!.matches(
+        itemById['ki_d2_marketing_mix']!,
+      ),
+      isTrue,
+    );
+  });
+
   test('the bundled release keeps the committed coverage baseline', () {
     final baseline = CoverageBaseline.parse(
       File(baselinePath).readAsStringSync(),

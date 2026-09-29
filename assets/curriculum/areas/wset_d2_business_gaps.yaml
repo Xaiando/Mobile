@@ -1,0 +1,127 @@
+# Original Diploma D2 principles for three explicit 2025-syllabus gaps.
+# Curation is not qualified expert verification. Prices in practice are hypothetical.
+knowledge_nodes:
+  - id: n_d2_supply_demand_shift
+    node_type: production_principle
+    name: How can a change in market supply affect wine price if demand is unchanged?
+  - id: n_d2_supply_demand_shift_point
+    node_type: learning_point
+    name: A smaller supply tends to raise equilibrium price, subject to conditions
+  - id: n_d2_import_cost_stack
+    node_type: production_principle
+    name: Why is an imported wine's producer quote not its complete route-to-sale cost?
+  - id: n_d2_import_cost_stack_point
+    node_type: learning_point
+    name: Check transport, applicable duties and tax treatment, handling and route margins
+  - id: n_d2_marketing_mix
+    node_type: production_principle
+    name: How should the five marketing Ps serve a target wine customer?
+  - id: n_d2_marketing_mix_point
+    node_type: learning_point
+    name: Coordinate product, price, place, people and promotion around the objective
+knowledge_relations:
+  - subject_id: n_d2_supply_demand_shift
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_d2_supply_demand_shift_point
+    valid_from: 1900-01-01
+  - subject_id: n_d2_import_cost_stack
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_d2_import_cost_stack_point
+    valid_from: 1900-01-01
+  - subject_id: n_d2_marketing_mix
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_d2_marketing_mix_point
+    valid_from: 1900-01-01
+knowledge_items:
+  - id: ki_d2_supply_demand_shift
+    subject_id: n_d2_supply_demand_shift
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_d2_supply_demand_shift_point
+    domain_id: business
+    assertion_text: With demand and other conditions held constant, a decrease in market supply tends to increase the equilibrium price; the size of a harvest alone cannot establish an exact price or a producer's realised return.
+    verification_status: unverified
+    last_verified_at: 2026-09-29T10:00:00.000Z
+    mcq_disabled: true
+  - id: ki_d2_import_cost_stack
+    subject_id: n_d2_import_cost_stack
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_d2_import_cost_stack_point
+    domain_id: business
+    assertion_text: An imported wine's producer quote omits route costs and may omit applicable duties and tax accounting. In the UK example, alcohol duty and customs/VAT procedures must be checked for the product, origin, route and date; recoverable VAT is not automatically a permanent unit cost.
+    verification_status: unverified
+    last_verified_at: 2026-09-29T10:00:00.000Z
+    mcq_disabled: true
+  - id: ki_d2_marketing_mix
+    subject_id: n_d2_marketing_mix
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_d2_marketing_mix_point
+    domain_id: business
+    assertion_text: The five marketing Ps are product, price, place, people and promotion. A wine business should coordinate these choices with its target customer and objective; promotion alone cannot correct a mismatched offer or channel.
+    verification_status: unverified
+    last_verified_at: 2026-09-29T10:00:00.000Z
+    mcq_disabled: true
+certification_knowledge_mappings:
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_d2_supply_demand_shift
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_d2_import_cost_stack
+    importance: core
+    minimum_depth: 2
+  - certification_id: WSET_L4
+    knowledge_item_id: ki_d2_marketing_mix
+    importance: core
+    minimum_depth: 2
+source_citations:
+  - id: src_d2_fed_supply_demand
+    kind: government_publication
+    title: The Science of Supply and Demand
+    publisher: Federal Reserve Bank of St. Louis
+    document_identifier: Page One Economics, 1 March 2021; supply-shock example and regulatory limit; accessed 29 September 2026
+    url: https://www.stlouisfed.org/publications/page-one-economics/2021/03/01/the-science-of-supply-and-demand
+    accessed_on: 2026-09-29
+  - id: src_d2_hmrc_import_alcohol
+    kind: government_publication
+    title: Import alcoholic products into the UK
+    publisher: HM Revenue & Customs
+    document_identifier: Guidance updated 1 May 2025; routes, Alcohol Duty, Customs Duty and VAT procedures; rates omitted
+    url: https://www.gov.uk/guidance/import-alcohol-into-the-uk
+    accessed_on: 2026-09-29
+  - id: src_d2_hmrc_import_vat
+    kind: government_publication
+    title: Paying VAT on imports from outside the UK to Great Britain and from outside the EU to Northern Ireland
+    publisher: HM Revenue & Customs
+    document_identifier: Imported goods, accounting for import VAT; normal reclaim rules; accessed 29 September 2026
+    url: https://www.gov.uk/guidance/vat-imports-acquisitions-and-purchases-from-abroad
+    accessed_on: 2026-09-29
+  - id: src_d2_ita_landed_cost
+    kind: government_publication
+    title: Determine Total Export Price
+    publisher: U.S. International Trade Administration
+    document_identifier: Landed-cost components and responsibility for taxes; accessed 29 September 2026
+    url: https://www.trade.gov/determine-total-export-price
+    accessed_on: 2026-09-29
+  - id: src_d2_au_five_ps
+    kind: government_publication
+    title: The 5 Ps of marketing
+    publisher: Australian Government business.gov.au
+    document_identifier: Government marketing guide, accessed 29 September 2026
+    url: https://business.gov.au/marketing-and-advertising/the-5-ps-of-marketing
+    accessed_on: 2026-09-29
+knowledge_item_citations:
+  - knowledge_item_id: ki_d2_supply_demand_shift
+    source_citation_id: src_d2_fed_supply_demand
+    locator: Meteorology, Hurricane Sandy; Figure 8 supply shock with unchanged demand; observed regulated-price limit
+  - knowledge_item_id: ki_d2_import_cost_stack
+    source_citation_id: src_d2_hmrc_import_alcohol
+    locator: Importing alcoholic products; Customs Duty and VAT; route-dependent excise accounting
+  - knowledge_item_id: ki_d2_import_cost_stack
+    source_citation_id: src_d2_hmrc_import_vat
+    locator: Imported goods, accounting for import VAT; reclaim as input tax subject to normal rules
+  - knowledge_item_id: ki_d2_import_cost_stack
+    source_citation_id: src_d2_ita_landed_cost
+    locator: Landed-cost components; obligations for freight, duties and taxes; estimated cost limitation
+  - knowledge_item_id: ki_d2_marketing_mix
+    source_citation_id: src_d2_au_five_ps
+    locator: The 5 Ps; Product, Price, Place, People and Promotion sections

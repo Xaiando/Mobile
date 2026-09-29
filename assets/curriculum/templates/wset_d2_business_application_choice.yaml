@@ -1,0 +1,330 @@
+# Diploma D2 applied decisions. Fictional figures are premises, not current prices or tax rates.
+# Each keyed answer is conditional on the stated case; qualified expert review is pending.
+question_templates:
+  - id: qt_wset_d2_business_application_29
+    relation_type: PRINCIPLE_EXPLANATION
+    direction: forward
+    mode: authored_choice
+    variant: wset_d2_business_application_29
+    prompt_template: '{subject.name}'
+    parameters:
+      item_choices:
+        ki_d2_supply_demand_shift:
+          prompt: >-
+            A frost reduces the saleable supply of a particular wine while demand and other conditions are held unchanged. Which price inference is justified?
+          options:
+            - Upward price pressure is plausible, but the final price and return are not fixed by harvest size alone
+            - Every producer must raise its realised price by the same percentage as the crop loss
+            - The market price should fall because fewer bottles are offered
+            - Supply cannot affect price if the wine's sensory quality is unchanged
+          correctIndex: 0
+          explanation: A supply contraction tends to lift equilibrium price with demand held constant. It does not specify an exact bottle price, margin or producer return.
+          sourceCitationId: src_d2_fed_supply_demand
+        ki_d2_import_cost_stack:
+          prompt: >-
+            A hypothetical importer pays 10 units per bottle to the producer, 2 freight, 3 applicable duty and 1 handling. Its input VAT is fully recoverable, and no selling margin is included yet. What is the stated pre-margin cost per bottle?
+          options:
+            - 13 units, because freight and handling replace duty
+            - 16 units, before adding any distributor or retailer margin
+            - 10 units, because the producer quote is the landed cost
+            - 18 units, because recoverable VAT is a permanent extra cost
+          correctIndex: 1
+          explanation: The supplied nonrecoverable components total 10 + 2 + 3 + 1 = 16. Applicable duties and VAT treatment must be checked for the actual route and date.
+          sourceCitationId: src_d2_hmrc_import_alcohol
+        ki_d2_marketing_mix:
+          prompt: >-
+            A winery targets by-the-glass restaurant buyers, but its current offer is a premium gift box sold only through its website. Which revision best coordinates the five marketing Ps with the stated target?
+          options:
+            - Increase social-media spend while keeping product, trade price and route unchanged
+            - Copy a rival's retail discount without checking restaurant economics or service
+            - Test a suitable restaurant format, trade price, route and staff support before promotion
+            - Change the label artwork alone and assume restaurant demand will follow
+          correctIndex: 2
+          explanation: Product, price, place, people and promotion should support the same target and objective. Promotion alone cannot repair an unsuitable offer or channel.
+          sourceCitationId: src_d2_au_five_ps
+        ki_biz_fixed_cost:
+          prompt: >-
+            A cellar lease costs 30,000 units per year and covers 10,000 to 12,000 cases. Production rises from 10,000 to 12,000 within that capacity and the contract is unchanged. What happens to the lease cost per case?
+          options:
+            - It remains 3 units because the lease is fixed
+            - It rises to 3.60 units as case volume rises
+            - It becomes a variable packaging cost
+            - It falls from 3 to 2.50 units while the total stays 30,000
+          correctIndex: 3
+          explanation: Within the stated capacity and period, the fixed total is unchanged; spreading it over more cases lowers the average fixed cost per case.
+          sourceCitationId: src_biz_sba_planning
+        ki_biz_variable_cost:
+          prompt: >-
+            Bottles cost 1.20 units each and the same bottle is used for every additional wine bottle filled. If output increases by 1,000 bottles, what additional bottle cost belongs in the volume decision?
+          options:
+            - Zero, because packaging belongs to the original winery budget
+            - 1.20 units in total, because the unit price is unchanged
+            - 1,200 units, before any other extra costs
+            - The full annual cellar lease, regardless of spare capacity
+          correctIndex: 2
+          explanation: The bottle cost varies with output. An additional 1,000 bottles at 1.20 units require 1,200 units of glass, assuming the stated unit price.
+          sourceCitationId: src_biz_sba_planning
+        ki_biz_contribution:
+          prompt: >-
+            A wine sells to a channel partner for 20 units per bottle. Its variable production and delivery costs total 12 units per bottle. What is unit contribution before fixed costs?
+          options:
+            - 8 units
+            - 12 units
+            - 20 units
+            - 32 units
+          correctIndex: 0
+          explanation: Unit contribution is the 20-unit selling price less 12 units of variable cost, leaving 8 units toward fixed costs and then profit.
+          sourceCitationId: src_biz_sba_planning
+        ki_biz_breakeven:
+          prompt: >-
+            One wine has period fixed costs of 24,000 units, a selling price of 20 per bottle and a constant variable cost of 12. With sufficient capacity and no sales mix, how many bottles break even?
+          options:
+            - 1,200 bottles
+            - 3,000 bottles
+            - 2,000 bottles
+            - 6,000 bottles
+          correctIndex: 1
+          explanation: Unit contribution is 8, so 24,000 divided by 8 equals 3,000 bottles. This simplified model must be revisited if price, cost, capacity or mix changes.
+          sourceCitationId: src_biz_sba_planning
+        ki_biz_inventory_cash:
+          prompt: >-
+            A merchant already holds 800 cases of a slow-selling wine, expects about 200 case sales before the next reliable delivery, and has a supplier invoice due soon. Which stock action best addresses the immediate cash tie-up under those premises?
+          options:
+            - Order another 800 cases to preserve the historic stock level
+            - Record the existing cases at a higher value to create cash
+            - Assume stock converts into cash when the supplier invoice falls due
+            - Defer the next order while checking demand, lead time and availability
+          correctIndex: 3
+          explanation: Unsold inventory has already absorbed cash. Deferring unnecessary replenishment can avoid a further tie-up, while lead time and availability still matter.
+          sourceCitationId: src_biz_au_cashflow
+        ki_biz_payment_timing:
+          prompt: >-
+            A profitable export sale is payable in 60 days, but its supplier bill falls due in 30 days. What must the winery plan for?
+          options:
+            - A 30-day cash timing gap, even if the eventual sale earns a margin
+            - Immediate customer cash because revenue has been recognised
+            - A higher unit margin caused by the later customer payment
+            - No liquidity issue because both dates fall in the same quarter
+          correctIndex: 0
+          explanation: Profitability and cash timing differ. The supplier payment precedes the expected customer receipt, so liquidity must be forecast for that interval.
+          sourceCitationId: src_biz_au_cashflow
+        ki_biz_cost_plus:
+          prompt: >-
+            A hypothetical bottle costs 8 units to make, 2 for packaging and delivery, and 1 for allocated selling work. A producer chooses a 3-unit profit allowance for this exercise. What pre-tax cost-plus price follows from these stated inputs?
+          options:
+            - 11 units, excluding the profit allowance
+            - 12 units, treating selling work as already paid
+            - 14 units, before testing market acceptance
+            - 16 units, because the allowance is applied twice
+          correctIndex: 2
+          explanation: The stated costs total 11 and the chosen profit allowance adds 3, yielding 14. Cost-plus arithmetic does not prove the market will accept that price.
+          sourceCitationId: src_biz_au_pricing
+        ki_biz_discount_contribution:
+          prompt: >-
+            A bottle sells for 30 units with 18 units variable cost. A 20% price discount leaves costs unchanged. Ignoring capacity and other effects, what volume change would preserve the original total contribution?
+          options:
+            - A 20% rise, because the discount is 20%
+            - Double the bottle volume, if that demand is achievable
+            - No change, because fixed costs are unchanged
+            - Half the bottle volume, because the contribution halves
+          correctIndex: 1
+          explanation: Contribution falls from 12 to 6 per bottle after the discounted price becomes 24. Matching the original total requires twice as many bottles, subject to demand and capacity.
+          sourceCitationId: src_biz_au_pricing
+        ki_biz_fx_receivable:
+          prompt: >-
+            A hypothetical exporter will receive US$10,000 in three months. One dollar buys 0.80 home-currency units today but only 0.75 on payment day; the receivable is unhedged. What changes in the home-currency receipt?
+          options:
+            - It rises by 500 units because the dollar weakened
+            - It stays at 8,000 units because the invoice is fixed
+            - It falls by 50 units because the rate moved 0.05
+            - It falls from 8,000 to 7,500 units
+          correctIndex: 3
+          explanation: Multiplying the fixed US$10,000 by 0.80 and then 0.75 gives 8,000 versus 7,500 home-currency units. This is a fictional exchange-rate example.
+          sourceCitationId: src_biz_ita_fx
+        ki_biz_home_currency_invoice:
+          prompt: >-
+            A winery asks its overseas buyer to pay in the winery's home currency rather than the buyer's currency. Which commercial trade-off remains?
+          options:
+            - The buyer now bears conversion exposure and may resist the terms or seek a price adjustment
+            - The winery is guaranteed payment because the exchange rate is fixed for it
+            - Both parties are protected from all currency and credit risk
+            - The buyer's currency necessarily strengthens before the due date
+          correctIndex: 0
+          explanation: Home-currency invoicing moves much of the conversion exposure to the buyer, but that may affect competitiveness and never guarantees collection.
+          sourceCitationId: src_biz_ita_fx
+        ki_biz_forward_exchange:
+          prompt: >-
+            An exporter has a fixed foreign-currency invoice due in three months and contracts now to exchange that amount on the due date at an agreed rate. Which risk remains outside that forward contract?
+          options:
+            - The exchange rate used for the contracted amount
+            - The date specified for that currency exchange
+            - The overseas buyer's failure to pay the invoice
+            - The home-currency value of an invoice that is paid as agreed
+          correctIndex: 2
+          explanation: The forward addresses rate uncertainty for the stated amount and date; it does not make a buyer pay. Contract suitability and counterparty terms still require review.
+          sourceCitationId: src_biz_ita_fx
+        ki_biz_value_pricing:
+          prompt: >-
+            A new wine costs more to make than its predecessor, but a target buyer panel has not tested the new offer. What evidence is most relevant before claiming a premium value-based price?
+          options:
+            - The cellar's total sunk investment alone
+            - Target customers' perceived benefits and willingness to pay
+            - The highest-priced competitor, independent of product fit
+            - The producer's preferred margin without buyer research
+          correctIndex: 1
+          explanation: Value pricing asks what benefits customers perceive and will pay for. Increased production cost alone cannot establish that willingness.
+          sourceCitationId: src_biz_au_pricing
+        ki_biz_competitor_pricing:
+          prompt: >-
+            A comparable wine retails for 18 units. Your route costs 17 units per bottle and your plan requires 4 units contribution before fixed costs. What does the competitor price tell you?
+          options:
+            - You should automatically set 18 because matching always wins demand
+            - Your 17-unit cost proves buyers will accept at least 21
+            - A 1-unit contribution at 18 meets the stated 4-unit plan
+            - It is a benchmark; your required economics imply 21, which needs market testing
+          correctIndex: 3
+          explanation: Matching 18 leaves only 1 unit above the stated variable route cost. Meeting a 4-unit contribution would require 21, but customer acceptance is still unproven.
+          sourceCitationId: src_biz_au_pricing
+        ki_biz_customer_segment:
+          prompt: >-
+            A winery can serve either restaurant by-the-glass buyers seeking dependable replenishment or one-off gift buyers seeking presentation. Which planning move uses segmentation correctly?
+          options:
+            - Treat both groups as having identical purchase reasons and service needs
+            - Average their preferences into one offer without checking channel fit
+            - Define a priority group and shape its offer, route and research around its needs
+            - Select the group with the highest imagined price before any evidence
+          correctIndex: 2
+          explanation: Segmentation identifies the customers an offer aims to serve. Their needs, buying context and alternatives guide subsequent research and channel choice.
+          sourceCitationId: src_biz_sba_planning
+        ki_biz_primary_research:
+          prompt: >-
+            National statistics show growth in wine purchases, but a winery needs to know whether local restaurant buyers would list its specific new wine. Which evidence directly addresses that offer-specific question?
+          options:
+            - Interviews or tastings with relevant restaurant buyers, while recognising sample limits
+            - The national aggregate alone, without speaking to any target buyer
+            - A supplier's estimate of winery equipment costs
+            - A competitor's label design without buyer response
+          correctIndex: 0
+          explanation: Direct research with the intended buyers can test this offer-specific question. Broad market statistics provide context but cannot substitute for target-buyer evidence.
+          sourceCitationId: src_biz_sba_planning
+        ki_biz_channel_mix:
+          prompt: >-
+            A small winery has repeat online customers but can staff only two events a month. It is planning how to allocate sales effort. Which choice is most defensible from the stated facts?
+          options:
+            - Replace online sales entirely because physical events always earn more
+            - Compare expected customer reach and service capacity before setting a workable mix
+            - Book daily events despite the stated staffing limit
+            - Use every available channel equally, regardless of customer response
+          correctIndex: 1
+          explanation: Channel choice should reflect the target offer, buyer access and resources. The scenario does not establish a universally superior route or optimal proportion.
+          sourceCitationId: src_biz_sba_planning
+        ki_biz_models_vineyard_commitment:
+          prompt: >-
+            A new brand can buy fruit under a one-year contract or establish its own vineyard, which requires a multi-year site and equipment commitment. Demand beyond the first vintage is untested. Which factor most clearly distinguishes ownership?
+          options:
+            - Vineyard ownership guarantees more consumers for the wine
+            - Purchased fruit removes all winery production tasks
+            - A planted vineyard can be moved to another climate next vintage
+            - Ownership commits capital and a particular site beyond a first-vintage trial
+          correctIndex: 3
+          explanation: Vineyard establishment ties investment to a perennial crop and site. Ownership may offer control but does not establish demand, quality or a superior return.
+          sourceCitationId: src_biz_models_psu_vineyard
+        ki_biz_models_custom_capacity:
+          prompt: >-
+            A brand has no winery. A service facility confirms capacity for two of three proposed harvest lots, with a quoted fee. What follows for the third lot?
+          options:
+            - It automatically receives the same service because the brand is a client
+            - It must be discarded because no own cellar exists
+            - It needs separately confirmed capacity or a revised production plan
+            - It can be sold as finished wine without winemaking
+          correctIndex: 2
+          explanation: Custom production can supply another winery's facility and expertise, but only for agreed work and available capacity. The third lot is not covered by the stated quote.
+          sourceCitationId: src_biz_models_reddy_services
+        ki_biz_models_custom_scope:
+          prompt: >-
+            A custom-crush quote covers fermentation and storage but says nothing about bottling or labels. What should the brand do before treating the quote as a finished-wine offer?
+          options:
+            - Confirm bottling, label supply, approvals and their charges in the service scope
+            - Assume every custom-crush provider includes all private-label work
+            - Treat the wine as saleable in bottle immediately after fermentation
+            - Omit the missing steps from the cost plan because the provider owns equipment
+          correctIndex: 0
+          explanation: Providers differ in tasks and client roles. The stated quote leaves packaging and approvals unresolved, so those services and costs need agreement.
+          sourceCitationId: src_biz_models_peltier_services
+        ki_biz_models_cooperative_control:
+          prompt: >-
+            Growers consider a member-owned cooperative with democratic decisions on a shared wine programme. One grower insists on sole final control over its own blend and brand. What is the central fit issue?
+          options:
+            - Cooperative membership always removes every grower's ownership interest
+            - Shared enterprise decisions may conflict with that grower's required sole control
+            - Democratic voting guarantees that grower its preferred blend each year
+            - Pooling grapes legally requires every member to use identical labels
+          correctIndex: 1
+          explanation: Member ownership and democratic control distribute decision-making. Actual terms matter, but exclusive individual control cannot be assumed from the cooperative model.
+          sourceCitationId: src_biz_models_usda_ownership
+        ki_biz_models_bulk_purchase:
+          prompt: >-
+            A brand needs a bottled launch in six months, has no grape-processing capacity, and has sampled a suitable finished bulk-wine lot with separate bottling quoted. What work remains in this route?
+          options:
+            - Grow grapes for the already finished lot
+            - Run the lot's original alcoholic fermentation again
+            - Assume the bulk supplier also owns the final brand and sales channel
+            - Confirm lot supply, packaging specification and bottling arrangements
+          correctIndex: 3
+          explanation: Buying bulk wine enters after grape-to-wine production. Lot suitability, continuity and the remaining packaging work still require agreement.
+          sourceCitationId: src_biz_models_shaps_services
+        ki_biz_routes_dtc_resources:
+          prompt: >-
+            In a fictional comparison, a direct online bottle sells for 24 units and incurs 12 production, 3 packing, 2 delivery and 2 customer-support units. A partner pays 19 and covers those three downstream tasks; production still costs 12. Which unit contribution comparison follows from only these figures?
+          options:
+            - Direct 5 units; partner 7 units, before considering customer access and other costs
+            - Direct 12 units; partner 7 units, because online tasks disappear
+            - Direct 7 units; partner 5 units, because the direct price is higher
+            - Both 12 units, because both routes sell the same bottle
+          correctIndex: 0
+          explanation: The stated direct contribution is 24 minus 19 of listed costs = 5; the partner route is 19 minus 12 = 7. This is not a whole-business route recommendation.
+          sourceCitationId: src_biz_routes_osu_dtc
+        ki_biz_routes_downstream_sales:
+          prompt: >-
+            A distributor buys 1,000 winery bottles, but the winery has no account reorder or consumer-sales data. Which conclusion can the winery support today?
+          options:
+            - Consumers have bought all 1,000 bottles
+            - Retailers will reorder before the next shipment
+            - The winery made a sell-in; sustained downstream demand is still unverified
+            - Placement is irrelevant because the distributor paid the winery
+          correctIndex: 2
+          explanation: The producer-to-partner sale is observed; later account and consumer buying are separate stages. Reorders or sell-through evidence would improve the demand assessment.
+          sourceCitationId: src_biz_routes_wine_australia_paths
+        ki_biz_routes_service_scope:
+          prompt: >-
+            A logistics proposal stores and ships wine for a fee but explicitly excludes account prospecting and selling. The winery has no sales staff. Which capability is still missing?
+          options:
+            - Warehouse storage
+            - Active customer acquisition and account selling
+            - Physical order fulfilment
+            - An agreed logistics fee
+          correctIndex: 1
+          explanation: Storage and fulfilment do not by themselves create sales coverage. A full-service partner may supply active selling, but the stated logistics-only proposal does not.
+          sourceCitationId: src_biz_routes_wine_australia_paths
+        ki_biz_routes_partner_fit:
+          prompt: >-
+            A wine targets independent restaurant lists. Partner A is large but has no relevant restaurant accounts; Partner B is smaller, has suitable account access and confirmed sales capacity. What is the best conditional inference?
+          options:
+            - A must fit better because scale always predicts sell-through
+            - B guarantees restaurant listings through its existing accounts
+            - Partner size alone proves which trade margin will be lower
+            - B may fit the target route better, subject to terms and actual performance
+          correctIndex: 3
+          explanation: Portfolio, target-account access and sales-team capacity matter more than size alone. Neither partner's access guarantees purchase or a good commercial result.
+          sourceCitationId: src_biz_routes_wine_australia_partner
+        ki_biz_routes_reviewable_roles:
+          prompt: >-
+            A proposed export partner promises to 'grow the market' but leaves account calling, replenishment, promotion and reporting unspecified. What agreement detail would make that promise most reviewable?
+          options:
+            - Assign those responsibilities and agree relevant measures and review dates
+            - Replace performance measures with a broad aspiration to sell more
+            - Assume warehouse access includes account visits and promotion
+            - Set a sales guarantee without checking partner capacity or the market
+          correctIndex: 0
+          explanation: Clear roles, ordering and delivery duties, and reviewable measures allow a business to assess the route. They do not guarantee a fixed sales outcome.
+          sourceCitationId: src_biz_routes_wine_australia_terms

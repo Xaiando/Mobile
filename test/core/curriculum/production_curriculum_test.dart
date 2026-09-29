@@ -175,7 +175,7 @@ void main() {
     );
     expect(
       diploma.units.singleWhere((u) => u.scope.id == 'D2').counts.available,
-      116,
+      119,
     );
     expect(diploma.appLevelComplete, isFalse);
     expect(
@@ -559,7 +559,7 @@ void main() {
       132,
       829,
       3439,
-      3953,
+      3956,
     ]);
     final diploma = snapshot.levels.last;
     final unitIds = {
@@ -580,7 +580,7 @@ void main() {
     }
     expect(
       diploma.units.singleWhere((u) => u.scope.id == 'D2').counts.available,
-      116,
+      119,
     );
     expect(
       diploma.units.singleWhere((u) => u.scope.id == 'D3').scope.domains,
