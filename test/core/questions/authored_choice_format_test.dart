@@ -274,7 +274,7 @@ void main() {
   );
 
   test(
-    '632 cited choices are generated and served across WSET and CMS tracks',
+    '651 cited choices are generated and served across WSET and CMS tracks',
     () async {
       final db = openTestDatabase();
       try {
@@ -293,10 +293,11 @@ void main() {
             .where(
               (template) =>
                   template.id.startsWith('qt_wset_') ||
-                  template.id.startsWith('qt_cms_example_'),
+                  template.id.startsWith('qt_cms_example_') ||
+                  template.id == 'qt_d3rt_regional_choice',
             )
             .toList();
-        expect(templates, hasLength(27));
+        expect(templates, hasLength(28));
         final expectedIds = {
           for (final template in templates)
             ...((jsonDecode(template.parameters!)
@@ -357,6 +358,7 @@ void main() {
         final diplomaBusinessIds = idsForTemplate(
           'qt_wset_d2_business_application_29',
         );
+        final d3RegionalIds = idsForTemplate('qt_d3rt_regional_choice');
         final earlierLevelThreeIds = expectedIds.difference({
           ...levelOneIds,
           ...levelTwoIds,
@@ -369,8 +371,9 @@ void main() {
           ...winemakingL3Ids,
           ...l3ApplicationIds,
           ...diplomaBusinessIds,
+          ...d3RegionalIds,
         });
-        expect(expectedIds, hasLength(632));
+        expect(expectedIds, hasLength(651));
         expect(levelOneIds, hasLength(132));
         expect(levelTwoIds, hasLength(172));
         expect(sharedGrapeIds, hasLength(32));
@@ -382,16 +385,18 @@ void main() {
         expect(winemakingL3Ids, hasLength(12));
         expect(l3ApplicationIds, hasLength(40));
         expect(diplomaBusinessIds, hasLength(29));
+        expect(d3RegionalIds, hasLength(19));
         expect(earlierLevelThreeIds, hasLength(85));
         final rows = await db.customSelect('''
         SELECT q.knowledge_item_id, i.domain_id FROM questions q
         JOIN question_templates t ON t.id = q.question_template_id
         JOIN knowledge_items i ON i.id = q.knowledge_item_id
         WHERE t.mode = 'authored_choice'
-          AND (t.id GLOB 'qt_wset_*' OR t.id GLOB 'qt_cms_example_*')
+          AND (t.id GLOB 'qt_wset_*' OR t.id GLOB 'qt_cms_example_*'
+               OR t.id = 'qt_d3rt_regional_choice')
         ORDER BY q.knowledge_item_id
       ''').get();
-        expect(rows, hasLength(632));
+        expect(rows, hasLength(651));
         final actual = {
           for (final row in rows)
             row.read<String>('knowledge_item_id'): row.read<String>(
@@ -463,6 +468,13 @@ void main() {
           }
         }
         for (final id in expectedIds) {
+          if (d3RegionalIds.contains(id)) {
+            expect(
+              levelFourCards[id]?.formats.map((format) => format.mode),
+              contains('authored_choice'),
+              reason: 'Diploma D3: $id',
+            );
+          }
           if (diplomaBusinessIds.contains(id)) {
             expect(
               levelFourCards[id]?.formats.map((format) => format.mode),
@@ -510,6 +522,8 @@ void main() {
                     : cmsExampleIds.contains(id)
                     ? cmsCards[id]
                     : diplomaBusinessIds.contains(id)
+                    ? levelFourCards[id]
+                    : d3RegionalIds.contains(id)
                     ? levelFourCards[id]
                     : levelThreeCards[id])
                 ?.formats
