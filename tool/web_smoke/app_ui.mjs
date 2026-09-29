@@ -101,11 +101,16 @@ function named(name, { prefix = false } = {}) {
 }
 function text(name) { return page.getByText(name, { exact: typeof name === 'string' }); }
 async function onScreen(locator) {
-  if (!await locator.count()) return false;
-  const box = await locator.first().boundingBox();
-  return !!box && box.width > 0 && box.height > 0 &&
-    box.x + box.width / 2 >= 0 && box.x + box.width / 2 < viewport.width &&
-    box.y + box.height / 2 >= 0 && box.y + box.height / 2 < viewport.height - 8;
+  // Flutter may recycle a lazily built semantics node between count() and
+  // boundingBox(). A locator-based boundingBox() then waits for that stale
+  // match until the action timeout instead of letting reveal() scroll again.
+  // evaluateAll() takes a non-waiting snapshot of the currently matched nodes.
+  return locator.first().evaluateAll((elements, size) => {
+    const box = elements[0]?.getBoundingClientRect();
+    return !!box && box.width > 0 && box.height > 0 &&
+      box.x + box.width / 2 >= 0 && box.x + box.width / 2 < size.width &&
+      box.y + box.height / 2 >= 0 && box.y + box.height / 2 < size.height - 8;
+  }, viewport);
 }
 async function reveal(locator, { direction = 1, steps = 70 } = {}) {
   // Flutter ListViews scroll on the canvas. DOM scrollIntoView alone cannot
