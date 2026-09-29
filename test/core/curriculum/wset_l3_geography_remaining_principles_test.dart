@@ -178,7 +178,7 @@ void main() {
         (row) => row.id == 'geography',
       );
       expect(geography.counts[CoverageMetric.core], 1060);
-      expect(geography.counts[CoverageMetric.coreUsefulPractice], 1010);
+      expect(geography.counts[CoverageMetric.coreUsefulPractice], 1025);
       for (final id in _expectedIds) {
         final row = audit.items.singleWhere((item) => item.id == id);
         expect(row.hasUsefulPractice, isTrue, reason: id);
@@ -189,7 +189,7 @@ void main() {
             item.isCore &&
             !item.hasUsefulPractice,
       );
-      expect(remaining, hasLength(50));
+      expect(remaining, hasLength(35));
       expect(
         remaining.where((item) => item.item.relationType == 'LOCATED_IN'),
         hasLength(35),
