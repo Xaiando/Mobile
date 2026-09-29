@@ -70,7 +70,7 @@ class QuestionFormat {
   ExerciseFormat get _format => format ?? appFormats.require(mode);
 
   bool get isReverse => direction == 'reverse';
-  bool get isMultipleChoice => mode == 'mcq';
+  bool get isMultipleChoice => mode == 'mcq' || mode == 'authored_choice';
 
   /// The `minimum_depth` at which a track serves this format (CM-6, QF-6).
   int get requiredDepth => _format.requiredDepth(direction);

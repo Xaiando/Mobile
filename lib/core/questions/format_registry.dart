@@ -1,4 +1,5 @@
 import 'exercise_format.dart';
+import 'formats/authored_choice/authored_choice_format.dart';
 import 'formats/flashcard/flashcard_format.dart';
 import 'formats/map_identify/map_identify_format.dart';
 import 'formats/map_locate/map_locate_format.dart';
@@ -49,6 +50,7 @@ class FormatRegistry {
 final appFormats = FormatRegistry(const [
   FlashcardFormat(),
   McqFormat(),
+  AuthoredChoiceFormat(),
   MapLocateFormat(),
   MapIdentifyFormat(),
   MapPairFormat(),

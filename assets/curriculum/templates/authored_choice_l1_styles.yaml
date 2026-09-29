@@ -1,0 +1,53 @@
+question_templates:
+- id: qt_wset_l1_authored_styles
+  relation_type: PRINCIPLE_EXPLANATION
+  direction: forward
+  mode: authored_choice
+  variant: l1_familiar_style_comparisons
+  prompt_template: '{subject.name}'
+  parameters:
+    item_choices:
+      ki_wset_l1_chianti_style:
+        prompt: "Which profile best matches a typical young Chianti?"
+        options:
+        - "A dry white with citrus fruit, lively acid and little tannin"
+        - "A dry, medium-bodied red with red fruit, lively acid and drying tannin"
+        - "A dry red with black fruit, low acid and soft tannin"
+        - "A sweet red with dried fruit, low acid and soft tannin"
+        correctIndex: 1
+        explanation: A young Chianti is commonly dry and red, with berry or violet character and tannin; age
+          and producer change the profile.
+        sourceCitationId: src_wset_found_chianti
+      ki_wset_l1_cotes_rhone_style:
+        prompt: In a Grenache-led red Côtes du Rhône blend, what can Syrah or Mourvèdre add?
+        options:
+        - "Noticeable sweetness from retained grape sugar"
+        - "More fizz from a second bottle fermentation"
+        - "Firmer tannic structure and spicy notes"
+        - "A change to a white-wine colour and style"
+        correctIndex: 2
+        explanation: The Rhône body describes Grenache as contributing fruit and warmth, while Syrah and Mourvèdre
+          can add spice and firm structure.
+        sourceCitationId: src_wset_l1_cotes_rhone
+      ki_wset_l1_chateauneuf_style:
+        prompt: Which profile best fits a typical red Châteauneuf-du-Pape?
+        options:
+        - Lean, pale, Pinot Noir-led still red
+        - Powerful, Grenache-led still red
+        - Light, sweet, Gamay-led sparkling red
+        - Crisp, citrus-led Sauvignon Blanc white
+        correctIndex: 1
+        explanation: Inter Rhône identifies Grenache noir as dominant in the vineyards and describes the red
+          wines as powerful and structured.
+        sourceCitationId: src_reg_fs_chateauneuf
+      ki_wset_l1_rioja_style:
+        prompt: What common barrel-ageing effect does the Rioja control board describe for red Rioja?
+        options:
+        - More oak-derived aromas and softer tannins
+        - Less oak character with increasingly firm young tannins
+        - Carbonation and a sweet red-wine style
+        - Additional sugar from stopped fermentation
+        correctIndex: 0
+        explanation: The Rioja control board describes extra non-fruit aromas and softer tannins in barrel-aged
+          reds, while young reds may be fruit-led.
+        sourceCitationId: src_wset_found_rioja_red

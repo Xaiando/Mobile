@@ -1715,9 +1715,9 @@ source_citations:
     kind: reference_work
     title: "International Code of Oenological Practices, Part I: Special Wines"
     publisher: International Organisation of Vine and Wine
-    document_identifier: Public primary reference; accessed 27 September 2026
-    url: https://oiv.int/fr/standards/code-international-des-pratiques-oenologiques/part-i-definitions/special-wines
-    accessed_on: 2026-09-27
+    document_identifier: Public primary reference; accessed 29 September 2026
+    url: https://www.oiv.int/fr/standards/code-international-des-pratiques-oenologiques/part-i-definitions/special-wines
+    accessed_on: 2026-09-29
   - id: src_wset_found_bivc_sancerre
     kind: reference_work
     title: "Wines of Centre-Loire: appellation dossier"
@@ -1732,6 +1732,27 @@ source_citations:
     document_identifier: Public primary reference; accessed 27 September 2026
     url: https://www.bourgogne-wines.com/wine-and-terroir/our-grape-varietals-our-colors/chardonnay/chardonnay-a-bourgogne-original-that-has-travelled-the-world%2C2797%2C10602.html
     accessed_on: 2026-09-27
+  - id: src_wset_found_bivb_pinot_noir
+    kind: reference_work
+    title: The Bourgogne wine region, birthplace of the Pinot Noir varietal
+    publisher: Bourgogne Wine Board
+    document_identifier: Public primary reference; accessed 29 September 2026
+    url: https://www.bourgogne-wines.com/wine-and-terroir/our-grape-varietals-our-colors/pinot-noir/the-bourgogne-wine-region-birthplace-of-the-pinot-noir-varietal,2798,10603.html
+    accessed_on: 2026-09-29
+  - id: src_wset_found_colour_of_wine
+    kind: reference_work
+    title: What determines the colour of wine?
+    publisher: Wine & Spirit Education Trust
+    document_identifier: Public primary reference; accessed 29 September 2026
+    url: https://www.wsetglobal.com/knowledge-centre/blog/2021/september/23/what-determines-the-colour-of-wine
+    accessed_on: 2026-09-29
+  - id: src_wset_found_oiv_sparkling
+    kind: reference_work
+    title: International Code of Oenological Practices, I.4.4 Sparkling wines
+    publisher: International Organisation of Vine and Wine
+    document_identifier: Public primary reference; accessed 29 September 2026
+    url: https://www.oiv.int/fr/standards/code-international-des-pratiques-oenologiques/part-i-definitions/special-wines/sparkling-wines
+    accessed_on: 2026-09-29
   - id: src_wset_found_civb_red
     kind: reference_work
     title: How to choose a red Bordeaux wine
@@ -1790,11 +1811,11 @@ source_citations:
     accessed_on: 2026-09-27
   - id: src_wset_found_cava
     kind: reference_work
-    title: "D.O. Cava: official introduction"
+    title: "D.O. Cava: The CAVA Designation of Origin"
     publisher: Consejo Regulador D.O. Cava
-    document_identifier: Public primary reference; accessed 27 September 2026
-    url: https://cava.wine/en/
-    accessed_on: 2026-09-27
+    document_identifier: Public primary reference; accessed 29 September 2026
+    url: https://www.cava.wine/en/regulatory-board/cava-designation-of-origin/
+    accessed_on: 2026-09-29
   - id: src_wset_found_sherry
     kind: reference_work
     title: The ABC of the Fortified Wines of Jerez
@@ -1840,6 +1861,9 @@ knowledge_item_citations:
   - knowledge_item_id: ki_wset_found_grape_skin
     source_citation_id: src_wset_found_wset_styles
     locator: Still, sparkling and fortified wine; colour and body explanations
+  - knowledge_item_id: ki_wset_found_grape_skin
+    source_citation_id: src_wset_found_colour_of_wine
+    locator: Grape skins, anthocyanins, and tannin extraction during skin contact
   - knowledge_item_id: ki_wset_found_grape_juice
     source_citation_id: src_wset_found_uga_fermentation
     locator: Wine fermentation and steps for white and red wines
@@ -1879,12 +1903,18 @@ knowledge_item_citations:
   - knowledge_item_id: ki_wset_found_rose_sequence
     source_citation_id: src_wset_found_wset_styles
     locator: Still, sparkling and fortified wine; colour and body explanations
+  - knowledge_item_id: ki_wset_found_rose_sequence
+    source_citation_id: src_wset_found_colour_of_wine
+    locator: Brief skin contact followed by separation and fermentation of pink juice
   - knowledge_item_id: ki_wset_found_still
     source_citation_id: src_wset_found_wset_styles
     locator: Still, sparkling and fortified wine; colour and body explanations
   - knowledge_item_id: ki_wset_found_sparkling
     source_citation_id: src_wset_found_oiv_special
-    locator: I.4.3 liqueur wine; I.4.6 sweet wines; I.4.7 icewine
+    locator: I.4.4 Sparkling wines; effervescence on uncorking and sweetness range
+  - knowledge_item_id: ki_wset_found_sparkling
+    source_citation_id: src_wset_found_oiv_sparkling
+    locator: I.4.4 Sparkling wines; carbon dioxide release and sweetness styles
   - knowledge_item_id: ki_wset_found_fortified
     source_citation_id: src_wset_found_oiv_special
     locator: I.4.3 liqueur wine; I.4.6 sweet wines; I.4.7 icewine
@@ -1909,6 +1939,9 @@ knowledge_item_citations:
   - knowledge_item_id: ki_wset_found_fruit_aromas
     source_citation_id: src_wset_found_wa_intro
     locator: Introduction to wine; structure and wine style; sweet wine production
+  - knowledge_item_id: ki_wset_found_fruit_aromas
+    source_citation_id: src_wset_taste_aroma_chemistry
+    locator: Fruit-aroma descriptors reflect compounds and sensory impressions, not proof of added fruit
   - knowledge_item_id: ki_wset_found_oak_aromas
     source_citation_id: src_wset_found_wa_intro
     locator: Introduction to wine; structure and wine style; sweet wine production
@@ -1927,6 +1960,9 @@ knowledge_item_citations:
   - knowledge_item_id: ki_wset_found_familiar_red_burgundy
     source_citation_id: src_wset_found_wset_styles
     locator: Still, sparkling and fortified wine; colour and body explanations
+  - knowledge_item_id: ki_wset_found_familiar_red_burgundy
+    source_citation_id: src_wset_found_bivb_pinot_noir
+    locator: Pinot Noir as Burgundy's principal red variety
   - knowledge_item_id: ki_wset_found_familiar_bordeaux
     source_citation_id: src_wset_found_civb_red
     locator: Merlot and Cabernet Sauvignon structure and fruit
@@ -1959,7 +1995,7 @@ knowledge_item_citations:
     locator: Spumante, frizzante, tranquillo and rosé; Glera
   - knowledge_item_id: ki_wset_found_familiar_cava
     source_citation_id: src_wset_found_cava
-    locator: Spanish sparkling wine and traditional method
+    locator: The CAVA Designation of Origin opening paragraph on quality Spanish sparkling wine and second alcoholic fermentation in the bottle
   - knowledge_item_id: ki_wset_found_familiar_sherry
     source_citation_id: src_wset_found_sherry
     locator: Dry, naturally sweet and blended sweet Sherry families
@@ -1969,6 +2005,9 @@ knowledge_item_citations:
   - knowledge_item_id: ki_wset_found_familiar_port
     source_citation_id: src_wset_found_port_fortification
     locator: Fortified wine; grape brandy addition during fermentation in Port
+  - knowledge_item_id: ki_wset_found_familiar_port
+    source_citation_id: src_fort_port_intro
+    locator: Port fortified during fermentation; colour and sweetness styles
   - knowledge_item_id: ki_wset_found_seeds_stems
     source_citation_id: src_win_white_temperature
     locator: Wine acidity and tannins; seeds, skins and stems

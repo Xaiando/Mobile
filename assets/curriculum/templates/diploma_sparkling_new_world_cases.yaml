@@ -1,0 +1,23 @@
+# Original D4 conditional decision; self-check does not mark assessed WSET work.
+question_templates:
+  - id: qt_d4nw_case_australian_offer
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: d4nw_australian_offer
+    prompt_template: >-
+      A buyer compares a Tasmania traditional-method sparkling offer with a
+      South Eastern Australia tank-method offer. The first costs more and has a
+      documented longer lees period; the second meets the price ceiling.
+      Neither has been tasted by the buying panel. The list brief asks for
+      fresh fruit and some lees complexity, and there is room to trial both.
+      Recommend the next decision, explain its rationale and tradeoff, and
+      identify missing evidence. Do not treat origin or production cost as a
+      quality score.
+    parameters:
+      scope_node_ids: [n_d4nw_case_australian_offer]
+      key_points:
+        CASE_ACTION: Defensible trial or buying action
+        CASE_REASON: Production and evidence rationale
+        CASE_TRADEOFF: Resource or alternative tradeoff
+        CASE_LIMITATION: Missing sensory or commercial evidence

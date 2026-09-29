@@ -559,19 +559,22 @@ void main() {
       132,
       819,
       3429,
-      3872,
+      3911,
     ]);
     final diploma = snapshot.levels.last;
     final unitIds = {
       for (final unit in scope.levels.last.units) unit.id: unit.itemIds.toSet(),
     };
-    for (final entry in {'ki_spark_': 'D4', 'ki_fort_': 'D5'}.entries) {
+    for (final entry in {
+      'D4': ['ki_spark_', 'ki_d4nw_'],
+      'D5': ['ki_fort_'],
+    }.entries) {
       final ids = dataset.knowledgeItems
-          .where((i) => i.id.startsWith(entry.key))
+          .where((i) => entry.value.any(i.id.startsWith))
           .map((i) => i.id)
           .toSet();
-      expect(unitIds[entry.value], ids);
-      final unit = diploma.units.singleWhere((u) => u.scope.id == entry.value);
+      expect(unitIds[entry.key], ids);
+      final unit = diploma.units.singleWhere((u) => u.scope.id == entry.key);
       expect(unit.counts.available, greaterThan(ids.length));
       expect(unit.scope.gap, isNotEmpty);
     }

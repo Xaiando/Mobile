@@ -1,0 +1,358 @@
+# Original D6 research-practice lessons. These teach a method, not an issued
+# assignment title or a model submission. The two source packets are fictional.
+# All items await qualified review; curation timestamps are not expert approval.
+# Research is practised through wine-business cases within the current six-domain
+# curriculum model. Generic MCQ is disabled because plausible alternatives vary.
+knowledge_nodes:
+  - {id: n_d6_principle_brief, node_type: production_principle, name: "What governs the scope and presentation of a D6 research assignment?"}
+  - {id: n_d6_point_brief, node_type: learning_point, name: Use the issued title and its current assignment brief as the controlling task}
+  - {id: n_d6_principle_question, node_type: production_principle, name: "How can a broad D6 title become a researchable inquiry?"}
+  - {id: n_d6_point_question, node_type: learning_point, name: Derive bounded subquestions without substituting another title}
+  - {id: n_d6_principle_provenance, node_type: production_principle, name: "Which checks make a wine-research source usable?"}
+  - {id: n_d6_point_provenance, node_type: learning_point, name: Check author purpose date methods evidence and relevance before using a source}
+  - {id: n_d6_principle_origin, node_type: production_principle, name: "Why must repeated wine-market claims be traced to their original evidence?"}
+  - {id: n_d6_point_origin, node_type: learning_point, name: A repeated report is not independent corroboration of its underlying data}
+  - {id: n_d6_principle_claim, node_type: production_principle, name: "How should a D6 researcher separate a source finding from an interpretation?"}
+  - {id: n_d6_point_claim, node_type: learning_point, name: Label the measured result the author's claim and your own inference separately}
+  - {id: n_d6_principle_comparable, node_type: production_principle, name: "What must be aligned before two wine-industry sources can be compared?"}
+  - {id: n_d6_point_comparable, node_type: learning_point, name: Align place period population channel and measure before treating results as conflicting}
+  - {id: n_d6_principle_counter, node_type: production_principle, name: "How can counterevidence improve a D6 argument?"}
+  - {id: n_d6_point_counter, node_type: learning_point, name: Test credible alternative explanations and revise the strength of the conclusion}
+  - {id: n_d6_principle_structure, node_type: production_principle, name: "What connects a claim to evidence in a research argument?"}
+  - {id: n_d6_point_structure, node_type: learning_point, name: Explain why the cited evidence supports the claim and state the limits}
+  - {id: n_d6_principle_reference, node_type: production_principle, name: "What keeps another person's wine-research finding distinguishable from your own view?"}
+  - {id: n_d6_point_reference, node_type: learning_point, name: Record traceable citations for sourced findings and separate them from original analysis}
+
+  - id: n_d6_case_channel_evidence
+    node_type: production_case
+    name: >-
+      Fictional practice packet, not an issued WSET title. Assess the statement
+      "direct wine demand rose across Region A". A voluntary group of 18 wineries
+      reports more website orders in 2025 than in 2024; it does not include cellar-door
+      sales or wineries outside the group. A trade article repeats the group's headline
+      without new data. A retailer reports flat sales in ten shops over a different
+      period; it does not measure direct orders. Plan the inquiry, state what the
+      evidence can support, weigh a competing reading, and identify a needed check.
+  - {id: n_d6_case_channel_action_point, node_type: learning_point, name: Narrow the direct-demand claim and seek a comparable regional series}
+  - {id: n_d6_case_channel_reason_point, node_type: learning_point, name: Trace the repeated article to its source and keep sales channels distinct}
+  - {id: n_d6_case_channel_tradeoff_point, node_type: learning_point, name: Weigh first-hand but selected orders against independent but different-channel data}
+  - {id: n_d6_case_channel_limit_point, node_type: learning_point, name: Do not generalise eighteen volunteers to the whole region}
+
+  - id: n_d6_case_campaign_argument
+    node_type: production_case
+    name: >-
+      Fictional practice packet, not an issued WSET title. A regional export campaign
+      ran from January to June. Seven participating wineries report increased orders
+      afterward. Four non-participating wineries also report an increase, but their
+      starting volumes and customer channels differ. A draft conclusion says the
+      campaign caused the participating wineries' growth. Build a short argument
+      outline that uses the supplied evidence, considers a rival explanation,
+      qualifies the conclusion and names a test that would strengthen it.
+  - {id: n_d6_case_campaign_action_point, node_type: learning_point, name: Replace the causal assertion with a qualified evidence-led conclusion}
+  - {id: n_d6_case_campaign_reason_point, node_type: learning_point, name: Compare participant growth with nonparticipant growth before inferring campaign effect}
+  - {id: n_d6_case_campaign_tradeoff_point, node_type: learning_point, name: Weigh a campaign mechanism against a shared wider trend}
+  - {id: n_d6_case_campaign_limit_point, node_type: learning_point, name: Check comparable baselines periods channels and selection before estimating an effect}
+
+knowledge_relations:
+  - {subject_id: n_d6_principle_brief, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d6_point_brief, valid_from: 2026-09-28}
+  - {subject_id: n_d6_principle_question, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d6_point_question, valid_from: 2026-09-28}
+  - {subject_id: n_d6_principle_provenance, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d6_point_provenance, valid_from: 2026-09-28}
+  - {subject_id: n_d6_principle_origin, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d6_point_origin, valid_from: 2026-09-28}
+  - {subject_id: n_d6_principle_claim, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d6_point_claim, valid_from: 2026-09-28}
+  - {subject_id: n_d6_principle_comparable, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d6_point_comparable, valid_from: 2026-09-28}
+  - {subject_id: n_d6_principle_counter, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d6_point_counter, valid_from: 2026-09-28}
+  - {subject_id: n_d6_principle_structure, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d6_point_structure, valid_from: 2026-09-28}
+  - {subject_id: n_d6_principle_reference, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d6_point_reference, valid_from: 2026-09-28}
+  - {subject_id: n_d6_case_channel_evidence, relation_type: CASE_ACTION, object_id: n_d6_case_channel_action_point, valid_from: 2026-09-28}
+  - {subject_id: n_d6_case_channel_evidence, relation_type: CASE_REASON, object_id: n_d6_case_channel_reason_point, valid_from: 2026-09-28}
+  - {subject_id: n_d6_case_channel_evidence, relation_type: CASE_TRADEOFF, object_id: n_d6_case_channel_tradeoff_point, valid_from: 2026-09-28}
+  - {subject_id: n_d6_case_channel_evidence, relation_type: CASE_LIMITATION, object_id: n_d6_case_channel_limit_point, valid_from: 2026-09-28}
+  - {subject_id: n_d6_case_campaign_argument, relation_type: CASE_ACTION, object_id: n_d6_case_campaign_action_point, valid_from: 2026-09-28}
+  - {subject_id: n_d6_case_campaign_argument, relation_type: CASE_REASON, object_id: n_d6_case_campaign_reason_point, valid_from: 2026-09-28}
+  - {subject_id: n_d6_case_campaign_argument, relation_type: CASE_TRADEOFF, object_id: n_d6_case_campaign_tradeoff_point, valid_from: 2026-09-28}
+  - {subject_id: n_d6_case_campaign_argument, relation_type: CASE_LIMITATION, object_id: n_d6_case_campaign_limit_point, valid_from: 2026-09-28}
+
+knowledge_items:
+  - id: ki_d6_research_brief
+    subject_id: n_d6_principle_brief
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_d6_point_brief
+    domain_id: business
+    assertion_text: >-
+      For a research assignment on a specified wine-related subject, use the issued
+      title and brief to fix the scope and required presentation. Check the current
+      submission details before writing; these practice cases are not issued titles.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T21:10:00.000Z"
+  - id: ki_d6_research_question
+    subject_id: n_d6_principle_question
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_d6_point_question
+    domain_id: business
+    assertion_text: >-
+      Turn the specified subject into bounded subquestions about the relevant place,
+      period, actors and proposed relationship. Keep those subquestions subordinate to
+      the issued title; the research plan must answer the assigned question.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T21:10:00.000Z"
+  - id: ki_d6_research_provenance
+    subject_id: n_d6_principle_provenance
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_d6_point_provenance
+    domain_id: business
+    assertion_text: >-
+      Appraise each proposed source's author or publisher, purpose, date, original
+      evidence, method and fit to the question. A credible institution alone does not
+      make an out-of-scope measure support a particular wine claim.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T21:10:00.000Z"
+  - id: ki_d6_research_origin
+    subject_id: n_d6_principle_origin
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_d6_point_origin
+    domain_id: business
+    assertion_text: >-
+      Follow a repeated claim back to the data or analysis it describes. Two articles
+      repeating one producer survey do not provide two independent measurements;
+      inspect the original survey's coverage and limitations before citing a result.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T21:10:00.000Z"
+  - id: ki_d6_research_claim
+    subject_id: n_d6_principle_claim
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_d6_point_claim
+    domain_id: business
+    assertion_text: >-
+      Record separately what a source measured, what its author concluded and what
+      the researcher infers for the assignment. This prevents a limited observation
+      from silently becoming a wider or causal claim in the researcher's own prose.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T21:10:00.000Z"
+  - id: ki_d6_research_comparable
+    subject_id: n_d6_principle_comparable
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_d6_point_comparable
+    domain_id: business
+    assertion_text: >-
+      Before treating wine-market reports as confirming or contradicting one another,
+      check whether they cover the same period, place, population, sales channel and
+      measure. A difference between retailer sales and winery direct orders may be a
+      scope difference rather than a genuine disagreement.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T21:10:00.000Z"
+  - id: ki_d6_research_counter
+    subject_id: n_d6_principle_counter
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_d6_point_counter
+    domain_id: business
+    assertion_text: >-
+      Seek credible findings or mechanisms that challenge the preferred explanation.
+      Address their relevance and quality, then retain, narrow or revise the conclusion
+      according to the combined evidence rather than hiding inconvenient material.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T21:10:00.000Z"
+  - id: ki_d6_research_structure
+    subject_id: n_d6_principle_structure
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_d6_point_structure
+    domain_id: business
+    assertion_text: >-
+      An analytical paragraph states a claim, cites relevant evidence, explains why
+      that evidence bears on the claim and gives its limits or counterreading. A list
+      of sourced facts alone does not explain an argument or justify a conclusion.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T21:10:00.000Z"
+  - id: ki_d6_research_reference
+    subject_id: n_d6_principle_reference
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_d6_point_reference
+    domain_id: business
+    assertion_text: >-
+      Keep enough bibliographic and location detail to let a reader trace every
+      paraphrased, summarised or quoted finding to its source. Distinguish source
+      views from original analysis, and follow the assigned brief's presentation
+      requirements rather than assuming one fixed citation style.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T21:10:00.000Z"
+  - id: ki_d6_case_channel_action
+    subject_id: n_d6_case_channel_evidence
+    relation_type: CASE_ACTION
+    object_id: n_d6_case_channel_action_point
+    domain_id: business
+    assertion_text: >-
+      Limit the present finding to more website orders among the 18 reporting wineries,
+      then seek comparable multi-year data covering a defined regional population and
+      direct-sales channels before testing the region-wide demand statement.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T21:10:00.000Z"
+  - id: ki_d6_case_channel_reason
+    subject_id: n_d6_case_channel_evidence
+    relation_type: CASE_REASON
+    object_id: n_d6_case_channel_reason_point
+    domain_id: business
+    assertion_text: >-
+      The article repeats the group's data and is not independent corroboration. The
+      retailer measures a different channel and period, so its flat shop result does
+      not directly refute or validate the website-order result.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T21:10:00.000Z"
+  - id: ki_d6_case_channel_tradeoff
+    subject_id: n_d6_case_channel_evidence
+    relation_type: CASE_TRADEOFF
+    object_id: n_d6_case_channel_tradeoff_point
+    domain_id: business
+    assertion_text: >-
+      The winery group supplies direct observations of its own orders but selected
+      participation limits generalisation. The retailer contributes an outside view
+      of a separate route, useful as context but not a like-for-like DTC measure.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T21:10:00.000Z"
+  - id: ki_d6_case_channel_limitation
+    subject_id: n_d6_case_channel_evidence
+    relation_type: CASE_LIMITATION
+    object_id: n_d6_case_channel_limit_point
+    domain_id: business
+    assertion_text: >-
+      The packet does not show the region's full winery population, how the 18 were
+      selected, total direct-sales value or equivalent time periods for other routes.
+      It therefore cannot establish a region-wide demand trend.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T21:10:00.000Z"
+  - id: ki_d6_case_campaign_action
+    subject_id: n_d6_case_campaign_argument
+    relation_type: CASE_ACTION
+    object_id: n_d6_case_campaign_action_point
+    domain_id: business
+    assertion_text: >-
+      A defensible outline says that participating wineries' orders increased after
+      the campaign, while the supplied comparison does not isolate the campaign's
+      effect. Present that narrower conclusion rather than asserting causation.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T21:10:00.000Z"
+  - id: ki_d6_case_campaign_reason
+    subject_id: n_d6_case_campaign_argument
+    relation_type: CASE_REASON
+    object_id: n_d6_case_campaign_reason_point
+    domain_id: business
+    assertion_text: >-
+      Growth among participants supplies temporal association, while growth among
+      non-participants is a relevant rival observation. The two groups' different
+      starting volumes and channels make a direct effect estimate unsound here.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T21:10:00.000Z"
+  - id: ki_d6_case_campaign_tradeoff
+    subject_id: n_d6_case_campaign_argument
+    relation_type: CASE_TRADEOFF
+    object_id: n_d6_case_campaign_tradeoff_point
+    domain_id: business
+    assertion_text: >-
+      A campaign might plausibly help its participants, yet a wider demand shift could
+      raise orders for both groups. The argument should show both interpretations and
+      state what evidence would distinguish them.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T21:10:00.000Z"
+  - id: ki_d6_case_campaign_limitation
+    subject_id: n_d6_case_campaign_argument
+    relation_type: CASE_LIMITATION
+    object_id: n_d6_case_campaign_limit_point
+    domain_id: business
+    assertion_text: >-
+      Request comparable pre- and post-campaign periods, channel definitions, order
+      volumes and group-selection details. Without them, the packet cannot estimate
+      how much growth, if any, the campaign caused.
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T21:10:00.000Z"
+
+certification_knowledge_mappings:
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d6_research_brief, importance: core, minimum_depth: 2}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d6_research_question, importance: core, minimum_depth: 2}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d6_research_provenance, importance: core, minimum_depth: 2}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d6_research_origin, importance: core, minimum_depth: 2}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d6_research_claim, importance: core, minimum_depth: 2}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d6_research_comparable, importance: core, minimum_depth: 2}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d6_research_counter, importance: core, minimum_depth: 2}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d6_research_structure, importance: core, minimum_depth: 2}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d6_research_reference, importance: core, minimum_depth: 2}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d6_case_channel_action, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d6_case_channel_reason, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d6_case_channel_tradeoff, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d6_case_channel_limitation, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d6_case_campaign_action, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d6_case_campaign_reason, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d6_case_campaign_tradeoff, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d6_case_campaign_limitation, importance: core, minimum_depth: 3}
+
+source_citations:
+  - id: src_d6_leeds_brief
+    kind: academic
+    title: Interpret your assignment
+    publisher: University of Leeds Library
+    document_identifier: Plan your writing; task type, assignment brief and scope
+    url: https://library.leeds.ac.uk/info/14011/writing/219/plan_your_writing
+    accessed_on: 2026-09-28
+  - id: src_d6_leeds_evaluate
+    kind: academic
+    title: Evaluating information
+    publisher: University of Leeds Library
+    document_identifier: Critical thinking, evaluating information and the author's argument
+    url: https://library.leeds.ac.uk/info/1401/academic-skills/105/critical-thinking/4
+    accessed_on: 2026-09-28
+  - id: src_d6_leeds_read
+    kind: academic
+    title: Critical reading
+    publisher: University of Leeds Library
+    document_identifier: Reading, description, analysis and evaluation questions
+    url: https://library.leeds.ac.uk/info/1401/academic-skills/207/reading/4
+    accessed_on: 2026-09-28
+  - id: src_d6_leeds_argument
+    kind: academic
+    title: Build your argument
+    publisher: University of Leeds Library
+    document_identifier: Structure your writing; argument, evidence and different viewpoints
+    url: https://library.leeds.ac.uk/info/14011/writing/220/structure-your-writing/4
+    accessed_on: 2026-09-28
+  - id: src_d6_leeds_cite
+    kind: academic
+    title: Incorporate evidence
+    publisher: University of Leeds Library
+    document_identifier: Language and style; synthesis, paraphrasing and source citation
+    url: https://library.leeds.ac.uk/info/14011/writing/221/language-and-style/2
+    accessed_on: 2026-09-28
+
+knowledge_item_citations:
+  - {knowledge_item_id: ki_d6_research_brief, source_citation_id: src_d6_leeds_brief, locator: "Interpret the assignment: clarify the task type, title and brief before planning"}
+  - {knowledge_item_id: ki_d6_research_question, source_citation_id: src_d6_leeds_argument, locator: "Make an argument: answer the question set and keep argument relevant"}
+  - {knowledge_item_id: ki_d6_research_provenance, source_citation_id: src_d6_leeds_evaluate, locator: "Evaluating information: relevance, author, date and supporting evidence questions"}
+  - {knowledge_item_id: ki_d6_research_origin, source_citation_id: src_d6_leeds_evaluate, locator: "Evaluating information: follow references and inspect evidence supporting claims; original repeated-report example"}
+  - {knowledge_item_id: ki_d6_research_claim, source_citation_id: src_d6_leeds_read, locator: "Critical reading: distinguish the author's argument, its evidence and one's own position"}
+  - {knowledge_item_id: ki_d6_research_comparable, source_citation_id: src_d6_leeds_read, locator: "Evaluation: compare how another source supports, contradicts or challenges; comparison dimensions are original wine-market application"}
+  - {knowledge_item_id: ki_d6_research_counter, source_citation_id: src_d6_leeds_read, locator: "Evaluation: compare contradictory evidence and investigate what else needs considering"}
+  - {knowledge_item_id: ki_d6_research_counter, source_citation_id: src_d6_leeds_argument, locator: "Structure and develop: weigh different sides and strengths of evidence"}
+  - {knowledge_item_id: ki_d6_research_structure, source_citation_id: src_d6_leeds_argument, locator: "Make, structure and develop an argument from evidence and one's own conclusion"}
+  - {knowledge_item_id: ki_d6_research_reference, source_citation_id: src_d6_leeds_cite, locator: "Citing and referencing: paraphrases, summaries, syntheses and quotations need traceable citations"}
+  - {knowledge_item_id: ki_d6_research_reference, source_citation_id: src_d6_leeds_brief, locator: "Interpret the assignment: check presentation requirements in the supplied brief"}
+  - {knowledge_item_id: ki_d6_case_channel_action, source_citation_id: src_d6_leeds_evaluate, locator: "Relevance and evidence checks applied to original fictional packet"}
+  - {knowledge_item_id: ki_d6_case_channel_reason, source_citation_id: src_d6_leeds_evaluate, locator: "Evidence and follow-up-reference checks applied to original fictional packet"}
+  - {knowledge_item_id: ki_d6_case_channel_tradeoff, source_citation_id: src_d6_leeds_read, locator: "Evaluate source strengths, weaknesses and relationship to other evidence; original fictional packet"}
+  - {knowledge_item_id: ki_d6_case_channel_limitation, source_citation_id: src_d6_leeds_read, locator: "Question omitted information and reasonable conclusion; original fictional packet"}
+  - {knowledge_item_id: ki_d6_case_campaign_action, source_citation_id: src_d6_leeds_argument, locator: "Develop a qualified own argument from evidence; original fictional packet"}
+  - {knowledge_item_id: ki_d6_case_campaign_reason, source_citation_id: src_d6_leeds_read, locator: "Compare source evidence and challenge unsupported assertions; original fictional packet"}
+  - {knowledge_item_id: ki_d6_case_campaign_tradeoff, source_citation_id: src_d6_leeds_argument, locator: "Consider different sides and weigh evidence; original fictional packet"}
+  - {knowledge_item_id: ki_d6_case_campaign_limitation, source_citation_id: src_d6_leeds_evaluate, locator: "Evidence and suitability questions; original fictional packet"}

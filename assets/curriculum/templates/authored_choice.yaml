@@ -1,0 +1,62 @@
+# Five cited WSET Level 1 daily-study questions, one in each foundation
+# domain. Each answer set belongs to exactly one knowledge item; no graph
+# distractors are inferred from other principle statements.
+question_templates:
+  - id: qt_wset_l1_authored_choice
+    relation_type: PRINCIPLE_EXPLANATION
+    direction: forward
+    mode: authored_choice
+    variant: l1_cited_foundations
+    prompt_template: "{subject.name}"
+    parameters:
+      item_choices:
+        ki_wset_found_flower_to_fruit:
+          prompt: After successful fertilisation of grape flowers, what is the stage in which young berries form?
+          options:
+            - Fruit set
+            - Veraison
+            - Dormancy
+            - Budburst
+          correctIndex: 0
+          explanation: Fruit set follows flowering and successful fertilisation, as the flowers develop into young berries.
+          sourceCitationId: src_wset_found_nmsu_phenology
+        ki_wset_found_fermentation:
+          prompt: During alcoholic fermentation, yeast turns grape sugars mainly into which pair of products?
+          options:
+            - "Carbon dioxide and lactic acid"
+            - "Ethanol and acetic acid"
+            - "Ethanol and carbon dioxide"
+            - "Ethanol and malic acid"
+          correctIndex: 2
+          explanation: Yeast converts fermentable grape sugars into ethyl alcohol and carbon dioxide.
+          sourceCitationId: src_wset_found_uga_fermentation
+        ki_wset_found_acidity:
+          prompt: Which mouth sensation most directly helps you assess acidity in wine?
+          options:
+            - A drying grip on the gums
+            - Sourness and salivation
+            - A warming sensation
+            - A sweet finish
+          correctIndex: 1
+          explanation: Acidity tastes sour and encourages salivation; aroma alone does not establish its level.
+          sourceCitationId: src_wset_found_wset_acid
+        ki_wset_found_familiar_chablis:
+          prompt: Which grape and French area describe a typical Chablis wine?
+          options:
+            - Sauvignon Blanc from the Loire Valley
+            - Chenin Blanc from the Loire Valley
+            - Pinot Grigio from Veneto
+            - Chardonnay from northern Burgundy
+          correctIndex: 3
+          explanation: Chablis is a Chardonnay white wine from northern Burgundy.
+          sourceCitationId: src_wset_found_bivb_chardonnay
+        ki_wset_srv_storage_cool:
+          prompt: Which storage condition best protects an unopened wine from heat damage?
+          options:
+            - A warm room with daily cooling
+            - A cool, steady temperature
+            - A cool night followed by a warm day
+            - A place beside a heater
+          correctIndex: 1
+          explanation: Keeping unopened wine cool with a stable temperature avoids prolonged heat and large swings.
+          sourceCitationId: src_wset_srv_temperature

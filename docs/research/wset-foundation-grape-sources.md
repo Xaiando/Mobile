@@ -91,7 +91,7 @@ WSET_L1; L1 LO1 sugar, yeast, alcohol and carbon dioxide.
 
 WSET_L1; L1 LO1 fermentation; L1 LO2 sweetness.
 
-- [`src_wset_found_oiv_special`: International Code of Oenological Practices, Part I: Special Wines](https://oiv.int/fr/standards/code-international-des-pratiques-oenologiques/part-i-definitions/special-wines) — I.4.3 liqueur wine; I.4.6 sweet wines; I.4.7 icewine.
+- [`src_wset_found_oiv_special`: International Code of Oenological Practices, Part I: Special Wines](https://www.oiv.int/fr/standards/code-international-des-pratiques-oenologiques/part-i-definitions/special-wines) — I.4.3 liqueur wine; I.4.6 sweet wines; I.4.7 icewine.
 - [`src_wset_found_wset_acid`: Understanding acidity in wine (2026)](https://www.wsetglobal.com/knowledge-centre/blog/2026/understanding-acidity-in-wine) — Salivation, sweetness balance, cool climate and acidity.
 
 ### ki_wset_found_white_sequence
@@ -123,13 +123,13 @@ WSET_L1; L1 LO2 still wine type.
 
 WSET_L1; L1 LO2 sparkling wine type.
 
-- [`src_wset_found_oiv_special`: International Code of Oenological Practices, Part I: Special Wines](https://oiv.int/fr/standards/code-international-des-pratiques-oenologiques/part-i-definitions/special-wines) — I.4.3 liqueur wine; I.4.6 sweet wines; I.4.7 icewine.
+- [`src_wset_found_oiv_special`: International Code of Oenological Practices, Part I: Special Wines](https://www.oiv.int/fr/standards/code-international-des-pratiques-oenologiques/part-i-definitions/special-wines) — I.4.3 liqueur wine; I.4.6 sweet wines; I.4.7 icewine.
 
 ### ki_wset_found_fortified
 
 WSET_L1; L1 LO2 fortified wine type.
 
-- [`src_wset_found_oiv_special`: International Code of Oenological Practices, Part I: Special Wines](https://oiv.int/fr/standards/code-international-des-pratiques-oenologiques/part-i-definitions/special-wines) — I.4.3 liqueur wine; I.4.6 sweet wines; I.4.7 icewine.
+- [`src_wset_found_oiv_special`: International Code of Oenological Practices, Part I: Special Wines](https://www.oiv.int/fr/standards/code-international-des-pratiques-oenologiques/part-i-definitions/special-wines) — I.4.3 liqueur wine; I.4.6 sweet wines; I.4.7 icewine.
 
 ### ki_wset_found_colour
 
@@ -273,7 +273,7 @@ WSET_L1; L1 LO2 familiar wines: Prosecco.
 
 WSET_L1; L1 LO2 familiar wines: Cava.
 
-- [`src_wset_found_cava`: D.O. Cava: official introduction](https://cava.wine/en/) — Spanish sparkling wine and traditional method.
+- [`src_wset_found_cava`: D.O. Cava: The CAVA Designation of Origin](https://www.cava.wine/en/regulatory-board/cava-designation-of-origin/) — Spanish sparkling wine and traditional method.
 
 ### ki_wset_found_familiar_sherry
 
@@ -425,7 +425,7 @@ WSET_L2; L2 LO1 yield and ripening balance.
 
 WSET_L2; L2 LO1 raisined grapes.
 
-- [`src_wset_found_oiv_special`: International Code of Oenological Practices, Part I: Special Wines](https://oiv.int/fr/standards/code-international-des-pratiques-oenologiques/part-i-definitions/special-wines) — I.4.3 liqueur wine; I.4.6 sweet wines; I.4.7 icewine.
+- [`src_wset_found_oiv_special`: International Code of Oenological Practices, Part I: Special Wines](https://www.oiv.int/fr/standards/code-international-des-pratiques-oenologiques/part-i-definitions/special-wines) — I.4.3 liqueur wine; I.4.6 sweet wines; I.4.7 icewine.
 
 ### ki_wset_found_noble_rot
 
@@ -437,7 +437,7 @@ WSET_L2; L2 LO1 botrytis-affected grapes.
 
 WSET_L2; L2 LO1 frozen grapes.
 
-- [`src_wset_found_oiv_special`: International Code of Oenological Practices, Part I: Special Wines](https://oiv.int/fr/standards/code-international-des-pratiques-oenologiques/part-i-definitions/special-wines) — I.4.3 liqueur wine; I.4.6 sweet wines; I.4.7 icewine.
+- [`src_wset_found_oiv_special`: International Code of Oenological Practices, Part I: Special Wines](https://www.oiv.int/fr/standards/code-international-des-pratiques-oenologiques/part-i-definitions/special-wines) — I.4.3 liqueur wine; I.4.6 sweet wines; I.4.7 icewine.
 
 ### ki_wset_found_pulp_composition
 

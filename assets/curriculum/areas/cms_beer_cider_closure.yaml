@@ -1,0 +1,575 @@
+# CMS Europe 2026/27 Introductory and Certified beer/cider scope.
+# Competition style descriptions are reference vocabulary, not law or guarantees
+# about an individual product. These CMS-only facts remain expert-unverified.
+knowledge_nodes:
+  - { id: n_cms_beer_brewhouse, node_type: production_principle, name: "How do mash, wort, kettle, hops and yeast fit together?" }
+  - { id: n_cms_beer_mash, node_type: learning_point, name: "Mashing releases fermentable sugars from malt" }
+  - { id: n_cms_beer_wort, node_type: learning_point, name: "Wort is the liquid before yeast fermentation" }
+  - { id: n_cms_beer_hops, node_type: learning_point, name: "Hop addition can contribute bitterness, flavour and aroma" }
+  - { id: n_cms_beer_hop_types, node_type: learning_point, name: "Saaz and Cascade illustrate different hop-variety aroma profiles" }
+  - { id: n_cms_beer_yeast, node_type: learning_point, name: "Yeast converts wort sugars to alcohol and carbon dioxide" }
+  - { id: n_cms_beer_style_compare, node_type: production_principle, name: "How do common beer style names guide a first comparison?" }
+  - { id: n_cms_beer_ale_lager, node_type: learning_point, name: "Ale and lager name different fermentation traditions" }
+  - { id: n_cms_beer_porter_stout, node_type: learning_point, name: "Porter and stout can both be dark, but their reference profiles differ" }
+  - { id: n_cms_beer_wheat_fruit, node_type: learning_point, name: "Wheat and fruit beers require a closer style and label check" }
+  - { id: n_cms_beer_condition, node_type: production_principle, name: "What do packaged-beer conditioning and cask handling mean?" }
+  - { id: n_cms_beer_cask_live, node_type: learning_point, name: "Cask-conditioned beer develops in cask with live yeast" }
+  - { id: n_cms_beer_cask_terms, node_type: learning_point, name: "Stillage, venting and tapping name different cask tasks" }
+  - { id: n_cms_beer_package, node_type: learning_point, name: "Pasteurisation, filtration and live conditioning are distinct choices" }
+  - { id: n_cms_cider_process, node_type: production_principle, name: "How are cider and perry made and distinguished?" }
+  - { id: n_cms_cider_apples, node_type: learning_point, name: "Apple sugar, acid and tannin varieties affect cider balance" }
+  - { id: n_cms_cider_press, node_type: learning_point, name: "Apple pressing precedes juice fermentation" }
+  - { id: n_cms_cider_practice, node_type: learning_point, name: "Fresh-pressed, concentrated and filtered practices must be distinguished" }
+  - { id: n_cms_cider_style, node_type: learning_point, name: "Cider and perry can vary in sweetness and carbonation" }
+  - { id: n_cms_belgian_styles, node_type: production_principle, name: "How can Belgian specialty beer styles be compared?" }
+  - { id: n_cms_belgian_wit, node_type: learning_point, name: "Witbier is a pale hazy spiced wheat-beer reference style" }
+  - { id: n_cms_belgian_dubbel_tripel, node_type: learning_point, name: "Dubbel and tripel differ in colour and flavour balance, not only a number" }
+  - { id: n_cms_belgian_saison, node_type: learning_point, name: "Saison is a dry and expressive Belgian ale reference style" }
+  - { id: n_cms_beer_food, node_type: production_principle, name: "How should a Certified candidate reason through beer and food?" }
+  - { id: n_cms_beer_food_intensity, node_type: learning_point, name: "Compare flavour intensity before proposing a beer" }
+  - { id: n_cms_beer_food_link, node_type: learning_point, name: "Look for a complement and a useful contrast" }
+  - { id: n_cms_beer_food_trial, node_type: learning_point, name: "Test the finished dish and the specific beer" }
+  - { id: n_cms_beer_case_cask, node_type: production_case, name: "A new cask is offered for immediate service while unsettled" }
+  - { id: n_cms_beer_case_cask_action, node_type: learning_point, name: "Check cellar condition and allow the cask to settle" }
+  - { id: n_cms_beer_case_cask_reason, node_type: learning_point, name: "Live cask beer develops condition in the cellar" }
+  - { id: n_cms_beer_case_cask_tradeoff, node_type: learning_point, name: "A packaged beer can cover service while the cask settles" }
+  - { id: n_cms_beer_case_cask_limit, node_type: learning_point, name: "Do not infer a safe serving time from a general guide" }
+  - { id: n_cms_beer_case_pair, node_type: production_case, name: "A guest wants beer with a strongly spiced curry" }
+  - { id: n_cms_beer_case_pair_action, node_type: learning_point, name: "Trial a beer with enough flavour to accompany the dish" }
+  - { id: n_cms_beer_case_pair_reason, node_type: learning_point, name: "Intensity and complement-or-contrast are pairing tests" }
+  - { id: n_cms_beer_case_pair_tradeoff, node_type: learning_point, name: "Different bitterness and sweetness levels change the match" }
+  - { id: n_cms_beer_case_pair_limit, node_type: learning_point, name: "Ask about heat level and taste the actual beer" }
+  - { id: n_cms_beer_case_belgian, node_type: production_case, name: "A guest calls a dark Dubbel a Tripel because it is strong" }
+  - { id: n_cms_beer_case_belgian_action, node_type: learning_point, name: "Describe both reference profiles without assigning a label by strength alone" }
+  - { id: n_cms_beer_case_belgian_reason, node_type: learning_point, name: "Tripel is typically pale and dry; Dubbel is typically dark and malty" }
+  - { id: n_cms_beer_case_belgian_tradeoff, node_type: learning_point, name: "Actual producers and bottles can vary" }
+  - { id: n_cms_beer_case_belgian_limit, node_type: learning_point, name: "A competition guide does not certify the bottle's style" }
+
+knowledge_relations:
+  - { subject_id: n_cms_beer_brewhouse, relation_type: PRINCIPLE_EXPLANATION, object_id: n_cms_beer_mash, valid_from: "2026-09-28" }
+  - { subject_id: n_cms_beer_brewhouse, relation_type: PRINCIPLE_EXPLANATION, object_id: n_cms_beer_wort, valid_from: "2026-09-28" }
+  - { subject_id: n_cms_beer_brewhouse, relation_type: PRINCIPLE_EXPLANATION, object_id: n_cms_beer_hops, valid_from: "2026-09-28" }
+  - { subject_id: n_cms_beer_brewhouse, relation_type: PRINCIPLE_EXPLANATION, object_id: n_cms_beer_hop_types, valid_from: "2026-09-28" }
+  - { subject_id: n_cms_beer_brewhouse, relation_type: PRINCIPLE_EXPLANATION, object_id: n_cms_beer_yeast, valid_from: "2026-09-28" }
+  - { subject_id: n_cms_beer_style_compare, relation_type: PRINCIPLE_EXPLANATION, object_id: n_cms_beer_ale_lager, valid_from: "2026-09-28" }
+  - { subject_id: n_cms_beer_style_compare, relation_type: PRINCIPLE_EXPLANATION, object_id: n_cms_beer_porter_stout, valid_from: "2026-09-28" }
+  - { subject_id: n_cms_beer_style_compare, relation_type: PRINCIPLE_EXPLANATION, object_id: n_cms_beer_wheat_fruit, valid_from: "2026-09-28" }
+  - { subject_id: n_cms_beer_condition, relation_type: PRINCIPLE_EXPLANATION, object_id: n_cms_beer_cask_live, valid_from: "2026-09-28" }
+  - { subject_id: n_cms_beer_condition, relation_type: PRINCIPLE_EXPLANATION, object_id: n_cms_beer_cask_terms, valid_from: "2026-09-28" }
+  - { subject_id: n_cms_beer_condition, relation_type: PRINCIPLE_EXPLANATION, object_id: n_cms_beer_package, valid_from: "2026-09-28" }
+  - { subject_id: n_cms_cider_process, relation_type: PRINCIPLE_EXPLANATION, object_id: n_cms_cider_apples, valid_from: "2026-09-28" }
+  - { subject_id: n_cms_cider_process, relation_type: PRINCIPLE_EXPLANATION, object_id: n_cms_cider_press, valid_from: "2026-09-28" }
+  - { subject_id: n_cms_cider_process, relation_type: PRINCIPLE_EXPLANATION, object_id: n_cms_cider_practice, valid_from: "2026-09-28" }
+  - { subject_id: n_cms_cider_process, relation_type: PRINCIPLE_EXPLANATION, object_id: n_cms_cider_style, valid_from: "2026-09-28" }
+  - { subject_id: n_cms_belgian_styles, relation_type: PRINCIPLE_EXPLANATION, object_id: n_cms_belgian_wit, valid_from: "2026-09-28" }
+  - { subject_id: n_cms_belgian_styles, relation_type: PRINCIPLE_EXPLANATION, object_id: n_cms_belgian_dubbel_tripel, valid_from: "2026-09-28" }
+  - { subject_id: n_cms_belgian_styles, relation_type: PRINCIPLE_EXPLANATION, object_id: n_cms_belgian_saison, valid_from: "2026-09-28" }
+  - { subject_id: n_cms_beer_food, relation_type: PRINCIPLE_EXPLANATION, object_id: n_cms_beer_food_intensity, valid_from: "2026-09-28" }
+  - { subject_id: n_cms_beer_food, relation_type: PRINCIPLE_EXPLANATION, object_id: n_cms_beer_food_link, valid_from: "2026-09-28" }
+  - { subject_id: n_cms_beer_food, relation_type: PRINCIPLE_EXPLANATION, object_id: n_cms_beer_food_trial, valid_from: "2026-09-28" }
+  - { subject_id: n_cms_beer_case_cask, relation_type: CASE_ACTION, object_id: n_cms_beer_case_cask_action, valid_from: "2026-09-28" }
+  - { subject_id: n_cms_beer_case_cask, relation_type: CASE_REASON, object_id: n_cms_beer_case_cask_reason, valid_from: "2026-09-28" }
+  - { subject_id: n_cms_beer_case_cask, relation_type: CASE_TRADEOFF, object_id: n_cms_beer_case_cask_tradeoff, valid_from: "2026-09-28" }
+  - { subject_id: n_cms_beer_case_cask, relation_type: CASE_LIMITATION, object_id: n_cms_beer_case_cask_limit, valid_from: "2026-09-28" }
+  - { subject_id: n_cms_beer_case_pair, relation_type: CASE_ACTION, object_id: n_cms_beer_case_pair_action, valid_from: "2026-09-28" }
+  - { subject_id: n_cms_beer_case_pair, relation_type: CASE_REASON, object_id: n_cms_beer_case_pair_reason, valid_from: "2026-09-28" }
+  - { subject_id: n_cms_beer_case_pair, relation_type: CASE_TRADEOFF, object_id: n_cms_beer_case_pair_tradeoff, valid_from: "2026-09-28" }
+  - { subject_id: n_cms_beer_case_pair, relation_type: CASE_LIMITATION, object_id: n_cms_beer_case_pair_limit, valid_from: "2026-09-28" }
+  - { subject_id: n_cms_beer_case_belgian, relation_type: CASE_ACTION, object_id: n_cms_beer_case_belgian_action, valid_from: "2026-09-28" }
+  - { subject_id: n_cms_beer_case_belgian, relation_type: CASE_REASON, object_id: n_cms_beer_case_belgian_reason, valid_from: "2026-09-28" }
+  - { subject_id: n_cms_beer_case_belgian, relation_type: CASE_TRADEOFF, object_id: n_cms_beer_case_belgian_tradeoff, valid_from: "2026-09-28" }
+  - { subject_id: n_cms_beer_case_belgian, relation_type: CASE_LIMITATION, object_id: n_cms_beer_case_belgian_limit, valid_from: "2026-09-28" }
+
+knowledge_items:
+  - id: ki_cms_beer_mash
+    subject_id: n_cms_beer_brewhouse
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_cms_beer_mash
+    domain_id: service
+    assertion_text: "In a basic malt-brewing sequence, crushed malt and warm water are mixed in a mash tun. Malt enzymes convert grain starch into sugars. A mash tun is not the vessel where yeast makes alcohol."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+  - id: ki_cms_beer_wort
+    subject_id: n_cms_beer_brewhouse
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_cms_beer_wort
+    domain_id: service
+    assertion_text: "The sweet liquid separated from spent grain is wort. It goes to the brew kettle, traditionally called a copper, where it is boiled before cooling and yeast fermentation. Brewers may use other process designs, so this is a teaching sequence, not one mandatory plant layout."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+  - id: ki_cms_beer_hops
+    subject_id: n_cms_beer_brewhouse
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_cms_beer_hops
+    domain_id: service
+    assertion_text: "Hops added at different points in the kettle boil can contribute bitterness, flavour and aroma. A hop name or a bitterness number alone does not prove how a particular beer tastes; assess the finished beer."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+  - id: ki_cms_beer_hop_types
+    subject_id: n_cms_beer_brewhouse
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_cms_beer_hop_types
+    domain_id: service
+    assertion_text: "Saaz, a Czech aroma variety, is described by hop merchant BarthHaas as mild with spicy and woody notes; Cascade, bred in the United States, is described as fruitier and citrus-like. Variety profile is a useful clue, but crop year, product form and timing of the hop addition still affect the finished beer."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+  - id: ki_cms_beer_yeast
+    subject_id: n_cms_beer_brewhouse
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_cms_beer_yeast
+    domain_id: service
+    assertion_text: "After wort has cooled, brewer's yeast converts fermentable sugars into alcohol and carbon dioxide. Ale and lager yeast are common broad groups; the recipe, handling and fermentation conditions also affect the final beer."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+  - id: ki_cms_beer_ale_lager
+    subject_id: n_cms_beer_style_compare
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_cms_beer_ale_lager
+    domain_id: service
+    assertion_text: "Ale and lager are broad fermentation traditions, not a colour or quality ranking. The American Homebrewers Association lists porter and stout among common ale-yeast styles, and Pilsner and Bock among common lager-yeast styles; those examples do not define every beer."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+  - id: ki_cms_beer_porter_stout
+    subject_id: n_cms_beer_style_compare
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_cms_beer_porter_stout
+    domain_id: service
+    assertion_text: "In BJCP's reference descriptions, English Porter is dark brown and can show chocolate, caramel and restrained roast. Irish Stout is usually black with more pronounced coffee-like roast and can finish dry and bitter. Historical and commercial versions vary; neither word by itself tells you the exact flavour."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+  - id: ki_cms_beer_wheat_fruit
+    subject_id: n_cms_beer_style_compare
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_cms_beer_wheat_fruit
+    domain_id: service
+    assertion_text: "BJCP describes German Weissbier as a wheat beer with banana-and-clove yeast character, while Belgian Witbier is often spiced with coriander and orange peel. 'Fruit beer' is a broad family: check the base beer and fruit ingredient rather than assuming all fruit beers are sweet or sour."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+  - id: ki_cms_beer_cask_live
+    subject_id: n_cms_beer_condition
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_cms_beer_cask_live
+    domain_id: service
+    assertion_text: "CAMRA describes cask-conditioned beer as a living beer that continues to develop condition with yeast in the pub cellar and is served without injected carbon dioxide. Its gently carbonated service needs stable cellar temperature, undisturbed cask storage and clean lines. Cask beer is not simply any beer poured from a barrel."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+  - id: ki_cms_beer_cask_terms
+    subject_id: n_cms_beer_condition
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_cms_beer_cask_terms
+    domain_id: service
+    assertion_text: "Stillage is the frame on which a cask rests while conditioning or serving, according to CAMRA's glossary. Venting opens the cask's shive to manage condition, while tapping inserts a tap through the keystone for dispense. These are different tasks and their exact timing depends on the cask and cellar; do not treat a glossary as a universal schedule."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+  - id: ki_cms_beer_package
+    subject_id: n_cms_beer_condition
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_cms_beer_package
+    domain_id: service
+    assertion_text: "Beer may be conditioned by live yeast in a package or cask, or stabilised through processes such as pasteurisation or sterile filtration. A can, bottle or keg does not by itself prove pasteurisation, and package conditioning must be controlled to avoid excess pressure."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+  - id: ki_cms_cider_apples
+    subject_id: n_cms_cider_process
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_cms_cider_apples
+    domain_id: service
+    assertion_text: "Cider apples can be selected for different sugar, acidity and tannin contributions. BJCP describes bittersweet and bittersharp apples in many traditional English and French cider styles, while other cider styles may use table or heirloom apples. A named apple type does not by itself set the finished cider's sweetness."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+  - id: ki_cms_cider_press
+    subject_id: n_cms_cider_process
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_cms_cider_press
+    domain_id: service
+    assertion_text: "The National Association of Cider Makers describes sorting, washing, milling and pressing ripe apples, then fermenting their sugar-rich juice with wild or selected yeast. It also describes blending and packaging. This is a common production outline, not a guarantee that every maker uses the same fruit source, yeast or packaging method."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+  - id: ki_cms_cider_practice
+    subject_id: n_cms_cider_process
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_cms_cider_practice
+    domain_id: service
+    assertion_text: "The National Association of Cider Makers describes fresh apples being milled and pressed, and notes that some traditional ciders stay hazy while many products are filtered. UK HMRC guidance also permits concentrated or reconstituted apple or pear juice under its cider rules. These are different production options: neither haze nor a can proves a traditional or a concentrate-based recipe, and UK rules are not worldwide definitions."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+  - id: ki_cms_cider_style
+    subject_id: n_cms_cider_process
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_cms_cider_style
+    domain_id: service
+    assertion_text: "Cider and pear perry are fermented-fruit drinks. The BJCP 2025 style framework asks judges to consider sweetness and carbonation as separate attributes, and includes traditional, strong and specialty ciders as well as perry. These are judging categories, not legal names or a claim that every cider is sweet or sparkling."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+  - id: ki_cms_belgian_wit
+    subject_id: n_cms_belgian_styles
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_cms_belgian_wit
+    domain_id: service
+    assertion_text: "BJCP's Belgian Witbier reference is a pale, hazy wheat beer whose yeast character is complemented by subtle spice and citrus; coriander and orange peel are typical ingredients. It contrasts with German Weissbier's prominent banana-and-clove yeast character. Those are style guides, not legal composition tests."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+  - id: ki_cms_belgian_dubbel_tripel
+    subject_id: n_cms_belgian_styles
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_cms_belgian_dubbel_tripel
+    domain_id: service
+    assertion_text: "In BJCP's Belgian reference styles, Dubbel is a deep reddish-copper to dark ale with rich dark-fruit and malty notes, while Tripel is a strong pale ale with spicy-fruity aromatics, firmer bitterness and a dry finish. The names are not a simple two-times/three-times alcohol formula; compare the actual labelled beer."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+  - id: ki_cms_belgian_saison
+    subject_id: n_cms_belgian_styles
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_cms_belgian_saison
+    domain_id: service
+    assertion_text: "The BJCP Saison reference describes a highly attenuated, dry, refreshing Belgian ale with fruity and peppery yeast character, often with moderate bitterness. Saison can vary in colour and strength; one label cannot promise the same flavour for every producer."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+  - id: ki_cms_beer_food_intensity
+    subject_id: n_cms_beer_food
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_cms_beer_food_intensity
+    domain_id: service
+    assertion_text: "The Brewers Association's beer-and-food guide starts with the flavour intensity of both beer and food. A subtle dish can be overwhelmed by a forceful beer, while a mild beer can disappear beside a strongly flavoured dish. Intensity is a starting test, not a fixed style prescription."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+  - id: ki_cms_beer_food_link
+    subject_id: n_cms_beer_food
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_cms_beer_food_link
+    domain_id: service
+    assertion_text: "The Brewers Association guide asks for both complementary flavour links and useful contrasts such as carbonation or bitterness against richness. A match should explain which feature matters in the finished dish and the chosen beer, rather than relying on colour or a memorised style pairing alone."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+  - id: ki_cms_beer_food_trial
+    subject_id: n_cms_beer_food
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_cms_beer_food_trial
+    domain_id: service
+    assertion_text: "Beer-and-food pairings in a guide are suggestions, not absolute rules. Ask about the guest's preference and the finished plate, then taste the actual beer if possible; spice, sauce, sweetness and bitterness can change the result."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+  - id: ki_cms_beer_case_cask_action
+    subject_id: n_cms_beer_case_cask
+    relation_type: CASE_ACTION
+    object_id: n_cms_beer_case_cask_action
+    domain_id: service
+    assertion_text: "Check the cask's cellar condition and local service procedure before offering it. If it is not settled or service-ready, let it rest and tell the guest when the team expects a quality check."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+  - id: ki_cms_beer_case_cask_reason
+    subject_id: n_cms_beer_case_cask
+    relation_type: CASE_REASON
+    object_id: n_cms_beer_case_cask_reason
+    domain_id: service
+    assertion_text: "CAMRA describes cask beer developing condition with live yeast in the cellar and recommends steady temperature and an undisturbed cask. A newly handled cask is not made ready simply by attaching a tap."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+  - id: ki_cms_beer_case_cask_tradeoff
+    subject_id: n_cms_beer_case_cask
+    relation_type: CASE_TRADEOFF
+    object_id: n_cms_beer_case_cask_tradeoff
+    domain_id: service
+    assertion_text: "Offer a suitable packaged beer while the cask is checked. The replacement may have different carbonation and flavour; describe that difference rather than presenting it as the same product."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+  - id: ki_cms_beer_case_cask_limit
+    subject_id: n_cms_beer_case_cask
+    relation_type: CASE_LIMITATION
+    object_id: n_cms_beer_case_cask_limit
+    domain_id: service
+    assertion_text: "A general cask guide does not set a universal ready-to-serve time. Staff must check the actual cask, temperature, clarity and service method and follow local safety and cellar procedure."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+  - id: ki_cms_beer_case_pair_action
+    subject_id: n_cms_beer_case_pair
+    relation_type: CASE_ACTION
+    object_id: n_cms_beer_case_pair_action
+    domain_id: service
+    assertion_text: "Ask how hot and rich the curry is, then trial a beer with enough flavour to remain present; a wheat beer or a suitably fruity ale could be candidates if available. State the choice as a test, not the one correct style."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+  - id: ki_cms_beer_case_pair_reason
+    subject_id: n_cms_beer_case_pair
+    relation_type: CASE_REASON
+    object_id: n_cms_beer_case_pair_reason
+    domain_id: service
+    assertion_text: "The Brewers Association's pairing guide asks for comparable impact and a complement or contrast. Here, the beer must hold up to the curry and might offer refreshing carbonation or a flavour link. The precise dish and beer were not tested by that guide."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+  - id: ki_cms_beer_case_pair_tradeoff
+    subject_id: n_cms_beer_case_pair
+    relation_type: CASE_TRADEOFF
+    object_id: n_cms_beer_case_pair_tradeoff
+    domain_id: service
+    assertion_text: "Another beer may balance the dish differently: sweetness, bitterness, carbonation and the guest's tolerance for heat matter. The guide's suggested style examples are options, not an unconditional ranking."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+  - id: ki_cms_beer_case_pair_limit
+    subject_id: n_cms_beer_case_pair
+    relation_type: CASE_LIMITATION
+    object_id: n_cms_beer_case_pair_limit
+    domain_id: service
+    assertion_text: "The exact curry, spice level and beer were not evaluated together in the cited guide. Ask the guest's preference and, where possible, taste the finished pairing before making a confident recommendation."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+  - id: ki_cms_beer_case_belgian_action
+    subject_id: n_cms_beer_case_belgian
+    relation_type: CASE_ACTION
+    object_id: n_cms_beer_case_belgian_action
+    domain_id: service
+    assertion_text: "Explain that Dubbel and Tripel are different Belgian reference styles, then compare the offered bottles' colour, flavour and label. Do not re-label a dark Dubbel as a Tripel simply because its alcohol is high."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+  - id: ki_cms_beer_case_belgian_reason
+    subject_id: n_cms_beer_case_belgian
+    relation_type: CASE_REASON
+    object_id: n_cms_beer_case_belgian_reason
+    domain_id: service
+    assertion_text: "BJCP describes Dubbel as dark and rich in malt and dark-fruit impressions, and Tripel as strong, pale, fruity-spicy and relatively dry with firmer bitterness. These profiles explain the distinction better than the names' numbers."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+  - id: ki_cms_beer_case_belgian_tradeoff
+    subject_id: n_cms_beer_case_belgian
+    relation_type: CASE_TRADEOFF
+    object_id: n_cms_beer_case_belgian_tradeoff
+    domain_id: service
+    assertion_text: "If the guest mainly wants strength rather than a named style, discuss the actual beers and preferences. Alcohol content alone does not express the expected malt, fruit, spice or bitterness profile."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+  - id: ki_cms_beer_case_belgian_limit
+    subject_id: n_cms_beer_case_belgian
+    relation_type: CASE_LIMITATION
+    object_id: n_cms_beer_case_belgian_limit
+    domain_id: service
+    assertion_text: "BJCP is a competition reference, not a legal certification of every beer. Verify the producer's description and the poured beer before promising an exact flavour or strength."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+
+certification_knowledge_mappings:
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_beer_mash, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_beer_wort, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_beer_hops, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_beer_hop_types, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_beer_yeast, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_beer_ale_lager, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_beer_porter_stout, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_beer_wheat_fruit, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_beer_cask_live, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_beer_cask_terms, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_beer_package, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_cider_apples, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_cider_press, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_cider_practice, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_cider_style, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_belgian_wit, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_belgian_dubbel_tripel, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_belgian_saison, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_beer_food_intensity, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_beer_food_link, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_beer_food_trial, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_beer_case_cask_action, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_beer_case_cask_reason, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_beer_case_cask_tradeoff, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_beer_case_cask_limit, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_beer_case_pair_action, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_beer_case_pair_reason, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_beer_case_pair_tradeoff, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_beer_case_pair_limit, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_beer_case_belgian_action, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_beer_case_belgian_reason, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_beer_case_belgian_tradeoff, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_beer_case_belgian_limit, importance: core, minimum_depth: 2 }
+
+source_citations:
+  - id: src_cms_beer_camra_process
+    kind: reference_work
+    title: "The brewing process"
+    publisher: "Campaign for Real Ale"
+    document_identifier: "Brewing and fermentation sections"
+    url: https://members.camra.org.uk/learn-discover/learn-more/learn-more-about-beer/the-brewing-process/
+    accessed_on: "2026-09-28"
+  - id: src_cms_beer_brewing
+    kind: reference_work
+    title: "The Brewing Process and Beer Ingredients"
+    publisher: "American Homebrewers Association, Brewers Association"
+    document_identifier: "Ingredient Signs PDF pp. 3–4; basic mash, wort, kettle, hop and fermentation sequence"
+    url: https://www.homebrewersassociation.org/wp-content/uploads/Ingredient-Signs.pdf
+    accessed_on: "2026-09-28"
+  - id: src_cms_beer_bjcp_2021
+    kind: reference_work
+    title: "2021 Beer Style Guidelines"
+    publisher: "Beer Judge Certification Program"
+    document_identifier: "Official style pages 10A, 13C, 15B, 24A, 25B, 26B, 26C; competition reference, not law"
+    url: https://styles.bjcp.org/bjcp-2021-beer
+    accessed_on: "2026-09-28"
+  - id: src_cms_beer_hop_varieties
+    kind: reference_work
+    title: "Saazer and Cascade hop variety profiles"
+    publisher: "BarthHaas"
+    document_identifier: "Hop merchant descriptions of Saaz and Cascade; crop-year values may vary"
+    url: https://www.barthhaas.com/hops-and-products/hop-varieties-overview
+    accessed_on: "2026-09-28"
+  - id: src_cms_beer_camra_cask
+    kind: reference_work
+    title: "What is cask-conditioned beer?"
+    publisher: "Campaign for Real Ale"
+    jurisdiction: GB
+    document_identifier: "Live yeast, condition, cellar handling and dispense without injected gas"
+    url: https://members.camra.org.uk/learn-discover/the-basics/what-is-cask-conditioned-ale/
+    accessed_on: "2026-09-28"
+  - id: src_cms_beer_camra_terms
+    kind: reference_work
+    title: "Jargon Buster"
+    publisher: "Tyneside and Northumberland CAMRA"
+    jurisdiction: GB
+    document_identifier: "Stillage, vent, shive, tap and keystone definitions; trade glossary"
+    url: https://tynland.camra.org.uk/information/jargon-buster/
+    accessed_on: "2026-09-28"
+  - id: src_cms_beer_package_safety
+    kind: reference_work
+    title: "Preventing Package Over-pressurization"
+    publisher: "Brewers Association"
+    document_identifier: "2020 brewery best-practice guidance; live conditioning and pasteurisation/filtration distinctions"
+    url: https://cdn.brewersassociation.org/wp-content/uploads/2020/01/Preventing-Package-Over-Pressurization.pdf
+    accessed_on: "2026-09-28"
+  - id: src_cms_cider_nacm_process
+    kind: reference_work
+    title: "Making Cider"
+    publisher: "National Association of Cider Makers"
+    jurisdiction: GB
+    document_identifier: "Harvesting, sorting, milling, pressing, fermentation, blending and packaging"
+    url: https://cideruk.com/making-cider/
+    accessed_on: "2026-09-28"
+  - id: src_cms_cider_bjcp_2025
+    kind: reference_work
+    title: "2025 Cider Style Guidelines"
+    publisher: "Beer Judge Certification Program"
+    document_identifier: "2025 edition, Introduction and C1–C4; style rather than legal categories"
+    url: https://www.bjcp.org/wp-content/uploads/2025/01/2025_Guidelines_Cider.pdf
+    accessed_on: "2026-09-28"
+  - id: src_cms_cider_hmrc_guidance
+    kind: regulator_register
+    title: "Alcoholic products technical guide, Section 2: Cider"
+    publisher: "HM Revenue and Customs"
+    jurisdiction: GB
+    document_identifier: "Section 2.2.1: fresh, concentrated and reconstituted juice options under UK cider duty rules"
+    url: https://www.gov.uk/guidance/alcoholic-products-technical-guide/section-2-alcoholic-products
+    accessed_on: "2026-09-28"
+  - id: src_cms_beer_food_guide
+    kind: reference_work
+    title: "How to Match Beer and Food"
+    publisher: "Brewers Association"
+    document_identifier: "Beer and Food English guide, pp. 4–8; impact, complement, contrast and illustrative pairings"
+    url: https://cdn.brewersassociation.org/wp-content/uploads/2017/04/Beer_and_Food_English.pdf
+    accessed_on: "2026-09-28"
+
+knowledge_item_citations:
+  - { knowledge_item_id: ki_cms_beer_mash, source_citation_id: src_cms_beer_brewing, locator: "The Brewing Process, mashing paragraph" }
+  - { knowledge_item_id: ki_cms_beer_mash, source_citation_id: src_cms_beer_camra_process, locator: "Brewing section: malt and hot water in mash tun" }
+  - { knowledge_item_id: ki_cms_beer_wort, source_citation_id: src_cms_beer_brewing, locator: "Wort definition p. 3 and mashing/boiling/fermenting sequence p. 4" }
+  - { knowledge_item_id: ki_cms_beer_wort, source_citation_id: src_cms_beer_camra_process, locator: "Brewing section: wort separated, boiled in copper, cooled before yeast fermentation" }
+  - { knowledge_item_id: ki_cms_beer_hops, source_citation_id: src_cms_beer_brewing, locator: "The Brewing Process, boiling paragraph" }
+  - { knowledge_item_id: ki_cms_beer_hop_types, source_citation_id: src_cms_beer_hop_varieties, locator: "Saazer and Cascade profiles; merchant overview, not a guarantee about finished beer" }
+  - { knowledge_item_id: ki_cms_beer_yeast, source_citation_id: src_cms_beer_brewing, locator: "Yeast p. 3 and fermenting p. 4" }
+  - { knowledge_item_id: ki_cms_beer_ale_lager, source_citation_id: src_cms_beer_brewing, locator: "Yeast p. 3, examples of common ale- and lager-yeast styles" }
+  - { knowledge_item_id: ki_cms_beer_porter_stout, source_citation_id: src_cms_beer_bjcp_2021, locator: "2021 style 13C English Porter and 15B Irish Stout" }
+  - { knowledge_item_id: ki_cms_beer_wheat_fruit, source_citation_id: src_cms_beer_bjcp_2021, locator: "2021 styles 10A Weissbier, 24A Witbier and category 29 Fruit Beer" }
+  - { knowledge_item_id: ki_cms_beer_cask_live, source_citation_id: src_cms_beer_camra_cask, locator: "What is cask-conditioned beer, cellar and dispense paragraphs" }
+  - { knowledge_item_id: ki_cms_beer_cask_terms, source_citation_id: src_cms_beer_camra_terms, locator: "Glossary entries STILLAGE, VENT, SHIVE, TAP and KEYSTONE" }
+  - { knowledge_item_id: ki_cms_beer_package, source_citation_id: src_cms_beer_package_safety, locator: "Preventing Package Over-pressurization, package-conditioning and stabilisation discussion" }
+  - { knowledge_item_id: ki_cms_beer_package, source_citation_id: src_cms_beer_camra_cask, locator: "Cask live condition is one distinct practice" }
+  - { knowledge_item_id: ki_cms_cider_apples, source_citation_id: src_cms_cider_bjcp_2025, locator: "Introduction, acidity and tannin; C1 styles and fruit varieties" }
+  - { knowledge_item_id: ki_cms_cider_press, source_citation_id: src_cms_cider_nacm_process, locator: "Making Cider, harvest through packaging" }
+  - { knowledge_item_id: ki_cms_cider_practice, source_citation_id: src_cms_cider_nacm_process, locator: "Making Cider: fresh pressing, optional haze and widespread filtration" }
+  - { knowledge_item_id: ki_cms_cider_practice, source_citation_id: src_cms_cider_hmrc_guidance, locator: "Section 2.2.1: concentrated and reconstituted juice permitted under UK cider rules" }
+  - { knowledge_item_id: ki_cms_cider_style, source_citation_id: src_cms_cider_bjcp_2025, locator: "Introduction, sweetness and carbonation; categories C1–C4" }
+  - { knowledge_item_id: ki_cms_belgian_wit, source_citation_id: src_cms_beer_bjcp_2021, locator: "2021 styles 24A Witbier and 10A Weissbier" }
+  - { knowledge_item_id: ki_cms_belgian_dubbel_tripel, source_citation_id: src_cms_beer_bjcp_2021, locator: "2021 styles 26B Belgian Dubbel and 26C Belgian Tripel" }
+  - { knowledge_item_id: ki_cms_belgian_saison, source_citation_id: src_cms_beer_bjcp_2021, locator: "2021 style 25B Saison" }
+  - { knowledge_item_id: ki_cms_beer_food_intensity, source_citation_id: src_cms_beer_food_guide, locator: "The Principles of Beer and Food Matching, pp. 4–5" }
+  - { knowledge_item_id: ki_cms_beer_food_link, source_citation_id: src_cms_beer_food_guide, locator: "The Principles of Beer and Food Matching, complement and contrast pp. 4–5" }
+  - { knowledge_item_id: ki_cms_beer_food_trial, source_citation_id: src_cms_beer_food_guide, locator: "The Principles of Beer and Food Matching, suggestions not absolute rules p. 5" }
+  - { knowledge_item_id: ki_cms_beer_case_cask_action, source_citation_id: src_cms_beer_camra_cask, locator: "Undisturbed storage and consistency of cellar conditions; action is a constructed case" }
+  - { knowledge_item_id: ki_cms_beer_case_cask_reason, source_citation_id: src_cms_beer_camra_cask, locator: "Live yeast and conditioning in cellar; tapping alone is not a readiness test" }
+  - { knowledge_item_id: ki_cms_beer_case_cask_tradeoff, source_citation_id: src_cms_beer_camra_cask, locator: "Cask's gentle carbonation makes packaged replacement a different product; alternative is a case inference" }
+  - { knowledge_item_id: ki_cms_beer_case_cask_limit, source_citation_id: src_cms_beer_camra_cask, locator: "General cellar recommendations give no universal ready-to-serve time" }
+  - { knowledge_item_id: ki_cms_beer_case_pair_action, source_citation_id: src_cms_beer_food_guide, locator: "Intensity and beer-with-spicy-food examples pp. 4, 8; case is conditional" }
+  - { knowledge_item_id: ki_cms_beer_case_pair_reason, source_citation_id: src_cms_beer_food_guide, locator: "Complement, contrast and flavour impact pp. 4–5" }
+  - { knowledge_item_id: ki_cms_beer_case_pair_tradeoff, source_citation_id: src_cms_beer_food_guide, locator: "Balance and non-absolute suggestions pp. 4–5" }
+  - { knowledge_item_id: ki_cms_beer_case_pair_limit, source_citation_id: src_cms_beer_food_guide, locator: "Illustrative guide does not test constructed guest and curry" }
+  - { knowledge_item_id: ki_cms_beer_case_belgian_action, source_citation_id: src_cms_beer_bjcp_2021, locator: "2021 styles 26B and 26C; action is a constructed service case" }
+  - { knowledge_item_id: ki_cms_beer_case_belgian_reason, source_citation_id: src_cms_beer_bjcp_2021, locator: "2021 style overviews 26B and 26C" }
+  - { knowledge_item_id: ki_cms_beer_case_belgian_tradeoff, source_citation_id: src_cms_beer_bjcp_2021, locator: "Style descriptions admit variations; compare actual products" }
+  - { knowledge_item_id: ki_cms_beer_case_belgian_limit, source_citation_id: src_cms_beer_bjcp_2021, locator: "Competition reference, not a legal classification of a bottle" }
+
+question_templates:
+  - id: qt_cms_beer_case_cask
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: cms_beer_cask
+    prompt_template: >-
+      A cask has just arrived and has been moved repeatedly. A guest asks for it now.
+      Explain your service decision, the cask-conditioning reason, a short-term
+      alternative and what you still need to check before a pour.
+    parameters:
+      scope_node_ids: [n_cms_beer_case_cask]
+      key_points: {CASE_ACTION: Cellar check, CASE_REASON: Live condition, CASE_TRADEOFF: Alternative, CASE_LIMITATION: Bottle-specific limit}
+  - id: qt_cms_beer_case_pair
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: cms_beer_pair
+    prompt_template: >-
+      A guest asks for beer with a strongly spiced curry. Make a tentative choice.
+      Explain its flavour impact, one complement or contrast, an alternative and
+      the dish or beer detail that could change your recommendation.
+    parameters:
+      scope_node_ids: [n_cms_beer_case_pair]
+      key_points: {CASE_ACTION: Conditional choice, CASE_REASON: Pairing mechanism, CASE_TRADEOFF: Alternative, CASE_LIMITATION: Required trial}
+  - id: qt_cms_beer_case_belgian
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: cms_beer_belgian
+    prompt_template: >-
+      A guest calls a dark Belgian Dubbel a Tripel because it is strong. Explain
+      how the two reference styles differ, what the guest may really want, and
+      what you would check on the actual bottle.
+    parameters:
+      scope_node_ids: [n_cms_beer_case_belgian]
+      key_points: {CASE_ACTION: Style response, CASE_REASON: Sensory distinction, CASE_TRADEOFF: Guest goal, CASE_LIMITATION: Actual bottle}

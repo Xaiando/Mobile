@@ -1,0 +1,253 @@
+# CMS Europe 2026/27 principal spirits and liqueur production examples.
+# Product examples teach distinctions, not the composition of every brand.
+# These CMS-only facts are unverified pending expert review.
+knowledge_nodes:
+  - { id: n_cms_irish_whiskey, node_type: production_principle, name: "How does the Irish Whiskey specification distinguish its principal types?" }
+  - { id: n_cms_irish_origin, node_type: learning_point, name: "Irish Whiskey is made and matured under its island-wide specification" }
+  - { id: n_cms_irish_pot_malt, node_type: learning_point, name: "Pot Still and Malt Irish Whiskey use different barley bills" }
+  - { id: n_cms_irish_blend, node_type: learning_point, name: "Blended Irish Whiskey combines specified varieties" }
+  - { id: n_cms_liqueur_extraction, node_type: production_principle, name: "What can citrus and herbal liqueurs teach about flavour extraction?" }
+  - { id: n_cms_liqueur_orange, node_type: learning_point, name: "Cointreau extracts orange-peel aroma through distillation" }
+  - { id: n_cms_liqueur_herbal, node_type: learning_point, name: "Green Chartreuse uses distillation and maceration of botanicals" }
+  - { id: n_cms_liqueur_compare, node_type: learning_point, name: "Flavour family and production method need separate questions" }
+  - { id: n_cms_irish_case, node_type: production_case, name: "A guest assumes Single Pot Still Irish Whiskey means Single Malt" }
+  - { id: n_cms_irish_case_action, node_type: learning_point, name: "Explain the barley-bill distinction" }
+  - { id: n_cms_irish_case_reason, node_type: learning_point, name: "Pot Still uses malted and unmalted barley; Malt uses malted barley" }
+  - { id: n_cms_irish_case_tradeoff, node_type: learning_point, name: "Offer a specific bottle in each category if available" }
+  - { id: n_cms_irish_case_limit, node_type: learning_point, name: "The technical file cannot predict a particular bottle's flavour" }
+  - { id: n_cms_liqueur_case, node_type: production_case, name: "A guest asks for an herbal liqueur and is offered an orange liqueur" }
+  - { id: n_cms_liqueur_case_action, node_type: learning_point, name: "Clarify botanical flavour and offer an herbal example if available" }
+  - { id: n_cms_liqueur_case_reason, node_type: learning_point, name: "The two producers identify different flavour materials" }
+  - { id: n_cms_liqueur_case_tradeoff, node_type: learning_point, name: "Both use distillation, but their profiles differ" }
+  - { id: n_cms_liqueur_case_limit, node_type: learning_point, name: "Check the stocked bottle and guest preference" }
+
+knowledge_relations:
+  - { subject_id: n_cms_irish_whiskey, relation_type: PRINCIPLE_EXPLANATION, object_id: n_cms_irish_origin, valid_from: "2026-09-28" }
+  - { subject_id: n_cms_irish_whiskey, relation_type: PRINCIPLE_EXPLANATION, object_id: n_cms_irish_pot_malt, valid_from: "2026-09-28" }
+  - { subject_id: n_cms_irish_whiskey, relation_type: PRINCIPLE_EXPLANATION, object_id: n_cms_irish_blend, valid_from: "2026-09-28" }
+  - { subject_id: n_cms_liqueur_extraction, relation_type: PRINCIPLE_EXPLANATION, object_id: n_cms_liqueur_orange, valid_from: "2026-09-28" }
+  - { subject_id: n_cms_liqueur_extraction, relation_type: PRINCIPLE_EXPLANATION, object_id: n_cms_liqueur_herbal, valid_from: "2026-09-28" }
+  - { subject_id: n_cms_liqueur_extraction, relation_type: PRINCIPLE_EXPLANATION, object_id: n_cms_liqueur_compare, valid_from: "2026-09-28" }
+  - { subject_id: n_cms_irish_case, relation_type: CASE_ACTION, object_id: n_cms_irish_case_action, valid_from: "2026-09-28" }
+  - { subject_id: n_cms_irish_case, relation_type: CASE_REASON, object_id: n_cms_irish_case_reason, valid_from: "2026-09-28" }
+  - { subject_id: n_cms_irish_case, relation_type: CASE_TRADEOFF, object_id: n_cms_irish_case_tradeoff, valid_from: "2026-09-28" }
+  - { subject_id: n_cms_irish_case, relation_type: CASE_LIMITATION, object_id: n_cms_irish_case_limit, valid_from: "2026-09-28" }
+  - { subject_id: n_cms_liqueur_case, relation_type: CASE_ACTION, object_id: n_cms_liqueur_case_action, valid_from: "2026-09-28" }
+  - { subject_id: n_cms_liqueur_case, relation_type: CASE_REASON, object_id: n_cms_liqueur_case_reason, valid_from: "2026-09-28" }
+  - { subject_id: n_cms_liqueur_case, relation_type: CASE_TRADEOFF, object_id: n_cms_liqueur_case_tradeoff, valid_from: "2026-09-28" }
+  - { subject_id: n_cms_liqueur_case, relation_type: CASE_LIMITATION, object_id: n_cms_liqueur_case_limit, valid_from: "2026-09-28" }
+
+knowledge_items:
+  - id: ki_cms_irish_origin
+    subject_id: n_cms_irish_whiskey
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_cms_irish_origin
+    domain_id: service
+    assertion_text: "The Irish Whiskey technical file covers whiskey distilled on the island of Ireland, including Northern Ireland, from a fermented cereal mash. It requires at least three years' maturation in wooden casks no larger than 700 litres. 'Irish' is an origin and production claim, not a promise that every example tastes alike."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+  - id: ki_cms_irish_pot_malt
+    subject_id: n_cms_irish_whiskey
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_cms_irish_pot_malt
+    domain_id: service
+    assertion_text: "The Irish technical file distinguishes Pot Still Irish Whiskey, which uses malted and unmalted barley, from Malt Irish Whiskey, made with malted barley. Both are distilled in copper pot stills. 'Pot still' describes equipment too, but the named Irish category is not a synonym for single malt."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+  - id: ki_cms_irish_blend
+    subject_id: n_cms_irish_whiskey
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_cms_irish_blend
+    domain_id: service
+    assertion_text: "The technical file identifies Pot Still, Malt and Grain Irish Whiskey varieties; it says those varieties may be combined as Blended Irish Whiskey. A blend is not automatically a blend of Scotch whisky, and its exact component proportions cannot be inferred from the word 'blended' alone."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+  - id: ki_cms_liqueur_orange
+    subject_id: n_cms_liqueur_extraction
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_cms_liqueur_orange
+    domain_id: service
+    assertion_text: "Cointreau describes selecting sweet and bitter orange peels, blending them for aroma and distilling in copper equipment to make its orange liqueur. It is a citrus example of flavour extraction, not proof that every liqueur uses orange or that every extraction uses distillation."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+  - id: ki_cms_liqueur_herbal
+    subject_id: n_cms_liqueur_extraction
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_cms_liqueur_herbal
+    domain_id: service
+    assertion_text: "Chartreuse Diffusion describes Green Chartreuse as a herbal liqueur made with plants, bark, roots, spices and flowers. Its producer describes distillation for aroma and different macerations for extraction and colour. It is one producer's process, not a universal liqueur recipe."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+  - id: ki_cms_liqueur_compare
+    subject_id: n_cms_liqueur_extraction
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_cms_liqueur_compare
+    domain_id: service
+    assertion_text: "Orange-peel Cointreau and botanical Green Chartreuse illustrate different citrus and herbal flavour families. Both producers describe distillation, but Chartreuse additionally describes maceration. For a recommendation, ask separately about the guest's desired flavour and the specific product's production and service; a method alone does not determine flavour."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+  - id: ki_cms_irish_case_action
+    subject_id: n_cms_irish_case
+    relation_type: CASE_ACTION
+    object_id: n_cms_irish_case_action
+    domain_id: service
+    assertion_text: "Clarify that the named Irish Pot Still and Malt Whiskey varieties have different barley bills. Ask whether the guest seeks a particular flavour or merely a category name before recommending a bottle."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+  - id: ki_cms_irish_case_reason
+    subject_id: n_cms_irish_case
+    relation_type: CASE_REASON
+    object_id: n_cms_irish_case_reason
+    domain_id: service
+    assertion_text: "The Irish technical file uses both malted and unmalted barley for Pot Still Irish Whiskey; Malt Irish Whiskey uses malted barley. They cannot be equated merely because both may involve pot stills."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+  - id: ki_cms_irish_case_tradeoff
+    subject_id: n_cms_irish_case
+    relation_type: CASE_TRADEOFF
+    object_id: n_cms_irish_case_tradeoff
+    domain_id: service
+    assertion_text: "If available, compare a specific Pot Still bottle with a specific Malt bottle for the guest. The specification describes category production and typical traits, but the final choice depends on the actual stock and preference."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+  - id: ki_cms_irish_case_limit
+    subject_id: n_cms_irish_case
+    relation_type: CASE_LIMITATION
+    object_id: n_cms_irish_case_limit
+    domain_id: service
+    assertion_text: "The technical file does not authenticate an individual label or establish the exact sensory profile of a bottle. Verify the stocked product before making a specific recommendation."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+  - id: ki_cms_liqueur_case_action
+    subject_id: n_cms_liqueur_case
+    relation_type: CASE_ACTION
+    object_id: n_cms_liqueur_case_action
+    domain_id: service
+    assertion_text: "Ask which herbal notes and serving style the guest wants. If Green Chartreuse is stocked, offer it as an herbal example instead of substituting an orange liqueur without explanation."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+  - id: ki_cms_liqueur_case_reason
+    subject_id: n_cms_liqueur_case
+    relation_type: CASE_REASON
+    object_id: n_cms_liqueur_case_reason
+    domain_id: service
+    assertion_text: "Cointreau identifies orange peels as central to its liqueur, while Chartreuse identifies a broad botanical mixture in its Green Chartreuse. Both are liqueurs but answer different flavour requests."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+  - id: ki_cms_liqueur_case_tradeoff
+    subject_id: n_cms_liqueur_case
+    relation_type: CASE_TRADEOFF
+    object_id: n_cms_liqueur_case_tradeoff
+    domain_id: service
+    assertion_text: "Both makers describe distillation in their processes, so the production method alone is not the deciding service distinction. The guest may prefer orange after tasting; ask rather than assuming."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+  - id: ki_cms_liqueur_case_limit
+    subject_id: n_cms_liqueur_case
+    relation_type: CASE_LIMITATION
+    object_id: n_cms_liqueur_case_limit
+    domain_id: service
+    assertion_text: "Producer descriptions concern their own products and cannot identify an unlabelled glass or guarantee a guest's preference. Check the bottle, list availability and any dietary constraints before service."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-28T00:00:00.000Z"
+
+certification_knowledge_mappings:
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_irish_origin, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_irish_pot_malt, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_irish_blend, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_liqueur_orange, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_liqueur_herbal, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_liqueur_compare, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_irish_case_action, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_irish_case_reason, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_irish_case_tradeoff, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_irish_case_limit, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_liqueur_case_action, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_liqueur_case_reason, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_liqueur_case_tradeoff, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_liqueur_case_limit, importance: core, minimum_depth: 2 }
+
+source_citations:
+  - id: src_cms_irish_file
+    kind: regulator_register
+    title: "Irish Whiskey Technical File"
+    publisher: "Department of Agriculture, Food and the Marine, Ireland"
+    jurisdiction: IE
+    document_identifier: "DAFM GI technical file, pp. 1–2 and 5, hosted by the UK government; 2026 amendment consultation requires a pre-release currency check"
+    url: https://assets.publishing.service.gov.uk/media/5fd34980d3bf7f305ffa7ed2/irish-whiskey-spec.pdf
+    accessed_on: "2026-09-28"
+  - id: src_cms_liqueur_cointreau
+    kind: reference_work
+    title: "Cointreau Savoir-faire"
+    publisher: "Cointreau"
+    jurisdiction: FR
+    document_identifier: "Producer account of orange-peel selection, blending and distillation"
+    url: https://www.cointreau.com/us/en/discover-cointreau/savoir-faire
+    accessed_on: "2026-09-28"
+  - id: src_cms_liqueur_chartreuse
+    kind: reference_work
+    title: "Green Chartreuse"
+    publisher: "Chartreuse Diffusion"
+    jurisdiction: FR
+    document_identifier: "Producer account of botanicals, distillation, maceration and service"
+    url: https://www.chartreuse.fr/en/produit/green-chartreuse/
+    accessed_on: "2026-09-28"
+
+knowledge_item_citations:
+  - { knowledge_item_id: ki_cms_irish_origin, source_citation_id: src_cms_irish_file, locator: "Technical file 2.1.1: origin, cereal mash, three years and 700-litre cask limit" }
+  - { knowledge_item_id: ki_cms_irish_pot_malt, source_citation_id: src_cms_irish_file, locator: "Technical file 2.1.1–2.1.2: Pot Still and Malt varieties and barley bills" }
+  - { knowledge_item_id: ki_cms_irish_blend, source_citation_id: src_cms_irish_file, locator: "Technical file 2.1.1: Pot Still, Malt, Grain and Blended varieties" }
+  - { knowledge_item_id: ki_cms_liqueur_orange, source_citation_id: src_cms_liqueur_cointreau, locator: "Savoir-faire: Gathering, Assembly and Distillation" }
+  - { knowledge_item_id: ki_cms_liqueur_herbal, source_citation_id: src_cms_liqueur_chartreuse, locator: "Green Chartreuse: Ingredients and Elaboration" }
+  - { knowledge_item_id: ki_cms_liqueur_compare, source_citation_id: src_cms_liqueur_cointreau, locator: "Sweet and bitter orange peels and distillation" }
+  - { knowledge_item_id: ki_cms_liqueur_compare, source_citation_id: src_cms_liqueur_chartreuse, locator: "Botanical ingredients, maceration and distillation" }
+  - { knowledge_item_id: ki_cms_irish_case_action, source_citation_id: src_cms_irish_file, locator: "Pot Still and Malt production distinction applied to a constructed guest request" }
+  - { knowledge_item_id: ki_cms_irish_case_reason, source_citation_id: src_cms_irish_file, locator: "Technical file 2.1.2: malted plus unmalted versus malted barley" }
+  - { knowledge_item_id: ki_cms_irish_case_tradeoff, source_citation_id: src_cms_irish_file, locator: "Category varieties in technical file; actual bottles remain to be compared" }
+  - { knowledge_item_id: ki_cms_irish_case_limit, source_citation_id: src_cms_irish_file, locator: "Specification sets category requirements, not a bottle's exact flavour" }
+  - { knowledge_item_id: ki_cms_liqueur_case_action, source_citation_id: src_cms_liqueur_chartreuse, locator: "Green Chartreuse's herbal profile supports a conditional choice" }
+  - { knowledge_item_id: ki_cms_liqueur_case_reason, source_citation_id: src_cms_liqueur_cointreau, locator: "Cointreau orange-peel materials" }
+  - { knowledge_item_id: ki_cms_liqueur_case_reason, source_citation_id: src_cms_liqueur_chartreuse, locator: "Green Chartreuse botanical materials" }
+  - { knowledge_item_id: ki_cms_liqueur_case_tradeoff, source_citation_id: src_cms_liqueur_cointreau, locator: "Cointreau's distillation step" }
+  - { knowledge_item_id: ki_cms_liqueur_case_tradeoff, source_citation_id: src_cms_liqueur_chartreuse, locator: "Green Chartreuse's distillation step" }
+  - { knowledge_item_id: ki_cms_liqueur_case_limit, source_citation_id: src_cms_liqueur_chartreuse, locator: "Producer account is product-specific" }
+
+question_templates:
+  - id: qt_cms_irish_case
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: cms_irish_pot_malt
+    prompt_template: >-
+      A guest thinks Single Pot Still Irish Whiskey means Single Malt. How would
+      you explain the barley-bill difference, offer a useful comparison and
+      avoid promising that every bottle tastes the same?
+    parameters:
+      scope_node_ids: [n_cms_irish_case]
+      key_points: {CASE_ACTION: Correction, CASE_REASON: Barley bill, CASE_TRADEOFF: Bottle comparison, CASE_LIMITATION: Product-specific check}
+  - id: qt_cms_liqueur_case
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: cms_liqueur_flavour
+    prompt_template: >-
+      A guest asks for a herbal liqueur but is offered an orange liqueur.
+      Compare the two producer examples, explain what their extraction methods
+      do and name the bottle or preference check needed before service.
+    parameters:
+      scope_node_ids: [n_cms_liqueur_case]
+      key_points: {CASE_ACTION: Guest response, CASE_REASON: Flavour materials, CASE_TRADEOFF: Shared method, CASE_LIMITATION: Stock check}

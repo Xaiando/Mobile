@@ -1,6 +1,5 @@
-import 'dart:typed_data';
-
 import 'dart:convert';
+import 'dart:typed_data';
 
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
@@ -28,14 +27,16 @@ class PlatformBackupFiles implements BackupFiles {
   const PlatformBackupFiles();
 
   @override
-  Future<bool> save(String name, List<int> bytes) async =>
-      await FilePicker.saveFile(
-        dialogTitle: 'Save your data',
-        fileName: name,
-        bytes: Uint8List.fromList(bytes),
-        mimeType: 'application/json',
-      ) !=
-      null;
+  Future<bool> save(String name, List<int> bytes) async {
+    UserDataBackup.checkSavedFileSize(bytes.length);
+    return await FilePicker.saveFile(
+          dialogTitle: 'Save your data',
+          fileName: name,
+          bytes: Uint8List.fromList(bytes),
+          mimeType: 'application/json',
+        ) !=
+        null;
+  }
 
   @override
   Future<List<int>?> open() async {
@@ -44,7 +45,19 @@ class PlatformBackupFiles implements BackupFiles {
       type: FileType.custom,
       allowedExtensions: const ['json'],
     );
-    return file?.readAsBytes();
+    if (file == null) return null;
+    final knownLength = file.lengthSync();
+    if (knownLength != null) {
+      UserDataBackup.checkPickedFileSize(knownLength);
+    }
+    final bytes = BytesBuilder();
+    var length = 0;
+    await for (final chunk in file.readAsByteStream()) {
+      length += chunk.length;
+      UserDataBackup.checkPickedFileSize(length);
+      bytes.add(chunk);
+    }
+    return bytes.takeBytes();
   }
 }
 
@@ -115,7 +128,8 @@ class _YourDataSectionState extends ConsumerState<YourDataSection> {
       body:
           'The file includes your study progress, journal, label and glass '
           'photos, tastings, flags and settings. It is unencrypted JSON: '
-          'anyone with the file can read it. Save it somewhere private.',
+          'anyone with the file can read it. Save it somewhere private. '
+          'An interrupted scan is not included until you save it to the journal.',
       action: 'Choose a location',
     );
     if (!go) return;
@@ -135,13 +149,15 @@ class _YourDataSectionState extends ConsumerState<YourDataSection> {
       body:
           'Importing replaces all your data on this device with the '
           "backup's: your progress, journal, label and glass photos, "
-          'tastings, flags and settings.',
+          'tastings, flags and settings. An interrupted scan on this device '
+          'remains available until you save or dismiss it.',
       action: 'Choose a file',
     );
     if (!go) return;
     await _run(() async {
       final bytes = await ref.read(backupFilesProvider).open();
       if (bytes == null) return;
+      UserDataBackup.checkPickedFileSize(bytes.length);
       final String text;
       try {
         text = utf8.decode(bytes);
@@ -181,8 +197,9 @@ class _YourDataSectionState extends ConsumerState<YourDataSection> {
     final go = await _confirm(
       title: 'Erase all your data?',
       body:
-          'Your progress, journal, label and glass photos, tastings, flags '
-          'and settings are deleted from this device, and the app starts '
+          'Your progress, journal, label and glass photos (including '
+          'interrupted scans), tastings, flags and settings are deleted '
+          'from this device, and the app starts '
           'again as new. Export your data first to keep a copy.',
       action: 'Erase',
     );

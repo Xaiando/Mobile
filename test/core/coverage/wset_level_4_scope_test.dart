@@ -194,8 +194,6 @@ void main() {
       for (final id in [
         'wset_l4.sparkling.tasting',
         'wset_l4.fortified.tasting',
-        'wset_l4.research.evidence',
-        'wset_l4.research.argument',
       ]) {
         expect(measured[id]!.status, ObjectiveStatus.planned, reason: id);
         expect(
@@ -214,6 +212,8 @@ void main() {
         'wset_l4.fortified.production_and_market',
         'wset_l4.world.tasting',
         'wset_l4.world.comparison',
+        'wset_l4.research.evidence',
+        'wset_l4.research.argument',
       ]) {
         expect(measured[id]!.status, ObjectiveStatus.represented, reason: id);
         expect(measured[id]!.items, greaterThan(0));

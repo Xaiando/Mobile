@@ -30,6 +30,7 @@ void main() {
     expect(appFormats.ids, [
       'flashcard',
       'mcq',
+      'authored_choice',
       'map_locate',
       'map_identify',
       'map_pair',

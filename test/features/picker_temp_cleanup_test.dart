@@ -50,6 +50,13 @@ void main() {
       throwsFormatException,
     );
     expect(await photo.exists(), isFalse);
+    expect(
+      await removePickedTemporaryPhoto(
+        photo.path,
+        temporaryDirectoryPath: appTemp.path,
+      ),
+      isTrue,
+    );
   });
 
   test('leaves a user source and a sibling directory untouched', () async {

@@ -5,6 +5,7 @@ import 'package:fsrs/fsrs.dart' as fsrs;
 
 import '../curriculum/knowledge_graph.dart';
 import '../database/app_database.dart';
+import '../diploma_tasting/diploma_tasting_evidence.dart';
 import '../study/study_planner.dart';
 import '../time/utc_clock.dart';
 import 'wset_scope.dart';
@@ -54,9 +55,16 @@ class ProgressSuggestion {
 }
 
 class WsetUnitProgress {
-  const WsetUnitProgress({required this.scope, required this.counts});
+  const WsetUnitProgress({
+    required this.scope,
+    required this.counts,
+    this.physicalFlights = 0,
+  });
   final WsetUnitScope scope;
   final ProgressCounts counts;
+
+  /// Saved three-actual-wine practice, not a tasting grade or unit pass.
+  final int physicalFlights;
 }
 
 class WsetRequirementProgress {
@@ -280,6 +288,10 @@ class WsetProgressRepository {
       for (final row in await db.select(db.userSettings).get())
         row.name: row.value,
     };
+    final diplomaTasting = DiplomaTastingEvidenceReader.read(
+      settings,
+      now: now,
+    );
     final events = <String, List<ReviewEvent>>{};
     for (final event in await db.select(db.reviewEvents).get()) {
       if (!event.reviewedAt.isAfter(now)) {
@@ -504,7 +516,13 @@ class WsetProgressRepository {
           ],
           units: [
             for (final unit in level.units)
-              WsetUnitProgress(scope: unit, counts: count(assigned[unit.id]!)),
+              WsetUnitProgress(
+                scope: unit,
+                counts: count(assigned[unit.id]!),
+                physicalFlights: level.certificationId == 'WSET_L4'
+                    ? diplomaTasting.forUnit(unit.id)
+                    : 0,
+              ),
           ],
           unassigned: count(unassigned),
           requiredCounts: requiredCounts,

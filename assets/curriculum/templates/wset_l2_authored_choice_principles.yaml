@@ -1,0 +1,222 @@
+# Cited WSET Level 2 principle practice.
+question_templates:
+  - id: qt_wset_l2_authored_principles
+    relation_type: PRINCIPLE_EXPLANATION
+    direction: forward
+    mode: authored_choice
+    variant: l2_viticulture_winemaking_service_tasting
+    prompt_template: "{subject.name}"
+    parameters:
+      item_choices:
+        ki_wset_found_pulp_sampling:
+          prompt: "Which set of measurements gives a fuller harvest-ripeness picture than sugar alone?"
+          options: ["Juice sugar from one sunny vine, measured twice", "Juice sugar, pH and titratable acidity plus fruit taste", "Juice sugar from one berry at midday", "Last year's juice sugar without tasting current fruit"]
+          correctIndex: 1
+          explanation: "University of Minnesota Extension recommends sugar, pH and titratable-acidity readings plus qualitative fruit assessment."
+          sourceCitationId: src_wset_found_umn_ripeness
+        ki_wset_found_water_roots:
+          prompt: "What is a likely effect of severe shortage of available soil water in the vine root zone?"
+          options: ["Severe root-zone water stress accelerates shoot extension", "A severe root-zone shortage converts grape malic acid to lactic acid", "Vine growth may slow sharply or nearly stop", "Severe soil drying increases young-vine water uptake"]
+          correctIndex: 2
+          explanation: "New Mexico State University reports that insufficient root-zone moisture greatly reduces growth and heavy stress can nearly halt it."
+          sourceCitationId: src_wset_found_nmsu_water
+        ki_wset_found_vine_canopy:
+          prompt: "Why should leaf exposure be balanced against fruit protection in a vine canopy?"
+          options: ["Leaf stripping intensifies sunburn protection for exposed clusters", "Dense shade around leaves increases their sugar supply to grapes", "Berry skins, rather than leaves, provide the main photosynthetic sugar", "Keep photosynthetic leaves while preventing excessive berry sun"]
+          correctIndex: 3
+          explanation: "NMSU describes leaf carbohydrate production and the need to avoid overexposed, sunburned berries."
+          sourceCitationId: src_wset_found_nmsu_phenology
+        ki_wset_found_veraison:
+          prompt: "Which change marks the start of veraison?"
+          options: ["Berries begin softening and changing colour as ripening starts", "Berries first set after flowering while hard and green", "Berries complete sugar accumulation just before picking", "Berries shed their seeds as vines enter winter dormancy"]
+          correctIndex: 0
+          explanation: "University of Minnesota Extension identifies colour change, berry softening and sugar accumulation at veraison."
+          sourceCitationId: src_wset_found_umn_ripeness
+        ki_wset_found_unripe:
+          prompt: "Compared with a suitable harvest target, what may result from picking fruit too early?"
+          options: ["Higher sugar and lower acidity than the intended harvest target", "Less sugar and relatively more acidity", "Earlier harvest lowers both berry sugar and titratable acidity", "Earlier harvest changes colour but leaves juice balance unchanged"]
+          correctIndex: 1
+          explanation: "University of Minnesota Extension warns that early-picked fruit can have insufficient sugar and elevated acidity."
+          sourceCitationId: src_wset_found_umn_ripeness
+        ki_wset_found_ripe_style:
+          prompt: "Why can the target Brix level differ between two intended wine styles?"
+          options: ["Brix measures tannin extraction, which differs by intended style", "A common legal Brix target applies to unrelated varieties and styles", "Variety and planned wine style affect the desired sugar balance", "Brix becomes measurable after fermentation rather than at harvest"]
+          correctIndex: 2
+          explanation: "University of Minnesota Extension says Brix targets vary with cultivar and the intended wine style or method."
+          sourceCitationId: src_wset_found_umn_ripeness
+        ki_wset_found_sample_representative:
+          prompt: "What sampling choice best avoids a misleading vineyard-ripeness result?"
+          options: ["Choose exposed clusters from several vineyard rows for the sample", "Take berries from one central cluster on the first vine", "Use damaged block-edge berries to estimate central-vine ripeness", "Take berries across several clusters and canopy positions"]
+          correctIndex: 3
+          explanation: "University of Minnesota Extension warns that only sampling exposed clusters can overstate crop maturity."
+          sourceCitationId: src_wset_found_umn_ripeness
+        ki_wset_found_crop_load:
+          prompt: "What can overcropping reduce in a grapevine before the following growing season?"
+          options: ["Carbohydrate reserves", "The requirement for photosynthetic leaf activity", "The number of calendar days in veraison", "The need for a functioning root system"]
+          correctIndex: 0
+          explanation: "NMSU links overcropping with reduced carbohydrate reserves available to support next spring's growth."
+          sourceCitationId: src_wset_found_nmsu_phenology
+        ki_wset_structure_merlot_vineyard:
+          prompt: "Which ripening contrast between Merlot and Cabernet Sauvignon is useful in Bordeaux?"
+          options: ["Merlot generally ripens later than Cabernet Sauvignon in Bordeaux", "Merlot generally ripens earlier than Cabernet Sauvignon in Bordeaux", "Both follow the same schedule because their berry colour is similar", "Neither variety can complete ripening in a Bordeaux vintage"]
+          correctIndex: 1
+          explanation: "The Bordeaux wine body describes Merlot as an earlier-ripening variety than Cabernet Sauvignon, though seasons and sites vary."
+          sourceCitationId: src_reg_fr_merlot
+        ki_fault_glass_protection:
+          prompt: "For a light-sensitive white wine on a bright retail shelf, which bottle choice generally gives more light protection?"
+          options: ["A clear flint bottle with decorative green neck foil", "An untinted glass bottle with the same wall thickness", "Suitable dark green glass that blocks more damaging light", "A clear flint bottle with a darker paper back label"]
+          correctIndex: 2
+          explanation: "AWRI measurements found much greater transmission at damaging wavelengths through flint glass than through suitable green glass; composition and thickness also matter."
+          sourceCitationId: src_srv_awri_light
+        ki_win_mlf_conversion:
+          prompt: "During malolactic fermentation, what converts the wine's malic acid?"
+          options: ["Bottling pressure converts it directly to sugar", "Oak toasting turns it into ethanol", "Yeast alone converts it to carbon dioxide", "Lactic acid bacteria convert it to lactic acid"]
+          correctIndex: 3
+          explanation: "AWRI identifies bacterial conversion of L-malic to L-lactic acid as the defining MLF reaction."
+          sourceCitationId: src_win_mlf_style
+        ki_win_mlf_butter:
+          prompt: "Which compound can contribute a buttery note during malolactic fermentation?"
+          options: ["Diacetyl", "Vanillin", "Anthocyanin", "Methoxypyrazine"]
+          correctIndex: 0
+          explanation: "AWRI links diacetyl from bacterial citric-acid metabolism to buttery aroma, depending on concentration and wine matrix."
+          sourceCitationId: src_win_mlf_style
+        ki_win_oak_flavours:
+          prompt: "Which aroma set can oak contact contribute to wine?"
+          options: ["Cut grass, gooseberry and fresh asparagus", "Vanilla, coconut, spice or toast", "Wet stone, sea salt and lime zest", "Rose petals, lychee and orange blossom"]
+          correctIndex: 1
+          explanation: "Penn State identifies coconut, vanilla, spice, caramel and smoke among aromas associated with oak ageing."
+          sourceCitationId: src_win_oak_flavour
+        ki_win_oak_variables:
+          prompt: "Why does an oak barrel's country of origin alone fail to predict its full effect on wine?"
+          options: ["Grape variety rather than toast or barrel age controls oak extraction", "Barrel country dominates while species, size and age contribute little", "Species, toast, barrel size, age and cooperage as well as origin", "Transport distance predicts extraction better than toast and barrel age"]
+          correctIndex: 2
+          explanation: "Iowa State Extension lists oak species, toast, barrel age and size, and cooperage alongside origin as important variables."
+          sourceCitationId: src_win_oak
+        ki_win_oak_reuse:
+          prompt: According to Iowa State, how does repeated barrel use affect the American-versus-European oak distinction in wine?
+          options:
+          - The origin distinction becomes more pronounced
+          - The origin distinction remains exactly unchanged
+          - The origin distinction reverses in a fixed pattern
+          - The origin distinction becomes less pronounced
+          correctIndex: 3
+          explanation: Iowa State Extension says differences between wine aged in American and European oak become less distinct as barrels are reused.
+          sourceCitationId: src_win_oak
+        ki_win_lees_release:
+          prompt: "How can managed contact with yeast lees affect wine texture?"
+          options: ["Yeast-derived compounds, including polysaccharides, can round texture", "Lees contact removes much of the wine's acid and thins texture", "Lees force another alcoholic fermentation without fermentable sugar", "Lees add red pigment to any white wine during ageing"]
+          correctIndex: 0
+          explanation: "AWRI reports release of yeast-derived compounds and improved texture or flavour integration during managed lees ageing."
+          sourceCitationId: src_win_lees
+        ki_spark_traditional:
+          prompt: For Champagne, where does the bubble-producing second fermentation occur?
+          options: ["In a tank before transfer to the sale bottle", "In the same bottle in which Champagne is sold", "In a barrel before transfer to the sale bottle", "In the sale bottle after disgorgement during dosage addition"]
+          correctIndex: 1
+          explanation: Comité Champagne explains that Champagne's second fermentation takes place in the bottle that is later sold to the consumer.
+          sourceCitationId: src_spark_tirage
+        ki_spark_tirage:
+          prompt: "What does liqueur de tirage supply before the second fermentation?"
+          options: ["Wine with sugar and fining agent, omitting active yeast", "Wine with yeast and fining clay, omitting fermentable sugar", "Still wine mixed with sugar and yeast before bottling", "Wine with dosage syrup added after lees disgorgement"]
+          correctIndex: 2
+          explanation: "Comité Champagne describes tirage as adding still wine, sugar and yeast before the bottle's second fermentation."
+          sourceCitationId: src_spark_tirage
+        ki_spark_tank:
+          prompt: "Where does the conventional tank method retain carbon dioxide from its second fermentation?"
+          options: ["In an open fermenting vat", "In a sealed sale bottle", "In a sealed oak maturation cask", "In a sealed pressure tank"]
+          correctIndex: 3
+          explanation: "Wine Australia describes sugar and yeast added to wine in a sealed tank to trap second-fermentation carbon dioxide."
+          sourceCitationId: src_spark_australian_methods
+        ki_spark_autolysis:
+          prompt: "What is yeast autolysis during sparkling-wine maturation on lees?"
+          options: ["Spent yeast cells break down and release compounds into wine", "Fresh yeast cells convert added sugar into carbon dioxide", "Sediment moves toward the neck while bottles rotate", "Collected sediment is ejected under bottle pressure"]
+          correctIndex: 0
+          explanation: "Comité Champagne describes yeast death and decomposition after second fermentation, with released molecules contributing to maturation."
+          sourceCitationId: src_spark_maturation
+        ki_spark_riddling:
+          prompt: "What is the purpose of riddling a traditional-method sparkling bottle?"
+          options: ["To add final sweetening liqueur after lees removal", "To gather yeast sediment in the neck before disgorgement", "To start second fermentation after tirage is added", "To release the frozen lees plug using bottle pressure"]
+          correctIndex: 1
+          explanation: "Comité Champagne describes rotating and tilting bottles so their lees collect in the neck before disgorgement."
+          sourceCitationId: src_spark_riddling
+        ki_spark_disgorgement:
+          prompt: "What does disgorgement remove from a prepared sparkling bottle?"
+          options: ["The dissolved carbon dioxide from bottle fermentation", "The dosage liqueur before it enters the bottle", "The gathered lees sediment, often in a frozen neck plug", "The yeast and sugar before second fermentation begins"]
+          correctIndex: 2
+          explanation: "Comité Champagne describes freezing the neck and using bottle pressure to expel the lees plug."
+          sourceCitationId: src_spark_disgorgement
+        ki_spark_dosage:
+          prompt: "At what stage is Champagne dosage added?"
+          options: ["Before the first fermentation of grape juice begins", "Before yeast and sugar are sealed for bottle tirage", "As bottles are riddled to gather yeast sediment", "After disgorgement, before the bottle receives its final cork"]
+          correctIndex: 3
+          explanation: "Comité Champagne describes dosage as the final wine-and-sugar addition after sediment removal and before corking."
+          sourceCitationId: src_spark_dosage
+        ki_wset_prod_deacidification:
+          prompt: "Which cellar action can lower a wine's acidity by neutralising some of its acids?"
+          options: ["A permitted carbonate treatment that neutralises some wine acids", "A tartaric acid addition that raises the wine's total acidity", "A malolactic inoculation that raises malic acid in finished wine", "An oak treatment that increases titratable acidity by extraction"]
+          correctIndex: 0
+          explanation: "AWRI describes chemical deacidification with permitted carbonate agents and recommends trials to measure the actual pH and acidity response."
+          sourceCitationId: src_wset_prod_deacid
+        ki_wset_prod_destem_crush:
+          prompt: "What does destemming remove before certain winemaking routes?"
+          options: ["Berry skins from the crushed must", "Bunch stems from the picked grapes", "Grape seeds from the crushed must", "Free-run juice from the grape skins"]
+          correctIndex: 1
+          explanation: "The German Wine Institute defines destemming as separating grapes from their stems before pressing in some routes."
+          sourceCitationId: src_wset_prod_dwi_cellar
+        ki_wset_prod_enrichment:
+          prompt: "What is the purpose of adding permitted fermentable sugar to must before fermentation?"
+          options: ["To increase oak aromas during wood ageing after fermentation", "To lower titratable acidity by neutralising tartaric acid", "To raise potential alcohol as yeast ferments the added sugar", "To retain residual sweetness by adding sugar after fermentation"]
+          correctIndex: 2
+          explanation: "UK government wine-production guidance describes enrichment as adding sugar to must to increase eventual alcohol rather than simply sweeten the finished wine."
+          sourceCitationId: src_wset_prod_enrichment
+        ki_wset_sf_prosecco_style:
+          prompt: "In the conventional Conegliano Valdobbiadene Prosecco Superiore route, where are the bubbles formed?"
+          options: ["By a third fermentation inside the sale bottle", "By gas injection into the finished base wine", "In the press before the base wine exists", "By a second fermentation in large pressurised tanks"]
+          correctIndex: 3
+          explanation: "The Conegliano Valdobbiadene consortium describes base-wine re-fermentation with sugar and yeast in pressurised autoclaves."
+          sourceCitationId: src_wset_sf_prosecco_academy
+        ki_fault_oxidative_style:
+          prompt: How does Iowa State distinguish oxidative character between these white wine styles?
+          options:
+          - Desirable in Vin Jaune; usually unwanted in fresh white table wine
+          - Unwanted in Vin Jaune; usually desirable in fresh white table wine
+          - Desirable in both Vin Jaune and most fresh white table wine
+          - Unwanted in both Vin Jaune and fresh white table wine
+          correctIndex: 0
+          explanation: Iowa State Extension names Vin Jaune as a style where oxidative character can be desirable while treating oxidation in ordinary fresh white table wine as unwanted.
+          sourceCitationId: src_fault_oxidation_white
+        ki_fault_h2s_descriptor:
+          prompt: "Which odour is a common sensory clue to hydrogen sulfide in wine?"
+          options: ["Freshly cut grass aroma", "Rotten egg odour", "New oak vanilla aroma", "Ripe strawberry fruit aroma"]
+          correctIndex: 1
+          explanation: "AWRI identifies hydrogen sulfide with a rotten-egg odour while noting that interpretation depends on concentration and other wine compounds."
+          sourceCitationId: src_fault_sulfur
+        ki_wset_close_red_ageing_colour:
+          prompt: "Which colour shift can occur as a red wine develops?"
+          options: ["Ruby can become more purple and intensely blue with age", "Ruby moves toward bright blue before developing garnet", "Purple or ruby can shift toward garnet and tawny tones", "Deep red must become green before browning at the rim"]
+          correctIndex: 2
+          explanation: "WSET's tasting guide places purple and ruby at the youthful end of the red colour scale and garnet or tawny toward more developed appearances."
+          sourceCitationId: src_wset_taste_concepts
+        ki_wset_close_white_ageing_colour:
+          prompt: A white wine can deepen from lemon toward gold. How should amber/brown be interpreted?
+          options: ["An amber tone confirms deliberate oxidation rather than age", "An amber tone confirms an old wine rather than oxidative style", "An exact calendar age can be read from the shade alone", "Age or deliberate oxidation may contribute; wine style matters"]
+          correctIndex: 3
+          explanation: WSET places lemon, gold, amber and brown on the white appearance scale, but very old or deliberately oxidative styles mean deeper colour needs context.
+          sourceCitationId: src_wset_taste_concepts
+        ki_wset_grape_gewurztraminer_profile:
+          prompt: "Which aroma and structure pairing is typical of Alsace Gewurztraminer?"
+          options: ["Rose and lychee aromas, full body and less prominent freshness", "Gooseberry and cut grass, light body and piercing acidity", "Blackcurrant and pepper, firm tannin and dark red colour", "Neutral fruit aroma, brisk acidity and a lean white palate"]
+          correctIndex: 0
+          explanation: "The Alsace wine body describes rose, lychee and spice aromas, full body, and freshness that is less prominent than in many other Alsace wines."
+          sourceCitationId: src_wset_grape_civa_gewurztraminer
+        ki_wset_grape_syrah_profile:
+          prompt: "Which regional expression does Wine Australia describe for Barossa Shiraz?"
+          options: ["Pale body with citrus and floral perfume", "Full body with blackberry, pepper and spice", "Light body with cherry and delicate floral notes", "Sweet body with dried fruit and fortified warmth"]
+          correctIndex: 1
+          explanation: "Wine Australia describes Barossa Shiraz as full-bodied and richly textured with blackberry, pepper and spice."
+          sourceCitationId: src_wset_grape_wa_shiraz
+        ki_wset_grape_syrah_variation:
+          prompt: Which Australian Shiraz production range does Wine Australia describe?
+          options: ["Early styles need new oak while GSM blends play a minor role", "Early styles can avoid oak; blending must exclude Grenache", "Early styles can avoid oak; some wines use oak or GSM blends", "Early styles require oak; mature styles require tank fermentation"]
+          correctIndex: 2
+          explanation: Wine Australia describes some fresh early-drinking Shiraz without oak, oak maturation in other styles, and the established Grenache–Shiraz–Mourvèdre blend.
+          sourceCitationId: src_wset_grape_wa_shiraz

@@ -37,6 +37,10 @@ class FormatView {
 final formatViewsProvider = Provider<Map<String, FormatView>>(
   (ref) => {
     'mcq': FormatView(icon: Icons.list, builder: McqView.new),
+    'authored_choice': FormatView(
+      icon: Icons.fact_check_outlined,
+      builder: McqView.new,
+    ),
     'flashcard': FormatView(
       icon: Icons.style_outlined,
       builder: FlashcardView.new,

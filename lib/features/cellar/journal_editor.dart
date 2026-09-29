@@ -14,6 +14,7 @@ import '../../core/time/time_providers.dart';
 import '../../core/time/utc_clock.dart';
 import 'journal_photo_strip.dart';
 import 'journal_scan_section.dart';
+import 'journal_scan_recovery_provider.dart';
 
 /// The names the journal can link to, once the curriculum is installed.
 final _matcherProvider = FutureProvider<JournalMatcher>((ref) async {
@@ -62,8 +63,10 @@ class _JournalEditorState extends ConsumerState<JournalEditor> {
 
   bool _loaded = false;
   bool _saving = false;
+  bool _scannerBusy = false;
   List<String> _problems = const [];
   final _pendingPhotos = <PhotoKind, Uint8List>{};
+  final _selectedRecovered = <PhotoKind, String>{};
   final _removedPhotos = <PhotoKind>{};
 
   bool get _isNew => widget.id == null;
@@ -189,7 +192,7 @@ class _JournalEditorState extends ConsumerState<JournalEditor> {
   }
 
   Future<void> _save() async {
-    if (_saving) return;
+    if (_saving || _scannerBusy) return;
     final draft = _draft();
     final problems = [..._typingProblems(), ...draft.problems];
     if (problems.isNotEmpty) {
@@ -204,6 +207,13 @@ class _JournalEditorState extends ConsumerState<JournalEditor> {
       }
       if (!mounted) return;
       final journal = ref.read(wineJournalProvider);
+      final recovery = ref.read(journalScanRecoveryProvider);
+      final photos = Map<PhotoKind, Uint8List>.of(_pendingPhotos);
+      final removed = Set<PhotoKind>.of(_removedPhotos);
+      final recoveredIds = _selectedRecovered.entries
+          .where((selection) => photos.containsKey(selection.key))
+          .map((selection) => selection.value)
+          .toSet();
       // Only the links on show: those the text suggests, and those kept.
       final shown = {
         ...?ref
@@ -218,9 +228,17 @@ class _JournalEditorState extends ConsumerState<JournalEditor> {
         draft,
         id: widget.id,
         nodeIds: links,
-        photos: _pendingPhotos,
-        removedKinds: _removedPhotos,
+        photos: photos,
+        removedKinds: removed,
       );
+      for (final id in recoveredIds) {
+        try {
+          await recovery.discard(id);
+        } catch (_) {
+          // The journal save already committed. Preserve a recovered copy
+          // rather than report a false save failure or delete another file.
+        }
+      }
       if (mounted) context.go('/cellar/${entry.id}');
     } on JournalDraftException catch (error) {
       if (mounted) {
@@ -302,7 +320,7 @@ class _JournalEditorState extends ConsumerState<JournalEditor> {
         title: Text(_isNew ? 'Log a wine' : 'Edit entry'),
         actions: [
           TextButton(
-            onPressed: _saving || !_loaded ? null : _save,
+            onPressed: _saving || _scannerBusy || !_loaded ? null : _save,
             child: const Text('Save'),
           ),
         ],
@@ -423,9 +441,20 @@ class _JournalEditorState extends ConsumerState<JournalEditor> {
       field(_notes, 'Tasting notes', maxLines: 4),
       const Divider(height: 24),
       JournalScanSection(
+        recovery: ref.read(journalScanRecoveryProvider),
+        recoveryReady: ref.read(appStartupProvider.future).then((_) {}),
+        onBusyChanged: (busy) {
+          if (mounted) setState(() => _scannerBusy = busy);
+        },
         onPicked: (kind, bytes) => setState(() {
           _pendingPhotos[kind] = bytes;
           _removedPhotos.remove(kind);
+          _selectedRecovered.remove(kind);
+        }),
+        onRecoveredPicked: (kind, bytes, id) => setState(() {
+          _pendingPhotos[kind] = bytes;
+          _removedPhotos.remove(kind);
+          _selectedRecovered[kind] = id;
         }),
         onVintage: (year) => setState(() {
           _isNonVintage = false;
@@ -463,8 +492,10 @@ class _JournalEditorState extends ConsumerState<JournalEditor> {
                         ),
                         IconButton(
                           tooltip: 'Discard new ${kind.name} photo',
-                          onPressed: () =>
-                              setState(() => _pendingPhotos.remove(kind)),
+                          onPressed: () => setState(() {
+                            _pendingPhotos.remove(kind);
+                            _selectedRecovered.remove(kind);
+                          }),
                           icon: const Icon(Icons.close),
                         ),
                       ],
@@ -531,7 +562,7 @@ class _JournalEditorState extends ConsumerState<JournalEditor> {
       ),
       const SizedBox(height: 24),
       FilledButton(
-        onPressed: _saving ? null : _save,
+        onPressed: _saving || _scannerBusy ? null : _save,
         child: Text(_isNew ? 'Save to journal' : 'Save changes'),
       ),
     ],

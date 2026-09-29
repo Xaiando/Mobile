@@ -18,7 +18,6 @@ question_templates:
         - n_somm_case_so2
         - n_somm_case_fish
         - n_somm_case_drunk
-        - n_somm_case_pair
         - n_somm_case_cider
         - n_somm_case_count
         - n_somm_case_plates
@@ -30,6 +29,24 @@ question_templates:
         CASE_REASON: Cited category or sensory reason
         CASE_TRADEOFF: Tradeoff or alternative
         CASE_LIMITATION: Limit of the source or decision
+  - id: qt_somm_practice_pair_response
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: somm_practice_pair_response
+    prompt_template: "A guest dislikes a red wine with fish. What would you do for the guest, and why is there no single compulsory replacement?"
+    parameters:
+      scope_node_ids: [n_somm_case_pair]
+      key_points: {CASE_ACTION: Guest response, CASE_TRADEOFF: Choice of replacement}
+  - id: qt_somm_practice_pair_mechanism
+    relation_type: CASE_REASON
+    direction: forward
+    mode: short_answer
+    variant: somm_practice_pair_mechanism
+    prompt_template: "A guest says the red wine tasted bitter with fish. Explain the review's account of astringency and what it cannot prove about this guest's experience."
+    parameters:
+      scope_node_ids: [n_somm_case_pair]
+      key_points: {CASE_REASON: Provisional astringency account, CASE_LIMITATION: Sensory and source limits}
   - id: qt_somm_practice_clean_glass
     relation_type: CASE_ACTION
     direction: forward

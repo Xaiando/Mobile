@@ -1,11 +1,11 @@
-import 'dart:async';
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../../core/journal/journal_photo_store.dart';
 import '../../core/journal/label_proposal.dart';
+import '../../core/journal/journal_scan_recovery.dart';
+import '../../core/journal/recovered_scan_storage.dart';
 import 'label_ocr.dart';
 import 'picker_temp_cleanup.dart';
 
@@ -18,6 +18,10 @@ class JournalScanSection extends StatefulWidget {
     required this.onVintage,
     required this.onNonVintage,
     required this.onAbv,
+    this.onRecoveredPicked,
+    this.recovery,
+    this.recoveryReady,
+    this.onBusyChanged,
     this.picker,
     this.recognizeText,
   });
@@ -26,6 +30,12 @@ class JournalScanSection extends StatefulWidget {
   final void Function(int) onVintage;
   final VoidCallback onNonVintage;
   final void Function(double) onAbv;
+  final void Function(PhotoKind, Uint8List, String)? onRecoveredPicked;
+  final JournalScanRecovery? recovery;
+
+  /// Startup may still be moving a lost picker image into durable staging.
+  final Future<void>? recoveryReady;
+  final ValueChanged<bool>? onBusyChanged;
   final ImagePicker? picker;
   final Future<String> Function(String path)? recognizeText;
 
@@ -36,12 +46,13 @@ class JournalScanSection extends StatefulWidget {
 class _JournalScanSectionState extends State<JournalScanSection>
     with AutomaticKeepAliveClientMixin<JournalScanSection> {
   late final ImagePicker _picker;
+  late final JournalScanRecovery _recovery;
   final _raw = TextEditingController();
   bool _rawFromOcr = false;
   int _manualEditRevision = 0;
   bool _busy = false;
   String? _message;
-  XFile? _recovered;
+  List<RecoveredScanFile> _recovered = const [];
 
   @override
   bool get wantKeepAlive => true;
@@ -55,80 +66,94 @@ class _JournalScanSectionState extends State<JournalScanSection>
   void initState() {
     super.initState();
     _picker = widget.picker ?? ImagePicker();
+    _recovery = widget.recovery ?? JournalScanRecovery(androidRuntime: false);
     if (!kIsWeb && defaultTargetPlatform == TargetPlatform.android) {
-      _recoverInterruptedPick();
+      _loadRecovered();
     }
   }
 
-  Future<void> _recoverInterruptedPick() async {
+  Future<void> _loadRecovered() async {
     try {
-      final result = await _picker.retrieveLostData();
-      final files = result.files ?? const <XFile>[];
-      if (!mounted) {
-        for (final file in files) {
-          unawaited(_discardPickerFile(file));
-        }
-        return;
-      }
-      if (files.isNotEmpty) {
-        setState(() {
-          _recovered = files.first;
+      await widget.recoveryReady;
+      final files = await _recovery.pending();
+      if (!mounted) return;
+      setState(() {
+        _recovered = files;
+        if (files.isNotEmpty) {
           _message =
-              'A photo selection was interrupted. Choose where to use '
-              'the recovered photo, or dismiss it.';
-        });
-        for (final file in files.skip(1)) {
-          unawaited(_discardPickerFile(file));
+              'A photo selection was interrupted. Choose where to '
+              'use each recovered photo, or dismiss it. '
+              '${_recovery.warning ?? ''}';
+        } else if (_recovery.warning != null) {
+          _message = _recovery.warning;
         }
-      }
+      });
     } catch (_) {
-      // Recovery is optional; the normal picker remains available.
+      if (mounted) {
+        setState(
+          () => _message =
+              'Recovered photos could not be read. '
+              'The saved copies have not been removed.',
+        );
+      }
     }
   }
 
   @override
   void dispose() {
-    if (_recovered case final file?) {
-      unawaited(_discardPickerFile(file));
-    }
     _raw.dispose();
     super.dispose();
   }
 
-  Future<void> _discardPickerFile(XFile file) async {
-    if (_mobileOcr) await removePickedTemporaryPhoto(file.path);
+  void _setBusy(bool value) {
+    if (!mounted) return;
+    setState(() => _busy = value);
+    widget.onBusyChanged?.call(value);
   }
 
-  void _dismissRecovered() {
-    final file = _recovered;
-    setState(() => _recovered = null);
-    if (file != null) unawaited(_discardPickerFile(file));
+  Future<void> _dismissRecovered(RecoveredScanFile file) async {
+    if (_busy) return;
+    _setBusy(true);
+    try {
+      await _recovery.discard(file.id);
+      if (mounted) {
+        setState(() {
+          _recovered = _recovered.where((item) => item.id != file.id).toList();
+        });
+      }
+    } catch (_) {
+      if (mounted) {
+        setState(
+          () => _message =
+              'The recovered photo could not be '
+              'dismissed. Its saved copy remains available.',
+        );
+      }
+    } finally {
+      _setBusy(false);
+    }
   }
 
   Future<void> _pick(PhotoKind kind, ImageSource source) async {
     if (_busy) return;
-    setState(() {
-      _busy = true;
-      _message = null;
-    });
+    _setBusy(true);
+    setState(() => _message = null);
     try {
       if (!_picker.supportsImageSource(source)) {
         throw const PhotoStoreException(
           'Camera capture is unavailable on this device. Choose a photo.',
         );
       }
-      // Android's gallery picker copies into app cache. Its optional resize
-      // creates a second EXIF-bearing cache file while returning only one
-      // path, so let the bounded journal sanitizer do the resizing instead.
-      final androidGallery =
-          !kIsWeb &&
-          defaultTargetPlatform == TargetPlatform.android &&
-          source == ImageSource.gallery;
+      // Android's picker can leave the original cache photo behind when it
+      // returns a resized copy after an interrupted camera or gallery pick.
+      // Let the bounded journal sanitizer resize either source instead.
+      final androidPicker =
+          !kIsWeb && defaultTargetPlatform == TargetPlatform.android;
       final file = await _picker.pickImage(
         source: source,
-        maxWidth: androidGallery ? null : 3000,
-        maxHeight: androidGallery ? null : 3000,
-        imageQuality: androidGallery ? 100 : 90,
+        maxWidth: androidPicker ? null : 3000,
+        maxHeight: androidPicker ? null : 3000,
+        imageQuality: androidPicker ? 100 : 90,
       );
       if (file != null) await _acceptFile(kind, file);
     } on PhotoStoreException catch (error) {
@@ -144,7 +169,7 @@ class _JournalScanSectionState extends State<JournalScanSection>
         );
       }
     } finally {
-      if (mounted) setState(() => _busy = false);
+      _setBusy(false);
     }
   }
 
@@ -153,14 +178,27 @@ class _JournalScanSectionState extends State<JournalScanSection>
       : _readPickedPhoto(kind, file);
 
   Future<void> _readPickedPhoto(PhotoKind kind, XFile file) async {
-    // Android gallery images are now read at source resolution. Reject a
-    // large picker copy before allocating its full contents in Dart.
+    // Android picker images are read at source resolution. Reject a large
+    // picker copy before allocating its full contents in Dart.
     if (await file.length() > JournalPhotoStore.maxImportBytes) {
       throw const PhotoStoreException('Choose a photo smaller than 24 MB.');
     }
     final sanitized = JournalPhotoStore.sanitize(await file.readAsBytes());
+    await _applySanitizedPhoto(kind, sanitized, file.path);
+  }
+
+  Future<void> _applySanitizedPhoto(
+    PhotoKind kind,
+    Uint8List sanitized,
+    String ocrPath, {
+    String? recoveredId,
+  }) async {
     if (!mounted) return;
-    widget.onPicked(kind, sanitized);
+    if (recoveredId == null || widget.onRecoveredPicked == null) {
+      widget.onPicked(kind, sanitized);
+    } else {
+      widget.onRecoveredPicked!(kind, sanitized, recoveredId);
+    }
     if (!mounted) return;
     if (kind != PhotoKind.label) return;
     // The new photo has been accepted. An untouched transcript from the old
@@ -173,7 +211,7 @@ class _JournalScanSectionState extends State<JournalScanSection>
     final editRevision = _manualEditRevision;
     try {
       final recognized = await (widget.recognizeText ?? recognizeLabelText)(
-        file.path,
+        ocrPath,
       );
       if (!mounted) return;
       setState(() {
@@ -201,28 +239,31 @@ class _JournalScanSectionState extends State<JournalScanSection>
     }
   }
 
-  Future<void> _useRecovered(PhotoKind kind) async {
-    final file = _recovered;
-    if (file == null || _busy) return;
-    // Processing owns this temporary file now and deletes it in its finally
-    // block, even if decoding or OCR fails. Do not offer a stale retry path.
-    setState(() {
-      _busy = true;
-      _recovered = null;
-    });
+  Future<void> _useRecovered(PhotoKind kind, RecoveredScanFile file) async {
+    if (_busy) return;
+    _setBusy(true);
     try {
-      await _acceptFile(kind, file);
+      final bytes = await _recovery.read(file.id);
+      await _applySanitizedPhoto(kind, bytes, file.path, recoveredId: file.id);
+      if (mounted && kind == PhotoKind.glass) {
+        setState(
+          () => _message =
+              'Photo added to this unsaved entry. '
+              'Its recovered copy remains available until you save or dismiss it.',
+        );
+      }
     } on PhotoStoreException catch (error) {
       if (mounted) setState(() => _message = error.message);
     } catch (_) {
       if (mounted) {
         setState(
           () => _message =
-              'The recovered photo could not be used. Choose another photo.',
+              'The recovered photo could not be used. Its saved copy remains '
+              'available.',
         );
       }
     } finally {
-      if (mounted) setState(() => _busy = false);
+      _setBusy(false);
     }
   }
 
@@ -237,11 +278,13 @@ class _JournalScanSectionState extends State<JournalScanSection>
         Text('Cellar photos and label scan', style: theme.textTheme.titleSmall),
         const SizedBox(height: 4),
         Text(
-          'Photos stay on this device and are included in an unencrypted '
-          'backup if you export one. A scan only '
+          'Photos are saved in private app storage and included in an '
+          'unencrypted file if you export one. Your phone’s system backup '
+          'may also include saved app data. A scan only '
           'suggests a vintage or alcohol level; enter and verify the wine '
-          'name yourself. Large JPEG or PNG photos are reduced before saving; '
-          'the original is not kept.',
+          'name yourself. Large JPEG or PNG photos are reduced before saving. '
+          'App-owned picker copies are removed after use when device cleanup '
+          'succeeds.',
           style: theme.textTheme.bodySmall,
         ),
         const SizedBox(height: 8),
@@ -282,26 +325,38 @@ class _JournalScanSectionState extends State<JournalScanSection>
           ],
         ),
         if (_busy) const LinearProgressIndicator(),
-        if (_recovered != null) ...[
+        if (_recovered.isNotEmpty) ...[
           const SizedBox(height: 8),
-          const Text('Recovered photo'),
-          Wrap(
-            spacing: 8,
-            children: [
-              TextButton(
-                onPressed: _busy ? null : () => _useRecovered(PhotoKind.label),
-                child: const Text('Use as label'),
-              ),
-              TextButton(
-                onPressed: _busy ? null : () => _useRecovered(PhotoKind.glass),
-                child: const Text('Use as glass'),
-              ),
-              TextButton(
-                onPressed: _busy ? null : _dismissRecovered,
-                child: const Text('Dismiss'),
-              ),
-            ],
+          const Text(
+            'Recovered photos remain on this device until you use or '
+            'dismiss them. Save the wine entry to include a used photo in '
+            'your backup. Dismiss deletes the recovered copy; unsaved entry '
+            'edits can be lost if the app closes.',
           ),
+          for (final file in _recovered) ...[
+            const Text('Recovered photo'),
+            Wrap(
+              spacing: 8,
+              children: [
+                TextButton(
+                  onPressed: _busy
+                      ? null
+                      : () => _useRecovered(PhotoKind.label, file),
+                  child: const Text('Use as label'),
+                ),
+                TextButton(
+                  onPressed: _busy
+                      ? null
+                      : () => _useRecovered(PhotoKind.glass, file),
+                  child: const Text('Use as glass'),
+                ),
+                TextButton(
+                  onPressed: _busy ? null : () => _dismissRecovered(file),
+                  child: const Text('Dismiss'),
+                ),
+              ],
+            ),
+          ],
         ],
         if (_message != null)
           Padding(
