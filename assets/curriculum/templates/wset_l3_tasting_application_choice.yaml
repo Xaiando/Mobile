@@ -1,0 +1,255 @@
+question_templates:
+- id: qt_wset_l3_tasting_application_23
+  relation_type: PRINCIPLE_EXPLANATION
+  direction: forward
+  mode: authored_choice
+  variant: wset_l3_tasting_application_23
+  prompt_template: '{subject.name}'
+  parameters:
+    item_choices:
+      ki_wset_taste_appearance_clarity:
+        prompt: One white sample is clear but deep gold; another is hazy but pale lemon. Which note keeps the observations
+          distinct?
+        options:
+        - 'First: clear and deep; second: hazy and pale'
+        - Both are clear because their colours are visible
+        - The first is hazy because its colour is deep
+        - The second is clear because its colour is pale
+        correctIndex: 0
+        explanation: Clarity and colour intensity are separate appearance observations.
+        sourceCitationId: src_wset_taste_intro
+      ki_wset_taste_appearance_limits:
+        prompt: A blind wine looks deep garnet. What can the appearance alone justify?
+        options:
+        - Identify the grape variety from depth and hue
+        - Describe the colour; reserve grape and quality conclusions
+        - Conclude that the wine is high quality because the colour is deep
+        - Assign an exact bottle age from the rim colour
+        correctIndex: 1
+        explanation: Colour provides descriptive evidence, not a unique grape, age or quality verdict.
+        sourceCitationId: src_wset_taste_awri
+      ki_wset_taste_nose_condition:
+        prompt: A single tasting glass has an unexpected musty note. What is the sound next step?
+        options:
+        - Treat mustiness as a required tertiary aroma of old wine
+        - Name cork taint from that one smell without a comparison
+        - Retaste a fresh sample with the wine's style in mind
+        - Ignore the note because appearance is clear
+        correctIndex: 2
+        explanation: An unusual aroma needs assessment in context, including a fresh sample.
+        sourceCitationId: src_fault_faults_overview
+      ki_wset_taste_nose_intensity:
+        prompt: A wine smells strongly of lemon but offers few other aromas. Which note separates strength from
+          identity?
+        options:
+        - Long finish because the nose is pronounced
+        - High aroma complexity because lemon is pronounced
+        - High acidity because lemon is the aroma
+        - Pronounced intensity, with lemon as the aroma
+        correctIndex: 3
+        explanation: Aroma intensity states strength; the descriptor names the smell.
+        sourceCitationId: src_wset_taste_concepts
+      ki_wset_taste_aroma_primary:
+        prompt: A young wine shows fresh apple and floral aromas without obvious oak or bottle development. Which
+          origin is the best initial category?
+        options:
+        - Primary fruit and floral character in the wine
+        - Tertiary character caused by bottle maturation
+        - Secondary oak character proved by the fruit note
+        - A fault because fruit and flowers cannot coexist
+        correctIndex: 0
+        explanation: Fruit and floral notes commonly fit primary character; context still matters.
+        sourceCitationId: src_wset_taste_concepts
+      ki_wset_taste_aroma_secondary:
+        prompt: After extended lees contact, a white wine gains a bread-like note. Which developmental category
+          best fits that production effect?
+        options:
+        - Primary aroma that proves the grape itself smells of bread
+        - Secondary aroma related to post-fermentation handling
+        - Tertiary aroma that proves decades of bottle ageing
+        - A colour observation rather than an aroma
+        correctIndex: 1
+        explanation: Lees-related bread character is a post-fermentation, secondary influence.
+        sourceCitationId: src_wset_taste_concepts
+      ki_wset_taste_aroma_tertiary:
+        prompt: An older red has developed savoury notes but still shows some fresh fruit. How should the developed
+          notes be recorded?
+        options:
+        - As proof of new oak rather than bottle development
+        - As impossible because tertiary notes replace every fruit note
+        - As tertiary character that can coexist with primary fruit
+        - As a measure of alcohol rather than aroma
+        correctIndex: 2
+        explanation: Development during maturation can add tertiary notes without eliminating all fresh fruit.
+        sourceCitationId: src_wset_taste_concepts
+      ki_wset_taste_palate_finish:
+        prompt: After spitting, alcohol warmth lingers but pleasant fruit flavour disappears quickly. Which finish
+          observation is defensible?
+        options:
+        - The wine's future ageing potential is proved by warmth
+        - The finish is long solely because warmth persists
+        - The finish is complex because alcohol feels warm
+        - Short flavour finish despite lingering alcohol warmth
+        correctIndex: 3
+        explanation: Pleasant flavour persistence supports finish length; heat alone does not.
+        sourceCitationId: src_wset_taste_concepts
+      ki_wset_taste_palate_texture:
+        prompt: Two reds seem equally tannic, but one feels powdery and the other silky. What should the notes distinguish?
+        options:
+        - Similar tannin amount but different tannin texture
+        - Different alcohol levels proven by the tactile contrast
+        - The same tannin texture because the amount matches
+        - Different residual sugar proven by the tactile contrast
+        correctIndex: 0
+        explanation: Tannin level and the grain of its astringency are separate observations.
+        sourceCitationId: src_wset_taste_mouthfeel
+      ki_wset_taste_palate_sparkle:
+        prompt: A light wine has a noticeable prickle on the tongue. Which description avoids confusing the two
+          sensations?
+        options:
+        - Full body because the prickle is strong
+        - Light body, with a separate CO2 prickle
+        - High tannin because the prickle is tactile
+        - High sweetness because bubbles can be seen
+        correctIndex: 1
+        explanation: Carbon dioxide can add prickle without determining perceived weight.
+        sourceCitationId: src_wset_taste_mouthfeel
+      ki_wset_taste_calibration_comparison:
+        prompt: Two tasters compare the same wine, one sample very cold and the other warmer. What improves the
+          comparison?
+        options:
+        - Choose the colder glass as the objective benchmark
+        - Attribute all differences to bottle quality without retasting
+        - Match sample conditions, then compare observations again
+        - Read labels first to settle which observation is correct
+        correctIndex: 2
+        explanation: Consistent conditions make observations more comparable.
+        sourceCitationId: src_srv_oiv_sensory
+      ki_wset_taste_calibration_discussion:
+        prompt: Your written acidity note differs from an experienced taster's note for the same sample. What is
+          the best learning response?
+        options:
+        - Abandon written notes because disagreement is inevitable
+        - Change the note without discussing what either taster sensed
+        - Assume the wine changed because two descriptions differ
+        - Compare observed evidence and tasting conditions together
+        correctIndex: 3
+        explanation: Discussion of the actual observations can reveal a calibration need.
+        sourceCitationId: src_wset_taste_awri
+      ki_wset_taste_quality_balance:
+        prompt: A high-acid wine has concentrated fruit and a long pleasant finish. What makes a balance claim useful?
+        options:
+        - Explain whether acidity and fruit are balanced here
+        - Call it balanced solely because its acidity is high
+        - Call it unbalanced solely because its acidity is high
+        - Use the price to decide whether acidity and fruit fit
+        correctIndex: 0
+        explanation: Quality reasoning should connect the wine's structural and flavour evidence.
+        sourceCitationId: src_wset_taste_concepts
+      ki_wset_taste_quality_length:
+        prompt: Two wines feel equally warm after swallowing, but only one retains pleasant fruit and savoury flavour.
+          Which observation supports quality?
+        options:
+        - Equal quality because alcohol warmth lasts equally long
+        - Pleasant fruit persists after tasting, beyond the warmth
+        - Higher quality in the warmer wine regardless of flavour
+        - A longer finish in the wine whose fruit disappears first
+        correctIndex: 1
+        explanation: Pleasant flavour length is useful supporting evidence; heat is not a substitute.
+        sourceCitationId: src_wset_taste_concepts
+      ki_wset_taste_quality_intensity:
+        prompt: A wine has a very loud nose and large body, but a harsh, short palate. What is the justified conclusion?
+        options:
+        - Large body guarantees balance and complexity
+        - Pronounced aroma guarantees high quality
+        - Intensity alone does not establish quality
+        - Short, harsh flavour proves high ageability
+        correctIndex: 2
+        explanation: Intensity needs to be weighed with balance, length and other evidence.
+        sourceCitationId: src_wset_taste_awri
+      ki_wset_taste_quality_complexity:
+        prompt: A wine offers distinct citrus, floral and savoury layers as it opens, with no oak note. What is
+          the sound complexity assessment?
+        options:
+        - It must be simple because citrus remains detectable
+        - It cannot be complex unless it smells of new oak
+        - It cannot be complex unless its label gives an old vintage
+        - Its distinct, changing layers support complexity
+        correctIndex: 3
+        explanation: Complexity can come from distinct layers; oak and age are not mandatory.
+        sourceCitationId: src_wset_taste_concepts
+      ki_wset_taste_quality_preference:
+        prompt: A taster dislikes a dry, oxidative style that is sound and balanced. How should the note handle
+          this?
+        options:
+        - Separate personal dislike from its evidence of quality
+        - Mark it faulty because the taster prefers fresh fruit
+        - Mark it outstanding because oxidative styles are traditional
+        - Omit balance observations because preference decides quality
+        correctIndex: 0
+        explanation: Preference and evidence-based quality are different judgments.
+        sourceCitationId: src_wset_taste_awri
+      ki_wset_taste_quality_fault_context:
+        prompt: An intentionally oxidative wine and a fresh-fruit white both show nutty notes. What is the best
+          first assessment?
+        options:
+        - Reject both wines because any oxidative note is a fault
+        - Judge the nutty note against each wine's intended style
+        - Accept both wines because all nutty notes are intentional
+        - Infer the same production history from the shared descriptor
+        correctIndex: 1
+        explanation: A descriptor's significance depends on the intended style and whole sample.
+        sourceCitationId: src_fault_faults_overview
+      ki_wset_taste_ageing_not_all:
+        prompt: A fresh, uncomplicated white is enjoyable now. A collector proposes keeping every bottle for a decade.
+          Which response fits?
+        options:
+        - The oldest available vintage must taste best
+        - All whites improve for ten years if unopened
+        - Age may not improve this bottle; assess its style
+        - Freshness proves a decade of beneficial development
+        correctIndex: 2
+        explanation: Many wines are released ready for early drinking.
+        sourceCitationId: src_wset_taste_ageing
+      ki_wset_taste_ageing_support:
+        prompt: Which evidence better supports discussing further development in a concentrated young wine?
+        options:
+        - A high serving temperature that makes aromas louder
+        - A prestigious name without assessing the wine
+        - Dark colour alone without structure or flavour
+        - Concentration with supporting acidity or tannin
+        correctIndex: 3
+        explanation: Concentration and supporting structure are relevant to ageing potential.
+        sourceCitationId: src_wset_taste_ageing
+      ki_wset_taste_ageing_evolution:
+        prompt: A mature red shows less fresh fruit, more developed character and gentler tannin. Which explanation
+          is most consistent?
+        options:
+        - Development can soften tannin and shift aromas
+        - Tannin must increase every year in bottle
+        - Developed aromas prove the fruit was absent when young
+        - Every reduction in fresh fruit proves a fault
+        correctIndex: 0
+        explanation: Maturation can change both aromatic emphasis and tannin feel.
+        sourceCitationId: src_wset_taste_ageing
+      ki_wset_taste_ageing_now_future:
+        prompt: A wine is balanced and enjoyable now but has concentration and structure. Which readiness statement
+          is useful?
+        options:
+        - Drink now, with no explanation of future potential
+        - Enjoy now, with structure that may support more ageing
+        - It is undrinkable until a precise future year
+        - It will definitely improve because all structured wines do
+        correctIndex: 1
+        explanation: A readiness note should address enjoyment now and supported future potential.
+        sourceCitationId: src_wset_taste_ageing
+      ki_wset_taste_ageing_uncertain:
+        prompt: A taster predicts that a bottle will peak exactly in 2039. Which limitation should be stated?
+        options:
+        - A tasting note can determine a precise peak year
+        - Every bottle of a wine ages identically
+        - Storage and bottle variation cloud a peak date
+        - A sound cork eliminates uncertainty in ageing
+        correctIndex: 2
+        explanation: A tasting note can assess potential but cannot guarantee an exact future date.
+        sourceCitationId: src_wset_taste_ageing

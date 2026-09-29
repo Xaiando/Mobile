@@ -8,46 +8,46 @@ question_templates:
     prompt_template: '{subject.name}'
     parameters:
       item_choices:
-        ki_reg_ib_ribera_elevation:
-          prompt: A Ribera del Duero grower compares a plateau block and a river-valley block after the same warm afternoon. What evidence is most useful?
+        ki_reg_sa_maule_trial_scope:
+          prompt: A 2015 Maule study compares old rainfed bush-vine Carignan in ten localities. Which limit belongs in a buyer's interpretation?
           options:
-            - The DO name alone, because elevation cannot change ripening
-            - Only the hottest hourly air reading
-            - Block-specific maturity, night temperatures and water status
-            - The proposed retail price, which proves grape maturity
-          correctIndex: 2
-          explanation: Elevation and continental conditions qualify the afternoon reading; sampled fruit and site records test the intended style.
-          sourceCitationId: src_reg_ib_ribera_altitude
-        ki_reg_ib_rias_canopy_context:
-          prompt: Why might a Rías Baixas Albariño grower favour a raised, ventilated canopy in a damp block?
-          options:
-            - It guarantees higher sugar in every vintage
-            - It removes the need to inspect fungal disease
-            - It legally converts Albariño to another variety
-            - It can reduce bunch exposure to damp ground and improve airflow
-          correctIndex: 3
-          explanation: The local pergola tradition responds to Atlantic dampness and ventilation; fruit health still needs observation.
-          sourceCitationId: src_reg_ib_rias_canopy
-        ki_reg_ib_sacra_terraces:
-          prompt: A buyer compares Ribeira Sacra Mencía with a coastal Galician white. What is the defensible regional distinction?
-          options:
-            - Ribeira Sacra's river terraces offer a different growing site context
-            - Both wines must have identical grape and climate profiles
-            - Mencía proves the red was machine harvested
-            - A terraced site guarantees a higher tasting score
+            - One season and selected vineyards do not establish a permanent ranking for other sites or varieties
+            - Ten localities prove that every Maule vineyard has identical water storage
+            - The study automatically describes irrigated vines in all later vintages
+            - A measured difference certifies one locality's wine as higher quality
           correctIndex: 0
-          explanation: Ribeira Sacra's river-valley terraces and Mencía association differ from coastal Galicia; site name alone does not grade wine quality.
-          sourceCitationId: src_reg_ib_sacra_sites
-        ki_reg_ib_rueda_ripening:
-          prompt: A Rueda Verdejo block shows warm days and cool nights. Which link is best supported?
+          explanation: The study sampled representative old rainfed bush-vine Carignan sites in 2015; its selection limits extrapolation across seasons, varieties and irrigation systems.
+          sourceCitationId: src_reg_sa_maule_research
+        ki_reg_sa_maule_carignan:
+          prompt: A Maule Carignan offer cites old, head-trained vines grown without irrigation. What do those facts establish?
           options:
-            - Diurnal contrast makes every wine sweet
-            - Elevation prevents aromatic development
-            - Site and picking date can shape the sugar-acid balance
-            - Soil alone fixes a wine's final alcohol
+            - Every old vine yields the same volume and superior wine
+            - They describe a rainfed growing system and vineyard resource, not a quality guarantee
+            - Carignan cannot grow in head-trained vineyards
+            - Vine age alone identifies the finished wine's price
+          correctIndex: 1
+          explanation: The regional evidence describes old, dry-farmed head-trained Carignan, while yield and quality still require wine and vineyard evidence.
+          sourceCitationId: src_reg_sa_vigno
+        ki_reg_oa_adelaide_m3_process:
+          prompt: A 2025 M3 Chardonnay record mentions final blending in stainless steel. Why does that not establish an unoaked wine?
+          options:
+            - Stainless blending retroactively removes all oak influence
+            - The vineyard name forbids malolactic fermentation
+            - The recorded alcoholic and malolactic fermentations used French oak before stainless assembly
+            - Every Adelaide Hills Chardonnay follows the same producer route
           correctIndex: 2
-          explanation: Rueda's elevated, stony setting and day-night contrast frame Verdejo ripening; sampled fruit determines the target.
-          sourceCitationId: src_reg_ib_rueda_verdejo
+          explanation: The producer separates whole-bunch pressing, French-oak fermentations and final stainless assembly; a later vessel does not erase earlier oak use.
+          sourceCitationId: src_reg_oa_m3
+        ki_reg_oa_adelaide_m3_sources:
+          prompt: A buyer attributes a 2025 M3 Chardonnay's whole profile to one Adelaide Hills vineyard. What qualification is required?
+          options:
+            - The label proves only Piccadilly fruit was used
+            - Every Adelaide Hills parcel has identical soil and elevation
+            - A multi-site blend identifies the effect of a single vineyard
+            - The wine draws on several named sites and growers; inspect sourcing before a single-site claim
+          correctIndex: 3
+          explanation: The producer records Lenswood, Piccadilly and Lobethal plus selected growers, so the blend cannot isolate one vineyard's contribution.
+          sourceCitationId: src_reg_oa_m3
         ki_reg_ib_douro_terrain:
           prompt: Which price mechanism could matter for a steep Douro still-wine vineyard?
           options:
@@ -58,26 +58,26 @@ question_templates:
           correctIndex: 0
           explanation: The IVDP describes terraced-vineyard operations; production cost can rise, while achieved price depends on the market and wine.
           sourceCitationId: src_reg_ib_douro_viti
-        ki_reg_ib_dao_mountains:
-          prompt: Why is Dão not adequately described as a uniform Atlantic vineyard?
+        ki_reg_oa_pinotage_sort_cap:
+          prompt: Fairview's Primo Pinotage 2018 used hand sorting, open-top fermentation and manual punch downs. What is the sound interpretation?
           options:
-            - It has no altitude differences
-            - Every parcel lies directly on the coast
-            - Mountains shelter vineyards and elevations vary substantially
-            - Granite guarantees identical flavour in all Dão wines
-          correctIndex: 2
-          explanation: Mountain enclosure and varied elevation modify maritime and continental influence; compare actual sites.
-          sourceCitationId: src_reg_ib_dao_region
-        ki_reg_ib_dao_encruzado:
-          prompt: A Dão Encruzado white is being pitched as automatically superior to a lighter nearby white. What is the sound evaluation?
+            - These are documented handling choices for one dry-farmed Paarl wine, not rules for all Pinotage
+            - Hand sorting guarantees higher quality in every vintage
+            - All Pinotage legally requires open-top fermentation and manual punch downs
+            - Dry farming makes fruit health and extraction choices irrelevant
+          correctIndex: 0
+          explanation: The 2018 producer record documents selected sorting and cap work, without establishing a universal Pinotage method or quality result.
+          sourceCitationId: src_reg_oa_primo18
+        ki_reg_sa_itata_grapes:
+          prompt: A sommelier describes Itata only through Cabernet-family reds and coastal Sauvignon Blanc. Which correction is supported?
           options:
-            - Reject Encruzado because it cannot retain acidity
-            - Encruzado can give structure and acidity, but compare the wines for quality
-            - The grape name alone proves greater complexity and price
-            - Dão whites must all be oak aged
+            - The region legally forbids traditional grape varieties
+            - País and Moscatel de Alejandría are traditional associations, with Cinsault also documented
+            - All current Itata vineyards are planted only to Pinot Noir
+            - A selected traditional list proves every permitted variety
           correctIndex: 1
-          explanation: Encruzado can support a structured, balanced white; site, production and tasting determine the particular result.
-          sourceCitationId: src_reg_ib_encruzado
+          explanation: The regional account identifies these selected varieties; it is not an exhaustive legal planting list.
+          sourceCitationId: src_reg_am_chile
         ki_reg_ib_bairrada_baga_ripening:
           prompt: A cool, wet Bairrada September threatens Baga. Which pairing of cause and response is best?
           options:
@@ -108,16 +108,16 @@ question_templates:
           correctIndex: 2
           explanation: Tasmania's cool conditions can retain acidity, while spring frost and humidity create site and season risks.
           sourceCitationId: src_reg_sh_tasmania
-        ki_reg_oa_hunter_rain:
-          prompt: Rain is forecast near a Hunter Semillon harvest. Which evidence matters before advancing the pick?
+        ki_reg_sa_torrontes_identity:
+          prompt: A buyer treats Torrontés Riojano, Sanjuanino and Mendocino as one interchangeable grape because their names match. What does the cultivar evidence show?
           options:
-            - Regional name only
-            - Barrel age of last year's release
-            - Proposed shelf price
-            - Representative maturity and fruit-health samples
-          correctIndex: 3
-          explanation: Hunter rain can occur during harvest; picking a low-sugar style still requires flavour, acidity and sound-fruit checks.
-          sourceCitationId: src_reg_oa_hunter
+            - The three names prove identical genetics and growing performance
+            - Each name guarantees a vineyard's geographic origin
+            - They identify genetically different cultivars; name similarity does not make them interchangeable
+            - No Torrontés variety is grown in Argentina
+          correctIndex: 2
+          explanation: The Argentine wine institute distinguishes three cultivars genetically and does not equate their names with vineyard location.
+          sourceCitationId: src_reg_sa_torrontes
         ki_reg_oa_adelaide_sauvignon:
           prompt: An Adelaide Hills Sauvignon Blanc has tropical and herbal notes. What is the better explanation?
           options:
@@ -158,16 +158,16 @@ question_templates:
           correctIndex: 3
           explanation: New Zealand Winegrowers distinguishes Patutahi from coastal Gisborne; the producer still needs parcel and wine evidence.
           sourceCitationId: src_reg_oa_gisborne
-        ki_reg_oa_robertson_unwooded:
-          prompt: A Robertson Chardonnay tastes textured but has no oak record. Which documented cellar route could explain part of its texture?
+        ki_reg_oa_mclaren_ceramic:
+          prompt: A buyer compares Yangarra's 2024 Ovitelli and Old Vine Grenache bottlings. Which cellar distinction and inference limit are documented?
           options:
-            - Tank fermentation followed by lees contact and stirring
-            - Fortification before alcoholic fermentation
-            - Compulsory new-oak maturation for every Robertson white
-            - Soil-derived oak flavour without a barrel
-          correctIndex: 0
-          explanation: De Wetshof documents an unwooded Chardonnay with controlled lees contact and stirring; the named example is not a regional rule.
-          sourceCitationId: src_reg_oa_limestone25
+            - Both are legally required to mature only in new oak
+            - Ovitelli is an unoaked concrete wine, so vessel alone proves every flavour difference
+            - Old Vine uses only ceramic eggs, while Ovitelli uses new barrels
+            - Ovitelli uses ceramic without oak; Old Vine includes older oak and nonwood vessels, but other production choices also differ
+          correctIndex: 3
+          explanation: The producer identifies ceramic for Ovitelli and mixed older-oak/nonwood handling for Old Vine; parcel and extraction differences prevent a vessel-only conclusion.
+          sourceCitationId: src_reg_oa_yangarra_egg
         ki_reg_sa_leyda_canopy:
           prompt: A Leyda Sauvignon Blanc parcel faces cool coastal influence. What vineyard detail should be checked before claiming a standard aromatic result?
           options:

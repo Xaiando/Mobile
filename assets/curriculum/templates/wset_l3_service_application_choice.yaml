@@ -1,0 +1,187 @@
+question_templates:
+- id: qt_wset_l3_service_application_17
+  relation_type: PRINCIPLE_EXPLANATION
+  direction: forward
+  mode: authored_choice
+  variant: wset_l3_service_application_17
+  prompt_template: '{subject.name}'
+  parameters:
+    item_choices:
+      ki_srv_cold_aroma:
+        prompt: A mature red Bordeaux tastes muted straight from a very cold cabinet. What is the useful service
+          response?
+        options:
+        - Heat the bottle rapidly beside a radiator to force aromas out
+        - Declare every cold red faulty without retasting
+        - Prescribe one exact temperature for all reds regardless of style
+        - Warm it gently, then reassess this bottle's expression
+        correctIndex: 3
+        explanation: Excess cold can mute expression in this style; assess the actual bottle.
+        sourceCitationId: src_srv_margaux_service
+      ki_srv_comparison_temperature:
+        prompt: In a controlled tasting, two examples of the same wine type arrive at different temperatures. What
+          should be corrected first?
+        options:
+        - Assess both wines at a matched, suitable temperature
+        - Use different glasses to compensate for the temperature gap
+        - Read the labels so the difference no longer matters
+        - Score the colder wine lower before comparing any other evidence
+        correctIndex: 0
+        explanation: OIV guidance calls for same-type samples in a session to be evaluated at the same temperature.
+        sourceCitationId: src_srv_oiv_sensory
+      ki_srv_glass_odour:
+        prompt: A clean-looking glass smells faintly of detergent before wine is poured. What is the appropriate
+          response?
+        options:
+        - Pour the wine and treat the detergent smell as a wine fault
+        - Replace the glass and reassess its odour
+        - Ignore the odour because visual cleanliness is sufficient
+        - Add more wine to dilute the glass odour
+        correctIndex: 1
+        explanation: Residual glass odours interfere with the sample's nose.
+        sourceCitationId: src_srv_oiv_sensory
+      ki_srv_heat_ageing:
+        prompt: A retailer suggests a hot storeroom will mature young stock quickly. Which assessment is sound?
+        options:
+        - Hot storage safely reproduces slow cellar ageing
+        - Heat changes only label condition, never wine flavour
+        - Heat can speed harmful ageing, not reliable maturity
+        - Any warm bottle is automatically more complex
+        correctIndex: 2
+        explanation: AWRI warns that elevated storage temperature shortens shelf life and can harm sensory quality.
+        sourceCitationId: src_srv_awri_heat
+      ki_srv_heat_so2:
+        prompt: Two otherwise comparable bottled wines are stored at different temperatures. What protective change
+          is more likely in the hotter lot?
+        options:
+        - A permanent rise in free sulfur dioxide through warmth
+        - Conversion of every sulfite molecule into tannin
+        - No change in sulfur dioxide until the bottle is opened
+        - Faster free-SO2 loss weakens oxidation protection
+        correctIndex: 3
+        explanation: Free SO2 normally declines in storage, and warmer storage can accelerate its loss.
+        sourceCitationId: src_srv_awri_heat
+      ki_srv_holdback:
+        prompt: A shipment may have overheated. The producer kept a matching bottle under known conditions. How
+          is it most useful?
+        options:
+        - Compare suspect and known-stored bottles
+        - Discard the holdback; trust the label
+        - Serve the suspect lot without sensory or analytical comparison
+        - Treat the holdback as proof of which carrier caused any change
+        correctIndex: 0
+        explanation: A retained sample strengthens investigation of change, but it cannot by itself assign responsibility.
+        sourceCitationId: src_srv_awri_storage
+      ki_srv_lightstruck:
+        prompt: Clear bottles spent weeks under display lighting, but one smells normal. What follows?
+        options:
+        - Every clear bottle under light is necessarily faulty
+        - Assess the wine; exposure does not itself prove damage
+        - Bottle colour identifies the exact duration of safe exposure
+        - No clear bottle can develop light-related sulfur aroma
+        correctIndex: 1
+        explanation: Light risk depends on the wine, bottle and exposure, so assess the actual wine.
+        sourceCitationId: src_srv_awri_light
+      ki_srv_older_aeration:
+        prompt: An older, delicate red has sediment. How should the decanting plan handle oxygen?
+        options:
+        - Splash repeatedly into a broad vessel for several hours
+        - Leave it uncorked overnight as a universal rule
+        - Decant gently just before serving, and reassess
+        - Shake the bottle to disperse sediment before serving
+        correctIndex: 2
+        explanation: Separating deposit need not impose prolonged aeration on a fragile wine.
+        sourceCitationId: src_srv_margaux_service
+      ki_srv_older_cork:
+        prompt: An older Vintage Port has a delicate cork. Which opening technique best fits the producer's advice?
+        options:
+        - Pull as fast as possible to avoid contact with the cork
+        - Push the cork through and shake sediment into suspension
+        - Warm the bottle until the cork expands outward
+        - Ease the cork out gently with a controlled opener
+        correctIndex: 3
+        explanation: Taylor's advises gentle extraction because older corks can be fragile.
+        sourceCitationId: src_srv_taylor_service
+      ki_srv_sediment_decant:
+        prompt: A mature red has thrown a deposit. Which is the primary reason for a careful, brief decant in this
+          case?
+        options:
+        - Separate clear wine from deposit; judge air apart
+        - Guarantee that oxygen will improve every older wine
+        - Remove an unrelated musty compound by filtering sediment
+        - Increase tannin concentration by exposure to air
+        correctIndex: 0
+        explanation: Sediment removal and deliberate aeration are different service purposes.
+        sourceCitationId: src_srv_margaux_service
+      ki_srv_smell_environment:
+        prompt: A tasting room has a strong perfume smell. What should happen before calling the same note a wine
+          aroma?
+        options:
+        - Attribute ambient perfume to every wine in the flight
+        - Control room odours and reassess the wine sample
+        - Increase serving temperature to hide the perfume
+        - Conclude that the wine was scented during fermentation
+        correctIndex: 1
+        explanation: The sensory environment can contaminate observations.
+        sourceCitationId: src_srv_oiv_sensory
+      ki_srv_storage_history:
+        prompt: A bottle looks intact after a long shipment. Which evidence would improve a heat-exposure inquiry?
+        options:
+        - Only the grape variety printed on the label
+        - The lack of visible leakage as conclusive proof
+        - Review temperature records and compare samples
+        - The price paid for shipping as a temperature record
+        correctIndex: 2
+        explanation: An intact bottle cannot reveal its full temperature history.
+        sourceCitationId: src_srv_awri_storage
+      ki_srv_visual_background:
+        prompt: A flight is judged under strongly coloured lighting. What condition would improve colour assessment?
+        options:
+        - Choose a different wine based only on the coloured light
+        - Judge all samples as deeper without changing the setting
+        - Use perfume to compensate for the visual bias
+        - Use neutral light and surroundings to judge colour
+        correctIndex: 3
+        explanation: A neutral visual environment supports reliable colour observation.
+        sourceCitationId: src_srv_oiv_sensory
+      ki_srv_young_aeration:
+        prompt: A powerful young red seems closed on opening. What decanting claim is defensible?
+        options:
+        - Trial air with this bottle, without a fixed timer
+        - Aeration benefits only old, fragile reds
+        - Aroma intensity cannot change after pouring
+        - Every young red must be decanted for exactly three hours
+        correctIndex: 0
+        explanation: Chateau Margaux describes a possible benefit in young powerful wines, not a universal timer.
+        sourceCitationId: src_srv_margaux_service
+      ki_fault_heat_comparison:
+        prompt: A customer says a wine was cooked in transit. Which comparison best supports a diagnosis?
+        options:
+        - Infer heat damage only from the customer's description
+        - Compare with a known-stored sample of the same wine
+        - Assume a pushed cork proves a particular sensory defect
+        - Compare it with a different grape and vintage
+        correctIndex: 1
+        explanation: AWRI recommends physical, chemical and sensory evaluation against sound reference stock.
+        sourceCitationId: src_srv_awri_storage
+      ki_fault_heat_seal:
+        prompt: A returned bottle has slight leakage after a hot shipment. What does that sign establish?
+        options:
+        - Its flavour quality is definitely destroyed
+        - Its wine is definitely unharmed because the glass is intact
+        - Assess flavour; leakage alone is inconclusive
+        - The bottle was certainly damaged by a specific carrier
+        correctIndex: 2
+        explanation: Leakage can be a heat-exposure clue, not a stand-alone sensory verdict.
+        sourceCitationId: src_srv_awri_storage
+      ki_fault_light_intensity:
+        prompt: Two display lamps are both labelled LED, but expose bottles differently. Which factors matter when
+          comparing lightstrike risk?
+        options:
+        - Only the lamp's marketing category
+        - Only the price of the wine
+        - Only the number of bottles on the shelf
+        - Check spectrum, intensity and exposure
+        correctIndex: 3
+        explanation: Lighting labels alone do not define a universal safe exposure.
+        sourceCitationId: src_srv_awri_light

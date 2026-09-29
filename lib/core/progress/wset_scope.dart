@@ -108,6 +108,9 @@ class WsetLevelScope {
 
   final String certificationId;
   final String title;
+
+  /// Internal review of the app's required-topic catalog and delivery.
+  /// This is separate from broader core-question coverage and qualification.
   final bool curriculumComplete;
   final List<String> gaps;
   final String sourceUrl;

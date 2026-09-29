@@ -116,6 +116,50 @@ void main() {
     },
   );
 
+  test(
+    'core question coverage is live, cumulative and separate from mastery',
+    () async {
+      final initial = await progress.snapshot();
+      expect(
+        [for (final level in initial.levels) level.corePracticeCoverage!.core],
+        [0, 1, 2, 2],
+      );
+      expect(
+        [
+          for (final level in initial.levels)
+            level.corePracticeCoverage!.useful,
+        ],
+        [0, 0, 0, 0],
+      );
+      expect(initial.levels[1].counts.mastered, 0);
+      expect(initial.levels[2].corePracticeCoverage!.missingUsefulPractice, 2);
+      expect(initial.levels[3].corePracticeCoverage!.complete, isFalse);
+
+      await db.writeCurriculum(
+        () => runSql(db, [
+          "UPDATE certification_knowledge_mappings SET minimum_depth=2 WHERE certification_id='WSET_L2' AND knowledge_item_id='ki_chablis_grape'",
+        ]),
+      );
+      final deeper = await progress.snapshot();
+      expect(
+        [for (final level in deeper.levels) level.corePracticeCoverage!.useful],
+        [0, 1, 1, 1],
+      );
+      expect(deeper.levels[1].corePracticeCoverage!.complete, isTrue);
+      expect(deeper.levels[2].corePracticeCoverage!.missingUsefulPractice, 1);
+
+      await db.writeCurriculum(
+        () => runSql(db, [
+          "DELETE FROM questions WHERE knowledge_item_id='ki_chablis_grape' AND question_template_id='qt_ppg_fwd_mcq'",
+        ]),
+      );
+      final changed = await progress.snapshot();
+      expect(changed.levels[1].corePracticeCoverage!.core, 1);
+      expect(changed.levels[1].corePracticeCoverage!.useful, 0);
+      expect(changed.levels[2].corePracticeCoverage!.missingUsefulPractice, 2);
+    },
+  );
+
   test('repeated taps on one date cannot establish lasting mastery', () async {
     for (var i = 0; i < 4; i++) {
       await review();

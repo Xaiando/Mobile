@@ -1,0 +1,97 @@
+# Source-bounded structural recognition for remaining shared Level 2/3 grape items.
+question_templates:
+- id: qt_wset_shared_grape_structure_remaining_8
+  relation_type: PRINCIPLE_EXPLANATION
+  direction: forward
+  mode: authored_choice
+  variant: wset_shared_grape_structure_remaining
+  prompt_template: '{subject.name}'
+  parameters:
+    item_choices:
+      ki_wset_structure_corvina_structure:
+        prompt: Corvina fruit is air-dried for Amarone, then fermented until dry. Which outcome does the Valpolicella consortium's production account support?
+        options:
+        - Concentrated fruit can yield a fuller, higher-alcohol dry red
+        - Drying strips all sugar and lowers potential alcohol
+        - Drying turns the wine into an unfermented juice
+        - Drying necessarily leaves a sweet final wine
+        correctIndex: 0
+        explanation: The Valpolicella consortium describes grape drying and dry fermentation for Amarone. Concentration alone does not require retained sweetness.
+        sourceCitationId: src_reg_inc_amarone
+
+      ki_wset_structure_montepulciano_structure:
+        prompt: A Montepulciano d'Abruzzo changes from ruby toward garnet with bottle development. Which description remains compatible with its DOC sensory standard?
+        options:
+        - Colour change proves tannin was absent at bottling
+        - Red fruit or spice and a noticeable tannic palate
+        - Garnet means the wine must have residual sugar
+        - The DOC requires identical acid balance in every producer's wine
+        correctIndex: 1
+        explanation: The DOC describes ruby tending garnet with age, fruit/spice and a slightly tannic, full palate. It does not set a universal tasting acidity.
+        sourceCitationId: src_wset_grape_abruzzo_montepulciano
+
+      ki_wset_structure_verdicchio_structure:
+        prompt: A Verdicchio dei Castelli di Jesi is straw-yellow with green reflections. Which palate observation matches the local producer consortium's account?
+        options:
+        - Low acid is mandatory for every young example
+        - Tannin must be high because of the green hue
+        - The colour proves a sweet finish
+        - An explicitly fresh, acidic palate
+        correctIndex: 3
+        explanation: The local Verdicchio sensory profile describes green-tinged straw colour and freshness with marked acidity; colour alone does not set sweetness.
+        sourceCitationId: src_wset_structure_verdicchio_castelli_jesi
+
+      ki_wset_structure_cortese_structure:
+        prompt: A Gavi made from Cortese is sampled young. Which structural account is consistent with the Gavi consortium's style guide?
+        options:
+        - Deep red colour with forceful skin tannin
+        - Pale straw colour, a dry palate and fresh acidity
+        - Mandatory sweetness and little acidity
+        - Opaque purple colour and a fortified finish
+        correctIndex: 1
+        explanation: The Gavi guide describes pale straw or green-tinged Cortese wine with a dry, fresh palate. A riper or aged example may differ in weight.
+        sourceCitationId: src_wset_grape_gavi_cortese
+
+      ki_wset_structure_garganega_structure:
+        prompt: The Soave DOC specification discusses Garganega's acid and extract balance. Which conclusion avoids overstating the grape's acidity?
+        options:
+        - Acidity can be balanced rather than exceptionally marked
+        - Every Garganega must have the highest acid of all white grapes
+        - Any straw-yellow Soave must have low acid by definition
+        - Bottle colour alone determines measurable grape acidity
+        correctIndex: 0
+        explanation: The Soave specification describes Garganega acidity as not exceptionally marked, with balanced extracts and sugar; an individual wine still depends on site and production.
+        sourceCitationId: src_wset_structure_soave_qualitative
+
+      ki_wset_structure_fiano_structure:
+        prompt: A young Fiano di Avellino shows white fruit, flowers and a hint of hazelnut. Which palate structure does the Irpinia consortium describe?
+        options:
+        - Very low acidity and mandatory sweet finish
+        - High red-grape tannin and no freshness
+        - Marked acidity with medium structure
+        - Fortified warmth with no dry-wine possibility
+        correctIndex: 2
+        explanation: The Irpinia consortium gives Fiano di Avellino marked acidity and medium structure with fruit, floral and hazelnut notes; maturation can broaden the aroma.
+        sourceCitationId: src_reg_isi_fiano
+
+      ki_wset_structure_albarino_structure:
+        prompt: Two Albariño lots from the same vineyard have different measured grape sugar at harvest. Both are fermented dry. Which lot has the greater potential alcohol from its sugar?
+        options:
+        - The lower-sugar lot
+        - Both must be identical because the cultivar is the same
+        - The lot with the stronger citrus aroma
+        - The higher-sugar lot
+        correctIndex: 3
+        explanation: UC Davis ripeness guidance links fermentable sugar to potential alcohol. A grape name or citrus aroma does not set a fixed bottle alcohol; the comparison assumes both lots ferment dry.
+        sourceCitationId: src_wset_found_ucd_pulp
+
+      ki_wset_structure_furmint_structure:
+        prompt: Grand Tokaj's 2024 Terroir Selection Furmint is described as bright gold and dry. What additional structural observation appears in the cited wine account?
+        options:
+        - Tight acidity despite the gold appearance
+        - Guaranteed residual sweetness from the colour
+        - High red-grape tannin from its gold hue
+        - Fixed alcohol for every Furmint vintage
+        correctIndex: 0
+        explanation: The named 2024 Grand Tokaj wine is documented as bright gold, dry and tight in acidity. One bottle is an example, not a universal Furmint composition.
+        sourceCitationId: src_wset_structure_furmint_grand_tokaj_2024

@@ -33,7 +33,7 @@ class WsetProgressCard extends ConsumerWidget {
             },
             const SizedBox(height: 8),
             const Text(
-              'Counts describe the available required study material. Topic mastery and practice activity are app study milestones; official exam results are recorded separately.',
+              'Study counts describe your required app topics. Core question coverage describes this app’s content. Official WSET results are separate, self-reported declarations.',
             ),
             if (progress case AsyncData(:final value))
               if (value.levels.any(
@@ -81,6 +81,10 @@ class _LevelRow extends StatelessWidget {
         if (level.milestoneCounts.unavailable > 0)
           Text(
             '${level.milestoneCounts.unavailable} required facts are not yet available for practice.',
+          ),
+        if (level.corePracticeCoverage case final coverage?)
+          Text(
+            'Core question practice: ${coverage.useful}/${coverage.core} mapped facts',
           ),
         const SizedBox(height: 4),
         LinearProgressIndicator(

@@ -1,0 +1,100 @@
+# Cited Level 2 practice for the eight remaining non-geography core facts.
+# The causal choices assess only their first edge; existing reasoning paths
+# still assess the longer explanation. Qualified review remains pending.
+question_templates:
+- id: qt_wset_l2_core_principle_choices_6
+  relation_type: PRINCIPLE_EXPLANATION
+  direction: forward
+  mode: authored_choice
+  variant: l2_core_principle_closure
+  prompt_template: '{subject.name}'
+  parameters:
+    item_choices:
+      ki_fault_ethyl_acetate:
+        prompt: A wine smells of nail-polish remover and elevated ethyl acetate is identified. Which chemical interpretation is sound?
+        options:
+        - Ethyl acetate is an ester; at high levels it can smell solvent-like, unlike acetic acid
+        - Ethyl acetate is simply another name for acetic acid measured as volatile acidity in wine
+        - Any detectable ethyl acetate means the wine has a serious sensory fault
+        - Ethyl acetate is a musty cork compound that cannot add fruity character
+        correctIndex: 0
+        explanation: AWRI identifies ethyl acetate as an acetate ester with solvent-like character at elevated levels and fruity contribution at lower levels; acetic acid is a different compound.
+        sourceCitationId: src_fault_faults_overview
+      ki_fault_oxidative_aroma:
+        prompt: A fresh table wine loses fruit expression and develops dull, sherry-like notes after air exposure. Which interpretation is warranted?
+        options:
+        - The aroma proves one exact oxygen dose and a known sequence of barrel transfers for this bottle
+        - Excess oxidation is plausible, but the aroma alone cannot reconstruct the full history
+        - Ethyl acetate must be the sole cause of any sherry-like aroma in wine
+        - Oxidation cannot produce dulling or aldehydic notes in a table wine
+        correctIndex: 1
+        explanation: AWRI describes loss of fresh aroma and aldehydic or sherry-like notes among oxidation effects; sensory evidence alone does not identify every production event.
+        sourceCitationId: src_fault_faults_overview
+      ki_fault_tca_compound:
+        prompt: A bottle has a musty cork-type aroma. Which identification is defensible before chemical confirmation?
+        options:
+        - A musty smell proves TCA with certainty and rules out every other wine taint
+        - TCA is impossible when the bottle has a non-cork closure
+        - TCA is a major possible cause, but other compounds can smell musty
+        - TCA is the acetate ester that smells like nail-polish remover
+        correctIndex: 2
+        explanation: AWRI names 2,4,6-trichloroanisole as a major cork-type taint and lists other musty or earthy compounds; a sensory descriptor is not a chemical assay.
+        sourceCitationId: src_fault_faults_overview
+      ki_wset_nw_mendoza_malbec_range:
+        prompt: A learner compares Luján de Cuyo and Uco Valley Malbec. Which contrast is a supported tendency rather than a guarantee?
+        options:
+        - Both origins invariably produce the same ripe, low-acid wine style in every vintage
+        - Uco Valley Malbec is necessarily lower quality because it is fresher
+        - Luján must use new oak while Uco Valley must avoid all wood contact
+        - Luján can be rounded with plum and violet; Uco can be fresher and firmer
+        correctIndex: 3
+        explanation: Wines of Argentina presents Luján as a rounded ripe-fruit example and Uco as often more vibrant with tauter structure; individual wines still vary.
+        sourceCitationId: src_wset_nw_malbec_regions
+      ki_wset_nwa_martinborough_pinot:
+        prompt: A ripe Martinborough Pinot Noir lot needs a cap-management decision. Which trial tests the stated production tradeoff?
+        options:
+        - Compare restrained and firmer extraction, then taste the fruit and tannin before choosing
+        - Use the most forceful extraction because Martinborough requires maximum tannin
+        - Remove the skins before red fermentation because Pinot Noir has no colour to extract in any case
+        - Fix the decision from the region name alone without assessing the supplied lot
+        correctIndex: 0
+        explanation: AWRI reports that cap-management extent and duration influence colour and tannin extraction; a lot-specific trial informs the intended balance.
+        sourceCitationId: src_win_temperature
+      ki_wset_nwa_otago_pinot:
+        prompt: Two ripe Central Otago Pinot Noir lots have different texture goals. What can a cap-work trial help the cellar assess?
+        options:
+        - Whether the origin name changes when the ferment is worked more often
+        - How skin contact and handling alter colour and tannin extraction in each lot
+        - Whether oak will erase every subregional difference without any tasting
+        - Whether all Pinot Noir lots require identical extraction regardless of site and fruit condition
+        correctIndex: 1
+        explanation: AWRI describes cap management as a lever for phenolic extraction; a trial can measure the two lots rather than assume one extraction setting fits both.
+        sourceCitationId: src_win_temperature
+- id: qt_wset_l2_core_causal_choices_2
+  relation_type: CAUSES_STATE
+  direction: forward
+  mode: authored_choice
+  variant: l2_core_causal_precursor
+  prompt_template: '{subject.name}'
+  parameters:
+    item_choices:
+      ki_wset_reason_frost_shoots:
+        prompt: Frost kills a measured subset of fruitful primary shoots in block A; none are replaced and others survive. Compared with uninjured block B, what follows first?
+        options:
+        - More living fruitful primary shoots remain in block A than in B
+        - The same number of living fruitful primary shoots remain in both blocks
+        - Fewer living fruitful primary shoots remain in block A than in B
+        - No living fruitful primary shoots remain at all in the injured block
+        correctIndex: 2
+        explanation: With a measured subset killed and no replacements, block A has fewer surviving fruitful primary shoots; later cluster and harvested-yield outcomes need separate reasoning.
+        sourceCitationId: src_vit_frost_ncsu
+      ki_wset_reason_ferment_consumed:
+        prompt: Equal-volume must A starts with more fermentable glucose and fructose than B. Both finish dry with other sugar fates matched. What follows first?
+        options:
+        - Yeast consumes less fermentable sugar in A than in B
+        - Yeast consumes equal sugar in both musts because both finish dry
+        - The additional sugar disappears without being consumed by yeast
+        - Yeast consumes more fermentable sugar in A than in B
+        correctIndex: 3
+        explanation: AWRI identifies glucose and fructose as fermentable yeast substrates. Under the stated dry-finish and matched-fate controls, the higher starting amount in A means more is consumed.
+        sourceCitationId: src_wset_reason_sugar_alcohol

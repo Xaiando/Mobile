@@ -274,7 +274,7 @@ void main() {
   );
 
   test(
-    '691 cited choices are generated and served across WSET and CMS tracks',
+    '988 cited choices are generated and served across WSET and CMS tracks',
     () async {
       final db = openTestDatabase();
       try {
@@ -299,7 +299,7 @@ void main() {
                   template.id == 'qt_d5f_authored_choice',
             )
             .toList();
-        expect(templates, hasLength(30));
+        expect(templates, hasLength(44));
         final expectedIds = {
           for (final template in templates)
             ...((jsonDecode(template.parameters!)
@@ -339,6 +339,57 @@ void main() {
                       as Map<String, dynamic>)
                   .keys,
         };
+        final remainingGrapeIds = {
+          ...idsForTemplate('qt_wset_shared_grape_profiles_remaining_3'),
+          ...idsForTemplate('qt_wset_shared_grape_berry_colour_remaining_9'),
+          ...idsForTemplate('qt_wset_shared_grape_structure_remaining_8'),
+        };
+        expect(remainingGrapeIds, hasLength(20));
+        expect(sharedGrapeIds, containsAll(remainingGrapeIds));
+        final remainingTemplates = templates.where(
+          (template) =>
+              template.id.contains('_remaining_') &&
+              template.id.startsWith('qt_wset_shared_grape_'),
+        );
+        final newChoiceBlocks = remainingTemplates.expand((template) {
+          final parameters =
+              jsonDecode(template.parameters!) as Map<String, dynamic>;
+          return (parameters['item_choices'] as Map<String, dynamic>).values;
+        }).cast<Map<String, dynamic>>();
+        final answerPositions = [0, 1, 2, 3]
+            .map(
+              (index) => newChoiceBlocks
+                  .where((choice) => choice['correctIndex'] == index)
+                  .length,
+            )
+            .toList();
+        expect(answerPositions, everyElement(5));
+        final remainingWinemakingIds = {
+          ...idsForTemplate('qt_wset_l2_winemaking_method_remaining_1'),
+          ...idsForTemplate('qt_wset_l2_winemaking_principles_remaining_39'),
+        };
+        expect(remainingWinemakingIds, hasLength(40));
+        final winemakingChoiceBlocks = templates
+            .where(
+              (template) =>
+                  template.id.startsWith('qt_wset_l2_winemaking_') &&
+                  template.id.contains('_remaining_'),
+            )
+            .expand((template) {
+              final parameters =
+                  jsonDecode(template.parameters!) as Map<String, dynamic>;
+              return (parameters['item_choices'] as Map<String, dynamic>)
+                  .values;
+            })
+            .cast<Map<String, dynamic>>();
+        expect(
+          [0, 1, 2, 3].map(
+            (index) => winemakingChoiceBlocks
+                .where((choice) => choice['correctIndex'] == index)
+                .length,
+          ),
+          everyElement(10),
+        );
         final europeIds = idsForTemplate('qt_wset_europe_application_67');
         final newWorldIds = idsForTemplate('qt_wset_new_world_application_16');
         final businessIds = idsForTemplate('qt_wset_business_application_26');
@@ -356,7 +407,25 @@ void main() {
         final winemakingL3Ids = idsForTemplate(
           'qt_wset_winemaking_l3_application_12',
         );
+        final winemakingDepthIds = idsForTemplate(
+          'qt_wset_winemaking_l3_depth_37',
+        );
         final l3ApplicationIds = idsForTemplate('qt_wset_l3_application_40');
+        final l3ViticultureIds = idsForTemplate(
+          'qt_wset_l3_viticulture_application_40',
+        );
+        final l3TastingIds = idsForTemplate(
+          'qt_wset_l3_tasting_application_23',
+        );
+        final l3ServiceIds = idsForTemplate(
+          'qt_wset_l3_service_application_17',
+        );
+        final l3GeographyIds = idsForTemplate(
+          'qt_wset_l3_geography_gap_scenarios',
+        );
+        final l3GeographyIds2 = idsForTemplate(
+          'qt_wset_l3_geography_gap_scenarios_2',
+        );
         final diplomaBusinessIds = idsForTemplate(
           'qt_wset_d2_business_application_29',
         );
@@ -373,23 +442,57 @@ void main() {
           ...cmsExampleIds,
           ...winemakingSharedIds,
           ...winemakingL3Ids,
+          ...winemakingDepthIds,
           ...l3ApplicationIds,
+          ...l3ViticultureIds,
+          ...l3TastingIds,
+          ...l3ServiceIds,
+          ...l3GeographyIds,
+          ...l3GeographyIds2,
           ...diplomaBusinessIds,
           ...d3RegionalIds,
           ...d4RegionalIds,
           ...d5FortifiedIds,
         });
-        expect(expectedIds, hasLength(691));
+        expect(
+          d3RegionalIds.intersection(remainingWinemakingIds),
+          isEmpty,
+          reason: 'Diploma regional choices use distinct cited items',
+        );
+        expect(
+          d3RegionalIds.intersection(
+            idsForTemplate('qt_wset_l2_viticulture_gap_choices'),
+          ),
+          isEmpty,
+          reason: 'Diploma and Level 2 viticulture choices remain distinct',
+        );
+        expect(
+          d3RegionalIds.intersection(l3GeographyIds),
+          isEmpty,
+          reason: 'Diploma and Level 3 geography choices remain distinct',
+        );
+        expect(
+          d3RegionalIds.intersection(l3GeographyIds2),
+          isEmpty,
+          reason: 'Diploma and Level 3 geography choices remain distinct',
+        );
+        expect(expectedIds, hasLength(988));
         expect(levelOneIds, hasLength(132));
-        expect(levelTwoIds, hasLength(172));
-        expect(sharedGrapeIds, hasLength(32));
+        expect(levelTwoIds, hasLength(256));
+        expect(sharedGrapeIds, hasLength(52));
         expect(europeIds, hasLength(67));
         expect(newWorldIds, hasLength(16));
         expect(businessIds, hasLength(26));
         expect(cmsExampleIds, hasLength(12));
         expect(winemakingSharedIds, hasLength(9));
         expect(winemakingL3Ids, hasLength(12));
+        expect(winemakingDepthIds, hasLength(37));
         expect(l3ApplicationIds, hasLength(40));
+        expect(l3ViticultureIds, hasLength(40));
+        expect(l3TastingIds, hasLength(23));
+        expect(l3ServiceIds, hasLength(17));
+        expect(l3GeographyIds, hasLength(36));
+        expect(l3GeographyIds2, hasLength(40));
         expect(diplomaBusinessIds, hasLength(29));
         expect(d3RegionalIds, hasLength(19));
         expect(d4RegionalIds, hasLength(24));
@@ -406,7 +509,7 @@ void main() {
                OR t.id = 'qt_d5f_authored_choice')
         ORDER BY q.knowledge_item_id
       ''').get();
-        expect(rows, hasLength(691));
+        expect(rows, hasLength(988));
         final actual = {
           for (final row in rows)
             row.read<String>('knowledge_item_id'): row.read<String>(
@@ -457,6 +560,25 @@ void main() {
             reason: 'Level 2: $id',
           );
         }
+        for (final id in remainingWinemakingIds) {
+          expect(
+            levelTwoCards[id]?.formats.map((format) => format.mode),
+            contains('authored_choice'),
+            reason: 'Level 2 winemaking: $id',
+          );
+          expect(
+            levelThreeCards[id]?.formats.map((format) => format.mode),
+            contains('authored_choice'),
+            reason: 'Level 3 winemaking inheritance: $id',
+          );
+        }
+        expect(
+          levelTwoCards['ki_champagne_method']?.formats.map(
+            (format) => format.mode,
+          ),
+          containsAll({'authored_choice', 'flashcard', 'typed'}),
+          reason: 'Champagne method needs an independent recall family at L2',
+        );
         expect(
           businessIds.where(levelTwoCards.containsKey),
           hasLength(15),
@@ -529,7 +651,11 @@ void main() {
           }
           if (europeIds.contains(id) ||
               winemakingL3Ids.contains(id) ||
-              l3ApplicationIds.contains(id)) {
+              winemakingDepthIds.contains(id) ||
+              l3ApplicationIds.contains(id) ||
+              l3ViticultureIds.contains(id) ||
+              l3GeographyIds.contains(id) ||
+              l3GeographyIds2.contains(id)) {
             expect(
               levelThreeCards[id]?.formats.map((format) => format.mode),
               contains('authored_choice'),

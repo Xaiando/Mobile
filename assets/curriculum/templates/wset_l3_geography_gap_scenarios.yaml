@@ -1,0 +1,433 @@
+# Original, cited WSET Level 3 geography practice; qualified review pending.
+question_templates:
+- id: qt_wset_l3_geography_gap_scenarios
+  relation_type: PRINCIPLE_EXPLANATION
+  direction: forward
+  mode: authored_choice
+  variant: l3_geography_gap
+  prompt_template: '{subject.name}'
+  parameters:
+    item_choices:
+      ki_reg_ah_tokaj_continental:
+        prompt: Two Tokaj parcels sit on exposed and sheltered slopes. What should the buyer check before treating
+          their seasons as identical?
+        options:
+        - Cold-wind shelter from the Zemplén hills and each slope’s exposure
+        - Whether both parcels must be cooled by a nearby ocean current
+        - Whether volcanic parent rock fixes the same frost date for both sites
+        - Whether either parcel is exempt from summer heat or winter cold
+        correctIndex: 0
+        explanation: Tokaj is continental, but the Zemplén hills shelter some south-facing slopes; exposure
+          and weather still matter.
+        sourceCitationId: src_reg_ah_tokaj_climate
+      ki_reg_ah_wachau_air:
+        prompt: A Wachau producer compares two terraces. Which air pattern is a useful starting point for their
+          ripening context?
+        options:
+        - Only uniform warm air travels up the Danube in every season
+        - Pannonian warmth meets cool air draining from wooded valleys
+        - Atlantic sea breezes remove all local temperature differences
+        - Cold mountain air alone fixes the same harvest date on both sites
+        correctIndex: 1
+        explanation: Vinea Wachau describes warm eastern and cool valley influences acting together; a parcel
+          still needs its own records.
+        sourceCitationId: src_reg_ah_wachau
+      ki_reg_ah_neusiedler_botrytis:
+        prompt: A Burgenland buyer asks why Neusiedlersee can produce sweet-wine fruit. Which explanation is
+          appropriately bounded?
+        options:
+        - The lake guarantees noble rot in every vineyard and every autumn
+        - Dry summer heat alone turns uninfected grapes into botrytised berries before harvest
+        - Autumn mist may favour botrytis; fruit and later weather still matter
+        - The lake prevents unwanted rot, so sorting is never necessary
+        correctIndex: 2
+        explanation: The regional body links autumn moisture and mist with noble rot; suitability still depends
+          on ripe fruit and subsequent conditions.
+        sourceCitationId: src_reg_ah_neusiedler_climate
+      ki_reg_de_mosel_upper_setting:
+        prompt: A team estimates vineyard labour for two Mosel parcels, one in the Upper Mosel and one on a
+          steep downstream terrace. What is the sound comparison?
+        options:
+        - Assume every Mosel plot has the same steepness because the region is famous for terraces
+        - Treat the Upper Mosel as flat land where no vineyard work can be manual
+        - Rank the downstream wine higher solely from the expected labour cost
+        - 'Check each slope and access: the Upper Mosel valley is generally broader and gentler'
+        correctIndex: 3
+        explanation: The regional account contrasts a wider, less steep Upper Mosel with parts farther downstream,
+          without grading individual wines.
+        sourceCitationId: src_ce_mosel
+      ki_reg_fe_alsace_gewurz:
+        prompt: A guest describes an intensely rose-and-spice scented Alsace Gewurztraminer. What can the sommelier
+          infer before seeing its analysis?
+        options:
+        - Aromatic and weighty, but sweetness needs separate evidence
+        - The perfume proves the wine is sweet and has low quality
+        - The aroma proves it is dry and lighter than Pinot Blanc
+        - The grape name proves the wine came from one Grand Cru site
+        correctIndex: 0
+        explanation: CIVA describes Gewurztraminer’s perfume and broad palate, but aroma does not establish
+          the actual residual sugar.
+        sourceCitationId: src_reg_fe_gewurztraminer
+      ki_reg_fe_beaujolais_gamay:
+        prompt: A merchant files every Beaujolais Gamay under “drink immediately.” What revision best fits
+          the regional grape account?
+        options:
+        - Use Chardonnay as the usual red grape instead of Gamay
+        - Keep Gamay as the red association; assess each cuvée’s structure
+        - Assume thin skins prohibit any structured or ageworthy red wine
+        - Treat early ripening as proof that every wine uses carbonic maceration
+        correctIndex: 1
+        explanation: Gamay’s regional role and grape traits are useful, but production and cuvée choice create
+          a range of expressions.
+        sourceCitationId: src_reg_fe_gamay
+      ki_reg_fs_jurancon_foehn:
+        prompt: A Jurançon producer plans a late-harvest trial. Which autumn event could help on-vine concentration?
+        options:
+        - Continuous rain throughout harvest with no drying interval
+        - Permanent frost that freezes every berry before picking
+        - A warm, dry foehn period after the humid oceanic growing season
+        - A sea breeze that fixes sugar levels independently of fruit condition
+        correctIndex: 2
+        explanation: Warm, dry downslope air can assist passerillage, but the fruit and actual weather decide
+          whether the trial succeeds.
+        sourceCitationId: src_reg_fs_jurancon_climate
+      ki_reg_fm_provence_maritime:
+        prompt: A buyer compares a coastal Provence rosé with one from an inland slope. Which geographic check
+          matters?
+        options:
+        - Every Provence vineyard has identical heat and wind because the region is Mediterranean
+        - Only the Mistral matters; local relief cannot affect a site
+        - Coastal position alone guarantees a paler, higher-quality rosé
+        - Sea proximity, relief and exposure can change local growing conditions
+        correctIndex: 3
+        explanation: The Provence wine body describes maritime proximity and varied relief as additional influences
+          within its Mediterranean setting.
+        sourceCitationId: src_reg_fm_provence_vines
+      ki_reg_fr_hautes_plateaus:
+        prompt: A buyer compares a Hautes Côtes de Nuits parcel with one on the main Côte. What site detail
+          should be requested?
+        options:
+        - Altitude and aspect on the inland plateau behind the main Côte
+        - The depth of a coastal tidal estuary beside both vineyards
+        - A fixed quality rank inferred from altitude without tasting or pricing
+        - The compulsory use of Cabernet Sauvignon on the higher site
+        correctIndex: 0
+        explanation: Bourgogne’s regional body places Hautes Côtes vineyards on higher inland terrain, where
+          exposure also matters.
+        sourceCitationId: src_reg_fr_nuits
+      ki_reg_fs_chateauneuf_variation:
+        prompt: A Châteauneuf-du-Pape sales note shows a photograph of large pebbles. What is the strongest
+          site conclusion?
+        options:
+        - Every vineyard lies on identical pebble-covered soil
+        - 'Ask for parcel data: clay, pebbles, sand and sandstone all occur'
+        - Pebbles alone prove a mineral flavour and superior quality
+        - A soil photograph establishes the wine’s blend and cellar route without records
+        correctIndex: 1
+        explanation: The Rhône regional body lists multiple soil settings, so the pictured surface cannot represent
+          every parcel.
+        sourceCitationId: src_reg_fs_chateauneuf
+      ki_reg_fs_chinon_sites:
+        prompt: Two Cabernet Franc wines both say Chinon. Which information most helps explain a possible site
+          contrast?
+        options:
+        - Whether the appellation name guarantees identical ripeness in every parcel that season
+        - Whether a limestone name transfers a literal mineral taste to the wine
+        - Whether fruit grew on Vienne terraces, limestone slopes or clay-flint plateaus
+        - Whether both bottles were made from Sauvignon Blanc instead
+        correctIndex: 2
+        explanation: The Chinon syndicate describes contrasting terrace, slope and plateau settings; parcel
+          and production evidence remain needed.
+        sourceCitationId: src_reg_fs_chinon
+      ki_reg_fs_cahors_terraces:
+        prompt: A distributor wants one soil description for all Cahors Malbec. What correction is best?
+        options:
+        - Every Cahors vineyard has one uniform sandy riverbank soil
+        - A single terrace name proves the wine’s tannin and quality
+        - The region has no limestone slopes above its river terraces, so site records cannot vary
+        - The Lot valley has stepped terraces with changing alluvium, clay and stone
+        correctIndex: 3
+        explanation: The Cahors regional body distinguishes the lower alluvial terraces from stonier, clay-rich
+          settings near limestone slopes.
+        sourceCitationId: src_reg_fs_cahors
+      ki_reg_gr_naoussa_variation:
+        prompt: A buyer compares two Naoussa Xinomavro wines. Which vineyard information helps explain potential
+          ripeness differences?
+        options:
+        - Elevation, orientation and soil on their Mount Vermio parcels
+        - A rule that every Naoussa slope shares one temperature
+        - A soil name used as proof of a mineral aroma in both wines
+        - A claim that all Greek vineyards have mild coastal conditions
+        correctIndex: 0
+        explanation: Wines of Greece describes variable Naoussa slopes; the site and season matter more than
+          a single regional stereotype.
+        sourceCitationId: src_reg_gr_naoussa
+      ki_reg_gr_nemea_inland_nights:
+        prompt: A grower evaluates an upland Nemea Agiorgitiko parcel after a warm day. Which factor belongs
+          in the ripening assessment?
+        options:
+        - A uniform coastal night temperature across all of Nemea
+        - Inland elevation and marked day–night temperature variation
+        - Only the daytime maximum, with no need to check nights
+        - Guaranteed acidity solely because a site is above sea level
+        correctIndex: 1
+        explanation: The national terroir account identifies inland uplands and diurnal variation, not a fixed
+          result for every vintage.
+        sourceCitationId: src_reg_gr_continental
+      ki_reg_gr_santorini_wind_drought:
+        prompt: A Santorini Assyrtiko producer considers an exposed parcel. Which growing constraint needs
+          attention?
+        options:
+        - Sheltered wet summers remove any water stress concern
+        - Island status guarantees enough rainfall for every vine
+        - Strong northerly winds and dry summers affect exposure and water supply
+        - Wind alone determines the finished wine’s acidity and price, regardless of vintage
+        correctIndex: 2
+        explanation: The regional account describes strong winds and hot, dry summers; actual water status
+          and crop response must be checked.
+        sourceCitationId: src_reg_gr_santorini
+      ki_reg_ib_dao_mountains:
+        prompt: A retailer compares two Dão reds from different elevations. What is the most useful regional
+          starting point?
+        options:
+        - Every Dão parcel is equally exposed to Atlantic winds
+        - A Dão name fixes the same acidity and ripeness in both wines regardless of vineyard
+        - Mountain shelter means there can be no vintage variation
+        - Surrounding mountains buffer influences while site elevation still varies
+        correctIndex: 3
+        explanation: Wines of Portugal describes a mountain-framed region with diverse elevations, so a specific
+          site still matters.
+        sourceCitationId: src_reg_ib_dao_region
+      ki_reg_ib_ribera_elevation:
+        prompt: A Ribera del Duero brief cites only its warm summer afternoons. What missing site context should
+          be added?
+        options:
+        - The elevated plateau and Duero river-valley setting
+        - A claim that low sea-level vineyards dominate the appellation, with uniformly warm nights
+        - A fixed red-wine balance inferred from one daytime reading
+        - A coastal fog regime identical to Rías Baixas
+        correctIndex: 0
+        explanation: The Ribera del Duero body highlights altitude and continental conditions; daytime heat
+          alone is incomplete.
+        sourceCitationId: src_reg_ib_ribera_altitude
+      ki_reg_ib_rueda_ripening:
+        prompt: A Rueda Verdejo grower compares sugar and acid at two harvest dates. Which geographic factor
+          belongs in the analysis?
+        options:
+        - A compulsory maritime climate with no temperature swing
+        - Elevated vineyards with marked day–night temperature changes
+        - Latitude as a complete substitute for measuring the fruit in each vintage
+        - A guarantee that every Verdejo parcel ripens on one day
+        correctIndex: 1
+        explanation: Rueda’s producer body links its elevation and diurnal range to grape development, alongside
+          harvest decisions.
+        sourceCitationId: src_reg_ib_rueda_verdejo
+      ki_reg_isi_abruzzo_climate:
+        prompt: A buyer sees two Montepulciano d’Abruzzo parcels, one near the Adriatic and one inland. Which
+          contrast is credible?
+        options:
+        - An identical coastal climate in every Abruzzo valley
+        - A dry desert interior with no influence from the Apennines
+        - Milder coastal hills and a more continental mountain interior
+        - A fixed quality ranking based only on distance from the sea or vintage
+        correctIndex: 2
+        explanation: The Abruzzo consortium distinguishes the coastal belt from the mountainous interior; the
+          actual sites still matter.
+        sourceCitationId: src_reg_isi_abruzzo
+      ki_reg_isi_irpinia_terrain:
+        prompt: A study group explains Fiano, Greco and Aglianico from Irpinia with one “hot Campania” climate.
+          What should it add?
+        options:
+        - All three grapes occupy the same level coastal plain
+        - Volcanic geology dictates one aroma for all three grapes
+        - An inland position eliminates the need to consider exposure or ripening dates
+        - Apennine hills, valleys and changing elevations create different sites
+        correctIndex: 3
+        explanation: The Irpinia consortium places these grapes in a varied Apennine landscape, not one uniform
+          hot site.
+        sourceCitationId: src_reg_isi_irpinia_grapes
+      ki_reg_am_niagara_water:
+        prompt: A Niagara-on-the-Lake grower compares a lakeside plot with one farther inland. Which frost-risk
+          inference is sound?
+        options:
+        - Nearby lake and river water may moderate frost risk; distance matters
+        - The water prevents every spring frost in the whole peninsula, even on distant sites
+        - All inland plots receive exactly the same lake moderation
+        - Water proximity determines the grape variety and wine price
+        correctIndex: 0
+        explanation: VQA Ontario describes the lake and river influences, with less moderation away from the
+          water.
+        sourceCitationId: src_reg_am_niagara
+      ki_reg_am_okanagan_variation:
+        prompt: A buyer wants one climate note for all Okanagan Valley wines. What is a better request?
+        options:
+        - Use one country-wide Canadian climate for every bottle and every growing site
+        - Identify the subregion and site before predicting grape suitability
+        - Assume every Okanagan subregion has identical soils
+        - Ignore site because all varieties ripen the same way
+        correctIndex: 1
+        explanation: Wine Growers British Columbia describes differing subregional soils and climates, so an
+          exact site matters.
+        sourceCitationId: src_reg_am_okanagan
+      ki_reg_am_alexander_cabernet:
+        prompt: A Sonoma buyer compares Alexander Valley Cabernet with a cooler coastal parcel. Which site
+          hypothesis is reasonable?
+        options:
+        - All Sonoma vineyards share one cool coastal temperature
+        - Evening cooling proves the Cabernet must be sweet
+        - Alexander Valley’s inland warmth can support Cabernet ripening
+        - A warmer site guarantees higher quality and a fixed price regardless of vintage
+        correctIndex: 2
+        explanation: Sonoma County Winegrowers describes Alexander Valley’s warmer inland setting; fruit and
+          cellar records still matter.
+        sourceCitationId: src_reg_am_sonoma
+      ki_reg_am_templeton_air:
+        prompt: A Paso Robles producer compares a Templeton Gap site with a less marine-influenced site. What
+          explains a possible temperature difference?
+        options:
+        - The mountains block every ocean influence from Templeton, even during sea breezes
+        - Altitude alone determines all Paso Robles temperatures
+        - Both sites must have identical day–night patterns
+        - Cool Pacific air can enter through gaps in the Santa Lucia Range
+        correctIndex: 3
+        explanation: The Paso Robles wine body describes the gap as a pathway for coastal air, without fixing
+          every parcel’s conditions.
+        sourceCitationId: src_reg_am_paso
+      ki_reg_fs_gigondas_exposure:
+        prompt: A buyer calls every Gigondas parcel equally hot. Which site check would improve that comparison?
+        options:
+        - Dentelles aspect and breezes including west-facing sites
+        - One uniform orientation on all slopes of the Dentelles
+        - A rule that breezes alone fix every wine’s final acidity
+        - A fixed quality grade inferred from the village name
+        correctIndex: 0
+        explanation: The Gigondas body describes changing exposures and breezes; actual parcel and season still
+          matter.
+        sourceCitationId: src_reg_fs_gigondas
+      ki_wset_eu_bordeaux_classifications_scope:
+        prompt: A buyer sees “classified Bordeaux” in a supplier note. What should they clarify first?
+        options:
+        - Whether every Bordeaux château belongs to the same ranking
+        - Which classification applies, to which area and which wines
+        - Whether an unclassified estate is legally barred from good wine
+        - Whether Cru Bourgeois always means the 1855 Médoc list
+        correctIndex: 1
+        explanation: Bordeaux’s regional body lists distinct Médoc/Sauternes, Graves, Saint-Émilion and Cru
+          Bourgeois systems.
+        sourceCitationId: src_wset_eu_bdx_classification
+      ki_wset_eu_burgundy_grand_cru:
+        prompt: An estate bottles a Burgundy Grand Cru and a village wine. What does Grand Cru classify on
+          the first label?
+        options:
+        - The estate itself and all wines it makes in Burgundy, including its village bottling
+        - The amount of new oak used for both bottles
+        - The wine’s delimited appellation of origin, not every estate wine
+        - A tasting score guaranteed for the Grand Cru bottle
+        correctIndex: 2
+        explanation: Bourgogne Grand Cru is tied to a specified appellation; estate ownership does not transfer
+          the designation to other land.
+        sourceCitationId: src_wset_eu_burgundy_hierarchy
+      ki_wset_eu_burgundy_premier_cru:
+        prompt: A Chablis label says Premier Cru without a climat name. What can the label still indicate?
+        options:
+        - Wine from any village parcel if the producer owns a Grand Cru
+        - Wine classified by an estate-wide Bordeaux-style ranking
+        - Wine required to name one climat on every Premier Cru label
+        - Classified Premier Cru land, though no climat name is shown
+        correctIndex: 3
+        explanation: The Chablis Premier Cru reference permits Premier Cru alone, with a climat name, or with
+          both for classified parcels.
+        sourceCitationId: src_wset_eu_chablis_premier_cru_group
+      ki_wset_eu_rioja_ageing_labels:
+        prompt: A Rioja buyer compares Crianza and Reserva across red and white wines. What do the terms establish?
+        options:
+        - Minimum maturation requirements that differ by wine colour
+        - Exactly the same barrel and bottle periods for every colour
+        - One compulsory oak species and a guaranteed flavour profile
+        - A sensory quality score that replaces tasting each wine
+        correctIndex: 0
+        explanation: The Rioja wine body explains regulated maturation categories, with different red and white
+          or rosé minima.
+        sourceCitationId: src_wset_eu_rioja_labels
+      ki_wset_eu_saint_emilion_grand_cru_classe:
+        prompt: A restaurant list has Saint-Émilion Grand Cru and Saint-Émilion Grand Cru Classé. What distinction
+          matters?
+        options:
+        - Both names are interchangeable rankings of every bottle
+        - Grand Cru is an AOC; Grand Cru Classé separately ranks estates
+        - Grand Cru Classé identifies only a vineyard slope, never an estate
+        - The Grand Cru appellation automatically confers classified status
+        correctIndex: 1
+        explanation: INAO distinguishes the Grand Cru appellation from the classification of eligible estates
+          within it.
+        sourceCitationId: src_wset_eu_se_classification
+      ki_wset_nw_australia_gi_levels:
+        prompt: A wine list files Barossa Valley under a “Barossa region” heading. Which correction matches
+          Australia’s GI register?
+        options:
+        - Barossa Valley is the zone containing Barossa and Eden Valley
+        - Eden Valley is merely a synonym for the Barossa Valley region
+        - Barossa is a zone; Barossa Valley and Eden Valley are regions
+        - Australia has no formal zones above its registered regions
+        correctIndex: 2
+        explanation: Wine Australia’s register distinguishes the Barossa zone from its Barossa Valley and Eden
+          Valley regions.
+        sourceCitationId: src_atlas_au_gis
+      ki_wset_nw_chile_crosswise_terms:
+        prompt: A Chilean label adds “Costa” to an origin name. What does that word contribute?
+        options:
+        - A compulsory Sauvignon Blanc grape requirement
+        - A guarantee of sea-spray flavour in the finished wine
+        - A higher price category replacing the wine’s DO origin
+        - A regulated coastal mention, not a quality tier
+        correctIndex: 3
+        explanation: Chile’s zoning decree treats Costa, Entre Cordilleras and Andes as additional geographic
+          mentions.
+        sourceCitationId: src_atlas_cl_zonation
+      ki_wset_nw_chile_origin_hierarchy:
+        prompt: A Chilean buyer needs to place Rapel and Colchagua within the Central Valley origin hierarchy.
+          Which is correct?
+        options:
+        - Central Valley region; Rapel subregion; Colchagua zone
+        - Colchagua region; Rapel zone; Central Valley subregion
+        - Rapel region; Central Valley zone; Colchagua area
+        - All three names are one interchangeable administrative tier
+        correctIndex: 0
+        explanation: Chile’s current zoning decree orders these named areas by region, subregion and zone.
+        sourceCitationId: src_atlas_cl_zonation
+      ki_wset_nw_south_africa_wo_origin:
+        prompt: A buyer sees “Wine of Origin Stellenbosch.” What is the strongest inference from the origin
+          statement?
+        options:
+        - Cabernet Sauvignon is compulsory in every bottle
+        - All grapes originate in the area; style needs more evidence
+        - The wine must be oak-matured to a fixed quality grade
+        - Only the producer’s address, not grape origin, is verified by WO
+        correctIndex: 1
+        explanation: Wines of South Africa describes WO as an origin guarantee, not a compulsory grape or sensory
+          grade.
+        sourceCitationId: src_wset_nw_za_wo
+      ki_wset_nw_usa_ava_origin:
+        prompt: A US producer wants to label a wine with a named AVA. Which source-and-finish test applies
+          under federal rules?
+        options:
+        - Any grapes from the AVA, if the winery has an address there and finishes wine locally
+        - Only 75% AVA grapes, with finishing permitted in any state
+        - At least 85% AVA grapes, with wine finished in a containing state
+        - Exactly 100% AVA grapes and compulsory barrel maturation
+        correctIndex: 2
+        explanation: TTB states the 85% grape-origin threshold and finishing condition, subject to the regulation’s
+          exceptions.
+        sourceCitationId: src_wset_nw_ttb_origin
+      ki_wset_nwa_nz_origin_label:
+        prompt: A New Zealand label gives Marlborough, Sauvignon Blanc and a vintage. What do those three claims
+          separately describe?
+        options:
+        - Sweetness, oak treatment and a compulsory tasting score
+        - One guaranteed subregion, one barrel type and one sale date
+        - A rule that every berry must match each printed claim without exceptions for export
+        - Area, variety and harvest year; their combined claim meets the 85% rule
+        correctIndex: 3
+        explanation: The New Zealand regulation applies the 85% standard to a combined area, variety and vintage
+          claim, with export exceptions.
+        sourceCitationId: src_wset_nwa_nz_label_rules

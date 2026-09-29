@@ -1,0 +1,458 @@
+# Original, item-specific Level 2 winemaking applications shared with Level 3.
+# No generic MCQ is enabled for these conditional assertions.
+question_templates:
+- id: qt_wset_l2_winemaking_method_remaining_1
+  relation_type: REQUIRES_METHOD
+  direction: forward
+  mode: authored_choice
+  variant: l2_winemaking_method_remaining
+  prompt_template: '{subject.name}'
+  parameters:
+    item_choices:
+      ki_champagne_method:
+        prompt: A cellar wants to label a wine Champagne. Which sequence meets the cited production requirement?
+        options:
+        - Secondary fermentation in bottle, followed by disgorgement no sooner than 12 months after tirage
+        - Secondary fermentation only in tank, followed by immediate bottling
+        - Carbon dioxide injection, followed by 12 months in bottle before release
+        - Secondary fermentation in bottle, followed by disgorgement in the first month after tirage
+        correctIndex: 0
+        explanation: The Champagne specification requires bottle second fermentation and forbids disgorgement before 12 months have elapsed after tirage; this is distinct from total release-ageing rules.
+        sourceCitationId: src_inao_cdc_champagne
+
+- id: qt_wset_l2_winemaking_principles_remaining_39
+  relation_type: PRINCIPLE_EXPLANATION
+  direction: forward
+  mode: authored_choice
+  variant: l2_winemaking_principles_remaining
+  prompt_template: '{subject.name}'
+  parameters:
+    item_choices:
+      ki_fault_brett_organism:
+        prompt: A lab detects Brettanomyces in a barrel sample, but tasters report no spoilage aroma. Which interpretation is sound?
+        options:
+        - The organism cannot affect wine because tasters found no aroma
+        - Brettanomyces is a yeast; detection and sensory impact are separate findings
+        - The organism is a cork chemical whose presence proves taint
+        - Brettanomyces always produces detectable volatile phenols immediately
+        correctIndex: 1
+        explanation: AWRI identifies Brettanomyces as spoilage yeast associated with volatile phenols; detection alone does not establish the sensory result in this particular sample.
+        sourceCitationId: src_fault_brett_control
+
+      ki_fault_tca_non_cork:
+        prompt: A screw-capped wine smells musty and testing identifies TCA. Which cellar route remains plausible?
+        options:
+        - TCA can only enter wine through a natural cork at bottling
+        - Screw caps generate TCA during storage by design
+        - Contaminated barrels or other oak products could have tainted the wine before bottling
+        - Mustiness rules out a cellar-origin taint if the bottle has no cork
+        correctIndex: 2
+        explanation: AWRI documents oak products and barrels as potential taint sources, so closure type does not eliminate pre-bottling TCA exposure.
+        sourceCitationId: src_fault_oak_taints
+
+      ki_fault_va_acid:
+        prompt: A routine analysis finds a small amount of acetic acid in an otherwise sound wine. Which judgement follows?
+        options:
+        - Any measurable acetic acid proves a fault
+        - Acetic acid is unrelated to volatile acidity
+        - Only oak maturation can produce acetic acid
+        - Acetic acid contributes to volatile acidity, but small amounts can arise in normal fermentation
+        correctIndex: 3
+        explanation: AWRI describes acetic acid as the principal volatile-acidity component and notes normal fermentation can produce low concentrations; the measured amount and sensory context matter.
+        sourceCitationId: src_fault_va_technical
+
+      ki_reg_ah_tokaj_oak:
+        prompt: Two traditionally matured Tokaj sweet wines spent different periods in oak. Which comparison is defensible before tasting?
+        options:
+        - Oak can influence aroma and colour, but longer ageing alone does not prove better balance
+        - Longer oak contact always makes the sweet wine higher quality
+        - Tokaj's oak practice guarantees identical colour in both wines
+        - Barrel maturation prevents all aroma development
+        correctIndex: 0
+        explanation: Wines of Tokaj describes oak's traditional role and its effects on aroma and colour; the quality judgement still requires assessing each wine's balance.
+        sourceCitationId: src_reg_ah_tokaj_maturing
+
+      ki_reg_fe_beaujolais_yeast:
+        prompt: During a whole-bunch Beaujolais vat fermentation, crushed berries release juice at the bottom. What process also occurs there?
+        options:
+        - Only intracellular metabolism, with no yeast fermentation anywhere
+        - Yeast ferments released juice and produces carbon dioxide around intact berries
+        - Yeast fermentation begins only after the bunches are drained and pressed
+        - Only malolactic conversion of the bottom juice supplies carbon dioxide
+        correctIndex: 1
+        explanation: The Beaujolais producer account describes yeast fermentation of bottom-vat juice, which supplies carbon dioxide; semi-carbonic production is not exclusively intracellular.
+        sourceCitationId: src_reg_fe_beaujolais_vinification
+
+      ki_reg_fm_rose_maceration:
+        prompt: A Provence producer wants a little more pink colour from a suitable red-grape lot before pressing. Which lever directly changes pigment extraction?
+        options:
+        - Extending bottle ageing after the rosé is finished
+        - Removing skins before any contact with the juice
+        - Adjusting controlled pre-fermentation skin-contact time
+        - Replacing skin contact with new-oak maturation after pressing
+        correctIndex: 2
+        explanation: Provence's rosé production guide links maceration before pressing to pigment and flavour extraction; colour strength alone is not a quality score.
+        sourceCitationId: src_reg_fm_rose
+
+      ki_reg_fr_chablis_mlf_acid:
+        prompt: A Chablis lot completes malolactic conversion. Which direct acid change should the cellar expect?
+        options:
+        - Lactic acid converts back into malic acid, increasing sharpness
+        - Acidity is unchanged because only alcohol, not acid, is converted
+        - Tartaric acid converts to malic acid, making the wine sharper
+        - Malic acid converts to lactic acid, generally softening the acid profile
+        correctIndex: 3
+        explanation: The Chablis wine body describes common malolactic conversion of malic to lactic acid and a reduction in acidity; the final balance remains wine-specific.
+        sourceCitationId: src_reg_fr_chablis_cellar
+
+      ki_reg_fr_chablis_new_oak:
+        prompt: A buyer sees Chablis on a label but has no producer sheet. Which oak conclusion is warranted?
+        options:
+        - Some Chablis uses oak selectively, often with little new oak; check this cuvée
+        - The appellation forbids any oak vessel
+        - Every Chablis must mature entirely in new barrels
+        - A Chablis label alone specifies the percentage of new oak
+        correctIndex: 0
+        explanation: Chablis producers may use oak selectively, including modest new-barrel proportions; the appellation name by itself does not fix a cuvée's vessel choices.
+        sourceCitationId: src_reg_fr_chablis_cellar
+
+      ki_reg_fr_chablis_vessels:
+        prompt: Two Chablis producers choose different fermentation and maturation vessels. Which pair is compatible with the regional producer guide?
+        options:
+        - Stainless steel for fermentation, but oak maturation is prohibited
+        - Stainless steel for one cuvée and oak for another
+        - New oak exclusively for every basic Chablis
+        - One vessel type is compulsory for every Chablis cuvée
+        correctIndex: 1
+        explanation: The Chablis wine body describes stainless steel and oak as producer options for fermentation and maturation, selected for the intended wine.
+        sourceCitationId: src_reg_fr_chablis_cellar
+
+      ki_reg_ib_rioja_white_oak:
+        prompt: A Rioja white made with Viura has fruit notes and an added oak-influenced texture. What production detail best explains the second cue?
+        options:
+        - All Rioja whites are legally red blends
+        - Viura alone requires identical wood aromas in every wine
+        - This cuvée may have received oak treatment; Rioja white styles vary
+        - Any oak note proves the wine is outside Rioja
+        correctIndex: 2
+        explanation: Rioja's regional style guide includes white wines and notes that some receive oak treatment; the production detail, not the region name, explains the oak cue.
+        sourceCitationId: src_reg_ib_rioja_styles
+
+      ki_reg_inc_amarone_drying:
+        prompt: Grapes for an Amarone lot are dried before fermentation. What finished-wine outcome is still possible?
+        options:
+        - Drying requires all sugar to remain unfermented
+        - Drying prevents alcohol production
+        - The grapes cannot yield a red wine after drying
+        - Fermentation can make a dry, relatively high-alcohol red
+        correctIndex: 3
+        explanation: The Valpolicella consortium describes pre-fermentation drying followed by fermentation to dry Amarone; concentrated grapes do not automatically mean a sweet finish.
+        sourceCitationId: src_reg_inc_amarone
+
+      ki_reg_inc_trebbiano_freshness:
+        prompt: A Soave producer considers Trebbiano di Soave as one component of a blend intended to retain freshness. Which cited grape trait supports the choice?
+        options:
+        - Relatively high malic acid can contribute to freshness, subject to harvest and cellar choices
+        - The grape necessarily removes all acid from Garganega
+        - It always ripens later and has lower malic acid than every partner
+        - Its presence guarantees an identical finished acidity in every vintage
+        correctIndex: 0
+        explanation: The Soave consortium describes Trebbiano di Soave as early ripening, relatively neutral and high in malic acid; finished acidity is not predetermined by one component.
+        sourceCitationId: src_reg_inc_soave
+
+      ki_reg_inc_valpolicella_fresh:
+        prompt: A producer is planning a youthful basic Valpolicella rather than an extended-maturation style. Which route matches the consortium's basic style account?
+        options:
+        - Dry all grapes for months before making a sweet wine
+        - Conventional red vinification and relatively short maturation
+        - Mandatory long new-oak maturation for every bottling
+        - Stop fermentation early to retain high residual sugar
+        correctIndex: 1
+        explanation: The Valpolicella consortium presents basic Valpolicella as fresh and youthful, with conventional red vinification and relatively short maturation; other categories can differ.
+        sourceCitationId: src_reg_inc_valpolicella
+
+      ki_reg_isi_abruzzo_grapes_styles:
+        prompt: A winery uses Abruzzo's Montepulciano grape for a pink Cerasuolo rather than a deep red. Which cellar difference can help explain the colour?
+        options:
+        - Adding white oak converts red pigment to clear juice
+        - Longer red-wine skin extraction is compulsory for rosato
+        - Limited skin contact or white-style vinification reduces extraction
+        - The grape must be replaced by Trebbiano d'Abruzzo
+        correctIndex: 2
+        explanation: The Cerasuolo d'Abruzzo specification describes limited skin contact or white-style vinification; the red grape need not make an identically extracted red wine.
+        sourceCitationId: src_reg_isi_cerasuolo
+
+      ki_reg_isi_fiano_steel:
+        prompt: A Fiano di Avellino producer wants to emphasize fresh floral character. Which documented approach fits that target?
+        options:
+        - Uncontrolled warm fermentation in an open vat is required
+        - Every wine must age for years in new oak first
+        - Vessel choice alone preserves florals without temperature control
+        - Temperature-controlled stainless-steel fermentation can preserve a fresh expression
+        correctIndex: 3
+        explanation: The Fiano consortium describes controlled stainless-steel elaboration as a common way to retain freshness; it does not prescribe that choice for every producer.
+        sourceCitationId: src_reg_isi_fiano
+
+      ki_reg_isi_fiano_wood:
+        prompt: Two Fiano di Avellino producers choose wood and steel maturation respectively. What conclusion follows from the regional guide?
+        options:
+        - Wood is an available style choice, but its use alone does not establish higher quality
+        - Fiano di Avellino rules forbid any contact with wood
+        - Wood automatically makes every Fiano sweet
+        - The steel-matured wine must be lower in quality before tasting
+        correctIndex: 0
+        explanation: The Fiano consortium notes that some producers choose wood maturation for a different expression; quality still depends on the finished wine's balance.
+        sourceCitationId: src_reg_isi_fiano
+
+      ki_reg_oa_constantia_assembly:
+        prompt: In the cited Klein Constantia Sauvignon Blanc example, why ferment different vineyard blocks separately before assembly?
+        options:
+        - To make every block identical before blending
+        - To retain distinct component options for the final estate blend
+        - Because a Constantia label prohibits blending
+        - Because all blocks must be picked and fermented at once
+        correctIndex: 1
+        explanation: Klein Constantia describes monitoring and fermenting blocks separately before blending; this is a producer example, not a mandatory regional practice.
+        sourceCitationId: src_reg_oa_constantia
+
+      ki_reg_oa_robertson_unwooded:
+        prompt: De Wetshof's unwooded 2025 Limestone Hill Chardonnay has some lees-derived texture. Which recorded cellar path explains it?
+        options:
+        - Exclusive new-barrel fermentation and ageing
+        - Long skin fermentation like a red wine
+        - Steel fermentation with controlled lees contact and stirring
+        - Tank fermentation followed by lees removal before any maturation
+        correctIndex: 2
+        explanation: The producer sheet records stainless-steel fermentation and lees contact with stirring for that unwooded cuvée; lees texture does not prove barrel use.
+        sourceCitationId: src_reg_oa_limestone25
+
+      ki_spark_white_press:
+        prompt: A sparkling producer wants pale base wine from dark-skinned grapes. Which pressing decision best limits colour extraction?
+        options:
+        - Leave crushed skins in contact throughout red fermentation
+        - Heat skins before a long extraction
+        - Add more red-wine press fractions
+        - Press gently with limited skin contact
+        correctIndex: 3
+        explanation: Champagne's pressing account emphasizes gentle handling and restricted skin contact for pale base wine; a rosé objective can call for different extraction.
+        sourceCitationId: src_spark_pressing
+
+      ki_wset_close_blending_complexity:
+        prompt: A cellar has two sound components with complementary aroma and texture. Which blend decision could add sensory complexity?
+        options:
+        - Trial a proportion of each component and assess whether their layers work together
+        - Mix every available component because the largest number guarantees quality
+        - Use only wines from different grape varieties; same-variety parcels cannot add layers
+        - Avoid any trial blend because complexity is fixed at harvest
+        correctIndex: 0
+        explanation: WSET describes complexity as one possible blending aim using complementary components, including parcels or vessels of the same variety; quality still requires evaluation.
+        sourceCitationId: src_wset_close_blending
+
+      ki_wset_eu_alsace_vt_sgn:
+        prompt: Two Alsace sweet-wine lots are considered for late-harvest designations. Which distinction correctly separates VT from SGN?
+        options:
+        - Both designations require every berry to be dried after harvest
+        - VT relies on late-picked concentrated fruit; SGN selects suitably botrytised berries
+        - VT requires noble rot in every wine, while SGN forbids it
+        - The designations refer only to oak-maturation length
+        correctIndex: 1
+        explanation: The Alsace wine body distinguishes late-harvest VT fruit from selective noble-rot SGN fruit; late harvest alone does not make every VT a botrytised wine.
+        sourceCitationId: src_wset_sf_alsace_spark
+
+      ki_wset_eu_beaujolais_nouveau_style:
+        prompt: A Beaujolais producer targets a fresh Nouveau release with gentle tannins. Which processing route fits that goal?
+        options:
+        - Prolonged skin extraction followed by many years in new oak
+        - Fermentation followed by extended new-oak maturation before release
+        - Short whole-bunch maceration and early release
+        - Drying grapes until all juice is lost before pressing
+        correctIndex: 2
+        explanation: The Beaujolais regional guide connects short whole-bunch maceration with Nouveau's youthful fruit and lighter extraction; other Beaujolais styles may differ.
+        sourceCitationId: src_wset_eu_beaujolais_nouveau
+
+      ki_wset_eu_bordeaux_dry_white:
+        prompt: A Graves dry white has both fresh fruit and a rounded, lees-influenced texture. Which combined cellar route can account for those cues?
+        options:
+        - Hot oxidative fermentation is compulsory for every Bordeaux white
+        - The appellation alone proves all white wines are oaked
+        - Barrel fermentation alone proves that every Bordeaux white tastes oaky
+        - Cool fermentation can retain fruit while selected barrel or lees work adds texture
+        correctIndex: 3
+        explanation: Bordeaux's regional production account describes fresh dry whites and cuvée-dependent barrel and lees handling; the particular wine's records are needed.
+        sourceCitationId: src_wset_eu_bdx_cellar
+
+      ki_wset_eu_bordeaux_white_mlf:
+        prompt: A Bordeaux dry-white lot tastes unusually sharp for its intended style. What optional process can soften its acid profile?
+        options:
+        - Allow malolactic conversion, subject to the intended cuvée
+        - Convert lactic acid back to malic acid
+        - Require every dry Bordeaux white to retain residual sugar
+        - Add skins to turn all white wine into red
+        correctIndex: 0
+        explanation: Bordeaux white production can use or avoid malolactic conversion according to fruit and style; conversion generally softens perceived acidity.
+        sourceCitationId: src_wset_eu_bdx_cellar
+
+      ki_wset_eu_catalunya_cellar:
+        prompt: A Catalunya producer wants a fresh fruit-led white expression from a suitable lot. Which cellar choice fits the regional style guide?
+        options:
+        - Prolonged new-oak maturation is required for all Catalunya whites
+        - Temperature-controlled stainless-steel fermentation can preserve varietal fruit
+        - Warm, uncontrolled fermentation preserves every delicate fruit aroma
+        - All Catalunya whites require long fermentation on skins
+        correctIndex: 1
+        explanation: The Catalunya DO guide contrasts controlled stainless-steel fruit expression with wines showing oak influence; it does not impose one method on all cuvées.
+        sourceCitationId: src_wset_eu_catalunya
+
+      ki_wset_eu_cote_rotie_style:
+        prompt: A Côte-Rôtie producer proposes co-fermenting some Viognier with Syrah. Which appraisal is correct?
+        options:
+        - Viognier is legally mandatory at one fixed percentage
+        - Viognier may be added only after separate fermentation
+        - Viognier is an optional component that can affect aroma and texture
+        - Syrah is prohibited if Viognier is present
+        correctIndex: 2
+        explanation: The Rhône wine body describes Syrah-based Côte-Rôtie with possible Viognier co-fermentation; the white grape is not required in every wine.
+        sourceCitationId: src_wset_eu_cote_rotie
+
+      ki_wset_eu_navarra_rose_skin:
+        prompt: Navarra Garnacha fruit is destined for rosé rather than a deeply extracted red. Which adjustment most directly limits colour and tannin pickup?
+        options:
+        - Increase skin contact throughout and after red fermentation
+        - Stir fine lees after pressing instead of limiting skin contact
+        - Extend maceration until maximum tannin is extracted
+        - Press off skins after a shorter contact period
+        correctIndex: 3
+        explanation: Navarra's wine guide associates Garnacha rosé with controlled skin maceration; less contact can yield pink wine from a red grape without fixing every producer's style.
+        sourceCitationId: src_wset_eu_navarra_styles
+
+      ki_wset_eu_pays_oc_comparison:
+        prompt: Two Pays d'Oc IGP bottles show different styles, one labelled Sauvignon Blanc and one Chardonnay. What should the buyer check before attributing their difference to the region?
+        options:
+        - Their grape and cuvée details; the shared IGP permits varied varieties and styles
+        - Only the shared IGP name, which guarantees identical grapes
+        - Whether the shared IGP mandates one fermentation vessel for both
+        - Whether one label omits the harvest year, which proves a different climate
+        correctIndex: 0
+        explanation: Pays d'Oc permits a broad range of grape varieties. The shared indication cannot by itself explain differences between distinct grapes or cellar treatments.
+        sourceCitationId: src_wset_eu_pays_oc
+
+      ki_wset_eu_recioto_soave_sweet:
+        prompt: A producer wants sweet Recioto di Soave rather than a usual dry Soave expression. Which production step is characteristic?
+        options:
+        - Pressing underripe grapes to remove all sugar
+        - Drying Garganega grapes before pressing to concentrate the must
+        - Red-wine skin fermentation of Montepulciano grapes
+        - Injecting carbon dioxide after a fully dry fermentation
+        correctIndex: 1
+        explanation: The Soave consortium describes Garganega-led Recioto production using appassimento and a sweet finished style.
+        sourceCitationId: src_wset_grape_soave_recioto
+
+      ki_wset_eu_recioto_valpolicella_sweet:
+        prompt: Dried Valpolicella grapes could make either sweet Recioto or dry Amarone. What additional choice preserves Recioto's sweetness?
+        options:
+        - Drying alone guarantees sugar remains regardless of fermentation
+        - Maturing exclusively in stainless steel creates sugar
+        - Stop fermentation before yeast consumes all fermentable sugar
+        - Blend only fully dry finished wines
+        correctIndex: 2
+        explanation: The Valpolicella consortium describes appassimento followed by fermentation arrested with residual sugar for Recioto; drying is not itself a sweetness guarantee.
+        sourceCitationId: src_wset_eu_recioto_valpolicella
+
+      ki_wset_nw_barossa_gsm:
+        prompt: A Barossa Grenache lot could be bottled alone or contribute to a GSM wine. Which blend composition matches the regional guide?
+        options:
+        - Grenache, Sémillon and Muscat at a mandatory fixed ratio
+        - Only Shiraz, with no Grenache permitted
+        - Grenache and Shiraz at a mandatory equal proportion in every blend
+        - Grenache with Shiraz and Mataro in variable proportions
+        correctIndex: 3
+        explanation: Wine Australia's Barossa guide identifies Grenache as both a varietal wine and a component of Grenache-Shiraz-Mataro blends; it prescribes no single formula.
+        sourceCitationId: src_wset_nw_barossa_semillon
+
+      ki_wset_nwa_clare_eden_riesling:
+        prompt: A Clare Valley Riesling lot is intended to show citrus fruit and lively acidity in a dry style. Which fermentation plan best fits that stated goal?
+        options:
+        - Use a cool, neutral-vessel fermentation and let the lot ferment dry
+        - Require new oak and stop fermentation with high residual sugar
+        - Ferment warm on red skins until tannin dominates the fruit
+        - Assume the regional name alone fixes sweetness and cellar vessel
+        correctIndex: 0
+        explanation: Penn State's white-wine production guidance supports cooler fermentation to retain delicate aromas; dryness is a stated lot target, not a universal Clare Valley rule.
+        sourceCitationId: src_win_white_temperature
+
+      ki_wset_prod_juice_clarification:
+        prompt: A white-juice lot is settling so vigorously that nearly all grape solids will be removed before yeast starts. What risk should the winemaker consider?
+        options:
+        - Grape solids can never contribute to fermentation performance
+        - Very low solids can reduce yeast-available nutrients and risk sluggish fermentation
+        - Near-total solids removal leaves yeast nutrition unchanged in every juice
+        - More clarification necessarily produces a healthier fermentation in every lot
+        correctIndex: 1
+        explanation: AWRI reports that juice solids supply lipids and nitrogen to yeast; the ideal clarification level balances fermentation performance against the intended sensory style.
+        sourceCitationId: src_wset_prod_grape_solids
+
+      ki_wset_prod_sedimentation_fining:
+        prompt: A cellar compares settling a cloudy wine overnight with adding a fining agent. Which distinction is correct?
+        options:
+        - Both processes require adding the same binding agent
+        - Both necessarily rely on a membrane filter to remove suspended solids
+        - Sedimentation relies on gravity; fining introduces an agent to remove selected material
+        - Fining means waiting for solids to fall without adding anything
+        correctIndex: 2
+        explanation: AWRI distinguishes natural settling of suspended solids from fining, in which an added agent acts on material selected for removal.
+        sourceCitationId: src_win_fining
+
+      ki_wset_sf_cap_style:
+        prompt: A cited Cap Classique Chardonnay spends more time on bottle lees before disgorgement. What style change may result?
+        options:
+        - Lees ageing necessarily removes all acidity and fruit
+        - The second fermentation must switch from bottle to tank
+        - Lees ageing guarantees an identical taste for all South African sparkling wine
+        - More creamy texture and developed notes can accompany longer lees contact
+        correctIndex: 3
+        explanation: The Wines of South Africa CapeWine directory describes a Chardonnay Cap Classique example whose bottle lees ageing contributes creaminess; outcomes vary by producer and base wine.
+        sourceCitationId: src_wset_sf_cap_directory
+
+      ki_wset_sf_champagne_climate:
+        prompt: A Champagne grower selects an earlier harvest date for sparkling base wine in a cool season. Which climate-related objective and risk belong together?
+        options:
+        - Retain useful acidity and moderate sugar, while monitoring frost and uneven ripening risk
+        - Maximize tropical over-ripeness and ignore frost because cool sites never freeze
+        - Eliminate every crop risk by harvesting at a fixed calendar date
+        - Ensure every slope and aspect yields the same sugar and acid balance
+        correctIndex: 0
+        explanation: Champagne's cool northern conditions support acid-rich sparkling bases but bring frost and ripening challenges; site and vintage still affect harvest decisions.
+        sourceCitationId: src_fr_atlas_champagne_areas
+
+      ki_wset_sf_prosecco_labels:
+        prompt: Two Prosecco DOC bottles are labelled Brut and Extra Dry. Which one has the higher permitted residual-sugar range?
+        options:
+        - Brut, because the label always means sweeter
+        - Extra Dry, despite the wording of its name
+        - They are identical terms for pressure rather than sweetness
+        - Neither term describes sugar; both refer only to grape origin
+        correctIndex: 1
+        explanation: The Prosecco DOC producer body lists Extra Dry above Brut in residual sugar; sweetness category is separate from DOC origin and pressure category.
+        sourceCitationId: src_wset_found_prosecco
+
+      ki_wset_sf_sherry_amontillado_style:
+        prompt: A dry Sherry began ageing under flor, then continued with oxidative ageing after flor disappeared. Which style fits this path?
+        options:
+        - Naturally sweet Pedro Ximénez made solely by drying
+        - Fino that remained under flor throughout maturation
+        - Amontillado, with a biological phase followed by oxidation
+        - A non-fortified red wine matured without yeast
+        correctIndex: 2
+        explanation: Sherry Wines describes Amontillado's sequence of biological and oxidative ageing; its amber, nutty character does not make it naturally sweet.
+        sourceCitationId: src_fort_sherry_amontillado
+
+      ki_wset_sf_tasmania_spark:
+        prompt: A Tasmanian producer plans a traditional-method sparkling base from Chardonnay and Pinot Noir. What does the cool source fruit particularly help retain?
+        options:
+        - Guaranteed identical ripeness in every season
+        - Mandatory high residual sugar before bottling
+        - Complete immunity to poor weather and yield loss
+        - Useful acidity at moderate sugar for a fresh sparkling base
+        correctIndex: 3
+        explanation: Australian Wine's sparkling guide identifies cool Tasmanian fruit as well suited to fresh Chardonnay and Pinot Noir bases; the final balance remains site- and season-dependent.
+        sourceCitationId: src_wset_sf_au_spark

@@ -188,7 +188,7 @@ final class ItemCoverage {
       servedFormats.any((id) => builtFormats[id]?.isObjective ?? false);
 
   /// At least one objective format and at least two families (COV-2).
-  bool get hasUsefulPractice => hasObjectiveFormat && families.length >= 2;
+  bool get hasUsefulPractice => hasUsefulPracticeForModes(servedFormats);
 }
 
 /// The kinds of gap the checker reports. The ratchet fails on a blocking
