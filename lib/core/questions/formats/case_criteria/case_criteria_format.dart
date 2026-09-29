@@ -158,6 +158,32 @@ class CaseCriteriaFormat extends ExerciseFormat {
     return ids.cast<String>().toSet();
   }
 
+  /// Some case subjects have a concise title rather than the full premise.
+  /// An explicit override can show the original scenario without changing the
+  /// shared subject node used by other question formats.
+  static Map<String, String> scenarioPromptsOf(QuestionTemplate template) {
+    final scope = scopeNodeIdsOf(template);
+    final raw = _parameters(template)['scenario_prompts'];
+    if (raw == null) return const {};
+    if (raw is! Map<String, dynamic> ||
+        raw.keys.toSet().difference(scope).isNotEmpty) {
+      throw const FormatException(
+        'case_criteria scenario_prompts must be scoped to this template',
+      );
+    }
+    final prompts = <String, String>{};
+    for (final entry in raw.entries) {
+      final value = entry.value;
+      if (value is! String || value.trim().length < 80 || value.contains('{')) {
+        throw FormatException(
+          '${entry.key} needs a full case scenario without placeholders',
+        );
+      }
+      prompts[entry.key] = value.trim();
+    }
+    return prompts;
+  }
+
   static Map<String, List<CaseCriterionOption>> distractorsOf(
     QuestionTemplate template,
   ) {
@@ -217,6 +243,7 @@ class CaseCriteriaFormat extends ExerciseFormat {
     try {
       scopeNodeIdsOf(template);
       distractorsOf(template);
+      scenarioPromptsOf(template);
     } on FormatException catch (error) {
       problems.add(error.message);
     }
@@ -284,6 +311,7 @@ class CaseCriteriaFormat extends ExerciseFormat {
     QuestionTemplate template,
   ) async {
     final scope = scopeNodeIdsOf(template);
+    final scenarioPrompts = scenarioPromptsOf(template);
     final bySubject = <String, List<KnowledgeItem>>{};
     for (final item in context.items) {
       if (scope.contains(item.subjectId) &&
@@ -310,10 +338,12 @@ class CaseCriteriaFormat extends ExerciseFormat {
             ExercisePoolsCompanion.insert(
               questionTemplateId: template.id,
               scopeNodeId: Value(entry.key),
-              promptText: template.promptTemplate.replaceAll(
-                '{subject.name}',
-                names[entry.key]!,
-              ),
+              promptText:
+                  scenarioPrompts[entry.key] ??
+                  template.promptTemplate.replaceAll(
+                    '{subject.name}',
+                    names[entry.key]!,
+                  ),
             ),
           );
       final byRole = {for (final item in entry.value) item.relationType: item};
