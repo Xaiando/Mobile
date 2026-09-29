@@ -90,7 +90,7 @@ void main() {
       final byItem = {for (final item in additions) item.id: item};
       expect(
         byItem['ki_cms_example_zwarte_kip']!.assertionText,
-        contains("not an EU legal category"),
+        contains('not an EU legal category'),
       );
       expect(
         byItem['ki_cms_example_egg_limit']!.assertionText,
