@@ -360,7 +360,7 @@ void main() {
   );
 
   test(
-    '1485 cited choices are generated and served across WSET and CMS tracks',
+    '1532 cited choices are generated and served across WSET and CMS tracks',
     () async {
       final db = openTestDatabase();
       try {
@@ -385,7 +385,7 @@ void main() {
                   template.id == 'qt_d5f_authored_choice',
             )
             .toList();
-        expect(templates, hasLength(72));
+        expect(templates, hasLength(73));
         final expectedIds = {
           for (final template in templates)
             ...((jsonDecode(template.parameters!)
@@ -501,6 +501,9 @@ void main() {
         final l3WinemakingRegionalIds = idsForTemplate(
           'qt_wset_l3_winemaking_regional_principles_54',
         );
+        final l3WinemakingSpecialIds = idsForTemplate(
+          'qt_wset_l3_winemaking_special_principles_47',
+        );
         final l3WinemakingFirstClosureIds = idsForTemplate(
           'qt_wset_l3_winemaking_principle_closure_40',
         );
@@ -585,6 +588,7 @@ void main() {
           ...winemakingDepthIds,
           ...winemakingGapIds,
           ...l3WinemakingRegionalIds,
+          ...l3WinemakingSpecialIds,
           ...l3ApplicationIds,
           ...l3ViticultureIds,
           ...l3ViticulturePrincipleIds,
@@ -627,7 +631,7 @@ void main() {
           'ki_reg_ib_sacra_terraces',
           'ki_reg_ib_dao_encruzado',
         }, reason: 'Diploma and Level 3 regional prompts share two items');
-        expect(expectedIds, hasLength(1477));
+        expect(expectedIds, hasLength(1524));
         expect(levelOneIds, hasLength(132));
         expect(levelTwoIds, hasLength(309));
         expect(sharedGrapeIds, hasLength(52));
@@ -641,6 +645,16 @@ void main() {
         expect(winemakingDepthIds, hasLength(37));
         expect(winemakingGapIds, hasLength(40));
         expect(l3WinemakingRegionalIds, hasLength(54));
+        expect(l3WinemakingSpecialIds, hasLength(47));
+        expect(
+          l3WinemakingSpecialIds.intersection(l3WinemakingRegionalIds),
+          isEmpty,
+        );
+        expect(
+          l3WinemakingSpecialIds.intersection(l3WinemakingFirstClosureIds),
+          isEmpty,
+        );
+        expect(l3WinemakingSpecialIds.intersection(winemakingGapIds), isEmpty);
         expect(
           l3WinemakingRegionalIds.intersection(l3WinemakingFirstClosureIds),
           isEmpty,
@@ -688,7 +702,7 @@ void main() {
                OR t.id = 'qt_d5f_authored_choice')
         ORDER BY q.knowledge_item_id
       ''').get();
-        expect(rows, hasLength(1485));
+        expect(rows, hasLength(1532));
         final actual = {
           for (final row in rows)
             row.read<String>('knowledge_item_id'): row.read<String>(

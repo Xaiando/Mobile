@@ -15,62 +15,55 @@ import 'package:sommelier/core/study/study_planner.dart';
 import '../../support/curriculum_fixture.dart';
 import '../../support/fixture.dart';
 
-const _templateId = 'qt_wset_l3_winemaking_regional_principles_54';
+const _templateId = 'qt_wset_l3_winemaking_special_principles_47';
 const _ids = <String>{
-  'ki_reg_ah_neusiedler_zweigelt',
-  'ki_reg_ah_tokaj_cellar',
-  'ki_reg_de_baden_pinot_light',
-  'ki_reg_de_baden_pinot_wood',
-  'ki_reg_de_franken_muller_fresh',
-  'ki_reg_de_rheinhessen_grauburgunder_vessels',
-  'ki_reg_de_rheinhessen_silvaner_range',
-  'ki_reg_fe_beaujolais_maturation',
-  'ki_reg_fe_beaujolais_pressing',
-  'ki_reg_fm_bandol_structure',
-  'ki_reg_fm_maury_structure',
-  'ki_reg_fr_chablis_quality',
-  'ki_reg_fs_savennieres_dry',
-  'ki_reg_gr_agiorgitiko_young',
-  'ki_reg_gr_naoussa_style_choices',
-  'ki_reg_gr_nemea_extraction_oak',
-  'ki_reg_gr_xinomavro_structure',
-  'ki_reg_ib_montsant_controls',
-  'ki_reg_na_oregon_series_controls',
-  'ki_reg_na_slh_chardonnay_range',
-  'ki_reg_sa_leyda_cellar',
-  'ki_reg_sa_mendoza_cellar_response',
-  'ki_reg_sa_mendoza_source_factor',
-  'ki_reg_sa_mendoza_yeast_factor',
-  'ki_wset_apply_alentejo_production',
-  'ki_wset_apply_levante_white_route',
-  'ki_wset_apply_niederosterreich_production',
-  'ki_wset_eu_dolcetto_alba_use',
-  'ki_wset_eu_frascati_steel_lees',
-  'ki_wset_eu_penedes_xarello_oak',
-  'ki_wset_nw_goulburn_heat_water',
-  'ki_wset_nw_inland_water_costs',
-  'ki_wset_nw_lodi_style_choices',
-  'ki_wset_nw_ontario_icewine_selection',
-  'ki_wset_nw_worcester_wine_context',
-  'ki_wset_nwa_aconcagua_red',
-  'ki_wset_nwa_cachapoal_carmenere',
-  'ki_wset_nwa_canterbury_riesling',
-  'ki_wset_nwa_curico_maule_white',
-  'ki_wset_nwa_elim_sauvignon',
-  'ki_wset_nwa_elqui_syrah',
-  'ki_wset_nwa_finger_lakes_riesling',
-  'ki_wset_nwa_gisborne_chardonnay',
-  'ki_wset_nwa_great_southern_red',
-  'ki_wset_nwa_great_southern_riesling',
-  'ki_wset_nwa_leyda_san_antonio_white',
-  'ki_wset_nwa_limari_chardonnay',
-  'ki_wset_nwa_maule_southern_red',
-  'ki_wset_nwa_mendocino_chardonnay',
-  'ki_wset_nwa_monterey_chardonnay',
-  'ki_wset_nwa_nelson_aromatics',
-  'ki_wset_nwa_paso_santa_maria_routes',
-  'ki_wset_nwa_santa_cruz_pinot',
-  'ki_wset_nwa_south_coast_chardonnay',
+  'ki_wset_sf_adelaide_spark',
+  'ki_wset_sf_alsace_cremant',
+  'ki_wset_sf_anderson_spark',
+  'ki_wset_sf_asti_cost',
+  'ki_wset_sf_asti_current',
+  'ki_wset_sf_asti_environment',
+  'ki_wset_sf_beaumes_cost',
+  'ki_wset_sf_beaumes_fresh',
+  'ki_wset_sf_beaumes_origin',
+  'ki_wset_sf_bourgogne_cremant',
+  'ki_wset_sf_bourgogne_environment',
+  'ki_wset_sf_bourgogne_styles',
+  'ki_wset_sf_cap_environment',
+  'ki_wset_sf_cava_aging',
+  'ki_wset_sf_cava_cost',
+  'ki_wset_sf_cava_guarda',
+  'ki_wset_sf_cava_sites',
+  'ki_wset_sf_champagne_cost',
+  'ki_wset_sf_champagne_cru',
+  'ki_wset_sf_champagne_districts',
+  'ki_wset_sf_champagne_white_black',
+  'ki_wset_sf_cremant_cellar_cost',
+  'ki_wset_sf_loire_cremant',
+  'ki_wset_sf_newworld_spark_cost',
+  'ki_wset_sf_port_age_label',
+  'ki_wset_sf_port_autovinifier',
+  'ki_wset_sf_port_cost',
+  'ki_wset_sf_port_grapes',
+  'ki_wset_sf_port_mechanical',
+  'ki_wset_sf_prosecco_cost',
+  'ki_wset_sf_prosecco_environment',
+  'ki_wset_sf_prosecco_hills',
+  'ki_wset_sf_rutherglen_climate',
+  'ki_wset_sf_rutherglen_tiers',
+  'ki_wset_sf_saumur_spark',
+  'ki_wset_sf_sekt_cost',
+  'ki_wset_sf_sekt_environment',
+  'ki_wset_sf_sekt_method',
+  'ki_wset_sf_sekt_origin',
+  'ki_wset_sf_sherry_climate',
+  'ki_wset_sf_sherry_cost',
+  'ki_wset_sf_sherry_current_route',
+  'ki_wset_sf_sherry_manzanilla',
+  'ki_wset_sf_sherry_palo_cortado',
+  'ki_wset_sf_vouvray_environment',
+  'ki_wset_sf_vouvray_spark',
+  'ki_wset_sf_yarra_spark',
 };
 
 void main() {
@@ -91,7 +84,7 @@ void main() {
 
   tearDownAll(() async => db.close());
 
-  test('54 distinct core principles have cited, cue-resistant choices', () {
+  test('47 distinct core principles have cited, cue-resistant choices', () {
     expect(validateDataset(dataset).errors, isEmpty);
     expect(template.mode, AuthoredChoiceFormat.formatId);
     expect(template.relationType, 'PRINCIPLE_EXPLANATION');
@@ -181,11 +174,11 @@ void main() {
       positions[choice.correctIndex] =
           (positions[choice.correctIndex] ?? 0) + 1;
     }
-    expect(positions, {0: 14, 1: 14, 2: 13, 3: 13});
-    expect(optionSets, hasLength(54));
+    expect(positions, {0: 12, 1: 12, 2: 12, 3: 11});
+    expect(optionSets, hasLength(47));
     expect(
       choices.values.map((choice) => choice.sourceCitationId).toSet(),
-      hasLength(40),
+      hasLength(34),
     );
   });
 
@@ -212,61 +205,57 @@ void main() {
     },
   );
 
+  test('useful-practice coverage closes 47 winemaking principles', () async {
+    const path = 'assets/curriculum/coverage_policy.yaml';
+    final report = await CoverageChecker(
+      db,
+      CoveragePolicy.parse(File(path).readAsStringSync(), path: path),
+    ).check('WSET_L3', on: '2026-09-29');
+    final byId = {for (final item in report.items) item.id: item};
+    for (final id in _ids) {
+      expect(byId[id]!.hasUsefulPractice, isTrue, reason: id);
+      expect(byId[id]!.servedFormats, contains('authored_choice'), reason: id);
+    }
+    final remaining = report.items.where(
+      (row) =>
+          row.item.domainId == 'winemaking' &&
+          row.isCore &&
+          row.item.relationType == 'PRINCIPLE_EXPLANATION' &&
+          !row.hasUsefulPractice,
+    );
+    expect(remaining, isEmpty);
+    expect(remaining.any((row) => _ids.contains(row.id)), isFalse);
+  });
+
   test(
-    'regional batch stays useful after sparkling and fortified closure',
+    'regional, regulatory and process questions present and grade',
     () async {
-      const path = 'assets/curriculum/coverage_policy.yaml';
-      final report = await CoverageChecker(
-        db,
-        CoveragePolicy.parse(File(path).readAsStringSync(), path: path),
-      ).check('WSET_L3', on: '2026-09-29');
-      final byId = {for (final item in report.items) item.id: item};
-      for (final id in _ids) {
-        expect(byId[id]!.hasUsefulPractice, isTrue, reason: id);
+      for (final id in [
+        'ki_wset_sf_asti_current',
+        'ki_wset_sf_cava_guarda',
+        'ki_wset_sf_sekt_origin',
+        'ki_wset_sf_sherry_current_route',
+      ]) {
+        final exercise = await ExercisePresenter(db).present(
+          id,
+          _templateId,
+          seed: 17,
+          certificationId: 'WSET_L3',
+        ) as AuthoredChoiceQuestion;
         expect(
-          byId[id]!.servedFormats,
-          contains('authored_choice'),
-          reason: id,
+          exercise.answer.name,
+          choices[id]!.options[choices[id]!.correctIndex],
+        );
+        expect(exercise.options, hasLength(4));
+        expect(exercise.sourceCitationId, choices[id]!.sourceCitationId);
+        expect(
+          const AuthoredChoiceFormat()
+              .grade(exercise, exercise.answer)
+              .single
+              .rating,
+          fsrs.Rating.good,
         );
       }
-      final remaining = report.items.where(
-        (row) =>
-            row.item.domainId == 'winemaking' &&
-            row.isCore &&
-            row.item.relationType == 'PRINCIPLE_EXPLANATION' &&
-            !row.hasUsefulPractice,
-      );
-      expect(remaining, isEmpty);
-      expect(remaining.any((row) => _ids.contains(row.id)), isFalse);
     },
   );
-
-  test('regional, producer and process questions present and grade', () async {
-    for (final id in [
-      'ki_reg_ah_tokaj_cellar',
-      'ki_reg_na_oregon_series_controls',
-      'ki_wset_nw_ontario_icewine_selection',
-      'ki_wset_nwa_limari_chardonnay',
-    ]) {
-      final exercise = await ExercisePresenter(db).present(
-        id,
-        _templateId,
-        seed: 17,
-        certificationId: 'WSET_L3',
-      ) as AuthoredChoiceQuestion;
-      expect(
-        exercise.answer.name,
-        choices[id]!.options[choices[id]!.correctIndex],
-      );
-      expect(exercise.options, hasLength(4));
-      expect(exercise.sourceCitationId, choices[id]!.sourceCitationId);
-      expect(
-        const AuthoredChoiceFormat()
-            .grade(exercise, exercise.answer)
-            .single
-            .rating,
-        fsrs.Rating.good,
-      );
-    }
-  });
 }

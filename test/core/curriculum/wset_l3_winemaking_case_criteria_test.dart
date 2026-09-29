@@ -203,7 +203,7 @@ void main() {
         expect(measured.hasUsefulPractice, isTrue, reason: item.id);
       }
       final domain = report.domains.singleWhere((d) => d.id == 'winemaking');
-      expect(domain.counts[CoverageMetric.coreUsefulPractice], 404);
+      expect(domain.counts[CoverageMetric.coreUsefulPractice], 451);
       expect(domain.counts[CoverageMetric.structured], 87);
       expect(domain.counts[CoverageMetric.core], 451);
     },
