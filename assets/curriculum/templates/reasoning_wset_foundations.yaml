@@ -1,0 +1,56 @@
+# Two original forward paths for shared WSET Level 2 and 3 production principles.
+question_templates:
+  - id: qt_wset_reason_frost_chain
+    relation_type: LEADS_TO
+    direction: forward
+    mode: reasoning
+    variant: wset_reason_frost_chain
+    prompt_template: "{subject.name} Which cluster-potential conclusion follows through the stated shoot-loss mechanism?"
+    parameters:
+      path_relation_types:
+        - CAUSES_STATE
+        - LEADS_TO
+      scope_node_ids:
+        - n_wset_reason_frost_premise
+      contrasts:
+        ki_wset_reason_frost_clusters:
+          n_wset_reason_frost_premise:
+            - option_node_id: n_wset_reason_frost_wrong_more_shoots
+              evidence_item_ids:
+                - ki_wset_reason_frost_contra_more_shoots
+              explanation: "Killing measured fruitful shoots reduces their surviving number under this no-replacement comparison; it cannot create more surviving primary shoots."
+            - option_node_id: n_wset_reason_frost_wrong_same_clusters
+              evidence_item_ids:
+                - ki_wset_reason_frost_contra_same_clusters
+              explanation: "The lost fruitful shoots carried clusters and neither replacement shoots nor extra clusters on survivors compensate. Their potential cluster count cannot stay unchanged."
+            - option_node_id: n_wset_reason_frost_wrong_no_clusters
+              evidence_item_ids:
+                - ki_wset_reason_frost_contra_no_clusters
+              explanation: "Some fruitful primary shoots explicitly survive with inflorescences. The scenario establishes a reduction in potential clusters, not total loss."
+  - id: qt_wset_reason_ferment_chain
+    relation_type: LEADS_TO
+    direction: forward
+    mode: reasoning
+    variant: wset_reason_ferment_chain
+    prompt_template: "{subject.name} Which fermentation-product conclusion follows through the stated sugar-conversion mechanism?"
+    parameters:
+      path_relation_types:
+        - CAUSES_STATE
+        - LEADS_TO
+      scope_node_ids:
+        - n_wset_reason_ferment_premise
+      contrasts:
+        ki_wset_reason_ferment_ethanol:
+          n_wset_reason_ferment_premise:
+            - option_node_id: n_wset_reason_ferment_wrong_less_consumed
+              evidence_item_ids:
+                - ki_wset_reason_ferment_contra_less_consumed
+              explanation: "A starts with more fermentable sugar and both ferments end dry. With other sugar fates matched, A cannot have consumed less fermentable sugar."
+            - option_node_id: n_wset_reason_ferment_wrong_less_ethanol
+              evidence_item_ids:
+                - ki_wset_reason_ferment_contra_less_ethanol
+              explanation: "The extra consumed sugar produces additional ethanol at the stated equal ethanol yield. A real ferment may differ if yield or loss conditions differ."
+            - option_node_id: n_wset_reason_ferment_wrong_no_co2
+              evidence_item_ids:
+                - ki_wset_reason_ferment_contra_no_co2
+              explanation: "Yeast alcoholic fermentation forms both ethanol and carbon dioxide from sugar. Extra sugar does not remove the carbon-dioxide byproduct."

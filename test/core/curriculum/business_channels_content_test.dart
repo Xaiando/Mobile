@@ -314,7 +314,7 @@ void main() {
     tearDownAll(() => db.close());
 
     test(
-      'generated recall and case pools do not expand the eight causal paths',
+      'generated recall and case pools do not expand the ten causal paths',
       () async {
         for (final id in businessIds) {
           expect(recallTemplates[id]!.keys.toSet(), {
@@ -361,11 +361,13 @@ void main() {
           'ki_climate_frost_sprinkler_temperature',
           'ki_climate_ripen_malate_remaining',
           'ki_climate_ripen_botrytis_risk',
+          'ki_wset_reason_frost_clusters',
+          'ki_wset_reason_ferment_ethanol',
         };
         final reasoning = dataset.questionTemplates
             .where((template) => template.mode == 'reasoning')
             .toList();
-        expect(reasoning, hasLength(8));
+        expect(reasoning, hasLength(10));
         final targets = <String>{};
         for (final template in reasoning) {
           final result = ReasoningPaths.inspectDataset(
