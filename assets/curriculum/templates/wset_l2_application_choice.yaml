@@ -1,0 +1,342 @@
+question_templates:
+- id: qt_wset_l2_application_choice
+  relation_type: PRINCIPLE_EXPLANATION
+  direction: forward
+  mode: authored_choice
+  variant: wset_l2_application_choice
+  prompt_template: '{subject.name}'
+  parameters:
+    item_choices:
+      ki_wset_srv_crystals:
+        prompt: A chilled white wine has a few clear crystals but smells and tastes sound. What should the server conclude?
+        options:
+        - The crystals may be harmless tartrates, not a wine fault
+        - The crystals prove cork taint, even without a musty smell
+        - The crystals prove heat damage, even without cooked aromas
+        - The crystals prove refermentation, even without new gas
+        correctIndex: 0
+        explanation: WSET distinguishes harmless tartrate crystals from a wine fault. Inspect the wine rather than condemning
+          it from crystals alone.
+        sourceCitationId: src_wset_srv_decant
+      ki_wset_srv_decant_air:
+        prompt: A fragile older red has little sediment, but a guest asks whether it needs hours in a decanter. What
+          is the best response?
+        options:
+        - Plan a long decant several hours ahead as the standard for older reds
+        - Splash-decant for air without first checking the wine's condition
+        - Assess the wine and, if decanted, serve it after brief exposure
+        - Leave the bottle uncorked for an evening before assessing it
+        correctIndex: 2
+        explanation: WSET says aeration effects are disputed and advises a short interval immediately before service
+          if decanting for air.
+        sourceCitationId: src_wset_srv_decant
+      ki_wset_srv_decant_deposit:
+        prompt: An aged red has a visible deposit. What is the main service purpose of careful decanting here?
+        options:
+        - Separate the clear wine from the deposit
+        - Give the wine several hours of aeration
+        - Raise serving temperature before pouring
+        - Remove a musty aroma through glass contact
+        correctIndex: 0
+        explanation: Decanting a wine with a deposit separates clear wine from sediment that may look unappealing or
+          taste bitter or astringent.
+        sourceCitationId: src_wset_srv_decant
+      ki_wset_srv_decant_gently:
+        prompt: While decanting an aged red, the deposit approaches the bottle neck. What should the server do next?
+        options:
+        - Stop the pour before sediment reaches the decanter
+        - Continue until the bottle is completely empty, then stop
+        - Swirl the remaining wine to disperse sediment
+        - Tip the bottle sharply to increase the flow
+        correctIndex: 0
+        explanation: WSET advises gentle handling, watching the neck against light, and stopping when the deposit approaches
+          it.
+        sourceCitationId: src_wset_srv_decant
+      ki_wset_grape_albarino_profile:
+        prompt: A Rías Baixas Albariño shows citrus and peach. Which structural expectation is the safest starting point?
+        options:
+        - Low acidity, with ripe fruit expression varying by vineyard
+        - Firm tannin, with citrus fruit varying by wine
+        - High sweetness, with fruit character varying by wine
+        - Fresh acidity, with the fruit expression varying by wine
+        correctIndex: 3
+        explanation: The Rías Baixas material describes Albariño's natural acidity and a range of citrus, stone-fruit
+          and floral expression.
+        sourceCitationId: src_wset_grape_rias_albarino
+      ki_wset_grape_chenin_blanc_profile:
+        prompt: A dry Chenin and a sweet Chenin have very different sugar levels. Which shared grape tendency remains
+          plausible?
+        options:
+        - Compulsory oak aroma in both, despite different sweetness
+        - Compulsory low acidity in both, despite different sweetness
+        - Identical residual sugar in both, despite different labels
+        - Assertive acidity in both, despite different sweetness
+        correctIndex: 3
+        explanation: The cited South African guide describes Chenin's acidity and its capacity for dry and sweet wines.
+        sourceCitationId: src_wset_grape_wosa_pinotage
+      ki_wset_grape_chenin_blanc_variation:
+        prompt: A producer wants a concentrated, honeyed Chenin Blanc alongside a fresh dry style. Which fruit route
+          best fits?
+        options:
+        - Pick early to preserve citrus and high acidity
+        - Pick at normal ripeness and avoid all fruit dehydration
+        - Pick unripe fruit before sugar and aroma develop
+        - Use late-picked or botrytised fruit for the sweet lot
+        correctIndex: 3
+        explanation: Later picking or suitable botrytis can concentrate Chenin fruit for a sweet style; cellar texture
+          choices do not create grape sugar.
+        sourceCitationId: src_wset_grape_wosa_pinotage
+      ki_wset_grape_corvina_profile:
+        prompt: A guest wants a fresh, dry Valpolicella with delicate cherry rather than a dried-grape style. Which association
+          fits?
+        options:
+        - Corvina in sweet Recioto della Valpolicella
+        - Corvina in dry Amarone della Valpolicella
+        - Corvina in a young Valpolicella DOC
+        - Garganega in a young Soave DOC
+        correctIndex: 2
+        explanation: Corvina is a key Valpolicella grape; the consorzio describes young Valpolicella as fresh and cherry-scented.
+        sourceCitationId: src_reg_inc_valpolicella
+      ki_wset_grape_garganega_profile:
+        prompt: A fresh Soave made chiefly from Garganega is poured in a tasting flight. Which note set is most plausible?
+        options:
+        - Gooseberry, cut grass and ripe passionfruit
+        - Lychee, rose petals and ginger spice
+        - Lemon, green apple and petrol note
+        - Fruit, white flowers and an almond nuance
+        correctIndex: 3
+        explanation: The Soave consorzio associates Garganega-based Soave with fruit, white flowers and almond; exact
+          intensity varies by site and cellar work.
+        sourceCitationId: src_wset_grape_soave_garganega
+      ki_wset_grape_pinotage_profile:
+        prompt: 'Two Western Cape Pinotage reds differ: one is berry-led and the other plum-rich with oak influence.
+          What is warranted?'
+        options:
+        - The oak note comes from vineyard aspect rather than the cellar
+        - The berry-led wine has more residual sugar because it smells fruitier
+        - Pinotage can vary with extraction and oak choices
+        - The plum-rich profile identifies Cabernet Sauvignon rather than Pinotage
+        correctIndex: 2
+        explanation: The South African guide presents berry and plum Pinotage expressions and maturation choices; the
+          grape name does not fix one texture.
+        sourceCitationId: src_wset_grape_wosa_pinotage
+      ki_wset_structure_nebbiolo_structure:
+        prompt: A Barolo has modest ruby depth but firm tannin and acidity. What should a learner infer?
+        options:
+        - Modest colour does not rule out substantial structure
+        - Appearance should override the tasted tannin when assessing structure
+        - Acidity should be judged from colour rather than palate response
+        - Ageing potential is determined by colour depth rather than structure
+        correctIndex: 0
+        explanation: Nebbiolo can be relatively pale while retaining marked acidity and tannin. Colour alone is not a
+          structure score.
+        sourceCitationId: src_wset_grape_cms_markers
+      ki_wset_structure_gamay_structure:
+        prompt: A youthful Beaujolais Gamay smells of strawberry and cherry. What does that aroma establish about its
+          sugar?
+        options:
+        - The strawberry scent indicates detectable residual sugar
+        - Gentle tannins imply medium sweetness
+        - Nothing by itself; a fruit-scented wine can be dry
+        - Moderate colour indicates a sweeter wine than a dark one
+        correctIndex: 2
+        explanation: Fruit aroma and sweetness are different sensations; the aroma alone cannot establish residual sugar.
+        sourceCitationId: src_wset_taste_aroma_chemistry
+      ki_wset_structure_gewurztraminer_structure:
+        prompt: Which structure is a defensible starting expectation for a ripe, dry Alsace Gewurztraminer?
+        options:
+        - Light body and piercing acidity
+        - Firm tannin and deep red colour
+        - Broad body and often moderate acidity
+        - Lean body and restrained aroma
+        correctIndex: 2
+        explanation: The grape can accumulate sugar and make broad, aromatic dry wines with acidity often moderate; individual
+          wines still vary.
+        sourceCitationId: src_wset_structure_plantgrape_gewurztraminer
+      ki_wset_structure_zinfandel_structure:
+        prompt: The same red Zinfandel grape can make a dry red and a pale White Zinfandel blush. Which choice most directly
+          explains their colour contrast?
+        options:
+        - Longer skin contact for the blush than for the red
+        - Longer skin contact for the red than for the blush
+        - Equal skin contact, with bottle age alone changing colour
+        - Equal skin contact, with oak alone changing colour
+        correctIndex: 1
+        explanation: ZAP describes early separation of White Zinfandel juice from skins and seeds. Longer red-wine skin
+          contact extracts more colour and can extract more tannin.
+        sourceCitationId: src_wset_found_zap_styles
+      ki_wset_found_aspect:
+        prompt: For a cool Pennsylvania site seeking extra sun and faster drying, which slope exposure best fits the
+          cited guidance?
+        options:
+        - A south- or east-facing slope, assessed for the site
+        - A north- or west-facing slope, regardless of the site
+        - A permanently shaded hollow, regardless of the site
+        - A waterlogged valley floor, regardless of the site
+        correctIndex: 0
+        explanation: Penn State discusses south or east exposure for sunlight and drying; aspect must still be judged
+          against local climate and aims.
+        sourceCitationId: src_biz_models_psu_vineyard
+      ki_wset_found_canopy_disease:
+        prompt: A dense canopy shades bunches and dries slowly after rain. Which response addresses the mechanism without
+          assuming maximum exposure is best?
+        options:
+        - Manage shoots and leaves to improve airflow and measured fruit exposure
+        - Retain extra shoots to keep the fruit zone shaded and slow its drying
+        - Strip the whole fruit zone immediately to maximise direct sun
+        - Change the grape variety rather than improve airflow this season
+        correctIndex: 0
+        explanation: Selective canopy work can improve light and drying while avoiding damage from excessive exposure.
+        sourceCitationId: src_wset_found_psu_canopy
+      ki_wset_found_concentrated_fruit:
+        prompt: Ripe grapes are dried before pressing for a concentrated wine. What directly changes in the berries?
+        options:
+        - Sugar is created from nothing, so water content stays fixed
+        - Alcohol forms inside the berries, so yeast is unnecessary
+        - Water falls, so remaining components become more concentrated
+        - All acids vanish from the berries, so sweetness is guaranteed
+        correctIndex: 2
+        explanation: Raisining removes berry water and concentrates what remains; the eventual sweetness also depends
+          on fermentation.
+        sourceCitationId: src_wset_close_l2_session
+      ki_wset_found_frozen_fruit:
+        prompt: For icewine, why are naturally frozen grapes pressed while still frozen?
+        options:
+        - Yeast makes extra sugar in the frozen fruit before pressing
+        - Frozen water stays as ice; concentrated juice is pressed
+        - Spirit is added to the frozen berries to halt fermentation
+        - All grape acidity disappears when berries are pressed
+        correctIndex: 1
+        explanation: Natural on-vine freezing and pressing while frozen help separate concentrated must from frozen water.
+        sourceCitationId: src_wset_close_l2_session
+      ki_wset_found_hail_heat:
+        prompt: A grower assesses vines after hail followed by an extreme heat spell. Which pair of damage is most relevant?
+        options:
+        - Hail dries the canopy; heat protects berries from direct sun
+        - Hail drives frost formation; heat splits berries by impact
+        - Hail changes berry sugar; heat toughens exposed skins
+        - Hail wounds berries; heat and sun can scorch exposed fruit
+        correctIndex: 3
+        explanation: Hail can cause physical injury, while strong heat and sun may burn fruit; protective choices depend
+          on the site.
+        sourceCitationId: src_wset_found_wa_extremes
+      ki_wset_found_late_harvest_risk:
+        prompt: A grower leaves ripe fruit on the vine longer to develop a sweet-wine style. What is the key trade-off?
+        options:
+        - More development, with lower rain and disease risk
+        - More development, with added rain and disease risk
+        - Less development, with greater rain and disease risk
+        - Less development, with lower rain risk
+        correctIndex: 1
+        explanation: Additional hang time can change concentration and flavour, but increases exposure to rain, disease,
+          animals and late frost.
+        sourceCitationId: src_wset_found_nmsu_phenology
+      ki_wset_found_noble_rot:
+        prompt: Under suitable conditions, why can botrytised grapes make concentrated sweet-wine must?
+        options:
+        - The fungus creates alcohol in intact grapes before pressing
+        - Water loss through affected skins concentrates grape sugar
+        - The fungus replaces grape sugar with new tartaric acid
+        - Water enters berries, diluting sugar before pressing
+        correctIndex: 1
+        explanation: Beneficial Botrytis promotes water loss and sugar concentration; damaging bunch rot is a different
+          outcome.
+        sourceCitationId: src_wset_found_wa_intro
+      ki_wset_found_pruning:
+        prompt: A grower changes winter pruning on the same training system. Which effect can this have next season?
+        options:
+        - It sets irrigation volume and changes root water supply
+        - It changes the grape variety and its ripening window
+        - It fixes trellis direction without affecting the buds or future crop
+        - It changes retained bud-bearing wood and the future shoot load
+        correctIndex: 3
+        explanation: Pruning controls the amount and position of retained growth that will carry next season's crop.
+        sourceCitationId: src_wset_found_umn_vines
+      ki_wset_found_soil_drainage:
+        prompt: A site has adequate annual rain but roots remain waterlogged. Which site judgement is most sound?
+        options:
+        - Adequate rainfall makes root-zone saturation a minor consideration
+        - Waterlogging points to too little water in the soil
+        - Persistent saturation speeds root growth by increasing oxygen
+        - Drainage matters as well as water supply because roots can be harmed
+        correctIndex: 3
+        explanation: Vines need water, but persistent saturation can damage roots and promote root disease.
+        sourceCitationId: src_biz_models_psu_vineyard
+      ki_wset_found_training:
+        prompt: A new trellis establishes the vine framework and positions shoots. Which vineyard benefit follows most
+          directly?
+        options:
+        - More manageable canopy exposure and vineyard operations
+        - The trellis fixes annual bud load without pruning decisions
+        - Improved root drainage without changing the soil
+        - It sets harvest timing even when seasonal weather shifts
+        correctIndex: 0
+        explanation: Training sets a framework for canopy placement and practical operations; it does not guarantee crop
+          outcomes.
+        sourceCitationId: src_wset_found_psu_canopy
+      ki_wset_found_weeds:
+        prompt: Young vines beside vigorous weeds show weak growth during a dry period. Why might floor management help?
+        options:
+        - Reducing competition for soil water and nutrients
+        - Increasing soil water use by the cover vegetation
+        - Removing all need to manage vine canopy density
+        - Preventing grape rot by making berries less ripe
+        correctIndex: 0
+        explanation: Weeds can compete with young vines for water and nutrients; floor management should fit the site.
+        sourceCitationId: src_wset_found_psu_canopy
+      ki_wset_prod_climate_weather:
+        prompt: Two vintages from the same GI differ in yield and ripeness. Which explanation is most appropriate?
+        options:
+        - The GI name fixes identical weather and fruit every year
+        - Seasonal weather varies within the same regional climate
+        - A long-term climate changes completely each harvest day
+        - Bottle ageing determines that year's vineyard rainfall
+        correctIndex: 1
+        explanation: Climate is the longer-term pattern; seasonal weather can alter yield and fruit quality within one
+          region.
+        sourceCitationId: src_wset_prod_vineyard_variability
+      ki_wset_sf_asti_grape:
+        prompt: A producer wants the characteristic floral, grapey aroma of classic Asti Spumante. Which grape is the
+          relevant starting point?
+        options:
+        - Glera (the principal grape of Prosecco)
+        - Moscato Bianco
+        - Palomino (the principal grape variety of dry Sherry)
+        - Pinot Noir (a principal Champagne grape)
+        correctIndex: 1
+        explanation: The Asti consorzio identifies Moscato Bianco as the grape behind Asti's floral, grapey character.
+        sourceCitationId: src_wset_sf_asti
+      ki_wset_sf_asti_method:
+        prompt: A producer prepares Moscato juice for a tank-made Asti. Which step before fermentation matches the Asti
+          consorzio?
+        options:
+        - Age a dry base wine in new oak before its second fermentation
+        - Store clarified Moscato juice chilled before fermenting it
+        - Fortify the grape must with spirit before fermenting it
+        - Age the grape must under flor before fermenting it
+        correctIndex: 1
+        explanation: The Asti consorzio describes clarifying pressed Moscato must and keeping it chilled to prevent spontaneous
+          fermentation before the planned tank process.
+        sourceCitationId: src_wset_sf_asti
+      ki_wset_sf_asti_stop:
+        prompt: A tank-made sweet Asti has reached its desired balance of alcohol and residual sugar. How is fermentation
+          stopped?
+        options:
+        - Fortify with spirit to arrest the tank fermentation
+        - Ferment dry and use a final sweet dosage at bottling
+        - Chill the wine and remove yeast by filtration or centrifugation
+        - Bottle with active yeast and rely on pressure alone to halt fermentation
+        correctIndex: 2
+        explanation: The Asti consorzio describes cooling followed by centrifugation or filtration before pressure bottling.
+        sourceCitationId: src_wset_sf_asti
+      ki_wset_sf_sherry_oloroso_style:
+        prompt: A guest wants a nutty, full-bodied dry Sherry rather than sweet Cream. Which choice fits?
+        options:
+        - Fino aged biologically beneath a protective flor veil
+        - Oloroso aged oxidatively without a protective flor veil
+        - Cream, a sweet Sherry style
+        - PX made sweet from concentrated Pedro Ximénez fruit
+        correctIndex: 1
+        explanation: The Sherry Consejo describes Oloroso as a dry, nutty, full-bodied wine aged in contact with oxygen;
+          Cream is a separate sweetened category.
+        sourceCitationId: src_fort_sherry_oloroso

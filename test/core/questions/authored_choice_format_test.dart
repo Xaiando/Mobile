@@ -274,7 +274,7 @@ void main() {
   );
 
   test(
-    '495 cited Level 1–3 questions are generated and served across domains',
+    '525 cited Level 1–3 questions are generated and served across domains',
     () async {
       final db = openTestDatabase();
       try {
@@ -289,7 +289,7 @@ void main() {
         final templates = await (db.select(
           db.questionTemplates,
         )..where((row) => row.mode.equals('authored_choice'))).get();
-        expect(templates, hasLength(21));
+        expect(templates, hasLength(22));
         final expectedIds = {
           for (final template in templates)
             ...((jsonDecode(template.parameters!)
@@ -346,9 +346,9 @@ void main() {
           ...winemakingSharedIds,
           ...winemakingL3Ids,
         });
-        expect(expectedIds, hasLength(495));
+        expect(expectedIds, hasLength(525));
         expect(levelOneIds, hasLength(132));
-        expect(levelTwoIds, hasLength(142));
+        expect(levelTwoIds, hasLength(172));
         expect(sharedGrapeIds, hasLength(32));
         expect(europeIds, hasLength(67));
         expect(newWorldIds, hasLength(16));
@@ -361,7 +361,7 @@ void main() {
         JOIN knowledge_items i ON i.id = q.knowledge_item_id
         WHERE t.mode = 'authored_choice' ORDER BY q.knowledge_item_id
       ''').get();
-        expect(rows, hasLength(495));
+        expect(rows, hasLength(525));
         final actual = {
           for (final row in rows)
             row.read<String>('knowledge_item_id'): row.read<String>(
