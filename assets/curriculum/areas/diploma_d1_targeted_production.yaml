@@ -1,0 +1,452 @@
+# Original D1 decisions against the 2025 Diploma production range.
+# A named approach or system is not a sensory score, legal status or certification.
+# All assertions await qualified subject review.
+knowledge_nodes:
+  - {id: n_d1target_regen_cover, node_type: production_principle, name: "What does a regenerative vineyard floor approach try to improve?"}
+  - {id: n_d1target_regen_cover_point, node_type: learning_point, name: "Protect soil with cover and less disturbance"}
+  - {id: n_d1target_regen_water, node_type: production_principle, name: "Why must cover cropping be adapted to water supply?"}
+  - {id: n_d1target_regen_water_point, node_type: learning_point, name: "Ground cover may compete with vines in a dry site"}
+  - {id: n_d1target_precision_zones, node_type: production_principle, name: "How does precision viticulture inform a vineyard intervention?"}
+  - {id: n_d1target_precision_zones_point, node_type: learning_point, name: "Map variation and verify its cause on the ground"}
+  - {id: n_d1target_precision_cost, node_type: production_principle, name: "When can a precision intervention earn its cost?"}
+  - {id: n_d1target_precision_cost_point, node_type: learning_point, name: "Compare the cost of data and action with measured outcomes"}
+  - {id: n_d1target_nolo_route, node_type: production_principle, name: "Which production routes can reduce wine alcohol?"}
+  - {id: n_d1target_nolo_route_point, node_type: learning_point, name: "Sound base wine can undergo supervised separation"}
+  - {id: n_d1target_nolo_balance, node_type: production_principle, name: "What else must be checked after alcohol removal?"}
+  - {id: n_d1target_nolo_balance_point, node_type: learning_point, name: "Reassess aroma mouthfeel stability cost and labelling"}
+  - {id: n_d1target_qc_haccp, node_type: production_principle, name: "How do winery hygiene and HACCP differ?"}
+  - {id: n_d1target_qc_haccp_point, node_type: learning_point, name: "Hygiene is a prerequisite; hazard analysis determines controls"}
+  - {id: n_d1target_qc_iso_trace, node_type: production_principle, name: "What do ISO 22000 and traceability add?"}
+  - {id: n_d1target_qc_iso_trace_point, node_type: learning_point, name: "A management system and lot trail support control and response"}
+  - {id: n_d1target_pack_barrier, node_type: production_principle, name: "How should a wine package be matched to intended shelf life?"}
+  - {id: n_d1target_pack_barrier_point, node_type: learning_point, name: "Compare oxygen exposure closure and validated use period"}
+  - {id: n_d1target_pack_freight, node_type: production_principle, name: "What changes when wine travels in bulk rather than packaged?"}
+  - {id: n_d1target_pack_freight_point, node_type: learning_point, name: "Freight cost and package weight trade against transfer control"}
+  - {id: n_d1target_case_vineyard, node_type: production_case, name: "Dry erosion-prone block with mapped vigour variation"}
+  - {id: n_d1target_case_vineyard_action, node_type: learning_point, name: "Pilot site-specific cover and intervention"}
+  - {id: n_d1target_case_vineyard_reason, node_type: learning_point, name: "Use soil and vine evidence together"}
+  - {id: n_d1target_case_vineyard_tradeoff, node_type: learning_point, name: "Protect soil without worsening water stress or costs"}
+  - {id: n_d1target_case_vineyard_limit, node_type: learning_point, name: "No map or practice guarantees wine quality"}
+  - {id: n_d1target_case_nolo, node_type: production_case, name: "An importer requests a very low-alcohol line"}
+  - {id: n_d1target_case_nolo_action, node_type: learning_point, name: "Pilot a compliant supervised reduction from sound wine"}
+  - {id: n_d1target_case_nolo_reason, node_type: learning_point, name: "Separation changes alcohol and can change sensory balance"}
+  - {id: n_d1target_case_nolo_tradeoff, node_type: learning_point, name: "Equipment and stability checks affect cost and style"}
+  - {id: n_d1target_case_nolo_limit, node_type: learning_point, name: "A process cannot guarantee label eligibility or acceptance"}
+  - {id: n_d1target_case_qc, node_type: production_case, name: "New filler has a contamination signal and an unclear lot record"}
+  - {id: n_d1target_case_qc_action, node_type: learning_point, name: "Hold affected wine and investigate the line and lot trail"}
+  - {id: n_d1target_case_qc_reason, node_type: learning_point, name: "Separate routine hygiene from hazard-based controls"}
+  - {id: n_d1target_case_qc_tradeoff, node_type: learning_point, name: "Release delay costs less than an unbounded failure"}
+  - {id: n_d1target_case_qc_limit, node_type: learning_point, name: "Do not assume every defect is a CCP or an ISO certificate"}
+  - {id: n_d1target_case_pack, node_type: production_case, name: "Distant market seeks a lighter early-drinking wine pack"}
+  - {id: n_d1target_case_pack_action, node_type: learning_point, name: "Compare validated local fill with bulk and destination fill"}
+  - {id: n_d1target_case_pack_reason, node_type: learning_point, name: "Oxygen temperature and package barrier affect style preservation"}
+  - {id: n_d1target_case_pack_tradeoff, node_type: learning_point, name: "Freight savings may add fill and assurance costs"}
+  - {id: n_d1target_case_pack_limit, node_type: learning_point, name: "No package or route is always cheapest or highest quality"}
+
+knowledge_relations:
+  - {subject_id: n_d1target_regen_cover, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d1target_regen_cover_point, valid_from: 2026-09-29}
+  - {subject_id: n_d1target_regen_water, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d1target_regen_water_point, valid_from: 2026-09-29}
+  - {subject_id: n_d1target_precision_zones, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d1target_precision_zones_point, valid_from: 2026-09-29}
+  - {subject_id: n_d1target_precision_cost, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d1target_precision_cost_point, valid_from: 2026-09-29}
+  - {subject_id: n_d1target_nolo_route, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d1target_nolo_route_point, valid_from: 2026-09-29}
+  - {subject_id: n_d1target_nolo_balance, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d1target_nolo_balance_point, valid_from: 2026-09-29}
+  - {subject_id: n_d1target_qc_haccp, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d1target_qc_haccp_point, valid_from: 2026-09-29}
+  - {subject_id: n_d1target_qc_iso_trace, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d1target_qc_iso_trace_point, valid_from: 2026-09-29}
+  - {subject_id: n_d1target_pack_barrier, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d1target_pack_barrier_point, valid_from: 2026-09-29}
+  - {subject_id: n_d1target_pack_freight, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d1target_pack_freight_point, valid_from: 2026-09-29}
+  - {subject_id: n_d1target_case_vineyard, relation_type: CASE_ACTION, object_id: n_d1target_case_vineyard_action, valid_from: 2026-09-29}
+  - {subject_id: n_d1target_case_vineyard, relation_type: CASE_REASON, object_id: n_d1target_case_vineyard_reason, valid_from: 2026-09-29}
+  - {subject_id: n_d1target_case_vineyard, relation_type: CASE_TRADEOFF, object_id: n_d1target_case_vineyard_tradeoff, valid_from: 2026-09-29}
+  - {subject_id: n_d1target_case_vineyard, relation_type: CASE_LIMITATION, object_id: n_d1target_case_vineyard_limit, valid_from: 2026-09-29}
+  - {subject_id: n_d1target_case_nolo, relation_type: CASE_ACTION, object_id: n_d1target_case_nolo_action, valid_from: 2026-09-29}
+  - {subject_id: n_d1target_case_nolo, relation_type: CASE_REASON, object_id: n_d1target_case_nolo_reason, valid_from: 2026-09-29}
+  - {subject_id: n_d1target_case_nolo, relation_type: CASE_TRADEOFF, object_id: n_d1target_case_nolo_tradeoff, valid_from: 2026-09-29}
+  - {subject_id: n_d1target_case_nolo, relation_type: CASE_LIMITATION, object_id: n_d1target_case_nolo_limit, valid_from: 2026-09-29}
+  - {subject_id: n_d1target_case_qc, relation_type: CASE_ACTION, object_id: n_d1target_case_qc_action, valid_from: 2026-09-29}
+  - {subject_id: n_d1target_case_qc, relation_type: CASE_REASON, object_id: n_d1target_case_qc_reason, valid_from: 2026-09-29}
+  - {subject_id: n_d1target_case_qc, relation_type: CASE_TRADEOFF, object_id: n_d1target_case_qc_tradeoff, valid_from: 2026-09-29}
+  - {subject_id: n_d1target_case_qc, relation_type: CASE_LIMITATION, object_id: n_d1target_case_qc_limit, valid_from: 2026-09-29}
+  - {subject_id: n_d1target_case_pack, relation_type: CASE_ACTION, object_id: n_d1target_case_pack_action, valid_from: 2026-09-29}
+  - {subject_id: n_d1target_case_pack, relation_type: CASE_REASON, object_id: n_d1target_case_pack_reason, valid_from: 2026-09-29}
+  - {subject_id: n_d1target_case_pack, relation_type: CASE_TRADEOFF, object_id: n_d1target_case_pack_tradeoff, valid_from: 2026-09-29}
+  - {subject_id: n_d1target_case_pack, relation_type: CASE_LIMITATION, object_id: n_d1target_case_pack_limit, valid_from: 2026-09-29}
+
+knowledge_items:
+  - id: ki_d1target_regen_cover
+    subject_id: n_d1target_regen_cover
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_d1target_regen_cover_point
+    domain_id: viticulture
+    assertion_text: "The OIV's agroecology resolution describes a regenerative purpose through cover crops, reduced soil disturbance, compost and lower reliance on persistent inputs. These are vineyard management aims, not a certification label or proof that a given wine is better."
+    verification_status: unverified
+    last_verified_at: "2026-09-29T11:32:00.000Z"
+    mcq_disabled: true
+  - id: ki_d1target_regen_water
+    subject_id: n_d1target_regen_water
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_d1target_regen_water_point
+    domain_id: viticulture
+    assertion_text: "Cover crops can help soil structure, infiltration and erosion control, but AWRI cautions that some permanent under-vine species can compete heavily with vines and reduce yield. Match species, sowing area and mowing date to water supply and frost risk; monitor vine response before claiming a quality or cost benefit."
+    verification_status: unverified
+    last_verified_at: "2026-09-29T11:32:00.000Z"
+    mcq_disabled: true
+  - id: ki_d1target_precision_zones
+    subject_id: n_d1target_precision_zones
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_d1target_precision_zones_point
+    domain_id: viticulture
+    assertion_text: "Wine Australia's precision-site project maps vines, rows and canopy variation and can overlay soil and irrigation records. Use mapped zones to target field sampling or a variable-rate trial, then check soil, vine water status and fruit in each zone. A map identifies variation; it does not by itself identify its cause or prove a better wine."
+    verification_status: unverified
+    last_verified_at: "2026-09-29T11:32:00.000Z"
+    mcq_disabled: true
+  - id: ki_d1target_precision_cost
+    subject_id: n_d1target_precision_cost
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_d1target_precision_cost_point
+    domain_id: viticulture
+    assertion_text: "Precision management can distinguish zones for targeted inputs or separate harvests, but mapping, interpretation and extra passes cost resources. Compare the actual saving or separately valued fruit with those costs, and taste resulting wines before treating a vigour map or extra spend as a style or quality ranking."
+    verification_status: unverified
+    last_verified_at: "2026-09-29T11:32:00.000Z"
+    mcq_disabled: true
+  - id: ki_d1target_nolo_route
+    subject_id: n_d1target_nolo_route
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_d1target_nolo_route_point
+    domain_id: winemaking
+    assertion_text: "The OIV admits supervised separation of alcohol from sound wine through partial vacuum evaporation, membrane techniques or distillation. The process should not be used to mask an organoleptic fault. The target strength and product name still require the destination's applicable rules and measured final alcohol."
+    verification_status: unverified
+    last_verified_at: "2026-09-29T11:32:00.000Z"
+    mcq_disabled: true
+  - id: ki_d1target_nolo_balance
+    subject_id: n_d1target_nolo_balance
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_d1target_nolo_balance_point
+    domain_id: winemaking
+    assertion_text: "Removing ethanol can alter perceived aroma, taste and mouthfeel and reduce one preservative contribution. Compare a trial's sensory balance and microbiological stability with the base wine, then price the separation, adjustment and packaging controls; a low number on an alcohol test is not a wine-quality result."
+    verification_status: unverified
+    last_verified_at: "2026-09-29T11:32:00.000Z"
+    mcq_disabled: true
+  - id: ki_d1target_qc_haccp
+    subject_id: n_d1target_qc_haccp
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_d1target_qc_haccp_point
+    domain_id: winemaking
+    assertion_text: "OIV's wine-safety guide treats cleaning and other good hygiene practices as prerequisites to a site-specific HACCP analysis. Hazard analysis considers significant safety hazards and selects appropriate preventive controls, operational prerequisites or critical control points; not every spoilage observation automatically becomes a food-safety CCP."
+    verification_status: unverified
+    last_verified_at: "2026-09-29T11:32:00.000Z"
+    mcq_disabled: true
+  - id: ki_d1target_qc_iso_trace
+    subject_id: n_d1target_qc_iso_trace
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_d1target_qc_iso_trace_point
+    domain_id: winemaking
+    assertion_text: "ISO 22000:2018 sets requirements for a food-safety management system and may be certified, but mentioning ISO is not evidence that a winery is certified. Wine traceability links inputs, process and packaged lots to destinations so an affected lot can be investigated and contained; the actual records and controls must be tested."
+    verification_status: unverified
+    last_verified_at: "2026-09-29T11:32:00.000Z"
+    mcq_disabled: true
+  - id: ki_d1target_pack_barrier
+    subject_id: n_d1target_pack_barrier
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_d1target_pack_barrier_point
+    domain_id: winemaking
+    assertion_text: "For glass, PET or bag-in-box, compare the intended consumption window with package and closure oxygen performance, filling oxygen and wine stability. AWRI's manufacturing guide calls for low dissolved oxygen and format-specific shelf-life checks; a light pack is not automatically suitable for long ageing."
+    verification_status: unverified
+    last_verified_at: "2026-09-29T11:32:00.000Z"
+    mcq_disabled: true
+  - id: ki_d1target_pack_freight
+    subject_id: n_d1target_pack_freight
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_d1target_pack_freight_point
+    domain_id: winemaking
+    assertion_text: "Bulk shipment and destination packaging may reduce shipped glass weight and freight cost, but adds transfers, destination filling and assurance work. AWRI trials found no consistent sensory preference between flexi- and ISO-tank shipments under their tested conditions; protect wine against oxygen and temperature exposure and compare actual landed cost rather than promise that one route always improves quality."
+    verification_status: unverified
+    last_verified_at: "2026-09-29T11:32:00.000Z"
+    mcq_disabled: true
+  - id: ki_d1target_case_vineyard_action
+    subject_id: n_d1target_case_vineyard
+    relation_type: CASE_ACTION
+    object_id: n_d1target_case_vineyard_action
+    domain_id: viticulture
+    assertion_text: "For the dry erosion-prone block, pilot a seasonally managed cover on part of the slope and map contrasting vine zones. Ground-check soil moisture, canopy, yield and fruit before adjusting cover or a variable-rate input; compare with an untreated area rather than convert the entire block on one map."
+    verification_status: unverified
+    last_verified_at: "2026-09-29T11:32:00.000Z"
+    mcq_disabled: true
+  - id: ki_d1target_case_vineyard_reason
+    subject_id: n_d1target_case_vineyard
+    relation_type: CASE_REASON
+    object_id: n_d1target_case_vineyard_reason
+    domain_id: viticulture
+    assertion_text: "OIV identifies cover and soil-health goals; AWRI documents erosion and water-competition effects; Wine Australia shows how mapped variation can target site checks. Combining these sources makes the decision conditional on actual slope, water and vine responses rather than a slogan about regenerative or precision methods."
+    verification_status: unverified
+    last_verified_at: "2026-09-29T11:32:00.000Z"
+    mcq_disabled: true
+  - id: ki_d1target_case_vineyard_tradeoff
+    subject_id: n_d1target_case_vineyard
+    relation_type: CASE_TRADEOFF
+    object_id: n_d1target_case_vineyard_tradeoff
+    domain_id: viticulture
+    assertion_text: "A cover may reduce erosion yet compete for scarce water and reduce yield if poorly timed; a zone map may focus labour or inputs yet require mapping, interpretation and machinery costs. Judge style and quality from ripeness, fruit health and resulting wine alongside those costs."
+    verification_status: unverified
+    last_verified_at: "2026-09-29T11:32:00.000Z"
+    mcq_disabled: true
+  - id: ki_d1target_case_vineyard_limit
+    subject_id: n_d1target_case_vineyard
+    relation_type: CASE_LIMITATION
+    object_id: n_d1target_case_vineyard_limit
+    domain_id: viticulture
+    assertion_text: "The sources do not establish this block's water reserve, the cause of its mapped vigour zones, resulting grape composition or the sale price of separated lots. Monitor and compare those outcomes before scaling; neither practice guarantees a quality tier."
+    verification_status: unverified
+    last_verified_at: "2026-09-29T11:32:00.000Z"
+    mcq_disabled: true
+  - id: ki_d1target_case_nolo_action
+    subject_id: n_d1target_case_nolo
+    relation_type: CASE_ACTION
+    object_id: n_d1target_case_nolo_action
+    domain_id: winemaking
+    assertion_text: "For a hypothetical very low-alcohol export line, trial OIV-described separation on sound base wine under a qualified oenologist or technician. Set the target with the importer, measure final alcohol, assess sensory and microbial stability, and check destination naming and labelling before a commercial run."
+    verification_status: unverified
+    last_verified_at: "2026-09-29T11:32:00.000Z"
+    mcq_disabled: true
+  - id: ki_d1target_case_nolo_reason
+    subject_id: n_d1target_case_nolo
+    relation_type: CASE_REASON
+    object_id: n_d1target_case_nolo_reason
+    domain_id: winemaking
+    assertion_text: "OIV permits vacuum, membrane and distillation routes for alcohol reduction from sound wine; its technical account notes that removing ethanol can change aroma and mouthfeel. Trial results, not the process name alone, show whether the requested fresh style survives."
+    verification_status: unverified
+    last_verified_at: "2026-09-29T11:32:00.000Z"
+    mcq_disabled: true
+  - id: ki_d1target_case_nolo_tradeoff
+    subject_id: n_d1target_case_nolo
+    relation_type: CASE_TRADEOFF
+    object_id: n_d1target_case_nolo_tradeoff
+    domain_id: winemaking
+    assertion_text: "Separation, skilled oversight, repeated sensory trials and stability controls add cost. Lower alcohol can change body and aroma and shelf stability, so compare the target style and price with a less extensive reduction or a different product brief; do not infer that more removal is automatically better."
+    verification_status: unverified
+    last_verified_at: "2026-09-29T11:32:00.000Z"
+    mcq_disabled: true
+  - id: ki_d1target_case_nolo_limit
+    subject_id: n_d1target_case_nolo
+    relation_type: CASE_LIMITATION
+    object_id: n_d1target_case_nolo_limit
+    domain_id: winemaking
+    assertion_text: "No source here establishes the hypothetical base wine's flavour, viable shelf life, achieved final strength, consumer preference or destination's current legal category. These require measured trials and local legal review, not a universal low-alcohol label claim."
+    verification_status: unverified
+    last_verified_at: "2026-09-29T11:32:00.000Z"
+    mcq_disabled: true
+  - id: ki_d1target_case_qc_action
+    subject_id: n_d1target_case_qc
+    relation_type: CASE_ACTION
+    object_id: n_d1target_case_qc_action
+    domain_id: winemaking
+    assertion_text: "Stop release and identify affected filling lots when a new line shows a contamination signal and a broken lot link. Verify cleaning and sanitation records, sample the line and product, reconstruct input-to-output and destination records, and apply the winery's hazard analysis before deciding corrective action and release."
+    verification_status: unverified
+    last_verified_at: "2026-09-29T11:32:00.000Z"
+    mcq_disabled: true
+  - id: ki_d1target_case_qc_reason
+    subject_id: n_d1target_case_qc
+    relation_type: CASE_REASON
+    object_id: n_d1target_case_qc_reason
+    domain_id: winemaking
+    assertion_text: "OIV and Codex put basic hygiene before HACCP critical-control decisions. AWRI describes packaging-line microbial investigations; traceable lot and dispatch records let the team bound affected wine. ISO 22000 describes a system for controlling food-safety hazards, not a substitute for line evidence."
+    verification_status: unverified
+    last_verified_at: "2026-09-29T11:32:00.000Z"
+    mcq_disabled: true
+  - id: ki_d1target_case_qc_tradeoff
+    subject_id: n_d1target_case_qc
+    relation_type: CASE_TRADEOFF
+    object_id: n_d1target_case_qc_tradeoff
+    domain_id: winemaking
+    assertion_text: "Holding wine and checking the filler delay cash recovery and may require cleaning or repackaging, but a premature release can enlarge the affected lot and cost. Distinguish sensory spoilage from a proven safety hazard; use results to decide whether rework, disposal or release protects quality and consumers."
+    verification_status: unverified
+    last_verified_at: "2026-09-29T11:32:00.000Z"
+    mcq_disabled: true
+  - id: ki_d1target_case_qc_limit
+    subject_id: n_d1target_case_qc
+    relation_type: CASE_LIMITATION
+    object_id: n_d1target_case_qc_limit
+    domain_id: winemaking
+    assertion_text: "A generic case cannot designate a CCP or set its critical limit without the winery's product, process and hazard analysis. An ISO reference does not establish certification, and incomplete lot records prevent a precise recall boundary until investigated."
+    verification_status: unverified
+    last_verified_at: "2026-09-29T11:32:00.000Z"
+    mcq_disabled: true
+  - id: ki_d1target_case_pack_action
+    subject_id: n_d1target_case_pack
+    relation_type: CASE_ACTION
+    object_id: n_d1target_case_pack_action
+    domain_id: winemaking
+    assertion_text: "For an early-drinking distant-market white, compare local glass bottling with a trial of controlled bulk transport and destination filling into a suitable lighter format. Specify drinking window, package oxygen and stability tests, transport temperature records, lot traceability and both routes' full landed costs before choosing."
+    verification_status: unverified
+    last_verified_at: "2026-09-29T11:32:00.000Z"
+    mcq_disabled: true
+  - id: ki_d1target_case_pack_reason
+    subject_id: n_d1target_case_pack
+    relation_type: CASE_REASON
+    object_id: n_d1target_case_pack_reason
+    domain_id: winemaking
+    assertion_text: "AWRI's packaging guidance connects oxygen control and format-specific shelf-life to wine condition, while its transport trials show why temperature, vessel and hold-back samples matter. Shipping unpackaged wine can avoid transporting glass, but destination filling is a further quality-control step."
+    verification_status: unverified
+    last_verified_at: "2026-09-29T11:32:00.000Z"
+    mcq_disabled: true
+  - id: ki_d1target_case_pack_tradeoff
+    subject_id: n_d1target_case_pack
+    relation_type: CASE_TRADEOFF
+    object_id: n_d1target_case_pack_tradeoff
+    domain_id: winemaking
+    assertion_text: "Bulk plus a lighter pack may lower freight weight and cost, yet adds destination bottling, validation and possible oxygen or taint exposure. Glass may support a different ageing and presentation brief but ships more weight. Compare sensory condition, package life and actual total cost rather than price a container alone."
+    verification_status: unverified
+    last_verified_at: "2026-09-29T11:32:00.000Z"
+    mcq_disabled: true
+  - id: ki_d1target_case_pack_limit
+    subject_id: n_d1target_case_pack
+    relation_type: CASE_LIMITATION
+    object_id: n_d1target_case_pack_limit
+    domain_id: winemaking
+    assertion_text: "AWRI's bulk trial did not prove that every route or wine withstands heat, oxygen or time equally. A lighter package does not guarantee a longer shelf life or legal suitability in the destination; validate the chosen wine-pack combination and obtain current market requirements."
+    verification_status: unverified
+    last_verified_at: "2026-09-29T11:32:00.000Z"
+    mcq_disabled: true
+
+certification_knowledge_mappings:
+  # These four strands occur in D1's stated ranges; the app does not award a Diploma.
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d1target_regen_cover, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d1target_regen_water, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d1target_precision_zones, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d1target_precision_cost, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d1target_nolo_route, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d1target_nolo_balance, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d1target_qc_haccp, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d1target_qc_iso_trace, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d1target_pack_barrier, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d1target_pack_freight, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d1target_case_vineyard_action, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d1target_case_vineyard_reason, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d1target_case_vineyard_tradeoff, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d1target_case_vineyard_limit, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d1target_case_nolo_action, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d1target_case_nolo_reason, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d1target_case_nolo_tradeoff, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d1target_case_nolo_limit, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d1target_case_qc_action, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d1target_case_qc_reason, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d1target_case_qc_tradeoff, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d1target_case_qc_limit, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d1target_case_pack_action, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d1target_case_pack_reason, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d1target_case_pack_tradeoff, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d1target_case_pack_limit, importance: core, minimum_depth: 3}
+
+source_citations:
+  - id: src_d1target_awri_cover
+    kind: reference_work
+    title: "Sown undervine cover crops"
+    publisher: "Australian Wine Research Institute"
+    document_identifier: "Benefits, disadvantages and selection considerations"
+    url: "https://www.awri.com.au/industry_support/viticulture/weed-management/non-chemical-weed-management/sown-undervine-cover-crops/"
+    accessed_on: "2026-09-29"
+  - id: src_d1target_wa_precision
+    kind: reference_work
+    title: "New trial to put precision site mapping to the test"
+    publisher: "Wine Australia"
+    document_identifier: "13 August 2021; map overlays, vigour zones and ground checking"
+    url: "https://www.wineaustralia.com/news/articles/new-trial-to-put-precision-site-mapping"
+    accessed_on: "2026-09-29"
+  - id: src_d1target_bramley_selective
+    kind: academic
+    title: "Selective harvesting is a feasible and profitable strategy even when grape and wine production is geared towards large fermentation volumes"
+    publisher: "Australian Journal of Grape and Wine Research"
+    document_identifier: "Bramley, Ouzman and Thornton (2011), 17:298–305; doi:10.1111/j.1755-0238.2011.00151.x"
+    url: "https://onlinelibrary.wiley.com/doi/full/10.1111/j.1755-0238.2011.00151.x"
+    accessed_on: "2026-09-29"
+  - id: src_d1target_oiv_dealc
+    kind: reference_work
+    title: "Dealcoholisation of wines"
+    publisher: "International Organisation of Vine and Wine"
+    document_identifier: "OIV-OENO 394A-2012; objective and prescriptions"
+    url: "https://www.oiv.int/node/3274/download/pdf"
+    accessed_on: "2026-09-29"
+  - id: src_d1target_oiv_nolo
+    kind: reference_work
+    title: "Dealcoholisation of wines: OIV centenary technical account"
+    publisher: "International Organisation of Vine and Wine"
+    document_identifier: "8 January 2025; sensory and cost tradeoffs"
+    url: "https://oiv.int/press/12-months-12-resolutions-dealcoholisation-wines"
+    accessed_on: "2026-09-29"
+  - id: src_d1target_oiv_haccp
+    kind: reference_work
+    title: "Guide to identify hazards and critical control points in the wine industry"
+    publisher: "International Organisation of Vine and Wine"
+    document_identifier: "OIV-OENO 630-2020; sections 1–3 and 5"
+    url: "https://www.oiv.int/public/medias/7592/oiv-oeno-630-2020-en.pdf"
+    accessed_on: "2026-09-29"
+  - id: src_d1target_codex_haccp
+    kind: reference_work
+    title: "General Principles of Food Hygiene"
+    publisher: "Codex Alimentarius Commission"
+    document_identifier: "CXC 1-1969, revised 2022; sections 16–19"
+    url: "https://www.fao.org/fao-who-codexalimentarius/sh-proxy/pt/?lnk=1&url=https%253A%252F%252Fworkspace.fao.org%252Fsites%252Fcodex%252FStandards%252FCXC%2B1-1969%252FCXC_001e.pdf"
+    accessed_on: "2026-09-29"
+  - id: src_d1target_iso_22000
+    kind: reference_work
+    title: "ISO 22000 — Food safety management"
+    publisher: "International Organization for Standardization"
+    document_identifier: "ISO 22000:2018 public scope and certification summary"
+    url: "https://www.iso.org/iso-22000-food-safety-management.html"
+    accessed_on: "2026-09-29"
+  - id: src_d1target_awri_trace
+    kind: reference_work
+    title: "Product identification, traceability, withdrawal and recall"
+    publisher: "Australian Wine Research Institute"
+    document_identifier: "Winery factsheet M8; production, package and destination batch links"
+    url: "https://www.awri.com.au/files/attachment/awissp-winery-factsheets/"
+    accessed_on: "2026-09-29"
+  - id: src_d1target_wa_shipping
+    kind: reference_work
+    title: "Cost, climate, consumers: influences on changes in wine packaging"
+    publisher: "Wine Australia"
+    document_identifier: "Market Bulletin 297; bulk freight and packaging cost factors"
+    url: "https://www.wineaustralia.com/news/market-bulletin/issue-297"
+    accessed_on: "2026-09-29"
+
+knowledge_item_citations:
+  - {knowledge_item_id: ki_d1target_regen_cover, source_citation_id: src_htime_oiv_agro, locator: "Recommendation 7: regenerative purpose and named practices."}
+  - {knowledge_item_id: ki_d1target_regen_water, source_citation_id: src_d1target_awri_cover, locator: "Advantages and disadvantages; considerations for water, equipment and frost."}
+  - {knowledge_item_id: ki_d1target_precision_zones, source_citation_id: src_d1target_wa_precision, locator: "Site maps, overlays and variable-rate applications; trial context."}
+  - {knowledge_item_id: ki_d1target_precision_cost, source_citation_id: src_d1target_bramley_selective, locator: "Results and discussion: zone sensory differences, partial gross margins and market opportunity."}
+  - {knowledge_item_id: ki_d1target_precision_cost, source_citation_id: src_d1target_wa_precision, locator: "Mapping zones and managing observed variability."}
+  - {knowledge_item_id: ki_d1target_nolo_route, source_citation_id: src_d1target_oiv_dealc, locator: "Objectives and prescriptions a–e: separations, sound wine and qualified responsibility."}
+  - {knowledge_item_id: ki_d1target_nolo_balance, source_citation_id: src_d1target_oiv_nolo, locator: "Technical account: aroma, mouthfeel, stability and production cost challenges."}
+  - {knowledge_item_id: ki_d1target_qc_haccp, source_citation_id: src_d1target_oiv_haccp, locator: "Section 1: hygiene PRPs, wine-specific hazard analysis and CCP selection."}
+  - {knowledge_item_id: ki_d1target_qc_haccp, source_citation_id: src_d1target_codex_haccp, locator: "Sections 16–19: HACCP principles and prerequisite hygiene."}
+  - {knowledge_item_id: ki_d1target_qc_iso_trace, source_citation_id: src_d1target_iso_22000, locator: "ISO 22000:2018 public scope: food-safety system and optional certification."}
+  - {knowledge_item_id: ki_d1target_qc_iso_trace, source_citation_id: src_d1target_awri_trace, locator: "Factsheet M8: batch, packaging and destination records."}
+  - {knowledge_item_id: ki_d1target_pack_barrier, source_citation_id: src_wset_prod_package, locator: "Packaging sections: oxygen and format-specific life-cycle checks."}
+  - {knowledge_item_id: ki_d1target_pack_freight, source_citation_id: src_srv_awri_storage, locator: "Bulk trials: ISO versus flexi sensory findings and transport conditions."}
+  - {knowledge_item_id: ki_d1target_pack_freight, source_citation_id: src_d1target_wa_shipping, locator: "Bulk shipping weight and cost context."}
+  - {knowledge_item_id: ki_d1target_case_vineyard_action, source_citation_id: src_d1target_awri_cover, locator: "Cover selection, site conditions and monitoring."}
+  - {knowledge_item_id: ki_d1target_case_vineyard_action, source_citation_id: src_d1target_wa_precision, locator: "Mapped zones as a guide to site checks."}
+  - {knowledge_item_id: ki_d1target_case_vineyard_reason, source_citation_id: src_htime_oiv_agro, locator: "Recommendation 7: cover and soil-health aim."}
+  - {knowledge_item_id: ki_d1target_case_vineyard_reason, source_citation_id: src_d1target_awri_cover, locator: "Cover crop benefits and competition risk."}
+  - {knowledge_item_id: ki_d1target_case_vineyard_reason, source_citation_id: src_d1target_wa_precision, locator: "Maps and ground-truthing context."}
+  - {knowledge_item_id: ki_d1target_case_vineyard_tradeoff, source_citation_id: src_d1target_awri_cover, locator: "Competition, potential yield effect and establishment needs."}
+  - {knowledge_item_id: ki_d1target_case_vineyard_tradeoff, source_citation_id: src_d1target_bramley_selective, locator: "Discussion and conclusion: selective-harvest implementation cost and market opportunity."}
+  - {knowledge_item_id: ki_d1target_case_vineyard_limit, source_citation_id: src_d1target_wa_precision, locator: "Mapping identifies variation, not this block's cause or achieved wine result."}
+  - {knowledge_item_id: ki_d1target_case_nolo_action, source_citation_id: src_d1target_oiv_dealc, locator: "Prescriptions a–e: routes, sound wine and qualified technician."}
+  - {knowledge_item_id: ki_d1target_case_nolo_reason, source_citation_id: src_d1target_oiv_nolo, locator: "Technical account: separation and sensory tradeoffs."}
+  - {knowledge_item_id: ki_d1target_case_nolo_tradeoff, source_citation_id: src_d1target_oiv_nolo, locator: "Aroma, body, stability and cost challenges."}
+  - {knowledge_item_id: ki_d1target_case_nolo_limit, source_citation_id: src_d1target_oiv_dealc, locator: "Process prescriptions do not certify target strength or destination label."}
+  - {knowledge_item_id: ki_d1target_case_qc_action, source_citation_id: src_d1target_oiv_haccp, locator: "PRPs and site-specific hazard analysis."}
+  - {knowledge_item_id: ki_d1target_case_qc_action, source_citation_id: src_d1target_awri_trace, locator: "Batch-to-destination records and withdrawal."}
+  - {knowledge_item_id: ki_d1target_case_qc_reason, source_citation_id: src_d1target_codex_haccp, locator: "HACCP after hygiene prerequisites."}
+  - {knowledge_item_id: ki_d1target_case_qc_reason, source_citation_id: src_win_packaging, locator: "Packaging-line microbial investigation and sanitation."}
+  - {knowledge_item_id: ki_d1target_case_qc_reason, source_citation_id: src_d1target_iso_22000, locator: "Food-safety system scope, not automatic certification."}
+  - {knowledge_item_id: ki_d1target_case_qc_tradeoff, source_citation_id: src_wset_prod_package, locator: "Quarantine and positive product release guidance."}
+  - {knowledge_item_id: ki_d1target_case_qc_limit, source_citation_id: src_d1target_oiv_haccp, locator: "Risk and CCP designation depend on the winery process."}
+  - {knowledge_item_id: ki_d1target_case_qc_limit, source_citation_id: src_d1target_awri_trace, locator: "Lot links define recall scope when complete."}
+  - {knowledge_item_id: ki_d1target_case_pack_action, source_citation_id: src_wset_prod_package, locator: "Package oxygen and shelf-life evaluation."}
+  - {knowledge_item_id: ki_d1target_case_pack_action, source_citation_id: src_srv_awri_storage, locator: "Transport conditions and hold-back comparison."}
+  - {knowledge_item_id: ki_d1target_case_pack_reason, source_citation_id: src_wset_prod_package, locator: "Bulk and alternative package safeguards."}
+  - {knowledge_item_id: ki_d1target_case_pack_reason, source_citation_id: src_srv_awri_storage, locator: "Transport trial scope."}
+  - {knowledge_item_id: ki_d1target_case_pack_tradeoff, source_citation_id: src_d1target_wa_shipping, locator: "Bulk freight weight and cost advantages."}
+  - {knowledge_item_id: ki_d1target_case_pack_tradeoff, source_citation_id: src_wset_prod_package, locator: "Filling and oxygen-control requirements."}
+  - {knowledge_item_id: ki_d1target_case_pack_limit, source_citation_id: src_srv_awri_storage, locator: "Specific bulk trial cannot establish a universal route ranking."}
