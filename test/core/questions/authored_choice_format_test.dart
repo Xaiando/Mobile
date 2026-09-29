@@ -360,7 +360,7 @@ void main() {
   );
 
   test(
-    '1670 cited choices are generated and served across WSET and CMS tracks',
+    '1678 cited choices are generated and served across WSET and CMS tracks',
     () async {
       final db = openTestDatabase();
       try {
@@ -385,7 +385,7 @@ void main() {
                   template.id == 'qt_d5f_authored_choice',
             )
             .toList();
-        expect(templates, hasLength(80));
+        expect(templates, hasLength(81));
         final expectedIds = {
           for (final template in templates)
             ...((jsonDecode(template.parameters!)
@@ -480,6 +480,9 @@ void main() {
         final newWorldIds = idsForTemplate('qt_wset_new_world_application_16');
         final businessIds = idsForTemplate('qt_wset_business_application_26');
         final l3BusinessGapIds = idsForTemplate('qt_wset_l3_business_gap_30');
+        final d2MarketDecisionIds = idsForTemplate(
+          'qt_wset_d2_market_decisions_choice_6',
+        );
         final cmsExampleIds = {
           for (final template in templates)
             if (template.id.startsWith('qt_cms_example_'))
@@ -633,6 +636,7 @@ void main() {
           ...d3RegionalIds,
           ...d4RegionalIds,
           ...d5FortifiedIds,
+          ...d2MarketDecisionIds,
         });
         expect(
           d3RegionalIds.intersection(remainingWinemakingIds),
@@ -656,7 +660,7 @@ void main() {
           isEmpty,
           reason: 'Diploma and Level 3 geography choices remain distinct',
         );
-        expect(expectedIds, hasLength(1670));
+        expect(expectedIds, hasLength(1678));
         expect(levelOneIds, hasLength(132));
         expect(levelTwoIds, hasLength(309));
         expect(sharedGrapeIds, hasLength(52));
@@ -664,7 +668,8 @@ void main() {
         expect(newWorldIds, hasLength(16));
         expect(businessIds, hasLength(26));
         expect(l3BusinessGapIds, hasLength(30));
-        expect(cmsExampleIds, hasLength(12));
+        expect(cmsExampleIds, hasLength(14));
+        expect(d2MarketDecisionIds, hasLength(6));
         expect(winemakingSharedIds, hasLength(9));
         expect(winemakingL3Ids, hasLength(12));
         expect(winemakingDepthIds, hasLength(37));
@@ -744,7 +749,7 @@ void main() {
                OR t.id = 'qt_d5f_authored_choice')
         ORDER BY q.knowledge_item_id
       ''').get();
-        expect(rows, hasLength(1670));
+        expect(rows, hasLength(1678));
         final actual = {
           for (final row in rows)
             row.read<String>('knowledge_item_id'): row.read<String>(
@@ -856,7 +861,8 @@ void main() {
               reason: 'Diploma D3: $id',
             );
           }
-          if (diplomaBusinessIds.contains(id)) {
+          if (diplomaBusinessIds.contains(id) ||
+              d2MarketDecisionIds.contains(id)) {
             expect(
               levelFourCards[id]?.formats.map((format) => format.mode),
               contains('authored_choice'),
@@ -929,7 +935,8 @@ void main() {
                     : l4WinemakingPrincipleIds.contains(id) ||
                           l4WinemakingCausalIds.contains(id)
                     ? levelFourCards[id]
-                    : diplomaBusinessIds.contains(id)
+                    : diplomaBusinessIds.contains(id) ||
+                          d2MarketDecisionIds.contains(id)
                     ? levelFourCards[id]
                     : diplomaBusinessPrincipleIds.contains(id)
                     ? levelFourCards[id]

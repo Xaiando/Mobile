@@ -176,7 +176,7 @@ void main() {
     );
     expect(
       diploma.units.singleWhere((u) => u.scope.id == 'D2').counts.available,
-      119,
+      133,
     );
     expect(diploma.appLevelComplete, isFalse);
     expect(
@@ -560,15 +560,33 @@ void main() {
       132,
       829,
       3439,
-      4079,
+      4111,
     ]);
     final diploma = snapshot.levels.last;
     final unitIds = {
       for (final unit in scope.levels.last.units) unit.id: unit.itemIds.toSet(),
     };
     for (final entry in {
-      'D4': ['ki_spark_', 'ki_d4nw_', 'ki_d4depth_'],
-      'D5': ['ki_fort_', 'ki_d5f_'],
+      'D4': [
+        'ki_spark_',
+        'ki_d4nw_',
+        'ki_d4depth_',
+        'ki_d4d5_bourgogne_',
+        'ki_d4d5_saumur_',
+        'ki_d4d5_trento_',
+        'ki_d4d5_sorbara_',
+        'ki_d4d5_grasparossa_',
+        'ki_d4d5_case_italian_',
+      ],
+      'D5': [
+        'ki_fort_',
+        'ki_d5f_',
+        'ki_d4d5_palo_',
+        'ki_d4d5_lbv_',
+        'ki_d4d5_colheita_',
+        'ki_d4d5_white_port_',
+        'ki_d4d5_case_port_',
+      ],
     }.entries) {
       final ids = dataset.knowledgeItems
           .where((i) => entry.value.any(i.id.startsWith))
@@ -581,7 +599,7 @@ void main() {
     }
     expect(
       diploma.units.singleWhere((u) => u.scope.id == 'D2').counts.available,
-      119,
+      133,
     );
     expect(
       diploma.units.singleWhere((u) => u.scope.id == 'D3').scope.domains,

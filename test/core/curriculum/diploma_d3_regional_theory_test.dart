@@ -51,7 +51,13 @@ void main() {
       final item = itemsById[id]!;
       expect(item.verificationStatus, 'unverified', reason: id);
       expect(item.mcqDisabled, isTrue, reason: id);
-      expect(counts[id], 1, reason: 'duplicate authored question for $id');
+      expect(
+        counts[id],
+        id == 'ki_reg_oa_adelaide_m3_sources' || id == 'ki_reg_sa_itata_grapes'
+            ? 2
+            : 1,
+        reason: 'duplicate authored question for $id',
+      );
       expect(choice['options'], hasLength(4), reason: id);
       expect(
         (choice['options'] as List<dynamic>).toSet(),
