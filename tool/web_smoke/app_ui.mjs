@@ -131,7 +131,18 @@ async function tap(name, options = {}) {
   const candidate = named(name, options);
   // Text leaves support author-controlled ListTile and dropdown captions.
   const target = candidate.or(text(name));
-  await (await reveal(target, options)).click({ timeout: actionTimeout });
+  // A track change can rebuild Home after reveal() sees a ListTile. Flutter
+  // then recycles its semantics node before Playwright clicks it. Re-reveal
+  // the same named control once if that locator times out during the rebuild.
+  for (let attempt = 0; attempt < 2; attempt++) {
+    const revealed = await reveal(target, options);
+    try {
+      await revealed.click({ timeout: actionTimeout });
+      return;
+    } catch (error) {
+      if (error.name !== 'TimeoutError' || attempt === 1) throw error;
+    }
+  }
 }
 async function visible(name, timeout = actionTimeout) {
   await text(name).first().waitFor({ state: 'visible', timeout });
