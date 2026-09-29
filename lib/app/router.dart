@@ -7,6 +7,7 @@ import '../features/cellar/journal_editor.dart';
 import '../features/cellar/journal_entry_screen.dart';
 import '../features/home/home_screen.dart';
 import '../features/practice/practice_screen.dart';
+import '../features/practice/map_practice_screen.dart';
 import '../features/study/study_screen.dart';
 import '../features/tasting/new_tasting_screen.dart';
 import '../features/tasting/tasting_screen.dart';
@@ -79,6 +80,10 @@ const appDestinations = <AppDestination>[
 /// The pages inside a tab, which keep the tab's navigation bar.
 final _tabPages = <String, List<RouteBase>>{
   '/practice': [
+    GoRoute(
+      path: 'maps',
+      builder: (context, state) => const MapPracticeScreen(),
+    ),
     GoRoute(
       path: 'rehearsal',
       builder: (context, state) => const RehearsalScreen(),

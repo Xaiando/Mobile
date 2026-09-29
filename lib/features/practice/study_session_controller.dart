@@ -102,16 +102,40 @@ class StudySessionState {
 class StudySessionController extends AsyncNotifier<StudySessionState?> {
   var _busy = false;
   var _advancing = false;
+  Set<String>? _repeatItemIds;
+  Set<String>? _repeatFormatModes;
+
+  static const mapFormatModes = {
+    'map_locate',
+    'map_identify',
+    'map_pair',
+    'map_grape',
+  };
 
   @override
   Future<StudySessionState?> build() async => null;
 
   /// Plans a session for the active track and shows its first card.
-  Future<void> start({Set<String>? itemIds}) async {
+  Future<void> start({Set<String>? itemIds}) => _start(itemIds: itemIds);
+
+  /// Uses the same item memory, priorities and due/new budgets as a normal
+  /// session, but presents only spatial formats from the selected map scope.
+  Future<void> startMaps({Set<String>? itemIds}) =>
+      _start(itemIds: itemIds, formatModes: mapFormatModes);
+
+  /// Another session with the same practice focus as the preceding one.
+  Future<void> repeat() =>
+      _start(itemIds: _repeatItemIds, formatModes: _repeatFormatModes);
+
+  Future<void> _start({Set<String>? itemIds, Set<String>? formatModes}) async {
     final focus = itemIds == null ? null : Set<String>.of(itemIds);
+    _repeatItemIds = focus;
+    _repeatFormatModes = formatModes;
     state = const AsyncLoading();
     final started = await AsyncValue.guard(() async {
-      final plan = await ref.read(studyPlannerProvider).plan(itemIds: focus);
+      final plan = await ref
+          .read(studyPlannerProvider)
+          .plan(itemIds: focus, formatModes: formatModes);
       if (plan == null) return null;
       final session = StudySession(plan);
       return StudySessionState(session: session, turn: await _turn(session));

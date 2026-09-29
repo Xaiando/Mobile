@@ -56,6 +56,7 @@ final class MapExercise implements Exercise {
     this.options = const [],
     this.correct,
     this.correctByItem = const {},
+    this.selectAll = false,
   });
 
   @override
@@ -103,6 +104,11 @@ final class MapExercise implements Exercise {
   /// so a partly correct combination does not earn every item a Good.
   final Map<String, Set<String>> correctByItem;
 
+  /// A bounded grape question asks for every correct candidate shown on this
+  /// map. Every candidate has a current complete legal grape list or belongs
+  /// to one complete, dated planting-ranking cohort.
+  final bool selectAll;
+
   /// Every node that answers the question: any correct node counts
   /// (question-system §6). A location item's is its area alone.
   Set<String> get correctNodeIds => correct ?? {nodeId};
@@ -124,9 +130,18 @@ final class MapExercise implements Exercise {
     options: options,
     correct: correct,
     correctByItem: correctByItem,
+    selectAll: selectAll,
   );
 
   Set<String> get candidateIds => {for (final c in frame.candidates) c.id};
+}
+
+/// The learner's revisable selections for a bounded all-locations map.
+/// Keeping each original tap also keeps answer provenance in the review log.
+final class MapMultiLocateAnswer {
+  const MapMultiLocateAnswer(this.selections);
+
+  final List<MapLocateAnswer> selections;
 }
 
 /// A `map_locate` answer: the area tapped, where, and how the map was shown;
