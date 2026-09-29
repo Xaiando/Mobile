@@ -1,0 +1,103 @@
+# Seven cited mechanism checks complementing existing two-hop reasoning.
+question_templates:
+- id: qt_wset_l4_viticulture_causal_causes_state
+  relation_type: CAUSES_STATE
+  direction: forward
+  mode: authored_choice
+  variant: wset_l4_viticulture_causal_causes_state
+  prompt_template: '{subject.name}'
+  parameters:
+    item_choices:
+      ki_climate_frost_wind_mixing:
+        prompt: A wind machine runs during a calm radiational frost with a measured reachable warm inversion. What
+          is its stated mechanism?
+        options:
+        - It mixes warmer air aloft down into the colder vine-level layer.
+        - Its motor creates enough new heat inside each bud without using the inversion.
+        - It removes warmer air so colder surface air can settle around the vine.
+        - It works equally well during any advective freeze even with no warmer layer aloft.
+        correctIndex: 0
+        explanation: Under the measured reachable warm inversion and supplied fan operation, warmer air aloft is
+          mixed into colder vine-level air. This premise isolates that mixing route, rather than assuming any frost
+          event is suitable.
+        sourceCitationId: src_vit_frost_ncsu
+      ki_climate_frost_sprinkler_freezing_heat:
+        prompt: A frost sprinkler keeps tissues wetted at a sufficient rate. What is the protective heat source
+          in this premise?
+        options:
+        - A static ice coat produces continuous heat even after water application stops.
+        - Applied water releases latent heat as it freezes in contact with the tissue.
+        - Melting ice releases the heat that protects buds during freezing.
+        - Water protects solely by making the dry-bulb air temperature rise.
+        correctIndex: 1
+        explanation: Applied water freezing in contact with the wetted tissue releases latent heat of fusion. The
+          premise specifies ongoing freezing, sufficient rate and uniform re-wetting rather than a dry, static ice
+          coating.
+        sourceCitationId: src_vit_frost_ncsu
+      ki_climate_ripen_malate_respiration:
+        prompt: In a matched berry comparison, malate-consuming respiration is higher in one treatment. Which immediate
+          mechanism is supplied?
+        options:
+        - Respiration creates a matching amount of new malate without any other pathway.
+        - Any warm day must produce the same malate response at every ripening stage.
+        - More berry malate is used as respiratory substrate under the stated conditions.
+        - Higher respiration consumes only tartrate while leaving malate unused.
+        correctIndex: 2
+        explanation: The supplied higher malate-consuming respiratory flux uses more berry malate as substrate;
+          warmth alone does not establish that response in every stage or thermal regime.
+        sourceCitationId: src_climate_ripen_temperature_microvine
+      ki_climate_ripen_botrytis_conditions:
+        prompt: Berries stay wet at a temperature suitable for Botrytis. What does the wet-surface premise support?
+        options:
+        - Humidity alone is identical to a sustained free-water film in this comparison.
+        - Wetness guarantees that every berry will be infected regardless of host or inoculum.
+        - Rapid drying necessarily provides more germination opportunity than continued wetness.
+        - Longer free-water exposure provides a more conducive germination and infection opportunity.
+        correctIndex: 3
+        explanation: At the supplied suitable temperature, sustained free surface water provides a more conducive
+          germination and infection opportunity than rapid drying; humidity alone is not substituted for wetness.
+        sourceCitationId: src_climate_ripen_botrytis_germination
+      ki_reason_water_co2_entry:
+        prompt: A water-limited vine closes stomata under the supplied scenario. What happens to the normal gas-exchange
+          route?
+        options:
+        - Stomatal CO₂ entry is restricted along with the closing response.
+        - The closing pores admit more CO₂ than open stomata.
+        - Atmospheric CO₂ becomes irrelevant to photosynthesis in an open leaf.
+        - Stomatal closure proves every berry is already fully ripe.
+        correctIndex: 0
+        explanation: Under the supplied closing-stomata response, restricted gas exchange reduces stomatal CO₂ entry;
+          open stomata normally admit CO₂ for photosynthesis.
+        sourceCitationId: src_vit_water_status
+      ki_reason_bloom_carbohydrate:
+        prompt: Active basal source leaves are removed around bloom and compensation is ruled out. What supply mechanism
+          changes?
+        options:
+        - Removing source leaves necessarily increases carbohydrate available to flowers.
+        - Carbohydrate supply to the developing inflorescences can be restricted.
+        - Berry set is fixed before bloom, so the changed supply cannot matter.
+        - The premise proves every cultivar loses the same number of berries.
+        correctIndex: 1
+        explanation: Removing active basal source leaves around bloom can restrict carbohydrate supply to inflorescences;
+          the supplied scenario rules out compensation.
+        sourceCitationId: src_reason_early_leaf_removal
+- id: qt_wset_l4_viticulture_causal_leads_to
+  relation_type: LEADS_TO
+  direction: forward
+  mode: authored_choice
+  variant: wset_l4_viticulture_causal_leads_to
+  prompt_template: '{subject.name}'
+  parameters:
+    item_choices:
+      ki_reason_bloom_set:
+        prompt: The stated bloom scenario has fewer carbohydrates available to flowers. What fruit-set effect is
+          plausible?
+        options:
+        - Every flower must set because carbohydrate supply is reduced.
+        - The proportion cannot change after flowering begins under any condition.
+        - A smaller proportion of flowers may develop into berries, subject to weather and cultivar.
+        - A fixed loss percentage is guaranteed across all cultivars and seasons.
+        correctIndex: 2
+        explanation: A shortage of carbohydrate resources during flowering can reduce the proportion of flowers
+          that develop into berries; weather and cultivar also influence this response.
+        sourceCitationId: src_reason_early_leaf_removal

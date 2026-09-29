@@ -1,0 +1,523 @@
+# Original D4/D5 product comparisons. Source bounded; expert review pending.
+knowledge_nodes:
+- id: n_d4d5_principle_bourgogne_base
+  node_type: production_principle
+  name: Why does a Crémant de Bourgogne base-wine brief differ from a still-wine harvest brief?
+- id: n_d4d5_point_bourgogne_base
+  node_type: learning_point
+  name: Earlier picking can preserve base-wine acidity for bottle fermentation
+- id: n_d4d5_principle_saumur_bottle
+  node_type: production_principle
+  name: Can Saumur mousseux be described as a generic tank-fermented Loire sparkling wine?
+- id: n_d4d5_point_saumur_bottle
+  node_type: learning_point
+  name: The Saumur mousseux rules require second fermentation in bottle
+- id: n_d4d5_principle_trento_riserva
+  node_type: production_principle
+  name: What does the Trento DOC Riserva claim establish for cellar planning?
+- id: n_d4d5_point_trento_riserva
+  node_type: learning_point
+  name: Riserva requires a longer lees holding period than standard Trento DOC
+- id: n_d4d5_principle_sorbara_dry
+  node_type: production_principle
+  name: Why is a generic sweet-red Lambrusco brief inadequate for Sorbara?
+- id: n_d4d5_point_sorbara_dry
+  node_type: learning_point
+  name: Sorbara may be dry, light red or rosé and markedly fresh
+- id: n_d4d5_principle_grasparossa_body
+  node_type: production_principle
+  name: Which Lambrusco name better fits a brief seeking comparatively more body and tannin?
+- id: n_d4d5_point_grasparossa_body
+  node_type: learning_point
+  name: Grasparossa generally has more body and tannin than Sorbara
+- id: n_d4d5_principle_palo_route
+  node_type: production_principle
+  name: What cellar decision distinguishes the classic Palo Cortado route?
+- id: n_d4d5_point_palo_route
+  node_type: learning_point
+  name: A fine flor-directed wine is reclassified and redirected to oxidative ageing
+- id: n_d4d5_principle_palo_dry
+  node_type: production_principle
+  name: Does a rich-bodied Palo Cortado belong automatically on a sweet-dessert list?
+- id: n_d4d5_point_palo_dry
+  node_type: learning_point
+  name: Palo Cortado is a dry Sherry despite its rounded body
+- id: n_d4d5_principle_lbv_vintage
+  node_type: production_principle
+  name: How does LBV's pre-bottling maturation differ from Vintage Port?
+- id: n_d4d5_point_lbv_vintage
+  node_type: learning_point
+  name: LBV is held four to six years before bottling; Vintage Port is bottled much earlier
+- id: n_d4d5_principle_colheita_cask
+  node_type: production_principle
+  name: Why is a dated Colheita distinct from Vintage Port despite a shared harvest year?
+- id: n_d4d5_point_colheita_cask
+  node_type: learning_point
+  name: Colheita is a single-harvest Tawny aged in cask for at least seven years
+- id: n_d4d5_principle_white_port_age
+  node_type: production_principle
+  name: Can White Port carry an age indication or Colheita designation?
+- id: n_d4d5_point_white_port_age
+  node_type: learning_point
+  name: IVDP recognises wood-aged White Port categories as well as youthful styles
+- id: n_d4d5_case_italian_list
+  node_type: production_case
+  name: How should a buyer resolve the italian list decision?
+- id: n_d4d5_point_case_italian_list_action
+  node_type: learning_point
+  name: Taste both against the guest brief and cost the by-the-glass margin
+- id: n_d4d5_point_case_italian_list_reason
+  node_type: learning_point
+  name: Riserva carries long lees ageing; Sorbara may be a fresh dry light red
+- id: n_d4d5_point_case_italian_list_tradeoff
+  node_type: learning_point
+  name: The two bottles occupy different style slots and may tie up different stock
+- id: n_d4d5_point_case_italian_list_limitation
+  node_type: learning_point
+  name: Neither category establishes the individual wine's quality, price or demand
+- id: n_d4d5_case_port_release
+  node_type: production_case
+  name: How should a buyer resolve the port release decision?
+- id: n_d4d5_point_case_port_release_action
+  node_type: learning_point
+  name: Request samples, bottling details, storage records and landed costs
+- id: n_d4d5_point_case_port_release_reason
+  node_type: learning_point
+  name: LBV, Vintage and Colheita follow different pre-bottling and ageing routes
+- id: n_d4d5_point_case_port_release_tradeoff
+  node_type: learning_point
+  name: A bottle-ageing plan and a ready-to-list plan have different stock commitments
+- id: n_d4d5_point_case_port_release_limitation
+  node_type: learning_point
+  name: Shared harvest year does not prove present condition or best value
+knowledge_relations:
+- subject_id: n_d4d5_principle_bourgogne_base
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_d4d5_point_bourgogne_base
+  valid_from: '2026-09-29'
+- subject_id: n_d4d5_principle_saumur_bottle
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_d4d5_point_saumur_bottle
+  valid_from: '2026-09-29'
+- subject_id: n_d4d5_principle_trento_riserva
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_d4d5_point_trento_riserva
+  valid_from: '2026-09-29'
+- subject_id: n_d4d5_principle_sorbara_dry
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_d4d5_point_sorbara_dry
+  valid_from: '2026-09-29'
+- subject_id: n_d4d5_principle_grasparossa_body
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_d4d5_point_grasparossa_body
+  valid_from: '2026-09-29'
+- subject_id: n_d4d5_principle_palo_route
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_d4d5_point_palo_route
+  valid_from: '2026-09-29'
+- subject_id: n_d4d5_principle_palo_dry
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_d4d5_point_palo_dry
+  valid_from: '2026-09-29'
+- subject_id: n_d4d5_principle_lbv_vintage
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_d4d5_point_lbv_vintage
+  valid_from: '2026-09-29'
+- subject_id: n_d4d5_principle_colheita_cask
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_d4d5_point_colheita_cask
+  valid_from: '2026-09-29'
+- subject_id: n_d4d5_principle_white_port_age
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_d4d5_point_white_port_age
+  valid_from: '2026-09-29'
+- subject_id: n_d4d5_case_italian_list
+  relation_type: CASE_ACTION
+  object_id: n_d4d5_point_case_italian_list_action
+  valid_from: '2026-09-29'
+- subject_id: n_d4d5_case_italian_list
+  relation_type: CASE_REASON
+  object_id: n_d4d5_point_case_italian_list_reason
+  valid_from: '2026-09-29'
+- subject_id: n_d4d5_case_italian_list
+  relation_type: CASE_TRADEOFF
+  object_id: n_d4d5_point_case_italian_list_tradeoff
+  valid_from: '2026-09-29'
+- subject_id: n_d4d5_case_italian_list
+  relation_type: CASE_LIMITATION
+  object_id: n_d4d5_point_case_italian_list_limitation
+  valid_from: '2026-09-29'
+- subject_id: n_d4d5_case_port_release
+  relation_type: CASE_ACTION
+  object_id: n_d4d5_point_case_port_release_action
+  valid_from: '2026-09-29'
+- subject_id: n_d4d5_case_port_release
+  relation_type: CASE_REASON
+  object_id: n_d4d5_point_case_port_release_reason
+  valid_from: '2026-09-29'
+- subject_id: n_d4d5_case_port_release
+  relation_type: CASE_TRADEOFF
+  object_id: n_d4d5_point_case_port_release_tradeoff
+  valid_from: '2026-09-29'
+- subject_id: n_d4d5_case_port_release
+  relation_type: CASE_LIMITATION
+  object_id: n_d4d5_point_case_port_release_limitation
+  valid_from: '2026-09-29'
+knowledge_items:
+- id: ki_d4d5_bourgogne_base
+  subject_id: n_d4d5_principle_bourgogne_base
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_d4d5_point_bourgogne_base
+  domain_id: winemaking
+  assertion_text: The Bourgogne wine body describes earlier picking than for still wines to retain acidity,
+    followed by a second fermentation in bottle. Variety and site still affect the final wine.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-29T00:00:00.000Z'
+- id: ki_d4d5_saumur_bottle
+  subject_id: n_d4d5_principle_saumur_bottle
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_d4d5_point_saumur_bottle
+  domain_id: winemaking
+  assertion_text: The Saumur appellation specification requires sparkling wines to be made exclusively by second
+    fermentation in bottle; the region name alone does not fix sweetness or quality.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-29T00:00:00.000Z'
+- id: ki_d4d5_trento_riserva
+  subject_id: n_d4d5_principle_trento_riserva
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_d4d5_point_trento_riserva
+  domain_id: winemaking
+  assertion_text: The Trento DOC Institute describes at least 36 months on lees for Riserva, compared with
+    15 months for non-vintage and 24 months for Millesimato. This is a release-time constraint, not a blind-tasting
+    score.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-29T00:00:00.000Z'
+- id: ki_d4d5_sorbara_dry
+  subject_id: n_d4d5_principle_sorbara_dry
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_d4d5_point_sorbara_dry
+  domain_id: winemaking
+  assertion_text: The Lambrusco consortium describes Sorbara as light red or rosé, fresh and elegant, and lists
+    dry through sweet versions. A wine list should ask for the actual producer and sweetness style.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-29T00:00:00.000Z'
+- id: ki_d4d5_grasparossa_body
+  subject_id: n_d4d5_principle_grasparossa_body
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_d4d5_point_grasparossa_body
+  domain_id: winemaking
+  assertion_text: The Lambrusco consortium describes Grasparossa di Castelvetro as more full-bodied and tannic
+    than the lighter Sorbara profile. This category comparison does not substitute for tasting a particular
+    bottle.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-29T00:00:00.000Z'
+- id: ki_d4d5_palo_route
+  subject_id: n_d4d5_principle_palo_route
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_d4d5_point_palo_route
+  domain_id: winemaking
+  assertion_text: The Sherry Consejo describes a wine initially fortified for flor, then selected after sobretabla,
+    fortified above 17% and redirected to oxidative maturation. A Palo Cortado is not made by merely sweetening
+    Oloroso.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-29T00:00:00.000Z'
+- id: ki_d4d5_palo_dry
+  subject_id: n_d4d5_principle_palo_dry
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_d4d5_point_palo_dry
+  domain_id: winemaking
+  assertion_text: The Consejo classifies Palo Cortado among dry Sherries and publishes a low residual-sugar
+    range; its roundness and colour do not make it a sweet dessert wine.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-29T00:00:00.000Z'
+- id: ki_d4d5_lbv_vintage
+  subject_id: n_d4d5_principle_lbv_vintage
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_d4d5_point_lbv_vintage
+  domain_id: winemaking
+  assertion_text: IVDP describes both LBV and Vintage Port as single-harvest Ruby styles, with LBV held four
+    to six years before bottling and Vintage bottled two to three years after harvest. Their specific drinking
+    windows still need label and bottle evidence.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-29T00:00:00.000Z'
+- id: ki_d4d5_colheita_cask
+  subject_id: n_d4d5_principle_colheita_cask
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_d4d5_point_colheita_cask
+  domain_id: winemaking
+  assertion_text: IVDP describes Colheita as a single-harvest Tawny with at least seven years in cask, in contrast
+    to the earlier-bottled Vintage Ruby route. A date alone does not establish the maturation style.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-29T00:00:00.000Z'
+- id: ki_d4d5_white_port_age
+  subject_id: n_d4d5_principle_white_port_age
+  relation_type: PRINCIPLE_EXPLANATION
+  object_id: n_d4d5_point_white_port_age
+  domain_id: winemaking
+  assertion_text: IVDP lists Reserve White, age-indicated White Port and White Colheita among special wood-aged
+    white categories. White Port should not be taught as only a youthful chilled aperitif.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-29T00:00:00.000Z'
+- id: ki_d4d5_case_italian_list_action
+  subject_id: n_d4d5_case_italian_list
+  relation_type: CASE_ACTION
+  object_id: n_d4d5_point_case_italian_list_action
+  domain_id: winemaking
+  assertion_text: A defensible list decision compares sample quality and actual landed margin against the restaurant
+    brief rather than buying by category name.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-29T00:00:00.000Z'
+- id: ki_d4d5_case_italian_list_reason
+  subject_id: n_d4d5_case_italian_list
+  relation_type: CASE_REASON
+  object_id: n_d4d5_point_case_italian_list_reason
+  domain_id: winemaking
+  assertion_text: Trentodoc's published Riserva minimum is 36 months on lees, while the Lambrusco consortium
+    lists dry, light-coloured Sorbara styles.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-29T00:00:00.000Z'
+- id: ki_d4d5_case_italian_list_tradeoff
+  subject_id: n_d4d5_case_italian_list
+  relation_type: CASE_TRADEOFF
+  object_id: n_d4d5_point_case_italian_list_tradeoff
+  domain_id: winemaking
+  assertion_text: The long-lees white sparkling and fresh red sparkling fulfil different list roles; carrying
+    one foregoes the other and stock cost remains conditional.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-29T00:00:00.000Z'
+- id: ki_d4d5_case_italian_list_limitation
+  subject_id: n_d4d5_case_italian_list
+  relation_type: CASE_LIMITATION
+  object_id: n_d4d5_point_case_italian_list_limitation
+  domain_id: winemaking
+  assertion_text: The published category descriptions cannot establish which individual offer tastes better,
+    sells faster or yields a viable margin.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-29T00:00:00.000Z'
+- id: ki_d4d5_case_port_release_action
+  subject_id: n_d4d5_case_port_release
+  relation_type: CASE_ACTION
+  object_id: n_d4d5_point_case_port_release_action
+  domain_id: winemaking
+  assertion_text: Compare actual samples, bottling and storage records and costs before selecting a dated Port
+    for near-term service.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-29T00:00:00.000Z'
+- id: ki_d4d5_case_port_release_reason
+  subject_id: n_d4d5_case_port_release
+  relation_type: CASE_REASON
+  object_id: n_d4d5_point_case_port_release_reason
+  domain_id: winemaking
+  assertion_text: IVDP describes LBV as four to six years before bottling, Vintage as earlier bottled for bottle
+    development, and Colheita as single-harvest Tawny cask-aged at least seven years.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-29T00:00:00.000Z'
+- id: ki_d4d5_case_port_release_tradeoff
+  subject_id: n_d4d5_case_port_release
+  relation_type: CASE_TRADEOFF
+  object_id: n_d4d5_point_case_port_release_tradeoff
+  domain_id: winemaking
+  assertion_text: Holding a Vintage for bottle development can tie up hotel inventory, while a ready-to-list
+    LBV or Colheita changes the service plan; the cost direction needs quotes.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-29T00:00:00.000Z'
+- id: ki_d4d5_case_port_release_limitation
+  subject_id: n_d4d5_case_port_release
+  relation_type: CASE_LIMITATION
+  object_id: n_d4d5_point_case_port_release_limitation
+  domain_id: winemaking
+  assertion_text: A common vintage does not prove current bottle condition, sweetness balance, quality ranking
+    or achievable selling price.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-29T00:00:00.000Z'
+certification_knowledge_mappings:
+- certification_id: WSET_L4
+  knowledge_item_id: ki_d4d5_bourgogne_base
+  importance: core
+  minimum_depth: 3
+- certification_id: WSET_L4
+  knowledge_item_id: ki_d4d5_saumur_bottle
+  importance: core
+  minimum_depth: 3
+- certification_id: WSET_L4
+  knowledge_item_id: ki_d4d5_trento_riserva
+  importance: core
+  minimum_depth: 3
+- certification_id: WSET_L4
+  knowledge_item_id: ki_d4d5_sorbara_dry
+  importance: core
+  minimum_depth: 3
+- certification_id: WSET_L4
+  knowledge_item_id: ki_d4d5_grasparossa_body
+  importance: core
+  minimum_depth: 3
+- certification_id: WSET_L4
+  knowledge_item_id: ki_d4d5_palo_route
+  importance: core
+  minimum_depth: 3
+- certification_id: WSET_L4
+  knowledge_item_id: ki_d4d5_palo_dry
+  importance: core
+  minimum_depth: 3
+- certification_id: WSET_L4
+  knowledge_item_id: ki_d4d5_lbv_vintage
+  importance: core
+  minimum_depth: 3
+- certification_id: WSET_L4
+  knowledge_item_id: ki_d4d5_colheita_cask
+  importance: core
+  minimum_depth: 3
+- certification_id: WSET_L4
+  knowledge_item_id: ki_d4d5_white_port_age
+  importance: core
+  minimum_depth: 3
+- certification_id: WSET_L4
+  knowledge_item_id: ki_d4d5_case_italian_list_action
+  importance: core
+  minimum_depth: 3
+- certification_id: WSET_L4
+  knowledge_item_id: ki_d4d5_case_italian_list_reason
+  importance: core
+  minimum_depth: 3
+- certification_id: WSET_L4
+  knowledge_item_id: ki_d4d5_case_italian_list_tradeoff
+  importance: core
+  minimum_depth: 3
+- certification_id: WSET_L4
+  knowledge_item_id: ki_d4d5_case_italian_list_limitation
+  importance: core
+  minimum_depth: 3
+- certification_id: WSET_L4
+  knowledge_item_id: ki_d4d5_case_port_release_action
+  importance: core
+  minimum_depth: 3
+- certification_id: WSET_L4
+  knowledge_item_id: ki_d4d5_case_port_release_reason
+  importance: core
+  minimum_depth: 3
+- certification_id: WSET_L4
+  knowledge_item_id: ki_d4d5_case_port_release_tradeoff
+  importance: core
+  minimum_depth: 3
+- certification_id: WSET_L4
+  knowledge_item_id: ki_d4d5_case_port_release_limitation
+  importance: core
+  minimum_depth: 3
+source_citations:
+- id: src_d4d5_bourgogne
+  kind: reference_work
+  title: Crémant de Bourgogne production
+  publisher: Bureau Interprofessionnel des Vins de Bourgogne
+  jurisdiction: FR
+  url: https://www.vins-bourgogne.fr/vins-et-terroirs/nos-atouts-naturels/vinification-et-elevage/vinifier-le-cremant-de-bourgogne/elaboration-des-cremant-de-bourgogne-voyage-au-coeur-de-l-effervescence,2491,9192.html?args=Y29tcF9pZD0xNzUxJmFjdGlvbj12aWV3X2V0YXBlJmlkPTE2Jnw%3D
+  document_identifier: Primary regulatory or producer-body technical page
+  accessed_on: '2026-09-29'
+- id: src_d4d5_saumur_law
+  kind: legislation
+  title: Saumur appellation production specification
+  publisher: Légifrance
+  jurisdiction: FR
+  url: https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000021148190
+  document_identifier: Décret n° 2009-1227; Saumur AOC sparkling production
+  accessed_on: '2026-09-29'
+- id: src_d4d5_trento
+  kind: reference_work
+  title: Trentodoc categories and lees ageing
+  publisher: Istituto Trento Doc
+  jurisdiction: IT
+  url: https://www.trentodoc.com/en/trentodoc/
+  document_identifier: Primary regulatory or producer-body technical page
+  accessed_on: '2026-09-29'
+- id: src_d4d5_lambrusco
+  kind: reference_work
+  title: Lambrusco denominations and styles
+  publisher: Consorzio Tutela Lambrusco
+  jurisdiction: IT
+  url: https://lambrusco.net/en/denominations/
+  document_identifier: Primary regulatory or producer-body technical page
+  accessed_on: '2026-09-29'
+knowledge_item_citations:
+- knowledge_item_id: ki_d4d5_bourgogne_base
+  source_citation_id: src_d4d5_bourgogne
+  locator: 'Elaboration: early harvest, tirage and second fermentation in bottle'
+- knowledge_item_id: ki_d4d5_saumur_bottle
+  source_citation_id: src_d4d5_saumur_law
+  locator: 'Cahier des charges: vins mousseux, seconde fermentation en bouteilles'
+- knowledge_item_id: ki_d4d5_trento_riserva
+  source_citation_id: src_d4d5_trento
+  locator: 'Non-Vintage, Millesimato or Riserva: 15, 24 and 36 months on lees'
+- knowledge_item_id: ki_d4d5_sorbara_dry
+  source_citation_id: src_d4d5_lambrusco
+  locator: 'Lambrusco di Sorbara: colour, tasting notes and dry-to-sweet types'
+- knowledge_item_id: ki_d4d5_grasparossa_body
+  source_citation_id: src_d4d5_lambrusco
+  locator: Grasparossa di Castelvetro and Sorbara style descriptions
+- knowledge_item_id: ki_d4d5_palo_route
+  source_citation_id: src_wset_sf_palo_cortado
+  locator: 'Production and Ageing: initial 15%, classification, then above 17%'
+- knowledge_item_id: ki_d4d5_palo_dry
+  source_citation_id: src_wset_sf_palo_cortado
+  locator: Dry Sherry Wine; Sugar below 4 g/L
+- knowledge_item_id: ki_d4d5_lbv_vintage
+  source_citation_id: src_fort_port_categories
+  locator: 'Special Categories: Vintage Port and Late Bottled Vintage Port'
+- knowledge_item_id: ki_d4d5_colheita_cask
+  source_citation_id: src_fort_port_categories
+  locator: 'Special Categories: Colheita Port and Vintage Port'
+- knowledge_item_id: ki_d4d5_white_port_age
+  source_citation_id: src_fort_port_categories
+  locator: Special categories of White Port
+- knowledge_item_id: ki_d4d5_case_italian_list_action
+  source_citation_id: src_d4d5_trento
+  locator: Product category and production description; commercial decision conditional
+- knowledge_item_id: ki_d4d5_case_italian_list_action
+  source_citation_id: src_d4d5_lambrusco
+  locator: Product category and production description; commercial decision conditional
+- knowledge_item_id: ki_d4d5_case_italian_list_reason
+  source_citation_id: src_d4d5_trento
+  locator: Product category and production description; commercial decision conditional
+- knowledge_item_id: ki_d4d5_case_italian_list_reason
+  source_citation_id: src_d4d5_lambrusco
+  locator: Product category and production description; commercial decision conditional
+- knowledge_item_id: ki_d4d5_case_italian_list_tradeoff
+  source_citation_id: src_d4d5_trento
+  locator: Product category and production description; commercial decision conditional
+- knowledge_item_id: ki_d4d5_case_italian_list_tradeoff
+  source_citation_id: src_d4d5_lambrusco
+  locator: Product category and production description; commercial decision conditional
+- knowledge_item_id: ki_d4d5_case_italian_list_limitation
+  source_citation_id: src_d4d5_trento
+  locator: Product category and production description; commercial decision conditional
+- knowledge_item_id: ki_d4d5_case_italian_list_limitation
+  source_citation_id: src_d4d5_lambrusco
+  locator: Product category and production description; commercial decision conditional
+- knowledge_item_id: ki_d4d5_case_port_release_action
+  source_citation_id: src_fort_port_categories
+  locator: Product category and production description; commercial decision conditional
+- knowledge_item_id: ki_d4d5_case_port_release_reason
+  source_citation_id: src_fort_port_categories
+  locator: Product category and production description; commercial decision conditional
+- knowledge_item_id: ki_d4d5_case_port_release_tradeoff
+  source_citation_id: src_fort_port_categories
+  locator: Product category and production description; commercial decision conditional
+- knowledge_item_id: ki_d4d5_case_port_release_limitation
+  source_citation_id: src_fort_port_categories
+  locator: Product category and production description; commercial decision conditional

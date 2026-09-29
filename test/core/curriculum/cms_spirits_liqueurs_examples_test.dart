@@ -23,7 +23,7 @@ void main() {
     'named spirit and liqueur examples are cited in the right CMS level',
     () {
       expect(validateDataset(dataset).errors, isEmpty);
-      expect(additions, hasLength(21));
+      expect(additions, hasLength(26));
       final sources = {for (final row in dataset.sourceCitations) row.id: row};
       for (final item in additions) {
         expect(item.domainId, 'service', reason: item.id);
@@ -83,7 +83,18 @@ void main() {
         containsAll({
           'n_cms_example_liqueur_families',
           'n_cms_example_liqueur_case',
+          'n_cms_example_other_liqueur',
+          'n_cms_example_egg_case',
         }),
+      );
+      final byItem = {for (final item in additions) item.id: item};
+      expect(
+        byItem['ki_cms_example_zwarte_kip']!.assertionText,
+        contains('not an EU legal category'),
+      );
+      expect(
+        byItem['ki_cms_example_egg_limit']!.assertionText,
+        contains('not an ingredient or allergy certification'),
       );
     },
   );
@@ -99,8 +110,8 @@ void main() {
         (row) => row.id == 'qt_cms_example_scenario_choice',
       ),
     );
-    expect(recognition, hasLength(9));
-    expect(scenarios, hasLength(3));
+    expect(recognition, hasLength(10));
+    expect(scenarios, hasLength(4));
     final itemIds = additions.map((item) => item.id).toSet();
     final citations = dataset.knowledgeItemCitations;
     for (final entry in {...recognition, ...scenarios}.entries) {
@@ -127,15 +138,21 @@ void main() {
     );
     expect(scenarios['ki_cms_example_agave_action']!.correctIndex, 2);
     expect(scenarios['ki_cms_example_marc_action']!.correctIndex, 3);
+    expect(
+      recognition['ki_cms_example_zwarte_kip']!.options[2],
+      contains('eggs and brandy'),
+    );
+    expect(scenarios['ki_cms_example_egg_action']!.correctIndex, 3);
   });
 
   test(
-    'the three service cases have four criteria and reach ordinary Study',
+    'the four service cases have four criteria and reach ordinary Study',
     () async {
       const cases = {
         'agave': 'n_cms_example_agave_case',
         'marc': 'n_cms_example_marc_case',
         'liqueur': 'n_cms_example_liqueur_case',
+        'egg': 'n_cms_example_egg_case',
       };
       const roles = {
         'CASE_ACTION',
@@ -193,6 +210,18 @@ void main() {
           seed: 7,
         ) as AuthoredChoiceQuestion;
         expect(scenario.prompt, contains('Mezcal'));
+        final eggChoice = await presenter.present(
+          'ki_cms_example_zwarte_kip',
+          'qt_cms_example_recognition',
+          seed: 7,
+        ) as AuthoredChoiceQuestion;
+        expect(eggChoice.prompt, contains('non-classified'));
+        final eggScenario = await presenter.present(
+          'ki_cms_example_egg_action',
+          'qt_cms_example_scenario_choice',
+          seed: 7,
+        ) as AuthoredChoiceQuestion;
+        expect(eggScenario.prompt, contains('Zwarte Kip'));
       } finally {
         await db.close();
       }

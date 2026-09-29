@@ -14,8 +14,8 @@ question_templates:
           prompt: A Südsteiermark Sauvignon Blanc grower plans fruit-health monitoring. Which regional evidence belongs in the plan?
           options:
             - Relatively wet southern and western Styria can bring fog, storms or hail alongside ripening concerns
-            - The Sauvignon Blanc name makes seasonal rain irrelevant to fruit condition
-            - A Styrian origin guarantees dry harvest conditions for each hillside
+            - Sauvignon Blanc's aromatic profile establishes that seasonal rain and harvest storms cannot alter fruit health in Südsteiermark
+            - A Styrian origin establishes dry harvest conditions at this hillside without rainfall or storm observations
             - Only eventual wine aroma can establish whether hail reached the vineyard
           correctIndex: 0
           explanation: The regional climate account identifies wetter southern and western Styria and possible fog, storms and hail. Plot and vintage records remain necessary.
@@ -23,8 +23,8 @@ question_templates:
         ki_reg_ah_styria_microclimates:
           prompt: Two Südsteiermark Sauvignon Blanc plots lie in Kitzeck-Sausal and Gamlitz. What is the sound ripening comparison?
           options:
-            - Give both plots one harvest date because their DAC is shared
-            - Compare exposure and measured maturity; Kitzeck-Sausal and Gamlitz contain different local settings
+            - Assign both plots the same harvest date because the DAC name establishes equivalent exposure and maturity in Kitzeck-Sausal and Gamlitz
+            - Compare each plot's exposure and measured maturity
             - Use altitude alone to declare the Gamlitz plot later ripening
             - Treat a sheltered Gamlitz basin and an exposed hill as one mesoclimate
           correctIndex: 1
@@ -34,7 +34,7 @@ question_templates:
           prompt: A Saale-Unstrut grower screens sites for spring frost risk. Which site feature is relevant?
           options:
             - Latitude alone makes ripening impossible in the region
-            - Every valley floor is warmer than its adjacent slopes on a frost night
+            - Valley floors face less frost risk than slopes
             - Sheltered, south-facing valley slopes may create more favourable local conditions
             - Terracing removes the need for frost records
           correctIndex: 2
@@ -45,7 +45,7 @@ question_templates:
           options:
             - Predict the finished wine's quality from latitude alone
             - Assume terraces make daily temperatures uniform
-            - Ignore site exposure because Sachsen has warm summer days
+            - Warm summer days settle terrace ripeness
             - Examine its exposure, weather and fruit in a continental setting with warm days and cool nights
           correctIndex: 3
           explanation: Sachsen's continental day-night contrast and terraced Elbe slopes provide context, not a fixed maturity or quality result.
@@ -54,7 +54,7 @@ question_templates:
           prompt: A Jura Chardonnay is labelled without a maturation detail. What can be inferred before seeing the producer record?
           options:
             - Chardonnay can support varied fruit-led whites, but the grape does not disclose topping-up or sous-voile treatment
-            - Chardonnay identifies sous-voile maturation and excludes topped-up wine
+            - Chardonnay establishes sous-voile maturation
             - Adaptability proves every Chardonnay parcel gives the same ripeness
             - The grape name proves the wine is a Vin Jaune
           correctIndex: 0
@@ -63,8 +63,8 @@ question_templates:
         ki_reg_fe_jura_exposure:
           prompt: Two Jura parcels share a regional climate label but differ in slope and aspect. What should the site comparison emphasise?
           options:
-            - One regional climate value is sufficient to predict both grape outcomes
-            - Relief, exposure and altitude can create distinct microclimates, so compare each site with the grape's needs
+            - The shared regional climate gives both parcels the same ripening conditions
+            - Compare relief, exposure and altitude by parcel
             - A limestone label determines the finished wine's mineral flavour
             - South-facing aspect removes all vintage weather differences
           correctIndex: 1
@@ -73,7 +73,7 @@ question_templates:
         ki_reg_fe_jura_savagnin:
           prompt: A buyer finds a Jura Savagnin white but no cellar record. Which description stays within the evidence?
           options:
-            - Savagnin is fast ripening and is used only for Vin Jaune
+            - Savagnin confirms sous-voile maturation
             - The grape name confirms a topped-up wine
             - Savagnin ripens slowly and can be made topped-up or sous voile; check this bottling's production
             - Sous-voile maturation is required for every Jura white
@@ -83,8 +83,8 @@ question_templates:
         ki_reg_fe_jura_season:
           prompt: A grower compares a wet Jura spring with a warm summer. Which planning inference is justified?
           options:
-            - Spring rain ensures a dry harvest for every parcel
-            - A semi-continental label removes the need for current weather records
+            - Spring rain predicts a dry harvest in the same parcels without checking the rest of the season
+            - Seasonal climate labels replace plot records
             - Warm summer conditions mean every site ripens on the same date
             - Seasonal contrasts inform monitoring, while this vintage's plot weather and fruit still decide actions
           correctIndex: 3
@@ -93,8 +93,8 @@ question_templates:
         ki_reg_gr_amyndeon_lakes:
           prompt: An Amyndeon Xinomavro plot is compared with a lower Naoussa slope. Which variables merit joint review?
           options:
-            - Elevated inland conditions and nearby lakes, with actual site temperature and fruit records
-            - Northern Greek origin alone, because both sites share one growing temperature
+            - Review elevation, lake influence and site records
+            - Their shared northern Greek origin establishes equivalent growing temperatures and fruit maturity regardless of plateau height or lake proximity
             - Elevation alone, because lakes cannot affect the local setting
             - The finished wine's tannin alone, because it measures vineyard temperature
           correctIndex: 0
@@ -103,7 +103,7 @@ question_templates:
         ki_reg_gr_crete_northern_influence:
           prompt: A tasting group calls every Cretan vineyard uniformly hot. What is the best correction?
           options:
-            - The island's northern vineyards are all at sea level
+            - Northern Cretan vineyards occupy the same low coastal altitude, so sea breezes and mountain mesoclimates cannot produce site variation
             - Northern maritime breezes, shelter from southern winds and mountain mesoclimates can vary site conditions
             - Altitude and aspect have no role on Mediterranean islands
             - Sea proximity fixes acidity in every Cretan wine
@@ -113,7 +113,7 @@ question_templates:
         ki_reg_gr_north_soil_textures:
           prompt: A study compares sandy-loamy Amyndeon and heavier-textured Naoussa Xinomavro parcels. What can the soil evidence support?
           options:
-            - A controlled proof that soil texture alone fixes wine flavour
+            - Soil texture alone fixes Xinomavro flavour
             - One invariant regional style across all parcels
             - A hypothesis about rooting and water supply to test alongside climate, elevation and cellar records
             - A quality ranking without tasting or vineyard data
@@ -123,8 +123,8 @@ question_templates:
         ki_reg_gr_robola_slope_context:
           prompt: A Cefalonian Robola buyer sees vineyards around Omala and Mount Aenos. Which geographic note is useful?
           options:
-            - Limestone proves one mineral flavour across all bottles
-            - Island location makes elevation and slope unimportant
+            - Limestone on Aenos slopes transmits a single mineral flavour to finished wine independent of producer handling
+            - Cefalonia's island location renders elevation, slope and marine exposure too similar to distinguish parcels around Mount Aenos
             - Every Robola vineyard has identical maritime exposure
             - Aenos slopes vary in elevation, marine influence and mesoclimate, so compare actual parcels
           correctIndex: 3
@@ -133,8 +133,8 @@ question_templates:
         ki_reg_inc_alto_adige_air:
           prompt: Why is Alpine location alone an incomplete Alto Adige climate description?
           options:
-            - Alpine shelter can block northern cold, wet air while warmer southern air reaches the region
-            - The Alps exclude all maritime or southern influence
+            - Alpine shelter and warmer southern air both matter
+            - Alpine shelter excludes warmer southern air from the valleys, so regional conditions follow from mountain location alone
             - Southern air proves every valley has the same temperature
             - Mountain altitude fixes each vineyard's harvest date
           correctIndex: 0
@@ -143,8 +143,8 @@ question_templates:
         ki_reg_inc_bolgheri_breeze:
           prompt: A Bolgheri parcel is compared with an inland Tuscan parcel. What coastal factor deserves attention?
           options:
-            - Sea proximity guarantees higher quality for Bolgheri
-            - Tyrrhenian breezes can cool and ventilate vines, but actual site and vintage conditions still matter
+            - Bolgheri's seaside location establishes higher finished-wine quality than inland Tuscany without controlling vineyard or vintage
+            - Tyrrhenian breezes cool and ventilate Bolgheri vines
             - Breezes establish an exact acidity level without fruit testing
             - Inland Tuscany receives the same coastal ventilation at every site
           correctIndex: 1
@@ -154,8 +154,8 @@ question_templates:
           prompt: A merchant labels every Bolgheri vineyard with one soil type. Which correction follows the regional zonation?
           options:
             - Marine origin is absent from the region
-            - Soil origin directly specifies each cuvée's aroma
-            - Marine and alluvial origins vary over short distances, so one label obscures parcel differences
+            - Marine or alluvial soil origin directly specifies each cuvée's aroma without checking grapes, cellar work or vintage
+            - Marine and alluvial origins vary by parcel
             - Diverse soils prove all producers use the same grape blend
           correctIndex: 2
           explanation: The Bolgheri consortium describes marine and alluvial origins and small-scale variation; grape choice and style require producer evidence.
@@ -163,10 +163,10 @@ question_templates:
         ki_reg_inc_dolcetto_dry:
           prompt: A guest asks whether Dolcetto must be a sweet red. Which reply is grounded?
           options:
-            - The name indicates residual sugar in every bottling
-            - Dolcetto's modest acidity prevents structured versions
+            - The grape name indicates residual sugar in this bottling without consulting its label or analysis
+            - Dolcetto's modest acidity prevents structured dry expressions, so its name specifies a youthful sweet style for each producer
             - Only oak-aged Dolcetto is legally dry
-            - Dolcetto is commonly dry and can range from youthful to more structured with site and vinification
+            - Dolcetto is commonly dry; structure varies with site
           correctIndex: 3
           explanation: The Piedmont consortium describes dry Dolcetto, modest acidity and variation with growing site and winemaking.
           sourceCitationId: src_reg_inc_dolcetto
@@ -174,8 +174,8 @@ question_templates:
           prompt: What can a Friuli Colli Orientali vineyard map of marl, sandstone and terraces support?
           options:
             - A terrain and vineyard-work comparison, without assigning a mineral flavour directly from the rock
-            - A unique aroma for each mapped sandstone parcel
-            - Proof that terraces remove all slope-management work
+            - Sandstone and marl names identify a unique mineral aroma for each mapped parcel regardless of vine water supply or production
+            - Terraces remove the practical need for slope-management work in these marl and sandstone vineyards
             - The same depth and water supply for every hillside
           correctIndex: 0
           explanation: The consortium describes alternating marl and sandstone and grower-shaped terraces. Geology alone does not establish sensory transfer.
@@ -183,9 +183,9 @@ question_templates:
         ki_reg_inc_friuli_position:
           prompt: What regional position should a Colli Orientali grower consider before comparing two sites?
           options:
-            - The Adriatic is too remote to matter to regional ventilation
-            - The Julian Alps provide northern shelter and the Adriatic contributes ventilation, with local exposure still variable
-            - The Alps guarantee identical cold-air movement in all plots
+            - The Adriatic is too remote to affect ventilation at a Colli Orientali site, leaving the Julian Alps as its sole airflow context
+            - Julian Alpine shelter and Adriatic ventilation
+            - The Julian Alps produce identical cold-air movement in the two plots despite distinct local exposures
             - Both sites must share one mesoclimate because they are within the DOC
           correctIndex: 1
           explanation: The regional body describes Alpine shelter and Adriatic-facing ventilation as broad context, not a uniform plot condition.
@@ -193,7 +193,7 @@ question_templates:
         ki_reg_inc_matelica_inland:
           prompt: How should a Verdicchio comparison distinguish Matelica from Castelli di Jesi?
           options:
-            - Matelica is the coastal site and Jesi the mountain counterpart
+            - Matelica is the sea-influenced counterpart while Castelli di Jesi is an inland mountain site, fixing each bottle's profile
             - The two origins imply identical weather in each vintage
             - Matelica has a more inland mountain setting; Jesi is more sea-influenced, with wine-specific evidence still needed
             - Matelica origin alone proves a higher quality wine
@@ -204,7 +204,7 @@ question_templates:
           prompt: A learner describes Orvieto as a single-variety wine. Which regional blend note is supported?
           options:
             - Grechetto is excluded from Orvieto whites
-            - Procanico is the sole grape in every producer's wine
+            - Procanico is the sole grape in each Orvieto white, so Grechetto is an optional flavour rather than a blend component
             - Every Orvieto uses one fixed blend percentage
             - Procanico and Grechetto are central white grapes, with other varieties possible in actual blends
           correctIndex: 3
@@ -215,7 +215,7 @@ question_templates:
           options:
             - The actual cuvée's sweetness, because Orvieto also includes sweeter styles and special expressions
             - Nothing, because the origin name certifies a dry finish
-            - Only its grape proportions, which determine residual sugar
+            - Its Procanico and Grechetto proportions, which alone fix residual sugar regardless of fermentation or special expression
             - The bottle colour, which identifies a noble-rot wine
           correctIndex: 0
           explanation: Orvieto includes secco through dolce styles plus late-harvest and noble-rot expressions; the particular bottle's style must be checked.
@@ -223,9 +223,9 @@ question_templates:
         ki_reg_inc_rosso_youth:
           prompt: A buyer contrasts Brunello and Rosso di Montalcino from Sangiovese. Which broad Rosso expectation is sound?
           options:
-            - Rosso is necessarily a lower-quality wine
+            - Rosso's earlier-drinking position establishes lower quality than Brunello regardless of producer or vintage
             - Rosso commonly emphasises fruit and earlier drinking, while particular wines may be more structured
-            - Rosso must be consumed immediately after release
+            - Rosso's earlier-drinking description requires consumption immediately after release, even for structured examples
             - The shared grape makes all maturation choices identical
           correctIndex: 1
           explanation: The Montalcino body presents Rosso as generally fresher and suited to younger drinking, with producer and vintage variation.
@@ -233,7 +233,7 @@ question_templates:
         ki_reg_oa_adelaide_m3_sources:
           prompt: A student attributes a 2025 M3 Chardonnay's profile to one Adelaide Hills vineyard. What does the sourcing record show?
           options:
-            - Fruit came solely from one Lenswood parcel
+            - The 2025 M3 record identifies fruit from a single Lenswood parcel and excludes Piccadilly, Lobethal and selected growers
             - The source list proves a specific mineral flavour
             - Lenswood, Piccadilly, Lobethal and selected growers contribute, so one parcel cannot explain the whole blend
             - Adelaide Hills fruit cannot be combined across sites
@@ -243,9 +243,9 @@ question_templates:
         ki_reg_sa_itata_grapes:
           prompt: A Chilean syllabus card reduces Itata to Cabernet-family reds. Which alternative set is supported?
           options:
-            - Only Sauvignon Blanc and Merlot
+            - Sauvignon Blanc and Merlot as Itata's documented traditional old-vine set
             - Only Chardonnay and Pinot Noir
-            - Cabernet Sauvignon with no documented old-vine alternatives
+            - Cabernet Sauvignon defines Itata's grapes, with traditional País, Moscatel and Cinsault absent from documented regional plantings
             - Traditional País and Moscatel de Alejandría, with Cinsault also documented
           correctIndex: 3
           explanation: The Chilean regional account documents these selected Itata grape associations; it is not an exhaustive legal grape list.

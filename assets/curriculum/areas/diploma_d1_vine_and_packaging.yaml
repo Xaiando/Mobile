@@ -1,0 +1,163 @@
+# Original Diploma D1 decisions. OIV definitions are technical references, not a
+# claim of legal permission in every market. All assertions await subject review.
+knowledge_nodes:
+  - {id: n_d1vp_topwork, node_type: production_principle, name: "When can an established vine be topworked?"}
+  - {id: n_d1vp_topwork_point, node_type: learning_point, name: "Change the fruiting variety while retaining a viable trunk and root system"}
+  - {id: n_d1vp_layer, node_type: production_principle, name: "How does vineyard layering replace a missing vine?"}
+  - {id: n_d1vp_layer_point, node_type: learning_point, name: "Root a neighbouring cane while it remains attached to the parent vine"}
+  - {id: n_d1vp_massal, node_type: production_principle, name: "What material does massal selection propagate?"}
+  - {id: n_d1vp_massal_point, node_type: learning_point, name: "Shoots from several selected source vines rather than one clone"}
+  - {id: n_d1vp_massal_health, node_type: production_principle, name: "What must a massal selection programme verify?"}
+  - {id: n_d1vp_massal_health_point, node_type: learning_point, name: "Selection does not by itself exclude transmissible viruses"}
+  - {id: n_d1vp_fire, node_type: production_principle, name: "What is the first vineyard response after direct fire damage?"}
+  - {id: n_d1vp_fire_point, node_type: learning_point, name: "Restore water access and audit vine and infrastructure injury"}
+  - {id: n_d1vp_smoke, node_type: production_principle, name: "How is smoke-exposed fruit assessed before harvest?"}
+  - {id: n_d1vp_smoke_point, node_type: learning_point, name: "Test both volatile phenols and bound glycosides, then assess wine risk"}
+  - {id: n_d1vp_cryo, node_type: production_principle, name: "How does cryoextraction concentrate must?"}
+  - {id: n_d1vp_cryo_point, node_type: learning_point, name: "Freeze harvested grapes artificially and press out concentrated must"}
+  - {id: n_d1vp_ice, node_type: production_principle, name: "How does the OIV distinguish ice wine from cryoextraction?"}
+  - {id: n_d1vp_ice_point, node_type: learning_point, name: "Ice-wine grapes freeze naturally on the vine and are pressed frozen"}
+  - {id: n_d1vp_pouch, node_type: production_principle, name: "What must be established before a wine pouch launch?"}
+  - {id: n_d1vp_pouch_point, node_type: learning_point, name: "Validate oxygen, flavour and shelf-life performance for the actual pack"}
+  - {id: n_d1vp_can, node_type: production_principle, name: "Why is a wine-can liner a critical decision?"}
+  - {id: n_d1vp_can_point, node_type: learning_point, name: "Protect wine from aluminium contact and test the double seam"}
+  - {id: n_d1vp_glass, node_type: production_principle, name: "What is tested when choosing a glass stopper?"}
+  - {id: n_d1vp_glass_point, node_type: learning_point, name: "The bottle, stopper and sealing ring work as one closure system"}
+  - {id: n_d1vp_case_vines, node_type: production_case, name: "A producer must renew gaps and change part of a healthy block's cultivar"}
+  - {id: n_d1vp_case_vines_action, node_type: learning_point, name: "Separate sound vines for topworking from gaps needing replacement"}
+  - {id: n_d1vp_case_vines_reason, node_type: learning_point, name: "Grafting changes the top; layering roots an attached cane in a gap"}
+  - {id: n_d1vp_case_vines_tradeoff, node_type: learning_point, name: "Retaining established vines may save establishment time but needs skilled labour"}
+  - {id: n_d1vp_case_vines_limit, node_type: learning_point, name: "Check virus status and own-rooted phylloxera risk"}
+  - {id: n_d1vp_case_smoke, node_type: production_case, name: "A vineyard has fire-damaged rows and smoke-exposed but unburnt rows"}
+  - {id: n_d1vp_case_smoke_action, node_type: learning_point, name: "Restore irrigation and audit damage; sample unburnt fruit for smoke markers"}
+  - {id: n_d1vp_case_smoke_reason, node_type: learning_point, name: "Structural injury and fruit smoke exposure require different evidence"}
+  - {id: n_d1vp_case_smoke_tradeoff, node_type: learning_point, name: "Sampling and segregated trials cost time but protect harvest decisions"}
+  - {id: n_d1vp_case_smoke_limit, node_type: learning_point, name: "No single marker or clean early taste proves a safe final wine"}
+  - {id: n_d1vp_case_pack, node_type: production_case, name: "A winery compares pouch, can and glass-stopper formats for a fresh white"}
+  - {id: n_d1vp_case_pack_action, node_type: learning_point, name: "Run format-specific fill, compatibility and shelf-life trials"}
+  - {id: n_d1vp_case_pack_reason, node_type: learning_point, name: "Pouch barriers, can lining and glass-stopper seals fail in different ways"}
+  - {id: n_d1vp_case_pack_tradeoff, node_type: learning_point, name: "Weight and convenience must be weighed against target shelf life"}
+  - {id: n_d1vp_case_pack_limit, node_type: learning_point, name: "No format has a universal oxygen or ageing outcome"}
+
+knowledge_relations:
+  - {subject_id: n_d1vp_topwork, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d1vp_topwork_point, valid_from: 2026-09-29}
+  - {subject_id: n_d1vp_layer, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d1vp_layer_point, valid_from: 2026-09-29}
+  - {subject_id: n_d1vp_massal, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d1vp_massal_point, valid_from: 2026-09-29}
+  - {subject_id: n_d1vp_massal_health, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d1vp_massal_health_point, valid_from: 2026-09-29}
+  - {subject_id: n_d1vp_fire, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d1vp_fire_point, valid_from: 2026-09-29}
+  - {subject_id: n_d1vp_smoke, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d1vp_smoke_point, valid_from: 2026-09-29}
+  - {subject_id: n_d1vp_cryo, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d1vp_cryo_point, valid_from: 2026-09-29}
+  - {subject_id: n_d1vp_ice, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d1vp_ice_point, valid_from: 2026-09-29}
+  - {subject_id: n_d1vp_pouch, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d1vp_pouch_point, valid_from: 2026-09-29}
+  - {subject_id: n_d1vp_can, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d1vp_can_point, valid_from: 2026-09-29}
+  - {subject_id: n_d1vp_glass, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d1vp_glass_point, valid_from: 2026-09-29}
+  - {subject_id: n_d1vp_case_vines, relation_type: CASE_ACTION, object_id: n_d1vp_case_vines_action, valid_from: 2026-09-29}
+  - {subject_id: n_d1vp_case_vines, relation_type: CASE_REASON, object_id: n_d1vp_case_vines_reason, valid_from: 2026-09-29}
+  - {subject_id: n_d1vp_case_vines, relation_type: CASE_TRADEOFF, object_id: n_d1vp_case_vines_tradeoff, valid_from: 2026-09-29}
+  - {subject_id: n_d1vp_case_vines, relation_type: CASE_LIMITATION, object_id: n_d1vp_case_vines_limit, valid_from: 2026-09-29}
+  - {subject_id: n_d1vp_case_smoke, relation_type: CASE_ACTION, object_id: n_d1vp_case_smoke_action, valid_from: 2026-09-29}
+  - {subject_id: n_d1vp_case_smoke, relation_type: CASE_REASON, object_id: n_d1vp_case_smoke_reason, valid_from: 2026-09-29}
+  - {subject_id: n_d1vp_case_smoke, relation_type: CASE_TRADEOFF, object_id: n_d1vp_case_smoke_tradeoff, valid_from: 2026-09-29}
+  - {subject_id: n_d1vp_case_smoke, relation_type: CASE_LIMITATION, object_id: n_d1vp_case_smoke_limit, valid_from: 2026-09-29}
+  - {subject_id: n_d1vp_case_pack, relation_type: CASE_ACTION, object_id: n_d1vp_case_pack_action, valid_from: 2026-09-29}
+  - {subject_id: n_d1vp_case_pack, relation_type: CASE_REASON, object_id: n_d1vp_case_pack_reason, valid_from: 2026-09-29}
+  - {subject_id: n_d1vp_case_pack, relation_type: CASE_TRADEOFF, object_id: n_d1vp_case_pack_tradeoff, valid_from: 2026-09-29}
+  - {subject_id: n_d1vp_case_pack, relation_type: CASE_LIMITATION, object_id: n_d1vp_case_pack_limit, valid_from: 2026-09-29}
+
+knowledge_items:
+  - {id: ki_d1vp_topwork, subject_id: n_d1vp_topwork, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d1vp_topwork_point, domain_id: viticulture, assertion_text: "Topworking grafts a new fruiting cultivar onto an established vine, retaining a viable trunk and root system. It can change the block's variety without planting every vine again, but the existing vine must be sound enough to justify conversion.", verification_status: unverified, mcq_disabled: true, last_verified_at: "2026-09-29T20:00:00.000Z"}
+  - {id: ki_d1vp_layer, subject_id: n_d1vp_layer, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d1vp_layer_point, domain_id: viticulture, assertion_text: "Layering bends a long cane from a neighbouring vine into a vacant planting position and buries part of it. The cane remains nourished by the parent while it develops roots, then can be detached. A layered Vitis vinifera scion forms its own roots, so local phylloxera risk matters even if the parent was grafted on resistant rootstock.", verification_status: unverified, mcq_disabled: true, last_verified_at: "2026-09-29T20:00:00.000Z"}
+  - {id: ki_d1vp_massal, subject_id: n_d1vp_massal, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d1vp_massal_point, domain_id: viticulture, assertion_text: "Massal selection identifies several desirable vines in a population, takes shoots from them and propagates that material. Its aim can be to conserve valued variation in an old block; it is not necessarily more diverse than a well-chosen mixture of tested clones.", verification_status: unverified, mcq_disabled: true, last_verified_at: "2026-09-29T20:00:00.000Z"}
+  - {id: ki_d1vp_massal_health, subject_id: n_d1vp_massal_health, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d1vp_massal_health_point, domain_id: viticulture, assertion_text: "Visual selection of mother vines cannot establish that propagation wood is free of important viruses. A massal programme should pair observed performance with suitable sanitary testing; certified clonal material offers a different documented health pathway.", verification_status: unverified, mcq_disabled: true, last_verified_at: "2026-09-29T20:00:00.000Z"}
+  - {id: ki_d1vp_fire, subject_id: n_d1vp_fire, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d1vp_fire_point, domain_id: viticulture, assertion_text: "Where flames have directly damaged a vineyard, restore water delivery promptly and audit vine trunks, canopies and infrastructure before deciding whether vines can recover. This physical injury assessment is separate from testing smoke-exposed fruit.", verification_status: unverified, mcq_disabled: true, last_verified_at: "2026-09-29T20:00:00.000Z"}
+  - {id: ki_d1vp_smoke, subject_id: n_d1vp_smoke, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d1vp_smoke_point, domain_id: viticulture, assertion_text: "After smoke exposure, representative grape samples can be analysed for free volatile phenols and non-volatile glycoside markers before harvest. Interpret them against relevant background data and use a small-lot ferment and sensory assessment where possible; exposure alone does not establish the final wine's sensory outcome.", verification_status: unverified, mcq_disabled: true, last_verified_at: "2026-09-29T20:00:00.000Z"}
+  - {id: ki_d1vp_cryo, subject_id: n_d1vp_cryo, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d1vp_cryo_point, domain_id: winemaking, assertion_text: "In OIV usage, cryoextraction freezes harvested grapes artificially, such as in a cold room or with liquid nitrogen, then presses them to collect a more concentrated must. It is a concentration technique, with costs and sensory results to assess for the actual fruit.", verification_status: unverified, mcq_disabled: true, last_verified_at: "2026-09-29T20:00:00.000Z"}
+  - {id: ki_d1vp_ice, subject_id: n_d1vp_ice, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d1vp_ice_point, domain_id: winemaking, assertion_text: "The OIV's ice-wine definition requires grapes that froze naturally on the vine, were harvested frozen and were pressed in that state, without artificial freezing. Artificially freezing harvested grapes for cryoextraction must not be presented as meeting that definition; market rules still need checking.", verification_status: unverified, mcq_disabled: true, last_verified_at: "2026-09-29T20:00:00.000Z"}
+  - {id: ki_d1vp_pouch, subject_id: n_d1vp_pouch, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d1vp_pouch_point, domain_id: winemaking, assertion_text: "AWRI reports limited performance information for plastic wine pouches. A producer should test the proposed film, seal and filled wine for oxygen ingress, aroma loss or taint, transport integrity and the required shelf life rather than assign a universal pouch ageing period.", verification_status: unverified, mcq_disabled: true, last_verified_at: "2026-09-29T20:00:00.000Z"}
+  - {id: ki_d1vp_can, subject_id: n_d1vp_can, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d1vp_can_point, domain_id: winemaking, assertion_text: "A sealed aluminium can can greatly limit oxygen ingress, but the internal liner must prevent wine-metal contact. Liner or double-seam defects can promote corrosion and hydrogen sulfide; wine composition and filled-can shelf life need compatibility trials with the supplier.", verification_status: unverified, mcq_disabled: true, last_verified_at: "2026-09-29T20:00:00.000Z"}
+  - {id: ki_d1vp_glass, subject_id: n_d1vp_glass, relation_type: PRINCIPLE_EXPLANATION, object_id: n_d1vp_glass_point, domain_id: winemaking, assertion_text: "A glass stopper is not a bare-glass seal: a compatible bottle neck and resilient sealing ring create the closure interface, with a capsule used for transport security in the cited system. Test the assembled package's fit, retention and oxygen performance for the intended wine and storage period.", verification_status: unverified, mcq_disabled: true, last_verified_at: "2026-09-29T20:00:00.000Z"}
+  - {id: ki_d1vp_case_vines_action, subject_id: n_d1vp_case_vines, relation_type: CASE_ACTION, object_id: n_d1vp_case_vines_action, domain_id: viticulture, assertion_text: "Map healthy established vines, missing positions and disease symptoms first. Trial topworking only viable vines for the new cultivar; compare layering into gaps with nursery replacement, using selected and health-screened plant material.", verification_status: unverified, mcq_disabled: true, last_verified_at: "2026-09-29T20:00:00.000Z"}
+  - {id: ki_d1vp_case_vines_reason, subject_id: n_d1vp_case_vines, relation_type: CASE_REASON, object_id: n_d1vp_case_vines_reason, domain_id: viticulture, assertion_text: "A graft changes the scion on an established root system; a layer roots a still-attached cane into a gap. Massal selection describes the source of propagation wood and does not itself replace either field operation.", verification_status: unverified, mcq_disabled: true, last_verified_at: "2026-09-29T20:00:00.000Z"}
+  - {id: ki_d1vp_case_vines_tradeoff, subject_id: n_d1vp_case_vines, relation_type: CASE_TRADEOFF, object_id: n_d1vp_case_vines_tradeoff, domain_id: viticulture, assertion_text: "Retaining sound roots may reduce re-establishment time, but graft success, skilled labour and later uniformity must be weighed against replanting. Layering also ties the replacement to a neighbouring vine during establishment.", verification_status: unverified, mcq_disabled: true, last_verified_at: "2026-09-29T20:00:00.000Z"}
+  - {id: ki_d1vp_case_vines_limit, subject_id: n_d1vp_case_vines, relation_type: CASE_LIMITATION, object_id: n_d1vp_case_vines_limit, domain_id: viticulture, assertion_text: "Do not topwork an unsound trunk or infer virus freedom from appearance or massal origin. If a Vitis vinifera scion is layered, assess the risk of own-rooted vines in a phylloxera-prone site. Verify mother-vine health, graft take and replacement survival.", verification_status: unverified, mcq_disabled: true, last_verified_at: "2026-09-29T20:00:00.000Z"}
+  - {id: ki_d1vp_case_smoke_action, subject_id: n_d1vp_case_smoke, relation_type: CASE_ACTION, object_id: n_d1vp_case_smoke_action, domain_id: viticulture, assertion_text: "Re-establish irrigation and audit the directly burnt rows for structural injury. Segregate the unburnt smoke-exposed rows, take representative pre-harvest samples for both marker classes and make a small-lot ferment for sensory assessment where possible.", verification_status: unverified, mcq_disabled: true, last_verified_at: "2026-09-29T20:00:00.000Z"}
+  - {id: ki_d1vp_case_smoke_reason, subject_id: n_d1vp_case_smoke, relation_type: CASE_REASON, object_id: n_d1vp_case_smoke_reason, domain_id: viticulture, assertion_text: "Fire can damage vine tissue and water infrastructure; smoke can leave volatile phenols and glycoside precursors in fruit even without direct burning. The two decisions need different observations and tests.", verification_status: unverified, mcq_disabled: true, last_verified_at: "2026-09-29T20:00:00.000Z"}
+  - {id: ki_d1vp_case_smoke_tradeoff, subject_id: n_d1vp_case_smoke, relation_type: CASE_TRADEOFF, object_id: n_d1vp_case_smoke_tradeoff, domain_id: viticulture, assertion_text: "Segregation, lab tests and microferments consume labour and lead time but give better grounds for selective harvest or diversion than either harvesting everything or rejecting every exposed row.", verification_status: unverified, mcq_disabled: true, last_verified_at: "2026-09-29T20:00:00.000Z"}
+  - {id: ki_d1vp_case_smoke_limit, subject_id: n_d1vp_case_smoke, relation_type: CASE_LIMITATION, object_id: n_d1vp_case_smoke_limit, domain_id: viticulture, assertion_text: "Compare markers with appropriate background and recognise that glycoside methods differ between laboratories; an early clean aroma alone cannot rule out later sensory impact in the finished wine.", verification_status: unverified, mcq_disabled: true, last_verified_at: "2026-09-29T20:00:00.000Z"}
+  - {id: ki_d1vp_case_pack_action, subject_id: n_d1vp_case_pack, relation_type: CASE_ACTION, object_id: n_d1vp_case_pack_action, domain_id: winemaking, assertion_text: "Define the white wine's time to consumption and distribution conditions, then fill pilot runs in each proposed pouch, can and glass-stopper bottle; measure package oxygen, seal integrity, wine composition and sensory change over the intended shelf life.", verification_status: unverified, mcq_disabled: true, last_verified_at: "2026-09-29T20:00:00.000Z"}
+  - {id: ki_d1vp_case_pack_reason, subject_id: n_d1vp_case_pack, relation_type: CASE_REASON, object_id: n_d1vp_case_pack_reason, domain_id: winemaking, assertion_text: "A pouch's film and seals, a can's liner and seam, and a glass stopper's sealing ring and bottle neck set different oxygen and compatibility risks. Bare material names do not specify the performance of a filled pack.", verification_status: unverified, mcq_disabled: true, last_verified_at: "2026-09-29T20:00:00.000Z"}
+  - {id: ki_d1vp_case_pack_tradeoff, subject_id: n_d1vp_case_pack, relation_type: CASE_TRADEOFF, object_id: n_d1vp_case_pack_tradeoff, domain_id: winemaking, assertion_text: "Light packs can reduce transport weight and improve convenience; a glass bottle may support longer planned cellaring. Cost, breakage, market positioning and verified shelf life must be compared for this wine and route.", verification_status: unverified, mcq_disabled: true, last_verified_at: "2026-09-29T20:00:00.000Z"}
+  - {id: ki_d1vp_case_pack_limit, subject_id: n_d1vp_case_pack, relation_type: CASE_LIMITATION, object_id: n_d1vp_case_pack_limit, domain_id: winemaking, assertion_text: "AWRI says pouch performance information is limited and can compatibility depends on the wine and coating. A glass stopper also depends on its assembled seal; no format guarantees a universal oxygen rate or safe ageing period.", verification_status: unverified, mcq_disabled: true, last_verified_at: "2026-09-29T20:00:00.000Z"}
+
+certification_knowledge_mappings:
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d1vp_topwork, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d1vp_layer, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d1vp_massal, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d1vp_massal_health, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d1vp_fire, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d1vp_smoke, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d1vp_cryo, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d1vp_ice, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d1vp_pouch, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d1vp_can, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d1vp_glass, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d1vp_case_vines_action, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d1vp_case_vines_reason, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d1vp_case_vines_tradeoff, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d1vp_case_vines_limit, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d1vp_case_smoke_action, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d1vp_case_smoke_reason, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d1vp_case_smoke_tradeoff, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d1vp_case_smoke_limit, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d1vp_case_pack_action, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d1vp_case_pack_reason, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d1vp_case_pack_tradeoff, importance: core, minimum_depth: 3}
+  - {certification_id: WSET_L4, knowledge_item_id: ki_d1vp_case_pack_limit, importance: core, minimum_depth: 3}
+
+source_citations:
+  - {id: src_d1vp_uc_graft, kind: reference_work, title: "Grafting Grapevines", publisher: "University of California Cooperative Extension", document_identifier: "GV6-98, Reasons for Grafting", url: "https://ucanr.edu/sites/default/files/2011-03/82000.pdf", accessed_on: 2026-09-29}
+  - {id: src_d1vp_uc_propagation, kind: academic, title: "Propagation of grapevines", publisher: "California Agriculture, University of California", document_identifier: "Curtis J. Alley, July 1980, pp. 28-30; Field-grafting and Layering", url: "https://my.ucanr.edu/repository/fileAccessPublic.cfm?fn=ca3407p29-172414.pdf", accessed_on: 2026-09-29}
+  - {id: src_d1vp_ifv_selection, kind: reference_work, title: "What is clonal selection?", publisher: "Institut Français de la Vigne et du Vin", document_identifier: "Massal selection and sanitary selection sections", url: "https://www.vignevin.com/en/article/what-is-clonal-selection/", accessed_on: 2026-09-29}
+  - {id: src_d1vp_awri_fire, kind: reference_work, title: "Dealing with fire damage and smoke taint", publisher: "Australian Wine Research Institute", document_identifier: "eBulletin, 12 January 2015; fire damage and smoke-risk sections", url: "https://www.awri.com.au/information_services/ebulletin/2015/01/12/dealing-fire-damage-smoke-taint/", accessed_on: 2026-09-29}
+  - {id: src_d1vp_awri_smoke, kind: reference_work, title: "Smoke taint", publisher: "Australian Wine Research Institute", document_identifier: "Living guidance; smoke-marker testing and interpretation", url: "https://www.awri.com.au/industry_support/winemaking_resources/smoke-taint/", accessed_on: 2026-09-29}
+  - {id: src_d1vp_oiv_cryo, kind: reference_work, title: "Controlling the level of sugar of harvested grapes", publisher: "International Organisation of Vine and Wine", document_identifier: "International Code of Oenological Practices; Cryoextraction", url: "https://www.oiv.int/node/4033", accessed_on: 2026-09-29}
+  - {id: src_d1vp_oiv_ice, kind: reference_work, title: "Definition of ice wine", publisher: "International Organisation of Vine and Wine", document_identifier: "Resolution OENO 6/2003", url: "https://www.oiv.int/node/3680", accessed_on: 2026-09-29}
+  - {id: src_d1vp_awri_pack, kind: academic, title: "Alternative packaging and wine: Should we move beyond the green bottle?", publisher: "Australian Wine Research Institute", document_identifier: "Wilkes, Hirlam and Scrimgeour, Wine & Viticulture Journal 38(4), 2023, pp. 70-73", url: "https://www.awri.com.au/files/attachment/s2374-alternative-packaging/", accessed_on: 2026-09-29}
+  - {id: src_d1vp_awri_can, kind: reference_work, title: "The winemaker's guide to wine in a can", publisher: "Australian Wine Research Institute", document_identifier: "Coetzee, reviewed by AWRI and Cornell; parts 1-2", url: "https://www.awri.com.au/files/attachment/winemakers-guide-to-wine-in-a-can/", accessed_on: 2026-09-29}
+  - {id: src_d1vp_vinolok, kind: reference_work, title: "Implementing Vinolok", publisher: "Vinolok", document_identifier: "Manufacturer technical guidance: system, sealing ring, compatible bottles and filling", url: "https://vinolok.com/technical/", accessed_on: 2026-09-29}
+  - {id: src_d1vp_awri_tpo, kind: reference_work, title: "Oxygen pick-up during packaging: understanding total package oxygen", publisher: "Australian Wine Research Institute", document_identifier: "Packaging operations technical guidance", url: "https://www.awri.com.au/industry_support/winemaking_resources/storage-and-packaging/packaging-operations/oxygen-pick-up-during-packaging-understanding-total-package-oxygen/", accessed_on: 2026-09-29}
+
+knowledge_item_citations:
+  - {knowledge_item_id: ki_d1vp_topwork, source_citation_id: src_d1vp_uc_graft, locator: "Reasons for Grafting: cultivar conversion and assessment of vineyard health."}
+  - {knowledge_item_id: ki_d1vp_topwork, source_citation_id: src_d1vp_uc_propagation, locator: "Field-grafting: change variety on a mature trunk."}
+  - {knowledge_item_id: ki_d1vp_layer, source_citation_id: src_d1vp_uc_propagation, locator: "Layering: buried neighbour cane remains attached, roots, then separates."}
+  - {knowledge_item_id: ki_d1vp_layer, source_citation_id: src_vit_phylloxera, locator: "Cultural Control: resistant rootstocks protect susceptible Vitis vinifera roots."}
+  - {knowledge_item_id: ki_d1vp_massal, source_citation_id: src_d1vp_ifv_selection, locator: "What are the differences between clonal and massal selection?, paragraphs 95-100."}
+  - {knowledge_item_id: ki_d1vp_massal_health, source_citation_id: src_d1vp_ifv_selection, locator: "Sanitary selection and massal selection, paragraphs 53-56 and 95-98."}
+  - {knowledge_item_id: ki_d1vp_fire, source_citation_id: src_d1vp_awri_fire, locator: "Managing fire-damaged grapevines: irrigation and damage audit."}
+  - {knowledge_item_id: ki_d1vp_smoke, source_citation_id: src_d1vp_awri_smoke, locator: "Assessing smoke marker compounds and result interpretation."}
+  - {knowledge_item_id: ki_d1vp_cryo, source_citation_id: src_d1vp_oiv_cryo, locator: "Controlling sugar of harvested grapes, item 4 Cryoextraction."}
+  - {knowledge_item_id: ki_d1vp_ice, source_citation_id: src_d1vp_oiv_ice, locator: "Definition: vineyard cryoselection without physical procedures; harvest and press frozen."}
+  - {knowledge_item_id: ki_d1vp_pouch, source_citation_id: src_d1vp_awri_pack, locator: "Printed pp. 70-71: evaluation criteria and limited pouch performance data."}
+  - {knowledge_item_id: ki_d1vp_can, source_citation_id: src_d1vp_awri_can, locator: "Printed pp. 20-23 and 28-29: seam/coating risks and compatibility tests."}
+  - {knowledge_item_id: ki_d1vp_glass, source_citation_id: src_d1vp_vinolok, locator: "How it works, Sealing ring, Recommended bottles and Bottling."}
+  - {knowledge_item_id: ki_d1vp_glass, source_citation_id: src_d1vp_awri_tpo, locator: "Packaging oxygen includes dissolved and headspace oxygen; assess the filled pack."}
+  - {knowledge_item_id: ki_d1vp_case_vines_action, source_citation_id: src_d1vp_uc_graft, locator: "Reasons for Grafting: conversion depends on sound vines."}
+  - {knowledge_item_id: ki_d1vp_case_vines_action, source_citation_id: src_d1vp_ifv_selection, locator: "Paragraphs 95-98: selection and sanitary testing."}
+  - {knowledge_item_id: ki_d1vp_case_vines_reason, source_citation_id: src_d1vp_uc_propagation, locator: "Field-grafting and Layering sections."}
+  - {knowledge_item_id: ki_d1vp_case_vines_tradeoff, source_citation_id: src_d1vp_uc_graft, locator: "Reasons for Grafting: conversion costs and vine health."}
+  - {knowledge_item_id: ki_d1vp_case_vines_tradeoff, source_citation_id: src_d1vp_uc_propagation, locator: "Layering: establishment and detachment."}
+  - {knowledge_item_id: ki_d1vp_case_vines_limit, source_citation_id: src_d1vp_ifv_selection, locator: "Paragraphs 95-98: massal selection without tests can transfer viruses."}
+  - {knowledge_item_id: ki_d1vp_case_vines_limit, source_citation_id: src_vit_phylloxera, locator: "Cultural Control: susceptible vinifera roots versus resistant rootstock choice."}
+  - {knowledge_item_id: ki_d1vp_case_smoke_action, source_citation_id: src_d1vp_awri_fire, locator: "Managing fire-damaged grapevines: water and audit."}
+  - {knowledge_item_id: ki_d1vp_case_smoke_action, source_citation_id: src_d1vp_awri_smoke, locator: "Assessing smoke markers before harvest."}
+  - {knowledge_item_id: ki_d1vp_case_smoke_reason, source_citation_id: src_d1vp_awri_fire, locator: "Separate sections for burnt vines and smoke-exposed grapes."}
+  - {knowledge_item_id: ki_d1vp_case_smoke_tradeoff, source_citation_id: src_d1vp_awri_smoke, locator: "Testing before harvest to support harvest decisions."}
+  - {knowledge_item_id: ki_d1vp_case_smoke_limit, source_citation_id: src_d1vp_awri_smoke, locator: "Interpretation: background levels, differing glycoside methods and sensory impact."}
+  - {knowledge_item_id: ki_d1vp_case_pack_action, source_citation_id: src_d1vp_awri_pack, locator: "Printed pp. 70-71: wine, conditions and required shelf life."}
+  - {knowledge_item_id: ki_d1vp_case_pack_action, source_citation_id: src_d1vp_awri_tpo, locator: "Dissolved and headspace oxygen at packaging."}
+  - {knowledge_item_id: ki_d1vp_case_pack_reason, source_citation_id: src_d1vp_awri_pack, locator: "Printed p. 71: pouch and can barrier limitations."}
+  - {knowledge_item_id: ki_d1vp_case_pack_reason, source_citation_id: src_d1vp_vinolok, locator: "How it works: stopper, sealing ring, bottle and capsule."}
+  - {knowledge_item_id: ki_d1vp_case_pack_tradeoff, source_citation_id: src_d1vp_awri_pack, locator: "Printed pp. 71-72: transport, shelf life and long-term ageing tradeoffs."}
+  - {knowledge_item_id: ki_d1vp_case_pack_limit, source_citation_id: src_d1vp_awri_pack, locator: "Printed p. 71: limited pouch data and can membrane requirement."}
+  - {knowledge_item_id: ki_d1vp_case_pack_limit, source_citation_id: src_d1vp_awri_can, locator: "Printed pp. 28-29: test actual can and wine shelf life."}

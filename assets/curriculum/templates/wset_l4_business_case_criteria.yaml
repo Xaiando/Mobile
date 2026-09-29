@@ -1,0 +1,242 @@
+# Diploma structured practice for complete, previously written four-role cases.
+# The offered criteria inherit each assertion's source links and remain unverified.
+# Fictional figures and offers are premises, never current market observations.
+question_templates:
+  - id: qt_wset_l4_business_case_criteria_37
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: case_criteria
+    variant: wset_l4_business_case_criteria_37
+    prompt_template: '{subject.name}'
+    parameters:
+      scope_node_ids:
+        - n_biz_case_cellar_cash
+        - n_biz_case_export_currency
+        - n_biz_case_wine_discount
+        - n_biz_models_case_contract_pilot
+        - n_biz_models_case_cooperative_pool
+        - n_biz_routes_case_downstream_review
+        - n_biz_routes_case_dtc_capacity
+        - n_d3rt_case_ribeira_offer
+        - n_d6_case_campaign_argument
+        - n_d6_case_channel_evidence
+        - n_reg_ah_case_styria_crew
+        - n_reg_ah_case_vienna_harvest
+        - n_reg_am_case_california_sites
+        - n_reg_am_case_chile_white
+        - n_reg_am_case_mendoza_claim
+        - n_reg_am_case_pacific_northwest
+        - n_reg_cn_case_ningxia_training_budget
+        - n_reg_cn_case_shandong_water_budget
+        - n_reg_cn_case_xinjiang_shade_style
+        - n_reg_cn_case_yunnan_blend_evidence
+        - n_reg_de_case_saale_unstrut_frost_site
+        - n_reg_fe_case_jura_maturation_cash
+        - n_reg_fm_case_collioure_maintenance
+        - n_reg_fm_case_faugeres_pests
+        - n_reg_gr_case_aromatic_whites
+        - n_reg_gr_case_north_comparison
+        - n_reg_na_case_county_protection_budget
+        - n_reg_na_case_lodi_sampling_triage
+        - n_reg_na_case_niagara_preplant_drainage
+        - n_reg_na_case_oregon_stem_trial
+        - n_reg_oa_case_canterbury_riesling_offer
+        - n_reg_oa_case_robertson_water_plan
+        - n_reg_sa_case_maule_brand
+        - n_reg_sa_case_mendoza_capacity
+        - n_reg_sa_case_mendoza_yeast_trial
+        - n_reg_sh_case_au_cabernet_price
+        - n_reg_sh_case_za_chenin_purchasing
+      scenario_prompts:
+        n_biz_case_cellar_cash: >-
+          Hypothetical restaurant: its accounts show profit, several wine invoices to customers are unpaid, and cash has been spent on slowly selling cellar stock. Supplier bills fall due before those customers are expected to pay. Explain the immediate cash analysis, the accounting reason, a stock-purchasing trade-off and a limitation. No amounts, tax rates or borrowing recommendation are implied.
+        n_biz_case_export_currency: >-
+          Hypothetical exporter: a customer will pay a fixed invoice in the customer's currency in three months. The exporter pays its costs in its own currency and has no offsetting foreign-currency costs. Explain a way to address this exchange-rate exposure, the risk mechanism, a trade-off of home-currency invoicing and a risk that remains. No current exchange rate or personal financial recommendation is supplied.
+        n_biz_case_wine_discount: >-
+          Hypothetical wine offer: the selling price is 30 currency units per bottle and the variable cost is 18. A 20% price discount is proposed. Fixed costs do not change, there is spare capacity, and demand at the lower price is unknown. Explain how to evaluate the proposal, why bottle volume alone is insufficient, one trade-off and one limitation. All figures are invented.
+      distractors:
+        n_biz_case_cellar_cash:
+          - summary: Treat reported profit as cash available to settle the supplier bills
+            explanation: Unpaid invoices and cellar inventory consume or delay cash; profit is not a dated cash forecast.
+          - summary: Buy more slow-moving stock to eliminate the immediate payment gap
+            explanation: Additional inventory uses cash before the supplier bills fall due and its future sales are unknown.
+        n_biz_case_export_currency:
+          - summary: Assume the fixed foreign-currency invoice also fixes its home-currency value
+            explanation: The home-currency proceeds move with the exchange rate unless the exposure is separately addressed.
+          - summary: Use a currency hedge as a guarantee that the buyer will pay on time
+            explanation: Fixing conversion terms does not remove the separate risk of nonpayment by the customer.
+        n_biz_case_wine_discount:
+          - summary: Keep the old unit contribution because the bottle's variable cost is unchanged
+            explanation: The stated discount cuts price from 30 to 24, reducing unit contribution from 12 to 6.
+          - summary: Approve the promotion because a lower price guarantees twice the volume
+            explanation: The premise supplies no demand response; doubling the required volume is arithmetic, not a forecast.
+        n_biz_models_case_contract_pilot:
+          - summary: Build a new winery now because the available budget covers its construction
+            explanation: The premise expressly says finance covers the quoted service and selling, not an equipped new cellar.
+          - summary: Treat first-lot service approval as a guarantee of repeat sales and future capacity
+            explanation: The provider confirms one lot's scope, while repeat demand and later capacity are unknown.
+        n_biz_models_case_cooperative_pool:
+          - summary: Promise each grower exclusive brand control under the agreed collective sales policy
+            explanation: The growers explicitly prefer shared resources and accept democratic decisions rather than exclusive individual control.
+          - summary: Count gross pool proceeds as guaranteed equal profit for every member
+            explanation: The agreement allocates net proceeds after expenses, and neither sales nor member returns are guaranteed.
+        n_biz_routes_case_downstream_review:
+          - summary: Use the winery's shipments to its partner as proof of consumer repurchase
+            explanation: Sell-in records show placement with the intermediary, not outlet reorders or final consumer buying.
+          - summary: Fund every possible restaurant tasting because one buyer expressed interest
+            explanation: The budget is limited and the buyer conditions are untested; account-specific support requires a bounded trial.
+        n_biz_routes_case_dtc_capacity:
+          - summary: Outsource packing and assume the winery no longer handles customer support
+            explanation: Under the quoted service, packing and delivery move to the provider but customer support remains with the winery.
+          - summary: Compare gross direct receipts with the retailer trade price as if both were net returns
+            explanation: The routes allocate fulfilment, service, access and customer-contact costs differently; gross receipts are not comparable net outcomes.
+        n_d3rt_case_ribeira_offer:
+          - summary: Buy the full Ribeira Sacra allocation because one tasting panel preferred it
+            explanation: A modest panel preference does not establish forecast demand, reliable supply or acceptable final margin.
+          - summary: Reject the terraced wine because higher hand-harvest cost proves lower sensory quality
+            explanation: Labour cost explains part of the quote but does not determine the sampled wine's sensory quality.
+        n_d6_case_campaign_argument:
+          - summary: Attribute all post-campaign order growth to the campaign without a comparison
+            explanation: Non-participants also grew, and unequal baselines and channels prevent a causal estimate from the packet.
+          - summary: Dismiss the campaign as ineffective because the comparison wineries also grew
+            explanation: The rival trend weakens a simple causal claim but does not prove the campaign had no effect.
+        n_d6_case_channel_evidence:
+          - summary: Generalise website-order growth among eighteen volunteers to all direct sales in Region A
+            explanation: The group excludes cellar-door sales and wineries outside its voluntary sample.
+          - summary: Treat the trade article as independent confirmation of the winery survey
+            explanation: The article repeats the same headline without collecting a separate data series.
+        n_reg_ah_case_styria_crew:
+          - summary: Schedule both steep blocks for one crew before the rain arrives
+            explanation: The supplied hand crew can finish only one block in the available window.
+          - summary: Choose the less-developed Kitzeck-Sausal lot from regional reputation alone
+            explanation: Representative sampling shows Gamlitz meets the intended balance and Kitzeck-Sausal still needs flavour development.
+        n_reg_ah_case_vienna_harvest:
+          - summary: Fix the field-mix harvest date from the sweetest component alone
+            explanation: The combined lot's acidity, pH and flavour balance have not been assessed.
+          - summary: Infer that sound fruit guarantees the mixed lot has the target balance
+            explanation: Current fruit health does not supply the missing combined measurements or weather outlook.
+        n_reg_am_case_california_sites:
+          - summary: Assign the fresh Pinot target to the warmer parcel solely because its fruit quote is lower
+            explanation: The price does not show that the warmer site meets the specified fresh Pinot style.
+          - summary: Treat the broad Napa name as proof that either contracted block will make superior wine
+            explanation: The case asks for parcel and vintage evidence; appellation alone cannot certify the target style or quality.
+        n_reg_am_case_chile_white:
+          - summary: Buy the warmer inland Chardonnay because its lower quote proves fresher wine
+            explanation: The two sample styles and the fresh-white brief matter; a cheaper quote cannot establish freshness.
+          - summary: Assume every coastal Aconcagua bottle has the same style as this sampled lot
+            explanation: The purchase evidence concerns these offers, not a universal regional guarantee.
+        n_reg_am_case_mendoza_claim:
+          - summary: Pay the Uco Valley premium because altitude alone proves better value
+            explanation: The two wines also differ in harvest and oak; altitude cannot isolate their sensory or commercial value.
+          - summary: Declare the lower site superior solely because its wholesale quote is cheaper
+            explanation: Price alone does not establish target fit, expected customer response or total purchasing value.
+        n_reg_am_case_pacific_northwest:
+          - summary: Order the larger cheap allocation before confirming list fit or cellar capacity
+            explanation: The buyer needs two specified styles, and a larger order ties up inventory even at a lower unit price.
+          - summary: Use northern latitude alone to certify both finished wines' quality
+            explanation: Region and latitude provide context, but the actual samples and offer terms determine fit.
+        n_reg_cn_case_ningxia_training_budget:
+          - summary: Choose the system with the lowest initial quote without testing winter operations
+            explanation: The grower must compare burial labour, training performance and annual costs under local conditions.
+          - summary: Assume a slant trunk removes every future winter-protection expense
+            explanation: The proposal is intended to ease a task, not prove zero labour or guaranteed winter survival.
+        n_reg_cn_case_shandong_water_budget:
+          - summary: Size storage from one storm event without forecasting seasonal vine demand
+            explanation: Runoff and later dry-season water needs occur at different times and require capacity analysis.
+          - summary: Treat the largest possible reservoir as free because runoff is locally available
+            explanation: Added capacity uses capital, upkeep and vineyard access; future catchment supply is uncertain.
+        n_reg_cn_case_xinjiang_shade_style:
+          - summary: Shade every block permanently because one panel preferred a pilot sample
+            explanation: A one-vintage split trial cannot establish whole-estate crop, colour, style or market outcomes.
+          - summary: Count the unshaded lot's heat exposure as proof that its wine is faulty
+            explanation: The trial compares styles and vine responses, not a defect diagnosis for the control.
+        n_reg_cn_case_yunnan_blend_evidence:
+          - summary: Use the blind tasting alone to authenticate each wine's village of origin
+            explanation: The coded sample comparison cannot prove provenance or isolate altitude without separate records.
+          - summary: Combine all mountain lots because blending has no operating cost
+            explanation: Keeping parcels separate and assessing a blend require handling, space and buyer testing.
+        n_reg_de_case_saale_unstrut_frost_site:
+          - summary: Plant the repeatedly frost-hit basin block because its cheaper quote removes frost risk
+            explanation: The site records show repeated frost and poor air movement; low cost cannot erase that exposure.
+          - summary: Declare the higher block immune to every freeze because it is south-facing
+            explanation: Relative topography informs risk, but the higher block is not guaranteed protection.
+        n_reg_fe_case_jura_maturation_cash:
+          - summary: Expand the long maturation lot because Vin Jaune tradition guarantees a buyer premium
+            explanation: The case records extra time and evaporation but supplies no assured demand or price premium.
+          - summary: Forecast identical saleable volume and payment timing for both Jura routes
+            explanation: The prolonged route delays sale and loses liquid through evaporation, changing cash and volume assumptions.
+        n_reg_fm_case_collioure_maintenance:
+          - summary: Skip assessed terrace repairs because the site has produced wine before
+            explanation: The supplied qualified assessment identifies erosion and damaged retaining walls requiring a costed response.
+          - summary: Raise the bottle price by the repair cost because maintenance proves better taste
+            explanation: Repair expenditure can affect cost recovery but does not establish a sensory gain or customer willingness to pay.
+        n_reg_fm_case_faugeres_pests:
+          - summary: Install mating-disruption devices and stop all other vineyard surveillance
+            explanation: A targeted pheromone plan still requires pest-pressure assessment, coverage checks and wider monitoring.
+          - summary: Claim that prior berry damage proves the proposed programme will eliminate next season's pests
+            explanation: The confirmed target supports considering a plan, not a guaranteed future level of control.
+        n_reg_gr_case_aromatic_whites:
+          - summary: Assign every aromatic Muscat sample to dessert because Muscat cannot be dry
+            explanation: The supplied Samos candidate is documented still and dry; aroma does not establish sweetness.
+          - summary: Decide the buyer's full order from grape names without tasting or supply checks
+            explanation: The actual samples and producer analyses define the brief, while volume and demand still matter.
+        n_reg_gr_case_north_comparison:
+          - summary: Attribute every texture difference to Naoussa versus Amyndeon origin
+            explanation: The two wines also differ in vintage and extraction, so region cannot be isolated.
+          - summary: Treat the need for matched samples as proof that site conditions never affect Xinomavro
+            explanation: Better controls reduce confounding; they do not erase possible site effects.
+        n_reg_na_case_county_protection_budget:
+          - summary: Choose geotextile because its quoted outlay guarantees better bud survival
+            explanation: The supplied unmatched observations do not establish which method protects this block better.
+          - summary: Ignore spring removal and handling when comparing winter-protection methods
+            explanation: Both methods require operational work beyond initial installation and need local trial evidence.
+        n_reg_na_case_lodi_sampling_triage:
+          - summary: Send the uncertain dense-canopy block to the booked crush slot without checking fruit
+            explanation: The other block has representative maturity evidence; the uncertain fruit needs separate assessment.
+          - summary: Assume one canopy operation repairs every uneven or damaged cluster before harvest
+            explanation: The case gives no evidence that such work can restore the questioned fruit in the available window.
+        n_reg_na_case_niagara_preplant_drainage:
+          - summary: Plant the waterlogged parcel immediately because both blocks share a Niagara bench name
+            explanation: Parcel B's standing-water evidence remains a preplant constraint despite the regional setting.
+          - summary: Regard an unevaluated drainage scheme as a completed improvement with no capital cost
+            explanation: Feasibility, timing and expense of drainage are not established in the supplied plan.
+        n_reg_na_case_oregon_stem_trial:
+          - summary: Scale whole-cluster treatment to every Pinot lot from one small pilot
+            explanation: One controlled parcel trial can inform the two briefs but cannot validate future proportions or markets.
+          - summary: Infer from Oregon origin alone that stem inclusion always improves fresh-fruit style
+            explanation: The supplied destemmed pilot already meets one fresh-fruit brief; stem effects require tasting.
+        n_reg_oa_case_canterbury_riesling_offer:
+          - summary: List the sweeter Canterbury lot as dry because both offers smell floral
+            explanation: Aroma does not override documented sweetness or the by-the-glass dry brief.
+          - summary: Purchase both lots because sharing a North Canterbury origin guarantees the same use
+            explanation: The offered wines differ in sweetness and need separate placement and demand checks.
+        n_reg_oa_case_robertson_water_plan:
+          - summary: Irrigate both Robertson blocks equally because they share a regional climate
+            explanation: Repeated water measurements distinguish excessive stress in A from adequate status in B.
+          - summary: Prescribe a fixed water dose from the regional name without measuring supply
+            explanation: The scenario lacks the measurements needed for an exact amount or a fixed harvest decision.
+        n_reg_sa_case_maule_brand:
+          - summary: Promise a premium for every old-vine Carignan lot from the shared origin story
+            explanation: Origin and cultivation history can support positioning, but the lots, buyers and returns still need testing.
+          - summary: Treat joint promotion as costless because several producers share a label
+            explanation: Shared marketing requires agreed coordination and resources, and its commercial outcome is uncertain.
+        n_reg_sa_case_mendoza_capacity:
+          - summary: Delay one ready lot without evaluating its condition or the crush-window constraint
+            explanation: Both sampled lots are ready in a short window and available in-house capacity is constrained.
+          - summary: Book extra processing capacity without checking its price, transport or cash timing
+            explanation: A defensible choice must compare quoted outside capacity and payment with the risks of delay.
+        n_reg_sa_case_mendoza_yeast_trial:
+          - summary: Adopt treatment B for every Mendoza wine from the one-must pilot alone
+            explanation: The trial suggests a sensory route but does not establish response across other lots or vintages.
+          - summary: Ignore the longer tank occupation because both treatments finished dry
+            explanation: Fermentation duration affects capacity and scheduling even when both trial wines are sound.
+        n_reg_sh_case_au_cabernet_price:
+          - summary: Award the higher-cost Cabernet a sensory premium despite similar panel results
+            explanation: The recorded cost difference does not establish superior balance or persistence in these samples.
+          - summary: Set the target selling price from appellation name alone without testing buyers
+            explanation: Origin alone does not establish the required margin or customer response to a proposed price.
+        n_reg_sh_case_za_chenin_purchasing:
+          - summary: Choose the fuller barrel-fermented wine because Swartland guarantees the target fresh style
+            explanation: The actual barrel-fermented sample tastes fuller, while target customers prefer freshness.
+          - summary: Reject the fresh Stellenbosch candidate because origin alone proves lower quality
+            explanation: The two sampled styles and buyer trial matter; regional names do not fix a quality ranking.

@@ -1,0 +1,259 @@
+# Diploma D1 production and D4 international sparkling comparisons.
+# Each keyed conclusion is limited to its cited assertion; all remain unverified.
+question_templates:
+  - id: qt_wset_l4_winemaking_principles_global_22
+    relation_type: PRINCIPLE_EXPLANATION
+    direction: forward
+    mode: authored_choice
+    variant: wset_l4_winemaking_principles_global
+    prompt_template: '{subject.name}'
+    parameters:
+      item_choices:
+        ki_d1target_nolo_balance:
+          prompt: A cellar reduces ethanol in a sound white base wine. Which set of checks is needed before judging the new product?
+          options:
+            - Recheck sensory balance, stability, cost and label eligibility
+            - Alcohol concentration alone, because the untreated wine was sound
+            - The untreated base wine's aroma and taste, assuming ethanol removal cannot change preservation or shelf stability
+            - Retail price alone, because it proves the treated wine's stability
+          correctIndex: 0
+          explanation: Ethanol removal can alter aroma, taste, mouthfeel and preservative effect; the final wine and route require sensory, stability, cost and legal review.
+          sourceCitationId: src_d1target_oiv_nolo
+        ki_d1target_pack_freight:
+          prompt: A producer compares local glass bottling with bulk shipment and destination filling. What comparison is defensible?
+          options:
+            - Treat freight savings as net benefit when destination filling's oxygen exposure and transfer losses have yet to be measured
+            - Compare actual freight savings with transfer, filling, oxygen and temperature controls
+            - ISO tanks produced a consistent sensory preference over flexitanks in the cited transport trials
+            - Local filling eliminates every destination assurance cost
+          correctIndex: 1
+          explanation: Less shipped glass may reduce freight, but destination filling adds controls. AWRI's tested bulk routes showed no consistent sensory preference between ISO and flexi tanks.
+          sourceCitationId: src_d1target_wa_shipping
+        ki_d1target_qc_iso_trace:
+          prompt: A winery cites ISO 22000 while a filler lot cannot be linked to its destination. Which response is sound?
+          options:
+            - An ISO 22000 certificate establishes that this filler kept complete input-to-destination records for the relevant packaged lot
+            - Traceability is unnecessary once bottles leave the filler
+            - Verify certification and trace each lot to destination
+            - Any sensory fault is automatically an ISO critical control point
+          correctIndex: 2
+          explanation: A food-safety management standard is not evidence of this winery's certification. Lot records support investigation and containment.
+          sourceCitationId: src_d1target_awri_trace
+        ki_d4nw_argentina_market:
+          prompt: A 2023 authority report shows Mendoza led Argentina's domestic sparkling dispatches. What does that statistic establish?
+          options:
+            - The fruit source of Argentine sparkling wine
+            - Mendoza's current share in any later year
+            - The second-fermentation method used by each producer
+            - A dated market-flow anchor, not a timeless origin or style rule
+          correctIndex: 3
+          explanation: The report measures 2023 dispatches. It does not fix later shares or an individual wine's fruit origin and method.
+          sourceCitationId: src_d4nw_argentina_report
+        ki_d4nw_argentina_terms:
+          prompt: Under the cited January 2026 Argentine digest, how do sparkling and lightly sparkling Pet Nat routes differ?
+          options:
+            - Sparkling has a second ferment; Pet Nat continues the first
+            - Both terms require carbonation by injected carbon dioxide alone
+            - Province of origin determines whether fermentation was continuous
+            - Both designations require a second closed-vessel fermentation; the Pet Nat label differs only by its prescribed pressure range
+          correctIndex: 0
+          explanation: The cited INV digest distinguishes second-fermentation sparkling from its lightly sparkling Pet Nat definition; pressure and method should be checked separately.
+          sourceCitationId: src_d4nw_argentina_digest
+        ki_d4nw_au_sea_label:
+          prompt: A sparkling wine claims South Eastern Australia GI. Which sourcing inference can the label support?
+          options:
+            - It identifies the specific cool vineyard, grape blend and fermentation method used for this South Eastern Australia bottle
+            - It allows a broad multi-region origin; narrower fruit and method details require producer records
+            - It certifies Chardonnay and Pinot Noir only
+            - It establishes a premium sensory quality tier
+          correctIndex: 1
+          explanation: South Eastern Australia spans multiple states and may encompass smaller GIs; a broad origin claim does not disclose specific source or method.
+          sourceCitationId: src_d4nw_au_multi_gi
+        ki_d4nw_au_south_australia:
+          prompt: Why might Adelaide Hills fruit be considered for a South Australian sparkling base?
+          options:
+            - Adelaide Hills sites have uniform harvest acidity
+            - Its GI name identifies a fixed lees-ageing period
+            - Cooler elevated sites can help Chardonnay and Pinot Noir retain acidity, subject to picking and site evidence
+            - Altitude guarantees a higher finished-wine price
+          correctIndex: 2
+          explanation: Adelaide Hills has cooler elevated sites suited to acidity retention; site, harvest and production details determine the actual result.
+          sourceCitationId: src_reg_oa_adelaide
+        ki_d4nw_au_tasmania:
+          prompt: A buyer proposes Tasmanian Chardonnay for bottle-fermented sparkling wine. What risk remains in the proposal?
+          options:
+            - Traditional method is unavailable in Tasmania
+            - Cool climate prevents useful acidity in the fruit
+            - Tasmanian frost exposure is uniform across sites
+            - Spring frost and site variation can affect yield and ripeness despite sparkling-base potential
+          correctIndex: 3
+          explanation: Tasmania's cool conditions can support acidic Chardonnay and Pinot Noir bases, but frost and season affect production.
+          sourceCitationId: src_reg_sh_tasmania
+        ki_d4nw_au_victoria:
+          prompt: A broad Victoria label is used to predict one sparkling style. Which correction is warranted?
+          options:
+            - Victorian climates vary; Yarra Valley is a cool-site example, but source and method need checking
+            - Victoria sparkling fruit comes from Yarra Valley
+            - Victoria origin proves bottle fermentation
+            - Yarra Valley's climate fixes dosage and retail price
+          correctIndex: 0
+          explanation: Victoria includes contrasting regions. Yarra offers a cool-source example, not a rule for every bottle.
+          sourceCitationId: src_d4nw_au_victoria
+        ki_d4nw_chile_coast_method:
+          prompt: A Chilean producer offers coastal base fruit for two sparkling methods. What comparison is sound?
+          options:
+            - Pacific cooling identifies the fermentation vessel, lees-contact period and final dosage for a Chilean coastal sparkling wine
+            - Coast aids acidity; verify method and lees
+            - All Chilean coastal wines have identical lees complexity
+            - A soil name alone proves the preferred finished style
+          correctIndex: 1
+          explanation: Wines of Chile describes Pacific-cooled contexts and both tank and traditional bottle-fermentation routes.
+          sourceCitationId: src_d4nw_chile_spark
+        ki_d4nw_nz_method:
+          prompt: A New Zealand sparkling bottle has no back-label production detail. Which statement is defensible?
+          options:
+            - It must contain only Pinot Noir and Chardonnay
+            - The popularity of traditional-method styles establishes that this bottle spent long on lees and uses a Chardonnay-Pinot blend
+            - This bottle's blend and method need confirmation
+            - National origin establishes one flavour and price level
+          correctIndex: 2
+          explanation: The national sparkling category includes diverse styles; a prominent production route is not a compulsory recipe.
+          sourceCitationId: src_wset_sf_nz_spark
+        ki_d4nw_nz_regions:
+          prompt: A teacher compares three New Zealand sparkling base sources. Which regional framing is suitably qualified?
+          options:
+            - Marlborough, Hawke's Bay and Central Otago provide interchangeable base-wine weight, acidity and flavour across vineyards and vintages
+            - Central Otago's day-night range fixes every cuvée's sweetness
+            - One regional tendency is enough to identify a blind wine
+            - Compare regional base tendencies, then check the wine
+          correctIndex: 3
+          explanation: These are regional possibilities in the national account, not guarantees for individual bottles.
+          sourceCitationId: src_wset_sf_nz_spark
+        ki_d4nw_us_california:
+          prompt: A California sparkling wine lacks an AVA and method statement. What should a buyer avoid inferring?
+          options:
+            - Its grapes, method or lees age from state origin
+            - That California has multiple sparkling producers and styles
+            - A cooler Carneros source establishes bottle fermentation, a Chardonnay-Pinot blend and extended lees ageing
+            - That cooler sites such as Carneros deserve narrower analysis
+          correctIndex: 0
+          explanation: California includes varied grapes, producers and sources; the broad state claim does not identify method or maturity.
+          sourceCitationId: src_wset_sf_anderson
+        ki_d4nw_us_oregon:
+          prompt: A Willamette producer documents bottle-fermented Pinot Noir and Chardonnay. What conclusion follows?
+          options:
+            - This producer's documented blend and bottle fermentation establish the mandatory sparkling recipe for all Oregon wines
+            - One documented Oregon traditional-method route
+            - Oregon has no role for Pinot Blanc in sparkling blends
+            - Bottle fermentation proves a premium price before tasting
+          correctIndex: 1
+          explanation: Documented Willamette examples show a possible route, not a rule for all Oregon wines.
+          sourceCitationId: src_d4nw_us_oregon
+        ki_d4nw_us_washington:
+          prompt: A Columbia Valley producer targets an acidic sparkling base. Which harvest evidence is needed?
+          options:
+            - State origin alone establishes fresh base fruit
+            - Irrigation removes any need to assess ripeness
+            - Site, season, water status and an appropriately early picking decision
+            - Traditional-method producers prove all Washington wines use that method
+          correctIndex: 2
+          explanation: Warm days, cool nights and managed irrigation can support ripening and acid retention, but base suitability depends on the actual site and harvest.
+          sourceCitationId: src_d4nw_us_washington_spark
+        ki_d4nw_za_association:
+          prompt: What does South Africa's Cap Classique association indicate about its promoted wine category?
+          options:
+            - One required district and retail price
+            - A single grape blend and dosage
+            - Cap Classique assures sensory superiority
+            - Traditional bottle fermentation, without one mandated district, blend or quality result
+          correctIndex: 3
+          explanation: The producers' association promotes a bottle-fermented South African category; individual wines still vary.
+          sourceCitationId: src_d4nw_za_cap
+        ki_d4nw_za_variation:
+          prompt: Two Cap Classique bottles differ in base-wine source, lees time and dosage. What should a buyer do?
+          options:
+            - Compare those records and taste both rather than infer one mature or better style from the category name
+            - Bottle fermentation equalises these wines
+            - Rank price solely by the length of their lees period
+            - Ignore dosage because it cannot affect balance
+          correctIndex: 0
+          explanation: Source, blend, lees time and dosage can alter outcomes within the same broad category.
+          sourceCitationId: src_wset_sf_cap_directory
+        ki_spark_alcohol_tartrate:
+          prompt: A sparkling base was tartrate-stable before its second fermentation. Why check the finished wine again?
+          options:
+            - Bottle pressure makes potassium hydrogen tartrate more soluble
+            - Lees ageing eliminates the possibility of crystal formation
+            - More alcohol may reduce tartrate solubility
+            - Base-wine cold stability certifies the final bottle even after secondary fermentation raises alcohol and changes tartrate solubility
+          correctIndex: 2
+          explanation: Second-fermentation alcohol can reduce potassium hydrogen tartrate solubility; a base-wine result does not settle finished-wine stability.
+          sourceCitationId: src_spark_gushing
+        ki_spark_bidule:
+          prompt: What is the documented role of a polyethylene bidule under a crown closure during traditional-method production?
+          options:
+            - It supplies the fermentable sugar dose and controls the carbon dioxide formed during secondary fermentation
+            - It fixes dosage after corking
+            - It replaces the crown seal entirely
+            - It supports sealing and helps the later disgorgement operation
+          correctIndex: 3
+          explanation: The manufacturer's description identifies the bidule as an insert used with a crown closure to aid sealing and disgorgement.
+          sourceCitationId: src_spark_bidule
+        ki_spark_lees_decline:
+          prompt: Why should a producer not assume old bottle lees provide unchanged oxygen protection throughout long ageing?
+          options:
+            - The cited Cava research observed declining oxygen consumption by ageing lees
+            - Oxygen consumption by lees rises without limit over time
+            - The crown closure eliminates every oxygen pathway
+            - Lees age fixes dissolved oxygen exactly
+          correctIndex: 0
+          explanation: The original Cava study observed lees oxygen consumption declining with ageing, so protection cannot be treated as constant.
+          sourceCitationId: src_spark_lees_oxygen
+        ki_spark_liner:
+          prompt: A traditional-method producer compares crown-liner seals for long bottle ageing. Which gas question is documented?
+          options:
+            - Liner choice changes only label appearance
+            - Crown-liner choice can help calibrate oxygen entry during bottle ageing
+            - Crown liners have identical gas exchange
+            - Oxygen ingress proves a wine has developed more lees aroma
+          correctIndex: 1
+          explanation: The manufacturer's crown-cap account describes options for calibrating oxygen entry across ageing periods; separate research addresses carbon dioxide retention.
+          sourceCitationId: src_spark_closures
+        ki_spark_low_liner:
+          prompt: A producer chooses a less gas-permeable crown liner to retain carbonation. What else must the storage plan consider?
+          options:
+            - The seal makes bottle temperature irrelevant
+            - A more permeable crown liner retains more dissolved carbon dioxide because faster gas exchange offsets warm storage
+            - Keep CO₂, but still control storage temperature
+            - A low-permeability liner removes the need for pressure testing
+          correctIndex: 2
+          explanation: The cited model links closure gas permeability and storage temperature to carbonation retention.
+          sourceCitationId: src_spark_closure_gas
+  - id: qt_wset_l4_winemaking_causal_closure_2
+    relation_type: CAUSES_STATE
+    direction: forward
+    mode: authored_choice
+    variant: wset_l4_winemaking_causal_closure
+    prompt_template: '{subject.name}'
+    parameters:
+      item_choices:
+        ki_reason_mlf_conversion:
+          prompt: In a scenario isolating malolactic conversion from other acid changes, what happens to malic and lactic acid?
+          options:
+            - Both malic and lactic acid disappear through alcohol fermentation
+            - Lactic acid converts back into malic acid
+            - The two acid concentrations must remain unchanged
+            - Malic acid decreases as lactic acid is produced
+          correctIndex: 3
+          explanation: Malolactic conversion changes L-malic acid to L-lactic acid in the isolated reaction.
+          sourceCitationId: src_win_mlf
+        ki_reason_so2_molecular:
+          prompt: Two wines have the same free SO₂, alcohol and temperature, but one has higher pH. Which molecular SO₂ comparison follows?
+          options:
+            - The higher-pH wine has a lower molecular SO₂ concentration
+            - The higher-pH wine has more molecular SO₂ because pH increases free SO₂
+            - Molecular SO₂ is identical because free SO₂ is identical
+            - pH affects colour only, not SO₂ equilibrium
+          correctIndex: 0
+          explanation: At the controlled free SO₂, alcohol and temperature, higher pH shifts the equilibrium toward a smaller molecular fraction.
+          sourceCitationId: src_reason_molecular_so2

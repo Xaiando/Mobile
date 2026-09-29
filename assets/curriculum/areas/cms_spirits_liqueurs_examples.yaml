@@ -19,6 +19,8 @@ knowledge_nodes:
   - { id: n_cms_example_frangelico, node_type: learning_point, name: "Frangelico illustrates a hazelnut liqueur" }
   - { id: n_cms_example_st_germain, node_type: learning_point, name: "St-Germain illustrates an elderflower liqueur" }
   - { id: n_cms_example_baileys, node_type: learning_point, name: "Baileys Original illustrates an Irish cream liqueur" }
+  - { id: n_cms_example_other_liqueur, node_type: production_principle, name: "What illustrates the CMS non-classified liqueur group?" }
+  - { id: n_cms_example_zwarte_kip, node_type: learning_point, name: "Zwarte Kip Advocaat is an egg-led liqueur example" }
   - { id: n_cms_example_agave_case, node_type: production_case, name: "A guest requests Mezcal but the list has only Tequila" }
   - { id: n_cms_example_agave_action, node_type: learning_point, name: "Explain the substitution and ask whether it suits the guest" }
   - { id: n_cms_example_agave_reason, node_type: learning_point, name: "Their agave-source standards differ" }
@@ -34,6 +36,11 @@ knowledge_nodes:
   - { id: n_cms_example_liqueur_reason, node_type: learning_point, name: "St-Germain and Baileys Original use different flavour materials" }
   - { id: n_cms_example_liqueur_tradeoff, node_type: learning_point, name: "Berry and hazelnut examples answer other preferences" }
   - { id: n_cms_example_liqueur_limit, node_type: learning_point, name: "Check stock, current label and dietary needs" }
+  - { id: n_cms_example_egg_case, node_type: production_case, name: "A guest asks for a rich dessert liqueur beyond fruit, nut and flower" }
+  - { id: n_cms_example_egg_action, node_type: learning_point, name: "Check stock and egg suitability before offering Advocaat" }
+  - { id: n_cms_example_egg_reason, node_type: learning_point, name: "Zwarte Kip is described with eggs and brandy" }
+  - { id: n_cms_example_egg_tradeoff, node_type: learning_point, name: "A different cream liqueur needs a new ingredient check" }
+  - { id: n_cms_example_egg_limit, node_type: learning_point, name: "Non-classified is a study heading, not an allergy rule" }
 
 knowledge_relations:
   - { subject_id: n_cms_example_distillation, relation_type: PRINCIPLE_EXPLANATION, object_id: n_cms_example_distillation_point, valid_from: "2026-09-29" }
@@ -45,6 +52,7 @@ knowledge_relations:
   - { subject_id: n_cms_example_liqueur_families, relation_type: PRINCIPLE_EXPLANATION, object_id: n_cms_example_frangelico, valid_from: "2026-09-29" }
   - { subject_id: n_cms_example_liqueur_families, relation_type: PRINCIPLE_EXPLANATION, object_id: n_cms_example_st_germain, valid_from: "2026-09-29" }
   - { subject_id: n_cms_example_liqueur_families, relation_type: PRINCIPLE_EXPLANATION, object_id: n_cms_example_baileys, valid_from: "2026-09-29" }
+  - { subject_id: n_cms_example_other_liqueur, relation_type: PRINCIPLE_EXPLANATION, object_id: n_cms_example_zwarte_kip, valid_from: "2026-09-29" }
   - { subject_id: n_cms_example_agave_case, relation_type: CASE_ACTION, object_id: n_cms_example_agave_action, valid_from: "2026-09-29" }
   - { subject_id: n_cms_example_agave_case, relation_type: CASE_REASON, object_id: n_cms_example_agave_reason, valid_from: "2026-09-29" }
   - { subject_id: n_cms_example_agave_case, relation_type: CASE_TRADEOFF, object_id: n_cms_example_agave_tradeoff, valid_from: "2026-09-29" }
@@ -57,6 +65,10 @@ knowledge_relations:
   - { subject_id: n_cms_example_liqueur_case, relation_type: CASE_REASON, object_id: n_cms_example_liqueur_reason, valid_from: "2026-09-29" }
   - { subject_id: n_cms_example_liqueur_case, relation_type: CASE_TRADEOFF, object_id: n_cms_example_liqueur_tradeoff, valid_from: "2026-09-29" }
   - { subject_id: n_cms_example_liqueur_case, relation_type: CASE_LIMITATION, object_id: n_cms_example_liqueur_limit, valid_from: "2026-09-29" }
+  - { subject_id: n_cms_example_egg_case, relation_type: CASE_ACTION, object_id: n_cms_example_egg_action, valid_from: "2026-09-29" }
+  - { subject_id: n_cms_example_egg_case, relation_type: CASE_REASON, object_id: n_cms_example_egg_reason, valid_from: "2026-09-29" }
+  - { subject_id: n_cms_example_egg_case, relation_type: CASE_TRADEOFF, object_id: n_cms_example_egg_tradeoff, valid_from: "2026-09-29" }
+  - { subject_id: n_cms_example_egg_case, relation_type: CASE_LIMITATION, object_id: n_cms_example_egg_limit, valid_from: "2026-09-29" }
 
 knowledge_items:
   - id: ki_cms_example_distillation
@@ -248,6 +260,51 @@ knowledge_items:
     verification_status: unverified
     mcq_disabled: true
     last_verified_at: "2026-09-29T00:00:00.000Z"
+  - id: ki_cms_example_zwarte_kip
+    subject_id: n_cms_example_other_liqueur
+    relation_type: PRINCIPLE_EXPLANATION
+    object_id: n_cms_example_zwarte_kip
+    domain_id: service
+    assertion_text: "Lucas Bols describes Zwarte Kip Advocaat as a thick egg liqueur made with fresh free-range eggs and brandy. It is a concrete example outside fruit, citrus, herb, bean/nut and flower flavour requests in the CMS study inventory. The syllabus's 'non-classified' heading is not an EU legal category or a claim that every such liqueur uses eggs; EU law separately defines egg liqueur or advocaat. Check the current bottle and dietary needs."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-29T00:00:00.000Z"
+  - id: ki_cms_example_egg_action
+    subject_id: n_cms_example_egg_case
+    relation_type: CASE_ACTION
+    object_id: n_cms_example_egg_action
+    domain_id: service
+    assertion_text: "Ask whether eggs are acceptable and check the current list and label. If Zwarte Kip Advocaat is stocked and suits the guest, offer it as an egg-led dessert liqueur. If it is unavailable or eggs must be avoided, discuss a different labelled product instead of promising an equivalent recipe."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-29T00:00:00.000Z"
+  - id: ki_cms_example_egg_reason
+    subject_id: n_cms_example_egg_case
+    relation_type: CASE_REASON
+    object_id: n_cms_example_egg_reason
+    domain_id: service
+    assertion_text: "Lucas Bols identifies Zwarte Kip as an egg liqueur containing fresh free-range eggs and brandy; its own guide places Advocaat near cream styles. It therefore answers a rich, egg-led request rather than a berry, hazelnut or elderflower request."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-29T00:00:00.000Z"
+  - id: ki_cms_example_egg_tradeoff
+    subject_id: n_cms_example_egg_case
+    relation_type: CASE_TRADEOFF
+    object_id: n_cms_example_egg_tradeoff
+    domain_id: service
+    assertion_text: "Baileys Original offers a different cream-liqueur example if stocked and desired, but its maker describes dairy cream and whiskey, not an Advocaat recipe. Treat it as a different option and verify the current label before any dietary recommendation."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-29T00:00:00.000Z"
+  - id: ki_cms_example_egg_limit
+    subject_id: n_cms_example_egg_case
+    relation_type: CASE_LIMITATION
+    object_id: n_cms_example_egg_limit
+    domain_id: service
+    assertion_text: "The CMS 'non-classified' heading is a study grouping, not an ingredient or allergy certification. The maker's account describes one product at publication time; neither it nor the EU egg-liqueur category proves the stocked bottle's full ingredient list or a guest's tolerance."
+    verification_status: unverified
+    mcq_disabled: true
+    last_verified_at: "2026-09-29T00:00:00.000Z"
 
 certification_knowledge_mappings:
   # The distillation principle is on the CMS Introductory column and inherited
@@ -261,6 +318,7 @@ certification_knowledge_mappings:
   - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_example_frangelico, importance: core, minimum_depth: 2 }
   - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_example_st_germain, importance: core, minimum_depth: 2 }
   - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_example_baileys, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_example_zwarte_kip, importance: core, minimum_depth: 2 }
   - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_example_agave_action, importance: core, minimum_depth: 2 }
   - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_example_agave_reason, importance: core, minimum_depth: 2 }
   - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_example_agave_tradeoff, importance: core, minimum_depth: 2 }
@@ -273,6 +331,10 @@ certification_knowledge_mappings:
   - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_example_liqueur_reason, importance: core, minimum_depth: 2 }
   - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_example_liqueur_tradeoff, importance: core, minimum_depth: 2 }
   - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_example_liqueur_limit, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_example_egg_action, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_example_egg_reason, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_example_egg_tradeoff, importance: core, minimum_depth: 2 }
+  - { certification_id: CMS_CERTIFIED, knowledge_item_id: ki_cms_example_egg_limit, importance: core, minimum_depth: 2 }
 
 source_citations:
   - { id: src_cms_example_ec_irish_gi, kind: regulator_register, title: "Irish Whiskey GI: production", publisher: "European Commission", jurisdiction: EU, document_identifier: "Production section: fermentation, pot and column methods, heating, separation and condensation", url: "https://agriculture.ec.europa.eu/farming/geographical-indications-and-quality-schemes/geographical-indications-food-and-drink/irish-whiskey-gi_en", accessed_on: "2026-09-29" }
@@ -281,12 +343,14 @@ source_citations:
   - { id: src_cms_example_bruichladdich_faq, kind: reference_work, title: "Bruichladdich Distillery FAQs", publisher: "Bruichladdich Distillery", jurisdiction: UK, document_identifier: "About our Islay single malts: unpeated Bruichladdich alongside peated ranges", url: "https://www.bruichladdich.com/pages/faqs", accessed_on: "2026-09-29" }
   - { id: src_cms_example_mezcal_nom, kind: regulator_register, title: "NOM-070-SCFI-2016, Bebidas alcohólicas-Mezcal-Especificaciones", publisher: "Secretaría de Economía, Mexico", jurisdiction: MX, document_identifier: "Current-status register marks NOM-070 vigente; standard sections 3.14, 3.17, 4.1 and 6.1", url: "https://platiica.economia.gob.mx/wp-content/uploads/sites/2/PDF_Normas_Publicas/070scfi2017.pdf", accessed_on: "2026-09-29" }
   - { id: src_cms_example_tequila_nom, kind: regulator_register, title: "NOM-006-SCFI-2012, Bebidas alcohólicas-Tequila-Especificaciones", publisher: "Secretaría de Economía, Mexico", jurisdiction: MX, document_identifier: "Current-status register marks NOM-006 vigente; standard sections 4.2, 4.36 and 5.1", url: "https://sidof.segob.gob.mx/notas/docFuente/5282165", accessed_on: "2026-09-29" }
-  - { id: src_cms_example_eu_spirits_annex, kind: regulator_register, title: "Regulation (EU) 2019/787, Annex I", publisher: "European Union", jurisdiction: EU, document_identifier: "Consolidated view 13 May 2024; categories 4, 6 and 9 for wine, grape marc and fruit spirits", url: "https://eur-lex.europa.eu/eli/reg/2019/787", accessed_on: "2026-09-29" }
+  - { id: src_cms_example_eu_spirits_annex, kind: regulator_register, title: "Regulation (EU) 2019/787, Annex I", publisher: "European Union", jurisdiction: EU, document_identifier: "Consolidated view 13 May 2024; categories 4, 6, 9 and 39 for wine, grape marc, fruit spirits and egg liqueur", url: "https://eur-lex.europa.eu/eli/reg/2019/787", accessed_on: "2026-09-29" }
   - { id: src_cms_example_grappa_italian_file, kind: regulator_register, title: "Grappa geographical-indication technical sheet, Annex A", publisher: "Italian Ministry of Agriculture (MASAF)", jurisdiction: IT, document_identifier: "Decree 5389 of 1 August 2011, Annex A, section 1 and section 2(a)", url: "https://www.masaf.gov.it/flex/cm/pages/ServeAttachment.php/L/IT/D/9%252F6%252F2%252FD.4ad8a42a037391ad7e03/P/BLOB%3AID%3D4065/E/pdf", accessed_on: "2026-09-29" }
   - { id: src_cms_example_chambord_maker, kind: reference_work, title: "Our Magnifique Process", publisher: "Chambord", jurisdiction: FR, document_identifier: "The Stages: berry infusions and final blend", url: "https://www.chambordliqueur.com/our-magnifique-process/", accessed_on: "2026-09-29" }
   - { id: src_cms_example_frangelico_maker, kind: reference_work, title: "About Frangelico", publisher: "Frangelico", jurisdiction: IT, document_identifier: "About and How It Is Made Possible: hazelnuts and flavouring", url: "https://frangelico.com/en-us/about/", accessed_on: "2026-09-29" }
   - { id: src_cms_example_st_germain_maker, kind: reference_work, title: "St-Germain FAQ", publisher: "St-Germain", jurisdiction: FR, document_identifier: "What is St-Germain? and How is St-Germain Made?", url: "https://www.stgermainliqueur.com/us/en/faq/", accessed_on: "2026-09-29" }
   - { id: src_cms_example_baileys_maker, kind: reference_work, title: "Baileys Original Irish Cream", publisher: "Baileys", jurisdiction: IE, document_identifier: "Baileys Original Irish Cream product description", url: "https://www.baileys.com/en-ie", accessed_on: "2026-09-29" }
+  - { id: src_cms_example_zwarte_kip_maker, kind: reference_work, title: "Lucas Bols Annual Report 2023–2024", publisher: "The Lucas Bols Company", jurisdiction: NL, document_identifier: "Printed p. 42, Domestic Liqueurs & Spirits: Zwarte Kip Advocaat", url: "https://www.lucasbols.com/files/6/2/1/8/2/The%20Lucas%20Bols%20Company%2023-24%20Annual%20Report_interactive.pdf", accessed_on: "2026-09-29" }
+  - { id: src_cms_example_bols_liqueur_types, kind: reference_work, title: "History and Production of Liqueurs", publisher: "Bols Cocktails", jurisdiction: NL, document_identifier: "3 June 2026, Types of liqueurs: Cream; Advocaat description", url: "https://bols.com/blogs/news/history-and-production-of-liqueurs", accessed_on: "2026-09-29" }
 
 knowledge_item_citations:
   - { knowledge_item_id: ki_cms_example_distillation, source_citation_id: src_cms_example_ec_irish_gi, locator: "Production: fermented wash, pot/column, heated, separated and condensed" }
@@ -302,6 +366,8 @@ knowledge_item_citations:
   - { knowledge_item_id: ki_cms_example_frangelico, source_citation_id: src_cms_example_frangelico_maker, locator: "About and How It Is Made Possible: hazelnut, cocoa, vanilla and coffee" }
   - { knowledge_item_id: ki_cms_example_st_germain, source_citation_id: src_cms_example_st_germain_maker, locator: "FAQ: elderflower blossoms and maceration" }
   - { knowledge_item_id: ki_cms_example_baileys, source_citation_id: src_cms_example_baileys_maker, locator: "Baileys Original Irish Cream description: whiskey, spirits, dairy cream, chocolate and vanilla" }
+  - { knowledge_item_id: ki_cms_example_zwarte_kip, source_citation_id: src_cms_example_zwarte_kip_maker, locator: "Printed p. 42, Zwarte Kip: egg liqueur with fresh free-range eggs and brandy" }
+  - { knowledge_item_id: ki_cms_example_zwarte_kip, source_citation_id: src_cms_example_eu_spirits_annex, locator: "Annex I category 39: egg liqueur or advocaat is a distinct EU legal category" }
   - { knowledge_item_id: ki_cms_example_agave_action, source_citation_id: src_cms_example_mezcal_nom, locator: "NOM-070 section 3.17 defines the Mezcal designation" }
   - { knowledge_item_id: ki_cms_example_agave_action, source_citation_id: src_cms_example_tequila_nom, locator: "NOM-006 section 4.36 defines the Tequila designation" }
   - { knowledge_item_id: ki_cms_example_agave_reason, source_citation_id: src_cms_example_mezcal_nom, locator: "NOM-070 sections 3.14, 4.1 and 6.1(g): qualifying agaves and species labelling" }
@@ -322,6 +388,12 @@ knowledge_item_citations:
   - { knowledge_item_id: ki_cms_example_liqueur_tradeoff, source_citation_id: src_cms_example_chambord_maker, locator: "The Stages: berry ingredients" }
   - { knowledge_item_id: ki_cms_example_liqueur_tradeoff, source_citation_id: src_cms_example_frangelico_maker, locator: "About: hazelnut flavour" }
   - { knowledge_item_id: ki_cms_example_liqueur_limit, source_citation_id: src_cms_example_baileys_maker, locator: "Baileys Original specifically contains dairy cream; current bottle must be checked" }
+  - { knowledge_item_id: ki_cms_example_egg_action, source_citation_id: src_cms_example_zwarte_kip_maker, locator: "Printed p. 42: a conditional egg-led dessert liqueur example" }
+  - { knowledge_item_id: ki_cms_example_egg_reason, source_citation_id: src_cms_example_zwarte_kip_maker, locator: "Printed p. 42: egg liqueur made with fresh free-range eggs and brandy" }
+  - { knowledge_item_id: ki_cms_example_egg_reason, source_citation_id: src_cms_example_bols_liqueur_types, locator: "Types of liqueurs, Cream: Advocaat made from an egg-yolk and spirit emulsion" }
+  - { knowledge_item_id: ki_cms_example_egg_tradeoff, source_citation_id: src_cms_example_baileys_maker, locator: "Baileys Original Irish Cream: dairy cream and Irish whiskey base" }
+  - { knowledge_item_id: ki_cms_example_egg_limit, source_citation_id: src_cms_example_eu_spirits_annex, locator: "Annex I category 39 defines egg liqueur/advocaat; does not define CMS study heading or a bottle's allergy status" }
+  - { knowledge_item_id: ki_cms_example_egg_limit, source_citation_id: src_cms_example_zwarte_kip_maker, locator: "Printed p. 42 producer example cannot verify present restaurant stock" }
 
 question_templates:
   - id: qt_cms_example_recognition
@@ -422,6 +494,16 @@ question_templates:
           correctIndex: 0
           explanation: Baileys Original explicitly includes Irish dairy cream; still confirm the current bottle and guest needs.
           sourceCitationId: src_cms_example_baileys_maker
+        ki_cms_example_zwarte_kip:
+          prompt: Which producer example helps a learner practise the CMS non-classified liqueur heading beyond fruit, nut and flower flavours?
+          options:
+            - Chambord, described through berry infusions.
+            - Frangelico, described through hazelnuts.
+            - Zwarte Kip Advocaat, described through eggs and brandy.
+            - St-Germain, described through elderflower blossoms.
+          correctIndex: 2
+          explanation: Lucas Bols identifies Zwarte Kip as an egg liqueur; CMS does not define a legal non-classified category or name this brand.
+          sourceCitationId: src_cms_example_zwarte_kip_maker
   - id: qt_cms_example_scenario_choice
     relation_type: CASE_ACTION
     direction: forward
@@ -460,6 +542,16 @@ question_templates:
           correctIndex: 0
           explanation: St-Germain's maker identifies elderflower blossoms; any recommendation also needs a stock and preference check.
           sourceCitationId: src_cms_example_st_germain_maker
+        ki_cms_example_egg_action:
+          prompt: A guest wants a rich dessert liqueur rather than fruit or flowers and asks about eggs. Zwarte Kip appears on the list. What should the server do?
+          options:
+            - Serve Zwarte Kip immediately because a menu listing guarantees the current bottle and its ingredients.
+            - Promise that every CMS non-classified liqueur is free from egg and dairy.
+            - Substitute St-Germain because flower liqueurs have the same egg-led profile.
+            - Check the stocked bottle and label, ask whether eggs are acceptable, then offer Zwarte Kip only if suitable.
+          correctIndex: 3
+          explanation: Lucas Bols describes Zwarte Kip as an egg liqueur; a conditional recommendation must verify stock, label and guest needs.
+          sourceCitationId: src_cms_example_zwarte_kip_maker
   - id: qt_cms_example_case_agave
     relation_type: CASE_ACTION
     direction: forward
@@ -497,3 +589,18 @@ question_templates:
     parameters:
       scope_node_ids: [n_cms_example_liqueur_case]
       key_points: {CASE_ACTION: Floral response, CASE_REASON: Product ingredients, CASE_TRADEOFF: Other flavour families, CASE_LIMITATION: Stock and dietary check}
+  - id: qt_cms_example_case_egg
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: cms_egg_liqueur_service
+    prompt_template: >-
+      A guest wants a rich dessert liqueur beyond fruit, nut and flower notes.
+      Zwarte Kip Advocaat appears on the menu, but you have not checked the
+      current bottle and the guest asks about eggs. Explain what you would
+      check, when this product is suitable, how a different cream liqueur
+      changes the offer, and why the CMS non-classified heading cannot settle
+      dietary safety.
+    parameters:
+      scope_node_ids: [n_cms_example_egg_case]
+      key_points: {CASE_ACTION: Conditional offer, CASE_REASON: Egg-led product, CASE_TRADEOFF: Different cream option, CASE_LIMITATION: Label and allergy check}

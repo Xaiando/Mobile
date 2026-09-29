@@ -44,3 +44,5 @@ Sant'Ilario, Cerliana and Valardegna had no Wikidata item that could be checked 
 ## Not claimed
 
 This file does not state the Pieve blend, the minimum ageing, or which vintage may be sold. Those rules need their own reading of the product specification before they become cards. Nine mapped units are not the complete set of twelve.
+
+The 29 September 2026 [fine-map evidence review](fine-map-roadblocks-2026-09-29.md) checks the official textual boundaries, Tuscany's georeferenced historical toponyms and their ShareAlike licences. The three points remain held back.

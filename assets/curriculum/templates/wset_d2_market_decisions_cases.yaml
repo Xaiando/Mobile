@@ -1,0 +1,62 @@
+# The written cases permit more than one justified answer; roles are learner-checked.
+question_templates:
+  - id: qt_wset_d2_supply_and_demand_case
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: wset_d2_supply_and_demand_case
+    prompt_template: >-
+      Hypothetical wine merchant: a region's next vintage is 15% smaller, while its existing
+      bottled stock is available and orders from the merchant's restaurant accounts have also
+      slowed. A supplier asks for a 15% price increase solely because of the vintage loss.
+      No category-wide demand, stock age, competing supply, supplier cost or price elasticity
+      is supplied. Explain a defensible buying or pricing decision, why both market sides
+      matter, a commercial trade-off and a limitation. More than one approach may be justified.
+    parameters:
+      scope_node_ids: [n_d2_case_supply_and_demand]
+      key_points:
+        CASE_ACTION: Decision
+        CASE_REASON: Reason
+        CASE_TRADEOFF: Trade-off
+        CASE_LIMITATION: Limit or condition
+  - id: qt_wset_d2_market_launch_case
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: short_answer
+    variant: wset_d2_market_launch_case
+    prompt_template: >-
+      Hypothetical winery: it plans a dry white wine for independent restaurant by-the-glass
+      lists. Its wine-club survey praises a gift carton, but no restaurant buyer has assessed
+      the format, price or service plan. A rival offers a similarly styled wine at a known
+      list price. The winery has a fixed promotional budget and wants repeat restaurant
+      orders within six months. No pilot response or net return is supplied. Explain a
+      defensible market test and objective, the evidence reason, a budget or positioning
+      trade-off and a limitation. More than one approach may be justified.
+    parameters:
+      scope_node_ids: [n_d2_case_market_launch]
+      key_points:
+        CASE_ACTION: Decision
+        CASE_REASON: Reason
+        CASE_TRADEOFF: Trade-off
+        CASE_LIMITATION: Limit or condition
+  - id: qt_wset_d2_market_decisions_case_criteria_2
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: case_criteria
+    variant: wset_d2_market_decisions_case_criteria_2
+    prompt_template: '{subject.name}'
+    parameters:
+      scope_node_ids:
+        - n_d2_case_supply_and_demand
+        - n_d2_case_market_launch
+      distractors:
+        n_d2_case_supply_and_demand:
+          - summary: Approve a 15% selling-price rise solely because crop volume fell 15%
+            explanation: The smaller crop does not determine the price response when restaurant orders also weaken and existing stock is available.
+          - summary: Conclude that slower restaurant orders force every regional wine price down
+            explanation: Weaker orders exert pressure, but the simultaneous supply change and unobserved stocks prevent a fixed direction for every wine.
+        n_d2_case_market_launch:
+          - summary: Scale the gift carton because club approval proves restaurant buying intent
+            explanation: The club survey concerns existing consumers, while target restaurant buyers have not assessed format, price or service.
+          - summary: Declare repeat-order success from initial enquiries and social-media views
+            explanation: Enquiries and views do not measure repeat account orders, campaign cost or the specified six-month outcome.

@@ -31,15 +31,21 @@ void main() {
       .toList();
   final businessIds = business.map((item) => item.id).toSet();
   const authoredBusinessIds = {
+    'ki_biz_models_cooperative_pool',
+    'ki_biz_models_grape_purchase',
+    'ki_biz_models_integration',
     'ki_biz_models_vineyard_commitment',
     'ki_biz_models_custom_capacity',
     'ki_biz_models_custom_scope',
     'ki_biz_models_cooperative_control',
     'ki_biz_models_bulk_purchase',
     'ki_biz_routes_dtc_resources',
+    'ki_biz_routes_dtc_records',
     'ki_biz_routes_downstream_sales',
     'ki_biz_routes_service_scope',
     'ki_biz_routes_partner_fit',
+    'ki_biz_routes_ontrade_fit',
+    'ki_biz_routes_retail_access',
     'ki_biz_routes_reviewable_roles',
   };
   final nodes = {for (final node in dataset.knowledgeNodes) node.id: node};
@@ -496,8 +502,8 @@ void main() {
         'WSET_L1': 132,
         'WSET_L2': 829,
         'WSET_L3': 3439,
-        'CMS_CERTIFIED': 2897,
-        'WSET_L4': 4040,
+        'CMS_CERTIFIED': 2902,
+        'WSET_L4': 4111,
       }.entries) {
         final mappings = await planner.effectiveMappings(entry.key);
         expect(mappings, hasLength(entry.value), reason: entry.key);
@@ -526,7 +532,7 @@ void main() {
       expect(diploma.scope.curriculumComplete, isFalse);
       final d2 = diploma.units.singleWhere((unit) => unit.scope.id == 'D2');
       expect(d2.counts.studied, 32);
-      expect(d2.counts.available, 119);
+      expect(d2.counts.available, 133);
       expect(d2.scope.gap, isNotEmpty);
       for (final unit in diploma.units.where((unit) => unit.scope.id != 'D2')) {
         expect(unit.counts.studied, 0, reason: unit.scope.id);
@@ -544,7 +550,7 @@ void main() {
         132,
         829,
         3439,
-        4040,
+        4111,
       ]);
       expect(
         snapshot.levels.take(3).map((level) => level.counts.studied),

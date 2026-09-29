@@ -915,6 +915,12 @@ tracks:
             - n_d1target_qc_haccp
             - n_d1target_qc_iso_trace
             - n_d1target_case_qc
+            - n_d1vp_smoke
+            - n_d1vp_case_smoke
+            - n_d1vp_pouch
+            - n_d1vp_can
+            - n_d1vp_glass
+            - n_d1vp_case_pack
             - n_fault_principle_oxidative_style
             - n_fault_principle_oxidative_aroma
             - n_fault_principle_chemical_oxidation
@@ -997,7 +1003,7 @@ tracks:
         tasks: [DIP-2]
       - id: wset_l4.business.marketing
         label: Build and evaluate a wine marketing decision
-        covers: {within: [n_biz_customer_segment, n_biz_primary_research, n_biz_cost_plus, n_biz_value_pricing, n_biz_competitor_pricing, n_biz_price_review, n_biz_case_wine_discount, n_d2_marketing_mix]}
+        covers: {within: [n_biz_customer_segment, n_biz_primary_research, n_biz_cost_plus, n_biz_value_pricing, n_biz_competitor_pricing, n_biz_price_review, n_biz_case_wine_discount, n_d2_marketing_mix, n_d2_competitor_baseline, n_d2_target_sample, n_d2_marketing_objective, n_d2_campaign_review, n_d2_case_market_launch]}
         tasks: [DIP-2]
 
       # D3: existing places support regional study; analytical content is partial.
@@ -1783,11 +1789,13 @@ tracks:
       - id: wset_l4.sparkling.france
         label: Compare French sparkling-wine contexts
         covers:
-          within: [n_geo_champagne_region, n_geo_cremant_d_alsace, n_geo_saumur, n_geo_vouvray,
+          within: [n_geo_champagne_region, n_geo_cremant_d_alsace, n_geo_cremant_de_loire,
+            n_geo_saumur, n_geo_vouvray,
             n_d4depth_principle_champ_reserve, n_d4depth_principle_champ_vintage,
             n_d4depth_principle_champ_rose, n_d4depth_principle_alsace_grapes,
             n_d4depth_principle_alsace_harvest, n_d4depth_principle_loire_variety,
-            n_d4depth_case_champagne_house]
+            n_d4depth_case_champagne_house, n_geo_cremant_de_bourgogne,
+            n_d4d5_principle_bourgogne_base, n_d4d5_principle_saumur_bottle]
         tasks: [DIP-4, C2, G10]
       - id: wset_l4.sparkling.germany
         label: Study German sparkling-wine choices
@@ -1802,7 +1810,9 @@ tracks:
             n_d4depth_principle_prosecco_tank, n_d4depth_principle_prosecco_rive,
             n_d4depth_principle_prosecco_rose, n_d4depth_principle_franciacorta_method,
             n_d4depth_principle_franciacorta_saten, n_d4depth_principle_asti_moscato,
-            n_d4depth_case_rive_offer]
+            n_d4depth_case_rive_offer, n_d4d5_principle_trento_riserva,
+            n_d4d5_principle_sorbara_dry, n_d4d5_principle_grasparossa_body,
+            n_d4d5_case_italian_list]
         tasks: [DIP-4, C3, G11]
       - id: wset_l4.sparkling.spain
         label: Study Cava and its regional contexts
@@ -1972,6 +1982,8 @@ tracks:
             - n_d5f_principle_sherry_manzanilla
             - n_d5f_principle_sherry_vos
             - n_d5f_case_sherry_vos_stock
+            - n_d4d5_principle_palo_route
+            - n_d4d5_principle_palo_dry
         tasks: [DIP-5, C3, G11]
       - id: wset_l4.fortified.port
         label: Study Port through its places and wines
@@ -1991,6 +2003,10 @@ tracks:
             - n_d5f_principle_port_terraces
             - n_d5f_principle_port_beneficio
             - n_d5f_case_port_offer
+            - n_d4d5_principle_lbv_vintage
+            - n_d4d5_principle_colheita_cask
+            - n_d4d5_principle_white_port_age
+            - n_d4d5_case_port_release
         tasks: [DIP-5, C3, G11]
       - id: wset_l4.fortified.madeira
         label: Study Madeira through its places and wines
@@ -2740,6 +2756,8 @@ tracks:
           within:
             - n_cms_example_liqueur_families
             - n_cms_example_liqueur_case
+            - n_cms_example_other_liqueur
+            - n_cms_example_egg_case
             - n_cms_liqueur_extraction
             - n_cms_liqueur_case
             - n_somm_basic_liqueur

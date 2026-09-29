@@ -1,0 +1,223 @@
+# Complete, cited Diploma winemaking decisions. Each four-role pool complements
+# the original written case; its two false responses are specific to the case
+# facts, and no automatic prose grade is claimed. Assertions await expert review.
+question_templates:
+  - id: qt_wset_l4_winemaking_case_criteria_23
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: case_criteria
+    variant: wset_l4_winemaking_case_criteria
+    prompt_template: '{subject.name}'
+    parameters:
+      scope_node_ids:
+        - n_d1target_case_nolo
+        - n_d1target_case_pack
+        - n_d1target_case_qc
+        - n_d3rt_case_margaret_blend
+        - n_d4depth_case_british_frost
+        - n_d4depth_case_cava_upgrade
+        - n_d4depth_case_champagne_house
+        - n_d4depth_case_rive_offer
+        - n_d4nw_case_australian_offer
+        - n_d5f_case_fortified_list
+        - n_d5f_case_port_offer
+        - n_d5f_case_sherry_vos_stock
+        - n_fault_case_brett_rising
+        - n_fault_case_sporadic_sweet_spoilage
+        - n_fault_case_sulfur_before_bottling
+        - n_fort_case_madeira_slow
+        - n_fort_case_vdn_fresh
+        - n_reg_fe_case_jura_white_comparison
+        - n_reg_oa_case_hunter_toast
+        - n_reg_oa_case_mclaren_cap_trial
+        - n_reg_sa_case_itata_skin_trial
+        - n_spark_case_gushing_batch
+        - n_spark_case_long_closure
+      scenario_prompts:
+        n_d1target_case_nolo: >-
+          An importer asks for a very low-alcohol white at a fixed retail ceiling.
+          The cellar has sound base wine but no post-reduction sensory or stability
+          data. Compare a supervised alcohol-reduction trial with simply making a
+          label promise; weigh likely style and cost effects and identify the tests
+          and legal checks needed before release.
+        n_d1target_case_pack: >-
+          A distant-market buyer wants a lighter pack for an early-drinking white.
+          Compare local glass bottling with controlled bulk shipment and destination
+          filling into a lighter format. Consider oxygen, temperature, shelf life,
+          style, quality and full landed cost, then name the records needed.
+        n_d1target_case_qc: >-
+          A new filler shows a contamination signal and one pallet has an incomplete
+          lot link. Sales wants immediate release. Decide how to hold and investigate
+          stock, distinguishing hygiene, hazard controls, ISO certification and
+          traceability, then discuss the cost and uncertainty of the response.
+        n_d5f_case_fortified_list: >-
+          A restaurant has one new dessert-wine slot and wants a strongly sweet,
+          mature fortified style. It can sample Sercial Madeira, Maury Tuilé and
+          classified Rutherglen Muscat but has no current tasting scores, sugar
+          specifications or landed prices. Shortlist sensibly, compare styles, weigh
+          the single-slot tradeoff and state what remains unproven.
+        n_d5f_case_port_offer: >-
+          A restaurant can carry one mature Port. A supplier offers a multi-harvest
+          20-year-old Tawny and a dated Colheita. Both fit shelf space, but no current
+          tasting sample or landed quote is supplied. Recommend a buying process,
+          explain the category distinction and inventory tradeoff, and identify the
+          evidence needed before declaring either wine better.
+        n_d5f_case_sherry_vos_stock: >-
+          A Jerez house has 1,500 L in a qualifying solera and proposes a 100 L V.O.S.
+          withdrawal. For this exercise assume no other withdrawals or replenishment
+          and a Consejo rule of at least 20 L remaining for each 1 L sold. Calculate
+          the maximum theoretical release, its stock tradeoff and another certification
+          condition that arithmetic alone cannot establish.
+        n_fault_case_brett_rising: >-
+          A laboratory identifies Brettanomyces in a barrel lot after malolactic
+          conversion, and repeated analyses show rising volatile phenols. The wine
+          should retain clean fruit. Propose control of continued growth and an
+          assessment of existing sensory impact, with treatment tradeoffs and limits.
+        n_fault_case_sporadic_sweet_spoilage: >-
+          Some bottles of a packaged still sweet wine develop unexpected gas and haze
+          while peers appear clear. The producer wants to blame the filter without
+          testing the wine or filling line. Investigate the wine and whole packaging
+          route, explain the possible contamination mechanism, cost and uncertainty.
+        n_fault_case_sulfur_before_bottling: >-
+          A finished white wine awaiting bottling smells of rotten egg and onion.
+          The producer proposes an unmeasured last-minute copper addition followed
+          by filtration. Give a diagnostic trial and controlled treatment plan,
+          considering distinct sulfur species, aroma loss and residual-copper risk.
+        n_fort_case_madeira_slow: >-
+          A Madeira lot selected for prolonged cask maturation in warm canteiro
+          cellars faces a demand for immediate release. Sales claims that brief
+          artificial heating guarantees the same mature profile. Explain a
+          defensible style plan, the time and evaporation tradeoff, and its limits.
+        n_fort_case_vdn_fresh: >-
+          A Muscat de Rivesaltes batch is intended for a youthful, floral-fruit
+          style. The team proposes copying prolonged air-contact maturation from
+          an oxidative Ambré VDN. Recommend a more suitable maturation direction,
+          explain the freshness aim, tradeoff and style limitation.
+        n_spark_case_gushing_batch: >-
+          A traditional-method sparkling batch gushes on opening although the
+          recorded gas-generating sugar addition appears appropriate. Some bottles
+          contain tartrate crystals and residual lees. Investigate before release,
+          explain particle-driven degassing, weigh reworking cost and state other
+          causes that still require checking.
+        n_spark_case_long_closure: >-
+          A traditional-method sparkling cuvée is intended for extended bottle lees
+          ageing while retaining carbonation and relatively fresh fruit character.
+          Two suitable crown closures differ in gas permeability. Storage temperature
+          varies and climate control uses resources. Choose a closure and storage
+          investigation, with gas-exchange rationale, costs and limitations.
+      distractors:
+        n_d1target_case_nolo:
+          - summary: Promise the low-alcohol label from the untreated base wine before trial or legal check
+            explanation: Sound base wine does not establish final alcohol, sensory balance, stability or label eligibility after reduction.
+          - summary: Judge the reduced wine solely by its final alcohol number and ignore aroma or microbial change
+            explanation: Ethanol removal may alter sensory balance and preservative contribution, so the actual treated wine needs assessment.
+        n_d1target_case_pack:
+          - summary: Choose bulk shipment because less glass weight proves lower total cost and better sensory quality
+            explanation: Destination filling adds transfers and assurance work, and the route needs a full cost and quality comparison.
+          - summary: Choose local glass filling without checking freight weight, package barrier or destination conditions
+            explanation: The alternative may save freight, but controlled tests and landed-cost records must decide the route.
+        n_d1target_case_qc:
+          - summary: Release the pallet because a routine cleaning schedule proves this contamination signal harmless
+            explanation: A current signal and broken lot link require investigation; a past cleaning schedule does not resolve either.
+          - summary: Declare every filler defect a certified ISO 22000 critical control point from the name alone
+            explanation: Hazard analysis and actual certification evidence are distinct; not every defect is a food-safety CCP.
+        n_d3rt_case_margaret_blend:
+          - summary: Scale the oak-influenced blend from the small cellar panel preference without buyer or margin evidence
+            explanation: The fruit-led trial meets the buyer's brief; a small panel does not establish demand or justify the extra maturation cost.
+          - summary: Attribute the two wines' texture difference solely to Margaret River origin despite changed blend and oak
+            explanation: The coded trials deliberately vary production choices, so origin alone cannot explain the contrast.
+        n_d4depth_case_british_frost:
+          - summary: Promise the full two-year volume before measuring frost exposure or checking reserve availability
+            explanation: Early budburst, frost risk and modest reserves make a fixed supply promise unsupported by the given evidence.
+          - summary: Sell all reserve wine immediately because frost protection will guarantee the next harvest
+            explanation: Protection has cost and cannot guarantee yield, while reserves help manage non-vintage supply.
+        n_d4depth_case_cava_upgrade:
+          - summary: Include the uncertified contracted fruit in the intended Guarda Superior Reserva to reach volume
+            explanation: The case identifies an organic-source eligibility issue; fruit and documentation must be checked before that category claim.
+          - summary: Treat 18 months of capacity as complete proof of eligibility, quality and profitable release
+            explanation: Time alone does not establish the certified sourcing, lot traceability, finished balance or achieved price.
+        n_d4depth_case_champagne_house:
+          - summary: Put all warm-harvest wine into vintage stock immediately because vintage labelling fixes house style
+            explanation: The non-vintage brief calls for blend trials, and a vintage claim does not prove sensory balance or saleability.
+          - summary: Add the maximum available reserve wine without tasting or accounting for cellar capacity
+            explanation: Reserves can moderate variation, but their proportion and holding cost require trials and allocation.
+        n_d4depth_case_rive_offer:
+          - summary: List the Rive solely from its named origin and hand-harvest record without tasting against the fruit-led brief
+            explanation: Those documents support origin and production context, not sensory fit or customer value for this list.
+          - summary: Assume Extra Dry must taste less sweet than Extra Brut and choose it without checking the samples
+            explanation: The dosage terms differ from that everyday-language inference; actual balance and price still need tasting.
+        n_d4nw_case_australian_offer:
+          - summary: Award the Tasmania wine a higher quality score from origin, lees time and cost before panel tasting
+            explanation: Method and maturation create testable style hypotheses, not a quality verdict for these unassessed bottles.
+          - summary: Reject the tank-method offer solely because it is cheaper despite a fresh-fruit target and trial capacity
+            explanation: The less expensive wine might meet part of the brief; comparative tasting and margin checks are available.
+        n_d5f_case_fortified_list:
+          - summary: Fill the strongly sweet slot with Sercial Madeira because all mature fortified wine is sweet
+            explanation: Sercial is the dry Madeira lead in this comparison; the sweet candidates need current tasting and specifications.
+          - summary: Rank Maury and Rutherglen Muscat by origin prestige without checking sweetness or landed margin
+            explanation: The case has no present sample scores, sugar figures or quotes, so a label cannot settle the listing.
+        n_d5f_case_port_offer:
+          - summary: Choose Colheita because one harvest date proves it better than a multi-harvest age-indicated Tawny
+            explanation: Harvest and category information do not establish current condition, sensory quality or local demand.
+          - summary: Choose the 20-year Tawny from its indication alone without tasting or calculating landed cost
+            explanation: The age indication describes a category, not the wine's fit, bottle condition or profit for this buyer.
+        n_d5f_case_sherry_vos_stock:
+          - summary: Withdraw 75 L because 1,500 divided by 20 is the permitted release
+            explanation: The 20-to-1 requirement applies to the stock remaining after withdrawal, so 1,500 minus x must be at least 20x.
+          - summary: Release all 100 L because its original 1,500 L stock exceeded twenty times the withdrawal
+            explanation: A 100 L withdrawal leaves 1,400 L, only fourteen times the volume sold under the stated rule.
+        n_fault_case_brett_rising:
+          - summary: Stop further Brett growth and claim that this also removes existing volatile phenols
+            explanation: Growth control can limit new formation but does not erase phenols already present in wine.
+          - summary: Strip all volatile compounds without trial because the treatment cannot remove desirable aromas
+            explanation: Remedial removal may also reduce positive aroma, so controlled trials and sensory assessment matter.
+        n_fault_case_sporadic_sweet_spoilage:
+          - summary: Blame the filter alone from a few gassy bottles without investigating downstream filling
+            explanation: Contamination can occur after filtration; wine, line and packaging records all require review.
+          - summary: Release the apparently clear peer bottles as proof that the sweet lot is microbiologically stable
+            explanation: Sporadic visible spoilage does not prove unaffected bottles are stable or remove the need for testing.
+        n_fault_case_sulfur_before_bottling:
+          - summary: Add copper to the full batch immediately because every sulfur species responds the same way
+            explanation: Sulfur compounds differ; identify species and trial a measured response before bulk treatment.
+          - summary: Assume filtration removes all residual copper and has no effect on positive wine aroma
+            explanation: Residual copper and aroma loss are treatment risks that need analysis after a controlled trial.
+        n_fort_case_madeira_slow:
+          - summary: Replace the selected prolonged canteiro route with brief artificial heating as an identical shortcut
+            explanation: The proposed shortcut is not evidence of the same mature profile for this chosen lot and style.
+          - summary: Release now because warm storage proves mature balance without checking the wine
+            explanation: Time, conditions, evaporation and tasting all matter; warm location alone is not a finished-wine assessment.
+        n_fort_case_vdn_fresh:
+          - summary: Use prolonged air-contact maturation because all Muscat de Rivesaltes should become oxidative
+            explanation: The stated batch aims for youthful floral fruit; an oxidative route would pursue another style.
+          - summary: Describe a youthful aromatic wine as necessarily dry because it has little mature character
+            explanation: Sweetness and maturation are separate choices; floral freshness does not establish residual sugar.
+        n_reg_fe_case_jura_white_comparison:
+          - summary: Attribute the walnut and citrus contrast solely to vineyard soil despite documented maturation differences
+            explanation: Topping-up versus surface-veil ageing differs, and vineyard source also changes, so soil is not isolated.
+          - summary: Rank the non-topped Savagnin higher in quality from its oxidative aroma without blind assessment
+            explanation: The aroma is a style observation, not proof of superior quality or origin.
+        n_reg_oa_case_hunter_toast:
+          - summary: Infer barrel ageing from the mature Semillon's toast note despite the no-oak producer records
+            explanation: Bottle development can produce toast character in Hunter Semillon; records expressly exclude oak.
+          - summary: Attribute all differences to bottle age despite different vintages, vineyard lots and incomplete storage data
+            explanation: Those variables confound an isolated ageing explanation for this pair.
+        n_reg_oa_case_mclaren_cap_trial:
+          - summary: Declare the intensive pump-over trial faulty because its sound tannin is too firm for this brief
+            explanation: Trial B is sound but does not fit the specified early-drinking target; another style brief could differ.
+          - summary: Scale the gentle trial without checking saleable quantity or the labour needed beyond pilot scale
+            explanation: The sensory result supports a next trial, but scale and operational cost remain unknown.
+        n_reg_sa_case_itata_skin_trial:
+          - summary: Choose the tinaja wine as higher quality because clay alone caused the structure
+            explanation: Skin contact and vessel differ together; the samples do not isolate clay or establish buyer acceptance.
+          - summary: Offer only the delicate pressed wine despite the buyer's explicit structured dry-white brief
+            explanation: The structured sample deserves a buyer trial; the producer should compare both against the actual target.
+        n_spark_case_gushing_batch:
+          - summary: Lower the next sugar addition and release this batch without checking crystals or residual lees
+            explanation: Particles can trigger rapid degassing in already bottled wine; sugar alone is not the complete cause.
+          - summary: Treat every gushing bottle as identical without sampling stability and sediment differences
+            explanation: The observed crystals and lees call for bottle-level checks, while other causes also remain possible.
+        n_spark_case_long_closure:
+          - summary: Select the most permeable liner because greater gas exchange always preserves carbonation
+            explanation: Seal permeability can increase carbon dioxide loss and oxygen exposure during long storage.
+          - summary: Rely on ageing lees alone to protect fresh character while cellar temperatures vary widely
+            explanation: Lees oxygen consumption may decline with time, and temperature remains part of the protection plan.

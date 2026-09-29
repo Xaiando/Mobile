@@ -1,0 +1,82 @@
+# Original scenario choices on D2 supply/demand and marketing decisions.
+question_templates:
+  - id: qt_wset_d2_market_decisions_choice_6
+    relation_type: PRINCIPLE_EXPLANATION
+    direction: forward
+    mode: authored_choice
+    variant: wset_d2_market_decisions_choice_6
+    prompt_template: '{subject.name}'
+    parameters:
+      item_choices:
+        ki_d2_paired_shifts:
+          prompt: >-
+            A region harvests less wine than last year, while buyers also reduce orders.
+            No sizes of the market-wide shifts are supplied. Which price claim is justified?
+          options:
+            - Price may rise or fall; compare the size of both market shifts
+            - The market price must rise by the same percentage as the vintage shortfall
+            - The market price must fall because any reduction in demand dominates
+            - The market price is fixed because both changes lower traded volume
+          correctIndex: 0
+          explanation: Opposing price pressures can accompany simultaneous lower supply and demand; their relative sizes and responsiveness determine the result.
+          sourceCitationId: src_d2_fed_supply_demand
+        ki_d2_market_stock_context:
+          prompt: >-
+            A merchant cites low 2025 global production as proof that its particular wine
+            will be scarce. What additional evidence most directly tests that claim?
+          options:
+            - The global vineyard area alone, without bottle stocks or current orders
+            - Available stock and demand for the specific category and buying market
+            - The number of awards received by the supplier's other wines
+            - A single wine's producer price before freight or route margins
+          correctIndex: 1
+          explanation: OIV's world assessment describes low output together with softer consumption and stock adjustment, so global vintage volume alone cannot establish a category shortage.
+          sourceCitationId: src_d2_oiv_world_2025
+        ki_d2_competitor_baseline:
+          prompt: >-
+            A winery wants to position a new wine for specialist retail. It knows a rival's
+            shelf price but little else. What would most improve its market analysis?
+          options:
+            - Copy the rival's label and price before asking how buyers use the wine
+            - Assume a lower price always creates a better distinct retail position
+            - Compare target-buyer needs and competing offers, prices and channels
+            - Set a campaign budget from the rival's shelf price alone
+          correctIndex: 2
+          explanation: Competitor price is one input. Product fit, target buyers, channels and competing positioning establish a more useful baseline.
+          sourceCitationId: src_d2_au_market_research
+        ki_d2_target_sample:
+          prompt: >-
+            A winery's club members favour a gift carton for its new dry white wine.
+            The intended buyers are restaurant wine directors. Which next test fits that target?
+          options:
+            - Treat the club preference as a representative restaurant purchasing survey
+            - Send the gift carton unchanged to every restaurant without buyer contact
+            - Replace buyer research with a count of the winery's social followers
+            - Ask suitable restaurant buyers about format, price and service needs
+          correctIndex: 3
+          explanation: Existing club members can inform research, but intended restaurant buyers should assess an offer built for their own use and buying criteria.
+          sourceCitationId: src_d2_au_market_research
+        ki_d2_marketing_objective:
+          prompt: >-
+            A winery says its objective is 'post more about our restaurant wine.' Which
+            revision makes the objective assessable against the intended market?
+          options:
+            - Set a dated, measurable target for restaurant reorders with a baseline
+            - Publish extra posts whenever the team has available time
+            - Ask the designer to make the label more visible online
+            - Spend the entire budget on impressions without checking account response
+          correctIndex: 0
+          explanation: Activity alone is not the desired outcome. A relevant target, measure, baseline and review period permit assessment.
+          sourceCitationId: src_d2_au_marketing_plan
+        ki_d2_campaign_review:
+          prompt: >-
+            A wine campaign generates many online views, but its objective is repeat
+            restaurant orders and its budget is capped. Which review is most relevant?
+          options:
+            - Declare success from views alone and repeat the same spend next month
+            - Compare restaurant reorder evidence and full campaign cost with the stated repeat-order target
+            - Count only the number of posters printed, regardless of who bought wine
+            - Assume each initial account enquiry has produced profitable repeat sales
+          correctIndex: 1
+          explanation: The review must connect measured target-market response and costs to the stated objective, rather than equate exposure with repeat orders.
+          sourceCitationId: src_d2_au_marketing_plan
