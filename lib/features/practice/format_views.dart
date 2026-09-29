@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'formats/flashcard_view.dart';
+import 'formats/case_criteria_view.dart';
 import 'formats/map_identify_view.dart';
 import 'formats/map_locate_view.dart';
 import 'formats/map_pair_view.dart';
@@ -77,6 +78,10 @@ final formatViewsProvider = Provider<Map<String, FormatView>>(
     'short_answer': FormatView(
       icon: Icons.edit_note,
       builder: ShortAnswerView.new,
+    ),
+    'case_criteria': FormatView(
+      icon: Icons.account_tree_outlined,
+      builder: CaseCriteriaView.new,
     ),
   },
 );

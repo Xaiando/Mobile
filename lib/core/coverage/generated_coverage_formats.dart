@@ -1,4 +1,5 @@
 import '../curriculum/reasoning_paths.dart';
+import '../questions/formats/case_criteria/case_criteria_format.dart';
 import '../database/app_database.dart';
 import '../questions/formats/reasoning/reasoning_format.dart';
 import '../study/study_planner.dart';
@@ -71,17 +72,28 @@ final class GeneratedCoverageFormats {
     ]);
   }
 
-  Map<String, List<QuestionFormat>> forMappedItems(Set<String> mappedItems) {
+  Map<String, List<QuestionFormat>> forMappedItems(
+    Map<String, EffectiveMapping> mappings,
+  ) {
+    final mappedItems = mappings.keys.toSet();
     final validPools = {
       for (final id in _validPools)
         if (_poolMembers[id]?.every(mappedItems.contains) ?? false) id,
+    };
+    final completeCasePools = {
+      for (final entry in _poolMembers.entries)
+        if (entry.value.length == 4 &&
+            entry.value.every((id) => (mappings[id]?.minimumDepth ?? 0) >= 2))
+          entry.key,
     };
     final formats = <String, List<QuestionFormat>>{};
     final seen = <(String, String)>{};
     for (final row in _rows) {
       if (!mappedItems.contains(row.itemId) ||
           (row.mode == ReasoningFormat.formatId &&
-              !validPools.contains(row.poolId))) {
+              !validPools.contains(row.poolId)) ||
+          (row.mode == CaseCriteriaFormat.formatId &&
+              !completeCasePools.contains(row.poolId))) {
         continue;
       }
       if (!seen.add((row.itemId, row.templateId))) continue;

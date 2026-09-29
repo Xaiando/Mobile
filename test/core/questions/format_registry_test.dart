@@ -37,6 +37,7 @@ void main() {
       'map_grape',
       'typed',
       'short_answer',
+      'case_criteria',
       'reasoning',
       'numeric',
     ]);
@@ -70,6 +71,8 @@ void main() {
     );
     expect(builtFormats['mcq']!.isObjective, isTrue);
     expect(builtFormats['flashcard']!.family, FormatFamily.recall);
+    expect(builtFormats['case_criteria']!.isObjective, isTrue);
+    expect(builtFormats['case_criteria']!.family, FormatFamily.structured);
   });
 
   test('the validator knows only the registered formats', () {

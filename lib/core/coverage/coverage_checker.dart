@@ -80,7 +80,7 @@ final class CoverageChecker {
     final generated = (await GeneratedCoverageFormats.read(
       db,
       on: on,
-    )).forMappedItems(mappings.keys.toSet());
+    )).forMappedItems(mappings);
     final templates = await db.select(db.questionTemplates).get();
     final modesOf = <String, Set<String>>{};
     final pooledModes = <String>{};

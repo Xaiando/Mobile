@@ -134,7 +134,7 @@ void main() {
         final business = report.domains.singleWhere(
           (row) => row.id == 'business',
         );
-        expect(business.counts[CoverageMetric.coreUsefulPractice], 60);
+        expect(business.counts[CoverageMetric.coreUsefulPractice], 99);
         expect(business.counts[CoverageMetric.core], 99);
       } finally {
         await db.close();

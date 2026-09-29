@@ -383,7 +383,7 @@ class WsetProgressRepository {
         for (final card in await _planner.cards(level.certificationId))
           if (card.formats.isNotEmpty) card.itemId: card,
       };
-      final generated = generatedFormats.forMappedItems(mappings.keys.toSet());
+      final generated = generatedFormats.forMappedItems(mappings);
       final coreItems = mapped.where(
         (item) => mappings[item.id]?.importance == 'core',
       );

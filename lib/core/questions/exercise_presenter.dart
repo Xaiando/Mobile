@@ -35,7 +35,7 @@ class ExercisePresenter {
       db.questionTemplates,
     )..where((t) => t.id.equals(questionTemplateId))).getSingle();
     Set<String>? allowedItems;
-    if (template.mode == 'short_answer') {
+    if (template.mode == 'short_answer' || template.mode == 'case_criteria') {
       final profile = await db.select(db.userProfiles).getSingleOrNull();
       final track = certificationId ?? profile?.activeCertificationId;
       if (track != null) {
@@ -46,18 +46,23 @@ class ExercisePresenter {
           formats: formats,
           clock: _clock,
         ).cards(track);
-        allowedItems = {
+        final readyItems = {
           for (final card in cards)
             if (card.formats.any(
               (format) => format.questionTemplateId == template.id,
             ))
               card.itemId,
         };
-        if (!allowedItems.contains(itemId)) {
+        if (!readyItems.contains(itemId)) {
           throw ArgumentError(
-            'This track does not serve short_answer for $itemId',
+            'This track does not serve ${template.mode} for $itemId',
           );
         }
+        // The whole-case rubric needs the three already-studied co-items,
+        // though only the ready planned item is offered by the ladder.
+        allowedItems = template.mode == 'case_criteria'
+            ? {for (final card in cards) card.itemId}
+            : readyItems;
       }
     } else if (template.mode == 'reasoning' || template.mode == 'map_pair') {
       final profile = await db.select(db.userProfiles).getSingleOrNull();

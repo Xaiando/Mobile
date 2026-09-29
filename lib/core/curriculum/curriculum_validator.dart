@@ -2,6 +2,7 @@ import 'package:drift/drift.dart' show DataClass;
 
 import '../questions/format_registry.dart';
 import '../questions/formats/authored_choice/authored_choice_format.dart';
+import '../questions/formats/case_criteria/case_criteria_format.dart';
 import '../questions/formats/short_answer/short_answer_format.dart';
 import '../questions/formats/reasoning/reasoning_format.dart';
 import '../questions/formats/typed/typed_format.dart';
@@ -1046,6 +1047,15 @@ class _Validator {
                 row: _ref('question_templates', t),
               );
             }
+          }
+        }
+        if (t.mode == CaseCriteriaFormat.formatId && problems.isEmpty) {
+          for (final problem in CaseCriteriaFormat.datasetProblems(t, d)) {
+            error(
+              'template-parameters',
+              '${t.id}: $problem',
+              row: _ref('question_templates', t),
+            );
           }
         }
         if (t.mode == ReasoningFormat.formatId && problems.isEmpty) {
