@@ -304,23 +304,14 @@ void main() {
         (domain) => domain.id == 'winemaking',
       );
       expect(winemaking.counts[CoverageMetric.core], 667);
-      expect(
-        winemaking.counts[CoverageMetric.coreUsefulPractice],
-        greaterThanOrEqualTo(648),
-      );
+      expect(winemaking.counts[CoverageMetric.coreUsefulPractice], 667);
       final remaining = audit.items.where(
         (row) =>
             row.item.domainId == 'winemaking' &&
             row.isCore &&
             !row.hasUsefulPractice,
       );
-      expect(
-        remaining
-            .map((row) => row.item.subjectId)
-            .toSet()
-            .difference(_reservedBusinessSubjects),
-        isEmpty,
-      );
+      expect(remaining, isEmpty);
       final cards = {
         for (final card in await StudyPlanner(db).cards('WSET_L4'))
           card.itemId: card,

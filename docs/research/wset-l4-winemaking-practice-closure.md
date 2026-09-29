@@ -13,6 +13,12 @@ Riesling offer and Mendoza yeast trial. Those pools are excluded here to
 avoid duplicate case exercises. Once that batch is integrated, the expected
 winemaking result is 667/667; recompute it rather than assuming the merge.
 
+The combined release 0.24.54 baseline was subsequently regenerated with the
+business case pools present and measured **667/667** winemaking core items
+with useful practice. Its full WSET Level 4 authored core measure is
+**2,766/2,766**; see the [current checkpoint](wset-l4-practice-checkpoint-2026-09-29.md)
+for what this number does and does not establish.
+
 All question explanations are narrower than their existing, cited curriculum
 assertions. The new questions do not alter fact text, geography, legal
 effective dates or expert-verification state. The test checks every keyed

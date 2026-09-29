@@ -360,7 +360,7 @@ void main() {
   );
 
   test(
-    '1619 cited choices are generated and served across WSET and CMS tracks',
+    '1670 cited choices are generated and served across WSET and CMS tracks',
     () async {
       final db = openTestDatabase();
       try {
@@ -385,7 +385,7 @@ void main() {
                   template.id == 'qt_d5f_authored_choice',
             )
             .toList();
-        expect(templates, hasLength(77));
+        expect(templates, hasLength(80));
         final expectedIds = {
           for (final template in templates)
             ...((jsonDecode(template.parameters!)
@@ -581,6 +581,13 @@ void main() {
           ...idsForTemplate('qt_wset_l4_viticulture_causal_causes_state'),
           ...idsForTemplate('qt_wset_l4_viticulture_causal_leads_to'),
         };
+        final l4WinemakingPrincipleIds = {
+          ...idsForTemplate('qt_wset_l4_winemaking_principles_global_22'),
+          ...idsForTemplate('qt_wset_l4_winemaking_principles_regional_27'),
+        };
+        final l4WinemakingCausalIds = idsForTemplate(
+          'qt_wset_l4_winemaking_causal_closure_2',
+        );
         final d3RegionalIds = idsForTemplate('qt_d3rt_regional_choice');
         final d4RegionalIds = idsForTemplate('qt_d4depth_regional_choices');
         final d5FortifiedIds = idsForTemplate('qt_d5f_authored_choice');
@@ -621,6 +628,8 @@ void main() {
           ...diplomaBusinessPrincipleIds,
           ...l4ViticulturePrincipleIds,
           ...l4ViticultureCausalIds,
+          ...l4WinemakingPrincipleIds,
+          ...l4WinemakingCausalIds,
           ...d3RegionalIds,
           ...d4RegionalIds,
           ...d5FortifiedIds,
@@ -647,7 +656,7 @@ void main() {
           isEmpty,
           reason: 'Diploma and Level 3 geography choices remain distinct',
         );
-        expect(expectedIds, hasLength(1619));
+        expect(expectedIds, hasLength(1670));
         expect(levelOneIds, hasLength(132));
         expect(levelTwoIds, hasLength(309));
         expect(sharedGrapeIds, hasLength(52));
@@ -714,6 +723,12 @@ void main() {
           l4ViticulturePrincipleIds.intersection(l4ViticultureCausalIds),
           isEmpty,
         );
+        expect(l4WinemakingPrincipleIds, hasLength(49));
+        expect(l4WinemakingCausalIds, hasLength(2));
+        expect(
+          l4WinemakingPrincipleIds.intersection(l4WinemakingCausalIds),
+          isEmpty,
+        );
         expect(d3RegionalIds, hasLength(19));
         expect(d4RegionalIds, hasLength(24));
         expect(d5FortifiedIds, hasLength(16));
@@ -729,7 +744,7 @@ void main() {
                OR t.id = 'qt_d5f_authored_choice')
         ORDER BY q.knowledge_item_id
       ''').get();
-        expect(rows, hasLength(1619));
+        expect(rows, hasLength(1670));
         final actual = {
           for (final row in rows)
             row.read<String>('knowledge_item_id'): row.read<String>(
@@ -910,6 +925,9 @@ void main() {
                     ? cmsCards[id]
                     : l4ViticulturePrincipleIds.contains(id) ||
                           l4ViticultureCausalIds.contains(id)
+                    ? levelFourCards[id]
+                    : l4WinemakingPrincipleIds.contains(id) ||
+                          l4WinemakingCausalIds.contains(id)
                     ? levelFourCards[id]
                     : diplomaBusinessIds.contains(id)
                     ? levelFourCards[id]
