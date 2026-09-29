@@ -1287,6 +1287,7 @@ tracks:
             - n_reg_ib_principle_es_mancha_airen
             - n_reg_ib_case_es_rioja_site
             - n_reg_ib_case_es_priorat_price
+            - n_d3rt_case_ribeira_offer
         tasks: [DIP-3, C3, G11]
       - id: wset_l4.world.portugal
         label: Compare Portuguese still-wine regions and their wines
@@ -1301,6 +1302,7 @@ tracks:
             - n_reg_ib_principle_pt_alentejo
             - n_reg_ib_case_pt_white_design
             - n_reg_ib_case_pt_baga_inventory
+            - n_d3rt_case_bairrada_rain
         tasks: [DIP-3, C3, G11]
       - id: wset_l4.world.usa_west
         label: Compare Pacific-state wine regions and their wines
@@ -1426,6 +1428,7 @@ tracks:
             - n_reg_oa_principle_adelaide_m3
             - n_reg_oa_case_hunter_toast
             - n_reg_oa_case_mclaren_cap_trial
+            - n_d3rt_case_margaret_blend
         tasks: [DIP-3, C4, G13]
       - id: wset_l4.world.new_zealand
         label: Compare New Zealand wine regions and their wines
@@ -1442,6 +1445,7 @@ tracks:
             - n_reg_oa_principle_canterbury_styles
             - n_reg_oa_principle_gisborne_sites
             - n_reg_oa_case_canterbury_riesling_offer
+            - n_d3rt_case_otago_frost
         tasks: [DIP-3, C4, G13]
       - id: wset_l4.world.china
         label: Study the regional wine contexts of China
@@ -1759,6 +1763,10 @@ tracks:
             - n_reg_cn_case_shandong_water_budget
             - n_reg_cn_case_xinjiang_shade_style
             - n_reg_cn_case_yunnan_blend_evidence
+            - n_d3rt_case_bairrada_rain
+            - n_d3rt_case_ribeira_offer
+            - n_d3rt_case_margaret_blend
+            - n_d3rt_case_otago_frost
           relation_types:
             - PRINCIPLE_EXPLANATION
             - CASE_ACTION

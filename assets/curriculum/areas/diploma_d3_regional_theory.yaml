@@ -1,0 +1,448 @@
+# Original D3 regional decisions; hypothetical premises, expert review pending.
+knowledge_nodes:
+- id: n_d3rt_case_bairrada_rain
+  node_type: production_case
+  name: A Bairrada grower has two Baga parcels before forecast September rain. Parcel A is ripe and sound;
+    B is less ripe and shows isolated rot. One crew can harvest A now. A second, more expensive crew can
+    sort B later, but buyer demand for a premium B bottling is untested. Recommend a harvest and sorting
+    sequence, explain the style and quality mechanism, weigh cost against potential value, and name missing
+    evidence.
+- id: n_d3rt_point_bairrada_rain_action
+  node_type: learning_point
+  name: Harvest sound ripe A now; resample B and sort or divert unsound fruit before treating it as a
+    premium separate lot.
+- id: n_d3rt_point_bairrada_rain_reason
+  node_type: learning_point
+  name: Late-ripening, high-acid and tannic Baga can suffer rot in September rain; actual ripeness and
+    fruit health determine the red-wine opportunity.
+- id: n_d3rt_point_bairrada_rain_tradeoff
+  node_type: learning_point
+  name: A second crew and sorting can protect a sound lot but add cost that a buyer may not repay.
+- id: n_d3rt_point_bairrada_rain_limitation
+  node_type: learning_point
+  name: B's post-rain health, finished sensory quality, yield and buyer demand remain unknown.
+- id: n_d3rt_case_ribeira_offer
+  node_type: production_case
+  name: A buyer compares two sound, blind-tasted Mencía offers. The Ribeira Sacra terraced grower quotes
+    higher harvest labour cost and a higher wholesale price; the other offer meets the list's target margin.
+    The tasting panel prefers the terraced wine slightly, but forecast demand and supply reliability are
+    unknown. Recommend a listing decision process, explain the regional cost mechanism, weigh margin against
+    sensory preference, and identify missing evidence.
+- id: n_d3rt_point_ribeira_offer_action
+  node_type: learning_point
+  name: Run a bounded sales and supply trial before committing the full list position.
+- id: n_d3rt_point_ribeira_offer_reason
+  node_type: learning_point
+  name: Steep terraces restrict easy mechanisation and can raise vineyard labour, while the panel's preference
+    applies only to these sampled wines.
+- id: n_d3rt_point_ribeira_offer_tradeoff
+  node_type: learning_point
+  name: The preferred wine may justify a smaller margin only if customer response and supply support it.
+- id: n_d3rt_point_ribeira_offer_limitation
+  node_type: learning_point
+  name: Origin and one panel result do not establish demand, repeatable supply or final profitability.
+- id: n_d3rt_case_margaret_blend
+  node_type: production_case
+  name: A Margaret River winery has sound Semillon and Sauvignon Blanc lots. Two coded trials vary blend
+    proportion and a restrained oak component. The fruit-led version meets a buyer's fresh brief; the
+    oak-influenced version is preferred by a small cellar panel but takes longer and costs more to mature.
+    No consumer test or order exists. Select a next step, explain the style mechanism, weigh cost against
+    possible premium, and state an evidence limit.
+- id: n_d3rt_point_margaret_blend_action
+  node_type: learning_point
+  name: Test both finished wines with the target buyer and compare landed margin before scaling the more
+    expensive route.
+- id: n_d3rt_point_margaret_blend_reason
+  node_type: learning_point
+  name: Grape proportion, ripeness and oak can change freshness and texture; a small cellar panel cannot
+    establish market fit.
+- id: n_d3rt_point_margaret_blend_tradeoff
+  node_type: learning_point
+  name: Oak handling and time can support a distinct wine but create cost and inventory exposure.
+- id: n_d3rt_point_margaret_blend_limitation
+  node_type: learning_point
+  name: The premise lacks consumer response, an order, supply assessment and an evidenced premium price.
+- id: n_d3rt_case_otago_frost
+  node_type: production_case
+  name: A Central Otago producer can lease either a cooler Gibbston slope or a warmer Bannockburn block
+    for Pinot Noir. The Gibbston site has documented spring frost exposure and needs a protection budget;
+    Bannockburn has higher quoted rent. Both have promising trial fruit, but from different seasons. The
+    target is a fresh, ripe red at a viable margin. Recommend what to compare before signing, explain
+    ripening and frost mechanisms, weigh costs, and state a limitation.
+- id: n_d3rt_point_otago_frost_action
+  node_type: learning_point
+  name: Compare multi-season site records, fruit chemistry, frost-control feasibility and projected margins
+    before leasing.
+- id: n_d3rt_point_otago_frost_reason
+  node_type: learning_point
+  name: Gibbston is generally cooler and later-ripening, while spring frost and warmer Bannockburn conditions
+    alter yield and ripening risks.
+- id: n_d3rt_point_otago_frost_tradeoff
+  node_type: learning_point
+  name: Protection on one site and higher rent on the other are different cost exposures, neither a quality
+    guarantee.
+- id: n_d3rt_point_otago_frost_limitation
+  node_type: learning_point
+  name: Different-season fruit cannot isolate site effects or establish repeatable wine quality and demand.
+knowledge_relations:
+- subject_id: n_d3rt_case_bairrada_rain
+  relation_type: CASE_ACTION
+  object_id: n_d3rt_point_bairrada_rain_action
+  valid_from: '2026-09-29'
+- subject_id: n_d3rt_case_bairrada_rain
+  relation_type: CASE_REASON
+  object_id: n_d3rt_point_bairrada_rain_reason
+  valid_from: '2026-09-29'
+- subject_id: n_d3rt_case_bairrada_rain
+  relation_type: CASE_TRADEOFF
+  object_id: n_d3rt_point_bairrada_rain_tradeoff
+  valid_from: '2026-09-29'
+- subject_id: n_d3rt_case_bairrada_rain
+  relation_type: CASE_LIMITATION
+  object_id: n_d3rt_point_bairrada_rain_limitation
+  valid_from: '2026-09-29'
+- subject_id: n_d3rt_case_ribeira_offer
+  relation_type: CASE_ACTION
+  object_id: n_d3rt_point_ribeira_offer_action
+  valid_from: '2026-09-29'
+- subject_id: n_d3rt_case_ribeira_offer
+  relation_type: CASE_REASON
+  object_id: n_d3rt_point_ribeira_offer_reason
+  valid_from: '2026-09-29'
+- subject_id: n_d3rt_case_ribeira_offer
+  relation_type: CASE_TRADEOFF
+  object_id: n_d3rt_point_ribeira_offer_tradeoff
+  valid_from: '2026-09-29'
+- subject_id: n_d3rt_case_ribeira_offer
+  relation_type: CASE_LIMITATION
+  object_id: n_d3rt_point_ribeira_offer_limitation
+  valid_from: '2026-09-29'
+- subject_id: n_d3rt_case_margaret_blend
+  relation_type: CASE_ACTION
+  object_id: n_d3rt_point_margaret_blend_action
+  valid_from: '2026-09-29'
+- subject_id: n_d3rt_case_margaret_blend
+  relation_type: CASE_REASON
+  object_id: n_d3rt_point_margaret_blend_reason
+  valid_from: '2026-09-29'
+- subject_id: n_d3rt_case_margaret_blend
+  relation_type: CASE_TRADEOFF
+  object_id: n_d3rt_point_margaret_blend_tradeoff
+  valid_from: '2026-09-29'
+- subject_id: n_d3rt_case_margaret_blend
+  relation_type: CASE_LIMITATION
+  object_id: n_d3rt_point_margaret_blend_limitation
+  valid_from: '2026-09-29'
+- subject_id: n_d3rt_case_otago_frost
+  relation_type: CASE_ACTION
+  object_id: n_d3rt_point_otago_frost_action
+  valid_from: '2026-09-29'
+- subject_id: n_d3rt_case_otago_frost
+  relation_type: CASE_REASON
+  object_id: n_d3rt_point_otago_frost_reason
+  valid_from: '2026-09-29'
+- subject_id: n_d3rt_case_otago_frost
+  relation_type: CASE_TRADEOFF
+  object_id: n_d3rt_point_otago_frost_tradeoff
+  valid_from: '2026-09-29'
+- subject_id: n_d3rt_case_otago_frost
+  relation_type: CASE_LIMITATION
+  object_id: n_d3rt_point_otago_frost_limitation
+  valid_from: '2026-09-29'
+knowledge_items:
+- id: ki_d3rt_case_bairrada_rain_action
+  subject_id: n_d3rt_case_bairrada_rain
+  relation_type: CASE_ACTION
+  object_id: n_d3rt_point_bairrada_rain_action
+  domain_id: viticulture
+  assertion_text: Harvest sound ripe A now; resample B and sort or divert unsound fruit before treating
+    it as a premium separate lot.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-29T00:00:00.000Z'
+- id: ki_d3rt_case_bairrada_rain_reason
+  subject_id: n_d3rt_case_bairrada_rain
+  relation_type: CASE_REASON
+  object_id: n_d3rt_point_bairrada_rain_reason
+  domain_id: viticulture
+  assertion_text: Late-ripening, high-acid and tannic Baga can suffer rot in September rain; actual ripeness
+    and fruit health determine the red-wine opportunity.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-29T00:00:00.000Z'
+- id: ki_d3rt_case_bairrada_rain_tradeoff
+  subject_id: n_d3rt_case_bairrada_rain
+  relation_type: CASE_TRADEOFF
+  object_id: n_d3rt_point_bairrada_rain_tradeoff
+  domain_id: viticulture
+  assertion_text: A second crew and sorting can protect a sound lot but add cost that a buyer may not
+    repay.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-29T00:00:00.000Z'
+- id: ki_d3rt_case_bairrada_rain_limitation
+  subject_id: n_d3rt_case_bairrada_rain
+  relation_type: CASE_LIMITATION
+  object_id: n_d3rt_point_bairrada_rain_limitation
+  domain_id: viticulture
+  assertion_text: B's post-rain health, finished sensory quality, yield and buyer demand remain unknown.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-29T00:00:00.000Z'
+- id: ki_d3rt_case_ribeira_offer_action
+  subject_id: n_d3rt_case_ribeira_offer
+  relation_type: CASE_ACTION
+  object_id: n_d3rt_point_ribeira_offer_action
+  domain_id: business
+  assertion_text: Run a bounded sales and supply trial before committing the full list position.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-29T00:00:00.000Z'
+- id: ki_d3rt_case_ribeira_offer_reason
+  subject_id: n_d3rt_case_ribeira_offer
+  relation_type: CASE_REASON
+  object_id: n_d3rt_point_ribeira_offer_reason
+  domain_id: business
+  assertion_text: Steep terraces restrict easy mechanisation and can raise vineyard labour, while the
+    panel's preference applies only to these sampled wines.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-29T00:00:00.000Z'
+- id: ki_d3rt_case_ribeira_offer_tradeoff
+  subject_id: n_d3rt_case_ribeira_offer
+  relation_type: CASE_TRADEOFF
+  object_id: n_d3rt_point_ribeira_offer_tradeoff
+  domain_id: business
+  assertion_text: The preferred wine may justify a smaller margin only if customer response and supply
+    support it.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-29T00:00:00.000Z'
+- id: ki_d3rt_case_ribeira_offer_limitation
+  subject_id: n_d3rt_case_ribeira_offer
+  relation_type: CASE_LIMITATION
+  object_id: n_d3rt_point_ribeira_offer_limitation
+  domain_id: business
+  assertion_text: Origin and one panel result do not establish demand, repeatable supply or final profitability.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-29T00:00:00.000Z'
+- id: ki_d3rt_case_margaret_blend_action
+  subject_id: n_d3rt_case_margaret_blend
+  relation_type: CASE_ACTION
+  object_id: n_d3rt_point_margaret_blend_action
+  domain_id: winemaking
+  assertion_text: Test both finished wines with the target buyer and compare landed margin before scaling
+    the more expensive route.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-29T00:00:00.000Z'
+- id: ki_d3rt_case_margaret_blend_reason
+  subject_id: n_d3rt_case_margaret_blend
+  relation_type: CASE_REASON
+  object_id: n_d3rt_point_margaret_blend_reason
+  domain_id: winemaking
+  assertion_text: Grape proportion, ripeness and oak can change freshness and texture; a small cellar
+    panel cannot establish market fit.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-29T00:00:00.000Z'
+- id: ki_d3rt_case_margaret_blend_tradeoff
+  subject_id: n_d3rt_case_margaret_blend
+  relation_type: CASE_TRADEOFF
+  object_id: n_d3rt_point_margaret_blend_tradeoff
+  domain_id: winemaking
+  assertion_text: Oak handling and time can support a distinct wine but create cost and inventory exposure.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-29T00:00:00.000Z'
+- id: ki_d3rt_case_margaret_blend_limitation
+  subject_id: n_d3rt_case_margaret_blend
+  relation_type: CASE_LIMITATION
+  object_id: n_d3rt_point_margaret_blend_limitation
+  domain_id: winemaking
+  assertion_text: The premise lacks consumer response, an order, supply assessment and an evidenced premium
+    price.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-29T00:00:00.000Z'
+- id: ki_d3rt_case_otago_frost_action
+  subject_id: n_d3rt_case_otago_frost
+  relation_type: CASE_ACTION
+  object_id: n_d3rt_point_otago_frost_action
+  domain_id: viticulture
+  assertion_text: Compare multi-season site records, fruit chemistry, frost-control feasibility and projected
+    margins before leasing.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-29T00:00:00.000Z'
+- id: ki_d3rt_case_otago_frost_reason
+  subject_id: n_d3rt_case_otago_frost
+  relation_type: CASE_REASON
+  object_id: n_d3rt_point_otago_frost_reason
+  domain_id: viticulture
+  assertion_text: Gibbston is generally cooler and later-ripening, while spring frost and warmer Bannockburn
+    conditions alter yield and ripening risks.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-29T00:00:00.000Z'
+- id: ki_d3rt_case_otago_frost_tradeoff
+  subject_id: n_d3rt_case_otago_frost
+  relation_type: CASE_TRADEOFF
+  object_id: n_d3rt_point_otago_frost_tradeoff
+  domain_id: viticulture
+  assertion_text: Protection on one site and higher rent on the other are different cost exposures, neither
+    a quality guarantee.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-29T00:00:00.000Z'
+- id: ki_d3rt_case_otago_frost_limitation
+  subject_id: n_d3rt_case_otago_frost
+  relation_type: CASE_LIMITATION
+  object_id: n_d3rt_point_otago_frost_limitation
+  domain_id: viticulture
+  assertion_text: Different-season fruit cannot isolate site effects or establish repeatable wine quality
+    and demand.
+  verification_status: unverified
+  mcq_disabled: true
+  last_verified_at: '2026-09-29T00:00:00.000Z'
+certification_knowledge_mappings:
+- certification_id: WSET_L4
+  knowledge_item_id: ki_d3rt_case_bairrada_rain_action
+  importance: core
+  minimum_depth: 3
+- certification_id: WSET_L4
+  knowledge_item_id: ki_d3rt_case_bairrada_rain_reason
+  importance: core
+  minimum_depth: 3
+- certification_id: WSET_L4
+  knowledge_item_id: ki_d3rt_case_bairrada_rain_tradeoff
+  importance: core
+  minimum_depth: 3
+- certification_id: WSET_L4
+  knowledge_item_id: ki_d3rt_case_bairrada_rain_limitation
+  importance: core
+  minimum_depth: 3
+- certification_id: WSET_L4
+  knowledge_item_id: ki_d3rt_case_ribeira_offer_action
+  importance: core
+  minimum_depth: 3
+- certification_id: WSET_L4
+  knowledge_item_id: ki_d3rt_case_ribeira_offer_reason
+  importance: core
+  minimum_depth: 3
+- certification_id: WSET_L4
+  knowledge_item_id: ki_d3rt_case_ribeira_offer_tradeoff
+  importance: core
+  minimum_depth: 3
+- certification_id: WSET_L4
+  knowledge_item_id: ki_d3rt_case_ribeira_offer_limitation
+  importance: core
+  minimum_depth: 3
+- certification_id: WSET_L4
+  knowledge_item_id: ki_d3rt_case_margaret_blend_action
+  importance: core
+  minimum_depth: 3
+- certification_id: WSET_L4
+  knowledge_item_id: ki_d3rt_case_margaret_blend_reason
+  importance: core
+  minimum_depth: 3
+- certification_id: WSET_L4
+  knowledge_item_id: ki_d3rt_case_margaret_blend_tradeoff
+  importance: core
+  minimum_depth: 3
+- certification_id: WSET_L4
+  knowledge_item_id: ki_d3rt_case_margaret_blend_limitation
+  importance: core
+  minimum_depth: 3
+- certification_id: WSET_L4
+  knowledge_item_id: ki_d3rt_case_otago_frost_action
+  importance: core
+  minimum_depth: 3
+- certification_id: WSET_L4
+  knowledge_item_id: ki_d3rt_case_otago_frost_reason
+  importance: core
+  minimum_depth: 3
+- certification_id: WSET_L4
+  knowledge_item_id: ki_d3rt_case_otago_frost_tradeoff
+  importance: core
+  minimum_depth: 3
+- certification_id: WSET_L4
+  knowledge_item_id: ki_d3rt_case_otago_frost_limitation
+  importance: core
+  minimum_depth: 3
+source_citations:
+- id: src_d3rt_ribeira_labour
+  kind: reference_work
+  title: Ribeira Sacra viticulture
+  publisher: Ribeira Sacra Tourism Consortium
+  jurisdiction: ES
+  url: https://turismo.ribeirasacra.org/en/viticulture
+  document_identifier: Regional public body account of steep riverside vineyards and near-absence of mechanisation;
+    current prices and quality claims excluded
+  accessed_on: '2026-09-29'
+knowledge_item_citations:
+- knowledge_item_id: ki_d3rt_case_bairrada_rain_action
+  source_citation_id: src_reg_ib_baga
+  locator: 'Baga variety page: late ripening, high tannin/acidity and September rot risk; all parcel,
+    cost and buyer details are hypothetical; original conditional application'
+- knowledge_item_id: ki_d3rt_case_bairrada_rain_reason
+  source_citation_id: src_reg_ib_baga
+  locator: 'Baga variety page: late ripening, high tannin/acidity and September rot risk; all parcel,
+    cost and buyer details are hypothetical; original conditional application'
+- knowledge_item_id: ki_d3rt_case_bairrada_rain_tradeoff
+  source_citation_id: src_reg_ib_baga
+  locator: 'Baga variety page: late ripening, high tannin/acidity and September rot risk; all parcel,
+    cost and buyer details are hypothetical; original conditional application'
+- knowledge_item_id: ki_d3rt_case_bairrada_rain_limitation
+  source_citation_id: src_reg_ib_baga
+  locator: 'Baga variety page: late ripening, high tannin/acidity and September rot risk; all parcel,
+    cost and buyer details are hypothetical; original conditional application'
+- knowledge_item_id: ki_d3rt_case_ribeira_offer_action
+  source_citation_id: src_d3rt_ribeira_labour
+  locator: 'Viticulture, paragraphs 3–4: steep river vineyards and near-absence of mechanisation; offer
+    prices, panel result and demand are hypothetical; original conditional application'
+- knowledge_item_id: ki_d3rt_case_ribeira_offer_reason
+  source_citation_id: src_d3rt_ribeira_labour
+  locator: 'Viticulture, paragraphs 3–4: steep river vineyards and near-absence of mechanisation; offer
+    prices, panel result and demand are hypothetical; original conditional application'
+- knowledge_item_id: ki_d3rt_case_ribeira_offer_tradeoff
+  source_citation_id: src_d3rt_ribeira_labour
+  locator: 'Viticulture, paragraphs 3–4: steep river vineyards and near-absence of mechanisation; offer
+    prices, panel result and demand are hypothetical; original conditional application'
+- knowledge_item_id: ki_d3rt_case_ribeira_offer_limitation
+  source_citation_id: src_d3rt_ribeira_labour
+  locator: 'Viticulture, paragraphs 3–4: steep river vineyards and near-absence of mechanisation; offer
+    prices, panel result and demand are hypothetical; original conditional application'
+- knowledge_item_id: ki_d3rt_case_margaret_blend_action
+  source_citation_id: src_reg_sh_margaret
+  locator: Wine Australia Margaret River Semillon–Sauvignon Blanc proportions, ripeness and oak range;
+    trials and quoted costs are supplied premises; original conditional application
+- knowledge_item_id: ki_d3rt_case_margaret_blend_reason
+  source_citation_id: src_reg_sh_margaret
+  locator: Wine Australia Margaret River Semillon–Sauvignon Blanc proportions, ripeness and oak range;
+    trials and quoted costs are supplied premises; original conditional application
+- knowledge_item_id: ki_d3rt_case_margaret_blend_tradeoff
+  source_citation_id: src_reg_sh_margaret
+  locator: Wine Australia Margaret River Semillon–Sauvignon Blanc proportions, ripeness and oak range;
+    trials and quoted costs are supplied premises; original conditional application
+- knowledge_item_id: ki_d3rt_case_margaret_blend_limitation
+  source_citation_id: src_reg_sh_margaret
+  locator: Wine Australia Margaret River Semillon–Sauvignon Blanc proportions, ripeness and oak range;
+    trials and quoted costs are supplied premises; original conditional application
+- knowledge_item_id: ki_d3rt_case_otago_frost_action
+  source_citation_id: src_nwc_nz_otago
+  locator: New Zealand Winegrowers Central Otago Gibbston/Bannockburn climate and frost risk; leases,
+    costs and trial fruit are hypothetical; original conditional application
+- knowledge_item_id: ki_d3rt_case_otago_frost_reason
+  source_citation_id: src_nwc_nz_otago
+  locator: New Zealand Winegrowers Central Otago Gibbston/Bannockburn climate and frost risk; leases,
+    costs and trial fruit are hypothetical; original conditional application
+- knowledge_item_id: ki_d3rt_case_otago_frost_tradeoff
+  source_citation_id: src_nwc_nz_otago
+  locator: New Zealand Winegrowers Central Otago Gibbston/Bannockburn climate and frost risk; leases,
+    costs and trial fruit are hypothetical; original conditional application
+- knowledge_item_id: ki_d3rt_case_otago_frost_limitation
+  source_citation_id: src_nwc_nz_otago
+  locator: New Zealand Winegrowers Central Otago Gibbston/Bannockburn climate and frost risk; leases,
+    costs and trial fruit are hypothetical; original conditional application

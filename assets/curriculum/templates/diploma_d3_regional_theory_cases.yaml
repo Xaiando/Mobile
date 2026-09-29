@@ -1,0 +1,74 @@
+# Original D3 regional decisions; hypothetical premises, expert review pending.
+question_templates:
+- id: qt_d3rt_case_bairrada_rain
+  relation_type: CASE_ACTION
+  direction: forward
+  mode: short_answer
+  variant: d3rt_bairrada_rain
+  prompt_template: A Bairrada grower has two Baga parcels before forecast September rain. Parcel A is
+    ripe and sound; B is less ripe and shows isolated rot. One crew can harvest A now. A second, more
+    expensive crew can sort B later, but buyer demand for a premium B bottling is untested. Recommend
+    a harvest and sorting sequence, explain the style and quality mechanism, weigh cost against potential
+    value, and name missing evidence.
+  parameters:
+    scope_node_ids:
+    - n_d3rt_case_bairrada_rain
+    key_points:
+      CASE_ACTION: Defensible decision
+      CASE_REASON: Mechanism and rationale
+      CASE_TRADEOFF: Style, quality or price tradeoff
+      CASE_LIMITATION: Missing evidence
+- id: qt_d3rt_case_ribeira_offer
+  relation_type: CASE_ACTION
+  direction: forward
+  mode: short_answer
+  variant: d3rt_ribeira_offer
+  prompt_template: A buyer compares two sound, blind-tasted Mencía offers. The Ribeira Sacra terraced
+    grower quotes higher harvest labour cost and a higher wholesale price; the other offer meets the list's
+    target margin. The tasting panel prefers the terraced wine slightly, but forecast demand and supply
+    reliability are unknown. Recommend a listing decision process, explain the regional cost mechanism,
+    weigh margin against sensory preference, and identify missing evidence.
+  parameters:
+    scope_node_ids:
+    - n_d3rt_case_ribeira_offer
+    key_points:
+      CASE_ACTION: Defensible decision
+      CASE_REASON: Mechanism and rationale
+      CASE_TRADEOFF: Style, quality or price tradeoff
+      CASE_LIMITATION: Missing evidence
+- id: qt_d3rt_case_margaret_blend
+  relation_type: CASE_ACTION
+  direction: forward
+  mode: short_answer
+  variant: d3rt_margaret_blend
+  prompt_template: A Margaret River winery has sound Semillon and Sauvignon Blanc lots. Two coded trials
+    vary blend proportion and a restrained oak component. The fruit-led version meets a buyer's fresh
+    brief; the oak-influenced version is preferred by a small cellar panel but takes longer and costs
+    more to mature. No consumer test or order exists. Select a next step, explain the style mechanism,
+    weigh cost against possible premium, and state an evidence limit.
+  parameters:
+    scope_node_ids:
+    - n_d3rt_case_margaret_blend
+    key_points:
+      CASE_ACTION: Defensible decision
+      CASE_REASON: Mechanism and rationale
+      CASE_TRADEOFF: Style, quality or price tradeoff
+      CASE_LIMITATION: Missing evidence
+- id: qt_d3rt_case_otago_frost
+  relation_type: CASE_ACTION
+  direction: forward
+  mode: short_answer
+  variant: d3rt_otago_frost
+  prompt_template: A Central Otago producer can lease either a cooler Gibbston slope or a warmer Bannockburn
+    block for Pinot Noir. The Gibbston site has documented spring frost exposure and needs a protection
+    budget; Bannockburn has higher quoted rent. Both have promising trial fruit, but from different seasons.
+    The target is a fresh, ripe red at a viable margin. Recommend what to compare before signing, explain
+    ripening and frost mechanisms, weigh costs, and state a limitation.
+  parameters:
+    scope_node_ids:
+    - n_d3rt_case_otago_frost
+    key_points:
+      CASE_ACTION: Defensible decision
+      CASE_REASON: Mechanism and rationale
+      CASE_TRADEOFF: Style, quality or price tradeoff
+      CASE_LIMITATION: Missing evidence

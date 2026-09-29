@@ -57,6 +57,7 @@ void main() {
     'ki_reg_sa_',
     'ki_reg_oa_',
     'ki_reg_cn_',
+    'ki_d3rt_case_',
   ].any(id.startsWith);
 
   setUpAll(() async {
@@ -559,7 +560,7 @@ void main() {
       132,
       829,
       3439,
-      3956,
+      3972,
     ]);
     final diploma = snapshot.levels.last;
     final unitIds = {
@@ -693,7 +694,7 @@ void main() {
         .where((i) => regionalItem(i.id))
         .map((i) => i.id)
         .toSet();
-    expect(ids, hasLength(704));
+    expect(ids, hasLength(720));
     final scope = WsetScope.fromJson(
       File('assets/progress/wset_scope.json').readAsStringSync(),
     );

@@ -1,0 +1,200 @@
+# New D3 decisions on existing cited regional evidence; all remain expert-unverified.
+question_templates:
+  - id: qt_d3rt_regional_choice
+    relation_type: PRINCIPLE_EXPLANATION
+    direction: forward
+    mode: authored_choice
+    variant: d3_regional_theory
+    prompt_template: '{subject.name}'
+    parameters:
+      item_choices:
+        ki_reg_ib_ribera_elevation:
+          prompt: A Ribera del Duero grower compares a plateau block and a river-valley block after the same warm afternoon. What evidence is most useful?
+          options:
+            - The DO name alone, because elevation cannot change ripening
+            - Only the hottest hourly air reading
+            - Block-specific maturity, night temperatures and water status
+            - The proposed retail price, which proves grape maturity
+          correctIndex: 2
+          explanation: Elevation and continental conditions qualify the afternoon reading; sampled fruit and site records test the intended style.
+          sourceCitationId: src_reg_ib_ribera_altitude
+        ki_reg_ib_rias_canopy_context:
+          prompt: Why might a Rías Baixas Albariño grower favour a raised, ventilated canopy in a damp block?
+          options:
+            - It guarantees higher sugar in every vintage
+            - It removes the need to inspect fungal disease
+            - It legally converts Albariño to another variety
+            - It can reduce bunch exposure to damp ground and improve airflow
+          correctIndex: 3
+          explanation: The local pergola tradition responds to Atlantic dampness and ventilation; fruit health still needs observation.
+          sourceCitationId: src_reg_ib_rias_canopy
+        ki_reg_ib_sacra_terraces:
+          prompt: A buyer compares Ribeira Sacra Mencía with a coastal Galician white. What is the defensible regional distinction?
+          options:
+            - Ribeira Sacra's river terraces offer a different growing site context
+            - Both wines must have identical grape and climate profiles
+            - Mencía proves the red was machine harvested
+            - A terraced site guarantees a higher tasting score
+          correctIndex: 0
+          explanation: Ribeira Sacra's river-valley terraces and Mencía association differ from coastal Galicia; site name alone does not grade wine quality.
+          sourceCitationId: src_reg_ib_sacra_sites
+        ki_reg_ib_rueda_ripening:
+          prompt: A Rueda Verdejo block shows warm days and cool nights. Which link is best supported?
+          options:
+            - Diurnal contrast makes every wine sweet
+            - Elevation prevents aromatic development
+            - Site and picking date can shape the sugar-acid balance
+            - Soil alone fixes a wine's final alcohol
+          correctIndex: 2
+          explanation: Rueda's elevated, stony setting and day-night contrast frame Verdejo ripening; sampled fruit determines the target.
+          sourceCitationId: src_reg_ib_rueda_verdejo
+        ki_reg_ib_douro_terrain:
+          prompt: Which price mechanism could matter for a steep Douro still-wine vineyard?
+          options:
+            - Terrace access can increase labour and equipment constraints
+            - A steep site automatically commands a profitable premium
+            - A slope removes all vineyard labour
+            - Terrain determines the retail price without buyer demand
+          correctIndex: 0
+          explanation: The IVDP describes terraced-vineyard operations; production cost can rise, while achieved price depends on the market and wine.
+          sourceCitationId: src_reg_ib_douro_viti
+        ki_reg_ib_dao_mountains:
+          prompt: Why is Dão not adequately described as a uniform Atlantic vineyard?
+          options:
+            - It has no altitude differences
+            - Every parcel lies directly on the coast
+            - Mountains shelter vineyards and elevations vary substantially
+            - Granite guarantees identical flavour in all Dão wines
+          correctIndex: 2
+          explanation: Mountain enclosure and varied elevation modify maritime and continental influence; compare actual sites.
+          sourceCitationId: src_reg_ib_dao_region
+        ki_reg_ib_dao_encruzado:
+          prompt: A Dão Encruzado white is being pitched as automatically superior to a lighter nearby white. What is the sound evaluation?
+          options:
+            - Reject Encruzado because it cannot retain acidity
+            - Encruzado can give structure and acidity, but compare the wines for quality
+            - The grape name alone proves greater complexity and price
+            - Dão whites must all be oak aged
+          correctIndex: 1
+          explanation: Encruzado can support a structured, balanced white; site, production and tasting determine the particular result.
+          sourceCitationId: src_reg_ib_encruzado
+        ki_reg_ib_bairrada_baga_ripening:
+          prompt: A cool, wet Bairrada September threatens Baga. Which pairing of cause and response is best?
+          options:
+            - Early ripening and no rot risk; ignore the forecast
+            - Low tannin in every vintage; increase extraction automatically
+            - Warm drought; irrigate regardless of water status
+            - Late ripening and rot risk; check maturity and sort affected fruit
+          correctIndex: 3
+          explanation: Baga ripens late and can suffer rot in September rain; only block evidence supports the harvest and sorting plan.
+          sourceCitationId: src_reg_ib_baga
+        ki_reg_sh_cab_maritime:
+          prompt: Margaret River and Coonawarra both grow Cabernet Sauvignon. What is a defensible climate comparison?
+          options:
+            - Maritime moderation occurs in both, but local sites and conditions differ
+            - They have one identical mesoclimate because both are Australian
+            - Ocean influence forbids Cabernet ripening in either
+            - A maritime label guarantees equal wine price
+          correctIndex: 0
+          explanation: Moderation is useful context, not proof of equal site conditions or wine quality.
+          sourceCitationId: src_reg_sh_margaret
+        ki_reg_sh_tasmania_hazards:
+          prompt: A Tasmanian Chardonnay producer sees a cool-site advantage. What hazard review still matters?
+          options:
+            - None; the island name guarantees a sound crop
+            - Only summer heat; frost never occurs
+            - Spring frost and humidity-related disease exposure
+            - Soil colour alone, which predicts all disease
+          correctIndex: 2
+          explanation: Tasmania's cool conditions can retain acidity, while spring frost and humidity create site and season risks.
+          sourceCitationId: src_reg_sh_tasmania
+        ki_reg_oa_hunter_rain:
+          prompt: Rain is forecast near a Hunter Semillon harvest. Which evidence matters before advancing the pick?
+          options:
+            - Regional name only
+            - Barrel age of last year's release
+            - Proposed shelf price
+            - Representative maturity and fruit-health samples
+          correctIndex: 3
+          explanation: Hunter rain can occur during harvest; picking a low-sugar style still requires flavour, acidity and sound-fruit checks.
+          sourceCitationId: src_reg_oa_hunter
+        ki_reg_oa_adelaide_sauvignon:
+          prompt: An Adelaide Hills Sauvignon Blanc has tropical and herbal notes. What is the better explanation?
+          options:
+            - A regional cool setting can coexist with ripe fruit and varying harvest choices
+            - Tropical notes prove the wine came from a hot inland GI
+            - All Sauvignon Blanc there must taste identical
+            - Herbal notes prove a wine fault
+          correctIndex: 0
+          explanation: Wine Australia's Adelaide Hills profile describes a range of Sauvignon Blanc expressions; fruit and cellar records refine the cause.
+          sourceCitationId: src_reg_oa_adelaide
+        ki_reg_oa_canterbury_riesling:
+          prompt: A North Canterbury Riesling label does not state sweetness. What can be concluded?
+          options:
+            - It must be dry because Canterbury is cool
+            - It must be sweet because the grape is Riesling
+            - The region makes dry through dessert styles; verify this bottle's residual sugar
+            - Sweetness is fixed by the vineyard's altitude alone
+          correctIndex: 2
+          explanation: New Zealand Winegrowers describes a dry-to-dessert range; origin and variety cannot identify the individual finished sweetness.
+          sourceCitationId: src_reg_oa_canterbury
+        ki_reg_oa_canterbury_pinot:
+          prompt: Why should a buyer taste two North Canterbury Pinot Noirs rather than infer one standard style?
+          options:
+            - Pinot Noir cannot ripen in the region
+            - The regional account spans lighter perfumed to darker more substantial expressions
+            - Every bottle has identical extraction by law
+            - The darker bottle is necessarily higher quality
+          correctIndex: 1
+          explanation: Site and production choices can give different Pinot expressions; colour alone does not grade quality.
+          sourceCitationId: src_reg_oa_canterbury
+        ki_reg_oa_gisborne_patutahi:
+          prompt: A Gisborne grower proposes Gewürztraminer at warmer inland Patutahi. Which rationale is grounded?
+          options:
+            - Patutahi is a cold coastal site with no sunlight
+            - All Gisborne sites have identical rainfall
+            - Gewürztraminer is legally compulsory in Gisborne
+            - Patutahi's warmer, lower-rainfall setting has documented rich examples
+          correctIndex: 3
+          explanation: New Zealand Winegrowers distinguishes Patutahi from coastal Gisborne; the producer still needs parcel and wine evidence.
+          sourceCitationId: src_reg_oa_gisborne
+        ki_reg_oa_robertson_unwooded:
+          prompt: A Robertson Chardonnay tastes textured but has no oak record. Which documented cellar route could explain part of its texture?
+          options:
+            - Tank fermentation followed by lees contact and stirring
+            - Fortification before alcoholic fermentation
+            - Compulsory new-oak maturation for every Robertson white
+            - Soil-derived oak flavour without a barrel
+          correctIndex: 0
+          explanation: De Wetshof documents an unwooded Chardonnay with controlled lees contact and stirring; the named example is not a regional rule.
+          sourceCitationId: src_reg_oa_limestone25
+        ki_reg_sa_leyda_canopy:
+          prompt: A Leyda Sauvignon Blanc parcel faces cool coastal influence. What vineyard detail should be checked before claiming a standard aromatic result?
+          options:
+            - Only the country name
+            - The proposed export price
+            - Fruit-zone exposure and actual harvested maturity
+            - Whether all Chilean wine is made in clay
+          correctIndex: 2
+          explanation: A documented producer canopy strategy is site-specific; fruit exposure and maturity can affect the finished style.
+          sourceCitationId: src_reg_sa_leyda_2023
+        ki_reg_sa_salta_grapes:
+          prompt: Why are the Calchaquí Valleys a useful Argentine comparison with Mendoza?
+          options:
+            - They have identical altitude and grape mix by law
+            - Their high-altitude setting and Torrontés association require separate site and style analysis
+            - They are a coastal Chilean white-wine region
+            - Altitude alone certifies higher quality and price
+          correctIndex: 1
+          explanation: Wines of Argentina identifies a distinct high-altitude Salta context and grape associations; production and tasting remain necessary.
+          sourceCitationId: src_reg_sa_salta
+        ki_reg_sa_pedernal_exposure:
+          prompt: Two Pedernal Valley slopes face different directions. What inference is best supported?
+          options:
+            - Morning versus afternoon sun may shift ripening and harvest decisions
+            - Aspect cannot matter in the Southern Hemisphere
+            - Both slopes must produce identical wine flavours
+            - A named slope guarantees a retail premium
+          correctIndex: 0
+          explanation: The producer account describes opposing exposures; actual block fruit and season data test the inferred effect.
+          sourceCitationId: src_reg_sa_pedernal
