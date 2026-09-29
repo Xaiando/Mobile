@@ -1,0 +1,335 @@
+# Fifty-four source-linked Level 3 regional production decisions and evidence
+# checks. These are bounded objective prompts on existing unverified assertions.
+question_templates:
+- id: qt_wset_l3_winemaking_regional_principles_54
+  relation_type: PRINCIPLE_EXPLANATION
+  direction: forward
+  mode: authored_choice
+  variant: wset_l3_winemaking_regional_principles_54
+  prompt_template: '{subject.name}'
+  parameters:
+    item_choices:
+      ki_reg_ah_neusiedler_zweigelt:
+        prompt: "A Neusiedlersee Zweigelt is intended as a fresh, fruit-led red. Which cellar brief best fits that goal?"
+        options: ["Trial steel or restrained wood and check fruit balance", "Use prolonged new oak until mature spice and savoury notes outweigh floral fruit", "Choose oxidative handling to replace the primary fruit", "Set residual sugar to mask a loss of red-fruit aroma"]
+        correctIndex: 0
+        explanation: "The Neusiedlersee regional body describes Zweigelt and both steel and wood routes; vessel and maturation should follow the intended fruit-led style."
+        sourceCitationId: src_reg_ah_neusiedler_wines
+      ki_reg_ah_tokaj_cellar:
+        prompt: "A Tokaj wine matures in a cool underground cellar and an oak cask. How should a tasting comparison separate the two influences?"
+        options: ["Credit the cask-derived aromas mainly to cool cellar air", "Track stable storage conditions separately from oak contact", "Assume the oak cask fixes maturation regardless of temperature", "Treat cool storage as proof that the wine needs no monitoring"]
+        correctIndex: 1
+        explanation: "The Tokaj regional council describes cool, stable underground cellars; oak contact is a separate variable in maturation."
+        sourceCitationId: src_reg_ah_tokaj_maturing
+      ki_reg_de_baden_pinot_light:
+        prompt: "A Baden Spätburgunder looks relatively pale and tastes gently tannic. What is the sound first interpretation?"
+        options: ["The colour proves the fruit was unripe at harvest", "Mild tannin calls for extended ageing before service", "This can be a valid Pinot style; assess the actual balance", "The appearance establishes a lower quality tier without tasting"]
+        correctIndex: 2
+        explanation: "DWI describes a lighter-coloured, milder-tannin Spätburgunder expression; colour alone does not establish quality."
+        sourceCitationId: src_reg_de_spatburgunder
+      ki_reg_de_baden_pinot_wood:
+        prompt: "A second Baden Spätburgunder shows deeper colour, firmer tannin and vanilla. Which production explanation is worth checking?"
+        options: ["Bottle age better explains the vanilla than oak contact", "A different Pinot clone explains the vanilla notes", "Warmer vineyard conditions, rather than the small-oak maturation, explain the vanilla", "Extraction and small-oak maturation may have shaped the style"]
+        correctIndex: 3
+        explanation: "DWI describes more deeply coloured Spätburgunder expressions and vanilla or spice from small-oak maturation."
+        sourceCitationId: src_reg_de_spatburgunder
+      ki_reg_de_franken_muller_fresh:
+        prompt: "A Franken Müller-Thurgau is planned for early release with light floral fruit. Which route is a plausible starting trial?"
+        options: ["Cool, neutral-vessel fermentation with balance checked in the lot", "New-oak fermentation and ageing for mature toast and spice aromas", "Warmer neutral-vessel fermentation for broader, less floral fruit", "Extended lees ageing to build a creamy, weightier palate"]
+        correctIndex: 0
+        explanation: "DWI describes Müller-Thurgau's gentle acidity and floral, Muscat-like aromas, often presented as a fresh wine."
+        sourceCitationId: src_reg_de_muller
+      ki_reg_de_rheinhessen_grauburgunder_vessels:
+        prompt: "Two Rheinhessen Grauburgunders differ in texture and acid profile. Which production records would best test a cellar explanation?"
+        options: ["Regional name and visual colour, with picking dates in place of cellar records", "Vessel choice and whether malolactic fermentation occurred", "Picking dates and fruit chemistry for the two lots", "Site exposure and grape maturity without the cellar log"]
+        correctIndex: 1
+        explanation: "DWI describes steel, larger wood and barrique routes for Grauburgunder, including possible biological acid reduction."
+        sourceCitationId: src_reg_de_grauburgunder
+      ki_reg_de_rheinhessen_silvaner_range:
+        prompt: "A restaurant lists an unfamiliar Rheinhessen Silvaner. Which information matters before promising a crisp, unoaked glass?"
+        options: ["The producer's vineyard aspect and average slope", "The vintage ripeness and grape analysis at harvest", "The wine's sweetness, vessel and maturation details", "The typical grape profile without that cuvée's cellar record"]
+        correctIndex: 2
+        explanation: "DWI describes Silvaner from fresh light examples to creamy wood-matured wines; the grape name does not fix the route."
+        sourceCitationId: src_reg_de_silvaner
+      ki_reg_fe_beaujolais_maturation:
+        prompt: "Two Gamay wines share a Beaujolais cru name but differ in structure. Which cellar evidence should be compared first?"
+        options: ["The cru name as the extraction record", "The vineyards' exposure and grape maturity at harvest", "The grape material and vine age in each parcel", "Their extraction work and maturation vessels"]
+        correctIndex: 3
+        explanation: "Inter Beaujolais describes variable extraction practices and maturation in vats, casks or barrels."
+        sourceCitationId: src_reg_fe_beaujolais_work
+      ki_reg_fe_beaujolais_pressing:
+        prompt: "A Beaujolais producer presses a carbonic-style Gamay lot earlier than a comparison lot. What style effect is plausible?"
+        options: ["Lower phenolic extraction with a more supple, fruit-led tannin profile", "Higher tannin because pressing leaves juice against the skins for longer", "Similar tannin because fermentation temperature dominates the result", "Lower fruit aroma because a shorter maceration gives yeast less time"]
+        correctIndex: 0
+        explanation: "IFV explains how pressing time in carbonic maceration affects extraction; earlier separation can support a supple style."
+        sourceCitationId: src_reg_fe_carbonic
+      ki_reg_fm_bandol_structure:
+        prompt: "A pale Bandol rosé is described as structured. Which response best reconciles colour with palate?"
+        options: ["Pale colour suggests a very light, thin palate", "Direct pressing can yield a pale wine without fixing its body", "Its structure proves the wine was fermented as a red", "A darker colour would establish Mourvèdre dominance and a firmly tannic palate"]
+        correctIndex: 1
+        explanation: "The Bandol growers describe pale direct-pressed rosé with structure; appearance and palate must be judged separately."
+        sourceCitationId: src_reg_fm_bandol_styles
+      ki_reg_fm_maury_structure:
+        prompt: "A Maury Sec buyer sees a regional description of dark fruit and tannin. What additional evidence is needed before buying for ageing?"
+        options: ["The regional name, with maturation treated as a minor detail", "The harvest year and site exposure without a sample or cellar record", "The actual wine's balance, extraction and maturation record", "A standard oak estimate taken from another Maury Sec"]
+        correctIndex: 2
+        explanation: "CIVR gives a regional style profile but notes maturation influence; individual balance cannot be inferred from the name."
+        sourceCitationId: src_reg_fm_maury_sec
+      ki_reg_fr_chablis_quality:
+        prompt: "Two Chablis wines share an origin and vessel type, yet one is faulty. Which judgment is defensible?"
+        options: ["The shared origin points to an identical hygiene history", "The same vessel guarantees equal protection from faults", "The regional name and a neutral vessel establish quality before the wine is tasted", "Fruit condition, hygiene and vinification still affect quality"]
+        correctIndex: 3
+        explanation: "The Chablis wine board treats fruit and cellar handling as part of producing sound wine; origin and vessel alone are insufficient."
+        sourceCitationId: src_reg_fr_chablis_cellar
+      ki_reg_fs_savennieres_dry:
+        prompt: "A Chenin lot from well-exposed Savennières slopes is harvested ripe. Which finished-style claim follows?"
+        options: ["It may make dry wine; finished sweetness needs separate evidence", "Full maturity predicts a sweet finish despite complete fermentation of grape sugars", "Well-exposed slopes suggest a fixed off-dry finish", "A ripe harvest can stand in for finished-sugar testing"]
+        correctIndex: 0
+        explanation: "InterLoire describes predominantly dry Savennières from ripe Chenin, with smaller sweeter styles; ripeness and final sweetness differ."
+        sourceCitationId: src_fr_atlas_loire_guide
+      ki_reg_gr_agiorgitiko_young:
+        prompt: "A Nemea buyer wants an approachable red for early drinking. Which Agiorgitiko brief is a reasonable trial?"
+        options: ["Maximise extraction and oak before assessing the fruit", "Preserve fresh red fruit and supple tannin, then taste", "Demand bottle age before judging any Agiorgitiko", "Treat youthful fruit as proof of inferior grapes"]
+        correctIndex: 1
+        explanation: "Wines of Greece describes a fresh, softer young Agiorgitiko expression alongside more structured styles."
+        sourceCitationId: src_reg_gr_agiorgitiko
+      ki_reg_gr_naoussa_style_choices:
+        prompt: "Two Naoussa Xinomavro samples differ: one is long-macerated and wood-matured, the other fruit-driven. Which comparison is fair?"
+        options: ["The wood-matured sample defines the regional style", "The fruit-driven sample deserves a lower score because its oak maturation was shorter", "Cellar choices can change early approachability; taste both", "The same origin makes their maturation choices irrelevant"]
+        correctIndex: 2
+        explanation: "Wines of Greece describes more austere traditional and earlier approachable fruit-driven Naoussa expressions."
+        sourceCitationId: src_reg_gr_naoussa
+      ki_reg_gr_nemea_extraction_oak:
+        prompt: "GAIA's Nemea Estate red uses extended post-fermentation maceration and new French oak. How should a student use that record?"
+        options: ["As the standard production recipe for Nemea", "As evidence that extra new oak reliably improves a wine's balance", "As evidence that regional climate fixes the wine's tannin", "As one producer route to structure and oak influence"]
+        correctIndex: 3
+        explanation: "GAIA's technical account is a specific producer example; its extraction and oak choices need not describe all Nemea."
+        sourceCitationId: src_reg_gr_gaia_estate
+      ki_reg_gr_xinomavro_structure:
+        prompt: "A relatively pale Xinomavro tastes firm and acidic. Which note risks misreading its structure?"
+        options: ["Inferring soft tannin from its relatively pale red colour", "Using the palate's firm tannin as a separate observation", "Comparing its maturation record with the tasted sample", "Recording bright acidity alongside the colour description"]
+        correctIndex: 0
+        explanation: "Wines of Greece describes Xinomavro as sometimes pale yet firm in tannin and acidity; colour is a weak structure proxy."
+        sourceCitationId: src_reg_gr_xinomavro
+      ki_reg_ib_montsant_controls:
+        prompt: "A Montsant trial matches vine age, harvest maturity and steel vinification across parcels. What can that design support?"
+        options: ["Strong proof that soil drove the observed flavour gap", "A more useful comparison with several confounders reduced", "A ranking of Garnatxa and Carinyena across Montsant", "Removal of vineyard and vintage variation from the comparison"]
+        correctIndex: 1
+        explanation: "The Montsant technical programme used matched conditions to compare sites, while its design cannot isolate every cause."
+        sourceCitationId: src_reg_ib_montsant_research
+      ki_reg_na_oregon_series_controls:
+        prompt: "Cristom compares whole-cluster percentages from one Louise Vineyard harvest with similar oak and maturation. What is the cautious inference?"
+        options: ["The observed stem effect transfers across Oregon producers and later vintages", "One tasting series proves a universal stem effect", "Matched records help compare stems, without proving causality", "The matching harvest date resolves the wine-style difference"]
+        correctIndex: 2
+        explanation: "Cristom reports shared vineyard, harvest and maturation conditions; that strengthens a comparison but is not replicated causal proof."
+        sourceCitationId: src_reg_na_cristom_series
+      ki_reg_na_slh_chardonnay_range:
+        prompt: "A Santa Lucia Highlands Chardonnay label arrives without a production sheet. Which service promise is supportable?"
+        options: ["It is probably lean because the regional climate is cool and coastal", "It is probably rich because Chardonnay is grown on these slopes", "Its oak level follows the region's average cellar practice", "Check the actual bottle; the region spans crisp to richer styles"]
+        correctIndex: 3
+        explanation: "The Santa Lucia Highlands regional body describes a range of Chardonnay expressions rather than one fixed style."
+        sourceCitationId: src_reg_na_slh_glass
+      ki_reg_sa_leyda_cellar:
+        prompt: "Leyda's Garuma Sauvignon Blanc combines whole-bunch pressing with a macerated portion and varied vessels. What does the record show?"
+        options: ["Handling and lees or vessel choices can shape a coastal white", "The coastal origin accounts for texture despite the recorded cellar treatments", "Used barrels supply the same flavour as a wholly new-oak regime", "Whole-bunch pressing would prevent later lees maturation"]
+        correctIndex: 0
+        explanation: "Viña Leyda's 2023 technical sheet documents split fruit handling, steel, used barrels and lees stirring for one wine."
+        sourceCitationId: src_reg_sa_leyda_2023
+      ki_reg_sa_mendoza_cellar_response:
+        prompt: "After a variable Mendoza harvest, a cellar receives lots with different grape analyses. What is a justified production response?"
+        options: ["Use the vintage summary to select one extraction schedule for the received lots", "Adjust fermentation and pressing plans to the actual lots", "Apply the longest maceration to the riper parcels first", "Assume early picking alone explains the finished style"]
+        correctIndex: 1
+        explanation: "Wines of Argentina's harvest report documents producers using grape analyses and adapting fermentation, maceration and press work."
+        sourceCitationId: src_reg_sa_mendoza_2020
+      ki_reg_sa_mendoza_source_factor:
+        prompt: "An INTA Malbec trial varies grape source and yeast. What must a comparison of pH, alcohol and colour consider?"
+        options: ["Yeast treatment as the dominant source of measured variation", "A permanent quality ranking of Mendoza subregions", "Both fruit origin and yeast treatment as contributors", "A sensory origin claim based on one unmatched wine"]
+        correctIndex: 2
+        explanation: "The INTA-led experiment found grape-source differences in measured chemistry while also testing yeast treatments."
+        sourceCitationId: src_reg_sa_mendoza_yeast
+      ki_reg_sa_mendoza_yeast_factor:
+        prompt: "The same INTA Malbec study finds chemistry and fermentation-duration differences among yeast treatments, but no significant sensory-panel separation. Which report is accurate?"
+        options: ["The panel proved a preferred flavour for each yeast", "Fermentation duration was unaffected by yeast choice", "Measured chemistry depends principally on grape origin despite yeast treatments", "Yeast affected measured outcomes; sensory claims stay qualified"]
+        correctIndex: 3
+        explanation: "The INTA-led study reports chemical and duration effects of yeast treatments; descriptive sensory differences were not statistically significant."
+        sourceCitationId: src_reg_sa_mendoza_yeast
+      ki_wset_apply_alentejo_production:
+        prompt: "A ripe Alentejo Aragonez and Alicante Bouschet lot is intended for a fruit-led red. How should cap work be set?"
+        options: ["Trial moderate extraction against the lot's tannin and fruit", "Extend cap work until darker colour develops despite the current tannin record", "Delay red-skin contact until after primary fermentation", "Choose a fixed extraction schedule from the region name"]
+        correctIndex: 0
+        explanation: "AWRI describes skin contact and cap work as extraction controls; observed fruit and tannin should guide this Alentejo lot."
+        sourceCitationId: src_win_skin_contact
+      ki_wset_apply_levante_white_route:
+        prompt: "A Valencia grower supplies sound white grapes for a fresh, aromatic early release. Which first cellar route fits?"
+        options: ["Extend skin contact to build a more phenolic white", "Press juice gently away from skins and ferment it cool", "Use warm barrel fermentation for a mature, spiced white", "Keep the crushed white grapes on skins for an amber-style texture"]
+        correctIndex: 1
+        explanation: "White-juice separation and cool fermentation are a reasonable fresh-white route; the regional origin does not mandate it."
+        sourceCitationId: src_win_white_temperature
+      ki_wset_apply_niederosterreich_production:
+        prompt: "A Niederösterreich Grüner Veltliner lot has a fresh-fruit brief. What trial offers a useful baseline before adding texture?"
+        options: ["New barrique fermentation and oxidative handling to build mature spice notes", "Extended skin contact to pursue a phenolic amber-wine style", "Cool neutral-vessel fermentation, then compare separate lees trials", "Warm fermentation and heavy lees stirring for a broader wine"]
+        correctIndex: 2
+        explanation: "Cool neutral fermentation can preserve fruit; AWRI describes lees as a separate texture variable to trial."
+        sourceCitationId: src_win_lees
+      ki_wset_eu_dolcetto_alba_use:
+        prompt: "A Piedmont list needs an earlier-drinking red beside a firmly tannic Nebbiolo. Which Dolcetto decision is defensible?"
+        options: ["Use the wine’s age and Piedmont origin as proof that its tannin is already soft", "Mature both wines for an identical fixed period", "Assume any Dolcetto is ready without tasting", "Trial a fruit-led Dolcetto and assess its actual grip"]
+        correctIndex: 3
+        explanation: "The Langhe consortium describes Dolcetto's fruit-led role, but the actual wine's extraction and tannin still matter."
+        sourceCitationId: src_reg_inc_dolcetto
+      ki_wset_eu_frascati_steel_lees:
+        prompt: "A Frascati Superiore producer sheet reports stainless fermentation followed by lees ageing. Which combined effect is plausible?"
+        options: ["Fresh fruit retention with added texture from fine lees", "Fresh fruit retention with less texture after lees ageing", "Oak spice from steel and a stronger acid bite from lees", "Fruit removal by steel followed by new-barrel toast"]
+        correctIndex: 0
+        explanation: "The producer documents temperature-controlled steel fermentation and lees ageing in its own Frascati example."
+        sourceCitationId: src_wset_eu_frascati_producer
+      ki_wset_eu_penedes_xarello_oak:
+        prompt: "A Penedès Xarel·lo example has barrel treatment. What should a comparison with a fresh steel-made white examine?"
+        options: ["The appellation profile in place of a paired tasting", "Fruit, texture and wood notes in the finished wines", "A fixed oak aroma attributed to the Xarel·lo grape", "The assumption that both wines share a vessel route"]
+        correctIndex: 1
+        explanation: "The Penedès board lists a barrel-treated producer example; oak influence should be checked against an actual comparison wine."
+        sourceCitationId: src_wset_eu_penedes_example
+      ki_wset_nw_goulburn_heat_water:
+        prompt: "A Goulburn Valley Shiraz parcel ripens under inland warmth with managed irrigation. What remains a separate cellar decision?"
+        options: ["Whether the grapes came from a warm Australian region", "Whether the local rivers have any cooling influence", "How extraction and oak shape the finished red wine", "Whether white grapes can ripen in the warm valley"]
+        correctIndex: 2
+        explanation: "Wine Australia describes the warm irrigated regional setting; extraction and oak treatment are separate style choices."
+        sourceCitationId: src_wset_nw_goulburn
+      ki_wset_nw_inland_water_costs:
+        prompt: "An inland Australian grower compares irrigation plans for two wine-grape contracts. Which decision record is most useful?"
+        options: ["Water use alone, regardless of delivered fruit quality", "The highest possible yield without a cost estimate", "The variety name without price or vineyard inputs", "Water cost, yield, fruit target and contract return"]
+        correctIndex: 3
+        explanation: "Wine Australia's Murray-Darling benchmarking considers water costs, yields, varieties and management together."
+        sourceCitationId: src_wset_nw_au_water_costs
+      ki_wset_nw_lodi_style_choices:
+        prompt: "Two Lodi Zinfandels differ: one is lighter and fruit-led, the other riper and oak-influenced. What best explains the range?"
+        options: ["Vineyard selection and cellar choices can differ", "The Lodi name calls for the same new-oak maturation across both styles", "Old-vine status establishes the final sweetness", "The region alone dictates identical extraction"]
+        correctIndex: 0
+        explanation: "The Lodi Winegrape Commission describes multiple Zinfandel styles and production choices within the region."
+        sourceCitationId: src_wset_nw_lodi_style
+      ki_wset_nw_ontario_icewine_selection:
+        prompt: "An Ontario producer wants to qualify a Vidal lot as Icewine. Which harvest and press plan captures the defining concentration step?"
+        options: ["Pick chilled grapes and freeze the finished bottled wine", "Harvest naturally vine-frozen fruit and press it frozen", "Dry the harvested bunches indoors before fermentation", "Add grape concentrate to a conventionally pressed wine"]
+        correctIndex: 1
+        explanation: "Ontario's appellation authority requires grapes to freeze naturally on the vine and be pressed while frozen for Icewine."
+        sourceCitationId: src_wset_nw_ontario_labels
+      ki_wset_nw_worcester_wine_context:
+        prompt: "A Worcester cellar handles grapes for both brandy and wine labels. Which production brief should be confirmed first?"
+        options: ["The district name as proof of a distillation route", "The grape price as a substitute for the intended product", "Whether this lot is destined for wine or brandy first", "The district’s brandy identity as the lot destination"]
+        correctIndex: 2
+        explanation: "Wines of South Africa identifies Worcester as a grape and brandy district whose cellars also bottle wine."
+        sourceCitationId: src_diploma_za_olifants
+      ki_wset_nwa_aconcagua_red:
+        prompt: "A ripe Aconcagua Cabernet Sauvignon is fermented for a balanced dry red. When should oak be selected?"
+        options: ["Before examining the fruit, from the inland origin alone", "After setting a house-wide heavy-oak treatment", "When fruit aroma starts to decline in the barrel", "After tasting extraction trials against the style brief"]
+        correctIndex: 3
+        explanation: "Red extraction and oak can alter structure and aroma; the ripe lot's balance and target style determine the route."
+        sourceCitationId: src_win_oak
+      ki_wset_nwa_cachapoal_carmenere:
+        prompt: "A ripe Cachapoal Carmenère lot shows firmer tannin than the fruit-led brief requires. Which cap-work response merits trial?"
+        options: ["Reduce extraction intensity and promptly reassess the tank", "Increase punch-down frequency without checking tannin", "Treat additional new oak as a substitute for fruit ripeness", "Stop fermentation before evaluating colour or structure"]
+        correctIndex: 0
+        explanation: "Cap management changes phenolic extraction; reducing intensity is a sensible trial when measured tannin exceeds the brief."
+        sourceCitationId: src_win_temperature
+      ki_wset_nwa_canterbury_riesling:
+        prompt: "A Canterbury Riesling producer wants two versions from sound fruit: dry and off-dry. What needs a distinct endpoint plan?"
+        options: ["The picking date as the finished sugar endpoint", "Sugar fermentation and stability plans for each wine", "The bottle closure as a replacement for microbial control", "One fixed fermentation stop for both sweetness targets"]
+        correctIndex: 1
+        explanation: "Dry and off-dry briefs differ in residual sugar; a sweetened or arrested lot also needs microbial stability control."
+        sourceCitationId: src_win_packaging
+      ki_wset_nwa_curico_maule_white:
+        prompt: "Curicó and Maule Sauvignon Blanc lots are intended as fresh whites. Which common route limits unwanted skin extraction?"
+        options: ["Ferment on white skins for a phenolic amber-wine brief", "Increase warm skin contact before settling to build grip in both white lots", "Press juice away from skins before cool fermentation for both", "Hold crushed white juice with oxygen exposure before pressing"]
+        correctIndex: 2
+        explanation: "AWRI describes skin contact as an extraction variable; juice separation suits a fresh-white brief when fruit is sound."
+        sourceCitationId: src_win_skin_contact
+      ki_wset_nwa_elim_sauvignon:
+        prompt: "An Elim Sauvignon Blanc lot has a fresh aromatic brief. Which trial most directly tests an optional lees-texture effect?"
+        options: ["Compare different vineyard sites and change the lees time too", "Compare harvest dates while changing the fermentation vessel", "Change fruit maturity and oxygen exposure between the lots", "Hold fruit and vessel steady while varying the lees contact"]
+        correctIndex: 3
+        explanation: "AWRI documents lees contact as a cellar variable; Elim's coastal setting does not prescribe it."
+        sourceCitationId: src_win_lees
+      ki_wset_nwa_elqui_syrah:
+        prompt: "An Elqui Syrah tank reaches the desired colour but tannin is already firm. What extraction decision fits a fruit-led brief?"
+        options: ["Ease cap work and track the wine's developing balance", "Increase cap work because aridity predicts soft tannin", "Add oak immediately to eliminate the existing tannin", "Extend maceration until the regional name tastes typical"]
+        correctIndex: 0
+        explanation: "AWRI describes extraction as responsive to temperature and skin contact; the actual tannin result guides the next cap-work step."
+        sourceCitationId: src_win_temperature
+      ki_wset_nwa_finger_lakes_riesling:
+        prompt: "A Finger Lakes Riesling smells fruity, but the menu needs a dry option. Which check settles the service claim?"
+        options: ["Lake proximity and cool growing conditions as evidence of a dry finished wine", "Measured residual sugar and an actual palate assessment", "The assumption that ripe fruit aroma equals sweetness", "The grape name without the producer's technical sheet"]
+        correctIndex: 1
+        explanation: "New York's wine body describes both dry and sweet Riesling; aroma and origin cannot replace residual-sugar evidence."
+        sourceCitationId: src_wset_nw_finger_riesling
+      ki_wset_nwa_gisborne_chardonnay:
+        prompt: "A ripe Gisborne Chardonnay lot is split into fruit-led and fuller trial wines. Which change is useful for the fuller trial?"
+        options: ["Remove fruit by pushing oxidative handling", "Keep both trials identical in vessel and maturation", "Evaluate lees, oak or malolactic fermentation", "Use the regional name to assign final body"]
+        correctIndex: 2
+        explanation: "Lees, oak and malolactic fermentation are optional texture and flavour variables to trial against the fruit's balance."
+        sourceCitationId: src_win_lees
+      ki_wset_nwa_great_southern_red:
+        prompt: "Two Great Southern red lots differ in concentration. How should an extraction schedule be chosen?"
+        options: ["Use the region's largest standard tank schedule", "Assign more oak in advance based on regional reputation rather than the lot", "Treat Cabernet and Shiraz as a single fixed recipe", "Compare cap-work trials with each lot's tannin and fruit"]
+        correctIndex: 3
+        explanation: "AWRI describes fermentation temperature and skin contact as extraction controls; individual fruit concentration matters."
+        sourceCitationId: src_win_temperature
+      ki_wset_nwa_great_southern_riesling:
+        prompt: "A Great Southern Riesling is destined for a fresh style, but the buyer asks whether it is dry. What evidence is needed?"
+        options: ["Residual sugar and acid balance in the finished sample", "The cool-region name and Riesling grape identity as measures of final sugar", "A colour reading as proof of fermentation completion", "The vessel material as the final sweetness measure"]
+        correctIndex: 0
+        explanation: "Wine Australia describes regional Riesling styles; finished sweetness must be checked rather than inferred from origin."
+        sourceCitationId: src_wset_grape_wa_riesling
+      ki_wset_nwa_leyda_san_antonio_white:
+        prompt: "A Leyda Sauvignon Blanc trial compares neutral steel and lees-aged portions. Which inference respects the coastal origin?"
+        options: ["Coastal cooling determines the fermentation vessel and duration on lees", "Lees and vessel differences are cellar variables to assess", "The Leyda name requires identical lees time in both lots", "Steel fermentation rules out a textured final wine"]
+        correctIndex: 1
+        explanation: "Viña Leyda's producer record uses more than one vessel and lees treatment; coastal fruit does not require one recipe."
+        sourceCitationId: src_reg_sa_leyda_2023
+      ki_wset_nwa_limari_chardonnay:
+        prompt: "A Limarí Chardonnay parcel has fresh fruit and brisk acidity. What trial could add body while changing its acid profile?"
+        options: ["Earlier harvest followed by shorter lees contact", "A warmer fermentation without measuring fruit balance", "Malolactic fermentation tested on a separate portion", "A regional label change without cellar treatment"]
+        correctIndex: 2
+        explanation: "AWRI describes malolactic fermentation in white wine as an option that reduces malic acidity and may change mouthfeel."
+        sourceCitationId: src_win_white_mlf
+      ki_wset_nwa_maule_southern_red:
+        prompt: "A cellar receives Maule Cabernet Sauvignon and Southern Region Riesling. Which handling distinction addresses their different briefs?"
+        options: ["Ferment the Riesling on red skins for its white brief", "Separate Cabernet juice from skins before colour develops", "Use identical warm maceration for both fermentations", "Extract Cabernet on skins; press Riesling for white juice"]
+        correctIndex: 3
+        explanation: "Red skin fermentation builds colour and tannin; pressing white juice limits that extraction for an aromatic white."
+        sourceCitationId: src_win_skin_contact
+      ki_wset_nwa_mendocino_chardonnay:
+        prompt: "A Mendocino Chardonnay trial with lees and oak tastes fuller than a neutral-vessel control. What is the cautious explanation?"
+        options: ["Maturation choices may affect texture and wood aroma", "The county name by itself caused the toast note", "Oak aroma establishes greater intrinsic grape quality", "Lees contact changes vineyard rainfall after harvest"]
+        correctIndex: 0
+        explanation: "AWRI describes lees effects on mouthfeel; the item also cites oak-wood research for the wood-aroma contribution."
+        sourceCitationId: src_win_lees
+      ki_wset_nwa_monterey_chardonnay:
+        prompt: "A brisk Monterey Chardonnay is considered for a richer style. Which operation can lower malic acidity?"
+        options: ["Cold storage of sealed bottles after release", "A monitored malolactic fermentation trial plan", "A longer label approval period before bottling", "A neutral-vessel alcoholic fermentation alone"]
+        correctIndex: 1
+        explanation: "AWRI explains that malolactic fermentation converts malic acid; this is a choice, not a Monterey requirement."
+        sourceCitationId: src_win_white_mlf
+      ki_wset_nwa_nelson_aromatics:
+        prompt: "A Nelson Pinot Gris is planned as an aromatic, fruit-led wine. What should the cellar confirm before calling it dry?"
+        options: ["The regional daylight hours as the sugar result", "The grape's aroma as proof of full fermentation", "Finished sugar level and the wine’s taste balance", "A stainless vessel as evidence that fermentable sugar has disappeared"]
+        correctIndex: 2
+        explanation: "New Zealand Winegrowers describes regional aromatic varieties; finished sweetness needs actual wine evidence."
+        sourceCitationId: src_reg_oa_nelson
+      ki_wset_nwa_paso_santa_maria_routes:
+        prompt: "A Paso Robles Cabernet and Santa Maria Chardonnay arrive for different wine styles. Which initial route matches their colour targets?"
+        options: ["Press Cabernet clear for a pale red and macerate Chardonnay skins for its white brief", "Use equal warm skin contact for both lots", "Choose new oak first and skip juice-handling choices", "Ferment Cabernet on skins; press Chardonnay to white juice"]
+        correctIndex: 3
+        explanation: "Skin contact builds red colour and tannin, while white juice separation limits phenolic extraction."
+        sourceCitationId: src_win_skin_contact
+      ki_wset_nwa_santa_cruz_pinot:
+        prompt: "A Santa Cruz Mountains Pinot Noir lot already has the desired red fruit and moderate tannin. Which cap-work trial fits?"
+        options: ["Compare restrained extraction with a more intensive control", "Increase cap work to maximise tannin before tasting the already balanced lot", "Use the vessel material to estimate extraction intensity", "Remove the skins before any colour is observed"]
+        correctIndex: 0
+        explanation: "AWRI describes temperature and cap work as extraction levers; the trial should test balance against the actual lot."
+        sourceCitationId: src_win_temperature
+      ki_wset_nwa_south_coast_chardonnay:
+        prompt: "Elgin and Walker Bay Chardonnay lots are compared for a fuller style. Which variable should be trialled rather than assigned by origin?"
+        options: ["The position of the vineyards within South Africa", "Lees, oak and malolactic fermentation choices", "The fact that both lots use the Chardonnay grape", "The coastal climate recorded before harvest"]
+        correctIndex: 1
+        explanation: "AWRI describes lees effects; the item also cites malolactic and oak sources as optional fuller-style treatments."
+        sourceCitationId: src_win_lees
