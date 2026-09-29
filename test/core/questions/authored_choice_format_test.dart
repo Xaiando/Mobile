@@ -274,7 +274,7 @@ void main() {
   );
 
   test(
-    '359 cited Level 1–3 questions are generated and served across domains',
+    '379 cited Level 1–3 questions are generated and served across domains',
     () async {
       final db = openTestDatabase();
       try {
@@ -289,7 +289,7 @@ void main() {
         final templates = await (db.select(
           db.questionTemplates,
         )..where((row) => row.mode.equals('authored_choice'))).get();
-        expect(templates, hasLength(15));
+        expect(templates, hasLength(16));
         final expectedIds = {
           for (final template in templates)
             ...((jsonDecode(template.parameters!)
@@ -313,13 +313,23 @@ void main() {
                       as Map<String, dynamic>)
                   .keys,
         };
+        final sharedGrapeIds = {
+          for (final template in templates)
+            if (template.id.startsWith('qt_wset_shared_grape_'))
+              ...((jsonDecode(template.parameters!)
+                          as Map<String, dynamic>)['item_choices']
+                      as Map<String, dynamic>)
+                  .keys,
+        };
         final levelThreeIds = expectedIds.difference({
           ...levelOneIds,
           ...levelTwoIds,
+          ...sharedGrapeIds,
         });
-        expect(expectedIds, hasLength(359));
+        expect(expectedIds, hasLength(379));
         expect(levelOneIds, hasLength(132));
         expect(levelTwoIds, hasLength(142));
+        expect(sharedGrapeIds, hasLength(20));
         expect(levelThreeIds, hasLength(85));
         final rows = await db.customSelect('''
         SELECT q.knowledge_item_id, i.domain_id FROM questions q
@@ -327,7 +337,7 @@ void main() {
         JOIN knowledge_items i ON i.id = q.knowledge_item_id
         WHERE t.mode = 'authored_choice' ORDER BY q.knowledge_item_id
       ''').get();
-        expect(rows, hasLength(359));
+        expect(rows, hasLength(379));
         final actual = {
           for (final row in rows)
             row.read<String>('knowledge_item_id'): row.read<String>(
@@ -351,10 +361,24 @@ void main() {
             card.itemId: card,
         };
         for (final id in expectedIds) {
+          if (sharedGrapeIds.contains(id)) {
+            expect(
+              levelTwoCards[id]?.formats.map((format) => format.mode),
+              contains('authored_choice'),
+              reason: 'Level 2: $id',
+            );
+            expect(
+              levelThreeCards[id]?.formats.map((format) => format.mode),
+              contains('authored_choice'),
+              reason: 'Level 3: $id',
+            );
+          }
           expect(
             (levelOneIds.contains(id)
                     ? levelOneCards[id]
                     : levelTwoIds.contains(id)
+                    ? levelTwoCards[id]
+                    : sharedGrapeIds.contains(id)
                     ? levelTwoCards[id]
                     : levelThreeCards[id])
                 ?.formats
