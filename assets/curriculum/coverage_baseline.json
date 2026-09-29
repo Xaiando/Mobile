@@ -1,6 +1,6 @@
 {
   "about": "Question coverage baseline (backlog F1, audit COV-3). The build fails when a metric falls below it or a blocking gap is not in known_gaps. Regenerate the metrics with dart run tool/coverage_report.dart --update-baseline; edit known_gaps by hand.",
-  "release": "0.24.55",
+  "release": "0.24.56",
   "on": "2026-09-29",
   "tracks": {
     "CMS_CERTIFIED": {
@@ -367,7 +367,7 @@
       }
     },
     "WSET_L4": {
-      "total": {"items": 4056, "core": 2782, "testable": 4056, "flashcard_only": 0, "useful_practice": 3828, "recall": 3945, "recognition": 3378, "spatial": 1673, "structured": 461, "reasoning": 10, "core_flashcard_only": 0, "core_useful_practice": 2782, "core_reasoning": 10},
+      "total": {"items": 4074, "core": 2800, "testable": 4074, "flashcard_only": 0, "useful_practice": 3846, "recall": 3963, "recognition": 3388, "spatial": 1673, "structured": 469, "reasoning": 10, "core_flashcard_only": 0, "core_useful_practice": 2800, "core_reasoning": 10},
       "domains": {
         "business": {
           "total": {"items": 236, "core": 236, "testable": 236, "flashcard_only": 0, "useful_practice": 236, "recall": 236, "recognition": 115, "spatial": 0, "structured": 121, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 236, "core_reasoning": 0},
@@ -482,15 +482,15 @@
           }
         },
         "winemaking": {
-          "total": {"items": 701, "core": 683, "testable": 701, "flashcard_only": 0, "useful_practice": 692, "recall": 701, "recognition": 491, "spatial": 0, "structured": 208, "reasoning": 3, "core_flashcard_only": 0, "core_useful_practice": 683, "core_reasoning": 3},
+          "total": {"items": 719, "core": 701, "testable": 719, "flashcard_only": 0, "useful_practice": 710, "recall": 719, "recognition": 501, "spatial": 0, "structured": 216, "reasoning": 3, "core_flashcard_only": 0, "core_useful_practice": 701, "core_reasoning": 3},
           "areas": {
             "n_geo_champagne_region": {"items": 2, "core": 2, "testable": 2, "flashcard_only": 0, "useful_practice": 2, "recall": 2, "recognition": 2, "spatial": 0, "structured": 1, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 2, "core_reasoning": 0},
             "n_geo_piedmont": {"items": 4, "core": 2, "testable": 4, "flashcard_only": 0, "useful_practice": 4, "recall": 4, "recognition": 4, "spatial": 0, "structured": 4, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 2, "core_reasoning": 0},
             "n_geo_tuscany": {"items": 1, "core": 0, "testable": 1, "flashcard_only": 0, "useful_practice": 1, "recall": 1, "recognition": 1, "spatial": 0, "structured": 1, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 0, "core_reasoning": 0},
             "type:causal_premise": {"items": 12, "core": 3, "testable": 12, "flashcard_only": 0, "useful_practice": 3, "recall": 12, "recognition": 3, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 3, "core_reasoning": 0},
             "type:causal_state": {"items": 3, "core": 3, "testable": 3, "flashcard_only": 0, "useful_practice": 3, "recall": 3, "recognition": 0, "spatial": 0, "structured": 0, "reasoning": 3, "core_flashcard_only": 0, "core_useful_practice": 3, "core_reasoning": 3},
-            "type:production_case": {"items": 198, "core": 198, "testable": 198, "flashcard_only": 0, "useful_practice": 198, "recall": 198, "recognition": 0, "spatial": 0, "structured": 198, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 198, "core_reasoning": 0},
-            "type:production_principle": {"items": 468, "core": 468, "testable": 468, "flashcard_only": 0, "useful_practice": 468, "recall": 468, "recognition": 468, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 468, "core_reasoning": 0},
+            "type:production_case": {"items": 206, "core": 206, "testable": 206, "flashcard_only": 0, "useful_practice": 206, "recall": 206, "recognition": 0, "spatial": 0, "structured": 206, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 206, "core_reasoning": 0},
+            "type:production_principle": {"items": 478, "core": 478, "testable": 478, "flashcard_only": 0, "useful_practice": 478, "recall": 478, "recognition": 478, "spatial": 0, "structured": 0, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 478, "core_reasoning": 0},
             "type:wine_type": {"items": 13, "core": 7, "testable": 13, "flashcard_only": 0, "useful_practice": 13, "recall": 13, "recognition": 13, "spatial": 0, "structured": 4, "reasoning": 0, "core_flashcard_only": 0, "core_useful_practice": 7, "core_reasoning": 0}
           }
         }
