@@ -1,0 +1,488 @@
+# Bounded WSET Level 3 winemaking decisions on existing cited principles.
+# All choices remain expert-unverified.
+question_templates:
+- id: qt_wset_l3_winemaking_gap_40
+  relation_type: PRINCIPLE_EXPLANATION
+  direction: forward
+  mode: authored_choice
+  variant: wset_l3_winemaking_gap_40
+  prompt_template: '{subject.name}'
+  parameters:
+    item_choices:
+      ki_fault_acetic_bacteria:
+        prompt: An opened red-wine tank is held with a large air space and rising volatile acidity.
+          Which mechanism best explains the risk?
+        options:
+        - Oxygen access lets acetic acid bacteria oxidise ethanol to acetic acid
+        - Dissolved oxygen alone chemically oxidises most ethanol, with no bacterial role
+        - Lactic bacteria grow in the headspace and remove the acetic acid formed
+        - Volatile acidity can rise only if fermentable sugar is still present
+        correctIndex: 0
+        explanation: AWRI identifies acetic acid bacteria and oxygen exposure as a route to volatile-acidity
+          spoilage; the headspace is therefore relevant.
+        sourceCitationId: src_fault_faults_overview
+      ki_fault_aeration_risk:
+        prompt: A reductive-smelling wine has thiol-like sulfur notes. Why is open aeration an uncertain
+          cure before bench trials?
+        options:
+        - Aeration strips all sulfur aromas without changing their chemical form
+        - Aeration can make thiols into disulfides that copper cannot remove
+        - Aeration makes every disulfide susceptible to ordinary copper fining
+        - Oxygen exposure is safe whenever dissolved H2S falls immediately
+        correctIndex: 1
+        explanation: AWRI warns that oxidative conversion to disulfides can complicate volatile-sulfur
+          removal; diagnose the compound and trial the remedy.
+        sourceCitationId: src_fault_sulfur
+      ki_fault_brett_cells_phenols:
+        prompt: A Brett-affected red is sterile-filtered just before bottling. What should the buyer
+          still expect?
+        options:
+        - Sterile filtration removes dissolved 4-ethylphenol along with yeast cells
+        - A sterile-filtered wine cannot retain any Brett-derived odour compounds
+        - Filtration removes Brett cells, but pre-existing volatile phenols remain
+        - Sulfur dioxide added at bottling destroys all phenols made before filtration
+        correctIndex: 2
+        explanation: AWRI separates controlling viable Brett cells from removing dissolved Brett-associated
+          volatiles.
+        sourceCitationId: src_fault_brett_control
+      ki_fault_copper_carryover:
+        prompt: A cellar doses copper to a wine with H2S, then filters it. Which assumption is unsafe
+          when signing off the treatment?
+        options:
+        - That the wine needs a sensory check after copper treatment
+        - That copper concentration should be measured in the treated wine
+        - That a bench trial should precede treating the production lot
+        - That filtration removes all dissolved copper-sulfur species
+        correctIndex: 3
+        explanation: AWRI reports that some copper-sulfur species may remain dissolved; filtration
+          alone does not prove complete removal.
+        sourceCitationId: src_fault_sulfur
+      ki_fault_enzymatic_browning:
+        prompt: A white-grape lot browns rapidly during crushing before fermentation. Which process
+          is most relevant?
+        options:
+        - Grape polyphenol oxidase catalyses early phenolic oxidation in must
+        - Only slow, non-enzymatic oxidation matters before the juice ferments
+        - Browning begins only after malolactic conversion changes the juice pH
+        - The enzyme stays inside intact skins after crushing and pressing
+        correctIndex: 0
+        explanation: Iowa State Extension identifies grape polyphenol oxidase, phenolic substrate
+          and oxygen as factors in early must browning.
+        sourceCitationId: src_fault_oxidation_white
+      ki_fault_haze_diagnosis:
+        prompt: A bottled red lot develops haze. Why should the cellar sample it before dismissing
+          it as cosmetic?
+        options:
+        - Assume the haze is protein instability without a microbial sample
+        - Haze may hold viable microbes; identify contents before release
+        - Treat all haze as tartrate crystals based on appearance alone
+        - Rely on final-filter records to rule out later microbial growth
+        correctIndex: 1
+        explanation: AWRI advises that haze or deposit can include microbial cells; diagnosis precedes
+          a stability decision.
+        sourceCitationId: src_fault_brett_control
+      ki_fault_late_copper:
+        prompt: A bottled-release deadline is close and a red smells reductive. Which response best
+          controls a proposed late copper addition?
+        options:
+        - Repeat the last successful copper dose without measuring this lot
+        - Bottle after copper fining once the first treated sample smells clean
+        - Measure copper, trial doses and assess later haze or sulfur return
+        - Assume the added copper will be fully removed by the next filter
+        correctIndex: 2
+        explanation: AWRI calls for cautious copper trials and attention to existing copper and later
+          instability, especially near bottling.
+        sourceCitationId: src_fault_sulfur
+      ki_fault_light_reaction:
+        prompt: A pale white in clear glass develops cooked-cabbage notes after bright retail display.
+          Which pathway is plausible?
+        options:
+        - Clear glass lowers the pH enough to release bound sulfur aroma
+        - Only oxygen ingress can make this aroma; illumination has no role
+        - The display heat triggers MLF even if the wine is microbially stable
+        - Light and riboflavin reactions create unwanted volatile sulfur notes
+        correctIndex: 3
+        explanation: AWRI links light exposure, riboflavin and sulfur-containing amino acids to light-struck
+          sulfur aromas.
+        sourceCitationId: src_srv_awri_light
+      ki_fault_packaging_biofilms:
+        prompt: A sweet wine passed a final filter, yet bottle samples show viable yeast. Where should
+          the investigation look?
+        options:
+        - At valves, seals and filler heads that can recontaminate wine after filtration
+        - At the vineyard record first, because filtration rules out later contamination
+        - At the filter rating alone, without examining the downstream filling line
+        - At the sweetening step alone, assuming the filler stayed sterile
+        correctIndex: 0
+        explanation: AWRI packaging guidance treats line contact points and biofilms as routes for
+          post-filtration contamination.
+        sourceCitationId: src_win_packaging
+      ki_fault_packaging_inputs:
+        prompt: A bottler finds sporadic microbes across several otherwise stable lots. Which audit
+          scope best finds entry routes?
+        options:
+        - Test the incoming wine alone and assume the remaining line is sterile
+        - Sample wine, rinse water, packaging stock and internal contact surfaces
+        - Swab the filler alone, assuming bottles and rinse water were sterile
+        - Check the incoming wine only, using the supplier result for all later stages
+        correctIndex: 1
+        explanation: AWRI assesses multiple packaging inputs and surfaces because contamination can
+          enter after wine preparation.
+        sourceCitationId: src_win_packaging
+      ki_fault_refermentation:
+        prompt: A lightly sweet wine develops gas in bottle. Which pair of conditions makes refermentation
+          credible?
+        options:
+        - Residual sugar alone, even if no viable fermentative cells are present
+        - Residual sugar plus an intact absolute membrane, with no viable yeast found
+        - Viable fermentative yeast and enough residual wine sugar after bottling
+        - Dissolved carbon dioxide alone, without fermentable sugar or yeast growth
+        correctIndex: 2
+        explanation: AWRI identifies yeast and a fermentable substrate as the packaging-spoilage
+          combination; sugar alone is not proof of active growth.
+        sourceCitationId: src_win_packaging
+      ki_fault_sulfur_stress:
+        prompt: Two tanks have similar YAN but only one produces H2S. Which diagnosis is soundest?
+        options:
+        - Conclude nitrogen deficiency is impossible in either tank
+        - Attribute the difference solely to the tanks' measured YAN values
+        - Treat YAN as the sole control of hydrogen-sulfide production
+        - Assess strain, sulfur residues and stress alongside nitrogen
+        correctIndex: 3
+        explanation: AWRI describes multiple contributors to hydrogen sulfide formation; matching
+          YAN does not isolate the cause.
+        sourceCitationId: src_fault_sulfur
+      ki_spark_base_acidity:
+        prompt: A producer wants a fresh traditional-method sparkling wine. Which harvest trial best
+          supports a base-wine brief?
+        options:
+        - Compare earlier-picked fruit for acidity retention, flavour and ripeness
+        - Pick at full still-wine ripeness, then expect tirage to restore the lost acidity
+        - Pick the lowest-acid lot because dissolved carbon dioxide supplies all freshness
+        - Set the date solely by potential alcohol, without tasting the fruit
+        correctIndex: 0
+        explanation: Wolf Blass describes earlier harvesting for sparkling base acidity; the intended
+          style still governs the harvest decision.
+        sourceCitationId: src_spark_base_wine
+      ki_spark_blending:
+        prompt: A sparkling cellar has several base wines with different fruit and structure. Why
+          blend them before tirage?
+        options:
+        - To make unlike base wines chemically identical before tirage
+        - To combine complementary components into the chosen house style
+        - To compensate for faulty base wine without first assessing each lot
+        - To ensure a non-vintage wine reflects only one harvest
+        correctIndex: 1
+        explanation: Comité Champagne describes blending different base wines to create a desired
+          and repeatable style.
+        sourceCitationId: src_spark_blending
+      ki_spark_press_fractions:
+        prompt: A Champagne cellar collects a cuvée and a later taille fraction. What is the practical
+          reason to keep them separate?
+        options:
+        - The later fraction is automatically best for every final blend
+        - The first fraction can be discarded without changing final style
+        - Each fraction can be selected and blended for the intended style
+        - Keeping fractions separate replaces any need to taste base wines
+        correctIndex: 2
+        explanation: Comité Champagne distinguishes press fractions and their characteristics; separation
+          preserves blending choices.
+        sourceCitationId: src_spark_pressing
+      ki_spark_mlf_optional:
+        prompt: Two Champagne base-wine lots differ in acidity and style. How should a producer approach
+          malolactic fermentation?
+        options:
+        - Run MLF in every lot because a sparkling base must have low acidity
+        - Reserve MLF for the bottle stage because it creates the desired pressure
+        - Set MLF by grape variety alone, regardless of acidity or target style
+        - Choose full, partial or no MLF to suit the intended base-wine style
+        correctIndex: 3
+        explanation: Comité Champagne describes MLF as an optional style decision after alcoholic
+          fermentation, including partial use.
+        sourceCitationId: src_spark_fermentation
+      ki_spark_more_alcohol:
+        prompt: A base wine is bottled with yeast and tirage sugar. Why can final alcohol exceed
+          base-wine alcohol?
+        options:
+        - Tirage sugar ferments to more alcohol and trapped carbon dioxide gas
+        - Lees autolysis creates the extra alcohol after fermentation has ended
+        - Riddling concentrates the same alcohol by removing most bottle water
+        - The final dosage alone explains all alcohol gained over the base wine
+        correctIndex: 0
+        explanation: Comité Champagne identifies tirage sugar as the substrate for second fermentation,
+          yielding alcohol and carbon dioxide.
+        sourceCitationId: src_spark_tirage
+      ki_spark_cool_solubility:
+        prompt: A tank-method wine loses fizz during a warm transfer. Which physical adjustment helps
+          retain its dissolved gas?
+        options:
+        - Warm the wine and seal it later, because hot wine holds more gas
+        - Keep wine cool during transfer to retain dissolved carbon dioxide
+        - Agitate the tank so escaping bubbles dissolve back into the wine
+        - Release receiving-tank pressure before transfer to prevent foaming
+        correctIndex: 1
+        explanation: Iowa State Extension explains that carbon dioxide remains more soluble at cooler
+          temperatures.
+        sourceCitationId: src_spark_carbon_dioxide
+      ki_spark_counterpressure:
+        prompt: A tank-fermented sparkling wine must pass through a processing line. Why use counter-pressure?
+        options:
+        - It replaces second fermentation by adding pressure to still wine
+        - It creates yeast-derived texture even without lees contact
+        - It helps retain dissolved fermentation gas during transfer
+        - It works only after the wine has already lost its dissolved gas
+        correctIndex: 2
+        explanation: AWRI describes pressurised handling as a means of retaining dissolved carbon
+          dioxide during sparkling-wine processing.
+        sourceCitationId: src_spark_gas_recovery
+      ki_spark_disgorge_oxygen:
+        prompt: A traditional-method wine is disgorged after a long period on lees. Why might the
+          wine evolve differently afterward?
+        options:
+        - Opening the bottle reliably restarts alcoholic fermentation
+        - Removing lees also removes nearly all the wine's acidity
+        - Corking immediately makes further aroma evolution impossible
+        - Opening exposes the wine to outside oxygen before recorking
+        correctIndex: 3
+        explanation: Comité Champagne notes oxygen exposure at disgorgement and its possible influence
+          on subsequent wine development.
+        sourceCitationId: src_spark_disgorgement
+      ki_spark_dosage_aroma:
+        prompt: Two sparkling wines receive the same sugar dose, but one uses an aromatic reserve
+          wine in its liqueur. What may differ?
+        options:
+        - Aroma as well as sweetness, because the dosage wine has character
+        - Only pressure, because reserve-wine character vanishes after dosage
+        - Only residual yeast counts, even though disgorgement is finished
+        - Sweetness only, because equal sugar always means identical flavour
+        correctIndex: 0
+        explanation: Comité Champagne describes dosage liquor composition, including reserve wine,
+          as a stylistic choice beyond sweetness.
+        sourceCitationId: src_spark_dosage
+      ki_spark_lees_style:
+        prompt: A producer extends traditional-method lees ageing for a prestige cuvée. What is a
+          defensible style expectation?
+        options:
+        - Greater lees time guarantees higher acidity in every cuvée
+        - Mature aromas and fullness can develop through lees contact
+        - Long lees time removes all yeast-derived aroma from the wine
+        - Lees contact alone raises sugar enough to make a sweet style
+        correctIndex: 1
+        explanation: Comité Champagne links maturation on lees with slowly developing aroma and texture,
+          without making duration a quality guarantee.
+        sourceCitationId: src_spark_maturation
+      ki_spark_transfer_tank:
+        prompt: A large-format sparkling lot finished its second fermentation and lees period in
+          bottles. How can a transfer-method producer clear it?
+        options:
+        - Disgorge each original bottle separately instead of transferring in bulk
+        - Start the second fermentation only after the wine has been pooled in tank
+        - Pool bottles in a tank, filter yeast in bulk and rebottle under pressure
+        - Filter out yeast before bottle fermentation and omit the later transfer
+        correctIndex: 2
+        explanation: Wine Australia describes transfer after bottle fermentation and lees ageing,
+          followed by tank filtration and rebottling.
+        sourceCitationId: src_spark_australian_methods
+      ki_spark_gushing_solids:
+        prompt: A sparkling bottling run gushes on opening, yet measured sugar is normal. What should
+          the investigation include?
+        options:
+        - Only dissolved sugar, because any solid nuclei are inert in sparkling wine
+        - Only closure fit, without examining wine-borne particles or crystals
+        - Only refermentation, even when microbial tests do not support it
+        - Solid particles or crystals that can nucleate rapid carbon-dioxide release
+        correctIndex: 3
+        explanation: AWRI describes solid nucleation sites as a gushing cause; excess sugar or refermentation
+          is not the only explanation.
+        sourceCitationId: src_spark_gushing
+      ki_fort_madeira_canteiro:
+        prompt: A Madeira producer earmarks a parcel for Canteiro. Which maturation plan matches
+          that decision?
+        options:
+        - Age it in casks in a warm cellar for gradual oxidative development
+        - Use hot-water coils in steel vats, then bottle without cask ageing
+        - Hold the wine in cool, fully topped tanks to exclude oxygen
+        - Wait for grape concentration instead of developing the fortified wine
+        correctIndex: 0
+        explanation: IVBAM describes Canteiro cask ageing, often on warmer upper floors, with oxidative
+          development over time.
+        sourceCitationId: src_fort_madeira_process
+      ki_fort_madeira_estufagem:
+        prompt: A Madeira cellar selects Estufagem for a batch wine. What equipment and action distinguish
+          the route?
+        options:
+        - Age sealed bottles in a cool warehouse without active heating
+        - Heat stainless vats via hot-water coils, then rest the finished wine
+        - Hold only in warm casks and omit the controlled vat-heating phase
+        - Heat must before adding spirit, rather than heating the finished wine
+        correctIndex: 1
+        explanation: IVBAM describes stainless vats heated by hot-water coils for Estufagem, followed
+          by a resting period.
+        sourceCitationId: src_fort_madeira_process
+      ki_fort_madeira_sweetness:
+        prompt: A Madeira winemaker wants a drier result from comparable musts. Which fermentation
+          decision matters?
+        options:
+        - Add spirit earlier so fermentation can consume more sugar afterward
+        - Choose Canteiro alone, assuming the heat determines residual sugar
+        - Allow more grape sugar to ferment before spirit arrests the yeast
+        - Select a darker variety, assuming skin pigment fixes sweetness
+        correctIndex: 2
+        explanation: IVBAM states that fortification timing stops fermentation at the intended sweetness
+          level.
+        sourceCitationId: src_fort_madeira_process
+      ki_fort_port_stop:
+        prompt: A Port ferment still contains substantial grape sugar. Why does adding grape spirit
+          now produce a sweet fortified wine?
+        options:
+        - The grape spirit contributes enough sugar to sweeten fully dry wine
+        - The grape spirit extracts new sugar from skins after dryness
+        - The spirit encourages yeast to resume fermentation before ageing
+        - Added grape spirit halts the yeast while grape sugar remains
+        correctIndex: 3
+        explanation: IVDP describes adding grape spirit to stop Port fermentation and preserve residual
+          grape sweetness.
+        sourceCitationId: src_fort_port_making
+      ki_fort_port_ruby:
+        prompt: A Port house wants a youthful red-fruit style with deep colour. Which ageing objective
+          fits Ruby?
+        options:
+        - Limit colour evolution and retain youthful red-fruit character
+        - Encourage many years of cask oxidation to create pale tawny colour
+        - Age the wine under flor to preserve young-fruit character
+        - Ferment the wine to dryness before fortification for freshness
+        correctIndex: 0
+        explanation: IVDP defines Ruby style by retained deep colour, fruit and youthful strength.
+        sourceCitationId: src_fort_port_intro
+      ki_fort_port_tawny:
+        prompt: A buyer asks why an aged Tawny shows dried fruit and paler colour than a youthful
+          Ruby. What explains it?
+        options:
+        - A different grape spirit strips pigment immediately during Port fortification
+        - Cask ageing and blending slowly develop colour and dried-fruit aromas
+        - The tawny colour comes only from using white rather than red grapes
+        - The paler colour is produced solely by the later bottling closure
+        correctIndex: 1
+        explanation: IVDP links Tawny colour and dried-fruit bouquet to ageing in casks or vats,
+          unlike Ruby preservation of youth.
+        sourceCitationId: src_fort_port_intro
+      ki_fort_sherry_classify:
+        prompt: A Sherry bodega must allocate new dry base wines. Why taste and analyse each lot
+          before fortification?
+        options:
+        - Allocate by residual sugar alone, because all base wines use one route
+        - Allocate by grape variety alone, without assessing wine structure
+        - Delicate lots may suit flor; structured lots may suit oxidative ageing
+        - Fortify all lots to one strength before deciding their ageing route
+        correctIndex: 2
+        explanation: The Sherry regulatory body describes sensory and analytic classification before
+          the biological or oxidative route.
+        sourceCitationId: src_fort_sherry_fortification
+      ki_fort_sherry_flor_level:
+        prompt: A classified Sherry base wine is intended for ageing under flor. Which fortification
+          choice supports that path?
+        options:
+        - Raise it above 17% to increase the vigour of the flor layer
+        - Keep it at table-wine strength without the flor-selecting fortification
+        - Delay fortification until oxidation has already displaced the flor
+        - Fortify wine to about 15% alcohol, where flor can grow well
+        correctIndex: 3
+        explanation: The Consejo distinguishes the flor-permitting 15% route from at least 17% for
+          oxidative Oloroso ageing.
+        sourceCitationId: src_fort_sherry_fortification
+      ki_fort_sherry_refresh:
+        prompt: Flor is thinning in an older Sherry scale. Why can suitable younger-wine refreshment
+          help?
+        options:
+        - It brings new nutrients to sustain the living flor population
+        - It stops flor metabolism so ageing becomes entirely oxidative
+        - It adds tannin that flor requires more than any nutrient supply
+        - It raises the finished wine's sweetness while flor remains active
+        correctIndex: 0
+        explanation: The Sherry regional body explains that younger wine brings nutrients to flor;
+          prolonged depletion can lead to decline.
+        sourceCitationId: src_fort_sherry_flor2
+      ki_fort_sherry_oloroso:
+        prompt: A dry Oloroso feels broad and rich. What production account avoids mistaking body
+          for sweetness?
+        options:
+        - Fortification halts an early ferment to retain the sugar of dry Oloroso
+        - Fully fermented dry wine is fortified and aged oxidatively without flor
+        - Long lees contact creates richness while the wine stays under flor
+        - Cask-aged Oloroso must be sweetened with Pedro Ximénez before release
+        correctIndex: 1
+        explanation: The Consejo describes Oloroso as fully fermented and oxidatively aged; its richness
+          is compatible with a dry finish.
+        sourceCitationId: src_fort_sherry_oloroso
+      ki_fort_vdn_mutage:
+        prompt: A Roussillon VDN ferment is fortified before yeast consumes all the grape sugar.
+          Why is the finished wine sweet?
+        options:
+        - The neutral spirit itself supplies most of the final wine's sweetness
+        - Cask ageing turns alcohol back into grape sugar after dryness
+        - Wine-derived spirit stops yeast, retaining natural fruit sugar
+        - Late harvesting alone explains sweetness even after complete fermentation
+        correctIndex: 2
+        explanation: CIVR describes mutage during fermentation as the means of retaining natural
+          grape sweetness in VDN.
+        sourceCitationId: src_fort_vdn_process
+      ki_fort_vdn_oxidative:
+        prompt: A producer seeks an Ambré or Tuilé VDN profile instead of a youthful fruit-led bottling.
+          What maturation changes?
+        options:
+        - Bottle young under an inert seal to retain only primary fruit
+        - Use lees ageing in sealed bottles to preserve fresh berry aroma
+        - Ferment to dryness and depend on bottle age for the oxidative style
+        - Use extended air-contact maturation in wood or tank for oxidation
+        correctIndex: 3
+        explanation: CIVR contrasts air-contact maturation for Ambré and Tuilé with earlier-bottled
+          youthful VDN styles.
+        sourceCitationId: src_fort_vdn_process
+      ki_reg_fs_madiran_extraction:
+        prompt: A Madiran Tannat lot has powerful but coarse tannins. Which cellar decision best
+          fits the appellation body's approach?
+        options:
+        - Trial maceration and extraction to reach the desired tannin texture
+        - Apply the same long maceration and extraction schedule to every lot
+        - Judge extraction only from colour, leaving tannin texture unassessed
+        - Shorten all macerations regardless of tannin maturity or target style
+        correctIndex: 0
+        explanation: Madiran’s interprofessional body describes tannin maturity, maceration and extraction
+          as managed choices.
+        sourceCitationId: src_reg_fs_madiran_cellar
+      ki_reg_gr_santorini_lees_oak:
+        prompt: A Santorini Assyrtiko producer wants a creamier dry-white profile. Which cellar options
+          directly serve that brief?
+        options:
+        - Use early bottling alone, because lees cannot affect still-wine texture
+        - Mature on fine lees and consider oak for a creamier, richer white
+        - Fortify before fermentation to achieve the rich dry style
+        - Remove fine lees immediately and rely only on primary citrus aroma
+        correctIndex: 1
+        explanation: Wines of Greece notes that fine-lees ageing and sometimes oak are chosen for
+          creamier, richer Santorini whites.
+        sourceCitationId: src_reg_gr_santorini
+      ki_reg_na_oregon_whole_cluster_effect:
+        prompt: An Oregon Pinot producer trials whole clusters in a ripe lot. Which effect is plausible,
+          without treating it as a regional rule?
+        options:
+        - Stems always soften tannin, regardless of fruit or stem ripeness
+        - Whole clusters prevent fermentation until every berry is crushed
+        - Stems may add tannin and herbal spice, varying by site and vintage
+        - The same stem percentage is required for all Oregon Pinot producers
+        correctIndex: 2
+        explanation: Cristom describes its producer-specific whole-cluster practice and variable
+          tannin and aromatic effects.
+        sourceCitationId: src_reg_na_cristom
+      ki_reg_ib_mancha_ferment:
+        prompt: A La Mancha cellar wants a fresh, aromatic young Airén despite warm regional conditions.
+          Which change can help?
+        options:
+        - Allow a hot ferment to run unchecked to preserve delicate fruit notes
+        - Use oxidative cask ageing as the only way to retain youthful freshness
+        - Select Airén alone and assume temperature cannot change its aroma
+        - Control ferment temperature while monitoring fruit quality and balance
+        correctIndex: 3
+        explanation: The La Mancha wine body credits temperature-controlled fermentation for fresher
+          aromatic Airén whites.
+        sourceCitationId: src_reg_ib_mancha_ferment
