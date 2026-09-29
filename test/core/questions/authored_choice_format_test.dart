@@ -360,7 +360,7 @@ void main() {
   );
 
   test(
-    '1345 cited choices are generated and served across WSET and CMS tracks',
+    '1356 cited choices are generated and served across WSET and CMS tracks',
     () async {
       final db = openTestDatabase();
       try {
@@ -385,7 +385,7 @@ void main() {
                   template.id == 'qt_d5f_authored_choice',
             )
             .toList();
-        expect(templates, hasLength(65));
+        expect(templates, hasLength(69));
         final expectedIds = {
           for (final template in templates)
             ...((jsonDecode(template.parameters!)
@@ -547,6 +547,12 @@ void main() {
         final l3RemainingPrincipleIds = idsForTemplate(
           'qt_wset_l3_geography_remaining_principles_40',
         );
+        final l3FinalGeographyIds = {
+          ...idsForTemplate('qt_wset_l3_geography_remaining_8_principles'),
+          ...idsForTemplate('qt_wset_l3_geography_gg_awarder'),
+          ...idsForTemplate('qt_wset_l3_geography_vdp_private'),
+          ...idsForTemplate('qt_wset_l3_geography_ripasso_origin'),
+        };
         final diplomaBusinessIds = idsForTemplate(
           'qt_wset_d2_business_application_29',
         );
@@ -581,6 +587,7 @@ void main() {
           ...l3GeographyIds,
           ...l3GeographyIds2,
           ...l3RemainingPrincipleIds,
+          ...l3FinalGeographyIds,
           ...diplomaBusinessIds,
           ...d3RegionalIds,
           ...d4RegionalIds,
@@ -605,7 +612,7 @@ void main() {
           'ki_reg_ib_sacra_terraces',
           'ki_reg_ib_dao_encruzado',
         }, reason: 'Diploma and Level 3 regional prompts share two items');
-        expect(expectedIds, hasLength(1337));
+        expect(expectedIds, hasLength(1348));
         expect(levelOneIds, hasLength(132));
         expect(levelTwoIds, hasLength(309));
         expect(sharedGrapeIds, hasLength(52));
@@ -641,6 +648,7 @@ void main() {
         expect(l3GeographyIds, hasLength(36));
         expect(l3GeographyIds2, hasLength(40));
         expect(l3RemainingPrincipleIds, hasLength(40));
+        expect(l3FinalGeographyIds, hasLength(11));
         expect(diplomaBusinessIds, hasLength(29));
         expect(d3RegionalIds, hasLength(19));
         expect(d4RegionalIds, hasLength(24));
@@ -657,7 +665,7 @@ void main() {
                OR t.id = 'qt_d5f_authored_choice')
         ORDER BY q.knowledge_item_id
       ''').get();
-        expect(rows, hasLength(1345));
+        expect(rows, hasLength(1356));
         final actual = {
           for (final row in rows)
             row.read<String>('knowledge_item_id'): row.read<String>(
@@ -811,7 +819,8 @@ void main() {
               l3ViticultureGeneralIds.contains(id) ||
               l3GeographyIds.contains(id) ||
               l3GeographyIds2.contains(id) ||
-              l3RemainingPrincipleIds.contains(id)) {
+              l3RemainingPrincipleIds.contains(id) ||
+              l3FinalGeographyIds.contains(id)) {
             expect(
               levelThreeCards[id]?.formats.map((format) => format.mode),
               contains('authored_choice'),
