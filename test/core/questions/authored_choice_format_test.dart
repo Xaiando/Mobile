@@ -273,110 +273,117 @@ void main() {
     },
   );
 
-  test('603 cited Level 1–3 and CMS questions are generated and served across domains', () async {
-    final db = openTestDatabase();
-    try {
-      await CurriculumIngester(db).ingest(bundledDataset());
-      const foundationExamples = {
-        'ki_wset_found_flower_to_fruit': 'viticulture',
-        'ki_wset_found_fermentation': 'winemaking',
-        'ki_wset_found_acidity': 'tasting',
-        'ki_wset_found_familiar_chablis': 'geography',
-        'ki_wset_srv_storage_cool': 'service',
-      };
-      final allTemplates = await (db.select(
-        db.questionTemplates,
-      )..where((row) => row.mode.equals('authored_choice'))).get();
-      final templates = allTemplates
-          .where(
-            (template) =>
-                template.id.startsWith('qt_wset_') ||
-                template.id.startsWith('qt_cms_example_'),
-          )
-          .toList();
-      expect(templates, hasLength(26));
-      final expectedIds = {
-        for (final template in templates)
-          ...((jsonDecode(template.parameters!)
-                      as Map<String, dynamic>)['item_choices']
-                  as Map<String, dynamic>)
-              .keys,
-      };
-      final levelOneIds = {
-        for (final template in templates)
-          if (template.id.startsWith('qt_wset_l1_'))
+  test(
+    '632 cited choices are generated and served across WSET and CMS tracks',
+    () async {
+      final db = openTestDatabase();
+      try {
+        await CurriculumIngester(db).ingest(bundledDataset());
+        const foundationExamples = {
+          'ki_wset_found_flower_to_fruit': 'viticulture',
+          'ki_wset_found_fermentation': 'winemaking',
+          'ki_wset_found_acidity': 'tasting',
+          'ki_wset_found_familiar_chablis': 'geography',
+          'ki_wset_srv_storage_cool': 'service',
+        };
+        final allTemplates = await (db.select(
+          db.questionTemplates,
+        )..where((row) => row.mode.equals('authored_choice'))).get();
+        final templates = allTemplates
+            .where(
+              (template) =>
+                  template.id.startsWith('qt_wset_') ||
+                  template.id.startsWith('qt_cms_example_'),
+            )
+            .toList();
+        expect(templates, hasLength(27));
+        final expectedIds = {
+          for (final template in templates)
             ...((jsonDecode(template.parameters!)
                         as Map<String, dynamic>)['item_choices']
                     as Map<String, dynamic>)
                 .keys,
-      };
-      final levelTwoIds = {
-        for (final template in templates)
-          if (template.id.startsWith('qt_wset_l2_'))
-            ...((jsonDecode(template.parameters!)
-                        as Map<String, dynamic>)['item_choices']
-                    as Map<String, dynamic>)
-                .keys,
-      };
-      final sharedGrapeIds = {
-        for (final template in templates)
-          if (template.id.startsWith('qt_wset_shared_grape_'))
-            ...((jsonDecode(template.parameters!)
-                        as Map<String, dynamic>)['item_choices']
-                    as Map<String, dynamic>)
-                .keys,
-      };
-      Set<String> idsForTemplate(String templateId) => {
-        for (final template in templates)
-          if (template.id == templateId)
-            ...((jsonDecode(template.parameters!)
-                        as Map<String, dynamic>)['item_choices']
-                    as Map<String, dynamic>)
-                .keys,
-      };
-      final europeIds = idsForTemplate('qt_wset_europe_application_67');
-      final newWorldIds = idsForTemplate('qt_wset_new_world_application_16');
-      final businessIds = idsForTemplate('qt_wset_business_application_26');
-      final cmsExampleIds = {
-        for (final template in templates)
-          if (template.id.startsWith('qt_cms_example_'))
-            ...((jsonDecode(template.parameters!)
-                        as Map<String, dynamic>)['item_choices']
-                    as Map<String, dynamic>)
-                .keys,
-      };
-      final winemakingSharedIds = idsForTemplate(
-        'qt_wset_winemaking_shared_application_9',
-      );
-      final winemakingL3Ids = idsForTemplate(
-        'qt_wset_winemaking_l3_application_12',
-      );
-      final l3ApplicationIds = idsForTemplate('qt_wset_l3_application_40');
-      final earlierLevelThreeIds = expectedIds.difference({
-        ...levelOneIds,
-        ...levelTwoIds,
-        ...sharedGrapeIds,
-        ...europeIds,
-        ...newWorldIds,
-        ...businessIds,
-        ...cmsExampleIds,
-        ...winemakingSharedIds,
-        ...winemakingL3Ids,
-        ...l3ApplicationIds,
-      });
-      expect(expectedIds, hasLength(603));
-      expect(levelOneIds, hasLength(132));
-      expect(levelTwoIds, hasLength(172));
-      expect(sharedGrapeIds, hasLength(32));
-      expect(europeIds, hasLength(67));
-      expect(newWorldIds, hasLength(16));
-      expect(businessIds, hasLength(26));
-      expect(cmsExampleIds, hasLength(12));
-      expect(winemakingSharedIds, hasLength(9));
-      expect(winemakingL3Ids, hasLength(12));
-      expect(l3ApplicationIds, hasLength(40));
-      expect(earlierLevelThreeIds, hasLength(85));
-      final rows = await db.customSelect('''
+        };
+        final levelOneIds = {
+          for (final template in templates)
+            if (template.id.startsWith('qt_wset_l1_'))
+              ...((jsonDecode(template.parameters!)
+                          as Map<String, dynamic>)['item_choices']
+                      as Map<String, dynamic>)
+                  .keys,
+        };
+        final levelTwoIds = {
+          for (final template in templates)
+            if (template.id.startsWith('qt_wset_l2_'))
+              ...((jsonDecode(template.parameters!)
+                          as Map<String, dynamic>)['item_choices']
+                      as Map<String, dynamic>)
+                  .keys,
+        };
+        final sharedGrapeIds = {
+          for (final template in templates)
+            if (template.id.startsWith('qt_wset_shared_grape_'))
+              ...((jsonDecode(template.parameters!)
+                          as Map<String, dynamic>)['item_choices']
+                      as Map<String, dynamic>)
+                  .keys,
+        };
+        Set<String> idsForTemplate(String templateId) => {
+          for (final template in templates)
+            if (template.id == templateId)
+              ...((jsonDecode(template.parameters!)
+                          as Map<String, dynamic>)['item_choices']
+                      as Map<String, dynamic>)
+                  .keys,
+        };
+        final europeIds = idsForTemplate('qt_wset_europe_application_67');
+        final newWorldIds = idsForTemplate('qt_wset_new_world_application_16');
+        final businessIds = idsForTemplate('qt_wset_business_application_26');
+        final cmsExampleIds = {
+          for (final template in templates)
+            if (template.id.startsWith('qt_cms_example_'))
+              ...((jsonDecode(template.parameters!)
+                          as Map<String, dynamic>)['item_choices']
+                      as Map<String, dynamic>)
+                  .keys,
+        };
+        final winemakingSharedIds = idsForTemplate(
+          'qt_wset_winemaking_shared_application_9',
+        );
+        final winemakingL3Ids = idsForTemplate(
+          'qt_wset_winemaking_l3_application_12',
+        );
+        final l3ApplicationIds = idsForTemplate('qt_wset_l3_application_40');
+        final diplomaBusinessIds = idsForTemplate(
+          'qt_wset_d2_business_application_29',
+        );
+        final earlierLevelThreeIds = expectedIds.difference({
+          ...levelOneIds,
+          ...levelTwoIds,
+          ...sharedGrapeIds,
+          ...europeIds,
+          ...newWorldIds,
+          ...businessIds,
+          ...cmsExampleIds,
+          ...winemakingSharedIds,
+          ...winemakingL3Ids,
+          ...l3ApplicationIds,
+          ...diplomaBusinessIds,
+        });
+        expect(expectedIds, hasLength(632));
+        expect(levelOneIds, hasLength(132));
+        expect(levelTwoIds, hasLength(172));
+        expect(sharedGrapeIds, hasLength(32));
+        expect(europeIds, hasLength(67));
+        expect(newWorldIds, hasLength(16));
+        expect(businessIds, hasLength(26));
+        expect(cmsExampleIds, hasLength(12));
+        expect(winemakingSharedIds, hasLength(9));
+        expect(winemakingL3Ids, hasLength(12));
+        expect(l3ApplicationIds, hasLength(40));
+        expect(diplomaBusinessIds, hasLength(29));
+        expect(earlierLevelThreeIds, hasLength(85));
+        final rows = await db.customSelect('''
         SELECT q.knowledge_item_id, i.domain_id FROM questions q
         JOIN question_templates t ON t.id = q.question_template_id
         JOIN knowledge_items i ON i.id = q.knowledge_item_id
@@ -384,124 +391,191 @@ void main() {
           AND (t.id GLOB 'qt_wset_*' OR t.id GLOB 'qt_cms_example_*')
         ORDER BY q.knowledge_item_id
       ''').get();
-      expect(rows, hasLength(603));
-      final actual = {
-        for (final row in rows)
-          row.read<String>('knowledge_item_id'): row.read<String>('domain_id'),
-      };
-      expect(actual.keys.toSet(), expectedIds);
-      for (final entry in foundationExamples.entries) {
-        expect(actual[entry.key], entry.value, reason: entry.key);
-      }
-      final levelOneCards = {
-        for (final card in await StudyPlanner(db).cards('WSET_L1'))
-          card.itemId: card,
-      };
-      final levelTwoCards = {
-        for (final card in await StudyPlanner(db).cards('WSET_L2'))
-          card.itemId: card,
-      };
-      final levelThreeCards = {
-        for (final card in await StudyPlanner(db).cards('WSET_L3'))
-          card.itemId: card,
-      };
-      final cmsCards = {
-        for (final card in await StudyPlanner(db).cards('CMS_CERTIFIED'))
-          card.itemId: card,
-      };
-      expect(
-        europeIds.where(levelTwoCards.containsKey),
-        hasLength(26),
-        reason: 'Only the Level 2-scope European applications are shared',
-      );
-      final sharedL3ApplicationIds = l3ApplicationIds
-          .where(levelTwoCards.containsKey)
-          .toSet();
-      expect(
-        sharedL3ApplicationIds,
-        hasLength(15),
-        reason: 'Only existing Level 2 core facts inherit this batch',
-      );
-      for (final id in sharedL3ApplicationIds) {
-        expect(
-          levelTwoCards[id]?.formats.map((format) => format.mode),
-          contains('authored_choice'),
-          reason: 'Level 2: $id',
-        );
-      }
-      expect(
-        businessIds.where(levelTwoCards.containsKey),
-        hasLength(15),
-        reason: 'The 15 Level 2 business applications are shared with Level 3',
-      );
-      for (final id in businessIds) {
-        expect(
-          levelThreeCards[id]?.formats.map((format) => format.mode),
-          contains('authored_choice'),
-          reason: 'Level 3 business: $id',
-        );
-        if (levelTwoCards.containsKey(id)) {
-          expect(
-            levelTwoCards[id]?.formats.map((format) => format.mode),
-            contains('authored_choice'),
-            reason: 'Level 2 business: $id',
-          );
+        expect(rows, hasLength(632));
+        final actual = {
+          for (final row in rows)
+            row.read<String>('knowledge_item_id'): row.read<String>(
+              'domain_id',
+            ),
+        };
+        expect(actual.keys.toSet(), expectedIds);
+        for (final entry in foundationExamples.entries) {
+          expect(actual[entry.key], entry.value, reason: entry.key);
         }
-      }
-      for (final id in expectedIds) {
-        if (sharedGrapeIds.contains(id) ||
-            newWorldIds.contains(id) ||
-            winemakingSharedIds.contains(id) ||
-            (europeIds.contains(id) && levelTwoCards.containsKey(id))) {
+        final levelOneCards = {
+          for (final card in await StudyPlanner(db).cards('WSET_L1'))
+            card.itemId: card,
+        };
+        final levelTwoCards = {
+          for (final card in await StudyPlanner(db).cards('WSET_L2'))
+            card.itemId: card,
+        };
+        final levelThreeCards = {
+          for (final card in await StudyPlanner(db).cards('WSET_L3'))
+            card.itemId: card,
+        };
+        final levelFourCards = {
+          for (final card in await StudyPlanner(db).cards('WSET_L4'))
+            card.itemId: card,
+        };
+        final cmsCards = {
+          for (final card in await StudyPlanner(db).cards('CMS_CERTIFIED'))
+            card.itemId: card,
+        };
+        expect(
+          europeIds.where(levelTwoCards.containsKey),
+          hasLength(26),
+          reason: 'Only the Level 2-scope European applications are shared',
+        );
+        final sharedL3ApplicationIds = l3ApplicationIds
+            .where(levelTwoCards.containsKey)
+            .toSet();
+        expect(
+          sharedL3ApplicationIds,
+          hasLength(15),
+          reason: 'Only existing Level 2 core facts inherit this batch',
+        );
+        for (final id in sharedL3ApplicationIds) {
           expect(
             levelTwoCards[id]?.formats.map((format) => format.mode),
             contains('authored_choice'),
             reason: 'Level 2: $id',
           );
-          expect(
-            levelThreeCards[id]?.formats.map((format) => format.mode),
-            contains('authored_choice'),
-            reason: 'Level 3: $id',
-          );
-        }
-        if (europeIds.contains(id) ||
-            winemakingL3Ids.contains(id) ||
-            l3ApplicationIds.contains(id)) {
-          expect(
-            levelThreeCards[id]?.formats.map((format) => format.mode),
-            contains('authored_choice'),
-            reason: 'Level 3: $id',
-          );
         }
         expect(
-          (levelOneIds.contains(id)
-                  ? levelOneCards[id]
-                  : levelTwoIds.contains(id)
-                  ? levelTwoCards[id]
-                  : sharedGrapeIds.contains(id)
-                  ? levelTwoCards[id]
-                  : cmsExampleIds.contains(id)
-                  ? cmsCards[id]
-                  : levelThreeCards[id])
-              ?.formats
-              .map((format) => format.mode),
-          contains('authored_choice'),
-          reason: id,
+          businessIds.where(levelTwoCards.containsKey),
+          hasLength(15),
+          reason:
+              'The 15 Level 2 business applications are shared with Level 3',
         );
-        final item = await (db.select(
-          db.knowledgeItems,
-        )..where((row) => row.id.equals(id))).getSingle();
-        expect(item.mcqDisabled, isTrue, reason: id);
-      }
-      final genericDisabled = await db.customSelect('''
+        for (final id in businessIds) {
+          expect(
+            levelThreeCards[id]?.formats.map((format) => format.mode),
+            contains('authored_choice'),
+            reason: 'Level 3 business: $id',
+          );
+          if (levelTwoCards.containsKey(id)) {
+            expect(
+              levelTwoCards[id]?.formats.map((format) => format.mode),
+              contains('authored_choice'),
+              reason: 'Level 2 business: $id',
+            );
+          }
+        }
+        for (final id in expectedIds) {
+          if (diplomaBusinessIds.contains(id)) {
+            expect(
+              levelFourCards[id]?.formats.map((format) => format.mode),
+              contains('authored_choice'),
+              reason: 'Diploma D2: $id',
+            );
+            if (id.startsWith('ki_d2_')) {
+              expect(levelOneCards.containsKey(id), isFalse, reason: id);
+              expect(levelTwoCards.containsKey(id), isFalse, reason: id);
+              expect(levelThreeCards.containsKey(id), isFalse, reason: id);
+              expect(cmsCards.containsKey(id), isFalse, reason: id);
+            }
+          }
+          if (sharedGrapeIds.contains(id) ||
+              newWorldIds.contains(id) ||
+              winemakingSharedIds.contains(id) ||
+              (europeIds.contains(id) && levelTwoCards.containsKey(id))) {
+            expect(
+              levelTwoCards[id]?.formats.map((format) => format.mode),
+              contains('authored_choice'),
+              reason: 'Level 2: $id',
+            );
+            expect(
+              levelThreeCards[id]?.formats.map((format) => format.mode),
+              contains('authored_choice'),
+              reason: 'Level 3: $id',
+            );
+          }
+          if (europeIds.contains(id) ||
+              winemakingL3Ids.contains(id) ||
+              l3ApplicationIds.contains(id)) {
+            expect(
+              levelThreeCards[id]?.formats.map((format) => format.mode),
+              contains('authored_choice'),
+              reason: 'Level 3: $id',
+            );
+          }
+          expect(
+            (levelOneIds.contains(id)
+                    ? levelOneCards[id]
+                    : levelTwoIds.contains(id)
+                    ? levelTwoCards[id]
+                    : sharedGrapeIds.contains(id)
+                    ? levelTwoCards[id]
+                    : cmsExampleIds.contains(id)
+                    ? cmsCards[id]
+                    : diplomaBusinessIds.contains(id)
+                    ? levelFourCards[id]
+                    : levelThreeCards[id])
+                ?.formats
+                .map((format) => format.mode),
+            contains('authored_choice'),
+            reason: id,
+          );
+          final item = await (db.select(
+            db.knowledgeItems,
+          )..where((row) => row.id.equals(id))).getSingle();
+          expect(item.mcqDisabled, isTrue, reason: id);
+        }
+        final genericDisabled = await db.customSelect('''
         SELECT q.knowledge_item_id FROM questions q
         JOIN question_templates t ON t.id = q.question_template_id
         JOIN knowledge_items i ON i.id = q.knowledge_item_id
         WHERE t.mode = 'mcq' AND i.mcq_disabled = 1
       ''').get();
-      expect(genericDisabled, isEmpty);
-    } finally {
-      await db.close();
-    }
-  });
+        expect(genericDisabled, isEmpty);
+      } finally {
+        await db.close();
+      }
+    },
+  );
+
+  test(
+    'Diploma D2 cases use distinct choices and linked primary citations',
+    () {
+      final dataset = bundledDataset();
+      final template = dataset.questionTemplates.singleWhere(
+        (row) => row.id == 'qt_wset_d2_business_application_29',
+      );
+      final choices =
+          (jsonDecode(template.parameters!)
+                  as Map<String, dynamic>)['item_choices']
+              as Map<String, dynamic>;
+      final linkedSources = <String, Set<String>>{};
+      for (final citation in dataset.knowledgeItemCitations) {
+        linkedSources
+            .putIfAbsent(citation.knowledgeItemId, () => <String>{})
+            .add(citation.sourceCitationId);
+      }
+      expect(choices, hasLength(29));
+      expect(choices.keys.where((id) => id.startsWith('ki_d2_')), hasLength(3));
+      final answerCounts = List<int>.filled(4, 0);
+      for (final entry in choices.entries) {
+        final caseData = entry.value as Map<String, dynamic>;
+        final options = (caseData['options'] as List<dynamic>).cast<String>();
+        final correctIndex = caseData['correctIndex'] as int;
+        expect(options, hasLength(4), reason: entry.key);
+        expect(
+          options.map((option) => option.trim().toLowerCase()).toSet(),
+          hasLength(4),
+          reason: entry.key,
+        );
+        expect(correctIndex, inInclusiveRange(0, 3), reason: entry.key);
+        expect(caseData['prompt'], isNotEmpty, reason: entry.key);
+        expect(caseData['explanation'], isNotEmpty, reason: entry.key);
+        expect(
+          linkedSources[entry.key],
+          contains(caseData['sourceCitationId']),
+          reason: entry.key,
+        );
+        answerCounts[correctIndex]++;
+      }
+      expect(answerCounts, [8, 7, 7, 7]);
+    },
+  );
 }

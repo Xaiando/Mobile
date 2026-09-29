@@ -967,11 +967,37 @@ tracks:
         tasks: [DIP-2]
       - id: wset_l4.business.routes
         label: Compare producer models and routes from winery to customer
-        covers: {within: [n_biz_channel_mix, n_biz_tasting_room_relationship, n_biz_fx_receivable, n_biz_home_currency_invoice, n_biz_case_export_currency]}
+        covers:
+          within:
+            - n_biz_channel_mix
+            - n_biz_tasting_room_relationship
+            - n_biz_fx_receivable
+            - n_biz_home_currency_invoice
+            - n_biz_case_export_currency
+            - n_biz_models_integration
+            - n_biz_models_vineyard_commitment
+            - n_biz_models_custom_capacity
+            - n_biz_models_custom_scope
+            - n_biz_models_cooperative_pool
+            - n_biz_models_cooperative_control
+            - n_biz_models_grape_purchase
+            - n_biz_models_bulk_purchase
+            - n_biz_models_case_contract_pilot
+            - n_biz_models_case_cooperative_pool
+            - n_biz_routes_dtc_resources
+            - n_biz_routes_dtc_records
+            - n_biz_routes_downstream_sales
+            - n_biz_routes_service_scope
+            - n_biz_routes_retail_access
+            - n_biz_routes_ontrade_fit
+            - n_biz_routes_partner_fit
+            - n_biz_routes_reviewable_roles
+            - n_biz_routes_case_dtc_capacity
+            - n_biz_routes_case_downstream_review
         tasks: [DIP-2]
       - id: wset_l4.business.marketing
         label: Build and evaluate a wine marketing decision
-        covers: {within: [n_biz_customer_segment, n_biz_primary_research, n_biz_cost_plus, n_biz_value_pricing, n_biz_competitor_pricing, n_biz_price_review, n_biz_case_wine_discount]}
+        covers: {within: [n_biz_customer_segment, n_biz_primary_research, n_biz_cost_plus, n_biz_value_pricing, n_biz_competitor_pricing, n_biz_price_review, n_biz_case_wine_discount, n_d2_marketing_mix]}
         tasks: [DIP-2]
 
       # D3: existing places support regional study; analytical content is partial.
