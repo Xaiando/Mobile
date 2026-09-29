@@ -320,6 +320,7 @@ knowledge_items:
     domain_id: winemaking
     assertion_text: "Champagne must undergo its second fermentation in the bottle (the traditional method), and may not be disgorged until 12 months after tirage."
     last_verified_at: "2026-09-24T12:00:00.000Z"
+    mcq_disabled: true
   - id: ki_champagne_min_ageing
     subject_id: n_geo_champagne
     relation_type: MIN_AGEING
@@ -451,7 +452,7 @@ certification_knowledge_mappings:
   - { certification_id: WSET_L2, knowledge_item_id: ki_chablis_grape, importance: core, minimum_depth: 1 }
   - { certification_id: WSET_L2, knowledge_item_id: ki_champagne_chardonnay, importance: core, minimum_depth: 1 }
   - { certification_id: WSET_L2, knowledge_item_id: ki_champagne_pinot_noir, importance: core, minimum_depth: 1 }
-  - { certification_id: WSET_L2, knowledge_item_id: ki_champagne_method, importance: core, minimum_depth: 1 }
+  - { certification_id: WSET_L2, knowledge_item_id: ki_champagne_method, importance: core, minimum_depth: 2 }
   - { certification_id: CMS_INTRODUCTORY, knowledge_item_id: ki_chablis_grape, importance: core, minimum_depth: 1 }
   - { certification_id: CMS_INTRODUCTORY, knowledge_item_id: ki_champagne_method, importance: core, minimum_depth: 1 }
   # WSET Level 3

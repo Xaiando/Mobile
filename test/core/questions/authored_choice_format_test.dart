@@ -274,7 +274,7 @@ void main() {
   );
 
   test(
-    '711 cited choices are generated and served across WSET and CMS tracks',
+    '751 cited choices are generated and served across WSET and CMS tracks',
     () async {
       final db = openTestDatabase();
       try {
@@ -299,7 +299,7 @@ void main() {
                   template.id == 'qt_d5f_authored_choice',
             )
             .toList();
-        expect(templates, hasLength(33));
+        expect(templates, hasLength(35));
         final expectedIds = {
           for (final template in templates)
             ...((jsonDecode(template.parameters!)
@@ -364,6 +364,32 @@ void main() {
             )
             .toList();
         expect(answerPositions, everyElement(5));
+        final remainingWinemakingIds = {
+          ...idsForTemplate('qt_wset_l2_winemaking_method_remaining_1'),
+          ...idsForTemplate('qt_wset_l2_winemaking_principles_remaining_39'),
+        };
+        expect(remainingWinemakingIds, hasLength(40));
+        final winemakingChoiceBlocks = templates
+            .where(
+              (template) =>
+                  template.id.startsWith('qt_wset_l2_winemaking_') &&
+                  template.id.contains('_remaining_'),
+            )
+            .expand((template) {
+              final parameters =
+                  jsonDecode(template.parameters!) as Map<String, dynamic>;
+              return (parameters['item_choices'] as Map<String, dynamic>)
+                  .values;
+            })
+            .cast<Map<String, dynamic>>();
+        expect(
+          [0, 1, 2, 3].map(
+            (index) => winemakingChoiceBlocks
+                .where((choice) => choice['correctIndex'] == index)
+                .length,
+          ),
+          everyElement(10),
+        );
         final europeIds = idsForTemplate('qt_wset_europe_application_67');
         final newWorldIds = idsForTemplate('qt_wset_new_world_application_16');
         final businessIds = idsForTemplate('qt_wset_business_application_26');
@@ -404,9 +430,12 @@ void main() {
           ...d4RegionalIds,
           ...d5FortifiedIds,
         });
-        expect(expectedIds, hasLength(711));
+        expect(d3RegionalIds.intersection(remainingWinemakingIds), {
+          'ki_reg_oa_robertson_unwooded',
+        }, reason: 'The Level 2 and Diploma prompts use the same cited item');
+        expect(expectedIds, hasLength(750));
         expect(levelOneIds, hasLength(132));
-        expect(levelTwoIds, hasLength(172));
+        expect(levelTwoIds, hasLength(212));
         expect(sharedGrapeIds, hasLength(52));
         expect(europeIds, hasLength(67));
         expect(newWorldIds, hasLength(16));
@@ -431,7 +460,7 @@ void main() {
                OR t.id = 'qt_d5f_authored_choice')
         ORDER BY q.knowledge_item_id
       ''').get();
-        expect(rows, hasLength(711));
+        expect(rows, hasLength(751));
         final actual = {
           for (final row in rows)
             row.read<String>('knowledge_item_id'): row.read<String>(
@@ -482,6 +511,25 @@ void main() {
             reason: 'Level 2: $id',
           );
         }
+        for (final id in remainingWinemakingIds) {
+          expect(
+            levelTwoCards[id]?.formats.map((format) => format.mode),
+            contains('authored_choice'),
+            reason: 'Level 2 winemaking: $id',
+          );
+          expect(
+            levelThreeCards[id]?.formats.map((format) => format.mode),
+            contains('authored_choice'),
+            reason: 'Level 3 winemaking inheritance: $id',
+          );
+        }
+        expect(
+          levelTwoCards['ki_champagne_method']?.formats.map(
+            (format) => format.mode,
+          ),
+          containsAll({'authored_choice', 'flashcard', 'typed'}),
+          reason: 'Champagne method needs an independent recall family at L2',
+        );
         expect(
           businessIds.where(levelTwoCards.containsKey),
           hasLength(15),
