@@ -83,6 +83,21 @@ class JournalMatcher {
   final _byName = <String, List<KnowledgeNode>>{};
   late final int _longest;
 
+  /// Exact full-line names for a label clue. Unlike [suggest], this never
+  /// accepts a fragment or a near miss: "Napa Valley" may be a place, while
+  /// "Napa Valley Cellars" is not evidence that the bottle is from Napa.
+  List<KnowledgeNode> exactLabelNames(
+    String line, {
+    required Set<String> nodeTypes,
+  }) {
+    final name = normalizeName(line);
+    if (name.isEmpty) return const [];
+    return [
+      for (final node in _byName[name] ?? const <KnowledgeNode>[])
+        if (nodeTypes.contains(node.nodeType)) node,
+    ];
+  }
+
   static final _grapeSeparators = RegExp(r'[,;/&+]|\s(?:and|et|und|e|y)\s');
 
   /// The nodes [draft] names, exact matches first, each node once.

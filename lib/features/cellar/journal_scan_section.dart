@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../../core/journal/journal_photo_store.dart';
+import '../../core/journal/journal_matcher.dart';
 import '../../core/journal/label_proposal.dart';
 import '../../core/journal/journal_scan_recovery.dart';
 import '../../core/journal/recovered_scan_storage.dart';
@@ -18,6 +19,12 @@ class JournalScanSection extends StatefulWidget {
     required this.onVintage,
     required this.onNonVintage,
     required this.onAbv,
+    this.onProducer,
+    this.onCuvee,
+    this.onAppellation,
+    this.onGrapes,
+    this.matcher,
+    this.occupiedFields = const {},
     this.onRecoveredPicked,
     this.recovery,
     this.recoveryReady,
@@ -30,6 +37,15 @@ class JournalScanSection extends StatefulWidget {
   final void Function(int) onVintage;
   final VoidCallback onNonVintage;
   final void Function(double) onAbv;
+  final ValueChanged<String>? onProducer;
+  final ValueChanged<String>? onCuvee;
+  final ValueChanged<String>? onAppellation;
+  final ValueChanged<String>? onGrapes;
+  final JournalMatcher? matcher;
+
+  /// Existing editor values are never replaced by a scan chip. The editor
+  /// also rechecks this when applying one, in case the form changed meanwhile.
+  final Set<LabelField> occupiedFields;
   final void Function(PhotoKind, Uint8List, String)? onRecoveredPicked;
   final JournalScanRecovery? recovery;
 
@@ -271,7 +287,10 @@ class _JournalScanSectionState extends State<JournalScanSection>
   Widget build(BuildContext context) {
     super.build(context);
     final theme = Theme.of(context);
-    final proposal = LabelProposal.fromRecognizedText(_raw.text);
+    final proposal = LabelProposal.fromRecognizedText(
+      _raw.text,
+      matcher: widget.matcher,
+    );
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -280,9 +299,9 @@ class _JournalScanSectionState extends State<JournalScanSection>
         Text(
           'Photos are saved in private app storage and included in an '
           'unencrypted file if you export one. Your phone’s system backup '
-          'may also include saved app data. A scan only '
-          'suggests a vintage or alcohol level; enter and verify the wine '
-          'name yourself. Large JPEG or PNG photos are reduced before saving. '
+          'may also include saved app data. A scan can suggest label names, '
+          'places, grapes, vintage and alcohol; review each clue before using '
+          'it. Large JPEG or PNG photos are reduced before saving. '
           'App-owned picker copies are removed after use when device cleanup '
           'succeeds.',
           style: theme.textTheme.bodySmall,
@@ -383,23 +402,69 @@ class _JournalScanSectionState extends State<JournalScanSection>
             spacing: 8,
             runSpacing: 4,
             children: [
+              if (proposal.producer case final producer?)
+                if (widget.onProducer != null)
+                  ActionChip(
+                    label: Text('Use producer $producer'),
+                    onPressed:
+                        widget.occupiedFields.contains(LabelField.producer)
+                        ? null
+                        : () => widget.onProducer!(producer),
+                  ),
+              if (proposal.cuvee case final cuvee?)
+                if (widget.onCuvee != null)
+                  ActionChip(
+                    label: Text('Use cuvée $cuvee'),
+                    onPressed: widget.occupiedFields.contains(LabelField.cuvee)
+                        ? null
+                        : () => widget.onCuvee!(cuvee),
+                  ),
+              if (proposal.appellation case final appellation?)
+                if (widget.onAppellation != null)
+                  ActionChip(
+                    label: Text('Use region $appellation'),
+                    onPressed:
+                        widget.occupiedFields.contains(LabelField.appellation)
+                        ? null
+                        : () => widget.onAppellation!(appellation),
+                  ),
+              if (proposal.grapes case final grapes?)
+                if (widget.onGrapes != null)
+                  ActionChip(
+                    label: Text('Use grapes $grapes'),
+                    onPressed: widget.occupiedFields.contains(LabelField.grapes)
+                        ? null
+                        : () => widget.onGrapes!(grapes),
+                  ),
               if (proposal.vintage case final year?)
                 ActionChip(
                   label: Text('Use vintage $year'),
-                  onPressed: () => widget.onVintage(year),
+                  onPressed: widget.occupiedFields.contains(LabelField.vintage)
+                      ? null
+                      : () => widget.onVintage(year),
                 ),
               if (proposal.isNonVintage)
                 ActionChip(
                   label: const Text('Use non-vintage'),
-                  onPressed: widget.onNonVintage,
+                  onPressed: widget.occupiedFields.contains(LabelField.vintage)
+                      ? null
+                      : widget.onNonVintage,
                 ),
               if (proposal.abvPercent case final abv?)
                 ActionChip(
                   label: Text('Use $abv% alcohol'),
-                  onPressed: () => widget.onAbv(abv),
+                  onPressed: widget.occupiedFields.contains(LabelField.abv)
+                      ? null
+                      : () => widget.onAbv(abv),
                 ),
             ],
           ),
+          if (widget.occupiedFields.isNotEmpty)
+            Text(
+              'Existing field values are kept. Clear a field to use its '
+              'scan suggestion.',
+              style: theme.textTheme.bodySmall,
+            ),
           if (proposal.warnings.isNotEmpty)
             Text(
               'Ambiguous or unsupported label text was not filled in. '
