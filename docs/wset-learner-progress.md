@@ -4,7 +4,7 @@ Home → **Your WSET progress** separates required teaching, current fact master
 
 `WsetProgressRepository` derives progress from the installed knowledge items, cumulative study mappings, served question formats, shared review states, append-only review log and saved practice snapshots. It creates no curriculum facts and requires no schema migration. Counts come from the installed curriculum rather than a fixed release total.
 
-The candidate **app 0.3.0+16 / dataset 0.23.0** bundles 119 registered curriculum includes, 3,781 factual items and 38 map layers. Its reviewed Level 1–3 study selections are:
+The bundled scope's reviewed Level 1–3 study selections are:
 
 | Level | Required topic rows | Distinct required facts |
 |---|---:|---:|
@@ -29,6 +29,8 @@ Shared-subject principle recall uses original point-specific questions with fini
 A fact is studied after its first review. For current mastery it must be in the FSRS Review state, have stability of at least seven days and package-calculated retrievability of at least 0.90. It must also have Good/Easy reviews on at least three distinct UTC calendar dates spanning seven days, all after its most recent Again. Repeated taps or changes of question format cannot satisfy the date requirement. A failed reverse question or later memory decay can reduce mastery.
 
 An **app study milestone** requires a nonempty scope explicitly marked complete, no unavailable required facts, every required fact currently mastered, every required topic internally reviewed, and all configured practice requirements satisfied. Mastering an incomplete available pack is a separate material milestone. These are study milestones, not WSET qualifications or predictions of an official examination result.
+
+The learner view now names this the **required study milestone**. It also shows a separate, live **app core question coverage** count for each of Levels 1–4. The denominator is every current fact mapped as core to that cumulative track; the numerator is the subset served an app-graded question plus a second question family. The count uses the same useful-practice rule as the release coverage audit and updates when the installed curriculum changes. It is independent of learner reviews, requirement-catalog membership and the self-reported exam result. A required-study milestone can be achieved while wider mapped core material still needs useful question formats; the screen shows that gap explicitly rather than calling the whole level complete. Even a full mapped-core count would not prove the app covers every official outcome or that its factual claims have been checked by a qualified expert.
 
 Level 1–3 scope and delivery are checked against the public specifications: Level 1 June 2022 Issue 1.2, Level 2 2026 Issue 2.1 and Level 3 May 2022 Issue 2. Completion metadata is published only after the outcome audit and delivery, regression and release gates close. The [completion plan](research/wset-1-3-completion-plan.md) and [delivery validation](research/wset-1-3-delivery-validation.md) record those checks. Internal scope review does not change a factual lesson's expert-review status; new facts remain unverified pending qualified review. Diploma's broader scope remains incomplete.
 

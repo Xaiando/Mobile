@@ -42,3 +42,14 @@ final Map<String, CoverageFormat> builtFormats = {
       isPooled: format.generation == FormatGeneration.pooled,
     ),
 };
+
+/// The same useful-practice rule for release audits and learner progress.
+/// A self-graded recall format alone never counts as useful practice.
+bool hasUsefulPracticeForModes(Iterable<String> servedModes) {
+  final formats = servedModes
+      .map((mode) => builtFormats[mode])
+      .nonNulls
+      .toSet();
+  return formats.any((format) => format.isObjective) &&
+      formats.map((format) => format.family).toSet().length >= 2;
+}

@@ -183,9 +183,10 @@ void main() {
         find.textContaining('Study material not yet available.'),
         findsOneWidget,
       );
-      expect(find.text('App study milestone complete'), findsNothing);
+      expect(find.text('Required study milestone complete'), findsNothing);
       expect(find.textContaining('100%'), findsNothing);
-      expect(find.text('Full level coverage incomplete'), findsWidgets);
+      expect(find.text('App study scope incomplete'), findsWidgets);
+      expect(find.text('App core question coverage'), findsWidgets);
       expect(
         find.textContaining('three dates over seven days'),
         findsOneWidget,
@@ -258,7 +259,7 @@ void main() {
         findsOneWidget,
       );
     }
-    expect(find.text('App study milestone complete'), findsNothing);
+    expect(find.text('Required study milestone complete'), findsNothing);
     expect(tester.takeException(), isNull);
   });
 
@@ -389,4 +390,69 @@ void main() {
     );
     expect(tester.takeException(), isNull);
   });
+
+  testWidgets(
+    'completed required study still exposes wider core question gaps',
+    (tester) async {
+      const mastered = ProgressCounts(
+        mapped: 1,
+        available: 1,
+        studied: 1,
+        mastered: 1,
+        due: 0,
+      );
+      final snapshot = WsetProgressSnapshot(
+        asOf: DateTime.utc(2026, 9, 29),
+        levels: const [
+          WsetLevelProgress(
+            scope: WsetLevelScope(
+              certificationId: 'WSET_L2',
+              title: 'WSET Level 2',
+              curriculumComplete: true,
+              gaps: [],
+              sourceUrl: 'https://www.wsetglobal.com/',
+            ),
+            counts: mastered,
+            requiredCounts: mastered,
+            corePracticeCoverage: CorePracticeCoverage(core: 2, useful: 0),
+            selectable: false,
+            examPassed: false,
+            topics: [],
+            nextItems: [],
+            units: [],
+            unassigned: ProgressCounts(
+              mapped: 0,
+              available: 0,
+              studied: 0,
+              mastered: 0,
+              due: 0,
+            ),
+          ),
+        ],
+      );
+      await tester.pumpWidget(
+        ProviderScope(
+          overrides: [
+            wsetProgressProvider.overrideWith((ref) => Stream.value(snapshot)),
+          ],
+          child: const MaterialApp(home: WsetProgressScreen()),
+        ),
+      );
+      await tester.pumpAndSettle();
+      expect(find.text('Required study milestone complete'), findsOneWidget);
+      expect(
+        find.text('0 of 2 mapped core facts have useful practice.'),
+        findsOneWidget,
+      );
+      expect(
+        find.text('2 mapped core facts need more question formats.'),
+        findsOneWidget,
+      );
+      expect(
+        find.text('Exam passed · self-reported. Uncheck to remove.'),
+        findsNothing,
+      );
+      expect(find.text('App study milestone complete'), findsNothing);
+    },
+  );
 }

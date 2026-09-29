@@ -35,7 +35,7 @@ class WsetProgressScreen extends ConsumerWidget {
             ),
             const SizedBox(height: 8),
             const Text(
-              'Reviews count across question formats and cumulative levels. App milestones describe study material; exam results are recorded separately by you.',
+              'Reviews count across question formats and cumulative levels. Required-topic milestones describe your app study; core question coverage describes this app’s content. Official exam results are recorded separately by you.',
             ),
             const SizedBox(height: 16),
             for (final level in value.levels)
@@ -179,11 +179,15 @@ class _LevelSectionState extends ConsumerState<_LevelSection> {
             const SizedBox(height: 8),
             Text(
               level.appLevelComplete
-                  ? 'App study milestone complete'
+                  ? 'Required study milestone complete'
                   : level.scope.curriculumComplete
-                  ? 'App study milestone in progress'
-                  : 'Full level coverage incomplete',
+                  ? 'Required study milestone in progress'
+                  : 'App study scope incomplete',
               style: theme.textTheme.labelLarge,
+            ),
+            const SizedBox(height: 8),
+            const Text(
+              'This milestone covers the app’s required study topics and recorded practice. It does not certify this WSET level.',
             ),
             const SizedBox(height: 12),
             if (level.requiredCounts != null) ...[
@@ -231,6 +235,23 @@ class _LevelSectionState extends ConsumerState<_LevelSection> {
               const SizedBox(height: 8),
               Text(
                 'Optional material: ${optional.studied}/${optional.available} studied · ${optional.mastered} mastered. It does not block this level’s study milestone.',
+              ),
+            ],
+            if (level.corePracticeCoverage case final coverage?) ...[
+              const SizedBox(height: 16),
+              Text(
+                'App core question coverage',
+                style: theme.textTheme.titleMedium,
+              ),
+              Text(
+                '${coverage.useful} of ${coverage.core} mapped core facts have useful practice.',
+              ),
+              if (coverage.missingUsefulPractice > 0)
+                Text(
+                  '${coverage.missingUsefulPractice} mapped core facts need more question formats.',
+                ),
+              const Text(
+                'Useful practice means an app-graded format plus a second question family. This counts mapped app facts; it does not establish full official syllabus coverage, factual verification or exam readiness.',
               ),
             ],
             if (level.requirements.isNotEmpty)

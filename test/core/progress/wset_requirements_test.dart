@@ -98,6 +98,9 @@ void main() {
       expect(result.optionalCounts!.studied, 0);
       expect(result.appLevelComplete, isTrue);
       expect(result.requirements.single.complete, isTrue);
+      expect(result.corePracticeCoverage!.core, 2);
+      expect(result.corePracticeCoverage!.useful, 0);
+      expect(result.corePracticeCoverage!.complete, isFalse);
     },
   );
 

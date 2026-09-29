@@ -4,6 +4,8 @@ import 'package:clock/clock.dart';
 import 'package:fsrs/fsrs.dart' as fsrs;
 
 import '../curriculum/knowledge_graph.dart';
+import '../coverage/coverage_formats.dart';
+import '../coverage/generated_coverage_formats.dart';
 import '../database/app_database.dart';
 import '../diploma_tasting/diploma_tasting_evidence.dart';
 import '../study/study_planner.dart';
@@ -33,6 +35,18 @@ class ProgressCounts {
   double? get studiedFraction => available == 0 ? null : studied / available;
   double? get masteredFraction => available == 0 ? null : mastered / available;
   bool get availableMaterialMastered => available > 0 && mastered == available;
+}
+
+/// Question coverage of current, mapped core facts. This is authored app
+/// content, independent of the learner's reviews or an official syllabus.
+class CorePracticeCoverage {
+  const CorePracticeCoverage({required this.core, required this.useful});
+
+  final int core;
+  final int useful;
+
+  int get missingUsefulPractice => core - useful;
+  bool get complete => core > 0 && missingUsefulPractice == 0;
 }
 
 class ProgressTopic {
@@ -94,6 +108,7 @@ class WsetLevelProgress {
     required this.unassigned,
     this.requiredCounts,
     this.optionalCounts,
+    this.corePracticeCoverage,
     this.requirements = const [],
     this.practiceEvidence = const WsetPracticeEvidence(),
   });
@@ -110,6 +125,7 @@ class WsetLevelProgress {
   final ProgressCounts unassigned;
   final ProgressCounts? requiredCounts;
   final ProgressCounts? optionalCounts;
+  final CorePracticeCoverage? corePracticeCoverage;
   final List<WsetRequirementProgress> requirements;
   final WsetPracticeEvidence practiceEvidence;
 
@@ -117,6 +133,8 @@ class WsetLevelProgress {
   /// counts. Published Levels 1–3 use an explicit required study denominator.
   ProgressCounts get milestoneCounts => requiredCounts ?? counts;
 
+  /// Personal required-topic and recorded-practice milestone. Other mapped
+  /// core material may still need useful question formats.
   bool get appLevelComplete =>
       scope.curriculumComplete &&
       milestoneCounts.mapped > 0 &&
@@ -273,6 +291,10 @@ class WsetProgressRepository {
     scope.validate();
     final now = utcNow(_clock);
     final items = await _graph.currentItems();
+    final generatedFormats = await GeneratedCoverageFormats.read(
+      db,
+      on: localToday(_clock),
+    );
     final certifications = {
       for (final row in await db.select(db.certifications).get()) row.id: row,
     };
@@ -361,6 +383,21 @@ class WsetProgressRepository {
         for (final card in await _planner.cards(level.certificationId))
           if (card.formats.isNotEmpty) card.itemId: card,
       };
+      final generated = generatedFormats.forMappedItems(mappings.keys.toSet());
+      final coreItems = mapped.where(
+        (item) => mappings[item.id]?.importance == 'core',
+      );
+      final corePracticeCoverage = CorePracticeCoverage(
+        core: coreItems.length,
+        useful: coreItems.where((item) {
+          final available = generated[item.id] ?? const <QuestionFormat>[];
+          final served = StudyPlanner.servedFormats(
+            available,
+            mappings[item.id]!.minimumDepth,
+          );
+          return hasUsefulPracticeForModes(served.map((format) => format.mode));
+        }).length,
+      );
       final mastered = {
         for (final card in cards.values)
           if (_isMastered(card, events[card.itemId] ?? const [], now))
@@ -529,6 +566,7 @@ class WsetProgressRepository {
           optionalCounts: level.requirements.isEmpty
               ? null
               : count(mapped.where((item) => !requiredIds.contains(item.id))),
+          corePracticeCoverage: corePracticeCoverage,
           requirements: List.unmodifiable([
             for (final requirement in level.requirements)
               WsetRequirementProgress(

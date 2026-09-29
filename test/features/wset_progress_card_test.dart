@@ -44,6 +44,7 @@ void main() {
           ),
           requiredCounts: required,
           optionalCounts: optional,
+          corePracticeCoverage: CorePracticeCoverage(core: 100, useful: 1),
           selectable: true,
           examPassed: false,
           topics: [],
@@ -69,7 +70,11 @@ void main() {
           .value,
       1,
     );
-    expect(find.textContaining('1/100'), findsNothing);
+    expect(find.textContaining('1/100 studied'), findsNothing);
+    expect(
+      find.text('Core question practice: 1/100 mapped facts'),
+      findsOneWidget,
+    );
     expect(
       find.textContaining('Full level coverage is still being built.'),
       findsNothing,
