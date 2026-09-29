@@ -1,0 +1,194 @@
+# Four aspects of each existing Level 3 service case. Written self-review remains available.
+question_templates:
+  - id: qt_wset_l3_service_case_action_closure_4
+    relation_type: CASE_ACTION
+    direction: forward
+    mode: authored_choice
+    variant: wset_l3_service_case_action_closure_4
+    prompt_template: '{subject.name}'
+    parameters:
+      item_choices:
+        ki_srv_case_fragile_sediment_action:
+          prompt: A fragile mature wine has visible sediment. The guest is ready. What is the most careful service action?
+          options:
+            - Decant gently, watch the neck and stop before deposit
+            - Shake the bottle, then pour all wine into wide glasses
+            - Leave the opened bottle warm for several hours first
+            - Strain it without checking the wine's condition
+          correctIndex: 0
+          explanation: Gentle transfer with a light source separates clear wine while limiting oxygen exposure.
+          sourceCitationId: src_srv_margaux_service
+        ki_wset_srv_case_chilli_action:
+          prompt: A heat-sensitive guest has a chilli dish and can sample either a high-alcohol dry white or a lower-alcohol lightly sweet white. What first offer fits?
+          options:
+            - Pour the stronger dry white without a trial
+            - Offer a small trial of the lower-alcohol wine
+            - Pour both samples fully before asking about heat
+            - Choose by bottle age before asking about the dish
+          correctIndex: 1
+          explanation: A lower-alcohol, lightly sweet trial may suit the guest, subject to the wine's style and their response.
+          sourceCitationId: src_wset_srv_spice
+        ki_wset_srv_case_dessert_action:
+          prompt: A citrus pudding is sweeter than a proposed dry white. A second wine is sweet with fresh acidity. What should be compared?
+          options:
+            - Taste only the dry wine, without pudding
+            - The sweetest bottle without checking its freshness
+            - The sweet fresh sample alongside the pudding
+            - The dry aromatic wine because its nose smells sweet
+          correctIndex: 2
+          explanation: Trialling the sweeter, fresh sample with the dessert allows the real balance to be judged.
+          sourceCitationId: src_wset_srv_sweet
+        ki_wset_srv_case_older_red_action:
+          prompt: An older red has deposit and delicate fruit. The guest will drink it now. If the deposit needs removing, what should be done?
+          options:
+            - Splash into a broad decanter the night before service
+            - Shake sediment into suspension before pouring
+            - Pour through the deposit to avoid air contact
+            - Decant gently just before service; stop at deposit
+          correctIndex: 3
+          explanation: Gentle, prompt decanting can separate deposit without imposing prolonged aeration.
+          sourceCitationId: src_wset_srv_decant
+  - id: qt_wset_l3_service_case_reason_closure_4
+    relation_type: CASE_REASON
+    direction: forward
+    mode: authored_choice
+    variant: wset_l3_service_case_reason_closure_4
+    prompt_template: '{subject.name}'
+    parameters:
+      item_choices:
+        ki_srv_case_fragile_sediment_reason:
+          prompt: Why decant the fragile, sedimented bottle into a narrow vessel shortly before serving?
+          options:
+            - Keep deposit out of servings, not maximise air
+            - Force rapid oxidation to create young-fruit aromas
+            - Let oxygen soften every older wine's structure
+            - Remove a musty compound by warming the bottle
+          correctIndex: 0
+          explanation: In this case the service purpose is separating wine from sediment, with oxygen exposure restrained.
+          sourceCitationId: src_srv_margaux_service
+        ki_wset_srv_case_chilli_reason:
+          prompt: Why might a lower-alcohol, lightly sweet wine be a useful trial with strong chilli heat?
+          options:
+            - Higher alcohol always removes tactile heat from the chilli
+            - Less alcohol avoids amplification; sweetness can soften
+            - Sugar in wine neutralises chilli compounds entirely
+            - Alcohol and sugar cannot affect tasting sensations
+          correctIndex: 1
+          explanation: Chilli can increase perceived alcohol burn, while some sweetness may soften the heat.
+          sourceCitationId: src_wset_srv_spice
+        ki_wset_srv_case_dessert_reason:
+          prompt: A dry white tastes less fruity beside a sweet pudding. Which interaction best explains the trial of a sweeter wine?
+          options:
+            - Dessert always raises a dry wine's perceived sugar level
+            - Sweet food makes every wine taste more fruity
+            - Dessert can make dry wine seem drier, less fruity
+            - Food sweetness chemically raises the wine's acidity
+          correctIndex: 2
+          explanation: Sweet food can reduce perceived sweetness and fruitiness in the wine.
+          sourceCitationId: src_wset_srv_sweet
+        ki_wset_srv_case_older_red_reason:
+          prompt: The delicate older red has sediment. What is the reason for a prompt, gentle decant?
+          options:
+            - Guarantee that its fruit improves after hours of air
+            - Restore the wine's lost fruit through prolonged air
+            - Cure oxidation by removing the bottle's deposit
+            - Separate deposit without prolonged air exposure
+          correctIndex: 3
+          explanation: The goal is clarity of the poured wine, not an assumption that extended aeration will improve fragile fruit.
+          sourceCitationId: src_wset_srv_decant
+  - id: qt_wset_l3_service_case_tradeoff_closure_4
+    relation_type: CASE_TRADEOFF
+    direction: forward
+    mode: authored_choice
+    variant: wset_l3_service_case_tradeoff_closure_4
+    prompt_template: '{subject.name}'
+    parameters:
+      item_choices:
+        ki_srv_case_fragile_sediment_tradeoff:
+          prompt: The fragile bottle would pour with sediment unless transferred. What tradeoff does the decant create?
+          options:
+            - Clearer service comes with some oxygen exposure
+            - Decanting removes every risk of oxidation afterward
+            - Avoiding sediment proves aeration will improve flavour
+            - A narrow vessel prevents any contact with air
+          correctIndex: 0
+          explanation: Sediment separation has a benefit, while the transfer inevitably exposes wine to some oxygen.
+          sourceCitationId: src_srv_margaux_service
+        ki_wset_srv_case_chilli_tradeoff:
+          prompt: A lightly sweet white softens chilli burn for a guest who usually chooses dry wines. What must be discussed?
+          options:
+            - The pairing proves dry wine cannot accompany spice
+            - Reduced heat may conflict with their dry preference
+            - Wine sugar always increases perceived chilli burn
+            - Sweetness guarantees the guest will enjoy the match
+          correctIndex: 1
+          explanation: Sensory relief from sweetness can come at the cost of a style the guest dislikes.
+          sourceCitationId: src_wset_srv_spice
+        ki_wset_srv_case_dessert_tradeoff:
+          prompt: A sweeter wine works better than a dry one with pudding, but the match feels heavy. Which adjustment matters?
+          options:
+            - Raise wine sweetness and ignore all other structure
+            - Reduce acidity because it cannot matter
+            - Retain enough acidity alongside the sweetness
+            - Replace the wine solely with a higher-alcohol one
+          correctIndex: 2
+          explanation: Sweetness can match dessert while acidity remains important to freshness.
+          sourceCitationId: src_wset_srv_sweet
+        ki_wset_srv_case_older_red_tradeoff:
+          prompt: A delicate older red can be clarified by decanting. What cost should shape the technique?
+          options:
+            - Clearer wine means unlimited oxygen is harmless
+            - Sediment removal eliminates the need for care
+            - Aeration always protects the bottle's delicate fruit
+            - More handling and air contact accompany clarity
+          correctIndex: 3
+          explanation: Gentle handling and limited exposure help balance the clarity benefit against fragility.
+          sourceCitationId: src_wset_srv_decant
+  - id: qt_wset_l3_service_case_limitation_closure_4
+    relation_type: CASE_LIMITATION
+    direction: forward
+    mode: authored_choice
+    variant: wset_l3_service_case_limitation_closure_4
+    prompt_template: '{subject.name}'
+    parameters:
+      item_choices:
+        ki_srv_case_fragile_sediment_limitation:
+          prompt: A fragile red is decanted to remove sediment. Which claim goes beyond the evidence?
+          options:
+            - Every older wine improves after one fixed air time
+            - This bottle's delicate fruit may need prompt reassessment
+            - Sediment and fragility affect this service choice
+            - Decanting can expose this particular wine to air
+          correctIndex: 0
+          explanation: The service decision is conditional; no universal aeration duration or flavour gain follows from age.
+          sourceCitationId: src_srv_margaux_service
+        ki_wset_srv_case_chilli_limitation:
+          prompt: A lower-alcohol, lightly sweet wine is proposed for chilli. What still needs checking?
+          options:
+            - Only the wine's dryness as stated on the label
+            - The actual dish and this guest's heat response
+            - A universal chilli-pairing table without a tasting
+            - Whether the bottle is the highest-priced option
+          correctIndex: 1
+          explanation: Chilli intensity, flavour balance and the guest's sensitivity vary; the proposed match remains a trial.
+          sourceCitationId: src_wset_srv_food
+        ki_wset_srv_case_dessert_limitation:
+          prompt: Why can a sweet, fresh wine not be guaranteed as the best match for an unspecified citrus pudding?
+          options:
+            - All citrus puddings have identical acidity and sugar
+            - The label alone determines the match
+            - Dish sweetness, acidity and guest preference vary
+            - Sweetness in food cannot change any wine impression
+          correctIndex: 2
+          explanation: The actual dessert and guest determine whether the wine's sweetness, acidity and flavour fit.
+          sourceCitationId: src_wset_srv_food
+        ki_wset_srv_case_older_red_limitation:
+          prompt: A sedimented bottle is old. What does its age fail to establish before service?
+          options:
+            - That sediment may require separation
+            - That its fruit could be fragile after transfer
+            - That oxygen contact must be monitored during service
+            - That extended aeration will improve this wine
+          correctIndex: 3
+          explanation: Monitor the specific bottle; age alone does not prove a benefit from prolonged aeration.
+          sourceCitationId: src_wset_srv_decant

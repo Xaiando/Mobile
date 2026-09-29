@@ -1,0 +1,90 @@
+# Original Level 3 service decisions for eight existing cited principle facts.
+question_templates:
+  - id: qt_wset_l3_service_principle_closure_8
+    relation_type: PRINCIPLE_EXPLANATION
+    direction: forward
+    mode: authored_choice
+    variant: wset_l3_service_principle_closure_8
+    prompt_template: '{subject.name}'
+    parameters:
+      item_choices:
+        ki_wset_sadvice_complexity_fruitiness:
+          prompt: A guest wants wine for an intensely flavoured stew. The list has a fruity simple wine and a complex mature wine. What should guide the trial?
+          options:
+            - Compare how each wine's character reads with the dish
+            - Choose the mature wine because complexity always wins
+            - Choose the fruitiest wine without tasting the dish
+            - Treat fruitiness and complexity as the same measure
+          correctIndex: 0
+          explanation: Intensity, fruit character and complexity differ; fit with the actual dish and guest matters more than a complexity ranking.
+          sourceCitationId: src_wset_srv_sweet
+        ki_wset_sadvice_food_bitterness:
+          prompt: A guest dislikes bitterness, and the dish has a bitter edge. Which initial wine trial is most defensible?
+          options:
+            - Assume strong oak will always remove dish bitterness
+            - Try a less bitter, less tannic wine and ask the guest
+            - Treat astringency and bitterness as identical sensations
+            - Promise that one low-tannin wine suits every bitter dish
+          correctIndex: 1
+          explanation: Consider bitterness from both food and wine, distinguish it from drying astringency, and test the guest's response.
+          sourceCitationId: src_wset_srv_food
+        ki_wset_sadvice_selection_context:
+          prompt: A guest asks for "the best bottle" without saying how it will be used. What should the adviser learn first?
+          options:
+            - Only the highest available price in the list
+            - The most familiar region, regardless of the guest
+            - Purpose, food, budget and preferred wine character
+            - The oldest vintage before checking drinking condition
+          correctIndex: 2
+          explanation: A suitable recommendation depends on the occasion, meal, budget, preferences and bottle condition.
+          sourceCitationId: src_wset_srv_food
+        ki_wset_sfault_high_so2:
+          prompt: A wine shows a sharp, penetrating sulfur smell. What conclusion is justified?
+          options:
+            - A sulfite statement proves the wine must smell faulty in the glass
+            - Every sulfur smell is rotten-egg hydrogen sulfide
+            - A total SO2 number alone identifies the exact smell
+            - Assess possible excess SO2; distinguish other sulfur notes
+          correctIndex: 3
+          explanation: Excess SO2 can smell pungent and irritate, unlike hydrogen sulfide's rotten-egg note; use or declaration alone does not prove fault.
+          sourceCitationId: src_fault_faults_overview
+        ki_wset_sfault_out_of_condition:
+          prompt: A mature bottle has brownish colour and developed aromas. How should its condition be judged?
+          options:
+            - Check fruit, balance and intended style on nose and palate
+            - Reject it by colour alone without assessing the wine's intended style
+            - Call every oxidative descriptor a fault in every style
+            - Assume age guarantees welcome complexity and freshness
+          correctIndex: 0
+          explanation: A wine past its best may be dull and depleted, but sound maturation and deliberately oxidative styles need context.
+          sourceCitationId: src_wset_sfault_common_faults
+        ki_wset_sfault_reduction:
+          prompt: A sample has a rotten-egg note. Which handling decision avoids an overconfident diagnosis or cure?
+          options:
+            - Label it excess SO2 and promise air will cure every case
+            - Consider reduction, assess severity, then trial response
+            - Assume any sulfur-related smell is desirable complexity
+            - Ignore the note because clear appearance proves soundness
+          correctIndex: 1
+          explanation: Hydrogen sulfide may indicate reduction; aeration can help some wines but is not a universal cure.
+          sourceCitationId: src_fault_faults_overview
+        ki_wset_sseq_lineup:
+          prompt: A light red and a fuller, more intense white are served in one flight. Which order principle is useful?
+          options:
+            - Red must always follow white regardless of weight
+            - Colour alone establishes the only correct sequence
+            - Consider intensity and texture; colour can mislead
+            - Mature bottles must always be served after every young one
+          correctIndex: 2
+          explanation: A lighter-to-fuller progression is a starting point; intensity, texture, menu and fragile bottles can change the order.
+          sourceCitationId: src_wset_sseq_bordeaux
+        ki_wset_sseq_table:
+          prompt: A restaurant bottle is ordered for a table. What should happen before full servings are poured?
+          options:
+            - Pour every glass first, then check the ordered bottle's vintage
+            - Skip any condition check if the cork looks whole
+            - Present a different vintage without mentioning it
+            - Confirm the bottle, open safely and offer a sample
+          correctIndex: 3
+          explanation: Present and confirm the bottle, prepare service, and assess condition before pouring the full table.
+          sourceCitationId: src_wset_srv_cms

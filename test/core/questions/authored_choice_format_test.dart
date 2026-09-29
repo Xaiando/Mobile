@@ -274,7 +274,7 @@ void main() {
   );
 
   test(
-    '1050 cited choices are generated and served across WSET and CMS tracks',
+    '1086 cited choices are generated and served across WSET and CMS tracks',
     () async {
       final db = openTestDatabase();
       try {
@@ -299,7 +299,7 @@ void main() {
                   template.id == 'qt_d5f_authored_choice',
             )
             .toList();
-        expect(templates, hasLength(46));
+        expect(templates, hasLength(52));
         final expectedIds = {
           for (final template in templates)
             ...((jsonDecode(template.parameters!)
@@ -424,6 +424,18 @@ void main() {
         final l3ServiceIds = idsForTemplate(
           'qt_wset_l3_service_application_17',
         );
+        final l3TastingClosureIds = idsForTemplate(
+          'qt_wset_l3_tasting_fault_closure_12',
+        );
+        final l3ServicePrincipleClosureIds = idsForTemplate(
+          'qt_wset_l3_service_principle_closure_8',
+        );
+        final l3ServiceCaseClosureIds = {
+          ...idsForTemplate('qt_wset_l3_service_case_action_closure_4'),
+          ...idsForTemplate('qt_wset_l3_service_case_reason_closure_4'),
+          ...idsForTemplate('qt_wset_l3_service_case_tradeoff_closure_4'),
+          ...idsForTemplate('qt_wset_l3_service_case_limitation_closure_4'),
+        };
         final l3GeographyIds = idsForTemplate(
           'qt_wset_l3_geography_gap_scenarios',
         );
@@ -453,6 +465,9 @@ void main() {
           ...l3ViticultureGeneralIds,
           ...l3TastingIds,
           ...l3ServiceIds,
+          ...l3TastingClosureIds,
+          ...l3ServicePrincipleClosureIds,
+          ...l3ServiceCaseClosureIds,
           ...l3GeographyIds,
           ...l3GeographyIds2,
           ...diplomaBusinessIds,
@@ -479,7 +494,7 @@ void main() {
           'ki_reg_ib_sacra_terraces',
           'ki_reg_ib_dao_encruzado',
         }, reason: 'Diploma and Level 3 regional prompts share two items');
-        expect(expectedIds, hasLength(1042));
+        expect(expectedIds, hasLength(1078));
         expect(levelOneIds, hasLength(132));
         expect(levelTwoIds, hasLength(256));
         expect(sharedGrapeIds, hasLength(52));
@@ -496,6 +511,9 @@ void main() {
         expect(l3ViticultureGeneralIds, hasLength(22));
         expect(l3TastingIds, hasLength(23));
         expect(l3ServiceIds, hasLength(17));
+        expect(l3TastingClosureIds, hasLength(12));
+        expect(l3ServicePrincipleClosureIds, hasLength(8));
+        expect(l3ServiceCaseClosureIds, hasLength(16));
         expect(l3GeographyIds, hasLength(36));
         expect(l3GeographyIds2, hasLength(40));
         expect(diplomaBusinessIds, hasLength(29));
@@ -514,7 +532,7 @@ void main() {
                OR t.id = 'qt_d5f_authored_choice')
         ORDER BY q.knowledge_item_id
       ''').get();
-        expect(rows, hasLength(1050));
+        expect(rows, hasLength(1086));
         final actual = {
           for (final row in rows)
             row.read<String>('knowledge_item_id'): row.read<String>(
