@@ -1,0 +1,211 @@
+# Item-specific choices for existing shared WSET Level 2 and Level 3 grape facts.
+# Existing knowledge items and citations remain unverified pending qualified review.
+question_templates:
+- id: qt_wset_shared_grape_profile_structure_20
+  relation_type: PRINCIPLE_EXPLANATION
+  direction: forward
+  mode: authored_choice
+  variant: wset_shared_grape_profile_structure
+  prompt_template: '{subject.name}'
+  parameters:
+    item_choices:
+      ki_wset_grape_chardonnay_profile:
+        prompt: Two otherwise similar Chardonnay sites differ in growing temperature. Which comparison best matches Wine Australia's style spectrum?
+        options:
+        - Cooler site with lower acidity; warmer site with lighter body
+        - Cooler site with higher acidity; warmer site with fuller body
+        - Cooler site with lower acidity; warmer site with fuller body
+        - Cooler site with higher acidity; warmer site with lighter body
+        correctIndex: 1
+        explanation: Wine Australia contrasts cooler-site Chardonnay's higher acidity with warmer-site, fuller styles. This is a tendency, not a fixed outcome for every bottle.
+        sourceCitationId: src_wset_grape_wa_chardonnay
+      ki_wset_grape_cabernet_sauvignon_profile:
+        prompt: Which tannin description accompanies Wine Australia's Coonawarra Cabernet profile of blackcurrant, mulberry and plum?
+        options:
+        - Soft tannins with little grip or structure
+        - Coarse tannins with hard, drying astringency
+        - Firm tannins without inherent harshness
+        - Light tannins with a fleeting, short finish
+        correctIndex: 2
+        explanation: Wine Australia describes typical Coonawarra Cabernet tannins as firm without being astringent or hard.
+        sourceCitationId: src_wset_grape_wa_cabernet
+      ki_wset_grape_pinot_noir_profile:
+        prompt: Which fruit and body pairing is typical of an Australian still Pinot Noir in Wine Australia's profile?
+        options:
+        - Dark plum fruit with a dense, full body
+        - Blackcurrant fruit with a lighter red body
+        - Redcurrant fruit with a dense, full body
+        - Red cherry with a light-to-medium body
+        correctIndex: 3
+        explanation: Wine Australia describes light-to-medium body and cherry or strawberry fruit in Australian Pinot Noir; region and winemaking still matter.
+        sourceCitationId: src_wset_grape_wa_pinot_noir
+      ki_wset_grape_nebbiolo_profile:
+        prompt: A Piedmont Nebbiolo looks only medium ruby. Which palate structure can it still possess?
+        options:
+        - Medium-to-high acidity and high tannin
+        - Low acidity and very low tannin
+        - Medium-to-high acidity and low grape tannin
+        - Low acidity and high tannin
+        correctIndex: 0
+        explanation: The CMS Europe grape-markers guide describes medium ruby-garnet Nebbiolo with medium-to-high acidity and high tannin. Colour alone understates its structure.
+        sourceCitationId: src_wset_grape_cms_markers
+      ki_wset_grape_carmenere_profile:
+        prompt: Which combination is common in the CMS Europe profile of ripe Chilean Carménère?
+        options:
+        - Dark fruit, high acidity and light tannin
+        - Citrus fruit, moderate acidity and tannin
+        - Dark fruit, green pepper and medium tannin
+        - Red fruit, low acidity and high tannin
+        correctIndex: 2
+        explanation: The CMS Europe profile describes ripe dark fruit with underlying green-pepper character and medium tannin in a Chilean example.
+        sourceCitationId: src_wset_grape_cms_markers
+      ki_wset_grape_pinot_noir_variation:
+        prompt: Which maturation choice risks masking Pinot Noir's delicate fruit in Wine Australia's guidance?
+        options:
+        - Brief ageing in older oak barrels
+        - Heavy use of new oak during maturation
+        - Short holding in large, older vessels
+        - Gentle ageing in mostly neutral wood
+        correctIndex: 1
+        explanation: Wine Australia cautions that new oak can overwhelm Pinot Noir's fruit profile; producers may choose subtler oak use.
+        sourceCitationId: src_wset_grape_wa_pinot_noir
+      ki_wset_grape_garganega_variation:
+        prompt: Dry Soave and sweet Recioto di Soave can both use Garganega. Which extra step does the Soave consortium specify for Recioto?
+        options:
+        - Earlier picking before full ripeness
+        - Lees stirring after fermentation
+        - Malolactic conversion after pressing
+        - Air-drying grapes before pressing
+        correctIndex: 3
+        explanation: The Soave consortium specifies an air-drying stage for Recioto di Soave grapes. Drying concentrates fruit; residual sweetness also depends on fermentation.
+        sourceCitationId: src_wset_grape_soave_recioto
+      ki_wset_structure_grenache_structure:
+        prompt: Which pair of grape tendencies does Plantgrape describe for Grenache?
+        options:
+        - High sugar potential and generally low acidity
+        - Low sugar potential and generally high acidity
+        - High sugar potential and generally high acidity
+        - Low sugar potential and generally low acidity
+        correctIndex: 0
+        explanation: Plantgrape describes Grenache's sugar-accumulation potential as very high and its acidity as generally low; these are tendencies rather than a bottle specification.
+        sourceCitationId: src_wset_structure_plantgrape_grenache
+      ki_wset_structure_tempranillo_structure:
+        prompt: In which setting does Plantgrape warn that Tempranillo wines may lack acidity?
+        options:
+        - Cool elevated vineyards
+        - Moderate coastal sites
+        - Hot growing zones
+        - Sheltered cooler slopes
+        correctIndex: 2
+        explanation: Plantgrape describes well-coloured, structured Tempranillo but notes a lack of acidity in hot zones. A cooler site may preserve freshness, without guaranteeing it.
+        sourceCitationId: src_wset_structure_plantgrape_tempranillo
+      ki_wset_structure_barbera_structure:
+        prompt: Which grape structure can accompany Barbera's deep red colour?
+        options:
+        - High acidity and high grape tannin
+        - High acidity and low grape tannin
+        - Low acidity and high grape tannin
+        - Low acidity and low grape tannin
+        correctIndex: 1
+        explanation: The Barbera d'Asti consortium describes high fixed acidity and strong anthocyanin colour, but relatively little grape tannin.
+        sourceCitationId: src_wset_structure_barbera_astimonferrato
+      ki_wset_structure_sangiovese_structure:
+        prompt: Which structural pairing does the Consorzio Vino Chianti describe for Sangiovese?
+        options:
+        - Soft acidity with slight tannin
+        - Soft acidity with drying tannin
+        - Marked acid with slight tannin
+        - Marked acidity with evident tannin
+        correctIndex: 3
+        explanation: The Consorzio Vino Chianti describes marked acidity and a tannic framework as part of Sangiovese's structure; individual wines may vary.
+        sourceCitationId: src_wset_grape_chianti_sangiovese
+      ki_wset_structure_pinotage_structure:
+        prompt: A Pinotage maker increases pump-overs during early fermentation. Which tannin effect does the Pinotage Association describe?
+        options:
+        - Less tannin with a softer texture
+        - More tannin with a firmer texture
+        - Less tannin with a firmer texture
+        - More tannin with a softer texture
+        correctIndex: 0
+        explanation: The Pinotage Association associates frequent early pump-overs or punch-downs with less and softer tannin. The extraction regime can change mouthfeel.
+        sourceCitationId: src_wset_structure_pinotage_vinification
+      ki_wset_structure_carmenere_structure:
+        prompt: A Carménère lot is picked before adequate ripeness. Which aroma risk does Plantgrape identify?
+        options:
+        - More mature black-fruit concentration
+        - Dominant green or vegetal character
+        - Complex aromas derived from long bottle ageing
+        - Pronounced vanilla aromas from new oak barrels
+        correctIndex: 1
+        explanation: Plantgrape notes that Carménère's vegetal character tends to dominate unless good maturity is reached.
+        sourceCitationId: src_wset_structure_plantgrape_carmenere
+      ki_wset_structure_malbec_structure:
+        prompt: Two Argentine Malbec sites are otherwise comparable. What may a cooler, elevated site retain relative to a warmer one?
+        options:
+        - Jammier fruit with a fuller, warmer palate
+        - Lower freshness accompanied by pronounced spice
+        - More floral character and freshness
+        - Balsamic notes alongside ripe, jammy fruit
+        correctIndex: 2
+        explanation: Wines of Argentina associates cooler sites with floral notes and cooler elevated sites with freshness; warmer sites can show jammy fruit and spice.
+        sourceCitationId: src_wset_grape_woa_malbec
+      ki_wset_structure_chenin_blanc_structure:
+        prompt: Which combination of Chenin Blanc wine styles does Plantgrape document?
+        options:
+        - Dry still, sparkling and red wines
+        - Dry still, fortified and sweet wines
+        - Rosé, sparkling and sweet wines
+        - Dry still, sparkling and sweet wines
+        correctIndex: 3
+        explanation: Plantgrape describes dry, sparkling and luscious sweet Chenin styles, with substantial acidity as a useful grape tendency.
+        sourceCitationId: src_wset_structure_plantgrape_chenin_blanc
+      ki_wset_structure_semillon_structure:
+        prompt: Hunter Valley Semillon is harvested early and fermented dry. Which youthful style does Wine Australia describe?
+        options:
+        - Light-bodied, lemony and high in acidity
+        - Full-bodied, honeyed and distinctly low in acidity
+        - Full-bodied, oaky and high in acidity
+        - Light-bodied, spicy and low in acidity
+        correctIndex: 0
+        explanation: Wine Australia describes early-picked Hunter Semillon as dry, light, lemony and high in acidity when young; bottle development can add complexity later.
+        sourceCitationId: src_wset_grape_wa_semillon
+      ki_wset_structure_viognier_structure:
+        prompt: At suitable ripeness, which structural tendency does Plantgrape describe for Viognier?
+        options:
+        - Lean body, low sugar and high acidity
+        - Broad body, high sugar and modest acidity
+        - Light body, low sugar and modest acidity
+        - Lean body, high sugar and high acidity
+        correctIndex: 1
+        explanation: Plantgrape describes aromatic, generous Viognier with strong sugar-accumulation potential and often somewhat limited acidity; individual wines still vary.
+        sourceCitationId: src_wset_structure_plantgrape_viognier
+      ki_wset_structure_syrah_vineyard:
+        prompt: Syrah can ripen rapidly after véraison. Which combined checks does Plantgrape recommend for the brief optimal harvest window?
+        options:
+        - Sugar, acidity, vine age and yield forecast
+        - Sugar, acidity, pruning date and clone choice
+        - Sugar, acidity, berry condition and taste
+        - Sugar, acidity, slope aspect and rootstock
+        correctIndex: 2
+        explanation: Plantgrape describes a short optimal Syrah harvest interval assessed with sugar, acidity, berry/grape condition and tasting the berries.
+        sourceCitationId: src_wset_structure_plantgrape_syrah
+      ki_wset_structure_cabernet_sauvignon_ageing:
+        prompt: Two Cabernet wines are both deep-coloured and tannic. Which extra feature better supports keeping one in bottle?
+        options:
+        - Strong colour alongside diffuse, dilute flavours
+        - High tannin despite weak fruit
+        - Prominent oak beside thin fruit
+        - Concentrated fruit with sustaining acidity
+        correctIndex: 3
+        explanation: WSET's Level 2 session plans link Cabernet ageing potential to acidity, tannin and concentrated fruit flavours; colour and tannin alone do not establish that a particular cuvée will improve.
+        sourceCitationId: src_wset_close_l2_session
+      ki_wset_structure_merlot_ageing:
+        prompt: One Merlot is light, fruity and ready now; another is balanced, concentrated and structured. Which is the more plausible keeping candidate?
+        options:
+        - The concentrated, balanced Merlot
+        - The light, ready-now Merlot
+        - The Merlot with the softest tannin
+        - The Merlot with the deepest colour
+        correctIndex: 0
+        explanation: WSET's Level 2 session plans distinguish lighter Merlot for earlier drinking from very good or outstanding, fuller Merlot that can develop dried-fruit and tobacco character.
+        sourceCitationId: src_wset_close_l2_session

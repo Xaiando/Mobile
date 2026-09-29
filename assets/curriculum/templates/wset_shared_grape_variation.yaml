@@ -1,0 +1,131 @@
+# Source-bounded questions for existing shared Level 2 and Level 3 grape facts.
+# Item assertions remain unverified pending qualified review.
+question_templates:
+- id: qt_wset_shared_grape_variation_12
+  relation_type: PRINCIPLE_EXPLANATION
+  direction: forward
+  mode: authored_choice
+  variant: wset_shared_grape_variation
+  prompt_template: '{subject.name}'
+  parameters:
+    item_choices:
+      ki_wset_grape_furmint_profile:
+        prompt: Which profile best matches the Hungarian wine authority's description of Furmint?
+        options:
+        - High acidity, relatively full body and quince or peach
+        - Low acidity, light body and blackcurrant
+        - Low acidity, full body and bell pepper
+        - High grape tannin, light body and rose
+        correctIndex: 0
+        explanation: Magyar Bor describes Furmint as relatively full-bodied and high in acidity, with quince, peach or apricot aromas; it can make dry and sweet wines.
+        sourceCitationId: src_wset_grape_hunga_furmint
+      ki_wset_grape_chardonnay_variation:
+        prompt: A Chardonnay's acid impression feels softer after a cellar conversion. Which choice most directly explains that change?
+        options:
+        - New-oak maturation
+        - Malolactic conversion
+        - Extended lees contact
+        - Early juice clarification
+        correctIndex: 1
+        explanation: Wine Australia's Chardonnay profile distinguishes the softer acid impression from malolactic conversion from oak-derived aromas and lees-derived texture.
+        sourceCitationId: src_wset_grape_wa_chardonnay
+      ki_wset_grape_cabernet_sauvignon_variation:
+        prompt: Two Cabernet Sauvignon wines differ in texture. Which blending choice does Wine Australia identify as one possible contributor?
+        options:
+        - Adding more Cabernet Sauvignon skins
+        - Harvesting the Cabernet earlier
+        - Including Merlot as a blending partner
+        - Increasing the Cabernet's acidity
+        correctIndex: 2
+        explanation: Wine Australia identifies Merlot as a common blending partner for Cabernet Sauvignon. Blending can alter a wine's texture, but the source does not prescribe one tannin level for every blend.
+        sourceCitationId: src_wset_grape_wa_cabernet
+      ki_wset_grape_gamay_variation:
+        prompt: A Beaujolais Gamay is made with intact berries in the traditional semi-carbonic process. Which character can that route emphasise?
+        options:
+        - Pronounced new-oak toast
+        - Concentrated residual sugar
+        - Fortified-wine warmth
+        - Youthful fruit and freshness
+        correctIndex: 3
+        explanation: The official Beaujolais guide links intracellular fermentation in intact berries with fruitiness. Other extraction and maturation choices also produce different Gamay styles.
+        sourceCitationId: src_wset_grape_beaujolais_method
+      ki_wset_grape_corvina_variation:
+        prompt: Corvina-based grapes are dried for Amarone and then fermented dry. Which style is supported by that route?
+        options:
+        - A concentrated dry red with substantial alcohol
+        - A light dry white with little extract
+        - A sweet red whose sugar must remain unfermented
+        - A low-alcohol red from diluted juice
+        correctIndex: 0
+        explanation: The Valpolicella consortium explains that drying concentrates the fruit and fermentation can yield a high-alcohol dry Amarone; drying alone does not require residual sweetness.
+        sourceCitationId: src_reg_inc_amarone
+      ki_wset_grape_carmenere_variation:
+        prompt: Carménère ripens late in Chile. Which seasonal condition does Wines of Chile associate with its successful adaptation?
+        options:
+        - Persistent rain during the ripening months
+        - A dry period during the ripening months
+        - Frost after ripeness has been reached
+        - Permanent shade throughout the season
+        correctIndex: 1
+        explanation: Wines of Chile describes the dry ripening months as favourable to this late-ripening variety; the condition supports maturity without prescribing one fruit or spice profile.
+        sourceCitationId: src_wset_grape_chile_carmenere
+      ki_wset_grape_viognier_variation:
+        prompt: A full-flavoured Australian Viognier is rich on the palate. What does that observation establish about oak use?
+        options:
+        - Its richness identifies new-oak maturation
+        - Its richness identifies neutral-vessel maturation
+        - Oak use remains unresolved by richness alone
+        - Its richness identifies a long bottle age
+        correctIndex: 2
+        explanation: Wine Australia describes rich and fresh Australian Viognier styles, and both oaked and unoaked versions; fullness alone does not identify the vessel.
+        sourceCitationId: src_wset_grape_wa_viognier
+      ki_wset_grape_gewurztraminer_variation:
+        prompt: An Alsace Gewurztraminer is made as a sweet Sélection de Grains Nobles from noble-rot-affected fruit. Which notes can accompany that style?
+        options:
+        - Green pepper and blackcurrant leaf
+        - Fresh sea-spray and cut grass
+        - Cedar and black olive
+        - Honey and candied fruit
+        correctIndex: 3
+        explanation: Vins d'Alsace describes honey and candied or cooked fruit among the developed aromas of Sélection de Grains Nobles. The prompt specifies this sweet style rather than every Gewurztraminer.
+        sourceCitationId: src_wset_grape_civa_sgn_tasting
+      ki_wset_grape_albarino_variation:
+        prompt: A Rías Baixas Albariño producer wants a rounder, softer acid impression. Which cited cellar choice can help?
+        options:
+        - Complete or partial malolactic conversion
+        - Blocking malolactic conversion
+        - Picking substantially earlier
+        - Removing yeast lees immediately
+        correctIndex: 0
+        explanation: Rías Baixas Wines states that complete or partial malolactic conversion can give a rounder, softer profile; blocking it instead preserves freshness.
+        sourceCitationId: src_wset_grape_rias_albarino_cellar
+      ki_wset_grape_furmint_variation:
+        prompt: A sweet Tokaj Furmint tastes fresh despite residual sugar. Which structural tendency helps make that possible?
+        options:
+        - Naturally high grape tannin
+        - Furmint's naturally high acidity
+        - Mandatory new-oak maturation
+        - A fixed low level of grape sugar
+        correctIndex: 1
+        explanation: Magyar Bor describes Furmint's high-acidity tendency and sweet Tokaj styles. Sugar concentration and how much fermentation leaves behind are separate decisions.
+        sourceCitationId: src_wset_grape_hunga_furmint
+      ki_wset_structure_chardonnay_ageing:
+        prompt: A Chardonnay shows toast before long bottle ageing. Which earlier production choice can account for that aroma?
+        options:
+        - Fermentation in a cool vessel
+        - Earlier picking of the grapes
+        - Maturation in an oak vessel
+        - Bottling under screwcap seal
+        correctIndex: 2
+        explanation: Oak can add toast before bottling, so toast alone is not evidence of bottle development. A balanced, concentrated Chardonnay may develop other complexity with suitable ageing.
+        sourceCitationId: src_wset_structure_wa_aged
+      ki_wset_structure_pinot_gris_ageing:
+        prompt: A specific Alsace Pinot Gris is considered for keeping. Which evidence is stronger than the grape name alone?
+        options:
+        - A pale colour without a tasting note
+        - An ornate label without wine details
+        - A large bottle without storage history
+        - Flavour concentration with acid balance
+        correctIndex: 3
+        explanation: The cited ageing guidance considers concentration and balance in the actual wine; neither the Pinot Gris name nor packaging guarantees improvement.
+        sourceCitationId: src_wset_taste_ageing
