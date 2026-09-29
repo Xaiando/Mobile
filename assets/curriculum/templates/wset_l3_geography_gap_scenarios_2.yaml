@@ -1,0 +1,489 @@
+# Original, cited WSET Level 3 geography practice; expert review pending.
+question_templates:
+- id: qt_wset_l3_geography_gap_scenarios_2
+  relation_type: PRINCIPLE_EXPLANATION
+  direction: forward
+  mode: authored_choice
+  variant: l3_geography_gap_2
+  prompt_template: '{subject.name}'
+  parameters:
+    item_choices:
+      ki_reg_fm_cabardes_climate:
+        prompt: A supplier describes Cabardès as simply another hot Mediterranean Languedoc site. Which correction
+          helps explain its grape mix?
+        options:
+        - It lies near the Montagne Noire in an Atlantic–Mediterranean transition
+        - Its vineyards receive only oceanic influence and no Mediterranean summer warmth
+        - Its vineyards are confined to the cool Atlantic coast
+        - It is an Alpine valley, so Mediterranean grapes cannot ripen
+        correctIndex: 0
+        explanation: INAO locates Cabardès by the Montagne Noire in a climate transition; that is context for,
+          not proof of, a particular blend.
+        sourceCitationId: src_reg_fm_cabardes
+      ki_reg_fm_cabardes_grapes:
+        prompt: A restaurant compares Cabardès with a Grenache-led southern blend. Which supplier detail best
+          tests the intended contrast?
+        options:
+        - Whether Cabernet is legally the only permitted red grape in Cabardès
+        - Whether Merlot or cabernets join Syrah and Grenache in the blend
+        - Whether the wine is made entirely from Pinot Noir and Gamay
+        - Whether a warm vintage makes grape composition irrelevant
+        correctIndex: 1
+        explanation: INAO describes both Atlantic-associated and Mediterranean-associated grapes; actual proportions
+          still need the cuvée record.
+        sourceCitationId: src_reg_fm_cabardes
+      ki_reg_fm_larzac_nights:
+        prompt: A Terrasses du Larzac grower records hot afternoons but noticeably fresh nights. Which site
+          influence is plausible?
+        options:
+        - Only the Mediterranean sea fixes the same night temperature at every site
+        - The region is fully continental and lacks summer heat
+        - The nearby Larzac plateau moderates the Mediterranean setting
+        - Night cooling proves every wine will have the same acidity
+        correctIndex: 2
+        explanation: The appellation syndicate links the plateau to relatively fresh nights; site and vintage
+          records still matter.
+        sourceCitationId: src_reg_fm_larzac
+      ki_reg_fm_maury_dry:
+        prompt: A buyer needs a dry Roussillon red but is told that every Maury-labelled wine is sweet. Which
+          listing merits inspection?
+        options:
+        - A Maury vin doux naturel, because all fortified wines finish dry
+        - Any bottle saying Maury, because Sec has no style meaning
+        - A white Maury Sec made exclusively from Muscat Blanc
+        - Maury Sec, a dry red with Grenache Noir as its principal grape
+        correctIndex: 3
+        explanation: The Roussillon wine body identifies Maury Sec as a dry red appellation with Grenache Noir
+          prominent.
+        sourceCitationId: src_reg_fm_maury_sec
+      ki_reg_fm_pic_climate:
+        prompt: A Pic Saint Loup producer tests whether veraison conditions differ from a warmer coastal parcel.
+          What evidence belongs in the comparison?
+        options:
+        - Day–night temperature records and Cévennes foothill exposure
+        - Only annual sunshine totals
+        - A presumption that all Languedoc sites share one temperature curve
+        - The bottle price as a substitute for vineyard weather records
+        correctIndex: 0
+        explanation: The Pic Saint Loup syndicate describes continental and Mediterranean influences with marked
+          day–night variation at veraison.
+        sourceCitationId: src_reg_fm_pic_saint_loup
+      ki_reg_fm_picpoul_exposure:
+        prompt: Two Picpoul de Pinet plots lie on northern hillocks and the lower plateau towards Thau. Which
+          difference should the grower assess?
+        options:
+        - Whether lagoon air reaches both plots equally
+        - How relief changes maritime air reaching the two plots
+        - Whether the northern hillocks receive no daylight in summer
+        - Whether Picpoul Blanc is forbidden on the lower plateau
+        correctIndex: 1
+        explanation: The Picpoul syndicate says the northern relief attenuates marine influence while the lower
+          plateau extends towards the lagoon.
+        sourceCitationId: src_reg_fm_picpoul
+      ki_reg_fm_varois_inland:
+        prompt: A Coteaux Varois grower plans winter protection from a coastal Provence weather summary. Which
+          adjustment is sound?
+        options:
+        - Assume the Mediterranean sea moderates every inland basin as strongly as it does the nearby shore
+        - Ignore winter temperatures because high vineyards cannot freeze
+        - Account for inland basins and mountain barriers that sharpen winter cold
+        - Treat the area as permanently cool, including in summer
+        correctIndex: 2
+        explanation: The Provence wine body describes inland basins and ranges that block maritime influence,
+          with colder winters and hot summers.
+        sourceCitationId: src_reg_fm_varois
+      ki_reg_fs_saumur_thermal:
+        prompt: A Saumur-Champigny grower compares Cabernet Franc plots near and farther from the Loire after
+          a frost warning. What is a bounded inference?
+        options:
+        - The Loire prevents spring frost throughout the appellation, regardless of each plot’s exposure
+        - Any plot farther from water must always ripen earlier
+        - River proximity alone establishes finished-wine quality
+        - River thermal inertia may reduce frost intensity near some sites
+        correctIndex: 3
+        explanation: The Saumur-Champigny body describes the Loire as a thermal regulator, while parcel conditions
+          determine actual risk.
+        sourceCitationId: src_reg_fs_saumur_river
+      ki_reg_fs_marsanne_palate:
+        prompt: A buyer expects a lean, sharply acidic northern Rhône white solely because it contains Marsanne.
+          Which alternative hypothesis merits tasting?
+        options:
+        - A broad palate with moderate-to-low acidity and floral notes
+        - A firm red-wine tannin profile supplied by Marsanne skins
+        - An identical high-acid palate to Sauvignon Blanc from the Loire
+        - A compulsory sweet style for every Marsanne-based white
+        correctIndex: 0
+        explanation: Inter Rhône describes Marsanne as powerful, floral and often moderate-to-low in acidity;
+          blending and picking can alter the result.
+        sourceCitationId: src_reg_fs_marsanne
+      ki_reg_fs_bergerac_dry:
+        prompt: A shop compares a dry Bergerac white with dry Bordeaux. What should the buyer request before
+          claiming the two taste alike?
+        options:
+        - Only the distance between the appellation boundaries
+        - Sauvignon and Sémillon proportions plus the actual cuvée profile
+        - Proof that Bergerac whites are always pure Sauvignon Blanc regardless of producer
+        - A regional name instead of the producer and vintage
+        correctIndex: 1
+        explanation: The Bergerac wine body lists Sauvignon and Sémillon in dry whites; shared grapes and proximity
+          do not settle a bottle comparison.
+        sourceCitationId: src_reg_fs_bergerac
+      ki_reg_isi_fiano_style:
+        prompt: A Fiano di Avellino list note calls the grape inherently nutty at bottling. Which revision
+          better fits the regional account?
+        options:
+        - Fiano has no acidity, so ageing cannot change its aroma
+        - Hazelnut is required from new oak in every Fiano di Avellino before release
+        - White-fruit and floral notes are typical; hazelnut can develop with age
+        - Fiano is the red grape used for Taurasi
+        correctIndex: 2
+        explanation: The Irpinia consortium describes marked acidity and white-fruit/floral notes, with hazelnut-like
+          character developing over time.
+        sourceCitationId: src_reg_isi_irpinia_grapes
+      ki_reg_isi_greco_style:
+        prompt: A Greco di Tufo buyer assumes its geological name proves a literal sulphur flavour. Which assessment
+          is more useful?
+        options:
+        - Infer sulphur aroma directly from the old mine soils
+        - Assume every Greco is lighter than every Fiano, even at the same age and producer
+        - Use the village name as a substitute for tasting balance
+        - Assess the wine’s structure and acidity while checking site and cellar records
+        correctIndex: 3
+        explanation: The Irpinia consortium associates Greco with the Tufo area and substantial structure;
+          geology alone does not prove a transferred taste.
+        sourceCitationId: src_reg_isi_irpinia_grapes
+      ki_reg_isi_nero_structure:
+        prompt: A blender wants to understand the Nero d’Avola role beside Frappato in Cerasuolo di Vittoria.
+          Which starting expectation is supported?
+        options:
+        - Nero d’Avola can contribute deeper colour and fuller body
+        - Nero d’Avola is the white grape that supplies acidity
+        - Frappato is legally absent from the blend
+        - Nero d’Avola fixes the same tannin level in every cuvée regardless of maceration
+        correctIndex: 0
+        explanation: The Cerasuolo di Vittoria consortium describes Nero d’Avola as ruby-coloured and full-bodied;
+          proportions and production still matter.
+        sourceCitationId: src_reg_isi_vittoria
+      ki_reg_isi_primitivo_style:
+        prompt: A merchant equates Primitivo di Manduria with one sweetness level. Which check is justified
+          by the Puglia profile?
+        options:
+        - Assume Riserva always means a sweet fortified wine
+        - 'Verify residual sugar: permitted expressions run from dry to slightly sweet'
+        - Treat every Primitivo di Manduria as bone dry by definition
+        - Infer sweetness solely from colour intensity, regardless of a technical analysis
+        correctIndex: 1
+        explanation: The Puglia regional profile gives a dry-to-abboccato range for these reds, so the exact
+          cuvée matters.
+        sourceCitationId: src_reg_isi_primitivo
+      ki_reg_isi_gallura_identity:
+        prompt: A buyer calls every Vermentino di Gallura an identical coastal wine. What should the vineyard
+          brief distinguish?
+        options:
+        - Only coastal vineyards, because inland Gallura is outside the production area
+        - Vermentino as a red grape produced only on the island’s western coast
+        - Northeastern Sardinian Vermentino sites near the sea and farther inland
+        - One compulsory cellar route fixed by sea proximity
+        correctIndex: 2
+        explanation: The Gallura consortium places Vermentino in northeastern Sardinia and describes both coastal
+          and inland terrain.
+        sourceCitationId: src_reg_isi_gallura
+      ki_reg_gr_naoussa_seasons:
+        prompt: A Greek wine lesson treats Naoussa Xinomavro as if it grows in a uniformly mild coastal climate.
+          What should the vintage brief add?
+        options:
+        - A tropical wet season with no winter cooling
+        - A guarantee of the same ripeness on every Vermio slope
+        - Only sea temperature, since the vineyards have no elevation in the foothills
+        - Continental influence with cold winters and relatively hot summers
+        correctIndex: 3
+        explanation: Wines of Greece describes Naoussa’s continental influence and seasonal contrast; the individual
+          site and year remain decisive.
+        sourceCitationId: src_reg_gr_naoussa
+      ki_reg_ib_baga_structure:
+        prompt: A buyer considers holding a well-ripened young Baga from Bairrada. Which structure-based reason
+          is plausible?
+        options:
+        - Substantial tannin and acidity may soften and integrate with suitable ageing
+        - Baga has no tannin, so maturation cannot affect its structure
+        - Every Baga is ready only after a fixed number of years
+        - Bairrada guarantees a balanced result without tasting the bottle or checking vintage ripeness
+        correctIndex: 0
+        explanation: Wines of Portugal links well-ripened Baga to tannin and acidity and notes that suitable
+          examples can soften with age.
+        sourceCitationId: src_reg_ib_baga
+      ki_reg_ib_dao_encruzado:
+        prompt: A buyer wants a Dão white with more palate structure than a simple light aromatic brief. Which
+          grape deserves a sample?
+        options:
+        - Baga, because it is the main neutral white grape of Dão and naturally light in texture
+        - Encruzado, while checking the actual balance and cellar treatment
+        - Mencía, because it is the only white DOC Dão variety
+        - Any Encruzado, because all examples share one ageing trajectory
+        correctIndex: 1
+        explanation: Wines of Portugal associates Encruzado with Dão and describes serious structured whites,
+          in blends and varietal wines.
+        sourceCitationId: src_reg_ib_encruzado
+      ki_reg_ib_sacra_terraces:
+        prompt: A distributor treats all Ribeira Sacra Mencía as a single coastal Galicia style. What should
+          its vineyard comparison include?
+        options:
+        - Only proximity to the Atlantic coast, with no inland valley climate variation
+        - A claim that every vineyard has the same rainfall and soil
+        - Miño and Sil river-valley sites, exposures and terrace conditions
+        - A rule that Mencía must be made with one identical cellar method
+        correctIndex: 2
+        explanation: The regulatory council locates the DO along both rivers and describes differing valley
+          climate and soils; parcel data remains necessary.
+        sourceCitationId: src_reg_ib_sacra_sites
+      ki_reg_ib_utiel_bobal:
+        prompt: A grower compares Utiel-Requena Bobal with fruit from a lower Levante site. Which geographic
+          factor should be recorded?
+        options:
+        - Only distance to the Mediterranean beach, with altitude ignored
+        - The assumption that both sites have identical summer nights
+        - A fixed finished-wine acidity calculated from the DO name alone, not from fruit measurements
+        - Its elevated inland plateau and marked day–night temperature range
+        correctIndex: 3
+        explanation: The Utiel-Requena council describes high-elevation vineyards and continental temperature
+          contrasts; fruit measurements still decide the harvest.
+        sourceCitationId: src_reg_ib_utiel_climate
+      ki_reg_ah_kamptal_climate:
+        prompt: A Kamptal report shows hot summer afternoons and cool nights. What should a buyer ask before
+          treating the ripeness as uniform?
+        options:
+        - How Pannonian warmth and Waldviertel cooling affected each harvest block
+        - Whether an Atlantic sea breeze cooled every Kamptal vineyard equally throughout summer
+        - Whether the Danube forces a single picking day across the whole area
+        - Whether warm days establish a compulsory sweet-wine style
+        correctIndex: 0
+        explanation: The Kamptal wine body describes the meeting of warm and cool air masses, not one mandatory
+          harvest date.
+        sourceCitationId: src_reg_ah_kamptal
+      ki_reg_ah_kremstal_air:
+        prompt: A Kremstal site warms quickly by day but cools after sunset. Which influences warrant checking
+          before the picking decision?
+        options:
+        - Only permanent warmth from the river, with no night cooling
+        - Cool Waldviertel air and the Danube’s moderating water mass
+        - A compulsory harvest schedule assigned to all Danube vineyards
+        - The assumption that river proximity removes all spring frost
+        correctIndex: 1
+        explanation: Kremstal’s regional body describes Waldviertel cooling and Danube moderation; parcel weather
+          and fruit still matter.
+        sourceCitationId: src_reg_ah_kremstal
+      ki_reg_ah_leithaberg_climate:
+        prompt: A producer compares an autumn Leithaberg parcel near the lake with one influenced by the wooded
+          ridge. Which site record matters?
+        options:
+        - A presumed identical temperature because both parcels share a DAC
+        - A rule that lake proximity guarantees full ripeness every season on both parcels
+        - Lake heat storage and cool ridge air alongside each parcel’s exposure
+        - Only summer sunshine, with no need to record autumn conditions
+        correctIndex: 2
+        explanation: The Leithaberg regional account describes both lake heat storage and cooler ridge air;
+          neither guarantees a wine outcome.
+        sourceCitationId: src_reg_ah_leithaberg
+      ki_reg_ah_leithaberg_grapes:
+        prompt: A buyer plans one white and one red Leithaberg comparison. Which pairing uses the region’s
+          stated grape associations?
+        options:
+        - A Blaufränkisch white alongside a Cabernet Franc red
+        - A Riesling-only white and a compulsory Pinot Noir red
+        - A Chardonnay red and a Grenache Blanc white
+        - A Pinot Blanc white alongside a Blaufränkisch red
+        correctIndex: 3
+        explanation: The regional body associates whites including Pinot Blanc with reds centred on Blaufränkisch;
+          these are not complete wine specifications.
+        sourceCitationId: src_reg_ah_leithaberg
+      ki_reg_ah_tokaj_loess:
+        prompt: A Tokaj grower compares loess near Tarcal with a volcanic-derived slope elsewhere. What should
+          the vineyard notes capture?
+        options:
+        - The actual soil profile and slope position before explaining vine response
+        - A rule that loess always gives a sweeter finished wine
+        - A claim that the whole Tokaj region has one volcanic soil, regardless of hillsides
+        - A literal mineral aroma deduced from the parent rock name
+        correctIndex: 0
+        explanation: The Tokaj wine body distinguishes loess around Tokaj Hill from other volcanic settings;
+          soil alone does not specify sweetness.
+        sourceCitationId: src_reg_ah_tokaj_soils
+      ki_reg_ah_tokaj_volcanic:
+        prompt: A merchant labels two different Tokaj vineyards “volcanic” and predicts the same wine. What
+          further site comparison is justified?
+        options:
+        - Only the shared word volcanic, which fixes the aroma of the finished wine
+        - Parent material, weathering and clay-rich profile development
+        - A higher quality grade for every darker-coloured rock
+        - The assumption that all tuff weathers to identical soil
+        correctIndex: 1
+        explanation: Tokaj’s wine body records varied volcanic parent material and weathered tuffs, so the
+          shorthand is insufficient.
+        sourceCitationId: src_reg_ah_tokaj_soils
+      ki_reg_ah_weinviertel_sites:
+        prompt: A grower uses one water plan for Retz and southeastern Weinviertel. What distinction should
+          be examined?
+        options:
+        - A uniform rainfall total inferred from the Weinviertel DAC name
+        - Only Atlantic humidity at Retz and no summer heat in the southeastern sites
+        - Retz rain-shadow exposure versus stronger southeastern Pannonian warmth
+        - The assumption that site position cannot affect water demand
+        correctIndex: 2
+        explanation: The Weinviertel DAC account identifies Retz’s rain shadow and warmer southeast; actual
+          site water status remains necessary.
+        sourceCitationId: src_reg_ah_weinviertel_climate
+      ki_reg_am_rogue_diversity:
+        prompt: An Oregon list carries both Rogue Valley Pinot Noir and Cabernet Sauvignon. What regional explanation
+          supports sampling both?
+        options:
+        - All Oregon valleys have the same cool temperature profile in every growing season
+        - Rogue Valley excludes grapes associated with warmer sites
+        - A state name fixes the sensory style of each listed wine
+        - The Rogue’s valleys include progressively warmer microclimates
+        correctIndex: 3
+        explanation: Oregon Wine describes Rogue Valley’s diverse microclimates and varieties; the specific
+          vineyards still need assessment.
+        sourceCitationId: src_reg_am_rogue
+      ki_reg_de_ruwer_relative_height:
+        prompt: A buyer compares a south-facing Ruwer Riesling parcel with a Mosel-valley site. What should
+          the vineyard briefing include?
+        options:
+        - Relative elevation and aspect, considered together for ripening
+        - A conclusion that every Ruwer parcel is on the flat river floor
+        - Sweetness predicted from slope orientation alone
+        - A fixed acidity level from valley name without fruit data
+        correctIndex: 0
+        explanation: Moselwein describes elevated Ruwer slopes with southern aspects; neither dimension by
+          itself proves the final style.
+        sourceCitationId: src_reg_de_ruwer
+      ki_reg_de_saar_exposure:
+        prompt: Two Saar Riesling producers share the regional name but have different side-valley exposures.
+          Which evidence is most useful?
+        options:
+        - The assumption that every Saar vineyard faces north
+        - Their individual slope aspect and seasonal ripeness records
+        - A single sweetness category inferred from the Saar name
+        - A claim that exposure makes tasting unnecessary for any wine on the list
+        correctIndex: 1
+        explanation: Moselwein identifies south-facing Saar side-valley slopes; exposure gives site context
+          rather than a sweetness or quality grade.
+        sourceCitationId: src_reg_de_saar
+      ki_reg_sa_neuquen_grapes:
+        prompt: A Patagonian buying brief treats Neuquén as a single-variety Malbec source. Which range deserves
+          a sample search?
+        options:
+        - Only Malbec, because no other grape is grown in Neuquén
+        - Only Chardonnay, because all Patagonia sites are too cool for reds
+        - Malbec and Cabernet or Merlot reds, plus Pinot Noir and Chardonnay
+        - The same variety list as every Argentine district without checking
+        correctIndex: 2
+        explanation: Wines of Argentina lists several red grapes plus Chardonnay in Neuquén; grape and site
+          choices still determine style.
+        sourceCitationId: src_reg_sa_patagonia
+      ki_reg_sa_rionegro_profiles:
+        prompt: A buyer compares two Alto Valle de Río Negro plots described as clay-rich and sandy. What should
+          the grower supply?
+        options:
+        - A province-wide soil texture copied onto every vineyard site, regardless of the sampled plot
+        - A quality ranking based solely on the word sandy
+        - Latitude as a complete substitute for soil sampling
+        - Actual soil profiles and vineyard measurements for the two plots
+        correctIndex: 3
+        explanation: The Wines of Argentina account presents differing local profiles; its examples are not
+          an exhaustive provincial survey.
+        sourceCitationId: src_reg_sa_patagonia
+      ki_wset_nw_bc_vqa_origin:
+        prompt: A supplier offers a British Columbia VQA wine bearing an Okanagan Valley origin. Which records
+          should the buyer verify?
+        options:
+        - BC-grown fruit and eligibility for the stated Okanagan geographic indication
+        - Ontario VQA approval as the governing rule for a BC wine
+        - Only the winery address, with imported fruit permitted for BC VQA and its Okanagan GI claim
+        - Okanagan as a compulsory grape rather than a place claim
+        correctIndex: 0
+        explanation: British Columbia’s regulation ties BC VQA to provincial fruit origin and sets separate
+          GI-origin conditions.
+        sourceCitationId: src_nwa_ca_bc
+      ki_wset_nw_ontario_vqa_origins:
+        prompt: A Niagara Peninsula VQA blend uses 90% Niagara fruit and 10% fruit from elsewhere in Ontario.
+          What can the buyer infer?
+        options:
+        - Any Canadian fruit is allowed once the wine is bottled in Niagara and labelled VQA
+        - The origin mix may meet the regional threshold if other rules are satisfied
+        - The remaining 10% must come from British Columbia
+        - The origin mix itself proves the finished wine’s quality grade
+        correctIndex: 1
+        explanation: VQA Ontario describes the Niagara regional origin share and limits the remainder to Ontario;
+          other approval conditions still apply.
+        sourceCitationId: src_wset_nw_ontario_labels
+      ki_wset_nw_south_africa_estate:
+        prompt: A South African supplier calls a Wine of Origin bottling an estate wine. Which evidence should
+          the buyer request?
+        options:
+        - Proof that grapes came from any vineyard in the same WO district, with bottling off-site
+        - Only the estate owner’s office address and wine brand name
+        - Grapes grown, wine made and bottling completed on the registered estate unit
+        - A cellar receipt from an unrelated bottler outside the estate
+        correctIndex: 2
+        explanation: Wines of South Africa describes estate wine as a registered production unit with grapes,
+          winemaking and bottling there.
+        sourceCitationId: src_wset_nw_za_wo
+      ki_wset_nw_usa_origin_scale:
+        prompt: A US label review treats Napa County and Napa Valley AVA as interchangeable origins. What should
+          the compliance team check?
+        options:
+        - Both terms are grape varieties with the same federal minimum
+        - The county name automatically authorizes every Napa Valley AVA claim without additional evidence
+        - An AVA always means one vineyard rather than a delimited area
+        - County and AVA are distinct claim types with different origin thresholds
+        correctIndex: 3
+        explanation: TTB distinguishes political appellations from AVAs and gives different grape-origin and
+          finishing conditions.
+        sourceCitationId: src_wset_nw_ttb_origin
+      ki_wset_nwa_argentina_ig_examples:
+        prompt: An Argentine origin chart places Valle de Uco and Patagonia at the same physical scale. Which
+          register-based correction helps?
+        options:
+        - Valle de Uco is within Mendoza; Patagonia spans provinces
+        - Patagonia is a single vineyard inside Valle de Uco
+        - Maipú is a grape variety rather than a place entry
+        - A smaller place entry guarantees greater concentration and quality in every bottle
+        correctIndex: 0
+        explanation: The INV origin register lists the named IGs at different geographic scales, without assigning
+          sensory quality.
+        sourceCitationId: src_wset_nwa_ar_origin_register
+      ki_wset_nwa_argentina_origin_terms:
+        prompt: A producer’s Argentine label dossier uses IP, IG and DOC as if they were tasting scores. What
+          should the reviewer clarify?
+        options:
+        - They rank each bottled wine by its individual sensory score under the national appellation office
+        - They are protected origin categories, with DOC adding approved production conditions
+        - They identify Malbec, Cabernet Franc and Bonarda varieties
+        - Every registered IG place automatically qualifies as DOC
+        correctIndex: 1
+        explanation: Argentina’s origin law distinguishes IP, IG and DOC; DOC carries approved controls beyond
+          a place name.
+        sourceCitationId: src_wset_nwa_ar_origin_law
+      ki_wset_nwa_lujan_doc_distinction:
+        prompt: A buyer sees Luján de Cuyo on a Malbec label and assumes DOC status. What should be checked?
+        options:
+        - Only whether Malbec is named, since the grape confers DOC automatically
+        - Whether the IG and DOC labels are legally identical categories
+        - Whether this bottling meets the distinct DOC designation and conditions
+        - The producer’s price, which determines the origin category
+        correctIndex: 2
+        explanation: The INV register lists Luján de Cuyo in origin categories, while the law distinguishes
+          DOC conditions from an IG place claim.
+        sourceCitationId: src_wset_nwa_ar_origin_register
+      ki_wset_nwa_nz_enduring_origins:
+        prompt: A New Zealand buyer sees a “live” GI application and assumes it is registered like Marlborough.
+          What should they verify?
+        options:
+        - Only whether the place has a familiar grape style, not its register status
+        - Whether Marlborough is one of the three enduring island-wide GIs
+        - A sensory score because every live application is already registered as a national GI
+        - Registration status, while distinguishing enduring island GIs from regional GIs
+        correctIndex: 3
+        explanation: IPONZ explains that a live register entry may still be pending and separates enduring
+          GIs from registered regional ones.
+        sourceCitationId: src_wset_nwa_nz_gi_guide
