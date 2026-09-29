@@ -69,8 +69,10 @@ class _DiplomaWrittenScreenState extends ConsumerState<DiplomaWrittenScreen> {
       final repository = await ref.read(
         diplomaWrittenRepositoryProvider.future,
       );
-      final history = await repository.historyWithDiagnostics(widget.unitId);
       final current = await repository.current(widget.unitId);
+      // Resolving the current pointer can expire a draft; then show its
+      // updated state in the saved-attempt list on the same load.
+      final history = await repository.historyWithDiagnostics(widget.unitId);
       if (!mounted) return;
       setState(() {
         _repository = repository;

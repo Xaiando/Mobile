@@ -100,6 +100,20 @@ void main() {
         repository.answer(started.id, question.id, 'Late rewrite'),
         throwsStateError,
       );
+      final settingsAfterRejection = await _settings(db);
+      expect(
+        jsonDecode(
+          settingsAfterRejection[DiplomaWrittenRepository.keyFor(started.id)]!,
+        )['finishReason'],
+        'expired',
+        reason: 'rejecting late prose must still commit the deadline expiry',
+      );
+      expect(
+        settingsAfterRejection.containsKey(
+          DiplomaWrittenRepository.currentKey('D1'),
+        ),
+        isFalse,
+      );
       final expired = await repository.read(started.id);
       expect(expired.finishReason, 'expired');
       expect(expired.completedAt, expired.deadline);
@@ -107,6 +121,28 @@ void main() {
       expect(await repository.current('D1'), isNull);
       expect(expired.remaining(time.now), Duration.zero);
       expect(await db.select(db.reviewEvents).get(), isEmpty);
+    },
+  );
+
+  test(
+    'late abandon records expiry even though abandonment is rejected',
+    () async {
+      final started = await repository.start('D2');
+      time.advance(const Duration(minutes: 60));
+      await expectLater(repository.abandon(started.id), throwsStateError);
+      final settingsAfterRejection = await _settings(db);
+      expect(
+        jsonDecode(
+          settingsAfterRejection[DiplomaWrittenRepository.keyFor(started.id)]!,
+        )['finishReason'],
+        'expired',
+      );
+      expect(
+        settingsAfterRejection.containsKey(
+          DiplomaWrittenRepository.currentKey('D2'),
+        ),
+        isFalse,
+      );
     },
   );
 

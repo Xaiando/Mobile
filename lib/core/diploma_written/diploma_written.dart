@@ -16,6 +16,13 @@ const _maxProse = 20000;
 const _maxReview = 4000;
 const _maxSnapshot = 160000;
 
+typedef _AttemptWrite = ({DiplomaWrittenAttempt? attempt, Object? error});
+
+DiplomaWrittenAttempt _writtenResult(_AttemptWrite result) {
+  if (result.error case final error?) throw error;
+  return result.attempt!;
+}
+
 Map<String, dynamic> _map(Object? value) =>
     Map<String, dynamic>.from(value as Map);
 
@@ -395,45 +402,59 @@ class DiplomaWrittenRepository {
     String id,
     String questionId,
     String text,
-  ) => db.transaction(() async {
-    final attempt = await _expire(await _load(id));
-    if (attempt.isFinished) {
-      throw StateError('The writing time has ended.');
-    }
-    if (!attempt.questions.any((q) => q.id == questionId) ||
-        text.length > _maxProse) {
-      throw const FormatException('Invalid written response.');
-    }
-    final row = attempt.toJson();
-    final prose = _map(row['prose']);
-    prose[questionId] = text;
-    row['prose'] = prose;
-    final changed = DiplomaWrittenAttempt.fromJson(row);
-    await _save(changed);
-    return changed;
-  });
+  ) async => _writtenResult(
+    await db.transaction<_AttemptWrite>(() async {
+      final attempt = await _expire(await _load(id));
+      // Return an error value so an expiry written above can commit first.
+      if (attempt.isFinished) {
+        return (
+          attempt: null,
+          error: StateError('The writing time has ended.'),
+        );
+      }
+      if (!attempt.questions.any((q) => q.id == questionId) ||
+          text.length > _maxProse) {
+        return (
+          attempt: null,
+          error: const FormatException('Invalid written response.'),
+        );
+      }
+      final row = attempt.toJson();
+      final prose = _map(row['prose']);
+      prose[questionId] = text;
+      row['prose'] = prose;
+      final changed = DiplomaWrittenAttempt.fromJson(row);
+      await _save(changed);
+      return (attempt: changed, error: null);
+    }),
+  );
 
-  Future<DiplomaWrittenAttempt> _finish(String id, String reason) =>
-      db.transaction(() async {
-        final attempt = await _expire(await _load(id));
-        if (attempt.isFinished) {
-          if (attempt.finishReason == reason ||
-              (reason == 'submitted' && attempt.finishReason == 'expired')) {
-            return attempt;
+  Future<DiplomaWrittenAttempt> _finish(String id, String reason) async =>
+      _writtenResult(
+        await db.transaction<_AttemptWrite>(() async {
+          final attempt = await _expire(await _load(id));
+          if (attempt.isFinished) {
+            if (attempt.finishReason == reason ||
+                (reason == 'submitted' && attempt.finishReason == 'expired')) {
+              return (attempt: attempt, error: null);
+            }
+            return (
+              attempt: null,
+              error: StateError('This written practice has already ended.'),
+            );
           }
-          throw StateError('This written practice has already ended.');
-        }
-        final row = attempt.toJson();
-        final now = utcNow(clock);
-        row['completedAt'] =
-            (now.isBefore(attempt.startedAt) ? attempt.startedAt : now)
-                .toIso8601String();
-        row['finishReason'] = reason;
-        final finished = DiplomaWrittenAttempt.fromJson(row);
-        await _save(finished);
-        await _deleteCurrentIfMatches(attempt.unitId, id);
-        return finished;
-      });
+          final row = attempt.toJson();
+          final now = utcNow(clock);
+          row['completedAt'] =
+              (now.isBefore(attempt.startedAt) ? attempt.startedAt : now)
+                  .toIso8601String();
+          row['finishReason'] = reason;
+          final finished = DiplomaWrittenAttempt.fromJson(row);
+          await _save(finished);
+          await _deleteCurrentIfMatches(attempt.unitId, id);
+          return (attempt: finished, error: null);
+        }),
+      );
 
   Future<DiplomaWrittenAttempt> finish(String id) => _finish(id, 'submitted');
   Future<DiplomaWrittenAttempt> abandon(String id) => _finish(id, 'abandoned');
@@ -443,37 +464,45 @@ class DiplomaWrittenRepository {
     String questionId,
     Set<String> selectedCriteria,
     String improvement,
-  ) => db.transaction(() async {
-    final attempt = await _expire(await _load(id));
-    final question = attempt.questions
-        .where((q) => q.id == questionId)
-        .firstOrNull;
-    if (!attempt.isFinished ||
-        attempt.isAbandoned ||
-        question == null ||
-        (attempt.prose[questionId] ?? '').trim().isEmpty) {
-      throw StateError('Finish a written response before reviewing it.');
-    }
-    if (!question.criteria
-            .map((c) => c.id)
-            .toSet()
-            .containsAll(selectedCriteria) ||
-        improvement.trim().isEmpty ||
-        improvement.length > _maxReview) {
-      throw const FormatException('Invalid criterion-led self-review.');
-    }
-    final row = attempt.toJson();
-    final reviews = _map(row['reviews']);
-    reviews[questionId] = {
-      'selectedCriteria': selectedCriteria.toList()..sort(),
-      'improvement': improvement,
-      'reviewedAt': utcNow(clock).toIso8601String(),
-    };
-    row['reviews'] = reviews;
-    final changed = DiplomaWrittenAttempt.fromJson(row);
-    await _save(changed);
-    return changed;
-  });
+  ) async => _writtenResult(
+    await db.transaction<_AttemptWrite>(() async {
+      final attempt = await _expire(await _load(id));
+      final question = attempt.questions
+          .where((q) => q.id == questionId)
+          .firstOrNull;
+      if (!attempt.isFinished ||
+          attempt.isAbandoned ||
+          question == null ||
+          (attempt.prose[questionId] ?? '').trim().isEmpty) {
+        return (
+          attempt: null,
+          error: StateError('Finish a written response before reviewing it.'),
+        );
+      }
+      if (!question.criteria
+              .map((c) => c.id)
+              .toSet()
+              .containsAll(selectedCriteria) ||
+          improvement.trim().isEmpty ||
+          improvement.length > _maxReview) {
+        return (
+          attempt: null,
+          error: const FormatException('Invalid criterion-led self-review.'),
+        );
+      }
+      final row = attempt.toJson();
+      final reviews = _map(row['reviews']);
+      reviews[questionId] = {
+        'selectedCriteria': selectedCriteria.toList()..sort(),
+        'improvement': improvement,
+        'reviewedAt': utcNow(clock).toIso8601String(),
+      };
+      row['reviews'] = reviews;
+      final changed = DiplomaWrittenAttempt.fromJson(row);
+      await _save(changed);
+      return (attempt: changed, error: null);
+    }),
+  );
 
   Future<DiplomaWrittenAttempt> resume(String id) => db.transaction(() async {
     final attempt = await _expire(await _load(id));
