@@ -1,6 +1,6 @@
 # Combined companion continuation validation — 30 September 2026
 
-Release 0.24.63 integrates the .61 WSET scope/quality and label-parser corrections, the validated .62 product/service packs, and the .63 case, writing and optional atlas additions. PR #44 remains at `a77df27bfb27f5a3cc39337a1a37b996cd68b945`: its completed hosted run passed all five jobs and 1,293 tests. This continuation is local; no new release or complete candidate pass is claimed while its gates remain pending.
+Release 0.24.63 integrates the .61 WSET scope/quality and label-parser corrections, the validated .62 product/service packs, and the .63 case, writing and optional atlas additions. PR #44 remains at `a77df27bfb27f5a3cc39337a1a37b996cd68b945`: its completed hosted run passed all five jobs and 1,293 tests. The frozen local candidate passed all eleven browser stages but its full suite finished with 1,361 passes and three stale-fixture failures. Those failures are repaired in a separate continuation; no complete candidate pass or new release is claimed.
 
 The intermediate .62 commit is `30701996de38727fa0257cc5579327a4e2be96bc`. Its 54 focused tests, final analysis, zero-error lint and measured coverage passed. The .61 immutable full suite ended at 02:20:54 UTC after 65 minutes 48 seconds with 1,318 passed and six failed. All six count/date/mapping failures were inspected and repaired; the corresponding tests passed in .62. That older failed log remains preserved and is not represented as a pass. Its release build and original ten browser stages had passed.
 
@@ -54,3 +54,11 @@ The remaining three Pievi references and Paardeberg South still require accepted
 ## Frozen-candidate validation boundary
 
 The source is being committed as a fixed candidate before the independent browser run finishes. Its full suite will run against that unchanged commit; generated outputs, test assertions and source assets will remain fixed during the run. Final browser and full-suite outcomes are not yet claimed. Further D3 writing, still-wine flight and readable history work belongs to a separate branch and checkout; the next candidate record must identify the frozen source hash and actual final outcomes. The original PR #44 and its passing hosted evidence remain unchanged.
+
+## Final frozen .63 outcomes recorded in the continuation
+
+The final normal offline browser run passed all eleven stages from `06:15:30.746` to `06:21:55.373 UTC`, with no page/console/request errors. Both D4/D5 restored three exact responses, three explicit reviews, the original absolute deadline and a participation count of one. Its compiled-main SHA-256 is `9f44dcaa77e8c26cd631c733b5a549bb336f41aa224d941b6ff8d471274b2f38`; the result remains in the frozen checkout at `build/app_ui_smoke_02463_home_return/result.json`.
+
+The frozen full suite completed `06:23:02.742821–07:34:01.541972 UTC`, taking 70m58.799s: **1,361 passed, three failed, exit 1**. Its final metadata confirms HEAD `b7e86cf089c5d2351dde6aabb3bce54819cfbb8f`, tree `0cc3b20bc2f15e1f99d67b325c73ab9f3fa41ba5`, no dirty tracked paths and `candidateUnchanged=true`. The three failures are exactly two old spatial totals expecting 1,673 instead of 1,675 and one old numeric total expecting 21 instead of 27. No test was skipped or assertion removed. Final `build/full-suite-02463.log` SHA-256 is `3867717403c6e2d94975f05f92bcb08a4685c5570bb6df6e31244971df229454`.
+
+Those failures are repaired only in the separate [D3 continuation](diploma-d3-linked-practice-2026-09-30.md), with exact optional-location identities/core counts and all 27 numeric ID/value/unit/family and correct/incorrect-grading checks retained. Its 27-test regression group passed. That subsequent focused result does not convert the preserved .63 full run into a pass, and .63 browser acceptance does not validate changed D3/scanner source. PR #44 remains unchanged.

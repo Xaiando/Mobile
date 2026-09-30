@@ -91,7 +91,7 @@ void main() {
   tearDown(() => db.close());
 
   test('prompt bank and start remain restricted to Level 4', () async {
-    expect(bank.units.map((unit) => unit.unitId), ['D4', 'D5']);
+    expect(bank.units.map((unit) => unit.unitId), ['D4', 'D5', 'D3']);
     expect(bank.gridId, 'tg_structured');
     await LearnerProfiles(db, clock: time.clock).selectTrack('WSET_L3');
     await expectLater(repository.start('D4'), throwsStateError);
@@ -389,6 +389,427 @@ void main() {
           ).d4Flights,
           0,
         );
+      } finally {
+        await restored.close();
+      }
+    },
+  );
+  test(
+    'bank accepts exact legacy and extended sets without pinning versions',
+    () {
+      final current = jsonDecode(_bankText()) as Map<String, dynamic>;
+      final legacy = jsonDecode(_bankText()) as Map<String, dynamic>
+        ..['version'] = '1.0.0'
+        ..['units'] = (current['units'] as List)
+            .where((row) => row['unitId'] != 'D3')
+            .toList();
+      expect(
+        DiplomaTastingBank.fromJson(jsonEncode(legacy)).units
+            .map((unit) => unit.unitId),
+        ['D4', 'D5'],
+      );
+      expect(bank.version, '1.1.0');
+      expect(bank.unit('D3').wineKind, 'still');
+      expect(bank.unit('D4').wineKind, 'sparkling');
+      expect(bank.unit('D5').wineKind, 'fortified');
+      for (final source in [legacy, current]) {
+        final changed = Map<String, dynamic>.from(source)
+          ..['version'] = 'fixture.edited';
+        expect(
+          DiplomaTastingBank.fromJson(jsonEncode(changed)).version,
+          'fixture.edited',
+        );
+      }
+      final malformed = <Map<String, dynamic>>[
+        {
+          ...current,
+          'units': [(current['units'] as List).last],
+        },
+        {
+          ...current,
+          'units': [
+            (current['units'] as List).first,
+            (current['units'] as List).last,
+          ],
+        },
+        {
+          ...current,
+          'units': [
+            ...(current['units'] as List),
+            (current['units'] as List).first,
+          ],
+        },
+        {...current, 'schemaVersion': 2},
+        {...current, 'gridId': 'tg_other'},
+        {...current, 'version': ' '},
+        {...current, 'version': List.filled(41, 'x').join()},
+      ];
+      for (final field in ['wineKind', 'unitId']) {
+        final changed = jsonDecode(_bankText()) as Map<String, dynamic>;
+        (changed['units'] as List).last[field] = field == 'wineKind'
+            ? 'fortified'
+            : 'D6';
+        malformed.add(changed);
+      }
+      for (final source in malformed) {
+        expect(
+          () => DiplomaTastingBank.fromJson(jsonEncode(source)),
+          throwsFormatException,
+        );
+      }
+      expect(() => bank.unit('D6'), throwsArgumentError);
+    },
+  );
+
+  test(
+    'D3 requires three complete actual wines and linked comparison/review',
+    () async {
+      await LearnerProfiles(db, clock: time.clock).selectTrack('WSET_L3');
+      await expectLater(repository.start('D3'), throwsStateError);
+      await LearnerProfiles(db, clock: time.clock).selectTrack('WSET_L4');
+      final flight = await repository.start('D3');
+      expect(flight.wines, hasLength(3));
+      expect(flight.wineKind, 'still');
+      expect(flight.toJson()['schemaVersion'], 1);
+      expect(flight.toJson().containsKey('wineKind'), isFalse);
+      expect(flight.wines.first.prompts.map((prompt) => prompt.id), [
+        'description',
+        'quality',
+        'ageing',
+        'style_clues',
+        'uncertainty',
+      ]);
+      for (var index = 0; index < 2; index++) {
+        await repository.acknowledgePhysical(flight.id, index, true);
+        await repository.choose(flight.id, index, 'sweetness', {'dry'});
+        for (final prompt in flight.wines[index].prompts) {
+          await repository.saveEvidence(
+            flight.id,
+            index,
+            prompt.id,
+            'Distinct wine ${index + 1} evidence for ${prompt.id}.',
+          );
+        }
+      }
+      await repository.saveReflection(
+        flight.id,
+        'Wine one had a longer finish.',
+      );
+      await repository.saveSelfReview(
+        flight.id,
+        'Wine two needs a second look.',
+      );
+      await expectLater(
+        repository.markSelfReviewed(flight.id),
+        throwsStateError,
+      );
+      await expectLater(repository.finish(flight.id), throwsStateError);
+      expect((await repository.read(flight.id)).completeWineCount, 2);
+      await repository.acknowledgePhysical(flight.id, 2, true);
+      await repository.choose(flight.id, 2, 'sweetness', {'sweet'});
+      for (final prompt in flight.wines[2].prompts.skip(1)) {
+        await repository.saveEvidence(
+          flight.id,
+          2,
+          prompt.id,
+          'Distinct wine three evidence for ${prompt.id}.',
+        );
+      }
+      await expectLater(
+        repository.markSelfReviewed(flight.id),
+        throwsStateError,
+      );
+      await repository.saveEvidence(
+        flight.id,
+        2,
+        'description',
+        'Wine three was sweeter with a shorter finish.',
+      );
+      await expectLater(repository.finish(flight.id), throwsStateError);
+      await repository.markSelfReviewed(flight.id);
+      final saved = await repository.finish(flight.id);
+      expect(saved.completeWineCount, 3);
+      expect(saved.wines[2].observations['sweetness'], {'sweet'});
+      expect((await repository.finish(flight.id)).toJson(), saved.toJson());
+      final evidence = DiplomaTastingEvidenceReader.read(
+        await _settings(db),
+        now: time.now,
+      );
+      expect(evidence.d3Flights, 1);
+      expect(evidence.forUnit('D3'), 1);
+      expect(evidence.d4Flights, 0);
+      expect(evidence.d5Flights, 0);
+      expect(await db.select(db.tastingSessions).get(), isEmpty);
+      expect(await db.select(db.reviewEvents).get(), isEmpty);
+      expect(await db.select(db.reviewStates).get(), isEmpty);
+      expect(
+        (await _settings(db)).keys.any((key) => key.startsWith('exam_pass_')),
+        isFalse,
+      );
+    },
+  );
+
+  for (final route in [
+    'physical',
+    'observations',
+    'evidence',
+    'comparison',
+    'self_review',
+  ]) {
+    test('D3 $route edit revokes explicit review before submission', () async {
+      final flight = await repository.start('D3');
+      await _readyToFinish(repository, flight);
+      expect((await repository.read(flight.id)).selfReviewedAt, isNotNull);
+      switch (route) {
+        case 'physical':
+          await repository.acknowledgePhysical(flight.id, 1, false);
+        case 'observations':
+          await repository.choose(flight.id, 1, 'sweetness', {'sweet'});
+        case 'evidence':
+          await repository.saveEvidence(
+            flight.id,
+            1,
+            'quality',
+            'Revised balance reasoning.',
+          );
+        case 'comparison':
+          await repository.saveReflection(
+            flight.id,
+            'Revised cross-wine comparison.',
+          );
+        case 'self_review':
+          await repository.saveSelfReview(
+            flight.id,
+            'Revised alternative explanation.',
+          );
+      }
+      expect((await repository.read(flight.id)).selfReviewedAt, isNull);
+      await expectLater(repository.finish(flight.id), throwsStateError);
+      if (route == 'physical') {
+        await repository.acknowledgePhysical(flight.id, 1, true);
+      }
+      await repository.markSelfReviewed(flight.id);
+      expect((await repository.finish(flight.id)).isSubmitted, isTrue);
+    });
+  }
+
+  test(
+    'D3 wine ordinals isolate wines and coexisting flight pointers',
+    () async {
+      final d3 = await repository.start('D3');
+      final d4 = await repository.start('D4');
+      final d5 = await repository.start('D5');
+      await repository.saveEvidence(
+        d3.id,
+        1,
+        'description',
+        'Only D3 wine two changed.',
+      );
+      await repository.choose(d3.id, 1, 'sweetness', {'sweet'});
+      final changed = await repository.read(d3.id);
+      expect(changed.wines[0].toJson(), d3.wines[0].toJson());
+      expect(changed.wines[2].toJson(), d3.wines[2].toJson());
+      expect(
+        changed.wines[1].evidence['description'],
+        'Only D3 wine two changed.',
+      );
+      expect((await repository.read(d4.id)).toJson(), d4.toJson());
+      expect((await repository.read(d5.id)).toJson(), d5.toJson());
+      await expectLater(
+        repository.choose(d3.id, -1, 'sweetness', {'dry'}),
+        throwsRangeError,
+      );
+      await expectLater(
+        repository.saveEvidence(d3.id, 3, 'description', 'Not a wine.'),
+        throwsRangeError,
+      );
+      await expectLater(
+        repository.acknowledgePhysical(d3.id, 3, true),
+        throwsRangeError,
+      );
+      expect((await repository.read(d3.id)).toJson(), changed.toJson());
+      await expectLater(repository.start('D3'), throwsStateError);
+      expect((await repository.current('D3'))!.id, d3.id);
+      expect((await repository.current('D4'))!.id, d4.id);
+      expect((await repository.current('D5'))!.id, d5.id);
+    },
+  );
+
+  test(
+    'D3 submitted snapshot rejects every mutation and remains exact',
+    () async {
+      final saved = await _complete(repository, await repository.start('D3'));
+      final changes = <Future<DiplomaTastingFlight> Function()>[
+        () => repository.acknowledgePhysical(saved.id, 0, false),
+        () => repository.choose(saved.id, 0, 'sweetness', {'sweet'}),
+        () => repository.saveEvidence(saved.id, 0, 'description', 'Changed.'),
+        () => repository.saveReflection(saved.id, 'Changed.'),
+        () => repository.saveSelfReview(saved.id, 'Changed.'),
+        () => repository.markSelfReviewed(saved.id),
+      ];
+      for (final change in changes) {
+        await expectLater(change(), throwsStateError);
+        expect((await repository.read(saved.id)).toJson(), saved.toJson());
+      }
+      await expectLater(repository.abandon(saved.id), throwsStateError);
+    },
+  );
+
+  test(
+    'legacy D4 schema-one draft keeps its original vocabulary and prompts',
+    () async {
+      final legacyRows = jsonDecode(_bankText()) as Map<String, dynamic>
+        ..['version'] = '1.0.0';
+      legacyRows['units'] = (legacyRows['units'] as List)
+          .where((row) => row['unitId'] != 'D3')
+          .toList();
+      final legacy = DiplomaTastingFlightRepository(
+        db,
+        bank: DiplomaTastingBank.fromJson(jsonEncode(legacyRows)),
+        clock: time.clock,
+      );
+      final original = await legacy.start('D4');
+      await legacy.saveEvidence(
+        original.id,
+        0,
+        'description',
+        'Original legacy sparkling observation.',
+      );
+      final before = await legacy.read(original.id);
+      final edited = jsonDecode(_bankText()) as Map<String, dynamic>
+        ..['version'] = 'fixture.edited';
+      (edited['units'] as List).first['evidencePrompts'][0]['prompt'] =
+          'A later prompt must not overwrite history.';
+      await db.writeCurriculum(
+        () => runSql(db, [
+          "UPDATE tasting_grid_attributes SET label = 'Changed sweetness' WHERE tasting_grid_id = 'tg_structured' AND attribute_key = 'sweetness'",
+        ]),
+      );
+      final later = DiplomaTastingFlightRepository(
+        db,
+        bank: DiplomaTastingBank.fromJson(jsonEncode(edited)),
+        clock: time.clock,
+      );
+      expect((await later.current('D4'))!.toJson(), before.toJson());
+      expect(before.bankVersion, '1.0.0');
+      expect(before.wines.first.attributes.first.label, 'Sweetness');
+      expect(before.toJson().containsKey('wineKind'), isFalse);
+      await _readyToFinish(later, before);
+      expect((await later.finish(before.id)).isSubmitted, isTrue);
+      expect(
+        DiplomaTastingEvidenceReader.read(
+          await _settings(db),
+          now: time.now,
+        ).d4Flights,
+        1,
+      );
+    },
+  );
+
+  test(
+    'D3 counts exclude drafts, abandoned, future, corrupt and wrong-key rows',
+    () async {
+      final valid = await _complete(repository, await repository.start('D3'));
+      final abandoned = await repository.start('D3');
+      await repository.abandon(abandoned.id);
+      final draft = await repository.start('D3');
+      await repository.saveEvidence(
+        draft.id,
+        0,
+        'description',
+        'Incomplete actual observation.',
+      );
+      final settings = await _settings(db);
+      const corruptId = 'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa';
+      const futureId = 'bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb';
+      const wrongKeyId = 'cccccccc-cccc-4ccc-8ccc-cccccccccccc';
+      settings[DiplomaTastingFlightRepository.keyFor(corruptId)] = '{bad json';
+      final future = valid.toJson()
+        ..['id'] = futureId
+        ..['startedAt'] = '2027-01-01T00:00:00.000Z'
+        ..['updatedAt'] = '2027-01-01T00:00:00.000Z'
+        ..['completedAt'] = '2027-01-01T00:00:00.000Z'
+        ..['selfReviewedAt'] = '2027-01-01T00:00:00.000Z';
+      settings[DiplomaTastingFlightRepository.keyFor(futureId)] = jsonEncode(
+        future,
+      );
+      settings[DiplomaTastingFlightRepository.keyFor(wrongKeyId)] = jsonEncode(
+        valid.toJson(),
+      );
+      for (final entry in settings.entries) {
+        await db
+            .into(db.userSettings)
+            .insertOnConflictUpdate(
+              UserSetting(
+                name: entry.key,
+                value: entry.value,
+                updatedAt: time.now,
+              ),
+            );
+      }
+      final evidence = DiplomaTastingEvidenceReader.read(
+        settings,
+        now: time.now,
+      );
+      expect(evidence.d3Flights, 1);
+      expect(evidence.d4Flights, 0);
+      expect(evidence.d5Flights, 0);
+      expect(evidence.unreadableCount, 3);
+      final history = await repository.historyWithDiagnostics('D3');
+      expect(history.entries, hasLength(3));
+      expect(history.unreadableCount, 3);
+      expect(
+        (await _settings(db))[DiplomaTastingFlightRepository.keyFor(corruptId)],
+        '{bad json',
+      );
+    },
+  );
+
+  test(
+    'D3 packet backup restores exact prose, survives reset and erases fully',
+    () async {
+      final saved = await _complete(repository, await repository.start('D3'));
+      final draft = await repository.start('D5');
+      await repository.saveEvidence(
+        draft.id,
+        2,
+        'description',
+        'Private fortified draft wine three.',
+      );
+      final draftSnapshot = await repository.read(draft.id);
+      final backup = UserDataBackup(db, clock: time.clock);
+      final json = await backup.exportJson();
+      await backup.resetProgress();
+      expect((await repository.read(saved.id)).toJson(), saved.toJson());
+      final restored = openTestDatabase();
+      try {
+        await seedCurriculum(restored);
+        await _seedDiploma(restored);
+        final restoredBackup = UserDataBackup(restored, clock: time.clock);
+        await restoredBackup.import(json);
+        final reader = DiplomaTastingFlightRepository(
+          restored,
+          bank: bank,
+          clock: time.clock,
+        );
+        expect((await reader.read(saved.id)).toJson(), saved.toJson());
+        expect((await reader.current('D5'))!.toJson(), draftSnapshot.toJson());
+        expect(
+          DiplomaTastingEvidenceReader.read(
+            await _settings(restored),
+            now: time.now,
+          ).d3Flights,
+          1,
+        );
+        await restoredBackup.eraseAll();
+        expect(
+          DiplomaTastingEvidenceReader.read(
+            await _settings(restored),
+            now: time.now,
+          ).d3Flights,
+          0,
+        );
+        expect(await restored.select(restored.userSettings).get(), isEmpty);
       } finally {
         await restored.close();
       }

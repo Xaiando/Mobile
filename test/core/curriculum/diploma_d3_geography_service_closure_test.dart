@@ -251,7 +251,31 @@ void main() {
       );
       expect(geography.counts[CoverageMetric.core], 1121);
       expect(geography.counts[CoverageMetric.coreUsefulPractice], 1121);
-      expect(geography.counts[CoverageMetric.spatial], 1673);
+      expect(geography.counts[CoverageMetric.spatial], 1675);
+      final bilingualReferences = audit.items
+          .where(
+            (row) => const {
+              'ki_alto_adige_uga_montiggl_location',
+              'ki_alto_adige_uga_missian_location',
+            }.contains(row.item.id),
+          )
+          .toList();
+      expect(bilingualReferences.map((row) => row.item.id).toSet(), {
+        'ki_alto_adige_uga_montiggl_location',
+        'ki_alto_adige_uga_missian_location',
+      });
+      for (final row in bilingualReferences) {
+        expect(
+          row.isCore,
+          isFalse,
+          reason: 'The new settlement references remain optional.',
+        );
+        expect(
+          row.families,
+          contains(FormatFamily.spatial),
+          reason: row.item.id,
+        );
+      }
       final coreLocations = audit.items.where(
         (row) =>
             row.isCore &&

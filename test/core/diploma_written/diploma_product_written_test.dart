@@ -61,18 +61,20 @@ void main() {
   tearDown(() => db.close());
 
   test('only complete legacy or expanded banks are accepted', () {
-    expect(bank.version, '1.1.0');
+    expect(bank.version, '1.2.0');
     expect(bank.presets.map((preset) => preset.unitId), [
       'D1',
       'D2',
       'D4',
       'D5',
+      'D3',
     ]);
     expect(bank.presets.map((preset) => preset.durationSeconds), [
       5400,
       3600,
       2700,
       2700,
+      3600,
     ]);
     final legacy = DiplomaWrittenBank.fromJson(jsonEncode(_legacy()));
     expect(legacy.presets.map((preset) => preset.unitId), ['D1', 'D2']);
@@ -111,7 +113,7 @@ void main() {
       );
     }
     final unsupported = _document();
-    (unsupported['units'] as List)[2]['unitId'] = 'D3';
+    (unsupported['units'] as List)[2]['unitId'] = 'D6';
     expect(
       () => DiplomaWrittenBank.fromJson(jsonEncode(unsupported)),
       throwsFormatException,
@@ -161,7 +163,7 @@ void main() {
         );
       }
       final d4 = await repository.start('D4');
-      expect(d4.bankVersion, '1.1.0');
+      expect(d4.bankVersion, '1.2.0');
       expect(d4.deadline.difference(d4.startedAt), const Duration(minutes: 45));
       expect(
         (await repository.historyWithDiagnostics('D1')).unreadableCount,
@@ -178,7 +180,7 @@ void main() {
             'The stored product-unit deadline must retain its exact duration.',
       );
       final unsupportedSnapshot = d4.toJson();
-      unsupportedSnapshot['unitId'] = 'D3';
+      unsupportedSnapshot['unitId'] = 'D6';
       expect(
         () => DiplomaWrittenAttempt.fromJson(unsupportedSnapshot),
         throwsFormatException,

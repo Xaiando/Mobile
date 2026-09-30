@@ -901,7 +901,50 @@ void main() {
     );
   });
 
-  test('all 21 bundled quantities get one scoped numeric question without an answer leak', () async {
+  test('all 27 bundled quantities get one scoped numeric question without an answer leak', () async {
+    // Preserve the existing legal and dated-survey families while explicitly
+    // covering the six original CMS worked calculations added to the bundle.
+    const expected = <String, (double, String, String)>{
+      'ki_barolo_min_ageing': (38.0, 'month', 'MIN_AGEING'),
+      'ki_barolo_min_wood_ageing': (18.0, 'month', 'MIN_WOOD_AGEING'),
+      'ki_barbaresco_min_ageing': (26.0, 'month', 'MIN_AGEING'),
+      'ki_barbaresco_min_wood_ageing': (9.0, 'month', 'MIN_WOOD_AGEING'),
+      'ki_brunello_di_montalcino_min_wood_ageing': (
+        24.0,
+        'month',
+        'MIN_WOOD_AGEING',
+      ),
+      'ki_champagne_min_ageing': (15.0, 'month', 'MIN_AGEING'),
+      'ki_winzersekt_lees': (9.0, 'month', 'MIN_AGEING'),
+      'ki_hu_tokaji_aszu_wood_ageing': (18.0, 'month', 'MIN_WOOD_AGEING'),
+      'ki_hu_tokaji_szamorodni_dry_wood_ageing': (
+        24.0,
+        'month',
+        'MIN_WOOD_AGEING',
+      ),
+      'ki_hu_tokaji_szamorodni_sweet_wood_ageing': (
+        6.0,
+        'month',
+        'MIN_WOOD_AGEING',
+      ),
+      'ki_de_pinot_area_2024': (11437.0, 'ha', 'STATISTIC_VALUE'),
+      'ki_baden_pinot_area_2024': (4910.0, 'ha', 'STATISTIC_VALUE'),
+      'ki_pfalz_pinot_area_2024': (1757.0, 'ha', 'STATISTIC_VALUE'),
+      'ki_rheinhessen_pinot_area_2024': (1529.0, 'ha', 'STATISTIC_VALUE'),
+      'ki_wuerttemberg_pinot_area_2024': (1284.0, 'ha', 'STATISTIC_VALUE'),
+      'ki_de_pinot_share_2024': (11.0, '%', 'STATISTIC_VALUE'),
+      'ki_baden_pinot_share_2024': (31.8, '%', 'STATISTIC_VALUE'),
+      'ki_pfalz_pinot_share_2024': (7.4, '%', 'STATISTIC_VALUE'),
+      'ki_rheinhessen_pinot_share_2024': (5.5, '%', 'STATISTIC_VALUE'),
+      'ki_wuerttemberg_pinot_share_2024': (11.5, '%', 'STATISTIC_VALUE'),
+      'ki_ahr_pinot_share_2024': (64.9, '%', 'STATISTIC_VALUE'),
+      'ki_cms_calc_full_pours': (7.0, 'pours', 'CALCULATED_VALUE'),
+      'ki_cms_calc_event_bottles': (14.0, 'bottles', 'CALCULATED_VALUE'),
+      'ki_cms_calc_gross_profit': (18.0, 'EUR', 'CALCULATED_VALUE'),
+      'ki_cms_calc_gross_margin': (60.0, '%', 'CALCULATED_VALUE'),
+      'ki_cms_calc_markup': (150.0, '%', 'CALCULATED_VALUE'),
+      'ki_cms_calc_target_price': (30.0, 'EUR', 'CALCULATED_VALUE'),
+    };
     final db = openTestDatabase();
     final time = TestClock(DateTime.utc(2026, 10, 1, 9));
     try {
@@ -915,7 +958,12 @@ void main() {
             "SELECT q.knowledge_item_id,q.question_template_id FROM questions q JOIN question_templates t ON t.id=q.question_template_id WHERE t.mode='numeric' ORDER BY q.knowledge_item_id",
           )
           .get();
-      expect(questions, hasLength(21));
+      expect(questions, hasLength(27));
+      expect(
+        questions.map((row) => row.read<String>('knowledge_item_id')).toSet(),
+        expected.keys.toSet(),
+        reason: 'one numeric question for each exact bundled quantity fact',
+      );
       final dataset = bundledDataset();
       final quantityNodes = dataset.quantityValues
           .map((value) => value.knowledgeNodeId)
@@ -935,12 +983,24 @@ void main() {
       final presenter = ExercisePresenter(db, clock: time.clock);
       var legalCount = 0;
       var statisticCount = 0;
+      var calculatedCount = 0;
       for (final row in questions) {
         final question = await presenter.present(
           row.read<String>('knowledge_item_id'),
           row.read<String>('question_template_id'),
           seed: 41,
         ) as NumericQuestion;
+        final (value, unit, family) = expected[question.knowledgeItemId]!;
+        expect(
+          (
+            question.canonicalMinimum,
+            question.canonicalMaximum,
+            question.canonicalUnit,
+            question.relationType,
+          ),
+          (value, value, unit, family),
+          reason: question.knowledgeItemId,
+        );
         expect(question.prompt, isNot(contains(question.answer.name)));
         expect(question.allowsInterval, isFalse);
         expect((question.exactTolerance, question.tolerance), (0, 0));
@@ -990,14 +1050,29 @@ void main() {
             );
             expect(question.prompt, contains('wooden barrels'));
           }
-        } else {
+        } else if (question.relationType == 'STATISTIC_VALUE') {
           statisticCount++;
           expect(question.relationType, 'STATISTIC_VALUE');
           expect(question.prompt, contains('2024'));
           expect(question.prompt, contains('cited survey'));
+        } else {
+          calculatedCount++;
+          expect(question.relationType, 'CALCULATED_VALUE');
+          expect(
+            question.questionTemplateId,
+            'qt_cms_calculated_value_fwd_numeric',
+          );
+          final item = currentItems.singleWhere(
+            (item) => item.id == question.knowledgeItemId,
+          );
+          final subject = dataset.knowledgeNodes.singleWhere(
+            (node) => node.id == item.subjectId,
+          );
+          expect(question.prompt, subject.name);
+          expect(question.prompt, contains('hypothetical'));
         }
       }
-      expect((legalCount, statisticCount), (10, 11));
+      expect((legalCount, statisticCount, calculatedCount), (10, 11, 6));
     } finally {
       await db.close();
     }

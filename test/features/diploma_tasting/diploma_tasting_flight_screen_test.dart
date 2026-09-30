@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
 
@@ -99,6 +100,36 @@ class _FailOnceEvidenceRepository extends DiplomaTastingFlightRepository {
     }
     return super.saveEvidence(id, wineIndex, promptId, text);
   }
+}
+
+Future<DiplomaTastingFlight> _savePacket(
+  DiplomaTastingFlightRepository repository,
+  String unitId,
+  String tag,
+) async {
+  final flight = await repository.start(unitId);
+  for (var index = 0; index < 3; index++) {
+    await repository.acknowledgePhysical(flight.id, index, true);
+    await repository.choose(flight.id, index, 'sweetness', {
+      index == 1 ? 'sweet' : 'dry',
+    });
+    await repository.choose(flight.id, index, 'aromas', {'citrus'});
+    for (final prompt in flight.wines[index].prompts) {
+      await repository.saveEvidence(
+        flight.id,
+        index,
+        prompt.id,
+        '$tag wine ${index + 1}: ${prompt.id}.',
+      );
+    }
+  }
+  await repository.saveReflection(
+    flight.id,
+    '$tag exact three-wine comparison.',
+  );
+  await repository.saveSelfReview(flight.id, '$tag exact uncertainty review.');
+  await repository.markSelfReviewed(flight.id);
+  return repository.finish(flight.id);
 }
 
 void main() {
@@ -487,6 +518,271 @@ void main() {
       (await tester.runAsync(() => repository.read(started.id)))!.reflection,
       'Saved before one pop.',
     );
+    expect(tester.takeException(), isNull);
+  });
+  testApp('D3 setup explicitly requests three real still wines', (
+    tester,
+  ) async {
+    await showScreen(tester, 'D3');
+    expect(find.text('D3 Still tasting practice'), findsOneWidget);
+    expect(find.textContaining('three actual still wines'), findsOneWidget);
+    await tester.tap(find.byKey(const ValueKey('diploma-flight-start')));
+    await settle(tester);
+    expect(find.text('I physically tasted this still wine'), findsOneWidget);
+    expect(find.textContaining('imagined wine does not count'), findsOneWidget);
+    final draft = (await tester.runAsync(() => repository.current('D3')))!;
+    expect(
+      find.byKey(ValueKey('diploma-flight-editor-${draft.id}-0')),
+      findsOneWidget,
+    );
+    expect(draft.wines, hasLength(3));
+    expect(tester.takeException(), isNull);
+  });
+
+  testApp('narrow saved packets reload exact prose without replacing a draft', (
+    tester,
+  ) async {
+    final first = (await tester.runAsync(
+      () => _savePacket(repository, 'D3', 'First saved packet'),
+    ))!;
+    time.advance(const Duration(seconds: 1));
+    final second = (await tester.runAsync(
+      () => _savePacket(repository, 'D3', 'Second saved packet'),
+    ))!;
+    final active = (await tester.runAsync(() => repository.start('D3')))!;
+    await tester.runAsync(
+      () => repository.saveEvidence(
+        active.id,
+        0,
+        'description',
+        'Current draft stays distinct.',
+      ),
+    );
+    final activeBefore = (await tester.runAsync(
+      () => repository.read(active.id),
+    ))!;
+    tester.view.physicalSize = const Size(320, 780);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.reset);
+
+    Future<void> mount() async {
+      await tester.pumpWidget(
+        ProviderScope(
+          key: UniqueKey(),
+          overrides: [
+            diplomaTastingFlightRepositoryProvider.overrideWith(
+              (ref) async => repository,
+            ),
+          ],
+          child: const MaterialApp(
+            home: DiplomaTastingFlightScreen(unitId: 'D3'),
+          ),
+        ),
+      );
+      await settle(tester);
+    }
+
+    Future<void> reveal(Finder finder, Type screenType) async {
+      final scrollable = find
+          .descendant(
+            of: find.byType(screenType),
+            matching: find.byType(Scrollable),
+          )
+          .first;
+      await tester.scrollUntilVisible(
+        finder,
+        400,
+        scrollable: scrollable,
+        maxScrolls: 70,
+      );
+      await tester.ensureVisible(finder);
+      await settle(tester);
+    }
+
+    Future<void> inspectPacket(DiplomaTastingFlight packet) async {
+      final view = find.byKey(ValueKey('diploma-flight-view-${packet.id}'));
+      await reveal(view, DiplomaTastingFlightScreen);
+      await tester.tap(view);
+      await settle(tester);
+      expect(
+        find.byKey(ValueKey('diploma-flight-saved-${packet.id}')),
+        findsOneWidget,
+      );
+      expect(
+        find.text('Recorded physical practice · read-only'),
+        findsOneWidget,
+      );
+      expect(find.byType(TextFormField), findsNothing);
+      expect(find.byType(CheckboxListTile), findsNothing);
+      expect(find.byType(FilterChip), findsNothing);
+      for (var index = 0; index < 3; index++) {
+        final wine = find.byKey(ValueKey('diploma-flight-saved-wine-$index'));
+        await reveal(wine, SavedDiplomaTastingFlightScreen);
+        await tester.tap(wine);
+        await settle(tester);
+        expect(
+          find.descendant(
+            of: wine,
+            matching: find.text(
+              index == 1 ? 'Sweetness: Sweet' : 'Sweetness: Dry',
+            ),
+          ),
+          findsOneWidget,
+        );
+        expect(
+          find.descendant(of: wine, matching: find.text('Aromas: Citrus')),
+          findsOneWidget,
+        );
+        expect(
+          find.descendant(
+            of: wine,
+            matching: find.text('Physical tasting acknowledged'),
+          ),
+          findsOneWidget,
+        );
+        for (final prompt in packet.wines[index].prompts) {
+          final prose = find.byKey(
+            ValueKey('diploma-flight-saved-evidence-$index-${prompt.id}'),
+          );
+          await reveal(prose, SavedDiplomaTastingFlightScreen);
+          expect(
+            tester.widget<Text>(prose).data,
+            packet.wines[index].evidence[prompt.id],
+          );
+        }
+      }
+      for (final entry in {
+        'diploma-flight-saved-comparison': packet.reflection,
+        'diploma-flight-saved-self-review': packet.selfReview,
+      }.entries) {
+        final prose = find.byKey(ValueKey(entry.key));
+        await reveal(prose, SavedDiplomaTastingFlightScreen);
+        expect(tester.widget<Text>(prose).data, entry.value);
+      }
+      expect(tester.takeException(), isNull);
+      await tester.pageBack();
+      await settle(tester);
+      expect(
+        (await tester.runAsync(() => repository.current('D3')))!.toJson(),
+        activeBefore.toJson(),
+      );
+      expect(
+        (await tester.runAsync(() => repository.read(packet.id)))!.toJson(),
+        packet.toJson(),
+      );
+    }
+
+    await mount();
+    await inspectPacket(first);
+    await inspectPacket(second);
+    // Unmount every controller/provider and reconstruct the repository before
+    // opening the exact same persisted packet again.
+    await tester.pumpWidget(const SizedBox.shrink());
+    await settle(tester);
+    repository = DiplomaTastingFlightRepository(
+      db,
+      bank: DiplomaTastingBank.fromJson(
+        File('assets/study/diploma_tasting_flights.json').readAsStringSync(),
+      ),
+      clock: time.clock,
+    );
+    await mount();
+    await inspectPacket(first);
+    expect(
+      await tester.runAsync(() => db.select(db.reviewEvents).get()),
+      isEmpty,
+    );
+    expect(
+      await tester.runAsync(() => db.select(db.reviewStates).get()),
+      isEmpty,
+    );
+    expect(tester.takeException(), isNull);
+  });
+
+  testApp(
+    'legacy completed packet uses its own prompt and observation labels',
+    (tester) async {
+      final legacy = jsonDecode(
+        File('assets/study/diploma_tasting_flights.json').readAsStringSync(),
+      ) as Map<String, dynamic>;
+      legacy['version'] = '1.0.0';
+      legacy['units'] = (legacy['units'] as List)
+          .where((row) => row['unitId'] != 'D3')
+          .toList();
+      (legacy['units'] as List).first['evidencePrompts'][0]['prompt'] =
+          'Original legacy sparkling description prompt.';
+      final old = DiplomaTastingFlightRepository(
+        db,
+        bank: DiplomaTastingBank.fromJson(jsonEncode(legacy)),
+        clock: time.clock,
+      );
+      final saved = (await tester.runAsync(
+        () => _savePacket(old, 'D4', 'Legacy packet'),
+      ))!;
+      await tester.runAsync(
+        () => db.writeCurriculum(
+          () => runSql(db, [
+            "UPDATE tasting_grid_attributes SET label = 'Current sweetness label' WHERE tasting_grid_id = 'tg_structured' AND attribute_key = 'sweetness'",
+          ]),
+        ),
+      );
+      await showScreen(tester, 'D4');
+      final view = find.byKey(ValueKey('diploma-flight-view-${saved.id}'));
+      await tester.ensureVisible(view);
+      await tester.tap(view);
+      await settle(tester);
+      expect(find.text('Saved prompt bank: 1.0.0'), findsOneWidget);
+      await tester.tap(
+        find.byKey(const ValueKey('diploma-flight-saved-wine-0')),
+      );
+      await settle(tester);
+      expect(
+        find.text('Original legacy sparkling description prompt.'),
+        findsOneWidget,
+      );
+      expect(find.text('Sweetness: Dry'), findsOneWidget);
+      expect(find.textContaining('Current sweetness label'), findsNothing);
+      expect(find.text('Legacy packet wine 1: description.'), findsOneWidget);
+      expect(find.byType(TextFormField), findsNothing);
+      expect(find.byType(CheckboxListTile), findsNothing);
+      expect((await tester.runAsync(() => repository.current('D4'))), isNull);
+      expect(
+        (await tester.runAsync(() => repository.read(saved.id)))!.toJson(),
+        saved.toJson(),
+      );
+      expect(tester.takeException(), isNull);
+    },
+  );
+
+  testApp('abandoned packet is readable without granting completion', (
+    tester,
+  ) async {
+    final draft = (await tester.runAsync(() => repository.start('D3')))!;
+    await tester.runAsync(
+      () => repository.saveEvidence(
+        draft.id,
+        2,
+        'description',
+        'Partial wine three observation.',
+      ),
+    );
+    final saved = (await tester.runAsync(() => repository.abandon(draft.id)))!;
+    await showScreen(tester, 'D3');
+    await tester.tap(find.byKey(ValueKey('diploma-flight-view-${saved.id}')));
+    await settle(tester);
+    expect(find.text('Abandoned flight · read-only'), findsOneWidget);
+    await tester.tap(find.byKey(const ValueKey('diploma-flight-saved-wine-2')));
+    await settle(tester);
+    expect(find.text('Partial wine three observation.'), findsOneWidget);
+    expect(find.text('Physical tasting not acknowledged'), findsOneWidget);
+    expect(find.text('No comparison recorded.'), findsOneWidget);
+    expect(find.text('No self-review recorded.'), findsOneWidget);
+    expect(find.byType(TextFormField), findsNothing);
+    expect(
+      (await tester.runAsync(() => repository.read(saved.id)))!.isSubmitted,
+      isFalse,
+    );
+    expect((await tester.runAsync(() => repository.current('D3'))), isNull);
     expect(tester.takeException(), isNull);
   });
 }

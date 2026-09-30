@@ -20,6 +20,13 @@ const _requiredPromptIds = {
   'style_clues',
   'uncertainty',
 };
+
+/// Unit kinds are explicit; historical snapshots retain their original prompts.
+const diplomaTastingWineKinds = {
+  'D3': 'still',
+  'D4': 'sparkling',
+  'D5': 'fortified',
+};
 const _maxProse = 4000;
 const _maxSnapshotCharacters = 300000;
 
@@ -66,10 +73,10 @@ class DiplomaTastingUnit {
       ],
       comparisonPrompt = row['comparisonPrompt'] as String,
       selfReviewPrompt = row['selfReviewPrompt'] as String {
-    if (!const {'D4', 'D5'}.contains(unitId) ||
+    if (!diplomaTastingWineKinds.containsKey(unitId) ||
         title.trim().isEmpty ||
         title.length > 100 ||
-        wineKind != (unitId == 'D4' ? 'sparkling' : 'fortified') ||
+        wineKind != diplomaTastingWineKinds[unitId] ||
         evidencePrompts.length != _requiredPromptIds.length ||
         evidencePrompts
             .map((p) => p.id)
@@ -106,10 +113,14 @@ class DiplomaTastingBank {
       for (final unit in row['units'] as List)
         DiplomaTastingUnit.fromJson(_map(unit)),
     ];
+    final ids = units.map((unit) => unit.unitId).toSet();
+    final legacyUnits = ids.length == 2 && ids.containsAll({'D4', 'D5'});
+    final currentUnits =
+        ids.length == 3 && ids.containsAll(diplomaTastingWineKinds.keys);
     if (version.trim().isEmpty ||
         version.length > 40 ||
-        units.length != 2 ||
-        units.map((unit) => unit.unitId).toSet().length != 2) {
+        ids.length != units.length ||
+        (!legacyUnits && !currentUnits)) {
       throw const FormatException('Invalid Diploma tasting prompt bank.');
     }
   }
@@ -295,7 +306,7 @@ class DiplomaTastingFlight {
           : _savedUtc(row['selfReviewedAt']) {
     if (row['schemaVersion'] != 1 ||
         !_uuid.hasMatch(id) ||
-        !const {'D4', 'D5'}.contains(unitId) ||
+        !diplomaTastingWineKinds.containsKey(unitId) ||
         bankVersion.trim().isEmpty ||
         bankVersion.length > 40 ||
         gridId != 'tg_structured' ||
@@ -346,6 +357,7 @@ class DiplomaTastingFlight {
   final String selfReview;
   final DateTime? selfReviewedAt;
 
+  String get wineKind => diplomaTastingWineKinds[unitId]!;
   bool get isFinished => completedAt != null;
   bool get isSubmitted => finishReason == 'submitted';
   int get completeWineCount => wines.where((wine) => wine.isComplete).length;

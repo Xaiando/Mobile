@@ -299,6 +299,7 @@ class _DiplomaWrittenScreenState extends ConsumerState<DiplomaWrittenScreen> {
   Widget build(BuildContext context) {
     final attempt = _attempt;
     final productUnit = widget.unitId == 'D4' || widget.unitId == 'D5';
+    final regionalUnit = widget.unitId == 'D3';
     final seconds = diplomaWrittenDurations[widget.unitId];
     final minutes = seconds == null ? null : seconds ~/ 60;
     return PopScope(
@@ -314,7 +315,14 @@ class _DiplomaWrittenScreenState extends ConsumerState<DiplomaWrittenScreen> {
                 padding: const EdgeInsets.all(16),
                 children: [
                   Text(
-                    productUnit
+                    regionalUnit
+                        ? 'App-authored $minutes-minute regional writing practice for D3. '
+                              'This timer is an app study choice, not an official examination allocation. '
+                              'Explain the supplied regional cases in your own words, then review the evidence and limitations. '
+                              'Physical wine flights are separate activities. '
+                              'These are not official examination questions or marks. '
+                              'Your prose and later self-review are saved locally.'
+                        : productUnit
                         ? 'App-authored $minutes-minute writing-only practice for ${widget.unitId}. '
                               'The official unit assessment combines theory and three-wine tasting in 90 minutes; '
                               'this writing timer is an app preset, not an official split. '

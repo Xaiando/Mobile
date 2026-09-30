@@ -181,7 +181,7 @@ void main() {
   );
 
   testApp(
-    'saved D4 and D5 participation updates while the full snapshot stays pending',
+    'saved D3, D4 and D5 participation updates while the full snapshot stays pending',
     (tester) async {
       final writing = DiplomaWrittenRepository(
         db,
@@ -194,7 +194,7 @@ void main() {
       final attempts = <String, DiplomaWrittenAttempt>{};
       await tester.runAsync(() async {
         await LearnerProfiles(db, clock: time.clock).selectTrack('WSET_L4');
-        for (final unit in ['D4', 'D5']) {
+        for (final unit in ['D3', 'D4', 'D5']) {
           final attempt = await writing.start(unit);
           for (final question in attempt.questions) {
             await writing.answer(
@@ -210,9 +210,9 @@ void main() {
       final initialDiploma = initial.levels.last;
       expect(
         initialDiploma.units
-            .where((unit) => unit.scope.id == 'D4' || unit.scope.id == 'D5')
+            .where((unit) => const {'D3', 'D4', 'D5'}.contains(unit.scope.id))
             .map((unit) => unit.writtenPractices),
-        [0, 0],
+        [0, 0, 0],
       );
       final controlled = _ControlledProgressRepository(db, scope: scope);
       await tester.pumpWidget(
@@ -241,7 +241,7 @@ void main() {
       controlled.calculations.single.complete(initial);
       await settle(tester);
       final scrollable = find.byType(Scrollable).first;
-      for (final unit in ['D4', 'D5']) {
+      for (final unit in ['D3', 'D4', 'D5']) {
         await tester.scrollUntilVisible(
           find.text('$unit · Unit ${unit.substring(1)}'),
           300,
@@ -257,6 +257,7 @@ void main() {
         writtenLabel(unit),
         startsWith('Written practices self-reviewed: $count.'),
       );
+      expectWritten('D3', 0);
       expectWritten('D4', 0);
       expectWritten('D5', 0);
 
@@ -283,7 +284,7 @@ void main() {
         return saved;
       }
 
-      for (final unit in ['D4', 'D5']) {
+      for (final unit in ['D3', 'D4', 'D5']) {
         final attempt = attempts[unit]!;
         for (final question in attempt.questions) {
           attempts[unit] = await savedWrite(
@@ -296,6 +297,7 @@ void main() {
         expect(attempts[unit]!.isReviewed, isTrue);
       }
       await settle(tester);
+      expectWritten('D3', 1);
       expectWritten('D4', 1);
       expectWritten('D5', 1);
       expect(controlled.calculations, hasLength(2));
@@ -361,6 +363,7 @@ void main() {
         'inserting corrupt writing evidence',
       );
       await settle(tester);
+      expectWritten('D3', 1);
       expectWritten('D4', 1);
       expectWritten('D5', 1);
       expect(
@@ -373,6 +376,7 @@ void main() {
       time.advance(const Duration(minutes: 2));
       await tester.pump(const Duration(minutes: 1));
       await settle(tester);
+      expectWritten('D3', 1);
       expectWritten('D4', 2);
       expectWritten('D5', 1);
       expect(
@@ -408,6 +412,7 @@ void main() {
         'corrupting saved D4 writing evidence',
       );
       await settle(tester);
+      expectWritten('D3', 1);
       expectWritten('D4', 0);
       expectWritten('D5', 0);
       expect(
@@ -559,37 +564,44 @@ void main() {
     },
   );
 
-  testApp('Diploma D4 and D5 show separate physical practice entry points', (
-    tester,
-  ) async {
-    await screen(tester);
-    final scrollable = find.byType(Scrollable).first;
-    for (final unit in ['D4', 'D5']) {
-      await tester.scrollUntilVisible(
-        find.text('$unit · Unit ${unit.substring(1)}'),
-        300,
-        scrollable: scrollable,
-      );
-      await tap(tester, find.text('$unit · Unit ${unit.substring(1)}'));
-      expect(find.byKey(ValueKey('wset_unit_physical_$unit')), findsOneWidget);
-      expect(
-        find.byKey(ValueKey('wset_unit_physical_open_$unit')),
-        findsOneWidget,
-      );
-      expect(find.byKey(ValueKey('wset_unit_written_$unit')), findsOneWidget);
-      expect(
-        find.byKey(ValueKey('wset_unit_written_open_$unit')),
-        findsOneWidget,
-      );
-      expect(find.text('Open $unit app 45-minute writing'), findsOneWidget);
-      expect(
-        find.textContaining('not examiner marks or unit passes'),
-        findsWidgets,
-      );
-    }
-    expect(find.text('Required study milestone complete'), findsNothing);
-    expect(tester.takeException(), isNull);
-  });
+  testApp(
+    'Diploma D3, D4 and D5 show separate writing and physical entry points',
+    (tester) async {
+      await screen(tester);
+      final scrollable = find.byType(Scrollable).first;
+      for (final unit in ['D3', 'D4', 'D5']) {
+        await tester.scrollUntilVisible(
+          find.text('$unit · Unit ${unit.substring(1)}'),
+          300,
+          scrollable: scrollable,
+        );
+        await tap(tester, find.text('$unit · Unit ${unit.substring(1)}'));
+        expect(
+          find.byKey(ValueKey('wset_unit_physical_$unit')),
+          findsOneWidget,
+        );
+        expect(
+          find.byKey(ValueKey('wset_unit_physical_open_$unit')),
+          findsOneWidget,
+        );
+        expect(find.byKey(ValueKey('wset_unit_written_$unit')), findsOneWidget);
+        expect(
+          find.byKey(ValueKey('wset_unit_written_open_$unit')),
+          findsOneWidget,
+        );
+        expect(
+          find.text('Open $unit app ${unit == 'D3' ? 60 : 45}-minute writing'),
+          findsOneWidget,
+        );
+        expect(
+          find.textContaining('not examiner marks or unit passes'),
+          findsWidgets,
+        );
+      }
+      expect(find.text('Required study milestone complete'), findsNothing);
+      expect(tester.takeException(), isNull);
+    },
+  );
 
   testApp('Diploma D6 exposes a research workspace without a pass claim', (
     tester,

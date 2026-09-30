@@ -4,6 +4,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../app/progress_state.dart';
+import '../../core/diploma_tasting/diploma_tasting_evidence.dart';
+import '../../core/diploma_tasting/diploma_tasting_flight_providers.dart';
 import '../../core/diploma_written/diploma_written.dart';
 import '../../core/diploma_written/diploma_written_evidence.dart';
 import '../../core/diploma_written/diploma_written_providers.dart';
@@ -161,6 +163,9 @@ class _LevelSectionState extends ConsumerState<_LevelSection> {
     final level = widget.level;
     final writtenEvidence = level.scope.certificationId == 'WSET_L4'
         ? ref.watch(diplomaWrittenEvidenceProvider)
+        : null;
+    final physicalEvidence = level.scope.certificationId == 'WSET_L4'
+        ? ref.watch(diplomaTastingEvidenceProvider)
         : null;
     final counts = level.milestoneCounts;
     final theme = Theme.of(context);
@@ -468,7 +473,7 @@ class _LevelSectionState extends ConsumerState<_LevelSection> {
                                     ),
                               child: Text(
                                 'Open ${unit.scope.id} '
-                                '${unit.scope.id == 'D4' || unit.scope.id == 'D5' ? 'app ' : ''}'
+                                '${const {'D3', 'D4', 'D5'}.contains(unit.scope.id) ? 'app ' : ''}'
                                 '${diplomaWrittenDurations[unit.scope.id]! ~/ 60}-minute writing',
                               ),
                             ),
@@ -492,12 +497,18 @@ class _LevelSectionState extends ConsumerState<_LevelSection> {
                               child: const Text('Open D6 research workspace'),
                             ),
                           ],
-                          if (unit.scope.id == 'D4' ||
-                              unit.scope.id == 'D5') ...[
+                          if (level.scope.certificationId == 'WSET_L4' &&
+                              const {
+                                'D3',
+                                'D4',
+                                'D5',
+                              }.contains(unit.scope.id)) ...[
                             const SizedBox(height: 8),
                             Text(
-                              'Three-wine physical practices recorded: ${unit.physicalFlights}. '
-                              'These are self-reviewed participation, not a tasting score or exam pass.',
+                              _physicalParticipationLabel(
+                                physicalEvidence!,
+                                unit.scope.id,
+                              ),
                               key: ValueKey(
                                 'wset_unit_physical_${unit.scope.id}',
                               ),
@@ -589,4 +600,17 @@ String _writtenParticipationLabel(
   AsyncError() =>
     'Saved writing participation could not be read. Reopen progress to retry.',
   _ => 'Reading saved writing participation…',
+};
+
+String _physicalParticipationLabel(
+  AsyncValue<DiplomaTastingEvidence> evidence,
+  String unitId,
+) => switch (evidence) {
+  AsyncData(:final value) =>
+    'Three-wine physical practices recorded: ${value.forUnit(unitId)}. '
+        'These are self-reviewed participation, not a tasting score or exam pass.'
+        '${value.unreadableCount == 0 ? '' : ' ${value.unreadableCount} saved tasting record${value.unreadableCount == 1 ? '' : 's'} could not be read; they receive no participation credit.'}',
+  AsyncError() =>
+    'Saved tasting participation could not be read. Reopen progress to retry.',
+  _ => 'Reading saved tasting participation…',
 };

@@ -5,16 +5,19 @@ import 'diploma_tasting_flight.dart';
 /// Self-reported physical practice only; it is not tasting accuracy or a pass.
 class DiplomaTastingEvidence {
   const DiplomaTastingEvidence({
+    this.d3Flights = 0,
     this.d4Flights = 0,
     this.d5Flights = 0,
     this.unreadableCount = 0,
   });
 
+  final int d3Flights;
   final int d4Flights;
   final int d5Flights;
   final int unreadableCount;
 
   int forUnit(String unitId) => switch (unitId) {
+    'D3' => d3Flights,
     'D4' => d4Flights,
     'D5' => d5Flights,
     _ => 0,
@@ -26,6 +29,7 @@ class DiplomaTastingEvidenceReader {
     Map<String, String> settings, {
     required DateTime now,
   }) {
+    var d3 = 0;
     var d4 = 0;
     var d5 = 0;
     var unreadable = 0;
@@ -41,6 +45,7 @@ class DiplomaTastingEvidenceReader {
         }
         flight.validateAt(now);
         if (flight.isSubmitted) {
+          if (flight.unitId == 'D3') d3++;
           if (flight.unitId == 'D4') d4++;
           if (flight.unitId == 'D5') d5++;
         }
@@ -51,6 +56,7 @@ class DiplomaTastingEvidenceReader {
       }
     }
     return DiplomaTastingEvidence(
+      d3Flights: d3,
       d4Flights: d4,
       d5Flights: d5,
       unreadableCount: unreadable,

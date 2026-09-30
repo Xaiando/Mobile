@@ -301,55 +301,64 @@ void main() {
     );
   });
 
-  test('D1 written review appears as participation, not a pass', () async {
-    await LearnerProfiles(db, clock: time.clock).selectTrack('WSET_L4');
-    final writing = DiplomaWrittenRepository(
-      db,
-      bank: DiplomaWrittenBank.fromJson(
-        File('assets/study/diploma_written_practice.json').readAsStringSync(),
-      ),
-      clock: time.clock,
-      random: Random(29),
-    );
-    final d1 = await writing.start('D1');
-    for (final question in d1.questions) {
-      await writing.answer(
-        d1.id,
-        question.id,
-        'Reasoned ${question.id} response.',
+  test(
+    'D1 and D3 written reviews appear as participation, not a pass',
+    () async {
+      await LearnerProfiles(db, clock: time.clock).selectTrack('WSET_L4');
+      final writing = DiplomaWrittenRepository(
+        db,
+        bank: DiplomaWrittenBank.fromJson(
+          File('assets/study/diploma_written_practice.json').readAsStringSync(),
+        ),
+        clock: time.clock,
+        random: Random(29),
       );
-    }
-    await writing.finish(d1.id);
-    for (final question in d1.questions) {
-      await writing.review(
-        d1.id,
-        question.id,
-        {},
-        'I would add more evidence.',
+      for (final unit in ['D1', 'D3']) {
+        final d1 = await writing.start(unit);
+        for (final question in d1.questions) {
+          await writing.answer(
+            d1.id,
+            question.id,
+            'Reasoned ${question.id} response.',
+          );
+        }
+        await writing.finish(d1.id);
+        for (final question in d1.questions) {
+          await writing.review(
+            d1.id,
+            question.id,
+            {},
+            'I would add more evidence.',
+          );
+        }
+      }
+      progress = WsetProgressRepository(
+        db,
+        scope: testScope(
+          units: [
+            for (var unit = 1; unit <= 6; unit++)
+              WsetUnitScope(
+                id: 'D$unit',
+                title: 'Unit $unit',
+                gap: 'Further study remains.',
+                domains: const [],
+              ),
+          ],
+        ),
+        clock: time.clock,
       );
-    }
-    progress = WsetProgressRepository(
-      db,
-      scope: testScope(
-        units: [
-          for (var unit = 1; unit <= 6; unit++)
-            WsetUnitScope(
-              id: 'D$unit',
-              title: 'Unit $unit',
-              gap: 'Further study remains.',
-              domains: const [],
-            ),
-        ],
-      ),
-      clock: time.clock,
-    );
-    final diploma = (await progress.snapshot()).levels.last;
-    expect(diploma.units[0].writtenPractices, 1);
-    expect(diploma.units[1].writtenPractices, 0);
-    expect(diploma.examPassed, isFalse);
-    expect(diploma.appLevelComplete, isFalse);
-    expect(await db.select(db.reviewEvents).get(), isEmpty);
-  });
+      final diploma = (await progress.snapshot()).levels.last;
+      expect(diploma.units[0].writtenPractices, 1);
+      expect(diploma.units[1].writtenPractices, 0);
+      expect(diploma.units[2].writtenPractices, 1);
+      expect(diploma.units[2].physicalFlights, 0);
+      expect(await db.select(db.reviewEvents).get(), isEmpty);
+      expect(await db.select(db.reviewStates).get(), isEmpty);
+      expect(diploma.examPassed, isFalse);
+      expect(diploma.appLevelComplete, isFalse);
+      expect(await db.select(db.reviewEvents).get(), isEmpty);
+    },
+  );
 
   test('a review saved during a progress read counts without a stale-time rejection', () async {
     await db.close();
@@ -441,7 +450,7 @@ void main() {
     expect(await racedDb.select(racedDb.reviewStates).get(), isEmpty);
   });
 
-  test('D4 physical flights count only as unit participation', () async {
+  test('D3 and D4 physical flights count only as unit participation', () async {
     await db.writeCurriculum(
       () => runSql(db, [
         "INSERT INTO tasting_grids VALUES ('tg_structured', 'WSET_SAT', '1.0', 'Structured tasting')",
@@ -459,27 +468,29 @@ void main() {
       clock: time.clock,
       random: Random(11),
     );
-    final d4 = await flights.start('D4');
     await flights.start('D5');
-    for (var wine = 0; wine < 3; wine++) {
-      await flights.acknowledgePhysical(d4.id, wine, true);
-      await flights.choose(d4.id, wine, 'sweetness', {'dry'});
-      for (final prompt in d4.wines[wine].prompts) {
-        await flights.saveEvidence(
-          d4.id,
-          wine,
-          prompt.id,
-          'Observed physical sparkling wine ${wine + 1}.',
-        );
+    for (final unit in ['D3', 'D4']) {
+      final d4 = await flights.start(unit);
+      for (var wine = 0; wine < 3; wine++) {
+        await flights.acknowledgePhysical(d4.id, wine, true);
+        await flights.choose(d4.id, wine, 'sweetness', {'dry'});
+        for (final prompt in d4.wines[wine].prompts) {
+          await flights.saveEvidence(
+            d4.id,
+            wine,
+            prompt.id,
+            'Observed physical $unit wine ${wine + 1}.',
+          );
+        }
       }
+      await flights.saveReflection(d4.id, 'Compared the three real wines.');
+      await flights.saveSelfReview(
+        d4.id,
+        'Reviewed what each observation supports.',
+      );
+      await flights.markSelfReviewed(d4.id);
+      await flights.finish(d4.id);
     }
-    await flights.saveReflection(d4.id, 'Compared the three real wines.');
-    await flights.saveSelfReview(
-      d4.id,
-      'Reviewed what each observation supports.',
-    );
-    await flights.markSelfReviewed(d4.id);
-    await flights.finish(d4.id);
     progress = WsetProgressRepository(
       db,
       scope: testScope(
@@ -497,7 +508,11 @@ void main() {
     );
     final snapshot = await progress.snapshot();
     final diploma = snapshot.levels.last;
+    expect(diploma.units[2].physicalFlights, 1);
+    expect(diploma.units[2].writtenPractices, 0);
     expect(diploma.units[3].physicalFlights, 1);
+    expect(await db.select(db.reviewEvents).get(), isEmpty);
+    expect(await db.select(db.reviewStates).get(), isEmpty);
     expect(diploma.units[4].physicalFlights, 0, reason: 'D5 is still a draft');
     expect(await flights.current('D5'), isNotNull);
     expect(diploma.appLevelComplete, isFalse);

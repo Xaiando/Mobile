@@ -275,6 +275,196 @@ void main() {
   }
 
   testApp(
+    'D3 labels its app hour and a remounted draft keeps the saved deadline',
+    (tester) async {
+      await show(tester, 'D3');
+      expect(
+        find.textContaining(
+          'App-authored 60-minute regional writing practice for D3',
+        ),
+        findsOneWidget,
+      );
+      expect(
+        find.textContaining('not an official examination allocation'),
+        findsOneWidget,
+      );
+      expect(
+        find.textContaining('not official examination questions or marks'),
+        findsOneWidget,
+      );
+      expect(
+        find.textContaining('three-wine tasting in 90 minutes'),
+        findsNothing,
+      );
+      await tester.tap(find.byKey(const ValueKey('diploma-written-start')));
+      await settle(tester);
+      final started = (await tester.runAsync(() => repository.current('D3')))!;
+      expect(find.text('Time remaining: 60:00'), findsOneWidget);
+      final first = started.questions.first;
+      final prose = find.byKey(ValueKey('diploma-written-prose-${first.id}'));
+      await tester.ensureVisible(prose);
+      await settle(tester);
+      await tester.enterText(
+        prose,
+        'My parcel plan needs a new health check after rain.',
+      );
+      await settle(tester);
+      final saved = (await tester.runAsync(() => repository.read(started.id)))!;
+      expect(
+        saved.prose[first.id],
+        'My parcel plan needs a new health check after rain.',
+      );
+      expect(
+        find.byKey(
+          ValueKey(
+            'diploma-written-criterion-${first.id}-${first.criteria.first.id}',
+          ),
+        ),
+        findsNothing,
+      );
+      await tester.pumpWidget(const SizedBox.shrink());
+      await settle(tester);
+      time.advance(const Duration(minutes: 10));
+      await show(tester, 'D3');
+      expect(find.text('Time remaining: 50:00'), findsOneWidget);
+      expect(
+        tester.widget<TextFormField>(prose).initialValue,
+        saved.prose[first.id],
+      );
+      final reopened = (await tester.runAsync(() => repository.current('D3')))!;
+      expect(reopened.toJson(), saved.toJson());
+      expect(reopened.deadline, started.deadline);
+      expect(tester.takeException(), isNull);
+    },
+  );
+
+  testApp(
+    'D3 saves all three explicit reviews and restores their notes and choices',
+    (tester) async {
+      final finished = (await tester.runAsync(() async {
+        final started = await repository.start('D3');
+        for (final question in started.questions) {
+          await repository.answer(
+            started.id,
+            question.id,
+            'My saved regional argument for ${question.id}.',
+          );
+        }
+        return repository.finish(started.id);
+      }))!;
+      await show(tester, 'D3');
+      final history = find.byKey(
+        ValueKey('diploma-written-history-${finished.id}'),
+      );
+      await tester.ensureVisible(history);
+      await tester.tap(history);
+      await settle(tester);
+
+      Future<void> bring(Finder finder) async {
+        final scrollable = find.byType(Scrollable).first;
+        tester.state<ScrollableState>(scrollable).position.jumpTo(0);
+        await settle(tester);
+        await tester.scrollUntilVisible(
+          finder,
+          300,
+          scrollable: scrollable,
+          maxScrolls: 35,
+        );
+        await tester.ensureVisible(finder);
+        await settle(tester);
+      }
+
+      for (final (index, question) in finished.questions.indexed) {
+        final criterion = find.byKey(
+          ValueKey(
+            'diploma-written-criterion-${question.id}-${question.criteria.first.id}',
+          ),
+        );
+        if (index < 2) {
+          await bring(criterion);
+          await tester.tap(criterion);
+          await settle(tester);
+        }
+        final note = find.byKey(
+          ValueKey('diploma-written-improvement-${question.id}'),
+        );
+        await bring(note);
+        await tester.enterText(
+          note,
+          'I need a stronger evidence comparison for ${question.id}.',
+        );
+        await settle(tester);
+        FocusManager.instance.primaryFocus?.unfocus();
+        await settle(tester);
+        final save = find.byKey(
+          ValueKey('diploma-written-review-${question.id}'),
+        );
+        await bring(save);
+        await tester.tap(save);
+        await settle(tester);
+        final actual = (await tester.runAsync(
+          () => repository.read(finished.id),
+        ))!;
+        expect(
+          actual.reviews[question.id]!.improvement,
+          'I need a stronger evidence comparison for ${question.id}.',
+        );
+        expect(
+          actual.reviews[question.id]!.selectedCriteria,
+          index < 2 ? {question.criteria.first.id} : <String>{},
+        );
+        expect(actual.isReviewed, index == 2);
+      }
+      final saved = (await tester.runAsync(
+        () => repository.read(finished.id),
+      ))!;
+      expect(saved.isReviewed, isTrue);
+      await tester.pumpWidget(const SizedBox.shrink());
+      await settle(tester);
+      await show(tester, 'D3');
+      await tester.ensureVisible(history);
+      await tester.tap(history);
+      await settle(tester);
+      expect(
+        find.text(
+          'All three responses self-reviewed. This is participation, not a grade or pass.',
+        ),
+        findsOneWidget,
+      );
+      for (final (index, question) in finished.questions.indexed) {
+        final criterion = find.byKey(
+          ValueKey(
+            'diploma-written-criterion-${question.id}-${question.criteria.first.id}',
+          ),
+        );
+        await bring(criterion);
+        expect(tester.widget<CheckboxListTile>(criterion).value, index < 2);
+        final note = find.byKey(
+          ValueKey('diploma-written-improvement-${question.id}'),
+        );
+        await bring(note);
+        expect(
+          tester.widget<TextFormField>(note).initialValue,
+          saved.reviews[question.id]!.improvement,
+        );
+      }
+      expect(
+        (await tester.runAsync(() => repository.read(finished.id)))!.toJson(),
+        saved.toJson(),
+      );
+      expect(
+        await tester.runAsync(() => db.select(db.reviewEvents).get()),
+        isEmpty,
+      );
+      expect(
+        await tester.runAsync(() => db.select(db.reviewStates).get()),
+        isEmpty,
+      );
+      expect(tester.takeException(), isNull);
+    },
+  );
+
+  testApp(
     'saving one review preserves another response latest unsaved review edits',
     (tester) async {
       final attempt = (await tester.runAsync(() async {

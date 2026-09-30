@@ -37,10 +37,11 @@ DateTime _savedUtc(Object? value) {
   return parsed;
 }
 
-/// App writing presets; D4/D5 are not an official theory/tasting time split.
+/// App writing presets; D3 is an app duration and D4/D5 are not an official split.
 const diplomaWrittenDurations = <String, int>{
   'D1': 5400,
   'D2': 3600,
+  'D3': 3600,
   'D4': 2700,
   'D5': 2700,
 };
@@ -130,10 +131,12 @@ class DiplomaWrittenBank {
     final legacy = units.length == 2 && units.containsAll({'D1', 'D2'});
     final extended =
         units.length == 4 && units.containsAll({'D1', 'D2', 'D4', 'D5'});
+    final regional =
+        units.length == 5 && units.containsAll({'D1', 'D2', 'D3', 'D4', 'D5'});
     if (version.trim().isEmpty ||
         version.length > 40 ||
         presets.length != units.length ||
-        !(legacy || extended)) {
+        !(legacy || extended || regional)) {
       throw const FormatException('Invalid Diploma written bank.');
     }
   }

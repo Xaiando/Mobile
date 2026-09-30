@@ -128,6 +128,12 @@ class _JournalEditorState extends ConsumerState<JournalEditor> {
     super.dispose();
   }
 
+  /// Late scanner, date and photo callbacks must not alter a captured save.
+  void _changeDraft(VoidCallback change) {
+    if (!mounted || _saving) return;
+    setState(change);
+  }
+
   JournalDraft _draft() => JournalDraft(
     tastedOn: _tastedOn,
     producerName: _producer.text,
@@ -258,6 +264,7 @@ class _JournalEditorState extends ConsumerState<JournalEditor> {
   }
 
   Future<void> _pickDate() async {
+    if (_saving) return;
     final initial = _tastedOn == null
         ? DateTime.now()
         : DateTime.parse(_tastedOn!);
@@ -267,7 +274,7 @@ class _JournalEditorState extends ConsumerState<JournalEditor> {
       firstDate: DateTime(1900),
       lastDate: DateTime.now().add(const Duration(days: 1)),
     );
-    if (picked != null) setState(() => _tastedOn = isoDate(picked));
+    if (picked != null) _changeDraft(() => _tastedOn = isoDate(picked));
   }
 
   @override
@@ -304,7 +311,7 @@ class _JournalEditorState extends ConsumerState<JournalEditor> {
       padding: const EdgeInsets.only(bottom: 12),
       child: TextField(
         controller: controller,
-        enabled: enabled,
+        enabled: enabled && !_saving,
         keyboardType: keyboard,
         maxLines: maxLines,
         decoration: InputDecoration(
@@ -397,7 +404,9 @@ class _JournalEditorState extends ConsumerState<JournalEditor> {
         contentPadding: EdgeInsets.zero,
         title: const Text('Non-vintage'),
         value: _isNonVintage,
-        onChanged: (value) => setState(() => _isNonVintage = value),
+        onChanged: _saving
+            ? null
+            : (value) => _changeDraft(() => _isNonVintage = value),
       ),
       ListTile(
         contentPadding: EdgeInsets.zero,
@@ -410,11 +419,13 @@ class _JournalEditorState extends ConsumerState<JournalEditor> {
           children: [
             if (_tastedOn != null)
               TextButton(
-                onPressed: () => setState(() => _tastedOn = null),
+                onPressed: _saving
+                    ? null
+                    : () => _changeDraft(() => _tastedOn = null),
                 child: const Text('Clear'),
               ),
             TextButton(
-              onPressed: _pickDate,
+              onPressed: _saving ? null : _pickDate,
               child: Text(_tastedOn == null ? 'Set' : 'Change'),
             ),
           ],
@@ -432,8 +443,9 @@ class _JournalEditorState extends ConsumerState<JournalEditor> {
                 (_rating ?? 0) >= i ? Icons.star : Icons.star_border,
                 color: theme.colorScheme.primary,
               ),
-              onPressed: () =>
-                  setState(() => _rating = _rating == i ? null : i),
+              onPressed: _saving
+                  ? null
+                  : () => _changeDraft(() => _rating = _rating == i ? null : i),
             ),
         ],
       ),
@@ -441,30 +453,31 @@ class _JournalEditorState extends ConsumerState<JournalEditor> {
       field(_notes, 'Tasting notes', maxLines: 4),
       const Divider(height: 24),
       JournalScanSection(
+        enabled: !_saving,
         recovery: ref.read(journalScanRecoveryProvider),
         recoveryReady: ref.read(appStartupProvider.future).then((_) {}),
         onBusyChanged: (busy) {
           if (mounted) setState(() => _scannerBusy = busy);
         },
-        onPicked: (kind, bytes) => setState(() {
+        onPicked: (kind, bytes) => _changeDraft(() {
           _pendingPhotos[kind] = bytes;
           _removedPhotos.remove(kind);
           _selectedRecovered.remove(kind);
         }),
-        onRecoveredPicked: (kind, bytes, id) => setState(() {
+        onRecoveredPicked: (kind, bytes, id) => _changeDraft(() {
           _pendingPhotos[kind] = bytes;
           _removedPhotos.remove(kind);
           _selectedRecovered[kind] = id;
         }),
-        onVintage: (year) => setState(() {
+        onVintage: (year) => _changeDraft(() {
           _isNonVintage = false;
           _vintage.text = year.toString();
         }),
-        onNonVintage: () => setState(() {
+        onNonVintage: () => _changeDraft(() {
           _isNonVintage = true;
           _vintage.clear();
         }),
-        onAbv: (abv) => setState(() => _abv.text = abv.toString()),
+        onAbv: (abv) => _changeDraft(() => _abv.text = abv.toString()),
       ),
       if (_pendingPhotos.isNotEmpty) ...[
         const SizedBox(height: 8),
@@ -492,10 +505,12 @@ class _JournalEditorState extends ConsumerState<JournalEditor> {
                         ),
                         IconButton(
                           tooltip: 'Discard new ${kind.name} photo',
-                          onPressed: () => setState(() {
-                            _pendingPhotos.remove(kind);
-                            _selectedRecovered.remove(kind);
-                          }),
+                          onPressed: _saving
+                              ? null
+                              : () => _changeDraft(() {
+                                  _pendingPhotos.remove(kind);
+                                  _selectedRecovered.remove(kind);
+                                }),
                           icon: const Icon(Icons.close),
                         ),
                       ],
@@ -515,7 +530,9 @@ class _JournalEditorState extends ConsumerState<JournalEditor> {
               !_removedPhotos.contains(photo.kind))
             JournalPhotoTile(
               photo: photo,
-              onRemove: () => setState(() => _removedPhotos.add(photo.kind)),
+              onRemove: _saving
+                  ? null
+                  : () => _changeDraft(() => _removedPhotos.add(photo.kind)),
             ),
       ],
       const Divider(height: 24),
@@ -542,21 +559,25 @@ class _JournalEditorState extends ConsumerState<JournalEditor> {
                     : 'Did you mean ${suggestion.node.name}?',
               ),
               selected: _linked.contains(suggestion.node.id),
-              onSelected: (on) => setState(() {
-                _decided.add(suggestion.node.id);
-                _auto.remove(suggestion.node.id);
-                on
-                    ? _linked.add(suggestion.node.id)
-                    : _linked.remove(suggestion.node.id);
-              }),
+              onSelected: _saving
+                  ? null
+                  : (on) => _changeDraft(() {
+                      _decided.add(suggestion.node.id);
+                      _auto.remove(suggestion.node.id);
+                      on
+                          ? _linked.add(suggestion.node.id)
+                          : _linked.remove(suggestion.node.id);
+                    }),
             ),
           for (final node in kept)
             FilterChip(
               label: Text('${node.name} · ${node.nodeType}'),
               selected: _linked.contains(node.id),
-              onSelected: (on) => setState(
-                () => on ? _linked.add(node.id) : _linked.remove(node.id),
-              ),
+              onSelected: _saving
+                  ? null
+                  : (on) => _changeDraft(
+                      () => on ? _linked.add(node.id) : _linked.remove(node.id),
+                    ),
             ),
         ],
       ),
